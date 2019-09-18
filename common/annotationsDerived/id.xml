@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="id"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">sejumlah kecil | tangan menjepit | warna kulit cerah</annotation>
-		<annotation cp="🤏🏻" type="tts">tangan menjepit: warna kulit cerah</annotation>
-		<annotation cp="🤏🏼">sejumlah kecil | tangan menjepit | warna kulit cerah-sedang</annotation>
-		<annotation cp="🤏🏼" type="tts">tangan menjepit: warna kulit cerah-sedang</annotation>
-		<annotation cp="🤏🏽">sejumlah kecil | tangan menjepit | warna kulit sedang</annotation>
-		<annotation cp="🤏🏽" type="tts">tangan menjepit: warna kulit sedang</annotation>
-		<annotation cp="🤏🏾">sejumlah kecil | tangan menjepit | warna kulit gelap-sedang</annotation>
-		<annotation cp="🤏🏾" type="tts">tangan menjepit: warna kulit gelap-sedang</annotation>
-		<annotation cp="🤏🏿">sejumlah kecil | tangan menjepit | warna kulit gelap</annotation>
-		<annotation cp="🤏🏿" type="tts">tangan menjepit: warna kulit gelap</annotation>
-		<annotation cp="🦻🏻">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit cerah</annotation>
-		<annotation cp="🦻🏻" type="tts">telinga dengan alat bantu dengar: warna kulit cerah</annotation>
-		<annotation cp="🦻🏼">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit cerah-sedang</annotation>
-		<annotation cp="🦻🏼" type="tts">telinga dengan alat bantu dengar: warna kulit cerah-sedang</annotation>
-		<annotation cp="🦻🏽">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit sedang</annotation>
-		<annotation cp="🦻🏽" type="tts">telinga dengan alat bantu dengar: warna kulit sedang</annotation>
-		<annotation cp="🦻🏾">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit gelap-sedang</annotation>
-		<annotation cp="🦻🏾" type="tts">telinga dengan alat bantu dengar: warna kulit gelap-sedang</annotation>
-		<annotation cp="🦻🏿">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit gelap</annotation>
-		<annotation cp="🦻🏿" type="tts">telinga dengan alat bantu dengar: warna kulit gelap</annotation>
-		<annotation cp="🧍🏻">berdiri | diri | orang berdiri | warna kulit cerah</annotation>
-		<annotation cp="🧍🏻" type="tts">orang berdiri: warna kulit cerah</annotation>
-		<annotation cp="🧍🏼">berdiri | diri | orang berdiri | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧍🏼" type="tts">orang berdiri: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧍🏽">berdiri | diri | orang berdiri | warna kulit sedang</annotation>
-		<annotation cp="🧍🏽" type="tts">orang berdiri: warna kulit sedang</annotation>
-		<annotation cp="🧍🏾">berdiri | diri | orang berdiri | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧍🏾" type="tts">orang berdiri: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧍🏿">berdiri | diri | orang berdiri | warna kulit gelap</annotation>
-		<annotation cp="🧍🏿" type="tts">orang berdiri: warna kulit gelap</annotation>
-		<annotation cp="🧍🏻‍♀">berdiri | wanita | warna kulit cerah</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">wanita berdiri: warna kulit cerah</annotation>
-		<annotation cp="🧍🏼‍♀">berdiri | wanita | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">wanita berdiri: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧍🏽‍♀">berdiri | wanita | warna kulit sedang</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">wanita berdiri: warna kulit sedang</annotation>
-		<annotation cp="🧍🏾‍♀">berdiri | wanita | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">wanita berdiri: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧍🏿‍♀">berdiri | wanita | warna kulit gelap</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">wanita berdiri: warna kulit gelap</annotation>
-		<annotation cp="🧍🏻‍♂">berdiri | pria | warna kulit cerah</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">pria berdiri: warna kulit cerah</annotation>
-		<annotation cp="🧍🏼‍♂">berdiri | pria | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">pria berdiri: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧍🏽‍♂">berdiri | pria | warna kulit sedang</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">pria berdiri: warna kulit sedang</annotation>
-		<annotation cp="🧍🏾‍♂">berdiri | pria | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">pria berdiri: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧍🏿‍♂">berdiri | pria | warna kulit gelap</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">pria berdiri: warna kulit gelap</annotation>
-		<annotation cp="🧎🏻">berlutut | lutut | orang berlutut | warna kulit cerah</annotation>
-		<annotation cp="🧎🏻" type="tts">orang berlutut: warna kulit cerah</annotation>
-		<annotation cp="🧎🏼">berlutut | lutut | orang berlutut | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧎🏼" type="tts">orang berlutut: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧎🏽">berlutut | lutut | orang berlutut | warna kulit sedang</annotation>
-		<annotation cp="🧎🏽" type="tts">orang berlutut: warna kulit sedang</annotation>
-		<annotation cp="🧎🏾">berlutut | lutut | orang berlutut | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧎🏾" type="tts">orang berlutut: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧎🏿">berlutut | lutut | orang berlutut | warna kulit gelap</annotation>
-		<annotation cp="🧎🏿" type="tts">orang berlutut: warna kulit gelap</annotation>
-		<annotation cp="🧎🏻‍♀">berlutut | wanita | warna kulit cerah</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">wanita berlutut: warna kulit cerah</annotation>
-		<annotation cp="🧎🏼‍♀">berlutut | wanita | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">wanita berlutut: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧎🏽‍♀">berlutut | wanita | warna kulit sedang</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">wanita berlutut: warna kulit sedang</annotation>
-		<annotation cp="🧎🏾‍♀">berlutut | wanita | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">wanita berlutut: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧎🏿‍♀">berlutut | wanita | warna kulit gelap</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">wanita berlutut: warna kulit gelap</annotation>
-		<annotation cp="🧎🏻‍♂">berlutut | pria | warna kulit cerah</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">pria berlutut: warna kulit cerah</annotation>
-		<annotation cp="🧎🏼‍♂">berlutut | pria | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">pria berlutut: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧎🏽‍♂">berlutut | pria | warna kulit sedang</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">pria berlutut: warna kulit sedang</annotation>
-		<annotation cp="🧎🏾‍♂">berlutut | pria | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">pria berlutut: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧎🏿‍♂">berlutut | pria | warna kulit gelap</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">pria berlutut: warna kulit gelap</annotation>
-		<annotation cp="🧏🏻">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit cerah</annotation>
-		<annotation cp="🧏🏻" type="tts">orang tuli: warna kulit cerah</annotation>
-		<annotation cp="🧏🏼">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧏🏼" type="tts">orang tuli: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧏🏽">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit sedang</annotation>
-		<annotation cp="🧏🏽" type="tts">orang tuli: warna kulit sedang</annotation>
-		<annotation cp="🧏🏾">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧏🏾" type="tts">orang tuli: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧏🏿">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit gelap</annotation>
-		<annotation cp="🧏🏿" type="tts">orang tuli: warna kulit gelap</annotation>
-		<annotation cp="🧏🏻‍♀">perempuan | tuli | tunarungu | wanita | warna kulit cerah</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">wanita tuli: warna kulit cerah</annotation>
-		<annotation cp="🧏🏼‍♀">perempuan | tuli | tunarungu | wanita | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">wanita tuli: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧏🏽‍♀">perempuan | tuli | tunarungu | wanita | warna kulit sedang</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">wanita tuli: warna kulit sedang</annotation>
-		<annotation cp="🧏🏾‍♀">perempuan | tuli | tunarungu | wanita | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">wanita tuli: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧏🏿‍♀">perempuan | tuli | tunarungu | wanita | warna kulit gelap</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">wanita tuli: warna kulit gelap</annotation>
-		<annotation cp="🧏🏻‍♂">lelaki | pria | tuli | tunarungu | warna kulit cerah</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">pria tuli: warna kulit cerah</annotation>
-		<annotation cp="🧏🏼‍♂">lelaki | pria | tuli | tunarungu | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">pria tuli: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧏🏽‍♂">lelaki | pria | tuli | tunarungu | warna kulit sedang</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">pria tuli: warna kulit sedang</annotation>
-		<annotation cp="🧏🏾‍♂">lelaki | pria | tuli | tunarungu | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">pria tuli: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧏🏿‍♂">lelaki | pria | tuli | tunarungu | warna kulit gelap</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">pria tuli: warna kulit gelap</annotation>
 		<annotation cp="👋🏻">badan | lambai | tangan | tangan melambai | tubuh | warna kulit cerah</annotation>
 		<annotation cp="👋🏻" type="tts">tangan melambai: warna kulit cerah</annotation>
 		<annotation cp="👋🏼">badan | lambai | tangan | tangan melambai | tubuh | warna kulit cerah-sedang</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">oke: warna kulit gelap-sedang</annotation>
 		<annotation cp="👌🏿">badan | oke | tangan | tubuh | warna kulit gelap</annotation>
 		<annotation cp="👌🏿" type="tts">oke: warna kulit gelap</annotation>
+		<annotation cp="🤏🏻">sejumlah kecil | tangan menjepit | warna kulit cerah</annotation>
+		<annotation cp="🤏🏻" type="tts">tangan menjepit: warna kulit cerah</annotation>
+		<annotation cp="🤏🏼">sejumlah kecil | tangan menjepit | warna kulit cerah-sedang</annotation>
+		<annotation cp="🤏🏼" type="tts">tangan menjepit: warna kulit cerah-sedang</annotation>
+		<annotation cp="🤏🏽">sejumlah kecil | tangan menjepit | warna kulit sedang</annotation>
+		<annotation cp="🤏🏽" type="tts">tangan menjepit: warna kulit sedang</annotation>
+		<annotation cp="🤏🏾">sejumlah kecil | tangan menjepit | warna kulit gelap-sedang</annotation>
+		<annotation cp="🤏🏾" type="tts">tangan menjepit: warna kulit gelap-sedang</annotation>
+		<annotation cp="🤏🏿">sejumlah kecil | tangan menjepit | warna kulit gelap</annotation>
+		<annotation cp="🤏🏿" type="tts">tangan menjepit: warna kulit gelap</annotation>
 		<annotation cp="✌🏻">badan | isyarat kemenangan | jari | menang | tangan | tubuh | warna kulit cerah</annotation>
 		<annotation cp="✌🏻" type="tts">isyarat kemenangan: warna kulit cerah</annotation>
 		<annotation cp="✌🏼">badan | isyarat kemenangan | jari | menang | tangan | tubuh | warna kulit cerah-sedang</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">telinga: warna kulit gelap-sedang</annotation>
 		<annotation cp="👂🏿">badan | telinga | tubuh | warna kulit gelap</annotation>
 		<annotation cp="👂🏿" type="tts">telinga: warna kulit gelap</annotation>
+		<annotation cp="🦻🏻">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit cerah</annotation>
+		<annotation cp="🦻🏻" type="tts">telinga dengan alat bantu dengar: warna kulit cerah</annotation>
+		<annotation cp="🦻🏼">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit cerah-sedang</annotation>
+		<annotation cp="🦻🏼" type="tts">telinga dengan alat bantu dengar: warna kulit cerah-sedang</annotation>
+		<annotation cp="🦻🏽">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit sedang</annotation>
+		<annotation cp="🦻🏽" type="tts">telinga dengan alat bantu dengar: warna kulit sedang</annotation>
+		<annotation cp="🦻🏾">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit gelap-sedang</annotation>
+		<annotation cp="🦻🏾" type="tts">telinga dengan alat bantu dengar: warna kulit gelap-sedang</annotation>
+		<annotation cp="🦻🏿">aksesibilitas | sulit mendengar | telinga dengan alat bantu dengar | tuli | tunarungu | warna kulit gelap</annotation>
+		<annotation cp="🦻🏿" type="tts">telinga dengan alat bantu dengar: warna kulit gelap</annotation>
 		<annotation cp="👃🏻">badan | hidung | tubuh | warna kulit cerah</annotation>
 		<annotation cp="👃🏻" type="tts">hidung: warna kulit cerah</annotation>
 		<annotation cp="👃🏼">badan | hidung | tubuh | warna kulit cerah-sedang</annotation>
@@ -533,46 +442,64 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾" type="tts">dewasa: warna kulit gelap-sedang</annotation>
 		<annotation cp="🧑🏿">dewasa | gender tak tentu | netral gender | orang | warna kulit gelap</annotation>
 		<annotation cp="🧑🏿" type="tts">dewasa: warna kulit gelap</annotation>
-		<annotation cp="👱🏻">orang berambut pirang | pirang | warna kulit cerah</annotation>
-		<annotation cp="👱🏻" type="tts">orang berambut pirang: warna kulit cerah</annotation>
-		<annotation cp="👱🏼">orang berambut pirang | pirang | warna kulit cerah-sedang</annotation>
-		<annotation cp="👱🏼" type="tts">orang berambut pirang: warna kulit cerah-sedang</annotation>
-		<annotation cp="👱🏽">orang berambut pirang | pirang | warna kulit sedang</annotation>
-		<annotation cp="👱🏽" type="tts">orang berambut pirang: warna kulit sedang</annotation>
-		<annotation cp="👱🏾">orang berambut pirang | pirang | warna kulit gelap-sedang</annotation>
-		<annotation cp="👱🏾" type="tts">orang berambut pirang: warna kulit gelap-sedang</annotation>
-		<annotation cp="👱🏿">orang berambut pirang | pirang | warna kulit gelap</annotation>
-		<annotation cp="👱🏿" type="tts">orang berambut pirang: warna kulit gelap</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">orang bergandengan | warna kulit cerah</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit cerah</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">orang bergandengan | warna kulit cerah | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">orang bergandengan | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">orang bergandengan | warna kulit cerah | warna kulit sedang</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit sedang, warna kulit cerah</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">orang bergandengan | warna kulit cerah-sedang | warna kulit sedang</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">orang bergandengan | warna kulit sedang</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">orang bergandengan: warna kulit sedang</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">orang bergandengan | warna kulit cerah | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">orang bergandengan | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">orang bergandengan | warna kulit gelap-sedang | warna kulit sedang</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">orang bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">orang bergandengan | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">orang bergandengan: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">orang bergandengan | warna kulit cerah | warna kulit gelap</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit gelap, warna kulit cerah</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">orang bergandengan | warna kulit cerah-sedang | warna kulit gelap</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">orang bergandengan | warna kulit gelap | warna kulit sedang</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">orang bergandengan: warna kulit gelap, warna kulit sedang</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">orang bergandengan | warna kulit gelap | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">orang bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">orang bergandengan | warna kulit gelap</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">orang bergandengan: warna kulit gelap</annotation>
+		<annotation cp="👱🏻">orang berambut pirang | pirang | rambut pirang | warna kulit cerah</annotation>
+		<annotation cp="👱🏻" type="tts">orang: warna kulit cerah, rambut pirang</annotation>
+		<annotation cp="👱🏼">orang berambut pirang | pirang | rambut pirang | warna kulit cerah-sedang</annotation>
+		<annotation cp="👱🏼" type="tts">orang: warna kulit cerah-sedang, rambut pirang</annotation>
+		<annotation cp="👱🏽">orang berambut pirang | pirang | rambut pirang | warna kulit sedang</annotation>
+		<annotation cp="👱🏽" type="tts">orang: warna kulit sedang, rambut pirang</annotation>
+		<annotation cp="👱🏾">orang berambut pirang | pirang | rambut pirang | warna kulit gelap-sedang</annotation>
+		<annotation cp="👱🏾" type="tts">orang: warna kulit gelap-sedang, rambut pirang</annotation>
+		<annotation cp="👱🏿">orang berambut pirang | pirang | rambut pirang | warna kulit gelap</annotation>
+		<annotation cp="👱🏿" type="tts">orang: warna kulit gelap, rambut pirang</annotation>
+		<annotation cp="🧑‍🦰">dewasa | gender tak tentu | netral gender | orang | rambut merah</annotation>
+		<annotation cp="🧑‍🦰" type="tts">dewasa: rambut merah</annotation>
+		<annotation cp="🧑🏻‍🦰">dewasa | gender tak tentu | netral gender | orang | rambut merah | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">dewasa: warna kulit cerah, rambut merah</annotation>
+		<annotation cp="🧑🏼‍🦰">dewasa | gender tak tentu | netral gender | orang | rambut merah | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">dewasa: warna kulit cerah-sedang, rambut merah</annotation>
+		<annotation cp="🧑🏽‍🦰">dewasa | gender tak tentu | netral gender | orang | rambut merah | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">dewasa: warna kulit sedang, rambut merah</annotation>
+		<annotation cp="🧑🏾‍🦰">dewasa | gender tak tentu | netral gender | orang | rambut merah | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">dewasa: warna kulit gelap-sedang, rambut merah</annotation>
+		<annotation cp="🧑🏿‍🦰">dewasa | gender tak tentu | netral gender | orang | rambut merah | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">dewasa: warna kulit gelap, rambut merah</annotation>
+		<annotation cp="🧑‍🦱">dewasa | gender tak tentu | netral gender | orang | rambut keriting</annotation>
+		<annotation cp="🧑‍🦱" type="tts">dewasa: rambut keriting</annotation>
+		<annotation cp="🧑🏻‍🦱">dewasa | gender tak tentu | netral gender | orang | rambut keriting | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">dewasa: warna kulit cerah, rambut keriting</annotation>
+		<annotation cp="🧑🏼‍🦱">dewasa | gender tak tentu | netral gender | orang | rambut keriting | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">dewasa: warna kulit cerah-sedang, rambut keriting</annotation>
+		<annotation cp="🧑🏽‍🦱">dewasa | gender tak tentu | netral gender | orang | rambut keriting | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">dewasa: warna kulit sedang, rambut keriting</annotation>
+		<annotation cp="🧑🏾‍🦱">dewasa | gender tak tentu | netral gender | orang | rambut keriting | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">dewasa: warna kulit gelap-sedang, rambut keriting</annotation>
+		<annotation cp="🧑🏿‍🦱">dewasa | gender tak tentu | netral gender | orang | rambut keriting | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">dewasa: warna kulit gelap, rambut keriting</annotation>
+		<annotation cp="🧑‍🦳">dewasa | gender tak tentu | netral gender | orang | rambut putih</annotation>
+		<annotation cp="🧑‍🦳" type="tts">dewasa: rambut putih</annotation>
+		<annotation cp="🧑🏻‍🦳">dewasa | gender tak tentu | netral gender | orang | rambut putih | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">dewasa: warna kulit cerah, rambut putih</annotation>
+		<annotation cp="🧑🏼‍🦳">dewasa | gender tak tentu | netral gender | orang | rambut putih | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">dewasa: warna kulit cerah-sedang, rambut putih</annotation>
+		<annotation cp="🧑🏽‍🦳">dewasa | gender tak tentu | netral gender | orang | rambut putih | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">dewasa: warna kulit sedang, rambut putih</annotation>
+		<annotation cp="🧑🏾‍🦳">dewasa | gender tak tentu | netral gender | orang | rambut putih | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">dewasa: warna kulit gelap-sedang, rambut putih</annotation>
+		<annotation cp="🧑🏿‍🦳">dewasa | gender tak tentu | netral gender | orang | rambut putih | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">dewasa: warna kulit gelap, rambut putih</annotation>
+		<annotation cp="🧑‍🦲">dewasa | gender tak tentu | gundul | netral gender | orang</annotation>
+		<annotation cp="🧑‍🦲" type="tts">dewasa: gundul</annotation>
+		<annotation cp="🧑🏻‍🦲">dewasa | gender tak tentu | gundul | netral gender | orang | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">dewasa: warna kulit cerah, gundul</annotation>
+		<annotation cp="🧑🏼‍🦲">dewasa | gender tak tentu | gundul | netral gender | orang | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">dewasa: warna kulit cerah-sedang, gundul</annotation>
+		<annotation cp="🧑🏽‍🦲">dewasa | gender tak tentu | gundul | netral gender | orang | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">dewasa: warna kulit sedang, gundul</annotation>
+		<annotation cp="🧑🏾‍🦲">dewasa | gender tak tentu | gundul | netral gender | orang | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">dewasa: warna kulit gelap-sedang, gundul</annotation>
+		<annotation cp="🧑🏿‍🦲">dewasa | gender tak tentu | gundul | netral gender | orang | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">dewasa: warna kulit gelap, gundul</annotation>
 		<annotation cp="👨🏻">bapak | laki-laki | pria | warna kulit cerah</annotation>
 		<annotation cp="👨🏻" type="tts">pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼">bapak | laki-laki | pria | warna kulit cerah-sedang</annotation>
@@ -583,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">pria: warna kulit gelap-sedang</annotation>
 		<annotation cp="👨🏿">bapak | laki-laki | pria | warna kulit gelap</annotation>
 		<annotation cp="👨🏿" type="tts">pria: warna kulit gelap</annotation>
-		<annotation cp="👨🏻‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit cerah</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">pria dengan tongkat: warna kulit cerah</annotation>
-		<annotation cp="👨🏼‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">pria dengan tongkat: warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏽‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit sedang</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">pria dengan tongkat: warna kulit sedang</annotation>
-		<annotation cp="👨🏾‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit gelap-sedang</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">pria dengan tongkat: warna kulit gelap-sedang</annotation>
-		<annotation cp="👨🏿‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit gelap</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">pria dengan tongkat: warna kulit gelap</annotation>
-		<annotation cp="👨🏻‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit cerah</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit cerah</annotation>
-		<annotation cp="👨🏼‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏽‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit sedang</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit sedang</annotation>
-		<annotation cp="👨🏾‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit gelap-sedang</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit gelap-sedang</annotation>
-		<annotation cp="👨🏿‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit gelap</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit gelap</annotation>
-		<annotation cp="👨🏻‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit cerah</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">pria dengan kursi roda: warna kulit cerah</annotation>
-		<annotation cp="👨🏼‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">pria dengan kursi roda: warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏽‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit sedang</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">pria dengan kursi roda: warna kulit sedang</annotation>
-		<annotation cp="👨🏾‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit gelap-sedang</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">pria dengan kursi roda: warna kulit gelap-sedang</annotation>
-		<annotation cp="👨🏿‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit gelap</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">pria dengan kursi roda: warna kulit gelap</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit cerah-sedang | zodiak</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit sedang | zodiak</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit sedang, warna kulit cerah</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah-sedang | warna kulit sedang | zodiak</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dua pria bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit gelap-sedang | zodiak</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah-sedang | warna kulit gelap-sedang | zodiak</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dua pria bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap-sedang | warna kulit sedang | zodiak</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dua pria bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit gelap | zodiak</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit cerah</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah-sedang | warna kulit gelap | zodiak</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap | warna kulit sedang | zodiak</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit sedang</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap | warna kulit gelap-sedang | zodiak</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
+		<annotation cp="🧔🏻">berjenggot | janggut | orang | pria | pria: berjenggot | warna kulit cerah</annotation>
+		<annotation cp="🧔🏻" type="tts">pria: warna kulit cerah, berjenggot</annotation>
+		<annotation cp="🧔🏼">berjenggot | janggut | orang | pria | pria: berjenggot | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧔🏼" type="tts">pria: warna kulit cerah-sedang, berjenggot</annotation>
+		<annotation cp="🧔🏽">berjenggot | janggut | orang | pria | pria: berjenggot | warna kulit sedang</annotation>
+		<annotation cp="🧔🏽" type="tts">pria: warna kulit sedang, berjenggot</annotation>
+		<annotation cp="🧔🏾">berjenggot | janggut | orang | pria | pria: berjenggot | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧔🏾" type="tts">pria: warna kulit gelap-sedang, berjenggot</annotation>
+		<annotation cp="🧔🏿">berjenggot | janggut | orang | pria | pria: berjenggot | warna kulit gelap</annotation>
+		<annotation cp="🧔🏿" type="tts">pria: warna kulit gelap, berjenggot</annotation>
+		<annotation cp="👱🏻‍♂">laki-laki | pirang | pria berambut pirang | pria: rambut pirang | rambut | warna kulit cerah</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">pria berambut pirang: warna kulit cerah</annotation>
+		<annotation cp="👱🏼‍♂">laki-laki | pirang | pria berambut pirang | pria: rambut pirang | rambut | warna kulit cerah-sedang</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">pria berambut pirang: warna kulit cerah-sedang</annotation>
+		<annotation cp="👱🏽‍♂">laki-laki | pirang | pria berambut pirang | pria: rambut pirang | rambut | warna kulit sedang</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">pria berambut pirang: warna kulit sedang</annotation>
+		<annotation cp="👱🏾‍♂">laki-laki | pirang | pria berambut pirang | pria: rambut pirang | rambut | warna kulit gelap-sedang</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">pria berambut pirang: warna kulit gelap-sedang</annotation>
+		<annotation cp="👱🏿‍♂">laki-laki | pirang | pria berambut pirang | pria: rambut pirang | rambut | warna kulit gelap</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">pria berambut pirang: warna kulit gelap</annotation>
 		<annotation cp="👨‍🦰">bapak | laki-laki | pria | rambut merah</annotation>
 		<annotation cp="👨‍🦰" type="tts">pria: rambut merah</annotation>
 		<annotation cp="👨🏻‍🦰">bapak | laki-laki | pria | rambut merah | warna kulit cerah</annotation>
@@ -681,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">pria: warna kulit gelap-sedang, gundul</annotation>
 		<annotation cp="👨🏿‍🦲">bapak | gundul | laki-laki | pria | warna kulit gelap</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">pria: warna kulit gelap, gundul</annotation>
-		<annotation cp="👱🏻‍♂">laki-laki | pirang | pria berambut pirang | rambut | warna kulit cerah</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">pria berambut pirang: warna kulit cerah</annotation>
-		<annotation cp="👱🏼‍♂">laki-laki | pirang | pria berambut pirang | rambut | warna kulit cerah-sedang</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">pria berambut pirang: warna kulit cerah-sedang</annotation>
-		<annotation cp="👱🏽‍♂">laki-laki | pirang | pria berambut pirang | rambut | warna kulit sedang</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">pria berambut pirang: warna kulit sedang</annotation>
-		<annotation cp="👱🏾‍♂">laki-laki | pirang | pria berambut pirang | rambut | warna kulit gelap-sedang</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">pria berambut pirang: warna kulit gelap-sedang</annotation>
-		<annotation cp="👱🏿‍♂">laki-laki | pirang | pria berambut pirang | rambut | warna kulit gelap</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">pria berambut pirang: warna kulit gelap</annotation>
-		<annotation cp="🧔🏻">janggut | orang berjenggot | warna kulit cerah</annotation>
-		<annotation cp="🧔🏻" type="tts">orang berjenggot: warna kulit cerah</annotation>
-		<annotation cp="🧔🏼">janggut | orang berjenggot | warna kulit cerah-sedang</annotation>
-		<annotation cp="🧔🏼" type="tts">orang berjenggot: warna kulit cerah-sedang</annotation>
-		<annotation cp="🧔🏽">janggut | orang berjenggot | warna kulit sedang</annotation>
-		<annotation cp="🧔🏽" type="tts">orang berjenggot: warna kulit sedang</annotation>
-		<annotation cp="🧔🏾">janggut | orang berjenggot | warna kulit gelap-sedang</annotation>
-		<annotation cp="🧔🏾" type="tts">orang berjenggot: warna kulit gelap-sedang</annotation>
-		<annotation cp="🧔🏿">janggut | orang berjenggot | warna kulit gelap</annotation>
-		<annotation cp="🧔🏿" type="tts">orang berjenggot: warna kulit gelap</annotation>
 		<annotation cp="👩🏻">ibu | perempuan | wanita | warna kulit cerah</annotation>
 		<annotation cp="👩🏻" type="tts">wanita: warna kulit cerah</annotation>
 		<annotation cp="👩🏼">ibu | perempuan | wanita | warna kulit cerah-sedang</annotation>
@@ -711,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿">ibu | perempuan | wanita | warna kulit gelap</annotation>
 		<annotation cp="👩🏿" type="tts">wanita: warna kulit gelap</annotation>
-		<annotation cp="👩🏻‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit cerah</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">wanita dengan tongkat: warna kulit cerah</annotation>
-		<annotation cp="👩🏼‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">wanita dengan tongkat: warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏽‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">wanita dengan tongkat: warna kulit sedang</annotation>
-		<annotation cp="👩🏾‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">wanita dengan tongkat: warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏿‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">wanita dengan tongkat: warna kulit gelap</annotation>
-		<annotation cp="👩🏻‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit cerah</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit cerah</annotation>
-		<annotation cp="👩🏼‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏽‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit sedang</annotation>
-		<annotation cp="👩🏾‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏿‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit gelap</annotation>
-		<annotation cp="👩🏻‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit cerah</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">wanita dengan kursi roda: warna kulit cerah</annotation>
-		<annotation cp="👩🏼‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">wanita dengan kursi roda: warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏽‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">wanita dengan kursi roda: warna kulit sedang</annotation>
-		<annotation cp="👩🏾‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">wanita dengan kursi roda: warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏿‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">wanita dengan kursi roda: warna kulit gelap</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit sedang</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit sedang</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit gelap</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit sedang</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit sedang</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit gelap</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit cerah</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap-sedang | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit gelap</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap-sedang | warna kulit sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit cerah</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit sedang, warna kulit cerah</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang | warna kulit sedang</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dua wanita bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">dua wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap-sedang | warna kulit sedang</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dua wanita bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit cerah</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap | warna kulit sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap | warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
+		<annotation cp="👱🏻‍♀">perempuan | pirang | rambut | wanita berambut pirang | wanita: rambut pirang | warna kulit cerah</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">wanita berambut pirang: warna kulit cerah</annotation>
+		<annotation cp="👱🏼‍♀">perempuan | pirang | rambut | wanita berambut pirang | wanita: rambut pirang | warna kulit cerah-sedang</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">wanita berambut pirang: warna kulit cerah-sedang</annotation>
+		<annotation cp="👱🏽‍♀">perempuan | pirang | rambut | wanita berambut pirang | wanita: rambut pirang | warna kulit sedang</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">wanita berambut pirang: warna kulit sedang</annotation>
+		<annotation cp="👱🏾‍♀">perempuan | pirang | rambut | wanita berambut pirang | wanita: rambut pirang | warna kulit gelap-sedang</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">wanita berambut pirang: warna kulit gelap-sedang</annotation>
+		<annotation cp="👱🏿‍♀">perempuan | pirang | rambut | wanita berambut pirang | wanita: rambut pirang | warna kulit gelap</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">wanita berambut pirang: warna kulit gelap</annotation>
 		<annotation cp="👩‍🦰">ibu | perempuan | rambut merah | wanita</annotation>
 		<annotation cp="👩‍🦰" type="tts">wanita: rambut merah</annotation>
 		<annotation cp="👩🏻‍🦰">ibu | perempuan | rambut merah | wanita | warna kulit cerah</annotation>
@@ -849,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">wanita: warna kulit gelap-sedang, gundul</annotation>
 		<annotation cp="👩🏿‍🦲">gundul | ibu | perempuan | wanita | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">wanita: warna kulit gelap, gundul</annotation>
-		<annotation cp="👱🏻‍♀">perempuan | pirang | rambut | wanita berambut pirang | warna kulit cerah</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">wanita berambut pirang: warna kulit cerah</annotation>
-		<annotation cp="👱🏼‍♀">perempuan | pirang | rambut | wanita berambut pirang | warna kulit cerah-sedang</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">wanita berambut pirang: warna kulit cerah-sedang</annotation>
-		<annotation cp="👱🏽‍♀">perempuan | pirang | rambut | wanita berambut pirang | warna kulit sedang</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">wanita berambut pirang: warna kulit sedang</annotation>
-		<annotation cp="👱🏾‍♀">perempuan | pirang | rambut | wanita berambut pirang | warna kulit gelap-sedang</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">wanita berambut pirang: warna kulit gelap-sedang</annotation>
-		<annotation cp="👱🏿‍♀">perempuan | pirang | rambut | wanita berambut pirang | warna kulit gelap</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">wanita berambut pirang: warna kulit gelap</annotation>
 		<annotation cp="🧓🏻">lanjut usia | netral gender | tua | warna kulit cerah</annotation>
 		<annotation cp="🧓🏻" type="tts">lanjut usia: warna kulit cerah</annotation>
 		<annotation cp="🧓🏼">lanjut usia | netral gender | tua | warna kulit cerah-sedang</annotation>
@@ -1069,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">wanita mengangkat tangan: warna kulit gelap-sedang</annotation>
 		<annotation cp="🙋🏿‍♀">angkat | isyarat | perempuan | tangan | wanita mengangkat tangan | warna kulit gelap</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">wanita mengangkat tangan: warna kulit gelap</annotation>
+		<annotation cp="🧏🏻">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit cerah</annotation>
+		<annotation cp="🧏🏻" type="tts">orang tuli: warna kulit cerah</annotation>
+		<annotation cp="🧏🏼">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧏🏼" type="tts">orang tuli: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧏🏽">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit sedang</annotation>
+		<annotation cp="🧏🏽" type="tts">orang tuli: warna kulit sedang</annotation>
+		<annotation cp="🧏🏾">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧏🏾" type="tts">orang tuli: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧏🏿">aksesibilitas | dengar | kuping | orang tuli | telinga | tuli | tunarungu | warna kulit gelap</annotation>
+		<annotation cp="🧏🏿" type="tts">orang tuli: warna kulit gelap</annotation>
+		<annotation cp="🧏🏻‍♂">lelaki | pria | tuli | tunarungu | warna kulit cerah</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">pria tuli: warna kulit cerah</annotation>
+		<annotation cp="🧏🏼‍♂">lelaki | pria | tuli | tunarungu | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">pria tuli: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧏🏽‍♂">lelaki | pria | tuli | tunarungu | warna kulit sedang</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">pria tuli: warna kulit sedang</annotation>
+		<annotation cp="🧏🏾‍♂">lelaki | pria | tuli | tunarungu | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">pria tuli: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧏🏿‍♂">lelaki | pria | tuli | tunarungu | warna kulit gelap</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">pria tuli: warna kulit gelap</annotation>
+		<annotation cp="🧏🏻‍♀">perempuan | tuli | tunarungu | wanita | warna kulit cerah</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">wanita tuli: warna kulit cerah</annotation>
+		<annotation cp="🧏🏼‍♀">perempuan | tuli | tunarungu | wanita | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">wanita tuli: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧏🏽‍♀">perempuan | tuli | tunarungu | wanita | warna kulit sedang</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">wanita tuli: warna kulit sedang</annotation>
+		<annotation cp="🧏🏾‍♀">perempuan | tuli | tunarungu | wanita | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">wanita tuli: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧏🏿‍♀">perempuan | tuli | tunarungu | wanita | warna kulit gelap</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">wanita tuli: warna kulit gelap</annotation>
 		<annotation cp="🙇🏻">bungkuk | gerakan | maaf | nunduk | orang membungkuk | sori | tunduk | warna kulit cerah</annotation>
 		<annotation cp="🙇🏻" type="tts">orang membungkuk: warna kulit cerah</annotation>
 		<annotation cp="🙇🏼">bungkuk | gerakan | maaf | nunduk | orang membungkuk | sori | tunduk | warna kulit cerah-sedang</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">wanita mengangkat bahu: warna kulit gelap-sedang</annotation>
 		<annotation cp="🤷🏿‍♀">angkat | bahu | isyarat | perempuan | wanita mengangkat bahu | warna kulit gelap</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">wanita mengangkat bahu: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍⚕">dokter | perawat | perawatan kesehatan | terapis | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">petugas kesehatan: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍⚕">dokter | perawat | perawatan kesehatan | terapis | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">petugas kesehatan: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍⚕">dokter | perawat | perawatan kesehatan | terapis | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">petugas kesehatan: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍⚕">dokter | perawat | perawatan kesehatan | terapis | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">petugas kesehatan: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍⚕">dokter | perawat | perawatan kesehatan | terapis | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">petugas kesehatan: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍⚕">dokter | laki-laki | pekerja kesehatan pria | perawatan kesehatan | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">pekerja kesehatan pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍⚕">dokter | laki-laki | pekerja kesehatan pria | perawatan kesehatan | warna kulit cerah-sedang</annotation>
@@ -1179,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">pekerja kesehatan wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍⚕">dokter | pekerja kesehatan wanita | perawatan kesehatan | perempuan | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">pekerja kesehatan wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🎓">kelulusan | murid | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">murid: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🎓">kelulusan | murid | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">murid: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🎓">kelulusan | murid | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">murid: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🎓">kelulusan | murid | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">murid: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🎓">kelulusan | murid | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">murid: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🎓">laki-laki | sarjana pria | toga | universitas | warna kulit cerah | wisuda</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">sarjana pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🎓">laki-laki | sarjana pria | toga | universitas | warna kulit cerah-sedang | wisuda</annotation>
@@ -1199,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">sarjana wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🎓">perempuan | sarjana wanita | toga | universitas | warna kulit gelap | wisuda</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">sarjana wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🏫">dosen | guru | instruktur | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">guru: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🏫">dosen | guru | instruktur | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">guru: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🏫">dosen | guru | instruktur | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">guru: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🏫">dosen | guru | instruktur | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">guru: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🏫">dosen | guru | instruktur | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">guru: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🏫">laki-laki | pengajar | pengajar pria | sekolah | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">pengajar pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🏫">laki-laki | pengajar | pengajar pria | sekolah | warna kulit cerah-sedang</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">pengajar wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🏫">pengajar | pengajar wanita | perempuan | sekolah | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">pengajar wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍⚖">hakim | timbangan | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">hakim: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍⚖">hakim | timbangan | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">hakim: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍⚖">hakim | timbangan | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">hakim: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍⚖">hakim | timbangan | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">hakim: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍⚖">hakim | timbangan | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">hakim: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍⚖">hakim pria | hukum | laki-laki | pengadilan | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">hakim pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍⚖">hakim pria | hukum | laki-laki | pengadilan | warna kulit cerah-sedang</annotation>
@@ -1239,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">hakim wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍⚖">hakim wanita | hukum | pengadilan | perempuan | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">hakim wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🌾">pekebun | petani | peternak | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">petani: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🌾">pekebun | petani | peternak | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">petani: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🌾">pekebun | petani | peternak | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">petani: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🌾">pekebun | petani | peternak | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">petani: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🌾">pekebun | petani | peternak | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">petani: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🌾">laki-laki | padi | petani pria | sawah | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">petani pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🌾">laki-laki | padi | petani pria | sawah | warna kulit cerah-sedang</annotation>
@@ -1259,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">petani wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🌾">padi | perempuan | petani wanita | sawah | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">petani wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🍳">chef | koki | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">koki: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🍳">chef | koki | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">koki: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🍳">chef | koki | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">koki: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🍳">chef | koki | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">koki: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🍳">chef | koki | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">koki: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🍳">dapur | koki pria | laki-laki | memasak | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">koki pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🍳">dapur | koki pria | laki-laki | memasak | warna kulit cerah-sedang</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">koki wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🍳">dapur | koki wanita | memasak | perempuan | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">koki wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🔧">mekanik | pekerja terlatih | tukang ledeng | tukang listrik | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">mekanik: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🔧">mekanik | pekerja terlatih | tukang ledeng | tukang listrik | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">mekanik: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🔧">mekanik | pekerja terlatih | tukang ledeng | tukang listrik | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">mekanik: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🔧">mekanik | pekerja terlatih | tukang ledeng | tukang listrik | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">mekanik: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🔧">mekanik | pekerja terlatih | tukang ledeng | tukang listrik | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">mekanik: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🔧">laki-laki | montir pria | perbaikan | tukang | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">montir pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🔧">laki-laki | montir pria | perbaikan | tukang | warna kulit cerah-sedang</annotation>
@@ -1299,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">montir wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🔧">montir wanita | perbaikan | perempuan | tukang | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">montir wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🏭">industri | pabrik | pekerja | perakitan | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">pekerja pabrik: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🏭">industri | pabrik | pekerja | perakitan | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">pekerja pabrik: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🏭">industri | pabrik | pekerja | perakitan | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">pekerja pabrik: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🏭">industri | pabrik | pekerja | perakitan | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">pekerja pabrik: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🏭">industri | pabrik | pekerja | perakitan | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">pekerja pabrik: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🏭">laki-laki | pabrik | pekerja | pekerja pabrik pria | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">pekerja pabrik pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🏭">laki-laki | pabrik | pekerja | pekerja pabrik pria | warna kulit cerah-sedang</annotation>
@@ -1319,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">pekerja pabrik wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🏭">pabrik | pekerja | pekerja pabrik wanita | perempuan | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">pekerja pabrik wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍💼">arsitek | bisnis | kerah putih | manajer | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">pekerja kantoran: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍💼">arsitek | bisnis | kerah putih | manajer | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">pekerja kantoran: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍💼">arsitek | bisnis | kerah putih | manajer | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">pekerja kantoran: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍💼">arsitek | bisnis | kerah putih | manajer | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">pekerja kantoran: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍💼">arsitek | bisnis | kerah putih | manajer | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">pekerja kantoran: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍💼">kantor | karyawan | laki-laki | pekerja kantor pria | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">pekerja kantor pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍💼">kantor | karyawan | laki-laki | pekerja kantor pria | warna kulit cerah-sedang</annotation>
@@ -1339,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">pekerja kantor wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍💼">kantor | karyawan | pekerja kantor wanita | perempuan | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">pekerja kantor wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🔬">ahli biologi | ahli fisika | ahli kimia | ilmuwan | insinyur | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">ilmuwan: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🔬">ahli biologi | ahli fisika | ahli kimia | ilmuwan | insinyur | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">ilmuwan: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🔬">ahli biologi | ahli fisika | ahli kimia | ilmuwan | insinyur | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">ilmuwan: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🔬">ahli biologi | ahli fisika | ahli kimia | ilmuwan | insinyur | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">ilmuwan: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🔬">ahli biologi | ahli fisika | ahli kimia | ilmuwan | insinyur | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">ilmuwan: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🔬">ilmuwan pria | laboratorium | laki-laki | sains | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">ilmuwan pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🔬">ilmuwan pria | laboratorium | laki-laki | sains | warna kulit cerah-sedang</annotation>
@@ -1359,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">ilmuwan wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🔬">ilmuwan wanita | laboratorium | perempuan | sains | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">ilmuwan wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍💻">ahli teknologi | pemrogram | penemu | pengembang | perangkat lunak | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">ahli teknologi: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍💻">ahli teknologi | pemrogram | penemu | pengembang | perangkat lunak | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">ahli teknologi: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍💻">ahli teknologi | pemrogram | penemu | pengembang | perangkat lunak | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">ahli teknologi: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍💻">ahli teknologi | pemrogram | penemu | pengembang | perangkat lunak | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">ahli teknologi: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍💻">ahli teknologi | pemrogram | penemu | pengembang | perangkat lunak | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">ahli teknologi: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍💻">ahli teknologi pria | komputer | laki-laki | teknologi | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">ahli teknologi pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍💻">ahli teknologi pria | komputer | laki-laki | teknologi | warna kulit cerah-sedang</annotation>
@@ -1379,26 +1306,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">ahli teknologi wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍💻">ahli teknologi wanita | komputer | perempuan | teknologi | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">ahli teknologi wanita: warna kulit gelap</annotation>
-		<annotation cp="👨🏻‍🎤">lagu | laki-laki | penyanyi pria | suara | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🎤">aktor | bintang | penghibur | penyanyi | rock | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">penyanyi: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🎤">aktor | bintang | penghibur | penyanyi | rock | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">penyanyi: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🎤">aktor | bintang | penghibur | penyanyi | rock | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">penyanyi: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🎤">aktor | bintang | penghibur | penyanyi | rock | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">penyanyi: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🎤">aktor | bintang | penghibur | penyanyi | rock | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">penyanyi: warna kulit gelap</annotation>
+		<annotation cp="👨🏻‍🎤">aktor | bintang | penghibur | penyanyi | pria | rock | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">penyanyi pria: warna kulit cerah</annotation>
-		<annotation cp="👨🏼‍🎤">lagu | laki-laki | penyanyi pria | suara | warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏼‍🎤">aktor | bintang | penghibur | penyanyi | pria | rock | warna kulit cerah-sedang</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">penyanyi pria: warna kulit cerah-sedang</annotation>
-		<annotation cp="👨🏽‍🎤">lagu | laki-laki | penyanyi pria | suara | warna kulit sedang</annotation>
+		<annotation cp="👨🏽‍🎤">aktor | bintang | penghibur | penyanyi | pria | rock | warna kulit sedang</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">penyanyi pria: warna kulit sedang</annotation>
-		<annotation cp="👨🏾‍🎤">lagu | laki-laki | penyanyi pria | suara | warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏾‍🎤">aktor | bintang | penghibur | penyanyi | pria | rock | warna kulit gelap-sedang</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">penyanyi pria: warna kulit gelap-sedang</annotation>
-		<annotation cp="👨🏿‍🎤">lagu | laki-laki | penyanyi pria | suara | warna kulit gelap</annotation>
+		<annotation cp="👨🏿‍🎤">aktor | bintang | penghibur | penyanyi | pria | rock | warna kulit gelap</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">penyanyi pria: warna kulit gelap</annotation>
-		<annotation cp="👩🏻‍🎤">lagu | penyanyi wanita | perempuan | suara | warna kulit cerah</annotation>
+		<annotation cp="👩🏻‍🎤">aktor | bintang | penghibur | penyanyi | rock | wanita | warna kulit cerah</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">penyanyi wanita: warna kulit cerah</annotation>
-		<annotation cp="👩🏼‍🎤">lagu | penyanyi wanita | perempuan | suara | warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏼‍🎤">aktor | bintang | penghibur | penyanyi | rock | wanita | warna kulit cerah-sedang</annotation>
 		<annotation cp="👩🏼‍🎤" type="tts">penyanyi wanita: warna kulit cerah-sedang</annotation>
-		<annotation cp="👩🏽‍🎤">lagu | penyanyi wanita | perempuan | suara | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🎤">aktor | bintang | penghibur | penyanyi | rock | wanita | warna kulit sedang</annotation>
 		<annotation cp="👩🏽‍🎤" type="tts">penyanyi wanita: warna kulit sedang</annotation>
-		<annotation cp="👩🏾‍🎤">lagu | penyanyi wanita | perempuan | suara | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🎤">aktor | bintang | penghibur | penyanyi | rock | wanita | warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏾‍🎤" type="tts">penyanyi wanita: warna kulit gelap-sedang</annotation>
-		<annotation cp="👩🏿‍🎤">lagu | penyanyi wanita | perempuan | suara | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🎤">aktor | bintang | penghibur | penyanyi | rock | wanita | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">penyanyi wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🎨">palet | seniman | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">seniman: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🎨">palet | seniman | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">seniman: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🎨">palet | seniman | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">seniman: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🎨">palet | seniman | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">seniman: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🎨">palet | seniman | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">seniman: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🎨">laki-laki | lukisan | seni | seniman pria | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">seniman pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🎨">laki-laki | lukisan | seni | seniman pria | warna kulit cerah-sedang</annotation>
@@ -1419,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">seniman wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🎨">lukisan | perempuan | seni | seniman wanita | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">seniman wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍✈">pesawat | pilot | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">pilot: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍✈">pesawat | pilot | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">pilot: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍✈">pesawat | pilot | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">pilot: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍✈">pesawat | pilot | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">pilot: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍✈">pesawat | pilot | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">pilot: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍✈">laki-laki | pesawat | pilot | pilot pria | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilot pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍✈">laki-laki | pesawat | pilot | pilot pria | warna kulit cerah-sedang</annotation>
@@ -1439,6 +1396,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">pilot wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍✈">perempuan | pesawat | pilot | pilot wanita | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilot wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🚀">astronaut | roket | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">astronaut: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🚀">astronaut | roket | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">astronaut: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🚀">astronaut | roket | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">astronaut: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🚀">astronaut | roket | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">astronaut: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🚀">astronaut | roket | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">astronaut: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🚀">angkasa luar | antariksawan pria | laki-laki | roket | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">antariksawan pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🚀">angkasa luar | antariksawan pria | laki-laki | roket | warna kulit cerah-sedang</annotation>
@@ -1459,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">antariksawan wanita: warna kulit gelap-sedang</annotation>
 		<annotation cp="👩🏿‍🚀">angkasa luar | antariksawan wanita | perempuan | roket | warna kulit gelap</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">antariksawan wanita: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🚒">pemadam kebakaran | truk pemadam kebakaran | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">pemadam kebakaran: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🚒">pemadam kebakaran | truk pemadam kebakaran | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">pemadam kebakaran: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🚒">pemadam kebakaran | truk pemadam kebakaran | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">pemadam kebakaran: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🚒">pemadam kebakaran | truk pemadam kebakaran | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">pemadam kebakaran: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🚒">pemadam kebakaran | truk pemadam kebakaran | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">pemadam kebakaran: warna kulit gelap</annotation>
 		<annotation cp="👨🏻‍🚒">api | laki-laki | pemadam | pemadam kebakaran pria | warna kulit cerah</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">pemadam kebakaran pria: warna kulit cerah</annotation>
 		<annotation cp="👨🏼‍🚒">api | laki-laki | pemadam | pemadam kebakaran pria | warna kulit cerah-sedang</annotation>
@@ -1649,15 +1626,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👳🏾‍♀" type="tts">wanita mengenakan serban: warna kulit gelap-sedang</annotation>
 		<annotation cp="👳🏿‍♀">perempuan | serban | wanita mengenakan serban | warna kulit gelap</annotation>
 		<annotation cp="👳🏿‍♀" type="tts">wanita mengenakan serban: warna kulit gelap</annotation>
-		<annotation cp="👲🏻">china | cina | laki-laki | orang dengan topi Tionghoa | pria | topi | warna kulit cerah</annotation>
+		<annotation cp="👲🏻">gua pi mao | pria | pria dengan topi Tionghoa | topi | warna kulit cerah</annotation>
 		<annotation cp="👲🏻" type="tts">orang dengan topi Tionghoa: warna kulit cerah</annotation>
-		<annotation cp="👲🏼">china | cina | laki-laki | orang dengan topi Tionghoa | pria | topi | warna kulit cerah-sedang</annotation>
+		<annotation cp="👲🏼">gua pi mao | pria | pria dengan topi Tionghoa | topi | warna kulit cerah-sedang</annotation>
 		<annotation cp="👲🏼" type="tts">orang dengan topi Tionghoa: warna kulit cerah-sedang</annotation>
-		<annotation cp="👲🏽">china | cina | laki-laki | orang dengan topi Tionghoa | pria | topi | warna kulit sedang</annotation>
+		<annotation cp="👲🏽">gua pi mao | pria | pria dengan topi Tionghoa | topi | warna kulit sedang</annotation>
 		<annotation cp="👲🏽" type="tts">orang dengan topi Tionghoa: warna kulit sedang</annotation>
-		<annotation cp="👲🏾">china | cina | laki-laki | orang dengan topi Tionghoa | pria | topi | warna kulit gelap-sedang</annotation>
+		<annotation cp="👲🏾">gua pi mao | pria | pria dengan topi Tionghoa | topi | warna kulit gelap-sedang</annotation>
 		<annotation cp="👲🏾" type="tts">orang dengan topi Tionghoa: warna kulit gelap-sedang</annotation>
-		<annotation cp="👲🏿">china | cina | laki-laki | orang dengan topi Tionghoa | pria | topi | warna kulit gelap</annotation>
+		<annotation cp="👲🏿">gua pi mao | pria | pria dengan topi Tionghoa | topi | warna kulit gelap</annotation>
 		<annotation cp="👲🏿" type="tts">orang dengan topi Tionghoa: warna kulit gelap</annotation>
 		<annotation cp="🧕🏻">hijab | kerudung | mantilla | tichel | wanita dengan kerudung | warna kulit cerah</annotation>
 		<annotation cp="🧕🏻" type="tts">wanita dengan kerudung: warna kulit cerah</annotation>
@@ -1749,15 +1726,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦸🏾" type="tts">pahlawan super: warna kulit gelap-sedang</annotation>
 		<annotation cp="🦸🏿">baik | kekuatan super | pahlawan | pahlawan super | pahlawan wanita | warna kulit gelap</annotation>
 		<annotation cp="🦸🏿" type="tts">pahlawan super: warna kulit gelap</annotation>
-		<annotation cp="🦸🏻‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pahlawan wanita | pria | warna kulit cerah</annotation>
+		<annotation cp="🦸🏻‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pria | warna kulit cerah</annotation>
 		<annotation cp="🦸🏻‍♂" type="tts">pahlawan super pria: warna kulit cerah</annotation>
-		<annotation cp="🦸🏼‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pahlawan wanita | pria | warna kulit cerah-sedang</annotation>
+		<annotation cp="🦸🏼‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pria | warna kulit cerah-sedang</annotation>
 		<annotation cp="🦸🏼‍♂" type="tts">pahlawan super pria: warna kulit cerah-sedang</annotation>
-		<annotation cp="🦸🏽‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pahlawan wanita | pria | warna kulit sedang</annotation>
+		<annotation cp="🦸🏽‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pria | warna kulit sedang</annotation>
 		<annotation cp="🦸🏽‍♂" type="tts">pahlawan super pria: warna kulit sedang</annotation>
-		<annotation cp="🦸🏾‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pahlawan wanita | pria | warna kulit gelap-sedang</annotation>
+		<annotation cp="🦸🏾‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pria | warna kulit gelap-sedang</annotation>
 		<annotation cp="🦸🏾‍♂" type="tts">pahlawan super pria: warna kulit gelap-sedang</annotation>
-		<annotation cp="🦸🏿‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pahlawan wanita | pria | warna kulit gelap</annotation>
+		<annotation cp="🦸🏿‍♂">baik | kekuatan super | pahlawan | pahlawan super pria | pria | warna kulit gelap</annotation>
 		<annotation cp="🦸🏿‍♂" type="tts">pahlawan super pria: warna kulit gelap</annotation>
 		<annotation cp="🦸🏻‍♀">baik | kekuatan super | pahlawan | pahlawan super wanita | wanita | warna kulit cerah</annotation>
 		<annotation cp="🦸🏻‍♀" type="tts">pahlawan super wanita: warna kulit cerah</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">wanita berjalan kaki: warna kulit gelap-sedang</annotation>
 		<annotation cp="🚶🏿‍♀">jalan | kaki | perempuan | wanita berjalan kaki | warna kulit gelap</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">wanita berjalan kaki: warna kulit gelap</annotation>
+		<annotation cp="🧍🏻">berdiri | diri | orang berdiri | warna kulit cerah</annotation>
+		<annotation cp="🧍🏻" type="tts">orang berdiri: warna kulit cerah</annotation>
+		<annotation cp="🧍🏼">berdiri | diri | orang berdiri | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧍🏼" type="tts">orang berdiri: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧍🏽">berdiri | diri | orang berdiri | warna kulit sedang</annotation>
+		<annotation cp="🧍🏽" type="tts">orang berdiri: warna kulit sedang</annotation>
+		<annotation cp="🧍🏾">berdiri | diri | orang berdiri | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧍🏾" type="tts">orang berdiri: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧍🏿">berdiri | diri | orang berdiri | warna kulit gelap</annotation>
+		<annotation cp="🧍🏿" type="tts">orang berdiri: warna kulit gelap</annotation>
+		<annotation cp="🧍🏻‍♂">berdiri | pria | warna kulit cerah</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">pria berdiri: warna kulit cerah</annotation>
+		<annotation cp="🧍🏼‍♂">berdiri | pria | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">pria berdiri: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧍🏽‍♂">berdiri | pria | warna kulit sedang</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">pria berdiri: warna kulit sedang</annotation>
+		<annotation cp="🧍🏾‍♂">berdiri | pria | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">pria berdiri: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧍🏿‍♂">berdiri | pria | warna kulit gelap</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">pria berdiri: warna kulit gelap</annotation>
+		<annotation cp="🧍🏻‍♀">berdiri | wanita | warna kulit cerah</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">wanita berdiri: warna kulit cerah</annotation>
+		<annotation cp="🧍🏼‍♀">berdiri | wanita | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">wanita berdiri: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧍🏽‍♀">berdiri | wanita | warna kulit sedang</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">wanita berdiri: warna kulit sedang</annotation>
+		<annotation cp="🧍🏾‍♀">berdiri | wanita | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">wanita berdiri: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧍🏿‍♀">berdiri | wanita | warna kulit gelap</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">wanita berdiri: warna kulit gelap</annotation>
+		<annotation cp="🧎🏻">berlutut | lutut | orang berlutut | warna kulit cerah</annotation>
+		<annotation cp="🧎🏻" type="tts">orang berlutut: warna kulit cerah</annotation>
+		<annotation cp="🧎🏼">berlutut | lutut | orang berlutut | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧎🏼" type="tts">orang berlutut: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧎🏽">berlutut | lutut | orang berlutut | warna kulit sedang</annotation>
+		<annotation cp="🧎🏽" type="tts">orang berlutut: warna kulit sedang</annotation>
+		<annotation cp="🧎🏾">berlutut | lutut | orang berlutut | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧎🏾" type="tts">orang berlutut: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧎🏿">berlutut | lutut | orang berlutut | warna kulit gelap</annotation>
+		<annotation cp="🧎🏿" type="tts">orang berlutut: warna kulit gelap</annotation>
+		<annotation cp="🧎🏻‍♂">berlutut | pria | warna kulit cerah</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">pria berlutut: warna kulit cerah</annotation>
+		<annotation cp="🧎🏼‍♂">berlutut | pria | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">pria berlutut: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧎🏽‍♂">berlutut | pria | warna kulit sedang</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">pria berlutut: warna kulit sedang</annotation>
+		<annotation cp="🧎🏾‍♂">berlutut | pria | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">pria berlutut: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧎🏿‍♂">berlutut | pria | warna kulit gelap</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">pria berlutut: warna kulit gelap</annotation>
+		<annotation cp="🧎🏻‍♀">berlutut | wanita | warna kulit cerah</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">wanita berlutut: warna kulit cerah</annotation>
+		<annotation cp="🧎🏼‍♀">berlutut | wanita | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">wanita berlutut: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧎🏽‍♀">berlutut | wanita | warna kulit sedang</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">wanita berlutut: warna kulit sedang</annotation>
+		<annotation cp="🧎🏾‍♀">berlutut | wanita | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">wanita berlutut: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧎🏿‍♀">berlutut | wanita | warna kulit gelap</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">wanita berlutut: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🦯">aksesibilitas | buta | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">orang dengan tongkat: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🦯">aksesibilitas | buta | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">orang dengan tongkat: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🦯">aksesibilitas | buta | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">orang dengan tongkat: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🦯">aksesibilitas | buta | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">orang dengan tongkat: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🦯">aksesibilitas | buta | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">orang dengan tongkat: warna kulit gelap</annotation>
+		<annotation cp="👨🏻‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit cerah</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">pria dengan tongkat: warna kulit cerah</annotation>
+		<annotation cp="👨🏼‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">pria dengan tongkat: warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏽‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit sedang</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">pria dengan tongkat: warna kulit sedang</annotation>
+		<annotation cp="👨🏾‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">pria dengan tongkat: warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏿‍🦯">aksesiblitas | buta | pria | pria dengan tongkat | tunanetra | warna kulit gelap</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">pria dengan tongkat: warna kulit gelap</annotation>
+		<annotation cp="👩🏻‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit cerah</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">wanita dengan tongkat: warna kulit cerah</annotation>
+		<annotation cp="👩🏼‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">wanita dengan tongkat: warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏽‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">wanita dengan tongkat: warna kulit sedang</annotation>
+		<annotation cp="👩🏾‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">wanita dengan tongkat: warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏿‍🦯">aksesiblitas | buta | tunanetra | wanita | wanita dengan tongkat | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">wanita dengan tongkat: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🦼">aksesibilitas | kursi roda | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">orang dengan kursi roda bermotor: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🦼">aksesibilitas | kursi roda | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">orang dengan kursi roda bermotor: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🦼">aksesibilitas | kursi roda | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">orang dengan kursi roda bermotor: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🦼">aksesibilitas | kursi roda | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">orang dengan kursi roda bermotor: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🦼">aksesibilitas | kursi roda | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">orang dengan kursi roda bermotor: warna kulit gelap</annotation>
+		<annotation cp="👨🏻‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit cerah</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit cerah</annotation>
+		<annotation cp="👨🏼‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏽‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit sedang</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit sedang</annotation>
+		<annotation cp="👨🏾‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏿‍🦼">aksesibilitas | kursi roda | pria | pria dengan kursi roda bermotor | warna kulit gelap</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">pria dengan kursi roda bermotor: warna kulit gelap</annotation>
+		<annotation cp="👩🏻‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit cerah</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit cerah</annotation>
+		<annotation cp="👩🏼‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏽‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit sedang</annotation>
+		<annotation cp="👩🏾‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏿‍🦼">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda bermotor | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">wanita dengan kursi roda bermotor: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🦽">aksesibilitas | kursi roda | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">orang dengan kursi roda manual: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🦽">aksesibilitas | kursi roda | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">orang dengan kursi roda manual: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🦽">aksesibilitas | kursi roda | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">orang dengan kursi roda manual: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🦽">aksesibilitas | kursi roda | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">orang dengan kursi roda manual: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🦽">aksesibilitas | kursi roda | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">orang dengan kursi roda manual: warna kulit gelap</annotation>
+		<annotation cp="👨🏻‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit cerah</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">pria dengan kursi roda manual: warna kulit cerah</annotation>
+		<annotation cp="👨🏼‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">pria dengan kursi roda manual: warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏽‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit sedang</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">pria dengan kursi roda manual: warna kulit sedang</annotation>
+		<annotation cp="👨🏾‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">pria dengan kursi roda manual: warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏿‍🦽">aksesibilitas | kursi roda | pria | pria dengan kursi roda | warna kulit gelap</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">pria dengan kursi roda manual: warna kulit gelap</annotation>
+		<annotation cp="👩🏻‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit cerah</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">wanita dengan kursi roda manual: warna kulit cerah</annotation>
+		<annotation cp="👩🏼‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">wanita dengan kursi roda manual: warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏽‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">wanita dengan kursi roda manual: warna kulit sedang</annotation>
+		<annotation cp="👩🏾‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">wanita dengan kursi roda manual: warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏿‍🦽">aksesibilitas | kursi roda | wanita | wanita dengan kursi roda | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">wanita dengan kursi roda manual: warna kulit gelap</annotation>
 		<annotation cp="🏃🏻">lari | marathon | maraton | orang berlari | warna kulit cerah</annotation>
 		<annotation cp="🏃🏻" type="tts">orang berlari: warna kulit cerah</annotation>
 		<annotation cp="🏃🏼">lari | marathon | maraton | orang berlari | warna kulit cerah-sedang</annotation>
@@ -2589,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">orang di tempat tidur: warna kulit gelap-sedang</annotation>
 		<annotation cp="🛌🏿">hotel | orang di tempat tidur | tidur | warna kulit gelap</annotation>
 		<annotation cp="🛌🏿" type="tts">orang di tempat tidur: warna kulit gelap</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">bergandengan | orang | pasangan | tangan | warna kulit cerah</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">bergandengan | orang | pasangan | tangan | warna kulit cerah | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">bergandengan | orang | pasangan | tangan | warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">bergandengan | orang | pasangan | tangan | warna kulit cerah | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit sedang, warna kulit cerah</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">bergandengan | orang | pasangan | tangan | warna kulit cerah-sedang | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">bergandengan | orang | pasangan | tangan | warna kulit sedang</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">orang bergandengan: warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">bergandengan | orang | pasangan | tangan | warna kulit cerah | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">bergandengan | orang | pasangan | tangan | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">bergandengan | orang | pasangan | tangan | warna kulit gelap-sedang | warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">orang bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">bergandengan | orang | pasangan | tangan | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">orang bergandengan: warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">bergandengan | orang | pasangan | tangan | warna kulit cerah | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">orang bergandengan: warna kulit gelap, warna kulit cerah</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">bergandengan | orang | pasangan | tangan | warna kulit cerah-sedang | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">orang bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">bergandengan | orang | pasangan | tangan | warna kulit gelap | warna kulit sedang</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">orang bergandengan: warna kulit gelap, warna kulit sedang</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">bergandengan | orang | pasangan | tangan | warna kulit gelap | warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">orang bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">bergandengan | orang | pasangan | tangan | warna kulit gelap</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">orang bergandengan: warna kulit gelap</annotation>
+		<annotation cp="👭🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah</annotation>
+		<annotation cp="👭🏻" type="tts">dua wanita bergandengan: warna kulit cerah</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
+		<annotation cp="👭🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang</annotation>
+		<annotation cp="👭🏼" type="tts">dua wanita bergandengan: warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit sedang, warna kulit cerah</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dua wanita bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
+		<annotation cp="👭🏽">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit sedang</annotation>
+		<annotation cp="👭🏽" type="tts">dua wanita bergandengan: warna kulit sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">dua wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap-sedang | warna kulit sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dua wanita bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
+		<annotation cp="👭🏾">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap-sedang</annotation>
+		<annotation cp="👭🏾" type="tts">dua wanita bergandengan: warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit cerah</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap | warna kulit sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">dua wanita bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
+		<annotation cp="👭🏿">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap</annotation>
+		<annotation cp="👭🏿" type="tts">dua wanita bergandengan: warna kulit gelap</annotation>
 		<annotation cp="👫🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah</annotation>
 		<annotation cp="👫🏻" type="tts">pria dan wanita bergandengan: warna kulit cerah</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit sedang</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit sedang</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit cerah, warna kulit gelap</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
 		<annotation cp="👫🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang</annotation>
 		<annotation cp="👫🏼" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit sedang</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit sedang</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit cerah-sedang, warna kulit gelap</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit cerah</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
 		<annotation cp="👫🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit sedang</annotation>
 		<annotation cp="👫🏽" type="tts">pria dan wanita bergandengan: warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap-sedang | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit sedang</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit sedang, warna kulit gelap</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap-sedang | warna kulit sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
 		<annotation cp="👫🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap-sedang</annotation>
 		<annotation cp="👫🏾" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">pria dan wanita bergandengan: warna kulit gelap-sedang, warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit cerah</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit cerah-sedang | warna kulit gelap</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap | warna kulit gelap-sedang</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">pria dan wanita bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
 		<annotation cp="👫🏿">pasangan | pegangan | pria | pria dan wanita bergandengan | pria dan wanita berpegangan tangan | tangan | wanita | warna kulit gelap</annotation>
 		<annotation cp="👫🏿" type="tts">pria dan wanita bergandengan: warna kulit gelap</annotation>
 		<annotation cp="👬🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | zodiak</annotation>
 		<annotation cp="👬🏻" type="tts">dua pria bergandengan: warna kulit cerah</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit cerah-sedang | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit cerah-sedang, warna kulit cerah</annotation>
 		<annotation cp="👬🏼">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah-sedang | zodiak</annotation>
 		<annotation cp="👬🏼" type="tts">dua pria bergandengan: warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit sedang | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit sedang, warna kulit cerah</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah-sedang | warna kulit sedang | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dua pria bergandengan: warna kulit sedang, warna kulit cerah-sedang</annotation>
 		<annotation cp="👬🏽">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit sedang | zodiak</annotation>
 		<annotation cp="👬🏽" type="tts">dua pria bergandengan: warna kulit sedang</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit gelap-sedang | zodiak</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit gelap-sedang, warna kulit cerah</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah-sedang | warna kulit gelap-sedang | zodiak</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dua pria bergandengan: warna kulit gelap-sedang, warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap-sedang | warna kulit sedang | zodiak</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dua pria bergandengan: warna kulit gelap-sedang, warna kulit sedang</annotation>
 		<annotation cp="👬🏾">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap-sedang | zodiak</annotation>
 		<annotation cp="👬🏾" type="tts">dua pria bergandengan: warna kulit gelap-sedang</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah | warna kulit gelap | zodiak</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit cerah</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit cerah-sedang | warna kulit gelap | zodiak</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit cerah-sedang</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap | warna kulit sedang | zodiak</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit sedang</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap | warna kulit gelap-sedang | zodiak</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dua pria bergandengan: warna kulit gelap, warna kulit gelap-sedang</annotation>
 		<annotation cp="👬🏿">cowok | dua pria bergandengan | gandeng | gemini | kembar | pasangan | pegangan | pria | tangan | warna kulit gelap | zodiak</annotation>
 		<annotation cp="👬🏿" type="tts">dua pria bergandengan: warna kulit gelap</annotation>
-		<annotation cp="👭🏻">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah</annotation>
-		<annotation cp="👭🏻" type="tts">dua wanita bergandengan: warna kulit cerah</annotation>
-		<annotation cp="👭🏼">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit cerah-sedang</annotation>
-		<annotation cp="👭🏼" type="tts">dua wanita bergandengan: warna kulit cerah-sedang</annotation>
-		<annotation cp="👭🏽">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit sedang</annotation>
-		<annotation cp="👭🏽" type="tts">dua wanita bergandengan: warna kulit sedang</annotation>
-		<annotation cp="👭🏾">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap-sedang</annotation>
-		<annotation cp="👭🏾" type="tts">dua wanita bergandengan: warna kulit gelap-sedang</annotation>
-		<annotation cp="👭🏿">cewek | dua wanita bergandengan | gandeng | pasangan | pegangan | tangan | wanita | warna kulit gelap</annotation>
-		<annotation cp="👭🏿" type="tts">dua wanita bergandengan: warna kulit gelap</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">berciuman | cium | pasangan | pria | romantis | wanita</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">berciuman: wanita, pria</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">berciuman | cium | pasangan | pria | romantis</annotation>
@@ -2706,7 +2943,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇦🇴">bendera</annotation>
 		<annotation cp="🇦🇴" type="tts">bendera: Angola</annotation>
 		<annotation cp="🇦🇶">bendera</annotation>
-		<annotation cp="🇦🇶" type="tts">bendera: Antartika</annotation>
+		<annotation cp="🇦🇶" type="tts">bendera: Antarktika</annotation>
 		<annotation cp="🇦🇷">bendera</annotation>
 		<annotation cp="🇦🇷" type="tts">bendera: Argentina</annotation>
 		<annotation cp="🇦🇸">bendera</annotation>
@@ -2776,7 +3013,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇭">bendera</annotation>
 		<annotation cp="🇨🇭" type="tts">bendera: Swiss</annotation>
 		<annotation cp="🇨🇮">bendera</annotation>
-		<annotation cp="🇨🇮" type="tts">bendera: Pantai Gading</annotation>
+		<annotation cp="🇨🇮" type="tts">bendera: Côte d’Ivoire</annotation>
 		<annotation cp="🇨🇰">bendera</annotation>
 		<annotation cp="🇨🇰" type="tts">bendera: Kepulauan Cook</annotation>
 		<annotation cp="🇨🇱">bendera</annotation>
@@ -2798,7 +3035,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇼">bendera</annotation>
 		<annotation cp="🇨🇼" type="tts">bendera: Curaçao</annotation>
 		<annotation cp="🇨🇽">bendera</annotation>
-		<annotation cp="🇨🇽" type="tts">bendera: Pulau Christmas</annotation>
+		<annotation cp="🇨🇽" type="tts">bendera: Pulau Natal</annotation>
 		<annotation cp="🇨🇾">bendera</annotation>
 		<annotation cp="🇨🇾" type="tts">bendera: Siprus</annotation>
 		<annotation cp="🇨🇿">bendera</annotation>
@@ -2840,7 +3077,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇫🇯">bendera</annotation>
 		<annotation cp="🇫🇯" type="tts">bendera: Fiji</annotation>
 		<annotation cp="🇫🇰">bendera</annotation>
-		<annotation cp="🇫🇰" type="tts">bendera: Kepulauan Malvinas</annotation>
+		<annotation cp="🇫🇰" type="tts">bendera: Kepulauan Falkland</annotation>
 		<annotation cp="🇫🇲">bendera</annotation>
 		<annotation cp="🇫🇲" type="tts">bendera: Mikronesia</annotation>
 		<annotation cp="🇫🇴">bendera</annotation>
@@ -2886,7 +3123,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇾">bendera</annotation>
 		<annotation cp="🇬🇾" type="tts">bendera: Guyana</annotation>
 		<annotation cp="🇭🇰">bendera</annotation>
-		<annotation cp="🇭🇰" type="tts">bendera: Hong Kong SAR Tiongkok</annotation>
+		<annotation cp="🇭🇰" type="tts">bendera: Hong Kong DAK Tiongkok</annotation>
 		<annotation cp="🇭🇲">bendera</annotation>
 		<annotation cp="🇭🇲" type="tts">bendera: Pulau Heard dan Kepulauan McDonald</annotation>
 		<annotation cp="🇭🇳">bendera</annotation>
@@ -2898,7 +3135,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇭🇺">bendera</annotation>
 		<annotation cp="🇭🇺" type="tts">bendera: Hungaria</annotation>
 		<annotation cp="🇮🇨">bendera</annotation>
-		<annotation cp="🇮🇨" type="tts">bendera: Kepulauan Canary</annotation>
+		<annotation cp="🇮🇨" type="tts">bendera: Kepulauan Canaria</annotation>
 		<annotation cp="🇮🇩">bendera</annotation>
 		<annotation cp="🇮🇩" type="tts">bendera: Indonesia</annotation>
 		<annotation cp="🇮🇪">bendera</annotation>
@@ -2994,7 +3231,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇳">bendera</annotation>
 		<annotation cp="🇲🇳" type="tts">bendera: Mongolia</annotation>
 		<annotation cp="🇲🇴">bendera</annotation>
-		<annotation cp="🇲🇴" type="tts">bendera: Makau SAR Tiongkok</annotation>
+		<annotation cp="🇲🇴" type="tts">bendera: Makau DAK Tiongkok</annotation>
 		<annotation cp="🇲🇵">bendera</annotation>
 		<annotation cp="🇲🇵" type="tts">bendera: Kepulauan Mariana Utara</annotation>
 		<annotation cp="🇲🇶">bendera</annotation>
@@ -3132,7 +3369,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇹🇩">bendera</annotation>
 		<annotation cp="🇹🇩" type="tts">bendera: Cad</annotation>
 		<annotation cp="🇹🇫">bendera</annotation>
-		<annotation cp="🇹🇫" type="tts">bendera: Wilayah Kutub Selatan Prancis</annotation>
+		<annotation cp="🇹🇫" type="tts">bendera: Wilayah Selatan Perancis</annotation>
 		<annotation cp="🇹🇬">bendera</annotation>
 		<annotation cp="🇹🇬" type="tts">bendera: Togo</annotation>
 		<annotation cp="🇹🇭">bendera</annotation>
@@ -3176,13 +3413,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇻🇦">bendera</annotation>
 		<annotation cp="🇻🇦" type="tts">bendera: Vatikan</annotation>
 		<annotation cp="🇻🇨">bendera</annotation>
-		<annotation cp="🇻🇨" type="tts">bendera: Saint Vincent dan Grenadines</annotation>
+		<annotation cp="🇻🇨" type="tts">bendera: Saint Vincent dan Grenadine</annotation>
 		<annotation cp="🇻🇪">bendera</annotation>
 		<annotation cp="🇻🇪" type="tts">bendera: Venezuela</annotation>
 		<annotation cp="🇻🇬">bendera</annotation>
-		<annotation cp="🇻🇬" type="tts">bendera: Kepulauan Virgin Inggris</annotation>
+		<annotation cp="🇻🇬" type="tts">bendera: Kepulauan Virgin Britania Raya</annotation>
 		<annotation cp="🇻🇮">bendera</annotation>
-		<annotation cp="🇻🇮" type="tts">bendera: Kepulauan Virgin A.S.</annotation>
+		<annotation cp="🇻🇮" type="tts">bendera: Kepulauan Virgin Amerika Serikat</annotation>
 		<annotation cp="🇻🇳">bendera</annotation>
 		<annotation cp="🇻🇳" type="tts">bendera: Vietnam</annotation>
 		<annotation cp="🇻🇺">bendera</annotation>

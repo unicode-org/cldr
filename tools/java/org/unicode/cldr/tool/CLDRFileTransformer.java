@@ -10,6 +10,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -178,12 +179,18 @@ public class CLDRFileTransformer {
         outputParent = factory.make(localeTransform.getInputLocale(), false);
         XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
         for (String xpath : input) {
-            String fullPath = input.getFullXPath(xpath);
             String value = input.getStringValue(xpath);
+            if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                value = null;
+            }
+            if (value == null) {
+                continue;
+            }
+            String fullPath = input.getFullXPath(xpath);
             String oldValue = output.getStringValue(xpath);
             String parentValue = outputParent.getStringValue(xpath);
             value = transformValue(transliterator, localeTransform, xpath, value, oldValue, parentValue);
-            if (value != null) {
+            if (value != null && !CldrUtility.INHERITANCE_MARKER.equals(value)) {
                 outputSource.putValueAtPath(fullPath, value);
             }
         }

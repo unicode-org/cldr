@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="cs"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">gesto „málo“ | malé množství | špetka | světlý odstín pleti | troška</annotation>
-		<annotation cp="🤏🏻" type="tts">gesto „málo“: světlý odstín pleti</annotation>
-		<annotation cp="🤏🏼">gesto „málo“ | malé množství | špetka | středně světlý odstín pleti | troška</annotation>
-		<annotation cp="🤏🏼" type="tts">gesto „málo“: středně světlý odstín pleti</annotation>
-		<annotation cp="🤏🏽">gesto „málo“ | malé množství | špetka | střední odstín pleti | troška</annotation>
-		<annotation cp="🤏🏽" type="tts">gesto „málo“: střední odstín pleti</annotation>
-		<annotation cp="🤏🏾">gesto „málo“ | malé množství | špetka | středně tmavý odstín pleti | troška</annotation>
-		<annotation cp="🤏🏾" type="tts">gesto „málo“: středně tmavý odstín pleti</annotation>
-		<annotation cp="🤏🏿">gesto „málo“ | malé množství | špetka | tmavý odstín pleti | troška</annotation>
-		<annotation cp="🤏🏿" type="tts">gesto „málo“: tmavý odstín pleti</annotation>
-		<annotation cp="🦻🏻">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | světlý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
-		<annotation cp="🦻🏻" type="tts">ucho s naslouchátkem: světlý odstín pleti</annotation>
-		<annotation cp="🦻🏼">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | středně světlý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
-		<annotation cp="🦻🏼" type="tts">ucho s naslouchátkem: středně světlý odstín pleti</annotation>
-		<annotation cp="🦻🏽">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | střední odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
-		<annotation cp="🦻🏽" type="tts">ucho s naslouchátkem: střední odstín pleti</annotation>
-		<annotation cp="🦻🏾">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | středně tmavý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
-		<annotation cp="🦻🏾" type="tts">ucho s naslouchátkem: středně tmavý odstín pleti</annotation>
-		<annotation cp="🦻🏿">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | tmavý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
-		<annotation cp="🦻🏿" type="tts">ucho s naslouchátkem: tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏻">postoj | stoj | stojící | stojící osoba | světlý odstín pleti</annotation>
-		<annotation cp="🧍🏻" type="tts">stojící osoba: světlý odstín pleti</annotation>
-		<annotation cp="🧍🏼">postoj | stoj | stojící | stojící osoba | středně světlý odstín pleti</annotation>
-		<annotation cp="🧍🏼" type="tts">stojící osoba: středně světlý odstín pleti</annotation>
-		<annotation cp="🧍🏽">postoj | stoj | stojící | stojící osoba | střední odstín pleti</annotation>
-		<annotation cp="🧍🏽" type="tts">stojící osoba: střední odstín pleti</annotation>
-		<annotation cp="🧍🏾">postoj | stoj | stojící | stojící osoba | středně tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏾" type="tts">stojící osoba: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏿">postoj | stoj | stojící | stojící osoba | tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏿" type="tts">stojící osoba: tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏻‍♀">postoj | stoj | stojící | světlý odstín pleti | žena</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">stojící žena: světlý odstín pleti</annotation>
-		<annotation cp="🧍🏼‍♀">postoj | stoj | stojící | středně světlý odstín pleti | žena</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">stojící žena: středně světlý odstín pleti</annotation>
-		<annotation cp="🧍🏽‍♀">postoj | stoj | stojící | střední odstín pleti | žena</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">stojící žena: střední odstín pleti</annotation>
-		<annotation cp="🧍🏾‍♀">postoj | stoj | stojící | středně tmavý odstín pleti | žena</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">stojící žena: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏿‍♀">postoj | stoj | stojící | tmavý odstín pleti | žena</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">stojící žena: tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏻‍♂">muž | postoj | stoj | stojící | světlý odstín pleti</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">stojící muž: světlý odstín pleti</annotation>
-		<annotation cp="🧍🏼‍♂">muž | postoj | stoj | stojící | středně světlý odstín pleti</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">stojící muž: středně světlý odstín pleti</annotation>
-		<annotation cp="🧍🏽‍♂">muž | postoj | stoj | stojící | střední odstín pleti</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">stojící muž: střední odstín pleti</annotation>
-		<annotation cp="🧍🏾‍♂">muž | postoj | stoj | stojící | středně tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">stojící muž: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏿‍♂">muž | postoj | stoj | stojící | tmavý odstín pleti</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">stojící muž: tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏻">klečet | klečící | klečící osoba | klek | poklek | světlý odstín pleti</annotation>
-		<annotation cp="🧎🏻" type="tts">klečící osoba: světlý odstín pleti</annotation>
-		<annotation cp="🧎🏼">klečet | klečící | klečící osoba | klek | poklek | středně světlý odstín pleti</annotation>
-		<annotation cp="🧎🏼" type="tts">klečící osoba: středně světlý odstín pleti</annotation>
-		<annotation cp="🧎🏽">klečet | klečící | klečící osoba | klek | poklek | střední odstín pleti</annotation>
-		<annotation cp="🧎🏽" type="tts">klečící osoba: střední odstín pleti</annotation>
-		<annotation cp="🧎🏾">klečet | klečící | klečící osoba | klek | poklek | středně tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏾" type="tts">klečící osoba: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏿">klečet | klečící | klečící osoba | klek | poklek | tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏿" type="tts">klečící osoba: tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏻‍♀">klečet | klečící | klek | poklek | světlý odstín pleti | žena</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">klečící žena: světlý odstín pleti</annotation>
-		<annotation cp="🧎🏼‍♀">klečet | klečící | klek | poklek | středně světlý odstín pleti | žena</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">klečící žena: středně světlý odstín pleti</annotation>
-		<annotation cp="🧎🏽‍♀">klečet | klečící | klek | poklek | střední odstín pleti | žena</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">klečící žena: střední odstín pleti</annotation>
-		<annotation cp="🧎🏾‍♀">klečet | klečící | klek | poklek | středně tmavý odstín pleti | žena</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">klečící žena: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏿‍♀">klečet | klečící | klek | poklek | tmavý odstín pleti | žena</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">klečící žena: tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏻‍♂">klečet | klečící | klek | muž | poklek | světlý odstín pleti</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">klečící muž: světlý odstín pleti</annotation>
-		<annotation cp="🧎🏼‍♂">klečet | klečící | klek | muž | poklek | středně světlý odstín pleti</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">klečící muž: středně světlý odstín pleti</annotation>
-		<annotation cp="🧎🏽‍♂">klečet | klečící | klek | muž | poklek | střední odstín pleti</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">klečící muž: střední odstín pleti</annotation>
-		<annotation cp="🧎🏾‍♂">klečet | klečící | klek | muž | poklek | středně tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">klečící muž: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏿‍♂">klečet | klečící | klek | muž | poklek | tmavý odstín pleti</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">klečící muž: tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏻">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | světlý odstín pleti | ucho | usnadnění</annotation>
-		<annotation cp="🧏🏻" type="tts">hluchá osoba: světlý odstín pleti</annotation>
-		<annotation cp="🧏🏼">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | středně světlý odstín pleti | ucho | usnadnění</annotation>
-		<annotation cp="🧏🏼" type="tts">hluchá osoba: středně světlý odstín pleti</annotation>
-		<annotation cp="🧏🏽">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | střední odstín pleti | ucho | usnadnění</annotation>
-		<annotation cp="🧏🏽" type="tts">hluchá osoba: střední odstín pleti</annotation>
-		<annotation cp="🧏🏾">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | středně tmavý odstín pleti | ucho | usnadnění</annotation>
-		<annotation cp="🧏🏾" type="tts">hluchá osoba: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏿">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | tmavý odstín pleti | ucho | usnadnění</annotation>
-		<annotation cp="🧏🏿" type="tts">hluchá osoba: tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏻‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | světlý odstín pleti | žena</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">hluchá žena: světlý odstín pleti</annotation>
-		<annotation cp="🧏🏼‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | středně světlý odstín pleti | žena</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">hluchá žena: středně světlý odstín pleti</annotation>
-		<annotation cp="🧏🏽‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | střední odstín pleti | žena</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">hluchá žena: střední odstín pleti</annotation>
-		<annotation cp="🧏🏾‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | středně tmavý odstín pleti | žena</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">hluchá žena: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏿‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | tmavý odstín pleti | žena</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">hluchá žena: tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏻‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | světlý odstín pleti</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">hluchý muž: světlý odstín pleti</annotation>
-		<annotation cp="🧏🏼‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | středně světlý odstín pleti</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">hluchý muž: středně světlý odstín pleti</annotation>
-		<annotation cp="🧏🏽‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | střední odstín pleti</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">hluchý muž: střední odstín pleti</annotation>
-		<annotation cp="🧏🏾‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | středně tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">hluchý muž: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏿‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | tmavý odstín pleti</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">hluchý muž: tmavý odstín pleti</annotation>
 		<annotation cp="👋🏻">mávající ruka | mávání | mávat | ruka | světlý odstín pleti | tělo</annotation>
 		<annotation cp="👋🏻" type="tts">mávající ruka: světlý odstín pleti</annotation>
 		<annotation cp="👋🏼">mávající ruka | mávání | mávat | ruka | středně světlý odstín pleti | tělo</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">gesto OK: středně tmavý odstín pleti</annotation>
 		<annotation cp="👌🏿">gesto OK | OK | ruka | tělo | tmavý odstín pleti</annotation>
 		<annotation cp="👌🏿" type="tts">gesto OK: tmavý odstín pleti</annotation>
+		<annotation cp="🤏🏻">gesto „málo“ | malé množství | špetka | světlý odstín pleti | troška</annotation>
+		<annotation cp="🤏🏻" type="tts">gesto „málo“: světlý odstín pleti</annotation>
+		<annotation cp="🤏🏼">gesto „málo“ | malé množství | špetka | středně světlý odstín pleti | troška</annotation>
+		<annotation cp="🤏🏼" type="tts">gesto „málo“: středně světlý odstín pleti</annotation>
+		<annotation cp="🤏🏽">gesto „málo“ | malé množství | špetka | střední odstín pleti | troška</annotation>
+		<annotation cp="🤏🏽" type="tts">gesto „málo“: střední odstín pleti</annotation>
+		<annotation cp="🤏🏾">gesto „málo“ | malé množství | špetka | středně tmavý odstín pleti | troška</annotation>
+		<annotation cp="🤏🏾" type="tts">gesto „málo“: středně tmavý odstín pleti</annotation>
+		<annotation cp="🤏🏿">gesto „málo“ | malé množství | špetka | tmavý odstín pleti | troška</annotation>
+		<annotation cp="🤏🏿" type="tts">gesto „málo“: tmavý odstín pleti</annotation>
 		<annotation cp="✌🏻">gesto vítězství | ruka | světlý odstín pleti | tělo | v | vítězství</annotation>
 		<annotation cp="✌🏻" type="tts">gesto vítězství: světlý odstín pleti</annotation>
 		<annotation cp="✌🏼">gesto vítězství | ruka | středně světlý odstín pleti | tělo | v | vítězství</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">ucho: středně tmavý odstín pleti</annotation>
 		<annotation cp="👂🏿">tělo | tmavý odstín pleti | ucho</annotation>
 		<annotation cp="👂🏿" type="tts">ucho: tmavý odstín pleti</annotation>
+		<annotation cp="🦻🏻">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | světlý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
+		<annotation cp="🦻🏻" type="tts">ucho s naslouchátkem: světlý odstín pleti</annotation>
+		<annotation cp="🦻🏼">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | středně světlý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
+		<annotation cp="🦻🏼" type="tts">ucho s naslouchátkem: středně světlý odstín pleti</annotation>
+		<annotation cp="🦻🏽">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | střední odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
+		<annotation cp="🦻🏽" type="tts">ucho s naslouchátkem: střední odstín pleti</annotation>
+		<annotation cp="🦻🏾">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | středně tmavý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
+		<annotation cp="🦻🏾" type="tts">ucho s naslouchátkem: středně tmavý odstín pleti</annotation>
+		<annotation cp="🦻🏿">handicap | hendikep | naslouchadlo | nedoslýchavost | pomůcka | postižení | tmavý odstín pleti | ucho s naslouchátkem | usnadnění</annotation>
+		<annotation cp="🦻🏿" type="tts">ucho s naslouchátkem: tmavý odstín pleti</annotation>
 		<annotation cp="👃🏻">nos | světlý odstín pleti | tělo</annotation>
 		<annotation cp="👃🏻" type="tts">nos: světlý odstín pleti</annotation>
 		<annotation cp="👃🏼">nos | středně světlý odstín pleti | tělo</annotation>
@@ -543,36 +452,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">člověk s blond vlasy: středně tmavý odstín pleti</annotation>
 		<annotation cp="👱🏿">blond | člověk s blond vlasy | světlé vlasy | tmavý odstín pleti</annotation>
 		<annotation cp="👱🏿" type="tts">člověk s blond vlasy: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | světlý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti | světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | střední odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | světlý odstín pleti | tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti | tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">dva lidé držící se za ruce: tmavý odstín pleti</annotation>
+		<annotation cp="🧑‍🦰">člověk | dospělák | dospělý člověk | neutrální | osoba | zrzavé vlasy</annotation>
+		<annotation cp="🧑‍🦰" type="tts">dospělý člověk: zrzavé vlasy</annotation>
+		<annotation cp="🧑🏻‍🦰">člověk | dospělák | dospělý člověk | neutrální | osoba | světlý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">dospělý člověk: světlý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="🧑🏼‍🦰">člověk | dospělák | dospělý člověk | neutrální | osoba | středně světlý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">dospělý člověk: středně světlý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="🧑🏽‍🦰">člověk | dospělák | dospělý člověk | neutrální | osoba | střední odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">dospělý člověk: střední odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="🧑🏾‍🦰">člověk | dospělák | dospělý člověk | neutrální | osoba | středně tmavý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">dospělý člověk: středně tmavý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="🧑🏿‍🦰">člověk | dospělák | dospělý člověk | neutrální | osoba | tmavý odstín pleti | zrzavé vlasy</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">dospělý člověk: tmavý odstín pleti, zrzavé vlasy</annotation>
+		<annotation cp="🧑‍🦱">člověk | dospělák | dospělý člověk | kudrnaté vlasy | neutrální | osoba</annotation>
+		<annotation cp="🧑‍🦱" type="tts">dospělý člověk: kudrnaté vlasy</annotation>
+		<annotation cp="🧑🏻‍🦱">člověk | dospělák | dospělý člověk | kudrnaté vlasy | neutrální | osoba | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">dospělý člověk: světlý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="🧑🏼‍🦱">člověk | dospělák | dospělý člověk | kudrnaté vlasy | neutrální | osoba | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">dospělý člověk: středně světlý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="🧑🏽‍🦱">člověk | dospělák | dospělý člověk | kudrnaté vlasy | neutrální | osoba | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">dospělý člověk: střední odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="🧑🏾‍🦱">člověk | dospělák | dospělý člověk | kudrnaté vlasy | neutrální | osoba | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">dospělý člověk: středně tmavý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="🧑🏿‍🦱">člověk | dospělák | dospělý člověk | kudrnaté vlasy | neutrální | osoba | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">dospělý člověk: tmavý odstín pleti, kudrnaté vlasy</annotation>
+		<annotation cp="🧑‍🦳">bílé vlasy | člověk | dospělák | dospělý člověk | neutrální | osoba</annotation>
+		<annotation cp="🧑‍🦳" type="tts">dospělý člověk: bílé vlasy</annotation>
+		<annotation cp="🧑🏻‍🦳">bílé vlasy | člověk | dospělák | dospělý člověk | neutrální | osoba | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">dospělý člověk: světlý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="🧑🏼‍🦳">bílé vlasy | člověk | dospělák | dospělý člověk | neutrální | osoba | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">dospělý člověk: středně světlý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="🧑🏽‍🦳">bílé vlasy | člověk | dospělák | dospělý člověk | neutrální | osoba | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">dospělý člověk: střední odstín pleti, bílé vlasy</annotation>
+		<annotation cp="🧑🏾‍🦳">bílé vlasy | člověk | dospělák | dospělý člověk | neutrální | osoba | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">dospělý člověk: středně tmavý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="🧑🏿‍🦳">bílé vlasy | člověk | dospělák | dospělý člověk | neutrální | osoba | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">dospělý člověk: tmavý odstín pleti, bílé vlasy</annotation>
+		<annotation cp="🧑‍🦲">bez vlasů | člověk | dospělák | dospělý člověk | neutrální | osoba</annotation>
+		<annotation cp="🧑‍🦲" type="tts">dospělý člověk: bez vlasů</annotation>
+		<annotation cp="🧑🏻‍🦲">bez vlasů | člověk | dospělák | dospělý člověk | neutrální | osoba | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">dospělý člověk: světlý odstín pleti, bez vlasů</annotation>
+		<annotation cp="🧑🏼‍🦲">bez vlasů | člověk | dospělák | dospělý člověk | neutrální | osoba | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">dospělý člověk: středně světlý odstín pleti, bez vlasů</annotation>
+		<annotation cp="🧑🏽‍🦲">bez vlasů | člověk | dospělák | dospělý člověk | neutrální | osoba | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">dospělý člověk: střední odstín pleti, bez vlasů</annotation>
+		<annotation cp="🧑🏾‍🦲">bez vlasů | člověk | dospělák | dospělý člověk | neutrální | osoba | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">dospělý člověk: středně tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="🧑🏿‍🦲">bez vlasů | člověk | dospělák | dospělý člověk | neutrální | osoba | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">dospělý člověk: tmavý odstín pleti, bez vlasů</annotation>
 		<annotation cp="👨🏻">muž | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻" type="tts">muž: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼">muž | středně světlý odstín pleti</annotation>
@@ -583,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">muž: středně tmavý odstín pleti</annotation>
 		<annotation cp="👨🏿">muž | tmavý odstín pleti</annotation>
 		<annotation cp="👨🏿" type="tts">muž: tmavý odstín pleti</annotation>
-		<annotation cp="👨🏻‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | světlý odstín pleti | usnadnění</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">muž se slepeckou holí: světlý odstín pleti</annotation>
-		<annotation cp="👨🏼‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | středně světlý odstín pleti | usnadnění</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">muž se slepeckou holí: středně světlý odstín pleti</annotation>
-		<annotation cp="👨🏽‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | střední odstín pleti | usnadnění</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">muž se slepeckou holí: střední odstín pleti</annotation>
-		<annotation cp="👨🏾‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | středně tmavý odstín pleti | usnadnění</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">muž se slepeckou holí: středně tmavý odstín pleti</annotation>
-		<annotation cp="👨🏿‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | tmavý odstín pleti | usnadnění</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">muž se slepeckou holí: tmavý odstín pleti</annotation>
-		<annotation cp="👨🏻‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">muž na elektrickém invalidním vozíku: světlý odstín pleti</annotation>
-		<annotation cp="👨🏼‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">muž na elektrickém invalidním vozíku: středně světlý odstín pleti</annotation>
-		<annotation cp="👨🏽‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">muž na elektrickém invalidním vozíku: střední odstín pleti</annotation>
-		<annotation cp="👨🏾‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">muž na elektrickém invalidním vozíku: středně tmavý odstín pleti</annotation>
-		<annotation cp="👨🏿‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">muž na elektrickém invalidním vozíku: tmavý odstín pleti</annotation>
-		<annotation cp="👨🏻‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">muž na mechanickém invalidním vozíku: světlý odstín pleti</annotation>
-		<annotation cp="👨🏼‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">muž na mechanickém invalidním vozíku: středně světlý odstín pleti</annotation>
-		<annotation cp="👨🏽‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">muž na mechanickém invalidním vozíku: střední odstín pleti</annotation>
-		<annotation cp="👨🏾‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">muž na mechanickém invalidním vozíku: středně tmavý odstín pleti</annotation>
-		<annotation cp="👨🏿‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">muž na mechanickém invalidním vozíku: tmavý odstín pleti</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | střední odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dva muži držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dva muži držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="🧔🏻">muž s plnovousem | plnovous | světlý odstín pleti | vous | vousáč</annotation>
+		<annotation cp="🧔🏻" type="tts">muž s plnovousem: světlý odstín pleti</annotation>
+		<annotation cp="🧔🏼">muž s plnovousem | plnovous | středně světlý odstín pleti | vous | vousáč</annotation>
+		<annotation cp="🧔🏼" type="tts">muž s plnovousem: středně světlý odstín pleti</annotation>
+		<annotation cp="🧔🏽">muž s plnovousem | plnovous | střední odstín pleti | vous | vousáč</annotation>
+		<annotation cp="🧔🏽" type="tts">muž s plnovousem: střední odstín pleti</annotation>
+		<annotation cp="🧔🏾">muž s plnovousem | plnovous | středně tmavý odstín pleti | vous | vousáč</annotation>
+		<annotation cp="🧔🏾" type="tts">muž s plnovousem: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧔🏿">muž s plnovousem | plnovous | tmavý odstín pleti | vous | vousáč</annotation>
+		<annotation cp="🧔🏿" type="tts">muž s plnovousem: tmavý odstín pleti</annotation>
+		<annotation cp="👱🏻‍♂">blond | blonďák | muž | plavovlasý | světlovlasý | světlý odstín pleti</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blonďák: světlý odstín pleti</annotation>
+		<annotation cp="👱🏼‍♂">blond | blonďák | muž | plavovlasý | středně světlý odstín pleti | světlovlasý</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blonďák: středně světlý odstín pleti</annotation>
+		<annotation cp="👱🏽‍♂">blond | blonďák | muž | plavovlasý | střední odstín pleti | světlovlasý</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blonďák: střední odstín pleti</annotation>
+		<annotation cp="👱🏾‍♂">blond | blonďák | muž | plavovlasý | středně tmavý odstín pleti | světlovlasý</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blonďák: středně tmavý odstín pleti</annotation>
+		<annotation cp="👱🏿‍♂">blond | blonďák | muž | plavovlasý | světlovlasý | tmavý odstín pleti</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blonďák: tmavý odstín pleti</annotation>
 		<annotation cp="👨‍🦰">muž | zrzavé vlasy</annotation>
 		<annotation cp="👨‍🦰" type="tts">muž: zrzavé vlasy</annotation>
 		<annotation cp="👨🏻‍🦰">muž | světlý odstín pleti | zrzavé vlasy</annotation>
@@ -681,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">muž: středně tmavý odstín pleti, bez vlasů</annotation>
 		<annotation cp="👨🏿‍🦲">bez vlasů | muž | tmavý odstín pleti</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">muž: tmavý odstín pleti, bez vlasů</annotation>
-		<annotation cp="👱🏻‍♂">blond | blonďák | muž | plavovlasý | světlovlasý | světlý odstín pleti</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">blonďák: světlý odstín pleti</annotation>
-		<annotation cp="👱🏼‍♂">blond | blonďák | muž | plavovlasý | středně světlý odstín pleti | světlovlasý</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">blonďák: středně světlý odstín pleti</annotation>
-		<annotation cp="👱🏽‍♂">blond | blonďák | muž | plavovlasý | střední odstín pleti | světlovlasý</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">blonďák: střední odstín pleti</annotation>
-		<annotation cp="👱🏾‍♂">blond | blonďák | muž | plavovlasý | středně tmavý odstín pleti | světlovlasý</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">blonďák: středně tmavý odstín pleti</annotation>
-		<annotation cp="👱🏿‍♂">blond | blonďák | muž | plavovlasý | světlovlasý | tmavý odstín pleti</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">blonďák: tmavý odstín pleti</annotation>
-		<annotation cp="🧔🏻">muž s plnovousem | plnovous | světlý odstín pleti | vous | vousáč</annotation>
-		<annotation cp="🧔🏻" type="tts">muž s plnovousem: světlý odstín pleti</annotation>
-		<annotation cp="🧔🏼">muž s plnovousem | plnovous | středně světlý odstín pleti | vous | vousáč</annotation>
-		<annotation cp="🧔🏼" type="tts">muž s plnovousem: středně světlý odstín pleti</annotation>
-		<annotation cp="🧔🏽">muž s plnovousem | plnovous | střední odstín pleti | vous | vousáč</annotation>
-		<annotation cp="🧔🏽" type="tts">muž s plnovousem: střední odstín pleti</annotation>
-		<annotation cp="🧔🏾">muž s plnovousem | plnovous | středně tmavý odstín pleti | vous | vousáč</annotation>
-		<annotation cp="🧔🏾" type="tts">muž s plnovousem: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧔🏿">muž s plnovousem | plnovous | tmavý odstín pleti | vous | vousáč</annotation>
-		<annotation cp="🧔🏿" type="tts">muž s plnovousem: tmavý odstín pleti</annotation>
 		<annotation cp="👩🏻">světlý odstín pleti | žena</annotation>
 		<annotation cp="👩🏻" type="tts">žena: světlý odstín pleti</annotation>
 		<annotation cp="👩🏼">středně světlý odstín pleti | žena</annotation>
@@ -711,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">žena: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿">tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿" type="tts">žena: tmavý odstín pleti</annotation>
-		<annotation cp="👩🏻‍🦯">handicap | hendikep | pomůcka | postižení | slepá | světlý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">žena se slepeckou holí: světlý odstín pleti</annotation>
-		<annotation cp="👩🏼‍🦯">handicap | hendikep | pomůcka | postižení | slepá | středně světlý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">žena se slepeckou holí: středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🦯">handicap | hendikep | pomůcka | postižení | slepá | střední odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">žena se slepeckou holí: střední odstín pleti</annotation>
-		<annotation cp="👩🏾‍🦯">handicap | hendikep | pomůcka | postižení | slepá | středně tmavý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">žena se slepeckou holí: středně tmavý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🦯">handicap | hendikep | pomůcka | postižení | slepá | tmavý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">žena se slepeckou holí: tmavý odstín pleti</annotation>
-		<annotation cp="👩🏻‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">žena na elektrickém invalidním vozíku: světlý odstín pleti</annotation>
-		<annotation cp="👩🏼‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">žena na elektrickém invalidním vozíku: středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">žena na elektrickém invalidním vozíku: střední odstín pleti</annotation>
-		<annotation cp="👩🏾‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">žena na elektrickém invalidním vozíku: středně tmavý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">žena na elektrickém invalidním vozíku: tmavý odstín pleti</annotation>
-		<annotation cp="👩🏻‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">žena na mechanickém invalidním vozíku: světlý odstín pleti</annotation>
-		<annotation cp="👩🏼‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">žena na mechanickém invalidním vozíku: středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">žena na mechanickém invalidním vozíku: střední odstín pleti</annotation>
-		<annotation cp="👩🏾‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">žena na mechanickém invalidním vozíku: středně tmavý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">žena na mechanickém invalidním vozíku: tmavý odstín pleti</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: světlý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: světlý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: světlý odstín pleti, středně tmavý odstín pleti</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: světlý odstín pleti, tmavý odstín pleti</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, středně tmavý odstín pleti</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, tmavý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | žena</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: střední odstín pleti, středně tmavý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: střední odstín pleti, tmavý odstín pleti</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | žena</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, tmavý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | žena</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👱🏻‍♀">blond | blondýna | blondýnka | plavovláska | světlovláska | světlý odstín pleti | žena</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blondýna: světlý odstín pleti</annotation>
+		<annotation cp="👱🏼‍♀">blond | blondýna | blondýnka | plavovláska | středně světlý odstín pleti | světlovláska | žena</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blondýna: středně světlý odstín pleti</annotation>
+		<annotation cp="👱🏽‍♀">blond | blondýna | blondýnka | plavovláska | střední odstín pleti | světlovláska | žena</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blondýna: střední odstín pleti</annotation>
+		<annotation cp="👱🏾‍♀">blond | blondýna | blondýnka | plavovláska | středně tmavý odstín pleti | světlovláska | žena</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blondýna: středně tmavý odstín pleti</annotation>
+		<annotation cp="👱🏿‍♀">blond | blondýna | blondýnka | plavovláska | světlovláska | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blondýna: tmavý odstín pleti</annotation>
 		<annotation cp="👩‍🦰">žena | zrzavé vlasy</annotation>
 		<annotation cp="👩‍🦰" type="tts">žena: zrzavé vlasy</annotation>
 		<annotation cp="👩🏻‍🦰">světlý odstín pleti | žena | zrzavé vlasy</annotation>
@@ -849,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">žena: středně tmavý odstín pleti, bez vlasů</annotation>
 		<annotation cp="👩🏿‍🦲">bez vlasů | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">žena: tmavý odstín pleti, bez vlasů</annotation>
-		<annotation cp="👱🏻‍♀">blond | blondýna | blondýnka | plavovláska | světlovláska | světlý odstín pleti | žena</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">blondýna: světlý odstín pleti</annotation>
-		<annotation cp="👱🏼‍♀">blond | blondýna | blondýnka | plavovláska | středně světlý odstín pleti | světlovláska | žena</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">blondýna: středně světlý odstín pleti</annotation>
-		<annotation cp="👱🏽‍♀">blond | blondýna | blondýnka | plavovláska | střední odstín pleti | světlovláska | žena</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">blondýna: střední odstín pleti</annotation>
-		<annotation cp="👱🏾‍♀">blond | blondýna | blondýnka | plavovláska | středně tmavý odstín pleti | světlovláska | žena</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">blondýna: středně tmavý odstín pleti</annotation>
-		<annotation cp="👱🏿‍♀">blond | blondýna | blondýnka | plavovláska | světlovláska | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">blondýna: tmavý odstín pleti</annotation>
 		<annotation cp="🧓🏻">člověk | neutrální | osoba | stará | starší dospělý člověk | starý | světlý odstín pleti</annotation>
 		<annotation cp="🧓🏻" type="tts">starší dospělý člověk: světlý odstín pleti</annotation>
 		<annotation cp="🧓🏼">člověk | neutrální | osoba | stará | starší dospělý člověk | starý | středně světlý odstín pleti</annotation>
@@ -1069,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">žena se zvednutou rukou: středně tmavý odstín pleti</annotation>
 		<annotation cp="🙋🏿‍♀">přihlášení | ruka | tmavý odstín pleti | žena | žena se zvednutou rukou | zvednutí</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">žena se zvednutou rukou: tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏻">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | světlý odstín pleti | ucho | usnadnění</annotation>
+		<annotation cp="🧏🏻" type="tts">hluchá osoba: světlý odstín pleti</annotation>
+		<annotation cp="🧏🏼">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | středně světlý odstín pleti | ucho | usnadnění</annotation>
+		<annotation cp="🧏🏼" type="tts">hluchá osoba: středně světlý odstín pleti</annotation>
+		<annotation cp="🧏🏽">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | střední odstín pleti | ucho | usnadnění</annotation>
+		<annotation cp="🧏🏽" type="tts">hluchá osoba: střední odstín pleti</annotation>
+		<annotation cp="🧏🏾">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | středně tmavý odstín pleti | ucho | usnadnění</annotation>
+		<annotation cp="🧏🏾" type="tts">hluchá osoba: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏿">handicap | hendikep | hluchá osoba | hluchota | nedoslýchavost | pomůcka | postižení | sluch | tmavý odstín pleti | ucho | usnadnění</annotation>
+		<annotation cp="🧏🏿" type="tts">hluchá osoba: tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏻‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | světlý odstín pleti</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">hluchý muž: světlý odstín pleti</annotation>
+		<annotation cp="🧏🏼‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | středně světlý odstín pleti</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">hluchý muž: středně světlý odstín pleti</annotation>
+		<annotation cp="🧏🏽‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | střední odstín pleti</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">hluchý muž: střední odstín pleti</annotation>
+		<annotation cp="🧏🏾‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">hluchý muž: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏿‍♂">hluchota | hluchý | muž | nedoslýchavost | nedoslýchavý | tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">hluchý muž: tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏻‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | světlý odstín pleti | žena</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">hluchá žena: světlý odstín pleti</annotation>
+		<annotation cp="🧏🏼‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | středně světlý odstín pleti | žena</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">hluchá žena: středně světlý odstín pleti</annotation>
+		<annotation cp="🧏🏽‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | střední odstín pleti | žena</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">hluchá žena: střední odstín pleti</annotation>
+		<annotation cp="🧏🏾‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">hluchá žena: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧏🏿‍♀">hluchá | hluchota | nedoslýchavá | nedoslýchavost | tmavý odstín pleti | žena</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">hluchá žena: tmavý odstín pleti</annotation>
 		<annotation cp="🙇🏻">gesto | lítost | omluva | poklona | prosba | světlý odstín pleti | úcta | uklánějící se osoba | úklona</annotation>
 		<annotation cp="🙇🏻" type="tts">uklánějící se osoba: světlý odstín pleti</annotation>
 		<annotation cp="🙇🏼">gesto | lítost | omluva | poklona | prosba | středně světlý odstín pleti | úcta | uklánějící se osoba | úklona</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">žena krčící rameny: středně tmavý odstín pleti</annotation>
 		<annotation cp="🤷🏿‍♀">nejistota | nerozhodnost | nevědomost | nevím | nezájem | pochybnost | pochyby | pokrčení | pokrčit | ramena | tmavý odstín pleti | žena | žena krčící rameny</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">žena krčící rameny: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍⚕">doktor | doktorka | nemocnice | sestřička | světlý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">zdravotník/zdravotnice: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍⚕">doktor | doktorka | nemocnice | sestřička | středně světlý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">zdravotník/zdravotnice: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍⚕">doktor | doktorka | nemocnice | sestřička | střední odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">zdravotník/zdravotnice: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍⚕">doktor | doktorka | nemocnice | sestřička | středně tmavý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">zdravotník/zdravotnice: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍⚕">doktor | doktorka | nemocnice | sestřička | terapeut | terapeutka | tmavý odstín pleti | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">zdravotník/zdravotnice: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍⚕">doktor | nemocnice | světlý odstín pleti | terapeut | zdravotník</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">zdravotník: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍⚕">doktor | nemocnice | středně světlý odstín pleti | terapeut | zdravotník</annotation>
@@ -1179,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">zdravotnice: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍⚕">doktorka | nemocnice | sestřička | terapeutka | tmavý odstín pleti | zdravotnice</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">zdravotnice: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🎓">absolvent | absolventka | student | studentka | studující | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">studující: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🎓">absolvent | absolventka | středně světlý odstín pleti | student | studentka | studující</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">studující: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🎓">absolvent | absolventka | střední odstín pleti | student | studentka | studující</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">studující: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🎓">absolvent | absolventka | středně tmavý odstín pleti | student | studentka | studující</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">studující: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🎓">absolvent | absolventka | student | studentka | studující | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">studující: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🎓">absolvent | muž | student | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">student: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🎓">absolvent | muž | středně světlý odstín pleti | student</annotation>
@@ -1199,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">studentka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🎓">absolventka | studentka | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">studentka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🏫">instruktor | instruktorka | profesor | profesorka | světlý odstín pleti | učitel | učitelka | vyučující</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">vyučující: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🏫">instruktor | instruktorka | profesor | profesorka | středně světlý odstín pleti | učitel | učitelka | vyučující</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">vyučující: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🏫">instruktor | instruktorka | profesor | profesorka | střední odstín pleti | učitel | učitelka | vyučující</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">vyučující: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🏫">instruktor | instruktorka | profesor | profesorka | středně tmavý odstín pleti | učitel | učitelka | vyučující</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">vyučující: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🏫">instruktor | instruktorka | profesor | profesorka | tmavý odstín pleti | učitel | učitelka | vyučující</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">vyučující: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🏫">instruktor | muž | profesor | světlý odstín pleti | učitel</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">učitel: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🏫">instruktor | muž | profesor | středně světlý odstín pleti | učitel</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">učitelka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🏫">instruktorka | profesorka | tmavý odstín pleti | učitelka | žena</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">učitelka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍⚖">právo | soudce | soudkyně | spravedlnost | světlý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">soudce/soudkyně: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍⚖">právo | soudce | soudkyně | spravedlnost | středně světlý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">soudce/soudkyně: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍⚖">právo | soudce | soudkyně | spravedlnost | střední odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">soudce/soudkyně: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍⚖">právo | soudce | soudkyně | spravedlnost | středně tmavý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">soudce/soudkyně: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍⚖">právo | soudce | soudkyně | spravedlnost | tmavý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">soudce/soudkyně: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍⚖">muž | právo | soudce | spravedlnost | světlý odstín pleti | váhy</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">soudce: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍⚖">muž | právo | soudce | spravedlnost | středně světlý odstín pleti | váhy</annotation>
@@ -1239,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">soudkyně: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍⚖">právo | soudkyně | spravedlnost | tmavý odstín pleti | váhy | žena</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">soudkyně: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🌾">farmář | farmářka | sedlák | selka | světlý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">farmář/farmářka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🌾">farmář | farmářka | sedlák | selka | středně světlý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">farmář/farmářka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🌾">farmář | farmářka | sedlák | selka | střední odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">farmář/farmářka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🌾">farmář | farmářka | sedlák | selka | středně tmavý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">farmář/farmářka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🌾">farmář | farmářka | sedlák | selka | tmavý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">farmář/farmářka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🌾">farmář | muž | sedlák | světlý odstín pleti | zahradník | zemědělec</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">farmář: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🌾">farmář | muž | sedlák | středně světlý odstín pleti | zahradník | zemědělec</annotation>
@@ -1259,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">farmářka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🌾">farmářka | selka | tmavý odstín pleti | zahradnice | zemědělkyně | žena</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">farmářka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">kuchař/kuchařka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">kuchař/kuchařka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">kuchař/kuchařka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">kuchař/kuchařka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">kuchař/kuchařka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🍳">kuchař | muž | šéfkuchař | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">kuchař: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🍳">kuchař | muž | šéfkuchař | středně světlý odstín pleti</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">kuchařka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🍳">kuchařka | šéfkuchařka | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kuchařka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | světlý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">mechanik/mechanička: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | středně světlý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">mechanik/mechanička: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | střední odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">mechanik/mechanička: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | středně tmavý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">mechanik/mechanička: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | tmavý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">mechanik/mechanička: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🔧">elektrikář | mechanik | montér | muž | opravář | řemeslník | světlý odstín pleti | živnostník</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mechanik: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🔧">elektrikář | mechanik | montér | muž | opravář | řemeslník | středně světlý odstín pleti | živnostník</annotation>
@@ -1299,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">mechanička: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🔧">elektrikářka | mechanička | montérka | opravářka | řemeslnice | tmavý odstín pleti | žena | živnostnice</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mechanička: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🏭">dělnice | dělník | průmysl | světlý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">osoba pracující v továrně: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🏭">dělnice | dělník | průmysl | středně světlý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">osoba pracující v továrně: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🏭">dělnice | dělník | průmysl | střední odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">osoba pracující v továrně: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🏭">dělnice | dělník | průmysl | středně tmavý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">osoba pracující v továrně: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🏭">dělnice | dělník | průmysl | tmavý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">osoba pracující v továrně: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🏭">dělník | dělník v továrně | muž | průmysl | světlý odstín pleti | výroba</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">dělník v továrně: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🏭">dělník | dělník v továrně | muž | průmysl | středně světlý odstín pleti | výroba</annotation>
@@ -1319,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">dělnice v továrně: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🏭">dělnice | dělnice v továrně | průmysl | tmavý odstín pleti | výroba | žena</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">dělnice v továrně: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | světlý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">manažer/manažerka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | středně světlý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">manažer/manažerka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | střední odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">manažer/manažerka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | středně tmavý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">manažer/manažerka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | tmavý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">manažer/manažerka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍💼">bílý límeček | byznys | kancelář | manažer | muž | světlý odstín pleti | úředník</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">manažer: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍💼">bílý límeček | byznys | kancelář | manažer | muž | středně světlý odstín pleti | úředník</annotation>
@@ -1339,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">manažerka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍💼">bílý límeček | byznys | kancelář | manažerka | tmavý odstín pleti | úřednice | žena</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">manažerka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | světlý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">vědec/vědkyně: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | středně světlý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">vědec/vědkyně: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | střední odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">vědec/vědkyně: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | středně tmavý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">vědec/vědkyně: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | tmavý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">vědec/vědkyně: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🔬">biolog | chemik | fyzik | inženýr | matematik | muž | světlý odstín pleti | věda | vědec</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">vědec: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🔬">biolog | chemik | fyzik | inženýr | matematik | muž | středně světlý odstín pleti | věda | vědec</annotation>
@@ -1359,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">vědkyně: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🔬">bioložka | chemička | fyzička | inženýrka | matematička | tmavý odstín pleti | věda | vědkyně | žena</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">vědkyně: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍💻">kodér | kodérka | software | světlý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">programátor/programátorka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍💻">kodér | kodérka | software | středně světlý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">programátor/programátorka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍💻">kodér | kodérka | software | střední odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">programátor/programátorka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍💻">kodér | kodérka | software | středně tmavý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">programátor/programátorka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍💻">kodér | kodérka | software | technologie | tmavý odstín pleti | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">programátor/programátorka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍💻">kodér | muž | notebook | počítač | programátor | programování | software | světlý odstín pleti | technologie | vynálezce | vývoj | vývojář</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">programátor: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍💻">kodér | muž | notebook | počítač | programátor | programování | software | středně světlý odstín pleti | technologie | vynálezce | vývoj | vývojář</annotation>
@@ -1379,6 +1306,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">programátorka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍💻">kodérka | notebook | počítač | programátorka | programování | software | technologie | tmavý odstín pleti | vynálezkyně | vývoj | vývojářka | žena</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">programátorka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | světlý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">zpěvák/zpěvačka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | středně světlý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">zpěvák/zpěvačka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | střední odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">zpěvák/zpěvačka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | středně tmavý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">zpěvák/zpěvačka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | tmavý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">zpěvák/zpěvačka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🎤">bavič | herec | hvězda | muž | rock | rocker | světlý odstín pleti | zábava | zpěvák</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">zpěvák: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🎤">bavič | herec | hvězda | muž | rock | rocker | středně světlý odstín pleti | zábava | zpěvák</annotation>
@@ -1399,6 +1336,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎤" type="tts">zpěvačka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🎤">bavička | herečka | hvězda | rock | rockerka | tmavý odstín pleti | zábava | žena | zpěvačka</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">zpěvačka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🎨">malíř | malířka | paleta | světlý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">malíř/malířka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🎨">malíř | malířka | paleta | středně světlý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">malíř/malířka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🎨">malíř | malířka | paleta | střední odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">malíř/malířka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🎨">malíř | malířka | paleta | středně tmavý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">malíř/malířka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🎨">malíř | malířka | paleta | tmavý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">malíř/malířka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🎨">malíř | muž | paleta | světlý odstín pleti | umělec | umění</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">malíř: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🎨">malíř | muž | paleta | středně světlý odstín pleti | umělec | umění</annotation>
@@ -1419,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">malířka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🎨">malířka | paleta | tmavý odstín pleti | umělkyně | umění | žena</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">malířka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍✈">letadlo | pilot | pilotka | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">pilot/pilotka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍✈">letadlo | pilot | pilotka | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">pilot/pilotka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍✈">letadlo | pilot | pilotka | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">pilot/pilotka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍✈">letadlo | pilot | pilotka | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">pilot/pilotka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍✈">letadlo | pilot | pilotka | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">pilot/pilotka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍✈">letadlo | muž | pilot | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilot: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍✈">letadlo | muž | pilot | středně světlý odstín pleti</annotation>
@@ -1439,6 +1396,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">pilotka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍✈">letadlo | pilotka | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilotka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | světlý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">kosmonaut/kosmonautka: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | středně světlý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">kosmonaut/kosmonautka: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | střední odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">kosmonaut/kosmonautka: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | středně tmavý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">kosmonaut/kosmonautka: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | tmavý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">kosmonaut/kosmonautka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🚀">astronaut | kosmonaut | muž | raketa | světlý odstín pleti | vesmír</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">kosmonaut: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🚀">astronaut | kosmonaut | muž | raketa | středně světlý odstín pleti | vesmír</annotation>
@@ -1459,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">kosmonautka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🚀">astronautka | kosmonautka | raketa | tmavý odstín pleti | vesmír | žena</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">kosmonautka: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | stříkačka | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">hasič/hasička: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | středně světlý odstín pleti | stříkačka</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">hasič/hasička: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | střední odstín pleti | stříkačka</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">hasič/hasička: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | středně tmavý odstín pleti | stříkačka</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">hasič/hasička: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | stříkačka | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">hasič/hasička: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🚒">hasič | hasičské auto | muž | požár | požárník | stříkačka | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">hasič: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🚒">hasič | hasičské auto | muž | požár | požárník | středně světlý odstín pleti | stříkačka</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">kráčející žena: středně tmavý odstín pleti</annotation>
 		<annotation cp="🚶🏿‍♀">chodec | chůze | kráčející žena | pěší | pěšky | procházka | tmavý odstín pleti | túra | žena</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">kráčející žena: tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏻">postoj | stoj | stojící | stojící osoba | světlý odstín pleti</annotation>
+		<annotation cp="🧍🏻" type="tts">stojící osoba: světlý odstín pleti</annotation>
+		<annotation cp="🧍🏼">postoj | stoj | stojící | stojící osoba | středně světlý odstín pleti</annotation>
+		<annotation cp="🧍🏼" type="tts">stojící osoba: středně světlý odstín pleti</annotation>
+		<annotation cp="🧍🏽">postoj | stoj | stojící | stojící osoba | střední odstín pleti</annotation>
+		<annotation cp="🧍🏽" type="tts">stojící osoba: střední odstín pleti</annotation>
+		<annotation cp="🧍🏾">postoj | stoj | stojící | stojící osoba | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏾" type="tts">stojící osoba: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏿">postoj | stoj | stojící | stojící osoba | tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏿" type="tts">stojící osoba: tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏻‍♂">muž | postoj | stoj | stojící | světlý odstín pleti</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">stojící muž: světlý odstín pleti</annotation>
+		<annotation cp="🧍🏼‍♂">muž | postoj | stoj | stojící | středně světlý odstín pleti</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">stojící muž: středně světlý odstín pleti</annotation>
+		<annotation cp="🧍🏽‍♂">muž | postoj | stoj | stojící | střední odstín pleti</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">stojící muž: střední odstín pleti</annotation>
+		<annotation cp="🧍🏾‍♂">muž | postoj | stoj | stojící | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">stojící muž: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏿‍♂">muž | postoj | stoj | stojící | tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">stojící muž: tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏻‍♀">postoj | stoj | stojící | světlý odstín pleti | žena</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">stojící žena: světlý odstín pleti</annotation>
+		<annotation cp="🧍🏼‍♀">postoj | stoj | stojící | středně světlý odstín pleti | žena</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">stojící žena: středně světlý odstín pleti</annotation>
+		<annotation cp="🧍🏽‍♀">postoj | stoj | stojící | střední odstín pleti | žena</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">stojící žena: střední odstín pleti</annotation>
+		<annotation cp="🧍🏾‍♀">postoj | stoj | stojící | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">stojící žena: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧍🏿‍♀">postoj | stoj | stojící | tmavý odstín pleti | žena</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">stojící žena: tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏻">klečet | klečící | klečící osoba | klek | poklek | světlý odstín pleti</annotation>
+		<annotation cp="🧎🏻" type="tts">klečící osoba: světlý odstín pleti</annotation>
+		<annotation cp="🧎🏼">klečet | klečící | klečící osoba | klek | poklek | středně světlý odstín pleti</annotation>
+		<annotation cp="🧎🏼" type="tts">klečící osoba: středně světlý odstín pleti</annotation>
+		<annotation cp="🧎🏽">klečet | klečící | klečící osoba | klek | poklek | střední odstín pleti</annotation>
+		<annotation cp="🧎🏽" type="tts">klečící osoba: střední odstín pleti</annotation>
+		<annotation cp="🧎🏾">klečet | klečící | klečící osoba | klek | poklek | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏾" type="tts">klečící osoba: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏿">klečet | klečící | klečící osoba | klek | poklek | tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏿" type="tts">klečící osoba: tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏻‍♂">klečet | klečící | klek | muž | poklek | světlý odstín pleti</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">klečící muž: světlý odstín pleti</annotation>
+		<annotation cp="🧎🏼‍♂">klečet | klečící | klek | muž | poklek | středně světlý odstín pleti</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">klečící muž: středně světlý odstín pleti</annotation>
+		<annotation cp="🧎🏽‍♂">klečet | klečící | klek | muž | poklek | střední odstín pleti</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">klečící muž: střední odstín pleti</annotation>
+		<annotation cp="🧎🏾‍♂">klečet | klečící | klek | muž | poklek | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">klečící muž: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏿‍♂">klečet | klečící | klek | muž | poklek | tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">klečící muž: tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏻‍♀">klečet | klečící | klek | poklek | světlý odstín pleti | žena</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">klečící žena: světlý odstín pleti</annotation>
+		<annotation cp="🧎🏼‍♀">klečet | klečící | klek | poklek | středně světlý odstín pleti | žena</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">klečící žena: středně světlý odstín pleti</annotation>
+		<annotation cp="🧎🏽‍♀">klečet | klečící | klek | poklek | střední odstín pleti | žena</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">klečící žena: střední odstín pleti</annotation>
+		<annotation cp="🧎🏾‍♀">klečet | klečící | klek | poklek | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">klečící žena: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧎🏿‍♀">klečet | klečící | klek | poklek | tmavý odstín pleti | žena</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">klečící žena: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🦯">handicap | hendikep | pomůcka | postižení | slepý | světlý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">člověk se slepeckou holí: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🦯">handicap | hendikep | pomůcka | postižení | slepý | středně světlý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">člověk se slepeckou holí: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🦯">handicap | hendikep | pomůcka | postižení | slepý | střední odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">člověk se slepeckou holí: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🦯">handicap | hendikep | pomůcka | postižení | slepý | středně tmavý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">člověk se slepeckou holí: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🦯">handicap | hendikep | pomůcka | postižení | slepý | tmavý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">člověk se slepeckou holí: tmavý odstín pleti</annotation>
+		<annotation cp="👨🏻‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | světlý odstín pleti | usnadnění</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">muž se slepeckou holí: světlý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | středně světlý odstín pleti | usnadnění</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">muž se slepeckou holí: středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏽‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | střední odstín pleti | usnadnění</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">muž se slepeckou holí: střední odstín pleti</annotation>
+		<annotation cp="👨🏾‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | středně tmavý odstín pleti | usnadnění</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">muž se slepeckou holí: středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | tmavý odstín pleti | usnadnění</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">muž se slepeckou holí: tmavý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🦯">handicap | hendikep | pomůcka | postižení | slepá | světlý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">žena se slepeckou holí: světlý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🦯">handicap | hendikep | pomůcka | postižení | slepá | středně světlý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">žena se slepeckou holí: středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🦯">handicap | hendikep | pomůcka | postižení | slepá | střední odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">žena se slepeckou holí: střední odstín pleti</annotation>
+		<annotation cp="👩🏾‍🦯">handicap | hendikep | pomůcka | postižení | slepá | středně tmavý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">žena se slepeckou holí: středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🦯">handicap | hendikep | pomůcka | postižení | slepá | tmavý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">žena se slepeckou holí: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">člověk na elektrickém invalidním vozíku: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">člověk na elektrickém invalidním vozíku: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">člověk na elektrickém invalidním vozíku: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">člověk na elektrickém invalidním vozíku: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">člověk na elektrickém invalidním vozíku: tmavý odstín pleti</annotation>
+		<annotation cp="👨🏻‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">muž na elektrickém invalidním vozíku: světlý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">muž na elektrickém invalidním vozíku: středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏽‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">muž na elektrickém invalidním vozíku: střední odstín pleti</annotation>
+		<annotation cp="👨🏾‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">muž na elektrickém invalidním vozíku: středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">muž na elektrickém invalidním vozíku: tmavý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">žena na elektrickém invalidním vozíku: světlý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">žena na elektrickém invalidním vozíku: středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">žena na elektrickém invalidním vozíku: střední odstín pleti</annotation>
+		<annotation cp="👩🏾‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">žena na elektrickém invalidním vozíku: středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">žena na elektrickém invalidním vozíku: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">člověk na mechanickém invalidním vozíku: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">člověk na mechanickém invalidním vozíku: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">člověk na mechanickém invalidním vozíku: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">člověk na mechanickém invalidním vozíku: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">člověk na mechanickém invalidním vozíku: tmavý odstín pleti</annotation>
+		<annotation cp="👨🏻‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">muž na mechanickém invalidním vozíku: světlý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">muž na mechanickém invalidním vozíku: středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏽‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">muž na mechanickém invalidním vozíku: střední odstín pleti</annotation>
+		<annotation cp="👨🏾‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">muž na mechanickém invalidním vozíku: středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">muž na mechanickém invalidním vozíku: tmavý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">žena na mechanickém invalidním vozíku: světlý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">žena na mechanickém invalidním vozíku: středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">žena na mechanickém invalidním vozíku: střední odstín pleti</annotation>
+		<annotation cp="👩🏾‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">žena na mechanickém invalidním vozíku: středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík | žena | žena na mechanickém invalidním vozíku</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">žena na mechanickém invalidním vozíku: tmavý odstín pleti</annotation>
 		<annotation cp="🏃🏻">běh | běžící osoba | maraton | světlý odstín pleti</annotation>
 		<annotation cp="🏃🏻" type="tts">běžící osoba: světlý odstín pleti</annotation>
 		<annotation cp="🏃🏼">běh | běžící osoba | maraton | středně světlý odstín pleti</annotation>
@@ -2589,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">osoba v posteli: středně tmavý odstín pleti</annotation>
 		<annotation cp="🛌🏿">hotel | osoba v posteli | spánek | tmavý odstín pleti</annotation>
 		<annotation cp="🛌🏿" type="tts">osoba v posteli: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | světlý odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">dva lidé držící se za ruce: tmavý odstín pleti</annotation>
+		<annotation cp="👭🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | světlý odstín pleti | žena</annotation>
+		<annotation cp="👭🏻" type="tts">dvě ženy držící se za ruce: světlý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👭🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | žena</annotation>
+		<annotation cp="👭🏼" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👭🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | žena</annotation>
+		<annotation cp="👭🏽" type="tts">dvě ženy držící se za ruce: střední odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👭🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="👭🏾" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👭🏿">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👭🏿" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti</annotation>
 		<annotation cp="👫🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | světlý odstín pleti | žena</annotation>
 		<annotation cp="👫🏻" type="tts">muž a žena držící se za ruce: světlý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: světlý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: světlý odstín pleti, tmavý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👫🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | žena</annotation>
 		<annotation cp="👫🏼" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: středně světlý odstín pleti, tmavý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
 		<annotation cp="👫🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | žena</annotation>
 		<annotation cp="👫🏽" type="tts">muž a žena držící se za ruce: střední odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: střední odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: střední odstín pleti, tmavý odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
 		<annotation cp="👫🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | žena</annotation>
 		<annotation cp="👫🏾" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">muž a žena držící se za ruce: středně tmavý odstín pleti, tmavý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | střední odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">muž a žena držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
 		<annotation cp="👫🏿">držet | dvojice | muž | muž a žena držící se za ruce | pár | ruka | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👫🏿" type="tts">muž a žena držící se za ruce: tmavý odstín pleti</annotation>
 		<annotation cp="👬🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | světlý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏻" type="tts">dva muži držící se za ruce: světlý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👬🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏼" type="tts">dva muži držící se za ruce: středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | střední odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
 		<annotation cp="👬🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏽" type="tts">dva muži držící se za ruce: střední odstín pleti</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
 		<annotation cp="👬🏾">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏾" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: tmavý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dva muži držící se za ruce: tmavý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dva muži držící se za ruce: tmavý odstín pleti, středně tmavý odstín pleti</annotation>
 		<annotation cp="👬🏿">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | tmavý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏿" type="tts">dva muži držící se za ruce: tmavý odstín pleti</annotation>
-		<annotation cp="👭🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | světlý odstín pleti | žena</annotation>
-		<annotation cp="👭🏻" type="tts">dvě ženy držící se za ruce: světlý odstín pleti</annotation>
-		<annotation cp="👭🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | žena</annotation>
-		<annotation cp="👭🏼" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti</annotation>
-		<annotation cp="👭🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | žena</annotation>
-		<annotation cp="👭🏽" type="tts">dvě ženy držící se za ruce: střední odstín pleti</annotation>
-		<annotation cp="👭🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | žena</annotation>
-		<annotation cp="👭🏾" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti</annotation>
-		<annotation cp="👭🏿">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | tmavý odstín pleti | žena</annotation>
-		<annotation cp="👭🏿" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">dvojice | líbání | muž | pár | polibek | romance | romantika | žena</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">polibek: žena, muž</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">dvojice | líbání | muž | pár | polibek | romance | romantika</annotation>

@@ -11,7 +11,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
@@ -36,31 +40,52 @@ public class SubdivisionNames {
      */
     public SubdivisionNames(String locale, String... dirs) {
 
+        // do inheritance
+        
         Map<String,String> builder = new TreeMap<>();
+        while (true) {
+            addSubdivisionNames(locale, builder, dirs);
+            String parent = LocaleIDParser.getParent(locale);
+            if (parent == null || parent.equals("root")) {
+                break;
+            }
+            locale = parent;
+        };
+        
+        subdivisionToName = ImmutableMap.copyOf(builder);
+    }
+
+    private void addSubdivisionNames(String locale, Map<String, String> builder, String... dirs) {
         List<Pair<String, String>> data = new ArrayList<>();
         for (String dir : dirs) {
-            XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + dir + "/"
-                + locale
-                + ".xml", data, true);
-            for (Pair<String, String> pair : data) {
-                // <subdivision type="AD-02">Canillo</subdivision>
-                String rawPath = pair.getFirst();
-                XPathParts path = XPathParts.getFrozenInstance(rawPath);
-                if (!"subdivision".equals(path.getElement(-1))) {
-                    continue;
+            try {
+                XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + dir + "/"
+                    + locale
+                    + ".xml", data, true);
+                for (Pair<String, String> pair : data) {
+                    String name = pair.getSecond();
+                    if (CldrUtility.INHERITANCE_MARKER.contentEquals(name)) {
+                        continue;
+                    }
+                    // <subdivision type="AD-02">Canillo</subdivision>
+                    String rawPath = pair.getFirst();
+                    XPathParts path = XPathParts.getFrozenInstance(rawPath);
+                    if (!"subdivision".equals(path.getElement(-1))) {
+                        continue;
+                    }
+                    String type = path.getAttributeValue(-1, "type");
+                    if (!builder.containsKey(type)) { // only add if not there already
+                        builder.put(type, name);
+                    }
                 }
-                String type = path.getAttributeValue(-1, "type");
-                String name = pair.getSecond();
-                builder.put(type, name);
-            }
+            } catch (Exception e) {} // if we can't find it, skip
         }
-        subdivisionToName = ImmutableMap.copyOf(builder);
     }
 
     public static Set<String> getAvailableLocales() {
         return getAvailableLocales("subdivisions");
     }
-    
+
     public static Set<String> getAvailableLocales(String... dirs) {
         TreeSet<String> result = new TreeSet<>();
         for (String dir : dirs) {
@@ -115,5 +140,23 @@ public class SubdivisionNames {
 
     public static boolean isOldSubdivisionCode(String item) {
         return item.length() > 4 && item.length() < 7 && OLD_SUBDIVISION.matcher(item).matches();
+    }
+    
+    public static void main(String[] args) {
+         Factory annotations = CLDRConfig.getInstance().getAnnotationsFactory();
+         for (String locale : annotations.getAvailable()) {
+             SubdivisionNames sd = new SubdivisionNames(locale, "main", "subdivisions");
+             /**
+              *             <subdivision type="gbeng">England</subdivision>
+            <subdivision type="gbsct">Scotland</subdivision>
+            <subdivision type="gbwls">Wales</subdivision>
+
+              */
+             System.out.println(locale 
+                 + " gbeng=" + sd.get("gbeng")
+                 + " gbsct=" + sd.get("gbsct")
+                 + " gbwls=" + sd.get("gbwls")
+             );
+         }
     }
 }

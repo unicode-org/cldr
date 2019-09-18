@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="gd"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">beagan | làmh le sradag | sradag | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🤏🏻" type="tts">làmh le sradag: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🤏🏼">beagan | làmh le sradag | sradag | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🤏🏼" type="tts">làmh le sradag: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🤏🏽">beagan | làmh le sradag | sradag | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🤏🏽" type="tts">làmh le sradag: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🤏🏾">beagan | làmh le sradag | sradag | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🤏🏾" type="tts">làmh le sradag: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🤏🏿">beagan | làmh le sradag | sradag | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🤏🏿" type="tts">làmh le sradag: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏻">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏻" type="tts">cluas le claisteachan: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏼">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏼" type="tts">cluas le claisteachan: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏽">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🦻🏽" type="tts">cluas le claisteachan: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🦻🏾">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏾" type="tts">cluas le claisteachan: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏿">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🦻🏿" type="tts">cluas le claisteachan: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏻">neach ’na sheasamh | seas | seasamh | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏻" type="tts">neach ’na sheasamh: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏼">neach ’na sheasamh | seas | seasamh | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏼" type="tts">neach ’na sheasamh: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏽">neach ’na sheasamh | seas | seasamh | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧍🏽" type="tts">neach ’na sheasamh: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧍🏾">neach ’na sheasamh | seas | seasamh | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏾" type="tts">neach ’na sheasamh: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏿">neach ’na sheasamh | seas | seasamh | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏿" type="tts">neach ’na sheasamh: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏻‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">boireannach ’na sheasamh: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏼‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">boireannach ’na sheasamh: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏽‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">boireannach ’na sheasamh: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧍🏾‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">boireannach ’na sheasamh: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏿‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">boireannach ’na sheasamh: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏻‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">duine ’na sheasamh: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏼‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">duine ’na sheasamh: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏽‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">duine ’na sheasamh: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧍🏾‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">duine ’na sheasamh: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏿‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">duine ’na sheasamh: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏻">glùin | glùinean | neach air a ghlùinean | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏻" type="tts">neach air a ghlùinean: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏼">glùin | glùinean | neach air a ghlùinean | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏼" type="tts">neach air a ghlùinean: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏽">glùin | glùinean | neach air a ghlùinean | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧎🏽" type="tts">neach air a ghlùinean: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧎🏾">glùin | glùinean | neach air a ghlùinean | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏾" type="tts">neach air a ghlùinean: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏿">glùin | glùinean | neach air a ghlùinean | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏿" type="tts">neach air a ghlùinean: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏻‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">boireanach air a ghlùinean: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏼‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">boireanach air a ghlùinean: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏽‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">boireanach air a ghlùinean: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧎🏾‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">boireanach air a ghlùinean: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏿‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">boireanach air a ghlùinean: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏻‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">duine air a ghlùinean: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏼‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">duine air a ghlùinean: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏽‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">duine air a ghlùinean: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧎🏾‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">duine air a ghlùinean: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏿‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">duine air a ghlùinean: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏻">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏻" type="tts">neach bodhar: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏼">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏼" type="tts">neach bodhar: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏽">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧏🏽" type="tts">neach bodhar: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧏🏾">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏾" type="tts">neach bodhar: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏿">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏿" type="tts">neach bodhar: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏻‍♀">bodhar | boireannach | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">boireannach bodhar: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏼‍♀">bodhar | boireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">boireannach bodhar: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏽‍♀">bodhar | boireannach | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">boireannach bodhar: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧏🏾‍♀">bodhar | boireannach | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">boireannach bodhar: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏿‍♀">bodhar | boireannach | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">boireannach bodhar: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏻‍♂">bodhar | duine | fireannach | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">duine bodhar: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏼‍♂">bodhar | duine | fireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">duine bodhar: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏽‍♂">bodhar | duine | fireannach | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">duine bodhar: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧏🏾‍♂">bodhar | duine | fireannach | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">duine bodhar: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏿‍♂">bodhar | duine | fireannach | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">duine bodhar: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👋🏻">làmh | làmh a’ smèideadh | smèid | smèideadh | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👋🏻" type="tts">làmh a’ smèideadh: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👋🏼">làmh | làmh a’ smèideadh | smèid | smèideadh | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">samhla làimhe OK: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👌🏿">aontachadh | làmh | samhla làimhe OK | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👌🏿" type="tts">samhla làimhe OK: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏻">beagan | làmh le sradag | sradag | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏻" type="tts">làmh le sradag: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏼">beagan | làmh le sradag | sradag | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏼" type="tts">làmh le sradag: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏽">beagan | làmh le sradag | sradag | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🤏🏽" type="tts">làmh le sradag: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🤏🏾">beagan | làmh le sradag | sradag | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏾" type="tts">làmh le sradag: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏿">beagan | làmh le sradag | sradag | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🤏🏿" type="tts">làmh le sradag: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="✌🏻">buaidh | làmh | làmh a thug buaidh | tòna soilleir a’ chraicinn | v</annotation>
 		<annotation cp="✌🏻" type="tts">làmh a thug buaidh: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="✌🏼">buaidh | làmh | làmh a thug buaidh | tòna meadhanach soilleir a’ chraicinn | v</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">cluas: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👂🏿">bodhaig | cluas | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👂🏿" type="tts">cluas: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏻">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏻" type="tts">cluas le claisteachan: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏼">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏼" type="tts">cluas le claisteachan: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏽">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🦻🏽" type="tts">cluas le claisteachan: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🦻🏾">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏾" type="tts">cluas le claisteachan: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏿">bodhar | claisneachd | claisteachan | cluas le claisteachan | èisteachd bheag | inneal-claisneachd | inneal-cluinntinn | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🦻🏿" type="tts">cluas le claisteachan: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👃🏻">bodhaig | sròn | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👃🏻" type="tts">sròn: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👃🏼">bodhaig | sròn | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -543,6 +452,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">neach le falt bàn: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👱🏿">bàn | falt | neach le falt bàn | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👱🏿" type="tts">neach le falt bàn: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑‍🦰">falt ruadh | gun ghnè | inbheach</annotation>
+		<annotation cp="🧑‍🦰" type="tts">inbheach: falt ruadh</annotation>
+		<annotation cp="🧑🏻‍🦰">falt ruadh | gun ghnè | inbheach | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">inbheach: tòna soilleir a’ chraicinn ’s falt ruadh</annotation>
+		<annotation cp="🧑🏼‍🦰">falt ruadh | gun ghnè | inbheach | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">inbheach: tòna meadhanach soilleir a’ chraicinn ’s falt ruadh</annotation>
+		<annotation cp="🧑🏽‍🦰">falt ruadh | gun ghnè | inbheach | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">inbheach: tòna meadhanach a’ chraicinn ’s falt ruadh</annotation>
+		<annotation cp="🧑🏾‍🦰">falt ruadh | gun ghnè | inbheach | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">inbheach: tòna meadhanach doilleir a’ chraicinn ’s falt ruadh</annotation>
+		<annotation cp="🧑🏿‍🦰">falt ruadh | gun ghnè | inbheach | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">inbheach: tòna doilleir a’ chraicinn ’s falt ruadh</annotation>
+		<annotation cp="🧑‍🦱">falt dualach | gun ghnè | inbheach</annotation>
+		<annotation cp="🧑‍🦱" type="tts">inbheach: falt dualach</annotation>
+		<annotation cp="🧑🏻‍🦱">falt dualach | gun ghnè | inbheach | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">inbheach: tòna soilleir a’ chraicinn ’s falt dualach</annotation>
+		<annotation cp="🧑🏼‍🦱">falt dualach | gun ghnè | inbheach | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">inbheach: tòna meadhanach soilleir a’ chraicinn ’s falt dualach</annotation>
+		<annotation cp="🧑🏽‍🦱">falt dualach | gun ghnè | inbheach | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">inbheach: tòna meadhanach a’ chraicinn ’s falt dualach</annotation>
+		<annotation cp="🧑🏾‍🦱">falt dualach | gun ghnè | inbheach | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">inbheach: tòna meadhanach doilleir a’ chraicinn ’s falt dualach</annotation>
+		<annotation cp="🧑🏿‍🦱">falt dualach | gun ghnè | inbheach | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">inbheach: tòna doilleir a’ chraicinn ’s falt dualach</annotation>
+		<annotation cp="🧑‍🦳">falt bàn | gun ghnè | inbheach</annotation>
+		<annotation cp="🧑‍🦳" type="tts">inbheach: falt bàn</annotation>
+		<annotation cp="🧑🏻‍🦳">falt bàn | gun ghnè | inbheach | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">inbheach: tòna soilleir a’ chraicinn ’s falt bàn</annotation>
+		<annotation cp="🧑🏼‍🦳">falt bàn | gun ghnè | inbheach | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">inbheach: tòna meadhanach soilleir a’ chraicinn ’s falt bàn</annotation>
+		<annotation cp="🧑🏽‍🦳">falt bàn | gun ghnè | inbheach | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">inbheach: tòna meadhanach a’ chraicinn ’s falt bàn</annotation>
+		<annotation cp="🧑🏾‍🦳">falt bàn | gun ghnè | inbheach | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">inbheach: tòna meadhanach doilleir a’ chraicinn ’s falt bàn</annotation>
+		<annotation cp="🧑🏿‍🦳">falt bàn | gun ghnè | inbheach | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">inbheach: tòna doilleir a’ chraicinn ’s falt bàn</annotation>
+		<annotation cp="🧑‍🦲">gun ghnè | inbheach | maoilean</annotation>
+		<annotation cp="🧑‍🦲" type="tts">inbheach: maoilean</annotation>
+		<annotation cp="🧑🏻‍🦲">gun ghnè | inbheach | maoilean | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">inbheach: tòna soilleir a’ chraicinn ’s maoilean</annotation>
+		<annotation cp="🧑🏼‍🦲">gun ghnè | inbheach | maoilean | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">inbheach: tòna meadhanach soilleir a’ chraicinn ’s maoilean</annotation>
+		<annotation cp="🧑🏽‍🦲">gun ghnè | inbheach | maoilean | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">inbheach: tòna meadhanach a’ chraicinn ’s maoilean</annotation>
+		<annotation cp="🧑🏾‍🦲">gun ghnè | inbheach | maoilean | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">inbheach: tòna meadhanach doilleir a’ chraicinn ’s maoilean</annotation>
+		<annotation cp="🧑🏿‍🦲">gun ghnè | inbheach | maoilean | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">inbheach: tòna doilleir a’ chraicinn ’s maoilean</annotation>
 		<annotation cp="👨🏻">duine | fear | fireannach | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻" type="tts">duine: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼">duine | fear | fireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -553,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">duine: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏿">duine | fear | fireannach | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏿" type="tts">duine: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏻‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">duine dall le batachan: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">duine dall le batachan: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">duine dall le batachan: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">duine dall le batachan: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">duine dall le batachan: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏻‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏻‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏻">duine le feusag | feusag | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏻" type="tts">duine le feusag: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏼">duine le feusag | feusag | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏼" type="tts">duine le feusag: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏽">duine le feusag | feusag | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧔🏽" type="tts">duine le feusag: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧔🏾">duine le feusag | feusag | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏾" type="tts">duine le feusag: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏿">duine le feusag | feusag | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧔🏿" type="tts">duine le feusag: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏻‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">duine le falt bàn: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏼‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">duine le falt bàn: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏽‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">duine le falt bàn: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👱🏾‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">duine le falt bàn: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏿‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">duine le falt bàn: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨‍🦰">duine | falt ruadh | fear | fireannach</annotation>
 		<annotation cp="👨‍🦰" type="tts">duine: falt ruadh</annotation>
 		<annotation cp="👨🏻‍🦰">duine | falt ruadh | fear | fireannach | tòna soilleir a’ chraicinn</annotation>
@@ -651,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">duine: tòna meadhanach doilleir a’ chraicinn ’s maoilean</annotation>
 		<annotation cp="👨🏿‍🦲">duine | fear | fireannach | maoilean | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">duine: tòna doilleir a’ chraicinn ’s maoilean</annotation>
-		<annotation cp="👱🏻‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">duine le falt bàn: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏼‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">duine le falt bàn: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏽‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">duine le falt bàn: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👱🏾‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">duine le falt bàn: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏿‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">duine le falt bàn: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏻">duine le feusag | feusag | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏻" type="tts">duine le feusag: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏼">duine le feusag | feusag | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏼" type="tts">duine le feusag: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏽">duine le feusag | feusag | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧔🏽" type="tts">duine le feusag: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="🧔🏾">duine le feusag | feusag | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏾" type="tts">duine le feusag: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏿">duine le feusag | feusag | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="🧔🏿" type="tts">duine le feusag: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏻">boireannach | tè | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏻" type="tts">boireannach: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏼">boireannach | tè | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -681,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">boireannach: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿">boireannach | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿" type="tts">boireannach: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">boireannach dall le batachan: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">boireannach dall le batachan: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">boireannach dall le batachan: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">boireannach dall le batachan: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">boireannach dall le batachan: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">boireannach ann an cathair-chuibhle le einnsein: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">boireannach ann an cathair-chuibhle le einnsein: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">boireannach ann an cathair-chuibhle le einnsein: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">boireannach ann an cathair-chuibhle le einnsein: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">boireannach ann an cathair-chuibhle le einnsein: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">boireannach ann an cathair-chuibhle a làimh: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">boireannach ann an cathair-chuibhle a làimh: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">boireannach ann an cathair-chuibhle a làimh: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">boireannach ann an cathair-chuibhle a làimh: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">boireannach ann an cathair-chuibhle a làimh: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏻‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">boireannach le falt bàn: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏼‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">boireannach le falt bàn: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏽‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">boireannach le falt bàn: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👱🏾‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">boireannach le falt bàn: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏿‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">boireannach le falt bàn: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩‍🦰">boireannach | falt ruadh | tè</annotation>
 		<annotation cp="👩‍🦰" type="tts">boireannach: falt ruadh</annotation>
 		<annotation cp="👩🏻‍🦰">boireannach | falt ruadh | tè | tòna soilleir a’ chraicinn</annotation>
@@ -819,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">boireannach: tòna meadhanach doilleir a’ chraicinn ’s maoilean</annotation>
 		<annotation cp="👩🏿‍🦲">boireannach | maoilean | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">boireannach: tòna doilleir a’ chraicinn ’s maoilean</annotation>
-		<annotation cp="👱🏻‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">boireannach le falt bàn: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏼‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">boireannach le falt bàn: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏽‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">boireannach le falt bàn: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👱🏾‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">boireannach le falt bàn: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏿‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">boireannach le falt bàn: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🧓🏻">gun ghnè | sean | seann | seann-inbheach | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🧓🏻" type="tts">seann-inbheach: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🧓🏼">gun ghnè | sean | seann | seann-inbheach | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1000,15 +817,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💁🏿‍♂">bas | cobhair | duine | duine le làmh sìnte a-mach, bas air uachdar | fear | fiosrachadh | fireannach | làmh | sìnte | taic | tòna doilleir a’ chraicinn | uachdar</annotation>
 		<annotation cp="💁🏿‍♂" type="tts">duine le làmh sìnte a-mach, bas air uachdar: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="💁🏻‍♀">bas | boireannach | boireannach le làmh sìnte a-mach, bas air uachdar | cobhair | fiosrachadh | làmh | sìnte | taic | tè | tòna soilleir a’ chraicinn | uachdar</annotation>
-		<annotation cp="💁🏻‍♀" type="tts">boireannach le làmh sìnte a-mach, bas air uachdar: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">tè le làmh sìnte a-mach, bas air uachdar: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="💁🏼‍♀">bas | boireannach | boireannach le làmh sìnte a-mach, bas air uachdar | cobhair | fiosrachadh | làmh | sìnte | taic | tè | tòna meadhanach soilleir a’ chraicinn | uachdar</annotation>
-		<annotation cp="💁🏼‍♀" type="tts">boireannach le làmh sìnte a-mach, bas air uachdar: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">tè le làmh sìnte a-mach, bas air uachdar: tòna meadhanach soilleir a’ chraicinn</annotation>
 		<annotation cp="💁🏽‍♀">bas | boireannach | boireannach le làmh sìnte a-mach, bas air uachdar | cobhair | fiosrachadh | làmh | sìnte | taic | tè | tòna meadhanach a’ chraicinn | uachdar</annotation>
-		<annotation cp="💁🏽‍♀" type="tts">boireannach le làmh sìnte a-mach, bas air uachdar: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">tè le làmh sìnte a-mach, bas air uachdar: tòna meadhanach a’ chraicinn</annotation>
 		<annotation cp="💁🏾‍♀">bas | boireannach | boireannach le làmh sìnte a-mach, bas air uachdar | cobhair | fiosrachadh | làmh | sìnte | taic | tè | tòna meadhanach doilleir a’ chraicinn | uachdar</annotation>
-		<annotation cp="💁🏾‍♀" type="tts">boireannach le làmh sìnte a-mach, bas air uachdar: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">tè le làmh sìnte a-mach, bas air uachdar: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="💁🏿‍♀">bas | boireannach | boireannach le làmh sìnte a-mach, bas air uachdar | cobhair | fiosrachadh | làmh | sìnte | taic | tè | tòna doilleir a’ chraicinn | uachdar</annotation>
-		<annotation cp="💁🏿‍♀" type="tts">boireannach le làmh sìnte a-mach, bas air uachdar: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">tè le làmh sìnte a-mach, bas air uachdar: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🙋🏻">gluasad | làmh | neach a’ togail a làmh | tog | togail | toiliche | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🙋🏻" type="tts">neach a’ togail a làmh: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🙋🏼">gluasad | làmh | neach a’ togail a làmh | tog | togail | toiliche | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1039,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">boireannach a’ togail a làmh: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="🙋🏿‍♀">boireannach | boireannach a’ togail a làmh | gluasad | làmh | tè | tog | togail | toiliche | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">boireannach a’ togail a làmh: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏻">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏻" type="tts">neach bodhar: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏼">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏼" type="tts">neach bodhar: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏽">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧏🏽" type="tts">neach bodhar: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧏🏾">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏾" type="tts">neach bodhar: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏿">bodhar | cluas | cluinntinn | èisteachd | neach bodhar | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏿" type="tts">neach bodhar: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏻‍♂">bodhar | duine | fireannach | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">duine bodhar: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏼‍♂">bodhar | duine | fireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">duine bodhar: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏽‍♂">bodhar | duine | fireannach | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">duine bodhar: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧏🏾‍♂">bodhar | duine | fireannach | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">duine bodhar: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏿‍♂">bodhar | duine | fireannach | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">duine bodhar: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏻‍♀">bodhar | boireannach | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">boireannach bodhar: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏼‍♀">bodhar | boireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">boireannach bodhar: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏽‍♀">bodhar | boireannach | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">boireannach bodhar: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧏🏾‍♀">bodhar | boireannach | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">boireannach bodhar: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏿‍♀">bodhar | boireannach | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">boireannach bodhar: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🙇🏻">cromadh | duilich | gluasad | leisgeul | neach a’ cromadh | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🙇🏻" type="tts">neach a’ cromadh: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🙇🏼">cromadh | duilich | gluasad | leisgeul | neach a’ cromadh | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1129,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">boireannach a’ druiteadh: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="🤷🏿‍♀">aineolas | boireannach | boireannach a’ druiteadh | coma | druiteadh | tè | teagamh | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">boireannach a’ druiteadh: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍⚕">altram | banaltram | cùram-slàinte | dotair | leasaiche | lighiche | nurs | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">obraiche-slàinte: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍⚕">altram | banaltram | cùram-slàinte | dotair | leasaiche | lighiche | nurs | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">obraiche-slàinte: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍⚕">altram | banaltram | cùram-slàinte | dotair | leasaiche | lighiche | nurs | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">obraiche-slàinte: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍⚕">altram | banaltram | cùram-slàinte | dotair | leasaiche | lighiche | nurs | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">obraiche-slàinte: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍⚕">altram | banaltram | cùram-slàinte | dotair | leasaiche | lighiche | nurs | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">obraiche-slàinte: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍⚕">cùram-slàinte | dotair | duine | fear | fireannach | leasaiche | lighiche | neach-altraim | nurs | obraiche-slàinte fireann | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">obraiche-slàinte fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍⚕">cùram-slàinte | dotair | duine | fear | fireannach | leasaiche | lighiche | neach-altraim | nurs | obraiche-slàinte fireann | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1149,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">obraiche-slàinte boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍⚕">banaltram | boireannach | cùram-slàinte | dotair | leasaiche | lighiche | nurs | obraiche-slàinte boireann | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">obraiche-slàinte boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🎓">ceumnachadh | oileanach | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">oileanach: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🎓">ceumnachadh | oileanach | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">oileanach: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🎓">ceumnachadh | oileanach | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">oileanach: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🎓">ceumnachadh | oileanach | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">oileanach: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🎓">ceumnachadh | oileanach | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">oileanach: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🎓">ceumnaiche | duine | fear | fireannach | oileanach | oileanach fireann | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">oileanach fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🎓">ceumnaiche | duine | fear | fireannach | oileanach | oileanach fireann | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1169,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">ban-oileanach: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🎓">ban-oileanach | boireannach | ceumnaiche | oileanach | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">ban-oileanach: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🏫">neach-teagaisg | oide | ollamh | tidsear | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">tidsear: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🏫">neach-teagaisg | oide | ollamh | tidsear | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">tidsear: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🏫">neach-teagaisg | oide | ollamh | tidsear | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">tidsear: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🏫">neach-teagaisg | oide | ollamh | tidsear | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">tidsear: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🏫">neach-teagaisg | oide | ollamh | tidsear | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">tidsear: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🏫">àrd-ollamh | duine | fear | fireannach | oide | oide fireann | ollamh | tidsear | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">oide fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🏫">àrd-ollamh | duine | fear | fireannach | oide | oide fireann | ollamh | tidsear | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1189,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">ban-oide: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🏫">àrd-ollamh | ban-oide | boireannach | oide | ollamh | tè | tidsear | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">ban-oide: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍⚖">britheamh | meidh | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">britheamh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍⚖">britheamh | meidh | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">britheamh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍⚖">britheamh | meidh | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">britheamh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍⚖">britheamh | meidh | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">britheamh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍⚖">britheamh | meidh | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">britheamh: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍⚖">britheamh | britheamh fireann | duine | fear | fireannach | meidh | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">britheamh fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍⚖">britheamh | britheamh fireann | duine | fear | fireannach | meidh | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1209,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">britheamh boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍⚖">boireannach | britheamh | britheamh boireann | meidh | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">britheamh boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🌾">croitear | cruitear | gàirnealair | rainsear | tòna soilleir a’ chraicinn | tuathanach</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">tuathanach: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🌾">croitear | cruitear | gàirnealair | rainsear | tòna meadhanach soilleir a’ chraicinn | tuathanach</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">tuathanach: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🌾">croitear | cruitear | gàirnealair | rainsear | tòna meadhanach a’ chraicinn | tuathanach</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">tuathanach: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🌾">croitear | cruitear | gàirnealair | rainsear | tòna meadhanach doilleir a’ chraicinn | tuathanach</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">tuathanach: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🌾">croitear | cruitear | gàirnealair | rainsear | tòna doilleir a’ chraicinn | tuathanach</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">tuathanach: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🌾">croitear | duine | fear | fireannach | gàirnealair | rainsear | tòna soilleir a’ chraicinn | tuathanaiche | tuathanaiche fireann</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">tuathanaiche fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🌾">croitear | duine | fear | fireannach | gàirnealair | rainsear | tòna meadhanach soilleir a’ chraicinn | tuathanaiche | tuathanaiche fireann</annotation>
@@ -1229,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">tuathanaiche boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🌾">boireannach | croitear | gàirnealair | rainsear | tè | tòna doilleir a’ chraicinn | tuathanaiche | tuathanaiche boireann</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">tuathanaiche boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🍳">còcaire | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">còcaire: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🍳">còcaire | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">còcaire: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🍳">còcaire | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">còcaire: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🍳">còcaire | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">còcaire: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🍳">còcaire | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">còcaire: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🍳">còcaire | còcaire fireann | duine | fear | fireannach | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">còcaire fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🍳">còcaire | còcaire fireann | duine | fear | fireannach | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1249,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">ban-chòcaire: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🍳">ban-chòcaire | boireannach | còcaire | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">ban-chòcaire: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🔧">ceàrd | dealanair | meacanaig | plumair | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">meacanaig: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🔧">ceàrd | dealanair | meacanaig | plumair | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">meacanaig: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🔧">ceàrd | dealanair | meacanaig | plumair | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">meacanaig: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🔧">ceàrd | dealanair | meacanaig | plumair | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">meacanaig: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🔧">ceàrd | dealanair | meacanaig | plumair | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">meacanaig: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🔧">dealanair | duine | fear | fireannach | meacanaig | meacanaig fireann | neach-ciùird | plumair | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">meacanaig fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🔧">dealanair | duine | fear | fireannach | meacanaig | meacanaig fireann | neach-ciùird | plumair | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1269,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">meacanaig boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🔧">boireannach | dealanair | meacanaig | meacanaig boireann | neach-ciùird | plumair | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">meacanaig boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🏭">factaraidh | gnìomhachas | neach-obrach | obraiche | tional | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">neach-obrach factaraidh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🏭">factaraidh | gnìomhachas | neach-obrach | obraiche | tional | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">neach-obrach factaraidh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🏭">factaraidh | gnìomhachas | neach-obrach | obraiche | tional | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">neach-obrach factaraidh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🏭">factaraidh | gnìomhachas | neach-obrach | obraiche | tional | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">neach-obrach factaraidh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🏭">factaraidh | gnìomhachas | neach-obrach | obraiche | tional | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">neach-obrach factaraidh: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🏭">duine | factaraidh | fear | fireannach | gnìomhachas | neach-obrach | obraiche | obraiche-factaraidh fireann | tionaladh | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">obraiche-factaraidh fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🏭">duine | factaraidh | fear | fireannach | gnìomhachas | neach-obrach | obraiche | obraiche-factaraidh fireann | tionaladh | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1289,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">obraiche-factaraidh boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🏭">boireannach | factaraidh | gnìomhachas | neach-obrach | obraiche | obraiche-factaraidh boireann | tè | tionaladh | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">obraiche-factaraidh boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍💼">ailtire | gnìomhachas | gnothachas | manaidsear | oifis | stiùiriche | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">neach-obrach oifise: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍💼">ailtire | gnìomhachas | gnothachas | manaidsear | oifis | stiùiriche | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">neach-obrach oifise: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍💼">ailtire | gnìomhachas | gnothachas | manaidsear | oifis | stiùiriche | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">neach-obrach oifise: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍💼">ailtire | gnìomhachas | gnothachas | manaidsear | oifis | stiùiriche | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">neach-obrach oifise: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍💼">ailtire | gnìomhachas | gnothachas | manaidsear | oifis | stiùiriche | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">neach-obrach oifise: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍💼">ailtire | duine | fear | fireannach | gnìomhachas manaidsear | gnothachas | obraiche-oifis fireann | oifis | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">obraiche-oifis fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍💼">ailtire | duine | fear | fireannach | gnìomhachas manaidsear | gnothachas | obraiche-oifis fireann | oifis | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1309,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">obraiche-oifis boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍💼">ailtire | boireannach | gnìomhachas manaidsear | gnothachas | obraiche-oifis boireann | oifis | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">obraiche-oifis boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🔬">bith-eòlas | ceimigeachd | einnseinear | eòlaiche | eòlas-nàdair | fiosaigs | fiosraigeachd | innleadair | neach | saidheans | saidheantair | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">neach-saidheans: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🔬">bith-eòlas | ceimigeachd | einnseinear | eòlaiche | eòlas-nàdair | fiosaigs | fiosraigeachd | innleadair | neach | saidheans | saidheantair | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">neach-saidheans: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🔬">bith-eòlas | ceimigeachd | einnseinear | eòlaiche | eòlas-nàdair | fiosaigs | fiosraigeachd | innleadair | neach | saidheans | saidheantair | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">neach-saidheans: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🔬">bith-eòlas | ceimigeachd | einnseinear | eòlaiche | eòlas-nàdair | fiosaigs | fiosraigeachd | innleadair | neach | saidheans | saidheantair | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">neach-saidheans: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🔬">bith-eòlas | ceimigeachd | einnseinear | eòlaiche | eòlas-nàdair | fiosaigs | fiosraigeachd | innleadair | neach | saidheans | saidheantair | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">neach-saidheans: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🔬">bith-eòlaiche | ceimigear | duine | einnseanair | fear | fiosaigiche | fireannach | innleadair | matamataigear | neach-saidheans | neach-saidheans fireann | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">neach-saidheans fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🔬">bith-eòlaiche | ceimigear | duine | einnseanair | fear | fiosaigiche | fireannach | innleadair | matamataigear | neach-saidheans | neach-saidheans fireann | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1329,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">neach-saidheans boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🔬">bith-eòlaiche | boireannach | ceimigear | einnseanair | fiosaigiche | innleadair | matamataigear | neach-saidheans | neach-saidheans boireann | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">neach-saidheans boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍💻">bathar-bog | còdachadh | leasachadhtionnsgnadh | prògramachadh | prògramair | teicneolaiche | teicniche | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">teicneolaiche: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍💻">bathar-bog | còdachadh | leasachadhtionnsgnadh | prògramachadh | prògramair | teicneolaiche | teicniche | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">teicneolaiche: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍💻">bathar-bog | còdachadh | leasachadhtionnsgnadh | prògramachadh | prògramair | teicneolaiche | teicniche | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">teicneolaiche: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍💻">bathar-bog | còdachadh | leasachadhtionnsgnadh | prògramachadh | prògramair | teicneolaiche | teicniche | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">teicneolaiche: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍💻">bathar-bog | còdachadh | leasachadhtionnsgnadh | prògramachadh | prògramair | teicneolaiche | teicniche | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">teicneolaiche: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍💻">bathar-bog | còdair | duine | fear | fireannach | innleachdair | leasaichear | prògramair | teicneolaiche | teicneolaiche fireann | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">teicneolaiche fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍💻">bathar-bog | còdair | duine | fear | fireannach | innleachdair | leasaichear | prògramair | teicneolaiche | teicneolaiche fireann | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1349,6 +1306,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">teicneolaiche boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍💻">bathar-bog | boireannach | còdair | innleachdair | leasaichear | prògramair | tè | teicneolaiche | teicneolaiche boireann | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">teicneolaiche boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🎤">actair | cleasaiche | rionnag | ròc | seinneadair | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">seinneadair: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🎤">actair | cleasaiche | rionnag | ròc | seinneadair | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">seinneadair: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🎤">actair | cleasaiche | rionnag | ròc | seinneadair | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">seinneadair: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🎤">actair | cleasaiche | rionnag | ròc | seinneadair | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">seinneadair: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🎤">actair | cleasaiche | rionnag | ròc | seinneadair | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">seinneadair: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🎤">actair | cleasaiche | duine | fear | fireannach | rionnag | ròc | seinneadair | seinneadair fireann | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">seinneadair fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🎤">actair | cleasaiche | duine | fear | fireannach | rionnag | ròc | seinneadair | seinneadair fireann | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1369,6 +1336,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎤" type="tts">ban-seinneadair: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🎤">actair | ban-seinneadair | boireannach | cleasaiche | rionnag | ròc | seinneadair | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">ban-seinneadair: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🎨">ealan | neach-ealain | paileat | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">neach-ealain: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🎨">ealan | neach-ealain | paileat | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">neach-ealain: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🎨">ealan | neach-ealain | paileat | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">neach-ealain: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🎨">ealan | neach-ealain | paileat | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">neach-ealain: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🎨">ealan | neach-ealain | paileat | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">neach-ealain: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🎨">duine | ealan | fear | fear-ealain | fireannach | neach-ealain | pailead | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">fear-ealain: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🎨">duine | ealan | fear | fear-ealain | fireannach | neach-ealain | pailead | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1389,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">neach-ealain boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🎨">boireannach | ealan | neach-ealain | neach-ealain boireann | pailead | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">neach-ealain boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍✈">itealan | paidhleat | plèana | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">paidhleat: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍✈">itealan | paidhleat | plèana | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">paidhleat: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍✈">itealan | paidhleat | plèana | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">paidhleat: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍✈">itealan | paidhleat | plèana | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">paidhleat: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍✈">itealan | paidhleat | plèana | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">paidhleat: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍✈">duine | fear | fireannach | itealan | paidhleat | paidhleat fireann | plèana | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">paidhleat fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍✈">duine | fear | fireannach | itealan | paidhleat | paidhleat fireann | plèana | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1409,6 +1396,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">paidhleat boireann: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍✈">boireannach | itealan | paidhleat | paidhleat boireann | plèana | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">paidhleat boireann: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🚀">rocaid | speuradair | speurair | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">speuradair: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🚀">rocaid | speuradair | speurair | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">speuradair: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🚀">rocaid | speuradair | speurair | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">speuradair: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🚀">rocaid | speuradair | speurair | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">speuradair: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🚀">rocaid | speuradair | speurair | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">speuradair: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🚀">duine | fear | fireannach | rocaid | speuradair | speuradair fireann | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">speuradair fireann: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🚀">duine | fear | fireannach | rocaid | speuradair | speuradair fireann | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -1429,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">ban-speuradair: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🚀">ban-speuradair | boireannach | rocaid | speuradair | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">ban-speuradair: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🚒">einnsean-smàlaidh | smàladair | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">smàladair: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🚒">einnsean-smàlaidh | smàladair | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">smàladair: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🚒">einnsean-smàlaidh | smàladair | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">smàladair: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🚒">einnsean-smàlaidh | smàladair | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">smàladair: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🚒">einnsean-smàlaidh | smàladair | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">smàladair: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🚒">carbad-smàlaidh | duine | fear | fear-smàlaidh | fireannach | neach-smàlaidh | smàladh | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">fear-smàlaidh: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👨🏼‍🚒">carbad-smàlaidh | duine | fear | fear-smàlaidh | fireannach | neach-smàlaidh | smàladh | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -2009,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">boireannach a’ coiseachd: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="🚶🏿‍♀">boireannach | boireannach a’ coiseachd | coiseachd | coisich | tè | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">boireannach a’ coiseachd: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏻">neach ’na sheasamh | seas | seasamh | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏻" type="tts">neach ’na sheasamh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏼">neach ’na sheasamh | seas | seasamh | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏼" type="tts">neach ’na sheasamh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏽">neach ’na sheasamh | seas | seasamh | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧍🏽" type="tts">neach ’na sheasamh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧍🏾">neach ’na sheasamh | seas | seasamh | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏾" type="tts">neach ’na sheasamh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏿">neach ’na sheasamh | seas | seasamh | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏿" type="tts">neach ’na sheasamh: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏻‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">duine ’na sheasamh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏼‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">duine ’na sheasamh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏽‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">duine ’na sheasamh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧍🏾‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">duine ’na sheasamh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏿‍♂">duine | duine ’na sheasamh | fireannach | seas | seasamh | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">duine ’na sheasamh: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏻‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">boireannach ’na sheasamh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏼‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">boireannach ’na sheasamh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏽‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">boireannach ’na sheasamh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧍🏾‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">boireannach ’na sheasamh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏿‍♀">boireannach | boireannach ’na sheasamh | seas | seasamh | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">boireannach ’na sheasamh: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏻">glùin | glùinean | neach air a ghlùinean | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏻" type="tts">neach air a ghlùinean: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏼">glùin | glùinean | neach air a ghlùinean | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏼" type="tts">neach air a ghlùinean: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏽">glùin | glùinean | neach air a ghlùinean | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧎🏽" type="tts">neach air a ghlùinean: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧎🏾">glùin | glùinean | neach air a ghlùinean | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏾" type="tts">neach air a ghlùinean: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏿">glùin | glùinean | neach air a ghlùinean | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏿" type="tts">neach air a ghlùinean: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏻‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">duine air a ghlùinean: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏼‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">duine air a ghlùinean: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏽‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">duine air a ghlùinean: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧎🏾‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">duine air a ghlùinean: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏿‍♂">duine | duine air a ghlùinean | fireannach | glùin | glùinean | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">duine air a ghlùinean: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏻‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">boireanach air a ghlùinean: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏼‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">boireanach air a ghlùinean: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏽‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">boireanach air a ghlùinean: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧎🏾‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">boireanach air a ghlùinean: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏿‍♀">boireanach air a ghlùinean | boireannach | glùin | glùinean | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">boireanach air a ghlùinean: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦯">dall | doille | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">neach dall le batachan: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦯">dall | doille | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">neach dall le batachan: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦯">dall | doille | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">neach dall le batachan: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦯">dall | doille | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">neach dall le batachan: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦯">dall | doille | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">neach dall le batachan: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏻‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">duine dall le batachan: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">duine dall le batachan: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">duine dall le batachan: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">duine dall le batachan: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🦯">dall | doille | duine | duine dall le batachan | fireannach | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">duine dall le batachan: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">boireannach dall le batachan: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">boireannach dall le batachan: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">boireannach dall le batachan: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">boireannach dall le batachan: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🦯">boireannach | boireannach dall le batachan | dall | doille | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">boireannach dall le batachan: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦼">cathair-chuibhle | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">neach ann an cathair-chuibhle le einnsein: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦼">cathair-chuibhle | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">neach ann an cathair-chuibhle le einnsein: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦼">cathair-chuibhle | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">neach ann an cathair-chuibhle le einnsein: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦼">cathair-chuibhle | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">neach ann an cathair-chuibhle le einnsein: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦼">cathair-chuibhle | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">neach ann an cathair-chuibhle le einnsein: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏻‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🦼">cathair-chuibhle | duine | duine ann an cathair-chuibhle le einnsein | fireannach | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">duine ann an cathair-chuibhle le einnsein: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">tè ann an cathair-chuibhle le einnsein: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">tè ann an cathair-chuibhle le einnsein: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">tè ann an cathair-chuibhle le einnsein: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">tè ann an cathair-chuibhle le einnsein: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🦼">boireannach | boireannach ann an cathair-chuibhle le einnsein | cathair-chuibhle | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">tè ann an cathair-chuibhle le einnsein: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦽">cathair-chuibhle | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">neach ann an cathair-chuibhle a làimh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦽">cathair-chuibhle | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">neach ann an cathair-chuibhle a làimh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦽">cathair-chuibhle | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">neach ann an cathair-chuibhle a làimh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦽">cathair-chuibhle | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">neach ann an cathair-chuibhle a làimh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦽">cathair-chuibhle | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">neach ann an cathair-chuibhle a làimh: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏻‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🦽">cathair-chuibhle | duine | duine ann an cathair-chuibhle a làimh | fireannach | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">duine ann an cathair-chuibhle a làimh: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">tè ann an cathair-chuibhle a làimh: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">tè ann an cathair-chuibhle a làimh: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">tè ann an cathair-chuibhle a làimh: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">tè ann an cathair-chuibhle a làimh: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🦽">boireannach | boireannach ann an cathair-chuibhle a làimh | cathair-chuibhle | so-ruigsinneachd | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">tè ann an cathair-chuibhle a làimh: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🏃🏻">marathon | neach a’ ruith | ruith | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🏃🏻" type="tts">neach a’ ruith: tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="🏃🏼">marathon | neach a’ ruith | ruith | tòna meadhanach soilleir a’ chraicinn</annotation>
@@ -2559,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">neach san leabaidh: tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="🛌🏿">cadal | neach san leabaidh | taigh-òsta | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="🛌🏿" type="tts">neach san leabaidh: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏻" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏼" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👫🏽" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👫🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏾" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👫🏿" type="tts">boireannach is fireannach a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna soilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏽">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👬🏽" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn</annotation>
-		<annotation cp="👬🏾">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏾" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏿">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn</annotation>
-		<annotation cp="👬🏿" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">daoine a’ glacadh air làmh a chèile: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">daoine a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">daoine a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">daoine a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">daoine a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">daoine a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">càraid | daoine | daoine a’ glacadh air làmh a chèile | dithis | làmh | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">daoine a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏼">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach soilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏼" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏽">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach a’ chraicinn</annotation>
 		<annotation cp="👭🏽" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
 		<annotation cp="👭🏾">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏾" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏿">boireannach | boireannaich a’ glacadh air làmh a chèile | càraid | dithis | làmh | tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👭🏿" type="tts">boireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏻" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏼" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👫🏽" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👫🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏾" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏿">boireannach | boireannach is fireannach a’ gabhail làmhan a chèile | càraid | duine | fireannach | gabhail làmhan a chèile | làmh | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👫🏿" type="tts">tè is fear a’ gabhail làmhan a chèile: tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach soilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏽">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👬🏽" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👬🏾">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏾" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn | tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏿">caigeann | càraid | dithis | duine | fireannach | fireannaich | fireannaich a’ glacadh air làmh a chèile | gaolag | gemini | gràdhag | grian-chriosach | làmh | leth-aon | tòna doilleir a’ chraicinn</annotation>
+		<annotation cp="👬🏿" type="tts">fireannaich a’ glacadh air làmh a chèile: tòna doilleir a’ chraicinn</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">boireannach | càraid | duine | pòg</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">pòg: boireannach ’s duine</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">càraid | duine | pòg</annotation>
@@ -2956,7 +3223,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇭">bratach</annotation>
 		<annotation cp="🇲🇭" type="tts">bratach: Eileanan Mharshall</annotation>
 		<annotation cp="🇲🇰">bratach</annotation>
-		<annotation cp="🇲🇰" type="tts">bratach: A’ Mhasadon</annotation>
+		<annotation cp="🇲🇰" type="tts">bratach: A’ Mhasadon a Tuath</annotation>
 		<annotation cp="🇲🇱">bratach</annotation>
 		<annotation cp="🇲🇱" type="tts">bratach: Màili</annotation>
 		<annotation cp="🇲🇲">bratach</annotation>
@@ -3094,7 +3361,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇸🇾">bratach</annotation>
 		<annotation cp="🇸🇾" type="tts">bratach: Siridhea</annotation>
 		<annotation cp="🇸🇿">bratach</annotation>
-		<annotation cp="🇸🇿" type="tts">bratach: Dùthaich nan Suasaidh</annotation>
+		<annotation cp="🇸🇿" type="tts">bratach: eSwatini</annotation>
 		<annotation cp="🇹🇦">bratach</annotation>
 		<annotation cp="🇹🇦" type="tts">bratach: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">bratach</annotation>

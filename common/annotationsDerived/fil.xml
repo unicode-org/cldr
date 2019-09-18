@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="fil"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">kamay na kumukurot | light na kulay ng balat | maliit na halaga</annotation>
-		<annotation cp="🤏🏻" type="tts">kamay na kumukurot: light na kulay ng balat</annotation>
-		<annotation cp="🤏🏼">kamay na kumukurot | katamtamang light na kulay ng balat | maliit na halaga</annotation>
-		<annotation cp="🤏🏼" type="tts">kamay na kumukurot: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🤏🏽">kamay na kumukurot | katamtamang kulay ng balat | maliit na halaga</annotation>
-		<annotation cp="🤏🏽" type="tts">kamay na kumukurot: katamtamang kulay ng balat</annotation>
-		<annotation cp="🤏🏾">kamay na kumukurot | katamtamang dark na kulay ng balat | maliit na halaga</annotation>
-		<annotation cp="🤏🏾" type="tts">kamay na kumukurot: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🤏🏿">dark na kulay ng balat | kamay na kumukurot | maliit na halaga</annotation>
-		<annotation cp="🤏🏿" type="tts">kamay na kumukurot: dark na kulay ng balat</annotation>
-		<annotation cp="🦻🏻">hirap makarinig | light na kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
-		<annotation cp="🦻🏻" type="tts">tainga na may hearing aid: light na kulay ng balat</annotation>
-		<annotation cp="🦻🏼">hirap makarinig | katamtamang light na kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
-		<annotation cp="🦻🏼" type="tts">tainga na may hearing aid: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🦻🏽">hirap makarinig | katamtamang kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
-		<annotation cp="🦻🏽" type="tts">tainga na may hearing aid: katamtamang kulay ng balat</annotation>
-		<annotation cp="🦻🏾">hirap makarinig | katamtamang dark na kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
-		<annotation cp="🦻🏾" type="tts">tainga na may hearing aid: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🦻🏿">dark na kulay ng balat | hirap makarinig | pagiging naa-access | tainga na may hearing aid</annotation>
-		<annotation cp="🦻🏿" type="tts">tainga na may hearing aid: dark na kulay ng balat</annotation>
-		<annotation cp="🧍🏻">light na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
-		<annotation cp="🧍🏻" type="tts">nakatayong tao: light na kulay ng balat</annotation>
-		<annotation cp="🧍🏼">katamtamang light na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
-		<annotation cp="🧍🏼" type="tts">nakatayong tao: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧍🏽">katamtamang kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
-		<annotation cp="🧍🏽" type="tts">nakatayong tao: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧍🏾">katamtamang dark na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
-		<annotation cp="🧍🏾" type="tts">nakatayong tao: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧍🏿">dark na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
-		<annotation cp="🧍🏿" type="tts">nakatayong tao: dark na kulay ng balat</annotation>
-		<annotation cp="🧍🏻‍♀">babae | babaeng nakatayo | light na kulay ng balat | nakatayo</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">babaeng nakatayo: light na kulay ng balat</annotation>
-		<annotation cp="🧍🏼‍♀">babae | babaeng nakatayo | katamtamang light na kulay ng balat | nakatayo</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">babaeng nakatayo: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧍🏽‍♀">babae | babaeng nakatayo | katamtamang kulay ng balat | nakatayo</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">babaeng nakatayo: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧍🏾‍♀">babae | babaeng nakatayo | katamtamang dark na kulay ng balat | nakatayo</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">babaeng nakatayo: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧍🏿‍♀">babae | babaeng nakatayo | dark na kulay ng balat | nakatayo</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">babaeng nakatayo: dark na kulay ng balat</annotation>
-		<annotation cp="🧍🏻‍♂">lalaki | lalaking nakatayo | light na kulay ng balat | nakatayo</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">lalaking nakatayo: light na kulay ng balat</annotation>
-		<annotation cp="🧍🏼‍♂">katamtamang light na kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">lalaking nakatayo: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧍🏽‍♂">katamtamang kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">lalaking nakatayo: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧍🏾‍♂">katamtamang dark na kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">lalaking nakatayo: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧍🏿‍♂">dark na kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">lalaking nakatayo: dark na kulay ng balat</annotation>
-		<annotation cp="🧎🏻">light na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
-		<annotation cp="🧎🏻" type="tts">taong nakaluhod: light na kulay ng balat</annotation>
-		<annotation cp="🧎🏼">katamtamang light na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
-		<annotation cp="🧎🏼" type="tts">taong nakaluhod: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧎🏽">katamtamang kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
-		<annotation cp="🧎🏽" type="tts">taong nakaluhod: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧎🏾">katamtamang dark na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
-		<annotation cp="🧎🏾" type="tts">taong nakaluhod: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧎🏿">dark na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
-		<annotation cp="🧎🏿" type="tts">taong nakaluhod: dark na kulay ng balat</annotation>
-		<annotation cp="🧎🏻‍♀">babae | babaeng nakaluhod | light na kulay ng balat | nakaluhod</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">babaeng nakaluhod: light na kulay ng balat</annotation>
-		<annotation cp="🧎🏼‍♀">babae | babaeng nakaluhod | katamtamang light na kulay ng balat | nakaluhod</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">babaeng nakaluhod: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧎🏽‍♀">babae | babaeng nakaluhod | katamtamang kulay ng balat | nakaluhod</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">babaeng nakaluhod: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧎🏾‍♀">babae | babaeng nakaluhod | katamtamang dark na kulay ng balat | nakaluhod</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">babaeng nakaluhod: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧎🏿‍♀">babae | babaeng nakaluhod | dark na kulay ng balat | nakaluhod</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">babaeng nakaluhod: dark na kulay ng balat</annotation>
-		<annotation cp="🧎🏻‍♂">lalaki | lalaking nakaluhod | light na kulay ng balat | nakaluhod</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">lalaking nakaluhod: light na kulay ng balat</annotation>
-		<annotation cp="🧎🏼‍♂">katamtamang light na kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">lalaking nakaluhod: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧎🏽‍♂">katamtamang kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">lalaking nakaluhod: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧎🏾‍♂">katamtamang dark na kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">lalaking nakaluhod: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧎🏿‍♂">dark na kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">lalaking nakaluhod: dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏻">bingi | light na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
-		<annotation cp="🧏🏻" type="tts">taong bingi: light na kulay ng balat</annotation>
-		<annotation cp="🧏🏼">bingi | katamtamang light na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
-		<annotation cp="🧏🏼" type="tts">taong bingi: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧏🏽">bingi | katamtamang kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
-		<annotation cp="🧏🏽" type="tts">taong bingi: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧏🏾">bingi | katamtamang dark na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
-		<annotation cp="🧏🏾" type="tts">taong bingi: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏿">bingi | dark na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
-		<annotation cp="🧏🏿" type="tts">taong bingi: dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏻‍♀">babae | babaeng bingi | bingi | light na kulay ng balat</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">babaeng bingi: light na kulay ng balat</annotation>
-		<annotation cp="🧏🏼‍♀">babae | babaeng bingi | bingi | katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">babaeng bingi: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧏🏽‍♀">babae | babaeng bingi | bingi | katamtamang kulay ng balat</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">babaeng bingi: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧏🏾‍♀">babae | babaeng bingi | bingi | katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">babaeng bingi: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏿‍♀">babae | babaeng bingi | bingi | dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">babaeng bingi: dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏻‍♂">bingi | lalaki | lalaking bingi | light na kulay ng balat</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">lalaking bingi: light na kulay ng balat</annotation>
-		<annotation cp="🧏🏼‍♂">bingi | katamtamang light na kulay ng balat | lalaki | lalaking bingi</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">lalaking bingi: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧏🏽‍♂">bingi | katamtamang kulay ng balat | lalaki | lalaking bingi</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">lalaking bingi: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧏🏾‍♂">bingi | katamtamang dark na kulay ng balat | lalaki | lalaking bingi</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">lalaking bingi: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧏🏿‍♂">bingi | dark na kulay ng balat | lalaki | lalaking bingi</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">lalaking bingi: dark na kulay ng balat</annotation>
 		<annotation cp="👋🏻">bumabati | kamay | kumakaway | kumakaway na kamay | light na kulay ng balat</annotation>
 		<annotation cp="👋🏻" type="tts">kumakaway na kamay: light na kulay ng balat</annotation>
 		<annotation cp="👋🏼">bumabati | kamay | katamtamang light na kulay ng balat | kumakaway | kumakaway na kamay</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">kamay na nagpapahiwatig ng ok: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👌🏿">dark na kulay ng balat | kamay | kamay na nagpapahiwatig ng ok | ok | pera</annotation>
 		<annotation cp="👌🏿" type="tts">kamay na nagpapahiwatig ng ok: dark na kulay ng balat</annotation>
+		<annotation cp="🤏🏻">kamay na kumukurot | light na kulay ng balat | maliit na halaga</annotation>
+		<annotation cp="🤏🏻" type="tts">kamay na kumukurot: light na kulay ng balat</annotation>
+		<annotation cp="🤏🏼">kamay na kumukurot | katamtamang light na kulay ng balat | maliit na halaga</annotation>
+		<annotation cp="🤏🏼" type="tts">kamay na kumukurot: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🤏🏽">kamay na kumukurot | katamtamang kulay ng balat | maliit na halaga</annotation>
+		<annotation cp="🤏🏽" type="tts">kamay na kumukurot: katamtamang kulay ng balat</annotation>
+		<annotation cp="🤏🏾">kamay na kumukurot | katamtamang dark na kulay ng balat | maliit na halaga</annotation>
+		<annotation cp="🤏🏾" type="tts">kamay na kumukurot: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🤏🏿">dark na kulay ng balat | kamay na kumukurot | maliit na halaga</annotation>
+		<annotation cp="🤏🏿" type="tts">kamay na kumukurot: dark na kulay ng balat</annotation>
 		<annotation cp="✌🏻">daliri | kamay | light na kulay ng balat | peace sign | tagumpay | v sign</annotation>
 		<annotation cp="✌🏻" type="tts">peace sign: light na kulay ng balat</annotation>
 		<annotation cp="✌🏼">daliri | kamay | katamtamang light na kulay ng balat | peace sign | tagumpay | v sign</annotation>
@@ -233,15 +132,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤙🏾" type="tts">tawagan mo ko: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🤙🏿">dark na kulay ng balat | kamay | tawag | tawagan mo ko</annotation>
 		<annotation cp="🤙🏿" type="tts">tawagan mo ko: dark na kulay ng balat</annotation>
-		<annotation cp="👈🏻">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | gesture | hintuturo | index finger | kamay | light na kulay ng balat | nakaturo</annotation>
+		<annotation cp="👈🏻">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | hintuturo | index finger | kamay | light na kulay ng balat | nakaturo</annotation>
 		<annotation cp="👈🏻" type="tts">backhand ng hintuturo na nakaturo sa kaliwa: light na kulay ng balat</annotation>
-		<annotation cp="👈🏼">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | gesture | hintuturo | index finger | kamay | katamtamang light na kulay ng balat | nakaturo</annotation>
+		<annotation cp="👈🏼">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | hintuturo | index finger | kamay | katamtamang light na kulay ng balat | nakaturo</annotation>
 		<annotation cp="👈🏼" type="tts">backhand ng hintuturo na nakaturo sa kaliwa: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👈🏽">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | gesture | hintuturo | index finger | kamay | katamtamang kulay ng balat | nakaturo</annotation>
+		<annotation cp="👈🏽">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | hintuturo | index finger | kamay | katamtamang kulay ng balat | nakaturo</annotation>
 		<annotation cp="👈🏽" type="tts">backhand ng hintuturo na nakaturo sa kaliwa: katamtamang kulay ng balat</annotation>
-		<annotation cp="👈🏾">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | gesture | hintuturo | index finger | kamay | katamtamang dark na kulay ng balat | nakaturo</annotation>
+		<annotation cp="👈🏾">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | hintuturo | index finger | kamay | katamtamang dark na kulay ng balat | nakaturo</annotation>
 		<annotation cp="👈🏾" type="tts">backhand ng hintuturo na nakaturo sa kaliwa: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👈🏿">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | dark na kulay ng balat | gesture | hintuturo | index finger | kamay | nakaturo</annotation>
+		<annotation cp="👈🏿">backhand | backhand ng hintuturo na nakaturo sa kaliwa | daliri | dark na kulay ng balat | hintuturo | index finger | kamay | nakaturo</annotation>
 		<annotation cp="👈🏿" type="tts">backhand ng hintuturo na nakaturo sa kaliwa: dark na kulay ng balat</annotation>
 		<annotation cp="👉🏻">backhand ng hintuturo na nakaturo sa kanan | daliri | hintuturo | kamay | light na kulay ng balat | nakaturo</annotation>
 		<annotation cp="👉🏻" type="tts">backhand ng hintuturo na nakaturo sa kanan: light na kulay ng balat</annotation>
@@ -393,15 +292,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤲🏾" type="tts">nakataas na magkadikit na palad: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🤲🏿">dark na kulay ng balat | dasal | nakataas na magkadikit na palad</annotation>
 		<annotation cp="🤲🏿" type="tts">nakataas na magkadikit na palad: dark na kulay ng balat</annotation>
-		<annotation cp="🙏🏻">gesture | humihiling | kamay | light na kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko | yumuyuko</annotation>
+		<annotation cp="🙏🏻">humihiling | kamay | light na kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko</annotation>
 		<annotation cp="🙏🏻" type="tts">magkalapat na mga palad: light na kulay ng balat</annotation>
-		<annotation cp="🙏🏼">gesture | humihiling | kamay | katamtamang light na kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko | yumuyuko</annotation>
+		<annotation cp="🙏🏼">humihiling | kamay | katamtamang light na kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko</annotation>
 		<annotation cp="🙏🏼" type="tts">magkalapat na mga palad: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🙏🏽">gesture | humihiling | kamay | katamtamang kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko | yumuyuko</annotation>
+		<annotation cp="🙏🏽">humihiling | kamay | katamtamang kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko</annotation>
 		<annotation cp="🙏🏽" type="tts">magkalapat na mga palad: katamtamang kulay ng balat</annotation>
-		<annotation cp="🙏🏾">gesture | humihiling | kamay | katamtamang dark na kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko | yumuyuko</annotation>
+		<annotation cp="🙏🏾">humihiling | kamay | katamtamang dark na kulay ng balat | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko</annotation>
 		<annotation cp="🙏🏾" type="tts">magkalapat na mga palad: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🙏🏿">dark na kulay ng balat | gesture | humihiling | kamay | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko | yumuyuko</annotation>
+		<annotation cp="🙏🏿">dark na kulay ng balat | humihiling | kamay | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko</annotation>
 		<annotation cp="🙏🏿" type="tts">magkalapat na mga palad: dark na kulay ng balat</annotation>
 		<annotation cp="✍🏻">kamay | light na kulay ng balat | nagsusulat | nagsusulat na kamay</annotation>
 		<annotation cp="✍🏻" type="tts">nagsusulat na kamay: light na kulay ng balat</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">tainga: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👂🏿">dark na kulay ng balat | katawan | tainga | tenga</annotation>
 		<annotation cp="👂🏿" type="tts">tainga: dark na kulay ng balat</annotation>
+		<annotation cp="🦻🏻">hirap makarinig | light na kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
+		<annotation cp="🦻🏻" type="tts">tainga na may hearing aid: light na kulay ng balat</annotation>
+		<annotation cp="🦻🏼">hirap makarinig | katamtamang light na kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
+		<annotation cp="🦻🏼" type="tts">tainga na may hearing aid: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🦻🏽">hirap makarinig | katamtamang kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
+		<annotation cp="🦻🏽" type="tts">tainga na may hearing aid: katamtamang kulay ng balat</annotation>
+		<annotation cp="🦻🏾">hirap makarinig | katamtamang dark na kulay ng balat | pagiging naa-access | tainga na may hearing aid</annotation>
+		<annotation cp="🦻🏾" type="tts">tainga na may hearing aid: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🦻🏿">dark na kulay ng balat | hirap makarinig | pagiging naa-access | tainga na may hearing aid</annotation>
+		<annotation cp="🦻🏿" type="tts">tainga na may hearing aid: dark na kulay ng balat</annotation>
 		<annotation cp="👃🏻">ilong | katawan | light na kulay ng balat</annotation>
 		<annotation cp="👃🏻" type="tts">ilong: light na kulay ng balat</annotation>
 		<annotation cp="👃🏼">ilong | katamtamang light na kulay ng balat | katawan</annotation>
@@ -483,15 +392,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👃🏾" type="tts">ilong: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👃🏿">dark na kulay ng balat | ilong | katawan</annotation>
 		<annotation cp="👃🏿" type="tts">ilong: dark na kulay ng balat</annotation>
-		<annotation cp="👶🏻">light na kulay ng balat | sanggol</annotation>
+		<annotation cp="👶🏻">bata | light na kulay ng balat | sanggol</annotation>
 		<annotation cp="👶🏻" type="tts">sanggol: light na kulay ng balat</annotation>
-		<annotation cp="👶🏼">katamtamang light na kulay ng balat | sanggol</annotation>
+		<annotation cp="👶🏼">bata | katamtamang light na kulay ng balat | sanggol</annotation>
 		<annotation cp="👶🏼" type="tts">sanggol: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👶🏽">katamtamang kulay ng balat | sanggol</annotation>
+		<annotation cp="👶🏽">bata | katamtamang kulay ng balat | sanggol</annotation>
 		<annotation cp="👶🏽" type="tts">sanggol: katamtamang kulay ng balat</annotation>
-		<annotation cp="👶🏾">katamtamang dark na kulay ng balat | sanggol</annotation>
+		<annotation cp="👶🏾">bata | katamtamang dark na kulay ng balat | sanggol</annotation>
 		<annotation cp="👶🏾" type="tts">sanggol: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👶🏿">dark na kulay ng balat | sanggol</annotation>
+		<annotation cp="👶🏿">bata | dark na kulay ng balat | sanggol</annotation>
 		<annotation cp="👶🏿" type="tts">sanggol: dark na kulay ng balat</annotation>
 		<annotation cp="🧒🏻">anak | bata | hindi tinukoy na kasarian | kasarian-neutral | light na kulay ng balat</annotation>
 		<annotation cp="🧒🏻" type="tts">bata: light na kulay ng balat</annotation>
@@ -543,154 +452,64 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">taong may blond na buhok: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👱🏿">blond | buhok | dark na kulay ng balat | lalaki | tao | taong may blond na buhok</annotation>
 		<annotation cp="👱🏿" type="tts">taong may blond na buhok: dark na kulay ng balat</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | kamay | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: light na kulay ng balat</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">hawak | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">hawak | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">hawak | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">mga taong magkahawak-kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">hawak | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">hawak | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">hawak | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">dark na kulay ng balat | hawak | hawak-kamay | holding hands | kamay | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">dark na kulay ng balat | hawak | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">dark na kulay ng balat | hawak | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">dark na kulay ng balat | hawak | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">dark na kulay ng balat | hawak | hawak-kamay | holding hands | kamay | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏻">bigote | lalaki | light na kulay ng balat</annotation>
+		<annotation cp="🧑‍🦰">hindi hindi tinukoy na kasarian | kasarian-neutral | matanda | pulang buhok | tao</annotation>
+		<annotation cp="🧑‍🦰" type="tts">tao: pulang buhok</annotation>
+		<annotation cp="🧑🏻‍🦰">hindi hindi tinukoy na kasarian | kasarian-neutral | light na kulay ng balat | matanda | pulang buhok | tao</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">tao: light na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="🧑🏼‍🦰">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang light na kulay ng balat | matanda | pulang buhok | tao</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">tao: katamtamang light na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="🧑🏽‍🦰">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang kulay ng balat | matanda | pulang buhok | tao</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">tao: katamtamang kulay ng balat, pulang buhok</annotation>
+		<annotation cp="🧑🏾‍🦰">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang dark na kulay ng balat | matanda | pulang buhok | tao</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">tao: katamtamang dark na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="🧑🏿‍🦰">dark na kulay ng balat | hindi hindi tinukoy na kasarian | kasarian-neutral | matanda | pulang buhok | tao</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">tao: dark na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="🧑‍🦱">hindi hindi tinukoy na kasarian | kasarian-neutral | kulot na buhok | matanda | tao</annotation>
+		<annotation cp="🧑‍🦱" type="tts">tao: kulot na buhok</annotation>
+		<annotation cp="🧑🏻‍🦱">hindi hindi tinukoy na kasarian | kasarian-neutral | kulot na buhok | light na kulay ng balat | matanda | tao</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">tao: light na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="🧑🏼‍🦱">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang light na kulay ng balat | kulot na buhok | matanda | tao</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">tao: katamtamang light na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="🧑🏽‍🦱">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang kulay ng balat | kulot na buhok | matanda | tao</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">tao: katamtamang kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="🧑🏾‍🦱">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang dark na kulay ng balat | kulot na buhok | matanda | tao</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">tao: katamtamang dark na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="🧑🏿‍🦱">dark na kulay ng balat | hindi hindi tinukoy na kasarian | kasarian-neutral | kulot na buhok | matanda | tao</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">tao: dark na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="🧑‍🦳">hindi hindi tinukoy na kasarian | kasarian-neutral | matanda | puting buhok | tao</annotation>
+		<annotation cp="🧑‍🦳" type="tts">tao: puting buhok</annotation>
+		<annotation cp="🧑🏻‍🦳">hindi hindi tinukoy na kasarian | kasarian-neutral | light na kulay ng balat | matanda | puting buhok | tao</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">tao: light na kulay ng balat, puting buhok</annotation>
+		<annotation cp="🧑🏼‍🦳">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang light na kulay ng balat | matanda | puting buhok | tao</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">tao: katamtamang light na kulay ng balat, puting buhok</annotation>
+		<annotation cp="🧑🏽‍🦳">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang kulay ng balat | matanda | puting buhok | tao</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">tao: katamtamang kulay ng balat, puting buhok</annotation>
+		<annotation cp="🧑🏾‍🦳">hindi hindi tinukoy na kasarian | kasarian-neutral | katamtamang dark na kulay ng balat | matanda | puting buhok | tao</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">tao: katamtamang dark na kulay ng balat, puting buhok</annotation>
+		<annotation cp="🧑🏿‍🦳">dark na kulay ng balat | hindi hindi tinukoy na kasarian | kasarian-neutral | matanda | puting buhok | tao</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">tao: dark na kulay ng balat, puting buhok</annotation>
+		<annotation cp="🧑‍🦲">hindi hindi tinukoy na kasarian | kalbo | kasarian-neutral | matanda | tao</annotation>
+		<annotation cp="🧑‍🦲" type="tts">tao: kalbo</annotation>
+		<annotation cp="🧑🏻‍🦲">hindi hindi tinukoy na kasarian | kalbo | kasarian-neutral | light na kulay ng balat | matanda | tao</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">tao: light na kulay ng balat, kalbo</annotation>
+		<annotation cp="🧑🏼‍🦲">hindi hindi tinukoy na kasarian | kalbo | kasarian-neutral | katamtamang light na kulay ng balat | matanda | tao</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">tao: katamtamang light na kulay ng balat, kalbo</annotation>
+		<annotation cp="🧑🏽‍🦲">hindi hindi tinukoy na kasarian | kalbo | kasarian-neutral | katamtamang kulay ng balat | matanda | tao</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">tao: katamtamang kulay ng balat, kalbo</annotation>
+		<annotation cp="🧑🏾‍🦲">hindi hindi tinukoy na kasarian | kalbo | kasarian-neutral | katamtamang dark na kulay ng balat | matanda | tao</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">tao: katamtamang dark na kulay ng balat, kalbo</annotation>
+		<annotation cp="🧑🏿‍🦲">dark na kulay ng balat | hindi hindi tinukoy na kasarian | kalbo | kasarian-neutral | matanda | tao</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">tao: dark na kulay ng balat, kalbo</annotation>
+		<annotation cp="👨🏻">lalaki | light na kulay ng balat | matanda</annotation>
 		<annotation cp="👨🏻" type="tts">lalaki: light na kulay ng balat</annotation>
-		<annotation cp="👨🏼">bigote | katamtamang light na kulay ng balat | lalaki</annotation>
+		<annotation cp="👨🏼">katamtamang light na kulay ng balat | lalaki | matanda</annotation>
 		<annotation cp="👨🏼" type="tts">lalaki: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏽">bigote | katamtamang kulay ng balat | lalaki</annotation>
+		<annotation cp="👨🏽">katamtamang kulay ng balat | lalaki | matanda</annotation>
 		<annotation cp="👨🏽" type="tts">lalaki: katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏾">bigote | katamtamang dark na kulay ng balat | lalaki</annotation>
+		<annotation cp="👨🏾">katamtamang dark na kulay ng balat | lalaki | matanda</annotation>
 		<annotation cp="👨🏾" type="tts">lalaki: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨🏿">bigote | dark na kulay ng balat | lalaki</annotation>
+		<annotation cp="👨🏿">dark na kulay ng balat | lalaki | matanda</annotation>
 		<annotation cp="👨🏿" type="tts">lalaki: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🦯">bulag | lalaki | lalaking may baston | light na kulay ng balat | pagiging naa-access</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">lalaking may baston: light na kulay ng balat</annotation>
-		<annotation cp="👨🏼‍🦯">bulag | katamtamang light na kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">lalaking may baston: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍🦯">bulag | katamtamang kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">lalaking may baston: katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🦯">bulag | katamtamang dark na kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">lalaking may baston: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🦯">bulag | dark na kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">lalaking may baston: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🦼">lalaki | lalaki sa de-kuryenteng wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: light na kulay ng balat</annotation>
-		<annotation cp="👨🏼‍🦼">katamtamang light na kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍🦼">katamtamang kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🦼">katamtamang dark na kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🦼">dark na kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🦽">lalaki | lalaki sa manu-manong wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">lalaki sa manu-manong wheelchair: light na kulay ng balat</annotation>
-		<annotation cp="👨🏼‍🦽">katamtamang light na kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">lalaki sa manu-manong wheelchair: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍🦽">katamtamang kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">lalaki sa manu-manong wheelchair: katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🦽">katamtamang dark na kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">lalaki sa manu-manong wheelchair: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🦽">dark na kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">lalaki sa manu-manong wheelchair: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang light na kulay ng balat | lalaki | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | lalaki | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | katamtamang light na kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dalawang lalaking magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | lalaki | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | lalaki | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | katamtamang light na kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨‍🦰">bigote | lalaki | pulang buhok</annotation>
-		<annotation cp="👨‍🦰" type="tts">lalaki: pulang buhok</annotation>
-		<annotation cp="👨🏻‍🦰">bigote | lalaki | light na kulay ng balat | pulang buhok</annotation>
-		<annotation cp="👨🏻‍🦰" type="tts">lalaki: light na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👨🏼‍🦰">bigote | katamtamang light na kulay ng balat | lalaki | pulang buhok</annotation>
-		<annotation cp="👨🏼‍🦰" type="tts">lalaki: katamtamang light na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👨🏽‍🦰">bigote | katamtamang kulay ng balat | lalaki | pulang buhok</annotation>
-		<annotation cp="👨🏽‍🦰" type="tts">lalaki: katamtamang kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👨🏾‍🦰">bigote | katamtamang dark na kulay ng balat | lalaki | pulang buhok</annotation>
-		<annotation cp="👨🏾‍🦰" type="tts">lalaki: katamtamang dark na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👨🏿‍🦰">bigote | dark na kulay ng balat | lalaki | pulang buhok</annotation>
-		<annotation cp="👨🏿‍🦰" type="tts">lalaki: dark na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👨‍🦱">bigote | kulot na buhok | lalaki</annotation>
-		<annotation cp="👨‍🦱" type="tts">lalaki: kulot na buhok</annotation>
-		<annotation cp="👨🏻‍🦱">bigote | kulot na buhok | lalaki | light na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🦱" type="tts">lalaki: light na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👨🏼‍🦱">bigote | katamtamang light na kulay ng balat | kulot na buhok | lalaki</annotation>
-		<annotation cp="👨🏼‍🦱" type="tts">lalaki: katamtamang light na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👨🏽‍🦱">bigote | katamtamang kulay ng balat | kulot na buhok | lalaki</annotation>
-		<annotation cp="👨🏽‍🦱" type="tts">lalaki: katamtamang kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👨🏾‍🦱">bigote | katamtamang dark na kulay ng balat | kulot na buhok | lalaki</annotation>
-		<annotation cp="👨🏾‍🦱" type="tts">lalaki: katamtamang dark na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👨🏿‍🦱">bigote | dark na kulay ng balat | kulot na buhok | lalaki</annotation>
-		<annotation cp="👨🏿‍🦱" type="tts">lalaki: dark na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👨‍🦳">bigote | lalaki | puting buhok</annotation>
-		<annotation cp="👨‍🦳" type="tts">lalaki: puting buhok</annotation>
-		<annotation cp="👨🏻‍🦳">bigote | lalaki | light na kulay ng balat | puting buhok</annotation>
-		<annotation cp="👨🏻‍🦳" type="tts">lalaki: light na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👨🏼‍🦳">bigote | katamtamang light na kulay ng balat | lalaki | puting buhok</annotation>
-		<annotation cp="👨🏼‍🦳" type="tts">lalaki: katamtamang light na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👨🏽‍🦳">bigote | katamtamang kulay ng balat | lalaki | puting buhok</annotation>
-		<annotation cp="👨🏽‍🦳" type="tts">lalaki: katamtamang kulay ng balat, puting buhok</annotation>
-		<annotation cp="👨🏾‍🦳">bigote | katamtamang dark na kulay ng balat | lalaki | puting buhok</annotation>
-		<annotation cp="👨🏾‍🦳" type="tts">lalaki: katamtamang dark na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👨🏿‍🦳">bigote | dark na kulay ng balat | lalaki | puting buhok</annotation>
-		<annotation cp="👨🏿‍🦳" type="tts">lalaki: dark na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👨‍🦲">bigote | kalbo | lalaki</annotation>
-		<annotation cp="👨‍🦲" type="tts">lalaki: kalbo</annotation>
-		<annotation cp="👨🏻‍🦲">bigote | kalbo | lalaki | light na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🦲" type="tts">lalaki: light na kulay ng balat, kalbo</annotation>
-		<annotation cp="👨🏼‍🦲">bigote | kalbo | katamtamang light na kulay ng balat | lalaki</annotation>
-		<annotation cp="👨🏼‍🦲" type="tts">lalaki: katamtamang light na kulay ng balat, kalbo</annotation>
-		<annotation cp="👨🏽‍🦲">bigote | kalbo | katamtamang kulay ng balat | lalaki</annotation>
-		<annotation cp="👨🏽‍🦲" type="tts">lalaki: katamtamang kulay ng balat, kalbo</annotation>
-		<annotation cp="👨🏾‍🦲">bigote | kalbo | katamtamang dark na kulay ng balat | lalaki</annotation>
-		<annotation cp="👨🏾‍🦲" type="tts">lalaki: katamtamang dark na kulay ng balat, kalbo</annotation>
-		<annotation cp="👨🏿‍🦲">bigote | dark na kulay ng balat | kalbo | lalaki</annotation>
-		<annotation cp="👨🏿‍🦲" type="tts">lalaki: dark na kulay ng balat, kalbo</annotation>
-		<annotation cp="👱🏻‍♂">blonde | lalaki | lalaking blonde | light na kulay ng balat</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">lalaking blonde: light na kulay ng balat</annotation>
-		<annotation cp="👱🏼‍♂">blonde | katamtamang light na kulay ng balat | lalaki | lalaking blonde</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">lalaking blonde: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👱🏽‍♂">blonde | katamtamang kulay ng balat | lalaki | lalaking blonde</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">lalaking blonde: katamtamang kulay ng balat</annotation>
-		<annotation cp="👱🏾‍♂">blonde | katamtamang dark na kulay ng balat | lalaki | lalaking blonde</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">lalaking blonde: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👱🏿‍♂">blonde | dark na kulay ng balat | lalaki | lalaking blonde</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">lalaking blonde: dark na kulay ng balat</annotation>
 		<annotation cp="🧔🏻">balbas | lalaki: balbas | light na kulay ng balat | tao | taong may balbas</annotation>
 		<annotation cp="🧔🏻" type="tts">taong may balbas: light na kulay ng balat</annotation>
 		<annotation cp="🧔🏼">balbas | katamtamang light na kulay ng balat | lalaki: balbas | tao | taong may balbas</annotation>
@@ -701,154 +520,74 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧔🏾" type="tts">taong may balbas: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🧔🏿">balbas | dark na kulay ng balat | lalaki: balbas | tao | taong may balbas</annotation>
 		<annotation cp="🧔🏿" type="tts">taong may balbas: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻">babae | light na kulay ng balat</annotation>
+		<annotation cp="👱🏻‍♂">blonde | lalaki | lalaking blonde | light na kulay ng balat</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">lalaking blonde: light na kulay ng balat</annotation>
+		<annotation cp="👱🏼‍♂">blonde | katamtamang light na kulay ng balat | lalaki | lalaking blonde</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">lalaking blonde: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👱🏽‍♂">blonde | katamtamang kulay ng balat | lalaki | lalaking blonde</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">lalaking blonde: katamtamang kulay ng balat</annotation>
+		<annotation cp="👱🏾‍♂">blonde | katamtamang dark na kulay ng balat | lalaki | lalaking blonde</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">lalaking blonde: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👱🏿‍♂">blonde | dark na kulay ng balat | lalaki | lalaking blonde</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">lalaking blonde: dark na kulay ng balat</annotation>
+		<annotation cp="👨‍🦰">lalaki | matanda | pulang buhok</annotation>
+		<annotation cp="👨‍🦰" type="tts">lalaki: pulang buhok</annotation>
+		<annotation cp="👨🏻‍🦰">lalaki | light na kulay ng balat | matanda | pulang buhok</annotation>
+		<annotation cp="👨🏻‍🦰" type="tts">lalaki: light na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👨🏼‍🦰">katamtamang light na kulay ng balat | lalaki | matanda | pulang buhok</annotation>
+		<annotation cp="👨🏼‍🦰" type="tts">lalaki: katamtamang light na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👨🏽‍🦰">katamtamang kulay ng balat | lalaki | matanda | pulang buhok</annotation>
+		<annotation cp="👨🏽‍🦰" type="tts">lalaki: katamtamang kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👨🏾‍🦰">katamtamang dark na kulay ng balat | lalaki | matanda | pulang buhok</annotation>
+		<annotation cp="👨🏾‍🦰" type="tts">lalaki: katamtamang dark na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👨🏿‍🦰">dark na kulay ng balat | lalaki | matanda | pulang buhok</annotation>
+		<annotation cp="👨🏿‍🦰" type="tts">lalaki: dark na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👨‍🦱">kulot na buhok | lalaki | matanda</annotation>
+		<annotation cp="👨‍🦱" type="tts">lalaki: kulot na buhok</annotation>
+		<annotation cp="👨🏻‍🦱">kulot na buhok | lalaki | light na kulay ng balat | matanda</annotation>
+		<annotation cp="👨🏻‍🦱" type="tts">lalaki: light na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👨🏼‍🦱">katamtamang light na kulay ng balat | kulot na buhok | lalaki | matanda</annotation>
+		<annotation cp="👨🏼‍🦱" type="tts">lalaki: katamtamang light na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👨🏽‍🦱">katamtamang kulay ng balat | kulot na buhok | lalaki | matanda</annotation>
+		<annotation cp="👨🏽‍🦱" type="tts">lalaki: katamtamang kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👨🏾‍🦱">katamtamang dark na kulay ng balat | kulot na buhok | lalaki | matanda</annotation>
+		<annotation cp="👨🏾‍🦱" type="tts">lalaki: katamtamang dark na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👨🏿‍🦱">dark na kulay ng balat | kulot na buhok | lalaki | matanda</annotation>
+		<annotation cp="👨🏿‍🦱" type="tts">lalaki: dark na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👨‍🦳">lalaki | matanda | puting buhok</annotation>
+		<annotation cp="👨‍🦳" type="tts">lalaki: puting buhok</annotation>
+		<annotation cp="👨🏻‍🦳">lalaki | light na kulay ng balat | matanda | puting buhok</annotation>
+		<annotation cp="👨🏻‍🦳" type="tts">lalaki: light na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👨🏼‍🦳">katamtamang light na kulay ng balat | lalaki | matanda | puting buhok</annotation>
+		<annotation cp="👨🏼‍🦳" type="tts">lalaki: katamtamang light na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👨🏽‍🦳">katamtamang kulay ng balat | lalaki | matanda | puting buhok</annotation>
+		<annotation cp="👨🏽‍🦳" type="tts">lalaki: katamtamang kulay ng balat, puting buhok</annotation>
+		<annotation cp="👨🏾‍🦳">katamtamang dark na kulay ng balat | lalaki | matanda | puting buhok</annotation>
+		<annotation cp="👨🏾‍🦳" type="tts">lalaki: katamtamang dark na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👨🏿‍🦳">dark na kulay ng balat | lalaki | matanda | puting buhok</annotation>
+		<annotation cp="👨🏿‍🦳" type="tts">lalaki: dark na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👨‍🦲">kalbo | lalaki | matanda</annotation>
+		<annotation cp="👨‍🦲" type="tts">lalaki: kalbo</annotation>
+		<annotation cp="👨🏻‍🦲">kalbo | lalaki | light na kulay ng balat | matanda</annotation>
+		<annotation cp="👨🏻‍🦲" type="tts">lalaki: light na kulay ng balat, kalbo</annotation>
+		<annotation cp="👨🏼‍🦲">kalbo | katamtamang light na kulay ng balat | lalaki | matanda</annotation>
+		<annotation cp="👨🏼‍🦲" type="tts">lalaki: katamtamang light na kulay ng balat, kalbo</annotation>
+		<annotation cp="👨🏽‍🦲">kalbo | katamtamang kulay ng balat | lalaki | matanda</annotation>
+		<annotation cp="👨🏽‍🦲" type="tts">lalaki: katamtamang kulay ng balat, kalbo</annotation>
+		<annotation cp="👨🏾‍🦲">kalbo | katamtamang dark na kulay ng balat | lalaki | matanda</annotation>
+		<annotation cp="👨🏾‍🦲" type="tts">lalaki: katamtamang dark na kulay ng balat, kalbo</annotation>
+		<annotation cp="👨🏿‍🦲">dark na kulay ng balat | kalbo | lalaki | matanda</annotation>
+		<annotation cp="👨🏿‍🦲" type="tts">lalaki: dark na kulay ng balat, kalbo</annotation>
+		<annotation cp="👩🏻">babae | light na kulay ng balat | matanda</annotation>
 		<annotation cp="👩🏻" type="tts">babae: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼">babae | katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏼">babae | katamtamang light na kulay ng balat | matanda</annotation>
 		<annotation cp="👩🏼" type="tts">babae: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽">babae | katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏽">babae | katamtamang kulay ng balat | matanda</annotation>
 		<annotation cp="👩🏽" type="tts">babae: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾">babae | katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏾">babae | katamtamang dark na kulay ng balat | matanda</annotation>
 		<annotation cp="👩🏾" type="tts">babae: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿">babae | dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿">babae | dark na kulay ng balat | matanda</annotation>
 		<annotation cp="👩🏿" type="tts">babae: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🦯">babae | babaeng may baston | bulag | light na kulay ng balat | pagiging naa-access</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">babaeng may baston: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🦯">babae | babaeng may baston | bulag | katamtamang light na kulay ng balat | pagiging naa-access</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">babaeng may baston: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🦯">babae | babaeng may baston | bulag | katamtamang kulay ng balat | pagiging naa-access</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">babaeng may baston: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🦯">babae | babaeng may baston | bulag | katamtamang dark na kulay ng balat | pagiging naa-access</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">babaeng may baston: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🦯">babae | babaeng may baston | bulag | dark na kulay ng balat | pagiging naa-access</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">babaeng may baston: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🦼">babae | babae sa de-kuryenteng wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">babae sa de-kuryenteng wheelchair: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🦼">babae | babae sa de-kuryenteng wheelchair | katamtamang light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">babae sa de-kuryenteng wheelchair: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🦼">babae | babae sa de-kuryenteng wheelchair | katamtamang kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">babae sa de-kuryenteng wheelchair: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🦼">babae | babae sa de-kuryenteng wheelchair | katamtamang dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">babae sa de-kuryenteng wheelchair: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🦼">babae | babae sa de-kuryenteng wheelchair | dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">babae sa de-kuryenteng wheelchair: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🦽">babae | babae sa manu-manong wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">babae sa manu-manong wheelchair: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🦽">babae | babae sa manu-manong wheelchair | katamtamang light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">babae sa manu-manong wheelchair: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🦽">babae | babae sa manu-manong wheelchair | katamtamang kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">babae sa manu-manong wheelchair: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🦽">babae | babae sa manu-manong wheelchair | katamtamang dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">babae sa manu-manong wheelchair: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🦽">babae | babae sa manu-manong wheelchair | dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">babae sa manu-manong wheelchair: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">babae | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, dark na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">babae | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, dark na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, dark na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | katamtamang light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dalawang babaeng magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">dalawang babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dalawang babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩‍🦰">babae | pulang buhok</annotation>
-		<annotation cp="👩‍🦰" type="tts">babae: pulang buhok</annotation>
-		<annotation cp="👩🏻‍🦰">babae | light na kulay ng balat | pulang buhok</annotation>
-		<annotation cp="👩🏻‍🦰" type="tts">babae: light na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👩🏼‍🦰">babae | katamtamang light na kulay ng balat | pulang buhok</annotation>
-		<annotation cp="👩🏼‍🦰" type="tts">babae: katamtamang light na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👩🏽‍🦰">babae | katamtamang kulay ng balat | pulang buhok</annotation>
-		<annotation cp="👩🏽‍🦰" type="tts">babae: katamtamang kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👩🏾‍🦰">babae | katamtamang dark na kulay ng balat | pulang buhok</annotation>
-		<annotation cp="👩🏾‍🦰" type="tts">babae: katamtamang dark na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👩🏿‍🦰">babae | dark na kulay ng balat | pulang buhok</annotation>
-		<annotation cp="👩🏿‍🦰" type="tts">babae: dark na kulay ng balat, pulang buhok</annotation>
-		<annotation cp="👩‍🦱">babae | kulot na buhok</annotation>
-		<annotation cp="👩‍🦱" type="tts">babae: kulot na buhok</annotation>
-		<annotation cp="👩🏻‍🦱">babae | kulot na buhok | light na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🦱" type="tts">babae: light na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👩🏼‍🦱">babae | katamtamang light na kulay ng balat | kulot na buhok</annotation>
-		<annotation cp="👩🏼‍🦱" type="tts">babae: katamtamang light na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👩🏽‍🦱">babae | katamtamang kulay ng balat | kulot na buhok</annotation>
-		<annotation cp="👩🏽‍🦱" type="tts">babae: katamtamang kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👩🏾‍🦱">babae | katamtamang dark na kulay ng balat | kulot na buhok</annotation>
-		<annotation cp="👩🏾‍🦱" type="tts">babae: katamtamang dark na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👩🏿‍🦱">babae | dark na kulay ng balat | kulot na buhok</annotation>
-		<annotation cp="👩🏿‍🦱" type="tts">babae: dark na kulay ng balat, kulot na buhok</annotation>
-		<annotation cp="👩‍🦳">babae | puting buhok</annotation>
-		<annotation cp="👩‍🦳" type="tts">babae: puting buhok</annotation>
-		<annotation cp="👩🏻‍🦳">babae | light na kulay ng balat | puting buhok</annotation>
-		<annotation cp="👩🏻‍🦳" type="tts">babae: light na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👩🏼‍🦳">babae | katamtamang light na kulay ng balat | puting buhok</annotation>
-		<annotation cp="👩🏼‍🦳" type="tts">babae: katamtamang light na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👩🏽‍🦳">babae | katamtamang kulay ng balat | puting buhok</annotation>
-		<annotation cp="👩🏽‍🦳" type="tts">babae: katamtamang kulay ng balat, puting buhok</annotation>
-		<annotation cp="👩🏾‍🦳">babae | katamtamang dark na kulay ng balat | puting buhok</annotation>
-		<annotation cp="👩🏾‍🦳" type="tts">babae: katamtamang dark na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👩🏿‍🦳">babae | dark na kulay ng balat | puting buhok</annotation>
-		<annotation cp="👩🏿‍🦳" type="tts">babae: dark na kulay ng balat, puting buhok</annotation>
-		<annotation cp="👩‍🦲">babae | kalbo</annotation>
-		<annotation cp="👩‍🦲" type="tts">babae: kalbo</annotation>
-		<annotation cp="👩🏻‍🦲">babae | kalbo | light na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🦲" type="tts">babae: light na kulay ng balat, kalbo</annotation>
-		<annotation cp="👩🏼‍🦲">babae | kalbo | katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🦲" type="tts">babae: katamtamang light na kulay ng balat, kalbo</annotation>
-		<annotation cp="👩🏽‍🦲">babae | kalbo | katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🦲" type="tts">babae: katamtamang kulay ng balat, kalbo</annotation>
-		<annotation cp="👩🏾‍🦲">babae | kalbo | katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🦲" type="tts">babae: katamtamang dark na kulay ng balat, kalbo</annotation>
-		<annotation cp="👩🏿‍🦲">babae | dark na kulay ng balat | kalbo</annotation>
-		<annotation cp="👩🏿‍🦲" type="tts">babae: dark na kulay ng balat, kalbo</annotation>
 		<annotation cp="👱🏻‍♀">babae | babae: blond na buhok | babaeng blond ang buhok | blond na buhok | blonde | light na kulay ng balat</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">babae: light na kulay ng balat, blond na buhok</annotation>
 		<annotation cp="👱🏼‍♀">babae | babae: blond na buhok | babaeng blond ang buhok | blond na buhok | blonde | katamtamang light na kulay ng balat</annotation>
@@ -859,6 +598,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">babae: katamtamang dark na kulay ng balat, blond na buhok</annotation>
 		<annotation cp="👱🏿‍♀">babae | babae: blond na buhok | babaeng blond ang buhok | blond na buhok | blonde | dark na kulay ng balat</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">babae: dark na kulay ng balat, blond na buhok</annotation>
+		<annotation cp="👩‍🦰">babae | matanda | pulang buhok</annotation>
+		<annotation cp="👩‍🦰" type="tts">babae: pulang buhok</annotation>
+		<annotation cp="👩🏻‍🦰">babae | light na kulay ng balat | matanda | pulang buhok</annotation>
+		<annotation cp="👩🏻‍🦰" type="tts">babae: light na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👩🏼‍🦰">babae | katamtamang light na kulay ng balat | matanda | pulang buhok</annotation>
+		<annotation cp="👩🏼‍🦰" type="tts">babae: katamtamang light na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👩🏽‍🦰">babae | katamtamang kulay ng balat | matanda | pulang buhok</annotation>
+		<annotation cp="👩🏽‍🦰" type="tts">babae: katamtamang kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👩🏾‍🦰">babae | katamtamang dark na kulay ng balat | matanda | pulang buhok</annotation>
+		<annotation cp="👩🏾‍🦰" type="tts">babae: katamtamang dark na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👩🏿‍🦰">babae | dark na kulay ng balat | matanda | pulang buhok</annotation>
+		<annotation cp="👩🏿‍🦰" type="tts">babae: dark na kulay ng balat, pulang buhok</annotation>
+		<annotation cp="👩‍🦱">babae | kulot na buhok | matanda</annotation>
+		<annotation cp="👩‍🦱" type="tts">babae: kulot na buhok</annotation>
+		<annotation cp="👩🏻‍🦱">babae | kulot na buhok | light na kulay ng balat | matanda</annotation>
+		<annotation cp="👩🏻‍🦱" type="tts">babae: light na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👩🏼‍🦱">babae | katamtamang light na kulay ng balat | kulot na buhok | matanda</annotation>
+		<annotation cp="👩🏼‍🦱" type="tts">babae: katamtamang light na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👩🏽‍🦱">babae | katamtamang kulay ng balat | kulot na buhok | matanda</annotation>
+		<annotation cp="👩🏽‍🦱" type="tts">babae: katamtamang kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👩🏾‍🦱">babae | katamtamang dark na kulay ng balat | kulot na buhok | matanda</annotation>
+		<annotation cp="👩🏾‍🦱" type="tts">babae: katamtamang dark na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👩🏿‍🦱">babae | dark na kulay ng balat | kulot na buhok | matanda</annotation>
+		<annotation cp="👩🏿‍🦱" type="tts">babae: dark na kulay ng balat, kulot na buhok</annotation>
+		<annotation cp="👩‍🦳">babae | matanda | puting buhok</annotation>
+		<annotation cp="👩‍🦳" type="tts">babae: puting buhok</annotation>
+		<annotation cp="👩🏻‍🦳">babae | light na kulay ng balat | matanda | puting buhok</annotation>
+		<annotation cp="👩🏻‍🦳" type="tts">babae: light na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👩🏼‍🦳">babae | katamtamang light na kulay ng balat | matanda | puting buhok</annotation>
+		<annotation cp="👩🏼‍🦳" type="tts">babae: katamtamang light na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👩🏽‍🦳">babae | katamtamang kulay ng balat | matanda | puting buhok</annotation>
+		<annotation cp="👩🏽‍🦳" type="tts">babae: katamtamang kulay ng balat, puting buhok</annotation>
+		<annotation cp="👩🏾‍🦳">babae | katamtamang dark na kulay ng balat | matanda | puting buhok</annotation>
+		<annotation cp="👩🏾‍🦳" type="tts">babae: katamtamang dark na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👩🏿‍🦳">babae | dark na kulay ng balat | matanda | puting buhok</annotation>
+		<annotation cp="👩🏿‍🦳" type="tts">babae: dark na kulay ng balat, puting buhok</annotation>
+		<annotation cp="👩‍🦲">babae | kalbo | matanda</annotation>
+		<annotation cp="👩‍🦲" type="tts">babae: kalbo</annotation>
+		<annotation cp="👩🏻‍🦲">babae | kalbo | light na kulay ng balat | matanda</annotation>
+		<annotation cp="👩🏻‍🦲" type="tts">babae: light na kulay ng balat, kalbo</annotation>
+		<annotation cp="👩🏼‍🦲">babae | kalbo | katamtamang light na kulay ng balat | matanda</annotation>
+		<annotation cp="👩🏼‍🦲" type="tts">babae: katamtamang light na kulay ng balat, kalbo</annotation>
+		<annotation cp="👩🏽‍🦲">babae | kalbo | katamtamang kulay ng balat | matanda</annotation>
+		<annotation cp="👩🏽‍🦲" type="tts">babae: katamtamang kulay ng balat, kalbo</annotation>
+		<annotation cp="👩🏾‍🦲">babae | kalbo | katamtamang dark na kulay ng balat | matanda</annotation>
+		<annotation cp="👩🏾‍🦲" type="tts">babae: katamtamang dark na kulay ng balat, kalbo</annotation>
+		<annotation cp="👩🏿‍🦲">babae | dark na kulay ng balat | kalbo | matanda</annotation>
+		<annotation cp="👩🏿‍🦲" type="tts">babae: dark na kulay ng balat, kalbo</annotation>
 		<annotation cp="🧓🏻">hindi tinukoy na kasarian | kasarian-neutral | light na kulay ng balat | magulang | mas matandang tao | matanda</annotation>
 		<annotation cp="🧓🏻" type="tts">mas matandang tao: light na kulay ng balat</annotation>
 		<annotation cp="🧓🏼">hindi tinukoy na kasarian | kasarian-neutral | katamtamang light na kulay ng balat | magulang | mas matandang tao | matanda</annotation>
@@ -1069,15 +856,45 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">babaeng nakataas ang kamay: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🙋🏿‍♀">babae | babaeng nakataas ang kamay | dark na kulay ng balat | nakataas ang kamay</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">babaeng nakataas ang kamay: dark na kulay ng balat</annotation>
-		<annotation cp="🙇🏻">gesture | humihiling | light na kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
+		<annotation cp="🧏🏻">bingi | light na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
+		<annotation cp="🧏🏻" type="tts">taong bingi: light na kulay ng balat</annotation>
+		<annotation cp="🧏🏼">bingi | katamtamang light na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
+		<annotation cp="🧏🏼" type="tts">taong bingi: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧏🏽">bingi | katamtamang kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
+		<annotation cp="🧏🏽" type="tts">taong bingi: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧏🏾">bingi | katamtamang dark na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
+		<annotation cp="🧏🏾" type="tts">taong bingi: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧏🏿">bingi | dark na kulay ng balat | pagiging naa-access | pandinig | tainga | taong bingi</annotation>
+		<annotation cp="🧏🏿" type="tts">taong bingi: dark na kulay ng balat</annotation>
+		<annotation cp="🧏🏻‍♂">bingi | lalaki | lalaking bingi | light na kulay ng balat</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">lalaking bingi: light na kulay ng balat</annotation>
+		<annotation cp="🧏🏼‍♂">bingi | katamtamang light na kulay ng balat | lalaki | lalaking bingi</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">lalaking bingi: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧏🏽‍♂">bingi | katamtamang kulay ng balat | lalaki | lalaking bingi</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">lalaking bingi: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧏🏾‍♂">bingi | katamtamang dark na kulay ng balat | lalaki | lalaking bingi</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">lalaking bingi: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧏🏿‍♂">bingi | dark na kulay ng balat | lalaki | lalaking bingi</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">lalaking bingi: dark na kulay ng balat</annotation>
+		<annotation cp="🧏🏻‍♀">babae | babaeng bingi | bingi | light na kulay ng balat</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">babaeng bingi: light na kulay ng balat</annotation>
+		<annotation cp="🧏🏼‍♀">babae | babaeng bingi | bingi | katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">babaeng bingi: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧏🏽‍♀">babae | babaeng bingi | bingi | katamtamang kulay ng balat</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">babaeng bingi: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧏🏾‍♀">babae | babaeng bingi | bingi | katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">babaeng bingi: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧏🏿‍♀">babae | babaeng bingi | bingi | dark na kulay ng balat</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">babaeng bingi: dark na kulay ng balat</annotation>
+		<annotation cp="🙇🏻">light na kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
 		<annotation cp="🙇🏻" type="tts">yumuyukong tao: light na kulay ng balat</annotation>
-		<annotation cp="🙇🏼">gesture | humihiling | katamtamang light na kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
+		<annotation cp="🙇🏼">katamtamang light na kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
 		<annotation cp="🙇🏼" type="tts">yumuyukong tao: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🙇🏽">gesture | humihiling | katamtamang kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
+		<annotation cp="🙇🏽">katamtamang kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
 		<annotation cp="🙇🏽" type="tts">yumuyukong tao: katamtamang kulay ng balat</annotation>
-		<annotation cp="🙇🏾">gesture | humihiling | katamtamang dark na kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
+		<annotation cp="🙇🏾">katamtamang dark na kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
 		<annotation cp="🙇🏾" type="tts">yumuyukong tao: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🙇🏿">dark na kulay ng balat | gesture | humihiling | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
+		<annotation cp="🙇🏿">dark na kulay ng balat | paggalang | paghingi ng paumanhin | sorry | tao | yuko | yumuyuko | yumuyukong tao</annotation>
 		<annotation cp="🙇🏿" type="tts">yumuyukong tao: dark na kulay ng balat</annotation>
 		<annotation cp="🙇🏻‍♂">lalaking nakayuko | light na kulay ng balat | nakayuko | paggalang | paumanhin | yumuyuko</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">lalaking nakayuko: light na kulay ng balat</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">babaeng nagkikibit-balikat: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🤷🏿‍♀">babaeng nagkikibit-balikat | dark na kulay ng balat | di-alam | duda | kibit-balikat | walang pakialam</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">babaeng nagkikibit-balikat: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍⚕">doktor | healthcare | light na kulay ng balat | nars | therapist</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">health worker: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍⚕">doktor | healthcare | katamtamang light na kulay ng balat | nars | therapist</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">health worker: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍⚕">doktor | healthcare | katamtamang kulay ng balat | nars | therapist</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">health worker: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍⚕">doktor | healthcare | katamtamang dark na kulay ng balat | nars | therapist</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">health worker: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍⚕">dark na kulay ng balat | doktor | healthcare | nars | therapist</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">health worker: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍⚕">doktor | health worker | lalaki | lalaking health worker | light na kulay ng balat | nars</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">lalaking health worker: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍⚕">doktor | health worker | katamtamang light na kulay ng balat | lalaki | lalaking health worker | nars</annotation>
@@ -1179,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">babaeng health worker: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍⚕">babae | babaeng health worker | dark na kulay ng balat | doktor | health worker | nars</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">babaeng health worker: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🎓">estudyante | graduate | light na kulay ng balat | mag-aaral | nakapagtapos</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">estudyante: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🎓">estudyante | graduate | katamtamang light na kulay ng balat | mag-aaral | nakapagtapos</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">estudyante: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🎓">estudyante | graduate | katamtamang kulay ng balat | mag-aaral | nakapagtapos</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">estudyante: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🎓">estudyante | graduate | katamtamang dark na kulay ng balat | mag-aaral | nakapagtapos</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">estudyante: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🎓">dark na kulay ng balat | estudyante | graduate | mag-aaral | nakapagtapos</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">estudyante: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🎓">estudyante | graduate | lalaki | lalaking mag-aaral | light na kulay ng balat | mag-aaral</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">lalaking mag-aaral: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🎓">estudyante | graduate | katamtamang light na kulay ng balat | lalaki | lalaking mag-aaral | mag-aaral</annotation>
@@ -1199,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">babaeng mag-aaral: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🎓">babae | babaeng mag-aaral | dark na kulay ng balat | estudyante | graduate | mag-aaral</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">babaeng mag-aaral: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🏫">guro | light na kulay ng balat | propesor | tagaturo</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">guro: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🏫">guro | katamtamang light na kulay ng balat | propesor | tagaturo</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">guro: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🏫">guro | katamtamang kulay ng balat | propesor | tagaturo</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">guro: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🏫">guro | katamtamang dark na kulay ng balat | propesor | tagaturo</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">guro: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🏫">dark na kulay ng balat | guro | propesor | tagaturo</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">guro: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🏫">guro | lalaki | lalaking guro | light na kulay ng balat | propesor | titser</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">lalaking guro: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🏫">guro | katamtamang light na kulay ng balat | lalaki | lalaking guro | propesor | titser</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">babaeng guro: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🏫">babae | babaeng guro | dark na kulay ng balat | guro | propesor | titser</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">babaeng guro: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍⚖">hukom | light na kulay ng balat | timbangan</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">hukom: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍⚖">hukom | katamtamang light na kulay ng balat | timbangan</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">hukom: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍⚖">hukom | katamtamang kulay ng balat | timbangan</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">hukom: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍⚖">hukom | katamtamang dark na kulay ng balat | timbangan</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">hukom: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍⚖">dark na kulay ng balat | hukom | timbangan</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">hukom: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍⚖">hukom | hustisya | huwes | lalaki | lalaking hukom | light na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">lalaking hukom: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍⚖">hukom | hustisya | huwes | katamtamang light na kulay ng balat | lalaki | lalaking hukom</annotation>
@@ -1239,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">babaeng hukom: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍⚖">babae | babaeng hukom | dark na kulay ng balat | hukom | hustisya | huwes</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">babaeng hukom: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🌾">hardinero | light na kulay ng balat | magsasaka | rantsero</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">magsasaka: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🌾">hardinero | katamtamang light na kulay ng balat | magsasaka | rantsero</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">magsasaka: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🌾">hardinero | katamtamang kulay ng balat | magsasaka | rantsero</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">magsasaka: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🌾">hardinero | katamtamang dark na kulay ng balat | magsasaka | rantsero</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">magsasaka: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🌾">dark na kulay ng balat | hardinero | magsasaka | rantsero</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">magsasaka: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🌾">hardinero | lalaki | lalaking magsasaka | light na kulay ng balat | magsasaka | rantsero</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">lalaking magsasaka: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🌾">hardinero | katamtamang light na kulay ng balat | lalaki | lalaking magsasaka | magsasaka | rantsero</annotation>
@@ -1259,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">babaeng magsasaka: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🌾">babae | babaeng magsasaka | dark na kulay ng balat | hardinera | magsasaka | rantsero</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">babaeng magsasaka: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🍳">chef | light na kulay ng balat | tagaluto</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">tagaluto: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🍳">chef | katamtamang light na kulay ng balat | tagaluto</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">tagaluto: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🍳">chef | katamtamang kulay ng balat | tagaluto</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">tagaluto: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🍳">chef | katamtamang dark na kulay ng balat | tagaluto</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">tagaluto: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🍳">chef | dark na kulay ng balat | tagaluto</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">tagaluto: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🍳">chef | cook | kusinero | lalaki | light na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">kusinero: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🍳">chef | cook | katamtamang light na kulay ng balat | kusinero | lalaki</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">kusinera: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🍳">babae | chef | cook | dark na kulay ng balat | kusinera</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kusinera: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🔧">elektrisyan | light na kulay ng balat | mekaniko | tubero</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">mekaniko: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🔧">elektrisyan | katamtamang light na kulay ng balat | mekaniko | tubero</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">mekaniko: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🔧">elektrisyan | katamtamang kulay ng balat | mekaniko | tubero</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">mekaniko: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🔧">elektrisyan | katamtamang dark na kulay ng balat | mekaniko | tubero</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">mekaniko: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🔧">dark na kulay ng balat | elektrisyan | mekaniko | tubero</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">mekaniko: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🔧">elektrisyan | lalaki | lalaking mekaniko | light na kulay ng balat | makinista | mekaniko</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">lalaking mekaniko: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🔧">elektrisyan | katamtamang light na kulay ng balat | lalaki | lalaking mekaniko | makinista | mekaniko</annotation>
@@ -1299,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">babaeng mekaniko: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🔧">babae | babaeng mekaniko | dark na kulay ng balat | elektrisyan | makinista | mekaniko</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">babaeng mekaniko: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🏭">industriyal | light na kulay ng balat | pabrika | pag-assemble | trabahador</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">trabahador sa pabrika: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🏭">industriyal | katamtamang light na kulay ng balat | pabrika | pag-assemble | trabahador</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">trabahador sa pabrika: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🏭">industriyal | katamtamang kulay ng balat | pabrika | pag-assemble | trabahador</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">trabahador sa pabrika: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🏭">industriyal | katamtamang dark na kulay ng balat | pabrika | pag-assemble | trabahador</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">trabahador sa pabrika: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🏭">dark na kulay ng balat | industriyal | pabrika | pag-assemble | trabahador</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">trabahador sa pabrika: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🏭">lalaking manggagawa sa pabrika | light na kulay ng balat | manggagawa | obrero | pabrika | trabahador</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">lalaking manggagawa sa pabrika: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🏭">katamtamang light na kulay ng balat | lalaking manggagawa sa pabrika | manggagawa | obrero | pabrika | trabahador</annotation>
@@ -1319,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">babaeng manggagawa sa pabrika: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🏭">babaeng manggagawa sa pabrika | dark na kulay ng balat | manggagawa | obrero | pabrika | trabahadora</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">babaeng manggagawa sa pabrika: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍💼">arkitekto | business | light na kulay ng balat | manager | puting collar</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">trabahador sa opisina: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍💼">arkitekto | business | katamtamang light na kulay ng balat | manager | puting collar</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">trabahador sa opisina: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍💼">arkitekto | business | katamtamang kulay ng balat | manager | puting collar</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">trabahador sa opisina: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍💼">arkitekto | business | katamtamang dark na kulay ng balat | manager | puting collar</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">trabahador sa opisina: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍💼">arkitekto | business | dark na kulay ng balat | manager | puting collar</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">trabahador sa opisina: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍💼">empleyado sa opisina | empleyedo | kaopisina | light na kulay ng balat | opisina</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">empleyado sa opisina: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍💼">empleyado sa opisina | empleyedo | kaopisina | katamtamang light na kulay ng balat | opisina</annotation>
@@ -1329,16 +1236,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍💼" type="tts">empleyado sa opisina: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👨🏿‍💼">dark na kulay ng balat | empleyado sa opisina | empleyedo | kaopisina | opisina</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">empleyado sa opisina: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍💼">babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | light na kulay ng balat | opisina</annotation>
+		<annotation cp="👩🏻‍💼">arkitekto | babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | light na kulay ng balat | negosyo | opisina</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">babaeng empleyado sa opisina: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍💼">babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | katamtamang light na kulay ng balat | opisina</annotation>
+		<annotation cp="👩🏼‍💼">arkitekto | babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | katamtamang light na kulay ng balat | negosyo | opisina</annotation>
 		<annotation cp="👩🏼‍💼" type="tts">babaeng empleyado sa opisina: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍💼">babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | katamtamang kulay ng balat | opisina</annotation>
+		<annotation cp="👩🏽‍💼">arkitekto | babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | katamtamang kulay ng balat | negosyo | opisina</annotation>
 		<annotation cp="👩🏽‍💼" type="tts">babaeng empleyado sa opisina: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍💼">babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | katamtamang dark na kulay ng balat | opisina</annotation>
+		<annotation cp="👩🏾‍💼">arkitekto | babaeng empleyado sa opisina | empleyada sa opisina | empleyeda | kaopisina | katamtamang dark na kulay ng balat | negosyo | opisina</annotation>
 		<annotation cp="👩🏾‍💼" type="tts">babaeng empleyado sa opisina: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍💼">babaeng empleyado sa opisina | dark na kulay ng balat | empleyada sa opisina | empleyeda | kaopisina | opisina</annotation>
+		<annotation cp="👩🏿‍💼">arkitekto | babaeng empleyado sa opisina | dark na kulay ng balat | empleyada sa opisina | empleyeda | kaopisina | negosyo | opisina</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">babaeng empleyado sa opisina: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🔬">biologist | chemist | inhinyero | light na kulay ng balat | siyentipiko</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">siyentipiko: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🔬">biologist | chemist | inhinyero | katamtamang light na kulay ng balat | siyentipiko</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">siyentipiko: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🔬">biologist | chemist | inhinyero | katamtamang kulay ng balat | siyentipiko</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">siyentipiko: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🔬">biologist | chemist | inhinyero | katamtamang dark na kulay ng balat | siyentipiko</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">siyentipiko: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🔬">biologist | chemist | dark na kulay ng balat | inhinyero | siyentipiko</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">siyentipiko: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🔬">lalaking siyentipiko | light na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">lalaking siyentipiko: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🔬">katamtamang light na kulay ng balat | lalaking siyentipiko</annotation>
@@ -1359,46 +1276,76 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">babaeng siyentipiko: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🔬">babaeng siyentipiko | dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">babaeng siyentipiko: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍💻">lalaking teknologo | light na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍💻" type="tts">lalaking teknologo: light na kulay ng balat</annotation>
-		<annotation cp="👨🏼‍💻">katamtamang light na kulay ng balat | lalaking teknologo</annotation>
-		<annotation cp="👨🏼‍💻" type="tts">lalaking teknologo: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍💻">katamtamang kulay ng balat | lalaking teknologo</annotation>
-		<annotation cp="👨🏽‍💻" type="tts">lalaking teknologo: katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏾‍💻">katamtamang dark na kulay ng balat | lalaking teknologo</annotation>
-		<annotation cp="👨🏾‍💻" type="tts">lalaking teknologo: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍💻">dark na kulay ng balat | lalaking teknologo</annotation>
-		<annotation cp="👨🏿‍💻" type="tts">lalaking teknologo: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍💻">babaeng teknologo | light na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍💻" type="tts">babaeng teknologo: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍💻">babaeng teknologo | katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍💻" type="tts">babaeng teknologo: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍💻">babaeng teknologo | katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏽‍💻" type="tts">babaeng teknologo: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍💻">babaeng teknologo | katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍💻" type="tts">babaeng teknologo: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍💻">babaeng teknologo | dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍💻" type="tts">babaeng teknologo: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🎤">lalaki | lalaking mang-aawit | light na kulay ng balat | mang-aawit | manganganta</annotation>
+		<annotation cp="🧑🏻‍💻">coder | developer | imbentor | light na kulay ng balat | software | technologist</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">technologist: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍💻">coder | developer | imbentor | katamtamang light na kulay ng balat | software | technologist</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">technologist: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍💻">coder | developer | imbentor | katamtamang kulay ng balat | software | technologist</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">technologist: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍💻">coder | developer | imbentor | katamtamang dark na kulay ng balat | software | technologist</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">technologist: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍💻">coder | dark na kulay ng balat | developer | imbentor | software | technologist</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">technologist: dark na kulay ng balat</annotation>
+		<annotation cp="👨🏻‍💻">coder | developer | imbentor | lalaki | light na kulay ng balat | software | technologist</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">lalaking technologist: light na kulay ng balat</annotation>
+		<annotation cp="👨🏼‍💻">coder | developer | imbentor | katamtamang light na kulay ng balat | lalaki | software | technologist</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">lalaking technologist: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏽‍💻">coder | developer | imbentor | katamtamang kulay ng balat | lalaki | software | technologist</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">lalaking technologist: katamtamang kulay ng balat</annotation>
+		<annotation cp="👨🏾‍💻">coder | developer | imbentor | katamtamang dark na kulay ng balat | lalaki | software | technologist</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">lalaking technologist: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍💻">coder | dark na kulay ng balat | developer | imbentor | lalaki | software | technologist</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">lalaking technologist: dark na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍💻">babae | coder | developer | imbentor | light na kulay ng balat | software | technologist</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">babaeng technologist: light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍💻">babae | coder | developer | imbentor | katamtamang light na kulay ng balat | software | technologist</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">babaeng technologist: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍💻">babae | coder | developer | imbentor | katamtamang kulay ng balat | software | technologist</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">babaeng technologist: katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏾‍💻">babae | coder | developer | imbentor | katamtamang dark na kulay ng balat | software | technologist</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">babaeng technologist: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍💻">babae | coder | dark na kulay ng balat | developer | imbentor | software | technologist</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">babaeng technologist: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🎤">aktor | entertainer | light na kulay ng balat | mang-aawit | rakista | star</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">mang-aawit: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🎤">aktor | entertainer | katamtamang light na kulay ng balat | mang-aawit | rakista | star</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">mang-aawit: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🎤">aktor | entertainer | katamtamang kulay ng balat | mang-aawit | rakista | star</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">mang-aawit: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🎤">aktor | entertainer | katamtamang dark na kulay ng balat | mang-aawit | rakista | star</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">mang-aawit: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🎤">aktor | dark na kulay ng balat | entertainer | mang-aawit | rakista | star</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">mang-aawit: dark na kulay ng balat</annotation>
+		<annotation cp="👨🏻‍🎤">lalaki | lalaking mang-aawit | light na kulay ng balat | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">lalaking mang-aawit: light na kulay ng balat</annotation>
-		<annotation cp="👨🏼‍🎤">katamtamang light na kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta</annotation>
+		<annotation cp="👨🏼‍🎤">katamtamang light na kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">lalaking mang-aawit: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍🎤">katamtamang kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta</annotation>
+		<annotation cp="👨🏽‍🎤">katamtamang kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">lalaking mang-aawit: katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🎤">katamtamang dark na kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta</annotation>
+		<annotation cp="👨🏾‍🎤">katamtamang dark na kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">lalaking mang-aawit: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🎤">dark na kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta</annotation>
+		<annotation cp="👨🏿‍🎤">dark na kulay ng balat | lalaki | lalaking mang-aawit | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">lalaking mang-aawit: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🎤">babae | babaeng mang-aawit | light na kulay ng balat | mang-aawit | manganganta</annotation>
+		<annotation cp="👩🏻‍🎤">babae | babaeng mang-aawit | light na kulay ng balat | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">babaeng mang-aawit: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🎤">babae | babaeng mang-aawit | katamtamang light na kulay ng balat | mang-aawit | manganganta</annotation>
+		<annotation cp="👩🏼‍🎤">babae | babaeng mang-aawit | katamtamang light na kulay ng balat | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👩🏼‍🎤" type="tts">babaeng mang-aawit: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🎤">babae | babaeng mang-aawit | katamtamang kulay ng balat | mang-aawit | manganganta</annotation>
+		<annotation cp="👩🏽‍🎤">babae | babaeng mang-aawit | katamtamang kulay ng balat | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👩🏽‍🎤" type="tts">babaeng mang-aawit: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🎤">babae | babaeng mang-aawit | katamtamang dark na kulay ng balat | mang-aawit | manganganta</annotation>
+		<annotation cp="👩🏾‍🎤">babae | babaeng mang-aawit | katamtamang dark na kulay ng balat | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👩🏾‍🎤" type="tts">babaeng mang-aawit: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🎤">babae | babaeng mang-aawit | dark na kulay ng balat | mang-aawit | manganganta</annotation>
+		<annotation cp="👩🏿‍🎤">babae | babaeng mang-aawit | dark na kulay ng balat | mang-aawit | manganganta | rock | singer</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">babaeng mang-aawit: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🎨">light na kulay ng balat | palette | pintor</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">pintor: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🎨">katamtamang light na kulay ng balat | palette | pintor</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">pintor: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🎨">katamtamang kulay ng balat | palette | pintor</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">pintor: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🎨">katamtamang dark na kulay ng balat | palette | pintor</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">pintor: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🎨">dark na kulay ng balat | palette | pintor</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">pintor: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🎨">lakaki | lalaking pintor | light na kulay ng balat | paleta | pintor</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">lalaking pintor: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🎨">katamtamang light na kulay ng balat | lakaki | lalaking pintor | paleta | pintor</annotation>
@@ -1419,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">babaeng pintor: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍🎨">babae | babaeng pintor | dark na kulay ng balat | paleta | pintor</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">babaeng pintor: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍✈">eroplano | light na kulay ng balat | piloto</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">piloto: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍✈">eroplano | katamtamang light na kulay ng balat | piloto</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">piloto: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍✈">eroplano | katamtamang kulay ng balat | piloto</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">piloto: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍✈">eroplano | katamtamang dark na kulay ng balat | piloto</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">piloto: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍✈">dark na kulay ng balat | eroplano | piloto</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">piloto: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍✈">eroplano | lalaki | lalaking piloto | light na kulay ng balat | piloto</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">lalaking piloto: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍✈">eroplano | katamtamang light na kulay ng balat | lalaki | lalaking piloto | piloto</annotation>
@@ -1439,26 +1396,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">babaeng piloto: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👩🏿‍✈">babae | babaeng piloto | dark na kulay ng balat | eroplano | piloto</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">babaeng piloto: dark na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🚀">astronawta | kalawakan | lalaki | lalaking astronawta | light na kulay ng balat</annotation>
-		<annotation cp="👨🏻‍🚀" type="tts">lalaking astronawta: light na kulay ng balat</annotation>
-		<annotation cp="👨🏼‍🚀">astronawta | kalawakan | katamtamang light na kulay ng balat | lalaki | lalaking astronawta</annotation>
-		<annotation cp="👨🏼‍🚀" type="tts">lalaking astronawta: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👨🏽‍🚀">astronawta | kalawakan | katamtamang kulay ng balat | lalaki | lalaking astronawta</annotation>
-		<annotation cp="👨🏽‍🚀" type="tts">lalaking astronawta: katamtamang kulay ng balat</annotation>
-		<annotation cp="👨🏾‍🚀">astronawta | kalawakan | katamtamang dark na kulay ng balat | lalaki | lalaking astronawta</annotation>
-		<annotation cp="👨🏾‍🚀" type="tts">lalaking astronawta: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👨🏿‍🚀">astronawta | dark na kulay ng balat | kalawakan | lalaki | lalaking astronawta</annotation>
-		<annotation cp="👨🏿‍🚀" type="tts">lalaking astronawta: dark na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🚀">astronawta | babae | babaeng astronawta | kalawakan | light na kulay ng balat</annotation>
-		<annotation cp="👩🏻‍🚀" type="tts">babaeng astronawta: light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🚀">astronawta | babae | babaeng astronawta | kalawakan | katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏼‍🚀" type="tts">babaeng astronawta: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🚀">astronawta | babae | babaeng astronawta | kalawakan | katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏽‍🚀" type="tts">babaeng astronawta: katamtamang kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🚀">astronawta | babae | babaeng astronawta | kalawakan | katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏾‍🚀" type="tts">babaeng astronawta: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👩🏿‍🚀">astronawta | babae | babaeng astronawta | dark na kulay ng balat | kalawakan</annotation>
-		<annotation cp="👩🏿‍🚀" type="tts">babaeng astronawta: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🚀">astronaut | kalawakan | light na kulay ng balat | rocket</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">astronaut: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🚀">astronaut | kalawakan | katamtamang light na kulay ng balat | rocket</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">astronaut: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🚀">astronaut | kalawakan | katamtamang kulay ng balat | rocket</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">astronaut: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🚀">astronaut | kalawakan | katamtamang dark na kulay ng balat | rocket</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">astronaut: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🚀">astronaut | dark na kulay ng balat | kalawakan | rocket</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">astronaut: dark na kulay ng balat</annotation>
+		<annotation cp="👨🏻‍🚀">astronaut | kalawakan | lalaki | lalaking astronaut | light na kulay ng balat</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">lalaking astronaut: light na kulay ng balat</annotation>
+		<annotation cp="👨🏼‍🚀">astronaut | kalawakan | katamtamang light na kulay ng balat | lalaki | lalaking astronaut</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">lalaking astronaut: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏽‍🚀">astronaut | kalawakan | katamtamang kulay ng balat | lalaki | lalaking astronaut</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">lalaking astronaut: katamtamang kulay ng balat</annotation>
+		<annotation cp="👨🏾‍🚀">astronaut | kalawakan | katamtamang dark na kulay ng balat | lalaki | lalaking astronaut</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">lalaking astronaut: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🚀">astronaut | dark na kulay ng balat | kalawakan | lalaki | lalaking astronaut</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">lalaking astronaut: dark na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🚀">astronaut | babae | babaeng astronaut | kalawakan | light na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">babaeng astronaut: light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🚀">astronaut | babae | babaeng astronaut | kalawakan | katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">babaeng astronaut: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🚀">astronaut | babae | babaeng astronaut | kalawakan | katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">babaeng astronaut: katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🚀">astronaut | babae | babaeng astronaut | kalawakan | katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">babaeng astronaut: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🚀">astronaut | babae | babaeng astronaut | dark na kulay ng balat | kalawakan</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">babaeng astronaut: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🚒">bumbero | light na kulay ng balat | trak ng bumbero</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">bumbero: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🚒">bumbero | katamtamang light na kulay ng balat | trak ng bumbero</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">bumbero: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🚒">bumbero | katamtamang kulay ng balat | trak ng bumbero</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">bumbero: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🚒">bumbero | katamtamang dark na kulay ng balat | trak ng bumbero</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">bumbero: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🚒">bumbero | dark na kulay ng balat | trak ng bumbero</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">bumbero: dark na kulay ng balat</annotation>
 		<annotation cp="👨🏻‍🚒">bumbero | lalaki | lalaking bumbero | light na kulay ng balat | sunog | trak</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">lalaking bumbero: light na kulay ng balat</annotation>
 		<annotation cp="👨🏼‍🚒">bumbero | katamtamang light na kulay ng balat | lalaki | lalaking bumbero | sunog | trak</annotation>
@@ -1569,15 +1546,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💂🏾‍♀" type="tts">babaeng guwardya: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="💂🏿‍♀">babae | babaeng guwardya | dark na kulay ng balat | guwardya</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">babaeng guwardya: dark na kulay ng balat</annotation>
-		<annotation cp="👷🏻">construction | construction worker | hard hat | helmet | light na kulay ng balat | manggagawa | sombrero</annotation>
+		<annotation cp="👷🏻">hard hat | helmet | konstruksyon | light na kulay ng balat | manggagawa | sombrero | trabahador sa konstruksyon</annotation>
 		<annotation cp="👷🏻" type="tts">construction worker: light na kulay ng balat</annotation>
-		<annotation cp="👷🏼">construction | construction worker | hard hat | helmet | katamtamang light na kulay ng balat | manggagawa | sombrero</annotation>
+		<annotation cp="👷🏼">hard hat | helmet | katamtamang light na kulay ng balat | konstruksyon | manggagawa | sombrero | trabahador sa konstruksyon</annotation>
 		<annotation cp="👷🏼" type="tts">construction worker: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👷🏽">construction | construction worker | hard hat | helmet | katamtamang kulay ng balat | manggagawa | sombrero</annotation>
+		<annotation cp="👷🏽">hard hat | helmet | katamtamang kulay ng balat | konstruksyon | manggagawa | sombrero | trabahador sa konstruksyon</annotation>
 		<annotation cp="👷🏽" type="tts">construction worker: katamtamang kulay ng balat</annotation>
-		<annotation cp="👷🏾">construction | construction worker | hard hat | helmet | katamtamang dark na kulay ng balat | manggagawa | sombrero</annotation>
+		<annotation cp="👷🏾">hard hat | helmet | katamtamang dark na kulay ng balat | konstruksyon | manggagawa | sombrero | trabahador sa konstruksyon</annotation>
 		<annotation cp="👷🏾" type="tts">construction worker: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👷🏿">construction | construction worker | dark na kulay ng balat | hard hat | helmet | manggagawa | sombrero</annotation>
+		<annotation cp="👷🏿">dark na kulay ng balat | hard hat | helmet | konstruksyon | manggagawa | sombrero | trabahador sa konstruksyon</annotation>
 		<annotation cp="👷🏿" type="tts">construction worker: dark na kulay ng balat</annotation>
 		<annotation cp="👷🏻‍♂">konstruksyon | lalaki | lalaking trabahador sa konstruksyon | light na kulay ng balat | trabahador</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">lalaking trabahador sa konstruksyon: light na kulay ng balat</annotation>
@@ -1739,15 +1716,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤶🏾" type="tts">Mrs Claus: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🤶🏿">dark na kulay ng balat | mother christmas | Mrs Claus | Mrs. Claus | nanay | pasko</annotation>
 		<annotation cp="🤶🏿" type="tts">Mrs Claus: dark na kulay ng balat</annotation>
-		<annotation cp="🦸🏻">babae superhero | hero | heroine | light na kulay ng balat | superhero | superpower</annotation>
+		<annotation cp="🦸🏻">babaeng superhero | hero | heroine | light na kulay ng balat | superhero | superpower</annotation>
 		<annotation cp="🦸🏻" type="tts">superhero: light na kulay ng balat</annotation>
-		<annotation cp="🦸🏼">babae superhero | hero | heroine | katamtamang light na kulay ng balat | superhero | superpower</annotation>
+		<annotation cp="🦸🏼">babaeng superhero | hero | heroine | katamtamang light na kulay ng balat | superhero | superpower</annotation>
 		<annotation cp="🦸🏼" type="tts">superhero: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🦸🏽">babae superhero | hero | heroine | katamtamang kulay ng balat | superhero | superpower</annotation>
+		<annotation cp="🦸🏽">babaeng superhero | hero | heroine | katamtamang kulay ng balat | superhero | superpower</annotation>
 		<annotation cp="🦸🏽" type="tts">superhero: katamtamang kulay ng balat</annotation>
-		<annotation cp="🦸🏾">babae superhero | hero | heroine | katamtamang dark na kulay ng balat | superhero | superpower</annotation>
+		<annotation cp="🦸🏾">babaeng superhero | hero | heroine | katamtamang dark na kulay ng balat | superhero | superpower</annotation>
 		<annotation cp="🦸🏾" type="tts">superhero: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🦸🏿">babae superhero | dark na kulay ng balat | hero | heroine | superhero | superpower</annotation>
+		<annotation cp="🦸🏿">babaeng superhero | dark na kulay ng balat | hero | heroine | superhero | superpower</annotation>
 		<annotation cp="🦸🏿" type="tts">superhero: dark na kulay ng balat</annotation>
 		<annotation cp="🦸🏻‍♂">hero | lalaki | lalaking superhero | light na kulay ng balat | malakas | superhero | superpower</annotation>
 		<annotation cp="🦸🏻‍♂" type="tts">lalaking superhero: light na kulay ng balat</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">babaeng naglalakad: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🚶🏿‍♀">babae | babaeng naglalakad | dark na kulay ng balat | lakad</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">babaeng naglalakad: dark na kulay ng balat</annotation>
+		<annotation cp="🧍🏻">light na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
+		<annotation cp="🧍🏻" type="tts">nakatayong tao: light na kulay ng balat</annotation>
+		<annotation cp="🧍🏼">katamtamang light na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
+		<annotation cp="🧍🏼" type="tts">nakatayong tao: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧍🏽">katamtamang kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
+		<annotation cp="🧍🏽" type="tts">nakatayong tao: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧍🏾">katamtamang dark na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
+		<annotation cp="🧍🏾" type="tts">nakatayong tao: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧍🏿">dark na kulay ng balat | nakatayo | nakatayong tao | tumayo</annotation>
+		<annotation cp="🧍🏿" type="tts">nakatayong tao: dark na kulay ng balat</annotation>
+		<annotation cp="🧍🏻‍♂">lalaki | lalaking nakatayo | light na kulay ng balat | nakatayo</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">lalaking nakatayo: light na kulay ng balat</annotation>
+		<annotation cp="🧍🏼‍♂">katamtamang light na kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">lalaking nakatayo: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧍🏽‍♂">katamtamang kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">lalaking nakatayo: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧍🏾‍♂">katamtamang dark na kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">lalaking nakatayo: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧍🏿‍♂">dark na kulay ng balat | lalaki | lalaking nakatayo | nakatayo</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">lalaking nakatayo: dark na kulay ng balat</annotation>
+		<annotation cp="🧍🏻‍♀">babae | babaeng nakatayo | light na kulay ng balat | nakatayo</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">babaeng nakatayo: light na kulay ng balat</annotation>
+		<annotation cp="🧍🏼‍♀">babae | babaeng nakatayo | katamtamang light na kulay ng balat | nakatayo</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">babaeng nakatayo: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧍🏽‍♀">babae | babaeng nakatayo | katamtamang kulay ng balat | nakatayo</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">babaeng nakatayo: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧍🏾‍♀">babae | babaeng nakatayo | katamtamang dark na kulay ng balat | nakatayo</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">babaeng nakatayo: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧍🏿‍♀">babae | babaeng nakatayo | dark na kulay ng balat | nakatayo</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">babaeng nakatayo: dark na kulay ng balat</annotation>
+		<annotation cp="🧎🏻">light na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
+		<annotation cp="🧎🏻" type="tts">taong nakaluhod: light na kulay ng balat</annotation>
+		<annotation cp="🧎🏼">katamtamang light na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
+		<annotation cp="🧎🏼" type="tts">taong nakaluhod: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧎🏽">katamtamang kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
+		<annotation cp="🧎🏽" type="tts">taong nakaluhod: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧎🏾">katamtamang dark na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
+		<annotation cp="🧎🏾" type="tts">taong nakaluhod: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧎🏿">dark na kulay ng balat | lumuhod | nakaluhod | taong nakaluhod</annotation>
+		<annotation cp="🧎🏿" type="tts">taong nakaluhod: dark na kulay ng balat</annotation>
+		<annotation cp="🧎🏻‍♂">lalaki | lalaking nakaluhod | light na kulay ng balat | nakaluhod</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">lalaking nakaluhod: light na kulay ng balat</annotation>
+		<annotation cp="🧎🏼‍♂">katamtamang light na kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">lalaking nakaluhod: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧎🏽‍♂">katamtamang kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">lalaking nakaluhod: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧎🏾‍♂">katamtamang dark na kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">lalaking nakaluhod: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧎🏿‍♂">dark na kulay ng balat | lalaki | lalaking nakaluhod | nakaluhod</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">lalaking nakaluhod: dark na kulay ng balat</annotation>
+		<annotation cp="🧎🏻‍♀">babae | babaeng nakaluhod | light na kulay ng balat | nakaluhod</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">babaeng nakaluhod: light na kulay ng balat</annotation>
+		<annotation cp="🧎🏼‍♀">babae | babaeng nakaluhod | katamtamang light na kulay ng balat | nakaluhod</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">babaeng nakaluhod: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧎🏽‍♀">babae | babaeng nakaluhod | katamtamang kulay ng balat | nakaluhod</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">babaeng nakaluhod: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧎🏾‍♀">babae | babaeng nakaluhod | katamtamang dark na kulay ng balat | nakaluhod</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">babaeng nakaluhod: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧎🏿‍♀">babae | babaeng nakaluhod | dark na kulay ng balat | nakaluhod</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">babaeng nakaluhod: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🦯">bulag | light na kulay ng balat | tungkod</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">taong may tungkod: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🦯">bulag | katamtamang light na kulay ng balat | tungkod</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">taong may tungkod: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🦯">bulag | katamtamang kulay ng balat | tungkod</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">taong may tungkod: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🦯">bulag | katamtamang dark na kulay ng balat | tungkod</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">taong may tungkod: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🦯">bulag | dark na kulay ng balat | tungkod</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">taong may tungkod: dark na kulay ng balat</annotation>
+		<annotation cp="👨🏻‍🦯">bulag | lalaki | lalaking may baston | light na kulay ng balat | pagiging naa-access</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">lalaking may baston: light na kulay ng balat</annotation>
+		<annotation cp="👨🏼‍🦯">bulag | katamtamang light na kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">lalaking may baston: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏽‍🦯">bulag | katamtamang kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">lalaking may baston: katamtamang kulay ng balat</annotation>
+		<annotation cp="👨🏾‍🦯">bulag | katamtamang dark na kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">lalaking may baston: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🦯">bulag | dark na kulay ng balat | lalaki | lalaking may baston | pagiging naa-access</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">lalaking may baston: dark na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🦯">babae | babaeng may baston | bulag | light na kulay ng balat | pagiging naa-access</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">babaeng may baston: light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🦯">babae | babaeng may baston | bulag | katamtamang light na kulay ng balat | pagiging naa-access</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">babaeng may baston: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🦯">babae | babaeng may baston | bulag | katamtamang kulay ng balat | pagiging naa-access</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">babaeng may baston: katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🦯">babae | babaeng may baston | bulag | katamtamang dark na kulay ng balat | pagiging naa-access</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">babaeng may baston: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🦯">babae | babaeng may baston | bulag | dark na kulay ng balat | pagiging naa-access</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">babaeng may baston: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🦼">light na kulay ng balat | pagiging naa-access | tao | tao sa de-kuryenteng wheelchair</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">tao sa de-kuryenteng wheelchair: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🦼">katamtamang light na kulay ng balat | pagiging naa-access | tao | tao sa de-kuryenteng wheelchair</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">tao sa de-kuryenteng wheelchair: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🦼">katamtamang kulay ng balat | pagiging naa-access | tao | tao sa de-kuryenteng wheelchair</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">tao sa de-kuryenteng wheelchair: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🦼">katamtamang dark na kulay ng balat | pagiging naa-access | tao | tao sa de-kuryenteng wheelchair</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">tao sa de-kuryenteng wheelchair: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🦼">dark na kulay ng balat | pagiging naa-access | tao | tao sa de-kuryenteng wheelchair</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">tao sa de-kuryenteng wheelchair: dark na kulay ng balat</annotation>
+		<annotation cp="👨🏻‍🦼">lalaki | lalaki sa de-kuryenteng wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: light na kulay ng balat</annotation>
+		<annotation cp="👨🏼‍🦼">katamtamang light na kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏽‍🦼">katamtamang kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: katamtamang kulay ng balat</annotation>
+		<annotation cp="👨🏾‍🦼">katamtamang dark na kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🦼">dark na kulay ng balat | lalaki | lalaki sa de-kuryenteng wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">lalaki sa de-kuryenteng wheelchair: dark na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🦼">babae | babae sa de-kuryenteng wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">babae sa de-kuryenteng wheelchair: light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🦼">babae | babae sa de-kuryenteng wheelchair | katamtamang light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">babae sa de-kuryenteng wheelchair: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🦼">babae | babae sa de-kuryenteng wheelchair | katamtamang kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">babae sa de-kuryenteng wheelchair: katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🦼">babae | babae sa de-kuryenteng wheelchair | katamtamang dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">babae sa de-kuryenteng wheelchair: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🦼">babae | babae sa de-kuryenteng wheelchair | dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">babae sa de-kuryenteng wheelchair: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🦽">light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">tao sa manu-manong wheelchair: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🦽">katamtamang light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">tao sa manu-manong wheelchair: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🦽">katamtamang kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">tao sa manu-manong wheelchair: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🦽">katamtamang dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">tao sa manu-manong wheelchair: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🦽">dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">tao sa manu-manong wheelchair: dark na kulay ng balat</annotation>
+		<annotation cp="👨🏻‍🦽">lalaki | lalaki sa manu-manong wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">lalaki sa manu-manong wheelchair: light na kulay ng balat</annotation>
+		<annotation cp="👨🏼‍🦽">katamtamang light na kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">lalaki sa manu-manong wheelchair: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏽‍🦽">katamtamang kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">lalaki sa manu-manong wheelchair: katamtamang kulay ng balat</annotation>
+		<annotation cp="👨🏾‍🦽">katamtamang dark na kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">lalaki sa manu-manong wheelchair: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🦽">dark na kulay ng balat | lalaki | lalaki sa manu-manong wheelchair | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">lalaki sa manu-manong wheelchair: dark na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🦽">babae | babae sa manu-manong wheelchair | light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">babae sa manu-manong wheelchair: light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🦽">babae | babae sa manu-manong wheelchair | katamtamang light na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">babae sa manu-manong wheelchair: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🦽">babae | babae sa manu-manong wheelchair | katamtamang kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">babae sa manu-manong wheelchair: katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🦽">babae | babae sa manu-manong wheelchair | katamtamang dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">babae sa manu-manong wheelchair: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🦽">babae | babae sa manu-manong wheelchair | dark na kulay ng balat | pagiging naa-access | wheelchair</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">babae sa manu-manong wheelchair: dark na kulay ng balat</annotation>
 		<annotation cp="🏃🏻">light na kulay ng balat | marathon | takbo | tao | tumatakbo</annotation>
 		<annotation cp="🏃🏻" type="tts">tumatakbo: light na kulay ng balat</annotation>
 		<annotation cp="🏃🏼">katamtamang light na kulay ng balat | marathon | takbo | tao | tumatakbo</annotation>
@@ -2589,47 +2716,157 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">taong nakahiga: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🛌🏿">dark na kulay ng balat | hotel | natutulog | taong nakahiga</annotation>
 		<annotation cp="🛌🏿" type="tts">taong nakahiga: dark na kulay ng balat</annotation>
-		<annotation cp="👫🏻">babae | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
-		<annotation cp="👫🏻" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat</annotation>
-		<annotation cp="👫🏼">babae | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👫🏼" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👫🏽">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👫🏽" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="👫🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👫🏾" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👫🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
-		<annotation cp="👫🏿" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat</annotation>
-		<annotation cp="👬🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | lalaki | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👬🏻" type="tts">dalawang lalaking magkahawak-kamay: light na kulay ng balat</annotation>
-		<annotation cp="👬🏼">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang light na kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👬🏼" type="tts">dalawang lalaking magkahawak-kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👬🏽">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👬🏽" type="tts">dalawang lalaking magkahawak-kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="👬🏾">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👬🏾" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👬🏿">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | lalaki | magkapareha | mga lalaki | zodiac</annotation>
-		<annotation cp="👬🏿" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | katamtamang light na kulay ng balat | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">hawak | hawak-kamay | holding hands | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | katamtamang kulay ng balat | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">hawak | hawak-kamay | holding hands | katamtamang kulay ng balat | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">hawak | hawak-kamay | holding hands | katamtamang kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">mga taong magkahawak-kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">hawak | hawak-kamay | holding hands | katamtamang dark na kulay ng balat | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">hawak | hawak-kamay | holding hands | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">hawak | hawak-kamay | holding hands | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">hawak | hawak-kamay | holding hands | katamtamang dark na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">mga taong magkahawak-kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">dark na kulay ng balat | hawak | hawak-kamay | holding hands | light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">dark na kulay ng balat | hawak | hawak-kamay | holding hands | katamtamang light na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">dark na kulay ng balat | hawak | hawak-kamay | holding hands | katamtamang kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">dark na kulay ng balat | hawak | hawak-kamay | holding hands | katamtamang dark na kulay ng balat | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">dark na kulay ng balat | hawak | hawak-kamay | holding hands | magkapareha | magkaparehang magkahawak-kamay | mga taong magkahawak-kamay | tao</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">mga taong magkahawak-kamay: dark na kulay ng balat</annotation>
 		<annotation cp="👭🏻">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | light na kulay ng balat | magkapareha</annotation>
 		<annotation cp="👭🏻" type="tts">dalawang babaeng magkahawak-kamay: light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
 		<annotation cp="👭🏼">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | magkapareha</annotation>
 		<annotation cp="👭🏼" type="tts">dalawang babaeng magkahawak-kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | katamtamang light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dalawang babaeng magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
 		<annotation cp="👭🏽">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | magkapareha</annotation>
 		<annotation cp="👭🏽" type="tts">dalawang babaeng magkahawak-kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">dalawang babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dalawang babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
 		<annotation cp="👭🏾">babae | dalawang babaeng magkahawak-kamay | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | magkapareha</annotation>
 		<annotation cp="👭🏾" type="tts">dalawang babaeng magkahawak-kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👭🏿">babae | dalawang babaeng magkahawak-kamay | dark na kulay ng balat | hawak-kamay | holding hands | kamay | magkapareha</annotation>
 		<annotation cp="👭🏿" type="tts">dalawang babaeng magkahawak-kamay: dark na kulay ng balat</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">babae | couple | halik | lalaki | maghahalikan | magkapareha | magkasintahan | pag-ibig | puso | romance | romansa</annotation>
+		<annotation cp="👫🏻">babae | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👫🏻" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">babae | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: light na kulay ng balat, dark na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">babae | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👫🏼">babae | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👫🏼" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang light na kulay ng balat, dark na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👫🏽">babae | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👫🏽" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang kulay ng balat, dark na kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="👫🏾">babae | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👫🏾" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">lalaki at babaeng magkahawak-kamay: katamtamang dark na kulay ng balat, dark na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | light na kulay ng balat | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang light na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | katamtamang dark na kulay ng balat | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👫🏿">babae | dark na kulay ng balat | hawak-kamay | holding hands | kamay | lalaki | lalaki at babaeng magkahawak-kamay | magkapareha</annotation>
+		<annotation cp="👫🏿" type="tts">lalaki at babaeng magkahawak-kamay: dark na kulay ng balat</annotation>
+		<annotation cp="👬🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👬🏻" type="tts">dalawang lalaking magkahawak-kamay: light na kulay ng balat</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang light na kulay ng balat | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: katamtamang light na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👬🏼">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👬🏼" type="tts">dalawang lalaking magkahawak-kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: katamtamang kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | katamtamang light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dalawang lalaking magkahawak-kamay: katamtamang kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👬🏽">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👬🏽" type="tts">dalawang lalaking magkahawak-kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | katamtamang light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | katamtamang kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="👬🏾">dalawang lalaking magkahawak-kamay | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👬🏾" type="tts">dalawang lalaking magkahawak-kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, light na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | katamtamang light na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | katamtamang kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, katamtamang kulay ng balat</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | katamtamang dark na kulay ng balat | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat, katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👬🏿">dalawang lalaking magkahawak-kamay | dark na kulay ng balat | Gemini | hawak-kamay | kambal | magkapareha | mga lalaki | zodiac</annotation>
+		<annotation cp="👬🏿" type="tts">dalawang lalaking magkahawak-kamay: dark na kulay ng balat</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">babae | couple | halik | lalaki | maghahalikan | magkasintahan | pag-ibig | puso | romansa</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">maghahalikan: babae, lalaki</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">couple | halik | lalaki | maghahalikan | magkapareha | magkasintahan | pag-ibig | puso | romance | romansa</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">couple | halik | lalaki | maghahalikan | magkasintahan | pag-ibig | puso | romansa</annotation>
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">maghahalikan: lalaki, lalaki</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">babae | couple | halik | maghahalikan | magkapareha | magkasintahan | pag-ibig | puso | romance | romansa</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">babae | couple | halik | maghahalikan | magkasintahan | pag-ibig | puso | romansa</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">maghahalikan: babae, babae</annotation>
-		<annotation cp="👩‍❤‍👨">babae | couple | lalaki | magkapareha | magkapareha na may puso | magkasintahan | pag-ibig | puso | romance | romansa</annotation>
+		<annotation cp="👩‍❤‍👨">babae | couple | lalaki | magkapareha | magkapareha na may puso | magkasintahan | pag-ibig | puso | romansa</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">magkapareha na may puso: babae, lalaki</annotation>
-		<annotation cp="👨‍❤‍👨">couple | lalaki | magkapareha | magkapareha na may puso | magkasintahan | pag-ibig | puso | romance | romansa</annotation>
+		<annotation cp="👨‍❤‍👨">couple | lalaki | magkapareha | magkapareha na may puso | magkasintahan | pag-ibig | puso | romansa</annotation>
 		<annotation cp="👨‍❤‍👨" type="tts">magkapareha na may puso: lalaki, lalaki</annotation>
-		<annotation cp="👩‍❤‍👩">babae | couple | magkapareha | magkapareha na may puso | magkasintahan | pag-ibig | puso | romance | romansa</annotation>
+		<annotation cp="👩‍❤‍👩">babae | couple | magkapareha | magkapareha na may puso | magkasintahan | pag-ibig | puso | romansa</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">magkapareha na may puso: babae, babae</annotation>
 		<annotation cp="👨‍👩‍👦">ama | anak | babae | batang lalaki | ina | lalaki | pamilya</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">pamilya: lalaki, babae, batang lalaki</annotation>
@@ -2986,7 +3223,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇭">bandila</annotation>
 		<annotation cp="🇲🇭" type="tts">bandila: Marshall Islands</annotation>
 		<annotation cp="🇲🇰">bandila</annotation>
-		<annotation cp="🇲🇰" type="tts">bandila: Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">bandila: North Macedonia</annotation>
 		<annotation cp="🇲🇱">bandila</annotation>
 		<annotation cp="🇲🇱" type="tts">bandila: Mali</annotation>
 		<annotation cp="🇲🇲">bandila</annotation>

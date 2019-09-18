@@ -251,7 +251,7 @@ public class Annotations {
             unresolvedData = source.freeze();
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
-            subdivisionIdToName = new SubdivisionNames("en", "main", "subdivisions");
+            subdivisionIdToName = new SubdivisionNames(locale, "main", "subdivisions");
 // EmojiSubdivisionNames.getSubdivisionIdToName(locale);
             listPattern = new XListFormatter(cldrFile, EmojiConstants.COMPOSED_NAME_LIST);
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
@@ -383,12 +383,12 @@ public class Annotations {
                 String subdivisionCode = EmojiConstants.getTagSpec(code);
                 String subdivisionName = subdivisionIdToName.get(subdivisionCode);
                 if (subdivisionName == null) {
-                    subdivisionName = englishSubdivisionIdToName.get(subdivisionCode);
-                    if (subdivisionName != null) {
-                        subdivisionName = ENGLISH_MARKER + subdivisionCode;
-                    } else {
+//                    subdivisionName = englishSubdivisionIdToName.get(subdivisionCode);
+//                    if (subdivisionName != null) {
+//                        subdivisionName = ENGLISH_MARKER + subdivisionCode;
+//                    } else {
                         subdivisionName = MISSING_MARKER + subdivisionCode;
-                    }
+//                    }
                 }
                 String flagName = flagLabel == null ? subdivisionName : initialPattern.format(flagLabel, subdivisionName);
                 return new Annotations(flagLabelSet, flagName);
@@ -611,7 +611,7 @@ public class Annotations {
         if (!LOCALES.contains(locale)) {
             return null;
         }
-        String parentString = LocaleIDParser.getSimpleParent(locale);
+        String parentString = LocaleIDParser.getParent(locale);
         AnnotationSet parentData = null;
         if (parentString != null && !parentString.equals("root")) {
             parentData = getDataSet(dir, parentString);

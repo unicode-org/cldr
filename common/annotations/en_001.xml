@@ -14,6 +14,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<territory type="001"/>
 	</identity>
 	<annotations>
+		<annotation cp="⚧">trans | transgender</annotation>
 		<annotation cp="😋">delicious | face | face savouring food | savouring | smile | um | yum</annotation>
 		<annotation cp="😋" type="tts">face savouring food</annotation>
 		<annotation cp="🤭">oops | whoops</annotation>
@@ -41,10 +42,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧒">child | gender-neutral | toddler | young</annotation>
 		<annotation cp="🙇‍♂">apology | bowing | favour | gesture | man | sorry</annotation>
 		<annotation cp="🙇‍♀">apology | bowing | favour | gesture | sorry | woman</annotation>
+		<annotation cp="🧑‍🏫">instructor | lecturer | professor | teacher</annotation>
 		<annotation cp="👨‍🌾">farmer | gardener | man</annotation>
 		<annotation cp="👩‍🌾">farmer | gardener | woman</annotation>
 		<annotation cp="👨‍🔧">electrician | man | mechanic | plumber | tradesman | tradesperson</annotation>
 		<annotation cp="👩‍🔧">electrician | mechanic | plumber | tradesperson | tradeswoman | woman</annotation>
+		<annotation cp="🧑‍🚒">fire engine | fire truck | firefighter</annotation>
 		<annotation cp="👨‍🚒">fire engine | firefighter | fireman | man</annotation>
 		<annotation cp="👩‍🚒">fire engine | firefighter | firewoman | woman</annotation>
 		<annotation cp="👮‍♂">cop | man | officer | police | policeman</annotation>
@@ -61,6 +64,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤶">celebration | Christmas | claus | mother | Mrs | Mrs Claus</annotation>
 		<annotation cp="🤶" type="tts">Mrs Claus</annotation>
 		<annotation cp="💇">barber | beauty | haircut | hairdresser | parlour</annotation>
+		<annotation cp="🧑‍🦯" type="tts">person with guide cane</annotation>
+		<annotation cp="👨‍🦯">accessibility | blind | man | man with guide cane</annotation>
+		<annotation cp="👨‍🦯" type="tts">man with guide cane</annotation>
+		<annotation cp="👩‍🦯">accessibility | blind | woman | woman with guide cane</annotation>
+		<annotation cp="👩‍🦯" type="tts">woman with guide cane</annotation>
+		<annotation cp="🧑‍🦼" type="tts">person in powered wheelchair</annotation>
+		<annotation cp="👨‍🦼">accessibility | man | man in powered wheelchair | wheelchair</annotation>
+		<annotation cp="👨‍🦼" type="tts">man in powered wheelchair</annotation>
+		<annotation cp="👩‍🦼">accessibility | wheelchair | woman | woman in powered wheelchair</annotation>
+		<annotation cp="👩‍🦼" type="tts">woman in powered wheelchair</annotation>
 		<annotation cp="🚣">boat | rowboat | rowing boat</annotation>
 		<annotation cp="🚣‍♂">boat | man | rowboat | rowing boat</annotation>
 		<annotation cp="🚣‍♀">boat | rowboat | rowing boat | woman</annotation>
@@ -91,6 +104,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌶">chilli | hot | pepper</annotation>
 		<annotation cp="🌶" type="tts">chilli</annotation>
 		<annotation cp="🥬">bok choy | cabbage | kale | lettuce | pak choi</annotation>
+		<annotation cp="🧄">flavouring</annotation>
+		<annotation cp="🧅">flavouring</annotation>
 		<annotation cp="🥜">food | monkey nut | nut | nuts | peanut | peanuts</annotation>
 		<annotation cp="🥖">baguette | bread | food | french | french stick</annotation>
 		<annotation cp="🥖" type="tts">baguette</annotation>
@@ -120,13 +135,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍺">bar | beer | drink | mug | stein</annotation>
 		<annotation cp="🍻">bar | beer | clink | clinking beer mugs | drink | mug | steins</annotation>
 		<annotation cp="🥤">cup with straw | fizzy drink | juice | soft drink</annotation>
+		<annotation cp="🧉">drink | maté</annotation>
+		<annotation cp="🧉" type="tts">maté</annotation>
 		<annotation cp="🍽">cooking | fork | knife | knife and fork with plate | plate</annotation>
 		<annotation cp="🍽" type="tts">knife and fork with plate</annotation>
 		<annotation cp="🍴">cooking | cutlery | fork | knife | knife and fork</annotation>
 		<annotation cp="🍴" type="tts">knife and fork</annotation>
 		<annotation cp="🥄">cutlery | spoon | tableware</annotation>
 		<annotation cp="🔪">cooking | cutlery | hocho | kitchen knife | knife | tool | weapon</annotation>
-		<annotation cp="🏺">amphora | Aquarius | cooking | drink | jar | jug | tool | weapon | zodiac</annotation>
+		<annotation cp="🏺">amphora | Aquarius | drink | jar | jug | zodiac</annotation>
 		<annotation cp="🏕">camping | tent</annotation>
 		<annotation cp="🏖">beach | beach with umbrella | parasol | umbrella</annotation>
 		<annotation cp="🏚">derelict | dilapidated | house</annotation>
@@ -150,6 +167,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚚" type="tts">delivery van</annotation>
 		<annotation cp="🏎">car | motor racing | racing</annotation>
 		<annotation cp="🏍">motorbike | racing</annotation>
+		<annotation cp="🦼">accessibility | powered wheelchair</annotation>
+		<annotation cp="🦼" type="tts">powered wheelchair</annotation>
+		<annotation cp="🛺">tuk tuk | tuk-tuk</annotation>
 		<annotation cp="🚲">bicycle | bike | cycle</annotation>
 		<annotation cp="⛽">diesel | fuel | fuelpump | gas | petrol | pump | station</annotation>
 		<annotation cp="⛵">boat | resort | sailboat | sailing | sea | yacht</annotation>
@@ -162,6 +182,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛫" type="tts">aeroplane departure</annotation>
 		<annotation cp="🛬">aeroplane | aeroplane arrival | airplane | airplane arrival | arrivals | arriving | landing</annotation>
 		<annotation cp="🛬" type="tts">aeroplane arrival</annotation>
+		<annotation cp="🪂">hang-glide | parachute | parasail | parascend | skydive</annotation>
 		<annotation cp="🚁">chopper | helicopter | vehicle</annotation>
 		<annotation cp="🚠">cable | gondola | mountain | mountain cablecar</annotation>
 		<annotation cp="🕰">clock | mantel clock</annotation>
@@ -221,7 +242,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏓" draft="contributed">table tennis</annotation>
 		<annotation cp="🏓" type="tts" draft="contributed">table tennis</annotation>
 		<annotation cp="🎣">angling | fish | fishing pole | pole</annotation>
-		<annotation cp="🛷">sledge | sleigh</annotation>
+		<annotation cp="🤿" draft="contributed">diving | scuba | snorkelling</annotation>
+		<annotation cp="🛷">sled | sledge | sleigh</annotation>
 		<annotation cp="🛷" type="tts">sledge</annotation>
 		<annotation cp="🎯">bull | bullseye | dart | eye | game | hit | target</annotation>
 		<annotation cp="🎯" type="tts">bullseye</annotation>
@@ -229,9 +251,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎲" type="tts">game dice</annotation>
 		<annotation cp="🎴">card | flower | flower playing cards | game | hanafuda | Japanese | playing</annotation>
 		<annotation cp="👓">clothing | eye | eyeglasses | eyewear | specs | spectacles</annotation>
+		<annotation cp="🦺">emergency | hi-vis | hi-viz | high-vis | high-viz | jacket | safety | vest</annotation>
 		<annotation cp="👕">clothing | shirt | T-shirt | tshirt</annotation>
 		<annotation cp="👕" type="tts">T-shirt</annotation>
 		<annotation cp="👖">clothing | trousers</annotation>
+		<annotation cp="🩲" draft="contributed">bathing suit | one-piece | pants | swimsuit | underwear</annotation>
+		<annotation cp="🩳" draft="contributed">bathing suit | boardshorts | swim shorts | underwear</annotation>
 		<annotation cp="🎒" type="tts">school bag</annotation>
 		<annotation cp="👟">athletic | clothing | shoe | trainer</annotation>
 		<annotation cp="👠">clothing | heel | shoe | stiletto | woman</annotation>
@@ -269,11 +294,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛠" type="tts" draft="contributed">hammer and spanner</annotation>
 		<annotation cp="🔧" draft="contributed">spanner</annotation>
 		<annotation cp="🔧" type="tts" draft="contributed">spanner</annotation>
+		<annotation cp="🦯" draft="contributed">guide cane</annotation>
+		<annotation cp="🦯" type="tts" draft="contributed">guide cane</annotation>
 		<annotation cp="💊">capsule | doctor | medicine | pill | sick | tablet</annotation>
+		<annotation cp="🩹" draft="contributed">plaster</annotation>
+		<annotation cp="🩹" type="tts" draft="contributed">plaster</annotation>
 		<annotation cp="🛋">couch | hotel | lamp | sofa | sofa and lamp</annotation>
 		<annotation cp="🛋" type="tts">sofa and lamp</annotation>
 		<annotation cp="🚽">lavatory | loo | toilet</annotation>
 		<annotation cp="🛁">bath | bathtub | tub</annotation>
+		<annotation cp="🪒" draft="contributed">cut-throat razor</annotation>
+		<annotation cp="🪒" type="tts" draft="contributed">cut-throat razor</annotation>
 		<annotation cp="🧴">lotion | moisturiser | shampoo | sunscreen</annotation>
 		<annotation cp="🧷">nappy | punk rock</annotation>
 		<annotation cp="🧻">paper towels | toilet paper | toilet roll</annotation>
@@ -297,18 +328,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☸">Buddhist | dharma | dharmachakra | religion | wheel | wheel of dharma</annotation>
 		<annotation cp="⏪" draft="contributed">fast-reverse button</annotation>
 		<annotation cp="⏪" type="tts" draft="contributed">fast-reverse button</annotation>
-		<annotation cp="✅">check | mark | white heavy tick</annotation>
-		<annotation cp="✅" type="tts">white heavy tick</annotation>
-		<annotation cp="☑">ballot | ballot box with tick | box | check</annotation>
-		<annotation cp="☑" type="tts">ballot box with tick</annotation>
-		<annotation cp="✔">check | heavy tick | mark</annotation>
-		<annotation cp="✔" type="tts">heavy tick</annotation>
-		<annotation cp="✖">cancel | heavy multiplication x | math | maths | multiplication | multiply | x</annotation>
-		<annotation cp="➕">heavy plus sign | math | maths | plus</annotation>
-		<annotation cp="➖">heavy minus sign | math | maths | minus</annotation>
+		<annotation cp="✅">✓ | button | mark | tick</annotation>
+		<annotation cp="✅" type="tts">tick button</annotation>
+		<annotation cp="☑">✓ | box | tick | tick box with tick</annotation>
+		<annotation cp="☑" type="tts">tick box with tick</annotation>
+		<annotation cp="✔">✓ | mark | tick</annotation>
+		<annotation cp="✔" type="tts">tick</annotation>
+		<annotation cp="✖">× | cancel | multiplication | multiply | sign | x</annotation>
+		<annotation cp="➕">+ | math | maths | plus | sign</annotation>
+		<annotation cp="➖">- | − | math | maths | minus | sign</annotation>
 		<annotation cp="➗">division | heavy division sign | math | maths</annotation>
 		<annotation cp="™">mark | tm | trademark</annotation>
 		<annotation cp="™" type="tts">trademark</annotation>
+		<annotation cp="🏳‍⚧">flag | light blue | pink | trans | transgender | white</annotation>
 		<annotation cp="🏳‍🌈">pride | rainbow | rainbow flag</annotation>
+		<annotation cp="🛗" type="tts">lift</annotation>
+		<annotation cp="🦭">sea lion | seal</annotation>
+		<annotation cp="🩴">beach sandals | flipflop | sandals | thong sandals | thongs | zori | zōri</annotation>
+		<annotation cp="🩴" type="tts">flip-flop</annotation>
+		<annotation cp="🪄">magic | wand | witch | wizard</annotation>
+		<annotation cp="🪆">babushka | doll | matryoshka | nesting dolls | russia</annotation>
+		<annotation cp="🪆" type="tts">Russian dolls</annotation>
+		<annotation cp="🪘">beat | conga | drum | long drum | rhythm</annotation>
+		<annotation cp="🪘" type="tts">conga drum</annotation>
+		<annotation cp="🪚">carpenter | lumber | saw | timber | tool</annotation>
+		<annotation cp="🪜">climb | ladder | rung | stair | step</annotation>
+		<annotation cp="🪞">looking glass | reflection | reflector</annotation>
+		<annotation cp="🪤" type="tts">mousetrap</annotation>
+		<annotation cp="🪴">grow | house | nurturing | plant</annotation>
+		<annotation cp="🫀">cardiology | centre | heartbeat | organ | pulse</annotation>
+		<annotation cp="🫑">bell pepper | capsicum | sweet pepper | vegetable</annotation>
+		<annotation cp="🫑" type="tts">pepper</annotation>
+		<annotation cp="🫓">arepa | lavash | naan | nan | pita | pitta</annotation>
 	</annotations>
 </ldml>

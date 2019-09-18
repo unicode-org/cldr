@@ -14,12 +14,14 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class SimpleFactory extends Factory {
@@ -533,7 +535,13 @@ public class SimpleFactory extends Factory {
                 return result;
             }
             if (resolved) {
-                result = new CLDRFile(makeResolvingSource(localeName, minimalDraftStatus));
+                ResolvingSource makeResolvingSource;
+                try {
+                    makeResolvingSource = makeResolvingSource(localeName, minimalDraftStatus);
+                } catch (Exception e) {
+                    throw new ICUException("Couldn't make resolved CLDR file for " + localeName);
+                }
+                result = new CLDRFile(makeResolvingSource);
             } else {
                 if (parentDirs != null) {
                     if (DEBUG_SIMPLEFACTORY) {

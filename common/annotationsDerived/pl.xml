@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="pl"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">dłoń z gestem „trochę” | karnacja jasna | mała ilość</annotation>
-		<annotation cp="🤏🏻" type="tts">dłoń z gestem „trochę”: karnacja jasna</annotation>
-		<annotation cp="🤏🏼">dłoń z gestem „trochę” | karnacja średnio jasna | mała ilość</annotation>
-		<annotation cp="🤏🏼" type="tts">dłoń z gestem „trochę”: karnacja średnio jasna</annotation>
-		<annotation cp="🤏🏽">dłoń z gestem „trochę” | karnacja średnia | mała ilość</annotation>
-		<annotation cp="🤏🏽" type="tts">dłoń z gestem „trochę”: karnacja średnia</annotation>
-		<annotation cp="🤏🏾">dłoń z gestem „trochę” | karnacja średnio ciemna | mała ilość</annotation>
-		<annotation cp="🤏🏾" type="tts">dłoń z gestem „trochę”: karnacja średnio ciemna</annotation>
-		<annotation cp="🤏🏿">dłoń z gestem „trochę” | karnacja ciemna | mała ilość</annotation>
-		<annotation cp="🤏🏿" type="tts">dłoń z gestem „trochę”: karnacja ciemna</annotation>
-		<annotation cp="🦻🏻">karnacja jasna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
-		<annotation cp="🦻🏻" type="tts">ucho z aparatem słuchowym: karnacja jasna</annotation>
-		<annotation cp="🦻🏼">karnacja średnio jasna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
-		<annotation cp="🦻🏼" type="tts">ucho z aparatem słuchowym: karnacja średnio jasna</annotation>
-		<annotation cp="🦻🏽">karnacja średnia | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
-		<annotation cp="🦻🏽" type="tts">ucho z aparatem słuchowym: karnacja średnia</annotation>
-		<annotation cp="🦻🏾">karnacja średnio ciemna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
-		<annotation cp="🦻🏾" type="tts">ucho z aparatem słuchowym: karnacja średnio ciemna</annotation>
-		<annotation cp="🦻🏿">karnacja ciemna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
-		<annotation cp="🦻🏿" type="tts">ucho z aparatem słuchowym: karnacja ciemna</annotation>
-		<annotation cp="🧍🏻">karnacja jasna | stać | stoi | stojąca osoba</annotation>
-		<annotation cp="🧍🏻" type="tts">stojąca osoba: karnacja jasna</annotation>
-		<annotation cp="🧍🏼">karnacja średnio jasna | stać | stoi | stojąca osoba</annotation>
-		<annotation cp="🧍🏼" type="tts">stojąca osoba: karnacja średnio jasna</annotation>
-		<annotation cp="🧍🏽">karnacja średnia | stać | stoi | stojąca osoba</annotation>
-		<annotation cp="🧍🏽" type="tts">stojąca osoba: karnacja średnia</annotation>
-		<annotation cp="🧍🏾">karnacja średnio ciemna | stać | stoi | stojąca osoba</annotation>
-		<annotation cp="🧍🏾" type="tts">stojąca osoba: karnacja średnio ciemna</annotation>
-		<annotation cp="🧍🏿">karnacja ciemna | stać | stoi | stojąca osoba</annotation>
-		<annotation cp="🧍🏿" type="tts">stojąca osoba: karnacja ciemna</annotation>
-		<annotation cp="🧍🏻‍♀">karnacja jasna | kobieta | stać | stojąca kobieta</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">stojąca kobieta: karnacja jasna</annotation>
-		<annotation cp="🧍🏼‍♀">karnacja średnio jasna | kobieta | stać | stojąca kobieta</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">stojąca kobieta: karnacja średnio jasna</annotation>
-		<annotation cp="🧍🏽‍♀">karnacja średnia | kobieta | stać | stojąca kobieta</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">stojąca kobieta: karnacja średnia</annotation>
-		<annotation cp="🧍🏾‍♀">karnacja średnio ciemna | kobieta | stać | stojąca kobieta</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">stojąca kobieta: karnacja średnio ciemna</annotation>
-		<annotation cp="🧍🏿‍♀">karnacja ciemna | kobieta | stać | stojąca kobieta</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">stojąca kobieta: karnacja ciemna</annotation>
-		<annotation cp="🧍🏻‍♂">karnacja jasna | mężczyzna | stać | stojący mężczyzna</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">stojący mężczyzna: karnacja jasna</annotation>
-		<annotation cp="🧍🏼‍♂">karnacja średnio jasna | mężczyzna | stać | stojący mężczyzna</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">stojący mężczyzna: karnacja średnio jasna</annotation>
-		<annotation cp="🧍🏽‍♂">karnacja średnia | mężczyzna | stać | stojący mężczyzna</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">stojący mężczyzna: karnacja średnia</annotation>
-		<annotation cp="🧍🏾‍♂">karnacja średnio ciemna | mężczyzna | stać | stojący mężczyzna</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">stojący mężczyzna: karnacja średnio ciemna</annotation>
-		<annotation cp="🧍🏿‍♂">karnacja ciemna | mężczyzna | stać | stojący mężczyzna</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">stojący mężczyzna: karnacja ciemna</annotation>
-		<annotation cp="🧎🏻">karnacja jasna | klęcząca osoba | klęczeć | na kolanach</annotation>
-		<annotation cp="🧎🏻" type="tts">klęcząca osoba: karnacja jasna</annotation>
-		<annotation cp="🧎🏼">karnacja średnio jasna | klęcząca osoba | klęczeć | na kolanach</annotation>
-		<annotation cp="🧎🏼" type="tts">klęcząca osoba: karnacja średnio jasna</annotation>
-		<annotation cp="🧎🏽">karnacja średnia | klęcząca osoba | klęczeć | na kolanach</annotation>
-		<annotation cp="🧎🏽" type="tts">klęcząca osoba: karnacja średnia</annotation>
-		<annotation cp="🧎🏾">karnacja średnio ciemna | klęcząca osoba | klęczeć | na kolanach</annotation>
-		<annotation cp="🧎🏾" type="tts">klęcząca osoba: karnacja średnio ciemna</annotation>
-		<annotation cp="🧎🏿">karnacja ciemna | klęcząca osoba | klęczeć | na kolanach</annotation>
-		<annotation cp="🧎🏿" type="tts">klęcząca osoba: karnacja ciemna</annotation>
-		<annotation cp="🧎🏻‍♀">karnacja jasna | klęcząca kobieta | klęczeć | kobieta</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">klęcząca kobieta: karnacja jasna</annotation>
-		<annotation cp="🧎🏼‍♀">karnacja średnio jasna | klęcząca kobieta | klęczeć | kobieta</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">klęcząca kobieta: karnacja średnio jasna</annotation>
-		<annotation cp="🧎🏽‍♀">karnacja średnia | klęcząca kobieta | klęczeć | kobieta</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">klęcząca kobieta: karnacja średnia</annotation>
-		<annotation cp="🧎🏾‍♀">karnacja średnio ciemna | klęcząca kobieta | klęczeć | kobieta</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">klęcząca kobieta: karnacja średnio ciemna</annotation>
-		<annotation cp="🧎🏿‍♀">karnacja ciemna | klęcząca kobieta | klęczeć | kobieta</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">klęcząca kobieta: karnacja ciemna</annotation>
-		<annotation cp="🧎🏻‍♂">karnacja jasna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">klęczący mężczyzna: karnacja jasna</annotation>
-		<annotation cp="🧎🏼‍♂">karnacja średnio jasna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">klęczący mężczyzna: karnacja średnio jasna</annotation>
-		<annotation cp="🧎🏽‍♂">karnacja średnia | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">klęczący mężczyzna: karnacja średnia</annotation>
-		<annotation cp="🧎🏾‍♂">karnacja średnio ciemna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">klęczący mężczyzna: karnacja średnio ciemna</annotation>
-		<annotation cp="🧎🏿‍♂">karnacja ciemna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">klęczący mężczyzna: karnacja ciemna</annotation>
-		<annotation cp="🧏🏻">dostępność | głuchota | karnacja jasna | osoba głucha | słuch | ucho</annotation>
-		<annotation cp="🧏🏻" type="tts">osoba głucha: karnacja jasna</annotation>
-		<annotation cp="🧏🏼">dostępność | głuchota | karnacja średnio jasna | osoba głucha | słuch | ucho</annotation>
-		<annotation cp="🧏🏼" type="tts">osoba głucha: karnacja średnio jasna</annotation>
-		<annotation cp="🧏🏽">dostępność | głuchota | karnacja średnia | osoba głucha | słuch | ucho</annotation>
-		<annotation cp="🧏🏽" type="tts">osoba głucha: karnacja średnia</annotation>
-		<annotation cp="🧏🏾">dostępność | głuchota | karnacja średnio ciemna | osoba głucha | słuch | ucho</annotation>
-		<annotation cp="🧏🏾" type="tts">osoba głucha: karnacja średnio ciemna</annotation>
-		<annotation cp="🧏🏿">dostępność | głuchota | karnacja ciemna | osoba głucha | słuch | ucho</annotation>
-		<annotation cp="🧏🏿" type="tts">osoba głucha: karnacja ciemna</annotation>
-		<annotation cp="🧏🏻‍♀">głucha kobieta | głuchota | karnacja jasna | kobieta</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">głucha kobieta: karnacja jasna</annotation>
-		<annotation cp="🧏🏼‍♀">głucha kobieta | głuchota | karnacja średnio jasna | kobieta</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">głucha kobieta: karnacja średnio jasna</annotation>
-		<annotation cp="🧏🏽‍♀">głucha kobieta | głuchota | karnacja średnia | kobieta</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">głucha kobieta: karnacja średnia</annotation>
-		<annotation cp="🧏🏾‍♀">głucha kobieta | głuchota | karnacja średnio ciemna | kobieta</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">głucha kobieta: karnacja średnio ciemna</annotation>
-		<annotation cp="🧏🏿‍♀">głucha kobieta | głuchota | karnacja ciemna | kobieta</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">głucha kobieta: karnacja ciemna</annotation>
-		<annotation cp="🧏🏻‍♂">głuchota | głuchy mężczyzna | karnacja jasna | mężczyzna</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">głuchy mężczyzna: karnacja jasna</annotation>
-		<annotation cp="🧏🏼‍♂">głuchota | głuchy mężczyzna | karnacja średnio jasna | mężczyzna</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">głuchy mężczyzna: karnacja średnio jasna</annotation>
-		<annotation cp="🧏🏽‍♂">głuchota | głuchy mężczyzna | karnacja średnia | mężczyzna</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">głuchy mężczyzna: karnacja średnia</annotation>
-		<annotation cp="🧏🏾‍♂">głuchota | głuchy mężczyzna | karnacja średnio ciemna | mężczyzna</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">głuchy mężczyzna: karnacja średnio ciemna</annotation>
-		<annotation cp="🧏🏿‍♂">głuchota | głuchy mężczyzna | karnacja ciemna | mężczyzna</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">głuchy mężczyzna: karnacja ciemna</annotation>
 		<annotation cp="👋🏻">karnacja jasna | machająca dłoń</annotation>
 		<annotation cp="👋🏻" type="tts">machająca dłoń: karnacja jasna</annotation>
 		<annotation cp="👋🏼">karnacja średnio jasna | machająca dłoń</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">dłoń z gestem OK: karnacja średnio ciemna</annotation>
 		<annotation cp="👌🏿">dłoń z gestem OK | karnacja ciemna | znak OK</annotation>
 		<annotation cp="👌🏿" type="tts">dłoń z gestem OK: karnacja ciemna</annotation>
+		<annotation cp="🤏🏻">dłoń z gestem „trochę” | karnacja jasna | mała ilość</annotation>
+		<annotation cp="🤏🏻" type="tts">dłoń z gestem „trochę”: karnacja jasna</annotation>
+		<annotation cp="🤏🏼">dłoń z gestem „trochę” | karnacja średnio jasna | mała ilość</annotation>
+		<annotation cp="🤏🏼" type="tts">dłoń z gestem „trochę”: karnacja średnio jasna</annotation>
+		<annotation cp="🤏🏽">dłoń z gestem „trochę” | karnacja średnia | mała ilość</annotation>
+		<annotation cp="🤏🏽" type="tts">dłoń z gestem „trochę”: karnacja średnia</annotation>
+		<annotation cp="🤏🏾">dłoń z gestem „trochę” | karnacja średnio ciemna | mała ilość</annotation>
+		<annotation cp="🤏🏾" type="tts">dłoń z gestem „trochę”: karnacja średnio ciemna</annotation>
+		<annotation cp="🤏🏿">dłoń z gestem „trochę” | karnacja ciemna | mała ilość</annotation>
+		<annotation cp="🤏🏿" type="tts">dłoń z gestem „trochę”: karnacja ciemna</annotation>
 		<annotation cp="✌🏻">gest V | gest zwycięstwa | karnacja jasna | znak V | znak Victorii</annotation>
 		<annotation cp="✌🏻" type="tts">gest V: karnacja jasna</annotation>
 		<annotation cp="✌🏼">gest V | gest zwycięstwa | karnacja średnio jasna | znak V | znak Victorii</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">ucho: karnacja średnio ciemna</annotation>
 		<annotation cp="👂🏿">ciało | karnacja ciemna | ucho</annotation>
 		<annotation cp="👂🏿" type="tts">ucho: karnacja ciemna</annotation>
+		<annotation cp="🦻🏻">karnacja jasna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
+		<annotation cp="🦻🏻" type="tts">ucho z aparatem słuchowym: karnacja jasna</annotation>
+		<annotation cp="🦻🏼">karnacja średnio jasna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
+		<annotation cp="🦻🏼" type="tts">ucho z aparatem słuchowym: karnacja średnio jasna</annotation>
+		<annotation cp="🦻🏽">karnacja średnia | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
+		<annotation cp="🦻🏽" type="tts">ucho z aparatem słuchowym: karnacja średnia</annotation>
+		<annotation cp="🦻🏾">karnacja średnio ciemna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
+		<annotation cp="🦻🏾" type="tts">ucho z aparatem słuchowym: karnacja średnio ciemna</annotation>
+		<annotation cp="🦻🏿">karnacja ciemna | niedosłuch | niedosłyszący | ucho z aparatem słuchowym</annotation>
+		<annotation cp="🦻🏿" type="tts">ucho z aparatem słuchowym: karnacja ciemna</annotation>
 		<annotation cp="👃🏻">ciało | karnacja jasna | nos</annotation>
 		<annotation cp="👃🏻" type="tts">nos: karnacja jasna</annotation>
 		<annotation cp="👃🏼">ciało | karnacja średnio jasna | nos</annotation>
@@ -533,46 +442,64 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾" type="tts">dorosły: karnacja średnio ciemna</annotation>
 		<annotation cp="🧑🏿">dorosły | karnacja ciemna | płeć neutralna</annotation>
 		<annotation cp="🧑🏿" type="tts">dorosły: karnacja ciemna</annotation>
-		<annotation cp="👱🏻">blondyn | karnacja jasna | osoba z włosami blond</annotation>
+		<annotation cp="👱🏻">blond | karnacja jasna | osoba z włosami blond | włosy</annotation>
 		<annotation cp="👱🏻" type="tts">osoba z włosami blond: karnacja jasna</annotation>
-		<annotation cp="👱🏼">blondyn | karnacja średnio jasna | osoba z włosami blond</annotation>
+		<annotation cp="👱🏼">blond | karnacja średnio jasna | osoba z włosami blond | włosy</annotation>
 		<annotation cp="👱🏼" type="tts">osoba z włosami blond: karnacja średnio jasna</annotation>
-		<annotation cp="👱🏽">blondyn | karnacja średnia | osoba z włosami blond</annotation>
+		<annotation cp="👱🏽">blond | karnacja średnia | osoba z włosami blond | włosy</annotation>
 		<annotation cp="👱🏽" type="tts">osoba z włosami blond: karnacja średnia</annotation>
-		<annotation cp="👱🏾">blondyn | karnacja średnio ciemna | osoba z włosami blond</annotation>
+		<annotation cp="👱🏾">blond | karnacja średnio ciemna | osoba z włosami blond | włosy</annotation>
 		<annotation cp="👱🏾" type="tts">osoba z włosami blond: karnacja średnio ciemna</annotation>
-		<annotation cp="👱🏿">blondyn | karnacja ciemna | osoba z włosami blond</annotation>
+		<annotation cp="👱🏿">blond | karnacja ciemna | osoba z włosami blond | włosy</annotation>
 		<annotation cp="👱🏿" type="tts">osoba z włosami blond: karnacja ciemna</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">karnacja jasna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja jasna</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">karnacja jasna | karnacja średnio jasna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">karnacja średnio jasna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">karnacja jasna | karnacja średnia | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja jasna</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">karnacja średnia | karnacja średnio jasna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">karnacja średnia | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja średnia</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">karnacja jasna | karnacja średnio ciemna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">karnacja średnio ciemna | karnacja średnio jasna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">karnacja średnia | karnacja średnio ciemna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">karnacja średnio ciemna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">karnacja ciemna | karnacja jasna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja jasna</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">karnacja ciemna | karnacja średnio jasna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">karnacja ciemna | karnacja średnia | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja średnia</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">karnacja ciemna | karnacja średnio ciemna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">karnacja ciemna | osoby trzymające się za ręce</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">osoby trzymające się za ręce: karnacja ciemna</annotation>
+		<annotation cp="🧑‍🦰">dorosły | płeć neutralna | rude włosy</annotation>
+		<annotation cp="🧑‍🦰" type="tts">dorosły: rude włosy</annotation>
+		<annotation cp="🧑🏻‍🦰">dorosły | karnacja jasna | płeć neutralna | rude włosy</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">dorosły: karnacja jasna i rude włosy</annotation>
+		<annotation cp="🧑🏼‍🦰">dorosły | karnacja średnio jasna | płeć neutralna | rude włosy</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">dorosły: karnacja średnio jasna i rude włosy</annotation>
+		<annotation cp="🧑🏽‍🦰">dorosły | karnacja średnia | płeć neutralna | rude włosy</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">dorosły: karnacja średnia i rude włosy</annotation>
+		<annotation cp="🧑🏾‍🦰">dorosły | karnacja średnio ciemna | płeć neutralna | rude włosy</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">dorosły: karnacja średnio ciemna i rude włosy</annotation>
+		<annotation cp="🧑🏿‍🦰">dorosły | karnacja ciemna | płeć neutralna | rude włosy</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">dorosły: karnacja ciemna i rude włosy</annotation>
+		<annotation cp="🧑‍🦱">dorosły | kręcone włosy | płeć neutralna</annotation>
+		<annotation cp="🧑‍🦱" type="tts">dorosły: kręcone włosy</annotation>
+		<annotation cp="🧑🏻‍🦱">dorosły | karnacja jasna | kręcone włosy | płeć neutralna</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">dorosły: karnacja jasna i kręcone włosy</annotation>
+		<annotation cp="🧑🏼‍🦱">dorosły | karnacja średnio jasna | kręcone włosy | płeć neutralna</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">dorosły: karnacja średnio jasna i kręcone włosy</annotation>
+		<annotation cp="🧑🏽‍🦱">dorosły | karnacja średnia | kręcone włosy | płeć neutralna</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">dorosły: karnacja średnia i kręcone włosy</annotation>
+		<annotation cp="🧑🏾‍🦱">dorosły | karnacja średnio ciemna | kręcone włosy | płeć neutralna</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">dorosły: karnacja średnio ciemna i kręcone włosy</annotation>
+		<annotation cp="🧑🏿‍🦱">dorosły | karnacja ciemna | kręcone włosy | płeć neutralna</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">dorosły: karnacja ciemna i kręcone włosy</annotation>
+		<annotation cp="🧑‍🦳">białe włosy | dorosły | płeć neutralna</annotation>
+		<annotation cp="🧑‍🦳" type="tts">dorosły: białe włosy</annotation>
+		<annotation cp="🧑🏻‍🦳">białe włosy | dorosły | karnacja jasna | płeć neutralna</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">dorosły: karnacja jasna i białe włosy</annotation>
+		<annotation cp="🧑🏼‍🦳">białe włosy | dorosły | karnacja średnio jasna | płeć neutralna</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">dorosły: karnacja średnio jasna i białe włosy</annotation>
+		<annotation cp="🧑🏽‍🦳">białe włosy | dorosły | karnacja średnia | płeć neutralna</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">dorosły: karnacja średnia i białe włosy</annotation>
+		<annotation cp="🧑🏾‍🦳">białe włosy | dorosły | karnacja średnio ciemna | płeć neutralna</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">dorosły: karnacja średnio ciemna i białe włosy</annotation>
+		<annotation cp="🧑🏿‍🦳">białe włosy | dorosły | karnacja ciemna | płeć neutralna</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">dorosły: karnacja ciemna i białe włosy</annotation>
+		<annotation cp="🧑‍🦲">dorosły | łysy | płeć neutralna</annotation>
+		<annotation cp="🧑‍🦲" type="tts">dorosły: łysy</annotation>
+		<annotation cp="🧑🏻‍🦲">dorosły | karnacja jasna | łysy | płeć neutralna</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">dorosły: karnacja jasna i łysy</annotation>
+		<annotation cp="🧑🏼‍🦲">dorosły | karnacja średnio jasna | łysy | płeć neutralna</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">dorosły: karnacja średnio jasna i łysy</annotation>
+		<annotation cp="🧑🏽‍🦲">dorosły | karnacja średnia | łysy | płeć neutralna</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">dorosły: karnacja średnia i łysy</annotation>
+		<annotation cp="🧑🏾‍🦲">dorosły | karnacja średnio ciemna | łysy | płeć neutralna</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">dorosły: karnacja średnio ciemna i łysy</annotation>
+		<annotation cp="🧑🏿‍🦲">dorosły | karnacja ciemna | łysy | płeć neutralna</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">dorosły: karnacja ciemna i łysy</annotation>
 		<annotation cp="👨🏻">karnacja jasna | mężczyzna</annotation>
 		<annotation cp="👨🏻" type="tts">mężczyzna: karnacja jasna</annotation>
 		<annotation cp="👨🏼">karnacja średnio jasna | mężczyzna</annotation>
@@ -583,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">mężczyzna: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿">karnacja ciemna | mężczyzna</annotation>
 		<annotation cp="👨🏿" type="tts">mężczyzna: karnacja ciemna</annotation>
-		<annotation cp="👨🏻‍🦯">dostępność | karnacja jasna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">mężczyzna z białą laską: karnacja jasna</annotation>
-		<annotation cp="👨🏼‍🦯">dostępność | karnacja średnio jasna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">mężczyzna z białą laską: karnacja średnio jasna</annotation>
-		<annotation cp="👨🏽‍🦯">dostępność | karnacja średnia | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">mężczyzna z białą laską: karnacja średnia</annotation>
-		<annotation cp="👨🏾‍🦯">dostępność | karnacja średnio ciemna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">mężczyzna z białą laską: karnacja średnio ciemna</annotation>
-		<annotation cp="👨🏿‍🦯">dostępność | karnacja ciemna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">mężczyzna z białą laską: karnacja ciemna</annotation>
-		<annotation cp="👨🏻‍🦼">dostępność | karnacja jasna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja jasna</annotation>
-		<annotation cp="👨🏼‍🦼">dostępność | karnacja średnio jasna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja średnio jasna</annotation>
-		<annotation cp="👨🏽‍🦼">dostępność | karnacja średnia | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja średnia</annotation>
-		<annotation cp="👨🏾‍🦼">dostępność | karnacja średnio ciemna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja średnio ciemna</annotation>
-		<annotation cp="👨🏿‍🦼">dostępność | karnacja ciemna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja ciemna</annotation>
-		<annotation cp="👨🏻‍🦽">dostępność | karnacja jasna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja jasna</annotation>
-		<annotation cp="👨🏼‍🦽">dostępność | karnacja średnio jasna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja średnio jasna</annotation>
-		<annotation cp="👨🏽‍🦽">dostępność | karnacja średnia | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja średnia</annotation>
-		<annotation cp="👨🏾‍🦽">dostępność | karnacja średnio ciemna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja średnio ciemna</annotation>
-		<annotation cp="👨🏿‍🦽">dostępność | karnacja ciemna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja ciemna</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja jasna</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnia | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnio ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">dwóch mężczyzn trzymających się za ręce | karnacja średnia | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja jasna</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja średnia</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
+		<annotation cp="🧔🏻">broda | karnacja jasna | osoba z brodą</annotation>
+		<annotation cp="🧔🏻" type="tts">mężczyzna z brodą: karnacja jasna</annotation>
+		<annotation cp="🧔🏼">broda | karnacja średnio jasna | osoba z brodą</annotation>
+		<annotation cp="🧔🏼" type="tts">mężczyzna z brodą: karnacja średnio jasna</annotation>
+		<annotation cp="🧔🏽">broda | karnacja średnia | osoba z brodą</annotation>
+		<annotation cp="🧔🏽" type="tts">mężczyzna z brodą: karnacja średnia</annotation>
+		<annotation cp="🧔🏾">broda | karnacja średnio ciemna | osoba z brodą</annotation>
+		<annotation cp="🧔🏾" type="tts">mężczyzna z brodą: karnacja średnio ciemna</annotation>
+		<annotation cp="🧔🏿">broda | karnacja ciemna | osoba z brodą</annotation>
+		<annotation cp="🧔🏿" type="tts">mężczyzna z brodą: karnacja ciemna</annotation>
+		<annotation cp="👱🏻‍♂">blondyn | karnacja jasna | mężczyzna</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blondyn: karnacja jasna</annotation>
+		<annotation cp="👱🏼‍♂">blondyn | karnacja średnio jasna | mężczyzna</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blondyn: karnacja średnio jasna</annotation>
+		<annotation cp="👱🏽‍♂">blondyn | karnacja średnia | mężczyzna</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blondyn: karnacja średnia</annotation>
+		<annotation cp="👱🏾‍♂">blondyn | karnacja średnio ciemna | mężczyzna</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blondyn: karnacja średnio ciemna</annotation>
+		<annotation cp="👱🏿‍♂">blondyn | karnacja ciemna | mężczyzna</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blondyn: karnacja ciemna</annotation>
 		<annotation cp="👨‍🦰">mężczyzna | rude włosy</annotation>
 		<annotation cp="👨‍🦰" type="tts">mężczyzna: rude włosy</annotation>
 		<annotation cp="👨🏻‍🦰">karnacja jasna | mężczyzna | rude włosy</annotation>
@@ -681,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">mężczyzna: karnacja średnio ciemna i łysy</annotation>
 		<annotation cp="👨🏿‍🦲">karnacja ciemna | łysy | mężczyzna</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mężczyzna: karnacja ciemna i łysy</annotation>
-		<annotation cp="👱🏻‍♂">blondyn | karnacja jasna | mężczyzna</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">blondyn: karnacja jasna</annotation>
-		<annotation cp="👱🏼‍♂">blondyn | karnacja średnio jasna | mężczyzna</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">blondyn: karnacja średnio jasna</annotation>
-		<annotation cp="👱🏽‍♂">blondyn | karnacja średnia | mężczyzna</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">blondyn: karnacja średnia</annotation>
-		<annotation cp="👱🏾‍♂">blondyn | karnacja średnio ciemna | mężczyzna</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">blondyn: karnacja średnio ciemna</annotation>
-		<annotation cp="👱🏿‍♂">blondyn | karnacja ciemna | mężczyzna</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">blondyn: karnacja ciemna</annotation>
-		<annotation cp="🧔🏻">broda | karnacja jasna | osoba z brodą</annotation>
-		<annotation cp="🧔🏻" type="tts">osoba z brodą: karnacja jasna</annotation>
-		<annotation cp="🧔🏼">broda | karnacja średnio jasna | osoba z brodą</annotation>
-		<annotation cp="🧔🏼" type="tts">osoba z brodą: karnacja średnio jasna</annotation>
-		<annotation cp="🧔🏽">broda | karnacja średnia | osoba z brodą</annotation>
-		<annotation cp="🧔🏽" type="tts">osoba z brodą: karnacja średnia</annotation>
-		<annotation cp="🧔🏾">broda | karnacja średnio ciemna | osoba z brodą</annotation>
-		<annotation cp="🧔🏾" type="tts">osoba z brodą: karnacja średnio ciemna</annotation>
-		<annotation cp="🧔🏿">broda | karnacja ciemna | osoba z brodą</annotation>
-		<annotation cp="🧔🏿" type="tts">osoba z brodą: karnacja ciemna</annotation>
 		<annotation cp="👩🏻">karnacja jasna | kobieta</annotation>
 		<annotation cp="👩🏻" type="tts">kobieta: karnacja jasna</annotation>
 		<annotation cp="👩🏼">karnacja średnio jasna | kobieta</annotation>
@@ -711,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">kobieta: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿">karnacja ciemna | kobieta</annotation>
 		<annotation cp="👩🏿" type="tts">kobieta: karnacja ciemna</annotation>
-		<annotation cp="👩🏻‍🦯">dostępność | karnacja jasna | kobieta | kobieta z białą laską | niewidoma</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">kobieta z białą laską: karnacja jasna</annotation>
-		<annotation cp="👩🏼‍🦯">dostępność | karnacja średnio jasna | kobieta | kobieta z białą laską | niewidoma</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">kobieta z białą laską: karnacja średnio jasna</annotation>
-		<annotation cp="👩🏽‍🦯">dostępność | karnacja średnia | kobieta | kobieta z białą laską | niewidoma</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">kobieta z białą laską: karnacja średnia</annotation>
-		<annotation cp="👩🏾‍🦯">dostępność | karnacja średnio ciemna | kobieta | kobieta z białą laską | niewidoma</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">kobieta z białą laską: karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏿‍🦯">dostępność | karnacja ciemna | kobieta | kobieta z białą laską | niewidoma</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">kobieta z białą laską: karnacja ciemna</annotation>
-		<annotation cp="👩🏻‍🦼">dostępność | karnacja jasna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja jasna</annotation>
-		<annotation cp="👩🏼‍🦼">dostępność | karnacja średnio jasna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja średnio jasna</annotation>
-		<annotation cp="👩🏽‍🦼">dostępność | karnacja średnia | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja średnia</annotation>
-		<annotation cp="👩🏾‍🦼">dostępność | karnacja średnio ciemna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏿‍🦼">dostępność | karnacja ciemna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja ciemna</annotation>
-		<annotation cp="👩🏻‍🦽">dostępność | karnacja jasna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja jasna</annotation>
-		<annotation cp="👩🏼‍🦽">dostępność | karnacja średnio jasna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja średnio jasna</annotation>
-		<annotation cp="👩🏽‍🦽">dostępność | karnacja średnia | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja średnia</annotation>
-		<annotation cp="👩🏾‍🦽">dostępność | karnacja średnio ciemna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏿‍🦽">dostępność | karnacja ciemna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja ciemna</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">karnacja jasna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">karnacja jasna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja średnia</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">karnacja jasna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">karnacja ciemna | karnacja jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja ciemna</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">karnacja jasna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">karnacja średnia | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja średnia</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">karnacja średnio ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">karnacja ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja ciemna</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">karnacja jasna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja jasna</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">karnacja średnia | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">karnacja średnia | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">karnacja ciemna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja ciemna</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">karnacja jasna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">karnacja średnio ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">karnacja średnia | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">karnacja ciemna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja ciemna</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">karnacja ciemna | karnacja jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja jasna</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">karnacja ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">karnacja ciemna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja średnia</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">karnacja ciemna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dwie kobiety trzymające się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dwie kobiety trzymające się za ręce: karnacja średnia i karnacja jasna</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dwie kobiety trzymające się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dwie kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">dwie kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dwie kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dwie kobiety trzymające się za ręce: karnacja ciemna i karnacja jasna</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">dwie kobiety trzymające się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">dwie kobiety trzymające się za ręce: karnacja ciemna i karnacja średnia</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">dwie kobiety trzymające się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
+		<annotation cp="👱🏻‍♀">blondynka | karnacja jasna | kobieta</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blondynka: karnacja jasna</annotation>
+		<annotation cp="👱🏼‍♀">blondynka | karnacja średnio jasna | kobieta</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blondynka: karnacja średnio jasna</annotation>
+		<annotation cp="👱🏽‍♀">blondynka | karnacja średnia | kobieta</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blondynka: karnacja średnia</annotation>
+		<annotation cp="👱🏾‍♀">blondynka | karnacja średnio ciemna | kobieta</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blondynka: karnacja średnio ciemna</annotation>
+		<annotation cp="👱🏿‍♀">blondynka | karnacja ciemna | kobieta</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blondynka: karnacja ciemna</annotation>
 		<annotation cp="👩‍🦰">kobieta | rude włosy</annotation>
 		<annotation cp="👩‍🦰" type="tts">kobieta: rude włosy</annotation>
 		<annotation cp="👩🏻‍🦰">karnacja jasna | kobieta | rude włosy</annotation>
@@ -849,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">kobieta: karnacja średnio ciemna i łysy</annotation>
 		<annotation cp="👩🏿‍🦲">karnacja ciemna | kobieta | łysy</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kobieta: karnacja ciemna i łysy</annotation>
-		<annotation cp="👱🏻‍♀">blondynka | karnacja jasna | kobieta</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">blondynka: karnacja jasna</annotation>
-		<annotation cp="👱🏼‍♀">blondynka | karnacja średnio jasna | kobieta</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">blondynka: karnacja średnio jasna</annotation>
-		<annotation cp="👱🏽‍♀">blondynka | karnacja średnia | kobieta</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">blondynka: karnacja średnia</annotation>
-		<annotation cp="👱🏾‍♀">blondynka | karnacja średnio ciemna | kobieta</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">blondynka: karnacja średnio ciemna</annotation>
-		<annotation cp="👱🏿‍♀">blondynka | karnacja ciemna | kobieta</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">blondynka: karnacja ciemna</annotation>
 		<annotation cp="🧓🏻">karnacja jasna | płeć neutralna | starszy dorosły | stary</annotation>
 		<annotation cp="🧓🏻" type="tts">starszy dorosły: karnacja jasna</annotation>
 		<annotation cp="🧓🏼">karnacja średnio jasna | płeć neutralna | starszy dorosły | stary</annotation>
@@ -1069,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">kobieta podnosząca rękę: karnacja średnio ciemna</annotation>
 		<annotation cp="🙋🏿‍♀">gest | hej | karnacja ciemna | kobieta | kobieta podnosząca rękę | powitanie</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">kobieta podnosząca rękę: karnacja ciemna</annotation>
+		<annotation cp="🧏🏻">dostępność | głuchota | karnacja jasna | osoba głucha | słuch | ucho</annotation>
+		<annotation cp="🧏🏻" type="tts">osoba głucha: karnacja jasna</annotation>
+		<annotation cp="🧏🏼">dostępność | głuchota | karnacja średnio jasna | osoba głucha | słuch | ucho</annotation>
+		<annotation cp="🧏🏼" type="tts">osoba głucha: karnacja średnio jasna</annotation>
+		<annotation cp="🧏🏽">dostępność | głuchota | karnacja średnia | osoba głucha | słuch | ucho</annotation>
+		<annotation cp="🧏🏽" type="tts">osoba głucha: karnacja średnia</annotation>
+		<annotation cp="🧏🏾">dostępność | głuchota | karnacja średnio ciemna | osoba głucha | słuch | ucho</annotation>
+		<annotation cp="🧏🏾" type="tts">osoba głucha: karnacja średnio ciemna</annotation>
+		<annotation cp="🧏🏿">dostępność | głuchota | karnacja ciemna | osoba głucha | słuch | ucho</annotation>
+		<annotation cp="🧏🏿" type="tts">osoba głucha: karnacja ciemna</annotation>
+		<annotation cp="🧏🏻‍♂">głuchota | głuchy mężczyzna | karnacja jasna | mężczyzna</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">głuchy mężczyzna: karnacja jasna</annotation>
+		<annotation cp="🧏🏼‍♂">głuchota | głuchy mężczyzna | karnacja średnio jasna | mężczyzna</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">głuchy mężczyzna: karnacja średnio jasna</annotation>
+		<annotation cp="🧏🏽‍♂">głuchota | głuchy mężczyzna | karnacja średnia | mężczyzna</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">głuchy mężczyzna: karnacja średnia</annotation>
+		<annotation cp="🧏🏾‍♂">głuchota | głuchy mężczyzna | karnacja średnio ciemna | mężczyzna</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">głuchy mężczyzna: karnacja średnio ciemna</annotation>
+		<annotation cp="🧏🏿‍♂">głuchota | głuchy mężczyzna | karnacja ciemna | mężczyzna</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">głuchy mężczyzna: karnacja ciemna</annotation>
+		<annotation cp="🧏🏻‍♀">głucha kobieta | głuchota | karnacja jasna | kobieta</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">głucha kobieta: karnacja jasna</annotation>
+		<annotation cp="🧏🏼‍♀">głucha kobieta | głuchota | karnacja średnio jasna | kobieta</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">głucha kobieta: karnacja średnio jasna</annotation>
+		<annotation cp="🧏🏽‍♀">głucha kobieta | głuchota | karnacja średnia | kobieta</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">głucha kobieta: karnacja średnia</annotation>
+		<annotation cp="🧏🏾‍♀">głucha kobieta | głuchota | karnacja średnio ciemna | kobieta</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">głucha kobieta: karnacja średnio ciemna</annotation>
+		<annotation cp="🧏🏿‍♀">głucha kobieta | głuchota | karnacja ciemna | kobieta</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">głucha kobieta: karnacja ciemna</annotation>
 		<annotation cp="🙇🏻">karnacja jasna | opuszczona głowa | osoba w ukłonie | przepraszam | przykro mi</annotation>
 		<annotation cp="🙇🏻" type="tts">osoba w ukłonie: karnacja jasna</annotation>
 		<annotation cp="🙇🏼">karnacja średnio jasna | opuszczona głowa | osoba w ukłonie | przepraszam | przykro mi</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">kobieta wzruszająca ramionami: karnacja średnio ciemna</annotation>
 		<annotation cp="🤷🏿‍♀">karnacja ciemna | kobieta | kobieta wzruszająca ramionami | obojętność | wątpliwość | wzruszenie ramion</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">kobieta wzruszająca ramionami: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍⚕">karnacja jasna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">pracownik służby zdrowia: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍⚕">karnacja średnio jasna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">pracownik służby zdrowia: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍⚕">karnacja średnia | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">pracownik służby zdrowia: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍⚕">karnacja średnio ciemna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">pracownik służby zdrowia: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍⚕">karnacja ciemna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">pracownik służby zdrowia: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍⚕">karnacja jasna | lekarz | mężczyzna | terapeuta</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">lekarz: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍⚕">karnacja średnio jasna | lekarz | mężczyzna | terapeuta</annotation>
@@ -1179,16 +1006,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">lekarka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍⚕">karnacja ciemna | kobieta | lekarka | terapeutka</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">lekarka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🎓">absolwent | karnacja jasna | student</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">student: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🎓">absolwent | karnacja średnio jasna | student</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">student: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🎓">absolwent | karnacja średnia | student</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">student: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🎓">absolwent | karnacja średnio ciemna | student</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">student: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🎓">absolwent | karnacja ciemna | student</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">student: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🎓">karnacja jasna | mężczyzna | student</annotation>
-		<annotation cp="👨🏻‍🎓" type="tts">student: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">mężczyzna student: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🎓">karnacja średnio jasna | mężczyzna | student</annotation>
-		<annotation cp="👨🏼‍🎓" type="tts">student: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">mężczyzna student: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🎓">karnacja średnia | mężczyzna | student</annotation>
-		<annotation cp="👨🏽‍🎓" type="tts">student: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">mężczyzna student: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🎓">karnacja średnio ciemna | mężczyzna | student</annotation>
-		<annotation cp="👨🏾‍🎓" type="tts">student: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">mężczyzna student: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🎓">karnacja ciemna | mężczyzna | student</annotation>
-		<annotation cp="👨🏿‍🎓" type="tts">student: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">mężczyzna student: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🎓">karnacja jasna | kobieta | studentka</annotation>
 		<annotation cp="👩🏻‍🎓" type="tts">studentka: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🎓">karnacja średnio jasna | kobieta | studentka</annotation>
@@ -1199,16 +1036,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">studentka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🎓">karnacja ciemna | kobieta | studentka</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">studentka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🏫">instruktor | karnacja jasna | nauczyciel | pedagog | profesor</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">nauczyciel: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🏫">instruktor | karnacja średnio jasna | nauczyciel | pedagog | profesor</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">nauczyciel: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🏫">instruktor | karnacja średnia | nauczyciel | pedagog | profesor</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">nauczyciel: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🏫">instruktor | karnacja średnio ciemna | nauczyciel | pedagog | profesor</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">nauczyciel: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🏫">instruktor | karnacja ciemna | nauczyciel | pedagog | profesor</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">nauczyciel: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🏫">karnacja jasna | mężczyzna | nauczyciel | profesor | wykładowca</annotation>
-		<annotation cp="👨🏻‍🏫" type="tts">nauczyciel: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">mężczyzna nauczyciel: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🏫">karnacja średnio jasna | mężczyzna | nauczyciel | profesor | wykładowca</annotation>
-		<annotation cp="👨🏼‍🏫" type="tts">nauczyciel: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">mężczyzna nauczyciel: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🏫">karnacja średnia | mężczyzna | nauczyciel | profesor | wykładowca</annotation>
-		<annotation cp="👨🏽‍🏫" type="tts">nauczyciel: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">mężczyzna nauczyciel: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🏫">karnacja średnio ciemna | mężczyzna | nauczyciel | profesor | wykładowca</annotation>
-		<annotation cp="👨🏾‍🏫" type="tts">nauczyciel: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">mężczyzna nauczyciel: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🏫">karnacja ciemna | mężczyzna | nauczyciel | profesor | wykładowca</annotation>
-		<annotation cp="👨🏿‍🏫" type="tts">nauczyciel: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">mężczyzna nauczyciel: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🏫">karnacja jasna | kobieta | nauczycielka | profesor | wykładowczyni</annotation>
 		<annotation cp="👩🏻‍🏫" type="tts">nauczycielka: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🏫">karnacja średnio jasna | kobieta | nauczycielka | profesor | wykładowczyni</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">nauczycielka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🏫">karnacja ciemna | kobieta | nauczycielka | profesor | wykładowczyni</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">nauczycielka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍⚖">karnacja jasna | orzekać | sędzia</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">sędzia: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍⚖">karnacja średnio jasna | orzekać | sędzia</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">sędzia: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍⚖">karnacja średnia | orzekać | sędzia</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">sędzia: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍⚖">karnacja średnio ciemna | orzekać | sędzia</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">sędzia: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍⚖">karnacja ciemna | orzekać | sędzia</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">sędzia: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍⚖">karnacja jasna | mężczyzna | sędzia</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">mężczyzna sędzia: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍⚖">karnacja średnio jasna | mężczyzna | sędzia</annotation>
@@ -1239,16 +1096,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">kobieta sędzia: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍⚖">karnacja ciemna | kobieta | kobieta sędzia | sędzina</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">kobieta sędzia: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🌾">farmer | karnacja jasna | ogrodnik | rolnik</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">rolnik: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🌾">farmer | karnacja średnio jasna | ogrodnik | rolnik</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">rolnik: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🌾">farmer | karnacja średnia | ogrodnik | rolnik</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">rolnik: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🌾">farmer | karnacja średnio ciemna | ogrodnik | rolnik</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">rolnik: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🌾">farmer | karnacja ciemna | ogrodnik | rolnik</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">rolnik: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🌾">farmer | karnacja jasna | mężczyzna | ogrodnik | rolnik</annotation>
-		<annotation cp="👨🏻‍🌾" type="tts">rolnik: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">mężczyzna rolnik: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🌾">farmer | karnacja średnio jasna | mężczyzna | ogrodnik | rolnik</annotation>
-		<annotation cp="👨🏼‍🌾" type="tts">rolnik: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">mężczyzna rolnik: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🌾">farmer | karnacja średnia | mężczyzna | ogrodnik | rolnik</annotation>
-		<annotation cp="👨🏽‍🌾" type="tts">rolnik: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">mężczyzna rolnik: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🌾">farmer | karnacja średnio ciemna | mężczyzna | ogrodnik | rolnik</annotation>
-		<annotation cp="👨🏾‍🌾" type="tts">rolnik: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">mężczyzna rolnik: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🌾">farmer | karnacja ciemna | mężczyzna | ogrodnik | rolnik</annotation>
-		<annotation cp="👨🏿‍🌾" type="tts">rolnik: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">mężczyzna rolnik: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🌾">farmerka | karnacja jasna | kobieta | ogrodniczka | rolniczka</annotation>
 		<annotation cp="👩🏻‍🌾" type="tts">rolniczka: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🌾">farmerka | karnacja średnio jasna | kobieta | ogrodniczka | rolniczka</annotation>
@@ -1259,16 +1126,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">rolniczka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🌾">farmerka | karnacja ciemna | kobieta | ogrodniczka | rolniczka</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">rolniczka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🍳">karnacja jasna | kucharz | szef kuchni</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">kucharz: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🍳">karnacja średnio jasna | kucharz | szef kuchni</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">kucharz: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🍳">karnacja średnia | kucharz | szef kuchni</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">kucharz: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🍳">karnacja średnio ciemna | kucharz | szef kuchni</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">kucharz: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🍳">karnacja ciemna | kucharz | szef kuchni</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">kucharz: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🍳">karnacja jasna | kucharz | mężczyzna | szef kuchni</annotation>
-		<annotation cp="👨🏻‍🍳" type="tts">kucharz: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">mężczyzna kucharz: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🍳">karnacja średnio jasna | kucharz | mężczyzna | szef kuchni</annotation>
-		<annotation cp="👨🏼‍🍳" type="tts">kucharz: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">mężczyzna kucharz: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🍳">karnacja średnia | kucharz | mężczyzna | szef kuchni</annotation>
-		<annotation cp="👨🏽‍🍳" type="tts">kucharz: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">mężczyzna kucharz: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🍳">karnacja średnio ciemna | kucharz | mężczyzna | szef kuchni</annotation>
-		<annotation cp="👨🏾‍🍳" type="tts">kucharz: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">mężczyzna kucharz: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🍳">karnacja ciemna | kucharz | mężczyzna | szef kuchni</annotation>
-		<annotation cp="👨🏿‍🍳" type="tts">kucharz: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">mężczyzna kucharz: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🍳">karnacja jasna | kobieta | kucharka | szef kuchni</annotation>
 		<annotation cp="👩🏻‍🍳" type="tts">kucharka: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🍳">karnacja średnio jasna | kobieta | kucharka | szef kuchni</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">kucharka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🍳">karnacja ciemna | kobieta | kucharka | szef kuchni</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kucharka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🔧">elektryk | hydraulik | karnacja jasna | mechanik</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">mechanik: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🔧">elektryk | hydraulik | karnacja średnio jasna | mechanik</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">mechanik: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🔧">elektryk | hydraulik | karnacja średnia | mechanik</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">mechanik: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🔧">elektryk | hydraulik | karnacja średnio ciemna | mechanik</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">mechanik: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🔧">elektryk | hydraulik | karnacja ciemna | mechanik</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">mechanik: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🔧">elektryk | hydraulik | karnacja jasna | mechanik | mężczyzna</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mężczyzna elektryk: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🔧">elektryk | hydraulik | karnacja średnio jasna | mechanik | mężczyzna</annotation>
@@ -1299,16 +1186,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">kobieta elektryk: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🔧">elektryk | hydraulik | karnacja ciemna | kobieta | mechanik</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">kobieta elektryk: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🏭">fabryka | karnacja jasna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">pracownik fabryki: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🏭">fabryka | karnacja średnio jasna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">pracownik fabryki: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🏭">fabryka | karnacja średnia | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">pracownik fabryki: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🏭">fabryka | karnacja średnio ciemna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">pracownik fabryki: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🏭">fabryka | karnacja ciemna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">pracownik fabryki: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🏭">fabryka | karnacja jasna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
-		<annotation cp="👨🏻‍🏭" type="tts">pracownik fabryki: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🏭">fabryka | karnacja średnio jasna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
-		<annotation cp="👨🏼‍🏭" type="tts">pracownik fabryki: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🏭">fabryka | karnacja średnia | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
-		<annotation cp="👨🏽‍🏭" type="tts">pracownik fabryki: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🏭">fabryka | karnacja średnio ciemna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
-		<annotation cp="👨🏾‍🏭" type="tts">pracownik fabryki: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🏭">fabryka | karnacja ciemna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
-		<annotation cp="👨🏿‍🏭" type="tts">pracownik fabryki: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🏭">fabryka | karnacja jasna | kobieta | montażystka | pracownica | pracownica fabryki</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">pracownica fabryki: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🏭">fabryka | karnacja średnio jasna | kobieta | montażystka | pracownica | pracownica fabryki</annotation>
@@ -1319,16 +1216,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">pracownica fabryki: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🏭">fabryka | karnacja ciemna | kobieta | montażystka | pracownica | pracownica fabryki</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">pracownica fabryki: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍💼">architekt | biznesmen | karnacja jasna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">pracownik biurowy: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍💼">architekt | biznesmen | karnacja średnio jasna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">pracownik biurowy: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍💼">architekt | biznesmen | karnacja średnia | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">pracownik biurowy: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍💼">architekt | biznesmen | karnacja średnio ciemna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">pracownik biurowy: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍💼">architekt | biznesmen | karnacja ciemna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">pracownik biurowy: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍💼">architekt | biuro | biznesmen | karnacja jasna | mężczyzna | pracownik biurowy</annotation>
-		<annotation cp="👨🏻‍💼" type="tts">pracownik biurowy: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">mężczyzna pracownik biurowy: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍💼">architekt | biuro | biznesmen | karnacja średnio jasna | mężczyzna | pracownik biurowy</annotation>
-		<annotation cp="👨🏼‍💼" type="tts">pracownik biurowy: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">mężczyzna pracownik biurowy: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍💼">architekt | biuro | biznesmen | karnacja średnia | mężczyzna | pracownik biurowy</annotation>
-		<annotation cp="👨🏽‍💼" type="tts">pracownik biurowy: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">mężczyzna pracownik biurowy: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍💼">architekt | biuro | biznesmen | karnacja średnio ciemna | mężczyzna | pracownik biurowy</annotation>
-		<annotation cp="👨🏾‍💼" type="tts">pracownik biurowy: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">mężczyzna pracownik biurowy: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍💼">architekt | biuro | biznesmen | karnacja ciemna | mężczyzna | pracownik biurowy</annotation>
-		<annotation cp="👨🏿‍💼" type="tts">pracownik biurowy: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">mężczyzna pracownik biurowy: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍💼">architekt | biuro | bizneswoman | karnacja jasna | kobieta | pracownica biurowa</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">pracownica biurowa: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍💼">architekt | biuro | bizneswoman | karnacja średnio jasna | kobieta | pracownica biurowa</annotation>
@@ -1339,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">pracownica biurowa: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍💼">architekt | biuro | bizneswoman | karnacja ciemna | kobieta | pracownica biurowa</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">pracownica biurowa: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🔬">biolog | chemik | fizyk | inżynier | karnacja jasna | naukowiec</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">naukowiec: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🔬">biolog | chemik | fizyk | inżynier | karnacja średnio jasna | naukowiec</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">naukowiec: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🔬">biolog | chemik | fizyk | inżynier | karnacja średnia | naukowiec</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">naukowiec: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🔬">biolog | chemik | fizyk | inżynier | karnacja średnio ciemna | naukowiec</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">naukowiec: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🔬">biolog | chemik | fizyk | inżynier | karnacja ciemna | naukowiec</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">naukowiec: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🔬">biolog | chemik | inżynier | karnacja jasna | mężczyzna | mężczyzna naukowiec</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">mężczyzna naukowiec: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🔬">biolog | chemik | inżynier | karnacja średnio jasna | mężczyzna | mężczyzna naukowiec</annotation>
@@ -1359,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">kobieta naukowiec: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🔬">biolog | chemik | inżynier | karnacja ciemna | kobieta | kobieta naukowiec</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">kobieta naukowiec: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍💻">deweloper | karnacja jasna | oprogramowanie | programista | technolog | wynalazca</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">technolog: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍💻">deweloper | karnacja średnio jasna | oprogramowanie | programista | technolog | wynalazca</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">technolog: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍💻">deweloper | karnacja średnia | oprogramowanie | programista | technolog | wynalazca</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">technolog: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍💻">deweloper | karnacja średnio ciemna | oprogramowanie | programista | technolog | wynalazca</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">technolog: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍💻">deweloper | karnacja ciemna | oprogramowanie | programista | technolog | wynalazca</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">technolog: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍💻">karnacja jasna | mężczyzna | mężczyzna technolog | oprogramowanie | programista | wynalazca</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">mężczyzna technolog: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍💻">karnacja średnio jasna | mężczyzna | mężczyzna technolog | oprogramowanie | programista | wynalazca</annotation>
@@ -1379,16 +1306,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">kobieta technolog: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍💻">karnacja ciemna | kobieta | kobieta technolog | oprogramowanie | programistka | wynalazczyni</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">kobieta technolog: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🎤">aktor | artysta | gwiazda | karnacja jasna | muzyka | piosenkarz</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">piosenkarz: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🎤">aktor | artysta | gwiazda | karnacja średnio jasna | muzyka | piosenkarz</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">piosenkarz: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🎤">aktor | artysta | gwiazda | karnacja średnia | muzyka | piosenkarz</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">piosenkarz: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🎤">aktor | artysta | gwiazda | karnacja średnio ciemna | muzyka | piosenkarz</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">piosenkarz: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🎤">aktor | artysta | gwiazda | karnacja ciemna | muzyka | piosenkarz</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">piosenkarz: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🎤">aktor | karnacja jasna | mężczyzna | piosenkarz | rock</annotation>
-		<annotation cp="👨🏻‍🎤" type="tts">piosenkarz: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">mężczyzna piosenkarz: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🎤">aktor | karnacja średnio jasna | mężczyzna | piosenkarz | rock</annotation>
-		<annotation cp="👨🏼‍🎤" type="tts">piosenkarz: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">mężczyzna piosenkarz: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🎤">aktor | karnacja średnia | mężczyzna | piosenkarz | rock</annotation>
-		<annotation cp="👨🏽‍🎤" type="tts">piosenkarz: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">mężczyzna piosenkarz: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🎤">aktor | karnacja średnio ciemna | mężczyzna | piosenkarz | rock</annotation>
-		<annotation cp="👨🏾‍🎤" type="tts">piosenkarz: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">mężczyzna piosenkarz: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🎤">aktor | karnacja ciemna | mężczyzna | piosenkarz | rock</annotation>
-		<annotation cp="👨🏿‍🎤" type="tts">piosenkarz: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">mężczyzna piosenkarz: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🎤">aktorka | karnacja jasna | kobieta | piosenkarka | rock</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">piosenkarka: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🎤">aktorka | karnacja średnio jasna | kobieta | piosenkarka | rock</annotation>
@@ -1399,16 +1336,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎤" type="tts">piosenkarka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🎤">aktorka | karnacja ciemna | kobieta | piosenkarka | rock</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">piosenkarka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🎨">artysta | karnacja jasna | malarz | paleta</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">artysta: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🎨">artysta | karnacja średnio jasna | malarz | paleta</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">artysta: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🎨">artysta | karnacja średnia | malarz | paleta</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">artysta: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🎨">artysta | karnacja średnio ciemna | malarz | paleta</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">artysta: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🎨">artysta | karnacja ciemna | malarz | paleta</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">artysta: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🎨">artysta | karnacja jasna | mężczyzna | paleta</annotation>
-		<annotation cp="👨🏻‍🎨" type="tts">artysta: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">mężczyzna artysta: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🎨">artysta | karnacja średnio jasna | mężczyzna | paleta</annotation>
-		<annotation cp="👨🏼‍🎨" type="tts">artysta: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">mężczyzna artysta: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🎨">artysta | karnacja średnia | mężczyzna | paleta</annotation>
-		<annotation cp="👨🏽‍🎨" type="tts">artysta: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">mężczyzna artysta: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🎨">artysta | karnacja średnio ciemna | mężczyzna | paleta</annotation>
-		<annotation cp="👨🏾‍🎨" type="tts">artysta: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">mężczyzna artysta: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🎨">artysta | karnacja ciemna | mężczyzna | paleta</annotation>
-		<annotation cp="👨🏿‍🎨" type="tts">artysta: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">mężczyzna artysta: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🎨">artystka | karnacja jasna | kobieta | paleta</annotation>
 		<annotation cp="👩🏻‍🎨" type="tts">artystka: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🎨">artystka | karnacja średnio jasna | kobieta | paleta</annotation>
@@ -1419,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">artystka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🎨">artystka | karnacja ciemna | kobieta | paleta</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">artystka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍✈">karnacja jasna | pilot | pilotować | samolot</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">pilot: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍✈">karnacja średnio jasna | pilot | pilotować | samolot</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">pilot: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍✈">karnacja średnia | pilot | pilotować | samolot</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">pilot: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍✈">karnacja średnio ciemna | pilot | pilotować | samolot</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">pilot: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍✈">karnacja ciemna | pilot | pilotować | samolot</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">pilot: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍✈">karnacja jasna | mężczyzna | pilot | samolot</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">mężczyzna pilot: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍✈">karnacja średnio jasna | mężczyzna | pilot | samolot</annotation>
@@ -1439,16 +1396,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">kobieta pilot: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍✈">karnacja ciemna | kobieta | pilot | samolot</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">kobieta pilot: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🚀">astronauta | karnacja jasna | rakieta | statek kosmiczny</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">astronauta: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🚀">astronauta | karnacja średnio jasna | rakieta | statek kosmiczny</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">astronauta: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🚀">astronauta | karnacja średnia | rakieta | statek kosmiczny</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">astronauta: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🚀">astronauta | karnacja średnio ciemna | rakieta | statek kosmiczny</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">astronauta: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🚀">astronauta | karnacja ciemna | rakieta | statek kosmiczny</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">astronauta: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🚀">astronauta | karnacja jasna | kosmos | mężczyzna | rakieta</annotation>
-		<annotation cp="👨🏻‍🚀" type="tts">astronauta: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">mężczyzna astronauta: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🚀">astronauta | karnacja średnio jasna | kosmos | mężczyzna | rakieta</annotation>
-		<annotation cp="👨🏼‍🚀" type="tts">astronauta: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">mężczyzna astronauta: karnacja średnio jasna</annotation>
 		<annotation cp="👨🏽‍🚀">astronauta | karnacja średnia | kosmos | mężczyzna | rakieta</annotation>
-		<annotation cp="👨🏽‍🚀" type="tts">astronauta: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">mężczyzna astronauta: karnacja średnia</annotation>
 		<annotation cp="👨🏾‍🚀">astronauta | karnacja średnio ciemna | kosmos | mężczyzna | rakieta</annotation>
-		<annotation cp="👨🏾‍🚀" type="tts">astronauta: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">mężczyzna astronauta: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿‍🚀">astronauta | karnacja ciemna | kosmos | mężczyzna | rakieta</annotation>
-		<annotation cp="👨🏿‍🚀" type="tts">astronauta: karnacja ciemna</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">mężczyzna astronauta: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🚀">astronautka | karnacja jasna | kobieta | kosmos | rakieta</annotation>
 		<annotation cp="👩🏻‍🚀" type="tts">astronautka: karnacja jasna</annotation>
 		<annotation cp="👩🏼‍🚀">astronautka | karnacja średnio jasna | kobieta | kosmos | rakieta</annotation>
@@ -1459,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">astronautka: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🚀">astronautka | karnacja ciemna | kobieta | kosmos | rakieta</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">astronautka: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🚒">karnacja jasna | straż pożarna | strażak | wóz strażacki</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">strażak: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🚒">karnacja średnio jasna | straż pożarna | strażak | wóz strażacki</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">strażak: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🚒">karnacja średnia | straż pożarna | strażak | wóz strażacki</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">strażak: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🚒">karnacja średnio ciemna | straż pożarna | strażak | wóz strażacki</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">strażak: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🚒">karnacja ciemna | straż pożarna | strażak | wóz strażacki</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">strażak: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🚒">karnacja jasna | mężczyzna | strażak | wóz strażacki</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">mężczyzna strażak: karnacja jasna</annotation>
 		<annotation cp="👨🏼‍🚒">karnacja średnio jasna | mężczyzna | strażak | wóz strażacki</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">idąca kobieta: karnacja średnio ciemna</annotation>
 		<annotation cp="🚶🏿‍♀">chodzenie | idąca kobieta | karnacja ciemna | kobieta | piechur | spacer</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">idąca kobieta: karnacja ciemna</annotation>
+		<annotation cp="🧍🏻">karnacja jasna | stać | stoi | stojąca osoba</annotation>
+		<annotation cp="🧍🏻" type="tts">stojąca osoba: karnacja jasna</annotation>
+		<annotation cp="🧍🏼">karnacja średnio jasna | stać | stoi | stojąca osoba</annotation>
+		<annotation cp="🧍🏼" type="tts">stojąca osoba: karnacja średnio jasna</annotation>
+		<annotation cp="🧍🏽">karnacja średnia | stać | stoi | stojąca osoba</annotation>
+		<annotation cp="🧍🏽" type="tts">stojąca osoba: karnacja średnia</annotation>
+		<annotation cp="🧍🏾">karnacja średnio ciemna | stać | stoi | stojąca osoba</annotation>
+		<annotation cp="🧍🏾" type="tts">stojąca osoba: karnacja średnio ciemna</annotation>
+		<annotation cp="🧍🏿">karnacja ciemna | stać | stoi | stojąca osoba</annotation>
+		<annotation cp="🧍🏿" type="tts">stojąca osoba: karnacja ciemna</annotation>
+		<annotation cp="🧍🏻‍♂">karnacja jasna | mężczyzna | stać | stojący mężczyzna</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">stojący mężczyzna: karnacja jasna</annotation>
+		<annotation cp="🧍🏼‍♂">karnacja średnio jasna | mężczyzna | stać | stojący mężczyzna</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">stojący mężczyzna: karnacja średnio jasna</annotation>
+		<annotation cp="🧍🏽‍♂">karnacja średnia | mężczyzna | stać | stojący mężczyzna</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">stojący mężczyzna: karnacja średnia</annotation>
+		<annotation cp="🧍🏾‍♂">karnacja średnio ciemna | mężczyzna | stać | stojący mężczyzna</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">stojący mężczyzna: karnacja średnio ciemna</annotation>
+		<annotation cp="🧍🏿‍♂">karnacja ciemna | mężczyzna | stać | stojący mężczyzna</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">stojący mężczyzna: karnacja ciemna</annotation>
+		<annotation cp="🧍🏻‍♀">karnacja jasna | kobieta | stać | stojąca kobieta</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">stojąca kobieta: karnacja jasna</annotation>
+		<annotation cp="🧍🏼‍♀">karnacja średnio jasna | kobieta | stać | stojąca kobieta</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">stojąca kobieta: karnacja średnio jasna</annotation>
+		<annotation cp="🧍🏽‍♀">karnacja średnia | kobieta | stać | stojąca kobieta</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">stojąca kobieta: karnacja średnia</annotation>
+		<annotation cp="🧍🏾‍♀">karnacja średnio ciemna | kobieta | stać | stojąca kobieta</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">stojąca kobieta: karnacja średnio ciemna</annotation>
+		<annotation cp="🧍🏿‍♀">karnacja ciemna | kobieta | stać | stojąca kobieta</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">stojąca kobieta: karnacja ciemna</annotation>
+		<annotation cp="🧎🏻">karnacja jasna | klęcząca osoba | klęczeć | na kolanach</annotation>
+		<annotation cp="🧎🏻" type="tts">klęcząca osoba: karnacja jasna</annotation>
+		<annotation cp="🧎🏼">karnacja średnio jasna | klęcząca osoba | klęczeć | na kolanach</annotation>
+		<annotation cp="🧎🏼" type="tts">klęcząca osoba: karnacja średnio jasna</annotation>
+		<annotation cp="🧎🏽">karnacja średnia | klęcząca osoba | klęczeć | na kolanach</annotation>
+		<annotation cp="🧎🏽" type="tts">klęcząca osoba: karnacja średnia</annotation>
+		<annotation cp="🧎🏾">karnacja średnio ciemna | klęcząca osoba | klęczeć | na kolanach</annotation>
+		<annotation cp="🧎🏾" type="tts">klęcząca osoba: karnacja średnio ciemna</annotation>
+		<annotation cp="🧎🏿">karnacja ciemna | klęcząca osoba | klęczeć | na kolanach</annotation>
+		<annotation cp="🧎🏿" type="tts">klęcząca osoba: karnacja ciemna</annotation>
+		<annotation cp="🧎🏻‍♂">karnacja jasna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">klęczący mężczyzna: karnacja jasna</annotation>
+		<annotation cp="🧎🏼‍♂">karnacja średnio jasna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">klęczący mężczyzna: karnacja średnio jasna</annotation>
+		<annotation cp="🧎🏽‍♂">karnacja średnia | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">klęczący mężczyzna: karnacja średnia</annotation>
+		<annotation cp="🧎🏾‍♂">karnacja średnio ciemna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">klęczący mężczyzna: karnacja średnio ciemna</annotation>
+		<annotation cp="🧎🏿‍♂">karnacja ciemna | klęczący mężczyzna | klęczeć | mężczyzna</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">klęczący mężczyzna: karnacja ciemna</annotation>
+		<annotation cp="🧎🏻‍♀">karnacja jasna | klęcząca kobieta | klęczeć | kobieta</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">klęcząca kobieta: karnacja jasna</annotation>
+		<annotation cp="🧎🏼‍♀">karnacja średnio jasna | klęcząca kobieta | klęczeć | kobieta</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">klęcząca kobieta: karnacja średnio jasna</annotation>
+		<annotation cp="🧎🏽‍♀">karnacja średnia | klęcząca kobieta | klęczeć | kobieta</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">klęcząca kobieta: karnacja średnia</annotation>
+		<annotation cp="🧎🏾‍♀">karnacja średnio ciemna | klęcząca kobieta | klęczeć | kobieta</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">klęcząca kobieta: karnacja średnio ciemna</annotation>
+		<annotation cp="🧎🏿‍♀">karnacja ciemna | klęcząca kobieta | klęczeć | kobieta</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">klęcząca kobieta: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🦯">dostępność | karnacja jasna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">osoba z białą laską: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🦯">dostępność | karnacja średnio jasna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">osoba z białą laską: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🦯">dostępność | karnacja średnia | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">osoba z białą laską: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🦯">dostępność | karnacja średnio ciemna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">osoba z białą laską: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🦯">dostępność | karnacja ciemna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">osoba z białą laską: karnacja ciemna</annotation>
+		<annotation cp="👨🏻‍🦯">dostępność | karnacja jasna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">mężczyzna z białą laską: karnacja jasna</annotation>
+		<annotation cp="👨🏼‍🦯">dostępność | karnacja średnio jasna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">mężczyzna z białą laską: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏽‍🦯">dostępność | karnacja średnia | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">mężczyzna z białą laską: karnacja średnia</annotation>
+		<annotation cp="👨🏾‍🦯">dostępność | karnacja średnio ciemna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">mężczyzna z białą laską: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏿‍🦯">dostępność | karnacja ciemna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">mężczyzna z białą laską: karnacja ciemna</annotation>
+		<annotation cp="👩🏻‍🦯">dostępność | karnacja jasna | kobieta | kobieta z białą laską | niewidoma</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">kobieta z białą laską: karnacja jasna</annotation>
+		<annotation cp="👩🏼‍🦯">dostępność | karnacja średnio jasna | kobieta | kobieta z białą laską | niewidoma</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">kobieta z białą laską: karnacja średnio jasna</annotation>
+		<annotation cp="👩🏽‍🦯">dostępność | karnacja średnia | kobieta | kobieta z białą laską | niewidoma</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">kobieta z białą laską: karnacja średnia</annotation>
+		<annotation cp="👩🏾‍🦯">dostępność | karnacja średnio ciemna | kobieta | kobieta z białą laską | niewidoma</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">kobieta z białą laską: karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏿‍🦯">dostępność | karnacja ciemna | kobieta | kobieta z białą laską | niewidoma</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">kobieta z białą laską: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🦼">dostępność | karnacja jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🦼">dostępność | karnacja średnio jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🦼">dostępność | karnacja średnia | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🦼">dostępność | karnacja średnio ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🦼">dostępność | karnacja ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja ciemna</annotation>
+		<annotation cp="👨🏻‍🦼">dostępność | karnacja jasna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja jasna</annotation>
+		<annotation cp="👨🏼‍🦼">dostępność | karnacja średnio jasna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏽‍🦼">dostępność | karnacja średnia | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja średnia</annotation>
+		<annotation cp="👨🏾‍🦼">dostępność | karnacja średnio ciemna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏿‍🦼">dostępność | karnacja ciemna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja ciemna</annotation>
+		<annotation cp="👩🏻‍🦼">dostępność | karnacja jasna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja jasna</annotation>
+		<annotation cp="👩🏼‍🦼">dostępność | karnacja średnio jasna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja średnio jasna</annotation>
+		<annotation cp="👩🏽‍🦼">dostępność | karnacja średnia | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja średnia</annotation>
+		<annotation cp="👩🏾‍🦼">dostępność | karnacja średnio ciemna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏿‍🦼">dostępność | karnacja ciemna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🦽">dostępność | karnacja jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🦽">dostępność | karnacja średnio jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🦽">dostępność | karnacja średnia | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🦽">dostępność | karnacja średnio ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🦽">dostępność | karnacja ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja ciemna</annotation>
+		<annotation cp="👨🏻‍🦽">dostępność | karnacja jasna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja jasna</annotation>
+		<annotation cp="👨🏼‍🦽">dostępność | karnacja średnio jasna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏽‍🦽">dostępność | karnacja średnia | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja średnia</annotation>
+		<annotation cp="👨🏾‍🦽">dostępność | karnacja średnio ciemna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏿‍🦽">dostępność | karnacja ciemna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja ciemna</annotation>
+		<annotation cp="👩🏻‍🦽">dostępność | karnacja jasna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja jasna</annotation>
+		<annotation cp="👩🏼‍🦽">dostępność | karnacja średnio jasna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja średnio jasna</annotation>
+		<annotation cp="👩🏽‍🦽">dostępność | karnacja średnia | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja średnia</annotation>
+		<annotation cp="👩🏾‍🦽">dostępność | karnacja średnio ciemna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏿‍🦽">dostępność | karnacja ciemna | kobieta | kobieta na wózku inwalidzkim | wózek inwalidzki</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">kobieta na wózku inwalidzkim: karnacja ciemna</annotation>
 		<annotation cp="🏃🏻">bieg | bieganie | biegnąca osoba | karnacja jasna | maraton | pośpiech</annotation>
 		<annotation cp="🏃🏻" type="tts">biegnąca osoba: karnacja jasna</annotation>
 		<annotation cp="🏃🏼">bieg | bieganie | biegnąca osoba | karnacja średnio jasna | maraton | pośpiech</annotation>
@@ -2589,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">osoba w łóżku: karnacja średnio ciemna</annotation>
 		<annotation cp="🛌🏿">hotel | karnacja ciemna | nocleg | osoba w łóżku | sen</annotation>
 		<annotation cp="🛌🏿" type="tts">osoba w łóżku: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">karnacja jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">karnacja jasna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">karnacja jasna | karnacja średnia | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja jasna</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">karnacja średnia | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">karnacja średnia | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">karnacja jasna | karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">karnacja średnio ciemna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">karnacja średnia | karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">karnacja ciemna | karnacja jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja jasna</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">karnacja ciemna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">karnacja ciemna | karnacja średnia | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja średnia</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">karnacja ciemna | karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">karnacja ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">osoby trzymające się za ręce: karnacja ciemna</annotation>
+		<annotation cp="👭🏻">dwie kobiety trzymające się za ręce | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏻" type="tts">kobiety trzymające się za ręce: karnacja jasna</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
+		<annotation cp="👭🏼">dwie kobiety trzymające się za ręce | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏼" type="tts">kobiety trzymające się za ręce: karnacja średnio jasna</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja średnia i karnacja jasna</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kobiety trzymające się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
+		<annotation cp="👭🏽">dwie kobiety trzymające się za ręce | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏽" type="tts">kobiety trzymające się za ręce: karnacja średnia</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
+		<annotation cp="👭🏾">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏾" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja jasna</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja średnia</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
+		<annotation cp="👭🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏿" type="tts">kobiety trzymające się za ręce: karnacja ciemna</annotation>
 		<annotation cp="👫🏻">karnacja jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👫🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">karnacja jasna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja średnio jasna</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">karnacja jasna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja średnia</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">karnacja jasna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">karnacja ciemna | karnacja jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna i karnacja ciemna</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">karnacja jasna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
 		<annotation cp="👫🏼">karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👫🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">karnacja średnia | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja średnia</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">karnacja średnio ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">karnacja ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio jasna i karnacja ciemna</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">karnacja jasna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja jasna</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">karnacja średnia | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
 		<annotation cp="👫🏽">karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👫🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">karnacja średnia | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">karnacja ciemna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnia i karnacja ciemna</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">karnacja jasna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">karnacja średnio ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">karnacja średnia | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
 		<annotation cp="👫🏾">karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👫🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">karnacja ciemna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja średnio ciemna i karnacja ciemna</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">karnacja ciemna | karnacja jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja jasna</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">karnacja ciemna | karnacja średnio jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">karnacja ciemna | karnacja średnia | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja średnia</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">karnacja ciemna | karnacja średnio ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
 		<annotation cp="👫🏿">karnacja ciemna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👫🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna</annotation>
 		<annotation cp="👬🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja jasna</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
 		<annotation cp="👬🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja jasna</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnia | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
 		<annotation cp="👬🏽">dwóch mężczyzn trzymających się za ręce | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnio ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">dwóch mężczyzn trzymających się za ręce | karnacja średnia | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
 		<annotation cp="👬🏾">dwóch mężczyzn trzymających się za ręce | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏾" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja jasna</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja średnia</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
 		<annotation cp="👬🏿">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏿" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna</annotation>
-		<annotation cp="👭🏻">dwie kobiety trzymające się za ręce | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👭🏻" type="tts">dwie kobiety trzymające się za ręce: karnacja jasna</annotation>
-		<annotation cp="👭🏼">dwie kobiety trzymające się za ręce | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👭🏼" type="tts">dwie kobiety trzymające się za ręce: karnacja średnio jasna</annotation>
-		<annotation cp="👭🏽">dwie kobiety trzymające się za ręce | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👭🏽" type="tts">dwie kobiety trzymające się za ręce: karnacja średnia</annotation>
-		<annotation cp="👭🏾">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👭🏾" type="tts">dwie kobiety trzymające się za ręce: karnacja średnio ciemna</annotation>
-		<annotation cp="👭🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | miłość | para | za ręce | zakochani</annotation>
-		<annotation cp="👭🏿" type="tts">dwie kobiety trzymające się za ręce: karnacja ciemna</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">kobieta | mężczyzna | miłość | para | pocałunek | zakochani</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">pocałunek: kobieta i mężczyzna</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">mężczyzna | miłość | para | pocałunek | zakochani</annotation>

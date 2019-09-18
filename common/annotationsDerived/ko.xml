@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="ko"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">꼬집는 손 | 적은 양을 나타내는 손 | 하얀 피부</annotation>
-		<annotation cp="🤏🏻" type="tts">꼬집는 손: 하얀 피부</annotation>
-		<annotation cp="🤏🏼">꼬집는 손 | 연한 갈색 피부 | 적은 양을 나타내는 손</annotation>
-		<annotation cp="🤏🏼" type="tts">꼬집는 손: 연한 갈색 피부</annotation>
-		<annotation cp="🤏🏽">갈색 피부 | 꼬집는 손 | 적은 양을 나타내는 손</annotation>
-		<annotation cp="🤏🏽" type="tts">꼬집는 손: 갈색 피부</annotation>
-		<annotation cp="🤏🏾">꼬집는 손 | 적은 양을 나타내는 손 | 진한 갈색 피부</annotation>
-		<annotation cp="🤏🏾" type="tts">꼬집는 손: 진한 갈색 피부</annotation>
-		<annotation cp="🤏🏿">검은색 피부 | 꼬집는 손 | 적은 양을 나타내는 손</annotation>
-		<annotation cp="🤏🏿" type="tts">꼬집는 손: 검은색 피부</annotation>
-		<annotation cp="🦻🏻">보청기를 낀 귀 | 접근성 | 청각장애 | 하얀 피부</annotation>
-		<annotation cp="🦻🏻" type="tts">보청기를 낀 귀: 하얀 피부</annotation>
-		<annotation cp="🦻🏼">보청기를 낀 귀 | 연한 갈색 피부 | 접근성 | 청각장애</annotation>
-		<annotation cp="🦻🏼" type="tts">보청기를 낀 귀: 연한 갈색 피부</annotation>
-		<annotation cp="🦻🏽">갈색 피부 | 보청기를 낀 귀 | 접근성 | 청각장애</annotation>
-		<annotation cp="🦻🏽" type="tts">보청기를 낀 귀: 갈색 피부</annotation>
-		<annotation cp="🦻🏾">보청기를 낀 귀 | 접근성 | 진한 갈색 피부 | 청각장애</annotation>
-		<annotation cp="🦻🏾" type="tts">보청기를 낀 귀: 진한 갈색 피부</annotation>
-		<annotation cp="🦻🏿">검은색 피부 | 보청기를 낀 귀 | 접근성 | 청각장애</annotation>
-		<annotation cp="🦻🏿" type="tts">보청기를 낀 귀: 검은색 피부</annotation>
-		<annotation cp="🧍🏻">서 있는 | 서 있는 사람 | 하얀 피부</annotation>
-		<annotation cp="🧍🏻" type="tts">서 있는 사람: 하얀 피부</annotation>
-		<annotation cp="🧍🏼">서 있는 | 서 있는 사람 | 연한 갈색 피부</annotation>
-		<annotation cp="🧍🏼" type="tts">서 있는 사람: 연한 갈색 피부</annotation>
-		<annotation cp="🧍🏽">갈색 피부 | 서 있는 | 서 있는 사람</annotation>
-		<annotation cp="🧍🏽" type="tts">서 있는 사람: 갈색 피부</annotation>
-		<annotation cp="🧍🏾">서 있는 | 서 있는 사람 | 진한 갈색 피부</annotation>
-		<annotation cp="🧍🏾" type="tts">서 있는 사람: 진한 갈색 피부</annotation>
-		<annotation cp="🧍🏿">검은색 피부 | 서 있는 | 서 있는 사람</annotation>
-		<annotation cp="🧍🏿" type="tts">서 있는 사람: 검은색 피부</annotation>
-		<annotation cp="🧍🏻‍♀">서 있는 | 서 있는 여자 | 여자 | 하얀 피부</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">서 있는 여자: 하얀 피부</annotation>
-		<annotation cp="🧍🏼‍♀">서 있는 | 서 있는 여자 | 여자 | 연한 갈색 피부</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">서 있는 여자: 연한 갈색 피부</annotation>
-		<annotation cp="🧍🏽‍♀">갈색 피부 | 서 있는 | 서 있는 여자 | 여자</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">서 있는 여자: 갈색 피부</annotation>
-		<annotation cp="🧍🏾‍♀">서 있는 | 서 있는 여자 | 여자 | 진한 갈색 피부</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">서 있는 여자: 진한 갈색 피부</annotation>
-		<annotation cp="🧍🏿‍♀">검은색 피부 | 서 있는 | 서 있는 여자 | 여자</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">서 있는 여자: 검은색 피부</annotation>
-		<annotation cp="🧍🏻‍♂">남자 | 서 있는 | 서 있는 남자 | 하얀 피부</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">서 있는 남자: 하얀 피부</annotation>
-		<annotation cp="🧍🏼‍♂">남자 | 서 있는 | 서 있는 남자 | 연한 갈색 피부</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">서 있는 남자: 연한 갈색 피부</annotation>
-		<annotation cp="🧍🏽‍♂">갈색 피부 | 남자 | 서 있는 | 서 있는 남자</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">서 있는 남자: 갈색 피부</annotation>
-		<annotation cp="🧍🏾‍♂">남자 | 서 있는 | 서 있는 남자 | 진한 갈색 피부</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">서 있는 남자: 진한 갈색 피부</annotation>
-		<annotation cp="🧍🏿‍♂">검은색 피부 | 남자 | 서 있는 | 서 있는 남자</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">서 있는 남자: 검은색 피부</annotation>
-		<annotation cp="🧎🏻">무릎을 꿇은 | 무릎을 꿇은 사람 | 하얀 피부</annotation>
-		<annotation cp="🧎🏻" type="tts">무릎을 꿇은 사람: 하얀 피부</annotation>
-		<annotation cp="🧎🏼">무릎을 꿇은 | 무릎을 꿇은 사람 | 연한 갈색 피부</annotation>
-		<annotation cp="🧎🏼" type="tts">무릎을 꿇은 사람: 연한 갈색 피부</annotation>
-		<annotation cp="🧎🏽">갈색 피부 | 무릎을 꿇은 | 무릎을 꿇은 사람</annotation>
-		<annotation cp="🧎🏽" type="tts">무릎을 꿇은 사람: 갈색 피부</annotation>
-		<annotation cp="🧎🏾">무릎을 꿇은 | 무릎을 꿇은 사람 | 진한 갈색 피부</annotation>
-		<annotation cp="🧎🏾" type="tts">무릎을 꿇은 사람: 진한 갈색 피부</annotation>
-		<annotation cp="🧎🏿">검은색 피부 | 무릎을 꿇은 | 무릎을 꿇은 사람</annotation>
-		<annotation cp="🧎🏿" type="tts">무릎을 꿇은 사람: 검은색 피부</annotation>
-		<annotation cp="🧎🏻‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자 | 하얀 피부</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">무릎을 꿇은 여자: 하얀 피부</annotation>
-		<annotation cp="🧎🏼‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자 | 연한 갈색 피부</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">무릎을 꿇은 여자: 연한 갈색 피부</annotation>
-		<annotation cp="🧎🏽‍♀">갈색 피부 | 무릎을 꿇은 | 무릎을 꿇은 여자 | 여자</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">무릎을 꿇은 여자: 갈색 피부</annotation>
-		<annotation cp="🧎🏾‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자 | 진한 갈색 피부</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">무릎을 꿇은 여자: 진한 갈색 피부</annotation>
-		<annotation cp="🧎🏿‍♀">검은색 피부 | 무릎을 꿇은 | 무릎을 꿇은 여자 | 여자</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">무릎을 꿇은 여자: 검은색 피부</annotation>
-		<annotation cp="🧎🏻‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자 | 하얀 피부</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">무릎을 꿇은 남자: 하얀 피부</annotation>
-		<annotation cp="🧎🏼‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자 | 연한 갈색 피부</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">무릎을 꿇은 남자: 연한 갈색 피부</annotation>
-		<annotation cp="🧎🏽‍♂">갈색 피부 | 남자 | 무릎을 꿇은 | 무릎을 꿇은 남자</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">무릎을 꿇은 남자: 갈색 피부</annotation>
-		<annotation cp="🧎🏾‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자 | 진한 갈색 피부</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">무릎을 꿇은 남자: 진한 갈색 피부</annotation>
-		<annotation cp="🧎🏿‍♂">검은색 피부 | 남자 | 무릎을 꿇은 | 무릎을 꿇은 남자</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">무릎을 꿇은 남자: 검은색 피부</annotation>
-		<annotation cp="🧏🏻">귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력 | 하얀 피부</annotation>
-		<annotation cp="🧏🏻" type="tts">청각 장애가 있는 사람: 하얀 피부</annotation>
-		<annotation cp="🧏🏼">귀 | 연한 갈색 피부 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
-		<annotation cp="🧏🏼" type="tts">청각 장애가 있는 사람: 연한 갈색 피부</annotation>
-		<annotation cp="🧏🏽">갈색 피부 | 귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
-		<annotation cp="🧏🏽" type="tts">청각 장애가 있는 사람: 갈색 피부</annotation>
-		<annotation cp="🧏🏾">귀 | 접근성 | 진한 갈색 피부 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
-		<annotation cp="🧏🏾" type="tts">청각 장애가 있는 사람: 진한 갈색 피부</annotation>
-		<annotation cp="🧏🏿">검은색 피부 | 귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
-		<annotation cp="🧏🏿" type="tts">청각 장애가 있는 사람: 검은색 피부</annotation>
-		<annotation cp="🧏🏻‍♀">여자 | 청각장애 | 청각장애가 있는 여자 | 하얀 피부</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">청각장애가 있는 여자: 하얀 피부</annotation>
-		<annotation cp="🧏🏼‍♀">여자 | 연한 갈색 피부 | 청각장애 | 청각장애가 있는 여자</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">청각장애가 있는 여자: 연한 갈색 피부</annotation>
-		<annotation cp="🧏🏽‍♀">갈색 피부 | 여자 | 청각장애 | 청각장애가 있는 여자</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">청각장애가 있는 여자: 갈색 피부</annotation>
-		<annotation cp="🧏🏾‍♀">여자 | 진한 갈색 피부 | 청각장애 | 청각장애가 있는 여자</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">청각장애가 있는 여자: 진한 갈색 피부</annotation>
-		<annotation cp="🧏🏿‍♀">검은색 피부 | 여자 | 청각장애 | 청각장애가 있는 여자</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">청각장애가 있는 여자: 검은색 피부</annotation>
-		<annotation cp="🧏🏻‍♂">남자 | 청각장애 | 청각장애가 있는 남자 | 하얀 피부</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">청각장애가 있는 남자: 하얀 피부</annotation>
-		<annotation cp="🧏🏼‍♂">남자 | 연한 갈색 피부 | 청각장애 | 청각장애가 있는 남자</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">청각장애가 있는 남자: 연한 갈색 피부</annotation>
-		<annotation cp="🧏🏽‍♂">갈색 피부 | 남자 | 청각장애 | 청각장애가 있는 남자</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">청각장애가 있는 남자: 갈색 피부</annotation>
-		<annotation cp="🧏🏾‍♂">남자 | 진한 갈색 피부 | 청각장애 | 청각장애가 있는 남자</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">청각장애가 있는 남자: 진한 갈색 피부</annotation>
-		<annotation cp="🧏🏿‍♂">검은색 피부 | 남자 | 청각장애 | 청각장애가 있는 남자</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">청각장애가 있는 남자: 검은색 피부</annotation>
 		<annotation cp="👋🏻">펼친 손 | 하얀 피부 | 흔드는 손</annotation>
 		<annotation cp="👋🏻" type="tts">흔드는 손: 하얀 피부</annotation>
 		<annotation cp="👋🏼">연한 갈색 피부 | 펼친 손 | 흔드는 손</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">오케이를 표시한 손: 진한 갈색 피부</annotation>
 		<annotation cp="👌🏿">검은색 피부 | 돈 | 오케이 신호 | 오케이를 표시한 손</annotation>
 		<annotation cp="👌🏿" type="tts">오케이를 표시한 손: 검은색 피부</annotation>
+		<annotation cp="🤏🏻">꼬집는 손 | 적은 양을 나타내는 손 | 하얀 피부</annotation>
+		<annotation cp="🤏🏻" type="tts">꼬집는 손: 하얀 피부</annotation>
+		<annotation cp="🤏🏼">꼬집는 손 | 연한 갈색 피부 | 적은 양을 나타내는 손</annotation>
+		<annotation cp="🤏🏼" type="tts">꼬집는 손: 연한 갈색 피부</annotation>
+		<annotation cp="🤏🏽">갈색 피부 | 꼬집는 손 | 적은 양을 나타내는 손</annotation>
+		<annotation cp="🤏🏽" type="tts">꼬집는 손: 갈색 피부</annotation>
+		<annotation cp="🤏🏾">꼬집는 손 | 적은 양을 나타내는 손 | 진한 갈색 피부</annotation>
+		<annotation cp="🤏🏾" type="tts">꼬집는 손: 진한 갈색 피부</annotation>
+		<annotation cp="🤏🏿">검은색 피부 | 꼬집는 손 | 적은 양을 나타내는 손</annotation>
+		<annotation cp="🤏🏿" type="tts">꼬집는 손: 검은색 피부</annotation>
 		<annotation cp="✌🏻">가위 | 브이 표시 | 찌 | 하얀 피부</annotation>
 		<annotation cp="✌🏻" type="tts">브이 표시: 하얀 피부</annotation>
 		<annotation cp="✌🏼">가위 | 브이 표시 | 연한 갈색 피부 | 찌</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">귀: 진한 갈색 피부</annotation>
 		<annotation cp="👂🏿">검은색 피부 | 귀 | 몸</annotation>
 		<annotation cp="👂🏿" type="tts">귀: 검은색 피부</annotation>
+		<annotation cp="🦻🏻">보청기를 낀 귀 | 접근성 | 청각장애 | 하얀 피부</annotation>
+		<annotation cp="🦻🏻" type="tts">보청기를 낀 귀: 하얀 피부</annotation>
+		<annotation cp="🦻🏼">보청기를 낀 귀 | 연한 갈색 피부 | 접근성 | 청각장애</annotation>
+		<annotation cp="🦻🏼" type="tts">보청기를 낀 귀: 연한 갈색 피부</annotation>
+		<annotation cp="🦻🏽">갈색 피부 | 보청기를 낀 귀 | 접근성 | 청각장애</annotation>
+		<annotation cp="🦻🏽" type="tts">보청기를 낀 귀: 갈색 피부</annotation>
+		<annotation cp="🦻🏾">보청기를 낀 귀 | 접근성 | 진한 갈색 피부 | 청각장애</annotation>
+		<annotation cp="🦻🏾" type="tts">보청기를 낀 귀: 진한 갈색 피부</annotation>
+		<annotation cp="🦻🏿">검은색 피부 | 보청기를 낀 귀 | 접근성 | 청각장애</annotation>
+		<annotation cp="🦻🏿" type="tts">보청기를 낀 귀: 검은색 피부</annotation>
 		<annotation cp="👃🏻">몸 | 코 | 하얀 피부</annotation>
 		<annotation cp="👃🏻" type="tts">코: 하얀 피부</annotation>
 		<annotation cp="👃🏼">몸 | 연한 갈색 피부 | 코</annotation>
@@ -543,36 +452,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">금발인 사람: 진한 갈색 피부</annotation>
 		<annotation cp="👱🏿">검은색 피부 | 금발 | 금발인 사람</annotation>
 		<annotation cp="👱🏿" type="tts">금발인 사람: 검은색 피부</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">손을 잡고 있는 두 명의 사람 | 하얀 피부</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 하얀 피부</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">손을 잡고 있는 두 명의 사람 | 연한 갈색 피부 | 하얀 피부</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 연한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">손을 잡고 있는 두 명의 사람 | 연한 갈색 피부</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 연한 갈색 피부</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">갈색 피부 | 손을 잡고 있는 두 명의 사람 | 하얀 피부</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 갈색 피부 하얀 피부</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">갈색 피부 | 손을 잡고 있는 두 명의 사람 | 연한 갈색 피부</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">갈색 피부 | 손을 잡고 있는 두 명의 사람</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">손을 잡고 있는 두 명의 사람: 갈색 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">손을 잡고 있는 두 명의 사람 | 진한 갈색 피부 | 하얀 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">손을 잡고 있는 두 명의 사람 | 연한 갈색 피부 | 진한 갈색 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">갈색 피부 | 손을 잡고 있는 두 명의 사람 | 진한 갈색 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부 갈색 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">손을 잡고 있는 두 명의 사람 | 진한 갈색 피부</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">검은색 피부 | 손을 잡고 있는 두 명의 사람 | 하얀 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 하얀 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">검은색 피부 | 손을 잡고 있는 두 명의 사람 | 연한 갈색 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 연한 갈색 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">갈색 피부 | 검은색 피부 | 손을 잡고 있는 두 명의 사람</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 갈색 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">검은색 피부 | 손을 잡고 있는 두 명의 사람 | 진한 갈색 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 진한 갈색 피부</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">검은색 피부 | 손을 잡고 있는 두 명의 사람</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부</annotation>
+		<annotation cp="🧑‍🦰">빨간 머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑‍🦰" type="tts">사람: 빨간 머리</annotation>
+		<annotation cp="🧑🏻‍🦰">빨간 머리 | 사람 | 성별 없음 | 성인 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">사람: 하얀 피부 빨간 머리</annotation>
+		<annotation cp="🧑🏼‍🦰">빨간 머리 | 사람 | 성별 없음 | 성인 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">사람: 연한 갈색 피부 빨간 머리</annotation>
+		<annotation cp="🧑🏽‍🦰">갈색 피부 | 빨간 머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">사람: 갈색 피부 빨간 머리</annotation>
+		<annotation cp="🧑🏾‍🦰">빨간 머리 | 사람 | 성별 없음 | 성인 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">사람: 진한 갈색 피부 빨간 머리</annotation>
+		<annotation cp="🧑🏿‍🦰">검은색 피부 | 빨간 머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">사람: 검은색 피부 빨간 머리</annotation>
+		<annotation cp="🧑‍🦱">곱슬머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑‍🦱" type="tts">사람: 곱슬머리</annotation>
+		<annotation cp="🧑🏻‍🦱">곱슬머리 | 사람 | 성별 없음 | 성인 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">사람: 하얀 피부 곱슬머리</annotation>
+		<annotation cp="🧑🏼‍🦱">곱슬머리 | 사람 | 성별 없음 | 성인 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">사람: 연한 갈색 피부 곱슬머리</annotation>
+		<annotation cp="🧑🏽‍🦱">갈색 피부 | 곱슬머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">사람: 갈색 피부 곱슬머리</annotation>
+		<annotation cp="🧑🏾‍🦱">곱슬머리 | 사람 | 성별 없음 | 성인 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">사람: 진한 갈색 피부 곱슬머리</annotation>
+		<annotation cp="🧑🏿‍🦱">검은색 피부 | 곱슬머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">사람: 검은색 피부 곱슬머리</annotation>
+		<annotation cp="🧑‍🦳">백발 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑‍🦳" type="tts">사람: 백발</annotation>
+		<annotation cp="🧑🏻‍🦳">백발 | 사람 | 성별 없음 | 성인 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">사람: 하얀 피부 백발</annotation>
+		<annotation cp="🧑🏼‍🦳">백발 | 사람 | 성별 없음 | 성인 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">사람: 연한 갈색 피부 백발</annotation>
+		<annotation cp="🧑🏽‍🦳">갈색 피부 | 백발 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">사람: 갈색 피부 백발</annotation>
+		<annotation cp="🧑🏾‍🦳">백발 | 사람 | 성별 없음 | 성인 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">사람: 진한 갈색 피부 백발</annotation>
+		<annotation cp="🧑🏿‍🦳">검은색 피부 | 백발 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">사람: 검은색 피부 백발</annotation>
+		<annotation cp="🧑‍🦲">대머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑‍🦲" type="tts">사람: 대머리</annotation>
+		<annotation cp="🧑🏻‍🦲">대머리 | 사람 | 성별 없음 | 성인 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">사람: 하얀 피부 대머리</annotation>
+		<annotation cp="🧑🏼‍🦲">대머리 | 사람 | 성별 없음 | 성인 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">사람: 연한 갈색 피부 대머리</annotation>
+		<annotation cp="🧑🏽‍🦲">갈색 피부 | 대머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">사람: 갈색 피부 대머리</annotation>
+		<annotation cp="🧑🏾‍🦲">대머리 | 사람 | 성별 없음 | 성인 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">사람: 진한 갈색 피부 대머리</annotation>
+		<annotation cp="🧑🏿‍🦲">검은색 피부 | 대머리 | 사람 | 성별 없음 | 성인</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">사람: 검은색 피부 대머리</annotation>
 		<annotation cp="👨🏻">남성 | 남자 | 성인 | 하얀 피부</annotation>
 		<annotation cp="👨🏻" type="tts">남자: 하얀 피부</annotation>
 		<annotation cp="👨🏼">남성 | 남자 | 성인 | 연한 갈색 피부</annotation>
@@ -583,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">남자: 진한 갈색 피부</annotation>
 		<annotation cp="👨🏿">검은색 피부 | 남성 | 남자 | 성인</annotation>
 		<annotation cp="👨🏿" type="tts">남자: 검은색 피부</annotation>
-		<annotation cp="👨🏻‍🦯">남자 | 시각장애 | 접근성 | 지팡이를 든 남자 | 하얀 피부</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">지팡이를 든 남자: 하얀 피부</annotation>
-		<annotation cp="👨🏼‍🦯">남자 | 시각장애 | 연한 갈색 피부 | 접근성 | 지팡이를 든 남자</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">지팡이를 든 남자: 연한 갈색 피부</annotation>
-		<annotation cp="👨🏽‍🦯">갈색 피부 | 남자 | 시각장애 | 접근성 | 지팡이를 든 남자</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">지팡이를 든 남자: 갈색 피부</annotation>
-		<annotation cp="👨🏾‍🦯">남자 | 시각장애 | 접근성 | 지팡이를 든 남자 | 진한 갈색 피부</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">지팡이를 든 남자: 진한 갈색 피부</annotation>
-		<annotation cp="👨🏿‍🦯">검은색 피부 | 남자 | 시각장애 | 접근성 | 지팡이를 든 남자</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">지팡이를 든 남자: 검은색 피부</annotation>
-		<annotation cp="👨🏻‍🦼">남자 | 전동 휠체어를 탄 남자 | 접근성 | 하얀 피부 | 휠체어</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">전동 휠체어를 탄 남자: 하얀 피부</annotation>
-		<annotation cp="👨🏼‍🦼">남자 | 연한 갈색 피부 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">전동 휠체어를 탄 남자: 연한 갈색 피부</annotation>
-		<annotation cp="👨🏽‍🦼">갈색 피부 | 남자 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">전동 휠체어를 탄 남자: 갈색 피부</annotation>
-		<annotation cp="👨🏾‍🦼">남자 | 전동 휠체어를 탄 남자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">전동 휠체어를 탄 남자: 진한 갈색 피부</annotation>
-		<annotation cp="👨🏿‍🦼">검은색 피부 | 남자 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">전동 휠체어를 탄 남자: 검은색 피부</annotation>
-		<annotation cp="👨🏻‍🦽">남자 | 수동 휠체어를 탄 남자 | 접근성 | 하얀 피부 | 휠체어</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">수동 휠체어를 탄 남자: 하얀 피부</annotation>
-		<annotation cp="👨🏼‍🦽">남자 | 수동 휠체어를 탄 남자 | 연한 갈색 피부 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">수동 휠체어를 탄 남자: 연한 갈색 피부</annotation>
-		<annotation cp="👨🏽‍🦽">갈색 피부 | 남자 | 수동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">수동 휠체어를 탄 남자: 갈색 피부</annotation>
-		<annotation cp="👨🏾‍🦽">남자 | 수동 휠체어를 탄 남자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">수동 휠체어를 탄 남자: 진한 갈색 피부</annotation>
-		<annotation cp="👨🏿‍🦽">검은색 피부 | 남자 | 수동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">수동 휠체어를 탄 남자: 검은색 피부</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 연한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">갈색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">갈색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">손을 잡고 있는 두 명의 남자: 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 진한 갈색 피부 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 진한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 진한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">손을 잡고 있는 두 명의 남자: 진한 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">갈색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 진한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">손을 잡고 있는 두 명의 남자: 진한 갈색 피부 갈색 피부</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 하얀 피부</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">갈색 피부 | 검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 갈색 피부</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 진한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 진한 갈색 피부</annotation>
+		<annotation cp="🧔🏻">사람 | 수염 | 수염 난 사람 | 하얀 피부</annotation>
+		<annotation cp="🧔🏻" type="tts">수염 난 사람: 하얀 피부</annotation>
+		<annotation cp="🧔🏼">사람 | 수염 | 수염 난 사람 | 연한 갈색 피부</annotation>
+		<annotation cp="🧔🏼" type="tts">수염 난 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧔🏽">갈색 피부 | 사람 | 수염 | 수염 난 사람</annotation>
+		<annotation cp="🧔🏽" type="tts">수염 난 사람: 갈색 피부</annotation>
+		<annotation cp="🧔🏾">사람 | 수염 | 수염 난 사람 | 진한 갈색 피부</annotation>
+		<annotation cp="🧔🏾" type="tts">수염 난 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧔🏿">검은색 피부 | 사람 | 수염 | 수염 난 사람</annotation>
+		<annotation cp="🧔🏿" type="tts">수염 난 사람: 검은색 피부</annotation>
+		<annotation cp="👱🏻‍♂">금발 | 남성 | 남자 | 하얀 피부</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">금발 남자: 하얀 피부</annotation>
+		<annotation cp="👱🏼‍♂">금발 | 남성 | 남자 | 연한 갈색 피부</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">금발 남자: 연한 갈색 피부</annotation>
+		<annotation cp="👱🏽‍♂">갈색 피부 | 금발 | 남성 | 남자</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">금발 남자: 갈색 피부</annotation>
+		<annotation cp="👱🏾‍♂">금발 | 남성 | 남자 | 진한 갈색 피부</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">금발 남자: 진한 갈색 피부</annotation>
+		<annotation cp="👱🏿‍♂">검은색 피부 | 금발 | 남성 | 남자</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">금발 남자: 검은색 피부</annotation>
 		<annotation cp="👨‍🦰">남성 | 남자 | 빨간 머리 | 성인</annotation>
 		<annotation cp="👨‍🦰" type="tts">남자: 빨간 머리</annotation>
 		<annotation cp="👨🏻‍🦰">남성 | 남자 | 빨간 머리 | 성인 | 하얀 피부</annotation>
@@ -681,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">남자: 진한 갈색 피부 대머리</annotation>
 		<annotation cp="👨🏿‍🦲">검은색 피부 | 남성 | 남자 | 대머리 | 성인</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">남자: 검은색 피부 대머리</annotation>
-		<annotation cp="👱🏻‍♂">금발 | 남성 | 남자 | 하얀 피부</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">금발 남자: 하얀 피부</annotation>
-		<annotation cp="👱🏼‍♂">금발 | 남성 | 남자 | 연한 갈색 피부</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">금발 남자: 연한 갈색 피부</annotation>
-		<annotation cp="👱🏽‍♂">갈색 피부 | 금발 | 남성 | 남자</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">금발 남자: 갈색 피부</annotation>
-		<annotation cp="👱🏾‍♂">금발 | 남성 | 남자 | 진한 갈색 피부</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">금발 남자: 진한 갈색 피부</annotation>
-		<annotation cp="👱🏿‍♂">검은색 피부 | 금발 | 남성 | 남자</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">금발 남자: 검은색 피부</annotation>
-		<annotation cp="🧔🏻">사람 | 수염 | 수염 난 사람 | 하얀 피부</annotation>
-		<annotation cp="🧔🏻" type="tts">수염 난 사람: 하얀 피부</annotation>
-		<annotation cp="🧔🏼">사람 | 수염 | 수염 난 사람 | 연한 갈색 피부</annotation>
-		<annotation cp="🧔🏼" type="tts">수염 난 사람: 연한 갈색 피부</annotation>
-		<annotation cp="🧔🏽">갈색 피부 | 사람 | 수염 | 수염 난 사람</annotation>
-		<annotation cp="🧔🏽" type="tts">수염 난 사람: 갈색 피부</annotation>
-		<annotation cp="🧔🏾">사람 | 수염 | 수염 난 사람 | 진한 갈색 피부</annotation>
-		<annotation cp="🧔🏾" type="tts">수염 난 사람: 진한 갈색 피부</annotation>
-		<annotation cp="🧔🏿">검은색 피부 | 사람 | 수염 | 수염 난 사람</annotation>
-		<annotation cp="🧔🏿" type="tts">수염 난 사람: 검은색 피부</annotation>
 		<annotation cp="👩🏻">성인 | 여성 | 여자 | 하얀 피부</annotation>
 		<annotation cp="👩🏻" type="tts">여자: 하얀 피부</annotation>
 		<annotation cp="👩🏼">성인 | 여성 | 여자 | 연한 갈색 피부</annotation>
@@ -711,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">여자: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿">검은색 피부 | 성인 | 여성 | 여자</annotation>
 		<annotation cp="👩🏿" type="tts">여자: 검은색 피부</annotation>
-		<annotation cp="👩🏻‍🦯">시각장애 | 여자 | 접근성 | 지팡이를 든 여자 | 하얀 피부</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">지팡이를 든 여자: 하얀 피부</annotation>
-		<annotation cp="👩🏼‍🦯">시각장애 | 여자 | 연한 갈색 피부 | 접근성 | 지팡이를 든 여자</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">지팡이를 든 여자: 연한 갈색 피부</annotation>
-		<annotation cp="👩🏽‍🦯">갈색 피부 | 시각장애 | 여자 | 접근성 | 지팡이를 든 여자</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">지팡이를 든 여자: 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🦯">시각장애 | 여자 | 접근성 | 지팡이를 든 여자 | 진한 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">지팡이를 든 여자: 진한 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🦯">검은색 피부 | 시각장애 | 여자 | 접근성 | 지팡이를 든 여자</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">지팡이를 든 여자: 검은색 피부</annotation>
-		<annotation cp="👩🏻‍🦼">여자 | 전동 휠체어를 탄 여자 | 접근성 | 하얀 피부 | 휠체어</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">전동 휠체어를 탄 여자: 하얀 피부</annotation>
-		<annotation cp="👩🏼‍🦼">여자 | 연한 갈색 피부 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">전동 휠체어를 탄 여자: 연한 갈색 피부</annotation>
-		<annotation cp="👩🏽‍🦼">갈색 피부 | 여자 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">전동 휠체어를 탄 여자: 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🦼">여자 | 전동 휠체어를 탄 여자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">전동 휠체어를 탄 여자: 진한 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🦼">검은색 피부 | 여자 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">전동 휠체어를 탄 여자: 검은색 피부</annotation>
-		<annotation cp="👩🏻‍🦽">수동 휠체어를 탄 여자 | 여자 | 접근성 | 하얀 피부 | 휠체어</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">수동 휠체어를 탄 여자: 하얀 피부</annotation>
-		<annotation cp="👩🏼‍🦽">수동 휠체어를 탄 여자 | 여자 | 연한 갈색 피부 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">수동 휠체어를 탄 여자: 연한 갈색 피부</annotation>
-		<annotation cp="👩🏽‍🦽">갈색 피부 | 수동 휠체어를 탄 여자 | 여자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">수동 휠체어를 탄 여자: 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🦽">수동 휠체어를 탄 여자 | 여자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">수동 휠체어를 탄 여자: 진한 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🦽">검은색 피부 | 수동 휠체어를 탄 여자 | 여자 | 접근성 | 휠체어</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">수동 휠체어를 탄 여자: 검은색 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 하얀 피부 연한 갈색 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 하얀 피부 갈색 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 하얀 피부 진한 갈색 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 하얀 피부 검은색 피부</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 갈색 피부</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 진한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 진한 갈색 피부</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 검은색 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 갈색 피부 진한 갈색 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">갈색 피부 | 검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 갈색 피부 검은색 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 진한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 검은색 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 검은색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 검은색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">갈색 피부 | 검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 검은색 피부 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 검은색 피부 진한 갈색 피부</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 연한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">손을 잡고 있는 두 명의 여자: 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 진한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 하얀 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 연한 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">갈색 피부 | 검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 갈색 피부</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 진한 갈색 피부</annotation>
+		<annotation cp="👱🏻‍♀">금발 | 여성 | 여자 | 하얀 피부</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">금발 여자: 하얀 피부</annotation>
+		<annotation cp="👱🏼‍♀">금발 | 여성 | 여자 | 연한 갈색 피부</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">금발 여자: 연한 갈색 피부</annotation>
+		<annotation cp="👱🏽‍♀">갈색 피부 | 금발 | 여성 | 여자</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">금발 여자: 갈색 피부</annotation>
+		<annotation cp="👱🏾‍♀">금발 | 여성 | 여자 | 진한 갈색 피부</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">금발 여자: 진한 갈색 피부</annotation>
+		<annotation cp="👱🏿‍♀">검은색 피부 | 금발 | 여성 | 여자</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">금발 여자: 검은색 피부</annotation>
 		<annotation cp="👩‍🦰">빨간 머리 | 성인 | 여성 | 여자</annotation>
 		<annotation cp="👩‍🦰" type="tts">여자: 빨간 머리</annotation>
 		<annotation cp="👩🏻‍🦰">빨간 머리 | 성인 | 여성 | 여자 | 하얀 피부</annotation>
@@ -849,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">여자: 진한 갈색 피부 대머리</annotation>
 		<annotation cp="👩🏿‍🦲">검은색 피부 | 대머리 | 성인 | 여성 | 여자</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">여자: 검은색 피부 대머리</annotation>
-		<annotation cp="👱🏻‍♀">금발 | 여성 | 여자 | 하얀 피부</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">금발 여자: 하얀 피부</annotation>
-		<annotation cp="👱🏼‍♀">금발 | 여성 | 여자 | 연한 갈색 피부</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">금발 여자: 연한 갈색 피부</annotation>
-		<annotation cp="👱🏽‍♀">갈색 피부 | 금발 | 여성 | 여자</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">금발 여자: 갈색 피부</annotation>
-		<annotation cp="👱🏾‍♀">금발 | 여성 | 여자 | 진한 갈색 피부</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">금발 여자: 진한 갈색 피부</annotation>
-		<annotation cp="👱🏿‍♀">검은색 피부 | 금발 | 여성 | 여자</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">금발 여자: 검은색 피부</annotation>
 		<annotation cp="🧓🏻">노인 | 성별 없음 | 성인 | 하얀 피부</annotation>
 		<annotation cp="🧓🏻" type="tts">노인: 하얀 피부</annotation>
 		<annotation cp="🧓🏼">노인 | 성별 없음 | 성인 | 연한 갈색 피부</annotation>
@@ -1069,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">한 손 든 여자: 진한 갈색 피부</annotation>
 		<annotation cp="🙋🏿‍♀">검은색 피부 | 손들기 | 여기요 | 저요 | 한 손 든 여자 | 한손</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">한 손 든 여자: 검은색 피부</annotation>
+		<annotation cp="🧏🏻">귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력 | 하얀 피부</annotation>
+		<annotation cp="🧏🏻" type="tts">청각 장애가 있는 사람: 하얀 피부</annotation>
+		<annotation cp="🧏🏼">귀 | 연한 갈색 피부 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
+		<annotation cp="🧏🏼" type="tts">청각 장애가 있는 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧏🏽">갈색 피부 | 귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
+		<annotation cp="🧏🏽" type="tts">청각 장애가 있는 사람: 갈색 피부</annotation>
+		<annotation cp="🧏🏾">귀 | 접근성 | 진한 갈색 피부 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
+		<annotation cp="🧏🏾" type="tts">청각 장애가 있는 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧏🏿">검은색 피부 | 귀 | 접근성 | 청각 장애가 있는 사람 | 청각장애 | 청력</annotation>
+		<annotation cp="🧏🏿" type="tts">청각 장애가 있는 사람: 검은색 피부</annotation>
+		<annotation cp="🧏🏻‍♂">남자 | 청각장애 | 청각장애가 있는 남자 | 하얀 피부</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">청각장애가 있는 남자: 하얀 피부</annotation>
+		<annotation cp="🧏🏼‍♂">남자 | 연한 갈색 피부 | 청각장애 | 청각장애가 있는 남자</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">청각장애가 있는 남자: 연한 갈색 피부</annotation>
+		<annotation cp="🧏🏽‍♂">갈색 피부 | 남자 | 청각장애 | 청각장애가 있는 남자</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">청각장애가 있는 남자: 갈색 피부</annotation>
+		<annotation cp="🧏🏾‍♂">남자 | 진한 갈색 피부 | 청각장애 | 청각장애가 있는 남자</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">청각장애가 있는 남자: 진한 갈색 피부</annotation>
+		<annotation cp="🧏🏿‍♂">검은색 피부 | 남자 | 청각장애 | 청각장애가 있는 남자</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">청각장애가 있는 남자: 검은색 피부</annotation>
+		<annotation cp="🧏🏻‍♀">여자 | 청각장애 | 청각장애가 있는 여자 | 하얀 피부</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">청각장애가 있는 여자: 하얀 피부</annotation>
+		<annotation cp="🧏🏼‍♀">여자 | 연한 갈색 피부 | 청각장애 | 청각장애가 있는 여자</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">청각장애가 있는 여자: 연한 갈색 피부</annotation>
+		<annotation cp="🧏🏽‍♀">갈색 피부 | 여자 | 청각장애 | 청각장애가 있는 여자</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">청각장애가 있는 여자: 갈색 피부</annotation>
+		<annotation cp="🧏🏾‍♀">여자 | 진한 갈색 피부 | 청각장애 | 청각장애가 있는 여자</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">청각장애가 있는 여자: 진한 갈색 피부</annotation>
+		<annotation cp="🧏🏿‍♀">검은색 피부 | 여자 | 청각장애 | 청각장애가 있는 여자</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">청각장애가 있는 여자: 검은색 피부</annotation>
 		<annotation cp="🙇🏻">사과하는 사람 | 사과하며 절하는 사람 | 절하는 사람 | 하얀 피부</annotation>
 		<annotation cp="🙇🏻" type="tts">절하는 사람: 하얀 피부</annotation>
 		<annotation cp="🙇🏼">사과하는 사람 | 사과하며 절하는 사람 | 연한 갈색 피부 | 절하는 사람</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">어깨를 으쓱하는 여자: 진한 갈색 피부</annotation>
 		<annotation cp="🤷🏿‍♀">검은색 피부 | 글쎄 | 모르겠음 | 어깨 | 어깨를 으쓱하는 여자</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">어깨를 으쓱하는 여자: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍⚕">간호사 | 의료 | 의사 | 테라피스트 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">의료인: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍⚕">간호사 | 연한 갈색 피부 | 의료 | 의사 | 테라피스트</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">의료인: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍⚕">간호사 | 갈색 피부 | 의료 | 의사 | 테라피스트</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">의료인: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍⚕">간호사 | 의료 | 의사 | 진한 갈색 피부 | 테라피스트</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">의료인: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍⚕">간호사 | 검은색 피부 | 의료 | 의사 | 테라피스트</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">의료인: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍⚕">간호사 | 남자 | 의료 | 의료인 | 의료진 | 의사 | 진료 | 테라피스트 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">남자 의료인: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍⚕">간호사 | 남자 | 연한 갈색 피부 | 의료 | 의료인 | 의료진 | 의사 | 진료 | 테라피스트</annotation>
@@ -1179,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">여자 의료인: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍⚕">간호사 | 검은색 피부 | 여자 | 의료 | 의료인 | 의료진 | 의사 | 진료 | 테라피스트</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">여자 의료인: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🎓">졸업식 | 하얀 피부 | 학사모 | 학생</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">학생: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🎓">연한 갈색 피부 | 졸업식 | 학사모 | 학생</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">학생: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🎓">갈색 피부 | 졸업식 | 학사모 | 학생</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">학생: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🎓">졸업식 | 진한 갈색 피부 | 학사모 | 학생</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">학생: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🎓">검은색 피부 | 졸업식 | 학사모 | 학생</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">학생: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🎓">남자 | 남학생 | 졸업식 | 하얀 피부 | 학사모 | 학생</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">남학생: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🎓">남자 | 남학생 | 연한 갈색 피부 | 졸업식 | 학사모 | 학생</annotation>
@@ -1199,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">여학생: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🎓">검은색 피부 | 여자 | 여학생 | 졸업식 | 학사모 | 학생</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">여학생: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🏫">강사 | 교사 | 교수 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">교사: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🏫">강사 | 교사 | 교수 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">교사: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🏫">갈색 피부 | 강사 | 교사 | 교수</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">교사: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🏫">강사 | 교사 | 교수 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">교사: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🏫">강사 | 검은색 피부 | 교사 | 교수</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">교사: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🏫">강사 | 강연자 | 교사 | 교수 | 남교사 | 남자 | 선생님 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">남교사: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🏫">강사 | 강연자 | 교사 | 교수 | 남교사 | 남자 | 선생님 | 연한 갈색 피부</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">여교사: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🏫">강사 | 강연자 | 검은색 피부 | 교사 | 교수 | 선생님 | 여교사 | 여자</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">여교사: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍⚖">저울 | 판사 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">판사: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍⚖">연한 갈색 피부 | 저울 | 판사</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">판사: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍⚖">갈색 피부 | 저울 | 판사</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">판사: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍⚖">저울 | 진한 갈색 피부 | 판사</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">판사: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍⚖">검은색 피부 | 저울 | 판사</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">판사: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍⚖">남자 | 법조인 | 정의 | 판사 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">남자 판사: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍⚖">남자 | 법조인 | 연한 갈색 피부 | 정의 | 판사</annotation>
@@ -1239,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">여자 판사: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍⚖">검은색 피부 | 법조인 | 여자 | 정의 | 판사</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">여자 판사: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🌾">농부 | 농사꾼 | 농장 주인 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">농부: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🌾">농부 | 농사꾼 | 농장 주인 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">농부: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🌾">갈색 피부 | 농부 | 농사꾼 | 농장 주인</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">농부: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🌾">농부 | 농사꾼 | 농장 주인 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">농부: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🌾">검은색 피부 | 농부 | 농사꾼 | 농장 주인</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">농부: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🌾">남자 | 농부 | 농사꾼 | 농장 주인 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">남자 농부: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🌾">남자 | 농부 | 농사꾼 | 농장 주인 | 연한 갈색 피부</annotation>
@@ -1259,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">여자 농부: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🌾">검은색 피부 | 농부 | 농사꾼 | 농장 주인 | 여자</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">여자 농부: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🍳">셰프 | 요리사 | 주방장 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">요리사: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🍳">셰프 | 연한 갈색 피부 | 요리사 | 주방장</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">요리사: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🍳">갈색 피부 | 셰프 | 요리사 | 주방장</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">요리사: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🍳">셰프 | 요리사 | 주방장 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">요리사: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🍳">검은색 피부 | 셰프 | 요리사 | 주방장</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">요리사: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🍳">남자 | 셰프 | 요리사 | 주방장 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">남자 요리사: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🍳">남자 | 셰프 | 연한 갈색 피부 | 요리사 | 주방장</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">여자 요리사: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🍳">검은색 피부 | 셰프 | 여자 | 요리사 | 주방장</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">여자 요리사: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🔧">배관공 | 전기 기사 | 정비공 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">정비공: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🔧">배관공 | 연한 갈색 피부 | 전기 기사 | 정비공</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">정비공: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🔧">갈색 피부 | 배관공 | 전기 기사 | 정비공</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">정비공: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🔧">배관공 | 전기 기사 | 정비공 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">정비공: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🔧">검은색 피부 | 배관공 | 전기 기사 | 정비공</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">정비공: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🔧">기술자 | 남자 | 배관공 | 수리공 | 전기 기사 | 정비공 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">남자 정비공: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🔧">기술자 | 남자 | 배관공 | 수리공 | 연한 갈색 피부 | 전기 기사 | 정비공</annotation>
@@ -1299,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">여자 정비공: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🔧">검은색 피부 | 기술자 | 배관공 | 수리공 | 여자 | 전기 기사 | 정비공</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">여자 정비공: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🏭">공업 | 공장 | 조립공 | 직원 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">공장 직원: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🏭">공업 | 공장 | 연한 갈색 피부 | 조립공 | 직원</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">공장 직원: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🏭">갈색 피부 | 공업 | 공장 | 조립공 | 직원</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">공장 직원: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🏭">공업 | 공장 | 조립공 | 직원 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">공장 직원: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🏭">검은색 피부 | 공업 | 공장 | 조립공 | 직원</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">공장 직원: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🏭">공업 | 공장 | 남자 | 조립공 | 직원 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">공장 남자 직원: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🏭">공업 | 공장 | 남자 | 연한 갈색 피부 | 조립공 | 직원</annotation>
@@ -1319,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">공장 여자 직원: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🏭">검은색 피부 | 공업 | 공장 | 여자 | 조립공 | 직원</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">공장 여자 직원: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍💼">건축가 | 관리자 | 매니저 | 하얀 피부 | 화이트칼라</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">회사원: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍💼">건축가 | 관리자 | 매니저 | 연한 갈색 피부 | 화이트칼라</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">회사원: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍💼">갈색 피부 | 건축가 | 관리자 | 매니저 | 화이트칼라</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">회사원: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍💼">건축가 | 관리자 | 매니저 | 진한 갈색 피부 | 화이트칼라</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">회사원: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍💼">건축가 | 검은색 피부 | 관리자 | 매니저 | 화이트칼라</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">회사원: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍💼">건축가 | 관리자 | 남자 | 남자 회사원 | 매니저 | 비즈니스맨 | 샐러리맨 | 하얀 피부 | 화이트칼라</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">남자 회사원: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍💼">건축가 | 관리자 | 남자 | 남자 회사원 | 매니저 | 비즈니스맨 | 샐러리맨 | 연한 갈색 피부 | 화이트칼라</annotation>
@@ -1339,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">여자 회사원: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍💼">건축가 | 검은색 피부 | 관리자 | 매니저 | 비즈니스맨 | 샐러리맨 | 여자 | 여자 회사원 | 화이트칼라</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">여자 회사원: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🔬">과학자 | 기술자 | 물리학자 | 생물학자 | 하얀 피부 | 화학자</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">과학자: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🔬">과학자 | 기술자 | 물리학자 | 생물학자 | 연한 갈색 피부 | 화학자</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">과학자: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🔬">갈색 피부 | 과학자 | 기술자 | 물리학자 | 생물학자 | 화학자</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">과학자: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🔬">과학자 | 기술자 | 물리학자 | 생물학자 | 진한 갈색 피부 | 화학자</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">과학자: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🔬">검은색 피부 | 과학자 | 기술자 | 물리학자 | 생물학자 | 화학자</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">과학자: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🔬">과학자 | 남자 | 물리학자 | 생물학자 | 실험 | 실험실 | 연구자 | 하얀 피부 | 화학자</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">남자 과학자: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🔬">과학자 | 남자 | 물리학자 | 생물학자 | 실험 | 실험실 | 연구자 | 연한 갈색 피부 | 화학자</annotation>
@@ -1359,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">여자 과학자: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🔬">검은색 피부 | 과학자 | 물리학자 | 생물학자 | 실험 | 실험실 | 여자 | 연구자 | 화학자</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">여자 과학자: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍💻">개발자 | 기술 전문가 | 발명가 | 소프트웨어 | 코딩 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">기술 전문가: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍💻">개발자 | 기술 전문가 | 발명가 | 소프트웨어 | 연한 갈색 피부 | 코딩</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">기술 전문가: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍💻">갈색 피부 | 개발자 | 기술 전문가 | 발명가 | 소프트웨어 | 코딩</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">기술 전문가: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍💻">개발자 | 기술 전문가 | 발명가 | 소프트웨어 | 진한 갈색 피부 | 코딩</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">기술 전문가: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍💻">개발자 | 검은색 피부 | 기술 전문가 | 발명가 | 소프트웨어 | 코딩</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">기술 전문가: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍💻">개발자 | 기술 전문가 | 남자 | 남자 기술 전문가 | 발명가 | 소프트웨어 | 전문가 | 코딩 | 프로그래머 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">남자 기술 전문가: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍💻">개발자 | 기술 전문가 | 남자 | 남자 기술 전문가 | 발명가 | 소프트웨어 | 연한 갈색 피부 | 전문가 | 코딩 | 프로그래머</annotation>
@@ -1379,6 +1306,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">여자 기술 전문가: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍💻">개발자 | 검은색 피부 | 기술 전문가 | 발명가 | 소프트웨어 | 여자 | 여자 기술 전문가 | 전문가 | 코딩 | 프로그래머</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">여자 기술 전문가: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🎤">가수 | 노래 | 마이크 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">가수: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🎤">가수 | 노래 | 마이크 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">가수: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🎤">가수 | 갈색 피부 | 노래 | 마이크</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">가수: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🎤">가수 | 노래 | 마이크 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">가수: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🎤">가수 | 검은색 피부 | 노래 | 마이크</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">가수: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🎤">가수 | 남자 | 노래 | 마이크 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">남자 가수: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🎤">가수 | 남자 | 노래 | 마이크 | 연한 갈색 피부</annotation>
@@ -1399,6 +1336,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎤" type="tts">여자 가수: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🎤">가수 | 검은색 피부 | 노래 | 마이크 | 여자</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">여자 가수: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🎨">미술도구 | 아티스트 | 하얀 피부 | 화가</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">화가: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🎨">미술도구 | 아티스트 | 연한 갈색 피부 | 화가</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">화가: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🎨">갈색 피부 | 미술도구 | 아티스트 | 화가</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">화가: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🎨">미술도구 | 아티스트 | 진한 갈색 피부 | 화가</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">화가: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🎨">검은색 피부 | 미술도구 | 아티스트 | 화가</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">화가: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🎨">남자 화가 | 미술 | 미술도구 | 아티스트 | 하얀 피부 | 화가</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">남자 화가: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🎨">남자 화가 | 미술 | 미술도구 | 아티스트 | 연한 갈색 피부 | 화가</annotation>
@@ -1419,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">여자 화가: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🎨">검은색 피부 | 미술 | 미술도구 | 아티스트 | 여자 화가 | 화가</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">여자 화가: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍✈">기장 | 비행 | 파일럿 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">기장: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍✈">기장 | 비행 | 연한 갈색 피부 | 파일럿</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">기장: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍✈">갈색 피부 | 기장 | 비행 | 파일럿</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">기장: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍✈">기장 | 비행 | 진한 갈색 피부 | 파일럿</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">기장: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍✈">검은색 피부 | 기장 | 비행 | 파일럿</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">기장: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍✈">기장 | 남자 | 비행 | 파일럿 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">남자 기장: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍✈">기장 | 남자 | 비행 | 연한 갈색 피부 | 파일럿</annotation>
@@ -1439,6 +1396,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">여자 기장: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍✈">검은색 피부 | 기장 | 비행 | 여자 | 파일럿</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">여자 기장: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🚀">로켓 | 우주비행사 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">우주비행사: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🚀">로켓 | 연한 갈색 피부 | 우주비행사</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">우주비행사: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🚀">갈색 피부 | 로켓 | 우주비행사</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">우주비행사: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🚀">로켓 | 우주비행사 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">우주비행사: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🚀">검은색 피부 | 로켓 | 우주비행사</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">우주비행사: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🚀">남자 | 로켓 | 우주비행사 | 우주인 | 하얀 피부</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">남자 우주비행사: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🚀">남자 | 로켓 | 연한 갈색 피부 | 우주비행사 | 우주인</annotation>
@@ -1459,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">여자 우주비행사: 진한 갈색 피부</annotation>
 		<annotation cp="👩🏿‍🚀">검은색 피부 | 로켓 | 여자 | 우주비행사 | 우주인</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">여자 우주비행사: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🚒">소방관 | 소방차 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">소방관: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🚒">소방관 | 소방차 | 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">소방관: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🚒">갈색 피부 | 소방관 | 소방차</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">소방관: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🚒">소방관 | 소방차 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">소방관: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🚒">검은색 피부 | 소방관 | 소방차</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">소방관: 검은색 피부</annotation>
 		<annotation cp="👨🏻‍🚒">구조 | 남자 소방관 | 소방관 | 하얀 피부 | 화재</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">남자 소방관: 하얀 피부</annotation>
 		<annotation cp="👨🏼‍🚒">구조 | 남자 소방관 | 소방관 | 연한 갈색 피부 | 화재</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">걷는 여자: 진한 갈색 피부</annotation>
 		<annotation cp="🚶🏿‍♀">걷기 | 걷는 여자 | 검은색 피부 | 도보 | 보행자 | 워킹</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">걷는 여자: 검은색 피부</annotation>
+		<annotation cp="🧍🏻">서 있는 | 서 있는 사람 | 하얀 피부</annotation>
+		<annotation cp="🧍🏻" type="tts">서 있는 사람: 하얀 피부</annotation>
+		<annotation cp="🧍🏼">서 있는 | 서 있는 사람 | 연한 갈색 피부</annotation>
+		<annotation cp="🧍🏼" type="tts">서 있는 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧍🏽">갈색 피부 | 서 있는 | 서 있는 사람</annotation>
+		<annotation cp="🧍🏽" type="tts">서 있는 사람: 갈색 피부</annotation>
+		<annotation cp="🧍🏾">서 있는 | 서 있는 사람 | 진한 갈색 피부</annotation>
+		<annotation cp="🧍🏾" type="tts">서 있는 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧍🏿">검은색 피부 | 서 있는 | 서 있는 사람</annotation>
+		<annotation cp="🧍🏿" type="tts">서 있는 사람: 검은색 피부</annotation>
+		<annotation cp="🧍🏻‍♂">남자 | 서 있는 | 서 있는 남자 | 하얀 피부</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">서 있는 남자: 하얀 피부</annotation>
+		<annotation cp="🧍🏼‍♂">남자 | 서 있는 | 서 있는 남자 | 연한 갈색 피부</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">서 있는 남자: 연한 갈색 피부</annotation>
+		<annotation cp="🧍🏽‍♂">갈색 피부 | 남자 | 서 있는 | 서 있는 남자</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">서 있는 남자: 갈색 피부</annotation>
+		<annotation cp="🧍🏾‍♂">남자 | 서 있는 | 서 있는 남자 | 진한 갈색 피부</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">서 있는 남자: 진한 갈색 피부</annotation>
+		<annotation cp="🧍🏿‍♂">검은색 피부 | 남자 | 서 있는 | 서 있는 남자</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">서 있는 남자: 검은색 피부</annotation>
+		<annotation cp="🧍🏻‍♀">서 있는 | 서 있는 여자 | 여자 | 하얀 피부</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">서 있는 여자: 하얀 피부</annotation>
+		<annotation cp="🧍🏼‍♀">서 있는 | 서 있는 여자 | 여자 | 연한 갈색 피부</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">서 있는 여자: 연한 갈색 피부</annotation>
+		<annotation cp="🧍🏽‍♀">갈색 피부 | 서 있는 | 서 있는 여자 | 여자</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">서 있는 여자: 갈색 피부</annotation>
+		<annotation cp="🧍🏾‍♀">서 있는 | 서 있는 여자 | 여자 | 진한 갈색 피부</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">서 있는 여자: 진한 갈색 피부</annotation>
+		<annotation cp="🧍🏿‍♀">검은색 피부 | 서 있는 | 서 있는 여자 | 여자</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">서 있는 여자: 검은색 피부</annotation>
+		<annotation cp="🧎🏻">무릎을 꿇은 | 무릎을 꿇은 사람 | 하얀 피부</annotation>
+		<annotation cp="🧎🏻" type="tts">무릎을 꿇은 사람: 하얀 피부</annotation>
+		<annotation cp="🧎🏼">무릎을 꿇은 | 무릎을 꿇은 사람 | 연한 갈색 피부</annotation>
+		<annotation cp="🧎🏼" type="tts">무릎을 꿇은 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧎🏽">갈색 피부 | 무릎을 꿇은 | 무릎을 꿇은 사람</annotation>
+		<annotation cp="🧎🏽" type="tts">무릎을 꿇은 사람: 갈색 피부</annotation>
+		<annotation cp="🧎🏾">무릎을 꿇은 | 무릎을 꿇은 사람 | 진한 갈색 피부</annotation>
+		<annotation cp="🧎🏾" type="tts">무릎을 꿇은 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧎🏿">검은색 피부 | 무릎을 꿇은 | 무릎을 꿇은 사람</annotation>
+		<annotation cp="🧎🏿" type="tts">무릎을 꿇은 사람: 검은색 피부</annotation>
+		<annotation cp="🧎🏻‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자 | 하얀 피부</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">무릎을 꿇은 남자: 하얀 피부</annotation>
+		<annotation cp="🧎🏼‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자 | 연한 갈색 피부</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">무릎을 꿇은 남자: 연한 갈색 피부</annotation>
+		<annotation cp="🧎🏽‍♂">갈색 피부 | 남자 | 무릎을 꿇은 | 무릎을 꿇은 남자</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">무릎을 꿇은 남자: 갈색 피부</annotation>
+		<annotation cp="🧎🏾‍♂">남자 | 무릎을 꿇은 | 무릎을 꿇은 남자 | 진한 갈색 피부</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">무릎을 꿇은 남자: 진한 갈색 피부</annotation>
+		<annotation cp="🧎🏿‍♂">검은색 피부 | 남자 | 무릎을 꿇은 | 무릎을 꿇은 남자</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">무릎을 꿇은 남자: 검은색 피부</annotation>
+		<annotation cp="🧎🏻‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자 | 하얀 피부</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">무릎을 꿇은 여자: 하얀 피부</annotation>
+		<annotation cp="🧎🏼‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자 | 연한 갈색 피부</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">무릎을 꿇은 여자: 연한 갈색 피부</annotation>
+		<annotation cp="🧎🏽‍♀">갈색 피부 | 무릎을 꿇은 | 무릎을 꿇은 여자 | 여자</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">무릎을 꿇은 여자: 갈색 피부</annotation>
+		<annotation cp="🧎🏾‍♀">무릎을 꿇은 | 무릎을 꿇은 여자 | 여자 | 진한 갈색 피부</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">무릎을 꿇은 여자: 진한 갈색 피부</annotation>
+		<annotation cp="🧎🏿‍♀">검은색 피부 | 무릎을 꿇은 | 무릎을 꿇은 여자 | 여자</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">무릎을 꿇은 여자: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🦯">시각장애 | 접근성 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">지팡이를 든 사람: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🦯">시각장애 | 연한 갈색 피부 | 접근성</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">지팡이를 든 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🦯">갈색 피부 | 시각장애 | 접근성</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">지팡이를 든 사람: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦯">시각장애 | 접근성 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">지팡이를 든 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🦯">검은색 피부 | 시각장애 | 접근성</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">지팡이를 든 사람: 검은색 피부</annotation>
+		<annotation cp="👨🏻‍🦯">남자 | 시각장애 | 접근성 | 지팡이를 든 남자 | 하얀 피부</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">지팡이를 든 남자: 하얀 피부</annotation>
+		<annotation cp="👨🏼‍🦯">남자 | 시각장애 | 연한 갈색 피부 | 접근성 | 지팡이를 든 남자</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">지팡이를 든 남자: 연한 갈색 피부</annotation>
+		<annotation cp="👨🏽‍🦯">갈색 피부 | 남자 | 시각장애 | 접근성 | 지팡이를 든 남자</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">지팡이를 든 남자: 갈색 피부</annotation>
+		<annotation cp="👨🏾‍🦯">남자 | 시각장애 | 접근성 | 지팡이를 든 남자 | 진한 갈색 피부</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">지팡이를 든 남자: 진한 갈색 피부</annotation>
+		<annotation cp="👨🏿‍🦯">검은색 피부 | 남자 | 시각장애 | 접근성 | 지팡이를 든 남자</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">지팡이를 든 남자: 검은색 피부</annotation>
+		<annotation cp="👩🏻‍🦯">시각장애 | 여자 | 접근성 | 지팡이를 든 여자 | 하얀 피부</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">지팡이를 든 여자: 하얀 피부</annotation>
+		<annotation cp="👩🏼‍🦯">시각장애 | 여자 | 연한 갈색 피부 | 접근성 | 지팡이를 든 여자</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">지팡이를 든 여자: 연한 갈색 피부</annotation>
+		<annotation cp="👩🏽‍🦯">갈색 피부 | 시각장애 | 여자 | 접근성 | 지팡이를 든 여자</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">지팡이를 든 여자: 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🦯">시각장애 | 여자 | 접근성 | 지팡이를 든 여자 | 진한 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">지팡이를 든 여자: 진한 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🦯">검은색 피부 | 시각장애 | 여자 | 접근성 | 지팡이를 든 여자</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">지팡이를 든 여자: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🦼">전동 휠체어 | 접근성 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">전동 휠체어를 탄 사람: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🦼">연한 갈색 피부 | 전동 휠체어 | 접근성</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">전동 휠체어를 탄 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🦼">갈색 피부 | 전동 휠체어 | 접근성</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">전동 휠체어를 탄 사람: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦼">전동 휠체어 | 접근성 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">전동 휠체어를 탄 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🦼">검은색 피부 | 전동 휠체어 | 접근성</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">전동 휠체어를 탄 사람: 검은색 피부</annotation>
+		<annotation cp="👨🏻‍🦼">남자 | 전동 휠체어를 탄 남자 | 접근성 | 하얀 피부 | 휠체어</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">전동 휠체어를 탄 남자: 하얀 피부</annotation>
+		<annotation cp="👨🏼‍🦼">남자 | 연한 갈색 피부 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">전동 휠체어를 탄 남자: 연한 갈색 피부</annotation>
+		<annotation cp="👨🏽‍🦼">갈색 피부 | 남자 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">전동 휠체어를 탄 남자: 갈색 피부</annotation>
+		<annotation cp="👨🏾‍🦼">남자 | 전동 휠체어를 탄 남자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">전동 휠체어를 탄 남자: 진한 갈색 피부</annotation>
+		<annotation cp="👨🏿‍🦼">검은색 피부 | 남자 | 전동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">전동 휠체어를 탄 남자: 검은색 피부</annotation>
+		<annotation cp="👩🏻‍🦼">여자 | 전동 휠체어를 탄 여자 | 접근성 | 하얀 피부 | 휠체어</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">전동 휠체어를 탄 여자: 하얀 피부</annotation>
+		<annotation cp="👩🏼‍🦼">여자 | 연한 갈색 피부 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">전동 휠체어를 탄 여자: 연한 갈색 피부</annotation>
+		<annotation cp="👩🏽‍🦼">갈색 피부 | 여자 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">전동 휠체어를 탄 여자: 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🦼">여자 | 전동 휠체어를 탄 여자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">전동 휠체어를 탄 여자: 진한 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🦼">검은색 피부 | 여자 | 전동 휠체어를 탄 여자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">전동 휠체어를 탄 여자: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🦽">수동 휠체어 | 접근성 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">수동 휠체어를 탄 사람: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🦽">수동 휠체어 | 연한 갈색 피부 | 접근성</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">수동 휠체어를 탄 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🦽">갈색 피부 | 수동 휠체어 | 접근성</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">수동 휠체어를 탄 사람: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦽">수동 휠체어 | 접근성 | 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">수동 휠체어를 탄 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🦽">검은색 피부 | 수동 휠체어 | 접근성</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">수동 휠체어를 탄 사람: 검은색 피부</annotation>
+		<annotation cp="👨🏻‍🦽">남자 | 수동 휠체어를 탄 남자 | 접근성 | 하얀 피부 | 휠체어</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">수동 휠체어를 탄 남자: 하얀 피부</annotation>
+		<annotation cp="👨🏼‍🦽">남자 | 수동 휠체어를 탄 남자 | 연한 갈색 피부 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">수동 휠체어를 탄 남자: 연한 갈색 피부</annotation>
+		<annotation cp="👨🏽‍🦽">갈색 피부 | 남자 | 수동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">수동 휠체어를 탄 남자: 갈색 피부</annotation>
+		<annotation cp="👨🏾‍🦽">남자 | 수동 휠체어를 탄 남자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">수동 휠체어를 탄 남자: 진한 갈색 피부</annotation>
+		<annotation cp="👨🏿‍🦽">검은색 피부 | 남자 | 수동 휠체어를 탄 남자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">수동 휠체어를 탄 남자: 검은색 피부</annotation>
+		<annotation cp="👩🏻‍🦽">수동 휠체어를 탄 여자 | 여자 | 접근성 | 하얀 피부 | 휠체어</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">수동 휠체어를 탄 여자: 하얀 피부</annotation>
+		<annotation cp="👩🏼‍🦽">수동 휠체어를 탄 여자 | 여자 | 연한 갈색 피부 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">수동 휠체어를 탄 여자: 연한 갈색 피부</annotation>
+		<annotation cp="👩🏽‍🦽">갈색 피부 | 수동 휠체어를 탄 여자 | 여자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">수동 휠체어를 탄 여자: 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🦽">수동 휠체어를 탄 여자 | 여자 | 접근성 | 진한 갈색 피부 | 휠체어</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">수동 휠체어를 탄 여자: 진한 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🦽">검은색 피부 | 수동 휠체어를 탄 여자 | 여자 | 접근성 | 휠체어</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">수동 휠체어를 탄 여자: 검은색 피부</annotation>
 		<annotation cp="🏃🏻">달리기 | 뛰기 | 뛰는 사람 | 런닝 | 마라톤 | 하얀 피부</annotation>
 		<annotation cp="🏃🏻" type="tts">뛰는 사람: 하얀 피부</annotation>
 		<annotation cp="🏃🏼">달리기 | 뛰기 | 뛰는 사람 | 런닝 | 마라톤 | 연한 갈색 피부</annotation>
@@ -2589,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">침대에 누운 사람: 진한 갈색 피부</annotation>
 		<annotation cp="🛌🏿">검은색 피부 | 침대 | 침대에 누운 사람 | 호텔</annotation>
 		<annotation cp="🛌🏿" type="tts">침대에 누운 사람: 검은색 피부</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">사람 | 손 | 손을 잡고 있는 두 명의 사람 | 커플 | 하얀 피부</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">사람 | 손 | 손을 잡고 있는 두 명의 사람 | 연한 갈색 피부 | 커플 | 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 연한 갈색 피부 하얀 피부</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">사람 | 손 | 손을 잡고 있는 두 명의 사람 | 연한 갈색 피부 | 커플</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">갈색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 커플 | 하얀 피부</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 갈색 피부 하얀 피부</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">갈색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 연한 갈색 피부 | 커플</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 갈색 피부 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">갈색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 커플</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">손을 잡고 있는 두 명의 사람: 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">사람 | 손 | 손을 잡고 있는 두 명의 사람 | 진한 갈색 피부 | 커플 | 하얀 피부</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부 하얀 피부</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">사람 | 손 | 손을 잡고 있는 두 명의 사람 | 연한 갈색 피부 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">갈색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부 갈색 피부</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">사람 | 손 | 손을 잡고 있는 두 명의 사람 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">손을 잡고 있는 두 명의 사람: 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">검은색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 커플 | 하얀 피부</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 하얀 피부</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">검은색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 연한 갈색 피부 | 커플</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 연한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">갈색 피부 | 검은색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 커플</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">검은색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부 진한 갈색 피부</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">검은색 피부 | 사람 | 손 | 손을 잡고 있는 두 명의 사람 | 커플</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">손을 잡고 있는 두 명의 사람: 검은색 피부</annotation>
+		<annotation cp="👭🏻">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👭🏻" type="tts">손을 잡고 있는 두 명의 여자: 하얀 피부</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 연한 갈색 피부 하얀 피부</annotation>
+		<annotation cp="👭🏼">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👭🏼" type="tts">손을 잡고 있는 두 명의 여자: 연한 갈색 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 갈색 피부 하얀 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">손을 잡고 있는 두 명의 여자: 갈색 피부 연한 갈색 피부</annotation>
+		<annotation cp="👭🏽">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
+		<annotation cp="👭🏽" type="tts">손을 잡고 있는 두 명의 여자: 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부 하얀 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 진한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부 연한 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부 갈색 피부</annotation>
+		<annotation cp="👭🏾">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👭🏾" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 하얀 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 연한 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">갈색 피부 | 검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부 진한 갈색 피부</annotation>
+		<annotation cp="👭🏿">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
+		<annotation cp="👭🏿" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부</annotation>
 		<annotation cp="👫🏻">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
 		<annotation cp="👫🏻" type="tts">손을 잡고 있는 남녀: 하얀 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 하얀 피부 연한 갈색 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 하얀 피부 갈색 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 하얀 피부 진한 갈색 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 하얀 피부 검은색 피부</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 하얀 피부</annotation>
 		<annotation cp="👫🏼">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
 		<annotation cp="👫🏼" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 갈색 피부</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 진한 갈색 피부</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 연한 갈색 피부 검은색 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 갈색 피부 하얀 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 갈색 피부 연한 갈색 피부</annotation>
 		<annotation cp="👫🏽">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플</annotation>
 		<annotation cp="👫🏽" type="tts">손을 잡고 있는 남녀: 갈색 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 갈색 피부 진한 갈색 피부</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">갈색 피부 | 검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 갈색 피부 검은색 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 하얀 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 연한 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">갈색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 갈색 피부</annotation>
 		<annotation cp="👫🏾">남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
 		<annotation cp="👫🏾" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">손을 잡고 있는 남녀: 진한 갈색 피부 검은색 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플 | 하얀 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">손을 잡고 있는 남녀: 검은색 피부 하얀 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 연한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">손을 잡고 있는 남녀: 검은색 피부 연한 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">갈색 피부 | 검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">손을 잡고 있는 남녀: 검은색 피부 갈색 피부</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 진한 갈색 피부 | 커플</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">손을 잡고 있는 남녀: 검은색 피부 진한 갈색 피부</annotation>
 		<annotation cp="👫🏿">검은색 피부 | 남녀 커플 | 손을 잡고 있는 남녀 | 연인 | 커플</annotation>
 		<annotation cp="👫🏿" type="tts">손을 잡고 있는 남녀: 검은색 피부</annotation>
 		<annotation cp="👬🏻">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들 | 하얀 피부</annotation>
 		<annotation cp="👬🏻" type="tts">손을 잡고 있는 두 명의 남자: 하얀 피부</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 연한 갈색 피부 하얀 피부</annotation>
 		<annotation cp="👬🏼">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 친구들</annotation>
 		<annotation cp="👬🏼" type="tts">손을 잡고 있는 두 명의 남자: 연한 갈색 피부</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">갈색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 갈색 피부 하얀 피부</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">갈색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">손을 잡고 있는 두 명의 남자: 갈색 피부 연한 갈색 피부</annotation>
 		<annotation cp="👬🏽">갈색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들</annotation>
 		<annotation cp="👬🏽" type="tts">손을 잡고 있는 두 명의 남자: 갈색 피부</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 진한 갈색 피부 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 진한 갈색 피부 하얀 피부</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 진한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">손을 잡고 있는 두 명의 남자: 진한 갈색 피부 연한 갈색 피부</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">갈색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 진한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">손을 잡고 있는 두 명의 남자: 진한 갈색 피부 갈색 피부</annotation>
 		<annotation cp="👬🏾">남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 진한 갈색 피부 | 친구들</annotation>
 		<annotation cp="👬🏾" type="tts">손을 잡고 있는 두 명의 남자: 진한 갈색 피부</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들 | 하얀 피부</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 하얀 피부</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 연한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 연한 갈색 피부</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">갈색 피부 | 검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 갈색 피부</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 진한 갈색 피부 | 친구들</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부 진한 갈색 피부</annotation>
 		<annotation cp="👬🏿">검은색 피부 | 남성 커플 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 남자 | 친구들</annotation>
 		<annotation cp="👬🏿" type="tts">손을 잡고 있는 두 명의 남자: 검은색 피부</annotation>
-		<annotation cp="👭🏻">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들 | 하얀 피부</annotation>
-		<annotation cp="👭🏻" type="tts">손을 잡고 있는 두 명의 여자: 하얀 피부</annotation>
-		<annotation cp="👭🏼">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 연한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👭🏼" type="tts">손을 잡고 있는 두 명의 여자: 연한 갈색 피부</annotation>
-		<annotation cp="👭🏽">갈색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
-		<annotation cp="👭🏽" type="tts">손을 잡고 있는 두 명의 여자: 갈색 피부</annotation>
-		<annotation cp="👭🏾">동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 진한 갈색 피부 | 친구들</annotation>
-		<annotation cp="👭🏾" type="tts">손을 잡고 있는 두 명의 여자: 진한 갈색 피부</annotation>
-		<annotation cp="👭🏿">검은색 피부 | 동성 연인 | 동성 커플 | 손을 잡고 있는 두 명의 여자 | 여성 커플 | 친구들</annotation>
-		<annotation cp="👭🏿" type="tts">손을 잡고 있는 두 명의 여자: 검은색 피부</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">남자 | 사랑 | 여자 | 연애 | 키스</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">키스: 여자 남자</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">남자 | 사랑 | 연애 | 키스</annotation>
@@ -2986,7 +3223,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇭">깃발</annotation>
 		<annotation cp="🇲🇭" type="tts">깃발: 마셜 제도</annotation>
 		<annotation cp="🇲🇰">깃발</annotation>
-		<annotation cp="🇲🇰" type="tts">깃발: 마케도니아</annotation>
+		<annotation cp="🇲🇰" type="tts">깃발: 북마케도니아</annotation>
 		<annotation cp="🇲🇱">깃발</annotation>
 		<annotation cp="🇲🇱" type="tts">깃발: 말리</annotation>
 		<annotation cp="🇲🇲">깃발</annotation>

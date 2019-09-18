@@ -17,12 +17,6 @@
 			<pluralRange start="one"   end="other" result="other"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
-		<pluralRanges locales="ak fa or sd">
-			<pluralRange start="one"   end="one"   result="other"/>
-			<pluralRange start="one"   end="other" result="other"/>
-			<pluralRange start="other" end="one" result="one"/>
-			<pluralRange start="other" end="other" result="other"/>
-		</pluralRanges>
 		<pluralRanges locales="ka">
 			<pluralRange start="one"   end="other" result="one"/>
 			<pluralRange start="other" end="one"   result="other"/>
@@ -48,6 +42,12 @@
 			<pluralRange start="one"   end="one"   result="one"/>
 			<pluralRange start="one"   end="other" result="other"/>
 			<pluralRange start="other" end="one"   result="other"/>
+			<pluralRange start="other" end="other" result="other"/>
+		</pluralRanges>
+		<pluralRanges locales="ak fa or sd">
+			<pluralRange start="one"   end="one"   result="other"/>
+			<pluralRange start="one"   end="other" result="other"/>
+			<pluralRange start="other" end="one"   result="one"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
 		<pluralRanges locales="mk">

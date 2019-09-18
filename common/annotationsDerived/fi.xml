@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="fi"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">nipistävä käsi | pieni määrä | vaalea iho</annotation>
-		<annotation cp="🤏🏻" type="tts">nipistävä käsi: vaalea iho</annotation>
-		<annotation cp="🤏🏼">keskivaalea iho | nipistävä käsi | pieni määrä</annotation>
-		<annotation cp="🤏🏼" type="tts">nipistävä käsi: keskivaalea iho</annotation>
-		<annotation cp="🤏🏽">nipistävä käsi | pieni määrä | tummanvaalea iho</annotation>
-		<annotation cp="🤏🏽" type="tts">nipistävä käsi: tummanvaalea iho</annotation>
-		<annotation cp="🤏🏾">keskitumma iho | nipistävä käsi | pieni määrä</annotation>
-		<annotation cp="🤏🏾" type="tts">nipistävä käsi: keskitumma iho</annotation>
-		<annotation cp="🤏🏿">nipistävä käsi | pieni määrä | tumma iho</annotation>
-		<annotation cp="🤏🏿" type="tts">nipistävä käsi: tumma iho</annotation>
-		<annotation cp="🦻🏻">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema | vaalea iho</annotation>
-		<annotation cp="🦻🏻" type="tts">kuulolaite korvassa: vaalea iho</annotation>
-		<annotation cp="🦻🏼">esteettömyys | huonokuuloinen | keskivaalea iho | kuulolaite | kuulolaite korvassa | kuulonalenema</annotation>
-		<annotation cp="🦻🏼" type="tts">kuulolaite korvassa: keskivaalea iho</annotation>
-		<annotation cp="🦻🏽">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema | tummanvaalea iho</annotation>
-		<annotation cp="🦻🏽" type="tts">kuulolaite korvassa: tummanvaalea iho</annotation>
-		<annotation cp="🦻🏾">esteettömyys | huonokuuloinen | keskitumma iho | kuulolaite | kuulolaite korvassa | kuulonalenema</annotation>
-		<annotation cp="🦻🏾" type="tts">kuulolaite korvassa: keskitumma iho</annotation>
-		<annotation cp="🦻🏿">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema | tumma iho</annotation>
-		<annotation cp="🦻🏿" type="tts">kuulolaite korvassa: tumma iho</annotation>
-		<annotation cp="🧍🏻">seisoa | seisova | seisova ihminen | vaalea iho</annotation>
-		<annotation cp="🧍🏻" type="tts">seisova ihminen: vaalea iho</annotation>
-		<annotation cp="🧍🏼">keskivaalea iho | seisoa | seisova | seisova ihminen</annotation>
-		<annotation cp="🧍🏼" type="tts">seisova ihminen: keskivaalea iho</annotation>
-		<annotation cp="🧍🏽">seisoa | seisova | seisova ihminen | tummanvaalea iho</annotation>
-		<annotation cp="🧍🏽" type="tts">seisova ihminen: tummanvaalea iho</annotation>
-		<annotation cp="🧍🏾">keskitumma iho | seisoa | seisova | seisova ihminen</annotation>
-		<annotation cp="🧍🏾" type="tts">seisova ihminen: keskitumma iho</annotation>
-		<annotation cp="🧍🏿">seisoa | seisova | seisova ihminen | tumma iho</annotation>
-		<annotation cp="🧍🏿" type="tts">seisova ihminen: tumma iho</annotation>
-		<annotation cp="🧍🏻‍♀">nainen | seisova | vaalea iho</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">seisova nainen: vaalea iho</annotation>
-		<annotation cp="🧍🏼‍♀">keskivaalea iho | nainen | seisova</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">seisova nainen: keskivaalea iho</annotation>
-		<annotation cp="🧍🏽‍♀">nainen | seisova | tummanvaalea iho</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">seisova nainen: tummanvaalea iho</annotation>
-		<annotation cp="🧍🏾‍♀">keskitumma iho | nainen | seisova</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">seisova nainen: keskitumma iho</annotation>
-		<annotation cp="🧍🏿‍♀">nainen | seisova | tumma iho</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">seisova nainen: tumma iho</annotation>
-		<annotation cp="🧍🏻‍♂">mies | seisova | vaalea iho</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">seisova mies: vaalea iho</annotation>
-		<annotation cp="🧍🏼‍♂">keskivaalea iho | mies | seisova</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">seisova mies: keskivaalea iho</annotation>
-		<annotation cp="🧍🏽‍♂">mies | seisova | tummanvaalea iho</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">seisova mies: tummanvaalea iho</annotation>
-		<annotation cp="🧍🏾‍♂">keskitumma iho | mies | seisova</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">seisova mies: keskitumma iho</annotation>
-		<annotation cp="🧍🏿‍♂">mies | seisova | tumma iho</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">seisova mies: tumma iho</annotation>
-		<annotation cp="🧎🏻">polvistua | polvistuminen | polvistuva ihminen | vaalea iho</annotation>
-		<annotation cp="🧎🏻" type="tts">polvistuva ihminen: vaalea iho</annotation>
-		<annotation cp="🧎🏼">keskivaalea iho | polvistua | polvistuminen | polvistuva ihminen</annotation>
-		<annotation cp="🧎🏼" type="tts">polvistuva ihminen: keskivaalea iho</annotation>
-		<annotation cp="🧎🏽">polvistua | polvistuminen | polvistuva ihminen | tummanvaalea iho</annotation>
-		<annotation cp="🧎🏽" type="tts">polvistuva ihminen: tummanvaalea iho</annotation>
-		<annotation cp="🧎🏾">keskitumma iho | polvistua | polvistuminen | polvistuva ihminen</annotation>
-		<annotation cp="🧎🏾" type="tts">polvistuva ihminen: keskitumma iho</annotation>
-		<annotation cp="🧎🏿">polvistua | polvistuminen | polvistuva ihminen | tumma iho</annotation>
-		<annotation cp="🧎🏿" type="tts">polvistuva ihminen: tumma iho</annotation>
-		<annotation cp="🧎🏻‍♀">nainen | polvistuva | vaalea iho</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">polvistuva nainen: vaalea iho</annotation>
-		<annotation cp="🧎🏼‍♀">keskivaalea iho | nainen | polvistuva</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">polvistuva nainen: keskivaalea iho</annotation>
-		<annotation cp="🧎🏽‍♀">nainen | polvistuva | tummanvaalea iho</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">polvistuva nainen: tummanvaalea iho</annotation>
-		<annotation cp="🧎🏾‍♀">keskitumma iho | nainen | polvistuva</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">polvistuva nainen: keskitumma iho</annotation>
-		<annotation cp="🧎🏿‍♀">nainen | polvistuva | tumma iho</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">polvistuva nainen: tumma iho</annotation>
-		<annotation cp="🧎🏻‍♂">mies | polvistuva | vaalea iho</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">polvistuva mies: vaalea iho</annotation>
-		<annotation cp="🧎🏼‍♂">keskivaalea iho | mies | polvistuva</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">polvistuva mies: keskivaalea iho</annotation>
-		<annotation cp="🧎🏽‍♂">mies | polvistuva | tummanvaalea iho</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">polvistuva mies: tummanvaalea iho</annotation>
-		<annotation cp="🧎🏾‍♂">keskitumma iho | mies | polvistuva</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">polvistuva mies: keskitumma iho</annotation>
-		<annotation cp="🧎🏿‍♂">mies | polvistuva | tumma iho</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">polvistuva mies: tumma iho</annotation>
-		<annotation cp="🧏🏻">esteettömyys | korva | kuulo | kuuro | kuuro ihminen | vaalea iho</annotation>
-		<annotation cp="🧏🏻" type="tts">kuuro ihminen: vaalea iho</annotation>
-		<annotation cp="🧏🏼">esteettömyys | keskivaalea iho | korva | kuulo | kuuro | kuuro ihminen</annotation>
-		<annotation cp="🧏🏼" type="tts">kuuro ihminen: keskivaalea iho</annotation>
-		<annotation cp="🧏🏽">esteettömyys | korva | kuulo | kuuro | kuuro ihminen | tummanvaalea iho</annotation>
-		<annotation cp="🧏🏽" type="tts">kuuro ihminen: tummanvaalea iho</annotation>
-		<annotation cp="🧏🏾">esteettömyys | keskitumma iho | korva | kuulo | kuuro | kuuro ihminen</annotation>
-		<annotation cp="🧏🏾" type="tts">kuuro ihminen: keskitumma iho</annotation>
-		<annotation cp="🧏🏿">esteettömyys | korva | kuulo | kuuro | kuuro ihminen | tumma iho</annotation>
-		<annotation cp="🧏🏿" type="tts">kuuro ihminen: tumma iho</annotation>
-		<annotation cp="🧏🏻‍♀">kuuro | nainen | vaalea iho</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">kuuro nainen: vaalea iho</annotation>
-		<annotation cp="🧏🏼‍♀">keskivaalea iho | kuuro | nainen</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">kuuro nainen: keskivaalea iho</annotation>
-		<annotation cp="🧏🏽‍♀">kuuro | nainen | tummanvaalea iho</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">kuuro nainen: tummanvaalea iho</annotation>
-		<annotation cp="🧏🏾‍♀">keskitumma iho | kuuro | nainen</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">kuuro nainen: keskitumma iho</annotation>
-		<annotation cp="🧏🏿‍♀">kuuro | nainen | tumma iho</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">kuuro nainen: tumma iho</annotation>
-		<annotation cp="🧏🏻‍♂">kuuro | mies | vaalea iho</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">kuuro mies: vaalea iho</annotation>
-		<annotation cp="🧏🏼‍♂">keskivaalea iho | kuuro | mies</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">kuuro mies: keskivaalea iho</annotation>
-		<annotation cp="🧏🏽‍♂">kuuro | mies | tummanvaalea iho</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">kuuro mies: tummanvaalea iho</annotation>
-		<annotation cp="🧏🏾‍♂">keskitumma iho | kuuro | mies</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">kuuro mies: keskitumma iho</annotation>
-		<annotation cp="🧏🏿‍♂">kuuro | mies | tumma iho</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">kuuro mies: tumma iho</annotation>
 		<annotation cp="👋🏻">heilautus | käden heilautus | käsi | vaalea iho | vartalo | vilkuttaa</annotation>
 		<annotation cp="👋🏻" type="tts">käden heilautus: vaalea iho</annotation>
 		<annotation cp="👋🏼">heilautus | käden heilautus | käsi | keskivaalea iho | vartalo | vilkuttaa</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">ok-sormiele: keskitumma iho</annotation>
 		<annotation cp="👌🏿">käsi | ok | ok-sormiele | tumma iho | vartalo</annotation>
 		<annotation cp="👌🏿" type="tts">ok-sormiele: tumma iho</annotation>
+		<annotation cp="🤏🏻">nipistävä käsi | pieni määrä | vaalea iho</annotation>
+		<annotation cp="🤏🏻" type="tts">nipistävä käsi: vaalea iho</annotation>
+		<annotation cp="🤏🏼">keskivaalea iho | nipistävä käsi | pieni määrä</annotation>
+		<annotation cp="🤏🏼" type="tts">nipistävä käsi: keskivaalea iho</annotation>
+		<annotation cp="🤏🏽">nipistävä käsi | pieni määrä | tummanvaalea iho</annotation>
+		<annotation cp="🤏🏽" type="tts">nipistävä käsi: tummanvaalea iho</annotation>
+		<annotation cp="🤏🏾">keskitumma iho | nipistävä käsi | pieni määrä</annotation>
+		<annotation cp="🤏🏾" type="tts">nipistävä käsi: keskitumma iho</annotation>
+		<annotation cp="🤏🏿">nipistävä käsi | pieni määrä | tumma iho</annotation>
+		<annotation cp="🤏🏿" type="tts">nipistävä käsi: tumma iho</annotation>
 		<annotation cp="✌🏻">käsi | v | vaalea iho | vartalo | voitonmerkki | voitto</annotation>
 		<annotation cp="✌🏻" type="tts">voitonmerkki: vaalea iho</annotation>
 		<annotation cp="✌🏼">käsi | keskivaalea iho | v | vartalo | voitonmerkki | voitto</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">korva: keskitumma iho</annotation>
 		<annotation cp="👂🏿">korva | pää | tumma iho | vartalo</annotation>
 		<annotation cp="👂🏿" type="tts">korva: tumma iho</annotation>
+		<annotation cp="🦻🏻">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema | vaalea iho</annotation>
+		<annotation cp="🦻🏻" type="tts">kuulolaite korvassa: vaalea iho</annotation>
+		<annotation cp="🦻🏼">esteettömyys | huonokuuloinen | keskivaalea iho | kuulolaite | kuulolaite korvassa | kuulonalenema</annotation>
+		<annotation cp="🦻🏼" type="tts">kuulolaite korvassa: keskivaalea iho</annotation>
+		<annotation cp="🦻🏽">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema | tummanvaalea iho</annotation>
+		<annotation cp="🦻🏽" type="tts">kuulolaite korvassa: tummanvaalea iho</annotation>
+		<annotation cp="🦻🏾">esteettömyys | huonokuuloinen | keskitumma iho | kuulolaite | kuulolaite korvassa | kuulonalenema</annotation>
+		<annotation cp="🦻🏾" type="tts">kuulolaite korvassa: keskitumma iho</annotation>
+		<annotation cp="🦻🏿">esteettömyys | huonokuuloinen | kuulolaite | kuulolaite korvassa | kuulonalenema | tumma iho</annotation>
+		<annotation cp="🦻🏿" type="tts">kuulolaite korvassa: tumma iho</annotation>
 		<annotation cp="👃🏻">haju | nenä | pää | tuoksu | vaalea iho | vartalo</annotation>
 		<annotation cp="👃🏻" type="tts">nenä: vaalea iho</annotation>
 		<annotation cp="👃🏼">haju | keskivaalea iho | nenä | pää | tuoksu | vartalo</annotation>
@@ -543,36 +452,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">vaaleatukkainen henkilö: keskitumma iho</annotation>
 		<annotation cp="👱🏿">blondi | hiukset | tumma iho | vaalea | vaaleahiuksinen henkilö | vaaleatukkainen henkilö</annotation>
 		<annotation cp="👱🏿" type="tts">vaaleatukkainen henkilö: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: keskivaalea iho, vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho | vaalea iho</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: keskitumma iho, vaalea iho</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | keskivaalea iho | pari | pitää | pitää toisiaan käsistä</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho | vaalea iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: tumma iho, vaalea iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: tumma iho, keskivaalea iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho | tummanvaalea iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: tumma iho, tummanvaalea iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: tumma iho, keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">ihmiset käsi kädessä: tumma iho</annotation>
+		<annotation cp="🧑‍🦰">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | punatukkainen | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑‍🦰" type="tts">aikuinen: punatukkainen</annotation>
+		<annotation cp="🧑🏻‍🦰">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | punatukkainen | sukupuolineutraali | täysikasvuinen | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">aikuinen: vaalea iho, punatukkainen</annotation>
+		<annotation cp="🧑🏼‍🦰">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | keskivaalea iho | punatukkainen | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">aikuinen: keskivaalea iho, punatukkainen</annotation>
+		<annotation cp="🧑🏽‍🦰">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | punatukkainen | sukupuolineutraali | täysikasvuinen | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">aikuinen: tummanvaalea iho, punatukkainen</annotation>
+		<annotation cp="🧑🏾‍🦰">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | keskitumma iho | punatukkainen | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">aikuinen: keskitumma iho, punatukkainen</annotation>
+		<annotation cp="🧑🏿‍🦰">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | punatukkainen | sukupuolineutraali | täysikasvuinen | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">aikuinen: tumma iho, punatukkainen</annotation>
+		<annotation cp="🧑‍🦱">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | kiharatukkainen | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑‍🦱" type="tts">aikuinen: kiharatukkainen</annotation>
+		<annotation cp="🧑🏻‍🦱">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | kiharatukkainen | sukupuolineutraali | täysikasvuinen | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">aikuinen: vaalea iho, kiharatukkainen</annotation>
+		<annotation cp="🧑🏼‍🦱">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | keskivaalea iho | kiharatukkainen | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">aikuinen: keskivaalea iho, kiharatukkainen</annotation>
+		<annotation cp="🧑🏽‍🦱">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | kiharatukkainen | sukupuolineutraali | täysikasvuinen | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">aikuinen: tummanvaalea iho, kiharatukkainen</annotation>
+		<annotation cp="🧑🏾‍🦱">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | keskitumma iho | kiharatukkainen | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">aikuinen: keskitumma iho, kiharatukkainen</annotation>
+		<annotation cp="🧑🏿‍🦱">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | kiharatukkainen | sukupuolineutraali | täysikasvuinen | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">aikuinen: tumma iho, kiharatukkainen</annotation>
+		<annotation cp="🧑‍🦳">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | sukupuolineutraali | täysikasvuinen | valkotukkainen</annotation>
+		<annotation cp="🧑‍🦳" type="tts">aikuinen: valkotukkainen</annotation>
+		<annotation cp="🧑🏻‍🦳">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | sukupuolineutraali | täysikasvuinen | vaalea iho | valkotukkainen</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">aikuinen: vaalea iho, valkotukkainen</annotation>
+		<annotation cp="🧑🏼‍🦳">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | keskivaalea iho | sukupuolineutraali | täysikasvuinen | valkotukkainen</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">aikuinen: keskivaalea iho, valkotukkainen</annotation>
+		<annotation cp="🧑🏽‍🦳">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | sukupuolineutraali | täysikasvuinen | tummanvaalea iho | valkotukkainen</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">aikuinen: tummanvaalea iho, valkotukkainen</annotation>
+		<annotation cp="🧑🏾‍🦳">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | keskitumma iho | sukupuolineutraali | täysikasvuinen | valkotukkainen</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">aikuinen: keskitumma iho, valkotukkainen</annotation>
+		<annotation cp="🧑🏿‍🦳">aikaihminen | aikuinen | aikuisuus | keski-ikäinen | sukupuolineutraali | täysikasvuinen | tumma iho | valkotukkainen</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">aikuinen: tumma iho, valkotukkainen</annotation>
+		<annotation cp="🧑‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑‍🦲" type="tts">aikuinen: kalju</annotation>
+		<annotation cp="🧑🏻‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | sukupuolineutraali | täysikasvuinen | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">aikuinen: vaalea iho, kalju</annotation>
+		<annotation cp="🧑🏼‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | keskivaalea iho | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">aikuinen: keskivaalea iho, kalju</annotation>
+		<annotation cp="🧑🏽‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | sukupuolineutraali | täysikasvuinen | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">aikuinen: tummanvaalea iho, kalju</annotation>
+		<annotation cp="🧑🏾‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | keskitumma iho | sukupuolineutraali | täysikasvuinen</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">aikuinen: keskitumma iho, kalju</annotation>
+		<annotation cp="🧑🏿‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | sukupuolineutraali | täysikasvuinen | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">aikuinen: tumma iho, kalju</annotation>
 		<annotation cp="👨🏻">mies | miespuolinen | vaalea iho</annotation>
 		<annotation cp="👨🏻" type="tts">mies: vaalea iho</annotation>
 		<annotation cp="👨🏼">keskivaalea iho | mies | miespuolinen</annotation>
@@ -583,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">mies: keskitumma iho</annotation>
 		<annotation cp="👨🏿">mies | miespuolinen | tumma iho</annotation>
 		<annotation cp="👨🏿" type="tts">mies: tumma iho</annotation>
-		<annotation cp="👨🏻‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea | vaalea iho</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">mies ja valkoinen keppi: vaalea iho</annotation>
-		<annotation cp="👨🏼‍🦯">esteettömyys | keskivaalea iho | mies | mies ja valkoinen keppi | sokea</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">mies ja valkoinen keppi: keskivaalea iho</annotation>
-		<annotation cp="👨🏽‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea | tummanvaalea iho</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">mies ja valkoinen keppi: tummanvaalea iho</annotation>
-		<annotation cp="👨🏾‍🦯">esteettömyys | keskitumma iho | mies | mies ja valkoinen keppi | sokea</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">mies ja valkoinen keppi: keskitumma iho</annotation>
-		<annotation cp="👨🏿‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea | tumma iho</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">mies ja valkoinen keppi: tumma iho</annotation>
-		<annotation cp="👨🏻‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli | vaalea iho</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">mies moottoroidussa pyörätuolissa: vaalea iho</annotation>
-		<annotation cp="👨🏼‍🦼">esteettömyys | keskivaalea iho | mies | mies moottoroidussa pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">mies moottoroidussa pyörätuolissa: keskivaalea iho</annotation>
-		<annotation cp="👨🏽‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">mies moottoroidussa pyörätuolissa: tummanvaalea iho</annotation>
-		<annotation cp="👨🏾‍🦼">esteettömyys | keskitumma iho | mies | mies moottoroidussa pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">mies moottoroidussa pyörätuolissa: keskitumma iho</annotation>
-		<annotation cp="👨🏿‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli | tumma iho</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">mies moottoroidussa pyörätuolissa: tumma iho</annotation>
-		<annotation cp="👨🏻‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli | vaalea iho</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: vaalea iho</annotation>
-		<annotation cp="👨🏼‍🦽">esteettömyys | keskivaalea iho | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: keskivaalea iho</annotation>
-		<annotation cp="👨🏽‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: tummanvaalea iho</annotation>
-		<annotation cp="👨🏾‍🦽">esteettömyys | keskitumma iho | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: keskitumma iho</annotation>
-		<annotation cp="👨🏿‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli | tumma iho</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: tumma iho</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | vaalea iho</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: keskivaalea iho, vaalea iho</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tummanvaalea iho | vaalea iho</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tummanvaalea iho</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | vaalea iho</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: keskitumma iho, vaalea iho</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | keskivaalea iho | miespari</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | tummanvaalea iho</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">kaksi miestä käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho | vaalea iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: tumma iho, vaalea iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tumma iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: tumma iho, keskivaalea iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho | tummanvaalea iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">kaksi miestä käsi kädessä: tumma iho, tummanvaalea iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | tumma iho</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">kaksi miestä käsi kädessä: tumma iho, keskitumma iho</annotation>
+		<annotation cp="🧔🏻">karvainen | parrakas henkilö | parta | pulisongit | sänki | vaalea iho | viikset</annotation>
+		<annotation cp="🧔🏻" type="tts">parrakas henkilö: vaalea iho</annotation>
+		<annotation cp="🧔🏼">karvainen | keskivaalea iho | parrakas henkilö | parta | pulisongit | sänki | viikset</annotation>
+		<annotation cp="🧔🏼" type="tts">parrakas henkilö: keskivaalea iho</annotation>
+		<annotation cp="🧔🏽">karvainen | parrakas henkilö | parta | pulisongit | sänki | tummanvaalea iho | viikset</annotation>
+		<annotation cp="🧔🏽" type="tts">parrakas henkilö: tummanvaalea iho</annotation>
+		<annotation cp="🧔🏾">karvainen | keskitumma iho | parrakas henkilö | parta | pulisongit | sänki | viikset</annotation>
+		<annotation cp="🧔🏾" type="tts">parrakas henkilö: keskitumma iho</annotation>
+		<annotation cp="🧔🏿">karvainen | parrakas henkilö | parta | pulisongit | sänki | tumma iho | viikset</annotation>
+		<annotation cp="🧔🏿" type="tts">parrakas henkilö: tumma iho</annotation>
+		<annotation cp="👱🏻‍♂">blondi | hiukset | mies | vaalea | vaalea iho | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">vaaleatukkainen mies: vaalea iho</annotation>
+		<annotation cp="👱🏼‍♂">blondi | hiukset | keskivaalea iho | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">vaaleatukkainen mies: keskivaalea iho</annotation>
+		<annotation cp="👱🏽‍♂">blondi | hiukset | mies | tummanvaalea iho | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">vaaleatukkainen mies: tummanvaalea iho</annotation>
+		<annotation cp="👱🏾‍♂">blondi | hiukset | keskitumma iho | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">vaaleatukkainen mies: keskitumma iho</annotation>
+		<annotation cp="👱🏿‍♂">blondi | hiukset | mies | tumma iho | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">vaaleatukkainen mies: tumma iho</annotation>
 		<annotation cp="👨‍🦰">mies | miespuolinen | punatukkainen</annotation>
 		<annotation cp="👨‍🦰" type="tts">mies: punatukkainen</annotation>
 		<annotation cp="👨🏻‍🦰">mies | miespuolinen | punatukkainen | vaalea iho</annotation>
@@ -681,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">mies: keskitumma iho, kalju</annotation>
 		<annotation cp="👨🏿‍🦲">kalju | mies | miespuolinen | tumma iho</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mies: tumma iho, kalju</annotation>
-		<annotation cp="👱🏻‍♂">blondi | hiukset | mies | vaalea | vaalea iho | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">vaaleatukkainen mies: vaalea iho</annotation>
-		<annotation cp="👱🏼‍♂">blondi | hiukset | keskivaalea iho | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">vaaleatukkainen mies: keskivaalea iho</annotation>
-		<annotation cp="👱🏽‍♂">blondi | hiukset | mies | tummanvaalea iho | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">vaaleatukkainen mies: tummanvaalea iho</annotation>
-		<annotation cp="👱🏾‍♂">blondi | hiukset | keskitumma iho | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">vaaleatukkainen mies: keskitumma iho</annotation>
-		<annotation cp="👱🏿‍♂">blondi | hiukset | mies | tumma iho | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">vaaleatukkainen mies: tumma iho</annotation>
-		<annotation cp="🧔🏻">karvainen | parrakas henkilö | parta | pulisongit | sänki | vaalea iho | viikset</annotation>
-		<annotation cp="🧔🏻" type="tts">parrakas henkilö: vaalea iho</annotation>
-		<annotation cp="🧔🏼">karvainen | keskivaalea iho | parrakas henkilö | parta | pulisongit | sänki | viikset</annotation>
-		<annotation cp="🧔🏼" type="tts">parrakas henkilö: keskivaalea iho</annotation>
-		<annotation cp="🧔🏽">karvainen | parrakas henkilö | parta | pulisongit | sänki | tummanvaalea iho | viikset</annotation>
-		<annotation cp="🧔🏽" type="tts">parrakas henkilö: tummanvaalea iho</annotation>
-		<annotation cp="🧔🏾">karvainen | keskitumma iho | parrakas henkilö | parta | pulisongit | sänki | viikset</annotation>
-		<annotation cp="🧔🏾" type="tts">parrakas henkilö: keskitumma iho</annotation>
-		<annotation cp="🧔🏿">karvainen | parrakas henkilö | parta | pulisongit | sänki | tumma iho | viikset</annotation>
-		<annotation cp="🧔🏿" type="tts">parrakas henkilö: tumma iho</annotation>
 		<annotation cp="👩🏻">nainen | naispuolinen | vaalea iho</annotation>
 		<annotation cp="👩🏻" type="tts">nainen: vaalea iho</annotation>
 		<annotation cp="👩🏼">keskivaalea iho | nainen | naispuolinen</annotation>
@@ -711,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">nainen: keskitumma iho</annotation>
 		<annotation cp="👩🏿">nainen | naispuolinen | tumma iho</annotation>
 		<annotation cp="👩🏿" type="tts">nainen: tumma iho</annotation>
-		<annotation cp="👩🏻‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea | vaalea iho</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">nainen ja valkoinen keppi: vaalea iho</annotation>
-		<annotation cp="👩🏼‍🦯">esteettömyys | keskivaalea iho | nainen | nainen ja valkoinen keppi | sokea</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">nainen ja valkoinen keppi: keskivaalea iho</annotation>
-		<annotation cp="👩🏽‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea | tummanvaalea iho</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">nainen ja valkoinen keppi: tummanvaalea iho</annotation>
-		<annotation cp="👩🏾‍🦯">esteettömyys | keskitumma iho | nainen | nainen ja valkoinen keppi | sokea</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">nainen ja valkoinen keppi: keskitumma iho</annotation>
-		<annotation cp="👩🏿‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea | tumma iho</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">nainen ja valkoinen keppi: tumma iho</annotation>
-		<annotation cp="👩🏻‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli | vaalea iho</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: vaalea iho</annotation>
-		<annotation cp="👩🏼‍🦼">esteettömyys | keskivaalea iho | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: keskivaalea iho</annotation>
-		<annotation cp="👩🏽‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: tummanvaalea iho</annotation>
-		<annotation cp="👩🏾‍🦼">esteettömyys | keskitumma iho | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: keskitumma iho</annotation>
-		<annotation cp="👩🏿‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli | tumma iho</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: tumma iho</annotation>
-		<annotation cp="👩🏻‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli | vaalea iho</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: vaalea iho</annotation>
-		<annotation cp="👩🏼‍🦽">esteettömyys | keskivaalea iho | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: keskivaalea iho</annotation>
-		<annotation cp="👩🏽‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: tummanvaalea iho</annotation>
-		<annotation cp="👩🏾‍🦽">esteettömyys | keskitumma iho | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: keskitumma iho</annotation>
-		<annotation cp="👩🏿‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli | tumma iho</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: tumma iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: vaalea iho, keskivaalea iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: vaalea iho, tummanvaalea iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: vaalea iho, keskitumma iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | vaalea iho</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: vaalea iho, tumma iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, vaalea iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, tummanvaalea iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, keskitumma iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, tumma iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, keskitumma iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | tummanvaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, tumma iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: keskitumma iho, vaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">kädestä pitäminen | käsi | keskitumma iho | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: keskitumma iho, tumma iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | vaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: tumma iho, vaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: tumma iho, keskivaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | tummanvaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: tumma iho, tummanvaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: tumma iho, keskitumma iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | vaalea iho</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: keskivaalea iho, vaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tummanvaalea iho</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | vaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: keskitumma iho, vaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | keskivaalea iho | nainen | pariskunta</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | tummanvaalea iho</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kaksi naista käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho | vaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: tumma iho, vaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tumma iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: tumma iho, keskivaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho | tummanvaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">kaksi naista käsi kädessä: tumma iho, tummanvaalea iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | tumma iho</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">kaksi naista käsi kädessä: tumma iho, keskitumma iho</annotation>
+		<annotation cp="👱🏻‍♀">blondi | hiukset | nainen | vaalea | vaalea iho | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">vaaleatukkainen nainen: vaalea iho</annotation>
+		<annotation cp="👱🏼‍♀">blondi | hiukset | keskivaalea iho | nainen | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">vaaleatukkainen nainen: keskivaalea iho</annotation>
+		<annotation cp="👱🏽‍♀">blondi | hiukset | nainen | tummanvaalea iho | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">vaaleatukkainen nainen: tummanvaalea iho</annotation>
+		<annotation cp="👱🏾‍♀">blondi | hiukset | keskitumma iho | nainen | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">vaaleatukkainen nainen: keskitumma iho</annotation>
+		<annotation cp="👱🏿‍♀">blondi | hiukset | nainen | tumma iho | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">vaaleatukkainen nainen: tumma iho</annotation>
 		<annotation cp="👩‍🦰">nainen | naispuolinen | punatukkainen</annotation>
 		<annotation cp="👩‍🦰" type="tts">nainen: punatukkainen</annotation>
 		<annotation cp="👩🏻‍🦰">nainen | naispuolinen | punatukkainen | vaalea iho</annotation>
@@ -849,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">nainen: keskitumma iho, kalju</annotation>
 		<annotation cp="👩🏿‍🦲">kalju | nainen | naispuolinen | tumma iho</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">nainen: tumma iho, kalju</annotation>
-		<annotation cp="👱🏻‍♀">blondi | hiukset | nainen | vaalea | vaalea iho | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">vaaleatukkainen nainen: vaalea iho</annotation>
-		<annotation cp="👱🏼‍♀">blondi | hiukset | keskivaalea iho | nainen | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">vaaleatukkainen nainen: keskivaalea iho</annotation>
-		<annotation cp="👱🏽‍♀">blondi | hiukset | nainen | tummanvaalea iho | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">vaaleatukkainen nainen: tummanvaalea iho</annotation>
-		<annotation cp="👱🏾‍♀">blondi | hiukset | keskitumma iho | nainen | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">vaaleatukkainen nainen: keskitumma iho</annotation>
-		<annotation cp="👱🏿‍♀">blondi | hiukset | nainen | tumma iho | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">vaaleatukkainen nainen: tumma iho</annotation>
 		<annotation cp="🧓🏻">ikäihminen | seniori | sukupuolineutraali | vaalea iho | vanha | vanhus</annotation>
 		<annotation cp="🧓🏻" type="tts">vanhus: vaalea iho</annotation>
 		<annotation cp="🧓🏼">ikäihminen | keskivaalea iho | seniori | sukupuolineutraali | vanha | vanhus</annotation>
@@ -1069,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">viittaava nainen: keskitumma iho</annotation>
 		<annotation cp="🙋🏿‍♀">käsi | nainen | tumma iho | viittaava nainen | viittaus</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">viittaava nainen: tumma iho</annotation>
+		<annotation cp="🧏🏻">esteettömyys | korva | kuulo | kuuro | kuuro ihminen | vaalea iho</annotation>
+		<annotation cp="🧏🏻" type="tts">kuuro ihminen: vaalea iho</annotation>
+		<annotation cp="🧏🏼">esteettömyys | keskivaalea iho | korva | kuulo | kuuro | kuuro ihminen</annotation>
+		<annotation cp="🧏🏼" type="tts">kuuro ihminen: keskivaalea iho</annotation>
+		<annotation cp="🧏🏽">esteettömyys | korva | kuulo | kuuro | kuuro ihminen | tummanvaalea iho</annotation>
+		<annotation cp="🧏🏽" type="tts">kuuro ihminen: tummanvaalea iho</annotation>
+		<annotation cp="🧏🏾">esteettömyys | keskitumma iho | korva | kuulo | kuuro | kuuro ihminen</annotation>
+		<annotation cp="🧏🏾" type="tts">kuuro ihminen: keskitumma iho</annotation>
+		<annotation cp="🧏🏿">esteettömyys | korva | kuulo | kuuro | kuuro ihminen | tumma iho</annotation>
+		<annotation cp="🧏🏿" type="tts">kuuro ihminen: tumma iho</annotation>
+		<annotation cp="🧏🏻‍♂">kuuro | mies | vaalea iho</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">kuuro mies: vaalea iho</annotation>
+		<annotation cp="🧏🏼‍♂">keskivaalea iho | kuuro | mies</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">kuuro mies: keskivaalea iho</annotation>
+		<annotation cp="🧏🏽‍♂">kuuro | mies | tummanvaalea iho</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">kuuro mies: tummanvaalea iho</annotation>
+		<annotation cp="🧏🏾‍♂">keskitumma iho | kuuro | mies</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">kuuro mies: keskitumma iho</annotation>
+		<annotation cp="🧏🏿‍♂">kuuro | mies | tumma iho</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">kuuro mies: tumma iho</annotation>
+		<annotation cp="🧏🏻‍♀">kuuro | nainen | vaalea iho</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">kuuro nainen: vaalea iho</annotation>
+		<annotation cp="🧏🏼‍♀">keskivaalea iho | kuuro | nainen</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">kuuro nainen: keskivaalea iho</annotation>
+		<annotation cp="🧏🏽‍♀">kuuro | nainen | tummanvaalea iho</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">kuuro nainen: tummanvaalea iho</annotation>
+		<annotation cp="🧏🏾‍♀">keskitumma iho | kuuro | nainen</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">kuuro nainen: keskitumma iho</annotation>
+		<annotation cp="🧏🏿‍♀">kuuro | nainen | tumma iho</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">kuuro nainen: tumma iho</annotation>
 		<annotation cp="🙇🏻">anteeksi | anteeksipyyntö | ele | kumarrus | kumartava henkilö | vaalea iho</annotation>
 		<annotation cp="🙇🏻" type="tts">kumartava henkilö: vaalea iho</annotation>
 		<annotation cp="🙇🏼">anteeksi | anteeksipyyntö | ele | keskivaalea iho | kumarrus | kumartava henkilö</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">kämmeniään levittelevä nainen: keskitumma iho</annotation>
 		<annotation cp="🤷🏿‍♀">ei välitä | ihan sama | kämmeniään levittelevä nainen | kohauttaa | nainen | tumma iho</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">kämmeniään levittelevä nainen: tumma iho</annotation>
+		<annotation cp="🧑🏻‍⚕">lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">hoitotyöntekijä: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍⚕">keskivaalea iho | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">hoitotyöntekijä: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍⚕">lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">hoitotyöntekijä: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍⚕">keskitumma iho | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">hoitotyöntekijä: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍⚕">lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | tumma iho</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">hoitotyöntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍⚕">lääkäri | mies | mieshoitotyöntekijä | sairaanhoitaja | terapeutti | terveydenhuolto | vaalea iho</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">mieshoitotyöntekijä: vaalea iho</annotation>
 		<annotation cp="👨🏼‍⚕">keskivaalea iho | lääkäri | mies | mieshoitotyöntekijä | sairaanhoitaja | terapeutti | terveydenhuolto</annotation>
@@ -1179,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">naishoitotyöntekijä: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍⚕">lääkäri | nainen | naishoitotyöntekijä | sairaanhoitaja | terapeutti | terveydenhuollon naisammattilainen | terveydenhuolto | tumma iho</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">naishoitotyöntekijä: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🎓">lakki | opiskelu | vaalea iho | valmistujaiset</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">opiskelija: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🎓">keskivaalea iho | lakki | opiskelu | valmistujaiset</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">opiskelija: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎓">lakki | opiskelu | tummanvaalea iho | valmistujaiset</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">opiskelija: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🎓">keskitumma iho | lakki | opiskelu | valmistujaiset</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">opiskelija: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🎓">lakki | opiskelu | tumma iho | valmistujaiset</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">opiskelija: tumma iho</annotation>
 		<annotation cp="👨🏻‍🎓">lakki | mies | miesopiskelija | opiskelu | vaalea iho | valmistujaiset</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">miesopiskelija: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🎓">keskivaalea iho | lakki | mies | miesopiskelija | opiskelu | valmistujaiset</annotation>
@@ -1199,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">naisopiskelija: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🎓">lakki | nainen | naisopiskelija | opiskelu | tumma iho | valmistujaiset</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">naisopiskelija: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🏫">koulu | opettaja | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">opettaja: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🏫">keskivaalea iho | koulu | opettaja</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">opettaja: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🏫">koulu | opettaja | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">opettaja: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🏫">keskitumma iho | koulu | opettaja</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">opettaja: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🏫">koulu | opettaja | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">opettaja: tumma iho</annotation>
 		<annotation cp="👨🏻‍🏫">koulu | mies | miesopettaja | opettaja | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">miesopettaja: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🏫">keskivaalea iho | koulu | mies | miesopettaja | opettaja</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">naisopettaja: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🏫">koulu | nainen | naisopettaja | opettaja | tumma iho</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">naisopettaja: tumma iho</annotation>
+		<annotation cp="🧑🏻‍⚖">tuomari | vaaka | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">tuomari: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍⚖">keskivaalea iho | tuomari | vaaka</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">tuomari: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍⚖">tummanvaalea iho | tuomari | vaaka</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">tuomari: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍⚖">keskitumma iho | tuomari | vaaka</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">tuomari: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍⚖">tumma iho | tuomari | vaaka</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">tuomari: tumma iho</annotation>
 		<annotation cp="👨🏻‍⚖">laki | mies | miestuomari | oikeus | tuomari | vaalea iho</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">miestuomari: vaalea iho</annotation>
 		<annotation cp="👨🏼‍⚖">keskivaalea iho | laki | mies | miestuomari | oikeus | tuomari</annotation>
@@ -1239,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">naistuomari: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍⚖">laki | nainen | naistuomari | oikeus | tumma iho | tuomari</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">naistuomari: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🌾">farmari | maanviljelijä | puutarhuri | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">maanviljelijä: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🌾">farmari | keskivaalea iho | maanviljelijä | puutarhuri</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">maanviljelijä: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🌾">farmari | maanviljelijä | puutarhuri | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">maanviljelijä: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🌾">farmari | keskitumma iho | maanviljelijä | puutarhuri</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">maanviljelijä: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🌾">farmari | maanviljelijä | puutarhuri | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">maanviljelijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍🌾">maanviljelijä | mies | miesmaanviljelijä | puutarhuri | sato | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">miesmaanviljelijä: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🌾">keskivaalea iho | maanviljelijä | mies | miesmaanviljelijä | puutarhuri | sato</annotation>
@@ -1259,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">naismaanviljelijä: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🌾">maanviljelijä | nainen | naismaanviljelijä | puutarhuri | sato | tumma iho</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">naismaanviljelijä: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🍳">keittiömestari | kokki | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">kokki: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🍳">keittiömestari | keskivaalea iho | kokki</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">kokki: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🍳">keittiömestari | kokki | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">kokki: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🍳">keittiömestari | keskitumma iho | kokki</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">kokki: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🍳">keittiömestari | kokki | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">kokki: tumma iho</annotation>
 		<annotation cp="👨🏻‍🍳">kokki | mies | mieskokki | paistinpannu | ruoka | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">mieskokki: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🍳">keskivaalea iho | kokki | mies | mieskokki | paistinpannu | ruoka</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">naiskokki: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🍳">kokki | nainen | naiskokki | paistinpannu | ruoka | tumma iho</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">naiskokki: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🔧">mekaanikko | putkiasentaja | sähköasentaja | työkalu | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">mekaanikko: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🔧">keskivaalea iho | mekaanikko | putkiasentaja | sähköasentaja | työkalu</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">mekaanikko: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🔧">mekaanikko | putkiasentaja | sähköasentaja | tummanvaalea iho | työkalu</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">mekaanikko: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🔧">keskitumma iho | mekaanikko | putkiasentaja | sähköasentaja | työkalu</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">mekaanikko: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🔧">mekaanikko | putkiasentaja | sähköasentaja | tumma iho | työkalu</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">mekaanikko: tumma iho</annotation>
 		<annotation cp="👨🏻‍🔧">jakoavain | mekaanikko | mies | miesmekaanikko | työkalu | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">miesmekaanikko: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🔧">jakoavain | keskivaalea iho | mekaanikko | mies | miesmekaanikko | työkalu</annotation>
@@ -1299,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">naismekaanikko: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🔧">jakoavain | mekaanikko | nainen | naismekaanikko | tumma iho | työkalu</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">naismekaanikko: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🏭">kokoaminen | tehdas | teollisuus | työntekijä | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">tehdastyöntekijä: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🏭">keskivaalea iho | kokoaminen | tehdas | teollisuus | työntekijä</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">tehdastyöntekijä: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🏭">kokoaminen | tehdas | teollisuus | tummanvaalea iho | työntekijä</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">tehdastyöntekijä: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🏭">keskitumma iho | kokoaminen | tehdas | teollisuus | työntekijä</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">tehdastyöntekijä: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🏭">kokoaminen | tehdas | teollisuus | tumma iho | työntekijä</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">tehdastyöntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍🏭">hitsaaja | mies | miestehdastyöntekijä | tehdas | työntekijä | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">miestehdastyöntekijä: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🏭">hitsaaja | keskivaalea iho | mies | miestehdastyöntekijä | tehdas | työntekijä</annotation>
@@ -1319,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">naistehdastyöntekijä: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🏭">hitsaaja | nainen | naistehdastyöntekijä | tehdas | tumma iho | työntekijä</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">naistehdastyöntekijä: tumma iho</annotation>
+		<annotation cp="🧑🏻‍💼">arkkitehti | toimisto | vaalea iho | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">toimistotyöntekijä: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍💼">arkkitehti | keskivaalea iho | toimisto | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">toimistotyöntekijä: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍💼">arkkitehti | toimisto | tummanvaalea iho | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">toimistotyöntekijä: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍💼">arkkitehti | keskitumma iho | toimisto | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">toimistotyöntekijä: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍💼">arkkitehti | toimisto | tumma iho | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">toimistotyöntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍💼">mies | miestoimistotyöntekijä | toimisto | työntekijä | vaalea iho | valkokaulus</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">miestoimistotyöntekijä: vaalea iho</annotation>
 		<annotation cp="👨🏼‍💼">keskivaalea iho | mies | miestoimistotyöntekijä | toimisto | työntekijä | valkokaulus</annotation>
@@ -1339,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">naistoimistotyöntekijä: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍💼">nainen | naistoimistotyöntekijä | toimisto | tumma iho | työntekijä | valkokaulus</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">naistoimistotyöntekijä: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">tutkija: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🔬">biologi | insinööri | kemisti | keskivaalea iho | lääkäri | tiede</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">tutkija: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">tutkija: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🔬">biologi | insinööri | kemisti | keskitumma iho | lääkäri | tiede</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">tutkija: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">tutkija: tumma iho</annotation>
 		<annotation cp="👨🏻‍🔬">mies | miestutkija | tiede | tutkija | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">miestutkija: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🔬">keskivaalea iho | mies | miestutkija | tiede | tutkija</annotation>
@@ -1359,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">naistutkija: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🔬">nainen | naistutkija | tiede | tumma iho | tutkija</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">naistutkija: tumma iho</annotation>
+		<annotation cp="🧑🏻‍💻">kehittäjä | keksijä | koodari | ohjelmisto | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">IT-työntekijä: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍💻">kehittäjä | keksijä | keskivaalea iho | koodari | ohjelmisto</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">IT-työntekijä: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍💻">kehittäjä | keksijä | koodari | ohjelmisto | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">IT-työntekijä: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍💻">kehittäjä | keksijä | keskitumma iho | koodari | ohjelmisto</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">IT-työntekijä: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍💻">kehittäjä | keksijä | koodari | ohjelmisto | tumma iho</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">IT-työntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍💻">IT | IT-mies | koodaus | mies | tietokone | vaalea iho</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">IT-mies: vaalea iho</annotation>
 		<annotation cp="👨🏼‍💻">IT | IT-mies | keskivaalea iho | koodaus | mies | tietokone</annotation>
@@ -1379,6 +1306,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">IT-nainen: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍💻">IT | IT-nainen | koodaus | nainen | tietokone | tumma iho</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">IT-nainen: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🎤">karaoke | laulaja | mikki | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">laulaja: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🎤">karaoke | keskivaalea iho | laulaja | mikki</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">laulaja: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎤">karaoke | laulaja | mikki | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">laulaja: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🎤">karaoke | keskitumma iho | laulaja | mikki</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">laulaja: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🎤">karaoke | laulaja | mikki | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">laulaja: tumma iho</annotation>
 		<annotation cp="👨🏻‍🎤">karaoke | laulaja | mies | mieslaulaja | mikki | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">mieslaulaja: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🎤">karaoke | keskivaalea iho | laulaja | mies | mieslaulaja | mikki</annotation>
@@ -1399,6 +1336,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎤" type="tts">naislaulaja: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🎤">karaoke | laulaja | mikki | nainen | naislaulaja | tumma iho</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">naislaulaja: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🎨">paletti | taiteilija | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">artisti: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🎨">keskivaalea iho | paletti | taiteilija</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">artisti: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎨">paletti | taiteilija | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">artisti: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🎨">keskitumma iho | paletti | taiteilija</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">artisti: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🎨">paletti | taiteilija | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">artisti: tumma iho</annotation>
 		<annotation cp="👨🏻‍🎨">maalari | mies | miesartisti | taide | taiteilija | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">miesartisti: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🎨">keskivaalea iho | maalari | mies | miesartisti | taide | taiteilija</annotation>
@@ -1419,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">naisartisti: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🎨">maalari | nainen | naisartisti | taide | taiteilija | tumma iho</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">naisartisti: tumma iho</annotation>
+		<annotation cp="🧑🏻‍✈">lentäjä | lentokone | pilotti | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">pilotti: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍✈">keskivaalea iho | lentäjä | lentokone | pilotti</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">pilotti: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍✈">lentäjä | lentokone | pilotti | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">pilotti: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍✈">keskitumma iho | lentäjä | lentokone | pilotti</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">pilotti: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍✈">lentäjä | lentokone | pilotti | tumma iho</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">pilotti: tumma iho</annotation>
 		<annotation cp="👨🏻‍✈">lentäjä | lentokone | mies | miespilotti | pilotti | vaalea iho</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">miespilotti: vaalea iho</annotation>
 		<annotation cp="👨🏼‍✈">keskivaalea iho | lentäjä | lentokone | mies | miespilotti | pilotti</annotation>
@@ -1439,6 +1396,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">naispilotti: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍✈">lentäjä | lentokone | nainen | naispilotti | pilotti | tumma iho</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">naispilotti: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🚀">astronautti | raketti | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">astronautti: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🚀">astronautti | keskivaalea iho | raketti</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">astronautti: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🚀">astronautti | raketti | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">astronautti: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🚀">astronautti | keskitumma iho | raketti</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">astronautti: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🚀">astronautti | raketti | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">astronautti: tumma iho</annotation>
 		<annotation cp="👨🏻‍🚀">astronautti | avaruus | mies | miesastronautti | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">miesastronautti: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🚀">astronautti | avaruus | keskivaalea iho | mies | miesastronautti</annotation>
@@ -1459,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">naisastronautti: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🚀">astronautti | avaruus | nainen | naisastronautti | tumma iho</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">naisastronautti: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🚒">paloauto | pelastaja | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">pelastaja: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🚒">keskivaalea iho | paloauto | pelastaja</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">pelastaja: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🚒">paloauto | pelastaja | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">pelastaja: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🚒">keskitumma iho | paloauto | pelastaja</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">pelastaja: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🚒">paloauto | pelastaja | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">pelastaja: tumma iho</annotation>
 		<annotation cp="👨🏻‍🚒">mies | palomies | tulipalo | tulitaistelija | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">palomies: vaalea iho</annotation>
 		<annotation cp="👨🏼‍🚒">keskivaalea iho | mies | palomies | tulipalo | tulitaistelija</annotation>
@@ -1849,15 +1826,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧚🏾‍♂" type="tts">mieskeiju: keskitumma iho</annotation>
 		<annotation cp="🧚🏿‍♂">hyönteismäinen | mieskeiju | Oberon | Puck | siivet | tumma iho</annotation>
 		<annotation cp="🧚🏿‍♂" type="tts">mieskeiju: tumma iho</annotation>
-		<annotation cp="🧚🏻‍♀">hyönteismäinen | ilmatar | impi | keijukainen | luonnotar | metsänneito | naiskeiju | siivet | sinipiika | Titania | vaalea iho</annotation>
+		<annotation cp="🧚🏻‍♀">ilmatar | keijukainen | keijukuningatar | luonnotar | metsänneito | naiskeiju | Titania | vaalea iho</annotation>
 		<annotation cp="🧚🏻‍♀" type="tts">naiskeiju: vaalea iho</annotation>
-		<annotation cp="🧚🏼‍♀">hyönteismäinen | ilmatar | impi | keijukainen | keskivaalea iho | luonnotar | metsänneito | naiskeiju | siivet | sinipiika | Titania</annotation>
+		<annotation cp="🧚🏼‍♀">ilmatar | keijukainen | keijukuningatar | keskivaalea iho | luonnotar | metsänneito | naiskeiju | Titania</annotation>
 		<annotation cp="🧚🏼‍♀" type="tts">naiskeiju: keskivaalea iho</annotation>
-		<annotation cp="🧚🏽‍♀">hyönteismäinen | ilmatar | impi | keijukainen | luonnotar | metsänneito | naiskeiju | siivet | sinipiika | Titania | tummanvaalea iho</annotation>
+		<annotation cp="🧚🏽‍♀">ilmatar | keijukainen | keijukuningatar | luonnotar | metsänneito | naiskeiju | Titania | tummanvaalea iho</annotation>
 		<annotation cp="🧚🏽‍♀" type="tts">naiskeiju: tummanvaalea iho</annotation>
-		<annotation cp="🧚🏾‍♀">hyönteismäinen | ilmatar | impi | keijukainen | keskitumma iho | luonnotar | metsänneito | naiskeiju | siivet | sinipiika | Titania</annotation>
+		<annotation cp="🧚🏾‍♀">ilmatar | keijukainen | keijukuningatar | keskitumma iho | luonnotar | metsänneito | naiskeiju | Titania</annotation>
 		<annotation cp="🧚🏾‍♀" type="tts">naiskeiju: keskitumma iho</annotation>
-		<annotation cp="🧚🏿‍♀">hyönteismäinen | ilmatar | impi | keijukainen | luonnotar | metsänneito | naiskeiju | siivet | sinipiika | Titania | tumma iho</annotation>
+		<annotation cp="🧚🏿‍♀">ilmatar | keijukainen | keijukuningatar | luonnotar | metsänneito | naiskeiju | Titania | tumma iho</annotation>
 		<annotation cp="🧚🏿‍♀" type="tts">naiskeiju: tumma iho</annotation>
 		<annotation cp="🧛🏻">Dracula | elävä kuollut | epäkuollut | hampaat | torahammas | vaalea iho | vampyyri | verenhimo | verenimijä</annotation>
 		<annotation cp="🧛🏻" type="tts">vampyyri: vaalea iho</annotation>
@@ -1899,15 +1876,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧜🏾" type="tts">merenväki: keskitumma iho</annotation>
 		<annotation cp="🧜🏿">Ahti | kalanpyrstö | merenhaltija | merenmies | merenneito | merenväki | pyrstö | tumma iho | vedenhaltija | vedenväki</annotation>
 		<annotation cp="🧜🏿" type="tts">merenväki: tumma iho</annotation>
-		<annotation cp="🧜🏻‍♂">Ahti | kalanpyrstö | merenhaltija | merenmies | merenväki | pyrstö | Triton | vaalea iho | vedenhaltija | vedenväki | vetehinen</annotation>
+		<annotation cp="🧜🏻‍♂">Ahti | kalanpyrstö | merenhaltija | merenväki | Triton | vaalea iho | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏻‍♂" type="tts">merenmies: vaalea iho</annotation>
-		<annotation cp="🧜🏼‍♂">Ahti | kalanpyrstö | keskivaalea iho | merenhaltija | merenmies | merenväki | pyrstö | Triton | vedenhaltija | vedenväki | vetehinen</annotation>
+		<annotation cp="🧜🏼‍♂">Ahti | kalanpyrstö | keskivaalea iho | merenhaltija | merenväki | Triton | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏼‍♂" type="tts">merenmies: keskivaalea iho</annotation>
-		<annotation cp="🧜🏽‍♂">Ahti | kalanpyrstö | merenhaltija | merenmies | merenväki | pyrstö | Triton | tummanvaalea iho | vedenhaltija | vedenväki | vetehinen</annotation>
+		<annotation cp="🧜🏽‍♂">Ahti | kalanpyrstö | merenhaltija | merenväki | Triton | tummanvaalea iho | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏽‍♂" type="tts">merenmies: tummanvaalea iho</annotation>
-		<annotation cp="🧜🏾‍♂">Ahti | kalanpyrstö | keskitumma iho | merenhaltija | merenmies | merenväki | pyrstö | Triton | vedenhaltija | vedenväki | vetehinen</annotation>
+		<annotation cp="🧜🏾‍♂">Ahti | kalanpyrstö | keskitumma iho | merenhaltija | merenväki | Triton | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏾‍♂" type="tts">merenmies: keskitumma iho</annotation>
-		<annotation cp="🧜🏿‍♂">Ahti | kalanpyrstö | merenhaltija | merenmies | merenväki | pyrstö | Triton | tumma iho | vedenhaltija | vedenväki | vetehinen</annotation>
+		<annotation cp="🧜🏿‍♂">Ahti | kalanpyrstö | merenhaltija | merenväki | Triton | tumma iho | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏿‍♂" type="tts">merenmies: tumma iho</annotation>
 		<annotation cp="🧜🏻‍♀">kalanpyrstö | merenneito | merenväki | pyrstö | seireeni | vaalea iho | vedenväki</annotation>
 		<annotation cp="🧜🏻‍♀" type="tts">merenneito: vaalea iho</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">kävelevä nainen: keskitumma iho</annotation>
 		<annotation cp="🚶🏿‍♀">kävelevä nainen | kävely | nainen | patikointi | tumma iho</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">kävelevä nainen: tumma iho</annotation>
+		<annotation cp="🧍🏻">seisoa | seisova | seisova ihminen | vaalea iho</annotation>
+		<annotation cp="🧍🏻" type="tts">seisova ihminen: vaalea iho</annotation>
+		<annotation cp="🧍🏼">keskivaalea iho | seisoa | seisova | seisova ihminen</annotation>
+		<annotation cp="🧍🏼" type="tts">seisova ihminen: keskivaalea iho</annotation>
+		<annotation cp="🧍🏽">seisoa | seisova | seisova ihminen | tummanvaalea iho</annotation>
+		<annotation cp="🧍🏽" type="tts">seisova ihminen: tummanvaalea iho</annotation>
+		<annotation cp="🧍🏾">keskitumma iho | seisoa | seisova | seisova ihminen</annotation>
+		<annotation cp="🧍🏾" type="tts">seisova ihminen: keskitumma iho</annotation>
+		<annotation cp="🧍🏿">seisoa | seisova | seisova ihminen | tumma iho</annotation>
+		<annotation cp="🧍🏿" type="tts">seisova ihminen: tumma iho</annotation>
+		<annotation cp="🧍🏻‍♂">mies | seisova | vaalea iho</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">seisova mies: vaalea iho</annotation>
+		<annotation cp="🧍🏼‍♂">keskivaalea iho | mies | seisova</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">seisova mies: keskivaalea iho</annotation>
+		<annotation cp="🧍🏽‍♂">mies | seisova | tummanvaalea iho</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">seisova mies: tummanvaalea iho</annotation>
+		<annotation cp="🧍🏾‍♂">keskitumma iho | mies | seisova</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">seisova mies: keskitumma iho</annotation>
+		<annotation cp="🧍🏿‍♂">mies | seisova | tumma iho</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">seisova mies: tumma iho</annotation>
+		<annotation cp="🧍🏻‍♀">nainen | seisova | vaalea iho</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">seisova nainen: vaalea iho</annotation>
+		<annotation cp="🧍🏼‍♀">keskivaalea iho | nainen | seisova</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">seisova nainen: keskivaalea iho</annotation>
+		<annotation cp="🧍🏽‍♀">nainen | seisova | tummanvaalea iho</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">seisova nainen: tummanvaalea iho</annotation>
+		<annotation cp="🧍🏾‍♀">keskitumma iho | nainen | seisova</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">seisova nainen: keskitumma iho</annotation>
+		<annotation cp="🧍🏿‍♀">nainen | seisova | tumma iho</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">seisova nainen: tumma iho</annotation>
+		<annotation cp="🧎🏻">polvistua | polvistuminen | polvistuva ihminen | vaalea iho</annotation>
+		<annotation cp="🧎🏻" type="tts">polvistuva ihminen: vaalea iho</annotation>
+		<annotation cp="🧎🏼">keskivaalea iho | polvistua | polvistuminen | polvistuva ihminen</annotation>
+		<annotation cp="🧎🏼" type="tts">polvistuva ihminen: keskivaalea iho</annotation>
+		<annotation cp="🧎🏽">polvistua | polvistuminen | polvistuva ihminen | tummanvaalea iho</annotation>
+		<annotation cp="🧎🏽" type="tts">polvistuva ihminen: tummanvaalea iho</annotation>
+		<annotation cp="🧎🏾">keskitumma iho | polvistua | polvistuminen | polvistuva ihminen</annotation>
+		<annotation cp="🧎🏾" type="tts">polvistuva ihminen: keskitumma iho</annotation>
+		<annotation cp="🧎🏿">polvistua | polvistuminen | polvistuva ihminen | tumma iho</annotation>
+		<annotation cp="🧎🏿" type="tts">polvistuva ihminen: tumma iho</annotation>
+		<annotation cp="🧎🏻‍♂">mies | polvistuva | vaalea iho</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">polvistuva mies: vaalea iho</annotation>
+		<annotation cp="🧎🏼‍♂">keskivaalea iho | mies | polvistuva</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">polvistuva mies: keskivaalea iho</annotation>
+		<annotation cp="🧎🏽‍♂">mies | polvistuva | tummanvaalea iho</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">polvistuva mies: tummanvaalea iho</annotation>
+		<annotation cp="🧎🏾‍♂">keskitumma iho | mies | polvistuva</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">polvistuva mies: keskitumma iho</annotation>
+		<annotation cp="🧎🏿‍♂">mies | polvistuva | tumma iho</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">polvistuva mies: tumma iho</annotation>
+		<annotation cp="🧎🏻‍♀">nainen | polvistuva | vaalea iho</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">polvistuva nainen: vaalea iho</annotation>
+		<annotation cp="🧎🏼‍♀">keskivaalea iho | nainen | polvistuva</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">polvistuva nainen: keskivaalea iho</annotation>
+		<annotation cp="🧎🏽‍♀">nainen | polvistuva | tummanvaalea iho</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">polvistuva nainen: tummanvaalea iho</annotation>
+		<annotation cp="🧎🏾‍♀">keskitumma iho | nainen | polvistuva</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">polvistuva nainen: keskitumma iho</annotation>
+		<annotation cp="🧎🏿‍♀">nainen | polvistuva | tumma iho</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">polvistuva nainen: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🦯">esteettömyys | sokea | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">henkilö ja valkoinen keppi: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🦯">esteettömyys | keskivaalea iho | sokea</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">henkilö ja valkoinen keppi: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦯">esteettömyys | sokea | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">henkilö ja valkoinen keppi: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🦯">esteettömyys | keskitumma iho | sokea</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">henkilö ja valkoinen keppi: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🦯">esteettömyys | sokea | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">henkilö ja valkoinen keppi: tumma iho</annotation>
+		<annotation cp="👨🏻‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">mies ja valkoinen keppi: vaalea iho</annotation>
+		<annotation cp="👨🏼‍🦯">esteettömyys | keskivaalea iho | mies | mies ja valkoinen keppi | sokea</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">mies ja valkoinen keppi: keskivaalea iho</annotation>
+		<annotation cp="👨🏽‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">mies ja valkoinen keppi: tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🦯">esteettömyys | keskitumma iho | mies | mies ja valkoinen keppi | sokea</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">mies ja valkoinen keppi: keskitumma iho</annotation>
+		<annotation cp="👨🏿‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea | tumma iho</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">mies ja valkoinen keppi: tumma iho</annotation>
+		<annotation cp="👩🏻‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">nainen ja valkoinen keppi: vaalea iho</annotation>
+		<annotation cp="👩🏼‍🦯">esteettömyys | keskivaalea iho | nainen | nainen ja valkoinen keppi | sokea</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">nainen ja valkoinen keppi: keskivaalea iho</annotation>
+		<annotation cp="👩🏽‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">nainen ja valkoinen keppi: tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🦯">esteettömyys | keskitumma iho | nainen | nainen ja valkoinen keppi | sokea</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">nainen ja valkoinen keppi: keskitumma iho</annotation>
+		<annotation cp="👩🏿‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea | tumma iho</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">nainen ja valkoinen keppi: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🦼">esteettömyys | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🦼">esteettömyys | keskivaalea iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦼">esteettömyys | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🦼">esteettömyys | keskitumma iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🦼">esteettömyys | pyörätuoli | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: tumma iho</annotation>
+		<annotation cp="👨🏻‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">mies moottoroidussa pyörätuolissa: vaalea iho</annotation>
+		<annotation cp="👨🏼‍🦼">esteettömyys | keskivaalea iho | mies | mies moottoroidussa pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">mies moottoroidussa pyörätuolissa: keskivaalea iho</annotation>
+		<annotation cp="👨🏽‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">mies moottoroidussa pyörätuolissa: tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🦼">esteettömyys | keskitumma iho | mies | mies moottoroidussa pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">mies moottoroidussa pyörätuolissa: keskitumma iho</annotation>
+		<annotation cp="👨🏿‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli | tumma iho</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">mies moottoroidussa pyörätuolissa: tumma iho</annotation>
+		<annotation cp="👩🏻‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: vaalea iho</annotation>
+		<annotation cp="👩🏼‍🦼">esteettömyys | keskivaalea iho | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: keskivaalea iho</annotation>
+		<annotation cp="👩🏽‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🦼">esteettömyys | keskitumma iho | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: keskitumma iho</annotation>
+		<annotation cp="👩🏿‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli | tumma iho</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🦽">esteettömyys | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🦽">esteettömyys | keskivaalea iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦽">esteettömyys | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🦽">esteettömyys | keskitumma iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🦽">esteettömyys | pyörätuoli | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: tumma iho</annotation>
+		<annotation cp="👨🏻‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: vaalea iho</annotation>
+		<annotation cp="👨🏼‍🦽">esteettömyys | keskivaalea iho | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: keskivaalea iho</annotation>
+		<annotation cp="👨🏽‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🦽">esteettömyys | keskitumma iho | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: keskitumma iho</annotation>
+		<annotation cp="👨🏿‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli | tumma iho</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: tumma iho</annotation>
+		<annotation cp="👩🏻‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: vaalea iho</annotation>
+		<annotation cp="👩🏼‍🦽">esteettömyys | keskivaalea iho | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: keskivaalea iho</annotation>
+		<annotation cp="👩🏽‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🦽">esteettömyys | keskitumma iho | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: keskitumma iho</annotation>
+		<annotation cp="👩🏿‍🦽">esteettömyys | nainen | nainen käsikäyttöisessä pyörätuolissa | pyörätuoli | tumma iho</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">nainen käsikäyttöisessä pyörätuolissa: tumma iho</annotation>
 		<annotation cp="🏃🏻">juokseminen | juoksija | maratoni | vaalea iho</annotation>
 		<annotation cp="🏃🏻" type="tts">juoksija: vaalea iho</annotation>
 		<annotation cp="🏃🏼">juokseminen | juoksija | keskivaalea iho | maratoni</annotation>
@@ -2589,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">nukkuja: keskitumma iho</annotation>
 		<annotation cp="🛌🏿">hotelli | nukkua | nukkuja | tumma iho | uni</annotation>
 		<annotation cp="🛌🏿" type="tts">nukkuja: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | keskivaalea iho | pari | pitää | pitää toisiaan käsistä</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho | vaalea iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: tumma iho, vaalea iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: tumma iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">ihmiset käsi kädessä: tumma iho</annotation>
+		<annotation cp="👭🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👭🏻" type="tts">kaksi naista käsi kädessä: vaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="👭🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta</annotation>
+		<annotation cp="👭🏼" type="tts">kaksi naista käsi kädessä: keskivaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👭🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👭🏽" type="tts">kaksi naista käsi kädessä: tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | keskivaalea iho | nainen | pariskunta</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kaksi naista käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👭🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta</annotation>
+		<annotation cp="👭🏾" type="tts">kaksi naista käsi kädessä: keskitumma iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: tumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">kaksi naista käsi kädessä: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">kaksi naista käsi kädessä: tumma iho, keskitumma iho</annotation>
+		<annotation cp="👭🏿">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👭🏿" type="tts">kaksi naista käsi kädessä: tumma iho</annotation>
 		<annotation cp="👫🏻">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
 		<annotation cp="👫🏻" type="tts">mies ja nainen käsi kädessä: vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: vaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, vaalea iho</annotation>
 		<annotation cp="👫🏼">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta</annotation>
 		<annotation cp="👫🏼" type="tts">mies ja nainen käsi kädessä: keskivaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: keskivaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
 		<annotation cp="👫🏽">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
 		<annotation cp="👫🏽" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: tummanvaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">kädestä pitäminen | käsi | keskitumma iho | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
 		<annotation cp="👫🏾">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta</annotation>
 		<annotation cp="👫🏾" type="tts">mies ja nainen käsi kädessä: keskitumma iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">mies ja nainen käsi kädessä: keskitumma iho, tumma iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">mies ja nainen käsi kädessä: tumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">kädestä pitäminen | käsi | keskivaalea iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">mies ja nainen käsi kädessä: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">mies ja nainen käsi kädessä: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">kädestä pitäminen | käsi | keskitumma iho | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mies ja nainen käsi kädessä: tumma iho, keskitumma iho</annotation>
 		<annotation cp="👫🏿">kädestä pitäminen | käsi | mies | mies ja nainen käsi kädessä | nainen | pariskunta | tumma iho</annotation>
 		<annotation cp="👫🏿" type="tts">mies ja nainen käsi kädessä: tumma iho</annotation>
 		<annotation cp="👬🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | vaalea iho</annotation>
 		<annotation cp="👬🏻" type="tts">kaksi miestä käsi kädessä: vaalea iho</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | vaalea iho</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: keskivaalea iho, vaalea iho</annotation>
 		<annotation cp="👬🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari</annotation>
 		<annotation cp="👬🏼" type="tts">kaksi miestä käsi kädessä: keskivaalea iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
 		<annotation cp="👬🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tummanvaalea iho</annotation>
 		<annotation cp="👬🏽" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | vaalea iho</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | keskivaalea iho | miespari</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">kaksi miestä käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
 		<annotation cp="👬🏾">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari</annotation>
 		<annotation cp="👬🏾" type="tts">kaksi miestä käsi kädessä: keskitumma iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho | vaalea iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: tumma iho, vaalea iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tumma iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">kaksi miestä käsi kädessä: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | tumma iho</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">kaksi miestä käsi kädessä: tumma iho, keskitumma iho</annotation>
 		<annotation cp="👬🏿">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho</annotation>
 		<annotation cp="👬🏿" type="tts">kaksi miestä käsi kädessä: tumma iho</annotation>
-		<annotation cp="👭🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | vaalea iho</annotation>
-		<annotation cp="👭🏻" type="tts">kaksi naista käsi kädessä: vaalea iho</annotation>
-		<annotation cp="👭🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta</annotation>
-		<annotation cp="👭🏼" type="tts">kaksi naista käsi kädessä: keskivaalea iho</annotation>
-		<annotation cp="👭🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tummanvaalea iho</annotation>
-		<annotation cp="👭🏽" type="tts">kaksi naista käsi kädessä: tummanvaalea iho</annotation>
-		<annotation cp="👭🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta</annotation>
-		<annotation cp="👭🏾" type="tts">kaksi naista käsi kädessä: keskitumma iho</annotation>
-		<annotation cp="👭🏿">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho</annotation>
-		<annotation cp="👭🏿" type="tts">kaksi naista käsi kädessä: tumma iho</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">mies | nainen | pariskunta | pusu | romantiikka</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">pusu: nainen, mies</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">mies | pariskunta | pusu | romantiikka</annotation>

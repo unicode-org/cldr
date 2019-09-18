@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="fa"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">پوست سفید | دست در حال نیشگون گرفتن | مقدار کم</annotation>
-		<annotation cp="🤏🏻" type="tts">دست در حال نیشگون گرفتن: پوست سفید</annotation>
-		<annotation cp="🤏🏼">پوست روشن | دست در حال نیشگون گرفتن | مقدار کم</annotation>
-		<annotation cp="🤏🏼" type="tts">دست در حال نیشگون گرفتن: پوست روشن</annotation>
-		<annotation cp="🤏🏽">پوست طلایی | دست در حال نیشگون گرفتن | مقدار کم</annotation>
-		<annotation cp="🤏🏽" type="tts">دست در حال نیشگون گرفتن: پوست طلایی</annotation>
-		<annotation cp="🤏🏾">پوست گندمی | دست در حال نیشگون گرفتن | مقدار کم</annotation>
-		<annotation cp="🤏🏾" type="tts">دست در حال نیشگون گرفتن: پوست گندمی</annotation>
-		<annotation cp="🤏🏿">پوست آبنوسی | دست در حال نیشگون گرفتن | مقدار کم</annotation>
-		<annotation cp="🤏🏿" type="tts">دست در حال نیشگون گرفتن: پوست آبنوسی</annotation>
-		<annotation cp="🦻🏻">پوست سفید | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
-		<annotation cp="🦻🏻" type="tts">سمعک در گوش: پوست سفید</annotation>
-		<annotation cp="🦻🏼">پوست روشن | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
-		<annotation cp="🦻🏼" type="tts">سمعک در گوش: پوست روشن</annotation>
-		<annotation cp="🦻🏽">پوست طلایی | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
-		<annotation cp="🦻🏽" type="tts">سمعک در گوش: پوست طلایی</annotation>
-		<annotation cp="🦻🏾">پوست گندمی | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
-		<annotation cp="🦻🏾" type="tts">سمعک در گوش: پوست گندمی</annotation>
-		<annotation cp="🦻🏿">پوست آبنوسی | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
-		<annotation cp="🦻🏿" type="tts">سمعک در گوش: پوست آبنوسی</annotation>
-		<annotation cp="🧍🏻">آدم ایستاده | ایستادن | ایستاده | پوست سفید</annotation>
-		<annotation cp="🧍🏻" type="tts">آدم ایستاده: پوست سفید</annotation>
-		<annotation cp="🧍🏼">آدم ایستاده | ایستادن | ایستاده | پوست روشن</annotation>
-		<annotation cp="🧍🏼" type="tts">آدم ایستاده: پوست روشن</annotation>
-		<annotation cp="🧍🏽">آدم ایستاده | ایستادن | ایستاده | پوست طلایی</annotation>
-		<annotation cp="🧍🏽" type="tts">آدم ایستاده: پوست طلایی</annotation>
-		<annotation cp="🧍🏾">آدم ایستاده | ایستادن | ایستاده | پوست گندمی</annotation>
-		<annotation cp="🧍🏾" type="tts">آدم ایستاده: پوست گندمی</annotation>
-		<annotation cp="🧍🏿">آدم ایستاده | ایستادن | ایستاده | پوست آبنوسی</annotation>
-		<annotation cp="🧍🏿" type="tts">آدم ایستاده: پوست آبنوسی</annotation>
-		<annotation cp="🧍🏻‍♀">ایستاده | پوست سفید | زن</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">زن ایستاده: پوست سفید</annotation>
-		<annotation cp="🧍🏼‍♀">ایستاده | پوست روشن | زن</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">زن ایستاده: پوست روشن</annotation>
-		<annotation cp="🧍🏽‍♀">ایستاده | پوست طلایی | زن</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">زن ایستاده: پوست طلایی</annotation>
-		<annotation cp="🧍🏾‍♀">ایستاده | پوست گندمی | زن</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">زن ایستاده: پوست گندمی</annotation>
-		<annotation cp="🧍🏿‍♀">ایستاده | پوست آبنوسی | زن</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">زن ایستاده: پوست آبنوسی</annotation>
-		<annotation cp="🧍🏻‍♂">ایستاده | پوست سفید | مرد</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">مرد ایستاده: پوست سفید</annotation>
-		<annotation cp="🧍🏼‍♂">ایستاده | پوست روشن | مرد</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">مرد ایستاده: پوست روشن</annotation>
-		<annotation cp="🧍🏽‍♂">ایستاده | پوست طلایی | مرد</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">مرد ایستاده: پوست طلایی</annotation>
-		<annotation cp="🧍🏾‍♂">ایستاده | پوست گندمی | مرد</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">مرد ایستاده: پوست گندمی</annotation>
-		<annotation cp="🧍🏿‍♂">ایستاده | پوست آبنوسی | مرد</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">مرد ایستاده: پوست آبنوسی</annotation>
-		<annotation cp="🧎🏻">آدم زانوزده | پوست سفید | زانو زدن | زانوزده</annotation>
-		<annotation cp="🧎🏻" type="tts">آدم زانوزده: پوست سفید</annotation>
-		<annotation cp="🧎🏼">آدم زانوزده | پوست روشن | زانو زدن | زانوزده</annotation>
-		<annotation cp="🧎🏼" type="tts">آدم زانوزده: پوست روشن</annotation>
-		<annotation cp="🧎🏽">آدم زانوزده | پوست طلایی | زانو زدن | زانوزده</annotation>
-		<annotation cp="🧎🏽" type="tts">آدم زانوزده: پوست طلایی</annotation>
-		<annotation cp="🧎🏾">آدم زانوزده | پوست گندمی | زانو زدن | زانوزده</annotation>
-		<annotation cp="🧎🏾" type="tts">آدم زانوزده: پوست گندمی</annotation>
-		<annotation cp="🧎🏿">آدم زانوزده | پوست آبنوسی | زانو زدن | زانوزده</annotation>
-		<annotation cp="🧎🏿" type="tts">آدم زانوزده: پوست آبنوسی</annotation>
-		<annotation cp="🧎🏻‍♀">پوست سفید | زانوزده | زن</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">زن زانوزده: پوست سفید</annotation>
-		<annotation cp="🧎🏼‍♀">پوست روشن | زانوزده | زن</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">زن زانوزده: پوست روشن</annotation>
-		<annotation cp="🧎🏽‍♀">پوست طلایی | زانوزده | زن</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">زن زانوزده: پوست طلایی</annotation>
-		<annotation cp="🧎🏾‍♀">پوست گندمی | زانوزده | زن</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">زن زانوزده: پوست گندمی</annotation>
-		<annotation cp="🧎🏿‍♀">پوست آبنوسی | زانوزده | زن</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">زن زانوزده: پوست آبنوسی</annotation>
-		<annotation cp="🧎🏻‍♂">پوست سفید | زانوزده | مرد</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">مرد زانوزده: پوست سفید</annotation>
-		<annotation cp="🧎🏼‍♂">پوست روشن | زانوزده | مرد</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">مرد زانوزده: پوست روشن</annotation>
-		<annotation cp="🧎🏽‍♂">پوست طلایی | زانوزده | مرد</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">مرد زانوزده: پوست طلایی</annotation>
-		<annotation cp="🧎🏾‍♂">پوست گندمی | زانوزده | مرد</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">مرد زانوزده: پوست گندمی</annotation>
-		<annotation cp="🧎🏿‍♂">پوست آبنوسی | زانوزده | مرد</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">مرد زانوزده: پوست آبنوسی</annotation>
-		<annotation cp="🧏🏻">آدم ناشنوا | پوست سفید | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
-		<annotation cp="🧏🏻" type="tts">آدم ناشنوا: پوست سفید</annotation>
-		<annotation cp="🧏🏼">آدم ناشنوا | پوست روشن | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
-		<annotation cp="🧏🏼" type="tts">آدم ناشنوا: پوست روشن</annotation>
-		<annotation cp="🧏🏽">آدم ناشنوا | پوست طلایی | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
-		<annotation cp="🧏🏽" type="tts">آدم ناشنوا: پوست طلایی</annotation>
-		<annotation cp="🧏🏾">آدم ناشنوا | پوست گندمی | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
-		<annotation cp="🧏🏾" type="tts">آدم ناشنوا: پوست گندمی</annotation>
-		<annotation cp="🧏🏿">آدم ناشنوا | پوست آبنوسی | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
-		<annotation cp="🧏🏿" type="tts">آدم ناشنوا: پوست آبنوسی</annotation>
-		<annotation cp="🧏🏻‍♀">پوست سفید | زن | ناشنوا</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">زن ناشنوا: پوست سفید</annotation>
-		<annotation cp="🧏🏼‍♀">پوست روشن | زن | ناشنوا</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">زن ناشنوا: پوست روشن</annotation>
-		<annotation cp="🧏🏽‍♀">پوست طلایی | زن | ناشنوا</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">زن ناشنوا: پوست طلایی</annotation>
-		<annotation cp="🧏🏾‍♀">پوست گندمی | زن | ناشنوا</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">زن ناشنوا: پوست گندمی</annotation>
-		<annotation cp="🧏🏿‍♀">پوست آبنوسی | زن | ناشنوا</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">زن ناشنوا: پوست آبنوسی</annotation>
-		<annotation cp="🧏🏻‍♂">پوست سفید | مرد | ناشنوا</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">مرد ناشنوا: پوست سفید</annotation>
-		<annotation cp="🧏🏼‍♂">پوست روشن | مرد | ناشنوا</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">مرد ناشنوا: پوست روشن</annotation>
-		<annotation cp="🧏🏽‍♂">پوست طلایی | مرد | ناشنوا</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">مرد ناشنوا: پوست طلایی</annotation>
-		<annotation cp="🧏🏾‍♂">پوست گندمی | مرد | ناشنوا</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">مرد ناشنوا: پوست گندمی</annotation>
-		<annotation cp="🧏🏿‍♂">پوست آبنوسی | مرد | ناشنوا</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">مرد ناشنوا: پوست آبنوسی</annotation>
 		<annotation cp="👋🏻">بدن | پوست سفید | تکان دادن | تکان دادن دست | دست | موج</annotation>
 		<annotation cp="👋🏻" type="tts">تکان دادن دست: پوست سفید</annotation>
 		<annotation cp="👋🏼">بدن | پوست روشن | تکان دادن | تکان دادن دست | دست | موج</annotation>
@@ -133,26 +22,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👋🏾" type="tts">تکان دادن دست: پوست گندمی</annotation>
 		<annotation cp="👋🏿">بدن | پوست آبنوسی | تکان دادن | تکان دادن دست | دست | موج</annotation>
 		<annotation cp="👋🏿" type="tts">تکان دادن دست: پوست آبنوسی</annotation>
-		<annotation cp="🤚🏻">پشت دست | پوست سفید | دست | دست باز</annotation>
+		<annotation cp="🤚🏻">اجازه | بالا بردن دست | پشت دست | پوست سفید | دست | موافقت</annotation>
 		<annotation cp="🤚🏻" type="tts">پشت دست: پوست سفید</annotation>
-		<annotation cp="🤚🏼">پشت دست | پوست روشن | دست | دست باز</annotation>
+		<annotation cp="🤚🏼">اجازه | بالا بردن دست | پشت دست | پوست روشن | دست | موافقت</annotation>
 		<annotation cp="🤚🏼" type="tts">پشت دست: پوست روشن</annotation>
-		<annotation cp="🤚🏽">پشت دست | پوست طلایی | دست | دست باز</annotation>
+		<annotation cp="🤚🏽">اجازه | بالا بردن دست | پشت دست | پوست طلایی | دست | موافقت</annotation>
 		<annotation cp="🤚🏽" type="tts">پشت دست: پوست طلایی</annotation>
-		<annotation cp="🤚🏾">پشت دست | پوست گندمی | دست | دست باز</annotation>
+		<annotation cp="🤚🏾">اجازه | بالا بردن دست | پشت دست | پوست گندمی | دست | موافقت</annotation>
 		<annotation cp="🤚🏾" type="tts">پشت دست: پوست گندمی</annotation>
-		<annotation cp="🤚🏿">پشت دست | پوست آبنوسی | دست | دست باز</annotation>
+		<annotation cp="🤚🏿">اجازه | بالا بردن دست | پشت دست | پوست آبنوسی | دست | موافقت</annotation>
 		<annotation cp="🤚🏿" type="tts">پشت دست: پوست آبنوسی</annotation>
-		<annotation cp="🖐🏻">انگشت | بزن قدش | پوست سفید | دست</annotation>
-		<annotation cp="🖐🏻" type="tts">بزن قدش: پوست سفید</annotation>
-		<annotation cp="🖐🏼">انگشت | بزن قدش | پوست روشن | دست</annotation>
-		<annotation cp="🖐🏼" type="tts">بزن قدش: پوست روشن</annotation>
-		<annotation cp="🖐🏽">انگشت | بزن قدش | پوست طلایی | دست</annotation>
-		<annotation cp="🖐🏽" type="tts">بزن قدش: پوست طلایی</annotation>
-		<annotation cp="🖐🏾">انگشت | بزن قدش | پوست گندمی | دست</annotation>
-		<annotation cp="🖐🏾" type="tts">بزن قدش: پوست گندمی</annotation>
-		<annotation cp="🖐🏿">انگشت | بزن قدش | پوست آبنوسی | دست</annotation>
-		<annotation cp="🖐🏿" type="tts">بزن قدش: پوست آبنوسی</annotation>
+		<annotation cp="🖐🏻">انگشتان | پنج | پوست سفید | خداحافظی | دست | دست با انگشتان باز | سلام</annotation>
+		<annotation cp="🖐🏻" type="tts">دست با انگشتان باز: پوست سفید</annotation>
+		<annotation cp="🖐🏼">انگشتان | پنج | پوست روشن | خداحافظی | دست | دست با انگشتان باز | سلام</annotation>
+		<annotation cp="🖐🏼" type="tts">دست با انگشتان باز: پوست روشن</annotation>
+		<annotation cp="🖐🏽">انگشتان | پنج | پوست طلایی | خداحافظی | دست | دست با انگشتان باز | سلام</annotation>
+		<annotation cp="🖐🏽" type="tts">دست با انگشتان باز: پوست طلایی</annotation>
+		<annotation cp="🖐🏾">انگشتان | پنج | پوست گندمی | خداحافظی | دست | دست با انگشتان باز | سلام</annotation>
+		<annotation cp="🖐🏾" type="tts">دست با انگشتان باز: پوست گندمی</annotation>
+		<annotation cp="🖐🏿">انگشتان | پنج | پوست آبنوسی | خداحافظی | دست | دست با انگشتان باز | سلام</annotation>
+		<annotation cp="🖐🏿" type="tts">دست با انگشتان باز: پوست آبنوسی</annotation>
 		<annotation cp="✋🏻">احترام | پوست سفید | دست | دست بالابرده | سلام</annotation>
 		<annotation cp="✋🏻" type="tts">دست بالابرده: پوست سفید</annotation>
 		<annotation cp="✋🏼">احترام | پوست روشن | دست | دست بالابرده | سلام</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">علامت اوکی: پوست گندمی</annotation>
 		<annotation cp="👌🏿">اوکی | باشه | بله | پوست آبنوسی | تأیید | دست | علامت اوکی | قبول</annotation>
 		<annotation cp="👌🏿" type="tts">علامت اوکی: پوست آبنوسی</annotation>
+		<annotation cp="🤏🏻">پوست سفید | دست در حال نیشگون گرفتن | مقدار کم</annotation>
+		<annotation cp="🤏🏻" type="tts">دست در حال نیشگون گرفتن: پوست سفید</annotation>
+		<annotation cp="🤏🏼">پوست روشن | دست در حال نیشگون گرفتن | مقدار کم</annotation>
+		<annotation cp="🤏🏼" type="tts">دست در حال نیشگون گرفتن: پوست روشن</annotation>
+		<annotation cp="🤏🏽">پوست طلایی | دست در حال نیشگون گرفتن | مقدار کم</annotation>
+		<annotation cp="🤏🏽" type="tts">دست در حال نیشگون گرفتن: پوست طلایی</annotation>
+		<annotation cp="🤏🏾">پوست گندمی | دست در حال نیشگون گرفتن | مقدار کم</annotation>
+		<annotation cp="🤏🏾" type="tts">دست در حال نیشگون گرفتن: پوست گندمی</annotation>
+		<annotation cp="🤏🏿">پوست آبنوسی | دست در حال نیشگون گرفتن | مقدار کم</annotation>
+		<annotation cp="🤏🏿" type="tts">دست در حال نیشگون گرفتن: پوست آبنوسی</annotation>
 		<annotation cp="✌🏻">بدن | پوست سفید | پیروزی | دست | علامت پیروزی | وی</annotation>
 		<annotation cp="✌🏻" type="tts">علامت پیروزی: پوست سفید</annotation>
 		<annotation cp="✌🏼">بدن | پوست روشن | پیروزی | دست | علامت پیروزی | وی</annotation>
@@ -214,24 +113,24 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤟🏿">پوست آبنوسی | دست | دوست دارم | دوستت دارم | علامت دوستت دارم</annotation>
 		<annotation cp="🤟🏿" type="tts">علامت دوستت دارم: پوست آبنوسی</annotation>
 		<annotation cp="🤘🏻">انگشت | پوست سفید | دست | راک | شاخ | شیطان | نماد شاخ</annotation>
-		<annotation cp="🤘🏻" type="tts">شاخ شیطان: پوست سفید</annotation>
+		<annotation cp="🤘🏻" type="tts">نماد شاخ: پوست سفید</annotation>
 		<annotation cp="🤘🏼">انگشت | پوست روشن | دست | راک | شاخ | شیطان | نماد شاخ</annotation>
-		<annotation cp="🤘🏼" type="tts">شاخ شیطان: پوست روشن</annotation>
+		<annotation cp="🤘🏼" type="tts">نماد شاخ: پوست روشن</annotation>
 		<annotation cp="🤘🏽">انگشت | پوست طلایی | دست | راک | شاخ | شیطان | نماد شاخ</annotation>
-		<annotation cp="🤘🏽" type="tts">شاخ شیطان: پوست طلایی</annotation>
+		<annotation cp="🤘🏽" type="tts">نماد شاخ: پوست طلایی</annotation>
 		<annotation cp="🤘🏾">انگشت | پوست گندمی | دست | راک | شاخ | شیطان | نماد شاخ</annotation>
-		<annotation cp="🤘🏾" type="tts">شاخ شیطان: پوست گندمی</annotation>
+		<annotation cp="🤘🏾" type="tts">نماد شاخ: پوست گندمی</annotation>
 		<annotation cp="🤘🏿">انگشت | پوست آبنوسی | دست | راک | شاخ | شیطان | نماد شاخ</annotation>
-		<annotation cp="🤘🏿" type="tts">شاخ شیطان: پوست آبنوسی</annotation>
-		<annotation cp="🤙🏻">پوست سفید | تلفن | دست | دست به شکل تلفن | زنگ</annotation>
+		<annotation cp="🤘🏿" type="tts">نماد شاخ: پوست آبنوسی</annotation>
+		<annotation cp="🤙🏻">پوست سفید | تلفن | تماس بگیر | دست | دست به شکل تلفن | زنگ بزن</annotation>
 		<annotation cp="🤙🏻" type="tts">دست به شکل تلفن: پوست سفید</annotation>
-		<annotation cp="🤙🏼">پوست روشن | تلفن | دست | دست به شکل تلفن | زنگ</annotation>
+		<annotation cp="🤙🏼">پوست روشن | تلفن | تماس بگیر | دست | دست به شکل تلفن | زنگ بزن</annotation>
 		<annotation cp="🤙🏼" type="tts">دست به شکل تلفن: پوست روشن</annotation>
-		<annotation cp="🤙🏽">پوست طلایی | تلفن | دست | دست به شکل تلفن | زنگ</annotation>
+		<annotation cp="🤙🏽">پوست طلایی | تلفن | تماس بگیر | دست | دست به شکل تلفن | زنگ بزن</annotation>
 		<annotation cp="🤙🏽" type="tts">دست به شکل تلفن: پوست طلایی</annotation>
-		<annotation cp="🤙🏾">پوست گندمی | تلفن | دست | دست به شکل تلفن | زنگ</annotation>
+		<annotation cp="🤙🏾">پوست گندمی | تلفن | تماس بگیر | دست | دست به شکل تلفن | زنگ بزن</annotation>
 		<annotation cp="🤙🏾" type="tts">دست به شکل تلفن: پوست گندمی</annotation>
-		<annotation cp="🤙🏿">پوست آبنوسی | تلفن | دست | دست به شکل تلفن | زنگ</annotation>
+		<annotation cp="🤙🏿">پوست آبنوسی | تلفن | تماس بگیر | دست | دست به شکل تلفن | زنگ بزن</annotation>
 		<annotation cp="🤙🏿" type="tts">دست به شکل تلفن: پوست آبنوسی</annotation>
 		<annotation cp="👈🏻">اشاره | اشاره به چپ | انگشت | بدن | پشت دست | پوست سفید | دست</annotation>
 		<annotation cp="👈🏻" type="tts">اشاره به چپ: پوست سفید</annotation>
@@ -393,15 +292,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤲🏾" type="tts">دست دعا: پوست گندمی</annotation>
 		<annotation cp="🤲🏿">پوست آبنوسی | دست دعا | دعا | راز و نیاز | عبادت | نماز</annotation>
 		<annotation cp="🤲🏿" type="tts">دست دعا: پوست آبنوسی</annotation>
-		<annotation cp="🙏🏻">پوست سفید | تشکر | تعظیم | خواهش کردن | خواهش می‌کنم | درخواست | دست | دعا | سپاس | لطفاً | ممنونم</annotation>
+		<annotation cp="🙏🏻">پوست سفید | تشکر | خواهش | درخواست | دست | دستان دعاگو | دعا | سپاس</annotation>
 		<annotation cp="🙏🏻" type="tts">خواهش می‌کنم: پوست سفید</annotation>
-		<annotation cp="🙏🏼">پوست روشن | تشکر | تعظیم | خواهش کردن | خواهش می‌کنم | درخواست | دست | دعا | سپاس | لطفاً | ممنونم</annotation>
+		<annotation cp="🙏🏼">پوست روشن | تشکر | خواهش | درخواست | دست | دستان دعاگو | دعا | سپاس</annotation>
 		<annotation cp="🙏🏼" type="tts">خواهش می‌کنم: پوست روشن</annotation>
-		<annotation cp="🙏🏽">پوست طلایی | تشکر | تعظیم | خواهش کردن | خواهش می‌کنم | درخواست | دست | دعا | سپاس | لطفاً | ممنونم</annotation>
+		<annotation cp="🙏🏽">پوست طلایی | تشکر | خواهش | درخواست | دست | دستان دعاگو | دعا | سپاس</annotation>
 		<annotation cp="🙏🏽" type="tts">خواهش می‌کنم: پوست طلایی</annotation>
-		<annotation cp="🙏🏾">پوست گندمی | تشکر | تعظیم | خواهش کردن | خواهش می‌کنم | درخواست | دست | دعا | سپاس | لطفاً | ممنونم</annotation>
+		<annotation cp="🙏🏾">پوست گندمی | تشکر | خواهش | درخواست | دست | دستان دعاگو | دعا | سپاس</annotation>
 		<annotation cp="🙏🏾" type="tts">خواهش می‌کنم: پوست گندمی</annotation>
-		<annotation cp="🙏🏿">پوست آبنوسی | تشکر | تعظیم | خواهش کردن | خواهش می‌کنم | درخواست | دست | دعا | سپاس | لطفاً | ممنونم</annotation>
+		<annotation cp="🙏🏿">پوست آبنوسی | تشکر | خواهش | درخواست | دست | دستان دعاگو | دعا | سپاس</annotation>
 		<annotation cp="🙏🏿" type="tts">خواهش می‌کنم: پوست آبنوسی</annotation>
 		<annotation cp="✍🏻">پوست سفید | دست | نوشتن | نوشتن با دست</annotation>
 		<annotation cp="✍🏻" type="tts">نوشتن با دست: پوست سفید</annotation>
@@ -413,15 +312,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="✍🏾" type="tts">نوشتن با دست: پوست گندمی</annotation>
 		<annotation cp="✍🏿">پوست آبنوسی | دست | نوشتن | نوشتن با دست</annotation>
 		<annotation cp="✍🏿" type="tts">نوشتن با دست: پوست آبنوسی</annotation>
-		<annotation cp="💅🏻">آرایش | بدن | پوست سفید | توجه | رسیدگی | زیبایی | لاک | لاک زدن | مانیکور | ناخن</annotation>
+		<annotation cp="💅🏻">آرایش | پوست سفید | رسیدگی | لاک | لاک زدن | مانیکور | ناخن</annotation>
 		<annotation cp="💅🏻" type="tts">لاک زدن: پوست سفید</annotation>
-		<annotation cp="💅🏼">آرایش | بدن | پوست روشن | توجه | رسیدگی | زیبایی | لاک | لاک زدن | مانیکور | ناخن</annotation>
+		<annotation cp="💅🏼">آرایش | پوست روشن | رسیدگی | لاک | لاک زدن | مانیکور | ناخن</annotation>
 		<annotation cp="💅🏼" type="tts">لاک زدن: پوست روشن</annotation>
-		<annotation cp="💅🏽">آرایش | بدن | پوست طلایی | توجه | رسیدگی | زیبایی | لاک | لاک زدن | مانیکور | ناخن</annotation>
+		<annotation cp="💅🏽">آرایش | پوست طلایی | رسیدگی | لاک | لاک زدن | مانیکور | ناخن</annotation>
 		<annotation cp="💅🏽" type="tts">لاک زدن: پوست طلایی</annotation>
-		<annotation cp="💅🏾">آرایش | بدن | پوست گندمی | توجه | رسیدگی | زیبایی | لاک | لاک زدن | مانیکور | ناخن</annotation>
+		<annotation cp="💅🏾">آرایش | پوست گندمی | رسیدگی | لاک | لاک زدن | مانیکور | ناخن</annotation>
 		<annotation cp="💅🏾" type="tts">لاک زدن: پوست گندمی</annotation>
-		<annotation cp="💅🏿">آرایش | بدن | پوست آبنوسی | توجه | رسیدگی | زیبایی | لاک | لاک زدن | مانیکور | ناخن</annotation>
+		<annotation cp="💅🏿">آرایش | پوست آبنوسی | رسیدگی | لاک | لاک زدن | مانیکور | ناخن</annotation>
 		<annotation cp="💅🏿" type="tts">لاک زدن: پوست آبنوسی</annotation>
 		<annotation cp="🤳🏻">پوست سفید | خودگرفت | سلفی | عکس از خود</annotation>
 		<annotation cp="🤳🏻" type="tts">خودگرفت: پوست سفید</annotation>
@@ -433,16 +332,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤳🏾" type="tts">خودگرفت: پوست گندمی</annotation>
 		<annotation cp="🤳🏿">پوست آبنوسی | خودگرفت | سلفی | عکس از خود</annotation>
 		<annotation cp="🤳🏿" type="tts">خودگرفت: پوست آبنوسی</annotation>
-		<annotation cp="💪🏻">بدن | پوست سفید | عضله بازو | ماهیچه | مصور | ورزیده</annotation>
-		<annotation cp="💪🏻" type="tts">عضله بازو: پوست سفید</annotation>
-		<annotation cp="💪🏼">بدن | پوست روشن | عضله بازو | ماهیچه | مصور | ورزیده</annotation>
-		<annotation cp="💪🏼" type="tts">عضله بازو: پوست روشن</annotation>
-		<annotation cp="💪🏽">بدن | پوست طلایی | عضله بازو | ماهیچه | مصور | ورزیده</annotation>
-		<annotation cp="💪🏽" type="tts">عضله بازو: پوست طلایی</annotation>
-		<annotation cp="💪🏾">بدن | پوست گندمی | عضله بازو | ماهیچه | مصور | ورزیده</annotation>
-		<annotation cp="💪🏾" type="tts">عضله بازو: پوست گندمی</annotation>
-		<annotation cp="💪🏿">بدن | پوست آبنوسی | عضله بازو | ماهیچه | مصور | ورزیده</annotation>
-		<annotation cp="💪🏿" type="tts">عضله بازو: پوست آبنوسی</annotation>
+		<annotation cp="💪🏻">بدن | پوست سفید | عضلهٔ بازو | ماهیچه | مصور | ورزیده</annotation>
+		<annotation cp="💪🏻" type="tts">عضلهٔ بازو: پوست سفید</annotation>
+		<annotation cp="💪🏼">بدن | پوست روشن | عضلهٔ بازو | ماهیچه | مصور | ورزیده</annotation>
+		<annotation cp="💪🏼" type="tts">عضلهٔ بازو: پوست روشن</annotation>
+		<annotation cp="💪🏽">بدن | پوست طلایی | عضلهٔ بازو | ماهیچه | مصور | ورزیده</annotation>
+		<annotation cp="💪🏽" type="tts">عضلهٔ بازو: پوست طلایی</annotation>
+		<annotation cp="💪🏾">بدن | پوست گندمی | عضلهٔ بازو | ماهیچه | مصور | ورزیده</annotation>
+		<annotation cp="💪🏾" type="tts">عضلهٔ بازو: پوست گندمی</annotation>
+		<annotation cp="💪🏿">بدن | پوست آبنوسی | عضلهٔ بازو | ماهیچه | مصور | ورزیده</annotation>
+		<annotation cp="💪🏿" type="tts">عضلهٔ بازو: پوست آبنوسی</annotation>
 		<annotation cp="🦵🏻">پا | پوست سفید | لگد | لنگ</annotation>
 		<annotation cp="🦵🏻" type="tts">لنگ: پوست سفید</annotation>
 		<annotation cp="🦵🏼">پا | پوست روشن | لگد | لنگ</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">گوش: پوست گندمی</annotation>
 		<annotation cp="👂🏿">بدن | پوست آبنوسی | گوش</annotation>
 		<annotation cp="👂🏿" type="tts">گوش: پوست آبنوسی</annotation>
+		<annotation cp="🦻🏻">پوست سفید | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
+		<annotation cp="🦻🏻" type="tts">سمعک در گوش: پوست سفید</annotation>
+		<annotation cp="🦻🏼">پوست روشن | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
+		<annotation cp="🦻🏼" type="tts">سمعک در گوش: پوست روشن</annotation>
+		<annotation cp="🦻🏽">پوست طلایی | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
+		<annotation cp="🦻🏽" type="tts">سمعک در گوش: پوست طلایی</annotation>
+		<annotation cp="🦻🏾">پوست گندمی | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
+		<annotation cp="🦻🏾" type="tts">سمعک در گوش: پوست گندمی</annotation>
+		<annotation cp="🦻🏿">پوست آبنوسی | دسترس‌پذیری | سمعک در گوش | کم‌شنوایی</annotation>
+		<annotation cp="🦻🏿" type="tts">سمعک در گوش: پوست آبنوسی</annotation>
 		<annotation cp="👃🏻">بدن | بینی | پوست سفید</annotation>
 		<annotation cp="👃🏻" type="tts">بینی: پوست سفید</annotation>
 		<annotation cp="👃🏼">بدن | بینی | پوست روشن</annotation>
@@ -543,36 +452,54 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">آدم: پوست گندمی،‏ موبلوند</annotation>
 		<annotation cp="👱🏿">آدم بلوند | آدم: موبلوند | بلوند | بور | پوست آبنوسی | طلایی | موبلوند</annotation>
 		<annotation cp="👱🏿" type="tts">آدم: پوست آبنوسی،‏ موبلوند</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">اشخاصی دست در دست هم | پوست سفید</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست سفید</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">اشخاصی دست در دست هم | پوست روشن | پوست سفید</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست روشن،‏ پوست سفید</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">اشخاصی دست در دست هم | پوست روشن</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست روشن</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">اشخاصی دست در دست هم | پوست سفید | پوست طلایی</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست طلایی،‏ پوست سفید</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">اشخاصی دست در دست هم | پوست روشن | پوست طلایی</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست طلایی،‏ پوست روشن</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">اشخاصی دست در دست هم | پوست طلایی</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">اشخاصی دست در دست هم: پوست طلایی</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">اشخاصی دست در دست هم | پوست سفید | پوست گندمی</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست گندمی،‏ پوست سفید</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">اشخاصی دست در دست هم | پوست روشن | پوست گندمی</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست گندمی،‏ پوست روشن</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">اشخاصی دست در دست هم | پوست طلایی | پوست گندمی</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">اشخاصی دست در دست هم: پوست گندمی،‏ پوست طلایی</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">اشخاصی دست در دست هم | پوست گندمی</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">اشخاصی دست در دست هم: پوست گندمی</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">اشخاصی دست در دست هم | پوست آبنوسی | پوست سفید</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست سفید</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">اشخاصی دست در دست هم | پوست آبنوسی | پوست روشن</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست روشن</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">اشخاصی دست در دست هم | پوست آبنوسی | پوست طلایی</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست طلایی</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">اشخاصی دست در دست هم | پوست آبنوسی | پوست گندمی</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست گندمی</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">اشخاصی دست در دست هم | پوست آبنوسی</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">اشخاصی دست در دست هم: پوست آبنوسی</annotation>
+		<annotation cp="🧑‍🦰">بزرگسال | جنس خنثی | موقرمز</annotation>
+		<annotation cp="🧑‍🦰" type="tts">بزرگسال: موقرمز</annotation>
+		<annotation cp="🧑🏻‍🦰">بزرگسال | پوست سفید | جنس خنثی | موقرمز</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">بزرگسال: پوست سفید،‏ موقرمز</annotation>
+		<annotation cp="🧑🏼‍🦰">بزرگسال | پوست روشن | جنس خنثی | موقرمز</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">بزرگسال: پوست روشن،‏ موقرمز</annotation>
+		<annotation cp="🧑🏽‍🦰">بزرگسال | پوست طلایی | جنس خنثی | موقرمز</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">بزرگسال: پوست طلایی،‏ موقرمز</annotation>
+		<annotation cp="🧑🏾‍🦰">بزرگسال | پوست گندمی | جنس خنثی | موقرمز</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">بزرگسال: پوست گندمی،‏ موقرمز</annotation>
+		<annotation cp="🧑🏿‍🦰">بزرگسال | پوست آبنوسی | جنس خنثی | موقرمز</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">بزرگسال: پوست آبنوسی،‏ موقرمز</annotation>
+		<annotation cp="🧑‍🦱">بزرگسال | جنس خنثی | موفرفری</annotation>
+		<annotation cp="🧑‍🦱" type="tts">بزرگسال: موفرفری</annotation>
+		<annotation cp="🧑🏻‍🦱">بزرگسال | پوست سفید | جنس خنثی | موفرفری</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">بزرگسال: پوست سفید،‏ موفرفری</annotation>
+		<annotation cp="🧑🏼‍🦱">بزرگسال | پوست روشن | جنس خنثی | موفرفری</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">بزرگسال: پوست روشن،‏ موفرفری</annotation>
+		<annotation cp="🧑🏽‍🦱">بزرگسال | پوست طلایی | جنس خنثی | موفرفری</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">بزرگسال: پوست طلایی،‏ موفرفری</annotation>
+		<annotation cp="🧑🏾‍🦱">بزرگسال | پوست گندمی | جنس خنثی | موفرفری</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">بزرگسال: پوست گندمی،‏ موفرفری</annotation>
+		<annotation cp="🧑🏿‍🦱">بزرگسال | پوست آبنوسی | جنس خنثی | موفرفری</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">بزرگسال: پوست آبنوسی،‏ موفرفری</annotation>
+		<annotation cp="🧑‍🦳">بزرگسال | جنس خنثی | موسفید</annotation>
+		<annotation cp="🧑‍🦳" type="tts">بزرگسال: موسفید</annotation>
+		<annotation cp="🧑🏻‍🦳">بزرگسال | پوست سفید | جنس خنثی | موسفید</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">بزرگسال: پوست سفید،‏ موسفید</annotation>
+		<annotation cp="🧑🏼‍🦳">بزرگسال | پوست روشن | جنس خنثی | موسفید</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">بزرگسال: پوست روشن،‏ موسفید</annotation>
+		<annotation cp="🧑🏽‍🦳">بزرگسال | پوست طلایی | جنس خنثی | موسفید</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">بزرگسال: پوست طلایی،‏ موسفید</annotation>
+		<annotation cp="🧑🏾‍🦳">بزرگسال | پوست گندمی | جنس خنثی | موسفید</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">بزرگسال: پوست گندمی،‏ موسفید</annotation>
+		<annotation cp="🧑🏿‍🦳">بزرگسال | پوست آبنوسی | جنس خنثی | موسفید</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">بزرگسال: پوست آبنوسی،‏ موسفید</annotation>
+		<annotation cp="🧑‍🦲">بزرگسال | تاس | جنس خنثی</annotation>
+		<annotation cp="🧑‍🦲" type="tts">بزرگسال: تاس</annotation>
+		<annotation cp="🧑🏻‍🦲">بزرگسال | پوست سفید | تاس | جنس خنثی</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">بزرگسال: پوست سفید،‏ تاس</annotation>
+		<annotation cp="🧑🏼‍🦲">بزرگسال | پوست روشن | تاس | جنس خنثی</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">بزرگسال: پوست روشن،‏ تاس</annotation>
+		<annotation cp="🧑🏽‍🦲">بزرگسال | پوست طلایی | تاس | جنس خنثی</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">بزرگسال: پوست طلایی،‏ تاس</annotation>
+		<annotation cp="🧑🏾‍🦲">بزرگسال | پوست گندمی | تاس | جنس خنثی</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">بزرگسال: پوست گندمی،‏ تاس</annotation>
+		<annotation cp="🧑🏿‍🦲">بزرگسال | پوست آبنوسی | تاس | جنس خنثی</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">بزرگسال: پوست آبنوسی،‏ تاس</annotation>
 		<annotation cp="👨🏻">آقا | پوست سفید | مرد</annotation>
 		<annotation cp="👨🏻" type="tts">مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼">آقا | پوست روشن | مرد</annotation>
@@ -583,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">مرد: پوست گندمی</annotation>
 		<annotation cp="👨🏿">آقا | پوست آبنوسی | مرد</annotation>
 		<annotation cp="👨🏿" type="tts">مرد: پوست آبنوسی</annotation>
-		<annotation cp="👨🏻‍🦯">پوست سفید | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">مرد با عصای سفید: پوست سفید</annotation>
-		<annotation cp="👨🏼‍🦯">پوست روشن | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">مرد با عصای سفید: پوست روشن</annotation>
-		<annotation cp="👨🏽‍🦯">پوست طلایی | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">مرد با عصای سفید: پوست طلایی</annotation>
-		<annotation cp="👨🏾‍🦯">پوست گندمی | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">مرد با عصای سفید: پوست گندمی</annotation>
-		<annotation cp="👨🏿‍🦯">پوست آبنوسی | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">مرد با عصای سفید: پوست آبنوسی</annotation>
-		<annotation cp="👨🏻‍🦼">پوست سفید | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست سفید</annotation>
-		<annotation cp="👨🏼‍🦼">پوست روشن | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست روشن</annotation>
-		<annotation cp="👨🏽‍🦼">پوست طلایی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست طلایی</annotation>
-		<annotation cp="👨🏾‍🦼">پوست گندمی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست گندمی</annotation>
-		<annotation cp="👨🏿‍🦼">پوست آبنوسی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست آبنوسی</annotation>
-		<annotation cp="👨🏻‍🦽">پوست سفید | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست سفید</annotation>
-		<annotation cp="👨🏼‍🦽">پوست روشن | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست روشن</annotation>
-		<annotation cp="👨🏽‍🦽">پوست طلایی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست طلایی</annotation>
-		<annotation cp="👨🏾‍🦽">پوست گندمی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست گندمی</annotation>
-		<annotation cp="👨🏿‍🦽">پوست آبنوسی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست آبنوسی</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">پوست روشن | پوست سفید | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست روشن،‏ پوست سفید</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">پوست سفید | پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست طلایی،‏ پوست سفید</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">پوست روشن | پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">دو مرد دست در دست: پوست طلایی،‏ پوست روشن</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">پوست سفید | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست گندمی،‏ پوست سفید</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">پوست روشن | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">دو مرد دست در دست: پوست گندمی،‏ پوست روشن</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">پوست طلایی | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">دو مرد دست در دست: پوست گندمی،‏ پوست طلایی</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">پوست آبنوسی | پوست سفید | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست سفید</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">پوست آبنوسی | پوست روشن | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست روشن</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">پوست آبنوسی | پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست طلایی</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">پوست آبنوسی | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست گندمی</annotation>
+		<annotation cp="🧔🏻">آدم | پوست سفید | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
+		<annotation cp="🧔🏻" type="tts">مرد: پوست سفید،‏ ریش‌دار</annotation>
+		<annotation cp="🧔🏼">آدم | پوست روشن | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
+		<annotation cp="🧔🏼" type="tts">مرد: پوست روشن،‏ ریش‌دار</annotation>
+		<annotation cp="🧔🏽">آدم | پوست طلایی | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
+		<annotation cp="🧔🏽" type="tts">مرد: پوست طلایی،‏ ریش‌دار</annotation>
+		<annotation cp="🧔🏾">آدم | پوست گندمی | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
+		<annotation cp="🧔🏾" type="tts">مرد: پوست گندمی،‏ ریش‌دار</annotation>
+		<annotation cp="🧔🏿">آدم | پوست آبنوسی | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
+		<annotation cp="🧔🏿" type="tts">مرد: پوست آبنوسی،‏ ریش‌دار</annotation>
+		<annotation cp="👱🏻‍♂">بلوند | بور | پوست سفید | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">مرد: پوست سفید،‏ مو بور</annotation>
+		<annotation cp="👱🏼‍♂">بلوند | بور | پوست روشن | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">مرد: پوست روشن،‏ مو بور</annotation>
+		<annotation cp="👱🏽‍♂">بلوند | بور | پوست طلایی | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">مرد: پوست طلایی،‏ مو بور</annotation>
+		<annotation cp="👱🏾‍♂">بلوند | بور | پوست گندمی | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">مرد: پوست گندمی،‏ مو بور</annotation>
+		<annotation cp="👱🏿‍♂">بلوند | بور | پوست آبنوسی | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">مرد: پوست آبنوسی،‏ مو بور</annotation>
 		<annotation cp="👨‍🦰">آقا | مرد | موقرمز</annotation>
 		<annotation cp="👨‍🦰" type="tts">مرد: موقرمز</annotation>
 		<annotation cp="👨🏻‍🦰">آقا | پوست سفید | مرد | موقرمز</annotation>
@@ -681,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">مرد: پوست گندمی،‏ تاس</annotation>
 		<annotation cp="👨🏿‍🦲">آقا | پوست آبنوسی | تاس | مرد</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">مرد: پوست آبنوسی،‏ تاس</annotation>
-		<annotation cp="👱🏻‍♂">بلوند | بور | پوست سفید | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">مرد: پوست سفید،‏ مو بور</annotation>
-		<annotation cp="👱🏼‍♂">بلوند | بور | پوست روشن | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">مرد: پوست روشن،‏ مو بور</annotation>
-		<annotation cp="👱🏽‍♂">بلوند | بور | پوست طلایی | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">مرد: پوست طلایی،‏ مو بور</annotation>
-		<annotation cp="👱🏾‍♂">بلوند | بور | پوست گندمی | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">مرد: پوست گندمی،‏ مو بور</annotation>
-		<annotation cp="👱🏿‍♂">بلوند | بور | پوست آبنوسی | طلایی | مرد بلوند | مرد بور | مرد: مو بور | مو بور</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">مرد: پوست آبنوسی،‏ مو بور</annotation>
-		<annotation cp="🧔🏻">آدم | پوست سفید | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
-		<annotation cp="🧔🏻" type="tts">مرد: پوست سفید،‏ ریش‌دار</annotation>
-		<annotation cp="🧔🏼">آدم | پوست روشن | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
-		<annotation cp="🧔🏼" type="tts">مرد: پوست روشن،‏ ریش‌دار</annotation>
-		<annotation cp="🧔🏽">آدم | پوست طلایی | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
-		<annotation cp="🧔🏽" type="tts">مرد: پوست طلایی،‏ ریش‌دار</annotation>
-		<annotation cp="🧔🏾">آدم | پوست گندمی | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
-		<annotation cp="🧔🏾" type="tts">مرد: پوست گندمی،‏ ریش‌دار</annotation>
-		<annotation cp="🧔🏿">آدم | پوست آبنوسی | ریش‌دار | ریشو | مرد | مرد: ریش‌دار</annotation>
-		<annotation cp="🧔🏿" type="tts">مرد: پوست آبنوسی،‏ ریش‌دار</annotation>
 		<annotation cp="👩🏻">پوست سفید | خانم | زن</annotation>
 		<annotation cp="👩🏻" type="tts">زن: پوست سفید</annotation>
 		<annotation cp="👩🏼">پوست روشن | خانم | زن</annotation>
@@ -711,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿">پوست آبنوسی | خانم | زن</annotation>
 		<annotation cp="👩🏿" type="tts">زن: پوست آبنوسی</annotation>
-		<annotation cp="👩🏻‍🦯">پوست سفید | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">زن با عصای سفید: پوست سفید</annotation>
-		<annotation cp="👩🏼‍🦯">پوست روشن | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">زن با عصای سفید: پوست روشن</annotation>
-		<annotation cp="👩🏽‍🦯">پوست طلایی | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">زن با عصای سفید: پوست طلایی</annotation>
-		<annotation cp="👩🏾‍🦯">پوست گندمی | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">زن با عصای سفید: پوست گندمی</annotation>
-		<annotation cp="👩🏿‍🦯">پوست آبنوسی | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">زن با عصای سفید: پوست آبنوسی</annotation>
-		<annotation cp="👩🏻‍🦼">پوست سفید | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست سفید</annotation>
-		<annotation cp="👩🏼‍🦼">پوست روشن | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست روشن</annotation>
-		<annotation cp="👩🏽‍🦼">پوست طلایی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست طلایی</annotation>
-		<annotation cp="👩🏾‍🦼">پوست گندمی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست گندمی</annotation>
-		<annotation cp="👩🏿‍🦼">پوست آبنوسی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست آبنوسی</annotation>
-		<annotation cp="👩🏻‍🦽">پوست سفید | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست سفید</annotation>
-		<annotation cp="👩🏼‍🦽">پوست روشن | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست روشن</annotation>
-		<annotation cp="👩🏽‍🦽">پوست طلایی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست طلایی</annotation>
-		<annotation cp="👩🏾‍🦽">پوست گندمی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست گندمی</annotation>
-		<annotation cp="👩🏿‍🦽">پوست آبنوسی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست آبنوسی</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">پوست روشن | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست روشن</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">پوست سفید | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست طلایی</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">پوست سفید | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست گندمی</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">پوست آبنوسی | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست آبنوسی</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">پوست روشن | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست سفید</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">پوست روشن | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست طلایی</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">پوست روشن | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست گندمی</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">پوست آبنوسی | پوست روشن | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست آبنوسی</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">پوست سفید | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست سفید</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">پوست روشن | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست روشن</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">پوست طلایی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست گندمی</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">پوست آبنوسی | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست آبنوسی</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">پوست سفید | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست سفید</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">پوست روشن | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست روشن</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">پوست طلایی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست طلایی</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">پوست آبنوسی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست آبنوسی</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">پوست آبنوسی | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست سفید</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">پوست آبنوسی | پوست روشن | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست روشن</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">پوست آبنوسی | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست طلایی</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">پوست آبنوسی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست گندمی</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">پوست روشن | پوست سفید | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست روشن،‏ پوست سفید</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">پوست سفید | پوست طلایی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست طلایی،‏ پوست سفید</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">پوست روشن | پوست طلایی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">دو زن دست در دست: پوست طلایی،‏ پوست روشن</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">پوست سفید | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست گندمی،‏ پوست سفید</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">پوست روشن | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">دو زن دست در دست: پوست گندمی،‏ پوست روشن</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">پوست طلایی | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">دو زن دست در دست: پوست گندمی،‏ پوست طلایی</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">پوست آبنوسی | پوست سفید | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست سفید</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">پوست آبنوسی | پوست روشن | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست روشن</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">پوست آبنوسی | پوست طلایی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست طلایی</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">پوست آبنوسی | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست گندمی</annotation>
+		<annotation cp="👱🏻‍♀">بلوند | بور | پوست سفید | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">زن: پوست سفید،‏ موبور</annotation>
+		<annotation cp="👱🏼‍♀">بلوند | بور | پوست روشن | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">زن: پوست روشن،‏ موبور</annotation>
+		<annotation cp="👱🏽‍♀">بلوند | بور | پوست طلایی | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">زن: پوست طلایی،‏ موبور</annotation>
+		<annotation cp="👱🏾‍♀">بلوند | بور | پوست گندمی | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">زن: پوست گندمی،‏ موبور</annotation>
+		<annotation cp="👱🏿‍♀">بلوند | بور | پوست آبنوسی | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">زن: پوست آبنوسی،‏ موبور</annotation>
 		<annotation cp="👩‍🦰">خانم | زن | موقرمز</annotation>
 		<annotation cp="👩‍🦰" type="tts">زن: موقرمز</annotation>
 		<annotation cp="👩🏻‍🦰">پوست سفید | خانم | زن | موقرمز</annotation>
@@ -849,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">زن: پوست گندمی،‏ تاس</annotation>
 		<annotation cp="👩🏿‍🦲">پوست آبنوسی | تاس | خانم | زن</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">زن: پوست آبنوسی،‏ تاس</annotation>
-		<annotation cp="👱🏻‍♀">بلوند | بور | پوست سفید | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">زن: پوست سفید،‏ موبور</annotation>
-		<annotation cp="👱🏼‍♀">بلوند | بور | پوست روشن | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">زن: پوست روشن،‏ موبور</annotation>
-		<annotation cp="👱🏽‍♀">بلوند | بور | پوست طلایی | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">زن: پوست طلایی،‏ موبور</annotation>
-		<annotation cp="👱🏾‍♀">بلوند | بور | پوست گندمی | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">زن: پوست گندمی،‏ موبور</annotation>
-		<annotation cp="👱🏿‍♀">بلوند | بور | پوست آبنوسی | زن بلوند | زن بور | زن: موبور | موبور | موطلایی</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">زن: پوست آبنوسی،‏ موبور</annotation>
 		<annotation cp="🧓🏻">پوست سفید | پیر | جنس خنثی | مسن | میان‌سال</annotation>
 		<annotation cp="🧓🏻" type="tts">میان‌سال: پوست سفید</annotation>
 		<annotation cp="🧓🏼">پوست روشن | پیر | جنس خنثی | مسن | میان‌سال</annotation>
@@ -1069,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">زن دستش را بالا می‌برد: پوست گندمی</annotation>
 		<annotation cp="🙋🏿‍♀">احترام | پوست آبنوسی | زن دستش را بالا می‌برد | سلام دادن | سلام کردن</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">زن دستش را بالا می‌برد: پوست آبنوسی</annotation>
+		<annotation cp="🧏🏻">آدم ناشنوا | پوست سفید | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
+		<annotation cp="🧏🏻" type="tts">آدم ناشنوا: پوست سفید</annotation>
+		<annotation cp="🧏🏼">آدم ناشنوا | پوست روشن | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
+		<annotation cp="🧏🏼" type="tts">آدم ناشنوا: پوست روشن</annotation>
+		<annotation cp="🧏🏽">آدم ناشنوا | پوست طلایی | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
+		<annotation cp="🧏🏽" type="tts">آدم ناشنوا: پوست طلایی</annotation>
+		<annotation cp="🧏🏾">آدم ناشنوا | پوست گندمی | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
+		<annotation cp="🧏🏾" type="tts">آدم ناشنوا: پوست گندمی</annotation>
+		<annotation cp="🧏🏿">آدم ناشنوا | پوست آبنوسی | دسترس‌پذیری | شنیدن | گوش | ناشنوا</annotation>
+		<annotation cp="🧏🏿" type="tts">آدم ناشنوا: پوست آبنوسی</annotation>
+		<annotation cp="🧏🏻‍♂">پوست سفید | مرد | ناشنوا</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">مرد ناشنوا: پوست سفید</annotation>
+		<annotation cp="🧏🏼‍♂">پوست روشن | مرد | ناشنوا</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">مرد ناشنوا: پوست روشن</annotation>
+		<annotation cp="🧏🏽‍♂">پوست طلایی | مرد | ناشنوا</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">مرد ناشنوا: پوست طلایی</annotation>
+		<annotation cp="🧏🏾‍♂">پوست گندمی | مرد | ناشنوا</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">مرد ناشنوا: پوست گندمی</annotation>
+		<annotation cp="🧏🏿‍♂">پوست آبنوسی | مرد | ناشنوا</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">مرد ناشنوا: پوست آبنوسی</annotation>
+		<annotation cp="🧏🏻‍♀">پوست سفید | زن | ناشنوا</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">زن ناشنوا: پوست سفید</annotation>
+		<annotation cp="🧏🏼‍♀">پوست روشن | زن | ناشنوا</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">زن ناشنوا: پوست روشن</annotation>
+		<annotation cp="🧏🏽‍♀">پوست طلایی | زن | ناشنوا</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">زن ناشنوا: پوست طلایی</annotation>
+		<annotation cp="🧏🏾‍♀">پوست گندمی | زن | ناشنوا</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">زن ناشنوا: پوست گندمی</annotation>
+		<annotation cp="🧏🏿‍♀">پوست آبنوسی | زن | ناشنوا</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">زن ناشنوا: پوست آبنوسی</annotation>
 		<annotation cp="🙇🏻">پوست سفید | تعظیم | ژست | شرمنده | عذرخواهی | متأسف</annotation>
 		<annotation cp="🙇🏻" type="tts">عذرخواهی: پوست سفید</annotation>
 		<annotation cp="🙇🏼">پوست روشن | تعظیم | ژست | شرمنده | عذرخواهی | متأسف</annotation>
@@ -1099,15 +916,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙇🏾‍♀" type="tts">زن تعظیم می‌کند: پوست گندمی</annotation>
 		<annotation cp="🙇🏿‍♀">پوست آبنوسی | خواهش داشتن | درخواست کردن | زن تعظیم می‌کند | عذرخواهی | عذرخواهی کردن | متأسف</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">زن تعظیم می‌کند: پوست آبنوسی</annotation>
-		<annotation cp="🤦🏻">آخ | آه | افتضاح | افسوس | ای خدا | ای وای | با کف دست به پیشانی زدن | بدبخت | پوست سفید</annotation>
+		<annotation cp="🤦🏻">با کف دست به پیشانی زدن | پوست سفید | رنجش | صورت | کف دست | ناباوری</annotation>
 		<annotation cp="🤦🏻" type="tts">با کف دست به پیشانی زدن: پوست سفید</annotation>
-		<annotation cp="🤦🏼">آخ | آه | افتضاح | افسوس | ای خدا | ای وای | با کف دست به پیشانی زدن | بدبخت | پوست روشن</annotation>
+		<annotation cp="🤦🏼">با کف دست به پیشانی زدن | پوست روشن | رنجش | صورت | کف دست | ناباوری</annotation>
 		<annotation cp="🤦🏼" type="tts">با کف دست به پیشانی زدن: پوست روشن</annotation>
-		<annotation cp="🤦🏽">آخ | آه | افتضاح | افسوس | ای خدا | ای وای | با کف دست به پیشانی زدن | بدبخت | پوست طلایی</annotation>
+		<annotation cp="🤦🏽">با کف دست به پیشانی زدن | پوست طلایی | رنجش | صورت | کف دست | ناباوری</annotation>
 		<annotation cp="🤦🏽" type="tts">با کف دست به پیشانی زدن: پوست طلایی</annotation>
-		<annotation cp="🤦🏾">آخ | آه | افتضاح | افسوس | ای خدا | ای وای | با کف دست به پیشانی زدن | بدبخت | پوست گندمی</annotation>
+		<annotation cp="🤦🏾">با کف دست به پیشانی زدن | پوست گندمی | رنجش | صورت | کف دست | ناباوری</annotation>
 		<annotation cp="🤦🏾" type="tts">با کف دست به پیشانی زدن: پوست گندمی</annotation>
-		<annotation cp="🤦🏿">آخ | آه | افتضاح | افسوس | ای خدا | ای وای | با کف دست به پیشانی زدن | بدبخت | پوست آبنوسی</annotation>
+		<annotation cp="🤦🏿">با کف دست به پیشانی زدن | پوست آبنوسی | رنجش | صورت | کف دست | ناباوری</annotation>
 		<annotation cp="🤦🏿" type="tts">با کف دست به پیشانی زدن: پوست آبنوسی</annotation>
 		<annotation cp="🤦🏻‍♂">افتضاح | ای وای | باورم نمی‌شود | پوست سفید | خجالت دارد | مرد با کف دست به پیشانی می‌زند | مرد مستأصل</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">مرد با کف دست به پیشانی می‌زند: پوست سفید</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">زن شانه بالا می‌اندازد: پوست گندمی</annotation>
 		<annotation cp="🤷🏿‍♀">به من چه | بی‌تفاوتی | پوست آبنوسی | زن شانه بالا می‌اندازد | مطمئن نبودن | ندانستن | نمی‌دانم</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">زن شانه بالا می‌اندازد: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍⚕">پرستار | پزشک | پوست سفید | درمانگر | مراقبت بهداشتی</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">مأمور بهداشت: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍⚕">پرستار | پزشک | پوست روشن | درمانگر | مراقبت بهداشتی</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">مأمور بهداشت: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍⚕">پرستار | پزشک | پوست طلایی | درمانگر | مراقبت بهداشتی</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">مأمور بهداشت: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍⚕">پرستار | پزشک | پوست گندمی | درمانگر | مراقبت بهداشتی</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">مأمور بهداشت: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍⚕">پرستار | پزشک | پوست آبنوسی | درمانگر | مراقبت بهداشتی</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">مأمور بهداشت: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍⚕">پوست سفید | مددکار | مددکار بهداشت | مددکار بهداشت آقا | مددکار بهداشت مرد</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">مددکار بهداشت مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍⚕">پوست روشن | مددکار | مددکار بهداشت | مددکار بهداشت آقا | مددکار بهداشت مرد</annotation>
@@ -1179,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">مددکار بهداشت زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍⚕">پوست آبنوسی | مددکار | مددکار بهداشت | مددکار بهداشت خانم | مددکار بهداشت زن</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">مددکار بهداشت زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🎓">پوست سفید | دانشجو | فارغ‌التحصیل</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">دانش‌آموز: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🎓">پوست روشن | دانشجو | فارغ‌التحصیل</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">دانش‌آموز: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🎓">پوست طلایی | دانشجو | فارغ‌التحصیل</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">دانش‌آموز: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🎓">پوست گندمی | دانشجو | فارغ‌التحصیل</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">دانش‌آموز: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🎓">پوست آبنوسی | دانشجو | فارغ‌التحصیل</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">دانش‌آموز: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🎓">پوست سفید | دانش‌آموز | دانشجو | دانشجوی مرد | شاگرد | فارغ‌التحصیل | محصل</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">دانشجوی مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🎓">پوست روشن | دانش‌آموز | دانشجو | دانشجوی مرد | شاگرد | فارغ‌التحصیل | محصل</annotation>
@@ -1199,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">دانشجوی زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🎓">پوست آبنوسی | دانش‌آموز | دانشجو | دانشجوی زن | شاگرد | فارغ‌التحصیل | محصل</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">دانشجوی زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🏫">استاد | پوست سفید | مربی | معلم</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">معلم: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🏫">استاد | پوست روشن | مربی | معلم</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">معلم: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🏫">استاد | پوست طلایی | مربی | معلم</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">معلم: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🏫">استاد | پوست گندمی | مربی | معلم</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">معلم: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🏫">استاد | پوست آبنوسی | مربی | معلم</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">معلم: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🏫">آقای معلم | آموزگار مرد | استاد | پوست سفید | دبیر | مدرس | معلم</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">آموزگار مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🏫">آقای معلم | آموزگار مرد | استاد | پوست روشن | دبیر | مدرس | معلم</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">آموزگار زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🏫">آموزگار زن | استاد | پوست آبنوسی | خانم معلم | دبیر | مدرس | معلم</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">آموزگار زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍⚖">پوست سفید | ترازو | قاضی</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">قاضی: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍⚖">پوست روشن | ترازو | قاضی</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">قاضی: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍⚖">پوست طلایی | ترازو | قاضی</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">قاضی: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍⚖">پوست گندمی | ترازو | قاضی</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">قاضی: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍⚖">پوست آبنوسی | ترازو | قاضی</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">قاضی: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍⚖">آقای قاضی | آقای وکیل | پوست سفید | دادرس | دادستان | دادگاه | قاضی مرد | وکیل</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">قاضی مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍⚖">آقای قاضی | آقای وکیل | پوست روشن | دادرس | دادستان | دادگاه | قاضی مرد | وکیل</annotation>
@@ -1239,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">قاضی زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍⚖">پوست آبنوسی | خانم قاضی | خانم وکیل | دادرس | دادگاه | قاضی زن | وکیل</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">قاضی زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🌾">باغبان | پوست سفید | کشاورز | مزرعه‌دار</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">کشاورز: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🌾">باغبان | پوست روشن | کشاورز | مزرعه‌دار</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">کشاورز: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🌾">باغبان | پوست طلایی | کشاورز | مزرعه‌دار</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">کشاورز: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🌾">باغبان | پوست گندمی | کشاورز | مزرعه‌دار</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">کشاورز: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🌾">باغبان | پوست آبنوسی | کشاورز | مزرعه‌دار</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">کشاورز: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🌾">برزگر | پوست سفید | خوشه برنج | دهقان | زارع | کشاورز مرد | کشت</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">کشاورز مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🌾">برزگر | پوست روشن | خوشه برنج | دهقان | زارع | کشاورز مرد | کشت</annotation>
@@ -1259,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">کشاورز زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🌾">برزگر | پوست آبنوسی | خوشه برنج | دهقان | زارع | کشاورز زن | کشت</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">کشاورز زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🍳">آشپز | پوست سفید | سرآشپز</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">آشپز: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🍳">آشپز | پوست روشن | سرآشپز</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">آشپز: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🍳">آشپز | پوست طلایی | سرآشپز</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">آشپز: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🍳">آشپز | پوست گندمی | سرآشپز</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">آشپز: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🍳">آشپز | پوست آبنوسی | سرآشپز</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">آشپز: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🍳">آشپز مرد | آشپزی | پخت و پز | پوست سفید | سرآشپز | شف</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">آشپز مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🍳">آشپز مرد | آشپزی | پخت و پز | پوست روشن | سرآشپز | شف</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">آشپز زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🍳">آشپز زن | آشپزی | پخت و پز | پوست آبنوسی | سرآشپز | شف</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">آشپز زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🔧">برق‌کار | پوست سفید | لوله‌کش | مکانیک</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">مکانیک: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🔧">برق‌کار | پوست روشن | لوله‌کش | مکانیک</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">مکانیک: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🔧">برق‌کار | پوست طلایی | لوله‌کش | مکانیک</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">مکانیک: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🔧">برق‌کار | پوست گندمی | لوله‌کش | مکانیک</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">مکانیک: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🔧">برق‌کار | پوست آبنوسی | لوله‌کش | مکانیک</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">مکانیک: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🔧">برق‌کار | پوست سفید | تعمیرکار مرد | کارگر | لوله‌کش | مکانیک</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">تعمیرکار مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🔧">برق‌کار | پوست روشن | تعمیرکار مرد | کارگر | لوله‌کش | مکانیک</annotation>
@@ -1299,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">تعمیرکار زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🔧">برق‌کار | پوست آبنوسی | تعمیرکار زن | کارگر | لوله‌کش | مکانیک</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">تعمیرکار زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🏭">پوست سفید | صنعتی | کارخانه | کارگر | مونتاژ</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">کارگر کارخانه: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🏭">پوست روشن | صنعتی | کارخانه | کارگر | مونتاژ</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">کارگر کارخانه: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🏭">پوست طلایی | صنعتی | کارخانه | کارگر | مونتاژ</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">کارگر کارخانه: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🏭">پوست گندمی | صنعتی | کارخانه | کارگر | مونتاژ</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">کارگر کارخانه: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🏭">پوست آبنوسی | صنعتی | کارخانه | کارگر | مونتاژ</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">کارگر کارخانه: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🏭">پوست سفید | عمله | کارگر | کارگر کارخانه | کارگر کارخانه مرد</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">کارگر کارخانه مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🏭">پوست روشن | عمله | کارگر | کارگر کارخانه | کارگر کارخانه مرد</annotation>
@@ -1319,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">کارگر کارخانه زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🏭">پوست آبنوسی | عمله | کارگر | کارگر کارخانه | کارگر کارخانه زن</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">کارگر کارخانه زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍💼">پوست سفید | کارمند اداری | کسب و کار | مدیر | معمار</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">کارمند: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍💼">پوست روشن | کارمند اداری | کسب و کار | مدیر | معمار</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">کارمند: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍💼">پوست طلایی | کارمند اداری | کسب و کار | مدیر | معمار</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">کارمند: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍💼">پوست گندمی | کارمند اداری | کسب و کار | مدیر | معمار</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">کارمند: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍💼">پوست آبنوسی | کارمند اداری | کسب و کار | مدیر | معمار</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">کارمند: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍💼">پوست سفید | تاجر | کارمند اداری | کارمند مرد | مدیر | مهندس</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">کارمند مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍💼">پوست روشن | تاجر | کارمند اداری | کارمند مرد | مدیر | مهندس</annotation>
@@ -1339,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">کارمند زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍💼">پوست آبنوسی | تاجر | کارمند اداری | کارمند زن | مدیر | مهندس</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">کارمند زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🔬">پوست سفید | زیست‌شناس | شیمی‌دان | فیزیک‌دان | مهندس</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">دانشمند: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🔬">پوست روشن | زیست‌شناس | شیمی‌دان | فیزیک‌دان | مهندس</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">دانشمند: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🔬">پوست طلایی | زیست‌شناس | شیمی‌دان | فیزیک‌دان | مهندس</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">دانشمند: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🔬">پوست گندمی | زیست‌شناس | شیمی‌دان | فیزیک‌دان | مهندس</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">دانشمند: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🔬">پوست آبنوسی | زیست‌شناس | شیمی‌دان | فیزیک‌دان | مهندس</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">دانشمند: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🔬">پوست سفید | دانشمند مرد | زیست‌شناس | شیمی‌دان | فیزیک‌دان | محقق | میکروب‌شناس</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">دانشمند مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🔬">پوست روشن | دانشمند مرد | زیست‌شناس | شیمی‌دان | فیزیک‌دان | محقق | میکروب‌شناس</annotation>
@@ -1359,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">دانشمند زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🔬">پوست آبنوسی | دانشمند زن | زیست‌شناس | شیمی‌دان | فیزیک‌دان | محقق | میکروب‌شناس</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">دانشمند زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍💻">برنامه‌نویس | پوست سفید | کدنویس | مخترع | نرم‌افزار</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">متخصص: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍💻">برنامه‌نویس | پوست روشن | کدنویس | مخترع | نرم‌افزار</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">متخصص: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍💻">برنامه‌نویس | پوست طلایی | کدنویس | مخترع | نرم‌افزار</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">متخصص: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍💻">برنامه‌نویس | پوست گندمی | کدنویس | مخترع | نرم‌افزار</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">متخصص: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍💻">برنامه‌نویس | پوست آبنوسی | کدنویس | مخترع | نرم‌افزار</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">متخصص: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍💻">برنامه‌نویس | پوست سفید | پی‌سی | رایانه | کارشناس فناوری مرد | کامپیوتر | نرم‌افزار</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">کارشناس فناوری مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍💻">برنامه‌نویس | پوست روشن | پی‌سی | رایانه | کارشناس فناوری مرد | کامپیوتر | نرم‌افزار</annotation>
@@ -1379,6 +1306,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">کارشناس فناوری زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍💻">برنامه‌نویس | پوست آبنوسی | پی‌سی | رایانه | کارشناس فناوری زن | کامپیوتر | نرم‌افزار</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">کارشناس فناوری زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🎤">بازیگر | پوست سفید | خواننده | راک | ستاره | هنرپیشه</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">خواننده: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🎤">بازیگر | پوست روشن | خواننده | راک | ستاره | هنرپیشه</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">خواننده: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🎤">بازیگر | پوست طلایی | خواننده | راک | ستاره | هنرپیشه</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">خواننده: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🎤">بازیگر | پوست گندمی | خواننده | راک | ستاره | هنرپیشه</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">خواننده: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🎤">بازیگر | پوست آبنوسی | خواننده | راک | ستاره | هنرپیشه</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">خواننده: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🎤">پوست سفید | خواننده | خواننده مرد | ستاره | میکروفن | هنرمند</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">خواننده مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🎤">پوست روشن | خواننده | خواننده مرد | ستاره | میکروفن | هنرمند</annotation>
@@ -1399,6 +1336,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎤" type="tts">خواننده زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🎤">پوست آبنوسی | خواننده | خواننده زن | ستاره | میکروفن | هنرمند</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">خواننده زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🎨">پالت رنگ | پوست سفید | هنرمند</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">هنرمند: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🎨">پالت رنگ | پوست روشن | هنرمند</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">هنرمند: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🎨">پالت رنگ | پوست طلایی | هنرمند</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">هنرمند: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🎨">پالت رنگ | پوست گندمی | هنرمند</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">هنرمند: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🎨">پالت رنگ | پوست آبنوسی | هنرمند</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">هنرمند: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🎨">آرتیست | پوست سفید | تخته‌رنگ | نقاش | نقاش مرد | هنرمند مرد</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">هنرمند مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🎨">آرتیست | پوست روشن | تخته‌رنگ | نقاش | نقاش مرد | هنرمند مرد</annotation>
@@ -1419,6 +1366,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎨" type="tts">هنرمند زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🎨">آرتیست | پوست آبنوسی | تخته‌رنگ | نقاش | نقاش زن | هنرمند زن</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">هنرمند زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍✈">پوست سفید | خلبان | هواپیما</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">خلبان: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍✈">پوست روشن | خلبان | هواپیما</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">خلبان: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍✈">پوست طلایی | خلبان | هواپیما</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">خلبان: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍✈">پوست گندمی | خلبان | هواپیما</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">خلبان: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍✈">پوست آبنوسی | خلبان | هواپیما</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">خلبان: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍✈">پوست سفید | خلبان مرد | خلبان هواپیما | مهماندار مرد | هواپیما | هوانورد</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">خلبان مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍✈">پوست روشن | خلبان مرد | خلبان هواپیما | مهماندار مرد | هواپیما | هوانورد</annotation>
@@ -1439,6 +1396,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">خلبان زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍✈">پوست آبنوسی | خلبان زن | خلبان هواپیما | مهماندار زن | هواپیما | هوانورد</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">خلبان زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🚀">پوست سفید | فضانورد | موشک</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">فضانورد: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🚀">پوست روشن | فضانورد | موشک</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">فضانورد: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🚀">پوست طلایی | فضانورد | موشک</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">فضانورد: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🚀">پوست گندمی | فضانورد | موشک</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">فضانورد: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🚀">پوست آبنوسی | فضانورد | موشک</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">فضانورد: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🚀">پوست سفید | فضا | فضانورد مرد | فضانوردی | کیهان‌نورد</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">فضانورد مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🚀">پوست روشن | فضا | فضانورد مرد | فضانوردی | کیهان‌نورد</annotation>
@@ -1459,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">فضانورد زن: پوست گندمی</annotation>
 		<annotation cp="👩🏿‍🚀">پوست آبنوسی | فضا | فضانورد زن | فضانوردی | کیهان‌نورد</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">فضانورد زن: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🚒">پوست سفید | مأمور آتش‌نشانی | ماشین آتش‌نشانی</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">مأمور آتش‌نشانی: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🚒">پوست روشن | مأمور آتش‌نشانی | ماشین آتش‌نشانی</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">مأمور آتش‌نشانی: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🚒">پوست طلایی | مأمور آتش‌نشانی | ماشین آتش‌نشانی</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">مأمور آتش‌نشانی: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🚒">پوست گندمی | مأمور آتش‌نشانی | ماشین آتش‌نشانی</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">مأمور آتش‌نشانی: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🚒">پوست آبنوسی | مأمور آتش‌نشانی | ماشین آتش‌نشانی</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">مأمور آتش‌نشانی: پوست آبنوسی</annotation>
 		<annotation cp="👨🏻‍🚒">آتش‌نشان مرد | آتش‌نشانی | پوست سفید | مأمور آتش‌نشانی | ماشین آتش‌نشانی</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">آتش‌نشان مرد: پوست سفید</annotation>
 		<annotation cp="👨🏼‍🚒">آتش‌نشان مرد | آتش‌نشانی | پوست روشن | مأمور آتش‌نشانی | ماشین آتش‌نشانی</annotation>
@@ -1669,15 +1646,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧕🏾" type="tts">زن با روسری: پوست گندمی</annotation>
 		<annotation cp="🧕🏿">پوست آبنوسی | پوشش سر زنان | تخل | حجاب | روسری | زن با روسری | مانتیلا</annotation>
 		<annotation cp="🧕🏿" type="tts">زن با روسری: پوست آبنوسی</annotation>
-		<annotation cp="🤵🏻">آراسته | پاپیون | پوست سفید | جوان | خوش تیپ | دوماد | شادوماد | شاه داماد | مرد | مرد با کت و شلوار و پاپیون</annotation>
+		<annotation cp="🤵🏻">آراسته | پوست سفید | خوش‌تیپ | داماد | کت و شلوار | مرد | مرد با کت و شلوار و پاپیون</annotation>
 		<annotation cp="🤵🏻" type="tts">مرد با کت و شلوار و پاپیون: پوست سفید</annotation>
-		<annotation cp="🤵🏼">آراسته | پاپیون | پوست روشن | جوان | خوش تیپ | دوماد | شادوماد | شاه داماد | مرد | مرد با کت و شلوار و پاپیون</annotation>
+		<annotation cp="🤵🏼">آراسته | پوست روشن | خوش‌تیپ | داماد | کت و شلوار | مرد | مرد با کت و شلوار و پاپیون</annotation>
 		<annotation cp="🤵🏼" type="tts">مرد با کت و شلوار و پاپیون: پوست روشن</annotation>
-		<annotation cp="🤵🏽">آراسته | پاپیون | پوست طلایی | جوان | خوش تیپ | دوماد | شادوماد | شاه داماد | مرد | مرد با کت و شلوار و پاپیون</annotation>
+		<annotation cp="🤵🏽">آراسته | پوست طلایی | خوش‌تیپ | داماد | کت و شلوار | مرد | مرد با کت و شلوار و پاپیون</annotation>
 		<annotation cp="🤵🏽" type="tts">مرد با کت و شلوار و پاپیون: پوست طلایی</annotation>
-		<annotation cp="🤵🏾">آراسته | پاپیون | پوست گندمی | جوان | خوش تیپ | دوماد | شادوماد | شاه داماد | مرد | مرد با کت و شلوار و پاپیون</annotation>
+		<annotation cp="🤵🏾">آراسته | پوست گندمی | خوش‌تیپ | داماد | کت و شلوار | مرد | مرد با کت و شلوار و پاپیون</annotation>
 		<annotation cp="🤵🏾" type="tts">مرد با کت و شلوار و پاپیون: پوست گندمی</annotation>
-		<annotation cp="🤵🏿">آراسته | پاپیون | پوست آبنوسی | جوان | خوش تیپ | دوماد | شادوماد | شاه داماد | مرد | مرد با کت و شلوار و پاپیون</annotation>
+		<annotation cp="🤵🏿">آراسته | پوست آبنوسی | خوش‌تیپ | داماد | کت و شلوار | مرد | مرد با کت و شلوار و پاپیون</annotation>
 		<annotation cp="🤵🏿" type="tts">مرد با کت و شلوار و پاپیون: پوست آبنوسی</annotation>
 		<annotation cp="👰🏻">پوست سفید | تاج عروس | تور | عروس | عروسی</annotation>
 		<annotation cp="👰🏻" type="tts">عروس: پوست سفید</annotation>
@@ -1769,35 +1746,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦸🏾‍♀" type="tts">ابرقهرمان زن: پوست گندمی</annotation>
 		<annotation cp="🦸🏿‍♀">ابرقدرت | ابرقهرمان | ابرقهرمان زن | پوست آبنوسی | خوب | دلاور | شیرزن | قهرمان</annotation>
 		<annotation cp="🦸🏿‍♀" type="tts">ابرقهرمان زن: پوست آبنوسی</annotation>
-		<annotation cp="🦹🏻">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست سفید | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏻">آدم شرور | ابرقدرت | اهریمن | پوست سفید | تبهکار | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏻" type="tts">ابرشرور: پوست سفید</annotation>
-		<annotation cp="🦹🏼">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست روشن | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏼">آدم شرور | ابرقدرت | اهریمن | پوست روشن | تبهکار | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏼" type="tts">ابرشرور: پوست روشن</annotation>
-		<annotation cp="🦹🏽">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست طلایی | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏽">آدم شرور | ابرقدرت | اهریمن | پوست طلایی | تبهکار | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏽" type="tts">ابرشرور: پوست طلایی</annotation>
-		<annotation cp="🦹🏾">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست گندمی | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏾">آدم شرور | ابرقدرت | اهریمن | پوست گندمی | تبهکار | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏾" type="tts">ابرشرور: پوست گندمی</annotation>
-		<annotation cp="🦹🏿">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست آبنوسی | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏿">آدم شرور | ابرقدرت | اهریمن | پوست آبنوسی | تبهکار | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏿" type="tts">ابرشرور: پوست آبنوسی</annotation>
-		<annotation cp="🦹🏻‍♂">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست سفید | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم | مرد</annotation>
+		<annotation cp="🦹🏻‍♂">آدم شرور | ابرقدرت | اهریمن | پوست سفید | تبهکار | شرور بزرگ | مجرم | مرد</annotation>
 		<annotation cp="🦹🏻‍♂" type="tts">ابرشرور مرد: پوست سفید</annotation>
-		<annotation cp="🦹🏼‍♂">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست روشن | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم | مرد</annotation>
+		<annotation cp="🦹🏼‍♂">آدم شرور | ابرقدرت | اهریمن | پوست روشن | تبهکار | شرور بزرگ | مجرم | مرد</annotation>
 		<annotation cp="🦹🏼‍♂" type="tts">ابرشرور مرد: پوست روشن</annotation>
-		<annotation cp="🦹🏽‍♂">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست طلایی | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم | مرد</annotation>
+		<annotation cp="🦹🏽‍♂">آدم شرور | ابرقدرت | اهریمن | پوست طلایی | تبهکار | شرور بزرگ | مجرم | مرد</annotation>
 		<annotation cp="🦹🏽‍♂" type="tts">ابرشرور مرد: پوست طلایی</annotation>
-		<annotation cp="🦹🏾‍♂">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست گندمی | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم | مرد</annotation>
+		<annotation cp="🦹🏾‍♂">آدم شرور | ابرقدرت | اهریمن | پوست گندمی | تبهکار | شرور بزرگ | مجرم | مرد</annotation>
 		<annotation cp="🦹🏾‍♂" type="tts">ابرشرور مرد: پوست گندمی</annotation>
-		<annotation cp="🦹🏿‍♂">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست آبنوسی | تبهکار | جنایتکار | خبیث | دیوسیرت | شرور بزرگ | مجرم | مرد</annotation>
+		<annotation cp="🦹🏿‍♂">آدم شرور | ابرقدرت | اهریمن | پوست آبنوسی | تبهکار | شرور بزرگ | مجرم | مرد</annotation>
 		<annotation cp="🦹🏿‍♂" type="tts">ابرشرور مرد: پوست آبنوسی</annotation>
-		<annotation cp="🦹🏻‍♀">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست سفید | تبهکار | جنایتکار | خبیث | دیوسیرت | زن | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏻‍♀">آدم شرور | ابرقدرت | اهریمن | پوست سفید | تبهکار | زن | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏻‍♀" type="tts">ابرشرور زن: پوست سفید</annotation>
-		<annotation cp="🦹🏼‍♀">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست روشن | تبهکار | جنایتکار | خبیث | دیوسیرت | زن | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏼‍♀">آدم شرور | ابرقدرت | اهریمن | پوست روشن | تبهکار | زن | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏼‍♀" type="tts">ابرشرور زن: پوست روشن</annotation>
-		<annotation cp="🦹🏽‍♀">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست طلایی | تبهکار | جنایتکار | خبیث | دیوسیرت | زن | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏽‍♀">آدم شرور | ابرقدرت | اهریمن | پوست طلایی | تبهکار | زن | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏽‍♀" type="tts">ابرشرور زن: پوست طلایی</annotation>
-		<annotation cp="🦹🏾‍♀">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست گندمی | تبهکار | جنایتکار | خبیث | دیوسیرت | زن | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏾‍♀">آدم شرور | ابرقدرت | اهریمن | پوست گندمی | تبهکار | زن | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏾‍♀" type="tts">ابرشرور زن: پوست گندمی</annotation>
-		<annotation cp="🦹🏿‍♀">آدم بد | آدم شرور | ابرشرور | ابرقدرت | اهریمنی | پوست آبنوسی | تبهکار | جنایتکار | خبیث | دیوسیرت | زن | شرور بزرگ | مجرم</annotation>
+		<annotation cp="🦹🏿‍♀">آدم شرور | ابرقدرت | اهریمن | پوست آبنوسی | تبهکار | زن | شرور بزرگ | مجرم</annotation>
 		<annotation cp="🦹🏿‍♀" type="tts">ابرشرور زن: پوست آبنوسی</annotation>
 		<annotation cp="🧙🏻">افسونگر | پوست سفید | جادوگر | جادوگر زن | ساحر | ساحره</annotation>
 		<annotation cp="🧙🏻" type="tts">ساحر: پوست سفید</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">زن پیاده‌روی می‌کند: پوست گندمی</annotation>
 		<annotation cp="🚶🏿‍♀">پوست آبنوسی | پیاده گشتن | پیاده‌روی | راه رفتن | راه‌پیمایی | زن پیاده‌روی می‌کند</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">زن پیاده‌روی می‌کند: پوست آبنوسی</annotation>
+		<annotation cp="🧍🏻">آدم ایستاده | ایستادن | ایستاده | پوست سفید</annotation>
+		<annotation cp="🧍🏻" type="tts">آدم ایستاده: پوست سفید</annotation>
+		<annotation cp="🧍🏼">آدم ایستاده | ایستادن | ایستاده | پوست روشن</annotation>
+		<annotation cp="🧍🏼" type="tts">آدم ایستاده: پوست روشن</annotation>
+		<annotation cp="🧍🏽">آدم ایستاده | ایستادن | ایستاده | پوست طلایی</annotation>
+		<annotation cp="🧍🏽" type="tts">آدم ایستاده: پوست طلایی</annotation>
+		<annotation cp="🧍🏾">آدم ایستاده | ایستادن | ایستاده | پوست گندمی</annotation>
+		<annotation cp="🧍🏾" type="tts">آدم ایستاده: پوست گندمی</annotation>
+		<annotation cp="🧍🏿">آدم ایستاده | ایستادن | ایستاده | پوست آبنوسی</annotation>
+		<annotation cp="🧍🏿" type="tts">آدم ایستاده: پوست آبنوسی</annotation>
+		<annotation cp="🧍🏻‍♂">ایستاده | پوست سفید | مرد</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">مرد ایستاده: پوست سفید</annotation>
+		<annotation cp="🧍🏼‍♂">ایستاده | پوست روشن | مرد</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">مرد ایستاده: پوست روشن</annotation>
+		<annotation cp="🧍🏽‍♂">ایستاده | پوست طلایی | مرد</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">مرد ایستاده: پوست طلایی</annotation>
+		<annotation cp="🧍🏾‍♂">ایستاده | پوست گندمی | مرد</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">مرد ایستاده: پوست گندمی</annotation>
+		<annotation cp="🧍🏿‍♂">ایستاده | پوست آبنوسی | مرد</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">مرد ایستاده: پوست آبنوسی</annotation>
+		<annotation cp="🧍🏻‍♀">ایستاده | پوست سفید | زن</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">زن ایستاده: پوست سفید</annotation>
+		<annotation cp="🧍🏼‍♀">ایستاده | پوست روشن | زن</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">زن ایستاده: پوست روشن</annotation>
+		<annotation cp="🧍🏽‍♀">ایستاده | پوست طلایی | زن</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">زن ایستاده: پوست طلایی</annotation>
+		<annotation cp="🧍🏾‍♀">ایستاده | پوست گندمی | زن</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">زن ایستاده: پوست گندمی</annotation>
+		<annotation cp="🧍🏿‍♀">ایستاده | پوست آبنوسی | زن</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">زن ایستاده: پوست آبنوسی</annotation>
+		<annotation cp="🧎🏻">آدم زانوزده | پوست سفید | زانو زدن | زانوزده</annotation>
+		<annotation cp="🧎🏻" type="tts">آدم زانوزده: پوست سفید</annotation>
+		<annotation cp="🧎🏼">آدم زانوزده | پوست روشن | زانو زدن | زانوزده</annotation>
+		<annotation cp="🧎🏼" type="tts">آدم زانوزده: پوست روشن</annotation>
+		<annotation cp="🧎🏽">آدم زانوزده | پوست طلایی | زانو زدن | زانوزده</annotation>
+		<annotation cp="🧎🏽" type="tts">آدم زانوزده: پوست طلایی</annotation>
+		<annotation cp="🧎🏾">آدم زانوزده | پوست گندمی | زانو زدن | زانوزده</annotation>
+		<annotation cp="🧎🏾" type="tts">آدم زانوزده: پوست گندمی</annotation>
+		<annotation cp="🧎🏿">آدم زانوزده | پوست آبنوسی | زانو زدن | زانوزده</annotation>
+		<annotation cp="🧎🏿" type="tts">آدم زانوزده: پوست آبنوسی</annotation>
+		<annotation cp="🧎🏻‍♂">پوست سفید | زانوزده | مرد</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">مرد زانوزده: پوست سفید</annotation>
+		<annotation cp="🧎🏼‍♂">پوست روشن | زانوزده | مرد</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">مرد زانوزده: پوست روشن</annotation>
+		<annotation cp="🧎🏽‍♂">پوست طلایی | زانوزده | مرد</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">مرد زانوزده: پوست طلایی</annotation>
+		<annotation cp="🧎🏾‍♂">پوست گندمی | زانوزده | مرد</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">مرد زانوزده: پوست گندمی</annotation>
+		<annotation cp="🧎🏿‍♂">پوست آبنوسی | زانوزده | مرد</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">مرد زانوزده: پوست آبنوسی</annotation>
+		<annotation cp="🧎🏻‍♀">پوست سفید | زانوزده | زن</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">زن زانوزده: پوست سفید</annotation>
+		<annotation cp="🧎🏼‍♀">پوست روشن | زانوزده | زن</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">زن زانوزده: پوست روشن</annotation>
+		<annotation cp="🧎🏽‍♀">پوست طلایی | زانوزده | زن</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">زن زانوزده: پوست طلایی</annotation>
+		<annotation cp="🧎🏾‍♀">پوست گندمی | زانوزده | زن</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">زن زانوزده: پوست گندمی</annotation>
+		<annotation cp="🧎🏿‍♀">پوست آبنوسی | زانوزده | زن</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">زن زانوزده: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🦯">پوست سفید | دسترس‌پذیری | نابینا</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">شخصی با عصای راهنما: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🦯">پوست روشن | دسترس‌پذیری | نابینا</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">شخصی با عصای راهنما: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🦯">پوست طلایی | دسترس‌پذیری | نابینا</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">شخصی با عصای راهنما: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🦯">پوست گندمی | دسترس‌پذیری | نابینا</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">شخصی با عصای راهنما: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🦯">پوست آبنوسی | دسترس‌پذیری | نابینا</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">شخصی با عصای راهنما: پوست آبنوسی</annotation>
+		<annotation cp="👨🏻‍🦯">پوست سفید | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">مرد با عصای سفید: پوست سفید</annotation>
+		<annotation cp="👨🏼‍🦯">پوست روشن | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">مرد با عصای سفید: پوست روشن</annotation>
+		<annotation cp="👨🏽‍🦯">پوست طلایی | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">مرد با عصای سفید: پوست طلایی</annotation>
+		<annotation cp="👨🏾‍🦯">پوست گندمی | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">مرد با عصای سفید: پوست گندمی</annotation>
+		<annotation cp="👨🏿‍🦯">پوست آبنوسی | دسترس‌پذیری | مرد | مرد با عصای سفید | نابینا</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">مرد با عصای سفید: پوست آبنوسی</annotation>
+		<annotation cp="👩🏻‍🦯">پوست سفید | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">زن با عصای سفید: پوست سفید</annotation>
+		<annotation cp="👩🏼‍🦯">پوست روشن | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">زن با عصای سفید: پوست روشن</annotation>
+		<annotation cp="👩🏽‍🦯">پوست طلایی | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">زن با عصای سفید: پوست طلایی</annotation>
+		<annotation cp="👩🏾‍🦯">پوست گندمی | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">زن با عصای سفید: پوست گندمی</annotation>
+		<annotation cp="👩🏿‍🦯">پوست آبنوسی | دسترس‌پذیری | زن | زن با عصای سفید | نابینا</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">زن با عصای سفید: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🦼">پوست سفید | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">شخصی با صندلی چرخ‌دار موتوری: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🦼">پوست روشن | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">شخصی با صندلی چرخ‌دار موتوری: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🦼">پوست طلایی | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">شخصی با صندلی چرخ‌دار موتوری: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🦼">پوست گندمی | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">شخصی با صندلی چرخ‌دار موتوری: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🦼">پوست آبنوسی | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">شخصی با صندلی چرخ‌دار موتوری: پوست آبنوسی</annotation>
+		<annotation cp="👨🏻‍🦼">پوست سفید | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست سفید</annotation>
+		<annotation cp="👨🏼‍🦼">پوست روشن | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست روشن</annotation>
+		<annotation cp="👨🏽‍🦼">پوست طلایی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست طلایی</annotation>
+		<annotation cp="👨🏾‍🦼">پوست گندمی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست گندمی</annotation>
+		<annotation cp="👨🏿‍🦼">پوست آبنوسی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار برقی</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">مرد در صندلی چرخ‌دار برقی: پوست آبنوسی</annotation>
+		<annotation cp="👩🏻‍🦼">پوست سفید | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست سفید</annotation>
+		<annotation cp="👩🏼‍🦼">پوست روشن | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست روشن</annotation>
+		<annotation cp="👩🏽‍🦼">پوست طلایی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست طلایی</annotation>
+		<annotation cp="👩🏾‍🦼">پوست گندمی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست گندمی</annotation>
+		<annotation cp="👩🏿‍🦼">پوست آبنوسی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار برقی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">زن در صندلی چرخ‌دار برقی: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🦽">پوست سفید | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">شخصی با صندلی چرخ‌دار دستی: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🦽">پوست روشن | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">شخصی با صندلی چرخ‌دار دستی: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🦽">پوست طلایی | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">شخصی با صندلی چرخ‌دار دستی: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🦽">پوست گندمی | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">شخصی با صندلی چرخ‌دار دستی: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🦽">پوست آبنوسی | دسترس‌پذیری | صندلی چرخ‌دار</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">شخصی با صندلی چرخ‌دار دستی: پوست آبنوسی</annotation>
+		<annotation cp="👨🏻‍🦽">پوست سفید | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست سفید</annotation>
+		<annotation cp="👨🏼‍🦽">پوست روشن | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست روشن</annotation>
+		<annotation cp="👨🏽‍🦽">پوست طلایی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست طلایی</annotation>
+		<annotation cp="👨🏾‍🦽">پوست گندمی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست گندمی</annotation>
+		<annotation cp="👨🏿‍🦽">پوست آبنوسی | دسترس‌پذیری | صندلی چرخ‌دار | مرد | مرد در صندلی چرخ‌دار دستی</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">مرد در صندلی چرخ‌دار دستی: پوست آبنوسی</annotation>
+		<annotation cp="👩🏻‍🦽">پوست سفید | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست سفید</annotation>
+		<annotation cp="👩🏼‍🦽">پوست روشن | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست روشن</annotation>
+		<annotation cp="👩🏽‍🦽">پوست طلایی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست طلایی</annotation>
+		<annotation cp="👩🏾‍🦽">پوست گندمی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست گندمی</annotation>
+		<annotation cp="👩🏿‍🦽">پوست آبنوسی | دسترس‌پذیری | زن | زن در صندلی چرخ‌دار دستی | صندلی چرخ‌دار</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">زن در صندلی چرخ‌دار دستی: پوست آبنوسی</annotation>
 		<annotation cp="🏃🏻">استقامت | پوست سفید | دو | دونده | دویدن | ماراتن</annotation>
 		<annotation cp="🏃🏻" type="tts">دونده: پوست سفید</annotation>
 		<annotation cp="🏃🏼">استقامت | پوست روشن | دو | دونده | دویدن | ماراتن</annotation>
@@ -2509,15 +2636,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤾🏾‍♀" type="tts">هندبالیست زن: پوست گندمی</annotation>
 		<annotation cp="🤾🏿‍♀">پوست آبنوسی | هندبال | هندبال بازی کردن | هندبالیست | هندبالیست زن</annotation>
 		<annotation cp="🤾🏿‍♀" type="tts">هندبالیست زن: پوست آبنوسی</annotation>
-		<annotation cp="🤹🏻">بالانس | پوست سفید | تمرکز | حرکت نمایشی | ژانگولر | ژانگولربازی | ژانگوله | ژانگوله بازی | سرگرمی</annotation>
+		<annotation cp="🤹🏻">بالانس | پوست سفید | چندکاره | حرکت نمایشی | شعبده‌باز | شعبده‌بازی | مهارت</annotation>
 		<annotation cp="🤹🏻" type="tts">ژانگولربازی: پوست سفید</annotation>
-		<annotation cp="🤹🏼">بالانس | پوست روشن | تمرکز | حرکت نمایشی | ژانگولر | ژانگولربازی | ژانگوله | ژانگوله بازی | سرگرمی</annotation>
+		<annotation cp="🤹🏼">بالانس | پوست روشن | چندکاره | حرکت نمایشی | شعبده‌باز | شعبده‌بازی | مهارت</annotation>
 		<annotation cp="🤹🏼" type="tts">ژانگولربازی: پوست روشن</annotation>
-		<annotation cp="🤹🏽">بالانس | پوست طلایی | تمرکز | حرکت نمایشی | ژانگولر | ژانگولربازی | ژانگوله | ژانگوله بازی | سرگرمی</annotation>
+		<annotation cp="🤹🏽">بالانس | پوست طلایی | چندکاره | حرکت نمایشی | شعبده‌باز | شعبده‌بازی | مهارت</annotation>
 		<annotation cp="🤹🏽" type="tts">ژانگولربازی: پوست طلایی</annotation>
-		<annotation cp="🤹🏾">بالانس | پوست گندمی | تمرکز | حرکت نمایشی | ژانگولر | ژانگولربازی | ژانگوله | ژانگوله بازی | سرگرمی</annotation>
+		<annotation cp="🤹🏾">بالانس | پوست گندمی | چندکاره | حرکت نمایشی | شعبده‌باز | شعبده‌بازی | مهارت</annotation>
 		<annotation cp="🤹🏾" type="tts">ژانگولربازی: پوست گندمی</annotation>
-		<annotation cp="🤹🏿">بالانس | پوست آبنوسی | تمرکز | حرکت نمایشی | ژانگولر | ژانگولربازی | ژانگوله | ژانگوله بازی | سرگرمی</annotation>
+		<annotation cp="🤹🏿">بالانس | پوست آبنوسی | چندکاره | حرکت نمایشی | شعبده‌باز | شعبده‌بازی | مهارت</annotation>
 		<annotation cp="🤹🏿" type="tts">ژانگولربازی: پوست آبنوسی</annotation>
 		<annotation cp="🤹🏻‍♂">پوست سفید | تردست مرد | تردستی | ژانگولر | شعبده‌بازی | مرد ژانگولربازی می‌کند</annotation>
 		<annotation cp="🤹🏻‍♂" type="tts">مرد ژانگولربازی می‌کند: پوست سفید</annotation>
@@ -2589,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">فرد در تختخواب: پوست گندمی</annotation>
 		<annotation cp="🛌🏿">پوست آبنوسی | خوابیدن | فرد در تختخواب | هتل</annotation>
 		<annotation cp="🛌🏿" type="tts">فرد در تختخواب: پوست آبنوسی</annotation>
-		<annotation cp="👫🏻">پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👫🏻" type="tts">زن و مرد دست در‌ دست: پوست سفید</annotation>
-		<annotation cp="👫🏼">پوست روشن | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👫🏼" type="tts">زن و مرد دست در‌ دست: پوست روشن</annotation>
-		<annotation cp="👫🏽">پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👫🏽" type="tts">زن و مرد دست در‌ دست: پوست طلایی</annotation>
-		<annotation cp="👫🏾">پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👫🏾" type="tts">زن و مرد دست در‌ دست: پوست گندمی</annotation>
-		<annotation cp="👫🏿">پوست آبنوسی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
-		<annotation cp="👫🏿" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی</annotation>
-		<annotation cp="👬🏻">پوست سفید | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👬🏻" type="tts">دو مرد دست در دست: پوست سفید</annotation>
-		<annotation cp="👬🏼">پوست روشن | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👬🏼" type="tts">دو مرد دست در دست: پوست روشن</annotation>
-		<annotation cp="👬🏽">پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👬🏽" type="tts">دو مرد دست در دست: پوست طلایی</annotation>
-		<annotation cp="👬🏾">پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👬🏾" type="tts">دو مرد دست در دست: پوست گندمی</annotation>
-		<annotation cp="👬🏿">پوست آبنوسی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج | همجنس‌گرا</annotation>
-		<annotation cp="👬🏿" type="tts">دو مرد دست در دست: پوست آبنوسی</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">پوست سفید | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">پوست روشن | پوست سفید | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست روشن،‏ پوست سفید</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">پوست روشن | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">پوست سفید | پوست طلایی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست طلایی،‏ پوست سفید</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">پوست روشن | پوست طلایی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست طلایی،‏ پوست روشن</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">پوست طلایی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">اشخاصی دست در دست هم: پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">پوست سفید | پوست گندمی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست گندمی،‏ پوست سفید</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">پوست روشن | پوست گندمی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست گندمی،‏ پوست روشن</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">پوست طلایی | پوست گندمی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">اشخاصی دست در دست هم: پوست گندمی،‏ پوست طلایی</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">پوست گندمی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">اشخاصی دست در دست هم: پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">پوست آبنوسی | پوست سفید | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست سفید</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">پوست آبنوسی | پوست روشن | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست روشن</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">پوست آبنوسی | پوست طلایی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست طلایی</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">پوست آبنوسی | پوست گندمی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">اشخاصی دست در دست هم: پوست آبنوسی،‏ پوست گندمی</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">پوست آبنوسی | دست | دست در دست | زوج | شخص</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">اشخاصی دست در دست هم: پوست آبنوسی</annotation>
 		<annotation cp="👭🏻">پوست سفید | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
 		<annotation cp="👭🏻" type="tts">دو زن دست در دست: پوست سفید</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">پوست روشن | پوست سفید | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست روشن،‏ پوست سفید</annotation>
 		<annotation cp="👭🏼">پوست روشن | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
 		<annotation cp="👭🏼" type="tts">دو زن دست در دست: پوست روشن</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">پوست سفید | پوست طلایی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست طلایی،‏ پوست سفید</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">پوست روشن | پوست طلایی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">دو زن دست در دست: پوست طلایی،‏ پوست روشن</annotation>
 		<annotation cp="👭🏽">پوست طلایی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
 		<annotation cp="👭🏽" type="tts">دو زن دست در دست: پوست طلایی</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">پوست سفید | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست گندمی،‏ پوست سفید</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">پوست روشن | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">دو زن دست در دست: پوست گندمی،‏ پوست روشن</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">پوست طلایی | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">دو زن دست در دست: پوست گندمی،‏ پوست طلایی</annotation>
 		<annotation cp="👭🏾">پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
 		<annotation cp="👭🏾" type="tts">دو زن دست در دست: پوست گندمی</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">پوست آبنوسی | پوست سفید | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست سفید</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">پوست آبنوسی | پوست روشن | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست روشن</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">پوست آبنوسی | پوست طلایی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست طلایی</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">پوست آبنوسی | پوست گندمی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">دو زن دست در دست: پوست آبنوسی،‏ پوست گندمی</annotation>
 		<annotation cp="👭🏿">پوست آبنوسی | دست | دست در دست | دو زن دست در دست | زن | زوج | همجنس‌گرا</annotation>
 		<annotation cp="👭🏿" type="tts">دو زن دست در دست: پوست آبنوسی</annotation>
+		<annotation cp="👫🏻">پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👫🏻" type="tts">زن و مرد دست در‌ دست: پوست سفید</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">پوست روشن | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست روشن</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">پوست سفید | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست طلایی</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">پوست سفید | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست گندمی</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">پوست آبنوسی | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست سفید،‏ پوست آبنوسی</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">پوست روشن | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست سفید</annotation>
+		<annotation cp="👫🏼">پوست روشن | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👫🏼" type="tts">زن و مرد دست در‌ دست: پوست روشن</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">پوست روشن | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست طلایی</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">پوست روشن | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست گندمی</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">پوست آبنوسی | پوست روشن | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست روشن،‏ پوست آبنوسی</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">پوست سفید | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست سفید</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">پوست روشن | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست روشن</annotation>
+		<annotation cp="👫🏽">پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👫🏽" type="tts">زن و مرد دست در‌ دست: پوست طلایی</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">پوست طلایی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست گندمی</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">پوست آبنوسی | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست طلایی،‏ پوست آبنوسی</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">پوست سفید | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست سفید</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">پوست روشن | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست روشن</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">پوست طلایی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست طلایی</annotation>
+		<annotation cp="👫🏾">پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👫🏾" type="tts">زن و مرد دست در‌ دست: پوست گندمی</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">پوست آبنوسی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">زن و مرد دست در‌ دست: پوست گندمی،‏ پوست آبنوسی</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">پوست آبنوسی | پوست سفید | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست سفید</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">پوست آبنوسی | پوست روشن | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست روشن</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">پوست آبنوسی | پوست طلایی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست طلایی</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">پوست آبنوسی | پوست گندمی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی،‏ پوست گندمی</annotation>
+		<annotation cp="👫🏿">پوست آبنوسی | دست | دست در دست | زن | زن و مرد دست در‌ دست | زوج | مرد</annotation>
+		<annotation cp="👫🏿" type="tts">زن و مرد دست در‌ دست: پوست آبنوسی</annotation>
+		<annotation cp="👬🏻">پوست سفید | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👬🏻" type="tts">دو مرد دست در دست: پوست سفید</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">پوست روشن | پوست سفید | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست روشن،‏ پوست سفید</annotation>
+		<annotation cp="👬🏼">پوست روشن | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👬🏼" type="tts">دو مرد دست در دست: پوست روشن</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">پوست سفید | پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست طلایی،‏ پوست سفید</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">پوست روشن | پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">دو مرد دست در دست: پوست طلایی،‏ پوست روشن</annotation>
+		<annotation cp="👬🏽">پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👬🏽" type="tts">دو مرد دست در دست: پوست طلایی</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">پوست سفید | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست گندمی،‏ پوست سفید</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">پوست روشن | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">دو مرد دست در دست: پوست گندمی،‏ پوست روشن</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">پوست طلایی | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">دو مرد دست در دست: پوست گندمی،‏ پوست طلایی</annotation>
+		<annotation cp="👬🏾">پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👬🏾" type="tts">دو مرد دست در دست: پوست گندمی</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">پوست آبنوسی | پوست سفید | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست سفید</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">پوست آبنوسی | پوست روشن | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست روشن</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">پوست آبنوسی | پوست طلایی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست طلایی</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">پوست آبنوسی | پوست گندمی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">دو مرد دست در دست: پوست آبنوسی،‏ پوست گندمی</annotation>
+		<annotation cp="👬🏿">پوست آبنوسی | جوزا | دست در دست | دو مرد | دو مرد دست در دست | دوپیکر | دوقلو | زوج</annotation>
+		<annotation cp="👬🏿" type="tts">دو مرد دست در دست: پوست آبنوسی</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">بوسه | داستان عاشقانه | زن | زوج | عشق | مرد</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">بوسه: زن،‏ مرد</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">بوسه | داستان عاشقانه | زوج | عشق | مرد</annotation>
@@ -2802,7 +3039,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇾">پرچم</annotation>
 		<annotation cp="🇨🇾" type="tts">پرچم: قبرس</annotation>
 		<annotation cp="🇨🇿">پرچم</annotation>
-		<annotation cp="🇨🇿" type="tts">پرچم: جمهوری چک</annotation>
+		<annotation cp="🇨🇿" type="tts">پرچم: چک</annotation>
 		<annotation cp="🇩🇪">پرچم</annotation>
 		<annotation cp="🇩🇪" type="tts">پرچم: آلمان</annotation>
 		<annotation cp="🇩🇬">پرچم</annotation>
@@ -2876,7 +3113,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇷">پرچم</annotation>
 		<annotation cp="🇬🇷" type="tts">پرچم: یونان</annotation>
 		<annotation cp="🇬🇸">پرچم</annotation>
-		<annotation cp="🇬🇸" type="tts">پرچم: جزایر جورجیای جنوبی و ساندویچ جنوبی</annotation>
+		<annotation cp="🇬🇸" type="tts">پرچم: جورجیای جنوبی و جزایر ساندویچ جنوبی</annotation>
 		<annotation cp="🇬🇹">پرچم</annotation>
 		<annotation cp="🇬🇹" type="tts">پرچم: گواتمالا</annotation>
 		<annotation cp="🇬🇺">پرچم</annotation>
@@ -2886,9 +3123,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇾">پرچم</annotation>
 		<annotation cp="🇬🇾" type="tts">پرچم: گویان</annotation>
 		<annotation cp="🇭🇰">پرچم</annotation>
-		<annotation cp="🇭🇰" type="tts">پرچم: هنگ‌کنگ، منطقۀ ویژۀ اداری چین</annotation>
+		<annotation cp="🇭🇰" type="tts">پرچم: هنگ‌کنگ، منطقهٔ ویژهٔ اداری چین</annotation>
 		<annotation cp="🇭🇲">پرچم</annotation>
-		<annotation cp="🇭🇲" type="tts">پرچم: جزیرهٔ هرد و جزایر مک‌دونالد</annotation>
+		<annotation cp="🇭🇲" type="tts">پرچم: هرد و جزایر مک‌دونالد</annotation>
 		<annotation cp="🇭🇳">پرچم</annotation>
 		<annotation cp="🇭🇳" type="tts">پرچم: هندوراس</annotation>
 		<annotation cp="🇭🇷">پرچم</annotation>
@@ -2994,7 +3231,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇳">پرچم</annotation>
 		<annotation cp="🇲🇳" type="tts">پرچم: مغولستان</annotation>
 		<annotation cp="🇲🇴">پرچم</annotation>
-		<annotation cp="🇲🇴" type="tts">پرچم: ماکائو، منطقۀ ویژۀ اداری چین</annotation>
+		<annotation cp="🇲🇴" type="tts">پرچم: ماکائو، منطقهٔ ویژهٔ اداری چین</annotation>
 		<annotation cp="🇲🇵">پرچم</annotation>
 		<annotation cp="🇲🇵" type="tts">پرچم: جزایر ماریانای شمالی</annotation>
 		<annotation cp="🇲🇶">پرچم</annotation>
@@ -3100,7 +3337,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇸🇮">پرچم</annotation>
 		<annotation cp="🇸🇮" type="tts">پرچم: اسلوونی</annotation>
 		<annotation cp="🇸🇯">پرچم</annotation>
-		<annotation cp="🇸🇯" type="tts">پرچم: اسوالبارد و جان‌ماین</annotation>
+		<annotation cp="🇸🇯" type="tts">پرچم: سوالبارد و یان ماین</annotation>
 		<annotation cp="🇸🇰">پرچم</annotation>
 		<annotation cp="🇸🇰" type="tts">پرچم: اسلواکی</annotation>
 		<annotation cp="🇸🇱">پرچم</annotation>

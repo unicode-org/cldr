@@ -4,125 +4,14 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="sw"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤏🏻">kiasi kidogo | ngozi nyeupe | vidole vinavyobana</annotation>
-		<annotation cp="🤏🏻" type="tts">vidole vinavyobana: ngozi nyeupe</annotation>
-		<annotation cp="🤏🏼">kiasi kidogo | ngozi nyeupe kiasi | vidole vinavyobana</annotation>
-		<annotation cp="🤏🏼" type="tts">vidole vinavyobana: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🤏🏽">kiasi kidogo | ngozi ya kahawia | vidole vinavyobana</annotation>
-		<annotation cp="🤏🏽" type="tts">vidole vinavyobana: ngozi ya kahawia</annotation>
-		<annotation cp="🤏🏾">kiasi kidogo | ngozi nyeusi kiasi | vidole vinavyobana</annotation>
-		<annotation cp="🤏🏾" type="tts">vidole vinavyobana: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🤏🏿">kiasi kidogo | ngozi nyeusi | vidole vinavyobana</annotation>
-		<annotation cp="🤏🏿" type="tts">vidole vinavyobana: ngozi nyeusi</annotation>
-		<annotation cp="🦻🏻">ngozi nyeupe | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
-		<annotation cp="🦻🏻" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeupe</annotation>
-		<annotation cp="🦻🏼">ngozi nyeupe kiasi | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
-		<annotation cp="🦻🏼" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🦻🏽">ngozi ya kahawia | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
-		<annotation cp="🦻🏽" type="tts">sikio lenye kifaa cha kusikia: ngozi ya kahawia</annotation>
-		<annotation cp="🦻🏾">ngozi nyeusi kiasi | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
-		<annotation cp="🦻🏾" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🦻🏿">ngozi nyeusi | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
-		<annotation cp="🦻🏿" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeusi</annotation>
-		<annotation cp="🧍🏻">kusimama | mtu aliyesimama | ngozi nyeupe | simama</annotation>
-		<annotation cp="🧍🏻" type="tts">mtu aliyesimama: ngozi nyeupe</annotation>
-		<annotation cp="🧍🏼">kusimama | mtu aliyesimama | ngozi nyeupe kiasi | simama</annotation>
-		<annotation cp="🧍🏼" type="tts">mtu aliyesimama: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧍🏽">kusimama | mtu aliyesimama | ngozi ya kahawia | simama</annotation>
-		<annotation cp="🧍🏽" type="tts">mtu aliyesimama: ngozi ya kahawia</annotation>
-		<annotation cp="🧍🏾">kusimama | mtu aliyesimama | ngozi nyeusi kiasi | simama</annotation>
-		<annotation cp="🧍🏾" type="tts">mtu aliyesimama: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧍🏿">kusimama | mtu aliyesimama | ngozi nyeusi | simama</annotation>
-		<annotation cp="🧍🏿" type="tts">mtu aliyesimama: ngozi nyeusi</annotation>
-		<annotation cp="🧍🏻‍♀">kusimama | mwanamke | mwanamke aliyesimama | ngozi nyeupe</annotation>
-		<annotation cp="🧍🏻‍♀" type="tts">mwanamke aliyesimama: ngozi nyeupe</annotation>
-		<annotation cp="🧍🏼‍♀">kusimama | mwanamke | mwanamke aliyesimama | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧍🏼‍♀" type="tts">mwanamke aliyesimama: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧍🏽‍♀">kusimama | mwanamke | mwanamke aliyesimama | ngozi ya kahawia</annotation>
-		<annotation cp="🧍🏽‍♀" type="tts">mwanamke aliyesimama: ngozi ya kahawia</annotation>
-		<annotation cp="🧍🏾‍♀">kusimama | mwanamke | mwanamke aliyesimama | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧍🏾‍♀" type="tts">mwanamke aliyesimama: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧍🏿‍♀">kusimama | mwanamke | mwanamke aliyesimama | ngozi nyeusi</annotation>
-		<annotation cp="🧍🏿‍♀" type="tts">mwanamke aliyesimama: ngozi nyeusi</annotation>
-		<annotation cp="🧍🏻‍♂">kusimama | mwanamume | mwanamume aliyesimama | ngozi nyeupe</annotation>
-		<annotation cp="🧍🏻‍♂" type="tts">mwanamume aliyesimama: ngozi nyeupe</annotation>
-		<annotation cp="🧍🏼‍♂">kusimama | mwanamume | mwanamume aliyesimama | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧍🏼‍♂" type="tts">mwanamume aliyesimama: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧍🏽‍♂">kusimama | mwanamume | mwanamume aliyesimama | ngozi ya kahawia</annotation>
-		<annotation cp="🧍🏽‍♂" type="tts">mwanamume aliyesimama: ngozi ya kahawia</annotation>
-		<annotation cp="🧍🏾‍♂">kusimama | mwanamume | mwanamume aliyesimama | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧍🏾‍♂" type="tts">mwanamume aliyesimama: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧍🏿‍♂">kusimama | mwanamume | mwanamume aliyesimama | ngozi nyeusi</annotation>
-		<annotation cp="🧍🏿‍♂" type="tts">mwanamume aliyesimama: ngozi nyeusi</annotation>
-		<annotation cp="🧎🏻">kupiga magoti | mtu aliyepiga magoti | ngozi nyeupe | piga magoti</annotation>
-		<annotation cp="🧎🏻" type="tts">mtu aliyepiga magoti: ngozi nyeupe</annotation>
-		<annotation cp="🧎🏼">kupiga magoti | mtu aliyepiga magoti | ngozi nyeupe kiasi | piga magoti</annotation>
-		<annotation cp="🧎🏼" type="tts">mtu aliyepiga magoti: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧎🏽">kupiga magoti | mtu aliyepiga magoti | ngozi ya kahawia | piga magoti</annotation>
-		<annotation cp="🧎🏽" type="tts">mtu aliyepiga magoti: ngozi ya kahawia</annotation>
-		<annotation cp="🧎🏾">kupiga magoti | mtu aliyepiga magoti | ngozi nyeusi kiasi | piga magoti</annotation>
-		<annotation cp="🧎🏾" type="tts">mtu aliyepiga magoti: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧎🏿">kupiga magoti | mtu aliyepiga magoti | ngozi nyeusi | piga magoti</annotation>
-		<annotation cp="🧎🏿" type="tts">mtu aliyepiga magoti: ngozi nyeusi</annotation>
-		<annotation cp="🧎🏻‍♀">kupiga magoti | mwanamke | mwanamke aliyepiga magoti | ngozi nyeupe</annotation>
-		<annotation cp="🧎🏻‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeupe</annotation>
-		<annotation cp="🧎🏼‍♀">kupiga magoti | mwanamke | mwanamke aliyepiga magoti | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧎🏼‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧎🏽‍♀">kupiga magoti | mwanamke | mwanamke aliyepiga magoti | ngozi ya kahawia</annotation>
-		<annotation cp="🧎🏽‍♀" type="tts">mwanamke aliyepiga magoti: ngozi ya kahawia</annotation>
-		<annotation cp="🧎🏾‍♀">kupiga magoti | mwanamke | mwanamke aliyepiga magoti | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧎🏾‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧎🏿‍♀">kupiga magoti | mwanamke | mwanamke aliyepiga magoti | ngozi nyeusi</annotation>
-		<annotation cp="🧎🏿‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeusi</annotation>
-		<annotation cp="🧎🏻‍♂">kupiga magoti | mwanamume | mwanamume aliyepiga magoti | ngozi nyeupe</annotation>
-		<annotation cp="🧎🏻‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeupe</annotation>
-		<annotation cp="🧎🏼‍♂">kupiga magoti | mwanamume | mwanamume aliyepiga magoti | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧎🏼‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧎🏽‍♂">kupiga magoti | mwanamume | mwanamume aliyepiga magoti | ngozi ya kahawia</annotation>
-		<annotation cp="🧎🏽‍♂" type="tts">mwanamume aliyepiga magoti: ngozi ya kahawia</annotation>
-		<annotation cp="🧎🏾‍♂">kupiga magoti | mwanamume | mwanamume aliyepiga magoti | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧎🏾‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧎🏿‍♂">kupiga magoti | mwanamume | mwanamume aliyepiga magoti | ngozi nyeusi</annotation>
-		<annotation cp="🧎🏿‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeusi</annotation>
-		<annotation cp="🧏🏻">kiziwi | kusikia | ngozi nyeupe | sikio | ufikivu</annotation>
-		<annotation cp="🧏🏻" type="tts">kiziwi: ngozi nyeupe</annotation>
-		<annotation cp="🧏🏼">kiziwi | kusikia | ngozi nyeupe kiasi | sikio | ufikivu</annotation>
-		<annotation cp="🧏🏼" type="tts">kiziwi: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧏🏽">kiziwi | kusikia | ngozi ya kahawia | sikio | ufikivu</annotation>
-		<annotation cp="🧏🏽" type="tts">kiziwi: ngozi ya kahawia</annotation>
-		<annotation cp="🧏🏾">kiziwi | kusikia | ngozi nyeusi kiasi | sikio | ufikivu</annotation>
-		<annotation cp="🧏🏾" type="tts">kiziwi: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧏🏿">kiziwi | kusikia | ngozi nyeusi | sikio | ufikivu</annotation>
-		<annotation cp="🧏🏿" type="tts">kiziwi: ngozi nyeusi</annotation>
-		<annotation cp="🧏🏻‍♀">kiziwi | mwanamke | ngozi nyeupe</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">mwanamke kiziwi: ngozi nyeupe</annotation>
-		<annotation cp="🧏🏼‍♀">kiziwi | mwanamke | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">mwanamke kiziwi: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧏🏽‍♀">kiziwi | mwanamke | ngozi ya kahawia</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">mwanamke kiziwi: ngozi ya kahawia</annotation>
-		<annotation cp="🧏🏾‍♀">kiziwi | mwanamke | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">mwanamke kiziwi: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧏🏿‍♀">kiziwi | mwanamke | ngozi nyeusi</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">mwanamke kiziwi: ngozi nyeusi</annotation>
-		<annotation cp="🧏🏻‍♂">kiziwi | mwanamume | ngozi nyeupe</annotation>
-		<annotation cp="🧏🏻‍♂" type="tts">mwanamume kiziwi: ngozi nyeupe</annotation>
-		<annotation cp="🧏🏼‍♂">kiziwi | mwanamume | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧏🏼‍♂" type="tts">mwanamume kiziwi: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧏🏽‍♂">kiziwi | mwanamume | ngozi ya kahawia</annotation>
-		<annotation cp="🧏🏽‍♂" type="tts">mwanamume kiziwi: ngozi ya kahawia</annotation>
-		<annotation cp="🧏🏾‍♂">kiziwi | mwanamume | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧏🏾‍♂" type="tts">mwanamume kiziwi: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧏🏿‍♂">kiziwi | mwanamume | ngozi nyeusi</annotation>
-		<annotation cp="🧏🏿‍♂" type="tts">mwanamume kiziwi: ngozi nyeusi</annotation>
 		<annotation cp="👋🏻">kupunga | mkono | mkono unaopunga | mwili | ngozi nyeupe | punga</annotation>
 		<annotation cp="👋🏻" type="tts">mkono unaopunga: ngozi nyeupe</annotation>
 		<annotation cp="👋🏼">kupunga | mkono | mkono unaopunga | mwili | ngozi nyeupe kiasi | punga</annotation>
@@ -183,6 +72,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">mkono wa kuonyesha mambo yako shwari: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👌🏿">mkono | mkono wa kuonyesha mambo yako shwari | mwili | ngozi nyeusi | sawa</annotation>
 		<annotation cp="👌🏿" type="tts">mkono wa kuonyesha mambo yako shwari: ngozi nyeusi</annotation>
+		<annotation cp="🤏🏻">kiasi kidogo | ngozi nyeupe | vidole vinavyobana</annotation>
+		<annotation cp="🤏🏻" type="tts">vidole vinavyobana: ngozi nyeupe</annotation>
+		<annotation cp="🤏🏼">kiasi kidogo | ngozi nyeupe kiasi | vidole vinavyobana</annotation>
+		<annotation cp="🤏🏼" type="tts">vidole vinavyobana: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🤏🏽">kiasi kidogo | ngozi ya kahawia | vidole vinavyobana</annotation>
+		<annotation cp="🤏🏽" type="tts">vidole vinavyobana: ngozi ya kahawia</annotation>
+		<annotation cp="🤏🏾">kiasi kidogo | ngozi nyeusi kiasi | vidole vinavyobana</annotation>
+		<annotation cp="🤏🏾" type="tts">vidole vinavyobana: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🤏🏿">kiasi kidogo | ngozi nyeusi | vidole vinavyobana</annotation>
+		<annotation cp="🤏🏿" type="tts">vidole vinavyobana: ngozi nyeusi</annotation>
 		<annotation cp="✌🏻">mkono | mkono wa ushindi | mwili | ngozi nyeupe | ushindi | v</annotation>
 		<annotation cp="✌🏻" type="tts">mkono wa ushindi: ngozi nyeupe</annotation>
 		<annotation cp="✌🏼">mkono | mkono wa ushindi | mwili | ngozi nyeupe kiasi | ushindi | v</annotation>
@@ -233,35 +132,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤙🏾" type="tts">ishara ya “nipigie simu”: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🤙🏿">ishara ya “nipigie simu” | mkono | ngozi nyeusi | nipigie simu</annotation>
 		<annotation cp="🤙🏿" type="tts">ishara ya “nipigie simu”: ngozi nyeusi</annotation>
-		<annotation cp="👈🏻">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kushoto | mkono | mwili | ngozi nyeupe | nyuma ya mkono</annotation>
-		<annotation cp="👈🏻" type="tts">kidole cha kwanza kinachoelekeza kushoto: ngozi nyeupe</annotation>
-		<annotation cp="👈🏼">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kushoto | mkono | mwili | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
-		<annotation cp="👈🏼" type="tts">kidole cha kwanza kinachoelekeza kushoto: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👈🏽">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kushoto | mkono | mwili | ngozi ya kahawia | nyuma ya mkono</annotation>
-		<annotation cp="👈🏽" type="tts">kidole cha kwanza kinachoelekeza kushoto: ngozi ya kahawia</annotation>
-		<annotation cp="👈🏾">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kushoto | mkono | mwili | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
-		<annotation cp="👈🏾" type="tts">kidole cha kwanza kinachoelekeza kushoto: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👈🏿">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kushoto | mkono | mwili | ngozi nyeusi | nyuma ya mkono</annotation>
-		<annotation cp="👈🏿" type="tts">kidole cha kwanza kinachoelekeza kushoto: ngozi nyeusi</annotation>
-		<annotation cp="👉🏻">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kulia | mkono | mwili | ngozi nyeupe | nyuma ya mkono</annotation>
-		<annotation cp="👉🏻" type="tts">kidole cha kwanza kinachoelekeza kulia: ngozi nyeupe</annotation>
-		<annotation cp="👉🏼">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kulia | mkono | mwili | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
-		<annotation cp="👉🏼" type="tts">kidole cha kwanza kinachoelekeza kulia: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👉🏽">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kulia | mkono | mwili | ngozi ya kahawia | nyuma ya mkono</annotation>
-		<annotation cp="👉🏽" type="tts">kidole cha kwanza kinachoelekeza kulia: ngozi ya kahawia</annotation>
-		<annotation cp="👉🏾">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kulia | mkono | mwili | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
-		<annotation cp="👉🏾" type="tts">kidole cha kwanza kinachoelekeza kulia: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👉🏿">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza kulia | mkono | mwili | ngozi nyeusi | nyuma ya mkono</annotation>
-		<annotation cp="👉🏿" type="tts">kidole cha kwanza kinachoelekeza kulia: ngozi nyeusi</annotation>
-		<annotation cp="👆🏻">cha kwanza | elekeza | juu | kidole cha kwanza kinachoelekeza juu kwa nyuma | mkono | ngozi nyeupe | nyuma ya mkono</annotation>
+		<annotation cp="👈🏻">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kushoto | mkono | ngozi nyeupe | nyuma ya mkono</annotation>
+		<annotation cp="👈🏻" type="tts">kidole cha shahada kinachoelekeza kushoto: ngozi nyeupe</annotation>
+		<annotation cp="👈🏼">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kushoto | mkono | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👈🏼" type="tts">kidole cha shahada kinachoelekeza kushoto: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👈🏽">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kushoto | mkono | ngozi ya kahawia | nyuma ya mkono</annotation>
+		<annotation cp="👈🏽" type="tts">kidole cha shahada kinachoelekeza kushoto: ngozi ya kahawia</annotation>
+		<annotation cp="👈🏾">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kushoto | mkono | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👈🏾" type="tts">kidole cha shahada kinachoelekeza kushoto: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👈🏿">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kushoto | mkono | ngozi nyeusi | nyuma ya mkono</annotation>
+		<annotation cp="👈🏿" type="tts">kidole cha shahada kinachoelekeza kushoto: ngozi nyeusi</annotation>
+		<annotation cp="👉🏻">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kulia | mkono | ngozi nyeupe | nyuma ya mkono</annotation>
+		<annotation cp="👉🏻" type="tts">kidole cha shahada kinachoelekeza kulia: ngozi nyeupe</annotation>
+		<annotation cp="👉🏼">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kulia | mkono | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👉🏼" type="tts">kidole cha shahada kinachoelekeza kulia: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👉🏽">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kulia | mkono | ngozi ya kahawia | nyuma ya mkono</annotation>
+		<annotation cp="👉🏽" type="tts">kidole cha shahada kinachoelekeza kulia: ngozi ya kahawia</annotation>
+		<annotation cp="👉🏾">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kulia | mkono | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👉🏾" type="tts">kidole cha shahada kinachoelekeza kulia: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👉🏿">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza kulia | mkono | ngozi nyeusi | nyuma ya mkono</annotation>
+		<annotation cp="👉🏿" type="tts">kidole cha shahada kinachoelekeza kulia: ngozi nyeusi</annotation>
+		<annotation cp="👆🏻">cha shahada | elekeza | juu | kidole cha shahada kinachoelekeza juu kwa nyuma | mkono | ngozi nyeupe | nyuma ya mkono</annotation>
 		<annotation cp="👆🏻" type="tts">kidole cha kwanza kinachoelekeza juu kwa nyuma: ngozi nyeupe</annotation>
-		<annotation cp="👆🏼">cha kwanza | elekeza | juu | kidole cha kwanza kinachoelekeza juu kwa nyuma | mkono | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👆🏼">cha shahada | elekeza | juu | kidole cha shahada kinachoelekeza juu kwa nyuma | mkono | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
 		<annotation cp="👆🏼" type="tts">kidole cha kwanza kinachoelekeza juu kwa nyuma: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👆🏽">cha kwanza | elekeza | juu | kidole cha kwanza kinachoelekeza juu kwa nyuma | mkono | ngozi ya kahawia | nyuma ya mkono</annotation>
+		<annotation cp="👆🏽">cha shahada | elekeza | juu | kidole cha shahada kinachoelekeza juu kwa nyuma | mkono | ngozi ya kahawia | nyuma ya mkono</annotation>
 		<annotation cp="👆🏽" type="tts">kidole cha kwanza kinachoelekeza juu kwa nyuma: ngozi ya kahawia</annotation>
-		<annotation cp="👆🏾">cha kwanza | elekeza | juu | kidole cha kwanza kinachoelekeza juu kwa nyuma | mkono | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👆🏾">cha shahada | elekeza | juu | kidole cha shahada kinachoelekeza juu kwa nyuma | mkono | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
 		<annotation cp="👆🏾" type="tts">kidole cha kwanza kinachoelekeza juu kwa nyuma: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👆🏿">cha kwanza | elekeza | juu | kidole cha kwanza kinachoelekeza juu kwa nyuma | mkono | ngozi nyeusi | nyuma ya mkono</annotation>
+		<annotation cp="👆🏿">cha shahada | elekeza | juu | kidole cha shahada kinachoelekeza juu kwa nyuma | mkono | ngozi nyeusi | nyuma ya mkono</annotation>
 		<annotation cp="👆🏿" type="tts">kidole cha kwanza kinachoelekeza juu kwa nyuma: ngozi nyeusi</annotation>
 		<annotation cp="🖕🏻">kidole | kidole cha kati | mkono | mwili | ngozi nyeupe</annotation>
 		<annotation cp="🖕🏻" type="tts">kidole cha kati: ngozi nyeupe</annotation>
@@ -273,26 +172,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🖕🏾" type="tts">kidole cha kati: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🖕🏿">kidole | kidole cha kati | mkono | mwili | ngozi nyeusi</annotation>
 		<annotation cp="🖕🏿" type="tts">kidole cha kati: ngozi nyeusi</annotation>
-		<annotation cp="👇🏻">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza chini kwa nyuma | mkono | mwili | ngozi nyeupe | nyuma ya mkono</annotation>
+		<annotation cp="👇🏻">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza chini kwa nyuma | mkono | ngozi nyeupe | nyuma ya mkono</annotation>
 		<annotation cp="👇🏻" type="tts">kidole cha kwanza kinachoelekeza chini kwa nyuma: ngozi nyeupe</annotation>
-		<annotation cp="👇🏼">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza chini kwa nyuma | mkono | mwili | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👇🏼">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza chini kwa nyuma | mkono | ngozi nyeupe kiasi | nyuma ya mkono</annotation>
 		<annotation cp="👇🏼" type="tts">kidole cha kwanza kinachoelekeza chini kwa nyuma: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👇🏽">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza chini kwa nyuma | mkono | mwili | ngozi ya kahawia | nyuma ya mkono</annotation>
+		<annotation cp="👇🏽">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza chini kwa nyuma | mkono | ngozi ya kahawia | nyuma ya mkono</annotation>
 		<annotation cp="👇🏽" type="tts">kidole cha kwanza kinachoelekeza chini kwa nyuma: ngozi ya kahawia</annotation>
-		<annotation cp="👇🏾">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza chini kwa nyuma | mkono | mwili | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
+		<annotation cp="👇🏾">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza chini kwa nyuma | mkono | ngozi nyeusi kiasi | nyuma ya mkono</annotation>
 		<annotation cp="👇🏾" type="tts">kidole cha kwanza kinachoelekeza chini kwa nyuma: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👇🏿">cha kwanza | elekeza | kidole | kidole cha kwanza kinachoelekeza chini kwa nyuma | mkono | mwili | ngozi nyeusi | nyuma ya mkono</annotation>
+		<annotation cp="👇🏿">cha shahada | elekeza | kidole | kidole cha shahada kinachoelekeza chini kwa nyuma | mkono | ngozi nyeusi | nyuma ya mkono</annotation>
 		<annotation cp="👇🏿" type="tts">kidole cha kwanza kinachoelekeza chini kwa nyuma: ngozi nyeusi</annotation>
-		<annotation cp="☝🏻">cha kwanza | elekeza | juu | kidole | kidole cha kwanza kinachoelekeza juu | mkono | mwili | ngozi nyeupe</annotation>
-		<annotation cp="☝🏻" type="tts">kidole cha kwanza kinachoelekeza juu: ngozi nyeupe</annotation>
-		<annotation cp="☝🏼">cha kwanza | elekeza | juu | kidole | kidole cha kwanza kinachoelekeza juu | mkono | mwili | ngozi nyeupe kiasi</annotation>
-		<annotation cp="☝🏼" type="tts">kidole cha kwanza kinachoelekeza juu: ngozi nyeupe kiasi</annotation>
-		<annotation cp="☝🏽">cha kwanza | elekeza | juu | kidole | kidole cha kwanza kinachoelekeza juu | mkono | mwili | ngozi ya kahawia</annotation>
-		<annotation cp="☝🏽" type="tts">kidole cha kwanza kinachoelekeza juu: ngozi ya kahawia</annotation>
-		<annotation cp="☝🏾">cha kwanza | elekeza | juu | kidole | kidole cha kwanza kinachoelekeza juu | mkono | mwili | ngozi nyeusi kiasi</annotation>
-		<annotation cp="☝🏾" type="tts">kidole cha kwanza kinachoelekeza juu: ngozi nyeusi kiasi</annotation>
-		<annotation cp="☝🏿">cha kwanza | elekeza | juu | kidole | kidole cha kwanza kinachoelekeza juu | mkono | mwili | ngozi nyeusi</annotation>
-		<annotation cp="☝🏿" type="tts">kidole cha kwanza kinachoelekeza juu: ngozi nyeusi</annotation>
+		<annotation cp="☝🏻">cha shahada | elekeza | juu | kidole | kidole cha shahada kinachoelekeza juu | mkono | ngozi nyeupe</annotation>
+		<annotation cp="☝🏻" type="tts">kidole cha shahada kinachoelekeza juu: ngozi nyeupe</annotation>
+		<annotation cp="☝🏼">cha shahada | elekeza | juu | kidole | kidole cha shahada kinachoelekeza juu | mkono | ngozi nyeupe kiasi</annotation>
+		<annotation cp="☝🏼" type="tts">kidole cha shahada kinachoelekeza juu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="☝🏽">cha shahada | elekeza | juu | kidole | kidole cha shahada kinachoelekeza juu | mkono | ngozi ya kahawia</annotation>
+		<annotation cp="☝🏽" type="tts">kidole cha shahada kinachoelekeza juu: ngozi ya kahawia</annotation>
+		<annotation cp="☝🏾">cha shahada | elekeza | juu | kidole | kidole cha shahada kinachoelekeza juu | mkono | ngozi nyeusi kiasi</annotation>
+		<annotation cp="☝🏾" type="tts">kidole cha shahada kinachoelekeza juu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="☝🏿">cha shahada | elekeza | juu | kidole | kidole cha shahada kinachoelekeza juu | mkono | ngozi nyeusi</annotation>
+		<annotation cp="☝🏿" type="tts">kidole cha shahada kinachoelekeza juu: ngozi nyeusi</annotation>
 		<annotation cp="👍🏻">1 | dole gumba juu | gumba | juu | mkono | mwili | ngozi nyeupe</annotation>
 		<annotation cp="👍🏻" type="tts">dole gumba juu: ngozi nyeupe</annotation>
 		<annotation cp="👍🏼">1 | dole gumba juu | gumba | juu | mkono | mwili | ngozi nyeupe kiasi</annotation>
@@ -473,6 +372,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">sikio: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👂🏿">mwili | ngozi nyeusi | sikio</annotation>
 		<annotation cp="👂🏿" type="tts">sikio: ngozi nyeusi</annotation>
+		<annotation cp="🦻🏻">ngozi nyeupe | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
+		<annotation cp="🦻🏻" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeupe</annotation>
+		<annotation cp="🦻🏼">ngozi nyeupe kiasi | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
+		<annotation cp="🦻🏼" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🦻🏽">ngozi ya kahawia | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
+		<annotation cp="🦻🏽" type="tts">sikio lenye kifaa cha kusikia: ngozi ya kahawia</annotation>
+		<annotation cp="🦻🏾">ngozi nyeusi kiasi | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
+		<annotation cp="🦻🏾" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🦻🏿">ngozi nyeusi | sikio lenye kifaa cha kusikia | tatizo la kutosikia vizuri | ufikivu</annotation>
+		<annotation cp="🦻🏿" type="tts">sikio lenye kifaa cha kusikia: ngozi nyeusi</annotation>
 		<annotation cp="👃🏻">mwili | ngozi nyeupe | pua</annotation>
 		<annotation cp="👃🏻" type="tts">pua: ngozi nyeupe</annotation>
 		<annotation cp="👃🏼">mwili | ngozi nyeupe kiasi | pua</annotation>
@@ -533,46 +442,64 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾" type="tts">mtu mzima: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🧑🏿">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi</annotation>
 		<annotation cp="🧑🏿" type="tts">mtu mzima: ngozi nyeusi</annotation>
-		<annotation cp="👱🏻">mtu mwenye nywele za rangi ya shaba au kimanjano | mtu mwenye nywele za shaba | ngozi nyeupe | rangi ya shaba au kimanjano</annotation>
+		<annotation cp="👱🏻">mtu mwenye nywele ya shaba | mtu: nywele ya shaba | ngozi nyeupe | nywele | rangi ya shaba</annotation>
 		<annotation cp="👱🏻" type="tts">mtu mwenye nywele za shaba: ngozi nyeupe</annotation>
-		<annotation cp="👱🏼">mtu mwenye nywele za rangi ya shaba au kimanjano | mtu mwenye nywele za shaba | ngozi nyeupe kiasi | rangi ya shaba au kimanjano</annotation>
+		<annotation cp="👱🏼">mtu mwenye nywele ya shaba | mtu: nywele ya shaba | ngozi nyeupe kiasi | nywele | rangi ya shaba</annotation>
 		<annotation cp="👱🏼" type="tts">mtu mwenye nywele za shaba: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👱🏽">mtu mwenye nywele za rangi ya shaba au kimanjano | mtu mwenye nywele za shaba | ngozi ya kahawia | rangi ya shaba au kimanjano</annotation>
+		<annotation cp="👱🏽">mtu mwenye nywele ya shaba | mtu: nywele ya shaba | ngozi ya kahawia | nywele | rangi ya shaba</annotation>
 		<annotation cp="👱🏽" type="tts">mtu mwenye nywele za shaba: ngozi ya kahawia</annotation>
-		<annotation cp="👱🏾">mtu mwenye nywele za rangi ya shaba au kimanjano | mtu mwenye nywele za shaba | ngozi nyeusi kiasi | rangi ya shaba au kimanjano</annotation>
+		<annotation cp="👱🏾">mtu mwenye nywele ya shaba | mtu: nywele ya shaba | ngozi nyeusi kiasi | nywele | rangi ya shaba</annotation>
 		<annotation cp="👱🏾" type="tts">mtu mwenye nywele za shaba: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👱🏿">mtu mwenye nywele za rangi ya shaba au kimanjano | mtu mwenye nywele za shaba | ngozi nyeusi | rangi ya shaba au kimanjano</annotation>
+		<annotation cp="👱🏿">mtu mwenye nywele ya shaba | mtu: nywele ya shaba | ngozi nyeusi | nywele | rangi ya shaba</annotation>
 		<annotation cp="👱🏿" type="tts">mtu mwenye nywele za shaba: ngozi nyeusi</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeupe</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi nyeupe kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">kushikana mikono | mkono | mtu | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">watu walioshikana mikono: ngozi ya kahawia</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">kushikana mikono | mkono | mtu | ngozi nyeusi kiasi | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">kushikana mikono | mkono | mtu | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi nyeusi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | ngozi nyeusi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">kushikana mikono | mkono | mtu | ngozi nyeusi | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">kushikana mikono | mkono | mtu | ngozi nyeusi | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">kushikana mikono | mkono | mtu | ngozi nyeusi | nyuso mbili | shika | watu walioshikana mikono</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">watu walioshikana mikono: ngozi nyeusi</annotation>
+		<annotation cp="🧑‍🦰">asiyejitambulisha na jinsia yoyote | mtu mzima | nywele nyekundu</annotation>
+		<annotation cp="🧑‍🦰" type="tts">mtu mzima: nywele nyekundu</annotation>
+		<annotation cp="🧑🏻‍🦰">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe | nywele nyekundu</annotation>
+		<annotation cp="🧑🏻‍🦰" type="tts">mtu mzima: ngozi nyeupe na nywele nyekundu</annotation>
+		<annotation cp="🧑🏼‍🦰">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe kiasi | nywele nyekundu</annotation>
+		<annotation cp="🧑🏼‍🦰" type="tts">mtu mzima: ngozi nyeupe kiasi na nywele nyekundu</annotation>
+		<annotation cp="🧑🏽‍🦰">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi ya kahawia | nywele nyekundu</annotation>
+		<annotation cp="🧑🏽‍🦰" type="tts">mtu mzima: ngozi ya kahawia na nywele nyekundu</annotation>
+		<annotation cp="🧑🏾‍🦰">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi kiasi | nywele nyekundu</annotation>
+		<annotation cp="🧑🏾‍🦰" type="tts">mtu mzima: ngozi nyeusi kiasi na nywele nyekundu</annotation>
+		<annotation cp="🧑🏿‍🦰">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi | nywele nyekundu</annotation>
+		<annotation cp="🧑🏿‍🦰" type="tts">mtu mzima: ngozi nyeusi na nywele nyekundu</annotation>
+		<annotation cp="🧑‍🦱">asiyejitambulisha na jinsia yoyote | mtu mzima | nywele yenye mawimbi</annotation>
+		<annotation cp="🧑‍🦱" type="tts">mtu mzima: nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏻‍🦱">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe | nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏻‍🦱" type="tts">mtu mzima: ngozi nyeupe na nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏼‍🦱">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe kiasi | nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏼‍🦱" type="tts">mtu mzima: ngozi nyeupe kiasi na nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏽‍🦱">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi ya kahawia | nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏽‍🦱" type="tts">mtu mzima: ngozi ya kahawia na nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏾‍🦱">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi kiasi | nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏾‍🦱" type="tts">mtu mzima: ngozi nyeusi kiasi na nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏿‍🦱">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi | nywele yenye mawimbi</annotation>
+		<annotation cp="🧑🏿‍🦱" type="tts">mtu mzima: ngozi nyeusi na nywele yenye mawimbi</annotation>
+		<annotation cp="🧑‍🦳">asiyejitambulisha na jinsia yoyote | mtu mzima | nywele nyeupe</annotation>
+		<annotation cp="🧑‍🦳" type="tts">mtu mzima: nywele nyeupe</annotation>
+		<annotation cp="🧑🏻‍🦳">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe | nywele nyeupe</annotation>
+		<annotation cp="🧑🏻‍🦳" type="tts">mtu mzima: ngozi nyeupe na nywele nyeupe</annotation>
+		<annotation cp="🧑🏼‍🦳">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe kiasi | nywele nyeupe</annotation>
+		<annotation cp="🧑🏼‍🦳" type="tts">mtu mzima: ngozi nyeupe kiasi na nywele nyeupe</annotation>
+		<annotation cp="🧑🏽‍🦳">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi ya kahawia | nywele nyeupe</annotation>
+		<annotation cp="🧑🏽‍🦳" type="tts">mtu mzima: ngozi ya kahawia na nywele nyeupe</annotation>
+		<annotation cp="🧑🏾‍🦳">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi kiasi | nywele nyeupe</annotation>
+		<annotation cp="🧑🏾‍🦳" type="tts">mtu mzima: ngozi nyeusi kiasi na nywele nyeupe</annotation>
+		<annotation cp="🧑🏿‍🦳">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi | nywele nyeupe</annotation>
+		<annotation cp="🧑🏿‍🦳" type="tts">mtu mzima: ngozi nyeusi na nywele nyeupe</annotation>
+		<annotation cp="🧑‍🦲">asiyejitambulisha na jinsia yoyote | mtu mzima | upara</annotation>
+		<annotation cp="🧑‍🦲" type="tts">mtu mzima: upara</annotation>
+		<annotation cp="🧑🏻‍🦲">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe | upara</annotation>
+		<annotation cp="🧑🏻‍🦲" type="tts">mtu mzima: ngozi nyeupe na upara</annotation>
+		<annotation cp="🧑🏼‍🦲">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeupe kiasi | upara</annotation>
+		<annotation cp="🧑🏼‍🦲" type="tts">mtu mzima: ngozi nyeupe kiasi na upara</annotation>
+		<annotation cp="🧑🏽‍🦲">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi ya kahawia | upara</annotation>
+		<annotation cp="🧑🏽‍🦲" type="tts">mtu mzima: ngozi ya kahawia na upara</annotation>
+		<annotation cp="🧑🏾‍🦲">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi kiasi | upara</annotation>
+		<annotation cp="🧑🏾‍🦲" type="tts">mtu mzima: ngozi nyeusi kiasi na upara</annotation>
+		<annotation cp="🧑🏿‍🦲">asiyejitambulisha na jinsia yoyote | mtu mzima | ngozi nyeusi | upara</annotation>
+		<annotation cp="🧑🏿‍🦲" type="tts">mtu mzima: ngozi nyeusi na upara</annotation>
 		<annotation cp="👨🏻">mtu mzima | mwanamume | ngozi nyeupe</annotation>
 		<annotation cp="👨🏻" type="tts">mwanamume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼">mtu mzima | mwanamume | ngozi nyeupe kiasi</annotation>
@@ -583,56 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">mwanamume: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👨🏿">mtu mzima | mwanamume | ngozi nyeusi</annotation>
 		<annotation cp="👨🏿" type="tts">mwanamume: ngozi nyeusi</annotation>
-		<annotation cp="👨🏻‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeupe | ufikivu</annotation>
-		<annotation cp="👨🏻‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeupe</annotation>
-		<annotation cp="👨🏼‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeupe kiasi | ufikivu</annotation>
-		<annotation cp="👨🏼‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👨🏽‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi ya kahawia | ufikivu</annotation>
-		<annotation cp="👨🏽‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi ya kahawia</annotation>
-		<annotation cp="👨🏾‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeusi kiasi | ufikivu</annotation>
-		<annotation cp="👨🏾‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👨🏿‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeusi | ufikivu</annotation>
-		<annotation cp="👨🏿‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeusi</annotation>
-		<annotation cp="👨🏻‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
-		<annotation cp="👨🏻‍🦼" type="tts">mwanamume aliyeketia kiti cha magurudumu: ngozi nyeupe</annotation>
-		<annotation cp="👨🏼‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
-		<annotation cp="👨🏼‍🦼" type="tts">mwanamume aliyeketia kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👨🏽‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
-		<annotation cp="👨🏽‍🦼" type="tts">mwanamume aliyeketia kiti cha magurudumu: ngozi ya kahawia</annotation>
-		<annotation cp="👨🏾‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
-		<annotation cp="👨🏾‍🦼" type="tts">mwanamume aliyeketia kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👨🏿‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
-		<annotation cp="👨🏿‍🦼" type="tts">mwanamume aliyeketia kiti cha magurudumu: ngozi nyeusi</annotation>
-		<annotation cp="👨🏻‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
-		<annotation cp="👨🏻‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe</annotation>
-		<annotation cp="👨🏼‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
-		<annotation cp="👨🏼‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👨🏽‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
-		<annotation cp="👨🏽‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi ya kahawia</annotation>
-		<annotation cp="👨🏾‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
-		<annotation cp="👨🏾‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👨🏿‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
-		<annotation cp="👨🏿‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi nyeupe kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe kiasi | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">wanaume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi nyeusi kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">wanaume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi kiasi | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">wanaume walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi nyeusi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi | ngozi nyeusi kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧔🏻">mtu | mwanamume | mwanamume mwenye ndevu | ndevu | ngozi nyeupe</annotation>
+		<annotation cp="🧔🏻" type="tts">mtu mwenye ndevu: ngozi nyeupe</annotation>
+		<annotation cp="🧔🏼">mtu | mwanamume | mwanamume mwenye ndevu | ndevu | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧔🏼" type="tts">mtu mwenye ndevu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧔🏽">mtu | mwanamume | mwanamume mwenye ndevu | ndevu | ngozi ya kahawia</annotation>
+		<annotation cp="🧔🏽" type="tts">mtu mwenye ndevu: ngozi ya kahawia</annotation>
+		<annotation cp="🧔🏾">mtu | mwanamume | mwanamume mwenye ndevu | ndevu | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧔🏾" type="tts">mtu mwenye ndevu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧔🏿">mtu | mwanamume | mwanamume mwenye ndevu | ndevu | ngozi nyeusi</annotation>
+		<annotation cp="🧔🏿" type="tts">mtu mwenye ndevu: ngozi nyeusi</annotation>
+		<annotation cp="👱🏻‍♂">manjano | mwanamume | mwanamume mwenye nywele ya kimanjano | ngozi nyeupe | nywele</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeupe</annotation>
+		<annotation cp="👱🏼‍♂">manjano | mwanamume | mwanamume mwenye nywele ya kimanjano | ngozi nyeupe kiasi | nywele</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👱🏽‍♂">manjano | mwanamume | mwanamume mwenye nywele ya kimanjano | ngozi ya kahawia | nywele</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi ya kahawia</annotation>
+		<annotation cp="👱🏾‍♂">manjano | mwanamume | mwanamume mwenye nywele ya kimanjano | ngozi nyeusi kiasi | nywele</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👱🏿‍♂">manjano | mwanamume | mwanamume mwenye nywele ya kimanjano | ngozi nyeusi | nywele</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeusi</annotation>
 		<annotation cp="👨‍🦰">mtu mzima | mwanamume | nywele nyekundu</annotation>
 		<annotation cp="👨‍🦰" type="tts">mwanamume: nywele nyekundu</annotation>
 		<annotation cp="👨🏻‍🦰">mtu mzima | mwanamume | ngozi nyeupe | nywele nyekundu</annotation>
@@ -681,26 +578,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">mwanamume: ngozi nyeusi kiasi na upara</annotation>
 		<annotation cp="👨🏿‍🦲">mtu mzima | mwanamume | ngozi nyeusi | upara</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mwanamume: ngozi nyeusi na upara</annotation>
-		<annotation cp="👱🏻‍♂">manjano | mwanamume mwenye nywele ya kimanjano | ngozi nyeupe | nywele | piko</annotation>
-		<annotation cp="👱🏻‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeupe</annotation>
-		<annotation cp="👱🏼‍♂">manjano | mwanamume mwenye nywele ya kimanjano | ngozi nyeupe kiasi | nywele | piko</annotation>
-		<annotation cp="👱🏼‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👱🏽‍♂">manjano | mwanamume mwenye nywele ya kimanjano | ngozi ya kahawia | nywele | piko</annotation>
-		<annotation cp="👱🏽‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi ya kahawia</annotation>
-		<annotation cp="👱🏾‍♂">manjano | mwanamume mwenye nywele ya kimanjano | ngozi nyeusi kiasi | nywele | piko</annotation>
-		<annotation cp="👱🏾‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👱🏿‍♂">manjano | mwanamume mwenye nywele ya kimanjano | ngozi nyeusi | nywele | piko</annotation>
-		<annotation cp="👱🏿‍♂" type="tts">mwanamume mwenye nywele ya kimanjano: ngozi nyeusi</annotation>
-		<annotation cp="🧔🏻">mtu mwenye ndevu | ndevu | ngozi nyeupe</annotation>
-		<annotation cp="🧔🏻" type="tts">mtu mwenye ndevu: ngozi nyeupe</annotation>
-		<annotation cp="🧔🏼">mtu mwenye ndevu | ndevu | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧔🏼" type="tts">mtu mwenye ndevu: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧔🏽">mtu mwenye ndevu | ndevu | ngozi ya kahawia</annotation>
-		<annotation cp="🧔🏽" type="tts">mtu mwenye ndevu: ngozi ya kahawia</annotation>
-		<annotation cp="🧔🏾">mtu mwenye ndevu | ndevu | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧔🏾" type="tts">mtu mwenye ndevu: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧔🏿">mtu mwenye ndevu | ndevu | ngozi nyeusi</annotation>
-		<annotation cp="🧔🏿" type="tts">mtu mwenye ndevu: ngozi nyeusi</annotation>
 		<annotation cp="👩🏻">msichana | mwanamke | ngozi nyeupe</annotation>
 		<annotation cp="👩🏻" type="tts">mwanamke: ngozi nyeupe</annotation>
 		<annotation cp="👩🏼">msichana | mwanamke | ngozi nyeupe kiasi</annotation>
@@ -711,96 +588,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">mwanamke: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿">msichana | mwanamke | ngozi nyeusi</annotation>
 		<annotation cp="👩🏿" type="tts">mwanamke: ngozi nyeusi</annotation>
-		<annotation cp="👩🏻‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeupe | ufikivu</annotation>
-		<annotation cp="👩🏻‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeupe</annotation>
-		<annotation cp="👩🏼‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeupe kiasi | ufikivu</annotation>
-		<annotation cp="👩🏼‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏽‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi ya kahawia | ufikivu</annotation>
-		<annotation cp="👩🏽‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi ya kahawia</annotation>
-		<annotation cp="👩🏾‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeusi kiasi | ufikivu</annotation>
-		<annotation cp="👩🏾‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏿‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeusi | ufikivu</annotation>
-		<annotation cp="👩🏿‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeusi</annotation>
-		<annotation cp="👩🏻‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
-		<annotation cp="👩🏻‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeupe</annotation>
-		<annotation cp="👩🏼‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
-		<annotation cp="👩🏼‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏽‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
-		<annotation cp="👩🏽‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi ya kahawia</annotation>
-		<annotation cp="👩🏾‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
-		<annotation cp="👩🏾‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏿‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
-		<annotation cp="👩🏿‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeusi</annotation>
-		<annotation cp="👩🏻‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
-		<annotation cp="👩🏻‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe</annotation>
-		<annotation cp="👩🏼‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
-		<annotation cp="👩🏼‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏽‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
-		<annotation cp="👩🏽‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi ya kahawia</annotation>
-		<annotation cp="👩🏾‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
-		<annotation cp="👩🏾‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏿‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
-		<annotation cp="👩🏿‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeupe kiasi | shikilia</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi ya kahawia</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi kiasi | shikilia</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi | shikilia</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi nyeusi</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeupe kiasi | shikilia</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi ya kahawia</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi kiasi | shikilia</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi | shikilia</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeusi</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi kiasi | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeusi</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi kiasi | shikilia</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi kiasi | shikilia</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi kiasi | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi nyeusi kiasi | shikilia</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeusi</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi | shikilia</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi | shikilia</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi ya kahawia | shikilia</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi nyeusi kiasi | shikilia</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi nyeupe kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">wanawake walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">kushikana mikono | mkono | ngozi nyeusi kiasi | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi nyeusi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | ngozi nyeusi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">kushikana mikono | mkono | ngozi nyeusi | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">kushikana mikono | mkono | ngozi nyeusi | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
+		<annotation cp="👱🏻‍♀">manjano | mwanamke | mwanamke mwenye nywele ya kimanjano | ngozi nyeupe | nywele</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeupe</annotation>
+		<annotation cp="👱🏼‍♀">manjano | mwanamke | mwanamke mwenye nywele ya kimanjano | ngozi nyeupe kiasi | nywele</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👱🏽‍♀">manjano | mwanamke | mwanamke mwenye nywele ya kimanjano | ngozi ya kahawia | nywele</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi ya kahawia</annotation>
+		<annotation cp="👱🏾‍♀">manjano | mwanamke | mwanamke mwenye nywele ya kimanjano | ngozi nyeusi kiasi | nywele</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👱🏿‍♀">manjano | mwanamke | mwanamke mwenye nywele ya kimanjano | ngozi nyeusi | nywele</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeusi</annotation>
 		<annotation cp="👩‍🦰">msichana | mwanamke | nywele nyekundu</annotation>
 		<annotation cp="👩‍🦰" type="tts">mwanamke: nywele nyekundu</annotation>
 		<annotation cp="👩🏻‍🦰">msichana | mwanamke | ngozi nyeupe | nywele nyekundu</annotation>
@@ -849,16 +646,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">mwanamke: ngozi nyeusi kiasi na upara</annotation>
 		<annotation cp="👩🏿‍🦲">msichana | mwanamke | ngozi nyeusi | upara</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">mwanamke: ngozi nyeusi na upara</annotation>
-		<annotation cp="👱🏻‍♀">manjano | mwanamke mwenye nywele ya kimanjano | ngozi nyeupe | nywele</annotation>
-		<annotation cp="👱🏻‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeupe</annotation>
-		<annotation cp="👱🏼‍♀">manjano | mwanamke mwenye nywele ya kimanjano | ngozi nyeupe kiasi | nywele</annotation>
-		<annotation cp="👱🏼‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👱🏽‍♀">manjano | mwanamke mwenye nywele ya kimanjano | ngozi ya kahawia | nywele</annotation>
-		<annotation cp="👱🏽‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi ya kahawia</annotation>
-		<annotation cp="👱🏾‍♀">manjano | mwanamke mwenye nywele ya kimanjano | ngozi nyeusi kiasi | nywele</annotation>
-		<annotation cp="👱🏾‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👱🏿‍♀">manjano | mwanamke mwenye nywele ya kimanjano | ngozi nyeusi | nywele</annotation>
-		<annotation cp="👱🏿‍♀" type="tts">mwanamke mwenye nywele ya kimanjano: ngozi nyeusi</annotation>
 		<annotation cp="🧓🏻">asiyejitambulisha na jinsia yoyote | mzee | ngozi nyeupe</annotation>
 		<annotation cp="🧓🏻" type="tts">mzee: ngozi nyeupe</annotation>
 		<annotation cp="🧓🏼">asiyejitambulisha na jinsia yoyote | mzee | ngozi nyeupe kiasi</annotation>
@@ -960,15 +747,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙅🏿">hapana | ishara | katazwa | marufuku | mkono | mtu anayeonyesha ishara ya kukataa | ngozi nyeusi | siyo</annotation>
 		<annotation cp="🙅🏿" type="tts">mtu anayeonyesha ishara ya kukataa: ngozi nyeusi</annotation>
 		<annotation cp="🙅🏻‍♂">hapana | ishara | kataa | mkono | mwanamume anayeonyesha ishara ya kukataa | ngozi nyeupe</annotation>
-		<annotation cp="🙅🏻‍♂" type="tts">mwanamume anayeonyesha ishara ya kukataa: ngozi nyeupe</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">Mtu anayeonyesha ishara ya HAPANA: ngozi nyeupe</annotation>
 		<annotation cp="🙅🏼‍♂">hapana | ishara | kataa | mkono | mwanamume anayeonyesha ishara ya kukataa | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🙅🏼‍♂" type="tts">mwanamume anayeonyesha ishara ya kukataa: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">Mtu anayeonyesha ishara ya HAPANA: ngozi nyeupe kiasi</annotation>
 		<annotation cp="🙅🏽‍♂">hapana | ishara | kataa | mkono | mwanamume anayeonyesha ishara ya kukataa | ngozi ya kahawia</annotation>
-		<annotation cp="🙅🏽‍♂" type="tts">mwanamume anayeonyesha ishara ya kukataa: ngozi ya kahawia</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">Mtu anayeonyesha ishara ya HAPANA: ngozi ya kahawia</annotation>
 		<annotation cp="🙅🏾‍♂">hapana | ishara | kataa | mkono | mwanamume anayeonyesha ishara ya kukataa | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🙅🏾‍♂" type="tts">mwanamume anayeonyesha ishara ya kukataa: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">Mtu anayeonyesha ishara ya HAPANA: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🙅🏿‍♂">hapana | ishara | kataa | mkono | mwanamume anayeonyesha ishara ya kukataa | ngozi nyeusi</annotation>
-		<annotation cp="🙅🏿‍♂" type="tts">mwanamume anayeonyesha ishara ya kukataa: ngozi nyeusi</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">Mtu anayeonyesha ishara ya HAPANA: ngozi nyeusi</annotation>
 		<annotation cp="🙅🏻‍♀">hapana | ishara | kataa | mkono | mwanamke anayeonyesha ishara ya kukataa | ngozi nyeupe</annotation>
 		<annotation cp="🙅🏻‍♀" type="tts">mwanamke anayeonyesha ishara ya kukataa: ngozi nyeupe</annotation>
 		<annotation cp="🙅🏼‍♀">hapana | ishara | kataa | mkono | mwanamke anayeonyesha ishara ya kukataa | ngozi nyeupe kiasi</annotation>
@@ -990,15 +777,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙆🏿">ishara | mkono | mtu anayeonyesha ishara ya kukubali | ngozi nyeusi | sawa</annotation>
 		<annotation cp="🙆🏿" type="tts">mtu anayeonyesha ishara ya kukubali: ngozi nyeusi</annotation>
 		<annotation cp="🙆🏻‍♂">ishara | kukubali | mwanamume anayeonyesha ishara ya kukubali | ndiyo | ngozi nyeupe | sawa</annotation>
-		<annotation cp="🙆🏻‍♂" type="tts">mwanamume anayeonyesha ishara ya kukubali: ngozi nyeupe</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">Mtu anayeonyesha ishara ya NDIO: ngozi nyeupe</annotation>
 		<annotation cp="🙆🏼‍♂">ishara | kukubali | mwanamume anayeonyesha ishara ya kukubali | ndiyo | ngozi nyeupe kiasi | sawa</annotation>
-		<annotation cp="🙆🏼‍♂" type="tts">mwanamume anayeonyesha ishara ya kukubali: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">Mtu anayeonyesha ishara ya NDIO: ngozi nyeupe kiasi</annotation>
 		<annotation cp="🙆🏽‍♂">ishara | kukubali | mwanamume anayeonyesha ishara ya kukubali | ndiyo | ngozi ya kahawia | sawa</annotation>
-		<annotation cp="🙆🏽‍♂" type="tts">mwanamume anayeonyesha ishara ya kukubali: ngozi ya kahawia</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">Mtu anayeonyesha ishara ya NDIO: ngozi ya kahawia</annotation>
 		<annotation cp="🙆🏾‍♂">ishara | kukubali | mwanamume anayeonyesha ishara ya kukubali | ndiyo | ngozi nyeusi kiasi | sawa</annotation>
-		<annotation cp="🙆🏾‍♂" type="tts">mwanamume anayeonyesha ishara ya kukubali: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">Mtu anayeonyesha ishara ya NDIO: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🙆🏿‍♂">ishara | kukubali | mwanamume anayeonyesha ishara ya kukubali | ndiyo | ngozi nyeusi | sawa</annotation>
-		<annotation cp="🙆🏿‍♂" type="tts">mwanamume anayeonyesha ishara ya kukubali: ngozi nyeusi</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">Mtu anayeonyesha ishara ya NDIO: ngozi nyeusi</annotation>
 		<annotation cp="🙆🏻‍♀">ishara | kukubali | mwanamke anayeonyesha ishara ya kukubali | ndiyo | ngozi nyeupe | sawa</annotation>
 		<annotation cp="🙆🏻‍♀" type="tts">mwanamke anayeonyesha ishara ya kukubali: ngozi nyeupe</annotation>
 		<annotation cp="🙆🏼‍♀">ishara | kukubali | mwanamke anayeonyesha ishara ya kukubali | ndiyo | ngozi nyeupe kiasi | sawa</annotation>
@@ -1050,15 +837,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏿">furaha | inuliwa | ishara | mkono | mtu mwenye furaha aliyeinua mkono | ngozi nyeusi</annotation>
 		<annotation cp="🙋🏿" type="tts">mtu mwenye furaha aliyeinua mkono: ngozi nyeusi</annotation>
 		<annotation cp="🙋🏻‍♂">furaha | inua mkono | mkono | mwanamume mwenye furaha aliyeinua mkono | ngozi nyeupe</annotation>
-		<annotation cp="🙋🏻‍♂" type="tts">mwanamume mwenye furaha aliyeinua mkono: ngozi nyeupe</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">mtu aliyeinua mkono: ngozi nyeupe</annotation>
 		<annotation cp="🙋🏼‍♂">furaha | inua mkono | mkono | mwanamume mwenye furaha aliyeinua mkono | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🙋🏼‍♂" type="tts">mwanamume mwenye furaha aliyeinua mkono: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">mtu aliyeinua mkono: ngozi nyeupe kiasi</annotation>
 		<annotation cp="🙋🏽‍♂">furaha | inua mkono | mkono | mwanamume mwenye furaha aliyeinua mkono | ngozi ya kahawia</annotation>
-		<annotation cp="🙋🏽‍♂" type="tts">mwanamume mwenye furaha aliyeinua mkono: ngozi ya kahawia</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">mtu aliyeinua mkono: ngozi ya kahawia</annotation>
 		<annotation cp="🙋🏾‍♂">furaha | inua mkono | mkono | mwanamume mwenye furaha aliyeinua mkono | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🙋🏾‍♂" type="tts">mwanamume mwenye furaha aliyeinua mkono: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">mtu aliyeinua mkono: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🙋🏿‍♂">furaha | inua mkono | mkono | mwanamume mwenye furaha aliyeinua mkono | ngozi nyeusi</annotation>
-		<annotation cp="🙋🏿‍♂" type="tts">mwanamume mwenye furaha aliyeinua mkono: ngozi nyeusi</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">mtu aliyeinua mkono: ngozi nyeusi</annotation>
 		<annotation cp="🙋🏻‍♀">furaha | inua mkono | mkono | mwanamke mwenye furaha aliyeinua mnoko | ngozi nyeupe</annotation>
 		<annotation cp="🙋🏻‍♀" type="tts">mwanamke mwenye furaha aliyeinua mnoko: ngozi nyeupe</annotation>
 		<annotation cp="🙋🏼‍♀">furaha | inua mkono | mkono | mwanamke mwenye furaha aliyeinua mnoko | ngozi nyeupe kiasi</annotation>
@@ -1069,6 +856,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">mwanamke mwenye furaha aliyeinua mnoko: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🙋🏿‍♀">furaha | inua mkono | mkono | mwanamke mwenye furaha aliyeinua mnoko | ngozi nyeusi</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">mwanamke mwenye furaha aliyeinua mnoko: ngozi nyeusi</annotation>
+		<annotation cp="🧏🏻">kiziwi | kusikia | ngozi nyeupe | sikio | ufikivu</annotation>
+		<annotation cp="🧏🏻" type="tts">kiziwi: ngozi nyeupe</annotation>
+		<annotation cp="🧏🏼">kiziwi | kusikia | ngozi nyeupe kiasi | sikio | ufikivu</annotation>
+		<annotation cp="🧏🏼" type="tts">kiziwi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧏🏽">kiziwi | kusikia | ngozi ya kahawia | sikio | ufikivu</annotation>
+		<annotation cp="🧏🏽" type="tts">kiziwi: ngozi ya kahawia</annotation>
+		<annotation cp="🧏🏾">kiziwi | kusikia | ngozi nyeusi kiasi | sikio | ufikivu</annotation>
+		<annotation cp="🧏🏾" type="tts">kiziwi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧏🏿">kiziwi | kusikia | ngozi nyeusi | sikio | ufikivu</annotation>
+		<annotation cp="🧏🏿" type="tts">kiziwi: ngozi nyeusi</annotation>
+		<annotation cp="🧏🏻‍♂">kiziwi | mwanamume | ngozi nyeupe</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">mwanamume kiziwi: ngozi nyeupe</annotation>
+		<annotation cp="🧏🏼‍♂">kiziwi | mwanamume | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">mwanamume kiziwi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧏🏽‍♂">kiziwi | mwanamume | ngozi ya kahawia</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">mwanamume kiziwi: ngozi ya kahawia</annotation>
+		<annotation cp="🧏🏾‍♂">kiziwi | mwanamume | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">mwanamume kiziwi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧏🏿‍♂">kiziwi | mwanamume | ngozi nyeusi</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">mwanamume kiziwi: ngozi nyeusi</annotation>
+		<annotation cp="🧏🏻‍♀">kiziwi | mwanamke | ngozi nyeupe</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">mwanamke kiziwi: ngozi nyeupe</annotation>
+		<annotation cp="🧏🏼‍♀">kiziwi | mwanamke | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">mwanamke kiziwi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧏🏽‍♀">kiziwi | mwanamke | ngozi ya kahawia</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">mwanamke kiziwi: ngozi ya kahawia</annotation>
+		<annotation cp="🧏🏾‍♀">kiziwi | mwanamke | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">mwanamke kiziwi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧏🏿‍♀">kiziwi | mwanamke | ngozi nyeusi</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">mwanamke kiziwi: ngozi nyeusi</annotation>
 		<annotation cp="🙇🏻">inama | ishara | msamaha | mtu aliyeinama | ngozi nyeupe | samahani</annotation>
 		<annotation cp="🙇🏻" type="tts">mtu aliyeinama: ngozi nyeupe</annotation>
 		<annotation cp="🙇🏼">inama | ishara | msamaha | mtu aliyeinama | ngozi nyeupe kiasi | samahani</annotation>
@@ -1159,6 +976,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">mwanamke anayeashiria kutojali: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🤷🏿‍♀">kutikisa bega | kutojali | mwanamke anayeashiria kutojali | ngozi nyeusi | sijali</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">mwanamke anayeashiria kutojali: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍⚕">daktari | huduma ya afya | muuguzi | ngozi nyeupe | tabibu</annotation>
+		<annotation cp="🧑🏻‍⚕" type="tts">mhudumu wa afya: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍⚕">daktari | huduma ya afya | muuguzi | ngozi nyeupe kiasi | tabibu</annotation>
+		<annotation cp="🧑🏼‍⚕" type="tts">mhudumu wa afya: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍⚕">daktari | huduma ya afya | muuguzi | ngozi ya kahawia | tabibu</annotation>
+		<annotation cp="🧑🏽‍⚕" type="tts">mhudumu wa afya: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍⚕">daktari | huduma ya afya | muuguzi | ngozi nyeusi kiasi | tabibu</annotation>
+		<annotation cp="🧑🏾‍⚕" type="tts">mhudumu wa afya: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍⚕">daktari | huduma ya afya | muuguzi | ngozi nyeusi | tabibu</annotation>
+		<annotation cp="🧑🏿‍⚕" type="tts">mhudumu wa afya: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍⚕">daktari | mganga | mhudumu wa afya wa kiume | muuguzi | ngozi nyeupe | tabibu</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">mhudumu wa afya wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍⚕">daktari | mganga | mhudumu wa afya wa kiume | muuguzi | ngozi nyeupe kiasi | tabibu</annotation>
@@ -1179,6 +1006,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">mhudumu wa afya wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍⚕">daktari | mganga | mhudumu wa afya wa kike | muuguzi | ngozi nyeusi | tabibu</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">mhudumu wa afya wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🎓">mahafali | mwanafunzi | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">mwanafunzi: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🎓">mahafali | mwanafunzi | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">mwanafunzi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🎓">mahafali | mwanafunzi | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">mwanafunzi: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🎓">mahafali | mwanafunzi | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">mwanafunzi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🎓">mahafali | mwanafunzi | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">mwanafunzi: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🎓">fuzu | hitumu | kofia | mahafali | mwanafunzi na kofia ya kufuzu | ngozi nyeupe</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">mwanafunzi na kofia ya kufuzu: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🎓">fuzu | hitumu | kofia | mahafali | mwanafunzi na kofia ya kufuzu | ngozi nyeupe kiasi</annotation>
@@ -1199,6 +1036,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎓" type="tts">mwanafunzi wa kike na kofia ya kufuzu: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🎓">fuzu | hitumu | kofia | mahafali | mwanafunzi wa kike na kofia ya kufuzu | ngozi nyeusi</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">mwanafunzi wa kike na kofia ya kufuzu: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🏫">mkufunzi | mwalimu | ngozi nyeupe | profesa</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">mwalimu: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🏫">mkufunzi | mwalimu | ngozi nyeupe kiasi | profesa</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">mwalimu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🏫">mkufunzi | mwalimu | ngozi ya kahawia | profesa</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">mwalimu: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🏫">mkufunzi | mwalimu | ngozi nyeusi kiasi | profesa</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">mwalimu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🏫">mkufunzi | mwalimu | ngozi nyeusi | profesa</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">mwalimu: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🏫">darasa | mwalimu | mwalimu na ubao | ngozi nyeupe | shule</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">mwalimu na ubao: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🏫">darasa | mwalimu | mwalimu na ubao | ngozi nyeupe kiasi | shule</annotation>
@@ -1219,6 +1066,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏫" type="tts">mwalimu wa kike na ubao: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🏫">darasa | mwalimu | mwalimu wa kike na ubao | ngozi nyeusi | shule</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">mwalimu wa kike na ubao: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍⚖">haki | hakimu | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍⚖" type="tts">hakimu: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍⚖">haki | hakimu | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍⚖" type="tts">hakimu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍⚖">haki | hakimu | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍⚖" type="tts">hakimu: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍⚖">haki | hakimu | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍⚖" type="tts">hakimu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍⚖">haki | hakimu | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍⚖" type="tts">hakimu: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍⚖">hakimu | jaji | jaji wa kiume | ngozi nyeupe</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">jaji wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍⚖">hakimu | jaji | jaji wa kiume | ngozi nyeupe kiasi</annotation>
@@ -1239,6 +1096,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚖" type="tts">jaji wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍⚖">haki | hakimu | jaji | jaji wa kike | ngozi nyeusi</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">jaji wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🌾">mkulima | mkulima wa mifugo | mkulima wa mimea | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🌾" type="tts">mkulima: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🌾">mkulima | mkulima wa mifugo | mkulima wa mimea | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🌾" type="tts">mkulima: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🌾">mkulima | mkulima wa mifugo | mkulima wa mimea | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🌾" type="tts">mkulima: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🌾">mkulima | mkulima wa mifugo | mkulima wa mimea | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🌾" type="tts">mkulima: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🌾">mkulima | mkulima wa mifugo | mkulima wa mimea | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🌾" type="tts">mkulima: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🌾">kofia | mchele | mkulima | mkulima wa kiume | mpunga | ngozi nyeupe</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">mkulima wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🌾">kofia | mchele | mkulima | mkulima wa kiume | mpunga | ngozi nyeupe kiasi</annotation>
@@ -1259,6 +1126,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🌾" type="tts">mkulima wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🌾">kofia | mchele | mkulima | mkulima wa kike | mpunga | ngozi nyeusi</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">mkulima wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🍳">mpishi | mpishi mkuu | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🍳" type="tts">mpishi: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🍳">mpishi | mpishi mkuu | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🍳" type="tts">mpishi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🍳">mpishi | mpishi mkuu | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🍳" type="tts">mpishi: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🍳">mpishi | mpishi mkuu | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🍳" type="tts">mpishi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🍳">mpishi | mpishi mkuu | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🍳" type="tts">mpishi: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🍳">kikaango | mpishi | mpishi wa kiume | ngozi nyeupe | sufuria</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">mpishi wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🍳">kikaango | mpishi | mpishi wa kiume | ngozi nyeupe kiasi | sufuria</annotation>
@@ -1279,6 +1156,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">mpishi wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🍳">kikaango | mpishi | mpishi wa kike | mwanamke | ngozi nyeusi | sufuria</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">mpishi wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🔧">fundi bomba | fundi umeme | makanika | mfanyabiashara | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🔧" type="tts">makanika: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🔧">fundi bomba | fundi umeme | makanika | mfanyabiashara | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🔧" type="tts">makanika: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🔧">fundi bomba | fundi umeme | makanika | mfanyabiashara | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🔧" type="tts">makanika: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🔧">fundi bomba | fundi umeme | makanika | mfanyabiashara | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🔧" type="tts">makanika: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🔧">fundi bomba | fundi umeme | makanika | mfanyabiashara | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🔧" type="tts">makanika: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🔧">fundi gari | fundi mitambo wa kiume | mekanika | mwanamume | ngozi nyeupe | spana</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">fundi mitambo wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🔧">fundi gari | fundi mitambo wa kiume | mekanika | mwanamume | ngozi nyeupe kiasi | spana</annotation>
@@ -1299,6 +1186,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">fundi mitambo wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🔧">fundi bomba | fundi mitambo wa kike | mekanika | mwanamke | ngozi nyeusi | spana</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">fundi mitambo wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🏭">kiwanda | kusanyiko | mfanyakazi | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🏭" type="tts">mfanyakazi wa kiwanda: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🏭">kiwanda | kusanyiko | mfanyakazi | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🏭" type="tts">mfanyakazi wa kiwanda: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🏭">kiwanda | kusanyiko | mfanyakazi | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🏭" type="tts">mfanyakazi wa kiwanda: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🏭">kiwanda | kusanyiko | mfanyakazi | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🏭" type="tts">mfanyakazi wa kiwanda: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🏭">kiwanda | kusanyiko | mfanyakazi | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🏭" type="tts">mfanyakazi wa kiwanda: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🏭">fundi | jua kali | kuchomelea | mfanyakazi | mwanamume na gesi ya kuchoma | ngozi nyeupe</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">mwanamume na gesi ya kuchoma: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🏭">fundi | jua kali | kuchomelea | mfanyakazi | mwanamume na gesi ya kuchoma | ngozi nyeupe kiasi</annotation>
@@ -1319,6 +1216,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">mwanamke na gesi ya kuchoma: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🏭">fundi | jua kali | kuchomelea | mfanyakazi | mwanamke na gesi ya kuchoma | ngozi nyeusi</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">mwanamke na gesi ya kuchoma: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍💼">biashara | kazi ya ofisi | meneja | msanifu majengo | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍💼" type="tts">mfanyakazi wa ofisi: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍💼">biashara | kazi ya ofisi | meneja | msanifu majengo | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍💼" type="tts">mfanyakazi wa ofisi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍💼">biashara | kazi ya ofisi | meneja | msanifu majengo | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍💼" type="tts">mfanyakazi wa ofisi: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍💼">biashara | kazi ya ofisi | meneja | msanifu majengo | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍💼" type="tts">mfanyakazi wa ofisi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍💼">biashara | kazi ya ofisi | meneja | msanifu majengo | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍💼" type="tts">mfanyakazi wa ofisi: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍💼">mtu | mwanamume aliyevaa nadhifu | ngozi nyeupe | suti | tai</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">mwanamume aliyevaa nadhifu: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍💼">mtu | mwanamume aliyevaa nadhifu | ngozi nyeupe kiasi | suti | tai</annotation>
@@ -1339,6 +1246,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💼" type="tts">mwanamke aliyevaa nadhifu: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍💼">mwanamke | mwanamke aliyevaa nadhifu | ngozi nyeusi | suti | tai</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">mwanamke aliyevaa nadhifu: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🔬">mhandisi | mwanabiolojia | mwanafizikia | mwanakemia | mwanasayansi | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🔬" type="tts">mwanasayansi: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🔬">mhandisi | mwanabiolojia | mwanafizikia | mwanakemia | mwanasayansi | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🔬" type="tts">mwanasayansi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🔬">mhandisi | mwanabiolojia | mwanafizikia | mwanakemia | mwanasayansi | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🔬" type="tts">mwanasayansi: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🔬">mhandisi | mwanabiolojia | mwanafizikia | mwanakemia | mwanasayansi | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🔬" type="tts">mwanasayansi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🔬">mhandisi | mwanabiolojia | mwanafizikia | mwanakemia | mwanasayansi | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🔬" type="tts">mwanasayansi: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🔬">hadubini | miwani | mwanasayansi | mwanasayansi wa kiume | ngozi nyeupe</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">mwanasayansi wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🔬">hadubini | miwani | mwanasayansi | mwanasayansi wa kiume | ngozi nyeupe kiasi</annotation>
@@ -1359,6 +1276,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔬" type="tts">mwanasayansi wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🔬">hadubini | miwani | mwanasayansi | mwanasayansi wa kike | ngozi nyeusi</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">mwanasayansi wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍💻">msanidi programu | mvumbuzi | mwanateknolojia | ngozi nyeupe | tarakilishi | tehama</annotation>
+		<annotation cp="🧑🏻‍💻" type="tts">mwanateknolojia: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍💻">msanidi programu | mvumbuzi | mwanateknolojia | ngozi nyeupe kiasi | tarakilishi | tehama</annotation>
+		<annotation cp="🧑🏼‍💻" type="tts">mwanateknolojia: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍💻">msanidi programu | mvumbuzi | mwanateknolojia | ngozi ya kahawia | tarakilishi | tehama</annotation>
+		<annotation cp="🧑🏽‍💻" type="tts">mwanateknolojia: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍💻">msanidi programu | mvumbuzi | mwanateknolojia | ngozi nyeusi kiasi | tarakilishi | tehama</annotation>
+		<annotation cp="🧑🏾‍💻" type="tts">mwanateknolojia: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍💻">msanidi programu | mvumbuzi | mwanateknolojia | ngozi nyeusi | tarakilishi | tehama</annotation>
+		<annotation cp="🧑🏿‍💻" type="tts">mwanateknolojia: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍💻">kompyuta ndogo | mwanateknolojia wa kiume | ngozi nyeupe | tarakilishi | tehama</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">mwanateknolojia wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍💻">kompyuta ndogo | mwanateknolojia wa kiume | ngozi nyeupe kiasi | tarakilishi | tehama</annotation>
@@ -1379,6 +1306,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">mwanateknolojia wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍💻">kompyuta ndogo | mwanateknolojia wa kike | ngozi nyeusi | tarakilishi | tehama</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">mwanateknolojia wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🎤">mtu mashuhuri | mwanaburudani | mwigizaji | mwimbaji | mziki wa rock | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🎤" type="tts">mwimbaji: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🎤">mtu mashuhuri | mwanaburudani | mwigizaji | mwimbaji | mziki wa rock | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🎤" type="tts">mwimbaji: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🎤">mtu mashuhuri | mwanaburudani | mwigizaji | mwimbaji | mziki wa rock | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🎤" type="tts">mwimbaji: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🎤">mtu mashuhuri | mwanaburudani | mwigizaji | mwimbaji | mziki wa rock | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🎤" type="tts">mwimbaji: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🎤">mtu mashuhuri | mwanaburudani | mwigizaji | mwimbaji | mziki wa rock | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🎤" type="tts">mwimbaji: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🎤">maikrofoni | msanii | mwanamume | mwimbaji | mwimbaji wa kiume | ngozi nyeupe</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">mwimbaji wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🎤">maikrofoni | msanii | mwanamume | mwimbaji | mwimbaji wa kiume | ngozi nyeupe kiasi</annotation>
@@ -1399,26 +1336,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🎤" type="tts">mwimbaji wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🎤">maikrofoni | msanii | mwanamke | mwimbaji | mwimbaji wa kike | ngozi nyeusi</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">mwimbaji wa kike: ngozi nyeusi</annotation>
-		<annotation cp="👨🏻‍🎨">mchoraji | mchoraji wa kiume | mwanamume na kibao cha kuchanganyia rangi | ngozi nyeupe | paleti | rangi | sanaa</annotation>
+		<annotation cp="🧑🏻‍🎨">mchoraji | ngozi nyeupe | rangi</annotation>
+		<annotation cp="🧑🏻‍🎨" type="tts">mchoraji: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🎨">mchoraji | ngozi nyeupe kiasi | rangi</annotation>
+		<annotation cp="🧑🏼‍🎨" type="tts">mchoraji: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🎨">mchoraji | ngozi ya kahawia | rangi</annotation>
+		<annotation cp="🧑🏽‍🎨" type="tts">mchoraji: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🎨">mchoraji | ngozi nyeusi kiasi | rangi</annotation>
+		<annotation cp="🧑🏾‍🎨" type="tts">mchoraji: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🎨">mchoraji | ngozi nyeusi | rangi</annotation>
+		<annotation cp="🧑🏿‍🎨" type="tts">mchoraji: ngozi nyeusi</annotation>
+		<annotation cp="👨🏻‍🎨">mchoraji | mwanamume | ngozi nyeupe | rangi</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">mchoraji wa kiume: ngozi nyeupe</annotation>
-		<annotation cp="👨🏼‍🎨">mchoraji | mchoraji wa kiume | mwanamume na kibao cha kuchanganyia rangi | ngozi nyeupe kiasi | paleti | rangi | sanaa</annotation>
+		<annotation cp="👨🏼‍🎨">mchoraji | mwanamume | ngozi nyeupe kiasi | rangi</annotation>
 		<annotation cp="👨🏼‍🎨" type="tts">mchoraji wa kiume: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👨🏽‍🎨">mchoraji | mchoraji wa kiume | mwanamume na kibao cha kuchanganyia rangi | ngozi ya kahawia | paleti | rangi | sanaa</annotation>
+		<annotation cp="👨🏽‍🎨">mchoraji | mwanamume | ngozi ya kahawia | rangi</annotation>
 		<annotation cp="👨🏽‍🎨" type="tts">mchoraji wa kiume: ngozi ya kahawia</annotation>
-		<annotation cp="👨🏾‍🎨">mchoraji | mchoraji wa kiume | mwanamume na kibao cha kuchanganyia rangi | ngozi nyeusi kiasi | paleti | rangi | sanaa</annotation>
+		<annotation cp="👨🏾‍🎨">mchoraji | mwanamume | ngozi nyeusi kiasi | rangi</annotation>
 		<annotation cp="👨🏾‍🎨" type="tts">mchoraji wa kiume: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👨🏿‍🎨">mchoraji | mchoraji wa kiume | mwanamume na kibao cha kuchanganyia rangi | ngozi nyeusi | paleti | rangi | sanaa</annotation>
+		<annotation cp="👨🏿‍🎨">mchoraji | mwanamume | ngozi nyeusi | rangi</annotation>
 		<annotation cp="👨🏿‍🎨" type="tts">mchoraji wa kiume: ngozi nyeusi</annotation>
-		<annotation cp="👩🏻‍🎨">mchoraji | mchoraji wa kike | mwanamke na kibao cha kuchanganyia rangi | ngozi nyeupe | paleti | rangi | sanaa</annotation>
+		<annotation cp="👩🏻‍🎨">mchoraji | mwanamke | ngozi nyeupe | rangi</annotation>
 		<annotation cp="👩🏻‍🎨" type="tts">mchoraji wa kike: ngozi nyeupe</annotation>
-		<annotation cp="👩🏼‍🎨">mchoraji | mchoraji wa kike | mwanamke na kibao cha kuchanganyia rangi | ngozi nyeupe kiasi | paleti | rangi | sanaa</annotation>
+		<annotation cp="👩🏼‍🎨">mchoraji | mwanamke | ngozi nyeupe kiasi | rangi</annotation>
 		<annotation cp="👩🏼‍🎨" type="tts">mchoraji wa kike: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👩🏽‍🎨">mchoraji | mchoraji wa kike | mwanamke na kibao cha kuchanganyia rangi | ngozi ya kahawia | paleti | rangi | sanaa</annotation>
+		<annotation cp="👩🏽‍🎨">mchoraji | mwanamke | ngozi ya kahawia | rangi</annotation>
 		<annotation cp="👩🏽‍🎨" type="tts">mchoraji wa kike: ngozi ya kahawia</annotation>
-		<annotation cp="👩🏾‍🎨">mchoraji | mchoraji wa kike | mwanamke na kibao cha kuchanganyia rangi | ngozi nyeusi kiasi | paleti | rangi | sanaa</annotation>
+		<annotation cp="👩🏾‍🎨">mchoraji | mwanamke | ngozi nyeusi kiasi | rangi</annotation>
 		<annotation cp="👩🏾‍🎨" type="tts">mchoraji wa kike: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👩🏿‍🎨">mchoraji | mchoraji wa kike | mwanamke na kibao cha kuchanganyia rangi | ngozi nyeusi | paleti | rangi | sanaa</annotation>
+		<annotation cp="👩🏿‍🎨">mchoraji | mwanamke | ngozi nyeusi | rangi</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">mchoraji wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍✈">ndege | ngozi nyeupe | rubani</annotation>
+		<annotation cp="🧑🏻‍✈" type="tts">rubani: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍✈">ndege | ngozi nyeupe kiasi | rubani</annotation>
+		<annotation cp="🧑🏼‍✈" type="tts">rubani: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍✈">ndege | ngozi ya kahawia | rubani</annotation>
+		<annotation cp="🧑🏽‍✈" type="tts">rubani: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍✈">ndege | ngozi nyeusi kiasi | rubani</annotation>
+		<annotation cp="🧑🏾‍✈" type="tts">rubani: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍✈">ndege | ngozi nyeusi | rubani</annotation>
+		<annotation cp="🧑🏿‍✈" type="tts">rubani: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍✈">mwanamume | ndege | ngozi nyeupe | rubani | rubani wa kiume</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">rubani wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍✈">mwanamume | ndege | ngozi nyeupe kiasi | rubani | rubani wa kiume</annotation>
@@ -1439,6 +1396,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍✈" type="tts">rubani wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍✈">mwanamke | ndege | ngozi nyeusi | rubani | rubani wa kike</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">rubani wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🚀">mwanaanga | ngozi nyeupe | roketi</annotation>
+		<annotation cp="🧑🏻‍🚀" type="tts">mwanaanga: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🚀">mwanaanga | ngozi nyeupe kiasi | roketi</annotation>
+		<annotation cp="🧑🏼‍🚀" type="tts">mwanaanga: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🚀">mwanaanga | ngozi ya kahawia | roketi</annotation>
+		<annotation cp="🧑🏽‍🚀" type="tts">mwanaanga: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🚀">mwanaanga | ngozi nyeusi kiasi | roketi</annotation>
+		<annotation cp="🧑🏾‍🚀" type="tts">mwanaanga: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🚀">mwanaanga | ngozi nyeusi | roketi</annotation>
+		<annotation cp="🧑🏿‍🚀" type="tts">mwanaanga: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🚀">anga | mwanaanga wa kiume | mwanamume | ngozi nyeupe | roketi</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">mwanaanga wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🚀">anga | mwanaanga wa kiume | mwanamume | ngozi nyeupe kiasi | roketi</annotation>
@@ -1459,6 +1426,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">mwanaanga wa kike: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👩🏿‍🚀">anga | mwanaanga wa kike | mwanamke | ngozi nyeusi | roketi</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">mwanaanga wa kike: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🚒">gari la zimamoto | mzimamoto | ngozi nyeupe</annotation>
+		<annotation cp="🧑🏻‍🚒" type="tts">mzimamoto: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🚒">gari la zimamoto | mzimamoto | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏼‍🚒" type="tts">mzimamoto: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🚒">gari la zimamoto | mzimamoto | ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏽‍🚒" type="tts">mzimamoto: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🚒">gari la zimamoto | mzimamoto | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏾‍🚒" type="tts">mzimamoto: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🚒">gari la zimamoto | mzimamoto | ngozi nyeusi</annotation>
+		<annotation cp="🧑🏿‍🚒" type="tts">mzimamoto: ngozi nyeusi</annotation>
 		<annotation cp="👨🏻‍🚒">lori | moto | mwanamume | mzimamoto wa kiume | ngozi nyeupe | zimamoto</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">mzimamoto wa kiume: ngozi nyeupe</annotation>
 		<annotation cp="👨🏼‍🚒">lori | moto | mwanamume | mzimamoto wa kiume | ngozi nyeupe kiasi | zimamoto</annotation>
@@ -1919,35 +1896,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧜🏾‍♀" type="tts">nguva: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🧜🏿‍♀">ngozi nyeusi | nguva | nguva kike</annotation>
 		<annotation cp="🧜🏿‍♀" type="tts">nguva: ngozi nyeusi</annotation>
-		<annotation cp="🧝🏻">kibwengo | ngozi nyeupe | uchawi</annotation>
+		<annotation cp="🧝🏻">kibwengo | mazingaombwe | ngozi nyeupe</annotation>
 		<annotation cp="🧝🏻" type="tts">kibwengo: ngozi nyeupe</annotation>
-		<annotation cp="🧝🏼">kibwengo | ngozi nyeupe kiasi | uchawi</annotation>
+		<annotation cp="🧝🏼">kibwengo | mazingaombwe | ngozi nyeupe kiasi</annotation>
 		<annotation cp="🧝🏼" type="tts">kibwengo: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧝🏽">kibwengo | ngozi ya kahawia | uchawi</annotation>
+		<annotation cp="🧝🏽">kibwengo | mazingaombwe | ngozi ya kahawia</annotation>
 		<annotation cp="🧝🏽" type="tts">kibwengo: ngozi ya kahawia</annotation>
-		<annotation cp="🧝🏾">kibwengo | ngozi nyeusi kiasi | uchawi</annotation>
+		<annotation cp="🧝🏾">kibwengo | mazingaombwe | ngozi nyeusi kiasi</annotation>
 		<annotation cp="🧝🏾" type="tts">kibwengo: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧝🏿">kibwengo | ngozi nyeusi | uchawi</annotation>
+		<annotation cp="🧝🏿">kibwengo | mazingaombwe | ngozi nyeusi</annotation>
 		<annotation cp="🧝🏿" type="tts">kibwengo: ngozi nyeusi</annotation>
-		<annotation cp="🧝🏻‍♂">kibwengo dume | kiinimacho | ngozi nyeupe</annotation>
+		<annotation cp="🧝🏻‍♂">kibwengo dume | mazingaombwe | ngozi nyeupe</annotation>
 		<annotation cp="🧝🏻‍♂" type="tts">kibwengo dume: ngozi nyeupe</annotation>
-		<annotation cp="🧝🏼‍♂">kibwengo dume | kiinimacho | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧝🏼‍♂">kibwengo dume | mazingaombwe | ngozi nyeupe kiasi</annotation>
 		<annotation cp="🧝🏼‍♂" type="tts">kibwengo dume: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧝🏽‍♂">kibwengo dume | kiinimacho | ngozi ya kahawia</annotation>
+		<annotation cp="🧝🏽‍♂">kibwengo dume | mazingaombwe | ngozi ya kahawia</annotation>
 		<annotation cp="🧝🏽‍♂" type="tts">kibwengo dume: ngozi ya kahawia</annotation>
-		<annotation cp="🧝🏾‍♂">kibwengo dume | kiinimacho | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧝🏾‍♂">kibwengo dume | mazingaombwe | ngozi nyeusi kiasi</annotation>
 		<annotation cp="🧝🏾‍♂" type="tts">kibwengo dume: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧝🏿‍♂">kibwengo dume | kiinimacho | ngozi nyeusi</annotation>
+		<annotation cp="🧝🏿‍♂">kibwengo dume | mazingaombwe | ngozi nyeusi</annotation>
 		<annotation cp="🧝🏿‍♂" type="tts">kibwengo dume: ngozi nyeusi</annotation>
-		<annotation cp="🧝🏻‍♀">kibwengo cha kike | ngozi nyeupe | uganga</annotation>
+		<annotation cp="🧝🏻‍♀">kibwengo wa kike | mazingaombwe | ngozi nyeupe</annotation>
 		<annotation cp="🧝🏻‍♀" type="tts">kibwengo cha kike: ngozi nyeupe</annotation>
-		<annotation cp="🧝🏼‍♀">kibwengo cha kike | ngozi nyeupe kiasi | uganga</annotation>
+		<annotation cp="🧝🏼‍♀">kibwengo wa kike | mazingaombwe | ngozi nyeupe kiasi</annotation>
 		<annotation cp="🧝🏼‍♀" type="tts">kibwengo cha kike: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🧝🏽‍♀">kibwengo cha kike | ngozi ya kahawia | uganga</annotation>
+		<annotation cp="🧝🏽‍♀">kibwengo wa kike | mazingaombwe | ngozi ya kahawia</annotation>
 		<annotation cp="🧝🏽‍♀" type="tts">kibwengo cha kike: ngozi ya kahawia</annotation>
-		<annotation cp="🧝🏾‍♀">kibwengo cha kike | ngozi nyeusi kiasi | uganga</annotation>
+		<annotation cp="🧝🏾‍♀">kibwengo wa kike | mazingaombwe | ngozi nyeusi kiasi</annotation>
 		<annotation cp="🧝🏾‍♀" type="tts">kibwengo cha kike: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🧝🏿‍♀">kibwengo cha kike | ngozi nyeusi | uganga</annotation>
+		<annotation cp="🧝🏿‍♀">kibwengo wa kike | mazingaombwe | ngozi nyeusi</annotation>
 		<annotation cp="🧝🏿‍♀" type="tts">kibwengo cha kike: ngozi nyeusi</annotation>
 		<annotation cp="💆🏻">kukanda | kukanda uso | mahali panapotoa huduma zinazohusiana na mitindo | ngozi nyeupe</annotation>
 		<annotation cp="💆🏻" type="tts">kukanda uso: ngozi nyeupe</annotation>
@@ -2039,6 +2016,156 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">mwanamke anayetembea: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🚶🏿‍♀">kuondoka | kutembea | mwanamke | mwanamke anayetembea | ngozi nyeusi</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">mwanamke anayetembea: ngozi nyeusi</annotation>
+		<annotation cp="🧍🏻">kusimama | mtu aliyesimama | ngozi nyeupe | simama</annotation>
+		<annotation cp="🧍🏻" type="tts">mtu aliyesimama: ngozi nyeupe</annotation>
+		<annotation cp="🧍🏼">kusimama | mtu aliyesimama | ngozi nyeupe kiasi | simama</annotation>
+		<annotation cp="🧍🏼" type="tts">mtu aliyesimama: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧍🏽">kusimama | mtu aliyesimama | ngozi ya kahawia | simama</annotation>
+		<annotation cp="🧍🏽" type="tts">mtu aliyesimama: ngozi ya kahawia</annotation>
+		<annotation cp="🧍🏾">kusimama | mtu aliyesimama | ngozi nyeusi kiasi | simama</annotation>
+		<annotation cp="🧍🏾" type="tts">mtu aliyesimama: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧍🏿">kusimama | mtu aliyesimama | ngozi nyeusi | simama</annotation>
+		<annotation cp="🧍🏿" type="tts">mtu aliyesimama: ngozi nyeusi</annotation>
+		<annotation cp="🧍🏻‍♂">kusimama | mwanamume | ngozi nyeupe</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">mwanamume aliyesimama: ngozi nyeupe</annotation>
+		<annotation cp="🧍🏼‍♂">kusimama | mwanamume | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">mwanamume aliyesimama: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧍🏽‍♂">kusimama | mwanamume | ngozi ya kahawia</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">mwanamume aliyesimama: ngozi ya kahawia</annotation>
+		<annotation cp="🧍🏾‍♂">kusimama | mwanamume | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">mwanamume aliyesimama: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧍🏿‍♂">kusimama | mwanamume | ngozi nyeusi</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">mwanamume aliyesimama: ngozi nyeusi</annotation>
+		<annotation cp="🧍🏻‍♀">kusimama | mwanamke | ngozi nyeupe</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">mwanamke aliyesimama: ngozi nyeupe</annotation>
+		<annotation cp="🧍🏼‍♀">kusimama | mwanamke | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">mwanamke aliyesimama: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧍🏽‍♀">kusimama | mwanamke | ngozi ya kahawia</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">mwanamke aliyesimama: ngozi ya kahawia</annotation>
+		<annotation cp="🧍🏾‍♀">kusimama | mwanamke | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">mwanamke aliyesimama: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧍🏿‍♀">kusimama | mwanamke | ngozi nyeusi</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">mwanamke aliyesimama: ngozi nyeusi</annotation>
+		<annotation cp="🧎🏻">kupiga magoti | mtu aliyepiga magoti | ngozi nyeupe | piga magoti</annotation>
+		<annotation cp="🧎🏻" type="tts">mtu aliyepiga magoti: ngozi nyeupe</annotation>
+		<annotation cp="🧎🏼">kupiga magoti | mtu aliyepiga magoti | ngozi nyeupe kiasi | piga magoti</annotation>
+		<annotation cp="🧎🏼" type="tts">mtu aliyepiga magoti: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧎🏽">kupiga magoti | mtu aliyepiga magoti | ngozi ya kahawia | piga magoti</annotation>
+		<annotation cp="🧎🏽" type="tts">mtu aliyepiga magoti: ngozi ya kahawia</annotation>
+		<annotation cp="🧎🏾">kupiga magoti | mtu aliyepiga magoti | ngozi nyeusi kiasi | piga magoti</annotation>
+		<annotation cp="🧎🏾" type="tts">mtu aliyepiga magoti: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧎🏿">kupiga magoti | mtu aliyepiga magoti | ngozi nyeusi | piga magoti</annotation>
+		<annotation cp="🧎🏿" type="tts">mtu aliyepiga magoti: ngozi nyeusi</annotation>
+		<annotation cp="🧎🏻‍♂">kupiga magoti | mwanamume | ngozi nyeupe</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeupe</annotation>
+		<annotation cp="🧎🏼‍♂">kupiga magoti | mwanamume | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧎🏽‍♂">kupiga magoti | mwanamume | ngozi ya kahawia</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">mwanamume aliyepiga magoti: ngozi ya kahawia</annotation>
+		<annotation cp="🧎🏾‍♂">kupiga magoti | mwanamume | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧎🏿‍♂">kupiga magoti | mwanamume | ngozi nyeusi</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">mwanamume aliyepiga magoti: ngozi nyeusi</annotation>
+		<annotation cp="🧎🏻‍♀">kupiga magoti | mwanamke | ngozi nyeupe</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeupe</annotation>
+		<annotation cp="🧎🏼‍♀">kupiga magoti | mwanamke | ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧎🏽‍♀">kupiga magoti | mwanamke | ngozi ya kahawia</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">mwanamke aliyepiga magoti: ngozi ya kahawia</annotation>
+		<annotation cp="🧎🏾‍♀">kupiga magoti | mwanamke | ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧎🏿‍♀">kupiga magoti | mwanamke | ngozi nyeusi</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">mwanamke aliyepiga magoti: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🦯">kipofu | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="🧑🏻‍🦯" type="tts">mtu anayetembea kwa mkongojo: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🦯">kipofu | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="🧑🏼‍🦯" type="tts">mtu anayetembea kwa mkongojo: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🦯">kipofu | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="🧑🏽‍🦯" type="tts">mtu anayetembea kwa mkongojo: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🦯">kipofu | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="🧑🏾‍🦯" type="tts">mtu anayetembea kwa mkongojo: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🦯">kipofu | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="🧑🏿‍🦯" type="tts">mtu anayetembea kwa mkongojo: ngozi nyeusi</annotation>
+		<annotation cp="👨🏻‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="👨🏻‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeupe</annotation>
+		<annotation cp="👨🏼‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="👨🏼‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👨🏽‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="👨🏽‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi ya kahawia</annotation>
+		<annotation cp="👨🏾‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="👨🏾‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👨🏿‍🦯">kipofu | mwanamume | mwanamume anayetembea kwa mkongojo | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="👨🏿‍🦯" type="tts">mwanamume anayetembea kwa mkongojo: ngozi nyeusi</annotation>
+		<annotation cp="👩🏻‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="👩🏻‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeupe</annotation>
+		<annotation cp="👩🏼‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="👩🏼‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏽‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="👩🏽‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi ya kahawia</annotation>
+		<annotation cp="👩🏾‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="👩🏾‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏿‍🦯">kipofu | mwanamke | mwanamke anayetembea kwa mkongojo | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="👩🏿‍🦯" type="tts">mwanamke anayetembea kwa mkongojo: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🦼">kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="🧑🏻‍🦼" type="tts">mtu aliyeketia kiti cha magurudumu: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🦼">kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="🧑🏼‍🦼" type="tts">mtu aliyeketia kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🦼">kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="🧑🏽‍🦼" type="tts">mtu aliyeketia kiti cha magurudumu: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🦼">kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="🧑🏾‍🦼" type="tts">mtu aliyeketia kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🦼">kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="🧑🏿‍🦼" type="tts">mtu aliyeketia kiti cha magurudumu: ngozi nyeusi</annotation>
+		<annotation cp="👨🏻‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="👨🏻‍🦼" type="tts">Mtu aliyeketi kwenye kiti cha magurudumu: ngozi nyeupe</annotation>
+		<annotation cp="👨🏼‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="👨🏼‍🦼" type="tts">Mtu aliyeketi kwenye kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👨🏽‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="👨🏽‍🦼" type="tts">Mtu aliyeketi kwenye kiti cha magurudumu: ngozi ya kahawia</annotation>
+		<annotation cp="👨🏾‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="👨🏾‍🦼" type="tts">Mtu aliyeketi kwenye kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👨🏿‍🦼">kiti cha magurudumu | mwanamume | mwanamume aliyeketia kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="👨🏿‍🦼" type="tts">Mtu aliyeketi kwenye kiti cha magurudumu: ngozi nyeusi</annotation>
+		<annotation cp="👩🏻‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="👩🏻‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeupe</annotation>
+		<annotation cp="👩🏼‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="👩🏼‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏽‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="👩🏽‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi ya kahawia</annotation>
+		<annotation cp="👩🏾‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="👩🏾‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏿‍🦼">kiti cha magurudumu | mwanamke | mwanamke aliyeketia kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="👩🏿‍🦼" type="tts">mwanamke aliyeketia kiti cha magurudumu: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🦽">kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="🧑🏻‍🦽" type="tts">mtu anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🦽">kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="🧑🏼‍🦽" type="tts">mtu anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🦽">kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="🧑🏽‍🦽" type="tts">mtu anayejiendesha kwa kiti cha magurudumu: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🦽">kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="🧑🏾‍🦽" type="tts">mtu anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🦽">kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="🧑🏿‍🦽" type="tts">mtu anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi</annotation>
+		<annotation cp="👨🏻‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="👨🏻‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe</annotation>
+		<annotation cp="👨🏼‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="👨🏼‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👨🏽‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="👨🏽‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi ya kahawia</annotation>
+		<annotation cp="👨🏾‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="👨🏾‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👨🏿‍🦽">kiti cha magurudumu | mwanamume | mwanamume anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="👨🏿‍🦽" type="tts">mwanamume anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi</annotation>
+		<annotation cp="👩🏻‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe | ufikivu</annotation>
+		<annotation cp="👩🏻‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe</annotation>
+		<annotation cp="👩🏼‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeupe kiasi | ufikivu</annotation>
+		<annotation cp="👩🏼‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏽‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi ya kahawia | ufikivu</annotation>
+		<annotation cp="👩🏽‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi ya kahawia</annotation>
+		<annotation cp="👩🏾‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi kiasi | ufikivu</annotation>
+		<annotation cp="👩🏾‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏿‍🦽">kiti cha magurudumu | mwanamke | mwanamke anayejiendesha kwa kiti cha magurudumu | ngozi nyeusi | ufikivu</annotation>
+		<annotation cp="👩🏿‍🦽" type="tts">mwanamke anayejiendesha kwa kiti cha magurudumu: ngozi nyeusi</annotation>
 		<annotation cp="🏃🏻">kukimbia | mbio za masafa marefu | mkimbiaji | ngozi nyeupe</annotation>
 		<annotation cp="🏃🏻" type="tts">mkimbiaji: ngozi nyeupe</annotation>
 		<annotation cp="🏃🏼">kukimbia | mbio za masafa marefu | mkimbiaji | ngozi nyeupe kiasi</annotation>
@@ -2400,15 +2527,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚵🏿">baisikeli | mlima | mtu anayeendesha baisikeli mlimani | mwendesha baisikeli | ngozi nyeusi</annotation>
 		<annotation cp="🚵🏿" type="tts">mtu anayeendesha baisikeli mlimani: ngozi nyeusi</annotation>
 		<annotation cp="🚵🏻‍♂">baiskeli | mlima | mwanamume anayeendesha baiskeli mlimani | mwendesha baiskeli | ngozi nyeupe</annotation>
-		<annotation cp="🚵🏻‍♂" type="tts">mwanamume anayeendesha baiskeli mlimani: ngozi nyeupe</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">Mtu anayeendesha baiskeli mlimani: ngozi nyeupe</annotation>
 		<annotation cp="🚵🏼‍♂">baiskeli | mlima | mwanamume anayeendesha baiskeli mlimani | mwendesha baiskeli | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🚵🏼‍♂" type="tts">mwanamume anayeendesha baiskeli mlimani: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">Mtu anayeendesha baiskeli mlimani: ngozi nyeupe kiasi</annotation>
 		<annotation cp="🚵🏽‍♂">baiskeli | mlima | mwanamume anayeendesha baiskeli mlimani | mwendesha baiskeli | ngozi ya kahawia</annotation>
-		<annotation cp="🚵🏽‍♂" type="tts">mwanamume anayeendesha baiskeli mlimani: ngozi ya kahawia</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">Mtu anayeendesha baiskeli mlimani: ngozi ya kahawia</annotation>
 		<annotation cp="🚵🏾‍♂">baiskeli | mlima | mwanamume anayeendesha baiskeli mlimani | mwendesha baiskeli | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🚵🏾‍♂" type="tts">mwanamume anayeendesha baiskeli mlimani: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">Mtu anayeendesha baiskeli mlimani: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🚵🏿‍♂">baiskeli | mlima | mwanamume anayeendesha baiskeli mlimani | mwendesha baiskeli | ngozi nyeusi</annotation>
-		<annotation cp="🚵🏿‍♂" type="tts">mwanamume anayeendesha baiskeli mlimani: ngozi nyeusi</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">Mtu anayeendesha baiskeli mlimani: ngozi nyeusi</annotation>
 		<annotation cp="🚵🏻‍♀">baiskeli | mlima | mwanamke anayeendesha baiskeli mlimani | mwendesha baiskeli | ngozi nyeupe</annotation>
 		<annotation cp="🚵🏻‍♀" type="tts">mwanamke anayeendesha baiskeli mlimani: ngozi nyeupe</annotation>
 		<annotation cp="🚵🏼‍♀">baiskeli | mlima | mwanamke anayeendesha baiskeli mlimani | mwendesha baiskeli | ngozi nyeupe kiasi</annotation>
@@ -2470,15 +2597,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤽🏿‍♂">bwawa la kuogelea | mpira wa mikono | mwanamume anayecheza mpira wa mikono majini | ngozi nyeusi | spoti</annotation>
 		<annotation cp="🤽🏿‍♂" type="tts">mwanamume anayecheza mpira wa mikono majini: ngozi nyeusi</annotation>
 		<annotation cp="🤽🏻‍♀">bwawa la kuogelea | mpira wa mikono | mwanamke anayecheza mpira wa mikono majini | ngozi nyeupe | spoti</annotation>
-		<annotation cp="🤽🏻‍♀" type="tts">mwanamke anayecheza mpira wa mikono majini: ngozi nyeupe</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">Mtu anayecheza mpira wa mikono majini: ngozi nyeupe</annotation>
 		<annotation cp="🤽🏼‍♀">bwawa la kuogelea | mpira wa mikono | mwanamke anayecheza mpira wa mikono majini | ngozi nyeupe kiasi | spoti</annotation>
-		<annotation cp="🤽🏼‍♀" type="tts">mwanamke anayecheza mpira wa mikono majini: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">Mtu anayecheza mpira wa mikono majini: ngozi nyeupe kiasi</annotation>
 		<annotation cp="🤽🏽‍♀">bwawa la kuogelea | mpira wa mikono | mwanamke anayecheza mpira wa mikono majini | ngozi ya kahawia | spoti</annotation>
-		<annotation cp="🤽🏽‍♀" type="tts">mwanamke anayecheza mpira wa mikono majini: ngozi ya kahawia</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">Mtu anayecheza mpira wa mikono majini: ngozi ya kahawia</annotation>
 		<annotation cp="🤽🏾‍♀">bwawa la kuogelea | mpira wa mikono | mwanamke anayecheza mpira wa mikono majini | ngozi nyeusi kiasi | spoti</annotation>
-		<annotation cp="🤽🏾‍♀" type="tts">mwanamke anayecheza mpira wa mikono majini: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">Mtu anayecheza mpira wa mikono majini: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🤽🏿‍♀">bwawa la kuogelea | mpira wa mikono | mwanamke anayecheza mpira wa mikono majini | ngozi nyeusi | spoti</annotation>
-		<annotation cp="🤽🏿‍♀" type="tts">mwanamke anayecheza mpira wa mikono majini: ngozi nyeusi</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">Mtu anayecheza mpira wa mikono majini: ngozi nyeusi</annotation>
 		<annotation cp="🤾🏻">mpira | mpira wa mikono | ngozi nyeupe | spoti</annotation>
 		<annotation cp="🤾🏻" type="tts">mpira wa mikono: ngozi nyeupe</annotation>
 		<annotation cp="🤾🏼">mpira | mpira wa mikono | ngozi nyeupe kiasi | spoti</annotation>
@@ -2520,25 +2647,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤹🏿">ngozi nyeusi | shughuli nyingi</annotation>
 		<annotation cp="🤹🏿" type="tts">shughuli nyingi: ngozi nyeusi</annotation>
 		<annotation cp="🤹🏻‍♂">kiinimacho | mwanamume anayechezea mipira mingi mkononi | ngozi nyeupe | shughuli nyingi</annotation>
-		<annotation cp="🤹🏻‍♂" type="tts">mwanamume anayechezea mipira mingi mkononi: ngozi nyeupe</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">Mtu anayecheza mipira mingi mkononi: ngozi nyeupe</annotation>
 		<annotation cp="🤹🏼‍♂">kiinimacho | mwanamume anayechezea mipira mingi mkononi | ngozi nyeupe kiasi | shughuli nyingi</annotation>
-		<annotation cp="🤹🏼‍♂" type="tts">mwanamume anayechezea mipira mingi mkononi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">Mtu anayecheza mipira mingi mkononi: ngozi nyeupe kiasi</annotation>
 		<annotation cp="🤹🏽‍♂">kiinimacho | mwanamume anayechezea mipira mingi mkononi | ngozi ya kahawia | shughuli nyingi</annotation>
-		<annotation cp="🤹🏽‍♂" type="tts">mwanamume anayechezea mipira mingi mkononi: ngozi ya kahawia</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">Mtu anayecheza mipira mingi mkononi: ngozi ya kahawia</annotation>
 		<annotation cp="🤹🏾‍♂">kiinimacho | mwanamume anayechezea mipira mingi mkononi | ngozi nyeusi kiasi | shughuli nyingi</annotation>
-		<annotation cp="🤹🏾‍♂" type="tts">mwanamume anayechezea mipira mingi mkononi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">Mtu anayecheza mipira mingi mkononi: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🤹🏿‍♂">kiinimacho | mwanamume anayechezea mipira mingi mkononi | ngozi nyeusi | shughuli nyingi</annotation>
-		<annotation cp="🤹🏿‍♂" type="tts">mwanamume anayechezea mipira mingi mkononi: ngozi nyeusi</annotation>
-		<annotation cp="🤹🏻‍♀">kiinimacho | mwanamke anayechezea mipira mingi mikononi | ngozi nyeupe | shughuli nyingi</annotation>
-		<annotation cp="🤹🏻‍♀" type="tts">mwanamke anayechezea mipira mingi mikononi: ngozi nyeupe</annotation>
-		<annotation cp="🤹🏼‍♀">kiinimacho | mwanamke anayechezea mipira mingi mikononi | ngozi nyeupe kiasi | shughuli nyingi</annotation>
-		<annotation cp="🤹🏼‍♀" type="tts">mwanamke anayechezea mipira mingi mikononi: ngozi nyeupe kiasi</annotation>
-		<annotation cp="🤹🏽‍♀">kiinimacho | mwanamke anayechezea mipira mingi mikononi | ngozi ya kahawia | shughuli nyingi</annotation>
-		<annotation cp="🤹🏽‍♀" type="tts">mwanamke anayechezea mipira mingi mikononi: ngozi ya kahawia</annotation>
-		<annotation cp="🤹🏾‍♀">kiinimacho | mwanamke anayechezea mipira mingi mikononi | ngozi nyeusi kiasi | shughuli nyingi</annotation>
-		<annotation cp="🤹🏾‍♀" type="tts">mwanamke anayechezea mipira mingi mikononi: ngozi nyeusi kiasi</annotation>
-		<annotation cp="🤹🏿‍♀">kiinimacho | mwanamke anayechezea mipira mingi mikononi | ngozi nyeusi | shughuli nyingi</annotation>
-		<annotation cp="🤹🏿‍♀" type="tts">mwanamke anayechezea mipira mingi mikononi: ngozi nyeusi</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">Mtu anayecheza mipira mingi mkononi: ngozi nyeusi</annotation>
+		<annotation cp="🤹🏻‍♀">mwanamke | mwanamke anayechezea mipira mingi mikononi | ngozi nyeupe | shughuli nyingi</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">Mtu anayecheza mipira mingi mikononi: ngozi nyeupe</annotation>
+		<annotation cp="🤹🏼‍♀">mwanamke | mwanamke anayechezea mipira mingi mikononi | ngozi nyeupe kiasi | shughuli nyingi</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">Mtu anayecheza mipira mingi mikononi: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🤹🏽‍♀">mwanamke | mwanamke anayechezea mipira mingi mikononi | ngozi ya kahawia | shughuli nyingi</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">Mtu anayecheza mipira mingi mikononi: ngozi ya kahawia</annotation>
+		<annotation cp="🤹🏾‍♀">mwanamke | mwanamke anayechezea mipira mingi mikononi | ngozi nyeusi kiasi | shughuli nyingi</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">Mtu anayecheza mipira mingi mikononi: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🤹🏿‍♀">mwanamke | mwanamke anayechezea mipira mingi mikononi | ngozi nyeusi | shughuli nyingi</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">Mtu anayecheza mipira mingi mikononi: ngozi nyeusi</annotation>
 		<annotation cp="🧘🏻">mtu anayetaamali | ngozi nyeupe | tafakuri | yoga</annotation>
 		<annotation cp="🧘🏻" type="tts">mtu anayetaamali: ngozi nyeupe</annotation>
 		<annotation cp="🧘🏼">mtu anayetaamali | ngozi nyeupe kiasi | tafakuri | yoga</annotation>
@@ -2589,36 +2716,146 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">mtu aliyelala kitandani: ngozi nyeusi kiasi</annotation>
 		<annotation cp="🛌🏿">hoteli | lala | mtu aliyelala kitandani | ngozi nyeusi</annotation>
 		<annotation cp="🛌🏿" type="tts">mtu aliyelala kitandani: ngozi nyeusi</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi nyeupe kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">kushikana mikono | mkono | mtu | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">watu walioshikana mikono: ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">kushikana mikono | mkono | mtu | ngozi nyeusi kiasi | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">kushikana mikono | mkono | mtu | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">watu walioshikana mikono: ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">kushikana mikono | mkono | mtu | ngozi nyeupe | ngozi nyeusi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">kushikana mikono | mkono | mtu | ngozi nyeupe kiasi | ngozi nyeusi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">kushikana mikono | mkono | mtu | ngozi nyeusi | ngozi ya kahawia | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">kushikana mikono | mkono | mtu | ngozi nyeusi | ngozi nyeusi kiasi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">watu walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">kushikana mikono | mkono | mtu | ngozi nyeusi | nyuso mbili | shika | watu walioshikana mikono</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">watu walioshikana mikono: ngozi nyeusi</annotation>
+		<annotation cp="👭🏻">kushikana mikono | mkono | ngozi nyeupe | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👭🏻" type="tts">wanawake walioshikana mikono: ngozi nyeupe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi nyeupe kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
+		<annotation cp="👭🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👭🏼" type="tts">wanawake walioshikana mikono: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">wanawake walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👭🏽">kushikana mikono | mkono | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👭🏽" type="tts">wanawake walioshikana mikono: ngozi ya kahawia</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">kushikana mikono | mkono | ngozi nyeusi kiasi | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
+		<annotation cp="👭🏾">kushikana mikono | mkono | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👭🏾" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">kushikana mikono | mkono | ngozi nyeupe | ngozi nyeusi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | ngozi nyeusi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">kushikana mikono | mkono | ngozi nyeusi | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">kushikana mikono | mkono | ngozi nyeusi | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">wanawake walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
+		<annotation cp="👭🏿">kushikana mikono | mkono | ngozi nyeusi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
+		<annotation cp="👭🏿" type="tts">wanawake walioshikana mikono: ngozi nyeusi</annotation>
 		<annotation cp="👫🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | shikilia</annotation>
 		<annotation cp="👫🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeupe kiasi | shikilia</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi ya kahawia</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi kiasi | shikilia</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi | shikilia</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe na ngozi nyeusi</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeupe kiasi | shikilia</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
 		<annotation cp="👫🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | shikilia</annotation>
 		<annotation cp="👫🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi ya kahawia</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi kiasi | shikilia</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi | shikilia</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeusi</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
 		<annotation cp="👫🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi ya kahawia | shikilia</annotation>
 		<annotation cp="👫🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi kiasi | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi ya kahawia na ngozi nyeusi</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi kiasi | shikilia</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi kiasi | shikilia</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi kiasi | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
 		<annotation cp="👫🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi kiasi | shikilia</annotation>
 		<annotation cp="👫🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi nyeusi kiasi | shikilia</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeusi</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe | ngozi nyeusi | shikilia</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi | shikilia</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi ya kahawia | shikilia</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | ngozi nyeusi kiasi | shikilia</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
 		<annotation cp="👫🏿">kushikana mikono | mkono | mume na mke | mwanamke | mwanamke na mwanamume walioshikana mikono | mwanamume | ngozi nyeusi | shikilia</annotation>
 		<annotation cp="👫🏿" type="tts">mwanamke na mwanamume walioshikana mikono: ngozi nyeusi</annotation>
 		<annotation cp="👬🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
 		<annotation cp="👬🏻" type="tts">wanaume walioshikana mikono: ngozi nyeupe</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi nyeupe kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi nyeupe kiasi na ngozi nyeupe</annotation>
 		<annotation cp="👬🏼">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
 		<annotation cp="👬🏼" type="tts">wanaume walioshikana mikono: ngozi nyeupe kiasi</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe kiasi | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">wanaume walioshikana mikono: ngozi ya kahawia na ngozi nyeupe kiasi</annotation>
 		<annotation cp="👬🏽">Gemini | kushikana mikono | mapacha | mwanamume | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
 		<annotation cp="👬🏽" type="tts">wanaume walioshikana mikono: ngozi ya kahawia</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi nyeusi kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">wanaume walioshikana mikono: ngozi nyeusi kiasi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi kiasi | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">wanaume walioshikana mikono: ngozi nyeusi kiasi na ngozi ya kahawia</annotation>
 		<annotation cp="👬🏾">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
 		<annotation cp="👬🏾" type="tts">wanaume walioshikana mikono: ngozi nyeusi kiasi</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe | ngozi nyeusi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi nyeupe</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeupe kiasi | ngozi nyeusi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi nyeupe kiasi</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi | ngozi ya kahawia | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi ya kahawia</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi | ngozi nyeusi kiasi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">wanaume walioshikana mikono: ngozi nyeusi na ngozi nyeusi kiasi</annotation>
 		<annotation cp="👬🏿">Gemini | kushikana mikono | mapacha | mwanamume | ngozi nyeusi | wanaume | wanaume walioshikana mikono | wanaume wawili | zodiaki</annotation>
 		<annotation cp="👬🏿" type="tts">wanaume walioshikana mikono: ngozi nyeusi</annotation>
-		<annotation cp="👭🏻">kushikana mikono | mkono | ngozi nyeupe | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👭🏻" type="tts">wanawake walioshikana mikono: ngozi nyeupe</annotation>
-		<annotation cp="👭🏼">kushikana mikono | mkono | ngozi nyeupe kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👭🏼" type="tts">wanawake walioshikana mikono: ngozi nyeupe kiasi</annotation>
-		<annotation cp="👭🏽">kushikana mikono | mkono | ngozi ya kahawia | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👭🏽" type="tts">wanawake walioshikana mikono: ngozi ya kahawia</annotation>
-		<annotation cp="👭🏾">kushikana mikono | mkono | ngozi nyeusi kiasi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👭🏾" type="tts">wanawake walioshikana mikono: ngozi nyeusi kiasi</annotation>
-		<annotation cp="👭🏿">kushikana mikono | mkono | ngozi nyeusi | wanawake | wanawake walioshikana mikono | wanawake wawili</annotation>
-		<annotation cp="👭🏿" type="tts">wanawake walioshikana mikono: ngozi nyeusi</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">busu | mapenzi | mume na mke | mwanamke | mwanamume</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">busu: mwanamke na mwanamume</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">busu | mapenzi | mume na mke | mwanamume</annotation>
@@ -2986,7 +3223,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇭">bendera</annotation>
 		<annotation cp="🇲🇭" type="tts">bendera: Visiwa vya Marshall</annotation>
 		<annotation cp="🇲🇰">bendera</annotation>
-		<annotation cp="🇲🇰" type="tts">bendera: Macedonia</annotation>
+		<annotation cp="🇲🇰" type="tts">bendera: Masedonia ya Kaskazini</annotation>
 		<annotation cp="🇲🇱">bendera</annotation>
 		<annotation cp="🇲🇱" type="tts">bendera: Mali</annotation>
 		<annotation cp="🇲🇲">bendera</annotation>
@@ -2994,7 +3231,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇳">bendera</annotation>
 		<annotation cp="🇲🇳" type="tts">bendera: Mongolia</annotation>
 		<annotation cp="🇲🇴">bendera</annotation>
-		<annotation cp="🇲🇴" type="tts">bendera: Macau SAR China</annotation>
+		<annotation cp="🇲🇴" type="tts">bendera: Makau SAR China</annotation>
 		<annotation cp="🇲🇵">bendera</annotation>
 		<annotation cp="🇲🇵" type="tts">bendera: Visiwa vya Mariana vya Kaskazini</annotation>
 		<annotation cp="🇲🇶">bendera</annotation>

@@ -4,15 +4,74 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="ia"/>
 	</identity>
 	<annotations>
+		<annotation cp="💪🏻">biceps | biceps contrahite | flexion | forte | musculo | tono de pelle clar</annotation>
+		<annotation cp="💪🏻" type="tts">biceps flectite: tono de pelle clar</annotation>
+		<annotation cp="💪🏼">biceps | biceps contrahite | flexion | forte | musculo | tono de pelle medio clar</annotation>
+		<annotation cp="💪🏼" type="tts">biceps flectite: tono de pelle medio clar</annotation>
+		<annotation cp="💪🏽">biceps | biceps contrahite | flexion | forte | musculo | tono de pelle medie</annotation>
+		<annotation cp="💪🏽" type="tts">biceps flectite: tono de pelle medie</annotation>
+		<annotation cp="💪🏾">biceps | biceps contrahite | flexion | forte | musculo | tono de pelle medio-obscur</annotation>
+		<annotation cp="💪🏾" type="tts">biceps flectite: tono de pelle medio-obscur</annotation>
+		<annotation cp="💪🏿">biceps | biceps contrahite | flexion | forte | musculo | tono de pelle obscur</annotation>
+		<annotation cp="💪🏿" type="tts">biceps flectite: tono de pelle obscur</annotation>
+		<annotation cp="🦵🏻">colpo de pede | gamba | membro | tono de pelle clar</annotation>
+		<annotation cp="🦵🏻" type="tts">gamba: tono de pelle clar</annotation>
+		<annotation cp="🦵🏼">colpo de pede | gamba | membro | tono de pelle medio clar</annotation>
+		<annotation cp="🦵🏼" type="tts">gamba: tono de pelle medio clar</annotation>
+		<annotation cp="🦵🏽">colpo de pede | gamba | membro | tono de pelle medie</annotation>
+		<annotation cp="🦵🏽" type="tts">gamba: tono de pelle medie</annotation>
+		<annotation cp="🦵🏾">colpo de pede | gamba | membro | tono de pelle medio-obscur</annotation>
+		<annotation cp="🦵🏾" type="tts">gamba: tono de pelle medio-obscur</annotation>
+		<annotation cp="🦵🏿">colpo de pede | gamba | membro | tono de pelle obscur</annotation>
+		<annotation cp="🦵🏿" type="tts">gamba: tono de pelle obscur</annotation>
+		<annotation cp="🦶🏻">colpo de pede | pede | tono de pelle clar</annotation>
+		<annotation cp="🦶🏻" type="tts">pede: tono de pelle clar</annotation>
+		<annotation cp="🦶🏼">colpo de pede | pede | tono de pelle medio clar</annotation>
+		<annotation cp="🦶🏼" type="tts">pede: tono de pelle medio clar</annotation>
+		<annotation cp="🦶🏽">colpo de pede | pede | tono de pelle medie</annotation>
+		<annotation cp="🦶🏽" type="tts">pede: tono de pelle medie</annotation>
+		<annotation cp="🦶🏾">colpo de pede | pede | tono de pelle medio-obscur</annotation>
+		<annotation cp="🦶🏾" type="tts">pede: tono de pelle medio-obscur</annotation>
+		<annotation cp="🦶🏿">colpo de pede | pede | tono de pelle obscur</annotation>
+		<annotation cp="🦶🏿" type="tts">pede: tono de pelle obscur</annotation>
+		<annotation cp="👂🏻">audientia | audita | audition | aural | aure | auricular | corpore | tono de pelle clar</annotation>
+		<annotation cp="👂🏻" type="tts">aure: tono de pelle clar</annotation>
+		<annotation cp="👂🏼">audientia | audita | audition | aural | aure | auricular | corpore | tono de pelle medio clar</annotation>
+		<annotation cp="👂🏼" type="tts">aure: tono de pelle medio clar</annotation>
+		<annotation cp="👂🏽">audientia | audita | audition | aural | aure | auricular | corpore | tono de pelle medie</annotation>
+		<annotation cp="👂🏽" type="tts">aure: tono de pelle medie</annotation>
+		<annotation cp="👂🏾">audientia | audita | audition | aural | aure | auricular | corpore | tono de pelle medio-obscur</annotation>
+		<annotation cp="👂🏾" type="tts">aure: tono de pelle medio-obscur</annotation>
+		<annotation cp="👂🏿">audientia | audita | audition | aural | aure | auricular | corpore | tono de pelle obscur</annotation>
+		<annotation cp="👂🏿" type="tts">aure: tono de pelle obscur</annotation>
+		<annotation cp="🦻🏻">accessibilitate | aure con audiophono | debile de audito | dur de aure | tono de pelle clar</annotation>
+		<annotation cp="🦻🏻" type="tts">aure con audiophono: tono de pelle clar</annotation>
+		<annotation cp="🦻🏼">accessibilitate | aure con audiophono | debile de audito | dur de aure | tono de pelle medio clar</annotation>
+		<annotation cp="🦻🏼" type="tts">aure con audiophono: tono de pelle medio clar</annotation>
+		<annotation cp="🦻🏽">accessibilitate | aure con audiophono | debile de audito | dur de aure | tono de pelle medie</annotation>
+		<annotation cp="🦻🏽" type="tts">aure con audiophono: tono de pelle medie</annotation>
+		<annotation cp="🦻🏾">accessibilitate | aure con audiophono | debile de audito | dur de aure | tono de pelle medio-obscur</annotation>
+		<annotation cp="🦻🏾" type="tts">aure con audiophono: tono de pelle medio-obscur</annotation>
+		<annotation cp="🦻🏿">accessibilitate | aure con audiophono | debile de audito | dur de aure | tono de pelle obscur</annotation>
+		<annotation cp="🦻🏿" type="tts">aure con audiophono: tono de pelle obscur</annotation>
+		<annotation cp="👃🏻">corpore | naso | tono de pelle clar</annotation>
+		<annotation cp="👃🏻" type="tts">naso: tono de pelle clar</annotation>
+		<annotation cp="👃🏼">corpore | naso | tono de pelle medio clar</annotation>
+		<annotation cp="👃🏼" type="tts">naso: tono de pelle medio clar</annotation>
+		<annotation cp="👃🏽">corpore | naso | tono de pelle medie</annotation>
+		<annotation cp="👃🏽" type="tts">naso: tono de pelle medie</annotation>
+		<annotation cp="👃🏾">corpore | naso | tono de pelle medio-obscur</annotation>
+		<annotation cp="👃🏾" type="tts">naso: tono de pelle medio-obscur</annotation>
+		<annotation cp="👃🏿">corpore | naso | tono de pelle obscur</annotation>
+		<annotation cp="👃🏿" type="tts">naso: tono de pelle obscur</annotation>
 		<annotation cp="#⃣">clave</annotation>
 		<annotation cp="#⃣" type="tts">clave: #</annotation>
 		<annotation cp="*⃣">clave</annotation>

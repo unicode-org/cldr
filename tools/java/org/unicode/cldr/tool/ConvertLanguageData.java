@@ -225,7 +225,7 @@ public class ConvertLanguageData {
             Log.close();
             oldFile.close();
 
-            Log.setLog(CLDRPaths.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
+            Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
             getLanguageScriptSpreadsheet(Log.getLog());
             Log.close();
         } catch (Exception e) {
@@ -256,7 +256,7 @@ public class ConvertLanguageData {
     }
 
     private static void getLanguageScriptSpreadsheet(PrintWriter out) {
-        out.println("#Lcode LanguageName  Status  Scode ScriptName  References");
+        out.println("#Lcode\tLanguageName\tStatus\tScode\tScriptName\tReferences");
         Pair<String, String> languageScript = new Pair<String, String>("", "");
         for (String language : language_status_scripts.keySet()) {
             Relation<BasicLanguageData.Type, String> status_scripts = language_status_scripts.get(language);

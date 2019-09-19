@@ -1253,6 +1253,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             // if there are primary scripts, they must include script (if not
             // empty)
             Set<String> primaryScripts = Collections.emptySet();
+            Set<String> secondaryScripts = Collections.emptySet();
             Map<Type, BasicLanguageData> basicData = SUPPLEMENTAL
                 .getBasicLanguageDataMap(base);
             if (basicData != null) {
@@ -1261,13 +1262,18 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 if (s != null) {
                     primaryScripts = s.getScripts();
                 }
+                s = basicData.get(BasicLanguageData.Type.secondary);
+                if (s != null) {
+                    secondaryScripts = s.getScripts();
+                }
             }
 
             // do some consistency tests; if there is a script, it must be in
-            // primaryScripts
-            if (!script.isEmpty() && !primaryScripts.contains(script)) {
+            // primaryScripts or secondaryScripts
+            if (!script.isEmpty() && !primaryScripts.contains(script) && !secondaryScripts.contains(script)) {
                 errln(base + ": Script found in territory data (" + script
-                    + ") is not in primary scripts :\t" + primaryScripts);
+                    + ") is not in primary scripts :\t" + primaryScripts
+                    + " and not in secondary scripts :\t" + secondaryScripts);
             }
 
             // if there are multiple primary scripts, they will be in

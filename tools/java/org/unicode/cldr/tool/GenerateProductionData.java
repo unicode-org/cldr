@@ -273,6 +273,8 @@ public class GenerateProductionData {
             Set<String> toRetain = new TreeSet<>();
             Output<String> pathWhereFound = new Output<>();
             Output<String> localeWhereFound = new Output<>();
+            
+            boolean isArabicSpecial = localeId.equals("ar") || localeId.startsWith("ar_");
 
             String debugPath = null; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
             String debugLocale = "af";
@@ -298,6 +300,11 @@ public class GenerateProductionData {
                         toRemove.add(xpath);
                         continue;
                     }
+                }
+                
+                // special case for Arabic defaultNumberingSystem
+                if (isArabicSpecial && xpath.contains("/defaultNumberingSystem")) {
+                    toRetain.add(xpath);
                 }
 
                 // remove items that are the same as their bailey values. This also catches Inheritance Marker

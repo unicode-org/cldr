@@ -318,9 +318,15 @@ public class DisplayAndInputProcessor {
         if (internalException != null) {
             internalException[0] = null;
         }
+        // skip processing for inheritance marker
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             return value; // Reference: https://unicode.org/cldr/trac/ticket/11261
         }
+        // for root annotations
+        if (CLDRLocale.ROOT.equals(locale) && path.contains("/annotations")) {
+            return value; // Reference: https://unicode.org/cldr/trac/ticket/11261
+        }
+
         try {
             // Normalise Malayalam characters.
             boolean isUnicodeSet = hasUnicodeSetValue(path);

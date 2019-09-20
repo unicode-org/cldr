@@ -1,9 +1,6 @@
 package org.unicode.cldr.api;
 
-import com.google.common.collect.Lists;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XPathParts;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,8 +10,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.collect.Lists;
 
 /**
  * Serializes a CLDRFile as a sequence of {@link CldrValue CldrValues}.

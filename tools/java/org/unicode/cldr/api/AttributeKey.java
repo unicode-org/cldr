@@ -1,17 +1,5 @@
 package org.unicode.cldr.api;
 
-import com.google.common.base.Ascii;
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableTable;
-import org.unicode.cldr.util.DtdData.Attribute;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
@@ -19,6 +7,19 @@ import static com.google.common.collect.ImmutableTable.toImmutableTable;
 import static java.util.function.Function.identity;
 import static org.unicode.cldr.util.DtdData.AttributeStatus.distinguished;
 import static org.unicode.cldr.util.DtdData.AttributeStatus.value;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+import org.unicode.cldr.util.DtdData.Attribute;
+
+import com.google.common.base.Ascii;
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableTable;
 
 /**
  * Immutable identifier which holds both an attribute's name and the path element it is associated

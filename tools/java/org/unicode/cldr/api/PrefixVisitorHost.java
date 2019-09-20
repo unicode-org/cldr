@@ -1,18 +1,18 @@
 package org.unicode.cldr.api;
 
-import org.unicode.cldr.api.CldrData.PathOrder;
-import org.unicode.cldr.api.CldrData.PrefixVisitor;
-import org.unicode.cldr.api.CldrData.PrefixVisitor.Context;
-import org.unicode.cldr.api.CldrData.ValueVisitor;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
+import static org.unicode.cldr.api.CldrData.PathOrder.NESTED_GROUPING;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.base.Preconditions.checkState;
-import static org.unicode.cldr.api.CldrData.PathOrder.NESTED_GROUPING;
+import org.unicode.cldr.api.CldrData.PathOrder;
+import org.unicode.cldr.api.CldrData.PrefixVisitor;
+import org.unicode.cldr.api.CldrData.PrefixVisitor.Context;
+import org.unicode.cldr.api.CldrData.ValueVisitor;
 
 /**
  * Utility class for reconstructing nested path visitation from a sequence of path/value pairs. See

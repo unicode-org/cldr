@@ -280,25 +280,25 @@ public class CLDRModify {
         + "\tc\t ignore comments in <merge_dir> files"
 //        + XPathParts.NEWLINE
 //        + "-r\t to minimize the results (removing items that inherit from parent)."
-        + XPathParts.NEWLINE
-        + "-v\t incorporate vetting information, and generate diff files."
-        + XPathParts.NEWLINE
-        + "-z\t generate resolved files"
-        + XPathParts.NEWLINE
-        + "-p\t set path for -fx"
-        + XPathParts.NEWLINE
-        + "-u\t set user for -fb"
-        + XPathParts.NEWLINE
-        + "-a\t pattern: recurse over all subdirectories that match pattern"
-        + XPathParts.NEWLINE
-        + "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
-        + XPathParts.NEWLINE
-        + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
-        + XPathParts.NEWLINE
-        + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
-        + XPathParts.NEWLINE
-        + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
-        + XPathParts.NEWLINE;
++ XPathParts.NEWLINE
++ "-v\t incorporate vetting information, and generate diff files."
++ XPathParts.NEWLINE
++ "-z\t generate resolved files"
++ XPathParts.NEWLINE
++ "-p\t set path for -fx"
++ XPathParts.NEWLINE
++ "-u\t set user for -fb"
++ XPathParts.NEWLINE
++ "-a\t pattern: recurse over all subdirectories that match pattern"
++ XPathParts.NEWLINE
++ "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
++ XPathParts.NEWLINE
++ "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
++ XPathParts.NEWLINE
++ "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
++ XPathParts.NEWLINE
++ "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
++ XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 = "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."
         + XPathParts.NEWLINE;
@@ -1805,9 +1805,26 @@ public class CLDRModify {
                 if (type == null) {
                     return; // no TTS, so keywords, skip
                 }
-                String name = cldrFileToFilter.getStringValue(xpath);
+                
                 XPathParts keywordParts = parts.cloneAsThawed().removeAttribute(2, "type");
                 String keywordPath = keywordParts.toString();
+                String rawKeywordValue = cldrFileToFilter.getStringValue(keywordPath);
+
+                // skip if keywords AND name are inherited
+                if (rawKeywordValue == null || rawKeywordValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                    String rawName = cldrFileToFilter.getStringValue(xpath);
+                    if (rawName == null || rawName.equals(CldrUtility.INHERITANCE_MARKER)) {
+                        return;
+                    }
+                }
+                
+                // skip if the name is not above root
+                String nameSourceLocale = resolved.getSourceLocaleID(xpath, null);
+                if ("root".equals(nameSourceLocale) || XMLSource.CODE_FALLBACK_ID.equals(nameSourceLocale)) {
+                    return;
+                }
+                
+                String name = resolved.getStringValue(xpath);
                 String keywordValue = resolved.getStringValue(keywordPath);
                 String sourceLocaleId = resolved.getSourceLocaleID(keywordPath, null);
                 sorted.clear();

@@ -236,6 +236,7 @@ public class GenerateMaximalLocales {
         { "und_SS", "en_Latn_SS" },
         { "und_TK", "tkl_Latn_TK" },
         { "und_UN", "en_Latn_UN" },
+        { "und_005", "pt_Latn_BR" },
         { "vo", "vo_Latn_001" },
         { "vo_Latn", "vo_Latn_001" },
         { "yi", "yi_Hebr_001" },

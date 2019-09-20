@@ -82,7 +82,7 @@ final class PrefixVisitorHost {
             return new VisitorState(prefix, () -> doneHandler.accept(visitor)) {
                 @Override
                 public void visit(CldrValue value) {
-                    AbstractDataSource.safeVisit(value, visitor);
+                    visitor.visit(value);
                 }
             };
         }

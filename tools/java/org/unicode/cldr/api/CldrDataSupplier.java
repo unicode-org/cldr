@@ -131,7 +131,7 @@ public abstract class CldrDataSupplier {
 
     /**
      * Returns an in-memory supplier for the specified {@link CldrValue}s. This is useful for
-     * testing or handling special case data. The default (arbitrary) path or is determined by
+     * testing or handling special case data. The default (arbitrary) path order is determined by
      * the order of values passed to this method.
      *
      * @param values the values (and associated paths) to include in the returned data.

@@ -42,7 +42,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Multiset;
 
 /** Serializes a set of LDML XML files as a sequence of {@code CldrValue}s. */
-final class XmlDataSource extends AbstractDataSource {
+final class XmlDataSource implements CldrData {
     private static final Splitter TRIMMING_LINE_SPLITTER =
         Splitter.on('\n').trimResults().omitEmptyStrings();
     private static final CharMatcher NOT_WHITESPACE = whitespace().negate();
@@ -125,7 +125,7 @@ final class XmlDataSource extends AbstractDataSource {
 
     @Override
     public void accept(PathOrder order, ValueVisitor visitor) {
-        getPathValueMap(order).values().forEach(v -> safeVisit(v, visitor));
+        getPathValueMap(order).values().forEach(v -> visitor.visit(v));
     }
 
     @Override
@@ -275,7 +275,7 @@ final class XmlDataSource extends AbstractDataSource {
                             value = value + Strings.repeat(" ", (elementText.length() - 1) - n);
                         }
                     }
-                    safeVisit(CldrValue.create(value, valueAttributes, path), visitor);
+                    visitor.visit(CldrValue.create(value, valueAttributes, path));
                 }
             } else {
                 checkState(whitespace().matchesAllOf(elementText),

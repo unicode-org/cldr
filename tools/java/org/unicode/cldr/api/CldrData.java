@@ -94,7 +94,7 @@ public interface CldrData {
          * <p>This ordering is more stable than {@link PathOrder#NESTED_GROUPING}, but may still
          * change between different DTD versions.
          */
-        DTD;
+        DTD
     }
 
     /** A visitor for complete "leaf" paths and their associated values. */

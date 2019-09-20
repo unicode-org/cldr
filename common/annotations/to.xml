@@ -399,7 +399,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦶" type="tts">lauʻivaʻe</annotation>
 		<annotation cp="👂">telinga</annotation>
 		<annotation cp="👂" type="tts">telinga</annotation>
-		<annotation cp="🦻">meʻa fakafanongo | telinga</annotation>
+		<annotation cp="🦻">meʻa fakafanongo | telinga | telinga moe meʻa fakafanongo</annotation>
 		<annotation cp="🦻" type="tts">telinga moe meʻa fakafanongo</annotation>
 		<annotation cp="👃">ihu</annotation>
 		<annotation cp="👃" type="tts">ihu</annotation>
@@ -737,23 +737,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎‍♂" type="tts">tangata tūʻulutui</annotation>
 		<annotation cp="🧎‍♀">fefine tūʻulutui</annotation>
 		<annotation cp="🧎‍♀" type="tts">fefine tūʻulutui</annotation>
-		<annotation cp="🧑‍🦯">kui | tokotaha | tokotoko</annotation>
+		<annotation cp="🧑‍🦯">kui | tokotaha | tokotaha moe tokotokokui | tokotoko</annotation>
 		<annotation cp="🧑‍🦯" type="tts">tokotaha moe tokotokokui</annotation>
-		<annotation cp="👨‍🦯">kui | tangata | tokotoko</annotation>
+		<annotation cp="👨‍🦯">kui | tangata | tangata moe tokotokokui | tokotoko</annotation>
 		<annotation cp="👨‍🦯" type="tts">tangata moe tokotokokui</annotation>
-		<annotation cp="👩‍🦯">fefine | kui | tokotoko</annotation>
+		<annotation cp="👩‍🦯">fefine | fefine moe tokotokokui | kui | tokotoko</annotation>
 		<annotation cp="👩‍🦯" type="tts">fefine moe tokotokokui</annotation>
-		<annotation cp="🧑‍🦼">sāliote falemahaki mīsini</annotation>
+		<annotation cp="🧑‍🦼">sāliote falemahaki mīsini | tokotaha ʻihe sāliote falemahaki mīsini</annotation>
 		<annotation cp="🧑‍🦼" type="tts">tokotaha ʻihe sāliote falemahaki mīsini</annotation>
-		<annotation cp="👨‍🦼">falemahaki | mīsini | sāliote | tangata</annotation>
+		<annotation cp="👨‍🦼">falemahaki | mīsini | sāliote | tangata | tangata ʻihe sāliote falemahaki mīsini</annotation>
 		<annotation cp="👨‍🦼" type="tts">tangata ʻihe sāliote falemahaki mīsini</annotation>
-		<annotation cp="👩‍🦼">falemahaki | fefine | mīsini | sāliote</annotation>
+		<annotation cp="👩‍🦼">falemahaki | fefine | fefine ʻihe sāliote falemahaki mīsini | mīsini | sāliote</annotation>
 		<annotation cp="👩‍🦼" type="tts">fefine ʻihe sāliote falemahaki mīsini</annotation>
-		<annotation cp="🧑‍🦽">falemahaki | sāliote</annotation>
+		<annotation cp="🧑‍🦽">falemahaki | sāliote | tokotaha ʻihe sāliote falemahaki</annotation>
 		<annotation cp="🧑‍🦽" type="tts">tokotaha ʻihe sāliote falemahaki</annotation>
-		<annotation cp="👨‍🦽">falemahaki | sāliote | tangata</annotation>
+		<annotation cp="👨‍🦽">falemahaki | sāliote | tangata | tangata ʻihe sāliote falemahaki</annotation>
 		<annotation cp="👨‍🦽" type="tts">tangata ʻihe sāliote falemahaki</annotation>
-		<annotation cp="👩‍🦽">falemahaki | fefine | sāliote</annotation>
+		<annotation cp="👩‍🦽">falemahaki | fefine | fefine ʻihe sāliote falemahaki | sāliote</annotation>
 		<annotation cp="👩‍🦽" type="tts">fefine ʻihe sāliote falemahaki</annotation>
 		<annotation cp="🏃">tokotaha lele</annotation>
 		<annotation cp="🏃" type="tts">tokotaha lele</annotation>
@@ -917,13 +917,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐒" type="tts">ngeli</annotation>
 		<annotation cp="🦍">kolila</annotation>
 		<annotation cp="🦍" type="tts">kolila</annotation>
-		<annotation cp="🦧">ngeli</annotation>
+		<annotation cp="🦧">ngeli | ngeli-nofoʻuta</annotation>
 		<annotation cp="🦧" type="tts">ngeli-nofoʻuta</annotation>
 		<annotation cp="🐶">mataʻi-kulī</annotation>
 		<annotation cp="🐶" type="tts">mataʻi-kulī</annotation>
 		<annotation cp="🐕">kulī</annotation>
 		<annotation cp="🐕" type="tts">kulī</annotation>
-		<annotation cp="🦮">kui | kulī | tokoni</annotation>
+		<annotation cp="🦮">kui | kulī | kulī tokonikui | tokoni</annotation>
 		<annotation cp="🦮" type="tts">kulī tokonikui</annotation>
 		<annotation cp="🐕‍🦺">kulī tokoni</annotation>
 		<annotation cp="🐕‍🦺" type="tts">kulī tokoni</annotation>
@@ -1017,11 +1017,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐨" type="tts">pea-ʻuliʻuli-moe-hinehina</annotation>
 		<annotation cp="🐼">mataʻi-pea-ʻuliʻuli-moe-hinehina</annotation>
 		<annotation cp="🐼" type="tts">mataʻi-pea-ʻuliʻuli-moe-hinehina</annotation>
-		<annotation cp="🦥">fakapikopiko</annotation>
+		<annotation cp="🦥">fakapikopiko | pea-fakapikopiko</annotation>
 		<annotation cp="🦥" type="tts">pea-fakapikopiko</annotation>
-		<annotation cp="🦦">manu | toutai</annotation>
+		<annotation cp="🦦">ʻotē | manu | toutai</annotation>
 		<annotation cp="🦦" type="tts">ʻotē</annotation>
-		<annotation cp="🦨">namukū</annotation>
+		<annotation cp="🦨">manu fainamukū | namukū</annotation>
 		<annotation cp="🦨" type="tts">manu fainamukū</annotation>
 		<annotation cp="🦘">kangikalū</annotation>
 		<annotation cp="🦘" type="tts">kangikalū</annotation>
@@ -1055,7 +1055,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦢" type="tts">patolahi</annotation>
 		<annotation cp="🦉">lulu</annotation>
 		<annotation cp="🦉" type="tts">lulu</annotation>
-		<annotation cp="🦩">manupuna</annotation>
+		<annotation cp="🦩">falamingo | manupuna</annotation>
 		<annotation cp="🦩" type="tts">falamingo</annotation>
 		<annotation cp="🦚">pīkoka</annotation>
 		<annotation cp="🦚" type="tts">pīkoka</annotation>
@@ -1107,7 +1107,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐜" type="tts">lō</annotation>
 		<annotation cp="🐝">hone</annotation>
 		<annotation cp="🐝" type="tts">hone</annotation>
-		<annotation cp="🐞">mongomonga</annotation>
+		<annotation cp="🐞">mongomonga | mongomonga-fineʻeiki</annotation>
 		<annotation cp="🐞" type="tts">mongomonga-fineʻeiki</annotation>
 		<annotation cp="🦗">kālihi</annotation>
 		<annotation cp="🦗" type="tts">kālihi</annotation>
@@ -1331,7 +1331,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦐" type="tts">ʻuosiʻisiʻi</annotation>
 		<annotation cp="🦑">ngūfeke</annotation>
 		<annotation cp="🦑" type="tts">ngūfeke</annotation>
-		<annotation cp="🦪">mataʻitofe</annotation>
+		<annotation cp="🦪">mataʻitofe | tofe</annotation>
 		<annotation cp="🦪" type="tts">tofe</annotation>
 		<annotation cp="🍦">ʻaisikilimi molū</annotation>
 		<annotation cp="🍦" type="tts">ʻaisikilimi molū</annotation>
@@ -1921,7 +1921,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥅" type="tts">kupenga kolo</annotation>
 		<annotation cp="⛳">fuka ʻihe luo</annotation>
 		<annotation cp="⛳" type="tts">fuka ʻihe luo</annotation>
-		<annotation cp="⛸">ʻaisi | sū sikeiti</annotation>
+		<annotation cp="⛸">ʻaisi | sū sikeiti | sū sikeiti ʻaisi</annotation>
 		<annotation cp="⛸" type="tts">sū sikeiti ʻaisi</annotation>
 		<annotation cp="🎣">ʻakau-taumātaʻu</annotation>
 		<annotation cp="🎣" type="tts">ʻakau-taumātaʻu</annotation>
@@ -2133,7 +2133,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📟" type="tts">foni kikī</annotation>
 		<annotation cp="📠">foni tohi</annotation>
 		<annotation cp="📠" type="tts">foni tohi</annotation>
-		<annotation cp="🔋">ʻuhila | maka</annotation>
+		<annotation cp="🔋">ʻuhila | maka | maka fakaʻuhila</annotation>
 		<annotation cp="🔋" type="tts">maka fakaʻuhila</annotation>
 		<annotation cp="🔌">ʻumosi ʻuhila</annotation>
 		<annotation cp="🔌" type="tts">ʻumosi ʻuhila</annotation>
@@ -2801,7 +2801,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🟢" type="tts">fuopotopoto lanumata</annotation>
 		<annotation cp="🔵">fuopotopoto lanupulū</annotation>
 		<annotation cp="🔵" type="tts">fuopotopoto lanupulū</annotation>
-		<annotation cp="🟣">fuopotopoto lanumoli</annotation>
+		<annotation cp="🟣">fuopotopoto lanumoli | fuopotopoto lanuvaioleti</annotation>
 		<annotation cp="🟣" type="tts">fuopotopoto lanuvaioleti</annotation>
 		<annotation cp="🟤">fuopotopoto melomelo</annotation>
 		<annotation cp="🟤" type="tts">fuopotopoto melomelo</annotation>
@@ -2893,9 +2893,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥸" type="tts">mata fakapuli</annotation>
 		<annotation cp="🦣">ʻauhamālie | mamota</annotation>
 		<annotation cp="🦣" type="tts">mamota</annotation>
-		<annotation cp="🦤">ʻauhamālie | manupuna</annotation>
+		<annotation cp="🦤">ʻauhamālie | manupuna | toto</annotation>
 		<annotation cp="🦤" type="tts">toto</annotation>
-		<annotation cp="🦫">ano | kumā | tāpuni</annotation>
+		<annotation cp="🦫">ano | kumā | kumā fai-tāpuni-vai | tāpuni</annotation>
 		<annotation cp="🦫" type="tts">kumā fai-tāpuni-vai</annotation>
 		<annotation cp="🦬">pisoni</annotation>
 		<annotation cp="🦬" type="tts">pisoni</annotation>
@@ -2915,11 +2915,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪆" type="tts">tamapua fakaʻotu</annotation>
 		<annotation cp="🪖">helemeti</annotation>
 		<annotation cp="🪖" type="tts">helemeti</annotation>
-		<annotation cp="🪗">ʻakōtiane</annotation>
+		<annotation cp="🪗">ʻakōtiane | puhaleotoho</annotation>
 		<annotation cp="🪗" type="tts">puhaleotoho</annotation>
 		<annotation cp="🪘">nafa</annotation>
 		<annotation cp="🪘" type="tts">nafa</annotation>
-		<annotation cp="🪙">foʻi paʻanga</annotation>
+		<annotation cp="🪙">foʻi paʻanga | paʻanga maka</annotation>
 		<annotation cp="🪙" type="tts">paʻanga maka</annotation>
 		<annotation cp="🪚" draft="unconfirmed">kili</annotation>
 		<annotation cp="🪚" type="tts">kili</annotation>
@@ -2955,7 +2955,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪰" type="tts">lango</annotation>
 		<annotation cp="🪱">kelemutu</annotation>
 		<annotation cp="🪱" type="tts">kelemutu</annotation>
-		<annotation cp="🪲">mongomonga</annotation>
+		<annotation cp="🪲">mongomonga | mongomonga iiki</annotation>
 		<annotation cp="🪲" type="tts">mongomonga iiki</annotation>
 		<annotation cp="🪳">mongomonga</annotation>
 		<annotation cp="🪳" type="tts">mongomonga</annotation>
@@ -2963,7 +2963,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪴" type="tts">ʻakau ʻihe kulo</annotation>
 		<annotation cp="🪵">ʻakau</annotation>
 		<annotation cp="🪵" type="tts">ʻakau</annotation>
-		<annotation cp="🪶">manupuna</annotation>
+		<annotation cp="🪶">fulufulu | manupuna</annotation>
 		<annotation cp="🪶" type="tts">fulufulu</annotation>
 		<annotation cp="🫀">mafu</annotation>
 		<annotation cp="🫀" type="tts">mafu</annotation>

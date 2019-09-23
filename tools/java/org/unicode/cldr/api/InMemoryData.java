@@ -1,15 +1,15 @@
 package org.unicode.cldr.api;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
+import static com.google.common.base.Preconditions.checkArgument;
+import static java.util.Comparator.comparing;
+import static java.util.Comparator.naturalOrder;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static java.util.Comparator.comparing;
-import static java.util.Comparator.naturalOrder;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 
 /** An in-memory representation of CldrData based on a simple map. */
 final class InMemoryData extends AbstractDataSource implements CldrData {

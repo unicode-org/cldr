@@ -1,11 +1,5 @@
 package org.unicode.cldr.api;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
-import java.util.Map;
-
-import org.unicode.cldr.util.CldrUtility;
-
 /**
  * Base class for any non-trivial implementation of the CldrData interface. The main benefit of
  * using this class is that it implements prefix visitation automatically using {@link

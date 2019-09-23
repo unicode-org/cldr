@@ -1,11 +1,11 @@
 package org.unicode.cldr.api;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.DtdData.Attribute;
-import org.unicode.cldr.util.DtdData.Element;
-import org.unicode.cldr.util.DtdType;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+import static java.util.function.Function.identity;
+import static org.unicode.cldr.util.DtdData.AttributeStatus.distinguished;
+import static org.unicode.cldr.util.DtdData.AttributeStatus.value;
+import static org.unicode.cldr.util.DtdData.Mode.OPTIONAL;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,12 +14,13 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.collect.ImmutableMap.toImmutableMap;
-import static java.util.function.Function.identity;
-import static org.unicode.cldr.util.DtdData.AttributeStatus.distinguished;
-import static org.unicode.cldr.util.DtdData.AttributeStatus.value;
-import static org.unicode.cldr.util.DtdData.Mode.OPTIONAL;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdType;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 /**
  * Data types for non-locale based CLDR data. For the canonical specification for LDML data can

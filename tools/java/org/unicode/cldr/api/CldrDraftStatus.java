@@ -1,9 +1,10 @@
 package org.unicode.cldr.api;
 
-import com.google.common.base.Ascii;
+import java.util.Optional;
+
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
-import java.util.Optional;
+import com.google.common.base.Ascii;
 
 /**
  * Draft status for controlling which values to visit. Draft statuses are ordered by ordinal value,

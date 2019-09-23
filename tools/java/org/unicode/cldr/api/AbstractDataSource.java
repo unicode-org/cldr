@@ -15,13 +15,6 @@ import org.unicode.cldr.util.CldrUtility;
 abstract class AbstractDataSource implements CldrData {
     AbstractDataSource() {}
 
-    // Implements prefix visitation by accepting values in nested grouping order to reconstruct
-    // intermediate prefix paths.
-    @Override
-    public final void accept(PathOrder order, PrefixVisitor visitor) {
-        PrefixVisitorHost.accept(this::accept, order, visitor);
-    }
-
     // Helper to wrap the visit method and report errors that occur.
     static void safeVisit(CldrValue cldrValue, ValueVisitor visitor) {
         try {

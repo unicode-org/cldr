@@ -20,7 +20,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Serializes a CLDRFile as a sequence of {@link CldrValue CldrValues}.
  */
 final class CldrFileDataSource extends AbstractDataSource {
-    private static final Pattern CAPTURE_SORT_INDEX = Pattern.compile("#[0-9]+");
+    private static final Pattern CAPTURE_SORT_INDEX = Pattern.compile("#([0-9]+)");
 
     private final CLDRFile source;
 
@@ -62,13 +62,17 @@ final class CldrFileDataSource extends AbstractDataSource {
     /* @Nullable */
     public CldrValue get(CldrPath cldrPath) {
         String dPath = getInternalPathString(cldrPath);
-        XPathParts fullPath = XPathParts.getFrozenInstance(source.getFullXPath(dPath));
-        int length = fullPath.size();
+        String fullXPath = source.getFullXPath(dPath);
+        if (fullXPath == null) {
+            return null;
+        }
+        XPathParts pathPaths = XPathParts.getFrozenInstance(fullXPath);
+        int length = pathPaths.size();
         Map<AttributeKey, String> attributes = new LinkedHashMap<>();
         for (int n = 0; n < length; n++) {
             CldrPaths.processPathAttributes(
-                fullPath.getElement(n),
-                fullPath.getAttributes(n),
+                pathPaths.getElement(n),
+                pathPaths.getAttributes(n),
                 cldrPath.getDataType(),
                 e -> {},
                 attributes::put);

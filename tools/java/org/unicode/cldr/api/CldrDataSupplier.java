@@ -75,7 +75,7 @@ public abstract class CldrDataSupplier {
          * Locale-based CLDR data should only include values specified directly in the specified
          * locale.
          */
-        UNRESOLVED;
+        UNRESOLVED
     }
 
     /**
@@ -167,7 +167,8 @@ public abstract class CldrDataSupplier {
     public abstract CldrData getDataForLocale(String localeId, CldrResolution resolution);
 
     /**
-     * Returns an unmodifiable set of available locale IDs that this supplier can provide.
+     * Returns an unmodifiable set of available locale IDs that this supplier can provide. This
+     * need not be ordered.
      *
      * @return the set of available locale IDs.
      */

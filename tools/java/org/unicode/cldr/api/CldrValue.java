@@ -1,16 +1,17 @@
 package org.unicode.cldr.api;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import org.unicode.cldr.api.AttributeKey.AttributeSupplier;
-import org.unicode.cldr.util.CldrUtility;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
+import org.unicode.cldr.api.AttributeKey.AttributeSupplier;
+import org.unicode.cldr.util.CldrUtility;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 /**
  * A CLDR element value and associated "value" attributes, along with its distinguishing {@link
@@ -56,6 +57,42 @@ public final class CldrValue implements AttributeSupplier {
         LinkedHashMap<AttributeKey, String> valueAttributes = new LinkedHashMap<>();
         CldrPath path = CldrPaths.processXPath(fullPath, ImmutableList.of(), valueAttributes::put);
         return new CldrValue(value, valueAttributes, path);
+    }
+
+    /**
+     * Returns a value whose path has been replaced with the specified distinguished path.
+     *
+     * <p>In general, it is not safe to change paths arbitrarily. Care must be taken to ensure that
+     * the source and target paths are semantically interchangeable.
+     *
+     * <p>A very basic test is in place to prevent the most egregious errors, by ensuring that the
+     * replacement path has the same elements as the original, while allowing attributes and their
+     * values to be different. Do not, however, depend upon that test to catch all problems.
+     *
+     * @param path the new path for this value.
+     * @return a new value with the specified path (or the same value if the paths were identical).
+     */
+    public CldrValue replacePath(CldrPath path) {
+        if (this.path.equals(path)) {
+            return this;
+        }
+        checkArgument(hasSameElements(this.path, path),
+            "invalid replacement path '%s' for value: %s", path, this);
+        return new CldrValue(getValue(), attributes, path);
+    }
+
+    private static boolean hasSameElements(CldrPath x, CldrPath y) {
+        if (x.getLength() != y.getLength()) {
+            return false;
+        }
+        do {
+            if (!x.getName().equals(y.getName())) {
+                return false;
+            }
+            x = x.getParent();
+            y = y.getParent();
+        } while (x != null);
+        return true;
     }
 
     // Note: If this is ever made public, it should be modified to enforce attribute order

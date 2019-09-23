@@ -37,7 +37,9 @@ public interface CldrData {
      * @param order the order in which visitation should occur.
      * @param visitor the visitor to process CLDR data.
      */
-    void accept(PathOrder order, PrefixVisitor visitor);
+    default void accept(PathOrder order, PrefixVisitor visitor) {
+        PrefixVisitorHost.accept(this::accept, order, visitor);
+    }
 
     /**
      * Returns a {@link CldrValue} for a given distinguishing path.

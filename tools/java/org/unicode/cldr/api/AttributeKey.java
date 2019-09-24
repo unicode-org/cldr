@@ -204,7 +204,6 @@ public final class AttributeKey {
      * @param src the {@link CldrPath} or {@link CldrValue} from which values are to be obtained.
      * @return a list of split attribute values, possible empty if the attribute does not exist.
      */
-    // TODO: Perhaps extend this if non-whitespace separated lists need to be handled.
     public List<String> listOfValuesFrom(AttributeSupplier src) {
         String v = src.get(this);
         return v != null ? LIST_SPLITTER.splitToList(v) : ImmutableList.of();

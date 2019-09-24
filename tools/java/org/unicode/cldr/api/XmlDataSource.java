@@ -125,7 +125,7 @@ final class XmlDataSource implements CldrData {
 
     @Override
     public void accept(PathOrder order, ValueVisitor visitor) {
-        getPathValueMap(order).values().forEach(v -> visitor.visit(v));
+        getPathValueMap(order).values().forEach(visitor::visit);
     }
 
     @Override
@@ -359,9 +359,7 @@ final class XmlDataSource implements CldrData {
     // Handler used by the XML SAX parser to handle various events during parsing.
     private static ErrorHandler ERROR_HANDLER = new ErrorHandler() {
         @Override
-        public void warning(SAXParseException exception) {
-            // TODO: Maybe log a warning here?
-        }
+        public void warning(SAXParseException exception) { }
 
         @Override
         public void error(SAXParseException exception) throws SAXException {
@@ -375,6 +373,5 @@ final class XmlDataSource implements CldrData {
     };
 
     // A private exception used to allow non-matching DTDs to be ignored.
-    private static final class IncompatibleDtdException extends RuntimeException {
-    }
+    private static final class IncompatibleDtdException extends RuntimeException { }
 }

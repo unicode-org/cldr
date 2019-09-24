@@ -40,9 +40,6 @@ final class CldrPaths {
     // has elements with both data and (deprecated) child elements present.
     private static final Predicate<DtdData.Element> IS_NOT_DEPRECATED = e -> !e.isDeprecated();
 
-    // TODO: Consider moving these basic (string/name) maps to CldrDataType.
-    // TODO: Maybe change to have explict Element and Attribute classes with metadata?
-
     // A map of the leaf element names for each supported DTD.
     private static final ImmutableSetMultimap<CldrDataType, String> LEAF_ELEMENTS_MAP;
     // A map of the ordered element names for each supported DTD.

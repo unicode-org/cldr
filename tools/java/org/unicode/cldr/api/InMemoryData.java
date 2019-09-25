@@ -12,7 +12,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
 /** An in-memory representation of CldrData based on a simple map. */
-final class InMemoryData extends AbstractDataSource implements CldrData {
+final class InMemoryData implements CldrData {
     // Allow arbitrary ordering of specified path/value pairs (possibly not even NESTED_GROUPING).
     private final ImmutableMap<CldrPath, CldrValue> pathValuePairs;
 
@@ -31,7 +31,7 @@ final class InMemoryData extends AbstractDataSource implements CldrData {
 
     @Override
     public void accept(PathOrder order, ValueVisitor visitor) {
-        sortKeys(order).forEach(p -> safeVisit(pathValuePairs.get(p), visitor));
+        sortKeys(order).forEach(p -> visitor.visit(pathValuePairs.get(p)));
     }
 
     @Override

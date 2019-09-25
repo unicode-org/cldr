@@ -19,7 +19,7 @@ import com.google.common.collect.Lists;
 /**
  * Serializes a CLDRFile as a sequence of {@link CldrValue CldrValues}.
  */
-final class CldrFileDataSource extends AbstractDataSource {
+final class CldrFileDataSource implements CldrData {
     private static final Pattern CAPTURE_SORT_INDEX = Pattern.compile("#([0-9]+)");
 
     private final CLDRFile source;
@@ -130,7 +130,7 @@ final class CldrFileDataSource extends AbstractDataSource {
                 src.getFullXPath(dPath), previousElements, valueAttributes::put);
 
             if (CldrPaths.isLeafPath(cldrPath) && CldrPaths.shouldEmit(cldrPath)) {
-                safeVisit(CldrValue.create(value, valueAttributes, cldrPath), visitor);
+                visitor.visit(CldrValue.create(value, valueAttributes, cldrPath));
             }
 
             // Prepare the element stack for next time by pushing the current path onto it.

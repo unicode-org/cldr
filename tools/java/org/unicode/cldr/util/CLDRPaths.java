@@ -48,6 +48,8 @@ public class CLDRPaths {
     public static final String ANNOTATIONS_DERIVED_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, ANNOTATIONS_DERIVED_SUBDIR);
     public static final String VALIDITY_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, VALIDITY_SUBDIR);
 
+    public static final String STAGING_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "../cldr-staging/");
+
     public static final String TEST_DATA = COMMON_DIRECTORY + "testData/";
 
     public static final String SEED_DIRECTORY1 = CldrUtility.getProperty("CLDR_SEED",

@@ -539,7 +539,7 @@ public class SimpleFactory extends Factory {
                 try {
                     makeResolvingSource = makeResolvingSource(localeName, minimalDraftStatus);
                 } catch (Exception e) {
-                    throw new ICUException("Couldn't make resolved CLDR file for " + localeName);
+                    throw new ICUException("Couldn't make resolved CLDR file for " + localeName, e);
                 }
                 result = new CLDRFile(makeResolvingSource);
             } else {

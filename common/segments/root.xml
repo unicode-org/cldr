@@ -69,7 +69,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$CB">\p{Line_Break=Contingent_Break}</variable>
 				<variable id="$CL">\p{Line_Break=Close_Punctuation}</variable>
 				<variable id="$CP">\p{Line_Break=CP}</variable>
-				<variable id="$CM1">\p{Line_Break=Combining_Mark}</variable>
+				<variable id="$CM1">[\p{Line_Break=Combining_Mark}[🏻-🏿]]</variable>
 				<variable id="$CR">\p{Line_Break=Carriage_Return}</variable>
 				<variable id="$EX">\p{Line_Break=Exclamation}</variable>
 				<variable id="$GL">\p{Line_Break=Glue}</variable>
@@ -104,6 +104,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$EM">\p{Line_Break=E_Modifier}</variable>
 				<variable id="$ZWJ_O">\p{Line_Break=ZWJ}</variable>
 				<variable id="$ZWJ">\p{Line_Break=ZWJ}</variable>
+				<variable id="$Prepend">\p{Grapheme_Cluster_Break=Prepend}</variable>
 				<!-- SPECIAL EXTENSIONS -->
 				<variable id="$CM">[$CM1 $ZWJ]</variable>
 				<!-- LB 1  Assign a line breaking class to each code point of the input. -->
@@ -183,7 +184,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 9  Do not break a combining character sequence; treat it as if it has the LB class of the base character -->
 				<!-- in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.) -->
 				<rule id="9"> $Spec2_ × $CM </rule>
-				<!-- LB 11  Do not break before or after WORD JOINER and related characters. -->
+				<rule id="10"> $Prepend × </rule>
 				<rule id="11.01"> × $WJ </rule>
 				<rule id="11.02"> $WJ × </rule>
 				<!-- LB 12  Do not break after NBSP and related characters. -->
@@ -277,8 +278,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- VARIABLES -->
 				<variable id="$CR">\p{Sentence_Break=CR}</variable>
 				<variable id="$LF">\p{Sentence_Break=LF}</variable>
-				<variable id="$Extend">\p{Sentence_Break=Extend}</variable>
-				<variable id="$Format">\p{Sentence_Break=Format}</variable>
+				<variable id="$Extend">x[\p{Sentence_Break=Extend}[🏻-🏿 ำ ຳ]]</variable>
+				<variable id="$Prepend">\p{Grapheme_Cluster_Break=Prepend}</variable>
+				<variable id="$Format">[\p{Sentence_Break=Format}-\p{Grapheme_Cluster_Break=Prepend}]</variable>
 				<variable id="$Sep">\p{Sentence_Break=Sep}</variable>
 				<variable id="$Sp">\p{Sentence_Break=Sp}</variable>
 				<variable id="$Lower">\p{Sentence_Break=Lower}</variable>
@@ -341,9 +343,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$CR">\p{Word_Break=CR}</variable>
 				<variable id="$LF">\p{Word_Break=LF}</variable>
 				<variable id="$Newline">\p{Word_Break=Newline}</variable>
-				<variable id="$Extend">\p{Word_Break=Extend}</variable>
+				<variable id="$Extend">[\p{Word_Break=Extend}[🏻-🏿 ำ ຳ]]</variable>
 				<!-- Now normal variables -->
-				<variable id="$Format">\p{Word_Break=Format}</variable>
+				<variable id="$Prepend">\p{Grapheme_Cluster_Break=Prepend}</variable>
+				<variable id="$Format">[\p{Word_Break=Format}-\p{Grapheme_Cluster_Break=Prepend}]</variable>
 				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
 				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
 				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
@@ -398,6 +401,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- VANILLA RULES -->
 				<!-- Do not break between most letters. -->
 				<rule id="5"> $AHLetter × $AHLetter </rule>
+				<rule id="5.1"> $Prepend × </rule>
 				<!-- Do not break letters across certain punctuation. -->
 				<rule id="6"> $AHLetter × ($MidLetter | $MidNumLetQ) $AHLetter </rule>
 				<rule id="7"> $AHLetter ($MidLetter | $MidNumLetQ) × $AHLetter </rule>

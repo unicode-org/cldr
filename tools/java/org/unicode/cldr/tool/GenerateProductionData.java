@@ -27,6 +27,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -35,6 +36,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
 import com.google.common.io.Files;
 import com.ibm.icu.util.Output;
 
@@ -56,6 +58,8 @@ public class GenerateProductionData {
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
+    
+    static final Multimap<String, Pair<String, String>> localeToSubdivisionsToMigrate = TreeMultimap.create();
 
     enum MyOptions {
         sourceDirectory(new Params()
@@ -157,6 +161,9 @@ public class GenerateProductionData {
                 Stats stats = new Stats();
                 copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType, stats);
             }
+        }
+        if (!localeToSubdivisionsToMigrate.isEmpty()) {
+            throw new IllegalArgumentException("Missing subdivision files: " + localeToSubdivisionsToMigrate);
         }
     }
 
@@ -266,6 +273,9 @@ public class GenerateProductionData {
                 }
             }
             boolean isRoot = localeId.equals("root");
+            String directoryName = sourceFile.getParentFile().getName();
+            boolean isSubdivisionDirectory = "subdivisions".equals(directoryName);
+            
             CLDRFile cldrFileUnresolved = factory.make(localeId, false);
             CLDRFile cldrFileResolved = factory.make(localeId, true);
             boolean gotOne = false;
@@ -320,6 +330,12 @@ public class GenerateProductionData {
                     continue;
                 }
 
+                // Move subdivisions elsewhere
+                if (!isSubdivisionDirectory && xpath.startsWith("//ldml/localeDisplayNames/subdivisions/subdivision")) {
+                    localeToSubdivisionsToMigrate.put(localeId, Pair.of(xpath, bailey));
+                    toRemove.add(xpath);
+                    continue;
+                }
                 // remove level=comprehensive (under setting)
 
                 if (!INCLUDE_COMPREHENSIVE) {
@@ -356,10 +372,18 @@ public class GenerateProductionData {
                 gotOne = true;
             }
 
-
             // we even add empty files, but can delete them back on the directory level.
             try (PrintWriter pw = new PrintWriter(destinationFile)) {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
+                if (isSubdivisionDirectory) {
+                    Collection<Pair<String, String>> path_values = localeToSubdivisionsToMigrate.get(localeId);
+                    if (path_values != null) {
+                        for (Pair<String, String>path_value : path_values) {
+                            outCldrFile.add(path_value.getFirst(), path_value.getSecond());
+                        }
+                        localeToSubdivisionsToMigrate.removeAll(localeId);
+                    }
+                }
 
                 // Remove paths, but pull out the ones to retain
                 // example:

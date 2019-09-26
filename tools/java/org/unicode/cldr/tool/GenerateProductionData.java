@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
@@ -68,7 +69,7 @@ public class GenerateProductionData {
             .setMatch(".*")),
         destinationDirectory(new Params()
             .setHelp("destination common directory")
-            .setDefault(CLDRPaths.AUX_DIRECTORY + "production/common")
+            .setDefault(CLDRPaths.STAGING_DIRECTORY + "production/common")
             .setMatch(".*")),
         logicalGroups(new Params()
             .setHelp("add path/values for logical groups")
@@ -163,7 +164,10 @@ public class GenerateProductionData {
             }
         }
         if (!localeToSubdivisionsToMigrate.isEmpty()) {
-            throw new IllegalArgumentException("Missing subdivision files: " + localeToSubdivisionsToMigrate);
+            System.err.println("WARNING: Subdivision files not written");
+            for (Entry<String, Pair<String, String>> entry : localeToSubdivisionsToMigrate.entries()) {
+                System.err.println(entry.getKey() + " \t" + entry.getValue());
+            }
         }
     }
 
@@ -332,7 +336,7 @@ public class GenerateProductionData {
 
                 // Move subdivisions elsewhere
                 if (!isSubdivisionDirectory && xpath.startsWith("//ldml/localeDisplayNames/subdivisions/subdivision")) {
-                    localeToSubdivisionsToMigrate.put(localeId, Pair.of(xpath, bailey));
+                    localeToSubdivisionsToMigrate.put(localeId, Pair.of(xpath, value));
                     toRemove.add(xpath);
                     continue;
                 }

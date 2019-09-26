@@ -4085,8 +4085,7 @@
       <li>If <strong>sequence</strong> contains any emoji
       modifiers, move them (in order) into <strong>suffix</strong>,
       removing them from <strong>sequence</strong>.</li>
-      <li>If <strong>sequence</strong> is a "KISS", "HEART" or
-      "FAMILY" emoji ZWJ sequence, move the characters in <strong>
+      <li>If <strong>sequence</strong> is a "KISS", "HEART",      "FAMILY"<span class='changed'>,  or &quot;HOLDING HANDS&quot;</span> emoji ZWJ sequence, move the characters in <strong>
         sequence</strong> to the front of <strong>suffix</strong>,
         and set the <strong>sequence</strong> to be "💏", "💑", or
         "👪" respectively, and go to step 7.
@@ -4095,6 +4094,7 @@
           skipped in moving to <strong>suffix</strong>.</li>
           <li>A HEART sequence contains ZWJ and "❤", which are
           skipped in moving to <strong>suffix</strong>.</li>
+          <li><span class="changed">A HOLDING HANDS sequence contains ZWJ+🤝+ZWJ, which are skipped in moving to <strong>suffix</strong>.</span></li>
           <li>A FAMILY sequence contains only characters from the
           set {👦, 👧, 👨, 👩, 👴, 👵, 👶}. Nothing is skipped in moving
           to <strong>suffix</strong>, except ZWJ.</li>

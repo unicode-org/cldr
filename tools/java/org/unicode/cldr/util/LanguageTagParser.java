@@ -591,7 +591,7 @@ public class LanguageTagParser {
                         List<String> uValue = localeExtensions.get("u");
                         result.append(oo.separator).append('u');
                         if (uValue != null) {
-                            result.append(oo.separator).append(oo.joiner.join(tValue));
+                            result.append(oo.separator).append(oo.joiner.join(uValue));
                         }
                         haveU = true;
                     }
@@ -739,7 +739,7 @@ public class LanguageTagParser {
             if (s.length() < minLength || s.length() > maxLength) {
                 throw new IllegalArgumentException("Illegal subtag length for: " + s);
             }
-            if (!ALPHANUM.contains(s)) {
+            if (!ALPHANUM.containsAll(s)) {
                 throw new IllegalArgumentException("Illegal locale character in: " + s);
             }
         }

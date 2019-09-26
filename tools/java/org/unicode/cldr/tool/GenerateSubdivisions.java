@@ -25,7 +25,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 
 public class GenerateSubdivisions {
-    private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "iso_country_codes/";
+    private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "iso/";
     static final String ISO_SUBDIVISION_CODES = ISO_COUNTRY_CODES + "iso_country_codes.xml";
 
 

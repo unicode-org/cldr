@@ -177,7 +177,6 @@ public final class CldrValue implements AttributeSupplier {
      *
      * @return a map of the value attributes for this CLDR value instance.
      */
-    // TODO: This is used in only two places outside this package, so consider making it non-public.
     public ImmutableMap<AttributeKey, String> getValueAttributes() {
         return attributes;
     }

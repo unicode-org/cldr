@@ -150,8 +150,14 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
         this.elementName = checkValidName(name, "element");
         this.attributeKeyValuePairs = checkKeyValuePairs(attributeKeyValuePairs);
         this.draftStatus = resolveDraftStatus(parent, localDraftStatus);
-        // TODO: Maybe check via the DTD data that it's only not -1 for ORDERED elements ?
-        checkArgument(sortIndex >= -1, "invalid sort index: %s", sortIndex);
+        // Ordered elements have a sort index of 0 or more, and un-ordered have an index of -1.
+        if (CldrPaths.isOrdered(dtdType, elementName)) {
+            checkArgument(sortIndex >= 0,
+                "missing or invalid sort index '%s' for element: %s", sortIndex, elementName);
+        } else {
+            checkArgument(sortIndex == -1,
+                "unexpected sort index '%s' for element: %s", sortIndex, elementName);
+        }
         this.sortIndex = sortIndex;
         this.dtdType = checkNotNull(dtdType);
         this.ordering = CldrPaths.getPathComparator(dtdType);

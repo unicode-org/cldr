@@ -5,9 +5,9 @@ import static com.google.common.base.Preconditions.checkArgument;
 import java.util.regex.Pattern;
 
 /**
- * Utility methods for working with locale IDs as strings.
+ * Utility methods for working with locale IDs as strings. This could, with a little thought, be
+ * made public if necessary.
  */
-// TODO: Consider making this public when moving "SupplementalData" into the API.
 final class LocaleIds {
     // From: https://unicode.org/reports/tr35/#Identifiers
     // Locale ID is:

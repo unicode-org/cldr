@@ -183,11 +183,10 @@ public enum CldrDataType {
     }
 
     /**
-     * Returns whether the specified attribute is optional. Attributes unknown to the DTD are
+     * Returns whether the specified attribute is optional. Attributes unknown to the DTD are also
      * considered optional, which can happen if attribute keys are speculatively generated, which
      * sometimes happens in transformation logic.
      */
-    // TODO: Perhaps we need an isValidAttribute() method as well?
     boolean isOptionalAttribute(AttributeKey key) {
         Attribute attribute = getAttribute(key.getElementName(), key.getAttributeName());
         return attribute == null || attribute.mode == OPTIONAL;

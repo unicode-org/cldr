@@ -6848,17 +6848,17 @@ root</pre>
     to allow for easier parsing and comparison of files.</p>
     <p>Peer elements have consistent order. That is, if the DTD or
     this specification requires the following order in an element
-    foo:</p>
+    <strong>foo</strong>:</p>
     <pre>&lt;foo&gt;
   &lt;pattern&gt;
   &lt;somethingElse&gt;
 &lt;/foo&gt;</pre>
     <p>It can never require the reverse order in a different
-    element bar.</p>
-    <pre>&lt;foo&gt;
+    element <strong>bar</strong>.</p>
+    <pre>&lt;<span class='changed'>bar</span>&gt;
   &lt;somethingElse&gt;
   &lt;pattern&gt;
-&lt;/foo&gt;</pre>
+&lt;/<span class='changed'>bar</span>&gt;</pre>
     <p>Note that there was one case that had to be corrected in
     order to make this true. For that reason, pattern occurs twice
     under currency:</p>

@@ -968,18 +968,22 @@
         &nbsp; (sep alphanum{2,8})+ ;</code></td>
       </tr>
       <tr>
-        <td><code>keyword</code></td>
+        <td><code>keyword</code><span class='changed'><br>
+			(Also known as <code>uvalue</code>)</span></td>
         <td><code>= key (sep type)? ;</code></td>
       </tr>
       <tr>
-        <td><code>key</code></td>
-        <td><code>= alphanum alpha ;</code></td>
+        <td><code>key</code><span class='changed'><br>
+			(Also known as <code>ukey</code>)</span></td>
+        <td><code>= alphanum alpha ;</code><span class='changed'><br>
+          (Note that this is narrower than in [<a href="https://www.ietf.org/rfc/rfc6067.txt" title="https://www.ietf.org/rfc/rfc6067.txt">RFC6067</a>], so that it is disjoint with tkey.)</span></td>
         <td><code><a href="#Key_Type_Definitions">validity</a><br>
         <a href=
         'http://unicode.org/cldr/latest/common/bcp47'>latest-data</a></code></td>
       </tr>
       <tr>
-        <td><code>type</code></td>
+        <td><code>type</code><span class='changed'><br>
+			(Also known as <code>uvalue</code>)</span></td>
         <td><code>= alphanum{3,8}<br>
         &nbsp; (sep alphanum{3,8})* ;</code></td>
         <td><code><a href="#Key_Type_Definitions">validity</a><br>

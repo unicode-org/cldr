@@ -3600,4 +3600,21 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         this.dtdType = dtdType;
     }
+
+    /**
+     * Used only for TestExampleGenerator.
+     */
+    public void valueChanged(String xpath) {
+        if (isResolved()) {
+            ResolvingSource resSource = (ResolvingSource) dataSource;
+            resSource.valueChanged(xpath, resSource);
+        }
+    }
+
+    /**
+     * Used only for TestExampleGenerator.
+     */
+    public void disableCaching() {
+        dataSource.disableCaching();
+    }
 }

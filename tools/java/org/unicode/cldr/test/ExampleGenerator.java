@@ -92,7 +92,15 @@ public class ExampleGenerator {
     private static SupplementalDataInfo supplementalDataInfo;
     private PathDescription pathDescription;
 
-    private final static boolean CACHING = true;
+    /*
+     * For testing, caching can be disabled for some ExampleGenerators while still
+     * enabled for others.
+     */
+    private boolean cachingIsEnabled = true;
+
+    public void disableCaching() {
+        cachingIsEnabled = false;
+    }
 
     public final static double NUMBER_SAMPLE = 123456.789;
     public final static double NUMBER_SAMPLE_WHOLE = 2345;
@@ -157,7 +165,43 @@ public class ExampleGenerator {
     private CLDRFile englishFile;
     Matcher URLMatcher = URL_PATTERN.matcher("");
 
+    /*
+     * The cache is accessed only by getExampleHtml and updateCache.
+     * Its key is built from an xpath, a value for that xpath, and a letter to indicate the ExampleType (ENGLISH or NATIVE).
+     * Its value is an HTML string showing example(s) using that value for that path, for the locale of this ExampleGenerator.
+     *
+     * Note that this cache is internal to each ExampleGenerator. Compare TestCache.exampleGeneratorCache,
+     * which is at a higher level, caching entire ExampleGenerator objects, one for each locale.
+     *
+     * TODO: simplify/clarify the ENGLISH/NATIVE distinction, to facilitate performance improvements.
+     * The general-purpose mechanism that currently appears to support both ENGLISH and NATIVE for each
+     * ExampleGenerator doesn't currently appear to be used or needed. If the two types are not really mixed
+     * in the same cache (or even in same ExampleGenerator), then E/N needn't be part of cache key (or
+     * require separate caches). Also, at least within Survey Tool, englishFile == cldrFile if (and only
+     * if) the ExampleGenerator is used for ExampleType.ENGLISH. In Survey Tool, ExampleType.ENGLISH is
+     * only actually used for a single ExampleGenerator, namely sm.getTranslationHintsExample().
+     *
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
+     */
     private Map<String, String> cache = new ConcurrentHashMap<String, String>();
+
+    /**
+     * For this (locale-specific) ExampleGenerator, clear the cached value for the given xpath,
+     * and for any xpaths whose examples might also depend on this xpath.
+     *
+     * Is cache-clearing ever needed for ExampleType.ENGLISH?
+     *
+     * @param xpath the path
+     */
+    public void updateCache(@SuppressWarnings("unused") String xpath) {
+        /*
+         * TODO: instead of removing ALL keys, only remove the paths that may be affected
+         * by this change.
+         *
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
+         */
+        cache.clear();
+    }
 
     private static final String NONE = "\uFFFF";
 
@@ -229,6 +273,7 @@ public class ExampleGenerator {
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
      *
      * @param resolvedCldrFile
+     * @param englishFile
      * @param supplementalDataDirectory
      */
     public ExampleGenerator(CLDRFile resolvedCldrFile, CLDRFile englishFile, String supplementalDataDirectory) {
@@ -280,10 +325,25 @@ public class ExampleGenerator {
         if (value == null) {
             return null;
         }
+        if (false && (exType == ExampleType.ENGLISH) != (englishFile == cldrFile)) {
+            /*
+             * TODO: the expected equivalence (exType == ExampleType.ENGLISH) == (englishFile == cldrFile)
+             * implies the ExampleType parameter for getExampleHtml is superfluous, and so is exTypeLetter
+             * as part of cacheKey. This expectation passes with SurveyTool, and with cldr-apps TestAll.java,
+             * but fails with cldr-unittest TestAll.java (multiple test failures) ...
+             *
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
+             */
+            boolean typeIsEnglish = (exType == ExampleType.ENGLISH);
+            boolean filesAreSame = (englishFile == cldrFile);
+            String msg = "False expectation in ExampleGenerator.getExampleHtml: typeIsEnglish = "
+                + typeIsEnglish + "; filesAreSame = " + filesAreSame;
+            throw new IllegalArgumentException(msg);
+        }
         String cacheKey = null;
         String result = null;
         try {
-            if (CACHING) {
+            if (cachingIsEnabled) {
                 String exTypeLetter = (exType == ExampleType.ENGLISH) ? "E" : "N";
                 cacheKey = exTypeLetter + xpath + "," + value;
                 result = cache.get(cacheKey);
@@ -386,7 +446,7 @@ public class ExampleGenerator {
             result = finalizeBackground(result);
         }
 
-        if (CACHING) {
+        if (cachingIsEnabled) {
             if (result == null) {
                 cache.put(cacheKey, NONE);
             } else {

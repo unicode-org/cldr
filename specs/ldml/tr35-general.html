@@ -82,14 +82,14 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)<br>
     Part 2: General</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">36</td>
+        <td>36</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -113,7 +113,7 @@
     and the links above.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED -->
+    <!-- NOT YET APPROVED
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -123,14 +123,14 @@
                                 progress.
                         </i>
                 </p>
-    <!-- END NOT YET APPROVED -->
-    <!-- APPROVED 
+     END NOT YET APPROVED -->
+    <!-- APPROVED -->
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-     END APPROVED -->
+    <!-- END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -3644,7 +3644,7 @@
         short or abbreviated placeholder values</td>
         <td><em>Jan., Feb., and Mar.</em></td>
       </tr>
-      <tr class='changed'>
+      <tr>
         <td>standard-narrow</td>
         <td>A yet shorter version of a short 'and' list (where possible)</td>
         <td><em>Jan., Feb.,  Mar.</em></td>
@@ -3659,7 +3659,7 @@
         <td>A short version of an 'or' list</td>
         <td><em>Jan., Feb., or Mar.</em></td>
       </tr>
-       <tr class='changed'>
+       <tr>
         <td>or-narrow</td>
         <td>A yet shorter version of a short 'or' list (where possible)</td>
         <td><em>Jan., Feb.,  or Mar.</em></td>
@@ -4095,7 +4095,7 @@
       <li>If <strong>sequence</strong> contains any emoji
       modifiers, move them (in order) into <strong>suffix</strong>,
       removing them from <strong>sequence</strong>.</li>
-      <li>If <strong>sequence</strong> is a "KISS", "HEART",      "FAMILY"<span class='changed'>,  or &quot;HOLDING HANDS&quot;</span> emoji ZWJ sequence, move the characters in <strong>
+      <li>If <strong>sequence</strong> is a "KISS", "HEART",      "FAMILY",  or &quot;HOLDING HANDS&quot; emoji ZWJ sequence, move the characters in <strong>
         sequence</strong> to the front of <strong>suffix</strong>,
         and set the <strong>sequence</strong> to be "💏", "💑", or
         "👪" respectively, and go to step 7.
@@ -4104,7 +4104,7 @@
           skipped in moving to <strong>suffix</strong>.</li>
           <li>A HEART sequence contains ZWJ and "❤", which are
           skipped in moving to <strong>suffix</strong>.</li>
-          <li><span class="changed">A HOLDING HANDS sequence contains ZWJ+🤝+ZWJ, which are skipped in moving to <strong>suffix</strong>.</span></li>
+          <li>A HOLDING HANDS sequence contains ZWJ+🤝+ZWJ, which are skipped in moving to <strong>suffix</strong>.</li>
           <li>A FAMILY sequence contains only characters from the
           set {👦, 👧, 👨, 👩, 👴, 👵, 👶}. Nothing is skipped in moving
           to <strong>suffix</strong>, except ZWJ.</li>

@@ -9,7 +9,7 @@ fi
 DISTFILE=tools/dist.conf/distExcludes.txt
 cd ../..
 > "${DISTFILE}"
-for item in $(svn status --no-ignore  | grep -v '^M' | cut -c9-);
+for item in $(git ls-files -o);
 do
     if [[ "${item}" == "tools/java/cldr.jar" ]]; # allow this
     then

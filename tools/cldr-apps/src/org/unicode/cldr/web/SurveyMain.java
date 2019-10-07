@@ -4714,7 +4714,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param section
      */
     void printSectionTableClose(WebContext ctx, DataSection section, boolean canModify) {
-        int table_width = (section != null && section.hasExamples) ? 13 : 10;
+        int table_width = (section != null) ? 13 : 10;
         if (!canModify) {
             table_width -= 4; // No vote, change, or no opinion columns
         }

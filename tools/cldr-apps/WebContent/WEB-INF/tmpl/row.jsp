@@ -50,7 +50,7 @@
 	<%= p.getDisplayName()  
 	%>
 </th>
-<% if(p.hasExamples()) { 
+<%
 			if(baseExample!=null) { %>
 				<td rowspan='<%= rowSpan %>' align='left' valign='top' class='generatedexample'>
 						<%= baseExample.replaceAll("\\\\", "\u200b\\\\")  %>
@@ -58,6 +58,6 @@
 			<% } else { %>
 				<td rowspan='<%= rowSpan %>'></td>
 			<% } 
-} %>
-	
+%>
+
 <% /* Note: more from showDataRow (in DataSection.java prior to svn revision 14289) could move here? */ %>

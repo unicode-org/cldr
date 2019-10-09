@@ -707,7 +707,7 @@ public class Ldml2JsonConverter {
         licenses.add(UnicodeLicense);
         obj.add("licenses", licenses);
 
-        obj.addProperty("bugs", "http://unicode.org/cldr/trac/newticket");
+        obj.addProperty("bugs", "https://unicode-org.atlassian.net/projects/CLDR/issues");
 
         outf.println(gson.toJson(obj));
         outf.close();

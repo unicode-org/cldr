@@ -372,11 +372,11 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
 
         // Add cldrVersion attribute
-        new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
+        new PathTransformSpec("(.+)/identity/version\\[@number=\"([^\"]*)\"\\]", "$1" + "/identity/version\\[@cldrVersion=\""
             + CLDRFile.GEN_VERSION + "\"\\]"),
         // Add cldrVersion attribute to supplemental data
-        new PathTransformSpec("(.*/version\\[@number=\"([^\"]*)\")(\\])\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
-            + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$4" + "\\]"),
+        new PathTransformSpec("(.+)/version\\[@number=\"([^\"]*)\"\\]\\[@unicodeVersion=\"([^\"]*\")(\\])", "$1" + "/version\\[@cldrVersion=\""
+            + CLDRFile.GEN_VERSION + "\"\\]" + "\\[@unicodeVersion=\"" + "$3" + "\\]"),
 
         // Transform underscore to hyphen-minus in language keys
         new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\](\\[@alt=\"short\"])?)", "$1-$2"),
@@ -437,6 +437,5 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*)/weekData/(.*)\\[@alt=\"variant\"\\](.*)", "$1/weekData/$2$3"),
         new PathTransformSpec("(.*)/unitPreferenceData/unitPreferences\\[@category=\"([^\"]*)\"\\]\\[@usage=\"([^\"]*)\"\\](.*)",
             "$1/unitPreferenceData/unitPreferences/$2/$3$4"),
-
     };
 }

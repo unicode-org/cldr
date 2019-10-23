@@ -17,7 +17,6 @@ import java.util.Set;
 import javax.xml.xpath.XPathException;
 
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.util.AttributeValueValidity;
 import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
@@ -419,7 +418,7 @@ public class TestLocale extends TestFmwkPlus {
 
                 if (row[5] != null) {
                     String path = CLDRFile.getKey(typeCode, row[1]);
-                    String example = eg.getExampleHtml(path, "?" + row[2] + "?", ExampleType.NATIVE);
+                    String example = eg.getExampleHtml(path, "?" + row[2] + "?");
                     assertEquals("example " + row[3], row[5], ExampleGenerator.simplify(example));
                 }
             }

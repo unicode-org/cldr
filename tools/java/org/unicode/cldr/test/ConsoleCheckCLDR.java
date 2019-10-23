@@ -27,7 +27,6 @@ import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
-import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.tool.ShowData;
@@ -660,7 +659,7 @@ public class ConsoleCheckCLDR {
                 String example = "";
 
                 if (SHOW_EXAMPLES) {
-                    example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value, ExampleType.NATIVE));
+                    example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
                     showExamples(checkCldr, prettyPath, localeID, path, value, fullPath, example);
                 }
 
@@ -794,7 +793,7 @@ public class ConsoleCheckCLDR {
                      * TODO: fix this code. Calling getExampleHtml with value = null will always return null,
                      * so what's this supposed to accomplish?
                      */
-                    String example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, null /* value */, ExampleType.NATIVE));
+                    String example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, null /* value */));
                     showExamples(checkCldr, prettyPath, localeID, path, null, fullPath, example);
                 }
             }
@@ -1519,8 +1518,7 @@ public class ConsoleCheckCLDR {
             String englishExample = null;
             final String englishPathValue = path == null ? null : getEnglishPathValue(path);
             if (SHOW_EXAMPLES && path != null) {
-                englishExample = ExampleGenerator.simplify(getExampleGenerator().getExampleHtml(path, englishPathValue,
-                    ExampleType.ENGLISH));
+                englishExample = ExampleGenerator.simplify(getExampleGenerator().getExampleHtml(path, englishPathValue));
             }
             englishExample = englishExample == null ? "" : englishExample;
             String cleanPrettyPath = path == null ? null : prettyPath; // prettyPathMaker.getOutputForm(prettyPath);

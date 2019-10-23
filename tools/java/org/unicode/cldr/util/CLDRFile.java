@@ -3110,6 +3110,30 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
+     * Shortcut for getting the string value for a path.
+     * If the string value is an INHERITANCE_MARKER (used in survey
+     * tool), then the Bailey value is returned.
+     *
+     * @param path
+     * @return the string value
+     *
+     * TODO: check whether this is called only when appropriate, see https://unicode.org/cldr/trac/ticket/11299
+     * Compare getWinningValueWithBailey wich is identical except getWinningValue versus getStringValue.
+     */
+    public String getStringValueWithBailey(String path, Output<String> pathWhereFound, Output<String> localeWhereFound) {
+        String value = getStringValue(path);
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            value = getBaileyValue(path, pathWhereFound, localeWhereFound);
+        } else {
+            Status status = new Status();
+            String localeWhereFound2 = getSourceLocaleID(path, status);
+            if (localeWhereFound != null) localeWhereFound.value = localeWhereFound2;
+            if (pathWhereFound != null) pathWhereFound.value = status.pathWhereFound;
+        }
+        return value;
+    }
+
+    /**
      * Return the distinguished paths that have the specified value. The pathPrefix and pathMatcher
      * can be used to restrict the returned paths to those matching.
      * The pathMatcher can be null (equals .*).

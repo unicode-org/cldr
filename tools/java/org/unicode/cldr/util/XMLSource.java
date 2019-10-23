@@ -747,6 +747,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 }
                 result = getSource(fullStatus).getValueAtDPath(fullStatus.pathWhereFound);
             }
+//            if (result == null && xpath.contains("[@alt=")) {
+//                String path2 = XPathParts.getPathWithoutAlt(xpath);
+//                return getValueAtDPath(path2); // recurse
+//            }
             if (TRACE_VALUE) System.out.println("\t*value: " + result);
             return result;
         }
@@ -1019,6 +1023,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     aliasedPath = aliases.get(possibleSubpath) +
                         xpath.substring(possibleSubpath.length());
                 }
+            }
+            
+            // alts are special; they act like there is a root alias to the path without the alt.
+            if (aliasedPath == null && xpath.contains("[@alt=")) {
+                aliasedPath = XPathParts.getPathWithoutAlt(xpath);
             }
 
             // counts are special; they act like there is a root alias to 'other'

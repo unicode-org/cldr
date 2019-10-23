@@ -1,19 +1,28 @@
 package org.unicode.cldr.unittest;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
@@ -666,5 +675,331 @@ public class TestExampleGenerator extends TestFmwk {
             + "\"]";
         String path = prefix + type + suffix;
         checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
+    }
+
+
+    /**
+     * Test dependencies where changing the value of one path changes example-generation for another path.
+     *
+     * The goal is to optimize example caching by only regenerating examples when necessary.
+     *
+     * Still under construction. Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
+     *
+     * @throws IOException
+     */
+    public void TestExampleGeneratorDependencies() throws IOException {
+        final boolean TEST_DEPENDENCIES = false; // make true to test
+        if (!TEST_DEPENDENCIES) {
+            return;
+        }
+
+        /*
+         * TODO: test whether different localId gives different dependencies.
+         */
+        final String localId = "fr";
+
+        CLDRFile englishFile = info.getEnglish();
+
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        CLDRFile cldrFile = makeMutableResolved(factory, localId);
+        cldrFile.disableCaching();
+        CLDRFile top = cldrFile.getUnresolved(); // can mutate top
+
+        ExampleGenerator egBase = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+
+        Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
+        if (false) {
+            /*
+             * try simplifying by using a much smaller set of paths that still generates false dependencies
+             * ... so far this approach has not been successful at producing the same "bogus" dependencies
+             * as the complete set ...
+             */
+            paths.add("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+            // paths.add("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
+            // paths.add("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern");
+            paths.add("//ldml/localeDisplayNames/languages/language[@type=\"aa\"]");
+            paths.add("//ldml/localeDisplayNames/languages/language[@type=\"ba\"]");
+            paths.add("//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol");
+            // paths.add("//ldml/localeDisplayNames/languages/language[@type=\"ary\"]");
+            paths.add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"times\"]/compoundUnitPattern");
+            paths.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+            paths.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]");
+            paths.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bhm\"]");
+        } else {
+            CollectionUtilities.addAll(cldrFile.iterator(), paths);
+        }
+
+        /*
+         * Get all the examples so they'll be added to the cache for egBase.
+         */
+        for (String path : paths) {
+            if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
+                continue;
+            }
+            String value = cldrFile.getStringValue(path);
+            if (value == null) {
+                continue;
+            }
+            if (path.equals("//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol")) {
+                System.out.println("Got " + path + " in first loop ...");
+            }
+            egBase.getExampleHtml(path, value, ExampleType.NATIVE);
+        }
+
+        /*
+         * For each path (A), temporarily change its value, and then check each other path (B),
+         * to see whether changing the value for A changed the example for B.
+         */
+        HashMap<String, HashSet<String>> dependenciesA = new HashMap<String, HashSet<String>>();
+        HashMap<String, HashSet<String>> dependenciesB = new HashMap<String, HashSet<String>>();
+        long count = 0;
+        long skipCount = 0;
+        long dependencyCount = 0;
+
+        for (String pathA : paths) {
+            if (skipPathForDependencies(pathA, true)) {
+                ++skipCount;
+                continue;
+            }
+            String valueA = cldrFile.getStringValue(pathA);
+            if (valueA == null) {
+                continue;
+            }
+            if ((++count % 100) == 0) {
+                System.out.println(count);
+            }
+            if (count > 200) {
+                 break;
+            }
+            String newValue = modifyValueRandomly(valueA);
+            /*
+             * cldrFile.add would lead to UnsupportedOperationException("Resolved CLDRFiles are read-only");
+             * Instead do top.add(), which works since top.dataSource = cldrFile.dataSource.currentSource.
+             * First, need to do valueChanged to clear getSourceLocaleIDCache.
+             */
+            cldrFile.valueChanged(pathA);
+            top.add(pathA, newValue);
+
+            String valueAX = cldrFile.getStringValue(pathA);
+            if (valueAX.equals(newValue)) {
+                // System.out.println("Changing top changed cldrFile: newValue = " + newValue
+                //    + "; valueAX = " + valueAX + "; valueA = " + valueA);
+            } else {
+                System.out.println("Changing top did not change cldrFile: newValue = " + newValue
+                    + "; valueAX = " + valueAX + "; valueA = " + valueA);
+            }
+            HashSet<String> a = null;
+            for (String pathB : paths) {
+                if (pathA.equals(pathB) || skipPathForDependencies(pathB, false)) {
+                    continue;
+                }
+                String valueB = cldrFile.getStringValue(pathB);
+                if (valueB == null) {
+                    continue;
+                }
+                if (pathA.equals("//ldml/localeDisplayNames/languages/language[@type=\"aa\"]")
+                    && pathB.equals("//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol")) {
+                    System.out.println("Got our paths in inner loop...");
+                }
+
+                /*
+                 * Allocating new ExampleGenerator in inner loop is expensive and is intended to avoid "bogus"
+                 * dependencies, but it still doesn't avoid them all.
+                 */
+                ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+                egTest.disableCaching();
+                // egTest.icuServiceBuilder.setCldrFile(cldrFile); // clear caches in icuServiceBuilder; has to be public
+                String exBase = egBase.getExampleHtml(pathB, valueB, ExampleType.NATIVE); // this will come from cache
+                String exTest = egTest.getExampleHtml(pathB, valueB, ExampleType.NATIVE); // this won't come from cache
+                if ((exTest == null) != (exBase == null)) {
+                    System.out.println("One null but not both? " + pathA + " --- " + pathB); // hasn't happened yet
+                } else if (exTest != null && !exTest.equals(exBase)) {
+                    if (a == null) {
+                        a = new HashSet<String>();
+                    }
+                    pathA = pathA.intern();
+                    pathB = pathB.intern();
+                    a.add(pathB);
+
+                    HashSet<String> b = dependenciesB.get(pathB);
+                    if (b == null) {
+                        b = new HashSet<String>();
+                    }
+                    b.add(pathA);
+                    dependenciesB.put(pathB, b);
+
+                    ++dependencyCount;
+                }
+            }
+            if (a != null && !a.isEmpty()) {
+                dependenciesA.put(pathA.intern(), a);
+            }
+            /*
+             * Restore the original value, so that the changes due to this pathA don't get
+             * carried over to the next pathA. Again call valueChanged to clear getSourceLocaleIDCache.
+             */
+            top.add(pathA, valueA);
+            cldrFile.valueChanged(pathA);
+            String valueAXX = cldrFile.getStringValue(pathA);
+            if (!valueAXX.equals(valueA)) {
+                System.out.println("Failed to restore original value: valueAXX = " + valueAXX
+                    + "; valueA = " + valueA);
+            }
+        }
+        final boolean countOnly = true;
+        writeDependenciesToFile(dependenciesA, "example_dependencies_A_" + localId, countOnly);
+        writeDependenciesToFile(dependenciesB, "example_dependencies_B_" + localId, countOnly);
+        System.out.println("count = " + count + "; skipCount = " + skipCount + "; dependencyCount = " + dependencyCount);
+    }
+
+    /**
+     * Modify the given value string for testing dependencies
+     *
+     * @param value
+     * @return the modified value, guaranteed to be different from value
+     *
+     * TODO: avoid IllegalArgumentException thrown/caught in, e.g., ICUServiceBuilder.getSymbolString;
+     * this function might need path as parameter, to generate only "legal" values for specific paths.
+     */
+    private String modifyValueRandomly(String value) {
+        /*
+         * Change 1 to 0
+         */
+        String newValue = value.replace("1", "0");
+        if (!newValue.equals(value)) {
+            return newValue;
+        }
+        /*
+         * Change 0 to 1
+         */
+        newValue = value.replace("0", "1");
+        if (!newValue.equals(value)) {
+            return newValue;
+        }
+        /*
+         * String concatenation, e.g., change "foo" to "foo1"
+         */
+        return value + "1";
+        // return "1".equals(value) ? "2" : "1";
+    }
+
+    /**
+     * Get a CLDRFile that is mutable yet shares the same dataSource as a pre-existing
+     * resolving CLDRFile for the same locale.
+     *
+     * If cldrFile is the pre-existing resolving CLDRFile, and we return topCldrFile, then
+     * we'll end up with topCldrFile.dataSource = cldrFile.dataSource.currentSource, which
+     * will be a SimpleXMLSource.
+     *
+     * @param factory
+     * @param localeID
+     * @return the CLDRFile
+     */
+    private static CLDRFile makeMutableResolved(Factory factory, String localeID) {
+        XMLSource topSource = factory.makeSource(localeID).cloneAsThawed(); // make top one modifiable
+        List<XMLSource> parents = getParentSources(factory, localeID);
+        XMLSource[] a = new XMLSource[parents.size()];
+        return new CLDRFile(topSource, parents.toArray(a));
+    }
+
+    /**
+     * Get the parent sources for the given localID
+     *
+     * @param factory
+     * @param localeID
+     * @return the List of XMLSource objects
+     *
+     * Called only by makeMutableResolved
+     */
+    private static List<XMLSource> getParentSources(Factory factory, String localeID) {
+        List<XMLSource> parents = new ArrayList<>();
+        for (String currentLocaleID = LocaleIDParser.getParent(localeID);
+            currentLocaleID != null;
+            currentLocaleID = LocaleIDParser.getParent(currentLocaleID)) {
+            parents.add(factory.makeSource(currentLocaleID));
+        }
+        return parents;
+    }
+
+    /**
+     * Should the given path be skipped when testing example-generator path dependencies?
+     *
+     * @param path
+     * @param isTypeA true if path is playing role of pathA not pathB
+     * @return true to skip, else false
+     */
+    private static boolean skipPathForDependencies(String path, boolean isTypeA) {
+        if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
+            return true;
+        }
+        if (false && isTypeA) {
+            final String[] toSkip = {
+                "//ldml/characters/ellipsis",
+                "//ldml/characters/exemplarCharacters",
+                "//ldml/characters/parseLenients",
+                "//ldml/layout/orientation/lineOrder",
+                "//ldml/localeDisplayNames/codePatterns/codePattern",
+                "//ldml/localeDisplayNames/keys/key",
+                "//ldml/localeDisplayNames/languages/language",
+                "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
+                "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+                "//ldml/localeDisplayNames/scripts/script",
+                "//ldml/localeDisplayNames/territories/territory",
+                "//ldml/localeDisplayNames/types/type",
+                "//ldml/localeDisplayNames/variants/variant",
+            };
+            for (String s: toSkip) {
+                if (path.startsWith(s)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Write the given map of example-generator path dependencies to a json file.
+     *
+     * TODO: use JSONObject, or write a format other than json.
+     * JSONObject isn't currently linked to cldr-unittest TestAll, package org.unicode.cldr.unittest.
+     *
+     * @param dependencies the map of example-generator path dependencies
+     * @param fileName the name of the file to create, without path or extension
+     * @param countOnly true to show only the count of the set for each key path in the map
+     *                  false to include all the paths
+     *                  (countOnly should be true; countOnly == false is not yet implemented correctly)
+     *
+     * @throws IOException
+     */
+    private void writeDependenciesToFile(HashMap<String, HashSet<String>> dependencies, String fileName, boolean countOnly) throws IOException {
+        // JSONObject json = new JSONObject(dependencies);
+        // json.write(writer);
+        String dir = CLDRPaths.GEN_DIRECTORY + "test/";
+        String name = fileName + ".json";
+        PrintWriter writer = FileUtilities.openUTF8Writer(dir, name);
+        writer.println("{");
+
+        ArrayList<String> list = new ArrayList<String>(dependencies.keySet());
+        Collections.sort(list);
+        int keysWritten = 0;
+        for (String path : list) {
+            HashSet<String> set = dependencies.get(path);
+            writer.print("\"");
+            writer.print(path.replaceAll("\"", "\\\\\""));
+            writer.print("\"");
+            writer.print(":");
+            if (countOnly) {
+                Integer count = set.size();
+                writer.println(count.toString() + ",");
+            } else {
+                String val = set.toString();
+                writer.println(val + ","); // TODO: format as valid json
+            }
+            ++keysWritten;
+        }
+
+        writer.println("}");
+        writer.close();
+        System.out.println("Wrote " + keysWritten + " keys to " + dir + name);
     }
 }

@@ -20,7 +20,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableList;
 
 /**
- * Caches tests
+ * Caches tests and examples
  * Call XMLSource.addListener() on the instance to notify it of changes to the XMLSource.
  *
  * @author srl
@@ -80,7 +80,12 @@ public class TestCache implements XMLSource.Listener {
 
     private static final boolean DEBUG = false;
 
-    private Cache<CheckCLDR.Options, TestResultBundle> cache = CacheBuilder.newBuilder().maximumSize(CLDRConfig.getInstance()
+    /*
+     * TODO: document whether CLDR_TESTCACHE_SIZE is set on production server, and if so to what, and why;
+     * evaluate why the fallback 12 for CLDR_TESTCACHE_SIZE is appropriate or too small. Consider not
+     * using maximumSize() at all, depending on softValues() instead to garbage collect only when needed.
+     */
+    private Cache<CheckCLDR.Options, TestResultBundle> testResultCache = CacheBuilder.newBuilder().maximumSize(CLDRConfig.getInstance()
         .getProperty("CLDR_TESTCACHE_SIZE", 12)).softValues().build();
 
     private Factory factory = null;
@@ -91,7 +96,7 @@ public class TestCache implements XMLSource.Listener {
      * Get the bundle for this test
      */
     public TestResultBundle getBundle(CheckCLDR.Options options) {
-        TestResultBundle b = cache.getIfPresent(options);
+        TestResultBundle b = testResultCache.getIfPresent(options);
         if (DEBUG) {
              if (b != null) {
                  System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
@@ -102,7 +107,7 @@ public class TestCache implements XMLSource.Listener {
              // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
              b = new TestResultBundle(options);
              // System.err.println(et.toString());
-             cache.put(options, b);
+             testResultCache.put(options, b);
          }
          return b;
     }
@@ -134,10 +139,10 @@ public class TestCache implements XMLSource.Listener {
     @Override
     public String toString() {
         StringBuilder stats = new StringBuilder();
-        stats.append("{" + this.getClass().getSimpleName() + super.toString() + " Size: " + cache.size() + " (");
+        stats.append("{" + this.getClass().getSimpleName() + super.toString() + " Size: " + testResultCache.size() + " (");
         int good = 0;
         int total = 0;
-        for (Entry<Options, TestResultBundle> k : cache.asMap().entrySet()) {
+        for (Entry<Options, TestResultBundle> k : testResultCache.asMap().entrySet()) {
             Options key = k.getKey();
             TestResultBundle bundle = k.getValue();
             if (bundle != null) {
@@ -153,7 +158,7 @@ public class TestCache implements XMLSource.Listener {
     }
 
     /**
-     * Update the cache as needed, given that the value has changed for this xpath and source.
+     * Update the caches as needed, given that the value has changed for this xpath and source.
      *
      * @param xpath the xpath
      * @param source the XMLSource
@@ -165,7 +170,7 @@ public class TestCache implements XMLSource.Listener {
     }
 
     /**
-     * Update the cache as needed, given that the value has changed for this xpath and locale.
+     * Update the caches as needed, given that the value has changed for this xpath and locale.
      * 
      * Called by valueChanged(String xpath, XMLSource source),
      * and also calls itself recursively for sublocales
@@ -174,37 +179,141 @@ public class TestCache implements XMLSource.Listener {
      * @param locale the CLDRLocale
      *
      * There is room for improvement of performance. Currently we invalidate all paths for any affected locale.
-     * Ideally, cache invalidation should only be done for each locale+path whose test results potentially depend
-     * on the given locale+path, due to inheritance, aliasing, logical groups, etc. That could be done using a mapping
-     * between paths that are related by such dependencies; that mapping would be constant for as long as the
-     * paths and tests don't change.
+     * Ideally, cache invalidation should only be done for each locale+path whose test results or examples potentially
+     * depend on the given locale+path, due to inheritance, aliasing, logical groups, etc. That could be done using a mapping
+     * between paths that are related by such dependencies; that mapping would be constant for as long as the paths and tests
+     * (or example-generation methods) don't change.
      */
     private void valueChangedInvalidateRecursively(String xpath, final CLDRLocale locale) {
         if (DEBUG) {
             System.err.println("BundDelLoc " + locale + " @ " + xpath);
         }
+        /*
+         * Call self recursively for all sub-locales
+         */
         for (CLDRLocale sub : ((SublocaleProvider) getFactory()).subLocalesOf(locale)) {
             valueChangedInvalidateRecursively(xpath, sub);
         }
-        if (cache.asMap().isEmpty()) {
-            return;
-        }
-        // Filter the cache to only remove the items where the locale matches
-        List<Options> toRemove = new ArrayList<>();
-        for (Options k : cache.asMap().keySet()) {
-            if (k.getLocale().equals(locale)) {
-                toRemove.add(k);
+        /*
+         * Update caching for TestResultBundle
+         */
+        updateTestResultCache(xpath, locale);
+        /*
+         * Update caching for ExampleGenerator
+         */
+        updateExampleGeneratorCache(xpath, locale);
+    }
+
+    /**
+     * Update the cache of TestResultBundle objects, per valueChanged
+     *
+     * @param xpath the xpath whose value has changed
+     * @param locale the CLDRLocale
+     *
+     * Called by valueChangedInvalidateRecursively
+     */
+    private void updateTestResultCache(@SuppressWarnings("unused") String xpath, CLDRLocale locale) {
+        if (!testResultCache.asMap().isEmpty()) {
+            // Filter the testResultCache to only remove the items where the locale matches
+            List<Options> toRemove = new ArrayList<>();
+            for (Options k : testResultCache.asMap().keySet()) {
+                if (k.getLocale().equals(locale)) {
+                    toRemove.add(k);
+                }
+            }
+            if (!DEBUG) {
+                // no logging is done, simply invalidate all items
+                testResultCache.invalidateAll(toRemove);
+            } else {
+                // avoid concurrent remove
+                for (CheckCLDR.Options k : toRemove) {
+                    testResultCache.invalidate(k);
+                    System.err.println("BundDel " + k);
+                }
             }
         }
-        if (!DEBUG) {
-            // no logging is done, simply invalidate all items
-            cache.invalidateAll(toRemove);
-        } else {
-            // avoid concurrent remove
-            for (CheckCLDR.Options k : toRemove) {
-                cache.invalidate(k);
-                System.err.println("BundDel " + k);
+    }
+
+    /**
+     * Per-locale testResultCache of ExampleGenerator objects
+     *
+     * Re-use the TestCache implementation of XMLSource.Listener for ExampleGenerator
+     * objects in addition to TestResultBundle objects. The actual caches are distinct,
+     * only the Listener interface is shared.
+     *
+     * ExampleGenerator objects are for generating examples, rather than for
+     * checking validity, unlike other TestCache-related objects such as TestResultBundle.
+     * Still, ExampleGenerator has similar dependence on locales, paths, and values, and
+     * needs similar treatment for caching and performance. ExampleGenerator is in the
+     * same package ("test") as TestCache.
+     *
+     * There are currently unused (?) files Registerable.java and LocaleChangeRegistry.java
+     * that appear to have been intended for a similar purpose. They are in the web package.
+     *
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
+     */
+    private static Cache<String, ExampleGenerator> exampleGeneratorCache = CacheBuilder.newBuilder().softValues().build();
+
+    /**
+     * Get an ExampleGenerator for the given locale, etc.
+     *
+     * Use a cache for performance.
+     *
+     * @param locale the CLDRLocale
+     * @param ourSrc the CLDRFile for the locale
+     * @param translationHintsFile the CLDRFile for translation hints (English)
+     * @param englishPath (a.k.a. supplementalDataDirectory)
+     * @return the ExampleGenerator
+     *
+     * Called by DataSection.make for use in SurveyTool.
+     *
+     * Note: other objects also have functions named "getExampleGenerator":
+     * org.unicode.cldr.unittest.TestExampleGenerator.getExampleGenerator(String)
+     * org.unicode.cldr.test.ConsoleCheckCLDR.getExampleGenerator()
+     */
+    public static ExampleGenerator getExampleGenerator(CLDRLocale locale, CLDRFile ourSrc, CLDRFile translationHintsFile, String englishPath) {
+        boolean egCacheIsEnabled = true;
+        if (!egCacheIsEnabled) {
+            return new ExampleGenerator(ourSrc, translationHintsFile, englishPath);
+        }
+        /*
+         * TODO: consider get(locString, Callable) instead of getIfPresent and put.
+         */
+        String locString = locale.toString();
+        ExampleGenerator eg = exampleGeneratorCache.getIfPresent(locString);
+        if (eg == null) {
+            synchronized(exampleGeneratorCache) {
+                eg = exampleGeneratorCache.getIfPresent(locString);
+                if (eg == null) {
+                    eg = new ExampleGenerator(ourSrc, translationHintsFile, englishPath);
+                    exampleGeneratorCache.put(locString, eg);
+                }
             }
+        }
+        return eg;
+    }
+
+    /**
+     * Update the cached ExampleGenerator, per valueChanged
+     *
+     * @param xpath the xpath whose value has changed
+     * @param locale the CLDRLocale determining which ExampleGenerator to update
+     *
+     * Called by valueChangedInvalidateRecursively
+     */
+    private static void updateExampleGeneratorCache(String xpath, CLDRLocale locale) {
+        ExampleGenerator eg = exampleGeneratorCache.getIfPresent(locale.toString());
+        if (eg != null) {
+            /*
+             * Each ExampleGenerator has its own internal cache, which is not the same
+             * as exampleGeneratorCache.
+             *
+             * We could call exampleGeneratorCache.invalidate(locale.toString()) but that would be
+             * too drastic, effectively throwing away the ExampleGenerator for the entire locale.
+             * Ideally eg.updateCache will only clear the minimum set of examples (in its internal
+             * cache) required due to dependence on the given xpath.
+             */
+            eg.updateCache(xpath);
         }
     }
 }

@@ -38,6 +38,7 @@ import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
+import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -951,20 +952,6 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Does the DataSection, to which this DataRow belongs, have examples?
-         *
-         * @return true or false
-         * 
-         * TODO: Why is this a method of DataRow, when the field of the same name that it returns
-         * is a field of DataSection??
-         * 
-         * Called only by row.jsp
-         */
-        public boolean hasExamples() {
-            return hasExamples;
-        }
-
-        /**
          * Get the status icon for this DataRow
          *
          * @param ctx the WebContext
@@ -1460,7 +1447,7 @@ public class DataSection implements JSONString {
      *
      * TODO: Determine whether we need DataSection to be user-specific, as userForVotelist implies
      *
-     * Called by getRow, make, submitVoteOrAbstention, and submit.jsp
+     * Called by getRow, make, submitVoteOrAbstention, and handleBulkSubmit
      */
     public void setUserForVotelist(User u) {
         userForVotelist = u;
@@ -1719,19 +1706,14 @@ public class DataSection implements JSONString {
 
         DataSection section = new DataSection(pageId, sm, locale, prefix, matcher);
 
-        section.hasExamples = true;
-
         CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName(), true, true);
 
         ourSrc.setSupplementalDirectory(sm.getSupplementalDirectory());
 
-        /*
-         * TODO: clarify whether session is ever null, and if not, whether for consistency
-         * and simplicity we could always use session.user instead of ctx.session.user
-         */
-        if (ctx != null) {
-            section.setUserForVotelist(ctx.session != null ? ctx.session.user : null);
-        } else if (session != null && session.user != null) {
+        if (session == null) {
+            throw new InternalError("session == null");
+        }
+        if (session.user != null) {
             section.setUserForVotelist(session.user);
         }
 
@@ -1744,15 +1726,8 @@ public class DataSection implements JSONString {
                 throw new InternalError("checkCldr == null");
             }
             section.translationHintsFile = sm.getTranslationHintsFile();
-
             String englishPath = section.translationHintsFile.getSupplementalDirectory().getPath();
-            /*
-             * TODO: get nativeExampleGenerator from a cache, on a per-locale basis.
-             * We shouldn't need to create a new ExampleGenerator every time we create a new DataSection.
-             * However, we will need to refresh it when a vote occurs that might change the examples.
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
-             */
-            section.nativeExampleGenerator = new ExampleGenerator(ourSrc, section.translationHintsFile, englishPath);
+            section.nativeExampleGenerator = TestCache.getExampleGenerator(locale, ourSrc, section.translationHintsFile, englishPath);
 
             section.populateFrom(ourSrc, checkCldr);
             /*
@@ -1802,13 +1777,6 @@ public class DataSection implements JSONString {
 
     // hash of examples
     Hashtable<String, ExampleEntry> exampleHash = new Hashtable<String, ExampleEntry>();
-
-    /**
-     * Does this DataSection have examples?
-     * 
-     * TODO: resolve confusion: this is a field of DataSection, but it's returned by a function with the same name in DataRow
-     */
-    public boolean hasExamples = false;
 
     /*
      * Interest group
@@ -2556,7 +2524,7 @@ public class DataSection implements JSONString {
         ctx.println("<table summary='Data Items for " + ctx.getLocale().toString() + " " + section.xpathPrefix
             + "' class='data' border='0'>");
 
-        int table_width = section.hasExamples ? 13 : 10;
+        int table_width = 13;
         int itemColSpan;
         if (!canModify) {
             table_width -= 4; // No vote, change, or no opinion columns
@@ -2583,19 +2551,18 @@ public class DataSection implements JSONString {
         }
         ctx.print(" <th>Code</th>\n" + // 2
             " <th title='[" + SurveyMain.TRANS_HINT_LOCALE + "]'>" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + "</th>\n");
-        if (section.hasExamples) {
-            ctx.print(" <th title='" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + " [" + SurveyMain.TRANS_HINT_LOCALE
-                + "] Example'><i>Ex</i></th>\n");
-        }
+
+        ctx.print(" <th title='" + SurveyMain.TRANS_HINT_LANGUAGE_NAME + " [" + SurveyMain.TRANS_HINT_LOCALE
+            + "] Example'><i>Ex</i></th>\n");
 
         ctx.print(" <th colspan=" + itemColSpan + ">" + SurveyMain.getProposedName() + "</th>\n");
-        if (section.hasExamples) {
-            ctx.print(" <th title='Proposed Example'><i>Ex</i></th>\n");
-        }
+
+        ctx.print(" <th title='Proposed Example'><i>Ex</i></th>\n");
+
         ctx.print(" <th colspan=" + itemColSpan + ">" + SurveyMain.CURRENT_NAME + "</th>\n");
-        if (section.hasExamples) {
-            ctx.print(" <th title='Current Example'><i>Ex</i></th>\n");
-        }
+
+        ctx.print(" <th title='Current Example'><i>Ex</i></th>\n");
+
         if (canModify) {
             ctx.print(" <th colspan='2' >Change</th>\n"); // 8
             ctx.print("<th width='20' title='No Opinion'>n/o</th>\n"); // 5
@@ -2631,7 +2598,6 @@ public class DataSection implements JSONString {
                 }
             }
             result.put("rows", itemList);
-            result.put("hasExamples", hasExamples);
             result.put("xpathPrefix", xpathPrefix);
             return result.toString();
         } catch (Throwable t) {

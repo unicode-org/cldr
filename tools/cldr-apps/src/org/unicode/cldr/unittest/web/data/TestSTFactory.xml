@@ -154,6 +154,34 @@
  	<verify status="approved" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">BBB</verify> <!--  only one vote for AAA now -->
     <vote name="E" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">↑↑↑</vote> <!--  effective vote for AAA -->
  	<verify status="approved" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> <!--  not split- inheritance goes w/ AAA -->
+
+	<!-- Make sure Bailey is determined correctly and inheritance is combined with Bailey.
+	     This scenario is based on one for which a bug was encountered previously.
+	     Reference: https://unicode-org.atlassian.net/browse/CLDR-13390
+	     Four vetters, two of them (G1, G2) in the same organization (Google).-->
+	<user name="F1" org="facebook" level="vetter" locales="*"/>
+	<user name="M1" org="microsoft" level="vetter" locales="*"/>
+	<user name="G1" org="google" level="vetter" locales="*"/>
+	<user name="G2" org="google" level="vetter" locales="*"/>
+
+	<!-- TC vote for aprel for the 'format' path should make aprel the Bailey for the 'stand-alone' path. -->
+	<user name="TC1" org="afrigen" level="tc" locales="*"/>
+	<vote name="TC1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='wide']/month[@type='4']">aprel</vote>
+
+	<!-- The four vetters vote as follows:
+			F1 aprel
+			M1 Aprel
+			G1 Aprel
+			G2 ↑↑↑
+		Assume the path with 'stand-alone' inherits from the path with 'format' in the same locale.
+		Baseline is Aprel (per az.xml). -->
+	<vote name="F1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">aprel</vote>
+	<vote name="M1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">Aprel</vote>
+	<vote name="G1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">Aprel</vote>
+	<vote name="G2" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">↑↑↑</vote>
+
+	<!-- G1 Aprel should be eliminated. G2 ↑↑↑ should combine with F1 aprel to beat M1 Aprel.
+		Winner should be ↑↑↑, and ↑↑↑ resolves to the Bailey value aprel. -->
+	<verify status="approved" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']" >aprel</verify>
 	
- 
 </TestSTFactory>

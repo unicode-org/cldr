@@ -37,7 +37,6 @@ import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -916,9 +915,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * This function is called by getResolver, and may also call itself recursively.
          */
         private VoteResolver<String> getResolverInternal(PerXPathData perXPathData, String path, VoteResolver<String> r) {
-            if (path == null)
+            if (path == null) {
                 throw new IllegalArgumentException("path must not be null");
-
+            }
             if (r == null) {
                 r = new VoteResolver<String>(); // create
             } else {
@@ -936,53 +935,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
              */
             r.setUsingKeywordAnnotationVoting(path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS));
 
-            // Workaround (workaround what?)
-            CLDRFile.Status status = new CLDRFile.Status();
-            diskFile.getSourceLocaleID(path, status); // ask disk file
-
-            /*
-             * TODO: Fix bug: the baileyValue set here is not, in general, the same as the one in updateInheritedValue
-             * in DataSection.java! There,
-             * inheritedValue = ourSrc.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
-             * For example, here we get baileyValue = "Veräifachts Chineesisch",
-             * but in updateInheritedValue we get inheritedValue = "Chineesisch (Veräifachti Chineesischi Schrift)".
-             * That's for http://localhost:8080/cldr-apps/v#/gsw_FR/Languages_A_D/3f16ed8804cebb7d
-             * Reference https://unicode.org/cldr/trac/ticket/11420
-             */
-            String baileyValue = null;
-            if (status.pathWhereFound.equals(path)) {
-                // we found it on the same path, so no aliasing
-                // for that case, it is safe to use the parent's value
-                if (fallbackParent == null) {
-                    // we are in root. 
-                    baileyValue = diskData.getBaileyValue(path, null, null);
-                } else {
-                    baileyValue = fallbackParent.getStringValue(path);
-                }
-            } else {
-                // the path changed, so use that path to get the right value
-                // from the *current* file (not the parent)
-                r = getResolverInternal(peekXpathData(status.pathWhereFound), status.pathWhereFound, r);
-                /*
-                 * Caution: never set baileyValue = INHERITANCE_MARKER!
-                 * That happened here, with "baileyValue = r.getWinningValue()" when
-                 * getWinningValue returned INHERITANCE_MARKER.
-                 * http://localhost:8080/cldr-apps/v#/ko/Gregorian/42291caf2163ca8d
-                 * Third "BCE" row ("eraNarrow"), which inherits from second "BCE" row ("eraAbbr").
-                 * We got hard BCE in Winning column, soft BCE in Others column.
-                 * Recursive call to PerLocaleData.getResolverInternal was involved.
-                 * If r.getWinningValue() returns INHERITANCE_MARKER, then set
-                 * this.baileyValue = r.getBaileyValue().
-                 * Reference https://unicode.org/cldr/trac/ticket/11611
-                 */
-                String wv = r.getWinningValue();
-                if (CldrUtility.INHERITANCE_MARKER.equals(wv)) {
-                    wv = r.getBaileyValue();
-                }
-                baileyValue = wv;                    
-                r.clear(); // clear it again
-            }
-
             final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
 
             // Set established locale
@@ -996,7 +948,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.add(currentValue);
             }
 
-            r.setBaileyValue(baileyValue);
+            CLDRFile cf = make(locale, true);
+            r.setBaileyValue(cf.getConstructedBaileyValue(path, null, null));
 
             // add each vote
             if (perXPathData != null && !perXPathData.isEmpty()) {

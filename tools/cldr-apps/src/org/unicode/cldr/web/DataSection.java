@@ -1075,11 +1075,6 @@ public class DataSection implements JSONString {
             /*
              * Set the inheritedValue field of the DataRow containing this CandidateItem.
              * Also possibly set the inheritedLocale and pathWhereFound fields of the DataRow.
-             *
-             * TODO: fix bug, return value of getConstructedBaileyValue here gives
-             * inheritedValue = "Chineesisch (Veräifachti Chineesischi Schrift)"
-             * but getResolverInternal gets baileyValue = "Veräifachts Chineesisch".
-             * That's for http://localhost:8080/cldr-apps/v#/gsw_FR/Languages_A_D/3f16ed8804cebb7d
              */
             Output<String> inheritancePathWhereFound = new Output<String>(); // may become pathWhereFound
             Output<String> localeWhereFound = new Output<String>(); // may be used to construct inheritedLocale

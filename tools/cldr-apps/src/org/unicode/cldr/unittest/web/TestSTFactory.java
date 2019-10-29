@@ -513,7 +513,7 @@ public class TestSTFactory extends TestFmwk {
 
                     Status xpathStatus;
                     CLDRFile.Status newPath = new CLDRFile.Status();
-                    CLDRLocale newLocale = CLDRLocale.getInstance(cf.getSourceLocaleID(fullXpath, newPath));
+                    CLDRLocale newLocale = CLDRLocale.getInstance(cf.getSourceLocaleIdExtended(fullXpath, newPath, false));
                     final boolean localeChanged = newLocale != null && !newLocale.equals(locale);
                     final boolean pathChanged = newPath.pathWhereFound != null && !newPath.pathWhereFound.equals(xpath);
                     final boolean itMoved = localeChanged || pathChanged;

@@ -20,7 +20,6 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -331,7 +330,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 placeholderInfo2.example);
         }
         ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile, CLDRPaths.SUPPLEMENTAL_DIRECTORY);
-        String example = eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE), ExampleType.NATIVE);
+        String example = eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
         String result = ExampleGenerator.simplify(example, false);
         assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);
     }

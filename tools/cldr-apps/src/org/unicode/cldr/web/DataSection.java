@@ -37,7 +37,6 @@ import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -476,7 +475,7 @@ public class DataSection implements JSONString {
              * Called only by DataSection.DataRow.CandidateItem.toJSONString()
              */
             private String getExample() {
-                return nativeExampleGenerator.getExampleHtml(xpath, rawValue, ExampleType.NATIVE);
+                return nativeExampleGenerator.getExampleHtml(xpath, rawValue);
             }
 
             /**
@@ -1205,7 +1204,7 @@ public class DataSection implements JSONString {
 
                 String displayExample = null;
                 if (displayName != null) {
-                    displayExample = sm.getTranslationHintsExample().getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
+                    displayExample = sm.getTranslationHintsExample().getExampleHtml(xpath, displayName);
                 }
 
                 String code = "?";

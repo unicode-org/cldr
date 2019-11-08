@@ -282,6 +282,8 @@ public class GenerateMaximalLocales {
 //        {"ccp", "ccp_Cakm_BD"},
 //        {"blt", "blt_Tavt_VN"},
         { "mis_Medf", "mis_Medf_NG" },
+
+        { "ku_Yezi", "ku_Yezi_GE" },
     });
 
     /**

@@ -482,7 +482,7 @@ public class XPathTable {
         return xpp.toString();
     }
 
-    public Map<String, String> getUndistinguishingElementsFor(String path, XPathParts xpp) {
+    public Map<String, String> getUndistinguishingElementsFor(String path) {
         return XPathParts.getFrozenInstance(path).getSpecialNondistinguishingAttributes();
     }
 

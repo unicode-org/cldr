@@ -336,7 +336,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
                 disallowed.removeAll(ALL_CURRENCY_SYMBOLS);
                 disallowed.removeAll(LETTER); // Allow ASCII A-Z in currency symbols
-                // String currency = new XPathParts().set(path).getAttributeValue(-2, "type");
                 if (disallowed.size() > 0) {
                     // && asciiNotAllowed(getCldrFileToCheck().getLocaleID(), currency)) {
                     addMissingMessage(disallowed, errorOption,

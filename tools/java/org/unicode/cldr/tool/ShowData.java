@@ -448,7 +448,6 @@ public class ShowData {
     private static void getScripts() throws IOException {
         Set<String> locales = cldrFactory.getAvailableLanguages();
         Set<String> scripts = new TreeSet<String>();
-        //XPathParts parts = new XPathParts();
         Map<String, Map<String, Set<String>>> script_name_locales = new TreeMap<String, Map<String, Set<String>>>();
         PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "scriptNames.txt");
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {

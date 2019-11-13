@@ -403,6 +403,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @param options
      *            map of options for writing
      * @return true if we write the file, false if we cancel due to skipping all paths
+     *
+     * TODO: shorten this method (over 170 lines) using subroutines.
      */
     public boolean write(PrintWriter pw, Map<String, ?> options) {
         Set<String> orderedSet = new TreeSet<String>(getComparator());
@@ -479,42 +481,29 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         XPathParts.Comments tempComments = (XPathParts.Comments) dataSource.getXpathComments().clone();
 
-        XPathParts last = new XPathParts(defaultSuppressionMap);
-        XPathParts current = new XPathParts(defaultSuppressionMap);
-        XPathParts lastFiltered = new XPathParts(defaultSuppressionMap);
-        XPathParts currentFiltered = new XPathParts(defaultSuppressionMap);
+        XPathParts last = null;
 
         boolean isResolved = dataSource.isResolving();
 
         java.util.function.Predicate<String> skipTest = (java.util.function.Predicate<String>) options.get("SKIP_PATH");
 
+        /*
+         * First loop: call writeDifference for each xpath in identitySet, with empty string "" for value.
+         * There is no difference between "filtered" and "not filtered" in this loop.
+         */
         for (Iterator<String> it2 = identitySet.iterator(); it2.hasNext();) {
             String xpath = (String) it2.next();
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }
-            currentFiltered.setForWritingWithSuppressionMap(xpath);
-            current.setForWritingWithSuppressionMap(xpath);
-            current.writeDifference(pw, currentFiltered, last, "", tempComments);
-            /*
-             * Exchange pairs of parts:
-             *     swap current with last
-             *     swap currentFiltered with lastFiltered
-             * However, current and currentFiltered both get "set" next, so the effect should be the same as
-             *     last = current
-             *     lastFiltered = currentFiltered
-             *     current = getInstance
-             *     currentFiltered = getInstance
-             *     ??
-             */
-            XPathParts temp = current;
-            current = last;
-            last = temp;
-            temp = currentFiltered;
-            currentFiltered = lastFiltered;
-            lastFiltered = temp;
+            XPathParts current = XPathParts.getInstance(xpath);
+            current.writeDifference(pw, current, last, "", tempComments);
+            last = current;
         }
 
+        /*
+         * Second loop: call writeDifference for each xpath in orderedSet, with v = getStringValue(xpath).
+         */
         boolean wroteAtLeastOnePath = false;
         for (String xpath : orderedSet) {
             if (skipTest != null
@@ -528,20 +517,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (suppressInheritanceMarkers && CldrUtility.INHERITANCE_MARKER.equals(v)) {
                 continue;
             }
-            currentFiltered.setForWritingWithSuppressionMap(xpath);
+            /*
+             * The difference between "filtered" (currentFiltered) and "not filtered" (current) is that
+             * current uses getFullXPath(xpath), while currentFiltered uses xpath.
+             */
+            XPathParts currentFiltered = XPathParts.getInstance(xpath);
             if (currentFiltered.size() >= 2
                 && currentFiltered.getElement(1).equals("identity")) {
                 continue;
             }
-            current.setForWritingWithSuppressionMap(getFullXPath(xpath));
+            XPathParts current = XPathParts.getInstance(getFullXPath(xpath));
             current.writeDifference(pw, currentFiltered, last, v, tempComments);
-            // exchange pairs of parts
-            XPathParts temp = current;
-            current = last;
-            last = temp;
-            temp = currentFiltered;
-            currentFiltered = lastFiltered;
-            lastFiltered = temp;
+            last = current;
             wroteAtLeastOnePath = true;
         }
         /*
@@ -557,7 +544,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (!wroteAtLeastOnePath && options.containsKey("SKIP_FILE_IF_SKIP_ALL_PATHS")) {
             return false;
         }
-        current.clear().writeDifference(pw, null, last, null, tempComments);
+
+        last.writeLast(pw);
+
         String finalComment = dataSource.getXpathComments().getFinalComment();
 
         if (WRITE_COMMENTS_THAT_NO_LONGER_HAVE_BASE) {
@@ -692,7 +681,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
-     * Get the full path from a distinguished path
+     * Get the full path from a distinguished path.
+     *
+     * @param xpath the distinguished path
+     * @return the full path
+     *
+     * Examples:
+     *
+     * xpath  = //ldml/localeDisplayNames/scripts/script[@type="Adlm"]
+     * result = //ldml/localeDisplayNames/scripts/script[@type="Adlm"][@draft="unconfirmed"]
+     *
+     * xpath  = //ldml/dates/calendars/calendar[@type="hebrew"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]
+     * result = //ldml/dates/calendars/calendar[@type="hebrew"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"][@numbers="hebr"]
      */
     public String getFullXPath(String xpath) {
         if (xpath == null) {
@@ -1303,13 +1303,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return getNondraftNonaltXPath(path1).equals(getNondraftNonaltXPath(path2));
     }
 
-    static XPathParts nondraftParts = new XPathParts();
+    /*
+     * TODO: clarify the need for syncObject.
+     * Formerly, an XPathParts object named "nondraftParts" was used for this purpose, but
+     * there was no evident reason for it to be an XPathParts object rather than any other
+     * kind of object.
+     */
+    private static Object syncObject = new Object();
 
     public static String getNondraftNonaltXPath(String xpath) {
         if (xpath.indexOf("draft=\"") < 0 && xpath.indexOf("alt=\"") < 0) {
             return xpath;
         }
-        synchronized (nondraftParts) {
+        synchronized (syncObject) {
             XPathParts parts = XPathParts.getInstance(xpath); // can't be frozen since we call removeAttributes
             String restore;
             HashSet<String> toRemove = new HashSet<String>();

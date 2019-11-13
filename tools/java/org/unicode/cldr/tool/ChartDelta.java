@@ -339,7 +339,6 @@ public class ChartDelta extends Chart {
             Set<String> paths = new HashSet<>();
 
             Relation<PathHeader, String> diffAll = Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
-//        XPathParts pathPlain = new XPathParts();
             for (Entry<String, Set<String>> baseNLocale : baseToLocales.keyValuesSet()) {
                 String base = baseNLocale.getKey();
 //            int qCount = 0;

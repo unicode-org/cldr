@@ -45,7 +45,6 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
-import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -338,7 +337,6 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestOptional() {
         if (true) return;
         Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
-        XPathParts parts = new XPathParts();
         for (String locale : new String[] { "af" }) {
             sorted.clear();
             CLDRFile cldrFile = info.getCLDRFile(locale, true);
@@ -663,8 +661,6 @@ public class TestPathHeader extends TestFmwkPlus {
         EnumMap<SurveyToolStatus, Relation<String, String>> info2 = new EnumMap<SurveyToolStatus, Relation<String, String>>(
             SurveyToolStatus.class);
         Set<String> nuked = new HashSet<String>();
-        PrettyPath pp = new PrettyPath();
-        XPathParts parts = new XPathParts();
         Set<String> deprecatedStar = new HashSet<String>();
         Set<String> differentStar = new HashSet<String>();
 
@@ -1113,7 +1109,6 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestCompletenessNonLdmlDtd() {
         PathChecker pathChecker = new PathChecker();
         Set<String> directories = new LinkedHashSet<>();
-        XPathParts parts = new XPathParts();
         Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
         // get all the directories containing non-Ldml dtd files
         for (DtdType dtdType : DtdType.values()) {

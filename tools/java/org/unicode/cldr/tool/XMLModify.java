@@ -76,7 +76,7 @@ public class XMLModify {
                 }
                 data.clear();
                 out.println(file);
-                XPathParts lastParts = new XPathParts();
+                XPathParts lastParts = null;
                 for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
                     sourceDirectory.toString() + "/" + file, data, true, true)) {
                     String value = pathValue.getSecond();

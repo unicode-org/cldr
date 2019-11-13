@@ -1355,7 +1355,7 @@ public class DataSection implements JSONString {
         private Map<String, String> getNonDistinguishingAttributes() {
             if (checkedNDA == false) {
                 String fullDiskXPath = diskFile.getFullXPath(xpath);
-                nonDistinguishingAttributes = sm.xpt.getUndistinguishingElementsFor(fullDiskXPath, new XPathParts());
+                nonDistinguishingAttributes = sm.xpt.getUndistinguishingElementsFor(fullDiskXPath);
                 checkedNDA = true;
             }
             return nonDistinguishingAttributes;

@@ -6,12 +6,9 @@ import java.util.Set;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XPathParts;
 
 public class CheckAlt extends CheckCLDR {
 
-    XPathParts parts = new XPathParts();
-    // CLDRFile.Status status = new CLDRFile.Status();
     Set<String> seenSoFar = new HashSet<String>();
 
     // determine if we have an alt=...proposed

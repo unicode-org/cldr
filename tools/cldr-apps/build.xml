@@ -6,7 +6,7 @@
         <property name="src.dir" value="src"/>
         <property name="libs.dir" value="WebContent/WEB-INF/lib"/>
 
-        <property name="build.dir" value="build/classes"/>
+        <property name="build.dir" value="target/classes"/>
         <property name="jar.file" value="cldr-apps.jar"/>
         <property name="jarSrc.file" value="cldr-apps-src.jar"/>
         <property name="jarDocs.file" value="cldr-apps-docs.jar"/>
@@ -92,7 +92,7 @@
 
  <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->
 
-        <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
+        <property name="wardata" value="${src.dir}/test/resources/org/unicode/cldr/web/data"/>
 
         <path id="catalina-ant.classpath">
           <fileset dir="${tomcat.home}/lib">
@@ -193,7 +193,7 @@
         <mkdir dir="${doc.dir}"/>
         <javadoc
             packagenames="org.unicode.cldr.*"
-            sourcepath="${src.dir}"
+            sourcepath="${src.dir}/main/java"
             destdir="${doc.dir}"
             classpathref="project.class.path"
             nodeprecatedlist="true"
@@ -219,7 +219,17 @@
 
     <target name="all" depends="init" description="build web classes">
         <javac
-            srcdir="${src.dir}"
+            srcdir="${src.dir}/main/java"
+        	includes="org/unicode/cldr/util/*.java,org/unicode/cldr/web/*.java,org/json/*.java"
+            destdir="${build.dir}"
+            classpathref="project.class.path"
+            source="1.8"
+            target="1.8"
+            debug="on" deprecation="off"
+            includeantruntime="false"
+            encoding="UTF-8"/>
+        <javac
+            srcdir="${src.dir}/test/java"
         	includes="org/unicode/cldr/util/*.java,org/unicode/cldr/web/*.java,org/json/*.java"
             destdir="${build.dir}"
             classpathref="project.class.path"

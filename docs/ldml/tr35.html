@@ -87,13 +87,13 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td>36</td>
+        <td class="changed">37</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -102,19 +102,20 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td>2019-10-02</td>
+        <td class="changed">2019-10-30</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
         <td>This Version</td>
-        <td>
-		<a href="http://www.unicode.org/reports/tr35/tr35-57/tr35.html">
-		http://www.unicode.org/reports/tr35/tr35-57/tr35.html</a></td>
+        <td class="changed">
+		<a href="http://www.unicode.org/reports/tr35/tr35-58/tr35.html">
+		http://www.unicode.org/reports/tr35/tr35-58/tr35.html</a></td>
       </tr>
       <tr>
         <td>Previous Version</td>
-        <td>
-		<a href="http://www.unicode.org/reports/tr35/tr35-55/tr35.html">http://www.unicode.org/reports/tr35/tr35-55/tr35.html</a></td>
+        <td class="changed">
+		<a href="http://www.unicode.org/reports/tr35/tr35-57/tr35.html">
+		http://www.unicode.org/reports/tr35/tr35-57/tr35.html</a></td>
       </tr>
       <tr>
         <td>Latest Version</td>
@@ -138,12 +139,12 @@
       </tr>
       <tr>
         <td>DTDs</td>
-        <td><a href="http://unicode.org/cldr/dtd/36/">
-		http://unicode.org/cldr/dtd/36/</a></td>
+        <td class="changed"><a href="http://unicode.org/cldr/dtd/37/">
+		http://unicode.org/cldr/dtd/37/</a></td>
       </tr>
       <tr>
         <td>Revision</td>
-        <td><a href="#Modifications">57</a></td>
+        <td class="changed"><a href="#Modifications">58</a></td>
       </tr>
     </table>
     <h3><i>Summary</i></h3>
@@ -153,7 +154,7 @@
     Data Repository</a>.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED
+    <!-- NOT YET APPROVED -->
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -163,14 +164,14 @@
                                 progress.
                         </i>
                 </p>
-     END NOT YET APPROVED -->
-    <!-- APPROVED -->
+    <!-- END NOT YET APPROVED -->
+    <!-- APPROVED 
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-    <!-- END APPROVED -->
+     END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -6107,8 +6108,9 @@ root</pre>
       <i>unconfirmed</i>: no confirmation available.</li>
     </ul>
     <p>For more information on precisely how these values are
-    computed for any given release, see <a href=
-    "http://cldr.unicode.org/index/process#TOC-Data-Submission-and-Vetting-Process">
+    computed for any given release, see 
+	<a href=
+    "http://cldr.unicode.org/index/process#TOC-Data--Submission-and-Vetting" class="changed">
     Data Submission and Vetting Process</a> on the CLDR
     website.</p>
     <p>The draft attribute should only occur on "leaf" elements,
@@ -8917,7 +8919,9 @@ decimal?, group?, special*)) &gt;</pre>
         <a href="http://tf.nist.gov/">http://tf.nist.gov/<br></a>
         U.S. Naval Observatory: What is Universal Time?<br>
         <a href=
-        "http://aa.usno.navy.mil/faq/docs/UT.php">http://aa.usno.navy.mil/faq/docs/UT.php</a></td>
+        "http://aa.usno.navy.mil/faq/docs/UT.php">http://aa.usno.navy.mil/faq/docs/UT.php</a>
+		<span class="reviewnote">Review Note: This link appears to be no longer 
+		valid.</span></td>
       </tr>
       <tr>
         <td class="noborder" width="148">[<a name="WindowsCulture"
@@ -8993,8 +8997,13 @@ decimal?, group?, special*)) &gt;</pre>
     <h2><a name="Modifications" href="#Modifications" id=
     "Modifications">Modifications</a></h2>
 
-    <p><b>Revision 57</b></p>
-	<ul>
+    <p class="changed"><b>Revision 58</b></p>
+	  <ul>
+		  <li class="changed"><b>Proposed Update</b> for CLDR 37.</li>
+	  </ul>
+	  <p>&nbsp;</p>
+	  <p class="removed"><b>Revision 57</b></p>
+	<ul class="removed">
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>
 	    <ul>
 		  <li><strong>Section 3.2 <a href="#Unicode_locale_identifier">Unicode Locale Identifier</a></strong>

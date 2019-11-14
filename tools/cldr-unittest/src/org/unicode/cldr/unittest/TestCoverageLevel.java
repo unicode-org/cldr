@@ -390,7 +390,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "Normalization|Numeric|Reorder|Strength)|kv|sd|timezone|va|variableTop|x|d0|h0|i0|k0|m0|s0)");
 
         final Pattern numberingSystem100 = PatternCache.get("("
-            + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|"
+            + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|diak|"
             + "gong|gonm|hanidays|hmng|hmnp|java|jpanyear|kali|lana(tham)?|lepc|limb|"
             + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(shan|tlng)|"
             + "newa|nkoo|olck|osma|rohg|saur|shrd|sin[dh]|sora|sund|takr|talu|tirh|vaii|wara|wcho)");

@@ -285,22 +285,22 @@ public class TestExampleGenerator extends TestFmwk {
             "//ldml/units/durationUnit[@type=\"hm\"]/durationUnitPattern");
         checkValue(
             "Length m",
-            "〖❬1.00❭ meter〗",
+            "〖❬1❭ meter〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"]");
         checkValue(
             "Length m",
-            "〖❬1.50❭ meters〗",
+            "〖❬1.5❭ meters〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
         checkValue(
             "Length m",
-            "〖❬1.50❭ m〗",
+            "〖❬1.5❭ m〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
         checkValue(
             "Length m",
-            "〖❬1.50❭m〗",
+            "〖❬1.5❭m〗",
             exampleGenerator,
             "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
     }
@@ -315,18 +315,18 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestCompoundUnit() {
         String[][] tests = { 
-            { "per", "LONG", "one", "〖❬1.00 meter❭ per ❬second❭〗" },
-            { "per", "SHORT", "one", "〖❬1.00 m❭/❬sec❭〗" },
-            { "per", "NARROW", "one", "〖❬1.00m❭/❬s❭〗" },
-            { "per", "LONG", "other", "〖❬1.50 meters❭ per ❬second❭〗" },
-            { "per", "SHORT", "other", "〖❬1.50 m❭/❬sec❭〗" },
-            { "per", "NARROW", "other", "〖❬1.50m❭/❬s❭〗" }, 
-            { "times", "LONG", "one", "〖❬1.00 newton❭⋅❬meter❭〗" },
-            { "times", "SHORT", "one", "〖❬1.00 N❭⋅❬m❭〗" },
-            { "times", "NARROW", "one", "〖❬1.00N❭⋅❬m❭〗" },
-            { "times", "LONG", "other", "〖❬1.50 newton❭⋅❬meters❭〗" },
-            { "times", "SHORT", "other", "〖❬1.50 N❭⋅❬m❭〗" },
-            { "times", "NARROW", "other", "〖❬1.50N❭⋅❬m❭〗" }, 
+            { "per", "LONG", "one", "〖❬1 meter❭ per ❬second❭〗" },
+            { "per", "SHORT", "one", "〖❬1 m❭/❬sec❭〗" },
+            { "per", "NARROW", "one", "〖❬1m❭/❬s❭〗" },
+            { "per", "LONG", "other", "〖❬1.5 meters❭ per ❬second❭〗" },
+            { "per", "SHORT", "other", "〖❬1.5 m❭/❬sec❭〗" },
+            { "per", "NARROW", "other", "〖❬1.5m❭/❬s❭〗" },
+            { "times", "LONG", "one", "〖❬1 newton❭⋅❬meter❭〗" },
+            { "times", "SHORT", "one", "〖❬1 N❭⋅❬m❭〗" },
+            { "times", "NARROW", "one", "〖❬1N❭⋅❬m❭〗" },
+            { "times", "LONG", "other", "〖❬1.5 newton❭⋅❬meters❭〗" },
+            { "times", "SHORT", "other", "〖❬1.5 N❭⋅❬m❭〗" },
+            { "times", "NARROW", "other", "〖❬1.5N❭⋅❬m❭〗" },
             };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated
@@ -673,6 +673,45 @@ public class TestExampleGenerator extends TestFmwk {
         checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
     }
 
+    /**
+     * Test that getExampleHtml returns same output for same input regardless of
+     * order in which it is called with different inputs.
+     *
+     * Calling getExampleHtml with a particular path and value presumably should NOT depend on the
+     * history of paths and/or values it has been called with previously.
+     *
+     * We formerly got different examples for SPECIAL_PATH depending on whether an example was
+     * first gotten for USE_EVIL_PATH.
+     *
+     * Without EVIL_PATH, got right value for SPECIAL_PATH:
+     * <div class='cldr_example'><span class='cldr_substituted'>123 456,79 </span>€</div>
+     *
+     * With EVIL_PATH, got wrong value for SPECIAL_PATH:
+     * <div class='cldr_example'><span class='cldr_substituted'>123457 k </span>€</div>
+     *
+     * This was fixed by doing clone() before returning a DecimalFormat in ICUServiceBuilder.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13375.
+     *
+     * @throws IOException
+     */
+    public void TestExampleGeneratorConsistency() throws IOException {
+        final String EVIL_PATH = "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]";
+        final String SPECIAL_PATH = "//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol";
+        final String EXPECTED = "123 456,79";
+
+        final CLDRFile cldrFile = info.getCLDRFile("fr", true);
+        final ExampleGenerator eg = new ExampleGenerator(cldrFile, info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+
+        final String evilValue = cldrFile.getStringValue(EVIL_PATH);
+        final String specialValue = cldrFile.getStringValue(SPECIAL_PATH);
+
+        eg.getExampleHtml(EVIL_PATH, evilValue);
+        final String specialExample = eg.getExampleHtml(SPECIAL_PATH, specialValue);
+
+        if (!specialExample.contains(EXPECTED)) {
+            errln("Expected example to contain " + EXPECTED + "; got " + specialExample);
+        }
+    }
 
     /**
      * Test dependencies where changing the value of one path changes example-generation for another path.

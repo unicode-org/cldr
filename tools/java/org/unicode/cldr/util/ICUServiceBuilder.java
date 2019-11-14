@@ -57,6 +57,8 @@ public class ICUServiceBuilder {
     private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap<String, DateFormatSymbols>();
     private Map<String, NumberFormat> cacheNumberFormats = new HashMap<String, NumberFormat>();
     private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap<String, DecimalFormatSymbols>();
+    private Map<String, RuleBasedCollator> cacheRuleBasedCollators = new HashMap<String, RuleBasedCollator>();
+
     private SupplementalDataInfo supplementalData;
 
     // private Factory cldrFactory;
@@ -99,6 +101,7 @@ public class ICUServiceBuilder {
         cacheNumberFormats.clear();
         cacheDateFormatSymbols.clear();
         cacheDecimalFormatSymbols.clear();
+        cacheRuleBasedCollators.clear();
         return this;
     }
 
@@ -118,6 +121,7 @@ public class ICUServiceBuilder {
             result.cacheNumberFormats.clear();
             result.cacheDateFormatSymbols.clear();
             result.cacheDecimalFormatSymbols.clear();
+            result.cacheRuleBasedCollators.clear();
 
             ISBMap.put(locale, result);
         }
@@ -125,6 +129,15 @@ public class ICUServiceBuilder {
     }
 
     public RuleBasedCollator getRuleBasedCollator(String type) throws Exception {
+        RuleBasedCollator col = (RuleBasedCollator) cacheRuleBasedCollators.get(type);
+        if (col == null) {
+            col = _getRuleBasedCollator(type);
+            cacheRuleBasedCollators.put(type, col);
+        }
+        return (RuleBasedCollator) col.clone();
+    }
+
+    private RuleBasedCollator _getRuleBasedCollator(String type) throws Exception {
         String rules = "";
         String collationType;
         if ("default".equals(type)) {
@@ -334,7 +347,7 @@ public class ICUServiceBuilder {
             DateFormatSymbols.NARROW);
 
         cacheDateFormatSymbols.put(key, formatData);
-        return formatData;
+        return (DateFormatSymbols) formatData.clone();
     }
 
     /**
@@ -573,11 +586,12 @@ public class ICUServiceBuilder {
     public NumberFormat getGenericNumberFormat(String ns) {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         NumberFormat result = (NumberFormat) cacheNumberFormats.get(cldrFile.getLocaleID() + "@numbers=" + ns);
-        if (result != null) return result;
-        ULocale ulocale = new ULocale(cldrFile.getLocaleID() + "@numbers=" + ns);
-        result = NumberFormat.getInstance(ulocale);
-        cacheNumberFormats.put(cldrFile.getLocaleID() + "@numbers=" + ns, result);
-        return result;
+        if (result == null) {
+            ULocale ulocale = new ULocale(cldrFile.getLocaleID() + "@numbers=" + ns);
+            result = NumberFormat.getInstance(ulocale);
+            cacheNumberFormats.put(cldrFile.getLocaleID() + "@numbers=" + ns, result);
+        }
+        return (NumberFormat) result.clone();
     }
 
     public DecimalFormat getNumberFormat(String pattern) {
@@ -598,7 +612,7 @@ public class ICUServiceBuilder {
             + "/" + currencySymbol;
         DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
         if (result != null) {
-            return result;
+            return (DecimalFormat) result.clone();
         }
 
         String pattern = kind == PATTERN ? key1 : getPattern(key1, kind);
@@ -687,7 +701,7 @@ public class ICUServiceBuilder {
             result.setParseIntegerOnly(true);
         }
         cacheNumberFormats.put(key, result);
-        return result;
+        return (DecimalFormat) result.clone();
     }
 
     private String fixCurrencySpacing(String pattern, String symbol) {
@@ -727,7 +741,9 @@ public class ICUServiceBuilder {
         String key = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers="
             + numberSystem;
         DecimalFormatSymbols symbols = (DecimalFormatSymbols) cacheDecimalFormatSymbols.get(key);
-        if (symbols != null) return symbols;
+        if (symbols != null) {
+            return (DecimalFormatSymbols) symbols.clone();
+        }
 
         symbols = new DecimalFormatSymbols();
         if (numberSystem == null) {
@@ -768,17 +784,17 @@ public class ICUServiceBuilder {
         }
 
         String prefix = "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/";
-        beforeCurrencyMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "currencyMatch"));
-        beforeSurroundingMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "surroundingMatch"));
+        beforeCurrencyMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "currencyMatch")).freeze();
+        beforeSurroundingMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "surroundingMatch")).freeze();
         beforeInsertBetween = cldrFile.getWinningValueWithBailey(prefix + "insertBetween");
         prefix = "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/";
-        afterCurrencyMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "currencyMatch"));
-        afterSurroundingMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "surroundingMatch"));
+        afterCurrencyMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "currencyMatch")).freeze();
+        afterSurroundingMatch = new UnicodeSet(cldrFile.getWinningValueWithBailey(prefix + "surroundingMatch")).freeze();
         afterInsertBetween = cldrFile.getWinningValueWithBailey(prefix + "insertBetween");
 
         cacheDecimalFormatSymbols.put(key, symbols);
 
-        return symbols;
+        return (DecimalFormatSymbols) symbols.clone();
     }
 
     private char getSymbolCharacter(String key, String numsys) {

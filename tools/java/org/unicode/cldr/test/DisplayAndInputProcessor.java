@@ -553,7 +553,7 @@ public class DisplayAndInputProcessor {
         value = "[" + value + "]";
 
         UnicodeSet exemplar = new UnicodeSet(value);
-        XPathParts parts = XPathParts.getFrozenInstance(path); // new XPathParts().set(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         if (parts.getElement(2).equals("parseLenients")) {
             return exemplar.toPattern(false);
         }

@@ -3,15 +3,12 @@ package org.unicode.cldr.test;
 import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.lang.UCharacter;
 
 public class CheckCurrencies extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*Currencies.*
-
-    XPathParts parts = new XPathParts(); // used to parse out a path
 
     // If you don't need any file initialization or postprocessing, you only need this one routine
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,

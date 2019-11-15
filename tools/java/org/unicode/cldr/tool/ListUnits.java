@@ -54,7 +54,6 @@ public class ListUnits {
 
         Timer timer = new Timer();
         int count = 0;
-        XPathParts parts = new XPathParts();
         Splitter SEMI = Splitter.on(";").trimResults();
         Matcher currencyMatcher = PatternCache.get("([^0#]*).*[0#]([^0#]*)").matcher("");
 

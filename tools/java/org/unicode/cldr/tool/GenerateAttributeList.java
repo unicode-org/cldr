@@ -28,7 +28,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TransliteratorUtilities;
-import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -38,7 +37,6 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
 public class GenerateAttributeList {
-    XPathParts parts = new XPathParts();
     Map<String, Map<String, Set<String>[]>> element_attribute_valueSet = new TreeMap<String, Map<String, Set<String>[]>>();
     Set<String> allElements = new TreeSet<String>();
     Map<String, String> defaults = new HashMap<String, String>();

@@ -289,7 +289,6 @@ public class GenerateItemCounts {
             TreeSet.class);
         final PathStarrer PATH_STARRER = new PathStarrer().setSubstitutionPattern("*");
         final Set<String> STARRED_PATHS = new TreeSet<String>();
-        XPathParts parts = new XPathParts();
         StringBuilder elementPath = new StringBuilder();
 
         public void add(String path) {

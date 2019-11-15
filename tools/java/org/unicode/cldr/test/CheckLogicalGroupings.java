@@ -57,8 +57,6 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*
 
-    //private XPathParts parts = new XPathParts(); // used to parse out a path
-
     /**
      * We are not as strict with sublocales (where the parent is neither root nor code_fallback). 
      * @param path

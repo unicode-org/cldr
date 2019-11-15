@@ -20,7 +20,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
@@ -35,7 +34,6 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*Currencies.*
 
-    XPathParts parts = new XPathParts(); // used to parse out a path
     ULocale uLocale = null;
     BreakIterator breaker = null;
     private String locale;

@@ -392,7 +392,7 @@ public class TestInheritance extends TestFmwk {
         Set<String> skip = Builder.with(new HashSet<String>())
             .addAll("root", "und")
             .freeze();
-        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<String>(Arrays.asList("bm", "ha", "ms", "iu", "mn"));
+        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<String>(Arrays.asList("bm", "ha", "hi", "ms", "iu", "mn"));
         // for each base we have to have,
         // if multiscript, we have default contents for base+script,
         // base+script+region;

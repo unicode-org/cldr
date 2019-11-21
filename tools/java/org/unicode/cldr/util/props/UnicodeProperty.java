@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
@@ -330,16 +331,62 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     /** Adds the property value set to the result. Clear the result first if you don't want to keep the original contents.
      */
     public final UnicodeSet getSet(String propertyValue, UnicodeSet result) {
-        return getSet(new SimpleMatcher(propertyValue,
-                isType(STRING_OR_MISC_MASK) ? null : PROPERTY_COMPARATOR),
-                result);
+        if (isType(BINARY_MASK)) {
+            if (binaryYesSet == null) {
+                binaryYesSet = getSet(YES_MATCHER, null);
+            }
+            Boolean binValue = binaryValueOrNull(propertyValue);
+            if (binValue == Boolean.TRUE) {
+                if (result == null) {
+                    return binaryYesSet.cloneAsThawed();
+                } else {
+                    return result.addAll(binaryYesSet);
+                }
+            } else if (binValue == Boolean.FALSE && !unicodeMapHasStringKeys) {
+                // We could cache this directly, too.
+                UnicodeSet inverse = binaryYesSet.cloneAsThawed().complement();
+                if (result == null) {
+                    return inverse;
+                } else {
+                    return result.addAll(inverse);
+                }
+            }
+        }
+        ObjectMatcher<String> matcher = isType(STRING_OR_MISC_MASK) ?
+            new StringEqualityMatcher(propertyValue) : new NameMatcher(propertyValue);
+        return getSet(matcher, result);
+    }
+
+    private static final Boolean binaryValueOrNull(String value) {
+        if ("Yes".equals(value)) {  // fastpath
+            return Boolean.TRUE;
+        }
+        if (value == null) {
+            return null;
+        }
+        switch (toSkeleton(value)) {
+        case "n":
+        case "no":
+        case "f":
+        case "false":
+            return Boolean.FALSE;
+        case "y":
+        case "yes":
+        case "t":
+        case "true":
+            return Boolean.TRUE;
+        default:
+            return null;
+        }
     }
 
     private UnicodeMap unicodeMap = null;
+    private boolean unicodeMapHasStringKeys = false;
+    private UnicodeSet binaryYesSet = null;
 
     public static final String UNUSED = "??";
 
-    public UnicodeSet getSet(PatternMatcher matcher, UnicodeSet result) {
+    public UnicodeSet getSet(ObjectMatcher matcher, UnicodeSet result) {
         if (result == null)
             result = new UnicodeSet();
         boolean uniformUnassigned = hasUniformUnassigned();
@@ -358,6 +405,10 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         Iterator it = um.getAvailableValues(null).iterator();
         main: while (it.hasNext()) {
             String value = (String) it.next();
+            if (matcher.matches(value)) {  // fastpath
+                um.keySet(value, result);
+                continue main;
+            }
             temp.clear();
             Iterator it2 = getValueAliases(value, temp).iterator();
             while (it2.hasNext()) {
@@ -459,8 +510,11 @@ public abstract class UnicodeProperty extends UnicodeLabel {
      * @return the unicode map
      */
     public UnicodeMap getUnicodeMap_internal() {
-        if (unicodeMap == null)
+        if (unicodeMap == null) {
             unicodeMap = _getUnicodeMap();
+            Set<String> stringKeys = unicodeMap.stringKeys();
+            unicodeMapHasStringKeys = stringKeys != null && !stringKeys.isEmpty();
+        }
         return unicodeMap;
     }
 
@@ -560,7 +614,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     public static String toSkeleton(String source) {
         if (source == null)
             return null;
-        StringBuffer skeletonBuffer = new StringBuffer();
+        StringBuilder skeletonBuffer = new StringBuilder();
         boolean gotOne = false;
         // remove spaces, '_', '-'
         // we can do this with char, since no surrogates are involved
@@ -1097,6 +1151,38 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return valueMap;
         }
     }
+
+    /** Matches using .equals(). */
+    private static final class StringEqualityMatcher implements ObjectMatcher<String> {
+        private final String pattern;
+
+        StringEqualityMatcher(String pattern) {
+            this.pattern = pattern;
+        }
+
+        @Override
+        public boolean matches(String value) {
+            return pattern.equals(value);
+        }
+    }
+
+    /** Matches skeleton strings. Computes the pattern skeleton only once. */
+    private static final class NameMatcher implements ObjectMatcher<String> {
+        private final String pattern;
+        private final String skeleton;
+
+        NameMatcher(String pattern) {
+            this.pattern = pattern;
+            this.skeleton = toSkeleton(pattern);
+        }
+
+        @Override
+        public boolean matches(String value) {
+            return pattern.equals(value) || skeleton.equals(toSkeleton(value));
+        }
+    }
+
+    private static final NameMatcher YES_MATCHER = new NameMatcher("Yes");
 
     public interface PatternMatcher extends ObjectMatcher {
         public PatternMatcher set(String pattern);

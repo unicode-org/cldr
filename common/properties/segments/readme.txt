@@ -1,4 +1,4 @@
-The graphemeCluster directory contains files used to modify the default Grapheme Cluster Break (gcb)
+The graphemeCluster directory contains files used to modify the default Grapheme Cluster Break (GCB)
 (https://unicode.org/reports/tr29/) algorithm to add support for not splitting Indic aksaras.
 
 The modifications are:
@@ -11,9 +11,10 @@ The modifications are:
 
   ExtCccZwj=[\p{gcb=Extend}-\p{ccc=0}] \p{gcb=ZWJ}]
 
-Note that these categories are not gcb property values: in fact, they overlap the gcb property values.
-It is not however necessary for the rules to have disjoint categories. The list of scripts can be added
-to over time, as test files for them become available. 
+Note that these categories are not GCB property values:
+In fact, they overlap the GCB property values.
+It is not necessary for the rules to have disjoint categories.
+The list of scripts can be added to over time, as test files for them become available. 
 
 2. Adding a rule to https://unicode.org/reports/tr29/#Grapheme_Cluster_Boundary_Rules
 
@@ -31,7 +32,7 @@ to over time, as test files for them become available.
 4. Adding modified files in this directory, which can be used in place of the default files from 
    https://unicode.org/Public/12.0.0/ucd/auxiliary/
 
-  GraphemeBreakTest-12.0.0mod.html
-  GraphemeBreakTest-12.0.0mod.txt
+  GraphemeBreakTest.html
+  GraphemeBreakTest.txt
   
-Note: the GraphemeBreakProperty-12.0.0d.txt file is unmodified, as those properties don't change.
+Note: The GraphemeBreakProperty.txt file is unmodified, as those properties don't change.

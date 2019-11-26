@@ -344,6 +344,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
                 for (String lgPath : LogicalGrouping.getPaths(getCldrFileToCheck(), path)) {
                     String lgPathValue = getCldrFileToCheck().getWinningValueWithBailey(lgPath);
+                    if (lgPathValue == null) {
+                        continue;
+                    }
                     String lgPathToWide = lgPath.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                     String lgPathWideValue = getCldrFileToCheck().getWinningValueWithBailey(lgPathToWide);
                     // This helps us get around things like "de març" vs. "març" in Catalan
@@ -456,9 +459,11 @@ public class CheckDates extends FactoryCheckCLDR {
                 Output<Integer> sampleError = new Output<>();
 
                 for (String item : retrievedPaths) {
+                    XPathParts itemParts = XPathParts.getFrozenInstance(item);
                     if (item.equals(path)
                         || skipPath(item)
-                        || endsWithDisplayName != item.endsWith("displayName")) {
+                        || endsWithDisplayName != item.endsWith("displayName")
+                        || itemParts.containsElement("alias")) {
                         continue;
                     }
                     String otherType = getLastType(item);
@@ -471,7 +476,6 @@ public class CheckDates extends FactoryCheckCLDR {
                     }
                     if (isDayPeriod) {
                         //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
-                        XPathParts itemParts = XPathParts.getFrozenInstance(item);
                         Type itemType = Type.fromString(itemParts.getAttributeValue(5, "type"));
                         DayPeriod itemDayPeriod = DayPeriod.valueOf(itemParts.getAttributeValue(-1, "type"));
 

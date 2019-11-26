@@ -13,8 +13,12 @@ import com.ibm.icu.text.Transform;
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED("No placeholders allowed."), OPTIONAL("Zero or one placeholder allowed."), MULTIPLE("Zero or more placeholders allowed."), LOCALE_DEPENDENT(
-            "Varies by locale."), REQUIRED("Placeholder required");
+        DISALLOWED("No placeholders allowed."), //
+        OPTIONAL("Zero or one placeholder allowed."), //
+        MULTIPLE("Zero or more placeholders allowed."), //
+        LOCALE_DEPENDENT( "Varies by locale."),
+        REQUIRED("Placeholder required");
+        
         final String message;
 
         private PlaceholderStatus(String message) {

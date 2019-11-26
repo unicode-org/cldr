@@ -243,7 +243,7 @@ public class LogicalGrouping {
         DAY_PERIODS {
             @Override
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
-                if (path.endsWith("alias")) {
+                if (parts.containsElement("alias")) {
                     set.add(path);
                 } else {
                     String dayPeriodType = parts.findAttributeValue("dayPeriod", "type");

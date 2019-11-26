@@ -27,13 +27,16 @@ public class CheckUnits extends CheckCLDR {
         if (path.startsWith("//ldml/units/unitLength")) {
             int min = 0;
             int max = 0;
-            if (path.contains("compoundUnitPattern")) {
-                min = 2;
-                max = 2;
-            } else if (path.contains("perUnitPattern") || path.contains("coordinateUnitPattern")) {
+            if (path.contains("/compoundUnitPattern1")) {
                 min = 1;
                 max = 1;
-            } else if (path.contains("unitPattern")) {
+            } else if (path.contains("/compoundUnitPattern")) {
+                min = 2;
+                max = 2;
+            } else if (path.contains("/perUnitPattern") || path.contains("/coordinateUnitPattern")) {
+                min = 1;
+                max = 1;
+            } else if (path.contains("/unitPattern")) {
                 min = 0;
                 max = 1;
             } // else we have displayName, with min/max = 0

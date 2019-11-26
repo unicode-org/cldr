@@ -379,8 +379,10 @@ public class ExampleGenerator {
                 result = handleNumberingSystem(value);
             } else if (parts.contains("currencyFormats") && parts.contains("unitPattern")) {
                 result = formatCountValue(xpath, parts, value);
-            } else if (parts.getElement(-2).equals("compoundUnit")) {
+            } else if (parts.getElement(-1).equals("compoundUnitPattern")) {
                 result = handleCompoundUnit(parts);
+            } else if (parts.getElement(-1).equals("compoundUnitPattern1")) {
+                result = handleCompoundUnit1(parts);
             } else if (parts.getElement(-1).equals("unitPattern")) {
                 String count = parts.getAttributeValue(-1, "count");
                 result = handleFormatUnit(Count.valueOf(count), value);
@@ -680,15 +682,63 @@ public class ExampleGenerator {
         // TODO fix hack
         String form = this.pluralInfo.getPluralRules().select(amount);
         // we rebuild a path, because we may have changed it.
-        String perPath = makeCompoundUnitPath(unitLength, compoundType);
+        String perPath = makeCompoundUnitPath(unitLength, compoundType, "compoundUnitPattern");
         return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
+    
+    public String handleCompoundUnit1(XPathParts parts) {
+        UnitLength unitLength = getUnitLength(parts);
+        String compoundType = parts.getAttributeValue(-2, "type");
+        Count count = Count.valueOf(CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other"));
+        return handleCompoundUnit1(unitLength, compoundType, count);
+    }
+
+    public String handleCompoundUnit1(UnitLength unitLength, String compoundType, Count count) {
+        /**
+         *  <units>
+        <unitLength type="long">
+            <alias source="locale" path="../unitLength[@type='short']"/>
+        </unitLength>
+        <unitLength type="short">
+            <compoundUnit type="per">
+                <unitPattern count="other">{0}/{1}</unitPattern>
+            </compoundUnit>
+
+         *  <compoundUnit type="per">
+                <unitPattern count="one">{0}/{1}</unitPattern>
+                <unitPattern count="other">{0}/{1}</unitPattern>
+            </compoundUnit>
+         <unit type="length-m">
+                <unitPattern count="one">{0} meter</unitPattern>
+                <unitPattern count="other">{0} meters</unitPattern>
+            </unit>
+
+         */
+
+        // we want to get a number that works for the count passed in.
+        FixedDecimal amount = getBest(count);
+        if (amount == null) {
+            return "n/a";
+        }
+        FixedDecimal oneValue = new FixedDecimal(1d, 0);
+
+        String unit1mid = getFormattedUnit("length-meter", unitLength, amount);
+
+        String unit1 = backgroundStartSymbol + unit1mid.trim() + backgroundEndSymbol;
+
+        // TODO fix hack
+        String form = this.pluralInfo.getPluralRules().select(amount);
+        // we rebuild a path, because we may have changed it.
+        String perPath = makeCompoundUnitPath(unitLength, compoundType, "compoundUnitPattern1");
+        return format(getValueFromFormat(perPath, form), unit1);
+    }
+
 
     //ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
-    public String makeCompoundUnitPath(UnitLength unitLength, String compoundType) {
+    public String makeCompoundUnitPath(UnitLength unitLength, String compoundType, String patternType) {
         return "//ldml/units/unitLength" + unitLength.typeString
             + "/compoundUnit[@type=\"" + compoundType + "\"]"
-            + "/compoundUnitPattern";
+            + "/" + patternType;
     }
 
     private FixedDecimal getBest(Count count) {

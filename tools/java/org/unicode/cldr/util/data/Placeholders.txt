@@ -211,7 +211,9 @@
 ^//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="%A"] ; multiple ; {0}=COUNT 3
 ^//ldml/numbers/minimalPairs/pluralMinimalPairs[@count="%A"] 	; multiple ; {0}=COUNT 3
 
-^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/compoundUnitPattern ; locale ; {0}=DIVIDEND UNIT meters ; {1}=DIVIDEND UNIT second
+# Warning: the longer match must come first
+^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/compoundUnitPattern1 ; {0}=POWER UNIT meters
+^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/compoundUnitPattern ; {0}=DIVIDEND UNIT meters ; {1}=DIVISOR UNIT second
 ^//ldml/units/unitLength\[@type="%L"]/coordinateUnit/coordinateUnitPattern\[@type="%A"] ; {0}=DEGREES 12°
 
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-day%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3

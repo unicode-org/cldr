@@ -124,7 +124,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
 
-        if (fullPath == null) return this; // skip paths that we don't have
+        if (fullPath == null || value == null) return this; // skip paths that we don't have
+
         // Do a quick check on the currencyMatch, to make sure that it is a proper UnicodeSet
         if (path.indexOf("/currencyMatch") >= 0) {
             try {

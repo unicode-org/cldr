@@ -165,8 +165,9 @@ public class Emoji {
     public static String getMinorCategory(String emoji) {
         String minorCat = emojiToMinorCategory.get(emoji);
         if (minorCat == null) {
-            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
-                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
+            return "Other-Symbol";
+//            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+//                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
         }
         return minorCat;
     }
@@ -194,8 +195,9 @@ public class Emoji {
     public static String getMajorCategory(String emoji) {
         String majorCat = emojiToMajorCategory.get(emoji);
         if (majorCat == null) {
-            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
-                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"major\", ...");
+            majorCat = "Symbols2";
+//            throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+//                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"major\", ...");
         }
         return majorCat;
     }

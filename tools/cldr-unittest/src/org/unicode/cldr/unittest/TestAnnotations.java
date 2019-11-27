@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
@@ -169,6 +170,8 @@ public class TestAnnotations extends TestFmwkPlus {
 
     }
     
+    static final UnicodeSet symbols = new UnicodeSet("[£¥§©«®°²³µ·¹»×÷–—†-• ⁻€₹₽℗™←-↕⇅⇆∆-∈√∞∩∪≡⊂▲ ▶▼◀◊○●◯]")
+        .freeze();
     /** The English name should line up with the emoji-test.txt file */
     public void TestNamesVsEmojiData() {
         AnnotationSet eng = Annotations.getDataSet("en");
@@ -177,7 +180,7 @@ public class TestAnnotations extends TestFmwkPlus {
             Annotations annotations = s.getValue();
             String name = Emoji.getName(emoji);
             String annotationName = annotations.getShortName();
-            if (!emoji.contains("👲")) {
+            if (!symbols.contains(emoji) && !emoji.contains("👲")) {
                 assertEquals(emoji, name, annotationName);
             }
         }
@@ -405,6 +408,12 @@ public class TestAnnotations extends TestFmwkPlus {
     private void checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
         Set<String> aMb = new TreeSet<>(a);
         aMb.removeAll(b);
+        for (Iterator<String> it = aMb.iterator(); it.hasNext();) {
+            String item = it.next();
+            if (symbols.containsSome(item)) {
+                it.remove();
+            }
+        }
         assertEquals(title + " (" + aMb.size() + ")", c, aMb);
     }
     

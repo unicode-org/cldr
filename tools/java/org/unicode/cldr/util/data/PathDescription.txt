@@ -64,6 +64,8 @@
 # Warning: the longer match must come first
 ^//ldml/units/unitLength\[@type="([^"]*)"]/compoundUnit\[@type="([^"]*)"]/compoundUnitPattern1 ; Special pattern used to compose powers of a unit, such as meters squared. Note: before translating, be sure to read http://cldr.org/translation/units.
 ^//ldml/units/unitLength\[@type="([^"]*)"]/compoundUnit\[@type="([^"]*)"]/compoundUnitPattern ; Special pattern used to compose forms of two units, such as meters per second. Note: before translating, be sure to read http://cldr.org/translation/units.
+^//ldml/units/unitLength\[@type="([^"]*)"]/compoundUnit\[@type="([^"]*)"]/unitPrefixPattern ; Special pattern used to compose a metric prefix with a unit, such as kilo{0} with meters to produce kilometers. Note: before translating, be sure to read http://cldr.org/translation/units.
+
 ^//ldml/units/unitLength\[@type="([^"]*)"]/coordinateUnit/displayName ; Display name ({1} form) for the type of direction used in latitude and longitude, such as north or east. Note: before translating, be sure to read http://cldr.org/translation/units.
 ^//ldml/units/unitLength\[@type="([^"]*)"]/coordinateUnit/coordinateUnitPattern\[@type="([^"]*)"] ; Special pattern used in latitude and longitude, such as 12°N. Note: before translating, be sure to read http://cldr.org/translation/units.
 

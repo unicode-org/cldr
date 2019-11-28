@@ -2541,7 +2541,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT compoundUnit ( alias | ( compoundUnitPattern1*, compoundUnitPattern*, special* ) ) >
+<!ELEMENT compoundUnit ( alias | ( compoundUnitPattern1*, compoundUnitPattern*, unitPrefixPattern*, special* ) ) >
 <!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/per, times, power2, power3, power4 -->
 <!ATTLIST compoundUnit alt NMTOKENS #IMPLIED >
@@ -2572,6 +2572,14 @@ $Revision$
 <!ATTLIST compoundUnitPattern1 draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST compoundUnitPattern1 references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT unitPrefixPattern ( #PCDATA ) >
+<!ATTLIST unitPrefixPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST unitPrefixPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST unitPrefixPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT coordinateUnit ( alias | ( displayName*, coordinateUnitPattern*, special* ) ) >

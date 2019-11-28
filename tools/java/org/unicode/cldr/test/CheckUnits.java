@@ -27,7 +27,7 @@ public class CheckUnits extends CheckCLDR {
         if (path.startsWith("//ldml/units/unitLength")) {
             int min = 0;
             int max = 0;
-            if (path.contains("/compoundUnitPattern1")) {
+            if (path.contains("/compoundUnitPattern1") || path.contains("/unitPrefixPattern")) {
                 min = 1;
                 max = 1;
             } else if (path.contains("/compoundUnitPattern")) {

@@ -381,7 +381,7 @@ public class ExampleGenerator {
                 result = formatCountValue(xpath, parts, value);
             } else if (parts.getElement(-1).equals("compoundUnitPattern")) {
                 result = handleCompoundUnit(parts);
-            } else if (parts.getElement(-1).equals("compoundUnitPattern1")) {
+            } else if (parts.getElement(-1).equals("compoundUnitPattern1") || parts.getElement(-1).equals("unitPrefixPattern")) {
                 result = handleCompoundUnit1(parts);
             } else if (parts.getElement(-1).equals("unitPattern")) {
                 String count = parts.getAttributeValue(-1, "count");
@@ -690,30 +690,10 @@ public class ExampleGenerator {
         UnitLength unitLength = getUnitLength(parts);
         String compoundType = parts.getAttributeValue(-2, "type");
         Count count = Count.valueOf(CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other"));
-        return handleCompoundUnit1(unitLength, compoundType, count);
+        return handleCompoundUnit1(unitLength, compoundType, count, parts.getElement(-1));
     }
 
-    public String handleCompoundUnit1(UnitLength unitLength, String compoundType, Count count) {
-        /**
-         *  <units>
-        <unitLength type="long">
-            <alias source="locale" path="../unitLength[@type='short']"/>
-        </unitLength>
-        <unitLength type="short">
-            <compoundUnit type="per">
-                <unitPattern count="other">{0}/{1}</unitPattern>
-            </compoundUnit>
-
-         *  <compoundUnit type="per">
-                <unitPattern count="one">{0}/{1}</unitPattern>
-                <unitPattern count="other">{0}/{1}</unitPattern>
-            </compoundUnit>
-         <unit type="length-m">
-                <unitPattern count="one">{0} meter</unitPattern>
-                <unitPattern count="other">{0} meters</unitPattern>
-            </unit>
-
-         */
+    public String handleCompoundUnit1(UnitLength unitLength, String compoundType, Count count, String element) {
 
         // we want to get a number that works for the count passed in.
         FixedDecimal amount = getBest(count);
@@ -729,7 +709,7 @@ public class ExampleGenerator {
         // TODO fix hack
         String form = this.pluralInfo.getPluralRules().select(amount);
         // we rebuild a path, because we may have changed it.
-        String perPath = makeCompoundUnitPath(unitLength, compoundType, "compoundUnitPattern1");
+        String perPath = makeCompoundUnitPath(unitLength, compoundType, element);
         return format(getValueFromFormat(perPath, form), unit1);
     }
 

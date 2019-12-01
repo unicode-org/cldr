@@ -242,4 +242,9 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
             throw new InternalError("should never happen");
         }
     }
+    
+    public int getOrdering(K item) {
+        Integer result = ordering.get(item);
+        return result == null ? -1 : result;
+    }
 }

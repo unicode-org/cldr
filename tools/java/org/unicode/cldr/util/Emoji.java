@@ -15,6 +15,7 @@ import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUException;
 
 public class Emoji {
     public static final String EMOJI_VARIANT = "\uFE0F";
@@ -26,7 +27,7 @@ public class Emoji {
     public static final UnicodeSet FAMILY = new UnicodeSet("[\u200D 👦-👩 💋 ❤]").freeze();
     public static final UnicodeSet GENDER = new UnicodeSet().add(0x2640).add(0x2642).freeze();
     public static final UnicodeSet SPECIALS = new UnicodeSet("["
-        + "{🧑‍🤝‍🧑}{🏳‍🌈} {👁‍🗨} {🏴‍☠} {🐕‍🦺} {👨‍🦯} {👨‍🦼} {👨‍🦽} {👩‍🦯} {👩‍🦼} {👩‍🦽}"
+        + "{🐈‍⬛}{🐻‍❄}{👨‍🍼}{👩‍🍼}{🧑‍🍼}{🧑‍🎄}{🧑‍🤝‍🧑}{🏳‍🌈} {👁‍🗨} {🏴‍☠} {🐕‍🦺} {👨‍🦯} {👨‍🦼} {👨‍🦽} {👩‍🦯} {👩‍🦼} {👩‍🦽}"
         + "{🏳‍⚧}{🧑‍⚕}{🧑‍⚖}{🧑‍✈}{🧑‍🌾}{🧑‍🍳}{🧑‍🎓}{🧑‍🎤}{🧑‍🎨}{🧑‍🏫}{🧑‍🏭}{🧑‍💻}{🧑‍💼}{🧑‍🔧}{🧑‍🔬}{🧑‍🚀}{🧑‍🚒}{🧑‍🦯}{🧑‍🦼}{🧑‍🦽}"
         + "]").freeze();
     // May have to add from above, if there is a failure in testAnnotationPaths. Failure will be like:
@@ -39,15 +40,20 @@ public class Emoji {
     static final UnicodeMap<String> emojiToMajorCategory = new UnicodeMap<>();
     static final UnicodeMap<String> emojiToMinorCategory = new UnicodeMap<>();
     static final UnicodeMap<String> toName = new UnicodeMap<>();
+    static {
+        emojiToMajorCategory.setErrorOnReset(true);
+        emojiToMinorCategory.setErrorOnReset(true);
+        toName.setErrorOnReset(true);
+    }
     /**
      * A mapping from a majorCategory to a unique ordering number, based on the first time it is encountered.
      */
-    static final Map<String, Integer> majorToOrder = new HashMap<>();
+    static final Map<String, Long> majorToOrder = new HashMap<>();
     /**
      * A mapping from a minorCategory to a unique ordering number, based on the first time it is encountered.
      */
-    static final Map<String, Integer> minorToOrder = new HashMap<>();
-    static final Map<String, Integer> emojiToOrder = new LinkedHashMap<>();
+    static final Map<String, Long> minorToOrder = new HashMap<>();
+    static final Map<String, Long> emojiToOrder = new LinkedHashMap<>();
     static final UnicodeSet nonConstructed = new UnicodeSet();
     static final UnicodeSet allRgi = new UnicodeSet();
     static final UnicodeSet allRgiNoES = new UnicodeSet();
@@ -61,15 +67,15 @@ public class Emoji {
         Splitter semi = Splitter.on(CharMatcher.anyOf(";#")).trimResults();
         String majorCategory = null;
         String minorCategory = null;
-        int majorOrder = 0;
-        int minorOrder = 0;
+        long majorOrder = 0;
+        long minorOrder = 0;
         //Multimap<Pair<Integer,Integer>,String> majorPlusMinorToEmoji = TreeMultimap.create();
         for (String line : FileUtilities.in(Emoji.class, "data/emoji/emoji-test.txt")) {
             if (line.startsWith("#")) {
                 line = line.substring(1).trim();
                 if (line.startsWith("group:")) {
                     majorCategory = line.substring("group:".length()).trim();
-                    Integer oldMajorOrder = majorToOrder.get(majorCategory);
+                    Long oldMajorOrder = majorToOrder.get(majorCategory);
                     if (oldMajorOrder == null) {
                         majorToOrder.put(majorCategory, majorOrder = majorToOrder.size());
                     } else {
@@ -77,7 +83,7 @@ public class Emoji {
                     }
                 } else if (line.startsWith("subgroup:")) {
                     minorCategory = line.substring("subgroup:".length()).trim();
-                    Integer oldMinorOrder = minorToOrder.get(minorCategory);
+                    Long oldMinorOrder = minorToOrder.get(minorCategory);
                     if (oldMinorOrder == null) {
                         minorToOrder.put(minorCategory, minorOrder = minorToOrder.size());
                     } else {
@@ -92,6 +98,9 @@ public class Emoji {
             }
             Iterator<String> it = semi.split(line).iterator();
             String emojiHex = it.next();
+            if (emojiHex.contains("1F6FC")) {
+                int debug = 0;
+            }
             String original = Utility.fromHex(emojiHex, 4, " ");
             String type = it.next();
             if (type.startsWith("fully-qualified")) {
@@ -111,10 +120,10 @@ public class Emoji {
 
             // Add the order. If it is not minimal, add that also.
             if (!emojiToOrder.containsKey(original)) {
-                emojiToOrder.put(original, emojiToOrder.size());
+                putUnique(emojiToOrder, original, emojiToOrder.size()*100L);
             }
             if (!emojiToOrder.containsKey(minimal)) {
-                emojiToOrder.put(original, emojiToOrder.size());
+                putUnique(emojiToOrder, minimal, emojiToOrder.size()*100L);
             }
             // 
             // majorPlusMinorToEmoji.put(Pair.of(majorOrder, minorOrder), minimal);
@@ -154,6 +163,17 @@ public class Emoji {
         allRgiNoES.freeze();
     }
 
+    private static <K, V> void putUnique(Map<K, V> map, K key, V value) {
+        V oldValue = map.put(key, value);
+        if (oldValue != null) {
+            throw new ICUException("Attempt to change value of " + map 
+                + " for " + key 
+                + " from " + oldValue
+                + " to " + value
+                );
+        }
+    }
+
     public static UnicodeSet getAllRgi() {
         return allRgi;
     }
@@ -182,14 +202,14 @@ public class Emoji {
 //        return result == null ? Integer.MAX_VALUE : result;
 //    }
 
-    public static int getEmojiToOrder(String emoji) {
-        Integer result = emojiToOrder.get(emoji);
-        return result == null ? Integer.MAX_VALUE : result;
+    public static long getEmojiToOrder(String emoji) {
+        Long result = emojiToOrder.get(emoji);
+        return result == null ? Long.MAX_VALUE : result;
     }
 
-    public static int getEmojiMinorOrder(String minor) {
-        Integer result = minorToOrder.get(minor);
-        return result == null ? Integer.MAX_VALUE : result;
+    public static long getEmojiMinorOrder(String minor) {
+        Long result = minorToOrder.get(minor);
+        return result == null ? Long.MAX_VALUE : result;
     }
 
     public static String getMajorCategory(String emoji) {

@@ -1305,7 +1305,9 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestEmojiOrder() {
         PathHeader.Factory phf = PathHeader.getFactory();
-        String[] desiredOrder = {"👨‍⚕", "👩‍⚕", "🧑‍⚕", "👨‍⚖", "👩‍⚖", "🧑‍⚖"};
+        String[] desiredOrder = {
+            "🧑‍⚕", "👨‍⚕", "👩‍⚕",
+            "🧑‍⚖", "👨‍⚖", "👩‍⚖"};
         List<PathHeader> pathHeaders = new ArrayList<>();
         for (String emoji : desiredOrder) {
             String base = "//ldml/annotations/annotation[@cp=\"" + emoji + "\"]";
@@ -1322,7 +1324,9 @@ public class TestPathHeader extends TestFmwkPlus {
                 assertEquals("Section", lastItem.getSectionId(), item.getSectionId());
                 assertEquals("Page", lastItem.getPageId(), item.getPageId());
                 assertEquals("Header", lastItem.getHeader(), item.getHeader());
-                assertTrue(lastItem + " < " + item, lastItem.compareTo(item) < 0);
+                if (!assertTrue(lastItem + " < " + item, lastItem.compareTo(item) < 0)) {
+                    lastItem.compareTo(item); // for debugging
+                }
             }
             lastItem = item;
         }

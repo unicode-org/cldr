@@ -1767,7 +1767,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 @Override
                 public String transform(String source) {
                     String minorCat = Emoji.getMinorCategory(source);
-                    order = Emoji.getEmojiMinorOrder(source);
+                    order = Emoji.getEmojiMinorOrder(minorCat);
                     return minorCat;
                 }
             });

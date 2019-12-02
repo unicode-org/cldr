@@ -185,7 +185,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     try {
                         ph = pathHeaderFactory2.fromPath(p);
                     } catch (Exception e2) {
-                        throw new IllegalArgumentException(locale + ":\t" + p);
+                        throw new IllegalArgumentException(locale + ":\t" + p, e2);
                     }
                 }
                 if (ph == null) {

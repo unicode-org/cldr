@@ -24,6 +24,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XListFormatter;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
@@ -37,6 +38,9 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMap.EntryRange;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
@@ -173,8 +177,7 @@ public class TestAnnotations extends TestFmwkPlus {
         }
 
     }
-
-    static final UnicodeSet symbols = new UnicodeSet("[£¥§©«®°²³µ·¹»×÷–—†-• ⁻€₹₽℗™←-↕⇅⇆∆-∈√∞∩∪≡⊂▲ ▶▼◀◊○●◯]")
+    static final UnicodeSet symbols = new UnicodeSet(Emoji.EXTRA_SYMBOL_MINOR_CATEGORIES.keySet())
         .freeze();
     /** The English name should line up with the emoji-test.txt file */
     public void TestNamesVsEmojiData() {
@@ -186,6 +189,42 @@ public class TestAnnotations extends TestFmwkPlus {
             if (!symbols.contains(emoji) && !emoji.contains("👲")) {
                 assertEquals(emoji, name, annotationName);
             }
+        }
+    }
+    
+    public void TestCategories() {
+        if (DEBUG) System.out.println();
+
+        TreeSet<R4<PageId, Long, String, R3<String, String, String>>> sorted = new TreeSet<>();
+        for (Entry<String, Annotations> s : eng.getExplicitValues().entrySet()) {
+            String emoji = s.getKey();
+            Annotations annotations = s.getValue();
+            final String rawCategory = Emoji.getMajorCategory(emoji);
+            PageId majorCategory = PageId.forString(rawCategory);
+            if (majorCategory == PageId.Symbols) {
+                majorCategory = PageId.Symbols2;
+            }
+            String minorCategory = Emoji.getMinorCategory(emoji);
+            long emojiOrder = Emoji.getEmojiToOrder(emoji);
+            R3<String, String, String> row2 = Row.of(emoji, annotations.getShortName(), CollectionUtilities.join(annotations.getKeywords(), " | "));
+            R4<PageId, Long, String, R3<String, String, String>> row = Row.of(majorCategory, emojiOrder, minorCategory, row2);
+            sorted.add(row);
+        }
+        for (R4<PageId, Long, String, R3<String, String, String>> row : sorted) {
+            PageId majorCategory = row.get0();
+            Long emojiOrder = row.get1();
+            String minorCategory = row.get2();
+            R3<String, String, String> row2 = row.get3();
+            String emoji = row2.get0();
+            String shortName = row2.get1();
+            String keywords = row2.get2();
+            if (DEBUG) System.out.println(majorCategory 
+                + "\t" + emojiOrder
+                + "\t" + minorCategory
+                + "\t" + emoji
+                + "\t" + shortName
+                + "\t" + keywords
+                );
         }
     }
 
@@ -205,7 +244,6 @@ public class TestAnnotations extends TestFmwkPlus {
         Multimap<String, String> localeToNameToEmoji = TreeMultimap.create();
         Multimap<String, String> nameToEmoji = TreeMultimap.create();
         UnicodeMap<Annotations> english = Annotations.getData("en");
-        AnnotationSet englishSet = Annotations.getDataSet("en");
         UnicodeSet englishKeys = getCurrent(english.keySet());
         Map<String, UnicodeSet> localeToMissing = new TreeMap<>();
 
@@ -240,7 +278,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 String locale = entry.getKey();
                 String emoji = entry.getValue();
                 System.out.println(locale
-                    + "\t" + englishSet.getShortName(emoji)
+                    + "\t" + eng.getShortName(emoji)
                     + "\t" + emoji);
             }
         }
@@ -252,7 +290,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 for (String emoji : entry.getValue()) {
                     System.out.println(locale
                         + "\t" + emoji
-                        + "\t" + englishSet.getShortName(emoji)
+                        + "\t" + eng.getShortName(emoji)
                         + "\t" + "=GOOGLETRANSLATE(C" + count + ",\"en\",A" + count + ")"
                         // =GOOGLETRANSLATE(C2,"en",A2)
                         );
@@ -397,7 +435,6 @@ public class TestAnnotations extends TestFmwkPlus {
             lastEmoji = emoji;
             lastEmojiOrdering = emojiOrdering;
         }
-//        System.out.println(lastMajor + "\t" + lastMajorGroup);
         if (DEBUG) System.out.println(lastMinor + "\t" + lastMinorGroup);
     }
 

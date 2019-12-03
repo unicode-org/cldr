@@ -373,7 +373,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "syr|kv|umb|)");
 
         final Pattern script100 = PatternCache.get("("
-            + "Adlm|Afak|Aghb|Ahom|Armi|Avst|Bali|Bamu|Bass|Batk|Bhks|Blis|Brah|Bugi|Buhd|"
+            + "Adlm|Afak|Aghb|Ahom|Aran|Armi|Avst|Bali|Bamu|Bass|Batk|Bhks|Blis|Brah|Bugi|Buhd|"
             + "Cakm|Cans|Cari|Cham|Chrs|Cher|Cirt|Copt|Cprt|Cyrs|"
             + "Diak|Dogr|Dsrt|Dupl|Egy[dhp]|Elba|Elym|Geok|Glag|Gong|Gonm|Goth|Gran|"
             + "Hatr|Hanb|Hano|Hluw|Hmng|Hmnp|Hrkt|Hung|Inds|Ital|Jamo|Java|Jurc|"

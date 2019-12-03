@@ -132,6 +132,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher ignoreAltAndCountAttributes = PatternCache.get("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher ignoreAltAttributes = PatternCache.get("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher ignoreAltShortOrVariantAttributes = PatternCache.get("\\[@(?:alt)=\"(?:short|variant)\"]").matcher("");
     private final Matcher compoundUnitPatterns = PatternCache.get("compoundUnitPattern").matcher("");
 
     // map unique path fragment to set of unique fragments for other
@@ -306,6 +307,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 return this; // special root 'other' value
             }
             currentAttributesToIgnore = ignoreAltAttributes;
+            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
+        } else if (myType == Type.SCRIPT) {
+            currentAttributesToIgnore = ignoreAltShortOrVariantAttributes; // i.e. do NOT ignore alt="stand-alone"
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
         } else {
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
@@ -535,6 +539,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     collidingZoneTypes.contains("generic-short")) {
                     thisErrorType = CheckStatus.warningType;
                 }
+            }
+        } else if (myType == Type.SCRIPT && collidingTypes.size() == 1) {
+            String collisionString = collidingTypes.toString();
+            if (path.contains("stand-alone") || collisionString.contains("stand-alone")) {
+                thisErrorType = CheckStatus.warningType;
             }
         }
         CheckStatus item = new CheckStatus().setCause(this)

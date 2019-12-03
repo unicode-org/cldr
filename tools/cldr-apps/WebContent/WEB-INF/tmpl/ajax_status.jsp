@@ -105,7 +105,7 @@ var surveyUserPerms = {
         userCanUseVettingSummary: <%=UserRegistry.userCanUseVettingSummary(myUser)%>,
         userIsTC: <%=UserRegistry.userIsTC(myUser)%>,
         userIsVetter: <%=!UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser)%>,
-        userIsLocked: <%=!UserRegistry.userIsTC(myUser) && !UserRegistry.userIsVetter(myUser) && !UserRegistry.userIsLocked(myUser)%>,
+        userIsLocked: <%=UserRegistry.userIsLocked(myUser)%>,
         hasDataSource: <%=curSurveyMain.dbUtils.hasDataSource()%>,
 };
 var surveyUserURL = {

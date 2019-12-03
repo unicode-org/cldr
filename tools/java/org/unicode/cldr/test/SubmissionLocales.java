@@ -9,8 +9,24 @@ import org.unicode.cldr.util.StandardCodes;
 import com.google.common.collect.ImmutableSet;
 
 public final class SubmissionLocales {
-    static Set<String> NEW_CLDR_LOCALES = ImmutableSet.of("jv", "so", "ceb", "ha", "ig", "yo");
-    static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of("chr", "gd", "fo");
+    public static Set<String> NEW_CLDR_LOCALES = ImmutableSet.of(
+        "ceb",  // Cebuano (not new in release, but needs major changes)
+//        "mai",  // Maithili
+        "mni",  // Manipuri (Bengali script)-Apple as well
+        "sat",  // Santali -(Apple use Olck script)
+        "kok",  // Konkani -(Note: this is already covered by a MS vetter at Modern level)
+        "sd_Deva",   // Sindhi (Devanagari) 
+        "su",   // Sundanese (script TBD)
+//        "pcm",  // Nigerian Pidgin
+        "gn"    // Guarani
+        );
+    
+    public static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of(
+        "chr",  // Cherokee
+        "gd",   // Scottish Gaelic, Gaelic
+        "fo"    // Faroese
+        );
+    
     // have to have a lazy eval because otherwise CLDRConfig is called too early in the boot process
     static Set<String> CLDR_LOCALES = ImmutableSet.<String>builder()
         .addAll(HIGH_LEVEL_LOCALES)
@@ -25,7 +41,9 @@ public final class SubmissionLocales {
 //                }
 //            }
 
-    public static final Pattern ALLOWED_IN_LIMITED_PATHS = Pattern.compile(
+    public static final Pattern ALLOWED_IN_LIMITED_PATHS = null; 
+    /* Example of special paths
+     * Pattern.compile(
         "//ldml/"
             + "(listPatterns/listPattern\\[@type=\"standard"
             + "|annotations/annotation\\[@cp=\"([©®‼⁉☑✅✔✖✨✳✴❇❌❎❓-❕❗❣ ➕-➗👫-👭👱🥰🧩🧔😸😺😹😼😻🦊😽😼⭕😺😿😾😻😸😹🐺⭕🦄😽🐼🐸😿🤖🐹🐻🙀🦁]|👱‍♀|👱‍♂)\""
@@ -39,6 +57,7 @@ public final class SubmissionLocales {
             +   ")"
             + ")"
             );
+            */
     
 //ldml/dates/timeZoneNames/metazone[@type="Macau"]/long/daylight, old: Macau Summer Time, new: Macao Summer Time
 //ldml/dates/timeZoneNames/metazone[@type="Macau"]/long/standard, old: Macau Standard Time, new: Macao Standard Time
@@ -91,7 +110,13 @@ public final class SubmissionLocales {
         return false; // skip
     }
 
+    /**
+     * Only public for testing
+     * @param path
+     * @return
+     */
     public static boolean pathAllowedInLimitedSubmission(String path) {
-        return SubmissionLocales.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt();
+        return ALLOWED_IN_LIMITED_PATHS == null ? false 
+            : SubmissionLocales.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt();
     }
 }

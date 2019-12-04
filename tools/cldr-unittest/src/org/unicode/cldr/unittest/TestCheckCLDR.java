@@ -818,7 +818,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         String desiredScript = "Latn";
         switch(language) {
-        case "mai": case "Deva": case "kok": desiredScript = "Deva"; break;
+        case "mai": case "kok": desiredScript = "Deva"; break;
         case "sat": desiredScript = "Olck"; break;
         case "mni": desiredScript = "Beng"; break;
         case "chr": desiredScript = "Cher"; break;

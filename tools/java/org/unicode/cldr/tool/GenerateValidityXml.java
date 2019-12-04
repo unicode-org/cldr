@@ -320,6 +320,7 @@ public class GenerateValidityXml {
                     break;
                 case script:
                     switch (code) {
+                    case "Aran":
                     case "Qaag":
                     case "Zsye": 
                     case "Zanb":

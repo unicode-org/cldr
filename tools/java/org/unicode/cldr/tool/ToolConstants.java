@@ -70,7 +70,8 @@ public class ToolConstants {
         "33.1",
         "34.0",
         "35.0",
-        "35.1"
+        "35.1",
+        "36.0"
     // add to this once the release is final!
     );
     public static final String PREVIOUS_CHART_VERSION;

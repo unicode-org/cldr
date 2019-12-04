@@ -26,7 +26,7 @@ public enum CldrVersion {
     unknown, 
     v1_1_1, v1_2, v1_3, v1_4_1, v1_5_1, v1_6_1, v1_7_2, v1_8_1, v1_9_1, v2_0_1, 
     v21_0, v22_1, v23_1, v24_0, v25_0, v26_0, v27_0, v28_0, v29_0, v30_0, v31_0, v32_0, v33_0, v33_1, v34_0,
-    v35_0, v35_1,
+    v35_0, v35_1, v36_0,
     trunk;
 
     private final String baseDirectory;

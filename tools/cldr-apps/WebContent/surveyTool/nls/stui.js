@@ -206,6 +206,7 @@ define({
 		StatusAction_FORBID_ERRORS:    "The item had errors.",
 		StatusAction_FORBID_READONLY:  "The item is read-only.",
 		StatusAction_FORBID_NULL:      "The item has no value.",
+		StatusAction_FORBID_ROOT:      "The item is a root annotation code.",
 
 		// v.jsp
 		"v-title2_desc": "Locale title",

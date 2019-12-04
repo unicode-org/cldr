@@ -1335,15 +1335,20 @@ public class DataSection implements JSONString {
              */
         }
 
-        /*
+        /**
          * A Map used only in getNonDistinguishingAttributes
          */
         private Map<String, String> nonDistinguishingAttributes = null;
 
-        /*
+        /**
          * A boolean used only in getNonDistinguishingAttributes
          */
         private boolean checkedNDA = false;
+
+        /**
+         * See addAnnotationRootValue and isUnvotableRoot.
+         */
+        private String unvotableRootValue = null;
 
         /**
          * Get the map of non-distinguishing attributes for this DataRow
@@ -1423,6 +1428,42 @@ public class DataSection implements JSONString {
          */
         public boolean wouldInheritNull() {
             return inheritedValue == null;
+        }
+
+        /**
+         * For annotations, include the root value as a candidate item that can't be voted for.
+         * This is so that people can search for, e.g., "E12" to find rows for emoji that are new.
+         */
+        public void addAnnotationRootValue() {
+            if (xpath.startsWith("//ldml/annotations/annotation")) {
+                CLDRFile rootFile = sm.getSTFactory().make(CLDRLocale.ROOT.getBaseName(), true);
+                String rootValue = rootFile.getStringValue(xpath);
+                if (rootValue != null && !rootValue.equals(inheritedValue)) {
+                    /*
+                     * Complication: typically rootValue contains a hyphen, as in "E10-520",
+                     * but if the user votes for that value, the hyphen will be converted into an
+                     * en dash, as in "E10–520", when SurveyAjax.processRequest calls processInput.
+                     * Call processInput here as well, so that isUnvotableRoot can match correctly.
+                     */
+                    unvotableRootValue = getProcessor().processInput(xpath, rootValue, null);
+                    addItem(unvotableRootValue, "root-annotation");
+                }
+            }
+        }
+
+        /**
+         * Does the given value match the unvotable root value for this DataRow?
+         *
+         * For some annotations, the root value may be shown as a candidate item
+         * for convenience of searching, but it can't be voted for.
+         *
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-11157
+         *
+         * @param val the given value
+         * @return true if it matches unvotableRootValue, else false
+         */
+        public boolean isUnvotableRoot(String val) {
+            return unvotableRootValue != null && unvotableRootValue.equals(val);
         }
     }
 
@@ -2289,6 +2330,7 @@ public class DataSection implements JSONString {
         if (row.inheritedItem == null && !isExtraPath) {
             row.updateInheritedValue(ourSrc, checkCldr);
         }
+        row.addAnnotationRootValue();
 
         Set<String> v = ballotBox.getValues(xpath);
         if (v != null) {

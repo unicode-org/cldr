@@ -1,17 +1,15 @@
 package org.unicode.cldr.api;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.dev.test.TestFmwk;
-import org.unicode.cldr.api.CldrData.PrefixVisitor;
-
-import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import static org.unicode.cldr.api.CldrData.PathOrder.ARBITRARY;
 import static org.unicode.cldr.api.CldrData.PathOrder.DTD;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.unicode.cldr.api.CldrData.PrefixVisitor;
+
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * Tests for the code which converts a sequence of path/value pairs into a nested sequence of path

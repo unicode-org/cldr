@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -31,13 +30,13 @@ import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -53,11 +52,15 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
-import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
@@ -344,27 +347,27 @@ public class TestCheckCLDR extends TestFmwk {
             // override.overridePath = path;
             final String resolvedValue = dummyValue == null ? patched.getStringValueWithBailey(path)
                 : dummyValue;
-                test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
-                    options, result);
-                if (result.size() != 0) {
-                    for (CheckStatus item : result) {
-                        addExemplars(item, missingCurrencyExemplars,
-                            missingExemplars);
-                        final String mainMessage = StringId.getId(path) + "\t"
-                            + pathHeader + "\t" + english.getStringValue(path)
-                            + "\t" + item.getType() + "\t" + item.getSubtype();
-                        if (unique != null) {
-                            if (unique.contains(mainMessage)) {
-                                continue;
-                            } else {
-                                unique.add(mainMessage);
-                            }
+            test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
+                options, result);
+            if (result.size() != 0) {
+                for (CheckStatus item : result) {
+                    addExemplars(item, missingCurrencyExemplars,
+                        missingExemplars);
+                    final String mainMessage = StringId.getId(path) + "\t"
+                        + pathHeader + "\t" + english.getStringValue(path)
+                        + "\t" + item.getType() + "\t" + item.getSubtype();
+                    if (unique != null) {
+                        if (unique.contains(mainMessage)) {
+                            continue;
+                        } else {
+                            unique.add(mainMessage);
                         }
-                        logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
-                            + "\t" + item.getMessage() + "\t"
-                            + pathHeader.getOriginalPath());
                     }
+                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
+                        + "\t" + item.getMessage() + "\t"
+                        + pathHeader.getOriginalPath());
                 }
+            }
         }
         if (missingCurrencyExemplars.size() != 0) {
             logln(localeID + "\tMissing Exemplars (Currency):\t"
@@ -425,7 +428,7 @@ public class TestCheckCLDR extends TestFmwk {
         //   * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
         // * check the data files to ensure that it is in fact outdated.
         // * change the path to that value
-        
+
         String locale = "fr";
         String path = "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]";
         CheckCLDR c = new CheckNew(testInfo.getCommonAndSeedAndMainAndAnnotationsFactory());
@@ -765,88 +768,98 @@ public class TestCheckCLDR extends TestFmwk {
             return xpath;
         }
     }
-    
+
     public void TestSubmissionLocales() {
-        
-        // will need to change this for new releases!!
-        
-        String pathNotSameValue = "//ldml/listPatterns/listPattern[@type=\"standard\"]";
-        String pathSameValue = "//ldml/listPatterns/listPattern[@type=\"or\"]";
-        
-        // outside of cldr, skip all except isError
-        assertTrue("vo, engSame, isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathSameValue, true, false));
-        assertFalse("vo, engSame, !isError, isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathSameValue, false, true));
-        assertFalse("vo, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathNotSameValue, false, false));
-        assertFalse("vo, engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathSameValue, false, false));
-        // new cldr locale, allow all
-        assertTrue("jv, engSame, isError, !isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathSameValue, true, false));
-        assertTrue("jv, engSame, !isError, isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathSameValue, false, true));
-        assertTrue("jv, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathNotSameValue, false, false));
-        assertTrue("jv, engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("jv", pathSameValue, false, false));
-        // old cldr locale, allow isError, or missing in last release, or EnglishChanged
-        assertTrue("fr, engSame, isError, !isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathSameValue, true, false));
-        assertTrue("fr, engSame, !isError, isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathSameValue, false, true));
-        assertTrue("fr, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathNotSameValue, false, false));
-        assertFalse("fr, engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("fr", pathSameValue, false, false));
+
+        for (String locale : SubmissionLocales.NEW_CLDR_LOCALES) {
+            checkLocaleOk(locale, true);
+        }
+        for (String locale : SubmissionLocales.HIGH_LEVEL_LOCALES) {
+            checkLocaleOk(locale, false);
+        }
     }
+
+    final Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+    final Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
+    final Map<String, R2<List<String>, String>> langAliases = CLDRConfig.getInstance().getSupplementalDataInfo()
+        .getLocaleAliasInfo().get("language");
+    final Set<String> existingLocales = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
+    final LikelySubtags likely = new LikelySubtags();
+
     /**
-     * Check that the English changes are captured
+     * Check that the locale is valid, that it is either in or out of cldrLocales, and that the locale is not deprecated
+     * @param language
+     * @param inclusionDesired
      */
-    public void TestALLOWED_IN_LIMITED_PATHS() {
-        if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
+    private void checkLocaleOk(String locale, boolean inclusionDesired) {
+        final LanguageTagParser ltp = new LanguageTagParser().set(locale);
+        String language = ltp.getLanguage();
+        String explicitScript = ltp.getScript();
+
+        Status status = validity.get(language);
+        assertTrue(language + " valid?", status == Status.regular || status == Status.macroregion);
+
+        final R2<List<String>, String> alias = langAliases.get(language);
+        if (!assertNull(language + " language is not deprecated", alias)) {
+            errln(language + ": " + alias);
+        }
+
+        // locale tests
+        if (!assertTrue(locale + " locale is in common or seed", existingLocales.contains(locale))) {
             return;
         }
-        
-        CLDRConfig conf = testInfo;
-        Factory factory = conf.getMainAndAnnotationsFactory();
-        File[] paths = {
-            new File(CLDRPaths.LAST_COMMON_DIRECTORY + "main/"),
-            new File(CLDRPaths.LAST_COMMON_DIRECTORY + "annotations/"),
-        };
-        Factory factoryOld = SimpleFactory.make(paths, ".*");
 
-        CLDRFile english = factory.make("en", true);
-        CLDRFile oldEnglish = factoryOld.make("en", true);
-        Set<String> newPaths = new TreeSet<>();
-        Set<String> diffValues = new TreeSet<>();
-        boolean firstFail = true;
-        
-        UnicodeSet okAnnotations = new UnicodeSet("[🤖 😺 😸 😹 😻-😽 🙀 😿 😾 🐺 🦊 🦁 🦄 🐹 🐻 🐼 🐸 🧩 ⭕]").freeze();
-        
-        for (String path : english) {
-            if (path.contains("/alias")) {
-                continue;
-            }
-            String value = english.getStringValue(path);
-            String valueOld = oldEnglish.getStringValue(path);
-            boolean isDiff = false;
-            if (valueOld == null) {
-                newPaths.add(path);
-            } else if (value != null 
-                && !value.equalsIgnoreCase(valueOld)
-                && !path.startsWith("//ldml/localeDisplayNames/types/type[@key=\"m0\"]")) {
-                diffValues.add(path);
-                isDiff = true;
-            }
-            boolean regexMatch = SubmissionLocales.pathAllowedInLimitedSubmission(path);
-            if (isDiff && !regexMatch) {
-                errln((firstFail ? "Add these to regex in SubmissionLocales OR filter from this test if unimportant:\n\t\t\t" : "")
-                    + "Match fails with " + path + ", old: " + valueOld + ", new: " + value);
-                firstFail = false;
-            } else if (!isDiff && regexMatch) {
-                
-                // will need to change this for new releases!!
+        assertTrue(language + " locale is " + (inclusionDesired ? "" : "not ") + "in cldrLocales", cldrLocales.contains(locale) == inclusionDesired);
 
-                if (path.endsWith("/listPatternPart[@type=\"start\"]") 
-                    || path.endsWith("/listPatternPart[@type=\"middle\"]") 
-                    || path.endsWith("[@type=\"tts\"]") 
-                    || okAnnotations.containsSome(path)
-                    ) {
-                    continue;
-                }
-                errln("Match overshoots with " + path 
-                    + (firstFail ? "\nAdd these to regex in SubmissionLocales or filter from this test if unimportant" : ""));
+        // check for expected script
+        String max = likely.maximize(locale);
+        assertNotNull(language + " locale has script", max);
+        String maxScript = max == null ? null : ltp.set(max).getScript();
+
+        String desiredScript = "Latn";
+        switch(language) {
+        case "mai": case "kok": desiredScript = "Deva"; break;
+        case "sat": desiredScript = "Olck"; break;
+        case "mni": desiredScript = "Beng"; break;
+        case "chr": desiredScript = "Cher"; break;
+        default: 
+            if (!explicitScript.isEmpty()) { 
+                desiredScript = explicitScript; 
             }
+            break;
+        }
+        if (desiredScript != null) {
+            assertEquals(locale + " default script", desiredScript, maxScript);
         }
     }
+
+    final Set<String> sampleNewPaths = ImmutableSet.of(
+        "//ldml/annotations/annotation[@cp=\\\"🐻‍❄\\\"][@type=\\\"tts\\\"]", 
+        "//ldml/annotations/annotation[@cp=\\\"√\\\"][@type=\\\"tts\\\"]", 
+        "//ldml/units/unitLength[@type=\\\"short\\\"]/compoundUnit[@type=\\\"10p-1\\\"]/unitPrefixPattern", 
+        "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]", 
+        "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1"
+        );
+
+    /**
+     * will need to change this for new releases!!
+     */
+    public void TestALLOWED_IN_LIMITED_PATHS() {
+        if (!CheckCLDR.LIMITED_SUBMISSION) {
+            return;
+        }
+
+        for (String locale : Arrays.asList("en", "fr")) {
+            for (String path : sampleNewPaths) {
+                assertTrue(path,  SubmissionLocales.allowEvenIfLimited(locale, path, false, true));
+            }
+        }
+        // test non-cldr locale
+        for (String path : sampleNewPaths) {
+            assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, true));
+        }
+        
+        // TODO enhance to check more conditions
+        // like old:         assertFalse("vo, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathNotSameValue, false, false));
+   }
 }

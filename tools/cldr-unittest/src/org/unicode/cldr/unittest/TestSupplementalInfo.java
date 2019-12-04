@@ -374,7 +374,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
         }
 
-        ImmutableSet<String> variants = ImmutableSet.of("Aran", "Cyrs", "Geok", "Latf", "Latg", "Syre", "Syrj", "Syrn");
+        ImmutableSet<String> variants = ImmutableSet.of("Cyrs", "Geok", "Latf", "Latg", "Syre", "Syrj", "Syrn");
         assertRelation("getCLDRScriptCodes contains variants", false, codes, CONTAINS_SOME, variants);
     }
 

@@ -77,6 +77,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         TYPOGRAPHIC_AXIS("//ldml/typographicNames/axisName", MatchType.PREFIX, 18), 
         TYPOGRAPHIC_FEATURE("//ldml/typographicNames/featureName", MatchType.PREFIX, 19), 
         TYPOGRAPHIC_STYLE("//ldml/typographicNames/styleName", MatchType.PREFIX, 20), 
+        UNIT_PREFIX("//ldml/units/unitLength.*+/unitPrefixPattern", MatchType.REGEX, 21),
         ;
 
         private MatchType matchType;
@@ -132,6 +133,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher ignoreAltAndCountAttributes = PatternCache.get("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher ignoreAltAttributes = PatternCache.get("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher ignoreAltShortOrVariantAttributes = PatternCache.get("\\[@(?:alt)=\"(?:short|variant)\"]").matcher("");
     private final Matcher compoundUnitPatterns = PatternCache.get("compoundUnitPattern").matcher("");
 
     // map unique path fragment to set of unique fragments for other
@@ -299,13 +301,16 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             currentAttributesToIgnore = ignoreAltAttributes;
             message = "Can't have same number pattern as {0}";
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.exact);
-        } else if (myType == Type.UNITS) {
+        } else if (myType == Type.UNITS || myType == Type.UNIT_PREFIX) {
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.unit);
         } else if (myType == Type.CARDINAL_MINIMAL || myType == Type.ORDINAL_MINIMAL) {
             if (value.equals("{0}?")) {
                 return this; // special root 'other' value
             }
             currentAttributesToIgnore = ignoreAltAttributes;
+            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
+        } else if (myType == Type.SCRIPT) {
+            currentAttributesToIgnore = ignoreAltShortOrVariantAttributes; // i.e. do NOT ignore alt="stand-alone"
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
         } else {
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
@@ -368,7 +373,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
             }
         }
-
+        
         // Collisions between different lengths and counts of the same unit are allowed
         // Collisions between 'narrow' forms are allowed (the current is filtered by UNITS_IGNORE)
         //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day-future"]/unitPattern[@count="one"]
@@ -435,7 +440,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
             }
         }
-
+        
         // removeMatches(myType);
         // check again on size
         if (paths.isEmpty()) {
@@ -535,6 +540,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     collidingZoneTypes.contains("generic-short")) {
                     thisErrorType = CheckStatus.warningType;
                 }
+            }
+        } else if (myType == Type.SCRIPT && collidingTypes.size() == 1) {
+            String collisionString = collidingTypes.toString();
+            if (path.contains("stand-alone") || collisionString.contains("stand-alone")) {
+                thisErrorType = CheckStatus.warningType;
             }
         }
         CheckStatus item = new CheckStatus().setCause(this)

@@ -2476,6 +2476,8 @@ public class SurveyAjax extends HttpServlet {
         CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
         if (CldrUtility.INHERITANCE_MARKER.equals(val) && pvi.wouldInheritNull()) {
             showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
+        } else if (pvi.isUnvotableRoot(val)) {
+            showRowAction = CheckCLDR.StatusAction.FORBID_ROOT;
         }
 
         if (otherErr != null) {

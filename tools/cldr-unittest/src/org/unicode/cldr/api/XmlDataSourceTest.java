@@ -1,17 +1,14 @@
 package org.unicode.cldr.api;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.LinkedListMultimap;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ListMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
+import static org.unicode.cldr.api.CldrData.PathOrder.ARBITRARY;
+import static org.unicode.cldr.api.CldrData.PathOrder.DTD;
+import static org.unicode.cldr.api.CldrData.PathOrder.NESTED_GROUPING;
+import static org.unicode.cldr.api.CldrDataType.BCP47;
+import static org.unicode.cldr.api.CldrDataType.SUPPLEMENTAL;
+import static org.unicode.cldr.api.CldrDraftStatus.UNCONFIRMED;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -19,12 +16,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import static org.unicode.cldr.api.CldrData.PathOrder.ARBITRARY;
-import static org.unicode.cldr.api.CldrData.PathOrder.DTD;
-import static org.unicode.cldr.api.CldrData.PathOrder.NESTED_GROUPING;
-import static org.unicode.cldr.api.CldrDataType.BCP47;
-import static org.unicode.cldr.api.CldrDataType.SUPPLEMENTAL;
-import static org.unicode.cldr.api.CldrDraftStatus.UNCONFIRMED;
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.LinkedListMultimap;
+import com.google.common.collect.ListMultimap;
+import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * Tests XML file parsing and path/value generation. These focus on end-to-end parsing of fake data

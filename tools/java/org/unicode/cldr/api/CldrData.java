@@ -188,5 +188,14 @@ public interface CldrData {
          *               sub-hierarchy visitation.
          */
         default void visitPrefixEnd(CldrPath prefix) {}
+
+        /**
+         * Callback method invoked for each value encountered by this visitor. This is equivalent
+         * to the {@link ValueVisitor#visit(CldrValue)} method but is not normally needed for
+         * prefix visitors (which are expected to delegate to a separate ValueVisitor). This
+         * method is useful for implementing visitors with full coverage of all paths and values
+         * in the {@link CldrData} hierarchy.
+         */
+        default void visitValue(CldrValue value) {}
     }
 }

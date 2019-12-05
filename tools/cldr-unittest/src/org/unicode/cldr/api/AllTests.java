@@ -1,17 +1,19 @@
 package org.unicode.cldr.api;
 
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import java.io.PrintWriter;
 
-import static com.google.common.collect.ImmutableList.toImmutableList;
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 
 public class AllTests extends TestGroup {
     private static final ImmutableList<Class<?>> TEST_CLASSES = ImmutableList.of(
         CldrFileDataSourceTest.class,
         CldrPathTest.class,
         CldrValueTest.class,
+        FilteredDataTest.class,
+        PathMatcherTest.class,
         PrefixVisitorTest.class,
         XmlDataSourceTest.class);
     

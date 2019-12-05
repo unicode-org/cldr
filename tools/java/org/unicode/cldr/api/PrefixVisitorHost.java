@@ -75,13 +75,13 @@ final class PrefixVisitorHost {
      * sub hierarchy visitation and removed automatically once the visitation is complete.
      */
     @SuppressWarnings("unused")  // For unused arguments in no-op default methods.
-    private static abstract class VisitorState {
+    private static abstract class VisitorState implements PrefixVisitor {
         /** Creates a visitor state from the given visitor for the specified leaf value. */
         static <T extends ValueVisitor> VisitorState of(
             T visitor, Consumer<T> doneHandler, CldrPath prefix) {
             return new VisitorState(prefix, () -> doneHandler.accept(visitor)) {
                 @Override
-                public void visit(CldrValue value) {
+                public void visitValue(CldrValue value) {
                     visitor.visit(value);
                 }
             };
@@ -93,12 +93,17 @@ final class PrefixVisitorHost {
             return new VisitorState(prefix, () -> doneHandler.accept(visitor)) {
                 @Override
                 public void visitPrefixStart(CldrPath prefix, Context ctx) {
-                    safeVisitPrefix(prefix, p -> visitor.visitPrefixStart(p, ctx));
+                    visitor.visitPrefixStart(prefix, ctx);
                 }
 
                 @Override
                 public void visitPrefixEnd(CldrPath prefix) {
-                    safeVisitPrefix(prefix, visitor::visitPrefixEnd);
+                    visitor.visitPrefixEnd(prefix);
+                }
+
+                @Override
+                public void visitValue(CldrValue value) {
+                    visitor.visitValue(value);
                 }
             };
         }
@@ -110,26 +115,6 @@ final class PrefixVisitorHost {
         private VisitorState(CldrPath prefix, Runnable doneCallback) {
             this.prefix = prefix;
             this.doneCallback = doneCallback;
-        }
-
-        // These methods are the union of the public visitor methods and are used to dispatch
-        // the events triggered by path processing to the currently installed visitor.
-        void visit(CldrValue value) { }
-
-        void visitPrefixStart(CldrPath prefix, Context ctx) { }
-
-        void visitPrefixEnd(CldrPath prefix) { }
-
-        // Helper to ensure that we don't fail the entire visitation when a single visitor fails.
-        // NOTE: This could be removed once a more coherent error handling strategy is defined.
-        private static void safeVisitPrefix(CldrPath prefix, Consumer<CldrPath> fn) {
-            try {
-                fn.accept(prefix);
-            } catch (RuntimeException e) {
-                System.err.format("Exception thrown by prefix visitor for path '%s'\n", prefix);
-                System.err.println(e);
-                e.printStackTrace(System.err);
-            }
         }
     }
 
@@ -154,12 +139,13 @@ final class PrefixVisitorHost {
             "unexpected parent path encountered: %s is parent of %s", path, lastValuePath);
         recursiveStartVisit(path.getParent(), commonLength, new PrefixContext());
         // This is a no-op if the head of the stack is a prefix visitor.
-        visitorStack.peek().visit(value);
+        visitorStack.peek().visitValue(value);
         lastValuePath = path;
     };
 
     private PrefixVisitorHost(PrefixVisitor visitor) {
-        this.visitorStack.push(VisitorState.of(visitor, v -> {}, null));
+        this.visitorStack.push(VisitorState.of(visitor, v -> {
+        }, null));
     }
 
     // Called after visitation is complete to close out the last visited value path.

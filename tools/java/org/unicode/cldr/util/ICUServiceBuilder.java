@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -536,7 +537,14 @@ public class ICUServiceBuilder {
             return fractDigits;
         }
 
+        @Override
         public boolean equals(Object other) {
+            if (this == other) {
+                return true;
+            }
+            if (other == null || !(other instanceof MyCurrency)) {
+                return false;
+            }
             MyCurrency that = (MyCurrency) other;
             return roundingIncrement == that.roundingIncrement
                 && fractDigits == that.fractDigits
@@ -544,11 +552,10 @@ public class ICUServiceBuilder {
                 && displayName.equals(that.displayName);
         }
 
-//        public int hashCode(Object other) {
-//            MyCurrency that = (MyCurrency) other;
-//            return (((int) (roundingIncrement * 37) + fractDigits) * 37 + symbol.hashCode()) * 37
-//                + displayName.hashCode();
-//        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(roundingIncrement, fractDigits, symbol, displayName);
+        }
     }
 
     static int CURRENCY = 0, OTHER_KEY = 1, PATTERN = 2;

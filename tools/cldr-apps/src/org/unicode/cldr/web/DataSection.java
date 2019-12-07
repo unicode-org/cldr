@@ -93,7 +93,12 @@ public class DataSection implements JSONString {
      * The baseline CLDRFile for this DataSection
      */
     public CLDRFile translationHintsFile;
-    
+
+    /**
+     * The CLDRFile for the root locale; use lazy initialization, see getRootFile
+     */
+    private CLDRFile rootFile = null;
+
     /**
      * The DisplayAndInputProcessor for this DataSection
      */
@@ -1434,10 +1439,9 @@ public class DataSection implements JSONString {
          * For annotations, include the root value as a candidate item that can't be voted for.
          * This is so that people can search for, e.g., "E12" to find rows for emoji that are new.
          */
-        public void addAnnotationRootValue() {
+        private void addAnnotationRootValue() {
             if (xpath.startsWith("//ldml/annotations/annotation")) {
-                CLDRFile rootFile = sm.getSTFactory().make(CLDRLocale.ROOT.getBaseName(), true);
-                String rootValue = rootFile.getStringValue(xpath);
+                String rootValue = getRootFile().getStringValue(xpath);
                 if (rootValue != null && !rootValue.equals(inheritedValue)) {
                     /*
                      * Complication: typically rootValue contains a hyphen, as in "E10-520",
@@ -1486,6 +1490,19 @@ public class DataSection implements JSONString {
      */
     public void setUserForVotelist(User u) {
         userForVotelist = u;
+    }
+
+    /**
+     * Get the CLDRFile for the root locale
+     *
+     * Keep a reference since sm.getSTFactory().make() may be expensive.
+     * Use lazy initialization since it may not be needed by every DataSection.
+     */
+    private CLDRFile getRootFile() {
+        if (rootFile == null) {
+            rootFile = sm.getSTFactory().make(CLDRLocale.ROOT.getBaseName(), true);
+        }
+        return rootFile;
     }
 
     /**

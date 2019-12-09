@@ -377,7 +377,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // Collisions between different lengths and counts of the same unit are allowed
         // Collisions between 'narrow' forms are allowed (the current is filtered by UNITS_IGNORE)
         //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day-future"]/unitPattern[@count="one"]
-        if (myType == Type.UNITS) {
+        if (myType == Type.UNITS || myType == Type.UNIT_PREFIX) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             int typeLocation = 3;
             String myUnit = parts.getAttributeValue(typeLocation, "type");

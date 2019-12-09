@@ -33,6 +33,10 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String milli = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p-3\"]/unitPrefixPattern";
     private static final String mega = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p6\"]/unitPrefixPattern";
     
+    private static final String deciLong = "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
+    private static final String deciNarrow = "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
+    private static final String deciShort = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
+    
         public static void main(String[] args) {
         new TestCheckDisplayCollisions().run(args);
     }
@@ -53,6 +57,11 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         frSource.putValueAtDPath(japanMap, "carte du Japon");
         frSource.putValueAtDPath(milli, "m{0}");
         frSource.putValueAtDPath(mega, "M{0}");
+        
+        frSource.putValueAtDPath(deciLong, "d{0}");
+        frSource.putValueAtDPath(deciNarrow, "d{0}");
+        frSource.putValueAtDPath(deciShort, "d{0}");
+
         CLDRFile fr = new CLDRFile(frSource);
 
         XMLSource frCaSource = new SimpleXMLSource("fr_CA");
@@ -66,7 +75,6 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         factory.addFile(en);
         factory.addFile(fr);
         factory.addFile(frCA);
-        
 
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
         cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
@@ -91,7 +99,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         for (String path : cldrFileResolved) {
             String value = cldrFileResolved.getStringValue(path);
             //System.out.println(path + "\t" + value);
-            if (path.equals(milli)) {
+            if (path.equals(deciLong)) {
                 int debug = 0;
             }
             cdc.check(path, path, value, options, possibleErrors);

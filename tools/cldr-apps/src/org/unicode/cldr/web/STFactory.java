@@ -612,6 +612,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             stamp = mintLocaleStamp(locale);
         }
 
+        private void initFiles() {
+            // Initialize file and rFile early, soon after PLD c'tion.
+            // this should be done after the PLD is in 
+            if (getSupplementalDirectory() == null)
+                throw new InternalError("getSupplementalDirectory() == null!");
+            rFile = new CLDRFile(makeSource(true)).setSupplementalDirectory(getSupplementalDirectory());
+            rFile.getSupplementalDirectory();
+            file = new CLDRFile(makeSource(false)).setSupplementalDirectory(getSupplementalDirectory());
+        }
+
         public boolean isEmpty() {
             return xpathToData.isEmpty();
         }
@@ -832,21 +842,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
-        public synchronized CLDRFile getFile(boolean resolved) {
+        public CLDRFile getFile(boolean resolved) {
             if (resolved) {
-                if (rFile == null) {
-                    if (getSupplementalDirectory() == null)
-                        throw new InternalError("getSupplementalDirectory() == null!");
-                    rFile = new CLDRFile(makeSource(true)).setSupplementalDirectory(getSupplementalDirectory());
-                    rFile.getSupplementalDirectory();
-                }
                 return rFile;
             } else {
-                if (file == null) {
-                    if (getSupplementalDirectory() == null)
-                        throw new InternalError("getSupplementalDirectory() == null!");
-                    file = new CLDRFile(makeSource(false)).setSupplementalDirectory(getSupplementalDirectory());
-                }
                 return file;
             }
         }
@@ -1707,6 +1706,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 locales.put(locale, (new SoftReference<PerLocaleData>(pld)));
                 // update the locale display name cache.
                 OutputFileManager.updateLocaleDisplayName(pld.getFile(true), locale);
+
+                pld.initFiles(); // must do this after it's in the hash
             } else {
                 rLocales.put(locale, pld); // keep it in the lru
             }

@@ -56,35 +56,35 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     }
 
     private static enum Type {
-        LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX, 0),
-        SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX, 1),
-        TERRITORY("//ldml/localeDisplayNames/(territories/territory|subdivisions/subdivision\\[@type=\"gb(eng|sct|wls)\")", MatchType.REGEX, 2),
-        VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX, 3),
-        CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX, 4),
-        ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX, 5),
-        METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX, 6),
-        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", MatchType.PREFIX, 7),
-        UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX, 8),
-        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX, 9),
-        UNITS_COORDINATE( "//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX, 10),
-        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX, 11),
-        UNITS("//ldml/units/unitLength", MatchType.PREFIX, 12),
-        FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX, 13),
-        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX, 14),
-        ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]", MatchType.REGEX, 15),
-        CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX, 16),
-        ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX, 17), 
-        TYPOGRAPHIC_AXIS("//ldml/typographicNames/axisName", MatchType.PREFIX, 18), 
-        TYPOGRAPHIC_FEATURE("//ldml/typographicNames/featureName", MatchType.PREFIX, 19), 
-        TYPOGRAPHIC_STYLE("//ldml/typographicNames/styleName", MatchType.PREFIX, 20), 
-        UNIT_PREFIX("//ldml/units/unitLength.*+/unitPrefixPattern", MatchType.REGEX, 21),
+        LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX),
+        SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX),
+        TERRITORY("//ldml/localeDisplayNames/(territories/territory|subdivisions/subdivision\\[@type=\"gb(eng|sct|wls)\")", MatchType.REGEX),
+        VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX),
+        CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX),
+        ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX),
+        METAZONE("//ldml/dates/timeZoneNames/metazone", MatchType.PREFIX),
+        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", MatchType.PREFIX),
+        UNIT_PREFIX("//ldml/units/unitLength.*/unitPrefixPattern", MatchType.REGEX),
+        UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", MatchType.PREFIX),
+        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", MatchType.PREFIX),
+        UNITS_COORDINATE( "//ldml/units/unitLength\\[@type=\".*\"\\]/coordinateUnit/", MatchType.REGEX),
+        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", MatchType.PREFIX),
+        UNITS("//ldml/units/unitLength", MatchType.PREFIX),
+        FIELDS_NARROW("//ldml/dates/fields/field\\[@type=\"(sun|mon|tue|wed|thu|fri|sat)-narrow\"\\]/relative", MatchType.REGEX),
+        FIELDS_RELATIVE("//ldml/dates/fields/field\\[@type=\".*\"\\]/relative\\[@type=\"(-1|0|1)\"\\]", MatchType.REGEX),
+        ANNOTATIONS("//ldml/annotations/annotation\\[@cp=\".*\"\\]\\[@type=\"tts\"\\]", MatchType.REGEX),
+        CARDINAL_MINIMAL("//ldml/numbers/minimalPairs/pluralMinimalPairs", MatchType.PREFIX),
+        ORDINAL_MINIMAL("//ldml/numbers/minimalPairs/ordinalMinimalPairs", MatchType.PREFIX), 
+        TYPOGRAPHIC_AXIS("//ldml/typographicNames/axisName", MatchType.PREFIX), 
+        TYPOGRAPHIC_FEATURE("//ldml/typographicNames/featureName", MatchType.PREFIX), 
+        TYPOGRAPHIC_STYLE("//ldml/typographicNames/styleName", MatchType.PREFIX), 
         ;
 
         private MatchType matchType;
         private String basePrefix;
         private Pattern basePattern;
 
-        private Type(String basePrefix, MatchType matchType, int index) {
+        private Type(String basePrefix, MatchType matchType) {
             this.matchType = matchType;
             this.basePrefix = basePrefix;
             this.basePattern = PatternCache.get("^" + basePrefix + ".*");

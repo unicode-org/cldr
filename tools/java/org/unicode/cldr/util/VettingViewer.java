@@ -374,6 +374,10 @@ public class VettingViewer<T> {
             checkCldr.check(path, fullPath, value, options, result);
             for (CheckStatus checkStatus : result) {
                 final CheckCLDR cause = checkStatus.getCause();
+                /*
+                 * CheckCoverage will be shown under Missing, not under Warnings; and
+                 * CheckNew will be shown under New, not under Warnings; so skip them here.
+                 */
                 if (cause instanceof CheckCoverage || cause instanceof CheckNew) {
                     continue;
                 }
@@ -615,15 +619,30 @@ public class VettingViewer<T> {
 
                 problems.clear();
                 htmlMessage.setLength(0);
-                final String oldValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
+
+                MissingStatus missingStatus = getMissingStatus(sourceFile, path, status, latin);
 
                 if (CheckCLDR.LIMITED_SUBMISSION) {
-                    if (!SubmissionLocales.allowEvenIfLimited(localeID, path, errorStatus == ErrorChecker.Status.error, oldValue == null)) {
+                    boolean isError = (errorStatus == ErrorChecker.Status.error);
+                    boolean missingInLastRelease = MissingStatus.ABSENT.equals(missingStatus); // formerly (oldValue == null);
+                    if (!SubmissionLocales.allowEvenIfLimited(localeID, path, isError, missingInLastRelease)) {
                         continue;
                     };
                 }
 
                 if (!onlyRecordErrors && choices.contains(Choice.changedOldValue)) {
+                    final String baselineValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
+                    String oldValue = baselineValue; // TODO: should be last-release value, not baseline!
+                    // See also under outdatedPaths.isOutdated below
+                    // if (false) {
+                        //    Factory lastReleaseFactory = Factory.make(CLDRPaths.LAST_DIRECTORY + "common/" + subdir, ".*");
+                        //    CLDRFile lastRelease = null;
+                        //    try {
+                        //        lastRelease = lastReleaseFactory.make(locale, false);
+                        //    } catch (Exception e) {
+                        //    }
+                        //    String valueLastRelease = lastRelease == null ? null : lastRelease.getStringValue(path);
+                    // }
                     if (oldValue != null && !oldValue.equals(value)) {
                         problems.add(Choice.changedOldValue);
                         problemCounter.increment(Choice.changedOldValue);
@@ -631,10 +650,8 @@ public class VettingViewer<T> {
                 }
                 VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
                 boolean itemsOkIfVoted = (voteStatus == VoteStatus.ok);
-                MissingStatus missingStatus = null;
 
                 if (!onlyRecordErrors) {
-                    missingStatus = getMissingStatus(sourceFile, path, status, latin);
                     if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
                         problems.add(Choice.missingCoverage);
                         problemCounter.increment(Choice.missingCoverage);
@@ -647,7 +664,10 @@ public class VettingViewer<T> {
                         // the outdated paths compares the base value, before
                         // data submission,
                         // so see if the value changed.
-                        if (Objects.equals(value, oldValue) && choices.contains(Choice.englishChanged)) {
+                        /*
+                         * TODO: get oldValue = last-release here, maybe as above for changedOldValue
+                         */
+                        if (Objects.equals(value, "TODO" /* oldValue */) && choices.contains(Choice.englishChanged)) {
                             // check to see if we voted
                             problems.add(Choice.englishChanged);
                             problemCounter.increment(Choice.englishChanged);

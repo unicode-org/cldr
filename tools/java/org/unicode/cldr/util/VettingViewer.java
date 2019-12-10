@@ -563,7 +563,6 @@ public class VettingViewer<T> {
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
             T user, Level usersLevel, boolean quick, String xpath) {
 
-            Status status = new Status();
             errorChecker.initErrorStatus(sourceFile);
             Matcher altProposed = ALT_PROPOSED.matcher("");
             problems = EnumSet.noneOf(Choice.class);
@@ -575,6 +574,7 @@ public class VettingViewer<T> {
             EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
             Set<String> seenSoFar = new HashSet<String>();
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
+            CLDRFile baselineFileUnresolved = (baselineFile == null) ? null : baselineFile.getUnresolved();
             for (String path : sourceFile.fullIterable()) {
                 if (xpath != null && !xpath.equals(path))
                     continue;
@@ -620,29 +620,17 @@ public class VettingViewer<T> {
                 problems.clear();
                 htmlMessage.setLength(0);
 
-                MissingStatus missingStatus = getMissingStatus(sourceFile, path, status, latin);
+                final String oldValue = (baselineFileUnresolved == null) ? null : baselineFileUnresolved.getWinningValue(path);
 
                 if (CheckCLDR.LIMITED_SUBMISSION) {
                     boolean isError = (errorStatus == ErrorChecker.Status.error);
-                    boolean missingInLastRelease = MissingStatus.ABSENT.equals(missingStatus); // formerly (oldValue == null);
-                    if (!SubmissionLocales.allowEvenIfLimited(localeID, path, isError, missingInLastRelease)) {
+                    boolean isMissing = (oldValue == null);
+                    if (!SubmissionLocales.allowEvenIfLimited(localeID, path, isError, isMissing)) {
                         continue;
                     };
                 }
 
                 if (!onlyRecordErrors && choices.contains(Choice.changedOldValue)) {
-                    final String baselineValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
-                    String oldValue = baselineValue; // TODO: should be last-release value, not baseline!
-                    // See also under outdatedPaths.isOutdated below
-                    // if (false) {
-                        //    Factory lastReleaseFactory = Factory.make(CLDRPaths.LAST_DIRECTORY + "common/" + subdir, ".*");
-                        //    CLDRFile lastRelease = null;
-                        //    try {
-                        //        lastRelease = lastReleaseFactory.make(locale, false);
-                        //    } catch (Exception e) {
-                        //    }
-                        //    String valueLastRelease = lastRelease == null ? null : lastRelease.getStringValue(path);
-                    // }
                     if (oldValue != null && !oldValue.equals(value)) {
                         problems.add(Choice.changedOldValue);
                         problemCounter.increment(Choice.changedOldValue);
@@ -650,8 +638,10 @@ public class VettingViewer<T> {
                 }
                 VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
                 boolean itemsOkIfVoted = (voteStatus == VoteStatus.ok);
+                MissingStatus missingStatus = null;
 
                 if (!onlyRecordErrors) {
+                    missingStatus = getMissingStatus(sourceFile, path, latin);
                     if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
                         problems.add(Choice.missingCoverage);
                         problemCounter.increment(Choice.missingCoverage);
@@ -661,13 +651,7 @@ public class VettingViewer<T> {
                         problemCounter.increment(Choice.englishChanged);
                     }
                     if (!CheckCLDR.LIMITED_SUBMISSION && !itemsOkIfVoted && outdatedPaths.isOutdated(localeID, path)) {
-                        // the outdated paths compares the base value, before
-                        // data submission,
-                        // so see if the value changed.
-                        /*
-                         * TODO: get oldValue = last-release here, maybe as above for changedOldValue
-                         */
-                        if (Objects.equals(value, "TODO" /* oldValue */) && choices.contains(Choice.englishChanged)) {
+                        if (Objects.equals(value, oldValue) && choices.contains(Choice.englishChanged)) {
                             // check to see if we voted
                             problems.add(Choice.englishChanged);
                             problemCounter.increment(Choice.englishChanged);
@@ -1085,11 +1069,10 @@ public class VettingViewer<T> {
      *
      * @param sourceFile the CLDRFile
      * @param path the path
-     * @param status used for status.pathWhereFound, also passed to getSourceLocaleIdExtended
      * @param latin boolean from isLatinScriptLocale, passed to isMissingOk
      * @return the MissingStatus
      */
-    public static MissingStatus getMissingStatus(CLDRFile sourceFile, String path, Status status, boolean latin) {
+    public static MissingStatus getMissingStatus(CLDRFile sourceFile, String path, boolean latin) {
         if (sourceFile == null) {
             return MissingStatus.ABSENT;
         }
@@ -1102,6 +1085,8 @@ public class VettingViewer<T> {
         MissingStatus result;
 
         String value = sourceFile.getStringValue(path);
+        Status status = new Status();
+        sourceFile.getSourceLocaleID(path, status);
         boolean isAliased = path.equals(status.pathWhereFound);
 
         if (value == null) {
@@ -1243,8 +1228,6 @@ public class VettingViewer<T> {
 
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
 
-            Status status = new Status();
-
             output.append("<h2>Summary</h2>\n")
             .append("<p><i>It is important that you read " +
                 "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
@@ -1374,8 +1357,9 @@ public class VettingViewer<T> {
                         addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
                     }
                     // baseline value
+                    // TODO: should this be baselineFile.getUnresolved()? Compare how getFileInfo calls getMissingStatus
                     final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
-                    MissingStatus oldValueMissing = getMissingStatus(baselineFile, path, status, latin);
+                    MissingStatus oldValueMissing = getMissingStatus(baselineFile, path, latin);
 
                     addCell(output, oldStringValue, null, oldValueMissing != MissingStatus.PRESENT ? "tv-miss"
                         : "tv-last", HTMLType.plain);
@@ -1531,7 +1515,6 @@ public class VettingViewer<T> {
         unconfirmedCounter.clear();
         missingCounter.clear();
 
-        Status status = new Status();
         boolean latin = VettingViewer.isLatinScriptLocale(file);
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(file.getLocaleID());
 
@@ -1545,7 +1528,7 @@ public class VettingViewer<T> {
             Level level = coverageLevel2.getLevel(path);
             // String localeFound = file.getSourceLocaleID(path, status);
             // String value = file.getSourceLocaleID(path, status);
-            MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, status, latin);
+            MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, latin);
 
             switch (missingStatus) {
             case ABSENT:

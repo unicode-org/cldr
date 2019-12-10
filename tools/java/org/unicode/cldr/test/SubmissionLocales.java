@@ -72,10 +72,10 @@ public final class SubmissionLocales {
      * @param localeString
      * @param path
      * @param isError
-     * @param missingInLastRelease
-     * @return
+     * @param isMissing
+     * @return true if submission is allowed, else false
      */
-    public static boolean allowEvenIfLimited(String localeString, String path, boolean isError, boolean missingInLastRelease) {
+    public static boolean allowEvenIfLimited(String localeString, String path, boolean isError, boolean isMissing) {
 
         // don't limit new locales or errors
 
@@ -95,7 +95,7 @@ public final class SubmissionLocales {
 
         // in those locales, lock all paths except missing and special
 
-        if (missingInLastRelease) {
+        if (isMissing) {
             return true;
         } else {
             int debug = 0; // for debugging

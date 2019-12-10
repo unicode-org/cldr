@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups? ) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
 
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
@@ -1154,3 +1154,32 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT languageGroup ( #PCDATA ) >
 <!ATTLIST languageGroup parent NMTOKEN #REQUIRED >
 	<!--@MATCH:validity/language-->
+
+<!-- # Grammatical Features -->
+<!ELEMENT grammaticalData ( grammaticalFeatures* )>
+
+<!ELEMENT grammaticalFeatures ( grammaticalCase?, grammaticalGender?, grammaticalDefiniteness?, grammaticalState? ) >
+<!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
+    <!--@MATCH:set/literal/nominal-->
+<!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
+    <!--@MATCH:set/validity/language-->
+
+<!ELEMENT grammaticalCase EMPTY>
+<!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
+    <!--@VALUE-->
+    <!--@MATCH:set/literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, partitive, prepositional, sociative, vocative-->
+
+<!ELEMENT grammaticalGender EMPTY>
+<!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
+    <!--@VALUE-->
+    <!--@MATCH:set/literal/animate, common, feminine, inanimate, masculine, neuter, personal-->
+
+<!ELEMENT grammaticalDefiniteness EMPTY>
+<!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
+    <!--@VALUE-->
+    <!--@MATCH:set/literal/definite, indefinite, unspecified-->
+
+<!ELEMENT grammaticalState EMPTY>
+<!ATTLIST grammaticalState values NMTOKENS #REQUIRED >
+    <!--@VALUE-->
+    <!--@MATCH:set/literal/construct, definite, indefinite-->

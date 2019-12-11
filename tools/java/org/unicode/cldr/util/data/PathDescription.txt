@@ -155,8 +155,8 @@
 ^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="-1"]    ;   Provide a name for “last {1}”. For more information, please see http://cldr.org/translation/date-time-1/date-time-names#TOC-Relative-Date-Names.
 ^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="1"]    ;   Provide a name for “next {1}”. For more information, please see http://cldr.org/translation/date-time-1/date-time-names#TOC-Relative-Date-Names.
 
-^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="future"]/relativeTimePattern\[@count="([^"]*)"] ; Provide a pattern used to display times in the future. For more information, please see http://cldr.org/translation/date-time-1/date-time-names
-^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="past"]/relativeTimePattern\[@count="([^"]*)"] ; Provide a pattern used to display times in the past. For more information, please see http://cldr.org/translation/date-time-1/date-time-names
+^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="future"]/relativeTimePattern\[@count="([^"]*)"] ; Provide a pattern used to display times in the future. For more information, please see http://cldr.org/translation/date-time-1/date-time-names.
+^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="past"]/relativeTimePattern\[@count="([^"]*)"] ; Provide a pattern used to display times in the past. For more information, please see http://cldr.org/translation/date-time-1/date-time-names.
 
 ^//ldml/dates/fields/field\[@type="([^"]*)"]/relativePeriod    ;   Provide a name for “the {1} of SOME_DATE”. For more information, please see http://cldr.org/translation/date-time-1/date-time-names.
 
@@ -184,13 +184,13 @@
 ^//ldml/characters/stopwords/stopwordList\[@type="([^"]*)"] ;   The words that should be ignored in sorting in your language.  For more information, see http://cldr.org/translation/units-1/misc.
 ^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/([^/]*)/(.*)  ;   Override for the $3-$2 timezone name for $1.  For more information, see http://cldr.org/translation/timezones.
 
-^//ldml/typographicNames/axisName[@type="([^"]*)"]	; A label for a typographic design axis, such as “Width” or “Weight”.  For more information, see http://cldr.org/translation/-core-data/characters/typographic-names.
-^//ldml/typographicNames/styleName[@type="([^"]*)"][@subtype="([^"]*)"]	; A label for a typographic style, such as “Narrow” or “Semibold”.  For more information, see http://cldr.org/translation/-core-data/characters/typographic-names.
-^//ldml/typographicNames/featureName[@type="([^"]*)"]			; A label for a typographic feature, such as “Small Capitals”.  For more information, see http://cldr.org/translation/-core-data/characters/typographic-names.
+^//ldml/typographicNames/axisName[@type="([^"]*)"]	; A label for a typographic design axis, such as “Width” or “Weight”.  For more information, see http://cldr.org/translation/characters-emoji-symbols/typographic-names.
+^//ldml/typographicNames/styleName[@type="([^"]*)"][@subtype="([^"]*)"]	; A label for a typographic style, such as “Narrow” or “Semibold”.  For more information, see http://cldr.org/translation/characters-emoji-symbols/typographic-names.
+^//ldml/typographicNames/featureName[@type="([^"]*)"]			; A label for a typographic feature, such as “Small Capitals”.  For more information, see http://cldr.org/translation/characters-emoji-symbols/typographic-names.
 
-^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"]\[@count="([^"]*)"];   A label for a set of characters that has a numeric placeholder, such as “1 Stroke”, “2 Strokes”.  For more information, see http://cldr.org/translation/-core-data/characters/character-labels.
-^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"];   A modifier composed with a label for a set of characters.  For more information, see http://cldr.org/translation/-core-data/characters/character-labels.
-^//ldml/characterLabels/characterLabel\[@type="([^"]*)"];   A label for a set of characters.  For more information, see http://cldr.org/translation/-core-data/characters/character-labels.
+^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"]\[@count="([^"]*)"];   A label for a set of characters that has a numeric placeholder, such as “1 Stroke”, “2 Strokes”.  For more information, see http://cldr.org/translation/characters-emoji-symbols/character-labels.
+^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"];   A modifier composed with a label for a set of characters.  For more information, see http://cldr.org/translation/characters-emoji-symbols/character-labels.
+^//ldml/characterLabels/characterLabel\[@type="([^"]*)"];   A label for a set of characters.  For more information, see http://cldr.org/translation/characters-emoji-symbols/character-labels.
 
-^//ldml/annotations/annotation\[@cp="([^"]*)"]\[@type="tts"];   A name for a character or sequence. For more information, see http://cldr.org/translation/-core-data/characters/short-names-and-keywords.
-^//ldml/annotations/annotation\[@cp="([^"]*)"];   A set of keywords for a character or sequence.  For more information, see http://cldr.org/translation/-core-data/characters/short-names-and-keywords.
+^//ldml/annotations/annotation\[@cp="([^"]*)"]\[@type="tts"];   A name for a character or sequence. For more information, see http://cldr.org/translation/characters-emoji-symbols/short-names-and-keywords#TOC-Short-Character-Names.
+^//ldml/annotations/annotation\[@cp="([^"]*)"];   A set of keywords for a character or sequence.  For more information, see http://cldr.org/translation/characters-emoji-symbols/short-names-and-keywords#TOC-Short-Character-Names.

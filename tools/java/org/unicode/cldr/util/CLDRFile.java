@@ -638,24 +638,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @parameter pathWhereFound null if constructed.
      */
     public String getConstructedBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
-        //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
-        if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
-            XPathParts parts = XPathParts.getFrozenInstance(xpath);
-            String type = parts.getAttributeValue(-1, "type");
-            if (type.contains("_")) {
-                String alt = parts.getAttributeValue(-1, "alt");
-                if (localeWhereFound != null) {
-                    localeWhereFound.value = getLocaleID();
-                }
-                if (pathWhereFound != null) {
-                    pathWhereFound.value = null; // TODO make more useful
-                }
-                if (alt == null) {
-                    return getName(type, true);
-                } else {
-                    return getName(type, true, new SimpleAltPicker(alt));
-                }
+        String constructedValue = getConstructedValue(xpath);
+        if (constructedValue != null) {
+            if (localeWhereFound != null) {
+                localeWhereFound.value = getLocaleID();
             }
+            if (pathWhereFound != null) {
+                pathWhereFound.value = null; // TODO make more useful
+            }
+            return constructedValue;
         }
         return getBaileyValue(xpath, pathWhereFound, localeWhereFound);
     }
@@ -3647,4 +3638,92 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public void disableCaching() {
         dataSource.disableCaching();
     }
+
+    /**
+     * Get a constructed value for the given path, if it is a path for which values can be constructed
+     *
+     * @param xpath the given path, such as //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
+     * @return the constructed value, or null if this path doesn't have constructed values
+     */
+    private String getConstructedValue(String xpath) {
+        if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
+            String type = parts.getAttributeValue(-1, "type");
+            if (type.contains("_")) {
+                String alt = parts.getAttributeValue(-1, "alt");
+                if (alt == null) {
+                    return getName(type, true);
+                } else {
+                    return getName(type, true, new SimpleAltPicker(alt));
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get the string value for the winning path
+     *
+     * Do so taking constructed values into account.
+     *
+     * Currently this is only intended for use by VettingViewer.FileInfo.getFileInfo,
+     * to fix an urgent Dashboard bug. In the long run maybe it should replace
+     * getWinningValue, or the two methods should be merged somehow.
+     *
+     * Reference:
+     *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
+     *
+     * @param path
+     * @return the winning value
+     */
+    public String getWinningValueForVettingViewer(String path) {
+        final String winningPath = getWinningPath(path);
+        return winningPath == null ? null : getStringValueForVettingViewer(winningPath);
+    }
+
+    /**
+     * Get a string value from an xpath.
+     *
+     * Do so taking constructed values into account.
+     *
+     * Currently called only by getWinningValueForVettingViewer
+     *
+     * References:
+     *  CLDR-13263 Merge getConstructedBaileyValue and getBaileyValue
+     *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
+     */
+    private String getStringValueForVettingViewer(String xpath) {
+        try {
+            String constructedValue = getConstructedValue(xpath);
+            if (constructedValue != null) {
+                String value = getStringValueUnresolved(xpath);
+                if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    return constructedValue;
+                }
+            }
+            String result = dataSource.getValueAtPath(xpath);
+            if (result == null && dataSource.isResolving()) {
+                final String fallbackPath = getFallbackPath(xpath, false);
+                if (fallbackPath != null) {
+                    result = dataSource.getValueAtPath(fallbackPath);
+                }
+            }
+            return result;
+        } catch (Exception e) {
+            throw new UncheckedExecutionException("Bad path: " + xpath, e);
+        }
+    }
+
+    /**
+     * Get the string value for the given path in this locale,
+     * without resolving to any other path or locale.
+     *
+     * @param xpath the given path
+     * @return the string value, unresolved
+     */
+    private String getStringValueUnresolved(String xpath) {
+        CLDRFile sourceFileUnresolved = this.getUnresolved();
+        return sourceFileUnresolved.getStringValue(xpath);
+    }
+
 }

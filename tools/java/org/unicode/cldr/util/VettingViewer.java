@@ -578,7 +578,7 @@ public class VettingViewer<T> {
             for (String path : sourceFile.fullIterable()) {
                 if (xpath != null && !xpath.equals(path))
                     continue;
-                String value = sourceFile.getWinningValue(path);
+                String value = sourceFile.getWinningValueForVettingViewer(path);
                 statusMessage.setLength(0);
                 subtypes.clear();
                 ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage, subtypes);

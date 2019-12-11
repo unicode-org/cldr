@@ -576,9 +576,10 @@ public class VettingViewer<T> {
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
             CLDRFile baselineFileUnresolved = (baselineFile == null) ? null : baselineFile.getUnresolved();
             for (String path : sourceFile.fullIterable()) {
-                if (xpath != null && !xpath.equals(path))
+                if (xpath != null && !xpath.equals(path)) {
                     continue;
-                String value = sourceFile.getWinningValue(path);
+                }
+                String value = sourceFile.getWinningValueCorrectly(path);
                 statusMessage.setLength(0);
                 subtypes.clear();
                 ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage, subtypes);

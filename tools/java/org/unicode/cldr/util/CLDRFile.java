@@ -606,10 +606,60 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
+     * Get a string value from an xpath.
+     *
+     * Do so "correctly", i.e., taking constructed values into account.
+     *
+     * Currently called only by getWinningValueCorrectly, q.v.
+     *
+     * References:
+     *  CLDR-13263 Merge getConstructedBaileyValue and getBaileyValue
+     *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
+     */
+    public String getStringValueCorrectly(String xpath) {
+        try {
+            String constructedValue = getConstructedValue(xpath);
+            if (constructedValue != null) {
+                /*
+                 * TODO: find a faster way to get the unresolved value.
+                 * getUnresolved is probably more expensive than needed here.
+                 */
+                CLDRFile sourceFileUnresolved = this.getUnresolved();
+                String value = sourceFileUnresolved.getStringValue(xpath);
+                if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    return constructedValue;
+                }
+            }
+            String result = dataSource.getValueAtPath(xpath);
+            if (result == null && dataSource.isResolving()) {
+                final String fallbackPath = getFallbackPath(xpath, false);
+                if (fallbackPath != null) {
+                    result = dataSource.getValueAtPath(fallbackPath);
+                }
+            }
+            return result;
+        } catch (Exception e) {
+            throw new UncheckedExecutionException("Bad path: " + xpath, e);
+        }
+    }
+
+    /**
      * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file.
      * A non-resolving CLDRFile will always return null.
      */
     public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
+        if (false) {
+            /*
+             * Experiment with making getBaileyValue same as getConstructedBaileyValue
+             * References:
+             *  CLDR-13263 Merge getConstructedBaileyValue and getBaileyValue
+             *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
+             */
+            String constructedValue = getConstructedValue(xpath);
+            if (constructedValue != null) {
+                return constructedValue;
+            }
+        }
         String result = dataSource.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
         if ((result == null || result.equals(CldrUtility.INHERITANCE_MARKER)) && dataSource.isResolving()) {
             final String fallbackPath = getFallbackPath(xpath, false);
@@ -638,18 +688,41 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @parameter pathWhereFound null if constructed.
      */
     public String getConstructedBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
-        //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
-        if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
-            XPathParts parts = XPathParts.getFrozenInstance(xpath);
-            String type = parts.getAttributeValue(-1, "type");
-            if (type.contains("_")) {
-                String alt = parts.getAttributeValue(-1, "alt");
+
+        if (true) {
+            /*
+             * This (and this entire method) will be redundant if we do the same thing in getBaileyValue
+             *
+             * References:
+             *  CLDR-13263 Merge getConstructedBaileyValue and getBaileyValue
+             *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
+             */
+            String constructedValue = getConstructedValue(xpath);
+            if (constructedValue != null) {
                 if (localeWhereFound != null) {
                     localeWhereFound.value = getLocaleID();
                 }
                 if (pathWhereFound != null) {
                     pathWhereFound.value = null; // TODO make more useful
                 }
+                return constructedValue;
+            }
+        }
+        return getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+    }
+
+    /**
+     * Get a constructed value for the given path, if it is a path for which values can be constructed
+     *
+     * @param xpath the given path, such as //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
+     * @return the constructed value, or null if this path doesn't have constructed values
+     */
+    private String getConstructedValue(String xpath) {
+        if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
+            String type = parts.getAttributeValue(-1, "type");
+            if (type.contains("_")) {
+                String alt = parts.getAttributeValue(-1, "alt");
                 if (alt == null) {
                     return getName(type, true);
                 } else {
@@ -657,7 +730,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 }
             }
         }
-        return getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+        return null;
     }
 
     /**
@@ -3074,6 +3147,27 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
+     * Get the string value for the winning path
+     *
+     * Do so "correctly", i.e., taking constructed values into account.
+     *
+     * Currently this is only intended for use by VettingViewer.FileInfo.getFileInfo,
+     * to fix an urgent Dashboard bug. In the long run maybe it should replace
+     * getWinningValue, or the two methods should be merged somehow.
+     *
+     * References:
+     *  CLDR-13263 Merge getConstructedBaileyValue and getBaileyValue
+     *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
+     *
+     * @param path
+     * @return
+     */
+    public String getWinningValueCorrectly(String path) {
+        final String winningPath = getWinningPath(path);
+        return winningPath == null ? null : getStringValueCorrectly(winningPath);
+    }
+
+    /**
      * Shortcut for getting the string value for the winning path.
      * If the winning value is an INHERITANCE_MARKER (used in survey
      * tool), then the Bailey value is returned.
@@ -3103,7 +3197,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return the string value
      *
      * TODO: check whether this is called only when appropriate, see https://unicode.org/cldr/trac/ticket/11299
-     * Compare getWinningValueWithBailey wich is identical except getWinningValue versus getStringValue.
+     * Compare getWinningValueWithBailey which is identical except getWinningValue versus getStringValue.
      */
     public String getStringValueWithBailey(String path) {
         String value = getStringValue(path);

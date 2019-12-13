@@ -84,10 +84,14 @@ function showReviewPage(json, showFn) {
 			html += element.name.replace('_',' ')+' (<span class="remaining-count">0</span>/<span class="total-count">'+element.count+'</span>)<div class="pull-right"><span class="glyphicon glyphicon-info-sign help-review-pop" data-content="'+element.description+'"></span></div></a></li>';
 			menuDom.append(html);
 	});
-	menuRoot.html(menuDom);
-	
 	//populate body
 	var html = '';
+	if (notifications && notifications.length) {
+		menuRoot.html(menuDom);
+	} else {
+		html = '<p>Dashboard finished loading. Zero notifications were found in this locale for your chosen Coverage level.</p>';
+	}
+
 	$.each(notifications, function(index, element) {
 		//header
 		if(element != 'null')

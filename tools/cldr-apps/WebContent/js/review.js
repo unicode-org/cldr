@@ -84,10 +84,19 @@ function showReviewPage(json, showFn) {
 			html += element.name.replace('_',' ')+' (<span class="remaining-count">0</span>/<span class="total-count">'+element.count+'</span>)<div class="pull-right"><span class="glyphicon glyphicon-info-sign help-review-pop" data-content="'+element.description+'"></span></div></a></li>';
 			menuDom.append(html);
 	});
-	menuRoot.html(menuDom);
-	
 	//populate body
 	var html = '';
+	if (notifications && notifications.length) {
+		menuRoot.html(menuDom);
+	} else {
+		const cov = covName(effectiveCoverage());
+		if (cov === 'comprehensive') {
+			html = '<p>There are no items to review.</p>';
+		} else {
+			html = '<p>There are no items to review at the ' + cov + ' coverage level.</p>';
+		}
+	}
+
 	$.each(notifications, function(index, element) {
 		//header
 		if(element != 'null')
@@ -139,6 +148,12 @@ function showReviewPage(json, showFn) {
 		});
 		html += '</tbody></table></div>';
 	});
+
+	if (surveyVersion === '37') { // TODO: get CheckCLDR.LIMITED_SUBMISSION from server
+		html += '<p>This is a Limited-Submission release, so the list of items here is restricted. ' +
+			'For more information, see the ' +
+			'<a href="http://cldr.unicode.org/translation">Information Hub for Linguists</a></p>';
+	}
 	notificationsRoot.html(html);
 	showFn(); // calls the flipper to flip to the 'other' page.
 	

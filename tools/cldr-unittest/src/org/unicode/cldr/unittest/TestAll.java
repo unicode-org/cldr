@@ -2,14 +2,23 @@
 
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 
@@ -176,60 +185,89 @@ public class TestAll extends TestGroup {
         }
     }
 
+    private static final String[] TEST_LIST = new String[] {
+        "org.unicode.cldr.unittest.LocaleMatcherTest",
+        "org.unicode.cldr.unittest.GenerateTransformTest",
+        "org.unicode.cldr.unittest.LanguageInfoTest",
+        "org.unicode.cldr.unittest.LanguageTest",
+        "org.unicode.cldr.unittest.LikelySubtagsTest",
+        "org.unicode.cldr.unittest.NumberingSystemsTest",
+        "org.unicode.cldr.unittest.StandardCodesTest",
+        "org.unicode.cldr.unittest.TestAnnotations",
+        "org.unicode.cldr.unittest.TestAttributeValues",
+        "org.unicode.cldr.unittest.TestBasic",
+        "org.unicode.cldr.unittest.TestCLDRFile",
+        "org.unicode.cldr.unittest.TestCLDRUtils",
+        "org.unicode.cldr.unittest.TestCanonicalIds",
+        "org.unicode.cldr.unittest.TestCasingInfo",
+        "org.unicode.cldr.unittest.TestCheckCLDR",
+        "org.unicode.cldr.unittest.TestComparisonBuilder",
+        "org.unicode.cldr.unittest.TestCoverageLevel",
+        "org.unicode.cldr.unittest.TestDTDAttributes",
+        "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
+        "org.unicode.cldr.unittest.TestExampleGenerator",
+        "org.unicode.cldr.unittest.TestExternalCodeAPIs",
+        "org.unicode.cldr.unittest.TestFallbackIterator",
+        "org.unicode.cldr.unittest.TestIdentifierInfo",
+        "org.unicode.cldr.unittest.TestIdentity",
+        "org.unicode.cldr.unittest.TestInheritance",
+        "org.unicode.cldr.unittest.TestKeyboardModifierSet",
+        "org.unicode.cldr.unittest.TestLdml2ICU",
+        "org.unicode.cldr.unittest.TestLocalCurrency",
+        "org.unicode.cldr.unittest.TestLocale",
+        "org.unicode.cldr.unittest.TestLruMap",
+        "org.unicode.cldr.unittest.TestMetadata",
+        "org.unicode.cldr.unittest.TestOutdatedPaths",
+        "org.unicode.cldr.unittest.TestPathHeader",
+        "org.unicode.cldr.unittest.TestPaths",
+        "org.unicode.cldr.unittest.TestPseudolocalization",
+        "org.unicode.cldr.unittest.TestScriptMetadata",
+        "org.unicode.cldr.unittest.TestSupplementalInfo",
+        "org.unicode.cldr.unittest.TestTransforms",
+        "org.unicode.cldr.unittest.TestUtilities",
+        "org.unicode.cldr.unittest.TestCLDRLocaleCoverage",
+        "org.unicode.cldr.unittest.TestDayPeriods",
+        "org.unicode.cldr.unittest.TestSubdivisions",
+        "org.unicode.cldr.unittest.TestAliases",
+        "org.unicode.cldr.unittest.TestValidity",
+        "org.unicode.cldr.unittest.TestDtdData",
+        "org.unicode.cldr.unittest.TestCldrFactory",
+        "org.unicode.cldr.unittest.TestUnContainment",
+        "org.unicode.cldr.unittest.TestCheckDisplayCollisions",
+        //            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
+        "org.unicode.cldr.api.AllTests",
+    };
+    
+    static {
+        // Test for missing files in directory
+        Set<String> testList = new TreeSet<>(Arrays.asList(TEST_LIST));
+        Set<String> missing = new TreeSet<>(Arrays.asList(
+            getDirNames("org.unicode.cldr.unittest.", TestAll.class)));
+        missing.removeAll(testList);
+        if (!missing.isEmpty()) {
+            System.out.println("\nWarning, test classes not run:\n\t" + CollectionUtilities.join(missing, "\n\t"));
+        }
+    }
+    
     public TestAll() {
-        super(new String[] {
-            "org.unicode.cldr.unittest.LocaleMatcherTest",
-            "org.unicode.cldr.unittest.GenerateTransformTest",
-            "org.unicode.cldr.unittest.LanguageInfoTest",
-            "org.unicode.cldr.unittest.LanguageTest",
-            "org.unicode.cldr.unittest.LikelySubtagsTest",
-            "org.unicode.cldr.unittest.NumberingSystemsTest",
-            "org.unicode.cldr.unittest.StandardCodesTest",
-            "org.unicode.cldr.unittest.TestAnnotations",
-            "org.unicode.cldr.unittest.TestAttributeValues",
-            "org.unicode.cldr.unittest.TestBasic",
-            "org.unicode.cldr.unittest.TestCLDRFile",
-            "org.unicode.cldr.unittest.TestCLDRUtils",
-            "org.unicode.cldr.unittest.TestCanonicalIds",
-            "org.unicode.cldr.unittest.TestCasingInfo",
-            "org.unicode.cldr.unittest.TestCheckCLDR",
-            "org.unicode.cldr.unittest.TestComparisonBuilder",
-            "org.unicode.cldr.unittest.TestCoverageLevel",
-            "org.unicode.cldr.unittest.TestDTDAttributes",
-            "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
-            "org.unicode.cldr.unittest.TestExampleGenerator",
-            "org.unicode.cldr.unittest.TestExternalCodeAPIs",
-            "org.unicode.cldr.unittest.TestFallbackIterator",
-            "org.unicode.cldr.unittest.TestIdentifierInfo",
-            "org.unicode.cldr.unittest.TestIdentity",
-            "org.unicode.cldr.unittest.TestInheritance",
-            "org.unicode.cldr.unittest.TestKeyboardModifierSet",
-            "org.unicode.cldr.unittest.TestLdml2ICU",
-            "org.unicode.cldr.unittest.TestLocalCurrency",
-            "org.unicode.cldr.unittest.TestLocale",
-            "org.unicode.cldr.unittest.TestLruMap",
-            "org.unicode.cldr.unittest.TestMetadata",
-            "org.unicode.cldr.unittest.TestOutdatedPaths",
-            "org.unicode.cldr.unittest.TestPathHeader",
-            "org.unicode.cldr.unittest.TestPaths",
-            "org.unicode.cldr.unittest.TestPseudolocalization",
-            "org.unicode.cldr.unittest.TestScriptMetadata",
-            "org.unicode.cldr.unittest.TestSupplementalInfo",
-            "org.unicode.cldr.unittest.TestTransforms",
-            "org.unicode.cldr.unittest.TestUtilities",
-            "org.unicode.cldr.unittest.TestCLDRLocaleCoverage",
-            "org.unicode.cldr.unittest.TestDayPeriods",
-            "org.unicode.cldr.unittest.TestSubdivisions",
-            "org.unicode.cldr.unittest.TestAliases",
-            "org.unicode.cldr.unittest.TestValidity",
-            "org.unicode.cldr.unittest.TestDtdData",
-            "org.unicode.cldr.unittest.TestCldrFactory",
-            "org.unicode.cldr.unittest.TestUnContainment",
-            //            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
-            "org.unicode.cldr.api.AllTests",
-        },
-            "All tests in CLDR");
+        super(TEST_LIST, "All tests in CLDR");        
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR";
+    
+    private static String[] getDirNames(String prefix, Class<?> class1) {
+        String dirName = FileUtilities.getRelativeFileName(TestAll.class, ".");
+        List<String> result = new ArrayList<>();
+        for (String s : new File(dirName).list()) {
+            if (s.endsWith(".java") || s.endsWith(".class")) {
+                if (!s.startsWith("TestAll.")
+                    && !s.contains("$") 
+                    && s.toLowerCase(Locale.ROOT).contains("test")) {
+                    result.add(prefix + s.substring(0, s.lastIndexOf('.')));
+                }
+            }
+        };
+        return result.toArray(new String[result.size()]);
+    }
+
 }

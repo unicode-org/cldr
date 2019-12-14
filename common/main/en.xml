@@ -7164,9 +7164,9 @@ annotations.
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>μsecs</displayName>
-				<unitPattern count="one">{0} μs</unitPattern>
-				<unitPattern count="other">{0} μs</unitPattern>
+				<displayName>µsecs</displayName>
+				<unitPattern count="one">{0} µs</unitPattern>
+				<unitPattern count="other">{0} µs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nanosecs</displayName>
@@ -7545,7 +7545,7 @@ annotations.
 			<unit type="pressure-bar">
 				<displayName>bar</displayName>
 				<unitPattern count="one">{0} bar</unitPattern>
-				<unitPattern count="other">{0} bars</unitPattern>
+				<unitPattern count="other">{0} bar</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
@@ -7802,10 +7802,22 @@ annotations.
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
+			<unit type="area-square-kilometer">
+				<displayName>km²</displayName>
+				<unitPattern count="one">{0}km²</unitPattern>
+				<unitPattern count="other">{0}km²</unitPattern>
+				<perUnitPattern>{0}/km²</perUnitPattern>
+			</unit>
 			<unit type="area-hectare">
 				<displayName>hectare</displayName>
 				<unitPattern count="one">{0}ha</unitPattern>
 				<unitPattern count="other">{0}ha</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName>meters²</displayName>
+				<unitPattern count="one">{0}m²</unitPattern>
+				<unitPattern count="other">{0}m²</unitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>cm²</displayName>
@@ -7958,6 +7970,11 @@ annotations.
 				<unitPattern count="one">{0}bit</unitPattern>
 				<unitPattern count="other">{0}bit</unitPattern>
 			</unit>
+			<unit type="duration-century">
+				<displayName>c</displayName>
+				<unitPattern count="one">{0}c</unitPattern>
+				<unitPattern count="other">{0}c</unitPattern>
+			</unit>
 			<unit type="duration-decade">
 				<displayName>dec</displayName>
 				<unitPattern count="one">{0}dec</unitPattern>
@@ -8005,8 +8022,8 @@ annotations.
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>μsec</displayName>
-				<unitPattern count="one">{0}μs</unitPattern>
-				<unitPattern count="other">{0}μs</unitPattern>
+				<unitPattern count="one">{0}µs</unitPattern>
+				<unitPattern count="other">{0}µs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>ns</displayName>
@@ -8376,7 +8393,7 @@ annotations.
 			<unit type="pressure-bar">
 				<displayName>bar</displayName>
 				<unitPattern count="one">{0}bar</unitPattern>
-				<unitPattern count="other">{0}bars</unitPattern>
+				<unitPattern count="other">{0}bar</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>

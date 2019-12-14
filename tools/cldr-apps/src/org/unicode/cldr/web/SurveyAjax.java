@@ -375,7 +375,7 @@ public class SurveyAjax extends HttpServlet {
                 JSONWriter r = newJSONStatus(sm);
                 {
                     final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
-                        + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                        + " group by Year(last_mod) desc ,Month(last_mod) desc,last_mod desc") // mysql
                         : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
                             + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
                     final JSONObject query = DBUtils
@@ -386,7 +386,7 @@ public class SurveyAjax extends HttpServlet {
                     // exclude old votes
                     final String sql2 = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
                         + " as new_votes where " + StatisticsUtils.getExcludeOldVotesSql()
-                        + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                        + " group by Year(last_mod) desc ,Month(last_mod) desc,last_mod desc") // mysql
                         : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
                             + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
                     final JSONObject query2 = DBUtils

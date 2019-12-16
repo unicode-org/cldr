@@ -1138,7 +1138,7 @@ public class TestPathHeader extends TestFmwkPlus {
                         final String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
 //                        logln("\t\t" + path);
-                        if (path.startsWith("//supplementalData/weekData/weekOf")) {
+                        if (path.startsWith("//supplementalData/grammaticalData")) {
                             int debug = 0;
                         }
                         pathChecker.checkPathHeader(dtdData, path);
@@ -1182,6 +1182,9 @@ public class TestPathHeader extends TestFmwkPlus {
 
         public void checkSubpath(String path) {
             String message = ": Can't compute path header";
+            if (path.contentEquals("//supplementalData/grammaticalData/grammaticalFeatures[@targets=\"nominal\"][@locales=\"it\"]/grammaticalGender/_values") ) {
+                int debug = 0;
+            }
             PathHeader ph = null;
             try {
                 ph = phf.fromPath(path);
@@ -1212,6 +1215,10 @@ public class TestPathHeader extends TestFmwkPlus {
             String star = starrer.set(path);
             if (badHeaders.add(star)) {
                 errln(star + message + ", " + ph);
+                System.out.println("\tNo match in PathHeader.txt for " + path 
+                    + "\n\tYou get only one message for all paths matching " + star
+                    + "\n\tFor example, check to see if the field in PathHeader.txt is in PathHeader.PageId."
+                    + "\n\tIf not, either correct PathHeader.txt or add it to PageId");
             }
         }
     }

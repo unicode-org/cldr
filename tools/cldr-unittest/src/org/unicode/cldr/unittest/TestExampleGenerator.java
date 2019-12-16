@@ -40,17 +40,17 @@ public class TestExampleGenerator extends TestFmwk {
                 "fr",
                 "one",
                 "〖❬1,23 ❭value-one〗〖❬0,00 ❭value-one〗",
-                "〖❬1,23❭_❬dollar des États-Unis❭〗〖❬1,23❭_❬euro❭〗〖❬0,00❭_❬dollar des États-Unis❭〗〖❬0,00❭_❬euro❭〗" },
+            "〖❬1,23❭_❬dollar des États-Unis❭〗〖❬1,23❭_❬euro❭〗〖❬0,00❭_❬dollar des États-Unis❭〗〖❬0,00❭_❬euro❭〗" },
             {
                 "fr",
                 "other",
                 "〖❬2,34 ❭value-other〗〖❬3,45 ❭value-other〗",
-                "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗" },
+            "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗" },
             { "en", "one", "〖❬1 ❭Bermudan dollar〗",
-                "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗" },
+            "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗" },
             { "en", "other",
                 "〖❬1.23 ❭Bermudan dollars〗〖❬0.00 ❭Bermudan dollars〗",
-                "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗" }, };
+            "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗" }, };
         String sampleCurrencyPatternPrefix = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"";
         String sampleCurrencyPrefix = "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"";
         String sampleTemplateSuffix = "\"]";
@@ -164,11 +164,11 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
         "//ldml/typographicNames/styleName[@type=\"([^\"]*+)\"][@subtype=\"([^\"]*+)\"]",
         "//ldml/typographicNames/featureName[@type=\"([^\"]*+)\"]",
-        
+
         "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]",
 
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗    
-    );
+        );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 
 
@@ -199,7 +199,7 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern");
     // Only add to above if the background should NEVER appear.
 
-    
+
     /**  
      * Add to this if the background SHOULD appear, but we don't have them yet.
      * <br> The background is used when the element is used as part of another format. 
@@ -265,8 +265,8 @@ public class TestExampleGenerator extends TestFmwk {
 
                         if (TEMPORARY_OK_TO_MISS_BACKGROUND.contains(plainStarred)
                             && logKnownIssue(
-                            "Cldrbug:6342",
-                            "Make sure that background appears: " + simplified + "; " + plainStarred)) {
+                                "Cldrbug:6342",
+                                "Make sure that background appears: " + simplified + "; " + plainStarred)) {
                             continue;
                         }
 
@@ -327,7 +327,7 @@ public class TestExampleGenerator extends TestFmwk {
             { "times", "LONG", "other", "〖❬1.5 newton❭⋅❬meters❭〗" },
             { "times", "SHORT", "other", "〖❬1.5 N❭⋅❬m❭〗" },
             { "times", "NARROW", "other", "〖❬1.5N❭⋅❬m❭〗" },
-            };
+        };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated
         // String[][] tests2 = {
@@ -344,6 +344,35 @@ public class TestExampleGenerator extends TestFmwk {
                 test[0],
                 Count.valueOf(test[2]));
             assertEquals("CompoundUnit", test[3],
+                ExampleGenerator.simplify(actual, true));
+        }
+    }
+
+    public void TestCompoundUnit2() {
+        String[][] tests = { 
+            { "de", "LONG", "other", "Quadrat{0}", "〖❬1,5 ❭Quadrat❬meter❭〗" },
+
+            { "en", "SHORT", "one", "z{0}", "〖❬1 ❭z❬m❭〗" },
+            { "en", "LONG", "other", "zetta{0}", "〖❬1.5 ❭zetta❬meters❭〗" },
+
+            { "en", "SHORT", "one", "{0}²", "〖❬1 m❭²〗" },
+            { "en", "LONG", "other", "square {0}", "〖❬1.5 ❭square ❬meters❭〗" },
+
+            { "de", "SHORT", "one", "z{0}", "〖❬1 ❭z❬m❭〗" },
+            { "de", "LONG", "other", "Zetta{0}", "〖❬1,5 ❭Zetta❬meter❭〗" },
+
+            { "de", "SHORT", "one", "{0}²", "〖❬1 m❭²〗" },
+            { "de", "LONG", "other", "Quadrat{0}", "〖❬1,5 ❭Quadrat❬meter❭〗" },
+        };
+        for (String[] test : tests) {
+
+            ExampleGenerator exampleGenerator = getExampleGenerator(test[0]);
+
+            String actual = exampleGenerator.handleCompoundUnit1(
+                UnitLength.valueOf(test[1]), 
+                Count.valueOf(test[2]),
+                test[3]);
+            assertEquals("CompoundUnit", test[4],
                 ExampleGenerator.simplify(actual, true));
         }
     }
@@ -434,7 +463,7 @@ public class TestExampleGenerator extends TestFmwk {
             "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>Afghanistan</span>]</div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan</span>]</div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan, Cifre indo-arabe, Fuso orario: Ora Etiopia</span>]</div>",
-            actual);
+                actual);
         actual = exampleGenerator
             .getExampleHtml(
                 "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
@@ -443,7 +472,7 @@ public class TestExampleGenerator extends TestFmwk {
             "localeSeparator example faulty",
             "<div class='cldr_example'><span class='cldr_substituted'>uzbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan)</span></div>"
                 + "<div class='cldr_example'><span class='cldr_substituted'>uzbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan</span>. <span class='cldr_substituted'>Cifre indo-arabe</span>. <span class='cldr_substituted'>Fuso orario: Ora Etiopia)</span></div>",
-            actual);
+                actual);
     }
 
     public void TestCurrencyFormats() {
@@ -505,12 +534,12 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] testPairs = {
             {
                 "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]",
-                "〖❬1,23 ❭dollari delle Bermuda〗〖❬0,00 ❭dollari delle Bermuda〗" },
+            "〖❬1,23 ❭dollari delle Bermuda〗〖❬0,00 ❭dollari delle Bermuda〗" },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]",
-                "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗" },
+            "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗" },
             { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol",
-                "〖❬123.456,79 ❭BMD〗" }, };
+            "〖❬123.456,79 ❭BMD〗" }, };
 
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         for (String[] testPair : testPairs) {
@@ -526,7 +555,7 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] testPairs = {
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "<div class='cldr_example'><span class='cldr_substituted'>1</span> thousand</div>" },
+            "<div class='cldr_example'><span class='cldr_substituted'>1</span> thousand</div>" },
             {
                 "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                 "<div class='cldr_example'><span class='cldr_substituted'>5</span>%</div>"
@@ -640,7 +669,7 @@ public class TestExampleGenerator extends TestFmwk {
             expected);
     }
 
-    //ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+//ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
 
     public void TestDayPeriods() {
         //checkDayPeriod("da", "format", "morning1", "〖05:00 – 10:00〗〖❬7:30❭ morgens〗");
@@ -804,7 +833,7 @@ public class TestExampleGenerator extends TestFmwk {
                 System.out.println(count);
             }
             if (count > 200) {
-                 break;
+                break;
             }
             String newValue = modifyValueRandomly(valueA);
             /*
@@ -1037,4 +1066,5 @@ public class TestExampleGenerator extends TestFmwk {
         writer.close();
         System.out.println("Wrote " + keysWritten + " keys to " + dir + name);
     }
+
 }

@@ -43,6 +43,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
 
@@ -125,8 +126,8 @@ public class ExampleGenerator {
     private static final String startSup = "<sup>";
     private static final String endSup = "</sup>";
 
-    private static final String backgroundStartSymbol = "\uE234";
-    private static final String backgroundEndSymbol = "\uE235";
+    public static final String backgroundStartSymbol = "\uE234";
+    public static final String backgroundEndSymbol = "\uE235";
     private static final String backgroundTempSymbol = "\uE236";
     private static final String exampleSeparatorSymbol = "\uE237";
     private static final String startItalicSymbol = "\uE238";
@@ -302,7 +303,7 @@ public class ExampleGenerator {
         icuServiceBuilder.setCldrFile(cldrFile);
 
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
-        
+
         if (DEBUG_EXAMPLE_GENERATOR) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
             System.out.println("🧞‍ Created new ExampleGenerator for loc " + cldrFile.getLocaleID() + " at " + creationTime);
@@ -381,8 +382,9 @@ public class ExampleGenerator {
                 result = formatCountValue(xpath, parts, value);
             } else if (parts.getElement(-1).equals("compoundUnitPattern")) {
                 result = handleCompoundUnit(parts);
-            } else if (parts.getElement(-1).equals("compoundUnitPattern1") || parts.getElement(-1).equals("unitPrefixPattern")) {
-                result = handleCompoundUnit1(parts);
+            } else if (parts.getElement(-1).equals("compoundUnitPattern1") 
+                || parts.getElement(-1).equals("unitPrefixPattern")) {
+                result = handleCompoundUnit1(parts, value);
             } else if (parts.getElement(-1).equals("unitPattern")) {
                 String count = parts.getAttributeValue(-1, "count");
                 result = handleFormatUnit(Count.valueOf(count), value);
@@ -521,7 +523,7 @@ public class ExampleGenerator {
         case 0x1F48F: // 💏  U+1F48F KISS 👩👨
             examples.add(formatGroup(value, "👩‍❤️‍💋‍👨", "👩", "👨"));
             examples.add(formatGroup(value, "👩‍❤️‍💋‍👩", "👩", "👩"));
-           break;
+            break;
         case 0x1F491: // 💑  U+1F491     COUPLE WITH HEART
             examples.add(formatGroup(value, "👩‍❤️‍👨", "👩", "👨"));
             examples.add(formatGroup(value, "👩‍❤️‍👩", "👩", "👩"));
@@ -674,7 +676,7 @@ public class ExampleGenerator {
         case "times":
             unit1mid = getFormattedUnit("force-newton", unitLength, oneValue, icuServiceBuilder.getNumberFormat(1).format(amount));
             unit2mid = getFormattedUnit("length-meter", unitLength, amount, "");
-        break;
+            break;
         }
         String unit1 = backgroundStartSymbol + unit1mid.trim() + backgroundEndSymbol;
         String unit2 = backgroundStartSymbol + unit2mid.trim() + backgroundEndSymbol;
@@ -686,14 +688,13 @@ public class ExampleGenerator {
         return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
     
-    public String handleCompoundUnit1(XPathParts parts) {
+    public String handleCompoundUnit1(XPathParts parts, String compoundPattern) {
         UnitLength unitLength = getUnitLength(parts);
-        String compoundType = parts.getAttributeValue(-2, "type");
         Count count = Count.valueOf(CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other"));
-        return handleCompoundUnit1(unitLength, compoundType, count, parts.getElement(-1));
+        return handleCompoundUnit1(unitLength, count, compoundPattern);
     }
 
-    public String handleCompoundUnit1(UnitLength unitLength, String compoundType, Count count, String element) {
+    public String handleCompoundUnit1(UnitLength unitLength, Count count, String compoundPattern) {
 
         // we want to get a number that works for the count passed in.
         FixedDecimal amount = getBest(count);
@@ -701,18 +702,29 @@ public class ExampleGenerator {
             return "n/a";
         }
         FixedDecimal oneValue = new FixedDecimal(1d, 0);
+        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
+        String form1 = this.pluralInfo.getPluralRules().select(amount);
+        
+        String pathFormat = "//ldml/units/unitLength" + unitLength.typeString
+            + "/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"]";
 
-        String unit1mid = getFormattedUnit("length-meter", unitLength, amount);
+        String meterFormat = getValueFromFormat(pathFormat, "length-meter", form1);
 
-        String unit1 = backgroundStartSymbol + unit1mid.trim() + backgroundEndSymbol;
+        String modFormat = combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
 
-        // TODO fix hack
-        String form = this.pluralInfo.getPluralRules().select(amount);
-        // we rebuild a path, because we may have changed it.
-        String perPath = makeCompoundUnitPath(unitLength, compoundType, element);
-        return format(getValueFromFormat(perPath, form), unit1);
+        return removeEmptyRuns(format(modFormat, numberFormat.format(amount)));
     }
 
+    public String combinePrefix(String unitFormat, String inCompoundPattern, boolean lowercaseUnitIfNoSpaceInCompound) {
+        // mark the part except for the {0} as foreground
+        String compoundPattern =  backgroundEndSymbol
+            + inCompoundPattern.replace("{0}", backgroundStartSymbol + "{0}" + backgroundEndSymbol)
+            +   backgroundStartSymbol;
+
+        String modFormat = Units.combinePattern(unitFormat, compoundPattern, lowercaseUnitIfNoSpaceInCompound);
+        
+        return backgroundStartSymbol + modFormat + backgroundEndSymbol;
+    }
 
     //ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
     public String makeCompoundUnitPath(UnitLength unitLength, String compoundType, String patternType) {
@@ -1781,7 +1793,7 @@ public class ExampleGenerator {
         return result;
     }
 
-    public String format(String format, Object... objects) {
+    public static String format(String format, Object... objects) {
         if (format == null) return null;
         return MessageFormat.format(format, objects);
     }
@@ -1898,14 +1910,17 @@ public class ExampleGenerator {
     }
 
     private String invertBackground(String input) {
-        if (input == null) {
-            return null;
-        }
-        input = input.replace(backgroundStartSymbol, backgroundTempSymbol)
+        return input == null ? null 
+            : backgroundStartSymbol 
+            + input.replace(backgroundStartSymbol, backgroundTempSymbol)
             .replace(backgroundEndSymbol, backgroundStartSymbol)
-            .replace(backgroundTempSymbol, backgroundEndSymbol);
+            .replace(backgroundTempSymbol, backgroundEndSymbol) 
+            + backgroundEndSymbol;
+    }
 
-        return backgroundStartSymbol + input + backgroundEndSymbol;
+    private String removeEmptyRuns(String input) {
+        return input.replace(backgroundStartSymbol + backgroundEndSymbol, "")
+            .replace(backgroundEndSymbol + backgroundStartSymbol, "");
     }
 
     public static final Pattern PARAMETER = PatternCache.get("(\\{[0-9]\\})");

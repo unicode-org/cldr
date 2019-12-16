@@ -263,6 +263,7 @@ public class PathHeader implements Comparable<PathHeader> {
         LanguageGroup( SectionId.Supplemental),
         Fallback(SectionId.Supplemental),
         Gender(SectionId.Supplemental),
+        Grammar(SectionId.Supplemental),
         Metazone(SectionId.Supplemental),
         NumberSystem( SectionId.Supplemental),
         Plural(SectionId.Supplemental),
@@ -276,6 +277,7 @@ public class PathHeader implements Comparable<PathHeader> {
         RBNF( SectionId.Supplemental),
         Segmentation(SectionId.Supplemental),
         DayPeriod(SectionId.Supplemental),
+        
         Category(SectionId.Characters),
 
         // [Smileys, People, Animals & Nature, Food & Drink, Travel & Places, Activities, Objects, Symbols, Flags] 

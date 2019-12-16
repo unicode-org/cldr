@@ -425,6 +425,11 @@
 //supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_%E			; Supplemental ; DayPeriod ; $1-$2 ; $3-$4 ; HIDE
 //supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_%E			; Supplemental ; DayPeriod ; $1 ; $2-$3 ; HIDE
 
+//supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalCase/_values ; Supplemental ; Grammar ; Case ; $1-$2 ; HIDE
+//supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalDefiniteness/_values ; Supplemental ; Grammar ; Definiteness ; $1-$2 ; HIDE
+//supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalGender/_values ; Supplemental ; Grammar ; Gender ; $1-$2 ; HIDE
+//supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalState/_values ; Supplemental ; Grammar ; State ; $1-$2 ; HIDE
+
 # Ultimate fallback (Error)
 //supplementalData/%S/(.*)                                                                              ; Supplemental ; Unknown ; $1 ; $2 ; DEPRECATED
 //supplementalData/(.*)                                                                                 ; Supplemental ; Unknown ; Unknown ; $2 ; DEPRECATED

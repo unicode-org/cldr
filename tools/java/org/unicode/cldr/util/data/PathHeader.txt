@@ -223,6 +223,7 @@
 //ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/perUnitPattern                                     ; Units ; Other Units ; &unit($2) ; &unitCount($1-per)
 
 # Warning: the longer match must come first
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-$3)
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1                        ; Units ; Compound Units ; $2 ; $1
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern                        ; Units ; Compound Units ; $2 ; $1
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/unitPrefixPattern							; Units ; Compound Units ; $2 ; $1

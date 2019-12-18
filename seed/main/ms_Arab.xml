@@ -208,49 +208,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateFormats>
 			</calendar>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">احد</day>
-							<day type="mon" draft="unconfirmed">اثنين</day>
-							<day type="tue" draft="unconfirmed">ثلاث</day>
-							<day type="wed" draft="unconfirmed">رابو</day>
-							<day type="thu" draft="unconfirmed">خميس</day>
-							<day type="fri" draft="unconfirmed">جمعة</day>
-							<day type="sat" draft="unconfirmed">سبتو</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">سوکو 1</quarter>
-							<quarter type="2" draft="unconfirmed">سوکو ک-2</quarter>
-							<quarter type="3" draft="unconfirmed">سوکو ک-3</quarter>
-							<quarter type="4" draft="unconfirmed">سوکو ک-4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">سوکو ڤرتام</quarter>
-							<quarter type="2" draft="unconfirmed">سوکو ک-2</quarter>
-							<quarter type="3" draft="unconfirmed">سوکو ک-3</quarter>
-							<quarter type="4" draft="unconfirmed">سوکو ک-4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">سوکو 1</quarter>
-							<quarter type="2" draft="unconfirmed">سوکو ک-2</quarter>
-							<quarter type="3" draft="unconfirmed">سوکو ک-3</quarter>
-							<quarter type="4" draft="unconfirmed">سوکو ک-4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">سوکو ڤرتام</quarter>
-							<quarter type="2" draft="unconfirmed">سوکو ک-2</quarter>
-							<quarter type="3" draft="unconfirmed">سوکو ک-3</quarter>
-							<quarter type="4" draft="unconfirmed">سوکو ک-4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -273,28 +230,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>

@@ -690,8 +690,22 @@ public class ExampleGenerator {
     
     public String handleCompoundUnit1(XPathParts parts, String compoundPattern) {
         UnitLength unitLength = getUnitLength(parts);
-        Count count = Count.valueOf(CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other"));
-        return handleCompoundUnit1(unitLength, count, compoundPattern);
+        String pathCount = parts.getAttributeValue(-1, "count");
+        if (pathCount == null) {
+            return handleCompoundUnit1Name(unitLength, compoundPattern);
+        } else {
+            return handleCompoundUnit1(unitLength, Count.valueOf(pathCount), compoundPattern);
+        }
+    }
+
+    private String handleCompoundUnit1Name(UnitLength unitLength, String compoundPattern) {
+        String pathFormat = "//ldml/units/unitLength" + unitLength.typeString + "/unit[@type=\"{0}\"]/displayName";
+
+        String meterFormat = getValueFromFormat(pathFormat, "length-meter");
+        
+        String modFormat = combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
+
+        return removeEmptyRuns(modFormat);
     }
 
     public String handleCompoundUnit1(UnitLength unitLength, Count count, String compoundPattern) {
@@ -707,14 +721,20 @@ public class ExampleGenerator {
         
         String pathFormat = "//ldml/units/unitLength" + unitLength.typeString
             + "/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"]";
+        
+        // now pick up the meter pattern
 
         String meterFormat = getValueFromFormat(pathFormat, "length-meter", form1);
+        
+        // now combine them
 
         String modFormat = combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
 
         return removeEmptyRuns(format(modFormat, numberFormat.format(amount)));
     }
 
+    // TODO, pass in unitLength instead of last parameter, and do work in Units.combinePattern.
+    
     public String combinePrefix(String unitFormat, String inCompoundPattern, boolean lowercaseUnitIfNoSpaceInCompound) {
         // mark the part except for the {0} as foreground
         String compoundPattern =  backgroundEndSymbol

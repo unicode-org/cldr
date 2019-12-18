@@ -6,9 +6,12 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.ExampleGenerator;
 
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetSpanner;
 
 public class Units {
     
+    private static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
     public static Pattern NO_SPACE_PREFIX = Pattern.compile("\\}" + ExampleGenerator.backgroundEndSymbol + "?\\p{L}|\\p{L}" + ExampleGenerator.backgroundStartSymbol + "?\\{");
 
     public static String combinePattern(String unitFormat, String compoundPattern, boolean lowercaseUnitIfNoSpaceInCompound) {
@@ -16,7 +19,7 @@ public class Units {
         // compoundPattern is of the form Z{0} or Zetta{0}
 
         // extract the unit
-        String modUnit = unitFormat.replace("{0}", "").trim();
+        String modUnit = (String) SPACE_SPANNER.trim(unitFormat.replace("{0}", ""));
         String[] parameters = { modUnit };
 
         String modFormat = unitFormat.replace(modUnit, MessageFormat.format(compoundPattern, parameters));
@@ -34,5 +37,7 @@ public class Units {
 
         return modFormat;
     }
+
+    static final UnicodeSetSpanner SPACE_SPANNER = new UnicodeSetSpanner(WHITESPACE);
 
 }

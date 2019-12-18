@@ -377,6 +377,62 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
+    public void TestCompoundUnit3() {
+        final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        String[][] tests = { 
+            // locale, path, value, expected-example
+            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+                "LOCALE", "〖square ❬meters❭〗" }, //
+            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+                    "LOCALE", "〖❬1 ❭square ❬meter❭〗" }, //
+            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+                        "LOCALE", "〖❬1.5 ❭square ❬meters❭〗" }, //
+
+            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+                            "LOCALE", "〖❬m❭²〗" },
+            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+                                "LOCALE", "〖❬1m❭²〗" },
+            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+                                    "LOCALE", "〖❬1.5m❭²〗" },
+
+            // warning, french patterns has U+00A0 in them
+            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+                                        "Square {0}", "〖Square ❬mètres❭〗" },
+            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+                                            "square {0}", "〖❬1,5 ❭square ❬mètre❭〗" },
+            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+                                                "squares {0}", "〖❬3,5 ❭squares ❬mètres❭〗" },
+
+            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+                                                    "LOCALE", "〖❬m❭²〗" },
+            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+                                                        "LOCALE", "〖❬1,5m❭²〗" },
+            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+                                                            "LOCALE", "〖❬3,5m❭²〗" },
+        };
+
+        int lineCount = 0;
+        for (String[] test : tests) {
+
+            final String localeID = test[0];
+            final String xpath = test[1];
+            String value = test[2];
+            String expected = test[3];
+            
+            ExampleGenerator exampleGenerator = getExampleGenerator(localeID);
+
+            if (value.equals("LOCALE")) {
+                value = cldrFactory.make(localeID, true).getStringValue(xpath);
+            }
+            String actual = exampleGenerator.getExampleHtml(xpath, value);
+            assertEquals(++lineCount + ") " 
+                + localeID 
+                + ", CompoundUnit3", expected,
+                ExampleGenerator.simplify(actual, false));
+        }
+
+    }
+
     HashMap<String, ExampleGenerator> ExampleGeneratorCache = new HashMap<String, ExampleGenerator>();
 
     private ExampleGenerator getExampleGenerator(String locale) {

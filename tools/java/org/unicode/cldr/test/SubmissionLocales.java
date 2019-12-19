@@ -11,13 +11,14 @@ import com.google.common.collect.ImmutableSet;
 public final class SubmissionLocales {
     public static Set<String> NEW_CLDR_LOCALES = ImmutableSet.of(
         "ceb",  // Cebuano (not new in release, but needs major changes)
-//        "mai",  // Maithili
+        "mai",  // Maithili
         "mni",  // Manipuri (Bengali script)-Apple as well
         "sat",  // Santali -(Apple use Olck script)
         "kok",  // Konkani -(Note: this is already covered by a MS vetter at Modern level)
         "sd_Deva",   // Sindhi (Devanagari) 
         "su",   // Sundanese (script TBD)
-//        "pcm",  // Nigerian Pidgin
+        "cad",  // Caddo
+        "pcm",  // Nigerian Pidgin
         "gn"    // Guarani
         );
     

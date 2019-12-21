@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -16,9 +17,9 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.SearchXml.ConfigOption;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -162,8 +163,15 @@ public class SearchCLDR {
                 subtype = Subtype.valueOf(errorMatcherText.substring(errorSepPos+1));
                 errorMatcherText = errorMatcherText.substring(0,errorSepPos);
             }
-            // TODO create new object using name in errorMatcherText
-            checkCldr = new CheckForCopy(cldrFactory);
+            // TODO create new object using name
+            // checkCldr = new CheckForCopy(cldrFactory);
+            try {
+                Class<?> checkCLDRClass = Class.forName("org.unicode.cldr.test." + errorMatcherText);
+                Constructor<?> ctor = checkCLDRClass.getConstructor(Factory.class);
+                checkCldr = (CheckCLDR) ctor.newInstance(cldrFactory);
+            } catch (Exception e) {
+                throw new ICUUncheckedIOException(e);
+            }
             CheckCLDR.setDisplayInformation(english);
         }
 
@@ -302,13 +310,17 @@ public class SearchCLDR {
                 final String resolvedSource = !resolved ? null
                     : file.getSourceLocaleID(path, status)
                     + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
-                showLine(showPath, showParent, showEnglish, resolved, locale,
-                    path, fullPath, value,
-                    cleanShort,
-                    !showParent ? null : english.getBaileyValue(path, null, null),
-                        english == null ? null : english.getStringValue(path),
-                            resolvedSource,
-                            Objects.toString(pathLevel));
+                if (checkCldr != null) {
+                    SearchXml.show(ConfigOption.delete, locale, fullPath, value, null, null, null);
+                } else {
+                    showLine(showPath, showParent, showEnglish, resolved, locale,
+                        path, fullPath, value,
+                        cleanShort,
+                        !showParent ? null : english.getBaileyValue(path, null, null),
+                            english == null ? null : english.getStringValue(path),
+                                resolvedSource,
+                                Objects.toString(pathLevel));
+                }
                 totalCount++;
                 localeCount++;
             }

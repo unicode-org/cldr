@@ -42,7 +42,9 @@ public final class SubmissionLocales {
 //                }
 //            }
 
-    public static final Pattern ALLOWED_IN_LIMITED_PATHS = null; 
+    public static final Pattern ALLOWED_IN_LIMITED_PATHS = 
+    Pattern.compile("//ldml/annotations/annotation.*+[🤵👰⬆➡⬇⬅♾✖➕➖➗]");
+    
     /* Example of special paths
      * Pattern.compile(
         "//ldml/"

@@ -375,15 +375,16 @@ public class SearchCLDR {
                     + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, locale);
             }
         }
-        System.out.println(
-            locale + "\t⟪" + value + "⟫"
-                + (showEnglish ? "\t⟪" + englishValue + "⟫" : "")
-                + (!showParent ? "" : CollectionUtilities.equals(value, parentValue) ? "\t≣" : "\t⟪" + parentValue + "⟫")
-                + "\t" + shortPath
-                + (showPath ? "\t" + fullPath : "")
-                + (resolved ? "\t" + resolvedSource : "")
-                + (organizationLevel != null ? "\t" + organizationLevel : "")
-                + pathHeaderInfo);
+        System.out.println("# "
+            + locale 
+            + "\t⟪" + value + "⟫"
+            + (showEnglish ? "\t⟪" + englishValue + "⟫" : "")
+            + (!showParent ? "" : CollectionUtilities.equals(value, parentValue) ? "\t≣" : "\t⟪" + parentValue + "⟫")
+            + "\t" + shortPath
+            + (showPath ? "\t" + fullPath : "")
+            + (resolved ? "\t" + resolvedSource : "")
+            + (organizationLevel != null ? "\t" + organizationLevel : "")
+            + pathHeaderInfo);
     }
 
     private static Matcher getMatcher(String property, Output<Boolean> exclude) {

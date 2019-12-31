@@ -58,7 +58,7 @@ public class SearchXml {
     private static String valuePattern;
     private static File comparisonDirectory;
     private static boolean recursive;
-
+    
     private static Counter<String> kountRegexMatches;
     private static Counter<String> starCounter;
     private static final Set<String> ERRORS = new LinkedHashSet<String>();
@@ -383,7 +383,7 @@ public class SearchXml {
                         diffInfo.sameCount += values.size();
                     }
                     if (diff && showValues) {
-                        show(file, path, values, otherValues);
+                        show(ConfigOption.add, file, null, null, path, values, otherValues);
                     }
                 }
             } else {
@@ -417,27 +417,27 @@ public class SearchXml {
                         String data = groups
                             ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
                             : value + "\t" + path;
-                        if (!unique) {
-                            String pathHeaderInfo = "";
-                            if (PATH_HEADER_FACTORY != null) {
-                                PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
-                                if (pathHeader != null) {
-                                    pathHeaderInfo = "\n\t" + pathHeader
-                                        + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
+                            if (!unique) {
+                                String pathHeaderInfo = "";
+                                if (PATH_HEADER_FACTORY != null) {
+                                    PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
+                                    if (pathHeader != null) {
+                                        pathHeaderInfo = "\n\t" + pathHeader
+                                            + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
+                                    }
                                 }
-                            }
-                            // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
-                            if (!groups && pathHeaderInfo.isEmpty()) {
-                                show(file, path, Collections.singleton(value), null);
+                                // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
+                                if (!groups && pathHeaderInfo.isEmpty()) {
+                                    show(ConfigOption.add, file, null, null, path, Collections.singleton(value), null);
+                                } else {
+                                    System.out.println("#?" +
+                                        (recursive ? filePath + "\t" : "")
+                                        + file + "\t" + data
+                                        + pathHeaderInfo);
+                                }
                             } else {
-                                System.out.println("#?" +
-                                    (recursive ? filePath + "\t" : "")
-                                    + file + "\t" + data
-                                    + pathHeaderInfo);
+                                uniqueData.add(data, 1);
                             }
-                        } else {
-                            uniqueData.add(data, 1);
-                        }
                     }
                 }
             }
@@ -452,19 +452,41 @@ public class SearchXml {
         }
     }
 
-    private static void show(String fileName, String path, Set<String> values, Set<String> otherValues) {
+    enum ConfigOption {delete, add, addNew, replace};
+    
+    public static void show(ConfigOption configOption, 
+        String localeOrFile, 
+        String match_path, 
+        String match_value, 
+        String new_path, 
+        Set<String> new_values, 
+        Set<String> otherValues) {
+        // locale= sv ; action=delete; value= YER ; path= //ldml/numbers/currencies/currency[@type="YER"]/symbol ;
+
+        // locale=en ; action=delete ; path=/.*short.*/
+
+        // locale=en ; action=add ; new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
         // locale=  af     ; action=add ; new_path=        //ldml/dates/fields/field[@type="second"]/relative[@type="0"]    ; new_value=    nou  
-        String fileWithoutSuffix = fileName.substring(0, fileName.length() - 4);
-        String values2 = values.size() != 1 ? values.toString() : values.iterator().next();
+
+
+        int extensionPos = localeOrFile.lastIndexOf('.');
+        String fileWithoutSuffix = extensionPos >= 0 ? localeOrFile.substring(0, extensionPos) : localeOrFile;
+
+        String values2 = new_values == null ? null 
+            : new_values.size() != 1 ? new_values.toString() 
+                : new_values.iterator().next();
+        
         System.out.println("locale=" + fileWithoutSuffix
-            + ";\taction=add"
-            + ";\tnew_path=" + path
-            + ";\tnew_value=" + escape(values2)
+            + ";\taction=" + configOption
+            + (match_value == null ? "" : ";\tvalue=" + escape(match_value))
+            + (match_path == null ? "" : ";\tpath=" + match_path)
+            + (values2 == null ? "" : ";\tnew_value=" + escape(values2))
+            + (new_path == null ? "" : ";\tnew_path=" + new_path)
             + (otherValues == null ? "" : ";\tother_value=" + otherValues));
     }
 
     static final Transliterator showInvisibles = Transliterator.getInstance("[[:whitespace:][:cf:]-[\\u0020]]hex/perl");
-    
+
     private static String escape(String source) {
         return showInvisibles.transform(source);
     }

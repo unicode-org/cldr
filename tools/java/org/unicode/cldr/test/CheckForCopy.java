@@ -223,7 +223,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             result
             .add(new CheckStatus()
                 .setCause(this)
-                .setMainType(CheckStatus.errorType)
+                .setMainType(CheckStatus.warningType)
                 .setSubtype(Subtype.sameAsCode)
                 .setCheckOnSubmit(false)
                 .setMessage(

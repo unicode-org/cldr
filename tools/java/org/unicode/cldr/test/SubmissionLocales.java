@@ -1,9 +1,11 @@
 package org.unicode.cldr.test;
 
 import java.util.Set;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.google.common.collect.ImmutableSet;
@@ -43,7 +45,8 @@ public final class SubmissionLocales {
 //            }
 
     public static final Pattern ALLOWED_IN_LIMITED_PATHS = 
-    Pattern.compile("//ldml/annotations/annotation.*+[🤵👰⬆➡⬇⬅♾✖➕➖➗]");
+    Pattern.compile("//ldml/annotations/annotation.*[🤵👰⬆➡⬇⬅♾✖➕➖➗]");
+
     
     /* Example of special paths
      * Pattern.compile(
@@ -113,13 +116,22 @@ public final class SubmissionLocales {
         return false; // skip
     }
 
+    private static final boolean DEBUG_REGEX = false;
+
     /**
      * Only public for testing
      * @param path
      * @return
      */
     public static boolean pathAllowedInLimitedSubmission(String path) {
-        return ALLOWED_IN_LIMITED_PATHS == null ? false 
-            : SubmissionLocales.ALLOWED_IN_LIMITED_PATHS.matcher(path).lookingAt();
+        if (ALLOWED_IN_LIMITED_PATHS == null) {
+            return false;
+        }
+        final Matcher matcher = SubmissionLocales.ALLOWED_IN_LIMITED_PATHS.matcher(path);
+        boolean result = matcher.lookingAt();
+        if (DEBUG_REGEX && !result) {
+            System.out.println(RegexUtilities.showMismatch(matcher, path));
+        }
+        return result;
     }
 }

@@ -840,6 +840,13 @@ public class TestCheckCLDR extends TestFmwk {
         "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]", 
         "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1"
         );
+    
+    final Set<String> SAMPLE_EXCEPTIONAL_PATHS = ImmutableSet.of(
+        "//ldml/annotations/annotation[@cp=\"🤵\"]",
+        "//ldml/annotations/annotation[@cp=\"🤵‍♂\"][@type=\"tts\"]"
+        );
+
+    final String sampleDisallowedInLimitedSubmission = "//ldml/annotations/annotation[@cp=\"🎅\"]";
 
     /**
      * will need to change this for new releases!!
@@ -848,15 +855,25 @@ public class TestCheckCLDR extends TestFmwk {
         if (!CheckCLDR.LIMITED_SUBMISSION) {
             return;
         }
-
-        for (String locale : Arrays.asList("en", "fr")) {
-            for (String path : sampleNewPaths) {
-                assertTrue(path,  SubmissionLocales.allowEvenIfLimited(locale, path, false, true));
-            }
+        
+        for (String path : sampleNewPaths) {
+            assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, true));
         }
+        
+        for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
+            assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, false));
+        }
+        
+        assertFalse(sampleDisallowedInLimitedSubmission, 
+            SubmissionLocales.allowEvenIfLimited("fr", sampleDisallowedInLimitedSubmission, false, false));
+
         // test non-cldr locale
+        
         for (String path : sampleNewPaths) {
             assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, true));
+        }
+        for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
+            assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, false));
         }
         
         // TODO enhance to check more conditions

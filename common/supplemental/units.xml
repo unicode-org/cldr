@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+
+<supplementalData>
+	<version number="$Revision$"/>
+	<convertUnits>
+		<convertUnit source='g-force' target='meter-per-second-squared' factor='9.80665' />
+		<convertUnit source='meter-per-second-squared' target='meter-per-second-squared' factor='1' />
+		<convertUnit source='arc-minute' target='degree' factor='0.016666666666666666' />
+		<convertUnit source='arc-second' target='degree' factor='0.0002777777777777778' />
+		<convertUnit source='degree' target='degree' factor='1' />
+		<convertUnit source='radian' target='degree' factor='0.01745329' />
+		<convertUnit source='revolution' target='degree' factor='360' />
+		<convertUnit source='acre' target='square-foot' factor='43560' />
+		<convertUnit source='hectare' target='square-foot' factor='107639' />
+		<convertUnit source='square-centimeter' target='square-meter' factor='0.0001' />
+		<convertUnit source='square-foot' target='square-meter' factor='0.09290304' />
+		<convertUnit source='square-meter' target='square-foot' factor='100000000/9290304' />
+		<convertUnit source='square-inch' target='square-foot' factor='1/144' />
+		<convertUnit source='square-kilometer' target='square-meter' factor='1000000' />
+		<convertUnit source='square-mile' target='square-foot' factor='27878400' />
+		<convertUnit source='square-yard' target='square-foot' factor='9' />
+		<convertUnit source='dunam' target='square-meter' factor='1000' />
+		<convertUnit source='bit' target='bit' factor='1' />
+		<convertUnit source='byte' target='bit' factor='8' />
+		<convertUnit source='gigabit' target='bit' factor='1000000000' />
+		<convertUnit source='gigabyte' target='bit' factor='8000000000' />
+		<convertUnit source='kilobit' target='bit' factor='1000' />
+		<convertUnit source='kilobyte' target='bit' factor='8000' />
+		<convertUnit source='megabit' target='bit' factor='1000000' />
+		<convertUnit source='megabyte' target='bit' factor='8000000' />
+		<convertUnit source='petabyte' target='bit' factor='8E+15' />
+		<convertUnit source='terabit' target='bit' factor='1000000000000' />
+		<convertUnit source='terabyte' target='bit' factor='8000000000000' />
+		<convertUnit source='day' target='second' factor='86400' />
+		<convertUnit source='day-person' target='second' factor='86400' />
+		<convertUnit source='hour' target='second' factor='3600' />
+		<convertUnit source='microsecond' target='second' factor='1e-06' />
+		<convertUnit source='millisecond' target='second' factor='0.001' />
+		<convertUnit source='minute' target='second' factor='60' />
+		<convertUnit source='nanosecond' target='second' factor='1e-09' />
+		<convertUnit source='second' target='second' factor='1' />
+		<convertUnit source='week' target='second' factor='604800' />
+		<convertUnit source='week-person' target='second' factor='604800' />
+		<convertUnit source='ampere' target='ampere' factor='1' />
+		<convertUnit source='milliampere' target='ampere' factor='0.001' />
+		<convertUnit source='ohm' target='ohm' factor='1' />
+		<convertUnit source='volt' target='volt' factor='1' />
+		<convertUnit source='calorie' target='joule' factor='4.1868' />
+		<convertUnit source='foodcalorie' target='joule' factor='4186.8' />
+		<convertUnit source='joule' target='joule' factor='1' />
+		<convertUnit source='kilocalorie' target='joule' factor='4186.8' />
+		<convertUnit source='kilojoule' target='joule' factor='1000' />
+		<convertUnit source='kilowatt-hour' target='joule' factor='3600000' />
+		<convertUnit source='electronvolt' target='joule' factor='1.602177e-07' />
+		<convertUnit source='therm-us' target='joule' factor='105480400' />
+		<convertUnit source='pound-force' target='newton' factor='4.448222' />
+		<convertUnit source='newton' target='newton' factor='1' />
+		<convertUnit source='gigahertz' target='hertz' factor='1000000000' />
+		<convertUnit source='hertz' target='hertz' factor='1' />
+		<convertUnit source='kilohertz' target='hertz' factor='1000' />
+		<convertUnit source='megahertz' target='hertz' factor='1000000' />
+		<convertUnit source='centimeter' target='meter' factor='0.01' />
+		<convertUnit source='decimeter' target='meter' factor='0.1' />
+		<convertUnit source='fathom' target='foot' factor='6' />
+		<convertUnit source='meter' target='foot' factor='0.3048006' />
+		<convertUnit source='foot' target='meter' factor='10000000/3048006' />
+		<convertUnit source='inch' target='foot' factor='1/12' />
+		<convertUnit source='kilometer' target='meter' factor='1000' />
+		<convertUnit source='light-year' target='meter' factor='9.46073e-15' />
+		<convertUnit source='micrometer' target='meter' factor='1e-06' />
+		<convertUnit source='mile' target='foot' factor='5280' />
+		<convertUnit source='millimeter' target='meter' factor='0.001' />
+		<convertUnit source='nanometer' target='meter' factor='1e-09' />
+		<convertUnit source='nautical-mile' target='meter' factor='1852' />
+		<convertUnit source='picometer' target='meter' factor='1e-12' />
+		<convertUnit source='point' target='meter' factor='35277.78' />
+		<convertUnit source='yard' target='foot' factor='3' />
+		<convertUnit source='solar-radius' target='meter' factor='695,510,000' />
+		<convertUnit source='gram' target='kilogram' factor='0.001' />
+		<convertUnit source='microgram' target='kilogram' factor='1e-06' />
+		<convertUnit source='milligram' target='kilogram' factor='0.001' />
+		<convertUnit source='ounce' target='pound' factor='1/16' />
+		<convertUnit source='pound' target='kilogram' factor='0.4535924' />
+		<convertUnit source='stone' target='pound' factor='14' />
+		<convertUnit source='ton' target='pound' factor='2000' />
+		<convertUnit source='gigawatt' target='watt' factor='1000000000' />
+		<convertUnit source='kilowatt' target='watt' factor='1000' />
+		<convertUnit source='megawatt' target='watt' factor='1000000' />
+		<convertUnit source='milliwatt' target='watt' factor='0.001' />
+		<convertUnit source='atmosphere' target='pascal' factor='101325' />
+		<convertUnit source='bar' target='pascal' factor='100000' />
+		<convertUnit source='millibar' target='pascal' factor='100' />
+		<convertUnit source='millimeter-of-mercury' target='pascal' factor='133.3224' />
+		<convertUnit source='pound-per-square-inch' target='pascal' factor='6894.757' />
+		<convertUnit source='pascal' target='pascal' factor='1' />
+		<convertUnit source='kilopascal' target='pascal' factor='1000' />
+		<convertUnit source='megapascal' target='pascal' factor='1000000' />
+		<convertUnit source='kilometer-per-hour' target='meter-per-second' factor='10/36' />
+		<convertUnit source='knot' target='meter-per-second' factor='0.5144444' />
+		<convertUnit source='meter-per-second' target='meter-per-second' factor='1' />
+		<convertUnit source='mile-per-hour' target='meter-per-second' factor='0.44704' />
+		<convertUnit source='celsius' target='celsius' factor='1' />
+		<convertUnit source='fahrenheit' target='celsius' factor='5/9' offset='-160/9' />
+		<convertUnit source='kelvin' target='celsius' factor='1' offset='27315/100' />
+		<convertUnit source='pound-foot' target='newton-meter' factor='1.355818' />
+		<convertUnit source='newton-meter' target='pound-foot' factor='1000000/1355818' />
+		<convertUnit source='bushel' target='cubic-meter' factor='0.03523907' />
+		<convertUnit source='centiliter' target='cubic-meter' factor='1e-05' />
+		<convertUnit source='cubic-centimeter' target='cubic-meter' factor='1e-06' />
+		<convertUnit source='cubic-foot' target='cubic-meter' factor='0.02831685' />
+		<convertUnit source='cubic-inch' target='cubic-foot' factor='1/1728' />
+		<convertUnit source='cubic-kilometer' target='cubic-meter' factor='1000000000' />
+		<convertUnit source='cubic-meter' target='cubic-foot' factor='100000000/2831685' />
+		<convertUnit source='cubic-mile' target='cubic-foot' factor='147197952000' />
+		<convertUnit source='cubic-yard' target='cubic-foot' factor='27' />
+		<convertUnit source='deciliter' target='cubic-meter' factor='0.0001' />
+		<convertUnit source='megaliter' target='cubic-meter' factor='1000' />
+		<convertUnit source='milliliter' target='cubic-meter' factor='1e-06' />
+	</convertUnits>
+</supplementalData> 

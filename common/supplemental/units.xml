@@ -11,8 +11,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<convertUnits>
 		<convertUnit source='g-force' target='meter-per-second-squared' factor='9.80665' />
 		<convertUnit source='meter-per-second-squared' target='meter-per-second-squared' factor='1' />
-		<convertUnit source='arc-minute' target='degree' factor='0.016666666666666666' />
-		<convertUnit source='arc-second' target='degree' factor='0.0002777777777777778' />
+		<convertUnit source='arc-minute' target='degree' factor='1/60' />
+		<convertUnit source='arc-second' target='degree' factor='1/3600' />
 		<convertUnit source='degree' target='degree' factor='1' />
 		<convertUnit source='radian' target='degree' factor='0.01745329' />
 		<convertUnit source='revolution' target='degree' factor='360' />
@@ -107,7 +107,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<convertUnit source='mile-per-hour' target='meter-per-second' factor='0.44704' />
 		<convertUnit source='celsius' target='celsius' factor='1' />
 		<convertUnit source='fahrenheit' target='celsius' factor='5/9' offset='-160/9' />
-		<convertUnit source='kelvin' target='celsius' factor='1' offset='27315/100' />
+		<convertUnit source='kelvin' target='celsius' factor='1' offset='273.15' />
 		<convertUnit source='pound-foot' target='newton-meter' factor='1.355818' />
 		<convertUnit source='newton-meter' target='pound-foot' factor='1000000/1355818' />
 		<convertUnit source='bushel' target='cubic-meter' factor='0.03523907' />

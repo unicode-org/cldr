@@ -1625,6 +1625,14 @@ function parseStatusAction(action) {
  * Determine whether a JSONified array of CheckCLDR.CheckStatus is overall a warning or an error.
  * @param {Object} testResults - array of CheckCLDR.CheckStatus
  * @returns {String} 'Warning' or 'Error' or null
+ *
+ * Note: when a user votes, the response to the POST request includes json.testResults,
+ * which often (always?) includes a warning "Needed to meet ... coverage level", possibly
+ * in addition to other warnings or errors. We then return Warning, resulting in
+ * div.className = "d-item-warn" and a temporary yellow background for the cell, which, however,
+ * goes back to normal color (with "d-item") after a multiple-row response is received.
+ * The message "Needed to meet ..." may not actually be displayed, in which case the yellow
+ * background is distracting; its purpose should be clarified.
  */
 function getTestKind(testResults) {
 	if(!testResults) {
@@ -2196,7 +2204,12 @@ function appendForumStuff(tr, theRow, forumDiv) {
 	forumDiv.replyStub = contextPath + "/survey?forum=" + theForum + "&_=" + surveyCurrentLocale + "&replyto=";
 	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow;
 	/*
-	 * TODO: there is normally a "what" parameter for SurveyAjax; why missing here?
+	 * Note: SurveyAjax requires a "what" parameter for SurveyAjax.
+	 * It is not supplied here, but may be added later with code such as:
+	 *    var ourUrl = tr.forumDiv.url + "&what=forum_count" + cacheKill() ;
+	 *    var ourUrl = tr.forumDiv.url + "&what=forum_fetch";
+	 * Unfortunately that means "what" is not the first argument, as it would
+	 * be ideally for human readability of request urls.
 	 */
 	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpathId + "&_=" + surveyCurrentLocale + "&fhash="
 		+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
@@ -3238,15 +3251,20 @@ function addImportVotesFooter(voteTableDiv, voteList, mainCategories) {
 
 /**
  * reload a specific row
- * @method refreshRow2
+ * @method refreshSingleRow
  * 
  * Called by loadHandler in handleWiredClick, and by loadHandler in handleCancelWiredClick
  */
-function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
+function refreshSingleRow(tr,theRow,onSuccess, onFailure) {
+
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
-	// vHash not used.
-	// TODO: other getrow requests use surveySessionId; here we use tr.theTable.session; same?
-    var ourUrl = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&xpath="+theRow.xpathId +"&fhash="+tr.rowHash+"&s="+tr.theTable.session +"&automatic=t";
+
+    var ourUrl = contextPath + "/SurveyAjax?what=" + WHAT_GETROW
+        + "&_=" + surveyCurrentLocale
+        + "&xpath=" + theRow.xpathId
+        + "&fhash=" + tr.rowHash
+        + "&s=" + surveySessionId
+        + "&automatic=t";
 
     if(isDashboard()) {
     	ourUrl += "&dashboard=true";
@@ -3274,12 +3292,12 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         				refreshCounterVetting();
         			}
         		} else {
-        	        tr.className = "ferrbox";
-        	        console.log("could not find " + tr.rowHash + " in " + json);
-        	        onFailure("refreshRow2: Could not refresh this single row: Server failed to return xpath #"+theRow.xpathId+" for locale "+surveyCurrentLocale);
+                    tr.className = "ferrbox";
+                    console.log("could not find " + tr.rowHash + " in " + json);
+                    onFailure("refreshSingleRow: Could not refresh this single row: Server failed to return xpath #"+theRow.xpathId+" for locale "+surveyCurrentLocale);
         		}
            }catch(e) {
-               console.log("Error in ajax post [refreshRow2] ",e.message);
+               console.log("Error in ajax post [refreshSingleRow] ",e.message);
            }
     };
     var errorHandler = function(err, ioArgs){
@@ -3371,6 +3389,8 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		ourContent.voteReduced = voteReduced.value;
 	}
 
+	tr.className = 'tr_checking1';
+
 	var loadHandler = function(json){
 		try {
 			if(json.err && json.err.length >0) {
@@ -3382,7 +3402,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			} else {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
-					refreshRow2(tr,theRow,vHash,function(theRow) {
+					refreshSingleRow(tr, theRow, function(theRow) {
 						// submit went through. Now show the pop.
 						button.className='ichoice-o';
 						button.checked=false;
@@ -3475,6 +3495,9 @@ function handleCancelWiredClick(tr,theRow,vHash,button) {
 
 	console.log("Delete " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
 	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpathId +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+
+	tr.className = 'tr_checking1';
+
 	var loadHandler = function(json){
 		try {
 			if(json.err && json.err.length >0) {
@@ -3486,7 +3509,7 @@ function handleCancelWiredClick(tr,theRow,vHash,button) {
 			} else {
 				if(json.deleteResultRaw) { // if deleted..
 					tr.className='tr_checking2';
-					refreshRow2(tr,theRow,vHash,function(theRow){
+					refreshSingleRow(tr, theRow, function(theRow) {
 						// delete went through. Now show the pop.
 						hideLoader(tr.theTable.theDiv.loader);
 						myUnDefer();

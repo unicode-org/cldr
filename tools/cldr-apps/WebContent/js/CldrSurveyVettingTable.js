@@ -255,9 +255,16 @@ const cldrSurveyTable = (function() {
 			}
 
 			/*
-			 * Update the tr's contents
+			 * Update the row's contents, unless it has an individual update pending.
+			 * We're working with a multiple-row response from the server, and should not use
+			 * this response to update any row(s) in which the user has just voted and for which
+			 * we're still waiting for single-row response(s).
 			 */
-			updateRow(tr, theRow);
+			if (tr.className === 'tr_checking1' || tr.className === 'tr_checking2') {
+				// console.log("Skipping updateRow for tr.className === " + tr.className);
+			} else {
+				updateRow(tr, theRow);
+			}
 		}
 		// downloadObjectAsHtml(tbody);
 		// downloadObjectAsJson(tbody);
@@ -314,7 +321,7 @@ const cldrSurveyTable = (function() {
 	 * Dashboard columns are:
 	 * Code    English    CLDR 33    Winning 34    Action
 	 * 
-	 * Called by insertRowsIntoTbody and loadHandler (in refreshRow2),
+	 * Called by insertRowsIntoTbody and loadHandler (in refreshSingleRow),
 	 * AND by insertFixInfo in review.js!
 	 */
 	function updateRow(tr, theRow) {

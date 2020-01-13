@@ -2386,13 +2386,24 @@ label.menutop-active, label.menutop-other,
 	color:  navy;
 }
 
-tr.tr_checking {
-	background-color: #f1ecec;
+/*
+ * tr_checking1, tr_checking2:
+ * A row temporarily changes its background color to indicate that the user has
+ * initiated an action, such as voting for an item.
+ * The color changes per tr_checking1 as soon as the user clicks.
+ * The color changes per tr_checking2 when a response is received from the server.
+ * The color changes back to normal after the response has been processed.
+ * The classes tr_checking1, tr_checking2 are used not only to change the appearance,
+ * but also to prevent the row from being updated when a multiple-row response is received;
+ * see insertRowsIntoTbody.
+ */
+tr.tr_checking1 {
+	background-color: orange;
 	opacity: 0.5;
 }
 
 tr.tr_checking2 {
-	background-color: #d4edd9;
+	background-color: #d4edd9; /* green */
 	opacity: 0.75;
 }
 
@@ -2406,6 +2417,7 @@ tr.tr_err {
 
 /*
   ready to submit
+  TODO: when/where/why is this tr_submit used? Or is it unused?
   */
 
 tr.tr_submit {

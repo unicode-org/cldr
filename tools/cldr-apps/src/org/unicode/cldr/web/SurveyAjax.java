@@ -197,6 +197,7 @@ public class SurveyAjax extends HttpServlet {
             for (Map.Entry<String, Long> e : valueToVote.entrySet()) {
                 valueToVoteA.put(e.getKey()).put(e.getValue());
             }
+            ret.put("locked", r.isLocked());
             ret.put("value_vote", valueToVoteA);
             ret.put("nameTime", r.getNameTime());
             return ret;
@@ -2518,15 +2519,29 @@ public class SurveyAjax extends HttpServlet {
                     System.err.println("Voting for::  " + val);
                 Integer withVote = null;
                 try {
-                    withVote = Integer.parseInt(request.getParameter("voteReduced"));
+                    withVote = Integer.parseInt(request.getParameter("voteLevelChanged"));
                 } catch (Throwable t) {
                     withVote = null;
                 }
-                ballotBox.voteForValue(mySession.user, xp, val, withVote);
-                String subRes = ballotBox.getResolver(xp).toString();
-                if (DEBUG)
-                    System.err.println("Voting result ::  " + subRes);
-                r.put("submitResultRaw", subRes);
+                boolean badNoForum = false;
+                try {
+                    ballotBox.voteForValue(mySession.user, xp, val, withVote);
+                } catch (VoteNotAcceptedException e) {
+                    if (e.getErrCode() == ErrorCode.E_PERMANENT_VOTE_NO_FORUM) {
+                        badNoForum = true;
+                    } else {
+                        throw(e);
+                    }
+                }
+                if (badNoForum) {
+                    r.put("statusAction", CheckCLDR.StatusAction.FORBID_PERMANENT_WITHOUT_FORUM);
+                } else {
+                    String subRes = ballotBox.getResolver(xp).toString();
+                    if (DEBUG) {
+                        System.err.println("Voting result ::  " + subRes);
+                    }
+                    r.put("submitResultRaw", subRes);
+                }
             }
         } else {
             if (DEBUG)

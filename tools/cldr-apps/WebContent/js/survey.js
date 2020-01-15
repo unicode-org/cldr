@@ -1330,6 +1330,9 @@ function trySurveyLoad() {
 
 var lastJsonStatus = null;
 
+/*
+ * TODO: formatErrMsg is called only in CldrSurveyVettingLoader.js, so move it there
+ */
 function formatErrMsg(json, subkey) {
 	if(!subkey) {
 		subkey = "unknown";
@@ -3383,10 +3386,9 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 	var ourUrl = contextPath + "/SurveyAjax";
 
-	// vote reduced
-	var voteReduced = document.getElementById("voteReduced");
-	if(voteReduced) {
-		ourContent.voteReduced = voteReduced.value;
+	var voteLevelChanged = document.getElementById("voteLevelChanged");
+	if (voteLevelChanged) {
+		ourContent.voteLevelChanged = voteLevelChanged.value;
 	}
 
 	var originalTrClassName = tr.className;

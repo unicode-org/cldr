@@ -3253,7 +3253,7 @@ function addImportVotesFooter(voteTableDiv, voteList, mainCategories) {
  * reload a specific row
  * @method refreshSingleRow
  * 
- * Called by loadHandler in handleWiredClick, and by loadHandler in handleCancelWiredClick
+ * Called by loadHandler in handleWiredClick
  */
 function refreshSingleRow(tr,theRow,onSuccess, onFailure) {
 
@@ -3389,9 +3389,15 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		ourContent.voteReduced = voteReduced.value;
 	}
 
+	var originalTrClassName = tr.className;
 	tr.className = 'tr_checking1';
 
 	var loadHandler = function(json){
+		/*
+		 * Restore tr.className, so it stops being 'tr_checking1' immediately on receiving
+		 * any response. It may change again below, such as to 'tr_err' or 'tr_checking2'.
+		 */
+		tr.className = originalTrClassName;
 		try {
 			if(json.err && json.err.length >0) {
 				tr.className='tr_err';
@@ -3445,6 +3451,11 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		}
 	};
 	var errorHandler = function(err, ioArgs){
+		/*
+		 * Restore tr.className, so it stops being 'tr_checking1' immediately on receiving
+		 * any response. It may change again below, such as to 'tr_err'.
+		 */
+		tr.className = originalTrClassName;
 		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
 		handleDisconnect('Error: ' + err + ' response ' + ioArgs.xhr.responseText, null);
 		theRow.className = "ferrbox";
@@ -3459,94 +3470,6 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			url: ourUrl,
 			handleAs:"json",
 			content: ourContent,
-			timeout: ajaxTimeout,
-			load: loadHandler,
-			error: errorHandler
-	};
-	queueXhr(xhrArgs);
-}
-
-/**
-* bottleneck for cancel buttons
- * @method handleCancelWiredClick
- */
-function handleCancelWiredClick(tr,theRow,vHash,button) {
-	var value="";
-	var valToShow;
-	if(tr.wait) {
-		return;
-	}
-
-	valToShow=button.value;
-
-	var what = 'delete';
-
-	// select
-	updateCurrentId(theRow.xpstrid);
-	// and scroll
-	showCurrentId();
-
-	var myUnDefer = function() {
-		tr.wait=false;
-	};
-	tr.wait=true;
-	resetPop(tr);
-	theRow.proposedResults = null;
-
-	console.log("Delete " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
-	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpathId +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
-
-	tr.className = 'tr_checking1';
-
-	var loadHandler = function(json){
-		try {
-			if(json.err && json.err.length >0) {
-				tr.className='tr_err';
-				handleDisconnect('Error deleting a value', json);
-				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
-				myUnDefer();
-				handleDisconnect('Error deleting a value', json);
-			} else {
-				if(json.deleteResultRaw) { // if deleted..
-					tr.className='tr_checking2';
-					refreshSingleRow(tr, theRow, function(theRow) {
-						// delete went through. Now show the pop.
-						hideLoader(tr.theTable.theDiv.loader);
-						myUnDefer();
-					}, function(err) {
-						myUnDefer();
-						handleDisconnect(err, json);
-					}); // end refresh-loaded-fcn
-					// end: async
-				} else {
-					// Did not submit. Show errors, etc
-					if((json.statusAction&&json.statusAction!='ALLOW')
-						|| (json.testResults && (json.testWarnings || json.testErrors ))) {
-						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json);
-						// TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
-					} // else no errors, not submitted. Nothing to do.
-					hideLoader(tr.theTable.theDiv.loader);
-					myUnDefer();
-				}
-			}
-		}catch(e) {
-			tr.className='tr_err';
-			tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
-			console.log("Error in ajax post [handleCancelWiredClick] ",e.message);
-			myUnDefer();
-			handleDisconnect("handleCancelWiredClick:"+e.message, json);
-		}
-	};
-	var errorHandler = function(err, ioArgs){
-		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-		handleDisconnect('Error: ' + err + ' response ' + ioArgs.xhr.responseText, null);
-		theRow.className = "ferrbox";
-		theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
-		myUnDefer();
-	};
-	var xhrArgs = {
-			url: ourUrl+cacheKill(),
-			handleAs:"json",
 			timeout: ajaxTimeout,
 			load: loadHandler,
 			error: errorHandler

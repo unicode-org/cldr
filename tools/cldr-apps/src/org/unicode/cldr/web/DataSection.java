@@ -1233,7 +1233,7 @@ public class DataSection implements JSONString {
 
                 String inheritedXpid = (pathWhereFound != null) ? XPathTable.getStringIDString(pathWhereFound) : null;
 
-                boolean canFlagOnLosing = (resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
+                boolean canFlagOnLosing = resolver.canFlagOnLosing();
 
                 String dir = (ph.getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) ? "ltr" : null;
 

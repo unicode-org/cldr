@@ -113,9 +113,9 @@ public class VoteResolver<T> {
         private static final int ZERO = 0; // for both Level.locked and Level.anonymous
         private static final int STREET = 1;
         private static final int VETTER = 4;
-        private static final int MANAGER = 4; // same as VETTER
+        private static final int MANAGER = 4; // same vote count as VETTER
         private static final int EXPERT = 8;
-        private static final int TC = 20;
+        private static final int TC = 20; // Technical Committee member
         private static final int ADMIN = 100;
 
         /**
@@ -682,7 +682,7 @@ public class VoteResolver<T> {
     private Status trunkStatus;
 
     private boolean resolved;
-    private boolean locked;
+    private boolean valueIsLocked;
     private int requiredVotes;
     private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
 
@@ -772,7 +772,7 @@ public class VoteResolver<T> {
         this.trunkStatus = Status.missing;
         this.setUsingKeywordAnnotationVoting(false);
         organizationToValueAndVote.clear();
-        resolved = locked = false;
+        resolved = valueIsLocked = false;
         values.clear();
     }
 
@@ -818,7 +818,7 @@ public class VoteResolver<T> {
             throw new IllegalArgumentException("Must be called after clear, and before any getters.");
         }
         if (withVotes != null && withVotes == VC.LOCKING) {
-            locked = true;
+            valueIsLocked = true;
         }
         organizationToValueAndVote.add(value, voter, withVotes, date);
         values.add(value);
@@ -1928,7 +1928,22 @@ public class VoteResolver<T> {
         this.usingKeywordAnnotationVoting = usingKeywordAnnotationVoting;
     }
 
-    public boolean isLocked() {
-        return locked;
+    /**
+     * Is the value locked for this locale+path?
+     *
+     * @return true or false
+     */
+    public boolean isValueLocked() {
+        return valueIsLocked;
+    }
+
+    /**
+     * Can a user who makes a losing vote flag the locale+path?
+     * I.e., is the locale+path locked and/or does it require HIGH_BAR votes?
+     *
+     * @return true or false
+     */
+    public boolean canFlagOnLosing() {
+        return valueIsLocked || (requiredVotes == HIGH_BAR);
     }
 }

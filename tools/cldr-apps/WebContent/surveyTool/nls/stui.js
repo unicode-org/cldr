@@ -160,7 +160,7 @@ define({
 		flag_desc: "This item has been flagged for review by the CLDR Technical Committee.",
 		flag_d_desc: "Losing items may be flagged for CLDR Committee review.",
 		explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
-		pathIsLocked: "This item has been locked by the CLDR committee. See Forum post.",
+		valueIsLocked: "This item has been locked by the CLDR Technical Committee. See the forum entry.",
 		xpath_desc: "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",
 
 		winningStatus_disputed: "Disputed",

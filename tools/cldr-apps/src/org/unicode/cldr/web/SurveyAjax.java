@@ -197,7 +197,7 @@ public class SurveyAjax extends HttpServlet {
             for (Map.Entry<String, Long> e : valueToVote.entrySet()) {
                 valueToVoteA.put(e.getKey()).put(e.getValue());
             }
-            ret.put("locked", r.isLocked());
+            ret.put("valueIsLocked", r.isValueLocked());
             ret.put("value_vote", valueToVoteA);
             ret.put("nameTime", r.getNameTime());
             return ret;

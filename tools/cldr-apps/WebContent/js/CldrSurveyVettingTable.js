@@ -719,7 +719,9 @@ const cldrSurveyTable = (function() {
 			perValueContainer.appendChild(valdiv);
 			perValueContainer.appendChild(vdiv);
 		}
-		if (vr.requiredVotes) {
+		if (vr.valueIsLocked) {
+			perValueContainer.appendChild(createChunk(stui.str("valueIsLocked"), "p", "alert alert-warning fix-popover-help"));
+		} else if (vr.requiredVotes) {
 			var msg = stui.sub("explainRequiredVotes", {
 				requiredVotes: vr.requiredVotes
 			});

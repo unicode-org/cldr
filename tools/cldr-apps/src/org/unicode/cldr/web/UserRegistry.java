@@ -496,9 +496,15 @@ public class UserRegistry {
          */
         @Override
         public String toJSONString() throws JSONException {
-            return new JSONObject().put("email", email).put("emailHash", getEmailHash()).put("name", name).put("userlevel", userlevel)
-                .put("votecount", getLevel().getVotes()).put("votecount_alt", getLevel().canVoteAtReducedLevel())
-                .put("userlevelName", UserRegistry.levelAsStr(userlevel)).put("org", vrOrg().name()).put("orgName", vrOrg().displayName).put("id", id)
+            return new JSONObject().put("email", email)
+                .put("emailHash", getEmailHash())
+                .put("name", name)
+                .put("userlevel", userlevel)
+                .put("votecount", getLevel().getVotes())
+                .put("userlevelName", UserRegistry.levelAsStr(userlevel))
+                .put("org", vrOrg().name())
+                .put("orgName", vrOrg().displayName)
+                .put("id", id)
                 .toString();
         }
 

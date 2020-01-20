@@ -1570,10 +1570,12 @@ public class DBUtils {
          * The FORUM_POSTS(false, false) constructor makes isVersioned, hasBeta both false for
          * the FORUM_POSTS constant, as intended for new functionality, one forum for all versions.
          * See https://unicode.org/cldr/trac/ticket/10935
+         *
+         * The LOCKED_XPATHS(false, true) constructor makes isVersioned, hasBeta both false.
          * 
          * Other constants here have default constructor equivalent to (true, true).
          */
-        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS(false, false), REVIEW_HIDE, REVIEW_POST, IMPORT, IMPORT_AUTO;
+        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS(false, false), REVIEW_HIDE, REVIEW_POST, IMPORT, IMPORT_AUTO, LOCKED_XPATHS(false, false);
 
         /**
          * Construct a Table constant with explicit parameters for isVersioned, hasBeta.

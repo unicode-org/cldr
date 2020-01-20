@@ -1330,6 +1330,9 @@ function trySurveyLoad() {
 
 var lastJsonStatus = null;
 
+/*
+ * TODO: formatErrMsg is called only in CldrSurveyVettingLoader.js, so move it there
+ */
 function formatErrMsg(json, subkey) {
 	if(!subkey) {
 		subkey = "unknown";
@@ -2567,6 +2570,19 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	}
 	if(json&&!parseStatusAction(json.statusAction).vote) {
 		ourDiv.className = "d-item-err";
+
+		const replaceErrors = (json.statusAction === 'FORBID_PERMANENT_WITHOUT_FORUM');
+		if (replaceErrors) {
+			/*
+			 * Special case: for clarity, replace any warnings/errors that may be
+			 * in tests[] with a single error message for this situation.
+			 */
+			tests = [{
+				type: 'Error',
+				message: stui_str("StatusAction_" + json.statusAction)
+			}];
+		}
+
 		var input = $(inTd).closest('tr').find('.input-add');
 		if(input) {
 			input.closest('.form-group').addClass('has-error');
@@ -2574,7 +2590,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 			if(tr.myProposal)
 				tr.myProposal.style.display = "none";
 		}
-		if(ourItem) {
+		if (ourItem || (replaceErrors && value === '' /* Abstain */)) {
 			str = stui.sub("StatusAction_msg",
 					[ stui_str("StatusAction_"+json.statusAction) ],"p", "");
 			var str2 = stui.sub("StatusAction_popupmsg",
@@ -3383,10 +3399,9 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 	var ourUrl = contextPath + "/SurveyAjax";
 
-	// vote reduced
-	var voteReduced = document.getElementById("voteReduced");
-	if(voteReduced) {
-		ourContent.voteReduced = voteReduced.value;
+	var voteLevelChanged = document.getElementById("voteLevelChanged");
+	if (voteLevelChanged) {
+		ourContent.voteLevelChanged = voteLevelChanged.value;
 	}
 
 	var originalTrClassName = tr.className;

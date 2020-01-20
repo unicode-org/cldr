@@ -2570,6 +2570,19 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	}
 	if(json&&!parseStatusAction(json.statusAction).vote) {
 		ourDiv.className = "d-item-err";
+
+		const replaceErrors = (json.statusAction === 'FORBID_PERMANENT_WITHOUT_FORUM');
+		if (replaceErrors) {
+			/*
+			 * Special case: for clarity, replace any warnings/errors that may be
+			 * in tests[] with a single error message for this situation.
+			 */
+			tests = [{
+				type: 'Error',
+				message: stui_str("StatusAction_" + json.statusAction)
+			}];
+		}
+
 		var input = $(inTd).closest('tr').find('.input-add');
 		if(input) {
 			input.closest('.form-group').addClass('has-error');
@@ -2577,7 +2590,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 			if(tr.myProposal)
 				tr.myProposal.style.display = "none";
 		}
-		if(ourItem) {
+		if (ourItem || (replaceErrors && value === '' /* Abstain */)) {
 			str = stui.sub("StatusAction_msg",
 					[ stui_str("StatusAction_"+json.statusAction) ],"p", "");
 			var str2 = stui.sub("StatusAction_popupmsg",

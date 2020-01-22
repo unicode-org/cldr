@@ -756,39 +756,66 @@ function insertFixInfo(theDiv,xpath,session,json) {
 
 //redesign the fix row
 function designFixPanel() {
-	//wrapRadios();
-
+	/*
+	 * Note: under exceptional circumstances (hard to reproduce), some cells might not
+	 * be found. This has happened with statuscell, immediately after closing the Dashboard
+	 * "Fix" pop-up window. Don't crash with a null reference. Instead, log a warning to the
+	 * console. This problem manifested while testing changes for CLDR-11677 but doesn't
+	 * seem to be related to those changes.
+	 * Reference: https://unicode-org.atlassian.net/browse/CLDR-11677
+	 *
+	 * Also: currently ST HTML is invalid due to non-unique id attributes. If the "nocell" id
+	 * were unique, it could be selected more simply by $('#nocell') without specifying its
+	 * ancestors (fix-parent, ...). Alternatively, "nocell" could be a class (.nocell) rather
+	 * than an id (#nocell). Same for "statuscell", etc.
+	 * Reference: https://unicode-org.atlassian.net/browse/CLDR-11312
+	 */
 	var nocell = $('.fix-parent #popover-vote .data-vertical #nocell');
-	var idnocell = nocell.find('input').attr('id');
-	nocell.append('<span class="subSpan">Abstain</span>');	
-	
-	var statuscell = $('.fix-parent #popover-vote .data-vertical #statuscell');
-	var statusClass = statuscell.get(0).className;
-	statuscell.get(0).className = '';
-	
-	var comparisoncell = $('.fix-parent  #popover-vote .data-vertical #comparisoncell');
-	comparisoncell.find('.btn').remove();
-	if(!comparisoncell.find('.subSpan').length) {
-		comparisoncell.contents()
-		  .filter(function(){
-		    return this.nodeType === 3;
-		  })
-		  .wrap('<span class="subSpan"></span>');
+	var idnocell = null;
+	if (!nocell) {
+		console.log("designFixPanel warning: nocell not found")
+	} else {
+		idnocell = nocell.find('input').attr('id');
+		nocell.append('<span class="subSpan">Abstain</span>');
 	}
-	
-	var exampleButton = $('<button title="Show examples" class="btn btn-default show-examples"><span class="glyphicon glyphicon-list"></span></button>');
-	comparisoncell.prepend(exampleButton);
-	exampleButton.tooltip();
+
+	var statuscell = $('.fix-parent #popover-vote .data-vertical #statuscell');
+	var statusClass = null;
+	if (!statuscell) {
+		console.log("designFixPanel warning: statuscell not found")
+	} else {
+		statusClass = statuscell.get(0).className;
+		statuscell.get(0).className = '';
+	}
+
+	var comparisoncell = $('.fix-parent  #popover-vote .data-vertical #comparisoncell');
+	if (!comparisoncell) {
+		console.log("designFixPanel warning: comparisoncell not found")
+	} else {
+		comparisoncell.find('.btn').remove();
+		if(!comparisoncell.find('.subSpan').length) {
+			comparisoncell.contents()
+			  .filter(function(){
+			    return this.nodeType === 3;
+			  })
+			  .wrap('<span class="subSpan"></span>');
+		}
+		var exampleButton = $('<button title="Show examples" class="btn btn-default show-examples"><span class="glyphicon glyphicon-list"></span></button>');
+		comparisoncell.prepend(exampleButton);
+		exampleButton.tooltip();
+	}
 
 	//clean 
-	if(!idnocell) {
+	if (nocell && !idnocell) {
 		nocell.next().remove(); //the hr
 		nocell.html('');
 	}
-	
+
 	//add status of the winning item
-	$('.fix-parent #proposedcell .subSpan .winner').after('<div class="status-comparison '+statusClass+'"></div>');
-	
+	if (statusClass) {
+		$('.fix-parent #proposedcell .subSpan .winner').after('<div class="status-comparison '+statusClass+'"></div>');
+	}
+
 	//replace default by success on the selected one
 	$('#popover-vote input[type="radio"]:checked').closest('.btn').removeClass('btn-default').addClass('btn-info');
 	

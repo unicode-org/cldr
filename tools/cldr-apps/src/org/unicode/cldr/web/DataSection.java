@@ -2476,17 +2476,27 @@ public class DataSection implements JSONString {
             List<CheckStatus> examplesResult) {
 
         /*
-         * Skip ourValue if it matches inheritedValue. Otherwise we tend to get both "hard" and "soft"
+         * Do not add ourValue if it matches inheritedValue. Otherwise we tend to get both "hard" and "soft"
          * inheritance items even when there are no votes yet in the current cycle. This is related
          * to the open question of how ourValue is related to winningValue (often but not always the same),
          * and why there is any need at all for ourValue in addition to winningValue.
          * Reference: https://unicode.org/cldr/trac/ticket/11611
+         *
+         * However, if ourValue, matching inheritedValue, has already been added (e.g., as winningValue,
+         * baselineValue, or because it has votes), then "add" it again here so that we have myItem and
+         * will call setTests.
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-13551
+         *
+         * TODO: It would be better to consolidate where setTests is called for all items, to ensure
+         * it's called once and only once for each item that needs it.
          */
         CandidateItem myItem = null;
-        if (!(ourValue != null && ourValue.equals(row.inheritedValue))) {
-            myItem = row.addItem(ourValue, "our");
-            if (DEBUG) {
-                System.err.println("Added item " + ourValue + " - now items=" + row.items.size());
+        if (ourValue != null) {
+            if (!ourValue.equals(row.inheritedValue) || row.items.get(ourValue) != null) {
+                myItem = row.addItem(ourValue, "our");
+                if (DEBUG) {
+                    System.err.println("Added item " + ourValue + " - now items=" + row.items.size());
+                }
             }
         }
 

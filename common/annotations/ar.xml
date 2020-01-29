@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">بشرة بلون معتدل مائل للغامق</annotation>
 		<annotation cp="🏿">بشرة بلون غامق | تعديل | جلد | رمز | لون | نوع جلد 6</annotation>
 		<annotation cp="🏿" type="tts">بشرة بلون غامق</annotation>
+		<annotation cp="–">شرطة | قصيرة</annotation>
+		<annotation cp="–" type="tts">شرطة قصيرة</annotation>
+		<annotation cp="—">شرطة | طويلة</annotation>
+		<annotation cp="—" type="tts">شرطة طويلة</annotation>
+		<annotation cp="·">متوسط | نقطة | وسط</annotation>
+		<annotation cp="·" type="tts">نقطة متوسطة</annotation>
+		<annotation cp="«">أقواس معقوفة | اقتباس | تنصيص | شارة رتبة | نهاية الاقتباس</annotation>
+		<annotation cp="«" type="tts">علامة اقتباس يسرى</annotation>
+		<annotation cp="»">أقواس معقوفة | اقتباس | بداية الاقتباس | تنصيص | شارة رتبة</annotation>
+		<annotation cp="»" type="tts">علامة اقتباس يمنى</annotation>
+		<annotation cp="§">جزء | قسم | مقطع</annotation>
+		<annotation cp="§" type="tts">قسم</annotation>
+		<annotation cp="†">إيضاح | حاشية | خنجر</annotation>
+		<annotation cp="†" type="tts">رمز الخنجر</annotation>
+		<annotation cp="‡">إيضاح | حاشية | خنجر مزدوج</annotation>
+		<annotation cp="‡" type="tts">رمز الخنجر المزدوج</annotation>
+		<annotation cp="•">تعداد | نقطة</annotation>
+		<annotation cp="•" type="tts">نقطة تعداد</annotation>
+		<annotation cp="°">حرارة | درجة | ساعة</annotation>
+		<annotation cp="°" type="tts">درجة</annotation>
+		<annotation cp="℗">تسجيل | حقوق الطبع والنشر | صوت</annotation>
+		<annotation cp="℗" type="tts">حقوق الطبع والنشر لتسجيل صوتي</annotation>
+		<annotation cp="←">اتجاه لليسار | سهم | يسار</annotation>
+		<annotation cp="←" type="tts">سهم متّجه لليسار</annotation>
+		<annotation cp="→">اتجاه لليمين | سهم | يمين</annotation>
+		<annotation cp="→" type="tts">سهم متّجه لليمين</annotation>
+		<annotation cp="↑">أعلى | اتجاه للأعلى | سهم</annotation>
+		<annotation cp="↑" type="tts">سهم متّجه للأعلى</annotation>
+		<annotation cp="↓">أسفل | اتجاه للأسفل | سهم</annotation>
+		<annotation cp="↓" type="tts">سهم متّجه للأسفل</annotation>
+		<annotation cp="⇅">أسفل | أعلى | سهم | سهم للأعلى وسهم للأسفل</annotation>
+		<annotation cp="⇅" type="tts">سهم متّجه للأعلى وآخر للأسفل</annotation>
+		<annotation cp="⇆">سهم | سهم لليسار فوق سهم لليمين | يسار | يمين</annotation>
+		<annotation cp="⇆" type="tts">سهم متّجه لليسار وتحته سهم متّجه لليمين</annotation>
+		<annotation cp="∆">زيادة | مثلث</annotation>
+		<annotation cp="∆" type="tts">زيادة</annotation>
+		<annotation cp="∇">دل | مثلث | نابلا</annotation>
+		<annotation cp="∇" type="tts">مؤثر دل</annotation>
+		<annotation cp="∈">انتماء | علاقة | عنصر | مجموعة</annotation>
+		<annotation cp="∈" type="tts">ينتمي</annotation>
+		<annotation cp="÷">عملية حسابية | قسم | قسمة</annotation>
+		<annotation cp="÷" type="tts">علامة القسمة</annotation>
+		<annotation cp="×">ضرب | عملية حسابية | مضروب</annotation>
+		<annotation cp="×" type="tts">علامة الضرب</annotation>
+		<annotation cp="⁻">علوي | ناقص</annotation>
+		<annotation cp="⁻" type="tts">علامة ناقص علوية</annotation>
+		<annotation cp="√">أساس | أصم | جذر | عدد جذري | مربع</annotation>
+		<annotation cp="√" type="tts">جذر تربيعي</annotation>
+		<annotation cp="∞">لانهاية</annotation>
+		<annotation cp="∞" type="tts">علامة اللانهاية</annotation>
+		<annotation cp="∩">عناصر مشتركة | مجموعة</annotation>
+		<annotation cp="∩" type="tts">تقاطع</annotation>
+		<annotation cp="∪">دمج | مجموعة</annotation>
+		<annotation cp="∪" type="tts">اتحاد</annotation>
+		<annotation cp="≡">علامة التساوي | مطابق | معامل ثلاثي المساواة | مماثل</annotation>
+		<annotation cp="≡" type="tts">يساوي</annotation>
+		<annotation cp="⊂">جزء | مجموعة | مجموعة فرعية</annotation>
+		<annotation cp="⊂" type="tts">يحتوي</annotation>
+		<annotation cp="▲">أعلى | سهم | مثلث | ممتلئ</annotation>
+		<annotation cp="▲" type="tts">مثلث ممتلئ متّجه للأعلى</annotation>
+		<annotation cp="▼">أسفل | سهم | مثلث | ممتلئ</annotation>
+		<annotation cp="▼" type="tts">مثلث ممتلئ متّجه للأسفل</annotation>
+		<annotation cp="◊">شكل رباعي | شكل هندسي</annotation>
+		<annotation cp="◊" type="tts">معيّن</annotation>
+		<annotation cp="○">حلقة | دائرة | مجوّفة | مفرغة</annotation>
+		<annotation cp="○" type="tts">دائرة مفرغة</annotation>
+		<annotation cp="●">دائرة | ممتلئة</annotation>
+		<annotation cp="●" type="tts">دائرة ممتلئة</annotation>
+		<annotation cp="◯">حلقة | دائرة | كبيرة | مجوّفة | مفرغة</annotation>
+		<annotation cp="◯" type="tts">دائرة مفرغة كبيرة</annotation>
 		<annotation cp="⚧">رمز المتحوّلين جنسيًا | متحوّل جنسيًا | متحوّلة جنسيًا</annotation>
 		<annotation cp="⚧" type="tts">رمز المتحوّلين جنسيًا</annotation>
 		<annotation cp="🤌">أصابع | أصابع مضمومة | إيماءة باليد | تهكّم | ضم</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">بالغ</annotation>
 		<annotation cp="👱">أشقر | شخص أشقر</annotation>
 		<annotation cp="👱" type="tts">شخص أشقر</annotation>
+		<annotation cp="🧑‍🍼">طفل، رضيع، رضاعة، شخص</annotation>
+		<annotation cp="🧑‍🍼" type="tts">شخص يُرضع طفلاً</annotation>
+		<annotation cp="🧑‍🎄">عيد الميلاد | كلوز</annotation>
+		<annotation cp="🧑‍🎄" type="tts">كلوز</annotation>
 		<annotation cp="👨">بالغ | رجل | شخص | كبير</annotation>
 		<annotation cp="👨" type="tts">رجل</annotation>
 		<annotation cp="🧔">شخص بلحية | شخص مع لحية</annotation>
 		<annotation cp="🧔" type="tts">شخص بلحية</annotation>
 		<annotation cp="👱‍♂">أشقر | رجل | رجل أشقر الشعر</annotation>
 		<annotation cp="👱‍♂" type="tts">رجل أشقر</annotation>
+		<annotation cp="👨‍🍼">رجل | رضاعة | رضيع | طفل</annotation>
+		<annotation cp="👨‍🍼" type="tts">رجل يُرضع طفلاً</annotation>
 		<annotation cp="👩">أنثى | أنسة | بالغة | سيدة | شخص | كبيرة</annotation>
 		<annotation cp="👩" type="tts">سيدة</annotation>
 		<annotation cp="👱‍♀">امرأة | امرأة شقراء الشعر | شقراء</annotation>
 		<annotation cp="👱‍♀" type="tts">امرأة شقراء</annotation>
+		<annotation cp="👩‍🍼">امرأة | رضاعة | رضيع | طفل</annotation>
+		<annotation cp="👩‍🍼" type="tts">امرأة تُرضع طفلاً</annotation>
 		<annotation cp="🧓">بالغ أكبر في السن | عجوز | كبير في السن</annotation>
 		<annotation cp="🧓" type="tts">بالغ أكبر في السن</annotation>
 		<annotation cp="👴">أشخاص | رجل | عجوز</annotation>
@@ -751,10 +829,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">رجل بعمامة صينية</annotation>
 		<annotation cp="🧕">امرأة محجّبة</annotation>
 		<annotation cp="🧕" type="tts">امرأة محجّبة</annotation>
-		<annotation cp="🤵">رجل | رجل بملابس سهرة | رجل في بدلة رسمية | ملابس سهرة</annotation>
-		<annotation cp="🤵" type="tts">رجل في بدلة رسمية</annotation>
+		<annotation cp="🤵">شخص | شخص بملابس سهرة | شخص في بدلة رسمية | ملابس سهرة</annotation>
+		<annotation cp="🤵" type="tts">شخص ببدلة رسمية</annotation>
+		<annotation cp="🤵‍♀">امرأة | امرأة ترتدي بدلة رسمية | بدلة رسمية</annotation>
+		<annotation cp="🤵‍♀" type="tts">امرأة ببدلة رسمية</annotation>
+		<annotation cp="🤵‍♂">بدلة رسمية | رجل | رجل في بدلة رسمية</annotation>
+		<annotation cp="🤵‍♂" type="tts">رجل يرتدي بدلة رسمية</annotation>
 		<annotation cp="👰">أشخاص | حجاب | زفاف | عروس بحجاب | عروس بطرحة</annotation>
 		<annotation cp="👰" type="tts">عروس بطرحة</annotation>
+		<annotation cp="👰‍♀">امرأة | امرأة ترتدي طرحة | طرحة</annotation>
+		<annotation cp="👰‍♀" type="tts">امرأة بطرحة</annotation>
+		<annotation cp="👰‍♂">رجل | رجل يرتدي طرحة | طرحة</annotation>
+		<annotation cp="👰‍♂" type="tts">رجل بطرحة</annotation>
 		<annotation cp="🤰">امرأة | حامل</annotation>
 		<annotation cp="🤰" type="tts">امرأة حامل</annotation>
 		<annotation cp="🤱">أمومة | رضاعة | رضيع</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">وجه قطة</annotation>
 		<annotation cp="🐈">حيوان | قطة</annotation>
 		<annotation cp="🐈" type="tts">قطة</annotation>
+		<annotation cp="🐈‍⬛">أسود | سوداء | سيئ الحظ | قطة | هر</annotation>
+		<annotation cp="🐈‍⬛" type="tts">هرّ أسود</annotation>
 		<annotation cp="🦁">أسد | برج | وجه</annotation>
 		<annotation cp="🦁" type="tts">وجه أسد</annotation>
 		<annotation cp="🐯">حيوان | نمر | وجه نمر</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">خفاش</annotation>
 		<annotation cp="🐻">حيوان | دب | وجه</annotation>
 		<annotation cp="🐻" type="tts">وجه دب</annotation>
+		<annotation cp="🐻‍❄">أبيض | القطب الشمالي | دب</annotation>
+		<annotation cp="🐻‍❄" type="tts">دب قطبي</annotation>
 		<annotation cp="🐨">حيوان | دب كوالا</annotation>
 		<annotation cp="🐨" type="tts">دب كوالا</annotation>
 		<annotation cp="🐼">باندا | حيوان | وجه</annotation>
@@ -2781,17 +2871,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">مربع اقتراع محدد</annotation>
 		<annotation cp="✔">تحديد | علامة | علامة صح</annotation>
 		<annotation cp="✔" type="tts">علامة صح</annotation>
-		<annotation cp="✖">x | إلغاء | ضرب | علامة ضرب سميكة | مضاعفة</annotation>
-		<annotation cp="✖" type="tts">علامة ضرب سميكة</annotation>
+		<annotation cp="✖">× | x | إلغاء | ضرب | علامة ضرب | مضاعفة</annotation>
+		<annotation cp="✖" type="tts">ضرب</annotation>
 		<annotation cp="❌">إلغاء | اكس | ضرب | علامة | علامة X | مضاعفة</annotation>
 		<annotation cp="❌" type="tts">علامة X</annotation>
 		<annotation cp="❎">علامة | علامة X في مربع | مربع</annotation>
 		<annotation cp="❎" type="tts">علامة X في مربع</annotation>
-		<annotation cp="➕">علامة | ‫علامة جمع | علامة جمع عريضة</annotation>
+		<annotation cp="➕">+ | جمع | رياضيات | علامة جمع</annotation>
 		<annotation cp="➕" type="tts">‫علامة جمع</annotation>
-		<annotation cp="➖">علامة | ‫علامة طرح | علامة طرح عريضة</annotation>
+		<annotation cp="➖">− | رياضيات | طرح | علامة طرح</annotation>
 		<annotation cp="➖" type="tts">‫علامة طرح</annotation>
-		<annotation cp="➗">علامة | ‫علامة قسمة | علامة قسمة عريضة</annotation>
+		<annotation cp="➗">÷ | رياضيات | علامة قسمة | قسمة</annotation>
 		<annotation cp="➗" type="tts">‫علامة قسمة</annotation>
 		<annotation cp="➰">أنشوطة | عقدة</annotation>
 		<annotation cp="➰" type="tts">عقدة</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">علم ألوان طيف</annotation>
 		<annotation cp="🏴‍☠">جولي روجر | علم قراصنة | قراصنة | قرصنة | كنز | كنوز</annotation>
 		<annotation cp="🏴‍☠" type="tts">علم قراصنة</annotation>
+		<annotation cp="£">باوند | جنيه إسترليني | جنيه مصري | عملة</annotation>
+		<annotation cp="£" type="tts">جنيه</annotation>
+		<annotation cp="¥">الصين | اليابان | رنمينبي | عملة | يوان</annotation>
+		<annotation cp="¥" type="tts">ين</annotation>
+		<annotation cp="€">أوروبا | عملة</annotation>
+		<annotation cp="€" type="tts">يورو</annotation>
+		<annotation cp="₹">روبيه | عملة | هندي</annotation>
+		<annotation cp="₹" type="tts">روبيه هندي</annotation>
+		<annotation cp="₽">روبل | عملة</annotation>
+		<annotation cp="₽" type="tts">روبل</annotation>
+		<annotation cp="¹">علوي | واحد</annotation>
+		<annotation cp="¹" type="tts">رقم واحد علوي</annotation>
+		<annotation cp="²">اثنان | علوي | مربع</annotation>
+		<annotation cp="²" type="tts">رقم اثنين علوي</annotation>
+		<annotation cp="³">ثلاثة | علوي | مكعب</annotation>
+		<annotation cp="³" type="tts">رقم ثلاثة علوي</annotation>
+		<annotation cp="µ">قياس | ميكرو</annotation>
+		<annotation cp="µ" type="tts">رمز وحدة الميكرو</annotation>
 	</annotations>
 </ldml>

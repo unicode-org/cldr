@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">μεσαίος-σκούρος τόνος δέρματος</annotation>
 		<annotation cp="🏿">fitzpatrick | σκούρος τόνος δέρματος | τόνος δέρματος | τύπου 6</annotation>
 		<annotation cp="🏿" type="tts">σκούρος τόνος δέρματος</annotation>
+		<annotation cp="–">μικρή | παύλα</annotation>
+		<annotation cp="–" type="tts">μικρή παύλα</annotation>
+		<annotation cp="—">μεγάλη | παύλα</annotation>
+		<annotation cp="—" type="tts">μεγάλη παύλα</annotation>
+		<annotation cp="·">μέση | μέση στιγμή | τελεία | τελεία διαχωρισμού</annotation>
+		<annotation cp="·" type="tts">άνω τελεία</annotation>
+		<annotation cp="«">αγκύλες | αριστερά γωνιακά εισαγωγικά | αριστερό | γωνία | διάσημα | εισαγωγικό | καρέ</annotation>
+		<annotation cp="«" type="tts">αριστερά γωνιακά εισαγωγικά</annotation>
+		<annotation cp="»">αγκύλες | γωνία | δεξί | δεξιά γωνιακά εισαγωγικά | διάσημα | εισαγωγικό | καρέ</annotation>
+		<annotation cp="»" type="tts">δεξιά γωνιακά εισαγωγικά</annotation>
+		<annotation cp="§">ενότητα | μέρος | παράγραφος | σύμβολο ενότητας</annotation>
+		<annotation cp="§" type="tts">ενότητα</annotation>
+		<annotation cp="†">δια | οβελίσκος | σταυρός στίξης</annotation>
+		<annotation cp="†" type="tts">σύμβολο σταυρού στίξης</annotation>
+		<annotation cp="‡">δια | διπλός | οβελίσκος | σταυρός στίξης</annotation>
+		<annotation cp="‡" type="tts">σύμβολο διπλού σταυρού στίξης</annotation>
+		<annotation cp="•">κουκκίδα | τελεία</annotation>
+		<annotation cp="•" type="tts">κουκκίδα</annotation>
+		<annotation cp="°">αλκοολικός βαθμός | βαθμός | ώρα</annotation>
+		<annotation cp="°" type="tts">βαθμός</annotation>
+		<annotation cp="℗">εγγραφή | ήχος | πνευματικά δικαιώματα</annotation>
+		<annotation cp="℗" type="tts">πνευματικά δικαιώματα ηχογράφησης</annotation>
+		<annotation cp="←">αριστερά | βέλος | βέλος προς τα αριστερά</annotation>
+		<annotation cp="←" type="tts">βέλος προς τα αριστερά</annotation>
+		<annotation cp="→">βέλος | βέλος προς τα δεξιά | δεξιά</annotation>
+		<annotation cp="→" type="tts">βέλος προς τα δεξιά</annotation>
+		<annotation cp="↑">βέλος | βέλος προς τα επάνω | επάνω</annotation>
+		<annotation cp="↑" type="tts">βέλος προς τα επάνω</annotation>
+		<annotation cp="↓">βέλος | βέλος προς τα κάτω | κάτω</annotation>
+		<annotation cp="↓" type="tts">βέλος προς τα κάτω</annotation>
+		<annotation cp="⇅">βέλος | βέλος προς τα επάνω και βέλος προς τα κάτω | επάνω | κάτω</annotation>
+		<annotation cp="⇅" type="tts">βέλος προς τα επάνω και βέλος προς τα κάτω</annotation>
+		<annotation cp="⇆">αριστερά | βέλος | βέλος προς αριστερά πάνω από βέλος προς δεξιά | δεξιά</annotation>
+		<annotation cp="⇆" type="tts">βέλος προς αριστερά πάνω από βέλος προς δεξιά</annotation>
+		<annotation cp="∆">προσαύξηση | τρίγωνο</annotation>
+		<annotation cp="∆" type="tts">προσαύξηση</annotation>
+		<annotation cp="∇">ανάδελτα | τρίγωνο</annotation>
+		<annotation cp="∇" type="tts">ανάδελτα</annotation>
+		<annotation cp="∈">ανήκει | μέλος | περιέχει | στοιχείο | σύνολο</annotation>
+		<annotation cp="∈" type="tts">ανήκει</annotation>
+		<annotation cp="÷">δια | διαίρεση | διαιρώ | σύμβολο διαίρεσης</annotation>
+		<annotation cp="÷" type="tts">σύμβολο διαίρεσης</annotation>
+		<annotation cp="×">πολλαπλασιάζω | πολλαπλασιασμός | σύμβολο πολλαπλασιασμού | φορές</annotation>
+		<annotation cp="×" type="tts">σύμβολο πολλαπλασιασμού</annotation>
+		<annotation cp="⁻">εκθέτης | μείον | πλην</annotation>
+		<annotation cp="⁻" type="tts">εκθέτης πλην</annotation>
+		<annotation cp="√">βάση | ρίζα | ριζικό | ριζικός | τετράγωνο</annotation>
+		<annotation cp="√" type="tts">τετραγωνική ρίζα</annotation>
+		<annotation cp="∞">άπειρο</annotation>
+		<annotation cp="∞" type="tts">σύμβολο απείρου</annotation>
+		<annotation cp="∩">σύνολο | τομή</annotation>
+		<annotation cp="∩" type="tts">τομή</annotation>
+		<annotation cp="∪">ένωση | συλλογή | σύνολο</annotation>
+		<annotation cp="∪" type="tts">ένωση</annotation>
+		<annotation cp="≡">ακριβές | ταυτόσημο | ταυτόσημο του | τριπλό</annotation>
+		<annotation cp="≡" type="tts">ταυτόσημο του</annotation>
+		<annotation cp="⊂">σύνολο | υποσύνολο | υποσύνολο του</annotation>
+		<annotation cp="⊂" type="tts">υποσύνολο του</annotation>
+		<annotation cp="▲">βέλος | γεμάτο | γεμάτο τρίγωνο προς τα επάνω | επάνω | τρίγωνο</annotation>
+		<annotation cp="▲" type="tts">γεμάτο τρίγωνο προς τα επάνω</annotation>
+		<annotation cp="▼">βέλος | γεμάτο | γεμάτο τρίγωνο προς τα κάτω | κάτω | τρίγωνο</annotation>
+		<annotation cp="▼" type="tts">γεμάτο τρίγωνο προς τα κάτω</annotation>
+		<annotation cp="◊">διαμάντι | ρόμβος</annotation>
+		<annotation cp="◊" type="tts">ρόμβος</annotation>
+		<annotation cp="○">δακτύλιος | κενός κύκλος | κύκλος</annotation>
+		<annotation cp="○" type="tts">κενός κύκλος</annotation>
+		<annotation cp="●">γεμάτος κύκλος | κύκλος</annotation>
+		<annotation cp="●" type="tts">γεμάτος κύκλος</annotation>
+		<annotation cp="◯">δακτύλιος | κύκλος | μεγάλος κενός κύκλος</annotation>
+		<annotation cp="◯" type="tts">μεγάλος κενός κύκλος</annotation>
 		<annotation cp="⚧">διεμφυλικός | σύμβολο της διεμφυλικότητας</annotation>
 		<annotation cp="⚧" type="tts">σύμβολο της διεμφυλικότητας</annotation>
 		<annotation cp="🤌">ανάκριση | δάχτυλα | δάχτυλα που κλείνουν | κίνηση χεριών | κλειστά | σαρκαστικό</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ενήλικας</annotation>
 		<annotation cp="👱">άτομο: ξανθά μαλλιά | μαλλιά | ξανθός | ξανθός άνθρωπος</annotation>
 		<annotation cp="👱" type="tts">άτομο: ξανθά μαλλιά</annotation>
+		<annotation cp="🧑‍🍼">άτομο | άτομο που ταΐζει μωρό | θηλασμός | μωρό | τάισμα</annotation>
+		<annotation cp="🧑‍🍼" type="tts">άτομο που ταΐζει μωρό</annotation>
+		<annotation cp="🧑‍🎄">Άγιος Βασίλης | Άι Βασίλης | Χριστούγεννα</annotation>
+		<annotation cp="🧑‍🎄" type="tts">Άγιος Βασίλης</annotation>
 		<annotation cp="👨">άντρας | ενήλικας</annotation>
 		<annotation cp="👨" type="tts">άντρας</annotation>
 		<annotation cp="🧔">άντρας | άντρας: μούσι | άτομο | μούσι</annotation>
 		<annotation cp="🧔" type="tts">άντρας: μούσι</annotation>
 		<annotation cp="👱‍♂">άντρας | άντρας: ξανθά μαλλιά | μαλλιά | ξανθός</annotation>
 		<annotation cp="👱‍♂" type="tts">άντρας: ξανθά μαλλιά</annotation>
+		<annotation cp="👨‍🍼">άντρας | θηλασμός | μωρό | τάισμα</annotation>
+		<annotation cp="👨‍🍼" type="tts">άντρας που ταΐζει μωρό</annotation>
 		<annotation cp="👩">γυναίκα | ενήλικας</annotation>
 		<annotation cp="👩" type="tts">γυναίκα</annotation>
 		<annotation cp="👱‍♀">γυναίκα | γυναίκα: ξανθά μαλλιά | μαλλιά | ξανθιά</annotation>
 		<annotation cp="👱‍♀" type="tts">γυναίκα: ξανθά μαλλιά</annotation>
+		<annotation cp="👩‍🍼">γυναίκα | θηλασμός | μωρό | τάισμα</annotation>
+		<annotation cp="👩‍🍼" type="tts">γυναίκα που ταΐζει μωρό</annotation>
 		<annotation cp="🧓">άφυλος | ηλικιωμένος | μεγαλύτερος ενήλικας</annotation>
 		<annotation cp="🧓" type="tts">μεγαλύτερος ενήλικας</annotation>
 		<annotation cp="👴">άντρας | ενήλικας | ηλικιωμένος</annotation>
@@ -751,10 +829,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">άντρας με κινέζικο καπέλο</annotation>
 		<annotation cp="🧕">γυναίκα με μαντίλα | μαντίλα | χιτζάμπ</annotation>
 		<annotation cp="🧕" type="tts">γυναίκα με μαντίλα</annotation>
-		<annotation cp="🤵">άντρας | άντρας με σμόκιν | γαμπρός | σμόκιν</annotation>
-		<annotation cp="🤵" type="tts">άντρας με σμόκιν</annotation>
-		<annotation cp="👰">γάμος | νύφη | νύφη με πέπλο | πέπλο</annotation>
-		<annotation cp="👰" type="tts">νύφη με πέπλο</annotation>
+		<annotation cp="🤵">άτομο | άτομο με σμόκιν | γαμπρός | σμόκιν</annotation>
+		<annotation cp="🤵" type="tts">άτομο με σμόκιν</annotation>
+		<annotation cp="🤵‍♀">γυναίκα | γυναίκα με σμόκιν | σμόκιν</annotation>
+		<annotation cp="🤵‍♀" type="tts">γυναίκα με σμόκιν</annotation>
+		<annotation cp="🤵‍♂">άντρας | άντρας με σμόκιν | σμόκιν</annotation>
+		<annotation cp="🤵‍♂" type="tts">άντρας με σμόκιν</annotation>
+		<annotation cp="👰">άτομο | άτομο με πέπλο | νύφη | πέπλο</annotation>
+		<annotation cp="👰" type="tts">άτομο με πέπλο</annotation>
+		<annotation cp="👰‍♀">γυναίκα | γυναίκα με πέπλο | πέπλο</annotation>
+		<annotation cp="👰‍♀" type="tts">γυναίκα με πέπλο</annotation>
+		<annotation cp="👰‍♂">άντρας | άντρας με πέπλο | πέπλο</annotation>
+		<annotation cp="👰‍♂" type="tts">άντρας με πέπλο</annotation>
 		<annotation cp="🤰">γυναίκα | έγκυος</annotation>
 		<annotation cp="🤰" type="tts">έγκυος</annotation>
 		<annotation cp="🤱">θηλάζω | θηλασμός | μωρό | στήθος</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">πρόσωπο γάτας</annotation>
 		<annotation cp="🐈">γάτα | κατοικίδιο</annotation>
 		<annotation cp="🐈" type="tts">γάτα</annotation>
+		<annotation cp="🐈‍⬛">γάτα | κακοτυχία | μαύρη</annotation>
+		<annotation cp="🐈‍⬛" type="tts">μαύρη γάτα</annotation>
 		<annotation cp="🦁">ζώδιο | Λέων | λιοντάρι | πρόσωπο | πρόσωπο λιονταριού</annotation>
 		<annotation cp="🦁" type="tts">λιοντάρι</annotation>
 		<annotation cp="🐯">πρόσωπο | τίγρης</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">νυχτερίδα</annotation>
 		<annotation cp="🐻">αρκούδα | πρόσωπο | πρόσωπο αρκούδας</annotation>
 		<annotation cp="🐻" type="tts">αρκούδα</annotation>
+		<annotation cp="🐻‍❄">αρκούδα | αρκτική | λευκή | πολική αρκούδα</annotation>
+		<annotation cp="🐻‍❄" type="tts">πολική αρκούδα</annotation>
 		<annotation cp="🐨">αρκούδα | κοάλα</annotation>
 		<annotation cp="🐨" type="tts">κοάλα</annotation>
 		<annotation cp="🐼">πάντα | πρόσωπο</annotation>
@@ -2782,7 +2872,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✔">✓ | επιλογή | σημάδι | σημάδι επιλογής</annotation>
 		<annotation cp="✔" type="tts">σημάδι επιλογής</annotation>
 		<annotation cp="✖">x | ακύρωση | έντονο σύμβολο x | πολλαπλασιάζω | πολλαπλασιασμός | σύμβολο πολλαπλασιασμού</annotation>
-		<annotation cp="✖" type="tts">σύμβολο πολλαπλασιασμού</annotation>
+		<annotation cp="✖" type="tts">πολλαπλασιασμός</annotation>
 		<annotation cp="❌">× | x | ακύρωση | πολλαπλασιάζω | πολλαπλασιασμός | σημάδι</annotation>
 		<annotation cp="❌" type="tts">σημάδι x</annotation>
 		<annotation cp="❎">× | κουμπί σημαδιού x | σημάδι | τετράγωνο</annotation>
@@ -2792,7 +2882,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="➖">- | − | αφαίρεση | μαθηματικά | μείον | πλην | σύμβολο | σύμβολο αφαίρεσης</annotation>
 		<annotation cp="➖" type="tts">σύμβολο αφαίρεσης</annotation>
 		<annotation cp="➗">÷ | διαίρεση | μαθηματικά | σύμβολο | σύμβολο διαίρεσης</annotation>
-		<annotation cp="➗" type="tts">σύμβολο διαίρεσης</annotation>
+		<annotation cp="➗" type="tts">διαίρεση</annotation>
 		<annotation cp="➰">βρόγχος | βρόχος | μπούκλα</annotation>
 		<annotation cp="➰" type="tts">βρόχος</annotation>
 		<annotation cp="➿">βρόγχος | διπλός | διπλός βρόχος | μπούκλα</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">σημαία ουράνιου τόξου</annotation>
 		<annotation cp="🏴‍☠">θησαυρός | λάφυρα | πειρατής | πειρατική σημαία | Τζόλι Ρότζερ</annotation>
 		<annotation cp="🏴‍☠" type="tts">πειρατική σημαία</annotation>
+		<annotation cp="£">EGP | GBP | λίρα | λίρα Αγγλίας | λίρα Αιγύπτου | νόμισμα</annotation>
+		<annotation cp="£" type="tts">λίρα</annotation>
+		<annotation cp="¥">CNY | JPY | γιεν | γιουάν | Ιαπωνικό γιεν | Κινεζικό γιουάν | νόμισμα</annotation>
+		<annotation cp="¥" type="tts">γιεν</annotation>
+		<annotation cp="€">EUR | ευρώ | νόμισμα</annotation>
+		<annotation cp="€" type="tts">ευρώ</annotation>
+		<annotation cp="₹">νόμισμα | ρουπία | ρουπία Ινδίας</annotation>
+		<annotation cp="₹" type="tts">ρουπία Ινδίας</annotation>
+		<annotation cp="₽">νόμισμα | ρούβλι</annotation>
+		<annotation cp="₽" type="tts">ρούβλι</annotation>
+		<annotation cp="¹">εκθέτης | ένα</annotation>
+		<annotation cp="¹" type="tts">εκθέτης ένα</annotation>
+		<annotation cp="²">δύο | εκθέτης | στο τετράγωνο</annotation>
+		<annotation cp="²" type="tts">εκθέτης δύο</annotation>
+		<annotation cp="³">εκθέτης | στον κύβο | τρία</annotation>
+		<annotation cp="³" type="tts">εκθέτης τρία</annotation>
+		<annotation cp="µ">μέτρηση | σύμβολο του μικρόν</annotation>
+		<annotation cp="µ" type="tts">σύμβολο του μικρόν</annotation>
 	</annotations>
 </ldml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -21,6 +21,76 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">中深膚色</annotation>
 		<annotation cp="🏿">深膚色 | 膚色 | 類型 6</annotation>
 		<annotation cp="🏿" type="tts">深膚色</annotation>
+		<annotation cp="–">破折號</annotation>
+		<annotation cp="–" type="tts">破折號</annotation>
+		<annotation cp="—">長破折號</annotation>
+		<annotation cp="—" type="tts">長破折號</annotation>
+		<annotation cp="·">中間 | 中點 | 間隔號 | 點</annotation>
+		<annotation cp="·" type="tts">中點</annotation>
+		<annotation cp="«">人字形 | 向左 | 左雙書名號 | 引用 | 括號 | 脫字符 | 角</annotation>
+		<annotation cp="«" type="tts">左雙書名號</annotation>
+		<annotation cp="»">人字形 | 右雙書名號 | 向右 | 引用 | 括號 | 脫字符 | 角</annotation>
+		<annotation cp="»" type="tts">右雙書名號</annotation>
+		<annotation cp="§">分節 | 分節符號 | 段落 | 部分</annotation>
+		<annotation cp="§" type="tts">部分</annotation>
+		<annotation cp="†">劍標 | 短劍號</annotation>
+		<annotation cp="†" type="tts">劍標</annotation>
+		<annotation cp="‡">劍標 | 短劍號 | 雙重</annotation>
+		<annotation cp="‡" type="tts">雙劍標</annotation>
+		<annotation cp="•">要點 | 點</annotation>
+		<annotation cp="•" type="tts">要點</annotation>
+		<annotation cp="°">小時 | 度 | 證明</annotation>
+		<annotation cp="°" type="tts">度</annotation>
+		<annotation cp="℗">版權 | 聲音 | 錄音</annotation>
+		<annotation cp="℗" type="tts">錄音版權</annotation>
+		<annotation cp="←">向左 | 向左箭咀 | 箭咀</annotation>
+		<annotation cp="←" type="tts">指向左嘅箭咀</annotation>
+		<annotation cp="→">向右 | 向右箭咀 | 箭咀</annotation>
+		<annotation cp="→" type="tts">指向右嘅箭咀</annotation>
+		<annotation cp="↑">向上 | 向上箭咀 | 箭咀</annotation>
+		<annotation cp="↑" type="tts">指向上嘅箭咀</annotation>
+		<annotation cp="↓">向下 | 向下箭咀 | 箭咀</annotation>
+		<annotation cp="↓" type="tts">指向下嘅箭咀</annotation>
+		<annotation cp="⇅">向上 | 向上向下箭咀 | 向下 | 箭咀</annotation>
+		<annotation cp="⇅" type="tts">向左箭咀在向右箭咀上面</annotation>
+		<annotation cp="⇆">向右 | 向左 | 向左箭咀喺向右箭咀上面 | 箭咀</annotation>
+		<annotation cp="⇆" type="tts">向左箭咀喺向右箭咀上面</annotation>
+		<annotation cp="∆">三角形 | 遞增</annotation>
+		<annotation cp="∆" type="tts">遞增</annotation>
+		<annotation cp="∇">三角 | 拉普拉斯算子</annotation>
+		<annotation cp="∇" type="tts">拉普拉斯算子</annotation>
+		<annotation cp="∈">元素 | 包含 | 成員 | 集</annotation>
+		<annotation cp="∈" type="tts">元素</annotation>
+		<annotation cp="÷">除 | 除法 | 除號</annotation>
+		<annotation cp="÷" type="tts">除號</annotation>
+		<annotation cp="×">乘 | 乘數 | 乘法 | 乘號</annotation>
+		<annotation cp="×" type="tts">乘號</annotation>
+		<annotation cp="⁻">上標 | 減號</annotation>
+		<annotation cp="⁻" type="tts">上標減號</annotation>
+		<annotation cp="√">基數 | 平方 | 平方根 | 平方符號 | 根</annotation>
+		<annotation cp="√" type="tts">平方根</annotation>
+		<annotation cp="∞">無限</annotation>
+		<annotation cp="∞" type="tts">無限符號</annotation>
+		<annotation cp="∩">交集 | 集</annotation>
+		<annotation cp="∩" type="tts">交集</annotation>
+		<annotation cp="∪">合集 | 收集 | 集</annotation>
+		<annotation cp="∪" type="tts">合集</annotation>
+		<annotation cp="≡">三倍 | 完全 | 相同</annotation>
+		<annotation cp="≡" type="tts">完全相同</annotation>
+		<annotation cp="⊂">子集 | 集</annotation>
+		<annotation cp="⊂" type="tts">子集</annotation>
+		<annotation cp="▲">三角形 | 向上 | 實心 | 實心向上三角形 | 箭咀</annotation>
+		<annotation cp="▲" type="tts">實心向上三角形</annotation>
+		<annotation cp="▼">三角形 | 向下 | 實心 | 實心向下三角形 | 箭咀</annotation>
+		<annotation cp="▼" type="tts">實心向下三角形</annotation>
+		<annotation cp="◊">菱形 | 鑽石</annotation>
+		<annotation cp="◊" type="tts">菱形</annotation>
+		<annotation cp="○">圓形 | 環形 | 空心圓形</annotation>
+		<annotation cp="○" type="tts">空心圓形</annotation>
+		<annotation cp="●">圓形 | 實心圓形</annotation>
+		<annotation cp="●" type="tts">實心圓形</annotation>
+		<annotation cp="◯">圓形 | 大空心圓形 | 環形</annotation>
+		<annotation cp="◯" type="tts">大空心圓形</annotation>
 		<annotation cp="⚧">跨性别人士 | 跨性别人士符號</annotation>
 		<annotation cp="⚧" type="tts">跨性别人士符號</annotation>
 		<annotation cp="🤌">卒 | 卒手指 | 嘲笑 | 手勢 | 手指 | 質問</annotation>
@@ -539,16 +609,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">成人</annotation>
 		<annotation cp="👱">金色頭髮 | 金色頭髮嘅人</annotation>
 		<annotation cp="👱" type="tts">金色頭髮嘅人</annotation>
+		<annotation cp="🧑‍🍼">人 | 哺乳嘅人 | 哺育 | 嬰兒 | 餵哺</annotation>
+		<annotation cp="🧑‍🍼" type="tts">哺乳嘅人</annotation>
+		<annotation cp="🧑‍🎄">打扮 | 聖誕老人</annotation>
+		<annotation cp="🧑‍🎄" type="tts">聖誕打扮</annotation>
 		<annotation cp="👨">男人</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
 		<annotation cp="🧔">留鬚嘅人 | 鬚</annotation>
 		<annotation cp="🧔" type="tts">留鬚嘅人</annotation>
 		<annotation cp="👱‍♂">男 | 金色頭髮 | 金色頭髮嘅男人</annotation>
 		<annotation cp="👱‍♂" type="tts">金色頭髮嘅男人</annotation>
+		<annotation cp="👨‍🍼">哺乳 | 哺育 | 嬰兒 | 男人</annotation>
+		<annotation cp="👨‍🍼" type="tts">哺乳嘅男人</annotation>
 		<annotation cp="👩">女人</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
 		<annotation cp="👱‍♀">女 | 金色頭髮 | 金色頭髮嘅女人</annotation>
 		<annotation cp="👱‍♀" type="tts">金色頭髮嘅女人</annotation>
+		<annotation cp="👩‍🍼">哺乳 | 哺育 | 女人 | 嬰兒</annotation>
+		<annotation cp="👩‍🍼" type="tts">哺乳媽媽</annotation>
 		<annotation cp="🧓">中性 | 老人 | 老年</annotation>
 		<annotation cp="🧓" type="tts">老人</annotation>
 		<annotation cp="👴">男人 | 老伯伯 | 老年</annotation>
@@ -751,8 +829,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕" type="tts">戴住頭巾嘅女人</annotation>
 		<annotation cp="🤵">新郎 | 晚禮服 | 男 | 著晚禮服嘅男人</annotation>
 		<annotation cp="🤵" type="tts">著晚禮服嘅男人</annotation>
+		<annotation cp="🤵‍♀">女人 | 燕尾服 | 著燕尾服嘅女人</annotation>
+		<annotation cp="🤵‍♀" type="tts">著燕尾服嘅女人</annotation>
+		<annotation cp="🤵‍♂">燕尾服 | 男人 | 著燕尾服嘅男人</annotation>
+		<annotation cp="🤵‍♂" type="tts">著燕尾服嘅男人</annotation>
 		<annotation cp="👰">婚禮 | 戴面紗嘅新娘 | 新娘 | 面紗</annotation>
 		<annotation cp="👰" type="tts">戴面紗嘅新娘</annotation>
+		<annotation cp="👰‍♀">女人 | 戴面紗嘅女人 | 面紗</annotation>
+		<annotation cp="👰‍♀" type="tts">戴面紗嘅女人</annotation>
+		<annotation cp="👰‍♂">戴面紗嘅男人 | 男人 | 面紗</annotation>
+		<annotation cp="👰‍♂" type="tts">戴面紗嘅男人</annotation>
 		<annotation cp="🤰">女 | 孕婦 | 懷孕</annotation>
 		<annotation cp="🤰" type="tts">孕婦</annotation>
 		<annotation cp="🤱">乳房 | 哺乳 | 嬰兒</annotation>
@@ -1049,6 +1135,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">貓臉</annotation>
 		<annotation cp="🐈">寵物 | 貓</annotation>
 		<annotation cp="🐈" type="tts">貓</annotation>
+		<annotation cp="🐈‍⬛">唔吉利 | 貓 | 黑色</annotation>
+		<annotation cp="🐈‍⬛" type="tts">黑貓</annotation>
 		<annotation cp="🦁">星座 | 獅子 | 獅子座 | 獅子臉 | 臉</annotation>
 		<annotation cp="🦁" type="tts">獅子臉</annotation>
 		<annotation cp="🐯">老虎 | 老虎臉 | 臉</annotation>
@@ -1123,6 +1211,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦇" type="tts">蝙蝠</annotation>
 		<annotation cp="🐻">熊 | 熊臉 | 臉</annotation>
 		<annotation cp="🐻" type="tts">熊臉</annotation>
+		<annotation cp="🐻‍❄">冰川 | 北極熊 | 熊 | 白色</annotation>
+		<annotation cp="🐻‍❄" type="tts">北極熊</annotation>
 		<annotation cp="🐨">樹熊 | 熊</annotation>
 		<annotation cp="🐨" type="tts">樹熊</annotation>
 		<annotation cp="🐼">熊貓 | 熊貓臉 | 臉</annotation>
@@ -2985,5 +3075,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳‍🌈" type="tts">彩虹旗</annotation>
 		<annotation cp="🏴‍☠">寶藏 | 搶 | 海盜 | 海盜旗</annotation>
 		<annotation cp="🏴‍☠" type="tts">海盜旗</annotation>
+		<annotation cp="£">埃及鎊 | 英鎊 | 貨幣 | 鎊</annotation>
+		<annotation cp="£" type="tts">英鎊</annotation>
+		<annotation cp="¥">人民幣 | 日圓 | 貨幣</annotation>
+		<annotation cp="¥" type="tts">日圓</annotation>
+		<annotation cp="€">歐元 | 歐羅 | 貨幣</annotation>
+		<annotation cp="€" type="tts">歐羅</annotation>
+		<annotation cp="₹">印度盧比 | 盧比 | 貨幣</annotation>
+		<annotation cp="₹" type="tts">印度盧比</annotation>
+		<annotation cp="₽">盧布 | 貨幣</annotation>
+		<annotation cp="₽" type="tts">盧布</annotation>
+		<annotation cp="¹">一 | 上標</annotation>
+		<annotation cp="¹" type="tts">上標一</annotation>
+		<annotation cp="²">上標 | 二 | 二次方</annotation>
+		<annotation cp="²" type="tts">上標二</annotation>
+		<annotation cp="³">三 | 三次方 | 上標</annotation>
+		<annotation cp="³" type="tts">上標三</annotation>
+		<annotation cp="µ">微單位標誌 | 量度</annotation>
+		<annotation cp="µ" type="tts">微單位標誌</annotation>
 	</annotations>
 </ldml>

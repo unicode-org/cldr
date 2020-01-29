@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -185,6 +185,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ext">extremadura</language>
 			<language type="fa">persia</language>
 			<language type="fa" alt="secondary">persia</language>
+			<language type="fa_AF">dari</language>
 			<language type="fan">fang</language>
 			<language type="fat">fanti</language>
 			<language type="ff">fulani</language>
@@ -677,12 +678,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Cari">kaarialainen</script>
 			<script type="Cham">tšamilainen</script>
 			<script type="Cher">cherokeelainen</script>
+			<script type="Chrs">horemzi</script>
 			<script type="Cirt">cirth</script>
 			<script type="Copt">koptilainen</script>
 			<script type="Cprt">muinaiskyproslainen</script>
 			<script type="Cyrl">kyrillinen</script>
 			<script type="Cyrs">kyrillinen muinaiskirkkoslaavimuunnelma</script>
 			<script type="Deva">devanagari</script>
+			<script type="Diak">dives akuru</script>
 			<script type="Dogr" draft="contributed">dogri</script>
 			<script type="Dsrt">deseret</script>
 			<script type="Dupl">Duployén pikakirjoitus</script>
@@ -698,8 +701,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Geor">georgialainen</script>
 			<script type="Geor" alt="secondary">mkhedruli</script>
 			<script type="Glag">glagoliittinen</script>
-			<script type="Gong" draft="provisional">gondin gunjala</script>
-			<script type="Gonm" draft="contributed">masaram-gondi</script>
+			<script type="Gong" draft="contributed">gondin gunjala</script>
+			<script type="Gonm">masaram-gondi</script>
 			<script type="Goth">goottilainen</script>
 			<script type="Gran">grantha</script>
 			<script type="Grek">kreikkalainen</script>
@@ -718,7 +721,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Hira">hiragana</script>
 			<script type="Hluw">anatolialaiset hieroglyfit</script>
 			<script type="Hmng">pahawh hmong</script>
-			<script type="Hmnp" draft="provisional">hmongin nyiakeng puachue</script>
+			<script type="Hmnp" draft="contributed">hmongin nyiakeng puachue</script>
 			<script type="Hrkt">japanin tavumerkistöt</script>
 			<script type="Hung">muinaisunkarilainen</script>
 			<script type="Inds">induslainen</script>
@@ -732,6 +735,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Khar">kharosthi</script>
 			<script type="Khmr">khmeriläinen</script>
 			<script type="Khoj">khojki</script>
+			<script type="Kits">kitaanin pieni merkistö</script>
 			<script type="Knda">kannadalainen</script>
 			<script type="Kore">korealainen</script>
 			<script type="Kpel">kpelle</script>
@@ -840,6 +844,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Wole">woleai</script>
 			<script type="Xpeo">muinaispersialainen</script>
 			<script type="Xsux">sumerilais-akkadilainen nuolenpääkirjoitus</script>
+			<script type="Yezi" draft="contributed">jesidi</script>
 			<script type="Yiii">yiläinen</script>
 			<script type="Zanb">zanabazar-neliökirjaimisto</script>
 			<script type="Zinh">peritty</script>
@@ -1149,8 +1154,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="VU">Vanuatu</territory>
 			<territory type="WF">Wallis ja Futuna</territory>
 			<territory type="WS">Samoa</territory>
-			<territory type="XA">↑↑↑</territory>
-			<territory type="XB">↑↑↑</territory>
+			<territory type="XA">pseudoaksentit</territory>
+			<territory type="XB">kaksisuuntainen pseudo</territory>
 			<territory type="XK">Kosovo</territory>
 			<territory type="YE">Jemen</territory>
 			<territory type="YT">Mayotte</territory>
@@ -1190,6 +1195,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="BISKE">sloveenin resian San Giorgion/Bilan alamurre</variant>
 			<variant type="BOHORIC">sloveenin Bohorič-aakkosto</variant>
 			<variant type="BOONT">englannin boontling-murre</variant>
+			<variant type="BORNHOLM">Bornholmin murre</variant>
 			<variant type="CISAUP" draft="contributed">oksitaanin luoteisitalialainen variantti</variant>
 			<variant type="COLB1945">portugalin oikeinkirjoitus 1945</variant>
 			<variant type="CORNU">englannin cornu-murre</variant>
@@ -1220,6 +1226,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="KSCOR">kornin Kernowek-ortografia</variant>
 			<variant type="LAUKIKA">klassinen sanskriitti</variant>
 			<variant type="LEMOSIN" draft="contributed">oksitaanin Limousin-alueen variantti</variant>
+			<variant type="LENGADOC" draft="contributed">oksitaanin lengadocian variantti</variant>
 			<variant type="LIPAW">sloveenin resian Lipovazin/Lipovecin alamurre</variant>
 			<variant type="LUNA1918">venäjän ortografia 1918</variant>
 			<variant type="METELKO">sloveenin Metelko-aakkosto</variant>
@@ -1227,6 +1234,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="NDYUKA">ndyukan kreolimurre</variant>
 			<variant type="NEDIS">sloveenin natisonen murre</variant>
 			<variant type="NEWFOUND">englannin newfoundlandilaismurre</variant>
+			<variant type="NICARD" draft="contributed">oksitaanin Nizzan variantti</variant>
 			<variant type="NJIVA">sloveenin resian Gnivan/Njivan alamurre</variant>
 			<variant type="NULIK">nykyvolapük</variant>
 			<variant type="OSOJS">sloveenin resian Oseaccon/Osojanen alamurre</variant>
@@ -1239,6 +1247,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="PINYIN">kiinan pinyin-latinaistus</variant>
 			<variant type="POLYTON">polytoninen kreikka</variant>
 			<variant type="POSIX">tietokonemäärittely POSIX</variant>
+			<variant type="PROVENC">provensaali</variant>
 			<variant type="PUTER">retoromaanin puter-muoto</variant>
 			<variant type="REVISED">uudistettu oikeinkirjoitus</variant>
 			<variant type="RIGIK">klassinen volapük</variant>
@@ -1262,6 +1271,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="VAIDIKA">sanskriitin veda-murre</variant>
 			<variant type="VALENCIA">katalaanin valencian murre</variant>
 			<variant type="VALLADER">reoromaanin vallader-muoto</variant>
+			<variant type="VIVARAUP" draft="contributed">oksitaanin vivaro-alpiininen variantti</variant>
 			<variant type="WADEGILE">kiinan Wade-Giles-latinaistus</variant>
 			<variant type="XSISTEMO">esperanton x-kirjoitus</variant>
 		</variants>
@@ -1369,11 +1379,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="cham">cham-numerot</type>
 			<type key="numbers" type="cyrl">kyrilliset numerot</type>
 			<type key="numbers" type="deva">devanagarinumerot</type>
+			<type key="numbers" type="diak">dives akuru -numerot</type>
 			<type key="numbers" type="ethi">etiopialaiset numerot</type>
 			<type key="numbers" type="finance">talousnumerot</type>
 			<type key="numbers" type="fullwide">ideografin levyiset numerot</type>
 			<type key="numbers" type="geor">georgialaiset numerot</type>
-			<type key="numbers" type="gong" draft="provisional">gondin gunjala-numerot</type>
+			<type key="numbers" type="gong" draft="contributed">gondin gunjala-numerot</type>
 			<type key="numbers" type="gonm" draft="contributed">gondin masaram-numerot</type>
 			<type key="numbers" type="grek">kreikkalaiset numerot</type>
 			<type key="numbers" type="greklow">kreikkalaiset piennumerot</type>
@@ -1386,7 +1397,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="hantfin">perinteiset kiinalaiset talousnumerot</type>
 			<type key="numbers" type="hebr">heprealaiset numerot</type>
 			<type key="numbers" type="hmng">pahawh hmong -numerot</type>
-			<type key="numbers" type="hmnp" draft="provisional">hmongin nyiakeng puachue -numerot</type>
+			<type key="numbers" type="hmnp" draft="contributed">hmongin nyiakeng puachue -numerot</type>
 			<type key="numbers" type="java">jaavalaiset numerot</type>
 			<type key="numbers" type="jpan">japanilaiset numerot</type>
 			<type key="numbers" type="jpanfin">japanilaiset talousnumerot</type>
@@ -1417,6 +1428,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="olck">ol chiki -numerot</type>
 			<type key="numbers" type="orya">orijalaiset numerot</type>
 			<type key="numbers" type="osma">osmanjalaiset numerot</type>
+			<type key="numbers" type="rohg">hanifilaisen rohingyan numerot</type>
 			<type key="numbers" type="roman">roomalaiset numerot</type>
 			<type key="numbers" type="romanlow">roomalaiset piennumerot</type>
 			<type key="numbers" type="saur">saurashtra-numerot</type>
@@ -1536,14 +1548,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="d" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. MMM y G</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d.M.</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="contributed">d. MMMM</dateFormatItem>
@@ -7902,8 +7938,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>desi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>sentti{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>milli{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>mikro{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>nano{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>piko{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>femto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>atto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>tsepto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>jokto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>deka{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>hehto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>kilo{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>mega{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>giga{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>tera{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>peta{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>eksa{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>tsetta{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>jotta{0}</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>neliö{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">neliö{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">neliö{0}</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>kuutio{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">kuutio{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">kuutio{0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -8783,8 +8889,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -9664,8 +9840,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -10392,9 +10638,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="one" draft="provisional">{0}Nm</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}Nm</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">{0}Nm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}Nm</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>

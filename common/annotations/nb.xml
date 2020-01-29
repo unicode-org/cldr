@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">hudtype 5</annotation>
 		<annotation cp="🏿">emojimodifikator | fitzpatrick | hud | hudfarge | hudtype 6 | type 6</annotation>
 		<annotation cp="🏿" type="tts">hudtype 6</annotation>
+		<annotation cp="–">bindestreker | en-dash | halvgefirt | tankestrek</annotation>
+		<annotation cp="–" type="tts">tankestrek</annotation>
+		<annotation cp="—">bindestreker | em-dash | gefirt | lang tankestrek</annotation>
+		<annotation cp="—" type="tts">lang tankestrek</annotation>
+		<annotation cp="·">interpunkt | punkt mellom ord | sentrert punkt</annotation>
+		<annotation cp="·" type="tts">midtstilt punkt</annotation>
+		<annotation cp="«">anførselstegn | hermetegn | sitat start | sitattegn | sjevron</annotation>
+		<annotation cp="«" type="tts">venstre anførselstegn</annotation>
+		<annotation cp="»">anførselstegn | hermetegn | sitat slutt | sitattegn | sjevron</annotation>
+		<annotation cp="»" type="tts">høyre anførselstegn</annotation>
+		<annotation cp="§">avsnittstegn | del | paragraf | signum sectionis</annotation>
+		<annotation cp="§" type="tts">paragraftegn</annotation>
+		<annotation cp="†">kors | latinsk kors</annotation>
+		<annotation cp="†" type="tts">korstegn</annotation>
+		<annotation cp="‡">dobbelt kors</annotation>
+		<annotation cp="‡" type="tts">dobbeltkorstegn</annotation>
+		<annotation cp="•">prikk | punkt | punktliste</annotation>
+		<annotation cp="•" type="tts">punkttegn</annotation>
+		<annotation cp="°">alkoholinnhold | grader | timer</annotation>
+		<annotation cp="°" type="tts">gradetegn</annotation>
+		<annotation cp="℗">copyright | lydopptak</annotation>
+		<annotation cp="℗" type="tts">opphavsrett for lydopptak</annotation>
+		<annotation cp="←">pil venstre | retning | venstre | venstrepil | vest</annotation>
+		<annotation cp="←" type="tts">pil mot venstre</annotation>
+		<annotation cp="→">høyre | høyrepil | øst | pil høyre | retning</annotation>
+		<annotation cp="→" type="tts">pil mot høyre</annotation>
+		<annotation cp="↑">nord | opp | oppover | oppoverpil | pil opp | retning</annotation>
+		<annotation cp="↑" type="tts">pil oppover</annotation>
+		<annotation cp="↓">ned | nedover | nedoverpil | pil ned | retning | sør</annotation>
+		<annotation cp="↓" type="tts">pil nedover</annotation>
+		<annotation cp="⇅">hver vei | nord-sør | opp og ned | opp-ned | piler</annotation>
+		<annotation cp="⇅" type="tts">pil oppover foran pil nedover</annotation>
+		<annotation cp="⇆">frem og tilbake | hver vei | øst-vest | piler | venstre-høyre</annotation>
+		<annotation cp="⇆" type="tts">pil mot venstre over pil mot høyre</annotation>
+		<annotation cp="∆">dekrement | delta | inkrement | matematiske tegn | trekant</annotation>
+		<annotation cp="∆" type="tts">matematisk endring</annotation>
+		<annotation cp="∇">matematiske tegn | trekant | triangel | vektorfelt | vektoroperator</annotation>
+		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="∈">elementsymbol | matematiske tegn | mengdelære</annotation>
+		<annotation cp="∈" type="tts">element i</annotation>
+		<annotation cp="÷">dele | deletegn | dividere | divisjon | matematiske tegn</annotation>
+		<annotation cp="÷" type="tts">divisjonstegn</annotation>
+		<annotation cp="×">gange | gangetegn | matematiske tegn | multiplikasjon | multiplisere</annotation>
+		<annotation cp="×" type="tts">multiplikasjonstegn</annotation>
+		<annotation cp="⁻">hevet | ion | matematiske tegn | minus | negativ ladning</annotation>
+		<annotation cp="⁻" type="tts">hevet minustegn</annotation>
+		<annotation cp="√">kvadratrottegn | matematiske tegn</annotation>
+		<annotation cp="√" type="tts">kvadratrot</annotation>
+		<annotation cp="∞">matematiske tegn | uendelig</annotation>
+		<annotation cp="∞" type="tts">uendelighetstegn</annotation>
+		<annotation cp="∩">matematiske tegn | mengdelære | snittegn</annotation>
+		<annotation cp="∩" type="tts">snitt</annotation>
+		<annotation cp="∪">forening | matematiske tegn | mengdelære | uniontegn</annotation>
+		<annotation cp="∪" type="tts">union</annotation>
+		<annotation cp="≡">kongruent med | likhetstegn | matematiske tegn</annotation>
+		<annotation cp="≡" type="tts">identisk lik</annotation>
+		<annotation cp="⊂">inklusjonstegn | matematiske tegn | mengdelære</annotation>
+		<annotation cp="⊂" type="tts">delmengde av</annotation>
+		<annotation cp="▲">fylt | fylt trekant som peker opp | opp | pil | trekant</annotation>
+		<annotation cp="▲" type="tts">fylt trekant som peker opp</annotation>
+		<annotation cp="▼">fylt | fylt trekant som peker ned | ned | pil | trekant</annotation>
+		<annotation cp="▼" type="tts">fylt trekant som peker ned</annotation>
+		<annotation cp="◊">diamant | rombe | ruter</annotation>
+		<annotation cp="◊" type="tts">hult rutersymbol</annotation>
+		<annotation cp="○">hul sirkel | ring | runding | sirkel</annotation>
+		<annotation cp="○" type="tts">hul sirkel</annotation>
+		<annotation cp="●">fylt sirkel | runding | sirkel</annotation>
+		<annotation cp="●" type="tts">fylt sirkel</annotation>
+		<annotation cp="◯">hul sirkel | ring | runding | sirkel</annotation>
+		<annotation cp="◯" type="tts">stor hul sirkel</annotation>
 		<annotation cp="⚧">transperson | transperson-symbol</annotation>
 		<annotation cp="⚧" type="tts">transperson-symbol</annotation>
 		<annotation cp="🤌">fingre | fingrene sammen | hånd | hånd med fingertuppene sammen | sarkastisk | spørsmål</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">voksen</annotation>
 		<annotation cp="👱">blond | blond person | hår | menneske | Person: blond</annotation>
 		<annotation cp="👱" type="tts">Person: blond</annotation>
+		<annotation cp="🧑‍🍼">baby | mat | person | tåteflaske</annotation>
+		<annotation cp="🧑‍🍼" type="tts">person som mater baby</annotation>
+		<annotation cp="🧑‍🎄">feiring | jul | nisse | person</annotation>
+		<annotation cp="🧑‍🎄" type="tts">julenisse</annotation>
 		<annotation cp="👨">mann | menneske | voksen</annotation>
 		<annotation cp="👨" type="tts">mann</annotation>
 		<annotation cp="🧔">mann | mann med skjegg | mann: skjegg | person | skjegg</annotation>
 		<annotation cp="🧔" type="tts">mann: skjegg</annotation>
 		<annotation cp="👱‍♂">blond | hår | mann | mann: blond</annotation>
 		<annotation cp="👱‍♂" type="tts">mann: blond</annotation>
+		<annotation cp="👨‍🍼">baby | mann | mat | tåteflaske</annotation>
+		<annotation cp="👨‍🍼" type="tts">mann som mater baby</annotation>
 		<annotation cp="👩">kvinne | menneske | voksen</annotation>
 		<annotation cp="👩" type="tts">kvinne</annotation>
 		<annotation cp="👱‍♀">blond | blondine | hår | kvinne | kvinne: blond</annotation>
 		<annotation cp="👱‍♀" type="tts">kvinne: blond</annotation>
+		<annotation cp="👩‍🍼">baby | kvinne | mat | tåteflaske</annotation>
+		<annotation cp="👩‍🍼" type="tts">kvinne som mater baby</annotation>
 		<annotation cp="🧓">eldre voksen | gammel | kjønnsnøytral | menneske | voksen</annotation>
 		<annotation cp="🧓" type="tts">eldre voksen</annotation>
 		<annotation cp="👴">eldre | mann | menneske</annotation>
@@ -751,10 +829,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">mann med kinesisk lue</annotation>
 		<annotation cp="🧕">hijab | hodeskjerf | hodeslør | kvinne med hodeslør | muslim</annotation>
 		<annotation cp="🧕" type="tts">kvinne med hodeslør</annotation>
-		<annotation cp="🤵">brudgom | mann | mann i smoking | smoking</annotation>
-		<annotation cp="🤵" type="tts">mann i smoking</annotation>
-		<annotation cp="👰">brud | brud med slør | bryllup | mennesker | slør</annotation>
-		<annotation cp="👰" type="tts">brud</annotation>
+		<annotation cp="🤵">brudgom | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵" type="tts">person i smoking</annotation>
+		<annotation cp="🤵‍♀">kvinne | kvinne i smoking | smoking</annotation>
+		<annotation cp="🤵‍♀" type="tts">kvinne i smoking</annotation>
+		<annotation cp="🤵‍♂">mann | mann i smoking | smoking</annotation>
+		<annotation cp="🤵‍♂" type="tts">mann i smoking</annotation>
+		<annotation cp="👰">brud | brud med slør | bryllup | mennesker | person med slør | slør</annotation>
+		<annotation cp="👰" type="tts">person med slør</annotation>
+		<annotation cp="👰‍♀">kvinne | kvinne med slør | slør</annotation>
+		<annotation cp="👰‍♀" type="tts">kvinne med slør</annotation>
+		<annotation cp="👰‍♂">mann | mann med slør | slør</annotation>
+		<annotation cp="👰‍♂" type="tts">mann med slør</annotation>
 		<annotation cp="🤰">gravid | kvinne</annotation>
 		<annotation cp="🤰" type="tts">gravid kvinne</annotation>
 		<annotation cp="🤱">ammer | amming | baby | bryst | morsmelk</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">kattefjes</annotation>
 		<annotation cp="🐈">dyr | katt</annotation>
 		<annotation cp="🐈" type="tts">katt</annotation>
+		<annotation cp="🐈‍⬛">dyr | katt | uhell | ulykke</annotation>
+		<annotation cp="🐈‍⬛" type="tts">svart katt</annotation>
 		<annotation cp="🦁">fjes | løve | løven | stjernebilde | stjernetegn</annotation>
 		<annotation cp="🦁" type="tts">løve</annotation>
 		<annotation cp="🐯">dyr | fjes | tiger | tigerfjes</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">flaggermus</annotation>
 		<annotation cp="🐻">bjørn | dyr | fjes</annotation>
 		<annotation cp="🐻" type="tts">bjørn</annotation>
+		<annotation cp="🐻‍❄">arktis | bjørn | dyr | hvit | isbjørn</annotation>
+		<annotation cp="🐻‍❄" type="tts">isbjørn</annotation>
 		<annotation cp="🐨">dyr | koala | koalabjørn</annotation>
 		<annotation cp="🐨" type="tts">koala</annotation>
 		<annotation cp="🐼">dyr | fjes | panda</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">regnbueflagg</annotation>
 		<annotation cp="🏴‍☠">Kaptein Sabeltann | pirat | plyndre | sjørøverflagg | skatt</annotation>
 		<annotation cp="🏴‍☠" type="tts">sjørøverflagg</annotation>
+		<annotation cp="£">britiske pund | EGP | GBP | valuta</annotation>
+		<annotation cp="£" type="tts">pund</annotation>
+		<annotation cp="¥">CNY | japanske yen | JPY | kinesiske yuan | valuta</annotation>
+		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="€">EUR | euro | valuta</annotation>
+		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₹">INR | rupi | valuta</annotation>
+		<annotation cp="₹" type="tts">indiske rupi</annotation>
+		<annotation cp="₽">RUB | russiske rubler | valuta</annotation>
+		<annotation cp="₽" type="tts">rubler</annotation>
+		<annotation cp="¹">en | hevet | i første | opphøyd i første</annotation>
+		<annotation cp="¹" type="tts">hevet ettall</annotation>
+		<annotation cp="²">hevet | i andre | kvadrat | opphøyd i andre | to</annotation>
+		<annotation cp="²" type="tts">hevet totall</annotation>
+		<annotation cp="³">hevet | i tredje | kubikk | opphøyd i tredje | tre</annotation>
+		<annotation cp="³" type="tts">hevet tretall</annotation>
+		<annotation cp="µ">gresk my | liten my | mikro | milliondel | milliontedels | my</annotation>
+		<annotation cp="µ" type="tts">mikrotegn</annotation>
 	</annotations>
 </ldml>

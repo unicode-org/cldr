@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">የቆዳ ዓይነት-5</annotation>
 		<annotation cp="🏿">ስሜት ገላጭ አሻሻይ | ቆዳ | የቆዳ ዓይነት-6 | ድምፀት</annotation>
 		<annotation cp="🏿" type="tts">የቆዳ ዓይነት-6</annotation>
+		<annotation cp="–">ሰረዝ | ኢኤን</annotation>
+		<annotation cp="–" type="tts">ኢኤን ሰረዝ</annotation>
+		<annotation cp="—">ሰረዝ | ኢኤም</annotation>
+		<annotation cp="—" type="tts">ኢኤም ሰረዝ</annotation>
+		<annotation cp="·">ማእከላዊ | ማእከላዊነጥብ | ማዕከላዊምልክት | ነጥብ</annotation>
+		<annotation cp="·" type="tts">ማእከላዊ ነጥበ</annotation>
+		<annotation cp="«">ምእዘን | ቅንፎች | ትእምርተ ቅጥያ | ድፋቶች | ግራ | ግራ ጥቅስ ምልክት | ጥቅስ</annotation>
+		<annotation cp="«" type="tts">ግራ ጥቅስ ምልክት</annotation>
+		<annotation cp="»">ምእዘን | ቀኝ | ቀኝ ጥቅስ ምልክት | ቅንፎች | ትእምርተ ቅጥያ | ድፋቶች | ጥቅስ</annotation>
+		<annotation cp="»" type="tts">ቀኝ ጥቅስ ምልክት</annotation>
+		<annotation cp="§">ሲልክሮውን | አንቀጽ | ክፍል | ጉርድ</annotation>
+		<annotation cp="§" type="tts">ጉርድ</annotation>
+		<annotation cp="†">ሓወልት | መስቀለኛ | መስቀል</annotation>
+		<annotation cp="†" type="tts">የመስቀል ምልክት</annotation>
+		<annotation cp="‡">ሓወልት | መስቀለኛ | መስቀል | ድርብ</annotation>
+		<annotation cp="‡" type="tts">ድርብ መስቀል ምልክት</annotation>
+		<annotation cp="•">ነጥበ | ነጥበ ምልክት</annotation>
+		<annotation cp="•" type="tts">ነጥበ ምልክት</annotation>
+		<annotation cp="°">ማስረጃ | ሰዓት | ዲግሪ</annotation>
+		<annotation cp="°" type="tts">ዲግሪ</annotation>
+		<annotation cp="℗">ቀረጻ | ቅጂ መብት | ድምጽ</annotation>
+		<annotation cp="℗" type="tts">የድምጽ ቀረጻ ቅጂ መብት</annotation>
+		<annotation cp="←">ቀስት | ወደ ግራ የሚያመለክት ቀስት | ግራ</annotation>
+		<annotation cp="←" type="tts">ወደ ግራ የሚያመለክት ቀስት</annotation>
+		<annotation cp="→">ቀስት | ቀኝ | ወደ ቀኝ የሚያመለክት ቀስት</annotation>
+		<annotation cp="→" type="tts">ወደ ቀኝ የሚያመለክት ቀስት</annotation>
+		<annotation cp="↑">ላይ | ቀስት | ወደ ላይ የሚያመለክት ቀስት</annotation>
+		<annotation cp="↑" type="tts">ወደ ላይ የሚያመለክት ቀስት</annotation>
+		<annotation cp="↓">ቀስት | ታች | ወደ ታች የሚያመለክት ቀስት</annotation>
+		<annotation cp="↓" type="tts">ወደ ታች የሚያመለክት ቀስት</annotation>
+		<annotation cp="⇅">ቀስት | ወደ ላይ | ወደ ላይ የሚያመለክት ቀስት እና ወደ ታች የሚያመለክቱ ቀስቶች | ወደ ታች</annotation>
+		<annotation cp="⇅" type="tts">ወደ ላይ የሚያመለክት ቀስት እና ወደ ታች የሚያመለክት ቀስት</annotation>
+		<annotation cp="⇆">ቀስት | ቀኝ | ወደ ግራ የሚያመለክት ቀስት በወደ ቀኝ የሚያመለክት ቀስት ላይ | ግራ</annotation>
+		<annotation cp="⇆" type="tts">ወደ ግራ የሚያመለክት ቀስት በወደ ቀኝ የሚያመለክት ቀስት ላይ</annotation>
+		<annotation cp="∆">ሶስት ማአዘን | ጭማሪ</annotation>
+		<annotation cp="∆" type="tts">ጭማሪ</annotation>
+		<annotation cp="∇">ሶስት ማአዘን | ናብላ</annotation>
+		<annotation cp="∇" type="tts">ናብላ</annotation>
+		<annotation cp="∈">አባልነት | አካል | አካል ነው | አዘጋጅ | ይዟል</annotation>
+		<annotation cp="∈" type="tts">አካል ነው</annotation>
+		<annotation cp="÷">መስቀለኛ | ማካፈል | አካፍል | የማካፈል ምልክት</annotation>
+		<annotation cp="÷" type="tts">የማካፈል ምልክት</annotation>
+		<annotation cp="×">ማባዛት | አባዛ | የማባዛት ምልክት | ጊዜ</annotation>
+		<annotation cp="×" type="tts">የማባዛት ምልክት</annotation>
+		<annotation cp="⁻">መቀነስ | ራስጌ ምልክት</annotation>
+		<annotation cp="⁻" type="tts">ራስጌ ምልክት መቀነስ</annotation>
+		<annotation cp="√">ራዲካል | ራዲክስ | ዋልታ | ዘር | ዳግም</annotation>
+		<annotation cp="√" type="tts">ራዲካል</annotation>
+		<annotation cp="∞">ማለቂያ የሌለው</annotation>
+		<annotation cp="∞" type="tts">ማለቂያ የሌለው ምልክት</annotation>
+		<annotation cp="∩">መገናኛ | ስብስብ</annotation>
+		<annotation cp="∩" type="tts">መገናኛ</annotation>
+		<annotation cp="∪">ህብረት | ስብስብ | ጥርቅም</annotation>
+		<annotation cp="∪" type="tts">ህብረት</annotation>
+		<annotation cp="≡">ሶስቴ | በትክክል | ተመሳሳይ | ተመሳሳይ ነው</annotation>
+		<annotation cp="≡" type="tts">ተመሳሳይ ነው</annotation>
+		<annotation cp="⊂">ስብስብ | ንዑስ ስብስብ | ንዑስ ስብስብ ነው</annotation>
+		<annotation cp="⊂" type="tts">ንዑስ ስብስብ ነው</annotation>
+		<annotation cp="▲">ሶስት ማእዘን | ቀስት | የተሞላ | የተሞላ ወደላይ የሚጠቁም ሶስት ማእዘን</annotation>
+		<annotation cp="▲" type="tts">የተሞላ ወደላይ የሚጠቁም ሶስት ማእዘን</annotation>
+		<annotation cp="▼">ሶስት ማእዘን | ቀስት | ወደ ታች | የተሞላ | የተሞላ ወደታች የሚጠቁም ሶስት ማእዘን</annotation>
+		<annotation cp="▼" type="tts">የተሞላ ወደታች የሚጠቁም ሶስት ማእዘን</annotation>
+		<annotation cp="◊">ሉል ቅርጽ | ሮምበስ | አልማዝ</annotation>
+		<annotation cp="◊" type="tts">ሉል ቅርጽ</annotation>
+		<annotation cp="○">ቀለበት | ባዶ ክብ | ክብ</annotation>
+		<annotation cp="○" type="tts">ባዶ ክብ</annotation>
+		<annotation cp="●">ክብ | የተሞላ ክብ</annotation>
+		<annotation cp="●" type="tts">የተሞላ ክብ</annotation>
+		<annotation cp="◯">ቀለበት | ትልቅ ባዶ ክብ | ክብ</annotation>
+		<annotation cp="◯" type="tts">ትልቅ ባዶ ክብ</annotation>
 		<annotation cp="⚧" draft="contributed">የትራንስጀንደር ምልክት</annotation>
 		<annotation cp="⚧" type="tts" draft="contributed">የትራንስጀንደር ምልክት</annotation>
 		<annotation cp="🤌" draft="contributed">የቆነጠጡ ጣቶች</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ጎልማሳ</annotation>
 		<annotation cp="👱">ሉጫ | ሉጫ ጸጉር ያለው ሰው | ጎልማሳ/ሉጫ ጸጉር ያለው | ጸጉር</annotation>
 		<annotation cp="👱" type="tts">ጎልማሳ/ሉጫ ጸጉር ያለው</annotation>
+		<annotation cp="🧑‍🍼">ህጻን | ምገባ | ሰው | ሰው ህጻን ሲመግብ | ነርስ</annotation>
+		<annotation cp="🧑‍🍼" type="tts">ሰው ህጻን ሲመግብ</annotation>
+		<annotation cp="🧑‍🎄">ሚክስ ክላውስ | ክላውስ, ገና</annotation>
+		<annotation cp="🧑‍🎄" type="tts">ሚክስ ክላውስ</annotation>
 		<annotation cp="👨">ሰው | ወንድ</annotation>
 		<annotation cp="👨" type="tts">ሰው</annotation>
 		<annotation cp="🧔">ጺማም ሰው</annotation>
 		<annotation cp="🧔" type="tts">ጺማም ሰው</annotation>
 		<annotation cp="👱‍♂">ሰው | ወርቃማ | ወርቃማ ጸጉር ያለው ወንድ | ወንድ</annotation>
 		<annotation cp="👱‍♂" type="tts">ወርቃማ ጸጉር ያለው ወንድ</annotation>
+		<annotation cp="👨‍🍼">ህጻን | ምገባ | ነርስ | ወንድ</annotation>
+		<annotation cp="👨‍🍼" type="tts">ወንድ ህጻን ሲመግብ</annotation>
 		<annotation cp="👩">ሴት | እንስት</annotation>
 		<annotation cp="👩" type="tts">ሴት</annotation>
 		<annotation cp="👱‍♀">ሰው | ሴት | ወርቃማ | ወርቃማ ጸጉር ያላት ሴት</annotation>
 		<annotation cp="👱‍♀" type="tts">ወርቃማ ጸጉር ያላት ሴት</annotation>
+		<annotation cp="👩‍🍼">ህጻን | ምገባ | ሴት | ነርስ</annotation>
+		<annotation cp="👩‍🍼" type="tts">ሴት ህጻን ስትመግብ</annotation>
 		<annotation cp="🧓">ያረጀ ጎልማሳ</annotation>
 		<annotation cp="🧓" type="tts">ያረጀ ጎልማሳ</annotation>
 		<annotation cp="👴">ሽማግሌ | ወንድ</annotation>
@@ -753,8 +831,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">ሴት በስካርፍ</annotation>
 		<annotation cp="🤵">ሙሽራ | ሰው | ሱፍ ልብስ የለበሰ ሰው | ቶክሲዶ</annotation>
 		<annotation cp="🤵" type="tts">ሱፍ ልብስ የለበሰ ሰው</annotation>
+		<annotation cp="🤵‍♀">ሴት | ሴት በቶክሲዶ | ቶክሲዶ</annotation>
+		<annotation cp="🤵‍♀" type="tts">ሴት በቶክሲዶ</annotation>
+		<annotation cp="🤵‍♂">ሰው | ሰው በቶክሲዶ | ቶክሲዶ</annotation>
+		<annotation cp="🤵‍♂" type="tts">ሰው በቶክሲዶ</annotation>
 		<annotation cp="👰">ሙሽሪት | ሰርግ | ቬሎ | ቬሎ ያደረገች ሙሽራ</annotation>
 		<annotation cp="👰" type="tts">ቬሎ ያደረገች ሙሽራ</annotation>
+		<annotation cp="👰‍♀">ሴት | ሴት በዓይነ እርግብ | ዓይነ እርግብ</annotation>
+		<annotation cp="👰‍♀" type="tts">ሴት በዓይነ እርግብ</annotation>
+		<annotation cp="👰‍♂">ወንድ | ወንድ በዓይነ እርግብ | ዓይነ እርግብ</annotation>
+		<annotation cp="👰‍♂" type="tts">ወንድ በዓይነ እርግብ</annotation>
 		<annotation cp="🤰">ሴት | እርጉዝ</annotation>
 		<annotation cp="🤰" type="tts">እርጉዝ ሴት</annotation>
 		<annotation cp="🤱">ጡት ማጥባት</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">የድመት ፊት</annotation>
 		<annotation cp="🐈">የቤት እንስሳ | ድመት</annotation>
 		<annotation cp="🐈" type="tts">ድመት</annotation>
+		<annotation cp="🐈‍⬛">እድለ ቢስ | ድመት | ጥቁር</annotation>
+		<annotation cp="🐈‍⬛" type="tts">ጥቁር ድመት</annotation>
 		<annotation cp="🦁">ሊዮ | አንበሳ | ዞዲያክ | የአንበሳ ፊት | ፊት</annotation>
 		<annotation cp="🦁" type="tts">የአንበሳ ፊት</annotation>
 		<annotation cp="🐯">ነብር | የነብር ፊት | ፊት</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">የሌሊት ወፍ</annotation>
 		<annotation cp="🐻">የድብ ፊት | ድብ | ፊት</annotation>
 		<annotation cp="🐻" type="tts">የድብ ፊት</annotation>
+		<annotation cp="🐻‍❄">ነጭ | አርክቲክ | የዋልታ ድብ | ድብ</annotation>
+		<annotation cp="🐻‍❄" type="tts">የዋልታ ድብ</annotation>
 		<annotation cp="🐨">ካኦላ | ድብ</annotation>
 		<annotation cp="🐨" type="tts">ካኦላ</annotation>
 		<annotation cp="🐼">የፓንዳ ፊት | ፊት | ፓንዳ</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">የቀስተ ደመና ባንዲራ</annotation>
 		<annotation cp="🏴‍☠">ማዕድን | ምርኮ | የባሕር ወንበዴ | የባሕር ወንበዴ ሰንደቅ | ጆሊ ሮጀር</annotation>
 		<annotation cp="🏴‍☠" type="tts">የባሕር ወንበዴ ሰንደቅ</annotation>
+		<annotation cp="£">ኢግፓ | ገንዘብ | ግብፓ | ፓውንድ</annotation>
+		<annotation cp="£" type="tts">ፓውንድ</annotation>
+		<annotation cp="¥">ሲኤንዋይ | የን | ዩኣን | ጄፒዋይ | ገንዘብ</annotation>
+		<annotation cp="¥" type="tts">የን</annotation>
+		<annotation cp="€">ዩሮ | ገንዘብ</annotation>
+		<annotation cp="€" type="tts">ዩሮ</annotation>
+		<annotation cp="₹">ሩፒ | የህንድ ሩፒ | ገንዘብ</annotation>
+		<annotation cp="₹" type="tts">የህንድ ሩፒ</annotation>
+		<annotation cp="₽">ሩብለ | ገንዘብ</annotation>
+		<annotation cp="₽" type="tts">ሩብል</annotation>
+		<annotation cp="¹">ራስጌ ምልክት | አንድ</annotation>
+		<annotation cp="¹" type="tts">ራስጌ ምልክት አንድ</annotation>
+		<annotation cp="²">ሁለት | ራስጌ ምልክት | ስኴርድ</annotation>
+		<annotation cp="²" type="tts">ራስጌ ምልክት ሁለት</annotation>
+		<annotation cp="³">ራስጌ ምልክት | ሳልስ ርቢ | ሶስት</annotation>
+		<annotation cp="³" type="tts">ራስጌ ምልክት ሶስት</annotation>
+		<annotation cp="µ">መለኪያ | ማይክሮ ምልክት</annotation>
+		<annotation cp="µ" type="tts">የማይክሮ ምልክት</annotation>
 	</annotations>
 </ldml>

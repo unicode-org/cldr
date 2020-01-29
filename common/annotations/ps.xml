@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -21,6 +21,76 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🏿">پوستکۍ | تور پوستکۍ | ډول ۶</annotation>
 		<annotation cp="🏿" type="tts">تور پوستکۍ</annotation>
+		<annotation cp="–">پای | کرښک</annotation>
+		<annotation cp="–" type="tts">پای کرښک</annotation>
+		<annotation cp="—">اوږده | کرښک</annotation>
+		<annotation cp="—" type="tts">اوږده کرښک</annotation>
+		<annotation cp="·">ټکي | درونی | منځوني | مینځني ټکي</annotation>
+		<annotation cp="·" type="tts">مینځني ټکي</annotation>
+		<annotation cp="«">اخيستنښه | زاویه | ښی وینالېږد نښه | قوسونه | کیڼ | کیڼحولی | هشتکونه</annotation>
+		<annotation cp="«" type="tts">کيڼ وینالېږد نښه</annotation>
+		<annotation cp="»">اخيستنښه | زاویه | ښی | ښی وینالېږد نښه | قوسونه | کیڼحولی | هشتکونه</annotation>
+		<annotation cp="»" type="tts">ښی وینالېږد نښه</annotation>
+		<annotation cp="§">برخه | پاراګراف | سلکرو</annotation>
+		<annotation cp="§" type="tts">برخه</annotation>
+		<annotation cp="†">خنجر | ویش نښه</annotation>
+		<annotation cp="†" type="tts">د خنجر نښه</annotation>
+		<annotation cp="‡">ډیګر | ویش نښه</annotation>
+		<annotation cp="‡" type="tts">دوګني ویش نښه</annotation>
+		<annotation cp="•">ټکي | ګلوله</annotation>
+		<annotation cp="•" type="tts">ګلوله</annotation>
+		<annotation cp="°">ثبوت | درجه | ساعت</annotation>
+		<annotation cp="°" type="tts">درجه</annotation>
+		<annotation cp="℗">ثبتول | د نسخه حق | غږ</annotation>
+		<annotation cp="℗" type="tts">د غږ ثبتولو نسخه حقوق</annotation>
+		<annotation cp="←">غشی | کي- ښکارونکی غشی | کيڼ</annotation>
+		<annotation cp="←" type="tts">کي-- ښکارونکی غشی</annotation>
+		<annotation cp="→">ښي - ښکارونکی غشی | ښۍ | غشی</annotation>
+		<annotation cp="→" type="tts">ښي - ښکارونکی غشی</annotation>
+		<annotation cp="↑">بره | غځېدونکې غشی | غشی</annotation>
+		<annotation cp="↑" type="tts">غځېدونکې غشی</annotation>
+		<annotation cp="↓">ښکته | ښکته-ښکارونکی غشی | غشی</annotation>
+		<annotation cp="↓" type="tts">ښکته-ښکارونکی غشی</annotation>
+		<annotation cp="⇅">بره | بره-ښیې او ښکته-ښیې غشی | ښکته | غشی</annotation>
+		<annotation cp="⇅" type="tts">بره-ښیې او ښکته-ښیې غشی</annotation>
+		<annotation cp="⇆">ښي | غشی | کيڼ | کيڼ اشاره باندې ښي اشاره غشي</annotation>
+		<annotation cp="⇆" type="tts">کيڼ اشاره باندې ښي اشاره غشي</annotation>
+		<annotation cp="∆">اضافه | مثلث</annotation>
+		<annotation cp="∆" type="tts">اضافه</annotation>
+		<annotation cp="∇">دریڅنډي | نسکوره دریڅنډي</annotation>
+		<annotation cp="∇" type="tts">نسکوره دریڅنډي</annotation>
+		<annotation cp="∈">څخه عنصر | شامل لري | عنصر | غړیتوب | مجموعه</annotation>
+		<annotation cp="∈" type="tts">د عنصر</annotation>
+		<annotation cp="÷">ویش نښه | وېش | وېش کول | وېش نښه</annotation>
+		<annotation cp="÷" type="tts">وېش نښه</annotation>
+		<annotation cp="×">ځله | ضرب | ضرب ورکول | ضرف نښه</annotation>
+		<annotation cp="×" type="tts">ضرب نښه</annotation>
+		<annotation cp="⁻">بالانوشت | منفي</annotation>
+		<annotation cp="⁻" type="tts">بالانوشت منفي</annotation>
+		<annotation cp="√">اصل عدد | افراطي | بنسټ | غیرناطق | مربع</annotation>
+		<annotation cp="√" type="tts">جذر</annotation>
+		<annotation cp="∞">لامحدود</annotation>
+		<annotation cp="∞" type="tts">لامحدود نښهلامحدود نښه</annotation>
+		<annotation cp="∩">تقاطع | مجموعه</annotation>
+		<annotation cp="∩" type="tts">تقاطع</annotation>
+		<annotation cp="∪">اتحاد | ټولګه | مجموعه</annotation>
+		<annotation cp="∪" type="tts">مجموعه</annotation>
+		<annotation cp="≡">ته یکسان | دری چنده | ورته | یکسان</annotation>
+		<annotation cp="≡" type="tts">ته یکسان</annotation>
+		<annotation cp="⊂">زیر مجموعه | زیر مجموعه له | مجموعه</annotation>
+		<annotation cp="⊂" type="tts">زیر مجموعه څخه</annotation>
+		<annotation cp="▲">پورته | ډک شوی | ډکونکی - ښودونکی مثلث | غشی | مثلث</annotation>
+		<annotation cp="▲" type="tts">ډکونکی - څرګندونې مثلث</annotation>
+		<annotation cp="▼">ډک شوی | ډک شوی - نښې ښودونکی مثلث | ښکته | غشی | مثلث</annotation>
+		<annotation cp="▼" type="tts">ډک ښکته-اشاره د مثلث</annotation>
+		<annotation cp="◊">الماس | روميبس | لوزینګ</annotation>
+		<annotation cp="◊" type="tts">لوزینج</annotation>
+		<annotation cp="○">تشه حلقه | حلقه | زنګ</annotation>
+		<annotation cp="○" type="tts">تشه دایره</annotation>
+		<annotation cp="●">دایره | ډک شوی دایره</annotation>
+		<annotation cp="●" type="tts">ډک شوی دایره</annotation>
+		<annotation cp="◯">حلقه | زنګ | لوی تش تشې حلقه</annotation>
+		<annotation cp="◯" type="tts">لوی تشه دایره</annotation>
 		<annotation cp="⚧">جنس بدلوونکی | د جنس بدلوونکي سمبول</annotation>
 		<annotation cp="⚧" type="tts">د جنس بدلوونکي سمبول</annotation>
 		<annotation cp="🤌">تفتيش | تنزيه | چونګ | د لاس اشاره | ګوتې</annotation>
@@ -32,7 +102,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥸">اصل ماهيت بدلوونکی مخ | پوزه | عېنکې | ماهيت بدلول | مخ | نه پېژندونکی</annotation>
 		<annotation cp="🥸" type="tts">اصل ماهيت بدلوونکی مخ</annotation>
 		<annotation cp="🦣" draft="provisional">لوی</annotation>
-		<annotation cp="🦣" type="tts" draft="provisional">لوی</annotation>
+		<annotation cp="🦣" type="tts">لوی</annotation>
 		<annotation cp="🦤">ختمديل | ډوډو | لوی | ماريشس</annotation>
 		<annotation cp="🦤" type="tts">ډوډو</annotation>
 		<annotation cp="🦫">داوبو سپى | مورينه</annotation>
@@ -44,6 +114,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧋">الماس | ببل | چای | شيدې</annotation>
 		<annotation cp="🧋" type="tts">ببل چای</annotation>
 		<annotation cp="🩴">beach sandals | د ګورت چپلې | زوري | سينډل | ګورت</annotation>
+		<annotation cp="🩴" type="tts">واهه چپلې</annotation>
 		<annotation cp="🪃">آستراليا | راتمبېدل | عکس العمل | کږه لکړه</annotation>
 		<annotation cp="🪃" type="tts">کږه لکړه</annotation>
 		<annotation cp="🪄">جادو | جادوګر | د جادو لښته | ساحره</annotation>
@@ -538,16 +609,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">شخص</annotation>
 		<annotation cp="👱">د زيړ ويښتانو | د زيړ ويښتانو شخص | شخص: د سرو ويښتانو | وېښتان</annotation>
 		<annotation cp="👱" type="tts">شخص: د سرو ويښتانو</annotation>
+		<annotation cp="🧑‍🍼">ماشوم ، خواړه ورکول، رنځورپالنه، شخص | یو شخص ماشوم ته خواړه ورکوي</annotation>
+		<annotation cp="🧑‍🍼" type="tts">شخص ماشوم ته خواړه ورکوي</annotation>
+		<annotation cp="🧑‍🎄">کلاز، کرسمس | میکس کلاز</annotation>
+		<annotation cp="🧑‍🎄" type="tts">میکس کلاز</annotation>
 		<annotation cp="👨">سړی</annotation>
 		<annotation cp="👨" type="tts">سړی</annotation>
 		<annotation cp="🧔">ږيره | سړی | سړی: ږيره | شخص</annotation>
 		<annotation cp="🧔" type="tts">سړی: ږيره</annotation>
 		<annotation cp="👱‍♂">د زېړ ويښتانو | د زېړ وېښتانو سړی | سړی | سړی: د زيړ وېښتانو | وېښتان</annotation>
 		<annotation cp="👱‍♂" type="tts">سړی: د زيړ وېښتانو</annotation>
+		<annotation cp="👨‍🍼">خواړه ورکول | رنځورپالنه | شخص | ماشوم</annotation>
+		<annotation cp="👨‍🍼" type="tts">یو شخص ماشوم ته خواړه ورکوي</annotation>
 		<annotation cp="👩">ښځه</annotation>
 		<annotation cp="👩" type="tts">ښځه</annotation>
 		<annotation cp="👱‍♀">د زېړ ويښتانو ښځه | زېړ ويښتان | ښځه | ښځه: د زېړ وېښتانو | ويښتان</annotation>
 		<annotation cp="👱‍♀" type="tts">ښځه: د زېړ وېښتانو</annotation>
+		<annotation cp="👩‍🍼">خواړه ورکول | رنځورپالنه | سړی | ماشوم</annotation>
+		<annotation cp="👩‍🍼" type="tts">ښځه ماشوم تغذیه کوي</annotation>
 		<annotation cp="🧓">بالغ | زوړ | زوړ شخص | نامعلومه جنس | نر ښځۍ</annotation>
 		<annotation cp="🧓" type="tts">زوړ شخص</annotation>
 		<annotation cp="👴">بالغ | زوړ | سړی</annotation>
@@ -750,8 +829,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕" type="tts">ښځه د سرکوف سره</annotation>
 		<annotation cp="🤵">ټکسيډو | چنغل | سړی په ټکسيډو کې</annotation>
 		<annotation cp="🤵" type="tts">سړی په ټکسيډو کې</annotation>
+		<annotation cp="🤵‍♀">ټکسیدو | ښځه | ښځه په ټکسیدو</annotation>
+		<annotation cp="🤵‍♀" type="tts">ښځه په ټکسیدو</annotation>
+		<annotation cp="🤵‍♂">ټکسیدو | سړی | سړی په ټکسیدو</annotation>
+		<annotation cp="🤵‍♂" type="tts">سړی په تکزیدو</annotation>
 		<annotation cp="👰">حجاب | ناوي په حجاب کې | ناوې | واده</annotation>
 		<annotation cp="👰" type="tts">ناوي په حجاب کې</annotation>
+		<annotation cp="👰‍♀">پرده | ښځه | ښځه د پردې سره</annotation>
+		<annotation cp="👰‍♀" type="tts">ښځه د پردې سره</annotation>
+		<annotation cp="👰‍♂">پرده | سړی | سړی د پرده لرونکی</annotation>
+		<annotation cp="👰‍♂" type="tts">سړی د پردې</annotation>
 		<annotation cp="🤰">امیندواره | ښځه</annotation>
 		<annotation cp="🤰" type="tts">امیندواره ښځه</annotation>
 		<annotation cp="🤱">د سينې شيدې ورکول | سينه | شيدې ورکول | ماشوم | نرسنګ</annotation>
@@ -1048,6 +1135,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">پيشو مخ</annotation>
 		<annotation cp="🐈">پيشو | کورنی څاروی</annotation>
 		<annotation cp="🐈" type="tts">پيشو</annotation>
+		<annotation cp="🐈‍⬛">بدمرغه | پیشو | توره</annotation>
+		<annotation cp="🐈‍⬛" type="tts">توره پیشو</annotation>
 		<annotation cp="🦁">اسد | شېر | ليو | مرغومی</annotation>
 		<annotation cp="🦁" type="tts">شېر</annotation>
 		<annotation cp="🐯">پړانګ | مخ</annotation>
@@ -1122,6 +1211,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦇" type="tts">ماښامی</annotation>
 		<annotation cp="🐻">اېږ | د اېږ مخ</annotation>
 		<annotation cp="🐻" type="tts">اېږ</annotation>
+		<annotation cp="🐻‍❄">آرټیک | خرس | سپین | قطبي خرس</annotation>
+		<annotation cp="🐻‍❄" type="tts">قطبی خرس</annotation>
 		<annotation cp="🐨">کوالا | کوالا، ايږ</annotation>
 		<annotation cp="🐨" type="tts">کوالا</annotation>
 		<annotation cp="🐼">پانډا | مخ</annotation>
@@ -2979,10 +3070,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳">خوځېدونکې | سپين بېرغ | سپین بیراغ</annotation>
 		<annotation cp="🏳" type="tts">سپین بیراغ</annotation>
 		<annotation cp="🏳‍⚧" draft="provisional">آسماني رنګ، ګلابي، او سپينه بېرغ</annotation>
-		<annotation cp="🏳‍⚧" type="tts" draft="provisional">آسماني رنګ، ګلابي، او سپينه بېرغ</annotation>
+		<annotation cp="🏳‍⚧" type="tts">آسماني رنګ، ګلابي، او سپينه بېرغ</annotation>
 		<annotation cp="🏳‍🌈">د بوډۍ تال بېرغ | د بوډۍ ټال | د بوډۍ ټال بېرغ</annotation>
 		<annotation cp="🏳‍🌈" type="tts">د بوډۍ ټال بېرغ</annotation>
 		<annotation cp="🏴‍☠">بحري ډاکو | جولي راجر | خزانه | د بحري ډاکوانو بېرغ | لوټ کول</annotation>
 		<annotation cp="🏴‍☠" type="tts">د بحري ډاکوانو بېرغ</annotation>
+		<annotation cp="£">اسعار | بریتاني پونډ | پونډ | مصري پونډ</annotation>
+		<annotation cp="£" type="tts">پونډ</annotation>
+		<annotation cp="¥">اسعار | جاپاني ین | چینايی ین | چینایي ین</annotation>
+		<annotation cp="¥" type="tts">ین</annotation>
+		<annotation cp="€">اسعار | یورو</annotation>
+		<annotation cp="€" type="tts">یورو</annotation>
+		<annotation cp="₹">اسعار | روپئ | هندي روپئ</annotation>
+		<annotation cp="₹" type="tts">هندي روپۍ</annotation>
+		<annotation cp="₽">اسعار | روبل</annotation>
+		<annotation cp="₽" type="tts">روبل</annotation>
+		<annotation cp="¹">بالانوشت | یو</annotation>
+		<annotation cp="¹" type="tts">یو بالانوشت</annotation>
+		<annotation cp="²">بالانوشت | څلوریځ | دوه</annotation>
+		<annotation cp="²" type="tts">بالانوشت دوه</annotation>
+		<annotation cp="³">بالانوشت | دری | درییځ</annotation>
+		<annotation cp="³" type="tts">بالانوشت دری</annotation>
+		<annotation cp="µ">پیمائش | مائیکرو نښه</annotation>
+		<annotation cp="µ" type="tts">مائیکرو نښه</annotation>
 	</annotations>
 </ldml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">сярэдняцёмны тон скуры</annotation>
 		<annotation cp="🏿">колер скуры | тып 6 | цёмны тон скуры</annotation>
 		<annotation cp="🏿" type="tts">цёмны тон скуры</annotation>
+		<annotation cp="–">кароткі | працяжнік</annotation>
+		<annotation cp="–" type="tts">кароткі працяжнік</annotation>
+		<annotation cp="—">доўгі | працяжнік</annotation>
+		<annotation cp="—" type="tts">доўгі працяжнік</annotation>
+		<annotation cp="·">інтэрпункт | кропка | сярэдняя</annotation>
+		<annotation cp="·" type="tts">сярэдняя кропка</annotation>
+		<annotation cp="«">вугалкі | вуглавое | двукоссе | елачка | левае двукоссе | улева | французскае | шаўрон | ялінка</annotation>
+		<annotation cp="«" type="tts">левае французскае двукоссе</annotation>
+		<annotation cp="»">вугалкі | вуглавое | двукоссе | елачка | правае двукоссе | управа | французскае | шаўрон | ялінка</annotation>
+		<annotation cp="»" type="tts">правае французскае двукоссе</annotation>
+		<annotation cp="§">глава | параграф | раздзел | частка</annotation>
+		<annotation cp="§" type="tts">параграф</annotation>
+		<annotation cp="†">абеліск | кінжал | крыжык</annotation>
+		<annotation cp="†" type="tts">друкарскі крыжык</annotation>
+		<annotation cp="‡">абеліск | двайны | кінжал | крыжык</annotation>
+		<annotation cp="‡" type="tts">двайны друкарскі крыжык</annotation>
+		<annotation cp="•">кропка | маркер</annotation>
+		<annotation cp="•" type="tts">маркер</annotation>
+		<annotation cp="°">вугал | градус | мацунак</annotation>
+		<annotation cp="°" type="tts">градус</annotation>
+		<annotation cp="℗">аўдыя | аўтарскае права | гук | запіс</annotation>
+		<annotation cp="℗" type="tts">аўтарскае права на аўдыязапіс</annotation>
+		<annotation cp="←">стрэлка | стрэлка, скіраваная ўлева | улева</annotation>
+		<annotation cp="←" type="tts">стрэлка, скіраваная ўлева</annotation>
+		<annotation cp="→">стрэлка | стрэлка, скіраваная ўправа | управа</annotation>
+		<annotation cp="→" type="tts">стрэлка, скіраваная ўправа</annotation>
+		<annotation cp="↑">стрэлка | стрэлка, скіраваная ўверх | уверх</annotation>
+		<annotation cp="↑" type="tts">стрэлка, скіраваная ўверх</annotation>
+		<annotation cp="↓">стрэлка | стрэлка, скіраваная ўніз | уніз</annotation>
+		<annotation cp="↓" type="tts">стрэлка, скіраваная ўніз</annotation>
+		<annotation cp="⇅">стрэлка | стрэлка ўверх і стрэлка ўніз | уверх | уніз</annotation>
+		<annotation cp="⇅" type="tts">стрэлка ўверх і стрэлка ўніз</annotation>
+		<annotation cp="⇆">стрэлка ўлева над стрэлкай управа | улева | управа</annotation>
+		<annotation cp="⇆" type="tts">стрэлка ўлева над стрэлкай управа</annotation>
+		<annotation cp="∆">дэльта | трохвугольнік</annotation>
+		<annotation cp="∆" type="tts">дэльта</annotation>
+		<annotation cp="∇">набла | трохвугольнік</annotation>
+		<annotation cp="∇" type="tts">набла</annotation>
+		<annotation cp="∈">змяшчае | мноства | набор | прыналежыць да | элемент</annotation>
+		<annotation cp="∈" type="tts">элемент</annotation>
+		<annotation cp="÷">дзяленне | дзяліць | знак дзялення</annotation>
+		<annotation cp="÷" type="tts">дзяленне</annotation>
+		<annotation cp="×">знак множання | множанне | памнажаць | разы</annotation>
+		<annotation cp="×" type="tts">множанне</annotation>
+		<annotation cp="⁻">верхні індэкс | мінус | надрадковы</annotation>
+		<annotation cp="⁻" type="tts">надрадковы мінус</annotation>
+		<annotation cp="√">квадратны | корань | радыкал</annotation>
+		<annotation cp="√" type="tts">квадратны корань</annotation>
+		<annotation cp="∞">бясконцасць</annotation>
+		<annotation cp="∞" type="tts">знак бясконцасці</annotation>
+		<annotation cp="∩">мноства | перасячэнне</annotation>
+		<annotation cp="∩" type="tts">перасячэнне</annotation>
+		<annotation cp="∪">аб’яднанне | злучэнне | мноства</annotation>
+		<annotation cp="∪" type="tts">аб’яднанне</annotation>
+		<annotation cp="≡">дакладны | ідэнтычны | тоесны | трайны</annotation>
+		<annotation cp="≡" type="tts">тоесны</annotation>
+		<annotation cp="⊂">мноства | падмноства</annotation>
+		<annotation cp="⊂" type="tts">падмноства</annotation>
+		<annotation cp="▲">запоўнены | зафарбаваны | стрэлка | трохвугольнік | уверх</annotation>
+		<annotation cp="▲" type="tts">зафарбаваны трохвугольнік уверх</annotation>
+		<annotation cp="▼">запоўнены | зафарбаваны | стрэлка | трохвугольнік | уніз</annotation>
+		<annotation cp="▼" type="tts">зафарбаваны трохвугольнік уніз</annotation>
+		<annotation cp="◊">бубны | звонкі | ромб</annotation>
+		<annotation cp="◊" type="tts">ромб</annotation>
+		<annotation cp="○">кольца | круг | незафарбаваны круг</annotation>
+		<annotation cp="○" type="tts">кольца</annotation>
+		<annotation cp="●">зафарбаваны круг | круг</annotation>
+		<annotation cp="●" type="tts">зафарбаваны круг</annotation>
+		<annotation cp="◯">вялікі незафарбаваны круг | кольца | круг</annotation>
+		<annotation cp="◯" type="tts">вялікае кольца</annotation>
 		<annotation cp="⚧">сімвал трансгендара | трансгендар</annotation>
 		<annotation cp="⚧" type="tts">сімвал трансгендара</annotation>
 		<annotation cp="🤌">жэст рукі | зведзеныя | пальцы | пытанне | сарказм | шчыпок</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">дарослы</annotation>
 		<annotation cp="👱">бялявы | бялявы чалавек</annotation>
 		<annotation cp="👱" type="tts">бялявы чалавек</annotation>
+		<annotation cp="🧑‍🍼">дзіця, кармленне, чалавек | чалавек корміць дзіця</annotation>
+		<annotation cp="🧑‍🍼" type="tts">чалавек корміць дзіця</annotation>
+		<annotation cp="🧑‍🎄">Клаус, каляды, Раство | спадарыня Клаус</annotation>
+		<annotation cp="🧑‍🎄" type="tts">спадарыня Клаус</annotation>
 		<annotation cp="👨">мужчына</annotation>
 		<annotation cp="👨" type="tts">мужчына</annotation>
 		<annotation cp="🧔">барада | чалавек з барадой</annotation>
 		<annotation cp="🧔" type="tts">чалавек з барадой</annotation>
 		<annotation cp="👱‍♂">бландзін | бялявы | мужчына</annotation>
 		<annotation cp="👱‍♂" type="tts">бялявы мужчына</annotation>
+		<annotation cp="👨‍🍼">дзіця | кармленне | мужчына</annotation>
+		<annotation cp="👨‍🍼" type="tts">мужчына корміць дзіця</annotation>
 		<annotation cp="👩">жанчына</annotation>
 		<annotation cp="👩" type="tts">жанчына</annotation>
 		<annotation cp="👱‍♀">бландзінка | бялявая | жанчына</annotation>
 		<annotation cp="👱‍♀" type="tts">бялявая жанчына</annotation>
+		<annotation cp="👩‍🍼">дзіця | жанчына | кармленне</annotation>
+		<annotation cp="👩‍🍼" type="tts">жанчына корміць дзіця</annotation>
 		<annotation cp="🧓">няпэўнага полу | у гадах | чалавек сталага ўзросту</annotation>
 		<annotation cp="🧓" type="tts">у гадах</annotation>
 		<annotation cp="👴">дзядуля | мужчына | стары</annotation>
@@ -752,9 +830,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕">жанчына ў хустцы | мантылья | хіджаб | хустка | ціхль</annotation>
 		<annotation cp="🧕" type="tts">жанчына ў хустцы</annotation>
 		<annotation cp="🤵">жаніх | мужчына | мужчына ў смокінгу | смокінг</annotation>
-		<annotation cp="🤵" type="tts">мужчына ў смокінгу</annotation>
+		<annotation cp="🤵" type="tts">чалавек у смокінгу</annotation>
+		<annotation cp="🤵‍♀">жанчына | жанчына ў смокінгу | смокінг</annotation>
+		<annotation cp="🤵‍♀" type="tts">жанчына ў смокінгу</annotation>
+		<annotation cp="🤵‍♂">мужчына | мужчына ў смокінгу | смокінг</annotation>
+		<annotation cp="🤵‍♂" type="tts">мужчына ў смокінгу</annotation>
 		<annotation cp="👰">вэлюм | вяселле | нявеста | нявеста ў вэлюме</annotation>
 		<annotation cp="👰" type="tts">нявеста ў вэлюме</annotation>
+		<annotation cp="👰‍♀">вэлюм | вяселле | жанчына | жанчына ў вэлюме</annotation>
+		<annotation cp="👰‍♀" type="tts">жанчына ў вэлюме</annotation>
+		<annotation cp="👰‍♂">вэлюм | вяселле | мужчына | мужчына ў вэлюме</annotation>
+		<annotation cp="👰‍♂" type="tts">мужчына ў вэлюме</annotation>
 		<annotation cp="🤰">цяжарная</annotation>
 		<annotation cp="🤰" type="tts">цяжарная</annotation>
 		<annotation cp="🤱">грудзі | дзіця | кармленне | кормячая маці</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">каціная пыска</annotation>
 		<annotation cp="🐈">дамашні пястун | кот</annotation>
 		<annotation cp="🐈" type="tts">кот</annotation>
+		<annotation cp="🐈‍⬛">кот | няўдача | чорны</annotation>
+		<annotation cp="🐈‍⬛" type="tts">чорны кот</annotation>
 		<annotation cp="🦁">задыяк | леў | пыска</annotation>
 		<annotation cp="🦁" type="tts">леў</annotation>
 		<annotation cp="🐯">пыска | пыска тыгра | тыгр</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">кажан</annotation>
 		<annotation cp="🐻">мядзведжая пыска | мядзведзь | пыска</annotation>
 		<annotation cp="🐻" type="tts">мядзведжая пыска</annotation>
+		<annotation cp="🐻‍❄">арктыка | белы мядзведзь | мядзведзь | палярны</annotation>
+		<annotation cp="🐻‍❄" type="tts">белы мядзведзь</annotation>
 		<annotation cp="🐨">каала | мядзведзь</annotation>
 		<annotation cp="🐨" type="tts">каала</annotation>
 		<annotation cp="🐼">панда | пыска | пыска панды</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">вясёлкавы сцяг</annotation>
 		<annotation cp="🏴‍☠">Вясёлы Роджар | пірат | пірацкі сцяг | разбой | скарбы</annotation>
 		<annotation cp="🏴‍☠" type="tts">пірацкі сцяг</annotation>
+		<annotation cp="£">EGP | GBP | валюта | стэрлінгаў | фунт</annotation>
+		<annotation cp="£" type="tts">фунт</annotation>
+		<annotation cp="¥">CNY | JPY | валюта | іена | юань</annotation>
+		<annotation cp="¥" type="tts">іена</annotation>
+		<annotation cp="€">EUR | валюта | еўра</annotation>
+		<annotation cp="€" type="tts">еўра</annotation>
+		<annotation cp="₹">валюта | індыйская рупія | рупія</annotation>
+		<annotation cp="₹" type="tts">індыйская рупія</annotation>
+		<annotation cp="₽">валюта | расійскі | рубель</annotation>
+		<annotation cp="₽" type="tts">расійскі рубель</annotation>
+		<annotation cp="¹">адзінка | верхні індэкс | надрадковая</annotation>
+		<annotation cp="¹" type="tts">надрадковая адзінка</annotation>
+		<annotation cp="²">верхні індэкс | двойка | надрадковая | у квадраце</annotation>
+		<annotation cp="²" type="tts">надрадковая двойка</annotation>
+		<annotation cp="³">верхні індэкс | надрадковая | тройка | у кубе</annotation>
+		<annotation cp="³" type="tts">надрадковая тройка</annotation>
+		<annotation cp="µ">вымярэнне | знак «мікра»</annotation>
+		<annotation cp="µ" type="tts">знак «мікра»</annotation>
 	</annotations>
 </ldml>

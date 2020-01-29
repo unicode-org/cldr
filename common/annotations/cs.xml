@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">středně tmavý odstín pleti</annotation>
 		<annotation cp="🏿">barva | kůže | pleť | tmavý odstín pleti | typ 6</annotation>
 		<annotation cp="🏿" type="tts">tmavý odstín pleti</annotation>
+		<annotation cp="–">en-pomlčka | krátká | pomlčka | půlčtverčíková pomlčka</annotation>
+		<annotation cp="–" type="tts">krátká pomlčka</annotation>
+		<annotation cp="—">čtverčíková pomlčka | dlouhá | em-pomlčka | pomlčka</annotation>
+		<annotation cp="—" type="tts">dlouhá pomlčka</annotation>
+		<annotation cp="·">odrážka | puntík | střední | tečka</annotation>
+		<annotation cp="·" type="tts">střední puntík</annotation>
+		<annotation cp="«">boční uvozovky | lomené uvozovky | uvozovky</annotation>
+		<annotation cp="«" type="tts">boční uvozovky mířící doleva</annotation>
+		<annotation cp="»">boční uvozovky | lomené uvozovky | uvozovky</annotation>
+		<annotation cp="»" type="tts">boční uvozovky mířící doprava</annotation>
+		<annotation cp="§">část | oddíl | odstavec | paragraf | sekce</annotation>
+		<annotation cp="§" type="tts">paragraf</annotation>
+		<annotation cp="†">dýka | kříž | křížek | obelisk | obelus</annotation>
+		<annotation cp="†" type="tts">znak křížku</annotation>
+		<annotation cp="‡">dvojitá | dvojitý | dýka | kříž | křížek | obelisk | obelus</annotation>
+		<annotation cp="‡" type="tts">znak dvojitého křížku</annotation>
+		<annotation cp="•">bod | odrážka | puntík</annotation>
+		<annotation cp="•" type="tts">puntík</annotation>
+		<annotation cp="°">stupeň | stupňovitost</annotation>
+		<annotation cp="°" type="tts">stupeň</annotation>
+		<annotation cp="℗">copyright | nahrávka | zvuková</annotation>
+		<annotation cp="℗" type="tts">znak práv ke zvukovému záznamu</annotation>
+		<annotation cp="←">doleva | šipka | šipka ukazující doleva | šipka ukazující vlevo | vlevo</annotation>
+		<annotation cp="←" type="tts">šipka ukazující doleva</annotation>
+		<annotation cp="→">doprava | šipka | šipka ukazující doprava | šipka ukazující vpravo | vpravo</annotation>
+		<annotation cp="→" type="tts">šipka ukazující doprava</annotation>
+		<annotation cp="↑">nahoru | šipka | šipka ukazující nahoru | šipka ukazující vzhůru | vzhůru</annotation>
+		<annotation cp="↑" type="tts">šipka ukazující nahoru</annotation>
+		<annotation cp="↓">dolů | šipka | šipka ukazující dolů</annotation>
+		<annotation cp="↓" type="tts">šipka ukazující dolů</annotation>
+		<annotation cp="⇅">dolů | nahoru | šipky | šipky nahoru a dolů</annotation>
+		<annotation cp="⇅" type="tts">šipky nahoru a dolů</annotation>
+		<annotation cp="⇆">doleva | doprava | šipka | šipka doleva nad šipkou doprava</annotation>
+		<annotation cp="⇆" type="tts">šipka doleva nad šipkou doprava</annotation>
+		<annotation cp="∆">delta | přírůstek | trojúhelník</annotation>
+		<annotation cp="∆" type="tts">delta</annotation>
+		<annotation cp="∇">nabla | trojúhelník</annotation>
+		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="∈">členství | je prvkem | množina | obsahuje | prvek | prvek množiny</annotation>
+		<annotation cp="∈" type="tts">prvek množiny</annotation>
+		<annotation cp="÷">dělení | děleno | dělit | znak</annotation>
+		<annotation cp="÷" type="tts">symbol dělení</annotation>
+		<annotation cp="×">krát | násobení | násobit</annotation>
+		<annotation cp="×" type="tts">symbol násobení</annotation>
+		<annotation cp="⁻">horní index | minus</annotation>
+		<annotation cp="⁻" type="tts">minus jako horní index</annotation>
+		<annotation cp="√">kořen | odmocnina | odmocnítko</annotation>
+		<annotation cp="√" type="tts">druhá odmocnina</annotation>
+		<annotation cp="∞">nekonečno</annotation>
+		<annotation cp="∞" type="tts">znak nekonečna</annotation>
+		<annotation cp="∩">množina | průnik</annotation>
+		<annotation cp="∩" type="tts">průnik</annotation>
+		<annotation cp="∪">množina | sjednocení</annotation>
+		<annotation cp="∪" type="tts">sjednocení</annotation>
+		<annotation cp="≡">identita | kongruence | kongruentní | shodný | shoduje se | stejný | trojitý</annotation>
+		<annotation cp="≡" type="tts">shoduje se</annotation>
+		<annotation cp="⊂">je podmnožinou | množina | podmnožina</annotation>
+		<annotation cp="⊂" type="tts">podmnožina</annotation>
+		<annotation cp="▲">nahoru | plný | šipka | trojúhelník | vyplněný trojúhelník směřující nahoru</annotation>
+		<annotation cp="▲" type="tts">vyplněný trojúhelník směřující nahoru</annotation>
+		<annotation cp="▼">dolů | plný | šipka | trojúhelník | vyplněný trojúhelník směřující dolů</annotation>
+		<annotation cp="▼" type="tts">vyplněný trojúhelník směřující dolů</annotation>
+		<annotation cp="◊">diamant | káry | kosočtverec</annotation>
+		<annotation cp="◊" type="tts">kosočtverec</annotation>
+		<annotation cp="○">kroužek | kruh | kružnice | prázdný kruh | prstenec</annotation>
+		<annotation cp="○" type="tts">prázdný kroužek</annotation>
+		<annotation cp="●">kroužek | kruh | plný kruh | vyplněná kružnice | vyplněný kroužek | vyplněný kruh</annotation>
+		<annotation cp="●" type="tts">plný kroužek</annotation>
+		<annotation cp="◯">kroužek | kruh | kružnice | prstenec | velká kružnice | velký prázdný kruh</annotation>
+		<annotation cp="◯" type="tts">prázdný kruh</annotation>
 		<annotation cp="⚧">symbol pro transgender osoby | transgender</annotation>
 		<annotation cp="⚧" type="tts">symbol pro transgender osoby</annotation>
 		<annotation cp="🤌">gesto rukou | ironie | italské sarkastické gesto | otázka | prsty | sarkasmus | sevřené | špetka z pěti prstů</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dospělý člověk</annotation>
 		<annotation cp="👱">blond | člověk s blond vlasy | světlé vlasy</annotation>
 		<annotation cp="👱" type="tts">člověk s blond vlasy</annotation>
+		<annotation cp="🧑‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba</annotation>
+		<annotation cp="🧑‍🍼" type="tts">osoba krmící dítě z lahve</annotation>
+		<annotation cp="🧑‍🎄">fantasy | oslava | pohádka | santa | santa claus | vánoce</annotation>
+		<annotation cp="🧑‍🎄" type="tts">Santa</annotation>
 		<annotation cp="👨">muž</annotation>
 		<annotation cp="👨" type="tts">muž</annotation>
 		<annotation cp="🧔">muž s plnovousem | plnovous | vous | vousáč</annotation>
 		<annotation cp="🧔" type="tts">muž s plnovousem</annotation>
 		<annotation cp="👱‍♂">blond | blonďák | muž | plavovlasý | světlovlasý</annotation>
 		<annotation cp="👱‍♂" type="tts">blonďák</annotation>
+		<annotation cp="👨‍🍼">dítě | kojenec | kojení | krmení | muž | nemluvně</annotation>
+		<annotation cp="👨‍🍼" type="tts">muž krmící dítě z lahve</annotation>
 		<annotation cp="👩">žena</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
 		<annotation cp="👱‍♀">blond | blondýna | blondýnka | plavovláska | světlovláska | žena</annotation>
 		<annotation cp="👱‍♀" type="tts">blondýna</annotation>
+		<annotation cp="👩‍🍼">dítě | kojenec | kojení | krmení | nemluvně | žena</annotation>
+		<annotation cp="👩‍🍼" type="tts">žena krmící dítě z lahve</annotation>
 		<annotation cp="🧓">člověk | neutrální | osoba | stará | starší dospělý člověk | starý</annotation>
 		<annotation cp="🧓" type="tts">starší dospělý člověk</annotation>
 		<annotation cp="👴">muž | pán | senior | stařec | starý</annotation>
@@ -751,10 +829,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">muž s čínskou čepicí</annotation>
 		<annotation cp="🧕">hidžáb | šátek | závoj | žena v šátku</annotation>
 		<annotation cp="🧕" type="tts">žena v šátku</annotation>
-		<annotation cp="🤵">muž | muž ve smokingu | smoking | ženich</annotation>
-		<annotation cp="🤵" type="tts">muž ve smokingu</annotation>
-		<annotation cp="👰">nevěsta | nevěsta se závojem | svatba | závoj</annotation>
-		<annotation cp="👰" type="tts">nevěsta se závojem</annotation>
+		<annotation cp="🤵">osoba | osoba ve smokingu | smoking | ženich</annotation>
+		<annotation cp="🤵" type="tts">osoba ve smokingu</annotation>
+		<annotation cp="🤵‍♀">smoking | žena | žena ve smokingu</annotation>
+		<annotation cp="🤵‍♀" type="tts">žena ve smokingu</annotation>
+		<annotation cp="🤵‍♂">muž | muž ve smokingu | smoking | ženich</annotation>
+		<annotation cp="🤵‍♂" type="tts">muž ve smokingu</annotation>
+		<annotation cp="👰">nevěsta | osoba | osoba se závojem | svatba | závoj</annotation>
+		<annotation cp="👰" type="tts">osoba se závojem</annotation>
+		<annotation cp="👰‍♀">nevěsta | svatba | závoj | žena | žena se závojem</annotation>
+		<annotation cp="👰‍♀" type="tts">žena se závojem</annotation>
+		<annotation cp="👰‍♂">muž | muž se závojem | svatba | závoj | ženich</annotation>
+		<annotation cp="👰‍♂" type="tts">muž se závojem</annotation>
 		<annotation cp="🤰">těhotenství | těhotná | žena</annotation>
 		<annotation cp="🤰" type="tts">těhotná žena</annotation>
 		<annotation cp="🤱">dítě | kojenec | kojení | kojit | krmení | prsa | prso</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">hlava kočky</annotation>
 		<annotation cp="🐈">domácí | kočka | mazlíček</annotation>
 		<annotation cp="🐈" type="tts">kočka</annotation>
+		<annotation cp="🐈‍⬛">černá | kočka | neštěstí | smůla</annotation>
+		<annotation cp="🐈‍⬛" type="tts">černá kočka</annotation>
 		<annotation cp="🦁">hlava lva | lev | smajlík | tvář | výraz | zvěrokruh</annotation>
 		<annotation cp="🦁" type="tts">hlava lva</annotation>
 		<annotation cp="🐯">hlava tygra | smajlík | tvář | tygr | výraz</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">netopýr</annotation>
 		<annotation cp="🐻">hlava medvěda | medvěd | smajlík | tvář | výraz</annotation>
 		<annotation cp="🐻" type="tts">hlava medvěda</annotation>
+		<annotation cp="🐻‍❄">arktida | bílý | hlava ledního medvěda | lední | medvěd</annotation>
+		<annotation cp="🐻‍❄" type="tts">hlava ledního medvěda</annotation>
 		<annotation cp="🐨">koala | medvěd | medvídek</annotation>
 		<annotation cp="🐨" type="tts">koala</annotation>
 		<annotation cp="🐼">hlava pandy | panda | smajlík | tvář | výraz</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">duhová vlajka</annotation>
 		<annotation cp="🏴‍☠">hnáty | lebka | pirát | pirátská vlajka | poklad</annotation>
 		<annotation cp="🏴‍☠" type="tts">pirátská vlajka</annotation>
+		<annotation cp="£">EGP | GBP | libra | měna</annotation>
+		<annotation cp="£" type="tts">libra</annotation>
+		<annotation cp="¥">CNY | jen | JPY | juan | jüan | měna</annotation>
+		<annotation cp="¥" type="tts">jen</annotation>
+		<annotation cp="€">EUR | euro | měna</annotation>
+		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₹">měna | rupie | rupie indická</annotation>
+		<annotation cp="₹" type="tts">indická rupie</annotation>
+		<annotation cp="₽">měna | rubl | ruský rubl</annotation>
+		<annotation cp="₽" type="tts">rubl</annotation>
+		<annotation cp="¹">exponent | horní index | jedna | jednička | na první</annotation>
+		<annotation cp="¹" type="tts">číslice jedna jako horní index</annotation>
+		<annotation cp="²">čtvereční | dvě | dvojka | exponent | horní index | na druhou</annotation>
+		<annotation cp="²" type="tts">číslice dvě jako horní index</annotation>
+		<annotation cp="³">exponent | horní index | krychlový | na třetí | tři | trojka</annotation>
+		<annotation cp="³" type="tts">číslice tři jako horní index</annotation>
+		<annotation cp="µ">mikro | míra</annotation>
+		<annotation cp="µ" type="tts">znak mikro</annotation>
 	</annotations>
 </ldml>

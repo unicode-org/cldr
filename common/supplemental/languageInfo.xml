@@ -542,6 +542,25 @@
 			<languageMatch desired="sr_Latn"	supported="sr_Cyrl"	distance="5"/>	<!-- sr; Latn ⇒ sr; Cyrl -->
 			<languageMatch desired="zh_Hans"	supported="zh_Hant"	distance="15"	oneway="true"/>	<!-- zh; Hans ⇒ zh; Hant -->
 			<languageMatch desired="zh_Hant"	supported="zh_Hans"	distance="19"	oneway="true"/>	<!-- zh; Hant ⇒ zh; Hans -->
+			<!-- start fallbacks for group script codes, initially from CLDR-13526
+                             Look for plus signs on https://www.unicode.org/iso15924/iso15924-codes.html -->
+			<languageMatch desired="ja_Latn"	supported="ja_Jpan"	distance="5"	oneway="true"/>
+			<languageMatch desired="ja_Hani"	supported="ja_Jpan"	distance="5"	oneway="true"/>
+			<languageMatch desired="ja_Hira"	supported="ja_Jpan"	distance="5"	oneway="true"/>
+			<languageMatch desired="ja_Kana"	supported="ja_Jpan"	distance="5"	oneway="true"/>
+			<languageMatch desired="ja_Hrkt"	supported="ja_Jpan"	distance="5"	oneway="true"/>
+			<languageMatch desired="ja_Hira"	supported="ja_Hrkt"	distance="5"	oneway="true"/>
+			<languageMatch desired="ja_Kana"	supported="ja_Hrkt"	distance="5"	oneway="true"/>
+			<languageMatch desired="ko_Hani"	supported="ko_Kore"	distance="5"	oneway="true"/>
+			<languageMatch desired="ko_Hang"	supported="ko_Kore"	distance="5"	oneway="true"/>
+			<languageMatch desired="ko_Jamo"	supported="ko_Kore"	distance="5"	oneway="true"/>
+			<languageMatch desired="ko_Jamo"	supported="ko_Hang"	distance="5"	oneway="true"/>
+			<!-- No special mappings for zh Bopo/Hanb
+			     because Bopomofo is used only in TW, and unsure how widely.
+			     No special mappings for styled scripts like Latf or Aran
+			     because those would apply to many languages;
+			     if desired, those would be better handled as matcher-specific script aliases. -->
+			<!-- end fallbacks for group script codes -->
 			<languageMatch desired="*_*"	supported="*_*"	distance="50"/>	<!-- *; * ⇒ *; * -->
 			<languageMatch desired="ar_*_$maghreb"	supported="ar_*_$maghreb"	distance="4"/>	<!-- ar; *; $maghreb ⇒ ar; *; $maghreb -->
 			<languageMatch desired="ar_*_$!maghreb"	supported="ar_*_$!maghreb"	distance="4"/>	<!-- ar; *; $!maghreb ⇒ ar; *; $!maghreb -->

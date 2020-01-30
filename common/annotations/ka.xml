@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">საშუალოდან მუქამდე კანის ტონალობა</annotation>
 		<annotation cp="🏿">ემოჯი მოდიფიკატორი | კანი | კანის მუქი ტონალობა | ტონი | ფიცპატრიკი</annotation>
 		<annotation cp="🏿" type="tts">კანის მუქი ტონალობა</annotation>
+		<annotation cp="–">საშუალო | ტირე</annotation>
+		<annotation cp="–" type="tts">საშუალო ტირე</annotation>
+		<annotation cp="—">გრძელი | ტირე</annotation>
+		<annotation cp="—" type="tts">გრძელი ტირე</annotation>
+		<annotation cp="·">შუა | შუა პუნქტი | წერტილი</annotation>
+		<annotation cp="·" type="tts">შუა წერტილი</annotation>
+		<annotation cp="«">ბრჭყალები | კუთხე | კუთხოვანი ბრჭყალები | მარცხენა ბრჭყალი | მარჯვნივ | შევრონი | ციტირება</annotation>
+		<annotation cp="«" type="tts">მარცხენა ორმაგი კუთხოვანი ბრჭყალი</annotation>
+		<annotation cp="»">ბრჭყალები | კუთხე | კუთხოვანი ბრჭყალები | მარჯვენა ბრჭყალი | მარჯვნივ | შევრონი | ციტირება</annotation>
+		<annotation cp="»" type="tts">მარჯვენა ორმაგი კუთხოვანი ბრჭყალი</annotation>
+		<annotation cp="§">თავი | ნაწილი | პარაგრაფი | სექცია</annotation>
+		<annotation cp="§" type="tts">პარაგრაფი</annotation>
+		<annotation cp="†">ობელისკი | ხანჯალი | ჯვარი</annotation>
+		<annotation cp="†" type="tts">ხანჯლის ნიშანი</annotation>
+		<annotation cp="‡">ობელისკი | ორმაგი | ხანჯალი | ჯვარი</annotation>
+		<annotation cp="‡" type="tts">ორმაგი ხანჯლის ნიშანი</annotation>
+		<annotation cp="•">ბულეტი | ბურთი | ბურთულა | წერტილი</annotation>
+		<annotation cp="•" type="tts">ბურთი</annotation>
+		<annotation cp="°">გრადუსი | დამოწმება | საათი</annotation>
+		<annotation cp="°" type="tts">გრადუსი</annotation>
+		<annotation cp="℗">საავტორო უფლება | ჩანაწერი | ხმა</annotation>
+		<annotation cp="℗" type="tts">საავტორო უფლება ხმოვან ჩანაწერზე</annotation>
+		<annotation cp="←">ისარი | მარცხნივ | მარცხნივ მიმართული ისარი</annotation>
+		<annotation cp="←" type="tts">მარცხნივ მიმართული ისარი</annotation>
+		<annotation cp="→">ისარი | მარჯვნივ | მარჯვნივ მიმართული ისარი</annotation>
+		<annotation cp="→" type="tts">მარჯვნივ მიმართული ისარი</annotation>
+		<annotation cp="↑">ზემოთ | ზემოთ მიმართული ისარი | ისარი</annotation>
+		<annotation cp="↑" type="tts">ზემოთ მიმართული ისარი</annotation>
+		<annotation cp="↓">ისარი | ქვემოთ | ქვემოთ მიმართული ისარი</annotation>
+		<annotation cp="↓" type="tts">ქვემოთ მიმართული ისარი</annotation>
+		<annotation cp="⇅">ზემოთ | ზემოთ მიმართული და ქვემოთ მიმართული ისრები | ისარი | ქვემოთ</annotation>
+		<annotation cp="⇅" type="tts">ზემოთ მიმართული და ქვემოთ მიმართული ისრები</annotation>
+		<annotation cp="⇆">ისარი | მარცხნივ | მარცხნივ მიმართული და მის ქვემოთ მარჯვნივ მიმართული ისრები | მარჯვნივ</annotation>
+		<annotation cp="⇆" type="tts">მარცხნივ მიმართული და მის ქვემოთ მარჯვნივ მიმართული ისრები</annotation>
+		<annotation cp="∆">ნაზრდი | სამკუთხედი</annotation>
+		<annotation cp="∆" type="tts">ნაზრდი</annotation>
+		<annotation cp="∇">ნაბლა | სამკუთხედი</annotation>
+		<annotation cp="∇" type="tts">ნაბლა</annotation>
+		<annotation cp="∈">ელემენტი | სიმრავლე | შეიცავს | შემცველი ელემენტი | წევრობა</annotation>
+		<annotation cp="∈" type="tts">ელემენტი</annotation>
+		<annotation cp="÷">გაყავი | გაყოფა | გაყოფის ნიშანი | ობელუსი</annotation>
+		<annotation cp="÷" type="tts">გაყოფის ნიშანი</annotation>
+		<annotation cp="×">გაამრავლე | გამრავლება | გამრავლების ნიშანი | რამდენჯერ</annotation>
+		<annotation cp="×" type="tts">გამრავლების ნიშანი</annotation>
+		<annotation cp="⁻">ზედა ინდექსი | მინუსი</annotation>
+		<annotation cp="⁻" type="tts">მინუსი ზედა ინდექსში</annotation>
+		<annotation cp="√">კვადრატული | რადიკალი | ფესვი | ფესვის ამოღება</annotation>
+		<annotation cp="√" type="tts">კვადრატული ფესვი</annotation>
+		<annotation cp="∞">უსასრულობა</annotation>
+		<annotation cp="∞" type="tts">უსასრულობის ნიშანი</annotation>
+		<annotation cp="∩">თანაკვეთა | სიმრავლე</annotation>
+		<annotation cp="∩" type="tts">თანაკვეთა</annotation>
+		<annotation cp="∪">გაერთიანება | ნაკრები | სიმრავლე</annotation>
+		<annotation cp="∪" type="tts">გაერთიანება</annotation>
+		<annotation cp="≡">ზუსტი | იდენტობის ნიშანი | იდენტური | სამმაგი</annotation>
+		<annotation cp="≡" type="tts">იდენტური</annotation>
+		<annotation cp="⊂">სიმრავლე | ქვესიმრავლე | შემცველი ქვესიმრავლე</annotation>
+		<annotation cp="⊂" type="tts">ქვესიმრავლე</annotation>
+		<annotation cp="▲">ზემოთ | ზემოთ მიმართული შევსებული სამკუთხედი | ისარი | შევსებული</annotation>
+		<annotation cp="▲" type="tts">ზემოთ მიმართული შევსებული სამკუთხედი</annotation>
+		<annotation cp="▼">ისარი | ქვემოთ | ქვემოთ მიმართული შევსებული სამკუთხედი | შევსებული</annotation>
+		<annotation cp="▼" type="tts">ქვემოთ მიმართული შევსებული სამკუთხედი</annotation>
+		<annotation cp="◊">აგური | ოთხკუთხედი | რომბი</annotation>
+		<annotation cp="◊" type="tts">რომბი</annotation>
+		<annotation cp="○">შეუვსებელი წრე | წრე</annotation>
+		<annotation cp="○" type="tts">შეუვსებელი წრე</annotation>
+		<annotation cp="●">შევსებული წრე | წრე</annotation>
+		<annotation cp="●" type="tts">შევსებული წრე</annotation>
+		<annotation cp="◯">დიდი შეუვსებელი წრე | წრე</annotation>
+		<annotation cp="◯" type="tts">დიდი შეუვსებელი წრე</annotation>
 		<annotation cp="⚧">ტრანსგენდერი | ტრანსგენდერი სიმბოლო</annotation>
 		<annotation cp="⚧" type="tts">ტრანსგენდერი სიმბოლო</annotation>
 		<annotation cp="🤌">დაკითხვა | თითები | სარკასტული | შეჯგუფებული</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">სრულწლოვანი</annotation>
 		<annotation cp="👱">ქერა | ქერათმიანი ადამიანი</annotation>
 		<annotation cp="👱" type="tts">ქერათმიანი ადამიანი</annotation>
+		<annotation cp="🧑‍🍼">ადამიანი აჭმევს ბავშვს | ბავშვი, ჭმევა, მოვლა, ადამიანი</annotation>
+		<annotation cp="🧑‍🍼" type="tts">ადამიანი აჭმევს ბავშვს</annotation>
+		<annotation cp="🧑‍🎄">კლაუსი | სანტა კლაუსი | შობა</annotation>
+		<annotation cp="🧑‍🎄" type="tts">სანტა</annotation>
 		<annotation cp="👨">ზრდასრული | კაცი</annotation>
 		<annotation cp="👨" type="tts">კაცი</annotation>
 		<annotation cp="🧔">წვერი | წვეროსანი</annotation>
 		<annotation cp="🧔" type="tts">წვეროსანი</annotation>
 		<annotation cp="👱‍♂">კაცი | ქერა | ქერათმიანი კაცი</annotation>
 		<annotation cp="👱‍♂" type="tts">ქერათმიანი კაცი</annotation>
+		<annotation cp="👨‍🍼">ბავშვი | კაცი | მოვლა | ჭმევა</annotation>
+		<annotation cp="👨‍🍼" type="tts">კაცი აჭმევს ბავშვს</annotation>
 		<annotation cp="👩">ქალი</annotation>
 		<annotation cp="👩" type="tts">ქალი</annotation>
 		<annotation cp="👱‍♀">ქალი | ქერა | ქერათმიანი ქალი</annotation>
 		<annotation cp="👱‍♀" type="tts">ქერათმიანი ქალი</annotation>
+		<annotation cp="👩‍🍼">ბავშვი | მოვლა | ქალი | ჭმევა</annotation>
+		<annotation cp="👩‍🍼" type="tts">ქალი აჭმევს ბავშვს</annotation>
 		<annotation cp="🧓">გენდერ-ნეიტრალური | ჭარმაგი</annotation>
 		<annotation cp="🧓" type="tts">ჭარმაგი</annotation>
 		<annotation cp="👴">კაცი | მოხუცი</annotation>
@@ -751,10 +829,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">კაცი ჩინური ქუდით</annotation>
 		<annotation cp="🧕">თავსაბურავი | თავსაფარი | თავშალი | ქალი თავსაბურავით | ჰიჯაბი</annotation>
 		<annotation cp="🧕" type="tts">ქალი თავსაბურავით</annotation>
-		<annotation cp="🤵">კაცი | კაცი სმოკინგით | ნეფე | სმოკინგი</annotation>
-		<annotation cp="🤵" type="tts">კაცი სმოკინგით</annotation>
-		<annotation cp="👰">ვუალი | პატარძალი | პატარძალი ვუალით | ფატა | ქორწილი | ქორწინება</annotation>
-		<annotation cp="👰" type="tts">პატარძალი ვუალით</annotation>
+		<annotation cp="🤵">ადამიანი | კაცი | კაცი სმოკინგით | ნეფე | სმოკინგი</annotation>
+		<annotation cp="🤵" type="tts">ადამიანი სმოკინგით</annotation>
+		<annotation cp="🤵‍♀">სმოკინგი | ფრაკი | ქალი | ქალი სმოკინგში</annotation>
+		<annotation cp="🤵‍♀" type="tts">ქალი სმოკინგში</annotation>
+		<annotation cp="🤵‍♂">კაცი | მამაკაცი სმოკინგში | სმოკინგი</annotation>
+		<annotation cp="🤵‍♂" type="tts">მამაკაცი სმოკინგში</annotation>
+		<annotation cp="👰">ადამიანი | ვუალი | პატარძალი | პატარძალი ვუალით | ფატა | ქორწილი | ქორწინება</annotation>
+		<annotation cp="👰" type="tts">ადამიანი ვუალით</annotation>
+		<annotation cp="👰‍♀">ვუალი | ქალი | ქალი ვუალით</annotation>
+		<annotation cp="👰‍♀" type="tts">ქალი ვუალით</annotation>
+		<annotation cp="👰‍♂">კაცი | ჩალმა | ჩალმიანი კაცი</annotation>
+		<annotation cp="👰‍♂" type="tts">ჩალმიანი კაცი</annotation>
 		<annotation cp="🤰">ორსული | ქალი</annotation>
 		<annotation cp="🤰" type="tts">ორსული ქალი</annotation>
 		<annotation cp="🤱">მეძუძური | ჩვილი | ძუძუ</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">კატის სახე</annotation>
 		<annotation cp="🐈">კატა | შინაური ცხოველი</annotation>
 		<annotation cp="🐈" type="tts">კატა</annotation>
+		<annotation cp="🐈‍⬛">კატა | უიღბლო | შავი</annotation>
+		<annotation cp="🐈‍⬛" type="tts">შავი კატა</annotation>
 		<annotation cp="🦁">ზოდიაქო | ლომი | ლომის სახე | სახე | ჰოროსკოპი</annotation>
 		<annotation cp="🦁" type="tts">ლომის სახე</annotation>
 		<annotation cp="🐯">ვეფხვი | ვეფხვის სახე | სახე</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">ღამურა</annotation>
 		<annotation cp="🐻">დათვი | დათვის სახე | სახე</annotation>
 		<annotation cp="🐻" type="tts">დათვის სახე</annotation>
+		<annotation cp="🐻‍❄">დათვი | თეთრი | პოლარული</annotation>
+		<annotation cp="🐻‍❄" type="tts">პოლარული დათვი</annotation>
 		<annotation cp="🐨">დათვი | კოალა</annotation>
 		<annotation cp="🐨" type="tts">კოალა</annotation>
 		<annotation cp="🐼">პანდა | პანდას სახე | სახე</annotation>
@@ -2781,18 +2871,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">მონიშნული მოსანიშნი უჯრა</annotation>
 		<annotation cp="✔">მონიშვნა | მსხვილი მონიშვნის ნიშანი | ნიშანი</annotation>
 		<annotation cp="✔" type="tts">მსხვილი მონიშვნის ნიშანი</annotation>
-		<annotation cp="✖">x | გამრავლება | გაუქმება | მსხვილი გამრავლება</annotation>
-		<annotation cp="✖" type="tts">მსხვილი გამრავლება</annotation>
+		<annotation cp="✖">× | x | გამრავლება | გაუქმება | მსხვილი გამრავლება</annotation>
+		<annotation cp="✖" type="tts">გამრავლება</annotation>
 		<annotation cp="❌">x | გამრავლება | გაუქმება | ნიშანი | ჯვრით მონიშვნა</annotation>
 		<annotation cp="❌" type="tts">ჯვრით მონიშვნა</annotation>
 		<annotation cp="❎">კვადრატი | ნიშანი | ჯვრით მონიშვნის ღილაკი</annotation>
 		<annotation cp="❎" type="tts">ჯვრით მონიშვნის ღილაკი</annotation>
-		<annotation cp="➕">მათემატიკა | მიმატება | მსხვილი პლუსის ნიშანი | პლუსი</annotation>
-		<annotation cp="➕" type="tts">მსხვილი პლუსის ნიშანი</annotation>
-		<annotation cp="➖">გამოკლება | მათემატიკა | მინუსი | მსხვილი მინუსის ნიშანი</annotation>
-		<annotation cp="➖" type="tts">მსხვილი მინუსის ნიშანი</annotation>
-		<annotation cp="➗">გაყოფა | მათემატიკა | მსხვილი გაყოფის ნიშანი</annotation>
-		<annotation cp="➗" type="tts">მსხვილი გაყოფის ნიშანი</annotation>
+		<annotation cp="➕">+ | მათემატიკა | მიმატება | პლუსი | პლუსის ნიშანი</annotation>
+		<annotation cp="➕" type="tts">პლუსი</annotation>
+		<annotation cp="➖">- | − | გამოკლება | მათემატიკა | მინუსი | მინუსის ნიშანი</annotation>
+		<annotation cp="➖" type="tts">მინუსი</annotation>
+		<annotation cp="➗">÷ | გაყოფა | გაყოფის ნიშანი | მათემატიკა</annotation>
+		<annotation cp="➗" type="tts">გაყოფა</annotation>
 		<annotation cp="➰">მარყუჟი | ხვეული</annotation>
 		<annotation cp="➰" type="tts">ხვეული მარყუჟი</annotation>
 		<annotation cp="➿">მარყუჟი | ორმაგი | ხვეული</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">ცისარტყელას დროშა</annotation>
 		<annotation cp="🏴‍☠">განძი | მეკობრე | მეკობრეთა დროშა | მხიარული როჯერი | ჩონჩხი და თავის ქალა</annotation>
 		<annotation cp="🏴‍☠" type="tts">მეკობრეთა დროშა</annotation>
+		<annotation cp="£">GBP | ვალუტა | სტერლინგი | ფუნტი</annotation>
+		<annotation cp="£" type="tts">ფუნტი</annotation>
+		<annotation cp="¥">CNY | JPY | ვალუტა | იენი | იუანი</annotation>
+		<annotation cp="¥" type="tts">იენი</annotation>
+		<annotation cp="€">EUR | ევრო | ვალუტა</annotation>
+		<annotation cp="€" type="tts">ევრო</annotation>
+		<annotation cp="₹">ვალუტა | ინდური რუპია | რუპია</annotation>
+		<annotation cp="₹" type="tts">ინდური რუპია</annotation>
+		<annotation cp="₽">ვალუტა | რუბლი</annotation>
+		<annotation cp="₽" type="tts">რუბლი</annotation>
+		<annotation cp="¹">ერთი | ზედა ინდექსი</annotation>
+		<annotation cp="¹" type="tts">ერთიანი ზედა ინდექსში</annotation>
+		<annotation cp="²">ზედა ინდექსი | კვადრატული | ორი</annotation>
+		<annotation cp="²" type="tts">ორიანი ზედა ინდექსში</annotation>
+		<annotation cp="³">ზედა ინდექსი | კუბი | სამი</annotation>
+		<annotation cp="³" type="tts">სამიანი ზედა ინდექსში</annotation>
+		<annotation cp="µ">განზომილება | მიკროს ნიშანი</annotation>
+		<annotation cp="µ" type="tts">მიკროს ნიშანი</annotation>
 	</annotations>
 </ldml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -150,6 +150,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="eu">ବାସ୍କ୍ୱି</language>
 			<language type="ewo">ଇୱୋଣ୍ଡୋ</language>
 			<language type="fa">ପର୍ସିଆନ୍</language>
+			<language type="fa_AF">ଦାରି</language>
 			<language type="fan">ଫାଙ୍ଗ</language>
 			<language type="fat">ଫାଣ୍ଟି</language>
 			<language type="ff">ଫୁଲାହ</language>
@@ -982,6 +983,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<subdivision type="gbsct">ସ୍କଟଲ୍ୟାଣ୍ଡ</subdivision>
 			<subdivision type="gbwls">ୱେଲ୍ସ</subdivision>
 		</subdivisions>
+		<variants>
+			<variant type="1901">ପାରମ୍ପରିକ ଜର୍ମାନ ବର୍ଣ୍ଣପ୍ରକରଣ</variant>
+			<variant type="1996">1996ର ଜର୍ମାନ ବର୍ଣ୍ଣପ୍ରକରଣ</variant>
+			<variant type="1694ACAD">ଆଦ୍ୟ ଆଧୁନିକ ଫରାସୀ</variant>
+			<variant type="1959ACAD">ଏକାଡେମିକ</variant>
+			<variant type="ALUKU">ଆଲୁକୁ ଉପଭାଷା</variant>
+			<variant type="UNIFON">ୟୁନିଫନ୍ ଫନେଟିକ୍ ଆଲଫାବେଟ୍</variant>
+			<variant type="VAIDIKA">ବୈଦିକ</variant>
+			<variant type="VALENCIA">ଭେଲେନସିଆନ୍</variant>
+		</variants>
 		<keys>
 			<key type="calendar">କ୍ୟାଲେଣ୍ଡର୍</key>
 			<key type="cf">ମୁଦ୍ରା ଫର୍ମାଟ୍‌</key>
@@ -1045,6 +1056,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="laoo">ଲାଓ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="latn">ପାଶ୍ଚାତ୍ୟ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="mlym">ମଲୟାଲମ୍ ଅଙ୍କଗୁଡ଼ିକ</type>
+			<type key="numbers" type="mong">ମଙ୍ଗୋଲୀୟ ଡିଜିଟ୍</type>
 			<type key="numbers" type="mymr">ମିଆଁମାର୍‌ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="orya">ଓଡ଼ିଆ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="roman">ରୋମାନ୍‌ ସଂଖ୍ୟାଗୁଡ଼ିକ</type>
@@ -1898,6 +1910,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-short">
 				<displayName>ତ୍ରୟ.</displayName>
+				<relative type="-1">ଗତ ତିନିମାସ</relative>
+				<relative type="0">ଏହି ତ୍ରୟମାସ</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ତ୍ରୟ. ରେ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ତ୍ରୟ. ରେ</relativeTimePattern>
@@ -1909,6 +1924,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="quarter-narrow">
 				<displayName>ତ୍ରୟ.</displayName>
+				<relative type="-1">ଗତ ତିନିମାସ</relative>
+				<relative type="0">ଏହି ତିନିମାସ</relative>
+				<relative type="1">ଆଗାମୀ ତିନିମାସ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ତ୍ରୟ. ରେ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ତ୍ରୟ. ରେ</relativeTimePattern>
@@ -3777,6 +3795,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Harare">
 				<exemplarCity>ହରାରେ</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<standard>ଆକା ମାନକ ସମୟ</standard>
+					<daylight>ଆକା ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>ଆଫଗାନିସ୍ତାନ ସମୟ</standard>
@@ -3809,6 +3833,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ଆଲାସ୍କା ସମୟ</generic>
 					<standard>ଆଲାସ୍କା ମାନାଙ୍କ ସମୟ</standard>
 					<daylight>ଆଲାସ୍କା ଦିବାଲୋକ ସମୟ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<generic>ଅଲମାଟୀ ସମୟ</generic>
+					<standard>ଅଲମାଟୀ ମାନକ ସମୟ</standard>
+					<daylight>ଅଲମାଟୀ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -3846,11 +3877,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ପାସିଫିକ୍ ଦିବାଲୋକ ସମୟ</daylight>
 				</long>
 			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<generic>ଅନାଡିର୍ ସମୟ</generic>
+					<standard>ଅନାଡିର୍ ମାନକ ସମୟ</standard>
+					<daylight>ଅନାଡିର୍ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Apia">
 				<long>
 					<generic>ଆପିଆ ସମୟ</generic>
 					<standard>ଆପିଆ ମାନାଙ୍କ ସମୟ</standard>
 					<daylight>ଆପିଆ ଦିବାଲୋକ ସମୟ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtau">
+				<long>
+					<generic>ଅକତୌ ସମୟ</generic>
+					<standard>ଅକତୌ ମାନକ ସମୟ</standard>
+					<daylight>ଅକତୌ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtobe">
+				<long>
+					<generic>ଅକ୍ତୋବ ସମୟ</generic>
+					<standard>ଅକ୍ତୋବ ମାନକ ସମୟ</standard>
+					<daylight>ଅକ୍ତୋବ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4133,6 +4185,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<long>
 					<standard>ଗ୍ରୀନୱିଚ୍ ମିନ୍ ସମୟ</standard>
 				</long>
+				<short>
+					<standard draft="contributed">GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
@@ -4240,6 +4295,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ଜାପାନ ଦିବାଲୋକ ସମୟ</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic>ପେଟ୍ରୋପାଭଲୋଭ୍ସକ-କମଚଟସ୍କି ସମୟ</generic>
+					<standard>ପେଟ୍ରୋପାଭଲୋଭ୍ସକ-କମଚଟସ୍କି ମାନକ ସମୟ</standard>
+					<daylight>ପେଟ୍ରୋପାଭଲୋଭ୍ସକ-କମଚଟସ୍କି ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>ପୂର୍ବ କାଜାକସ୍ତାନ୍ ସମୟ</standard>
@@ -4274,6 +4336,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>କିର୍ଗିସ୍ତାନ ସମୟ</standard>
 				</long>
 			</metazone>
+			<metazone type="Lanka">
+				<long>
+					<standard>ଲଙ୍କା ସମୟ</standard>
+				</long>
+			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>ଲାଇନ୍‌ ଦ୍ୱୀପପୁଞ୍ଜ ସମୟ</standard>
@@ -4284,6 +4351,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ଲର୍ଡ ହୋୱେ ସମୟ</generic>
 					<standard>ଲର୍ଡ ହୋୱେ ମାନାଙ୍କ ସମୟ</standard>
 					<daylight>ଲର୍ଡ ହୋୱେ ଦିବାଲୋକ ସମୟ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Macau">
+				<long>
+					<generic>ମାକାଓ ସମୟ</generic>
+					<standard>ମକାଓ ମାନକ ସମୟ</standard>
+					<daylight>ମକାଓ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -4411,6 +4485,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ଫର୍ଣ୍ଣାଣ୍ଡୋ ଡି ନୋରୋନ୍ନା ଗ୍ରୀଷ୍ମକାଳ ସମୟ</daylight>
 				</long>
 			</metazone>
+			<metazone type="North_Mariana">
+				<long>
+					<standard>ଉତ୍ତର ମେରିଆନା ଆଇଲ୍ୟାଣ୍ଡ ସମୟ</standard>
+				</long>
+			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>ନୋଭୋସିବିରସ୍କ ସମୟ</generic>
@@ -4490,6 +4569,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ପୋୟଙ୍ଗୟାଙ୍ଗ ସମୟ</standard>
 				</long>
 			</metazone>
+			<metazone type="Qyzylorda">
+				<long>
+					<generic>କାଜିଲୋର୍ଡା ସମୟ</generic>
+					<standard>କାଜିଲୋର୍ଡା ମାନକ ସମୟ</standard>
+					<daylight>କାଜିଲୋର୍ଡା ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>ରିୟୁନିଅନ୍‌ ସମୟ</standard>
@@ -4505,6 +4591,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ସଖାଲିନ୍ ସମୟ</generic>
 					<standard>ସଖାଲିନ୍ ମାନାଙ୍କ ସମୟ</standard>
 					<daylight>ସଖାଲିନ୍ ଗ୍ରୀଷ୍ମକାଳ ସମୟ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic>ସମାରା ସମୟ</generic>
+					<standard>ସମାରା ମାନକ ସମୟ</standard>
+					<daylight>ସମାରା ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samoa">
@@ -5900,8 +5993,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>ଡେସି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>ସେଣ୍ଟି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>ମିଲି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>ମାଇକ୍ରୋ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>ନାନୋ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>ପିକୋ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>ଫିମଟୋ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>ଅଟୋ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern draft="provisional">ଜିପୋଟ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern draft="provisional">ୟୋକଟ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>ଡେକା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern draft="provisional">ହେକ୍ଟା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>କିଲୋ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>ମେଗା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>ଗିଗା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>ଟେରା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>ପିଟା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>ଏକ୍ସା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>ଜିଟା{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>ୟୋଟା{0}</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{1} ପ୍ରତି {0}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>ସ୍କୋୟାର୍ {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">ସ୍କୋୟାର୍{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">ସ୍କୋ{0}</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>କ୍ୟୁବି {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">କ୍ୟୁବିକ୍ {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">କ୍ୟୁ {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -6761,8 +6924,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>ଡେ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>ସେ.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>ମି.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>ନେ.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>ପିକ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>ଫି.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>ଅ.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>ଜିପ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>ୟୋକ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>ଡେକ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>ହେ.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>କି.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>ମେ.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>ଗି.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>ଟେ.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>ପି.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>ଏ.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>ଜି.{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>ୟୋ.{0}</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
@@ -7622,8 +7855,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>ଡେସି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>ସେ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>ମି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>ନେ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>ପି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>ଫି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>ଅ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>ଜି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>ୟୋ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>ଡେ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>ହେ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>କି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>ମେ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>ଗି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>ଟେ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>ପି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>ଏ{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>ଜି{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>ୟୋ{0}</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -7707,6 +8010,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ଗ୍ରାମ୍</displayName>
 				<unitPattern count="one">{0}ଗ୍ରା</unitPattern>
 				<unitPattern count="other">{0}ଗ୍ରା</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>ଅର୍ଥ ମାସ୍</displayName>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>କିମି/ଘ</displayName>

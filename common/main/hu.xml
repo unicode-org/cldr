@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -162,6 +162,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="eu">baszk</language>
 			<language type="ewo">evondo</language>
 			<language type="fa">perzsa</language>
+			<language type="fa_AF">dari</language>
 			<language type="fan">fang</language>
 			<language type="fat">fanti</language>
 			<language type="ff">fulani</language>
@@ -600,7 +601,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Grek">Görög</script>
 			<script type="Gujr">Gudzsaráti</script>
 			<script type="Guru">Gurmuki</script>
-			<script type="Hanb">Hanb</script>
+			<script type="Hanb">Han bopomofóval</script>
 			<script type="Hang">Hangul</script>
 			<script type="Hani">Han</script>
 			<script type="Hano">Hanunoo</script>
@@ -783,6 +784,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CG" alt="variant">Kongó (Köztársaság)</territory>
 			<territory type="CH">Svájc</territory>
 			<territory type="CI">Elefántcsontpart</territory>
+			<territory type="CI" alt="variant">↑↑↑</territory>
 			<territory type="CK">Cook-szigetek</territory>
 			<territory type="CL">Chile</territory>
 			<territory type="CM">Kamerun</territory>
@@ -5658,7 +5660,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nan>NaN</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
+		<symbols numberSystem="olck">
+			<decimal draft="contributed">↑↑↑</decimal>
+		</symbols>
 		<symbols numberSystem="rohg">
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
+		</symbols>
+		<symbols numberSystem="sora">
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
@@ -5783,6 +5791,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Andorrai peseta</displayName>
 				<displayName count="one">Andorrai peseta</displayName>
 				<displayName count="other">Andorrai peseta</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>EAE-dirham</displayName>
@@ -5800,6 +5809,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">afgán afghani</displayName>
 				<displayName count="other">afgán afghani</displayName>
 				<symbol draft="contributed">AFN</symbol>
+			</currency>
+			<currency type="ALK">
+				<displayName draft="contributed">albán lek (1946–1965)</displayName>
+				<displayName count="one" draft="contributed">albán lek (1946–1965)</displayName>
+				<displayName count="other" draft="contributed">albán lek (1946–1965)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>albán lek</displayName>
@@ -5891,6 +5906,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Bosznia-hercegovinai dínár (1992–1994)</displayName>
 				<displayName count="one">Bosznia-hercegovinai dínár (1992–1994)</displayName>
 				<displayName count="other">Bosznia-hercegovinai dínár (1992–1994)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>bosznia-hercegovinai konvertibilis márka</displayName>
@@ -5898,6 +5914,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">bosznia-hercegovinai konvertibilis márka</displayName>
 				<symbol draft="contributed">BAM</symbol>
 				<symbol alt="narrow" draft="contributed">KM</symbol>
+			</currency>
+			<currency type="BAN">
+				<displayName draft="contributed">bosznia-hercegovinai új dínár (1994–1997)</displayName>
+				<displayName count="one" draft="contributed">bosznia-hercegovinai új dínár (1994–1997)</displayName>
+				<displayName count="other" draft="contributed">bosznia-hercegovinai új dínár (1994–1997)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>barbadosi dollár</displayName>
@@ -5932,12 +5954,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Bolgár kemény leva</displayName>
 				<displayName count="one">Bolgár kemény leva</displayName>
 				<displayName count="other">Bolgár kemény leva</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BGM">
+				<displayName draft="contributed">bolgár szocialista leva</displayName>
+				<displayName count="one" draft="contributed">bolgár szocialista leva</displayName>
+				<displayName count="other" draft="contributed">bolgár szocialista leva</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>bolgár új leva</displayName>
 				<displayName count="one">bolgár új leva</displayName>
 				<displayName count="other">bolgár új leva</displayName>
 				<symbol draft="contributed">BGN</symbol>
+			</currency>
+			<currency type="BGO">
+				<displayName draft="contributed">bolgár leva (1879–1952)</displayName>
+				<displayName count="one" draft="contributed">bolgár leva (1879–1952)</displayName>
+				<displayName count="other" draft="contributed">bolgár leva (1879–1952)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>bahreini dinár</displayName>
@@ -6042,6 +6077,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="BYB">
 				<displayName>Fehérorosz új rubel (1994–1999)</displayName>
+				<displayName count="one" draft="contributed">fehérorosz új rubel (1994–1999)</displayName>
+				<displayName count="other" draft="contributed">fehérorosz új rubel (1994–1999)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BYN">
 				<displayName>belarusz rubel</displayName>
@@ -6130,9 +6168,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="CSD">
 				<displayName>szerb dinár</displayName>
+				<displayName count="one" draft="contributed">szerb dinár (2002–2006)</displayName>
+				<displayName count="other" draft="contributed">szerb dinár (2002–2006)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Csehszlovák kemény korona</displayName>
+				<displayName count="one" draft="contributed">csehszlovák kemény korona</displayName>
+				<displayName count="other" draft="contributed">csehszlovák kemény korona</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>kubai konvertibilis peso</displayName>
@@ -6220,12 +6264,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="ESA">
 				<displayName>spanyol peseta (A–kontó)</displayName>
+				<displayName count="one" draft="contributed">spanyol peseta (A–kontó)</displayName>
+				<displayName count="other" draft="contributed">spanyol peseta (A–kontó)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>spanyol peseta (konvertibilis kontó)</displayName>
+				<displayName count="one" draft="contributed">↑↑↑</displayName>
+				<displayName count="other" draft="contributed">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Spanyol peseta</displayName>
+				<displayName count="one" draft="contributed">spanyol peseta</displayName>
+				<displayName count="other" draft="contributed">spanyol peseta</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>etiópiai birr</displayName>
@@ -6317,6 +6371,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="GRD">
 				<displayName>Görög drachma</displayName>
+				<displayName count="one" draft="contributed">görög drachma</displayName>
+				<displayName count="other" draft="contributed">görög drachma</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>guatemalai quetzal</displayName>
@@ -6354,6 +6411,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="HRD">
 				<displayName>Horvát dínár</displayName>
+				<displayName count="one" draft="contributed">horvát dínár</displayName>
+				<displayName count="other" draft="contributed">horvát dínár</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>horvát kuna</displayName>
@@ -6423,6 +6483,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="ITL">
 				<displayName>Olasz líra</displayName>
+				<displayName count="one" draft="contributed">olasz líra</displayName>
+				<displayName count="other" draft="contributed">olasz líra</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>jamaicai dollár</displayName>
@@ -6577,6 +6640,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MAF">
 				<displayName>Marokkói frank</displayName>
 			</currency>
+			<currency type="MDC">
+				<displayName draft="contributed">moldáv kupon</displayName>
+				<displayName count="one" draft="contributed">moldáv kupon</displayName>
+				<displayName count="other" draft="contributed">moldáv kupon</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="MDL">
 				<displayName>moldován lei</displayName>
 				<displayName count="one">moldován lei</displayName>
@@ -6598,6 +6667,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">macedon dínár</displayName>
 				<displayName count="other">macedon dínár</displayName>
 				<symbol draft="contributed">MKD</symbol>
+			</currency>
+			<currency type="MKN">
+				<displayName draft="contributed">macedón dénár (1992–1993)</displayName>
+				<displayName count="one" draft="contributed">macedón dénár (1992–1993)</displayName>
+				<displayName count="other" draft="contributed">macedón dénár (1992–1993)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>Mali frank</displayName>
@@ -6636,9 +6711,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="MTL">
 				<displayName>Máltai líra</displayName>
+				<displayName count="one" draft="contributed">máltai líra</displayName>
+				<displayName count="other" draft="contributed">máltai líra</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Máltai font</displayName>
+				<displayName count="one" draft="contributed">máltai font</displayName>
+				<displayName count="other" draft="contributed">máltai font</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>mauritiusi rúpia</displayName>
@@ -6792,9 +6873,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="PLZ">
 				<displayName>Lengyel zloty (1950–1995)</displayName>
+				<displayName count="one" draft="contributed">lengyel zloty (PLZ)</displayName>
+				<displayName count="other" draft="contributed">lengyel zloty (PLZ)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portugál escudo</displayName>
+				<displayName count="one" draft="contributed">portugál escudo</displayName>
+				<displayName count="other" draft="contributed">portugál escudo</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>paraguayi guarani</displayName>
@@ -6818,6 +6905,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>román lej (1952–2006)</displayName>
 				<displayName count="one">román lej (1952–2006)</displayName>
 				<displayName count="other">román lej (1952–2006)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>román lej</displayName>
@@ -6843,6 +6931,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>orosz rubel (1991–1998)</displayName>
 				<displayName count="one">orosz rubel (1991–1998)</displayName>
 				<displayName count="other">orosz rubel (1991–1998)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>ruandai frank</displayName>
@@ -6909,9 +6999,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="SIT">
 				<displayName>Szlovén tolar</displayName>
+				<displayName count="one" draft="contributed">szlovén tolár</displayName>
+				<displayName count="other" draft="contributed">szlovén tolár</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Szlovák korona</displayName>
+				<displayName count="one" draft="contributed">szlovák korona</displayName>
+				<displayName count="other" draft="contributed">szlovák korona</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leone-i leone</displayName>
@@ -6957,6 +7053,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="SUR">
 				<displayName>Szovjet rubel</displayName>
+				<displayName count="one" draft="contributed">szovjet rubel</displayName>
+				<displayName count="other" draft="contributed">szovjet rubel</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>Salvadori colón</displayName>
@@ -7062,6 +7161,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrán karbovanec</displayName>
+				<displayName count="one" draft="contributed">ukrán karbovanec</displayName>
+				<displayName count="other" draft="contributed">ukrán karbovanec</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Ugandai shilling (1966–1987)</displayName>
@@ -7250,12 +7352,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="YUD">
 				<displayName>Jugoszláv kemény dínár</displayName>
+				<displayName count="one" draft="contributed">jugoszláv kemény dinár (1966–1990)</displayName>
+				<displayName count="other" draft="contributed">jugoszláv kemény dinár (1966–1990)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Jugoszláv új dínár</displayName>
+				<displayName count="one" draft="contributed">jugoszláv új dinár (1994–2002)</displayName>
+				<displayName count="other" draft="contributed">jugoszláv új dinár (1994–2002)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Jugoszláv konvertibilis dínár</displayName>
+				<displayName count="one" draft="contributed">jugoszláv konvertibilis dinár (1990–1992)</displayName>
+				<displayName count="other" draft="contributed">jugoszláv konvertibilis dinár (1990–1992)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="YUR">
+				<displayName draft="contributed">jugoszláv reformált dinár (1992–1993)</displayName>
+				<displayName count="one" draft="contributed">jugoszláv reformált dinár (1992–1993)</displayName>
+				<displayName count="other" draft="contributed">jugoszláv reformált dinár (1992–1993)</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Dél-afrikai rand (pénzügyi)</displayName>
@@ -7313,8 +7430,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>deci{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>centi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>milli{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>mikro{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>nano{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>piko{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>femto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>atto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>zepto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>yocto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>deka{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>hekto{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>kilo{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>mega{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>giga{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>tera{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>peta{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>exa{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>zetta{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>yotta{0}</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0} per {1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>négyzet{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>köb{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -8179,8 +8366,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -9045,8 +9302,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -9531,7 +9858,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="provisional">Hgin</displayName>
+				<displayName draft="contributed">Hgin</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>

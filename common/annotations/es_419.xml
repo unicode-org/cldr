@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -24,6 +24,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">↑↑↑</annotation>
 		<annotation cp="🏿">↑↑↑</annotation>
 		<annotation cp="🏿" type="tts">↑↑↑</annotation>
+		<annotation cp="–">guion | guion corto</annotation>
+		<annotation cp="–" type="tts">guion</annotation>
+		<annotation cp="—">guion largo | raya</annotation>
+		<annotation cp="—" type="tts">raya</annotation>
+		<annotation cp="·">↑↑↑</annotation>
+		<annotation cp="·" type="tts">punto medio</annotation>
+		<annotation cp="«">↑↑↑</annotation>
+		<annotation cp="«" type="tts">diple de apertura</annotation>
+		<annotation cp="»">↑↑↑</annotation>
+		<annotation cp="»" type="tts">diple de cierre</annotation>
+		<annotation cp="§">párrafo | parte | sección | signo de sección</annotation>
+		<annotation cp="§" type="tts">sección</annotation>
+		<annotation cp="†">daga | obelisco</annotation>
+		<annotation cp="†" type="tts">signo de daga</annotation>
+		<annotation cp="‡">daga | doble | obelisco</annotation>
+		<annotation cp="‡" type="tts">signo de daga doble</annotation>
+		<annotation cp="•">punto | viñeta</annotation>
+		<annotation cp="•" type="tts">viñeta</annotation>
+		<annotation cp="°">↑↑↑</annotation>
+		<annotation cp="°" type="tts">↑↑↑</annotation>
+		<annotation cp="℗">↑↑↑</annotation>
+		<annotation cp="℗" type="tts">↑↑↑</annotation>
+		<annotation cp="←">↑↑↑</annotation>
+		<annotation cp="←" type="tts">↑↑↑</annotation>
+		<annotation cp="→">↑↑↑</annotation>
+		<annotation cp="→" type="tts">↑↑↑</annotation>
+		<annotation cp="↑">↑↑↑</annotation>
+		<annotation cp="↑" type="tts">↑↑↑</annotation>
+		<annotation cp="↓">↑↑↑</annotation>
+		<annotation cp="↓" type="tts">↑↑↑</annotation>
+		<annotation cp="⇅">↑↑↑</annotation>
+		<annotation cp="⇅" type="tts">flecha doble hacia arriba y abajo</annotation>
+		<annotation cp="⇆">↑↑↑</annotation>
+		<annotation cp="⇆" type="tts">flecha doble hacia la izquierda y derecha</annotation>
+		<annotation cp="∆">↑↑↑</annotation>
+		<annotation cp="∆" type="tts">↑↑↑</annotation>
+		<annotation cp="∇">↑↑↑</annotation>
+		<annotation cp="∇" type="tts">↑↑↑</annotation>
+		<annotation cp="∈">↑↑↑</annotation>
+		<annotation cp="∈" type="tts">↑↑↑</annotation>
+		<annotation cp="÷">↑↑↑</annotation>
+		<annotation cp="÷" type="tts">↑↑↑</annotation>
+		<annotation cp="×">↑↑↑</annotation>
+		<annotation cp="×" type="tts">↑↑↑</annotation>
+		<annotation cp="⁻">↑↑↑</annotation>
+		<annotation cp="⁻" type="tts">↑↑↑</annotation>
+		<annotation cp="√">↑↑↑</annotation>
+		<annotation cp="√" type="tts">↑↑↑</annotation>
+		<annotation cp="∞">↑↑↑</annotation>
+		<annotation cp="∞" type="tts">↑↑↑</annotation>
+		<annotation cp="∩">↑↑↑</annotation>
+		<annotation cp="∩" type="tts">↑↑↑</annotation>
+		<annotation cp="∪">↑↑↑</annotation>
+		<annotation cp="∪" type="tts">↑↑↑</annotation>
+		<annotation cp="≡">↑↑↑</annotation>
+		<annotation cp="≡" type="tts">↑↑↑</annotation>
+		<annotation cp="⊂">↑↑↑</annotation>
+		<annotation cp="⊂" type="tts">↑↑↑</annotation>
+		<annotation cp="▲">↑↑↑</annotation>
+		<annotation cp="▲" type="tts">↑↑↑</annotation>
+		<annotation cp="▼">↑↑↑</annotation>
+		<annotation cp="▼" type="tts">↑↑↑</annotation>
+		<annotation cp="◊">↑↑↑</annotation>
+		<annotation cp="◊" type="tts">↑↑↑</annotation>
+		<annotation cp="○">anillo | círculo | círculo vacío</annotation>
+		<annotation cp="○" type="tts">círculo vacío</annotation>
+		<annotation cp="●">↑↑↑</annotation>
+		<annotation cp="●" type="tts">↑↑↑</annotation>
+		<annotation cp="◯">anillo | círculo | círculo vacío grande</annotation>
+		<annotation cp="◯" type="tts">círculo vacío grande</annotation>
 		<annotation cp="⚧">↑↑↑</annotation>
 		<annotation cp="⚧" type="tts">↑↑↑</annotation>
 		<annotation cp="🤌">↑↑↑</annotation>
@@ -542,16 +612,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">↑↑↑</annotation>
 		<annotation cp="👱">cara | persona | persona adulta rubia | rubio</annotation>
 		<annotation cp="👱" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🍼">↑↑↑</annotation>
+		<annotation cp="🧑‍🍼" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🎄">Claus | Navidad | Papá Noel | Santa</annotation>
+		<annotation cp="🧑‍🎄" type="tts">papá noel</annotation>
 		<annotation cp="👨">cara | hombre | persona | señor</annotation>
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">↑↑↑</annotation>
 		<annotation cp="🧔" type="tts">↑↑↑</annotation>
 		<annotation cp="👱‍♂">↑↑↑</annotation>
 		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="👨‍🍼">↑↑↑</annotation>
+		<annotation cp="👨‍🍼" type="tts">↑↑↑</annotation>
 		<annotation cp="👩">cara | mujer | persona | señora</annotation>
 		<annotation cp="👩" type="tts">↑↑↑</annotation>
 		<annotation cp="👱‍♀">↑↑↑</annotation>
 		<annotation cp="👱‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="👩‍🍼">↑↑↑</annotation>
+		<annotation cp="👩‍🍼" type="tts">↑↑↑</annotation>
 		<annotation cp="🧓">adulto mayor | género | maduro | mayor | neutro | persona adulta madura</annotation>
 		<annotation cp="🧓" type="tts">adulto mayor</annotation>
 		<annotation cp="👴">cara | hombre | mayor | señor | viejo</annotation>
@@ -754,8 +832,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">↑↑↑</annotation>
 		<annotation cp="🤵">↑↑↑</annotation>
 		<annotation cp="🤵" type="tts">↑↑↑</annotation>
-		<annotation cp="👰">boda | cara | casamiento | mujer | novia | novia con velo | velo</annotation>
+		<annotation cp="🤵‍♀">↑↑↑</annotation>
+		<annotation cp="🤵‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="🤵‍♂">↑↑↑</annotation>
+		<annotation cp="🤵‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="👰">boda | persona | persona con velo | velo</annotation>
 		<annotation cp="👰" type="tts">↑↑↑</annotation>
+		<annotation cp="👰‍♀">↑↑↑</annotation>
+		<annotation cp="👰‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="👰‍♂">↑↑↑</annotation>
+		<annotation cp="👰‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="🤰">embarazada | embarazo | mujer</annotation>
 		<annotation cp="🤰" type="tts">↑↑↑</annotation>
 		<annotation cp="🤱">↑↑↑</annotation>
@@ -763,7 +849,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👼">ángel | bebé | cara | cara de ángel bebé | cuento</annotation>
 		<annotation cp="👼" type="tts">cara de ángel bebé</annotation>
 		<annotation cp="🎅">fiesta | Navidad | noel | papá | Papá Noel | santa</annotation>
-		<annotation cp="🎅" type="tts">↑↑↑</annotation>
+		<annotation cp="🎅" type="tts">Santa Claus</annotation>
 		<annotation cp="🤶">↑↑↑</annotation>
 		<annotation cp="🤶" type="tts">↑↑↑</annotation>
 		<annotation cp="🦸">↑↑↑</annotation>
@@ -1052,6 +1138,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">↑↑↑</annotation>
 		<annotation cp="🐈">gatito | gato | minino</annotation>
 		<annotation cp="🐈" type="tts">↑↑↑</annotation>
+		<annotation cp="🐈‍⬛">gato | mala suerte | negro</annotation>
+		<annotation cp="🐈‍⬛" type="tts">gato negro</annotation>
 		<annotation cp="🦁">animal | cara | león</annotation>
 		<annotation cp="🦁" type="tts">↑↑↑</annotation>
 		<annotation cp="🐯">↑↑↑</annotation>
@@ -1126,6 +1214,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">↑↑↑</annotation>
 		<annotation cp="🐻">↑↑↑</annotation>
 		<annotation cp="🐻" type="tts">↑↑↑</annotation>
+		<annotation cp="🐻‍❄">ártico | blanco | oso polar | polar</annotation>
+		<annotation cp="🐻‍❄" type="tts">oso polar</annotation>
 		<annotation cp="🐨">↑↑↑</annotation>
 		<annotation cp="🐨" type="tts">↑↑↑</annotation>
 		<annotation cp="🐼">animal | cara | cara de panda | panda</annotation>
@@ -2695,7 +2785,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♍">virgen | virgo | Virgo | zodíaco</annotation>
 		<annotation cp="♍" type="tts">↑↑↑</annotation>
 		<annotation cp="♎">balanza | justicia | libra | Libra | zodíaco</annotation>
-		<annotation cp="♎" type="tts">↑↑↑</annotation>
+		<annotation cp="♎" type="tts">Libra</annotation>
 		<annotation cp="♏">escorpio | Escorpio | escorpión | zodíaco</annotation>
 		<annotation cp="♏" type="tts">↑↑↑</annotation>
 		<annotation cp="♐">arquero | sagitario | Sagitario | zodíaco</annotation>
@@ -2789,11 +2879,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❎">× | botón con marca de cruz | casilla | cruz | cruz con recuadro | marca | x</annotation>
 		<annotation cp="❎" type="tts">cruz con recuadro</annotation>
 		<annotation cp="➕">↑↑↑</annotation>
-		<annotation cp="➕" type="tts">↑↑↑</annotation>
+		<annotation cp="➕" type="tts">suma</annotation>
 		<annotation cp="➖">↑↑↑</annotation>
-		<annotation cp="➖" type="tts">signo menos</annotation>
+		<annotation cp="➖" type="tts">resta</annotation>
 		<annotation cp="➗">↑↑↑</annotation>
-		<annotation cp="➗" type="tts">signo división</annotation>
+		<annotation cp="➗" type="tts">↑↑↑</annotation>
 		<annotation cp="➰">↑↑↑</annotation>
 		<annotation cp="➰" type="tts">↑↑↑</annotation>
 		<annotation cp="➿">↑↑↑</annotation>
@@ -2988,5 +3078,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">↑↑↑</annotation>
 		<annotation cp="🏴‍☠">↑↑↑</annotation>
 		<annotation cp="🏴‍☠" type="tts">↑↑↑</annotation>
+		<annotation cp="£">↑↑↑</annotation>
+		<annotation cp="£" type="tts">↑↑↑</annotation>
+		<annotation cp="¥">↑↑↑</annotation>
+		<annotation cp="¥" type="tts">↑↑↑</annotation>
+		<annotation cp="€">↑↑↑</annotation>
+		<annotation cp="€" type="tts">↑↑↑</annotation>
+		<annotation cp="₹">divisa | moneda | rupia | rupia india</annotation>
+		<annotation cp="₹" type="tts">↑↑↑</annotation>
+		<annotation cp="₽">↑↑↑</annotation>
+		<annotation cp="₽" type="tts">↑↑↑</annotation>
+		<annotation cp="¹">↑↑↑</annotation>
+		<annotation cp="¹" type="tts">↑↑↑</annotation>
+		<annotation cp="²">↑↑↑</annotation>
+		<annotation cp="²" type="tts">↑↑↑</annotation>
+		<annotation cp="³">↑↑↑</annotation>
+		<annotation cp="³" type="tts">↑↑↑</annotation>
+		<annotation cp="µ">↑↑↑</annotation>
+		<annotation cp="µ" type="tts">signo micro</annotation>
 	</annotations>
 </ldml>

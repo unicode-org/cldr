@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">umjereno tamna boja kože</annotation>
 		<annotation cp="🏿">boja kože | tamna boja kože | tip 6</annotation>
 		<annotation cp="🏿" type="tts">tamna boja kože</annotation>
+		<annotation cp="–">crtica | povlaka</annotation>
+		<annotation cp="–" type="tts">crtica</annotation>
+		<annotation cp="—">crta | povlaka</annotation>
+		<annotation cp="—" type="tts">crta</annotation>
+		<annotation cp="·">interpunkt | sredina | tačka</annotation>
+		<annotation cp="·" type="tts">srednja tačka</annotation>
+		<annotation cp="«">karet | lijevi uglasti navodnik | lijevo | navod | ševron | ugao | zagrade</annotation>
+		<annotation cp="«" type="tts">lijevi uglasti navodnik</annotation>
+		<annotation cp="»">desni uglasti navodnik | desno | karet | navod | ševron | ugao | zagrade</annotation>
+		<annotation cp="»" type="tts">desni uglasti navodnik</annotation>
+		<annotation cp="§">dio | odlomak | paragraf</annotation>
+		<annotation cp="§" type="tts">odlomak</annotation>
+		<annotation cp="†">obelisk | znak za bodež</annotation>
+		<annotation cp="†" type="tts">znak za bodež</annotation>
+		<annotation cp="‡">bodež | dvostruki | obelisk</annotation>
+		<annotation cp="‡" type="tts">dvostruki znak za bodež</annotation>
+		<annotation cp="•">tačka | znak za isticanje</annotation>
+		<annotation cp="•" type="tts">znak za isticanje</annotation>
+		<annotation cp="°">jačine | sati | stepen</annotation>
+		<annotation cp="°" type="tts">stepen</annotation>
+		<annotation cp="℗">autorsko pravo | snimak | zvuk</annotation>
+		<annotation cp="℗" type="tts">autorsko pravo za zvučni snimak</annotation>
+		<annotation cp="←">lijevo | strelica | strelica prema lijevo</annotation>
+		<annotation cp="←" type="tts">strelica prema lijevo</annotation>
+		<annotation cp="→">desno | strelica | strelica prema desno</annotation>
+		<annotation cp="→" type="tts">strelica prema desno</annotation>
+		<annotation cp="↑">gore | strelica | strelica prema gore</annotation>
+		<annotation cp="↑" type="tts">strelica prema gore</annotation>
+		<annotation cp="↓">dolje | strelica | strelica prema dolje</annotation>
+		<annotation cp="↓" type="tts">strelica prema dolje</annotation>
+		<annotation cp="⇅">dolje | gore | strelica | strelice prema gore i prema dolje</annotation>
+		<annotation cp="⇅" type="tts">strelice prema gore i prema dolje</annotation>
+		<annotation cp="⇆">desno | lijevo | strelica | strelica prema gore preko strelice prema dolje | strelice</annotation>
+		<annotation cp="⇆" type="tts">strelica gore preko strelice dolje</annotation>
+		<annotation cp="∆">inkrement | trougao</annotation>
+		<annotation cp="∆" type="tts">inkrement</annotation>
+		<annotation cp="∇">nabla | trougao</annotation>
+		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="∈">članstvo | element | element od | sadrži | skup</annotation>
+		<annotation cp="∈" type="tts">element od</annotation>
+		<annotation cp="÷">dijeljenje | obelus | podijeliti | znak za dijeljenje</annotation>
+		<annotation cp="÷" type="tts">znak za dijeljenje</annotation>
+		<annotation cp="×">množenje | pomnožiti | puta | znak za množenje</annotation>
+		<annotation cp="×" type="tts">znak za množenje</annotation>
+		<annotation cp="⁻">eksponent | minus</annotation>
+		<annotation cp="⁻" type="tts">eksponentni minus</annotation>
+		<annotation cp="√">iracionalan | korijen | kvadratni | radikal | radikand</annotation>
+		<annotation cp="√" type="tts">kvadratni korijen</annotation>
+		<annotation cp="∞">beskonačnost</annotation>
+		<annotation cp="∞" type="tts">znak za beskonačnost</annotation>
+		<annotation cp="∩">presjek | skup</annotation>
+		<annotation cp="∩" type="tts">presjek</annotation>
+		<annotation cp="∪">skup | unija | zbirka</annotation>
+		<annotation cp="∪" type="tts">unija</annotation>
+		<annotation cp="≡">identično | tačno | trostruko</annotation>
+		<annotation cp="≡" type="tts">identično</annotation>
+		<annotation cp="⊂">podskup | skup</annotation>
+		<annotation cp="⊂" type="tts">podskup</annotation>
+		<annotation cp="▲">gore | ispunjeni trougao prema gore | ispunjeno | strelica | trougao</annotation>
+		<annotation cp="▲" type="tts">ispunjeni trougao prema gore</annotation>
+		<annotation cp="▼">dolje | ispunjeni trougao prema dolje | ispunjeno | strelica | trougao</annotation>
+		<annotation cp="▼" type="tts">ispunjeni trougao prema dolje</annotation>
+		<annotation cp="◊">dijamant | romb</annotation>
+		<annotation cp="◊" type="tts">romb</annotation>
+		<annotation cp="○">krug | prazni krug | prsten</annotation>
+		<annotation cp="○" type="tts">prazni krug</annotation>
+		<annotation cp="●">ispunjeni krug | krug</annotation>
+		<annotation cp="●" type="tts">ispunjeni krug</annotation>
+		<annotation cp="◯">krug | prsten | veliki prazni krug</annotation>
+		<annotation cp="◯" type="tts">veliki prazni krug</annotation>
 		<annotation cp="⚧">simbol transrodnih osoba | transrodna osoba</annotation>
 		<annotation cp="⚧" type="tts">simbol transrodnih osoba</annotation>
 		<annotation cp="🤌">gest rukom | ispitivanje | prsti | sarkastično | skupljeni prsti | uštinuti</annotation>
@@ -541,16 +611,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">odrasla osoba</annotation>
 		<annotation cp="👱">kosa | osoba s plavom kosom | plavo</annotation>
 		<annotation cp="👱" type="tts">osoba s plavom kosom</annotation>
+		<annotation cp="🧑‍🍼">beba, dojenje, hranjenje, osoba | osoba hrani bebu</annotation>
+		<annotation cp="🧑‍🍼" type="tts">osoba doji bebu</annotation>
+		<annotation cp="🧑‍🎄">Djeda Mraz, božić | g. Mraz</annotation>
+		<annotation cp="🧑‍🎄" type="tts">g. Mraz</annotation>
 		<annotation cp="👨">muškarac | muško</annotation>
 		<annotation cp="👨" type="tts">muškarac</annotation>
 		<annotation cp="🧔">brada | muškarac s bradom | osoba s bradom</annotation>
 		<annotation cp="🧔" type="tts">muškarac s bradom</annotation>
 		<annotation cp="👱‍♂">kosa | muškarac | muškarac s plavom kosom | plavo | plavušan</annotation>
 		<annotation cp="👱‍♂" type="tts">muškarac s plavom kosom</annotation>
+		<annotation cp="👨‍🍼">beba | dojenje | hranjenje | muškarac</annotation>
+		<annotation cp="👨‍🍼" type="tts">muškarac doji bebu</annotation>
 		<annotation cp="👩">žena | žensko</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
 		<annotation cp="👱‍♀">kosa | plavo | plavuša | žena | žena s plavom kosom</annotation>
 		<annotation cp="👱‍♀" type="tts">žena s plavom kosom</annotation>
+		<annotation cp="👩‍🍼">beba | dojenje | hranjenje | žena</annotation>
+		<annotation cp="👩‍🍼" type="tts">žena doji bebu</annotation>
 		<annotation cp="🧓">srednji rod | starija odrasla osoba | staro</annotation>
 		<annotation cp="🧓" type="tts">starija odrasla osoba</annotation>
 		<annotation cp="👴">čovjek | muškarac | star | starac</annotation>
@@ -751,10 +829,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">muškarac s kineskom kapom</annotation>
 		<annotation cp="🧕">hidžab | pokrivalo | pokrivena žena | šal</annotation>
 		<annotation cp="🧕" type="tts">pokrivena žena</annotation>
-		<annotation cp="🤵">čovjek | mladoženja | odijelo | smoking</annotation>
-		<annotation cp="🤵" type="tts">odijelo</annotation>
-		<annotation cp="👰">mlada | mlada s velom | veo | vjenčanje</annotation>
-		<annotation cp="👰" type="tts">mlada s velom</annotation>
+		<annotation cp="🤵">mladoženja | muškarac u smokingu | odijelo | osoba u smokingu | smoking</annotation>
+		<annotation cp="🤵" type="tts">osoba u smokingu</annotation>
+		<annotation cp="🤵‍♀">smoking | žena | žena u smokingu</annotation>
+		<annotation cp="🤵‍♀" type="tts">žena u smokingu</annotation>
+		<annotation cp="🤵‍♂">muškarac | muškarac u smokingu | smoking</annotation>
+		<annotation cp="🤵‍♂" type="tts">muškarac u smokingu</annotation>
+		<annotation cp="👰">mlada | osoba | osoba s velom | veo | vjenčanje</annotation>
+		<annotation cp="👰" type="tts">osoba s velom</annotation>
+		<annotation cp="👰‍♀">veo | žena | žena s velom</annotation>
+		<annotation cp="👰‍♀" type="tts">žena s velom</annotation>
+		<annotation cp="👰‍♂">muškarac | muškarac s velom | veo</annotation>
+		<annotation cp="👰‍♂" type="tts">muškarac s velom</annotation>
 		<annotation cp="🤰">trudnica | žena</annotation>
 		<annotation cp="🤰" type="tts">trudnica</annotation>
 		<annotation cp="🤱">beba | dojenče | dojenje | hranjenje</annotation>
@@ -1051,6 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">glava mačke</annotation>
 		<annotation cp="🐈">ljubimac | mačka</annotation>
 		<annotation cp="🐈" type="tts">mačka</annotation>
+		<annotation cp="🐈‍⬛">crno | loša sreća | mačka</annotation>
+		<annotation cp="🐈‍⬛" type="tts">crna mačka</annotation>
 		<annotation cp="🦁">glava lava | horoskop | lav</annotation>
 		<annotation cp="🦁" type="tts">glava lava</annotation>
 		<annotation cp="🐯">glava | glava tigra | tigar</annotation>
@@ -1125,6 +1213,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">šišmiš</annotation>
 		<annotation cp="🐻">glava medvjeda | medvjed</annotation>
 		<annotation cp="🐻" type="tts">glava medvjeda</annotation>
+		<annotation cp="🐻‍❄">arktički | bijelo | medvjed | polarni medvjed</annotation>
+		<annotation cp="🐻‍❄" type="tts">polarni medvjed</annotation>
 		<annotation cp="🐨">koala</annotation>
 		<annotation cp="🐨" type="tts">koala</annotation>
 		<annotation cp="🐼">glava pande | panda</annotation>
@@ -2615,20 +2705,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☢" type="tts">radioaktivno</annotation>
 		<annotation cp="☣">biološka | opasnost | znak</annotation>
 		<annotation cp="☣" type="tts">biološka opasnost</annotation>
-		<annotation cp="⬆">sjever | smjer | strjelica | strjelica gore</annotation>
-		<annotation cp="⬆" type="tts">strjelica gore</annotation>
+		<annotation cp="⬆">sjever | smjer | strelica | strelica nagore</annotation>
+		<annotation cp="⬆" type="tts">strelica nagore</annotation>
 		<annotation cp="↗">sjeveroistok | smjer | strjelica | strjelica gore-desno</annotation>
 		<annotation cp="↗" type="tts">strjelica gore-desno</annotation>
-		<annotation cp="➡">istok | smjer | strjelica | strjelica desno</annotation>
-		<annotation cp="➡" type="tts">strjelica desno</annotation>
+		<annotation cp="➡">istok | smjer | strelica | strelica nadesno</annotation>
+		<annotation cp="➡" type="tts">strelica nadesno</annotation>
 		<annotation cp="↘">jugoistok | smjer | strjelica | strjelica dolje-desno</annotation>
 		<annotation cp="↘" type="tts">strjelica dolje-desno</annotation>
-		<annotation cp="⬇">jug | smjer | strjelica | strjelica dolje</annotation>
-		<annotation cp="⬇" type="tts">strjelica dolje</annotation>
+		<annotation cp="⬇">jug | smjer | strelica | strelica nadolje</annotation>
+		<annotation cp="⬇" type="tts">strelica nadolje</annotation>
 		<annotation cp="↙">jugozapad | smjer | strjelica | strjelica dolje-lijevo</annotation>
 		<annotation cp="↙" type="tts">strjelica dolje-lijevo</annotation>
-		<annotation cp="⬅">smjer | strjelica | strjelica lijevo | zapad</annotation>
-		<annotation cp="⬅" type="tts">strjelica lijevo</annotation>
+		<annotation cp="⬅">smjer | strelica | strelica nalijevo | zapad</annotation>
+		<annotation cp="⬅" type="tts">strelica nalijevo</annotation>
 		<annotation cp="↖">sjeverozapad | smjer | strjelica | strjelica gore-lijevo</annotation>
 		<annotation cp="↖" type="tts">strjelica gore-lijevo</annotation>
 		<annotation cp="↕">strjelica | strjelica gore-dolje</annotation>
@@ -2761,8 +2851,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♂" type="tts">muško</annotation>
 		<annotation cp="⚕">aesculapius | medicina | medicinski simbol | osoblje</annotation>
 		<annotation cp="⚕" type="tts">medicinski simbol</annotation>
-		<annotation cp="♾">beskonačno | neograničeno | univerzalno</annotation>
-		<annotation cp="♾" type="tts">beskonačno</annotation>
+		<annotation cp="♾">beskonačno | beskonačnost | neograničeno | univerzalno</annotation>
+		<annotation cp="♾" type="tts">beskonačnost</annotation>
 		<annotation cp="♻">reciklaža | simbol za reciklažu</annotation>
 		<annotation cp="♻" type="tts">simbol za reciklažu</annotation>
 		<annotation cp="⚜">ljiljan</annotation>
@@ -2781,18 +2871,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">polje za potvrdu s kvačicom</annotation>
 		<annotation cp="✔">✓ | kvačica | oznaka</annotation>
 		<annotation cp="✔" type="tts">kvačica</annotation>
-		<annotation cp="✖">otkaži | podebljan križić | prekriži | puta | umnoži | x</annotation>
-		<annotation cp="✖" type="tts">podebljan križić</annotation>
+		<annotation cp="✖">križić | množenje | otkaži | x | znak množenja</annotation>
+		<annotation cp="✖" type="tts">znak množenja</annotation>
 		<annotation cp="❌">križić | otkaži | oznaka prekriženo | puta | umnoži</annotation>
 		<annotation cp="❌" type="tts">križić</annotation>
 		<annotation cp="❎">dugme križić | kvadratić | oznaka</annotation>
 		<annotation cp="❎" type="tts">dugme križić</annotation>
-		<annotation cp="➕">matematika | plus | podebljani znak plus | znak plus</annotation>
+		<annotation cp="➕">+ | matematika | plus | znak plus</annotation>
 		<annotation cp="➕" type="tts">znak plus</annotation>
-		<annotation cp="➖">matematika | minus | podebljani znak minus | znak minus</annotation>
+		<annotation cp="➖">- | − | matematika | minus | znak minus</annotation>
 		<annotation cp="➖" type="tts">znak minus</annotation>
-		<annotation cp="➗">dijeljenje | matematika | podebljani znak dijeljenja</annotation>
-		<annotation cp="➗" type="tts">podebljani znak dijeljenja</annotation>
+		<annotation cp="➗">÷ | dijeljenje | matematika | znak dijeljenja</annotation>
+		<annotation cp="➗" type="tts">znak dijeljenja</annotation>
 		<annotation cp="➰">petlja | rotor | uvrnuta petlja</annotation>
 		<annotation cp="➰" type="tts">uvrnuta petlja</annotation>
 		<annotation cp="➿">dupla | dupla uvrnuta petlja | petlja | rotor</annotation>
@@ -2987,5 +3077,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍🌈" type="tts">zastava duginih boja</annotation>
 		<annotation cp="🏴‍☠">blago | jolly roger | pirati | piratska zastava | pljačka</annotation>
 		<annotation cp="🏴‍☠" type="tts">piratska zastava</annotation>
+		<annotation cp="£">EGP | funta | GBP | valuta</annotation>
+		<annotation cp="£" type="tts">funta</annotation>
+		<annotation cp="¥">CNY | jen | JPY | juan | valuta</annotation>
+		<annotation cp="¥" type="tts">jen</annotation>
+		<annotation cp="€">EUR | euro | valuta</annotation>
+		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₹">Indijska rupija | rupija | valuta</annotation>
+		<annotation cp="₹" type="tts">Indijska rupija</annotation>
+		<annotation cp="₽">rublja | valuta</annotation>
+		<annotation cp="₽" type="tts">rublja</annotation>
+		<annotation cp="¹">eksponent | jedan</annotation>
+		<annotation cp="¹" type="tts">jedan eksponentno</annotation>
+		<annotation cp="²">dva | eksponent | na kvadrat</annotation>
+		<annotation cp="²" type="tts">dva eksponentno</annotation>
+		<annotation cp="³">eksponent | kubni | tri</annotation>
+		<annotation cp="³" type="tts">tri eksponentno</annotation>
+		<annotation cp="µ">mjera | znak za mikro</annotation>
+		<annotation cp="µ" type="tts">znak za mikro</annotation>
 	</annotations>
 </ldml>

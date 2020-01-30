@@ -303,15 +303,20 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 	               <span class="hasTooltip" title="<%= ctx.session.user.email %>"><%= ctx.session.user.name %></span>
 	               <span class='glyphicon glyphicon-user tip-log' title='<%= ctx.session.user.org %>'></span>
 	              
-	              <% Integer reducedLevelVote =ctx.session.user.getLevel().canVoteAtReducedLevel(); 
-	              	 int regularVote = ctx.session.user.getLevel().getVotes(); %>
-	              <% if(reducedLevelVote != null) { %>
-	              	<select title="vote with a reduced number of votes" id="voteReduced" name="voteReduced">
-	              		<option selected="selected" value="<%= regularVote %>"><%= regularVote %> votes</option>
-	              		<option value="<%= reducedLevelVote %>"><%= reducedLevelVote %> votes</option>
-	             		</select>
-	              	 
-	              <% } %>
+	              <%
+	              VoteResolver.Level userLevel = ctx.session.user.getLevel();
+	              Integer[] voteCountMenu = userLevel.getVoteCountMenu();
+	              if (voteCountMenu != null) {
+		              Integer regularVote = (Integer) userLevel.getVotes();
+					%>
+					<select title="vote with a different number of votes" id="voteLevelChanged" name="voteLevelChanged">
+					<% for (Integer voteLevel: voteCountMenu) {
+						String selectedOrNot = regularVote.equals(voteLevel) ? " selected=\"selected\"" : "";
+						%>
+						<option value="<%= voteLevel %>"<%= selectedOrNot %>><%= voteLevel %> votes</option>
+					<% } %>
+					</select>
+				<% } %>
 	               | <a class='navbar-link' href='<%= survURL + "?do=logout" %>'><span class='glyphicon glyphicon-log-out tip-log' title='Logout'></span><%= cookieMessage %></a>
 	                <script type="text/javascript">var isVisitor = 0</script>
 	        <% } else { %>

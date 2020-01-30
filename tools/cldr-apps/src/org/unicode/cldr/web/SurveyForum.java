@@ -886,21 +886,25 @@ public class SurveyForum {
     }
 
     /**
-     * @param baseCtx
+     * If this user posts to the forum, will it cause this xpath+locale to be flagged
+     * (if not already flagged)?
+     *
+     * Return true if the user has made a losing vote, and the VoteResolver.canFlagOnLosing
+     * (i.e., path is locked and/or requires VoteResolver.HIGH_BAR votes).
+     *
+     * @param user
      * @param xpath
      * @param locale
-     * @param couldFlagOnLosing
-     * @return
+     * @return true or false
      */
     public boolean couldFlagOnLosing(UserRegistry.User user, String xpath, CLDRLocale locale) {
-        if (sm.getSupplementalDataInfo().getRequiredVotes(locale, sm.getSTFactory().getPathHeader(xpath)) == VoteResolver.HIGH_BAR) {
-            BallotBox<User> bb = sm.getSTFactory().ballotBoxForLocale(locale);
-            if (bb.userDidVote(user, xpath)) {
+        BallotBox<User> bb = sm.getSTFactory().ballotBoxForLocale(locale);
+        if (bb.userDidVote(user, xpath)) {
+            String userValue = bb.getVoteValue(user, xpath);
+            if (userValue != null) {
                 VoteResolver<String> vr = bb.getResolver(xpath);
-                String winningValue = vr.getWinningValue();
-                String userValue = bb.getVoteValue(user, xpath);
-                if (userValue != null && !userValue.equals(winningValue)) {
-                    return true;
+                if (!userValue.equals(vr.getWinningValue())) {
+                    return vr.canFlagOnLosing();
                 }
             }
         }

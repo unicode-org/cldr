@@ -154,7 +154,7 @@ public class PermanentVote {
          */
         String tableName = DBUtils.Table.VOTE_VALUE.toString();
         String sql = "SELECT COUNT(*) FROM " + tableName
-            + " WHERE vote_override=" + VoteResolver.VC.PERMANENT
+            + " WHERE vote_override=" + VoteResolver.Level.PERMANENT_VOTES
             + " AND locale=?"
             + " AND xpath=?"
             + " AND value"
@@ -240,7 +240,7 @@ public class PermanentVote {
         String sql = "DELETE FROM " + tableName
             + " WHERE locale=?"
             + " AND xpath=?"
-            + " AND vote_override=" + VoteResolver.VC.PERMANENT;
+            + " AND vote_override=" + VoteResolver.Level.PERMANENT_VOTES;
         try {
             conn = DBUtils.getInstance().getDBConnection();
             ps = DBUtils.prepareForwardReadOnly(conn, sql);

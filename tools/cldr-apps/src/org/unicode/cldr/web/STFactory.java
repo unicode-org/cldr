@@ -745,7 +745,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         String value = DBUtils.getStringUTF8(rs, 2);
                         Timestamp last_mod = rs.getTimestamp(3);
                         try {
-                            internalSetVoteForValue(sm.reg.getInfo(UserRegistry.ADMIN_ID), xpath, value, VoteResolver.VC.LOCKING, last_mod);
+                            internalSetVoteForValue(sm.reg.getInfo(UserRegistry.ADMIN_ID), xpath, value, VoteResolver.Level.LOCKING_VOTES, last_mod);
                             n++;
                         } catch (BallotBox.InvalidXPathException e) {
                             System.err.println("InvalidXPathException: Ignoring permanent vote for:" + locale + ":" + xpath);
@@ -1124,7 +1124,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     withVote = null; // not an override
                 } else if (!level.canVoteWithCount(withVote)) {
                     throw new VoteNotAcceptedException(ErrorCode.E_NO_PERMISSION, "User " + user + " cannot vote at " + withVote + " level ");
-                } else if (withVote == VoteResolver.VC.PERMANENT) {
+                } else if (withVote == VoteResolver.Level.PERMANENT_VOTES) {
                     if (sm.fora.postCountFor(locale, xpathId) < 1) {
                         throw new VoteNotAcceptedException(ErrorCode.E_PERMANENT_VOTE_NO_FORUM, "Forum entry is required for Permanent vote");
                     }
@@ -1245,7 +1245,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             internalSetVoteForValue(user, distinguishingXpath, value, withVote, new Date());
 
-            if (withVote != null && withVote == VoteResolver.VC.PERMANENT) {
+            if (withVote != null && withVote == VoteResolver.Level.PERMANENT_VOTES) {
                 doPermanentVote(distinguishingXpath, xpathId, value);
             }
 
@@ -1264,12 +1264,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (pv.didLock()) {
                 User admin = sm.reg.getInfo(UserRegistry.ADMIN_ID);
                 peekXpathData(distinguishingXpath).setVoteForValue(admin, distinguishingXpath,
-                        value, VoteResolver.VC.LOCKING, new Date());
+                        value, VoteResolver.Level.LOCKING_VOTES, new Date());
             } else if (pv.didUnlock()) {
-                peekXpathData(distinguishingXpath).removeOverrideVotes(VoteResolver.VC.LOCKING);
+                peekXpathData(distinguishingXpath).removeOverrideVotes(VoteResolver.Level.LOCKING_VOTES);
             }
             if (pv.didCleanSlate()) {
-                peekXpathData(distinguishingXpath).removeOverrideVotes(VoteResolver.VC.PERMANENT);
+                peekXpathData(distinguishingXpath).removeOverrideVotes(VoteResolver.Level.PERMANENT_VOTES);
             }
         }
 

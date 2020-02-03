@@ -107,71 +107,51 @@ public class VoteResolver<T> {
     public static final int HIGH_BAR = Level.tc.votes;
 
     /**
-     * Constants for vote counts. These are mostly private since only needed inside enum Level.
-     */
-    public static class VC {
-        private static final int ZERO = 0; // for both Level.locked and Level.anonymous
-        private static final int STREET = 1;
-        private static final int VETTER = 4;
-        private static final int MANAGER = 4; // same vote count as VETTER
-        private static final int EXPERT = 8;
-        private static final int TC = 20; // Technical Committee member
-        private static final int ADMIN = 100;
-
-        /**
-         * VC.PERMANENT is used by TC voters to "lock" locale+path permanently (including future versions, until unlocked),
-         * in the current VOTE_VALUE table. It is public for STFactory.java and PermanentVote.java.
-         */
-        public static final int PERMANENT = 1000;
-
-        /**
-         * VC.LOCKING is used (nominally by ADMIN voter, but not really by someone logged in as ADMIN, instead
-         * by combination of two PERMANENT votes) to "lock" locale+path permanently in the LOCKED_XPATHS table.
-         * It is public for STFactory.PerLocaleData.loadVoteValues.
-         */
-        public static final int LOCKING = 2000;
-    }
-
-    /**
      * This is the level at which a vote counts. Each level also contains the
      * weight.
      */
     public enum Level {
-        locked(VC.ZERO /* votes */, 999 /* stlevel */),
-        street(VC.STREET, 10),
-        anonymous(VC.ZERO, 8),
-        vetter(VC.VETTER, 5),
-        expert(VC.EXPERT, 3),
-        manager(VC.MANAGER, 2),
-        tc(VC.TC, 1),
-        admin(VC.ADMIN, 0);
+        locked(   0 /* votes */, 999 /* stlevel */),
+        street(   1 /* votes */, 10  /* stlevel */),
+        anonymous(0 /* votes */, 8   /* stlevel */),
+        vetter(   4 /* votes */, 5   /* stlevel */),
+        expert(   8 /* votes */, 3   /* stlevel */),
+        manager(  4 /* votes */, 2   /* stlevel */),
+        tc(      20 /* votes */, 1   /* stlevel */),
+        admin(  100 /* votes */, 0   /* stlevel */);
 
         /**
-         * The vote count a user of this level normally votes with (e.g., VC.STREET = 1)
+         * PERMANENT_VOTES is used by TC voters to "lock" locale+path permanently (including future versions, until unlocked),
+         * in the current VOTE_VALUE table. It is public for STFactory.java and PermanentVote.java.
          */
-        private int votes;
+        public static final int PERMANENT_VOTES = 1000;
+
+        /**
+         * LOCKING_VOTES is used (nominally by ADMIN voter, but not really by someone logged in as ADMIN, instead
+         * by combination of two PERMANENT_VOTES) to "lock" locale+path permanently in the LOCKED_XPATHS table.
+         * It is public for STFactory.PerLocaleData.loadVoteValues.
+         */
+        public static final int LOCKING_VOTES = 2000;
+
+        /**
+         * The vote count a user of this level normally votes with
+         */
+        private final int votes;
 
         /**
          * The level as an integer, where 0 = admin, ..., 999 = locked
          */
-        private int stlevel;
+        private final int stlevel;
 
         /**
          * If not null, an array of different vote counts from which a user of this
          * level is allowed to choose. Integer[] not int[], to enable use of Arrays.asList.
          */
-        private Integer[] voteCountMenu;
+        private Integer[] voteCountMenu = null;
 
         private Level(int votes, int stlevel) {
             this.votes = votes;
             this.stlevel = stlevel;
-            if (votes == VC.ADMIN) {
-                voteCountMenu = new Integer[] {VC.VETTER, VC.ADMIN}; /* Not VC.LOCKING; see canVoteWithCount */
-            } else if (votes == VC.TC) {
-                voteCountMenu = new Integer[] {VC.VETTER, VC.TC, VC.PERMANENT};
-            } else {
-                voteCountMenu = null;
-            }
         }
 
         /**
@@ -246,15 +226,16 @@ public class VoteResolver<T> {
          */
         public boolean canVoteWithCount(int withVotes) {
             /*
-             * ADMIN is allowed to vote as VC.LOCKING, but not directly in the GUI, only
-             * by two TC voting together as VC.PERMANENT. Therefore VC.LOCKING is omitted
+             * ADMIN is allowed to vote with LOCKING_VOTES, but not directly in the GUI, only
+             * by two TC voting together with PERMANENT_VOTES. Therefore LOCKING_VOTES is omitted
              * from the GUI menu (voteCountMenu), but included in canVoteWithCount.
              */
-            if (withVotes == VC.LOCKING && this == admin) {
+            if (withVotes == LOCKING_VOTES && this == admin) {
                 return true;
             }
-            if (voteCountMenu != null) {
-                return Arrays.asList(voteCountMenu).contains((Integer) withVotes);
+            Integer[] menu = getVoteCountMenu();
+            if (menu != null) {
+                return Arrays.asList(menu).contains((Integer) withVotes);
             }
             return withVotes == this.votes;
         }
@@ -265,9 +246,15 @@ public class VoteResolver<T> {
          * @return the array, or null if the user has no choice of vote count
          */
         public Integer[] getVoteCountMenu() {
+            if (stlevel >= tc.stlevel && voteCountMenu == null) {
+                if (this == admin) {
+                    voteCountMenu = new Integer[] {vetter.votes, admin.votes}; /* Not LOCKING_VOTES; see canVoteWithCount */
+                } else if (this == tc) {
+                    voteCountMenu = new Integer[] {vetter.votes, tc.votes, PERMANENT_VOTES};
+                }
+            }
             return voteCountMenu;
         }
-
     };
 
     /**
@@ -817,7 +804,7 @@ public class VoteResolver<T> {
         if (resolved) {
             throw new IllegalArgumentException("Must be called after clear, and before any getters.");
         }
-        if (withVotes != null && withVotes == VC.LOCKING) {
+        if (withVotes != null && withVotes == Level.LOCKING_VOTES) {
             valueIsLocked = true;
         }
         organizationToValueAndVote.add(value, voter, withVotes, date);

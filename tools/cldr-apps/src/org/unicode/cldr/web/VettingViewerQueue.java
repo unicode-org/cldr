@@ -297,26 +297,11 @@ public class VettingViewerQueue {
 
                             if ((now - last) > 1200) {
                                 last = now;
-                                // StringBuffer bar =
-                                // SurveyProgressManager.appendProgressBar(new
-                                // StringBuffer(),n,ourmax);
-                                // String remStr="";
                                 if (n > 500) {
                                     progress.update(n, setRemStr(now));
                                 } else {
                                     progress.update(n);
                                 }
-                                // try {
-                                // mout.println("<script type=\"text/javascript\">document.getElementById('LoadingBar').innerHTML=\""+bar+
-                                // " ("+n+" items loaded" + remStr + ")" +
-                                // "\";</script>");
-                                // mout.flush();
-                                // } catch (java.io.IOException e) {
-                                // System.err.println("Nudge: got IOException  "
-                                // + e.toString() + " after " + n);
-                                // throw new RuntimeException(e); // stop
-                                // processing
-                                // }
                             }
                         }
 

@@ -5,7 +5,7 @@
 <%
 if(ctx.field("x").equals(SurveyMain.xMAIN) || ctx.field("x").isEmpty()) {
 %>
-<script type='text/javascript'>
+<script>
 //console.log("dojo= " + dojo);
 //console.log("spp=" + showPossibleProblems);
 dojo.ready(function (){

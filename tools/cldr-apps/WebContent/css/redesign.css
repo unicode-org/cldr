@@ -239,13 +239,13 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	background:none;
 	text-align:left;
 }
-.data-vertical #statuscell {
-	display :inline-block;
-}
 
-.data-vertical #nocell {
-	padding-top: 9px;
-	padding-bottom: 3px;
+/* This affects the position of the Abstain button in Dashboard Fix.
+	The "!important" here is to prevent being overridden by the "padding:0"
+	style below with the complex "...:not..." selector. */
+.data-vertical .nocell {
+	padding-top: 9px !important;
+	padding-bottom: 3px !important;
 }
 
 .value-div .voteInfo_iconBar {
@@ -261,7 +261,7 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	padding:0;
 }
 
-.data-vertical #othercell .form-inline {
+.data-vertical .othercell .form-inline {
 	height :38px;
 }
 
@@ -276,7 +276,7 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	height: 35px;
 }
 
-#othercell .form-inline {
+.othercell .form-inline {
 	display:inline-block;
 }
 
@@ -376,12 +376,13 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	min-width:0px;
 }
 
-.data #statuscell {
+.data .statuscell {
 	background-position:center center;
 	display:table-cell;
 	left:0px;
 }
-#othercell hr {
+
+.othercell hr {
 	border-top:1px solid white;
 }
 .copyEnglish {
@@ -400,7 +401,7 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	right: 9px;
 }
 
-.data #comparisoncell {
+.data .comparisoncell {
 	cursor:pointer;
 }
 
@@ -672,7 +673,7 @@ div#additional-top div.beta span#betanotice  {
 	z-index:100;
 }
 
-.vetting-page #othercell hr {
+.vetting-page .othercell hr {
 	margin-top:2px;
 	margin-bottom:2px;
 }
@@ -1072,7 +1073,7 @@ fieldset[disabled] .btn-primary.active {
 	}
 }
 
-#popover-vote label, .fix-parent #othercell {
+#popover-vote label, .fix-parent .othercell {
 	direction:ltr;
 }
 

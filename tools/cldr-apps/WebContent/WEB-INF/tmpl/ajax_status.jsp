@@ -12,16 +12,16 @@
 <link href="<%= request.getContextPath() %>/css/redesign.css" rel="stylesheet">
 <%= VettingViewer.getHeaderStyles() %>
 
-<script type='text/javascript'>
+<script>
 dojoConfig = {
 		parseOnLoad: true,
 		};</script>
 <% // TODO: encapsulate dojo version in one place, cf. dojoheader.jspf  %>
-<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
-<script type='text/javascript'>
+<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+<script>
 require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContainer"]);
 </script>
-<script type="text/javascript">
+<script>
 // just things that must be JSP generated
 var surveyRunningStamp = '<%= SurveyMain.surveyRunningStamp.current() %>';
 var contextPath = '<%= request.getContextPath() %>';

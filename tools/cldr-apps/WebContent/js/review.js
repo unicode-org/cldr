@@ -1,4 +1,4 @@
-//review page 
+//review page, a.k.a. the Dashboard
 //bind the event only on the review page 
 function bindReviewEvents() {
     $('.help-comment').popover({placement: 'right'});//show the comment column
@@ -111,9 +111,9 @@ function showReviewPage(json, showFn) {
 					var subCatName = index;
 					$.each(element, function(index, element) {
 						if(index != 'null')
-							html += '<tr class="info"><td colspan="7"><b>'+catName+' - '+subCatName+'</b> : '+index+'</td></tr>';//blue banner
+							html += '<tr class="info"><td colspan="5"><b>'+catName+' - '+subCatName+'</b> : '+index+'</td></tr>';//blue banner
 						else
-							html += '<tr class="info"><td colspan="7"><b>'+catName+' - '+subCatName+'</b></td></tr>';//blue banner
+							html += '<tr class="info"><td colspan="5"><b>'+catName+' - '+subCatName+'</b></td></tr>';//blue banner
 						
 						$.each(element, function(index, element){
 							var oldElement;
@@ -136,12 +136,9 @@ function showReviewPage(json, showFn) {
 								html += '<button class="btn btn-default help-comment" data-html="true" data-toggle="popover" data-content="'+element.comment+'"><span class="glyphicon glyphicon-info-sign"></span></button>';
 							
 							html +=	'</td></tr>';
-							
-							//fix content tr
-							//html += '<tr class="fix-info" data-toggle="popover"><td colspan="7"><div class="fix-content well well-sm"></div></td></tr>';
 						});
 					});
-					html += '<tr class="empty"><td colspan="7"></td></tr>';
+					html += '<tr class="empty"><td colspan="5"></td></tr>';
 				});
 				
 			});
@@ -422,7 +419,7 @@ function checkLineFix() {
 			
 			
 			if(!found) {
-				var html = '<tr class="info">'+info.html()+'</tr>'+newLine.wrap('<div>').parent().html()+'<tr class="empty"><td colspan="7"></td></tr>';
+				var html = '<tr class="info">'+info.html()+'</tr>'+newLine.wrap('<div>').parent().html()+'<tr class="empty"><td colspan="5"></td></tr>';
 				var toInsert = $('div[data-type='+elementRaw+'] > table > tbody');
 				toInsert.prepend(html);
 			}
@@ -458,7 +455,7 @@ function refreshFixPanel(json) {
 
 	if($('.data-vertical .vote-help').length == 0) {
 		$('.data-vertical .vote-help').remove();
-		$('.data-vertical #comparisoncell .d-example').after($('.data-vote .vote-help'));
+		$('.data-vertical .comparisoncell .d-example').after($('.data-vote .vote-help'));
 		$('.vote-help').hide();
 	}
 	else 
@@ -676,33 +673,20 @@ function submitPost(event) {
 
 //insert the row fix in the popover
 function insertFixInfo(theDiv,xpath,session,json) {
-		var theTable = theDiv.theTable;
-		
 		removeAllChildNodes(theDiv);
 		window.insertLocaleSpecialNote(theDiv);
-			theTable = cloneLocalizeAnon(document.getElementById("proto-datafix"));
+		/*
+		 * Note: theTable isn't really a table, it's a div. It seems to have this name by analogy
+		 * with the table in the main non-Dashboard interface. Likewise, the name "tr" is used
+		 * below for elements that aren't really table rows.
+		 *
+		 * TODO: fix indentation in this file
+		 */
+		var theTable = cloneLocalizeAnon(document.getElementById("proto-datafix"));
 			theTable.className = 'data dashboard';
 			updateCoverage(theDiv);
-			localizeFlyover(theTable);
+			localizeFlyover(theTable); // Replace titles starting with $ with strings from stui
 			var toAdd = cloneLocalizeAnon(document.getElementById("proto-datarowfix"));  // loaded from "hidden.html", which see.
-			/*if(!surveyConfig)*/ {
-				var rowChildren = getTagChildren(toAdd);
-				theTable.config = surveyConfig ={};
-				for(var c in rowChildren) {
-					if(rowChildren[c].id) {
-						surveyConfig[rowChildren[c].id] = c;
-						stdebug("  config."+rowChildren[c].id+" = children["+c+"]");
-						if(false&&stdebug_enabled) {
-							removeAllChildNodes(rowChildren[c]);
-							rowChildren[c].appendChild(createChunk("config."+rowChildren[c].id+"="+c));
-						}
-						//rowChildren[c].id=null;
-					} else {
-						stdebug("(proto-datarow #"+c+" has no id");
-					}
-				}
-				if(stdebug_enabled) stdebug("Table Config: " + JSON.stringify(theTable.config));
-			}
 			theTable.toAdd = toAdd;
 			theTable.myTRs = [];
 			theDiv.theTable = theTable;
@@ -731,6 +715,10 @@ function insertFixInfo(theDiv,xpath,session,json) {
 		var k = theTable.json.displaySets[theTable.curSortMode].rows[0];
 		var theRow = theTable.json.section.rows[k];
 		removeAllChildNodes(tbody);
+		/*
+		 * Caution: in spite of the name here in the JavaScript, "tr" isn't a
+		 * table row, it's a div. Each element it contains is also a div, not a td.
+		 */
 		var tr = theTable.myTRs[k];
 		if(!tr) {
 			tr = cloneAnon(theTable.toAdd);
@@ -756,17 +744,25 @@ function insertFixInfo(theDiv,xpath,session,json) {
 
 //redesign the fix row
 function designFixPanel() {
-	//wrapRadios();
 
-	var nocell = $('.fix-parent #popover-vote .data-vertical #nocell');
+	var nocell = $('.fix-parent #popover-vote .data-vertical .nocell');
 	var idnocell = nocell.find('input').attr('id');
 	nocell.append('<span class="subSpan">Abstain</span>');	
 	
-	var statuscell = $('.fix-parent #popover-vote .data-vertical #statuscell');
-	var statusClass = statuscell.get(0).className;
-	statuscell.get(0).className = '';
-	
-	var comparisoncell = $('.fix-parent  #popover-vote .data-vertical #comparisoncell');
+	/*
+	 * statuscell itself is invisible in Dashboard Fix. Still, it plays an
+	 * essential role. Its className is set by updateRowStatusCell, and then
+	 * gives us statusClass here, which we append below, producing, for example,
+	 * a green checkmark for "d-dr-approved".
+	 */
+	var statuscell = $('.fix-parent #popover-vote .data-vertical .statuscell').get(0);
+	var statusClass = null;
+	if (statuscell) {
+		statusClass = statuscell.className;
+		statuscell.className = '';
+	}
+
+	var comparisoncell = $('.fix-parent #popover-vote .data-vertical .comparisoncell');
 	comparisoncell.find('.btn').remove();
 	if(!comparisoncell.find('.subSpan').length) {
 		comparisoncell.contents()
@@ -775,7 +771,6 @@ function designFixPanel() {
 		  })
 		  .wrap('<span class="subSpan"></span>');
 	}
-	
 	var exampleButton = $('<button title="Show examples" class="btn btn-default show-examples"><span class="glyphicon glyphicon-list"></span></button>');
 	comparisoncell.prepend(exampleButton);
 	exampleButton.tooltip();
@@ -787,19 +782,21 @@ function designFixPanel() {
 	}
 	
 	//add status of the winning item
-	$('.fix-parent #proposedcell .subSpan .winner').after('<div class="status-comparison '+statusClass+'"></div>');
-	
+	if (statusClass) {
+		$('.fix-parent .proposedcell .subSpan .winner').after('<div class="'+statusClass+'"></div>');
+	}
+
 	//replace default by success on the selected one
 	$('#popover-vote input[type="radio"]:checked').closest('.btn').removeClass('btn-default').addClass('btn-info');
 	
 	//add some help 
-	$('.fix-parent #nocell .subSpan').append('<div class="help-vote"></div>');
-	$('.fix-parent #comparisoncell .subSpan .help-vote').remove();
-	$('.fix-parent #comparisoncell .subSpan').append('<div class="help-vote">English source</div>');
-	$('.fix-parent #proposedcell .subSpan').append('<div class="help-vote">Winning translation</div>');
-	$('.fix-parent #othercell .form-inline').after('<span class="subSpan"><div class="help-vote">Add a translation</div></span>');
-	if($('.fix-parent #othercell .d-item').length)
-		$('.fix-parent #othercell hr').first().after('<span class="subSpan"><div class="help-vote">Other translation(s)</div></span>');
+	$('.fix-parent .nocell .subSpan').append('<div class="help-vote"></div>');
+	$('.fix-parent .comparisoncell .subSpan .help-vote').remove();
+	$('.fix-parent .comparisoncell .subSpan').append('<div class="help-vote">English source</div>');
+	$('.fix-parent .proposedcell .subSpan').append('<div class="help-vote">Winning translation</div>');
+	$('.fix-parent .othercell .form-inline').after('<span class="subSpan"><div class="help-vote">Add a translation</div></span>');
+	if($('.fix-parent .othercell .d-item').length)
+		$('.fix-parent .othercell hr').first().after('<span class="subSpan"><div class="help-vote">Other translation(s)</div></span>');
 	
 	//remove unnecessary header
 	$('#popover-vote .warnText').remove();
@@ -809,7 +806,7 @@ function designFixPanel() {
 	labelizeIcon();
 	
 	
-	$('.fix-parent #proposedcell').click();
+	$('.fix-parent .proposedcell').click();
 	$('.data .close').click(function() {$(this).closest('.popover').prev().popover('hide');$('.tip').tooltip('hide');});
 	
 	
@@ -837,19 +834,6 @@ function wrapRadio(button) {
 	//parent.appendChild(label);
 	$(label).tooltip();
 	return label;
-}
-
-function wrapRadios(line) {
-	var radios;
-	if(line) 
-		radios = $(line).find('.ichoice-o, .ichoice-x');
-	else
-		radios = $('.ichoice-o, .ichoice-x');
-	
-	radios = radios.filter(function() {return $(this).parent('.btn').length === 0;});
-	radios.wrap('<label class="btn btn-default" title="Vote"></label>');
-	radios.parent().parent().wrapInner('<div></div>');
-	radios.parent().tooltip();
 }
 
 //display an array of issues inline

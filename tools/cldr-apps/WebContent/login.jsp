@@ -30,7 +30,7 @@
 					<input type="submit" value="Login" />
 		 --%>
 		
-		<script type="text/javascript">
+		<script>
             <!--
              document.write("<button type=\"submit\"><b>Login</b></button>");
 //             var mydiv =  document.getElementById('login_button');
@@ -63,7 +63,7 @@
         </noscript>
 		
 		<!--  detect javascript. Not a problem, just figure out if we can rely on it or no. -->
-		<script type="text/javascript">
+		<script>
             <!--
              document.write("<input type='hidden' name='p_nojavascript' value='f'>");
             // -->

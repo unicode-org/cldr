@@ -111,9 +111,9 @@ public class VettingViewer<T> {
             "The English value has changed in CLDR, but the corresponding value for your language has not. Check if any changes are needed in your language.",
             6),
         /**
-         * The value changed from the last version of CLDR
+         * The value changed from the baseline
          */
-        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)", 7),
+        changedOldValue('C', "Changed", "The winning value was altered from the baseline value. (Informational)", 7),
         /**
          * Given the users' coverage, some items are missing.
          */
@@ -479,10 +479,9 @@ public class VettingViewer<T> {
      * @param localeId
      * @param user
      * @param usersLevel
-     * @param nonVettingPhase
      */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, boolean quick) {
+        Level usersLevel, boolean quick) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -501,7 +500,7 @@ public class VettingViewer<T> {
             }
         }
 
-        FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user,
+        FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user,
             usersLevel, quick);
 
         // now write the results out
@@ -522,14 +521,14 @@ public class VettingViewer<T> {
      * Called only by writeVettingViewerOutput
      */
     public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, boolean quick, CLDRFile sourceFile, CLDRFile baselineFile) {
+        Level usersLevel, boolean quick, CLDRFile sourceFile, CLDRFile baselineFile) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
         Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
             new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
 
-        new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user,
+        new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user,
             usersLevel, quick);
 
         // now write the results out
@@ -551,16 +550,30 @@ public class VettingViewer<T> {
 
         private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile baselineFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
-            EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
+            EnumSet<Choice> choices, String localeID,
             T user, Level usersLevel, boolean quick) {
             return this.getFileInfo(sourceFile, baselineFile, sorted,
-                choices, localeID, nonVettingPhase,
+                choices, localeID,
                 user, usersLevel, quick, null);
         }
 
+        /**
+         * Loop through paths for the Dashboard
+         *
+         * @param sourceFile
+         * @param baselineFile
+         * @param sorted
+         * @param choices
+         * @param localeID
+         * @param user
+         * @param usersLevel
+         * @param quick
+         * @param xpath
+         * @return
+         */
         private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile baselineFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
-            EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
+            EnumSet<Choice> choices, String localeID,
             T user, Level usersLevel, boolean quick, String xpath) {
 
             errorChecker.initErrorStatus(sourceFile);
@@ -860,7 +873,7 @@ public class VettingViewer<T> {
             if (organization != null) {
                 level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
             }
-            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, null, choices, localeID, true, organization, level, false);
+            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, null, choices, localeID, organization, level, false);
             localeNameToFileInfo.put(name, fileInfo);
             totals.addAll(fileInfo);
 
@@ -1426,7 +1439,7 @@ public class VettingViewer<T> {
         } catch (Exception e) {
         }
 
-        EnumSet<Choice> errors = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user, usersLevel,
+        EnumSet<Choice> errors = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user, usersLevel,
             false, path).problems;
 
         ArrayList<String> out = new ArrayList<String>();
@@ -1739,7 +1752,7 @@ public class VettingViewer<T> {
 
         switch (newCode) {
         case newCode:
-            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, SHOW_ALL, false);
+            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, false);
             break;
             // case oldCode:
             // tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);

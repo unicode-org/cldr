@@ -47,8 +47,6 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.DurationFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -161,8 +159,6 @@ public class VettingViewerQueue {
         public Map<Pair<CLDRLocale, Organization>, VVOutput> output = new TreeMap<Pair<CLDRLocale, Organization>, VVOutput>();
     }
 
-//    public static QueueEntry summaryEntry = null;
-
     private static final Object OnlyOneVetter = new Object() {
     }; // TODO: remove.
 
@@ -229,8 +225,8 @@ public class VettingViewerQueue {
             this.st_org = st_org;
             this.entry = entry;
             this.sm = sm;
-            this.usersLevel = usersLevel; // Level.get(ctx.getEffectiveCoverageLevel());
-            this.usersOrg = usersOrg; // VoteResolver.Organization.fromString(ctx.session.user.voterOrg());
+            this.usersLevel = usersLevel;
+            this.usersOrg = usersOrg;
         }
 
         /**
@@ -297,26 +293,11 @@ public class VettingViewerQueue {
 
                             if ((now - last) > 1200) {
                                 last = now;
-                                // StringBuffer bar =
-                                // SurveyProgressManager.appendProgressBar(new
-                                // StringBuffer(),n,ourmax);
-                                // String remStr="";
                                 if (n > 500) {
                                     progress.update(n, setRemStr(now));
                                 } else {
                                     progress.update(n);
                                 }
-                                // try {
-                                // mout.println("<script type=\"text/javascript\">document.getElementById('LoadingBar').innerHTML=\""+bar+
-                                // " ("+n+" items loaded" + remStr + ")" +
-                                // "\";</script>");
-                                // mout.flush();
-                                // } catch (java.io.IOException e) {
-                                // System.err.println("Nudge: got IOException  "
-                                // + e.toString() + " after " + n);
-                                // throw new RuntimeException(e); // stop
-                                // processing
-                                // }
                             }
                         }
 
@@ -335,7 +316,7 @@ public class VettingViewerQueue {
                     }
 
                     if (!isSummary(locale)) {
-                        vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, false);
+                        vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, false);
                     } else {
                         if (DEBUG)
                             System.err.println("Starting summary gen..");
@@ -629,13 +610,6 @@ public class VettingViewerQueue {
             reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
             reviewInfo.put("direction", ctx.getDirectionForLocale());
 
-            /*
-             * Add a time stamp to the json for debugging. This is probably temporary.
-             * There's a bug we're unable to reproduce anywhere other than the production server.
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-13124
-             */
-            reviewInfo.put("debugTimeStamp", new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime()).toString());
-
             output.append(reviewInfo.toString());
         } catch (JSONException | IOException e) {
             e.printStackTrace();
@@ -695,14 +669,15 @@ public class VettingViewerQueue {
                 Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
                 CLDRFile baselineFile = baselineFactory.make(loc, true);
                 Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
-                file = vv.generateFileInfoReview(aBuffer, choiceSet, loc, usersOrg, usersLevel, true, quick, sourceFile, quick ? null : baselineFile);
+                file = vv.generateFileInfoReview(aBuffer, choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
                 this.getJSONReview(aBuffer, sourceFile, baselineFile, file, choiceSet, loc, true, quick, ctx);
             } else {
                 /*
                  * TODO: if this is not dead code (i.e., if r_vetting.jsp is still used), could pass
                  * sourceFile and baselineFile to generateHtmlErrorTables rather than recreating in that function.
+                 * This really appears to be dead code!
                  */
-                vv.generateHtmlErrorTables(aBuffer, choiceSet, loc, usersOrg, usersLevel, true, quick);
+                vv.generateHtmlErrorTables(aBuffer, choiceSet, loc, usersOrg, usersLevel, quick);
             }
         } else {
             if (DEBUG) {
@@ -867,14 +842,6 @@ public class VettingViewerQueue {
         }
         return entry;
     }
-
-//    private synchronized QueueEntry getSummaryEntry() {
-//        QueueEntry entry = summaryEntry;
-//        if (summaryEntry == null) {
-//            entry = summaryEntry = new QueueEntry();
-//        }
-//        return entry;
-//    }
 
     LruMap<CLDRLocale, BallotBox<UserRegistry.User>> ballotBoxes = new LruMap<CLDRLocale, BallotBox<User>>(8);
 

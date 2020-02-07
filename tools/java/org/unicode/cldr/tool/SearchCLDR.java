@@ -130,16 +130,22 @@ public class SearchCLDR {
         showPath = myOptions.get("z-showPath").doesOccur();
         organization = myOptions.get("organization").getValue();
 
+        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
         if (myOptions.get("PathHeader").doesOccur()) {
-            PATH_HEADER_FACTORY = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
+            PATH_HEADER_FACTORY = PathHeader.getFactory(english);
         }
 
         boolean showParent = myOptions.get("q-showParent").doesOccur();
 
         boolean showEnglish = myOptions.get("english").doesOccur();
 
-        Factory cldrFactory = Factory.make(sourceDirectory, fileMatcher);
+        File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY),
+            new File(sourceDirectory) };
+
+        Factory cldrFactory = SimpleFactory.make(paths, fileMatcher); 
+
         Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
 
         String rawVersion = myOptions.get("diff").getValue();
@@ -151,7 +157,6 @@ public class SearchCLDR {
             cldrDiffFactory = SimpleFactory.make(files, ".*");
         }
 
-        CLDRFile english = cldrFactory.make("en", true);
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
         String errorMatcherText = myOptions.get("Error").getValue();
@@ -326,7 +331,7 @@ public class SearchCLDR {
                     : file.getSourceLocaleID(path, status)
                     + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
                 if (checkCldr != null) {
-                    SearchXml.show(ConfigOption.delete, locale, fullPath, value, null, null, null);
+                    SearchXml.show(ConfigOption.delete, locale, file.getDistinguishingXPath(fullPath, null), value, null, null, null);
                 } else {
                     showLine(showPath, showParent, showEnglish, resolved, locale,
                         path, fullPath, value,

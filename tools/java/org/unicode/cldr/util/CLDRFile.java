@@ -3645,7 +3645,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @param xpath the given path, such as //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
      * @return the constructed value, or null if this path doesn't have constructed values
      */
-    private String getConstructedValue(String xpath) {
+    public String getConstructedValue(String xpath) {
         if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
             XPathParts parts = XPathParts.getFrozenInstance(xpath);
             String type = parts.getAttributeValue(-1, "type");

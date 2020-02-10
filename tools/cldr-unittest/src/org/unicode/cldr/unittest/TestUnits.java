@@ -1,33 +1,80 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.MapComparator;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.Continuation;
+import org.unicode.cldr.util.UnitConverter.TargetInfo;
+import org.unicode.cldr.util.UnitConverter.UnitId;
+import org.unicode.cldr.util.UnitConverter.UnitInfo;
 import org.unicode.cldr.util.Units;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
-    CLDRConfig info = CLDRConfig.getInstance();
+    private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false);
+
+    private static final CLDRConfig info = CLDRConfig.getInstance();
+    private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
+
+    static final UnitConverter converter = SDI.getUnitConverter();
+    static final Splitter SPACE_SPLITTER = Splitter.on(Pattern.compile("\\s;\\s")).trimResults();
+    static final Rational R1000 = Rational.of(1000);
 
     public static void main(String[] args) {
         new TestUnits().run(args);
     }
+
+    private Map<String, String> BASE_UNIT_TO_QUANTITY = converter.getBaseUnitToQuantity();
 
     public void TestSpaceInNarrowUnits() {
         final CLDRFile english = CLDRConfig.getInstance().getEnglish();
@@ -153,7 +200,7 @@ public class TestUnits extends TestFmwk {
         for (String locale : localesToTest) {
             CLDRFile file = factory.make(locale, true);
             //ExampleGenerator exampleGenerator = getExampleGenerator(locale);
-            PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(PluralType.cardinal, locale);
+            PluralInfo pluralInfo = SDI.getPlurals(PluralType.cardinal, locale);
             final boolean isEnglish = locale.contentEquals("en");
             int errMsg = isEnglish ? ERR : WARN;
 
@@ -269,5 +316,598 @@ public class TestUnits extends TestFmwk {
             msg(title + ", expected «" + sqmeterPattern + "», got «" + conSqmeterPattern + "»", LOG, true, true);
         }
         return true;
+    }
+
+    static final boolean DEBUG = false;
+
+    public void TestConversion() {
+        UnitConverter converter = SDI.getUnitConverter();
+        Object[][] tests = {
+            {"foot", 12, "inch"},
+            {"gallon", 4, "quart"},
+            {"gallon", 16, "cup"},
+        };
+        for (Object[] test : tests) {
+            String sourceUnit = test[0].toString();
+            String targetUnit = test[2].toString();
+            int numerator = (Integer) test[1];
+            final Rational convert = converter.convert(Rational.ONE, sourceUnit, targetUnit);
+            assertEquals(sourceUnit + " to " + targetUnit, Rational.of(numerator, 1), convert);
+        }
+
+        // test conversions are disjoint
+        Set<String> gotAlready = new HashSet<>();
+        List<Set<String>> equivClasses = new ArrayList<>();
+        Map<String,String> classToId = new TreeMap<>();
+        for (String unit : converter.canConvert()) {
+            if (gotAlready.contains(unit)) {
+                continue;
+            }
+            Set<String> set = converter.canConvertBetween(unit);
+            final String id = "ID" + equivClasses.size();
+            equivClasses.add(set);
+            gotAlready.addAll(set);
+            for (String s : set) {
+                classToId.put(s, id);
+            }
+        }
+
+        // check not overlapping
+        // now handled by TestParseUnit, but we might revive a modified version of this.
+//        for (int i = 0; i < equivClasses.size(); ++i) {
+//            Set<String> eclass1 = equivClasses.get(i);
+//            for (int j = i+1; j < equivClasses.size(); ++j) {
+//                Set<String> eclass2 = equivClasses.get(j);
+//                if (!Collections.disjoint(eclass1, eclass2)) {
+//                    errln("Overlapping equivalence classes: " + eclass1 + " ~ " + eclass2 + "\n\tProbably bad chain requiring 3 steps.");
+//                }
+//            }
+//
+//            // check that all elements of an equivalence class have the same type
+//            Multimap<String,String> breakdown = TreeMultimap.create();
+//            for (String item : eclass1) {
+//                String type = CORE_TO_TYPE.get(item);
+//                if (type == null) {
+//                    type = "?";
+//                }
+//                breakdown.put(type, item);
+//            }
+//            if (DEBUG) System.out.println("type to item: " + breakdown);
+//            if (breakdown.keySet().size() != 1) {
+//                errln("mixed categories: " + breakdown);
+//            }
+//
+//        }
+//
+//        // check that all units with the same type have the same equivalence class
+//        for (Entry<String, Collection<String>> entry : TYPE_TO_CORE.asMap().entrySet()) {
+//            Multimap<String,String> breakdown = TreeMultimap.create();
+//            for (String item : entry.getValue()) {
+//                String id = classToId.get(item);
+//                if (id == null) {
+//                    continue;
+//                }
+//                breakdown.put(id, item);
+//            }
+//            if (DEBUG) System.out.println(entry.getKey() + " id to item: " + breakdown);
+//            if (breakdown.keySet().size() != 1) {
+//                errln(entry.getKey() + " mixed categories: " + breakdown);
+//            }
+//        }
+    }
+
+    public void TestBaseUnits() {
+        Splitter barSplitter = Splitter.on('-');
+        for (String unit : converter.baseUnits()) {
+            for (String piece : barSplitter.split(unit)) {
+                assertTrue(unit + ": " + piece + " in " + UnitConverter.BASE_UNIT_PARTS, UnitConverter.BASE_UNIT_PARTS.contains(piece));
+            }
+        }
+    }
+
+    public void TestUnitId() {
+
+        for (String simple : converter.getSimpleUnits()) {
+            String canonicalUnit = converter.getBaseUnit(simple);
+            UnitId unitId = converter.createUnitId(canonicalUnit);
+            String output = unitId.toString();
+            if (!assertEquals(simple + ": targets should be in canonical form", 
+                output, canonicalUnit)) {
+                // for debugging
+                converter.createUnitId(canonicalUnit);
+                unitId.toString();
+            }
+        }
+        for (Entry<String, String> baseUnitToQuantity : BASE_UNIT_TO_QUANTITY.entrySet()) {
+            String baseUnit = baseUnitToQuantity.getKey();
+            String quantity = baseUnitToQuantity.getValue();
+            try {
+                UnitId unitId = converter.createUnitId(baseUnit);
+                String output = unitId.toString();
+                if (!assertEquals(quantity + ": targets should be in canonical form", 
+                    output, baseUnit)) {
+                    // for debugging
+                    converter.createUnitId(baseUnit);
+                    unitId.toString();
+                }
+            } catch (Exception e) {
+                errln("Can't convert baseUnit: " + baseUnit);
+            }
+        }
+
+        for (String baseUnit : CORE_TO_TYPE.keySet()) {
+            try {
+                UnitId unitId = converter.createUnitId(baseUnit);
+                assertNotNull("Can't parse baseUnit: " + baseUnit, unitId);
+            } catch (Exception e) {
+                UnitId unitId = converter.createUnitId(baseUnit); // for debugging
+                errln("Can't parse baseUnit: " + baseUnit);
+            }
+        }
+
+    }
+
+    public void TestParseUnit() {
+        Output<String> compoundBaseUnit = new Output<>();
+        String[][] tests = {
+            {"kilometer-pound-per-hour", "kilogram-meter-per-second", "45359237/360000000"},
+            {"kilometer-per-hour", "meter-per-second", "5/18"},
+        };
+        for (String[] test : tests) {
+            String source = test[0];
+            String expectedUnit = test[1];
+            Rational expectedRational = new Rational.RationalParser().parse(test[2]);
+            UnitInfo unitInfo = converter.parseUnitId(source, compoundBaseUnit);
+            assertEquals(source, expectedUnit, compoundBaseUnit.value);
+            assertEquals(source, expectedRational, unitInfo.factor);
+        }
+
+        // check all 
+        System.out.println();
+        Set<String> badUnits = new LinkedHashSet<>();
+        Set<String> noQuantity = new LinkedHashSet<>();
+        Multimap<Pair<String,Double>, String> testPrintout = TreeMultimap.create();
+
+        // checkUnitConvertability(converter, compoundBaseUnit, badUnits, "pint-metric-per-second");
+
+        for (Entry<String, String> entry : TYPE_TO_CORE.entries()) {
+            String type = entry.getKey();
+            String unit = entry.getValue();
+            if (NOT_CONVERTABLE.contains(unit)) {
+                continue;
+            }
+            checkUnitConvertability(converter, compoundBaseUnit, badUnits, noQuantity, type, unit, testPrintout);
+        }
+        assertEquals("Unconvertable units", Collections.emptySet(), badUnits);
+        assertEquals("Units without Quantity", Collections.emptySet(), noQuantity);
+        if (SHOW_DATA) { // test data
+            System.out.println(
+                "# Test data for unit conversions\n" 
+                    + "# Format:\n"
+                    + "#\tQuantity\t;\tx\t;\ty\t;\tconversion to y (rational)\t;\ttest: 1000 x ⟹ y\n"
+                    + "#\n"
+                    + "# Use: convert 1000 x units to the y unit; the result should match the final column,\n"
+                    + "#   at the given precision. For example, when the last column is 159.1549,\n"
+                    + "#   round to 4 decimal digits before comparing.\n"
+                    + "# Note that certain conversions are approximate, such as degrees to radians\n"
+                    + "#\n"
+                    + "# Generation: Set SHOW_DATA in TestUnits.java, and look at TestParseUnit results.\n"
+                );
+            for (Entry<Pair<String, Double>, String> entry : testPrintout.entries()) {
+                System.out.println(entry.getValue());
+            }
+        }
+    }
+
+    static final Set<String> NOT_CONVERTABLE = ImmutableSet.of("generic");
+
+    private void checkUnitConvertability(UnitConverter converter, Output<String> compoundBaseUnit, 
+        Set<String> badUnits, Set<String> noQuantity, String type, String unit, 
+        Multimap<Pair<String, Double>, String> testPrintout) {
+
+        Map<String, String> toQuantity = converter.getBaseUnitToQuantity();
+
+        if (unit.equals("liter-per-100kilometers")) {
+            int debug = 0;
+        }
+        if (converter.isBaseUnit(unit)) {
+            String quantity = toQuantity.get(unit);
+            if (quantity == null) {
+                noQuantity.add(unit);
+            }
+            if (SHOW_DATA) {
+                testPrintout.put(
+                    new Pair<>(quantity, 1000d),
+                    quantity
+                    + "\t;\t" + unit
+                    + "\t;\t" + unit
+                    + "\t;\t1 * x\t;\t1,000.00");
+            }
+        } else {
+            UnitInfo unitInfo = converter.getUnitInfo(unit, compoundBaseUnit);
+            if (unitInfo == null) {
+                unitInfo = converter.parseUnitId(unit, compoundBaseUnit);
+            }
+            if (unitInfo == null) {
+                badUnits.add(unit);
+            } else if (SHOW_DATA){
+                String quantity = getQuantity(compoundBaseUnit, toQuantity);
+                if (quantity == null) {
+                    noQuantity.add(compoundBaseUnit.value);
+                }
+                final double testValue = unitInfo.convert(R1000).toBigDecimal(MathContext.DECIMAL32).doubleValue();
+                testPrintout.put(
+                    new Pair<>(quantity, testValue),
+                    quantity
+                    + "\t;\t" + unit
+                    + "\t;\t" + compoundBaseUnit
+                    + "\t;\t" + unitInfo
+                    + "\t;\t" + testValue
+//                    + "\t" + unitInfo.factor.toBigDecimal(MathContext.DECIMAL32)
+//                    + "\t" + unitInfo.factor.reciprocal().toBigDecimal(MathContext.DECIMAL32)
+                    );
+            }
+        }
+    }
+
+    private String getQuantity(Output<String> compoundBaseUnit, Map<String, String> toQuantity) {
+        String result = toQuantity.get(compoundBaseUnit.value);
+        if (result != null) {
+            return result;
+        }
+        UnitId unitId = converter.createUnitId(compoundBaseUnit.value);
+        UnitId resolved = unitId.resolve();
+        if (unitId.equals(resolved)) {
+            return null;
+        }
+        return toQuantity.get(resolved.toString());
+    }
+
+    public void TestRational() {
+        Rational a3_5 = Rational.of(3,5);
+
+        Rational a6_10 = Rational.of(6,10);
+        assertEquals("", a3_5, a6_10);
+
+        Rational a5_3 = Rational.of(5,3);
+        assertEquals("", a3_5, a5_3.reciprocal());
+
+        assertEquals("", Rational.ONE, a3_5.multiply(a3_5.reciprocal()));
+        assertEquals("", Rational.ZERO, a3_5.add(a3_5.negate()));
+
+        assertEquals("", Rational.INFINITY, Rational.ZERO.reciprocal());
+        assertEquals("", Rational.NEGATIVE_INFINITY, Rational.INFINITY.negate());
+        assertEquals("", Rational.NEGATIVE_ONE, Rational.ONE.negate());
+
+        assertEquals("", Rational.NaN, Rational.ZERO.divide(Rational.ZERO));
+
+        assertEquals("", BigDecimal.valueOf(2), Rational.of(2,1).toBigDecimal());
+        assertEquals("", BigDecimal.valueOf(0.5), Rational.of(1,2).toBigDecimal());
+
+        assertEquals("", BigDecimal.valueOf(100), Rational.of(100,1).toBigDecimal());
+        assertEquals("", BigDecimal.valueOf(0.01), Rational.of(1,100).toBigDecimal());
+
+        assertEquals("", Rational.of(12370,1), Rational.of(BigDecimal.valueOf(12370)));
+        assertEquals("", Rational.of(1237,10), Rational.of(BigDecimal.valueOf(1237.0/10)));
+        assertEquals("", Rational.of(1237,10000), Rational.of(BigDecimal.valueOf(1237.0/10000)));
+        
+        UnitInfo uinfo = new UnitInfo(Rational.of(2), Rational.of(3), false);
+        assertEquals("", Rational.of(3), uinfo.convert(Rational.ZERO));
+        assertEquals("", Rational.of(7), uinfo.convert(Rational.of(2)));
+    }
+
+    public void TestRationalParse() {
+        Rational.RationalParser parser = SDI.getRationalParser();
+
+        Rational a3_5 = Rational.of(3,5);
+
+        assertEquals("", a3_5, parser.parse("6/10"));
+
+        assertEquals("", a3_5, parser.parse("0.06/0.10"));
+
+        assertEquals("", Rational.of(381, 1250), parser.parse("ft-to-m"));
+        assertEquals("", 6.02214076E+23d, parser.parse("6.02214076E+23").toBigDecimal().doubleValue());
+        Rational temp = parser.parse("gal-to-m3");
+        //System.out.println(" " + temp);
+        assertEquals("", 0.003785411784, temp.numerator.doubleValue()/temp.denominator.doubleValue());
+    }
+
+
+    static final Map<String,String> CORE_TO_TYPE;
+    static final Multimap<String,String> TYPE_TO_CORE;
+    static final Set<String> VALID_UNITS;
+    static {
+        VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
+
+        Map<String, String> coreToType = new TreeMap<>();
+        TreeMultimap<String, String> typeToCore = TreeMultimap.create();
+        for (String s : VALID_UNITS) {
+            int dashPos = s.indexOf('-');
+            String unitType = s.substring(0,dashPos);
+            String coreUnit = s.substring(dashPos+1);
+            coreToType.put(coreUnit, unitType);
+            typeToCore.put(unitType, coreUnit);
+        }
+        CORE_TO_TYPE = ImmutableMap.copyOf(coreToType);
+        TYPE_TO_CORE = ImmutableMultimap.copyOf(typeToCore);
+    }
+
+    public void oldTestUnitCategory() {
+        Matcher prefixes = Pattern.compile(
+            "yotta|zetta|exa|peta|tera|giga|mega|kilo|hecto|deka|deci|centi|milli|micro|nano|pico|femto|atto|zepto|yocto")
+            .matcher("");
+        final ImmutableSet<String> operators = ImmutableSet.of("square", "squared", "cubic", "cubed", "per");
+
+        Matcher prefixesAndOperators = Pattern.compile(
+            "-?(yotta|zetta|exa|peta|tera|giga|mega|kilo|hecto|deka|deci|centi|milli|micro|nano|pico|femto|atto|zepto|yocto)"
+                + "|square-|-squared|cubic-|-cubed|per-").matcher("");
+        Map<Status, Set<String>> statusToCodes = Validity.getInstance().getStatusToCodes(LstrType.unit);
+
+        Map<String,String> unitToType = new TreeMap<>();
+        TreeMultimap<String, String> typeToCore = TreeMultimap.create();
+        Set<String> regular = statusToCodes.get(Status.regular);
+        for (String s : regular) {
+            int dashPos = s.indexOf('-');
+            String unitType = s.substring(0,dashPos);
+            String coreUnit = s.substring(dashPos+1);
+            typeToCore.put(unitType, coreUnit);
+
+            // break down units
+            if (prefixesAndOperators.reset(coreUnit).find()) {
+                unitToType.put(coreUnit, "composed");
+//            } else if (coreUnit.contains("-")) {
+//                unitToType.put(coreUnit, "simpleHyphen");
+            } else {
+                unitToType.put(coreUnit, "simple");
+            }
+        }
+        System.out.println();
+        Set<String> oddities = new TreeSet<>();
+        for (Entry<String, String> entry : typeToCore.entries()) {
+            final String coreUnit = entry.getValue();
+            final String unitType = entry.getKey();
+            final String type2 = unitToType.get(coreUnit);
+            System.out.println(
+                unitType 
+                + "\t " + coreUnit
+                + "\t" + type2);
+            String[] parts = coreUnit.split("-");
+
+            if ("composed".equals(type2)) {
+                for (String part : parts) {
+                    if (prefixes.reset(part).lookingAt()) {
+                        continue;
+                    }
+                    if (operators.contains(part)) {
+                        continue;
+                    }
+                    if ("simple".equals(unitToType.get(part))) {
+                        continue;
+                    }
+                    oddities.add(part);
+                }
+            }
+        }
+        System.out.println("oddities: " + oddities);
+
+        Set<String> canConvert = new TreeSet<>(converter.canConvert());
+        Set<String> cores = new TreeSet<>(typeToCore.values());
+
+        cores.removeAll(canConvert);
+        cores.removeAll(converter.baseUnits());
+        assertEquals("Units we can't convert", Collections.EMPTY_SET, cores);
+        canConvert.removeAll(typeToCore.values());
+        assertEquals("Conversions for invalid units", Collections.EMPTY_SET, canConvert);
+    }
+
+    public void TestQuantities() {
+        // put quantities in order
+        Multimap<String,String> quantityToBaseUnits = LinkedHashMultimap.create();
+
+        Multimaps.invertFrom(Multimaps.forMap(BASE_UNIT_TO_QUANTITY), quantityToBaseUnits);
+        for ( Entry<String, Collection<String>> entry : quantityToBaseUnits.asMap().entrySet()) {
+            assertEquals(entry.toString(), 1, entry.getValue().size());
+        }
+
+        Map<String, String> baseToQuantity = BASE_UNIT_TO_QUANTITY;
+        TreeMultimap<String, String> quantityToConvertible = TreeMultimap.create();
+        Set<String> missing = new TreeSet<>(CORE_TO_TYPE.keySet());
+        missing.removeAll(NOT_CONVERTABLE);
+
+        for (Entry<String, String> entry : baseToQuantity.entrySet()) {
+            String baseUnit = entry.getKey();
+            String quantity = entry.getValue();
+            Set<String> convertible = converter.canConvertBetween(baseUnit);
+            missing.removeAll(convertible);
+            quantityToConvertible.putAll(quantity, convertible);
+        }
+
+        // handle missing
+        Output<String> metricUnit = new Output<>();
+        for (String missingUnit : ImmutableSet.copyOf(missing)) {
+            if (missingUnit.equals("fluid-ounce-imperial")) {
+                int debug = 0;
+            }
+            converter.parseUnitId(missingUnit, metricUnit);
+            String quantity = baseToQuantity.get(metricUnit.value);
+            if (quantity == null) {
+                UnitId resolved = converter.createUnitId(metricUnit.value).resolve();
+                quantity = baseToQuantity.get(resolved.toString());
+            }
+            if (quantity != null) {
+                quantityToConvertible.put(quantity, missingUnit);
+                missing.remove(missingUnit);
+            } else {
+                int debug = 0;
+            }
+        }
+        assertEquals("all units have quantity", Collections.emptySet(), missing);
+
+        if (SHOW_DATA) {
+            System.out.println();
+            for (Entry<String, String> entry : BASE_UNIT_TO_QUANTITY.entrySet()) {
+                String baseUnit = entry.getKey();
+                String quantity = entry.getValue();
+                System.out.println("        <unitQuantity"
+                    + " baseUnit='" + baseUnit + "'"
+                    + " quantity='" + quantity + "'"
+                    + "/>");
+            }
+            System.out.println();
+            System.out.println("Quantities");
+            for (Entry<String, Collection<String>> entry : quantityToConvertible.asMap().entrySet()) {
+                String quantity = entry.getKey();
+                Collection<String> convertible = entry.getValue();
+                System.out.println(quantity + "\t" + convertible);
+            }
+        }
+    }
+
+    public void TestOrder() {
+        System.out.println();
+        for (String s : UnitConverter.BASE_UNITS) {
+            String quantity = BASE_UNIT_TO_QUANTITY.get(s);
+            System.out.println("\"" + quantity + "\",");
+        }
+        for (String unit : CORE_TO_TYPE.keySet()) {
+            Output<String> baseUnit = new Output<>();
+            UnitInfo unitInfo = converter.getUnitInfo(unit, baseUnit);
+            String quantity = BASE_UNIT_TO_QUANTITY.get(baseUnit.value);
+        }
+    }
+
+    public void TestConversionLineOrder() {
+        Map<String, TargetInfo> data = converter.getInternalConversionData();
+        Multimap<TargetInfo, String> sorted = TreeMultimap.create(converter.targetInfoComparator, 
+            Comparator.naturalOrder());
+        Multimaps.invertFrom(Multimaps.forMap(data), sorted);
+
+        String lastBase = "";
+
+        // Test that sorted is in same order as the file.
+        MapComparator<String> conversionOrder = new MapComparator<>(data.keySet());
+        String lastUnit = null;
+        for (Entry<TargetInfo, String> entry : sorted.entries()) {
+            final TargetInfo tInfo = entry.getKey();
+            final String unit = entry.getValue();
+            if (lastUnit != null) {
+                assertTrue(lastUnit + " < " + unit, conversionOrder.compare(lastUnit, unit) < 0);
+            }
+            lastUnit = unit;
+            if (SHOW_DATA) {
+                if (!lastBase.equals(tInfo.target)) {
+                    lastBase = tInfo.target;
+                    System.out.println("\n      <!-- " + converter.getBaseUnitToQuantity().get(lastBase) + " -->");
+                }
+                //  <convertUnit source='week-person' target='second' factor='604800'/>
+                System.out.println("        " + tInfo.formatOriginalSource(entry.getValue()));
+            }
+        }
+    }
+
+    public final void TestSimplify() {
+        checkFactorForPowerOfTen(100, 1);
+        checkFactorForPowerOfTen(2, 5);
+        checkFactorForPowerOfTen(4, 25);
+        checkFactorForPowerOfTen(5, 2);
+        checkFactorForPowerOfTen(25, 4);
+        checkFactorForPowerOfTen(3, null);
+        checkFactorForPowerOfTen(1, 1);
+        checkFactorForPowerOfTen(0, null);
+    }
+
+    private void checkFactorForPowerOfTen(int source, Integer expected) {
+        assertEquals(source+"", 
+            expected == null ? null : BigInteger.valueOf(expected), 
+                Rational.factorForPowerOfTen(BigInteger.valueOf(source)));
+    }
+
+    public void TestContinuationOrder() {
+        Continuation fluid = new Continuation(Arrays.asList("fluid"), "fluid-ounce");
+        Continuation fluid_imperial = new Continuation(Arrays.asList("fluid", "imperial"), "fluid-ounce-imperial");
+        final int fvfl = fluid.compareTo(fluid_imperial);
+        assertTrue(fluid + " vs " + fluid_imperial, fvfl > 0);
+        assertTrue(fluid_imperial + " vs " + fluid, fluid_imperial.compareTo(fluid) < 0);
+    }
+
+    static final Pattern usSystemPattern = Pattern.compile("\\b(lb-to-kg|ft-to-m|ft2-to-m2|ft3-to-m3|in3-to-m3|gal-to-m3|cup-to-m3)\\b");
+    static final Pattern ukSystemPattern = Pattern.compile("\\b(lb-to-kg|ft-to-m|ft2-to-m2|ft3-to-m3|in3-to-m3|gal-imp-to-m3)\\b");
+
+    static final Set<String> OK_BOTH = ImmutableSet.of(
+        "ounce-troy", "nautical-mile", "fahrenheit", "inch-hg", 
+        "british-thermal-unit", "foodcalorie", "knot");
+
+    static final Set<String> OK_US = ImmutableSet.of(
+        "therm-us", "bushel");
+    static final Set<String> NOT_US = ImmutableSet.of(
+        "stone");
+
+    static final Set<String> OK_UK = ImmutableSet.of();
+    static final Set<String> NOT_UK = ImmutableSet.of(
+        "therm-us", "bushel", "barrel");
+
+    public void TestSystems() {
+        Multimap<String, String> toSystems = converter.getSourceToSystems();
+
+        Map<String, TargetInfo> data = converter.getInternalConversionData();
+        for (Entry<String, TargetInfo> entry : data.entrySet()) {
+            String unit = entry.getKey();
+            TargetInfo value = entry.getValue();
+            String inputFactor = value.inputParameters.get("factor");
+            if (inputFactor == null) {
+                inputFactor = "";
+            }
+            boolean usSystem = !NOT_US.contains(unit) && 
+                (OK_BOTH.contains(unit)
+                    || OK_US.contains(unit) 
+                    || usSystemPattern.matcher(inputFactor).find());
+
+            boolean ukSystem = !NOT_UK.contains(unit) && 
+                (OK_BOTH.contains(unit)
+                    || OK_UK.contains(unit) 
+                    || ukSystemPattern.matcher(inputFactor).find());
+
+            Collection<String> systems = toSystems.get(unit);
+            if (systems == null) {
+                systems = Collections.emptySet();
+            }
+            if (!assertEquals(unit + ": US? (" + inputFactor + ")", usSystem, systems.contains("US"))) {
+                int debug = 0;
+            }
+            if (!assertEquals(unit + ": UK? (" + inputFactor + ")", ukSystem, systems.contains("UK"))) {
+                int debug = 0;
+            }
+        }
+    }
+    
+    public void TestTestFile() {
+        File base = info.getCldrBaseDirectory();
+        File testFile = new File(base, "common/testData/units/unitsTest.txt");
+        Output<String> metricUnit = new Output<>();
+        Stream<String> lines;
+        try {
+            lines = Files.lines(testFile.toPath()); 
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException("Couldn't process " + testFile);
+        }
+        lines.forEach(line -> {
+            // angle   ;   arc-second  ;   revolution  ;   1 / 1296000 * x ;   7.716049E-4
+            line = line.trim();
+            if (line.isEmpty() || line.charAt(0) == '#') {
+                return;
+            }
+            List<String> fields = SPACE_SPLITTER.splitToList(line);
+            UnitInfo unitInfo = converter.parseUnitId(fields.get(1), metricUnit);
+            double expected;
+            try {
+                expected = Double.parseDouble(fields.get(4).replace(",", ""));
+            } catch (NumberFormatException e) {
+                errln("Can't parse double in: " + line);
+                return;
+            }
+            double actual = unitInfo.convert(R1000).toBigDecimal(MathContext.DECIMAL32).doubleValue();
+            assertEquals(Joiner.on(" ; ").join(fields), expected, actual);
+        });
+        lines.close();
     }
 }

@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, unitConstants*, unitQuantities*, convertUnits*, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
 
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
@@ -392,6 +392,54 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitPreference alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/informal, variant-->
 
+
+<!ELEMENT unitConstants ( unitConstant* ) >
+
+<!ELEMENT unitConstant EMPTY >
+<!ATTLIST unitConstant constant NMTOKEN #REQUIRED >
+	<!--@MATCH:regex/[A-Za-z][A-Za-z0-9]*-->
+<!ATTLIST unitConstant value CDATA #REQUIRED >
+    <!--@VALUE-->
+    <!--@MATCH:any-->
+<!ATTLIST unitConstant status NMTOKEN #IMPLIED >
+    <!--@VALUE-->
+    <!--@MATCH:literal/approximate, exact-->
+
+
+<!ELEMENT unitQuantities ( unitQuantity* ) >
+
+<!ELEMENT unitQuantity EMPTY >
+<!ATTLIST unitQuantity baseUnit CDATA #REQUIRED >
+    <!--@MATCH:any-->
+<!ATTLIST unitQuantity quantity NMTOKEN #REQUIRED >
+    <!--@VALUE-->
+	<!--@MATCH:regex/[A-Za-z][A-Za-z0-9]*-->
+<!ATTLIST unitQuantity status NMTOKEN #IMPLIED >
+    <!--@VALUE-->
+	<!--@MATCH:regex/simple-->
+
+<!ELEMENT convertUnits ( convertUnit* ) >
+
+<!ELEMENT convertUnit EMPTY >
+<!ATTLIST convertUnit source NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/unit-->
+<!ATTLIST convertUnit baseUnit NMTOKEN #REQUIRED >
+    <!--@VALUE-->
+    <!--@MATCH:validity/unit-->
+<!ATTLIST convertUnit factor CDATA #IMPLIED >
+	<!--@MATCH:regex/[0-9]+([/\.][0-9]+)?-->
+    <!--@VALUE-->
+<!ATTLIST convertUnit offset CDATA #IMPLIED >
+	<!--@MATCH:regex/[0-9]+([/\.][0-9]+)?-->
+    <!--@VALUE-->
+<!ATTLIST convertUnit reciprocal CDATA #IMPLIED >
+    <!--@VALUE-->
+	<!--@MATCH:literal/true-->
+<!ATTLIST convertUnit systems NMTOKENS #IMPLIED >
+    <!--@VALUE-->
+	<!--@MATCH:literal/US UK -->
+
+
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
     <!--@DEPRECATED-->
 
@@ -592,7 +640,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
-<!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, subdivisionAlias*, variantAlias*, zoneAlias* ) >
+<!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, subdivisionAlias*, variantAlias*, zoneAlias*, unitAlias* ) >
 <!ATTLIST alias draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -649,6 +697,15 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 	<!--@MATCH:bcp47/tz-->
     <!--@VALUE-->
 <!ATTLIST zoneAlias reason (deprecated | overlong) #IMPLIED >
+    <!--@VALUE-->
+    
+<!ELEMENT unitAlias EMPTY >
+<!ATTLIST unitAlias type NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/unit-->
+<!ATTLIST unitAlias replacement NMTOKEN #REQUIRED >
+	<!--@MATCH:validity/unit-->
+    <!--@VALUE-->
+<!ATTLIST unitAlias reason (deprecated | overlong | macrolanguage | legacy | bibliographic) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT deprecated ( deprecatedItems* ) >

@@ -564,7 +564,11 @@ public class TestDtdData extends TestFmwk {
                     && (attribute.equals("desired") || attribute.equals("supported"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
                     .equals("variant")))
-		|| (elementName.equals("grammaticalFeatures") && (attribute.equals("locales") || attribute.equals("targets")));
+                || (elementName.equals("grammaticalFeatures") && (attribute.equals("locales") || attribute.equals("targets")))
+                || (elementName.equals("convertUnit") && (attribute.equals("source") || attribute.equals("target")))
+                || (elementName.equals("unitConstant") && attribute.equals("constant"))
+                || (elementName.equals("unitQuantity") && attribute.equals("baseUnit"))
+                ;
 
         case keyboard:
             return attribute.equals("_q")

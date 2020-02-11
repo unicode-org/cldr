@@ -926,6 +926,12 @@ var processXhrQueue = function() {
 
 		top.load2 = top.load;
 		top.err2 = top.err;
+		/*
+		 * Note: I think "return" is superfluous here, but I'm leaving it as-is for now
+		 * in case I'm wrong.
+		 * Documentation for dojo.xhrGet has load/error handlers with undefined return values.
+		 * Our own code is inconsistent about whether load/error handlers have return values.
+		 */
 		top.load=function(){return myLoad0(top,arguments); };
 		top.err=function(){return myErr0(top,arguments); };
 		top.startTime = new Date().getTime();
@@ -1886,12 +1892,12 @@ var oneLocales = [];
  * @method showForumStuff
  * called when showing the popup each time
  * @param {Node} frag
- * @param {Node} forumDiv
+ * @param {Node} forumDivClone = tr.forumDiv.cloneNode(true)
  * @param {Node} tr
  *
- * This function is about 300 lines long!
+ * TODO: shorten this function
  */
-function showForumStuff(frag, forumDiv, tr) {
+function showForumStuff(frag, forumDivClone, tr) {
 	var isOneLocale = false;
 	if(oneLocales[surveyCurrentLocale]) {
 		isOneLocale = true;
@@ -2126,45 +2132,11 @@ function showForumStuff(frag, forumDiv, tr) {
 
 		var showButton = createChunk("Show " + tr.forumDiv.forumPosts  + " posts", "button", "forumShow");
 
-		forumDiv.appendChild(showButton);
+		forumDivClone.appendChild(showButton);
 
 		var theListen = function(e) {
 			setDisplayed(showButton, false);
-
-			// callback.
-			var ourUrl = tr.forumDiv.url + "&what=forum_fetch";
-			var errorHandler = function(err, ioArgs) {
-				console.log('Error in showForumStuff: ' + err + ' response '
-						+ ioArgs.xhr.responseText);
-				showInPop(
-						stopIcon
-								+ " Couldn't load forum post for this row- please refresh the page. <br>Error: "
-								+ err + "</td>", tr, null);
-				handleDisconnect("Could not showForumStuff:"+err, null);
-				return true;
-			};
-			var loadHandler = function(json) {
-				try {
-					if (json) {
-						if(json.ret) {
-							forumDiv.appendChild(parseForumContent({ret: json.ret,
-											replyButton: true,
-											noItemLink: true}));
-						}
-					}
-				} catch (e) {
-					console.log("Error in ajax forum read ", e.message);
-					console.log(" response: " + json);
-					showInPop(stopIcon + " exception in ajax forum read: " + e.message, tr, null, true);
-				}
-			};
-			var xhrArgs = {
-				url : ourUrl,
-				handleAs : "json",
-				load : loadHandler,
-				error : errorHandler
-			};
-			queueXhr(xhrArgs);
+			updateInfoPanelForumPosts(tr);
 			stStopPropagation(e);
 			return false;
 		};
@@ -2189,6 +2161,94 @@ function showForumStuff(frag, forumDiv, tr) {
 		};
 		queueXhr(xhrArgs);
 	}, 1900);
+}
+
+/**
+ * Update the forum posts in the Info Panel
+ *
+ * @param tr the table-row element with which the forum posts are associated,
+ *        and whose info is shown in the Info Panel; or null, to get the
+ *        tr from surveyCurrentId
+ */
+function updateInfoPanelForumPosts(tr) {
+	if (isDashboard()) {
+		return; // no Info Panel in Dashboard
+	}
+	if (!tr) {
+		if (surveyCurrentId !== '') {
+			/*
+			 * TODO: encapsulate this usage of 'r@' somewhere
+			 */
+			tr = dojo.byId('r@' + surveyCurrentId);
+		} else {
+			console.log("updateInfoPanelForumPosts: tr was null, surveyCurrentId was empty");
+			return;
+		}
+	}
+	if (!tr || !tr.forumDiv || !tr.forumDiv.url) {
+		console.log("updateInfoPanelForumPosts: !tr || !tr.forumDiv || !tr.forumDiv.url");
+		return;
+	}
+	let ourUrl = tr.forumDiv.url + "&what=forum_fetch";
+
+	let errorHandler = function(err, ioArgs) {
+		console.log('Error in showForumStuff: ' + err + ' response ' + ioArgs.xhr.responseText);
+		showInPop(stopIcon
+			+ " Couldn't load forum post for this row- please refresh the page. <br>Error: "
+			+ err + "</td>", tr, null);
+		handleDisconnect("Could not showForumStuff:" + err, null);
+		/*
+		 * Note: I think "return true" is superfluous here, but I'm leaving it as-is for now
+		 * in case I'm wrong. Compare loadHandler below with undefined return value.
+		 * Documentation for dojo.xhrGet has load/error handlers with undefined return values.
+		 * See processXhrQueue.
+		 */
+		return true;
+	};
+
+	let loadHandler = function(json) {
+		try {
+			if (json && json.ret) {
+				let content = parseForumContent({ret: json.ret, replyButton: true, noItemLink: true});
+				/*
+				 * Reality check: the json should refer to the same path as tr, which in practice
+				 * always matches surveyCurrentId. If not, log a warning and substitute "Please reload"
+				 * for the content.
+				 */
+				let xpstrid = json.ret[0].xpath;
+				if (xpstrid !== tr.xpstrid || xpstrid !== surveyCurrentId) {
+					console.log('Warning: xpath strid mismatch in updateInfoPanelForumPosts loadHandler:');
+					console.log('json.ret[0].xpath = ' + json.ret[0].xpath);
+					console.log('tr.xpstrid = ' + tr.xpstrid);
+					console.log('surveyCurrentId = ' + surveyCurrentId);
+
+					content = "Please reload";
+				}
+				/*
+				 * Update the element whose class is 'forumDiv'.
+				 * Note: When updateInfoPanelForumPosts is called by the mouseover event handler for
+				 * the "Show n posts" button set up by havePosts, a clone of tr.forumDiv is created
+				 * (for mysterious reasons) by that event handler, and we could pass forumDivClone
+				 * as a parameter to updateInfoPanelForumPosts, then do forumDivClone.appendChild(content)
+				 * here, which is essentially how it formerly worked. However, that wouldn't work when
+				 * we're called by the success handler for submitPost. This works in all cases.
+				 */
+				$('.forumDiv').first().html(content);
+			}
+		} catch (e) {
+			console.log("Error in ajax forum read ", e.message);
+			console.log(" response: " + json);
+			showInPop(stopIcon + " exception in ajax forum read: " + e.message, tr, null, true);
+		}
+	};
+
+	let xhrArgs = {
+		url: ourUrl,
+		handleAs: "json",
+		load: loadHandler,
+		error: errorHandler
+	};
+	queueXhr(xhrArgs);
 }
 
 /**
@@ -2293,6 +2353,9 @@ dojo.ready(function() {
 		}
 		setLastShown(hideIfLast);
 
+		/*
+		 * TODO: clarify or rename; this td isn't really a td, is it?
+		 */
 		var td = document.createDocumentFragment();
 
 		// Always have help (if available).
@@ -2366,9 +2429,15 @@ dojo.ready(function() {
 
 		// forum stuff
 		if(tr && tr.forumDiv) {
-			var forumDiv = tr.forumDiv.cloneNode(true);
-			showForumStuff(td, forumDiv, tr); // give a chance to update anything else
-			td.appendChild(forumDiv);
+			/*
+			 * The name forumDivClone is a reminder that forumDivClone !== tr.forumDiv.
+			 * TODO: explain the reason for using cloneNode here, rather than using
+			 * tr.forumDiv directly. Would it work as well to set tr.forumDiv = forumDivClone,
+			 * after cloning?
+			 */
+			var forumDivClone = tr.forumDiv.cloneNode(true);
+			showForumStuff(td, forumDivClone, tr); // give a chance to update anything else
+			td.appendChild(forumDivClone);
 		}
 
 		if(tr && tr.theRow && tr.theRow.xpath) {

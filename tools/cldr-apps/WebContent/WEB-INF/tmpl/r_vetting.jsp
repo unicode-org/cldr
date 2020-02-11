@@ -70,7 +70,7 @@ if(subCtx.userId() == UserRegistry.NO_USER) {
 	 <noscript>
 	 	<i>You must manually reload this page.</i>
 	 </noscript>
-<script type='text/javascript'>
+<script>
 
 var vvId = -1;
 function updateVv() {

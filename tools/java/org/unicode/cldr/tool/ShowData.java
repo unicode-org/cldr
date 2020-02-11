@@ -233,7 +233,7 @@ public class ShowData {
                 getChartTemplate(
                     "Locale Data Summary for " + getLocaleNameAndCode(locale),
                     ToolConstants.CHART_DISPLAY_VERSION,
-                    "<script type='text/javascript'>" + System.lineSeparator()
+                    "<script>" + System.lineSeparator()
                         + "if (location.href.split('?')[1].split(',')[0]=='hide') {" + System.lineSeparator()
                         + "document.write('<style>');" + System.lineSeparator()
                         + "document.write('.xx {display:none}');" + System.lineSeparator()

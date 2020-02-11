@@ -6,25 +6,23 @@
 <table>
 <tbody>
 		<tr id='proto-datarow' class='vother'>
-			<td id='codecell' class='d-code'></td>
-			<td id='comparisoncell' title="$flyovercomparison" class='d-disp'></td>
-			<td id='nocell' title="$flyovernoopinion" class='d-no'></td>
-			<td  style='display: none'  id='votedcell' class='d-vo'></td>
-			<td id='statuscell' class='d-dr'></td>
-			<td style='display: none' id='errcell' class='d-st-okay'></td>
-			<td id='proposedcell' title="$flyoverproposed" class='d-win'></td>
-			<td id='addcell' title="$flyoveradd" class='d-win'></td>
-			<td id='othercell' title="$flyoverother" class='d-win'></td>
+			<td class='d-code codecell'></td>
+			<td title="$flyovercomparison" class='d-disp comparisoncell'></td>
+			<td title="$flyovernoopinion" class='d-no nocell'></td>
+			<td class='d-dr statuscell'></td>
+			<td title="$flyoverproposed" class='d-win proposedcell'></td>
+			<td title="$flyoveradd" class='d-win addcell'></td>
+			<td title="$flyoverother" class='d-win othercell'></td>
 		</tr>
 <tr id='proto-parrow' class='d-parrow' >
-	<th class='partsection' colspan='9'>
+	<th class='partsection' colspan='7'>
 		<a>Partition</a>
 	</th>
 </tr>
 </tbody>
 </table>
 
-<input id='proto-button' class='ichoice' type='radio' title='click to vote'></input>
+<input id='proto-button' class='ichoice' type='radio' title='click to vote'>
 <button id='cancel-button' class='cancelbutton tip btn btn-danger' title='Delete'><span class="glyphicon glyphicon-minus"></span></button>
 
 <span id='proto-item'>
@@ -61,13 +59,10 @@
     <th title="$flyovercode" id='stui-htmlcode'></th>
 	<th title="$flyovercomparison" id='stui-htmltranshint'></th>
 	<th title="$flyovernoopinion" id='stui-htmlnoopinion' class='d-no'></th>
-	<th title="$flyovervoted" id='stui-htmlvoted'  style='display: none' ></th>
 	<th title="$flyoverdraft" id='stui-htmldraft' class='d-status'></th>
-	<th title="$flyoverst" id='stui-htmlst' style='display: none' ></th>
 	<th title="$flyoverproposed" id='stui-htmlproposed'></th>
-	<th title="$flyoveradd" id='stui-htmltoadd'></td>
+	<th title="$flyoveradd" id='stui-htmltoadd'></th>
 	<th title="$flyoverothers" id='stui-htmlothers'></th>
-<!--	<th title="$flyoverchange" id='stui-htmlchange' class='d-change'></th>-->
 </tr>
 </thead>
 <tbody>
@@ -76,30 +71,30 @@
 
 <div id="proto-datafix" class="data">
 	<div class="data-vertical">
-					<div id='comparisoncell' class='d-disp comparisoncell'></div>
+					<div class='d-disp comparisoncell'></div>
 					<hr/>
-					<div id='proposedcell' class='d-win proposedcell'></div>
+					<div class='d-win proposedcell'></div>
 					
-					<div id='statuscell' class='d-dr statuscell'></div>
+					<div class='d-dr statuscell'></div>
 					<hr/>
-					<div id='othercell' class='d-win othercell'></div>
+					<div class='d-win othercell'></div>
 					<hr/>
-					<div id='nocell' class='d-no nocell'></div>
+					<div class='d-no nocell'></div>
 	</div>
 	<div class="data-vote"></div>
 	<button type="button" class="close">&times;</button>	
 </div>
 
 <div id='proto-datarowfix' class='vother'>
-					<div id='comparisoncell' class='d-disp comparisoncell'></div>
+					<div class='d-disp comparisoncell'></div>
 					<hr/>
-					<div id='proposedcell' class='d-win proposedcell'></div>
+					<div class='d-win proposedcell'></div>
 					
-					<div id='statuscell' class='d-dr statuscell'></div>
+					<div class='d-dr statuscell'></div>
 					<hr/>
-					<div id='othercell' class='d-win othercell'></div>
+					<div class='d-win othercell'></div>
 					<hr/>
-					<div id='nocell' class='d-no nocell'></div>
+					<div class='d-no nocell'></div>
 </div>
 
 

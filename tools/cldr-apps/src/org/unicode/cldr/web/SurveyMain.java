@@ -446,7 +446,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String RAW_MENU_ITEM = "raw";
     public static final String TEST_MENU_ITEM = "test";
 
-    public static final String SHOWHIDE_SCRIPT = "<script type='text/javascript'><!-- \n"
+    public static final String SHOWHIDE_SCRIPT = "<script><!-- \n"
         + "function show(what)\n"
         + "{document.getElementById(what).style.display=\"block\";\ndocument.getElementById(\"h_\"+what).style.display=\"none\";}\n"
         + "function hide(what)\n"
@@ -802,7 +802,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public void showOfflinePage(HttpServletRequest request, HttpServletResponse response, PrintWriter out) throws ServletException, IOException {
         out.println(SHOWHIDE_SCRIPT);
         SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
-        out.println("<script type=\"text/javascript\">timerSpeed = 60080;</script>"); // don't
+        out.println("<script>timerSpeed = 60080;</script>"); // don't
         // flood
         // server
         // if
@@ -883,9 +883,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<link rel='stylesheet' type='text/css' href='" + base + "/../surveytool.css'>");
             SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
             if (isUnofficial()) {
-                out.println("<script type=\"text/javascript\">timerSpeed = 2500;</script>");
+                out.println("<script>timerSpeed = 2500;</script>");
             } else {
-                out.println("<script type=\"text/javascript\">timerSpeed = 10000;</script>");
+                out.println("<script>timerSpeed = 10000;</script>");
             }
             // todo: include st_top.jsp instead
             out.println("</head><body>");
@@ -912,8 +912,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<br><i id='uptime'> " + getGuestsAndUsers() + "</i><br>");
             // TODO: on up, goto <base>
 
-            out.println("<script type=\"text/javascript\">loadOnOk = '" + loadOnOk + "';</script>");
-            out.println("<script type=\"text/javascript\">clickContinue = '" + loadOnOk + "';</script>");
+            out.println("<script>loadOnOk = '" + loadOnOk + "';</script>");
+            out.println("<script>clickContinue = '" + loadOnOk + "';</script>");
             if (!isMaintenance()) {
                 if (!isGET) {
                     out.println("(Sorry,  we can't automatically retry your " + request.getMethod()
@@ -1010,7 +1010,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     private void doSql(WebContext ctx) {
         printHeader(ctx, "SQL Console@" + localhost());
-        ctx.println("<script type=\"text/javascript\">timerSpeed = 6000;</script>");
+        ctx.println("<script>timerSpeed = 6000;</script>");
         String q = ctx.field("q");
         boolean tblsel = false;
         printAdminMenu(ctx, "/AdminSql");

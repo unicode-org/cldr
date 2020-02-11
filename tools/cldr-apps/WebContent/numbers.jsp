@@ -344,7 +344,7 @@ if (ranges == null || ranges.length == 0) {
 
 
 %>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 /*
 Calling this function toggles the display a set of subitems.

@@ -198,7 +198,7 @@ if(false) { // if we need to redirect for some reason..
 	// TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css
 %>
 <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
-<script type="text/javascript">
+<script>
 // set from incoming session
 surveySessionId = '<%=ctx.session.id%>';
 survURL = '<%=survURL%>';
@@ -213,7 +213,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 <body lang='<%=SurveyMain.TRANS_HINT_LOCALE.toLanguageTag()%>' data-spy="scroll" data-target="#itemInfo">
 
 <div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="CLDR Survey Tool"
-    execute="" data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">
+    data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">
 
     <div id='ariContent' class="dijitDialogPaneContentArea">
     	<div id='ariHelp'><a href='http://cldr.unicode.org/index/survey-tool#disconnected'>Help</a></div>
@@ -313,10 +313,10 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 	              	 
 	              <% } %>
 	               | <a class='navbar-link' href='<%= survURL + "?do=logout" %>'><span class='glyphicon glyphicon-log-out tip-log' title='Logout'></span><%= cookieMessage %></a>
-	                <script type="text/javascript">var isVisitor = 0</script>
+	                <script>var isVisitor = 0</script>
 	        <% } else { %>
                    | (<a href='<%= request.getContextPath() %>/login.jsp' class='navbar-link'>Login…</a>)
-      		        <script type="text/javascript">var isVisitor = 1</script>
+                   <script>var isVisitor = 1</script>
             		
             <% } %>
           </p>
@@ -427,7 +427,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
     <div class="row" id="main-row" style="padding-top:147px;">
     	<div class="col-md-9">
 		    <div data-dojo-type="dijit/layout/ContentPane" id="MainContentPane" data-dojo-props="splitter:true, region:'center'" >
-		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait<img src='loader.gif'></div>
+		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait<img src='loader.gif' alt='Please Wait'></div>
 		        <div id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
  			    <div id='nav-page-footer'>
 					<p class='nav-button'>
@@ -451,7 +451,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 	</div>
 </div>
 <div id="overlay"></div>
-<div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">

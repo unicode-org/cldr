@@ -11,8 +11,7 @@
     <%= WebContext.iconHtml(request,"warn","Locale Changed") %>
     The locale, <span id='stchanged_loc'>YOUR LOCALE</span>, has changed due to your or other's actions. Please <a href='javascript:window.location.reload(true);'>refresh</a> the page to 
     view the new changes..
-    <button id='stchanged_btn' type='button' onclick='window.location.reload(true)'>Refresh</button>
-    <button id='stchanged_btn' type='button' onclick='dismissChangeNotice()'>Close</button>
+    <button type='button' onclick='window.location.reload(true)'>Refresh</button>
 </div>
      <% String betanotice = null; 
          if(SurveyMain.isPhaseBeta() ) {

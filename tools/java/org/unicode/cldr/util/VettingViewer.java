@@ -1218,7 +1218,7 @@ public class VettingViewer<T> {
      * @return
      */
     public static String getHeaderStyles() {
-        return "<style type='text/css'>\n"
+        return "<style>\n"
             + ".hide {display:none}\n"
             + ".vve {}\n"
             + ".vvn {}\n"
@@ -1282,7 +1282,7 @@ public class VettingViewer<T> {
                 .append("</td></tr>\n");
             }
             output.append("</table>\n</form>\n"
-                + "<script type='text/javascript'>\n" +
+                + "<script>\n" +
                 "<!-- \n" +
                 "setStyles()\n" +
                 "-->\n"

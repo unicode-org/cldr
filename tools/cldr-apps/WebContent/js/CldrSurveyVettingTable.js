@@ -67,7 +67,7 @@ const cldrSurveyTable = (function() {
 			 * Re-create the table from scratch
 			 */
 			// console.log("🦞🦞🦞 make new table");
-			var theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+			theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
 			/*
 			 * Note: isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
 			 */
@@ -82,35 +82,37 @@ const cldrSurveyTable = (function() {
 			 * with other table such as 'proto-datarow'.
 			 */
 			theTable.id = 'vetting-table';
+			/*
+			 * This code seems to merge parts of two prototype tables,
+			 * in a complicated way. The two tables are both in hidden.html:
+			 * (1) a table with no id, which contains tr id='proto-datarow', which in turn contains multiple td;
+			 * (2) table id='proto-datatable', which contains multiple th.
+			 * The result of the merger is theTable.toAdd, which is eventually used as
+			 * a prototype for each row that gets added to the real (not hidden) table.
+			 * TODO: simplify.
+			 */
+			localizeFlyover(theTable); // Replace titles starting with $ with strings from stui
+			const headChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
+			var toAdd = dojo.byId('proto-datarow'); // loaded from "hidden.html", which see.
+			var rowChildren = getTagChildren(toAdd);
+			for (var c in rowChildren) {
+				rowChildren[c].title = headChildren[c].title;
+			}
+			theTable.toAdd = toAdd;
 		}
 		updateCoverage(theDiv);
-		localizeFlyover(theTable);
-		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
-		var toAdd = dojo.byId('proto-datarow'); // loaded from "hidden.html", which see.
-		var rowChildren = getTagChildren(toAdd);
-		theTable.config = surveyConfig = {};
-		for (var c in rowChildren) {
-			rowChildren[c].title = theTable.theadChildren[c].title;
-			if (rowChildren[c].id) {
-				surveyConfig[rowChildren[c].id] = c;
-				stdebug("  config." + rowChildren[c].id + " = children[" + c + "]");
-			} else {
-				stdebug("(proto-datarow #" + c + " has no id");
+		if (!json.canModify) {
+			/*
+			 * Remove the "Abstain" column from the header since user can't modify.
+			 */
+			const headAbstain = theTable.querySelector('th.d-no');
+			if (headAbstain) {
+				setDisplayed(headAbstain, false);
 			}
 		}
-		if (stdebug_enabled) {
-			stdebug("Table Config: " + JSON.stringify(theTable.config));
-		}
-
-		theTable.toAdd = toAdd;
-		if (!json.canModify) {
-			setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
-		}
-
 		theDiv.theTable = theTable;
 		theTable.theDiv = theDiv;
 
-		// append header row
 		theTable.json = json;
 		theTable.xpath = xpath;
 		theTable.session = session;
@@ -304,11 +306,6 @@ const cldrSurveyTable = (function() {
 	 *
 	 * Cells (columns) in each row:
 	 * Code    English    Abstain    A    Winning    Add    Others
-	 * 
-	 * From left to right, td elements have these id attributes (which BTW aren't unique when
-	 * other rows are taken into account, see <https://unicode.org/cldr/trac/ticket/11312>):
-	 * 
-	 * codecell  comparisoncell  nocell  statuscell  proposedcell  addcell  othercell
 	 *
 	 * IMPORTANT: this function is used for the Dashboard as well as the main Vetting table.
 	 * Mostly the Dashboard tables are currently created by review.js showReviewPage
@@ -320,9 +317,12 @@ const cldrSurveyTable = (function() {
 	 *
 	 * Dashboard columns are:
 	 * Code    English    CLDR 33    Winning 34    Action
-	 * 
+	 * -- but we don't add those here; instead, for Dashboard, this function is used
+	 * only for the "Fix" pop-up window, in which the "columns" aren't really in a table,
+	 * they're div elements.
+	 *
 	 * Called by insertRowsIntoTbody and loadHandler (in refreshSingleRow),
-	 * AND by insertFixInfo in review.js!
+	 * AND by insertFixInfo in review.js (Dashboard "Fix")!
 	 */
 	function updateRow(tr, theRow) {
 		tr.theRow = theRow;
@@ -364,57 +364,68 @@ const cldrSurveyTable = (function() {
 			tr.xpathId = theRow.xpathId;
 			tr.xpstrid = theRow.xpstrid;
 			if (tr.xpstrid) {
+				/*
+				 * TODO: usage of '@' in tr.id appears to be problematic for jQuery:
+				 * if we try to use selectors like $('#' + tr.id), we get
+				 * "Syntax error, unrecognized expression: #r@f3d4397b739b287"
+				 * Is there a good reason to keep '@'?
+				 */
 				tr.id = "r@" + tr.xpstrid;
 				tr.sethash = tr.xpstrid;
+				// const test = $('#' + tr.id);
 			}
 		}
-
-		var children = getTagChildren(tr);
-
-		/*
-		 * config = surveyConfig has fields indicating which cells (columns) to display. It might look like this: 
-		 * 
-		 * Object {codecell: "0", comparisoncell: "1", nocell: "2", votedcell: "3", statuscell: "4", errcell: "5", proposedcell: "6", addcell: "7", othercell: "8"}
-		 *
-		 * Or, like this for Dashboard:
-		 * 
-		 * Object {nocell: "7", othercell: "5", proposedcell: "2", statuscell: "3"}
-		 */
-		var config = surveyConfig;
 
 		var protoButton = null; // no voting at all, unless tr.canModify
 		if (tr.canModify) {
 			protoButton = dojo.byId('proto-button');
 		}
 
+		const statusCell = tr.querySelector('.statuscell');
+		const abstainCell = tr.querySelector('.nocell');
+		const codeCell = tr.querySelector('.codecell');
+		const comparisonCell = tr.querySelector('.comparisoncell');
+		const proposedCell = tr.querySelector('.proposedcell');
+		const otherCell = tr.querySelector('.othercell');
+		const addCell = tr.canModify ? tr.querySelector('.addcell') : null;
+
+		/*
+		 * "Add" button, potentially used by updateRowOthersCell and/or by otherCell or addCell
+		 */
+		const formAdd = document.createElement("form");
+
 		/*
 		 * Update the "status cell", a.k.a. the "A" column.
 		 */
-		updateRowStatusCell(tr, theRow, children[config.statuscell]);
+		if (statusCell) {
+			updateRowStatusCell(tr, theRow, statusCell);
+		}
 
 		/*
 		 * Update part of the "no cell", cf. updateRowNoAbstainCell; should this code be moved to updateRowNoAbstainCell?
 		 */
-		if (theRow.hasVoted) {
-			children[config.nocell].title = stui.voTrue;
-			children[config.nocell].className = "d-no-vo-true";
-		} else {
-			children[config.nocell].title = stui.voFalse;
-			children[config.nocell].className = "d-no-vo-false";
+		if (abstainCell) {
+			if (theRow.hasVoted) {
+				abstainCell.title = stui.voTrue;
+				abstainCell.className = "d-no-vo-true nocell";
+			} else {
+				abstainCell.title = stui.voFalse;
+				abstainCell.className = "d-no-vo-false nocell";
+			}
 		}
 
 		/*
 		 * Assemble the "code cell", a.k.a. the "Code" column.
 		 */
-		if (config.codecell) {
-			updateRowCodeCell(tr, theRow, children[config.codecell]);
+		if (codeCell) {
+			updateRowCodeCell(tr, theRow, codeCell);
 		}
 
 		/*
 		 * Set up the "comparison cell", a.k.a. the "English" column.
 		 */
-		if (!children[config.comparisoncell].isSetup) {
-			updateRowEnglishComparisonCell(tr, theRow, children[config.comparisoncell]);
+		if (comparisonCell && !comparisonCell.isSetup) {
+			updateRowEnglishComparisonCell(tr, theRow, comparisonCell);
 		}
 
 		/*
@@ -423,44 +434,34 @@ const cldrSurveyTable = (function() {
 		 * Column headings are: Code    English    Abstain    A    Winning    Add    Others
 		 * TODO: are we going out of order here, from English to Winning, skipping Abstain and A?
 		 */
-		updateRowProposedWinningCell(tr, theRow, children[config.proposedcell], protoButton);
-
-		/*
-		 * Set up the "err cell"
-		 * 
-		 * TODO: is this something that's normally hidden? Clarify.
-		 * 
-		 * "config.errcell" doesn't occur anywhere else so this may be dead code.
-		 */
-		if (config.errcell) {
-			listenToPop(null, tr, children[config.errcell], children[config.proposedcell].showFn);
+		if (proposedCell) {
+			updateRowProposedWinningCell(tr, theRow, proposedCell, protoButton);
 		}
-
-		/*
-		 *  add button
-		 *  
-		 * TODO: clarify usage of formAdd
-		 */
-		var formAdd = document.createElement("form");
 
 		/*
 		 * Set up the "other cell", a.k.a. the "Others" column.
 		 */
-		updateRowOthersCell(tr, theRow, children[config.othercell], protoButton, formAdd);
+		if (otherCell) {
+			updateRowOthersCell(tr, theRow, otherCell, protoButton, formAdd);
+		}
 
 		/*
 		 * If the user can make changes, add "+" button for adding new candidate item.
 		 * 
-		 * This code for Dashboard as well as the basic vetting table.
-		 * This block concerns othercell if isDashboard(), otherwise it concerns addcell.
+		 * This code is for Dashboard as well as the basic vetting table.
+		 * This block concerns the "other" cell if isDashboard(), otherwise it concerns the "add" cell.
 		 */
 		if (tr.canChange) {
 			if (isDashboard()) {
-				children[config.othercell].appendChild(document.createElement('hr'));
-				children[config.othercell].appendChild(formAdd); //add button
+				if (otherCell) {
+					otherCell.appendChild(document.createElement('hr'));
+					otherCell.appendChild(formAdd);
+				}
 			} else {
-				removeAllChildNodes(children[config.addcell]);
-				children[config.addcell].appendChild(formAdd); //add button
+				if (addCell) {
+					removeAllChildNodes(addCell);
+					addCell.appendChild(formAdd);
+				}
 			}
 		}
 
@@ -469,7 +470,7 @@ const cldrSurveyTable = (function() {
 		 * If the user can make changes, add an "abstain" button;
 		 * else, possibly add a ticket link, or else hide the column.
 		 */
-		updateRowNoAbstainCell(tr, theRow, children[config.nocell], children[config.proposedcell], protoButton);
+		updateRowNoAbstainCell(tr, theRow, abstainCell, proposedCell, protoButton);
 
 		/*
 		 * Set className for this row to "vother" and "cov..." based on the coverage value.
@@ -570,11 +571,11 @@ const cldrSurveyTable = (function() {
 	 *
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
-	 * @param cell the table cell = children[config.statuscell]
+	 * @param cell the table cell
 	 */
 	function updateRowStatusCell(tr, theRow, cell) {
 		const statusClass = getRowApprovalStatusClass(theRow);
-		cell.className = "d-dr-" + statusClass + " d-dr-status";
+		cell.className = "d-dr-" + statusClass + " d-dr-status statuscell";
 
 		if (!cell.isSetup) {
 			listenToPop("", tr, cell);
@@ -854,7 +855,7 @@ const cldrSurveyTable = (function() {
 	 * 
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
-	 * @param cell the table cell, children[config.codecell]
+	 * @param cell the table cell
 	 * 
 	 * Called by updateRow.
 	 */
@@ -866,7 +867,7 @@ const cldrSurveyTable = (function() {
 		}
 		cell.appendChild(createChunk(codeStr));
 		if (tr.theTable.json.canModify) { // pointless if can't modify.
-			cell.className = "d-code";
+			cell.className = "d-code codecell";
 			if (!tr.forumDiv) {
 				tr.forumDiv = document.createElement("div");
 				tr.forumDiv.className = "forumDiv";
@@ -911,7 +912,7 @@ const cldrSurveyTable = (function() {
 	 * 
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
-	 * @param cell the table cell, children[config.comparisoncell]
+	 * @param cell the table cell
 	 * 
 	 * Called by updateRow.
 	 */
@@ -964,7 +965,7 @@ const cldrSurveyTable = (function() {
 	 * 
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
-	 * @param cell the table cell, children[config.proposedcell])
+	 * @param cell the table cell
 	 * @param protoButton
 	 *
 	 * Called by updateRow.
@@ -999,7 +1000,7 @@ const cldrSurveyTable = (function() {
 	 * 
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
-	 * @param cell, the table cell, children[config.othercell]
+	 * @param cell the table cell
 	 * @param protoButton
 	 * @param formAdd
 	 * 
@@ -1135,8 +1136,8 @@ const cldrSurveyTable = (function() {
 	 *
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
-	 * @param noCell the table "no" (abstain) cell, children[config.nocell]
-	 * @param proposedCell the table "proposed" (winning) cell, children[config.proposedcell]
+	 * @param noCell the table "no" (abstain) cell
+	 * @param proposedCell the table "proposed" (winning) cell
 	 * @param protoButton
 	 * 
 	 * Called by updateRow.

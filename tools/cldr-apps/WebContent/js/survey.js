@@ -1128,6 +1128,10 @@ function handleChangedLocaleStamp(stamp,name) {
 		return;
 	}
 	if(Object.keys(showers).length==0) {
+		/*
+		 * TODO: explain this code. When, if ever, is it executed, and why?
+		 * Typically Object.keys(showers).length != 0.
+		 */
         updateIf('stchanged_loc',name);
         var locDiv = document.getElementById('stchanged');
         if(locDiv) {
@@ -1665,7 +1669,7 @@ function cloneAnon(i) {
 	if(i==null) return null;
 	var o = i.cloneNode(true);
 	if(o.id) {
-		o.id = null;
+		o.removeAttribute('id');
 	}
 	return o;
 }
@@ -1684,7 +1688,7 @@ function localizeAnon(o) {
 				if(stui.str(key)) {
 					k.innerHTML=stui.str(key);
 				}
-				k.id=null;
+				k.removeAttribute('id');
 			} else {
 				localizeAnon(k);
 			}
@@ -2587,19 +2591,11 @@ function findItemByValue(items, value) {
 }
 
 /**
- * TODO remove
- * global config of table rows
- * @property surveyConfig
- */
-var surveyConfig = null;
-
-/**
  * Show an item that's not in the saved data, but has been proposed newly by the user.
- * @method showProposedItem
+ * Called only by loadHandler in handleWiredClick.
+ * Used for "+" button, both in Dashboard Fix pop-up window and in regular (non-Dashboard) table.
  */
 function showProposedItem(inTd,tr,theRow,value,tests, json) {
-	var children = getTagChildren(tr);
-	var config = surveyConfig;
 
 	// Find where our value went.
 	var ourItem = findItemByValue(theRow.items,value);
@@ -2607,10 +2603,17 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	var ourDiv = null;
 	var wrap;
 	if(!ourItem) {
+		/*
+		 * This may happen if, for example, the user types a space (" ") in
+		 * the input pop-up window and presses Enter. The value has been rejected
+		 * by the server. Then we show an additional pop-up window with the error message
+		 * from the server like "Input Processor Error: DAIP returned a 0 length string"
+		 */
 		ourDiv = document.createElement("div");
 		var newButton = cloneAnon(dojo.byId('proto-button'));
-		if(tr.myProposal) {
-			children[config.othercell].removeChild(tr.myProposal);
+		const otherCell = tr.querySelector('.othercell');
+		if (otherCell && tr.myProposal) {
+			otherCell.removeChild(tr.myProposal);
 		}
 		tr.myProposal = ourDiv;
 		tr.myProposal.value = value;
@@ -2629,8 +2632,9 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		var span=appendItem(h3, value, "value",tr);
 		setLang(span);
 		ourDiv.appendChild(h3);
-		children[config.othercell].appendChild(tr.myProposal);
-
+		if (otherCell) {
+			otherCell.appendChild(tr.myProposal);
+		}
 	} else {
 		ourDiv = ourItem.div;
 	}
@@ -3341,16 +3345,11 @@ function refreshSingleRow(tr,theRow,onSuccess, onFailure) {
 
     var loadHandler = function(json){
         try {
-	    		if(json&&json.dataLoadTime) {
-	    			//updateIf("dynload", json.dataLoadTime);
-	    		}
         		if(json.section.rows[tr.rowHash]) {
         			theRow = json.section.rows[tr.rowHash];
         			tr.theTable.json.section.rows[tr.rowHash] = theRow;
         			cldrSurveyTable.updateRow(tr, theRow);
 
-        			//style the radios
-        			//wrapRadios(tr);
         			hideLoader(tr.theTable.theDiv.loader);
         			onSuccess(theRow);
         			if(isDashboard()) {
@@ -3425,11 +3424,10 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	showCurrentId();
 
 	if(tr.myProposal) {
-		// move these 2 up if needed
-		var children = getTagChildren(tr);
-		var config = tr.theTable.config;
-
-		children[config.othercell].removeChild(tr.myProposal);
+		const otherCell = tr.querySelector('.othercell');
+		if (otherCell) {
+			otherCell.removeChild(tr.myProposal);
+		}
 		tr.myProposal = null; // mark any pending proposal as invalid.
 	}
 
@@ -3484,7 +3482,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						hideLoader(tr.theTable.theDiv.loader);
 						if(json.testResults && (json.testWarnings || json.testErrors)) {
 							// tried to submit, have errs or warnings.
-							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
+							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults);
 						}
 						if(box) {
 							box.value=""; // submitted - dont show.
@@ -3500,7 +3498,6 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 					if((json.statusAction&&json.statusAction!='ALLOW')
 						|| (json.testResults && (json.testWarnings || json.testErrors ))) {
 						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json);
-						// TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 					} // else no errors, not submitted.  Nothing to do.
 					if(box) {
 						box.value=""; // submitted - dont show.

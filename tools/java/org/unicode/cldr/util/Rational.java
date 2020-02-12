@@ -134,6 +134,19 @@ public final class Rational implements Comparable<Rational> {
     public static Rational of(BigInteger numerator) {
         return new Rational(numerator, BigInteger.ONE);
     }
+    
+    public static Rational of(String simple) {
+        simple = simple.trim();
+        int slashPos = simple.indexOf('/');
+        if (slashPos < 0) {
+            return Rational.of(Long.parseLong(simple.trim()));
+        } else {
+            return Rational.of(
+                Long.parseLong(simple.substring(0, slashPos).trim()), 
+                Long.parseLong(simple.substring(slashPos+1).trim())
+                );
+        }
+    }
 
     private Rational(BigInteger numerator, BigInteger denominator) {
         if (denominator.compareTo(BigInteger.ZERO) < 0) {

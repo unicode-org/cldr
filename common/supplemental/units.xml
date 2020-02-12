@@ -27,7 +27,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitQuantity baseUnit='candela' quantity='luminous-intensity' status='simple'/>
         <unitQuantity baseUnit='kilogram' quantity='mass' status='simple'/>
         <unitQuantity baseUnit='meter' quantity='length' status='simple'/>
-        <unitQuantity baseUnit='second' quantity='time' status='simple'/>
+        <unitQuantity baseUnit='second' quantity='duration' status='simple'/> <!-- use duration because 'time' can mean absolute time -->
         <unitQuantity baseUnit='year' quantity='year-duration' status='simple'/> <!-- non-SI but here for ordering -->
         <unitQuantity baseUnit='ampere' quantity='electric-current' status='simple'/>
         <unitQuantity baseUnit='kelvin' quantity='temperature' status='simple'/>
@@ -75,7 +75,6 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- Additional derived units -->
         <unitQuantity baseUnit='kilogram-meter-per-meter-square-second' quantity='torque'/>
         <unitQuantity baseUnit='cubic-meter-per-meter' quantity='consumption'/>
-        <unitQuantity baseUnit='meter-per-cubic-meter' quantity='consumption-inverse'/>
         <unitQuantity baseUnit='pixel-per-meter' quantity='resolution'/>
     </unitQuantities>    
     <convertUnits>

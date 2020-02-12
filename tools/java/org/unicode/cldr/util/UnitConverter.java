@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.Collection;
 import java.util.Collections;
@@ -34,7 +35,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     static final Splitter BAR_SPLITTER = Splitter.on('-');
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
-    
+
     final RationalParser rationalParser;
 
     private Map<String,String> baseUnitToQuantity = new LinkedHashMap<>();
@@ -89,7 +90,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
         rationalParser.freeze();
         sourceToTargetInfo = ImmutableMap.copyOf(sourceToTargetInfo);
         quantityToSimpleUnits = ImmutableMultimap.copyOf(quantityToSimpleUnits);
-        sourceToSystems = ImmutableMultimap.copyOf(sourceToSystems);        
+        sourceToSystems = ImmutableMultimap.copyOf(sourceToSystems);    
+        // other fields are frozen earlier in processing
         Builder<String> builder = ImmutableSet.<String>builder()
             .addAll(BASE_UNITS);
         for (TargetInfo s : sourceToTargetInfo.values()) {
@@ -110,14 +112,14 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
 
-    public static final class UnitInfo implements Comparable<UnitInfo> {
+    public static final class ConversionInfo implements Comparable<ConversionInfo> {
         public final Rational factor;
         public final Rational offset;
         public final boolean reciprocal;
 
-        static final UnitInfo IDENTITY = new UnitInfo(Rational.ONE, Rational.ZERO, false);
+        static final ConversionInfo IDENTITY = new ConversionInfo(Rational.ONE, Rational.ZERO, false);
 
-        public UnitInfo(Rational factor, Rational offset, boolean reciprocal) {
+        public ConversionInfo(Rational factor, Rational offset, boolean reciprocal) {
             this.factor = factor;
             this.offset = offset;
             this.reciprocal = reciprocal;
@@ -135,10 +137,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return (reciprocal ? result.reciprocal() : result);
         }
 
-        public UnitInfo invert() {
+        public ConversionInfo invert() {
             Rational factor2 = factor.reciprocal();
             Rational offset2 = offset.equals(Rational.ZERO) ? Rational.ZERO : offset.divide(factor).negate();
-            return new UnitInfo(factor2, offset2, reciprocal);
+            return new ConversionInfo(factor2, offset2, reciprocal);
             // TODO fix reciprocal
         }
 
@@ -166,7 +168,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
 
         @Override
-        public int compareTo(UnitInfo o) {
+        public int compareTo(ConversionInfo o) {
             int diff;
             if (0 != (diff = factor.compareTo(o.factor))) {
                 return diff;
@@ -178,7 +180,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         @Override
         public boolean equals(Object obj) {
-            return 0 == compareTo((UnitInfo)obj);
+            return 0 == compareTo((ConversionInfo)obj);
         }
         @Override
         public int hashCode() {
@@ -277,7 +279,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public void addRaw(String source, String target, String factor, String offset, String reciprocal, String systems) {
-        UnitInfo info = new UnitInfo(
+        ConversionInfo info = new ConversionInfo(
             factor == null ? Rational.ONE : rationalParser.parse(factor), 
                 offset == null ? Rational.ZERO : rationalParser.parse(offset), 
                     reciprocal == null ? false : reciprocal.equalsIgnoreCase("true") ? true : false);
@@ -298,9 +300,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public static class TargetInfo{
         public final String target;
-        public final UnitInfo unitInfo;
+        public final ConversionInfo unitInfo;
         public final Map<String, String> inputParameters;
-        public TargetInfo(String target, UnitInfo unitInfo, Map<String, String> inputParameters) {
+        public TargetInfo(String target, ConversionInfo unitInfo, Map<String, String> inputParameters) {
             this.target = target;
             this.unitInfo = unitInfo;
             this.inputParameters = ImmutableMap.copyOf(inputParameters);
@@ -347,10 +349,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
             return o1.target.compareTo(o2.target);
         }
-
     }
 
-    private void addToSourceToTarget(String source, String target, UnitInfo info, 
+    private void addToSourceToTarget(String source, String target, ConversionInfo info, 
         Map<String, String> inputParameters, String systems) {
         if (sourceToTargetInfo.isEmpty()) {
             baseUnitToQuantity = ImmutableBiMap.copyOf(baseUnitToQuantity);
@@ -405,10 +406,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     // TODO fix to guarantee single mapping
 
-    public UnitInfo getUnitInfo(String sourceUnit, Output<String> baseUnit) {
+    public ConversionInfo getUnitInfo(String sourceUnit, Output<String> baseUnit) {
         if (isBaseUnit(sourceUnit)) {
             baseUnit.value = sourceUnit;
-            return UnitInfo.IDENTITY;
+            return ConversionInfo.IDENTITY;
         }
         TargetInfo targetToInfo = sourceToTargetInfo.get(sourceUnit);
         if (targetToInfo == null) {
@@ -437,9 +438,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
     /**
      * Takes a derived unit id, and produces the equivalent derived base unit id and UnitInfo to convert to it
      * @author markdavis
+     * @param showYourWork TODO
      *
      */
-    public UnitInfo parseUnitId (String derivedUnit, Output<String> metricUnit) {
+    public ConversionInfo parseUnitId (String derivedUnit, Output<String> metricUnit, boolean showYourWork) {
         metricUnit.value = null;
 
         if (derivedUnit.equals("liter-per-100kilometers")) {
@@ -456,30 +458,35 @@ public class UnitConverter implements Freezable<UnitConverter> {
         String fixed = fixDenormalized.get(derivedUnit); // TODO replace derivation of FIX_...
         if (fixed != null) {
             derivedUnit = fixed;
+            if (showYourWork) System.out.println("\t⟹ de-alias: " + derivedUnit);
         }
         Rational offset = Rational.ZERO;
-
+        int countUnits = 0;
         for (String unit : Continuation.split(derivedUnit, continuations)) {
-
+            ++countUnits;
             if (unit.equals("square")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of " + unit);
                 }
                 power = 2;
+                if (showYourWork) System.out.println(showRational("\t⟹ power: ", Rational.of(power), unit));
             } else if (unit.equals("cubic")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of " + unit);
                 }
                 power = 3;
+                if (showYourWork) System.out.println(showRational("\t⟹ power: ", Rational.of(power), unit));
             } else if (unit.startsWith("pow")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of " + unit);
                 }
                 power = Integer.parseInt(unit.substring(3));
+                if (showYourWork) System.out.println(showRational("\t⟹ power: ", Rational.of(power), unit));
             } else if (unit.equals("per")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of per");
                 }
+                if (showYourWork && inNumerator == false) System.out.println("\t⟹ per: ");
                 inNumerator = false; // ignore multiples
 //            } else if ('9' >= unit.charAt(0)) {
 //                if (power != 1) {
@@ -494,15 +501,20 @@ public class UnitConverter implements Freezable<UnitConverter> {
             } else {
                 // kilo etc.
                 unit = stripPrefix(unit, deprefix);
+                if (showYourWork && deprefix.value != null) System.out.println(showRational("\t⟹ source: ", deprefix.value, unit));
+
                 Rational value = deprefix.value;
                 if (!isSimpleBaseUnit(unit)) {
                     TargetInfo info = sourceToTargetInfo.get(unit);
                     if (info == null) {
+                        if (showYourWork) System.out.println("\t⟹ no conversion for: " + unit);
                         return null; // can't convert
                     }
                     String baseUnit = info.target;
                     value = info.unitInfo.factor.multiply(value);
+                    if (showYourWork && !info.unitInfo.factor.equals(Rational.ONE)) System.out.println(showRational("\t⟹ factor: ", info.unitInfo.factor, baseUnit));
                     offset = offset.add(info.unitInfo.offset);
+                    if (showYourWork && !info.unitInfo.offset.equals(Rational.ZERO)) System.out.println(showRational("\t⟹ offset: ", info.unitInfo.offset, baseUnit));
                     unit = baseUnit;
                 }
                 for (int p = 1; p <= power; ++p) {
@@ -518,7 +530,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
         }
         metricUnit.value = outputUnit.toString();
-        return new UnitInfo(numerator.divide(denominator), offset, false);
+        return new ConversionInfo(numerator.divide(denominator), countUnits == 1 ? offset : Rational.ZERO, false);
     }
 
 
@@ -760,6 +772,34 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public BiMap<String, String> getBaseUnitToQuantity() {
         return (BiMap<String, String>) baseUnitToQuantity;
     }
+    
+    public String getQuantityFromUnit(String unit, boolean showYourWork) {
+        Output<String> metricUnit = new Output<>();
+        ConversionInfo unitInfo = parseUnitId(unit, metricUnit, showYourWork);
+        return getQuantityFromBaseUnit(metricUnit.value);
+    }
+
+    public String getQuantityFromBaseUnit(String baseUnit) {
+        String result = getQuantityFromBaseUnit2(baseUnit);
+        if (result != null) {
+            return result;
+        }
+        result = getQuantityFromBaseUnit2(reciprocalOf(baseUnit));
+        if (result != null) {
+            result += "-inverse";
+        }
+        return result;
+    }
+
+    public String getQuantityFromBaseUnit2(String baseUnit) {
+        String result = baseUnitToQuantity.get(baseUnit);
+        if (result != null) {
+            return result;
+        }
+        UnitId unitId = createUnitId(baseUnit);
+        UnitId resolved = unitId.resolve();
+        return baseUnitToQuantity.get(resolved.toString());
+    }
 
     public Set<String> getSimpleUnits() {
         return sourceToTargetInfo.keySet();
@@ -781,5 +821,62 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public Multimap<String, String> getSourceToSystems() {
         return sourceToSystems;
+    }
+
+    public String reciprocalOf(String value) {
+        // quick version, input guarantteed to be normalized
+        int index = value.indexOf("-per-");
+        if (index < 0) {
+            return null;
+        }
+        return value.substring(index+5) + "-per-" + value.substring(0, index);
+    }
+
+    public Rational parseRational(String source) {
+        return rationalParser.parse(source);
+    }
+
+    private String showRational(String title, Rational rational, String unit) {
+        String doubleString = "";
+        if (!rational.denominator.equals(BigInteger.ONE)) {
+            String doubleValue = String.valueOf(rational.toBigDecimal(MathContext.DECIMAL32).doubleValue());
+            Rational reverse = parseRational(doubleValue);
+            doubleString = (reverse.equals(rational) ? " = " : " ≅ ") + doubleValue;
+        }
+        final String endResult = title + rational + doubleString + (unit != null ? " " + unit: "");
+        return endResult;
+    }
+
+    public Rational convert(final Rational sourceValue, final String sourceUnit, final String targetUnit, boolean showYourWork) {
+        if (showYourWork) {
+            System.out.println(showRational("\nconvert: ", sourceValue, sourceUnit) + " ⟹ " + targetUnit);
+        }
+        Output<String> sourceBase = new Output<>();
+        Output<String> targetBase = new Output<>();
+        ConversionInfo sourceConversionInfo = parseUnitId(sourceUnit, sourceBase, showYourWork);
+        if (sourceConversionInfo == null) {
+            if (showYourWork) System.out.println("! unknown unit: " + sourceUnit);
+            return Rational.NaN;
+        }
+        Rational intermediateResult = sourceConversionInfo.convert(sourceValue);
+        if (showYourWork) System.out.println(showRational(" ⟹ intermediate: ", intermediateResult, sourceBase.value));
+        if (showYourWork) System.out.println(" ⟹ " + targetUnit);
+        ConversionInfo targetConversionInfo = parseUnitId(targetUnit, targetBase, showYourWork);
+        if (targetConversionInfo == null) {
+            if (showYourWork) System.out.println("! unknown unit: " + targetUnit);
+            return Rational.NaN;
+        }
+        if (!sourceBase.value.equals(targetBase.value)) {
+            String reciprocalUnit = reciprocalOf(sourceBase.value);
+            if (reciprocalUnit == null || !targetBase.value.equals(reciprocalUnit)) {
+                if (showYourWork) System.out.println("! incomparable units: " + sourceUnit + " and " + targetUnit);
+                return Rational.NaN;
+            }
+            intermediateResult = intermediateResult.reciprocal();
+            if (showYourWork) System.out.println(showRational(" ⟹ 1/intermediate: ", intermediateResult, reciprocalUnit));
+        }
+        Rational result = targetConversionInfo.convertBackwards(intermediateResult);
+        if (showYourWork) System.out.println(showRational(" ⟹ target: ", result, targetUnit));
+        return result;
     }
 }

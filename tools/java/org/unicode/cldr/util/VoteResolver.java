@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -110,9 +111,53 @@ public class VoteResolver<T> {
      * weight.
      */
     public enum Level {
-        locked(0, 999), street(1, 10), anonymous(0, 8), vetter(4, 5), expert(8, 3), manager(4, 2), tc(20, 1), admin(100, 0);
-        private int votes;
-        private int stlevel;
+        locked(   0 /* votes */, 999 /* stlevel */),
+        street(   1 /* votes */, 10  /* stlevel */),
+        anonymous(0 /* votes */, 8   /* stlevel */),
+        vetter(   4 /* votes */, 5   /* stlevel */),
+        expert(   8 /* votes */, 3   /* stlevel */),
+        manager(  4 /* votes */, 2   /* stlevel */),
+        tc(      20 /* votes */, 1   /* stlevel */),
+        admin(  100 /* votes */, 0   /* stlevel */);
+
+        /**
+         * PERMANENT_VOTES is used by TC voters to "lock" locale+path permanently (including future versions, until unlocked),
+         * in the current VOTE_VALUE table. It is public for STFactory.java and PermanentVote.java.
+         */
+        public static final int PERMANENT_VOTES = 1000;
+
+        /**
+         * LOCKING_VOTES is used (nominally by ADMIN voter, but not really by someone logged in as ADMIN, instead
+         * by combination of two PERMANENT_VOTES) to "lock" locale+path permanently in the LOCKED_XPATHS table.
+         * It is public for STFactory.PerLocaleData.loadVoteValues.
+         */
+        public static final int LOCKING_VOTES = 2000;
+
+        /*
+         * Set voteCountMenu for admin and tc in this static block, which will be run after
+         * all the constructors have run, rather than in the constructor itself, since, for example,
+         * vetter.votes needs to be defined before we can set admin.voteCountMenu.
+         */
+        static {
+            admin.voteCountMenu = new Integer[] {vetter.votes, admin.votes}; /* Not LOCKING_VOTES; see canVoteWithCount */
+            tc.voteCountMenu = new Integer[] {vetter.votes, tc.votes, PERMANENT_VOTES};
+        }
+
+        /**
+         * The vote count a user of this level normally votes with
+         */
+        private final int votes;
+
+        /**
+         * The level as an integer, where 0 = admin, ..., 999 = locked
+         */
+        private final int stlevel;
+
+        /**
+         * If not null, an array of different vote counts from which a user of this
+         * level is allowed to choose. Integer[] not int[], to enable use of Arrays.asList.
+         */
+        private Integer[] voteCountMenu = null;
 
         private Level(int votes, int stlevel) {
             this.votes = votes;
@@ -137,7 +182,7 @@ public class VoteResolver<T> {
          * Find the Level, given ST Level
          *
          * @param stlevel
-         * @return
+         * @return the Level corresponding to the integer
          */
         public static Level fromSTLevel(int stlevel) {
             for (Level l : Level.values()) {
@@ -174,18 +219,6 @@ public class VoteResolver<T> {
         }
 
         /**
-         * Can this user vote at a reduced level?
-         * @return the vote count this user can vote at, or null if it must vote at its assigned level
-         */
-        public Integer canVoteAtReducedLevel() {
-            if (this.getSTLevel() <= tc.getSTLevel()) {
-                return vetter.votes;
-            } else {
-                return null;
-            }
-        }
-
-        /**
          * Policy: can this user create or set a user to the specified level?
          */
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
@@ -195,6 +228,36 @@ public class VoteResolver<T> {
                     otherLevel.getSTLevel() >= getSTLevel()); // can't gain higher privs
         }
 
+        /**
+         * Can a user with this level vote with the given vote count?
+         *
+         * @param withVotes the given vote count
+         * @return true if the user can vote with the given vote count, else false
+         */
+        public boolean canVoteWithCount(int withVotes) {
+            /*
+             * ADMIN is allowed to vote with LOCKING_VOTES, but not directly in the GUI, only
+             * by two TC voting together with PERMANENT_VOTES. Therefore LOCKING_VOTES is omitted
+             * from the GUI menu (voteCountMenu), but included in canVoteWithCount.
+             */
+            if (withVotes == LOCKING_VOTES && this == admin) {
+                return true;
+            }
+            Integer[] menu = getVoteCountMenu();
+            if (menu != null) {
+                return Arrays.asList(menu).contains((Integer) withVotes);
+            }
+            return withVotes == this.votes;
+        }
+
+        /**
+         * Get the array of different vote counts a user of this level can vote with
+         *
+         * @return the array, or null if the user has no choice of vote count
+         */
+        public Integer[] getVoteCountMenu() {
+            return voteCountMenu;
+        }
     };
 
     /**
@@ -301,7 +364,6 @@ public class VoteResolver<T> {
          */
         public MaxCounter<T> add(T obj, long countValue, long time) {
             long value = getCount(obj);
-            long timeValue = getTime(obj);
             if ((value <= countValue)) {
                 super.add(obj, countValue - value, time); // only add the difference!
             }
@@ -367,7 +429,7 @@ public class VoteResolver<T> {
          *
          * @param value
          * @param voter
-         * @param withVotes optionally, vote at a reduced voting level. May not exceed voter's typical level. null = use default level.
+         * @param withVotes optionally, vote at a non-typical voting level. May not exceed voter's maximum allowed level. null = use default level.
          * @param date 
          */
         public void add(T value, int voter, Integer withVotes, Date date) {
@@ -375,26 +437,23 @@ public class VoteResolver<T> {
             if (info == null) {
                 throw new UnknownVoterException(voter);
             }
-            final int maxVotes = info.getLevel().getVotes(); // max votes available for user
-            if (withVotes == null) {
-                withVotes = maxVotes; // use max (default)
-            } else {
-                withVotes = Math.min(withVotes, maxVotes); // override to lower vote count
+            Level level = info.getLevel();
+            if (withVotes == null || !level.canVoteWithCount(withVotes)) {
+                withVotes = level.getVotes();
             }
-            addInternal(value, voter, info, withVotes, date); // do the add
+            addInternal(value, info, withVotes, date); // do the add
         }
 
         /**
          * Called by add(T,int,Integer) to actually add a value.
          *
          * @param value
-         * @param voter
          * @param info
          * @param votes
          * @param date 
          * @see #add(Object, int, Integer)
          */
-        private void addInternal(T value, int voter, final VoterInfo info, final int votes, Date time) {
+        private void addInternal(T value, final VoterInfo info, final int votes, Date time) {
             if (baileySet == false) {
                 throw new IllegalArgumentException("setBaileyValue must be called before add");
             }
@@ -613,6 +672,7 @@ public class VoteResolver<T> {
     private Status trunkStatus;
 
     private boolean resolved;
+    private boolean valueIsLocked;
     private int requiredVotes;
     private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
 
@@ -686,16 +746,6 @@ public class VoteResolver<T> {
     }
 
     /**
-     * Is this an established locale? If so, the requiredVotes is higher.
-     * @return
-     * @deprecated use {@link #getRequiredVotes()}
-     */
-    @Deprecated
-    public boolean isEstablished() {
-        return (requiredVotes == 8);
-    }
-
-    /**
      * What are the required votes for this item?
      * @return the number of votes (as of this writing: usually 4, 8 for established locales)
      */
@@ -712,7 +762,7 @@ public class VoteResolver<T> {
         this.trunkStatus = Status.missing;
         this.setUsingKeywordAnnotationVoting(false);
         organizationToValueAndVote.clear();
-        resolved = false;
+        resolved = valueIsLocked = false;
         values.clear();
     }
 
@@ -756,6 +806,9 @@ public class VoteResolver<T> {
     public void add(T value, int voter, Integer withVotes, Date date) {
         if (resolved) {
             throw new IllegalArgumentException("Must be called after clear, and before any getters.");
+        }
+        if (withVotes != null && withVotes == Level.LOCKING_VOTES) {
+            valueIsLocked = true;
         }
         organizationToValueAndVote.add(value, voter, withVotes, date);
         values.add(value);
@@ -1863,5 +1916,24 @@ public class VoteResolver<T> {
      */
     public void setUsingKeywordAnnotationVoting(boolean usingKeywordAnnotationVoting) {
         this.usingKeywordAnnotationVoting = usingKeywordAnnotationVoting;
+    }
+
+    /**
+     * Is the value locked for this locale+path?
+     *
+     * @return true or false
+     */
+    public boolean isValueLocked() {
+        return valueIsLocked;
+    }
+
+    /**
+     * Can a user who makes a losing vote flag the locale+path?
+     * I.e., is the locale+path locked and/or does it require HIGH_BAR votes?
+     *
+     * @return true or false
+     */
+    public boolean canFlagOnLosing() {
+        return valueIsLocked || (requiredVotes == HIGH_BAR);
     }
 }

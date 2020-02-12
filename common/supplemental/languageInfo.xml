@@ -548,6 +548,20 @@
 			<languageMatch desired="sr_Latn"	supported="sr_Cyrl"	distance="5"/>	<!-- sr; Latn ⇒ sr; Cyrl -->
 			<languageMatch desired="zh_Hans"	supported="zh_Hant"	distance="15"	oneway="true"/>	<!-- zh; Hans ⇒ zh; Hant -->
 			<languageMatch desired="zh_Hant"	supported="zh_Hans"	distance="19"	oneway="true"/>	<!-- zh; Hant ⇒ zh; Hans -->
+			<!-- zh_Hani: Slightly bigger distance than zh_Hant->zh_Hans -->
+			<languageMatch desired="zh_Hani"	supported="zh_Hans"	distance="20"	oneway="true"/>
+			<languageMatch desired="zh_Hani"	supported="zh_Hant"	distance="20"	oneway="true"/>
+			<!-- Latin transliterations of some languages, initially from CLDR-13577 -->
+			<languageMatch desired="ar_Latn"	supported="ar_Arab"	distance="20"	oneway="true"/>
+			<languageMatch desired="bn_Latn"	supported="bn_Beng"	distance="20"	oneway="true"/>
+			<languageMatch desired="gu_Latn"	supported="gu_Gujr"	distance="20"	oneway="true"/>
+			<languageMatch desired="hi_Latn"	supported="hi_Deva"	distance="20"	oneway="true"/>
+			<languageMatch desired="kn_Latn"	supported="kn_Knda"	distance="20"	oneway="true"/>
+			<languageMatch desired="ml_Latn"	supported="ml_Mlym"	distance="20"	oneway="true"/>
+			<languageMatch desired="mr_Latn"	supported="mr_Deva"	distance="20"	oneway="true"/>
+			<languageMatch desired="ta_Latn"	supported="ta_Taml"	distance="20"	oneway="true"/>
+			<languageMatch desired="te_Latn"	supported="te_Telu"	distance="20"	oneway="true"/>
+			<languageMatch desired="zh_Latn"	supported="zh_Hans"	distance="20"	oneway="true"/> <!-- Pinyin -->
 			<!-- start fallbacks for group script codes, initially from CLDR-13526
                              Look for plus signs on https://www.unicode.org/iso15924/iso15924-codes.html -->
 			<languageMatch desired="ja_Latn"	supported="ja_Jpan"	distance="5"	oneway="true"/>
@@ -567,7 +581,9 @@
 			     because those would apply to many languages;
 			     if desired, those would be better handled as matcher-specific script aliases. -->
 			<!-- end fallbacks for group script codes -->
+			<!-- default script mismatch distance -->
 			<languageMatch desired="*_*"	supported="*_*"	distance="50"/>	<!-- *; * ⇒ *; * -->
+
 			<languageMatch desired="ar_*_$maghreb"	supported="ar_*_$maghreb"	distance="4"/>	<!-- ar; *; $maghreb ⇒ ar; *; $maghreb -->
 			<languageMatch desired="ar_*_$!maghreb"	supported="ar_*_$!maghreb"	distance="4"/>	<!-- ar; *; $!maghreb ⇒ ar; *; $!maghreb -->
 			<languageMatch desired="ar_*_*"	supported="ar_*_*"	distance="5"/>	<!-- ar; *; * ⇒ ar; *; * -->

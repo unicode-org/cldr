@@ -9,13 +9,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
     <version number="$Revision$"/>
     <unitConstants>
-        <unitConstant constant="lb-to-kg" value="0.45359237"/>
-        <unitConstant constant="ft-to-m" value="0.3048"/>
-        <unitConstant constant="ft2-to-m2" value="ft-to-m*ft-to-m"/>
-        <unitConstant constant="ft3-to-m3" value="ft-to-m*ft-to-m*ft-to-m"/>
-        <unitConstant constant="in3-to-m3" value="ft3-to-m3/12*12*12"/>
-        <unitConstant constant="gal-to-m3" value="231*in3-to-m3"/>
-        <unitConstant constant="gal-imp-to-m3" value="0.00454609"/>
+        <unitConstant constant="lb_to_kg" value="0.45359237"/>
+        <unitConstant constant="ft_to_m" value="0.3048"/>
+        <unitConstant constant="ft2_to_m2" value="ft_to_m*ft_to_m"/>
+        <unitConstant constant="ft3_to_m3" value="ft_to_m*ft_to_m*ft_to_m"/>
+        <unitConstant constant="in3_to_m3" value="ft3_to_m3/12*12*12"/>
+        <unitConstant constant="gal_to_m3" value="231*in3_to_m3"/>
+        <unitConstant constant="gal_imp_to_m3" value="0.00454609"/>
         
         <unitConstant constant="gravity" value="9.80665"/>
         <unitConstant constant="PI" value="3.1415926535897932384626433832795" status='approximate'/>
@@ -78,7 +78,6 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitQuantity baseUnit='pixel-per-meter' quantity='resolution'/>
     </unitQuantities>    
     <convertUnits>
-        <!-- TODO: double-check system="US.."  -->
         <!-- Values where possible from:
         a) NIST Special Publication 1038 
         https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf
@@ -91,27 +90,27 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- mass -->
         <convertUnit source='carat' baseUnit='kilogram' factor='0.0002'/>
         <convertUnit source='gram' baseUnit='kilogram' factor='0.001'/>
-        <convertUnit source='ounce' baseUnit='kilogram' factor='lb-to-kg/16' systems="US UK"/>
-        <convertUnit source='ounce-troy' baseUnit='kilogram' factor='0.03110348' systems="US UK"/>
-        <convertUnit source='pound' baseUnit='kilogram' factor='lb-to-kg' systems="US UK"/>
+        <convertUnit source='ounce' baseUnit='kilogram' factor='lb_to_kg/16' systems="ussystem uksystem"/>
+        <convertUnit source='ounce-troy' baseUnit='kilogram' factor='0.03110348' systems="ussystem uksystem"/>
+        <convertUnit source='pound' baseUnit='kilogram' factor='lb_to_kg' systems="ussystem uksystem"/>
         <convertUnit source='kilogram' baseUnit='kilogram'/>
-        <convertUnit source='stone' baseUnit='kilogram' factor='lb-to-kg*14' systems="UK"/>
-        <convertUnit source='ton' baseUnit='kilogram' factor='lb-to-kg*2000' systems="US UK"/>
+        <convertUnit source='stone' baseUnit='kilogram' factor='lb_to_kg*14' systems="uksystem"/>
+        <convertUnit source='ton' baseUnit='kilogram' factor='lb_to_kg*2000' systems="ussystem uksystem"/>
         <convertUnit source='metric-ton' baseUnit='kilogram' factor='1000'/>
         <convertUnit source='earth-mass' baseUnit='kilogram' factor='5.9722E+24'/>
         <convertUnit source='solar-mass' baseUnit='kilogram' factor='1.98847E+30'/>
         
         <!-- length -->
-        <convertUnit source='point' baseUnit='meter' factor='ft-to-m/864' systems="US UK"/>
+        <convertUnit source='point' baseUnit='meter' factor='ft_to_m/864' systems="ussystem uksystem"/>
         <convertUnit source='centimeter' baseUnit='meter' factor='1/100'/>
-        <convertUnit source='inch' baseUnit='meter' factor='ft-to-m/12' systems="US UK"/>
-        <convertUnit source='foot' baseUnit='meter' factor='ft-to-m' systems="US UK"/>
-        <convertUnit source='yard' baseUnit='meter' factor='ft-to-m*3' systems="US UK"/>
+        <convertUnit source='inch' baseUnit='meter' factor='ft_to_m/12' systems="ussystem uksystem"/>
+        <convertUnit source='foot' baseUnit='meter' factor='ft_to_m' systems="ussystem uksystem"/>
+        <convertUnit source='yard' baseUnit='meter' factor='ft_to_m*3' systems="ussystem uksystem"/>
         <convertUnit source='meter' baseUnit='meter'/>
-        <convertUnit source='fathom' baseUnit='meter' factor='ft-to-m * 6' systems="US UK"/>
-        <convertUnit source='furlong' baseUnit='meter' factor='ft-to-m*660' systems="US UK"/>
-        <convertUnit source='mile' baseUnit='meter' factor='ft-to-m*5280' systems="US UK"/>
-        <convertUnit source='nautical-mile' baseUnit='meter' factor='1852' systems="US UK"/>
+        <convertUnit source='fathom' baseUnit='meter' factor='ft_to_m * 6' systems="ussystem uksystem"/>
+        <convertUnit source='furlong' baseUnit='meter' factor='ft_to_m*660' systems="ussystem uksystem"/>
+        <convertUnit source='mile' baseUnit='meter' factor='ft_to_m*5280' systems="ussystem uksystem"/>
+        <convertUnit source='nautical-mile' baseUnit='meter' factor='1852' systems="ussystem uksystem"/>
         <convertUnit source='mile-scandinavian' baseUnit='meter' factor='10000'/>
         <convertUnit source='100-kilometer' baseUnit='meter' factor='100000'/>
         <convertUnit source='earth-radius' baseUnit='meter' factor='6.3781E6'/>
@@ -141,7 +140,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='ampere' baseUnit='ampere'/>
         
         <!-- temperature -->
-        <convertUnit source='fahrenheit' baseUnit='kelvin' factor='5/9' offset='2298.35/9' systems="US UK"/>
+        <convertUnit source='fahrenheit' baseUnit='kelvin' factor='5/9' offset='2298.35/9' systems="ussystem uksystem"/>
         <convertUnit source='kelvin' baseUnit='kelvin'/>
         <convertUnit source='celsius' baseUnit='kelvin' offset='273.15'/>
         
@@ -180,12 +179,12 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <!-- force -->
         <convertUnit source='newton' baseUnit='kilogram-meter-per-square-second'/>
-        <convertUnit source='pound-force' baseUnit='kilogram-meter-per-square-second' factor='lb-to-kg * gravity' systems="US UK"/>
+        <convertUnit source='pound-force' baseUnit='kilogram-meter-per-square-second' factor='lb_to_kg * gravity' systems="ussystem uksystem"/>
         
         <!-- pressure -->
         <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second'/>
         <convertUnit source='millimeter-of-mercury' baseUnit='kilogram-per-meter-square-second' factor='10132500/760000'/>
-        <convertUnit source='inch-hg' baseUnit='kilogram-per-meter-square-second' factor='3386.389' systems="US UK"/>
+        <convertUnit source='inch-hg' baseUnit='kilogram-per-meter-square-second' factor='3386.389' systems="ussystem uksystem"/>
         <convertUnit source='bar' baseUnit='kilogram-per-meter-square-second' factor='100000'/>
         <convertUnit source='atmosphere' baseUnit='kilogram-per-meter-square-second' factor='101325'/>
         
@@ -194,13 +193,13 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='dalton' baseUnit='kilogram-square-meter-per-square-second' factor='1.49241808560E-10'/>
         <convertUnit source='joule' baseUnit='kilogram-square-meter-per-square-second'/>
         <convertUnit source='calorie' baseUnit='kilogram-square-meter-per-square-second' factor='4.184'/>
-        <convertUnit source='british-thermal-unit' baseUnit='kilogram-square-meter-per-square-second' factor='1055.06' systems="US UK"/>
-        <convertUnit source='foodcalorie' baseUnit='kilogram-square-meter-per-square-second' factor='4184' systems="US UK"/>
-        <convertUnit source='therm-us' baseUnit='kilogram-square-meter-per-square-second' factor='105506000' systems="US"/>
+        <convertUnit source='british-thermal-unit' baseUnit='kilogram-square-meter-per-square-second' factor='1055.06' systems="ussystem uksystem"/>
+        <convertUnit source='foodcalorie' baseUnit='kilogram-square-meter-per-square-second' factor='4184' systems="ussystem uksystem"/>
+        <convertUnit source='therm-us' baseUnit='kilogram-square-meter-per-square-second' factor='105506000' systems="ussystem"/>
         
         <!-- power -->
         <convertUnit source='watt' baseUnit='kilogram-square-meter-per-cubic-second'/>
-        <convertUnit source='horsepower' baseUnit='kilogram-square-meter-per-cubic-second' factor='ft-to-m * lb-to-kg * gravity * 550' systems="US UK"/>
+        <convertUnit source='horsepower' baseUnit='kilogram-square-meter-per-cubic-second' factor='ft_to_m * lb_to_kg * gravity * 550' systems="ussystem uksystem"/>
         <convertUnit source='solar-luminosity' baseUnit='kilogram-square-meter-per-cubic-second' factor='3.828E+26'/>
         
         <!-- voltage -->
@@ -211,27 +210,27 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <!-- area -->
         <convertUnit source='dunam' baseUnit='square-meter' factor='1000'/>
-        <convertUnit source='acre' baseUnit='square-meter' factor='ft2-to-m2 * 43560' systems="US UK"/>
+        <convertUnit source='acre' baseUnit='square-meter' factor='ft2_to_m2 * 43560' systems="ussystem uksystem"/>
         <convertUnit source='hectare' baseUnit='square-meter' factor='10000'/>
         
         <!-- volume -->
-        <convertUnit source='teaspoon' baseUnit='cubic-meter' factor='gal-to-m3/16*48' systems="US"/>
-        <convertUnit source='tablespoon' baseUnit='cubic-meter' factor='gal-to-m3/256' systems="US"/>
-        <convertUnit source='fluid-ounce-imperial' baseUnit='cubic-meter' factor='gal-imp-to-m3/160' systems="UK"/>
-        <convertUnit source='fluid-ounce' baseUnit='cubic-meter' factor='gal-to-m3/128' systems="US"/>
-        <convertUnit source='cup' baseUnit='cubic-meter' factor='gal-to-m3/16' systems="US"/>
+        <convertUnit source='teaspoon' baseUnit='cubic-meter' factor='gal_to_m3/16*48' systems="ussystem"/>
+        <convertUnit source='tablespoon' baseUnit='cubic-meter' factor='gal_to_m3/256' systems="ussystem"/>
+        <convertUnit source='fluid-ounce-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3/160' systems="uksystem"/>
+        <convertUnit source='fluid-ounce' baseUnit='cubic-meter' factor='gal_to_m3/128' systems="ussystem"/>
+        <convertUnit source='cup' baseUnit='cubic-meter' factor='gal_to_m3/16' systems="ussystem"/>
         <convertUnit source='cup-metric' baseUnit='cubic-meter' factor='0.00025'/>
-        <convertUnit source='pint' baseUnit='cubic-meter' factor='gal-to-m3/8' systems="US"/>
+        <convertUnit source='pint' baseUnit='cubic-meter' factor='gal_to_m3/8' systems="ussystem"/>
         <convertUnit source='pint-metric' baseUnit='cubic-meter' factor='0.0005'/>
-        <convertUnit source='quart' baseUnit='cubic-meter' factor='gal-to-m3/4' systems="US"/>
+        <convertUnit source='quart' baseUnit='cubic-meter' factor='gal_to_m3/4' systems="ussystem"/>
         <convertUnit source='liter' baseUnit='cubic-meter' factor='0.001'/>
-        <convertUnit source='gallon' baseUnit='cubic-meter' factor='gal-to-m3' systems="US"/>
-        <convertUnit source='gallon-imperial' baseUnit='cubic-meter' factor='gal-imp-to-m3' systems="UK"/>
-        <convertUnit source='bushel' baseUnit='cubic-meter' factor='2150.42*in3-to-m3' systems="US"/>
-        <convertUnit source='barrel' baseUnit='cubic-meter' factor='42*gal-to-m3' systems="US"/> <!-- oil -->
+        <convertUnit source='gallon' baseUnit='cubic-meter' factor='gal_to_m3' systems="ussystem"/>
+        <convertUnit source='gallon-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3' systems="uksystem"/>
+        <convertUnit source='bushel' baseUnit='cubic-meter' factor='2150.42*in3_to_m3' systems="ussystem"/>
+        <convertUnit source='barrel' baseUnit='cubic-meter' factor='42*gal_to_m3' systems="ussystem"/> <!-- oil -->
         
         <!-- speed -->
-        <convertUnit source='knot' baseUnit='meter-per-second' factor='1852/3600' systems="US UK"/>
+        <convertUnit source='knot' baseUnit='meter-per-second' factor='1852/3600' systems="ussystem uksystem"/>
         
         <!-- acceleration -->
         <convertUnit source='g-force' baseUnit='meter-per-square-second' factor='gravity'/>

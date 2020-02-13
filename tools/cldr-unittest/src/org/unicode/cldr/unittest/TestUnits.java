@@ -57,6 +57,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
@@ -590,9 +591,9 @@ public class TestUnits extends TestFmwk {
 
         assertEquals("", a3_5, parser.parse("0.06/0.10"));
 
-        assertEquals("", Rational.of(381, 1250), parser.parse("ft-to-m"));
+        assertEquals("", Rational.of(381, 1250), parser.parse("ft_to_m"));
         assertEquals("", 6.02214076E+23d, parser.parse("6.02214076E+23").toBigDecimal().doubleValue());
-        Rational temp = parser.parse("gal-to-m3");
+        Rational temp = parser.parse("gal_to_m3");
         //System.out.println(" " + temp);
         assertEquals("", 0.003785411784, temp.numerator.doubleValue()/temp.denominator.doubleValue());
     }
@@ -746,6 +747,9 @@ public class TestUnits extends TestFmwk {
         }
     }
 
+    static final UnicodeSet ALLOWED_IN_COMPONENT = new UnicodeSet("[a-z0-9]").freeze();
+    static final Set<String> GRANDFATHERED_SIMPLES = ImmutableSet.of("em", "g-force", "inch-hg", "liter-per-100-kilometer", "millimeter-of-mercury", "therm-us");
+
     public void TestOrder() {
         if (SHOW_DATA) System.out.println();
         for (String s : UnitConverter.BASE_UNITS) {
@@ -755,13 +759,18 @@ public class TestUnits extends TestFmwk {
             }
         }
         for (String unit : CORE_TO_TYPE.keySet()) {
+            if (!GRANDFATHERED_SIMPLES.contains(unit)) {
+                for (String part : unit.split("-")) {
+                    assertTrue(unit + " has no parts < 2 in length", part.length() > 2);
+                    assertTrue(unit + " has only allowed characters", ALLOWED_IN_COMPONENT.containsAll(part));
+                }
+            }
             if (unit.equals("generic")) {
                 continue;
             }
             String quantity = converter.getQuantityFromUnit(unit, false); // make sure doesn't crash
         }
     }
-
 
     public void TestConversionLineOrder() {
         Map<String, TargetInfo> data = converter.getInternalConversionData();
@@ -817,8 +826,8 @@ public class TestUnits extends TestFmwk {
         assertTrue(fluid_imperial + " vs " + fluid, fluid_imperial.compareTo(fluid) < 0);
     }
 
-    static final Pattern usSystemPattern = Pattern.compile("\\b(lb-to-kg|ft-to-m|ft2-to-m2|ft3-to-m3|in3-to-m3|gal-to-m3|cup-to-m3)\\b");
-    static final Pattern ukSystemPattern = Pattern.compile("\\b(lb-to-kg|ft-to-m|ft2-to-m2|ft3-to-m3|in3-to-m3|gal-imp-to-m3)\\b");
+    static final Pattern usSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_to_m3|cup_to_m3)\\b");
+    static final Pattern ukSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_imp_to_m3)\\b");
 
     static final Set<String> OK_BOTH = ImmutableSet.of(
         "ounce-troy", "nautical-mile", "fahrenheit", "inch-hg", 
@@ -858,10 +867,10 @@ public class TestUnits extends TestFmwk {
             if (systems == null) {
                 systems = Collections.emptySet();
             }
-            if (!assertEquals(unit + ": US? (" + inputFactor + ")", usSystem, systems.contains("US"))) {
+            if (!assertEquals(unit + ": US? (" + inputFactor + ")", usSystem, systems.contains("ussystem"))) {
                 int debug = 0;
             }
-            if (!assertEquals(unit + ": UK? (" + inputFactor + ")", ukSystem, systems.contains("UK"))) {
+            if (!assertEquals(unit + ": UK? (" + inputFactor + ")", ukSystem, systems.contains("uksystem"))) {
                 int debug = 0;
             }
         }
@@ -954,7 +963,7 @@ public class TestUnits extends TestFmwk {
         printSystemUnits(metric, "other", OTHER_SYSTEM);
         printSystemUnits(null, "metric", metric);
     }
-    
+
     private void printSystemUnits(Set<String> metric, String system, Collection<String> units) {
         Multimap<String,String> quantityToUnits = TreeMultimap.create();
         for (String unit : units) {

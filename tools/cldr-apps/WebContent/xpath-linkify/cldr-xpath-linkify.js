@@ -1,3 +1,6 @@
+/*
+ * TODO: is this dead code? "cldrxpathlinkify" doesn't occur anywhere else.
+ */
 require(["dojo/query", "dojo/request", "dojo/dom", "dojo/dom-construct", "dojo/on",
          "dijit/TooltipDialog",
          "dijit/popup",

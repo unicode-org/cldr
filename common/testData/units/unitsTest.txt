@@ -9,7 +9,7 @@
 #
 # Generation: Set SHOW_DATA in TestUnits.java, and look at TestParseUnit results.
 
-acceleration    ;   meter-per-second-squared    ;   meter-per-square-second ;   1 * x   ;   1000.0
+acceleration    ;   meter-per-square-second ;   meter-per-square-second ;   1 * x   ;   1,000.00
 acceleration    ;   g-force ;   meter-per-square-second ;   196133 / 20000 * x  ;   9806.65
 angle   ;   arc-second  ;   revolution  ;   1 / 1296000 * x ;   7.716049E-4
 angle   ;   arc-minute  ;   revolution  ;   1 / 21600 * x   ;   0.0462963
@@ -27,7 +27,7 @@ area    ;   hectare ;   square-meter    ;   10000 * x   ;   1.0E7
 area    ;   square-kilometer    ;   square-meter    ;   1000000 * x ;   1.0E9
 area    ;   square-mile ;   square-meter    ;   40468564224 / 15625 * x ;   2.589988E9
 concentration   ;   millimole-per-liter ;   item-per-cubic-meter    ;   602214076000000000000000 * x    ;   6.022141E26
-consumption ;   liter-per-100kilometers ;   cubic-meter-per-meter   ;   1 / 100000000 * x   ;   1.0E-5
+consumption ;   liter-per-100-kilometer ;   cubic-meter-per-meter   ;   1 / 100000000 * x   ;   1.0E-5
 consumption ;   liter-per-kilometer ;   cubic-meter-per-meter   ;   1 / 1000000 * x ;   0.001
 consumption-inverse ;   mile-per-gallon-imperial    ;   meter-per-cubic-meter   ;   160934400000 / 454609 * x   ;   3.540062E8
 consumption-inverse ;   mile-per-gallon ;   meter-per-cubic-meter   ;   48000000000 / 112903 * x    ;   4.251437E8
@@ -42,6 +42,16 @@ digital ;   gigabyte    ;   bit ;   8000000000 * x  ;   8.0E12
 digital ;   terabit ;   bit ;   1000000000000 * x   ;   1.0E15
 digital ;   terabyte    ;   bit ;   8000000000000 * x   ;   8.0E15
 digital ;   petabyte    ;   bit ;   8000000000000000 * x    ;   8.0E18
+duration    ;   nanosecond  ;   second  ;   1 / 1000000000 * x  ;   1.0E-6
+duration    ;   microsecond ;   second  ;   1 / 1000000 * x ;   0.001
+duration    ;   millisecond ;   second  ;   1 / 1000 * x    ;   1.0
+duration    ;   second  ;   second  ;   1 * x   ;   1,000.00
+duration    ;   minute  ;   second  ;   60 * x  ;   60000.0
+duration    ;   hour    ;   second  ;   3600 * x    ;   3600000.0
+duration    ;   day ;   second  ;   86400 * x   ;   8.64E7
+duration    ;   day-person  ;   second  ;   86400 * x   ;   8.64E7
+duration    ;   week    ;   second  ;   604800 * x  ;   6.048E8
+duration    ;   week-person ;   second  ;   604800 * x  ;   6.048E8
 electric-current    ;   milliampere ;   ampere  ;   1 / 1000 * x    ;   1.0
 electric-current    ;   ampere  ;   ampere  ;   1 * x   ;   1,000.00
 electric-resistance ;   ohm ;   kilogram-square-meter-per-cubic-second-square-ampere    ;   1 * x   ;   1000.0
@@ -49,7 +59,7 @@ energy  ;   electronvolt    ;   kilogram-square-meter-per-square-second ;   1602
 energy  ;   dalton  ;   kilogram-square-meter-per-square-second ;   1865522607 / 12500000000000000000 * x   ;   1.492418E-7
 energy  ;   joule   ;   kilogram-square-meter-per-square-second ;   1 * x   ;   1000.0
 energy  ;   newton-meter    ;   kilogram-square-meter-per-square-second ;   1 * x   ;   1000.0
-energy  ;   pound-foot  ;   kilogram-square-meter-per-square-second ;   3389544870828501 / 2500000000000000 * x ;   1355.818
+energy  ;   pound-force-foot    ;   kilogram-square-meter-per-square-second ;   3389544870828501 / 2500000000000000 * x ;   1355.818
 energy  ;   calorie ;   kilogram-square-meter-per-square-second ;   523 / 125 * x   ;   4184.0
 energy  ;   kilojoule   ;   kilogram-square-meter-per-square-second ;   1000 * x    ;   1000000.0
 energy  ;   british-thermal-unit    ;   kilogram-square-meter-per-square-second ;   52753 / 50 * x  ;   1055060.0
@@ -119,14 +129,14 @@ pressure    ;   hectopascal ;   kilogram-per-meter-square-second    ;   100 * x 
 pressure    ;   millibar    ;   kilogram-per-meter-square-second    ;   100 * x ;   100000.0
 pressure    ;   kilopascal  ;   kilogram-per-meter-square-second    ;   1000 * x    ;   1000000.0
 pressure    ;   inch-hg ;   kilogram-per-meter-square-second    ;   3386389 / 1000 * x  ;   3386389.0
-pressure    ;   pound-per-square-inch   ;   kilogram-meter-per-square-meter-square-second   ;   8896443230521 / 1290320000 * x  ;   6894757.0
+pressure    ;   pound-force-per-square-inch ;   kilogram-meter-per-square-meter-square-second   ;   8896443230521 / 1290320000 * x  ;   6894757.0
 pressure    ;   bar ;   kilogram-per-meter-square-second    ;   100000 * x  ;   1.0E8
 pressure    ;   atmosphere  ;   kilogram-per-meter-square-second    ;   101325 * x  ;   1.01325E8
 pressure    ;   megapascal  ;   kilogram-per-meter-square-second    ;   1000000 * x ;   1.0E9
+resolution  ;   dot-per-inch    ;   pixel-per-meter ;   5000 / 127 * x  ;   39370.08
 resolution  ;   pixel-per-inch  ;   pixel-per-meter ;   5000 / 127 * x  ;   39370.08
+resolution  ;   dot-per-centimeter  ;   pixel-per-meter ;   100 * x ;   100000.0
 resolution  ;   pixel-per-centimeter    ;   pixel-per-meter ;   100 * x ;   100000.0
-resolution  ;   dot-per-inch    ;   pixel-per-meter ;   500000 / 127 * x    ;   3937008.0
-resolution  ;   dot-per-centimeter  ;   pixel-per-meter ;   10000 * x   ;   1.0E7
 speed   ;   kilometer-per-hour  ;   meter-per-second    ;   5 / 18 * x  ;   277.7778
 speed   ;   mile-per-hour   ;   meter-per-second    ;   1397 / 3125 * x ;   447.04
 speed   ;   knot    ;   meter-per-second    ;   463 / 900 * x   ;   514.4444
@@ -135,16 +145,6 @@ substance-amount    ;   mole    ;   item    ;   602214076000000000000000 * x    
 temperature ;   fahrenheit  ;   kelvin  ;   5 / 9 * x - 45967 / 180 ;   810.9278
 temperature ;   kelvin  ;   kelvin  ;   1 * x   ;   1,000.00
 temperature ;   celsius ;   kelvin  ;   1 * x - 5463 / 20   ;   1273.15
-time    ;   nanosecond  ;   second  ;   1 / 1000000000 * x  ;   1.0E-6
-time    ;   microsecond ;   second  ;   1 / 1000000 * x ;   0.001
-time    ;   millisecond ;   second  ;   1 / 1000 * x    ;   1.0
-time    ;   second  ;   second  ;   1 * x   ;   1,000.00
-time    ;   minute  ;   second  ;   60 * x  ;   60000.0
-time    ;   hour    ;   second  ;   3600 * x    ;   3600000.0
-time    ;   day ;   second  ;   86400 * x   ;   8.64E7
-time    ;   day-person  ;   second  ;   86400 * x   ;   8.64E7
-time    ;   week    ;   second  ;   604800 * x  ;   6.048E8
-time    ;   week-person ;   second  ;   604800 * x  ;   6.048E8
 typewidth   ;   em  ;   em  ;   1 * x   ;   1,000.00
 voltage ;   volt    ;   kilogram-square-meter-per-cubic-second-ampere   ;   1 * x   ;   1000.0
 volume  ;   cubic-centimeter    ;   cubic-meter ;   1 / 1000000 * x ;   0.001
@@ -174,9 +174,9 @@ volume  ;   megaliter   ;   cubic-meter ;   1000 * x    ;   1000000.0
 volume  ;   acre-foot   ;   cubic-meter ;   60228605349 / 48828125 * x  ;   1233482.0
 volume  ;   cubic-kilometer ;   cubic-meter ;   1000000000 * x  ;   1.0E12
 volume  ;   cubic-mile  ;   cubic-meter ;   8140980127813632 / 1953125 * x  ;   4.168182E12
+year-duration   ;   month   ;   year    ;   1 / 12 * x  ;   83.33333
+year-duration   ;   month-person    ;   year    ;   1 / 12 * x  ;   83.33333
 year-duration   ;   year    ;   year    ;   1 * x   ;   1,000.00
 year-duration   ;   year-person ;   year    ;   1 * x   ;   1000.0
 year-duration   ;   decade  ;   year    ;   10 * x  ;   10000.0
-year-duration   ;   month   ;   year    ;   12 * x  ;   12000.0
-year-duration   ;   month-person    ;   year    ;   12 * x  ;   12000.0
 year-duration   ;   century ;   year    ;   100 * x ;   100000.0

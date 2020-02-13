@@ -331,7 +331,7 @@ public class TestUnits extends TestFmwk {
             String sourceUnit = test[0].toString();
             String targetUnit = test[2].toString();
             int numerator = (Integer) test[1];
-            final Rational convert = converter.convert(Rational.ONE, sourceUnit, targetUnit);
+            final Rational convert = converter.convertDirect(Rational.ONE, sourceUnit, targetUnit);
             assertEquals(sourceUnit + " to " + targetUnit, Rational.of(numerator, 1), convert);
         }
 
@@ -600,9 +600,8 @@ public class TestUnits extends TestFmwk {
 
     static final Map<String,String> CORE_TO_TYPE;
     static final Multimap<String,String> TYPE_TO_CORE;
-    static final Set<String> VALID_UNITS;
     static {
-        VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
+        Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
 
         Map<String, String> coreToType = new TreeMap<>();
         TreeMultimap<String, String> typeToCore = TreeMultimap.create();
@@ -610,6 +609,7 @@ public class TestUnits extends TestFmwk {
             int dashPos = s.indexOf('-');
             String unitType = s.substring(0,dashPos);
             String coreUnit = s.substring(dashPos+1);
+            coreUnit = converter.fixDenormalized(coreUnit);
             coreToType.put(coreUnit, unitType);
             typeToCore.put(unitType, coreUnit);
         }
@@ -619,7 +619,7 @@ public class TestUnits extends TestFmwk {
 
     public void TestUnitCategory() {
         if (SHOW_DATA) System.out.println();
-        
+
         Map<String,Multimap<String,String>> bad = new TreeMap<>();
         for (Entry<String, String> entry : TYPE_TO_CORE.entries()) {
             final String coreUnit = entry.getValue();
@@ -694,7 +694,7 @@ public class TestUnits extends TestFmwk {
         Multimap<String,String> quantityToBaseUnits = LinkedHashMultimap.create();
 
         Multimaps.invertFrom(Multimaps.forMap(BASE_UNIT_TO_QUANTITY), quantityToBaseUnits);
-        
+
         for ( Entry<String, Collection<String>> entry : quantityToBaseUnits.asMap().entrySet()) {
             assertEquals(entry.toString(), 1, entry.getValue().size());
         }
@@ -913,6 +913,7 @@ public class TestUnits extends TestFmwk {
             {"50",  "mile-per-gallon", "liter-per-100-kilometer", "112903 / 24000"},
             {"50",  "celsius-per-second", "kelvin-per-second", "50"},
             {"50",  "celsius-per-second", "fahrenheit-per-second", "90"},
+            {"50",  "pound-foot-per-square-second", "kilogram-meter-per-square-second", "17281869297 / 2500000000"},
         };
         int count = 0;
         for (String[] test : tests) {
@@ -925,5 +926,89 @@ public class TestUnits extends TestFmwk {
                 converter.convert(sourceValue, sourceUnit, targetUnit, SHOW_DATA);
             }
         }
+    }
+
+    static Multimap<String,String> EXTRA_UNITS = ImmutableMultimap.<String,String>builder()
+        .putAll("area", "square-foot", "square-yard", "square-mile")
+        .putAll("volume", "cubic-inch", "cubic-foot", "cubic-yard")
+        .build();
+    static Set<String> OTHER_SYSTEM = ImmutableSet.of(
+        "g-force", "dalton", "calorie", "earth-radius", 
+        "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass", 
+        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "millimeter-of-mercury", "atmosphere", 
+        "pixel", "dot", "part-per-million", "permyriad", "permille", "percent", "karat", "portion",
+        "minute", "hour", "day", "day-person", "week", "week-person",
+        "year", "year-person", "decade", "month", "month-person", "century",
+        "arc-second", "arc-minute", "degree", "radian", "revolution",
+        "electronvolt");
+
+    public void TestEnglishSystems() {
+        Multimap<String, String> toSystems = converter.getSourceToSystems();
+        Multimap<String, String> systemToUnit = Multimaps.invertFrom(toSystems, TreeMultimap.create());
+        Set<String> metric = new HashSet<>(converter.canConvert());
+        for (Entry<String, Collection<String>> systemAndUnits : systemToUnit.asMap().entrySet()) {
+            String system = systemAndUnits.getKey();
+            final Collection<String> units = systemAndUnits.getValue();
+            printSystemUnits(metric, system, units);
+        }
+        printSystemUnits(metric, "other", OTHER_SYSTEM);
+        printSystemUnits(null, "metric", metric);
+    }
+    
+    private void printSystemUnits(Set<String> metric, String system, Collection<String> units) {
+        Multimap<String,String> quantityToUnits = TreeMultimap.create();
+        for (String unit : units) {
+            quantityToUnits.put(converter.getQuantityFromUnit(unit, false), unit);
+        }
+        for (Entry<String, Collection<String>> entry : quantityToUnits.asMap().entrySet()) {
+            String quantity = entry.getKey();
+            String baseUnit = converter.getBaseUnitToQuantity().inverse().get(quantity);
+            Multimap<Rational,String> sorted = TreeMultimap.create();
+            sorted.put(Rational.ONE, baseUnit);
+            if (metric != null) {
+                String englishBaseUnit = getEnglishBaseUnit(baseUnit);
+                addUnit(baseUnit, englishBaseUnit, sorted);
+                Collection<String> extras = EXTRA_UNITS.get(quantity);
+                if (extras != null) {
+                    for (String unit2 : extras) {
+                        addUnit(baseUnit, unit2, sorted);
+                    }
+                }
+            }
+            for (String unit : entry.getValue()) {
+                addUnit(baseUnit, unit, sorted);
+                if (metric != null) {
+                    metric.remove(unit);
+                }
+            }
+            Set<String> comparableUnits = ImmutableSet.copyOf(sorted.values());
+
+            printUnits(system, quantity, comparableUnits);
+        }
+    }
+
+    private void addUnit(String baseUnit, String englishBaseUnit, Multimap<Rational, String> sorted) {
+        Rational value = converter.convert(Rational.ONE, englishBaseUnit, baseUnit, false);
+        sorted.put(value, englishBaseUnit);
+    }
+
+    private void printUnits(String system, String quantity, Set<String> comparableUnits) {
+        if (SHOW_DATA) System.out.print("\n"+ system + "\t" + quantity);
+        for (String targetUnit : comparableUnits) {
+            if (SHOW_DATA) System.out.print("\t" + targetUnit);
+        }
+        if (SHOW_DATA) System.out.println();
+        for (String sourceUnit : comparableUnits) {
+            if (SHOW_DATA) System.out.print("\t" + sourceUnit);
+            for (String targetUnit : comparableUnits) {
+                Rational rational = converter.convert(Rational.ONE, sourceUnit, targetUnit, false);
+                if (SHOW_DATA) System.out.print("\t" + rational.toBigDecimal(MathContext.DECIMAL64).doubleValue());
+            }               
+            if (SHOW_DATA) System.out.println();
+        }
+    }
+
+    private String getEnglishBaseUnit(String baseUnit) {
+        return baseUnit.replace("kilogram", "pound").replace("meter", "foot");
     }
 }

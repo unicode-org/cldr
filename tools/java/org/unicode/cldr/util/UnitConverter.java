@@ -98,9 +98,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
             builder.add(s.target);
         }
         baseUnits = builder.build();
-        for (String denormalized : fixDenormalized.keySet()) {
-            Continuation.addIfNeeded(denormalized, continuations);
-        }
         continuations = ImmutableMultimap.copyOf(continuations);
         targetInfoComparator = new TargetInfoComparator();
         return this;
@@ -384,7 +381,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return sourceToTargetInfo.keySet();
     }
 
-    public Rational convert(Rational source, String sourceUnit, String targetUnit) {
+    public Rational convertDirect(Rational source, String sourceUnit, String targetUnit) {
         if (sourceUnit.equals(targetUnit)) {
             return source;
         }
@@ -427,14 +424,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return targetToInfo.target;
     }
 
-
-    // final Map<String, String> FIX_DENORMALIZED = fixDenormalized;
-//        ImmutableMap.of(
-//        "meter-per-second-squared", "meter-per-square-second",
-//        "liter-per-100kilometers", "liter-per-100-kilometer",
-//        "pound-foot", "pound-force-foot",
-//        "pound-per-square-inch", "pound-force-per-square-inch");
-
     /**
      * Takes a derived unit id, and produces the equivalent derived base unit id and UnitInfo to convert to it
      * @author markdavis
@@ -455,11 +444,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         Output<Rational> deprefix = new Output<>();
 
-        String fixed = fixDenormalized.get(derivedUnit); // TODO replace derivation of FIX_...
-        if (fixed != null) {
-            derivedUnit = fixed;
-            if (showYourWork) System.out.println("\t⟹ de-alias: " + derivedUnit);
-        }
         Rational offset = Rational.ZERO;
         int countUnits = 0;
         for (String unit : Continuation.split(derivedUnit, continuations)) {
@@ -772,7 +756,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public BiMap<String, String> getBaseUnitToQuantity() {
         return (BiMap<String, String>) baseUnitToQuantity;
     }
-    
+
     public String getQuantityFromUnit(String unit, boolean showYourWork) {
         Output<String> metricUnit = new Output<>();
         ConversionInfo unitInfo = parseUnitId(unit, metricUnit, showYourWork);
@@ -836,15 +820,25 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return rationalParser.parse(source);
     }
 
-    private String showRational(String title, Rational rational, String unit) {
+    public String showRational(String title, Rational rational, String unit) {
+        String doubleString = showRational2(rational, " = ", " ≅ ");
+        final String endResult = title + rational + doubleString + (unit != null ? " " + unit: "");
+        return endResult;
+    }
+
+    public String showRational(Rational rational, String approximatePrefix) {
+        String doubleString = showRational2(rational, "", approximatePrefix);
+        return doubleString.isEmpty() ? rational.numerator.toString() : doubleString;
+    }
+
+    public String showRational2(Rational rational, String equalPrefix, String approximatePrefix) {
         String doubleString = "";
         if (!rational.denominator.equals(BigInteger.ONE)) {
             String doubleValue = String.valueOf(rational.toBigDecimal(MathContext.DECIMAL32).doubleValue());
             Rational reverse = parseRational(doubleValue);
-            doubleString = (reverse.equals(rational) ? " = " : " ≅ ") + doubleValue;
+            doubleString = (reverse.equals(rational) ? equalPrefix : approximatePrefix) + doubleValue;
         }
-        final String endResult = title + rational + doubleString + (unit != null ? " " + unit: "");
-        return endResult;
+        return doubleString;
     }
 
     public Rational convert(final Rational sourceValue, final String sourceUnit, final String targetUnit, boolean showYourWork) {
@@ -878,5 +872,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
         Rational result = targetConversionInfo.convertBackwards(intermediateResult);
         if (showYourWork) System.out.println(showRational(" ⟹ target: ", result, targetUnit));
         return result;
+    }
+    
+    public String fixDenormalized(String unit) {
+        String fixed = fixDenormalized.get(unit);
+        return fixed == null ? unit : fixed;
     }
 }

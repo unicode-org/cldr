@@ -130,11 +130,11 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='week-person' baseUnit='second' factor='604800'/>
         
         <!-- year-duration -->
+        <convertUnit source='month' baseUnit='year' factor='1/12'/>
+        <convertUnit source='month-person' baseUnit='year' factor='1/12'/>
         <convertUnit source='year' baseUnit='year'/>
         <convertUnit source='year-person' baseUnit='year'/>
         <convertUnit source='decade' baseUnit='year' factor='10'/>
-        <convertUnit source='month' baseUnit='year' factor='12'/>
-        <convertUnit source='month-person' baseUnit='year' factor='12'/>
         <convertUnit source='century' baseUnit='year' factor='100'/>
         
         <!-- electric-current -->
@@ -143,7 +143,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- temperature -->
         <convertUnit source='fahrenheit' baseUnit='kelvin' factor='5/9' offset='2298.35/9' systems="US UK"/>
         <convertUnit source='kelvin' baseUnit='kelvin'/>
-        <convertUnit source='celsius' baseUnit='kelvin' factor='1' offset='273.15'/>
+        <convertUnit source='celsius' baseUnit='kelvin' offset='273.15'/>
         
         <!-- angle -->
         <convertUnit source='arc-second' baseUnit='revolution' factor='1/360*60*60'/>
@@ -169,21 +169,21 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='byte' baseUnit='bit' factor='8'/>
         
         <!-- graphics -->
+        <convertUnit source='dot' baseUnit='pixel'/>
         <convertUnit source='pixel' baseUnit='pixel'/>
-        <convertUnit source='dot' baseUnit='pixel' factor='100'/>
         
         <!-- typewidth -->
         <convertUnit source='em' baseUnit='em'/>
         
         <!-- frequency -->
-        <convertUnit source='hertz' baseUnit='revolution-per-second' factor='1'/>
+        <convertUnit source='hertz' baseUnit='revolution-per-second'/>
         
         <!-- force -->
-        <convertUnit source='newton' baseUnit='kilogram-meter-per-square-second' factor='1'/>
+        <convertUnit source='newton' baseUnit='kilogram-meter-per-square-second'/>
         <convertUnit source='pound-force' baseUnit='kilogram-meter-per-square-second' factor='lb-to-kg * gravity' systems="US UK"/>
         
         <!-- pressure -->
-        <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second' factor='1'/>
+        <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second'/>
         <convertUnit source='millimeter-of-mercury' baseUnit='kilogram-per-meter-square-second' factor='10132500/760000'/>
         <convertUnit source='inch-hg' baseUnit='kilogram-per-meter-square-second' factor='3386.389' systems="US UK"/>
         <convertUnit source='bar' baseUnit='kilogram-per-meter-square-second' factor='100000'/>
@@ -192,22 +192,22 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- energy -->
         <convertUnit source='electronvolt' baseUnit='kilogram-square-meter-per-square-second' factor='1.602177E-19'/>
         <convertUnit source='dalton' baseUnit='kilogram-square-meter-per-square-second' factor='1.49241808560E-10'/>
-        <convertUnit source='joule' baseUnit='kilogram-square-meter-per-square-second' factor='1'/>
+        <convertUnit source='joule' baseUnit='kilogram-square-meter-per-square-second'/>
         <convertUnit source='calorie' baseUnit='kilogram-square-meter-per-square-second' factor='4.184'/>
         <convertUnit source='british-thermal-unit' baseUnit='kilogram-square-meter-per-square-second' factor='1055.06' systems="US UK"/>
         <convertUnit source='foodcalorie' baseUnit='kilogram-square-meter-per-square-second' factor='4184' systems="US UK"/>
         <convertUnit source='therm-us' baseUnit='kilogram-square-meter-per-square-second' factor='105506000' systems="US"/>
         
         <!-- power -->
-        <convertUnit source='watt' baseUnit='kilogram-square-meter-per-cubic-second' factor='1'/>
+        <convertUnit source='watt' baseUnit='kilogram-square-meter-per-cubic-second'/>
         <convertUnit source='horsepower' baseUnit='kilogram-square-meter-per-cubic-second' factor='ft-to-m * lb-to-kg * gravity * 550' systems="US UK"/>
         <convertUnit source='solar-luminosity' baseUnit='kilogram-square-meter-per-cubic-second' factor='3.828E+26'/>
         
         <!-- voltage -->
-        <convertUnit source='volt' baseUnit='kilogram-square-meter-per-cubic-second-ampere' factor='1'/>
+        <convertUnit source='volt' baseUnit='kilogram-square-meter-per-cubic-second-ampere'/>
         
         <!-- electric-resistance -->
-        <convertUnit source='ohm' baseUnit='kilogram-square-meter-per-cubic-second-square-ampere' factor='1'/>
+        <convertUnit source='ohm' baseUnit='kilogram-square-meter-per-cubic-second-square-ampere'/>
         
         <!-- area -->
         <convertUnit source='dunam' baseUnit='square-meter' factor='1000'/>
@@ -237,7 +237,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='g-force' baseUnit='meter-per-square-second' factor='gravity'/>
         
         <!-- luminous-flux -->
-        <convertUnit source='lux' baseUnit='candela-square-meter-per-square-meter' factor='1'/>
+        <convertUnit source='lux' baseUnit='candela-square-meter-per-square-meter'/>
     </convertUnits>
     <metadata>
         <alias>

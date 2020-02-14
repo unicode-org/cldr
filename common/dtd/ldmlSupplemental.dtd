@@ -1215,7 +1215,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!-- # Grammatical Features -->
 <!ELEMENT grammaticalData ( grammaticalFeatures* )>
 
-<!ELEMENT grammaticalFeatures ( grammaticalCase?, grammaticalGender?, grammaticalDefiniteness?, grammaticalState? ) >
+<!ELEMENT grammaticalFeatures ( grammaticalCase?, grammaticalGender?, grammaticalDefiniteness? ) >
 <!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
     <!--@MATCH:set/literal/nominal-->
 <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
@@ -1234,9 +1234,4 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT grammaticalDefiniteness EMPTY>
 <!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
     <!--@VALUE-->
-    <!--@MATCH:set/literal/definite, indefinite, unspecified-->
-
-<!ELEMENT grammaticalState EMPTY>
-<!ATTLIST grammaticalState values NMTOKENS #REQUIRED >
-    <!--@VALUE-->
-    <!--@MATCH:set/literal/construct, definite, indefinite-->
+    <!--@MATCH:set/literal/definite, indefinite, unspecified, construct-->

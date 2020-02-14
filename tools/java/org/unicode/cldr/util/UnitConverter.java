@@ -878,4 +878,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
         String fixed = fixDenormalized.get(unit);
         return fixed == null ? unit : fixed;
     }
+    
+    public Map<String, Rational> getConstants() {
+        return rationalParser.getConstants();
+    }
 }

@@ -3,12 +3,14 @@ package org.unicode.cldr.util;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -125,8 +127,12 @@ public final class Rational implements Comparable<Rational> {
         public RationalParser cloneAsThawed() {
             throw new UnsupportedOperationException();
         }
+        
+        public Map<String, Rational> getConstants() {
+            return constants;
+        }
     }
-
+   
     public static Rational of(long numerator, long denominator) {
         return new Rational(BigInteger.valueOf(numerator), BigInteger.valueOf(denominator));
     }
@@ -331,5 +337,84 @@ public final class Rational implements Comparable<Rational> {
         }
         powerOut.value = power;
         return current;
+    }
+    
+    public static class ContinuedFraction {
+        public final List<BigInteger> sequence;
+        
+        public ContinuedFraction(Rational source) {
+            List<BigInteger> _sequence = new ArrayList<>();
+            while (true) {
+                BigInteger floor = source.floor();
+                if (floor.compareTo(BigInteger.ZERO) < 0) {
+                    floor = floor.subtract(BigInteger.ONE);
+                }
+                Rational remainder = source.subtract(Rational.of(floor, BigInteger.ONE));
+                _sequence.add(floor);
+                if (remainder.equals(Rational.ZERO)) {
+                    break;
+                }
+                source = remainder.reciprocal();
+            }
+            sequence = ImmutableList.copyOf(_sequence);
+        }
+        
+        public ContinuedFraction(long... items) {
+            List<BigInteger> _sequence = new ArrayList<>();
+            int count = 0;
+            for (long item : items) {
+                if (count != 0 && item < 0) {
+                    throw new IllegalArgumentException("Only first item can be negative");
+                }
+                _sequence.add(BigInteger.valueOf(item));
+                count++;
+            }
+            sequence = ImmutableList.copyOf(_sequence);
+        }
+        
+        public Rational toRational(List<Rational> intermediates) {
+            if (intermediates != null) {
+                intermediates.clear();
+            }
+            BigInteger h0 = BigInteger.ZERO;
+            BigInteger h1 = BigInteger.ONE;
+            BigInteger k0 = BigInteger.ONE;
+            BigInteger k1 = BigInteger.ZERO;
+            for (BigInteger item : sequence) {
+                BigInteger h2 = item.multiply(h1).add(h0);
+                BigInteger k2 = item.multiply(k1).add(k0);
+                if (intermediates != null) {
+                    intermediates.add(Rational.of(h2, k2));
+                }
+                h0 = h1;
+                h1 = h2;
+                k0 = k1;
+                k1 = k2;
+            }
+            if (intermediates != null) {
+                Rational last = intermediates.get(intermediates.size()-1);
+                intermediates.remove(intermediates.size()-1);
+                return last;
+            } else {
+                return Rational.of(h1, k1);
+            }
+        }
+        @Override
+        public String toString() {
+            return sequence.toString();
+        }
+        
+        @Override
+        public boolean equals(Object obj) {
+            return sequence.equals(((ContinuedFraction)obj).sequence);
+        }
+        @Override
+        public int hashCode() {
+            return sequence.hashCode();
+        }
+    }
+
+    public BigInteger floor() {
+        return numerator.divide(denominator);
     }
 }

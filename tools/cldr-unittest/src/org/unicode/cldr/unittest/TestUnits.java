@@ -33,6 +33,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.Rational.ContinuedFraction;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -49,6 +50,7 @@ import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
@@ -893,7 +895,12 @@ public class TestUnits extends TestFmwk {
                 return;
             }
             List<String> fields = SPACE_SPLITTER.splitToList(line);
-            ConversionInfo unitInfo = converter.parseUnitId(fields.get(1), metricUnit, false);
+            ConversionInfo unitInfo;
+            try {
+                unitInfo = converter.parseUnitId(fields.get(1), metricUnit, false);
+            } catch (Exception e1) {
+                throw new IllegalArgumentException("Couldn't access fields on " + line);
+            }
             double expected;
             try {
                 expected = Double.parseDouble(fields.get(4).replace(",", ""));
@@ -1019,5 +1026,59 @@ public class TestUnits extends TestFmwk {
 
     private String getEnglishBaseUnit(String baseUnit) {
         return baseUnit.replace("kilogram", "pound").replace("meter", "foot");
+    }
+    
+    public void TestPI() {
+        Rational PI = converter.getConstants().get("PI");
+        double PID = PI.toBigDecimal(MathContext.DECIMAL128).doubleValue();
+        final BigDecimal bigPi = new BigDecimal("3.141592653589793238462643383279502884197169399375105820974944");
+        double bigPiD = bigPi.doubleValue();
+        assertEquals("pi accurate enough", bigPiD, PID);
+        
+        // also test continued fractions used in deriving values
+        
+        Object[][] tests0 = {
+            {new ContinuedFraction(0, 1, 5, 2, 2), Rational.of(27, 32), ImmutableList.of(Rational.of(0), Rational.of(1), Rational.of(5,6), Rational.of(11, 13))},
+        };
+        for (Object[] test : tests0) {
+            ContinuedFraction source = (ContinuedFraction) test[0];
+            Rational expected = (Rational) test[1];
+            List<Rational> expectedIntermediates = (List<Rational>) test[2];
+            List<Rational> intermediates = new ArrayList<>();
+            final Rational actual = source.toRational(intermediates);            
+            assertEquals("continued", expected, actual);
+            assertEquals("continued", expectedIntermediates, intermediates);
+        }
+        Object[][] tests = {
+            {Rational.of(3245,1000), new ContinuedFraction(3, 4, 12, 4)},
+            {Rational.of(39,10), new ContinuedFraction(3, 1, 9)},
+            {Rational.of(-3245,1000), new ContinuedFraction(-4, 1, 3, 12, 4)},
+        };
+        for (Object[] test : tests) {
+            Rational source = (Rational) test[0];
+            ContinuedFraction expected =(ContinuedFraction) test[1];
+            ContinuedFraction actual = new ContinuedFraction(source);
+            assertEquals(source.toString(), expected, actual);
+            assertEquals(actual.toString(), source, actual.toRational(null));
+        }
+
+
+        if (SHOW_DATA) {
+            ContinuedFraction actual = new ContinuedFraction(Rational.of(bigPi));
+            List<Rational> intermediates = new ArrayList<>();
+            actual.toRational(intermediates);
+            System.out.println("\nRational\tdec64\tdec128\tgood enough");
+            System.out.println("Target\t" + bigPi.round(MathContext.DECIMAL64)+"x" + "\t" + bigPi.round(MathContext.DECIMAL128)+"x");
+            int goodCount = 0;
+            for (Rational item : intermediates) {
+                final BigDecimal dec64 = item.toBigDecimal(MathContext.DECIMAL64);
+                final BigDecimal dec128 = item.toBigDecimal(MathContext.DECIMAL128);
+                final boolean goodEnough = bigPiD == item.toBigDecimal(MathContext.DECIMAL128).doubleValue();
+                System.out.println(item + "\t" + dec64 + "x\t" + dec128 + "x\t" + goodEnough);
+                if (goodEnough && goodCount++ > 1) {
+                    break;
+                }
+            }
+        }
     }
 }

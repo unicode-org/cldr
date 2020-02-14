@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ICUException;
 
@@ -86,16 +87,23 @@ public final class Rational implements Comparable<Rational> {
             }
             return result;
         }
+        
+        static final UnicodeSet ALLOWED_CHARS = new UnicodeSet("[A-Za-z0-9_]").freeze();
 
         private Rational process2(String input) {
-            if (input.charAt(0) > '9') {
+            final char firstChar = input.charAt(0);
+            if (firstChar >= '0' && firstChar <= '9') {
+                return Rational.of(new BigDecimal(input));
+            } else {
+                if (!ALLOWED_CHARS.containsAll(input)) {
+                    throw new IllegalArgumentException("Bad characters in: " + input);
+                }
                 Rational result = constants.get(input);
                 if (result == null) {
                     throw new IllegalArgumentException("Constant not defined: " + input);
                 }
                 return result;
             }
-            return Rational.of(new BigDecimal(input));
         }
 
         boolean frozen = false;
@@ -133,6 +141,19 @@ public final class Rational implements Comparable<Rational> {
 
     public static Rational of(BigInteger numerator) {
         return new Rational(numerator, BigInteger.ONE);
+    }
+    
+    public static Rational of(String simple) {
+        simple = simple.trim();
+        int slashPos = simple.indexOf('/');
+        if (slashPos < 0) {
+            return Rational.of(Long.parseLong(simple.trim()));
+        } else {
+            return Rational.of(
+                Long.parseLong(simple.substring(0, slashPos).trim()), 
+                Long.parseLong(simple.substring(slashPos+1).trim())
+                );
+        }
     }
 
     private Rational(BigInteger numerator, BigInteger denominator) {

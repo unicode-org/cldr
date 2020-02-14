@@ -35,7 +35,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
     static final Splitter BAR_SPLITTER = Splitter.on('-');
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
     
-    final RationalParser rationalParser;
 
     private Map<String,String> baseUnitToQuantity = new LinkedHashMap<>();
     private Map<String,String> baseUnitToStatus = new LinkedHashMap<>();
@@ -48,7 +47,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Map<String,String> fixDenormalized;
 
     private boolean frozen = false;
-
+    
+    private final RationalParser rationalParser;
     public TargetInfoComparator targetInfoComparator;
 
     /** Warning: ordering is important; determines the normalized output */
@@ -781,5 +781,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public Multimap<String, String> getSourceToSystems() {
         return sourceToSystems;
+    }
+    public Map<String, Rational> getConstants() {
+        return rationalParser.getConstants();
     }
 }

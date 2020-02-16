@@ -1,17 +1,17 @@
 /*
  * CldrSurveyVettingTable.js - split off from survey.js, for CLDR Survey Tool.
- * 
+ *
  * Functions for populating the main table in the vetting page:
  * 		cldrSurveyTable.insertRows
  * 		cldrSurveyTable.updateRow
- * 
+ *
  * cldrSurveyTable.updateRow is also used for the Dashboard (see review.js).
  *
  * TODO: identify and reduce dependencies; add unit tests that don't depend on server or browser.
  */
 'use strict';
 
-// TODO: replace with AMD [?] loading
+// TODO: replace with AMD [?] loading -- actually it's doubtful whether dojo is needed for this file
 dojo.require("dojo.i18n");
 dojo.require("dojo.string");
 
@@ -37,7 +37,7 @@ const cldrSurveyTable = (function() {
 
 	/**
 	 * Prepare rows to be inserted into the table
-	 * 
+	 *
 	 * @param theDiv the division (typically or always? with id='DynamicDataSection') that contains, or will contain, the table
 	 * @param xpath = json.pageId; e.g., "Alphabetic_Information"
 	 * @param session the session id; e.g., "DEF67BCAAFED4332EBE742C05A8D1161"
@@ -67,7 +67,7 @@ const cldrSurveyTable = (function() {
 			 * Re-create the table from scratch
 			 */
 			// console.log("🦞🦞🦞 make new table");
-			theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+			theTable = cloneLocalizeAnon(document.getElementById('proto-datatable'));
 			/*
 			 * Note: isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
 			 */
@@ -93,7 +93,7 @@ const cldrSurveyTable = (function() {
 			 */
 			localizeFlyover(theTable); // Replace titles starting with $ with strings from stui
 			const headChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
-			var toAdd = dojo.byId('proto-datarow'); // loaded from "hidden.html", which see.
+			var toAdd = document.getElementById('proto-datarow'); // loaded from "hidden.html", which see.
 			var rowChildren = getTagChildren(toAdd);
 			for (var c in rowChildren) {
 				rowChildren[c].title = headChildren[c].title;
@@ -141,11 +141,11 @@ const cldrSurveyTable = (function() {
 	 * Are the new (to-be-built) table and old (already-built) table compatible, in the
 	 * sense that we can re-use the old table structure, just replacing the contents of
 	 * individual cells, rather than rebuilding the table from scratch?
-	 * 
+	 *
 	 * @param json1 the json for one table
 	 * @param json2 the json for the other table
 	 * @returns true if compatible, else false
-	 * 
+	 *
 	 * Reference: https://unicode.org/cldr/trac/ticket/11571
 	 */
 	function tablesAreCompatible(json1, json2) {
@@ -167,7 +167,7 @@ const cldrSurveyTable = (function() {
 	 *                            false if we need to insert new rows
 	 *
 	 * Called by insertRows only.
-	 * 
+	 *
 	 * This function is not currently used for the Dashboard, only for the main vetting table.
 	 * Still we may want to keep the calls to isDashboard for future use. Also note that updateRow,
 	 * which is called from here, IS also used for the Dashboard.
@@ -176,7 +176,7 @@ const cldrSurveyTable = (function() {
 		var tbody = theTable.getElementsByTagName("tbody")[0];
 		var theRows = theTable.json.section.rows;
 		var toAdd = theTable.toAdd;
-		var parRow = dojo.byId('proto-parrow');
+		var parRow = document.getElementById('proto-parrow');
 
 		if (ALWAYS_REMOVE_ALL_CHILD_NODES) {
 			removeAllChildNodes(tbody);
@@ -275,7 +275,7 @@ const cldrSurveyTable = (function() {
 
 	/**
 	 * Find the specified partition.
-	 * 
+	 *
 	 * @param partitions
 	 * @param partitionList
 	 * @param curPartition
@@ -378,7 +378,7 @@ const cldrSurveyTable = (function() {
 
 		var protoButton = null; // no voting at all, unless tr.canModify
 		if (tr.canModify) {
-			protoButton = dojo.byId('proto-button');
+			protoButton = document.getElementById('proto-button');
 		}
 
 		const statusCell = tr.querySelector('.statuscell');
@@ -430,7 +430,7 @@ const cldrSurveyTable = (function() {
 
 		/*
 		 * Set up the "proposed cell", a.k.a. the "Winning" column.
-		 * 
+		 *
 		 * Column headings are: Code    English    Abstain    A    Winning    Add    Others
 		 * TODO: are we going out of order here, from English to Winning, skipping Abstain and A?
 		 */
@@ -447,7 +447,7 @@ const cldrSurveyTable = (function() {
 
 		/*
 		 * If the user can make changes, add "+" button for adding new candidate item.
-		 * 
+		 *
 		 * This code is for Dashboard as well as the basic vetting table.
 		 * This block concerns the "other" cell if isDashboard(), otherwise it concerns the "add" cell.
 		 */
@@ -494,7 +494,7 @@ const cldrSurveyTable = (function() {
 	 * @param theRow the data from the server for this row
 	 *
 	 * Called by updateRow.
-	 * 
+	 *
 	 * Inconsistencies should primarily be detected/reported/fixed on server (DataSection.java)
 	 * rather than here on the client, but better late than never, and these checks may be useful
 	 * for automated testing with WebDriver.
@@ -613,9 +613,9 @@ const cldrSurveyTable = (function() {
 	 *
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
-	 * 
+	 *
 	 * Called by updateRow.
-	 * 
+	 *
 	 * TODO: shorten this function by using subroutines.
 	 */
 	function updateRowVoteInfo(tr, theRow) {
@@ -737,7 +737,7 @@ const cldrSurveyTable = (function() {
 	/**
 	 * Update the vote info for one candidate item in this row, looping through all the orgs.
 	 * Information will be displayed in the Information Panel (right edge of window).
-	 * 
+	 *
 	 * @param theRow the row
 	 * @param vr the vote resolver
 	 * @param value the value of the candidate item
@@ -764,7 +764,7 @@ const cldrSurveyTable = (function() {
 			 * There does not appear to be any circumstance where we need to hide a zero vote count (on the client).
 			 * If we do discover such a circumstance, we could display 0 vote only if voter is "anonymous";
 			 * currently such voters have org = "cldr"; but if we don't need such a dependency here, don't add it.
-			 * Reference: https://unicode.org/cldr/trac/ticket/11517 
+			 * Reference: https://unicode.org/cldr/trac/ticket/11517
 			 */
 			if (orgVoteValue !== undefined) { // someone in the org actually voted for it
 				var topVoter = null; // top voter for this item
@@ -805,16 +805,16 @@ const cldrSurveyTable = (function() {
 				 * There was some buggy code here, testing item.votes[topVoter].isVoteForBailey, but no element
 				 * of the votes array could have had isVoteForBailey, which was a property of an "item" (CandidateItem)
 				 * not a "vote" (based on UserRegistry.User -- see CandidateItem.toJSONString in DataSection.java)
-				 * 
+				 *
 				 * item.votes[topVoter].isVoteForBailey was always undefined (effectively false), so baileyClass
 				 * was always "" (empty string) here.
-				 * 
+				 *
 				 * This has been fixed, to test item.rawValue === INHERITANCE_MARKER instead.
-				 * 
+				 *
 				 * This only affects cells ("td" elements) with style "voteInfo_voteCount", which appear in the info panel,
 				 * and which have contents like '<span class="badge">12</span>'. If the "fallback" style is added, then
 				 * these circled numbers are surrounded (outside the circle) by a colored background.
-				 * 
+				 *
 				 * TODO: see whether the colored background is actually wanted in this context, around the numbers.
 				 * For now, display it, and use item.pClass rather than literal "fallback" so the color matches when
 				 * item.pClass is "alias", "fallback_root", etc.
@@ -854,11 +854,11 @@ const cldrSurveyTable = (function() {
 
 	/*
 	 * Update the "Code" cell (column) of this row
-	 * 
+	 *
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
 	 * @param cell the table cell
-	 * 
+	 *
 	 * Called by updateRow.
 	 */
 	function updateRowCodeCell(tr, theRow, cell) {
@@ -911,11 +911,11 @@ const cldrSurveyTable = (function() {
 
 	/**
 	 * Update the "comparison cell", a.k.a. the "English" column, of this row
-	 * 
+	 *
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
 	 * @param cell the table cell
-	 * 
+	 *
 	 * Called by updateRow.
 	 */
 	function updateRowEnglishComparisonCell(tr, theRow, cell) {
@@ -964,7 +964,7 @@ const cldrSurveyTable = (function() {
 
 	/**
 	 * Update the "proposed cell", a.k.a. the "Winning" column, of this row
-	 * 
+	 *
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
 	 * @param cell the table cell
@@ -999,13 +999,13 @@ const cldrSurveyTable = (function() {
 
 	/*
 	 * Update the "Others" cell (column) of this row
-	 * 
+	 *
 	 * @param tr the table row
 	 * @param theRow the data from the server for this row
 	 * @param cell the table cell
 	 * @param protoButton
 	 * @param formAdd
-	 * 
+	 *
 	 * Called by updateRow.
 	 */
 	function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
@@ -1109,7 +1109,7 @@ const cldrSurveyTable = (function() {
 		/*
 		 * Add the other vote info -- that is, vote info for the "Others" column.
 		 */
-		for (k in theRow.items) {
+		for (let k in theRow.items) {
 			if (k === theRow.winningVhash) { // skip vote for winner
 				continue;
 			}
@@ -1141,7 +1141,7 @@ const cldrSurveyTable = (function() {
 	 * @param noCell the table "no" (abstain) cell
 	 * @param proposedCell the table "proposed" (winning) cell
 	 * @param protoButton
-	 * 
+	 *
 	 * Called by updateRow.
 	 */
 	function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {

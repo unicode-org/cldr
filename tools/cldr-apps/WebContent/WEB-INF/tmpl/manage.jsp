@@ -18,7 +18,7 @@ String helpName = subCtx.getString("helpName");
            %> <h3>My Account</h3>
            <div id='myUser'></div>
            <script>
-            dojo.byId('myUser').appendChild(createUser( <%= subCtx.session.user.toJSONString() %> ));
+            document.getElementById('myUser').appendChild(createUser( <%= subCtx.session.user.toJSONString() %> ));
            </script>
            
            <%

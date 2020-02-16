@@ -27,6 +27,7 @@ public class TestLocalCurrency extends TestFmwk {
     private int maxLocalizedSymbols(String region) {
         final List<String> regionsWithTwoCurrencySymbols = Arrays.asList("AE", "AZ",
             "BA", "CN", "DZ", "ET", "IQ", "IR", "LK", "KM", "MA", "MR", "MK", "PK",
+            "NE", "GW", "CM", "SN", "BF", // << ff_Adlm regions are multiscript, Latn+Adlm
             "RS", "SD", "SY", "TN", "UZ");
         if (regionsWithTwoCurrencySymbols.contains(region)) {
             return 2;

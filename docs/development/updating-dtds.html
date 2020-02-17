@@ -1,0 +1,753 @@
+<html>
+  <head>
+    <title>Updating DTDs</title>
+    <style>
+      code {
+          background: lightgray;
+          padding: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Updating DTDs</h1>
+    <h2>Introduction</h2>
+
+    <p>CLDR makes special use of XML because of the way it is
+    structured. In particular, the XML is designed so that you can
+    read in a CLDR XML file and interpret it as an unordered list of
+    &lt;path,value&gt; pairs, called a CLDRFile internally. These
+    path/value pairs can be added to or deleted, and then the CLDRFile
+    can be written back out to disk, resulting in a valid XML
+    file. That is a very powerful mechanism, and also allows for the
+    CLDR inheritance model.</p>
+
+    <p>Sounds simple, right? But it isn't quite that easy.</p>
+
+    <h2>Summary</h2>
+
+    <p>In summary, when you add an element, attribute, or new kind of
+    attribute value, there are some important steps you must also
+    take. Note that running our unit tests and ConsoleCheck will catch
+    most of these, but you should understand what is going on. Make
+    sure that you don't break any of the invariants below (read
+    through once to make sure you get them)! There is more detailed
+    information further down on the page.</p>
+
+    <h3>New Alt Values</h3>
+
+    <p>If you are only adding new alt values, it is much easier. You
+    still need to change related information, otherwise your strings
+    won't show up properly in the Survey Tool, or the right default
+    values won't be set. So go to <a href="#root_aliases">Root
+    Aliases</a>.</p>
+
+    <h2>Changing DTDs</h2>
+
+    <p>We augment the DTD structure in various ways.</p>
+
+    <ol>
+      <li>Annotations, included below the !ELEMENT or !ATTLIST line
+        <ul>
+          <li>&lt;!--@VALUE--&gt; to indicate that an attribute is not
+          distinguishing, and is treated like an element value.</li>
+          <li>&lt;!--@METADATA--&gt; to indicate that an attribute is
+          a "comment" on the data, like the draft status.</li>
+          <li>&lt;!--@ORDERED--&gt; to indicate that an element's
+          children are ordered.</li>
+          <li>&lt;!--@DEPRECATED--&gt; to indicate that an attribute
+          or element is deprecated.</li>
+          <li>&lt;!--@DEPRECATED:attribute-value--&gt; to indicate
+            that an attribute value is deprecated.</li>
+        </ul>
+      </li>
+      <li>
+        attributeValueValidity.xml
+        <ul><li>For additional validity checks</li></ul>
+      </li>
+      <li>
+        Check* tests and unit tests
+        <ul><li>There are many consistency tests that are performed on
+            the data that can't be expressed with the above.</li></ul>
+      </li>
+    </ol>
+
+    <h3>Removing Structure</h3>
+
+    <ol>
+      <li>We never explicitly remove structure except in very unusual
+      cases, so be sure that the committee is in full agreement before
+      doing that.</li>
+      <li>Normally, we just deprecate it, by adding attributes in the
+      DTD file
+        <ol>
+          <li>&lt;!--@DEPRECATED --&gt; below an !ELEMENT or !ATTLIST
+          item</li>
+          <li>&lt;!--@DEPRECATED: comma-separated-attribute-value-list
+          --&gt; for specific attribute values</li>
+        </ol>
+      </li>
+    </ol>
+
+    
+    <h3>Adding structure (elements, attributes, attribute-values)</h3>
+
+    <ol>
+      <li>
+        For each element
+        <ol>
+          <li>add @ORDERED if it is must be ordered.</li>
+          <li>read more details below.</li>
+        </ol>
+      </li>
+      <li>
+        For each attribute
+        <ol>
+          <li>add @VALUE or @METADATA to an !ATTLIST if the attribute
+            is non-distinguishing. (See the spec for what this
+            means)
+            <ol>
+              <li><b>@VALUE should never occur except on leaf
+                nodes!</b> (There are some cases before we realized
+                this was a mistake.)</li>
+            </ol>
+          </li>
+          <li>
+            If the attribute values are a closed set, you can add them
+            explicitly, like:
+            <ul><li>&lt;!ATTLIST version draft (approved |
+                contributed | provisional | unconfirmed) #IMPLIED&gt;</li></ul>
+          </li>
+          <li>Otherwise
+            <ol>
+              <li>Make it NMTOKEN where only single values are
+              allowed, or NMTOKENS otherwise (CDATA in rare cases, but
+              clear with the committee first)</li>
+              <li>Add validity information
+              toattributeValueValidity.xml</li>
+              <li><b>Never introduce any default DTD attribute
+              values.</b> (There are some cases before we realized
+              this was a mistake.)</li>
+            </ol>
+          </li>
+          <li>
+            For each attribute
+            <ol>
+              <li>add @VALUE or @METADATA to an !ATTLIST if the
+                attribute is non-distinguishing. (See the spec for
+                what this means)</li>
+              <li>add @ORDERED to an !ELEMENT.</li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+
+    Add the annotations.
+
+    <h3>ldml.dtd</h3>
+
+    <ol>
+      <li>
+        <b>Attribute Value.</b>
+        <ul>
+          <li>Certain values have special sorting behavior. These are listed
+            in <b>CLDRFile.getAttributeValueComparator</b>. They look like::
+            <ul>
+              <li>attribute.equals("day")</li>
+              <li>|| attribute.equals("type") &&
+                <ul>
+                  <li>element.endsWith("FormatLength")</li>
+                  <li>|| element.endsWith("Width")</li>
+                  <li>...</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Those need to be updated, or an exception will be thrown
+          when the items are processed. <em>Note that this is
+          different than the sort order used in PathHeader for the
+          survey tool.</em></li>
+          <li>
+            To fix them, look at the code and find the right
+            comparator, then modify. Example:
+            <ul>
+              <li>
+                widthOrder = (MapComparator) new
+                MapComparator().add(new String[] {"abbreviated",
+                "narrow", "short", "wide"}).freeze();
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Survey Tool Data.</b> Add information so that the Survey Tool can display these properly to
+        translators
+        <ol>
+          <li>
+            PathHeader.txt (tools/java/org/unicode/cldr/util/data/) -
+            provides the information for what section of the Survey
+            Tool this item shows up in, and how it sorts.
+            <ol><li>Edit as described
+                in <a href="#PathHeader">PathHeader</a>.</li></ol>
+          </li>
+          <li>PathDescription.txt (tools/java/org/unicode/cldr/util/data/) -
+            provides a description of what the field is, for translators.
+            <ol>
+              <li>
+                If it needs more explanation, add a section (or
+                perhaps a whole page) to the translation guide,
+                eg <!-- BROKEN LINK, TO BE FIXED -->
+                <a href="http://cldr.org/translation/plurals">http://cldr.org/translation/plurals</a>.
+              </li>
+              <li>
+                For an example,
+                see <a href="http://unicode.org/cldr/trac/changeset/8479#file5">8479</a>
+              </li>
+            </ol>
+          </li>
+          <li>
+            Placeholders.txt - provides information about the
+            placeholders, if there can be any.
+            <ol><li>If the value has placeholders ({0}, {1},...) then
+                edit this file as described
+                in <a href="#Placeholders">Placeholders</a>.</li></ol>
+          </li>
+          <li>The coverageLevels.xml (common/supplemental/coverageLevels) - sets the
+            coverage level for the path.
+            <ol><li><b>[TBD - John]</b></li></ol>
+          </li>
+          <li>
+            <em>Making sure paths are visible.</em>
+            <ol><li>There are 3 ways for paths to show up in ST even though
+                there are no values in root. See Visible Paths below</li></ol>
+          </li>
+          <li><b>Examples:</b> For any value that has placeholders, or
+          is used in other values that have placeholders, add handling
+          code to the <b>test/ExampleGenerator</b> so that survey tool
+          users see examples of your structure in place.</li>
+          <li><b>Cleaning
+up input.</b> If there are things you can do to fix the user data on
+              entry, add to <b>test/DisplayAndInputProcessor</b>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <b>Survey Tool Tests.</b> Add
+        those needed to CheckCLDR
+        <ol>
+          <li>In particular, add to CheckNew so that
+            people see it <b>[TBD, fix this advice]</b></li>
+          <li>
+            If the user's input could be bad, add a survey test to one or more of the tests subclassed from CheckCLDR, to check for bad user input.
+            <ul>
+              <li>Look at test/<b>CheckDates</b> to
+                see how this is done.</li>
+              <li>Run test/<b>ConsoleCheckCLDR</b> with various types of
+                invalid input to make sure that they fail.</li>
+            </ul>
+          </li>
+          <li>To update the casing files
+used by CheckConsistentCasing , run org.unicode.cldr.test.CasingInfo
+-l &lt;locale_regex&gt; which will update the casing files in
+common/casing. When you check this in, sanity check the values,
+because in some cases we have have had different rules than just what
+            the heuristics generate.</li>
+          <li>TEST out the <b>SurveyTool</b> to verify that you
+can see/edit the new items. If users should be able to input data and
+are not able to, the item has not been properly added to CLDR. See
+            <a href="http://cldr.unicode.org/development/running-survey-tool">Running the Survey Tool in Eclipse.</a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <b>Data.</b>
+        <ol>
+          <li>Add necessary data to root and English.</li>
+          <li>(Optional) add additional data for locales (if part of
+main). If the data is just seed data (that you aren't sure of), make
+            sure that you have draft="unconfirmed" on the leaf nodes.</li>
+        </ol>
+      </li>
+    </ol>
+
+    <h3>supplementalData.dtd</h3>
+    <ol>
+      <li>Add code to util/SupplementalDataInfo to fetch
+        the data.</li>
+      <li>You should develop a chart program that shows your data in
+        http://www.unicode.org/cldr/data/charts/supplemental/index.html</li>
+    </ol>
+
+    <hr>
+    
+    <h3>Structure Requirements</h3>
+
+    The following are required for elements, attributes, and attribute values.
+
+    <h4>Elements</h4>
+
+    <p>We never have "mixed" content. That is, no element values can
+    occur in anything but leaf nodes. You can never have
+    &lt;x&gt;abcd&lt;y&gt;def&lt;/y&gt;&lt;/x&gt;. You must instead
+    introduce another element, such as:
+    &lt;x&gt;&lt;z&gt;abcd&lt;/z&gt;&lt;y&gt;def&lt;/y&gt;&lt;/x&gt;</p>
+
+    <p>There is a strong distinction between rule elements and
+    structure elements. Example: in collations you have
+    &lt;p&gt;x&lt;/p&gt;&lt;p&gt;y&lt;/p&gt; representing x &lt;
+    y. Clearly changing the order would cause problems! There are
+    restrictions on this, however:</p>
+
+    <ol>
+      <li>Rule elements must be written in the same order they are read.</li>
+      <li>They can't inherit.</li>
+      <li>You can't (easily) add to them programmatically.</li>
+      <li>You can't mix rule and structure elements under the same parent element. That is, if you can have &lt;x&gt;&lt;y&gt;...&lt;/y&gt;&lt;z&gt;...&lt;/z&gt;&lt;/x&gt;, then either y and z must both be rule or <em>both</em> be structure elements.</li>
+      <li>In our code, rule elements have their ordering preserved by
+      adding a fake attribute added when reading, _q="nnn".</li>
+      <li>
+        The CLDRFile code has a list of these, in the right order,
+        as <b>orderedElements</b>. If you ever add an rule element to
+        a DTD, you MUST add it there. Be careful to preserve the above
+        invariants.
+        <ul><li>Note: we should change the
+        name <em>orderedElements</em> for clarity.</li></ul>
+      </li>
+    </ol>
+
+    <p>In order to write out an XML file correctly, we also have to
+    know the valid ordering of paths for elements that are not
+    ordered. This ordering is generated automatically from the DTD,
+    constructed by merging. <b><em>If there are any cycles in the
+    ordering, then the CLDR tools will throw an exception, and you
+    have to fix it.</em></b> That also means that we cannot have
+    complicated DTDs; each non-leaf node <b>MUST</b> be of the
+    form:</p>
+
+    <ul><li>&lt;!ELEMENT foo (alias (first?, second*, third?,
+        ... special*))&gt;.</li></ul>
+
+    <p>The subelements of an element will vary between * and ?. Note
+    however that all leaf nodes MUST allow for the attributes
+    alt=... draft=... and references=.... So that the alt can work,
+    the leaf nodes MUST occur in their parent as *, not ?, even if
+    logically there can be only one. For example, even though
+    logically there is only a single quotationStart, we see:</p>
+
+    <ul><li>&lt;!ELEMENT delimiters (alias | (quotationStart*, ...</li></ul>
+    
+    <h4>Attributes </h4>
+
+    <p>The attribute order is much more flexible, since it doesn't
+    affect the validity of the file. That is, in XML the following are
+    equal:</p>
+
+    <ul>
+      <li>&lt;info iso4217="ADP" digits="0" rounding="0"/&gt;</li>
+      <li>&lt;info digits="0" rounding="0" iso4217="ADP"/&gt;</li>
+    </ul>
+
+    <p>However, when this is turned into a path, the
+    order <em>does</em> matter. That is, as strings the following
+    are <em>not</em> equal</p>
+
+    <ul>
+      <li>//supplementalData/currencyData/fractions/info[@iso4217="ADP"][@digits="0"][@rounding="0"]</li>
+      <li>//supplementalData/currencyData/fractions/info[@digits="0"][@rounding="0"][@iso4217="ADP"]</li>
+    </ul>
+
+    <p>The ordering of attributes in the string path and in the output
+    file is controlled by the ordering in the DTD. Certain attributes
+    always come first (like _q and type), and certain others always
+    come last (like draft and references). Normally you add new
+    attributes to the middle somewhere.</p>
+
+    <p>When computing the file ordering, we compare paths using
+    CLDRFile.ldmlComparator. Here is the basic ordering algorithm:</p>
+
+    <p>Walk through the elements in the path. For each element and its attributes:</p>
+
+    <ol>
+      <li>
+        compare the corresponding elements at that level in the respective paths; if unequal, return their ordering
+        <ul>
+          <li>If they are orderedElements, treat them as equal (the _q attributes will distinguish them).</li>
+          <li>Otherwise the "less than" ordering is given by elementOrdering.</li>
+        </ul>
+      </li>
+      <li>
+        otherwise compare the respective attributes and attribute values, one by one:
+        <ol>
+          <li>if the attributes are unequal, return their ordering (according to attributeOrdering)</li>
+          <li>if the attribute values are unequal, return their ordering</li>
+        </ol>
+      </li>
+    </ol>
+
+    <p>While attribute value orderings are mostly alphabetic, we do
+    have a number of tweaks in getAttributeValueComparator so that
+    values come in a reasonable order, such as "sun" &lt; "mon" &lt;
+    "tues" &lt; ...</p>
+
+    <p>There is an important distinction for
+    attributes. The <b>distinguishing</b> attributes are relevant to
+    the identity of the path and for inheritance. For example, in
+    &lt;language type="en"...&gt; the type is a distinguishing
+    attribute. The <b>non-distinguishing</b> attributes instead carry
+    information, and aren't relevant to the identity of the path, nor
+    are they used in the ordering above. <b><em>Non-distinguishing
+    elements in the ldml DTD cause problems: try to design all future
+    DTD structure to avoid them; put data in element values, not
+    attribute values.</em></b> It is ok to have data in attributes in
+    the other DTDs. The distinction between the distinguishing and
+    non-distinguishing elements is captured in the distinguishingData
+    in CLDRFile. So by default, always put new ldml attributes in this
+    array.</p>
+
+    <ul><li><em>(Note: we should change this to be exclusive instead of
+    inclusive, to reduce the possibility for error.)</em></li></ul>
+
+    <h4>Attribute Values</h4>
+
+    <p>We use some default attribute values in our DTD, such as</p>
+
+    <ul><li>&lt;!ATTLIST decimalFormat type NMTOKEN <b>"standard"</b> &gt;</li></ul>
+
+    <p>This was a mistake, since it makes the interpretation of the
+    file depend on the DTD; we might fix it some day, maybe if we go
+    to Relax, but for now just don't introduce any more of these. It
+    also means that we have a table in CLDRFile with these values:
+    defaultSuppressionMap.</p>
+
+    <p>When you make a draft attribute on a new element, don't copy
+    the old ones like this:</p>
+
+    <p>&lt;!ATTLIST xxx draft ( approved | contributed | provisional |
+    unconfirmed | true | false ) #IMPLIED &gt;&lt;!-- true and false
+    are deprecated. --&gt;</p>
+
+    <p>That is, we <em>don't</em> want the deprecated values on new
+    elements. Just make it:</p>
+
+    <p>&lt;!ATTLIST xxx draft ( approved | contributed | provisional |
+    unconfirmed ) #IMPLIED &gt;</p>
+
+    <p>The DTD cannot do anything like the level of testing for
+    legitimate values that we need, so supplemental data also has a
+    set of attributeValueValidity.xml data for checking attribute
+    values. For example, we see:</p>
+
+    <ul><li>&lt;attributeValues dtds='supplementalData'
+    elements='calendarPreference' attributes='ordering'
+    type='list'&gt;$_bcp47_calendar&lt;/attributeValues&gt;</li></ul>
+
+    <p>This means that whenever you see any matching
+    dtd/element/attribute combination, it can be tested for a list of
+    values that are contained in the variable $_bcp47_calendar. Some
+    of these variables are lists, and some are regex, and some (those
+    with $_) are generated internally from other information. When you
+    add a new attribute to ldml, you must add a &lt;validity&gt;
+    element unless it is a closed set.</p>
+
+    <h4>No default attribute values</h4>
+
+    <p>The ones we have in CLDR were (in hindsight) a mistake, since
+    it makes the interpretation of the file depend on the DTD; we
+    might fix it some day, maybe if we go to Relax, but for now just
+    don't introduce any more of these. It also means that for writing
+    out the files we have a table in CLDRFile with these values:
+    defaultSuppressionMap and in
+    supplementalMetadata <em>&lt;suppress&gt;</em>.</p>
+
+    <h4>Don't Reuse</h4>
+
+    <p>For many many reasons, you never reuse an element name or
+    attribute name unless you mean precisely the same thing, and the
+    item is used in the same way. So to="2009-05-21" is always an
+    attribute that means an end date. Be very careful about new
+    elements with the same name as old ones. You can't have
+    &lt;territory&gt; be an orderedElement in one place, and a
+    non-orderedElement in another. The attribute type=... is always
+    used as an id. For historial reasons, sometimes it is
+    distinguishing and sometimes note (this is very painful, don't add
+    to it!). It is also not used as the id in numberingSystems.</p>
+
+    <h2><a id="root_aliases"></a>Root Aliases</h2>
+
+    <p>If your new structure should have aliases, such as when the
+    "narrow" values should default to the "short" values, which should
+    default to the regular values, then you need to add aliases in
+    root.xml. Look at examples there for how to do this.</p>
+
+    <h2><a id="PathHeader"></a>PathHeader</h2>
+
+    <p>PathHeader.txt determines the placement and ordering in
+    SurveyTool. It consists of a sequence of regex lines of the
+    following form:</p>
+
+    <code>&lt;regex&gt; ; &lt;section&gt; ; &lt;page&gt; ;
+    &lt;header&gt; ; &lt;code&gt;</code>
+
+    <p>Here's an example:</p>
+
+    <code>//ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; $3-$2</code>
+
+    <h3>Key Features</h3>
+
+    <p>These are also in the header of PathHeader.txt:</p>
+
+    <ul>
+      <li># Be careful, order matters. It is used to determine the order on the page and in menus. Also, be sure to put longer matches first, unless terminated with $.</li>
+      <li># The quoting of \[ is handled automatically, as is alt=X</li>
+      <li># If you add new paths, change @type="..." => @type="%A"</li>
+      <li># The syntax &function(data) means that a function generates both the string and the ordering. The functions MUST be supported in PathHeader.java</li>
+      <li># The only function that can be in Page right now are &metazone and &calendar, and NO functions can be in Section</li>
+      <li># A * at the front (like *$1) means to not change the sorting group.</li>
+    </ul>
+
+    <p>There are a set of variables at the top of the file. These all
+    are in parens, so the %A, %E, and %E correspond to the $1, $2, and
+    $3 in the &lt;section&gt; ; &lt;page&gt; ; &lt;header&gt; ;
+    &lt;code&gt;</p>
+
+    <p>The order of the section and page is determined by the enums in
+    the PathHeader.java file. So the &lt;section&gt; and &lt;page&gt;
+    must correspond to those enum values.</p>
+
+    <h3><em>Uniqueness is Vital</em></h3>
+
+    <p>The results from PathHeader must be unique: that is, if the
+    source paths are different, then at least one of &lt;section&gt; ;
+    &lt;page&gt; ; &lt;header&gt; ; &lt;code&gt; must be
+    different.</p>
+
+    <h3>Changing Order</h3>
+
+    <p>If you need to change the order of the header or code or the
+    appearance programmatically, then you need to create a function
+    (call it xyz), and use it in the PathHeader.txt file (eg
+    &xyz($1)). In PathHeader.java, search for functionMap to see
+    examples of these.</p>
+
+    <p>The order of the header and then of the code within the same
+    header is normally determined by the ordering in the file. To
+    override this, set the order field in your function. For example,
+    the following gets integer values and changes them into real ints
+    for comparison.</p>
+
+    <pre>
+      <b>int</b> m = Integer.<em>parseInt</em>(source);
+      <em>order</em> = m;</pre>
+
+    <p>There is also a "suborder" used in a few cases for the
+    code. You probably don't need to worry about this, but here is an
+    example. Ask for help on the cldr-dev list if you need this.</p>
+
+    <pre>
+      <em>suborder</em> = <b>new</b> SubstringOrder(source, 1);</pre>
+
+    <p>The return value is the appearance to the user. For example,
+    the following changes integer months into strings for display:</p>
+
+    <pre>
+      <b>static</b> String[] <em>months</em> = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",  "Und" };
+
+      ...
+
+      <b>return</b> <em>months</em>[m - 1];</pre>
+
+    <h2><a id="Placeholders"></a>Placeholders</h2>
+
+    <p>If a value has placeholders, edit Placeholders.txt:</p>
+
+    <ol>
+      <li>Add 1 item per placeholder, with the form
+        <ul>
+          <li>&lt;regex&gt; ; {0}=&lt;message_name&gt; &lt;example&gt;
+            ; {1}=&lt;message_name&gt; &lt;example&gt; ...</li>
+          <li>^//ldml/units/unit\[@type="day%A"]/unitPattern ;
+            {0}=NUMBER_OF_DAYS 3</li>
+        </ul>
+      </li>
+      <li>There is a variable %A that will match attribute value syntax (or substrings).</li>
+      <li>&lt;example&gt; may contain spaces, but &lt;message_name&gt;
+        must not.</li>
+      <li>For an example,
+        see <a href="http://unicode.org/cldr/trac/changeset/8484">8484</a></li>
+      <li>Check that the ConsoleCheckCLDR <b>CheckForExamplars</b>
+        fails if there are no placeholders in the value</li>
+      <li> Note: we should switch methods so that we don't need to
+        quote \[, etc, but we haven't yet.</li>
+    </ol>
+
+    <h2>PathDescription</h2>
+
+    <p>This file provides a description of each kind of path, and a
+    link to a section of
+    <a href="https://sites.google.com/site/cldr/translation">https://sites.google.com/site/cldr/translation</a>. Easiest
+    is to take an existing description and modify.</p>
+
+    <h2>Coverage</h2>
+
+    <p>Coverage determines the minimum coverage level at which a given
+    item will appear in the survey tool.  If a given field is not in
+    coverage, then the item will not appear in the survey tool at all.
+    This data is required for the elements in /main/.</p>
+
+    <p>The file <b>common/supplemental/coverageLevels.xml</b> is a
+    series of regular expressions describing the paths and the
+    coverage levels associated with each.  The file also gives you the
+    ability to define a "coverage variable", which can then be used as
+    a placeholder in the regular expressions used for matching.
+    Always try to be as exact as possible and avoid using wildcards in
+    the regular expressions, as they can impact lookup performance.</p>
+
+    <p>Coverage values are currently numeric, although we may change
+    them to be words in the near future in order to make them easier
+    to understand.  The coverage level values are:</p>
+
+    <p>10 = Core data, 20 = POSIX, 30 = Minimal, 40 = Basic, 60 =
+    Moderate, 80 = Modern, 100 = Comprehensive</p>
+
+    <p>Example: The following two lines define the coverage for the
+    exemplar characters items.  Note that "//ldml" is automatically
+    prepended to the path names, in order to make the paths in this
+    file smaller.</p>
+
+    <pre>
+&lt;coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation)"/&gt;
+&lt;coverageLevel value="10" match="characters/exemplarCharacters[@type='%exemplarTypes']"/&gt;
+    </pre>
+
+    <h2>LDML2ICU</h2>
+
+    <p>Modify the following files as described
+    in <a href="http://www.unicode.org/repos/cldr/trunk/tools/java/org/unicode/cldr/icu/ldml2icu_readme.txt">ldml2icu_readme.txt</a>. This
+    will allow NewLdml2IcuConverter.java to work properly so that the
+    data can be read into ICU and tested there.</p>
+
+    <ol>
+      <li>ldml2icu_locale.txt and/or</li>
+      <li>ldml2icu_supplemental.txt</li>
+    </ol>
+
+    <p>Unfortunately, you have to change input parameters to get the
+    different kinds of generated files. Here's an example:</p>
+
+    <p>
+      -s {workspace-cldr}/common/supplemental<br>
+      -d {workspace-temp}/cldr/icu/<br>
+      -t supplementalData<br>
+      -k
+    </p>
+
+    <p>Use -k to build into a single file, which is helpful for
+    checking the supplemental data. There are a few other useful
+    parameters if you look at the top of NewLdml2IcuConverter.</p>
+
+<h3>Warning</h3>
+
+If you add a new kind of file or directory, you may have to adjust the tool to make sure it is seen and built. For example, if you add a new kind of supplemental file, you also have to modify SupplementalMapper.fillFromCldr(...).
+
+<h2>Visible Paths</h2>
+
+<p>There are three ways for paths to show up in the Survey Tool (and
+in other tooling!) even if the value is null for a given locale. These
+are important, since they determine what users will be able to
+enter.</p>
+
+<ol>
+  <li><b>root.</b> This is the simplest, and should always be used whenever there is a 'real' fallback value for the path, and the path is not part of an algorithmically computed set. It also has the aliases for paths that get special inheritance.</li>
+  <li><b>code_fallback.</b> This is used for all algorithmically computed paths that don't depend on the locale. For example, the paths for language codes, currency codes, region codes, etc. are here.
+    <ul>
+      <li>To modify, go to XMLSource.java (tools/java/org/unicode/cldr/util/) and update constructedItems to add special paths for items that should appear in locales even though there is no corresponding item in root (e.g. for localeDisplayNames including standard language codes and regional variants, and for all alt="short" or alt="variant" forms).</li>
+      <li>Check to make sure that all of the special alt values in en.xml are there.</li>
+    </ul>
+  </li>    
+  <li>
+    <b>extraPaths.</b> This is used for algorithmically computed paths
+    that do depend on the locale. For example, we generate count
+    values based on the plural rules. The 'other' form must be in
+    root, but all other forms are calculated here. This should not be
+    overused, since it is recalculated dynamically, whereas root and
+    code_fallback are constant over the life of the ST.
+    <ul><li>To modify, look at CLDRFile.getRawExtraPaths().</li></ul>
+  </li>
+</ol>
+
+<h3>Gotchas</h3>
+
+<ul>
+  <li>
+    Even if root, code_fallback, or extraPaths are set up right, the
+    data may not be visible in ST. If it should show up but isn't,
+    look at:
+    <ul>
+      <li><b>PathHeader:</b> Special items are suppressed (they all
+      have HIDE on them). This is used for all paths that don't vary
+      by locale. Paths can also be marked as having unmodifiable
+      values.</li>
+      <li><b>Coverage:</b> If a path has too high a coverage level,
+      then it will be hidden.</li>
+      <li><b>Other stuff?</b> [Steven to fill out].</li>
+    </ul>
+  </li>
+</ul>
+
+<h3><span style="background-color:rgb(255,255,0)">OK if Missing</span></h3>
+
+<p><span style="background-color:rgb(255,255,0)">Certain paths don't
+have to be present in locales. They are not counted as Missing in the
+Dashboard and shouldn't have an effect on coverage. To handle these,
+modify the file missingOk.txt to provide a regex that captures those
+paths. Be careful, however, to not be overly inclusive: you want all
+and only those paths that are ok to skip. Typically those are paths
+for which root values are perfectly fine.</span></p>
+
+<h2><span style="background-color:rgb(255,242,204)">Examples of DTD
+modifications</span></h2>
+
+<p><span style="background-color:rgb(255,242,204)">The following is an
+example of the different files that may need to be modified. It has
+both count= and a placeholder, so it hits most of the kinds of
+changes.</span>
+
+  <ul><li><span style="background-color:rgb(255,242,204)">
+        <a href="http://unicode.org/cldr/trac/changeset/12592">
+          http://unicode.org/cldr/trac/changeset/12592</a>
+  </span></li></ul>
+
+<h2>Modifying English/Root</h2>
+
+<p>Whenever you modify values in English or Root, be sure to run
+GenerateBirth as described
+on <a href="http://cldr.unicode.org/development/updating-english-root">Updating
+English/Root</a> and check in the results. That ensures that CheckNew
+works properly. This must be done before the Survey Tool starts or is
+in the Submission Phase.</p>
+
+<h2>Validation</h2>
+
+<ul>
+  <li>
+    <b>Do the steps
+      on <a href="http://cldr.unicode.org/development/running-tests">Running
+      Tests</a></b>
+  </li>
+</ul>
+
+<h2>Debugging Regexes</h2>
+
+<ul>
+  <li>
+    Moved
+    to <a href="http://cldr.unicode.org/development/running-tests">Running
+    Tests</a>
+  </li>
+</ul>
+
+<hr>
+
+Subpages: <a href="http://cldr.unicode.org/development/updating-dtds/current-changes">current
+changes</a>

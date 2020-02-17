@@ -33,7 +33,7 @@ included as [apache-license.txt](../../blob/master/apache-license.txt).
 
 ##### Copyright
 
-Copyright &copy; 1991-2019 Unicode, Inc.
+Copyright &copy; 1991-2020 Unicode, Inc.
 All rights reserved.
 [Terms of use](http://www.unicode.org/copyright.html)
 

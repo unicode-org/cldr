@@ -422,7 +422,8 @@ public class TestDtdData extends TestFmwk {
             "exception", // needed for new segmentations
             "coverageLevel", // needed for supplemental/coverageLevel.xml
             "coverageVariable", // needed for supplemental/coverageLevel.xml
-            "substitute" // needed for characters.xml
+            "substitute", // needed for characters.xml
+            "unitPreference"
     )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
@@ -504,7 +505,7 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("unitPreferences")
                     && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
                 || elementName.equals("unitPreference")
-                    && attribute.equals("regions")
+                    && (attribute.equals("regions") || attribute.equals("geq"))
                 || elementName.equals("distinguishingItems")
                     && attribute.equals("attributes")
                 || elementName.equals("codesByTerritory")

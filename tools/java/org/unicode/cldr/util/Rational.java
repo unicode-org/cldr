@@ -89,7 +89,7 @@ public final class Rational implements Comparable<Rational> {
             }
             return result;
         }
-        
+
         static final UnicodeSet ALLOWED_CHARS = new UnicodeSet("[A-Za-z0-9_]").freeze();
 
         private Rational process2(String input) {
@@ -117,9 +117,11 @@ public final class Rational implements Comparable<Rational> {
 
         @Override
         public RationalParser freeze() {
-            frozen = true;
-            constants = ImmutableMap.copyOf(constants);
-            constantStatus = ImmutableMap.copyOf(constantStatus);
+            if (!frozen) {
+                frozen = true;
+                constants = ImmutableMap.copyOf(constants);
+                constantStatus = ImmutableMap.copyOf(constantStatus);
+            }
             return this;
         }
 
@@ -127,12 +129,12 @@ public final class Rational implements Comparable<Rational> {
         public RationalParser cloneAsThawed() {
             throw new UnsupportedOperationException();
         }
-        
+
         public Map<String, Rational> getConstants() {
             return constants;
         }
     }
-   
+
     public static Rational of(long numerator, long denominator) {
         return new Rational(BigInteger.valueOf(numerator), BigInteger.valueOf(denominator));
     }
@@ -148,7 +150,7 @@ public final class Rational implements Comparable<Rational> {
     public static Rational of(BigInteger numerator) {
         return new Rational(numerator, BigInteger.ONE);
     }
-    
+
     public static Rational of(String simple) {
         simple = simple.trim();
         int slashPos = simple.indexOf('/');
@@ -330,18 +332,18 @@ public final class Rational implements Comparable<Rational> {
     public static BigInteger findPower(BigInteger current, BigInteger factor, MutableLong powerOut) {
         long power = 0;
         if (!current.equals(BigInteger.ZERO) && factor.compareTo(BigInteger.ONE) > 0) {
-        while (current.mod(factor).equals(BigInteger.ZERO)) {
-            current = current.divide(factor);
-            power++;
-        }
+            while (current.mod(factor).equals(BigInteger.ZERO)) {
+                current = current.divide(factor);
+                power++;
+            }
         }
         powerOut.value = power;
         return current;
     }
-    
+
     public static class ContinuedFraction {
         public final List<BigInteger> sequence;
-        
+
         public ContinuedFraction(Rational source) {
             List<BigInteger> _sequence = new ArrayList<>();
             while (true) {
@@ -358,7 +360,7 @@ public final class Rational implements Comparable<Rational> {
             }
             sequence = ImmutableList.copyOf(_sequence);
         }
-        
+
         public ContinuedFraction(long... items) {
             List<BigInteger> _sequence = new ArrayList<>();
             int count = 0;
@@ -371,7 +373,7 @@ public final class Rational implements Comparable<Rational> {
             }
             sequence = ImmutableList.copyOf(_sequence);
         }
-        
+
         public Rational toRational(List<Rational> intermediates) {
             if (intermediates != null) {
                 intermediates.clear();
@@ -403,7 +405,7 @@ public final class Rational implements Comparable<Rational> {
         public String toString() {
             return sequence.toString();
         }
-        
+
         @Override
         public boolean equals(Object obj) {
             return sequence.equals(((ContinuedFraction)obj).sequence);

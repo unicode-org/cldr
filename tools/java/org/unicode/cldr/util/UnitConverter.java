@@ -86,20 +86,22 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     @Override
     public UnitConverter freeze() {
-        frozen = true;
-        rationalParser.freeze();
-        sourceToTargetInfo = ImmutableMap.copyOf(sourceToTargetInfo);
-        quantityToSimpleUnits = ImmutableMultimap.copyOf(quantityToSimpleUnits);
-        sourceToSystems = ImmutableMultimap.copyOf(sourceToSystems);    
-        // other fields are frozen earlier in processing
-        Builder<String> builder = ImmutableSet.<String>builder()
-            .addAll(BASE_UNITS);
-        for (TargetInfo s : sourceToTargetInfo.values()) {
-            builder.add(s.target);
+        if (!frozen) {
+            frozen = true;
+            rationalParser.freeze();
+            sourceToTargetInfo = ImmutableMap.copyOf(sourceToTargetInfo);
+            quantityToSimpleUnits = ImmutableMultimap.copyOf(quantityToSimpleUnits);
+            sourceToSystems = ImmutableMultimap.copyOf(sourceToSystems);    
+            // other fields are frozen earlier in processing
+            Builder<String> builder = ImmutableSet.<String>builder()
+                .addAll(BASE_UNITS);
+            for (TargetInfo s : sourceToTargetInfo.values()) {
+                builder.add(s.target);
+            }
+            baseUnits = builder.build();
+            continuations = ImmutableMultimap.copyOf(continuations);
+            targetInfoComparator = new TargetInfoComparator();
         }
-        baseUnits = builder.build();
-        continuations = ImmutableMultimap.copyOf(continuations);
-        targetInfoComparator = new TargetInfoComparator();
         return this;
     }
 
@@ -759,8 +761,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public String getQuantityFromUnit(String unit, boolean showYourWork) {
         Output<String> metricUnit = new Output<>();
+        unit = fixDenormalized(unit);
         ConversionInfo unitInfo = parseUnitId(unit, metricUnit, showYourWork);
-        return getQuantityFromBaseUnit(metricUnit.value);
+        return metricUnit == null ? null : getQuantityFromBaseUnit(metricUnit.value);
     }
 
     public String getQuantityFromBaseUnit(String baseUnit) {
@@ -775,7 +778,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return result;
     }
 
-    public String getQuantityFromBaseUnit2(String baseUnit) {
+    private String getQuantityFromBaseUnit2(String baseUnit) {
         String result = baseUnitToQuantity.get(baseUnit);
         if (result != null) {
             return result;
@@ -873,13 +876,26 @@ public class UnitConverter implements Freezable<UnitConverter> {
         if (showYourWork) System.out.println(showRational(" ⟹ target: ", result, targetUnit));
         return result;
     }
-    
+
     public String fixDenormalized(String unit) {
         String fixed = fixDenormalized.get(unit);
         return fixed == null ? unit : fixed;
     }
-    
+
     public Map<String, Rational> getConstants() {
         return rationalParser.getConstants();
+    }
+
+    public String getBaseUnitFromQuantity(String unitQuantity) {
+        boolean invert = false;
+        if (unitQuantity.endsWith("-inverse")) {
+            invert = true;
+            unitQuantity = unitQuantity.substring(0,unitQuantity.length()-8);
+        }
+        String bu = ((BiMap<String,String>) baseUnitToQuantity).inverse().get(unitQuantity);
+        if (bu == null) {
+            return null;
+        }
+        return invert ? reciprocalOf(bu) : bu;
     }
 }

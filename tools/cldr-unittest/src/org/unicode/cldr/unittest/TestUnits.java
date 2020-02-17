@@ -2,6 +2,8 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -25,15 +27,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.ContinuedFraction;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -44,9 +49,12 @@ import org.unicode.cldr.util.UnitConverter.Continuation;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitId;
+import org.unicode.cldr.util.UnitPreferences;
+import org.unicode.cldr.util.UnitPreferences.UnitPreference;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -64,13 +72,18 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
+    private static final ImmutableSet<String> WORLD_SET = ImmutableSet.of("001");
+
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false);
 
     private static final CLDRConfig info = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
 
     static final UnitConverter converter = SDI.getUnitConverter();
-    static final Splitter SPACE_SPLITTER = Splitter.on(Pattern.compile("\\s;\\s")).trimResults();
+    static final Splitter SPLIT_SEMI = Splitter.on(Pattern.compile("\\s*;\\s*")).trimResults();
+    static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
+    static final Splitter SPLIT_COLON = Splitter.on(':').trimResults().omitEmptyStrings();
+
     static final Rational R1000 = Rational.of(1000);
 
     public static void main(String[] args) {
@@ -894,7 +907,7 @@ public class TestUnits extends TestFmwk {
             if (line.isEmpty() || line.charAt(0) == '#') {
                 return;
             }
-            List<String> fields = SPACE_SPLITTER.splitToList(line);
+            List<String> fields = SPLIT_SEMI.splitToList(line);
             ConversionInfo unitInfo;
             try {
                 unitInfo = converter.parseUnitId(fields.get(1), metricUnit, false);
@@ -1027,16 +1040,16 @@ public class TestUnits extends TestFmwk {
     private String getEnglishBaseUnit(String baseUnit) {
         return baseUnit.replace("kilogram", "pound").replace("meter", "foot");
     }
-    
+
     public void TestPI() {
         Rational PI = converter.getConstants().get("PI");
         double PID = PI.toBigDecimal(MathContext.DECIMAL128).doubleValue();
         final BigDecimal bigPi = new BigDecimal("3.141592653589793238462643383279502884197169399375105820974944");
         double bigPiD = bigPi.doubleValue();
         assertEquals("pi accurate enough", bigPiD, PID);
-        
+
         // also test continued fractions used in deriving values
-        
+
         Object[][] tests0 = {
             {new ContinuedFraction(0, 1, 5, 2, 2), Rational.of(27, 32), ImmutableList.of(Rational.of(0), Rational.of(1), Rational.of(5,6), Rational.of(11, 13))},
         };
@@ -1080,5 +1093,147 @@ public class TestUnits extends TestFmwk {
                 }
             }
         }
+    }
+    public void TestUnitPreferenceSource() {
+        XMLSource xmlSource = new SimpleXMLSource("units");
+        xmlSource.setNonInheriting(true);
+        CLDRFile foo = new CLDRFile(xmlSource );
+        foo.setDtdType(DtdType.supplementalData);
+        UnitPreferences uprefs = new UnitPreferences();
+        int order = 0;
+        for (String line : FileUtilities.in(TestUnits.class, "UnitPreferenceSource.txt")) {
+            line = line.trim();
+            if (line.isEmpty() || line.startsWith("#")) {
+                continue;
+            }
+            List<String> items = SPLIT_SEMI.splitToList(line);
+            try {
+                String quantity = items.get(0);
+                String usage = items.get(1);
+                String regionsStr = items.get(2);
+                List<String> regions = SPLIT_SPACE.splitToList(items.get(2));
+                String geqStr = items.get(3);
+                double geq = geqStr.isEmpty() ? 1d : Double.parseDouble(geqStr);
+                String skeleton = items.get(4);
+                String unit = items.get(5);
+                uprefs.add(quantity, usage, regionsStr, geqStr, skeleton, unit);
+                String path = uprefs.getPath(order++, quantity, usage, regions, geq, skeleton);
+                xmlSource.putValueAtPath(path, unit);
+            } catch (Exception e) {
+                errln("Failure on line: " + line + "; " + e.getMessage());
+            }
+        }
+        checkUnitPreferences(uprefs);
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
+        foo.write(out);
+        out.flush();
+    }
+
+    static final Joiner JOIN_SPACE = Joiner.on(' ');
+
+    private void checkUnitPreferences(UnitPreferences uprefs) {
+        Set<String> usages = new LinkedHashSet<>();
+        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 : uprefs.getData().entrySet()) {
+            String quantity = entry1.getKey();
+            
+            // Each of the quantities is valid.
+            assertNotNull("quantity is convertible", converter.getBaseUnitFromQuantity(quantity));
+            
+            Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionToUnitPreference = entry1.getValue();
+                
+            // each of the quantities has a default usage
+            assertTrue("Quantity " + quantity + " contains default usage", usageToRegionToUnitPreference.containsKey("default"));
+            
+            for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : usageToRegionToUnitPreference.entrySet()) {
+                String usage = entry2.getKey();
+                final String quantityPlusUsage = quantity + "/" + usage;
+                Multimap<Set<String>, UnitPreference> regionsToUnitPreference = entry2.getValue();
+                usages.add(usage);
+                Set<Set<String>> regionSets = regionsToUnitPreference.keySet();
+                
+                // all quantity + usage pairs must contain 001 (one exception)
+                assertTrue("For " + quantityPlusUsage + ", the set of sets of regions must contain 001", regionSets.contains(WORLD_SET) 
+                    || quantityPlusUsage.contentEquals("concentration/blood-glucose"));
+                
+                // Check that regions don't overlap for same quantity/usage
+                Multimap<String, Set<String>> checkOverlap = LinkedHashMultimap.create();
+                for (Set<String> regionSet : regionsToUnitPreference.keySet()) {
+                    for (String region : regionSet) {
+                        checkOverlap.put(region, regionSet);
+                    }
+                }
+                for (Entry<String, Collection<Set<String>>> entry : checkOverlap.asMap().entrySet()) {
+                    assertEquals(quantityPlusUsage + ": regions must be in only one set: " + entry.getValue(), 1, entry.getValue().size());
+                }
+                
+                for (Entry<Set<String>, Collection<UnitPreference>> entry : regionsToUnitPreference.asMap().entrySet()) {
+                    Collection<UnitPreference> uPrefs = entry.getValue();
+                    Set<String> regions = entry.getKey();
+                    
+                    
+                    // reset these for every new set of regions
+                    Rational lastSize = null;
+                    String lastUnit = null;
+                    Set<String> lastRegions = null;
+                    preferences:
+                        for (UnitPreference up : uPrefs) {
+                            String unitQuantity = null;
+                            String topUnit = null;
+                            if ("minute:second".equals(up.unit)) {
+                                int debug = 0;
+                            }
+                            for (String unit : SPLIT_COLON.split(up.unit)) {
+                                try {
+                                    if (topUnit == null) {
+                                        topUnit = unit;
+                                    }
+                                    unitQuantity = converter.getQuantityFromUnit(unit, false);
+                                } catch (Exception e) {
+                                    errln("Unit is not covertible: " + up.unit);
+                                    continue preferences;
+                                }
+                                if (!assertEquals(up.unit, quantity, unitQuantity)) {
+                                    int debug = 0;
+                                }
+                            }
+                            String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
+                            Rational rationalGeq = Rational.of(BigDecimal.valueOf(up.geq));
+                            Rational size = converter.convert(rationalGeq, topUnit, baseUnit, false);
+                            if (lastSize != null) { // ensure descending order
+                                if (!assertTrue("Successive items must be ≥ previous:\n\t" + quantityPlusUsage 
+                                    + "; unit: " + up.unit
+                                    + "; size: " + size
+                                    + "; regions: " + regions
+                                    + "; lastUnit: " + lastUnit
+                                    + "; lastSize: " + lastSize
+                                    + "; lastRegions: " + lastRegions
+                                    , size.compareTo(lastSize) <= 0)) {
+                                    int debug = 0;
+                                }
+                            }
+                            lastSize = size;
+                            lastUnit = up.unit;
+                            lastRegions = regions;
+                            System.out.println(quantity + "\t" + usage + "\t" + regions + "\t" + up.geq + "\t" + up.unit + "\t" + up.skeleton);
+                        }
+                }
+            }
+        }
+        final UnicodeSet lowercaseAZ = new UnicodeSet("[a-z]").freeze();
+        for (String usage : usages) {
+            checkBcp47(usage, lowercaseAZ);
+        }
+    }
+
+    private void checkBcp47(String usage, UnicodeSet allowed) {
+        for (String subtag : usage.split("-")) {
+            assertTrue(subtag, allowed.containsAll(subtag) && subtag.length() > 2 && subtag.length() <= 8);
+        }
+    }
+
+    public void TestUnitPreferences() {
+        System.out.println("\t If this fails, check the output of TestUnitPreferencesSource, fix as needed, then incorporate");
+        UnitPreferences prefs = SDI.getUnitPreferences();
+        checkUnitPreferences(prefs);
     }
 }

@@ -238,12 +238,226 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- luminous-flux -->
         <convertUnit source='lux' baseUnit='candela-square-meter-per-square-meter'/>
     </convertUnits>
+    <unitPreferenceData>
+        <unitPreferences category="area" usage="default">
+            <unitPreference regions="001">square-kilometer</unitPreference>
+            <unitPreference regions="001">hectare</unitPreference>
+            <unitPreference regions="001">square-meter</unitPreference>
+            <unitPreference regions="001">square-centimeter</unitPreference>
+            <unitPreference regions="US GB">square-mile</unitPreference>
+            <unitPreference regions="US GB">acre</unitPreference>
+            <unitPreference regions="US GB">square-foot</unitPreference>
+            <unitPreference regions="US GB">square-inch</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="area" usage="geograph">
+            <unitPreference regions="001">square-kilometer</unitPreference>
+            <unitPreference regions="US GB">square-mile</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="area" usage="land">
+            <unitPreference regions="001">hectare</unitPreference>
+            <unitPreference regions="US GB">acre</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="concentration" usage="blood-glucose">
+            <unitPreference regions="AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA">millimole-per-liter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="concentration" usage="default">
+            <unitPreference regions="001">item-per-cubic-meter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="consumption" usage="default">
+            <unitPreference regions="001">liter-per-100kilometers</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="consumption" usage="vehicle-fuel">
+            <unitPreference regions="001">liter-per-100kilometers</unitPreference>
+            <unitPreference regions="BR IT JP KR MX MY NL TH TR">liter-per-kilometer</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="consumption-inverse" usage="default">
+            <unitPreference regions="001">kilometer-per-centiliter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="consumption-inverse" usage="vehicle-fuel">
+            <unitPreference regions="001">kilometer-per-centiliter</unitPreference>
+            <unitPreference regions="US">mile-per-gallon</unitPreference>
+            <unitPreference regions="CA GB">mile-per-gallon-imperial</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="duration" usage="default">
+            <unitPreference regions="001">day</unitPreference>
+            <unitPreference regions="001">hour</unitPreference>
+            <unitPreference regions="001">minute</unitPreference>
+            <unitPreference regions="001">second</unitPreference>
+            <unitPreference regions="001">millisecond</unitPreference>
+            <unitPreference regions="001">microsecond</unitPreference>
+            <unitPreference regions="001">nanosecond</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="duration" usage="media">
+            <unitPreference regions="001">minute:second</unitPreference>
+            <unitPreference regions="001">second</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="energy" usage="default">
+            <unitPreference regions="001">kilowatt-hour</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="energy" usage="food">
+            <unitPreference regions="US">foodcalorie</unitPreference>
+            <unitPreference regions="001">kilocalorie</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="default">
+            <unitPreference regions="001">kilometer</unitPreference>
+            <unitPreference regions="001">meter</unitPreference>
+            <unitPreference regions="001">centimeter</unitPreference>
+            <unitPreference regions="US GB">mile</unitPreference>
+            <unitPreference regions="US GB">foot</unitPreference>
+            <unitPreference regions="US GB">inch</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="person">
+            <unitPreference regions="001">centimeter</unitPreference>
+            <unitPreference regions="CA GB IN US">inch</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="person-height">
+            <unitPreference regions="001">centimeter</unitPreference>
+            <unitPreference regions="CA GB IN US" geq="3.0">foot:inch</unitPreference>
+            <unitPreference regions="AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN">meter:centimeter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="rainfall">
+            <unitPreference regions="BR">centimeter</unitPreference>
+            <unitPreference regions="US">inch</unitPreference>
+            <unitPreference regions="001">millimeter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="road">
+            <unitPreference regions="001" geq="0.9">kilometer</unitPreference>
+            <unitPreference regions="001" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
+            <unitPreference regions="001" skeleton="precision-increment/10">meter</unitPreference>
+            <unitPreference regions="001">meter</unitPreference>
+            <unitPreference regions="US" geq="0.5">mile</unitPreference>
+            <unitPreference regions="US" geq="100.0" skeleton="precision-increment/50">foot</unitPreference>
+            <unitPreference regions="US" skeleton="precision-increment/10">foot</unitPreference>
+            <unitPreference regions="GB" geq="0.5">mile</unitPreference>
+            <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
+            <unitPreference regions="GB">yard</unitPreference>
+            <unitPreference regions="SE" geq="0.1">mile-scandinavian</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="snowfall">
+            <unitPreference regions="001">centimeter</unitPreference>
+            <unitPreference regions="US">inch</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="vehicle">
+            <unitPreference regions="GB US">foot:inch</unitPreference>
+            <unitPreference regions="001">meter</unitPreference>
+            <unitPreference regions="MX">meter:centimeter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="length" usage="visiblty">
+            <unitPreference regions="001" geq="0.1">kilometer</unitPreference>
+            <unitPreference regions="001">meter</unitPreference>
+            <unitPreference regions="DE NL">meter</unitPreference>
+            <unitPreference regions="GB US">mile</unitPreference>
+            <unitPreference regions="GB US">foot</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="mass" usage="default">
+            <unitPreference regions="001">metric-ton</unitPreference>
+            <unitPreference regions="001">kilogram</unitPreference>
+            <unitPreference regions="001">gram</unitPreference>
+            <unitPreference regions="001">milligram</unitPreference>
+            <unitPreference regions="001">microgram</unitPreference>
+            <unitPreference regions="US GB">ton</unitPreference>
+            <unitPreference regions="US GB">pound</unitPreference>
+            <unitPreference regions="US GB">ounce</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="mass" usage="person">
+            <unitPreference regions="001">kilogram</unitPreference>
+            <unitPreference regions="001">gram</unitPreference>
+            <unitPreference regions="DZ EG ES JO SA">kilogram:gram</unitPreference>
+            <unitPreference regions="US">pound</unitPreference>
+            <unitPreference regions="US">pound:ounce</unitPreference>
+            <unitPreference regions="GB">stone:pound</unitPreference>
+            <unitPreference regions="GB">pound:ounce</unitPreference>
+            <unitPreference regions="HK">pound:ounce</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="mass-density" usage="blood-glucose">
+            <unitPreference regions="001">milligram-per-deciliter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="mass-density" usage="default">
+            <unitPreference regions="001">kilogram-per-cubic-meter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="power" usage="default">
+            <unitPreference regions="001">gigawatt</unitPreference>
+            <unitPreference regions="001">megawatt</unitPreference>
+            <unitPreference regions="001">kilowatt</unitPreference>
+            <unitPreference regions="001">watt</unitPreference>
+            <unitPreference regions="001">milliwatt</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="power" usage="engine">
+            <unitPreference regions="001">kilowatt</unitPreference>
+            <unitPreference regions="US GB">horsepower</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="pressure" usage="baromtrc">
+            <unitPreference regions="001">hectopascal</unitPreference>
+            <unitPreference regions="IN US">inch-hg</unitPreference>
+            <unitPreference regions="BR EG GB IL TH">millibar</unitPreference>
+            <unitPreference regions="MX RU">millimeter-of-mercury</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="pressure" usage="default">
+            <unitPreference regions="001">megapascal</unitPreference>
+            <unitPreference regions="001">pascal</unitPreference>
+            <unitPreference regions="US GB">pound-force-per-square-inch</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="speed" usage="default">
+            <unitPreference regions="001">kilometer-per-hour</unitPreference>
+            <unitPreference regions="GB US">mile-per-hour</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="speed" usage="wind">
+            <unitPreference regions="001">kilometer-per-hour</unitPreference>
+            <unitPreference regions="FI KR NO PL RU SE">meter-per-second</unitPreference>
+            <unitPreference regions="US">mile-per-hour</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="temperature" usage="default">
+            <unitPreference regions="001">celsius</unitPreference>
+            <unitPreference regions="US">fahrenheit</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="temperature" usage="weather">
+            <unitPreference regions="001">celsius</unitPreference>
+            <unitPreference regions="BS BZ KY PR PW US">fahrenheit</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="volume" usage="default">
+            <unitPreference regions="001">cubic-meter</unitPreference>
+            <unitPreference regions="001">cubic-centimeter</unitPreference>
+            <unitPreference regions="US GB">cubic-foot</unitPreference>
+            <unitPreference regions="US GB">cubic-inch</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="volume" usage="fluid">
+            <unitPreference regions="001">liter</unitPreference>
+            <unitPreference regions="001">milliliter</unitPreference>
+            <unitPreference regions="US">gallon</unitPreference>
+            <unitPreference regions="US">quart</unitPreference>
+            <unitPreference regions="US">pint</unitPreference>
+            <unitPreference regions="US">cup</unitPreference>
+            <unitPreference regions="US">fluid-ounce</unitPreference>
+            <unitPreference regions="US">tablespoon</unitPreference>
+            <unitPreference regions="US">teaspoon</unitPreference>
+            <unitPreference regions="GB">gallon-imperial</unitPreference>
+            <unitPreference regions="GB">fluid-ounce-imperial</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="volume" usage="oil">
+            <unitPreference regions="001">barrel</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="volume" usage="vehicle">
+            <unitPreference regions="US">gallon</unitPreference>
+            <unitPreference regions="001">liter</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="year-duration" usage="default">
+            <unitPreference regions="001">year</unitPreference>
+            <unitPreference regions="001">month</unitPreference>
+        </unitPreferences>
+        <unitPreferences category="year-duration" usage="person-age">
+            <unitPreference regions="001" geq="2.5">year-person</unitPreference>
+            <unitPreference regions="001">year-person:month-person</unitPreference>
+            <unitPreference regions="001">month-person</unitPreference>
+        </unitPreferences>
+    </unitPreferenceData>
     <metadata>
         <alias>
             <unitAlias type="meter-per-second-squared" replacement="meter-per-square-second" reason="deprecated"/>
             <unitAlias type="liter-per-100kilometers" replacement="liter-per-100-kilometer" reason="deprecated"/>
             <unitAlias type="pound-foot" replacement="pound-force-foot" reason="deprecated"/>
             <unitAlias type="pound-per-square-inch" replacement="pound-force-per-square-inch" reason="deprecated"/>
+            <usageAlias type="music-track" replacement="media" reason="deprecated"/>
+            <usageAlias type="tv-program" replacement="media" reason="deprecated"/>
        </alias>
     </metadata>
-    </supplementalData>
+</supplementalData>

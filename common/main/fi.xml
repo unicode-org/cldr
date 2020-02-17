@@ -1920,6 +1920,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="M">E d.M. – E d.M.y G</greatestDifference>
 							<greatestDifference id="y">E d.M.y – E d.M.y G</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMM">
+							<greatestDifference id="G">LLLL y G – LLLL y G</greatestDifference>
+							<greatestDifference id="M">LLLL–LLLL y G</greatestDifference>
+							<greatestDifference id="y">LLLL y – LLLL y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMMd">
+							<greatestDifference id="d">d.–d. MMMM y G</greatestDifference>
+							<greatestDifference id="G">d. MMMM y G – d. MMMM y G</greatestDifference>
+							<greatestDifference id="M">d. MMMM – d. MMMM y G</greatestDifference>
+							<greatestDifference id="y">d. MMMM y – d. MMMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMMEd">
+							<greatestDifference id="d">E d. – E d. MMMM y G</greatestDifference>
+							<greatestDifference id="G">E d. MMMM y G – E d. MMMM y G</greatestDifference>
+							<greatestDifference id="M">E d. MMMM – E d. MMMM y G</greatestDifference>
+							<greatestDifference id="y">E d. MMMM y – E d. MMMM y G</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h–h a</greatestDifference>
@@ -2479,9 +2496,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">E d.M.y – E d.M.y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M">MMM–MMM y G</greatestDifference>
-							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G">M.y G – M.y G</greatestDifference>
+							<greatestDifference id="M">M.–M.y G</greatestDifference>
+							<greatestDifference id="y">M.y–M.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
 							<greatestDifference id="d">d.–d.M.y G</greatestDifference>
@@ -2494,6 +2511,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="G">E d.M.y – E d.M.y G</greatestDifference>
 							<greatestDifference id="M">E d.M. – E d.M.y G</greatestDifference>
 							<greatestDifference id="y">E d.M.y – E d.M.y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMM">
+							<greatestDifference id="G">LLLL y G – LLLL y G</greatestDifference>
+							<greatestDifference id="M">LLLL–LLLL y G</greatestDifference>
+							<greatestDifference id="y">LLLL y – LLLL y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMMd">
+							<greatestDifference id="d">d.–d. MMMM y G</greatestDifference>
+							<greatestDifference id="G">d. MMMM y G – d. MMMM y G</greatestDifference>
+							<greatestDifference id="M">d. MMMM – d. MMMM y G</greatestDifference>
+							<greatestDifference id="y">d. MMMM y – d. MMMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMMEd">
+							<greatestDifference id="d">E d. – E d. MMMM y G</greatestDifference>
+							<greatestDifference id="G">E d. MMMM y G – E d. MMMM y G</greatestDifference>
+							<greatestDifference id="M">E d. MMMM – E d. MMMM y G</greatestDifference>
+							<greatestDifference id="y">E d. MMMM y – E d. MMMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>

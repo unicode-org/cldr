@@ -9,6 +9,10 @@
       th {
           text-align: left;
       }
+      code {
+          background: lightgray;
+          padding: 3px;
+      }
     </style>
   </head>
   <body>
@@ -22,8 +26,20 @@
     <ol>
       <li><b>Jira</b> &mdash; for getting and handling bug reports.</li>
       <li><b>GitHub</b> &mdash; for submitting code / data.</li>
-      <li><b>cldr-dev</b> &mdash; for discussions of issues, questions,
-        etc. &mdash; if you will be joining the TC.</li>
+      <li><b>Git LFS (Large File Support)</b> &mdash; in particular,
+      this is used for jar files in <code>tools/java/libs</code>.
+        <ul>
+          <li>Install <code>git lfs</code> support.</li>
+          <li>It might be enough to simply
+            install <code>git-lfs</code> before cloning the CLDR
+            repository.</li>
+          <li>For repositories that have already been cloned without
+          LFS, you could try <code>git lfs fetch && git lfs
+          checkout</code> to grab the <code>.jar</code> files.
+        </ul>
+      </li>
+      <li><b>cldr-dev</b> &mdash; for discussions of issues,
+        questions, etc. &mdash; if you will be joining the TC.</li>
       <li><b>Google Docs</b> &mdash; to view/edit the CLDR agenda and
         internal documents &mdash; if you will be joining the TC.</li>
       <li><b>Google Sites</b> &mdash; only if you are going to edit this
@@ -52,8 +68,9 @@
     Command line:
 
     <ol>
-      <li>Be at root of SVN working directory</li>
+      <li>Be at the root of your CLDR git repository</li>
       <li>cd tools/java</li>
+      <li>ant -version  # at least version 1.10.7</li>
       <li>ant all</li>
       <li>cd ../cldr-unittest</li>
       <li>ant check</li>
@@ -62,7 +79,7 @@
         fails, run only the failing test like so:
 
         <blockquote>
-          <b>ant -Druncheck.arg="-v TestBasic/TestDtdComparison" check</b>
+          <code>ant -Druncheck.arg="-v TestBasic/TestDtdComparison" check</code>
         </blockquote>
 
         The -v tells test script to show stack trace at the test failure
@@ -70,7 +87,11 @@
 
       <li>To get all parameters that could be passed at runcheck.arg, run
 
-        <blockquote><b>ant -Druncheck.arg="-?" check</b></blockquote></li>
+        <blockquote>
+          <code>ant -Druncheck.arg="-?" check</code>
+        </blockquote>
+
+      </li>
     </ol>
 
     <p>Via eclipse:</p>
@@ -114,11 +135,6 @@
     Locale Data Markup Language (LDML)</a> is the specification of the
     XML format used for CLDR data, including the interpretation of the
     CLDR data.</p>
-
-    <hr>
-    <!-- Empty page, I'm including the link only to be able to delete
-    it again in the follow-up commit: -->
-    <a href="http://cldr.unicode.org/development/new-cldr-developers/internals">internals</a>
   </body>
 </html>
 

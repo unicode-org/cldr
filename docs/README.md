@@ -12,6 +12,10 @@ CLDR main page: [https://unicode.org/cldr](unicode.org/cldr)
 
 - draft-davis-u-langtag-ext-00: [html](rfc/draft-davis-u-langtag-ext-00.html) [txt](rfc/draft-davis-u-langtag-ext-00.txt)
 
+## CLDR Development
+
+- [New CLDR Developers](development/new-cldr-developers.html)
+
 ##### Copyright
 
 Copyright &copy; 1991-2019 Unicode, Inc.

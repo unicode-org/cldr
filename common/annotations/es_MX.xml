@@ -28,9 +28,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="—" type="tts">↑↑↑</annotation>
 		<annotation cp="·">↑↑↑</annotation>
 		<annotation cp="·" type="tts">↑↑↑</annotation>
-		<annotation cp="«">angular | comilla | comilla de apertura | corchetes | izquierda</annotation>
+		<annotation cp="«">angular | comilla | comilla angular de apertura | comilla de apertura | corchetes | izquierda</annotation>
 		<annotation cp="«" type="tts">comilla angular de apertura</annotation>
-		<annotation cp="»">angular | comilla | comilla de cierre | corchetes | derecha</annotation>
+		<annotation cp="»">angular | comilla | comilla angular de cierre | comilla de cierre | corchetes | derecha</annotation>
 		<annotation cp="»" type="tts">comilla angular de cierre</annotation>
 		<annotation cp="§">↑↑↑</annotation>
 		<annotation cp="§" type="tts">↑↑↑</annotation>
@@ -50,7 +50,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="→" type="tts">↑↑↑</annotation>
 		<annotation cp="↑">↑↑↑</annotation>
 		<annotation cp="↑" type="tts">↑↑↑</annotation>
-		<annotation cp="↓">abajo | apuntar | flecha | hacia abajo</annotation>
+		<annotation cp="↓">abajo | apuntar | flecha | flecha apuntando hacia abajo | hacia abajo</annotation>
 		<annotation cp="↓" type="tts">↑↑↑</annotation>
 		<annotation cp="⇅">↑↑↑</annotation>
 		<annotation cp="⇅" type="tts">↑↑↑</annotation>
@@ -80,9 +80,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≡" type="tts">↑↑↑</annotation>
 		<annotation cp="⊂">conjunto | subconjunto | subconjunto de</annotation>
 		<annotation cp="⊂" type="tts">↑↑↑</annotation>
-		<annotation cp="▲">↑↑↑</annotation>
+		<annotation cp="▲">arriba | flecha | hacia arriba | relleno | triángulo | triángulo relleno apuntando hacia arriba</annotation>
 		<annotation cp="▲" type="tts">triángulo relleno apuntando hacia arriba</annotation>
-		<annotation cp="▼">↑↑↑</annotation>
+		<annotation cp="▼">abajo | flecha | hacia abajo | relleno | triángulo | triángulo relleno apuntando hacia abajo</annotation>
 		<annotation cp="▼" type="tts">triángulo relleno apuntando hacia abajo</annotation>
 		<annotation cp="◊">↑↑↑</annotation>
 		<annotation cp="◊" type="tts">↑↑↑</annotation>
@@ -846,7 +846,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤱" type="tts">↑↑↑</annotation>
 		<annotation cp="👼">ángel | bebé | cara | cara de ángel bebé | cuento de hadas | fantasía</annotation>
 		<annotation cp="👼" type="tts">↑↑↑</annotation>
-		<annotation cp="🎅">claus | Navidad | noel | papá | Papá Noel | santa</annotation>
+		<annotation cp="🎅">claus | Navidad | noel | papá | Papá Noel | santa | Santa Claus</annotation>
 		<annotation cp="🎅" type="tts">↑↑↑</annotation>
 		<annotation cp="🤶">mamá | mamá noel | Mamá Noel | Navidad | señora Claus</annotation>
 		<annotation cp="🤶" type="tts">↑↑↑</annotation>
@@ -2878,7 +2878,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❎" type="tts">↑↑↑</annotation>
 		<annotation cp="➕">+ | más | signo | signo de suma | suma</annotation>
 		<annotation cp="➕" type="tts">signo de suma</annotation>
-		<annotation cp="➖">↑↑↑</annotation>
+		<annotation cp="➖">- | − | menos | resta | signo | signo de resta</annotation>
 		<annotation cp="➖" type="tts">signo de resta</annotation>
 		<annotation cp="➗">÷ | división | signo | signo de división</annotation>
 		<annotation cp="➗" type="tts">signo de división</annotation>

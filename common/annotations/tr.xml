@@ -35,15 +35,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="»" type="tts">sağa bakan köşeli tırnak işareti</annotation>
 		<annotation cp="§">bölüm | bölüm işareti | paragraf | parça</annotation>
 		<annotation cp="§" type="tts">bölüm</annotation>
-		<annotation cp="†">dikili taş | kama | obelus</annotation>
+		<annotation cp="†">dikili taş | kama | kama işareti | obelus</annotation>
 		<annotation cp="†" type="tts">kama işareti</annotation>
-		<annotation cp="‡">çift | dikili taş | kama | obelus</annotation>
+		<annotation cp="‡">çift | çift kama işareti | dikili taş | kama | obelus</annotation>
 		<annotation cp="‡" type="tts">çift kama işareti</annotation>
 		<annotation cp="•">madde imi | nokta</annotation>
 		<annotation cp="•" type="tts">madde imi</annotation>
 		<annotation cp="°">derece | kanıt | saat</annotation>
 		<annotation cp="°" type="tts">derece</annotation>
-		<annotation cp="℗">kayıt | ses | telif hakkı</annotation>
+		<annotation cp="℗">kayıt | ses | ses kaydı telif hakkı | telif hakkı</annotation>
 		<annotation cp="℗" type="tts">ses kaydı telif hakkı</annotation>
 		<annotation cp="←">ok | sol | solu gösteren ok</annotation>
 		<annotation cp="←" type="tts">solu gösteren ok</annotation>
@@ -67,11 +67,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="÷" type="tts">bölme işareti</annotation>
 		<annotation cp="×">çarpım | çarpma | çarpma işareti</annotation>
 		<annotation cp="×" type="tts">çarpma işareti</annotation>
-		<annotation cp="⁻">eksi | üst simge</annotation>
+		<annotation cp="⁻">eksi | üst eksi simgesi | üst simge</annotation>
 		<annotation cp="⁻" type="tts">üst eksi simgesi</annotation>
-		<annotation cp="√">kare | kök | radikal | radikal ifade | taban</annotation>
+		<annotation cp="√">kare | karekök | kök | radikal | radikal ifade | taban</annotation>
 		<annotation cp="√" type="tts">karekök</annotation>
-		<annotation cp="∞">sonsuzluk</annotation>
+		<annotation cp="∞">sonsuzluk | sonsuzluk işareti</annotation>
 		<annotation cp="∞" type="tts">sonsuzluk işareti</annotation>
 		<annotation cp="∩">kesişim | küme</annotation>
 		<annotation cp="∩" type="tts">kesişim</annotation>
@@ -79,7 +79,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∪" type="tts">birleşim</annotation>
 		<annotation cp="≡">aynı | denk | denktir | üçlü</annotation>
 		<annotation cp="≡" type="tts">denktir</annotation>
-		<annotation cp="⊂">alt küme | alt kümesidr | küme</annotation>
+		<annotation cp="⊂">alt küme | alt kümesidir | alt kümesidr | küme</annotation>
 		<annotation cp="⊂" type="tts">alt kümesidir</annotation>
 		<annotation cp="▲">içi dolu | ok | üçgen | yukarı | yukarı bakan içi dolu üçgen</annotation>
 		<annotation cp="▲" type="tts">yukarı bakan içi dolu üçgen</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">sakallı kişi</annotation>
 		<annotation cp="👱‍♂">adam | erkek | sarışın</annotation>
 		<annotation cp="👱‍♂" type="tts">sarışın erkek</annotation>
-		<annotation cp="👨‍🍼">bakıcılık | bebek | emzirme | erkek</annotation>
+		<annotation cp="👨‍🍼">bakıcılık | bebek | bebek emziren erkek | emzirme | erkek</annotation>
 		<annotation cp="👨‍🍼" type="tts">bebek emziren erkek</annotation>
 		<annotation cp="👩">kadın | kişiler</annotation>
 		<annotation cp="👩" type="tts">kadın</annotation>
 		<annotation cp="👱‍♀">bayan | kadın | sarışın</annotation>
 		<annotation cp="👱‍♀" type="tts">sarışın kadın</annotation>
-		<annotation cp="👩‍🍼">bakım | bebek | emzirme | kadın</annotation>
+		<annotation cp="👩‍🍼">bakım | bebek | bebek emziren kadın | emzirme | kadın</annotation>
 		<annotation cp="👩‍🍼" type="tts">bebek emziren kadın</annotation>
 		<annotation cp="🧓">kişi | yaşlı | yaşlı yetişkin</annotation>
 		<annotation cp="🧓" type="tts">yaşlı yetişkin</annotation>
@@ -833,13 +833,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤵" type="tts">smokinli kişi</annotation>
 		<annotation cp="🤵‍♀">kadın | smokin | smokinli kadın</annotation>
 		<annotation cp="🤵‍♀" type="tts">smokinli kadın</annotation>
-		<annotation cp="🤵‍♂">adam | smokin | smokinli adam</annotation>
+		<annotation cp="🤵‍♂">adam | smokin | smokinli adam | smokinli erkek</annotation>
 		<annotation cp="🤵‍♂" type="tts">smokinli erkek</annotation>
 		<annotation cp="👰">duvak | duvaklı gelin | evlilik | kişiler</annotation>
 		<annotation cp="👰" type="tts">duvaklı gelin</annotation>
 		<annotation cp="👰‍♀">duvak | duvaklı kadın | kadın</annotation>
 		<annotation cp="👰‍♀" type="tts">duvaklı kadın</annotation>
-		<annotation cp="👰‍♂">adam | duvak | duvaklı adam</annotation>
+		<annotation cp="👰‍♂">adam | duvak | duvaklı adam | duvaklı erkek</annotation>
 		<annotation cp="👰‍♂" type="tts">duvaklı erkek</annotation>
 		<annotation cp="🤰">hamile | kadın</annotation>
 		<annotation cp="🤰" type="tts">hamile kadın</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">hint rupisi</annotation>
 		<annotation cp="₽">para birimi | ruble</annotation>
 		<annotation cp="₽" type="tts">ruble</annotation>
-		<annotation cp="¹">bir | üst simge</annotation>
+		<annotation cp="¹">bir | üst bir simgesi | üst simge</annotation>
 		<annotation cp="¹" type="tts">üst bir simgesi</annotation>
-		<annotation cp="²">iki | karesi alınmış | üst simge</annotation>
+		<annotation cp="²">iki | karesi alınmış | üst iki simgesi | üst simge</annotation>
 		<annotation cp="²" type="tts">üst iki simgesi</annotation>
-		<annotation cp="³">küpü alınmış | üç | üst simge</annotation>
+		<annotation cp="³">küpü alınmış | üç | üst simge | üst üç simgesi</annotation>
 		<annotation cp="³" type="tts">üst üç simgesi</annotation>
 		<annotation cp="µ">mikro işareti | ölçüm</annotation>
 		<annotation cp="µ" type="tts">mikro işareti</annotation>

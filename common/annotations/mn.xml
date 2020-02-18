@@ -27,7 +27,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="–" type="tts">эн зай</annotation>
 		<annotation cp="—">зай | эм</annotation>
 		<annotation cp="—" type="tts">эм зай</annotation>
-		<annotation cp="·">голын цэг | дундын цэг | цэг</annotation>
+		<annotation cp="·">голын цэг | дунд цэг | дундын цэг | цэг</annotation>
 		<annotation cp="·" type="tts">дунд цэг</annotation>
 		<annotation cp="«">баруун | зүүн өнцөгтэй хаалт | оруулгын тэмдэг | өнцөг | хаалт | чеврон</annotation>
 		<annotation cp="«" type="tts">зүүн өнцөгтэй хаалт</annotation>
@@ -35,15 +35,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="»" type="tts">баруун өнцөгтэй хаалт</annotation>
 		<annotation cp="§">догол мөр | силроу | хэсэг</annotation>
 		<annotation cp="§" type="tts">хэсэг</annotation>
-		<annotation cp="†">дурсгалын хөшөө | обелус | чинжаал</annotation>
+		<annotation cp="†">дурсгалын хөшөө | обелус | чинжаал | чинжаал тэмдэг</annotation>
 		<annotation cp="†" type="tts">чинжаал тэмдэг</annotation>
-		<annotation cp="‡">давхар | дурсгалын хөшөө | обелус | чинжаал</annotation>
+		<annotation cp="‡">давхар | давхар чинжаал тэмдэг | дурсгалын хөшөө | обелус | чинжаал</annotation>
 		<annotation cp="‡" type="tts">давхар чинжаал тэмдэг</annotation>
 		<annotation cp="•">сум | цэг</annotation>
 		<annotation cp="•" type="tts">сум</annotation>
 		<annotation cp="°">баталгаа | градус | цаг</annotation>
 		<annotation cp="°" type="tts">градус</annotation>
-		<annotation cp="℗">бичлэг | дуу | зохиогчийн эрх</annotation>
+		<annotation cp="℗">бичлэг | дуу | дуу бичлэгийн зохиогчийн эрх | зохиогчийн эрх</annotation>
 		<annotation cp="℗" type="tts">дуу бичлэгийн зохиогчийн эрх</annotation>
 		<annotation cp="←">зүүн | зүүн тийш чиглэсэн сум | сум</annotation>
 		<annotation cp="←" type="tts">зүүн тийш чиглэсэн сум</annotation>
@@ -53,7 +53,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↑" type="tts">дээшээ чиглэсэн сум</annotation>
 		<annotation cp="↓">доошоо | доошоо чиглэсэн сум | сум</annotation>
 		<annotation cp="↓" type="tts">доошоо чиглэсэн сум</annotation>
-		<annotation cp="⇅">доош | дээш | дээшээ чиглэсэн болон доошоо чиглэсэн сум | сум</annotation>
+		<annotation cp="⇅">доош | дээш | дээш чиглэсэн болон доош чиглэсэн сум | дээшээ чиглэсэн болон доошоо чиглэсэн сум | сум</annotation>
 		<annotation cp="⇅" type="tts">дээш чиглэсэн болон доош чиглэсэн сум</annotation>
 		<annotation cp="⇆">баруун дээр зүүн тийш чиглэсэн сум | зүүн | сум</annotation>
 		<annotation cp="⇆" type="tts">баруун дээр зүүн тийш чиглэсэн сум</annotation>
@@ -71,7 +71,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻" type="tts">хасах зэрэг</annotation>
 		<annotation cp="√">илүүдэл | квадрат | радикал | радиус | язгуур</annotation>
 		<annotation cp="√" type="tts">квадрат язгуур</annotation>
-		<annotation cp="∞">хязгааргүй</annotation>
+		<annotation cp="∞">хязгааргүй | хязгааргүйн тэмдэг</annotation>
 		<annotation cp="∞" type="tts">хязгааргүйн тэмдэг</annotation>
 		<annotation cp="∩">багц | уулзвар</annotation>
 		<annotation cp="∩" type="tts">уулзвар</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">сахалтай хүн</annotation>
 		<annotation cp="👱‍♂">цайвар шар үс | шар үстэй эрэгтэй | эр | эрэгтэй</annotation>
 		<annotation cp="👱‍♂" type="tts">шар үстэй эрэгтэй</annotation>
-		<annotation cp="👨‍🍼">асрах | нялх хүүхэд | хооллох | эрэгтэй</annotation>
+		<annotation cp="👨‍🍼">асрах | нялх хүүхэд | нялх хүүхэд хооллож байгаа эрэгтэй | хооллох | эрэгтэй</annotation>
 		<annotation cp="👨‍🍼" type="tts">нялх хүүхэд хооллож байгаа эрэгтэй</annotation>
 		<annotation cp="👩">хүн | эмэгтэй</annotation>
 		<annotation cp="👩" type="tts">эмэгтэй хүн</annotation>
 		<annotation cp="👱‍♀">цайвар шар үс | шар үстэй эмэгтэй | эм | эмэгтэй</annotation>
 		<annotation cp="👱‍♀" type="tts">шар үстэй эмэгтэй</annotation>
-		<annotation cp="👩‍🍼">асрах | нялх хүүхэд | хооллох | эмэгтэй</annotation>
+		<annotation cp="👩‍🍼">асрах | нялх хүүхэд | нялх хүүхэд хооллож байгаа эмэгтэй | хооллох | эмэгтэй</annotation>
 		<annotation cp="👩‍🍼" type="tts">нялх хүүхэд хооллож байгаа эмэгтэй</annotation>
 		<annotation cp="🧓">жендер-саармаг | настай хүн | хөгшин</annotation>
 		<annotation cp="🧓" type="tts">настай хүн</annotation>
@@ -1137,7 +1137,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">муурын толгой</annotation>
 		<annotation cp="🐈">гэрийн тэжээвэр амьтан | муур</annotation>
 		<annotation cp="🐈" type="tts">муур</annotation>
-		<annotation cp="🐈‍⬛">азгүй | муур | хар</annotation>
+		<annotation cp="🐈‍⬛">азгүй | муур | хар | Хар муур</annotation>
 		<annotation cp="🐈‍⬛" type="tts">Хар муур</annotation>
 		<annotation cp="🦁">амьтан | арслан | арслангийн толгой | толгой</annotation>
 		<annotation cp="🦁" type="tts">арслангийн толгой</annotation>
@@ -3087,7 +3087,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">энэтхэгийн рупи</annotation>
 		<annotation cp="₽">валют | рубль</annotation>
 		<annotation cp="₽" type="tts">рубль</annotation>
-		<annotation cp="¹">зэрэг | нэг</annotation>
+		<annotation cp="¹">зэрэг | нэг | нэгийн зэрэг</annotation>
 		<annotation cp="¹" type="tts">нэгийн зэрэг</annotation>
 		<annotation cp="²">квадрат | хоёрын зэрэг</annotation>
 		<annotation cp="²" type="tts">хоёрын зэрэг</annotation>

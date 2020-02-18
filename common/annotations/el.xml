@@ -27,7 +27,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="–" type="tts">μικρή παύλα</annotation>
 		<annotation cp="—">μεγάλη | παύλα</annotation>
 		<annotation cp="—" type="tts">μεγάλη παύλα</annotation>
-		<annotation cp="·">μέση | μέση στιγμή | τελεία | τελεία διαχωρισμού</annotation>
+		<annotation cp="·">άνω τελεία | μέση | μέση στιγμή | τελεία | τελεία διαχωρισμού</annotation>
 		<annotation cp="·" type="tts">άνω τελεία</annotation>
 		<annotation cp="«">αγκύλες | αριστερά γωνιακά εισαγωγικά | αριστερό | γωνία | διάσημα | εισαγωγικό | καρέ</annotation>
 		<annotation cp="«" type="tts">αριστερά γωνιακά εισαγωγικά</annotation>
@@ -35,15 +35,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="»" type="tts">δεξιά γωνιακά εισαγωγικά</annotation>
 		<annotation cp="§">ενότητα | μέρος | παράγραφος | σύμβολο ενότητας</annotation>
 		<annotation cp="§" type="tts">ενότητα</annotation>
-		<annotation cp="†">δια | οβελίσκος | σταυρός στίξης</annotation>
+		<annotation cp="†">δια | οβελίσκος | σταυρός στίξης | σύμβολο σταυρού στίξης</annotation>
 		<annotation cp="†" type="tts">σύμβολο σταυρού στίξης</annotation>
-		<annotation cp="‡">δια | διπλός | οβελίσκος | σταυρός στίξης</annotation>
+		<annotation cp="‡">δια | διπλός | οβελίσκος | σταυρός στίξης | σύμβολο διπλού σταυρού στίξης</annotation>
 		<annotation cp="‡" type="tts">σύμβολο διπλού σταυρού στίξης</annotation>
 		<annotation cp="•">κουκκίδα | τελεία</annotation>
 		<annotation cp="•" type="tts">κουκκίδα</annotation>
 		<annotation cp="°">αλκοολικός βαθμός | βαθμός | ώρα</annotation>
 		<annotation cp="°" type="tts">βαθμός</annotation>
-		<annotation cp="℗">εγγραφή | ήχος | πνευματικά δικαιώματα</annotation>
+		<annotation cp="℗">εγγραφή | ήχος | πνευματικά δικαιώματα | πνευματικά δικαιώματα ηχογράφησης</annotation>
 		<annotation cp="℗" type="tts">πνευματικά δικαιώματα ηχογράφησης</annotation>
 		<annotation cp="←">αριστερά | βέλος | βέλος προς τα αριστερά</annotation>
 		<annotation cp="←" type="tts">βέλος προς τα αριστερά</annotation>
@@ -69,9 +69,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">σύμβολο πολλαπλασιασμού</annotation>
 		<annotation cp="⁻">εκθέτης | μείον | πλην</annotation>
 		<annotation cp="⁻" type="tts">εκθέτης πλην</annotation>
-		<annotation cp="√">βάση | ρίζα | ριζικό | ριζικός | τετράγωνο</annotation>
+		<annotation cp="√">βάση | ρίζα | ριζικό | ριζικός | τετραγωνική ρίζα | τετράγωνο</annotation>
 		<annotation cp="√" type="tts">τετραγωνική ρίζα</annotation>
-		<annotation cp="∞">άπειρο</annotation>
+		<annotation cp="∞">άπειρο | σύμβολο απείρου</annotation>
 		<annotation cp="∞" type="tts">σύμβολο απείρου</annotation>
 		<annotation cp="∩">σύνολο | τομή</annotation>
 		<annotation cp="∩" type="tts">τομή</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">άντρας: μούσι</annotation>
 		<annotation cp="👱‍♂">άντρας | άντρας: ξανθά μαλλιά | μαλλιά | ξανθός</annotation>
 		<annotation cp="👱‍♂" type="tts">άντρας: ξανθά μαλλιά</annotation>
-		<annotation cp="👨‍🍼">άντρας | θηλασμός | μωρό | τάισμα</annotation>
+		<annotation cp="👨‍🍼">άντρας | άντρας που ταΐζει μωρό | θηλασμός | μωρό | τάισμα</annotation>
 		<annotation cp="👨‍🍼" type="tts">άντρας που ταΐζει μωρό</annotation>
 		<annotation cp="👩">γυναίκα | ενήλικας</annotation>
 		<annotation cp="👩" type="tts">γυναίκα</annotation>
 		<annotation cp="👱‍♀">γυναίκα | γυναίκα: ξανθά μαλλιά | μαλλιά | ξανθιά</annotation>
 		<annotation cp="👱‍♀" type="tts">γυναίκα: ξανθά μαλλιά</annotation>
-		<annotation cp="👩‍🍼">γυναίκα | θηλασμός | μωρό | τάισμα</annotation>
+		<annotation cp="👩‍🍼">γυναίκα | γυναίκα που ταΐζει μωρό | θηλασμός | μωρό | τάισμα</annotation>
 		<annotation cp="👩‍🍼" type="tts">γυναίκα που ταΐζει μωρό</annotation>
 		<annotation cp="🧓">άφυλος | ηλικιωμένος | μεγαλύτερος ενήλικας</annotation>
 		<annotation cp="🧓" type="tts">μεγαλύτερος ενήλικας</annotation>

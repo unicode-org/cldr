@@ -35,23 +35,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="§" type="tts">部分</annotation>
 		<annotation cp="†">劍標 | 短劍號</annotation>
 		<annotation cp="†" type="tts">劍標</annotation>
-		<annotation cp="‡">劍標 | 短劍號 | 雙重</annotation>
+		<annotation cp="‡">劍標 | 短劍號 | 雙劍標 | 雙重</annotation>
 		<annotation cp="‡" type="tts">雙劍標</annotation>
 		<annotation cp="•">要點 | 點</annotation>
 		<annotation cp="•" type="tts">要點</annotation>
 		<annotation cp="°">小時 | 度 | 證明</annotation>
 		<annotation cp="°" type="tts">度</annotation>
-		<annotation cp="℗">版權 | 聲音 | 錄音</annotation>
+		<annotation cp="℗">版權 | 聲音 | 錄音 | 錄音版權</annotation>
 		<annotation cp="℗" type="tts">錄音版權</annotation>
-		<annotation cp="←">向左 | 向左箭咀 | 箭咀</annotation>
+		<annotation cp="←">向左 | 向左箭咀 | 指向左嘅箭咀 | 箭咀</annotation>
 		<annotation cp="←" type="tts">指向左嘅箭咀</annotation>
-		<annotation cp="→">向右 | 向右箭咀 | 箭咀</annotation>
+		<annotation cp="→">向右 | 向右箭咀 | 指向右嘅箭咀 | 箭咀</annotation>
 		<annotation cp="→" type="tts">指向右嘅箭咀</annotation>
-		<annotation cp="↑">向上 | 向上箭咀 | 箭咀</annotation>
+		<annotation cp="↑">向上 | 向上箭咀 | 指向上嘅箭咀 | 箭咀</annotation>
 		<annotation cp="↑" type="tts">指向上嘅箭咀</annotation>
-		<annotation cp="↓">向下 | 向下箭咀 | 箭咀</annotation>
+		<annotation cp="↓">向下 | 向下箭咀 | 指向下嘅箭咀 | 箭咀</annotation>
 		<annotation cp="↓" type="tts">指向下嘅箭咀</annotation>
-		<annotation cp="⇅">向上 | 向上向下箭咀 | 向下 | 箭咀</annotation>
+		<annotation cp="⇅">向上 | 向上向下箭咀 | 向下 | 向左箭咀在向右箭咀上面 | 箭咀</annotation>
 		<annotation cp="⇅" type="tts">向左箭咀在向右箭咀上面</annotation>
 		<annotation cp="⇆">向右 | 向左 | 向左箭咀喺向右箭咀上面 | 箭咀</annotation>
 		<annotation cp="⇆" type="tts">向左箭咀喺向右箭咀上面</annotation>
@@ -65,17 +65,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="÷" type="tts">除號</annotation>
 		<annotation cp="×">乘 | 乘數 | 乘法 | 乘號</annotation>
 		<annotation cp="×" type="tts">乘號</annotation>
-		<annotation cp="⁻">上標 | 減號</annotation>
+		<annotation cp="⁻">上標 | 上標減號 | 減號</annotation>
 		<annotation cp="⁻" type="tts">上標減號</annotation>
 		<annotation cp="√">基數 | 平方 | 平方根 | 平方符號 | 根</annotation>
 		<annotation cp="√" type="tts">平方根</annotation>
-		<annotation cp="∞">無限</annotation>
+		<annotation cp="∞">無限 | 無限符號</annotation>
 		<annotation cp="∞" type="tts">無限符號</annotation>
 		<annotation cp="∩">交集 | 集</annotation>
 		<annotation cp="∩" type="tts">交集</annotation>
 		<annotation cp="∪">合集 | 收集 | 集</annotation>
 		<annotation cp="∪" type="tts">合集</annotation>
-		<annotation cp="≡">三倍 | 完全 | 相同</annotation>
+		<annotation cp="≡">三倍 | 完全 | 完全相同 | 相同</annotation>
 		<annotation cp="≡" type="tts">完全相同</annotation>
 		<annotation cp="⊂">子集 | 集</annotation>
 		<annotation cp="⊂" type="tts">子集</annotation>
@@ -611,7 +611,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱" type="tts">金色頭髮嘅人</annotation>
 		<annotation cp="🧑‍🍼">人 | 哺乳嘅人 | 哺育 | 嬰兒 | 餵哺</annotation>
 		<annotation cp="🧑‍🍼" type="tts">哺乳嘅人</annotation>
-		<annotation cp="🧑‍🎄">打扮 | 聖誕老人</annotation>
+		<annotation cp="🧑‍🎄">打扮 | 聖誕打扮 | 聖誕老人</annotation>
 		<annotation cp="🧑‍🎄" type="tts">聖誕打扮</annotation>
 		<annotation cp="👨">男人</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
@@ -619,13 +619,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧔" type="tts">留鬚嘅人</annotation>
 		<annotation cp="👱‍♂">男 | 金色頭髮 | 金色頭髮嘅男人</annotation>
 		<annotation cp="👱‍♂" type="tts">金色頭髮嘅男人</annotation>
-		<annotation cp="👨‍🍼">哺乳 | 哺育 | 嬰兒 | 男人</annotation>
+		<annotation cp="👨‍🍼">哺乳 | 哺乳嘅男人 | 哺育 | 嬰兒 | 男人</annotation>
 		<annotation cp="👨‍🍼" type="tts">哺乳嘅男人</annotation>
 		<annotation cp="👩">女人</annotation>
 		<annotation cp="👩" type="tts">女人</annotation>
 		<annotation cp="👱‍♀">女 | 金色頭髮 | 金色頭髮嘅女人</annotation>
 		<annotation cp="👱‍♀" type="tts">金色頭髮嘅女人</annotation>
-		<annotation cp="👩‍🍼">哺乳 | 哺育 | 女人 | 嬰兒</annotation>
+		<annotation cp="👩‍🍼">哺乳 | 哺乳媽媽 | 哺育 | 女人 | 嬰兒</annotation>
 		<annotation cp="👩‍🍼" type="tts">哺乳媽媽</annotation>
 		<annotation cp="🧓">中性 | 老人 | 老年</annotation>
 		<annotation cp="🧓" type="tts">老人</annotation>
@@ -1135,7 +1135,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">貓臉</annotation>
 		<annotation cp="🐈">寵物 | 貓</annotation>
 		<annotation cp="🐈" type="tts">貓</annotation>
-		<annotation cp="🐈‍⬛">唔吉利 | 貓 | 黑色</annotation>
+		<annotation cp="🐈‍⬛">唔吉利 | 貓 | 黑色 | 黑貓</annotation>
 		<annotation cp="🐈‍⬛" type="tts">黑貓</annotation>
 		<annotation cp="🦁">星座 | 獅子 | 獅子座 | 獅子臉 | 臉</annotation>
 		<annotation cp="🦁" type="tts">獅子臉</annotation>
@@ -3085,11 +3085,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₹" type="tts">印度盧比</annotation>
 		<annotation cp="₽">盧布 | 貨幣</annotation>
 		<annotation cp="₽" type="tts">盧布</annotation>
-		<annotation cp="¹">一 | 上標</annotation>
+		<annotation cp="¹">一 | 上標 | 上標一</annotation>
 		<annotation cp="¹" type="tts">上標一</annotation>
-		<annotation cp="²">上標 | 二 | 二次方</annotation>
+		<annotation cp="²">上標 | 上標二 | 二 | 二次方</annotation>
 		<annotation cp="²" type="tts">上標二</annotation>
-		<annotation cp="³">三 | 三次方 | 上標</annotation>
+		<annotation cp="³">三 | 三次方 | 上標 | 上標三</annotation>
 		<annotation cp="³" type="tts">上標三</annotation>
 		<annotation cp="µ">微單位標誌 | 量度</annotation>
 		<annotation cp="µ" type="tts">微單位標誌</annotation>

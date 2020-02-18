@@ -29,7 +29,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="—" type="tts">긴줄표</annotation>
 		<annotation cp="·">가운뎃점 | 점 | 중간</annotation>
 		<annotation cp="·" type="tts">가운뎃점</annotation>
-		<annotation cp="«">괄호 | 왼족 이중 꺽쇠괄호 | 왼쪽 | 인용 부호</annotation>
+		<annotation cp="«">괄호 | 왼족 이중 꺽쇠괄호 | 왼쪽 | 왼쪽 이중 꺽쇠괄호 | 인용 부호</annotation>
 		<annotation cp="«" type="tts">왼쪽 이중 꺽쇠괄호</annotation>
 		<annotation cp="»">괄호 | 오른쪽 | 오른쪽 이중 꺽쇠괄호 | 인용 부호</annotation>
 		<annotation cp="»" type="tts">오른쪽 이중 꺽쇠괄호</annotation>
@@ -63,7 +63,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">나블라</annotation>
 		<annotation cp="∈">원소 | 원소 포함 기호 | 포함</annotation>
 		<annotation cp="∈" type="tts">원소 포함</annotation>
-		<annotation cp="÷">나누기 | 나누기 기호 | 나눗셈</annotation>
+		<annotation cp="÷">나누기 | 나누기 기호 | 나눗셈 | 나눗셈 기호</annotation>
 		<annotation cp="÷" type="tts">나눗셈 기호</annotation>
 		<annotation cp="×">곱셈 | 곱셈 기호 | 곱하기 | 엑스</annotation>
 		<annotation cp="×" type="tts">곱셈 기호</annotation>
@@ -71,13 +71,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻" type="tts">마이너스 승</annotation>
 		<annotation cp="√">거듭 | 거듭제곱근 | 근 | 제곱 | 제곱근</annotation>
 		<annotation cp="√" type="tts">제곱근</annotation>
-		<annotation cp="∞">무한대</annotation>
+		<annotation cp="∞">무한대 | 무한대 기호</annotation>
 		<annotation cp="∞" type="tts">무한대 기호</annotation>
 		<annotation cp="∩">교집합 | 기호</annotation>
 		<annotation cp="∩" type="tts">교집합</annotation>
 		<annotation cp="∪">기호 | 합집합</annotation>
 		<annotation cp="∪" type="tts">합집합</annotation>
-		<annotation cp="≡">동일 | 상등 | 일치</annotation>
+		<annotation cp="≡">동일 | 등호 | 상등 | 일치</annotation>
 		<annotation cp="≡" type="tts">등호</annotation>
 		<annotation cp="⊂">부분 | 부분 집합 | 부분 집합 기호</annotation>
 		<annotation cp="⊂" type="tts">부분 집합</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">수염 난 사람</annotation>
 		<annotation cp="👱‍♂">금발 | 남성 | 남자</annotation>
 		<annotation cp="👱‍♂" type="tts">금발 남자</annotation>
-		<annotation cp="👨‍🍼">남자 | 수유 | 아기</annotation>
+		<annotation cp="👨‍🍼">남자 | 수유 | 수유 중인 남자 | 아기</annotation>
 		<annotation cp="👨‍🍼" type="tts">수유 중인 남자</annotation>
 		<annotation cp="👩">성인 | 여성 | 여자</annotation>
 		<annotation cp="👩" type="tts">여자</annotation>
 		<annotation cp="👱‍♀">금발 | 여성 | 여자</annotation>
 		<annotation cp="👱‍♀" type="tts">금발 여자</annotation>
-		<annotation cp="👩‍🍼">수유 | 아기 | 여자</annotation>
+		<annotation cp="👩‍🍼">수유 | 수유 중인 여자 | 아기 | 여자</annotation>
 		<annotation cp="👩‍🍼" type="tts">수유 중인 여자</annotation>
 		<annotation cp="🧓">노인 | 성별 없음 | 성인</annotation>
 		<annotation cp="🧓" type="tts">노인</annotation>
@@ -829,17 +829,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">중국 전통 모자를 쓰고 있는 남자</annotation>
 		<annotation cp="🧕">머리 스카프 | 머리에 스카프를 두른 여자 | 히잡</annotation>
 		<annotation cp="🧕" type="tts">머리에 스카프를 두른 여자</annotation>
-		<annotation cp="🤵">결혼식 | 남자 | 신랑 | 턱시도 | 턱시도를 입은 남성</annotation>
+		<annotation cp="🤵">결혼식 | 남자 | 신랑 | 턱시도 | 턱시도를 입은 남성 | 턱시도를 입은 사람</annotation>
 		<annotation cp="🤵" type="tts">턱시도를 입은 사람</annotation>
 		<annotation cp="🤵‍♀">여자 | 턱시도 | 턱시도를 입은 여자</annotation>
 		<annotation cp="🤵‍♀" type="tts">턱시도를 입은 여자</annotation>
 		<annotation cp="🤵‍♂">남자 | 신랑 | 턱시도 | 턱시도를 입은 남자</annotation>
 		<annotation cp="🤵‍♂" type="tts">턱시도를 입은 남자</annotation>
-		<annotation cp="👰">결혼식 | 면사포를 쓴 신부 | 신부</annotation>
+		<annotation cp="👰">결혼식 | 면사포를 쓴 사람 | 면사포를 쓴 신부 | 신부</annotation>
 		<annotation cp="👰" type="tts">면사포를 쓴 사람</annotation>
 		<annotation cp="👰‍♀">면사포 | 면사포를 쓴 여자 | 베일 | 베일을 쓴 여자 | 여자</annotation>
 		<annotation cp="👰‍♀" type="tts">면사포를 쓴 여자</annotation>
-		<annotation cp="👰‍♂">남자 | 베일 | 베일을 쓴 남자</annotation>
+		<annotation cp="👰‍♂">남자 | 면사포를 쓴 남자 | 베일 | 베일을 쓴 남자</annotation>
 		<annotation cp="👰‍♂" type="tts">면사포를 쓴 남자</annotation>
 		<annotation cp="🤰">여성 | 임산부 | 임신 | 임신부</annotation>
 		<annotation cp="🤰" type="tts">임산부</annotation>

@@ -71,7 +71,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻" type="tts">exposant moins</annotation>
 		<annotation cp="√">base | carrée | nombre sourd | racine | radical</annotation>
 		<annotation cp="√" type="tts">racine carrée</annotation>
-		<annotation cp="∞">infini</annotation>
+		<annotation cp="∞">infini | symbole de l’infini</annotation>
 		<annotation cp="∞" type="tts">symbole de l’infini</annotation>
 		<annotation cp="∩">ensemble | intersection</annotation>
 		<annotation cp="∩" type="tts">intersection</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">homme barbu</annotation>
 		<annotation cp="👱‍♂">blond | cheveux | homme blond</annotation>
 		<annotation cp="👱‍♂" type="tts">homme blond</annotation>
-		<annotation cp="👨‍🍼">allaitement | bébé | biberon | homme</annotation>
+		<annotation cp="👨‍🍼">allaitement | bébé | biberon | homme | homme allaitant un bébé</annotation>
 		<annotation cp="👨‍🍼" type="tts">homme allaitant un bébé</annotation>
 		<annotation cp="👩">femme</annotation>
 		<annotation cp="👩" type="tts">femme</annotation>
 		<annotation cp="👱‍♀">blonde | cheveux | femme blonde</annotation>
 		<annotation cp="👱‍♀" type="tts">femme blonde</annotation>
-		<annotation cp="👩‍🍼">allaitement | bébé | biberon | femme</annotation>
+		<annotation cp="👩‍🍼">allaitement | bébé | biberon | femme | femme allaitant un bébé</annotation>
 		<annotation cp="👩‍🍼" type="tts">femme allaitant un bébé</annotation>
 		<annotation cp="🧓">adulte | âgé | genre neutre | personne âgée</annotation>
 		<annotation cp="🧓" type="tts">personne âgée</annotation>
@@ -835,7 +835,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤵‍♀" type="tts">femme en smoking</annotation>
 		<annotation cp="🤵‍♂">homme | homme en smoking | smoking</annotation>
 		<annotation cp="🤵‍♂" type="tts">homme en smoking</annotation>
-		<annotation cp="👰">mariage | mariée | mariée avec voile | voile</annotation>
+		<annotation cp="👰">mariage | mariée | mariée avec voile | personne mariée avec voile | voile</annotation>
 		<annotation cp="👰" type="tts">personne mariée avec voile</annotation>
 		<annotation cp="👰‍♀">femme | femme avec voile | voile</annotation>
 		<annotation cp="👰‍♀" type="tts">femme avec voile</annotation>
@@ -2819,11 +2819,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⏮" type="tts">bouton piste précédente</annotation>
 		<annotation cp="🔼">flèche | petit triangle haut</annotation>
 		<annotation cp="🔼" type="tts">petit triangle haut</annotation>
-		<annotation cp="⏫">flèche vers le haut | haut</annotation>
+		<annotation cp="⏫">double flèche vers le haut | flèche vers le haut | haut</annotation>
 		<annotation cp="⏫" type="tts">double flèche vers le haut</annotation>
 		<annotation cp="🔽">flèche | petit triangle bas</annotation>
 		<annotation cp="🔽" type="tts">petit triangle bas</annotation>
-		<annotation cp="⏬">bas | flèche vers le bas</annotation>
+		<annotation cp="⏬">bas | double flèche vers le bas | flèche vers le bas</annotation>
 		<annotation cp="⏬" type="tts">double flèche vers le bas</annotation>
 		<annotation cp="⏸">bouton pause | pause</annotation>
 		<annotation cp="⏸" type="tts">bouton pause</annotation>
@@ -2871,17 +2871,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">case cochée</annotation>
 		<annotation cp="✔">✓ | coche | oui | sélection</annotation>
 		<annotation cp="✔" type="tts">coche</annotation>
-		<annotation cp="✖">* | × | annuler | multiplier | non | x</annotation>
+		<annotation cp="✖">* | × | annuler | multiplier | non | signe multiplier | x</annotation>
 		<annotation cp="✖" type="tts">signe multiplier</annotation>
 		<annotation cp="❌">× | annuler | croix | multiplication | multiplier | x</annotation>
 		<annotation cp="❌" type="tts">croix</annotation>
 		<annotation cp="❎">× | bouton croix | croix | x</annotation>
 		<annotation cp="❎" type="tts">bouton croix</annotation>
-		<annotation cp="➕">+ | addition | arithmétique | mathématiques | plus</annotation>
+		<annotation cp="➕">+ | addition | arithmétique | mathématiques | plus | signe plus</annotation>
 		<annotation cp="➕" type="tts">signe plus</annotation>
-		<annotation cp="➖">- | − | arithmétique | mathématiques | moins | soustraction</annotation>
+		<annotation cp="➖">- | − | arithmétique | mathématiques | moins | signe moins | soustraction</annotation>
 		<annotation cp="➖" type="tts">signe moins</annotation>
-		<annotation cp="➗">/ | ÷ | arithmétique | division | mathématiques</annotation>
+		<annotation cp="➗">/ | ÷ | arithmétique | division | mathématiques | signe diviser</annotation>
 		<annotation cp="➗" type="tts">signe diviser</annotation>
 		<annotation cp="➰">boucle | bouclette</annotation>
 		<annotation cp="➰" type="tts">boucle</annotation>

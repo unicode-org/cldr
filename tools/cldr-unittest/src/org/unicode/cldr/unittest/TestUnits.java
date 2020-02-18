@@ -1178,16 +1178,21 @@ public class TestUnits extends TestFmwk {
                     preferences:
                         for (UnitPreference up : uPrefs) {
                             String unitQuantity = null;
-                            String topUnit = null;
+                            Rational resolvedSize = null;
+                            Rational rationalGeq = Rational.of(BigDecimal.valueOf(up.geq));
                             if ("minute:second".equals(up.unit)) {
                                 int debug = 0;
                             }
                             for (String unit : SPLIT_COLON.split(up.unit)) {
                                 try {
-                                    if (topUnit == null) {
-                                        topUnit = unit;
-                                    }
                                     unitQuantity = converter.getQuantityFromUnit(unit, false);
+                                    String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
+                                    Rational size = converter.convert(rationalGeq, unit, baseUnit, false);
+                                    if (resolvedSize == null) {
+                                        resolvedSize = size;
+                                    } else if (size.compareTo(resolvedSize) > 0) {
+                                        resolvedSize = size;
+                                    }
                                 } catch (Exception e) {
                                     errln("Unit is not covertible: " + up.unit);
                                     continue preferences;
@@ -1196,22 +1201,19 @@ public class TestUnits extends TestFmwk {
                                     int debug = 0;
                                 }
                             }
-                            String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
-                            Rational rationalGeq = Rational.of(BigDecimal.valueOf(up.geq));
-                            Rational size = converter.convert(rationalGeq, topUnit, baseUnit, false);
                             if (lastSize != null) { // ensure descending order
                                 if (!assertTrue("Successive items must be ≥ previous:\n\t" + quantityPlusUsage 
                                     + "; unit: " + up.unit
-                                    + "; size: " + size
+                                    + "; size: " + resolvedSize
                                     + "; regions: " + regions
                                     + "; lastUnit: " + lastUnit
                                     + "; lastSize: " + lastSize
                                     + "; lastRegions: " + lastRegions
-                                    , size.compareTo(lastSize) <= 0)) {
+                                    , resolvedSize.compareTo(lastSize) <= 0)) {
                                     int debug = 0;
                                 }
                             }
-                            lastSize = size;
+                            lastSize = resolvedSize;
                             lastUnit = up.unit;
                             lastRegions = regions;
                             System.out.println(quantity + "\t" + usage + "\t" + regions + "\t" + up.geq + "\t" + up.unit + "\t" + up.skeleton);

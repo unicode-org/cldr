@@ -23,9 +23,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">karnacja średnio ciemna</annotation>
 		<annotation cp="🏿">karnacja | karnacja ciemna | odcień skóry | typ 6</annotation>
 		<annotation cp="🏿" type="tts">karnacja ciemna</annotation>
-		<annotation cp="–">myślnik | półpauza</annotation>
+		<annotation cp="–">myślnik | półpauza | znak półpauzy</annotation>
 		<annotation cp="–" type="tts">znak półpauzy</annotation>
-		<annotation cp="—">myślnik | pauza</annotation>
+		<annotation cp="—">myślnik | pauza | znak pauzy</annotation>
 		<annotation cp="—" type="tts">znak pauzy</annotation>
 		<annotation cp="·">kropka | kropka środkowa | punkt | środek</annotation>
 		<annotation cp="·" type="tts">kropka środkowa</annotation>
@@ -35,15 +35,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="»" type="tts">prawy cudzysłów ostrokątny</annotation>
 		<annotation cp="§">artykuł | paragraf</annotation>
 		<annotation cp="§" type="tts">paragraf</annotation>
-		<annotation cp="†">crux philologorum | obelisk | obelos | obelus | sztylet</annotation>
+		<annotation cp="†">crux philologorum | obelisk | obelos | obelus | sztylet | znak sztyletu</annotation>
 		<annotation cp="†" type="tts">znak sztyletu</annotation>
-		<annotation cp="‡">obelisk | obelos | obelus | podwójny | sztylet</annotation>
+		<annotation cp="‡">obelisk | obelos | obelus | podwójny | sztylet | znak podwójnego sztyletu</annotation>
 		<annotation cp="‡" type="tts">znak podwójnego sztyletu</annotation>
 		<annotation cp="•">kropka | punktor</annotation>
 		<annotation cp="•" type="tts">punktor</annotation>
 		<annotation cp="°">stopień | symbol stopnia</annotation>
 		<annotation cp="°" type="tts">stopień</annotation>
-		<annotation cp="℗">muzyczne | nagranie | znak praw autorskich</annotation>
+		<annotation cp="℗">muzyczne | nagranie | znak praw autorskich | znak praw autorskich do nagrań muzycznych</annotation>
 		<annotation cp="℗" type="tts">znak praw autorskich do nagrań muzycznych</annotation>
 		<annotation cp="←">lewo | strzałka | strzałka skierowana w lewo</annotation>
 		<annotation cp="←" type="tts">strzałka skierowana w lewo</annotation>
@@ -55,7 +55,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↓" type="tts">strzałka skierowana w dół</annotation>
 		<annotation cp="⇅">dół | góra | strzałka | strzałki skierowane w górę i w dół</annotation>
 		<annotation cp="⇅" type="tts">strzałki skierowane w górę i w dół</annotation>
-		<annotation cp="⇆">lewo | prawo | strzałka | strzałka skierowana w lewo nad strzałką skierowaną w prawo</annotation>
+		<annotation cp="⇆">lewo | prawo | strzałka | strzałka skierowana w lewo nad strzałką skierowaną w prawo | strzałka w lewo nad strzałką w prawo</annotation>
 		<annotation cp="⇆" type="tts">strzałka w lewo nad strzałką w prawo</annotation>
 		<annotation cp="∆">delta | trójkąt</annotation>
 		<annotation cp="∆" type="tts">delta</annotation>
@@ -67,11 +67,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="÷" type="tts">znak ilorazu</annotation>
 		<annotation cp="×">iloczyn | mnożenie | mnożyć | razy | znak iloczynu | znak mnożenia</annotation>
 		<annotation cp="×" type="tts">znak iloczynu</annotation>
-		<annotation cp="⁻">indeks górny | minus</annotation>
+		<annotation cp="⁻">indeks górny | minus | minus w indeksie górnym</annotation>
 		<annotation cp="⁻" type="tts">minus w indeksie górnym</annotation>
 		<annotation cp="√">kwadratowy | pierwiastek</annotation>
 		<annotation cp="√" type="tts">pierwiastek kwadratowy</annotation>
-		<annotation cp="∞">nieskończoność</annotation>
+		<annotation cp="∞">nieskończoność | znak nieskończoności</annotation>
 		<annotation cp="∞" type="tts">znak nieskończoności</annotation>
 		<annotation cp="∩">część wspólna zbiorów | iloczyn zbiorów | przecięcie</annotation>
 		<annotation cp="∩" type="tts">iloczyn zbiorów</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">mężczyzna z brodą</annotation>
 		<annotation cp="👱‍♂">blondyn | mężczyzna</annotation>
 		<annotation cp="👱‍♂" type="tts">blondyn</annotation>
-		<annotation cp="👨‍🍼">karmienie | mężczyzna | niemowlę</annotation>
+		<annotation cp="👨‍🍼">karmienie | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
 		<annotation cp="👨‍🍼" type="tts">mężczyzna karmiący niemowlę</annotation>
 		<annotation cp="👩">kobieta</annotation>
 		<annotation cp="👩" type="tts">kobieta</annotation>
 		<annotation cp="👱‍♀">blondynka | kobieta</annotation>
 		<annotation cp="👱‍♀" type="tts">blondynka</annotation>
-		<annotation cp="👩‍🍼">karmienie | karmienie piersią | kobieta | niemowlę</annotation>
+		<annotation cp="👩‍🍼">karmienie | karmienie piersią | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
 		<annotation cp="👩‍🍼" type="tts">kobieta karmiąca niemowlę</annotation>
 		<annotation cp="🧓">płeć neutralna | starszy dorosły | stary</annotation>
 		<annotation cp="🧓" type="tts">starszy dorosły</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">rupia indyjska</annotation>
 		<annotation cp="₽">rubel | waluta</annotation>
 		<annotation cp="₽" type="tts">rubel</annotation>
-		<annotation cp="¹">indeks górny | jeden</annotation>
+		<annotation cp="¹">indeks górny | jeden | jeden w indeksie górnym</annotation>
 		<annotation cp="¹" type="tts">jeden w indeksie górnym</annotation>
-		<annotation cp="²">dwa | indeks górny | kwadrat</annotation>
+		<annotation cp="²">dwa | dwa w indeksie górnym | indeks górny | kwadrat</annotation>
 		<annotation cp="²" type="tts">dwa w indeksie górnym</annotation>
-		<annotation cp="³">indeks górny | sześcian | trzy</annotation>
+		<annotation cp="³">indeks górny | sześcian | trzy | trzy w indeksie górnym</annotation>
 		<annotation cp="³" type="tts">trzy w indeksie górnym</annotation>
 		<annotation cp="µ">miara | znak mikro</annotation>
 		<annotation cp="µ" type="tts">znak mikro</annotation>

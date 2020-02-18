@@ -25,7 +25,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="–" type="tts">dais en</annotation>
 		<annotation cp="—">dais | em</annotation>
 		<annotation cp="—" type="tts">dais em</annotation>
-		<annotation cp="·">dotag | dotag meadhanach | eadar-phuing | meadhan</annotation>
+		<annotation cp="·">dot sa mheadhan | dotag | dotag meadhanach | eadar-phuing | meadhan</annotation>
 		<annotation cp="·" type="tts">dot sa mheadhan</annotation>
 		<annotation cp="«">camag | carait | ceàrn | chevron | clì | eadar-ràdhan Frangach dhan taobh chlì | guillemet | iomradh | luaidh | saidh</annotation>
 		<annotation cp="«" type="tts">eadar-ràdhan Frangach dhan taobh chlì</annotation>
@@ -33,15 +33,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="»" type="tts">eadar-ràdhan Frangach dhan taobh deas</annotation>
 		<annotation cp="§">earrann | pàirt | paragraf | silcrow</annotation>
 		<annotation cp="§" type="tts">earrann</annotation>
-		<annotation cp="†">biodag | obelisk | obelus | tursa</annotation>
+		<annotation cp="†">biodag | obelisk | obelus | samhla biodaig | tursa</annotation>
 		<annotation cp="†" type="tts">samhla biodaig</annotation>
-		<annotation cp="‡">biodag | dùbailte | obelisk | obelus | tursa</annotation>
+		<annotation cp="‡">biodag | dùbailte | obelisk | obelus | samhla biodaig dùbailte | tursa</annotation>
 		<annotation cp="‡" type="tts">samhla biodaig dùbailte</annotation>
 		<annotation cp="•">dotag | peilear</annotation>
 		<annotation cp="•" type="tts">peilear</annotation>
 		<annotation cp="°">ceum | dearbhadh | uair</annotation>
 		<annotation cp="°" type="tts">ceum</annotation>
-		<annotation cp="℗">ceòl | clàr | còir-lethbhreac</annotation>
+		<annotation cp="℗">ceòl | clàr | còir-lethbhreac | còir-lethbhreac air clàradh fuaime</annotation>
 		<annotation cp="℗" type="tts">còir-lethbhreac air clàradh fuaime</annotation>
 		<annotation cp="←">clì | saighead | saighead a’ tomhadh dhan taobh chlì</annotation>
 		<annotation cp="←" type="tts">saighead a’ tomhadh dhan taobh chlì</annotation>
@@ -51,15 +51,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↑" type="tts">saighead a’ tomhadh suas</annotation>
 		<annotation cp="↓">saighead | saighead a’ tomhadh sìos | sìos</annotation>
 		<annotation cp="↓" type="tts">saighead a’ tomhadh sìos</annotation>
-		<annotation cp="⇅">saighdean a’ tomhadh suas is sìos | saighead | sìos | suas</annotation>
+		<annotation cp="⇅">dà shaighead a’ tomhadh suas is sìos | saighdean a’ tomhadh suas is sìos | saighead | sìos | suas</annotation>
 		<annotation cp="⇅" type="tts">dà shaighead a’ tomhadh suas is sìos</annotation>
-		<annotation cp="⇆">clì | deas | saighdean a’ tomhadh dhan taobh chlì is deas | saighead</annotation>
+		<annotation cp="⇆">clì | dà shaighead dhan taobh chlì is deas | deas | saighdean a’ tomhadh dhan taobh chlì is deas | saighead</annotation>
 		<annotation cp="⇆" type="tts">dà shaighead dhan taobh chlì is deas</annotation>
 		<annotation cp="∆">ioncramaid | meudachadh | meudaich | triantan</annotation>
 		<annotation cp="∆" type="tts">ioncramaid</annotation>
 		<annotation cp="∇">dìochramaid | lughdachadh | lughdaich | nabla | triantan</annotation>
 		<annotation cp="∇" type="tts">dìochramaid</annotation>
-		<annotation cp="∈">am broinn | ballrachd | eileamaid | eileamaid de | eileamaid dhe | seata</annotation>
+		<annotation cp="∈">am broinn | ballrachd | eileamaid | eileamaid de | eileamaid dhe | na eileamaid de | seata</annotation>
 		<annotation cp="∈" type="tts">na eileamaid de</annotation>
 		<annotation cp="÷">obelus | roinn | roinneadh | samhla roinnidh</annotation>
 		<annotation cp="÷" type="tts">samhla roinnidh</annotation>
@@ -69,7 +69,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⁻" type="tts">minus os-sgrìobhte</annotation>
 		<annotation cp="√">ceàrnagach | freumh | radaigeach | radix | surd</annotation>
 		<annotation cp="√" type="tts">freumh ceàrnagach</annotation>
-		<annotation cp="∞">neo-chrìochnachd</annotation>
+		<annotation cp="∞">neo-chrìochnachd | samhla neo-chrìochnachd</annotation>
 		<annotation cp="∞" type="tts">samhla neo-chrìochnachd</annotation>
 		<annotation cp="∩">eadar-ghearradh | seata | trasnadh</annotation>
 		<annotation cp="∩" type="tts">eadar-ghearradh</annotation>
@@ -79,7 +79,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≡" type="tts">ionnannach ri</annotation>
 		<annotation cp="⊂">fo-sheata | fo-sheata de | fo-sheata dhe | seata</annotation>
 		<annotation cp="⊂" type="tts">fo-sheata de</annotation>
-		<annotation cp="▲">lìonta | saighead | suas | triantan | triantan lìonta a’ tomhadh sìos</annotation>
+		<annotation cp="▲">lìonta | saighead | suas | triantan | triantan lìonta a’ tomhadh sìos | triantan lìonta a’ tomhadh suas</annotation>
 		<annotation cp="▲" type="tts">triantan lìonta a’ tomhadh suas</annotation>
 		<annotation cp="▼">lìonta | saighead | sìos | triantan | triantan lìonta a’ tomhadh sìos</annotation>
 		<annotation cp="▼" type="tts">triantan lìonta a’ tomhadh sìos</annotation>
@@ -609,9 +609,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">inbheach</annotation>
 		<annotation cp="👱">bàn | falt | neach le falt bàn</annotation>
 		<annotation cp="👱" type="tts">neach le falt bàn</annotation>
-		<annotation cp="🧑‍🍼">altram | leanabh | naoidhean | neach</annotation>
+		<annotation cp="🧑‍🍼">altram | leanabh | naoidhean | neach | neach ag altram naoidhein</annotation>
 		<annotation cp="🧑‍🍼" type="tts">neach ag altram naoidhein</annotation>
-		<annotation cp="🧑‍🎄">bean Bodach na Nollaig | bodach na Nollaig | neach</annotation>
+		<annotation cp="🧑‍🎄">bean Bodach na Nollaig | bodach na Nollaig | neach | Neach na Nollaig</annotation>
 		<annotation cp="🧑‍🎄" type="tts">Neach na Nollaig</annotation>
 		<annotation cp="👨">duine | fear | fireannach</annotation>
 		<annotation cp="👨" type="tts">duine</annotation>
@@ -619,13 +619,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧔" type="tts">duine le feusag</annotation>
 		<annotation cp="👱‍♂">bàn | duine | duine le falt bàn | falt | fear | fireannach</annotation>
 		<annotation cp="👱‍♂" type="tts">duine le falt bàn</annotation>
-		<annotation cp="👨‍🍼">altram | duine | fear | fireannach | leanabh | naoidhean</annotation>
+		<annotation cp="👨‍🍼">altram | duine | duine ag altram naoidhein | fear | fireannach | leanabh | naoidhean</annotation>
 		<annotation cp="👨‍🍼" type="tts">duine ag altram naoidhein</annotation>
 		<annotation cp="👩">boireannach | tè</annotation>
 		<annotation cp="👩" type="tts">boireannach</annotation>
 		<annotation cp="👱‍♀">bàn | boireannach | boireannach le falt bàn | falt | tè</annotation>
 		<annotation cp="👱‍♀" type="tts">boireannach le falt bàn</annotation>
-		<annotation cp="👩‍🍼">altram | boireannach | leanabh | naoidhean | tè</annotation>
+		<annotation cp="👩‍🍼">altram | boireannach | boireannach ag altram naoidhein | leanabh | naoidhean | tè</annotation>
 		<annotation cp="👩‍🍼" type="tts">boireannach ag altram naoidhein</annotation>
 		<annotation cp="🧓">gun ghnè | sean | seann | seann-inbheach</annotation>
 		<annotation cp="🧓" type="tts">seann-inbheach</annotation>
@@ -837,7 +837,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰" type="tts">neach le brat-gnùise</annotation>
 		<annotation cp="👰‍♀">bean | boireannach | boireannach le brat-gnùise | brat-gnùise | tè</annotation>
 		<annotation cp="👰‍♀" type="tts">boireannach le brat-gnùise</annotation>
-		<annotation cp="👰‍♂">brat-gnùise | duine | fear | fireannach | fireannach le brat-gnùise</annotation>
+		<annotation cp="👰‍♂">brat-gnùise | duine | duine le brat-gnùise | fear | fireannach | fireannach le brat-gnùise</annotation>
 		<annotation cp="👰‍♂" type="tts">duine le brat-gnùise</annotation>
 		<annotation cp="🤰">boireannach | leatromach | tè</annotation>
 		<annotation cp="🤰" type="tts">boireannach leatromach</annotation>
@@ -2879,7 +2879,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➕" type="tts">cuir ris</annotation>
 		<annotation cp="➖">- | – | matamataig | minus | samhla | samhla toirt air falbh | thoir air falbh | toirt air falbh</annotation>
 		<annotation cp="➖" type="tts">thoir air falbh</annotation>
-		<annotation cp="➗">/ | ÷ | matamataig | roinn le | roinneadh | samhla | samhla roinnidh</annotation>
+		<annotation cp="➗">/ | ÷ | matamataig | roinn | roinn le | roinneadh | samhla | samhla roinnidh</annotation>
 		<annotation cp="➗" type="tts">roinn</annotation>
 		<annotation cp="➰">dualach | lùb | lùb dhualach</annotation>
 		<annotation cp="➰" type="tts">lùb dhualach</annotation>
@@ -3085,13 +3085,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₹" type="tts">rupee Innseanach</annotation>
 		<annotation cp="₽">airgeadra | rùbal</annotation>
 		<annotation cp="₽" type="tts">rùbal</annotation>
-		<annotation cp="¹">aon | os-sgrìobhte</annotation>
+		<annotation cp="¹">a h-aon os-sgrìobhte | aon | os-sgrìobhte</annotation>
 		<annotation cp="¹" type="tts">a h-aon os-sgrìobhte</annotation>
-		<annotation cp="²">ceàrnagach | ceàrnagaichte | dà | os-sgrìobhte</annotation>
+		<annotation cp="²">a dhà os-sgrìobhte | ceàrnagach | ceàrnagaichte | dà | os-sgrìobhte</annotation>
 		<annotation cp="²" type="tts">a dhà os-sgrìobhte</annotation>
-		<annotation cp="³">ciùbach | ciùbaichte | os-sgrìobhte | trì</annotation>
+		<annotation cp="³">a trì os-sgrìobhte | ciùbach | ciùbaichte | os-sgrìobhte | trì</annotation>
 		<annotation cp="³" type="tts">a trì os-sgrìobhte</annotation>
-		<annotation cp="µ">samhla micreo | tomhas</annotation>
+		<annotation cp="µ">samhla micreo | samhla µ | tomhas</annotation>
 		<annotation cp="µ" type="tts">samhla µ</annotation>
 	</annotations>
 </ldml>

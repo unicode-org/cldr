@@ -23,11 +23,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">meðaldökkur húðlitur</annotation>
 		<annotation cp="🏿">dökkur húðlitur | húðlitur | tegund 6</annotation>
 		<annotation cp="🏿" type="tts">dökkur húðlitur</annotation>
-		<annotation cp="–">stutt | þankastrik</annotation>
+		<annotation cp="–">stutt | tilstrik | þankastrik</annotation>
 		<annotation cp="–" type="tts">tilstrik</annotation>
 		<annotation cp="—">langt | þankastrik</annotation>
 		<annotation cp="—" type="tts">þankastrik</annotation>
-		<annotation cp="·">depill | miðdepill | miðja | millipunktur</annotation>
+		<annotation cp="·">depill | miðdepill | miðja | miðjudepill | millipunktur</annotation>
 		<annotation cp="·" type="tts">miðjudepill</annotation>
 		<annotation cp="«">franskar gæsalappir vinstri | horn | hornklofar | innskotsmerki | setja í gæsalappir | tvíoddur | vinstri</annotation>
 		<annotation cp="«" type="tts">franskar gæsalappir vinstri</annotation>
@@ -43,7 +43,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="•" type="tts">merkill</annotation>
 		<annotation cp="°">alkóhólstyrkur | gráða | klukkustund</annotation>
 		<annotation cp="°" type="tts">gráða</annotation>
-		<annotation cp="℗">hljóð | höfundarréttur | upptaka</annotation>
+		<annotation cp="℗">hljóð | höfundarréttur | höfundarréttur hljóðupptöku | upptaka</annotation>
 		<annotation cp="℗" type="tts">höfundarréttur hljóðupptöku</annotation>
 		<annotation cp="←">ör | ör sem vísar til vinstri | vinstri</annotation>
 		<annotation cp="←" type="tts">ör sem vísar til vinstri</annotation>
@@ -55,7 +55,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↓" type="tts">ör sem vísar niður</annotation>
 		<annotation cp="⇅">niður | ör | ör sem vísar upp og ör sem vísar niður | upp</annotation>
 		<annotation cp="⇅" type="tts">ör sem vísar upp og ör sem vísar niður</annotation>
-		<annotation cp="⇆">hægri | ör | ör sem vísar til vinstri yfir ör sem vísar til hægri | vinstri</annotation>
+		<annotation cp="⇆">hægri | ör | ör sem vísar til vinstri yfir ör sem vísar til hægri | vinstri | vinstriör yfir hægriör</annotation>
 		<annotation cp="⇆" type="tts">vinstriör yfir hægriör</annotation>
 		<annotation cp="∆">aukning | þríhyrningur</annotation>
 		<annotation cp="∆" type="tts">aukning</annotation>
@@ -69,9 +69,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">margföldunarmerki</annotation>
 		<annotation cp="⁻">brjóstletur | mínus</annotation>
 		<annotation cp="⁻" type="tts">brjóstletur mínus</annotation>
-		<annotation cp="√">annað veldi | óræð tala | rót | rótarstærð | stofntala</annotation>
+		<annotation cp="√">annað veldi | kvaðratrót | óræð tala | rót | rótarstærð | stofntala</annotation>
 		<annotation cp="√" type="tts">kvaðratrót</annotation>
-		<annotation cp="∞">óendanlegt</annotation>
+		<annotation cp="∞">óendanlegt | óendanlegt-merki</annotation>
 		<annotation cp="∞" type="tts">óendanlegt-merki</annotation>
 		<annotation cp="∩">mengi | sniðmengi</annotation>
 		<annotation cp="∩" type="tts">sniðmengi</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">maður með skegg</annotation>
 		<annotation cp="👱‍♂">ljóshærður | ljóst hár | maður</annotation>
 		<annotation cp="👱‍♂" type="tts">ljóshærður maður</annotation>
-		<annotation cp="👨‍🍼">barn | brjóstagjöf | gjöf | karl</annotation>
+		<annotation cp="👨‍🍼">barn | brjóstagjöf | gjöf | karl | karl að gefa barni</annotation>
 		<annotation cp="👨‍🍼" type="tts">karl að gefa barni</annotation>
 		<annotation cp="👩">fólk | kona</annotation>
 		<annotation cp="👩" type="tts">kona</annotation>
 		<annotation cp="👱‍♀">kona | ljóshærð | ljóst hár</annotation>
 		<annotation cp="👱‍♀" type="tts">ljóshærð kona</annotation>
-		<annotation cp="👩‍🍼">barn | brjóstagjöf | gjöf | kona</annotation>
+		<annotation cp="👩‍🍼">barn | brjóstagjöf | gjöf | kona | kona að gefa barni</annotation>
 		<annotation cp="👩‍🍼" type="tts">kona að gefa barni</annotation>
 		<annotation cp="🧓">eldri fullorðinn | gamall | kynhlutlaust</annotation>
 		<annotation cp="🧓" type="tts">eldri fullorðinn</annotation>

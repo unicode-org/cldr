@@ -29,21 +29,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="—" type="tts">dlhá pomlčka</annotation>
 		<annotation cp="·">bodka | stredná | znak</annotation>
 		<annotation cp="·" type="tts">stredná bodka</annotation>
-		<annotation cp="«">citácia | francúzske | ľavé | ľavé úvodzovky | lomené | ruské | uhlové</annotation>
+		<annotation cp="«">citácia | francúzske | ľavé | ľavé bočné úvodzovky | ľavé úvodzovky | lomené | ruské | uhlové</annotation>
 		<annotation cp="«" type="tts">ľavé bočné úvodzovky</annotation>
-		<annotation cp="»">citácia | francúzske | lomené | pravé | pravé úvodzovky | ruské | uhlové</annotation>
+		<annotation cp="»">citácia | francúzske | lomené | pravé | pravé bočné úvodzovky | pravé úvodzovky | ruské | uhlové</annotation>
 		<annotation cp="»" type="tts">pravé bočné úvodzovky</annotation>
 		<annotation cp="§">časť | odsek | paragraf | znak paragrafu</annotation>
 		<annotation cp="§" type="tts">odsek</annotation>
-		<annotation cp="†">kríž | krížik | znak kríža</annotation>
+		<annotation cp="†">kríž | krížik | znak kríža | znak krížika</annotation>
 		<annotation cp="†" type="tts">znak krížika</annotation>
-		<annotation cp="‡">dvojitý | dvojkríž | kríž | krížik</annotation>
+		<annotation cp="‡">dvojitý | dvojkríž | kríž | krížik | znak dvojitého kríža</annotation>
 		<annotation cp="‡" type="tts">znak dvojitého kríža</annotation>
 		<annotation cp="•">guľka | odrážka</annotation>
 		<annotation cp="•" type="tts">odrážka</annotation>
 		<annotation cp="°">hodina | promile | stupeň</annotation>
 		<annotation cp="°" type="tts">stupeň</annotation>
-		<annotation cp="℗">autorské práva | nahrávka | zvuk</annotation>
+		<annotation cp="℗">autorské práva | autorské práva na nahrávku | nahrávka | zvuk</annotation>
 		<annotation cp="℗" type="tts">autorské práva na nahrávku</annotation>
 		<annotation cp="←">doľava | šípka | šípka smerujúca doľava</annotation>
 		<annotation cp="←" type="tts">šípka smerujúca doľava</annotation>
@@ -53,9 +53,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↑" type="tts">šípka smerujúca nahor</annotation>
 		<annotation cp="↓">nadol | šípka | šípka smerujúca nadol</annotation>
 		<annotation cp="↓" type="tts">šípka smerujúca nadol</annotation>
-		<annotation cp="⇅">nadol | nahor | šípka | šípky smerujúce nahor a nadol</annotation>
+		<annotation cp="⇅">nadol | nahor | šípka | šípka nahor a šípka nadol | šípky smerujúce nahor a nadol</annotation>
 		<annotation cp="⇅" type="tts">šípka nahor a šípka nadol</annotation>
-		<annotation cp="⇆">šípka | šípka smerujúca vľavo nad šípkou smerujúcou vpravo | vľavo | vpravo</annotation>
+		<annotation cp="⇆">šípka | šípka smerujúca vľavo nad šípkou smerujúcou vpravo | šípka vľavo nad šípkou vpravo | vľavo | vpravo</annotation>
 		<annotation cp="⇆" type="tts">šípka vľavo nad šípkou vpravo</annotation>
 		<annotation cp="∆">delta | trojuholník</annotation>
 		<annotation cp="∆" type="tts">delta</annotation>
@@ -67,11 +67,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="÷" type="tts">znak delenia</annotation>
 		<annotation cp="×">krát | násobenie | násobiť | znak násobenia</annotation>
 		<annotation cp="×" type="tts">znak násobenia</annotation>
-		<annotation cp="⁻">horný index | mínus</annotation>
+		<annotation cp="⁻">horný index | mínus | mínus horný index</annotation>
 		<annotation cp="⁻" type="tts">mínus horný index</annotation>
-		<annotation cp="√">odmocnenie | odmocnina | odmocniť | odmocňovať | znak odmocnenia</annotation>
+		<annotation cp="√">druhá odmocnina | odmocnenie | odmocnina | odmocniť | odmocňovať | znak odmocnenia</annotation>
 		<annotation cp="√" type="tts">druhá odmocnina</annotation>
-		<annotation cp="∞">nekonečno</annotation>
+		<annotation cp="∞">nekonečno | znak nekonečna</annotation>
 		<annotation cp="∞" type="tts">znak nekonečna</annotation>
 		<annotation cp="∩">množina | prienik</annotation>
 		<annotation cp="∩" type="tts">prienik</annotation>
@@ -611,7 +611,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dospelý</annotation>
 		<annotation cp="👱">blond | svetlovlasý človek</annotation>
 		<annotation cp="👱" type="tts">svetlovlasý človek</annotation>
-		<annotation cp="🧑‍🍼">bábätko | človek | kojenie | kŕmenie</annotation>
+		<annotation cp="🧑‍🍼">bábätko | človek | človek kŕmiaci bábätko | kojenie | kŕmenie</annotation>
 		<annotation cp="🧑‍🍼" type="tts">človek kŕmiaci bábätko</annotation>
 		<annotation cp="🧑‍🎄">Mx Claus | oslava | santa | vianoce</annotation>
 		<annotation cp="🧑‍🎄" type="tts">Mx Claus</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">bradáč</annotation>
 		<annotation cp="👱‍♂">blond | blondín | muž | svetlovlasý</annotation>
 		<annotation cp="👱‍♂" type="tts">blondín</annotation>
-		<annotation cp="👨‍🍼">bábätko | kŕmenie | muž</annotation>
+		<annotation cp="👨‍🍼">bábätko | kŕmenie | muž | muž kŕmiaci bábätko</annotation>
 		<annotation cp="👨‍🍼" type="tts">muž kŕmiaci bábätko</annotation>
 		<annotation cp="👩">žena</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
 		<annotation cp="👱‍♀">blond | blondína | blondínka | svetlovlasá | žena</annotation>
 		<annotation cp="👱‍♀" type="tts">blondína</annotation>
-		<annotation cp="👩‍🍼">bábätko | kojenie | kŕmenie | žena</annotation>
+		<annotation cp="👩‍🍼">bábätko | kojenie | kŕmenie | žena | žena kŕmiaca bábätko</annotation>
 		<annotation cp="👩‍🍼" type="tts">žena kŕmiaca bábätko</annotation>
 		<annotation cp="🧓">človek | starší človek | starý</annotation>
 		<annotation cp="🧓" type="tts">starší človek</annotation>
@@ -829,7 +829,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">muž s čínskou čapicou</annotation>
 		<annotation cp="🧕">hidžáb | hlava | šatka | žena | žena so šatkou</annotation>
 		<annotation cp="🧕" type="tts">žena so šatkou</annotation>
-		<annotation cp="🤵">muž | muž v smokingu | smoking | ženích</annotation>
+		<annotation cp="🤵">človek v smokingu | muž | muž v smokingu | smoking | ženích</annotation>
 		<annotation cp="🤵" type="tts">človek v smokingu</annotation>
 		<annotation cp="🤵‍♀">smoking | žena | žena v smokingu</annotation>
 		<annotation cp="🤵‍♀" type="tts">žena v smokingu</annotation>
@@ -2871,7 +2871,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">začiarknuté políčko</annotation>
 		<annotation cp="✔">začiarknuť | znak | znak začiarknutia</annotation>
 		<annotation cp="✔" type="tts">znak začiarknutia</annotation>
-		<annotation cp="✖">× | násobenie | násobiť | x | znak násobenia | zrušiť</annotation>
+		<annotation cp="✖">× | krát | násobenie | násobiť | x | znak násobenia | zrušiť</annotation>
 		<annotation cp="✖" type="tts">krát</annotation>
 		<annotation cp="❌">× | krížik | násobenie | násobiť | x | znak | zrušiť</annotation>
 		<annotation cp="❌" type="tts">krížik</annotation>
@@ -2881,7 +2881,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="➕" type="tts">plus</annotation>
 		<annotation cp="➖">- | − | matematika | mínus | znak | znak odčítania</annotation>
 		<annotation cp="➖" type="tts">mínus</annotation>
-		<annotation cp="➗">÷ | delenie | matematika | znak | znak delenia</annotation>
+		<annotation cp="➗">÷ | delenie | deleno | matematika | znak | znak delenia</annotation>
 		<annotation cp="➗" type="tts">deleno</annotation>
 		<annotation cp="➰">slučka</annotation>
 		<annotation cp="➰" type="tts">slučka</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">indická rupia</annotation>
 		<annotation cp="₽">mena | rubeľ</annotation>
 		<annotation cp="₽" type="tts">rubeľ</annotation>
-		<annotation cp="¹">horný index | jedna</annotation>
+		<annotation cp="¹">horný index | jedna | jedna horný index</annotation>
 		<annotation cp="¹" type="tts">jedna horný index</annotation>
-		<annotation cp="²">dva | horný index | na druhú</annotation>
+		<annotation cp="²">dva | dva horný index | horný index | na druhú</annotation>
 		<annotation cp="²" type="tts">dva horný index</annotation>
-		<annotation cp="³">horný index | na tretiu | tri</annotation>
+		<annotation cp="³">horný index | na tretiu | tri | tri horný index</annotation>
 		<annotation cp="³" type="tts">tri horný index</annotation>
 		<annotation cp="µ">mierka | znak mikro</annotation>
 		<annotation cp="µ" type="tts">znak mikro</annotation>

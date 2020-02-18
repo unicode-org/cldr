@@ -29,21 +29,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="—" type="tts">dlouhá pomlčka</annotation>
 		<annotation cp="·">odrážka | puntík | střední | tečka</annotation>
 		<annotation cp="·" type="tts">střední puntík</annotation>
-		<annotation cp="«">boční uvozovky | lomené uvozovky | uvozovky</annotation>
+		<annotation cp="«">boční uvozovky | boční uvozovky mířící doleva | lomené uvozovky | uvozovky</annotation>
 		<annotation cp="«" type="tts">boční uvozovky mířící doleva</annotation>
-		<annotation cp="»">boční uvozovky | lomené uvozovky | uvozovky</annotation>
+		<annotation cp="»">boční uvozovky | boční uvozovky mířící doprava | lomené uvozovky | uvozovky</annotation>
 		<annotation cp="»" type="tts">boční uvozovky mířící doprava</annotation>
 		<annotation cp="§">část | oddíl | odstavec | paragraf | sekce</annotation>
 		<annotation cp="§" type="tts">paragraf</annotation>
-		<annotation cp="†">dýka | kříž | křížek | obelisk | obelus</annotation>
+		<annotation cp="†">dýka | kříž | křížek | obelisk | obelus | znak křížku</annotation>
 		<annotation cp="†" type="tts">znak křížku</annotation>
-		<annotation cp="‡">dvojitá | dvojitý | dýka | kříž | křížek | obelisk | obelus</annotation>
+		<annotation cp="‡">dvojitá | dvojitý | dýka | kříž | křížek | obelisk | obelus | znak dvojitého křížku</annotation>
 		<annotation cp="‡" type="tts">znak dvojitého křížku</annotation>
 		<annotation cp="•">bod | odrážka | puntík</annotation>
 		<annotation cp="•" type="tts">puntík</annotation>
 		<annotation cp="°">stupeň | stupňovitost</annotation>
 		<annotation cp="°" type="tts">stupeň</annotation>
-		<annotation cp="℗">copyright | nahrávka | zvuková</annotation>
+		<annotation cp="℗">copyright | nahrávka | znak práv ke zvukovému záznamu | zvuková</annotation>
 		<annotation cp="℗" type="tts">znak práv ke zvukovému záznamu</annotation>
 		<annotation cp="←">doleva | šipka | šipka ukazující doleva | šipka ukazující vlevo | vlevo</annotation>
 		<annotation cp="←" type="tts">šipka ukazující doleva</annotation>
@@ -63,15 +63,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">členství | je prvkem | množina | obsahuje | prvek | prvek množiny</annotation>
 		<annotation cp="∈" type="tts">prvek množiny</annotation>
-		<annotation cp="÷">dělení | děleno | dělit | znak</annotation>
+		<annotation cp="÷">dělení | děleno | dělit | symbol dělení | znak</annotation>
 		<annotation cp="÷" type="tts">symbol dělení</annotation>
-		<annotation cp="×">krát | násobení | násobit</annotation>
+		<annotation cp="×">krát | násobení | násobit | symbol násobení</annotation>
 		<annotation cp="×" type="tts">symbol násobení</annotation>
-		<annotation cp="⁻">horní index | minus</annotation>
+		<annotation cp="⁻">horní index | minus | minus jako horní index</annotation>
 		<annotation cp="⁻" type="tts">minus jako horní index</annotation>
-		<annotation cp="√">kořen | odmocnina | odmocnítko</annotation>
+		<annotation cp="√">druhá odmocnina | kořen | odmocnina | odmocnítko</annotation>
 		<annotation cp="√" type="tts">druhá odmocnina</annotation>
-		<annotation cp="∞">nekonečno</annotation>
+		<annotation cp="∞">nekonečno | znak nekonečna</annotation>
 		<annotation cp="∞" type="tts">znak nekonečna</annotation>
 		<annotation cp="∩">množina | průnik</annotation>
 		<annotation cp="∩" type="tts">průnik</annotation>
@@ -87,11 +87,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▼" type="tts">vyplněný trojúhelník směřující dolů</annotation>
 		<annotation cp="◊">diamant | káry | kosočtverec</annotation>
 		<annotation cp="◊" type="tts">kosočtverec</annotation>
-		<annotation cp="○">kroužek | kruh | kružnice | prázdný kruh | prstenec</annotation>
+		<annotation cp="○">kroužek | kruh | kružnice | prázdný kroužek | prázdný kruh | prstenec</annotation>
 		<annotation cp="○" type="tts">prázdný kroužek</annotation>
-		<annotation cp="●">kroužek | kruh | plný kruh | vyplněná kružnice | vyplněný kroužek | vyplněný kruh</annotation>
+		<annotation cp="●">kroužek | kruh | plný kroužek | plný kruh | vyplněná kružnice | vyplněný kroužek | vyplněný kruh</annotation>
 		<annotation cp="●" type="tts">plný kroužek</annotation>
-		<annotation cp="◯">kroužek | kruh | kružnice | prstenec | velká kružnice | velký prázdný kruh</annotation>
+		<annotation cp="◯">kroužek | kruh | kružnice | prázdný kruh | prstenec | velká kružnice | velký prázdný kruh</annotation>
 		<annotation cp="◯" type="tts">prázdný kruh</annotation>
 		<annotation cp="⚧">symbol pro transgender osoby | transgender</annotation>
 		<annotation cp="⚧" type="tts">symbol pro transgender osoby</annotation>
@@ -611,9 +611,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dospělý člověk</annotation>
 		<annotation cp="👱">blond | člověk s blond vlasy | světlé vlasy</annotation>
 		<annotation cp="👱" type="tts">člověk s blond vlasy</annotation>
-		<annotation cp="🧑‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba</annotation>
+		<annotation cp="🧑‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba | osoba krmící dítě z lahve</annotation>
 		<annotation cp="🧑‍🍼" type="tts">osoba krmící dítě z lahve</annotation>
-		<annotation cp="🧑‍🎄">fantasy | oslava | pohádka | santa | santa claus | vánoce</annotation>
+		<annotation cp="🧑‍🎄">fantasy | oslava | pohádka | santa | Santa | santa claus | vánoce</annotation>
 		<annotation cp="🧑‍🎄" type="tts">Santa</annotation>
 		<annotation cp="👨">muž</annotation>
 		<annotation cp="👨" type="tts">muž</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">muž s plnovousem</annotation>
 		<annotation cp="👱‍♂">blond | blonďák | muž | plavovlasý | světlovlasý</annotation>
 		<annotation cp="👱‍♂" type="tts">blonďák</annotation>
-		<annotation cp="👨‍🍼">dítě | kojenec | kojení | krmení | muž | nemluvně</annotation>
+		<annotation cp="👨‍🍼">dítě | kojenec | kojení | krmení | muž | muž krmící dítě z lahve | nemluvně</annotation>
 		<annotation cp="👨‍🍼" type="tts">muž krmící dítě z lahve</annotation>
 		<annotation cp="👩">žena</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
 		<annotation cp="👱‍♀">blond | blondýna | blondýnka | plavovláska | světlovláska | žena</annotation>
 		<annotation cp="👱‍♀" type="tts">blondýna</annotation>
-		<annotation cp="👩‍🍼">dítě | kojenec | kojení | krmení | nemluvně | žena</annotation>
+		<annotation cp="👩‍🍼">dítě | kojenec | kojení | krmení | nemluvně | žena | žena krmící dítě z lahve</annotation>
 		<annotation cp="👩‍🍼" type="tts">žena krmící dítě z lahve</annotation>
 		<annotation cp="🧓">člověk | neutrální | osoba | stará | starší dospělý člověk | starý</annotation>
 		<annotation cp="🧓" type="tts">starší dospělý člověk</annotation>
@@ -3083,17 +3083,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¥" type="tts">jen</annotation>
 		<annotation cp="€">EUR | euro | měna</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
-		<annotation cp="₹">měna | rupie | rupie indická</annotation>
+		<annotation cp="₹">indická rupie | měna | rupie | rupie indická</annotation>
 		<annotation cp="₹" type="tts">indická rupie</annotation>
 		<annotation cp="₽">měna | rubl | ruský rubl</annotation>
 		<annotation cp="₽" type="tts">rubl</annotation>
-		<annotation cp="¹">exponent | horní index | jedna | jednička | na první</annotation>
+		<annotation cp="¹">číslice jedna jako horní index | exponent | horní index | jedna | jednička | na první</annotation>
 		<annotation cp="¹" type="tts">číslice jedna jako horní index</annotation>
-		<annotation cp="²">čtvereční | dvě | dvojka | exponent | horní index | na druhou</annotation>
+		<annotation cp="²">číslice dvě jako horní index | čtvereční | dvě | dvojka | exponent | horní index | na druhou</annotation>
 		<annotation cp="²" type="tts">číslice dvě jako horní index</annotation>
-		<annotation cp="³">exponent | horní index | krychlový | na třetí | tři | trojka</annotation>
+		<annotation cp="³">číslice tři jako horní index | exponent | horní index | krychlový | na třetí | tři | trojka</annotation>
 		<annotation cp="³" type="tts">číslice tři jako horní index</annotation>
-		<annotation cp="µ">mikro | míra</annotation>
+		<annotation cp="µ">mikro | míra | znak mikro</annotation>
 		<annotation cp="µ" type="tts">znak mikro</annotation>
 	</annotations>
 </ldml>

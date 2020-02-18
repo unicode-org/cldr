@@ -27,35 +27,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="–" type="tts">коротке тире</annotation>
 		<annotation cp="—">довге | тире</annotation>
 		<annotation cp="—" type="tts">довге тире</annotation>
-		<annotation cp="·">інтерпункт | крапка | середній</annotation>
+		<annotation cp="·">інтерпункт | крапка | середній | середня крапка</annotation>
 		<annotation cp="·" type="tts">середня крапка</annotation>
 		<annotation cp="«">дужки | карет | кут | лапки | ліва шевронна лапка | ліво | шеврон</annotation>
 		<annotation cp="«" type="tts">ліва шевронна лапка</annotation>
 		<annotation cp="»">дужки | карет | кут | лапки | права шевронна лапка | право | шеврон</annotation>
 		<annotation cp="»" type="tts">права шевронна лапка</annotation>
-		<annotation cp="§">абзац | знак розділу | частина</annotation>
+		<annotation cp="§">абзац | знак розділу | розділ | частина</annotation>
 		<annotation cp="§" type="tts">розділ</annotation>
-		<annotation cp="†">друкарський знак | обелюс</annotation>
+		<annotation cp="†">друкарський знак | друкарський хрестик | обелюс</annotation>
 		<annotation cp="†" type="tts">друкарський хрестик</annotation>
-		<annotation cp="‡">друкарський знак | друкарський хрестик | обелюс | подвійний</annotation>
+		<annotation cp="‡">друкарський знак | друкарський хрестик | обелюс | подвійний | подвійний друкарський хрестик</annotation>
 		<annotation cp="‡" type="tts">подвійний друкарський хрестик</annotation>
-		<annotation cp="•">крапка | маркованний список</annotation>
+		<annotation cp="•">крапка | маркер | маркованний список</annotation>
 		<annotation cp="•" type="tts">маркер</annotation>
 		<annotation cp="°">година | доведення | доказ | ступінь</annotation>
 		<annotation cp="°" type="tts">ступінь</annotation>
-		<annotation cp="℗">авторське право | запис | звук</annotation>
+		<annotation cp="℗">авторське право | авторське право на звукозапис | запис | звук</annotation>
 		<annotation cp="℗" type="tts">авторське право на звукозапис</annotation>
-		<annotation cp="←">вліво | ліворуч</annotation>
+		<annotation cp="←">вліво | ліворуч | стрілка ліворуч</annotation>
 		<annotation cp="←" type="tts">стрілка ліворуч</annotation>
-		<annotation cp="→">право | праворуч</annotation>
+		<annotation cp="→">право | праворуч | стрілка праворуч</annotation>
 		<annotation cp="→" type="tts">стрілка праворуч</annotation>
-		<annotation cp="↑">вгору | догори</annotation>
+		<annotation cp="↑">вгору | догори | стрілка догори</annotation>
 		<annotation cp="↑" type="tts">стрілка догори</annotation>
-		<annotation cp="↓">вниз | донизу</annotation>
+		<annotation cp="↓">вниз | донизу | стрілка донизу</annotation>
 		<annotation cp="↓" type="tts">стрілка донизу</annotation>
-		<annotation cp="⇅">вгору | вниз | догори | донизу</annotation>
+		<annotation cp="⇅">вгору | вниз | догори | донизу | стрілки догори та донизу</annotation>
 		<annotation cp="⇅" type="tts">стрілки догори та донизу</annotation>
-		<annotation cp="⇆">вліво | вправо | ліворуч | праворуч</annotation>
+		<annotation cp="⇆">вліво | вправо | ліворуч | праворуч | стрілка ліворуч над стрілкою праворуч</annotation>
 		<annotation cp="⇆" type="tts">стрілка ліворуч над стрілкою праворуч</annotation>
 		<annotation cp="∆">збільшення | трикутник</annotation>
 		<annotation cp="∆" type="tts">збільшення</annotation>
@@ -65,19 +65,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∈" type="tts">елемент</annotation>
 		<annotation cp="÷">ділення | ділити | знак ділення | обелюс</annotation>
 		<annotation cp="÷" type="tts">знак ділення</annotation>
-		<annotation cp="×">множення | множити | раз</annotation>
+		<annotation cp="×">знак множення | множення | множити | раз</annotation>
 		<annotation cp="×" type="tts">знак множення</annotation>
-		<annotation cp="⁻">верхній | мінус</annotation>
+		<annotation cp="⁻">верхній | мінус | надрядковий мінус</annotation>
 		<annotation cp="⁻" type="tts">надрядковий мінус</annotation>
-		<annotation cp="√">ірраціональний | квадрат | корінь | радикальний</annotation>
+		<annotation cp="√">ірраціональний | квадрат | квадратний корінь | корінь | радикальний</annotation>
 		<annotation cp="√" type="tts">квадратний корінь</annotation>
-		<annotation cp="∞">нескінченність</annotation>
+		<annotation cp="∞">знак нескінченності | нескінченність</annotation>
 		<annotation cp="∞" type="tts">знак нескінченності</annotation>
-		<annotation cp="∩">набір | перетин</annotation>
+		<annotation cp="∩">знак перетину | набір | перетин</annotation>
 		<annotation cp="∩" type="tts">знак перетину</annotation>
 		<annotation cp="∪">набір | обʼєднання | поєднання | союз | сполука</annotation>
 		<annotation cp="∪" type="tts">обʼєднання</annotation>
-		<annotation cp="≡">однаковий | потрійний | тотожний | точний</annotation>
+		<annotation cp="≡">однаковий | потрійний | тотожний | тотожність | точний</annotation>
 		<annotation cp="≡" type="tts">тотожність</annotation>
 		<annotation cp="⊂">набір | підмножина</annotation>
 		<annotation cp="⊂" type="tts">підмножина</annotation>
@@ -613,7 +613,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👱" type="tts">людина: біляве волосся</annotation>
 		<annotation cp="🧑‍🍼">дитина | годування | догляд | людина | людина годує дитину</annotation>
 		<annotation cp="🧑‍🍼" type="tts">людина годує дитину</annotation>
-		<annotation cp="🧑‍🎄" draft="provisional">Клаус, Різдво | Мікс Клаус</annotation>
+		<annotation cp="🧑‍🎄" draft="provisional">Мікс Клаус</annotation>
 		<annotation cp="🧑‍🎄" type="tts" draft="provisional">Мікс Клаус</annotation>
 		<annotation cp="👨">дорослий | чоловік</annotation>
 		<annotation cp="👨" type="tts">чоловік</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">чоловік: борода</annotation>
 		<annotation cp="👱‍♂">білявий | блондин | волосся | чоловік | чоловік із білявим волоссям | чоловік: біляве волосся</annotation>
 		<annotation cp="👱‍♂" type="tts">чоловік: біляве волосся</annotation>
-		<annotation cp="👨‍🍼">годування | дитина | догляд | чоловік</annotation>
+		<annotation cp="👨‍🍼">годування | дитина | догляд | чоловік | чоловік годує дитину</annotation>
 		<annotation cp="👨‍🍼" type="tts">чоловік годує дитину</annotation>
 		<annotation cp="👩">доросла | жінка</annotation>
 		<annotation cp="👩" type="tts">жінка</annotation>
 		<annotation cp="👱‍♀">білява | блондинка | жінка | жінка з білявим волоссям | жінка: біляве волосся</annotation>
 		<annotation cp="👱‍♀" type="tts">жінка: біляве волосся</annotation>
-		<annotation cp="👩‍🍼">годування | дитина | догляд | жінка</annotation>
+		<annotation cp="👩‍🍼">годування | дитина | догляд | жінка | жінка годує дитину</annotation>
 		<annotation cp="👩‍🍼" type="tts">жінка годує дитину</annotation>
 		<annotation cp="🧓">гендерно-нейтральний | дорослий | літня людина | неозначеної статі | старий | старша людина</annotation>
 		<annotation cp="🧓" type="tts">літня людина</annotation>
@@ -829,17 +829,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">чоловік у китайській шапці</annotation>
 		<annotation cp="🧕">жінка в хустині | мантилья | тихля | хіджаб | хустина</annotation>
 		<annotation cp="🧕" type="tts">жінка в хустині</annotation>
-		<annotation cp="🤵">людина | наречений | смокінг</annotation>
+		<annotation cp="🤵">людина | людина в смокінгу | наречений | смокінг</annotation>
 		<annotation cp="🤵" type="tts">людина в смокінгу</annotation>
 		<annotation cp="🤵‍♀">жінка | жінка в смокінгу | смокінг</annotation>
 		<annotation cp="🤵‍♀" type="tts">жінка в смокінгу</annotation>
 		<annotation cp="🤵‍♂">смокінг | чоловік | чоловік у смокінгу</annotation>
 		<annotation cp="🤵‍♂" type="tts">чоловік у смокінгу</annotation>
-		<annotation cp="👰">весілля | людина | людина з фатою | наречена | фата</annotation>
+		<annotation cp="👰">весілля | людина | людина з фатою | людина у фаті | наречена | фата</annotation>
 		<annotation cp="👰" type="tts">людина у фаті</annotation>
-		<annotation cp="👰‍♀">вуаль | жінка | жінка з вуаллю</annotation>
+		<annotation cp="👰‍♀">вуаль | жінка | жінка з вуаллю | жінка у фаті</annotation>
 		<annotation cp="👰‍♀" type="tts">жінка у фаті</annotation>
-		<annotation cp="👰‍♂">вуаль | чоловік | чоловік з вуаллю</annotation>
+		<annotation cp="👰‍♂">вуаль | чоловік | чоловік з вуаллю | чоловік у фаті</annotation>
 		<annotation cp="👰‍♂" type="tts">чоловік у фаті</annotation>
 		<annotation cp="🤰">вагітна | жінка</annotation>
 		<annotation cp="🤰" type="tts">вагітна жінка</annotation>
@@ -2851,7 +2851,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♂" type="tts">символ чоловіка</annotation>
 		<annotation cp="⚕">ескулап | медицина | медичний символ | персонал | символ медицини</annotation>
 		<annotation cp="⚕" type="tts">символ медицини</annotation>
-		<annotation cp="♾">безкінечність | безкінченність | вісімка | універсальність</annotation>
+		<annotation cp="♾">безкінечність | безкінченність | вісімка | нескінченність | універсальність</annotation>
 		<annotation cp="♾" type="tts">нескінченність</annotation>
 		<annotation cp="♻">переробка | символ утилізації | утилізація</annotation>
 		<annotation cp="♻" type="tts">символ утилізації</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">індійська рупія</annotation>
 		<annotation cp="₽">валюта | рубль</annotation>
 		<annotation cp="₽" type="tts">рубль</annotation>
-		<annotation cp="¹">верхній індекс | верхній регістр | одиниця</annotation>
+		<annotation cp="¹">верхній індекс | верхній регістр | надрядкова одиниця | одиниця</annotation>
 		<annotation cp="¹" type="tts">надрядкова одиниця</annotation>
-		<annotation cp="²">верхній індекс | верхній регістр | два | двійка | у квадраті</annotation>
+		<annotation cp="²">верхній індекс | верхній регістр | два | двійка | надрядкова двійка | у квадраті</annotation>
 		<annotation cp="²" type="tts">надрядкова двійка</annotation>
-		<annotation cp="³">верхній індекс | верхній регістр | три | трійка | у кубі</annotation>
+		<annotation cp="³">верхній індекс | верхній регістр | надрядкова трійка | три | трійка | у кубі</annotation>
 		<annotation cp="³" type="tts">надрядкова трійка</annotation>
 		<annotation cp="µ">µ | вимірювати | знак мікро | мк | мю</annotation>
 		<annotation cp="µ" type="tts">знак мікро</annotation>

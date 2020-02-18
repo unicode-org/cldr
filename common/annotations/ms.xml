@@ -31,19 +31,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="·" type="tts">titik tengah</annotation>
 		<annotation cp="«">chevron | karet | kiri | kurungan | petikan | sudut berganda kiri</annotation>
 		<annotation cp="«" type="tts">sudut berganda kiri</annotation>
-		<annotation cp="»">chevron | kanan | karet | kurungan | petikan | sudut | sudut berganda kanan</annotation>
+		<annotation cp="»">chevron | kanan | karet | kurungan | petikan | sudut | sudut berganda kanan | tanda sudut berganda kanan</annotation>
 		<annotation cp="»" type="tts">tanda sudut berganda kanan</annotation>
 		<annotation cp="§">bahagian | keratan | perenggan | seksyen</annotation>
 		<annotation cp="§" type="tts">bahagian</annotation>
-		<annotation cp="†">dagger | obelisk | obelus</annotation>
+		<annotation cp="†">dagger | obelisk | obelus | tanda dagger</annotation>
 		<annotation cp="†" type="tts">tanda dagger</annotation>
-		<annotation cp="‡">berganda | dagger | obelisk | obelus</annotation>
+		<annotation cp="‡">berganda | dagger | obelisk | obelus | simbol dagger berganda</annotation>
 		<annotation cp="‡" type="tts">simbol dagger berganda</annotation>
 		<annotation cp="•">bulet | titik</annotation>
 		<annotation cp="•" type="tts">bulet</annotation>
 		<annotation cp="°">bukti | darjah | jam</annotation>
 		<annotation cp="°" type="tts">darjah</annotation>
-		<annotation cp="℗">bunyi | hak cipta | rakaman</annotation>
+		<annotation cp="℗">bunyi | hak cipta | hak cipta rakaman bunyi | rakaman</annotation>
 		<annotation cp="℗" type="tts">hak cipta rakaman bunyi</annotation>
 		<annotation cp="←">anak panah | anak panah menunjuk ke kiri | kiri</annotation>
 		<annotation cp="←" type="tts">anak panah menunjuk ke kiri</annotation>
@@ -69,9 +69,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">simbol pendaraban</annotation>
 		<annotation cp="⁻">superskrip | tolak</annotation>
 		<annotation cp="⁻" type="tts">tolak superskrip</annotation>
-		<annotation cp="√">kuasa dua | punca | radikal | radiks | surd</annotation>
+		<annotation cp="√">kuasa dua | punca | punca kuasa dua | radikal | radiks | surd</annotation>
 		<annotation cp="√" type="tts">punca kuasa dua</annotation>
-		<annotation cp="∞">infiniti</annotation>
+		<annotation cp="∞">infiniti | simbol infiniti</annotation>
 		<annotation cp="∞" type="tts">simbol infiniti</annotation>
 		<annotation cp="∩">persilangan | set</annotation>
 		<annotation cp="∩" type="tts">persilangan</annotation>
@@ -831,9 +831,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">wanita bertudung</annotation>
 		<annotation cp="🤵">orang | orang bertuksedo | pengantin | tuksedo</annotation>
 		<annotation cp="🤵" type="tts">orang bertuksedo</annotation>
-		<annotation cp="🤵‍♀">tuksedo | wanita | wanita bertuksedo</annotation>
+		<annotation cp="🤵‍♀">tuksedo | wanita | wanita berpakaian tuksedo | wanita bertuksedo</annotation>
 		<annotation cp="🤵‍♀" type="tts">wanita berpakaian tuksedo</annotation>
-		<annotation cp="🤵‍♂">lelaki | lelaki bertuksedo | tuksedo</annotation>
+		<annotation cp="🤵‍♂">lelaki | lelaki berpakaian tuksedo | lelaki bertuksedo | tuksedo</annotation>
 		<annotation cp="🤵‍♂" type="tts">lelaki berpakaian tuksedo</annotation>
 		<annotation cp="👰">orang | orang memakai vel | pengantin | perkahwinan | vel</annotation>
 		<annotation cp="👰" type="tts">orang memakai vel</annotation>
@@ -3071,7 +3071,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">bendera hitam</annotation>
 		<annotation cp="🏳">bendera putih | berkibar</annotation>
 		<annotation cp="🏳" type="tts">bendera putih</annotation>
-		<annotation cp="🏳‍⚧">bendera | biru muda | merah jambu | putih | transgender</annotation>
+		<annotation cp="🏳‍⚧">bendera | bendera biru,merah jambu, dan putih | biru muda | merah jambu | putih | transgender</annotation>
 		<annotation cp="🏳‍⚧" type="tts">bendera biru,merah jambu, dan putih</annotation>
 		<annotation cp="🏳‍🌈">bendera | pelangi</annotation>
 		<annotation cp="🏳‍🌈" type="tts">bendera pelangi</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">rupee india</annotation>
 		<annotation cp="₽">mata wang | rouble</annotation>
 		<annotation cp="₽" type="tts">rouble</annotation>
-		<annotation cp="¹">satu | superskrip</annotation>
+		<annotation cp="¹">nombor satu superskrip | satu | superskrip</annotation>
 		<annotation cp="¹" type="tts">nombor satu superskrip</annotation>
-		<annotation cp="²">dua | kuasa dua | superskrip</annotation>
+		<annotation cp="²">dua | kuasa dua | nombor dua superskrip | superskrip</annotation>
 		<annotation cp="²" type="tts">nombor dua superskrip</annotation>
-		<annotation cp="³">kuasa tiga | superskrip | tiga</annotation>
+		<annotation cp="³">kuasa tiga | nombor tiga superskrip | superskrip | tiga</annotation>
 		<annotation cp="³" type="tts">nombor tiga superskrip</annotation>
 		<annotation cp="µ">simbol mikro | ukuran</annotation>
 		<annotation cp="µ" type="tts">simbol mikro</annotation>

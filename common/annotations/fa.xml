@@ -37,13 +37,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="§" type="tts">بخش</annotation>
 		<annotation cp="†">تک‌ستون | چلیپا | نشان چلیپا</annotation>
 		<annotation cp="†" type="tts">نشان چلیپا</annotation>
-		<annotation cp="‡">تک‌ستون | چلیپا | دوگانه | نشان چلیپا</annotation>
+		<annotation cp="‡">تک‌ستون | چلیپا | دوگانه | نشان چلیپا | نشان چلیپای دوگانه</annotation>
 		<annotation cp="‡" type="tts">نشان چلیپای دوگانه</annotation>
 		<annotation cp="•">گلوله | نقطه</annotation>
 		<annotation cp="•" type="tts">گلوله</annotation>
 		<annotation cp="°">خلوص | درجه | ساعت</annotation>
 		<annotation cp="°" type="tts">درجه</annotation>
-		<annotation cp="℗">حق نسخه‌برداری | صدا | ضبط کردن</annotation>
+		<annotation cp="℗">حق نسخه‌برداری | حق نسخه‌برداری برای ضبط صدا | صدا | ضبط کردن</annotation>
 		<annotation cp="℗" type="tts">حق نسخه‌برداری برای ضبط صدا</annotation>
 		<annotation cp="←">پیکان | پیکان روبه چپ | چپ</annotation>
 		<annotation cp="←" type="tts">پیکان روبه چپ</annotation>
@@ -67,11 +67,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="÷" type="tts">علامت تقسیم</annotation>
 		<annotation cp="×">چند برابر | ضرب | ضرب کردن | علامت ضرب</annotation>
 		<annotation cp="×" type="tts">علامت ضرب</annotation>
-		<annotation cp="⁻">زِبَرنوشت، برنوشته | منفی</annotation>
+		<annotation cp="⁻">زِبَرنوشت، برنوشته | منفی | منفی زِبَرنوشت، منفی برنوشته</annotation>
 		<annotation cp="⁻" type="tts">منفی زِبَرنوشت، منفی برنوشته</annotation>
-		<annotation cp="√">رادیکال | ریشه | مجذور</annotation>
+		<annotation cp="√">جذر، ریشه دوم | رادیکال | ریشه | مجذور</annotation>
 		<annotation cp="√" type="tts">جذر، ریشه دوم</annotation>
-		<annotation cp="∞">بینهایت، نامتناهی</annotation>
+		<annotation cp="∞">بینهایت، نامتناهی | علامت بینهایت، علامت نامتناهی</annotation>
 		<annotation cp="∞" type="tts">علامت بینهایت، علامت نامتناهی</annotation>
 		<annotation cp="∩">اشتراک | مجموعه</annotation>
 		<annotation cp="∩" type="tts">اشتراک</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">مرد: ریش‌دار</annotation>
 		<annotation cp="👱‍♂">بلوند | بور | طلایی | مرد بلوند | مرد بور | مرد: مو بور</annotation>
 		<annotation cp="👱‍♂" type="tts">مرد: مو بور</annotation>
-		<annotation cp="👨‍🍼">بچه | شیر دادن | غذا دادن | مراقبت | مرد</annotation>
+		<annotation cp="👨‍🍼">بچه | شیر دادن | غذا دادن | مراقبت | مرد | مردی که به بچه شیر می‌دهد</annotation>
 		<annotation cp="👨‍🍼" type="tts">مردی که به بچه شیر می‌دهد</annotation>
 		<annotation cp="👩">خانم | زن</annotation>
 		<annotation cp="👩" type="tts">زن</annotation>
 		<annotation cp="👱‍♀">بلوند | بور | زن بلوند | زن بور | زن: موبور | موطلایی</annotation>
 		<annotation cp="👱‍♀" type="tts">زن: موبور</annotation>
-		<annotation cp="👩‍🍼">بچه | زن | شیر دادن | غذا دادن | مراقبت</annotation>
+		<annotation cp="👩‍🍼">بچه | زن | زنی که به بچه شیر می‌دهد | شیر دادن | غذا دادن | مراقبت</annotation>
 		<annotation cp="👩‍🍼" type="tts">زنی که به بچه شیر می‌دهد</annotation>
 		<annotation cp="🧓">پیر | جنس خنثی | مسن | میان‌سال</annotation>
 		<annotation cp="🧓" type="tts">میان‌سال</annotation>
@@ -835,7 +835,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤵‍♀" type="tts">زن با کت و شلوار و پاپیون</annotation>
 		<annotation cp="🤵‍♂">کت و شلوار و پاپیون | مرد | مرد با کت و شلوار و پاپیون</annotation>
 		<annotation cp="🤵‍♂" type="tts">مرد با کت و شلوار و پاپیون</annotation>
-		<annotation cp="👰">تور | روبنده | شخص | شخص با تور عروس | عروس | عروسی</annotation>
+		<annotation cp="👰">تور | روبنده | شخص | شخص با تور عروس | شخص با روبنده ، شخص با تور عروس | عروس | عروسی</annotation>
 		<annotation cp="👰" type="tts">شخص با روبنده ، شخص با تور عروس</annotation>
 		<annotation cp="👰‍♀">تور عروس | زن | زن با تور عروس</annotation>
 		<annotation cp="👰‍♀" type="tts">زن با تور عروس</annotation>
@@ -2873,7 +2873,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✔" type="tts">علامت تیک</annotation>
 		<annotation cp="✖">ضرب | ضرب‌در | علامت ضرب | علامت ضربدر | لغو | نادرست</annotation>
 		<annotation cp="✖" type="tts">علامت ضربدر</annotation>
-		<annotation cp="❌">ضرب | ضرب‌در | علامت ضرب | لغو | نادرست</annotation>
+		<annotation cp="❌">ضرب | ضربدر | علامت ضرب | لغو | نادرست</annotation>
 		<annotation cp="❌" type="tts">ضربدر</annotation>
 		<annotation cp="❎">دکمه ایکس | دکمه بستن | علامت | مربع</annotation>
 		<annotation cp="❎" type="tts">دکمه ایکس</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">روپیه هند</annotation>
 		<annotation cp="₽">ارز | روبل</annotation>
 		<annotation cp="₽" type="tts">روبل</annotation>
-		<annotation cp="¹">زِبَرنوشت، برنوشته | یک</annotation>
+		<annotation cp="¹">زِبَرنوشت، برنوشته | یک | یک زِبَرنوشت، یک برنوشته</annotation>
 		<annotation cp="¹" type="tts">یک زِبَرنوشت، یک برنوشته</annotation>
-		<annotation cp="²">به‌توان دو | دو | زِبَرنوشت، برنوشته</annotation>
+		<annotation cp="²">به‌توان دو | دو | دو زِبَرنوشت، دو برنوشته | زِبَرنوشت، برنوشته</annotation>
 		<annotation cp="²" type="tts">دو زِبَرنوشت، دو برنوشته</annotation>
-		<annotation cp="³">به‌توان سه | زِبَرنوشت، برنوشته | سه</annotation>
+		<annotation cp="³">به‌توان سه | زِبَرنوشت، برنوشته | سه | سه زِبَرنوشت، سه برنوشته</annotation>
 		<annotation cp="³" type="tts">سه زِبَرنوشت، سه برنوشته</annotation>
 		<annotation cp="µ">سنجه | نشان میکرو</annotation>
 		<annotation cp="µ" type="tts">نشان میکرو</annotation>

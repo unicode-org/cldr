@@ -23,9 +23,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">keskitumma iho</annotation>
 		<annotation cp="🏿">emojin muokkaus | fitzpatrick | iho | sävy | tumma iho</annotation>
 		<annotation cp="🏿" type="tts">tumma iho</annotation>
-		<annotation cp="–">ajatusviiva | n-viiva | viiva</annotation>
+		<annotation cp="–">ajatusviiva | lyhyt ajatusviiva | n-viiva | viiva</annotation>
 		<annotation cp="–" type="tts">lyhyt ajatusviiva</annotation>
-		<annotation cp="—">ajatusviiva | m-viiva | viiva</annotation>
+		<annotation cp="—">ajatusviiva | m-viiva | pitkä ajatusviiva | viiva</annotation>
 		<annotation cp="—" type="tts">pitkä ajatusviiva</annotation>
 		<annotation cp="·">piste | piste keskellä | rivinkeskinen piste</annotation>
 		<annotation cp="·" type="tts">rivinkeskinen piste</annotation>
@@ -37,13 +37,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="§" type="tts">pykälämerkki</annotation>
 		<annotation cp="†">risti | ristimerkki</annotation>
 		<annotation cp="†" type="tts">ristimerkki</annotation>
-		<annotation cp="‡">kaksoisristi | risti | ristimerkki</annotation>
+		<annotation cp="‡">kaksoisristi | kaksoisristimerkki | risti | ristimerkki</annotation>
 		<annotation cp="‡" type="tts">kaksoisristimerkki</annotation>
 		<annotation cp="•">luetelmapallo | luettelomerkki | piste</annotation>
 		<annotation cp="•" type="tts">luettelomerkki</annotation>
 		<annotation cp="°">aste | tunti | vastaavuus</annotation>
 		<annotation cp="°" type="tts">aste</annotation>
-		<annotation cp="℗">ääni | äänite | tekijänoikeus</annotation>
+		<annotation cp="℗">ääni | äänite | äänitteen tekijänoikeus | tekijänoikeus</annotation>
 		<annotation cp="℗" type="tts">äänitteen tekijänoikeus</annotation>
 		<annotation cp="←">nuoli | vasemmalle | vasemmalle osoittava nuoli</annotation>
 		<annotation cp="←" type="tts">vasemmalle osoittava nuoli</annotation>
@@ -69,9 +69,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">kertomerkki</annotation>
 		<annotation cp="⁻">miinus | yläindeksi</annotation>
 		<annotation cp="⁻" type="tts">yläindeksi miinus</annotation>
-		<annotation cp="√">juuri | juurilauseke | kantaluku | neliö | sievennys</annotation>
+		<annotation cp="√">juuri | juurilauseke | kantaluku | neliö | neliöjuuri | sievennys</annotation>
 		<annotation cp="√" type="tts">neliöjuuri</annotation>
-		<annotation cp="∞">ääretön | äärettömyys | aina | ikuinen | rajaton | universaali</annotation>
+		<annotation cp="∞">ääretön | äärettömän merkki | äärettömyys | aina | ikuinen | rajaton | universaali</annotation>
 		<annotation cp="∞" type="tts">äärettömän merkki</annotation>
 		<annotation cp="∩">joukko | leikkaus</annotation>
 		<annotation cp="∩" type="tts">leikkaus</annotation>
@@ -611,9 +611,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">aikuinen</annotation>
 		<annotation cp="👱">blondi | hiukset | vaalea | vaaleahiuksinen henkilö | vaaleatukkainen henkilö</annotation>
 		<annotation cp="👱" type="tts">vaaleatukkainen henkilö</annotation>
-		<annotation cp="🧑‍🍼">henkilö | imettävä | syöttävä | vauva | vauvaa imettävä henkilö</annotation>
+		<annotation cp="🧑‍🍼">henkilö | imettävä | syöttävä | vauva | vauvaa imettävä henkilö | vauvaa syöttävä henkilö</annotation>
 		<annotation cp="🧑‍🍼" type="tts">vauvaa syöttävä henkilö</annotation>
-		<annotation cp="🧑‍🎄">joulutonttu</annotation>
+		<annotation cp="🧑‍🎄">joulutonttu | tonttu</annotation>
 		<annotation cp="🧑‍🎄" type="tts">tonttu</annotation>
 		<annotation cp="👨">mies | miespuolinen</annotation>
 		<annotation cp="👨" type="tts">mies</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">parrakas henkilö</annotation>
 		<annotation cp="👱‍♂">blondi | hiukset | mies | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
 		<annotation cp="👱‍♂" type="tts">vaaleatukkainen mies</annotation>
-		<annotation cp="👨‍🍼">imettävä | mies | syöttävä | vauva</annotation>
+		<annotation cp="👨‍🍼">imettävä | mies | syöttävä | vauva | vauvaa syöttävä mies</annotation>
 		<annotation cp="👨‍🍼" type="tts">vauvaa syöttävä mies</annotation>
 		<annotation cp="👩">nainen | naispuolinen</annotation>
 		<annotation cp="👩" type="tts">nainen</annotation>
 		<annotation cp="👱‍♀">blondi | hiukset | nainen | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
 		<annotation cp="👱‍♀" type="tts">vaaleatukkainen nainen</annotation>
-		<annotation cp="👩‍🍼">imettävä | nainen | syöttävä | vauva</annotation>
+		<annotation cp="👩‍🍼">imettävä | nainen | syöttävä | vauva | vauvaa syöttävä nainen</annotation>
 		<annotation cp="👩‍🍼" type="tts">vauvaa syöttävä nainen</annotation>
 		<annotation cp="🧓">ikäihminen | seniori | sukupuolineutraali | vanha | vanhus</annotation>
 		<annotation cp="🧓" type="tts">vanhus</annotation>
@@ -829,7 +829,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">mies ja kiinalainen hattu</annotation>
 		<annotation cp="🧕">hijab | huivipäinen nainen | khimār | mantilja | pääliina | silkkihuivi | tichel</annotation>
 		<annotation cp="🧕" type="tts">huivipäinen nainen</annotation>
-		<annotation cp="🤵">ihminen | smokki | smokkipukuinen ihminen | sulhanen</annotation>
+		<annotation cp="🤵">henkilö smokissa | ihminen | smokki | smokkipukuinen ihminen | sulhanen</annotation>
 		<annotation cp="🤵" type="tts">henkilö smokissa</annotation>
 		<annotation cp="🤵‍♀">nainen | nainen smokissa | smokki | smokkipukuinen nainen</annotation>
 		<annotation cp="🤵‍♀" type="tts">nainen smokissa</annotation>

@@ -43,7 +43,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="•" type="tts">Aufzählungspunkt</annotation>
 		<annotation cp="°">Grad | Grad Alkohol | Proof | Stunde | Volumenprozent</annotation>
 		<annotation cp="°" type="tts">Grad Alkohol</annotation>
-		<annotation cp="℗">Audio | Audioaufnahme | Audioaufzeichnung | Aufnahme | Aufzeichnung | Copyright | Copyrightzeichen</annotation>
+		<annotation cp="℗">Audio | Audioaufnahme | Audioaufzeichnung | Aufnahme | Aufzeichnung | Copyright | Copyrightzeichen | Copyrightzeichen für Audioaufnahme</annotation>
 		<annotation cp="℗" type="tts">Copyrightzeichen für Audioaufnahme</annotation>
 		<annotation cp="←">links | nach links weisend | nach links weisender Pfeil | Pfeil</annotation>
 		<annotation cp="←" type="tts">nach links weisender Pfeil</annotation>
@@ -55,7 +55,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↓" type="tts">nach unten weisender Pfeil</annotation>
 		<annotation cp="⇅">abwärts | aufwärts | nach oben und nach unten weisende Pfeile | nach oben weisend | nach unten weisend | Pfeil</annotation>
 		<annotation cp="⇅" type="tts">nach oben und nach unten weisende Pfeile</annotation>
-		<annotation cp="⇆">links | nach links weisender über nach rechts weisendem Pfeil | Pfeil | rechts</annotation>
+		<annotation cp="⇆">links | Linkspfeil über Rechtspfeil | nach links weisender über nach rechts weisendem Pfeil | Pfeil | rechts</annotation>
 		<annotation cp="⇆" type="tts">Linkspfeil über Rechtspfeil</annotation>
 		<annotation cp="∆">Dreieck | Erhöhung | Inkrement | Schrittweite | Wertzuwachs | Zuwachs</annotation>
 		<annotation cp="∆" type="tts">Inkrement</annotation>
@@ -67,11 +67,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="÷" type="tts">Division</annotation>
 		<annotation cp="×">mal | malnehmen | Malzeichen | Multiplikation | Multiplikationszeichen | multiplizieren</annotation>
 		<annotation cp="×" type="tts">Multiplikation</annotation>
-		<annotation cp="⁻">hochgestellt | Minus | Minuszeichen</annotation>
+		<annotation cp="⁻">hochgestellt | hochgestelltes Minuszeichen | Minus | Minuszeichen</annotation>
 		<annotation cp="⁻" type="tts">hochgestelltes Minuszeichen</annotation>
 		<annotation cp="√">Basiszahl | Grundzahl | irrationale Zahl | Quadratwurzel | Quadratzahl | Radikal | Wurzel</annotation>
 		<annotation cp="√" type="tts">Quadratwurzel</annotation>
-		<annotation cp="∞">unendlich | Unendlichkeit</annotation>
+		<annotation cp="∞">unendlich | Unendlichkeit | Unendlichkeitszeichen</annotation>
 		<annotation cp="∞" type="tts">Unendlichkeitszeichen</annotation>
 		<annotation cp="∩">Menge | Schnitt | Schnittmenge</annotation>
 		<annotation cp="∩" type="tts">Schnittmenge</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">Mann: Bart</annotation>
 		<annotation cp="👱‍♂">blond | blonder Mann | Gesicht | Haar | Mann | Mann: blond</annotation>
 		<annotation cp="👱‍♂" type="tts">Mann: blond</annotation>
-		<annotation cp="👨‍🍼">Baby | Mann | stillen | stillend</annotation>
+		<annotation cp="👨‍🍼">Baby | Mann | stillen | stillend | stillender Mann</annotation>
 		<annotation cp="👨‍🍼" type="tts">stillender Mann</annotation>
 		<annotation cp="👩">Frau</annotation>
 		<annotation cp="👩" type="tts">Frau</annotation>
 		<annotation cp="👱‍♀">blond | blonde Frau | Frau | Frau: blond | Gesicht | Haar</annotation>
 		<annotation cp="👱‍♀" type="tts">Frau: blond</annotation>
-		<annotation cp="👩‍🍼">Baby | Frau | stillen | stillend</annotation>
+		<annotation cp="👩‍🍼">Baby | Frau | stillen | stillend | stillende Frau</annotation>
 		<annotation cp="👩‍🍼" type="tts">stillende Frau</annotation>
 		<annotation cp="🧓">alt | älterer Erwachsener | geschlechtsneutral</annotation>
 		<annotation cp="🧓" type="tts">älterer Erwachsener</annotation>
@@ -1137,7 +1137,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">Katzengesicht</annotation>
 		<annotation cp="🐈">Haustier | Katze | Tier</annotation>
 		<annotation cp="🐈" type="tts">Katze</annotation>
-		<annotation cp="🐈‍⬛">Katze | Pech | schwarz | Unglück</annotation>
+		<annotation cp="🐈‍⬛">Katze | Pech | schwarz | schwarze Katze | Unglück</annotation>
 		<annotation cp="🐈‍⬛" type="tts">schwarze Katze</annotation>
 		<annotation cp="🦁">Gesicht | Löwe | Löwengesicht | Sternzeichen | Tierkreis</annotation>
 		<annotation cp="🦁" type="tts">Löwe</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">Indische Rupie</annotation>
 		<annotation cp="₽">Rubel | Währung</annotation>
 		<annotation cp="₽" type="tts">Rubel</annotation>
-		<annotation cp="¹">eins | Eins | hochgestellt</annotation>
+		<annotation cp="¹">eins | Eins | hochgestellt | hochgestellte Eins</annotation>
 		<annotation cp="¹" type="tts">hochgestellte Eins</annotation>
-		<annotation cp="²">hoch zwei | hochgestellt | im Quadrat | Quadrat | zwei | Zwei</annotation>
+		<annotation cp="²">hoch zwei | hochgestellt | hochgestellte Zwei | im Quadrat | Quadrat | zwei | Zwei</annotation>
 		<annotation cp="²" type="tts">hochgestellte Zwei</annotation>
-		<annotation cp="³">drei | Drei | hoch drei | hochgestellt</annotation>
+		<annotation cp="³">drei | Drei | hoch drei | hochgestellt | hochgestellte Drei</annotation>
 		<annotation cp="³" type="tts">hochgestellte Drei</annotation>
 		<annotation cp="µ">Maßeinheit | Mikro-Zeichen | My</annotation>
 		<annotation cp="µ" type="tts">Mikro-Zeichen</annotation>

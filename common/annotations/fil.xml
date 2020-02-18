@@ -35,15 +35,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="»" type="tts">pakanang guillemet</annotation>
 		<annotation cp="§">bahagi | seksyon | silcrow | talata</annotation>
 		<annotation cp="§" type="tts">seksyon</annotation>
-		<annotation cp="†">dagger | obelisk | obelus</annotation>
+		<annotation cp="†">dagger | dagger sign | obelisk | obelus</annotation>
 		<annotation cp="†" type="tts">dagger sign</annotation>
-		<annotation cp="‡">dagger | doble | obelisk | obelus</annotation>
+		<annotation cp="‡">dagger | doble | dobleng dagger sign | obelisk | obelus</annotation>
 		<annotation cp="‡" type="tts">dobleng dagger sign</annotation>
 		<annotation cp="•">bullet | tuldok</annotation>
 		<annotation cp="•" type="tts">bullet</annotation>
 		<annotation cp="°">degree | oras | proof</annotation>
 		<annotation cp="°" type="tts">degree</annotation>
-		<annotation cp="℗">copyright | recording | tunog</annotation>
+		<annotation cp="℗">copyright | copyright ng recording ng tunog | recording | tunog</annotation>
 		<annotation cp="℗" type="tts">copyright ng recording ng tunog</annotation>
 		<annotation cp="←">arrow | arrow na nakaturo sa kaliwa | kaliwa</annotation>
 		<annotation cp="←" type="tts">arrow na nakaturo sa kaliwa</annotation>
@@ -55,7 +55,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↓" type="tts">arrow na nakaturo pababa</annotation>
 		<annotation cp="⇅">arrow | pababa | pataas | pataas na arrow at pababang arrow</annotation>
 		<annotation cp="⇅" type="tts">pataas na arrow at pababang arrow</annotation>
-		<annotation cp="⇆">arrow | kaliwa | kanan | pakaliwang arrow sa ibabaw ng pakanang arrow</annotation>
+		<annotation cp="⇆">arrow | kaliwa | kanan | pakaliwa sa ibabaw ng pakanang arrow | pakaliwang arrow sa ibabaw ng pakanang arrow</annotation>
 		<annotation cp="⇆" type="tts">pakaliwa sa ibabaw ng pakanang arrow</annotation>
 		<annotation cp="∆">increment | tatsulok</annotation>
 		<annotation cp="∆" type="tts">increment</annotation>
@@ -71,7 +71,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻" type="tts">superscript minus</annotation>
 		<annotation cp="√">radical | radix | root | square | surd</annotation>
 		<annotation cp="√" type="tts">square root</annotation>
-		<annotation cp="∞">infinity</annotation>
+		<annotation cp="∞">infinity | infinity sign</annotation>
 		<annotation cp="∞" type="tts">infinity sign</annotation>
 		<annotation cp="∩">intersection | set</annotation>
 		<annotation cp="∩" type="tts">intersection</annotation>
@@ -621,13 +621,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧔" type="tts">taong may balbas</annotation>
 		<annotation cp="👱‍♂">blonde | lalaki | lalaking blonde</annotation>
 		<annotation cp="👱‍♂" type="tts">lalaking blonde</annotation>
-		<annotation cp="👨‍🍼">lalaki | nagpapadede | nagpapasuso | sanggol</annotation>
+		<annotation cp="👨‍🍼">lalaki | lalaking nagpapadede ng sanggol | nagpapadede | nagpapasuso | sanggol</annotation>
 		<annotation cp="👨‍🍼" type="tts">lalaking nagpapadede ng sanggol</annotation>
 		<annotation cp="👩">babae | matanda</annotation>
 		<annotation cp="👩" type="tts">babae</annotation>
 		<annotation cp="👱‍♀">babae | babae: blond na buhok | babaeng blond ang buhok | blonde</annotation>
 		<annotation cp="👱‍♀" type="tts">babae: blond na buhok</annotation>
-		<annotation cp="👩‍🍼">babae | nagpapadede | nagpapasuso | sanggol</annotation>
+		<annotation cp="👩‍🍼">babae | babaeng nagpapadede ng sanggol | nagpapadede | nagpapasuso | sanggol</annotation>
 		<annotation cp="👩‍🍼" type="tts">babaeng nagpapadede ng sanggol</annotation>
 		<annotation cp="🧓">hindi tinukoy na kasarian | kasarian-neutral | magulang | mas matandang tao | matanda</annotation>
 		<annotation cp="🧓" type="tts">mas matandang tao</annotation>
@@ -829,13 +829,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">lalaking may suot na sombrerong chinese</annotation>
 		<annotation cp="🧕">babae na may headscarf | headscarf | hijab | mantilla | tichel</annotation>
 		<annotation cp="🧕" type="tts">babae na may headscarf</annotation>
-		<annotation cp="🤵">groom | tao | taong naka-tuxedo | tuxedo</annotation>
+		<annotation cp="🤵">groom | naka-tuxedo | tao | taong naka-tuxedo | tuxedo</annotation>
 		<annotation cp="🤵" type="tts">naka-tuxedo</annotation>
 		<annotation cp="🤵‍♀">babae | babaeng naka-tuxedo | tuxedo</annotation>
 		<annotation cp="🤵‍♀" type="tts">babaeng naka-tuxedo</annotation>
 		<annotation cp="🤵‍♂">lalaki | lalaking naka-tuxedo | tuxedo</annotation>
 		<annotation cp="🤵‍♂" type="tts">lalaking naka-tuxedo</annotation>
-		<annotation cp="👰">babaeng ikakasal | belo | kasal | tao | taong may belo</annotation>
+		<annotation cp="👰">babaeng ikakasal | belo | kasal | tao | taong may belo | taong may suot na belo</annotation>
 		<annotation cp="👰" type="tts">taong may suot na belo</annotation>
 		<annotation cp="👰‍♀">babae | babaeng nakabelo | belo</annotation>
 		<annotation cp="👰‍♀" type="tts">babaeng nakabelo</annotation>
@@ -1137,7 +1137,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">mukha ng pusa</annotation>
 		<annotation cp="🐈">alaga | hayop | pet | pusa</annotation>
 		<annotation cp="🐈" type="tts">pusa</annotation>
-		<annotation cp="🐈‍⬛">itim | malas | pusa</annotation>
+		<annotation cp="🐈‍⬛">itim | itim na pusa | malas | pusa</annotation>
 		<annotation cp="🐈‍⬛" type="tts">itim na pusa</annotation>
 		<annotation cp="🦁">hayop | leo | leon | mukha | mukha ng leon | zodiac</annotation>
 		<annotation cp="🦁" type="tts">mukha ng leon</annotation>
@@ -3087,11 +3087,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">indian rupee</annotation>
 		<annotation cp="₽">pera | ruble</annotation>
 		<annotation cp="₽" type="tts">ruble</annotation>
-		<annotation cp="¹">isa | superscript</annotation>
+		<annotation cp="¹">isa | superscript | superscript na isa</annotation>
 		<annotation cp="¹" type="tts">superscript na isa</annotation>
-		<annotation cp="²">dalawa | squared | superscript</annotation>
+		<annotation cp="²">dalawa | squared | superscript | superscript na dalawa</annotation>
 		<annotation cp="²" type="tts">superscript na dalawa</annotation>
-		<annotation cp="³">cubed | superscript | tatlo</annotation>
+		<annotation cp="³">cubed | superscript | superscript na tatlo | tatlo</annotation>
 		<annotation cp="³" type="tts">superscript na tatlo</annotation>
 		<annotation cp="µ">micro sign | sukat</annotation>
 		<annotation cp="µ" type="tts">micro sign</annotation>

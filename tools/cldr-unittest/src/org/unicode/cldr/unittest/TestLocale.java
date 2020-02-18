@@ -77,7 +77,7 @@ public class TestLocale extends TestFmwkPlus {
     public void TestLanguageRegions() {
         Set<String> missingLanguageRegion = new LinkedHashSet<String>();
         // TODO This should be derived from metadata: https://unicode.org/cldr/trac/ticket/11224
-        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("az", "ff", "bs", "hi", "ks", "mni", "ms", "pa", "sat", "sd", "shi", "sr", "vai", "uz", "yue", "zh"));
+        Set<String> knownMultiScriptLanguages = new HashSet<String>(Arrays.asList("az", "ff", "bs", "hi", "ks", "mni", "ms", "pa", "sat", "sd", "shi", "sr", "su", "vai", "uz", "yue", "zh"));
         Set<String> available = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO

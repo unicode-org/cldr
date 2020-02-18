@@ -426,10 +426,15 @@
 //supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalGender/_values ; Supplemental ; Grammar ; Gender ; $1-$2 ; HIDE
 //supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalState/_values ; Supplemental ; Grammar ; State ; $1-$2 ; HIDE
 
-//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"]			; Supplemental ; Units ; $1/$2-preference ; $3 ; HIDE
-//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; Units ; $1/$2-preference ; $3-$4 ; HIDE
-//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"]			; Supplemental ; Units ; $1/$2/$3-preference ; $4 ; HIDE
-//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; Units ; $1/$2/$3-preference ; $4-$5 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference_[@regions="%A"][@geq="%A"]/_skeleton            ; Supplemental ; Units ; $1/$2 ; $3:$4-skeleton ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference_[@regions="%A"]/_skeleton            ; Supplemental ; Units ; $1/$2 ; $3-skeleton ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"][@geq="%A"]            ; Supplemental ; Units ; $1/$2 ; $3:$4 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"]            ; Supplemental ; Units ; $1/$2 ; $3 ; HIDE
+
+#OLD
+#//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; Units ; $1/$2 ; $3-alt-$4 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"]			; Supplemental ; Units ; $1/$2/$3 ; $4 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; Units ; $1/$2/$3 ; $4-$5 ; HIDE
 
 
 //supplementalData/unitConstants/unitConstant[@constant="%A"]/_value	; Supplemental ; Units ; Constant ; $1-value ; HIDE

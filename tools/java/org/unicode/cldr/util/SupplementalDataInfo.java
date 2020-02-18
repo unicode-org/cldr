@@ -911,6 +911,9 @@ public class SupplementalDataInfo {
     
     public RationalParser rationalParser = new RationalParser();
     public UnitConverter unitConverter = new UnitConverter(rationalParser);
+    
+    public UnitPreferences unitPreferences = new UnitPreferences();
+
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -1153,6 +1156,7 @@ public class SupplementalDataInfo {
         unitConverter.addAliases(typeToTagToReplacement.get("unit"));
         unitConverter.freeze();
         rationalParser.freeze();
+        unitPreferences.freeze();
         
         timeData = CldrUtility.protectCollection(timeData);
 
@@ -1307,6 +1311,10 @@ public class SupplementalDataInfo {
                     if (handleUnitConversion(parts)) {
                         return;
                     }
+                } else if (level1.equals("unitPreferenceData")) {
+                    if (handleUnitPreferences(parts, value)) {
+                        return;
+                    }
                 } else if (level1.equals("timeData")) {
                     if (handleTimeData(parts)) {
                         return;
@@ -1329,6 +1337,28 @@ public class SupplementalDataInfo {
                 throw (IllegalArgumentException) new IllegalArgumentException("Exception while processing path: "
                     + path + ",\tvalue: " + value).initCause(e);
             }
+        }
+
+        /*
+         * Handles
+         * <unitPreferences category="area" usage="_default">
+         *<unitPreference regions="001" draft="unconfirmed">square-centimeter</unitPreference>
+            */
+        
+        private boolean handleUnitPreferences(XPathParts parts, String value) {
+            String geq = parts.getAttributeValue(-1, "geq");
+            String small = parts.getAttributeValue(-2, "scope");
+            if (small != null) {
+                geq = "0.1234";
+            }
+            unitPreferences.add(
+                parts.getAttributeValue(-2, "category"),
+                parts.getAttributeValue(-2, "usage"),
+                parts.getAttributeValue(-1, "regions"),
+                geq,
+                parts.getAttributeValue(-1, "skeleton"),
+                value);
+            return true;
         }
 
         private boolean handleLanguageGroups(String value, XPathParts parts) {
@@ -4380,5 +4410,9 @@ public class SupplementalDataInfo {
     
     public RationalParser getRationalParser() {
         return rationalParser;
+    }
+
+    public UnitPreferences getUnitPreferences() {
+        return unitPreferences;
     }
 }

@@ -10,7 +10,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Revision$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, unitConstants*, unitQuantities*, convertUnits*, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitConstants*, unitQuantities*, convertUnits*, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
 
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
@@ -383,8 +383,15 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitPreferences scope (small) #IMPLIED >
 
 <!ELEMENT unitPreference ( #PCDATA ) >
+    <!--@ORDERED-->
+
 <!ATTLIST unitPreference regions NMTOKENS #REQUIRED >
 	<!--@MATCH:set/validity/region-->
+<!ATTLIST unitPreference geq NMTOKEN #IMPLIED >
+    <!--@MATCH:any-->
+<!ATTLIST unitPreference skeleton CDATA #IMPLIED >
+    <!--@VALUE-->
+    <!--@MATCH:any-->
 <!ATTLIST unitPreference draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unitPreference references CDATA #IMPLIED >
@@ -640,7 +647,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
-<!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, subdivisionAlias*, variantAlias*, zoneAlias*, unitAlias* ) >
+<!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, subdivisionAlias*, variantAlias*, zoneAlias*, unitAlias*, usageAlias*) >
 <!ATTLIST alias draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -705,7 +712,16 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitAlias replacement NMTOKEN #REQUIRED >
 	<!--@MATCH:validity/unit-->
     <!--@VALUE-->
-<!ATTLIST unitAlias reason (deprecated | overlong | macrolanguage | legacy | bibliographic) #IMPLIED >
+<!ATTLIST unitAlias reason (deprecated) #IMPLIED >
+    <!--@VALUE-->
+
+<!ELEMENT usageAlias EMPTY >
+<!ATTLIST usageAlias type NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/unit-->
+<!ATTLIST usageAlias replacement NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/unit-->
+    <!--@VALUE-->
+<!ATTLIST usageAlias reason (deprecated) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT deprecated ( deprecatedItems* ) >

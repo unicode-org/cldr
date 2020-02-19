@@ -3055,4 +3055,55 @@ public class SurveyAjax extends HttpServlet {
         }
         out.write("</body>\n</html>\n");
     }
+
+    /**
+     * Write the script tags for Survey Tool JavaScript files
+     *
+     * @param request the HttpServletRequest
+     * @param out the Writer
+     * @throws IOException
+     *
+     * Some code was moved here from js_include.jsp
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13585
+     *
+     * Called from ajax_status.jsp
+     */
+    public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException {
+        /*
+         * TODO: investigate putting "defer" after "script"; may cause page to appear
+         * to load faster, though order of loading jquery, dojo may be problematic...
+         */
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
+
+        /*
+         * TODO: figure out what we're using jquery-ui for.
+         * If we don't use it, don't include it.
+         * If we don't include jquery-ui we get "TypeError: p.easing[this.easing] is not a function"
+         */
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
+
+        String prefix = "<script src='" + request.getContextPath() + "/js/";
+        String tail = "'></script>\n";
+
+        /**
+         * INCLUDE_SCRIPT_VERSION leave false for now (CLDR-13585).
+         * May change to true per:
+         *    https://unicode-org.atlassian.net/browse/CLDR-13582
+         *    "Make sure browser uses most recent JavaScript files for ST"
+         */
+        final boolean INCLUDE_SCRIPT_VERSION = false;
+        final String v = INCLUDE_SCRIPT_VERSION ? "?v=" + CLDRConfig.getInstance().getProperty("CLDR_DIR_HASH") : "";
+
+        out.write(prefix + "jquery.autosize.min.js" + tail);
+
+        out.write(prefix + "survey.js" + v + tail);
+        out.write(prefix + "CldrStAjax.js" + v + tail);
+        out.write(prefix + "CldrSurveyVettingLoader.js" + v + tail);
+        out.write(prefix + "CldrSurveyVettingTable.js" + v + tail);
+
+        out.write(prefix + "bootstrap.min.js" + tail);
+
+        out.write(prefix + "redesign.js" + v + tail);
+        out.write(prefix + "review.js" + v + tail);
+    }
 }

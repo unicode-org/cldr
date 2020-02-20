@@ -114,32 +114,26 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public static final class ConversionInfo implements Comparable<ConversionInfo> {
         public final Rational factor;
         public final Rational offset;
-        public final boolean reciprocal;
 
-        static final ConversionInfo IDENTITY = new ConversionInfo(Rational.ONE, Rational.ZERO, false);
+        static final ConversionInfo IDENTITY = new ConversionInfo(Rational.ONE, Rational.ZERO);
 
-        public ConversionInfo(Rational factor, Rational offset, boolean reciprocal) {
+        public ConversionInfo(Rational factor, Rational offset) {
             this.factor = factor;
             this.offset = offset;
-            this.reciprocal = reciprocal;
         }
 
         public Rational convert(Rational source) {
-            if (reciprocal) {
-                source = source.reciprocal();
-            }
             return source.multiply(factor).add(offset);
         }
 
         public Rational convertBackwards(Rational source) {
-            Rational result = source.subtract(offset).divide(factor);
-            return (reciprocal ? result.reciprocal() : result);
+            return source.subtract(offset).divide(factor);
         }
 
         public ConversionInfo invert() {
             Rational factor2 = factor.reciprocal();
             Rational offset2 = offset.equals(Rational.ZERO) ? Rational.ZERO : offset.divide(factor).negate();
-            return new ConversionInfo(factor2, offset2, reciprocal);
+            return new ConversionInfo(factor2, offset2);
             // TODO fix reciprocal
         }
 
@@ -149,7 +143,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         public String toString(String unit) {
             return factor 
-                + (reciprocal ? " / " : " * ") + unit
+                + " * " + unit
                 + (offset.equals(Rational.ZERO) ? "" : 
                     (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
                     + offset.abs());
@@ -160,7 +154,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         public String toDecimal(String unit) {
             return factor.toBigDecimal(MathContext.DECIMAL64) 
-                + (reciprocal ? " / " : " * ") + unit
+                +  " * " + unit
                 + (offset.equals(Rational.ZERO) ? "" : 
                     (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
                     + offset.toBigDecimal(MathContext.DECIMAL64).abs());
@@ -172,10 +166,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             if (0 != (diff = factor.compareTo(o.factor))) {
                 return diff;
             }
-            if (0 != (diff = offset.compareTo(o.offset))) {
-                return diff;
-            }
-            return Boolean.compare(reciprocal, o.reciprocal);
+            return offset.compareTo(o.offset);
         }
         @Override
         public boolean equals(Object obj) {
@@ -183,7 +174,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         @Override
         public int hashCode() {
-            return Objects.hash(factor, offset, reciprocal);
+            return Objects.hash(factor, offset);
         }
     }
 
@@ -277,20 +268,16 @@ public class UnitConverter implements Freezable<UnitConverter> {
         this.rationalParser = rationalParser;
     }
 
-    public void addRaw(String source, String target, String factor, String offset, String reciprocal, String systems) {
+    public void addRaw(String source, String target, String factor, String offset, String systems) {
         ConversionInfo info = new ConversionInfo(
             factor == null ? Rational.ONE : rationalParser.parse(factor), 
-                offset == null ? Rational.ZERO : rationalParser.parse(offset), 
-                    reciprocal == null ? false : reciprocal.equalsIgnoreCase("true") ? true : false);
+                offset == null ? Rational.ZERO : rationalParser.parse(offset));
         Map<String, String> args = new LinkedHashMap<>();
         if (factor != null) {
             args.put("factor", factor);
         }
         if (offset != null) {
             args.put("offset", offset);
-        }
-        if (reciprocal != null) {
-            args.put("reciprocal", reciprocal);
         }
 
         addToSourceToTarget(source, target, info, args, systems);
@@ -516,7 +503,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
         }
         metricUnit.value = outputUnit.toString();
-        return new ConversionInfo(numerator.divide(denominator), countUnits == 1 ? offset : Rational.ZERO, false);
+        return new ConversionInfo(numerator.divide(denominator), countUnits == 1 ? offset : Rational.ZERO);
     }
 
 

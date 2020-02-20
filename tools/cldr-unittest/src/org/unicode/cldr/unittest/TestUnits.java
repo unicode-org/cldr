@@ -592,7 +592,7 @@ public class TestUnits extends TestFmwk {
         assertEquals("", Rational.of(1237,10), Rational.of(BigDecimal.valueOf(1237.0/10)));
         assertEquals("", Rational.of(1237,10000), Rational.of(BigDecimal.valueOf(1237.0/10000)));
 
-        ConversionInfo uinfo = new ConversionInfo(Rational.of(2), Rational.of(3), false);
+        ConversionInfo uinfo = new ConversionInfo(Rational.of(2), Rational.of(3));
         assertEquals("", Rational.of(3), uinfo.convert(Rational.ZERO));
         assertEquals("", Rational.of(7), uinfo.convert(Rational.of(2)));
     }

@@ -971,7 +971,7 @@ var processXhrQueue = function() {
 		var top = queueOfXhr.shift();
 
 		top.load2 = top.load;
-		top.err2 = top.err;
+		top.err2 = top.error;
 		/*
 		 * Note: I think "return" is superfluous here, but I'm leaving it as-is for now
 		 * in case I'm wrong.
@@ -981,7 +981,7 @@ var processXhrQueue = function() {
 		top.load = function() {
 			return myLoad0(top, arguments);
 		};
-		top.err = function() {
+		top.error = function() {
 			return myErr0(top, arguments);
 		};
 		top.startTime = new Date().getTime();
@@ -1017,7 +1017,7 @@ myLoad0 = function(top, args) {
 
 myErr0 = function(top, args) {
 	stdebug("myErr0!:" + top.url + " - a=" + args.toString());
-	var r = top.err2.call(args[0], args[1]);
+	var r = top.err2(args[0], args[1]);
 	queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
 	return r;
 };

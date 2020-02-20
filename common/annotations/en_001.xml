@@ -14,6 +14,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<territory type="001"/>
 	</identity>
 	<annotations>
+		<annotation cp="†">dagger | dagger sign | dagger symbol | obelisk | obelus</annotation>
+		<annotation cp="†" type="tts">dagger symbol</annotation>
+		<annotation cp="‡">dagger | double | double dagger sign | double dagger symbol | obelisk | obelus</annotation>
+		<annotation cp="‡" type="tts">double dagger symbol</annotation>
 		<annotation cp="⚧">trans | transgender</annotation>
 		<annotation cp="🦭">sea lion | seal</annotation>
 		<annotation cp="🩴">beach sandals | flip-flop | flipflop | sandals | thong sandals | thongs | zori | zōri</annotation>
@@ -27,8 +31,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪜">climb | ladder | rung | stair | step</annotation>
 		<annotation cp="🪞">looking glass | reflection | reflector</annotation>
 		<annotation cp="🪤" type="tts">mousetrap</annotation>
-		<annotation cp="🪴">grow | house | nurturing | plant</annotation>
-		<annotation cp="🫀">cardiology | centre | heartbeat | organ | pulse</annotation>
+		<annotation cp="🪴">grow | house | nurturing | plant | potted plant</annotation>
+		<annotation cp="🫀">anatomical heart | cardiology | centre | heartbeat | organ | pulse</annotation>
 		<annotation cp="🫑">bell pepper | capsicum | pepper | sweet pepper | vegetable</annotation>
 		<annotation cp="🫑" type="tts">pepper</annotation>
 		<annotation cp="🫓">arepa | lavash | naan | nan | pita | pitta</annotation>
@@ -76,6 +80,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👷‍♂">builder | construction | man | worker</annotation>
 		<annotation cp="👷‍♀">builder | construction | woman | worker</annotation>
 		<annotation cp="👲">gua pi mao | hat | man | man with Chinese cap | skullcap</annotation>
+		<annotation cp="🤵">groom | person | person in tux | person in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵" type="tts">↑↑↑</annotation>
+		<annotation cp="🤵‍♀">tuxedo | woman | woman in tux | woman in tuxedo</annotation>
+		<annotation cp="🤵‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="🤵‍♂">man | man in tux | man in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="👰">↑↑↑</annotation>
+		<annotation cp="👰" type="tts">↑↑↑</annotation>
+		<annotation cp="👰‍♀">↑↑↑</annotation>
+		<annotation cp="👰‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="👰‍♂">↑↑↑</annotation>
+		<annotation cp="👰‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="🤱">baby | breast | breastfeeding | nursing</annotation>
 		<annotation cp="🤱" type="tts">breastfeeding</annotation>
 		<annotation cp="🎅">celebration | Christmas | claus | father | Father Christmas | santa | Santa Claus</annotation>
@@ -362,5 +378,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="™" type="tts">trademark</annotation>
 		<annotation cp="🏳‍⚧">flag | light blue | pink | trans | transgender | white</annotation>
 		<annotation cp="🏳‍🌈">pride | rainbow | rainbow flag</annotation>
+		<annotation cp="£">currency | EGP | GBP | pound | quid | sterling</annotation>
+		<annotation cp="₽">currency | rouble | ruble</annotation>
+		<annotation cp="µ">measure | micro sign | mu</annotation>
+		<annotation cp="µ" type="tts">↑↑↑</annotation>
 	</annotations>
 </ldml>

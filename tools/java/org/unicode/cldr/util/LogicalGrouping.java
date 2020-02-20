@@ -31,7 +31,7 @@ public class LogicalGrouping {
         "Greenland_Eastern", "Greenland_Western", "Hawaii_Aleutian", "Hong_Kong", "Hovd",
         "Iran", "Irkutsk", "Israel", "Japan", "Kamchatka", "Korea", "Krasnoyarsk",
         "Lord_Howe", "Macau", "Magadan", "Mauritius", "Mexico_Northwest", "Mexico_Pacific", "Mongolia", "Moscow", "New_Caledonia",
-        "New_Zealand", "Newfoundland", "Noronha", "Novosibirsk", "Omsk", "Pakistan", "Paraguay", "Peru", "Philippines",
+        "New_Zealand", "Newfoundland", "Norfolk", "Noronha", "Novosibirsk", "Omsk", "Pakistan", "Paraguay", "Peru", "Philippines",
         "Pierre_Miquelon", "Qyzylorda", "Sakhalin", "Samara", "Samoa",
         "Taipei", "Tonga", "Turkmenistan", "Uruguay", "Uzbekistan",
         "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg");

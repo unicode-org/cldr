@@ -82,7 +82,7 @@ public class TestUnits extends TestFmwk {
     static final UnitConverter converter = SDI.getUnitConverter();
     static final Splitter SPLIT_SEMI = Splitter.on(Pattern.compile("\\s*;\\s*")).trimResults();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
-    static final Splitter SPLIT_COLON = Splitter.on(':').trimResults().omitEmptyStrings();
+    static final Splitter SPLIT_AND = Splitter.on("-and-").trimResults().omitEmptyStrings();
 
     static final Rational R1000 = Rational.of(1000);
 
@@ -1182,7 +1182,7 @@ public class TestUnits extends TestFmwk {
                             if ("minute:second".equals(up.unit)) {
                                 int debug = 0;
                             }
-                            for (String unit : SPLIT_COLON.split(up.unit)) {
+                            for (String unit : SPLIT_AND.split(up.unit)) {
                                 try {
                                     if (topUnit == null) {
                                         topUnit = unit;

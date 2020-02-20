@@ -56,7 +56,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
     }
 
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
-    static final Joiner JOIN_COLON = Joiner.on(':');
+    static final Joiner JOIN_AND = Joiner.on("-and");
 
     public void add(String quantity, String usage, String regions, String geq, String skeleton, String unit) {
         Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionToInfo = quantityToUsageToRegionToInfo.get(quantity);
@@ -67,7 +67,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
         if (regionToInfo == null) {
             usageToRegionToInfo.put(usage, regionToInfo = LinkedHashMultimap.create());
         }
-        unit = JOIN_COLON.join(SPLIT_SPACE.split(unit)); // normalize
+        unit = JOIN_AND.join(SPLIT_SPACE.split(unit)); // normalize
         double newGeq = geq == null || geq.isEmpty() ? 1d : Double.valueOf(geq);
         final UnitPreference newUnitPref = new UnitPreference(newGeq, unit, skeleton);
         

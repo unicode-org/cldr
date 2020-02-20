@@ -288,7 +288,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="001">nanosecond</unitPreference>
         </unitPreferences>
         <unitPreferences category="duration" usage="media">
-            <unitPreference regions="001">minute:second</unitPreference>
+            <unitPreference regions="001">minute-and-second</unitPreference>
             <unitPreference regions="001">second</unitPreference>
         </unitPreferences>
         <unitPreferences category="energy" usage="default">
@@ -312,8 +312,8 @@ For terms of use, see http://www.unicode.org/copyright.html
         </unitPreferences>
         <unitPreferences category="length" usage="person-height">
             <unitPreference regions="001">centimeter</unitPreference>
-            <unitPreference regions="CA GB IN US" geq="3.0">foot:inch</unitPreference>
-            <unitPreference regions="AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN">meter:centimeter</unitPreference>
+            <unitPreference regions="CA GB IN US" geq="3.0">foot-and-inch</unitPreference>
+            <unitPreference regions="AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN">meter-and-centimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="rainfall">
             <unitPreference regions="BR">centimeter</unitPreference>
@@ -338,9 +338,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="US">inch</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="vehicle">
-            <unitPreference regions="GB US">foot:inch</unitPreference>
+            <unitPreference regions="GB US">foot-and-inch</unitPreference>
             <unitPreference regions="001">meter</unitPreference>
-            <unitPreference regions="MX">meter:centimeter</unitPreference>
+            <unitPreference regions="MX">meter-and-centimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="visiblty">
             <unitPreference regions="001" geq="0.1">kilometer</unitPreference>
@@ -362,12 +362,12 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="mass" usage="person">
             <unitPreference regions="001">kilogram</unitPreference>
             <unitPreference regions="001">gram</unitPreference>
-            <unitPreference regions="DZ EG ES JO SA">kilogram:gram</unitPreference>
+            <unitPreference regions="DZ EG ES JO SA">kilogram-and-gram</unitPreference>
             <unitPreference regions="US">pound</unitPreference>
-            <unitPreference regions="US">pound:ounce</unitPreference>
-            <unitPreference regions="GB">stone:pound</unitPreference>
-            <unitPreference regions="GB">pound:ounce</unitPreference>
-            <unitPreference regions="HK">pound:ounce</unitPreference>
+            <unitPreference regions="US">pound-and-ounce</unitPreference>
+            <unitPreference regions="GB">stone-and-pound</unitPreference>
+            <unitPreference regions="GB">pound-and-ounce</unitPreference>
+            <unitPreference regions="HK">pound-and-ounce</unitPreference>
         </unitPreferences>
         <unitPreferences category="mass-density" usage="blood-glucose">
             <unitPreference regions="001">milligram-per-deciliter</unitPreference>
@@ -446,7 +446,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         </unitPreferences>
         <unitPreferences category="year-duration" usage="person-age">
             <unitPreference regions="001" geq="2.5">year-person</unitPreference>
-            <unitPreference regions="001">year-person:month-person</unitPreference>
+            <unitPreference regions="001">year-person-and-month-person</unitPreference>
             <unitPreference regions="001">month-person</unitPreference>
         </unitPreferences>
     </unitPreferenceData>

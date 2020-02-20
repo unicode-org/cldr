@@ -1416,11 +1416,11 @@ public class SupplementalDataInfo {
 //            }
             String factor = parts.getAttributeValue(-1, "factor");
             String offset = parts.getAttributeValue(-1, "offset");
-            String reciprocal = parts.getAttributeValue(-1, "reciprocal");
             String systems = parts.getAttributeValue(-1, "systems");
             unitConverter.addRaw(
                 source, target, 
-                factor, offset, reciprocal, systems);
+                factor, offset, 
+                systems);
             return true;
         }
 

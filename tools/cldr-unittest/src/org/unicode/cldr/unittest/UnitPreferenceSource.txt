@@ -39,11 +39,11 @@ duration; default; 001; ; ; millisecond
 duration; default; 001; ; ; microsecond
 duration; default; 001; ; ; nanosecond
 
-duration; media; 001; ; ; minute:second
+duration; media; 001; ; ; minute-and-second
 duration; media; 001; ; ; second
 
 year-duration; person-age; 001; 2.5; ; year-person
-year-duration; person-age; 001; ; ; year-person:month-person
+year-duration; person-age; 001; ; ; year-person-and-month-person
 year-duration; person-age; 001; ; ; month-person
 
 energy; default; 001; ; ; kilowatt-hour
@@ -60,8 +60,8 @@ length; default; US GB; ; ; inch
 length; person; 001; ; ; centimeter
 length; person; CA GB IN US; ; ; inch
 length; person-height; 001; ; ; centimeter
-length; person-height; CA GB IN US; 3; ; foot:inch
-length; person-height; AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN; ; ; meter:centimeter
+length; person-height; CA GB IN US; 3; ; foot-and-inch
+length; person-height; AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN; ; ; meter-and-centimeter
 
 length; road; 001; 0.9; ; kilometer
 length; road; 001; 300; precision-increment/50; meter
@@ -82,9 +82,9 @@ length; rainfall; 001; ; ; millimeter
 length; snowfall; 001; ; ; centimeter
 length; snowfall; US; ; ; inch
 
-length; vehicle; GB US; ; ; foot:inch
+length; vehicle; GB US; ; ; foot-and-inch
 length; vehicle; 001; ; ; meter
-length; vehicle; MX; ; ; meter:centimeter
+length; vehicle; MX; ; ; meter-and-centimeter
 
 length; visiblty; 001; 0.1; ; kilometer
 length; visiblty; 001; ; ; meter
@@ -104,12 +104,12 @@ mass; default; US GB; ; ; ounce
 
 mass; person; 001; ; ; kilogram
 mass; person; 001; ; ; gram
-mass; person; DZ EG ES JO SA; ; ; kilogram:gram
+mass; person; DZ EG ES JO SA; ; ; kilogram-and-gram
 mass; person; US; ; ; pound
-mass; person; US; ; ; pound:ounce
-mass; person; GB; ; ; stone:pound
-mass; person; GB; ; ; pound:ounce
-mass; person; HK; ; ; pound:ounce
+mass; person; US; ; ; pound-and-ounce
+mass; person; GB; ; ; stone-and-pound
+mass; person; GB; ; ; pound-and-ounce
+mass; person; HK; ; ; pound-and-ounce
 
 power; default; 001; ; ; gigawatt
 power; default; 001; ; ; megawatt

@@ -3,10 +3,6 @@
  * showV() and reloadV() and related functions
  */
 
-// TODO: replace with AMD [?] loading
-dojo.require("dojo.i18n");
-dojo.require("dojo.string");
-
 /*
  * haveDialog: when true, it means a "dialog" of some kind is displayed.
  * Used for inhibiting $('#left-sidebar').hover in redesign.js.
@@ -45,6 +41,11 @@ function showV() {
 			"dojo/dom-construct",
 			"dojo/number",
 			"dojo/domReady!"
+			/*
+			 * Note: there are 22 strings above, and only 21 arguments below.
+			 * No argument corresponds to the string "dojo/domReady!". This is normal.
+			 * See https://dojotoolkit.org/reference-guide/1.10/dojo/domReady.html
+			 */
 		],
 		// HANDLES
 		function(
@@ -451,9 +452,10 @@ function showV() {
 				window.myLoad = function myLoad(url, message, handler, postData, headers) {
 					var otime = new Date().getTime();
 					console.log("MyLoad: " + url + " for " + message);
-					var errorHandler = function(err, ioArgs) {
-						console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-						handleDisconnect("Could not fetch " + message + " - error " + err.name + " / " + err.message + "\n" + ioArgs.xhr.responseText + "\n url: " + url + "\n", null, "disconnect");
+					var errorHandler = function(err) {
+						let responseText = cldrStAjax.errResponseText(err);
+						console.log('Error: ' + err + ' response ' + responseText);
+						handleDisconnect("Could not fetch " + message + " - error " + err.name + " / " + err.message + "\n" + responseText + "\n url: " + url + "\n", null, "disconnect");
 					};
 					var loadHandler = function(json) {
 						console.log("        " + url + " loaded in " + (new Date().getTime() - otime) + "ms");
@@ -476,7 +478,7 @@ function showV() {
 						postData: postData,
 						headers: headers
 					};
-					queueXhr(xhrArgs);
+					cldrStAjax.queueXhr(xhrArgs);
 				};
 
 				/**
@@ -1205,39 +1207,40 @@ function showV() {
 				 */
 				function showPossibleProblems(flipper, flipPage, loc, session, effectiveCov, requiredCov) {
 					surveyCurrentLocale = loc;
-					dojo.ready(function() {
+					require(["dojo/ready"], function(ready) {
+						ready(function() {
+							var url = contextPath + "/SurveyAjax?what=possibleProblems&_=" + surveyCurrentLocale + "&s=" + session + "&eff=" + effectiveCov + "&req=" + requiredCov + cacheKill();
+							myLoad(url, "possibleProblems", function(json) {
+								if (verifyJson(json, 'possibleProblems')) {
+									stdebug("json.possibleProblems OK..");
+									if (json.dataLoadTime) {
+										updateIf("dynload", json.dataLoadTime);
+									}
 
-						var url = contextPath + "/SurveyAjax?what=possibleProblems&_=" + surveyCurrentLocale + "&s=" + session + "&eff=" + effectiveCov + "&req=" + requiredCov + cacheKill();
-						myLoad(url, "possibleProblems", function(json) {
-							if (verifyJson(json, 'possibleProblems')) {
-								stdebug("json.possibleProblems OK..");
-								if (json.dataLoadTime) {
-									updateIf("dynload", json.dataLoadTime);
+									var theDiv = flipper.flipToEmpty(flipPage);
+
+									insertLocaleSpecialNote(theDiv);
+
+									if (json.possibleProblems.length > 0) {
+										var subDiv = createChunk("", "div");
+										subDiv.className = "possibleProblems";
+
+										var h3 = createChunk(stui_str("possibleProblems"), "h3");
+										subDiv.appendChild(h3);
+
+										var div3 = document.createElement("div");
+										var newHtml = "";
+										newHtml += testsToHtml(json.possibleProblems);
+										div3.innerHTML = newHtml;
+										subDiv.appendChild(div3);
+										theDiv.appendChild(subDiv);
+									}
+									var theInfo = createChunk("", "p", "special_general");
+									theDiv.appendChild(theInfo);
+									theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ?
+									hideLoader(null);
 								}
-
-								var theDiv = flipper.flipToEmpty(flipPage);
-
-								insertLocaleSpecialNote(theDiv);
-
-								if (json.possibleProblems.length > 0) {
-									var subDiv = createChunk("", "div");
-									subDiv.className = "possibleProblems";
-
-									var h3 = createChunk(stui_str("possibleProblems"), "h3");
-									subDiv.appendChild(h3);
-
-									var div3 = document.createElement("div");
-									var newHtml = "";
-									newHtml += testsToHtml(json.possibleProblems);
-									div3.innerHTML = newHtml;
-									subDiv.appendChild(div3);
-									theDiv.appendChild(subDiv);
-								}
-								var theInfo = createChunk("", "p", "special_general");
-								theDiv.appendChild(theInfo);
-								theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ?
-								hideLoader(null);
-							}
+							});
 						});
 					});
 				}

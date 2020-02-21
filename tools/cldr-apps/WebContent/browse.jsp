@@ -7,8 +7,8 @@
     <head>
         <title>Unicode | CLDR | Browse the Survey Tool</title>
         <link rel='stylesheet' type='text/css' href='./surveytool.css' />
-        <script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'
-            djConfig='parseOnLoad: true, isDebug: false'></script>
+
+         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
     </head>
     
     <body>
@@ -44,13 +44,13 @@ CLDRLocale loc = CLDRLocale.getInstance(pageLocale);
 	   var r = document.getElementById('whatis_answer');
 	   if(v.length==0) { r.innerHTML = ''; return; }
 	   r.innerHTML = '<i>Looking up ' + v + '...</i>';
-	   dojo.xhrGet({
+	   cldrStAjax.sendXhr({
 	        url:"<%= request.getContextPath() %>/browse_results.jsp?loc=<%= pageLocale.getBaseName() %>&q=" + v,
 /* 	        handleAs:"text",
 */	        load: function(h){
 	        	  r.innerHTML = h;
 	        },
-	        error: function(err, ioArgs){
+	        error: function(err){
 	            r.innerHTML="Error: "+err.name + " <br> " + err.message;
 	        }
 	    });
@@ -61,7 +61,7 @@ CLDRLocale loc = CLDRLocale.getInstance(pageLocale);
 	       if(v.length==0) { return; }
 	       var r = document.getElementById('xpath_answer');
 	       r.innerHTML = '<i>Looking up xpath ' + v + '...</i>';
-	       dojo.xhrGet({
+	       cldrStAjax.sendXhr({
 	            url:"<%= request.getContextPath() %>/xpath_results.jsp?from="+ from + "&q=" + v,
 	           handleAs:"json",
 	           load: function(h){
@@ -85,7 +85,7 @@ CLDRLocale loc = CLDRLocale.getInstance(pageLocale);
                           updateIf('pathheader', h.paths.pathheader);
 	                  }
 	            },
-	            error: function(err, ioArgs){
+	            error: function(err){
 	                r.innerHTML="Error: "+err.name + " <br> " + err.message;
 	            }
 	        });

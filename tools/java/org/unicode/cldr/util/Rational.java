@@ -46,6 +46,9 @@ public final class Rational implements Comparable<Rational> {
     public static final Rational TENTH = TEN.reciprocal();
 
     public static class RationalParser implements Freezable<RationalParser>{
+        
+        public static RationalParser BASIC = new RationalParser().freeze();
+        
         private static Splitter slashSplitter = Splitter.on('/').trimResults();
         private static Splitter starSplitter = Splitter.on('*').trimResults();
 
@@ -152,16 +155,23 @@ public final class Rational implements Comparable<Rational> {
     }
 
     public static Rational of(String simple) {
-        simple = simple.trim();
-        int slashPos = simple.indexOf('/');
-        if (slashPos < 0) {
-            return Rational.of(Long.parseLong(simple.trim()));
-        } else {
-            return Rational.of(
-                Long.parseLong(simple.substring(0, slashPos).trim()), 
-                Long.parseLong(simple.substring(slashPos+1).trim())
-                );
-        }
+        return RationalParser.BASIC.parse(simple);
+//        simple = simple.trim();
+//        int slashPos = simple.indexOf('/');
+//        if (slashPos > 0) {
+//            return Rational.of(
+//                Long.parseLong(simple.substring(0, slashPos).trim()), 
+//                Long.parseLong(simple.substring(slashPos+1).trim())
+//                );
+//        }
+//        int dotPos = simple.indexOf('.');
+//        if (dotPos > 0) {
+//            return Rational.of(
+//                Long.parseLong(simple.substring(0, slashPos).trim()), 
+//                Long.parseLong(simple.substring(slashPos+1).trim())
+//                );
+//        }
+//        return Rational.of(Long.parseLong(simple.trim()));
     }
 
     private Rational(BigInteger numerator, BigInteger denominator) {
@@ -231,8 +241,20 @@ public final class Rational implements Comparable<Rational> {
     }
 
     public BigDecimal toBigDecimal(MathContext mathContext) {
-        return new BigDecimal(numerator).divide(new BigDecimal(denominator), mathContext);
+        try {
+            return new BigDecimal(numerator).divide(new BigDecimal(denominator), mathContext);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Wrong math context for divide: " + this + ", " + mathContext);
+        }
     }
+
+    public double doubleValue() {
+        if (denominator.equals(BigInteger.ZERO) && numerator.equals(BigInteger.ZERO)) {
+            return Double.NaN;
+        }
+        return new BigDecimal(numerator).divide(new BigDecimal(denominator), MathContext.DECIMAL64).doubleValue();
+    }
+
 
     public BigDecimal toBigDecimal() {
         return toBigDecimal(MathContext.UNLIMITED);

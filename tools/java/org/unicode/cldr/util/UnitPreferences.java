@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -13,21 +14,22 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.util.Freezable;
 
 public class UnitPreferences implements Freezable<UnitPreferences> {
-    Map<String, Map<String, Multimap<Set<String>, UnitPreference>>> quantityToUsageToRegionToInfo = new TreeMap<>();
+    Map<String, Map<String, Multimap<Set<String>, UnitPreference>>> quantityToUsageToRegionsToInfo = new TreeMap<>();
     /**
      * Special class encapsulating 
      * @author markdavis
      *
      */
     public static final class UnitPreference implements Comparable<UnitPreference>{
-        public final double geq;
+        public final Rational geq;
         public final String unit;
         public final String skeleton;
 
-        public UnitPreference(double geq, String unit, String skeleton) {
+        public UnitPreference(Rational geq, String unit, String skeleton) {
             this.geq = geq;
             this.unit = unit;
             this.skeleton = skeleton == null ? "" : skeleton;
@@ -35,7 +37,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
 
         @Override
         public int compareTo(UnitPreference o) {
-            int diff = Double.compare(geq, o.geq);
+            int diff = geq.compareTo(o.geq);
             if (diff != 0) {
                 return diff;
             }
@@ -49,27 +51,30 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
         public int hashCode() {
             return Objects.hash(geq, unit);
         }
-        @Override
-            public String toString() {
-                return geq + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
-            }
+        public String toString(String baseUnit) {
+            return geq + (baseUnit == null ? "": " " + baseUnit) + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
+        }
+        public String toString() {
+            return toString(null);
+        }
     }
 
     static private final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
+    static public Splitter SPLIT_AND = Splitter.on("-and-");
 
     public void add(String quantity, String usage, String regions, String geq, String skeleton, String unit) {
-        Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionToInfo = quantityToUsageToRegionToInfo.get(quantity);
-        if (usageToRegionToInfo == null) {
-            quantityToUsageToRegionToInfo.put(quantity, usageToRegionToInfo = new TreeMap<>());
+        Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionsToInfo = quantityToUsageToRegionsToInfo.get(quantity);
+        if (usageToRegionsToInfo == null) {
+            quantityToUsageToRegionsToInfo.put(quantity, usageToRegionsToInfo = new TreeMap<>());
         }
-        Multimap<Set<String>, UnitPreference> regionToInfo = usageToRegionToInfo.get(usage);
-        if (regionToInfo == null) {
-            usageToRegionToInfo.put(usage, regionToInfo = LinkedHashMultimap.create());
+        Multimap<Set<String>, UnitPreference> regionsToInfo = usageToRegionsToInfo.get(usage);
+        if (regionsToInfo == null) {
+            usageToRegionsToInfo.put(usage, regionsToInfo = LinkedHashMultimap.create());
         }
-        double newGeq = geq == null || geq.isEmpty() ? 1d : Double.valueOf(geq);
+        Rational newGeq = geq == null || geq.isEmpty() ? Rational.ONE : Rational.of(geq);
         final UnitPreference newUnitPref = new UnitPreference(newGeq, unit, skeleton);
-        
-        regionToInfo.put(ImmutableSet.copyOf(new TreeSet<>(SPLIT_SPACE.splitToList(regions))), newUnitPref);
+
+        regionsToInfo.put(ImmutableSet.copyOf(new TreeSet<>(SPLIT_SPACE.splitToList(regions))), newUnitPref);
     }
 
     boolean frozen;
@@ -83,7 +88,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
     public UnitPreferences freeze() {
         if (!frozen) {
             frozen = true;
-            quantityToUsageToRegionToInfo = CldrUtility.protectCollection(quantityToUsageToRegionToInfo);
+            quantityToUsageToRegionsToInfo = CldrUtility.protectCollection(quantityToUsageToRegionsToInfo);
         }
         return this;
     }
@@ -98,41 +103,78 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
      * @return
      */
     public Map<String, Map<String, Multimap<Set<String>, UnitPreference>>> getData() {
-        return quantityToUsageToRegionToInfo;
+        return quantityToUsageToRegionsToInfo;
     }
-    
+
     static final Joiner JOIN_SPACE = Joiner.on(' ');
 
     @Override
     public String toString() {
         StringBuilder buffer = new StringBuilder();
         int order = 0;
-        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 : quantityToUsageToRegionToInfo.entrySet()) {
+        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 : quantityToUsageToRegionsToInfo.entrySet()) {
             String quantity = entry1.getKey();
             for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry1.getValue().entrySet()) {
                 String usage = entry2.getKey();
                 for (Entry<Set<String>, Collection<UnitPreference>> entry : entry2.getValue().asMap().entrySet()) {
                     Set<String> regions = entry.getKey();
                     for (UnitPreference up : entry.getValue()) {
-                        System.out.println(up.unit + "\t;\t" + getPath(order++, quantity, usage, regions, up.geq, up.skeleton));
+                        buffer.append("\n" + up.unit + "\t;\t" + getPath(order++, quantity, usage, regions, up.geq, up.skeleton));
                     }
                 }
             }
         }
-        return "";
+        return buffer.toString();
     }
 
-    public String getPath(int order, String quantity, String usage, Collection<String> regions, double geq, String skeleton) {
+    public String getPath(int order, String quantity, String usage, Collection<String> regions, Rational geq, String skeleton) {
         //      <unitPreferences category="length" usage="person" scope="small">
         // <unitPreference regions="001">centimeter</unitPreference>
         return "//supplementalData/unitPreferenceData/unitPreferences"
         + "[@category=\"" + quantity + "\"]"
-            + "[@usage=\"" + usage + "\"]"
-            + "/unitPreference"
-            + "[@_q=\"" + order + "\"]"
-            + "[@regions=\"" + JOIN_SPACE.join(regions) + "\"]"
-            + (geq == 1d ? "" : "[@geq=\"" + geq + "\"]")
-            + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]")
-            ;
+        + "[@usage=\"" + usage + "\"]"
+        + "/unitPreference"
+        + "[@_q=\"" + order + "\"]"
+        + "[@regions=\"" + JOIN_SPACE.join(regions) + "\"]"
+        + (geq == Rational.ONE ? "" : "[@geq=\"" + geq + "\"]")
+        + (skeleton.isEmpty() ? "" : "[@skeleton=\"" + skeleton + "\"]")
+        ;
+    }
+
+    /**
+     * Returns the data converted to single regions, and using base units
+     * @return
+     */
+    public Map<String, Map<String, Map<String, UnitPreference>>> getFastMap(UnitConverter converter) {
+        Map<String, Map<String, Map<String, UnitPreference>>> result = new LinkedHashMap<>();
+        for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 : quantityToUsageToRegionsToInfo.entrySet()) {
+            String quantity = entry1.getKey();
+            Map<String, Map<String, UnitPreference>> result2 = new LinkedHashMap<>();
+            result.put(quantity, result2);
+
+            for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry1.getValue().entrySet()) {
+                String usage = entry2.getKey();
+                Map<String, UnitPreference> result3 = new LinkedHashMap<>();
+                result2.put(usage, result3);
+                for (Entry<Set<String>, Collection<UnitPreference>> entry : entry2.getValue().asMap().entrySet()) {
+                    Set<String> regions = entry.getKey();
+                    for (UnitPreference up : entry.getValue()) {
+                        String unit = SPLIT_AND.split(up.unit).iterator().next(); // first unit
+                        quantity = converter.getQuantityFromUnit(unit, false);
+                        String baseUnit = converter.getBaseUnitFromQuantity(quantity);
+                        Rational geq = converter.parseRational(String.valueOf(up.geq));
+                        Rational value = converter.convert(geq, unit, baseUnit, false);
+                        if (value.equals(Rational.NaN)) {
+                            converter.convert(geq, unit, baseUnit, true); // debug
+                        }
+                        UnitPreference up2 = new UnitPreference(value, up.unit, up.skeleton);
+                        for (String region : regions) {
+                            result3.put(region, up2);
+                        }
+                    }
+                }
+            }
+        }
+        return ImmutableMap.copyOf(result);
     }
 }

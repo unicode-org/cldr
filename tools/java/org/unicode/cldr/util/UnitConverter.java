@@ -754,6 +754,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public String getQuantityFromBaseUnit(String baseUnit) {
+        if (baseUnit == null) {
+            throw new NullPointerException("baseUnit");
+        }
         String result = getQuantityFromBaseUnit2(baseUnit);
         if (result != null) {
             return result;
@@ -831,10 +834,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return doubleString;
     }
 
-    public Rational convert(final Rational sourceValue, final String sourceUnit, final String targetUnit, boolean showYourWork) {
+    public Rational convert(Rational sourceValue, String sourceUnit, final String targetUnit, boolean showYourWork) {
         if (showYourWork) {
             System.out.println(showRational("\nconvert: ", sourceValue, sourceUnit) + " ⟹ " + targetUnit);
         }
+        sourceUnit = fixDenormalized(sourceUnit);
         Output<String> sourceBase = new Output<>();
         Output<String> targetBase = new Output<>();
         ConversionInfo sourceConversionInfo = parseUnitId(sourceUnit, sourceBase, showYourWork);
@@ -851,13 +855,19 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return Rational.NaN;
         }
         if (!sourceBase.value.equals(targetBase.value)) {
-            String reciprocalUnit = reciprocalOf(sourceBase.value);
-            if (reciprocalUnit == null || !targetBase.value.equals(reciprocalUnit)) {
-                if (showYourWork) System.out.println("! incomparable units: " + sourceUnit + " and " + targetUnit);
-                return Rational.NaN;
+            // try resolving
+            String sourceBaseFixed = createUnitId(sourceBase.value).resolve().toString();
+            String targetBaseFixed = createUnitId(targetBase.value).resolve().toString();
+            // try reciprocal
+            if (!sourceBaseFixed.equals(targetBaseFixed)) {
+                String reciprocalUnit = reciprocalOf(sourceBase.value);
+                if (reciprocalUnit == null || !targetBase.value.equals(reciprocalUnit)) {
+                    if (showYourWork) System.out.println("! incomparable units: " + sourceUnit + " and " + targetUnit);
+                    return Rational.NaN;
+                }
+                intermediateResult = intermediateResult.reciprocal();
+                if (showYourWork) System.out.println(showRational(" ⟹ 1/intermediate: ", intermediateResult, reciprocalUnit));
             }
-            intermediateResult = intermediateResult.reciprocal();
-            if (showYourWork) System.out.println(showRational(" ⟹ 1/intermediate: ", intermediateResult, reciprocalUnit));
         }
         Rational result = targetConversionInfo.convertBackwards(intermediateResult);
         if (showYourWork) System.out.println(showRational(" ⟹ target: ", result, targetUnit));

@@ -72,6 +72,8 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
+    private static final String TEST_SEP = ";\t";
+
     private static final ImmutableSet<String> WORLD_SET = ImmutableSet.of("001");
 
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false);
@@ -1081,14 +1083,21 @@ public class TestUnits extends TestFmwk {
             List<Rational> intermediates = new ArrayList<>();
             actual.toRational(intermediates);
             System.out.println("\nRational\tdec64\tdec128\tgood enough");
-            System.out.println("Target\t" + bigPi.round(MathContext.DECIMAL64)+"x" + "\t" + bigPi.round(MathContext.DECIMAL128)+"x");
+            System.out.println("Target\t"
+                + bigPi.round(MathContext.DECIMAL64)+"x"
+                + "\t" + bigPi.round(MathContext.DECIMAL128)+"x"
+                + "\t" + "delta");
             int goodCount = 0;
             for (Rational item : intermediates) {
                 final BigDecimal dec64 = item.toBigDecimal(MathContext.DECIMAL64);
                 final BigDecimal dec128 = item.toBigDecimal(MathContext.DECIMAL128);
                 final boolean goodEnough = bigPiD == item.toBigDecimal(MathContext.DECIMAL128).doubleValue();
-                System.out.println(item + "\t" + dec64 + "x\t" + dec128 + "x\t" + goodEnough);
-                if (goodEnough && goodCount++ > 1) {
+                System.out.println(item 
+                    + "\t" + dec64
+                    + "x\t" + dec128 
+                    + "x\t" + goodEnough
+                    + "\t" + item.toBigDecimal(MathContext.DECIMAL128).subtract(bigPi));
+                if (goodEnough && goodCount++ > 6) {
                     break;
                 }
             }
@@ -1113,7 +1122,7 @@ public class TestUnits extends TestFmwk {
                 String regionsStr = items.get(2);
                 List<String> regions = SPLIT_SPACE.splitToList(items.get(2));
                 String geqStr = items.get(3);
-                double geq = geqStr.isEmpty() ? 1d : Double.parseDouble(geqStr);
+                Rational geq = geqStr.isEmpty() ? Rational.ONE : Rational.of(geqStr);
                 String skeleton = items.get(4);
                 String unit = items.get(5);
                 uprefs.add(quantity, usage, regionsStr, geqStr, skeleton, unit);
@@ -1124,9 +1133,11 @@ public class TestUnits extends TestFmwk {
             }
         }
         checkUnitPreferences(uprefs);
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
-        foo.write(out);
-        out.flush();
+        if (SHOW_DATA) {
+            PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
+            foo.write(out);
+            out.flush();
+        }
     }
 
     static final Joiner JOIN_SPACE = Joiner.on(' ');
@@ -1135,26 +1146,26 @@ public class TestUnits extends TestFmwk {
         Set<String> usages = new LinkedHashSet<>();
         for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 : uprefs.getData().entrySet()) {
             String quantity = entry1.getKey();
-            
+
             // Each of the quantities is valid.
             assertNotNull("quantity is convertible", converter.getBaseUnitFromQuantity(quantity));
-            
+
             Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionToUnitPreference = entry1.getValue();
-                
+
             // each of the quantities has a default usage
             assertTrue("Quantity " + quantity + " contains default usage", usageToRegionToUnitPreference.containsKey("default"));
-            
+
             for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : usageToRegionToUnitPreference.entrySet()) {
                 String usage = entry2.getKey();
                 final String quantityPlusUsage = quantity + "/" + usage;
                 Multimap<Set<String>, UnitPreference> regionsToUnitPreference = entry2.getValue();
                 usages.add(usage);
                 Set<Set<String>> regionSets = regionsToUnitPreference.keySet();
-                
+
                 // all quantity + usage pairs must contain 001 (one exception)
                 assertTrue("For " + quantityPlusUsage + ", the set of sets of regions must contain 001", regionSets.contains(WORLD_SET) 
                     || quantityPlusUsage.contentEquals("concentration/blood-glucose"));
-                
+
                 // Check that regions don't overlap for same quantity/usage
                 Multimap<String, Set<String>> checkOverlap = LinkedHashMultimap.create();
                 for (Set<String> regionSet : regionsToUnitPreference.keySet()) {
@@ -1165,12 +1176,12 @@ public class TestUnits extends TestFmwk {
                 for (Entry<String, Collection<Set<String>>> entry : checkOverlap.asMap().entrySet()) {
                     assertEquals(quantityPlusUsage + ": regions must be in only one set: " + entry.getValue(), 1, entry.getValue().size());
                 }
-                
+
                 for (Entry<Set<String>, Collection<UnitPreference>> entry : regionsToUnitPreference.asMap().entrySet()) {
                     Collection<UnitPreference> uPrefs = entry.getValue();
                     Set<String> regions = entry.getKey();
-                    
-                    
+
+
                     // reset these for every new set of regions
                     Rational lastSize = null;
                     String lastUnit = null;
@@ -1182,6 +1193,8 @@ public class TestUnits extends TestFmwk {
                             if ("minute:second".equals(up.unit)) {
                                 int debug = 0;
                             }
+                            String lastQuantity = null;
+                            Rational lastValue = null;
                             for (String unit : SPLIT_AND.split(up.unit)) {
                                 try {
                                     if (topUnit == null) {
@@ -1192,13 +1205,26 @@ public class TestUnits extends TestFmwk {
                                     errln("Unit is not covertible: " + up.unit);
                                     continue preferences;
                                 }
-                                if (!assertEquals(up.unit, quantity, unitQuantity)) {
-                                    int debug = 0;
+                                String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
+                                Rational geq = converter.parseRational(String.valueOf(up.geq));
+                                if (geq.compareTo(Rational.ZERO) < 0) {
+                                    throw new IllegalArgumentException("geq must be > 0" + geq);
                                 }
+                                Rational value = converter.convert(Rational.ONE, unit, baseUnit, false);
+                                if (lastQuantity != null) {
+                                    int diff = value.compareTo(lastValue);
+                                    if (diff >= 0) {
+                                        throw new IllegalArgumentException("Bad mixed unit; biggest unit must be first: " + up.unit);
+                                    }
+                                    if (!lastQuantity.contentEquals(quantity)) {
+                                        throw new IllegalArgumentException("Inconsistent quantities for mixed unit: " + up.unit);
+                                    }
+                                }
+                                lastValue = value;
+                                lastQuantity = quantity;
                             }
                             String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
-                            Rational rationalGeq = Rational.of(BigDecimal.valueOf(up.geq));
-                            Rational size = converter.convert(rationalGeq, topUnit, baseUnit, false);
+                            Rational size = converter.convert(up.geq, topUnit, baseUnit, false);
                             if (lastSize != null) { // ensure descending order
                                 if (!assertTrue("Successive items must be ≥ previous:\n\t" + quantityPlusUsage 
                                     + "; unit: " + up.unit
@@ -1214,7 +1240,7 @@ public class TestUnits extends TestFmwk {
                             lastSize = size;
                             lastUnit = up.unit;
                             lastRegions = regions;
-                            System.out.println(quantity + "\t" + usage + "\t" + regions + "\t" + up.geq + "\t" + up.unit + "\t" + up.skeleton);
+                            if (SHOW_DATA) System.out.println(quantity + "\t" + usage + "\t" + regions + "\t" + up.geq + "\t" + up.unit + "\t" + up.skeleton);
                         }
                 }
             }
@@ -1232,8 +1258,120 @@ public class TestUnits extends TestFmwk {
     }
 
     public void TestUnitPreferences() {
-        System.out.println("\t If this fails, check the output of TestUnitPreferencesSource, fix as needed, then incorporate");
+        System.out.println("\n\t\t If this fails, check the output of TestUnitPreferencesSource, fix as needed, then incorporate");
         UnitPreferences prefs = SDI.getUnitPreferences();
         checkUnitPreferences(prefs);
+//        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);
+//        for (Entry<String, Map<String, Map<String, UnitPreference>>> entry : fastMap.entrySet()) {
+//            String quantity = entry.getKey();
+//            String baseUnit = converter.getBaseUnitFromQuantity(quantity);
+//            for (Entry<String, Map<String, UnitPreference>> entry2 : entry.getValue().entrySet()) {
+//                String usage = entry2.getKey();
+//                for (Entry<String, UnitPreference> entry3 : entry2.getValue().entrySet()) {
+//                    String region = entry3.getKey();
+//                    UnitPreference pref = entry3.getValue();
+//                    System.out.println(quantity + "\t" + usage + "\t" + region + "\t" + pref.toString(baseUnit));
+//                }
+//            }
+//        }
+        prefs.getFastMap(converter); // call just to make sure we don't get an exception
+
+        if (SHOW_DATA) {
+            System.out.println(
+                "\n# Test data for unit preferences\n" 
+                    + "# Format:\n"
+                    + "#\tQuantity;\tUsage;\tRegion;\tInput (r);\tInput (d);\tInput Unit;\tOutput (r);\tOutput (d);\tOutput Unit\n"
+                    + "#\n"
+                    + "# Use: Convert the Input amount & unit according to the Usage and Region.\n"
+                    + "#\t The result should match the Output amount and unit.\n"
+                    + "#\t Both rational (r) and double64 (d) forms of the input and output amounts are supplied so that implementations\n"
+                    + "#\t have two options for testing based on the precision in their implementations. For example:\n"
+                    + "#\t   3429 / 12500; 0.27432; meter;\n"
+                    + "#\t The Output amount and Unit are repeated for mixed units. In such a case, only the smallest unit will have\n"
+                    + "#\t both a rational and decimal amount; the others will have a single integer value, such as:\n"
+                    + "#\t   length; person-height; CA; 3429 / 12500; 0.27432; meter; 2; foot; 54 / 5; 10.8; inch\n"
+                    + "#\t The input and output units are unit identifers; they are neither localized nor adjusted for pluralization,"
+                    + "#\t nor formatted with the skeleton.\n"
+                    + "#\n"
+                    + "# Generation: Set SHOW_DATA in TestUnits.java, and look at TestUnitPreferences results.\n"
+                );
+            Rational ONE_TENTH = Rational.of(1,10);
+
+            // Note that for production usage, precomputed data like the prefs.getFastMap(converter) would be used instead of the raw data.
+
+            for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry : prefs.getData().entrySet()) {
+                String quantity = entry.getKey();
+                String baseUnit = converter.getBaseUnitFromQuantity(quantity);
+                for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry.getValue().entrySet()) {
+                    String usage = entry2.getKey();
+
+                    // collect samples of base units
+                    for (Entry<Set<String>, Collection<UnitPreference>> entry3 : entry2.getValue().asMap().entrySet()) {
+                        boolean first = true;
+                        Set<Rational> samples = new TreeSet<>(Comparator.reverseOrder());
+                        for (UnitPreference pref : entry3.getValue()) {
+                            final String topUnit = UnitPreferences.SPLIT_AND.split(pref.unit).iterator().next();
+                            if (first) {
+                                samples.add(converter.convert(pref.geq.add(ONE_TENTH), topUnit, baseUnit, false));
+                                first = false;
+                            }
+                            samples.add(converter.convert(pref.geq, topUnit, baseUnit, false));
+                            samples.add(converter.convert(pref.geq.subtract(ONE_TENTH), topUnit, baseUnit, false));
+                        }
+                        // show samples
+                        Set<String> regions = entry3.getKey();
+                        String sampleRegion = regions.iterator().next();
+                        Collection<UnitPreference> uprefs = entry3.getValue();
+                        for (Rational sample : samples) {
+                            showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs);
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+        }
+    }
+
+    private void showSample(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, Collection<UnitPreference> prefs) {
+        String lastUnit = null;
+        boolean gotOne = false;
+        for (UnitPreference pref : prefs) {
+            final String topUnit = UnitPreferences.SPLIT_AND.split(pref.unit).iterator().next();
+            Rational baseGeq = converter.convert(pref.geq, topUnit, baseUnit, false);
+            if (sampleBaseValue.compareTo(baseGeq) >= 0) {
+                showSample2(quantity, usage, sampleRegion, sampleBaseValue, baseUnit, pref.unit);
+                gotOne = true;
+                break;
+            }
+            lastUnit = pref.unit;
+        }
+        if (!gotOne) {
+            showSample2(quantity, usage, sampleRegion, sampleBaseValue, baseUnit, lastUnit);
+        }
+    }
+
+    private void showSample2(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, String lastUnit) {
+        // Known slow algorithm for mixed values, but for generating tests we don't care.
+        final List<String> units = UnitPreferences.SPLIT_AND.splitToList(lastUnit);
+        StringBuilder formattedUnit = new StringBuilder();
+        int remaining = units.size();
+        for (String unit : units) {
+            --remaining;
+            Rational sample = converter.convert(sampleBaseValue, baseUnit, unit, false);
+            if (formattedUnit.length() != 0) {
+                formattedUnit.append(TEST_SEP);
+            }
+            if (remaining != 0) {
+                BigInteger floor = sample.floor();
+                formattedUnit.append(floor + TEST_SEP + unit);
+                // convert back to base unit
+                sampleBaseValue = converter.convert(sample.subtract(Rational.of(floor)), unit, baseUnit, false);
+            } else {
+                formattedUnit.append(sample + TEST_SEP + sample.doubleValue() + TEST_SEP + unit);
+            }
+        }
+        System.out.println(quantity + TEST_SEP + usage + TEST_SEP + sampleRegion 
+            + TEST_SEP + sampleBaseValue + TEST_SEP + sampleBaseValue.doubleValue() + TEST_SEP + baseUnit 
+            + TEST_SEP + formattedUnit);
     }
 }

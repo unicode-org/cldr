@@ -23,8 +23,6 @@ public class GenerateAllCharts {
         ShowKeyboards.main(args);
         ChartDelta.main(args);
         ChartCollation.main(args);
-        ChartUnitConversions.main(args);
-        ChartUnitPreferences.main(args);
         
         VerifyCompactNumbers.main(args);
         VerifyZones.main(args);

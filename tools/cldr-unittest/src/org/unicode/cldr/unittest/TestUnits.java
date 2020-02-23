@@ -38,6 +38,8 @@ import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.ContinuedFraction;
+import org.unicode.cldr.util.Rational.FormatStyle;
+import org.unicode.cldr.util.Rational.RationalParser;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -819,20 +821,42 @@ public class TestUnits extends TestFmwk {
     }
 
     public final void TestSimplify() {
-        checkFactorForPowerOfTen(100, 1);
-        checkFactorForPowerOfTen(2, 5);
-        checkFactorForPowerOfTen(4, 25);
-        checkFactorForPowerOfTen(5, 2);
-        checkFactorForPowerOfTen(25, 4);
-        checkFactorForPowerOfTen(3, null);
-        checkFactorForPowerOfTen(1, 1);
-        checkFactorForPowerOfTen(0, null);
+        Set<Rational> seen = new HashSet<>();
+        checkSimplify("ZERO", Rational.ZERO, seen);
+        checkSimplify("ONE", Rational.ONE, seen);
+        checkSimplify("NEGATIVE_ONE", Rational.NEGATIVE_ONE, seen);
+        checkSimplify("INFINITY", Rational.INFINITY, seen);
+        checkSimplify("NEGATIVE_INFINITY", Rational.NEGATIVE_INFINITY, seen);
+        checkSimplify("NaN", Rational.NaN, seen);
+
+        checkSimplify("Simplify", Rational.of(25, 300), seen);
+        checkSimplify("Simplify", Rational.of(100, 1), seen);
+        checkSimplify("Simplify", Rational.of(2, 5), seen);
+        checkSimplify("Simplify", Rational.of(4, 25), seen);
+        checkSimplify("Simplify", Rational.of(5, 2), seen);
+        checkSimplify("Simplify", Rational.of(25, 4), seen);
+
+        for (Entry<String, TargetInfo> entry : converter.getInternalConversionData().entrySet()) {
+            final Rational factor = entry.getValue().unitInfo.factor;
+            checkSimplify(entry.getKey(), factor, seen);
+            if (!factor.equals(Rational.ONE)) {
+                checkSimplify(entry.getKey(), factor, seen);
+            }
+            final Rational offset = entry.getValue().unitInfo.offset;
+            if (!offset.equals(Rational.ZERO)) {
+                checkSimplify(entry.getKey(), offset, seen);
+            }
+        }
     }
 
-    private void checkFactorForPowerOfTen(int source, Integer expected) {
-        assertEquals(source+"", 
-            expected == null ? null : BigInteger.valueOf(expected), 
-                Rational.factorForPowerOfTen(BigInteger.valueOf(source)));
+    private void checkSimplify(String title, Rational expected, Set<Rational> seen) {
+        if (!seen.contains(expected)) {
+            seen.add(expected);
+            String simpleStr = expected.toString(FormatStyle.simple);
+            if (SHOW_DATA) System.out.println(title + ": " + expected + " => " + simpleStr);
+            Rational actual = RationalParser.BASIC.parse(simpleStr);
+            assertEquals("simplify", expected, actual);
+        }
     }
 
     public void TestContinuationOrder() {

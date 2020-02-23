@@ -157,7 +157,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='mole' baseUnit='item' factor='6.02214076E+23'/>
         
         <!-- portion -->
-        <convertUnit source='part-per-million' baseUnit='portion' factor='1/1000000'/>
+        <convertUnit source='permillion' baseUnit='portion' factor='1/1000000'/>
         <convertUnit source='permyriad' baseUnit='portion' factor='1/10000'/>
         <convertUnit source='permille' baseUnit='portion' factor='1/1000'/>
         <convertUnit source='percent' baseUnit='portion' factor='1/100'/>
@@ -458,6 +458,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitAlias type="liter-per-100kilometers" replacement="liter-per-100-kilometer" reason="deprecated"/>
             <unitAlias type="meter-per-second-squared" replacement="meter-per-square-second" reason="deprecated"/>
             <unitAlias type="millimeter-of-mercury" replacement="millimeter-ofhg" reason="deprecated"/>
+            <unitAlias type="part-per-million" replacement="permillion" reason="deprecated"/>
             <unitAlias type="pound-foot" replacement="pound-force-foot" reason="deprecated"/>
             <unitAlias type="pound-per-square-inch" replacement="pound-force-per-square-inch" reason="deprecated"/>
             <usageAlias type="music-track" replacement="media" reason="deprecated"/>

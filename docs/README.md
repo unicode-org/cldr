@@ -14,7 +14,7 @@ CLDR main page: [https://unicode.org/cldr](unicode.org/cldr)
 
 ## CLDR Development
 
-- [New CLDR Developers](development/new-cldr-developers.html)
+- [New CLDR Developers](development/new-cldr-developers.md)
 
 ##### Copyright
 

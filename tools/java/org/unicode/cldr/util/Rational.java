@@ -14,7 +14,9 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.number.LocalizedNumberFormatter;
+import com.ibm.icu.number.Notation;
 import com.ibm.icu.number.NumberFormatter;
+import com.ibm.icu.number.Precision;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ICUException;
@@ -272,29 +274,47 @@ public final class Rational implements Comparable<Rational> {
         return toString(FormatStyle.plain);
     }
 
-    static final LocalizedNumberFormatter nf = NumberFormatter.with().locale(Locale.ENGLISH);
 
     public String toString(FormatStyle style) {
+        if (style == FormatStyle.plain) {
+            return numerator + (denominator.equals(BigInteger.ONE) ? "" : " / " + denominator);
+        }
+        Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
+        final BigInteger newDenominator = minimalDenominator(newNumerator, denominator);
+        final String numStr = format(newNumerator.value);
+        final String denStr = nf.format(newDenominator).toString();
+        final boolean denIsOne = newDenominator.equals(BigInteger.ONE);
+        
         switch (style) {
-        case plain: return numerator + (denominator.equals(BigInteger.ONE) ? "" : " / " + denominator);
         case simple: {
-            Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
-            BigInteger newDenominator = minimalDenominator(newNumerator);
-            return newDenominator.equals(BigInteger.ONE) 
-                ? newNumerator.value.toString()
-                    : newNumerator.value + "/" + nf.format(newDenominator).toString();
+            return denIsOne ? numStr : numStr + "/" + denStr;
         }
         case html: {
-            Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
-            BigInteger newDenominator = minimalDenominator(newNumerator);
-            String num = nf.format(newNumerator.value).toString();
-            return newDenominator.equals(BigInteger.ONE) 
-                ? num
-                    : "<sup>" + num + "</sup>"
-                    + "/<sub>" + nf.format(newDenominator).toString() + "<sub>";
+            return denIsOne ? numStr : "<sup>" + numStr + "</sup>" + "/<sub>" + denStr + "<sub>";
         }
         default: throw new UnsupportedOperationException();
         }
+    }
+
+    static final LocalizedNumberFormatter nf = NumberFormatter.with().precision(Precision.unlimited()).locale(Locale.ENGLISH);
+    static final LocalizedNumberFormatter snf = NumberFormatter.with().precision(Precision.unlimited()).notation(Notation.engineering()).locale(Locale.ENGLISH);
+
+    static String format(BigDecimal value) {
+        return nf.format(value).toString();
+        /*
+         * TODO Change 1000000 to 1×10<sup>-6</sup>, etc.
+         * Only for large/small numbers, eg:
+         * ≥ 1,000,000.0, => 1×10<sup>6</sup> — more than 6 trailing 0's
+         * ≤ 0.0000001 — more than 6 leading zeros
+         * 
+         * relevant BigDecimal APIs:
+         * 123.4567 scale: 4 bigint: 1234567
+         * 123456700 scale: 0 bigint: 123456700
+         * 1234567 scale: 0 bigint: 1234567
+         * 0.1234567 scale: 7 bigint: 1234567
+         */
+        // return (Math.abs(newNumerator.scale()) > 10 ? snf : nf).format(newNumerator).toString();
+        //      Only do this for trailing zeros (above test isn't right)
     }
 
     @Override
@@ -332,11 +352,11 @@ public final class Rational implements Comparable<Rational> {
     /**
      * Goal is to be able to display rationals in a short but exact form, like 1,234,567/3 or 1.234567E21/3. 
      * To do this, find the smallest denominator (excluding powers of 2 and 5), and modify the numerator in the same way.
+     * @param denominator TODO
      * @param current
      * @return
      */
-    public BigInteger minimalDenominator(Output<BigDecimal> outNumerator) {
-        outNumerator.value = new BigDecimal(numerator);
+    public static BigInteger minimalDenominator(Output<BigDecimal> outNumerator, BigInteger denominator) {
         if (denominator.equals(BigInteger.ONE) || denominator.equals(BigInteger.ZERO)) {
             return denominator;
         }

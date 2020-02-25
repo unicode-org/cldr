@@ -694,7 +694,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     // TODO change to TRIE if the performance isn't good enough, or restructure with regex
-    static final ImmutableMap<String, Rational> PREFIXES = ImmutableMap.<String, Rational>builder()
+    public static final ImmutableMap<String, Rational> PREFIXES = ImmutableMap.<String, Rational>builder()
         .put("yocto", Rational.pow10(-24))
         .put("zepto", Rational.pow10(-21))
         .put("atto", Rational.pow10(-18))
@@ -894,5 +894,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return null;
         }
         return invert ? reciprocalOf(bu) : bu;
+    }
+
+    public Set<String> getQuantities() {
+        return getBaseUnitToQuantity().inverse().keySet();
     }
 }

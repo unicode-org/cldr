@@ -15,6 +15,11 @@ public class ChartUnitConversions extends Chart {
 
     static final String RATIONAL_MSG = "Each numeric value is exact, presented in a simplified rational form: "
         + "any divisors that would cause repeating fractions are separated out. Example: <sup>0.25</sup>/<sub>3<sub></sub></sub> = <sup>25</sup>/<sub>300<sub></sub></sub>";
+    static final String NIST_SOURCES = "<li>The units are organized by Quantity (which are based on the NIST quantities, see "
+        + "<a href='https://www.nist.gov/pml/special-publication-811' target='nist811'>NIST 811</a>"
+        + " and "
+        + "<a href='https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication1038.pdf' target='nist1038'>NIST 1038</a>"
+        + ").</li>";
     
     public static void main(String[] args) {
         new ChartUnitConversions().writeChart(null);
@@ -34,14 +39,17 @@ public class ChartUnitConversions extends Chart {
     public String getExplanation() {
         return "<p>Unit Conversions provide conversions for units, "
             + "so that a source units can be converted into what is needed for localized "
-            + "<a href='unit_preferences.html' target='unit_preferences'>Unit Preferences</a>.</p>"
-            + "<ul><li>The units are organized by Quantity (which are based on the NIST quantities).</li>"
+            + "<a href='unit_preferences.html' target='unit_preferences'>Unit Preferences</a>. "
+            + "There are many possible units, and additional units and conversions will be added in future releases.</p>"
+            + "<ul>"
+            + NIST_SOURCES
+            + "<li>The unit identifiers are internal, and are to be localized for display to users. See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example. "
             + "<li>Each Source Unit is converted to the Target Unit by multiplying it by the Factor and adding the Offset (if any).</li>"
             + "<li>" + RATIONAL_MSG + "</li>"
             + "<li>The systems indicate which systems the units are used in.</li>"
-            + "<li>The LDML spec should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements.</li>"
+            + "<li>The LDML spec should be consulted for more details, such as how to handle complex units (such as foot-per-square-minute) by converting the elements.</li>"
             + "</ul>"
-            + dataScrapeMessage("common/supplemental/units.txt");
+            + dataScrapeMessage("common/supplemental/units.xml", "common/testData/units/unitsTest.txt", "/tr35-general.html#Contents");
     }
 
     @Override

@@ -40,15 +40,19 @@ public class ChartUnitPreferences extends Chart {
 
     @Override
     public String getExplanation() {
-        return "<p>Unit Preferences provide a way to get the units that are appropriate for a region, and usage, and amount.</p>"
+        return "<p>Unit Preferences provide a way to get the units that are appropriate for a region, and usage, and threshold amounts. "
+            + "The this release adds additional structure for usage and threshold amount, allowing for more additions of regions, usages, thresholds, and units in future releases.</p>"
             + "<ul>"
-            + "<li>The units are organized by Quantity (which are based on the NIST quantities).</li>"
-            + "<li>The sample region  represents a set of regions if it has a superscript. See the table at the bottom.</li>"
+            + ChartUnitConversions.NIST_SOURCES
+            + "<li>The unit identifiers are internal, and would be localized for display to users. See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example. "
+            + "<li>The sample region  represents a set of regions if it has a superscript. See the table at the bottom. 001 (World) means the default if no specific region is found.</li>"
+            + "<li>The 'If ≥' column shows the thresholds: the first line for a given region where the input amount is greater or equal applies. "
+            + "For example, for 0.5km as input for [area, default, 001] would result in <i>hectare</i>.</li>"
             + "<li>The <a href='unit_conversions.html' target='unit_conversions'>Unit Conversions</a> are used to handle conversion of units needed to use the preferences.</li>"
             + "<li>" + ChartUnitConversions.RATIONAL_MSG + "</li>"
-            + "<li>The LDML spec should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements.</li>"
+            + "<li>The LDML spec should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements, and how to fall back if a given usage or region is not found.</li>"
             + "</ul>"
-            + dataScrapeMessage("common/supplemental/units.xml");
+            + dataScrapeMessage("common/supplemental/units.xml", "common/testData/units/unitPreferencesTest.txt", "/tr35-general.html#Contents");
     }
 
     @Override
@@ -131,7 +135,7 @@ public class ChartUnitPreferences extends Chart {
             }
             Pair<String, Integer> sample = setToSample.get(regions);
             if (sample == null) {
-                String sampleBase = regions.iterator().next();
+                String sampleBase = regions.iterator().next() + ", …";
                 counters.add(sampleBase);
                 setToSample.put(regions, sample = new Pair<>(sampleBase, counters.count(sampleBase)));
             }

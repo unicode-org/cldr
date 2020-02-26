@@ -142,10 +142,10 @@ public class CLDRFileTransformer {
             String ruleString = CLDRTransforms.getIcuRulesFromXmlFile(transformDir, localeTransform.getTransformFilename(), directionInfo);
             transliterator = Transliterator.createFromRules(directionInfo.getId(),
                 ruleString, localeTransform.getDirection());
-            transliterators.put(localeTransform, transliterator);
         } else {
             transliterator = Transliterator.getInstance(localeTransform.getTransformFilename());
         }
+        transliterators.put(localeTransform, transliterator);
         return transliterator;
     }
 

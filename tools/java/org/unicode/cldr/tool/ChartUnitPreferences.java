@@ -41,16 +41,18 @@ public class ChartUnitPreferences extends Chart {
     @Override
     public String getExplanation() {
         return "<p>Unit Preferences provide a way to get the units that are appropriate for a region, and usage, and threshold amounts. "
-            + "The this release adds additional structure for usage and threshold amount, allowing for more additions of regions, usages, thresholds, and units in future releases.</p>"
+            + "The <a href='unit_conversions.html' target='unit_conversions'>Unit Conversions</a> are used to handle conversion of units needed to use the preferences."
+            + "This release adds additional structure for usage and threshold amount, allowing for more additions of regions, usages, thresholds, and units in future releases.</p>"
             + "<ul>"
-            + ChartUnitConversions.NIST_SOURCES
-            + "<li>The unit identifiers are internal, and would be localized for display to users. See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example. "
-            + "<li>The sample region  represents a set of regions if it has a superscript. See the table at the bottom. 001 (World) means the default if no specific region is found.</li>"
-            + "<li>The 'If ≥' column shows the thresholds: the first line for a given region where the input amount is greater or equal applies. "
+            + "<li>The Base Unit shows the unit whose amount is to be compared to the ‘If ≥’ amount of the Result Unit."
+            + "<li>The unit identifiers are internal, and would be localized for display to users. See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example."
+            + "<li>The Usage shows the type of usage; <i>default</i> is used as a fallback no more specific match is found."
+            + "<li>The Sample region  represents a set of regions if it has a superscript. See the table at the bottom. 001 (World) is the default if no more specific region is found.</li>"
+            + "<li>The ‘If ≥’ column shows the thresholds: the first line for a given region where the input amount is greater or equal applies. "
             + "For example, for 0.5km as input for [area, default, 001] would result in <i>hectare</i>.</li>"
-            + "<li>The <a href='unit_conversions.html' target='unit_conversions'>Unit Conversions</a> are used to handle conversion of units needed to use the preferences.</li>"
-            + "<li>" + ChartUnitConversions.RATIONAL_MSG + "</li>"
-            + "<li>The LDML spec should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements, and how to fall back if a given usage or region is not found.</li>"
+            + "<li>" + ChartUnitConversions.RATIONAL_MSG + "</li>\n"
+            + "<li>"  + ChartUnitConversions.QUANTITY_MSG + "</li>"
+            + "<li>" + ChartUnitConversions.SPEC_GENERAL_MSG + ", and how to fall back if a given usage or region is not found.</li>\n"
             + "</ul>"
             + dataScrapeMessage("common/supplemental/units.xml", "common/testData/units/unitPreferencesTest.txt", "/tr35-general.html#Contents");
     }
@@ -60,21 +62,16 @@ public class ChartUnitPreferences extends Chart {
         // #   Quantity;   Usage;  Region; Input (r);  Input (d);  Input Unit; Output (r); Output (d); Output Unit
 
         TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Quantity", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .setSortPriority(1)
+            .addColumn("Base Unit", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             .setBreakSpans(true)
             .setRepeatHeader(true)
             .addColumn("Usage", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .setSortPriority(2)
-            .setBreakSpans(true)
             .addColumn("Sample Region", "class='source'", null, "class='source'", true)
-            .setSortPriority(3) 
-            .addColumn("If ≥", "class='target'", null, "class='source'", true)
+            .addColumn("If ≥", "class='source'", null, "class='source'", true)
             .setCellAttributes("class='target' style='text-align:right'")
-            .setSpanRows(false)
-            .addColumn("Unit", "class='target'", null, "class='target'", true)
-            .setSpanRows(false)
-            .addColumn("Skeleton", "class='target'", null, "class='target'", true);
+            .addColumn("Result Unit", "class='target'", null, "class='target'", true)
+            .addColumn("Skeleton", "class='target'", null, "class='target'", true)
+            .addColumn("Quantity", "class='target'", null, "class='target'", true);
 
         UnitConverter converter = SDI.getUnitConverter();
         UnitPreferences prefs = SDI.getUnitPreferences();
@@ -93,12 +90,13 @@ public class ChartUnitPreferences extends Chart {
 
                     for (UnitPreference pref : entry3.getValue()) {
                         tablePrinter.addRow()
-                        .addCell(quantity)
+                        .addCell(baseUnit)
                         .addCell(usage)
                         .addCell(sampleRegionStr)
                         .addCell(pref.geq.toString(FormatStyle.html))
                         .addCell(Joiner.on(" & ").join(Splitter.on("-and-").split(pref.unit)))
                         .addCell(pref.skeleton)
+                        .addCell(quantity)
                         .finishRow();
 
                     }
@@ -110,7 +108,7 @@ public class ChartUnitPreferences extends Chart {
         TablePrinter tablePrinter2 = new TablePrinter()
             .addColumn("Sample Region", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             .addColumn("Region Set", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='source'", true);
-        
+
         TreeSet<Pair<String, Integer>> sorted = new TreeSet<>(samples.setToSample.values());
         for (Pair<String, Integer> pair : sorted) {
             tablePrinter2.addRow()

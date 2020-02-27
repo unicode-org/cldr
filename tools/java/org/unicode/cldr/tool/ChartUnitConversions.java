@@ -13,14 +13,13 @@ import com.google.common.base.Joiner;
 
 public class ChartUnitConversions extends Chart {
 
-    static final String RATIONAL_MSG = "Each numeric value is exact, presented in a simplified rational form: "
+    public static final String QUANTITY_MSG = "The units are grouped and ordered by Quantity (which are based on the NIST quantities, see "
+        + "<a href='https://www.nist.gov/pml/special-publication-811' target='nist811'>NIST 811</a>). Note that the quantities are informative.";
+    public static final String RATIONAL_MSG = "Each numeric value is exact, presented in a simplified rational form: "
         + "any divisors that would cause repeating fractions are separated out. Example: <sup>0.25</sup>/<sub>3<sub></sub></sub> = <sup>25</sup>/<sub>300<sub></sub></sub>";
-    static final String NIST_SOURCES = "<li>The units are organized by Quantity (which are based on the NIST quantities, see "
-        + "<a href='https://www.nist.gov/pml/special-publication-811' target='nist811'>NIST 811</a>"
-        + " and "
-        + "<a href='https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication1038.pdf' target='nist1038'>NIST 1038</a>"
-        + ").</li>";
-    
+    public static final String SPEC_GENERAL_MSG = "The " + ldmlSpecLink("/tr35-general.html#Contents")
+    + " should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements";
+
     public static void main(String[] args) {
         new ChartUnitConversions().writeChart(null);
     }
@@ -37,17 +36,17 @@ public class ChartUnitConversions extends Chart {
 
     @Override
     public String getExplanation() {
-        return "<p>Unit Conversions provide conversions for units, "
+        return "<p>Unit Conversions provide conversions for units, such as meter ⟹ foot, "
             + "so that a source units can be converted into what is needed for localized "
             + "<a href='unit_preferences.html' target='unit_preferences'>Unit Preferences</a>. "
             + "There are many possible units, and additional units and conversions will be added in future releases.</p>"
             + "<ul>"
-            + NIST_SOURCES
-            + "<li>The unit identifiers are internal, and are to be localized for display to users. See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example. "
             + "<li>Each Source Unit is converted to the Target Unit by multiplying it by the Factor and adding the Offset (if any).</li>"
+            + "<li>The unit identifiers are internal, and are to be localized for display to users. See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example. "
             + "<li>" + RATIONAL_MSG + "</li>"
-            + "<li>The systems indicate which systems the units are used in.</li>"
-            + "<li>The LDML spec should be consulted for more details, such as how to handle complex units (such as foot-per-square-minute) by converting the elements.</li>"
+            + "<li>The Systems column indicates which systems the units are used in. For now, they just show the two ‘inch-pound’ systems.</li>"
+            + "<li>" + QUANTITY_MSG + "</li>"
+            + "<li>" + SPEC_GENERAL_MSG + ".</li>"
             + "</ul>"
             + dataScrapeMessage("common/supplemental/units.xml", "common/testData/units/unitsTest.txt", "/tr35-general.html#Contents");
     }
@@ -59,16 +58,19 @@ public class ChartUnitConversions extends Chart {
 
 
         TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Quantity", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .addColumn("Quantity", "class='target'", null, "class='target'", true)
+            .setHidden(true)
             .setRepeatHeader(true)
-            .addColumn("Source Unit", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
             .setBreakSpans(true)
-            .addColumn("Factor", "class='target'", null, "class='source'", true)
+            .addColumn("Source Unit", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .addColumn("Factor", "class='target'", null, "class='target'", true)
             .setCellAttributes("class='target' style='text-align:right'")
-            .addColumn("Offset", "class='target'", null, "class='source'", true)
+            .addColumn("Offset", "class='target'", null, "class='target'", true)
             .setCellAttributes("class='target' style='text-align:right'")
-            .addColumn("Target", "class='source'", null, "class='source'", true)
-           .addColumn("Systems", "class='target'", null, "class='target'", true);
+            .addColumn("Target", "class='target'", null, "class='target'", true)
+            .addColumn("Systems", "class='target'", null, "class='target'", true)
+            .addColumn("Quantity", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
+            ;
 
         UnitConverter converter = SDI.getUnitConverter();
         converter.getSourceToSystems();
@@ -84,6 +86,7 @@ public class ChartUnitConversions extends Chart {
             .addCell(targetInfo.unitInfo.offset.equals(Rational.ZERO) ? "" : targetInfo.unitInfo.offset.toString(FormatStyle.html))
             .addCell(targetInfo.target)
             .addCell(Joiner.on(", ").join(converter.getSourceToSystems().get(sourceUnit)))
+            .addCell(quantity)
             .finishRow();
 
         }

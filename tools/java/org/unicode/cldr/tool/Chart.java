@@ -19,17 +19,26 @@ public abstract class Chart {
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     public static final CLDRFile ENGLISH = CONFIG.getEnglish();
     public static final String LS = System.lineSeparator();
-    
+
     private static final String GITHUB_ROOT = "https://github.com/unicode-org/cldr/blob/master/";
     private static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
-    public String dataScrapeMessage(String dataFile, String testFile, String specPart) {
+    public static String dataScrapeMessage(String dataFile, String testFile, String specPart) {
         return "<p>"
             + "<b>Warning:</b> Do not scrape this chart for production data.\n"
-            + "Instead, consult the <a href='" + LDML_SPEC + specPart + "' target='units.xml'>LDML specification</a> for the meaning of the fields and data.\n"
-        + "and access <a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile  + "'>" + dataFile + "</a> for machine-readable source data,\n"
-            + " and <a href='" + GITHUB_ROOT + testFile + "' target='" + testFile  + "'>" + testFile + "</a> for test data."
-                + "</p>";
+            + "Instead, consult the " + ldmlSpecLink(specPart)  + " for the meaning of the fields and data, "
+            + "and access " + dataFileLink(dataFile)
+            + " for machine-readable source data, and "  + dataFileLink(testFile) + " for test data."
+            + "</p>"
+            + "\n";
+    }
+    
+    private static String dataFileLink(String dataFile) {
+        return "<a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile  + "'>" + dataFile + "</a>";
+    }
+
+    public static String ldmlSpecLink(String specPart) {
+        return "<a href='" + LDML_SPEC + specPart + "' target='units.xml'>LDML specification</a>";
     }
 
     /**

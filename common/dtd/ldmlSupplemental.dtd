@@ -131,7 +131,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST subgroup subtype NMTOKEN #IMPLIED >
     <!--@DEPRECATED-->
 <!ATTLIST subgroup contains NMTOKENS #IMPLIED >
-	<!--@MATCH:set/validity/subdivision-->
+	<!--@MATCH:set/or/validity/subdivision||literal/itca, itnu, itor, itsd, itss, no01, no02, no03, no04, no05, no06, no07, no08, no09, no10, no11, no12, no14, no15, no18, no19, no20, no21, no22, no50-->
     <!--@VALUE-->
 
 <!ELEMENT languageData ( language* ) >
@@ -377,9 +377,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT unitPreferences ( unitPreference* ) >
 <!ATTLIST unitPreferences category NMTOKEN #REQUIRED >
-	<!--@MATCH:literal/area, concentr, consumption, duration, energy, length, mass, pressure, speed, temperature, volume-->
+	<!--@MATCH:regex/[a-z]+([-][a-z]+)*-->
 <!ATTLIST unitPreferences usage NMTOKENS #REQUIRED >
-	<!--@MATCH:literal/baromtrc, blood-glucose, food, land-agricult, land-commercl, land-residntl, music-track, person, person-age, person-usage, rainfall, road, road-travel, snowfall, tv-program, vehicle, vehicle-fuel, visiblty, weather, wind-->
+	<!--@MATCH:regex/[a-z]+([-][a-z]+)*-->
 <!ATTLIST unitPreferences scope (small) #IMPLIED >
 
 <!ELEMENT unitPreference ( #PCDATA ) >
@@ -404,10 +404,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT unitConstant EMPTY >
 <!ATTLIST unitConstant constant NMTOKEN #REQUIRED >
-	<!--@MATCH:regex/[A-Za-z][A-Za-z0-9]*-->
+	<!--@MATCH:regex/[A-Za-z][_A-Za-z0-9]*-->
 <!ATTLIST unitConstant value CDATA #REQUIRED >
     <!--@VALUE-->
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
 <!ATTLIST unitConstant status NMTOKEN #IMPLIED >
     <!--@VALUE-->
     <!--@MATCH:literal/approximate, exact-->
@@ -416,11 +416,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT unitQuantities ( unitQuantity* ) >
 
 <!ELEMENT unitQuantity EMPTY >
-<!ATTLIST unitQuantity baseUnit CDATA #REQUIRED >
-    <!--@MATCH:any-->
-<!ATTLIST unitQuantity quantity NMTOKEN #REQUIRED >
+<!ATTLIST unitQuantity baseUnit NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[A-Za-z][-A-Za-z0-9]*-->
+<!ATTLIST unitQuantity quantity NMTOKENS #REQUIRED >
     <!--@VALUE-->
-	<!--@MATCH:regex/[A-Za-z][A-Za-z0-9]*-->
+	<!--@MATCH:regex/[A-Za-z][-A-Za-z0-9]*-->
 <!ATTLIST unitQuantity status NMTOKEN #IMPLIED >
     <!--@VALUE-->
 	<!--@MATCH:regex/simple-->
@@ -429,19 +429,19 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT convertUnit EMPTY >
 <!ATTLIST convertUnit source NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/unit-->
+    <!--@MATCH:regex/[A-Za-z0-9][-A-Za-z0-9]*-->
 <!ATTLIST convertUnit baseUnit NMTOKEN #REQUIRED >
     <!--@VALUE-->
-    <!--@MATCH:validity/unit-->
+    <!--@MATCH:regex/[A-Za-z][-A-Za-z0-9]*-->
 <!ATTLIST convertUnit factor CDATA #IMPLIED >
-	<!--@MATCH:regex/[0-9]+([/\.][0-9]+)?-->
+	<!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
     <!--@VALUE-->
 <!ATTLIST convertUnit offset CDATA #IMPLIED >
-	<!--@MATCH:regex/[0-9]+([/\.][0-9]+)?-->
+	<!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
     <!--@VALUE-->
 <!ATTLIST convertUnit systems NMTOKENS #IMPLIED >
     <!--@VALUE-->
-	<!--@MATCH:literal/US UK -->
+	<!--@MATCH:set/literal/ussystem, uksystem-->
 
 
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
@@ -651,9 +651,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languageAlias EMPTY >
 <!ATTLIST languageAlias type NMTOKEN #REQUIRED >
-	<!--@MATCH:or/validity/locale||literal/aa_SAAHO, aar, abk, afr, aka, alb, amh, ara, arg, arm, art_lojban, asm, ava, ave, aym, aze, bak, bam, baq, bel, ben, bih, bis, bod, bos, bre, bul, bur, cat, ces, cha, che, chi, chu, chv, cor, cos, cre, cym, cze, dan, deu, div, dut, dzo, ell, eng, epo, est, eus, ewe, fao, fas, fij, fin, fra, fre, fry, ful, geo, ger, gla, gle, glg, glv, gre, grn, guj, hat, hau, hbs, heb, her, hin, hmo, hrv, hun, hye, i_ami, i_bnn, i_hak, i_klingon, i_lux, i_navajo, i_pwn, i_tao, i_tay, i_tsu, ibo, ice, ido, iii, iku, ile, ina, ind, ipk, isl, ita, jav, jpn, kal, kan, kas, kat, kau, kaz, khm, kik, kin, kir, kom, kon, kor, kua, kur, lao, lat, lav, lim, lin, lit, ltz, lub, lug, mac, mah, mal, mao, mar, may, mkd, mlg, mlt, mol, mon, mri, msa, mya, nau, nav, nbl, nde, ndo, nep, nld, nno, no_BOKMAL, no_NYNORSK, no_bok, no_nyn, nob, nor, nya, oci, oji, ori, orm, oss, pan, per, pli, pol, por, pus, que, roh, ron, rum, run, rus, sag, san, scc, scr, sgn_BE_FR, sgn_BE_NL, sgn_CH_DE, sin, slk, slo, slv, sme, smo, sna, snd, som, sot, spa, sqi, srd, srp, ssw, sun, swa, swe, tah, tam, tat, tel, tgk, tgl, tha, tib, tir, ton, tsn, tso, tuk, tur, twi, uig, ukr, urd, uzb, ven, vie, vol, wel, wln, wol, xho, yid, yor, zh_guoyu, zh_hakka, zh_min_nan, zh_xiang, zha, zho, zul-->
+	<!--@MATCH:or/validity/locale||literal/aa_SAAHO, aar, abk, afr, aka, alb, amh, ara, arg, arm, art_lojban, asm, ava, ave, aym, aze, bak, bam, baq, bel, ben, bih, bis, bod, bos, bre, bul, bur, cat, ces, cha, che, chi, chu, chv, cor, cos, cre, cym, cze, dan, deu, div, dut, dzo, ell, eng, epo, est, eus, ewe, fao, fas, fij, fin, fra, fre, fry, ful, geo, ger, gla, gle, glg, glv, gre, grn, guj, hat, hau, hbs, heb, her, hin, hmo, hrv, hun, hye, i_ami, i_bnn, i_hak, i_klingon, i_lux, i_navajo, i_pwn, i_tao, i_tay, i_tsu, ibo, ice, ido, iii, iku, ile, ina, ind, ipk, isl, ita, jav, jpn, kal, kan, kas, kat, kau, kaz, khm, kik, kin, kir, kom, kon, kor, kua, kur, lao, lat, lav, lim, lin, lit, ltz, lub, lug, mac, mah, mal, mao, mar, may, mkd, mlg, mlt, mol, mon, mri, msa, mya, nau, nav, nbl, nde, ndo, nep, nld, nno, no_BOKMAL, no_NYNORSK, no_bok, no_nyn, nob, nor, nya, oci, oji, ori, orm, oss, pan, per, pli, pol, por, pus, que, roh, ron, rum, run, rus, sag, san, scc, scr, sgn_BE_FR, sgn_BE_NL, sgn_CH_DE, sin, slk, slo, slv, sme, smo, sna, snd, som, sot, spa, sqi, srd, srp, ssw, sun, swa, swe, tah, tam, tat, tel, tgk, tgl, tha, tib, tir, ton, tsn, tso, tuk, tur, twi, uig, ukr, urd, uzb, ven, vie, vol, wel, wln, wol, xho, yid, yor, zh_guoyu, zh_hakka, zh_min_nan, zh_xiang, zha, zho, zul, cel-gaulish, i-default, i-enochian, i-mingo, zh-min-->
 <!ATTLIST languageAlias replacement NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/locale-->
+	<!--@MATCH:or/validity/locale||literal/en-x-i-default, nan-x-zh-min, see-x-i-mingo, und-x-i-enochian, xtg-x-cel-gaulish-->
     <!--@VALUE-->
 <!ATTLIST languageAlias reason (deprecated | overlong | macrolanguage | legacy | bibliographic) #IMPLIED >
     <!--@VALUE-->
@@ -680,7 +680,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST subdivisionAlias type NMTOKEN #REQUIRED >
 	<!--@MATCH:validity/subdivision-->
 <!ATTLIST subdivisionAlias replacement NMTOKENS #REQUIRED >
-	<!--@MATCH:set/or/validity/region||validity/subdivision-->
+	<!--@MATCH:set/or/validity/region||validity/subdivision||literal/cnmn, cz663, no50-->
     <!--@VALUE-->
 <!ATTLIST subdivisionAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
@@ -689,7 +689,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST variantAlias type NMTOKEN #REQUIRED >
 	<!--@MATCH:or/validity/variant||literal/AALAND, POLYTONI-->
 <!ATTLIST variantAlias replacement NMTOKEN #REQUIRED >
-	<!--@MATCH:or/validity/variant||validity/region-->
+	<!--@MATCH:or/validity/variant||validity/region||literal/hy, hyw-->
     <!--@VALUE-->
 <!ATTLIST variantAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
@@ -705,18 +705,18 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     
 <!ELEMENT unitAlias EMPTY >
 <!ATTLIST unitAlias type NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/unit-->
+	<!--@MATCH:regex/[A-Za-z][-A-Za-z0-9]*-->
 <!ATTLIST unitAlias replacement NMTOKEN #REQUIRED >
-	<!--@MATCH:validity/unit-->
+	<!--@MATCH:regex/[A-Za-z][-A-Za-z0-9]*-->
     <!--@VALUE-->
 <!ATTLIST unitAlias reason (deprecated) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT usageAlias EMPTY >
 <!ATTLIST usageAlias type NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/unit-->
+    <!--@MATCH:regex/[A-Za-z][-A-Za-z0-9]*-->
 <!ATTLIST usageAlias replacement NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/unit-->
+    <!--@MATCH:regex/[A-Za-z][-A-Za-z0-9]*-->
     <!--@VALUE-->
 <!ATTLIST usageAlias reason (deprecated) #IMPLIED >
     <!--@VALUE-->

@@ -294,25 +294,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public ValueStatus getValueStatus(String value) {
-            return deprecatedValues.contains(value) 
-                ? ValueStatus.invalid
-                    : type == AttributeType.ENUMERATED_TYPE 
-                    ? (values.containsKey(value) 
-                        ? ValueStatus.valid 
-                            : ValueStatus.invalid)
-                        : matchValue == null 
-                        ? ValueStatus.unknown :
-                            matchValue.is(value) 
-                            ? ValueStatus.valid 
-                                : ValueStatus.invalid;
+            return deprecatedValues.contains(value) ? ValueStatus.invalid 
+                : type == AttributeType.ENUMERATED_TYPE  ? (values.containsKey(value) ? ValueStatus.valid  : ValueStatus.invalid)
+                    : matchValue == null ? ValueStatus.unknown
+                        : matchValue.is(value) ? ValueStatus.valid 
+                            : ValueStatus.invalid;
         }
 
         public String getMatchString() {
-            return type == AttributeType.ENUMERATED_TYPE 
-                ? "⟨" + CollectionUtilities.join(values.keySet(), ", ") + "⟩" 
-                    : matchValue != null 
-                    ? "⟪" + matchValue.toString() + "⟫"
-                        : "";
+            return type == AttributeType.ENUMERATED_TYPE ? "⟨" + CollectionUtilities.join(values.keySet(), ", ") + "⟩" 
+                : matchValue != null ? "⟪" + matchValue.toString() + "⟫"
+                    : "";
         }
 
         public Attribute getMatchingName(Map<Attribute, Integer> attributes) {
@@ -659,7 +651,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public static DtdData getInstance(DtdType type) {
         return getInstance(type, CLDRConfig.getInstance().getCldrBaseDirectory());
     }
-    
+
     /**
      * Special form using version, used only by tests, etc.
      */
@@ -684,7 +676,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         DtdData data = CACHE.computeIfAbsent(key, k -> getInstance(type, null, directory));
         return data;
     }
- 
+
     private static DtdData getInstance(DtdType type, String version, File directory) {
         DtdData simpleHandler = new DtdData(type, version);
         XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);

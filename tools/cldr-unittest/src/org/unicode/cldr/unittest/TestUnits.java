@@ -970,7 +970,7 @@ public class TestUnits extends TestFmwk {
         "g-force", "dalton", "calorie", "earth-radius", 
         "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass", 
         "solar-mass", "bit", "byte", "karat", "solar-luminosity", "millimeter-of-mercury", "atmosphere", 
-        "pixel", "dot", "part-per-million", "permyriad", "permille", "percent", "karat", "portion",
+        "pixel", "dot", "permillion", "permyriad", "permille", "percent", "karat", "portion",
         "minute", "hour", "day", "day-person", "week", "week-person",
         "year", "year-person", "decade", "month", "month-person", "century",
         "arc-second", "arc-minute", "degree", "radian", "revolution",

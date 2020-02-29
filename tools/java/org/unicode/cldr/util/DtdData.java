@@ -1244,7 +1244,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "area-dunam",
         "concentr-karat",
         "concentr-milligram-per-deciliter", "concentr-millimole-per-liter",
-        "concentr-part-per-million", "concentr-percent", "concentr-permille", "concentr-permyriad",
+        "concentr-permillion", "concentr-percent", "concentr-permille", "concentr-permyriad",
         "concentr-mole",
         "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
         "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",

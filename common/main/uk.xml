@@ -8125,7 +8125,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} сил тяжіння</unitPattern>
 				<unitPattern count="other">{0} сили тяжіння</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>метри на секунду в квадраті</displayName>
 				<unitPattern count="one">{0} метр на секунду в квадраті</unitPattern>
 				<unitPattern count="few">{0} метри на секунду в квадраті</unitPattern>
@@ -8263,7 +8263,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} мілімолів на літр</unitPattern>
 				<unitPattern count="other">{0} мілімоля на літр</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>мільйонні долі</displayName>
 				<unitPattern count="one">{0} мільйонна доля</unitPattern>
 				<unitPattern count="few">{0} мільйонні долі</unitPattern>
@@ -8305,7 +8305,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} літрів на кілометр</unitPattern>
 				<unitPattern count="other">{0} літра на кілометр</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>літри на 100 кілометрів</displayName>
 				<unitPattern count="one">{0} літр на 100 кілометрів</unitPattern>
 				<unitPattern count="few">{0} літри на 100 кілометрів</unitPattern>
@@ -8972,21 +8972,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} кінських сил</unitPattern>
 				<unitPattern count="other">{0} кінської сили</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>міліметри ртутного стовпа</displayName>
 				<unitPattern count="one">{0} міліметр ртутного стовпа</unitPattern>
 				<unitPattern count="few">{0} міліметри ртутного стовпа</unitPattern>
 				<unitPattern count="many">{0} міліметрів ртутного стовпа</unitPattern>
 				<unitPattern count="other">{0} міліметра ртутного стовпа</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>фунти на квадратний дюйм</displayName>
 				<unitPattern count="one">{0} фунт на квадратний дюйм</unitPattern>
 				<unitPattern count="few">{0} фунти на квадратний дюйм</unitPattern>
 				<unitPattern count="many">{0} фунтів на квадратний дюйм</unitPattern>
 				<unitPattern count="other">{0} фунта на квадратний дюйм</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>дюйми ртутного стовпа</displayName>
 				<unitPattern count="one">{0} дюйм ртутного стовпа</unitPattern>
 				<unitPattern count="few">{0} дюйми ртутного стовпа</unitPattern>
@@ -9098,7 +9098,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} кельвінів</unitPattern>
 				<unitPattern count="other">{0} кельвіна</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>фунт-фути</displayName>
 				<unitPattern count="one">{0} фунт-фут</unitPattern>
 				<unitPattern count="few">{0} фунт-фути</unitPattern>
@@ -9402,7 +9402,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>метри/с²</displayName>
 				<unitPattern count="one">{0} м/с²</unitPattern>
 				<unitPattern count="few">{0} м/с²</unitPattern>
@@ -9540,7 +9540,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} ммоль/л</unitPattern>
 				<unitPattern count="other">{0} ммоль/л</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>мільйонні долі</displayName>
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="few">{0} ppm</unitPattern>
@@ -9582,7 +9582,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} л/км</unitPattern>
 				<unitPattern count="other">{0} л/км</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>л/100 км</displayName>
 				<unitPattern count="one">{0} л/100 км</unitPattern>
 				<unitPattern count="few">{0} л/100 км</unitPattern>
@@ -10242,21 +10242,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} к. с.</unitPattern>
 				<unitPattern count="other">{0} к. с.</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>мм рт. ст.</displayName>
 				<unitPattern count="one">{0} мм рт. ст.</unitPattern>
 				<unitPattern count="few">{0} мм рт. ст.</unitPattern>
 				<unitPattern count="many">{0} мм рт. ст.</unitPattern>
 				<unitPattern count="other">{0} мм рт. ст.</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>фунт/дюйм²</displayName>
 				<unitPattern count="one">{0} фунт/дюйм²</unitPattern>
 				<unitPattern count="few">{0} фунти/дюйм²</unitPattern>
 				<unitPattern count="many">{0} фунтів/дюйм²</unitPattern>
 				<unitPattern count="other">{0} фунта/дюйм²</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>дюйми рт. ст.</displayName>
 				<unitPattern count="one">{0} дюйм рт. ст.</unitPattern>
 				<unitPattern count="few">{0} дюйми рт. ст.</unitPattern>
@@ -10368,7 +10368,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} К</unitPattern>
 				<unitPattern count="other">{0} К</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>фунт-фут</displayName>
 				<unitPattern count="one">{0} фнт-фт</unitPattern>
 				<unitPattern count="few">{0} фнт-фт</unitPattern>
@@ -10672,7 +10672,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="contributed">м/с²</displayName>
 				<unitPattern count="one" draft="contributed">{0}м/с²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}м/с²</unitPattern>
@@ -10761,7 +10761,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0}моль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}моль</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>л/100 км</displayName>
 				<unitPattern count="one">{0} л/100 км</unitPattern>
 				<unitPattern count="few">{0} л/100 км</unitPattern>
@@ -11107,14 +11107,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} к.с.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} к.с.</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName draft="contributed">ммрс</displayName>
 				<unitPattern count="one" draft="contributed">{0}ммрс</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}ммрс</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}ммрс</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ммрс</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<unitPattern count="one" draft="contributed">{0}psi</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}psi</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}psi</unitPattern>
@@ -11188,7 +11188,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="contributed">{0} К</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} К</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">{0}фн-фт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}фн-фт</unitPattern>

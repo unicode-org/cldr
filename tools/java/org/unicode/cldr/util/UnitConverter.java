@@ -422,9 +422,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public ConversionInfo parseUnitId (String derivedUnit, Output<String> metricUnit, boolean showYourWork) {
         metricUnit.value = null;
 
-        if (derivedUnit.equals("liter-per-100kilometers")) {
-            int debug = 0;
-        }
         UnitId outputUnit = new UnitId();
         Rational numerator = Rational.ONE;
         Rational denominator = Rational.ONE;
@@ -718,7 +715,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         .build();
 
     static final Set<String> SKIP_PREFIX = ImmutableSet.of(
-        "millimeter-of-mercury", 
+        "millimeter-ofhg", 
         "kilogram"
         );
 

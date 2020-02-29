@@ -6660,7 +6660,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} गुरुत्व–बल</unitPattern>
 				<unitPattern count="other">{0} गुरुत्व–बल</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>मीटर/से²</displayName>
 				<unitPattern count="one">{0} मीटर प्रति सेकंड वर्ग</unitPattern>
 				<unitPattern count="other">{0} मीटर प्रति सेकंड वर्ग</unitPattern>
@@ -6760,7 +6760,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} मिलीमोल प्रति लीटर</unitPattern>
 				<unitPattern count="other">{0} मिलीमोल प्रति लीटर</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>ppm</displayName>
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} हिस्सा प्रति दस लाख</unitPattern>
@@ -6790,7 +6790,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} लीटर प्रति किलोमीटर</unitPattern>
 				<unitPattern count="other">{0} लीटर प्रति किलोमीटर</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>लीटर प्रति 100 किलोमीटर</displayName>
 				<unitPattern count="one">{0} लीटर प्रति 100 किलोमीटर</unitPattern>
 				<unitPattern count="other">{0} लीटर प्रति 100 किलोमीटर</unitPattern>
@@ -7266,17 +7266,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} अश्वशक्ति</unitPattern>
 				<unitPattern count="other">{0} अश्वशक्ति</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>मर्क्यूरी मिलीमीटर</displayName>
 				<unitPattern count="one">{0} मर्क्यूरी मिलीमीटर</unitPattern>
 				<unitPattern count="other">{0} मर्क्यूरी मिलीमीटर</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>पाउंड प्रति वर्ग इंच</displayName>
 				<unitPattern count="one">{0} पाउंड प्रति वर्ग इंच</unitPattern>
 				<unitPattern count="other">{0} पाउंड प्रति वर्ग इंच</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>मर्करी इंच</displayName>
 				<unitPattern count="one">{0} मर्करी इंच</unitPattern>
 				<unitPattern count="other">{0} मर्करी इंच</unitPattern>
@@ -7356,7 +7356,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} केल्विन</unitPattern>
 				<unitPattern count="other">{0} केल्विन</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>पाउंड-फ़ुट</displayName>
 				<unitPattern count="one">{0} पाउंड-फ़ुट</unitPattern>
 				<unitPattern count="other">{0} पाउंड-फ़ुट</unitPattern>
@@ -7591,7 +7591,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>मीटर/से²</displayName>
 				<unitPattern count="one">{0} मी॰/व॰से॰</unitPattern>
 				<unitPattern count="other">{0} मी॰/व॰से॰</unitPattern>
@@ -7691,7 +7691,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} मिलीमोल/ली॰</unitPattern>
 				<unitPattern count="other">{0} मिलीमोल/ली॰</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>ppm</displayName>
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
@@ -7721,7 +7721,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ली/किमी</unitPattern>
 				<unitPattern count="other">{0} ली/किमी</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>ली॰/100 कि॰मी॰</displayName>
 				<unitPattern count="one">{0} ली॰/100 कि॰मी॰</unitPattern>
 				<unitPattern count="other">{0} ली॰/100 कि॰मी॰</unitPattern>
@@ -8197,17 +8197,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>mm Hg</displayName>
 				<unitPattern count="one">{0} mm Hg</unitPattern>
 				<unitPattern count="other">{0} mm Hg</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>inHg</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
@@ -8287,7 +8287,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8563,7 +8563,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}%</unitPattern>
 				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>ली॰/100 कि॰मी॰</displayName>
 				<unitPattern count="one">{0}ली/100कि</unitPattern>
 				<unitPattern count="other">{0}ली/100कि</unitPattern>
@@ -8682,7 +8682,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}एचपी</unitPattern>
 				<unitPattern count="other">{0}एचपी</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<unitPattern count="one">{0}&quot; Hg</unitPattern>
 				<unitPattern count="other">{0}&quot; Hg</unitPattern>
 			</unit>

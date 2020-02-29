@@ -4631,7 +4631,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">{0} g-force</unitPattern>
 				<unitPattern count="other">{0} g-force</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>mga metro kada second squared</displayName>
 				<unitPattern count="one">{0} ka metro kada second squared</unitPattern>
 				<unitPattern count="other">{0} ka mga metro kada second squared</unitPattern>
@@ -4731,7 +4731,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">{0} ka millimole kada litro</unitPattern>
 				<unitPattern count="other">{0} ka mga millimole kada litro</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>mga part per million</displayName>
 				<unitPattern count="one">{0} ka part per million</unitPattern>
 				<unitPattern count="other">{0} ka mga part per million</unitPattern>
@@ -4761,7 +4761,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">{0} litro kada kilometro</unitPattern>
 				<unitPattern count="other">{0} ka mga litro kada kilometro</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>mga litro kada 100 kilometro</displayName>
 				<unitPattern count="one">{0} ka litro kada 100 kilometro</unitPattern>
 				<unitPattern count="other">{0} ka litro kada 100 kilometro</unitPattern>
@@ -5237,17 +5237,17 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">{0} ka horsepower</unitPattern>
 				<unitPattern count="other">{0} ka horsepower</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>mga millimetro sa mercury</displayName>
 				<unitPattern count="one">{0} ka millimetro sa mercury</unitPattern>
 				<unitPattern count="other">{0} ka mga millimetro sa mercury</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>mga pound kada kuwadradong pulgada</displayName>
 				<unitPattern count="one">{0} ka pound kada kuwadradong pulgada</unitPattern>
 				<unitPattern count="other">{0} ka mga pound kada kuwadradong pulgada</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>mga pulgada sa mercury</displayName>
 				<unitPattern count="one">{0} ka pulgada sa mercury</unitPattern>
 				<unitPattern count="other">{0} ka mga pulgada sa mercury</unitPattern>
@@ -5327,10 +5327,10 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">{0} ka kelvin</unitPattern>
 				<unitPattern count="other">{0} ka mga kelvin</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
-				<displayName>mga pound-foot</displayName>
-				<unitPattern count="one">{0} ka pound-foot</unitPattern>
-				<unitPattern count="other">{0} ka mga pound-foot</unitPattern>
+			<unit type="torque-pound-force-foot">
+				<displayName>mga pound-force-foot</displayName>
+				<unitPattern count="one">{0} ka pound-force-foot</unitPattern>
+				<unitPattern count="other">{0} ka mga pound-force-foot</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>mga newton-meter</displayName>
@@ -5562,7 +5562,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>mga metro/sec²</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -5662,7 +5662,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>mga part/million</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -5692,7 +5692,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>L/100 km</displayName>
 				<unitPattern count="one">{0} L/100 km</unitPattern>
 				<unitPattern count="other">{0} L/100 km</unitPattern>
@@ -6168,17 +6168,17 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>mmHg</displayName>
 				<unitPattern count="one">{0} mmHg</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -6258,7 +6258,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -6493,7 +6493,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>L/100km</displayName>
 				<unitPattern count="one">{0}L/100km</unitPattern>
 				<unitPattern count="other">{0}L/100km</unitPattern>

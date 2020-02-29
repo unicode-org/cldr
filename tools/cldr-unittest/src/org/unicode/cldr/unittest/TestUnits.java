@@ -770,7 +770,7 @@ public class TestUnits extends TestFmwk {
     }
 
     static final UnicodeSet ALLOWED_IN_COMPONENT = new UnicodeSet("[a-z0-9]").freeze();
-    static final Set<String> GRANDFATHERED_SIMPLES = ImmutableSet.of("em", "g-force", "inch-hg", "liter-per-100-kilometer", "millimeter-of-mercury", "therm-us");
+    static final Set<String> GRANDFATHERED_SIMPLES = ImmutableSet.of("em", "g-force", "therm-us");
 
     public void TestOrder() {
         if (SHOW_DATA) System.out.println();
@@ -852,7 +852,7 @@ public class TestUnits extends TestFmwk {
     static final Pattern ukSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_imp_to_m3)\\b");
 
     static final Set<String> OK_BOTH = ImmutableSet.of(
-        "ounce-troy", "nautical-mile", "fahrenheit", "inch-hg", 
+        "ounce-troy", "nautical-mile", "fahrenheit", "inch-ofhg", 
         "british-thermal-unit", "foodcalorie", "knot");
 
     static final Set<String> OK_US = ImmutableSet.of(
@@ -974,7 +974,7 @@ public class TestUnits extends TestFmwk {
     static Set<String> OTHER_SYSTEM = ImmutableSet.of(
         "g-force", "dalton", "calorie", "earth-radius", 
         "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass", 
-        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "millimeter-of-mercury", "atmosphere", 
+        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "millimeter-ofhg", "atmosphere", 
         "pixel", "dot", "part-per-million", "permyriad", "permille", "percent", "karat", "portion",
         "minute", "hour", "day", "day-person", "week", "week-person",
         "year", "year-person", "decade", "month", "month-person", "century",

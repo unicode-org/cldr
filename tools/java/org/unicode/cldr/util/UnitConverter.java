@@ -718,7 +718,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         .build();
 
     static final Set<String> SKIP_PREFIX = ImmutableSet.of(
-        "millimeter-of-mercury", 
+        "millimeter-ofhg", 
         "kilogram"
         );
 

@@ -916,6 +916,9 @@ public class TestUnits extends TestFmwk {
             } catch (Exception e1) {
                 throw new IllegalArgumentException("Couldn't access fields on " + line);
             }
+            if (unitInfo == null) {
+                throw new IllegalArgumentException("Couldn't get unitInfo on " + line);
+            }
             double expected;
             try {
                 expected = Double.parseDouble(fields.get(4).replace(",", ""));

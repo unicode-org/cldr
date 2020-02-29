@@ -99,6 +99,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         CDATA, ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, NMTOKENS, ENUMERATED_TYPE
     }
 
+    static final Set<String> DRAFT_ON_NON_LEAF_ALLOWED = ImmutableSet.of("collation", "transform", "unitPreferenceData");
+    
     public static class Attribute implements Named {
         public final String name;
         public final Element element;
@@ -119,8 +121,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             element = element2;
             name = aName.intern();
             if (name.equals("draft") // normally never permitted on elements with children, but special cases...
-                && !element.getName().equals("collation")
-                && !element.getName().equals("transform")) {
+                && !DRAFT_ON_NON_LEAF_ALLOWED.contains(element.getName())) {
                 int elementChildrenCount = element.getChildren().size();
                 if (elementChildrenCount > 1
                     || elementChildrenCount == 1 && !element.getChildren().keySet().iterator().next().getName().equals("cp")) {

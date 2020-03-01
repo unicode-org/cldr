@@ -374,6 +374,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@MATCH:literal/variant-->
 
 <!ELEMENT unitPreferenceData ( unitPreferences* ) >
+<!ATTLIST unitPreferenceData draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT unitPreferences ( unitPreference* ) >
 <!ATTLIST unitPreferences category NMTOKEN #REQUIRED >
@@ -381,6 +383,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST unitPreferences usage NMTOKENS #REQUIRED >
 	<!--@MATCH:regex/[a-z]+([-][a-z]+)*-->
 <!ATTLIST unitPreferences scope (small) #IMPLIED >
+    <!--@DEPRECATED-->
+<!ATTLIST unitPreferences draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT unitPreference ( #PCDATA ) >
     <!--@ORDERED-->

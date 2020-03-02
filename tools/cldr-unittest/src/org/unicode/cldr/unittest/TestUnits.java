@@ -681,7 +681,7 @@ public class TestUnits extends TestFmwk {
                     break;
                 case "light":
                     switch (quantity) {
-                    case "luminous-flux": case "power": continue;
+                    case "luminous-flux": case "power": case "luminous-intensity": continue;
                     }
                     break;
                 case "mass":
@@ -692,6 +692,11 @@ public class TestUnits extends TestFmwk {
                 case "torque":
                     switch (quantity) {
                     case "energy": continue;
+                    }
+                    break;
+                case "pressure":
+                    switch (quantity) {
+                    case "pressure-per-length": continue;
                     }
                     break;
                 }
@@ -1261,7 +1266,7 @@ public class TestUnits extends TestFmwk {
     }
 
     public void TestUnitPreferences() {
-        System.out.println("\n\t\t If this fails, check the output of TestUnitPreferencesSource, fix as needed, then incorporate");
+        System.out.println("\n\t\t If this fails, turn on -DTestUnits:SHOW_DATA, check the output of TestUnitPreferencesSource, fix as needed, then incorporate");
         UnitPreferences prefs = SDI.getUnitPreferences();
         checkUnitPreferences(prefs);
 //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);

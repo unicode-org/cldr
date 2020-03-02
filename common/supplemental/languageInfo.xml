@@ -258,7 +258,10 @@
 			<languageMatch desired="mfe"	supported="en"	distance="30"	oneway="true"/>	<!-- Morisyen: mfe ⇒ en -->
 			<languageMatch desired="mg"	supported="fr"	distance="30"	oneway="true"/>	<!-- Malagasy: mg ⇒ fr -->
 			<languageMatch desired="mi"	supported="en"	distance="20"	oneway="true"/>	<!-- Maori: mi ⇒ en -->
-			<languageMatch desired="mk"	supported="bg"	distance="30"	oneway="true"/>	<!-- Macedonian: mk ⇒ bg -->
+
+			<!-- CLDR-13625: Macedonian should not fall back to Bulgarian -->
+			<!-- languageMatch desired="mk"	supported="bg"	distance="30"	oneway="true"/-->	<!-- Macedonian: mk ⇒ bg -->
+
 			<languageMatch desired="ml"	supported="en"	distance="30"	oneway="true"/>	<!-- Malayalam: ml ⇒ en -->
 			<languageMatch desired="mn"	supported="ru"	distance="30"	oneway="true"/>	<!-- Mongolian: mn ⇒ ru -->
 			<languageMatch desired="mr"	supported="hi"	distance="30"	oneway="true"/>	<!-- Marathi: mr ⇒ hi -->

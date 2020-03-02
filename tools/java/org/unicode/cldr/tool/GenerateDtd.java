@@ -1,13 +1,12 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Locale;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.TempPrintWriter;
 
 import com.ibm.icu.text.CaseMap;
 
@@ -29,7 +28,7 @@ public class GenerateDtd {
                     name = name.substring(0, name.length() - 4);
                 }
             }
-            try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dtd/", name + ".dtd")) {
+            try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(CLDRPaths.BASE_DIRECTORY + type.dtdPath)) {
                 out.println(data);
             }
         }

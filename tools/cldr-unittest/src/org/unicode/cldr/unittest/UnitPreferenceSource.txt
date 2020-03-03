@@ -20,8 +20,8 @@ mass-density; blood-glucose; 001; ; ; milligram-per-deciliter
 concentration; default; 001; ; ; item-per-cubic-meter
 concentration; blood-glucose; AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA; ; ; millimole-per-liter
 
-consumption; default; 001; ; ; liter-per-100kilometers
-consumption; vehicle-fuel; 001; ; ; liter-per-100kilometers
+consumption; default; 001; ; ; liter-per-100-kilometer
+consumption; vehicle-fuel; 001; ; ; liter-per-100-kilometer
 consumption; vehicle-fuel; BR IT JP KR MX MY NL TH TR; ; ; liter-per-kilometer
 
 consumption-inverse; default; 001; ; ; kilometer-per-centiliter
@@ -123,9 +123,9 @@ pressure; default; 001; ; ; megapascal
 pressure; baromtrc; 001; ; ; hectopascal
 pressure; default; 001; ; ; pascal
 pressure; default; US GB; ; ; pound-force-per-square-inch
-pressure; baromtrc; IN US; ; ; inch-hg
+pressure; baromtrc; IN US; ; ; inch-ofhg
 pressure; baromtrc; BR EG GB IL TH; ; ; millibar
-pressure; baromtrc; MX RU; ; ; millimeter-of-mercury
+pressure; baromtrc; MX RU; ; ; millimeter-ofhg
 
 speed; default; 001; ; ; kilometer-per-hour
 speed; default; GB US; ; ; mile-per-hour

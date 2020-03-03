@@ -176,19 +176,19 @@ public class CheckWidths extends CheckCLDR {
         + "|mass-ounce"
         + "|mass-pound"
         + "|power-horsepower"
-        + "|pressure-inch-hg"
-        + "|pressure-millimeter-of-mercury"
+        + "|pressure-inch-ofhg"
+        + "|pressure-millimeter-ofhg"
         + "|speed-mile-per-hour"
         + "|temperature-fahrenheit"
         + "|volume-cubic-mile"
         + "|acceleration-g-force"
         + "|speed-kilometer-per-hour"
         + "|speed-meter-per-second"
-        + "|pressure-pound-per-square-inch"
+        + "|pressure-pound-force-per-square-inch"
         + "|energy-therm-us"
         + ")";
 
-    static final String ALLOW_LONGEST = "consumption-liter-per-100kilometers";
+    static final String ALLOW_LONGEST = "consumption-liter-per-100-kilometer";
 
     static RegexLookup<Limit[]> lookup = new RegexLookup<Limit[]>()
         .setPatternTransform(RegexLookup.RegexFinderTransformPath)

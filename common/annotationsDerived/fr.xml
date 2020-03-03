@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="fr"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">argumentation | bout des doigts joints | doigts | geste | main | parler avec les mains | peau claire</annotation>
+		<annotation cp="🤌🏻" type="tts">bout des doigts joints : peau claire</annotation>
+		<annotation cp="🤌🏼">argumentation | bout des doigts joints | doigts | geste | main | parler avec les mains | peau moyennement claire</annotation>
+		<annotation cp="🤌🏼" type="tts">bout des doigts joints : peau moyennement claire</annotation>
+		<annotation cp="🤌🏽">argumentation | bout des doigts joints | doigts | geste | main | parler avec les mains | peau légèrement mate</annotation>
+		<annotation cp="🤌🏽" type="tts">bout des doigts joints : peau légèrement mate</annotation>
+		<annotation cp="🤌🏾">argumentation | bout des doigts joints | doigts | geste | main | parler avec les mains | peau mate</annotation>
+		<annotation cp="🤌🏾" type="tts">bout des doigts joints : peau mate</annotation>
+		<annotation cp="🤌🏿">argumentation | bout des doigts joints | doigts | geste | main | parler avec les mains | peau foncée</annotation>
+		<annotation cp="🤌🏿" type="tts">bout des doigts joints : peau foncée</annotation>
 		<annotation cp="👋🏻">coucou | main | peau claire | signe de la main</annotation>
 		<annotation cp="👋🏻" type="tts">signe de la main : peau claire</annotation>
 		<annotation cp="👋🏼">coucou | main | peau moyennement claire | signe de la main</annotation>
@@ -72,15 +82,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👌🏾" type="tts">ok : peau mate</annotation>
 		<annotation cp="👌🏿">geste | main | ok | peau foncée</annotation>
 		<annotation cp="👌🏿" type="tts">ok : peau foncée</annotation>
-		<annotation cp="🤏🏻">peau claire | petite quantité | petite somme | peu | un peu</annotation>
+		<annotation cp="🤏🏻">peau claire | petite quantité | petite somme | peu | pouce et index rapprochés | un peu</annotation>
 		<annotation cp="🤏🏻" type="tts">pouce et index rapprochés : peau claire</annotation>
-		<annotation cp="🤏🏼">peau moyennement claire | petite quantité | petite somme | peu | un peu</annotation>
+		<annotation cp="🤏🏼">peau moyennement claire | petite quantité | petite somme | peu | pouce et index rapprochés | un peu</annotation>
 		<annotation cp="🤏🏼" type="tts">pouce et index rapprochés : peau moyennement claire</annotation>
-		<annotation cp="🤏🏽">peau légèrement mate | petite quantité | petite somme | peu | un peu</annotation>
+		<annotation cp="🤏🏽">peau légèrement mate | petite quantité | petite somme | peu | pouce et index rapprochés | un peu</annotation>
 		<annotation cp="🤏🏽" type="tts">pouce et index rapprochés : peau légèrement mate</annotation>
-		<annotation cp="🤏🏾">peau mate | petite quantité | petite somme | peu | un peu</annotation>
+		<annotation cp="🤏🏾">peau mate | petite quantité | petite somme | peu | pouce et index rapprochés | un peu</annotation>
 		<annotation cp="🤏🏾" type="tts">pouce et index rapprochés : peau mate</annotation>
-		<annotation cp="🤏🏿">peau foncée | petite quantité | petite somme | peu | un peu</annotation>
+		<annotation cp="🤏🏿">peau foncée | petite quantité | petite somme | peu | pouce et index rapprochés | un peu</annotation>
 		<annotation cp="🤏🏿" type="tts">pouce et index rapprochés : peau foncée</annotation>
 		<annotation cp="✌🏻">ciseaux | main | peau claire | V de la victoire | victoire</annotation>
 		<annotation cp="✌🏻" type="tts">V de la victoire : peau claire</annotation>
@@ -342,25 +352,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💪🏾" type="tts">biceps contracté : peau mate</annotation>
 		<annotation cp="💪🏿">biceps | contracté | corps | muscle | peau foncée</annotation>
 		<annotation cp="💪🏿" type="tts">biceps contracté : peau foncée</annotation>
-		<annotation cp="🦵🏻">coup de pied | membre | peau claire</annotation>
+		<annotation cp="🦵🏻">coup de pied | jambe | membre | peau claire</annotation>
 		<annotation cp="🦵🏻" type="tts">jambe : peau claire</annotation>
-		<annotation cp="🦵🏼">coup de pied | membre | peau moyennement claire</annotation>
+		<annotation cp="🦵🏼">coup de pied | jambe | membre | peau moyennement claire</annotation>
 		<annotation cp="🦵🏼" type="tts">jambe : peau moyennement claire</annotation>
-		<annotation cp="🦵🏽">coup de pied | membre | peau légèrement mate</annotation>
+		<annotation cp="🦵🏽">coup de pied | jambe | membre | peau légèrement mate</annotation>
 		<annotation cp="🦵🏽" type="tts">jambe : peau légèrement mate</annotation>
-		<annotation cp="🦵🏾">coup de pied | membre | peau mate</annotation>
+		<annotation cp="🦵🏾">coup de pied | jambe | membre | peau mate</annotation>
 		<annotation cp="🦵🏾" type="tts">jambe : peau mate</annotation>
-		<annotation cp="🦵🏿">coup de pied | membre | peau foncée</annotation>
+		<annotation cp="🦵🏿">coup de pied | jambe | membre | peau foncée</annotation>
 		<annotation cp="🦵🏿" type="tts">jambe : peau foncée</annotation>
-		<annotation cp="🦶🏻">coup de pied | pas lourd | peau claire</annotation>
+		<annotation cp="🦶🏻">coup de pied | pas lourd | peau claire | pied</annotation>
 		<annotation cp="🦶🏻" type="tts">pied : peau claire</annotation>
-		<annotation cp="🦶🏼">coup de pied | pas lourd | peau moyennement claire</annotation>
+		<annotation cp="🦶🏼">coup de pied | pas lourd | peau moyennement claire | pied</annotation>
 		<annotation cp="🦶🏼" type="tts">pied : peau moyennement claire</annotation>
-		<annotation cp="🦶🏽">coup de pied | pas lourd | peau légèrement mate</annotation>
+		<annotation cp="🦶🏽">coup de pied | pas lourd | peau légèrement mate | pied</annotation>
 		<annotation cp="🦶🏽" type="tts">pied : peau légèrement mate</annotation>
-		<annotation cp="🦶🏾">coup de pied | pas lourd | peau mate</annotation>
+		<annotation cp="🦶🏾">coup de pied | pas lourd | peau mate | pied</annotation>
 		<annotation cp="🦶🏾" type="tts">pied : peau mate</annotation>
-		<annotation cp="🦶🏿">coup de pied | pas lourd | peau foncée</annotation>
+		<annotation cp="🦶🏿">coup de pied | pas lourd | peau foncée | pied</annotation>
 		<annotation cp="🦶🏿" type="tts">pied : peau foncée</annotation>
 		<annotation cp="👂🏻">corps | oreille | peau claire</annotation>
 		<annotation cp="👂🏻" type="tts">oreille : peau claire</annotation>
@@ -372,15 +382,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👂🏾" type="tts">oreille : peau mate</annotation>
 		<annotation cp="👂🏿">corps | oreille | peau foncée</annotation>
 		<annotation cp="👂🏿" type="tts">oreille : peau foncée</annotation>
-		<annotation cp="🦻🏻">accessibilité | malentendant | peau claire | prothèse auditive</annotation>
+		<annotation cp="🦻🏻">accessibilité | malentendant | oreille appareillée | peau claire | prothèse auditive</annotation>
 		<annotation cp="🦻🏻" type="tts">oreille appareillée : peau claire</annotation>
-		<annotation cp="🦻🏼">accessibilité | malentendant | peau moyennement claire | prothèse auditive</annotation>
+		<annotation cp="🦻🏼">accessibilité | malentendant | oreille appareillée | peau moyennement claire | prothèse auditive</annotation>
 		<annotation cp="🦻🏼" type="tts">oreille appareillée : peau moyennement claire</annotation>
-		<annotation cp="🦻🏽">accessibilité | malentendant | peau légèrement mate | prothèse auditive</annotation>
+		<annotation cp="🦻🏽">accessibilité | malentendant | oreille appareillée | peau légèrement mate | prothèse auditive</annotation>
 		<annotation cp="🦻🏽" type="tts">oreille appareillée : peau légèrement mate</annotation>
-		<annotation cp="🦻🏾">accessibilité | malentendant | peau mate | prothèse auditive</annotation>
+		<annotation cp="🦻🏾">accessibilité | malentendant | oreille appareillée | peau mate | prothèse auditive</annotation>
 		<annotation cp="🦻🏾" type="tts">oreille appareillée : peau mate</annotation>
-		<annotation cp="🦻🏿">accessibilité | malentendant | peau foncée | prothèse auditive</annotation>
+		<annotation cp="🦻🏿">accessibilité | malentendant | oreille appareillée | peau foncée | prothèse auditive</annotation>
 		<annotation cp="🦻🏿" type="tts">oreille appareillée : peau foncée</annotation>
 		<annotation cp="👃🏻">corps | nez | peau claire</annotation>
 		<annotation cp="👃🏻" type="tts">nez : peau claire</annotation>
@@ -442,15 +452,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾" type="tts">adulte : peau mate</annotation>
 		<annotation cp="🧑🏿">adulte | genre neutre | peau foncée</annotation>
 		<annotation cp="🧑🏿" type="tts">adulte : peau foncée</annotation>
-		<annotation cp="👱🏻">blond | cheveux | peau claire</annotation>
+		<annotation cp="👱🏻">blond | cheveux | peau claire | personne blonde</annotation>
 		<annotation cp="👱🏻" type="tts">personne blonde : peau claire</annotation>
-		<annotation cp="👱🏼">blond | cheveux | peau moyennement claire</annotation>
+		<annotation cp="👱🏼">blond | cheveux | peau moyennement claire | personne blonde</annotation>
 		<annotation cp="👱🏼" type="tts">personne blonde : peau moyennement claire</annotation>
-		<annotation cp="👱🏽">blond | cheveux | peau légèrement mate</annotation>
+		<annotation cp="👱🏽">blond | cheveux | peau légèrement mate | personne blonde</annotation>
 		<annotation cp="👱🏽" type="tts">personne blonde : peau légèrement mate</annotation>
-		<annotation cp="👱🏾">blond | cheveux | peau mate</annotation>
+		<annotation cp="👱🏾">blond | cheveux | peau mate | personne blonde</annotation>
 		<annotation cp="👱🏾" type="tts">personne blonde : peau mate</annotation>
-		<annotation cp="👱🏿">blond | cheveux | peau foncée</annotation>
+		<annotation cp="👱🏿">blond | cheveux | peau foncée | personne blonde</annotation>
 		<annotation cp="👱🏿" type="tts">personne blonde : peau foncée</annotation>
 		<annotation cp="🧑‍🦰">adulte | cheveux roux | genre neutre</annotation>
 		<annotation cp="🧑‍🦰" type="tts">adulte : cheveux roux</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">adulte : peau mate et chauve</annotation>
 		<annotation cp="🧑🏿‍🦲">adulte | chauve | genre neutre | peau foncée</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">adulte : peau foncée et chauve</annotation>
+		<annotation cp="🧑🏻‍🍼">allaitement | bébé | biberon | peau claire | personne | personne allaitant un bébé</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">personne allaitant un bébé : peau claire</annotation>
+		<annotation cp="🧑🏼‍🍼">allaitement | bébé | biberon | peau moyennement claire | personne | personne allaitant un bébé</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">personne allaitant un bébé : peau moyennement claire</annotation>
+		<annotation cp="🧑🏽‍🍼">allaitement | bébé | biberon | peau légèrement mate | personne | personne allaitant un bébé</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">personne allaitant un bébé : peau légèrement mate</annotation>
+		<annotation cp="🧑🏾‍🍼">allaitement | bébé | biberon | peau mate | personne | personne allaitant un bébé</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">personne allaitant un bébé : peau mate</annotation>
+		<annotation cp="🧑🏿‍🍼">allaitement | bébé | biberon | peau foncée | personne | personne allaitant un bébé</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">personne allaitant un bébé : peau foncée</annotation>
+		<annotation cp="🧑🏻‍🎄">peau claire | santa | Santa, noël</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">santa : peau claire</annotation>
+		<annotation cp="🧑🏼‍🎄">peau moyennement claire | santa | Santa, noël</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">santa : peau moyennement claire</annotation>
+		<annotation cp="🧑🏽‍🎄">peau légèrement mate | santa | Santa, noël</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">santa : peau légèrement mate</annotation>
+		<annotation cp="🧑🏾‍🎄">peau mate | santa | Santa, noël</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">santa : peau mate</annotation>
+		<annotation cp="🧑🏿‍🎄">peau foncée | santa | Santa, noël</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">santa : peau foncée</annotation>
 		<annotation cp="👨🏻">homme | peau claire</annotation>
 		<annotation cp="👨🏻" type="tts">homme : peau claire</annotation>
 		<annotation cp="👨🏼">homme | peau moyennement claire</annotation>
@@ -510,25 +540,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">homme : peau mate</annotation>
 		<annotation cp="👨🏿">homme | peau foncée</annotation>
 		<annotation cp="👨🏿" type="tts">homme : peau foncée</annotation>
-		<annotation cp="🧔🏻">barbe | peau claire | personne barbue</annotation>
+		<annotation cp="🧔🏻">barbe | homme barbu | peau claire | personne barbue</annotation>
 		<annotation cp="🧔🏻" type="tts">homme barbu : peau claire</annotation>
-		<annotation cp="🧔🏼">barbe | peau moyennement claire | personne barbue</annotation>
+		<annotation cp="🧔🏼">barbe | homme barbu | peau moyennement claire | personne barbue</annotation>
 		<annotation cp="🧔🏼" type="tts">homme barbu : peau moyennement claire</annotation>
-		<annotation cp="🧔🏽">barbe | peau légèrement mate | personne barbue</annotation>
+		<annotation cp="🧔🏽">barbe | homme barbu | peau légèrement mate | personne barbue</annotation>
 		<annotation cp="🧔🏽" type="tts">homme barbu : peau légèrement mate</annotation>
-		<annotation cp="🧔🏾">barbe | peau mate | personne barbue</annotation>
+		<annotation cp="🧔🏾">barbe | homme barbu | peau mate | personne barbue</annotation>
 		<annotation cp="🧔🏾" type="tts">homme barbu : peau mate</annotation>
-		<annotation cp="🧔🏿">barbe | peau foncée | personne barbue</annotation>
+		<annotation cp="🧔🏿">barbe | homme barbu | peau foncée | personne barbue</annotation>
 		<annotation cp="🧔🏿" type="tts">homme barbu : peau foncée</annotation>
-		<annotation cp="👱🏻‍♂">blond | cheveux | peau claire</annotation>
+		<annotation cp="👱🏻‍♂">blond | cheveux | homme blond | peau claire</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">homme blond : peau claire</annotation>
-		<annotation cp="👱🏼‍♂">blond | cheveux | peau moyennement claire</annotation>
+		<annotation cp="👱🏼‍♂">blond | cheveux | homme blond | peau moyennement claire</annotation>
 		<annotation cp="👱🏼‍♂" type="tts">homme blond : peau moyennement claire</annotation>
-		<annotation cp="👱🏽‍♂">blond | cheveux | peau légèrement mate</annotation>
+		<annotation cp="👱🏽‍♂">blond | cheveux | homme blond | peau légèrement mate</annotation>
 		<annotation cp="👱🏽‍♂" type="tts">homme blond : peau légèrement mate</annotation>
-		<annotation cp="👱🏾‍♂">blond | cheveux | peau mate</annotation>
+		<annotation cp="👱🏾‍♂">blond | cheveux | homme blond | peau mate</annotation>
 		<annotation cp="👱🏾‍♂" type="tts">homme blond : peau mate</annotation>
-		<annotation cp="👱🏿‍♂">blond | cheveux | peau foncée</annotation>
+		<annotation cp="👱🏿‍♂">blond | cheveux | homme blond | peau foncée</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">homme blond : peau foncée</annotation>
 		<annotation cp="👨‍🦰">cheveux roux | homme</annotation>
 		<annotation cp="👨‍🦰" type="tts">homme : cheveux roux</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">homme : peau mate et chauve</annotation>
 		<annotation cp="👨🏿‍🦲">chauve | homme | peau foncée</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">homme : peau foncée et chauve</annotation>
+		<annotation cp="👨🏻‍🍼">allaitement | bébé | biberon | homme | homme allaitant un bébé | peau claire</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">homme allaitant un bébé : peau claire</annotation>
+		<annotation cp="👨🏼‍🍼">allaitement | bébé | biberon | homme | homme allaitant un bébé | peau moyennement claire</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">homme allaitant un bébé : peau moyennement claire</annotation>
+		<annotation cp="👨🏽‍🍼">allaitement | bébé | biberon | homme | homme allaitant un bébé | peau légèrement mate</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">homme allaitant un bébé : peau légèrement mate</annotation>
+		<annotation cp="👨🏾‍🍼">allaitement | bébé | biberon | homme | homme allaitant un bébé | peau mate</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">homme allaitant un bébé : peau mate</annotation>
+		<annotation cp="👨🏿‍🍼">allaitement | bébé | biberon | homme | homme allaitant un bébé | peau foncée</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">homme allaitant un bébé : peau foncée</annotation>
 		<annotation cp="👩🏻">femme | peau claire</annotation>
 		<annotation cp="👩🏻" type="tts">femme : peau claire</annotation>
 		<annotation cp="👩🏼">femme | peau moyennement claire</annotation>
@@ -588,15 +628,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">femme : peau mate</annotation>
 		<annotation cp="👩🏿">femme | peau foncée</annotation>
 		<annotation cp="👩🏿" type="tts">femme : peau foncée</annotation>
-		<annotation cp="👱🏻‍♀">blonde | cheveux | peau claire</annotation>
+		<annotation cp="👱🏻‍♀">blonde | cheveux | femme blonde | peau claire</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">femme blonde : peau claire</annotation>
-		<annotation cp="👱🏼‍♀">blonde | cheveux | peau moyennement claire</annotation>
+		<annotation cp="👱🏼‍♀">blonde | cheveux | femme blonde | peau moyennement claire</annotation>
 		<annotation cp="👱🏼‍♀" type="tts">femme blonde : peau moyennement claire</annotation>
-		<annotation cp="👱🏽‍♀">blonde | cheveux | peau légèrement mate</annotation>
+		<annotation cp="👱🏽‍♀">blonde | cheveux | femme blonde | peau légèrement mate</annotation>
 		<annotation cp="👱🏽‍♀" type="tts">femme blonde : peau légèrement mate</annotation>
-		<annotation cp="👱🏾‍♀">blonde | cheveux | peau mate</annotation>
+		<annotation cp="👱🏾‍♀">blonde | cheveux | femme blonde | peau mate</annotation>
 		<annotation cp="👱🏾‍♀" type="tts">femme blonde : peau mate</annotation>
-		<annotation cp="👱🏿‍♀">blonde | cheveux | peau foncée</annotation>
+		<annotation cp="👱🏿‍♀">blonde | cheveux | femme blonde | peau foncée</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">femme blonde : peau foncée</annotation>
 		<annotation cp="👩‍🦰">cheveux roux | femme</annotation>
 		<annotation cp="👩‍🦰" type="tts">femme : cheveux roux</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">femme : peau mate et chauve</annotation>
 		<annotation cp="👩🏿‍🦲">chauve | femme | peau foncée</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">femme : peau foncée et chauve</annotation>
+		<annotation cp="👩🏻‍🍼">allaitement | bébé | biberon | femme | femme allaitant un bébé | peau claire</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">femme allaitant un bébé : peau claire</annotation>
+		<annotation cp="👩🏼‍🍼">allaitement | bébé | biberon | femme | femme allaitant un bébé | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">femme allaitant un bébé : peau moyennement claire</annotation>
+		<annotation cp="👩🏽‍🍼">allaitement | bébé | biberon | femme | femme allaitant un bébé | peau légèrement mate</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">femme allaitant un bébé : peau légèrement mate</annotation>
+		<annotation cp="👩🏾‍🍼">allaitement | bébé | biberon | femme | femme allaitant un bébé | peau mate</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">femme allaitant un bébé : peau mate</annotation>
+		<annotation cp="👩🏿‍🍼">allaitement | bébé | biberon | femme | femme allaitant un bébé | peau foncée</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">femme allaitant un bébé : peau foncée</annotation>
 		<annotation cp="🧓🏻">adulte | âgé | genre neutre | peau claire | personne âgée</annotation>
 		<annotation cp="🧓🏻" type="tts">personne âgée : peau claire</annotation>
 		<annotation cp="🧓🏼">adulte | âgé | genre neutre | peau moyennement claire | personne âgée</annotation>
@@ -856,35 +906,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋🏾‍♀" type="tts">femme qui lève la main : peau mate</annotation>
 		<annotation cp="🙋🏿‍♀">femme | femme qui lève la main | geste | main levée | peau foncée</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">femme qui lève la main : peau foncée</annotation>
-		<annotation cp="🧏🏻">accessibilité | entendre | malentendant | oreille | peau claire | sourd</annotation>
+		<annotation cp="🧏🏻">accessibilité | entendre | malentendant | oreille | peau claire | personne sourde | sourd</annotation>
 		<annotation cp="🧏🏻" type="tts">personne sourde : peau claire</annotation>
-		<annotation cp="🧏🏼">accessibilité | entendre | malentendant | oreille | peau moyennement claire | sourd</annotation>
+		<annotation cp="🧏🏼">accessibilité | entendre | malentendant | oreille | peau moyennement claire | personne sourde | sourd</annotation>
 		<annotation cp="🧏🏼" type="tts">personne sourde : peau moyennement claire</annotation>
-		<annotation cp="🧏🏽">accessibilité | entendre | malentendant | oreille | peau légèrement mate | sourd</annotation>
+		<annotation cp="🧏🏽">accessibilité | entendre | malentendant | oreille | peau légèrement mate | personne sourde | sourd</annotation>
 		<annotation cp="🧏🏽" type="tts">personne sourde : peau légèrement mate</annotation>
-		<annotation cp="🧏🏾">accessibilité | entendre | malentendant | oreille | peau mate | sourd</annotation>
+		<annotation cp="🧏🏾">accessibilité | entendre | malentendant | oreille | peau mate | personne sourde | sourd</annotation>
 		<annotation cp="🧏🏾" type="tts">personne sourde : peau mate</annotation>
-		<annotation cp="🧏🏿">accessibilité | entendre | malentendant | oreille | peau foncée | sourd</annotation>
+		<annotation cp="🧏🏿">accessibilité | entendre | malentendant | oreille | peau foncée | personne sourde | sourd</annotation>
 		<annotation cp="🧏🏿" type="tts">personne sourde : peau foncée</annotation>
-		<annotation cp="🧏🏻‍♂">accessibilité | entendre | malentendant | oreille | peau claire | sourd</annotation>
+		<annotation cp="🧏🏻‍♂">accessibilité | entendre | homme sourd | malentendant | oreille | peau claire | sourd</annotation>
 		<annotation cp="🧏🏻‍♂" type="tts">homme sourd : peau claire</annotation>
-		<annotation cp="🧏🏼‍♂">accessibilité | entendre | malentendant | oreille | peau moyennement claire | sourd</annotation>
+		<annotation cp="🧏🏼‍♂">accessibilité | entendre | homme sourd | malentendant | oreille | peau moyennement claire | sourd</annotation>
 		<annotation cp="🧏🏼‍♂" type="tts">homme sourd : peau moyennement claire</annotation>
-		<annotation cp="🧏🏽‍♂">accessibilité | entendre | malentendant | oreille | peau légèrement mate | sourd</annotation>
+		<annotation cp="🧏🏽‍♂">accessibilité | entendre | homme sourd | malentendant | oreille | peau légèrement mate | sourd</annotation>
 		<annotation cp="🧏🏽‍♂" type="tts">homme sourd : peau légèrement mate</annotation>
-		<annotation cp="🧏🏾‍♂">accessibilité | entendre | malentendant | oreille | peau mate | sourd</annotation>
+		<annotation cp="🧏🏾‍♂">accessibilité | entendre | homme sourd | malentendant | oreille | peau mate | sourd</annotation>
 		<annotation cp="🧏🏾‍♂" type="tts">homme sourd : peau mate</annotation>
-		<annotation cp="🧏🏿‍♂">accessibilité | entendre | malentendant | oreille | peau foncée | sourd</annotation>
+		<annotation cp="🧏🏿‍♂">accessibilité | entendre | homme sourd | malentendant | oreille | peau foncée | sourd</annotation>
 		<annotation cp="🧏🏿‍♂" type="tts">homme sourd : peau foncée</annotation>
-		<annotation cp="🧏🏻‍♀">accessibilité | entendre | malentendant | oreille | peau claire | sourd</annotation>
+		<annotation cp="🧏🏻‍♀">accessibilité | entendre | femme sourde | malentendant | oreille | peau claire | sourd</annotation>
 		<annotation cp="🧏🏻‍♀" type="tts">femme sourde : peau claire</annotation>
-		<annotation cp="🧏🏼‍♀">accessibilité | entendre | malentendant | oreille | peau moyennement claire | sourd</annotation>
+		<annotation cp="🧏🏼‍♀">accessibilité | entendre | femme sourde | malentendant | oreille | peau moyennement claire | sourd</annotation>
 		<annotation cp="🧏🏼‍♀" type="tts">femme sourde : peau moyennement claire</annotation>
-		<annotation cp="🧏🏽‍♀">accessibilité | entendre | malentendant | oreille | peau légèrement mate | sourd</annotation>
+		<annotation cp="🧏🏽‍♀">accessibilité | entendre | femme sourde | malentendant | oreille | peau légèrement mate | sourd</annotation>
 		<annotation cp="🧏🏽‍♀" type="tts">femme sourde : peau légèrement mate</annotation>
-		<annotation cp="🧏🏾‍♀">accessibilité | entendre | malentendant | oreille | peau mate | sourd</annotation>
+		<annotation cp="🧏🏾‍♀">accessibilité | entendre | femme sourde | malentendant | oreille | peau mate | sourd</annotation>
 		<annotation cp="🧏🏾‍♀" type="tts">femme sourde : peau mate</annotation>
-		<annotation cp="🧏🏿‍♀">accessibilité | entendre | malentendant | oreille | peau foncée | sourd</annotation>
+		<annotation cp="🧏🏿‍♀">accessibilité | entendre | femme sourde | malentendant | oreille | peau foncée | sourd</annotation>
 		<annotation cp="🧏🏿‍♀" type="tts">femme sourde : peau foncée</annotation>
 		<annotation cp="🙇🏻">désolé | geste | incliné | peau claire | personne qui s’incline</annotation>
 		<annotation cp="🙇🏻" type="tts">personne qui s’incline : peau claire</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">femme qui hausse les épaules : peau mate</annotation>
 		<annotation cp="🤷🏿‍♀">femme | femme qui hausse les épaules | haussement | ignorance | indifférence | peau foncée</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">femme qui hausse les épaules : peau foncée</annotation>
-		<annotation cp="🧑🏻‍⚕">docteur | infirmier | médecin | peau claire | santé | thérapeute</annotation>
+		<annotation cp="🧑🏻‍⚕">docteur | infirmier | médecin | peau claire | professionnel de la santé (tous genres) | santé | thérapeute</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">professionnel de la santé (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍⚕">docteur | infirmier | médecin | peau moyennement claire | santé | thérapeute</annotation>
+		<annotation cp="🧑🏼‍⚕">docteur | infirmier | médecin | peau moyennement claire | professionnel de la santé (tous genres) | santé | thérapeute</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">professionnel de la santé (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍⚕">docteur | infirmier | médecin | peau légèrement mate | santé | thérapeute</annotation>
+		<annotation cp="🧑🏽‍⚕">docteur | infirmier | médecin | peau légèrement mate | professionnel de la santé (tous genres) | santé | thérapeute</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">professionnel de la santé (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍⚕">docteur | infirmier | médecin | peau mate | santé | thérapeute</annotation>
+		<annotation cp="🧑🏾‍⚕">docteur | infirmier | médecin | peau mate | professionnel de la santé (tous genres) | santé | thérapeute</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">professionnel de la santé (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍⚕">docteur | infirmier | médecin | peau foncée | santé | thérapeute</annotation>
+		<annotation cp="🧑🏿‍⚕">docteur | infirmier | médecin | peau foncée | professionnel de la santé (tous genres) | santé | thérapeute</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">professionnel de la santé (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍⚕">docteur | homme | infirmier | peau claire | professionnel de la santé | santé</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">professionnel de la santé : peau claire</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">professionnelle de la santé : peau mate</annotation>
 		<annotation cp="👩🏿‍⚕">docteur | femme | infirmière | peau foncée | professionnelle de la santé | santé</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">professionnelle de la santé : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🎓">diplôme | étudiant | étudiante | peau claire</annotation>
+		<annotation cp="🧑🏻‍🎓">diplôme | étudiant | étudiant (tous genres) | étudiante | peau claire</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">étudiant (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍🎓">diplôme | étudiant | étudiante | peau moyennement claire</annotation>
+		<annotation cp="🧑🏼‍🎓">diplôme | étudiant | étudiant (tous genres) | étudiante | peau moyennement claire</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">étudiant (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🎓">diplôme | étudiant | étudiante | peau légèrement mate</annotation>
+		<annotation cp="🧑🏽‍🎓">diplôme | étudiant | étudiant (tous genres) | étudiante | peau légèrement mate</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">étudiant (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🎓">diplôme | étudiant | étudiante | peau mate</annotation>
+		<annotation cp="🧑🏾‍🎓">diplôme | étudiant | étudiant (tous genres) | étudiante | peau mate</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">étudiant (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍🎓">diplôme | étudiant | étudiante | peau foncée</annotation>
+		<annotation cp="🧑🏿‍🎓">diplôme | étudiant | étudiant (tous genres) | étudiante | peau foncée</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">étudiant (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍🎓">diplômé | étudiant | homme | peau claire</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">étudiant : peau claire</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">étudiante : peau mate</annotation>
 		<annotation cp="👩🏿‍🎓">diplômée | étudiante | femme | peau foncée</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">étudiante : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🏫">enseignant | enseignante | formateur | formatrice | peau claire | professeur</annotation>
+		<annotation cp="🧑🏻‍🏫">enseignant | enseignante | formateur | formatrice | peau claire | personnel enseignant | professeur</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">personnel enseignant : peau claire</annotation>
-		<annotation cp="🧑🏼‍🏫">enseignant | enseignante | formateur | formatrice | peau moyennement claire | professeur</annotation>
+		<annotation cp="🧑🏼‍🏫">enseignant | enseignante | formateur | formatrice | peau moyennement claire | personnel enseignant | professeur</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">personnel enseignant : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🏫">enseignant | enseignante | formateur | formatrice | peau légèrement mate | professeur</annotation>
+		<annotation cp="🧑🏽‍🏫">enseignant | enseignante | formateur | formatrice | peau légèrement mate | personnel enseignant | professeur</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">personnel enseignant : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🏫">enseignant | enseignante | formateur | formatrice | peau mate | professeur</annotation>
+		<annotation cp="🧑🏾‍🏫">enseignant | enseignante | formateur | formatrice | peau mate | personnel enseignant | professeur</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">personnel enseignant : peau mate</annotation>
-		<annotation cp="🧑🏿‍🏫">enseignant | enseignante | formateur | formatrice | peau foncée | professeur</annotation>
+		<annotation cp="🧑🏿‍🏫">enseignant | enseignante | formateur | formatrice | peau foncée | personnel enseignant | professeur</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">personnel enseignant : peau foncée</annotation>
 		<annotation cp="👨🏻‍🏫">enseignant | homme | instituteur | instructeur | peau claire | professeur</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">enseignant : peau claire</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">juge femme : peau mate</annotation>
 		<annotation cp="👩🏿‍⚖">balance | femme | juge | peau foncée</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">juge femme : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🌾">fermier | fermière | jardinier | jardinière | peau claire</annotation>
+		<annotation cp="🧑🏻‍🌾">fermier | fermier (tous genres) | fermière | jardinier | jardinière | peau claire</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">fermier (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍🌾">fermier | fermière | jardinier | jardinière | peau moyennement claire</annotation>
+		<annotation cp="🧑🏼‍🌾">fermier | fermier (tous genres) | fermière | jardinier | jardinière | peau moyennement claire</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">fermier (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🌾">fermier | fermière | jardinier | jardinière | peau légèrement mate</annotation>
+		<annotation cp="🧑🏽‍🌾">fermier | fermier (tous genres) | fermière | jardinier | jardinière | peau légèrement mate</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">fermier (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🌾">fermier | fermière | jardinier | jardinière | peau mate</annotation>
+		<annotation cp="🧑🏾‍🌾">fermier | fermier (tous genres) | fermière | jardinier | jardinière | peau mate</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">fermier (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍🌾">fermier | fermière | jardinier | jardinière | peau foncée</annotation>
+		<annotation cp="🧑🏿‍🌾">fermier | fermier (tous genres) | fermière | jardinier | jardinière | peau foncée</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">fermier (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍🌾">agriculteur | fermier | homme | jardinier | peau claire</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">fermier : peau claire</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">fermière : peau mate</annotation>
 		<annotation cp="👩🏿‍🌾">agricultrice | femme | fermière | jardinière | peau foncée</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">fermière : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🍳">chef | cuisinier | cuisinière | peau claire</annotation>
+		<annotation cp="🧑🏻‍🍳">chef | cuisinier | cuisinier (tous genres) | cuisinière | peau claire</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">cuisinier (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍🍳">chef | cuisinier | cuisinière | peau moyennement claire</annotation>
+		<annotation cp="🧑🏼‍🍳">chef | cuisinier | cuisinier (tous genres) | cuisinière | peau moyennement claire</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">cuisinier (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🍳">chef | cuisinier | cuisinière | peau légèrement mate</annotation>
+		<annotation cp="🧑🏽‍🍳">chef | cuisinier | cuisinier (tous genres) | cuisinière | peau légèrement mate</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">cuisinier (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🍳">chef | cuisinier | cuisinière | peau mate</annotation>
+		<annotation cp="🧑🏾‍🍳">chef | cuisinier | cuisinier (tous genres) | cuisinière | peau mate</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">cuisinier (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍🍳">chef | cuisinier | cuisinière | peau foncée</annotation>
+		<annotation cp="🧑🏿‍🍳">chef | cuisinier | cuisinier (tous genres) | cuisinière | peau foncée</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">cuisinier (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍🍳">chef | cuisinier | homme | peau claire</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">cuisinier : peau claire</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">cuisinière : peau mate</annotation>
 		<annotation cp="👩🏿‍🍳">chef | cuisinière | femme | peau foncée</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">cuisinière : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🔧">artisan | électricien | électricienne | mécanicien | mécanicienne | peau claire | plombier</annotation>
+		<annotation cp="🧑🏻‍🔧">artisan | électricien | électricienne | mécanicien | mécanicien (tous genres) | mécanicienne | peau claire | plombier</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">mécanicien (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍🔧">artisan | électricien | électricienne | mécanicien | mécanicienne | peau moyennement claire | plombier</annotation>
+		<annotation cp="🧑🏼‍🔧">artisan | électricien | électricienne | mécanicien | mécanicien (tous genres) | mécanicienne | peau moyennement claire | plombier</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">mécanicien (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🔧">artisan | électricien | électricienne | mécanicien | mécanicienne | peau légèrement mate | plombier</annotation>
+		<annotation cp="🧑🏽‍🔧">artisan | électricien | électricienne | mécanicien | mécanicien (tous genres) | mécanicienne | peau légèrement mate | plombier</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">mécanicien (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🔧">artisan | électricien | électricienne | mécanicien | mécanicienne | peau mate | plombier</annotation>
+		<annotation cp="🧑🏾‍🔧">artisan | électricien | électricienne | mécanicien | mécanicien (tous genres) | mécanicienne | peau mate | plombier</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">mécanicien (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍🔧">artisan | électricien | électricienne | mécanicien | mécanicienne | peau foncée | plombier</annotation>
+		<annotation cp="🧑🏿‍🔧">artisan | électricien | électricienne | mécanicien | mécanicien (tous genres) | mécanicienne | peau foncée | plombier</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mécanicien (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍🔧">électricien | homme | mécanicien | mécanique | peau claire | plombier</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mécanicien : peau claire</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">mécanicienne : peau mate</annotation>
 		<annotation cp="👩🏿‍🔧">électricienne | femme | mécanicienne | mécanique | peau foncée | plombier</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mécanicienne : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🏭">assemblage | industrie | ouvrier | ouvrière | peau claire | usine</annotation>
+		<annotation cp="🧑🏻‍🏭">assemblage | industrie | ouvrier | ouvrier (tous genres) | ouvrière | peau claire | usine</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">ouvrier (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍🏭">assemblage | industrie | ouvrier | ouvrière | peau moyennement claire | usine</annotation>
+		<annotation cp="🧑🏼‍🏭">assemblage | industrie | ouvrier | ouvrier (tous genres) | ouvrière | peau moyennement claire | usine</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">ouvrier (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🏭">assemblage | industrie | ouvrier | ouvrière | peau légèrement mate | usine</annotation>
+		<annotation cp="🧑🏽‍🏭">assemblage | industrie | ouvrier | ouvrier (tous genres) | ouvrière | peau légèrement mate | usine</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">ouvrier (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🏭">assemblage | industrie | ouvrier | ouvrière | peau mate | usine</annotation>
+		<annotation cp="🧑🏾‍🏭">assemblage | industrie | ouvrier | ouvrier (tous genres) | ouvrière | peau mate | usine</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">ouvrier (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍🏭">assemblage | industrie | ouvrier | ouvrière | peau foncée | usine</annotation>
+		<annotation cp="🧑🏿‍🏭">assemblage | industrie | ouvrier | ouvrier (tous genres) | ouvrière | peau foncée | usine</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">ouvrier (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍🏭">assemblage | industrie | ouvrier | peau claire | usine</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">ouvrier : peau claire</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">ouvrière : peau mate</annotation>
 		<annotation cp="👩🏿‍🏭">assemblage | industrie | ouvrière | peau foncée | usine</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">ouvrière : peau foncée</annotation>
-		<annotation cp="🧑🏻‍💼">affaires | architecte | bureau | employé de bureau | employée de bureau | peau claire</annotation>
+		<annotation cp="🧑🏻‍💼">affaires | architecte | bureau | employé de bureau | employé de bureau (tous genres) | employée de bureau | peau claire</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">employé de bureau (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍💼">affaires | architecte | bureau | employé de bureau | employée de bureau | peau moyennement claire</annotation>
+		<annotation cp="🧑🏼‍💼">affaires | architecte | bureau | employé de bureau | employé de bureau (tous genres) | employée de bureau | peau moyennement claire</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">employé de bureau (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍💼">affaires | architecte | bureau | employé de bureau | employée de bureau | peau légèrement mate</annotation>
+		<annotation cp="🧑🏽‍💼">affaires | architecte | bureau | employé de bureau | employé de bureau (tous genres) | employée de bureau | peau légèrement mate</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">employé de bureau (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍💼">affaires | architecte | bureau | employé de bureau | employée de bureau | peau mate</annotation>
+		<annotation cp="🧑🏾‍💼">affaires | architecte | bureau | employé de bureau | employé de bureau (tous genres) | employée de bureau | peau mate</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">employé de bureau (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍💼">affaires | architecte | bureau | employé de bureau | employée de bureau | peau foncée</annotation>
+		<annotation cp="🧑🏿‍💼">affaires | architecte | bureau | employé de bureau | employé de bureau (tous genres) | employée de bureau | peau foncée</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">employé de bureau (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍💼">affaires | architecte | bureau | employé de bureau | homme | peau claire</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">employé de bureau : peau claire</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">scientifique femme : peau mate</annotation>
 		<annotation cp="👩🏿‍🔬">chimiste | femme | peau foncée | scientifique</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">scientifique femme : peau foncée</annotation>
-		<annotation cp="🧑🏻‍💻">développeur | développeuse | informaticien | informaticienne | logiciels | peau claire | technologie</annotation>
+		<annotation cp="🧑🏻‍💻">développeur | développeuse | informaticien | informaticien (tous genres) | informaticienne | logiciels | peau claire | technologie</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">informaticien (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍💻">développeur | développeuse | informaticien | informaticienne | logiciels | peau moyennement claire | technologie</annotation>
+		<annotation cp="🧑🏼‍💻">développeur | développeuse | informaticien | informaticien (tous genres) | informaticienne | logiciels | peau moyennement claire | technologie</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">informaticien (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍💻">développeur | développeuse | informaticien | informaticienne | logiciels | peau légèrement mate | technologie</annotation>
+		<annotation cp="🧑🏽‍💻">développeur | développeuse | informaticien | informaticien (tous genres) | informaticienne | logiciels | peau légèrement mate | technologie</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">informaticien (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍💻">développeur | développeuse | informaticien | informaticienne | logiciels | peau mate | technologie</annotation>
+		<annotation cp="🧑🏾‍💻">développeur | développeuse | informaticien | informaticien (tous genres) | informaticienne | logiciels | peau mate | technologie</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">informaticien (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍💻">développeur | développeuse | informaticien | informaticienne | logiciels | peau foncée | technologie</annotation>
+		<annotation cp="🧑🏿‍💻">développeur | développeuse | informaticien | informaticien (tous genres) | informaticienne | logiciels | peau foncée | technologie</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">informaticien (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍💻">développeur | homme | informaticien | logiciels | peau claire | technologie</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">informaticien : peau claire</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">informaticienne : peau mate</annotation>
 		<annotation cp="👩🏿‍💻">développeuse | femme | informaticienne | logiciels | peau foncée | technologie</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">informaticienne : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🎤">artiste | chanteur | chanteuse | peau claire | rock | star</annotation>
+		<annotation cp="🧑🏻‍🎤">artiste | chanteur | chanteur (tous genres) | chanteuse | peau claire | rock | star</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">chanteur (tous genres) : peau claire</annotation>
-		<annotation cp="🧑🏼‍🎤">artiste | chanteur | chanteuse | peau moyennement claire | rock | star</annotation>
+		<annotation cp="🧑🏼‍🎤">artiste | chanteur | chanteur (tous genres) | chanteuse | peau moyennement claire | rock | star</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">chanteur (tous genres) : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🎤">artiste | chanteur | chanteuse | peau légèrement mate | rock | star</annotation>
+		<annotation cp="🧑🏽‍🎤">artiste | chanteur | chanteur (tous genres) | chanteuse | peau légèrement mate | rock | star</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">chanteur (tous genres) : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🎤">artiste | chanteur | chanteuse | peau mate | rock | star</annotation>
+		<annotation cp="🧑🏾‍🎤">artiste | chanteur | chanteur (tous genres) | chanteuse | peau mate | rock | star</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">chanteur (tous genres) : peau mate</annotation>
-		<annotation cp="🧑🏿‍🎤">artiste | chanteur | chanteuse | peau foncée | rock | star</annotation>
+		<annotation cp="🧑🏿‍🎤">artiste | chanteur | chanteur (tous genres) | chanteuse | peau foncée | rock | star</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">chanteur (tous genres) : peau foncée</annotation>
 		<annotation cp="👨🏻‍🎤">artiste | chanteur | peau claire | rock | star</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">chanteur : peau claire</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">femme avec foulard : peau mate</annotation>
 		<annotation cp="🧕🏿">femme avec foulard | foulard | hijab | mantilla | peau foncée | tichel</annotation>
 		<annotation cp="🧕🏿" type="tts">femme avec foulard : peau foncée</annotation>
-		<annotation cp="🤵🏻">homme | homme en smoking | peau claire | smoking</annotation>
-		<annotation cp="🤵🏻" type="tts">homme en smoking : peau claire</annotation>
-		<annotation cp="🤵🏼">homme | homme en smoking | peau moyennement claire | smoking</annotation>
-		<annotation cp="🤵🏼" type="tts">homme en smoking : peau moyennement claire</annotation>
-		<annotation cp="🤵🏽">homme | homme en smoking | peau légèrement mate | smoking</annotation>
-		<annotation cp="🤵🏽" type="tts">homme en smoking : peau légèrement mate</annotation>
-		<annotation cp="🤵🏾">homme | homme en smoking | peau mate | smoking</annotation>
-		<annotation cp="🤵🏾" type="tts">homme en smoking : peau mate</annotation>
-		<annotation cp="🤵🏿">homme | homme en smoking | peau foncée | smoking</annotation>
-		<annotation cp="🤵🏿" type="tts">homme en smoking : peau foncée</annotation>
-		<annotation cp="👰🏻">mariage | mariée | mariée avec voile | peau claire | voile</annotation>
-		<annotation cp="👰🏻" type="tts">mariée avec voile : peau claire</annotation>
-		<annotation cp="👰🏼">mariage | mariée | mariée avec voile | peau moyennement claire | voile</annotation>
-		<annotation cp="👰🏼" type="tts">mariée avec voile : peau moyennement claire</annotation>
-		<annotation cp="👰🏽">mariage | mariée | mariée avec voile | peau légèrement mate | voile</annotation>
-		<annotation cp="👰🏽" type="tts">mariée avec voile : peau légèrement mate</annotation>
-		<annotation cp="👰🏾">mariage | mariée | mariée avec voile | peau mate | voile</annotation>
-		<annotation cp="👰🏾" type="tts">mariée avec voile : peau mate</annotation>
-		<annotation cp="👰🏿">mariage | mariée | mariée avec voile | peau foncée | voile</annotation>
-		<annotation cp="👰🏿" type="tts">mariée avec voile : peau foncée</annotation>
+		<annotation cp="🤵🏻">marié | peau claire | personne en smoking | personne mariée | smoking</annotation>
+		<annotation cp="🤵🏻" type="tts">personne en smoking : peau claire</annotation>
+		<annotation cp="🤵🏼">marié | peau moyennement claire | personne en smoking | personne mariée | smoking</annotation>
+		<annotation cp="🤵🏼" type="tts">personne en smoking : peau moyennement claire</annotation>
+		<annotation cp="🤵🏽">marié | peau légèrement mate | personne en smoking | personne mariée | smoking</annotation>
+		<annotation cp="🤵🏽" type="tts">personne en smoking : peau légèrement mate</annotation>
+		<annotation cp="🤵🏾">marié | peau mate | personne en smoking | personne mariée | smoking</annotation>
+		<annotation cp="🤵🏾" type="tts">personne en smoking : peau mate</annotation>
+		<annotation cp="🤵🏿">marié | peau foncée | personne en smoking | personne mariée | smoking</annotation>
+		<annotation cp="🤵🏿" type="tts">personne en smoking : peau foncée</annotation>
+		<annotation cp="🤵🏻‍♀">femme | femme en smoking | peau claire | smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">femme en smoking : peau claire</annotation>
+		<annotation cp="🤵🏼‍♀">femme | femme en smoking | peau moyennement claire | smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">femme en smoking : peau moyennement claire</annotation>
+		<annotation cp="🤵🏽‍♀">femme | femme en smoking | peau légèrement mate | smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">femme en smoking : peau légèrement mate</annotation>
+		<annotation cp="🤵🏾‍♀">femme | femme en smoking | peau mate | smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">femme en smoking : peau mate</annotation>
+		<annotation cp="🤵🏿‍♀">femme | femme en smoking | peau foncée | smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">femme en smoking : peau foncée</annotation>
+		<annotation cp="🤵🏻‍♂">homme | homme en smoking | peau claire | smoking</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">homme en smoking : peau claire</annotation>
+		<annotation cp="🤵🏼‍♂">homme | homme en smoking | peau moyennement claire | smoking</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">homme en smoking : peau moyennement claire</annotation>
+		<annotation cp="🤵🏽‍♂">homme | homme en smoking | peau légèrement mate | smoking</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">homme en smoking : peau légèrement mate</annotation>
+		<annotation cp="🤵🏾‍♂">homme | homme en smoking | peau mate | smoking</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">homme en smoking : peau mate</annotation>
+		<annotation cp="🤵🏿‍♂">homme | homme en smoking | peau foncée | smoking</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">homme en smoking : peau foncée</annotation>
+		<annotation cp="👰🏻">mariage | mariée | mariée avec voile | peau claire | personne mariée avec voile | voile</annotation>
+		<annotation cp="👰🏻" type="tts">personne mariée avec voile : peau claire</annotation>
+		<annotation cp="👰🏼">mariage | mariée | mariée avec voile | peau moyennement claire | personne mariée avec voile | voile</annotation>
+		<annotation cp="👰🏼" type="tts">personne mariée avec voile : peau moyennement claire</annotation>
+		<annotation cp="👰🏽">mariage | mariée | mariée avec voile | peau légèrement mate | personne mariée avec voile | voile</annotation>
+		<annotation cp="👰🏽" type="tts">personne mariée avec voile : peau légèrement mate</annotation>
+		<annotation cp="👰🏾">mariage | mariée | mariée avec voile | peau mate | personne mariée avec voile | voile</annotation>
+		<annotation cp="👰🏾" type="tts">personne mariée avec voile : peau mate</annotation>
+		<annotation cp="👰🏿">mariage | mariée | mariée avec voile | peau foncée | personne mariée avec voile | voile</annotation>
+		<annotation cp="👰🏿" type="tts">personne mariée avec voile : peau foncée</annotation>
+		<annotation cp="👰🏻‍♀">femme | femme avec voile | peau claire | voile</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">femme avec voile : peau claire</annotation>
+		<annotation cp="👰🏼‍♀">femme | femme avec voile | peau moyennement claire | voile</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">femme avec voile : peau moyennement claire</annotation>
+		<annotation cp="👰🏽‍♀">femme | femme avec voile | peau légèrement mate | voile</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">femme avec voile : peau légèrement mate</annotation>
+		<annotation cp="👰🏾‍♀">femme | femme avec voile | peau mate | voile</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">femme avec voile : peau mate</annotation>
+		<annotation cp="👰🏿‍♀">femme | femme avec voile | peau foncée | voile</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">femme avec voile : peau foncée</annotation>
+		<annotation cp="👰🏻‍♂">homme | homme avec voile | peau claire | voile</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">homme avec voile : peau claire</annotation>
+		<annotation cp="👰🏼‍♂">homme | homme avec voile | peau moyennement claire | voile</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">homme avec voile : peau moyennement claire</annotation>
+		<annotation cp="👰🏽‍♂">homme | homme avec voile | peau légèrement mate | voile</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">homme avec voile : peau légèrement mate</annotation>
+		<annotation cp="👰🏾‍♂">homme | homme avec voile | peau mate | voile</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">homme avec voile : peau mate</annotation>
+		<annotation cp="👰🏿‍♂">homme | homme avec voile | peau foncée | voile</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">homme avec voile : peau foncée</annotation>
 		<annotation cp="🤰🏻">enceinte | femme | peau claire</annotation>
 		<annotation cp="🤰🏻" type="tts">femme enceinte : peau claire</annotation>
 		<annotation cp="🤰🏼">enceinte | femme | peau moyennement claire</annotation>
@@ -1716,65 +1806,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">mère Noël : peau mate</annotation>
 		<annotation cp="🤶🏿">mère | Noël | peau foncée</annotation>
 		<annotation cp="🤶🏿" type="tts">mère Noël : peau foncée</annotation>
-		<annotation cp="🦸🏻">bien | heroïne | héros | peau claire | super-pouvoir</annotation>
+		<annotation cp="🦸🏻">bien | heroïne | héros | peau claire | super-héros | super-pouvoir</annotation>
 		<annotation cp="🦸🏻" type="tts">super-héros : peau claire</annotation>
-		<annotation cp="🦸🏼">bien | heroïne | héros | peau moyennement claire | super-pouvoir</annotation>
+		<annotation cp="🦸🏼">bien | heroïne | héros | peau moyennement claire | super-héros | super-pouvoir</annotation>
 		<annotation cp="🦸🏼" type="tts">super-héros : peau moyennement claire</annotation>
-		<annotation cp="🦸🏽">bien | heroïne | héros | peau légèrement mate | super-pouvoir</annotation>
+		<annotation cp="🦸🏽">bien | heroïne | héros | peau légèrement mate | super-héros | super-pouvoir</annotation>
 		<annotation cp="🦸🏽" type="tts">super-héros : peau légèrement mate</annotation>
-		<annotation cp="🦸🏾">bien | heroïne | héros | peau mate | super-pouvoir</annotation>
+		<annotation cp="🦸🏾">bien | heroïne | héros | peau mate | super-héros | super-pouvoir</annotation>
 		<annotation cp="🦸🏾" type="tts">super-héros : peau mate</annotation>
-		<annotation cp="🦸🏿">bien | heroïne | héros | peau foncée | super-pouvoir</annotation>
+		<annotation cp="🦸🏿">bien | heroïne | héros | peau foncée | super-héros | super-pouvoir</annotation>
 		<annotation cp="🦸🏿" type="tts">super-héros : peau foncée</annotation>
-		<annotation cp="🦸🏻‍♂">bien | héros | homme | peau claire | super-pouvoir</annotation>
+		<annotation cp="🦸🏻‍♂">bien | héros | homme | peau claire | super-héros homme | super-pouvoir</annotation>
 		<annotation cp="🦸🏻‍♂" type="tts">super-héros homme : peau claire</annotation>
-		<annotation cp="🦸🏼‍♂">bien | héros | homme | peau moyennement claire | super-pouvoir</annotation>
+		<annotation cp="🦸🏼‍♂">bien | héros | homme | peau moyennement claire | super-héros homme | super-pouvoir</annotation>
 		<annotation cp="🦸🏼‍♂" type="tts">super-héros homme : peau moyennement claire</annotation>
-		<annotation cp="🦸🏽‍♂">bien | héros | homme | peau légèrement mate | super-pouvoir</annotation>
+		<annotation cp="🦸🏽‍♂">bien | héros | homme | peau légèrement mate | super-héros homme | super-pouvoir</annotation>
 		<annotation cp="🦸🏽‍♂" type="tts">super-héros homme : peau légèrement mate</annotation>
-		<annotation cp="🦸🏾‍♂">bien | héros | homme | peau mate | super-pouvoir</annotation>
+		<annotation cp="🦸🏾‍♂">bien | héros | homme | peau mate | super-héros homme | super-pouvoir</annotation>
 		<annotation cp="🦸🏾‍♂" type="tts">super-héros homme : peau mate</annotation>
-		<annotation cp="🦸🏿‍♂">bien | héros | homme | peau foncée | super-pouvoir</annotation>
+		<annotation cp="🦸🏿‍♂">bien | héros | homme | peau foncée | super-héros homme | super-pouvoir</annotation>
 		<annotation cp="🦸🏿‍♂" type="tts">super-héros homme : peau foncée</annotation>
-		<annotation cp="🦸🏻‍♀">bien | femme | héroïne | héros | peau claire | super-pouvoir</annotation>
+		<annotation cp="🦸🏻‍♀">bien | femme | héroïne | héros | peau claire | super-héroïne | super-pouvoir</annotation>
 		<annotation cp="🦸🏻‍♀" type="tts">super-héroïne : peau claire</annotation>
-		<annotation cp="🦸🏼‍♀">bien | femme | héroïne | héros | peau moyennement claire | super-pouvoir</annotation>
+		<annotation cp="🦸🏼‍♀">bien | femme | héroïne | héros | peau moyennement claire | super-héroïne | super-pouvoir</annotation>
 		<annotation cp="🦸🏼‍♀" type="tts">super-héroïne : peau moyennement claire</annotation>
-		<annotation cp="🦸🏽‍♀">bien | femme | héroïne | héros | peau légèrement mate | super-pouvoir</annotation>
+		<annotation cp="🦸🏽‍♀">bien | femme | héroïne | héros | peau légèrement mate | super-héroïne | super-pouvoir</annotation>
 		<annotation cp="🦸🏽‍♀" type="tts">super-héroïne : peau légèrement mate</annotation>
-		<annotation cp="🦸🏾‍♀">bien | femme | héroïne | héros | peau mate | super-pouvoir</annotation>
+		<annotation cp="🦸🏾‍♀">bien | femme | héroïne | héros | peau mate | super-héroïne | super-pouvoir</annotation>
 		<annotation cp="🦸🏾‍♀" type="tts">super-héroïne : peau mate</annotation>
-		<annotation cp="🦸🏿‍♀">bien | femme | héroïne | héros | peau foncée | super-pouvoir</annotation>
+		<annotation cp="🦸🏿‍♀">bien | femme | héroïne | héros | peau foncée | super-héroïne | super-pouvoir</annotation>
 		<annotation cp="🦸🏿‍♀" type="tts">super-héroïne : peau foncée</annotation>
-		<annotation cp="🦹🏻">criminel | mal | méchant | peau claire | super-pouvoir</annotation>
+		<annotation cp="🦹🏻">criminel | mal | méchant | peau claire | super-pouvoir | super-vilain</annotation>
 		<annotation cp="🦹🏻" type="tts">super-vilain : peau claire</annotation>
-		<annotation cp="🦹🏼">criminel | mal | méchant | peau moyennement claire | super-pouvoir</annotation>
+		<annotation cp="🦹🏼">criminel | mal | méchant | peau moyennement claire | super-pouvoir | super-vilain</annotation>
 		<annotation cp="🦹🏼" type="tts">super-vilain : peau moyennement claire</annotation>
-		<annotation cp="🦹🏽">criminel | mal | méchant | peau légèrement mate | super-pouvoir</annotation>
+		<annotation cp="🦹🏽">criminel | mal | méchant | peau légèrement mate | super-pouvoir | super-vilain</annotation>
 		<annotation cp="🦹🏽" type="tts">super-vilain : peau légèrement mate</annotation>
-		<annotation cp="🦹🏾">criminel | mal | méchant | peau mate | super-pouvoir</annotation>
+		<annotation cp="🦹🏾">criminel | mal | méchant | peau mate | super-pouvoir | super-vilain</annotation>
 		<annotation cp="🦹🏾" type="tts">super-vilain : peau mate</annotation>
-		<annotation cp="🦹🏿">criminel | mal | méchant | peau foncée | super-pouvoir</annotation>
+		<annotation cp="🦹🏿">criminel | mal | méchant | peau foncée | super-pouvoir | super-vilain</annotation>
 		<annotation cp="🦹🏿" type="tts">super-vilain : peau foncée</annotation>
-		<annotation cp="🦹🏻‍♂">criminel | homme | mal | méchant | peau claire | super-pouvoir</annotation>
+		<annotation cp="🦹🏻‍♂">criminel | homme | mal | méchant | peau claire | super-pouvoir | super-vilain homme</annotation>
 		<annotation cp="🦹🏻‍♂" type="tts">super-vilain homme : peau claire</annotation>
-		<annotation cp="🦹🏼‍♂">criminel | homme | mal | méchant | peau moyennement claire | super-pouvoir</annotation>
+		<annotation cp="🦹🏼‍♂">criminel | homme | mal | méchant | peau moyennement claire | super-pouvoir | super-vilain homme</annotation>
 		<annotation cp="🦹🏼‍♂" type="tts">super-vilain homme : peau moyennement claire</annotation>
-		<annotation cp="🦹🏽‍♂">criminel | homme | mal | méchant | peau légèrement mate | super-pouvoir</annotation>
+		<annotation cp="🦹🏽‍♂">criminel | homme | mal | méchant | peau légèrement mate | super-pouvoir | super-vilain homme</annotation>
 		<annotation cp="🦹🏽‍♂" type="tts">super-vilain homme : peau légèrement mate</annotation>
-		<annotation cp="🦹🏾‍♂">criminel | homme | mal | méchant | peau mate | super-pouvoir</annotation>
+		<annotation cp="🦹🏾‍♂">criminel | homme | mal | méchant | peau mate | super-pouvoir | super-vilain homme</annotation>
 		<annotation cp="🦹🏾‍♂" type="tts">super-vilain homme : peau mate</annotation>
-		<annotation cp="🦹🏿‍♂">criminel | homme | mal | méchant | peau foncée | super-pouvoir</annotation>
+		<annotation cp="🦹🏿‍♂">criminel | homme | mal | méchant | peau foncée | super-pouvoir | super-vilain homme</annotation>
 		<annotation cp="🦹🏿‍♂" type="tts">super-vilain homme : peau foncée</annotation>
-		<annotation cp="🦹🏻‍♀">criminelle | femme | mal | méchante | peau claire | super-pouvoir</annotation>
+		<annotation cp="🦹🏻‍♀">criminelle | femme | mal | méchante | peau claire | super-pouvoir | super-vilain femme</annotation>
 		<annotation cp="🦹🏻‍♀" type="tts">super-vilain femme : peau claire</annotation>
-		<annotation cp="🦹🏼‍♀">criminelle | femme | mal | méchante | peau moyennement claire | super-pouvoir</annotation>
+		<annotation cp="🦹🏼‍♀">criminelle | femme | mal | méchante | peau moyennement claire | super-pouvoir | super-vilain femme</annotation>
 		<annotation cp="🦹🏼‍♀" type="tts">super-vilain femme : peau moyennement claire</annotation>
-		<annotation cp="🦹🏽‍♀">criminelle | femme | mal | méchante | peau légèrement mate | super-pouvoir</annotation>
+		<annotation cp="🦹🏽‍♀">criminelle | femme | mal | méchante | peau légèrement mate | super-pouvoir | super-vilain femme</annotation>
 		<annotation cp="🦹🏽‍♀" type="tts">super-vilain femme : peau légèrement mate</annotation>
-		<annotation cp="🦹🏾‍♀">criminelle | femme | mal | méchante | peau mate | super-pouvoir</annotation>
+		<annotation cp="🦹🏾‍♀">criminelle | femme | mal | méchante | peau mate | super-pouvoir | super-vilain femme</annotation>
 		<annotation cp="🦹🏾‍♀" type="tts">super-vilain femme : peau mate</annotation>
-		<annotation cp="🦹🏿‍♀">criminelle | femme | mal | méchante | peau foncée | super-pouvoir</annotation>
+		<annotation cp="🦹🏿‍♀">criminelle | femme | mal | méchante | peau foncée | super-pouvoir | super-vilain femme</annotation>
 		<annotation cp="🦹🏿‍♀" type="tts">super-vilain femme : peau foncée</annotation>
 		<annotation cp="🧙🏻">ensorceleur | mage | magicien | peau claire | sorcier | sorcière</annotation>
 		<annotation cp="🧙🏻" type="tts">mage : peau claire</annotation>
@@ -2016,15 +2106,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶🏾‍♀" type="tts">femme qui marche : peau mate</annotation>
 		<annotation cp="🚶🏿‍♀">femme | femme qui marche | marche | peau foncée | piétonne</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">femme qui marche : peau foncée</annotation>
-		<annotation cp="🧍🏻">debout | peau claire</annotation>
+		<annotation cp="🧍🏻">debout | peau claire | personne debout</annotation>
 		<annotation cp="🧍🏻" type="tts">personne debout : peau claire</annotation>
-		<annotation cp="🧍🏼">debout | peau moyennement claire</annotation>
+		<annotation cp="🧍🏼">debout | peau moyennement claire | personne debout</annotation>
 		<annotation cp="🧍🏼" type="tts">personne debout : peau moyennement claire</annotation>
-		<annotation cp="🧍🏽">debout | peau légèrement mate</annotation>
+		<annotation cp="🧍🏽">debout | peau légèrement mate | personne debout</annotation>
 		<annotation cp="🧍🏽" type="tts">personne debout : peau légèrement mate</annotation>
-		<annotation cp="🧍🏾">debout | peau mate</annotation>
+		<annotation cp="🧍🏾">debout | peau mate | personne debout</annotation>
 		<annotation cp="🧍🏾" type="tts">personne debout : peau mate</annotation>
-		<annotation cp="🧍🏿">debout | peau foncée</annotation>
+		<annotation cp="🧍🏿">debout | peau foncée | personne debout</annotation>
 		<annotation cp="🧍🏿" type="tts">personne debout : peau foncée</annotation>
 		<annotation cp="🧍🏻‍♂">debout | homme | peau claire</annotation>
 		<annotation cp="🧍🏻‍♂" type="tts">homme debout : peau claire</annotation>
@@ -2046,125 +2136,125 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧍🏾‍♀" type="tts">femme debout : peau mate</annotation>
 		<annotation cp="🧍🏿‍♀">debout | femme | peau foncée</annotation>
 		<annotation cp="🧍🏿‍♀" type="tts">femme debout : peau foncée</annotation>
-		<annotation cp="🧎🏻">à genoux | peau claire</annotation>
+		<annotation cp="🧎🏻">à genoux | peau claire | personne à genoux</annotation>
 		<annotation cp="🧎🏻" type="tts">personne à genoux : peau claire</annotation>
-		<annotation cp="🧎🏼">à genoux | peau moyennement claire</annotation>
+		<annotation cp="🧎🏼">à genoux | peau moyennement claire | personne à genoux</annotation>
 		<annotation cp="🧎🏼" type="tts">personne à genoux : peau moyennement claire</annotation>
-		<annotation cp="🧎🏽">à genoux | peau légèrement mate</annotation>
+		<annotation cp="🧎🏽">à genoux | peau légèrement mate | personne à genoux</annotation>
 		<annotation cp="🧎🏽" type="tts">personne à genoux : peau légèrement mate</annotation>
-		<annotation cp="🧎🏾">à genoux | peau mate</annotation>
+		<annotation cp="🧎🏾">à genoux | peau mate | personne à genoux</annotation>
 		<annotation cp="🧎🏾" type="tts">personne à genoux : peau mate</annotation>
-		<annotation cp="🧎🏿">à genoux | peau foncée</annotation>
+		<annotation cp="🧎🏿">à genoux | peau foncée | personne à genoux</annotation>
 		<annotation cp="🧎🏿" type="tts">personne à genoux : peau foncée</annotation>
-		<annotation cp="🧎🏻‍♂">à genoux | homme | peau claire</annotation>
+		<annotation cp="🧎🏻‍♂">à genoux | homme | homme à genoux | peau claire</annotation>
 		<annotation cp="🧎🏻‍♂" type="tts">homme à genoux : peau claire</annotation>
-		<annotation cp="🧎🏼‍♂">à genoux | homme | peau moyennement claire</annotation>
+		<annotation cp="🧎🏼‍♂">à genoux | homme | homme à genoux | peau moyennement claire</annotation>
 		<annotation cp="🧎🏼‍♂" type="tts">homme à genoux : peau moyennement claire</annotation>
-		<annotation cp="🧎🏽‍♂">à genoux | homme | peau légèrement mate</annotation>
+		<annotation cp="🧎🏽‍♂">à genoux | homme | homme à genoux | peau légèrement mate</annotation>
 		<annotation cp="🧎🏽‍♂" type="tts">homme à genoux : peau légèrement mate</annotation>
-		<annotation cp="🧎🏾‍♂">à genoux | homme | peau mate</annotation>
+		<annotation cp="🧎🏾‍♂">à genoux | homme | homme à genoux | peau mate</annotation>
 		<annotation cp="🧎🏾‍♂" type="tts">homme à genoux : peau mate</annotation>
-		<annotation cp="🧎🏿‍♂">à genoux | homme | peau foncée</annotation>
+		<annotation cp="🧎🏿‍♂">à genoux | homme | homme à genoux | peau foncée</annotation>
 		<annotation cp="🧎🏿‍♂" type="tts">homme à genoux : peau foncée</annotation>
-		<annotation cp="🧎🏻‍♀">à genoux | femme | peau claire</annotation>
+		<annotation cp="🧎🏻‍♀">à genoux | femme | femme à genoux | peau claire</annotation>
 		<annotation cp="🧎🏻‍♀" type="tts">femme à genoux : peau claire</annotation>
-		<annotation cp="🧎🏼‍♀">à genoux | femme | peau moyennement claire</annotation>
+		<annotation cp="🧎🏼‍♀">à genoux | femme | femme à genoux | peau moyennement claire</annotation>
 		<annotation cp="🧎🏼‍♀" type="tts">femme à genoux : peau moyennement claire</annotation>
-		<annotation cp="🧎🏽‍♀">à genoux | femme | peau légèrement mate</annotation>
+		<annotation cp="🧎🏽‍♀">à genoux | femme | femme à genoux | peau légèrement mate</annotation>
 		<annotation cp="🧎🏽‍♀" type="tts">femme à genoux : peau légèrement mate</annotation>
-		<annotation cp="🧎🏾‍♀">à genoux | femme | peau mate</annotation>
+		<annotation cp="🧎🏾‍♀">à genoux | femme | femme à genoux | peau mate</annotation>
 		<annotation cp="🧎🏾‍♀" type="tts">femme à genoux : peau mate</annotation>
-		<annotation cp="🧎🏿‍♀">à genoux | femme | peau foncée</annotation>
+		<annotation cp="🧎🏿‍♀">à genoux | femme | femme à genoux | peau foncée</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">femme à genoux : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🦯">accessibilité | aveugle | peau claire</annotation>
+		<annotation cp="🧑🏻‍🦯">accessibilité | aveugle | peau claire | personne avec une canne blanche</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">personne avec une canne blanche : peau claire</annotation>
-		<annotation cp="🧑🏼‍🦯">accessibilité | aveugle | peau moyennement claire</annotation>
+		<annotation cp="🧑🏼‍🦯">accessibilité | aveugle | peau moyennement claire | personne avec une canne blanche</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">personne avec une canne blanche : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🦯">accessibilité | aveugle | peau légèrement mate</annotation>
+		<annotation cp="🧑🏽‍🦯">accessibilité | aveugle | peau légèrement mate | personne avec une canne blanche</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">personne avec une canne blanche : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🦯">accessibilité | aveugle | peau mate</annotation>
+		<annotation cp="🧑🏾‍🦯">accessibilité | aveugle | peau mate | personne avec une canne blanche</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">personne avec une canne blanche : peau mate</annotation>
-		<annotation cp="🧑🏿‍🦯">accessibilité | aveugle | peau foncée</annotation>
+		<annotation cp="🧑🏿‍🦯">accessibilité | aveugle | peau foncée | personne avec une canne blanche</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">personne avec une canne blanche : peau foncée</annotation>
-		<annotation cp="👨🏻‍🦯">accessibilité | aveugle | déficient visuel | homme | malvoyant | peau claire</annotation>
+		<annotation cp="👨🏻‍🦯">accessibilité | aveugle | déficient visuel | homme | homme avec canne blanche | malvoyant | peau claire</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">homme avec canne blanche : peau claire</annotation>
-		<annotation cp="👨🏼‍🦯">accessibilité | aveugle | déficient visuel | homme | malvoyant | peau moyennement claire</annotation>
+		<annotation cp="👨🏼‍🦯">accessibilité | aveugle | déficient visuel | homme | homme avec canne blanche | malvoyant | peau moyennement claire</annotation>
 		<annotation cp="👨🏼‍🦯" type="tts">homme avec canne blanche : peau moyennement claire</annotation>
-		<annotation cp="👨🏽‍🦯">accessibilité | aveugle | déficient visuel | homme | malvoyant | peau légèrement mate</annotation>
+		<annotation cp="👨🏽‍🦯">accessibilité | aveugle | déficient visuel | homme | homme avec canne blanche | malvoyant | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🦯" type="tts">homme avec canne blanche : peau légèrement mate</annotation>
-		<annotation cp="👨🏾‍🦯">accessibilité | aveugle | déficient visuel | homme | malvoyant | peau mate</annotation>
+		<annotation cp="👨🏾‍🦯">accessibilité | aveugle | déficient visuel | homme | homme avec canne blanche | malvoyant | peau mate</annotation>
 		<annotation cp="👨🏾‍🦯" type="tts">homme avec canne blanche : peau mate</annotation>
-		<annotation cp="👨🏿‍🦯">accessibilité | aveugle | déficient visuel | homme | malvoyant | peau foncée</annotation>
+		<annotation cp="👨🏿‍🦯">accessibilité | aveugle | déficient visuel | homme | homme avec canne blanche | malvoyant | peau foncée</annotation>
 		<annotation cp="👨🏿‍🦯" type="tts">homme avec canne blanche : peau foncée</annotation>
-		<annotation cp="👩🏻‍🦯">accessibilité | aveugle | déficient visuel | femme | malvoyant | peau claire</annotation>
+		<annotation cp="👩🏻‍🦯">accessibilité | aveugle | déficient visuel | femme | femme avec canne blanche | malvoyant | peau claire</annotation>
 		<annotation cp="👩🏻‍🦯" type="tts">femme avec canne blanche : peau claire</annotation>
-		<annotation cp="👩🏼‍🦯">accessibilité | aveugle | déficient visuel | femme | malvoyant | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🦯">accessibilité | aveugle | déficient visuel | femme | femme avec canne blanche | malvoyant | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🦯" type="tts">femme avec canne blanche : peau moyennement claire</annotation>
-		<annotation cp="👩🏽‍🦯">accessibilité | aveugle | déficient visuel | femme | malvoyant | peau légèrement mate</annotation>
+		<annotation cp="👩🏽‍🦯">accessibilité | aveugle | déficient visuel | femme | femme avec canne blanche | malvoyant | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🦯" type="tts">femme avec canne blanche : peau légèrement mate</annotation>
-		<annotation cp="👩🏾‍🦯">accessibilité | aveugle | déficient visuel | femme | malvoyant | peau mate</annotation>
+		<annotation cp="👩🏾‍🦯">accessibilité | aveugle | déficient visuel | femme | femme avec canne blanche | malvoyant | peau mate</annotation>
 		<annotation cp="👩🏾‍🦯" type="tts">femme avec canne blanche : peau mate</annotation>
-		<annotation cp="👩🏿‍🦯">accessibilité | aveugle | déficient visuel | femme | malvoyant | peau foncée</annotation>
+		<annotation cp="👩🏿‍🦯">accessibilité | aveugle | déficient visuel | femme | femme avec canne blanche | malvoyant | peau foncée</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">femme avec canne blanche : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🦼">accessibilité | fauteuil roulant | peau claire</annotation>
+		<annotation cp="🧑🏻‍🦼">accessibilité | fauteuil roulant | peau claire | personne en fauteuil motorisé</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">personne en fauteuil motorisé : peau claire</annotation>
-		<annotation cp="🧑🏼‍🦼">accessibilité | fauteuil roulant | peau moyennement claire</annotation>
+		<annotation cp="🧑🏼‍🦼">accessibilité | fauteuil roulant | peau moyennement claire | personne en fauteuil motorisé</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">personne en fauteuil motorisé : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🦼">accessibilité | fauteuil roulant | peau légèrement mate</annotation>
+		<annotation cp="🧑🏽‍🦼">accessibilité | fauteuil roulant | peau légèrement mate | personne en fauteuil motorisé</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">personne en fauteuil motorisé : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🦼">accessibilité | fauteuil roulant | peau mate</annotation>
+		<annotation cp="🧑🏾‍🦼">accessibilité | fauteuil roulant | peau mate | personne en fauteuil motorisé</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">personne en fauteuil motorisé : peau mate</annotation>
-		<annotation cp="🧑🏿‍🦼">accessibilité | fauteuil roulant | peau foncée</annotation>
+		<annotation cp="🧑🏿‍🦼">accessibilité | fauteuil roulant | peau foncée | personne en fauteuil motorisé</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">personne en fauteuil motorisé : peau foncée</annotation>
-		<annotation cp="👨🏻‍🦼">accessibilité | fauteuil roulant | homme | peau claire</annotation>
+		<annotation cp="👨🏻‍🦼">accessibilité | fauteuil roulant | homme | homme en fauteuil motorisé | peau claire</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">homme en fauteuil motorisé : peau claire</annotation>
-		<annotation cp="👨🏼‍🦼">accessibilité | fauteuil roulant | homme | peau moyennement claire</annotation>
+		<annotation cp="👨🏼‍🦼">accessibilité | fauteuil roulant | homme | homme en fauteuil motorisé | peau moyennement claire</annotation>
 		<annotation cp="👨🏼‍🦼" type="tts">homme en fauteuil motorisé : peau moyennement claire</annotation>
-		<annotation cp="👨🏽‍🦼">accessibilité | fauteuil roulant | homme | peau légèrement mate</annotation>
+		<annotation cp="👨🏽‍🦼">accessibilité | fauteuil roulant | homme | homme en fauteuil motorisé | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🦼" type="tts">homme en fauteuil motorisé : peau légèrement mate</annotation>
-		<annotation cp="👨🏾‍🦼">accessibilité | fauteuil roulant | homme | peau mate</annotation>
+		<annotation cp="👨🏾‍🦼">accessibilité | fauteuil roulant | homme | homme en fauteuil motorisé | peau mate</annotation>
 		<annotation cp="👨🏾‍🦼" type="tts">homme en fauteuil motorisé : peau mate</annotation>
-		<annotation cp="👨🏿‍🦼">accessibilité | fauteuil roulant | homme | peau foncée</annotation>
+		<annotation cp="👨🏿‍🦼">accessibilité | fauteuil roulant | homme | homme en fauteuil motorisé | peau foncée</annotation>
 		<annotation cp="👨🏿‍🦼" type="tts">homme en fauteuil motorisé : peau foncée</annotation>
-		<annotation cp="👩🏻‍🦼">accessibilité | fauteuil roulant | femme | peau claire</annotation>
+		<annotation cp="👩🏻‍🦼">accessibilité | fauteuil roulant | femme | femme en fauteuil motorisé | peau claire</annotation>
 		<annotation cp="👩🏻‍🦼" type="tts">femme en fauteuil motorisé : peau claire</annotation>
-		<annotation cp="👩🏼‍🦼">accessibilité | fauteuil roulant | femme | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🦼">accessibilité | fauteuil roulant | femme | femme en fauteuil motorisé | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🦼" type="tts">femme en fauteuil motorisé : peau moyennement claire</annotation>
-		<annotation cp="👩🏽‍🦼">accessibilité | fauteuil roulant | femme | peau légèrement mate</annotation>
+		<annotation cp="👩🏽‍🦼">accessibilité | fauteuil roulant | femme | femme en fauteuil motorisé | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🦼" type="tts">femme en fauteuil motorisé : peau légèrement mate</annotation>
-		<annotation cp="👩🏾‍🦼">accessibilité | fauteuil roulant | femme | peau mate</annotation>
+		<annotation cp="👩🏾‍🦼">accessibilité | fauteuil roulant | femme | femme en fauteuil motorisé | peau mate</annotation>
 		<annotation cp="👩🏾‍🦼" type="tts">femme en fauteuil motorisé : peau mate</annotation>
-		<annotation cp="👩🏿‍🦼">accessibilité | fauteuil roulant | femme | peau foncée</annotation>
+		<annotation cp="👩🏿‍🦼">accessibilité | fauteuil roulant | femme | femme en fauteuil motorisé | peau foncée</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">femme en fauteuil motorisé : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🦽">accessibilité | fauteuil roulant | peau claire</annotation>
+		<annotation cp="🧑🏻‍🦽">accessibilité | fauteuil roulant | peau claire | personne en fauteuil roulant manuel</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">personne en fauteuil roulant manuel : peau claire</annotation>
-		<annotation cp="🧑🏼‍🦽">accessibilité | fauteuil roulant | peau moyennement claire</annotation>
+		<annotation cp="🧑🏼‍🦽">accessibilité | fauteuil roulant | peau moyennement claire | personne en fauteuil roulant manuel</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">personne en fauteuil roulant manuel : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🦽">accessibilité | fauteuil roulant | peau légèrement mate</annotation>
+		<annotation cp="🧑🏽‍🦽">accessibilité | fauteuil roulant | peau légèrement mate | personne en fauteuil roulant manuel</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">personne en fauteuil roulant manuel : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🦽">accessibilité | fauteuil roulant | peau mate</annotation>
+		<annotation cp="🧑🏾‍🦽">accessibilité | fauteuil roulant | peau mate | personne en fauteuil roulant manuel</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">personne en fauteuil roulant manuel : peau mate</annotation>
-		<annotation cp="🧑🏿‍🦽">accessibilité | fauteuil roulant | peau foncée</annotation>
+		<annotation cp="🧑🏿‍🦽">accessibilité | fauteuil roulant | peau foncée | personne en fauteuil roulant manuel</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">personne en fauteuil roulant manuel : peau foncée</annotation>
-		<annotation cp="👨🏻‍🦽">accessibilité | fauteuil roulant | homme | peau claire</annotation>
+		<annotation cp="👨🏻‍🦽">accessibilité | fauteuil roulant | homme | homme en fauteuil roulant manuel | peau claire</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">homme en fauteuil roulant manuel : peau claire</annotation>
-		<annotation cp="👨🏼‍🦽">accessibilité | fauteuil roulant | homme | peau moyennement claire</annotation>
+		<annotation cp="👨🏼‍🦽">accessibilité | fauteuil roulant | homme | homme en fauteuil roulant manuel | peau moyennement claire</annotation>
 		<annotation cp="👨🏼‍🦽" type="tts">homme en fauteuil roulant manuel : peau moyennement claire</annotation>
-		<annotation cp="👨🏽‍🦽">accessibilité | fauteuil roulant | homme | peau légèrement mate</annotation>
+		<annotation cp="👨🏽‍🦽">accessibilité | fauteuil roulant | homme | homme en fauteuil roulant manuel | peau légèrement mate</annotation>
 		<annotation cp="👨🏽‍🦽" type="tts">homme en fauteuil roulant manuel : peau légèrement mate</annotation>
-		<annotation cp="👨🏾‍🦽">accessibilité | fauteuil roulant | homme | peau mate</annotation>
+		<annotation cp="👨🏾‍🦽">accessibilité | fauteuil roulant | homme | homme en fauteuil roulant manuel | peau mate</annotation>
 		<annotation cp="👨🏾‍🦽" type="tts">homme en fauteuil roulant manuel : peau mate</annotation>
-		<annotation cp="👨🏿‍🦽">accessibilité | fauteuil roulant | homme | peau foncée</annotation>
+		<annotation cp="👨🏿‍🦽">accessibilité | fauteuil roulant | homme | homme en fauteuil roulant manuel | peau foncée</annotation>
 		<annotation cp="👨🏿‍🦽" type="tts">homme en fauteuil roulant manuel : peau foncée</annotation>
-		<annotation cp="👩🏻‍🦽">accessibilité | fauteuil roulant | femme | peau claire</annotation>
+		<annotation cp="👩🏻‍🦽">accessibilité | fauteuil roulant | femme | femme en fauteuil roulant manuel | peau claire</annotation>
 		<annotation cp="👩🏻‍🦽" type="tts">femme en fauteuil roulant manuel : peau claire</annotation>
-		<annotation cp="👩🏼‍🦽">accessibilité | fauteuil roulant | femme | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🦽">accessibilité | fauteuil roulant | femme | femme en fauteuil roulant manuel | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🦽" type="tts">femme en fauteuil roulant manuel : peau moyennement claire</annotation>
-		<annotation cp="👩🏽‍🦽">accessibilité | fauteuil roulant | femme | peau légèrement mate</annotation>
+		<annotation cp="👩🏽‍🦽">accessibilité | fauteuil roulant | femme | femme en fauteuil roulant manuel | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🦽" type="tts">femme en fauteuil roulant manuel : peau légèrement mate</annotation>
-		<annotation cp="👩🏾‍🦽">accessibilité | fauteuil roulant | femme | peau mate</annotation>
+		<annotation cp="👩🏾‍🦽">accessibilité | fauteuil roulant | femme | femme en fauteuil roulant manuel | peau mate</annotation>
 		<annotation cp="👩🏾‍🦽" type="tts">femme en fauteuil roulant manuel : peau mate</annotation>
-		<annotation cp="👩🏿‍🦽">accessibilité | fauteuil roulant | femme | peau foncée</annotation>
+		<annotation cp="👩🏿‍🦽">accessibilité | fauteuil roulant | femme | femme en fauteuil roulant manuel | peau foncée</annotation>
 		<annotation cp="👩🏿‍🦽" type="tts">femme en fauteuil roulant manuel : peau foncée</annotation>
 		<annotation cp="🏃🏻">coureur | course à pied | jogging | marathon | peau claire | personne qui court</annotation>
 		<annotation cp="🏃🏻" type="tts">personne qui court : peau claire</annotation>
@@ -2716,145 +2806,205 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏾" type="tts">personne au lit : peau mate</annotation>
 		<annotation cp="🛌🏿">lit | peau foncée | personne au lit</annotation>
 		<annotation cp="🛌🏿" type="tts">personne au lit : peau foncée</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">couple | main | peau claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">couple | deux personnes se tenant la main | main | peau claire | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">deux personnes se tenant la main : peau claire</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">couple | main | peau claire | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">couple | deux personnes se tenant la main | main | peau claire | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">deux personnes se tenant la main : peau claire et peau moyennement claire</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">couple | deux personnes se tenant la main | main | peau claire | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">deux personnes se tenant la main : peau claire et peau légèrement mate</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">couple | deux personnes se tenant la main | main | peau claire | peau mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">deux personnes se tenant la main : peau claire et peau mate</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">couple | deux personnes se tenant la main | main | peau claire | peau foncée | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">deux personnes se tenant la main : peau claire et peau foncée</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">couple | deux personnes se tenant la main | main | peau claire | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">deux personnes se tenant la main : peau moyennement claire et peau claire</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">couple | main | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">couple | deux personnes se tenant la main | main | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">deux personnes se tenant la main : peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">couple | main | peau claire | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">couple | deux personnes se tenant la main | main | peau légèrement mate | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">deux personnes se tenant la main : peau moyennement claire et peau légèrement mate</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">couple | deux personnes se tenant la main | main | peau mate | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">deux personnes se tenant la main : peau moyennement claire et peau mate</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">couple | deux personnes se tenant la main | main | peau foncée | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">deux personnes se tenant la main : peau moyennement claire et peau foncée</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">couple | deux personnes se tenant la main | main | peau claire | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">deux personnes se tenant la main : peau légèrement mate et peau claire</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">couple | main | peau légèrement mate | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">couple | deux personnes se tenant la main | main | peau légèrement mate | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">deux personnes se tenant la main : peau légèrement mate et peau moyennement claire</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">couple | main | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">couple | deux personnes se tenant la main | main | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">deux personnes se tenant la main : peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">couple | main | peau claire | peau mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">couple | deux personnes se tenant la main | main | peau légèrement mate | peau mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">deux personnes se tenant la main : peau légèrement mate et peau mate</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">couple | deux personnes se tenant la main | main | peau foncée | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">deux personnes se tenant la main : peau légèrement mate et peau foncée</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">couple | deux personnes se tenant la main | main | peau claire | peau mate | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">deux personnes se tenant la main : peau mate et peau claire</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">couple | main | peau mate | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">couple | deux personnes se tenant la main | main | peau mate | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">deux personnes se tenant la main : peau mate et peau moyennement claire</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">couple | main | peau légèrement mate | peau mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">couple | deux personnes se tenant la main | main | peau légèrement mate | peau mate | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">deux personnes se tenant la main : peau mate et peau légèrement mate</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">couple | main | peau mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">couple | deux personnes se tenant la main | main | peau mate | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">deux personnes se tenant la main : peau mate</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">couple | main | peau claire | peau foncée | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">couple | deux personnes se tenant la main | main | peau foncée | peau mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">deux personnes se tenant la main : peau mate et peau foncée</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">couple | deux personnes se tenant la main | main | peau claire | peau foncée | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">deux personnes se tenant la main : peau foncée et peau claire</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">couple | main | peau foncée | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">couple | deux personnes se tenant la main | main | peau foncée | peau moyennement claire | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">deux personnes se tenant la main : peau foncée et peau moyennement claire</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">couple | main | peau foncée | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">couple | deux personnes se tenant la main | main | peau foncée | peau légèrement mate | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">deux personnes se tenant la main : peau foncée et peau légèrement mate</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">couple | main | peau foncée | peau mate | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">couple | deux personnes se tenant la main | main | peau foncée | peau mate | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">deux personnes se tenant la main : peau foncée et peau mate</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">couple | main | peau foncée | personne | poignée de main | tenir la main</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">couple | deux personnes se tenant la main | main | peau foncée | personne | poignée de main | tenir la main</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">deux personnes se tenant la main : peau foncée</annotation>
-		<annotation cp="👭🏻">couple | femmes | jumelles | main dans la main | peau claire</annotation>
+		<annotation cp="👭🏻">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire</annotation>
 		<annotation cp="👭🏻" type="tts">deux femmes se tenant la main : peau claire</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">couple | femmes | jumelles | main dans la main | peau claire | peau moyennement claire</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau moyennement claire</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">deux femmes se tenant la main : peau claire et peau moyennement claire</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau légèrement mate</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">deux femmes se tenant la main : peau claire et peau légèrement mate</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau mate</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">deux femmes se tenant la main : peau claire et peau mate</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau foncée</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">deux femmes se tenant la main : peau claire et peau foncée</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">deux femmes se tenant la main : peau moyennement claire et peau claire</annotation>
-		<annotation cp="👭🏼">couple | femmes | jumelles | main dans la main | peau moyennement claire</annotation>
+		<annotation cp="👭🏼">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau moyennement claire</annotation>
 		<annotation cp="👭🏼" type="tts">deux femmes se tenant la main : peau moyennement claire</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">couple | femmes | jumelles | main dans la main | peau claire | peau légèrement mate</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau légèrement mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">deux femmes se tenant la main : peau moyennement claire et peau légèrement mate</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">deux femmes se tenant la main : peau moyennement claire et peau mate</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau foncée | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">deux femmes se tenant la main : peau moyennement claire et peau foncée</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">deux femmes se tenant la main : peau légèrement mate et peau claire</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">couple | femmes | jumelles | main dans la main | peau légèrement mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau légèrement mate | peau moyennement claire</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">deux femmes se tenant la main : peau légèrement mate et peau moyennement claire</annotation>
-		<annotation cp="👭🏽">couple | femmes | jumelles | main dans la main | peau légèrement mate</annotation>
+		<annotation cp="👭🏽">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau légèrement mate</annotation>
 		<annotation cp="👭🏽" type="tts">deux femmes se tenant la main : peau légèrement mate</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">couple | femmes | jumelles | main dans la main | peau claire | peau mate</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau légèrement mate | peau mate</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">deux femmes se tenant la main : peau légèrement mate et peau mate</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau foncée | peau légèrement mate</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">deux femmes se tenant la main : peau légèrement mate et peau foncée</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau mate</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">deux femmes se tenant la main : peau mate et peau claire</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">couple | femmes | jumelles | main dans la main | peau mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau mate | peau moyennement claire</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">deux femmes se tenant la main : peau mate et peau moyennement claire</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">couple | femmes | jumelles | main dans la main | peau légèrement mate | peau mate</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau légèrement mate | peau mate</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">deux femmes se tenant la main : peau mate et peau légèrement mate</annotation>
-		<annotation cp="👭🏾">couple | femmes | jumelles | main dans la main | peau mate</annotation>
+		<annotation cp="👭🏾">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau mate</annotation>
 		<annotation cp="👭🏾" type="tts">deux femmes se tenant la main : peau mate</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">couple | femmes | jumelles | main dans la main | peau claire | peau foncée</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau foncée | peau mate</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">deux femmes se tenant la main : peau mate et peau foncée</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau claire | peau foncée</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">deux femmes se tenant la main : peau foncée et peau claire</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">couple | femmes | jumelles | main dans la main | peau foncée | peau moyennement claire</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau foncée | peau moyennement claire</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">deux femmes se tenant la main : peau foncée et peau moyennement claire</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">couple | femmes | jumelles | main dans la main | peau foncée | peau légèrement mate</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau foncée | peau légèrement mate</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">deux femmes se tenant la main : peau foncée et peau légèrement mate</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">couple | femmes | jumelles | main dans la main | peau foncée | peau mate</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau foncée | peau mate</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">deux femmes se tenant la main : peau foncée et peau mate</annotation>
-		<annotation cp="👭🏿">couple | femmes | jumelles | main dans la main | peau foncée</annotation>
+		<annotation cp="👭🏿">couple | deux femmes se tenant la main | femmes | jumelles | main dans la main | peau foncée</annotation>
 		<annotation cp="👭🏿" type="tts">deux femmes se tenant la main : peau foncée</annotation>
-		<annotation cp="👫🏻">couple | femme | homme | main dans la main | peau claire</annotation>
+		<annotation cp="👫🏻">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire</annotation>
 		<annotation cp="👫🏻" type="tts">femme et homme se tenant la main : peau claire</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">couple | femme | homme | main dans la main | peau claire | peau moyennement claire</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau moyennement claire</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">femme et homme se tenant la main : peau claire et peau moyennement claire</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">couple | femme | homme | main dans la main | peau claire | peau légèrement mate</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau légèrement mate</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">femme et homme se tenant la main : peau claire et peau légèrement mate</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">couple | femme | homme | main dans la main | peau claire | peau mate</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau mate</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">femme et homme se tenant la main : peau claire et peau mate</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">couple | femme | homme | main dans la main | peau claire | peau foncée</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau foncée</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">femme et homme se tenant la main : peau claire et peau foncée</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">couple | femme | homme | main dans la main | peau claire | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">femme et homme se tenant la main : peau moyennement claire et peau claire</annotation>
-		<annotation cp="👫🏼">couple | femme | homme | main dans la main | peau moyennement claire</annotation>
+		<annotation cp="👫🏼">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau moyennement claire</annotation>
 		<annotation cp="👫🏼" type="tts">femme et homme se tenant la main : peau moyennement claire</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">couple | femme | homme | main dans la main | peau légèrement mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau légèrement mate | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">femme et homme se tenant la main : peau moyennement claire et peau légèrement mate</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">couple | femme | homme | main dans la main | peau mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau mate | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">femme et homme se tenant la main : peau moyennement claire et peau mate</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">couple | femme | homme | main dans la main | peau foncée | peau moyennement claire</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau foncée | peau moyennement claire</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">femme et homme se tenant la main : peau moyennement claire et peau foncée</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">couple | femme | homme | main dans la main | peau claire | peau légèrement mate</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">femme et homme se tenant la main : peau légèrement mate et peau claire</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">couple | femme | homme | main dans la main | peau légèrement mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau légèrement mate | peau moyennement claire</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">femme et homme se tenant la main : peau légèrement mate et peau moyennement claire</annotation>
-		<annotation cp="👫🏽">couple | femme | homme | main dans la main | peau légèrement mate</annotation>
+		<annotation cp="👫🏽">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau légèrement mate</annotation>
 		<annotation cp="👫🏽" type="tts">femme et homme se tenant la main : peau légèrement mate</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">couple | femme | homme | main dans la main | peau légèrement mate | peau mate</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau légèrement mate | peau mate</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">femme et homme se tenant la main : peau légèrement mate et peau mate</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">couple | femme | homme | main dans la main | peau foncée | peau légèrement mate</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau foncée | peau légèrement mate</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">femme et homme se tenant la main : peau légèrement mate et peau foncée</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">couple | femme | homme | main dans la main | peau claire | peau mate</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau mate</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">femme et homme se tenant la main : peau mate et peau claire</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">couple | femme | homme | main dans la main | peau mate | peau moyennement claire</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau mate | peau moyennement claire</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">femme et homme se tenant la main : peau mate et peau moyennement claire</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">couple | femme | homme | main dans la main | peau légèrement mate | peau mate</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau légèrement mate | peau mate</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">femme et homme se tenant la main : peau mate et peau légèrement mate</annotation>
-		<annotation cp="👫🏾">couple | femme | homme | main dans la main | peau mate</annotation>
+		<annotation cp="👫🏾">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau mate</annotation>
 		<annotation cp="👫🏾" type="tts">femme et homme se tenant la main : peau mate</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">couple | femme | homme | main dans la main | peau foncée | peau mate</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau foncée | peau mate</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">femme et homme se tenant la main : peau mate et peau foncée</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">couple | femme | homme | main dans la main | peau claire | peau foncée</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau claire | peau foncée</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">femme et homme se tenant la main : peau foncée et peau claire</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">couple | femme | homme | main dans la main | peau foncée | peau moyennement claire</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau foncée | peau moyennement claire</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">femme et homme se tenant la main : peau foncée et peau moyennement claire</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">couple | femme | homme | main dans la main | peau foncée | peau légèrement mate</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau foncée | peau légèrement mate</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">femme et homme se tenant la main : peau foncée et peau légèrement mate</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">couple | femme | homme | main dans la main | peau foncée | peau mate</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau foncée | peau mate</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">femme et homme se tenant la main : peau foncée et peau mate</annotation>
-		<annotation cp="👫🏿">couple | femme | homme | main dans la main | peau foncée</annotation>
+		<annotation cp="👫🏿">couple | femme | femme et homme se tenant la main | homme | main dans la main | peau foncée</annotation>
 		<annotation cp="👫🏿" type="tts">femme et homme se tenant la main : peau foncée</annotation>
-		<annotation cp="👬🏻">couple | Gémeaux | hommes | jumeaux | main dans la main | peau claire | zodiaque</annotation>
+		<annotation cp="👬🏻">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | zodiaque</annotation>
 		<annotation cp="👬🏻" type="tts">deux hommes se tenant la main : peau claire</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">couple | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">deux hommes se tenant la main : peau claire et peau moyennement claire</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau légèrement mate | zodiaque</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">deux hommes se tenant la main : peau claire et peau légèrement mate</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau mate | zodiaque</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">deux hommes se tenant la main : peau claire et peau mate</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau foncée | zodiaque</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">deux hommes se tenant la main : peau claire et peau foncée</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau moyennement claire | zodiaque</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">deux hommes se tenant la main : peau moyennement claire et peau claire</annotation>
-		<annotation cp="👬🏼">couple | Gémeaux | hommes | jumeaux | main dans la main | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👬🏼">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau moyennement claire | zodiaque</annotation>
 		<annotation cp="👬🏼" type="tts">deux hommes se tenant la main : peau moyennement claire</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">couple | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau légèrement mate | zodiaque</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">deux hommes se tenant la main : peau moyennement claire et peau légèrement mate</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau mate | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">deux hommes se tenant la main : peau moyennement claire et peau mate</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">deux hommes se tenant la main : peau moyennement claire et peau foncée</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau légèrement mate | zodiaque</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">deux hommes se tenant la main : peau légèrement mate et peau claire</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">couple | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | peau moyennement claire | zodiaque</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">deux hommes se tenant la main : peau légèrement mate et peau moyennement claire</annotation>
-		<annotation cp="👬🏽">couple | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | zodiaque</annotation>
+		<annotation cp="👬🏽">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | zodiaque</annotation>
 		<annotation cp="👬🏽" type="tts">deux hommes se tenant la main : peau légèrement mate</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">couple | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau mate | zodiaque</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | peau mate | zodiaque</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">deux hommes se tenant la main : peau légèrement mate et peau mate</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau légèrement mate | zodiaque</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">deux hommes se tenant la main : peau légèrement mate et peau foncée</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau mate | zodiaque</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">deux hommes se tenant la main : peau mate et peau claire</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">couple | Gémeaux | hommes | jumeaux | main dans la main | peau mate | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau mate | peau moyennement claire | zodiaque</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">deux hommes se tenant la main : peau mate et peau moyennement claire</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">couple | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | peau mate | zodiaque</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau légèrement mate | peau mate | zodiaque</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">deux hommes se tenant la main : peau mate et peau légèrement mate</annotation>
-		<annotation cp="👬🏾">couple | Gémeaux | hommes | jumeaux | main dans la main | peau mate | zodiaque</annotation>
+		<annotation cp="👬🏾">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau mate | zodiaque</annotation>
 		<annotation cp="👬🏾" type="tts">deux hommes se tenant la main : peau mate</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">couple | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau foncée | zodiaque</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau mate | zodiaque</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">deux hommes se tenant la main : peau mate et peau foncée</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau claire | peau foncée | zodiaque</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">deux hommes se tenant la main : peau foncée et peau claire</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">couple | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau moyennement claire | zodiaque</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau moyennement claire | zodiaque</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">deux hommes se tenant la main : peau foncée et peau moyennement claire</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">couple | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau légèrement mate | zodiaque</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau légèrement mate | zodiaque</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">deux hommes se tenant la main : peau foncée et peau légèrement mate</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">couple | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau mate | zodiaque</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | peau mate | zodiaque</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">deux hommes se tenant la main : peau foncée et peau mate</annotation>
-		<annotation cp="👬🏿">couple | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | zodiaque</annotation>
+		<annotation cp="👬🏿">couple | deux hommes se tenant la main | Gémeaux | hommes | jumeaux | main dans la main | peau foncée | zodiaque</annotation>
 		<annotation cp="👬🏿" type="tts">deux hommes se tenant la main : peau foncée</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">baiser | bisou | couple | femme | homme</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">bisou : femme et homme</annotation>

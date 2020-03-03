@@ -704,8 +704,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á b {ch} d e é ẹ {ẹ́}f g {gb} h i í j k {kp} l m n o ó ọ {ọ́} p r s {sh} t u ú v w y z {zh}]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[c q x à è {ẹ̀} ì ò {ọ̀} ù]</exemplarCharacters>
+		<exemplarCharacters>[a á b {ch} d e é ẹ {ẹ\u0301} f g {gb} h i í j k {kp} l m n o ó ọ {ọ\u0301} p r s {sh} t u ú v w y z {zh}]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[à c è {ẹ\u0300} ì ò {ọ\u0300} q ù x]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B {CH} D E F G H I J K L M N O P R S T U V W Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
@@ -5555,7 +5555,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} g-Fọs</unitPattern>
 				<unitPattern count="other">{0} g-Fọs</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>Míta Fọ Ẹ́vrí Skwiá Sẹ́kọn</displayName>
 				<unitPattern count="one">{0} Míta Fọ Ẹ́vrí Skwiá Sẹ́kọn</unitPattern>
 				<unitPattern count="other">{0} Míta Fọ Ẹ́vrí Skwiá Sẹ́kọn</unitPattern>
@@ -5655,7 +5655,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} Mílimol Fọ Ẹ́vrí Líta</unitPattern>
 				<unitPattern count="other">{0} Mílimol Fọ Ẹ́vrí Líta</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>Pat-dẹm Fọ Ích Míliọn</displayName>
 				<unitPattern count="one">{0} Pat Fọ Ích Míliọn</unitPattern>
 				<unitPattern count="other">{0} Pat Fọ Ích Míliọn</unitPattern>
@@ -5685,7 +5685,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} Líta Fọ Ẹ́vrí Kilómíta</unitPattern>
 				<unitPattern count="other">{0} Líta Fọ Ẹ́vrí Kilómíta</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>Líta-dẹm Fọ Ẹ́vrí 100 Kilómíta</displayName>
 				<unitPattern count="one">{0} Líta Fọ Ẹ́vrí 100 Kilómíta</unitPattern>
 				<unitPattern count="other">{0} Líta Fọ Ẹ́vrí 100 Kilómíta</unitPattern>
@@ -6161,17 +6161,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} Họ́spáwa</unitPattern>
 				<unitPattern count="other">{0} Họ́spáwa</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>Milímítá-dẹm-ọf-Mẹ́kúri</displayName>
 				<unitPattern count="one">{0} Milímítá Mẹ́kúri</unitPattern>
 				<unitPattern count="other">{0} Milímítá Mẹ́kúri</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>Páund-dẹm Fọ Ẹ́vrí Skwiá Inch</displayName>
 				<unitPattern count="one">{0} Páund Fọ Ẹ́vrí Skwiá Inch</unitPattern>
 				<unitPattern count="other">{0} Páund Fọ Ẹ́vrí Skwiá Inch</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>Ínchís ọf Mẹ́kúri</displayName>
 				<unitPattern count="one">{0} Inch ọf Mẹ́kúri</unitPattern>
 				<unitPattern count="other">{0} Inch ọf Mẹ́kúri</unitPattern>
@@ -6251,7 +6251,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} Kẹ́lvin</unitPattern>
 				<unitPattern count="other">{0} Kẹ́lvin</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>Páund-Fut</displayName>
 				<unitPattern count="one">{0} Páund-Fut</unitPattern>
 				<unitPattern count="other">{0} Páund-Fut</unitPattern>
@@ -6486,7 +6486,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>Míta/sẹk²</displayName>
 				<unitPattern count="one">{0} m/s²</unitPattern>
 				<unitPattern count="other">{0} m/s²</unitPattern>
@@ -6586,7 +6586,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} mmol/L</unitPattern>
 				<unitPattern count="other">{0} mmol/L</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>Pat/Míliọn</displayName>
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
@@ -6616,7 +6616,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} L/km</unitPattern>
 				<unitPattern count="other">{0} L/km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>L/100 km</displayName>
 				<unitPattern count="one">{0} L/100 km</unitPattern>
 				<unitPattern count="other">{0} L/100 km</unitPattern>
@@ -7092,17 +7092,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>mmHg</displayName>
 				<unitPattern count="one">{0} mmHg</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>pfẹsi</displayName>
 				<unitPattern count="one">{0} pẹsi</unitPattern>
 				<unitPattern count="other">{0} pẹsi</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>inHg</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
@@ -7182,7 +7182,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>lbf⋅ft</displayName>
 				<unitPattern count="one">{0} lbf⋅ft</unitPattern>
 				<unitPattern count="other">{0} lbf⋅ft</unitPattern>
@@ -7417,7 +7417,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}%</unitPattern>
 				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>L/100km</displayName>
 				<unitPattern count="one">{0}L/100km</unitPattern>
 				<unitPattern count="other">{0}L/100km</unitPattern>

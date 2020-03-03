@@ -22,6 +22,76 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">srednje tamna koža</annotation>
 		<annotation cp="🏿">boja kože | tamna koža | tip kože 6</annotation>
 		<annotation cp="🏿" type="tts">tamna koža</annotation>
+		<annotation cp="–">crta | pravopisni znak</annotation>
+		<annotation cp="–" type="tts">crta</annotation>
+		<annotation cp="—">duga crta | pravopisni znak</annotation>
+		<annotation cp="—" type="tts">duga crta</annotation>
+		<annotation cp="·">sredina | srednja tačka | tačka</annotation>
+		<annotation cp="·" type="tts">srednja tačka</annotation>
+		<annotation cp="«">kareti | levi francuski navodnik | levo | navodnik | ševron | uglasti | zagrade</annotation>
+		<annotation cp="«" type="tts">levi francuski navodnik</annotation>
+		<annotation cp="»">desni francuski navodnik | desno | kareti | navodnik | ševron | uglasti | zagrade</annotation>
+		<annotation cp="»" type="tts">desni francuski navodnik</annotation>
+		<annotation cp="§">deo | odeljak | paragraf | znak za odeljak</annotation>
+		<annotation cp="§" type="tts">odeljak</annotation>
+		<annotation cp="†">bodež | obelisk | znak bodeža</annotation>
+		<annotation cp="†" type="tts">znak bodeža</annotation>
+		<annotation cp="‡">bodež | dvostruko | obelisk | znak dvostrukog bodeža</annotation>
+		<annotation cp="‡" type="tts">znak dvostrukog bodeža</annotation>
+		<annotation cp="•">tačka | znak za nabrajanje</annotation>
+		<annotation cp="•" type="tts">znak za nabrajanje</annotation>
+		<annotation cp="°">čas | stepen | udeo</annotation>
+		<annotation cp="°" type="tts">stepen</annotation>
+		<annotation cp="℗">autorsko pravo | autorsko pravo o snimanju zvuka | snimanje | zvuk</annotation>
+		<annotation cp="℗" type="tts">autorsko pravo o snimanju zvuka</annotation>
+		<annotation cp="←">levo | strelica | strelica koja pokazuje nalevo</annotation>
+		<annotation cp="←" type="tts">strelica koja pokazuje nalevo</annotation>
+		<annotation cp="→">desno | strelica | strelica koja pokazuje nadesno</annotation>
+		<annotation cp="→" type="tts">strelica koja pokazuje nadesno</annotation>
+		<annotation cp="↑">gore | strelica | strelica koja pokazuje nagore</annotation>
+		<annotation cp="↑" type="tts">strelica koja pokazuje nagore</annotation>
+		<annotation cp="↓">dole | strelica | strelica koja pokazuje nadole</annotation>
+		<annotation cp="↓" type="tts">strelica koja pokazuje nadole</annotation>
+		<annotation cp="⇅">dole | gore | strelica | strelica nagore i strelica nadole</annotation>
+		<annotation cp="⇅" type="tts">strelica nagore i strelica nadole</annotation>
+		<annotation cp="⇆">desno | levo | strelica | strelica nalevo iznad strelice nadesno</annotation>
+		<annotation cp="⇆" type="tts">strelica nalevo iznad strelice nadesno</annotation>
+		<annotation cp="∆">inkrement | trougao</annotation>
+		<annotation cp="∆" type="tts">inkrement</annotation>
+		<annotation cp="∇">nabla | trougao</annotation>
+		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="∈">član | element | element skupa | sadrži | skup</annotation>
+		<annotation cp="∈" type="tts">element skupa</annotation>
+		<annotation cp="÷">deljenje | podeliti | znak deljenja</annotation>
+		<annotation cp="÷" type="tts">znak deljenja</annotation>
+		<annotation cp="×">množenje | pomnožiti | puta | znak množenja</annotation>
+		<annotation cp="×" type="tts">znak množenja</annotation>
+		<annotation cp="⁻">eksponent | minus | minus u eksponentu</annotation>
+		<annotation cp="⁻" type="tts">minus u eksponentu</annotation>
+		<annotation cp="√">koren | kvadratni | radikal</annotation>
+		<annotation cp="√" type="tts">kvadratni koren</annotation>
+		<annotation cp="∞">beskonačno</annotation>
+		<annotation cp="∞" type="tts">beskonačno</annotation>
+		<annotation cp="∩">presek | skup</annotation>
+		<annotation cp="∩" type="tts">presek</annotation>
+		<annotation cp="∪">skup | unija</annotation>
+		<annotation cp="∪" type="tts">unija</annotation>
+		<annotation cp="≡">identično | jednako | trostruko</annotation>
+		<annotation cp="≡" type="tts">identično</annotation>
+		<annotation cp="⊂">podskup | skup</annotation>
+		<annotation cp="⊂" type="tts">podskup</annotation>
+		<annotation cp="▲">gore | ispunjen trougao okrenut nagore | ispunjeno | strelica | trougao</annotation>
+		<annotation cp="▲" type="tts">ispunjen trougao okrenut nagore</annotation>
+		<annotation cp="▼">dole | ispunjen trougao okrenut nadole | ispunjeno | strelica | trougao</annotation>
+		<annotation cp="▼" type="tts">ispunjen trougao okrenut nadole</annotation>
+		<annotation cp="◊">dijamant | romb</annotation>
+		<annotation cp="◊" type="tts">romb</annotation>
+		<annotation cp="○">krug | prazan krug | prsten</annotation>
+		<annotation cp="○" type="tts">prazan krug</annotation>
+		<annotation cp="●">ispunjen krug | krug</annotation>
+		<annotation cp="●" type="tts">ispunjen krug</annotation>
+		<annotation cp="◯">krug | prsten | veliki prazni krug</annotation>
+		<annotation cp="◯" type="tts">veliki prazni krug</annotation>
 		<annotation cp="⚧">transrodni simbol | transrodno</annotation>
 		<annotation cp="⚧" type="tts">transrodni simbol</annotation>
 		<annotation cp="🤌">sarkastično | skupljeni prsti | upitno | znak rukom</annotation>
@@ -540,16 +610,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">odrasla osoba</annotation>
 		<annotation cp="👱">osoba sa plavom kosom | plava kosa</annotation>
 		<annotation cp="👱" type="tts">osoba sa plavom kosom</annotation>
+		<annotation cp="🧑‍🍼">beba | dojenje | hranjenje | osoba | osoba hrani bebu</annotation>
+		<annotation cp="🧑‍🍼" type="tts">osoba hrani bebu</annotation>
+		<annotation cp="🧑‍🎄">Mraz, Božić | osoba Mraz</annotation>
+		<annotation cp="🧑‍🎄" type="tts">osoba Mraz</annotation>
 		<annotation cp="👨">muškarac</annotation>
 		<annotation cp="👨" type="tts">muškarac</annotation>
 		<annotation cp="🧔">brada | osoba sa bradom</annotation>
 		<annotation cp="🧔" type="tts">osoba sa bradom</annotation>
 		<annotation cp="👱‍♂">muškarac | plav muškarac | plava kosa</annotation>
 		<annotation cp="👱‍♂" type="tts">plav muškarac</annotation>
+		<annotation cp="👨‍🍼">beba | dojenje | hranjenje | muškarac | muškarac hrani bebu</annotation>
+		<annotation cp="👨‍🍼" type="tts">muškarac hrani bebu</annotation>
 		<annotation cp="👩">žena</annotation>
 		<annotation cp="👩" type="tts">žena</annotation>
 		<annotation cp="👱‍♀">plava kosa | plavuša | žena</annotation>
 		<annotation cp="👱‍♀" type="tts">plavuša</annotation>
+		<annotation cp="👩‍🍼">beba | dojenje | hranjenje | žena | žena hrani bebu</annotation>
+		<annotation cp="👩‍🍼" type="tts">žena hrani bebu</annotation>
 		<annotation cp="🧓">neutralan pol | starija odrasla osoba | starost</annotation>
 		<annotation cp="🧓" type="tts">starija odrasla osoba</annotation>
 		<annotation cp="👴">starac | starost</annotation>
@@ -752,8 +830,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕" type="tts">žena sa maramom na glavi</annotation>
 		<annotation cp="🤵">čovek | čovek u smokingu | mladoženja | smoking</annotation>
 		<annotation cp="🤵" type="tts">čovek u smokingu</annotation>
+		<annotation cp="🤵‍♀">smoking | žena | žena u smokingu</annotation>
+		<annotation cp="🤵‍♀" type="tts">žena u smokingu</annotation>
+		<annotation cp="🤵‍♂">muškarac | muškarac u smokingu | smoking</annotation>
+		<annotation cp="🤵‍♂" type="tts">muškarac u smokingu</annotation>
 		<annotation cp="👰">nevesta | nevesta sa velom | venčanje | veo</annotation>
 		<annotation cp="👰" type="tts">nevesta sa velom</annotation>
+		<annotation cp="👰‍♀">veo | žena | žena sa velom</annotation>
+		<annotation cp="👰‍♀" type="tts">žena sa velom</annotation>
+		<annotation cp="👰‍♂">muškarac | muškarac sa velom | veo</annotation>
+		<annotation cp="👰‍♂" type="tts">muškarac sa velom</annotation>
 		<annotation cp="🤰">trudnica | žena</annotation>
 		<annotation cp="🤰" type="tts">trudnica</annotation>
 		<annotation cp="🤱">beba | dojenje | grudi</annotation>
@@ -1050,6 +1136,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">lice mačke</annotation>
 		<annotation cp="🐈">ljubimac | mačka</annotation>
 		<annotation cp="🐈" type="tts">mačka</annotation>
+		<annotation cp="🐈‍⬛">crna mačka | crno | mačka | nesreća</annotation>
+		<annotation cp="🐈‍⬛" type="tts">crna mačka</annotation>
 		<annotation cp="🦁">horoskop | lav | lice | zodijak</annotation>
 		<annotation cp="🦁" type="tts">lav</annotation>
 		<annotation cp="🐯">lice | lice tigra | tigar</annotation>
@@ -1124,6 +1212,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦇" type="tts">šišmiš</annotation>
 		<annotation cp="🐻">lice | medved</annotation>
 		<annotation cp="🐻" type="tts">medved</annotation>
+		<annotation cp="🐻‍❄">arktički | belo | medved | polarni medved</annotation>
+		<annotation cp="🐻‍❄" type="tts">polarni medved</annotation>
 		<annotation cp="🐨">koala | medved</annotation>
 		<annotation cp="🐨" type="tts">koala</annotation>
 		<annotation cp="🐼">lice | panda</annotation>
@@ -2986,5 +3076,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳‍🌈" type="tts">dugina zastava</annotation>
 		<annotation cp="🏴‍☠">blago | pirat | piratska zastava | pljačka | Veseli Rodžer</annotation>
 		<annotation cp="🏴‍☠" type="tts">piratska zastava</annotation>
+		<annotation cp="£">[EGP] | [GBP] | funta | valuta</annotation>
+		<annotation cp="£" type="tts">funta</annotation>
+		<annotation cp="¥">[CNY] | [JPY] | jen | juan | valuta</annotation>
+		<annotation cp="¥" type="tts">jen</annotation>
+		<annotation cp="€">[EUR] | evro | valuta</annotation>
+		<annotation cp="€" type="tts">evro</annotation>
+		<annotation cp="₹">indijska rupija | rupija | valuta</annotation>
+		<annotation cp="₹" type="tts">indijska rupija</annotation>
+		<annotation cp="₽">rublja | valuta</annotation>
+		<annotation cp="₽" type="tts">rublja</annotation>
+		<annotation cp="¹">1 | eksponent</annotation>
+		<annotation cp="¹" type="tts">eksponent 1</annotation>
+		<annotation cp="²">2 | eksponent | kvadratni</annotation>
+		<annotation cp="²" type="tts">eksponent 2</annotation>
+		<annotation cp="³">3 | eksponent | kubni</annotation>
+		<annotation cp="³" type="tts">eksponent 3</annotation>
+		<annotation cp="µ">mera | znak za mikro</annotation>
+		<annotation cp="µ" type="tts">znak za mikro</annotation>
 	</annotations>
 </ldml>

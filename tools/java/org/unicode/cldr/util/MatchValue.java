@@ -2,20 +2,26 @@ package org.unicode.cldr.util;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.IntFunction;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -31,7 +37,7 @@ public abstract class MatchValue implements Predicate<String> {
     @Override
     public abstract boolean is(String item);
     public abstract String getName();
-    
+
     @Override
     public String toString() {
         return getName();
@@ -155,24 +161,101 @@ public abstract class MatchValue implements Predicate<String> {
         return false;
     }
 
+    public static class EnumParser<T extends Enum> {
+        private final Class<T> aClass;
+        private final Set<T> all;
+
+        private EnumParser(Class<T> aClass) {
+            this.aClass = aClass;
+            all = ImmutableSet.copyOf(EnumSet.allOf(aClass));
+        }
+
+        public static <T> EnumParser of(Class<T> aClass) {
+            return new EnumParser(aClass);
+        }
+
+        public Set<T> parse(String text) {
+            Set<T> statuses = EnumSet.noneOf(aClass);
+            boolean negative = text.startsWith("!");
+            if (negative) {
+                text = text.substring(1);
+            }
+            for (String item : SPLIT_SPACE_OR_COMMA.split(text)) {
+                statuses.add(getItem(item));
+            }
+            if (negative) {
+                TreeSet<T> temp = new TreeSet<>(all);
+                temp.removeAll(statuses);
+                statuses = temp;
+            }
+            return ImmutableSet.copyOf(statuses);
+        }
+        private T getItem(String text) {
+            try {
+                return (T) aClass.getMethod("valueOf", String.class).invoke(null, text);
+            } catch (Exception e) {
+                throw new IllegalArgumentException(e);
+            }
+        }
+
+        public String format(Set<?> set) {
+            if (set.size() > all.size()/2) {
+                TreeSet<T> temp = new TreeSet<>(all);
+                temp.removeAll(set);
+                return "!" + Joiner.on(' ').join(temp);
+            } else {
+                return Joiner.on(' ').join(set);
+            }
+        }
+
+        public boolean isAll(Set<Status> statuses) {
+            return statuses.equals(all);
+        }
+    }
+
     static public class ValidityMatchValue extends MatchValue {
         private final LstrType type;
+        private final boolean shortId;
+        private final Set<Status> statuses;
+        private static Map<String, Status> shortCodeToStatus;
+        private static final EnumParser<Status> enumParser = EnumParser.of(Status.class);
 
         @Override
         public String getName() {
-            return "validity/" + type.toString();
+            return "validity/" 
+                + (shortId ? "short-" : "") + type.toString() 
+                + (enumParser.isAll(statuses) ? "" : "/" + enumParser.format(statuses));
         }
 
         private ValidityMatchValue(LstrType type) {
+            this(type, null, false);
+        }
+
+        private ValidityMatchValue(LstrType type, Set<Status> statuses, boolean shortId) {
             this.type = type;
+            if (type != LstrType.unit && shortId) {
+                throw new IllegalArgumentException("short- not supported except for units");
+            }
+            this.shortId = shortId;
+            this.statuses = statuses == null ? EnumSet.allOf(Status.class) : ImmutableSet.copyOf(statuses);
         }
 
         public static MatchValue of(String typeName) {
             if (typeName.equals("locale")) {
                 return new LocaleMatchValue();
             }
+            int slashPos = typeName.indexOf('/');
+            Set<Status> statuses = null;
+            if (slashPos > 0) {
+                statuses = enumParser.parse(typeName.substring(slashPos+1));
+                typeName = typeName.substring(0, slashPos);
+            }
+            boolean shortId = typeName.startsWith("short-");
+            if (shortId) {
+                typeName = typeName.substring(6);
+            }
             LstrType type = LstrType.valueOf(typeName);
-            return new ValidityMatchValue(type);
+            return new ValidityMatchValue(type, statuses, shortId);
         }
 
         @Override
@@ -193,9 +276,30 @@ public abstract class MatchValue implements Predicate<String> {
             case language: 
                 item = item.equals("root") ? "und" : item; 
                 break;
+            case unit: 
+                if (shortId) {
+                    if (shortCodeToStatus == null) { // lazy evaluation to avoid circular dependencies
+                        Map<String, Status> _shortCodeToStatus = new TreeMap<>();
+                        for (Entry<String, Status> entry : Validity.getInstance().getCodeToStatus(LstrType.unit).entrySet()) {
+                            String key = entry.getKey();
+                            Status status = entry.getValue();
+                            final String shortKey = key.substring(key.indexOf('-')+1);
+                            Status old = _shortCodeToStatus.get(shortKey);
+                            if (old == null) {
+                                _shortCodeToStatus.put(shortKey, status);
+//                            } else {
+//                                System.out.println("Skipping duplicate status: " + key + " old: " + old + " new: " + status);
+                            }
+                        }
+                        shortCodeToStatus = ImmutableMap.copyOf(_shortCodeToStatus);
+                    }
+                    final Status status = shortCodeToStatus.get(item);
+                    return status != null && statuses.contains(status);
+                }
             default: break;
             }
-            return Validity.getInstance().getCodeToStatus(type).get(item) != null;
+            final Status status = Validity.getInstance().getCodeToStatus(type).get(item);
+            return status != null && statuses.contains(status);
         }
     }
 
@@ -340,6 +444,7 @@ public abstract class MatchValue implements Predicate<String> {
     }
 
     static final Splitter LIST = Splitter.on(", ").trimResults();
+    static final Splitter SPLIT_SPACE_OR_COMMA = Splitter.on(Pattern.compile("[, ]")).omitEmptyStrings().trimResults();
 
     static public class LiteralMatchValue extends MatchValue {
         private final Set<String> items;
@@ -441,7 +546,7 @@ public abstract class MatchValue implements Predicate<String> {
 
     static public class AnyMatchValue extends MatchValue {
         final String key;
-        
+
         public AnyMatchValue(String key) {
             this.key = key;
         }
@@ -544,7 +649,7 @@ public abstract class MatchValue implements Predicate<String> {
             }
         }
     }
-    
+
     static public class UnicodeSpanMatchValue extends MatchValue {
         final UnicodeSet uset;
 

@@ -21,8 +21,12 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.MatchValue;
+import org.unicode.cldr.util.MatchValue.EnumParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
@@ -153,7 +157,7 @@ public class TestDtdData extends TestFmwk {
                     DtdType dtdTypeFromPath = DtdType.fromPath(pathValue.getFirst());
                     if (!dtdTypeFromPath.directories.contains(dir.getName())) {
                         errln("Mismatch in " + file.toString()
-                            + ": " + dtdTypeFromPath + ", " + dtdTypeFromPath.directories);
+                        + ": " + dtdTypeFromPath + ", " + dtdTypeFromPath.directories);
                     }
                     logln("\t" + file.getName() + "\t" + dtdTypeFromPath);
                     break;
@@ -424,7 +428,7 @@ public class TestDtdData extends TestFmwk {
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute", // needed for characters.xml
             "unitPreference"
-    )));
+            )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
         return orderedElements.contains(element);
@@ -477,92 +481,92 @@ public class TestDtdData extends TestFmwk {
                 || attribute.equals("dtds")
                 || attribute.equals("idStatus")
                 || elementName.equals("deprecatedItems")
-                    && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
+                && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
                 || elementName.equals("character")
-                    && attribute.equals("value")
+                && attribute.equals("value")
                 || elementName.equals("dayPeriodRules")
-                    && attribute.equals("locales")
+                && attribute.equals("locales")
                 || elementName.equals("dayPeriodRule")
-                    && (attribute.equals("type"))
+                && (attribute.equals("type"))
                 || elementName.equals("metazones") && attribute.equals("type")
                 || elementName.equals("subgroup") && attribute.equals("subtype")
                 || elementName.equals("mapZone")
-                    && (attribute.equals("other") || attribute.equals("territory"))
+                && (attribute.equals("other") || attribute.equals("territory"))
                 || elementName.equals("postCodeRegex")
-                    && attribute.equals("territoryId")
+                && attribute.equals("territoryId")
                 || elementName.equals("calendarPreference")
-                    && attribute.equals("territories")
+                && attribute.equals("territories")
                 || elementName.equals("minDays")
-                    && attribute.equals("count")
+                && attribute.equals("count")
                 || elementName.equals("firstDay")
-                    && attribute.equals("day")
+                && attribute.equals("day")
                 || elementName.equals("weekendStart")
-                    && attribute.equals("day")
+                && attribute.equals("day")
                 || elementName.equals("weekendEnd")
-                    && attribute.equals("day")
+                && attribute.equals("day")
                 || elementName.equals("measurementSystem")
-                    && attribute.equals("category")
+                && attribute.equals("category")
                 || elementName.equals("unitPreferences")
-                    && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
+                && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
                 || elementName.equals("unitPreference")
-                    && (attribute.equals("regions") || attribute.equals("geq"))
+                && (attribute.equals("regions") || attribute.equals("geq"))
                 || elementName.equals("distinguishingItems")
-                    && attribute.equals("attributes")
+                && attribute.equals("attributes")
                 || elementName.equals("codesByTerritory")
-                    && attribute.equals("territory")
+                && attribute.equals("territory")
                 || elementName.equals("currency")
-                    && attribute.equals("iso4217")
+                && attribute.equals("iso4217")
                 || elementName.equals("territoryAlias")
-                    && attribute.equals("type")
+                && attribute.equals("type")
                 || elementName.equals("territoryCodes")
-                    && attribute.equals("type")
+                && attribute.equals("type")
                 || elementName.equals("group")
-                    && (attribute.equals("status")) //  || attribute.equals("grouping")
+                && (attribute.equals("status")) //  || attribute.equals("grouping")
                 || elementName.equals("plurals")
-                    && attribute.equals("type")
+                && attribute.equals("type")
                 || elementName.equals("pluralRules")
-                    && attribute.equals("locales")
+                && attribute.equals("locales")
                 || elementName.equals("pluralRule")
-                    && attribute.equals("count")
+                && attribute.equals("count")
                 || elementName.equals("pluralRanges")
-                    && attribute.equals("locales")
+                && attribute.equals("locales")
                 || elementName.equals("pluralRange")
-                    && (attribute.equals("start") || attribute.equals("end"))
+                && (attribute.equals("start") || attribute.equals("end"))
                 || elementName.equals("hours")
-                    && (attribute.equals("preferred") || attribute.equals("allowed"))
+                && (attribute.equals("preferred") || attribute.equals("allowed"))
                 || elementName.equals("personList") && attribute.equals("type")
                 || elementName.equals("likelySubtag")
-                    && attribute.equals("from")
+                && attribute.equals("from")
                 || elementName.equals("rgPath")
-                    && attribute.equals("path")
+                && attribute.equals("path")
                 || elementName.equals("timezone")
-                    && attribute.equals("type")
+                && attribute.equals("type")
                 || elementName.equals("usesMetazone")
-                    && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
+                && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
                 || elementName.equals("numberingSystem")
-                    && attribute.equals("id")
+                && attribute.equals("id")
                 || elementName.equals("group")
-                    && attribute.equals("type")
+                && attribute.equals("type")
                 || elementName.equals("currency")
-                    && attribute.equals("from")
+                && attribute.equals("from")
                 || elementName.equals("currency")
-                    && attribute.equals("to")
+                && attribute.equals("to")
                 || elementName.equals("currency")
-                    && attribute.equals("iso4217")
+                && attribute.equals("iso4217")
                 || (elementName.equals("parentLocale") || elementName.equals("languageGroup"))
-                    && attribute.equals("parent")
+                && attribute.equals("parent")
                 || elementName.equals("currencyCodes")
-                    && attribute.equals("type")
+                && attribute.equals("type")
                 || elementName.equals("approvalRequirement")
-                    && (attribute.equals("locales") || attribute.equals("paths"))
+                && (attribute.equals("locales") || attribute.equals("paths"))
                 || elementName.equals("weekOfPreference")
-                    && attribute.equals("locales")
+                && attribute.equals("locales")
                 || elementName.equals("coverageVariable")
-                    && attribute.equals("key")
+                && attribute.equals("key")
                 || elementName.equals("coverageLevel")
-                    && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
                 || elementName.equals("languageMatch")
-                    && (attribute.equals("desired") || attribute.equals("supported"))
+                && (attribute.equals("desired") || attribute.equals("supported"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
                     .equals("variant")))
                 || (elementName.equals("grammaticalFeatures") && (attribute.equals("locales") || attribute.equals("targets")))
@@ -620,5 +624,49 @@ public class TestDtdData extends TestFmwk {
     @Deprecated
     public static Set<String> getSerialElements() {
         return orderedElements;
+    }
+
+    public static enum TestEnum {a, b, c, d}
+
+    public void TestEnumParser() throws ClassNotFoundException {
+        Object[][] tests = {
+            {Status.class, "regular", Status.regular},
+            {Status.class, "regular deprecated", Validity.Status.regular, Status.deprecated},
+            {Status.class, "deprecated regular", "regular deprecated", Validity.Status.regular, Status.deprecated},
+            {TestEnum.class, "b a", "a b", TestEnum.a, TestEnum.b},
+            {TestEnum.class, "!c d", "a b", TestEnum.a, TestEnum.b},
+        };
+        for (Object[] test : tests) {
+            Class aClass = (Class<Enum>)test[0];
+            EnumParser parser = MatchValue.EnumParser.of(aClass);
+            final String inputText = (String)test[1];
+            int startOfValues = test[2] instanceof String ? 3 : 2;
+            String expectedFormat = startOfValues == 3 ? (String) test[2] : inputText;
+            Set<Enum> expected = new TreeSet<Enum>();
+            for (Object item : Arrays.asList(test).subList(startOfValues, test.length)) {
+                expected.add((Enum)item);
+            }
+
+            Set<Enum> actual = parser.parse(inputText);
+            assertEquals("parse " + test[1], expected, actual);
+
+            String formatted = parser.format(expected);
+            assertEquals("format " + expected, expectedFormat, formatted);
+
+        }
+    }
+
+    public void TestMatchValue() {
+        Object[][] tests = {
+            {"validity/short-unit/deprecated", "inch-hg"}
+        };
+        for (Object[] test : tests) {
+            MatchValue matcher = MatchValue.of((String)test[0]);
+            final String toMatch = (String)test[1];
+            boolean expectedValue = test.length < 3 ? true : Boolean.valueOf((String)test[2]);
+            
+            final boolean actual = matcher.is(toMatch);
+            assertEquals(Arrays.asList(test).toString(), expectedValue, actual);
+        }
     }
 }

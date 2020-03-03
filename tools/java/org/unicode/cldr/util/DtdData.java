@@ -99,6 +99,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         CDATA, ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, NMTOKENS, ENUMERATED_TYPE
     }
 
+    static final Set<String> DRAFT_ON_NON_LEAF_ALLOWED = ImmutableSet.of("collation", "transform", "unitPreferenceData");
+    
     public static class Attribute implements Named {
         public final String name;
         public final Element element;
@@ -119,8 +121,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             element = element2;
             name = aName.intern();
             if (name.equals("draft") // normally never permitted on elements with children, but special cases...
-                && !element.getName().equals("collation")
-                && !element.getName().equals("transform")) {
+                && !DRAFT_ON_NON_LEAF_ALLOWED.contains(element.getName())) {
                 int elementChildrenCount = element.getChildren().size();
                 if (elementChildrenCount > 1
                     || elementChildrenCount == 1 && !element.getChildren().keySet().iterator().next().getName().equals("cp")) {
@@ -294,25 +295,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public ValueStatus getValueStatus(String value) {
-            return deprecatedValues.contains(value) 
-                ? ValueStatus.invalid
-                    : type == AttributeType.ENUMERATED_TYPE 
-                    ? (values.containsKey(value) 
-                        ? ValueStatus.valid 
-                            : ValueStatus.invalid)
-                        : matchValue == null 
-                        ? ValueStatus.unknown :
-                            matchValue.is(value) 
-                            ? ValueStatus.valid 
-                                : ValueStatus.invalid;
+            return deprecatedValues.contains(value) ? ValueStatus.invalid 
+                : type == AttributeType.ENUMERATED_TYPE  ? (values.containsKey(value) ? ValueStatus.valid  : ValueStatus.invalid)
+                    : matchValue == null ? ValueStatus.unknown
+                        : matchValue.is(value) ? ValueStatus.valid 
+                            : ValueStatus.invalid;
         }
 
         public String getMatchString() {
-            return type == AttributeType.ENUMERATED_TYPE 
-                ? "⟨" + CollectionUtilities.join(values.keySet(), ", ") + "⟩" 
-                    : matchValue != null 
-                    ? "⟪" + matchValue.toString() + "⟫"
-                        : "";
+            return type == AttributeType.ENUMERATED_TYPE ? "⟨" + CollectionUtilities.join(values.keySet(), ", ") + "⟩" 
+                : matchValue != null ? "⟪" + matchValue.toString() + "⟫"
+                    : "";
         }
 
         public Attribute getMatchingName(Map<Attribute, Integer> attributes) {
@@ -659,7 +652,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public static DtdData getInstance(DtdType type) {
         return getInstance(type, CLDRConfig.getInstance().getCldrBaseDirectory());
     }
-    
+
     /**
      * Special form using version, used only by tests, etc.
      */
@@ -684,7 +677,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         DtdData data = CACHE.computeIfAbsent(key, k -> getInstance(type, null, directory));
         return data;
     }
- 
+
     private static DtdData getInstance(DtdType type, String version, File directory) {
         DtdData simpleHandler = new DtdData(type, version);
         XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
@@ -1245,16 +1238,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "second", "second-short", "second-narrow",
         "zone", "zone-short", "zone-narrow").freeze();
     static MapComparator<String> unitOrder = new MapComparator<String>().add(
-        "acceleration-g-force", "acceleration-meter-per-second-squared",
+        "acceleration-g-force", "acceleration-meter-per-square-second",
         "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
         "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
         "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
         "area-dunam",
         "concentr-karat",
         "concentr-milligram-per-deciliter", "concentr-millimole-per-liter",
-        "concentr-part-per-million", "concentr-percent", "concentr-permille", "concentr-permyriad",
+        "concentr-permillion", "concentr-percent", "concentr-permille", "concentr-permyriad",
         "concentr-mole",
-        "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
+        "consumption-liter-per-kilometer", "consumption-liter-per-100-kilometer",
         "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",
         "digital-petabyte", "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
         "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
@@ -1295,15 +1288,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "mass-solar-mass",
         "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
         "power-horsepower",
-        "pressure-millimeter-of-mercury",
-        "pressure-pound-per-square-inch", "pressure-inch-hg", "pressure-bar", "pressure-millibar", "pressure-atmosphere",
+        "pressure-millimeter-ofhg",
+        "pressure-pound-force-per-square-inch", "pressure-inch-ofhg", "pressure-bar", "pressure-millibar", "pressure-atmosphere",
         "pressure-pascal",
         "pressure-hectopascal", 
         "pressure-kilopascal",
         "pressure-megapascal",
         "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
-        "torque-pound-foot",
+        "torque-pound-force-foot",
         "torque-newton-meter",
         "volume-cubic-kilometer", "volume-cubic-meter", "volume-cubic-centimeter",
         "volume-cubic-mile", "volume-cubic-yard", "volume-cubic-foot", "volume-cubic-inch",

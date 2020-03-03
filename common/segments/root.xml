@@ -69,6 +69,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$CB">\p{Line_Break=Contingent_Break}</variable>
 				<variable id="$CL">\p{Line_Break=Close_Punctuation}</variable>
 				<variable id="$CP">\p{Line_Break=CP}</variable>
+				<variable id="$CP30">[$CP - [\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
 				<variable id="$CM1">\p{Line_Break=Combining_Mark}</variable>
 				<variable id="$CR">\p{Line_Break=Carriage_Return}</variable>
 				<variable id="$EX">\p{Line_Break=Exclamation}</variable>
@@ -88,6 +89,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$NS">\p{Line_Break=Nonstarter}</variable>
 				<variable id="$NU">\p{Line_Break=Numeric}</variable>
 				<variable id="$OP">\p{Line_Break=Open_Punctuation}</variable>
+				<variable id="$OP30">[$OP - [\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
 				<variable id="$PO">\p{Line_Break=Postfix_Numeric}</variable>
 				<variable id="$PR">\p{Line_Break=Prefix_Numeric}</variable>
 				<variable id="$QU">\p{Line_Break=Quotation}</variable>
@@ -130,6 +132,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$CB">($CB $X)</variable>
 				<variable id="$CL">($CL $X)</variable>
 				<variable id="$CP">($CP $X)</variable>
+				<variable id="$CP30">($CP30 $X)</variable>
 				<variable id="$CM">($CM $X)</variable>
 				<variable id="$EX">($EX $X)</variable>
 				<variable id="$GL">($GL $X)</variable>
@@ -146,6 +149,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$NS">($NS $X)</variable>
 				<variable id="$NU">($NU $X)</variable>
 				<variable id="$OP">($OP $X)</variable>
+				<variable id="$OP30">($OP30 $X)</variable>
 				<variable id="$PO">($PO $X)</variable>
 				<variable id="$PR">($PR $X)</variable>
 				<variable id="$QU">($QU $X)</variable>
@@ -227,12 +231,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="21.1"> $HL ($HY | $BA) × </rule>
 				<!-- LB 21b Don’t break between Solidus and Hebrew letters. -->
 				<rule id="21.2"> $SY × $HL </rule>
-				<!-- LB 22  Do not break between two ellipses, or between letters, numbers or exclamations and ellipsis. -->
-				<rule id="22.01"> ($AL | $HL) × $IN </rule>
-				<rule id="22.02"> $EX × $IN </rule>
-				<rule id="22.03"> ($ID | $EB | $EM) × $IN </rule>
-				<rule id="22.04"> $IN × $IN </rule>
-				<rule id="22.05"> $NU × $IN </rule>
+				<!-- LB 22  Do not break before ellipsis. -->
+				<rule id="22.01"> × $IN </rule>
 				<!-- LB 23  Do not break between digits and letters. -->
 				<rule id="23.02"> ($AL | $HL) × $NU </rule>
 				<rule id="23.03"> $NU × ($AL | $HL) </rule>
@@ -262,9 +262,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="28"> ($AL | $HL) × ($AL | $HL) </rule>
 				<!-- LB 29  Do not break between numeric punctuation and alphabetics (\"e.g.\"). -->
 				<rule id="29"> $IS × ($AL | $HL) </rule>
-				<!-- LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation. -->
-				<rule id="30.01"> ($AL | $HL | $NU) × $OP </rule>
-				<rule id="30.02"> $CP × ($AL | $HL | $NU) </rule>
+				<!-- LB 30  Do not break between letters, numbers or ordinary symbols and non-East-Asian opening or closing punctuation. -->
+				<rule id="30.01"> ($AL | $HL | $NU) × $OP30 </rule>
+				<rule id="30.02"> $CP30 × ($AL | $HL | $NU) </rule>
 				<!-- LB 30a  Break between two Regional Indicators if and only if there is an even number of them before the point being considered. -->
 				<rule id="30.11"> ^ ($RI $RI)* $RI × $RI </rule>
 				<rule id="30.12"> [^$RI] ($RI $RI)* $RI × $RI </rule>

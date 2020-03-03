@@ -47,6 +47,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitQuantity baseUnit='square-revolution' quantity='solid-angle'/>
         <unitQuantity baseUnit='kilogram-meter-per-square-second' quantity='force'/>
         <unitQuantity baseUnit='kilogram-per-meter-square-second' quantity='pressure'/>
+        <unitQuantity baseUnit='kilogram-per-square-meter-square-second' quantity='pressure-per-length'/>
         <unitQuantity baseUnit='kilogram-square-meter-per-square-second' quantity='energy'/>
         <unitQuantity baseUnit='kilogram-square-meter-per-cubic-second' quantity='power'/>
         <unitQuantity baseUnit='second-ampere' quantity='electric-charge'/>
@@ -156,7 +157,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='mole' baseUnit='item' factor='6.02214076E+23'/>
         
         <!-- portion -->
-        <convertUnit source='part-per-million' baseUnit='portion' factor='1/1000000'/>
+        <convertUnit source='permillion' baseUnit='portion' factor='1/1000000'/>
         <convertUnit source='permyriad' baseUnit='portion' factor='1/10000'/>
         <convertUnit source='permille' baseUnit='portion' factor='1/1000'/>
         <convertUnit source='percent' baseUnit='portion' factor='1/100'/>
@@ -183,11 +184,12 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <!-- pressure -->
         <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second'/>
-        <convertUnit source='millimeter-of-mercury' baseUnit='kilogram-per-meter-square-second' factor='10132500/760000'/>
-        <convertUnit source='inch-hg' baseUnit='kilogram-per-meter-square-second' factor='3386.389' systems="ussystem uksystem"/>
         <convertUnit source='bar' baseUnit='kilogram-per-meter-square-second' factor='100000'/>
         <convertUnit source='atmosphere' baseUnit='kilogram-per-meter-square-second' factor='101325'/>
-        
+
+        <!-- pressure-per-length -->
+        <convertUnit source='ofhg' baseUnit='kilogram-per-square-meter-square-second' factor='10132500000/760000'/>
+
         <!-- energy -->
         <convertUnit source='electronvolt' baseUnit='kilogram-square-meter-per-square-second' factor='1.602177E-19'/>
         <convertUnit source='dalton' baseUnit='kilogram-square-meter-per-square-second' factor='1.49241808560E-10'/>
@@ -238,7 +240,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- luminous-flux -->
         <convertUnit source='lux' baseUnit='candela-square-meter-per-square-meter'/>
     </convertUnits>
-    <unitPreferenceData>
+    <unitPreferenceData draft="contributed">
         <unitPreferences category="area" usage="default">
             <unitPreference regions="001">square-kilometer</unitPreference>
             <unitPreference regions="001">hectare</unitPreference>
@@ -388,9 +390,9 @@ For terms of use, see http://www.unicode.org/copyright.html
         </unitPreferences>
         <unitPreferences category="pressure" usage="baromtrc">
             <unitPreference regions="001">hectopascal</unitPreference>
-            <unitPreference regions="IN US">inch-hg</unitPreference>
+            <unitPreference regions="IN US">inch-ofhg</unitPreference>
             <unitPreference regions="BR EG GB IL TH">millibar</unitPreference>
-            <unitPreference regions="MX RU">millimeter-of-mercury</unitPreference>
+            <unitPreference regions="MX RU">millimeter-ofhg</unitPreference>
         </unitPreferences>
         <unitPreferences category="pressure" usage="default">
             <unitPreference regions="001">megapascal</unitPreference>
@@ -452,8 +454,11 @@ For terms of use, see http://www.unicode.org/copyright.html
     </unitPreferenceData>
     <metadata>
         <alias>
-            <unitAlias type="meter-per-second-squared" replacement="meter-per-square-second" reason="deprecated"/>
+            <unitAlias type="inch-hg" replacement="inch-ofhg" reason="deprecated"/>
             <unitAlias type="liter-per-100kilometers" replacement="liter-per-100-kilometer" reason="deprecated"/>
+            <unitAlias type="meter-per-second-squared" replacement="meter-per-square-second" reason="deprecated"/>
+            <unitAlias type="millimeter-of-mercury" replacement="millimeter-ofhg" reason="deprecated"/>
+            <unitAlias type="part-per-million" replacement="permillion" reason="deprecated"/>
             <unitAlias type="pound-foot" replacement="pound-force-foot" reason="deprecated"/>
             <unitAlias type="pound-per-square-inch" replacement="pound-force-per-square-inch" reason="deprecated"/>
             <usageAlias type="music-track" replacement="media" reason="deprecated"/>

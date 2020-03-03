@@ -525,9 +525,6 @@ public class TestUnits extends TestFmwk {
         Set<String> badUnits, Set<String> noQuantity, String type, String unit, 
         Multimap<Pair<String, Double>, String> testPrintout) {
 
-        if (unit.equals("liter-per-100kilometers")) {
-            int debug = 0;
-        }
         if (converter.isBaseUnit(unit)) {
             String quantity = converter.getQuantityFromBaseUnit(unit);
             if (quantity == null) {
@@ -683,7 +680,7 @@ public class TestUnits extends TestFmwk {
                     break;
                 case "light":
                     switch (quantity) {
-                    case "luminous-flux": case "power": continue;
+                    case "luminous-flux": case "power": case "luminous-intensity": continue;
                     }
                     break;
                 case "mass":
@@ -694,6 +691,11 @@ public class TestUnits extends TestFmwk {
                 case "torque":
                     switch (quantity) {
                     case "energy": continue;
+                    }
+                    break;
+                case "pressure":
+                    switch (quantity) {
+                    case "pressure-per-length": continue;
                     }
                     break;
                 }
@@ -767,7 +769,7 @@ public class TestUnits extends TestFmwk {
     }
 
     static final UnicodeSet ALLOWED_IN_COMPONENT = new UnicodeSet("[a-z0-9]").freeze();
-    static final Set<String> GRANDFATHERED_SIMPLES = ImmutableSet.of("em", "g-force", "inch-hg", "liter-per-100-kilometer", "millimeter-of-mercury", "therm-us");
+    static final Set<String> GRANDFATHERED_SIMPLES = ImmutableSet.of("em", "g-force", "therm-us");
 
     public void TestOrder() {
         if (SHOW_DATA) System.out.println();
@@ -871,7 +873,7 @@ public class TestUnits extends TestFmwk {
     static final Pattern ukSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_imp_to_m3)\\b");
 
     static final Set<String> OK_BOTH = ImmutableSet.of(
-        "ounce-troy", "nautical-mile", "fahrenheit", "inch-hg", 
+        "ounce-troy", "nautical-mile", "fahrenheit", "inch-ofhg", 
         "british-thermal-unit", "foodcalorie", "knot");
 
     static final Set<String> OK_US = ImmutableSet.of(
@@ -940,6 +942,9 @@ public class TestUnits extends TestFmwk {
             } catch (Exception e1) {
                 throw new IllegalArgumentException("Couldn't access fields on " + line);
             }
+            if (unitInfo == null) {
+                throw new IllegalArgumentException("Couldn't get unitInfo on " + line);
+            }
             double expected;
             try {
                 expected = Double.parseDouble(fields.get(4).replace(",", ""));
@@ -968,6 +973,8 @@ public class TestUnits extends TestFmwk {
             {"50",  "mile-per-gallon", "liter-per-100-kilometer", "112903 / 24000"},
             {"50",  "celsius-per-second", "kelvin-per-second", "50"},
             {"50",  "celsius-per-second", "fahrenheit-per-second", "90"},
+            {"50",  "pound-force", "kilogram-meter-per-square-second", "8896443230521 / 40000000000"},
+            // Note: pound-foot-per-square-second is a pound-force divided by gravity
             {"50",  "pound-foot-per-square-second", "kilogram-meter-per-square-second", "17281869297 / 2500000000"},
         };
         int count = 0;
@@ -990,8 +997,8 @@ public class TestUnits extends TestFmwk {
     static Set<String> OTHER_SYSTEM = ImmutableSet.of(
         "g-force", "dalton", "calorie", "earth-radius", 
         "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass", 
-        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "millimeter-of-mercury", "atmosphere", 
-        "pixel", "dot", "part-per-million", "permyriad", "permille", "percent", "karat", "portion",
+        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "millimeter-ofhg", "atmosphere", 
+        "pixel", "dot", "permillion", "permyriad", "permille", "percent", "karat", "portion",
         "minute", "hour", "day", "day-person", "week", "week-person",
         "year", "year-person", "decade", "month", "month-person", "century",
         "arc-second", "arc-minute", "degree", "radian", "revolution",

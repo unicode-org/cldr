@@ -260,7 +260,7 @@ public class TestPaths extends TestFmwkPlus {
                     if (ALLOWED.contains(elementName)) {
                         return false;
                     }
-                    testPaths.errln("Deprecated item in data: "
+                    testPaths.errln("Deprecated element in data: "
                         + dtdData.dtdType
                         + ":" + elementName
                         + " \t;" + fullName);
@@ -270,7 +270,7 @@ public class TestPaths extends TestFmwkPlus {
                 for (Entry<String, String> attributeNValue : parts.getAttributes(i).entrySet()) {
                     String attributeName = attributeNValue.getKey();
                     if (dtdData.isDeprecated(elementName, attributeName, "*")) {
-                        testPaths.errln("Deprecated item in data: "
+                        testPaths.errln("Deprecated attribute in data: "
                             + dtdData.dtdType
                             + ":" + elementName
                             + ":" + attributeName
@@ -279,7 +279,7 @@ public class TestPaths extends TestFmwkPlus {
                     }
                     String attributeValue = attributeNValue.getValue();
                     if (dtdData.isDeprecated(elementName, attributeName, attributeValue)) {
-                        testPaths.errln("Deprecated item in data: "
+                        testPaths.errln("Deprecated attribute value in data: "
                             + dtdData.dtdType
                             + ":" + elementName
                             + ":" + attributeName

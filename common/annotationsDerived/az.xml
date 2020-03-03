@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="az"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">açıq dəri tonu | barmaqlar | çimdik | əl jesti | sarkastik | sorğu-sual</annotation>
+		<annotation cp="🤌🏻" type="tts">çimdik: açıq dəri tonu</annotation>
+		<annotation cp="🤌🏼">barmaqlar | çimdik | əl jesti | orta-açıq dəri tonu | sarkastik | sorğu-sual</annotation>
+		<annotation cp="🤌🏼" type="tts">çimdik: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤌🏽">barmaqlar | çimdik | əl jesti | orta dəri tonu | sarkastik | sorğu-sual</annotation>
+		<annotation cp="🤌🏽" type="tts">çimdik: orta dəri tonu</annotation>
+		<annotation cp="🤌🏾">barmaqlar | çimdik | əl jesti | orta-tünd dəri tonu | sarkastik | sorğu-sual</annotation>
+		<annotation cp="🤌🏾" type="tts">çimdik: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤌🏿">barmaqlar | çimdik | əl jesti | sarkastik | sorğu-sual | tünd dəri tonu</annotation>
+		<annotation cp="🤌🏿" type="tts">çimdik: tünd dəri tonu</annotation>
 		<annotation cp="👋🏻">açıq dəri tonu | əl | əl sallayan əllər | orqan | yelləmə | yelləmək</annotation>
 		<annotation cp="👋🏻" type="tts">əl sallayan əllər: açıq dəri tonu</annotation>
 		<annotation cp="👋🏼">əl | əl sallayan əllər | orqan | orta-açıq dəri tonu | yelləmə | yelləmək</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">böyük: orta-tünd dəri tonu, keçəl</annotation>
 		<annotation cp="🧑🏿‍🦲">böyük | gender-neytral | keçəl | tünd dəri tonu</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">böyük: tünd dəri tonu, keçəl</annotation>
+		<annotation cp="🧑🏻‍🍼">açıq dəri tonu | körpə əmizdirən şəxs | körpə, əmizdirən, bəsləyən, şəxs</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">körpə əmizdirən şəxs: açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🍼">körpə əmizdirən şəxs | körpə, əmizdirən, bəsləyən, şəxs | orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">körpə əmizdirən şəxs: orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🍼">körpə əmizdirən şəxs | körpə, əmizdirən, bəsləyən, şəxs | orta dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">körpə əmizdirən şəxs: orta dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🍼">körpə əmizdirən şəxs | körpə, əmizdirən, bəsləyən, şəxs | orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">körpə əmizdirən şəxs: orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🍼">körpə əmizdirən şəxs | körpə, əmizdirən, bəsləyən, şəxs | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">körpə əmizdirən şəxs: tünd dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🎄">açıq dəri tonu | Klaus, milad | mx klaus</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">mx klaus: açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🎄">Klaus, milad | mx klaus | orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">mx klaus: orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🎄">Klaus, milad | mx klaus | orta dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">mx klaus: orta dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🎄">Klaus, milad | mx klaus | orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">mx klaus: orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🎄">Klaus, milad | mx klaus | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">mx klaus: tünd dəri tonu</annotation>
 		<annotation cp="👨🏻">açıq dəri tonu | kişi</annotation>
 		<annotation cp="👨🏻" type="tts">kişi: açıq dəri tonu</annotation>
 		<annotation cp="👨🏼">kişi | orta-açıq dəri tonu</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">kişi: orta-tünd dəri tonu, keçəl</annotation>
 		<annotation cp="👨🏿‍🦲">keçəl | kişi | tünd dəri tonu</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">kişi: tünd dəri tonu, keçəl</annotation>
+		<annotation cp="👨🏻‍🍼">açıq dəri tonu | bəsləyən | əmizdirən | kişi | körpə</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">körpə əmizdirən kişi: açıq dəri tonu</annotation>
+		<annotation cp="👨🏼‍🍼">bəsləyən | əmizdirən | kişi | körpə | orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">körpə əmizdirən kişi: orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏽‍🍼">bəsləyən | əmizdirən | kişi | körpə | orta dəri tonu</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">körpə əmizdirən kişi: orta dəri tonu</annotation>
+		<annotation cp="👨🏾‍🍼">bəsləyən | əmizdirən | kişi | körpə | orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">körpə əmizdirən kişi: orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🍼">bəsləyən | əmizdirən | kişi | körpə | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">körpə əmizdirən kişi: tünd dəri tonu</annotation>
 		<annotation cp="👩🏻">açıq dəri tonu | qadın</annotation>
 		<annotation cp="👩🏻" type="tts">qadın: açıq dəri tonu</annotation>
 		<annotation cp="👩🏼">orta-açıq dəri tonu | qadın</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">qadın: orta-tünd dəri tonu, keçəl</annotation>
 		<annotation cp="👩🏿‍🦲">keçəl | qadın | tünd dəri tonu</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">qadın: tünd dəri tonu, keçəl</annotation>
+		<annotation cp="👩🏻‍🍼">açıq dəri tonu | bəsləyən | əmizdirən | körpə | qadın</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">körpə əmizdirən qadın: açıq dəri tonu</annotation>
+		<annotation cp="👩🏼‍🍼">bəsləyən | əmizdirən | körpə | orta-açıq dəri tonu | qadın</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">körpə əmizdirən qadın: orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏽‍🍼">bəsləyən | əmizdirən | körpə | orta dəri tonu | qadın</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">körpə əmizdirən qadın: orta dəri tonu</annotation>
+		<annotation cp="👩🏾‍🍼">bəsləyən | əmizdirən | körpə | orta-tünd dəri tonu | qadın</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">körpə əmizdirən qadın: orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🍼">bəsləyən | əmizdirən | körpə | qadın | tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">körpə əmizdirən qadın: tünd dəri tonu</annotation>
 		<annotation cp="🧓🏻">açıq dəri tonu | gender-neytral | qoca | yaşlı böyük</annotation>
 		<annotation cp="🧓🏻" type="tts">yaşlı böyük: açıq dəri tonu</annotation>
 		<annotation cp="🧓🏼">gender-neytral | orta-açıq dəri tonu | qoca | yaşlı böyük</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">qadın fabrik işçisi: orta-tünd dəri tonu</annotation>
 		<annotation cp="👩🏿‍🏭">fabrik | işçi | qadın | qadın fabrik işçisi | sənaye | tünd dəri tonu | yığım</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">qadın fabrik işçisi: tünd dəri tonu</annotation>
-		<annotation cp="🧑🏻‍💼">açıq dəri tonu | ağ yaxalıqlı | biznes | memar | menecer</annotation>
+		<annotation cp="🧑🏻‍💼">açıq dəri tonu | ağ yaxalıqlı | biznes | memar | menecer | ofis işçisi</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">ofis işçisi: açıq dəri tonu</annotation>
-		<annotation cp="🧑🏼‍💼">ağ yaxalıqlı | biznes | memar | menecer | orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍💼">ağ yaxalıqlı | biznes | memar | menecer | ofis işçisi | orta-açıq dəri tonu</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">ofis işçisi: orta-açıq dəri tonu</annotation>
-		<annotation cp="🧑🏽‍💼">ağ yaxalıqlı | biznes | memar | menecer | orta dəri tonu</annotation>
+		<annotation cp="🧑🏽‍💼">ağ yaxalıqlı | biznes | memar | menecer | ofis işçisi | orta dəri tonu</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">ofis işçisi: orta dəri tonu</annotation>
-		<annotation cp="🧑🏾‍💼">ağ yaxalıqlı | biznes | memar | menecer | orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏾‍💼">ağ yaxalıqlı | biznes | memar | menecer | ofis işçisi | orta-tünd dəri tonu</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">ofis işçisi: orta-tünd dəri tonu</annotation>
-		<annotation cp="🧑🏿‍💼">ağ yaxalıqlı | biznes | memar | menecer | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍💼">ağ yaxalıqlı | biznes | memar | menecer | ofis işçisi | tünd dəri tonu</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">ofis işçisi: tünd dəri tonu</annotation>
 		<annotation cp="👨🏻‍💼">açıq dəri tonu | ağ yaxalıqlı | biznes | kişi | kişi ofis işçisi | memar | menecer | ofis</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">kişi ofis işçisi: açıq dəri tonu</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">şərfli qadın: orta-tünd dəri tonu</annotation>
 		<annotation cp="🧕🏿">hicab | mantilya | şərf | şərfli qadın | tişel | tünd dəri tonu</annotation>
 		<annotation cp="🧕🏿" type="tts">şərfli qadın: tünd dəri tonu</annotation>
-		<annotation cp="🤵🏻">açıq dəri tonu | adam | smokinq | smokinqli kişi</annotation>
-		<annotation cp="🤵🏻" type="tts">smokinqli kişi: açıq dəri tonu</annotation>
-		<annotation cp="🤵🏼">adam | orta-açıq dəri tonu | smokinq | smokinqli kişi</annotation>
-		<annotation cp="🤵🏼" type="tts">smokinqli kişi: orta-açıq dəri tonu</annotation>
-		<annotation cp="🤵🏽">adam | orta dəri tonu | smokinq | smokinqli kişi</annotation>
-		<annotation cp="🤵🏽" type="tts">smokinqli kişi: orta dəri tonu</annotation>
-		<annotation cp="🤵🏾">adam | orta-tünd dəri tonu | smokinq | smokinqli kişi</annotation>
-		<annotation cp="🤵🏾" type="tts">smokinqli kişi: orta-tünd dəri tonu</annotation>
-		<annotation cp="🤵🏿">adam | smokinq | smokinqli kişi | tünd dəri tonu</annotation>
-		<annotation cp="🤵🏿" type="tts">smokinqli kişi: tünd dəri tonu</annotation>
-		<annotation cp="👰🏻">açıq dəri tonu | duvaq | duvaqlı gəlin | gəlin | toy</annotation>
-		<annotation cp="👰🏻" type="tts">duvaqlı gəlin: açıq dəri tonu</annotation>
-		<annotation cp="👰🏼">duvaq | duvaqlı gəlin | gəlin | orta-açıq dəri tonu | toy</annotation>
-		<annotation cp="👰🏼" type="tts">duvaqlı gəlin: orta-açıq dəri tonu</annotation>
-		<annotation cp="👰🏽">duvaq | duvaqlı gəlin | gəlin | orta dəri tonu | toy</annotation>
-		<annotation cp="👰🏽" type="tts">duvaqlı gəlin: orta dəri tonu</annotation>
-		<annotation cp="👰🏾">duvaq | duvaqlı gəlin | gəlin | orta-tünd dəri tonu | toy</annotation>
-		<annotation cp="👰🏾" type="tts">duvaqlı gəlin: orta-tünd dəri tonu</annotation>
-		<annotation cp="👰🏿">duvaq | duvaqlı gəlin | gəlin | toy | tünd dəri tonu</annotation>
-		<annotation cp="👰🏿" type="tts">duvaqlı gəlin: tünd dəri tonu</annotation>
+		<annotation cp="🤵🏻">açıq dəri tonu | bəy | şəxs | smokinq | smokinqli şəxs</annotation>
+		<annotation cp="🤵🏻" type="tts">smokinqli şəxs: açıq dəri tonu</annotation>
+		<annotation cp="🤵🏼">bəy | orta-açıq dəri tonu | şəxs | smokinq | smokinqli şəxs</annotation>
+		<annotation cp="🤵🏼" type="tts">smokinqli şəxs: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤵🏽">bəy | orta dəri tonu | şəxs | smokinq | smokinqli şəxs</annotation>
+		<annotation cp="🤵🏽" type="tts">smokinqli şəxs: orta dəri tonu</annotation>
+		<annotation cp="🤵🏾">bəy | orta-tünd dəri tonu | şəxs | smokinq | smokinqli şəxs</annotation>
+		<annotation cp="🤵🏾" type="tts">smokinqli şəxs: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤵🏿">bəy | şəxs | smokinq | smokinqli şəxs | tünd dəri tonu</annotation>
+		<annotation cp="🤵🏿" type="tts">smokinqli şəxs: tünd dəri tonu</annotation>
+		<annotation cp="🤵🏻‍♀">açıq dəri tonu | qadın | smokinq | smokinqli qadın</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">smokinqli qadın: açıq dəri tonu</annotation>
+		<annotation cp="🤵🏼‍♀">orta-açıq dəri tonu | qadın | smokinq | smokinqli qadın</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">smokinqli qadın: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤵🏽‍♀">orta dəri tonu | qadın | smokinq | smokinqli qadın</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">smokinqli qadın: orta dəri tonu</annotation>
+		<annotation cp="🤵🏾‍♀">orta-tünd dəri tonu | qadın | smokinq | smokinqli qadın</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">smokinqli qadın: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤵🏿‍♀">qadın | smokinq | smokinqli qadın | tünd dəri tonu</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">smokinqli qadın: tünd dəri tonu</annotation>
+		<annotation cp="🤵🏻‍♂">açıq dəri tonu | adam | smokinq | smokinqli adam</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">smokinqli adam: açıq dəri tonu</annotation>
+		<annotation cp="🤵🏼‍♂">adam | orta-açıq dəri tonu | smokinq | smokinqli adam</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">smokinqli adam: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤵🏽‍♂">adam | orta dəri tonu | smokinq | smokinqli adam</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">smokinqli adam: orta dəri tonu</annotation>
+		<annotation cp="🤵🏾‍♂">adam | orta-tünd dəri tonu | smokinq | smokinqli adam</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">smokinqli adam: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤵🏿‍♂">adam | smokinq | smokinqli adam | tünd dəri tonu</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">smokinqli adam: tünd dəri tonu</annotation>
+		<annotation cp="👰🏻">açıq dəri tonu | duvaq | duvaqlı şəxs | gəlin | şəxs | toy</annotation>
+		<annotation cp="👰🏻" type="tts">duvaqlı şəxs: açıq dəri tonu</annotation>
+		<annotation cp="👰🏼">duvaq | duvaqlı şəxs | gəlin | orta-açıq dəri tonu | şəxs | toy</annotation>
+		<annotation cp="👰🏼" type="tts">duvaqlı şəxs: orta-açıq dəri tonu</annotation>
+		<annotation cp="👰🏽">duvaq | duvaqlı şəxs | gəlin | orta dəri tonu | şəxs | toy</annotation>
+		<annotation cp="👰🏽" type="tts">duvaqlı şəxs: orta dəri tonu</annotation>
+		<annotation cp="👰🏾">duvaq | duvaqlı şəxs | gəlin | orta-tünd dəri tonu | şəxs | toy</annotation>
+		<annotation cp="👰🏾" type="tts">duvaqlı şəxs: orta-tünd dəri tonu</annotation>
+		<annotation cp="👰🏿">duvaq | duvaqlı şəxs | gəlin | şəxs | toy | tünd dəri tonu</annotation>
+		<annotation cp="👰🏿" type="tts">duvaqlı şəxs: tünd dəri tonu</annotation>
+		<annotation cp="👰🏻‍♀">açıq dəri tonu | duvaq | duvaqlı qadın | qadın</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">duvaqlı qadın: açıq dəri tonu</annotation>
+		<annotation cp="👰🏼‍♀">duvaq | duvaqlı qadın | orta-açıq dəri tonu | qadın</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">duvaqlı qadın: orta-açıq dəri tonu</annotation>
+		<annotation cp="👰🏽‍♀">duvaq | duvaqlı qadın | orta dəri tonu | qadın</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">duvaqlı qadın: orta dəri tonu</annotation>
+		<annotation cp="👰🏾‍♀">duvaq | duvaqlı qadın | orta-tünd dəri tonu | qadın</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">duvaqlı qadın: orta-tünd dəri tonu</annotation>
+		<annotation cp="👰🏿‍♀">duvaq | duvaqlı qadın | qadın | tünd dəri tonu</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">duvaqlı qadın: tünd dəri tonu</annotation>
+		<annotation cp="👰🏻‍♂">açıq dəri tonu | adam | duvaq | duvaqlı adam</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">duvaqlı adam: açıq dəri tonu</annotation>
+		<annotation cp="👰🏼‍♂">adam | duvaq | duvaqlı adam | orta-açıq dəri tonu</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">duvaqlı adam: orta-açıq dəri tonu</annotation>
+		<annotation cp="👰🏽‍♂">adam | duvaq | duvaqlı adam | orta dəri tonu</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">duvaqlı adam: orta dəri tonu</annotation>
+		<annotation cp="👰🏾‍♂">adam | duvaq | duvaqlı adam | orta-tünd dəri tonu</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">duvaqlı adam: orta-tünd dəri tonu</annotation>
+		<annotation cp="👰🏿‍♂">adam | duvaq | duvaqlı adam | tünd dəri tonu</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">duvaqlı adam: tünd dəri tonu</annotation>
 		<annotation cp="🤰🏻">açıq dəri tonu | hamilə | qadın | uşaq</annotation>
 		<annotation cp="🤰🏻" type="tts">hamilə qadın: açıq dəri tonu</annotation>
 		<annotation cp="🤰🏼">hamilə | orta-açıq dəri tonu | qadın | uşaq</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">dizi üstündə qadın: orta-tünd dəri tonu</annotation>
 		<annotation cp="🧎🏿‍♀">dizi üstündə | dizi üstündə qadın | qadın | tünd dəri tonu</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">dizi üstündə qadın: tünd dəri tonu</annotation>
-		<annotation cp="🧑🏻‍🦯">açıq dəri tonu | kor | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏻‍🦯">açıq dəri tonu | kor | xüsusi funksiyalar | zondlayan çəlikli adam</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">zondlayan çəlikli adam: açıq dəri tonu</annotation>
-		<annotation cp="🧑🏼‍🦯">kor | orta-açıq dəri tonu | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏼‍🦯">kor | orta-açıq dəri tonu | xüsusi funksiyalar | zondlayan çəlikli adam</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">zondlayan çəlikli adam: orta-açıq dəri tonu</annotation>
-		<annotation cp="🧑🏽‍🦯">kor | orta dəri tonu | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏽‍🦯">kor | orta dəri tonu | xüsusi funksiyalar | zondlayan çəlikli adam</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">zondlayan çəlikli adam: orta dəri tonu</annotation>
-		<annotation cp="🧑🏾‍🦯">kor | orta-tünd dəri tonu | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏾‍🦯">kor | orta-tünd dəri tonu | xüsusi funksiyalar | zondlayan çəlikli adam</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">zondlayan çəlikli adam: orta-tünd dəri tonu</annotation>
-		<annotation cp="🧑🏿‍🦯">kor | tünd dəri tonu | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏿‍🦯">kor | tünd dəri tonu | xüsusi funksiyalar | zondlayan çəlikli adam</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">zondlayan çəlikli adam: tünd dəri tonu</annotation>
 		<annotation cp="👨🏻‍🦯">açıq dəri tonu | kişi | kor | zond ilə kişi</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">zond ilə kişi: açıq dəri tonu</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">zond ilə qadın: orta-tünd dəri tonu</annotation>
 		<annotation cp="👩🏿‍🦯">kor | qadın | tünd dəri tonu | zond ilə qadın</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">zond ilə qadın: tünd dəri tonu</annotation>
-		<annotation cp="🧑🏻‍🦼">açıq dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏻‍🦼">açıq dəri tonu | motorlu kresloda oturmuş adam | təkərli kreslo | xüsusi funksiyalar</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">motorlu kresloda oturmuş adam: açıq dəri tonu</annotation>
-		<annotation cp="🧑🏼‍🦼">orta-açıq dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏼‍🦼">motorlu kresloda oturmuş adam | orta-açıq dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">motorlu kresloda oturmuş adam: orta-açıq dəri tonu</annotation>
-		<annotation cp="🧑🏽‍🦼">orta dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏽‍🦼">motorlu kresloda oturmuş adam | orta dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">motorlu kresloda oturmuş adam: orta dəri tonu</annotation>
-		<annotation cp="🧑🏾‍🦼">orta-tünd dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏾‍🦼">motorlu kresloda oturmuş adam | orta-tünd dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">motorlu kresloda oturmuş adam: orta-tünd dəri tonu</annotation>
-		<annotation cp="🧑🏿‍🦼">təkərli kreslo | tünd dəri tonu | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏿‍🦼">motorlu kresloda oturmuş adam | təkərli kreslo | tünd dəri tonu | xüsusi funksiyalar</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">motorlu kresloda oturmuş adam: tünd dəri tonu</annotation>
 		<annotation cp="👨🏻‍🦼">açıq dəri tonu | kişi | motorlu | oturacaqda</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">motorlu oturacaqda kişi: açıq dəri tonu</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">motorlu oturacaqda qadın: orta-tünd dəri tonu</annotation>
 		<annotation cp="👩🏿‍🦼">motorlu | oturacaqda | qadın | tünd dəri tonu</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">motorlu oturacaqda qadın: tünd dəri tonu</annotation>
-		<annotation cp="🧑🏻‍🦽">açıq dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏻‍🦽">açıq dəri tonu | əl arabasında adam</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">əl arabasında adam: açıq dəri tonu</annotation>
-		<annotation cp="🧑🏼‍🦽">orta-açıq dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏼‍🦽">əl arabasında adam | orta-açıq dəri tonu</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">əl arabasında adam: orta-açıq dəri tonu</annotation>
-		<annotation cp="🧑🏽‍🦽">orta dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏽‍🦽">əl arabasında adam | orta dəri tonu</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">əl arabasında adam: orta dəri tonu</annotation>
-		<annotation cp="🧑🏾‍🦽">orta-tünd dəri tonu | təkərli kreslo | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏾‍🦽">əl arabasında adam | orta-tünd dəri tonu</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">əl arabasında adam: orta-tünd dəri tonu</annotation>
-		<annotation cp="🧑🏿‍🦽">təkərli kreslo | tünd dəri tonu | xüsusi funksiyalar</annotation>
+		<annotation cp="🧑🏿‍🦽">əl arabasında adam | tünd dəri tonu</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">əl arabasında adam: tünd dəri tonu</annotation>
 		<annotation cp="👨🏻‍🦽">açıq dəri tonu | kişi | manual | oturacaqda</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">manual oturacaqda kişi: açıq dəri tonu</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">yataqda uzanmış adam: tünd dəri tonu</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | tutmaq</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">əl-ələ tutan adamlar: açıq dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-açıq dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">əl-ələ tutan adamlar: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">əl-ələ tutan adamlar: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">əl-ələ tutan adamlar: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">əl-ələ tutan adamlar: açıq dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-açıq dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">əl-ələ tutan adamlar: orta-açıq dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-açıq dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">əl-ələ tutan adamlar: orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta dəri tonu | orta-açıq dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">əl-ələ tutan adamlar: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-açıq dəri tonu | orta-tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">əl-ələ tutan adamlar: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-açıq dəri tonu | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">əl-ələ tutan adamlar: orta-açıq dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">əl-ələ tutan adamlar: orta dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta dəri tonu | orta-açıq dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">əl-ələ tutan adamlar: orta dəri tonu, orta-açıq dəri tonu</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">əl-ələ tutan adamlar: orta dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta dəri tonu | orta-tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">əl-ələ tutan adamlar: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta dəri tonu | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">əl-ələ tutan adamlar: orta dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-tünd dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">əl-ələ tutan adamlar: orta-tünd dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-açıq dəri tonu | orta-tünd dəri tonu | tutmaq</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">əl-ələ tutan adamlar: orta-tünd dəri tonu, orta dəri tonu</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-tünd dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">əl-ələ tutan adamlar: orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-tünd dəri tonu | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">əl-ələ tutan adamlar: orta-tünd dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | tünd dəri tonu | tutmaq</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">əl-ələ tutan adamlar: tünd dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">cütlük | əl | əl-ələ tutan adamlar | əl-ələ tutmaq | orta-açıq dəri tonu | tünd dəri tonu | tutmaq</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">əl-ələ tutan adamlar: tünd dəri tonu</annotation>
 		<annotation cp="👭🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | qadın | tutmaq</annotation>
 		<annotation cp="👭🏻" type="tts">əl-ələ tutan iki qadın: açıq dəri tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | orta-açıq dəri tonu | qadın | tutmaq</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">əl-ələ tutan iki qadın: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | orta dəri tonu | qadın | tutmaq</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">əl-ələ tutan iki qadın: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | orta-tünd dəri tonu | qadın | tutmaq</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">əl-ələ tutan iki qadın: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | qadın | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">əl-ələ tutan iki qadın: açıq dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | orta-açıq dəri tonu | qadın | tutmaq</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">əl-ələ tutan iki qadın: orta-açıq dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👭🏼">cütlük | əl | əl-ələ tutan iki qadın | orta-açıq dəri tonu | qadın | tutmaq</annotation>
 		<annotation cp="👭🏼" type="tts">əl-ələ tutan iki qadın: orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">cütlük | əl | əl-ələ tutan iki qadın | orta dəri tonu | orta-açıq dəri tonu | qadın | tutmaq</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">əl-ələ tutan iki qadın: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">cütlük | əl | əl-ələ tutan iki qadın | orta-açıq dəri tonu | orta-tünd dəri tonu | qadın | tutmaq</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">əl-ələ tutan iki qadın: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">cütlük | əl | əl-ələ tutan iki qadın | orta-açıq dəri tonu | qadın | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">əl-ələ tutan iki qadın: orta-açıq dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | orta dəri tonu | qadın | tutmaq</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">əl-ələ tutan iki qadın: orta dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">cütlük | əl | əl-ələ tutan iki qadın | orta dəri tonu | orta-açıq dəri tonu | qadın | tutmaq</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">əl-ələ tutan iki qadın: orta dəri tonu, orta-açıq dəri tonu</annotation>
 		<annotation cp="👭🏽">cütlük | əl | əl-ələ tutan iki qadın | orta dəri tonu | qadın | tutmaq</annotation>
 		<annotation cp="👭🏽" type="tts">əl-ələ tutan iki qadın: orta dəri tonu</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">cütlük | əl | əl-ələ tutan iki qadın | orta dəri tonu | orta-tünd dəri tonu | qadın | tutmaq</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">əl-ələ tutan iki qadın: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">cütlük | əl | əl-ələ tutan iki qadın | orta dəri tonu | qadın | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">əl-ələ tutan iki qadın: orta dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | orta-tünd dəri tonu | qadın | tutmaq</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">əl-ələ tutan iki qadın: orta-tünd dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">cütlük | əl | əl-ələ tutan iki qadın | orta-açıq dəri tonu | orta-tünd dəri tonu | qadın | tutmaq</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">əl-ələ tutan iki qadın: orta-tünd dəri tonu, orta dəri tonu</annotation>
 		<annotation cp="👭🏾">cütlük | əl | əl-ələ tutan iki qadın | orta-tünd dəri tonu | qadın | tutmaq</annotation>
 		<annotation cp="👭🏾" type="tts">əl-ələ tutan iki qadın: orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">cütlük | əl | əl-ələ tutan iki qadın | orta-tünd dəri tonu | qadın | tünd dəri tonu | tutmaq</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">əl-ələ tutan iki qadın: orta-tünd dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">açıq dəri tonu | cütlük | əl | əl-ələ tutan iki qadın | qadın | tünd dəri tonu | tutmaq</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">əl-ələ tutan iki qadın: tünd dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">cütlük | əl | əl-ələ tutan iki qadın | orta-açıq dəri tonu | qadın | tünd dəri tonu | tutmaq</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">əl-ələ tutan kişi və qadın: tünd dəri tonu</annotation>
 		<annotation cp="👬🏻">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | tutmaq | zodiak</annotation>
 		<annotation cp="👬🏻" type="tts">əl-ələ tutan iki kişi: açıq dəri tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-açıq dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">əl-ələ tutan iki kişi: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">əl-ələ tutan iki kişi: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-tünd dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">əl-ələ tutan iki kişi: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | tünd dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">əl-ələ tutan iki kişi: açıq dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-açıq dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">əl-ələ tutan iki kişi: orta-açıq dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👬🏼">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-açıq dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👬🏼" type="tts">əl-ələ tutan iki kişi: orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta dəri tonu | orta-açıq dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">əl-ələ tutan iki kişi: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-açıq dəri tonu | orta-tünd dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">əl-ələ tutan iki kişi: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-açıq dəri tonu | tünd dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">əl-ələ tutan iki kişi: orta-açıq dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">əl-ələ tutan iki kişi: orta dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta dəri tonu | orta-açıq dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">əl-ələ tutan iki kişi: orta dəri tonu, orta-açıq dəri tonu</annotation>
 		<annotation cp="👬🏽">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👬🏽" type="tts">əl-ələ tutan iki kişi: orta dəri tonu</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta dəri tonu | orta-tünd dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">əl-ələ tutan iki kişi: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta dəri tonu | tünd dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">əl-ələ tutan iki kişi: orta dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-tünd dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">əl-ələ tutan iki kişi: orta-tünd dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-açıq dəri tonu | orta-tünd dəri tonu | tutmaq | zodiak</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">əl-ələ tutan iki kişi: orta-tünd dəri tonu, orta dəri tonu</annotation>
 		<annotation cp="👬🏾">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-tünd dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👬🏾" type="tts">əl-ələ tutan iki kişi: orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-tünd dəri tonu | tünd dəri tonu | tutmaq | zodiak</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">əl-ələ tutan iki kişi: orta-tünd dəri tonu, tünd dəri tonu</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">açıq dəri tonu | cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | tünd dəri tonu | tutmaq | zodiak</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">əl-ələ tutan iki kişi: tünd dəri tonu, açıq dəri tonu</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">cütlük | əkizlər | əl-ələ tutan iki kişi | əl-ələ tutmaq | kişi | orta-açıq dəri tonu | tünd dəri tonu | tutmaq | zodiak</annotation>

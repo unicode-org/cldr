@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="hu"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">gúnyos | kézmozdulat | kihallgatás | összecsippentett | ujjak | világos bőrtónus</annotation>
+		<annotation cp="🤌🏻" type="tts">összecsippentett ujjak: világos bőrtónus</annotation>
+		<annotation cp="🤌🏼">gúnyos | kézmozdulat | kihallgatás | közepesen világos bőrtónus | összecsippentett | ujjak</annotation>
+		<annotation cp="🤌🏼" type="tts">összecsippentett ujjak: közepesen világos bőrtónus</annotation>
+		<annotation cp="🤌🏽">gúnyos | kézmozdulat | kihallgatás | közepes bőrtónus | összecsippentett | ujjak</annotation>
+		<annotation cp="🤌🏽" type="tts">összecsippentett ujjak: közepes bőrtónus</annotation>
+		<annotation cp="🤌🏾">gúnyos | kézmozdulat | kihallgatás | közepesen sötét bőrtónus | összecsippentett | ujjak</annotation>
+		<annotation cp="🤌🏾" type="tts">összecsippentett ujjak: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🤌🏿">gúnyos | kézmozdulat | kihallgatás | összecsippentett | sötét bőrtónus | ujjak</annotation>
+		<annotation cp="🤌🏿" type="tts">összecsippentett ujjak: sötét bőrtónus</annotation>
 		<annotation cp="👋🏻">integetés | integető kéz | kéz | test | világos bőrtónus</annotation>
 		<annotation cp="👋🏻" type="tts">integető kéz: világos bőrtónus</annotation>
 		<annotation cp="👋🏼">integetés | integető kéz | kéz | közepesen világos bőrtónus | test</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">felnőtt: közepesen sötét bőrtónus és kopasz</annotation>
 		<annotation cp="🧑🏿‍🦲">felnőtt | kopasz | sötét bőrtónus</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">felnőtt: sötét bőrtónus és kopasz</annotation>
+		<annotation cp="🧑🏻‍🍼">etetés | gondozás | kisbaba | kisbabát etető személy | személy | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">kisbabát etető személy: világos bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🍼">etetés | gondozás | kisbaba | kisbabát etető személy | közepesen világos bőrtónus | személy</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">kisbabát etető személy: közepesen világos bőrtónus</annotation>
+		<annotation cp="🧑🏽‍🍼">etetés | gondozás | kisbaba | kisbabát etető személy | közepes bőrtónus | személy</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">kisbabát etető személy: közepes bőrtónus</annotation>
+		<annotation cp="🧑🏾‍🍼">etetés | gondozás | kisbaba | kisbabát etető személy | közepesen sötét bőrtónus | személy</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">kisbabát etető személy: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏿‍🍼">etetés | gondozás | kisbaba | kisbabát etető személy | sötét bőrtónus | személy</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">kisbabát etető személy: sötét bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🎄">Mikulás, karácsony | télapó | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">télapó: világos bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🎄">közepesen világos bőrtónus | Mikulás, karácsony | télapó</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">télapó: közepesen világos bőrtónus</annotation>
+		<annotation cp="🧑🏽‍🎄">közepes bőrtónus | Mikulás, karácsony | télapó</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">télapó: közepes bőrtónus</annotation>
+		<annotation cp="🧑🏾‍🎄">közepesen sötét bőrtónus | Mikulás, karácsony | télapó</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">télapó: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏿‍🎄">Mikulás, karácsony | sötét bőrtónus | télapó</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">télapó: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻">férfi | világos bőrtónus</annotation>
 		<annotation cp="👨🏻" type="tts">férfi: világos bőrtónus</annotation>
 		<annotation cp="👨🏼">férfi | közepesen világos bőrtónus</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">férfi: közepesen sötét bőrtónus és kopasz</annotation>
 		<annotation cp="👨🏿‍🦲">férfi | kopasz | sötét bőrtónus</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">férfi: sötét bőrtónus és kopasz</annotation>
+		<annotation cp="👨🏻‍🍼">etetés | férfi | gondozás | kisbaba | kisbabát etető férfi | világos bőrtónus</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">kisbabát etető férfi: világos bőrtónus</annotation>
+		<annotation cp="👨🏼‍🍼">etetés | férfi | gondozás | kisbaba | kisbabát etető férfi | közepesen világos bőrtónus</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">kisbabát etető férfi: közepesen világos bőrtónus</annotation>
+		<annotation cp="👨🏽‍🍼">etetés | férfi | gondozás | kisbaba | kisbabát etető férfi | közepes bőrtónus</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">kisbabát etető férfi: közepes bőrtónus</annotation>
+		<annotation cp="👨🏾‍🍼">etetés | férfi | gondozás | kisbaba | kisbabát etető férfi | közepesen sötét bőrtónus</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">kisbabát etető férfi: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👨🏿‍🍼">etetés | férfi | gondozás | kisbaba | kisbabát etető férfi | sötét bőrtónus</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">kisbabát etető férfi: sötét bőrtónus</annotation>
 		<annotation cp="👩🏻">nő | világos bőrtónus</annotation>
 		<annotation cp="👩🏻" type="tts">nő: világos bőrtónus</annotation>
 		<annotation cp="👩🏼">közepesen világos bőrtónus | nő</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">nő: közepesen sötét bőrtónus és kopasz</annotation>
 		<annotation cp="👩🏿‍🦲">kopasz | nő | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">nő: sötét bőrtónus és kopasz</annotation>
+		<annotation cp="👩🏻‍🍼">etetés | gondozás | kisbaba | kisbabát etető nő | nő | világos bőrtónus</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">kisbabát etető nő: világos bőrtónus</annotation>
+		<annotation cp="👩🏼‍🍼">etetés | gondozás | kisbaba | kisbabát etető nő | közepesen világos bőrtónus | nő</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">kisbabát etető nő: közepesen világos bőrtónus</annotation>
+		<annotation cp="👩🏽‍🍼">etetés | gondozás | kisbaba | kisbabát etető nő | közepes bőrtónus | nő</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">kisbabát etető nő: közepes bőrtónus</annotation>
+		<annotation cp="👩🏾‍🍼">etetés | gondozás | kisbaba | kisbabát etető nő | közepesen sötét bőrtónus | nő</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">kisbabát etető nő: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👩🏿‍🍼">etetés | gondozás | kisbaba | kisbabát etető nő | nő | sötét bőrtónus</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">kisbabát etető nő: sötét bőrtónus</annotation>
 		<annotation cp="🧓🏻">idős | idősebb felnőtt | nemi szempontból semleges | világos bőrtónus</annotation>
 		<annotation cp="🧓🏻" type="tts">idősebb felnőtt: világos bőrtónus</annotation>
 		<annotation cp="🧓🏼">idős | idősebb felnőtt | közepesen világos bőrtónus | nemi szempontból semleges</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">vállrándító nő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🤷🏿‍♀">érdektelenség | kétség | közömbös | nem érdekel | nő | sötét bőrtónus | vállrándítás | vállrándító nő</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">vállrándító nő: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍⚕">ápolónő | egészségügy | orvos | terapeuta | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍⚕">ápolónő | egészségügy | egészségügyi dolgozó | orvos | terapeuta | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">egészségügyi dolgozó: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍⚕">ápolónő | egészségügy | közepesen világos bőrtónus | orvos | terapeuta</annotation>
+		<annotation cp="🧑🏼‍⚕">ápolónő | egészségügy | egészségügyi dolgozó | közepesen világos bőrtónus | orvos | terapeuta</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">egészségügyi dolgozó: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍⚕">ápolónő | egészségügy | közepes bőrtónus | orvos | terapeuta</annotation>
+		<annotation cp="🧑🏽‍⚕">ápolónő | egészségügy | egészségügyi dolgozó | közepes bőrtónus | orvos | terapeuta</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">egészségügyi dolgozó: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍⚕">ápolónő | egészségügy | közepesen sötét bőrtónus | orvos | terapeuta</annotation>
+		<annotation cp="🧑🏾‍⚕">ápolónő | egészségügy | egészségügyi dolgozó | közepesen sötét bőrtónus | orvos | terapeuta</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">egészségügyi dolgozó: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍⚕">ápolónő | egészségügy | orvos | sötét bőrtónus | terapeuta</annotation>
+		<annotation cp="🧑🏿‍⚕">ápolónő | egészségügy | egészségügyi dolgozó | orvos | sötét bőrtónus | terapeuta</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">egészségügyi dolgozó: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍⚕">ápoló | doktor | orvos | terapeuta | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">doktor: világos bőrtónus</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">női tanuló: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🎓">diák | egyetemista | nő | női tanuló | sötét bőrtónus | tanuló</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">női tanuló: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🏫">oktató | professzor | tanár | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🏫">oktató | professzor | tanár | tanár / tanárnő | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">tanár / tanárnő: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🏫">közepesen világos bőrtónus | oktató | professzor | tanár</annotation>
+		<annotation cp="🧑🏼‍🏫">közepesen világos bőrtónus | oktató | professzor | tanár | tanár / tanárnő</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">tanár / tanárnő: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🏫">közepes bőrtónus | oktató | professzor | tanár</annotation>
+		<annotation cp="🧑🏽‍🏫">közepes bőrtónus | oktató | professzor | tanár | tanár / tanárnő</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">tanár / tanárnő: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🏫">közepesen sötét bőrtónus | oktató | professzor | tanár</annotation>
+		<annotation cp="🧑🏾‍🏫">közepesen sötét bőrtónus | oktató | professzor | tanár | tanár / tanárnő</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">tanár / tanárnő: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🏫">oktató | professzor | sötét bőrtónus | tanár</annotation>
+		<annotation cp="🧑🏿‍🏫">oktató | professzor | sötét bőrtónus | tanár | tanár / tanárnő</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">tanár / tanárnő: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🏫">férfi | oktató | professzor | tanár | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">tanár: világos bőrtónus</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">tanárnő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🏫">nő | oktató | professzorasszony | sötét bőrtónus | tanárnő</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">tanárnő: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍⚖">bíró | mérleg | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍⚖">bíró | bíró / bírónő | mérleg | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">bíró / bírónő: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍⚖">bíró | közepesen világos bőrtónus | mérleg</annotation>
+		<annotation cp="🧑🏼‍⚖">bíró | bíró / bírónő | közepesen világos bőrtónus | mérleg</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">bíró / bírónő: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍⚖">bíró | közepes bőrtónus | mérleg</annotation>
+		<annotation cp="🧑🏽‍⚖">bíró | bíró / bírónő | közepes bőrtónus | mérleg</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">bíró / bírónő: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍⚖">bíró | közepesen sötét bőrtónus | mérleg</annotation>
+		<annotation cp="🧑🏾‍⚖">bíró | bíró / bírónő | közepesen sötét bőrtónus | mérleg</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">bíró / bírónő: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍⚖">bíró | mérleg | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏿‍⚖">bíró | bíró / bírónő | mérleg | sötét bőrtónus</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">bíró / bírónő: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍⚖">bíró | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">bíró: világos bőrtónus</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">bírónő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍⚖">bírónő | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">bírónő: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🌾">földműves | gazda | növénytermesztő | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🌾">földműves | gazda | gazda / női gazda | növénytermesztő | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">gazda / női gazda: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🌾">földműves | gazda | közepesen világos bőrtónus | növénytermesztő</annotation>
+		<annotation cp="🧑🏼‍🌾">földműves | gazda | gazda / női gazda | közepesen világos bőrtónus | növénytermesztő</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">gazda / női gazda: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🌾">földműves | gazda | közepes bőrtónus | növénytermesztő</annotation>
+		<annotation cp="🧑🏽‍🌾">földműves | gazda | gazda / női gazda | közepes bőrtónus | növénytermesztő</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">gazda / női gazda: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🌾">földműves | gazda | közepesen sötét bőrtónus | növénytermesztő</annotation>
+		<annotation cp="🧑🏾‍🌾">földműves | gazda | gazda / női gazda | közepesen sötét bőrtónus | növénytermesztő</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">gazda / női gazda: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🌾">földműves | gazda | növénytermesztő | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏿‍🌾">földműves | gazda | gazda / női gazda | növénytermesztő | sötét bőrtónus</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">gazda / női gazda: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🌾">férfi | földműves | gazda | kertész | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">gazda: világos bőrtónus</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">női gazda: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🌾">földműves | gazda | kertész | nő | női gazda | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">női gazda: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🍳">séf | szakács | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🍳">séf | szakács | szakács / szakácsnő | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">szakács / szakácsnő: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🍳">közepesen világos bőrtónus | séf | szakács</annotation>
+		<annotation cp="🧑🏼‍🍳">közepesen világos bőrtónus | séf | szakács | szakács / szakácsnő</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">szakács / szakácsnő: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🍳">közepes bőrtónus | séf | szakács</annotation>
+		<annotation cp="🧑🏽‍🍳">közepes bőrtónus | séf | szakács | szakács / szakácsnő</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">szakács / szakácsnő: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🍳">közepesen sötét bőrtónus | séf | szakács</annotation>
+		<annotation cp="🧑🏾‍🍳">közepesen sötét bőrtónus | séf | szakács | szakács / szakácsnő</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">szakács / szakácsnő: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🍳">séf | sötét bőrtónus | szakács</annotation>
+		<annotation cp="🧑🏿‍🍳">séf | sötét bőrtónus | szakács | szakács / szakácsnő</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">szakács / szakácsnő: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🍳">férfi | séf | szakács | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">szakács: világos bőrtónus</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">szakácsnő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🍳">nő | séf | sötét bőrtónus | szakácsnő</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">szakácsnő: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🔧">szaki | szerelő | világos bőrtónus | villanyszerelő | vízvezeték-szerelő</annotation>
+		<annotation cp="🧑🏻‍🔧">szaki | szerelő | szerelő / szerelőnő | világos bőrtónus | villanyszerelő | vízvezeték-szerelő</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">szerelő / szerelőnő: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🔧">közepesen világos bőrtónus | szaki | szerelő | villanyszerelő | vízvezeték-szerelő</annotation>
+		<annotation cp="🧑🏼‍🔧">közepesen világos bőrtónus | szaki | szerelő | szerelő / szerelőnő | villanyszerelő | vízvezeték-szerelő</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">szerelő / szerelőnő: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🔧">közepes bőrtónus | szaki | szerelő | villanyszerelő | vízvezeték-szerelő</annotation>
+		<annotation cp="🧑🏽‍🔧">közepes bőrtónus | szaki | szerelő | szerelő / szerelőnő | villanyszerelő | vízvezeték-szerelő</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">szerelő / szerelőnő: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🔧">közepesen sötét bőrtónus | szaki | szerelő | villanyszerelő | vízvezeték-szerelő</annotation>
+		<annotation cp="🧑🏾‍🔧">közepesen sötét bőrtónus | szaki | szerelő | szerelő / szerelőnő | villanyszerelő | vízvezeték-szerelő</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">szerelő / szerelőnő: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🔧">sötét bőrtónus | szaki | szerelő | villanyszerelő | vízvezeték-szerelő</annotation>
+		<annotation cp="🧑🏿‍🔧">sötét bőrtónus | szaki | szerelő | szerelő / szerelőnő | villanyszerelő | vízvezeték-szerelő</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">szerelő / szerelőnő: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🔧">férfi | szerelő | világos bőrtónus | villanyszerelő | vízszerelő</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">szerelő: világos bőrtónus</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">női munkás: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🏭">dolgozó | gyári | munkás | nő | női munkás | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">női munkás: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍💼">építész | értelmiségi | menedzser | üzletember | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍💼">építész | értelmiségi | irodai dolgozó | menedzser | üzletember | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">irodai dolgozó: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍💼">építész | értelmiségi | közepesen világos bőrtónus | menedzser | üzletember</annotation>
+		<annotation cp="🧑🏼‍💼">építész | értelmiségi | irodai dolgozó | közepesen világos bőrtónus | menedzser | üzletember</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">irodai dolgozó: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍💼">építész | értelmiségi | közepes bőrtónus | menedzser | üzletember</annotation>
+		<annotation cp="🧑🏽‍💼">építész | értelmiségi | irodai dolgozó | közepes bőrtónus | menedzser | üzletember</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">irodai dolgozó: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍💼">építész | értelmiségi | közepesen sötét bőrtónus | menedzser | üzletember</annotation>
+		<annotation cp="🧑🏾‍💼">építész | értelmiségi | irodai dolgozó | közepesen sötét bőrtónus | menedzser | üzletember</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">irodai dolgozó: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍💼">építész | értelmiségi | menedzser | sötét bőrtónus | üzletember</annotation>
+		<annotation cp="🧑🏿‍💼">építész | értelmiségi | irodai dolgozó | menedzser | sötét bőrtónus | üzletember</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">irodai dolgozó: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍💼">alkalmazott | férfi | férfi irodista | irodai | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">férfi irodista: világos bőrtónus</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">női irodista: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍💼">alkalmazott | irodai | női | női irodista | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">női irodista: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🔬">biológus | fizikus | mérnök | tudós | vegyész | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🔬">biológus | fizikus | mérnök | tudás | tudós | vegyész | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">tudás: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🔬">biológus | fizikus | közepesen világos bőrtónus | mérnök | tudós | vegyész</annotation>
+		<annotation cp="🧑🏼‍🔬">biológus | fizikus | közepesen világos bőrtónus | mérnök | tudás | tudós | vegyész</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">tudás: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🔬">biológus | fizikus | közepes bőrtónus | mérnök | tudós | vegyész</annotation>
+		<annotation cp="🧑🏽‍🔬">biológus | fizikus | közepes bőrtónus | mérnök | tudás | tudós | vegyész</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">tudás: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🔬">biológus | fizikus | közepesen sötét bőrtónus | mérnök | tudós | vegyész</annotation>
+		<annotation cp="🧑🏾‍🔬">biológus | fizikus | közepesen sötét bőrtónus | mérnök | tudás | tudós | vegyész</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">tudás: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🔬">biológus | fizikus | mérnök | sötét bőrtónus | tudós | vegyész</annotation>
+		<annotation cp="🧑🏿‍🔬">biológus | fizikus | mérnök | sötét bőrtónus | tudás | tudós | vegyész</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">tudás: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🔬">férfi | férfi tudós | fizikus | kémikus | matematikus | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">férfi tudós: világos bőrtónus</annotation>
@@ -1366,15 +1416,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">női művész: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🎨">festő | művész | nő | női művész | paletta | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">női művész: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍✈">pilóta | repülőgép | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍✈">pilóta | pilóta / pilótanő | repülőgép | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">pilóta / pilótanő: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍✈">közepesen világos bőrtónus | pilóta | repülőgép</annotation>
+		<annotation cp="🧑🏼‍✈">közepesen világos bőrtónus | pilóta | pilóta / pilótanő | repülőgép</annotation>
 		<annotation cp="🧑🏼‍✈" type="tts">pilóta / pilótanő: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍✈">közepes bőrtónus | pilóta | repülőgép</annotation>
+		<annotation cp="🧑🏽‍✈">közepes bőrtónus | pilóta | pilóta / pilótanő | repülőgép</annotation>
 		<annotation cp="🧑🏽‍✈" type="tts">pilóta / pilótanő: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍✈">közepesen sötét bőrtónus | pilóta | repülőgép</annotation>
+		<annotation cp="🧑🏾‍✈">közepesen sötét bőrtónus | pilóta | pilóta / pilótanő | repülőgép</annotation>
 		<annotation cp="🧑🏾‍✈" type="tts">pilóta / pilótanő: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍✈">pilóta | repülőgép | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏿‍✈">pilóta | pilóta / pilótanő | repülőgép | sötét bőrtónus</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">pilóta / pilótanő: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍✈">férfi | pilóta | repülő | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilóta: világos bőrtónus</annotation>
@@ -1396,15 +1446,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍✈" type="tts">pilótanő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍✈">nő | pilóta | pilótanő | repülő | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilótanő: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🚀">rakéta | űrhajós | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🚀">rakéta | űrhajós | űrhajós / űrhajósnő | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">űrhajós / űrhajósnő: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🚀">közepesen világos bőrtónus | rakéta | űrhajós</annotation>
+		<annotation cp="🧑🏼‍🚀">közepesen világos bőrtónus | rakéta | űrhajós | űrhajós / űrhajósnő</annotation>
 		<annotation cp="🧑🏼‍🚀" type="tts">űrhajós / űrhajósnő: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🚀">közepes bőrtónus | rakéta | űrhajós</annotation>
+		<annotation cp="🧑🏽‍🚀">közepes bőrtónus | rakéta | űrhajós | űrhajós / űrhajósnő</annotation>
 		<annotation cp="🧑🏽‍🚀" type="tts">űrhajós / űrhajósnő: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🚀">közepesen sötét bőrtónus | rakéta | űrhajós</annotation>
+		<annotation cp="🧑🏾‍🚀">közepesen sötét bőrtónus | rakéta | űrhajós | űrhajós / űrhajósnő</annotation>
 		<annotation cp="🧑🏾‍🚀" type="tts">űrhajós / űrhajósnő: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🚀">rakéta | sötét bőrtónus | űrhajós</annotation>
+		<annotation cp="🧑🏿‍🚀">rakéta | sötét bőrtónus | űrhajós | űrhajós / űrhajósnő</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">űrhajós / űrhajósnő: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🚀">férfi | rakéta | űr | űrhajós | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">űrhajós: világos bőrtónus</annotation>
@@ -1426,15 +1476,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚀" type="tts">űrhajósnő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🚀">nő | rakéta | sötét bőrtónus | űr | űrhajós | űrhajósnő</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">űrhajósnő: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🚒">tűzoltó | tűzoltóautó | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🚒">tűzoltó | tűzoltó / tűzoltónő | tűzoltóautó | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">tűzoltó / tűzoltónő: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🚒">közepesen világos bőrtónus | tűzoltó | tűzoltóautó</annotation>
+		<annotation cp="🧑🏼‍🚒">közepesen világos bőrtónus | tűzoltó | tűzoltó / tűzoltónő | tűzoltóautó</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">tűzoltó / tűzoltónő: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🚒">közepes bőrtónus | tűzoltó | tűzoltóautó</annotation>
+		<annotation cp="🧑🏽‍🚒">közepes bőrtónus | tűzoltó | tűzoltó / tűzoltónő | tűzoltóautó</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">tűzoltó / tűzoltónő: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🚒">közepesen sötét bőrtónus | tűzoltó | tűzoltóautó</annotation>
+		<annotation cp="🧑🏾‍🚒">közepesen sötét bőrtónus | tűzoltó | tűzoltó / tűzoltónő | tűzoltóautó</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">tűzoltó / tűzoltónő: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🚒">sötét bőrtónus | tűzoltó | tűzoltóautó</annotation>
+		<annotation cp="🧑🏿‍🚒">sötét bőrtónus | tűzoltó | tűzoltó / tűzoltónő | tűzoltóautó</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">tűzoltó / tűzoltónő: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🚒">férfi | tűz | tűzoltó | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">tűzoltó: világos bőrtónus</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">nő fejkendővel: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🧕🏿">fejkendő | hidzsáb | mantilla | nő fejkendővel | sötét bőrtónus | tichel</annotation>
 		<annotation cp="🧕🏿" type="tts">nő fejkendővel: sötét bőrtónus</annotation>
-		<annotation cp="🤵🏻">férfi | szmoking | szmokingos férfi | világos bőrtónus | vőlegény</annotation>
-		<annotation cp="🤵🏻" type="tts">szmokingos férfi: világos bőrtónus</annotation>
-		<annotation cp="🤵🏼">férfi | közepesen világos bőrtónus | szmoking | szmokingos férfi | vőlegény</annotation>
-		<annotation cp="🤵🏼" type="tts">szmokingos férfi: közepesen világos bőrtónus</annotation>
-		<annotation cp="🤵🏽">férfi | közepes bőrtónus | szmoking | szmokingos férfi | vőlegény</annotation>
-		<annotation cp="🤵🏽" type="tts">szmokingos férfi: közepes bőrtónus</annotation>
-		<annotation cp="🤵🏾">férfi | közepesen sötét bőrtónus | szmoking | szmokingos férfi | vőlegény</annotation>
-		<annotation cp="🤵🏾" type="tts">szmokingos férfi: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🤵🏿">férfi | sötét bőrtónus | szmoking | szmokingos férfi | vőlegény</annotation>
-		<annotation cp="🤵🏿" type="tts">szmokingos férfi: sötét bőrtónus</annotation>
-		<annotation cp="👰🏻">esküvő | fátyol | lakodalom | menyasszony | menyasszony fátyollal | világos bőrtónus</annotation>
-		<annotation cp="👰🏻" type="tts">menyasszony fátyollal: világos bőrtónus</annotation>
-		<annotation cp="👰🏼">esküvő | fátyol | közepesen világos bőrtónus | lakodalom | menyasszony | menyasszony fátyollal</annotation>
-		<annotation cp="👰🏼" type="tts">menyasszony fátyollal: közepesen világos bőrtónus</annotation>
-		<annotation cp="👰🏽">esküvő | fátyol | közepes bőrtónus | lakodalom | menyasszony | menyasszony fátyollal</annotation>
-		<annotation cp="👰🏽" type="tts">menyasszony fátyollal: közepes bőrtónus</annotation>
-		<annotation cp="👰🏾">esküvő | fátyol | közepesen sötét bőrtónus | lakodalom | menyasszony | menyasszony fátyollal</annotation>
-		<annotation cp="👰🏾" type="tts">menyasszony fátyollal: közepesen sötét bőrtónus</annotation>
-		<annotation cp="👰🏿">esküvő | fátyol | lakodalom | menyasszony | menyasszony fátyollal | sötét bőrtónus</annotation>
-		<annotation cp="👰🏿" type="tts">menyasszony fátyollal: sötét bőrtónus</annotation>
+		<annotation cp="🤵🏻">ember | szmoking | szmokingos ember | világos bőrtónus | vőlegény</annotation>
+		<annotation cp="🤵🏻" type="tts">szmokingos ember: világos bőrtónus</annotation>
+		<annotation cp="🤵🏼">ember | közepesen világos bőrtónus | szmoking | szmokingos ember | vőlegény</annotation>
+		<annotation cp="🤵🏼" type="tts">szmokingos ember: közepesen világos bőrtónus</annotation>
+		<annotation cp="🤵🏽">ember | közepes bőrtónus | szmoking | szmokingos ember | vőlegény</annotation>
+		<annotation cp="🤵🏽" type="tts">szmokingos ember: közepes bőrtónus</annotation>
+		<annotation cp="🤵🏾">ember | közepesen sötét bőrtónus | szmoking | szmokingos ember | vőlegény</annotation>
+		<annotation cp="🤵🏾" type="tts">szmokingos ember: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🤵🏿">ember | sötét bőrtónus | szmoking | szmokingos ember | vőlegény</annotation>
+		<annotation cp="🤵🏿" type="tts">szmokingos ember: sötét bőrtónus</annotation>
+		<annotation cp="🤵🏻‍♀">nő | szmoking | szmokingos nő | világos bőrtónus</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">szmokingos nő: világos bőrtónus</annotation>
+		<annotation cp="🤵🏼‍♀">közepesen világos bőrtónus | nő | szmoking | szmokingos nő</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">szmokingos nő: közepesen világos bőrtónus</annotation>
+		<annotation cp="🤵🏽‍♀">közepes bőrtónus | nő | szmoking | szmokingos nő</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">szmokingos nő: közepes bőrtónus</annotation>
+		<annotation cp="🤵🏾‍♀">közepesen sötét bőrtónus | nő | szmoking | szmokingos nő</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">szmokingos nő: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🤵🏿‍♀">nő | sötét bőrtónus | szmoking | szmokingos nő</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">szmokingos nő: sötét bőrtónus</annotation>
+		<annotation cp="🤵🏻‍♂">férfi | szmoking | szmokingos férfi | világos bőrtónus</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">szmokingos férfi: világos bőrtónus</annotation>
+		<annotation cp="🤵🏼‍♂">férfi | közepesen világos bőrtónus | szmoking | szmokingos férfi</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">szmokingos férfi: közepesen világos bőrtónus</annotation>
+		<annotation cp="🤵🏽‍♂">férfi | közepes bőrtónus | szmoking | szmokingos férfi</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">szmokingos férfi: közepes bőrtónus</annotation>
+		<annotation cp="🤵🏾‍♂">férfi | közepesen sötét bőrtónus | szmoking | szmokingos férfi</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">szmokingos férfi: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🤵🏿‍♂">férfi | sötét bőrtónus | szmoking | szmokingos férfi</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">szmokingos férfi: sötét bőrtónus</annotation>
+		<annotation cp="👰🏻">ember | ember fátyollal | esküvő | fátyol | menyasszony | világos bőrtónus</annotation>
+		<annotation cp="👰🏻" type="tts">ember fátyollal: világos bőrtónus</annotation>
+		<annotation cp="👰🏼">ember | ember fátyollal | esküvő | fátyol | közepesen világos bőrtónus | menyasszony</annotation>
+		<annotation cp="👰🏼" type="tts">ember fátyollal: közepesen világos bőrtónus</annotation>
+		<annotation cp="👰🏽">ember | ember fátyollal | esküvő | fátyol | közepes bőrtónus | menyasszony</annotation>
+		<annotation cp="👰🏽" type="tts">ember fátyollal: közepes bőrtónus</annotation>
+		<annotation cp="👰🏾">ember | ember fátyollal | esküvő | fátyol | közepesen sötét bőrtónus | menyasszony</annotation>
+		<annotation cp="👰🏾" type="tts">ember fátyollal: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👰🏿">ember | ember fátyollal | esküvő | fátyol | menyasszony | sötét bőrtónus</annotation>
+		<annotation cp="👰🏿" type="tts">ember fátyollal: sötét bőrtónus</annotation>
+		<annotation cp="👰🏻‍♀">fátyol | nő | nő fátyollal | világos bőrtónus</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">nő fátyollal: világos bőrtónus</annotation>
+		<annotation cp="👰🏼‍♀">fátyol | közepesen világos bőrtónus | nő | nő fátyollal</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">nő fátyollal: közepesen világos bőrtónus</annotation>
+		<annotation cp="👰🏽‍♀">fátyol | közepes bőrtónus | nő | nő fátyollal</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">nő fátyollal: közepes bőrtónus</annotation>
+		<annotation cp="👰🏾‍♀">fátyol | közepesen sötét bőrtónus | nő | nő fátyollal</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">nő fátyollal: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👰🏿‍♀">fátyol | nő | nő fátyollal | sötét bőrtónus</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">nő fátyollal: sötét bőrtónus</annotation>
+		<annotation cp="👰🏻‍♂">fátyol | férfi | férfi fátyollal | világos bőrtónus</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">férfi fátyollal: világos bőrtónus</annotation>
+		<annotation cp="👰🏼‍♂">fátyol | férfi | férfi fátyollal | közepesen világos bőrtónus</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">férfi fátyollal: közepesen világos bőrtónus</annotation>
+		<annotation cp="👰🏽‍♂">fátyol | férfi | férfi fátyollal | közepes bőrtónus</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">férfi fátyollal: közepes bőrtónus</annotation>
+		<annotation cp="👰🏾‍♂">fátyol | férfi | férfi fátyollal | közepesen sötét bőrtónus</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">férfi fátyollal: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👰🏿‍♂">fátyol | férfi | férfi fátyollal | sötét bőrtónus</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">férfi fátyollal: sötét bőrtónus</annotation>
 		<annotation cp="🤰🏻">nő | terhes | várandós | világos bőrtónus</annotation>
 		<annotation cp="🤰🏻" type="tts">terhes nő: világos bőrtónus</annotation>
 		<annotation cp="🤰🏼">közepesen világos bőrtónus | nő | terhes | várandós</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">térdelő nő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🧎🏿‍♀">nő | sötét bőrtónus | térdel | térdelő nő</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">térdelő nő: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🦯">akadálymentesség | vak | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🦯">akadálymentesség | ember fehér bottal | vak | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">ember fehér bottal: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🦯">akadálymentesség | közepesen világos bőrtónus | vak</annotation>
+		<annotation cp="🧑🏼‍🦯">akadálymentesség | ember fehér bottal | közepesen világos bőrtónus | vak</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">ember fehér bottal: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🦯">akadálymentesség | közepes bőrtónus | vak</annotation>
+		<annotation cp="🧑🏽‍🦯">akadálymentesség | ember fehér bottal | közepes bőrtónus | vak</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">ember fehér bottal: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🦯">akadálymentesség | közepesen sötét bőrtónus | vak</annotation>
+		<annotation cp="🧑🏾‍🦯">akadálymentesség | ember fehér bottal | közepesen sötét bőrtónus | vak</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">ember fehér bottal: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🦯">akadálymentesség | sötét bőrtónus | vak</annotation>
+		<annotation cp="🧑🏿‍🦯">akadálymentesség | ember fehér bottal | sötét bőrtónus | vak</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">ember fehér bottal: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🦯">akadálymentesség | férfi | férfi fehér bottal | vak | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">férfi fehér bottal: világos bőrtónus</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">nő fehér bottal: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🦯">akadálymentesség | nő | nő fehér bottal | sötét bőrtónus | vak</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">nő fehér bottal: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🦼">akadálymentesség | kerekesszék | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🦼">akadálymentesség | ember motoros kerekesszékben | kerekesszék | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">ember motoros kerekesszékben: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🦼">akadálymentesség | kerekesszék | közepesen világos bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🦼">akadálymentesség | ember motoros kerekesszékben | kerekesszék | közepesen világos bőrtónus</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">ember motoros kerekesszékben: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🦼">akadálymentesség | kerekesszék | közepes bőrtónus</annotation>
+		<annotation cp="🧑🏽‍🦼">akadálymentesség | ember motoros kerekesszékben | kerekesszék | közepes bőrtónus</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">ember motoros kerekesszékben: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🦼">akadálymentesség | kerekesszék | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏾‍🦼">akadálymentesség | ember motoros kerekesszékben | kerekesszék | közepesen sötét bőrtónus</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">ember motoros kerekesszékben: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🦼">akadálymentesség | kerekesszék | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏿‍🦼">akadálymentesség | ember motoros kerekesszékben | kerekesszék | sötét bőrtónus</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">ember motoros kerekesszékben: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🦼">akadálymentesség | férfi | férfi motoros kerekesszékben | kerekesszék | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">férfi motoros kerekesszékben: világos bőrtónus</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">nő motoros kerekesszékben: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🦼">akadálymentesség | kerekesszék | nő | nő motoros kerekesszékben | sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">nő motoros kerekesszékben: sötét bőrtónus</annotation>
-		<annotation cp="🧑🏻‍🦽">akadálymentesség | kerekesszék | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🦽">akadálymentesség | kerekesszék | kerekesszékes ember | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">kerekesszékes ember: világos bőrtónus</annotation>
-		<annotation cp="🧑🏼‍🦽">akadálymentesség | kerekesszék | közepesen világos bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🦽">akadálymentesség | kerekesszék | kerekesszékes ember | közepesen világos bőrtónus</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">kerekesszékes ember: közepesen világos bőrtónus</annotation>
-		<annotation cp="🧑🏽‍🦽">akadálymentesség | kerekesszék | közepes bőrtónus</annotation>
+		<annotation cp="🧑🏽‍🦽">akadálymentesség | kerekesszék | kerekesszékes ember | közepes bőrtónus</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">kerekesszékes ember: közepes bőrtónus</annotation>
-		<annotation cp="🧑🏾‍🦽">akadálymentesség | kerekesszék | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏾‍🦽">akadálymentesség | kerekesszék | kerekesszékes ember | közepesen sötét bőrtónus</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">kerekesszékes ember: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🧑🏿‍🦽">akadálymentesség | kerekesszék | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏿‍🦽">akadálymentesség | kerekesszék | kerekesszékes ember | sötét bőrtónus</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">kerekesszékes ember: sötét bőrtónus</annotation>
 		<annotation cp="👨🏻‍🦽">akadálymentesség | férfi | férfi kézi hajtású kerekesszékben | kerekesszék | világos bőrtónus</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">férfi kézi hajtású kerekesszékben: világos bőrtónus</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">ember az ágyban: sötét bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">egymás kezét fogó emberek | fogás | kéz | kézenfogva | pár | világos bőrtónus</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">egymás kezét fogó emberek: világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen világos bőrtónus | pár | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">egymás kezét fogó emberek: világos bőrtónus és közepesen világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepes bőrtónus | pár | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">egymás kezét fogó emberek: világos bőrtónus és közepes bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen sötét bőrtónus | pár | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">egymás kezét fogó emberek: világos bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">egymás kezét fogó emberek | fogás | kéz | kézenfogva | pár | sötét bőrtónus | világos bőrtónus</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">egymás kezét fogó emberek: világos bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen világos bőrtónus | pár | világos bőrtónus</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">egymás kezét fogó emberek: közepesen világos bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen világos bőrtónus | pár</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">egymás kezét fogó emberek: közepesen világos bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepes bőrtónus | közepesen világos bőrtónus | pár</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">egymás kezét fogó emberek: közepesen világos bőrtónus és közepes bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen sötét bőrtónus | közepesen világos bőrtónus | pár</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">egymás kezét fogó emberek: közepesen világos bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen világos bőrtónus | pár | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">egymás kezét fogó emberek: közepesen világos bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepes bőrtónus | pár | világos bőrtónus</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">egymás kezét fogó emberek: közepes bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepes bőrtónus | közepesen világos bőrtónus | pár</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">egymás kezét fogó emberek: közepes bőrtónus és közepesen világos bőrtónus</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepes bőrtónus | pár</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">egymás kezét fogó emberek: közepes bőrtónus</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepes bőrtónus | közepesen sötét bőrtónus | pár</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">egymás kezét fogó emberek: közepes bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepes bőrtónus | pár | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">egymás kezét fogó emberek: közepes bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen sötét bőrtónus | pár | világos bőrtónus</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">egymás kezét fogó emberek: közepesen sötét bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen sötét bőrtónus | közepesen világos bőrtónus | pár</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">egymás kezét fogó emberek: közepesen sötét bőrtónus és közepes bőrtónus</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen sötét bőrtónus | pár</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">egymás kezét fogó emberek: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen sötét bőrtónus | pár | sötét bőrtónus</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">egymás kezét fogó emberek: közepesen sötét bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">egymás kezét fogó emberek | fogás | kéz | kézenfogva | pár | sötét bőrtónus | világos bőrtónus</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">egymás kezét fogó emberek: sötét bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">egymás kezét fogó emberek | fogás | kéz | kézenfogva | közepesen világos bőrtónus | pár | sötét bőrtónus</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">egymás kezét fogó emberek: sötét bőrtónus</annotation>
 		<annotation cp="👭🏻">kézen fogva | kézen fogva álló nők | nők | pár | világos bőrtónus</annotation>
 		<annotation cp="👭🏻" type="tts">kézen fogva álló nők: világos bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">kézen fogva | kézen fogva álló nők | közepesen világos bőrtónus | nők | pár | világos bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">kézen fogva álló nők: világos bőrtónus és közepesen világos bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">kézen fogva | kézen fogva álló nők | közepes bőrtónus | nők | pár | világos bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">kézen fogva álló nők: világos bőrtónus és közepes bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">kézen fogva | kézen fogva álló nők | közepesen sötét bőrtónus | nők | pár | világos bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">kézen fogva álló nők: világos bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">kézen fogva | kézen fogva álló nők | nők | pár | sötét bőrtónus | világos bőrtónus</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">kézen fogva álló nők: világos bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">kézen fogva | kézen fogva álló nők | közepesen világos bőrtónus | nők | pár | világos bőrtónus</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kézen fogva álló nők: közepesen világos bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👭🏼">kézen fogva | kézen fogva álló nők | közepesen világos bőrtónus | nők | pár</annotation>
 		<annotation cp="👭🏼" type="tts">kézen fogva álló nők: közepesen világos bőrtónus</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">kézen fogva | kézen fogva álló nők | közepes bőrtónus | közepesen világos bőrtónus | nők | pár</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">kézen fogva álló nők: közepesen világos bőrtónus és közepes bőrtónus</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">kézen fogva | kézen fogva álló nők | közepesen sötét bőrtónus | közepesen világos bőrtónus | nők | pár</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">kézen fogva álló nők: közepesen világos bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">kézen fogva | kézen fogva álló nők | közepesen világos bőrtónus | nők | pár | sötét bőrtónus</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">kézen fogva álló nők: közepesen világos bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">kézen fogva | kézen fogva álló nők | közepes bőrtónus | nők | pár | világos bőrtónus</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kézen fogva álló nők: közepes bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">kézen fogva | kézen fogva álló nők | közepes bőrtónus | közepesen világos bőrtónus | nők | pár</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kézen fogva álló nők: közepes bőrtónus és közepesen világos bőrtónus</annotation>
 		<annotation cp="👭🏽">kézen fogva | kézen fogva álló nők | közepes bőrtónus | nők | pár</annotation>
 		<annotation cp="👭🏽" type="tts">kézen fogva álló nők: közepes bőrtónus</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">kézen fogva | kézen fogva álló nők | közepes bőrtónus | közepesen sötét bőrtónus | nők | pár</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">kézen fogva álló nők: közepes bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">kézen fogva | kézen fogva álló nők | közepes bőrtónus | nők | pár | sötét bőrtónus</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">kézen fogva álló nők: közepes bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">kézen fogva | kézen fogva álló nők | közepesen sötét bőrtónus | nők | pár | világos bőrtónus</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kézen fogva álló nők: közepesen sötét bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">kézen fogva | kézen fogva álló nők | közepesen sötét bőrtónus | közepesen világos bőrtónus | nők | pár</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kézen fogva álló nők: közepesen sötét bőrtónus és közepes bőrtónus</annotation>
 		<annotation cp="👭🏾">kézen fogva | kézen fogva álló nők | közepesen sötét bőrtónus | nők | pár</annotation>
 		<annotation cp="👭🏾" type="tts">kézen fogva álló nők: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">kézen fogva | kézen fogva álló nők | közepesen sötét bőrtónus | nők | pár | sötét bőrtónus</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">kézen fogva álló nők: közepesen sötét bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">kézen fogva | kézen fogva álló nők | nők | pár | sötét bőrtónus | világos bőrtónus</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kézen fogva álló nők: sötét bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">kézen fogva | kézen fogva álló nők | közepesen világos bőrtónus | nők | pár | sötét bőrtónus</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">kézen fogva álló férfi és nő: sötét bőrtónus</annotation>
 		<annotation cp="👬🏻">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | pár | világos bőrtónus</annotation>
 		<annotation cp="👬🏻" type="tts">kézen fogva álló férfiak: világos bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen világos bőrtónus | pár | világos bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">kézen fogva álló férfiak: világos bőrtónus és közepesen világos bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepes bőrtónus | pár | világos bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">kézen fogva álló férfiak: világos bőrtónus és közepes bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen sötét bőrtónus | pár | világos bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">kézen fogva álló férfiak: világos bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | pár | sötét bőrtónus | világos bőrtónus</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">kézen fogva álló férfiak: világos bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen világos bőrtónus | pár | világos bőrtónus</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">kézen fogva álló férfiak: közepesen világos bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👬🏼">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen világos bőrtónus | pár</annotation>
 		<annotation cp="👬🏼" type="tts">kézen fogva álló férfiak: közepesen világos bőrtónus</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepes bőrtónus | közepesen világos bőrtónus | pár</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">kézen fogva álló férfiak: közepesen világos bőrtónus és közepes bőrtónus</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen sötét bőrtónus | közepesen világos bőrtónus | pár</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">kézen fogva álló férfiak: közepesen világos bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen világos bőrtónus | pár | sötét bőrtónus</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">kézen fogva álló férfiak: közepesen világos bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepes bőrtónus | pár | világos bőrtónus</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">kézen fogva álló férfiak: közepes bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepes bőrtónus | közepesen világos bőrtónus | pár</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">kézen fogva álló férfiak: közepes bőrtónus és közepesen világos bőrtónus</annotation>
 		<annotation cp="👬🏽">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepes bőrtónus | pár</annotation>
 		<annotation cp="👬🏽" type="tts">kézen fogva álló férfiak: közepes bőrtónus</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepes bőrtónus | közepesen sötét bőrtónus | pár</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">kézen fogva álló férfiak: közepes bőrtónus és közepesen sötét bőrtónus</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepes bőrtónus | pár | sötét bőrtónus</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">kézen fogva álló férfiak: közepes bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen sötét bőrtónus | pár | világos bőrtónus</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">kézen fogva álló férfiak: közepesen sötét bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen sötét bőrtónus | közepesen világos bőrtónus | pár</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">kézen fogva álló férfiak: közepesen sötét bőrtónus és közepes bőrtónus</annotation>
 		<annotation cp="👬🏾">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen sötét bőrtónus | pár</annotation>
 		<annotation cp="👬🏾" type="tts">kézen fogva álló férfiak: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen sötét bőrtónus | pár | sötét bőrtónus</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">kézen fogva álló férfiak: közepesen sötét bőrtónus és sötét bőrtónus</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | pár | sötét bőrtónus | világos bőrtónus</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">kézen fogva álló férfiak: sötét bőrtónus és világos bőrtónus</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">férfiak | ikrek | kézen fogva | kézen fogva álló férfiak | közepesen világos bőrtónus | pár | sötét bőrtónus</annotation>

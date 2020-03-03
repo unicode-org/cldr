@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="tk"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">açyk deri reňki | barmaklar | el hereketi | gysylan | soramak | teýeneli</annotation>
+		<annotation cp="🤌🏻" type="tts">gysylan barmaklar: açyk deri reňki</annotation>
+		<annotation cp="🤌🏼">barmaklar | el hereketi | gysylan | orta açyk deri reňki | soramak | teýeneli</annotation>
+		<annotation cp="🤌🏼" type="tts">gysylan barmaklar: orta açyk deri reňki</annotation>
+		<annotation cp="🤌🏽">barmaklar | el hereketi | gysylan | orta deri reňki | soramak | teýeneli</annotation>
+		<annotation cp="🤌🏽" type="tts">gysylan barmaklar: orta deri reňki</annotation>
+		<annotation cp="🤌🏾">barmaklar | el hereketi | gysylan | orta goýy deri reňki | soramak | teýeneli</annotation>
+		<annotation cp="🤌🏾" type="tts">gysylan barmaklar: orta goýy deri reňki</annotation>
+		<annotation cp="🤌🏿">barmaklar | el hereketi | goýy deri reňki | gysylan | soramak | teýeneli</annotation>
+		<annotation cp="🤌🏿" type="tts">gysylan barmaklar: goýy deri reňki</annotation>
 		<annotation cp="👋🏻">açyk deri reňki | el | galgatmak | galgaýan</annotation>
 		<annotation cp="👋🏻" type="tts">galgaýan el: açyk deri reňki</annotation>
 		<annotation cp="👋🏼">el | galgatmak | galgaýan | orta açyk deri reňki</annotation>
@@ -152,15 +162,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👉🏾" type="tts">sagy görkezýän el-arkasy süýem barmak: orta goýy deri reňki</annotation>
 		<annotation cp="👉🏿">barmak | el | eliň arkasy | görkezmek | goýy deri reňki | sagy görkezýän el-arkasy süýem barmak | süýem</annotation>
 		<annotation cp="👉🏿" type="tts">sagy görkezýän el-arkasy süýem barmak: goýy deri reňki</annotation>
-		<annotation cp="👆🏻">açyk deri reňki | barmak | el | eliň arkasy | görkezmek | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
+		<annotation cp="👆🏻">açyk deri reňki | barmak | el | el-arkasy süýem barmak ýokaryk | eliň arkasy | görkezmek | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
 		<annotation cp="👆🏻" type="tts">el-arkasy süýem barmak ýokaryk: açyk deri reňki</annotation>
-		<annotation cp="👆🏼">barmak | el | eliň arkasy | görkezmek | orta açyk deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
+		<annotation cp="👆🏼">barmak | el | el-arkasy süýem barmak ýokaryk | eliň arkasy | görkezmek | orta açyk deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
 		<annotation cp="👆🏼" type="tts">el-arkasy süýem barmak ýokaryk: orta açyk deri reňki</annotation>
-		<annotation cp="👆🏽">barmak | el | eliň arkasy | görkezmek | orta deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
+		<annotation cp="👆🏽">barmak | el | el-arkasy süýem barmak ýokaryk | eliň arkasy | görkezmek | orta deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
 		<annotation cp="👆🏽" type="tts">el-arkasy süýem barmak ýokaryk: orta deri reňki</annotation>
-		<annotation cp="👆🏾">barmak | el | eliň arkasy | görkezmek | orta goýy deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
+		<annotation cp="👆🏾">barmak | el | el-arkasy süýem barmak ýokaryk | eliň arkasy | görkezmek | orta goýy deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
 		<annotation cp="👆🏾" type="tts">el-arkasy süýem barmak ýokaryk: orta goýy deri reňki</annotation>
-		<annotation cp="👆🏿">barmak | el | eliň arkasy | görkezmek | goýy deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
+		<annotation cp="👆🏿">barmak | el | el-arkasy süýem barmak ýokaryk | eliň arkasy | görkezmek | goýy deri reňki | süýem | ýokary | ýokaryny görkezýän el-arkasy süýem barmak</annotation>
 		<annotation cp="👆🏿" type="tts">el-arkasy süýem barmak ýokaryk: goýy deri reňki</annotation>
 		<annotation cp="🖕🏻">açyk deri reňki | barmak | el | orta barmak</annotation>
 		<annotation cp="🖕🏻" type="tts">orta barmak: açyk deri reňki</annotation>
@@ -352,15 +362,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦵🏾" type="tts">aýak: orta goýy deri reňki</annotation>
 		<annotation cp="🦵🏿">agza | aýak | aýak2 | depmek | goýy deri reňki</annotation>
 		<annotation cp="🦵🏿" type="tts">aýak: goýy deri reňki</annotation>
-		<annotation cp="🦶🏻">açyk deri reňki | aýak | basmak | depmek</annotation>
+		<annotation cp="🦶🏻">açyk deri reňki | aýak | basmak | daban | depmek</annotation>
 		<annotation cp="🦶🏻" type="tts">daban: açyk deri reňki</annotation>
-		<annotation cp="🦶🏼">aýak | basmak | depmek | orta açyk deri reňki</annotation>
+		<annotation cp="🦶🏼">aýak | basmak | daban | depmek | orta açyk deri reňki</annotation>
 		<annotation cp="🦶🏼" type="tts">daban: orta açyk deri reňki</annotation>
-		<annotation cp="🦶🏽">aýak | basmak | depmek | orta deri reňki</annotation>
+		<annotation cp="🦶🏽">aýak | basmak | daban | depmek | orta deri reňki</annotation>
 		<annotation cp="🦶🏽" type="tts">daban: orta deri reňki</annotation>
-		<annotation cp="🦶🏾">aýak | basmak | depmek | orta goýy deri reňki</annotation>
+		<annotation cp="🦶🏾">aýak | basmak | daban | depmek | orta goýy deri reňki</annotation>
 		<annotation cp="🦶🏾" type="tts">daban: orta goýy deri reňki</annotation>
-		<annotation cp="🦶🏿">aýak | basmak | depmek | goýy deri reňki</annotation>
+		<annotation cp="🦶🏿">aýak | basmak | daban | depmek | goýy deri reňki</annotation>
 		<annotation cp="🦶🏿" type="tts">daban: goýy deri reňki</annotation>
 		<annotation cp="👂🏻">açyk deri reňki | göwre | gulak</annotation>
 		<annotation cp="👂🏻" type="tts">gulak: açyk deri reňki</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">uly ýaşly: orta goýy deri reňki, kel</annotation>
 		<annotation cp="🧑🏿‍🦲">adam | goýy deri reňki | jynsyýeti görkezilmedik | jynsyýeti tapawut etmeýän | kel | uly ýaşly</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">uly ýaşly: goýy deri reňki, kel</annotation>
+		<annotation cp="🧑🏻‍🍼">açyk deri reňki | adam | bäbegi emdirýän adam | bebek | emdirýän | ideg</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">bäbegi emdirýän adam: açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🍼">adam | bäbegi emdirýän adam | bebek | emdirýän | ideg | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">bäbegi emdirýän adam: orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏽‍🍼">adam | bäbegi emdirýän adam | bebek | emdirýän | ideg | orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">bäbegi emdirýän adam: orta deri reňki</annotation>
+		<annotation cp="🧑🏾‍🍼">adam | bäbegi emdirýän adam | bebek | emdirýän | ideg | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">bäbegi emdirýän adam: orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏿‍🍼">adam | bäbegi emdirýän adam | bebek | emdirýän | goýy deri reňki | ideg</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">bäbegi emdirýän adam: goýy deri reňki</annotation>
+		<annotation cp="🧑🏻‍🎄">açyk deri reňki | Klaus, roždestwo | maks klaus</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">maks klaus: açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🎄">Klaus, roždestwo | maks klaus | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">maks klaus: orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏽‍🎄">Klaus, roždestwo | maks klaus | orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">maks klaus: orta deri reňki</annotation>
+		<annotation cp="🧑🏾‍🎄">Klaus, roždestwo | maks klaus | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">maks klaus: orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏿‍🎄">goýy deri reňki | Klaus, roždestwo | maks klaus</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">maks klaus: goýy deri reňki</annotation>
 		<annotation cp="👨🏻">açyk deri reňki | erkek | erkek adam | uly ýaşly</annotation>
 		<annotation cp="👨🏻" type="tts">erkek: açyk deri reňki</annotation>
 		<annotation cp="👨🏼">erkek | erkek adam | orta açyk deri reňki | uly ýaşly</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">erkek: orta goýy deri reňki, kel</annotation>
 		<annotation cp="👨🏿‍🦲">erkek | erkek adam | goýy deri reňki | kel | uly ýaşly</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">erkek: goýy deri reňki, kel</annotation>
+		<annotation cp="👨🏻‍🍼">açyk deri reňki | bäbegi emdirýän erkek | bäbek | emdirýän | erkek | ideg</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">bäbegi emdirýän erkek: açyk deri reňki</annotation>
+		<annotation cp="👨🏼‍🍼">bäbegi emdirýän erkek | bäbek | emdirýän | erkek | ideg | orta açyk deri reňki</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">bäbegi emdirýän erkek: orta açyk deri reňki</annotation>
+		<annotation cp="👨🏽‍🍼">bäbegi emdirýän erkek | bäbek | emdirýän | erkek | ideg | orta deri reňki</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">bäbegi emdirýän erkek: orta deri reňki</annotation>
+		<annotation cp="👨🏾‍🍼">bäbegi emdirýän erkek | bäbek | emdirýän | erkek | ideg | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">bäbegi emdirýän erkek: orta goýy deri reňki</annotation>
+		<annotation cp="👨🏿‍🍼">bäbegi emdirýän erkek | bäbek | emdirýän | erkek | goýy deri reňki | ideg</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">bäbegi emdirýän erkek: goýy deri reňki</annotation>
 		<annotation cp="👩🏻">açyk deri reňki | zenan</annotation>
 		<annotation cp="👩🏻" type="tts">zenan: açyk deri reňki</annotation>
 		<annotation cp="👩🏼">orta açyk deri reňki | zenan</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">zenan: orta goýy deri reňki, kel</annotation>
 		<annotation cp="👩🏿‍🦲">goýy deri reňki | kel | zenan</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">zenan: goýy deri reňki, kel</annotation>
+		<annotation cp="👩🏻‍🍼">açyk deri reňki | aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">bäbegi emdirýän aýal: açyk deri reňki</annotation>
+		<annotation cp="👩🏼‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg | orta açyk deri reňki</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">bäbegi emdirýän aýal: orta açyk deri reňki</annotation>
+		<annotation cp="👩🏽‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg | orta deri reňki</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">bäbegi emdirýän aýal: orta deri reňki</annotation>
+		<annotation cp="👩🏾‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">bäbegi emdirýän aýal: orta goýy deri reňki</annotation>
+		<annotation cp="👩🏿‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | goýy deri reňki | ideg</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">bäbegi emdirýän aýal: goýy deri reňki</annotation>
 		<annotation cp="🧓🏻">açyk deri reňki | garry | gartaşan | gartaşan adam | jynsyýeti görkezilmedik | jynsyýeti tapawut etmeýän | uly ýaşly</annotation>
 		<annotation cp="🧓🏻" type="tts">gartaşan: açyk deri reňki</annotation>
 		<annotation cp="🧓🏼">garry | gartaşan | gartaşan adam | jynsyýeti görkezilmedik | jynsyýeti tapawut etmeýän | orta açyk deri reňki | uly ýaşly</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">egnini gysýan zenan: orta goýy deri reňki</annotation>
 		<annotation cp="🤷🏿‍♀">aýal | biparhlyk | egniňi gysmak | egnini gysýan zenan | goýy deri reňki | şübhe | üns bermezlik</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">egnini gysýan zenan: goýy deri reňki</annotation>
-		<annotation cp="🧑🏻‍⚕">açyk deri reňki | lukman | saglygy goraýyş | şepagat uýasy | terapewt</annotation>
+		<annotation cp="🧑🏻‍⚕">açyk deri reňki | lukman | saglygy goraýyş | saglyk işgäri | şepagat uýasy | terapewt</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">saglyk işgäri: açyk deri reňki</annotation>
-		<annotation cp="🧑🏼‍⚕">lukman | orta açyk deri reňki | saglygy goraýyş | şepagat uýasy | terapewt</annotation>
+		<annotation cp="🧑🏼‍⚕">lukman | orta açyk deri reňki | saglygy goraýyş | saglyk işgäri | şepagat uýasy | terapewt</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">saglyk işgäri: orta açyk deri reňki</annotation>
-		<annotation cp="🧑🏽‍⚕">lukman | orta deri reňki | saglygy goraýyş | şepagat uýasy | terapewt</annotation>
+		<annotation cp="🧑🏽‍⚕">lukman | orta deri reňki | saglygy goraýyş | saglyk işgäri | şepagat uýasy | terapewt</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">saglyk işgäri: orta deri reňki</annotation>
-		<annotation cp="🧑🏾‍⚕">lukman | orta goýy deri reňki | saglygy goraýyş | şepagat uýasy | terapewt</annotation>
+		<annotation cp="🧑🏾‍⚕">lukman | orta goýy deri reňki | saglygy goraýyş | saglyk işgäri | şepagat uýasy | terapewt</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">saglyk işgäri: orta goýy deri reňki</annotation>
-		<annotation cp="🧑🏿‍⚕">goýy deri reňki | lukman | saglygy goraýyş | şepagat uýasy | terapewt</annotation>
+		<annotation cp="🧑🏿‍⚕">goýy deri reňki | lukman | saglygy goraýyş | saglyk işgäri | şepagat uýasy | terapewt</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">saglyk işgäri: goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍⚕">açyk deri reňki | erkek | erkek saglygy goraýyş işgäri | lukman | saglygy goraýyş | şepagat dogany | terapewt</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">erkek saglygy goraýyş işgäri: açyk deri reňki</annotation>
@@ -1086,15 +1136,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍⚖" type="tts">erkek kazy: orta goýy deri reňki</annotation>
 		<annotation cp="👨🏿‍⚖">adalat | erkek | erkek kazy | goýy deri reňki | terezi</annotation>
 		<annotation cp="👨🏿‍⚖" type="tts">erkek kazy: goýy deri reňki</annotation>
-		<annotation cp="👩🏻‍⚖">açyk deri reňki | adalat | terezi | zenan</annotation>
+		<annotation cp="👩🏻‍⚖">açyk deri reňki | adalat | terezi | zenan | zenan kazy</annotation>
 		<annotation cp="👩🏻‍⚖" type="tts">zenan kazy: açyk deri reňki</annotation>
-		<annotation cp="👩🏼‍⚖">adalat | orta açyk deri reňki | terezi | zenan</annotation>
+		<annotation cp="👩🏼‍⚖">adalat | orta açyk deri reňki | terezi | zenan | zenan kazy</annotation>
 		<annotation cp="👩🏼‍⚖" type="tts">zenan kazy: orta açyk deri reňki</annotation>
-		<annotation cp="👩🏽‍⚖">adalat | orta deri reňki | terezi | zenan</annotation>
+		<annotation cp="👩🏽‍⚖">adalat | orta deri reňki | terezi | zenan | zenan kazy</annotation>
 		<annotation cp="👩🏽‍⚖" type="tts">zenan kazy: orta deri reňki</annotation>
-		<annotation cp="👩🏾‍⚖">adalat | orta goýy deri reňki | terezi | zenan</annotation>
+		<annotation cp="👩🏾‍⚖">adalat | orta goýy deri reňki | terezi | zenan | zenan kazy</annotation>
 		<annotation cp="👩🏾‍⚖" type="tts">zenan kazy: orta goýy deri reňki</annotation>
-		<annotation cp="👩🏿‍⚖">adalat | goýy deri reňki | terezi | zenan</annotation>
+		<annotation cp="👩🏿‍⚖">adalat | goýy deri reňki | terezi | zenan | zenan kazy</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">zenan kazy: goýy deri reňki</annotation>
 		<annotation cp="🧑🏻‍🌾">açyk deri reňki | bagban | fermer | rançoçy</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">fermer: açyk deri reňki</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">zenan mehanik: orta goýy deri reňki</annotation>
 		<annotation cp="👩🏿‍🔧">elektrik | goýy deri reňki | mehanik | santehnik | söwdagär | zenan</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">zenan mehanik: goýy deri reňki</annotation>
-		<annotation cp="🧑🏻‍🏭">açyk deri reňki | fabrik | işçi | senagat | ýygnama</annotation>
+		<annotation cp="🧑🏻‍🏭">açyk deri reňki | fabrik | fabrik işçisi | işçi | senagat | ýygnama</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">fabrik işçisi: açyk deri reňki</annotation>
-		<annotation cp="🧑🏼‍🏭">fabrik | işçi | orta açyk deri reňki | senagat | ýygnama</annotation>
+		<annotation cp="🧑🏼‍🏭">fabrik | fabrik işçisi | işçi | orta açyk deri reňki | senagat | ýygnama</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">fabrik işçisi: orta açyk deri reňki</annotation>
-		<annotation cp="🧑🏽‍🏭">fabrik | işçi | orta deri reňki | senagat | ýygnama</annotation>
+		<annotation cp="🧑🏽‍🏭">fabrik | fabrik işçisi | işçi | orta deri reňki | senagat | ýygnama</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">fabrik işçisi: orta deri reňki</annotation>
-		<annotation cp="🧑🏾‍🏭">fabrik | işçi | orta goýy deri reňki | senagat | ýygnama</annotation>
+		<annotation cp="🧑🏾‍🏭">fabrik | fabrik işçisi | işçi | orta goýy deri reňki | senagat | ýygnama</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">fabrik işçisi: orta goýy deri reňki</annotation>
-		<annotation cp="🧑🏿‍🏭">fabrik | goýy deri reňki | işçi | senagat | ýygnama</annotation>
+		<annotation cp="🧑🏿‍🏭">fabrik | fabrik işçisi | goýy deri reňki | işçi | senagat | ýygnama</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">fabrik işçisi: goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍🏭">açyk deri reňki | erkek | erkek zawod işçisi | gurnama | işçi | senagat | zawod</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">erkek zawod işçisi: açyk deri reňki</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">zenan zawod işçisi: orta goýy deri reňki</annotation>
 		<annotation cp="👩🏿‍🏭">goýy deri reňki | gurnama | işçi | senagat | zawod | zenan | zenan zawod işçisi</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">zenan zawod işçisi: goýy deri reňki</annotation>
-		<annotation cp="🧑🏻‍💼">açyk deri reňki | ak ýaka | binagär | dolandyryjy | işewürlik</annotation>
+		<annotation cp="🧑🏻‍💼">açyk deri reňki | ak ýaka | binagär | dolandyryjy | edara işçisi | işewürlik</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">edara işçisi: açyk deri reňki</annotation>
-		<annotation cp="🧑🏼‍💼">ak ýaka | binagär | dolandyryjy | işewürlik | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍💼">ak ýaka | binagär | dolandyryjy | edara işçisi | işewürlik | orta açyk deri reňki</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">edara işçisi: orta açyk deri reňki</annotation>
-		<annotation cp="🧑🏽‍💼">ak ýaka | binagär | dolandyryjy | işewürlik | orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍💼">ak ýaka | binagär | dolandyryjy | edara işçisi | işewürlik | orta deri reňki</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">edara işçisi: orta deri reňki</annotation>
-		<annotation cp="🧑🏾‍💼">ak ýaka | binagär | dolandyryjy | işewürlik | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍💼">ak ýaka | binagär | dolandyryjy | edara işçisi | işewürlik | orta goýy deri reňki</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">edara işçisi: orta goýy deri reňki</annotation>
-		<annotation cp="🧑🏿‍💼">ak ýaka | binagär | dolandyryjy | goýy deri reňki | işewürlik</annotation>
+		<annotation cp="🧑🏿‍💼">ak ýaka | binagär | dolandyryjy | edara işçisi | goýy deri reňki | işewürlik</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">edara işçisi: goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍💼">açyk deri reňki | binagär | erkek | erkek ofis işgäri | işewürlik | ofis | ofis işgäri | ýolbaşçy</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">erkek ofis işgäri: açyk deri reňki</annotation>
@@ -1656,6 +1706,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾" type="tts">smokinli erkek: orta goýy deri reňki</annotation>
 		<annotation cp="🤵🏿">adam | goýy deri reňki | öýlenjek oglan | smokin | smokinli erkek</annotation>
 		<annotation cp="🤵🏿" type="tts">smokinli erkek: goýy deri reňki</annotation>
+		<annotation cp="🤵🏻‍♀">açyk deri reňki | aýal | aýal smokingde | smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">aýal smokingde: açyk deri reňki</annotation>
+		<annotation cp="🤵🏼‍♀">aýal | aýal smokingde | orta açyk deri reňki | smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">aýal smokingde: orta açyk deri reňki</annotation>
+		<annotation cp="🤵🏽‍♀">aýal | aýal smokingde | orta deri reňki | smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">aýal smokingde: orta deri reňki</annotation>
+		<annotation cp="🤵🏾‍♀">aýal | aýal smokingde | orta goýy deri reňki | smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">aýal smokingde: orta goýy deri reňki</annotation>
+		<annotation cp="🤵🏿‍♀">aýal | aýal smokingde | goýy deri reňki | smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">aýal smokingde: goýy deri reňki</annotation>
+		<annotation cp="🤵🏻‍♂">açyk deri reňki | erkek | smoking | smokingde erkek</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">smokingde erkek: açyk deri reňki</annotation>
+		<annotation cp="🤵🏼‍♂">erkek | orta açyk deri reňki | smoking | smokingde erkek</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">smokingde erkek: orta açyk deri reňki</annotation>
+		<annotation cp="🤵🏽‍♂">erkek | orta deri reňki | smoking | smokingde erkek</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">smokingde erkek: orta deri reňki</annotation>
+		<annotation cp="🤵🏾‍♂">erkek | orta goýy deri reňki | smoking | smokingde erkek</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">smokingde erkek: orta goýy deri reňki</annotation>
+		<annotation cp="🤵🏿‍♂">erkek | goýy deri reňki | smoking | smokingde erkek</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">smokingde erkek: goýy deri reňki</annotation>
 		<annotation cp="👰🏻">açyk deri reňki | gelin | nykap | nykaply gelin | toý</annotation>
 		<annotation cp="👰🏻" type="tts">nykaply gelin: açyk deri reňki</annotation>
 		<annotation cp="👰🏼">gelin | nykap | nykaply gelin | orta açyk deri reňki | toý</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">nykaply gelin: orta goýy deri reňki</annotation>
 		<annotation cp="👰🏿">gelin | goýy deri reňki | nykap | nykaply gelin | toý</annotation>
 		<annotation cp="👰🏿" type="tts">nykaply gelin: goýy deri reňki</annotation>
+		<annotation cp="👰🏻‍♀">açyk deri reňki | aýal | fata | fataly aýal</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">fataly aýal: açyk deri reňki</annotation>
+		<annotation cp="👰🏼‍♀">aýal | fata | fataly aýal | orta açyk deri reňki</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">fataly aýal: orta açyk deri reňki</annotation>
+		<annotation cp="👰🏽‍♀">aýal | fata | fataly aýal | orta deri reňki</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">fataly aýal: orta deri reňki</annotation>
+		<annotation cp="👰🏾‍♀">aýal | fata | fataly aýal | orta goýy deri reňki</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">fataly aýal: orta goýy deri reňki</annotation>
+		<annotation cp="👰🏿‍♀">aýal | fata | fataly aýal | goýy deri reňki</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">fataly aýal: goýy deri reňki</annotation>
+		<annotation cp="👰🏻‍♂">açyk deri reňki | erkek | fata | fataly erkek</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">fataly erkek: açyk deri reňki</annotation>
+		<annotation cp="👰🏼‍♂">erkek | fata | fataly erkek | orta açyk deri reňki</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">fataly erkek: orta açyk deri reňki</annotation>
+		<annotation cp="👰🏽‍♂">erkek | fata | fataly erkek | orta deri reňki</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">fataly erkek: orta deri reňki</annotation>
+		<annotation cp="👰🏾‍♂">erkek | fata | fataly erkek | orta goýy deri reňki</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">fataly erkek: orta goýy deri reňki</annotation>
+		<annotation cp="👰🏿‍♂">erkek | fata | fataly erkek | goýy deri reňki</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">fataly erkek: goýy deri reňki</annotation>
 		<annotation cp="🤰🏻">açyk deri reňki | aýal | göwreli</annotation>
 		<annotation cp="🤰🏻" type="tts">göwreli aýal: açyk deri reňki</annotation>
 		<annotation cp="🤰🏼">aýal | göwreli | orta açyk deri reňki</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">dyza çöken zenan: orta goýy deri reňki</annotation>
 		<annotation cp="🧎🏿‍♀">dyza çöken | dyza çöken zenan | goýy deri reňki | zenan</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">dyza çöken zenan: goýy deri reňki</annotation>
-		<annotation cp="🧑🏻‍🦯">açyk deri reňki | elýeterlilik | kör</annotation>
+		<annotation cp="🧑🏻‍🦯">açyk deri reňki | elýeterlilik | kör | kör hasaly adam</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">kör hasaly adam: açyk deri reňki</annotation>
-		<annotation cp="🧑🏼‍🦯">elýeterlilik | kör | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🦯">elýeterlilik | kör | kör hasaly adam | orta açyk deri reňki</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">kör hasaly adam: orta açyk deri reňki</annotation>
-		<annotation cp="🧑🏽‍🦯">elýeterlilik | kör | orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍🦯">elýeterlilik | kör | kör hasaly adam | orta deri reňki</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">kör hasaly adam: orta deri reňki</annotation>
-		<annotation cp="🧑🏾‍🦯">elýeterlilik | kör | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🦯">elýeterlilik | kör | kör hasaly adam | orta goýy deri reňki</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">kör hasaly adam: orta goýy deri reňki</annotation>
-		<annotation cp="🧑🏿‍🦯">elýeterlilik | goýy deri reňki | kör</annotation>
+		<annotation cp="🧑🏿‍🦯">elýeterlilik | goýy deri reňki | kör | kör hasaly adam</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">kör hasaly adam: goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍🦯">açyk deri reňki | elýeterlilik | erkek | kör | kör hasaly erkek</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">kör hasaly erkek: açyk deri reňki</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">kör hasaly zenan: orta goýy deri reňki</annotation>
 		<annotation cp="👩🏿‍🦯">elýeterlilik | goýy deri reňki | kör | kör hasaly zenan | zenan</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">kör hasaly zenan: goýy deri reňki</annotation>
-		<annotation cp="🧑🏻‍🦼">açyk deri reňki | elýeterlilik | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏻‍🦼">açyk deri reňki | elýeterlilik | motorly arabajykdaky adam | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">motorly arabajykdaky adam: açyk deri reňki</annotation>
-		<annotation cp="🧑🏼‍🦼">elýeterlilik | orta açyk deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏼‍🦼">elýeterlilik | motorly arabajykdaky adam | orta açyk deri reňki | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">motorly arabajykdaky adam: orta açyk deri reňki</annotation>
-		<annotation cp="🧑🏽‍🦼">elýeterlilik | orta deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏽‍🦼">elýeterlilik | motorly arabajykdaky adam | orta deri reňki | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">motorly arabajykdaky adam: orta deri reňki</annotation>
-		<annotation cp="🧑🏾‍🦼">elýeterlilik | orta goýy deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏾‍🦼">elýeterlilik | motorly arabajykdaky adam | orta goýy deri reňki | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">motorly arabajykdaky adam: orta goýy deri reňki</annotation>
-		<annotation cp="🧑🏿‍🦼">elýeterlilik | goýy deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏿‍🦼">elýeterlilik | goýy deri reňki | motorly arabajykdaky adam | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">motorly arabajykdaky adam: goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍🦼">açyk deri reňki | elýeterlilik | erkek | maýyp arabasy | motorly maýyp arabasynda erkek</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">motorly maýyp arabasynda erkek: açyk deri reňki</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">motorly maýyp arabasynda zenan: orta goýy deri reňki</annotation>
 		<annotation cp="👩🏿‍🦼">elýeterlilik | goýy deri reňki | maýyp arabasy | motorly maýyp arabasynda zenan | zenan</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">motorly maýyp arabasynda zenan: goýy deri reňki</annotation>
-		<annotation cp="🧑🏻‍🦽">açyk deri reňki | elýeterlilik | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏻‍🦽">açyk deri reňki | el bilen işleýän tigirçekli oturgyçdaky adam | elýeterlilik | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">el bilen işleýän tigirçekli oturgyçdaky adam: açyk deri reňki</annotation>
-		<annotation cp="🧑🏼‍🦽">elýeterlilik | orta açyk deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏼‍🦽">el bilen işleýän tigirçekli oturgyçdaky adam | elýeterlilik | orta açyk deri reňki | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">el bilen işleýän tigirçekli oturgyçdaky adam: orta açyk deri reňki</annotation>
-		<annotation cp="🧑🏽‍🦽">elýeterlilik | orta deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏽‍🦽">el bilen işleýän tigirçekli oturgyçdaky adam | elýeterlilik | orta deri reňki | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">el bilen işleýän tigirçekli oturgyçdaky adam: orta deri reňki</annotation>
-		<annotation cp="🧑🏾‍🦽">elýeterlilik | orta goýy deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏾‍🦽">el bilen işleýän tigirçekli oturgyçdaky adam | elýeterlilik | orta goýy deri reňki | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">el bilen işleýän tigirçekli oturgyçdaky adam: orta goýy deri reňki</annotation>
-		<annotation cp="🧑🏿‍🦽">elýeterlilik | goýy deri reňki | tigirçekli oturgyç</annotation>
+		<annotation cp="🧑🏿‍🦽">el bilen işleýän tigirçekli oturgyçdaky adam | elýeterlilik | goýy deri reňki | tigirçekli oturgyç</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">el bilen işleýän tigirçekli oturgyçdaky adam: goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍🦽">açyk deri reňki | el maýyp arabasynda erkek | elýeterlilik | erkek | maýyp arabasy</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">el maýyp arabasynda erkek: açyk deri reňki</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">ýatalgada ýatan adam: goýy deri reňki</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | tutmak</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">el tutuşýan adamlar: açyk deri reňki</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta açyk deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">el tutuşýan adamlar: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">el tutuşýan adamlar: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta goýy deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">el tutuşýan adamlar: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | goýy deri reňki | jübüt | tutmak</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">el tutuşýan adamlar: açyk deri reňki, goýy deri reňki</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta açyk deri reňki | tutmak</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">el tutuşýan adamlar: orta açyk deri reňki, açyk deri reňki</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta açyk deri reňki | tutmak</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">el tutuşýan adamlar: orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta açyk deri reňki | orta deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">el tutuşýan adamlar: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta açyk deri reňki | orta goýy deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">el tutuşýan adamlar: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">adam | el | el tutuşmak | el tutuşýan adamlar | goýy deri reňki | jübüt | orta açyk deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">el tutuşýan adamlar: orta açyk deri reňki, goýy deri reňki</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta deri reňki | tutmak</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">el tutuşýan adamlar: orta deri reňki, açyk deri reňki</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta açyk deri reňki | orta deri reňki | tutmak</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">el tutuşýan adamlar: orta deri reňki, orta açyk deri reňki</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta deri reňki | tutmak</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">el tutuşýan adamlar: orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta deri reňki | orta goýy deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">el tutuşýan adamlar: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">adam | el | el tutuşmak | el tutuşýan adamlar | goýy deri reňki | jübüt | orta deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">el tutuşýan adamlar: orta deri reňki, goýy deri reňki</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta goýy deri reňki | tutmak</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">el tutuşýan adamlar: orta goýy deri reňki, açyk deri reňki</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta açyk deri reňki | orta goýy deri reňki | tutmak</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">el tutuşýan adamlar: orta goýy deri reňki, orta deri reňki</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">adam | el | el tutuşmak | el tutuşýan adamlar | jübüt | orta goýy deri reňki | tutmak</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">el tutuşýan adamlar: orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">adam | el | el tutuşmak | el tutuşýan adamlar | goýy deri reňki | jübüt | orta goýy deri reňki | tutmak</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">el tutuşýan adamlar: orta goýy deri reňki, goýy deri reňki</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">açyk deri reňki | adam | el | el tutuşmak | el tutuşýan adamlar | goýy deri reňki | jübüt | tutmak</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">el tutuşýan adamlar: goýy deri reňki, açyk deri reňki</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">adam | el | el tutuşmak | el tutuşýan adamlar | goýy deri reňki | jübüt | orta açyk deri reňki | tutmak</annotation>
@@ -2746,35 +2856,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">el tutuşýan adamlar: goýy deri reňki, orta goýy deri reňki</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿">adam | el | el tutuşmak | el tutuşýan adamlar | goýy deri reňki | jübüt | tutmak</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">el tutuşýan adamlar: goýy deri reňki</annotation>
-		<annotation cp="👭🏻">açyk deri reňki | el | el tutuşan zenanlar | el tutuşmak | jübüt | zenanlar</annotation>
+		<annotation cp="👭🏻">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | zenanlar</annotation>
 		<annotation cp="👭🏻" type="tts">el tutuşan iki aýal: açyk deri reňki</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">el tutuşan iki aýal: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">el tutuşan iki aýal: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">el tutuşan iki aýal: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | zenanlar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">el tutuşan iki aýal: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">el tutuşan iki aýal: orta açyk deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👭🏼">el | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | zenanlar</annotation>
+		<annotation cp="👭🏼">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | zenanlar</annotation>
 		<annotation cp="👭🏼" type="tts">el tutuşan iki aýal: orta açyk deri reňki</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | orta deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">el tutuşan iki aýal: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">el tutuşan iki aýal: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta açyk deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">el tutuşan iki aýal: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">el tutuşan iki aýal: orta deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">el | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | orta deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | orta deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">el tutuşan iki aýal: orta deri reňki, orta açyk deri reňki</annotation>
-		<annotation cp="👭🏽">el | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | zenanlar</annotation>
+		<annotation cp="👭🏽">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | zenanlar</annotation>
 		<annotation cp="👭🏽" type="tts">el tutuşan iki aýal: orta deri reňki</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan zenanlar | el tutuşmak | jübüt | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">el tutuşan iki aýal: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">el tutuşan iki aýal: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta goýy deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">el tutuşan iki aýal: orta goýy deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">el | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta açyk deri reňki | orta goýy deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">el tutuşan iki aýal: orta goýy deri reňki, orta açyk deri reňki</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">el | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta deri reňki | orta goýy deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">el tutuşan iki aýal: orta goýy deri reňki, orta deri reňki</annotation>
-		<annotation cp="👭🏾">el | el tutuşan zenanlar | el tutuşmak | jübüt | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👭🏾">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | jübüt | orta goýy deri reňki | zenanlar</annotation>
 		<annotation cp="👭🏾" type="tts">el tutuşan iki aýal: orta goýy deri reňki</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | zenanlar</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">el tutuşan iki aýal: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">açyk deri reňki | el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | zenanlar</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">el tutuşan iki aýal: goýy deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">el | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta açyk deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta açyk deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">el tutuşan iki aýal: goýy deri reňki, orta açyk deri reňki</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">el | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">el tutuşan iki aýal: goýy deri reňki, orta deri reňki</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">el | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta goýy deri reňki | zenanlar</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | orta goýy deri reňki | zenanlar</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">el tutuşan iki aýal: goýy deri reňki, orta goýy deri reňki</annotation>
-		<annotation cp="👭🏿">el | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | zenanlar</annotation>
+		<annotation cp="👭🏿">el | el tutuşan iki aýal | el tutuşan zenanlar | el tutuşmak | goýy deri reňki | jübüt | zenanlar</annotation>
 		<annotation cp="👭🏿" type="tts">el tutuşan iki aýal: goýy deri reňki</annotation>
 		<annotation cp="👫🏻">açyk deri reňki | el | el tutuşan erkek bilen aýal | el tutuşmak | erkek adam | jübüt | tut | zenan</annotation>
 		<annotation cp="👫🏻" type="tts">el tutuşan erkek bilen aýal: açyk deri reňki</annotation>
@@ -2826,35 +2956,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">el tutuşan erkek bilen aýal: goýy deri reňki, orta goýy deri reňki</annotation>
 		<annotation cp="👫🏿">el | el tutuşan erkek bilen aýal | el tutuşmak | erkek adam | goýy deri reňki | jübüt | tut | zenan</annotation>
 		<annotation cp="👫🏿" type="tts">el tutuşan erkek bilen aýal: goýy deri reňki</annotation>
-		<annotation cp="👬🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | täleýnama</annotation>
+		<annotation cp="👬🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | täleýnama</annotation>
 		<annotation cp="👬🏻" type="tts">el tutuşan erkekler: açyk deri reňki</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">el tutuşan erkekler: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">el tutuşan erkekler: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">el tutuşan erkekler: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | täleýnama</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">el tutuşan erkekler: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">el tutuşan erkekler: orta açyk deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👬🏼">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | täleýnama</annotation>
+		<annotation cp="👬🏼">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | täleýnama</annotation>
 		<annotation cp="👬🏼" type="tts">el tutuşan erkekler: orta açyk deri reňki</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | orta deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">el tutuşan erkekler: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">el tutuşan erkekler: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta açyk deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">el tutuşan erkekler: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">el tutuşan erkekler: orta deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | orta deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | orta deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">el tutuşan erkekler: orta deri reňki, orta açyk deri reňki</annotation>
-		<annotation cp="👬🏽">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | täleýnama</annotation>
+		<annotation cp="👬🏽">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | täleýnama</annotation>
 		<annotation cp="👬🏽" type="tts">el tutuşan erkekler: orta deri reňki</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">el tutuşan erkekler: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">el tutuşan erkekler: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta goýy deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">el tutuşan erkekler: orta goýy deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta açyk deri reňki | orta goýy deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">el tutuşan erkekler: orta goýy deri reňki, orta açyk deri reňki</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta deri reňki | orta goýy deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">el tutuşan erkekler: orta goýy deri reňki, orta deri reňki</annotation>
-		<annotation cp="👬🏾">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👬🏾">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | jübüt | orta goýy deri reňki | täleýnama</annotation>
 		<annotation cp="👬🏾" type="tts">el tutuşan erkekler: orta goýy deri reňki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | täleýnama</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">el tutuşan erkekler: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">açyk deri reňki | Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | täleýnama</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">el tutuşan erkekler: goýy deri reňki, açyk deri reňki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta açyk deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta açyk deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">el tutuşan erkekler: goýy deri reňki, orta açyk deri reňki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">el tutuşan erkekler: goýy deri reňki, orta deri reňki</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta goýy deri reňki | täleýnama</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | orta goýy deri reňki | täleýnama</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">el tutuşan erkekler: goýy deri reňki, orta goýy deri reňki</annotation>
-		<annotation cp="👬🏿">Ekizekler | ekizler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | täleýnama</annotation>
+		<annotation cp="👬🏿">Ekizekler | ekizler | el tutuşan erkekler | el tutuşan iki erkek | el tutuşmak | erkek adam | erkek adamlar | goýy deri reňki | jübüt | täleýnama</annotation>
 		<annotation cp="👬🏿" type="tts">el tutuşan erkekler: goýy deri reňki</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">erkek | jübüt | posa | zenan</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">posa: zenan, erkek</annotation>

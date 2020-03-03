@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,15 +12,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="uz"/>
 	</identity>
 	<annotations>
-		<annotation cp="👋🏻">1–2-teri turi | qoʻl | silkitish | siltash</annotation>
+		<annotation cp="🤌🏻">1–2-teri turi | barmoqlar | chimdilgan | istehzoli | juftlangan | qoʻl ishorasi | soʻroq</annotation>
+		<annotation cp="🤌🏻" type="tts">chimdilgan barmoqlar: 1–2-teri turi</annotation>
+		<annotation cp="🤌🏼">3-teri turi | barmoqlar | chimdilgan | istehzoli | juftlangan | qoʻl ishorasi | soʻroq</annotation>
+		<annotation cp="🤌🏼" type="tts">chimdilgan barmoqlar: 3-teri turi</annotation>
+		<annotation cp="🤌🏽">4-teri turi | barmoqlar | chimdilgan | istehzoli | juftlangan | qoʻl ishorasi | soʻroq</annotation>
+		<annotation cp="🤌🏽" type="tts">chimdilgan barmoqlar: 4-teri turi</annotation>
+		<annotation cp="🤌🏾">5-teri turi | barmoqlar | chimdilgan | istehzoli | juftlangan | qoʻl ishorasi | soʻroq</annotation>
+		<annotation cp="🤌🏾" type="tts">chimdilgan barmoqlar: 5-teri turi</annotation>
+		<annotation cp="🤌🏿">6-teri turi | barmoqlar | chimdilgan | istehzoli | juftlangan | qoʻl ishorasi | soʻroq</annotation>
+		<annotation cp="🤌🏿" type="tts">chimdilgan barmoqlar: 6-teri turi</annotation>
+		<annotation cp="👋🏻">1–2-teri turi | qoʻl | shapaloq | silkitish | siltash</annotation>
 		<annotation cp="👋🏻" type="tts">shapaloq: 1–2-teri turi</annotation>
-		<annotation cp="👋🏼">3-teri turi | qoʻl | silkitish | siltash</annotation>
+		<annotation cp="👋🏼">3-teri turi | qoʻl | shapaloq | silkitish | siltash</annotation>
 		<annotation cp="👋🏼" type="tts">shapaloq: 3-teri turi</annotation>
-		<annotation cp="👋🏽">4-teri turi | qoʻl | silkitish | siltash</annotation>
+		<annotation cp="👋🏽">4-teri turi | qoʻl | shapaloq | silkitish | siltash</annotation>
 		<annotation cp="👋🏽" type="tts">shapaloq: 4-teri turi</annotation>
-		<annotation cp="👋🏾">5-teri turi | qoʻl | silkitish | siltash</annotation>
+		<annotation cp="👋🏾">5-teri turi | qoʻl | shapaloq | silkitish | siltash</annotation>
 		<annotation cp="👋🏾" type="tts">shapaloq: 5-teri turi</annotation>
-		<annotation cp="👋🏿">6-teri turi | qoʻl | silkitish | siltash</annotation>
+		<annotation cp="👋🏿">6-teri turi | qoʻl | shapaloq | silkitish | siltash</annotation>
 		<annotation cp="👋🏿" type="tts">shapaloq: 6-teri turi</annotation>
 		<annotation cp="🤚🏻">1–2-teri turi | kaft | ko‘tarilgan</annotation>
 		<annotation cp="🤚🏻" type="tts">ko‘tarilgan kaft: 1–2-teri turi</annotation>
@@ -32,15 +42,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤚🏾" type="tts">ko‘tarilgan kaft: 5-teri turi</annotation>
 		<annotation cp="🤚🏿">6-teri turi | kaft | ko‘tarilgan</annotation>
 		<annotation cp="🤚🏿" type="tts">ko‘tarilgan kaft: 6-teri turi</annotation>
-		<annotation cp="🖐🏻">1–2-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | qo‘l | tana | yoyilgan</annotation>
+		<annotation cp="🖐🏻">1–2-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | barmoqlari yoyilgan qoʻl | qo‘l | tana | yoyilgan</annotation>
 		<annotation cp="🖐🏻" type="tts">barmoqlari yoyilgan qoʻl: 1–2-teri turi</annotation>
-		<annotation cp="🖐🏼">3-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | qo‘l | tana | yoyilgan</annotation>
+		<annotation cp="🖐🏼">3-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | barmoqlari yoyilgan qoʻl | qo‘l | tana | yoyilgan</annotation>
 		<annotation cp="🖐🏼" type="tts">barmoqlari yoyilgan qoʻl: 3-teri turi</annotation>
-		<annotation cp="🖐🏽">4-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | qo‘l | tana | yoyilgan</annotation>
+		<annotation cp="🖐🏽">4-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | barmoqlari yoyilgan qoʻl | qo‘l | tana | yoyilgan</annotation>
 		<annotation cp="🖐🏽" type="tts">barmoqlari yoyilgan qoʻl: 4-teri turi</annotation>
-		<annotation cp="🖐🏾">5-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | qo‘l | tana | yoyilgan</annotation>
+		<annotation cp="🖐🏾">5-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | barmoqlari yoyilgan qoʻl | qo‘l | tana | yoyilgan</annotation>
 		<annotation cp="🖐🏾" type="tts">barmoqlari yoyilgan qoʻl: 5-teri turi</annotation>
-		<annotation cp="🖐🏿">6-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | qo‘l | tana | yoyilgan</annotation>
+		<annotation cp="🖐🏿">6-teri turi | barmoq | barmoqlari yoyilgan holatda ko‘tarilgan qo‘l | barmoqlari yoyilgan qoʻl | qo‘l | tana | yoyilgan</annotation>
 		<annotation cp="🖐🏿" type="tts">barmoqlari yoyilgan qoʻl: 6-teri turi</annotation>
 		<annotation cp="✋🏻">1–2-teri turi | ko‘tarilgan qo‘l | qo‘l | tana</annotation>
 		<annotation cp="✋🏻" type="tts">ko‘tarilgan qo‘l: 1–2-teri turi</annotation>
@@ -62,15 +72,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖖🏾" type="tts">vulkan salyuti: 5-teri turi</annotation>
 		<annotation cp="🖖🏿">6-teri turi | barmoq | qo‘l | spok | tana | vulkan | vulkan salyuti</annotation>
 		<annotation cp="🖖🏿" type="tts">vulkan salyuti: 6-teri turi</annotation>
-		<annotation cp="👌🏻">1–2-teri turi | OK | qoʻl | yaxshi</annotation>
+		<annotation cp="👌🏻">1–2-teri turi | OK | qo‘lda qilingan ok | qoʻl | yaxshi</annotation>
 		<annotation cp="👌🏻" type="tts">qo‘lda qilingan ok: 1–2-teri turi</annotation>
-		<annotation cp="👌🏼">3-teri turi | OK | qoʻl | yaxshi</annotation>
+		<annotation cp="👌🏼">3-teri turi | OK | qo‘lda qilingan ok | qoʻl | yaxshi</annotation>
 		<annotation cp="👌🏼" type="tts">qo‘lda qilingan ok: 3-teri turi</annotation>
-		<annotation cp="👌🏽">4-teri turi | OK | qoʻl | yaxshi</annotation>
+		<annotation cp="👌🏽">4-teri turi | OK | qo‘lda qilingan ok | qoʻl | yaxshi</annotation>
 		<annotation cp="👌🏽" type="tts">qo‘lda qilingan ok: 4-teri turi</annotation>
-		<annotation cp="👌🏾">5-teri turi | OK | qoʻl | yaxshi</annotation>
+		<annotation cp="👌🏾">5-teri turi | OK | qo‘lda qilingan ok | qoʻl | yaxshi</annotation>
 		<annotation cp="👌🏾" type="tts">qo‘lda qilingan ok: 5-teri turi</annotation>
-		<annotation cp="👌🏿">6-teri turi | OK | qoʻl | yaxshi</annotation>
+		<annotation cp="👌🏿">6-teri turi | OK | qo‘lda qilingan ok | qoʻl | yaxshi</annotation>
 		<annotation cp="👌🏿" type="tts">qo‘lda qilingan ok: 6-teri turi</annotation>
 		<annotation cp="🤏🏻">1–2-teri turi | biroz | chimduvchi qoʻl | kam | kichik | ozgina</annotation>
 		<annotation cp="🤏🏻" type="tts">chimduvchi qoʻl: 1–2-teri turi</annotation>
@@ -82,15 +92,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤏🏾" type="tts">chimduvchi qoʻl: 5-teri turi</annotation>
 		<annotation cp="🤏🏿">6-teri turi | biroz | chimduvchi qoʻl | kam | kichik | ozgina</annotation>
 		<annotation cp="🤏🏿" type="tts">chimduvchi qoʻl: 6-teri turi</annotation>
-		<annotation cp="✌🏻">1–2-teri turi | gʻalaba | qoʻl | v</annotation>
+		<annotation cp="✌🏻">1–2-teri turi | gʻalaba | qoʻl | v | v harfini ko‘rsatib turgan qo‘l</annotation>
 		<annotation cp="✌🏻" type="tts">v harfini ko‘rsatib turgan qo‘l: 1–2-teri turi</annotation>
-		<annotation cp="✌🏼">3-teri turi | gʻalaba | qoʻl | v</annotation>
+		<annotation cp="✌🏼">3-teri turi | gʻalaba | qoʻl | v | v harfini ko‘rsatib turgan qo‘l</annotation>
 		<annotation cp="✌🏼" type="tts">v harfini ko‘rsatib turgan qo‘l: 3-teri turi</annotation>
-		<annotation cp="✌🏽">4-teri turi | gʻalaba | qoʻl | v</annotation>
+		<annotation cp="✌🏽">4-teri turi | gʻalaba | qoʻl | v | v harfini ko‘rsatib turgan qo‘l</annotation>
 		<annotation cp="✌🏽" type="tts">v harfini ko‘rsatib turgan qo‘l: 4-teri turi</annotation>
-		<annotation cp="✌🏾">5-teri turi | gʻalaba | qoʻl | v</annotation>
+		<annotation cp="✌🏾">5-teri turi | gʻalaba | qoʻl | v | v harfini ko‘rsatib turgan qo‘l</annotation>
 		<annotation cp="✌🏾" type="tts">v harfini ko‘rsatib turgan qo‘l: 5-teri turi</annotation>
-		<annotation cp="✌🏿">6-teri turi | gʻalaba | qoʻl | v</annotation>
+		<annotation cp="✌🏿">6-teri turi | gʻalaba | qoʻl | v | v harfini ko‘rsatib turgan qo‘l</annotation>
 		<annotation cp="✌🏿" type="tts">v harfini ko‘rsatib turgan qo‘l: 6-teri turi</annotation>
 		<annotation cp="🤞🏻">1–2-teri turi | kesishgan barmoqlar | omad</annotation>
 		<annotation cp="🤞🏻" type="tts">kesishgan barmoqlar: 1–2-teri turi</annotation>
@@ -152,15 +162,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👉🏾" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l: 5-teri turi</annotation>
 		<annotation cp="👉🏿">6-teri turi | barmoq | barmoq orqa tomoni | ko‘rsatkich | ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l | qo‘l | yo‘naltirish</annotation>
 		<annotation cp="👉🏿" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l: 6-teri turi</annotation>
-		<annotation cp="👆🏻">1–2-teri turi | barmoq | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
+		<annotation cp="👆🏻">1–2-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
 		<annotation cp="👆🏻" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 1–2-teri turi</annotation>
-		<annotation cp="👆🏼">3-teri turi | barmoq | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
+		<annotation cp="👆🏼">3-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
 		<annotation cp="👆🏼" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 3-teri turi</annotation>
-		<annotation cp="👆🏽">4-teri turi | barmoq | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
+		<annotation cp="👆🏽">4-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
 		<annotation cp="👆🏽" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 4-teri turi</annotation>
-		<annotation cp="👆🏾">5-teri turi | barmoq | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
+		<annotation cp="👆🏾">5-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
 		<annotation cp="👆🏾" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 5-teri turi</annotation>
-		<annotation cp="👆🏿">6-teri turi | barmoq | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
+		<annotation cp="👆🏿">6-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l | koʻrsatish | qoʻl | qoʻl orqasi | qoʻl orqasi va tepaga qaratilgan koʻrsatkich barmoq | tepaga</annotation>
 		<annotation cp="👆🏿" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l: 6-teri turi</annotation>
 		<annotation cp="🖕🏻">1–2-teri turi | barmoq | o‘rta barmoq | qo‘l | tana</annotation>
 		<annotation cp="🖕🏻" type="tts">o‘rta barmoq: 1–2-teri turi</annotation>
@@ -172,15 +182,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖕🏾" type="tts">o‘rta barmoq: 5-teri turi</annotation>
 		<annotation cp="🖕🏿">6-teri turi | barmoq | o‘rta barmoq | qo‘l | tana</annotation>
 		<annotation cp="🖕🏿" type="tts">o‘rta barmoq: 6-teri turi</annotation>
-		<annotation cp="👇🏻">1–2-teri turi | barmoq | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
+		<annotation cp="👇🏻">1–2-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
 		<annotation cp="👇🏻" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 1–2-teri turi</annotation>
-		<annotation cp="👇🏼">3-teri turi | barmoq | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
+		<annotation cp="👇🏼">3-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
 		<annotation cp="👇🏼" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 3-teri turi</annotation>
-		<annotation cp="👇🏽">4-teri turi | barmoq | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
+		<annotation cp="👇🏽">4-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
 		<annotation cp="👇🏽" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 4-teri turi</annotation>
-		<annotation cp="👇🏾">5-teri turi | barmoq | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
+		<annotation cp="👇🏾">5-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
 		<annotation cp="👇🏾" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 5-teri turi</annotation>
-		<annotation cp="👇🏿">6-teri turi | barmoq | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
+		<annotation cp="👇🏿">6-teri turi | barmoq | ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l | koʻrsatish | pastga | qoʻl | qoʻl orqasi | qoʻl orqasi va pastga qaratilgan koʻrsatkich barmoq</annotation>
 		<annotation cp="👇🏿" type="tts">ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l: 6-teri turi</annotation>
 		<annotation cp="☝🏻">1–2-teri turi | barmoq | ko‘rsatkich | ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l | qo‘l | tana | tepaga | yo‘naltirish</annotation>
 		<annotation cp="☝🏻" type="tts">ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l: 1–2-teri turi</annotation>
@@ -292,15 +302,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤲🏾" type="tts">kaftlar ochiq: 5-teri turi</annotation>
 		<annotation cp="🤲🏿">6-teri turi | kaftlar ochiq</annotation>
 		<annotation cp="🤲🏿" type="tts">kaftlar ochiq: 6-teri turi</annotation>
-		<annotation cp="🙏🏻">1–2-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | soʻrash</annotation>
+		<annotation cp="🙏🏻">1–2-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | qovushtirilgan qo‘llar | soʻrash</annotation>
 		<annotation cp="🙏🏻" type="tts">qovushtirilgan qo‘llar: 1–2-teri turi</annotation>
-		<annotation cp="🙏🏼">3-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | soʻrash</annotation>
+		<annotation cp="🙏🏼">3-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | qovushtirilgan qo‘llar | soʻrash</annotation>
 		<annotation cp="🙏🏼" type="tts">qovushtirilgan qo‘llar: 3-teri turi</annotation>
-		<annotation cp="🙏🏽">4-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | soʻrash</annotation>
+		<annotation cp="🙏🏽">4-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | qovushtirilgan qo‘llar | soʻrash</annotation>
 		<annotation cp="🙏🏽" type="tts">qovushtirilgan qo‘llar: 4-teri turi</annotation>
-		<annotation cp="🙏🏾">5-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | soʻrash</annotation>
+		<annotation cp="🙏🏾">5-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | qovushtirilgan qo‘llar | soʻrash</annotation>
 		<annotation cp="🙏🏾" type="tts">qovushtirilgan qo‘llar: 5-teri turi</annotation>
-		<annotation cp="🙏🏿">6-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | soʻrash</annotation>
+		<annotation cp="🙏🏿">6-teri turi | ibodat | iltimos | juftlangan qoʻllar | minnatdorlik | qoʻl | qovushtirilgan qo‘llar | soʻrash</annotation>
 		<annotation cp="🙏🏿" type="tts">qovushtirilgan qo‘llar: 6-teri turi</annotation>
 		<annotation cp="✍🏻">1–2-teri turi | qo‘l | tana | yozayotgan qo‘l | yozish</annotation>
 		<annotation cp="✍🏻" type="tts">yozayotgan qo‘l: 1–2-teri turi</annotation>
@@ -312,15 +322,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✍🏾" type="tts">yozayotgan qo‘l: 5-teri turi</annotation>
 		<annotation cp="✍🏿">6-teri turi | qo‘l | tana | yozayotgan qo‘l | yozish</annotation>
 		<annotation cp="✍🏿" type="tts">yozayotgan qo‘l: 6-teri turi</annotation>
-		<annotation cp="💅🏻">1–2-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq</annotation>
+		<annotation cp="💅🏻">1–2-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq | tirnoq uchun lok</annotation>
 		<annotation cp="💅🏻" type="tts">tirnoq uchun lok: 1–2-teri turi</annotation>
-		<annotation cp="💅🏼">3-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq</annotation>
+		<annotation cp="💅🏼">3-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq | tirnoq uchun lok</annotation>
 		<annotation cp="💅🏼" type="tts">tirnoq uchun lok: 3-teri turi</annotation>
-		<annotation cp="💅🏽">4-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq</annotation>
+		<annotation cp="💅🏽">4-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq | tirnoq uchun lok</annotation>
 		<annotation cp="💅🏽" type="tts">tirnoq uchun lok: 4-teri turi</annotation>
-		<annotation cp="💅🏾">5-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq</annotation>
+		<annotation cp="💅🏾">5-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq | tirnoq uchun lok</annotation>
 		<annotation cp="💅🏾" type="tts">tirnoq uchun lok: 5-teri turi</annotation>
-		<annotation cp="💅🏿">6-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq</annotation>
+		<annotation cp="💅🏿">6-teri turi | kosmetika | lok | manikyur | parvarish | tana | tirnoq | tirnoq uchun lok</annotation>
 		<annotation cp="💅🏿" type="tts">tirnoq uchun lok: 6-teri turi</annotation>
 		<annotation cp="🤳🏻">1–2-teri turi | kamera | selfi | telefon</annotation>
 		<annotation cp="🤳🏻" type="tts">selfi: 1–2-teri turi</annotation>
@@ -432,15 +442,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">qiz bola: 5-teri turi</annotation>
 		<annotation cp="👧🏿">6-teri turi | bo‘yi yetgan | bokira | burj | qiz bola | sunbula</annotation>
 		<annotation cp="👧🏿" type="tts">qiz bola: 6-teri turi</annotation>
-		<annotation cp="🧑🏻">1–2-teri turi | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏻">1–2-teri turi | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏻" type="tts">voyaga yetgan: 1–2-teri turi</annotation>
-		<annotation cp="🧑🏼">3-teri turi | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏼">3-teri turi | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏼" type="tts">voyaga yetgan: 3-teri turi</annotation>
-		<annotation cp="🧑🏽">4-teri turi | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏽">4-teri turi | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏽" type="tts">voyaga yetgan: 4-teri turi</annotation>
-		<annotation cp="🧑🏾">5-teri turi | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏾">5-teri turi | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏾" type="tts">voyaga yetgan: 5-teri turi</annotation>
-		<annotation cp="🧑🏿">6-teri turi | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏿">6-teri turi | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏿" type="tts">voyaga yetgan: 6-teri turi</annotation>
 		<annotation cp="👱🏻">1–2-teri turi | mallasoch | sariq sochli odam | shaxs: mallasoch | soch</annotation>
 		<annotation cp="👱🏻" type="tts">shaxs: 1–2-teri turi mallasoch</annotation>
@@ -452,54 +462,74 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱🏾" type="tts">shaxs: 5-teri turi mallasoch</annotation>
 		<annotation cp="👱🏿">6-teri turi | mallasoch | sariq sochli odam | shaxs: mallasoch | soch</annotation>
 		<annotation cp="👱🏿" type="tts">shaxs: 6-teri turi mallasoch</annotation>
-		<annotation cp="🧑‍🦰">jinsi noaniq | katta | malla soch | neytral jins | shaxs</annotation>
+		<annotation cp="🧑‍🦰">jinsi noaniq | katta | malla soch | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑‍🦰" type="tts">voyaga yetgan: malla soch</annotation>
-		<annotation cp="🧑🏻‍🦰">1–2-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏻‍🦰">1–2-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏻‍🦰" type="tts">voyaga yetgan: 1–2-teri turi malla soch</annotation>
-		<annotation cp="🧑🏼‍🦰">3-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏼‍🦰">3-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏼‍🦰" type="tts">voyaga yetgan: 3-teri turi malla soch</annotation>
-		<annotation cp="🧑🏽‍🦰">4-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏽‍🦰">4-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏽‍🦰" type="tts">voyaga yetgan: 4-teri turi malla soch</annotation>
-		<annotation cp="🧑🏾‍🦰">5-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏾‍🦰">5-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏾‍🦰" type="tts">voyaga yetgan: 5-teri turi malla soch</annotation>
-		<annotation cp="🧑🏿‍🦰">6-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏿‍🦰">6-teri turi | jinsi noaniq | katta | malla soch | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏿‍🦰" type="tts">voyaga yetgan: 6-teri turi malla soch</annotation>
-		<annotation cp="🧑‍🦱">jingalak soch | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑‍🦱">jingalak soch | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑‍🦱" type="tts">voyaga yetgan: jingalak soch</annotation>
-		<annotation cp="🧑🏻‍🦱">1–2-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏻‍🦱">1–2-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏻‍🦱" type="tts">voyaga yetgan: 1–2-teri turi jingalak soch</annotation>
-		<annotation cp="🧑🏼‍🦱">3-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏼‍🦱">3-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏼‍🦱" type="tts">voyaga yetgan: 3-teri turi jingalak soch</annotation>
-		<annotation cp="🧑🏽‍🦱">4-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏽‍🦱">4-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏽‍🦱" type="tts">voyaga yetgan: 4-teri turi jingalak soch</annotation>
-		<annotation cp="🧑🏾‍🦱">5-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏾‍🦱">5-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏾‍🦱" type="tts">voyaga yetgan: 5-teri turi jingalak soch</annotation>
-		<annotation cp="🧑🏿‍🦱">6-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏿‍🦱">6-teri turi | jingalak soch | jinsi noaniq | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏿‍🦱" type="tts">voyaga yetgan: 6-teri turi jingalak soch</annotation>
-		<annotation cp="🧑‍🦳">jinsi noaniq | katta | neytral jins | oqargan soch | shaxs</annotation>
+		<annotation cp="🧑‍🦳">jinsi noaniq | katta | neytral jins | oqargan soch | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑‍🦳" type="tts">voyaga yetgan: oqargan soch</annotation>
-		<annotation cp="🧑🏻‍🦳">1–2-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs</annotation>
+		<annotation cp="🧑🏻‍🦳">1–2-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏻‍🦳" type="tts">voyaga yetgan: 1–2-teri turi oqargan soch</annotation>
-		<annotation cp="🧑🏼‍🦳">3-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs</annotation>
+		<annotation cp="🧑🏼‍🦳">3-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏼‍🦳" type="tts">voyaga yetgan: 3-teri turi oqargan soch</annotation>
-		<annotation cp="🧑🏽‍🦳">4-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs</annotation>
+		<annotation cp="🧑🏽‍🦳">4-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏽‍🦳" type="tts">voyaga yetgan: 4-teri turi oqargan soch</annotation>
-		<annotation cp="🧑🏾‍🦳">5-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs</annotation>
+		<annotation cp="🧑🏾‍🦳">5-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏾‍🦳" type="tts">voyaga yetgan: 5-teri turi oqargan soch</annotation>
-		<annotation cp="🧑🏿‍🦳">6-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs</annotation>
+		<annotation cp="🧑🏿‍🦳">6-teri turi | jinsi noaniq | katta | neytral jins | oqargan soch | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏿‍🦳" type="tts">voyaga yetgan: 6-teri turi oqargan soch</annotation>
-		<annotation cp="🧑‍🦲">jinsi noaniq | kal | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑‍🦲">jinsi noaniq | kal | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑‍🦲" type="tts">voyaga yetgan: kal</annotation>
-		<annotation cp="🧑🏻‍🦲">1–2-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏻‍🦲">1–2-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏻‍🦲" type="tts">voyaga yetgan: 1–2-teri turi kal</annotation>
-		<annotation cp="🧑🏼‍🦲">3-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏼‍🦲">3-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏼‍🦲" type="tts">voyaga yetgan: 3-teri turi kal</annotation>
-		<annotation cp="🧑🏽‍🦲">4-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏽‍🦲">4-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏽‍🦲" type="tts">voyaga yetgan: 4-teri turi kal</annotation>
-		<annotation cp="🧑🏾‍🦲">5-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏾‍🦲">5-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏾‍🦲" type="tts">voyaga yetgan: 5-teri turi kal</annotation>
-		<annotation cp="🧑🏿‍🦲">6-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs</annotation>
+		<annotation cp="🧑🏿‍🦲">6-teri turi | jinsi noaniq | kal | katta | neytral jins | shaxs | voyaga yetgan</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">voyaga yetgan: 6-teri turi kal</annotation>
+		<annotation cp="🧑🏻‍🍼">1–2-teri turi | chaqaloq | emizayotgan | kishi | oziqlantirayotgan</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">chaqaloq emizayotgan kishi: 1–2-teri turi</annotation>
+		<annotation cp="🧑🏼‍🍼">3-teri turi | chaqaloq | emizayotgan | kishi | oziqlantirayotgan</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">chaqaloq emizayotgan kishi: 3-teri turi</annotation>
+		<annotation cp="🧑🏽‍🍼">4-teri turi | chaqaloq | emizayotgan | kishi | oziqlantirayotgan</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">chaqaloq emizayotgan kishi: 4-teri turi</annotation>
+		<annotation cp="🧑🏾‍🍼">5-teri turi | chaqaloq | emizayotgan | kishi | oziqlantirayotgan</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">chaqaloq emizayotgan kishi: 5-teri turi</annotation>
+		<annotation cp="🧑🏿‍🍼">6-teri turi | chaqaloq | emizayotgan | kishi | oziqlantirayotgan</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">chaqaloq emizayotgan kishi: 6-teri turi</annotation>
+		<annotation cp="🧑🏻‍🎄">1–2-teri turi | klauz, rojdestvo | miks-klauz</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">miks-klauz: 1–2-teri turi</annotation>
+		<annotation cp="🧑🏼‍🎄">3-teri turi | klauz, rojdestvo | miks-klauz</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">miks-klauz: 3-teri turi</annotation>
+		<annotation cp="🧑🏽‍🎄">4-teri turi | klauz, rojdestvo | miks-klauz</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">miks-klauz: 4-teri turi</annotation>
+		<annotation cp="🧑🏾‍🎄">5-teri turi | klauz, rojdestvo | miks-klauz</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">miks-klauz: 5-teri turi</annotation>
+		<annotation cp="🧑🏿‍🎄">6-teri turi | klauz, rojdestvo | miks-klauz</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">miks-klauz: 6-teri turi</annotation>
 		<annotation cp="👨🏻">1–2-teri turi | erkak | katta yoshli</annotation>
 		<annotation cp="👨🏻" type="tts">erkak: 1–2-teri turi</annotation>
 		<annotation cp="👨🏼">3-teri turi | erkak | katta yoshli</annotation>
@@ -510,15 +540,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">erkak: 5-teri turi</annotation>
 		<annotation cp="👨🏿">6-teri turi | erkak | katta yoshli</annotation>
 		<annotation cp="👨🏿" type="tts">erkak: 6-teri turi</annotation>
-		<annotation cp="🧔🏻">1–2-teri turi | erkak | erkak: soqol | shaxs | soqol | soqolli</annotation>
+		<annotation cp="🧔🏻">1–2-teri turi | erkak | erkak: soqol | erkak: soqolli | shaxs | soqol | soqolli</annotation>
 		<annotation cp="🧔🏻" type="tts">erkak: 1–2-teri turi soqolli</annotation>
-		<annotation cp="🧔🏼">3-teri turi | erkak | erkak: soqol | shaxs | soqol | soqolli</annotation>
+		<annotation cp="🧔🏼">3-teri turi | erkak | erkak: soqol | erkak: soqolli | shaxs | soqol | soqolli</annotation>
 		<annotation cp="🧔🏼" type="tts">erkak: 3-teri turi soqolli</annotation>
-		<annotation cp="🧔🏽">4-teri turi | erkak | erkak: soqol | shaxs | soqol | soqolli</annotation>
+		<annotation cp="🧔🏽">4-teri turi | erkak | erkak: soqol | erkak: soqolli | shaxs | soqol | soqolli</annotation>
 		<annotation cp="🧔🏽" type="tts">erkak: 4-teri turi soqolli</annotation>
-		<annotation cp="🧔🏾">5-teri turi | erkak | erkak: soqol | shaxs | soqol | soqolli</annotation>
+		<annotation cp="🧔🏾">5-teri turi | erkak | erkak: soqol | erkak: soqolli | shaxs | soqol | soqolli</annotation>
 		<annotation cp="🧔🏾" type="tts">erkak: 5-teri turi soqolli</annotation>
-		<annotation cp="🧔🏿">6-teri turi | erkak | erkak: soqol | shaxs | soqol | soqolli</annotation>
+		<annotation cp="🧔🏿">6-teri turi | erkak | erkak: soqol | erkak: soqolli | shaxs | soqol | soqolli</annotation>
 		<annotation cp="🧔🏿" type="tts">erkak: 6-teri turi soqolli</annotation>
 		<annotation cp="👱🏻‍♂">1–2-teri turi | erkak | erkak: mallasoch | mallasoch | sariq sochli erkak | soch</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">erkak: 1–2-teri turi mallasoch</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">erkak: 5-teri turi kal</annotation>
 		<annotation cp="👨🏿‍🦲">6-teri turi | erkak | kal | katta yoshli</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">erkak: 6-teri turi kal</annotation>
+		<annotation cp="👨🏻‍🍼">1–2-teri turi | chaqaloq | emizayotgan | erkak | oziqlantirayotgan</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">chaqaloq emizayotgan erkak: 1–2-teri turi</annotation>
+		<annotation cp="👨🏼‍🍼">3-teri turi | chaqaloq | emizayotgan | erkak | oziqlantirayotgan</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">chaqaloq emizayotgan erkak: 3-teri turi</annotation>
+		<annotation cp="👨🏽‍🍼">4-teri turi | chaqaloq | emizayotgan | erkak | oziqlantirayotgan</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">chaqaloq emizayotgan erkak: 4-teri turi</annotation>
+		<annotation cp="👨🏾‍🍼">5-teri turi | chaqaloq | emizayotgan | erkak | oziqlantirayotgan</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">chaqaloq emizayotgan erkak: 5-teri turi</annotation>
+		<annotation cp="👨🏿‍🍼">6-teri turi | chaqaloq | emizayotgan | erkak | oziqlantirayotgan</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">chaqaloq emizayotgan erkak: 6-teri turi</annotation>
 		<annotation cp="👩🏻">1–2-teri turi | ayol | katta yoshli</annotation>
 		<annotation cp="👩🏻" type="tts">ayol: 1–2-teri turi</annotation>
 		<annotation cp="👩🏼">3-teri turi | ayol | katta yoshli</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">ayol: 5-teri turi kal</annotation>
 		<annotation cp="👩🏿‍🦲">6-teri turi | ayol | kal | katta yoshli</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">ayol: 6-teri turi kal</annotation>
+		<annotation cp="👩🏻‍🍼">1–2-teri turi | ayol | chaqaloq | emizayotgan | xamshiralik qilayotgan</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">chaqaloq emizayotgan ayol: 1–2-teri turi</annotation>
+		<annotation cp="👩🏼‍🍼">3-teri turi | ayol | chaqaloq | emizayotgan | xamshiralik qilayotgan</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">chaqaloq emizayotgan ayol: 3-teri turi</annotation>
+		<annotation cp="👩🏽‍🍼">4-teri turi | ayol | chaqaloq | emizayotgan | xamshiralik qilayotgan</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">chaqaloq emizayotgan ayol: 4-teri turi</annotation>
+		<annotation cp="👩🏾‍🍼">5-teri turi | ayol | chaqaloq | emizayotgan | xamshiralik qilayotgan</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">chaqaloq emizayotgan ayol: 5-teri turi</annotation>
+		<annotation cp="👩🏿‍🍼">6-teri turi | ayol | chaqaloq | emizayotgan | xamshiralik qilayotgan</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">chaqaloq emizayotgan ayol: 6-teri turi</annotation>
 		<annotation cp="🧓🏻">1–2-teri turi | jinsi noaniq | keksa | neytral jins | qari odam | qariya</annotation>
 		<annotation cp="🧓🏻" type="tts">qari odam: 1–2-teri turi</annotation>
 		<annotation cp="🧓🏼">3-teri turi | jinsi noaniq | keksa | neytral jins | qari odam | qariya</annotation>
@@ -686,25 +736,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍🏾" type="tts">xo‘mraygan odam: 5-teri turi</annotation>
 		<annotation cp="🙍🏿">6-teri turi | imo-ishora | qovog‘ini solish | xo‘mraygan odam</annotation>
 		<annotation cp="🙍🏿" type="tts">xo‘mraygan odam: 6-teri turi</annotation>
-		<annotation cp="🙍🏻‍♂">1–2-teri turi | erkak | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏻‍♂">1–2-teri turi | erkak | xo‘mraygan erkak | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏻‍♂" type="tts">xo‘mraygan erkak: 1–2-teri turi</annotation>
-		<annotation cp="🙍🏼‍♂">3-teri turi | erkak | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏼‍♂">3-teri turi | erkak | xo‘mraygan erkak | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏼‍♂" type="tts">xo‘mraygan erkak: 3-teri turi</annotation>
-		<annotation cp="🙍🏽‍♂">4-teri turi | erkak | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏽‍♂">4-teri turi | erkak | xo‘mraygan erkak | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏽‍♂" type="tts">xo‘mraygan erkak: 4-teri turi</annotation>
-		<annotation cp="🙍🏾‍♂">5-teri turi | erkak | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏾‍♂">5-teri turi | erkak | xo‘mraygan erkak | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏾‍♂" type="tts">xo‘mraygan erkak: 5-teri turi</annotation>
-		<annotation cp="🙍🏿‍♂">6-teri turi | erkak | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏿‍♂">6-teri turi | erkak | xo‘mraygan erkak | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏿‍♂" type="tts">xo‘mraygan erkak: 6-teri turi</annotation>
-		<annotation cp="🙍🏻‍♀">1–2-teri turi | ayol | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏻‍♀">1–2-teri turi | ayol | xo‘mraygan ayol | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏻‍♀" type="tts">xo‘mraygan ayol: 1–2-teri turi</annotation>
-		<annotation cp="🙍🏼‍♀">3-teri turi | ayol | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏼‍♀">3-teri turi | ayol | xo‘mraygan ayol | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏼‍♀" type="tts">xo‘mraygan ayol: 3-teri turi</annotation>
-		<annotation cp="🙍🏽‍♀">4-teri turi | ayol | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏽‍♀">4-teri turi | ayol | xo‘mraygan ayol | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏽‍♀" type="tts">xo‘mraygan ayol: 4-teri turi</annotation>
-		<annotation cp="🙍🏾‍♀">5-teri turi | ayol | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏾‍♀">5-teri turi | ayol | xo‘mraygan ayol | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏾‍♀" type="tts">xo‘mraygan ayol: 5-teri turi</annotation>
-		<annotation cp="🙍🏿‍♀">6-teri turi | ayol | xoʻmrayish | yuz ifodasi</annotation>
+		<annotation cp="🙍🏿‍♀">6-teri turi | ayol | xo‘mraygan ayol | xoʻmrayish | yuz ifodasi</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">xo‘mraygan ayol: 6-teri turi</annotation>
 		<annotation cp="🙎🏻">1–2-teri turi | imo-ishora | norozi | norozi odam</annotation>
 		<annotation cp="🙎🏻" type="tts">norozi odam: 1–2-teri turi</annotation>
@@ -736,35 +786,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎🏾‍♀" type="tts">arazlagan ayol: 5-teri turi</annotation>
 		<annotation cp="🙎🏿‍♀">6-teri turi | arazlagan | ayol | yuz ifodasi</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">arazlagan ayol: 6-teri turi</annotation>
-		<annotation cp="🙅🏻">1–2-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yoʻq ishorasi</annotation>
+		<annotation cp="🙅🏻">1–2-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q ishorasi | yoʻq ishorasi</annotation>
 		<annotation cp="🙅🏻" type="tts">yo‘q ishorasi: 1–2-teri turi</annotation>
-		<annotation cp="🙅🏼">3-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yoʻq ishorasi</annotation>
+		<annotation cp="🙅🏼">3-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q ishorasi | yoʻq ishorasi</annotation>
 		<annotation cp="🙅🏼" type="tts">yo‘q ishorasi: 3-teri turi</annotation>
-		<annotation cp="🙅🏽">4-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yoʻq ishorasi</annotation>
+		<annotation cp="🙅🏽">4-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q ishorasi | yoʻq ishorasi</annotation>
 		<annotation cp="🙅🏽" type="tts">yo‘q ishorasi: 4-teri turi</annotation>
-		<annotation cp="🙅🏾">5-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yoʻq ishorasi</annotation>
+		<annotation cp="🙅🏾">5-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q ishorasi | yoʻq ishorasi</annotation>
 		<annotation cp="🙅🏾" type="tts">yo‘q ishorasi: 5-teri turi</annotation>
-		<annotation cp="🙅🏿">6-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yoʻq ishorasi</annotation>
+		<annotation cp="🙅🏿">6-teri turi | imo-ishora | man qilingan | qo‘l | taqiqlangan | yo‘q ishorasi | yoʻq ishorasi</annotation>
 		<annotation cp="🙅🏿" type="tts">yo‘q ishorasi: 6-teri turi</annotation>
-		<annotation cp="🙅🏻‍♂">1–2-teri turi | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏻‍♂">1–2-teri turi | erkak yo‘q demoqda | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">erkak yo‘q demoqda: 1–2-teri turi</annotation>
-		<annotation cp="🙅🏼‍♂">3-teri turi | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏼‍♂">3-teri turi | erkak yo‘q demoqda | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏼‍♂" type="tts">erkak yo‘q demoqda: 3-teri turi</annotation>
-		<annotation cp="🙅🏽‍♂">4-teri turi | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏽‍♂">4-teri turi | erkak yo‘q demoqda | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏽‍♂" type="tts">erkak yo‘q demoqda: 4-teri turi</annotation>
-		<annotation cp="🙅🏾‍♂">5-teri turi | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏾‍♂">5-teri turi | erkak yo‘q demoqda | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏾‍♂" type="tts">erkak yo‘q demoqda: 5-teri turi</annotation>
-		<annotation cp="🙅🏿‍♂">6-teri turi | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏿‍♂">6-teri turi | erkak yo‘q demoqda | erkak yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏿‍♂" type="tts">erkak yo‘q demoqda: 6-teri turi</annotation>
-		<annotation cp="🙅🏻‍♀">1–2-teri turi | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏻‍♀">1–2-teri turi | ayol yo‘q demoqda | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏻‍♀" type="tts">ayol yo‘q demoqda: 1–2-teri turi</annotation>
-		<annotation cp="🙅🏼‍♀">3-teri turi | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏼‍♀">3-teri turi | ayol yo‘q demoqda | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏼‍♀" type="tts">ayol yo‘q demoqda: 3-teri turi</annotation>
-		<annotation cp="🙅🏽‍♀">4-teri turi | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏽‍♀">4-teri turi | ayol yo‘q demoqda | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏽‍♀" type="tts">ayol yo‘q demoqda: 4-teri turi</annotation>
-		<annotation cp="🙅🏾‍♀">5-teri turi | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏾‍♀">5-teri turi | ayol yo‘q demoqda | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏾‍♀" type="tts">ayol yo‘q demoqda: 5-teri turi</annotation>
-		<annotation cp="🙅🏿‍♀">6-teri turi | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
+		<annotation cp="🙅🏿‍♀">6-teri turi | ayol yo‘q demoqda | ayol yoʻq demoqda | imo-ishora | man qilingan | qo‘l | taqiqlangan</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">ayol yo‘q demoqda: 6-teri turi</annotation>
 		<annotation cp="🙆🏻">1–2-teri turi | imo-ishora | ok | ok ishorasi | qo‘l</annotation>
 		<annotation cp="🙆🏻" type="tts">ok ishorasi: 1–2-teri turi</annotation>
@@ -896,25 +946,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙇🏾" type="tts">ta’zim qilayotgan odam: 5-teri turi</annotation>
 		<annotation cp="🙇🏿">6-teri turi | imo-ishora | kechirim so‘rash | ta’zim | ta’zim qilayotgan odam | uzr so‘rash</annotation>
 		<annotation cp="🙇🏿" type="tts">ta’zim qilayotgan odam: 6-teri turi</annotation>
-		<annotation cp="🙇🏻‍♂">1–2-teri turi | erkak | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏻‍♂">1–2-teri turi | erkak | erkak ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">erkak ta’zim qilmoqda: 1–2-teri turi</annotation>
-		<annotation cp="🙇🏼‍♂">3-teri turi | erkak | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏼‍♂">3-teri turi | erkak | erkak ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏼‍♂" type="tts">erkak ta’zim qilmoqda: 3-teri turi</annotation>
-		<annotation cp="🙇🏽‍♂">4-teri turi | erkak | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏽‍♂">4-teri turi | erkak | erkak ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏽‍♂" type="tts">erkak ta’zim qilmoqda: 4-teri turi</annotation>
-		<annotation cp="🙇🏾‍♂">5-teri turi | erkak | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏾‍♂">5-teri turi | erkak | erkak ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏾‍♂" type="tts">erkak ta’zim qilmoqda: 5-teri turi</annotation>
-		<annotation cp="🙇🏿‍♂">6-teri turi | erkak | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏿‍♂">6-teri turi | erkak | erkak ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏿‍♂" type="tts">erkak ta’zim qilmoqda: 6-teri turi</annotation>
-		<annotation cp="🙇🏻‍♀">1–2-teri turi | ayol | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏻‍♀">1–2-teri turi | ayol | ayol ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏻‍♀" type="tts">ayol ta’zim qilmoqda: 1–2-teri turi</annotation>
-		<annotation cp="🙇🏼‍♀">3-teri turi | ayol | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏼‍♀">3-teri turi | ayol | ayol ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏼‍♀" type="tts">ayol ta’zim qilmoqda: 3-teri turi</annotation>
-		<annotation cp="🙇🏽‍♀">4-teri turi | ayol | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏽‍♀">4-teri turi | ayol | ayol ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏽‍♀" type="tts">ayol ta’zim qilmoqda: 4-teri turi</annotation>
-		<annotation cp="🙇🏾‍♀">5-teri turi | ayol | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏾‍♀">5-teri turi | ayol | ayol ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏾‍♀" type="tts">ayol ta’zim qilmoqda: 5-teri turi</annotation>
-		<annotation cp="🙇🏿‍♀">6-teri turi | ayol | iltifot | imo-ishora | taʼzim | uzr</annotation>
+		<annotation cp="🙇🏿‍♀">6-teri turi | ayol | ayol ta’zim qilmoqda | iltifot | imo-ishora | taʼzim | uzr</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">ayol ta’zim qilmoqda: 6-teri turi</annotation>
 		<annotation cp="🤦🏻">1–2-teri turi | boshqa gapim yo‘q | feyspalm | g‘ijinish | gap yo‘q | ishonchsizlik | jahl chiqish | qo‘l | yuz</annotation>
 		<annotation cp="🤦🏻" type="tts">boshqa gapim yo‘q: 1–2-teri turi</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">ayol yelka qismoqda: 5-teri turi</annotation>
 		<annotation cp="🤷🏿‍♀">6-teri turi | ayol | ayol yelka qismoqda | shubha | yelka qisish</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">ayol yelka qismoqda: 6-teri turi</annotation>
-		<annotation cp="🧑🏻‍⚕">1–2-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash</annotation>
+		<annotation cp="🧑🏻‍⚕">1–2-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash | tibbiyot xodimi</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">tibbiyot xodimi: 1–2-teri turi</annotation>
-		<annotation cp="🧑🏼‍⚕">3-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash</annotation>
+		<annotation cp="🧑🏼‍⚕">3-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash | tibbiyot xodimi</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">tibbiyot xodimi: 3-teri turi</annotation>
-		<annotation cp="🧑🏽‍⚕">4-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash</annotation>
+		<annotation cp="🧑🏽‍⚕">4-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash | tibbiyot xodimi</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">tibbiyot xodimi: 4-teri turi</annotation>
-		<annotation cp="🧑🏾‍⚕">5-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash</annotation>
+		<annotation cp="🧑🏾‍⚕">5-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash | tibbiyot xodimi</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">tibbiyot xodimi: 5-teri turi</annotation>
-		<annotation cp="🧑🏿‍⚕">6-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash</annotation>
+		<annotation cp="🧑🏿‍⚕">6-teri turi | doktor | hamshira | shifokor | sogʻliqni saqlash | tibbiyot xodimi</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">tibbiyot xodimi: 6-teri turi</annotation>
 		<annotation cp="👨🏻‍⚕">1–2-teri turi | doktor | erkak shifokor | salomatlik | shifokor | terapevt</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">erkak shifokor: 1–2-teri turi</annotation>
@@ -1166,15 +1216,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🔧" type="tts">mexanik: 5-teri turi</annotation>
 		<annotation cp="🧑🏿‍🔧">6-teri turi | chilangar | elektrik | mexanik | santexnik | sotuvchi</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mexanik: 6-teri turi</annotation>
-		<annotation cp="👨🏻‍🔧">1–2-teri turi | elektrik | hunarmand | mexanik | santexnik</annotation>
+		<annotation cp="👨🏻‍🔧">1–2-teri turi | elektrik | erkak mexanik | hunarmand | mexanik | santexnik</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">erkak mexanik: 1–2-teri turi</annotation>
-		<annotation cp="👨🏼‍🔧">3-teri turi | elektrik | hunarmand | mexanik | santexnik</annotation>
+		<annotation cp="👨🏼‍🔧">3-teri turi | elektrik | erkak mexanik | hunarmand | mexanik | santexnik</annotation>
 		<annotation cp="👨🏼‍🔧" type="tts">erkak mexanik: 3-teri turi</annotation>
-		<annotation cp="👨🏽‍🔧">4-teri turi | elektrik | hunarmand | mexanik | santexnik</annotation>
+		<annotation cp="👨🏽‍🔧">4-teri turi | elektrik | erkak mexanik | hunarmand | mexanik | santexnik</annotation>
 		<annotation cp="👨🏽‍🔧" type="tts">erkak mexanik: 4-teri turi</annotation>
-		<annotation cp="👨🏾‍🔧">5-teri turi | elektrik | hunarmand | mexanik | santexnik</annotation>
+		<annotation cp="👨🏾‍🔧">5-teri turi | elektrik | erkak mexanik | hunarmand | mexanik | santexnik</annotation>
 		<annotation cp="👨🏾‍🔧" type="tts">erkak mexanik: 5-teri turi</annotation>
-		<annotation cp="👨🏿‍🔧">6-teri turi | elektrik | hunarmand | mexanik | santexnik</annotation>
+		<annotation cp="👨🏿‍🔧">6-teri turi | elektrik | erkak mexanik | hunarmand | mexanik | santexnik</annotation>
 		<annotation cp="👨🏿‍🔧" type="tts">erkak mexanik: 6-teri turi</annotation>
 		<annotation cp="👩🏻‍🔧">1–2-teri turi | ayol | elektrik | hunarmand | mexanik | santexnik</annotation>
 		<annotation cp="👩🏻‍🔧" type="tts">ayol mexanik: 1–2-teri turi</annotation>
@@ -1186,35 +1236,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">ayol mexanik: 5-teri turi</annotation>
 		<annotation cp="👩🏿‍🔧">6-teri turi | ayol | elektrik | hunarmand | mexanik | santexnik</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">ayol mexanik: 6-teri turi</annotation>
-		<annotation cp="🧑🏻‍🏭">1–2-teri turi | ishchi | montaj | sanoat | yigʻish | zavod</annotation>
+		<annotation cp="🧑🏻‍🏭">1–2-teri turi | ishchi | montaj | sanoat | yigʻish | zavod | zavod ishchisi</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">zavod ishchisi: 1–2-teri turi</annotation>
-		<annotation cp="🧑🏼‍🏭">3-teri turi | ishchi | montaj | sanoat | yigʻish | zavod</annotation>
+		<annotation cp="🧑🏼‍🏭">3-teri turi | ishchi | montaj | sanoat | yigʻish | zavod | zavod ishchisi</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">zavod ishchisi: 3-teri turi</annotation>
-		<annotation cp="🧑🏽‍🏭">4-teri turi | ishchi | montaj | sanoat | yigʻish | zavod</annotation>
+		<annotation cp="🧑🏽‍🏭">4-teri turi | ishchi | montaj | sanoat | yigʻish | zavod | zavod ishchisi</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">zavod ishchisi: 4-teri turi</annotation>
-		<annotation cp="🧑🏾‍🏭">5-teri turi | ishchi | montaj | sanoat | yigʻish | zavod</annotation>
+		<annotation cp="🧑🏾‍🏭">5-teri turi | ishchi | montaj | sanoat | yigʻish | zavod | zavod ishchisi</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">zavod ishchisi: 5-teri turi</annotation>
-		<annotation cp="🧑🏿‍🏭">6-teri turi | ishchi | montaj | sanoat | yigʻish | zavod</annotation>
+		<annotation cp="🧑🏿‍🏭">6-teri turi | ishchi | montaj | sanoat | yigʻish | zavod | zavod ishchisi</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">zavod ishchisi: 6-teri turi</annotation>
-		<annotation cp="👨🏻‍🏭">1–2-teri turi | erkak | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👨🏻‍🏭">1–2-teri turi | erkak | erkak zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">erkak zavod ishchisi: 1–2-teri turi</annotation>
-		<annotation cp="👨🏼‍🏭">3-teri turi | erkak | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👨🏼‍🏭">3-teri turi | erkak | erkak zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">erkak zavod ishchisi: 3-teri turi</annotation>
-		<annotation cp="👨🏽‍🏭">4-teri turi | erkak | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👨🏽‍🏭">4-teri turi | erkak | erkak zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">erkak zavod ishchisi: 4-teri turi</annotation>
-		<annotation cp="👨🏾‍🏭">5-teri turi | erkak | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👨🏾‍🏭">5-teri turi | erkak | erkak zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">erkak zavod ishchisi: 5-teri turi</annotation>
-		<annotation cp="👨🏿‍🏭">6-teri turi | erkak | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👨🏿‍🏭">6-teri turi | erkak | erkak zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">erkak zavod ishchisi: 6-teri turi</annotation>
-		<annotation cp="👩🏻‍🏭">1–2-teri turi | ayol | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👩🏻‍🏭">1–2-teri turi | ayol | ayol zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">ayol zavod ishchisi: 1–2-teri turi</annotation>
-		<annotation cp="👩🏼‍🏭">3-teri turi | ayol | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👩🏼‍🏭">3-teri turi | ayol | ayol zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👩🏼‍🏭" type="tts">ayol zavod ishchisi: 3-teri turi</annotation>
-		<annotation cp="👩🏽‍🏭">4-teri turi | ayol | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👩🏽‍🏭">4-teri turi | ayol | ayol zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👩🏽‍🏭" type="tts">ayol zavod ishchisi: 4-teri turi</annotation>
-		<annotation cp="👩🏾‍🏭">5-teri turi | ayol | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👩🏾‍🏭">5-teri turi | ayol | ayol zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👩🏾‍🏭" type="tts">ayol zavod ishchisi: 5-teri turi</annotation>
-		<annotation cp="👩🏿‍🏭">6-teri turi | ayol | ishchi | sanoat | yigʻuv | zavod</annotation>
+		<annotation cp="👩🏿‍🏭">6-teri turi | ayol | ayol zavod ishchisi | ishchi | sanoat | yigʻuv | zavod</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">ayol zavod ishchisi: 6-teri turi</annotation>
 		<annotation cp="🧑🏻‍💼">1–2-teri turi | arxitektor | biznes | menejer | ofis ishchisi | ofis xodimi</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">ofis xodimi: 1–2-teri turi</annotation>
@@ -1266,15 +1316,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🔬" type="tts">erkak olim: 5-teri turi</annotation>
 		<annotation cp="👨🏿‍🔬">6-teri turi | biolog | erkak | kimyogar | muhandis | olim</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">erkak olim: 6-teri turi</annotation>
-		<annotation cp="👩🏻‍🔬">1–2-teri turi | ayol | biolog | kimyogar | muhandis | olima</annotation>
+		<annotation cp="👩🏻‍🔬">1–2-teri turi | ayol | ayol olim | biolog | kimyogar | muhandis | olima</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">ayol olim: 1–2-teri turi</annotation>
-		<annotation cp="👩🏼‍🔬">3-teri turi | ayol | biolog | kimyogar | muhandis | olima</annotation>
+		<annotation cp="👩🏼‍🔬">3-teri turi | ayol | ayol olim | biolog | kimyogar | muhandis | olima</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">ayol olim: 3-teri turi</annotation>
-		<annotation cp="👩🏽‍🔬">4-teri turi | ayol | biolog | kimyogar | muhandis | olima</annotation>
+		<annotation cp="👩🏽‍🔬">4-teri turi | ayol | ayol olim | biolog | kimyogar | muhandis | olima</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">ayol olim: 4-teri turi</annotation>
-		<annotation cp="👩🏾‍🔬">5-teri turi | ayol | biolog | kimyogar | muhandis | olima</annotation>
+		<annotation cp="👩🏾‍🔬">5-teri turi | ayol | ayol olim | biolog | kimyogar | muhandis | olima</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">ayol olim: 5-teri turi</annotation>
-		<annotation cp="👩🏿‍🔬">6-teri turi | ayol | biolog | kimyogar | muhandis | olima</annotation>
+		<annotation cp="👩🏿‍🔬">6-teri turi | ayol | ayol olim | biolog | kimyogar | muhandis | olima</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">ayol olim: 6-teri turi</annotation>
 		<annotation cp="🧑🏻‍💻">1–2-teri turi | dastur | dasturchi | ishlab chiquvchi | ixtirochi | koder | texnolog</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">texnolog: 1–2-teri turi</annotation>
@@ -1316,25 +1366,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🎤" type="tts">qoʻshiqchi: 5-teri turi</annotation>
 		<annotation cp="🧑🏿‍🎤">6-teri turi | aktyor | artist | qoʻshiqchi | rok | sanʼatkor | yulduz</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">qoʻshiqchi: 6-teri turi</annotation>
-		<annotation cp="👨🏻‍🎤">1–2-teri turi | aktyor | erkak | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👨🏻‍🎤">1–2-teri turi | aktyor | erkak | erkak qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">erkak qo‘shiqchi: 1–2-teri turi</annotation>
-		<annotation cp="👨🏼‍🎤">3-teri turi | aktyor | erkak | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👨🏼‍🎤">3-teri turi | aktyor | erkak | erkak qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">erkak qo‘shiqchi: 3-teri turi</annotation>
-		<annotation cp="👨🏽‍🎤">4-teri turi | aktyor | erkak | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👨🏽‍🎤">4-teri turi | aktyor | erkak | erkak qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">erkak qo‘shiqchi: 4-teri turi</annotation>
-		<annotation cp="👨🏾‍🎤">5-teri turi | aktyor | erkak | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👨🏾‍🎤">5-teri turi | aktyor | erkak | erkak qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">erkak qo‘shiqchi: 5-teri turi</annotation>
-		<annotation cp="👨🏿‍🎤">6-teri turi | aktyor | erkak | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👨🏿‍🎤">6-teri turi | aktyor | erkak | erkak qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">erkak qo‘shiqchi: 6-teri turi</annotation>
-		<annotation cp="👩🏻‍🎤">1–2-teri turi | aktyor | ayol | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👩🏻‍🎤">1–2-teri turi | aktyor | ayol | ayol qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">ayol qo‘shiqchi: 1–2-teri turi</annotation>
-		<annotation cp="👩🏼‍🎤">3-teri turi | aktyor | ayol | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👩🏼‍🎤">3-teri turi | aktyor | ayol | ayol qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👩🏼‍🎤" type="tts">ayol qo‘shiqchi: 3-teri turi</annotation>
-		<annotation cp="👩🏽‍🎤">4-teri turi | aktyor | ayol | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👩🏽‍🎤">4-teri turi | aktyor | ayol | ayol qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👩🏽‍🎤" type="tts">ayol qo‘shiqchi: 4-teri turi</annotation>
-		<annotation cp="👩🏾‍🎤">5-teri turi | aktyor | ayol | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👩🏾‍🎤">5-teri turi | aktyor | ayol | ayol qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👩🏾‍🎤" type="tts">ayol qo‘shiqchi: 5-teri turi</annotation>
-		<annotation cp="👩🏿‍🎤">6-teri turi | aktyor | ayol | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
+		<annotation cp="👩🏿‍🎤">6-teri turi | aktyor | ayol | ayol qo‘shiqchi | estrada artisti | qoʻshiqchi | rok | yulduz</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">ayol qo‘shiqchi: 6-teri turi</annotation>
 		<annotation cp="🧑🏻‍🎨">1–2-teri turi | musavvir | palitra | rassom</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">rassom: 1–2-teri turi</annotation>
@@ -1436,35 +1486,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🚒" type="tts">oʻt oʻchiruvchi: 5-teri turi</annotation>
 		<annotation cp="🧑🏿‍🚒">6-teri turi | oʻt oʻchirish mashinasi | oʻt oʻchiruvchi</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">oʻt oʻchiruvchi: 6-teri turi</annotation>
-		<annotation cp="👨🏻‍🚒">1–2-teri turi | erkak | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👨🏻‍🚒">1–2-teri turi | erkak | erkak o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">erkak o‘t o‘chiruvchi: 1–2-teri turi</annotation>
-		<annotation cp="👨🏼‍🚒">3-teri turi | erkak | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👨🏼‍🚒">3-teri turi | erkak | erkak o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👨🏼‍🚒" type="tts">erkak o‘t o‘chiruvchi: 3-teri turi</annotation>
-		<annotation cp="👨🏽‍🚒">4-teri turi | erkak | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👨🏽‍🚒">4-teri turi | erkak | erkak o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👨🏽‍🚒" type="tts">erkak o‘t o‘chiruvchi: 4-teri turi</annotation>
-		<annotation cp="👨🏾‍🚒">5-teri turi | erkak | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👨🏾‍🚒">5-teri turi | erkak | erkak o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👨🏾‍🚒" type="tts">erkak o‘t o‘chiruvchi: 5-teri turi</annotation>
-		<annotation cp="👨🏿‍🚒">6-teri turi | erkak | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👨🏿‍🚒">6-teri turi | erkak | erkak o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👨🏿‍🚒" type="tts">erkak o‘t o‘chiruvchi: 6-teri turi</annotation>
-		<annotation cp="👩🏻‍🚒">1–2-teri turi | ayol | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👩🏻‍🚒">1–2-teri turi | ayol | ayol o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👩🏻‍🚒" type="tts">ayol o‘t o‘chiruvchi: 1–2-teri turi</annotation>
-		<annotation cp="👩🏼‍🚒">3-teri turi | ayol | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👩🏼‍🚒">3-teri turi | ayol | ayol o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👩🏼‍🚒" type="tts">ayol o‘t o‘chiruvchi: 3-teri turi</annotation>
-		<annotation cp="👩🏽‍🚒">4-teri turi | ayol | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👩🏽‍🚒">4-teri turi | ayol | ayol o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👩🏽‍🚒" type="tts">ayol o‘t o‘chiruvchi: 4-teri turi</annotation>
-		<annotation cp="👩🏾‍🚒">5-teri turi | ayol | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👩🏾‍🚒">5-teri turi | ayol | ayol o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👩🏾‍🚒" type="tts">ayol o‘t o‘chiruvchi: 5-teri turi</annotation>
-		<annotation cp="👩🏿‍🚒">6-teri turi | ayol | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
+		<annotation cp="👩🏿‍🚒">6-teri turi | ayol | ayol o‘t o‘chiruvchi | oʻt o‘chiruvchi | oʻt oʻchirish mashinasi</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">ayol o‘t o‘chiruvchi: 6-teri turi</annotation>
-		<annotation cp="👮🏻">1–2-teri turi | ofitser | politsiya | politsiyachi</annotation>
+		<annotation cp="👮🏻">1–2-teri turi | ofitser | politsiya | politsiya xodimi | politsiyachi</annotation>
 		<annotation cp="👮🏻" type="tts">politsiya xodimi: 1–2-teri turi</annotation>
-		<annotation cp="👮🏼">3-teri turi | ofitser | politsiya | politsiyachi</annotation>
+		<annotation cp="👮🏼">3-teri turi | ofitser | politsiya | politsiya xodimi | politsiyachi</annotation>
 		<annotation cp="👮🏼" type="tts">politsiya xodimi: 3-teri turi</annotation>
-		<annotation cp="👮🏽">4-teri turi | ofitser | politsiya | politsiyachi</annotation>
+		<annotation cp="👮🏽">4-teri turi | ofitser | politsiya | politsiya xodimi | politsiyachi</annotation>
 		<annotation cp="👮🏽" type="tts">politsiya xodimi: 4-teri turi</annotation>
-		<annotation cp="👮🏾">5-teri turi | ofitser | politsiya | politsiyachi</annotation>
+		<annotation cp="👮🏾">5-teri turi | ofitser | politsiya | politsiya xodimi | politsiyachi</annotation>
 		<annotation cp="👮🏾" type="tts">politsiya xodimi: 5-teri turi</annotation>
-		<annotation cp="👮🏿">6-teri turi | ofitser | politsiya | politsiyachi</annotation>
+		<annotation cp="👮🏿">6-teri turi | ofitser | politsiya | politsiya xodimi | politsiyachi</annotation>
 		<annotation cp="👮🏿" type="tts">politsiya xodimi: 6-teri turi</annotation>
 		<annotation cp="👮🏻‍♂">1–2-teri turi | erkak | politsiya | politsiyachi</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">erkak politsiyachi: 1–2-teri turi</annotation>
@@ -1546,15 +1596,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏾‍♀" type="tts">ayol qo‘riqchi: 5-teri turi</annotation>
 		<annotation cp="💂🏿‍♀">6-teri turi | ayol | qo‘riqchi</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">ayol qo‘riqchi: 6-teri turi</annotation>
-		<annotation cp="👷🏻">1–2-teri turi | bosh kiyim | ishchi | qurilish</annotation>
+		<annotation cp="👷🏻">1–2-teri turi | bosh kiyim | ishchi | qurilish | quruvchi</annotation>
 		<annotation cp="👷🏻" type="tts">quruvchi: 1–2-teri turi</annotation>
-		<annotation cp="👷🏼">3-teri turi | bosh kiyim | ishchi | qurilish</annotation>
+		<annotation cp="👷🏼">3-teri turi | bosh kiyim | ishchi | qurilish | quruvchi</annotation>
 		<annotation cp="👷🏼" type="tts">quruvchi: 3-teri turi</annotation>
-		<annotation cp="👷🏽">4-teri turi | bosh kiyim | ishchi | qurilish</annotation>
+		<annotation cp="👷🏽">4-teri turi | bosh kiyim | ishchi | qurilish | quruvchi</annotation>
 		<annotation cp="👷🏽" type="tts">quruvchi: 4-teri turi</annotation>
-		<annotation cp="👷🏾">5-teri turi | bosh kiyim | ishchi | qurilish</annotation>
+		<annotation cp="👷🏾">5-teri turi | bosh kiyim | ishchi | qurilish | quruvchi</annotation>
 		<annotation cp="👷🏾" type="tts">quruvchi: 5-teri turi</annotation>
-		<annotation cp="👷🏿">6-teri turi | bosh kiyim | ishchi | qurilish</annotation>
+		<annotation cp="👷🏿">6-teri turi | bosh kiyim | ishchi | qurilish | quruvchi</annotation>
 		<annotation cp="👷🏿" type="tts">quruvchi: 6-teri turi</annotation>
 		<annotation cp="👷🏻‍♂">1–2-teri turi | erkak | qurilish | quruvchi</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">erkak quruvchi: 1–2-teri turi</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">ro‘mol o‘ragan ayol: 5-teri turi</annotation>
 		<annotation cp="🧕🏿">6-teri turi | ro‘mol o‘ragan ayol</annotation>
 		<annotation cp="🧕🏿" type="tts">ro‘mol o‘ragan ayol: 6-teri turi</annotation>
-		<annotation cp="🤵🏻">1–2-teri turi | er | erkak | smoking | smoking kiygan erkak</annotation>
-		<annotation cp="🤵🏻" type="tts">smoking kiygan erkak: 1–2-teri turi</annotation>
-		<annotation cp="🤵🏼">3-teri turi | er | erkak | smoking | smoking kiygan erkak</annotation>
-		<annotation cp="🤵🏼" type="tts">smoking kiygan erkak: 3-teri turi</annotation>
-		<annotation cp="🤵🏽">4-teri turi | er | erkak | smoking | smoking kiygan erkak</annotation>
-		<annotation cp="🤵🏽" type="tts">smoking kiygan erkak: 4-teri turi</annotation>
-		<annotation cp="🤵🏾">5-teri turi | er | erkak | smoking | smoking kiygan erkak</annotation>
-		<annotation cp="🤵🏾" type="tts">smoking kiygan erkak: 5-teri turi</annotation>
-		<annotation cp="🤵🏿">6-teri turi | er | erkak | smoking | smoking kiygan erkak</annotation>
-		<annotation cp="🤵🏿" type="tts">smoking kiygan erkak: 6-teri turi</annotation>
-		<annotation cp="👰🏻">1–2-teri turi | kelin | ro‘mol | to‘y | to‘y ro‘molidagi kelin</annotation>
-		<annotation cp="👰🏻" type="tts">to‘y ro‘molidagi kelin: 1–2-teri turi</annotation>
-		<annotation cp="👰🏼">3-teri turi | kelin | ro‘mol | to‘y | to‘y ro‘molidagi kelin</annotation>
-		<annotation cp="👰🏼" type="tts">to‘y ro‘molidagi kelin: 3-teri turi</annotation>
-		<annotation cp="👰🏽">4-teri turi | kelin | ro‘mol | to‘y | to‘y ro‘molidagi kelin</annotation>
-		<annotation cp="👰🏽" type="tts">to‘y ro‘molidagi kelin: 4-teri turi</annotation>
-		<annotation cp="👰🏾">5-teri turi | kelin | ro‘mol | to‘y | to‘y ro‘molidagi kelin</annotation>
-		<annotation cp="👰🏾" type="tts">to‘y ro‘molidagi kelin: 5-teri turi</annotation>
-		<annotation cp="👰🏿">6-teri turi | kelin | ro‘mol | to‘y | to‘y ro‘molidagi kelin</annotation>
-		<annotation cp="👰🏿" type="tts">to‘y ro‘molidagi kelin: 6-teri turi</annotation>
+		<annotation cp="🤵🏻">1–2-teri turi | er | erkak | smoking | smoking kiygan odam</annotation>
+		<annotation cp="🤵🏻" type="tts">smoking kiygan odam: 1–2-teri turi</annotation>
+		<annotation cp="🤵🏼">3-teri turi | er | erkak | smoking | smoking kiygan odam</annotation>
+		<annotation cp="🤵🏼" type="tts">smoking kiygan odam: 3-teri turi</annotation>
+		<annotation cp="🤵🏽">4-teri turi | er | erkak | smoking | smoking kiygan odam</annotation>
+		<annotation cp="🤵🏽" type="tts">smoking kiygan odam: 4-teri turi</annotation>
+		<annotation cp="🤵🏾">5-teri turi | er | erkak | smoking | smoking kiygan odam</annotation>
+		<annotation cp="🤵🏾" type="tts">smoking kiygan odam: 5-teri turi</annotation>
+		<annotation cp="🤵🏿">6-teri turi | er | erkak | smoking | smoking kiygan odam</annotation>
+		<annotation cp="🤵🏿" type="tts">smoking kiygan odam: 6-teri turi</annotation>
+		<annotation cp="🤵🏻‍♀">1–2-teri turi | ayol | smoking | smoking kiygan ayol | smoking kiygan smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">smoking kiygan ayol: 1–2-teri turi</annotation>
+		<annotation cp="🤵🏼‍♀">3-teri turi | ayol | smoking | smoking kiygan ayol | smoking kiygan smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">smoking kiygan ayol: 3-teri turi</annotation>
+		<annotation cp="🤵🏽‍♀">4-teri turi | ayol | smoking | smoking kiygan ayol | smoking kiygan smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">smoking kiygan ayol: 4-teri turi</annotation>
+		<annotation cp="🤵🏾‍♀">5-teri turi | ayol | smoking | smoking kiygan ayol | smoking kiygan smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">smoking kiygan ayol: 5-teri turi</annotation>
+		<annotation cp="🤵🏿‍♀">6-teri turi | ayol | smoking | smoking kiygan ayol | smoking kiygan smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">smoking kiygan ayol: 6-teri turi</annotation>
+		<annotation cp="🤵🏻‍♂">1–2-teri turi | erkak | smoking | smoking kiygan erkak | smoking kiygan kishi</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">smoking kiygan kishi: 1–2-teri turi</annotation>
+		<annotation cp="🤵🏼‍♂">3-teri turi | erkak | smoking | smoking kiygan erkak | smoking kiygan kishi</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">smoking kiygan kishi: 3-teri turi</annotation>
+		<annotation cp="🤵🏽‍♂">4-teri turi | erkak | smoking | smoking kiygan erkak | smoking kiygan kishi</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">smoking kiygan kishi: 4-teri turi</annotation>
+		<annotation cp="🤵🏾‍♂">5-teri turi | erkak | smoking | smoking kiygan erkak | smoking kiygan kishi</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">smoking kiygan kishi: 5-teri turi</annotation>
+		<annotation cp="🤵🏿‍♂">6-teri turi | erkak | smoking | smoking kiygan erkak | smoking kiygan kishi</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">smoking kiygan kishi: 6-teri turi</annotation>
+		<annotation cp="👰🏻">1–2-teri turi | kelin | nikoh kiyimidagi odam | ro‘mol | to‘y</annotation>
+		<annotation cp="👰🏻" type="tts">nikoh kiyimidagi odam: 1–2-teri turi</annotation>
+		<annotation cp="👰🏼">3-teri turi | kelin | nikoh kiyimidagi odam | ro‘mol | to‘y</annotation>
+		<annotation cp="👰🏼" type="tts">nikoh kiyimidagi odam: 3-teri turi</annotation>
+		<annotation cp="👰🏽">4-teri turi | kelin | nikoh kiyimidagi odam | ro‘mol | to‘y</annotation>
+		<annotation cp="👰🏽" type="tts">nikoh kiyimidagi odam: 4-teri turi</annotation>
+		<annotation cp="👰🏾">5-teri turi | kelin | nikoh kiyimidagi odam | ro‘mol | to‘y</annotation>
+		<annotation cp="👰🏾" type="tts">nikoh kiyimidagi odam: 5-teri turi</annotation>
+		<annotation cp="👰🏿">6-teri turi | kelin | nikoh kiyimidagi odam | ro‘mol | to‘y</annotation>
+		<annotation cp="👰🏿" type="tts">nikoh kiyimidagi odam: 6-teri turi</annotation>
+		<annotation cp="👰🏻‍♀">1–2-teri turi | ayol | xarir parda | xarir parda taqib olgan ayol</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">xarir parda taqib olgan ayol: 1–2-teri turi</annotation>
+		<annotation cp="👰🏼‍♀">3-teri turi | ayol | xarir parda | xarir parda taqib olgan ayol</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">xarir parda taqib olgan ayol: 3-teri turi</annotation>
+		<annotation cp="👰🏽‍♀">4-teri turi | ayol | xarir parda | xarir parda taqib olgan ayol</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">xarir parda taqib olgan ayol: 4-teri turi</annotation>
+		<annotation cp="👰🏾‍♀">5-teri turi | ayol | xarir parda | xarir parda taqib olgan ayol</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">xarir parda taqib olgan ayol: 5-teri turi</annotation>
+		<annotation cp="👰🏿‍♀">6-teri turi | ayol | xarir parda | xarir parda taqib olgan ayol</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">xarir parda taqib olgan ayol: 6-teri turi</annotation>
+		<annotation cp="👰🏻‍♂">1–2-teri turi | erkak | xarir parda | xarir parda taqib olgan erkak</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">xarir parda taqib olgan erkak: 1–2-teri turi</annotation>
+		<annotation cp="👰🏼‍♂">3-teri turi | erkak | xarir parda | xarir parda taqib olgan erkak</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">xarir parda taqib olgan erkak: 3-teri turi</annotation>
+		<annotation cp="👰🏽‍♂">4-teri turi | erkak | xarir parda | xarir parda taqib olgan erkak</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">xarir parda taqib olgan erkak: 4-teri turi</annotation>
+		<annotation cp="👰🏾‍♂">5-teri turi | erkak | xarir parda | xarir parda taqib olgan erkak</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">xarir parda taqib olgan erkak: 5-teri turi</annotation>
+		<annotation cp="👰🏿‍♂">6-teri turi | erkak | xarir parda | xarir parda taqib olgan erkak</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">xarir parda taqib olgan erkak: 6-teri turi</annotation>
 		<annotation cp="🤰🏻">1–2-teri turi | ayol | homilador | ikki qat</annotation>
 		<annotation cp="🤰🏻" type="tts">homilador ayol: 1–2-teri turi</annotation>
 		<annotation cp="🤰🏼">3-teri turi | ayol | homilador | ikki qat</annotation>
@@ -2076,25 +2166,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">tiz choʻkkan ayol: 5-teri turi</annotation>
 		<annotation cp="🧎🏿‍♀">6-teri turi | ayol | tiz choʻkish | tiz choʻkkan ayol</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">tiz choʻkkan ayol: 6-teri turi</annotation>
-		<annotation cp="🧑🏻‍🦯">1–2-teri turi | koʻr | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏻‍🦯">1–2-teri turi | hassali odam | koʻr | maxsus imkoniyatlar</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">hassali odam: 1–2-teri turi</annotation>
-		<annotation cp="🧑🏼‍🦯">3-teri turi | koʻr | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏼‍🦯">3-teri turi | hassali odam | koʻr | maxsus imkoniyatlar</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">hassali odam: 3-teri turi</annotation>
-		<annotation cp="🧑🏽‍🦯">4-teri turi | koʻr | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏽‍🦯">4-teri turi | hassali odam | koʻr | maxsus imkoniyatlar</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">hassali odam: 4-teri turi</annotation>
-		<annotation cp="🧑🏾‍🦯">5-teri turi | koʻr | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏾‍🦯">5-teri turi | hassali odam | koʻr | maxsus imkoniyatlar</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">hassali odam: 5-teri turi</annotation>
-		<annotation cp="🧑🏿‍🦯">6-teri turi | koʻr | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏿‍🦯">6-teri turi | hassali odam | koʻr | maxsus imkoniyatlar</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">hassali odam: 6-teri turi</annotation>
-		<annotation cp="👨🏻‍🦯">1–2-teri turi | hassali odam | koʻr | nogironlik | odam</annotation>
+		<annotation cp="👨🏻‍🦯">1–2-teri turi | hassali kishi | hassali odam | koʻr | nogironlik | odam</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">hassali kishi: 1–2-teri turi</annotation>
-		<annotation cp="👨🏼‍🦯">3-teri turi | hassali odam | koʻr | nogironlik | odam</annotation>
+		<annotation cp="👨🏼‍🦯">3-teri turi | hassali kishi | hassali odam | koʻr | nogironlik | odam</annotation>
 		<annotation cp="👨🏼‍🦯" type="tts">hassali kishi: 3-teri turi</annotation>
-		<annotation cp="👨🏽‍🦯">4-teri turi | hassali odam | koʻr | nogironlik | odam</annotation>
+		<annotation cp="👨🏽‍🦯">4-teri turi | hassali kishi | hassali odam | koʻr | nogironlik | odam</annotation>
 		<annotation cp="👨🏽‍🦯" type="tts">hassali kishi: 4-teri turi</annotation>
-		<annotation cp="👨🏾‍🦯">5-teri turi | hassali odam | koʻr | nogironlik | odam</annotation>
+		<annotation cp="👨🏾‍🦯">5-teri turi | hassali kishi | hassali odam | koʻr | nogironlik | odam</annotation>
 		<annotation cp="👨🏾‍🦯" type="tts">hassali kishi: 5-teri turi</annotation>
-		<annotation cp="👨🏿‍🦯">6-teri turi | hassali odam | koʻr | nogironlik | odam</annotation>
+		<annotation cp="👨🏿‍🦯">6-teri turi | hassali kishi | hassali odam | koʻr | nogironlik | odam</annotation>
 		<annotation cp="👨🏿‍🦯" type="tts">hassali kishi: 6-teri turi</annotation>
 		<annotation cp="👩🏻‍🦯">1–2-teri turi | ayol | hassali ayol | koʻr | nogironlik</annotation>
 		<annotation cp="👩🏻‍🦯" type="tts">hassali ayol: 1–2-teri turi</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">hassali ayol: 5-teri turi</annotation>
 		<annotation cp="👩🏿‍🦯">6-teri turi | ayol | hassali ayol | koʻr | nogironlik</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">hassali ayol: 6-teri turi</annotation>
-		<annotation cp="🧑🏻‍🦼">1–2-teri turi | maxsus imkoniyatlar | nogironlar aravachasi</annotation>
+		<annotation cp="🧑🏻‍🦼">1–2-teri turi | maxsus imkoniyatlar | motorli nogironlar aravachasidagi odam | nogironlar aravachasi</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">motorli nogironlar aravachasidagi odam: 1–2-teri turi</annotation>
-		<annotation cp="🧑🏼‍🦼">3-teri turi | maxsus imkoniyatlar | nogironlar aravachasi</annotation>
+		<annotation cp="🧑🏼‍🦼">3-teri turi | maxsus imkoniyatlar | motorli nogironlar aravachasidagi odam | nogironlar aravachasi</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">motorli nogironlar aravachasidagi odam: 3-teri turi</annotation>
-		<annotation cp="🧑🏽‍🦼">4-teri turi | maxsus imkoniyatlar | nogironlar aravachasi</annotation>
+		<annotation cp="🧑🏽‍🦼">4-teri turi | maxsus imkoniyatlar | motorli nogironlar aravachasidagi odam | nogironlar aravachasi</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">motorli nogironlar aravachasidagi odam: 4-teri turi</annotation>
-		<annotation cp="🧑🏾‍🦼">5-teri turi | maxsus imkoniyatlar | nogironlar aravachasi</annotation>
+		<annotation cp="🧑🏾‍🦼">5-teri turi | maxsus imkoniyatlar | motorli nogironlar aravachasidagi odam | nogironlar aravachasi</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">motorli nogironlar aravachasidagi odam: 5-teri turi</annotation>
-		<annotation cp="🧑🏿‍🦼">6-teri turi | maxsus imkoniyatlar | nogironlar aravachasi</annotation>
+		<annotation cp="🧑🏿‍🦼">6-teri turi | maxsus imkoniyatlar | motorli nogironlar aravachasidagi odam | nogironlar aravachasi</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">motorli nogironlar aravachasidagi odam: 6-teri turi</annotation>
 		<annotation cp="👨🏻‍🦼">1–2-teri turi | erkak | motorli nogironlik aravachasidagi erkak | nogironlik | nogironlik aravachasi</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">motorli nogironlik aravachasidagi erkak: 1–2-teri turi</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">motorli nogironlik aravachasidagi ayol: 5-teri turi</annotation>
 		<annotation cp="👩🏿‍🦼">6-teri turi | ayol | motorli nogironlik aravachasidagi ayol | nogironlik | nogironlik aravachasi</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">motorli nogironlik aravachasidagi ayol: 6-teri turi</annotation>
-		<annotation cp="🧑🏻‍🦽">1–2-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏻‍🦽">1–2-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar | nogironlar aravachasidagi odam</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">nogironlar aravachasidagi odam: 1–2-teri turi</annotation>
-		<annotation cp="🧑🏼‍🦽">3-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏼‍🦽">3-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar | nogironlar aravachasidagi odam</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">nogironlar aravachasidagi odam: 3-teri turi</annotation>
-		<annotation cp="🧑🏽‍🦽">4-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏽‍🦽">4-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar | nogironlar aravachasidagi odam</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">nogironlar aravachasidagi odam: 4-teri turi</annotation>
-		<annotation cp="🧑🏾‍🦽">5-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏾‍🦽">5-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar | nogironlar aravachasidagi odam</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">nogironlar aravachasidagi odam: 5-teri turi</annotation>
-		<annotation cp="🧑🏿‍🦽">6-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar</annotation>
+		<annotation cp="🧑🏿‍🦽">6-teri turi | gʻildirakli aravacha | maxsus imkoniyatlar | nogironlar aravachasidagi odam</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">nogironlar aravachasidagi odam: 6-teri turi</annotation>
 		<annotation cp="👨🏻‍🦽">1–2-teri turi | erkak | nogiron erkak | nogironlik | nogironlik aravachasi | nogironlik aravachasidagi erkak</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">nogironlik aravachasidagi erkak: 1–2-teri turi</annotation>
@@ -2176,25 +2266,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃🏾" type="tts">yuguruvchi: 5-teri turi</annotation>
 		<annotation cp="🏃🏿">6-teri turi | marafon | yugurish | yuguruvchi</annotation>
 		<annotation cp="🏃🏿" type="tts">yuguruvchi: 6-teri turi</annotation>
-		<annotation cp="🏃🏻‍♂">1–2-teri turi | erkak | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏻‍♂">1–2-teri turi | erkak | marafon | poyga | yugurayotgan erkak | yugurish</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">yugurayotgan erkak: 1–2-teri turi</annotation>
-		<annotation cp="🏃🏼‍♂">3-teri turi | erkak | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏼‍♂">3-teri turi | erkak | marafon | poyga | yugurayotgan erkak | yugurish</annotation>
 		<annotation cp="🏃🏼‍♂" type="tts">yugurayotgan erkak: 3-teri turi</annotation>
-		<annotation cp="🏃🏽‍♂">4-teri turi | erkak | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏽‍♂">4-teri turi | erkak | marafon | poyga | yugurayotgan erkak | yugurish</annotation>
 		<annotation cp="🏃🏽‍♂" type="tts">yugurayotgan erkak: 4-teri turi</annotation>
-		<annotation cp="🏃🏾‍♂">5-teri turi | erkak | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏾‍♂">5-teri turi | erkak | marafon | poyga | yugurayotgan erkak | yugurish</annotation>
 		<annotation cp="🏃🏾‍♂" type="tts">yugurayotgan erkak: 5-teri turi</annotation>
-		<annotation cp="🏃🏿‍♂">6-teri turi | erkak | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏿‍♂">6-teri turi | erkak | marafon | poyga | yugurayotgan erkak | yugurish</annotation>
 		<annotation cp="🏃🏿‍♂" type="tts">yugurayotgan erkak: 6-teri turi</annotation>
-		<annotation cp="🏃🏻‍♀">1–2-teri turi | ayol | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏻‍♀">1–2-teri turi | ayol | marafon | poyga | yugurayotgan ayol | yugurish</annotation>
 		<annotation cp="🏃🏻‍♀" type="tts">yugurayotgan ayol: 1–2-teri turi</annotation>
-		<annotation cp="🏃🏼‍♀">3-teri turi | ayol | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏼‍♀">3-teri turi | ayol | marafon | poyga | yugurayotgan ayol | yugurish</annotation>
 		<annotation cp="🏃🏼‍♀" type="tts">yugurayotgan ayol: 3-teri turi</annotation>
-		<annotation cp="🏃🏽‍♀">4-teri turi | ayol | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏽‍♀">4-teri turi | ayol | marafon | poyga | yugurayotgan ayol | yugurish</annotation>
 		<annotation cp="🏃🏽‍♀" type="tts">yugurayotgan ayol: 4-teri turi</annotation>
-		<annotation cp="🏃🏾‍♀">5-teri turi | ayol | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏾‍♀">5-teri turi | ayol | marafon | poyga | yugurayotgan ayol | yugurish</annotation>
 		<annotation cp="🏃🏾‍♀" type="tts">yugurayotgan ayol: 5-teri turi</annotation>
-		<annotation cp="🏃🏿‍♀">6-teri turi | ayol | marafon | poyga | yugurish</annotation>
+		<annotation cp="🏃🏿‍♀">6-teri turi | ayol | marafon | poyga | yugurayotgan ayol | yugurish</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">yugurayotgan ayol: 6-teri turi</annotation>
 		<annotation cp="💃🏻">1–2-teri turi | raqqosa | raqs</annotation>
 		<annotation cp="💃🏻" type="tts">raqqosa: 1–2-teri turi</annotation>
@@ -2216,15 +2306,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">raqs tushayotgan erkak: 5-teri turi</annotation>
 		<annotation cp="🕺🏿">6-teri turi | erkak | raqs | raqs tushayotgan erkak</annotation>
 		<annotation cp="🕺🏿" type="tts">raqs tushayotgan erkak: 6-teri turi</annotation>
-		<annotation cp="🕴🏻">1–2-teri turi | erkak | ish | kostyum | kostyum kiygan kishi</annotation>
+		<annotation cp="🕴🏻">1–2-teri turi | erkak | ish | kostyum | kostyum kiygan kishi | kostyum kiygan muallaq holatdagi kishi</annotation>
 		<annotation cp="🕴🏻" type="tts">kostyum kiygan muallaq holatdagi kishi: 1–2-teri turi</annotation>
-		<annotation cp="🕴🏼">3-teri turi | erkak | ish | kostyum | kostyum kiygan kishi</annotation>
+		<annotation cp="🕴🏼">3-teri turi | erkak | ish | kostyum | kostyum kiygan kishi | kostyum kiygan muallaq holatdagi kishi</annotation>
 		<annotation cp="🕴🏼" type="tts">kostyum kiygan muallaq holatdagi kishi: 3-teri turi</annotation>
-		<annotation cp="🕴🏽">4-teri turi | erkak | ish | kostyum | kostyum kiygan kishi</annotation>
+		<annotation cp="🕴🏽">4-teri turi | erkak | ish | kostyum | kostyum kiygan kishi | kostyum kiygan muallaq holatdagi kishi</annotation>
 		<annotation cp="🕴🏽" type="tts">kostyum kiygan muallaq holatdagi kishi: 4-teri turi</annotation>
-		<annotation cp="🕴🏾">5-teri turi | erkak | ish | kostyum | kostyum kiygan kishi</annotation>
+		<annotation cp="🕴🏾">5-teri turi | erkak | ish | kostyum | kostyum kiygan kishi | kostyum kiygan muallaq holatdagi kishi</annotation>
 		<annotation cp="🕴🏾" type="tts">kostyum kiygan muallaq holatdagi kishi: 5-teri turi</annotation>
-		<annotation cp="🕴🏿">6-teri turi | erkak | ish | kostyum | kostyum kiygan kishi</annotation>
+		<annotation cp="🕴🏿">6-teri turi | erkak | ish | kostyum | kostyum kiygan kishi | kostyum kiygan muallaq holatdagi kishi</annotation>
 		<annotation cp="🕴🏿" type="tts">kostyum kiygan muallaq holatdagi kishi: 6-teri turi</annotation>
 		<annotation cp="🧖🏻">1–2-teri turi | hammomdagi odam</annotation>
 		<annotation cp="🧖🏻" type="tts">hammomdagi odam: 1–2-teri turi</annotation>
@@ -2286,15 +2376,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧗🏾‍♀" type="tts">cho‘qqiga chiqayotgan ayol: 5-teri turi</annotation>
 		<annotation cp="🧗🏿‍♀">6-teri turi | cho‘qqiga chiqayotgan ayol</annotation>
 		<annotation cp="🧗🏿‍♀" type="tts">cho‘qqiga chiqayotgan ayol: 6-teri turi</annotation>
-		<annotation cp="🏇🏻">1–2-teri turi | chavandoz | ot | ot poygasi | poyga</annotation>
+		<annotation cp="🏇🏻">1–2-teri turi | chavandoz | ot | ot poygasi | otchopar | poyga</annotation>
 		<annotation cp="🏇🏻" type="tts">otchopar: 1–2-teri turi</annotation>
-		<annotation cp="🏇🏼">3-teri turi | chavandoz | ot | ot poygasi | poyga</annotation>
+		<annotation cp="🏇🏼">3-teri turi | chavandoz | ot | ot poygasi | otchopar | poyga</annotation>
 		<annotation cp="🏇🏼" type="tts">otchopar: 3-teri turi</annotation>
-		<annotation cp="🏇🏽">4-teri turi | chavandoz | ot | ot poygasi | poyga</annotation>
+		<annotation cp="🏇🏽">4-teri turi | chavandoz | ot | ot poygasi | otchopar | poyga</annotation>
 		<annotation cp="🏇🏽" type="tts">otchopar: 4-teri turi</annotation>
-		<annotation cp="🏇🏾">5-teri turi | chavandoz | ot | ot poygasi | poyga</annotation>
+		<annotation cp="🏇🏾">5-teri turi | chavandoz | ot | ot poygasi | otchopar | poyga</annotation>
 		<annotation cp="🏇🏾" type="tts">otchopar: 5-teri turi</annotation>
-		<annotation cp="🏇🏿">6-teri turi | chavandoz | ot | ot poygasi | poyga</annotation>
+		<annotation cp="🏇🏿">6-teri turi | chavandoz | ot | ot poygasi | otchopar | poyga</annotation>
 		<annotation cp="🏇🏿" type="tts">otchopar: 6-teri turi</annotation>
 		<annotation cp="🏂🏻">1–2-teri turi | chang‘i | qor | snoubord | snoubordchi</annotation>
 		<annotation cp="🏂🏻" type="tts">snoubordchi: 1–2-teri turi</annotation>
@@ -2346,25 +2436,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏄🏾" type="tts">serfingchi: 5-teri turi</annotation>
 		<annotation cp="🏄🏿">6-teri turi | serfing | serfingchi</annotation>
 		<annotation cp="🏄🏿" type="tts">serfingchi: 6-teri turi</annotation>
-		<annotation cp="🏄🏻‍♂">1–2-teri turi | erkak | serfing</annotation>
+		<annotation cp="🏄🏻‍♂">1–2-teri turi | erkak | erkak serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">erkak serfing qilmoqda: 1–2-teri turi</annotation>
-		<annotation cp="🏄🏼‍♂">3-teri turi | erkak | serfing</annotation>
+		<annotation cp="🏄🏼‍♂">3-teri turi | erkak | erkak serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏼‍♂" type="tts">erkak serfing qilmoqda: 3-teri turi</annotation>
-		<annotation cp="🏄🏽‍♂">4-teri turi | erkak | serfing</annotation>
+		<annotation cp="🏄🏽‍♂">4-teri turi | erkak | erkak serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏽‍♂" type="tts">erkak serfing qilmoqda: 4-teri turi</annotation>
-		<annotation cp="🏄🏾‍♂">5-teri turi | erkak | serfing</annotation>
+		<annotation cp="🏄🏾‍♂">5-teri turi | erkak | erkak serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏾‍♂" type="tts">erkak serfing qilmoqda: 5-teri turi</annotation>
-		<annotation cp="🏄🏿‍♂">6-teri turi | erkak | serfing</annotation>
+		<annotation cp="🏄🏿‍♂">6-teri turi | erkak | erkak serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏿‍♂" type="tts">erkak serfing qilmoqda: 6-teri turi</annotation>
-		<annotation cp="🏄🏻‍♀">1–2-teri turi | ayol | serfing</annotation>
+		<annotation cp="🏄🏻‍♀">1–2-teri turi | ayol | ayol serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏻‍♀" type="tts">ayol serfing qilmoqda: 1–2-teri turi</annotation>
-		<annotation cp="🏄🏼‍♀">3-teri turi | ayol | serfing</annotation>
+		<annotation cp="🏄🏼‍♀">3-teri turi | ayol | ayol serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏼‍♀" type="tts">ayol serfing qilmoqda: 3-teri turi</annotation>
-		<annotation cp="🏄🏽‍♀">4-teri turi | ayol | serfing</annotation>
+		<annotation cp="🏄🏽‍♀">4-teri turi | ayol | ayol serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏽‍♀" type="tts">ayol serfing qilmoqda: 4-teri turi</annotation>
-		<annotation cp="🏄🏾‍♀">5-teri turi | ayol | serfing</annotation>
+		<annotation cp="🏄🏾‍♀">5-teri turi | ayol | ayol serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏾‍♀" type="tts">ayol serfing qilmoqda: 5-teri turi</annotation>
-		<annotation cp="🏄🏿‍♀">6-teri turi | ayol | serfing</annotation>
+		<annotation cp="🏄🏿‍♀">6-teri turi | ayol | ayol serfing qilmoqda | serfing</annotation>
 		<annotation cp="🏄🏿‍♀" type="tts">ayol serfing qilmoqda: 6-teri turi</annotation>
 		<annotation cp="🚣🏻">1–2-teri turi | qayiq | transport</annotation>
 		<annotation cp="🚣🏻" type="tts">qayiq: 1–2-teri turi</annotation>
@@ -2496,25 +2586,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚴🏾" type="tts">velosipedchi: 5-teri turi</annotation>
 		<annotation cp="🚴🏿">6-teri turi | velosiped | velosipedchi</annotation>
 		<annotation cp="🚴🏿" type="tts">velosipedchi: 6-teri turi</annotation>
-		<annotation cp="🚴🏻‍♂">1–2-teri turi | erkak | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏻‍♂">1–2-teri turi | erkak | erkak velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏻‍♂" type="tts">erkak velosipedda: 1–2-teri turi</annotation>
-		<annotation cp="🚴🏼‍♂">3-teri turi | erkak | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏼‍♂">3-teri turi | erkak | erkak velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏼‍♂" type="tts">erkak velosipedda: 3-teri turi</annotation>
-		<annotation cp="🚴🏽‍♂">4-teri turi | erkak | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏽‍♂">4-teri turi | erkak | erkak velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏽‍♂" type="tts">erkak velosipedda: 4-teri turi</annotation>
-		<annotation cp="🚴🏾‍♂">5-teri turi | erkak | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏾‍♂">5-teri turi | erkak | erkak velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏾‍♂" type="tts">erkak velosipedda: 5-teri turi</annotation>
-		<annotation cp="🚴🏿‍♂">6-teri turi | erkak | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏿‍♂">6-teri turi | erkak | erkak velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏿‍♂" type="tts">erkak velosipedda: 6-teri turi</annotation>
-		<annotation cp="🚴🏻‍♀">1–2-teri turi | ayol | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏻‍♀">1–2-teri turi | ayol | ayol velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏻‍♀" type="tts">ayol velosipedda: 1–2-teri turi</annotation>
-		<annotation cp="🚴🏼‍♀">3-teri turi | ayol | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏼‍♀">3-teri turi | ayol | ayol velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏼‍♀" type="tts">ayol velosipedda: 3-teri turi</annotation>
-		<annotation cp="🚴🏽‍♀">4-teri turi | ayol | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏽‍♀">4-teri turi | ayol | ayol velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏽‍♀" type="tts">ayol velosipedda: 4-teri turi</annotation>
-		<annotation cp="🚴🏾‍♀">5-teri turi | ayol | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏾‍♀">5-teri turi | ayol | ayol velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏾‍♀" type="tts">ayol velosipedda: 5-teri turi</annotation>
-		<annotation cp="🚴🏿‍♀">6-teri turi | ayol | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚴🏿‍♀">6-teri turi | ayol | ayol velosipedda | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚴🏿‍♀" type="tts">ayol velosipedda: 6-teri turi</annotation>
 		<annotation cp="🚵🏻">1–2-teri turi | tog‘ | tog‘ velosipedchisi | velosiped | velosipedchi</annotation>
 		<annotation cp="🚵🏻" type="tts">tog‘ velosipedchisi: 1–2-teri turi</annotation>
@@ -2536,15 +2626,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵🏾‍♂" type="tts">erkak tog‘da velosipedda: 5-teri turi</annotation>
 		<annotation cp="🚵🏿‍♂">6-teri turi | erkak | erkak tog‘da velosipedda | haydash | tog‘da | velosiped</annotation>
 		<annotation cp="🚵🏿‍♂" type="tts">erkak tog‘da velosipedda: 6-teri turi</annotation>
-		<annotation cp="🚵🏻‍♀">1–2-teri turi | ayol | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚵🏻‍♀">1–2-teri turi | ayol | ayol tog‘da velosipedda | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚵🏻‍♀" type="tts">ayol tog‘da velosipedda: 1–2-teri turi</annotation>
-		<annotation cp="🚵🏼‍♀">3-teri turi | ayol | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚵🏼‍♀">3-teri turi | ayol | ayol tog‘da velosipedda | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚵🏼‍♀" type="tts">ayol tog‘da velosipedda: 3-teri turi</annotation>
-		<annotation cp="🚵🏽‍♀">4-teri turi | ayol | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚵🏽‍♀">4-teri turi | ayol | ayol tog‘da velosipedda | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚵🏽‍♀" type="tts">ayol tog‘da velosipedda: 4-teri turi</annotation>
-		<annotation cp="🚵🏾‍♀">5-teri turi | ayol | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚵🏾‍♀">5-teri turi | ayol | ayol tog‘da velosipedda | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚵🏾‍♀" type="tts">ayol tog‘da velosipedda: 5-teri turi</annotation>
-		<annotation cp="🚵🏿‍♀">6-teri turi | ayol | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
+		<annotation cp="🚵🏿‍♀">6-teri turi | ayol | ayol tog‘da velosipedda | bayk | togʻ | velosiped | velosiped haydash | velosipedchi</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">ayol tog‘da velosipedda: 6-teri turi</annotation>
 		<annotation cp="🤸🏻">1–2-teri turi | akrobatik mashq | akrobatika | g‘ildirak | gimnastika | odam | sport</annotation>
 		<annotation cp="🤸🏻" type="tts">akrobatik mashq: 1–2-teri turi</annotation>
@@ -2636,35 +2726,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤾🏾‍♀" type="tts">ayol gandbol o‘ynamoqda: 5-teri turi</annotation>
 		<annotation cp="🤾🏿‍♀">6-teri turi | ayol | ayol gandbol o‘ynamoqda | gandbol | sport</annotation>
 		<annotation cp="🤾🏿‍♀" type="tts">ayol gandbol o‘ynamoqda: 6-teri turi</annotation>
-		<annotation cp="🤹🏻">1–2-teri turi | bilim | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏻">1–2-teri turi | bilim | jonglyor | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏻" type="tts">jonglyor: 1–2-teri turi</annotation>
-		<annotation cp="🤹🏼">3-teri turi | bilim | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏼">3-teri turi | bilim | jonglyor | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏼" type="tts">jonglyor: 3-teri turi</annotation>
-		<annotation cp="🤹🏽">4-teri turi | bilim | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏽">4-teri turi | bilim | jonglyor | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏽" type="tts">jonglyor: 4-teri turi</annotation>
-		<annotation cp="🤹🏾">5-teri turi | bilim | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏾">5-teri turi | bilim | jonglyor | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏾" type="tts">jonglyor: 5-teri turi</annotation>
-		<annotation cp="🤹🏿">6-teri turi | bilim | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏿">6-teri turi | bilim | jonglyor | koʻp vazifalilik | muvozanat | tomosha koʻrsatayotgan odam | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏿" type="tts">jonglyor: 6-teri turi</annotation>
-		<annotation cp="🤹🏻‍♂">1–2-teri turi | erkak | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏻‍♂">1–2-teri turi | erkak | erkak jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏻‍♂" type="tts">erkak jonglyorlik qilmoqda: 1–2-teri turi</annotation>
-		<annotation cp="🤹🏼‍♂">3-teri turi | erkak | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏼‍♂">3-teri turi | erkak | erkak jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏼‍♂" type="tts">erkak jonglyorlik qilmoqda: 3-teri turi</annotation>
-		<annotation cp="🤹🏽‍♂">4-teri turi | erkak | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏽‍♂">4-teri turi | erkak | erkak jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏽‍♂" type="tts">erkak jonglyorlik qilmoqda: 4-teri turi</annotation>
-		<annotation cp="🤹🏾‍♂">5-teri turi | erkak | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏾‍♂">5-teri turi | erkak | erkak jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏾‍♂" type="tts">erkak jonglyorlik qilmoqda: 5-teri turi</annotation>
-		<annotation cp="🤹🏿‍♂">6-teri turi | erkak | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏿‍♂">6-teri turi | erkak | erkak jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏿‍♂" type="tts">erkak jonglyorlik qilmoqda: 6-teri turi</annotation>
-		<annotation cp="🤹🏻‍♀">1–2-teri turi | ayol | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏻‍♀">1–2-teri turi | ayol | ayol jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏻‍♀" type="tts">ayol jonglyorlik qilmoqda: 1–2-teri turi</annotation>
-		<annotation cp="🤹🏼‍♀">3-teri turi | ayol | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏼‍♀">3-teri turi | ayol | ayol jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏼‍♀" type="tts">ayol jonglyorlik qilmoqda: 3-teri turi</annotation>
-		<annotation cp="🤹🏽‍♀">4-teri turi | ayol | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏽‍♀">4-teri turi | ayol | ayol jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏽‍♀" type="tts">ayol jonglyorlik qilmoqda: 4-teri turi</annotation>
-		<annotation cp="🤹🏾‍♀">5-teri turi | ayol | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏾‍♀">5-teri turi | ayol | ayol jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏾‍♀" type="tts">ayol jonglyorlik qilmoqda: 5-teri turi</annotation>
-		<annotation cp="🤹🏿‍♀">6-teri turi | ayol | koʻp vazifalilik | tomosha koʻrsatish</annotation>
+		<annotation cp="🤹🏿‍♀">6-teri turi | ayol | ayol jonglyorlik qilmoqda | koʻp vazifalilik | tomosha koʻrsatish</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">ayol jonglyorlik qilmoqda: 6-teri turi</annotation>
 		<annotation cp="🧘🏻">1–2-teri turi | lotus holatidagi odam</annotation>
 		<annotation cp="🧘🏻" type="tts">lotus holatidagi odam: 1–2-teri turi</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">karavotda yotgan kishi: 6-teri turi</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">1–2-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">qoʻl ushlashib turgan odamlar: 1–2-teri turi</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">1–2-teri turi | 3-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">qoʻl ushlashib turgan odamlar: 1–2-teri turi 3-teri turi</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">1–2-teri turi | 4-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">qoʻl ushlashib turgan odamlar: 1–2-teri turi 4-teri turi</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">1–2-teri turi | 5-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">qoʻl ushlashib turgan odamlar: 1–2-teri turi 5-teri turi</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">1–2-teri turi | 6-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">qoʻl ushlashib turgan odamlar: 1–2-teri turi 6-teri turi</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">1–2-teri turi | 3-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">qoʻl ushlashib turgan odamlar: 3-teri turi 1–2-teri turi</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">3-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">qoʻl ushlashib turgan odamlar: 3-teri turi</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">3-teri turi | 4-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">qoʻl ushlashib turgan odamlar: 3-teri turi 4-teri turi</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">3-teri turi | 5-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">qoʻl ushlashib turgan odamlar: 3-teri turi 5-teri turi</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">3-teri turi | 6-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">qoʻl ushlashib turgan odamlar: 3-teri turi 6-teri turi</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">1–2-teri turi | 4-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">qoʻl ushlashib turgan odamlar: 4-teri turi 1–2-teri turi</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">3-teri turi | 4-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">qoʻl ushlashib turgan odamlar: 4-teri turi 3-teri turi</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">4-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">qoʻl ushlashib turgan odamlar: 4-teri turi</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">4-teri turi | 5-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">qoʻl ushlashib turgan odamlar: 4-teri turi 5-teri turi</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">4-teri turi | 6-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">qoʻl ushlashib turgan odamlar: 4-teri turi 6-teri turi</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">1–2-teri turi | 5-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">qoʻl ushlashib turgan odamlar: 5-teri turi 1–2-teri turi</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">3-teri turi | 5-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">qoʻl ushlashib turgan odamlar: 5-teri turi 4-teri turi</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">5-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">qoʻl ushlashib turgan odamlar: 5-teri turi</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">5-teri turi | 6-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">qoʻl ushlashib turgan odamlar: 5-teri turi 6-teri turi</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">1–2-teri turi | 6-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">qoʻl ushlashib turgan odamlar: 6-teri turi 1–2-teri turi</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">3-teri turi | 6-teri turi | juftlik | odam | qoʻl | qoʻl ushlashib turgan odamlar | ushlab</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">qoʻl ushlashib turgan odamlar: 6-teri turi</annotation>
 		<annotation cp="👭🏻">1–2-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👭🏻" type="tts">qoʻl ushlashgan ayollar: 1–2-teri turi</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">1–2-teri turi | 3-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">qoʻl ushlashgan ayollar: 1–2-teri turi 3-teri turi</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">1–2-teri turi | 4-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">qoʻl ushlashgan ayollar: 1–2-teri turi 4-teri turi</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">1–2-teri turi | 5-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">qoʻl ushlashgan ayollar: 1–2-teri turi 5-teri turi</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">1–2-teri turi | 6-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">qoʻl ushlashgan ayollar: 1–2-teri turi 6-teri turi</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">1–2-teri turi | 3-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">qoʻl ushlashgan ayollar: 3-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👭🏼">3-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👭🏼" type="tts">qoʻl ushlashgan ayollar: 3-teri turi</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">3-teri turi | 4-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">qoʻl ushlashgan ayollar: 3-teri turi 4-teri turi</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">3-teri turi | 5-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">qoʻl ushlashgan ayollar: 3-teri turi 5-teri turi</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">3-teri turi | 6-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">qoʻl ushlashgan ayollar: 3-teri turi 6-teri turi</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">1–2-teri turi | 4-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">qoʻl ushlashgan ayollar: 4-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">3-teri turi | 4-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">qoʻl ushlashgan ayollar: 4-teri turi 3-teri turi</annotation>
 		<annotation cp="👭🏽">4-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👭🏽" type="tts">qoʻl ushlashgan ayollar: 4-teri turi</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">4-teri turi | 5-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">qoʻl ushlashgan ayollar: 4-teri turi 5-teri turi</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">4-teri turi | 6-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">qoʻl ushlashgan ayollar: 4-teri turi 6-teri turi</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">1–2-teri turi | 5-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">qoʻl ushlashgan ayollar: 5-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">3-teri turi | 5-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">qoʻl ushlashgan ayollar: 5-teri turi 4-teri turi</annotation>
 		<annotation cp="👭🏾">5-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👭🏾" type="tts">qoʻl ushlashgan ayollar: 5-teri turi</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">5-teri turi | 6-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">qoʻl ushlashgan ayollar: 5-teri turi 6-teri turi</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">1–2-teri turi | 6-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">qoʻl ushlashgan ayollar: 6-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">3-teri turi | 6-teri turi | ayol | juftlik | qoʻl | qoʻl ushlashgan ayollar | qoʻl ushlashish</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">qoʻl ushlashgan ayol va erkak: 6-teri turi</annotation>
 		<annotation cp="👬🏻">1–2-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👬🏻" type="tts">qoʻl ushlashgan erkaklar: 1–2-teri turi</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">1–2-teri turi | 3-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">qoʻl ushlashgan erkaklar: 1–2-teri turi 3-teri turi</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">1–2-teri turi | 4-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">qoʻl ushlashgan erkaklar: 1–2-teri turi 4-teri turi</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">1–2-teri turi | 5-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">qoʻl ushlashgan erkaklar: 1–2-teri turi 5-teri turi</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">1–2-teri turi | 6-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">qoʻl ushlashgan erkaklar: 1–2-teri turi 6-teri turi</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">1–2-teri turi | 3-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">qoʻl ushlashgan erkaklar: 3-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👬🏼">3-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👬🏼" type="tts">qoʻl ushlashgan erkaklar: 3-teri turi</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">3-teri turi | 4-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">qoʻl ushlashgan erkaklar: 3-teri turi 4-teri turi</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">3-teri turi | 5-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">qoʻl ushlashgan erkaklar: 3-teri turi 5-teri turi</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">3-teri turi | 6-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">qoʻl ushlashgan erkaklar: 3-teri turi 6-teri turi</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">1–2-teri turi | 4-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">qoʻl ushlashgan erkaklar: 4-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">3-teri turi | 4-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">qoʻl ushlashgan erkaklar: 4-teri turi 3-teri turi</annotation>
 		<annotation cp="👬🏽">4-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👬🏽" type="tts">qoʻl ushlashgan erkaklar: 4-teri turi</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">4-teri turi | 5-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">qoʻl ushlashgan erkaklar: 4-teri turi 5-teri turi</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">4-teri turi | 6-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">qoʻl ushlashgan erkaklar: 4-teri turi 6-teri turi</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">1–2-teri turi | 5-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">qoʻl ushlashgan erkaklar: 5-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">3-teri turi | 5-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">qoʻl ushlashgan erkaklar: 5-teri turi 4-teri turi</annotation>
 		<annotation cp="👬🏾">5-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👬🏾" type="tts">qoʻl ushlashgan erkaklar: 5-teri turi</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">5-teri turi | 6-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">qoʻl ushlashgan erkaklar: 5-teri turi 6-teri turi</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">1–2-teri turi | 6-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">qoʻl ushlashgan erkaklar: 6-teri turi 1–2-teri turi</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">3-teri turi | 6-teri turi | burj | egizaklar | Egizaklar | erkak | erkaklar | juftlik | qoʻl ushlashgan erkaklar</annotation>

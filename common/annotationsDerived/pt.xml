@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="pt"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | pele clara | sarcástico</annotation>
+		<annotation cp="🤌🏻" type="tts">dedos comprimidos: pele clara</annotation>
+		<annotation cp="🤌🏼">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | pele morena clara | sarcástico</annotation>
+		<annotation cp="🤌🏼" type="tts">dedos comprimidos: pele morena clara</annotation>
+		<annotation cp="🤌🏽">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | pele morena | sarcástico</annotation>
+		<annotation cp="🤌🏽" type="tts">dedos comprimidos: pele morena</annotation>
+		<annotation cp="🤌🏾">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | pele morena escura | sarcástico</annotation>
+		<annotation cp="🤌🏾" type="tts">dedos comprimidos: pele morena escura</annotation>
+		<annotation cp="🤌🏿">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | pele escura | sarcástico</annotation>
+		<annotation cp="🤌🏿" type="tts">dedos comprimidos: pele escura</annotation>
 		<annotation cp="👋🏻">aceno | mão | mão acenando | pele clara</annotation>
 		<annotation cp="👋🏻" type="tts">mão acenando: pele clara</annotation>
 		<annotation cp="👋🏼">aceno | mão | mão acenando | pele morena clara</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">pessoa: pele morena escura e careca</annotation>
 		<annotation cp="🧑🏿‍🦲">adulto | careca | gênero não especificado | pele escura | pessoa</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">pessoa: pele escura e careca</annotation>
+		<annotation cp="🧑🏻‍🍼">alimentando | bebê | neném | pele clara | pessoa</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">pessoa alimentando bebê: pele clara</annotation>
+		<annotation cp="🧑🏼‍🍼">alimentando | bebê | neném | pele morena clara | pessoa</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">pessoa alimentando bebê: pele morena clara</annotation>
+		<annotation cp="🧑🏽‍🍼">alimentando | bebê | neném | pele morena | pessoa</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">pessoa alimentando bebê: pele morena</annotation>
+		<annotation cp="🧑🏾‍🍼">alimentando | bebê | neném | pele morena escura | pessoa</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">pessoa alimentando bebê: pele morena escura</annotation>
+		<annotation cp="🧑🏿‍🍼">alimentando | bebê | neném | pele escura | pessoa</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">pessoa alimentando bebê: pele escura</annotation>
+		<annotation cp="🧑🏻‍🎄">noel | Noel, natal | pele clara</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">noel: pele clara</annotation>
+		<annotation cp="🧑🏼‍🎄">noel | Noel, natal | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">noel: pele morena clara</annotation>
+		<annotation cp="🧑🏽‍🎄">noel | Noel, natal | pele morena</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">noel: pele morena</annotation>
+		<annotation cp="🧑🏾‍🎄">noel | Noel, natal | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">noel: pele morena escura</annotation>
+		<annotation cp="🧑🏿‍🎄">noel | Noel, natal | pele escura</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">noel: pele escura</annotation>
 		<annotation cp="👨🏻">adulto | homem | pele clara</annotation>
 		<annotation cp="👨🏻" type="tts">homem: pele clara</annotation>
 		<annotation cp="👨🏼">adulto | homem | pele morena clara</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">homem: pele morena escura e careca</annotation>
 		<annotation cp="👨🏿‍🦲">adulto | careca | homem | pele escura</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">homem: pele escura e careca</annotation>
+		<annotation cp="👨🏻‍🍼">alimentando | bebê | homem | neném | pele clara</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">homem alimentando bebê: pele clara</annotation>
+		<annotation cp="👨🏼‍🍼">alimentando | bebê | homem | neném | pele morena clara</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">homem alimentando bebê: pele morena clara</annotation>
+		<annotation cp="👨🏽‍🍼">alimentando | bebê | homem | neném | pele morena</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">homem alimentando bebê: pele morena</annotation>
+		<annotation cp="👨🏾‍🍼">alimentando | bebê | homem | neném | pele morena escura</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">homem alimentando bebê: pele morena escura</annotation>
+		<annotation cp="👨🏿‍🍼">alimentando | bebê | homem | neném | pele escura</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">homem alimentando bebê: pele escura</annotation>
 		<annotation cp="👩🏻">adulta | mulher | pele clara</annotation>
 		<annotation cp="👩🏻" type="tts">mulher: pele clara</annotation>
 		<annotation cp="👩🏼">adulta | mulher | pele morena clara</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">mulher: pele morena escura e careca</annotation>
 		<annotation cp="👩🏿‍🦲">adulta | careca | mulher | pele escura</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">mulher: pele escura e careca</annotation>
+		<annotation cp="👩🏻‍🍼">alimentando | bebê | mulher | neném | pele clara</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">mulher alimentando bebê: pele clara</annotation>
+		<annotation cp="👩🏼‍🍼">alimentando | bebê | mulher | neném | pele morena clara</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">mulher alimentando bebê: pele morena clara</annotation>
+		<annotation cp="👩🏽‍🍼">alimentando | bebê | mulher | neném | pele morena</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">mulher alimentando bebê: pele morena</annotation>
+		<annotation cp="👩🏾‍🍼">alimentando | bebê | mulher | neném | pele morena escura</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">mulher alimentando bebê: pele morena escura</annotation>
+		<annotation cp="👩🏿‍🍼">alimentando | bebê | mulher | neném | pele escura</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">mulher alimentando bebê: pele escura</annotation>
 		<annotation cp="🧓🏻">adulto | idoso | pele clara</annotation>
 		<annotation cp="🧓🏻" type="tts">idoso: pele clara</annotation>
 		<annotation cp="🧓🏼">adulto | idoso | pele morena clara</annotation>
@@ -886,45 +936,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧏🏾‍♀" type="tts">mulher surda: pele morena escura</annotation>
 		<annotation cp="🧏🏿‍♀">mulher | pele escura | surda</annotation>
 		<annotation cp="🧏🏿‍♀" type="tts">mulher surda: pele escura</annotation>
-		<annotation cp="🙇🏻">desculpa | gesto | pele clara | perdão | pessoa | reverência | reverência respeitosa</annotation>
+		<annotation cp="🙇🏻">desculpa | gesto | pele clara | perdão | pessoa | pessoa fazendo reverência | reverência | reverência respeitosa</annotation>
 		<annotation cp="🙇🏻" type="tts">pessoa fazendo reverência: pele clara</annotation>
-		<annotation cp="🙇🏼">desculpa | gesto | pele morena clara | perdão | pessoa | reverência | reverência respeitosa</annotation>
+		<annotation cp="🙇🏼">desculpa | gesto | pele morena clara | perdão | pessoa | pessoa fazendo reverência | reverência | reverência respeitosa</annotation>
 		<annotation cp="🙇🏼" type="tts">pessoa fazendo reverência: pele morena clara</annotation>
-		<annotation cp="🙇🏽">desculpa | gesto | pele morena | perdão | pessoa | reverência | reverência respeitosa</annotation>
+		<annotation cp="🙇🏽">desculpa | gesto | pele morena | perdão | pessoa | pessoa fazendo reverência | reverência | reverência respeitosa</annotation>
 		<annotation cp="🙇🏽" type="tts">pessoa fazendo reverência: pele morena</annotation>
-		<annotation cp="🙇🏾">desculpa | gesto | pele morena escura | perdão | pessoa | reverência | reverência respeitosa</annotation>
+		<annotation cp="🙇🏾">desculpa | gesto | pele morena escura | perdão | pessoa | pessoa fazendo reverência | reverência | reverência respeitosa</annotation>
 		<annotation cp="🙇🏾" type="tts">pessoa fazendo reverência: pele morena escura</annotation>
-		<annotation cp="🙇🏿">desculpa | gesto | pele escura | perdão | pessoa | reverência | reverência respeitosa</annotation>
+		<annotation cp="🙇🏿">desculpa | gesto | pele escura | perdão | pessoa | pessoa fazendo reverência | reverência | reverência respeitosa</annotation>
 		<annotation cp="🙇🏿" type="tts">pessoa fazendo reverência: pele escura</annotation>
-		<annotation cp="🙇🏻‍♂">desculpas | gesto | homem | homem pedindo desculpas | pele clara | respeito | reverência</annotation>
+		<annotation cp="🙇🏻‍♂">desculpas | gesto | homem | homem fazendo reverência | homem pedindo desculpas | pele clara | respeito | reverência</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">homem fazendo reverência: pele clara</annotation>
-		<annotation cp="🙇🏼‍♂">desculpas | gesto | homem | homem pedindo desculpas | pele morena clara | respeito | reverência</annotation>
+		<annotation cp="🙇🏼‍♂">desculpas | gesto | homem | homem fazendo reverência | homem pedindo desculpas | pele morena clara | respeito | reverência</annotation>
 		<annotation cp="🙇🏼‍♂" type="tts">homem fazendo reverência: pele morena clara</annotation>
-		<annotation cp="🙇🏽‍♂">desculpas | gesto | homem | homem pedindo desculpas | pele morena | respeito | reverência</annotation>
+		<annotation cp="🙇🏽‍♂">desculpas | gesto | homem | homem fazendo reverência | homem pedindo desculpas | pele morena | respeito | reverência</annotation>
 		<annotation cp="🙇🏽‍♂" type="tts">homem fazendo reverência: pele morena</annotation>
-		<annotation cp="🙇🏾‍♂">desculpas | gesto | homem | homem pedindo desculpas | pele morena escura | respeito | reverência</annotation>
+		<annotation cp="🙇🏾‍♂">desculpas | gesto | homem | homem fazendo reverência | homem pedindo desculpas | pele morena escura | respeito | reverência</annotation>
 		<annotation cp="🙇🏾‍♂" type="tts">homem fazendo reverência: pele morena escura</annotation>
-		<annotation cp="🙇🏿‍♂">desculpas | gesto | homem | homem pedindo desculpas | pele escura | respeito | reverência</annotation>
+		<annotation cp="🙇🏿‍♂">desculpas | gesto | homem | homem fazendo reverência | homem pedindo desculpas | pele escura | respeito | reverência</annotation>
 		<annotation cp="🙇🏿‍♂" type="tts">homem fazendo reverência: pele escura</annotation>
-		<annotation cp="🙇🏻‍♀">desculpas | gesto | mulher | mulher pedindo desculpas | pele clara | respeito | reverência</annotation>
+		<annotation cp="🙇🏻‍♀">desculpas | gesto | mulher | mulher fazendo reverência | mulher pedindo desculpas | pele clara | respeito | reverência</annotation>
 		<annotation cp="🙇🏻‍♀" type="tts">mulher fazendo reverência: pele clara</annotation>
-		<annotation cp="🙇🏼‍♀">desculpas | gesto | mulher | mulher pedindo desculpas | pele morena clara | respeito | reverência</annotation>
+		<annotation cp="🙇🏼‍♀">desculpas | gesto | mulher | mulher fazendo reverência | mulher pedindo desculpas | pele morena clara | respeito | reverência</annotation>
 		<annotation cp="🙇🏼‍♀" type="tts">mulher fazendo reverência: pele morena clara</annotation>
-		<annotation cp="🙇🏽‍♀">desculpas | gesto | mulher | mulher pedindo desculpas | pele morena | respeito | reverência</annotation>
+		<annotation cp="🙇🏽‍♀">desculpas | gesto | mulher | mulher fazendo reverência | mulher pedindo desculpas | pele morena | respeito | reverência</annotation>
 		<annotation cp="🙇🏽‍♀" type="tts">mulher fazendo reverência: pele morena</annotation>
-		<annotation cp="🙇🏾‍♀">desculpas | gesto | mulher | mulher pedindo desculpas | pele morena escura | respeito | reverência</annotation>
+		<annotation cp="🙇🏾‍♀">desculpas | gesto | mulher | mulher fazendo reverência | mulher pedindo desculpas | pele morena escura | respeito | reverência</annotation>
 		<annotation cp="🙇🏾‍♀" type="tts">mulher fazendo reverência: pele morena escura</annotation>
-		<annotation cp="🙇🏿‍♀">desculpas | gesto | mulher | mulher pedindo desculpas | pele escura | respeito | reverência</annotation>
+		<annotation cp="🙇🏿‍♀">desculpas | gesto | mulher | mulher fazendo reverência | mulher pedindo desculpas | pele escura | respeito | reverência</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">mulher fazendo reverência: pele escura</annotation>
-		<annotation cp="🤦🏻">decepção | desapontamento | pele clara | pessoa dececionada</annotation>
+		<annotation cp="🤦🏻">decepção | desapontamento | pele clara | pessoa dececionada | pessoa decepcionada</annotation>
 		<annotation cp="🤦🏻" type="tts">pessoa decepcionada: pele clara</annotation>
-		<annotation cp="🤦🏼">decepção | desapontamento | pele morena clara | pessoa dececionada</annotation>
+		<annotation cp="🤦🏼">decepção | desapontamento | pele morena clara | pessoa dececionada | pessoa decepcionada</annotation>
 		<annotation cp="🤦🏼" type="tts">pessoa decepcionada: pele morena clara</annotation>
-		<annotation cp="🤦🏽">decepção | desapontamento | pele morena | pessoa dececionada</annotation>
+		<annotation cp="🤦🏽">decepção | desapontamento | pele morena | pessoa dececionada | pessoa decepcionada</annotation>
 		<annotation cp="🤦🏽" type="tts">pessoa decepcionada: pele morena</annotation>
-		<annotation cp="🤦🏾">decepção | desapontamento | pele morena escura | pessoa dececionada</annotation>
+		<annotation cp="🤦🏾">decepção | desapontamento | pele morena escura | pessoa dececionada | pessoa decepcionada</annotation>
 		<annotation cp="🤦🏾" type="tts">pessoa decepcionada: pele morena escura</annotation>
-		<annotation cp="🤦🏿">decepção | desapontamento | pele escura | pessoa dececionada</annotation>
+		<annotation cp="🤦🏿">decepção | desapontamento | pele escura | pessoa dececionada | pessoa decepcionada</annotation>
 		<annotation cp="🤦🏿" type="tts">pessoa decepcionada: pele escura</annotation>
 		<annotation cp="🤦🏻‍♂">decepção | desapontamento | homem | homem decepcionado | pele clara</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">homem decepcionado: pele clara</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">mulher dando de ombros: pele morena escura</annotation>
 		<annotation cp="🤷🏿‍♀">dar de ombros | indiferença | mulher | mulher dando de ombros | pele escura</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">mulher dando de ombros: pele escura</annotation>
-		<annotation cp="🧑🏻‍⚕">cuidados de saúde | enfermeira | médico | pele clara | terapeuta</annotation>
+		<annotation cp="🧑🏻‍⚕">cuidados de saúde | enfermeira | médico | pele clara | profissional de saúde | terapeuta</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">profissional de saúde: pele clara</annotation>
-		<annotation cp="🧑🏼‍⚕">cuidados de saúde | enfermeira | médico | pele morena clara | terapeuta</annotation>
+		<annotation cp="🧑🏼‍⚕">cuidados de saúde | enfermeira | médico | pele morena clara | profissional de saúde | terapeuta</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">profissional de saúde: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍⚕">cuidados de saúde | enfermeira | médico | pele morena | terapeuta</annotation>
+		<annotation cp="🧑🏽‍⚕">cuidados de saúde | enfermeira | médico | pele morena | profissional de saúde | terapeuta</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">profissional de saúde: pele morena</annotation>
-		<annotation cp="🧑🏾‍⚕">cuidados de saúde | enfermeira | médico | pele morena escura | terapeuta</annotation>
+		<annotation cp="🧑🏾‍⚕">cuidados de saúde | enfermeira | médico | pele morena escura | profissional de saúde | terapeuta</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">profissional de saúde: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍⚕">cuidados de saúde | enfermeira | médico | pele escura | terapeuta</annotation>
+		<annotation cp="🧑🏿‍⚕">cuidados de saúde | enfermeira | médico | pele escura | profissional de saúde | terapeuta</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">profissional de saúde: pele escura</annotation>
 		<annotation cp="👨🏻‍⚕">doutor | enfermeiro | homem | homem profissional da saúde | médico | pele clara | saúde | terapeuta</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">homem profissional da saúde: pele clara</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">mulher profissional da saúde: pele morena escura</annotation>
 		<annotation cp="👩🏿‍⚕">doutora | enfermeira | médica | mulher | mulher profissional da saúde | pele escura | saúde | terapeuta</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">mulher profissional da saúde: pele escura</annotation>
-		<annotation cp="🧑🏻‍🎓">estudante | graduando | pele clara</annotation>
+		<annotation cp="🧑🏻‍🎓">aluno | estudante | graduando | pele clara</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">aluno: pele clara</annotation>
-		<annotation cp="🧑🏼‍🎓">estudante | graduando | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🎓">aluno | estudante | graduando | pele morena clara</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">aluno: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🎓">estudante | graduando | pele morena</annotation>
+		<annotation cp="🧑🏽‍🎓">aluno | estudante | graduando | pele morena</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">aluno: pele morena</annotation>
-		<annotation cp="🧑🏾‍🎓">estudante | graduando | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🎓">aluno | estudante | graduando | pele morena escura</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">aluno: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🎓">estudante | graduando | pele escura</annotation>
+		<annotation cp="🧑🏿‍🎓">aluno | estudante | graduando | pele escura</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">aluno: pele escura</annotation>
 		<annotation cp="👨🏻‍🎓">aluno | estudante | formando | homem | pele clara</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">estudante: pele clara</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">aluna: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🎓">aluna | estudante | formanda | mulher | pele escura</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">aluna: pele escura</annotation>
-		<annotation cp="🧑🏻‍🏫">instrutora | pele clara | professora</annotation>
+		<annotation cp="🧑🏻‍🏫">instrutora | pele clara | professora | professora na escola</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">professora na escola: pele clara</annotation>
-		<annotation cp="🧑🏼‍🏫">instrutora | pele morena clara | professora</annotation>
+		<annotation cp="🧑🏼‍🏫">instrutora | pele morena clara | professora | professora na escola</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">professora na escola: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🏫">instrutora | pele morena | professora</annotation>
+		<annotation cp="🧑🏽‍🏫">instrutora | pele morena | professora | professora na escola</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">professora na escola: pele morena</annotation>
-		<annotation cp="🧑🏾‍🏫">instrutora | pele morena escura | professora</annotation>
+		<annotation cp="🧑🏾‍🏫">instrutora | pele morena escura | professora | professora na escola</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">professora na escola: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🏫">instrutora | pele escura | professora</annotation>
+		<annotation cp="🧑🏿‍🏫">instrutora | pele escura | professora | professora na escola</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">professora na escola: pele escura</annotation>
 		<annotation cp="👨🏻‍🏫">homem | instrutor | mestre | pele clara | professor</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">professor: pele clara</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">professora: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🏫">instrutora | mestra | mulher | pele escura | professora</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">professora: pele escura</annotation>
-		<annotation cp="🧑🏻‍⚖">balança | juiz | pele clara</annotation>
+		<annotation cp="🧑🏻‍⚖">balança | juiz | juiz no tribunal | pele clara</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">juiz no tribunal: pele clara</annotation>
-		<annotation cp="🧑🏼‍⚖">balança | juiz | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍⚖">balança | juiz | juiz no tribunal | pele morena clara</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">juiz no tribunal: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍⚖">balança | juiz | pele morena</annotation>
+		<annotation cp="🧑🏽‍⚖">balança | juiz | juiz no tribunal | pele morena</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">juiz no tribunal: pele morena</annotation>
-		<annotation cp="🧑🏾‍⚖">balança | juiz | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍⚖">balança | juiz | juiz no tribunal | pele morena escura</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">juiz no tribunal: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍⚖">balança | juiz | pele escura</annotation>
+		<annotation cp="🧑🏿‍⚖">balança | juiz | juiz no tribunal | pele escura</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">juiz no tribunal: pele escura</annotation>
 		<annotation cp="👨🏻‍⚖">balança | homem | juiz | justiça | pele clara</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">juiz: pele clara</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">fazendeira: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🌾">agricultora | fazendeira | jardineira | mulher | pele escura</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">fazendeira: pele escura</annotation>
-		<annotation cp="🧑🏻‍🍳">chef | cozinheiro | pele clara</annotation>
+		<annotation cp="🧑🏻‍🍳">chef | chef de cozinha | cozinheiro | pele clara</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">chef de cozinha: pele clara</annotation>
-		<annotation cp="🧑🏼‍🍳">chef | cozinheiro | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🍳">chef | chef de cozinha | cozinheiro | pele morena clara</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">chef de cozinha: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🍳">chef | cozinheiro | pele morena</annotation>
+		<annotation cp="🧑🏽‍🍳">chef | chef de cozinha | cozinheiro | pele morena</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">chef de cozinha: pele morena</annotation>
-		<annotation cp="🧑🏾‍🍳">chef | cozinheiro | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🍳">chef | chef de cozinha | cozinheiro | pele morena escura</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">chef de cozinha: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🍳">chef | cozinheiro | pele escura</annotation>
+		<annotation cp="🧑🏿‍🍳">chef | chef de cozinha | cozinheiro | pele escura</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">chef de cozinha: pele escura</annotation>
 		<annotation cp="👨🏻‍🍳">chef | cozinheiro | homem | pele clara</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">cozinheiro: pele clara</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">cozinheira: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🍳">chef | cozinheira | mulher | pele escura</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">cozinheira: pele escura</annotation>
-		<annotation cp="🧑🏻‍🔧">canalizador | comerciante | eletricista | mecânico | pele clara</annotation>
+		<annotation cp="🧑🏻‍🔧">canalizador | comerciante | eletricista | mecânico | mecânico trabalhando | pele clara</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">mecânico trabalhando: pele clara</annotation>
-		<annotation cp="🧑🏼‍🔧">canalizador | comerciante | eletricista | mecânico | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🔧">canalizador | comerciante | eletricista | mecânico | mecânico trabalhando | pele morena clara</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">mecânico trabalhando: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🔧">canalizador | comerciante | eletricista | mecânico | pele morena</annotation>
+		<annotation cp="🧑🏽‍🔧">canalizador | comerciante | eletricista | mecânico | mecânico trabalhando | pele morena</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">mecânico trabalhando: pele morena</annotation>
-		<annotation cp="🧑🏾‍🔧">canalizador | comerciante | eletricista | mecânico | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🔧">canalizador | comerciante | eletricista | mecânico | mecânico trabalhando | pele morena escura</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">mecânico trabalhando: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🔧">canalizador | comerciante | eletricista | mecânico | pele escura</annotation>
+		<annotation cp="🧑🏿‍🔧">canalizador | comerciante | eletricista | mecânico | mecânico trabalhando | pele escura</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mecânico trabalhando: pele escura</annotation>
 		<annotation cp="👨🏻‍🔧">eletricista | encanador | homem | mecânico | pele clara | prestador de serviços</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mecânico: pele clara</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">mecânica: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🔧">eletricista | encanadora | mecânica | mulher | pele escura | prestadora de serviços</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mecânica: pele escura</annotation>
-		<annotation cp="🧑🏻‍🏭">fábrica | industrial | montagem | pele clara | trabalhador</annotation>
+		<annotation cp="🧑🏻‍🏭">fábrica | funcionário de fábrica | industrial | montagem | pele clara | trabalhador</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">funcionário de fábrica: pele clara</annotation>
-		<annotation cp="🧑🏼‍🏭">fábrica | industrial | montagem | pele morena clara | trabalhador</annotation>
+		<annotation cp="🧑🏼‍🏭">fábrica | funcionário de fábrica | industrial | montagem | pele morena clara | trabalhador</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">funcionário de fábrica: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🏭">fábrica | industrial | montagem | pele morena | trabalhador</annotation>
+		<annotation cp="🧑🏽‍🏭">fábrica | funcionário de fábrica | industrial | montagem | pele morena | trabalhador</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">funcionário de fábrica: pele morena</annotation>
-		<annotation cp="🧑🏾‍🏭">fábrica | industrial | montagem | pele morena escura | trabalhador</annotation>
+		<annotation cp="🧑🏾‍🏭">fábrica | funcionário de fábrica | industrial | montagem | pele morena escura | trabalhador</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">funcionário de fábrica: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🏭">fábrica | industrial | montagem | pele escura | trabalhador</annotation>
+		<annotation cp="🧑🏿‍🏭">fábrica | funcionário de fábrica | industrial | montagem | pele escura | trabalhador</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">funcionário de fábrica: pele escura</annotation>
 		<annotation cp="👨🏻‍🏭">fábrica | homem | indústria | operário | pele clara | trabalhador</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">operário: pele clara</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">operária: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🏭">fábrica | indústria | mulher | operária | pele escura | trabalhadora</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">operária: pele escura</annotation>
-		<annotation cp="🧑🏻‍💼">arquiteto | colarinho branco | gerente | negócios | pele clara</annotation>
+		<annotation cp="🧑🏻‍💼">arquiteto | colarinho branco | gerente | negócios | pele clara | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">trabalhador de escritório: pele clara</annotation>
-		<annotation cp="🧑🏼‍💼">arquiteto | colarinho branco | gerente | negócios | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍💼">arquiteto | colarinho branco | gerente | negócios | pele morena clara | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">trabalhador de escritório: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍💼">arquiteto | colarinho branco | gerente | negócios | pele morena</annotation>
+		<annotation cp="🧑🏽‍💼">arquiteto | colarinho branco | gerente | negócios | pele morena | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">trabalhador de escritório: pele morena</annotation>
-		<annotation cp="🧑🏾‍💼">arquiteto | colarinho branco | gerente | negócios | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍💼">arquiteto | colarinho branco | gerente | negócios | pele morena escura | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">trabalhador de escritório: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍💼">arquiteto | colarinho branco | gerente | negócios | pele escura</annotation>
+		<annotation cp="🧑🏿‍💼">arquiteto | colarinho branco | gerente | negócios | pele escura | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">trabalhador de escritório: pele escura</annotation>
 		<annotation cp="👨🏻‍💼">arquiteto | colarinho branco | empresário | funcionário de escritório | gerente | homem | pele clara</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">funcionário de escritório: pele clara</annotation>
@@ -1546,15 +1596,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏾‍♀" type="tts">guarda mulher: pele morena escura</annotation>
 		<annotation cp="💂🏿‍♀">guarda | mulher | pele escura | segurança</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">guarda mulher: pele escura</annotation>
-		<annotation cp="👷🏻">chapéu | construção | pele clara | trabalhador</annotation>
+		<annotation cp="👷🏻">chapéu | construção | pele clara | trabalhador | trabalhador de construção civil</annotation>
 		<annotation cp="👷🏻" type="tts">trabalhador de construção civil: pele clara</annotation>
-		<annotation cp="👷🏼">chapéu | construção | pele morena clara | trabalhador</annotation>
+		<annotation cp="👷🏼">chapéu | construção | pele morena clara | trabalhador | trabalhador de construção civil</annotation>
 		<annotation cp="👷🏼" type="tts">trabalhador de construção civil: pele morena clara</annotation>
-		<annotation cp="👷🏽">chapéu | construção | pele morena | trabalhador</annotation>
+		<annotation cp="👷🏽">chapéu | construção | pele morena | trabalhador | trabalhador de construção civil</annotation>
 		<annotation cp="👷🏽" type="tts">trabalhador de construção civil: pele morena</annotation>
-		<annotation cp="👷🏾">chapéu | construção | pele morena escura | trabalhador</annotation>
+		<annotation cp="👷🏾">chapéu | construção | pele morena escura | trabalhador | trabalhador de construção civil</annotation>
 		<annotation cp="👷🏾" type="tts">trabalhador de construção civil: pele morena escura</annotation>
-		<annotation cp="👷🏿">chapéu | construção | pele escura | trabalhador</annotation>
+		<annotation cp="👷🏿">chapéu | construção | pele escura | trabalhador | trabalhador de construção civil</annotation>
 		<annotation cp="👷🏿" type="tts">trabalhador de construção civil: pele escura</annotation>
 		<annotation cp="👷🏻‍♂">construção | homem | operário | pedreiro | pele clara</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">pedreiro: pele clara</annotation>
@@ -1596,15 +1646,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏾" type="tts">princesa: pele morena escura</annotation>
 		<annotation cp="👸🏿">conto de fadas | fantasia | pele escura | princesa</annotation>
 		<annotation cp="👸🏿" type="tts">princesa: pele escura</annotation>
-		<annotation cp="👳🏻">homem com turbante | homem vestindo turbante | pele clara | turbante</annotation>
+		<annotation cp="👳🏻">homem com turbante | homem vestindo turbante | pele clara | pessoa com turbante | turbante</annotation>
 		<annotation cp="👳🏻" type="tts">pessoa com turbante: pele clara</annotation>
-		<annotation cp="👳🏼">homem com turbante | homem vestindo turbante | pele morena clara | turbante</annotation>
+		<annotation cp="👳🏼">homem com turbante | homem vestindo turbante | pele morena clara | pessoa com turbante | turbante</annotation>
 		<annotation cp="👳🏼" type="tts">pessoa com turbante: pele morena clara</annotation>
-		<annotation cp="👳🏽">homem com turbante | homem vestindo turbante | pele morena | turbante</annotation>
+		<annotation cp="👳🏽">homem com turbante | homem vestindo turbante | pele morena | pessoa com turbante | turbante</annotation>
 		<annotation cp="👳🏽" type="tts">pessoa com turbante: pele morena</annotation>
-		<annotation cp="👳🏾">homem com turbante | homem vestindo turbante | pele morena escura | turbante</annotation>
+		<annotation cp="👳🏾">homem com turbante | homem vestindo turbante | pele morena escura | pessoa com turbante | turbante</annotation>
 		<annotation cp="👳🏾" type="tts">pessoa com turbante: pele morena escura</annotation>
-		<annotation cp="👳🏿">homem com turbante | homem vestindo turbante | pele escura | turbante</annotation>
+		<annotation cp="👳🏿">homem com turbante | homem vestindo turbante | pele escura | pessoa com turbante | turbante</annotation>
 		<annotation cp="👳🏿" type="tts">pessoa com turbante: pele escura</annotation>
 		<annotation cp="👳🏻‍♂">homem | homem com turbante | pele clara | turbante</annotation>
 		<annotation cp="👳🏻‍♂" type="tts">homem com turbante: pele clara</annotation>
@@ -1646,16 +1696,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">mulher com véu: pele morena escura</annotation>
 		<annotation cp="🧕🏿">hijab | lenço | mulher com véu | pele escura</annotation>
 		<annotation cp="🧕🏿" type="tts">mulher com véu: pele escura</annotation>
-		<annotation cp="🤵🏻">festa | gala | homem | homem de smoking | noivo | pele clara | smoking</annotation>
-		<annotation cp="🤵🏻" type="tts">homem de smoking: pele clara</annotation>
-		<annotation cp="🤵🏼">festa | gala | homem | homem de smoking | noivo | pele morena clara | smoking</annotation>
-		<annotation cp="🤵🏼" type="tts">homem de smoking: pele morena clara</annotation>
-		<annotation cp="🤵🏽">festa | gala | homem | homem de smoking | noivo | pele morena | smoking</annotation>
-		<annotation cp="🤵🏽" type="tts">homem de smoking: pele morena</annotation>
-		<annotation cp="🤵🏾">festa | gala | homem | homem de smoking | noivo | pele morena escura | smoking</annotation>
-		<annotation cp="🤵🏾" type="tts">homem de smoking: pele morena escura</annotation>
-		<annotation cp="🤵🏿">festa | gala | homem | homem de smoking | noivo | pele escura | smoking</annotation>
-		<annotation cp="🤵🏿" type="tts">homem de smoking: pele escura</annotation>
+		<annotation cp="🤵🏻">festa | gala | homem | homem de smoking | noivo | pele clara | pessoa de smoking | smoking</annotation>
+		<annotation cp="🤵🏻" type="tts">pessoa de smoking: pele clara</annotation>
+		<annotation cp="🤵🏼">festa | gala | homem | homem de smoking | noivo | pele morena clara | pessoa de smoking | smoking</annotation>
+		<annotation cp="🤵🏼" type="tts">pessoa de smoking: pele morena clara</annotation>
+		<annotation cp="🤵🏽">festa | gala | homem | homem de smoking | noivo | pele morena | pessoa de smoking | smoking</annotation>
+		<annotation cp="🤵🏽" type="tts">pessoa de smoking: pele morena</annotation>
+		<annotation cp="🤵🏾">festa | gala | homem | homem de smoking | noivo | pele morena escura | pessoa de smoking | smoking</annotation>
+		<annotation cp="🤵🏾" type="tts">pessoa de smoking: pele morena escura</annotation>
+		<annotation cp="🤵🏿">festa | gala | homem | homem de smoking | noivo | pele escura | pessoa de smoking | smoking</annotation>
+		<annotation cp="🤵🏿" type="tts">pessoa de smoking: pele escura</annotation>
+		<annotation cp="🤵🏻‍♀">mulher | mulher de smoking | pele clara | smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">mulher de smoking: pele clara</annotation>
+		<annotation cp="🤵🏼‍♀">mulher | mulher de smoking | pele morena clara | smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">mulher de smoking: pele morena clara</annotation>
+		<annotation cp="🤵🏽‍♀">mulher | mulher de smoking | pele morena | smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">mulher de smoking: pele morena</annotation>
+		<annotation cp="🤵🏾‍♀">mulher | mulher de smoking | pele morena escura | smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">mulher de smoking: pele morena escura</annotation>
+		<annotation cp="🤵🏿‍♀">mulher | mulher de smoking | pele escura | smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">mulher de smoking: pele escura</annotation>
+		<annotation cp="🤵🏻‍♂">homem | homem de smoking | pele clara | smoking</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">homem de smoking: pele clara</annotation>
+		<annotation cp="🤵🏼‍♂">homem | homem de smoking | pele morena clara | smoking</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">homem de smoking: pele morena clara</annotation>
+		<annotation cp="🤵🏽‍♂">homem | homem de smoking | pele morena | smoking</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">homem de smoking: pele morena</annotation>
+		<annotation cp="🤵🏾‍♂">homem | homem de smoking | pele morena escura | smoking</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">homem de smoking: pele morena escura</annotation>
+		<annotation cp="🤵🏿‍♂">homem | homem de smoking | pele escura | smoking</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">homem de smoking: pele escura</annotation>
 		<annotation cp="👰🏻">casamento | noiva | noiva com véu | pele clara | véu</annotation>
 		<annotation cp="👰🏻" type="tts">noiva: pele clara</annotation>
 		<annotation cp="👰🏼">casamento | noiva | noiva com véu | pele morena clara | véu</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">noiva: pele morena escura</annotation>
 		<annotation cp="👰🏿">casamento | noiva | noiva com véu | pele escura | véu</annotation>
 		<annotation cp="👰🏿" type="tts">noiva: pele escura</annotation>
+		<annotation cp="👰🏻‍♀">noiva | noiva com véu | pele clara | véu</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">noiva com véu: pele clara</annotation>
+		<annotation cp="👰🏼‍♀">noiva | noiva com véu | pele morena clara | véu</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">noiva com véu: pele morena clara</annotation>
+		<annotation cp="👰🏽‍♀">noiva | noiva com véu | pele morena | véu</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">noiva com véu: pele morena</annotation>
+		<annotation cp="👰🏾‍♀">noiva | noiva com véu | pele morena escura | véu</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">noiva com véu: pele morena escura</annotation>
+		<annotation cp="👰🏿‍♀">noiva | noiva com véu | pele escura | véu</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">noiva com véu: pele escura</annotation>
+		<annotation cp="👰🏻‍♂">noivo | noivo com véu | pele clara | véu</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">noivo com véu: pele clara</annotation>
+		<annotation cp="👰🏼‍♂">noivo | noivo com véu | pele morena clara | véu</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">noivo com véu: pele morena clara</annotation>
+		<annotation cp="👰🏽‍♂">noivo | noivo com véu | pele morena | véu</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">noivo com véu: pele morena</annotation>
+		<annotation cp="👰🏾‍♂">noivo | noivo com véu | pele morena escura | véu</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">noivo com véu: pele morena escura</annotation>
+		<annotation cp="👰🏿‍♂">noivo | noivo com véu | pele escura | véu</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">noivo com véu: pele escura</annotation>
 		<annotation cp="🤰🏻">grávida | mulher | pele clara</annotation>
 		<annotation cp="🤰🏻" type="tts">grávida: pele clara</annotation>
 		<annotation cp="🤰🏼">grávida | mulher | pele morena clara</annotation>
@@ -1716,15 +1806,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">Mamãe Noel: pele morena escura</annotation>
 		<annotation cp="🤶🏿">comemoração | Mamãe Noel | Natal | Noel | pele escura</annotation>
 		<annotation cp="🤶🏿" type="tts">Mamãe Noel: pele escura</annotation>
-		<annotation cp="🦸🏻">boa | bom | herói | heroína | pele clara | superpoder</annotation>
+		<annotation cp="🦸🏻">boa | bom | herói | heroína | pele clara | super-herói | superpoder</annotation>
 		<annotation cp="🦸🏻" type="tts">super-herói: pele clara</annotation>
-		<annotation cp="🦸🏼">boa | bom | herói | heroína | pele morena clara | superpoder</annotation>
+		<annotation cp="🦸🏼">boa | bom | herói | heroína | pele morena clara | super-herói | superpoder</annotation>
 		<annotation cp="🦸🏼" type="tts">super-herói: pele morena clara</annotation>
-		<annotation cp="🦸🏽">boa | bom | herói | heroína | pele morena | superpoder</annotation>
+		<annotation cp="🦸🏽">boa | bom | herói | heroína | pele morena | super-herói | superpoder</annotation>
 		<annotation cp="🦸🏽" type="tts">super-herói: pele morena</annotation>
-		<annotation cp="🦸🏾">boa | bom | herói | heroína | pele morena escura | superpoder</annotation>
+		<annotation cp="🦸🏾">boa | bom | herói | heroína | pele morena escura | super-herói | superpoder</annotation>
 		<annotation cp="🦸🏾" type="tts">super-herói: pele morena escura</annotation>
-		<annotation cp="🦸🏿">boa | bom | herói | heroína | pele escura | superpoder</annotation>
+		<annotation cp="🦸🏿">boa | bom | herói | heroína | pele escura | super-herói | superpoder</annotation>
 		<annotation cp="🦸🏿" type="tts">super-herói: pele escura</annotation>
 		<annotation cp="🦸🏻‍♂">bom | herói | homem | homem super-herói | pele clara | superpoder</annotation>
 		<annotation cp="🦸🏻‍♂" type="tts">homem super-herói: pele clara</annotation>
@@ -1906,15 +1996,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧝🏾" type="tts">elfo: pele morena escura</annotation>
 		<annotation cp="🧝🏿">elfo | mágico | pele escura</annotation>
 		<annotation cp="🧝🏿" type="tts">elfo: pele escura</annotation>
-		<annotation cp="🧝🏻‍♂">duende homem | elfo | pele clara</annotation>
+		<annotation cp="🧝🏻‍♂">duende homem | elfo | elfo homem | pele clara</annotation>
 		<annotation cp="🧝🏻‍♂" type="tts">elfo homem: pele clara</annotation>
-		<annotation cp="🧝🏼‍♂">duende homem | elfo | pele morena clara</annotation>
+		<annotation cp="🧝🏼‍♂">duende homem | elfo | elfo homem | pele morena clara</annotation>
 		<annotation cp="🧝🏼‍♂" type="tts">elfo homem: pele morena clara</annotation>
-		<annotation cp="🧝🏽‍♂">duende homem | elfo | pele morena</annotation>
+		<annotation cp="🧝🏽‍♂">duende homem | elfo | elfo homem | pele morena</annotation>
 		<annotation cp="🧝🏽‍♂" type="tts">elfo homem: pele morena</annotation>
-		<annotation cp="🧝🏾‍♂">duende homem | elfo | pele morena escura</annotation>
+		<annotation cp="🧝🏾‍♂">duende homem | elfo | elfo homem | pele morena escura</annotation>
 		<annotation cp="🧝🏾‍♂" type="tts">elfo homem: pele morena escura</annotation>
-		<annotation cp="🧝🏿‍♂">duende homem | elfo | pele escura</annotation>
+		<annotation cp="🧝🏿‍♂">duende homem | elfo | elfo homem | pele escura</annotation>
 		<annotation cp="🧝🏿‍♂" type="tts">elfo homem: pele escura</annotation>
 		<annotation cp="🧝🏻‍♀">duende mulher | elfa | pele clara</annotation>
 		<annotation cp="🧝🏻‍♀" type="tts">elfa: pele clara</annotation>
@@ -2026,65 +2116,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧍🏾" type="tts">pessoa em pé: pele morena escura</annotation>
 		<annotation cp="🧍🏿">de pé | pele escura | pessoa em pé</annotation>
 		<annotation cp="🧍🏿" type="tts">pessoa em pé: pele escura</annotation>
-		<annotation cp="🧍🏻‍♂">em pé | homem | pele clara</annotation>
+		<annotation cp="🧍🏻‍♂">em pé | homem | homem em pé | pele clara</annotation>
 		<annotation cp="🧍🏻‍♂" type="tts">homem em pé: pele clara</annotation>
-		<annotation cp="🧍🏼‍♂">em pé | homem | pele morena clara</annotation>
+		<annotation cp="🧍🏼‍♂">em pé | homem | homem em pé | pele morena clara</annotation>
 		<annotation cp="🧍🏼‍♂" type="tts">homem em pé: pele morena clara</annotation>
-		<annotation cp="🧍🏽‍♂">em pé | homem | pele morena</annotation>
+		<annotation cp="🧍🏽‍♂">em pé | homem | homem em pé | pele morena</annotation>
 		<annotation cp="🧍🏽‍♂" type="tts">homem em pé: pele morena</annotation>
-		<annotation cp="🧍🏾‍♂">em pé | homem | pele morena escura</annotation>
+		<annotation cp="🧍🏾‍♂">em pé | homem | homem em pé | pele morena escura</annotation>
 		<annotation cp="🧍🏾‍♂" type="tts">homem em pé: pele morena escura</annotation>
-		<annotation cp="🧍🏿‍♂">em pé | homem | pele escura</annotation>
+		<annotation cp="🧍🏿‍♂">em pé | homem | homem em pé | pele escura</annotation>
 		<annotation cp="🧍🏿‍♂" type="tts">homem em pé: pele escura</annotation>
-		<annotation cp="🧍🏻‍♀">em pé | mulher | pele clara</annotation>
+		<annotation cp="🧍🏻‍♀">em pé | mulher | mulher em pé | pele clara</annotation>
 		<annotation cp="🧍🏻‍♀" type="tts">mulher em pé: pele clara</annotation>
-		<annotation cp="🧍🏼‍♀">em pé | mulher | pele morena clara</annotation>
+		<annotation cp="🧍🏼‍♀">em pé | mulher | mulher em pé | pele morena clara</annotation>
 		<annotation cp="🧍🏼‍♀" type="tts">mulher em pé: pele morena clara</annotation>
-		<annotation cp="🧍🏽‍♀">em pé | mulher | pele morena</annotation>
+		<annotation cp="🧍🏽‍♀">em pé | mulher | mulher em pé | pele morena</annotation>
 		<annotation cp="🧍🏽‍♀" type="tts">mulher em pé: pele morena</annotation>
-		<annotation cp="🧍🏾‍♀">em pé | mulher | pele morena escura</annotation>
+		<annotation cp="🧍🏾‍♀">em pé | mulher | mulher em pé | pele morena escura</annotation>
 		<annotation cp="🧍🏾‍♀" type="tts">mulher em pé: pele morena escura</annotation>
-		<annotation cp="🧍🏿‍♀">em pé | mulher | pele escura</annotation>
+		<annotation cp="🧍🏿‍♀">em pé | mulher | mulher em pé | pele escura</annotation>
 		<annotation cp="🧍🏿‍♀" type="tts">mulher em pé: pele escura</annotation>
-		<annotation cp="🧎🏻">ajoelhada | ajoelhar | pele clara | pessoa ajoelhada</annotation>
+		<annotation cp="🧎🏻">ajoelhada | ajoelhar | pele clara | pessoa ajoelhada | pessoa ajoelhando</annotation>
 		<annotation cp="🧎🏻" type="tts">pessoa ajoelhando: pele clara</annotation>
-		<annotation cp="🧎🏼">ajoelhada | ajoelhar | pele morena clara | pessoa ajoelhada</annotation>
+		<annotation cp="🧎🏼">ajoelhada | ajoelhar | pele morena clara | pessoa ajoelhada | pessoa ajoelhando</annotation>
 		<annotation cp="🧎🏼" type="tts">pessoa ajoelhando: pele morena clara</annotation>
-		<annotation cp="🧎🏽">ajoelhada | ajoelhar | pele morena | pessoa ajoelhada</annotation>
+		<annotation cp="🧎🏽">ajoelhada | ajoelhar | pele morena | pessoa ajoelhada | pessoa ajoelhando</annotation>
 		<annotation cp="🧎🏽" type="tts">pessoa ajoelhando: pele morena</annotation>
-		<annotation cp="🧎🏾">ajoelhada | ajoelhar | pele morena escura | pessoa ajoelhada</annotation>
+		<annotation cp="🧎🏾">ajoelhada | ajoelhar | pele morena escura | pessoa ajoelhada | pessoa ajoelhando</annotation>
 		<annotation cp="🧎🏾" type="tts">pessoa ajoelhando: pele morena escura</annotation>
-		<annotation cp="🧎🏿">ajoelhada | ajoelhar | pele escura | pessoa ajoelhada</annotation>
+		<annotation cp="🧎🏿">ajoelhada | ajoelhar | pele escura | pessoa ajoelhada | pessoa ajoelhando</annotation>
 		<annotation cp="🧎🏿" type="tts">pessoa ajoelhando: pele escura</annotation>
-		<annotation cp="🧎🏻‍♂">ajoelhado | homem | pele clara</annotation>
+		<annotation cp="🧎🏻‍♂">ajoelhado | homem | homem ajoelhando | pele clara</annotation>
 		<annotation cp="🧎🏻‍♂" type="tts">homem ajoelhando: pele clara</annotation>
-		<annotation cp="🧎🏼‍♂">ajoelhado | homem | pele morena clara</annotation>
+		<annotation cp="🧎🏼‍♂">ajoelhado | homem | homem ajoelhando | pele morena clara</annotation>
 		<annotation cp="🧎🏼‍♂" type="tts">homem ajoelhando: pele morena clara</annotation>
-		<annotation cp="🧎🏽‍♂">ajoelhado | homem | pele morena</annotation>
+		<annotation cp="🧎🏽‍♂">ajoelhado | homem | homem ajoelhando | pele morena</annotation>
 		<annotation cp="🧎🏽‍♂" type="tts">homem ajoelhando: pele morena</annotation>
-		<annotation cp="🧎🏾‍♂">ajoelhado | homem | pele morena escura</annotation>
+		<annotation cp="🧎🏾‍♂">ajoelhado | homem | homem ajoelhando | pele morena escura</annotation>
 		<annotation cp="🧎🏾‍♂" type="tts">homem ajoelhando: pele morena escura</annotation>
-		<annotation cp="🧎🏿‍♂">ajoelhado | homem | pele escura</annotation>
+		<annotation cp="🧎🏿‍♂">ajoelhado | homem | homem ajoelhando | pele escura</annotation>
 		<annotation cp="🧎🏿‍♂" type="tts">homem ajoelhando: pele escura</annotation>
-		<annotation cp="🧎🏻‍♀">ajoelhada | mulher | pele clara</annotation>
+		<annotation cp="🧎🏻‍♀">ajoelhada | mulher | mulher ajoelhando | pele clara</annotation>
 		<annotation cp="🧎🏻‍♀" type="tts">mulher ajoelhando: pele clara</annotation>
-		<annotation cp="🧎🏼‍♀">ajoelhada | mulher | pele morena clara</annotation>
+		<annotation cp="🧎🏼‍♀">ajoelhada | mulher | mulher ajoelhando | pele morena clara</annotation>
 		<annotation cp="🧎🏼‍♀" type="tts">mulher ajoelhando: pele morena clara</annotation>
-		<annotation cp="🧎🏽‍♀">ajoelhada | mulher | pele morena</annotation>
+		<annotation cp="🧎🏽‍♀">ajoelhada | mulher | mulher ajoelhando | pele morena</annotation>
 		<annotation cp="🧎🏽‍♀" type="tts">mulher ajoelhando: pele morena</annotation>
-		<annotation cp="🧎🏾‍♀">ajoelhada | mulher | pele morena escura</annotation>
+		<annotation cp="🧎🏾‍♀">ajoelhada | mulher | mulher ajoelhando | pele morena escura</annotation>
 		<annotation cp="🧎🏾‍♀" type="tts">mulher ajoelhando: pele morena escura</annotation>
-		<annotation cp="🧎🏿‍♀">ajoelhada | mulher | pele escura</annotation>
+		<annotation cp="🧎🏿‍♀">ajoelhada | mulher | mulher ajoelhando | pele escura</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">mulher ajoelhando: pele escura</annotation>
-		<annotation cp="🧑🏻‍🦯">acessibilidade | cego | pele clara</annotation>
+		<annotation cp="🧑🏻‍🦯">acessibilidade | cego | pele clara | pessoa com bengala para cego</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">pessoa com bengala para cego: pele clara</annotation>
-		<annotation cp="🧑🏼‍🦯">acessibilidade | cego | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🦯">acessibilidade | cego | pele morena clara | pessoa com bengala para cego</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">pessoa com bengala para cego: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🦯">acessibilidade | cego | pele morena</annotation>
+		<annotation cp="🧑🏽‍🦯">acessibilidade | cego | pele morena | pessoa com bengala para cego</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">pessoa com bengala para cego: pele morena</annotation>
-		<annotation cp="🧑🏾‍🦯">acessibilidade | cego | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🦯">acessibilidade | cego | pele morena escura | pessoa com bengala para cego</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">pessoa com bengala para cego: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🦯">acessibilidade | cego | pele escura</annotation>
+		<annotation cp="🧑🏿‍🦯">acessibilidade | cego | pele escura | pessoa com bengala para cego</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">pessoa com bengala para cego: pele escura</annotation>
 		<annotation cp="👨🏻‍🦯">accessibilidade | cego | homem | homem com bengala para cego | pele clara</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">homem com bengala para cego: pele clara</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">mulher com bengala para cego: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🦯">accessibilidade | cega | mulher | mulher com bengala para cego | pele escura</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">mulher com bengala para cego: pele escura</annotation>
-		<annotation cp="🧑🏻‍🦼">acessibilidade | cadeira de rodas | pele clara</annotation>
+		<annotation cp="🧑🏻‍🦼">acessibilidade | cadeira de rodas | pele clara | pessoa em cadeira de rodas motorizada</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">pessoa em cadeira de rodas motorizada: pele clara</annotation>
-		<annotation cp="🧑🏼‍🦼">acessibilidade | cadeira de rodas | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🦼">acessibilidade | cadeira de rodas | pele morena clara | pessoa em cadeira de rodas motorizada</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">pessoa em cadeira de rodas motorizada: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🦼">acessibilidade | cadeira de rodas | pele morena</annotation>
+		<annotation cp="🧑🏽‍🦼">acessibilidade | cadeira de rodas | pele morena | pessoa em cadeira de rodas motorizada</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">pessoa em cadeira de rodas motorizada: pele morena</annotation>
-		<annotation cp="🧑🏾‍🦼">acessibilidade | cadeira de rodas | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🦼">acessibilidade | cadeira de rodas | pele morena escura | pessoa em cadeira de rodas motorizada</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">pessoa em cadeira de rodas motorizada: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🦼">acessibilidade | cadeira de rodas | pele escura</annotation>
+		<annotation cp="🧑🏿‍🦼">acessibilidade | cadeira de rodas | pele escura | pessoa em cadeira de rodas motorizada</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">pessoa em cadeira de rodas motorizada: pele escura</annotation>
 		<annotation cp="👨🏻‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas motorizada | pele clara</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">homem em cadeira de rodas motorizada: pele clara</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">mulher em cadeira de rodas motorizada: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas motorizada | pele escura</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">mulher em cadeira de rodas motorizada: pele escura</annotation>
-		<annotation cp="🧑🏻‍🦽">acessibilidade | cadeira de rodas | pele clara</annotation>
+		<annotation cp="🧑🏻‍🦽">acessibilidade | cadeira de rodas | pele clara | pessoa em cadeira de rodas manual</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">pessoa em cadeira de rodas manual: pele clara</annotation>
-		<annotation cp="🧑🏼‍🦽">acessibilidade | cadeira de rodas | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🦽">acessibilidade | cadeira de rodas | pele morena clara | pessoa em cadeira de rodas manual</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">pessoa em cadeira de rodas manual: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🦽">acessibilidade | cadeira de rodas | pele morena</annotation>
+		<annotation cp="🧑🏽‍🦽">acessibilidade | cadeira de rodas | pele morena | pessoa em cadeira de rodas manual</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">pessoa em cadeira de rodas manual: pele morena</annotation>
-		<annotation cp="🧑🏾‍🦽">acessibilidade | cadeira de rodas | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🦽">acessibilidade | cadeira de rodas | pele morena escura | pessoa em cadeira de rodas manual</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">pessoa em cadeira de rodas manual: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🦽">acessibilidade | cadeira de rodas | pele escura</annotation>
+		<annotation cp="🧑🏿‍🦽">acessibilidade | cadeira de rodas | pele escura | pessoa em cadeira de rodas manual</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">pessoa em cadeira de rodas manual: pele escura</annotation>
 		<annotation cp="👨🏻‍🦽">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas manual | pele clara</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">homem em cadeira de rodas manual: pele clara</annotation>
@@ -2166,15 +2256,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦽" type="tts">mulher em cadeira de rodas manual: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🦽">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas manual | pele escura</annotation>
 		<annotation cp="👩🏿‍🦽" type="tts">mulher em cadeira de rodas manual: pele escura</annotation>
-		<annotation cp="🏃🏻">corrida | esporte | maratona | maratonista | pele clara</annotation>
+		<annotation cp="🏃🏻">corrida | esporte | maratona | maratonista | pele clara | pessoa correndo</annotation>
 		<annotation cp="🏃🏻" type="tts">pessoa correndo: pele clara</annotation>
-		<annotation cp="🏃🏼">corrida | esporte | maratona | maratonista | pele morena clara</annotation>
+		<annotation cp="🏃🏼">corrida | esporte | maratona | maratonista | pele morena clara | pessoa correndo</annotation>
 		<annotation cp="🏃🏼" type="tts">pessoa correndo: pele morena clara</annotation>
-		<annotation cp="🏃🏽">corrida | esporte | maratona | maratonista | pele morena</annotation>
+		<annotation cp="🏃🏽">corrida | esporte | maratona | maratonista | pele morena | pessoa correndo</annotation>
 		<annotation cp="🏃🏽" type="tts">pessoa correndo: pele morena</annotation>
-		<annotation cp="🏃🏾">corrida | esporte | maratona | maratonista | pele morena escura</annotation>
+		<annotation cp="🏃🏾">corrida | esporte | maratona | maratonista | pele morena escura | pessoa correndo</annotation>
 		<annotation cp="🏃🏾" type="tts">pessoa correndo: pele morena escura</annotation>
-		<annotation cp="🏃🏿">corrida | esporte | maratona | maratonista | pele escura</annotation>
+		<annotation cp="🏃🏿">corrida | esporte | maratona | maratonista | pele escura | pessoa correndo</annotation>
 		<annotation cp="🏃🏿" type="tts">pessoa correndo: pele escura</annotation>
 		<annotation cp="🏃🏻‍♂">corrida | esporte | homem | homem correndo | maratona | pele clara</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">homem correndo: pele clara</annotation>
@@ -2306,15 +2396,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏂🏾" type="tts">praticante de snowboard: pele morena escura</annotation>
 		<annotation cp="🏂🏿">esporte | pele escura | praticante de snowboard | snowboard</annotation>
 		<annotation cp="🏂🏿" type="tts">praticante de snowboard: pele escura</annotation>
-		<annotation cp="🏌🏻">bola | esporte | golfe | pele clara | pessoa jogando golfe</annotation>
+		<annotation cp="🏌🏻">bola | esporte | golfe | golfista | pele clara | pessoa jogando golfe</annotation>
 		<annotation cp="🏌🏻" type="tts">golfista: pele clara</annotation>
-		<annotation cp="🏌🏼">bola | esporte | golfe | pele morena clara | pessoa jogando golfe</annotation>
+		<annotation cp="🏌🏼">bola | esporte | golfe | golfista | pele morena clara | pessoa jogando golfe</annotation>
 		<annotation cp="🏌🏼" type="tts">golfista: pele morena clara</annotation>
-		<annotation cp="🏌🏽">bola | esporte | golfe | pele morena | pessoa jogando golfe</annotation>
+		<annotation cp="🏌🏽">bola | esporte | golfe | golfista | pele morena | pessoa jogando golfe</annotation>
 		<annotation cp="🏌🏽" type="tts">golfista: pele morena</annotation>
-		<annotation cp="🏌🏾">bola | esporte | golfe | pele morena escura | pessoa jogando golfe</annotation>
+		<annotation cp="🏌🏾">bola | esporte | golfe | golfista | pele morena escura | pessoa jogando golfe</annotation>
 		<annotation cp="🏌🏾" type="tts">golfista: pele morena escura</annotation>
-		<annotation cp="🏌🏿">bola | esporte | golfe | pele escura | pessoa jogando golfe</annotation>
+		<annotation cp="🏌🏿">bola | esporte | golfe | golfista | pele escura | pessoa jogando golfe</annotation>
 		<annotation cp="🏌🏿" type="tts">golfista: pele escura</annotation>
 		<annotation cp="🏌🏻‍♂">golfe | homem | homem golfista | homem jogando golfe | pele clara</annotation>
 		<annotation cp="🏌🏻‍♂" type="tts">homem golfista: pele clara</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">pessoa deitada na cama: pele escura</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">casal | de mãos dadas | mão | pele clara | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: pele clara</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">casal | de mãos dadas | mão | pele clara | pele morena clara | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: pele clara e pele morena clara</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">casal | de mãos dadas | mão | pele clara | pele morena | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: pele clara e pele morena</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">casal | de mãos dadas | mão | pele clara | pele morena escura | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: pele clara e pele morena escura</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">casal | de mãos dadas | mão | pele clara | pele escura | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: pele clara e pele escura</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">casal | de mãos dadas | mão | pele clara | pele morena clara | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: pele morena clara e pele clara</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">casal | de mãos dadas | mão | pele morena clara | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">casal | de mãos dadas | mão | pele morena | pele morena clara | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: pele morena clara e pele morena</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">casal | de mãos dadas | mão | pele morena clara | pele morena escura | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: pele morena clara e pele morena escura</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">casal | de mãos dadas | mão | pele escura | pele morena clara | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: pele morena clara e pele escura</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">casal | de mãos dadas | mão | pele clara | pele morena | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: pele morena e pele clara</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">casal | de mãos dadas | mão | pele morena | pele morena clara | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: pele morena e pele morena clara</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">casal | de mãos dadas | mão | pele morena | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: pele morena</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">casal | de mãos dadas | mão | pele morena | pele morena escura | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: pele morena e pele morena escura</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">casal | de mãos dadas | mão | pele escura | pele morena | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: pele morena e pele escura</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">casal | de mãos dadas | mão | pele clara | pele morena escura | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: pele morena escura e pele clara</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">casal | de mãos dadas | mão | pele morena clara | pele morena escura | pessoa | pessoas de mãos dadas | segurando</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: pele morena escura e pele morena</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">casal | de mãos dadas | mão | pele morena escura | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">casal | de mãos dadas | mão | pele escura | pele morena escura | pessoa | pessoas de mãos dadas | segurando</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: pele morena escura e pele escura</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">casal | de mãos dadas | mão | pele clara | pele escura | pessoa | pessoas de mãos dadas | segurando</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: pele escura e pele clara</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">casal | de mãos dadas | mão | pele escura | pele morena clara | pessoa | pessoas de mãos dadas | segurando</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: pele escura</annotation>
 		<annotation cp="👭🏻">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pessoas</annotation>
 		<annotation cp="👭🏻" type="tts">duas mulheres de mãos dadas: pele clara</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele morena clara | pessoas</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">duas mulheres de mãos dadas: pele clara e pele morena clara</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele morena | pessoas</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">duas mulheres de mãos dadas: pele clara e pele morena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele morena escura | pessoas</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">duas mulheres de mãos dadas: pele clara e pele morena escura</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele escura | pessoas</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">duas mulheres de mãos dadas: pele clara e pele escura</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele morena clara | pessoas</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">duas mulheres de mãos dadas: pele morena clara e pele clara</annotation>
 		<annotation cp="👭🏼">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena clara | pessoas</annotation>
 		<annotation cp="👭🏼" type="tts">duas mulheres de mãos dadas: pele morena clara</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena | pele morena clara | pessoas</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">duas mulheres de mãos dadas: pele morena clara e pele morena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena clara | pele morena escura | pessoas</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">duas mulheres de mãos dadas: pele morena clara e pele morena escura</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele escura | pele morena clara | pessoas</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">duas mulheres de mãos dadas: pele morena clara e pele escura</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele morena | pessoas</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">duas mulheres de mãos dadas: pele morena e pele clara</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena | pele morena clara | pessoas</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">duas mulheres de mãos dadas: pele morena e pele morena clara</annotation>
 		<annotation cp="👭🏽">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena | pessoas</annotation>
 		<annotation cp="👭🏽" type="tts">duas mulheres de mãos dadas: pele morena</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena | pele morena escura | pessoas</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">duas mulheres de mãos dadas: pele morena e pele morena escura</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele escura | pele morena | pessoas</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">duas mulheres de mãos dadas: pele morena e pele escura</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele morena escura | pessoas</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">duas mulheres de mãos dadas: pele morena escura e pele clara</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena clara | pele morena escura | pessoas</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">duas mulheres de mãos dadas: pele morena escura e pele morena</annotation>
 		<annotation cp="👭🏾">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele morena escura | pessoas</annotation>
 		<annotation cp="👭🏾" type="tts">duas mulheres de mãos dadas: pele morena escura</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele escura | pele morena escura | pessoas</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">duas mulheres de mãos dadas: pele morena escura e pele escura</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele clara | pele escura | pessoas</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">duas mulheres de mãos dadas: pele escura e pele clara</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">casal | duas mulheres de mão dadas | duas mulheres de mãos dadas | mãos dadas | mulher | pele escura | pele morena clara | pessoas</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">homem e mulher de mãos dadas: pele escura</annotation>
 		<annotation cp="👬🏻">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara</annotation>
 		<annotation cp="👬🏻" type="tts">dois homens de mãos dadas: pele clara</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele morena clara</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">dois homens de mãos dadas: pele clara e pele morena clara</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele morena</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">dois homens de mãos dadas: pele clara e pele morena</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele morena escura</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">dois homens de mãos dadas: pele clara e pele morena escura</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele escura</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">dois homens de mãos dadas: pele clara e pele escura</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele morena clara</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dois homens de mãos dadas: pele morena clara e pele clara</annotation>
 		<annotation cp="👬🏼">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena clara</annotation>
 		<annotation cp="👬🏼" type="tts">dois homens de mãos dadas: pele morena clara</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena | pele morena clara</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">dois homens de mãos dadas: pele morena clara e pele morena</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena clara | pele morena escura</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">dois homens de mãos dadas: pele morena clara e pele morena escura</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele escura | pele morena clara</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">dois homens de mãos dadas: pele morena clara e pele escura</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele morena</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dois homens de mãos dadas: pele morena e pele clara</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena | pele morena clara</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dois homens de mãos dadas: pele morena e pele morena clara</annotation>
 		<annotation cp="👬🏽">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena</annotation>
 		<annotation cp="👬🏽" type="tts">dois homens de mãos dadas: pele morena</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena | pele morena escura</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">dois homens de mãos dadas: pele morena e pele morena escura</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele escura | pele morena</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">dois homens de mãos dadas: pele morena e pele escura</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele morena escura</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dois homens de mãos dadas: pele morena escura e pele clara</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena clara | pele morena escura</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dois homens de mãos dadas: pele morena escura e pele morena</annotation>
 		<annotation cp="👬🏾">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele morena escura</annotation>
 		<annotation cp="👬🏾" type="tts">dois homens de mãos dadas: pele morena escura</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele escura | pele morena escura</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">dois homens de mãos dadas: pele morena escura e pele escura</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele clara | pele escura</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dois homens de mãos dadas: pele escura e pele clara</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">casal | dois homens de mãos dadas | gêmeos | homens | irmãos | mãos dadas | pele escura | pele morena clara</annotation>

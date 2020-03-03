@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="et"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">hele nahatoon | kokkusurutud | küsimus | sarkastiline | sõrmed | žest</annotation>
+		<annotation cp="🤌🏻" type="tts">kokkusurutud sõrmed: hele nahatoon</annotation>
+		<annotation cp="🤌🏼">keskmiselt hele nahatoon | kokkusurutud | küsimus | sarkastiline | sõrmed | žest</annotation>
+		<annotation cp="🤌🏼" type="tts">kokkusurutud sõrmed: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤌🏽">keskmine nahatoon | kokkusurutud | küsimus | sarkastiline | sõrmed | žest</annotation>
+		<annotation cp="🤌🏽" type="tts">kokkusurutud sõrmed: keskmine nahatoon</annotation>
+		<annotation cp="🤌🏾">keskmiselt tume nahatoon | kokkusurutud | küsimus | sarkastiline | sõrmed | žest</annotation>
+		<annotation cp="🤌🏾" type="tts">kokkusurutud sõrmed: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤌🏿">kokkusurutud | küsimus | sarkastiline | sõrmed | tume nahatoon | žest</annotation>
+		<annotation cp="🤌🏿" type="tts">kokkusurutud sõrmed: tume nahatoon</annotation>
 		<annotation cp="👋🏻">hele nahatoon | käsi | keha | lehvitav käsi | lehvitus</annotation>
 		<annotation cp="👋🏻" type="tts">lehvitav käsi: hele nahatoon</annotation>
 		<annotation cp="👋🏼">käsi | keha | keskmiselt hele nahatoon | lehvitav käsi | lehvitus</annotation>
@@ -442,15 +452,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾" type="tts">täiskasvanu: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🧑🏿">sooliselt neutraalne | täiskasvanu | tume nahatoon</annotation>
 		<annotation cp="🧑🏿" type="tts">täiskasvanu: tume nahatoon</annotation>
-		<annotation cp="👱🏻">blond | blondide juustega | blondide juustega inimene | blondiin | hele nahatoon</annotation>
+		<annotation cp="👱🏻">blond | blondide juustega | blondide juustega inimene | blondiin | hele nahatoon | inimene: blondide juustega</annotation>
 		<annotation cp="👱🏻" type="tts">inimene: hele nahatoon, blondide juustega</annotation>
-		<annotation cp="👱🏼">blond | blondide juustega | blondide juustega inimene | blondiin | keskmiselt hele nahatoon</annotation>
+		<annotation cp="👱🏼">blond | blondide juustega | blondide juustega inimene | blondiin | inimene: blondide juustega | keskmiselt hele nahatoon</annotation>
 		<annotation cp="👱🏼" type="tts">inimene: keskmiselt hele nahatoon, blondide juustega</annotation>
-		<annotation cp="👱🏽">blond | blondide juustega | blondide juustega inimene | blondiin | keskmine nahatoon</annotation>
+		<annotation cp="👱🏽">blond | blondide juustega | blondide juustega inimene | blondiin | inimene: blondide juustega | keskmine nahatoon</annotation>
 		<annotation cp="👱🏽" type="tts">inimene: keskmine nahatoon, blondide juustega</annotation>
-		<annotation cp="👱🏾">blond | blondide juustega | blondide juustega inimene | blondiin | keskmiselt tume nahatoon</annotation>
+		<annotation cp="👱🏾">blond | blondide juustega | blondide juustega inimene | blondiin | inimene: blondide juustega | keskmiselt tume nahatoon</annotation>
 		<annotation cp="👱🏾" type="tts">inimene: keskmiselt tume nahatoon, blondide juustega</annotation>
-		<annotation cp="👱🏿">blond | blondide juustega | blondide juustega inimene | blondiin | tume nahatoon</annotation>
+		<annotation cp="👱🏿">blond | blondide juustega | blondide juustega inimene | blondiin | inimene: blondide juustega | tume nahatoon</annotation>
 		<annotation cp="👱🏿" type="tts">inimene: tume nahatoon, blondide juustega</annotation>
 		<annotation cp="🧑‍🦰">punased juuksed | sooliselt neutraalne | täiskasvanu</annotation>
 		<annotation cp="🧑‍🦰" type="tts">täiskasvanu: punased juuksed</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">täiskasvanu: keskmiselt tume nahatoon, kiilaspea</annotation>
 		<annotation cp="🧑🏿‍🦲">kiilaspea | sooliselt neutraalne | täiskasvanu | tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">täiskasvanu: tume nahatoon, kiilaspea</annotation>
+		<annotation cp="🧑🏻‍🍼">beebi | beebit toitev inimene | hele nahatoon | imetamine | inimene | toitmine</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">beebit toitev inimene: hele nahatoon</annotation>
+		<annotation cp="🧑🏼‍🍼">beebi | beebit toitev inimene | imetamine | inimene | keskmiselt hele nahatoon | toitmine</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">beebit toitev inimene: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🧑🏽‍🍼">beebi | beebit toitev inimene | imetamine | inimene | keskmine nahatoon | toitmine</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">beebit toitev inimene: keskmine nahatoon</annotation>
+		<annotation cp="🧑🏾‍🍼">beebi | beebit toitev inimene | imetamine | inimene | keskmiselt tume nahatoon | toitmine</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">beebit toitev inimene: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍🍼">beebi | beebit toitev inimene | imetamine | inimene | toitmine | tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">beebit toitev inimene: tume nahatoon</annotation>
+		<annotation cp="🧑🏻‍🎄">hele nahatoon | päkapikk | päkapikk, jõulud | päkats</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">päkats: hele nahatoon</annotation>
+		<annotation cp="🧑🏼‍🎄">keskmiselt hele nahatoon | päkapikk | päkapikk, jõulud | päkats</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">päkats: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🧑🏽‍🎄">keskmine nahatoon | päkapikk | päkapikk, jõulud | päkats</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">päkats: keskmine nahatoon</annotation>
+		<annotation cp="🧑🏾‍🎄">keskmiselt tume nahatoon | päkapikk | päkapikk, jõulud | päkats</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">päkats: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍🎄">päkapikk | päkapikk, jõulud | päkats | tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">päkats: tume nahatoon</annotation>
 		<annotation cp="👨🏻">hele nahatoon | mees</annotation>
 		<annotation cp="👨🏻" type="tts">mees: hele nahatoon</annotation>
 		<annotation cp="👨🏼">keskmiselt hele nahatoon | mees</annotation>
@@ -510,25 +540,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">mees: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👨🏿">mees | tume nahatoon</annotation>
 		<annotation cp="👨🏿" type="tts">mees: tume nahatoon</annotation>
-		<annotation cp="🧔🏻">habe | habemega | habemega isik | hele nahatoon</annotation>
+		<annotation cp="🧔🏻">habe | habemega | habemega isik | hele nahatoon | mees: habemega</annotation>
 		<annotation cp="🧔🏻" type="tts">mees: hele nahatoon, habemega</annotation>
-		<annotation cp="🧔🏼">habe | habemega | habemega isik | keskmiselt hele nahatoon</annotation>
+		<annotation cp="🧔🏼">habe | habemega | habemega isik | keskmiselt hele nahatoon | mees: habemega</annotation>
 		<annotation cp="🧔🏼" type="tts">mees: keskmiselt hele nahatoon, habemega</annotation>
-		<annotation cp="🧔🏽">habe | habemega | habemega isik | keskmine nahatoon</annotation>
+		<annotation cp="🧔🏽">habe | habemega | habemega isik | keskmine nahatoon | mees: habemega</annotation>
 		<annotation cp="🧔🏽" type="tts">mees: keskmine nahatoon, habemega</annotation>
-		<annotation cp="🧔🏾">habe | habemega | habemega isik | keskmiselt tume nahatoon</annotation>
+		<annotation cp="🧔🏾">habe | habemega | habemega isik | keskmiselt tume nahatoon | mees: habemega</annotation>
 		<annotation cp="🧔🏾" type="tts">mees: keskmiselt tume nahatoon, habemega</annotation>
-		<annotation cp="🧔🏿">habe | habemega | habemega isik | tume nahatoon</annotation>
+		<annotation cp="🧔🏿">habe | habemega | habemega isik | mees: habemega | tume nahatoon</annotation>
 		<annotation cp="🧔🏿" type="tts">mees: tume nahatoon, habemega</annotation>
-		<annotation cp="👱🏻‍♂">blond | blondiin | hele nahatoon | mees</annotation>
+		<annotation cp="👱🏻‍♂">blond | blondiin | hele nahatoon | mees | mees: blond</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">mees: hele nahatoon, blond</annotation>
-		<annotation cp="👱🏼‍♂">blond | blondiin | keskmiselt hele nahatoon | mees</annotation>
+		<annotation cp="👱🏼‍♂">blond | blondiin | keskmiselt hele nahatoon | mees | mees: blond</annotation>
 		<annotation cp="👱🏼‍♂" type="tts">mees: keskmiselt hele nahatoon, blond</annotation>
-		<annotation cp="👱🏽‍♂">blond | blondiin | keskmine nahatoon | mees</annotation>
+		<annotation cp="👱🏽‍♂">blond | blondiin | keskmine nahatoon | mees | mees: blond</annotation>
 		<annotation cp="👱🏽‍♂" type="tts">mees: keskmine nahatoon, blond</annotation>
-		<annotation cp="👱🏾‍♂">blond | blondiin | keskmiselt tume nahatoon | mees</annotation>
+		<annotation cp="👱🏾‍♂">blond | blondiin | keskmiselt tume nahatoon | mees | mees: blond</annotation>
 		<annotation cp="👱🏾‍♂" type="tts">mees: keskmiselt tume nahatoon, blond</annotation>
-		<annotation cp="👱🏿‍♂">blond | blondiin | mees | tume nahatoon</annotation>
+		<annotation cp="👱🏿‍♂">blond | blondiin | mees | mees: blond | tume nahatoon</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">mees: tume nahatoon, blond</annotation>
 		<annotation cp="👨‍🦰">mees | punased juuksed</annotation>
 		<annotation cp="👨‍🦰" type="tts">mees: punased juuksed</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">mees: keskmiselt tume nahatoon, kiilaspea</annotation>
 		<annotation cp="👨🏿‍🦲">kiilaspea | mees | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mees: tume nahatoon, kiilaspea</annotation>
+		<annotation cp="👨🏻‍🍼">beebi | beebit toitev mees | hele nahatoon | imetamine | mees | toitmine</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">beebit toitev mees: hele nahatoon</annotation>
+		<annotation cp="👨🏼‍🍼">beebi | beebit toitev mees | imetamine | keskmiselt hele nahatoon | mees | toitmine</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">beebit toitev mees: keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏽‍🍼">beebi | beebit toitev mees | imetamine | keskmine nahatoon | mees | toitmine</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">beebit toitev mees: keskmine nahatoon</annotation>
+		<annotation cp="👨🏾‍🍼">beebi | beebit toitev mees | imetamine | keskmiselt tume nahatoon | mees | toitmine</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">beebit toitev mees: keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🍼">beebi | beebit toitev mees | imetamine | mees | toitmine | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">beebit toitev mees: tume nahatoon</annotation>
 		<annotation cp="👩🏻">hele nahatoon | naine</annotation>
 		<annotation cp="👩🏻" type="tts">naine: hele nahatoon</annotation>
 		<annotation cp="👩🏼">keskmiselt hele nahatoon | naine</annotation>
@@ -588,15 +628,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾" type="tts">naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏿">naine | tume nahatoon</annotation>
 		<annotation cp="👩🏿" type="tts">naine: tume nahatoon</annotation>
-		<annotation cp="👱🏻‍♀">blond | blondiin | hele nahatoon | naine</annotation>
+		<annotation cp="👱🏻‍♀">blond | blondiin | hele nahatoon | naine | naine: blond</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">naine: hele nahatoon, blond</annotation>
-		<annotation cp="👱🏼‍♀">blond | blondiin | keskmiselt hele nahatoon | naine</annotation>
+		<annotation cp="👱🏼‍♀">blond | blondiin | keskmiselt hele nahatoon | naine | naine: blond</annotation>
 		<annotation cp="👱🏼‍♀" type="tts">naine: keskmiselt hele nahatoon, blond</annotation>
-		<annotation cp="👱🏽‍♀">blond | blondiin | keskmine nahatoon | naine</annotation>
+		<annotation cp="👱🏽‍♀">blond | blondiin | keskmine nahatoon | naine | naine: blond</annotation>
 		<annotation cp="👱🏽‍♀" type="tts">naine: keskmine nahatoon, blond</annotation>
-		<annotation cp="👱🏾‍♀">blond | blondiin | keskmiselt tume nahatoon | naine</annotation>
+		<annotation cp="👱🏾‍♀">blond | blondiin | keskmiselt tume nahatoon | naine | naine: blond</annotation>
 		<annotation cp="👱🏾‍♀" type="tts">naine: keskmiselt tume nahatoon, blond</annotation>
-		<annotation cp="👱🏿‍♀">blond | blondiin | naine | tume nahatoon</annotation>
+		<annotation cp="👱🏿‍♀">blond | blondiin | naine | naine: blond | tume nahatoon</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">naine: tume nahatoon, blond</annotation>
 		<annotation cp="👩‍🦰">naine | punased juuksed</annotation>
 		<annotation cp="👩‍🦰" type="tts">naine: punased juuksed</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">naine: keskmiselt tume nahatoon, kiilaspea</annotation>
 		<annotation cp="👩🏿‍🦲">kiilaspea | naine | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">naine: tume nahatoon, kiilaspea</annotation>
+		<annotation cp="👩🏻‍🍼">beebi | beebit toitev naine | hele nahatoon | imetamine | naine | toitmine</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">beebit toitev naine: hele nahatoon</annotation>
+		<annotation cp="👩🏼‍🍼">beebi | beebit toitev naine | imetamine | keskmiselt hele nahatoon | naine | toitmine</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">beebit toitev naine: keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏽‍🍼">beebi | beebit toitev naine | imetamine | keskmine nahatoon | naine | toitmine</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">beebit toitev naine: keskmine nahatoon</annotation>
+		<annotation cp="👩🏾‍🍼">beebi | beebit toitev naine | imetamine | keskmiselt tume nahatoon | naine | toitmine</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">beebit toitev naine: keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🍼">beebi | beebit toitev naine | imetamine | naine | toitmine | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">beebit toitev naine: tume nahatoon</annotation>
 		<annotation cp="🧓🏻">eakas | hele nahatoon | sooliselt neutraalne | vana</annotation>
 		<annotation cp="🧓🏻" type="tts">eakas: hele nahatoon</annotation>
 		<annotation cp="🧓🏼">eakas | keskmiselt hele nahatoon | sooliselt neutraalne | vana</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">õlgu kehitav naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤷🏿‍♀">kehitus | naine | õlakehitus | õlgu kehitav naine | tume nahatoon | ükskõiksus</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">õlgu kehitav naine: tume nahatoon</annotation>
-		<annotation cp="🧑🏻‍⚕">arst | hele nahatoon | meditsiiniõde | terapeut | tervishoid</annotation>
+		<annotation cp="🧑🏻‍⚕">arst | hele nahatoon | meditsiiniõde | terapeut | tervishoid | tervishoiutöötaja</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">tervishoiutöötaja: hele nahatoon</annotation>
-		<annotation cp="🧑🏼‍⚕">arst | keskmiselt hele nahatoon | meditsiiniõde | terapeut | tervishoid</annotation>
+		<annotation cp="🧑🏼‍⚕">arst | keskmiselt hele nahatoon | meditsiiniõde | terapeut | tervishoid | tervishoiutöötaja</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">tervishoiutöötaja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧑🏽‍⚕">arst | keskmine nahatoon | meditsiiniõde | terapeut | tervishoid</annotation>
+		<annotation cp="🧑🏽‍⚕">arst | keskmine nahatoon | meditsiiniõde | terapeut | tervishoid | tervishoiutöötaja</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">tervishoiutöötaja: keskmine nahatoon</annotation>
-		<annotation cp="🧑🏾‍⚕">arst | keskmiselt tume nahatoon | meditsiiniõde | terapeut | tervishoid</annotation>
+		<annotation cp="🧑🏾‍⚕">arst | keskmiselt tume nahatoon | meditsiiniõde | terapeut | tervishoid | tervishoiutöötaja</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">tervishoiutöötaja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧑🏿‍⚕">arst | meditsiiniõde | terapeut | tervishoid | tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍⚕">arst | meditsiiniõde | terapeut | tervishoid | tervishoiutöötaja | tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">tervishoiutöötaja: tume nahatoon</annotation>
 		<annotation cp="👨🏻‍⚕">arst | hele nahatoon | meditsiin | meditsiiniõde | mees | meesarst</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">meesarst: hele nahatoon</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">naisõpetaja: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🏫">juhendaja | naine | naisõpetaja | õpetaja | professor | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">naisõpetaja: tume nahatoon</annotation>
-		<annotation cp="🧑🏻‍⚖">hele nahatoon | kohus | õigusemõistmine</annotation>
+		<annotation cp="🧑🏻‍⚖">hele nahatoon | kohtunik | kohus | õigusemõistmine</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">kohtunik: hele nahatoon</annotation>
-		<annotation cp="🧑🏼‍⚖">keskmiselt hele nahatoon | kohus | õigusemõistmine</annotation>
+		<annotation cp="🧑🏼‍⚖">keskmiselt hele nahatoon | kohtunik | kohus | õigusemõistmine</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">kohtunik: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧑🏽‍⚖">keskmine nahatoon | kohus | õigusemõistmine</annotation>
+		<annotation cp="🧑🏽‍⚖">keskmine nahatoon | kohtunik | kohus | õigusemõistmine</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">kohtunik: keskmine nahatoon</annotation>
-		<annotation cp="🧑🏾‍⚖">keskmiselt tume nahatoon | kohus | õigusemõistmine</annotation>
+		<annotation cp="🧑🏾‍⚖">keskmiselt tume nahatoon | kohtunik | kohus | õigusemõistmine</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">kohtunik: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧑🏿‍⚖">kohus | õigusemõistmine | tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍⚖">kohtunik | kohus | õigusemõistmine | tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">kohtunik: tume nahatoon</annotation>
 		<annotation cp="👨🏻‍⚖">hele nahatoon | kohus | mees | meeskohtunik | õigusemõistmine</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">meeskohtunik: hele nahatoon</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">naissoost tehasetööline: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">naissoost tehasetööline: tume nahatoon</annotation>
-		<annotation cp="🧑🏻‍💼">ametnik | arhitekt | ärimees | hele nahatoon | juhataja | valgekrae</annotation>
+		<annotation cp="🧑🏻‍💼">ametnik | arhitekt | ärimees | hele nahatoon | juhataja | kontoritöötaja | valgekrae</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">kontoritöötaja: hele nahatoon</annotation>
-		<annotation cp="🧑🏼‍💼">ametnik | arhitekt | ärimees | juhataja | keskmiselt hele nahatoon | valgekrae</annotation>
+		<annotation cp="🧑🏼‍💼">ametnik | arhitekt | ärimees | juhataja | keskmiselt hele nahatoon | kontoritöötaja | valgekrae</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">kontoritöötaja: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧑🏽‍💼">ametnik | arhitekt | ärimees | juhataja | keskmine nahatoon | valgekrae</annotation>
+		<annotation cp="🧑🏽‍💼">ametnik | arhitekt | ärimees | juhataja | keskmine nahatoon | kontoritöötaja | valgekrae</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">kontoritöötaja: keskmine nahatoon</annotation>
-		<annotation cp="🧑🏾‍💼">ametnik | arhitekt | ärimees | juhataja | keskmiselt tume nahatoon | valgekrae</annotation>
+		<annotation cp="🧑🏾‍💼">ametnik | arhitekt | ärimees | juhataja | keskmiselt tume nahatoon | kontoritöötaja | valgekrae</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">kontoritöötaja: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧑🏿‍💼">ametnik | arhitekt | ärimees | juhataja | tume nahatoon | valgekrae</annotation>
+		<annotation cp="🧑🏿‍💼">ametnik | arhitekt | ärimees | juhataja | kontoritöötaja | tume nahatoon | valgekrae</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">kontoritöötaja: tume nahatoon</annotation>
 		<annotation cp="👨🏻‍💼">arhitekt | ärimees | hele nahatoon | juhataja | meeskontoritöötaja | valgekrae</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">meeskontoritöötaja: hele nahatoon</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">pearätiga naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🧕🏿">hijab | mantilja | pearätiga naine | pearätik | tichel | tume nahatoon</annotation>
 		<annotation cp="🧕🏿" type="tts">pearätiga naine: tume nahatoon</annotation>
-		<annotation cp="🤵🏻">hele nahatoon | mees | mees smokingus | peigmees | smoking</annotation>
-		<annotation cp="🤵🏻" type="tts">mees smokingus: hele nahatoon</annotation>
-		<annotation cp="🤵🏼">keskmiselt hele nahatoon | mees | mees smokingus | peigmees | smoking</annotation>
-		<annotation cp="🤵🏼" type="tts">mees smokingus: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤵🏽">keskmine nahatoon | mees | mees smokingus | peigmees | smoking</annotation>
-		<annotation cp="🤵🏽" type="tts">mees smokingus: keskmine nahatoon</annotation>
-		<annotation cp="🤵🏾">keskmiselt tume nahatoon | mees | mees smokingus | peigmees | smoking</annotation>
-		<annotation cp="🤵🏾" type="tts">mees smokingus: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤵🏿">mees | mees smokingus | peigmees | smoking | tume nahatoon</annotation>
-		<annotation cp="🤵🏿" type="tts">mees smokingus: tume nahatoon</annotation>
-		<annotation cp="👰🏻">hele nahatoon | loor | loori kandev pruut | pruut | pulm</annotation>
-		<annotation cp="👰🏻" type="tts">loori kandev pruut: hele nahatoon</annotation>
-		<annotation cp="👰🏼">keskmiselt hele nahatoon | loor | loori kandev pruut | pruut | pulm</annotation>
-		<annotation cp="👰🏼" type="tts">loori kandev pruut: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👰🏽">keskmine nahatoon | loor | loori kandev pruut | pruut | pulm</annotation>
-		<annotation cp="👰🏽" type="tts">loori kandev pruut: keskmine nahatoon</annotation>
-		<annotation cp="👰🏾">keskmiselt tume nahatoon | loor | loori kandev pruut | pruut | pulm</annotation>
-		<annotation cp="👰🏾" type="tts">loori kandev pruut: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👰🏿">loor | loori kandev pruut | pruut | pulm | tume nahatoon</annotation>
-		<annotation cp="👰🏿" type="tts">loori kandev pruut: tume nahatoon</annotation>
+		<annotation cp="🤵🏻">hele nahatoon | inimene smokingus | mees | peigmees</annotation>
+		<annotation cp="🤵🏻" type="tts">inimene smokingus: hele nahatoon</annotation>
+		<annotation cp="🤵🏼">inimene smokingus | keskmiselt hele nahatoon | mees | peigmees</annotation>
+		<annotation cp="🤵🏼" type="tts">inimene smokingus: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤵🏽">inimene smokingus | keskmine nahatoon | mees | peigmees</annotation>
+		<annotation cp="🤵🏽" type="tts">inimene smokingus: keskmine nahatoon</annotation>
+		<annotation cp="🤵🏾">inimene smokingus | keskmiselt tume nahatoon | mees | peigmees</annotation>
+		<annotation cp="🤵🏾" type="tts">inimene smokingus: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤵🏿">inimene smokingus | mees | peigmees | tume nahatoon</annotation>
+		<annotation cp="🤵🏿" type="tts">inimene smokingus: tume nahatoon</annotation>
+		<annotation cp="🤵🏻‍♀">hele nahatoon | naine | naine smokingus | smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">naine smokingus: hele nahatoon</annotation>
+		<annotation cp="🤵🏼‍♀">keskmiselt hele nahatoon | naine | naine smokingus | smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">naine smokingus: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤵🏽‍♀">keskmine nahatoon | naine | naine smokingus | smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">naine smokingus: keskmine nahatoon</annotation>
+		<annotation cp="🤵🏾‍♀">keskmiselt tume nahatoon | naine | naine smokingus | smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">naine smokingus: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤵🏿‍♀">naine | naine smokingus | smoking | tume nahatoon</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">naine smokingus: tume nahatoon</annotation>
+		<annotation cp="🤵🏻‍♂">hele nahatoon | mees | mees smokingis | mees smokingus | smoking</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">mees smokingis: hele nahatoon</annotation>
+		<annotation cp="🤵🏼‍♂">keskmiselt hele nahatoon | mees | mees smokingis | mees smokingus | smoking</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">mees smokingis: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤵🏽‍♂">keskmine nahatoon | mees | mees smokingis | mees smokingus | smoking</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">mees smokingis: keskmine nahatoon</annotation>
+		<annotation cp="🤵🏾‍♂">keskmiselt tume nahatoon | mees | mees smokingis | mees smokingus | smoking</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">mees smokingis: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤵🏿‍♂">mees | mees smokingis | mees smokingus | smoking | tume nahatoon</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">mees smokingis: tume nahatoon</annotation>
+		<annotation cp="👰🏻">hele nahatoon | loor | loori kandev inimene | loori kandev pruut | pruut | pulm</annotation>
+		<annotation cp="👰🏻" type="tts">loori kandev inimene: hele nahatoon</annotation>
+		<annotation cp="👰🏼">keskmiselt hele nahatoon | loor | loori kandev inimene | loori kandev pruut | pruut | pulm</annotation>
+		<annotation cp="👰🏼" type="tts">loori kandev inimene: keskmiselt hele nahatoon</annotation>
+		<annotation cp="👰🏽">keskmine nahatoon | loor | loori kandev inimene | loori kandev pruut | pruut | pulm</annotation>
+		<annotation cp="👰🏽" type="tts">loori kandev inimene: keskmine nahatoon</annotation>
+		<annotation cp="👰🏾">keskmiselt tume nahatoon | loor | loori kandev inimene | loori kandev pruut | pruut | pulm</annotation>
+		<annotation cp="👰🏾" type="tts">loori kandev inimene: keskmiselt tume nahatoon</annotation>
+		<annotation cp="👰🏿">loor | loori kandev inimene | loori kandev pruut | pruut | pulm | tume nahatoon</annotation>
+		<annotation cp="👰🏿" type="tts">loori kandev inimene: tume nahatoon</annotation>
+		<annotation cp="👰🏻‍♀">hele nahatoon | loor | naine | naine looriga</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">naine looriga: hele nahatoon</annotation>
+		<annotation cp="👰🏼‍♀">keskmiselt hele nahatoon | loor | naine | naine looriga</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">naine looriga: keskmiselt hele nahatoon</annotation>
+		<annotation cp="👰🏽‍♀">keskmine nahatoon | loor | naine | naine looriga</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">naine looriga: keskmine nahatoon</annotation>
+		<annotation cp="👰🏾‍♀">keskmiselt tume nahatoon | loor | naine | naine looriga</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">naine looriga: keskmiselt tume nahatoon</annotation>
+		<annotation cp="👰🏿‍♀">loor | naine | naine looriga | tume nahatoon</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">naine looriga: tume nahatoon</annotation>
+		<annotation cp="👰🏻‍♂">hele nahatoon | loor | mees | mees looriga</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">mees looriga: hele nahatoon</annotation>
+		<annotation cp="👰🏼‍♂">keskmiselt hele nahatoon | loor | mees | mees looriga</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">mees looriga: keskmiselt hele nahatoon</annotation>
+		<annotation cp="👰🏽‍♂">keskmine nahatoon | loor | mees | mees looriga</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">mees looriga: keskmine nahatoon</annotation>
+		<annotation cp="👰🏾‍♂">keskmiselt tume nahatoon | loor | mees | mees looriga</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">mees looriga: keskmiselt tume nahatoon</annotation>
+		<annotation cp="👰🏿‍♂">loor | mees | mees looriga | tume nahatoon</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">mees looriga: tume nahatoon</annotation>
 		<annotation cp="🤰🏻">hele nahatoon | naine | rase</annotation>
 		<annotation cp="🤰🏻" type="tts">rase naine: hele nahatoon</annotation>
 		<annotation cp="🤰🏼">keskmiselt hele nahatoon | naine | rase</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">põlvitav naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🧎🏿‍♀">naine | põlvili | põlvitav | tume nahatoon</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">põlvitav naine: tume nahatoon</annotation>
-		<annotation cp="🧑🏻‍🦯">hele nahatoon | ligipääs | pime</annotation>
+		<annotation cp="🧑🏻‍🦯">hele nahatoon | ligipääs | pime | valge kepiga inimene</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">valge kepiga inimene: hele nahatoon</annotation>
-		<annotation cp="🧑🏼‍🦯">keskmiselt hele nahatoon | ligipääs | pime</annotation>
+		<annotation cp="🧑🏼‍🦯">keskmiselt hele nahatoon | ligipääs | pime | valge kepiga inimene</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">valge kepiga inimene: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧑🏽‍🦯">keskmine nahatoon | ligipääs | pime</annotation>
+		<annotation cp="🧑🏽‍🦯">keskmine nahatoon | ligipääs | pime | valge kepiga inimene</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">valge kepiga inimene: keskmine nahatoon</annotation>
-		<annotation cp="🧑🏾‍🦯">keskmiselt tume nahatoon | ligipääs | pime</annotation>
+		<annotation cp="🧑🏾‍🦯">keskmiselt tume nahatoon | ligipääs | pime | valge kepiga inimene</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">valge kepiga inimene: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧑🏿‍🦯">ligipääs | pime | tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍🦯">ligipääs | pime | tume nahatoon | valge kepiga inimene</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">valge kepiga inimene: tume nahatoon</annotation>
 		<annotation cp="👨🏻‍🦯">hele nahatoon | ligipääs | mees | pime | valge kepiga mees</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">valge kepiga mees: hele nahatoon</annotation>
@@ -2106,65 +2196,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">valge kepiga naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🦯">ligipääs | naine | pime | tume nahatoon | valge kepiga naine</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">valge kepiga naine: tume nahatoon</annotation>
-		<annotation cp="🧑🏻‍🦼">hele nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏻‍🦼">elektrilises ratastoolis inimene | hele nahatoon | ligipääsetavus | ratastool</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">elektrilises ratastoolis inimene: hele nahatoon</annotation>
-		<annotation cp="🧑🏼‍🦼">keskmiselt hele nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏼‍🦼">elektrilises ratastoolis inimene | keskmiselt hele nahatoon | ligipääsetavus | ratastool</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">elektrilises ratastoolis inimene: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧑🏽‍🦼">keskmine nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏽‍🦼">elektrilises ratastoolis inimene | keskmine nahatoon | ligipääsetavus | ratastool</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">elektrilises ratastoolis inimene: keskmine nahatoon</annotation>
-		<annotation cp="🧑🏾‍🦼">keskmiselt tume nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏾‍🦼">elektrilises ratastoolis inimene | keskmiselt tume nahatoon | ligipääsetavus | ratastool</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">elektrilises ratastoolis inimene: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧑🏿‍🦼">ligipääsetavus | ratastool | tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍🦼">elektrilises ratastoolis inimene | ligipääsetavus | ratastool | tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">elektrilises ratastoolis inimene: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍🦼">elektriratastoolis mees | hele nahatoon | ligipääs | mees | ratastool</annotation>
+		<annotation cp="👨🏻‍🦼">elektriratastoolis mees | elektriratastoolis olev mees | hele nahatoon | ligipääs | mees | ratastool</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">elektriratastoolis olev mees: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍🦼">elektriratastoolis mees | keskmiselt hele nahatoon | ligipääs | mees | ratastool</annotation>
+		<annotation cp="👨🏼‍🦼">elektriratastoolis mees | elektriratastoolis olev mees | keskmiselt hele nahatoon | ligipääs | mees | ratastool</annotation>
 		<annotation cp="👨🏼‍🦼" type="tts">elektriratastoolis olev mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍🦼">elektriratastoolis mees | keskmine nahatoon | ligipääs | mees | ratastool</annotation>
+		<annotation cp="👨🏽‍🦼">elektriratastoolis mees | elektriratastoolis olev mees | keskmine nahatoon | ligipääs | mees | ratastool</annotation>
 		<annotation cp="👨🏽‍🦼" type="tts">elektriratastoolis olev mees: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍🦼">elektriratastoolis mees | keskmiselt tume nahatoon | ligipääs | mees | ratastool</annotation>
+		<annotation cp="👨🏾‍🦼">elektriratastoolis mees | elektriratastoolis olev mees | keskmiselt tume nahatoon | ligipääs | mees | ratastool</annotation>
 		<annotation cp="👨🏾‍🦼" type="tts">elektriratastoolis olev mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍🦼">elektriratastoolis mees | ligipääs | mees | ratastool | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🦼">elektriratastoolis mees | elektriratastoolis olev mees | ligipääs | mees | ratastool | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🦼" type="tts">elektriratastoolis olev mees: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍🦼">elektriratastoolis naine | hele nahatoon | ligipääs | naine | ratastool</annotation>
+		<annotation cp="👩🏻‍🦼">elektriratastoolis naine | elektriratastoolis olev naine | hele nahatoon | ligipääs | naine | ratastool</annotation>
 		<annotation cp="👩🏻‍🦼" type="tts">elektriratastoolis olev naine: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍🦼">elektriratastoolis naine | keskmiselt hele nahatoon | ligipääs | naine | ratastool</annotation>
+		<annotation cp="👩🏼‍🦼">elektriratastoolis naine | elektriratastoolis olev naine | keskmiselt hele nahatoon | ligipääs | naine | ratastool</annotation>
 		<annotation cp="👩🏼‍🦼" type="tts">elektriratastoolis olev naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍🦼">elektriratastoolis naine | keskmine nahatoon | ligipääs | naine | ratastool</annotation>
+		<annotation cp="👩🏽‍🦼">elektriratastoolis naine | elektriratastoolis olev naine | keskmine nahatoon | ligipääs | naine | ratastool</annotation>
 		<annotation cp="👩🏽‍🦼" type="tts">elektriratastoolis olev naine: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍🦼">elektriratastoolis naine | keskmiselt tume nahatoon | ligipääs | naine | ratastool</annotation>
+		<annotation cp="👩🏾‍🦼">elektriratastoolis naine | elektriratastoolis olev naine | keskmiselt tume nahatoon | ligipääs | naine | ratastool</annotation>
 		<annotation cp="👩🏾‍🦼" type="tts">elektriratastoolis olev naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍🦼">elektriratastoolis naine | ligipääs | naine | ratastool | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🦼">elektriratastoolis naine | elektriratastoolis olev naine | ligipääs | naine | ratastool | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">elektriratastoolis olev naine: tume nahatoon</annotation>
-		<annotation cp="🧑🏻‍🦽">hele nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏻‍🦽">hele nahatoon | ligipääsetavus | manuaalses ratastoolis inimene | ratastool</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">manuaalses ratastoolis inimene: hele nahatoon</annotation>
-		<annotation cp="🧑🏼‍🦽">keskmiselt hele nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏼‍🦽">keskmiselt hele nahatoon | ligipääsetavus | manuaalses ratastoolis inimene | ratastool</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">manuaalses ratastoolis inimene: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧑🏽‍🦽">keskmine nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏽‍🦽">keskmine nahatoon | ligipääsetavus | manuaalses ratastoolis inimene | ratastool</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">manuaalses ratastoolis inimene: keskmine nahatoon</annotation>
-		<annotation cp="🧑🏾‍🦽">keskmiselt tume nahatoon | ligipääsetavus | ratastool</annotation>
+		<annotation cp="🧑🏾‍🦽">keskmiselt tume nahatoon | ligipääsetavus | manuaalses ratastoolis inimene | ratastool</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">manuaalses ratastoolis inimene: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧑🏿‍🦽">ligipääsetavus | ratastool | tume nahatoon</annotation>
+		<annotation cp="🧑🏿‍🦽">ligipääsetavus | manuaalses ratastoolis inimene | ratastool | tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">manuaalses ratastoolis inimene: tume nahatoon</annotation>
-		<annotation cp="👨🏻‍🦽">hele nahatoon | ligipääs | manuaalratastoolis mees | mees | ratastool</annotation>
+		<annotation cp="👨🏻‍🦽">hele nahatoon | ligipääs | manuaalratastoolis mees | manuaalratastoolis olev mees | mees | ratastool</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">manuaalratastoolis olev mees: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍🦽">keskmiselt hele nahatoon | ligipääs | manuaalratastoolis mees | mees | ratastool</annotation>
+		<annotation cp="👨🏼‍🦽">keskmiselt hele nahatoon | ligipääs | manuaalratastoolis mees | manuaalratastoolis olev mees | mees | ratastool</annotation>
 		<annotation cp="👨🏼‍🦽" type="tts">manuaalratastoolis olev mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍🦽">keskmine nahatoon | ligipääs | manuaalratastoolis mees | mees | ratastool</annotation>
+		<annotation cp="👨🏽‍🦽">keskmine nahatoon | ligipääs | manuaalratastoolis mees | manuaalratastoolis olev mees | mees | ratastool</annotation>
 		<annotation cp="👨🏽‍🦽" type="tts">manuaalratastoolis olev mees: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍🦽">keskmiselt tume nahatoon | ligipääs | manuaalratastoolis mees | mees | ratastool</annotation>
+		<annotation cp="👨🏾‍🦽">keskmiselt tume nahatoon | ligipääs | manuaalratastoolis mees | manuaalratastoolis olev mees | mees | ratastool</annotation>
 		<annotation cp="👨🏾‍🦽" type="tts">manuaalratastoolis olev mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍🦽">ligipääs | manuaalratastoolis mees | mees | ratastool | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🦽">ligipääs | manuaalratastoolis mees | manuaalratastoolis olev mees | mees | ratastool | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🦽" type="tts">manuaalratastoolis olev mees: tume nahatoon</annotation>
-		<annotation cp="👩🏻‍🦽">hele nahatoon | juurdepääs | manuaalratastoolis naine | naine | ratastool</annotation>
+		<annotation cp="👩🏻‍🦽">hele nahatoon | juurdepääs | manuaalratastoolis naine | manuaalratastoolis olev naine | naine | ratastool</annotation>
 		<annotation cp="👩🏻‍🦽" type="tts">manuaalratastoolis olev naine: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍🦽">juurdepääs | keskmiselt hele nahatoon | manuaalratastoolis naine | naine | ratastool</annotation>
+		<annotation cp="👩🏼‍🦽">juurdepääs | keskmiselt hele nahatoon | manuaalratastoolis naine | manuaalratastoolis olev naine | naine | ratastool</annotation>
 		<annotation cp="👩🏼‍🦽" type="tts">manuaalratastoolis olev naine: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍🦽">juurdepääs | keskmine nahatoon | manuaalratastoolis naine | naine | ratastool</annotation>
+		<annotation cp="👩🏽‍🦽">juurdepääs | keskmine nahatoon | manuaalratastoolis naine | manuaalratastoolis olev naine | naine | ratastool</annotation>
 		<annotation cp="👩🏽‍🦽" type="tts">manuaalratastoolis olev naine: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍🦽">juurdepääs | keskmiselt tume nahatoon | manuaalratastoolis naine | naine | ratastool</annotation>
+		<annotation cp="👩🏾‍🦽">juurdepääs | keskmiselt tume nahatoon | manuaalratastoolis naine | manuaalratastoolis olev naine | naine | ratastool</annotation>
 		<annotation cp="👩🏾‍🦽" type="tts">manuaalratastoolis olev naine: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍🦽">juurdepääs | manuaalratastoolis naine | naine | ratastool | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🦽">juurdepääs | manuaalratastoolis naine | manuaalratastoolis olev naine | naine | ratastool | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🦽" type="tts">manuaalratastoolis olev naine: tume nahatoon</annotation>
 		<annotation cp="🏃🏻">hele nahatoon | jooks | jooksja | maraton</annotation>
 		<annotation cp="🏃🏻" type="tts">jooksja: hele nahatoon</annotation>
@@ -2226,15 +2316,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕴🏾" type="tts">hõljuv ülikonnaga mees: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🕴🏿">ärimees | hõljuv ülikonnaga mees | mees | tume nahatoon | ülikond</annotation>
 		<annotation cp="🕴🏿" type="tts">hõljuv ülikonnaga mees: tume nahatoon</annotation>
-		<annotation cp="🧖🏻">hele nahatoon | leiliruum | leiliruumis olev inimene | saun</annotation>
+		<annotation cp="🧖🏻">hele nahatoon | inimene leiliruumis | leiliruum | leiliruumis olev inimene | saun</annotation>
 		<annotation cp="🧖🏻" type="tts">inimene leiliruumis: hele nahatoon</annotation>
-		<annotation cp="🧖🏼">keskmiselt hele nahatoon | leiliruum | leiliruumis olev inimene | saun</annotation>
+		<annotation cp="🧖🏼">inimene leiliruumis | keskmiselt hele nahatoon | leiliruum | leiliruumis olev inimene | saun</annotation>
 		<annotation cp="🧖🏼" type="tts">inimene leiliruumis: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧖🏽">keskmine nahatoon | leiliruum | leiliruumis olev inimene | saun</annotation>
+		<annotation cp="🧖🏽">inimene leiliruumis | keskmine nahatoon | leiliruum | leiliruumis olev inimene | saun</annotation>
 		<annotation cp="🧖🏽" type="tts">inimene leiliruumis: keskmine nahatoon</annotation>
-		<annotation cp="🧖🏾">keskmiselt tume nahatoon | leiliruum | leiliruumis olev inimene | saun</annotation>
+		<annotation cp="🧖🏾">inimene leiliruumis | keskmiselt tume nahatoon | leiliruum | leiliruumis olev inimene | saun</annotation>
 		<annotation cp="🧖🏾" type="tts">inimene leiliruumis: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧖🏿">leiliruum | leiliruumis olev inimene | saun | tume nahatoon</annotation>
+		<annotation cp="🧖🏿">inimene leiliruumis | leiliruum | leiliruumis olev inimene | saun | tume nahatoon</annotation>
 		<annotation cp="🧖🏿" type="tts">inimene leiliruumis: tume nahatoon</annotation>
 		<annotation cp="🧖🏻‍♂">hele nahatoon | leiliruum | leiliruumis olev mees | saun</annotation>
 		<annotation cp="🧖🏻‍♂" type="tts">leiliruumis olev mees: hele nahatoon</annotation>
@@ -2246,15 +2336,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧖🏾‍♂" type="tts">leiliruumis olev mees: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🧖🏿‍♂">leiliruum | leiliruumis olev mees | saun | tume nahatoon</annotation>
 		<annotation cp="🧖🏿‍♂" type="tts">leiliruumis olev mees: tume nahatoon</annotation>
-		<annotation cp="🧖🏻‍♀">hele nahatoon | leiliruum | leiliruumis olev naine | saun</annotation>
+		<annotation cp="🧖🏻‍♀">hele nahatoon | leiliruum | leiliruumis olev naine | naine leiliruumis | saun</annotation>
 		<annotation cp="🧖🏻‍♀" type="tts">naine leiliruumis: hele nahatoon</annotation>
-		<annotation cp="🧖🏼‍♀">keskmiselt hele nahatoon | leiliruum | leiliruumis olev naine | saun</annotation>
+		<annotation cp="🧖🏼‍♀">keskmiselt hele nahatoon | leiliruum | leiliruumis olev naine | naine leiliruumis | saun</annotation>
 		<annotation cp="🧖🏼‍♀" type="tts">naine leiliruumis: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🧖🏽‍♀">keskmine nahatoon | leiliruum | leiliruumis olev naine | saun</annotation>
+		<annotation cp="🧖🏽‍♀">keskmine nahatoon | leiliruum | leiliruumis olev naine | naine leiliruumis | saun</annotation>
 		<annotation cp="🧖🏽‍♀" type="tts">naine leiliruumis: keskmine nahatoon</annotation>
-		<annotation cp="🧖🏾‍♀">keskmiselt tume nahatoon | leiliruum | leiliruumis olev naine | saun</annotation>
+		<annotation cp="🧖🏾‍♀">keskmiselt tume nahatoon | leiliruum | leiliruumis olev naine | naine leiliruumis | saun</annotation>
 		<annotation cp="🧖🏾‍♀" type="tts">naine leiliruumis: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🧖🏿‍♀">leiliruum | leiliruumis olev naine | saun | tume nahatoon</annotation>
+		<annotation cp="🧖🏿‍♀">leiliruum | leiliruumis olev naine | naine leiliruumis | saun | tume nahatoon</annotation>
 		<annotation cp="🧖🏿‍♀" type="tts">naine leiliruumis: tume nahatoon</annotation>
 		<annotation cp="🧗🏻">hele nahatoon | mägironija | mäkke roniv inimene</annotation>
 		<annotation cp="🧗🏻" type="tts">mäkke roniv inimene: hele nahatoon</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">inimene voodis: tume nahatoon</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | paar</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">inimesed hoiavad käest kinni: hele nahatoon</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt hele nahatoon | paar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">inimesed hoiavad käest kinni: hele nahatoon, keskmiselt hele nahatoon</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmine nahatoon | paar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">inimesed hoiavad käest kinni: hele nahatoon, keskmine nahatoon</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt tume nahatoon | paar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">inimesed hoiavad käest kinni: hele nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | paar | tume nahatoon</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">inimesed hoiavad käest kinni: hele nahatoon, tume nahatoon</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt hele nahatoon | paar</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">inimesed hoiavad käest kinni: keskmiselt hele nahatoon, hele nahatoon</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt hele nahatoon | paar</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">inimesed hoiavad käest kinni: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmine nahatoon | keskmiselt hele nahatoon | paar</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">inimesed hoiavad käest kinni: keskmiselt hele nahatoon, keskmine nahatoon</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt hele nahatoon | keskmiselt tume nahatoon | paar</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">inimesed hoiavad käest kinni: keskmiselt hele nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt hele nahatoon | paar | tume nahatoon</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">inimesed hoiavad käest kinni: keskmiselt hele nahatoon, tume nahatoon</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmine nahatoon | paar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">inimesed hoiavad käest kinni: keskmine nahatoon, hele nahatoon</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmine nahatoon | keskmiselt hele nahatoon | paar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">inimesed hoiavad käest kinni: keskmine nahatoon, keskmiselt hele nahatoon</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmine nahatoon | paar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">inimesed hoiavad käest kinni: keskmine nahatoon</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmine nahatoon | keskmiselt tume nahatoon | paar</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">inimesed hoiavad käest kinni: keskmine nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmine nahatoon | paar | tume nahatoon</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">inimesed hoiavad käest kinni: keskmine nahatoon, tume nahatoon</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt tume nahatoon | paar</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">inimesed hoiavad käest kinni: keskmiselt tume nahatoon, hele nahatoon</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt hele nahatoon | keskmiselt tume nahatoon | paar</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">inimesed hoiavad käest kinni: keskmiselt tume nahatoon, keskmine nahatoon</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt tume nahatoon | paar</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">inimesed hoiavad käest kinni: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt tume nahatoon | paar | tume nahatoon</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">inimesed hoiavad käest kinni: keskmiselt tume nahatoon, tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">hele nahatoon | hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | paar | tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">inimesed hoiavad käest kinni: tume nahatoon, hele nahatoon</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | keskmiselt hele nahatoon | paar | tume nahatoon</annotation>
@@ -2746,35 +2856,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">inimesed hoiavad käest kinni: tume nahatoon, keskmiselt tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | paar | tume nahatoon</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">inimesed hoiavad käest kinni: tume nahatoon</annotation>
-		<annotation cp="👭🏻">hele nahatoon | käed | kaks naist hoiavad käest kinni | naised | paar</annotation>
+		<annotation cp="👭🏻">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | naised | paar</annotation>
 		<annotation cp="👭🏻" type="tts">käest kinni hoidvad naised: hele nahatoon</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">hele nahatoon | käed | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">käest kinni hoidvad naised: hele nahatoon, keskmiselt hele nahatoon</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">käest kinni hoidvad naised: hele nahatoon, keskmine nahatoon</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">käest kinni hoidvad naised: hele nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">käest kinni hoidvad naised: hele nahatoon, tume nahatoon</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">käest kinni hoidvad naised: keskmiselt hele nahatoon, hele nahatoon</annotation>
-		<annotation cp="👭🏼">käed | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar</annotation>
+		<annotation cp="👭🏼">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar</annotation>
 		<annotation cp="👭🏼" type="tts">käest kinni hoidvad naised: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">hele nahatoon | käed | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | keskmiselt hele nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">käest kinni hoidvad naised: keskmiselt hele nahatoon, keskmine nahatoon</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | keskmiselt tume nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">käest kinni hoidvad naised: keskmiselt hele nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">käest kinni hoidvad naised: keskmiselt hele nahatoon, tume nahatoon</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">käest kinni hoidvad naised: keskmine nahatoon, hele nahatoon</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">käed | kaks naist hoiavad käest kinni | keskmine nahatoon | keskmiselt hele nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | keskmiselt hele nahatoon | naised | paar</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">käest kinni hoidvad naised: keskmine nahatoon, keskmiselt hele nahatoon</annotation>
-		<annotation cp="👭🏽">käed | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar</annotation>
+		<annotation cp="👭🏽">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar</annotation>
 		<annotation cp="👭🏽" type="tts">käest kinni hoidvad naised: keskmine nahatoon</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">hele nahatoon | käed | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | keskmiselt tume nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">käest kinni hoidvad naised: keskmine nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">käest kinni hoidvad naised: keskmine nahatoon, tume nahatoon</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">käest kinni hoidvad naised: keskmiselt tume nahatoon, hele nahatoon</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">käed | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | keskmiselt tume nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | keskmiselt tume nahatoon | naised | paar</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">käest kinni hoidvad naised: keskmiselt tume nahatoon, keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">käed | kaks naist hoiavad käest kinni | keskmine nahatoon | keskmiselt tume nahatoon | naised | paar</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | keskmiselt tume nahatoon | naised | paar</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">käest kinni hoidvad naised: keskmiselt tume nahatoon, keskmine nahatoon</annotation>
-		<annotation cp="👭🏾">käed | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar</annotation>
+		<annotation cp="👭🏾">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar</annotation>
 		<annotation cp="👭🏾" type="tts">käest kinni hoidvad naised: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">hele nahatoon | käed | kaks naist hoiavad käest kinni | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">käest kinni hoidvad naised: keskmiselt tume nahatoon, tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">hele nahatoon | käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | naised | paar | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">käest kinni hoidvad naised: tume nahatoon, hele nahatoon</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">käed | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt hele nahatoon | naised | paar | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">käest kinni hoidvad naised: tume nahatoon, keskmiselt hele nahatoon</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">käed | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmine nahatoon | naised | paar | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">käest kinni hoidvad naised: tume nahatoon, keskmine nahatoon</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">käed | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | keskmiselt tume nahatoon | naised | paar | tume nahatoon</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">käest kinni hoidvad naised: tume nahatoon, keskmiselt tume nahatoon</annotation>
-		<annotation cp="👭🏿">käed | kaks naist hoiavad käest kinni | naised | paar | tume nahatoon</annotation>
+		<annotation cp="👭🏿">käed | käest kinni hoidvad naised | kaks naist hoiavad käest kinni | naised | paar | tume nahatoon</annotation>
 		<annotation cp="👭🏿" type="tts">käest kinni hoidvad naised: tume nahatoon</annotation>
 		<annotation cp="👫🏻">hele nahatoon | käed | mees | mees ja naine hoiavad käest kinni | naine | paarike</annotation>
 		<annotation cp="👫🏻" type="tts">mees ja naine hoiavad käest kinni: hele nahatoon</annotation>
@@ -2826,35 +2956,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mees ja naine hoiavad käest kinni: tume nahatoon, keskmiselt tume nahatoon</annotation>
 		<annotation cp="👫🏿">käed | mees | mees ja naine hoiavad käest kinni | naine | paarike | tume nahatoon</annotation>
 		<annotation cp="👫🏿" type="tts">mees ja naine hoiavad käest kinni: tume nahatoon</annotation>
-		<annotation cp="👬🏻">hele nahatoon | käed | kaks meest hoiavad käest kinni | kaksikud | mehed | paar</annotation>
+		<annotation cp="👬🏻">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | mehed | paar</annotation>
 		<annotation cp="👬🏻" type="tts">käest kinni hoidvad mehed: hele nahatoon</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">hele nahatoon | käed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">käest kinni hoidvad mehed: hele nahatoon, keskmiselt hele nahatoon</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">käest kinni hoidvad mehed: hele nahatoon, keskmine nahatoon</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">käest kinni hoidvad mehed: hele nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">käest kinni hoidvad mehed: hele nahatoon, tume nahatoon</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">käest kinni hoidvad mehed: keskmiselt hele nahatoon, hele nahatoon</annotation>
-		<annotation cp="👬🏼">käed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar</annotation>
+		<annotation cp="👬🏼">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar</annotation>
 		<annotation cp="👬🏼" type="tts">käest kinni hoidvad mehed: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">hele nahatoon | käed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | keskmiselt hele nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">käest kinni hoidvad mehed: keskmiselt hele nahatoon, keskmine nahatoon</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | keskmiselt tume nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">käest kinni hoidvad mehed: keskmiselt hele nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">käest kinni hoidvad mehed: keskmiselt hele nahatoon, tume nahatoon</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">käest kinni hoidvad mehed: keskmine nahatoon, hele nahatoon</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">käed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | keskmiselt hele nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | keskmiselt hele nahatoon | mehed | paar</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">käest kinni hoidvad mehed: keskmine nahatoon, keskmiselt hele nahatoon</annotation>
-		<annotation cp="👬🏽">käed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar</annotation>
+		<annotation cp="👬🏽">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar</annotation>
 		<annotation cp="👬🏽" type="tts">käest kinni hoidvad mehed: keskmine nahatoon</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">hele nahatoon | käed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | keskmiselt tume nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">käest kinni hoidvad mehed: keskmine nahatoon, keskmiselt tume nahatoon</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">käest kinni hoidvad mehed: keskmine nahatoon, tume nahatoon</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">käest kinni hoidvad mehed: keskmiselt tume nahatoon, hele nahatoon</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">käed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | keskmiselt tume nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | keskmiselt tume nahatoon | mehed | paar</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">käest kinni hoidvad mehed: keskmiselt tume nahatoon, keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">käed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | keskmiselt tume nahatoon | mehed | paar</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | keskmiselt tume nahatoon | mehed | paar</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">käest kinni hoidvad mehed: keskmiselt tume nahatoon, keskmine nahatoon</annotation>
-		<annotation cp="👬🏾">käed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar</annotation>
+		<annotation cp="👬🏾">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar</annotation>
 		<annotation cp="👬🏾" type="tts">käest kinni hoidvad mehed: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">hele nahatoon | käed | kaks meest hoiavad käest kinni | kaksikud | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">käest kinni hoidvad mehed: keskmiselt tume nahatoon, tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">hele nahatoon | käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | mehed | paar | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">käest kinni hoidvad mehed: tume nahatoon, hele nahatoon</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">käed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt hele nahatoon | mehed | paar | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">käest kinni hoidvad mehed: tume nahatoon, keskmiselt hele nahatoon</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">käed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmine nahatoon | mehed | paar | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">käest kinni hoidvad mehed: tume nahatoon, keskmine nahatoon</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">käed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | keskmiselt tume nahatoon | mehed | paar | tume nahatoon</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">käest kinni hoidvad mehed: tume nahatoon, keskmiselt tume nahatoon</annotation>
-		<annotation cp="👬🏿">käed | kaks meest hoiavad käest kinni | kaksikud | mehed | paar | tume nahatoon</annotation>
+		<annotation cp="👬🏿">käed | käest kinni hoidvad mehed | kaks meest hoiavad käest kinni | kaksikud | mehed | paar | tume nahatoon</annotation>
 		<annotation cp="👬🏿" type="tts">käest kinni hoidvad mehed: tume nahatoon</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">mees | musi | naine | suudlus</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">musi: naine, mees</annotation>

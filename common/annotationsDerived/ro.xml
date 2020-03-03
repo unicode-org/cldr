@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ro"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">degete | degete strânse | gest cu mâna | interogație | sarcastic | ton deschis al pielii</annotation>
+		<annotation cp="🤌🏻" type="tts">degete strânse: ton deschis al pielii</annotation>
+		<annotation cp="🤌🏼">degete | degete strânse | gest cu mâna | interogație | sarcastic | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤌🏼" type="tts">degete strânse: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤌🏽">degete | degete strânse | gest cu mâna | interogație | sarcastic | ton mediu al pielii</annotation>
+		<annotation cp="🤌🏽" type="tts">degete strânse: ton mediu al pielii</annotation>
+		<annotation cp="🤌🏾">degete | degete strânse | gest cu mâna | interogație | sarcastic | ton semi‑închis al pielii</annotation>
+		<annotation cp="🤌🏾" type="tts">degete strânse: ton semi‑închis al pielii</annotation>
+		<annotation cp="🤌🏿">degete | degete strânse | gest cu mâna | interogație | sarcastic | ton închis al pielii</annotation>
+		<annotation cp="🤌🏿" type="tts">degete strânse: ton închis al pielii</annotation>
 		<annotation cp="👋🏻">despărțire | mână | mână fluturată | semn | ton deschis al pielii</annotation>
 		<annotation cp="👋🏻" type="tts">mână fluturată: ton deschis al pielii</annotation>
 		<annotation cp="👋🏼">despărțire | mână | mână fluturată | semn | ton semi‑deschis al pielii</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">adult: ton semi‑închis al pielii, chelie</annotation>
 		<annotation cp="🧑🏿‍🦲">adult | chelie | neutru | persoană | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">adult: ton închis al pielii, chelie</annotation>
+		<annotation cp="🧑🏻‍🍼">alăptare | bebeluș | hrănire | persoană | persoană hrănind un bebeluș | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">persoană hrănind un bebeluș: ton deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🍼">alăptare | bebeluș | hrănire | persoană | persoană hrănind un bebeluș | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">persoană hrănind un bebeluș: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏽‍🍼">alăptare | bebeluș | hrănire | persoană | persoană hrănind un bebeluș | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">persoană hrănind un bebeluș: ton mediu al pielii</annotation>
+		<annotation cp="🧑🏾‍🍼">alăptare | bebeluș | hrănire | persoană | persoană hrănind un bebeluș | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">persoană hrănind un bebeluș: ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🍼">alăptare | bebeluș | hrănire | persoană | persoană hrănind un bebeluș | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">persoană hrănind un bebeluș: ton închis al pielii</annotation>
+		<annotation cp="🧑🏻‍🎄">Crăciun | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Crăciun: ton deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🎄">Crăciun | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Crăciun: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏽‍🎄">Crăciun | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Crăciun: ton mediu al pielii</annotation>
+		<annotation cp="🧑🏾‍🎄">Crăciun | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Crăciun: ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🎄">Crăciun | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Crăciun: ton închis al pielii</annotation>
 		<annotation cp="👨🏻">adult | bărbat | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻" type="tts">bărbat: ton deschis al pielii</annotation>
 		<annotation cp="👨🏼">adult | bărbat | ton semi‑deschis al pielii</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">bărbat: ton semi‑închis al pielii, chelie</annotation>
 		<annotation cp="👨🏿‍🦲">adult | bărbat | chelie | ton închis al pielii</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">bărbat: ton închis al pielii, chelie</annotation>
+		<annotation cp="👨🏻‍🍼">bărbat | bărbat hrănind un bebeluș | bebeluș | hrănire | ton deschis al pielii</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">bărbat hrănind un bebeluș: ton deschis al pielii</annotation>
+		<annotation cp="👨🏼‍🍼">bărbat | bărbat hrănind un bebeluș | bebeluș | hrănire | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">bărbat hrănind un bebeluș: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏽‍🍼">bărbat | bărbat hrănind un bebeluș | bebeluș | hrănire | ton mediu al pielii</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">bărbat hrănind un bebeluș: ton mediu al pielii</annotation>
+		<annotation cp="👨🏾‍🍼">bărbat | bărbat hrănind un bebeluș | bebeluș | hrănire | ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">bărbat hrănind un bebeluș: ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏿‍🍼">bărbat | bărbat hrănind un bebeluș | bebeluș | hrănire | ton închis al pielii</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">bărbat hrănind un bebeluș: ton închis al pielii</annotation>
 		<annotation cp="👩🏻">adultă | femeie | ton deschis al pielii</annotation>
 		<annotation cp="👩🏻" type="tts">femeie: ton deschis al pielii</annotation>
 		<annotation cp="👩🏼">adultă | femeie | ton semi‑deschis al pielii</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">femeie: ton semi‑închis al pielii, chelie</annotation>
 		<annotation cp="👩🏿‍🦲">adultă | chelie | femeie | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">femeie: ton închis al pielii, chelie</annotation>
+		<annotation cp="👩🏻‍🍼">alăptare | bebeluș | femeie | femeie hrănind un bebeluș | hrănire | ton deschis al pielii</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">femeie hrănind un bebeluș: ton deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🍼">alăptare | bebeluș | femeie | femeie hrănind un bebeluș | hrănire | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">femeie hrănind un bebeluș: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏽‍🍼">alăptare | bebeluș | femeie | femeie hrănind un bebeluș | hrănire | ton mediu al pielii</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">femeie hrănind un bebeluș: ton mediu al pielii</annotation>
+		<annotation cp="👩🏾‍🍼">alăptare | bebeluș | femeie | femeie hrănind un bebeluș | hrănire | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">femeie hrănind un bebeluș: ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏿‍🍼">alăptare | bebeluș | femeie | femeie hrănind un bebeluș | hrănire | ton închis al pielii</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">femeie hrănind un bebeluș: ton închis al pielii</annotation>
 		<annotation cp="🧓🏻">adult | bătrân | neutru | persoană în vârstă | ton deschis al pielii | vârstnic</annotation>
 		<annotation cp="🧓🏻" type="tts">persoană în vârstă: ton deschis al pielii</annotation>
 		<annotation cp="🧓🏼">adult | bătrân | neutru | persoană în vârstă | ton semi‑deschis al pielii | vârstnic</annotation>
@@ -716,25 +766,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎🏾" type="tts">persoană bosumflată: ton semi‑închis al pielii</annotation>
 		<annotation cp="🙎🏿">expresie facială | îmbufnare | persoană bosumflată | ton închis al pielii</annotation>
 		<annotation cp="🙎🏿" type="tts">persoană bosumflată: ton închis al pielii</annotation>
-		<annotation cp="🙎🏻‍♂">bărbat | bosumflare | gest | îmbufnare | ton deschis al pielii</annotation>
+		<annotation cp="🙎🏻‍♂">bărbat | bărbat bosumflat | bosumflare | gest | îmbufnare | ton deschis al pielii</annotation>
 		<annotation cp="🙎🏻‍♂" type="tts">bărbat bosumflat: ton deschis al pielii</annotation>
-		<annotation cp="🙎🏼‍♂">bărbat | bosumflare | gest | îmbufnare | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🙎🏼‍♂">bărbat | bărbat bosumflat | bosumflare | gest | îmbufnare | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🙎🏼‍♂" type="tts">bărbat bosumflat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🙎🏽‍♂">bărbat | bosumflare | gest | îmbufnare | ton mediu al pielii</annotation>
+		<annotation cp="🙎🏽‍♂">bărbat | bărbat bosumflat | bosumflare | gest | îmbufnare | ton mediu al pielii</annotation>
 		<annotation cp="🙎🏽‍♂" type="tts">bărbat bosumflat: ton mediu al pielii</annotation>
-		<annotation cp="🙎🏾‍♂">bărbat | bosumflare | gest | îmbufnare | ton semi‑închis al pielii</annotation>
+		<annotation cp="🙎🏾‍♂">bărbat | bărbat bosumflat | bosumflare | gest | îmbufnare | ton semi‑închis al pielii</annotation>
 		<annotation cp="🙎🏾‍♂" type="tts">bărbat bosumflat: ton semi‑închis al pielii</annotation>
-		<annotation cp="🙎🏿‍♂">bărbat | bosumflare | gest | îmbufnare | ton închis al pielii</annotation>
+		<annotation cp="🙎🏿‍♂">bărbat | bărbat bosumflat | bosumflare | gest | îmbufnare | ton închis al pielii</annotation>
 		<annotation cp="🙎🏿‍♂" type="tts">bărbat bosumflat: ton închis al pielii</annotation>
-		<annotation cp="🙎🏻‍♀">bosumflare | femeie | gest | îmbufnare | ton deschis al pielii</annotation>
+		<annotation cp="🙎🏻‍♀">bosumflare | femeie | femeie bosumflată | gest | îmbufnare | ton deschis al pielii</annotation>
 		<annotation cp="🙎🏻‍♀" type="tts">femeie bosumflată: ton deschis al pielii</annotation>
-		<annotation cp="🙎🏼‍♀">bosumflare | femeie | gest | îmbufnare | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🙎🏼‍♀">bosumflare | femeie | femeie bosumflată | gest | îmbufnare | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🙎🏼‍♀" type="tts">femeie bosumflată: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🙎🏽‍♀">bosumflare | femeie | gest | îmbufnare | ton mediu al pielii</annotation>
+		<annotation cp="🙎🏽‍♀">bosumflare | femeie | femeie bosumflată | gest | îmbufnare | ton mediu al pielii</annotation>
 		<annotation cp="🙎🏽‍♀" type="tts">femeie bosumflată: ton mediu al pielii</annotation>
-		<annotation cp="🙎🏾‍♀">bosumflare | femeie | gest | îmbufnare | ton semi‑închis al pielii</annotation>
+		<annotation cp="🙎🏾‍♀">bosumflare | femeie | femeie bosumflată | gest | îmbufnare | ton semi‑închis al pielii</annotation>
 		<annotation cp="🙎🏾‍♀" type="tts">femeie bosumflată: ton semi‑închis al pielii</annotation>
-		<annotation cp="🙎🏿‍♀">bosumflare | femeie | gest | îmbufnare | ton închis al pielii</annotation>
+		<annotation cp="🙎🏿‍♀">bosumflare | femeie | femeie bosumflată | gest | îmbufnare | ton închis al pielii</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">femeie bosumflată: ton închis al pielii</annotation>
 		<annotation cp="🙅🏻">gest | interzis | mâini | nu | persoană făcând un gest de negație | ton deschis al pielii</annotation>
 		<annotation cp="🙅🏻" type="tts">persoană făcând un gest de negație: ton deschis al pielii</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">femeie care ridică din umeri: ton semi‑închis al pielii</annotation>
 		<annotation cp="🤷🏿‍♀">femeie | femeie care ridică din umeri | ignoranță | indiferență | îndoială | ridicare din umeri | ton închis al pielii</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">femeie care ridică din umeri: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍⚕">asistent | asistentă | doctor | doctoriță | servicii medicale | terapeut | terapeută | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍⚕">asistent | asistentă | doctor | doctoriță | persoană lucrătoare în domeniul sănătății | servicii medicale | terapeut | terapeută | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">persoană lucrătoare în domeniul sănătății: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍⚕">asistent | asistentă | doctor | doctoriță | servicii medicale | terapeut | terapeută | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍⚕">asistent | asistentă | doctor | doctoriță | persoană lucrătoare în domeniul sănătății | servicii medicale | terapeut | terapeută | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">persoană lucrătoare în domeniul sănătății: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍⚕">asistent | asistentă | doctor | doctoriță | servicii medicale | terapeut | terapeută | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍⚕">asistent | asistentă | doctor | doctoriță | persoană lucrătoare în domeniul sănătății | servicii medicale | terapeut | terapeută | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">persoană lucrătoare în domeniul sănătății: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍⚕">asistent | asistentă | doctor | doctoriță | servicii medicale | terapeut | terapeută | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍⚕">asistent | asistentă | doctor | doctoriță | persoană lucrătoare în domeniul sănătății | servicii medicale | terapeut | terapeută | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">persoană lucrătoare în domeniul sănătății: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍⚕">asistent | asistentă | doctor | doctoriță | servicii medicale | terapeut | terapeută | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍⚕">asistent | asistentă | doctor | doctoriță | persoană lucrătoare în domeniul sănătății | servicii medicale | terapeut | terapeută | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">persoană lucrătoare în domeniul sănătății: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍⚕">bărbat | doctor | infirmier | lucrător în domeniul sănătății | servicii medicale | terapeut | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">lucrător în domeniul sănătății: ton deschis al pielii</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">lucrătoare în domeniul sănătății: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍⚕">asistentă | doctoriță | femeie | infirmieră | lucrătoare în domeniul sănătății | servicii medicale | soră medicală | terapeută | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">lucrătoare în domeniul sănătății: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🎓">absolvent | absolventă | student | studentă | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🎓">absolvent | absolventă | student | student sau studentă | studentă | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">student sau studentă: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🎓">absolvent | absolventă | student | studentă | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🎓">absolvent | absolventă | student | student sau studentă | studentă | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">student sau studentă: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🎓">absolvent | absolventă | student | studentă | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🎓">absolvent | absolventă | student | student sau studentă | studentă | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">student sau studentă: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🎓">absolvent | absolventă | student | studentă | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🎓">absolvent | absolventă | student | student sau studentă | studentă | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">student sau studentă: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🎓">absolvent | absolventă | student | studentă | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🎓">absolvent | absolventă | student | student sau studentă | studentă | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">student sau studentă: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🎓">absolvent | student | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">student: ton deschis al pielii</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">studentă: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍🎓">absolventă | studentă | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">studentă: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🏫">instructor | învățător | profesor | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🏫">instructor | învățător | profesor | profesor sau profesoară | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">profesor sau profesoară: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🏫">instructor | învățător | profesor | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🏫">instructor | învățător | profesor | profesor sau profesoară | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">profesor sau profesoară: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🏫">instructor | învățător | profesor | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🏫">instructor | învățător | profesor | profesor sau profesoară | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">profesor sau profesoară: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🏫">instructor | învățător | profesor | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🏫">instructor | învățător | profesor | profesor sau profesoară | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">profesor sau profesoară: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🏫">instructor | învățător | profesor | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🏫">instructor | învățător | profesor | profesor sau profesoară | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">profesor sau profesoară: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🏫">instructor | învățător | profesor | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">profesor: ton deschis al pielii</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">profesoară: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍🏫">instructoare | învățătoare | profesoară | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">profesoară: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍⚖">balanță | judecător | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍⚖">balanță | judecător | judecător sau judecătoare | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">judecător sau judecătoare: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍⚖">balanță | judecător | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍⚖">balanță | judecător | judecător sau judecătoare | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">judecător sau judecătoare: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍⚖">balanță | judecător | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍⚖">balanță | judecător | judecător sau judecătoare | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">judecător sau judecătoare: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍⚖">balanță | judecător | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍⚖">balanță | judecător | judecător sau judecătoare | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">judecător sau judecătoare: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍⚖">balanță | judecător | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍⚖">balanță | judecător | judecător sau judecătoare | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">judecător sau judecătoare: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍⚖">balanță | judecător | justiție | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">judecător: ton deschis al pielii</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">judecătoare: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍⚖">balanță | judecătoare | justiție | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">judecătoare: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🌾">crescător de vite | fermier | grădinar | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🌾">crescător de vite | fermier | fermier sau fermieră | grădinar | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">fermier sau fermieră: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🌾">crescător de vite | fermier | grădinar | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🌾">crescător de vite | fermier | fermier sau fermieră | grădinar | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">fermier sau fermieră: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🌾">crescător de vite | fermier | grădinar | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🌾">crescător de vite | fermier | fermier sau fermieră | grădinar | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">fermier sau fermieră: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🌾">crescător de vite | fermier | grădinar | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🌾">crescător de vite | fermier | fermier sau fermieră | grădinar | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">fermier sau fermieră: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🌾">crescător de vite | fermier | grădinar | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🌾">crescător de vite | fermier | fermier sau fermieră | grădinar | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">fermier sau fermieră: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🌾">agricultor | fermier | grădinar | țăran | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">fermier: ton deschis al pielii</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">fermieră: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍🌾">agricultoare | femeie grădinar | fermieră | țărancă | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">fermieră: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🍳">bucătar | chef | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🍳">bucătar | bucătar sau bucătăreasă | chef | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">bucătar sau bucătăreasă: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🍳">bucătar | chef | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🍳">bucătar | bucătar sau bucătăreasă | chef | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">bucătar sau bucătăreasă: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🍳">bucătar | chef | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🍳">bucătar | bucătar sau bucătăreasă | chef | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">bucătar sau bucătăreasă: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🍳">bucătar | chef | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🍳">bucătar | bucătar sau bucătăreasă | chef | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">bucătar sau bucătăreasă: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🍳">bucătar | chef | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🍳">bucătar | bucătar sau bucătăreasă | chef | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">bucătar sau bucătăreasă: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🍳">bucătar | bucătărie | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">bucătar: ton deschis al pielii</annotation>
@@ -1166,35 +1216,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🔧" type="tts">mecanic: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🔧">electrician | instalator | mecanic | meseriaș | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mecanic: ton închis al pielii</annotation>
-		<annotation cp="👨🏻‍🔧">electrician | instalator | mecanic | meșter | ton deschis al pielii</annotation>
+		<annotation cp="👨🏻‍🔧">electrician | instalator | mecanic | mecanic bărbat | meșter | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mecanic bărbat: ton deschis al pielii</annotation>
-		<annotation cp="👨🏼‍🔧">electrician | instalator | mecanic | meșter | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏼‍🔧">electrician | instalator | mecanic | mecanic bărbat | meșter | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👨🏼‍🔧" type="tts">mecanic bărbat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👨🏽‍🔧">electrician | instalator | mecanic | meșter | ton mediu al pielii</annotation>
+		<annotation cp="👨🏽‍🔧">electrician | instalator | mecanic | mecanic bărbat | meșter | ton mediu al pielii</annotation>
 		<annotation cp="👨🏽‍🔧" type="tts">mecanic bărbat: ton mediu al pielii</annotation>
-		<annotation cp="👨🏾‍🔧">electrician | instalator | mecanic | meșter | ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏾‍🔧">electrician | instalator | mecanic | mecanic bărbat | meșter | ton semi‑închis al pielii</annotation>
 		<annotation cp="👨🏾‍🔧" type="tts">mecanic bărbat: ton semi‑închis al pielii</annotation>
-		<annotation cp="👨🏿‍🔧">electrician | instalator | mecanic | meșter | ton închis al pielii</annotation>
+		<annotation cp="👨🏿‍🔧">electrician | instalator | mecanic | mecanic bărbat | meșter | ton închis al pielii</annotation>
 		<annotation cp="👨🏿‍🔧" type="tts">mecanic bărbat: ton închis al pielii</annotation>
-		<annotation cp="👩🏻‍🔧">electriciană | femeie mecanic | instalatoare | ton deschis al pielii</annotation>
+		<annotation cp="👩🏻‍🔧">electriciană | femeie mecanic | instalatoare | mecanic femeie | ton deschis al pielii</annotation>
 		<annotation cp="👩🏻‍🔧" type="tts">mecanic femeie: ton deschis al pielii</annotation>
-		<annotation cp="👩🏼‍🔧">electriciană | femeie mecanic | instalatoare | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🔧">electriciană | femeie mecanic | instalatoare | mecanic femeie | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👩🏼‍🔧" type="tts">mecanic femeie: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👩🏽‍🔧">electriciană | femeie mecanic | instalatoare | ton mediu al pielii</annotation>
+		<annotation cp="👩🏽‍🔧">electriciană | femeie mecanic | instalatoare | mecanic femeie | ton mediu al pielii</annotation>
 		<annotation cp="👩🏽‍🔧" type="tts">mecanic femeie: ton mediu al pielii</annotation>
-		<annotation cp="👩🏾‍🔧">electriciană | femeie mecanic | instalatoare | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏾‍🔧">electriciană | femeie mecanic | instalatoare | mecanic femeie | ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏾‍🔧" type="tts">mecanic femeie: ton semi‑închis al pielii</annotation>
-		<annotation cp="👩🏿‍🔧">electriciană | femeie mecanic | instalatoare | ton închis al pielii</annotation>
+		<annotation cp="👩🏿‍🔧">electriciană | femeie mecanic | instalatoare | mecanic femeie | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mecanic femeie: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🏭">colectiv | fabrică | industrial | muncitor | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🏭">colectiv | fabrică | industrial | muncitor | muncitor sau muncitoare în fabrică | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">muncitor sau muncitoare în fabrică: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🏭">colectiv | fabrică | industrial | muncitor | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🏭">colectiv | fabrică | industrial | muncitor | muncitor sau muncitoare în fabrică | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">muncitor sau muncitoare în fabrică: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🏭">colectiv | fabrică | industrial | muncitor | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🏭">colectiv | fabrică | industrial | muncitor | muncitor sau muncitoare în fabrică | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">muncitor sau muncitoare în fabrică: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🏭">colectiv | fabrică | industrial | muncitor | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🏭">colectiv | fabrică | industrial | muncitor | muncitor sau muncitoare în fabrică | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">muncitor sau muncitoare în fabrică: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🏭">colectiv | fabrică | industrial | muncitor | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🏭">colectiv | fabrică | industrial | muncitor | muncitor sau muncitoare în fabrică | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">muncitor sau muncitoare în fabrică: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🏭">asamblare | fabrică | industrial | muncitor | muncitor în fabrică | ton deschis al pielii | uzină</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">muncitor în fabrică: ton deschis al pielii</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">muncitoare în fabrică: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍🏭">asamblare | fabrică | industrial | muncitoare | muncitoare în fabrică | ton închis al pielii | uzină</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">muncitoare în fabrică: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍💼">arhitect | director | guler alb | manager | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍💼">arhitect | director | funcționar sau funcționară | guler alb | manager | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">funcționar sau funcționară: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍💼">arhitect | director | guler alb | manager | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍💼">arhitect | director | funcționar sau funcționară | guler alb | manager | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">funcționar sau funcționară: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍💼">arhitect | director | guler alb | manager | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍💼">arhitect | director | funcționar sau funcționară | guler alb | manager | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">funcționar sau funcționară: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍💼">arhitect | director | guler alb | manager | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍💼">arhitect | director | funcționar sau funcționară | guler alb | manager | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">funcționar sau funcționară: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍💼">arhitect | director | guler alb | manager | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍💼">arhitect | director | funcționar sau funcționară | guler alb | manager | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">funcționar sau funcționară: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍💼">administrație | arhitect | birou | business | funcționar | manager | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">funcționar: ton deschis al pielii</annotation>
@@ -1256,35 +1306,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🔬" type="tts">om de știință: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🔬">biolog | chimist | fizician | inginer | om de știință | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">om de știință: ton închis al pielii</annotation>
-		<annotation cp="👨🏻‍🔬">biolog | chimist | fizician | matematician | om de știință | ton deschis al pielii</annotation>
+		<annotation cp="👨🏻‍🔬">biolog | chimist | fizician | matematician | om de știință | om de știință bărbat | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">om de știință bărbat: ton deschis al pielii</annotation>
-		<annotation cp="👨🏼‍🔬">biolog | chimist | fizician | matematician | om de știință | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏼‍🔬">biolog | chimist | fizician | matematician | om de știință | om de știință bărbat | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👨🏼‍🔬" type="tts">om de știință bărbat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👨🏽‍🔬">biolog | chimist | fizician | matematician | om de știință | ton mediu al pielii</annotation>
+		<annotation cp="👨🏽‍🔬">biolog | chimist | fizician | matematician | om de știință | om de știință bărbat | ton mediu al pielii</annotation>
 		<annotation cp="👨🏽‍🔬" type="tts">om de știință bărbat: ton mediu al pielii</annotation>
-		<annotation cp="👨🏾‍🔬">biolog | chimist | fizician | matematician | om de știință | ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏾‍🔬">biolog | chimist | fizician | matematician | om de știință | om de știință bărbat | ton semi‑închis al pielii</annotation>
 		<annotation cp="👨🏾‍🔬" type="tts">om de știință bărbat: ton semi‑închis al pielii</annotation>
-		<annotation cp="👨🏿‍🔬">biolog | chimist | fizician | matematician | om de știință | ton închis al pielii</annotation>
+		<annotation cp="👨🏿‍🔬">biolog | chimist | fizician | matematician | om de știință | om de știință bărbat | ton închis al pielii</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">om de știință bărbat: ton închis al pielii</annotation>
-		<annotation cp="👩🏻‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | ton deschis al pielii</annotation>
+		<annotation cp="👩🏻‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | om de știință femeie | ton deschis al pielii</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">om de știință femeie: ton deschis al pielii</annotation>
-		<annotation cp="👩🏼‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | om de știință femeie | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">om de știință femeie: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👩🏽‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | ton mediu al pielii</annotation>
+		<annotation cp="👩🏽‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | om de știință femeie | ton mediu al pielii</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">om de știință femeie: ton mediu al pielii</annotation>
-		<annotation cp="👩🏾‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏾‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | om de știință femeie | ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">om de știință femeie: ton semi‑închis al pielii</annotation>
-		<annotation cp="👩🏿‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | ton închis al pielii</annotation>
+		<annotation cp="👩🏿‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | om de știință femeie | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">om de știință femeie: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍💻">dezvoltator | inventator | programator | software | tehnic | tehnolog | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍💻">dezvoltator | inventator | programator | software | specialist sau specialistă IT | tehnic | tehnolog | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">specialist sau specialistă IT: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍💻">dezvoltator | inventator | programator | software | tehnic | tehnolog | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍💻">dezvoltator | inventator | programator | software | specialist sau specialistă IT | tehnic | tehnolog | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">specialist sau specialistă IT: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍💻">dezvoltator | inventator | programator | software | tehnic | tehnolog | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍💻">dezvoltator | inventator | programator | software | specialist sau specialistă IT | tehnic | tehnolog | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">specialist sau specialistă IT: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍💻">dezvoltator | inventator | programator | software | tehnic | tehnolog | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍💻">dezvoltator | inventator | programator | software | specialist sau specialistă IT | tehnic | tehnolog | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">specialist sau specialistă IT: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍💻">dezvoltator | inventator | programator | software | tehnic | tehnolog | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍💻">dezvoltator | inventator | programator | software | specialist sau specialistă IT | tehnic | tehnolog | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">specialist sau specialistă IT: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍💻">dezvoltator | informatician | programator | software | specialist IT | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">specialist IT: ton deschis al pielii</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">specialistă IT: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍💻">dezvoltatoare | informaticiană | programatoare | software | specialistă IT | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">specialistă IT: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🎤">actor | cântăreț | comediant | rock | solist | ton deschis al pielii | vedetă</annotation>
+		<annotation cp="🧑🏻‍🎤">actor | cântăreț | cântăreț sau cântăreață | comediant | rock | solist | ton deschis al pielii | vedetă</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">cântăreț sau cântăreață: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🎤">actor | cântăreț | comediant | rock | solist | ton semi‑deschis al pielii | vedetă</annotation>
+		<annotation cp="🧑🏼‍🎤">actor | cântăreț | cântăreț sau cântăreață | comediant | rock | solist | ton semi‑deschis al pielii | vedetă</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">cântăreț sau cântăreață: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🎤">actor | cântăreț | comediant | rock | solist | ton mediu al pielii | vedetă</annotation>
+		<annotation cp="🧑🏽‍🎤">actor | cântăreț | cântăreț sau cântăreață | comediant | rock | solist | ton mediu al pielii | vedetă</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">cântăreț sau cântăreață: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🎤">actor | cântăreț | comediant | rock | solist | ton semi‑închis al pielii | vedetă</annotation>
+		<annotation cp="🧑🏾‍🎤">actor | cântăreț | cântăreț sau cântăreață | comediant | rock | solist | ton semi‑închis al pielii | vedetă</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">cântăreț sau cântăreață: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🎤">actor | cântăreț | comediant | rock | solist | ton închis al pielii | vedetă</annotation>
+		<annotation cp="🧑🏿‍🎤">actor | cântăreț | cântăreț sau cântăreață | comediant | rock | solist | ton închis al pielii | vedetă</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">cântăreț sau cântăreață: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🎤">actor | cântăreț | comediant | rock | star | ton deschis al pielii | vedetă</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">cântăreț: ton deschis al pielii</annotation>
@@ -1336,15 +1386,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎤" type="tts">cântăreață: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍🎤">actriță | cântăreață | comediantă | rock | star | ton închis al pielii | vedetă</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">cântăreață: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🎨">artist | paletă | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🎨">artist | artist sau artistă | paletă | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">artist sau artistă: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🎨">artist | paletă | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🎨">artist | artist sau artistă | paletă | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🎨" type="tts">artist sau artistă: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🎨">artist | paletă | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🎨">artist | artist sau artistă | paletă | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🎨" type="tts">artist sau artistă: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🎨">artist | paletă | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🎨">artist | artist sau artistă | paletă | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🎨" type="tts">artist sau artistă: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🎨">artist | paletă | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🎨">artist | artist sau artistă | paletă | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">artist sau artistă: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🎨">artist | paletă | pictor | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">artist: ton deschis al pielii</annotation>
@@ -1376,35 +1426,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍✈" type="tts">pilot: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏿‍✈">avion | pilot | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">pilot: ton închis al pielii</annotation>
-		<annotation cp="👨🏻‍✈">avion | pilot | ton deschis al pielii</annotation>
+		<annotation cp="👨🏻‍✈">avion | pilot | pilot bărbat | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilot bărbat: ton deschis al pielii</annotation>
-		<annotation cp="👨🏼‍✈">avion | pilot | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏼‍✈">avion | pilot | pilot bărbat | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👨🏼‍✈" type="tts">pilot bărbat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👨🏽‍✈">avion | pilot | ton mediu al pielii</annotation>
+		<annotation cp="👨🏽‍✈">avion | pilot | pilot bărbat | ton mediu al pielii</annotation>
 		<annotation cp="👨🏽‍✈" type="tts">pilot bărbat: ton mediu al pielii</annotation>
-		<annotation cp="👨🏾‍✈">avion | pilot | ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏾‍✈">avion | pilot | pilot bărbat | ton semi‑închis al pielii</annotation>
 		<annotation cp="👨🏾‍✈" type="tts">pilot bărbat: ton semi‑închis al pielii</annotation>
-		<annotation cp="👨🏿‍✈">avion | pilot | ton închis al pielii</annotation>
+		<annotation cp="👨🏿‍✈">avion | pilot | pilot bărbat | ton închis al pielii</annotation>
 		<annotation cp="👨🏿‍✈" type="tts">pilot bărbat: ton închis al pielii</annotation>
-		<annotation cp="👩🏻‍✈">avion | femeie pilot | ton deschis al pielii</annotation>
+		<annotation cp="👩🏻‍✈">avion | femeie pilot | pilot femeie | ton deschis al pielii</annotation>
 		<annotation cp="👩🏻‍✈" type="tts">pilot femeie: ton deschis al pielii</annotation>
-		<annotation cp="👩🏼‍✈">avion | femeie pilot | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍✈">avion | femeie pilot | pilot femeie | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👩🏼‍✈" type="tts">pilot femeie: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👩🏽‍✈">avion | femeie pilot | ton mediu al pielii</annotation>
+		<annotation cp="👩🏽‍✈">avion | femeie pilot | pilot femeie | ton mediu al pielii</annotation>
 		<annotation cp="👩🏽‍✈" type="tts">pilot femeie: ton mediu al pielii</annotation>
-		<annotation cp="👩🏾‍✈">avion | femeie pilot | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏾‍✈">avion | femeie pilot | pilot femeie | ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏾‍✈" type="tts">pilot femeie: ton semi‑închis al pielii</annotation>
-		<annotation cp="👩🏿‍✈">avion | femeie pilot | ton închis al pielii</annotation>
+		<annotation cp="👩🏿‍✈">avion | femeie pilot | pilot femeie | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilot femeie: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🚀">astronaut | rachetă | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🚀">astronaut | astronaut sau astronaută | rachetă | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">astronaut sau astronaută: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🚀">astronaut | rachetă | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🚀">astronaut | astronaut sau astronaută | rachetă | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🚀" type="tts">astronaut sau astronaută: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🚀">astronaut | rachetă | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🚀">astronaut | astronaut sau astronaută | rachetă | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🚀" type="tts">astronaut sau astronaută: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🚀">astronaut | rachetă | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🚀">astronaut | astronaut sau astronaută | rachetă | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🚀" type="tts">astronaut sau astronaută: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🚀">astronaut | rachetă | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🚀">astronaut | astronaut sau astronaută | rachetă | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">astronaut sau astronaută: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🚀">astronaut | cosmonaut | rachetă | spațiu | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">astronaut: ton deschis al pielii</annotation>
@@ -1436,35 +1486,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🚒" type="tts">pompier: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🚒">mașină de pompieri | pompier | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">pompier: ton închis al pielii</annotation>
-		<annotation cp="👨🏻‍🚒">mașină de pompieri | pompier | ton deschis al pielii</annotation>
+		<annotation cp="👨🏻‍🚒">mașină de pompieri | pompier | pompier bărbat | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">pompier bărbat: ton deschis al pielii</annotation>
-		<annotation cp="👨🏼‍🚒">mașină de pompieri | pompier | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏼‍🚒">mașină de pompieri | pompier | pompier bărbat | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👨🏼‍🚒" type="tts">pompier bărbat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👨🏽‍🚒">mașină de pompieri | pompier | ton mediu al pielii</annotation>
+		<annotation cp="👨🏽‍🚒">mașină de pompieri | pompier | pompier bărbat | ton mediu al pielii</annotation>
 		<annotation cp="👨🏽‍🚒" type="tts">pompier bărbat: ton mediu al pielii</annotation>
-		<annotation cp="👨🏾‍🚒">mașină de pompieri | pompier | ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏾‍🚒">mașină de pompieri | pompier | pompier bărbat | ton semi‑închis al pielii</annotation>
 		<annotation cp="👨🏾‍🚒" type="tts">pompier bărbat: ton semi‑închis al pielii</annotation>
-		<annotation cp="👨🏿‍🚒">mașină de pompieri | pompier | ton închis al pielii</annotation>
+		<annotation cp="👨🏿‍🚒">mașină de pompieri | pompier | pompier bărbat | ton închis al pielii</annotation>
 		<annotation cp="👨🏿‍🚒" type="tts">pompier bărbat: ton închis al pielii</annotation>
-		<annotation cp="👩🏻‍🚒">femeie pompier | mașină de pompieri | ton deschis al pielii</annotation>
+		<annotation cp="👩🏻‍🚒">femeie pompier | mașină de pompieri | pompier femeie | ton deschis al pielii</annotation>
 		<annotation cp="👩🏻‍🚒" type="tts">pompier femeie: ton deschis al pielii</annotation>
-		<annotation cp="👩🏼‍🚒">femeie pompier | mașină de pompieri | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🚒">femeie pompier | mașină de pompieri | pompier femeie | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👩🏼‍🚒" type="tts">pompier femeie: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👩🏽‍🚒">femeie pompier | mașină de pompieri | ton mediu al pielii</annotation>
+		<annotation cp="👩🏽‍🚒">femeie pompier | mașină de pompieri | pompier femeie | ton mediu al pielii</annotation>
 		<annotation cp="👩🏽‍🚒" type="tts">pompier femeie: ton mediu al pielii</annotation>
-		<annotation cp="👩🏾‍🚒">femeie pompier | mașină de pompieri | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏾‍🚒">femeie pompier | mașină de pompieri | pompier femeie | ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏾‍🚒" type="tts">pompier femeie: ton semi‑închis al pielii</annotation>
-		<annotation cp="👩🏿‍🚒">femeie pompier | mașină de pompieri | ton închis al pielii</annotation>
+		<annotation cp="👩🏿‍🚒">femeie pompier | mașină de pompieri | pompier femeie | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">pompier femeie: ton închis al pielii</annotation>
-		<annotation cp="👮🏻">ofițer | polițist | ton deschis al pielii</annotation>
+		<annotation cp="👮🏻">ofițer | polițist | polițist sau polițistă | ton deschis al pielii</annotation>
 		<annotation cp="👮🏻" type="tts">polițist sau polițistă: ton deschis al pielii</annotation>
-		<annotation cp="👮🏼">ofițer | polițist | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👮🏼">ofițer | polițist | polițist sau polițistă | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👮🏼" type="tts">polițist sau polițistă: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👮🏽">ofițer | polițist | ton mediu al pielii</annotation>
+		<annotation cp="👮🏽">ofițer | polițist | polițist sau polițistă | ton mediu al pielii</annotation>
 		<annotation cp="👮🏽" type="tts">polițist sau polițistă: ton mediu al pielii</annotation>
-		<annotation cp="👮🏾">ofițer | polițist | ton semi‑închis al pielii</annotation>
+		<annotation cp="👮🏾">ofițer | polițist | polițist sau polițistă | ton semi‑închis al pielii</annotation>
 		<annotation cp="👮🏾" type="tts">polițist sau polițistă: ton semi‑închis al pielii</annotation>
-		<annotation cp="👮🏿">ofițer | polițist | ton închis al pielii</annotation>
+		<annotation cp="👮🏿">ofițer | polițist | polițist sau polițistă | ton închis al pielii</annotation>
 		<annotation cp="👮🏿" type="tts">polițist sau polițistă: ton închis al pielii</annotation>
 		<annotation cp="👮🏻‍♂">ofițer | poliție | polițist | polițist bărbat | ton deschis al pielii</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">polițist: ton deschis al pielii</annotation>
@@ -1506,15 +1556,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕵🏾‍♂" type="tts">detectiv bărbat: ton semi‑închis al pielii</annotation>
 		<annotation cp="🕵🏿‍♂">agent secret | detectiv | detectiv bărbat | spion | ton închis al pielii</annotation>
 		<annotation cp="🕵🏿‍♂" type="tts">detectiv bărbat: ton închis al pielii</annotation>
-		<annotation cp="🕵🏻‍♀">agentă secretă | detectivă | femeie detectiv | spioană | ton deschis al pielii</annotation>
+		<annotation cp="🕵🏻‍♀">agentă secretă | detectiv femeie | detectivă | femeie detectiv | spioană | ton deschis al pielii</annotation>
 		<annotation cp="🕵🏻‍♀" type="tts">detectiv femeie: ton deschis al pielii</annotation>
-		<annotation cp="🕵🏼‍♀">agentă secretă | detectivă | femeie detectiv | spioană | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🕵🏼‍♀">agentă secretă | detectiv femeie | detectivă | femeie detectiv | spioană | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🕵🏼‍♀" type="tts">detectiv femeie: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🕵🏽‍♀">agentă secretă | detectivă | femeie detectiv | spioană | ton mediu al pielii</annotation>
+		<annotation cp="🕵🏽‍♀">agentă secretă | detectiv femeie | detectivă | femeie detectiv | spioană | ton mediu al pielii</annotation>
 		<annotation cp="🕵🏽‍♀" type="tts">detectiv femeie: ton mediu al pielii</annotation>
-		<annotation cp="🕵🏾‍♀">agentă secretă | detectivă | femeie detectiv | spioană | ton semi‑închis al pielii</annotation>
+		<annotation cp="🕵🏾‍♀">agentă secretă | detectiv femeie | detectivă | femeie detectiv | spioană | ton semi‑închis al pielii</annotation>
 		<annotation cp="🕵🏾‍♀" type="tts">detectiv femeie: ton semi‑închis al pielii</annotation>
-		<annotation cp="🕵🏿‍♀">agentă secretă | detectivă | femeie detectiv | spioană | ton închis al pielii</annotation>
+		<annotation cp="🕵🏿‍♀">agentă secretă | detectiv femeie | detectivă | femeie detectiv | spioană | ton închis al pielii</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">detectiv femeie: ton închis al pielii</annotation>
 		<annotation cp="💂🏻">gardă | gardian | pază | protecție | ton deschis al pielii</annotation>
 		<annotation cp="💂🏻" type="tts">gardian: ton deschis al pielii</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">femeie cu năframă: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧕🏿">broboadă | femeie cu năframă | hijab | năframă | tichel | ton închis al pielii</annotation>
 		<annotation cp="🧕🏿" type="tts">femeie cu năframă: ton închis al pielii</annotation>
-		<annotation cp="🤵🏻">bărbat | bărbat în frac | frac | mire | ton deschis al pielii</annotation>
-		<annotation cp="🤵🏻" type="tts">bărbat în frac: ton deschis al pielii</annotation>
-		<annotation cp="🤵🏼">bărbat | bărbat în frac | frac | mire | ton semi‑deschis al pielii</annotation>
-		<annotation cp="🤵🏼" type="tts">bărbat în frac: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🤵🏽">bărbat | bărbat în frac | frac | mire | ton mediu al pielii</annotation>
-		<annotation cp="🤵🏽" type="tts">bărbat în frac: ton mediu al pielii</annotation>
-		<annotation cp="🤵🏾">bărbat | bărbat în frac | frac | mire | ton semi‑închis al pielii</annotation>
-		<annotation cp="🤵🏾" type="tts">bărbat în frac: ton semi‑închis al pielii</annotation>
-		<annotation cp="🤵🏿">bărbat | bărbat în frac | frac | mire | ton închis al pielii</annotation>
-		<annotation cp="🤵🏿" type="tts">bărbat în frac: ton închis al pielii</annotation>
-		<annotation cp="👰🏻">femeie | mireasă cu voal | nuntă | ton deschis al pielii | voal</annotation>
-		<annotation cp="👰🏻" type="tts">mireasă cu voal: ton deschis al pielii</annotation>
-		<annotation cp="👰🏼">femeie | mireasă cu voal | nuntă | ton semi‑deschis al pielii | voal</annotation>
-		<annotation cp="👰🏼" type="tts">mireasă cu voal: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👰🏽">femeie | mireasă cu voal | nuntă | ton mediu al pielii | voal</annotation>
-		<annotation cp="👰🏽" type="tts">mireasă cu voal: ton mediu al pielii</annotation>
-		<annotation cp="👰🏾">femeie | mireasă cu voal | nuntă | ton semi‑închis al pielii | voal</annotation>
-		<annotation cp="👰🏾" type="tts">mireasă cu voal: ton semi‑închis al pielii</annotation>
-		<annotation cp="👰🏿">femeie | mireasă cu voal | nuntă | ton închis al pielii | voal</annotation>
-		<annotation cp="👰🏿" type="tts">mireasă cu voal: ton închis al pielii</annotation>
+		<annotation cp="🤵🏻">mire | persoană | persoană în smoching | smoching | ton deschis al pielii</annotation>
+		<annotation cp="🤵🏻" type="tts">persoană în smoching: ton deschis al pielii</annotation>
+		<annotation cp="🤵🏼">mire | persoană | persoană în smoching | smoching | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤵🏼" type="tts">persoană în smoching: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤵🏽">mire | persoană | persoană în smoching | smoching | ton mediu al pielii</annotation>
+		<annotation cp="🤵🏽" type="tts">persoană în smoching: ton mediu al pielii</annotation>
+		<annotation cp="🤵🏾">mire | persoană | persoană în smoching | smoching | ton semi‑închis al pielii</annotation>
+		<annotation cp="🤵🏾" type="tts">persoană în smoching: ton semi‑închis al pielii</annotation>
+		<annotation cp="🤵🏿">mire | persoană | persoană în smoching | smoching | ton închis al pielii</annotation>
+		<annotation cp="🤵🏿" type="tts">persoană în smoching: ton închis al pielii</annotation>
+		<annotation cp="🤵🏻‍♀">femeie | femeie în smoching | smoching | ton deschis al pielii</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">femeie în smoching: ton deschis al pielii</annotation>
+		<annotation cp="🤵🏼‍♀">femeie | femeie în smoching | smoching | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">femeie în smoching: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤵🏽‍♀">femeie | femeie în smoching | smoching | ton mediu al pielii</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">femeie în smoching: ton mediu al pielii</annotation>
+		<annotation cp="🤵🏾‍♀">femeie | femeie în smoching | smoching | ton semi‑închis al pielii</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">femeie în smoching: ton semi‑închis al pielii</annotation>
+		<annotation cp="🤵🏿‍♀">femeie | femeie în smoching | smoching | ton închis al pielii</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">femeie în smoching: ton închis al pielii</annotation>
+		<annotation cp="🤵🏻‍♂">bărbat | bărbat în smoching | smoching | ton deschis al pielii</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">bărbat în smoching: ton deschis al pielii</annotation>
+		<annotation cp="🤵🏼‍♂">bărbat | bărbat în smoching | smoching | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">bărbat în smoching: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤵🏽‍♂">bărbat | bărbat în smoching | smoching | ton mediu al pielii</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">bărbat în smoching: ton mediu al pielii</annotation>
+		<annotation cp="🤵🏾‍♂">bărbat | bărbat în smoching | smoching | ton semi‑închis al pielii</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">bărbat în smoching: ton semi‑închis al pielii</annotation>
+		<annotation cp="🤵🏿‍♂">bărbat | bărbat în smoching | smoching | ton închis al pielii</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">bărbat în smoching: ton închis al pielii</annotation>
+		<annotation cp="👰🏻">mireasă | nuntă | persoană | persoană cu voal | ton deschis al pielii | voal</annotation>
+		<annotation cp="👰🏻" type="tts">persoană cu voal: ton deschis al pielii</annotation>
+		<annotation cp="👰🏼">mireasă | nuntă | persoană | persoană cu voal | ton semi‑deschis al pielii | voal</annotation>
+		<annotation cp="👰🏼" type="tts">persoană cu voal: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👰🏽">mireasă | nuntă | persoană | persoană cu voal | ton mediu al pielii | voal</annotation>
+		<annotation cp="👰🏽" type="tts">persoană cu voal: ton mediu al pielii</annotation>
+		<annotation cp="👰🏾">mireasă | nuntă | persoană | persoană cu voal | ton semi‑închis al pielii | voal</annotation>
+		<annotation cp="👰🏾" type="tts">persoană cu voal: ton semi‑închis al pielii</annotation>
+		<annotation cp="👰🏿">mireasă | nuntă | persoană | persoană cu voal | ton închis al pielii | voal</annotation>
+		<annotation cp="👰🏿" type="tts">persoană cu voal: ton închis al pielii</annotation>
+		<annotation cp="👰🏻‍♀">femeie | femeie cu voal | ton deschis al pielii | voal</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">femeie cu voal: ton deschis al pielii</annotation>
+		<annotation cp="👰🏼‍♀">femeie | femeie cu voal | ton semi‑deschis al pielii | voal</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">femeie cu voal: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👰🏽‍♀">femeie | femeie cu voal | ton mediu al pielii | voal</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">femeie cu voal: ton mediu al pielii</annotation>
+		<annotation cp="👰🏾‍♀">femeie | femeie cu voal | ton semi‑închis al pielii | voal</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">femeie cu voal: ton semi‑închis al pielii</annotation>
+		<annotation cp="👰🏿‍♀">femeie | femeie cu voal | ton închis al pielii | voal</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">femeie cu voal: ton închis al pielii</annotation>
+		<annotation cp="👰🏻‍♂">bărbat | bărbat cu voal | ton deschis al pielii | voal</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">bărbat cu voal: ton deschis al pielii</annotation>
+		<annotation cp="👰🏼‍♂">bărbat | bărbat cu voal | ton semi‑deschis al pielii | voal</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">bărbat cu voal: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👰🏽‍♂">bărbat | bărbat cu voal | ton mediu al pielii | voal</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">bărbat cu voal: ton mediu al pielii</annotation>
+		<annotation cp="👰🏾‍♂">bărbat | bărbat cu voal | ton semi‑închis al pielii | voal</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">bărbat cu voal: ton semi‑închis al pielii</annotation>
+		<annotation cp="👰🏿‍♂">bărbat | bărbat cu voal | ton închis al pielii | voal</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">bărbat cu voal: ton închis al pielii</annotation>
 		<annotation cp="🤰🏻">femeie | femeie însărcinată | gravidă | ton deschis al pielii</annotation>
 		<annotation cp="🤰🏻" type="tts">femeie însărcinată: ton deschis al pielii</annotation>
 		<annotation cp="🤰🏼">femeie | femeie însărcinată | gravidă | ton semi‑deschis al pielii</annotation>
@@ -1926,15 +2016,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧝🏾‍♀" type="tts">femeie elf: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧝🏿‍♀">elfă | femeie elf | magie | ton închis al pielii</annotation>
 		<annotation cp="🧝🏿‍♀" type="tts">femeie elf: ton închis al pielii</annotation>
-		<annotation cp="💆🏻">față | masaj | persoană care primește un masaj | salon | ton deschis al pielii</annotation>
+		<annotation cp="💆🏻">față | masaj | persoană care primește un masaj | persoană care primește un masaj facial | salon | ton deschis al pielii</annotation>
 		<annotation cp="💆🏻" type="tts">persoană care primește un masaj facial: ton deschis al pielii</annotation>
-		<annotation cp="💆🏼">față | masaj | persoană care primește un masaj | salon | ton semi‑deschis al pielii</annotation>
+		<annotation cp="💆🏼">față | masaj | persoană care primește un masaj | persoană care primește un masaj facial | salon | ton semi‑deschis al pielii</annotation>
 		<annotation cp="💆🏼" type="tts">persoană care primește un masaj facial: ton semi‑deschis al pielii</annotation>
-		<annotation cp="💆🏽">față | masaj | persoană care primește un masaj | salon | ton mediu al pielii</annotation>
+		<annotation cp="💆🏽">față | masaj | persoană care primește un masaj | persoană care primește un masaj facial | salon | ton mediu al pielii</annotation>
 		<annotation cp="💆🏽" type="tts">persoană care primește un masaj facial: ton mediu al pielii</annotation>
-		<annotation cp="💆🏾">față | masaj | persoană care primește un masaj | salon | ton semi‑închis al pielii</annotation>
+		<annotation cp="💆🏾">față | masaj | persoană care primește un masaj | persoană care primește un masaj facial | salon | ton semi‑închis al pielii</annotation>
 		<annotation cp="💆🏾" type="tts">persoană care primește un masaj facial: ton semi‑închis al pielii</annotation>
-		<annotation cp="💆🏿">față | masaj | persoană care primește un masaj | salon | ton închis al pielii</annotation>
+		<annotation cp="💆🏿">față | masaj | persoană care primește un masaj | persoană care primește un masaj facial | salon | ton închis al pielii</annotation>
 		<annotation cp="💆🏿" type="tts">persoană care primește un masaj facial: ton închis al pielii</annotation>
 		<annotation cp="💆🏻‍♂">bărbat | bărbat care primește un masaj facial | față | masaj facial | ton deschis al pielii</annotation>
 		<annotation cp="💆🏻‍♂" type="tts">bărbat care primește un masaj facial: ton deschis al pielii</annotation>
@@ -1956,15 +2046,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💆🏾‍♀" type="tts">femeie care primește un masaj facial: ton semi‑închis al pielii</annotation>
 		<annotation cp="💆🏿‍♀">față | femeie | femeie care primește un masaj facial | masaj facial | ton închis al pielii</annotation>
 		<annotation cp="💆🏿‍♀" type="tts">femeie care primește un masaj facial: ton închis al pielii</annotation>
-		<annotation cp="💇🏻">coafor | frizerie | frumusețe | oafat | persoană care se tunde | salon | ton deschis al pielii | tuns | tunsoare</annotation>
+		<annotation cp="💇🏻">coafor | frizerie | frumusețe | oafat | persoană care de tunde | persoană care se tunde | salon | ton deschis al pielii | tuns | tunsoare</annotation>
 		<annotation cp="💇🏻" type="tts">persoană care de tunde: ton deschis al pielii</annotation>
-		<annotation cp="💇🏼">coafor | frizerie | frumusețe | oafat | persoană care se tunde | salon | ton semi‑deschis al pielii | tuns | tunsoare</annotation>
+		<annotation cp="💇🏼">coafor | frizerie | frumusețe | oafat | persoană care de tunde | persoană care se tunde | salon | ton semi‑deschis al pielii | tuns | tunsoare</annotation>
 		<annotation cp="💇🏼" type="tts">persoană care de tunde: ton semi‑deschis al pielii</annotation>
-		<annotation cp="💇🏽">coafor | frizerie | frumusețe | oafat | persoană care se tunde | salon | ton mediu al pielii | tuns | tunsoare</annotation>
+		<annotation cp="💇🏽">coafor | frizerie | frumusețe | oafat | persoană care de tunde | persoană care se tunde | salon | ton mediu al pielii | tuns | tunsoare</annotation>
 		<annotation cp="💇🏽" type="tts">persoană care de tunde: ton mediu al pielii</annotation>
-		<annotation cp="💇🏾">coafor | frizerie | frumusețe | oafat | persoană care se tunde | salon | ton semi‑închis al pielii | tuns | tunsoare</annotation>
+		<annotation cp="💇🏾">coafor | frizerie | frumusețe | oafat | persoană care de tunde | persoană care se tunde | salon | ton semi‑închis al pielii | tuns | tunsoare</annotation>
 		<annotation cp="💇🏾" type="tts">persoană care de tunde: ton semi‑închis al pielii</annotation>
-		<annotation cp="💇🏿">coafor | frizerie | frumusețe | oafat | persoană care se tunde | salon | ton închis al pielii | tuns | tunsoare</annotation>
+		<annotation cp="💇🏿">coafor | frizerie | frumusețe | oafat | persoană care de tunde | persoană care se tunde | salon | ton închis al pielii | tuns | tunsoare</annotation>
 		<annotation cp="💇🏿" type="tts">persoană care de tunde: ton închis al pielii</annotation>
 		<annotation cp="💇🏻‍♂">bărbat | bărbat care se tunde | frizerie | ton deschis al pielii | tunsoare</annotation>
 		<annotation cp="💇🏻‍♂" type="tts">bărbat care se tunde: ton deschis al pielii</annotation>
@@ -2026,25 +2116,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧍🏾" type="tts">persoană în picioare: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧍🏿">a sta în picioare | în picioare | persoană în picioare | ridicat | ton închis al pielii</annotation>
 		<annotation cp="🧍🏿" type="tts">persoană în picioare: ton închis al pielii</annotation>
-		<annotation cp="🧍🏻‍♂">bărbat | în picioare | ridicat | ton deschis al pielii</annotation>
+		<annotation cp="🧍🏻‍♂">bărbat | bărbat în picioare | în picioare | ridicat | ton deschis al pielii</annotation>
 		<annotation cp="🧍🏻‍♂" type="tts">bărbat în picioare: ton deschis al pielii</annotation>
-		<annotation cp="🧍🏼‍♂">bărbat | în picioare | ridicat | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧍🏼‍♂">bărbat | bărbat în picioare | în picioare | ridicat | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧍🏼‍♂" type="tts">bărbat în picioare: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧍🏽‍♂">bărbat | în picioare | ridicat | ton mediu al pielii</annotation>
+		<annotation cp="🧍🏽‍♂">bărbat | bărbat în picioare | în picioare | ridicat | ton mediu al pielii</annotation>
 		<annotation cp="🧍🏽‍♂" type="tts">bărbat în picioare: ton mediu al pielii</annotation>
-		<annotation cp="🧍🏾‍♂">bărbat | în picioare | ridicat | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧍🏾‍♂">bărbat | bărbat în picioare | în picioare | ridicat | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧍🏾‍♂" type="tts">bărbat în picioare: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧍🏿‍♂">bărbat | în picioare | ridicat | ton închis al pielii</annotation>
+		<annotation cp="🧍🏿‍♂">bărbat | bărbat în picioare | în picioare | ridicat | ton închis al pielii</annotation>
 		<annotation cp="🧍🏿‍♂" type="tts">bărbat în picioare: ton închis al pielii</annotation>
-		<annotation cp="🧍🏻‍♀">femeie | în picioare | ridicată | ton deschis al pielii</annotation>
+		<annotation cp="🧍🏻‍♀">femeie | femeie în picioare | în picioare | ridicată | ton deschis al pielii</annotation>
 		<annotation cp="🧍🏻‍♀" type="tts">femeie în picioare: ton deschis al pielii</annotation>
-		<annotation cp="🧍🏼‍♀">femeie | în picioare | ridicată | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧍🏼‍♀">femeie | femeie în picioare | în picioare | ridicată | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧍🏼‍♀" type="tts">femeie în picioare: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧍🏽‍♀">femeie | în picioare | ridicată | ton mediu al pielii</annotation>
+		<annotation cp="🧍🏽‍♀">femeie | femeie în picioare | în picioare | ridicată | ton mediu al pielii</annotation>
 		<annotation cp="🧍🏽‍♀" type="tts">femeie în picioare: ton mediu al pielii</annotation>
-		<annotation cp="🧍🏾‍♀">femeie | în picioare | ridicată | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧍🏾‍♀">femeie | femeie în picioare | în picioare | ridicată | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧍🏾‍♀" type="tts">femeie în picioare: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧍🏿‍♀">femeie | în picioare | ridicată | ton închis al pielii</annotation>
+		<annotation cp="🧍🏿‍♀">femeie | femeie în picioare | în picioare | ridicată | ton închis al pielii</annotation>
 		<annotation cp="🧍🏿‍♀" type="tts">femeie în picioare: ton închis al pielii</annotation>
 		<annotation cp="🧎🏻">a îngenunchea | genunchi | îngenunchere | persoană în genunchi | ton deschis al pielii</annotation>
 		<annotation cp="🧎🏻" type="tts">persoană în genunchi: ton deschis al pielii</annotation>
@@ -2056,35 +2146,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾" type="tts">persoană în genunchi: ton semi‑închis al pielii</annotation>
 		<annotation cp="🧎🏿">a îngenunchea | genunchi | îngenunchere | persoană în genunchi | ton închis al pielii</annotation>
 		<annotation cp="🧎🏿" type="tts">persoană în genunchi: ton închis al pielii</annotation>
-		<annotation cp="🧎🏻‍♂">bărbat | în genunchi | îngenuncheat | îngenunchind | ton deschis al pielii</annotation>
+		<annotation cp="🧎🏻‍♂">bărbat | bărbat în genunchi | în genunchi | îngenuncheat | îngenunchind | ton deschis al pielii</annotation>
 		<annotation cp="🧎🏻‍♂" type="tts">bărbat în genunchi: ton deschis al pielii</annotation>
-		<annotation cp="🧎🏼‍♂">bărbat | în genunchi | îngenuncheat | îngenunchind | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧎🏼‍♂">bărbat | bărbat în genunchi | în genunchi | îngenuncheat | îngenunchind | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧎🏼‍♂" type="tts">bărbat în genunchi: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧎🏽‍♂">bărbat | în genunchi | îngenuncheat | îngenunchind | ton mediu al pielii</annotation>
+		<annotation cp="🧎🏽‍♂">bărbat | bărbat în genunchi | în genunchi | îngenuncheat | îngenunchind | ton mediu al pielii</annotation>
 		<annotation cp="🧎🏽‍♂" type="tts">bărbat în genunchi: ton mediu al pielii</annotation>
-		<annotation cp="🧎🏾‍♂">bărbat | în genunchi | îngenuncheat | îngenunchind | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧎🏾‍♂">bărbat | bărbat în genunchi | în genunchi | îngenuncheat | îngenunchind | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧎🏾‍♂" type="tts">bărbat în genunchi: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧎🏿‍♂">bărbat | în genunchi | îngenuncheat | îngenunchind | ton închis al pielii</annotation>
+		<annotation cp="🧎🏿‍♂">bărbat | bărbat în genunchi | în genunchi | îngenuncheat | îngenunchind | ton închis al pielii</annotation>
 		<annotation cp="🧎🏿‍♂" type="tts">bărbat în genunchi: ton închis al pielii</annotation>
-		<annotation cp="🧎🏻‍♀">femeie | în genunchi | îngenuncheată | îngenunchind | ton deschis al pielii</annotation>
+		<annotation cp="🧎🏻‍♀">femeie | femeie în genunchi | în genunchi | îngenuncheată | îngenunchind | ton deschis al pielii</annotation>
 		<annotation cp="🧎🏻‍♀" type="tts">femeie în genunchi: ton deschis al pielii</annotation>
-		<annotation cp="🧎🏼‍♀">femeie | în genunchi | îngenuncheată | îngenunchind | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧎🏼‍♀">femeie | femeie în genunchi | în genunchi | îngenuncheată | îngenunchind | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧎🏼‍♀" type="tts">femeie în genunchi: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧎🏽‍♀">femeie | în genunchi | îngenuncheată | îngenunchind | ton mediu al pielii</annotation>
+		<annotation cp="🧎🏽‍♀">femeie | femeie în genunchi | în genunchi | îngenuncheată | îngenunchind | ton mediu al pielii</annotation>
 		<annotation cp="🧎🏽‍♀" type="tts">femeie în genunchi: ton mediu al pielii</annotation>
-		<annotation cp="🧎🏾‍♀">femeie | în genunchi | îngenuncheată | îngenunchind | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧎🏾‍♀">femeie | femeie în genunchi | în genunchi | îngenuncheată | îngenunchind | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧎🏾‍♀" type="tts">femeie în genunchi: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧎🏿‍♀">femeie | în genunchi | îngenuncheată | îngenunchind | ton închis al pielii</annotation>
+		<annotation cp="🧎🏿‍♀">femeie | femeie în genunchi | în genunchi | îngenuncheată | îngenunchind | ton închis al pielii</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">femeie în genunchi: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🦯">accesibilitate | nevăzător | orb | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🦯">accesibilitate | nevăzător | orb | persoană cu baston pentru nevăzători | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">persoană cu baston pentru nevăzători: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🦯">accesibilitate | nevăzător | orb | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🦯">accesibilitate | nevăzător | orb | persoană cu baston pentru nevăzători | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">persoană cu baston pentru nevăzători: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🦯">accesibilitate | nevăzător | orb | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🦯">accesibilitate | nevăzător | orb | persoană cu baston pentru nevăzători | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">persoană cu baston pentru nevăzători: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🦯">accesibilitate | nevăzător | orb | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🦯">accesibilitate | nevăzător | orb | persoană cu baston pentru nevăzători | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">persoană cu baston pentru nevăzători: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🦯">accesibilitate | nevăzător | orb | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🦯">accesibilitate | nevăzător | orb | persoană cu baston pentru nevăzători | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">persoană cu baston pentru nevăzători: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🦯">accesibilitate | bărbat | bărbat cu baston pentru nevăzători | nevăzător | orb | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">bărbat cu baston pentru nevăzători: ton deschis al pielii</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">femeie cu baston pentru nevăzători: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍🦯">accesibilitate | femeie | femeie cu baston pentru nevăzători | nevăzătoare | oarbă | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">femeie cu baston pentru nevăzători: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🦼">accesibilitate | scaun cu rotile | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🦼">accesibilitate | persoană în scaun cu rotile motorizat | scaun cu rotile | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">persoană în scaun cu rotile motorizat: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🦼">accesibilitate | scaun cu rotile | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🦼">accesibilitate | persoană în scaun cu rotile motorizat | scaun cu rotile | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">persoană în scaun cu rotile motorizat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🦼">accesibilitate | scaun cu rotile | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🦼">accesibilitate | persoană în scaun cu rotile motorizat | scaun cu rotile | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">persoană în scaun cu rotile motorizat: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🦼">accesibilitate | scaun cu rotile | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🦼">accesibilitate | persoană în scaun cu rotile motorizat | scaun cu rotile | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">persoană în scaun cu rotile motorizat: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🦼">accesibilitate | scaun cu rotile | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🦼">accesibilitate | persoană în scaun cu rotile motorizat | scaun cu rotile | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">persoană în scaun cu rotile motorizat: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🦼">accesibilitate | bărbat | bărbat în scaun cu rotile motorizat | scaun cu rotile | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">bărbat în scaun cu rotile motorizat: ton deschis al pielii</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">femeie în scaun cu rotile motorizat: ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏿‍🦼">accesibilitate | femeie | femeie în scaun cu rotile motorizat | scaun cu rotile | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">femeie în scaun cu rotile motorizat: ton închis al pielii</annotation>
-		<annotation cp="🧑🏻‍🦽">accesibilitate | scaun cu rotile | ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🦽">accesibilitate | persoană în scaun cu rotile manual | scaun cu rotile | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">persoană în scaun cu rotile manual: ton deschis al pielii</annotation>
-		<annotation cp="🧑🏼‍🦽">accesibilitate | scaun cu rotile | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🦽">accesibilitate | persoană în scaun cu rotile manual | scaun cu rotile | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">persoană în scaun cu rotile manual: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🧑🏽‍🦽">accesibilitate | scaun cu rotile | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🦽">accesibilitate | persoană în scaun cu rotile manual | scaun cu rotile | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">persoană în scaun cu rotile manual: ton mediu al pielii</annotation>
-		<annotation cp="🧑🏾‍🦽">accesibilitate | scaun cu rotile | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🦽">accesibilitate | persoană în scaun cu rotile manual | scaun cu rotile | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">persoană în scaun cu rotile manual: ton semi‑închis al pielii</annotation>
-		<annotation cp="🧑🏿‍🦽">accesibilitate | scaun cu rotile | ton închis al pielii</annotation>
+		<annotation cp="🧑🏿‍🦽">accesibilitate | persoană în scaun cu rotile manual | scaun cu rotile | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">persoană în scaun cu rotile manual: ton închis al pielii</annotation>
 		<annotation cp="👨🏻‍🦽">accesibilitate | bărbat | bărbat în scaun cu rotile manual | scaun cu rotile | ton deschis al pielii</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">bărbat în scaun cu rotile manual: ton deschis al pielii</annotation>
@@ -2346,25 +2436,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏄🏾" type="tts">persoană care practică surfing: ton semi‑închis al pielii</annotation>
 		<annotation cp="🏄🏿">persoană care practică surfing | surfing | ton închis al pielii</annotation>
 		<annotation cp="🏄🏿" type="tts">persoană care practică surfing: ton închis al pielii</annotation>
-		<annotation cp="🏄🏻‍♂">bărbat | surfing | ton deschis al pielii</annotation>
+		<annotation cp="🏄🏻‍♂">bărbat | bărbat care practică surfing | surfing | ton deschis al pielii</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">bărbat care practică surfing: ton deschis al pielii</annotation>
-		<annotation cp="🏄🏼‍♂">bărbat | surfing | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🏄🏼‍♂">bărbat | bărbat care practică surfing | surfing | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🏄🏼‍♂" type="tts">bărbat care practică surfing: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🏄🏽‍♂">bărbat | surfing | ton mediu al pielii</annotation>
+		<annotation cp="🏄🏽‍♂">bărbat | bărbat care practică surfing | surfing | ton mediu al pielii</annotation>
 		<annotation cp="🏄🏽‍♂" type="tts">bărbat care practică surfing: ton mediu al pielii</annotation>
-		<annotation cp="🏄🏾‍♂">bărbat | surfing | ton semi‑închis al pielii</annotation>
+		<annotation cp="🏄🏾‍♂">bărbat | bărbat care practică surfing | surfing | ton semi‑închis al pielii</annotation>
 		<annotation cp="🏄🏾‍♂" type="tts">bărbat care practică surfing: ton semi‑închis al pielii</annotation>
-		<annotation cp="🏄🏿‍♂">bărbat | surfing | ton închis al pielii</annotation>
+		<annotation cp="🏄🏿‍♂">bărbat | bărbat care practică surfing | surfing | ton închis al pielii</annotation>
 		<annotation cp="🏄🏿‍♂" type="tts">bărbat care practică surfing: ton închis al pielii</annotation>
-		<annotation cp="🏄🏻‍♀">femeie | surfing | ton deschis al pielii</annotation>
+		<annotation cp="🏄🏻‍♀">femeie | femeie care practică surfing | surfing | ton deschis al pielii</annotation>
 		<annotation cp="🏄🏻‍♀" type="tts">femeie care practică surfing: ton deschis al pielii</annotation>
-		<annotation cp="🏄🏼‍♀">femeie | surfing | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🏄🏼‍♀">femeie | femeie care practică surfing | surfing | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🏄🏼‍♀" type="tts">femeie care practică surfing: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🏄🏽‍♀">femeie | surfing | ton mediu al pielii</annotation>
+		<annotation cp="🏄🏽‍♀">femeie | femeie care practică surfing | surfing | ton mediu al pielii</annotation>
 		<annotation cp="🏄🏽‍♀" type="tts">femeie care practică surfing: ton mediu al pielii</annotation>
-		<annotation cp="🏄🏾‍♀">femeie | surfing | ton semi‑închis al pielii</annotation>
+		<annotation cp="🏄🏾‍♀">femeie | femeie care practică surfing | surfing | ton semi‑închis al pielii</annotation>
 		<annotation cp="🏄🏾‍♀" type="tts">femeie care practică surfing: ton semi‑închis al pielii</annotation>
-		<annotation cp="🏄🏿‍♀">femeie | surfing | ton închis al pielii</annotation>
+		<annotation cp="🏄🏿‍♀">femeie | femeie care practică surfing | surfing | ton închis al pielii</annotation>
 		<annotation cp="🏄🏿‍♀" type="tts">femeie care practică surfing: ton închis al pielii</annotation>
 		<annotation cp="🚣🏻">barcă | persoană care vâslește în barcă | ton deschis al pielii | vâsle</annotation>
 		<annotation cp="🚣🏻" type="tts">persoană care vâslește în barcă: ton deschis al pielii</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">persoană în pat: ton închis al pielii</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">persoane ținându-se de mână: ton deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">persoane ținându-se de mână: ton deschis al pielii, ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">persoane ținându-se de mână: ton deschis al pielii, ton mediu al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">persoane ținându-se de mână: ton deschis al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton închis al pielii</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">persoane ținându-se de mână: ton deschis al pielii, ton închis al pielii</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">persoane ținându-se de mână: ton semi‑deschis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">persoane ținându-se de mână: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton mediu al pielii | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">persoane ținându-se de mână: ton semi‑deschis al pielii, ton mediu al pielii</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton semi‑deschis al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">persoane ținându-se de mână: ton semi‑deschis al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton închis al pielii | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">persoane ținându-se de mână: ton semi‑deschis al pielii, ton închis al pielii</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">persoane ținându-se de mână: ton mediu al pielii, ton deschis al pielii</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton mediu al pielii | ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">persoane ținându-se de mână: ton mediu al pielii, ton semi‑deschis al pielii</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton mediu al pielii</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">persoane ținându-se de mână: ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton mediu al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">persoane ținându-se de mână: ton mediu al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton închis al pielii | ton mediu al pielii</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">persoane ținându-se de mână: ton mediu al pielii, ton închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">persoane ținându-se de mână: ton semi‑închis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton semi‑deschis al pielii | ton semi‑închis al pielii</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">persoane ținându-se de mână: ton semi‑închis al pielii, ton mediu al pielii</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton semi‑închis al pielii</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">persoane ținându-se de mână: ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton închis al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">persoane ținându-se de mână: ton semi‑închis al pielii, ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton deschis al pielii | ton închis al pielii</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">persoane ținându-se de mână: ton închis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">cuplu | mână | persoană | persoane ținându-se de mână | ținându-se de mână | ține | ton închis al pielii | ton semi‑deschis al pielii</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">persoane ținându-se de mână: ton închis al pielii</annotation>
 		<annotation cp="👭🏻">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii</annotation>
 		<annotation cp="👭🏻" type="tts">femei ținându-se de mână: ton deschis al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">femei ținându-se de mână: ton deschis al pielii, ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton mediu al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">femei ținându-se de mână: ton deschis al pielii, ton mediu al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">femei ținându-se de mână: ton deschis al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton închis al pielii</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">femei ținându-se de mână: ton deschis al pielii, ton închis al pielii</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">femei ținându-se de mână: ton semi‑deschis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👭🏼">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👭🏼" type="tts">femei ținându-se de mână: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton mediu al pielii | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">femei ținându-se de mână: ton semi‑deschis al pielii, ton mediu al pielii</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton semi‑deschis al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">femei ținându-se de mână: ton semi‑deschis al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton închis al pielii | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">femei ținându-se de mână: ton semi‑deschis al pielii, ton închis al pielii</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton mediu al pielii</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">femei ținându-se de mână: ton mediu al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton mediu al pielii | ton semi‑deschis al pielii</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">femei ținându-se de mână: ton mediu al pielii, ton semi‑deschis al pielii</annotation>
 		<annotation cp="👭🏽">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton mediu al pielii</annotation>
 		<annotation cp="👭🏽" type="tts">femei ținându-se de mână: ton mediu al pielii</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton mediu al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">femei ținându-se de mână: ton mediu al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton închis al pielii | ton mediu al pielii</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">femei ținându-se de mână: ton mediu al pielii, ton închis al pielii</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton semi‑închis al pielii</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">femei ținându-se de mână: ton semi‑închis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton semi‑deschis al pielii | ton semi‑închis al pielii</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">femei ținându-se de mână: ton semi‑închis al pielii, ton mediu al pielii</annotation>
 		<annotation cp="👭🏾">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton semi‑închis al pielii</annotation>
 		<annotation cp="👭🏾" type="tts">femei ținându-se de mână: ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton închis al pielii | ton semi‑închis al pielii</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">femei ținându-se de mână: ton semi‑închis al pielii, ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton deschis al pielii | ton închis al pielii</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">femei ținându-se de mână: ton închis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">cuplu | femei | femei ținându-se de mână | mână | ținându-se de mână | ține | ton închis al pielii | ton semi‑deschis al pielii</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">bărbat și femeie ținându-se de mână: ton închis al pielii</annotation>
 		<annotation cp="👬🏻">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | zodiac</annotation>
 		<annotation cp="👬🏻" type="tts">bărbați ținându-se de mână: ton deschis al pielii</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton semi‑deschis al pielii | zodiac</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">bărbați ținându-se de mână: ton deschis al pielii, ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton mediu al pielii | zodiac</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">bărbați ținându-se de mână: ton deschis al pielii, ton mediu al pielii</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton semi‑închis al pielii | zodiac</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">bărbați ținându-se de mână: ton deschis al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton închis al pielii | zodiac</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">bărbați ținându-se de mână: ton deschis al pielii, ton închis al pielii</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton semi‑deschis al pielii | zodiac</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">bărbați ținându-se de mână: ton semi‑deschis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👬🏼">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton semi‑deschis al pielii | zodiac</annotation>
 		<annotation cp="👬🏼" type="tts">bărbați ținându-se de mână: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton mediu al pielii | ton semi‑deschis al pielii | zodiac</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">bărbați ținându-se de mână: ton semi‑deschis al pielii, ton mediu al pielii</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton semi‑deschis al pielii | ton semi‑închis al pielii | zodiac</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">bărbați ținându-se de mână: ton semi‑deschis al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton închis al pielii | ton semi‑deschis al pielii | zodiac</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">bărbați ținându-se de mână: ton semi‑deschis al pielii, ton închis al pielii</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton mediu al pielii | zodiac</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">bărbați ținându-se de mână: ton mediu al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton mediu al pielii | ton semi‑deschis al pielii | zodiac</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">bărbați ținându-se de mână: ton mediu al pielii, ton semi‑deschis al pielii</annotation>
 		<annotation cp="👬🏽">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton mediu al pielii | zodiac</annotation>
 		<annotation cp="👬🏽" type="tts">bărbați ținându-se de mână: ton mediu al pielii</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton mediu al pielii | ton semi‑închis al pielii | zodiac</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">bărbați ținându-se de mână: ton mediu al pielii, ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton închis al pielii | ton mediu al pielii | zodiac</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">bărbați ținându-se de mână: ton mediu al pielii, ton închis al pielii</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton semi‑închis al pielii | zodiac</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">bărbați ținându-se de mână: ton semi‑închis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton semi‑deschis al pielii | ton semi‑închis al pielii | zodiac</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">bărbați ținându-se de mână: ton semi‑închis al pielii, ton mediu al pielii</annotation>
 		<annotation cp="👬🏾">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton semi‑închis al pielii | zodiac</annotation>
 		<annotation cp="👬🏾" type="tts">bărbați ținându-se de mână: ton semi‑închis al pielii</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton închis al pielii | ton semi‑închis al pielii | zodiac</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">bărbați ținându-se de mână: ton semi‑închis al pielii, ton închis al pielii</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton deschis al pielii | ton închis al pielii | zodiac</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">bărbați ținându-se de mână: ton închis al pielii, ton deschis al pielii</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">bărbat | bărbați | bărbați ținându-se de mână | cuplu | doi bărbați ținându-se de mână | Gemeni | ton închis al pielii | ton semi‑deschis al pielii | zodiac</annotation>

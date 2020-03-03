@@ -82,7 +82,7 @@ public class CLDRPaths {
     public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE",
         CldrUtility.getPath(LOCAL_DIRECTORY, "cldr-archive/")));
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.PREVIOUS_CHART_VERSION + "/";
-    public static final String LAST_RELEASE_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + "/";
+    public static final String LAST_RELEASE_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION_WITH0 + "/";
     public static final String LAST_COMMON_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
     public static final String LAST_TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, TRANSFORMS_SUBDIR);
 

@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.invoke.MethodHandles;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -26,7 +27,7 @@ public class GenerateDayPeriods {
 
     public static void main(String[] args) throws IOException {
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/supplemental", "dayPeriods.xml")) {
-            out.println(DtdType.supplementalData.header(null)
+            out.println(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
                 + "\t<version number=\"$Revision" /* bypass SVN */ + "$\"/>");
             Factory factory = CLDRConfig.getInstance().getCldrFactory();
             for (Type type : Type.values()) {

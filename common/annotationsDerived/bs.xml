@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="bs"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">gest rukom | ispitivanje | prsti | sarkastično | skupljeni prsti | svijetla boja kože | uštinuti</annotation>
+		<annotation cp="🤌🏻" type="tts">skupljeni prsti: svijetla boja kože</annotation>
+		<annotation cp="🤌🏼">gest rukom | ispitivanje | prsti | sarkastično | skupljeni prsti | umjereno svijetla boja kože | uštinuti</annotation>
+		<annotation cp="🤌🏼" type="tts">skupljeni prsti: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤌🏽">gest rukom | ispitivanje | prsti | sarkastično | skupljeni prsti | umjerena boja kože | uštinuti</annotation>
+		<annotation cp="🤌🏽" type="tts">skupljeni prsti: umjerena boja kože</annotation>
+		<annotation cp="🤌🏾">gest rukom | ispitivanje | prsti | sarkastično | skupljeni prsti | umjereno tamna boja kože | uštinuti</annotation>
+		<annotation cp="🤌🏾" type="tts">skupljeni prsti: umjereno tamna boja kože</annotation>
+		<annotation cp="🤌🏿">gest rukom | ispitivanje | prsti | sarkastično | skupljeni prsti | tamna boja kože | uštinuti</annotation>
+		<annotation cp="🤌🏿" type="tts">skupljeni prsti: tamna boja kože</annotation>
 		<annotation cp="👋🏻">mahanje | mahanje rukom | svijetla boja kože</annotation>
 		<annotation cp="👋🏻" type="tts">mahanje rukom: svijetla boja kože</annotation>
 		<annotation cp="👋🏼">mahanje | mahanje rukom | umjereno svijetla boja kože</annotation>
@@ -182,15 +192,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇🏾" type="tts">kažiprst dolje: umjereno tamna boja kože</annotation>
 		<annotation cp="👇🏿">dolje | kažiprst | nadlanica | pokazivanje | tamna boja kože</annotation>
 		<annotation cp="👇🏿" type="tts">kažiprst dolje: tamna boja kože</annotation>
-		<annotation cp="☝🏻">dlan | gore | kažiprst | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | svijetla boja kože</annotation>
+		<annotation cp="☝🏻">dlan | gore | kažiprst | kažiprst pokazuje gore | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | svijetla boja kože</annotation>
 		<annotation cp="☝🏻" type="tts">kažiprst pokazuje gore: svijetla boja kože</annotation>
-		<annotation cp="☝🏼">dlan | gore | kažiprst | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | umjereno svijetla boja kože</annotation>
+		<annotation cp="☝🏼">dlan | gore | kažiprst | kažiprst pokazuje gore | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | umjereno svijetla boja kože</annotation>
 		<annotation cp="☝🏼" type="tts">kažiprst pokazuje gore: umjereno svijetla boja kože</annotation>
-		<annotation cp="☝🏽">dlan | gore | kažiprst | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | umjerena boja kože</annotation>
+		<annotation cp="☝🏽">dlan | gore | kažiprst | kažiprst pokazuje gore | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | umjerena boja kože</annotation>
 		<annotation cp="☝🏽" type="tts">kažiprst pokazuje gore: umjerena boja kože</annotation>
-		<annotation cp="☝🏾">dlan | gore | kažiprst | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | umjereno tamna boja kože</annotation>
+		<annotation cp="☝🏾">dlan | gore | kažiprst | kažiprst pokazuje gore | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | umjereno tamna boja kože</annotation>
 		<annotation cp="☝🏾" type="tts">kažiprst pokazuje gore: umjereno tamna boja kože</annotation>
-		<annotation cp="☝🏿">dlan | gore | kažiprst | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | tamna boja kože</annotation>
+		<annotation cp="☝🏿">dlan | gore | kažiprst | kažiprst pokazuje gore | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | tamna boja kože</annotation>
 		<annotation cp="☝🏿" type="tts">kažiprst pokazuje gore: tamna boja kože</annotation>
 		<annotation cp="👍🏻">gore | palac | ruka | svijetla boja kože</annotation>
 		<annotation cp="👍🏻" type="tts">palac gore: svijetla boja kože</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">odrasla osoba: umjereno tamna boja kože i ćelavo</annotation>
 		<annotation cp="🧑🏿‍🦲">ćelavo | neodređeni spol | odrasla osoba | srednji rod | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">odrasla osoba: tamna boja kože i ćelavo</annotation>
+		<annotation cp="🧑🏻‍🍼">beba | dojenje | hranjenje | osoba | osoba hrani bebu | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">osoba doji bebu: svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🍼">beba | dojenje | hranjenje | osoba | osoba hrani bebu | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">osoba doji bebu: umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🍼">beba | dojenje | hranjenje | osoba | osoba hrani bebu | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">osoba doji bebu: umjerena boja kože</annotation>
+		<annotation cp="🧑🏾‍🍼">beba | dojenje | hranjenje | osoba | osoba hrani bebu | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">osoba doji bebu: umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🍼">beba | dojenje | hranjenje | osoba | osoba hrani bebu | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">osoba doji bebu: tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🎄">Djeda Mraz, božić | g. Mraz | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">g. Mraz: svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🎄">Djeda Mraz, božić | g. Mraz | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">g. Mraz: umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🎄">Djeda Mraz, božić | g. Mraz | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">g. Mraz: umjerena boja kože</annotation>
+		<annotation cp="🧑🏾‍🎄">Djeda Mraz, božić | g. Mraz | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">g. Mraz: umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🎄">Djeda Mraz, božić | g. Mraz | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">g. Mraz: tamna boja kože</annotation>
 		<annotation cp="👨🏻">muškarac | muško | svijetla boja kože</annotation>
 		<annotation cp="👨🏻" type="tts">muškarac: svijetla boja kože</annotation>
 		<annotation cp="👨🏼">muškarac | muško | umjereno svijetla boja kože</annotation>
@@ -510,15 +540,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">muškarac: umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏿">muškarac | muško | tamna boja kože</annotation>
 		<annotation cp="👨🏿" type="tts">muškarac: tamna boja kože</annotation>
-		<annotation cp="🧔🏻">brada | osoba s bradom | svijetla boja kože</annotation>
+		<annotation cp="🧔🏻">brada | muškarac s bradom | osoba s bradom | svijetla boja kože</annotation>
 		<annotation cp="🧔🏻" type="tts">muškarac s bradom: svijetla boja kože</annotation>
-		<annotation cp="🧔🏼">brada | osoba s bradom | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧔🏼">brada | muškarac s bradom | osoba s bradom | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧔🏼" type="tts">muškarac s bradom: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧔🏽">brada | osoba s bradom | umjerena boja kože</annotation>
+		<annotation cp="🧔🏽">brada | muškarac s bradom | osoba s bradom | umjerena boja kože</annotation>
 		<annotation cp="🧔🏽" type="tts">muškarac s bradom: umjerena boja kože</annotation>
-		<annotation cp="🧔🏾">brada | osoba s bradom | umjereno tamna boja kože</annotation>
+		<annotation cp="🧔🏾">brada | muškarac s bradom | osoba s bradom | umjereno tamna boja kože</annotation>
 		<annotation cp="🧔🏾" type="tts">muškarac s bradom: umjereno tamna boja kože</annotation>
-		<annotation cp="🧔🏿">brada | osoba s bradom | tamna boja kože</annotation>
+		<annotation cp="🧔🏿">brada | muškarac s bradom | osoba s bradom | tamna boja kože</annotation>
 		<annotation cp="🧔🏿" type="tts">muškarac s bradom: tamna boja kože</annotation>
 		<annotation cp="👱🏻‍♂">kosa | muškarac | muškarac s plavom kosom | plavo | plavušan | svijetla boja kože</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">muškarac s plavom kosom: svijetla boja kože</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">muškarac: umjereno tamna boja kože i ćelavo</annotation>
 		<annotation cp="👨🏿‍🦲">ćelavo | muškarac | muško | tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">muškarac: tamna boja kože i ćelavo</annotation>
+		<annotation cp="👨🏻‍🍼">beba | dojenje | hranjenje | muškarac | muškarac doji bebu | svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">muškarac doji bebu: svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🍼">beba | dojenje | hranjenje | muškarac | muškarac doji bebu | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">muškarac doji bebu: umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🍼">beba | dojenje | hranjenje | muškarac | muškarac doji bebu | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">muškarac doji bebu: umjerena boja kože</annotation>
+		<annotation cp="👨🏾‍🍼">beba | dojenje | hranjenje | muškarac | muškarac doji bebu | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">muškarac doji bebu: umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🍼">beba | dojenje | hranjenje | muškarac | muškarac doji bebu | tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">muškarac doji bebu: tamna boja kože</annotation>
 		<annotation cp="👩🏻">svijetla boja kože | žena | žensko</annotation>
 		<annotation cp="👩🏻" type="tts">žena: svijetla boja kože</annotation>
 		<annotation cp="👩🏼">umjereno svijetla boja kože | žena | žensko</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">žena: umjereno tamna boja kože i ćelavo</annotation>
 		<annotation cp="👩🏿‍🦲">ćelavo | tamna boja kože | žena | žensko</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">žena: tamna boja kože i ćelavo</annotation>
+		<annotation cp="👩🏻‍🍼">beba | dojenje | hranjenje | svijetla boja kože | žena | žena doji bebu</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">žena doji bebu: svijetla boja kože</annotation>
+		<annotation cp="👩🏼‍🍼">beba | dojenje | hranjenje | umjereno svijetla boja kože | žena | žena doji bebu</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">žena doji bebu: umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏽‍🍼">beba | dojenje | hranjenje | umjerena boja kože | žena | žena doji bebu</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">žena doji bebu: umjerena boja kože</annotation>
+		<annotation cp="👩🏾‍🍼">beba | dojenje | hranjenje | umjereno tamna boja kože | žena | žena doji bebu</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">žena doji bebu: umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏿‍🍼">beba | dojenje | hranjenje | tamna boja kože | žena | žena doji bebu</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">žena doji bebu: tamna boja kože</annotation>
 		<annotation cp="🧓🏻">srednji rod | starija odrasla osoba | staro | svijetla boja kože</annotation>
 		<annotation cp="🧓🏻" type="tts">starija odrasla osoba: svijetla boja kože</annotation>
 		<annotation cp="🧓🏼">srednji rod | starija odrasla osoba | staro | umjereno svijetla boja kože</annotation>
@@ -976,25 +1026,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">žena sliježe ramenima: umjereno tamna boja kože</annotation>
 		<annotation cp="🤷🏿‍♀">gestikulacija | neznanje | ravnodušnost | tamna boja kože | žena | žena sliježe ramenima</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">žena sliježe ramenima: tamna boja kože</annotation>
-		<annotation cp="🧑🏻‍⚕">doktor | medicinska sestra | svijetla boja kože | terapeut | zdravstvena njega</annotation>
+		<annotation cp="🧑🏻‍⚕">doktor | medicinska sestra | svijetla boja kože | terapeut | zdravstvena njega | zdravstveni radnik</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">zdravstveni radnik: svijetla boja kože</annotation>
-		<annotation cp="🧑🏼‍⚕">doktor | medicinska sestra | terapeut | umjereno svijetla boja kože | zdravstvena njega</annotation>
+		<annotation cp="🧑🏼‍⚕">doktor | medicinska sestra | terapeut | umjereno svijetla boja kože | zdravstvena njega | zdravstveni radnik</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">zdravstveni radnik: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧑🏽‍⚕">doktor | medicinska sestra | terapeut | umjerena boja kože | zdravstvena njega</annotation>
+		<annotation cp="🧑🏽‍⚕">doktor | medicinska sestra | terapeut | umjerena boja kože | zdravstvena njega | zdravstveni radnik</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">zdravstveni radnik: umjerena boja kože</annotation>
-		<annotation cp="🧑🏾‍⚕">doktor | medicinska sestra | terapeut | umjereno tamna boja kože | zdravstvena njega</annotation>
+		<annotation cp="🧑🏾‍⚕">doktor | medicinska sestra | terapeut | umjereno tamna boja kože | zdravstvena njega | zdravstveni radnik</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">zdravstveni radnik: umjereno tamna boja kože</annotation>
-		<annotation cp="🧑🏿‍⚕">doktor | medicinska sestra | tamna boja kože | terapeut | zdravstvena njega</annotation>
+		<annotation cp="🧑🏿‍⚕">doktor | medicinska sestra | tamna boja kože | terapeut | zdravstvena njega | zdravstveni radnik</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">zdravstveni radnik: tamna boja kože</annotation>
-		<annotation cp="👨🏻‍⚕">doktor | liječnik | ljekar | medicinski tehničar | svijetla boja kože | zdravstveni radnik</annotation>
+		<annotation cp="👨🏻‍⚕">doktor | liječnik | ljekar | medicinski tehničar | svijetla boja kože | zdravstveni radnik | zdravstveni radnik muškarac</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">zdravstveni radnik muškarac: svijetla boja kože</annotation>
-		<annotation cp="👨🏼‍⚕">doktor | liječnik | ljekar | medicinski tehničar | umjereno svijetla boja kože | zdravstveni radnik</annotation>
+		<annotation cp="👨🏼‍⚕">doktor | liječnik | ljekar | medicinski tehničar | umjereno svijetla boja kože | zdravstveni radnik | zdravstveni radnik muškarac</annotation>
 		<annotation cp="👨🏼‍⚕" type="tts">zdravstveni radnik muškarac: umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏽‍⚕">doktor | liječnik | ljekar | medicinski tehničar | umjerena boja kože | zdravstveni radnik</annotation>
+		<annotation cp="👨🏽‍⚕">doktor | liječnik | ljekar | medicinski tehničar | umjerena boja kože | zdravstveni radnik | zdravstveni radnik muškarac</annotation>
 		<annotation cp="👨🏽‍⚕" type="tts">zdravstveni radnik muškarac: umjerena boja kože</annotation>
-		<annotation cp="👨🏾‍⚕">doktor | liječnik | ljekar | medicinski tehničar | umjereno tamna boja kože | zdravstveni radnik</annotation>
+		<annotation cp="👨🏾‍⚕">doktor | liječnik | ljekar | medicinski tehničar | umjereno tamna boja kože | zdravstveni radnik | zdravstveni radnik muškarac</annotation>
 		<annotation cp="👨🏾‍⚕" type="tts">zdravstveni radnik muškarac: umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏿‍⚕">doktor | liječnik | ljekar | medicinski tehničar | tamna boja kože | zdravstveni radnik</annotation>
+		<annotation cp="👨🏿‍⚕">doktor | liječnik | ljekar | medicinski tehničar | tamna boja kože | zdravstveni radnik | zdravstveni radnik muškarac</annotation>
 		<annotation cp="👨🏿‍⚕" type="tts">zdravstveni radnik muškarac: tamna boja kože</annotation>
 		<annotation cp="👩🏻‍⚕">doktorica | liječnica | ljekarka | medicinska sestra | svijetla boja kože | zdravstvena radnica</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">zdravstvena radnica: svijetla boja kože</annotation>
@@ -1186,25 +1236,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">mehaničarka: umjereno tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🔧">alat | električarka | mehaničarka | tamna boja kože | vodoinstalaterka</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mehaničarka: tamna boja kože</annotation>
-		<annotation cp="🧑🏻‍🏭">fabrika | industrija | montaža | radnik | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🏭">fabrika | industrija | montaža | radnik | radnik u fabrici | svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">radnik u fabrici: svijetla boja kože</annotation>
-		<annotation cp="🧑🏼‍🏭">fabrika | industrija | montaža | radnik | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🏭">fabrika | industrija | montaža | radnik | radnik u fabrici | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">radnik u fabrici: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧑🏽‍🏭">fabrika | industrija | montaža | radnik | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🏭">fabrika | industrija | montaža | radnik | radnik u fabrici | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">radnik u fabrici: umjerena boja kože</annotation>
-		<annotation cp="🧑🏾‍🏭">fabrika | industrija | montaža | radnik | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🏭">fabrika | industrija | montaža | radnik | radnik u fabrici | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">radnik u fabrici: umjereno tamna boja kože</annotation>
-		<annotation cp="🧑🏿‍🏭">fabrika | industrija | montaža | radnik | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🏭">fabrika | industrija | montaža | radnik | radnik u fabrici | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">radnik u fabrici: tamna boja kože</annotation>
-		<annotation cp="👨🏻‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | radnik u fabrici muškarac | svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">radnik u fabrici muškarac: svijetla boja kože</annotation>
-		<annotation cp="👨🏼‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | radnik u fabrici muškarac | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">radnik u fabrici muškarac: umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏽‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | radnik u fabrici muškarac | umjerena boja kože</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">radnik u fabrici muškarac: umjerena boja kože</annotation>
-		<annotation cp="👨🏾‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | radnik u fabrici muškarac | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">radnik u fabrici muškarac: umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏿‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🏭">fabrika | industrijska proizvodnja | mašine | radnik | radnik u fabrici | radnik u fabrici muškarac | tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">radnik u fabrici muškarac: tamna boja kože</annotation>
 		<annotation cp="👩🏻‍🏭">fabrika | industrijska proizvodnja | mašine | radnica u fabrici | radnik | svijetla boja kože</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">radnica u fabrici: svijetla boja kože</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">radnica u fabrici: umjereno tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🏭">fabrika | industrijska proizvodnja | mašine | radnica u fabrici | radnik | tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">radnica u fabrici: tamna boja kože</annotation>
-		<annotation cp="🧑🏻‍💼">arhitekta | bijela kragna | menadžer | poslovanje | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍💼">arhitekta | bijela kragna | menadžer | poslovanje | radnik u kancelariji | svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">radnik u kancelariji: svijetla boja kože</annotation>
-		<annotation cp="🧑🏼‍💼">arhitekta | bijela kragna | menadžer | poslovanje | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍💼">arhitekta | bijela kragna | menadžer | poslovanje | radnik u kancelariji | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">radnik u kancelariji: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧑🏽‍💼">arhitekta | bijela kragna | menadžer | poslovanje | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍💼">arhitekta | bijela kragna | menadžer | poslovanje | radnik u kancelariji | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">radnik u kancelariji: umjerena boja kože</annotation>
-		<annotation cp="🧑🏾‍💼">arhitekta | bijela kragna | menadžer | poslovanje | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍💼">arhitekta | bijela kragna | menadžer | poslovanje | radnik u kancelariji | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">radnik u kancelariji: umjereno tamna boja kože</annotation>
-		<annotation cp="🧑🏿‍💼">arhitekta | bijela kragna | menadžer | poslovanje | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍💼">arhitekta | bijela kragna | menadžer | poslovanje | radnik u kancelariji | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">radnik u kancelariji: tamna boja kože</annotation>
 		<annotation cp="👨🏻‍💼">menadžer | muškarac u kancelariji | posao | poslovno odijelo | svijetla boja kože | zaposlenik</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">muškarac u kancelariji: svijetla boja kože</annotation>
@@ -1256,15 +1306,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🔬" type="tts">naučnik: umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">naučnik: tamna boja kože</annotation>
-		<annotation cp="👨🏻‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | naučnik muškarac | svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">naučnik muškarac: svijetla boja kože</annotation>
-		<annotation cp="👨🏼‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | naučnik muškarac | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏼‍🔬" type="tts">naučnik muškarac: umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏽‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | naučnik muškarac | umjerena boja kože</annotation>
 		<annotation cp="👨🏽‍🔬" type="tts">naučnik muškarac: umjerena boja kože</annotation>
-		<annotation cp="👨🏾‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | naučnik muškarac | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🔬" type="tts">naučnik muškarac: umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏿‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🔬">biolog | fizičar | hemičar | inžinjer | naučnik | naučnik muškarac | tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">naučnik muškarac: tamna boja kože</annotation>
 		<annotation cp="👩🏻‍🔬">biolog | fizičar | hemičar | inžinjer | naučnica | svijetla boja kože</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">naučnica: svijetla boja kože</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">naučnica: umjereno tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🔬">biolog | fizičar | hemičar | inžinjer | naučnica | tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">naučnica: tamna boja kože</annotation>
-		<annotation cp="🧑🏻‍💻">inovator | koder | programer | softver | svijetla boja kože | tehnologija</annotation>
+		<annotation cp="🧑🏻‍💻">inovator | koder | programer | softver | svijetla boja kože | tehnolog | tehnologija</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">tehnolog: svijetla boja kože</annotation>
-		<annotation cp="🧑🏼‍💻">inovator | koder | programer | softver | tehnologija | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍💻">inovator | koder | programer | softver | tehnolog | tehnologija | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">tehnolog: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧑🏽‍💻">inovator | koder | programer | softver | tehnologija | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍💻">inovator | koder | programer | softver | tehnolog | tehnologija | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">tehnolog: umjerena boja kože</annotation>
-		<annotation cp="🧑🏾‍💻">inovator | koder | programer | softver | tehnologija | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍💻">inovator | koder | programer | softver | tehnolog | tehnologija | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">tehnolog: umjereno tamna boja kože</annotation>
-		<annotation cp="🧑🏿‍💻">inovator | koder | programer | softver | tamna boja kože | tehnologija</annotation>
+		<annotation cp="🧑🏿‍💻">inovator | koder | programer | softver | tamna boja kože | tehnolog | tehnologija</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">tehnolog: tamna boja kože</annotation>
 		<annotation cp="👨🏻‍💻">muškarac | programer | pronalazač | softver | svijetla boja kože | tehnolog</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">tehnolog muškarac: svijetla boja kože</annotation>
@@ -1316,15 +1366,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🎤" type="tts">pjevač: umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🎤">glumac | pjevač | rocker | tamna boja kože | zabavljač | zvijezda</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">pjevač: tamna boja kože</annotation>
-		<annotation cp="👨🏻‍🎤">izvođač | pjevač | roker | svijetla boja kože | zabavljač | zvijezda</annotation>
+		<annotation cp="👨🏻‍🎤">izvođač | pjevač | pjevač muškarac | roker | svijetla boja kože | zabavljač | zvijezda</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">pjevač muškarac: svijetla boja kože</annotation>
-		<annotation cp="👨🏼‍🎤">izvođač | pjevač | roker | umjereno svijetla boja kože | zabavljač | zvijezda</annotation>
+		<annotation cp="👨🏼‍🎤">izvođač | pjevač | pjevač muškarac | roker | umjereno svijetla boja kože | zabavljač | zvijezda</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">pjevač muškarac: umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏽‍🎤">izvođač | pjevač | roker | umjerena boja kože | zabavljač | zvijezda</annotation>
+		<annotation cp="👨🏽‍🎤">izvođač | pjevač | pjevač muškarac | roker | umjerena boja kože | zabavljač | zvijezda</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">pjevač muškarac: umjerena boja kože</annotation>
-		<annotation cp="👨🏾‍🎤">izvođač | pjevač | roker | umjereno tamna boja kože | zabavljač | zvijezda</annotation>
+		<annotation cp="👨🏾‍🎤">izvođač | pjevač | pjevač muškarac | roker | umjereno tamna boja kože | zabavljač | zvijezda</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">pjevač muškarac: umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏿‍🎤">izvođač | pjevač | roker | tamna boja kože | zabavljač | zvijezda</annotation>
+		<annotation cp="👨🏿‍🎤">izvođač | pjevač | pjevač muškarac | roker | tamna boja kože | zabavljač | zvijezda</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">pjevač muškarac: tamna boja kože</annotation>
 		<annotation cp="👩🏻‍🎤">izvođač | pjevačica | roker | svijetla boja kože | zabavljač | zvijezda</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">pjevačica: svijetla boja kože</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">pokrivena žena: umjereno tamna boja kože</annotation>
 		<annotation cp="🧕🏿">hidžab | pokrivalo | pokrivena žena | šal | tamna boja kože</annotation>
 		<annotation cp="🧕🏿" type="tts">pokrivena žena: tamna boja kože</annotation>
-		<annotation cp="🤵🏻">čovjek | mladoženja | odijelo | smoking | svijetla boja kože</annotation>
-		<annotation cp="🤵🏻" type="tts">odijelo: svijetla boja kože</annotation>
-		<annotation cp="🤵🏼">čovjek | mladoženja | odijelo | smoking | umjereno svijetla boja kože</annotation>
-		<annotation cp="🤵🏼" type="tts">odijelo: umjereno svijetla boja kože</annotation>
-		<annotation cp="🤵🏽">čovjek | mladoženja | odijelo | smoking | umjerena boja kože</annotation>
-		<annotation cp="🤵🏽" type="tts">odijelo: umjerena boja kože</annotation>
-		<annotation cp="🤵🏾">čovjek | mladoženja | odijelo | smoking | umjereno tamna boja kože</annotation>
-		<annotation cp="🤵🏾" type="tts">odijelo: umjereno tamna boja kože</annotation>
-		<annotation cp="🤵🏿">čovjek | mladoženja | odijelo | smoking | tamna boja kože</annotation>
-		<annotation cp="🤵🏿" type="tts">odijelo: tamna boja kože</annotation>
-		<annotation cp="👰🏻">mlada | mlada s velom | svijetla boja kože | veo | vjenčanje</annotation>
-		<annotation cp="👰🏻" type="tts">mlada s velom: svijetla boja kože</annotation>
-		<annotation cp="👰🏼">mlada | mlada s velom | umjereno svijetla boja kože | veo | vjenčanje</annotation>
-		<annotation cp="👰🏼" type="tts">mlada s velom: umjereno svijetla boja kože</annotation>
-		<annotation cp="👰🏽">mlada | mlada s velom | umjerena boja kože | veo | vjenčanje</annotation>
-		<annotation cp="👰🏽" type="tts">mlada s velom: umjerena boja kože</annotation>
-		<annotation cp="👰🏾">mlada | mlada s velom | umjereno tamna boja kože | veo | vjenčanje</annotation>
-		<annotation cp="👰🏾" type="tts">mlada s velom: umjereno tamna boja kože</annotation>
-		<annotation cp="👰🏿">mlada | mlada s velom | tamna boja kože | veo | vjenčanje</annotation>
-		<annotation cp="👰🏿" type="tts">mlada s velom: tamna boja kože</annotation>
+		<annotation cp="🤵🏻">mladoženja | muškarac u smokingu | odijelo | osoba u smokingu | smoking | svijetla boja kože</annotation>
+		<annotation cp="🤵🏻" type="tts">osoba u smokingu: svijetla boja kože</annotation>
+		<annotation cp="🤵🏼">mladoženja | muškarac u smokingu | odijelo | osoba u smokingu | smoking | umjereno svijetla boja kože</annotation>
+		<annotation cp="🤵🏼" type="tts">osoba u smokingu: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤵🏽">mladoženja | muškarac u smokingu | odijelo | osoba u smokingu | smoking | umjerena boja kože</annotation>
+		<annotation cp="🤵🏽" type="tts">osoba u smokingu: umjerena boja kože</annotation>
+		<annotation cp="🤵🏾">mladoženja | muškarac u smokingu | odijelo | osoba u smokingu | smoking | umjereno tamna boja kože</annotation>
+		<annotation cp="🤵🏾" type="tts">osoba u smokingu: umjereno tamna boja kože</annotation>
+		<annotation cp="🤵🏿">mladoženja | muškarac u smokingu | odijelo | osoba u smokingu | smoking | tamna boja kože</annotation>
+		<annotation cp="🤵🏿" type="tts">osoba u smokingu: tamna boja kože</annotation>
+		<annotation cp="🤵🏻‍♀">smoking | svijetla boja kože | žena | žena u smokingu</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">žena u smokingu: svijetla boja kože</annotation>
+		<annotation cp="🤵🏼‍♀">smoking | umjereno svijetla boja kože | žena | žena u smokingu</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">žena u smokingu: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤵🏽‍♀">smoking | umjerena boja kože | žena | žena u smokingu</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">žena u smokingu: umjerena boja kože</annotation>
+		<annotation cp="🤵🏾‍♀">smoking | umjereno tamna boja kože | žena | žena u smokingu</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">žena u smokingu: umjereno tamna boja kože</annotation>
+		<annotation cp="🤵🏿‍♀">smoking | tamna boja kože | žena | žena u smokingu</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">žena u smokingu: tamna boja kože</annotation>
+		<annotation cp="🤵🏻‍♂">muškarac | muškarac u smokingu | smoking | svijetla boja kože</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">muškarac u smokingu: svijetla boja kože</annotation>
+		<annotation cp="🤵🏼‍♂">muškarac | muškarac u smokingu | smoking | umjereno svijetla boja kože</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">muškarac u smokingu: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤵🏽‍♂">muškarac | muškarac u smokingu | smoking | umjerena boja kože</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">muškarac u smokingu: umjerena boja kože</annotation>
+		<annotation cp="🤵🏾‍♂">muškarac | muškarac u smokingu | smoking | umjereno tamna boja kože</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">muškarac u smokingu: umjereno tamna boja kože</annotation>
+		<annotation cp="🤵🏿‍♂">muškarac | muškarac u smokingu | smoking | tamna boja kože</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">muškarac u smokingu: tamna boja kože</annotation>
+		<annotation cp="👰🏻">mlada | osoba | osoba s velom | svijetla boja kože | veo | vjenčanje</annotation>
+		<annotation cp="👰🏻" type="tts">osoba s velom: svijetla boja kože</annotation>
+		<annotation cp="👰🏼">mlada | osoba | osoba s velom | umjereno svijetla boja kože | veo | vjenčanje</annotation>
+		<annotation cp="👰🏼" type="tts">osoba s velom: umjereno svijetla boja kože</annotation>
+		<annotation cp="👰🏽">mlada | osoba | osoba s velom | umjerena boja kože | veo | vjenčanje</annotation>
+		<annotation cp="👰🏽" type="tts">osoba s velom: umjerena boja kože</annotation>
+		<annotation cp="👰🏾">mlada | osoba | osoba s velom | umjereno tamna boja kože | veo | vjenčanje</annotation>
+		<annotation cp="👰🏾" type="tts">osoba s velom: umjereno tamna boja kože</annotation>
+		<annotation cp="👰🏿">mlada | osoba | osoba s velom | tamna boja kože | veo | vjenčanje</annotation>
+		<annotation cp="👰🏿" type="tts">osoba s velom: tamna boja kože</annotation>
+		<annotation cp="👰🏻‍♀">svijetla boja kože | veo | žena | žena s velom</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">žena s velom: svijetla boja kože</annotation>
+		<annotation cp="👰🏼‍♀">umjereno svijetla boja kože | veo | žena | žena s velom</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">žena s velom: umjereno svijetla boja kože</annotation>
+		<annotation cp="👰🏽‍♀">umjerena boja kože | veo | žena | žena s velom</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">žena s velom: umjerena boja kože</annotation>
+		<annotation cp="👰🏾‍♀">umjereno tamna boja kože | veo | žena | žena s velom</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">žena s velom: umjereno tamna boja kože</annotation>
+		<annotation cp="👰🏿‍♀">tamna boja kože | veo | žena | žena s velom</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">žena s velom: tamna boja kože</annotation>
+		<annotation cp="👰🏻‍♂">muškarac | muškarac s velom | svijetla boja kože | veo</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">muškarac s velom: svijetla boja kože</annotation>
+		<annotation cp="👰🏼‍♂">muškarac | muškarac s velom | umjereno svijetla boja kože | veo</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">muškarac s velom: umjereno svijetla boja kože</annotation>
+		<annotation cp="👰🏽‍♂">muškarac | muškarac s velom | umjerena boja kože | veo</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">muškarac s velom: umjerena boja kože</annotation>
+		<annotation cp="👰🏾‍♂">muškarac | muškarac s velom | umjereno tamna boja kože | veo</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">muškarac s velom: umjereno tamna boja kože</annotation>
+		<annotation cp="👰🏿‍♂">muškarac | muškarac s velom | tamna boja kože | veo</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">muškarac s velom: tamna boja kože</annotation>
 		<annotation cp="🤰🏻">svijetla boja kože | trudnica | žena</annotation>
 		<annotation cp="🤰🏻" type="tts">trudnica: svijetla boja kože</annotation>
 		<annotation cp="🤰🏼">trudnica | umjereno svijetla boja kože | žena</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">žena kleči: umjereno tamna boja kože</annotation>
 		<annotation cp="🧎🏿‍♀">tamna boja kože | žena kleči</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">žena kleči: tamna boja kože</annotation>
-		<annotation cp="🧑🏻‍🦯">pomagalo | sljepoća | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🦯">osoba sa štapom za hodanje | pomagalo | sljepoća | svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">osoba sa štapom za hodanje: svijetla boja kože</annotation>
-		<annotation cp="🧑🏼‍🦯">pomagalo | sljepoća | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🦯">osoba sa štapom za hodanje | pomagalo | sljepoća | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">osoba sa štapom za hodanje: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧑🏽‍🦯">pomagalo | sljepoća | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🦯">osoba sa štapom za hodanje | pomagalo | sljepoća | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">osoba sa štapom za hodanje: umjerena boja kože</annotation>
-		<annotation cp="🧑🏾‍🦯">pomagalo | sljepoća | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🦯">osoba sa štapom za hodanje | pomagalo | sljepoća | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">osoba sa štapom za hodanje: umjereno tamna boja kože</annotation>
-		<annotation cp="🧑🏿‍🦯">pomagalo | sljepoća | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🦯">osoba sa štapom za hodanje | pomagalo | sljepoća | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">osoba sa štapom za hodanje: tamna boja kože</annotation>
 		<annotation cp="👨🏻‍🦯">čovjek | čovjek sa štapom za hodanje | pomagalo | slijep | svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">čovjek sa štapom za hodanje: svijetla boja kože</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">žena sa štapom za hodanje: umjereno tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🦯">pomagalo | slijepa | tamna boja kože | žena | žena sa štapom za hodanje</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">žena sa štapom za hodanje: tamna boja kože</annotation>
-		<annotation cp="🧑🏻‍🦼">invalidska kolica | pomagalo | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🦼">invalidska kolica | osoba u motornim invalidskim kolicima | pomagalo | svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">osoba u motornim invalidskim kolicima: svijetla boja kože</annotation>
-		<annotation cp="🧑🏼‍🦼">invalidska kolica | pomagalo | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🦼">invalidska kolica | osoba u motornim invalidskim kolicima | pomagalo | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">osoba u motornim invalidskim kolicima: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧑🏽‍🦼">invalidska kolica | pomagalo | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🦼">invalidska kolica | osoba u motornim invalidskim kolicima | pomagalo | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">osoba u motornim invalidskim kolicima: umjerena boja kože</annotation>
-		<annotation cp="🧑🏾‍🦼">invalidska kolica | pomagalo | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🦼">invalidska kolica | osoba u motornim invalidskim kolicima | pomagalo | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">osoba u motornim invalidskim kolicima: umjereno tamna boja kože</annotation>
-		<annotation cp="🧑🏿‍🦼">invalidska kolica | pomagalo | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🦼">invalidska kolica | osoba u motornim invalidskim kolicima | pomagalo | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">osoba u motornim invalidskim kolicima: tamna boja kože</annotation>
 		<annotation cp="👨🏻‍🦼">motorna invalidska kolica | muškarac | muškarac u motornim invalidskim kolicima | pomagalo | svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">muškarac u motornim invalidskim kolicima: svijetla boja kože</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">žena u motornim invalidskim kolicima: umjereno tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🦼">motorna invalidska kolica | pomagalo | tamna boja kože | žena | žena u motornim invalidskim kolicima</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">žena u motornim invalidskim kolicima: tamna boja kože</annotation>
-		<annotation cp="🧑🏻‍🦽">invalidska kolica | pomagalo | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🦽">invalidska kolica | osoba u invalidskim kolicima | pomagalo | svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">osoba u invalidskim kolicima: svijetla boja kože</annotation>
-		<annotation cp="🧑🏼‍🦽">invalidska kolica | pomagalo | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🦽">invalidska kolica | osoba u invalidskim kolicima | pomagalo | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">osoba u invalidskim kolicima: umjereno svijetla boja kože</annotation>
-		<annotation cp="🧑🏽‍🦽">invalidska kolica | pomagalo | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🦽">invalidska kolica | osoba u invalidskim kolicima | pomagalo | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">osoba u invalidskim kolicima: umjerena boja kože</annotation>
-		<annotation cp="🧑🏾‍🦽">invalidska kolica | pomagalo | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🦽">invalidska kolica | osoba u invalidskim kolicima | pomagalo | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">osoba u invalidskim kolicima: umjereno tamna boja kože</annotation>
-		<annotation cp="🧑🏿‍🦽">invalidska kolica | pomagalo | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🦽">invalidska kolica | osoba u invalidskim kolicima | pomagalo | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">osoba u invalidskim kolicima: tamna boja kože</annotation>
 		<annotation cp="👨🏻‍🦽">invalidska kolica | muškarac | muškarac u invalidskim kolicima | pomagalo | svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">muškarac u invalidskim kolicima: svijetla boja kože</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">osoba u krevetu: tamna boja kože</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">ljudi se drže za ruke: svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">ljudi se drže za ruke: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">ljudi se drže za ruke: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">ljudi se drže za ruke: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">ljudi se drže za ruke: svijetla boja kože i tamna boja kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">ljudi se drže za ruke: umjereno svijetla boja kože i svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">držanje za ruke | ljudi se drže za ruke | par | ruka | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">ljudi se drže za ruke: umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">držanje za ruke | ljudi se drže za ruke | par | ruka | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">ljudi se drže za ruke: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">držanje za ruke | ljudi se drže za ruke | par | ruka | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">ljudi se drže za ruke: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">držanje za ruke | ljudi se drže za ruke | par | ruka | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">ljudi se drže za ruke: umjereno svijetla boja kože i tamna boja kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">ljudi se drže za ruke: umjerena boja kože i svijetla boja kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">držanje za ruke | ljudi se drže za ruke | par | ruka | umjerena boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">ljudi se drže za ruke: umjerena boja kože i umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">držanje za ruke | ljudi se drže za ruke | par | ruka | umjerena boja kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">ljudi se drže za ruke: umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">držanje za ruke | ljudi se drže za ruke | par | ruka | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">ljudi se drže za ruke: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">držanje za ruke | ljudi se drže za ruke | par | ruka | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">ljudi se drže za ruke: umjerena boja kože i tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">ljudi se drže za ruke: umjereno tamna boja kože i svijetla boja kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">držanje za ruke | ljudi se drže za ruke | par | ruka | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">ljudi se drže za ruke: umjereno tamna boja kože i umjerena boja kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">držanje za ruke | ljudi se drže za ruke | par | ruka | umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">ljudi se drže za ruke: umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">držanje za ruke | ljudi se drže za ruke | par | ruka | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">ljudi se drže za ruke: umjereno tamna boja kože i tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">držanje za ruke | ljudi se drže za ruke | par | ruka | svijetla boja kože | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">ljudi se drže za ruke: tamna boja kože i svijetla boja kože</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">držanje za ruke | ljudi se drže za ruke | par | ruka | tamna boja kože | umjereno svijetla boja kože</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">ljudi se drže za ruke: tamna boja kože</annotation>
 		<annotation cp="👭🏻">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | žena</annotation>
 		<annotation cp="👭🏻" type="tts">dvije žene se drže za ruke: svijetla boja kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">dvije žene se drže za ruke: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | umjerena boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">dvije žene se drže za ruke: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">dvije žene se drže za ruke: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | tamna boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">dvije žene se drže za ruke: svijetla boja kože i tamna boja kože</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | umjereno svijetla boja kože | žena</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dvije žene se drže za ruke: umjereno svijetla boja kože i svijetla boja kože</annotation>
 		<annotation cp="👭🏼">blizanci | dvije žene se drže za ruke | par | umjereno svijetla boja kože | žena</annotation>
 		<annotation cp="👭🏼" type="tts">dvije žene se drže za ruke: umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">blizanci | dvije žene se drže za ruke | par | umjerena boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">dvije žene se drže za ruke: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">blizanci | dvije žene se drže za ruke | par | umjereno svijetla boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">dvije žene se drže za ruke: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">blizanci | dvije žene se drže za ruke | par | tamna boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">dvije žene se drže za ruke: umjereno svijetla boja kože i tamna boja kože</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | umjerena boja kože | žena</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dvije žene se drže za ruke: umjerena boja kože i svijetla boja kože</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">blizanci | dvije žene se drže za ruke | par | umjerena boja kože | umjereno svijetla boja kože | žena</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dvije žene se drže za ruke: umjerena boja kože i umjereno svijetla boja kože</annotation>
 		<annotation cp="👭🏽">blizanci | dvije žene se drže za ruke | par | umjerena boja kože | žena</annotation>
 		<annotation cp="👭🏽" type="tts">dvije žene se drže za ruke: umjerena boja kože</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">blizanci | dvije žene se drže za ruke | par | umjerena boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">dvije žene se drže za ruke: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">blizanci | dvije žene se drže za ruke | par | tamna boja kože | umjerena boja kože | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">dvije žene se drže za ruke: umjerena boja kože i tamna boja kože</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | umjereno tamna boja kože | žena</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dvije žene se drže za ruke: umjereno tamna boja kože i svijetla boja kože</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">blizanci | dvije žene se drže za ruke | par | umjereno svijetla boja kože | umjereno tamna boja kože | žena</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dvije žene se drže za ruke: umjereno tamna boja kože i umjerena boja kože</annotation>
 		<annotation cp="👭🏾">blizanci | dvije žene se drže za ruke | par | umjereno tamna boja kože | žena</annotation>
 		<annotation cp="👭🏾" type="tts">dvije žene se drže za ruke: umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">blizanci | dvije žene se drže za ruke | par | tamna boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">dvije žene se drže za ruke: umjereno tamna boja kože i tamna boja kože</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">blizanci | dvije žene se drže za ruke | par | svijetla boja kože | tamna boja kože | žena</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dvije žene se drže za ruke: tamna boja kože i svijetla boja kože</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">blizanci | dvije žene se drže za ruke | par | tamna boja kože | umjereno svijetla boja kože | žena</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">muškarac i žena se drže za ruke: tamna boja kože</annotation>
 		<annotation cp="👬🏻">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože</annotation>
 		<annotation cp="👬🏻" type="tts">dva muškarca se drže za ruke: svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">dva muškarca se drže za ruke: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">dva muškarca se drže za ruke: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">dva muškarca se drže za ruke: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: svijetla boja kože i tamna boja kože</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i svijetla boja kože</annotation>
 		<annotation cp="👬🏼">blizanci | dva muškarca se drže za ruke | muškarac | par | umjereno svijetla boja kože</annotation>
 		<annotation cp="👬🏼" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">blizanci | dva muškarca se drže za ruke | muškarac | par | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">blizanci | dva muškarca se drže za ruke | muškarac | par | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">blizanci | dva muškarca se drže za ruke | muškarac | par | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i tamna boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | umjerena boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: umjerena boja kože i svijetla boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">blizanci | dva muškarca se drže za ruke | muškarac | par | umjerena boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dva muškarca se drže za ruke: umjerena boja kože i umjereno svijetla boja kože</annotation>
 		<annotation cp="👬🏽">blizanci | dva muškarca se drže za ruke | muškarac | par | umjerena boja kože</annotation>
 		<annotation cp="👬🏽" type="tts">dva muškarca se drže za ruke: umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">blizanci | dva muškarca se drže za ruke | muškarac | par | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">dva muškarca se drže za ruke: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">blizanci | dva muškarca se drže za ruke | muškarac | par | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: umjerena boja kože i tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože i svijetla boja kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">blizanci | dva muškarca se drže za ruke | muškarac | par | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože i umjerena boja kože</annotation>
 		<annotation cp="👬🏾">blizanci | dva muškarca se drže za ruke | muškarac | par | umjereno tamna boja kože</annotation>
 		<annotation cp="👬🏾" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">blizanci | dva muškarca se drže za ruke | muškarac | par | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože i tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">blizanci | dva muškarca se drže za ruke | muškarac | par | svijetla boja kože | tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: tamna boja kože i svijetla boja kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">blizanci | dva muškarca se drže za ruke | muškarac | par | tamna boja kože | umjereno svijetla boja kože</annotation>

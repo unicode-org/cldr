@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="fi"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">käsi supussa | käsiele | kuulustelu | mitä | sarkastinen | sormet | supussa | vaalea iho</annotation>
+		<annotation cp="🤌🏻" type="tts">käsi supussa: vaalea iho</annotation>
+		<annotation cp="🤌🏼">käsi supussa | käsiele | keskivaalea iho | kuulustelu | mitä | sarkastinen | sormet | supussa</annotation>
+		<annotation cp="🤌🏼" type="tts">käsi supussa: keskivaalea iho</annotation>
+		<annotation cp="🤌🏽">käsi supussa | käsiele | kuulustelu | mitä | sarkastinen | sormet | supussa | tummanvaalea iho</annotation>
+		<annotation cp="🤌🏽" type="tts">käsi supussa: tummanvaalea iho</annotation>
+		<annotation cp="🤌🏾">käsi supussa | käsiele | keskitumma iho | kuulustelu | mitä | sarkastinen | sormet | supussa</annotation>
+		<annotation cp="🤌🏾" type="tts">käsi supussa: keskitumma iho</annotation>
+		<annotation cp="🤌🏿">käsi supussa | käsiele | kuulustelu | mitä | sarkastinen | sormet | supussa | tumma iho</annotation>
+		<annotation cp="🤌🏿" type="tts">käsi supussa: tumma iho</annotation>
 		<annotation cp="👋🏻">heilautus | käden heilautus | käsi | vaalea iho | vartalo | vilkuttaa</annotation>
 		<annotation cp="👋🏻" type="tts">käden heilautus: vaalea iho</annotation>
 		<annotation cp="👋🏼">heilautus | käden heilautus | käsi | keskivaalea iho | vartalo | vilkuttaa</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">aikuinen: keskitumma iho, kalju</annotation>
 		<annotation cp="🧑🏿‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | sukupuolineutraali | täysikasvuinen | tumma iho</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">aikuinen: tumma iho, kalju</annotation>
+		<annotation cp="🧑🏻‍🍼">henkilö | imettävä | syöttävä | vaalea iho | vauva | vauvaa imettävä henkilö | vauvaa syöttävä henkilö</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">vauvaa syöttävä henkilö: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🍼">henkilö | imettävä | keskivaalea iho | syöttävä | vauva | vauvaa imettävä henkilö | vauvaa syöttävä henkilö</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">vauvaa syöttävä henkilö: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🍼">henkilö | imettävä | syöttävä | tummanvaalea iho | vauva | vauvaa imettävä henkilö | vauvaa syöttävä henkilö</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">vauvaa syöttävä henkilö: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🍼">henkilö | imettävä | keskitumma iho | syöttävä | vauva | vauvaa imettävä henkilö | vauvaa syöttävä henkilö</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">vauvaa syöttävä henkilö: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🍼">henkilö | imettävä | syöttävä | tumma iho | vauva | vauvaa imettävä henkilö | vauvaa syöttävä henkilö</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">vauvaa syöttävä henkilö: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🎄">joulutonttu | tonttu | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">tonttu: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🎄">joulutonttu | keskivaalea iho | tonttu</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">tonttu: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎄">joulutonttu | tonttu | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">tonttu: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🎄">joulutonttu | keskitumma iho | tonttu</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">tonttu: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🎄">joulutonttu | tonttu | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">tonttu: tumma iho</annotation>
 		<annotation cp="👨🏻">mies | miespuolinen | vaalea iho</annotation>
 		<annotation cp="👨🏻" type="tts">mies: vaalea iho</annotation>
 		<annotation cp="👨🏼">keskivaalea iho | mies | miespuolinen</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">mies: keskitumma iho, kalju</annotation>
 		<annotation cp="👨🏿‍🦲">kalju | mies | miespuolinen | tumma iho</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mies: tumma iho, kalju</annotation>
+		<annotation cp="👨🏻‍🍼">imettävä | mies | syöttävä | vaalea iho | vauva | vauvaa syöttävä mies</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">vauvaa syöttävä mies: vaalea iho</annotation>
+		<annotation cp="👨🏼‍🍼">imettävä | keskivaalea iho | mies | syöttävä | vauva | vauvaa syöttävä mies</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">vauvaa syöttävä mies: keskivaalea iho</annotation>
+		<annotation cp="👨🏽‍🍼">imettävä | mies | syöttävä | tummanvaalea iho | vauva | vauvaa syöttävä mies</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">vauvaa syöttävä mies: tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🍼">imettävä | keskitumma iho | mies | syöttävä | vauva | vauvaa syöttävä mies</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">vauvaa syöttävä mies: keskitumma iho</annotation>
+		<annotation cp="👨🏿‍🍼">imettävä | mies | syöttävä | tumma iho | vauva | vauvaa syöttävä mies</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">vauvaa syöttävä mies: tumma iho</annotation>
 		<annotation cp="👩🏻">nainen | naispuolinen | vaalea iho</annotation>
 		<annotation cp="👩🏻" type="tts">nainen: vaalea iho</annotation>
 		<annotation cp="👩🏼">keskivaalea iho | nainen | naispuolinen</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">nainen: keskitumma iho, kalju</annotation>
 		<annotation cp="👩🏿‍🦲">kalju | nainen | naispuolinen | tumma iho</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">nainen: tumma iho, kalju</annotation>
+		<annotation cp="👩🏻‍🍼">imettävä | nainen | syöttävä | vaalea iho | vauva | vauvaa syöttävä nainen</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">vauvaa syöttävä nainen: vaalea iho</annotation>
+		<annotation cp="👩🏼‍🍼">imettävä | keskivaalea iho | nainen | syöttävä | vauva | vauvaa syöttävä nainen</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">vauvaa syöttävä nainen: keskivaalea iho</annotation>
+		<annotation cp="👩🏽‍🍼">imettävä | nainen | syöttävä | tummanvaalea iho | vauva | vauvaa syöttävä nainen</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">vauvaa syöttävä nainen: tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🍼">imettävä | keskitumma iho | nainen | syöttävä | vauva | vauvaa syöttävä nainen</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">vauvaa syöttävä nainen: keskitumma iho</annotation>
+		<annotation cp="👩🏿‍🍼">imettävä | nainen | syöttävä | tumma iho | vauva | vauvaa syöttävä nainen</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">vauvaa syöttävä nainen: tumma iho</annotation>
 		<annotation cp="🧓🏻">ikäihminen | seniori | sukupuolineutraali | vaalea iho | vanha | vanhus</annotation>
 		<annotation cp="🧓🏻" type="tts">vanhus: vaalea iho</annotation>
 		<annotation cp="🧓🏼">ikäihminen | keskivaalea iho | seniori | sukupuolineutraali | vanha | vanhus</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">kämmeniään levittelevä nainen: keskitumma iho</annotation>
 		<annotation cp="🤷🏿‍♀">ei välitä | ihan sama | kämmeniään levittelevä nainen | kohauttaa | nainen | tumma iho</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">kämmeniään levittelevä nainen: tumma iho</annotation>
-		<annotation cp="🧑🏻‍⚕">lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍⚕">hoitotyöntekijä | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">hoitotyöntekijä: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍⚕">keskivaalea iho | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito</annotation>
+		<annotation cp="🧑🏼‍⚕">hoitotyöntekijä | keskivaalea iho | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">hoitotyöntekijä: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍⚕">lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍⚕">hoitotyöntekijä | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">hoitotyöntekijä: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍⚕">keskitumma iho | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito</annotation>
+		<annotation cp="🧑🏾‍⚕">hoitotyöntekijä | keskitumma iho | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">hoitotyöntekijä: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍⚕">lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | tumma iho</annotation>
+		<annotation cp="🧑🏿‍⚕">hoitotyöntekijä | lääkäri | sairaanhoitaja | terapeutti | terveydenhoito | tumma iho</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">hoitotyöntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍⚕">lääkäri | mies | mieshoitotyöntekijä | sairaanhoitaja | terapeutti | terveydenhuolto | vaalea iho</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">mieshoitotyöntekijä: vaalea iho</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">naishoitotyöntekijä: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍⚕">lääkäri | nainen | naishoitotyöntekijä | sairaanhoitaja | terapeutti | terveydenhuollon naisammattilainen | terveydenhuolto | tumma iho</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">naishoitotyöntekijä: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🎓">lakki | opiskelu | vaalea iho | valmistujaiset</annotation>
+		<annotation cp="🧑🏻‍🎓">lakki | opiskelija | opiskelu | vaalea iho | valmistujaiset</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">opiskelija: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🎓">keskivaalea iho | lakki | opiskelu | valmistujaiset</annotation>
+		<annotation cp="🧑🏼‍🎓">keskivaalea iho | lakki | opiskelija | opiskelu | valmistujaiset</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">opiskelija: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🎓">lakki | opiskelu | tummanvaalea iho | valmistujaiset</annotation>
+		<annotation cp="🧑🏽‍🎓">lakki | opiskelija | opiskelu | tummanvaalea iho | valmistujaiset</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">opiskelija: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🎓">keskitumma iho | lakki | opiskelu | valmistujaiset</annotation>
+		<annotation cp="🧑🏾‍🎓">keskitumma iho | lakki | opiskelija | opiskelu | valmistujaiset</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">opiskelija: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🎓">lakki | opiskelu | tumma iho | valmistujaiset</annotation>
+		<annotation cp="🧑🏿‍🎓">lakki | opiskelija | opiskelu | tumma iho | valmistujaiset</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">opiskelija: tumma iho</annotation>
 		<annotation cp="👨🏻‍🎓">lakki | mies | miesopiskelija | opiskelu | vaalea iho | valmistujaiset</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">miesopiskelija: vaalea iho</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">naismekaanikko: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🔧">jakoavain | mekaanikko | nainen | naismekaanikko | tumma iho | työkalu</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">naismekaanikko: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🏭">kokoaminen | tehdas | teollisuus | työntekijä | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🏭">kokoaminen | tehdas | tehdastyöntekijä | teollisuus | työntekijä | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">tehdastyöntekijä: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🏭">keskivaalea iho | kokoaminen | tehdas | teollisuus | työntekijä</annotation>
+		<annotation cp="🧑🏼‍🏭">keskivaalea iho | kokoaminen | tehdas | tehdastyöntekijä | teollisuus | työntekijä</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">tehdastyöntekijä: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🏭">kokoaminen | tehdas | teollisuus | tummanvaalea iho | työntekijä</annotation>
+		<annotation cp="🧑🏽‍🏭">kokoaminen | tehdas | tehdastyöntekijä | teollisuus | tummanvaalea iho | työntekijä</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">tehdastyöntekijä: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🏭">keskitumma iho | kokoaminen | tehdas | teollisuus | työntekijä</annotation>
+		<annotation cp="🧑🏾‍🏭">keskitumma iho | kokoaminen | tehdas | tehdastyöntekijä | teollisuus | työntekijä</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">tehdastyöntekijä: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🏭">kokoaminen | tehdas | teollisuus | tumma iho | työntekijä</annotation>
+		<annotation cp="🧑🏿‍🏭">kokoaminen | tehdas | tehdastyöntekijä | teollisuus | tumma iho | työntekijä</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">tehdastyöntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍🏭">hitsaaja | mies | miestehdastyöntekijä | tehdas | työntekijä | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">miestehdastyöntekijä: vaalea iho</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">naistehdastyöntekijä: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🏭">hitsaaja | nainen | naistehdastyöntekijä | tehdas | tumma iho | työntekijä</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">naistehdastyöntekijä: tumma iho</annotation>
-		<annotation cp="🧑🏻‍💼">arkkitehti | toimisto | vaalea iho | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏻‍💼">arkkitehti | toimisto | toimistotyöntekijä | vaalea iho | valkokaulus | yritys</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">toimistotyöntekijä: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍💼">arkkitehti | keskivaalea iho | toimisto | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏼‍💼">arkkitehti | keskivaalea iho | toimisto | toimistotyöntekijä | valkokaulus | yritys</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">toimistotyöntekijä: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍💼">arkkitehti | toimisto | tummanvaalea iho | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏽‍💼">arkkitehti | toimisto | toimistotyöntekijä | tummanvaalea iho | valkokaulus | yritys</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">toimistotyöntekijä: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍💼">arkkitehti | keskitumma iho | toimisto | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏾‍💼">arkkitehti | keskitumma iho | toimisto | toimistotyöntekijä | valkokaulus | yritys</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">toimistotyöntekijä: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍💼">arkkitehti | toimisto | tumma iho | valkokaulus | yritys</annotation>
+		<annotation cp="🧑🏿‍💼">arkkitehti | toimisto | toimistotyöntekijä | tumma iho | valkokaulus | yritys</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">toimistotyöntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍💼">mies | miestoimistotyöntekijä | toimisto | työntekijä | vaalea iho | valkokaulus</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">miestoimistotyöntekijä: vaalea iho</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">naistoimistotyöntekijä: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍💼">nainen | naistoimistotyöntekijä | toimisto | tumma iho | työntekijä | valkokaulus</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">naistoimistotyöntekijä: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | tutkija | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">tutkija: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🔬">biologi | insinööri | kemisti | keskivaalea iho | lääkäri | tiede</annotation>
+		<annotation cp="🧑🏼‍🔬">biologi | insinööri | kemisti | keskivaalea iho | lääkäri | tiede | tutkija</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">tutkija: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | tummanvaalea iho | tutkija</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">tutkija: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🔬">biologi | insinööri | kemisti | keskitumma iho | lääkäri | tiede</annotation>
+		<annotation cp="🧑🏾‍🔬">biologi | insinööri | kemisti | keskitumma iho | lääkäri | tiede | tutkija</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">tutkija: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🔬">biologi | insinööri | kemisti | lääkäri | tiede | tumma iho | tutkija</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">tutkija: tumma iho</annotation>
 		<annotation cp="👨🏻‍🔬">mies | miestutkija | tiede | tutkija | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">miestutkija: vaalea iho</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">naistutkija: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🔬">nainen | naistutkija | tiede | tumma iho | tutkija</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">naistutkija: tumma iho</annotation>
-		<annotation cp="🧑🏻‍💻">kehittäjä | keksijä | koodari | ohjelmisto | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍💻">IT-työntekijä | kehittäjä | keksijä | koodari | ohjelmisto | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">IT-työntekijä: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍💻">kehittäjä | keksijä | keskivaalea iho | koodari | ohjelmisto</annotation>
+		<annotation cp="🧑🏼‍💻">IT-työntekijä | kehittäjä | keksijä | keskivaalea iho | koodari | ohjelmisto</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">IT-työntekijä: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍💻">kehittäjä | keksijä | koodari | ohjelmisto | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍💻">IT-työntekijä | kehittäjä | keksijä | koodari | ohjelmisto | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">IT-työntekijä: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍💻">kehittäjä | keksijä | keskitumma iho | koodari | ohjelmisto</annotation>
+		<annotation cp="🧑🏾‍💻">IT-työntekijä | kehittäjä | keksijä | keskitumma iho | koodari | ohjelmisto</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">IT-työntekijä: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍💻">kehittäjä | keksijä | koodari | ohjelmisto | tumma iho</annotation>
+		<annotation cp="🧑🏿‍💻">IT-työntekijä | kehittäjä | keksijä | koodari | ohjelmisto | tumma iho</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">IT-työntekijä: tumma iho</annotation>
 		<annotation cp="👨🏻‍💻">IT | IT-mies | koodaus | mies | tietokone | vaalea iho</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">IT-mies: vaalea iho</annotation>
@@ -1336,15 +1386,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎤" type="tts">naislaulaja: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🎤">karaoke | laulaja | mikki | nainen | naislaulaja | tumma iho</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">naislaulaja: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🎨">paletti | taiteilija | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🎨">artisti | paletti | taiteilija | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">artisti: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🎨">keskivaalea iho | paletti | taiteilija</annotation>
+		<annotation cp="🧑🏼‍🎨">artisti | keskivaalea iho | paletti | taiteilija</annotation>
 		<annotation cp="🧑🏼‍🎨" type="tts">artisti: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🎨">paletti | taiteilija | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🎨">artisti | paletti | taiteilija | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍🎨" type="tts">artisti: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🎨">keskitumma iho | paletti | taiteilija</annotation>
+		<annotation cp="🧑🏾‍🎨">artisti | keskitumma iho | paletti | taiteilija</annotation>
 		<annotation cp="🧑🏾‍🎨" type="tts">artisti: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🎨">paletti | taiteilija | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🎨">artisti | paletti | taiteilija | tumma iho</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">artisti: tumma iho</annotation>
 		<annotation cp="👨🏻‍🎨">maalari | mies | miesartisti | taide | taiteilija | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">miesartisti: vaalea iho</annotation>
@@ -1646,16 +1696,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">huivipäinen nainen: keskitumma iho</annotation>
 		<annotation cp="🧕🏿">hijab | huivipäinen nainen | khimār | mantilja | pääliina | silkkihuivi | tichel | tumma iho</annotation>
 		<annotation cp="🧕🏿" type="tts">huivipäinen nainen: tumma iho</annotation>
-		<annotation cp="🤵🏻">mies | smokki | smokkipukuinen mies | sulhanen | vaalea iho</annotation>
-		<annotation cp="🤵🏻" type="tts">smokkipukuinen mies: vaalea iho</annotation>
-		<annotation cp="🤵🏼">keskivaalea iho | mies | smokki | smokkipukuinen mies | sulhanen</annotation>
-		<annotation cp="🤵🏼" type="tts">smokkipukuinen mies: keskivaalea iho</annotation>
-		<annotation cp="🤵🏽">mies | smokki | smokkipukuinen mies | sulhanen | tummanvaalea iho</annotation>
-		<annotation cp="🤵🏽" type="tts">smokkipukuinen mies: tummanvaalea iho</annotation>
-		<annotation cp="🤵🏾">keskitumma iho | mies | smokki | smokkipukuinen mies | sulhanen</annotation>
-		<annotation cp="🤵🏾" type="tts">smokkipukuinen mies: keskitumma iho</annotation>
-		<annotation cp="🤵🏿">mies | smokki | smokkipukuinen mies | sulhanen | tumma iho</annotation>
-		<annotation cp="🤵🏿" type="tts">smokkipukuinen mies: tumma iho</annotation>
+		<annotation cp="🤵🏻">henkilö smokissa | ihminen | smokki | smokkipukuinen ihminen | sulhanen | vaalea iho</annotation>
+		<annotation cp="🤵🏻" type="tts">henkilö smokissa: vaalea iho</annotation>
+		<annotation cp="🤵🏼">henkilö smokissa | ihminen | keskivaalea iho | smokki | smokkipukuinen ihminen | sulhanen</annotation>
+		<annotation cp="🤵🏼" type="tts">henkilö smokissa: keskivaalea iho</annotation>
+		<annotation cp="🤵🏽">henkilö smokissa | ihminen | smokki | smokkipukuinen ihminen | sulhanen | tummanvaalea iho</annotation>
+		<annotation cp="🤵🏽" type="tts">henkilö smokissa: tummanvaalea iho</annotation>
+		<annotation cp="🤵🏾">henkilö smokissa | ihminen | keskitumma iho | smokki | smokkipukuinen ihminen | sulhanen</annotation>
+		<annotation cp="🤵🏾" type="tts">henkilö smokissa: keskitumma iho</annotation>
+		<annotation cp="🤵🏿">henkilö smokissa | ihminen | smokki | smokkipukuinen ihminen | sulhanen | tumma iho</annotation>
+		<annotation cp="🤵🏿" type="tts">henkilö smokissa: tumma iho</annotation>
+		<annotation cp="🤵🏻‍♀">nainen | nainen smokissa | smokki | smokkipukuinen nainen | vaalea iho</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">nainen smokissa: vaalea iho</annotation>
+		<annotation cp="🤵🏼‍♀">keskivaalea iho | nainen | nainen smokissa | smokki | smokkipukuinen nainen</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">nainen smokissa: keskivaalea iho</annotation>
+		<annotation cp="🤵🏽‍♀">nainen | nainen smokissa | smokki | smokkipukuinen nainen | tummanvaalea iho</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">nainen smokissa: tummanvaalea iho</annotation>
+		<annotation cp="🤵🏾‍♀">keskitumma iho | nainen | nainen smokissa | smokki | smokkipukuinen nainen</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">nainen smokissa: keskitumma iho</annotation>
+		<annotation cp="🤵🏿‍♀">nainen | nainen smokissa | smokki | smokkipukuinen nainen | tumma iho</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">nainen smokissa: tumma iho</annotation>
+		<annotation cp="🤵🏻‍♂">mies | mies smokissa | smokki | smokkipukuinen mies | vaalea iho</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">mies smokissa: vaalea iho</annotation>
+		<annotation cp="🤵🏼‍♂">keskivaalea iho | mies | mies smokissa | smokki | smokkipukuinen mies</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">mies smokissa: keskivaalea iho</annotation>
+		<annotation cp="🤵🏽‍♂">mies | mies smokissa | smokki | smokkipukuinen mies | tummanvaalea iho</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">mies smokissa: tummanvaalea iho</annotation>
+		<annotation cp="🤵🏾‍♂">keskitumma iho | mies | mies smokissa | smokki | smokkipukuinen mies</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">mies smokissa: keskitumma iho</annotation>
+		<annotation cp="🤵🏿‍♂">mies | mies smokissa | smokki | smokkipukuinen mies | tumma iho</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">mies smokissa: tumma iho</annotation>
 		<annotation cp="👰🏻">häät | huntu | huntupäinen morsian | morsian | vaalea iho</annotation>
 		<annotation cp="👰🏻" type="tts">huntupäinen morsian: vaalea iho</annotation>
 		<annotation cp="👰🏼">häät | huntu | huntupäinen morsian | keskivaalea iho | morsian</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">huntupäinen morsian: keskitumma iho</annotation>
 		<annotation cp="👰🏿">häät | huntu | huntupäinen morsian | morsian | tumma iho</annotation>
 		<annotation cp="👰🏿" type="tts">huntupäinen morsian: tumma iho</annotation>
+		<annotation cp="👰🏻‍♀">huntu | huntupäinen nainen | nainen | nainen ja huntu | vaalea iho</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">huntupäinen nainen: vaalea iho</annotation>
+		<annotation cp="👰🏼‍♀">huntu | huntupäinen nainen | keskivaalea iho | nainen | nainen ja huntu</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">huntupäinen nainen: keskivaalea iho</annotation>
+		<annotation cp="👰🏽‍♀">huntu | huntupäinen nainen | nainen | nainen ja huntu | tummanvaalea iho</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">huntupäinen nainen: tummanvaalea iho</annotation>
+		<annotation cp="👰🏾‍♀">huntu | huntupäinen nainen | keskitumma iho | nainen | nainen ja huntu</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">huntupäinen nainen: keskitumma iho</annotation>
+		<annotation cp="👰🏿‍♀">huntu | huntupäinen nainen | nainen | nainen ja huntu | tumma iho</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">huntupäinen nainen: tumma iho</annotation>
+		<annotation cp="👰🏻‍♂">huntu | huntupäinen mies | mies | mies ja huntu | vaalea iho</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">huntupäinen mies: vaalea iho</annotation>
+		<annotation cp="👰🏼‍♂">huntu | huntupäinen mies | keskivaalea iho | mies | mies ja huntu</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">huntupäinen mies: keskivaalea iho</annotation>
+		<annotation cp="👰🏽‍♂">huntu | huntupäinen mies | mies | mies ja huntu | tummanvaalea iho</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">huntupäinen mies: tummanvaalea iho</annotation>
+		<annotation cp="👰🏾‍♂">huntu | huntupäinen mies | keskitumma iho | mies | mies ja huntu</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">huntupäinen mies: keskitumma iho</annotation>
+		<annotation cp="👰🏿‍♂">huntu | huntupäinen mies | mies | mies ja huntu | tumma iho</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">huntupäinen mies: tumma iho</annotation>
 		<annotation cp="🤰🏻">nainen | raskaana | raskaana oleva nainen | vaalea iho</annotation>
 		<annotation cp="🤰🏻" type="tts">raskaana oleva nainen: vaalea iho</annotation>
 		<annotation cp="🤰🏼">keskivaalea iho | nainen | raskaana | raskaana oleva nainen</annotation>
@@ -1876,15 +1966,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧜🏾" type="tts">merenväki: keskitumma iho</annotation>
 		<annotation cp="🧜🏿">Ahti | kalanpyrstö | merenhaltija | merenmies | merenneito | merenväki | pyrstö | tumma iho | vedenhaltija | vedenväki</annotation>
 		<annotation cp="🧜🏿" type="tts">merenväki: tumma iho</annotation>
-		<annotation cp="🧜🏻‍♂">Ahti | kalanpyrstö | merenhaltija | merenväki | Triton | vaalea iho | vedenhaltija | vetehinen</annotation>
+		<annotation cp="🧜🏻‍♂">Ahti | kalanpyrstö | merenhaltija | merenmies | merenväki | Triton | vaalea iho | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏻‍♂" type="tts">merenmies: vaalea iho</annotation>
-		<annotation cp="🧜🏼‍♂">Ahti | kalanpyrstö | keskivaalea iho | merenhaltija | merenväki | Triton | vedenhaltija | vetehinen</annotation>
+		<annotation cp="🧜🏼‍♂">Ahti | kalanpyrstö | keskivaalea iho | merenhaltija | merenmies | merenväki | Triton | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏼‍♂" type="tts">merenmies: keskivaalea iho</annotation>
-		<annotation cp="🧜🏽‍♂">Ahti | kalanpyrstö | merenhaltija | merenväki | Triton | tummanvaalea iho | vedenhaltija | vetehinen</annotation>
+		<annotation cp="🧜🏽‍♂">Ahti | kalanpyrstö | merenhaltija | merenmies | merenväki | Triton | tummanvaalea iho | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏽‍♂" type="tts">merenmies: tummanvaalea iho</annotation>
-		<annotation cp="🧜🏾‍♂">Ahti | kalanpyrstö | keskitumma iho | merenhaltija | merenväki | Triton | vedenhaltija | vetehinen</annotation>
+		<annotation cp="🧜🏾‍♂">Ahti | kalanpyrstö | keskitumma iho | merenhaltija | merenmies | merenväki | Triton | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏾‍♂" type="tts">merenmies: keskitumma iho</annotation>
-		<annotation cp="🧜🏿‍♂">Ahti | kalanpyrstö | merenhaltija | merenväki | Triton | tumma iho | vedenhaltija | vetehinen</annotation>
+		<annotation cp="🧜🏿‍♂">Ahti | kalanpyrstö | merenhaltija | merenmies | merenväki | Triton | tumma iho | vedenhaltija | vetehinen</annotation>
 		<annotation cp="🧜🏿‍♂" type="tts">merenmies: tumma iho</annotation>
 		<annotation cp="🧜🏻‍♀">kalanpyrstö | merenneito | merenväki | pyrstö | seireeni | vaalea iho | vedenväki</annotation>
 		<annotation cp="🧜🏻‍♀" type="tts">merenneito: vaalea iho</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">polvistuva nainen: keskitumma iho</annotation>
 		<annotation cp="🧎🏿‍♀">nainen | polvistuva | tumma iho</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">polvistuva nainen: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🦯">esteettömyys | sokea | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦯">esteettömyys | henkilö ja valkoinen keppi | sokea | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">henkilö ja valkoinen keppi: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🦯">esteettömyys | keskivaalea iho | sokea</annotation>
+		<annotation cp="🧑🏼‍🦯">esteettömyys | henkilö ja valkoinen keppi | keskivaalea iho | sokea</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">henkilö ja valkoinen keppi: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🦯">esteettömyys | sokea | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦯">esteettömyys | henkilö ja valkoinen keppi | sokea | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">henkilö ja valkoinen keppi: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🦯">esteettömyys | keskitumma iho | sokea</annotation>
+		<annotation cp="🧑🏾‍🦯">esteettömyys | henkilö ja valkoinen keppi | keskitumma iho | sokea</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">henkilö ja valkoinen keppi: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🦯">esteettömyys | sokea | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦯">esteettömyys | henkilö ja valkoinen keppi | sokea | tumma iho</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">henkilö ja valkoinen keppi: tumma iho</annotation>
 		<annotation cp="👨🏻‍🦯">esteettömyys | mies | mies ja valkoinen keppi | sokea | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">mies ja valkoinen keppi: vaalea iho</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">nainen ja valkoinen keppi: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🦯">esteettömyys | nainen | nainen ja valkoinen keppi | sokea | tumma iho</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">nainen ja valkoinen keppi: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🦼">esteettömyys | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦼">esteettömyys | henkilö moottoroidussa pyörätuolissa | pyörätuoli | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🦼">esteettömyys | keskivaalea iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏼‍🦼">esteettömyys | henkilö moottoroidussa pyörätuolissa | keskivaalea iho | pyörätuoli</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🦼">esteettömyys | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦼">esteettömyys | henkilö moottoroidussa pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🦼">esteettömyys | keskitumma iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏾‍🦼">esteettömyys | henkilö moottoroidussa pyörätuolissa | keskitumma iho | pyörätuoli</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🦼">esteettömyys | pyörätuoli | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦼">esteettömyys | henkilö moottoroidussa pyörätuolissa | pyörätuoli | tumma iho</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">henkilö moottoroidussa pyörätuolissa: tumma iho</annotation>
 		<annotation cp="👨🏻‍🦼">esteettömyys | mies | mies moottoroidussa pyörätuolissa | pyörätuoli | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">mies moottoroidussa pyörätuolissa: vaalea iho</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: keskitumma iho</annotation>
 		<annotation cp="👩🏿‍🦼">esteettömyys | nainen | nainen moottoroidussa pyörätuolissa | pyörätuoli | tumma iho</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">nainen moottoroidussa pyörätuolissa: tumma iho</annotation>
-		<annotation cp="🧑🏻‍🦽">esteettömyys | pyörätuoli | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🦽">esteettömyys | henkilö käsikäyttöisessä pyörätuolissa | pyörätuoli | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: vaalea iho</annotation>
-		<annotation cp="🧑🏼‍🦽">esteettömyys | keskivaalea iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏼‍🦽">esteettömyys | henkilö käsikäyttöisessä pyörätuolissa | keskivaalea iho | pyörätuoli</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: keskivaalea iho</annotation>
-		<annotation cp="🧑🏽‍🦽">esteettömyys | pyörätuoli | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🦽">esteettömyys | henkilö käsikäyttöisessä pyörätuolissa | pyörätuoli | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: tummanvaalea iho</annotation>
-		<annotation cp="🧑🏾‍🦽">esteettömyys | keskitumma iho | pyörätuoli</annotation>
+		<annotation cp="🧑🏾‍🦽">esteettömyys | henkilö käsikäyttöisessä pyörätuolissa | keskitumma iho | pyörätuoli</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: keskitumma iho</annotation>
-		<annotation cp="🧑🏿‍🦽">esteettömyys | pyörätuoli | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🦽">esteettömyys | henkilö käsikäyttöisessä pyörätuolissa | pyörätuoli | tumma iho</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">henkilö käsikäyttöisessä pyörätuolissa: tumma iho</annotation>
 		<annotation cp="👨🏻‍🦽">esteettömyys | mies | mies käsikäyttöisessä pyörätuolissa | pyörätuoli | vaalea iho</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">mies käsikäyttöisessä pyörätuolissa: vaalea iho</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">nukkuja: tumma iho</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">ihmiset käsi kädessä: vaalea iho, tumma iho</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: keskivaalea iho, vaalea iho</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: keskivaalea iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | keskivaalea iho | pari | pitää | pitää toisiaan käsistä</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">ihmiset käsi kädessä: keskivaalea iho, tumma iho</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho | vaalea iho</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">ihmiset käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">ihmiset käsi kädessä: tummanvaalea iho, tumma iho</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | vaalea iho</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: keskitumma iho, vaalea iho</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | keskivaalea iho | pari | pitää | pitää toisiaan käsistä</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">ihmiset käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">ihmiset käsi kädessä: keskitumma iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">henkilö | ihmiset käsi kädessä | käsi | keskitumma iho | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">ihmiset käsi kädessä: keskitumma iho, tumma iho</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">henkilö | ihmiset käsi kädessä | käsi | pari | pitää | pitää toisiaan käsistä | tumma iho | vaalea iho</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">ihmiset käsi kädessä: tumma iho, vaalea iho</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">henkilö | ihmiset käsi kädessä | käsi | keskivaalea iho | pari | pitää | pitää toisiaan käsistä | tumma iho</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">ihmiset käsi kädessä: tumma iho</annotation>
 		<annotation cp="👭🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | vaalea iho</annotation>
 		<annotation cp="👭🏻" type="tts">kaksi naista käsi kädessä: vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">kaksi naista käsi kädessä: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">kaksi naista käsi kädessä: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">kaksi naista käsi kädessä: vaalea iho, tumma iho</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | vaalea iho</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: keskivaalea iho, vaalea iho</annotation>
 		<annotation cp="👭🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta</annotation>
 		<annotation cp="👭🏼" type="tts">kaksi naista käsi kädessä: keskivaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">kaksi naista käsi kädessä: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | keskivaalea iho | nainen | pariskunta</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">kaksi naista käsi kädessä: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">kaksi naista käsi kädessä: keskivaalea iho, tumma iho</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tummanvaalea iho | vaalea iho</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tummanvaalea iho</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
 		<annotation cp="👭🏽">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tummanvaalea iho</annotation>
 		<annotation cp="👭🏽" type="tts">kaksi naista käsi kädessä: tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">kaksi naista käsi kädessä: tummanvaalea iho, tumma iho</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | vaalea iho</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: keskitumma iho, vaalea iho</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | keskivaalea iho | nainen | pariskunta</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kaksi naista käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
 		<annotation cp="👭🏾">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta</annotation>
 		<annotation cp="👭🏾" type="tts">kaksi naista käsi kädessä: keskitumma iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskitumma iho | nainen | pariskunta | tumma iho</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">kaksi naista käsi kädessä: keskitumma iho, tumma iho</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">kädestä pitäminen | kaksi naista käsi kädessä | käsi | nainen | pariskunta | tumma iho | vaalea iho</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kaksi naista käsi kädessä: tumma iho, vaalea iho</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">kädestä pitäminen | kaksi naista käsi kädessä | käsi | keskivaalea iho | nainen | pariskunta | tumma iho</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">mies ja nainen käsi kädessä: tumma iho</annotation>
 		<annotation cp="👬🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | vaalea iho</annotation>
 		<annotation cp="👬🏻" type="tts">kaksi miestä käsi kädessä: vaalea iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">kaksi miestä käsi kädessä: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">kaksi miestä käsi kädessä: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">kaksi miestä käsi kädessä: vaalea iho, tumma iho</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | vaalea iho</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: keskivaalea iho, vaalea iho</annotation>
 		<annotation cp="👬🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari</annotation>
 		<annotation cp="👬🏼" type="tts">kaksi miestä käsi kädessä: keskivaalea iho</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tummanvaalea iho</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">kaksi miestä käsi kädessä: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | keskivaalea iho | miespari</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">kaksi miestä käsi kädessä: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tumma iho</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">kaksi miestä käsi kädessä: keskivaalea iho, tumma iho</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tummanvaalea iho | vaalea iho</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, vaalea iho</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tummanvaalea iho</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, keskivaalea iho</annotation>
 		<annotation cp="👬🏽">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tummanvaalea iho</annotation>
 		<annotation cp="👬🏽" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">kaksi miestä käsi kädessä: tummanvaalea iho, tumma iho</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | vaalea iho</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: keskitumma iho, vaalea iho</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | keskivaalea iho | miespari</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">kaksi miestä käsi kädessä: keskitumma iho, tummanvaalea iho</annotation>
 		<annotation cp="👬🏾">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari</annotation>
 		<annotation cp="👬🏾" type="tts">kaksi miestä käsi kädessä: keskitumma iho</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskitumma iho | miespari | tumma iho</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">kaksi miestä käsi kädessä: keskitumma iho, tumma iho</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">kaksi miestä käsi kädessä | kaksonen | kaksoset | miespari | tumma iho | vaalea iho</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">kaksi miestä käsi kädessä: tumma iho, vaalea iho</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">kaksi miestä käsi kädessä | kaksonen | kaksoset | keskivaalea iho | miespari | tumma iho</annotation>

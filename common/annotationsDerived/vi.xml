@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="vi"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">cử chỉ tay | khum lại | màu da sáng | mỉa mai | ngón tay | ngón tay khum lại | thẩm vấn</annotation>
+		<annotation cp="🤌🏻" type="tts">ngón tay khum lại: màu da sáng</annotation>
+		<annotation cp="🤌🏼">cử chỉ tay | khum lại | màu da sáng trung bình | mỉa mai | ngón tay | ngón tay khum lại | thẩm vấn</annotation>
+		<annotation cp="🤌🏼" type="tts">ngón tay khum lại: màu da sáng trung bình</annotation>
+		<annotation cp="🤌🏽">cử chỉ tay | khum lại | màu da trung bình | mỉa mai | ngón tay | ngón tay khum lại | thẩm vấn</annotation>
+		<annotation cp="🤌🏽" type="tts">ngón tay khum lại: màu da trung bình</annotation>
+		<annotation cp="🤌🏾">cử chỉ tay | khum lại | màu da tối trung bình | mỉa mai | ngón tay | ngón tay khum lại | thẩm vấn</annotation>
+		<annotation cp="🤌🏾" type="tts">ngón tay khum lại: màu da tối trung bình</annotation>
+		<annotation cp="🤌🏿">cử chỉ tay | khum lại | màu da tối | mỉa mai | ngón tay | ngón tay khum lại | thẩm vấn</annotation>
+		<annotation cp="🤌🏿" type="tts">ngón tay khum lại: màu da tối</annotation>
 		<annotation cp="👋🏻">đang vẫy | màu da sáng | tay | vẫy</annotation>
 		<annotation cp="👋🏻" type="tts">vẫy tay: màu da sáng</annotation>
 		<annotation cp="👋🏼">đang vẫy | màu da sáng trung bình | tay | vẫy</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">người: màu da tối trung bình và hói</annotation>
 		<annotation cp="🧑🏿‍🦲">giới tính chung | giới tính không xác định | hói | màu da tối | người | người lớn</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">người: màu da tối và hói</annotation>
+		<annotation cp="🧑🏻‍🍼">cho bú | cho con bú | em bé | màu da sáng | người | người cho con bú</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">người cho em bé bú: màu da sáng</annotation>
+		<annotation cp="🧑🏼‍🍼">cho bú | cho con bú | em bé | màu da sáng trung bình | người | người cho con bú</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">người cho em bé bú: màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏽‍🍼">cho bú | cho con bú | em bé | màu da trung bình | người | người cho con bú</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">người cho em bé bú: màu da trung bình</annotation>
+		<annotation cp="🧑🏾‍🍼">cho bú | cho con bú | em bé | màu da tối trung bình | người | người cho con bú</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">người cho em bé bú: màu da tối trung bình</annotation>
+		<annotation cp="🧑🏿‍🍼">cho bú | cho con bú | em bé | màu da tối | người | người cho con bú</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">người cho em bé bú: màu da tối</annotation>
+		<annotation cp="🧑🏻‍🎄">bà già Noel | màu da sáng | Noel, giáng sinh</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">bà già Noel: màu da sáng</annotation>
+		<annotation cp="🧑🏼‍🎄">bà già Noel | màu da sáng trung bình | Noel, giáng sinh</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">bà già Noel: màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏽‍🎄">bà già Noel | màu da trung bình | Noel, giáng sinh</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">bà già Noel: màu da trung bình</annotation>
+		<annotation cp="🧑🏾‍🎄">bà già Noel | màu da tối trung bình | Noel, giáng sinh</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">bà già Noel: màu da tối trung bình</annotation>
+		<annotation cp="🧑🏿‍🎄">bà già Noel | màu da tối | Noel, giáng sinh</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">bà già Noel: màu da tối</annotation>
 		<annotation cp="👨🏻">đàn ông | màu da sáng | người lớn</annotation>
 		<annotation cp="👨🏻" type="tts">đàn ông: màu da sáng</annotation>
 		<annotation cp="👨🏼">đàn ông | màu da sáng trung bình | người lớn</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">đàn ông: màu da tối trung bình và hói</annotation>
 		<annotation cp="👨🏿‍🦲">đàn ông | hói | màu da tối | người lớn</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">đàn ông: màu da tối và hói</annotation>
+		<annotation cp="👨🏻‍🍼">cho bú | cho con bú | em bé | màu da sáng | người | người cho con bú</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">người cho con bú: màu da sáng</annotation>
+		<annotation cp="👨🏼‍🍼">cho bú | cho con bú | em bé | màu da sáng trung bình | người | người cho con bú</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">người cho con bú: màu da sáng trung bình</annotation>
+		<annotation cp="👨🏽‍🍼">cho bú | cho con bú | em bé | màu da trung bình | người | người cho con bú</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">người cho con bú: màu da trung bình</annotation>
+		<annotation cp="👨🏾‍🍼">cho bú | cho con bú | em bé | màu da tối trung bình | người | người cho con bú</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">người cho con bú: màu da tối trung bình</annotation>
+		<annotation cp="👨🏿‍🍼">cho bú | cho con bú | em bé | màu da tối | người | người cho con bú</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">người cho con bú: màu da tối</annotation>
 		<annotation cp="👩🏻">màu da sáng | người lớn | phụ nữ</annotation>
 		<annotation cp="👩🏻" type="tts">phụ nữ: màu da sáng</annotation>
 		<annotation cp="👩🏼">màu da sáng trung bình | người lớn | phụ nữ</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">phụ nữ: màu da tối trung bình và hói</annotation>
 		<annotation cp="👩🏿‍🦲">hói | màu da tối | người lớn | phụ nữ</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">phụ nữ: màu da tối và hói</annotation>
+		<annotation cp="👩🏻‍🍼">cho bú | cho con bú | em bé | màu da sáng | người phụ nữ cho con bú | phụ nữ</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">người phụ nữ cho con bú: màu da sáng</annotation>
+		<annotation cp="👩🏼‍🍼">cho bú | cho con bú | em bé | màu da sáng trung bình | người phụ nữ cho con bú | phụ nữ</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">người phụ nữ cho con bú: màu da sáng trung bình</annotation>
+		<annotation cp="👩🏽‍🍼">cho bú | cho con bú | em bé | màu da trung bình | người phụ nữ cho con bú | phụ nữ</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">người phụ nữ cho con bú: màu da trung bình</annotation>
+		<annotation cp="👩🏾‍🍼">cho bú | cho con bú | em bé | màu da tối trung bình | người phụ nữ cho con bú | phụ nữ</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">người phụ nữ cho con bú: màu da tối trung bình</annotation>
+		<annotation cp="👩🏿‍🍼">cho bú | cho con bú | em bé | màu da tối | người phụ nữ cho con bú | phụ nữ</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">người phụ nữ cho con bú: màu da tối</annotation>
 		<annotation cp="🧓🏻">già | giới tính không xác định | giới tính trung lập | màu da sáng | người lớn tuổi</annotation>
 		<annotation cp="🧓🏻" type="tts">người lớn tuổi: màu da sáng</annotation>
 		<annotation cp="🧓🏼">già | giới tính không xác định | giới tính trung lập | màu da sáng trung bình | người lớn tuổi</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">người phụ nữ nhún vai: màu da tối trung bình</annotation>
 		<annotation cp="🤷🏿‍♀">màu da tối | nghi ngờ | người phụ nữ nhún vai | nhún vai | nữ | phụ nữ | sự thờ ơ | vô minh</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">người phụ nữ nhún vai: màu da tối</annotation>
-		<annotation cp="🧑🏻‍⚕">bác sĩ | chăm sóc sức khỏe | màu da sáng | nhà trị liệu | y tá</annotation>
+		<annotation cp="🧑🏻‍⚕">bác sĩ | chăm sóc sức khỏe | màu da sáng | nhà trị liệu | nhân viên y tế | y tá</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">nhân viên y tế: màu da sáng</annotation>
-		<annotation cp="🧑🏼‍⚕">bác sĩ | chăm sóc sức khỏe | màu da sáng trung bình | nhà trị liệu | y tá</annotation>
+		<annotation cp="🧑🏼‍⚕">bác sĩ | chăm sóc sức khỏe | màu da sáng trung bình | nhà trị liệu | nhân viên y tế | y tá</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">nhân viên y tế: màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍⚕">bác sĩ | chăm sóc sức khỏe | màu da trung bình | nhà trị liệu | y tá</annotation>
+		<annotation cp="🧑🏽‍⚕">bác sĩ | chăm sóc sức khỏe | màu da trung bình | nhà trị liệu | nhân viên y tế | y tá</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">nhân viên y tế: màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍⚕">bác sĩ | chăm sóc sức khỏe | màu da tối trung bình | nhà trị liệu | y tá</annotation>
+		<annotation cp="🧑🏾‍⚕">bác sĩ | chăm sóc sức khỏe | màu da tối trung bình | nhà trị liệu | nhân viên y tế | y tá</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">nhân viên y tế: màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍⚕">bác sĩ | chăm sóc sức khỏe | màu da tối | nhà trị liệu | y tá</annotation>
+		<annotation cp="🧑🏿‍⚕">bác sĩ | chăm sóc sức khỏe | màu da tối | nhà trị liệu | nhân viên y tế | y tá</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">nhân viên y tế: màu da tối</annotation>
 		<annotation cp="👨🏻‍⚕">bác sĩ | chăm sóc sức khỏe | màu da sáng | nam | nhân viên y tế nam | trị liệu | y tá</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">nhân viên y tế nam: màu da sáng</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">thợ máy nữ: màu da tối trung bình</annotation>
 		<annotation cp="👩🏿‍🔧">cơ khí | màu da tối | nữ | phụ nữ | thợ | thợ điện | thợ máy nữ | thợ sửa ống nước</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">thợ máy nữ: màu da tối</annotation>
-		<annotation cp="🧑🏻‍🏭">công nghiệp | công nhân | lắp ráp | màu da sáng | nhà máy</annotation>
+		<annotation cp="🧑🏻‍🏭">công nghiệp | công nhân | công nhân nhà máy | lắp ráp | màu da sáng | nhà máy</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">công nhân nhà máy: màu da sáng</annotation>
-		<annotation cp="🧑🏼‍🏭">công nghiệp | công nhân | lắp ráp | màu da sáng trung bình | nhà máy</annotation>
+		<annotation cp="🧑🏼‍🏭">công nghiệp | công nhân | công nhân nhà máy | lắp ráp | màu da sáng trung bình | nhà máy</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">công nhân nhà máy: màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍🏭">công nghiệp | công nhân | lắp ráp | màu da trung bình | nhà máy</annotation>
+		<annotation cp="🧑🏽‍🏭">công nghiệp | công nhân | công nhân nhà máy | lắp ráp | màu da trung bình | nhà máy</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">công nhân nhà máy: màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍🏭">công nghiệp | công nhân | lắp ráp | màu da tối trung bình | nhà máy</annotation>
+		<annotation cp="🧑🏾‍🏭">công nghiệp | công nhân | công nhân nhà máy | lắp ráp | màu da tối trung bình | nhà máy</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">công nhân nhà máy: màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍🏭">công nghiệp | công nhân | lắp ráp | màu da tối | nhà máy</annotation>
+		<annotation cp="🧑🏿‍🏭">công nghiệp | công nhân | công nhân nhà máy | lắp ráp | màu da tối | nhà máy</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">công nhân nhà máy: màu da tối</annotation>
 		<annotation cp="👨🏻‍🏭">công nghiệp | công nhân | công nhân nhà máy nam | lắp ráp | màu da sáng | nam | nhà máy</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">công nhân nhà máy nam: màu da sáng</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">công nhân nhà máy nữ: màu da tối trung bình</annotation>
 		<annotation cp="👩🏿‍🏭">công nghiệp | công nhân | công nhân nhà máy nữ | lắp ráp | màu da tối | nhà máy | nữ</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">công nhân nhà máy nữ: màu da tối</annotation>
-		<annotation cp="🧑🏻‍💼">kiến trúc sư | kinh doanh | màu da sáng | người quản lý | ông việc văn phòng</annotation>
+		<annotation cp="🧑🏻‍💼">kiến trúc sư | kinh doanh | màu da sáng | người quản lý | nhân viên văn phòng | ông việc văn phòng</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">nhân viên văn phòng: màu da sáng</annotation>
-		<annotation cp="🧑🏼‍💼">kiến trúc sư | kinh doanh | màu da sáng trung bình | người quản lý | ông việc văn phòng</annotation>
+		<annotation cp="🧑🏼‍💼">kiến trúc sư | kinh doanh | màu da sáng trung bình | người quản lý | nhân viên văn phòng | ông việc văn phòng</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">nhân viên văn phòng: màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍💼">kiến trúc sư | kinh doanh | màu da trung bình | người quản lý | ông việc văn phòng</annotation>
+		<annotation cp="🧑🏽‍💼">kiến trúc sư | kinh doanh | màu da trung bình | người quản lý | nhân viên văn phòng | ông việc văn phòng</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">nhân viên văn phòng: màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍💼">kiến trúc sư | kinh doanh | màu da tối trung bình | người quản lý | ông việc văn phòng</annotation>
+		<annotation cp="🧑🏾‍💼">kiến trúc sư | kinh doanh | màu da tối trung bình | người quản lý | nhân viên văn phòng | ông việc văn phòng</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">nhân viên văn phòng: màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍💼">kiến trúc sư | kinh doanh | màu da tối | người quản lý | ông việc văn phòng</annotation>
+		<annotation cp="🧑🏿‍💼">kiến trúc sư | kinh doanh | màu da tối | người quản lý | nhân viên văn phòng | ông việc văn phòng</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">nhân viên văn phòng: màu da tối</annotation>
 		<annotation cp="👨🏻‍💼">công việc văn phòng | kiến trúc sư | kinh doanh | màu da sáng | người đàn ông | người quản lý | nhân viên văn phòng nam</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">nhân viên văn phòng nam: màu da sáng</annotation>
@@ -1656,6 +1706,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾" type="tts">người đàn ông mặc bộ vest: màu da tối trung bình</annotation>
 		<annotation cp="🤵🏿">bộ vest | chú rể | màu da tối | người đàn ông | người đàn ông mặc bộ vest</annotation>
 		<annotation cp="🤵🏿" type="tts">người đàn ông mặc bộ vest: màu da tối</annotation>
+		<annotation cp="🤵🏻‍♀">màu da sáng | người phụ nữ | người phụ nữ mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">người phụ nữ mặc tuxedo: màu da sáng</annotation>
+		<annotation cp="🤵🏼‍♀">màu da sáng trung bình | người phụ nữ | người phụ nữ mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">người phụ nữ mặc tuxedo: màu da sáng trung bình</annotation>
+		<annotation cp="🤵🏽‍♀">màu da trung bình | người phụ nữ | người phụ nữ mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">người phụ nữ mặc tuxedo: màu da trung bình</annotation>
+		<annotation cp="🤵🏾‍♀">màu da tối trung bình | người phụ nữ | người phụ nữ mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">người phụ nữ mặc tuxedo: màu da tối trung bình</annotation>
+		<annotation cp="🤵🏿‍♀">màu da tối | người phụ nữ | người phụ nữ mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">người phụ nữ mặc tuxedo: màu da tối</annotation>
+		<annotation cp="🤵🏻‍♂">màu da sáng | người đàn ông | người đàn ông mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">người đàn ông mặc tuxedo: màu da sáng</annotation>
+		<annotation cp="🤵🏼‍♂">màu da sáng trung bình | người đàn ông | người đàn ông mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">người đàn ông mặc tuxedo: màu da sáng trung bình</annotation>
+		<annotation cp="🤵🏽‍♂">màu da trung bình | người đàn ông | người đàn ông mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">người đàn ông mặc tuxedo: màu da trung bình</annotation>
+		<annotation cp="🤵🏾‍♂">màu da tối trung bình | người đàn ông | người đàn ông mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">người đàn ông mặc tuxedo: màu da tối trung bình</annotation>
+		<annotation cp="🤵🏿‍♂">màu da tối | người đàn ông | người đàn ông mặc tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">người đàn ông mặc tuxedo: màu da tối</annotation>
 		<annotation cp="👰🏻">cô dâu | cô dâu với khăn voan | cưới | mạng che mặt | màu da sáng</annotation>
 		<annotation cp="👰🏻" type="tts">cô dâu với khăn voan: màu da sáng</annotation>
 		<annotation cp="👰🏼">cô dâu | cô dâu với khăn voan | cưới | mạng che mặt | màu da sáng trung bình</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">cô dâu với khăn voan: màu da tối trung bình</annotation>
 		<annotation cp="👰🏿">cô dâu | cô dâu với khăn voan | cưới | mạng che mặt | màu da tối</annotation>
 		<annotation cp="👰🏿" type="tts">cô dâu với khăn voan: màu da tối</annotation>
+		<annotation cp="👰🏻‍♀">lúp cưới | màu da sáng | người phụ nữ | người phụ nữ đội lúp cưới</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">người phụ nữ đội lúp cưới: màu da sáng</annotation>
+		<annotation cp="👰🏼‍♀">lúp cưới | màu da sáng trung bình | người phụ nữ | người phụ nữ đội lúp cưới</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">người phụ nữ đội lúp cưới: màu da sáng trung bình</annotation>
+		<annotation cp="👰🏽‍♀">lúp cưới | màu da trung bình | người phụ nữ | người phụ nữ đội lúp cưới</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">người phụ nữ đội lúp cưới: màu da trung bình</annotation>
+		<annotation cp="👰🏾‍♀">lúp cưới | màu da tối trung bình | người phụ nữ | người phụ nữ đội lúp cưới</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">người phụ nữ đội lúp cưới: màu da tối trung bình</annotation>
+		<annotation cp="👰🏿‍♀">lúp cưới | màu da tối | người phụ nữ | người phụ nữ đội lúp cưới</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">người phụ nữ đội lúp cưới: màu da tối</annotation>
+		<annotation cp="👰🏻‍♂">lúp cưới | màu da sáng | người đàn ông | người đàn ông đội lúp cưới</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">người đàn ông đội lúp cưới: màu da sáng</annotation>
+		<annotation cp="👰🏼‍♂">lúp cưới | màu da sáng trung bình | người đàn ông | người đàn ông đội lúp cưới</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">người đàn ông đội lúp cưới: màu da sáng trung bình</annotation>
+		<annotation cp="👰🏽‍♂">lúp cưới | màu da trung bình | người đàn ông | người đàn ông đội lúp cưới</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">người đàn ông đội lúp cưới: màu da trung bình</annotation>
+		<annotation cp="👰🏾‍♂">lúp cưới | màu da tối trung bình | người đàn ông | người đàn ông đội lúp cưới</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">người đàn ông đội lúp cưới: màu da tối trung bình</annotation>
+		<annotation cp="👰🏿‍♂">lúp cưới | màu da tối | người đàn ông | người đàn ông đội lúp cưới</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">người đàn ông đội lúp cưới: màu da tối</annotation>
 		<annotation cp="🤰🏻">mang thai | màu da sáng | người phụ nữ có thai | phụ nữ</annotation>
 		<annotation cp="🤰🏻" type="tts">người phụ nữ có thai: màu da sáng</annotation>
 		<annotation cp="🤰🏼">mang thai | màu da sáng trung bình | người phụ nữ có thai | phụ nữ</annotation>
@@ -2076,45 +2166,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">người phụ nữ quỳ: màu da tối trung bình</annotation>
 		<annotation cp="🧎🏿‍♀">màu da tối | người phụ nữ | người phụ nữ quỳ | quỳ</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">người phụ nữ quỳ: màu da tối</annotation>
-		<annotation cp="🧑🏻‍🦯">khả năng tiếp cận | màu da sáng | mù</annotation>
+		<annotation cp="🧑🏻‍🦯">khả năng tiếp cận | màu da sáng | mù | người với gậy dò đường</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">người với gậy dò đường: màu da sáng</annotation>
-		<annotation cp="🧑🏼‍🦯">khả năng tiếp cận | màu da sáng trung bình | mù</annotation>
+		<annotation cp="🧑🏼‍🦯">khả năng tiếp cận | màu da sáng trung bình | mù | người với gậy dò đường</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">người với gậy dò đường: màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍🦯">khả năng tiếp cận | màu da trung bình | mù</annotation>
+		<annotation cp="🧑🏽‍🦯">khả năng tiếp cận | màu da trung bình | mù | người với gậy dò đường</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">người với gậy dò đường: màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍🦯">khả năng tiếp cận | màu da tối trung bình | mù</annotation>
+		<annotation cp="🧑🏾‍🦯">khả năng tiếp cận | màu da tối trung bình | mù | người với gậy dò đường</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">người với gậy dò đường: màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍🦯">khả năng tiếp cận | màu da tối | mù</annotation>
+		<annotation cp="🧑🏿‍🦯">khả năng tiếp cận | màu da tối | mù | người với gậy dò đường</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">người với gậy dò đường: màu da tối</annotation>
-		<annotation cp="👨🏻‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng | mù | người đàn ông | người đàn ông với cây gậy</annotation>
+		<annotation cp="👨🏻‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng | mù | người đàn ông | người đàn ông với cây gậy | người đàn ông với gậy dò đường</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">người đàn ông với gậy dò đường: màu da sáng</annotation>
-		<annotation cp="👨🏼‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng trung bình | mù | người đàn ông | người đàn ông với cây gậy</annotation>
+		<annotation cp="👨🏼‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng trung bình | mù | người đàn ông | người đàn ông với cây gậy | người đàn ông với gậy dò đường</annotation>
 		<annotation cp="👨🏼‍🦯" type="tts">người đàn ông với gậy dò đường: màu da sáng trung bình</annotation>
-		<annotation cp="👨🏽‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da trung bình | mù | người đàn ông | người đàn ông với cây gậy</annotation>
+		<annotation cp="👨🏽‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da trung bình | mù | người đàn ông | người đàn ông với cây gậy | người đàn ông với gậy dò đường</annotation>
 		<annotation cp="👨🏽‍🦯" type="tts">người đàn ông với gậy dò đường: màu da trung bình</annotation>
-		<annotation cp="👨🏾‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối trung bình | mù | người đàn ông | người đàn ông với cây gậy</annotation>
+		<annotation cp="👨🏾‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối trung bình | mù | người đàn ông | người đàn ông với cây gậy | người đàn ông với gậy dò đường</annotation>
 		<annotation cp="👨🏾‍🦯" type="tts">người đàn ông với gậy dò đường: màu da tối trung bình</annotation>
-		<annotation cp="👨🏿‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối | mù | người đàn ông | người đàn ông với cây gậy</annotation>
+		<annotation cp="👨🏿‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối | mù | người đàn ông | người đàn ông với cây gậy | người đàn ông với gậy dò đường</annotation>
 		<annotation cp="👨🏿‍🦯" type="tts">người đàn ông với gậy dò đường: màu da tối</annotation>
-		<annotation cp="👩🏻‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng | mù | người phụ nữ | người phụ nữ với cây gậy</annotation>
+		<annotation cp="👩🏻‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng | mù | người phụ nữ | người phụ nữ với cây gậy | người phụ nữ với gậy dò đường</annotation>
 		<annotation cp="👩🏻‍🦯" type="tts">người phụ nữ với gậy dò đường: màu da sáng</annotation>
-		<annotation cp="👩🏼‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng trung bình | mù | người phụ nữ | người phụ nữ với cây gậy</annotation>
+		<annotation cp="👩🏼‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da sáng trung bình | mù | người phụ nữ | người phụ nữ với cây gậy | người phụ nữ với gậy dò đường</annotation>
 		<annotation cp="👩🏼‍🦯" type="tts">người phụ nữ với gậy dò đường: màu da sáng trung bình</annotation>
-		<annotation cp="👩🏽‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da trung bình | mù | người phụ nữ | người phụ nữ với cây gậy</annotation>
+		<annotation cp="👩🏽‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da trung bình | mù | người phụ nữ | người phụ nữ với cây gậy | người phụ nữ với gậy dò đường</annotation>
 		<annotation cp="👩🏽‍🦯" type="tts">người phụ nữ với gậy dò đường: màu da trung bình</annotation>
-		<annotation cp="👩🏾‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối trung bình | mù | người phụ nữ | người phụ nữ với cây gậy</annotation>
+		<annotation cp="👩🏾‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối trung bình | mù | người phụ nữ | người phụ nữ với cây gậy | người phụ nữ với gậy dò đường</annotation>
 		<annotation cp="👩🏾‍🦯" type="tts">người phụ nữ với gậy dò đường: màu da tối trung bình</annotation>
-		<annotation cp="👩🏿‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối | mù | người phụ nữ | người phụ nữ với cây gậy</annotation>
+		<annotation cp="👩🏿‍🦯">hỗ trợ tiếp cận | khiếm thị | màu da tối | mù | người phụ nữ | người phụ nữ với cây gậy | người phụ nữ với gậy dò đường</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">người phụ nữ với gậy dò đường: màu da tối</annotation>
-		<annotation cp="🧑🏻‍🦼">khả năng tiếp cận | màu da sáng | xe lăn</annotation>
+		<annotation cp="🧑🏻‍🦼">khả năng tiếp cận | màu da sáng | người trên xe lăn điện | xe lăn</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">người trên xe lăn điện: màu da sáng</annotation>
-		<annotation cp="🧑🏼‍🦼">khả năng tiếp cận | màu da sáng trung bình | xe lăn</annotation>
+		<annotation cp="🧑🏼‍🦼">khả năng tiếp cận | màu da sáng trung bình | người trên xe lăn điện | xe lăn</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">người trên xe lăn điện: màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍🦼">khả năng tiếp cận | màu da trung bình | xe lăn</annotation>
+		<annotation cp="🧑🏽‍🦼">khả năng tiếp cận | màu da trung bình | người trên xe lăn điện | xe lăn</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">người trên xe lăn điện: màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍🦼">khả năng tiếp cận | màu da tối trung bình | xe lăn</annotation>
+		<annotation cp="🧑🏾‍🦼">khả năng tiếp cận | màu da tối trung bình | người trên xe lăn điện | xe lăn</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">người trên xe lăn điện: màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍🦼">khả năng tiếp cận | màu da tối | xe lăn</annotation>
+		<annotation cp="🧑🏿‍🦼">khả năng tiếp cận | màu da tối | người trên xe lăn điện | xe lăn</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">người trên xe lăn điện: màu da tối</annotation>
 		<annotation cp="👨🏻‍🦼">hỗ trợ tiếp cận | màu da sáng | người đàn ông | người đàn ông trên xe lăn điện | xe lăn</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">người đàn ông trên xe lăn điện: màu da sáng</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">người phụ nữ trên xe lăn điện: màu da tối trung bình</annotation>
 		<annotation cp="👩🏿‍🦼">hỗ trợ tiếp cận | màu da tối | người phụ nữ | người phụ nữ trên xe lăn điện | xe lăn</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">người phụ nữ trên xe lăn điện: màu da tối</annotation>
-		<annotation cp="🧑🏻‍🦽">khả năng tiếp cận | màu da sáng | xe lăn</annotation>
+		<annotation cp="🧑🏻‍🦽">khả năng tiếp cận | màu da sáng | người trên xe lăn tay | xe lăn</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">người trên xe lăn tay: màu da sáng</annotation>
-		<annotation cp="🧑🏼‍🦽">khả năng tiếp cận | màu da sáng trung bình | xe lăn</annotation>
+		<annotation cp="🧑🏼‍🦽">khả năng tiếp cận | màu da sáng trung bình | người trên xe lăn tay | xe lăn</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">người trên xe lăn tay: màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍🦽">khả năng tiếp cận | màu da trung bình | xe lăn</annotation>
+		<annotation cp="🧑🏽‍🦽">khả năng tiếp cận | màu da trung bình | người trên xe lăn tay | xe lăn</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">người trên xe lăn tay: màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍🦽">khả năng tiếp cận | màu da tối trung bình | xe lăn</annotation>
+		<annotation cp="🧑🏾‍🦽">khả năng tiếp cận | màu da tối trung bình | người trên xe lăn tay | xe lăn</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">người trên xe lăn tay: màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍🦽">khả năng tiếp cận | màu da tối | xe lăn</annotation>
+		<annotation cp="🧑🏿‍🦽">khả năng tiếp cận | màu da tối | người trên xe lăn tay | xe lăn</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">người trên xe lăn tay: màu da tối</annotation>
 		<annotation cp="👨🏻‍🦽">hỗ trợ tiếp cận | màu da sáng | người đàn ông | người đàn ông trên xe lăn tay | xe lăn</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">người đàn ông trên xe lăn tay: màu da sáng</annotation>
@@ -2716,48 +2806,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏾" type="tts">người trên giường: màu da tối trung bình</annotation>
 		<annotation cp="🛌🏿">khách sạn | màu da tối | ngủ | người trên giường</annotation>
 		<annotation cp="🛌🏿" type="tts">người trên giường: màu da tối</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">cặp đôi | giữ | màu da sáng | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">cặp đôi | giữ | hai người nắm tay | màu da sáng | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">hai người nắm tay: màu da sáng</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">cặp đôi | giữ | màu da sáng | màu da sáng trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da sáng trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">hai người nắm tay: màu da sáng và màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">hai người nắm tay: màu da sáng và màu da trung bình</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">hai người nắm tay: màu da sáng và màu da tối trung bình</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">hai người nắm tay: màu da sáng và màu da tối</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da sáng trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">hai người nắm tay: màu da sáng trung bình và màu da sáng</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">cặp đôi | giữ | màu da sáng trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">cặp đôi | giữ | hai người nắm tay | màu da sáng trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">hai người nắm tay: màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">cặp đôi | giữ | màu da sáng | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">cặp đôi | giữ | hai người nắm tay | màu da sáng trung bình | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">hai người nắm tay: màu da sáng trung bình và màu da trung bình</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">cặp đôi | giữ | hai người nắm tay | màu da sáng trung bình | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">hai người nắm tay: màu da sáng trung bình và màu da tối trung bình</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">cặp đôi | giữ | hai người nắm tay | màu da sáng trung bình | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">hai người nắm tay: màu da sáng trung bình và màu da tối</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">hai người nắm tay: màu da trung bình và màu da sáng</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">cặp đôi | giữ | màu da sáng trung bình | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">cặp đôi | giữ | hai người nắm tay | màu da sáng trung bình | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">hai người nắm tay: màu da trung bình và màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">cặp đôi | giữ | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">cặp đôi | giữ | hai người nắm tay | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">hai người nắm tay: màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">cặp đôi | giữ | màu da sáng | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">cặp đôi | giữ | hai người nắm tay | màu da tối trung bình | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">hai người nắm tay: màu da trung bình và màu da tối trung bình</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">cặp đôi | giữ | hai người nắm tay | màu da tối | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">hai người nắm tay: màu da trung bình và màu da tối</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">hai người nắm tay: màu da tối trung bình và màu da sáng</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">cặp đôi | giữ | màu da sáng trung bình | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">cặp đôi | giữ | hai người nắm tay | màu da sáng trung bình | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">hai người nắm tay: màu da tối trung bình và màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">cặp đôi | giữ | màu da tối trung bình | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">cặp đôi | giữ | hai người nắm tay | màu da tối trung bình | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">hai người nắm tay: màu da tối trung bình và màu da trung bình</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">cặp đôi | giữ | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">cặp đôi | giữ | hai người nắm tay | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">hai người nắm tay: màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">cặp đôi | giữ | màu da sáng | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">cặp đôi | giữ | hai người nắm tay | màu da tối | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">hai người nắm tay: màu da tối trung bình và màu da tối</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">cặp đôi | giữ | hai người nắm tay | màu da sáng | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">hai người nắm tay: màu da tối và màu da sáng</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">cặp đôi | giữ | màu da sáng trung bình | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">cặp đôi | giữ | hai người nắm tay | màu da sáng trung bình | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">hai người nắm tay: màu da tối và màu da sáng trung bình</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">cặp đôi | giữ | màu da tối | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">cặp đôi | giữ | hai người nắm tay | màu da tối | màu da trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">hai người nắm tay: màu da tối và màu da trung bình</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">cặp đôi | giữ | màu da tối | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">cặp đôi | giữ | hai người nắm tay | màu da tối | màu da tối trung bình | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">hai người nắm tay: màu da tối và màu da tối trung bình</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">cặp đôi | giữ | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">cặp đôi | giữ | hai người nắm tay | màu da tối | nắm tay | người | người nắm tay | tay</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">hai người nắm tay: màu da tối</annotation>
 		<annotation cp="👭🏻">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | phụ nữ | tay</annotation>
 		<annotation cp="👭🏻" type="tts">hai người phụ nữ nắm tay: màu da sáng</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da sáng trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">hai người phụ nữ nắm tay: màu da sáng và màu da sáng trung bình</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">hai người phụ nữ nắm tay: màu da sáng và màu da trung bình</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da tối trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">hai người phụ nữ nắm tay: màu da sáng và màu da tối trung bình</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da tối | phụ nữ | tay</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">hai người phụ nữ nắm tay: màu da sáng và màu da tối</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da sáng trung bình | phụ nữ | tay</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">hai người phụ nữ nắm tay: màu da sáng trung bình và màu da sáng</annotation>
 		<annotation cp="👭🏼">cặp đôi | hai người phụ nữ nắm tay | màu da sáng trung bình | phụ nữ | tay</annotation>
 		<annotation cp="👭🏼" type="tts">hai người phụ nữ nắm tay: màu da sáng trung bình</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">cặp đôi | hai người phụ nữ nắm tay | màu da sáng trung bình | màu da trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">hai người phụ nữ nắm tay: màu da sáng trung bình và màu da trung bình</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">cặp đôi | hai người phụ nữ nắm tay | màu da sáng trung bình | màu da tối trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">hai người phụ nữ nắm tay: màu da sáng trung bình và màu da tối trung bình</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">cặp đôi | hai người phụ nữ nắm tay | màu da sáng trung bình | màu da tối | phụ nữ | tay</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">hai người phụ nữ nắm tay: màu da sáng trung bình và màu da tối</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da trung bình | phụ nữ | tay</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">hai người phụ nữ nắm tay: màu da trung bình và màu da sáng</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">cặp đôi | hai người phụ nữ nắm tay | màu da sáng trung bình | màu da trung bình | phụ nữ | tay</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">hai người phụ nữ nắm tay: màu da trung bình và màu da sáng trung bình</annotation>
 		<annotation cp="👭🏽">cặp đôi | hai người phụ nữ nắm tay | màu da trung bình | phụ nữ | tay</annotation>
 		<annotation cp="👭🏽" type="tts">hai người phụ nữ nắm tay: màu da trung bình</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">cặp đôi | hai người phụ nữ nắm tay | màu da tối trung bình | màu da trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">hai người phụ nữ nắm tay: màu da trung bình và màu da tối trung bình</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">cặp đôi | hai người phụ nữ nắm tay | màu da tối | màu da trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">hai người phụ nữ nắm tay: màu da trung bình và màu da tối</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da tối trung bình | phụ nữ | tay</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">hai người phụ nữ nắm tay: màu da tối trung bình và màu da sáng</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">cặp đôi | hai người phụ nữ nắm tay | màu da sáng trung bình | màu da tối trung bình | phụ nữ | tay</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">hai người phụ nữ nắm tay: màu da tối trung bình và màu da trung bình</annotation>
 		<annotation cp="👭🏾">cặp đôi | hai người phụ nữ nắm tay | màu da tối trung bình | phụ nữ | tay</annotation>
 		<annotation cp="👭🏾" type="tts">hai người phụ nữ nắm tay: màu da tối trung bình</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">cặp đôi | hai người phụ nữ nắm tay | màu da tối | màu da tối trung bình | phụ nữ | tay</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">hai người phụ nữ nắm tay: màu da tối trung bình và màu da tối</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">cặp đôi | hai người phụ nữ nắm tay | màu da sáng | màu da tối | phụ nữ | tay</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">hai người phụ nữ nắm tay: màu da tối và màu da sáng</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">cặp đôi | hai người phụ nữ nắm tay | màu da sáng trung bình | màu da tối | phụ nữ | tay</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">người đàn ông và phụ nữ nắm tay: màu da tối</annotation>
 		<annotation cp="👬🏻">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | người đàn ông | song tử</annotation>
 		<annotation cp="👬🏻" type="tts">hai người đàn ông nắm tay: màu da sáng</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da sáng trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">hai người đàn ông nắm tay: màu da sáng và màu da sáng trung bình</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">hai người đàn ông nắm tay: màu da sáng và màu da trung bình</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da tối trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">hai người đàn ông nắm tay: màu da sáng và màu da tối trung bình</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da tối | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">hai người đàn ông nắm tay: màu da sáng và màu da tối</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da sáng trung bình | người đàn ông | song tử</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">hai người đàn ông nắm tay: màu da sáng trung bình và màu da sáng</annotation>
 		<annotation cp="👬🏼">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng trung bình | người đàn ông | song tử</annotation>
 		<annotation cp="👬🏼" type="tts">hai người đàn ông nắm tay: màu da sáng trung bình</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng trung bình | màu da trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">hai người đàn ông nắm tay: màu da sáng trung bình và màu da trung bình</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng trung bình | màu da tối trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">hai người đàn ông nắm tay: màu da sáng trung bình và màu da tối trung bình</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng trung bình | màu da tối | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">hai người đàn ông nắm tay: màu da sáng trung bình và màu da tối</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da trung bình | người đàn ông | song tử</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">hai người đàn ông nắm tay: màu da trung bình và màu da sáng</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng trung bình | màu da trung bình | người đàn ông | song tử</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">hai người đàn ông nắm tay: màu da trung bình và màu da sáng trung bình</annotation>
 		<annotation cp="👬🏽">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da trung bình | người đàn ông | song tử</annotation>
 		<annotation cp="👬🏽" type="tts">hai người đàn ông nắm tay: màu da trung bình</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da tối trung bình | màu da trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">hai người đàn ông nắm tay: màu da trung bình và màu da tối trung bình</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da tối | màu da trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">hai người đàn ông nắm tay: màu da trung bình và màu da tối</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da tối trung bình | người đàn ông | song tử</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">hai người đàn ông nắm tay: màu da tối trung bình và màu da sáng</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng trung bình | màu da tối trung bình | người đàn ông | song tử</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">hai người đàn ông nắm tay: màu da tối trung bình và màu da trung bình</annotation>
 		<annotation cp="👬🏾">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da tối trung bình | người đàn ông | song tử</annotation>
 		<annotation cp="👬🏾" type="tts">hai người đàn ông nắm tay: màu da tối trung bình</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da tối | màu da tối trung bình | người đàn ông | song tử</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">hai người đàn ông nắm tay: màu da tối trung bình và màu da tối</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng | màu da tối | người đàn ông | song tử</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">hai người đàn ông nắm tay: màu da tối và màu da sáng</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">cặp đôi | cặp song sinh | hai người đàn ông nắm tay | hai người đàn ông nắm tay nhau | hoàng đạo | màu da sáng trung bình | màu da tối | người đàn ông | song tử</annotation>

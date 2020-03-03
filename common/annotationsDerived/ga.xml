@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ga"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">meára tnáite | ton cnis geal</annotation>
+		<annotation cp="🤌🏻" type="tts">meára tnáite: ton cnis geal</annotation>
+		<annotation cp="🤌🏼">meára tnáite | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤌🏼" type="tts">meára tnáite: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤌🏽">meára tnáite | ton cnis meánach</annotation>
+		<annotation cp="🤌🏽" type="tts">meára tnáite: ton cnis meánach</annotation>
+		<annotation cp="🤌🏾">meára tnáite | ton cnis meándorcha</annotation>
+		<annotation cp="🤌🏾" type="tts">meára tnáite: ton cnis meándorcha</annotation>
+		<annotation cp="🤌🏿">meára tnáite | ton cnis dorcha</annotation>
+		<annotation cp="🤌🏿" type="tts">meára tnáite: ton cnis dorcha</annotation>
 		<annotation cp="👋🏻">croitheadh | lámh | lámh ag croitheadh | ton cnis geal</annotation>
 		<annotation cp="👋🏻" type="tts">lámh ag croitheadh: ton cnis geal</annotation>
 		<annotation cp="👋🏼">croitheadh | lámh | lámh ag croitheadh | ton cnis mheánach-gheal</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">aosach: ton cnis meándorcha, maol</annotation>
 		<annotation cp="🧑🏿‍🦲">aosach | maol | neodrach ó thaobh inscne de | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">aosach: ton cnis dorcha, maol</annotation>
+		<annotation cp="🧑🏻‍🍼">duine ag beathú linbh | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">duine ag beathú linbh: ton cnis geal</annotation>
+		<annotation cp="🧑🏼‍🍼">duine ag beathú linbh | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">duine ag beathú linbh: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏽‍🍼">duine ag beathú linbh | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">duine ag beathú linbh: ton cnis meánach</annotation>
+		<annotation cp="🧑🏾‍🍼">duine ag beathú linbh | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">duine ag beathú linbh: ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏿‍🍼">duine ag beathú linbh | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">duine ag beathú linbh: ton cnis dorcha</annotation>
+		<annotation cp="🧑🏻‍🎄">Saintí | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Saintí: ton cnis geal</annotation>
+		<annotation cp="🧑🏼‍🎄">Saintí | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Saintí: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏽‍🎄">Saintí | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Saintí: ton cnis meánach</annotation>
+		<annotation cp="🧑🏾‍🎄">Saintí | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Saintí: ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏿‍🎄">Saintí | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Saintí: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻">fear | ton cnis geal</annotation>
 		<annotation cp="👨🏻" type="tts">fear: ton cnis geal</annotation>
 		<annotation cp="👨🏼">fear | ton cnis mheánach-gheal</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">fear: ton cnis meándorcha, maol</annotation>
 		<annotation cp="👨🏿‍🦲">fear | maol | ton cnis dorcha</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">fear: ton cnis dorcha, maol</annotation>
+		<annotation cp="👨🏻‍🍼">fear ag beathú linbh | ton cnis geal</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">fear ag beathú linbh: ton cnis geal</annotation>
+		<annotation cp="👨🏼‍🍼">fear ag beathú linbh | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">fear ag beathú linbh: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏽‍🍼">fear ag beathú linbh | ton cnis meánach</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">fear ag beathú linbh: ton cnis meánach</annotation>
+		<annotation cp="👨🏾‍🍼">fear ag beathú linbh | ton cnis meándorcha</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">fear ag beathú linbh: ton cnis meándorcha</annotation>
+		<annotation cp="👨🏿‍🍼">fear ag beathú linbh | ton cnis dorcha</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">fear ag beathú linbh: ton cnis dorcha</annotation>
 		<annotation cp="👩🏻">bean | ton cnis geal</annotation>
 		<annotation cp="👩🏻" type="tts">bean: ton cnis geal</annotation>
 		<annotation cp="👩🏼">bean | ton cnis mheánach-gheal</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">bean: ton cnis meándorcha, maol</annotation>
 		<annotation cp="👩🏿‍🦲">bean | maol | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">bean: ton cnis dorcha, maol</annotation>
+		<annotation cp="👩🏻‍🍼">bean ag beathú linbh | ton cnis geal</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">bean ag beathú linbh: ton cnis geal</annotation>
+		<annotation cp="👩🏼‍🍼">bean ag beathú linbh | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">bean ag beathú linbh: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏽‍🍼">bean ag beathú linbh | ton cnis meánach</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">bean ag beathú linbh: ton cnis meánach</annotation>
+		<annotation cp="👩🏾‍🍼">bean ag beathú linbh | ton cnis meándorcha</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">bean ag beathú linbh: ton cnis meándorcha</annotation>
+		<annotation cp="👩🏿‍🍼">bean ag beathú linbh | ton cnis dorcha</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">bean ag beathú linbh: ton cnis dorcha</annotation>
 		<annotation cp="🧓🏻">neodrach ó thaobh inscne de | sean | seanduine | ton cnis geal</annotation>
 		<annotation cp="🧓🏻" type="tts">seanduine: ton cnis geal</annotation>
 		<annotation cp="🧓🏼">neodrach ó thaobh inscne de | sean | seanduine | ton cnis mheánach-gheal</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">bean ag croitheadh: ton cnis meándorcha</annotation>
 		<annotation cp="🤷🏿‍♀">aiseolas | amhras | bean | bean ag coitheadh a guaillí | bean ag croitheadh | croitheadh guaillí | is cuma | ton cnis dorcha</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">bean ag croitheadh: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍⚕">banaltra | cúram sláinte | dochtúir | teiripeoir | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍⚕">oibrí sláinte | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">oibrí sláinte: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍⚕">banaltra | cúram sláinte | dochtúir | teiripeoir | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍⚕">oibrí sláinte | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">oibrí sláinte: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍⚕">banaltra | cúram sláinte | dochtúir | teiripeoir | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍⚕">oibrí sláinte | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">oibrí sláinte: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍⚕">banaltra | cúram sláinte | dochtúir | teiripeoir | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍⚕">oibrí sláinte | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">oibrí sláinte: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍⚕">banaltra | cúram sláinte | dochtúir | teiripeoir | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍⚕">oibrí sláinte | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">oibrí sláinte: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍⚕">altra | cúram sláinte | dochtúir | fear | oibrí sláinte fireann | teiripeoir | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">oibrí sláinte fireann: ton cnis geal</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">oibrí sláinte baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍⚕">altra | bean | cúram sláinte | dochtúir | oibrí sláinte baineann | teiripeoir | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">oibrí sláinte baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🎓">céimí | mac léinn | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🎓">mac léinn | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">mac léinn: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🎓">céimí | mac léinn | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🎓">mac léinn | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">mac léinn: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🎓">céimí | mac léinn | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🎓">mac léinn | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">mac léinn: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🎓">céimí | mac léinn | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🎓">mac léinn | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">mac léinn: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🎓">céimí | mac léinn | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🎓">mac léinn | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">mac léinn: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🎓">céimí | fear | mac léinn | scoláire fir | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">scoláire fir: ton cnis geal</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">scoláire baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🎓">bean | céimí | mac léinn | scoláire baineann | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">scoláire baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🏫">múinteoir | ollamh | teagascóir | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🏫">múinteoir | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">múinteoir: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🏫">múinteoir | ollamh | teagascóir | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🏫">múinteoir | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">múinteoir: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🏫">múinteoir | ollamh | teagascóir | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🏫">múinteoir | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">múinteoir: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🏫">múinteoir | ollamh | teagascóir | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🏫">múinteoir | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">múinteoir: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🏫">múinteoir | ollamh | teagascóir | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🏫">múinteoir | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">múinteoir: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🏫">fear | múinteoir fireann | oide | ollamh | teagascóir | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">múinteoir fireann: ton cnis geal</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">múinteoir baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🏫">bean | múinteoir baineann | oide | ollamh | teagascóir | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">múinteoir baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍⚖">breitheamh | scálaí | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍⚖">breitheamh | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">breitheamh: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍⚖">breitheamh | scálaí | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍⚖">breitheamh | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">breitheamh: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍⚖">breitheamh | scálaí | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍⚖">breitheamh | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">breitheamh: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍⚖">breitheamh | scálaí | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍⚖">breitheamh | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">breitheamh: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍⚖">breitheamh | scálaí | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍⚖">breitheamh | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">breitheamh: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍⚖">breitheamh fireann | ceartas | fear | meá | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">breitheamh fireann: ton cnis geal</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">breitheamh baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍⚖">bean | breitheamh | breitheamh baineann | meá | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">breitheamh baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🌾">feirmeoir | garraíodóir | rainseoir | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🌾">feirmeoir | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">feirmeoir: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🌾">feirmeoir | garraíodóir | rainseoir | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🌾">feirmeoir | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">feirmeoir: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🌾">feirmeoir | garraíodóir | rainseoir | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🌾">feirmeoir | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">feirmeoir: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🌾">feirmeoir | garraíodóir | rainseoir | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🌾">feirmeoir | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">feirmeoir: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🌾">feirmeoir | garraíodóir | rainseoir | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🌾">feirmeoir | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">feirmeoir: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🌾">fear | feirmeoir | feirmeoir fireann | garraíodóir | rainseoir | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">feirmeoir fireann: ton cnis geal</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">feirmeoir baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🌾">bean | feirmeoir | feirmeoir baineann | garraíodóir | rainseoir | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">feirmeoir baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🍳">chef | cócaire | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🍳">cócaire | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">cócaire: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🍳">chef | cócaire | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🍳">cócaire | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">cócaire: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🍳">chef | cócaire | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🍳">cócaire | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">cócaire: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🍳">chef | cócaire | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🍳">cócaire | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">cócaire: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🍳">chef | cócaire | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🍳">cócaire | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">cócaire: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🍳">chef | cócaire | cócaire fireann | fear | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">cócaire fireann: ton cnis geal</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">cócaire baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🍳">bean | chef | cócaire | cócaire baineann | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">cócaire baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🔧">ceardaí | leictreoir | meicneoir | pluiméir | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🔧">meicneoir | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">meicneoir: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🔧">ceardaí | leictreoir | meicneoir | pluiméir | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🔧">meicneoir | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">meicneoir: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🔧">ceardaí | leictreoir | meicneoir | pluiméir | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🔧">meicneoir | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">meicneoir: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🔧">ceardaí | leictreoir | meicneoir | pluiméir | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🔧">meicneoir | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">meicneoir: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🔧">ceardaí | leictreoir | meicneoir | pluiméir | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🔧">meicneoir | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">meicneoir: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🔧">ceardaí | fear | leictreoir | meicneoir | meicneoir fireann | pluiméir | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">meicneoir fireann: ton cnis geal</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">meicneoir baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🔧">bean | ceardaí | leictreoir | meicneoir | meicneoir baineann | pluiméir | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">meicneoir baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🏭">monarcha | oibrí | tionsclaíoch | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🏭">oibrí monarchan | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">oibrí monarchan: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🏭">monarcha | oibrí | tionsclaíoch | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🏭">oibrí monarchan | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">oibrí monarchan: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🏭">monarcha | oibrí | tionsclaíoch | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🏭">oibrí monarchan | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">oibrí monarchan: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🏭">monarcha | oibrí | tionsclaíoch | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🏭">oibrí monarchan | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">oibrí monarchan: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🏭">monarcha | oibrí | tionsclaíoch | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🏭">oibrí monarchan | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">oibrí monarchan: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🏭">cóimeáil | fear | monarcha | oibrí | oibrí monarchan fireann | tionsclaíoch | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">oibrí monarchan fireann: ton cnis geal</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">oibrí monarchan baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🏭">bean | cóimeáil | monarcha | oibrí | oibrí monarchan baineann | tionsclaíoch | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">oibrí monarchan baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍💼">ailtire | bainisteoir | bóna bán | gnó | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍💼">oibrí oifige | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">oibrí oifige: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍💼">ailtire | bainisteoir | bóna bán | gnó | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍💼">oibrí oifige | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">oibrí oifige: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍💼">ailtire | bainisteoir | bóna bán | gnó | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍💼">oibrí oifige | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">oibrí oifige: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍💼">ailtire | bainisteoir | bóna bán | gnó | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍💼">oibrí oifige | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">oibrí oifige: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍💼">ailtire | bainisteoir | bóna bán | gnó | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍💼">oibrí oifige | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">oibrí oifige: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍💼">ailtire | bainisteoir | bóna bán | fear | gnó | oibrí oifige fireann | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">oibrí oifige fireann: ton cnis geal</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">oibrí oifige baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍💼">ailtire | bainisteoir | bean | bóna bán | gnó | oibrí oifige baineann | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">oibrí oifige baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🔬">bitheolaí | ceimiceoir | eolaí | fisiceoir | innealltóir | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🔬">eolaí | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">eolaí: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🔬">bitheolaí | ceimiceoir | eolaí | fisiceoir | innealltóir | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🔬">eolaí | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">eolaí: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🔬">bitheolaí | ceimiceoir | eolaí | fisiceoir | innealltóir | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🔬">eolaí | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">eolaí: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🔬">bitheolaí | ceimiceoir | eolaí | fisiceoir | innealltóir | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🔬">eolaí | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">eolaí: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🔬">bitheolaí | ceimiceoir | eolaí | fisiceoir | innealltóir | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🔬">eolaí | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">eolaí: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🔬">bitheolaí | ceimiceoir | eolaí | eolaí fireann | fear | fiscieoir | innealtoir | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">eolaí fireann: ton cnis geal</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">eolaí baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🔬">bean | bitheolaí | ceimiceoir | eolaí | eolaí baineann | fisiceoir | innealtóir | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">eolaí baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍💻">bogearraí | códóir | cruthaitheoir | forbróir | teicneolaí | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍💻">teicneolaí | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">teicneolaí: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍💻">bogearraí | códóir | cruthaitheoir | forbróir | teicneolaí | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍💻">teicneolaí | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">teicneolaí: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍💻">bogearraí | códóir | cruthaitheoir | forbróir | teicneolaí | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍💻">teicneolaí | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">teicneolaí: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍💻">bogearraí | códóir | cruthaitheoir | forbróir | teicneolaí | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍💻">teicneolaí | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">teicneolaí: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍💻">bogearraí | códóir | cruthaitheoir | forbróir | teicneolaí | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍💻">teicneolaí | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">teicneolaí: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍💻">bogearraí | códóir | cruthaitheoir | fear | forbróir | teicneolaí | teicneolaí fireann | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">teicneolaí fireann: ton cnis geal</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">teicneolaí baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍💻">aireagóir | bean | bogearraí | códóir | forbróir | teicneolaí | teicneolaí baineann | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">teicneolaí baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🎤">aisteoir | amhránaí | réalt | siamsóir | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🎤">amhránaí | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">amhránaí: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🎤">aisteoir | amhránaí | réalt | siamsóir | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🎤">amhránaí | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">amhránaí: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🎤">aisteoir | amhránaí | réalt | siamsóir | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🎤">amhránaí | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">amhránaí: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🎤">aisteoir | amhránaí | réalt | siamsóir | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🎤">amhránaí | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">amhránaí: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🎤">aisteoir | amhránaí | réalt | siamsóir | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🎤">amhránaí | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">amhránaí: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🎤">aisteoir | amhránaí | amhránaí fireann | fear | roc | siamóir | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">amhránaí fireann: ton cnis geal</annotation>
@@ -1336,15 +1386,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎤" type="tts">amhránaí baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🎤">aisteoir | amhránaí | baineann | bean | raic | réalta | siamsóir | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">amhránaí baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🎨">ealaíontóir | pailéad | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🎨">ealaíontóir | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">ealaíontóir: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🎨">ealaíontóir | pailéad | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🎨">ealaíontóir | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🎨" type="tts">ealaíontóir: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🎨">ealaíontóir | pailéad | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🎨">ealaíontóir | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🎨" type="tts">ealaíontóir: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🎨">ealaíontóir | pailéad | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🎨">ealaíontóir | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🎨" type="tts">ealaíontóir: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🎨">ealaíontóir | pailéad | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🎨">ealaíontóir | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">ealaíontóir: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🎨">ealaíontóir | fear | fearann | pailéad | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">ealaíontóir fearann: ton cnis geal</annotation>
@@ -1366,15 +1416,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">ealaíontóir baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🎨">baineann | bean | ealaíontóir | pailéad | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">ealaíontóir baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍✈">eitleán | píolóta | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍✈">píolóta | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">píolóta: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍✈">eitleán | píolóta | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍✈">píolóta | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍✈" type="tts">píolóta: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍✈">eitleán | píolóta | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍✈">píolóta | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍✈" type="tts">píolóta: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍✈">eitleán | píolóta | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍✈">píolóta | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍✈" type="tts">píolóta: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍✈">eitleán | píolóta | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍✈">píolóta | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">píolóta: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍✈">eitleán | fear | fearann | píolóta | píolóta fireann | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">píolóta fireann: ton cnis geal</annotation>
@@ -1396,15 +1446,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍✈" type="tts">píolóta baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍✈">baineann | bean | eitleán | píolóta | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">píolóta baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🚀">roicéad | spásaire | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🚀">spásaire | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">spásaire: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🚀">roicéad | spásaire | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🚀">spásaire | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🚀" type="tts">spásaire: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🚀">roicéad | spásaire | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🚀">spásaire | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🚀" type="tts">spásaire: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🚀">roicéad | spásaire | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🚀">spásaire | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🚀" type="tts">spásaire: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🚀">roicéad | spásaire | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🚀">spásaire | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">spásaire: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🚀">fear | fearann | roicéad | spáis | spásaire | spásaire fireann | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">spásaire fireann: ton cnis geal</annotation>
@@ -1426,15 +1476,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚀" type="tts">spásaire baineann: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🚀">bean | fearann | roicéad | spáis | spásaire | spásaire baineann | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">spásaire baineann: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🚒">comhraiceoir tine | inneall dóiteáin | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🚒">comhraiceoir tine | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">comhraiceoir tine: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🚒">comhraiceoir tine | inneall dóiteáin | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🚒">comhraiceoir tine | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">comhraiceoir tine: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🚒">comhraiceoir tine | inneall dóiteáin | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🚒">comhraiceoir tine | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">comhraiceoir tine: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🚒">comhraiceoir tine | inneall dóiteáin | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🚒">comhraiceoir tine | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">comhraiceoir tine: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🚒">comhraiceoir tine | inneall dóiteáin | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🚒">comhraiceoir tine | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">comhraiceoir tine: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🚒">fear | fear múchta dóiteán | fearann | inneall dóiteáin | múchta dóiteán | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">fear múchta dóiteán: ton cnis geal</annotation>
@@ -1656,6 +1706,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾" type="tts">fear le culaith air: ton cnis meándorcha</annotation>
 		<annotation cp="🤵🏿">culaith | culaith dhinnéir | fear | fear le culaith air | seaicéad | ton cnis dorcha</annotation>
 		<annotation cp="🤵🏿" type="tts">fear le culaith air: ton cnis dorcha</annotation>
+		<annotation cp="🤵🏻‍♀">bean | bean a bhfuil culaith dhinnéir uirthi | culaith dhinnéir | ton cnis geal</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">bean a bhfuil culaith dhinnéir uirthi: ton cnis geal</annotation>
+		<annotation cp="🤵🏼‍♀">bean | bean a bhfuil culaith dhinnéir uirthi | culaith dhinnéir | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">bean a bhfuil culaith dhinnéir uirthi: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤵🏽‍♀">bean | bean a bhfuil culaith dhinnéir uirthi | culaith dhinnéir | ton cnis meánach</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">bean a bhfuil culaith dhinnéir uirthi: ton cnis meánach</annotation>
+		<annotation cp="🤵🏾‍♀">bean | bean a bhfuil culaith dhinnéir uirthi | culaith dhinnéir | ton cnis meándorcha</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">bean a bhfuil culaith dhinnéir uirthi: ton cnis meándorcha</annotation>
+		<annotation cp="🤵🏿‍♀">bean | bean a bhfuil culaith dhinnéir uirthi | culaith dhinnéir | ton cnis dorcha</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">bean a bhfuil culaith dhinnéir uirthi: ton cnis dorcha</annotation>
+		<annotation cp="🤵🏻‍♂">culaith dhinnéir | fear | fear a bhfuil culaith dhinnéir air | ton cnis geal</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">fear a bhfuil culaith dhinnéir air: ton cnis geal</annotation>
+		<annotation cp="🤵🏼‍♂">culaith dhinnéir | fear | fear a bhfuil culaith dhinnéir air | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">fear a bhfuil culaith dhinnéir air: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🤵🏽‍♂">culaith dhinnéir | fear | fear a bhfuil culaith dhinnéir air | ton cnis meánach</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">fear a bhfuil culaith dhinnéir air: ton cnis meánach</annotation>
+		<annotation cp="🤵🏾‍♂">culaith dhinnéir | fear | fear a bhfuil culaith dhinnéir air | ton cnis meándorcha</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">fear a bhfuil culaith dhinnéir air: ton cnis meándorcha</annotation>
+		<annotation cp="🤵🏿‍♂">culaith dhinnéir | fear | fear a bhfuil culaith dhinnéir air | ton cnis dorcha</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">fear a bhfuil culaith dhinnéir air: ton cnis dorcha</annotation>
 		<annotation cp="👰🏻">bainis | brídeach | brídeog le caille uirthi | caille | pósadh | ton cnis geal</annotation>
 		<annotation cp="👰🏻" type="tts">brídeog le caille uirthi: ton cnis geal</annotation>
 		<annotation cp="👰🏼">bainis | brídeach | brídeog le caille uirthi | caille | pósadh | ton cnis mheánach-gheal</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">brídeog le caille uirthi: ton cnis meándorcha</annotation>
 		<annotation cp="👰🏿">bainis | brídeach | brídeog le caille uirthi | caille | pósadh | ton cnis dorcha</annotation>
 		<annotation cp="👰🏿" type="tts">brídeog le caille uirthi: ton cnis dorcha</annotation>
+		<annotation cp="👰🏻‍♀">bean | bean a bhfuil caille uirthi | caille | ton cnis geal</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">bean a bhfuil caille uirthi: ton cnis geal</annotation>
+		<annotation cp="👰🏼‍♀">bean | bean a bhfuil caille uirthi | caille | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">bean a bhfuil caille uirthi: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👰🏽‍♀">bean | bean a bhfuil caille uirthi | caille | ton cnis meánach</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">bean a bhfuil caille uirthi: ton cnis meánach</annotation>
+		<annotation cp="👰🏾‍♀">bean | bean a bhfuil caille uirthi | caille | ton cnis meándorcha</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">bean a bhfuil caille uirthi: ton cnis meándorcha</annotation>
+		<annotation cp="👰🏿‍♀">bean | bean a bhfuil caille uirthi | caille | ton cnis dorcha</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">bean a bhfuil caille uirthi: ton cnis dorcha</annotation>
+		<annotation cp="👰🏻‍♂">caille | fear | fear a bhfuil caille air | ton cnis geal</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">fear a bhfuil caille air: ton cnis geal</annotation>
+		<annotation cp="👰🏼‍♂">caille | fear | fear a bhfuil caille air | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">fear a bhfuil caille air: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👰🏽‍♂">caille | fear | fear a bhfuil caille air | ton cnis meánach</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">fear a bhfuil caille air: ton cnis meánach</annotation>
+		<annotation cp="👰🏾‍♂">caille | fear | fear a bhfuil caille air | ton cnis meándorcha</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">fear a bhfuil caille air: ton cnis meándorcha</annotation>
+		<annotation cp="👰🏿‍♂">caille | fear | fear a bhfuil caille air | ton cnis dorcha</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">fear a bhfuil caille air: ton cnis dorcha</annotation>
 		<annotation cp="🤰🏻">ag iompar linbh | bean | bean ag iompar clainne | ton cnis geal</annotation>
 		<annotation cp="🤰🏻" type="tts">bean ag iompar clainne: ton cnis geal</annotation>
 		<annotation cp="🤰🏼">ag iompar linbh | bean | bean ag iompar clainne | ton cnis mheánach-gheal</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">bean ar a glúine: ton cnis meándorcha</annotation>
 		<annotation cp="🧎🏿‍♀">ar a glúine | bean | bean ar a glúine | ton cnis dorcha</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">bean ar a glúine: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🦯">dall | inrochtaineacht | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🦯">duine le cána | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">duine le cána: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🦯">dall | inrochtaineacht | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🦯">duine le cána | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">duine le cána: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🦯">dall | inrochtaineacht | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🦯">duine le cána | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">duine le cána: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🦯">dall | inrochtaineacht | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🦯">duine le cána | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">duine le cána: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🦯">dall | inrochtaineacht | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🦯">duine le cána | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">duine le cána: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🦯">dall | fear | fear le cána | inrochtaineacht | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">fear le cána: ton cnis geal</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">bean le cána: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🦯">bean | bean le cána | dall | inrochtaineacht | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">bean le cána: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🦼">cathaoir rothaí | duine | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🦼">duine i gcathaoir rothaí innealta | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">duine i gcathaoir rothaí innealta: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🦼">cathaoir rothaí | duine | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🦼">duine i gcathaoir rothaí innealta | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">duine i gcathaoir rothaí innealta: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🦼">cathaoir rothaí | duine | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🦼">duine i gcathaoir rothaí innealta | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">duine i gcathaoir rothaí innealta: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🦼">cathaoir rothaí | duine | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🦼">duine i gcathaoir rothaí innealta | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">duine i gcathaoir rothaí innealta: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🦼">cathaoir rothaí | duine | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🦼">duine i gcathaoir rothaí innealta | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">duine i gcathaoir rothaí innealta: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🦼">cathaoir rothaí | fear | fear i cathaoir rothaí innealta | inrochtaineacht | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">fear i cathaoir rothaí innealta: ton cnis geal</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis meándorcha</annotation>
 		<annotation cp="👩🏿‍🦼">bean | bean i gcathaoir rothaí innealta | cathaoir rothaí | inrochtaineacht | ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">bean i gcathaoir rothaí innealta: ton cnis dorcha</annotation>
-		<annotation cp="🧑🏻‍🦽">cathaoir rothaí | duine | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🦽">duine i gcathaoir rothaí láimhe | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">duine i gcathaoir rothaí láimhe: ton cnis geal</annotation>
-		<annotation cp="🧑🏼‍🦽">cathaoir rothaí | duine | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🦽">duine i gcathaoir rothaí láimhe | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">duine i gcathaoir rothaí láimhe: ton cnis mheánach-gheal</annotation>
-		<annotation cp="🧑🏽‍🦽">cathaoir rothaí | duine | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🦽">duine i gcathaoir rothaí láimhe | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">duine i gcathaoir rothaí láimhe: ton cnis meánach</annotation>
-		<annotation cp="🧑🏾‍🦽">cathaoir rothaí | duine | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🦽">duine i gcathaoir rothaí láimhe | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">duine i gcathaoir rothaí láimhe: ton cnis meándorcha</annotation>
-		<annotation cp="🧑🏿‍🦽">cathaoir rothaí | duine | ton cnis dorcha</annotation>
+		<annotation cp="🧑🏿‍🦽">duine i gcathaoir rothaí láimhe | ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">duine i gcathaoir rothaí láimhe: ton cnis dorcha</annotation>
 		<annotation cp="👨🏻‍🦽">cathaoir rothaí | fear | fear i gcathaoir rothaí láimhe | inrochtaineacht | ton cnis geal</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">fear i gcathaoir rothaí láimhe: ton cnis geal</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">duine sa leaba: ton cnis dorcha</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis geal</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis geal | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis geal, ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis geal | ton cnis meánach</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis geal, ton cnis meánach</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis geal | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis geal, ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis dorcha | ton cnis geal</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis geal, ton cnis dorcha</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis geal | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis mheánach-gheal, ton cnis geal</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis meánach | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis mheánach-gheal, ton cnis meánach</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis meándorcha | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis mheánach-gheal, ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis dorcha | ton cnis mheánach-gheal</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis mheánach-gheal, ton cnis dorcha</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis geal | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meánach, ton cnis geal</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis meánach | ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meánach, ton cnis mheánach-gheal</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis meánach</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis meánach | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meánach, ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis dorcha | ton cnis meánach</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meánach, ton cnis dorcha</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis geal | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meándorcha, ton cnis geal</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis meándorcha | ton cnis mheánach-gheal</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meándorcha, ton cnis meánach</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis meándorcha</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis dorcha | ton cnis meándorcha</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis meándorcha, ton cnis dorcha</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis dorcha | ton cnis geal</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis dorcha, ton cnis geal</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">daone a bhfuil greim láimhe acu ar a chéile | greim | greim láimhe | lámh | lanúin | ton cnis dorcha | ton cnis mheánach-gheal</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">daone a bhfuil greim láimhe acu ar a chéile: ton cnis dorcha</annotation>
 		<annotation cp="👭🏻">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis geal</annotation>
 		<annotation cp="👭🏻" type="tts">beirt bhan le chéile: ton cnis geal</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis geal | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">beirt bhan le chéile: ton cnis geal, ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis geal | ton cnis meánach</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">beirt bhan le chéile: ton cnis geal, ton cnis meánach</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis geal | ton cnis meándorcha</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">beirt bhan le chéile: ton cnis geal, ton cnis meándorcha</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis dorcha | ton cnis geal</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">beirt bhan le chéile: ton cnis geal, ton cnis dorcha</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis geal | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">beirt bhan le chéile: ton cnis mheánach-gheal, ton cnis geal</annotation>
 		<annotation cp="👭🏼">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👭🏼" type="tts">beirt bhan le chéile: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis meánach | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">beirt bhan le chéile: ton cnis mheánach-gheal, ton cnis meánach</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis meándorcha | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">beirt bhan le chéile: ton cnis mheánach-gheal, ton cnis meándorcha</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis dorcha | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">beirt bhan le chéile: ton cnis mheánach-gheal, ton cnis dorcha</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis geal | ton cnis meánach</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">beirt bhan le chéile: ton cnis meánach, ton cnis geal</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis meánach | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">beirt bhan le chéile: ton cnis meánach, ton cnis mheánach-gheal</annotation>
 		<annotation cp="👭🏽">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis meánach</annotation>
 		<annotation cp="👭🏽" type="tts">beirt bhan le chéile: ton cnis meánach</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis meánach | ton cnis meándorcha</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">beirt bhan le chéile: ton cnis meánach, ton cnis meándorcha</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis dorcha | ton cnis meánach</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">beirt bhan le chéile: ton cnis meánach, ton cnis dorcha</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis geal | ton cnis meándorcha</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">beirt bhan le chéile: ton cnis meándorcha, ton cnis geal</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis meándorcha | ton cnis mheánach-gheal</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">beirt bhan le chéile: ton cnis meándorcha, ton cnis meánach</annotation>
 		<annotation cp="👭🏾">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis meándorcha</annotation>
 		<annotation cp="👭🏾" type="tts">beirt bhan le chéile: ton cnis meándorcha</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis dorcha | ton cnis meándorcha</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">beirt bhan le chéile: ton cnis meándorcha, ton cnis dorcha</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis dorcha | ton cnis geal</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">beirt bhan le chéile: ton cnis dorcha, ton cnis geal</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">beirt bhan le chéile | greim láimhe | lámh | leannán | mná | ton cnis dorcha | ton cnis mheánach-gheal</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">fear agus bean le chéile: ton cnis dorcha</annotation>
 		<annotation cp="👬🏻">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis geal</annotation>
 		<annotation cp="👬🏻" type="tts">beirt fhear le chéile: ton cnis geal</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis geal | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">beirt fhear le chéile: ton cnis geal, ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis geal | ton cnis meánach</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">beirt fhear le chéile: ton cnis geal, ton cnis meánach</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis geal | ton cnis meándorcha</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">beirt fhear le chéile: ton cnis geal, ton cnis meándorcha</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis dorcha | ton cnis geal</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">beirt fhear le chéile: ton cnis geal, ton cnis dorcha</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis geal | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">beirt fhear le chéile: ton cnis mheánach-gheal, ton cnis geal</annotation>
 		<annotation cp="👬🏼">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👬🏼" type="tts">beirt fhear le chéile: ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis meánach | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">beirt fhear le chéile: ton cnis mheánach-gheal, ton cnis meánach</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis meándorcha | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">beirt fhear le chéile: ton cnis mheánach-gheal, ton cnis meándorcha</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis dorcha | ton cnis mheánach-gheal</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">beirt fhear le chéile: ton cnis mheánach-gheal, ton cnis dorcha</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis geal | ton cnis meánach</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">beirt fhear le chéile: ton cnis meánach, ton cnis geal</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis meánach | ton cnis mheánach-gheal</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">beirt fhear le chéile: ton cnis meánach, ton cnis mheánach-gheal</annotation>
 		<annotation cp="👬🏽">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis meánach</annotation>
 		<annotation cp="👬🏽" type="tts">beirt fhear le chéile: ton cnis meánach</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis meánach | ton cnis meándorcha</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">beirt fhear le chéile: ton cnis meánach, ton cnis meándorcha</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis dorcha | ton cnis meánach</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">beirt fhear le chéile: ton cnis meánach, ton cnis dorcha</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis geal | ton cnis meándorcha</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">beirt fhear le chéile: ton cnis meándorcha, ton cnis geal</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis meándorcha | ton cnis mheánach-gheal</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">beirt fhear le chéile: ton cnis meándorcha, ton cnis meánach</annotation>
 		<annotation cp="👬🏾">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis meándorcha</annotation>
 		<annotation cp="👬🏾" type="tts">beirt fhear le chéile: ton cnis meándorcha</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis dorcha | ton cnis meándorcha</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">beirt fhear le chéile: ton cnis meándorcha, ton cnis dorcha</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis dorcha | ton cnis geal</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">beirt fhear le chéile: ton cnis dorcha, ton cnis geal</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">beirt fhear | beirt fhear a bhfuil g beirt fhear le chéile | beirt fhear le chéile | duine | fear | lámha le chéile | ton cnis dorcha | ton cnis mheánach-gheal</annotation>

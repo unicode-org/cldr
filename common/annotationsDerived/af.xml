@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="af"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">beklemtoon | handgebaar | ligte velkleur | ondervraging | sarkasties | vingerpunte saamgedruk | vingers</annotation>
+		<annotation cp="🤌🏻" type="tts">vingerpunte saamgedruk: ligte velkleur</annotation>
+		<annotation cp="🤌🏼">beklemtoon | handgebaar | medium-ligte velkleur | ondervraging | sarkasties | vingerpunte saamgedruk | vingers</annotation>
+		<annotation cp="🤌🏼" type="tts">vingerpunte saamgedruk: medium-ligte velkleur</annotation>
+		<annotation cp="🤌🏽">beklemtoon | handgebaar | medium velkleur | ondervraging | sarkasties | vingerpunte saamgedruk | vingers</annotation>
+		<annotation cp="🤌🏽" type="tts">vingerpunte saamgedruk: medium velkleur</annotation>
+		<annotation cp="🤌🏾">beklemtoon | handgebaar | medium-donker velkleur | ondervraging | sarkasties | vingerpunte saamgedruk | vingers</annotation>
+		<annotation cp="🤌🏾" type="tts">vingerpunte saamgedruk: medium-donker velkleur</annotation>
+		<annotation cp="🤌🏿">beklemtoon | donker velkleur | handgebaar | ondervraging | sarkasties | vingerpunte saamgedruk | vingers</annotation>
+		<annotation cp="🤌🏿" type="tts">vingerpunte saamgedruk: donker velkleur</annotation>
 		<annotation cp="👋🏻">hand | liggaam | ligte velkleur | waai | wuif | wuiwende hand</annotation>
 		<annotation cp="👋🏻" type="tts">wuiwende hand: ligte velkleur</annotation>
 		<annotation cp="👋🏼">hand | liggaam | medium-ligte velkleur | waai | wuif | wuiwende hand</annotation>
@@ -262,15 +272,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👏🏾" type="tts">handeklap: medium-donker velkleur</annotation>
 		<annotation cp="👏🏿">donker velkleur | hand | handeklap | klap | liggaam</annotation>
 		<annotation cp="👏🏿" type="tts">handeklap: donker velkleur</annotation>
-		<annotation cp="🙌🏻">gebaar | hand | hande in die lug | hoera | liggaam | ligte velkleur | omhoog | viering</annotation>
+		<annotation cp="🙌🏻">gebaar | hand | hande in die lug | hoera | liggaam | ligte velkleur | omhoog | persoon met hande in die lug | viering</annotation>
 		<annotation cp="🙌🏻" type="tts">persoon met hande in die lug: ligte velkleur</annotation>
-		<annotation cp="🙌🏼">gebaar | hand | hande in die lug | hoera | liggaam | medium-ligte velkleur | omhoog | viering</annotation>
+		<annotation cp="🙌🏼">gebaar | hand | hande in die lug | hoera | liggaam | medium-ligte velkleur | omhoog | persoon met hande in die lug | viering</annotation>
 		<annotation cp="🙌🏼" type="tts">persoon met hande in die lug: medium-ligte velkleur</annotation>
-		<annotation cp="🙌🏽">gebaar | hand | hande in die lug | hoera | liggaam | medium velkleur | omhoog | viering</annotation>
+		<annotation cp="🙌🏽">gebaar | hand | hande in die lug | hoera | liggaam | medium velkleur | omhoog | persoon met hande in die lug | viering</annotation>
 		<annotation cp="🙌🏽" type="tts">persoon met hande in die lug: medium velkleur</annotation>
-		<annotation cp="🙌🏾">gebaar | hand | hande in die lug | hoera | liggaam | medium-donker velkleur | omhoog | viering</annotation>
+		<annotation cp="🙌🏾">gebaar | hand | hande in die lug | hoera | liggaam | medium-donker velkleur | omhoog | persoon met hande in die lug | viering</annotation>
 		<annotation cp="🙌🏾" type="tts">persoon met hande in die lug: medium-donker velkleur</annotation>
-		<annotation cp="🙌🏿">donker velkleur | gebaar | hand | hande in die lug | hoera | liggaam | omhoog | viering</annotation>
+		<annotation cp="🙌🏿">donker velkleur | gebaar | hand | hande in die lug | hoera | liggaam | omhoog | persoon met hande in die lug | viering</annotation>
 		<annotation cp="🙌🏿" type="tts">persoon met hande in die lug: donker velkleur</annotation>
 		<annotation cp="👐🏻">hand | liggaam | ligte velkleur | oop | oop hande</annotation>
 		<annotation cp="👐🏻" type="tts">oop hande: ligte velkleur</annotation>
@@ -282,15 +292,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👐🏾" type="tts">oop hande: medium-donker velkleur</annotation>
 		<annotation cp="👐🏿">donker velkleur | hand | liggaam | oop | oop hande</annotation>
 		<annotation cp="👐🏿" type="tts">oop hande: donker velkleur</annotation>
-		<annotation cp="🤲🏻">bid | ligte velkleur | palms teenaan langs mekaar</annotation>
+		<annotation cp="🤲🏻">bid | ligte velkleur | palms op teen mekaar | palms teenaan langs mekaar</annotation>
 		<annotation cp="🤲🏻" type="tts">palms op teen mekaar: ligte velkleur</annotation>
-		<annotation cp="🤲🏼">bid | medium-ligte velkleur | palms teenaan langs mekaar</annotation>
+		<annotation cp="🤲🏼">bid | medium-ligte velkleur | palms op teen mekaar | palms teenaan langs mekaar</annotation>
 		<annotation cp="🤲🏼" type="tts">palms op teen mekaar: medium-ligte velkleur</annotation>
-		<annotation cp="🤲🏽">bid | medium velkleur | palms teenaan langs mekaar</annotation>
+		<annotation cp="🤲🏽">bid | medium velkleur | palms op teen mekaar | palms teenaan langs mekaar</annotation>
 		<annotation cp="🤲🏽" type="tts">palms op teen mekaar: medium velkleur</annotation>
-		<annotation cp="🤲🏾">bid | medium-donker velkleur | palms teenaan langs mekaar</annotation>
+		<annotation cp="🤲🏾">bid | medium-donker velkleur | palms op teen mekaar | palms teenaan langs mekaar</annotation>
 		<annotation cp="🤲🏾" type="tts">palms op teen mekaar: medium-donker velkleur</annotation>
-		<annotation cp="🤲🏿">bid | donker velkleur | palms teenaan langs mekaar</annotation>
+		<annotation cp="🤲🏿">bid | donker velkleur | palms op teen mekaar | palms teenaan langs mekaar</annotation>
 		<annotation cp="🤲🏿" type="tts">palms op teen mekaar: donker velkleur</annotation>
 		<annotation cp="🙏🏻">asseblief | bid | dankie | gebaar | gevoude hande | hand | liggaam | ligte velkleur</annotation>
 		<annotation cp="🙏🏻" type="tts">gevoude hande: ligte velkleur</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">volwassene: medium-donker velkleur en bles</annotation>
 		<annotation cp="🧑🏿‍🦲">bles | donker velkleur | geslagneutraal | ongespesifiseerde geslag | persoon | volwassene</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">volwassene: donker velkleur en bles</annotation>
+		<annotation cp="🧑🏻‍🍼">baba | ligte velkleur | persoon | persoon wat baba voed | voedend</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">persoon wat baba voed: ligte velkleur</annotation>
+		<annotation cp="🧑🏼‍🍼">baba | medium-ligte velkleur | persoon | persoon wat baba voed | voedend</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">persoon wat baba voed: medium-ligte velkleur</annotation>
+		<annotation cp="🧑🏽‍🍼">baba | medium velkleur | persoon | persoon wat baba voed | voedend</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">persoon wat baba voed: medium velkleur</annotation>
+		<annotation cp="🧑🏾‍🍼">baba | medium-donker velkleur | persoon | persoon wat baba voed | voedend</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">persoon wat baba voed: medium-donker velkleur</annotation>
+		<annotation cp="🧑🏿‍🍼">baba | donker velkleur | persoon | persoon wat baba voed | voedend</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">persoon wat baba voed: donker velkleur</annotation>
+		<annotation cp="🧑🏻‍🎄">Claus, Kersfeess | ligte velkleur | mx claus</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">mx claus: ligte velkleur</annotation>
+		<annotation cp="🧑🏼‍🎄">Claus, Kersfeess | medium-ligte velkleur | mx claus</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">mx claus: medium-ligte velkleur</annotation>
+		<annotation cp="🧑🏽‍🎄">Claus, Kersfeess | medium velkleur | mx claus</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">mx claus: medium velkleur</annotation>
+		<annotation cp="🧑🏾‍🎄">Claus, Kersfeess | medium-donker velkleur | mx claus</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">mx claus: medium-donker velkleur</annotation>
+		<annotation cp="🧑🏿‍🎄">Claus, Kersfeess | donker velkleur | mx claus</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">mx claus: donker velkleur</annotation>
 		<annotation cp="👨🏻">ligte velkleur | man | volwassene</annotation>
 		<annotation cp="👨🏻" type="tts">man: ligte velkleur</annotation>
 		<annotation cp="👨🏼">man | medium-ligte velkleur | volwassene</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">man: medium-donker velkleur en bles</annotation>
 		<annotation cp="👨🏿‍🦲">bles | donker velkleur | man | volwassene</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">man: donker velkleur en bles</annotation>
+		<annotation cp="👨🏻‍🍼">baba | ligte velkleur | man | man wat baba voed | voedend</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">man wat baba voed: ligte velkleur</annotation>
+		<annotation cp="👨🏼‍🍼">baba | man | man wat baba voed | medium-ligte velkleur | voedend</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">man wat baba voed: medium-ligte velkleur</annotation>
+		<annotation cp="👨🏽‍🍼">baba | man | man wat baba voed | medium velkleur | voedend</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">man wat baba voed: medium velkleur</annotation>
+		<annotation cp="👨🏾‍🍼">baba | man | man wat baba voed | medium-donker velkleur | voedend</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">man wat baba voed: medium-donker velkleur</annotation>
+		<annotation cp="👨🏿‍🍼">baba | donker velkleur | man | man wat baba voed | voedend</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">man wat baba voed: donker velkleur</annotation>
 		<annotation cp="👩🏻">ligte velkleur | volwassene | vrou</annotation>
 		<annotation cp="👩🏻" type="tts">vrou: ligte velkleur</annotation>
 		<annotation cp="👩🏼">medium-ligte velkleur | volwassene | vrou</annotation>
@@ -646,15 +686,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">vrou: medium-donker velkleur en bles</annotation>
 		<annotation cp="👩🏿‍🦲">bles | donker velkleur | volwassene | vrou</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">vrou: donker velkleur en bles</annotation>
-		<annotation cp="🧓🏻">geslagneutraal | ligte velkleur | ongespesifiseerde geslag | oud | ouer persoon | volwassene</annotation>
+		<annotation cp="👩🏻‍🍼">baba | ligte velkleur | voedend | vrou | vrou wat baba voed</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">vrou wat baba voed: ligte velkleur</annotation>
+		<annotation cp="👩🏼‍🍼">baba | medium-ligte velkleur | voedend | vrou | vrou wat baba voed</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">vrou wat baba voed: medium-ligte velkleur</annotation>
+		<annotation cp="👩🏽‍🍼">baba | medium velkleur | voedend | vrou | vrou wat baba voed</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">vrou wat baba voed: medium velkleur</annotation>
+		<annotation cp="👩🏾‍🍼">baba | medium-donker velkleur | voedend | vrou | vrou wat baba voed</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">vrou wat baba voed: medium-donker velkleur</annotation>
+		<annotation cp="👩🏿‍🍼">baba | donker velkleur | voedend | vrou | vrou wat baba voed</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">vrou wat baba voed: donker velkleur</annotation>
+		<annotation cp="🧓🏻">geslagneutraal | ligte velkleur | ongespesifiseerde geslag | oud | ouer persoon | ouer volwassene | volwassene</annotation>
 		<annotation cp="🧓🏻" type="tts">ouer volwassene: ligte velkleur</annotation>
-		<annotation cp="🧓🏼">geslagneutraal | medium-ligte velkleur | ongespesifiseerde geslag | oud | ouer persoon | volwassene</annotation>
+		<annotation cp="🧓🏼">geslagneutraal | medium-ligte velkleur | ongespesifiseerde geslag | oud | ouer persoon | ouer volwassene | volwassene</annotation>
 		<annotation cp="🧓🏼" type="tts">ouer volwassene: medium-ligte velkleur</annotation>
-		<annotation cp="🧓🏽">geslagneutraal | medium velkleur | ongespesifiseerde geslag | oud | ouer persoon | volwassene</annotation>
+		<annotation cp="🧓🏽">geslagneutraal | medium velkleur | ongespesifiseerde geslag | oud | ouer persoon | ouer volwassene | volwassene</annotation>
 		<annotation cp="🧓🏽" type="tts">ouer volwassene: medium velkleur</annotation>
-		<annotation cp="🧓🏾">geslagneutraal | medium-donker velkleur | ongespesifiseerde geslag | oud | ouer persoon | volwassene</annotation>
+		<annotation cp="🧓🏾">geslagneutraal | medium-donker velkleur | ongespesifiseerde geslag | oud | ouer persoon | ouer volwassene | volwassene</annotation>
 		<annotation cp="🧓🏾" type="tts">ouer volwassene: medium-donker velkleur</annotation>
-		<annotation cp="🧓🏿">donker velkleur | geslagneutraal | ongespesifiseerde geslag | oud | ouer persoon | volwassene</annotation>
+		<annotation cp="🧓🏿">donker velkleur | geslagneutraal | ongespesifiseerde geslag | oud | ouer persoon | ouer volwassene | volwassene</annotation>
 		<annotation cp="🧓🏿" type="tts">ouer volwassene: donker velkleur</annotation>
 		<annotation cp="👴🏻">ligte velkleur | man | ou man | oud</annotation>
 		<annotation cp="👴🏻" type="tts">ou man: ligte velkleur</annotation>
@@ -666,15 +716,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👴🏾" type="tts">ou man: medium-donker velkleur</annotation>
 		<annotation cp="👴🏿">donker velkleur | man | ou man | oud</annotation>
 		<annotation cp="👴🏿" type="tts">ou man: donker velkleur</annotation>
-		<annotation cp="👵🏻">ligte velkleur | oud | volwassene | vrou</annotation>
+		<annotation cp="👵🏻">ligte velkleur | ou vrou | oud | volwassene | vrou</annotation>
 		<annotation cp="👵🏻" type="tts">ou vrou: ligte velkleur</annotation>
-		<annotation cp="👵🏼">medium-ligte velkleur | oud | volwassene | vrou</annotation>
+		<annotation cp="👵🏼">medium-ligte velkleur | ou vrou | oud | volwassene | vrou</annotation>
 		<annotation cp="👵🏼" type="tts">ou vrou: medium-ligte velkleur</annotation>
-		<annotation cp="👵🏽">medium velkleur | oud | volwassene | vrou</annotation>
+		<annotation cp="👵🏽">medium velkleur | ou vrou | oud | volwassene | vrou</annotation>
 		<annotation cp="👵🏽" type="tts">ou vrou: medium velkleur</annotation>
-		<annotation cp="👵🏾">medium-donker velkleur | oud | volwassene | vrou</annotation>
+		<annotation cp="👵🏾">medium-donker velkleur | ou vrou | oud | volwassene | vrou</annotation>
 		<annotation cp="👵🏾" type="tts">ou vrou: medium-donker velkleur</annotation>
-		<annotation cp="👵🏿">donker velkleur | oud | volwassene | vrou</annotation>
+		<annotation cp="👵🏿">donker velkleur | ou vrou | oud | volwassene | vrou</annotation>
 		<annotation cp="👵🏿" type="tts">ou vrou: donker velkleur</annotation>
 		<annotation cp="🙍🏻">frons | gebaar | ligte velkleur | ongelukkig | persoon wat frons</annotation>
 		<annotation cp="🙍🏻" type="tts">persoon wat frons: ligte velkleur</annotation>
@@ -706,15 +756,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍🏾‍♀" type="tts">vrou wat frons: medium-donker velkleur</annotation>
 		<annotation cp="🙍🏿‍♀">donker velkleur | frons | gebaar | ongelukkig | vrou wat frons</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">vrou wat frons: donker velkleur</annotation>
-		<annotation cp="🙎🏻">dikbek | dikbekpersoon | gebaar | ligte velkleur</annotation>
+		<annotation cp="🙎🏻">dikbek | dikbek persoon | dikbekpersoon | gebaar | ligte velkleur</annotation>
 		<annotation cp="🙎🏻" type="tts">dikbek persoon: ligte velkleur</annotation>
-		<annotation cp="🙎🏼">dikbek | dikbekpersoon | gebaar | medium-ligte velkleur</annotation>
+		<annotation cp="🙎🏼">dikbek | dikbek persoon | dikbekpersoon | gebaar | medium-ligte velkleur</annotation>
 		<annotation cp="🙎🏼" type="tts">dikbek persoon: medium-ligte velkleur</annotation>
-		<annotation cp="🙎🏽">dikbek | dikbekpersoon | gebaar | medium velkleur</annotation>
+		<annotation cp="🙎🏽">dikbek | dikbek persoon | dikbekpersoon | gebaar | medium velkleur</annotation>
 		<annotation cp="🙎🏽" type="tts">dikbek persoon: medium velkleur</annotation>
-		<annotation cp="🙎🏾">dikbek | dikbekpersoon | gebaar | medium-donker velkleur</annotation>
+		<annotation cp="🙎🏾">dikbek | dikbek persoon | dikbekpersoon | gebaar | medium-donker velkleur</annotation>
 		<annotation cp="🙎🏾" type="tts">dikbek persoon: medium-donker velkleur</annotation>
-		<annotation cp="🙎🏿">dikbek | dikbekpersoon | donker velkleur | gebaar</annotation>
+		<annotation cp="🙎🏿">dikbek | dikbek persoon | dikbekpersoon | donker velkleur | gebaar</annotation>
 		<annotation cp="🙎🏿" type="tts">dikbek persoon: donker velkleur</annotation>
 		<annotation cp="🙎🏻‍♂">dikbek | dikbek man | gebaar | ligte velkleur</annotation>
 		<annotation cp="🙎🏻‍♂" type="tts">dikbek man: ligte velkleur</annotation>
@@ -736,125 +786,125 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎🏾‍♀" type="tts">dikbek vrou: medium-donker velkleur</annotation>
 		<annotation cp="🙎🏿‍♀">dikbek | dikbek vrou | donker velkleur | gebaar</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">dikbek vrou: donker velkleur</annotation>
-		<annotation cp="🙅🏻">gebaar | hand | keer | ligte velkleur | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏻">gebaar | hand | keer | ligte velkleur | nee | persoon wat wys NEE | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏻" type="tts">persoon wat wys NEE: ligte velkleur</annotation>
-		<annotation cp="🙅🏼">gebaar | hand | keer | medium-ligte velkleur | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏼">gebaar | hand | keer | medium-ligte velkleur | nee | persoon wat wys NEE | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏼" type="tts">persoon wat wys NEE: medium-ligte velkleur</annotation>
-		<annotation cp="🙅🏽">gebaar | hand | keer | medium velkleur | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏽">gebaar | hand | keer | medium velkleur | nee | persoon wat wys NEE | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏽" type="tts">persoon wat wys NEE: medium velkleur</annotation>
-		<annotation cp="🙅🏾">gebaar | hand | keer | medium-donker velkleur | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏾">gebaar | hand | keer | medium-donker velkleur | nee | persoon wat wys NEE | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏾" type="tts">persoon wat wys NEE: medium-donker velkleur</annotation>
-		<annotation cp="🙅🏿">donker velkleur | gebaar | hand | keer | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏿">donker velkleur | gebaar | hand | keer | nee | persoon wat wys NEE | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏿" type="tts">persoon wat wys NEE: donker velkleur</annotation>
-		<annotation cp="🙅🏻‍♂">gebaar | hand | ligte velkleur | man | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏻‍♂">gebaar | hand | ligte velkleur | man | man wys NEE | nee | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">man wys NEE: ligte velkleur</annotation>
-		<annotation cp="🙅🏼‍♂">gebaar | hand | man | medium-ligte velkleur | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏼‍♂">gebaar | hand | man | man wys NEE | medium-ligte velkleur | nee | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏼‍♂" type="tts">man wys NEE: medium-ligte velkleur</annotation>
-		<annotation cp="🙅🏽‍♂">gebaar | hand | man | medium velkleur | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏽‍♂">gebaar | hand | man | man wys NEE | medium velkleur | nee | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏽‍♂" type="tts">man wys NEE: medium velkleur</annotation>
-		<annotation cp="🙅🏾‍♂">gebaar | hand | man | medium-donker velkleur | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏾‍♂">gebaar | hand | man | man wys NEE | medium-donker velkleur | nee | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏾‍♂" type="tts">man wys NEE: medium-donker velkleur</annotation>
-		<annotation cp="🙅🏿‍♂">donker velkleur | gebaar | hand | man | nee | verbied | verbode | wys nee</annotation>
+		<annotation cp="🙅🏿‍♂">donker velkleur | gebaar | hand | man | man wys NEE | nee | verbied | verbode | wys nee</annotation>
 		<annotation cp="🙅🏿‍♂" type="tts">man wys NEE: donker velkleur</annotation>
-		<annotation cp="🙅🏻‍♀">gebaar | hand | ligte velkleur | nee | verbied | verbode | vrou | wys nee</annotation>
+		<annotation cp="🙅🏻‍♀">gebaar | hand | ligte velkleur | nee | verbied | verbode | vrou | vrou wys NEE | wys nee</annotation>
 		<annotation cp="🙅🏻‍♀" type="tts">vrou wys NEE: ligte velkleur</annotation>
-		<annotation cp="🙅🏼‍♀">gebaar | hand | medium-ligte velkleur | nee | verbied | verbode | vrou | wys nee</annotation>
+		<annotation cp="🙅🏼‍♀">gebaar | hand | medium-ligte velkleur | nee | verbied | verbode | vrou | vrou wys NEE | wys nee</annotation>
 		<annotation cp="🙅🏼‍♀" type="tts">vrou wys NEE: medium-ligte velkleur</annotation>
-		<annotation cp="🙅🏽‍♀">gebaar | hand | medium velkleur | nee | verbied | verbode | vrou | wys nee</annotation>
+		<annotation cp="🙅🏽‍♀">gebaar | hand | medium velkleur | nee | verbied | verbode | vrou | vrou wys NEE | wys nee</annotation>
 		<annotation cp="🙅🏽‍♀" type="tts">vrou wys NEE: medium velkleur</annotation>
-		<annotation cp="🙅🏾‍♀">gebaar | hand | medium-donker velkleur | nee | verbied | verbode | vrou | wys nee</annotation>
+		<annotation cp="🙅🏾‍♀">gebaar | hand | medium-donker velkleur | nee | verbied | verbode | vrou | vrou wys NEE | wys nee</annotation>
 		<annotation cp="🙅🏾‍♀" type="tts">vrou wys NEE: medium-donker velkleur</annotation>
-		<annotation cp="🙅🏿‍♀">donker velkleur | gebaar | hand | nee | verbied | verbode | vrou | wys nee</annotation>
+		<annotation cp="🙅🏿‍♀">donker velkleur | gebaar | hand | nee | verbied | verbode | vrou | vrou wys NEE | wys nee</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">vrou wys NEE: donker velkleur</annotation>
-		<annotation cp="🙆🏻">gebaar | goed | hand | ligte velkleur | ok | wys goed</annotation>
+		<annotation cp="🙆🏻">gebaar | goed | hand | ligte velkleur | ok | persoon wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏻" type="tts">persoon wys als is goed: ligte velkleur</annotation>
-		<annotation cp="🙆🏼">gebaar | goed | hand | medium-ligte velkleur | ok | wys goed</annotation>
+		<annotation cp="🙆🏼">gebaar | goed | hand | medium-ligte velkleur | ok | persoon wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏼" type="tts">persoon wys als is goed: medium-ligte velkleur</annotation>
-		<annotation cp="🙆🏽">gebaar | goed | hand | medium velkleur | ok | wys goed</annotation>
+		<annotation cp="🙆🏽">gebaar | goed | hand | medium velkleur | ok | persoon wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏽" type="tts">persoon wys als is goed: medium velkleur</annotation>
-		<annotation cp="🙆🏾">gebaar | goed | hand | medium-donker velkleur | ok | wys goed</annotation>
+		<annotation cp="🙆🏾">gebaar | goed | hand | medium-donker velkleur | ok | persoon wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏾" type="tts">persoon wys als is goed: medium-donker velkleur</annotation>
-		<annotation cp="🙆🏿">donker velkleur | gebaar | goed | hand | ok | wys goed</annotation>
+		<annotation cp="🙆🏿">donker velkleur | gebaar | goed | hand | ok | persoon wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏿" type="tts">persoon wys als is goed: donker velkleur</annotation>
-		<annotation cp="🙆🏻‍♂">gebaar | goed | hand | ligte velkleur | man | ok | wys goed</annotation>
+		<annotation cp="🙆🏻‍♂">gebaar | goed | hand | ligte velkleur | man | man wys als is goed | ok | wys goed</annotation>
 		<annotation cp="🙆🏻‍♂" type="tts">man wys als is goed: ligte velkleur</annotation>
-		<annotation cp="🙆🏼‍♂">gebaar | goed | hand | man | medium-ligte velkleur | ok | wys goed</annotation>
+		<annotation cp="🙆🏼‍♂">gebaar | goed | hand | man | man wys als is goed | medium-ligte velkleur | ok | wys goed</annotation>
 		<annotation cp="🙆🏼‍♂" type="tts">man wys als is goed: medium-ligte velkleur</annotation>
-		<annotation cp="🙆🏽‍♂">gebaar | goed | hand | man | medium velkleur | ok | wys goed</annotation>
+		<annotation cp="🙆🏽‍♂">gebaar | goed | hand | man | man wys als is goed | medium velkleur | ok | wys goed</annotation>
 		<annotation cp="🙆🏽‍♂" type="tts">man wys als is goed: medium velkleur</annotation>
-		<annotation cp="🙆🏾‍♂">gebaar | goed | hand | man | medium-donker velkleur | ok | wys goed</annotation>
+		<annotation cp="🙆🏾‍♂">gebaar | goed | hand | man | man wys als is goed | medium-donker velkleur | ok | wys goed</annotation>
 		<annotation cp="🙆🏾‍♂" type="tts">man wys als is goed: medium-donker velkleur</annotation>
-		<annotation cp="🙆🏿‍♂">donker velkleur | gebaar | goed | hand | man | ok | wys goed</annotation>
+		<annotation cp="🙆🏿‍♂">donker velkleur | gebaar | goed | hand | man | man wys als is goed | ok | wys goed</annotation>
 		<annotation cp="🙆🏿‍♂" type="tts">man wys als is goed: donker velkleur</annotation>
-		<annotation cp="🙆🏻‍♀">gebaar | goed | hand | ligte velkleur | ok | vrou | wys goed</annotation>
+		<annotation cp="🙆🏻‍♀">gebaar | goed | hand | ligte velkleur | ok | vrou | vrou wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏻‍♀" type="tts">vrou wys als is goed: ligte velkleur</annotation>
-		<annotation cp="🙆🏼‍♀">gebaar | goed | hand | medium-ligte velkleur | ok | vrou | wys goed</annotation>
+		<annotation cp="🙆🏼‍♀">gebaar | goed | hand | medium-ligte velkleur | ok | vrou | vrou wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏼‍♀" type="tts">vrou wys als is goed: medium-ligte velkleur</annotation>
-		<annotation cp="🙆🏽‍♀">gebaar | goed | hand | medium velkleur | ok | vrou | wys goed</annotation>
+		<annotation cp="🙆🏽‍♀">gebaar | goed | hand | medium velkleur | ok | vrou | vrou wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏽‍♀" type="tts">vrou wys als is goed: medium velkleur</annotation>
-		<annotation cp="🙆🏾‍♀">gebaar | goed | hand | medium-donker velkleur | ok | vrou | wys goed</annotation>
+		<annotation cp="🙆🏾‍♀">gebaar | goed | hand | medium-donker velkleur | ok | vrou | vrou wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏾‍♀" type="tts">vrou wys als is goed: medium-donker velkleur</annotation>
-		<annotation cp="🙆🏿‍♀">donker velkleur | gebaar | goed | hand | ok | vrou | wys goed</annotation>
+		<annotation cp="🙆🏿‍♀">donker velkleur | gebaar | goed | hand | ok | vrou | vrou wys als is goed | wys goed</annotation>
 		<annotation cp="🙆🏿‍♀" type="tts">vrou wys als is goed: donker velkleur</annotation>
-		<annotation cp="💁🏻">fooitjie | hand | help | inligting | ligte velkleur | persoon wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁🏻">fooitjie | hand | help | inligting | ligte velkleur | persoon hou hand geknak | persoon wat hand geknak hou | skrander</annotation>
 		<annotation cp="💁🏻" type="tts">persoon hou hand geknak: ligte velkleur</annotation>
-		<annotation cp="💁🏼">fooitjie | hand | help | inligting | medium-ligte velkleur | persoon wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁🏼">fooitjie | hand | help | inligting | medium-ligte velkleur | persoon hou hand geknak | persoon wat hand geknak hou | skrander</annotation>
 		<annotation cp="💁🏼" type="tts">persoon hou hand geknak: medium-ligte velkleur</annotation>
-		<annotation cp="💁🏽">fooitjie | hand | help | inligting | medium velkleur | persoon wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁🏽">fooitjie | hand | help | inligting | medium velkleur | persoon hou hand geknak | persoon wat hand geknak hou | skrander</annotation>
 		<annotation cp="💁🏽" type="tts">persoon hou hand geknak: medium velkleur</annotation>
-		<annotation cp="💁🏾">fooitjie | hand | help | inligting | medium-donker velkleur | persoon wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁🏾">fooitjie | hand | help | inligting | medium-donker velkleur | persoon hou hand geknak | persoon wat hand geknak hou | skrander</annotation>
 		<annotation cp="💁🏾" type="tts">persoon hou hand geknak: medium-donker velkleur</annotation>
-		<annotation cp="💁🏿">donker velkleur | fooitjie | hand | help | inligting | persoon wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁🏿">donker velkleur | fooitjie | hand | help | inligting | persoon hou hand geknak | persoon wat hand geknak hou | skrander</annotation>
 		<annotation cp="💁🏿" type="tts">persoon hou hand geknak: donker velkleur</annotation>
-		<annotation cp="💁🏻‍♂">fooitjie | hand | help | inligting | ligte velkleur | man | man wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁🏻‍♂">fooitjie | hand | help | inligting | ligte velkleur | man | man hou hand geknak | man wat hand geknak hou | skrander</annotation>
 		<annotation cp="💁🏻‍♂" type="tts">man hou hand geknak: ligte velkleur</annotation>
-		<annotation cp="💁🏼‍♂">fooitjie | hand | help | inligting | man | man wat hand geknak hou | medium-ligte velkleur | skrander</annotation>
+		<annotation cp="💁🏼‍♂">fooitjie | hand | help | inligting | man | man hou hand geknak | man wat hand geknak hou | medium-ligte velkleur | skrander</annotation>
 		<annotation cp="💁🏼‍♂" type="tts">man hou hand geknak: medium-ligte velkleur</annotation>
-		<annotation cp="💁🏽‍♂">fooitjie | hand | help | inligting | man | man wat hand geknak hou | medium velkleur | skrander</annotation>
+		<annotation cp="💁🏽‍♂">fooitjie | hand | help | inligting | man | man hou hand geknak | man wat hand geknak hou | medium velkleur | skrander</annotation>
 		<annotation cp="💁🏽‍♂" type="tts">man hou hand geknak: medium velkleur</annotation>
-		<annotation cp="💁🏾‍♂">fooitjie | hand | help | inligting | man | man wat hand geknak hou | medium-donker velkleur | skrander</annotation>
+		<annotation cp="💁🏾‍♂">fooitjie | hand | help | inligting | man | man hou hand geknak | man wat hand geknak hou | medium-donker velkleur | skrander</annotation>
 		<annotation cp="💁🏾‍♂" type="tts">man hou hand geknak: medium-donker velkleur</annotation>
-		<annotation cp="💁🏿‍♂">donker velkleur | fooitjie | hand | help | inligting | man | man wat hand geknak hou | skrander</annotation>
+		<annotation cp="💁🏿‍♂">donker velkleur | fooitjie | hand | help | inligting | man | man hou hand geknak | man wat hand geknak hou | skrander</annotation>
 		<annotation cp="💁🏿‍♂" type="tts">man hou hand geknak: donker velkleur</annotation>
-		<annotation cp="💁🏻‍♀">fooitjie | hand | help | inligting | ligte velkleur | skrander | vrou | vrou wat hand geknak hou</annotation>
+		<annotation cp="💁🏻‍♀">fooitjie | hand | help | inligting | ligte velkleur | skrander | vrou | vrou hou hand geknak | vrou wat hand geknak hou</annotation>
 		<annotation cp="💁🏻‍♀" type="tts">vrou hou hand geknak: ligte velkleur</annotation>
-		<annotation cp="💁🏼‍♀">fooitjie | hand | help | inligting | medium-ligte velkleur | skrander | vrou | vrou wat hand geknak hou</annotation>
+		<annotation cp="💁🏼‍♀">fooitjie | hand | help | inligting | medium-ligte velkleur | skrander | vrou | vrou hou hand geknak | vrou wat hand geknak hou</annotation>
 		<annotation cp="💁🏼‍♀" type="tts">vrou hou hand geknak: medium-ligte velkleur</annotation>
-		<annotation cp="💁🏽‍♀">fooitjie | hand | help | inligting | medium velkleur | skrander | vrou | vrou wat hand geknak hou</annotation>
+		<annotation cp="💁🏽‍♀">fooitjie | hand | help | inligting | medium velkleur | skrander | vrou | vrou hou hand geknak | vrou wat hand geknak hou</annotation>
 		<annotation cp="💁🏽‍♀" type="tts">vrou hou hand geknak: medium velkleur</annotation>
-		<annotation cp="💁🏾‍♀">fooitjie | hand | help | inligting | medium-donker velkleur | skrander | vrou | vrou wat hand geknak hou</annotation>
+		<annotation cp="💁🏾‍♀">fooitjie | hand | help | inligting | medium-donker velkleur | skrander | vrou | vrou hou hand geknak | vrou wat hand geknak hou</annotation>
 		<annotation cp="💁🏾‍♀" type="tts">vrou hou hand geknak: medium-donker velkleur</annotation>
-		<annotation cp="💁🏿‍♀">donker velkleur | fooitjie | hand | help | inligting | skrander | vrou | vrou wat hand geknak hou</annotation>
+		<annotation cp="💁🏿‍♀">donker velkleur | fooitjie | hand | help | inligting | skrander | vrou | vrou hou hand geknak | vrou wat hand geknak hou</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">vrou hou hand geknak: donker velkleur</annotation>
-		<annotation cp="🙋🏻">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | ligte velkleur | omhoog</annotation>
+		<annotation cp="🙋🏻">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | ligte velkleur | omhoog | persoon wat hand opsteek</annotation>
 		<annotation cp="🙋🏻" type="tts">persoon wat hand opsteek: ligte velkleur</annotation>
-		<annotation cp="🙋🏼">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | medium-ligte velkleur | omhoog</annotation>
+		<annotation cp="🙋🏼">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | medium-ligte velkleur | omhoog | persoon wat hand opsteek</annotation>
 		<annotation cp="🙋🏼" type="tts">persoon wat hand opsteek: medium-ligte velkleur</annotation>
-		<annotation cp="🙋🏽">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | medium velkleur | omhoog</annotation>
+		<annotation cp="🙋🏽">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | medium velkleur | omhoog | persoon wat hand opsteek</annotation>
 		<annotation cp="🙋🏽" type="tts">persoon wat hand opsteek: medium velkleur</annotation>
-		<annotation cp="🙋🏾">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | medium-donker velkleur | omhoog</annotation>
+		<annotation cp="🙋🏾">gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | medium-donker velkleur | omhoog | persoon wat hand opsteek</annotation>
 		<annotation cp="🙋🏾" type="tts">persoon wat hand opsteek: medium-donker velkleur</annotation>
-		<annotation cp="🙋🏿">donker velkleur | gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | omhoog</annotation>
+		<annotation cp="🙋🏿">donker velkleur | gebaar | gelukkig | gelukkige persoon met hand in die lug | hand | omhoog | persoon wat hand opsteek</annotation>
 		<annotation cp="🙋🏿" type="tts">persoon wat hand opsteek: donker velkleur</annotation>
-		<annotation cp="🙋🏻‍♂">groet | lig hand | ligte velkleur | man lig hand | waai</annotation>
+		<annotation cp="🙋🏻‍♂">groet | lig hand | ligte velkleur | man lig hand | man wat hand opsteek | waai</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">man wat hand opsteek: ligte velkleur</annotation>
-		<annotation cp="🙋🏼‍♂">groet | lig hand | man lig hand | medium-ligte velkleur | waai</annotation>
+		<annotation cp="🙋🏼‍♂">groet | lig hand | man lig hand | man wat hand opsteek | medium-ligte velkleur | waai</annotation>
 		<annotation cp="🙋🏼‍♂" type="tts">man wat hand opsteek: medium-ligte velkleur</annotation>
-		<annotation cp="🙋🏽‍♂">groet | lig hand | man lig hand | medium velkleur | waai</annotation>
+		<annotation cp="🙋🏽‍♂">groet | lig hand | man lig hand | man wat hand opsteek | medium velkleur | waai</annotation>
 		<annotation cp="🙋🏽‍♂" type="tts">man wat hand opsteek: medium velkleur</annotation>
-		<annotation cp="🙋🏾‍♂">groet | lig hand | man lig hand | medium-donker velkleur | waai</annotation>
+		<annotation cp="🙋🏾‍♂">groet | lig hand | man lig hand | man wat hand opsteek | medium-donker velkleur | waai</annotation>
 		<annotation cp="🙋🏾‍♂" type="tts">man wat hand opsteek: medium-donker velkleur</annotation>
-		<annotation cp="🙋🏿‍♂">donker velkleur | groet | lig hand | man lig hand | waai</annotation>
+		<annotation cp="🙋🏿‍♂">donker velkleur | groet | lig hand | man lig hand | man wat hand opsteek | waai</annotation>
 		<annotation cp="🙋🏿‍♂" type="tts">man wat hand opsteek: donker velkleur</annotation>
-		<annotation cp="🙋🏻‍♀">groet | lig hand | ligte velkleur | vrou lig hand | waai</annotation>
+		<annotation cp="🙋🏻‍♀">groet | lig hand | ligte velkleur | vrou lig hand | vrou wat hand opsteek | waai</annotation>
 		<annotation cp="🙋🏻‍♀" type="tts">vrou wat hand opsteek: ligte velkleur</annotation>
-		<annotation cp="🙋🏼‍♀">groet | lig hand | medium-ligte velkleur | vrou lig hand | waai</annotation>
+		<annotation cp="🙋🏼‍♀">groet | lig hand | medium-ligte velkleur | vrou lig hand | vrou wat hand opsteek | waai</annotation>
 		<annotation cp="🙋🏼‍♀" type="tts">vrou wat hand opsteek: medium-ligte velkleur</annotation>
-		<annotation cp="🙋🏽‍♀">groet | lig hand | medium velkleur | vrou lig hand | waai</annotation>
+		<annotation cp="🙋🏽‍♀">groet | lig hand | medium velkleur | vrou lig hand | vrou wat hand opsteek | waai</annotation>
 		<annotation cp="🙋🏽‍♀" type="tts">vrou wat hand opsteek: medium velkleur</annotation>
-		<annotation cp="🙋🏾‍♀">groet | lig hand | medium-donker velkleur | vrou lig hand | waai</annotation>
+		<annotation cp="🙋🏾‍♀">groet | lig hand | medium-donker velkleur | vrou lig hand | vrou wat hand opsteek | waai</annotation>
 		<annotation cp="🙋🏾‍♀" type="tts">vrou wat hand opsteek: medium-donker velkleur</annotation>
-		<annotation cp="🙋🏿‍♀">donker velkleur | groet | lig hand | vrou lig hand | waai</annotation>
+		<annotation cp="🙋🏿‍♀">donker velkleur | groet | lig hand | vrou lig hand | vrou wat hand opsteek | waai</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">vrou wat hand opsteek: donker velkleur</annotation>
 		<annotation cp="🧏🏻">doof | dowe persoon | hoor | ligte velkleur | oor | toeganklikheid</annotation>
 		<annotation cp="🧏🏻" type="tts">dowe persoon: ligte velkleur</annotation>
@@ -926,35 +976,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤦🏾" type="tts">hand teen voorkop slaan: medium-donker velkleur</annotation>
 		<annotation cp="🤦🏿">donker velkleur | facepalm | gsig | hand teen voorkop slaan | moedeloos | ongeloof | palm | verbyster</annotation>
 		<annotation cp="🤦🏿" type="tts">hand teen voorkop slaan: donker velkleur</annotation>
-		<annotation cp="🤦🏻‍♂">facepalm | gsig | hand teen voorkop slaan | ligte velkleur | man | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦🏻‍♂">facepalm | gsig | hand teen voorkop slaan | ligte velkleur | man | man slaan hand teen voorkop | moedeloos | ongeloof | palm | verbyster</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">man slaan hand teen voorkop: ligte velkleur</annotation>
-		<annotation cp="🤦🏼‍♂">facepalm | gsig | hand teen voorkop slaan | man | medium-ligte velkleur | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦🏼‍♂">facepalm | gsig | hand teen voorkop slaan | man | man slaan hand teen voorkop | medium-ligte velkleur | moedeloos | ongeloof | palm | verbyster</annotation>
 		<annotation cp="🤦🏼‍♂" type="tts">man slaan hand teen voorkop: medium-ligte velkleur</annotation>
-		<annotation cp="🤦🏽‍♂">facepalm | gsig | hand teen voorkop slaan | man | medium velkleur | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦🏽‍♂">facepalm | gsig | hand teen voorkop slaan | man | man slaan hand teen voorkop | medium velkleur | moedeloos | ongeloof | palm | verbyster</annotation>
 		<annotation cp="🤦🏽‍♂" type="tts">man slaan hand teen voorkop: medium velkleur</annotation>
-		<annotation cp="🤦🏾‍♂">facepalm | gsig | hand teen voorkop slaan | man | medium-donker velkleur | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦🏾‍♂">facepalm | gsig | hand teen voorkop slaan | man | man slaan hand teen voorkop | medium-donker velkleur | moedeloos | ongeloof | palm | verbyster</annotation>
 		<annotation cp="🤦🏾‍♂" type="tts">man slaan hand teen voorkop: medium-donker velkleur</annotation>
-		<annotation cp="🤦🏿‍♂">donker velkleur | facepalm | gsig | hand teen voorkop slaan | man | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦🏿‍♂">donker velkleur | facepalm | gsig | hand teen voorkop slaan | man | man slaan hand teen voorkop | moedeloos | ongeloof | palm | verbyster</annotation>
 		<annotation cp="🤦🏿‍♂" type="tts">man slaan hand teen voorkop: donker velkleur</annotation>
-		<annotation cp="🤦🏻‍♀">facepalm | gsig | hand teen voorkop slaan | ligte velkleur | moedeloos | ongeloof | palm | verbyster | vrou</annotation>
+		<annotation cp="🤦🏻‍♀">facepalm | gsig | hand teen voorkop slaan | ligte velkleur | moedeloos | ongeloof | palm | verbyster | vrou | vrou slaan hand teen voorkop</annotation>
 		<annotation cp="🤦🏻‍♀" type="tts">vrou slaan hand teen voorkop: ligte velkleur</annotation>
-		<annotation cp="🤦🏼‍♀">facepalm | gsig | hand teen voorkop slaan | medium-ligte velkleur | moedeloos | ongeloof | palm | verbyster | vrou</annotation>
+		<annotation cp="🤦🏼‍♀">facepalm | gsig | hand teen voorkop slaan | medium-ligte velkleur | moedeloos | ongeloof | palm | verbyster | vrou | vrou slaan hand teen voorkop</annotation>
 		<annotation cp="🤦🏼‍♀" type="tts">vrou slaan hand teen voorkop: medium-ligte velkleur</annotation>
-		<annotation cp="🤦🏽‍♀">facepalm | gsig | hand teen voorkop slaan | medium velkleur | moedeloos | ongeloof | palm | verbyster | vrou</annotation>
+		<annotation cp="🤦🏽‍♀">facepalm | gsig | hand teen voorkop slaan | medium velkleur | moedeloos | ongeloof | palm | verbyster | vrou | vrou slaan hand teen voorkop</annotation>
 		<annotation cp="🤦🏽‍♀" type="tts">vrou slaan hand teen voorkop: medium velkleur</annotation>
-		<annotation cp="🤦🏾‍♀">facepalm | gsig | hand teen voorkop slaan | medium-donker velkleur | moedeloos | ongeloof | palm | verbyster | vrou</annotation>
+		<annotation cp="🤦🏾‍♀">facepalm | gsig | hand teen voorkop slaan | medium-donker velkleur | moedeloos | ongeloof | palm | verbyster | vrou | vrou slaan hand teen voorkop</annotation>
 		<annotation cp="🤦🏾‍♀" type="tts">vrou slaan hand teen voorkop: medium-donker velkleur</annotation>
-		<annotation cp="🤦🏿‍♀">donker velkleur | facepalm | gsig | hand teen voorkop slaan | moedeloos | ongeloof | palm | verbyster | vrou</annotation>
+		<annotation cp="🤦🏿‍♀">donker velkleur | facepalm | gsig | hand teen voorkop slaan | moedeloos | ongeloof | palm | verbyster | vrou | vrou slaan hand teen voorkop</annotation>
 		<annotation cp="🤦🏿‍♀" type="tts">vrou slaan hand teen voorkop: donker velkleur</annotation>
-		<annotation cp="🤷🏻">ligte velkleur | onseker | skouerophaal | skouers | weet nie</annotation>
+		<annotation cp="🤷🏻">ligte velkleur | onseker | persoon skouerophaal | skouerophaal | skouers | weet nie</annotation>
 		<annotation cp="🤷🏻" type="tts">persoon skouerophaal: ligte velkleur</annotation>
-		<annotation cp="🤷🏼">medium-ligte velkleur | onseker | skouerophaal | skouers | weet nie</annotation>
+		<annotation cp="🤷🏼">medium-ligte velkleur | onseker | persoon skouerophaal | skouerophaal | skouers | weet nie</annotation>
 		<annotation cp="🤷🏼" type="tts">persoon skouerophaal: medium-ligte velkleur</annotation>
-		<annotation cp="🤷🏽">medium velkleur | onseker | skouerophaal | skouers | weet nie</annotation>
+		<annotation cp="🤷🏽">medium velkleur | onseker | persoon skouerophaal | skouerophaal | skouers | weet nie</annotation>
 		<annotation cp="🤷🏽" type="tts">persoon skouerophaal: medium velkleur</annotation>
-		<annotation cp="🤷🏾">medium-donker velkleur | onseker | skouerophaal | skouers | weet nie</annotation>
+		<annotation cp="🤷🏾">medium-donker velkleur | onseker | persoon skouerophaal | skouerophaal | skouers | weet nie</annotation>
 		<annotation cp="🤷🏾" type="tts">persoon skouerophaal: medium-donker velkleur</annotation>
-		<annotation cp="🤷🏿">donker velkleur | onseker | skouerophaal | skouers | weet nie</annotation>
+		<annotation cp="🤷🏿">donker velkleur | onseker | persoon skouerophaal | skouerophaal | skouers | weet nie</annotation>
 		<annotation cp="🤷🏿" type="tts">persoon skouerophaal: donker velkleur</annotation>
 		<annotation cp="🤷🏻‍♂">ligte velkleur | man skouerophaal | onseker | skouers | weet nie</annotation>
 		<annotation cp="🤷🏻‍♂" type="tts">man skouerophaal: ligte velkleur</annotation>
@@ -976,35 +1026,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">vrou skouerophaal: medium-donker velkleur</annotation>
 		<annotation cp="🤷🏿‍♀">donker velkleur | onseker | skouers | vrou skouerophaal | weet nie</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">vrou skouerophaal: donker velkleur</annotation>
-		<annotation cp="🧑🏻‍⚕">dokter | gesondheidsorg | ligte velkleur | terapeut | verpleegster | verpleër</annotation>
+		<annotation cp="🧑🏻‍⚕">dokter | gesondheidsorg | gesondheidswerker | ligte velkleur | terapeut | verpleegster | verpleër</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">gesondheidswerker: ligte velkleur</annotation>
-		<annotation cp="🧑🏼‍⚕">dokter | gesondheidsorg | medium-ligte velkleur | terapeut | verpleegster | verpleër</annotation>
+		<annotation cp="🧑🏼‍⚕">dokter | gesondheidsorg | gesondheidswerker | medium-ligte velkleur | terapeut | verpleegster | verpleër</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">gesondheidswerker: medium-ligte velkleur</annotation>
-		<annotation cp="🧑🏽‍⚕">dokter | gesondheidsorg | medium velkleur | terapeut | verpleegster | verpleër</annotation>
+		<annotation cp="🧑🏽‍⚕">dokter | gesondheidsorg | gesondheidswerker | medium velkleur | terapeut | verpleegster | verpleër</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">gesondheidswerker: medium velkleur</annotation>
-		<annotation cp="🧑🏾‍⚕">dokter | gesondheidsorg | medium-donker velkleur | terapeut | verpleegster | verpleër</annotation>
+		<annotation cp="🧑🏾‍⚕">dokter | gesondheidsorg | gesondheidswerker | medium-donker velkleur | terapeut | verpleegster | verpleër</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">gesondheidswerker: medium-donker velkleur</annotation>
-		<annotation cp="🧑🏿‍⚕">dokter | donker velkleur | gesondheidsorg | terapeut | verpleegster | verpleër</annotation>
+		<annotation cp="🧑🏿‍⚕">dokter | donker velkleur | gesondheidsorg | gesondheidswerker | terapeut | verpleegster | verpleër</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">gesondheidswerker: donker velkleur</annotation>
-		<annotation cp="👨🏻‍⚕">dokter | ligte velkleur | man | medies | mediese sorg | mediese werker | terapeut | verpleër</annotation>
+		<annotation cp="👨🏻‍⚕">dokter | ligte velkleur | man | manlike gesondheidswerker | medies | mediese sorg | mediese werker | terapeut | verpleër</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">manlike gesondheidswerker: ligte velkleur</annotation>
-		<annotation cp="👨🏼‍⚕">dokter | man | medies | mediese sorg | mediese werker | medium-ligte velkleur | terapeut | verpleër</annotation>
+		<annotation cp="👨🏼‍⚕">dokter | man | manlike gesondheidswerker | medies | mediese sorg | mediese werker | medium-ligte velkleur | terapeut | verpleër</annotation>
 		<annotation cp="👨🏼‍⚕" type="tts">manlike gesondheidswerker: medium-ligte velkleur</annotation>
-		<annotation cp="👨🏽‍⚕">dokter | man | medies | mediese sorg | mediese werker | medium velkleur | terapeut | verpleër</annotation>
+		<annotation cp="👨🏽‍⚕">dokter | man | manlike gesondheidswerker | medies | mediese sorg | mediese werker | medium velkleur | terapeut | verpleër</annotation>
 		<annotation cp="👨🏽‍⚕" type="tts">manlike gesondheidswerker: medium velkleur</annotation>
-		<annotation cp="👨🏾‍⚕">dokter | man | medies | mediese sorg | mediese werker | medium-donker velkleur | terapeut | verpleër</annotation>
+		<annotation cp="👨🏾‍⚕">dokter | man | manlike gesondheidswerker | medies | mediese sorg | mediese werker | medium-donker velkleur | terapeut | verpleër</annotation>
 		<annotation cp="👨🏾‍⚕" type="tts">manlike gesondheidswerker: medium-donker velkleur</annotation>
-		<annotation cp="👨🏿‍⚕">dokter | donker velkleur | man | medies | mediese sorg | mediese werker | terapeut | verpleër</annotation>
+		<annotation cp="👨🏿‍⚕">dokter | donker velkleur | man | manlike gesondheidswerker | medies | mediese sorg | mediese werker | terapeut | verpleër</annotation>
 		<annotation cp="👨🏿‍⚕" type="tts">manlike gesondheidswerker: donker velkleur</annotation>
-		<annotation cp="👩🏻‍⚕">dokter | ligte velkleur | medies | mediese sorg | mediese werker | terapeut | verpleegster | vrou</annotation>
+		<annotation cp="👩🏻‍⚕">dokter | ligte velkleur | medies | mediese sorg | mediese werker | terapeut | verpleegster | vrou | vroulike gesondheidswerker</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">vroulike gesondheidswerker: ligte velkleur</annotation>
-		<annotation cp="👩🏼‍⚕">dokter | medies | mediese sorg | mediese werker | medium-ligte velkleur | terapeut | verpleegster | vrou</annotation>
+		<annotation cp="👩🏼‍⚕">dokter | medies | mediese sorg | mediese werker | medium-ligte velkleur | terapeut | verpleegster | vrou | vroulike gesondheidswerker</annotation>
 		<annotation cp="👩🏼‍⚕" type="tts">vroulike gesondheidswerker: medium-ligte velkleur</annotation>
-		<annotation cp="👩🏽‍⚕">dokter | medies | mediese sorg | mediese werker | medium velkleur | terapeut | verpleegster | vrou</annotation>
+		<annotation cp="👩🏽‍⚕">dokter | medies | mediese sorg | mediese werker | medium velkleur | terapeut | verpleegster | vrou | vroulike gesondheidswerker</annotation>
 		<annotation cp="👩🏽‍⚕" type="tts">vroulike gesondheidswerker: medium velkleur</annotation>
-		<annotation cp="👩🏾‍⚕">dokter | medies | mediese sorg | mediese werker | medium-donker velkleur | terapeut | verpleegster | vrou</annotation>
+		<annotation cp="👩🏾‍⚕">dokter | medies | mediese sorg | mediese werker | medium-donker velkleur | terapeut | verpleegster | vrou | vroulike gesondheidswerker</annotation>
 		<annotation cp="👩🏾‍⚕" type="tts">vroulike gesondheidswerker: medium-donker velkleur</annotation>
-		<annotation cp="👩🏿‍⚕">dokter | donker velkleur | medies | mediese sorg | mediese werker | terapeut | verpleegster | vrou</annotation>
+		<annotation cp="👩🏿‍⚕">dokter | donker velkleur | medies | mediese sorg | mediese werker | terapeut | verpleegster | vrou | vroulike gesondheidswerker</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">vroulike gesondheidswerker: donker velkleur</annotation>
 		<annotation cp="🧑🏻‍🎓">graad | gradeplegtigheid | gradueer | ligte velkleur | student</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">student: ligte velkleur</annotation>
@@ -1046,25 +1096,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🏫" type="tts">onderwyser: medium-donker velkleur</annotation>
 		<annotation cp="🧑🏿‍🏫">donker velkleur | instrukteur | onderwyser | professor</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">onderwyser: donker velkleur</annotation>
-		<annotation cp="👨🏻‍🏫">ligte velkleur | meneer | onderwyser | opvoeder | skool</annotation>
+		<annotation cp="👨🏻‍🏫">ligte velkleur | manlike onderwyser | meneer | onderwyser | opvoeder | skool</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">manlike onderwyser: ligte velkleur</annotation>
-		<annotation cp="👨🏼‍🏫">medium-ligte velkleur | meneer | onderwyser | opvoeder | skool</annotation>
+		<annotation cp="👨🏼‍🏫">manlike onderwyser | medium-ligte velkleur | meneer | onderwyser | opvoeder | skool</annotation>
 		<annotation cp="👨🏼‍🏫" type="tts">manlike onderwyser: medium-ligte velkleur</annotation>
-		<annotation cp="👨🏽‍🏫">medium velkleur | meneer | onderwyser | opvoeder | skool</annotation>
+		<annotation cp="👨🏽‍🏫">manlike onderwyser | medium velkleur | meneer | onderwyser | opvoeder | skool</annotation>
 		<annotation cp="👨🏽‍🏫" type="tts">manlike onderwyser: medium velkleur</annotation>
-		<annotation cp="👨🏾‍🏫">medium-donker velkleur | meneer | onderwyser | opvoeder | skool</annotation>
+		<annotation cp="👨🏾‍🏫">manlike onderwyser | medium-donker velkleur | meneer | onderwyser | opvoeder | skool</annotation>
 		<annotation cp="👨🏾‍🏫" type="tts">manlike onderwyser: medium-donker velkleur</annotation>
-		<annotation cp="👨🏿‍🏫">donker velkleur | meneer | onderwyser | opvoeder | skool</annotation>
+		<annotation cp="👨🏿‍🏫">donker velkleur | manlike onderwyser | meneer | onderwyser | opvoeder | skool</annotation>
 		<annotation cp="👨🏿‍🏫" type="tts">manlike onderwyser: donker velkleur</annotation>
-		<annotation cp="👩🏻‍🏫">juffrou | ligte velkleur | onderwyser | onderwyseres | opvoeder | skool</annotation>
+		<annotation cp="👩🏻‍🏫">juffrou | ligte velkleur | onderwyser | onderwyseres | opvoeder | skool | vroulike onderwyser</annotation>
 		<annotation cp="👩🏻‍🏫" type="tts">vroulike onderwyser: ligte velkleur</annotation>
-		<annotation cp="👩🏼‍🏫">juffrou | medium-ligte velkleur | onderwyser | onderwyseres | opvoeder | skool</annotation>
+		<annotation cp="👩🏼‍🏫">juffrou | medium-ligte velkleur | onderwyser | onderwyseres | opvoeder | skool | vroulike onderwyser</annotation>
 		<annotation cp="👩🏼‍🏫" type="tts">vroulike onderwyser: medium-ligte velkleur</annotation>
-		<annotation cp="👩🏽‍🏫">juffrou | medium velkleur | onderwyser | onderwyseres | opvoeder | skool</annotation>
+		<annotation cp="👩🏽‍🏫">juffrou | medium velkleur | onderwyser | onderwyseres | opvoeder | skool | vroulike onderwyser</annotation>
 		<annotation cp="👩🏽‍🏫" type="tts">vroulike onderwyser: medium velkleur</annotation>
-		<annotation cp="👩🏾‍🏫">juffrou | medium-donker velkleur | onderwyser | onderwyseres | opvoeder | skool</annotation>
+		<annotation cp="👩🏾‍🏫">juffrou | medium-donker velkleur | onderwyser | onderwyseres | opvoeder | skool | vroulike onderwyser</annotation>
 		<annotation cp="👩🏾‍🏫" type="tts">vroulike onderwyser: medium-donker velkleur</annotation>
-		<annotation cp="👩🏿‍🏫">donker velkleur | juffrou | onderwyser | onderwyseres | opvoeder | skool</annotation>
+		<annotation cp="👩🏿‍🏫">donker velkleur | juffrou | onderwyser | onderwyseres | opvoeder | skool | vroulike onderwyser</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">vroulike onderwyser: donker velkleur</annotation>
 		<annotation cp="🧑🏻‍⚖">ligte velkleur | regter | regtershammer</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">regter: ligte velkleur</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">vroulike motorwerktuigkundige: medium-donker velkleur</annotation>
 		<annotation cp="👩🏿‍🔧">donker velkleur | mechanic | moersleutel | motorwerktuigkundige | vroulike motorwerktuigkundige</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">vroulike motorwerktuigkundige: donker velkleur</annotation>
-		<annotation cp="🧑🏻‍🏭">fabriek | industrieel | ligte velkleur | montering | nywerheid | werker</annotation>
+		<annotation cp="🧑🏻‍🏭">fabriek | fabriekswerker | industrieel | ligte velkleur | montering | nywerheid | werker</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">fabriekswerker: ligte velkleur</annotation>
-		<annotation cp="🧑🏼‍🏭">fabriek | industrieel | medium-ligte velkleur | montering | nywerheid | werker</annotation>
+		<annotation cp="🧑🏼‍🏭">fabriek | fabriekswerker | industrieel | medium-ligte velkleur | montering | nywerheid | werker</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">fabriekswerker: medium-ligte velkleur</annotation>
-		<annotation cp="🧑🏽‍🏭">fabriek | industrieel | medium velkleur | montering | nywerheid | werker</annotation>
+		<annotation cp="🧑🏽‍🏭">fabriek | fabriekswerker | industrieel | medium velkleur | montering | nywerheid | werker</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">fabriekswerker: medium velkleur</annotation>
-		<annotation cp="🧑🏾‍🏭">fabriek | industrieel | medium-donker velkleur | montering | nywerheid | werker</annotation>
+		<annotation cp="🧑🏾‍🏭">fabriek | fabriekswerker | industrieel | medium-donker velkleur | montering | nywerheid | werker</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">fabriekswerker: medium-donker velkleur</annotation>
-		<annotation cp="🧑🏿‍🏭">donker velkleur | fabriek | industrieel | montering | nywerheid | werker</annotation>
+		<annotation cp="🧑🏿‍🏭">donker velkleur | fabriek | fabriekswerker | industrieel | montering | nywerheid | werker</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">fabriekswerker: donker velkleur</annotation>
 		<annotation cp="👨🏻‍🏭">fabriekswerker | ligte velkleur | manlike fabriekswerker</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">manlike fabriekswerker: ligte velkleur</annotation>
@@ -1546,35 +1596,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏾‍♀" type="tts">vroulike wag: medium-donker velkleur</annotation>
 		<annotation cp="💂🏿‍♀">donker velkleur | vroulike wag | wag</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">vroulike wag: donker velkleur</annotation>
-		<annotation cp="👷🏻">hoed | konstruksie | ligte velkleur | werker</annotation>
+		<annotation cp="👷🏻">hoed | konstruksie | konstruksiewerker | ligte velkleur | werker</annotation>
 		<annotation cp="👷🏻" type="tts">konstruksiewerker: ligte velkleur</annotation>
-		<annotation cp="👷🏼">hoed | konstruksie | medium-ligte velkleur | werker</annotation>
+		<annotation cp="👷🏼">hoed | konstruksie | konstruksiewerker | medium-ligte velkleur | werker</annotation>
 		<annotation cp="👷🏼" type="tts">konstruksiewerker: medium-ligte velkleur</annotation>
-		<annotation cp="👷🏽">hoed | konstruksie | medium velkleur | werker</annotation>
+		<annotation cp="👷🏽">hoed | konstruksie | konstruksiewerker | medium velkleur | werker</annotation>
 		<annotation cp="👷🏽" type="tts">konstruksiewerker: medium velkleur</annotation>
-		<annotation cp="👷🏾">hoed | konstruksie | medium-donker velkleur | werker</annotation>
+		<annotation cp="👷🏾">hoed | konstruksie | konstruksiewerker | medium-donker velkleur | werker</annotation>
 		<annotation cp="👷🏾" type="tts">konstruksiewerker: medium-donker velkleur</annotation>
-		<annotation cp="👷🏿">donker velkleur | hoed | konstruksie | werker</annotation>
+		<annotation cp="👷🏿">donker velkleur | hoed | konstruksie | konstruksiewerker | werker</annotation>
 		<annotation cp="👷🏿" type="tts">konstruksiewerker: donker velkleur</annotation>
-		<annotation cp="👷🏻‍♂">konstruksie | ligte velkleur | man | werker</annotation>
+		<annotation cp="👷🏻‍♂">konstruksie | ligte velkleur | man | manlike bouer | werker</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">manlike bouer: ligte velkleur</annotation>
-		<annotation cp="👷🏼‍♂">konstruksie | man | medium-ligte velkleur | werker</annotation>
+		<annotation cp="👷🏼‍♂">konstruksie | man | manlike bouer | medium-ligte velkleur | werker</annotation>
 		<annotation cp="👷🏼‍♂" type="tts">manlike bouer: medium-ligte velkleur</annotation>
-		<annotation cp="👷🏽‍♂">konstruksie | man | medium velkleur | werker</annotation>
+		<annotation cp="👷🏽‍♂">konstruksie | man | manlike bouer | medium velkleur | werker</annotation>
 		<annotation cp="👷🏽‍♂" type="tts">manlike bouer: medium velkleur</annotation>
-		<annotation cp="👷🏾‍♂">konstruksie | man | medium-donker velkleur | werker</annotation>
+		<annotation cp="👷🏾‍♂">konstruksie | man | manlike bouer | medium-donker velkleur | werker</annotation>
 		<annotation cp="👷🏾‍♂" type="tts">manlike bouer: medium-donker velkleur</annotation>
-		<annotation cp="👷🏿‍♂">donker velkleur | konstruksie | man | werker</annotation>
+		<annotation cp="👷🏿‍♂">donker velkleur | konstruksie | man | manlike bouer | werker</annotation>
 		<annotation cp="👷🏿‍♂" type="tts">manlike bouer: donker velkleur</annotation>
-		<annotation cp="👷🏻‍♀">konstruksie | ligte velkleur | vrou | werker</annotation>
+		<annotation cp="👷🏻‍♀">konstruksie | ligte velkleur | vrou | vroulike bouer | werker</annotation>
 		<annotation cp="👷🏻‍♀" type="tts">vroulike bouer: ligte velkleur</annotation>
-		<annotation cp="👷🏼‍♀">konstruksie | medium-ligte velkleur | vrou | werker</annotation>
+		<annotation cp="👷🏼‍♀">konstruksie | medium-ligte velkleur | vrou | vroulike bouer | werker</annotation>
 		<annotation cp="👷🏼‍♀" type="tts">vroulike bouer: medium-ligte velkleur</annotation>
-		<annotation cp="👷🏽‍♀">konstruksie | medium velkleur | vrou | werker</annotation>
+		<annotation cp="👷🏽‍♀">konstruksie | medium velkleur | vrou | vroulike bouer | werker</annotation>
 		<annotation cp="👷🏽‍♀" type="tts">vroulike bouer: medium velkleur</annotation>
-		<annotation cp="👷🏾‍♀">konstruksie | medium-donker velkleur | vrou | werker</annotation>
+		<annotation cp="👷🏾‍♀">konstruksie | medium-donker velkleur | vrou | vroulike bouer | werker</annotation>
 		<annotation cp="👷🏾‍♀" type="tts">vroulike bouer: medium-donker velkleur</annotation>
-		<annotation cp="👷🏿‍♀">donker velkleur | konstruksie | vrou | werker</annotation>
+		<annotation cp="👷🏿‍♀">donker velkleur | konstruksie | vrou | vroulike bouer | werker</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">vroulike bouer: donker velkleur</annotation>
 		<annotation cp="🤴🏻">ligte velkleur | prins</annotation>
 		<annotation cp="🤴🏻" type="tts">prins: ligte velkleur</annotation>
@@ -1596,15 +1646,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏾" type="tts">prinses: medium-donker velkleur</annotation>
 		<annotation cp="👸🏿">donker velkleur | fantasie | prinses | sprokie</annotation>
 		<annotation cp="👸🏿" type="tts">prinses: donker velkleur</annotation>
-		<annotation cp="👳🏻">ligte velkleur | persoon met tulband | tulband</annotation>
+		<annotation cp="👳🏻">ligte velkleur | met met tulband | persoon met tulband | tulband</annotation>
 		<annotation cp="👳🏻" type="tts">met met tulband: ligte velkleur</annotation>
-		<annotation cp="👳🏼">medium-ligte velkleur | persoon met tulband | tulband</annotation>
+		<annotation cp="👳🏼">medium-ligte velkleur | met met tulband | persoon met tulband | tulband</annotation>
 		<annotation cp="👳🏼" type="tts">met met tulband: medium-ligte velkleur</annotation>
-		<annotation cp="👳🏽">medium velkleur | persoon met tulband | tulband</annotation>
+		<annotation cp="👳🏽">medium velkleur | met met tulband | persoon met tulband | tulband</annotation>
 		<annotation cp="👳🏽" type="tts">met met tulband: medium velkleur</annotation>
-		<annotation cp="👳🏾">medium-donker velkleur | persoon met tulband | tulband</annotation>
+		<annotation cp="👳🏾">medium-donker velkleur | met met tulband | persoon met tulband | tulband</annotation>
 		<annotation cp="👳🏾" type="tts">met met tulband: medium-donker velkleur</annotation>
-		<annotation cp="👳🏿">donker velkleur | persoon met tulband | tulband</annotation>
+		<annotation cp="👳🏿">donker velkleur | met met tulband | persoon met tulband | tulband</annotation>
 		<annotation cp="👳🏿" type="tts">met met tulband: donker velkleur</annotation>
 		<annotation cp="👳🏻‍♂">ligte velkleur | man met tulband | tulband</annotation>
 		<annotation cp="👳🏻‍♂" type="tts">man met tulband: ligte velkleur</annotation>
@@ -1626,15 +1676,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👳🏾‍♀" type="tts">vrou met tulband: medium-donker velkleur</annotation>
 		<annotation cp="👳🏿‍♀">donker velkleur | tulband | vrou met tulband</annotation>
 		<annotation cp="👳🏿‍♀" type="tts">vrou met tulband: donker velkleur</annotation>
-		<annotation cp="👲🏻">gua pi mao | hoed | ligte velkleur | man | man met Chinese mus</annotation>
+		<annotation cp="👲🏻">gua pi mao | hoed | ligte velkleur | man | man met chinese mus | man met Chinese mus</annotation>
 		<annotation cp="👲🏻" type="tts">man met chinese mus: ligte velkleur</annotation>
-		<annotation cp="👲🏼">gua pi mao | hoed | man | man met Chinese mus | medium-ligte velkleur</annotation>
+		<annotation cp="👲🏼">gua pi mao | hoed | man | man met chinese mus | man met Chinese mus | medium-ligte velkleur</annotation>
 		<annotation cp="👲🏼" type="tts">man met chinese mus: medium-ligte velkleur</annotation>
-		<annotation cp="👲🏽">gua pi mao | hoed | man | man met Chinese mus | medium velkleur</annotation>
+		<annotation cp="👲🏽">gua pi mao | hoed | man | man met chinese mus | man met Chinese mus | medium velkleur</annotation>
 		<annotation cp="👲🏽" type="tts">man met chinese mus: medium velkleur</annotation>
-		<annotation cp="👲🏾">gua pi mao | hoed | man | man met Chinese mus | medium-donker velkleur</annotation>
+		<annotation cp="👲🏾">gua pi mao | hoed | man | man met chinese mus | man met Chinese mus | medium-donker velkleur</annotation>
 		<annotation cp="👲🏾" type="tts">man met chinese mus: medium-donker velkleur</annotation>
-		<annotation cp="👲🏿">donker velkleur | gua pi mao | hoed | man | man met Chinese mus</annotation>
+		<annotation cp="👲🏿">donker velkleur | gua pi mao | hoed | man | man met chinese mus | man met Chinese mus</annotation>
 		<annotation cp="👲🏿" type="tts">man met chinese mus: donker velkleur</annotation>
 		<annotation cp="🧕🏻">hiijab | kopdoek | ligte velkleur | mantilla | vrou met kopdoek</annotation>
 		<annotation cp="🧕🏻" type="tts">vrou met kopdoek: ligte velkleur</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">vrou met kopdoek: medium-donker velkleur</annotation>
 		<annotation cp="🧕🏿">donker velkleur | hiijab | kopdoek | mantilla | vrou met kopdoek</annotation>
 		<annotation cp="🧕🏿" type="tts">vrou met kopdoek: donker velkleur</annotation>
-		<annotation cp="🤵🏻">bruidegom | ligte velkleur | man | man in pak | pak | tuxedo</annotation>
-		<annotation cp="🤵🏻" type="tts">man in pak: ligte velkleur</annotation>
-		<annotation cp="🤵🏼">bruidegom | man | man in pak | medium-ligte velkleur | pak | tuxedo</annotation>
-		<annotation cp="🤵🏼" type="tts">man in pak: medium-ligte velkleur</annotation>
-		<annotation cp="🤵🏽">bruidegom | man | man in pak | medium velkleur | pak | tuxedo</annotation>
-		<annotation cp="🤵🏽" type="tts">man in pak: medium velkleur</annotation>
-		<annotation cp="🤵🏾">bruidegom | man | man in pak | medium-donker velkleur | pak | tuxedo</annotation>
-		<annotation cp="🤵🏾" type="tts">man in pak: medium-donker velkleur</annotation>
-		<annotation cp="🤵🏿">bruidegom | donker velkleur | man | man in pak | pak | tuxedo</annotation>
-		<annotation cp="🤵🏿" type="tts">man in pak: donker velkleur</annotation>
-		<annotation cp="👰🏻">bruid | bruid met sluier | ligte velkleur | sluier | troue</annotation>
-		<annotation cp="👰🏻" type="tts">bruid met sluier: ligte velkleur</annotation>
-		<annotation cp="👰🏼">bruid | bruid met sluier | medium-ligte velkleur | sluier | troue</annotation>
-		<annotation cp="👰🏼" type="tts">bruid met sluier: medium-ligte velkleur</annotation>
-		<annotation cp="👰🏽">bruid | bruid met sluier | medium velkleur | sluier | troue</annotation>
-		<annotation cp="👰🏽" type="tts">bruid met sluier: medium velkleur</annotation>
-		<annotation cp="👰🏾">bruid | bruid met sluier | medium-donker velkleur | sluier | troue</annotation>
-		<annotation cp="👰🏾" type="tts">bruid met sluier: medium-donker velkleur</annotation>
-		<annotation cp="👰🏿">bruid | bruid met sluier | donker velkleur | sluier | troue</annotation>
-		<annotation cp="👰🏿" type="tts">bruid met sluier: donker velkleur</annotation>
+		<annotation cp="🤵🏻">bruidegom | ligte velkleur | pak | persoon | persoon in pak | tuxedo</annotation>
+		<annotation cp="🤵🏻" type="tts">persoon in pak: ligte velkleur</annotation>
+		<annotation cp="🤵🏼">bruidegom | medium-ligte velkleur | pak | persoon | persoon in pak | tuxedo</annotation>
+		<annotation cp="🤵🏼" type="tts">persoon in pak: medium-ligte velkleur</annotation>
+		<annotation cp="🤵🏽">bruidegom | medium velkleur | pak | persoon | persoon in pak | tuxedo</annotation>
+		<annotation cp="🤵🏽" type="tts">persoon in pak: medium velkleur</annotation>
+		<annotation cp="🤵🏾">bruidegom | medium-donker velkleur | pak | persoon | persoon in pak | tuxedo</annotation>
+		<annotation cp="🤵🏾" type="tts">persoon in pak: medium-donker velkleur</annotation>
+		<annotation cp="🤵🏿">bruidegom | donker velkleur | pak | persoon | persoon in pak | tuxedo</annotation>
+		<annotation cp="🤵🏿" type="tts">persoon in pak: donker velkleur</annotation>
+		<annotation cp="🤵🏻‍♀">ligte velkleur | pak | vrou | vrou in pak</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">vrou in pak: ligte velkleur</annotation>
+		<annotation cp="🤵🏼‍♀">medium-ligte velkleur | pak | vrou | vrou in pak</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">vrou in pak: medium-ligte velkleur</annotation>
+		<annotation cp="🤵🏽‍♀">medium velkleur | pak | vrou | vrou in pak</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">vrou in pak: medium velkleur</annotation>
+		<annotation cp="🤵🏾‍♀">medium-donker velkleur | pak | vrou | vrou in pak</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">vrou in pak: medium-donker velkleur</annotation>
+		<annotation cp="🤵🏿‍♀">donker velkleur | pak | vrou | vrou in pak</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">vrou in pak: donker velkleur</annotation>
+		<annotation cp="🤵🏻‍♂">ligte velkleur | man | man in pak | pak</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">man in pak: ligte velkleur</annotation>
+		<annotation cp="🤵🏼‍♂">man | man in pak | medium-ligte velkleur | pak</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">man in pak: medium-ligte velkleur</annotation>
+		<annotation cp="🤵🏽‍♂">man | man in pak | medium velkleur | pak</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">man in pak: medium velkleur</annotation>
+		<annotation cp="🤵🏾‍♂">man | man in pak | medium-donker velkleur | pak</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">man in pak: medium-donker velkleur</annotation>
+		<annotation cp="🤵🏿‍♂">donker velkleur | man | man in pak | pak</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">man in pak: donker velkleur</annotation>
+		<annotation cp="👰🏻">bruid | ligte velkleur | persoon | persoon met sluier | sluier | troue</annotation>
+		<annotation cp="👰🏻" type="tts">persoon met sluier: ligte velkleur</annotation>
+		<annotation cp="👰🏼">bruid | medium-ligte velkleur | persoon | persoon met sluier | sluier | troue</annotation>
+		<annotation cp="👰🏼" type="tts">persoon met sluier: medium-ligte velkleur</annotation>
+		<annotation cp="👰🏽">bruid | medium velkleur | persoon | persoon met sluier | sluier | troue</annotation>
+		<annotation cp="👰🏽" type="tts">persoon met sluier: medium velkleur</annotation>
+		<annotation cp="👰🏾">bruid | medium-donker velkleur | persoon | persoon met sluier | sluier | troue</annotation>
+		<annotation cp="👰🏾" type="tts">persoon met sluier: medium-donker velkleur</annotation>
+		<annotation cp="👰🏿">bruid | donker velkleur | persoon | persoon met sluier | sluier | troue</annotation>
+		<annotation cp="👰🏿" type="tts">persoon met sluier: donker velkleur</annotation>
+		<annotation cp="👰🏻‍♀">ligte velkleur | sluier | vrou | vrou met sluier</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">vrou met sluier: ligte velkleur</annotation>
+		<annotation cp="👰🏼‍♀">medium-ligte velkleur | sluier | vrou | vrou met sluier</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">vrou met sluier: medium-ligte velkleur</annotation>
+		<annotation cp="👰🏽‍♀">medium velkleur | sluier | vrou | vrou met sluier</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">vrou met sluier: medium velkleur</annotation>
+		<annotation cp="👰🏾‍♀">medium-donker velkleur | sluier | vrou | vrou met sluier</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">vrou met sluier: medium-donker velkleur</annotation>
+		<annotation cp="👰🏿‍♀">donker velkleur | sluier | vrou | vrou met sluier</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">vrou met sluier: donker velkleur</annotation>
+		<annotation cp="👰🏻‍♂">ligte velkleur | man | man met sluier | sluier</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">man met sluier: ligte velkleur</annotation>
+		<annotation cp="👰🏼‍♂">man | man met sluier | medium-ligte velkleur | sluier</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">man met sluier: medium-ligte velkleur</annotation>
+		<annotation cp="👰🏽‍♂">man | man met sluier | medium velkleur | sluier</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">man met sluier: medium velkleur</annotation>
+		<annotation cp="👰🏾‍♂">man | man met sluier | medium-donker velkleur | sluier</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">man met sluier: medium-donker velkleur</annotation>
+		<annotation cp="👰🏿‍♂">donker velkleur | man | man met sluier | sluier</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">man met sluier: donker velkleur</annotation>
 		<annotation cp="🤰🏻">ligte velkleur | swanger | vrou</annotation>
 		<annotation cp="🤰🏻" type="tts">swanger vrou: ligte velkleur</annotation>
 		<annotation cp="🤰🏼">medium-ligte velkleur | swanger | vrou</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">vrou wat kniel: medium-donker velkleur</annotation>
 		<annotation cp="🧎🏿‍♀">donker velkleur | kniel | vrou | vrou wat kniel</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">vrou wat kniel: donker velkleur</annotation>
-		<annotation cp="🧑🏻‍🦯">blink | ligte velkleur | toegangklikheid</annotation>
+		<annotation cp="🧑🏻‍🦯">blink | ligte velkleur | persoon met stapstok | toegangklikheid</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">persoon met stapstok: ligte velkleur</annotation>
-		<annotation cp="🧑🏼‍🦯">blink | medium-ligte velkleur | toegangklikheid</annotation>
+		<annotation cp="🧑🏼‍🦯">blink | medium-ligte velkleur | persoon met stapstok | toegangklikheid</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">persoon met stapstok: medium-ligte velkleur</annotation>
-		<annotation cp="🧑🏽‍🦯">blink | medium velkleur | toegangklikheid</annotation>
+		<annotation cp="🧑🏽‍🦯">blink | medium velkleur | persoon met stapstok | toegangklikheid</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">persoon met stapstok: medium velkleur</annotation>
-		<annotation cp="🧑🏾‍🦯">blink | medium-donker velkleur | toegangklikheid</annotation>
+		<annotation cp="🧑🏾‍🦯">blink | medium-donker velkleur | persoon met stapstok | toegangklikheid</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">persoon met stapstok: medium-donker velkleur</annotation>
-		<annotation cp="🧑🏿‍🦯">blink | donker velkleur | toegangklikheid</annotation>
+		<annotation cp="🧑🏿‍🦯">blink | donker velkleur | persoon met stapstok | toegangklikheid</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">persoon met stapstok: donker velkleur</annotation>
 		<annotation cp="👨🏻‍🦯">blind | ligte velkleur | man | man met gidsstok | toeganklikheid</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">man met gidsstok: ligte velkleur</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">vrou met gidsstok: medium-donker velkleur</annotation>
 		<annotation cp="👩🏿‍🦯">blind | donker velkleur | toeganklikheid | vrou | vrou met gidsstok</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">vrou met gidsstok: donker velkleur</annotation>
-		<annotation cp="🧑🏻‍🦼">ligte velkleur | rolstoel | toegangklikheid</annotation>
+		<annotation cp="🧑🏻‍🦼">ligte velkleur | persoon in motoraangedrewe roltoel | rolstoel | toegangklikheid</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">persoon in motoraangedrewe roltoel: ligte velkleur</annotation>
-		<annotation cp="🧑🏼‍🦼">medium-ligte velkleur | rolstoel | toegangklikheid</annotation>
+		<annotation cp="🧑🏼‍🦼">medium-ligte velkleur | persoon in motoraangedrewe roltoel | rolstoel | toegangklikheid</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">persoon in motoraangedrewe roltoel: medium-ligte velkleur</annotation>
-		<annotation cp="🧑🏽‍🦼">medium velkleur | rolstoel | toegangklikheid</annotation>
+		<annotation cp="🧑🏽‍🦼">medium velkleur | persoon in motoraangedrewe roltoel | rolstoel | toegangklikheid</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">persoon in motoraangedrewe roltoel: medium velkleur</annotation>
-		<annotation cp="🧑🏾‍🦼">medium-donker velkleur | rolstoel | toegangklikheid</annotation>
+		<annotation cp="🧑🏾‍🦼">medium-donker velkleur | persoon in motoraangedrewe roltoel | rolstoel | toegangklikheid</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">persoon in motoraangedrewe roltoel: medium-donker velkleur</annotation>
-		<annotation cp="🧑🏿‍🦼">donker velkleur | rolstoel | toegangklikheid</annotation>
+		<annotation cp="🧑🏿‍🦼">donker velkleur | persoon in motoraangedrewe roltoel | rolstoel | toegangklikheid</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">persoon in motoraangedrewe roltoel: donker velkleur</annotation>
 		<annotation cp="👨🏻‍🦼">ligte velkleur | man | man in motoraangedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">man in motoraangedrewe rolstoel: ligte velkleur</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">vrou in motoraangedrewe rolstoel: medium-donker velkleur</annotation>
 		<annotation cp="👩🏿‍🦼">donker velkleur | rolstoel | toeganklikheid | vrou | vrou in motoraangedrewe rolstoel</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">vrou in motoraangedrewe rolstoel: donker velkleur</annotation>
-		<annotation cp="🧑🏻‍🦽">ligte velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="🧑🏻‍🦽">ligte velkleur | persoon in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">persoon in handgedrewe rolstoel: ligte velkleur</annotation>
-		<annotation cp="🧑🏼‍🦽">medium-ligte velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="🧑🏼‍🦽">medium-ligte velkleur | persoon in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">persoon in handgedrewe rolstoel: medium-ligte velkleur</annotation>
-		<annotation cp="🧑🏽‍🦽">medium velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="🧑🏽‍🦽">medium velkleur | persoon in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">persoon in handgedrewe rolstoel: medium velkleur</annotation>
-		<annotation cp="🧑🏾‍🦽">medium-donker velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="🧑🏾‍🦽">medium-donker velkleur | persoon in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">persoon in handgedrewe rolstoel: medium-donker velkleur</annotation>
-		<annotation cp="🧑🏿‍🦽">donker velkleur | rolstoel | toeganklikheid</annotation>
+		<annotation cp="🧑🏿‍🦽">donker velkleur | persoon in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">persoon in handgedrewe rolstoel: donker velkleur</annotation>
 		<annotation cp="👨🏻‍🦽">ligte velkleur | man | man in handgedrewe rolstoel | rolstoel | toeganklikheid</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">man in handgedrewe rolstoel: ligte velkleur</annotation>
@@ -2166,15 +2256,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦽" type="tts">vrou in handgedrewe rolstoel: medium-donker velkleur</annotation>
 		<annotation cp="👩🏿‍🦽">donker velkleur | rolstoel | toeganklikheid | vrou | vrou in handgedrewe rolstoel</annotation>
 		<annotation cp="👩🏿‍🦽" type="tts">vrou in handgedrewe rolstoel: donker velkleur</annotation>
-		<annotation cp="🏃🏻">draf | hardloper | ligte velkleur | marathon</annotation>
+		<annotation cp="🏃🏻">draf | hardloper | ligte velkleur | marathon | persoon wat hardloop</annotation>
 		<annotation cp="🏃🏻" type="tts">persoon wat hardloop: ligte velkleur</annotation>
-		<annotation cp="🏃🏼">draf | hardloper | marathon | medium-ligte velkleur</annotation>
+		<annotation cp="🏃🏼">draf | hardloper | marathon | medium-ligte velkleur | persoon wat hardloop</annotation>
 		<annotation cp="🏃🏼" type="tts">persoon wat hardloop: medium-ligte velkleur</annotation>
-		<annotation cp="🏃🏽">draf | hardloper | marathon | medium velkleur</annotation>
+		<annotation cp="🏃🏽">draf | hardloper | marathon | medium velkleur | persoon wat hardloop</annotation>
 		<annotation cp="🏃🏽" type="tts">persoon wat hardloop: medium velkleur</annotation>
-		<annotation cp="🏃🏾">draf | hardloper | marathon | medium-donker velkleur</annotation>
+		<annotation cp="🏃🏾">draf | hardloper | marathon | medium-donker velkleur | persoon wat hardloop</annotation>
 		<annotation cp="🏃🏾" type="tts">persoon wat hardloop: medium-donker velkleur</annotation>
-		<annotation cp="🏃🏿">donker velkleur | draf | hardloper | marathon</annotation>
+		<annotation cp="🏃🏿">donker velkleur | draf | hardloper | marathon | persoon wat hardloop</annotation>
 		<annotation cp="🏃🏿" type="tts">persoon wat hardloop: donker velkleur</annotation>
 		<annotation cp="🏃🏻‍♂">draf | haastig | hardloop | ligte velkleur | man hardloop</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">man hardloop: ligte velkleur</annotation>
@@ -2346,25 +2436,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏄🏾" type="tts">branderplankryer: medium-donker velkleur</annotation>
 		<annotation cp="🏄🏿">branderplank | branderplankryer | donker velkleur | golf | see</annotation>
 		<annotation cp="🏄🏿" type="tts">branderplankryer: donker velkleur</annotation>
-		<annotation cp="🏄🏻‍♂">branderplankry | ligte velkleur | man</annotation>
+		<annotation cp="🏄🏻‍♂">branderplankry | ligte velkleur | man | manlike branderplankryer</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">manlike branderplankryer: ligte velkleur</annotation>
-		<annotation cp="🏄🏼‍♂">branderplankry | man | medium-ligte velkleur</annotation>
+		<annotation cp="🏄🏼‍♂">branderplankry | man | manlike branderplankryer | medium-ligte velkleur</annotation>
 		<annotation cp="🏄🏼‍♂" type="tts">manlike branderplankryer: medium-ligte velkleur</annotation>
-		<annotation cp="🏄🏽‍♂">branderplankry | man | medium velkleur</annotation>
+		<annotation cp="🏄🏽‍♂">branderplankry | man | manlike branderplankryer | medium velkleur</annotation>
 		<annotation cp="🏄🏽‍♂" type="tts">manlike branderplankryer: medium velkleur</annotation>
-		<annotation cp="🏄🏾‍♂">branderplankry | man | medium-donker velkleur</annotation>
+		<annotation cp="🏄🏾‍♂">branderplankry | man | manlike branderplankryer | medium-donker velkleur</annotation>
 		<annotation cp="🏄🏾‍♂" type="tts">manlike branderplankryer: medium-donker velkleur</annotation>
-		<annotation cp="🏄🏿‍♂">branderplankry | donker velkleur | man</annotation>
+		<annotation cp="🏄🏿‍♂">branderplankry | donker velkleur | man | manlike branderplankryer</annotation>
 		<annotation cp="🏄🏿‍♂" type="tts">manlike branderplankryer: donker velkleur</annotation>
-		<annotation cp="🏄🏻‍♀">branderplankry | ligte velkleur | vrou</annotation>
+		<annotation cp="🏄🏻‍♀">branderplankry | ligte velkleur | vrou | vroulike branderplankryer</annotation>
 		<annotation cp="🏄🏻‍♀" type="tts">vroulike branderplankryer: ligte velkleur</annotation>
-		<annotation cp="🏄🏼‍♀">branderplankry | medium-ligte velkleur | vrou</annotation>
+		<annotation cp="🏄🏼‍♀">branderplankry | medium-ligte velkleur | vrou | vroulike branderplankryer</annotation>
 		<annotation cp="🏄🏼‍♀" type="tts">vroulike branderplankryer: medium-ligte velkleur</annotation>
-		<annotation cp="🏄🏽‍♀">branderplankry | medium velkleur | vrou</annotation>
+		<annotation cp="🏄🏽‍♀">branderplankry | medium velkleur | vrou | vroulike branderplankryer</annotation>
 		<annotation cp="🏄🏽‍♀" type="tts">vroulike branderplankryer: medium velkleur</annotation>
-		<annotation cp="🏄🏾‍♀">branderplankry | medium-donker velkleur | vrou</annotation>
+		<annotation cp="🏄🏾‍♀">branderplankry | medium-donker velkleur | vrou | vroulike branderplankryer</annotation>
 		<annotation cp="🏄🏾‍♀" type="tts">vroulike branderplankryer: medium-donker velkleur</annotation>
-		<annotation cp="🏄🏿‍♀">branderplankry | donker velkleur | vrou</annotation>
+		<annotation cp="🏄🏿‍♀">branderplankry | donker velkleur | vrou | vroulike branderplankryer</annotation>
 		<annotation cp="🏄🏿‍♀" type="tts">vroulike branderplankryer: donker velkleur</annotation>
 		<annotation cp="🚣🏻">boot | ligte velkleur | persoon roei | roei | roeiboot</annotation>
 		<annotation cp="🚣🏻" type="tts">roeiboot: ligte velkleur</annotation>
@@ -2496,25 +2586,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚴🏾" type="tts">fietsryer: medium-donker velkleur</annotation>
 		<annotation cp="🚴🏿">donker velkleur | fiets | fietsry | fietsryer</annotation>
 		<annotation cp="🚴🏿" type="tts">fietsryer: donker velkleur</annotation>
-		<annotation cp="🚴🏻‍♂">fiets | fietsry | fietsryer | ligte velkleur | man</annotation>
+		<annotation cp="🚴🏻‍♂">fiets | fietsry | fietsryer | ligte velkleur | man | manlike fietsryer</annotation>
 		<annotation cp="🚴🏻‍♂" type="tts">manlike fietsryer: ligte velkleur</annotation>
-		<annotation cp="🚴🏼‍♂">fiets | fietsry | fietsryer | man | medium-ligte velkleur</annotation>
+		<annotation cp="🚴🏼‍♂">fiets | fietsry | fietsryer | man | manlike fietsryer | medium-ligte velkleur</annotation>
 		<annotation cp="🚴🏼‍♂" type="tts">manlike fietsryer: medium-ligte velkleur</annotation>
-		<annotation cp="🚴🏽‍♂">fiets | fietsry | fietsryer | man | medium velkleur</annotation>
+		<annotation cp="🚴🏽‍♂">fiets | fietsry | fietsryer | man | manlike fietsryer | medium velkleur</annotation>
 		<annotation cp="🚴🏽‍♂" type="tts">manlike fietsryer: medium velkleur</annotation>
-		<annotation cp="🚴🏾‍♂">fiets | fietsry | fietsryer | man | medium-donker velkleur</annotation>
+		<annotation cp="🚴🏾‍♂">fiets | fietsry | fietsryer | man | manlike fietsryer | medium-donker velkleur</annotation>
 		<annotation cp="🚴🏾‍♂" type="tts">manlike fietsryer: medium-donker velkleur</annotation>
-		<annotation cp="🚴🏿‍♂">donker velkleur | fiets | fietsry | fietsryer | man</annotation>
+		<annotation cp="🚴🏿‍♂">donker velkleur | fiets | fietsry | fietsryer | man | manlike fietsryer</annotation>
 		<annotation cp="🚴🏿‍♂" type="tts">manlike fietsryer: donker velkleur</annotation>
-		<annotation cp="🚴🏻‍♀">fiets | fietsry | fietsryer | ligte velkleur | vrou</annotation>
+		<annotation cp="🚴🏻‍♀">fiets | fietsry | fietsryer | ligte velkleur | vrou | vroulike fietsryer</annotation>
 		<annotation cp="🚴🏻‍♀" type="tts">vroulike fietsryer: ligte velkleur</annotation>
-		<annotation cp="🚴🏼‍♀">fiets | fietsry | fietsryer | medium-ligte velkleur | vrou</annotation>
+		<annotation cp="🚴🏼‍♀">fiets | fietsry | fietsryer | medium-ligte velkleur | vrou | vroulike fietsryer</annotation>
 		<annotation cp="🚴🏼‍♀" type="tts">vroulike fietsryer: medium-ligte velkleur</annotation>
-		<annotation cp="🚴🏽‍♀">fiets | fietsry | fietsryer | medium velkleur | vrou</annotation>
+		<annotation cp="🚴🏽‍♀">fiets | fietsry | fietsryer | medium velkleur | vrou | vroulike fietsryer</annotation>
 		<annotation cp="🚴🏽‍♀" type="tts">vroulike fietsryer: medium velkleur</annotation>
-		<annotation cp="🚴🏾‍♀">fiets | fietsry | fietsryer | medium-donker velkleur | vrou</annotation>
+		<annotation cp="🚴🏾‍♀">fiets | fietsry | fietsryer | medium-donker velkleur | vrou | vroulike fietsryer</annotation>
 		<annotation cp="🚴🏾‍♀" type="tts">vroulike fietsryer: medium-donker velkleur</annotation>
-		<annotation cp="🚴🏿‍♀">donker velkleur | fiets | fietsry | fietsryer | vrou</annotation>
+		<annotation cp="🚴🏿‍♀">donker velkleur | fiets | fietsry | fietsryer | vrou | vroulike fietsryer</annotation>
 		<annotation cp="🚴🏿‍♀" type="tts">vroulike fietsryer: donker velkleur</annotation>
 		<annotation cp="🚵🏻">berg | bergfietsryer | fiets | fietsry | ligte velkleur</annotation>
 		<annotation cp="🚵🏻" type="tts">bergfietsryer: ligte velkleur</annotation>
@@ -2526,35 +2616,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵🏾" type="tts">bergfietsryer: medium-donker velkleur</annotation>
 		<annotation cp="🚵🏿">berg | bergfietsryer | donker velkleur | fiets | fietsry</annotation>
 		<annotation cp="🚵🏿" type="tts">bergfietsryer: donker velkleur</annotation>
-		<annotation cp="🚵🏻‍♂">bergfiets | bergfietsry | fietsry | fietsryer | ligte velkleur | man</annotation>
+		<annotation cp="🚵🏻‍♂">bergfiets | bergfietsry | fietsry | fietsryer | ligte velkleur | man | manlike bergfietsryer</annotation>
 		<annotation cp="🚵🏻‍♂" type="tts">manlike bergfietsryer: ligte velkleur</annotation>
-		<annotation cp="🚵🏼‍♂">bergfiets | bergfietsry | fietsry | fietsryer | man | medium-ligte velkleur</annotation>
+		<annotation cp="🚵🏼‍♂">bergfiets | bergfietsry | fietsry | fietsryer | man | manlike bergfietsryer | medium-ligte velkleur</annotation>
 		<annotation cp="🚵🏼‍♂" type="tts">manlike bergfietsryer: medium-ligte velkleur</annotation>
-		<annotation cp="🚵🏽‍♂">bergfiets | bergfietsry | fietsry | fietsryer | man | medium velkleur</annotation>
+		<annotation cp="🚵🏽‍♂">bergfiets | bergfietsry | fietsry | fietsryer | man | manlike bergfietsryer | medium velkleur</annotation>
 		<annotation cp="🚵🏽‍♂" type="tts">manlike bergfietsryer: medium velkleur</annotation>
-		<annotation cp="🚵🏾‍♂">bergfiets | bergfietsry | fietsry | fietsryer | man | medium-donker velkleur</annotation>
+		<annotation cp="🚵🏾‍♂">bergfiets | bergfietsry | fietsry | fietsryer | man | manlike bergfietsryer | medium-donker velkleur</annotation>
 		<annotation cp="🚵🏾‍♂" type="tts">manlike bergfietsryer: medium-donker velkleur</annotation>
-		<annotation cp="🚵🏿‍♂">bergfiets | bergfietsry | donker velkleur | fietsry | fietsryer | man</annotation>
+		<annotation cp="🚵🏿‍♂">bergfiets | bergfietsry | donker velkleur | fietsry | fietsryer | man | manlike bergfietsryer</annotation>
 		<annotation cp="🚵🏿‍♂" type="tts">manlike bergfietsryer: donker velkleur</annotation>
-		<annotation cp="🚵🏻‍♀">bergfiets | bergfietsry | fietsry | fietsryer | ligte velkleur | vrou</annotation>
+		<annotation cp="🚵🏻‍♀">bergfiets | bergfietsry | fietsry | fietsryer | ligte velkleur | vrou | vroulike bergfietsryer</annotation>
 		<annotation cp="🚵🏻‍♀" type="tts">vroulike bergfietsryer: ligte velkleur</annotation>
-		<annotation cp="🚵🏼‍♀">bergfiets | bergfietsry | fietsry | fietsryer | medium-ligte velkleur | vrou</annotation>
+		<annotation cp="🚵🏼‍♀">bergfiets | bergfietsry | fietsry | fietsryer | medium-ligte velkleur | vrou | vroulike bergfietsryer</annotation>
 		<annotation cp="🚵🏼‍♀" type="tts">vroulike bergfietsryer: medium-ligte velkleur</annotation>
-		<annotation cp="🚵🏽‍♀">bergfiets | bergfietsry | fietsry | fietsryer | medium velkleur | vrou</annotation>
+		<annotation cp="🚵🏽‍♀">bergfiets | bergfietsry | fietsry | fietsryer | medium velkleur | vrou | vroulike bergfietsryer</annotation>
 		<annotation cp="🚵🏽‍♀" type="tts">vroulike bergfietsryer: medium velkleur</annotation>
-		<annotation cp="🚵🏾‍♀">bergfiets | bergfietsry | fietsry | fietsryer | medium-donker velkleur | vrou</annotation>
+		<annotation cp="🚵🏾‍♀">bergfiets | bergfietsry | fietsry | fietsryer | medium-donker velkleur | vrou | vroulike bergfietsryer</annotation>
 		<annotation cp="🚵🏾‍♀" type="tts">vroulike bergfietsryer: medium-donker velkleur</annotation>
-		<annotation cp="🚵🏿‍♀">bergfiets | bergfietsry | donker velkleur | fietsry | fietsryer | vrou</annotation>
+		<annotation cp="🚵🏿‍♀">bergfiets | bergfietsry | donker velkleur | fietsry | fietsryer | vrou | vroulike bergfietsryer</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">vroulike bergfietsryer: donker velkleur</annotation>
-		<annotation cp="🤸🏻">bollemakiesie | gimnastiek | ligte velkleur | wawiel</annotation>
+		<annotation cp="🤸🏻">bollemakiesie | gimnastiek | ligte velkleur | persoon wat ‘n wawiel doen | wawiel</annotation>
 		<annotation cp="🤸🏻" type="tts">persoon wat ‘n wawiel doen: ligte velkleur</annotation>
-		<annotation cp="🤸🏼">bollemakiesie | gimnastiek | medium-ligte velkleur | wawiel</annotation>
+		<annotation cp="🤸🏼">bollemakiesie | gimnastiek | medium-ligte velkleur | persoon wat ‘n wawiel doen | wawiel</annotation>
 		<annotation cp="🤸🏼" type="tts">persoon wat ‘n wawiel doen: medium-ligte velkleur</annotation>
-		<annotation cp="🤸🏽">bollemakiesie | gimnastiek | medium velkleur | wawiel</annotation>
+		<annotation cp="🤸🏽">bollemakiesie | gimnastiek | medium velkleur | persoon wat ‘n wawiel doen | wawiel</annotation>
 		<annotation cp="🤸🏽" type="tts">persoon wat ‘n wawiel doen: medium velkleur</annotation>
-		<annotation cp="🤸🏾">bollemakiesie | gimnastiek | medium-donker velkleur | wawiel</annotation>
+		<annotation cp="🤸🏾">bollemakiesie | gimnastiek | medium-donker velkleur | persoon wat ‘n wawiel doen | wawiel</annotation>
 		<annotation cp="🤸🏾" type="tts">persoon wat ‘n wawiel doen: medium-donker velkleur</annotation>
-		<annotation cp="🤸🏿">bollemakiesie | donker velkleur | gimnastiek | wawiel</annotation>
+		<annotation cp="🤸🏿">bollemakiesie | donker velkleur | gimnastiek | persoon wat ‘n wawiel doen | wawiel</annotation>
 		<annotation cp="🤸🏿" type="tts">persoon wat ‘n wawiel doen: donker velkleur</annotation>
 		<annotation cp="🤸🏻‍♂">bollemakiesie | ligte velkleur | man doen wawiel | wawiel</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">man doen wawiel: ligte velkleur</annotation>
@@ -2566,15 +2656,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤸🏾‍♂" type="tts">man doen wawiel: medium-donker velkleur</annotation>
 		<annotation cp="🤸🏿‍♂">bollemakiesie | donker velkleur | man doen wawiel | wawiel</annotation>
 		<annotation cp="🤸🏿‍♂" type="tts">man doen wawiel: donker velkleur</annotation>
-		<annotation cp="🤸🏻‍♀">bollemakiesie | ligte velkleur | vrou doen wawiel | wawiel</annotation>
+		<annotation cp="🤸🏻‍♀">bollemakiesie | ligte velkleur | vrou doen wawiel | vvrou doen wawiel | wawiel</annotation>
 		<annotation cp="🤸🏻‍♀" type="tts">vvrou doen wawiel: ligte velkleur</annotation>
-		<annotation cp="🤸🏼‍♀">bollemakiesie | medium-ligte velkleur | vrou doen wawiel | wawiel</annotation>
+		<annotation cp="🤸🏼‍♀">bollemakiesie | medium-ligte velkleur | vrou doen wawiel | vvrou doen wawiel | wawiel</annotation>
 		<annotation cp="🤸🏼‍♀" type="tts">vvrou doen wawiel: medium-ligte velkleur</annotation>
-		<annotation cp="🤸🏽‍♀">bollemakiesie | medium velkleur | vrou doen wawiel | wawiel</annotation>
+		<annotation cp="🤸🏽‍♀">bollemakiesie | medium velkleur | vrou doen wawiel | vvrou doen wawiel | wawiel</annotation>
 		<annotation cp="🤸🏽‍♀" type="tts">vvrou doen wawiel: medium velkleur</annotation>
-		<annotation cp="🤸🏾‍♀">bollemakiesie | medium-donker velkleur | vrou doen wawiel | wawiel</annotation>
+		<annotation cp="🤸🏾‍♀">bollemakiesie | medium-donker velkleur | vrou doen wawiel | vvrou doen wawiel | wawiel</annotation>
 		<annotation cp="🤸🏾‍♀" type="tts">vvrou doen wawiel: medium-donker velkleur</annotation>
-		<annotation cp="🤸🏿‍♀">bollemakiesie | donker velkleur | vrou doen wawiel | wawiel</annotation>
+		<annotation cp="🤸🏿‍♀">bollemakiesie | donker velkleur | vrou doen wawiel | vvrou doen wawiel | wawiel</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">vvrou doen wawiel: donker velkleur</annotation>
 		<annotation cp="🤽🏻">ligte velkleur | sport | swem | waterpolo</annotation>
 		<annotation cp="🤽🏻" type="tts">waterpolo: ligte velkleur</annotation>
@@ -2646,25 +2736,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾" type="tts">jongleer: medium-donker velkleur</annotation>
 		<annotation cp="🤹🏿">balanseer | donker velkleur | jongleer | vaardigheid | veelsydig</annotation>
 		<annotation cp="🤹🏿" type="tts">jongleer: donker velkleur</annotation>
-		<annotation cp="🤹🏻‍♂">jongleer | ligte velkleur | man | veelsydig</annotation>
+		<annotation cp="🤹🏻‍♂">jongleer | ligte velkleur | man | manlike jongleur | veelsydig</annotation>
 		<annotation cp="🤹🏻‍♂" type="tts">manlike jongleur: ligte velkleur</annotation>
-		<annotation cp="🤹🏼‍♂">jongleer | man | medium-ligte velkleur | veelsydig</annotation>
+		<annotation cp="🤹🏼‍♂">jongleer | man | manlike jongleur | medium-ligte velkleur | veelsydig</annotation>
 		<annotation cp="🤹🏼‍♂" type="tts">manlike jongleur: medium-ligte velkleur</annotation>
-		<annotation cp="🤹🏽‍♂">jongleer | man | medium velkleur | veelsydig</annotation>
+		<annotation cp="🤹🏽‍♂">jongleer | man | manlike jongleur | medium velkleur | veelsydig</annotation>
 		<annotation cp="🤹🏽‍♂" type="tts">manlike jongleur: medium velkleur</annotation>
-		<annotation cp="🤹🏾‍♂">jongleer | man | medium-donker velkleur | veelsydig</annotation>
+		<annotation cp="🤹🏾‍♂">jongleer | man | manlike jongleur | medium-donker velkleur | veelsydig</annotation>
 		<annotation cp="🤹🏾‍♂" type="tts">manlike jongleur: medium-donker velkleur</annotation>
-		<annotation cp="🤹🏿‍♂">donker velkleur | jongleer | man | veelsydig</annotation>
+		<annotation cp="🤹🏿‍♂">donker velkleur | jongleer | man | manlike jongleur | veelsydig</annotation>
 		<annotation cp="🤹🏿‍♂" type="tts">manlike jongleur: donker velkleur</annotation>
-		<annotation cp="🤹🏻‍♀">jongleer | ligte velkleur | veelsydig | vrou</annotation>
+		<annotation cp="🤹🏻‍♀">jongleer | ligte velkleur | veelsydig | vrou | vroulike jongleur</annotation>
 		<annotation cp="🤹🏻‍♀" type="tts">vroulike jongleur: ligte velkleur</annotation>
-		<annotation cp="🤹🏼‍♀">jongleer | medium-ligte velkleur | veelsydig | vrou</annotation>
+		<annotation cp="🤹🏼‍♀">jongleer | medium-ligte velkleur | veelsydig | vrou | vroulike jongleur</annotation>
 		<annotation cp="🤹🏼‍♀" type="tts">vroulike jongleur: medium-ligte velkleur</annotation>
-		<annotation cp="🤹🏽‍♀">jongleer | medium velkleur | veelsydig | vrou</annotation>
+		<annotation cp="🤹🏽‍♀">jongleer | medium velkleur | veelsydig | vrou | vroulike jongleur</annotation>
 		<annotation cp="🤹🏽‍♀" type="tts">vroulike jongleur: medium velkleur</annotation>
-		<annotation cp="🤹🏾‍♀">jongleer | medium-donker velkleur | veelsydig | vrou</annotation>
+		<annotation cp="🤹🏾‍♀">jongleer | medium-donker velkleur | veelsydig | vrou | vroulike jongleur</annotation>
 		<annotation cp="🤹🏾‍♀" type="tts">vroulike jongleur: medium-donker velkleur</annotation>
-		<annotation cp="🤹🏿‍♀">donker velkleur | jongleer | veelsydig | vrou</annotation>
+		<annotation cp="🤹🏿‍♀">donker velkleur | jongleer | veelsydig | vrou | vroulike jongleur</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">vroulike jongleur: donker velkleur</annotation>
 		<annotation cp="🧘🏻">joga | ligte velkleur | meditasie | persoon in die lotus-posisie</annotation>
 		<annotation cp="🧘🏻" type="tts">persoon in die lotus-posisie: ligte velkleur</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">persoon in bed: donker velkleur</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">hand | hande vashou | ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">mense wat hande vashou: ligte velkleur</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">hand | hande vashou | ligte velkleur | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">mense wat hande vashou: ligte velkleur en medium-ligte velkleur</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">hand | hande vashou | ligte velkleur | medium velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">mense wat hande vashou: ligte velkleur en medium velkleur</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">hand | hande vashou | ligte velkleur | medium-donker velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">mense wat hande vashou: ligte velkleur en medium-donker velkleur</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">donker velkleur | hand | hande vashou | ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">mense wat hande vashou: ligte velkleur en donker velkleur</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">hand | hande vashou | ligte velkleur | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">mense wat hande vashou: medium-ligte velkleur en ligte velkleur</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">hand | hande vashou | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">mense wat hande vashou: medium-ligte velkleur</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">hand | hande vashou | medium velkleur | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">mense wat hande vashou: medium-ligte velkleur en medium velkleur</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">hand | hande vashou | medium-donker velkleur | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">mense wat hande vashou: medium-ligte velkleur en medium-donker velkleur</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">donker velkleur | hand | hande vashou | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">mense wat hande vashou: medium-ligte velkleur en donker velkleur</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">hand | hande vashou | ligte velkleur | medium velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">mense wat hande vashou: medium velkleur en ligte velkleur</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">hand | hande vashou | medium velkleur | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">mense wat hande vashou: medium velkleur en medium-ligte velkleur</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">hand | hande vashou | medium velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">mense wat hande vashou: medium velkleur</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">hand | hande vashou | medium velkleur | medium-donker velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">mense wat hande vashou: medium velkleur en medium-donker velkleur</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">donker velkleur | hand | hande vashou | medium velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">mense wat hande vashou: medium velkleur en donker velkleur</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">hand | hande vashou | ligte velkleur | medium-donker velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">mense wat hande vashou: medium-donker velkleur en ligte velkleur</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">hand | hande vashou | medium-donker velkleur | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">mense wat hande vashou: medium-donker velkleur en medium velkleur</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">hand | hande vashou | medium-donker velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">mense wat hande vashou: medium-donker velkleur</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">donker velkleur | hand | hande vashou | medium-donker velkleur | mense wat hande vashou | paartjie | vashou</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">mense wat hande vashou: medium-donker velkleur en donker velkleur</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">donker velkleur | hand | hande vashou | ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">mense wat hande vashou: donker velkleur en ligte velkleur</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">donker velkleur | hand | hande vashou | medium-ligte velkleur | mense wat hande vashou | paartjie | vashou</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">mense wat hande vashou: donker velkleur</annotation>
 		<annotation cp="👭🏻">hand | hande vashou | ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👭🏻" type="tts">twee vroue wat hande vashou: ligte velkleur</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">hand | hande vashou | ligte velkleur | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">twee vroue wat hande vashou: ligte velkleur en medium-ligte velkleur</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">hand | hande vashou | ligte velkleur | medium velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">twee vroue wat hande vashou: ligte velkleur en medium velkleur</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">hand | hande vashou | ligte velkleur | medium-donker velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">twee vroue wat hande vashou: ligte velkleur en medium-donker velkleur</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">donker velkleur | hand | hande vashou | ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">twee vroue wat hande vashou: ligte velkleur en donker velkleur</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">hand | hande vashou | ligte velkleur | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">twee vroue wat hande vashou: medium-ligte velkleur en ligte velkleur</annotation>
 		<annotation cp="👭🏼">hand | hande vashou | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👭🏼" type="tts">twee vroue wat hande vashou: medium-ligte velkleur</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">hand | hande vashou | medium velkleur | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">twee vroue wat hande vashou: medium-ligte velkleur en medium velkleur</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">hand | hande vashou | medium-donker velkleur | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">twee vroue wat hande vashou: medium-ligte velkleur en medium-donker velkleur</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">donker velkleur | hand | hande vashou | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">twee vroue wat hande vashou: medium-ligte velkleur en donker velkleur</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">hand | hande vashou | ligte velkleur | medium velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">twee vroue wat hande vashou: medium velkleur en ligte velkleur</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">hand | hande vashou | medium velkleur | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">twee vroue wat hande vashou: medium velkleur en medium-ligte velkleur</annotation>
 		<annotation cp="👭🏽">hand | hande vashou | medium velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👭🏽" type="tts">twee vroue wat hande vashou: medium velkleur</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">hand | hande vashou | medium velkleur | medium-donker velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">twee vroue wat hande vashou: medium velkleur en medium-donker velkleur</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">donker velkleur | hand | hande vashou | medium velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">twee vroue wat hande vashou: medium velkleur en donker velkleur</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">hand | hande vashou | ligte velkleur | medium-donker velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">twee vroue wat hande vashou: medium-donker velkleur en ligte velkleur</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">hand | hande vashou | medium-donker velkleur | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">twee vroue wat hande vashou: medium-donker velkleur en medium velkleur</annotation>
 		<annotation cp="👭🏾">hand | hande vashou | medium-donker velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👭🏾" type="tts">twee vroue wat hande vashou: medium-donker velkleur</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">donker velkleur | hand | hande vashou | medium-donker velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">twee vroue wat hande vashou: medium-donker velkleur en donker velkleur</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">donker velkleur | hand | hande vashou | ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">twee vroue wat hande vashou: donker velkleur en ligte velkleur</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">donker velkleur | hand | hande vashou | medium-ligte velkleur | paartjie | twee vroue wat hande vashou | vroue</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">man en vrou wat hande vashou: donker velkleur</annotation>
 		<annotation cp="👬🏻">hande vashou | ligte velkleur | man | mans | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👬🏻" type="tts">twee mans wat hande vashou: ligte velkleur</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">hande vashou | ligte velkleur | man | mans | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">twee mans wat hande vashou: ligte velkleur en medium-ligte velkleur</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">hande vashou | ligte velkleur | man | mans | medium velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">twee mans wat hande vashou: ligte velkleur en medium velkleur</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">hande vashou | ligte velkleur | man | mans | medium-donker velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">twee mans wat hande vashou: ligte velkleur en medium-donker velkleur</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">donker velkleur | hande vashou | ligte velkleur | man | mans | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">twee mans wat hande vashou: ligte velkleur en donker velkleur</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">hande vashou | ligte velkleur | man | mans | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">twee mans wat hande vashou: medium-ligte velkleur en ligte velkleur</annotation>
 		<annotation cp="👬🏼">hande vashou | man | mans | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👬🏼" type="tts">twee mans wat hande vashou: medium-ligte velkleur</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">hande vashou | man | mans | medium velkleur | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">twee mans wat hande vashou: medium-ligte velkleur en medium velkleur</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">hande vashou | man | mans | medium-donker velkleur | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">twee mans wat hande vashou: medium-ligte velkleur en medium-donker velkleur</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">donker velkleur | hande vashou | man | mans | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">twee mans wat hande vashou: medium-ligte velkleur en donker velkleur</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">hande vashou | ligte velkleur | man | mans | medium velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">twee mans wat hande vashou: medium velkleur en ligte velkleur</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">hande vashou | man | mans | medium velkleur | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">twee mans wat hande vashou: medium velkleur en medium-ligte velkleur</annotation>
 		<annotation cp="👬🏽">hande vashou | man | mans | medium velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👬🏽" type="tts">twee mans wat hande vashou: medium velkleur</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">hande vashou | man | mans | medium velkleur | medium-donker velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">twee mans wat hande vashou: medium velkleur en medium-donker velkleur</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">donker velkleur | hande vashou | man | mans | medium velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">twee mans wat hande vashou: medium velkleur en donker velkleur</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">hande vashou | ligte velkleur | man | mans | medium-donker velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">twee mans wat hande vashou: medium-donker velkleur en ligte velkleur</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">hande vashou | man | mans | medium-donker velkleur | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">twee mans wat hande vashou: medium-donker velkleur en medium velkleur</annotation>
 		<annotation cp="👬🏾">hande vashou | man | mans | medium-donker velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👬🏾" type="tts">twee mans wat hande vashou: medium-donker velkleur</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">donker velkleur | hande vashou | man | mans | medium-donker velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">twee mans wat hande vashou: medium-donker velkleur en donker velkleur</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">donker velkleur | hande vashou | ligte velkleur | man | mans | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">twee mans wat hande vashou: donker velkleur en ligte velkleur</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">donker velkleur | hande vashou | man | mans | medium-ligte velkleur | paartjie | sodiak | twee mans wat hande vashou | Tweeling</annotation>

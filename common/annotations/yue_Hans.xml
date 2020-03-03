@@ -26,7 +26,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="–" type="tts">破折号</annotation>
 		<annotation cp="—">长破折号</annotation>
 		<annotation cp="—" type="tts">长破折号</annotation>
-		<annotation cp="·">中间 | 中点 | 间隔号 | 点</annotation>
+		<annotation cp="·">中点 | 中间 | 点 | 间隔号</annotation>
 		<annotation cp="·" type="tts">中点</annotation>
 		<annotation cp="«">人字形 | 向左 | 左双书名号 | 引用 | 括号 | 脱字符 | 角</annotation>
 		<annotation cp="«" type="tts">左双书名号</annotation>
@@ -36,13 +36,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="§" type="tts">部分</annotation>
 		<annotation cp="†">剑标 | 短剑号</annotation>
 		<annotation cp="†" type="tts">剑标</annotation>
-		<annotation cp="‡">剑标 | 短剑号 | 双剑标 | 双重</annotation>
+		<annotation cp="‡">剑标 | 双剑标 | 双重 | 短剑号</annotation>
 		<annotation cp="‡" type="tts">双剑标</annotation>
-		<annotation cp="•">要点 | 点</annotation>
+		<annotation cp="•">点 | 要点</annotation>
 		<annotation cp="•" type="tts">要点</annotation>
 		<annotation cp="°">小时 | 度 | 证明</annotation>
 		<annotation cp="°" type="tts">度</annotation>
-		<annotation cp="℗">版权 | 声音 | 录音 | 录音版权</annotation>
+		<annotation cp="℗">声音 | 录音 | 录音版权 | 版权</annotation>
 		<annotation cp="℗" type="tts">录音版权</annotation>
 		<annotation cp="←">向左 | 向左箭咀 | 指向左嘅箭咀 | 箭咀</annotation>
 		<annotation cp="←" type="tts">指向左嘅箭咀</annotation>
@@ -62,9 +62,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∇" type="tts">拉普拉斯算子</annotation>
 		<annotation cp="∈">元素 | 包含 | 成员 | 集</annotation>
 		<annotation cp="∈" type="tts">元素</annotation>
-		<annotation cp="÷">除 | 除法 | 除号</annotation>
+		<annotation cp="÷">除 | 除号 | 除法</annotation>
 		<annotation cp="÷" type="tts">除号</annotation>
-		<annotation cp="×">乘 | 乘数 | 乘法 | 乘号</annotation>
+		<annotation cp="×">乘 | 乘号 | 乘数 | 乘法</annotation>
 		<annotation cp="×" type="tts">乘号</annotation>
 		<annotation cp="⁻">上标 | 上标减号 | 减号</annotation>
 		<annotation cp="⁻" type="tts">上标减号</annotation>
@@ -164,7 +164,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪨" type="tts">石头</annotation>
 		<annotation cp="🪰">乌蝇 | 疾病 | 腐烂 | 蛆</annotation>
 		<annotation cp="🪰" type="tts">乌蝇</annotation>
-		<annotation cp="🪱">寄生虫 | 环虫 | 蚯蚓 | 虫</annotation>
+		<annotation cp="🪱">寄生虫 | 环虫 | 虫 | 蚯蚓</annotation>
 		<annotation cp="🪲">昆虫 | 甲壳虫 | 甲虫</annotation>
 		<annotation cp="🪲" type="tts">甲壳虫</annotation>
 		<annotation cp="🪳">昆虫 | 曱甴</annotation>
@@ -609,9 +609,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">成人</annotation>
 		<annotation cp="👱">金色头发 | 金色头发嘅人</annotation>
 		<annotation cp="👱" type="tts">金色头发嘅人</annotation>
-		<annotation cp="🧑‍🍼">人 | 哺乳嘅人 | 哺育 | 婴儿 | 喂哺</annotation>
+		<annotation cp="🧑‍🍼">人 | 哺乳嘅人 | 哺育 | 喂哺 | 婴儿</annotation>
 		<annotation cp="🧑‍🍼" type="tts">哺乳嘅人</annotation>
-		<annotation cp="🧑‍🎄">打扮 | 圣诞打扮 | 圣诞老人</annotation>
+		<annotation cp="🧑‍🎄">圣诞打扮 | 圣诞老人 | 打扮</annotation>
 		<annotation cp="🧑‍🎄" type="tts">圣诞打扮</annotation>
 		<annotation cp="👨">男人</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
@@ -1135,7 +1135,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">猫脸</annotation>
 		<annotation cp="🐈">宠物 | 猫</annotation>
 		<annotation cp="🐈" type="tts">猫</annotation>
-		<annotation cp="🐈‍⬛">唔吉利 | 猫 | 黑色 | 黑猫</annotation>
+		<annotation cp="🐈‍⬛">唔吉利 | 猫 | 黑猫 | 黑色</annotation>
 		<annotation cp="🐈‍⬛" type="tts">黑猫</annotation>
 		<annotation cp="🦁">星座 | 狮子 | 狮子座 | 狮子脸 | 脸</annotation>
 		<annotation cp="🦁" type="tts">狮子脸</annotation>
@@ -3081,7 +3081,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¥" type="tts">日圆</annotation>
 		<annotation cp="€">欧元 | 欧罗 | 货币</annotation>
 		<annotation cp="€" type="tts">欧罗</annotation>
-		<annotation cp="₹">印度卢比 | 卢比 | 货币</annotation>
+		<annotation cp="₹">卢比 | 印度卢比 | 货币</annotation>
 		<annotation cp="₹" type="tts">印度卢比</annotation>
 		<annotation cp="₽">卢布 | 货币</annotation>
 		<annotation cp="₽" type="tts">卢布</annotation>

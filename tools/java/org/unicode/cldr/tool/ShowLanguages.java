@@ -126,6 +126,8 @@ public class ShowLanguages {
         new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartLanguageGroups().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartSubdivisions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartUnitConversions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        new ChartUnitPreferences().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
 
         // since we don't want these listed on the supplemental page, use null
 
@@ -858,6 +860,8 @@ public class ShowLanguages {
             localeAliasInfo.put("variant", new TreeMap<String, String>());
             localeAliasInfo.put("zone", new TreeMap<String, String>());
             localeAliasInfo.put("subdivision", new TreeMap<String, String>());
+            localeAliasInfo.put("unit", new TreeMap<String, String>());
+            localeAliasInfo.put("usage", new TreeMap<String, String>());
 
             localeAliasInfo.get("language").put("no", "nb");
             localeAliasInfo.get("language").put("zh_CN", "zh_Hans_CN");
@@ -881,7 +885,12 @@ public class ShowLanguages {
                     if (element.equals("timezone")) {
                         element = "zone";
                     }
-                    localeAliasInfo.get(element).put(type, replacement == null ? "?" : replacement);
+                    try {
+                        localeAliasInfo.get(element).put(type, replacement == null ? "?" : replacement);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        throw new IllegalArgumentException("Can't find alias data for '" + element + "'", e);
+                    }
 
                     String name = "";
                     if (replacement == null) {

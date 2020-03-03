@@ -38,6 +38,8 @@ import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.ContinuedFraction;
+import org.unicode.cldr.util.Rational.FormatStyle;
+import org.unicode.cldr.util.Rational.RationalParser;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -481,7 +483,7 @@ public class TestUnits extends TestFmwk {
         }
 
         // check all 
-        System.out.println();
+        if (SHOW_DATA) System.out.println();
         Set<String> badUnits = new LinkedHashSet<>();
         Set<String> noQuantity = new LinkedHashSet<>();
         Multimap<Pair<String,Double>, String> testPrintout = TreeMultimap.create();
@@ -609,7 +611,7 @@ public class TestUnits extends TestFmwk {
         assertEquals("", 6.02214076E+23d, parser.parse("6.02214076E+23").toBigDecimal().doubleValue());
         Rational temp = parser.parse("gal_to_m3");
         //System.out.println(" " + temp);
-        assertEquals("", 0.003785411784, temp.numerator.doubleValue()/temp.denominator.doubleValue());
+        assertEquals("", 0.003785411784, temp.numerator.doubleValue()/temp.denominator.doubleValue());        
     }
 
 
@@ -821,20 +823,42 @@ public class TestUnits extends TestFmwk {
     }
 
     public final void TestSimplify() {
-        checkFactorForPowerOfTen(100, 1);
-        checkFactorForPowerOfTen(2, 5);
-        checkFactorForPowerOfTen(4, 25);
-        checkFactorForPowerOfTen(5, 2);
-        checkFactorForPowerOfTen(25, 4);
-        checkFactorForPowerOfTen(3, null);
-        checkFactorForPowerOfTen(1, 1);
-        checkFactorForPowerOfTen(0, null);
+        Set<Rational> seen = new HashSet<>();
+        checkSimplify("ZERO", Rational.ZERO, seen);
+        checkSimplify("ONE", Rational.ONE, seen);
+        checkSimplify("NEGATIVE_ONE", Rational.NEGATIVE_ONE, seen);
+        checkSimplify("INFINITY", Rational.INFINITY, seen);
+        checkSimplify("NEGATIVE_INFINITY", Rational.NEGATIVE_INFINITY, seen);
+        checkSimplify("NaN", Rational.NaN, seen);
+
+        checkSimplify("Simplify", Rational.of(25, 300), seen);
+        checkSimplify("Simplify", Rational.of(100, 1), seen);
+        checkSimplify("Simplify", Rational.of(2, 5), seen);
+        checkSimplify("Simplify", Rational.of(4, 25), seen);
+        checkSimplify("Simplify", Rational.of(5, 2), seen);
+        checkSimplify("Simplify", Rational.of(25, 4), seen);
+
+        for (Entry<String, TargetInfo> entry : converter.getInternalConversionData().entrySet()) {
+            final Rational factor = entry.getValue().unitInfo.factor;
+            checkSimplify(entry.getKey(), factor, seen);
+            if (!factor.equals(Rational.ONE)) {
+                checkSimplify(entry.getKey(), factor, seen);
+            }
+            final Rational offset = entry.getValue().unitInfo.offset;
+            if (!offset.equals(Rational.ZERO)) {
+                checkSimplify(entry.getKey(), offset, seen);
+            }
+        }
     }
 
-    private void checkFactorForPowerOfTen(int source, Integer expected) {
-        assertEquals(source+"", 
-            expected == null ? null : BigInteger.valueOf(expected), 
-                Rational.factorForPowerOfTen(BigInteger.valueOf(source)));
+    private void checkSimplify(String title, Rational expected, Set<Rational> seen) {
+        if (!seen.contains(expected)) {
+            seen.add(expected);
+            String simpleStr = expected.toString(FormatStyle.simple);
+            if (SHOW_DATA) System.out.println(title + ": " + expected + " => " + simpleStr);
+            Rational actual = RationalParser.BASIC.parse(simpleStr);
+            assertEquals("simplify", expected, actual);
+        }
     }
 
     public void TestContinuationOrder() {
@@ -1252,20 +1276,68 @@ public class TestUnits extends TestFmwk {
                 }
             }
         }
-        final UnicodeSet lowercaseAZ = new UnicodeSet("[a-z]").freeze();
-        for (String usage : usages) {
-            checkBcp47(usage, lowercaseAZ);
+    }
+
+    public void TestBcp47() {
+        checkBcp47("Quantity", converter.getQuantities(), lowercaseAZ, false);
+        checkBcp47("Usage", SDI.getUnitPreferences().getUsages(), lowercaseAZ09, true);
+        checkBcp47("Unit", converter.getSimpleUnits(), lowercaseAZ09, true);
+    }
+
+    private void checkBcp47(String identifierType, Set<String> identifiers, UnicodeSet allowed, boolean allowHyphens) {
+        Output<Integer> counter = new Output<>(0);
+        Multimap<String,String> truncatedToFullIdentifier = TreeMultimap.create();
+        final Set<String> simpleUnits = identifiers;
+        for (String unit : simpleUnits) {
+            if (!allowHyphens && unit.contains("-")) {
+                truncatedToFullIdentifier.put(unit, "-");
+            }
+            checkBcp47(counter, identifierType, unit, allowed, truncatedToFullIdentifier);
+        }
+        for (Entry<String, Collection<String>> entry : truncatedToFullIdentifier.asMap().entrySet()) {
+            Set<String> identifierSet = ImmutableSet.copyOf(entry.getValue());
+            assertEquals(identifierType + ": truncated identifier " + entry.getKey() + " must be unique", ImmutableSet.of(identifierSet.iterator().next()), identifierSet);
         }
     }
 
-    private void checkBcp47(String usage, UnicodeSet allowed) {
-        for (String subtag : usage.split("-")) {
-            assertTrue(subtag, allowed.containsAll(subtag) && subtag.length() > 2 && subtag.length() <= 8);
+    private static int MIN_SUBTAG_LENGTH = 3;
+    private static int MAX_SUBTAG_LENGTH = 8;
+
+    static final UnicodeSet lowercaseAZ = new UnicodeSet("[a-z]").freeze();
+    static final UnicodeSet lowercaseAZ09 = new UnicodeSet("[a-z0-9]").freeze();
+
+    private void checkBcp47(Output<Integer> counter, String title, String identifier, UnicodeSet allowed, Multimap<String,String> truncatedToFullIdentifier) {
+        StringBuilder shortIdentifer = new StringBuilder();
+        boolean fail = false;
+        for (String subtag : identifier.split("-")) {
+            assertTrue(++counter.value + ") " + title + " identifier=" + identifier + " subtag=" + subtag + " has right characters", allowed.containsAll(subtag));
+            if (!(subtag.length() >= MIN_SUBTAG_LENGTH && subtag.length() <= MAX_SUBTAG_LENGTH)) {
+                for (Entry<String, Rational> entry : UnitConverter.PREFIXES.entrySet()) {
+                    String prefix = entry.getKey();
+                    if (subtag.startsWith(prefix)) {
+                        subtag = subtag.substring(prefix.length());
+                        break;
+                    }
+                }
+            }
+            if (shortIdentifer.length() != 0) {
+                shortIdentifer.append('-');
+            }
+            if (subtag.length() > MAX_SUBTAG_LENGTH) {
+                shortIdentifer.append(subtag.substring(0, MAX_SUBTAG_LENGTH));
+                fail = true;
+            } else {
+                shortIdentifer.append(subtag);
+            }
+        }
+        if (fail) {
+            String shortIdentiferStr = shortIdentifer.toString();
+            truncatedToFullIdentifier.put(shortIdentiferStr, identifier);
         }
     }
 
     public void TestUnitPreferences() {
-        System.out.println("\n\t\t If this fails, turn on -DTestUnits:SHOW_DATA, check the output of TestUnitPreferencesSource, fix as needed, then incorporate");
+        System.out.println("\n\t\t If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
         UnitPreferences prefs = SDI.getUnitPreferences();
         checkUnitPreferences(prefs);
 //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);

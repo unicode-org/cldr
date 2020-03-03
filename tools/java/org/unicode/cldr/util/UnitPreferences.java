@@ -19,6 +19,8 @@ import com.ibm.icu.util.Freezable;
 
 public class UnitPreferences implements Freezable<UnitPreferences> {
     Map<String, Map<String, Multimap<Set<String>, UnitPreference>>> quantityToUsageToRegionsToInfo = new TreeMap<>();
+    Set<String> usages = new TreeSet<>();
+
     /**
      * Special class encapsulating 
      * @author markdavis
@@ -63,6 +65,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
     static public Splitter SPLIT_AND = Splitter.on("-and-");
 
     public void add(String quantity, String usage, String regions, String geq, String skeleton, String unit) {
+        usages.add(usage);
         Map<String, Multimap<Set<String>, UnitPreference>> usageToRegionsToInfo = quantityToUsageToRegionsToInfo.get(quantity);
         if (usageToRegionsToInfo == null) {
             quantityToUsageToRegionsToInfo.put(quantity, usageToRegionsToInfo = new TreeMap<>());
@@ -89,6 +92,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
         if (!frozen) {
             frozen = true;
             quantityToUsageToRegionsToInfo = CldrUtility.protectCollection(quantityToUsageToRegionsToInfo);
+            usages = ImmutableSet.copyOf(usages);
         }
         return this;
     }
@@ -176,5 +180,9 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
             }
         }
         return ImmutableMap.copyOf(result);
+    }
+
+    public Set<String> getUsages() {
+        return usages;
     }
 }

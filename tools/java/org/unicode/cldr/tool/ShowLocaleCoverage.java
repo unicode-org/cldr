@@ -730,7 +730,7 @@ public class ShowLocaleCoverage {
                         continue;
                     }
 
-                    CLDRFile vxmlCldrFile2 = getVxmlCldrFile(locale);
+                    CLDRFile vxmlCldrFile2 = null; // getVxmlCldrFile(locale); TODO clean this up
 
                     tsv_summary.flush();
                     tsv_missing_summary.flush();
@@ -1265,23 +1265,23 @@ public class ShowLocaleCoverage {
     };
 
 
-    static org.unicode.cldr.util.Factory VXML_FACTORY = SimpleFactory.make(new File[] {
-        new File(VXML_CONSTANT + "main"),
-        new File(VXML_CONSTANT + "annotations") }, ".*");
-    static CLDRFile vxmlCldrFile;
-    static String vxmlLocale = "";
+//    static org.unicode.cldr.util.Factory VXML_FACTORY = SimpleFactory.make(new File[] {
+//        new File(VXML_CONSTANT + "main"),
+//        new File(VXML_CONSTANT + "annotations") }, ".*");
+        static CLDRFile vxmlCldrFile = null;
+//    static String vxmlLocale = "";
 
-    private static CLDRFile getVxmlCldrFile(String locale) {
-        if (!vxmlLocale.equals(locale)) {
-            try {
-                vxmlCldrFile = VXML_FACTORY.make(locale, false);
-            } catch (Exception e) {
-                vxmlCldrFile = null;
-            }
-            vxmlLocale = locale;
-        }
-        return vxmlCldrFile;
-    }
+//    private static CLDRFile getVxmlCldrFile(String locale) {
+//        if (!vxmlLocale.equals(locale)) {
+//            try {
+//                vxmlCldrFile = VXML_FACTORY.make(locale, false);
+//            } catch (Exception e) {
+//                vxmlCldrFile = null;
+//            }
+//            vxmlLocale = locale;
+//        }
+//        return vxmlCldrFile;
+//    }
 
     public static void gatherStarred(String path, Counter<String> starredCounter) {
         starredCounter.add(new PathStarrer().setSubstitutionPattern("*").set(path), 1);

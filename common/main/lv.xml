@@ -7028,7 +7028,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} smagumspēks</unitPattern>
 				<unitPattern count="other">{0} smagumspēks</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>metri kvadrātsekundē</displayName>
 				<unitPattern count="zero">{0} metru kvadrātsekundē</unitPattern>
 				<unitPattern count="one">{0} metrs kvadrātsekundē</unitPattern>
@@ -7147,7 +7147,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} milimols uz litru</unitPattern>
 				<unitPattern count="other">{0} milimoli uz litru</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>miljonās daļas</displayName>
 				<unitPattern count="zero">{0} miljono daļu</unitPattern>
 				<unitPattern count="one">{0} miljonā daļa</unitPattern>
@@ -7183,7 +7183,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} litrs uz kilometru</unitPattern>
 				<unitPattern count="other">{0} litri uz kilometru</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>litri uz 100 kilometriem</displayName>
 				<unitPattern count="zero">{0} litru uz 100 kilometriem</unitPattern>
 				<unitPattern count="one">{0} litrs uz 100 kilometriem</unitPattern>
@@ -7769,19 +7769,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} zirgspēks</unitPattern>
 				<unitPattern count="other">{0} zirgspēki</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>dzīvsudraba stabiņa milimetri</displayName>
 				<unitPattern count="zero">{0} dzīvsudraba stabiņa milimetru</unitPattern>
 				<unitPattern count="one">{0} dzīvsudraba stabiņa milimetrs</unitPattern>
 				<unitPattern count="other">{0} dzīvsudraba stabiņa milimetri</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>mārciņas uz kvadrātcollu</displayName>
 				<unitPattern count="zero">{0} mārciņu uz kvadrātcollu</unitPattern>
 				<unitPattern count="one">{0} mārciņa uz kvadrātcollu</unitPattern>
 				<unitPattern count="other">{0} mārciņas uz kvadrātcollu</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>dzīvsudraba stabiņa collas</displayName>
 				<unitPattern count="zero">{0} dzīvsudraba stabiņa collu</unitPattern>
 				<unitPattern count="one">{0} dzīvsudraba stabiņa colla</unitPattern>
@@ -7877,7 +7877,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} kelvins</unitPattern>
 				<unitPattern count="other">{0} kelvini</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>mārciņpēda</displayName>
 				<unitPattern count="zero">{0} mārciņpēdu</unitPattern>
 				<unitPattern count="one">{0} mārciņpēda</unitPattern>
@@ -8143,7 +8143,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>metri kvadrātsekundē</displayName>
 				<unitPattern count="zero">{0} m/s²</unitPattern>
 				<unitPattern count="one">{0} m/s²</unitPattern>
@@ -8262,7 +8262,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mmol/L</unitPattern>
 				<unitPattern count="other">{0} mmol/L</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>miljonās daļas</displayName>
 				<unitPattern count="zero">{0} ppm</unitPattern>
 				<unitPattern count="one">{0} ppm</unitPattern>
@@ -8298,7 +8298,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} l/km</unitPattern>
 				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>l/100 km</displayName>
 				<unitPattern count="zero">{0} l/100 km</unitPattern>
 				<unitPattern count="one">{0} l/100 km</unitPattern>
@@ -8884,19 +8884,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ZS</unitPattern>
 				<unitPattern count="other">{0} ZS</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>mmHg</displayName>
 				<unitPattern count="zero">{0} mmHg</unitPattern>
 				<unitPattern count="one">{0} mmHg</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="zero">{0} psi</unitPattern>
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>inHg</displayName>
 				<unitPattern count="zero">{0} inHg</unitPattern>
 				<unitPattern count="one">{0} inHg</unitPattern>
@@ -8992,7 +8992,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>mārciņpēda</displayName>
 				<unitPattern count="zero">{0} mārc. pēdas</unitPattern>
 				<unitPattern count="one">{0} mārc. pēda</unitPattern>
@@ -9309,7 +9309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}%</unitPattern>
 				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>l/100 km</displayName>
 				<unitPattern count="zero">{0} l/100 km</unitPattern>
 				<unitPattern count="one">{0} l/100 km</unitPattern>
@@ -9536,13 +9536,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ZS</unitPattern>
 				<unitPattern count="other">{0} ZS</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName draft="contributed">mmHg</displayName>
 				<unitPattern count="zero" draft="contributed">{0} mmHg</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} mmHg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mmHg</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<unitPattern count="zero">{0}inHg</unitPattern>
 				<unitPattern count="one">{0}inHg</unitPattern>
 				<unitPattern count="other">{0}inHg</unitPattern>

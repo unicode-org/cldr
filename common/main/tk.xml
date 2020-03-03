@@ -5797,7 +5797,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>inedördül sekuntda metr</displayName>
 				<unitPattern count="one">{0} metr/inedördül sekunt</unitPattern>
 				<unitPattern count="other">{0} metr/inedördül sekunt</unitPattern>
@@ -5897,7 +5897,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} millimol/litr</unitPattern>
 				<unitPattern count="other">{0} millimol/litr</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>bölejik/million</displayName>
 				<unitPattern count="one">{0} bölejik/million</unitPattern>
 				<unitPattern count="other">{0} bölejik/million</unitPattern>
@@ -5927,7 +5927,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} litr/kilometr</unitPattern>
 				<unitPattern count="other">{0} litr/kilometr</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>litr/100 kilometr</displayName>
 				<unitPattern count="one">{0} litr/100 kilometr</unitPattern>
 				<unitPattern count="other">{0} litr/100 kilometr</unitPattern>
@@ -6403,17 +6403,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} at güýji</unitPattern>
 				<unitPattern count="other">{0} at güýji</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>millimetr simap sütüni</displayName>
 				<unitPattern count="one">{0} millimetr simap sütüni</unitPattern>
 				<unitPattern count="other">{0} millimetr simap sütüni</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>funt/inedördül dýuým</displayName>
 				<unitPattern count="one">{0} funt/inedördül dýuým</unitPattern>
 				<unitPattern count="other">{0} funt/inedördül dýuým</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>dýuým simap sütüni</displayName>
 				<unitPattern count="one">{0} dýuým simap sütüni</unitPattern>
 				<unitPattern count="other">{0} dýuým simap sütüni</unitPattern>
@@ -6493,7 +6493,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} Kelwin gradusy</unitPattern>
 				<unitPattern count="other">{0} Kelwin gradusy</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>funt-futlar</displayName>
 				<unitPattern count="one">{0} funt-fut</unitPattern>
 				<unitPattern count="other">{0} funt-fut</unitPattern>
@@ -6728,7 +6728,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>m/s²</displayName>
 				<unitPattern count="one">{0} m/s²</unitPattern>
 				<unitPattern count="other">{0} m/s²</unitPattern>
@@ -6828,7 +6828,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} mmol/L</unitPattern>
 				<unitPattern count="other">{0} mmol/L</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>bölejik/million</displayName>
 				<unitPattern count="one">{0} ppm</unitPattern>
 				<unitPattern count="other">{0} ppm</unitPattern>
@@ -6858,7 +6858,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} l/km</unitPattern>
 				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>l/100 km</displayName>
 				<unitPattern count="one">{0} l/100 km</unitPattern>
 				<unitPattern count="other">{0} l/100 km</unitPattern>
@@ -7334,17 +7334,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} a.g.</unitPattern>
 				<unitPattern count="other">{0} a.g.</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>mm sim.süt.</displayName>
 				<unitPattern count="one">{0} mm sim.süt.</unitPattern>
 				<unitPattern count="other">{0} mm sim.süt.</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>dý sim.süt.</displayName>
 				<unitPattern count="one">{0} dý sim.süt.</unitPattern>
 				<unitPattern count="other">{0} dý sim.süt.</unitPattern>
@@ -7424,7 +7424,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} K</unitPattern>
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>lbf⋅ft</displayName>
 				<unitPattern count="one">{0} lbf⋅ft</unitPattern>
 				<unitPattern count="other">{0} lbf⋅ft</unitPattern>
@@ -7659,7 +7659,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}%</unitPattern>
 				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>l/100 km</displayName>
 				<unitPattern count="one">{0} l/100 km</unitPattern>
 				<unitPattern count="other">{0} l/100 km</unitPattern>

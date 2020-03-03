@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,15 +14,16 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.TempPrintWriter;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -46,6 +46,8 @@ public class GeneratedPluralSamples {
     private static final int UNBOUNDED_LIMIT = 20;
     private static final String RANGE_SEPARATOR = "~";
     public static final String SEQUENCE_SEPARATOR = ", ";
+    
+    static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo(); // forward declaration
 
     static class Range implements Comparable<Range> {
         // invariant: visibleFractionDigitCount are the same
@@ -538,7 +540,7 @@ public class GeneratedPluralSamples {
     private static boolean CHECK_VALUE = false;
 
     enum MyOptions {
-        output(".*", CLDRPaths.GEN_DIRECTORY + "supplemental/", "output data directory"), filter(".*", null, "filter locales"),
+        output(".*", CLDRPaths.SUPPLEMENTAL_DIRECTORY, "output data directory"), filter(".*", null, "filter locales"),
         //xml(null, null, "xml file format"),
         multiline(null, null, "multiple lines in file"), sortNew(null, null, "sort without backwards compatible hack");
         // boilerplate
@@ -564,120 +566,114 @@ public class GeneratedPluralSamples {
 
         PluralRules pluralRules2 = PluralRules.createRules("one: n is 3..9; two: n is 7..12");
         System.out.println("Check: " + checkForDuplicates(pluralRules2, new FixedDecimal(8)));
-        PrintWriter out = null;
 
         for (PluralType type : PluralType.values()) {
-            if (fileFormat) {
-                out = FileUtilities.openUTF8Writer(MyOptions.output.option.getValue(), type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml");
+            try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(MyOptions.output.option.getValue(), type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml")) {
                 out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
-            }
-            System.out.println("\n");
-            Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
-            Relation<PluralInfo, String> seenAlready = Relation.of(new TreeMap<PluralInfo, Set<String>>(), TreeSet.class);
-
-            //System.out.println(type + ": " + locales);
-            for (String locale : locales) {
+                System.out.println("\n");
+                Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
+                Relation<PluralInfo, String> seenAlready = Relation.of(new TreeMap<PluralInfo, Set<String>>(), TreeSet.class);
+                //System.out.println(type + ": " + locales);
+                for (String locale : locales) {
 //                if (locale.equals("root")) {
 //                    continue;
 //                }
-                if (localeMatcher != null && !localeMatcher.reset(locale).find()) {
-                    continue;
-                }
-                PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(type, locale);
-                //System.out.println(type + ", " + locale + "=>" + pluralInfo);
-                seenAlready.put(pluralInfo, locale);
-            }
-
-            // sort if necessary
-            Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<Entry<PluralInfo, Set<String>>>()
-                : new TreeSet<Entry<PluralInfo, Set<String>>>(new HackComparator(type == PluralType.cardinal
-                    ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
-            for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
-                sorted.add(entry);
-            }
-            Set<String> oldKeywords = Collections.EMPTY_SET;
-            Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap<GeneratedPluralSamples, Set<PluralInfo>>(),
-                LinkedHashSet.class);
-            for (Entry<PluralInfo, Set<String>> entry : sorted) {
-                PluralInfo pluralInfo = entry.getKey();
-                Set<String> equivalentLocales = entry.getValue();
-
-                CHECK_VALUE = equivalentLocales.contains("pt"); // for debugging
-
-                String representative = equivalentLocales.iterator().next();
-
-                PluralRules pluralRules = pluralInfo.getPluralRules();
-                Set<String> keywords = pluralRules.getKeywords();
-
-                if (fileFormat) {
-                    if (!keywords.equals(oldKeywords)) {
-                        out.println("\n        <!-- " + keywords.size() + ": " + CollectionUtilities.join(keywords, ",") + " -->\n");
-                        oldKeywords = keywords;
+                    if (localeMatcher != null && !localeMatcher.reset(locale).find()) {
+                        continue;
                     }
-                    out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
-                    System.out.println(type + "\t" + equivalentLocales);
+                    PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(type, locale);
+                    //System.out.println(type + ", " + locale + "=>" + pluralInfo);
+                    seenAlready.put(pluralInfo, locale);
                 }
-                GeneratedPluralSamples samples = new GeneratedPluralSamples(pluralInfo, type);
-                samplesToPlurals.put(samples, pluralInfo);
-                for (String keyword : keywords) {
-                    Count count = Count.valueOf(keyword);
-                    String rule = pluralInfo.getRule(count);
-                    if (rule != null) {
-                        // strip original @...
-                        int atPos = rule.indexOf('@');
-                        if (atPos >= 0) {
-                            rule = rule.substring(0, atPos).trim();
+
+                // sort if necessary
+                Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<Entry<PluralInfo, Set<String>>>()
+                    : new TreeSet<Entry<PluralInfo, Set<String>>>(new HackComparator(type == PluralType.cardinal
+                    ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
+                for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
+                    sorted.add(entry);
+                }
+                Set<String> oldKeywords = Collections.EMPTY_SET;
+                Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap<GeneratedPluralSamples, Set<PluralInfo>>(),
+                    LinkedHashSet.class);
+                for (Entry<PluralInfo, Set<String>> entry : sorted) {
+                    PluralInfo pluralInfo = entry.getKey();
+                    Set<String> equivalentLocales = entry.getValue();
+
+                    CHECK_VALUE = equivalentLocales.contains("pt"); // for debugging
+
+                    String representative = equivalentLocales.iterator().next();
+
+                    PluralRules pluralRules = pluralInfo.getPluralRules();
+                    Set<String> keywords = pluralRules.getKeywords();
+
+                    if (fileFormat) {
+                        if (!keywords.equals(oldKeywords)) {
+                            out.println("\n        <!-- " + keywords.size() + ": " + CollectionUtilities.join(keywords, ",") + " -->\n");
+                            oldKeywords = keywords;
+                        }
+                        out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
+                        System.out.println(type + "\t" + equivalentLocales);
+                    }
+                    GeneratedPluralSamples samples = new GeneratedPluralSamples(pluralInfo, type);
+                    samplesToPlurals.put(samples, pluralInfo);
+                    for (String keyword : keywords) {
+                        Count count = Count.valueOf(keyword);
+                        String rule = pluralInfo.getRule(count);
+                        if (rule != null) {
+                            // strip original @...
+                            int atPos = rule.indexOf('@');
+                            if (atPos >= 0) {
+                                rule = rule.substring(0, atPos).trim();
+                            }
+                        }
+                        if (rule == null && count != Count.other) {
+                            pluralInfo.getRule(count);
+                            throw new IllegalArgumentException("No rule for " + count);
+                        }
+                        if (!fileFormat) {
+                            System.out.print(type + "\t" + representative + "\t" + keyword + "\t" + (rule == null ? "" : rule));
+                        }
+                        DataSamples data = samples.getData(keyword);
+                        if (data == null) {
+                            System.err.println("***Failure");
+                            failureCount++;
+                            continue;
+                        }
+                        if (fileFormat) {
+                            out.println(WritePluralRules.formatPluralRule(keyword, rule, data.toString(), multiline));
+                        } else {
+                            System.out.println(data.toString());
                         }
                     }
-                    if (rule == null && count != Count.other) {
-                        pluralInfo.getRule(count);
-                        throw new IllegalArgumentException("No rule for " + count);
-                    }
-                    if (!fileFormat) {
-                        System.out.print(type + "\t" + representative + "\t" + keyword + "\t" + (rule == null ? "" : rule));
-                    }
-                    DataSamples data = samples.getData(keyword);
-                    if (data == null) {
-                        System.err.println("***Failure");
-                        failureCount++;
-                        continue;
-                    }
                     if (fileFormat) {
-                        out.println(WritePluralRules.formatPluralRule(keyword, rule, data.toString(), multiline));
+                        out.println(WritePluralRules.formatPluralRuleFooter());
                     } else {
-                        System.out.println(data.toString());
+                        System.out.println();
                     }
                 }
                 if (fileFormat) {
-                    out.println(WritePluralRules.formatPluralRuleFooter());
+                    out.println(WritePluralRules.formatPluralFooter());
                 } else {
+                    for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
+                        if (entry.getValue().size() == 1) {
+                            continue;
+                        }
+                        Set<String> remainder = new LinkedHashSet<String>(entry.getValue());
+                        String first = remainder.iterator().next();
+                        remainder.remove(first);
+                        System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + CollectionUtilities.join(remainder, ", "));
+                    }
                     System.out.println();
                 }
-            }
-            if (fileFormat) {
-                out.println(WritePluralRules.formatPluralFooter());
-            } else {
-                for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
-                    if (entry.getValue().size() == 1) {
-                        continue;
+                for (Entry<GeneratedPluralSamples, Set<PluralInfo>> entry : samplesToPlurals.keyValuesSet()) {
+                    Set<PluralInfo> set = entry.getValue();
+                    if (set.size() != 1) {
+                        System.err.println("***Failure: Duplicate results " + set);
+                        failureCount++;
                     }
-                    Set<String> remainder = new LinkedHashSet<String>(entry.getValue());
-                    String first = remainder.iterator().next();
-                    remainder.remove(first);
-                    System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + CollectionUtilities.join(remainder, ", "));
                 }
-                System.out.println();
-            }
-            for (Entry<GeneratedPluralSamples, Set<PluralInfo>> entry : samplesToPlurals.keyValuesSet()) {
-                Set<PluralInfo> set = entry.getValue();
-                if (set.size() != 1) {
-                    System.err.println("***Failure: Duplicate results " + set);
-                    failureCount++;
-                }
-            }
-            System.out.println("\n");
-            if (fileFormat) {
-                out.close();
+                System.out.println("\n");
             }
         }
         if (failureCount > 0) {

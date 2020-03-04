@@ -11,10 +11,6 @@
  */
 'use strict';
 
-// TODO: replace with AMD [?] loading -- actually it's doubtful whether dojo is needed for this file
-dojo.require("dojo.i18n");
-dojo.require("dojo.string");
-
 /*
  * Use an IIFE module pattern to create a namespace for the public functions,
  * and to hide everything else, minimizing global scope pollution.

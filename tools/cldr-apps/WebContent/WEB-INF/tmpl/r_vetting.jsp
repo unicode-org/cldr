@@ -75,7 +75,7 @@ if(subCtx.userId() == UserRegistry.NO_USER) {
 var vvId = -1;
 function updateVv() {
 	if(vvId != -1) 
-    dojo.xhrGet({
+		cldrStAjax.sendXhr({
         url: "<%=  theUrl %>",
         handleAs:"json",
         load: function(json){
@@ -99,7 +99,7 @@ function updateVv() {
                 window.status = ('VV still processing..');
             }
         },
-        error: function(err, ioArgs){
+        error: function(err){
             window.status = ('Temporary error loading VV - will retry');
         	updateIf('vverr','Couldn\'t load progress (Will retry): '+err.name + " <br> " + err.message);
 //        	clearInterval(vvId);

@@ -131,7 +131,7 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 					   if(newLocale!=null&&newLocale!='') {
 						   xurl = xurl + "&_="+newLocale;
 					   }
-					   queueXhr({
+					   cldrStAjax.queueXhr({
 					        url:xurl, // allow cache
 				 	        handleAs:"json",
 				 	        load: function(h){
@@ -142,7 +142,7 @@ define("js/special/search.js", ["js/special/SpecialPage.js"], function(SpecialPa
 				 	        		theResult.appendChild(createChunk("(search error)","i"));
 				 	        	}
 					        },
-					        error: function(err, ioArgs){
+					        error: function(err){
 					 			var msg ="Error: "+err.name + " - " + err.message;
 			 	        		theResult.appendChild(createChunk(msg,"i"));
 					        },

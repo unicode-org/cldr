@@ -1,14 +1,7 @@
 /*
  * survey.js - Copyright (C) 2012,2016 IBM Corporation and Others. All Rights Reserved.
+ * SurveyTool main JavaScript stuff
  */
-
-/**
- * @module survey.js - SurveyTool main JavaScript stuff
- */
-
-// TODO: replace with AMD [?] loading
-dojo.require("dojo.i18n");
-dojo.require("dojo.string");
 
 /*
  * INHERITANCE_MARKER indicates that the value of a candidate item is inherited.
@@ -542,9 +535,13 @@ var stui = {
 		}
 	},
 	sub: function(x, y) {
-		return dojo.string.substitute(stui.str(x), y);
+		/*
+		 * https://dojotoolkit.org/reference-guide/1.10/dojo/string.html
+		 */
+		require(["dojo/string"], function(string) {
+			return string.substitute(stui.str(x), y);
+		});
 	}
-
 };
 
 var stuidebug_enabled = (window.location.search.indexOf('&stui_debug=') > -1);
@@ -938,102 +935,6 @@ var disconnected = false;
  */
 var stdebug_enabled = (window.location.search.indexOf('&stdebug=') > -1);
 
-/**
- * Queue of XHR requests waiting to go out
- *
- * @property queueOfXhr
- *
- * Accessed only in this file. TODO: encapsulate, outside global "window" namespace
- */
-var queueOfXhr=[];
-
-/**
- * The current timeout for processing XHRs
- * (Returned by setTimer: a number, representing the ID value of the timer that is set.
- * Use this value with the clearTimeout() method to cancel the timer.)
- * @property queueOfXhrTimeout
- */
-var queueOfXhrTimeout = null;
-
-var myLoad0 = null;
-var myErr0 = null;
-
-var processXhrQueue = function() {
-	if (disconnected) {
-		return;
-	}
-	if (!queueOfXhr || queueOfXhr.length == 0) {
-		queueOfXhr = [];
-		stdebug("PXQ: 0");
-		queueOfXhrTimeout = null;
-		return; // nothing to do, reset.
-	} else {
-		var top = queueOfXhr.shift();
-
-		top.load2 = top.load;
-		top.err2 = top.error;
-		/*
-		 * Note: I think "return" is superfluous here, but I'm leaving it as-is for now
-		 * in case I'm wrong.
-		 * Documentation for dojo.xhrGet has load/error handlers with undefined return values.
-		 * Our own code is inconsistent about whether load/error handlers have return values.
-		 */
-		top.load = function() {
-			return myLoad0(top, arguments);
-		};
-		top.error = function() {
-			return myErr0(top, arguments);
-		};
-		top.startTime = new Date().getTime();
-		if (top.postData || top.content) {
-			stdebug("PXQ(" + queueOfXhr.length + "): dispatch POST " + top.url);
-			dojo.xhrPost(top);
-		} else {
-			stdebug("PXQ(" + queueOfXhr.length + "): dispatch GET " + top.url);
-			dojo.xhrGet(top);
-		}
-	}
-};
-
-function xhrSetTime(top) {
-	top.stopTime = new Date().getTime();
-	top.tookTime = top.stopTime - top.startTime;
-	stdebug("PXQ(" + queueOfXhr.length + "): time took= " + top.tookTime);
-}
-
-/*
- * xhrQueueTimeout is a constant, 3 milliseconds, used only by
- * myLoad0, myErr0, and queueXhr, in calls to setTimeout for processXhrQueue.
- * TODO: explain, why 3 milliseconds?
- */
-const xhrQueueTimeout = 3;
-myLoad0 = function(top, args) {
-	xhrSetTime(top);
-	stdebug("myLoad0!:" + top.url + " - a=" + args.length);
-	var r = top.load2(args[0], args[1]);
-	queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
-	return r;
-};
-
-myErr0 = function(top, args) {
-	stdebug("myErr0!:" + top.url + " - a=" + args.toString());
-	var r = top.err2(args[0], args[1]);
-	queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
-	return r;
-};
-
-/**
- * Queue the XHR request.  It will be a GET *unless* either postData or content are set.
- * @param xhr
- */
-function queueXhr(xhr) {
-	queueOfXhr.push(xhr);
-	stdebug("pushed:  PXQ=" + queueOfXhr.length + ", postData: " + xhr.postData);
-	if (!queueOfXhrTimeout) {
-		queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
-	}
-}
-
 function stdebug(x) {
 	if (stdebug_enabled) {
 		console.log(x);
@@ -1154,9 +1055,7 @@ function unbust() {
 	saidDisconnect = false;
 	removeClass(document.getElementsByTagName("body")[0], "disconnected");
 	wasBusted = false;
-	queueOfXhr = []; // clear queue
-	clearTimeout(queueOfXhrTimeout);
-	queueOfXhrTimeout = null;
+	cldrStAjax.clearXhr();
 	hideLoader();
 	saidDisconnect = false;
 	updateStatus(); // will restart regular status updates
@@ -1347,6 +1246,11 @@ function handleDisconnect(why, json, word, what) {
 
 var updateParts = null;
 
+/*
+ * TODO: Avoid browser console showing "ReferenceError: surveyRunningStamp is not defined" here.
+ * surveyRunningStamp is undefined unless ajax_status.jsp is included.
+ * submit.jsp (or SurveyAjax.handleBulkSubmit) includes survey.js but not ajax_status.jsp.
+ */
 var cacheKillStamp = surveyRunningStamp;
 
 /**
@@ -1381,7 +1285,7 @@ function trySurveyLoad() {
 	try {
 		var url = contextPath + "/survey?" + cacheKill();
 		console.log("Attempting to restart ST at " + url);
-		dojo.xhrGet({
+		cldrStAjax.sendXhr({
 			url: url,
 			timeout: ajaxTimeout
 		});
@@ -1563,7 +1467,8 @@ function updateStatus() {
 	if (surveySessionId && surveySessionId !== null) {
 		surveySessionUrl = '&s=' + surveySessionId;
 	}
-	dojo.xhrGet({
+
+	cldrStAjax.sendXhr({
 		url: contextPath + "/SurveyAjax?what=status" + surveyLocaleUrl + surveySessionUrl + cacheKill(),
 		handleAs: "json",
 		timeout: ajaxTimeout,
@@ -1574,6 +1479,13 @@ function updateStatus() {
 				return; // don't thrash
 			}
 			var st_err = document.getElementById('st_err');
+			if (!st_err) {
+				/*
+				 * This happens if updateStatus is called for a page like about.jsp, browse.jsp;
+				 * it shouldn't be called in such cases.
+				 */
+				return;
+			}
 			if (json.err != null && json.err.length > 0) {
 				st_err.innerHTML = json.err;
 				if (json.status && json.status.surveyRunningStamp != surveyRunningStamp) {
@@ -1633,7 +1545,7 @@ function updateStatus() {
 				setTimeout(updateStatus, timerSpeed);
 			}
 		},
-		error: function(err, ioArgs) {
+		error: function(err) {
 			wasBusted = true;
 			updateStatusBox({
 				err: err.message,
@@ -1663,12 +1575,22 @@ function resetTimerSpeed(speed) {
 }
 
 // set up window. Let Dojo call us, otherwise dojo won't load.
-dojo.ready(function(){
-	setTimerOn();
+require(["dojo/ready"], function(ready) {
+	ready(function() {
+		let name = window.location.pathname;
+		if (name.includes('about.jsp') || name.includes('browse.jsp')) {
+			/*
+			 * Skip timer for about.jsp and browse.jsp; calling updateStatus for
+			 * those pages would needlessly waste time on the server.
+			 */
+		} else {
+			setTimerOn();
+		}
+	});
 });
 
 /**
- * Table mapping CheckCLDR.StatusAction into capabilites
+ * Table mapping CheckCLDR.StatusAction into capabilities
  * @property statusActionTable
  */
 var statusActionTable = {
@@ -1832,7 +1754,7 @@ function cloneLocalizeAnon(i) {
  */
 function getTagChildren(tr) {
 	var rowChildren = [];
-	for (k in tr.childNodes) {
+	for (var k in tr.childNodes) {
 		var t = tr.childNodes[k];
 		if (t.tagName) {
 			rowChildren.push(t);
@@ -2268,7 +2190,7 @@ function showForumStuff(frag, forumDivClone, tr) {
 				}
 			},
 		};
-		queueXhr(xhrArgs);
+		cldrStAjax.queueXhr(xhrArgs);
 	}, 1900);
 }
 
@@ -2300,19 +2222,13 @@ function updateInfoPanelForumPosts(tr) {
 	}
 	let ourUrl = tr.forumDiv.url + "&what=forum_fetch";
 
-	let errorHandler = function(err, ioArgs) {
-		console.log('Error in showForumStuff: ' + err + ' response ' + ioArgs.xhr.responseText);
+	let errorHandler = function(err) {
+		let responseText = cldrStAjax.errResponseText(err);
+		console.log('Error in showForumStuff: ' + err + ' response ' + responseText);
 		showInPop(stopIcon +
 			" Couldn't load forum post for this row- please refresh the page. <br>Error: " +
 			err + "</td>", tr, null);
 		handleDisconnect("Could not showForumStuff:" + err, null);
-		/*
-		 * Note: I think "return true" is superfluous here, but I'm leaving it as-is for now
-		 * in case I'm wrong. Compare loadHandler below with undefined return value.
-		 * Documentation for dojo.xhrGet has load/error handlers with undefined return values.
-		 * See processXhrQueue.
-		 */
-		return true;
 	};
 
 	let loadHandler = function(json) {
@@ -2361,7 +2277,7 @@ function updateInfoPanelForumPosts(tr) {
 		load: loadHandler,
 		error: errorHandler
 	};
-	queueXhr(xhrArgs);
+	cldrStAjax.queueXhr(xhrArgs);
 }
 
 /**
@@ -2404,211 +2320,214 @@ window.updateCurrentId = function updateCurrentId(id) {
 };
 
 // window loader stuff
-dojo.ready(function() {
-	var unShow = null;
-	var pucontent = document.getElementById("itemInfo");
-	if (!pucontent) {
-		return;
-	}
+require(["dojo/ready"], function(ready) {
+	ready(function() {
+		var unShow = null;
+		var pucontent = document.getElementById("itemInfo");
+		if (!pucontent) {
+			return;
+		}
 
-	var hideInterval = null;
+		var hideInterval = null;
 
-	function parentOfType(tag, obj) {
-		if (!obj) return null;
-		if (obj.nodeName === tag) return obj;
-		return parentOfType(tag, obj.parentElement);
-	}
+		function parentOfType(tag, obj) {
+			if (!obj) return null;
+			if (obj.nodeName === tag) return obj;
+			return parentOfType(tag, obj.parentElement);
+		}
 
-	function setLastShown(obj) {
-		if (gPopStatus.lastShown && obj != gPopStatus.lastShown) {
-			removeClass(gPopStatus.lastShown, "pu-select");
-			var partr = parentOfType('TR', gPopStatus.lastShown);
-			if (partr) {
-				removeClass(partr, 'selectShow');
+		function setLastShown(obj) {
+			if (gPopStatus.lastShown && obj != gPopStatus.lastShown) {
+				removeClass(gPopStatus.lastShown, "pu-select");
+				var partr = parentOfType('TR', gPopStatus.lastShown);
+				if (partr) {
+					removeClass(partr, 'selectShow');
+				}
 			}
-		}
-		if (obj) {
-			addClass(obj, "pu-select");
-			var partr = parentOfType('TR', obj);
-			if (partr) {
-				addClass(partr, 'selectShow');
+			if (obj) {
+				addClass(obj, "pu-select");
+				var partr = parentOfType('TR', obj);
+				if (partr) {
+					addClass(partr, 'selectShow');
+				}
 			}
-		}
-		gPopStatus.lastShown = obj;
-	}
-
-	function clearLastShown() {
-		setLastShown(null);
-	}
-
-	var deferHelp = {};
-
-	/**
-	 * This is the actual function called to display the right-hand "info" panel.
-	 * It is defined dynamically because it depends on variables that aren't available at startup time.
-	 *
-	 * @param {String} str the string to show at the top
-	 * @param {Node} tr the <TR> of the row
-	 * @param {Boolean} hideIfLast
-	 * @param {Function} fn
-	 * @param {Boolean} immediate
-	 */
-	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate, hide) {
-		if (unShow) {
-			unShow();
-			unShow = null;
-		}
-		incrPopToken('newShow' + str);
-		if (hideInterval) {
-			clearTimeout(hideInterval);
-			hideInterval = null;
+			gPopStatus.lastShown = obj;
 		}
 
-		if (tr && tr.sethash) {
-			window.updateCurrentId(tr.sethash);
+		function clearLastShown() {
+			setLastShown(null);
 		}
-		setLastShown(hideIfLast);
 
-		/*
-		 * TODO: clarify or rename; this td isn't really a td, is it?
+		var deferHelp = {};
+
+		/**
+		 * This is the actual function called to display the right-hand "info" panel.
+		 * It is defined dynamically because it depends on variables that aren't available at startup time.
+		 *
+		 * @param {String} str the string to show at the top
+		 * @param {Node} tr the <TR> of the row
+		 * @param {Boolean} hideIfLast
+		 * @param {Function} fn
+		 * @param {Boolean} immediate
 		 */
-		var td = document.createDocumentFragment();
-
-		// Always have help (if available).
-		var theHelp = null;
-		if (tr) {
-			var theRow = tr.theRow;
-			// this also marks this row as a 'help parent'
-			theHelp = createChunk("", "div", "alert alert-info fix-popover-help vote-help");
-
-			if (theRow.xpstrid) {
-				var deferHelpSpan = document.createElement('span');
-				theHelp.appendChild(deferHelpSpan);
-
-				if (deferHelp[theRow.xpstrid]) {
-					deferHelpSpan.innerHTML = deferHelp[theRow.xpstrid];
-				} else {
-					deferHelpSpan.innerHTML = "<i>" + stui.str("loading") + "</i>";
-
-					// load async
-					var url = contextPath + "/help?xpstrid=" + theRow.xpstrid + "&_instance=" + surveyRunningStamp;
-					var xhrArgs = {
-						url: url,
-						handleAs: "text",
-						load: function(html) {
-							deferHelp[theRow.xpstrid] = html;
-							deferHelpSpan.innerHTML = html;
-							if (isDashboard()) {
-								fixPopoverVotePos();
-							}
-						},
-					};
-					queueXhr(xhrArgs);
-					// loader.
-				}
-
-				// extra attributes
-				if (theRow.extraAttributes && Object.keys(theRow.extraAttributes).length > 0) {
-					var extraHeading = createChunk(stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
-					var extraContainer = createChunk("", "div", "extraAttributes");
-					appendExtraAttributes(extraContainer, theRow);
-					theHelp.appendChild(extraHeading);
-					theHelp.appendChild(extraContainer);
-				}
+		window.showInPop2 = function(str, tr, hideIfLast, fn, immediate, hide) {
+			if (unShow) {
+				unShow();
+				unShow = null;
 			}
-		}
-		if (theHelp) {
-			td.appendChild(theHelp);
-		}
+			incrPopToken('newShow' + str);
+			if (hideInterval) {
+				clearTimeout(hideInterval);
+				hideInterval = null;
+			}
 
-		if (str) { // If a simple string, clone the string
-			var div2 = document.createElement("div");
-			div2.innerHTML = str;
-			td.appendChild(div2);
-		}
-		// If a generator fn (common case), call it.
-		if (fn != null) {
-			unShow = fn(td);
+			if (tr && tr.sethash) {
+				window.updateCurrentId(tr.sethash);
+			}
+			setLastShown(hideIfLast);
 
-		}
-
-		var theVoteinfo = null;
-		if (tr && tr.voteDiv) {
-			theVoteinfo = tr.voteDiv;
-		}
-		if (theVoteinfo) {
-			td.appendChild(theVoteinfo.cloneNode(true));
-		}
-		if (tr && tr.ticketLink) {
-			td.appendChild(tr.ticketLink.cloneNode(true));
-		}
-
-		// forum stuff
-		if (tr && tr.forumDiv) {
 			/*
-			 * The name forumDivClone is a reminder that forumDivClone !== tr.forumDiv.
-			 * TODO: explain the reason for using cloneNode here, rather than using
-			 * tr.forumDiv directly. Would it work as well to set tr.forumDiv = forumDivClone,
-			 * after cloning?
+			 * TODO: clarify or rename; this td isn't really a td, is it?
 			 */
-			var forumDivClone = tr.forumDiv.cloneNode(true);
-			showForumStuff(td, forumDivClone, tr); // give a chance to update anything else
-			td.appendChild(forumDivClone);
-		}
+			var td = document.createDocumentFragment();
 
-		if (tr && tr.theRow && tr.theRow.xpath) {
-			td.appendChild(clickToSelect(createChunk(tr.theRow.xpath, "div", "xpath")));
-		}
+			// Always have help (if available).
+			var theHelp = null;
+			if (tr) {
+				var theRow = tr.theRow;
+				// this also marks this row as a 'help parent'
+				theHelp = createChunk("", "div", "alert alert-info fix-popover-help vote-help");
 
-		// SRL suspicious
-		if (tr) {
-			if (isDashboard()) {
-				showHelpFixPanel(td);
-			} else {
-				removeAllChildNodes(pucontent);
-				pucontent.appendChild(td);
+				if (theRow.xpstrid) {
+					var deferHelpSpan = document.createElement('span');
+					theHelp.appendChild(deferHelpSpan);
+
+					if (deferHelp[theRow.xpstrid]) {
+						deferHelpSpan.innerHTML = deferHelp[theRow.xpstrid];
+					} else {
+						deferHelpSpan.innerHTML = "<i>" + stui.str("loading") + "</i>";
+
+						// load async
+						var url = contextPath + "/help?xpstrid=" + theRow.xpstrid + "&_instance=" + surveyRunningStamp;
+						var xhrArgs = {
+							url: url,
+							handleAs: "text",
+							load: function(html) {
+								deferHelp[theRow.xpstrid] = html;
+								deferHelpSpan.innerHTML = html;
+								if (isDashboard()) {
+									fixPopoverVotePos();
+								}
+							},
+						};
+						cldrStAjax.queueXhr(xhrArgs);
+						// loader.
+					}
+
+					// extra attributes
+					if (theRow.extraAttributes && Object.keys(theRow.extraAttributes).length > 0) {
+						var extraHeading = createChunk(stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
+						var extraContainer = createChunk("", "div", "extraAttributes");
+						appendExtraAttributes(extraContainer, theRow);
+						theHelp.appendChild(extraHeading);
+						theHelp.appendChild(extraContainer);
+					}
+				}
 			}
-		} else {
-			var clone = td.cloneNode(true);
-			setHelpContent(td);
-			if (!isDashboard()) {
-				removeAllChildNodes(pucontent);
-				pucontent.appendChild(clone);
+			if (theHelp) {
+				td.appendChild(theHelp);
 			}
 
-		}
-		td = null;
+			if (str) { // If a simple string, clone the string
+				var div2 = document.createElement("div");
+				div2.innerHTML = str;
+				td.appendChild(div2);
+			}
+			// If a generator fn (common case), call it.
+			if (fn != null) {
+				unShow = fn(td);
 
-		// for the voter
-		$('.voteInfo_voterInfo').hover(function() {
-			var email = $(this).data('email').replace(' (at) ', '@');
-			if (email !== '') {
-				$(this).html('<a href="mailto:' + email + '" title="' + email + '" style="color:black"><span class="glyphicon glyphicon-envelope"></span></a>');
-				$(this).closest('td').css('text-align', 'center');
-				$(this).children('a').tooltip().tooltip('show');
+			}
+
+			var theVoteinfo = null;
+			if (tr && tr.voteDiv) {
+				theVoteinfo = tr.voteDiv;
+			}
+			if (theVoteinfo) {
+				td.appendChild(theVoteinfo.cloneNode(true));
+			}
+			if (tr && tr.ticketLink) {
+				td.appendChild(tr.ticketLink.cloneNode(true));
+			}
+
+			// forum stuff
+			if (tr && tr.forumDiv) {
+				/*
+				 * The name forumDivClone is a reminder that forumDivClone !== tr.forumDiv.
+				 * TODO: explain the reason for using cloneNode here, rather than using
+				 * tr.forumDiv directly. Would it work as well to set tr.forumDiv = forumDivClone,
+				 * after cloning?
+				 */
+				var forumDivClone = tr.forumDiv.cloneNode(true);
+				showForumStuff(td, forumDivClone, tr); // give a chance to update anything else
+				td.appendChild(forumDivClone);
+			}
+
+			if (tr && tr.theRow && tr.theRow.xpath) {
+				td.appendChild(clickToSelect(createChunk(tr.theRow.xpath, "div", "xpath")));
+			}
+
+			// SRL suspicious
+			if (tr) {
+				if (isDashboard()) {
+					showHelpFixPanel(td);
+				} else {
+					removeAllChildNodes(pucontent);
+					pucontent.appendChild(td);
+				}
 			} else {
+				var clone = td.cloneNode(true);
+				setHelpContent(td);
+				if (!isDashboard()) {
+					removeAllChildNodes(pucontent);
+					pucontent.appendChild(clone);
+				}
+
+			}
+			td = null;
+
+			// for the voter
+			$('.voteInfo_voterInfo').hover(function() {
+				var email = $(this).data('email').replace(' (at) ', '@');
+				if (email !== '') {
+					$(this).html('<a href="mailto:' + email + '" title="' + email +
+							'" style="color:black"><span class="glyphicon glyphicon-envelope"></span></a>');
+					$(this).closest('td').css('text-align', 'center');
+					$(this).children('a').tooltip().tooltip('show');
+				} else {
+					$(this).html($(this).data('name'));
+					$(this).closest('td').css('text-align', 'left');
+				}
+			}, function() {
 				$(this).html($(this).data('name'));
 				$(this).closest('td').css('text-align', 'left');
-			}
-		}, function() {
-			$(this).html($(this).data('name'));
-			$(this).closest('td').css('text-align', 'left');
-		});
+			});
 
-	};
-	// delay before show
-	window.showInPop = function(str, tr, hideIfLast, fn, immediate) {
-		if (hideInterval) {
-			clearTimeout(hideInterval);
-			hideInterval = null;
-		}
-		if (immediate) {
-			return window.showInPop2(str, tr, hideIfLast, fn);
-		}
-	};
-	window.resetPop = function() {
-		lastShown = null;
-	};
+		};
+		// delay before show
+		window.showInPop = function(str, tr, hideIfLast, fn, immediate) {
+			if (hideInterval) {
+				clearTimeout(hideInterval);
+				hideInterval = null;
+			}
+			if (immediate) {
+				return window.showInPop2(str, tr, hideIfLast, fn);
+			}
+		};
+		window.resetPop = function() {
+			lastShown = null;
+		};
+	});
 });
 
 /**
@@ -3117,6 +3036,9 @@ function updateCoverage(theDiv) {
 
 function loadStui(loc, cb) {
 	if (!stui.ready) {
+		/*
+		 * https://dojotoolkit.org/reference-guide/1.10/dojo/i18n.html
+		 */
 		require(["dojo/i18n!./surveyTool/nls/stui.js"], function(stuibundle) {
 			if (!stuidebug_enabled) {
 				stui.str = function(x) {
@@ -3124,7 +3046,9 @@ function loadStui(loc, cb) {
 					else return x;
 				};
 				stui.sub = function(x, y) {
-					return dojo.string.substitute(stui.str(x), y);
+					require(["dojo/string"], function(string) {
+						return string.substitute(stui.str(x), y);
+					});
 				};
 			} else {
 				stui.str = stui_str; // debug
@@ -3506,13 +3430,14 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
 			console.log("Error in ajax post [refreshSingleRow] ", e.message);
 		}
 	};
-	var errorHandler = function(err, ioArgs) {
-		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+	var errorHandler = function(err) {
+		let responseText = cldrStAjax.errResponseText(err);
+		console.log('Error: ' + err + ' response ' + responseText);
 		tr.className = "ferrbox";
 		tr.innerHTML = "Error while  loading: " + err.name + " <br> " +
 			err.message + "<div style='border: 1px solid red;'>" +
-			ioArgs.xhr.responseText + "</div>";
-		onFailure("err", err, ioArgs);
+			responseText +  "</div>";
+		onFailure("err", err);
 	};
 	var xhrArgs = {
 		url: ourUrl + cacheKill(),
@@ -3521,7 +3446,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
 		error: errorHandler,
 		timeout: ajaxTimeout
 	};
-	queueXhr(xhrArgs);
+	cldrStAjax.queueXhr(xhrArgs);
 }
 
 /**
@@ -3654,17 +3579,18 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
 			handleDisconnect("handleWiredClick:" + e.message, json);
 		}
 	};
-	var errorHandler = function(err, ioArgs) {
+	var errorHandler = function(err) {
 		/*
 		 * Restore tr.className, so it stops being 'tr_checking1' immediately on receiving
 		 * any response. It may change again below, such as to 'tr_err'.
 		 */
 		tr.className = originalTrClassName;
-		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-		handleDisconnect('Error: ' + err + ' response ' + ioArgs.xhr.responseText, null);
+		let responseText = cldrStAjax.errResponseText(err);
+		console.log('Error: ' + err + ' response ' + responseText);
+		handleDisconnect('Error: ' + err + ' response ' + responseText, null);
 		theRow.className = "ferrbox";
 		theRow.innerHTML = "Error while  loading: " + err.name + " <br> " + err.message +
-			"<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+		"<div style='border: 1px solid red;'>" + responseText + "</div>";
 		myUnDefer();
 	};
 	if (box) {
@@ -3679,7 +3605,7 @@ function handleWiredClick(tr, theRow, vHash, box, button, what) {
 		load: loadHandler,
 		error: errorHandler
 	};
-	queueXhr(xhrArgs);
+	cldrStAjax.queueXhr(xhrArgs);
 }
 
 /**
@@ -3701,10 +3627,12 @@ function loadAdminPanel() {
 
 	function loadOrFail(urlAppend, theDiv, loadHandler, postData) {
 		var ourUrl = contextPath + "/AdminAjax.jsp?vap=" + vap + "&" + urlAppend;
-		var errorHandler = function(err, ioArgs) {
-			console.log('adminload ' + urlAppend + ' Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+		var errorHandler = function(err) {
+			let responseText = cldrStAjax.errResponseText(err);
+			console.log('adminload ' + urlAppend + ' Error: ' + err + ' response ' + responseText);
 			theDiv.className = "ferrbox";
-			theDiv.innerHTML = "Error while  loading: " + err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+			theDiv.innerHTML = "Error while  loading: " + err.name + " <br> " +
+				err.message + "<div style='border: 1px solid red;'>" + responseText + "</div>";
 		};
 		var xhrArgs = {
 			url: ourUrl + cacheKill(),
@@ -3720,15 +3648,20 @@ function loadAdminPanel() {
 			};
 		}
 		if (xhrArgs.postData) {
+			/*
+			 * Make a POST request
+			 */
 			console.log("admin post: ourUrl: " + ourUrl + " data:" + postData);
 			xhrArgs.headers = {
 				"Content-Type": "text/plain"
 			};
-			dojo.xhrPost(xhrArgs);
 		} else {
+			/*
+			 * Make a GET request
+			 */
 			console.log("admin get: ourUrl: " + ourUrl);
-			dojo.xhrGet(xhrArgs);
 		}
+		cldrStAjax.sendXhr(xhrArgs);
 	}
 	var panelLast = null;
 	var panels = {};
@@ -4179,94 +4112,96 @@ function loadAdminPanel() {
  * @param {String} hname the name of the element to draw into
  */
 function showstats(hname) {
-	dojo.ready(loadStui(null, function( /*stui*/ ) {
-		var ourUrl = contextPath + "/SurveyAjax?what=stats_byday";
-		var errorHandler = function(err, ioArgs) {
-			handleDisconnect('Error in showstats: ' + err + ' response ' +
-				ioArgs.xhr.responseText);
-		};
-		showLoader(null, "Loading statistics");
-		var loadHandler = function(json) {
-			try {
-				if (json) {
-					var r = Raphael(hname);
-					var header = json.byday.header;
-					var data = json.byday.data;
-					var header_new = json.byday_new.header;
-					var data_new = json.byday_new.data;
-					var labels_old = [];
-					var count_old = [];
-					var labels = [];
-					var count_new = [];
-					for (var i in data_new) {
-						var newLabel = new Date(data_new[i][header_new.LAST_MOD]).toLocaleDateString();
-						var newCount = data_new[i][header_new.COUNT];
-						labels.push(newLabel); // labels come from new data
-						count_new.push(newCount);
-						var oldLabel = new Date(data[i][header.LAST_MOD]).toLocaleDateString();
-						if (newLabel == oldLabel) {
-							// have old data
-							var oldCount = data[i][header.COUNT];
-							if (oldCount < newCount) {
-								console.log("Preposterous: at " + newLabel + ": " + oldCount + " oldCount < " + newCount + "  newCount ");
-								count_old.push(-1);
+	require(["dojo/ready"], function(ready) {
+		ready(function() {
+			var ourUrl = contextPath + "/SurveyAjax?what=stats_byday";
+			var errorHandler = function(err) {
+				let responseText = cldrStAjax.errResponseText(err);
+				handleDisconnect('Error in showstats: ' + err + ' response ' + responseText);
+			};
+			showLoader(null, "Loading statistics");
+			var loadHandler = function(json) {
+				try {
+					if (json) {
+						var r = Raphael(hname);
+						var header = json.byday.header;
+						var data = json.byday.data;
+						var header_new = json.byday_new.header;
+						var data_new = json.byday_new.data;
+						var labels_old = [];
+						var count_old = [];
+						var labels = [];
+						var count_new = [];
+						for (var i in data_new) {
+							var newLabel = new Date(data_new[i][header_new.LAST_MOD]).toLocaleDateString();
+							var newCount = data_new[i][header_new.COUNT];
+							labels.push(newLabel); // labels come from new data
+							count_new.push(newCount);
+							var oldLabel = new Date(data[i][header.LAST_MOD]).toLocaleDateString();
+							if (newLabel == oldLabel) {
+								// have old data
+								var oldCount = data[i][header.COUNT];
+								if (oldCount < newCount) {
+									console.log("Preposterous: at " + newLabel + ": " + oldCount + " oldCount < " + newCount + "  newCount ");
+									count_old.push(-1);
+								} else {
+									count_old.push(oldCount - newCount);
+								}
 							} else {
-								count_old.push(oldCount - newCount);
+								console.log("Desync: " + newLabel + " / " + oldLabel);
+								count_old.push(-1);
 							}
-						} else {
-							console.log("Desync: " + newLabel + " / " + oldLabel);
-							count_old.push(-1);
 						}
+						var gdata = [];
+						gdata.push(count_new);
+						gdata.push(count_old);
+						showLoader(null, "Drawing");
+						// this: 0,id,node,paper,attrs,transformations,_,prev,next,type,bar,value,events
+						// this.bar ["0", "id", "node", "paper", "attrs", "transformations", "_", "prev", "next", "type", "x", "y", "w", "h", "value"]
+						var fin = function() {
+								this.flag = r.g.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
+							},
+							fout = function() {
+								this.flag.animate({
+									opacity: 0
+								}, 300, function() {
+									this.remove();
+								});
+							};
+						var labels2 = [];
+						labels2.push(labels);
+						var hei = 500;
+						var offh = 10;
+						var toffh = 30;
+						var toffv = 10 + (hei / (2 * labels.length));
+						console.log("Drawing in : " + hname + " - " + count_new.toString());
+						r.g.hbarchart(100, offh, 600, hei, gdata, {
+								stacked: true,
+								colors: ["#8aa717", "#1751a7"]
+							})
+							.hover(fin, fout);
+						for (var i in labels) {
+							r.text(toffh, toffv + (i * (hei / labels.length)), (labels[i].split(" ")[0]) + "\n" + count_new[i]);
+						}
+						hideLoader(null);
+					} else {
+						handleDisconnect("Failed to load JSON stats", json);
 					}
-					var gdata = [];
-					gdata.push(count_new);
-					gdata.push(count_old);
-					showLoader(null, "Drawing");
-					// this: 0,id,node,paper,attrs,transformations,_,prev,next,type,bar,value,events
-					// this.bar ["0", "id", "node", "paper", "attrs", "transformations", "_", "prev", "next", "type", "x", "y", "w", "h", "value"]
-					var fin = function() {
-							this.flag = r.g.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
-						},
-						fout = function() {
-							this.flag.animate({
-								opacity: 0
-							}, 300, function() {
-								this.remove();
-							});
-						};
-					var labels2 = [];
-					labels2.push(labels);
-					var hei = 500;
-					var offh = 10;
-					var toffh = 30;
-					var toffv = 10 + (hei / (2 * labels.length));
-					console.log("Drawing in : " + hname + " - " + count_new.toString());
-					r.g.hbarchart(100, offh, 600, hei, gdata, {
-							stacked: true,
-							colors: ["#8aa717", "#1751a7"]
-						})
-						.hover(fin, fout);
-					for (var i in labels) {
-						r.text(toffh, toffv + (i * (hei / labels.length)), (labels[i].split(" ")[0]) + "\n" + count_new[i]);
-					}
-					hideLoader(null);
-				} else {
-					handleDisconnect("Failed to load JSON stats", json);
+				} catch (e) {
+					console.log("Error in ajax get ", e.message);
+					console.log(" response: " + text);
+					handleDisconnect(" exception in getstats: " + e.message, null);
 				}
-			} catch (e) {
-				console.log("Error in ajax get ", e.message);
-				console.log(" response: " + text);
-				handleDisconnect(" exception in getstats: " + e.message, null);
-			}
-		};
-		var xhrArgs = {
-			url: ourUrl,
-			handleAs: "json",
-			load: loadHandler,
-			error: errorHandler
-		};
-		queueXhr(xhrArgs);
-	}));
+			};
+			var xhrArgs = {
+				url: ourUrl,
+				handleAs: "json",
+				load: loadHandler,
+				error: errorHandler
+			};
+			cldrStAjax.queueXhr(xhrArgs);
+		});
+	});
 }
 
 /**
@@ -4448,75 +4383,77 @@ function createLocLink(loc, locName, className) {
 }
 
 function showAllItems(divName, user) {
-	dojo.ready(function() {
-		loadStui();
-		var div = document.getElementById(divName);
-		div.className = "recentList";
-		div.update = function() {
-			var ourUrl = contextPath + "/SurveyAjax?what=mylocales&user=" + user;
-			var errorHandler = function(err, ioArgs) {
-				handleDisconnect('Error in showrecent: ' + err + ' response ' +
-					ioArgs.xhr.responseText);
-			};
-			showLoader(null, "Loading recent items");
-			var loadHandler = function(json) {
-				try {
-					if (json && json.mine) {
-						var frag = document.createDocumentFragment();
-						var header = json.mine.header;
-						var data = json.mine.data;
-						if (data.length == 0) {
-							frag.appendChild(createChunk(stui_str("recentNone"), "i"));
-						} else {
-							var rowDiv = document.createElement("div");
-							frag.appendChild(rowDiv);
-
-							rowDiv.appendChild(createChunk(stui_str("recentLoc"), "b"));
-							rowDiv.appendChild(createChunk(stui_str("recentCount"), "b"));
-
-							for (var q in data) {
-								var row = data[q];
-
-								var count = row[header.COUNT];
-
+	require(["dojo/ready"], function(ready) {
+		ready(function() {
+			loadStui();
+			var div = document.getElementById(divName);
+			div.className = "recentList";
+			div.update = function() {
+				var ourUrl = contextPath + "/SurveyAjax?what=mylocales&user=" + user;
+				var errorHandler = function(err) {
+					let responseText = cldrStAjax.errResponseText(err);
+					handleDisconnect('Error in showrecent: ' + err + ' response ' + responseText);
+				};
+				showLoader(null, "Loading recent items");
+				var loadHandler = function(json) {
+					try {
+						if (json && json.mine) {
+							var frag = document.createDocumentFragment();
+							var header = json.mine.header;
+							var data = json.mine.data;
+							if (data.length == 0) {
+								frag.appendChild(createChunk(stui_str("recentNone"), "i"));
+							} else {
 								var rowDiv = document.createElement("div");
 								frag.appendChild(rowDiv);
 
-								var loc = row[header.LOCALE];
-								var locname = row[header.LOCALE_NAME];
-								rowDiv.appendChild(createLocLink(loc, locname, "recentLoc"));
-								rowDiv.appendChild(createChunk(count, "span", "value recentCount"));
+								rowDiv.appendChild(createChunk(stui_str("recentLoc"), "b"));
+								rowDiv.appendChild(createChunk(stui_str("recentCount"), "b"));
 
-								if (surveySessionId != null) {
-									var dlLink = createChunk(stui_str("downloadXmlLink"), "a", "notselected");
-									dlLink.href = "DataExport.jsp?do=myxml&_=" + loc + "&user=" + user + "&s=" + surveySessionId;
-									dlLink.target = "STDownload";
-									rowDiv.appendChild(dlLink);
+								for (var q in data) {
+									var row = data[q];
+
+									var count = row[header.COUNT];
+
+									var rowDiv = document.createElement("div");
+									frag.appendChild(rowDiv);
+
+									var loc = row[header.LOCALE];
+									var locname = row[header.LOCALE_NAME];
+									rowDiv.appendChild(createLocLink(loc, locname, "recentLoc"));
+									rowDiv.appendChild(createChunk(count, "span", "value recentCount"));
+
+									if (surveySessionId != null) {
+										var dlLink = createChunk(stui_str("downloadXmlLink"), "a", "notselected");
+										dlLink.href = "DataExport.jsp?do=myxml&_=" + loc + "&user=" + user + "&s=" + surveySessionId;
+										dlLink.target = "STDownload";
+										rowDiv.appendChild(dlLink);
+									}
 								}
 							}
-						}
 
-						removeAllChildNodes(div);
-						div.appendChild(frag);
-						hideLoader(null);
-					} else {
-						handleDisconnect("Failed to load JSON recent items", json);
+							removeAllChildNodes(div);
+							div.appendChild(frag);
+							hideLoader(null);
+						} else {
+							handleDisconnect("Failed to load JSON recent items", json);
+						}
+					} catch (e) {
+						console.log("Error in ajax get ", e.message);
+						console.log(" response: " + text);
+						handleDisconnect(" exception in getrecent: " + e.message, null);
 					}
-				} catch (e) {
-					console.log("Error in ajax get ", e.message);
-					console.log(" response: " + text);
-					handleDisconnect(" exception in getrecent: " + e.message, null);
-				}
+				};
+				var xhrArgs = {
+					url: ourUrl,
+					handleAs: "json",
+					load: loadHandler,
+					error: errorHandler
+				};
+				cldrStAjax.queueXhr(xhrArgs);
 			};
-			var xhrArgs = {
-				url: ourUrl,
-				handleAs: "json",
-				load: loadHandler,
-				error: errorHandler
-			};
-			queueXhr(xhrArgs);
-		};
-		div.update();
+			div.update();
+		});
 	});
 }
 
@@ -4527,85 +4464,86 @@ function showRecent(divName, locale, user) {
 	if (!user) {
 		user = '';
 	}
-	dojo.ready(function() {
-		loadStui();
-		var div;
+	require(["dojo/ready"], function(ready) {
+		ready(function() {
+			loadStui();
+			var div;
+			if (divName.nodeType > 0) {
+				div = divName;
+			} else {
+				div = document.getElementById(divName);
+			}
+			div.className = "recentList";
+			div.update = function() {
+				var ourUrl = contextPath + "/SurveyAjax?what=recent_items&_=" + locale + "&user=" + user + "&limit=" + 15;
+				var errorHandler = function(err) {
+					let responseText = cldrStAjax.errResponseText(err);
+					handleDisconnect('Error in showrecent: ' + err + ' response ' + responseText);
+				};
+				showLoader(null, "Loading recent items");
+				var loadHandler = function(json) {
+					try {
+						if (json && json.recent) {
+							var frag = document.createDocumentFragment();
+							var header = json.recent.header;
+							var data = json.recent.data;
 
-		if (divName.nodeType > 0) {
-			div = divName;
-		} else {
-			div = document.getElementById(divName);
-		}
-		div.className = "recentList";
-		div.update = function() {
-			var ourUrl = contextPath + "/SurveyAjax?what=recent_items&_=" + locale + "&user=" + user + "&limit=" + 15;
-			var errorHandler = function(err, ioArgs) {
-				handleDisconnect('Error in showrecent: ' + err + ' response ' +
-					ioArgs.xhr.responseText);
-			};
-			showLoader(null, "Loading recent items");
-			var loadHandler = function(json) {
-				try {
-					if (json && json.recent) {
-						var frag = document.createDocumentFragment();
-						var header = json.recent.header;
-						var data = json.recent.data;
-
-						if (data.length == 0) {
-							frag.appendChild(createChunk(stui_str("recentNone"), "i"));
-						} else {
-							var rowDiv = document.createElement("div");
-							frag.appendChild(rowDiv);
-
-							rowDiv.appendChild(createChunk(stui_str("recentLoc"), "b"));
-							rowDiv.appendChild(createChunk(stui_str("recentXpathCode"), "b"));
-							rowDiv.appendChild(createChunk(stui_str("recentValue"), "b"));
-							rowDiv.appendChild(createChunk(stui_str("recentWhen"), "b"));
-
-							for (var q in data) {
-								var row = data[q];
-
-								var loc = row[header.LOCALE];
-								var locname = row[header.LOCALE_NAME];
-								var org = row[header.ORG];
-								var last_mod = row[header.LAST_MOD];
-								var xpath = row[header.XPATH];
-								var xpath_code = row[header.XPATH_CODE];
-								var xpath_hash = row[header.XPATH_STRHASH];
-								var value = row[header.VALUE];
-
+							if (data.length == 0) {
+								frag.appendChild(createChunk(stui_str("recentNone"), "i"));
+							} else {
 								var rowDiv = document.createElement("div");
 								frag.appendChild(rowDiv);
-								rowDiv.appendChild(createLocLink(loc, locname, "recentLoc"));
-								var xpathItem;
-								xpath_code = xpath_code.replace(/\t/g, " / ");
-								rowDiv.appendChild(xpathItem = createChunk(xpath_code, "a", "recentXpath"));
-								xpathItem.href = "survey?_=" + loc + "&strid=" + xpath_hash;
-								rowDiv.appendChild(createChunk(value, "span", "value recentValue"));
-								rowDiv.appendChild(createChunk(new Date(last_mod).toLocaleString(), "span", "recentWhen"));
+
+								rowDiv.appendChild(createChunk(stui_str("recentLoc"), "b"));
+								rowDiv.appendChild(createChunk(stui_str("recentXpathCode"), "b"));
+								rowDiv.appendChild(createChunk(stui_str("recentValue"), "b"));
+								rowDiv.appendChild(createChunk(stui_str("recentWhen"), "b"));
+
+								for (var q in data) {
+									var row = data[q];
+
+									var loc = row[header.LOCALE];
+									var locname = row[header.LOCALE_NAME];
+									var org = row[header.ORG];
+									var last_mod = row[header.LAST_MOD];
+									var xpath = row[header.XPATH];
+									var xpath_code = row[header.XPATH_CODE];
+									var xpath_hash = row[header.XPATH_STRHASH];
+									var value = row[header.VALUE];
+
+									var rowDiv = document.createElement("div");
+									frag.appendChild(rowDiv);
+									rowDiv.appendChild(createLocLink(loc, locname, "recentLoc"));
+									var xpathItem;
+									xpath_code = xpath_code.replace(/\t/g, " / ");
+									rowDiv.appendChild(xpathItem = createChunk(xpath_code, "a", "recentXpath"));
+									xpathItem.href = "survey?_=" + loc + "&strid=" + xpath_hash;
+									rowDiv.appendChild(createChunk(value, "span", "value recentValue"));
+									rowDiv.appendChild(createChunk(new Date(last_mod).toLocaleString(), "span", "recentWhen"));
+								}
 							}
+							removeAllChildNodes(div);
+							div.appendChild(frag);
+							hideLoader(null);
+						} else {
+							handleDisconnect("Failed to load JSON recent items", json);
 						}
-						removeAllChildNodes(div);
-						div.appendChild(frag);
-						hideLoader(null);
-					} else {
-						handleDisconnect("Failed to load JSON recent items", json);
+					} catch (e) {
+						console.log("Error in ajax get ", e.message);
+						console.log(" response: " + text);
+						handleDisconnect(" exception in getrecent: " + e.message, null);
 					}
-				} catch (e) {
-					console.log("Error in ajax get ", e.message);
-					console.log(" response: " + text);
-					handleDisconnect(" exception in getrecent: " + e.message, null);
-				}
+				};
+				var xhrArgs = {
+					url: ourUrl,
+					handleAs: "json",
+					load: loadHandler,
+					error: errorHandler
+				};
+				cldrStAjax.queueXhr(xhrArgs);
 			};
-			var xhrArgs = {
-				url: ourUrl,
-				handleAs: "json",
-				load: loadHandler,
-				error: errorHandler
-			};
-			queueXhr(xhrArgs);
-		};
-		div.update();
+			div.update();
+		});
 	});
 }
 

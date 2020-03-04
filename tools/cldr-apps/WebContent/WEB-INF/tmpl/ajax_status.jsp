@@ -2,7 +2,7 @@
 <%@ page import="org.unicode.cldr.web.*" %>
 <%@ page import="org.unicode.cldr.util.*" %>
 <!--  begin ajax_status.jsp -->
-<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" />
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css" />
 
 <!-- Bootstrap core CSS -->
 <% // TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css  %>
@@ -15,9 +15,9 @@
 <script>
 dojoConfig = {
 		parseOnLoad: true,
+		/* async: true, */
 		};</script>
-<% // TODO: encapsulate dojo version in one place, cf. dojoheader.jspf  %>
-<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+<script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>
 <script>
 require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContainer"]);
 </script>

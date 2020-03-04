@@ -2822,6 +2822,12 @@ public class SurveyAjax extends HttpServlet {
         out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
         out.write("<title>SurveyTool File Submission | " + title + "</title>\n");
         out.write("<link rel='stylesheet' type='text/css' href='./surveytool.css' />\n");
+
+        /*
+         * TODO: Avoid browser console showing "ReferenceError: surveyRunningStamp is not defined" in
+         * survey.js. surveyRunningStamp is undefined unless ajax_status.jsp is included.
+         * Here we include survey.js but not ajax_status.jsp.
+         */
         out.write("<script src='" + contextPath + "/js/survey.js'></script>\n");
         out.write("</head>\n<body>\n");
         out.write("<a href=\"upload.jsp?s=" + sid + "&email=" + theirU.email + "\">Re-Upload File/Try Another</a>");

@@ -131,7 +131,10 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 </div>
 <script>
 var vap='<%= vap %>';
-dojo.ready(loadAdminPanel);
+require(["dojo/ready"], function(ready) {
+	ready(loadAdminPanel);
+});
+
 </script>
 
 <div id='adminStuff'></div>

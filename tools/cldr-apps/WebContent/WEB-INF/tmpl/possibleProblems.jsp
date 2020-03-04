@@ -8,9 +8,14 @@ if(ctx.field("x").equals(SurveyMain.xMAIN) || ctx.field("x").isEmpty()) {
 <script>
 //console.log("dojo= " + dojo);
 //console.log("spp=" + showPossibleProblems);
-dojo.ready(function (){
-    showPossibleProblems('possibleProblems', '<%= ctx.getLocale() %>', '<%= ctx.session.id %>', '<%= ctx.getEffectiveCoverageLevel() %>', '<%= ctx.getRequiredCoverageLevel() %>');
+
+require(["dojo/ready"], function(ready) {
+	ready(function() {
+		showPossibleProblems('possibleProblems', '<%= ctx.getLocale() %>', '<%= ctx.session.id %>',
+			'<%= ctx.getEffectiveCoverageLevel() %>', '<%= ctx.getRequiredCoverageLevel() %>');
+	});
 });
+
 </script>
 
 <%

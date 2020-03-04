@@ -2,11 +2,11 @@
 
 package org.unicode.cldr.util;
 
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 
 import com.google.common.cache.Cache;
@@ -372,25 +372,17 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * @return
      */
     public static CLDRLocale getInstance(String s) {
-        synchronized(CLDRLocale.class) {
-            if (s == null) {
-                return null;
-            }
-            /*
-             * Normalize variations of ROOT_NAME before checking stringToLoc.
-             */
-            if (rootMatches(s)) {
-                s = ROOT_NAME;
-            }
-            CLDRLocale loc = stringToLoc.get(s);
-            if (loc == null) {
-                loc = new CLDRLocale(s);
-                loc.register();
-            }
-            return loc;
+        if (s == null) {
+            return null;
         }
+        /*
+         * Normalize variations of ROOT_NAME before checking stringToLoc.
+         */
+        if (rootMatches(s)) {
+            s = ROOT_NAME;
+        }
+        return stringToLoc.computeIfAbsent(s, k -> new CLDRLocale(k));
     }
-
 
     /**
      * Does the given string match the root locale? Treat empty string as matching,
@@ -417,27 +409,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * @return the CLDRLocale
      */
     public static CLDRLocale getInstance(ULocale u) {
-        synchronized(CLDRLocale.class) {
-            if (u == null) return null;
-            CLDRLocale loc = ulocToLoc.get(u);
-            if (loc == null) {
-                loc = new CLDRLocale(u);
-                loc.register();
-            }
-            return loc;
+        if (u == null) {
+            return null;
         }
+        return getInstance(u.getBaseName());
     }
 
-    /**
-     * Register the singleton instance.
-     */
-    private void register() {
-        stringToLoc.put(this.toString(), this);
-        ulocToLoc.put(this.toULocale(), this);
-    }
-
-    private static Hashtable<String, CLDRLocale> stringToLoc = new Hashtable<String, CLDRLocale>();
-    private static Hashtable<ULocale, CLDRLocale> ulocToLoc = new Hashtable<ULocale, CLDRLocale>();
+    private static ConcurrentHashMap<String, CLDRLocale> stringToLoc = new ConcurrentHashMap<String, CLDRLocale>();
 
     /**
      * Return the parent locale of this item. Null if no parent (root has no parent)

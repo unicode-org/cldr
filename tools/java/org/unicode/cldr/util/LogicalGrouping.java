@@ -71,7 +71,7 @@ public class LogicalGrouping {
      * Return a sorted set of paths that are in the same logical set as the given path
      *
      * @param path the distinguishing xpath
-     * @return the set of paths
+     * @return the set of paths, or null (to be treated as equivalent to empty set)
      *
      * For example, given the path
      *
@@ -92,7 +92,8 @@ public class LogicalGrouping {
      */
     public static Set<String> getPaths(CLDRFile cldrFile, String path) {
         if (path == null) {
-            return new TreeSet<String>(); // return empty set for null path
+            return null; // return null for null path
+            // return new TreeSet<String>(); // return empty set for null path
         }
         XPathParts parts = null;
         PathType pathType = null;
@@ -113,6 +114,7 @@ public class LogicalGrouping {
         if (pathType == PathType.SINGLETON) {
             /*
              * Skip cache for PathType.SINGLETON and simply return a set of one.
+             * TODO: should we ever return null instead of singleton here?
              */
             Set<String> set = new TreeSet<String>();
             set.add(path);

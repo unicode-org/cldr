@@ -187,7 +187,7 @@ define({
 		voteInfo_voteTitle_desc: "The total vote score for this value",
 		voteInfo_orgsVote_desc: "This vote is the organization's winning vote",
 		voteInfo_orgsNonVote_desc: "This vote is not the organization's winning vote",
-		voteInfo_baseline_desc: "This mark shows on the baseline item, which was approved in the last release, plus latest XML fixes by the Technical Committee, if any.",
+		voteInfo_baseline_desc: "This is the “baseline” data. See http://cldr.org/index/survey-tool/guide#TOC-Icons",
 		voteInfo_winningItem_desc: "This mark shows the item which is currently winning.",
 		voteInfo_winningKey_desc: "This mark shows the item which is currently winning.",
 		voteInfo_perValue_desc: "This shows the state and voters for a particular item.",

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,6 +11,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="br"/>
 	</identity>
 	<annotations>
+		<annotation cp="🦤">dodo</annotation>
+		<annotation cp="🦤" type="tts">dodo</annotation>
+		<annotation cp="🦬">bizon</annotation>
+		<annotation cp="🦬" type="tts">bizon</annotation>
+		<annotation cp="🪰">kelienenn</annotation>
+		<annotation cp="🪰" type="tts">kelienenn</annotation>
+		<annotation cp="🪱">buzhugenn</annotation>
+		<annotation cp="🪱" type="tts">buzhugenn</annotation>
+		<annotation cp="🪲">amprevan | cʼhwil</annotation>
+		<annotation cp="🪲" type="tts">cʼhwil</annotation>
+		<annotation cp="🪳">amprevan | cʼhwil-du</annotation>
+		<annotation cp="🪳" type="tts">cʼhwil-du</annotation>
+		<annotation cp="🪶">pluenn</annotation>
+		<annotation cp="🪶" type="tts">pluenn</annotation>
 		<annotation cp="👺">gobilin</annotation>
 		<annotation cp="👺" type="tts">gobilin</annotation>
 		<annotation cp="🕳">toull</annotation>
@@ -935,19 +949,5 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♓" type="tts">ar Pesked</annotation>
 		<annotation cp="⛎">Naeretaer</annotation>
 		<annotation cp="⛎" type="tts">Naeretaer</annotation>
-		<annotation cp="🦤">dodo</annotation>
-		<annotation cp="🦤" type="tts">dodo</annotation>
-		<annotation cp="🦬">bizon</annotation>
-		<annotation cp="🦬" type="tts">bizon</annotation>
-		<annotation cp="🪰">kelienenn</annotation>
-		<annotation cp="🪰" type="tts">kelienenn</annotation>
-		<annotation cp="🪱">buzhugenn</annotation>
-		<annotation cp="🪱" type="tts">buzhugenn</annotation>
-		<annotation cp="🪲">amprevan | cʼhwil</annotation>
-		<annotation cp="🪲" type="tts">cʼhwil</annotation>
-		<annotation cp="🪳">amprevan | cʼhwil-du</annotation>
-		<annotation cp="🪳" type="tts">cʼhwil-du</annotation>
-		<annotation cp="🪶">pluenn</annotation>
-		<annotation cp="🪶" type="tts">pluenn</annotation>
 	</annotations>
 </ldml>

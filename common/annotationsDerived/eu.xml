@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="eu"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">1–2. mota | elkartuta | esku-keinua | galdera | hatz elkartuak | hatzak | sarkasmoa</annotation>
+		<annotation cp="🤌🏻" type="tts">hatz elkartuak: 1–2. mota</annotation>
+		<annotation cp="🤌🏼">3. mota | elkartuta | esku-keinua | galdera | hatz elkartuak | hatzak | sarkasmoa</annotation>
+		<annotation cp="🤌🏼" type="tts">hatz elkartuak: 3. mota</annotation>
+		<annotation cp="🤌🏽">bitarteko azal-tonua | elkartuta | esku-keinua | galdera | hatz elkartuak | hatzak | sarkasmoa</annotation>
+		<annotation cp="🤌🏽" type="tts">hatz elkartuak: bitarteko azal-tonua</annotation>
+		<annotation cp="🤌🏾">5. mota | elkartuta | esku-keinua | galdera | hatz elkartuak | hatzak | sarkasmoa</annotation>
+		<annotation cp="🤌🏾" type="tts">hatz elkartuak: 5. mota</annotation>
+		<annotation cp="🤌🏿">6. mota | elkartuta | esku-keinua | galdera | hatz elkartuak | hatzak | sarkasmoa</annotation>
+		<annotation cp="🤌🏿" type="tts">hatz elkartuak: 6. mota</annotation>
 		<annotation cp="👋🏻">1–2. mota | eskua | gorputza | mugitu | mugitzen ari den eskua</annotation>
 		<annotation cp="👋🏻" type="tts">mugitzen ari den eskua: 1–2. mota</annotation>
 		<annotation cp="👋🏼">3. mota | eskua | gorputza | mugitu | mugitzen ari den eskua</annotation>
@@ -52,15 +62,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋🏾" type="tts">esku altxatua: 5. mota</annotation>
 		<annotation cp="✋🏿">6. mota | esku altxatua | eskua</annotation>
 		<annotation cp="✋🏿" type="tts">esku altxatua: 6. mota</annotation>
-		<annotation cp="🖖🏻">1–2. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agurra | vulcandarra</annotation>
+		<annotation cp="🖖🏻">1–2. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agur | vulcandar agurra | vulcandarra</annotation>
 		<annotation cp="🖖🏻" type="tts">vulcandar agur: 1–2. mota</annotation>
-		<annotation cp="🖖🏼">3. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agurra | vulcandarra</annotation>
+		<annotation cp="🖖🏼">3. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agur | vulcandar agurra | vulcandarra</annotation>
 		<annotation cp="🖖🏼" type="tts">vulcandar agur: 3. mota</annotation>
-		<annotation cp="🖖🏽">agur vulcandarra | bitarteko azal-tonua | eskua | hatza | spock | vulcandar agurra | vulcandarra</annotation>
+		<annotation cp="🖖🏽">agur vulcandarra | bitarteko azal-tonua | eskua | hatza | spock | vulcandar agur | vulcandar agurra | vulcandarra</annotation>
 		<annotation cp="🖖🏽" type="tts">vulcandar agur: bitarteko azal-tonua</annotation>
-		<annotation cp="🖖🏾">5. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agurra | vulcandarra</annotation>
+		<annotation cp="🖖🏾">5. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agur | vulcandar agurra | vulcandarra</annotation>
 		<annotation cp="🖖🏾" type="tts">vulcandar agur: 5. mota</annotation>
-		<annotation cp="🖖🏿">6. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agurra | vulcandarra</annotation>
+		<annotation cp="🖖🏿">6. mota | agur vulcandarra | eskua | hatza | spock | vulcandar agur | vulcandar agurra | vulcandarra</annotation>
 		<annotation cp="🖖🏿" type="tts">vulcandar agur: 6. mota</annotation>
 		<annotation cp="👌🏻">1–2. mota | ados | adostasuna adierazten duen eskua | eskua | gorputza | ok</annotation>
 		<annotation cp="👌🏻" type="tts">adostasuna adierazten duen eskua: 1–2. mota</annotation>
@@ -352,25 +362,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦵🏾" type="tts">hanka: 5. mota</annotation>
 		<annotation cp="🦵🏿">6. mota | gorputz-adarra | hanka | ostikada</annotation>
 		<annotation cp="🦵🏿" type="tts">hanka: 6. mota</annotation>
-		<annotation cp="🦶🏻">1–2. mota | oina | ostikada | zanpatu</annotation>
+		<annotation cp="🦶🏻">1–2. mota | oin | oina | ostikada | zanpatu</annotation>
 		<annotation cp="🦶🏻" type="tts">oin: 1–2. mota</annotation>
-		<annotation cp="🦶🏼">3. mota | oina | ostikada | zanpatu</annotation>
+		<annotation cp="🦶🏼">3. mota | oin | oina | ostikada | zanpatu</annotation>
 		<annotation cp="🦶🏼" type="tts">oin: 3. mota</annotation>
-		<annotation cp="🦶🏽">bitarteko azal-tonua | oina | ostikada | zanpatu</annotation>
+		<annotation cp="🦶🏽">bitarteko azal-tonua | oin | oina | ostikada | zanpatu</annotation>
 		<annotation cp="🦶🏽" type="tts">oin: bitarteko azal-tonua</annotation>
-		<annotation cp="🦶🏾">5. mota | oina | ostikada | zanpatu</annotation>
+		<annotation cp="🦶🏾">5. mota | oin | oina | ostikada | zanpatu</annotation>
 		<annotation cp="🦶🏾" type="tts">oin: 5. mota</annotation>
-		<annotation cp="🦶🏿">6. mota | oina | ostikada | zanpatu</annotation>
+		<annotation cp="🦶🏿">6. mota | oin | oina | ostikada | zanpatu</annotation>
 		<annotation cp="🦶🏿" type="tts">oin: 6. mota</annotation>
-		<annotation cp="👂🏻">1–2. mota | belarria | gorputza</annotation>
+		<annotation cp="👂🏻">1–2. mota | belarri | belarria | gorputza</annotation>
 		<annotation cp="👂🏻" type="tts">belarri: 1–2. mota</annotation>
-		<annotation cp="👂🏼">3. mota | belarria | gorputza</annotation>
+		<annotation cp="👂🏼">3. mota | belarri | belarria | gorputza</annotation>
 		<annotation cp="👂🏼" type="tts">belarri: 3. mota</annotation>
-		<annotation cp="👂🏽">belarria | bitarteko azal-tonua | gorputza</annotation>
+		<annotation cp="👂🏽">belarri | belarria | bitarteko azal-tonua | gorputza</annotation>
 		<annotation cp="👂🏽" type="tts">belarri: bitarteko azal-tonua</annotation>
-		<annotation cp="👂🏾">5. mota | belarria | gorputza</annotation>
+		<annotation cp="👂🏾">5. mota | belarri | belarria | gorputza</annotation>
 		<annotation cp="👂🏾" type="tts">belarri: 5. mota</annotation>
-		<annotation cp="👂🏿">6. mota | belarria | gorputza</annotation>
+		<annotation cp="👂🏿">6. mota | belarri | belarria | gorputza</annotation>
 		<annotation cp="👂🏿" type="tts">belarri: 6. mota</annotation>
 		<annotation cp="🦻🏻">1–2. mota | audifonoa duen belarria | gortasuna | irisgarritasuna</annotation>
 		<annotation cp="🦻🏻" type="tts">audifonoa duen belarria: 1–2. mota</annotation>
@@ -382,15 +392,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦻🏾" type="tts">audifonoa duen belarria: 5. mota</annotation>
 		<annotation cp="🦻🏿">6. mota | audifonoa duen belarria | gortasuna | irisgarritasuna</annotation>
 		<annotation cp="🦻🏿" type="tts">audifonoa duen belarria: 6. mota</annotation>
-		<annotation cp="👃🏻">1–2. mota | gorputza | sudurra</annotation>
+		<annotation cp="👃🏻">1–2. mota | gorputza | sudur | sudurra</annotation>
 		<annotation cp="👃🏻" type="tts">sudur: 1–2. mota</annotation>
-		<annotation cp="👃🏼">3. mota | gorputza | sudurra</annotation>
+		<annotation cp="👃🏼">3. mota | gorputza | sudur | sudurra</annotation>
 		<annotation cp="👃🏼" type="tts">sudur: 3. mota</annotation>
-		<annotation cp="👃🏽">bitarteko azal-tonua | gorputza | sudurra</annotation>
+		<annotation cp="👃🏽">bitarteko azal-tonua | gorputza | sudur | sudurra</annotation>
 		<annotation cp="👃🏽" type="tts">sudur: bitarteko azal-tonua</annotation>
-		<annotation cp="👃🏾">5. mota | gorputza | sudurra</annotation>
+		<annotation cp="👃🏾">5. mota | gorputza | sudur | sudurra</annotation>
 		<annotation cp="👃🏾" type="tts">sudur: 5. mota</annotation>
-		<annotation cp="👃🏿">6. mota | gorputza | sudurra</annotation>
+		<annotation cp="👃🏿">6. mota | gorputza | sudur | sudurra</annotation>
 		<annotation cp="👃🏿" type="tts">sudur: 6. mota</annotation>
 		<annotation cp="👶🏻">1–2. mota | haurtxo | haurtxoa</annotation>
 		<annotation cp="👶🏻" type="tts">haurtxoa: 1–2. mota</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">heldu: 5. mota eta burusoil</annotation>
 		<annotation cp="🧑🏿‍🦲">6. mota | burusoil | genero neutroko | heldu</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">heldu: 6. mota eta burusoil</annotation>
+		<annotation cp="🧑🏻‍🍼">1–2. mota | edoskitzen | elikatzen | haurra elikatzen | haurtxoa | pertsona</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">haurra elikatzen: 1–2. mota</annotation>
+		<annotation cp="🧑🏼‍🍼">3. mota | edoskitzen | elikatzen | haurra elikatzen | haurtxoa | pertsona</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">haurra elikatzen: 3. mota</annotation>
+		<annotation cp="🧑🏽‍🍼">bitarteko azal-tonua | edoskitzen | elikatzen | haurra elikatzen | haurtxoa | pertsona</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">haurra elikatzen: bitarteko azal-tonua</annotation>
+		<annotation cp="🧑🏾‍🍼">5. mota | edoskitzen | elikatzen | haurra elikatzen | haurtxoa | pertsona</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">haurra elikatzen: 5. mota</annotation>
+		<annotation cp="🧑🏿‍🍼">6. mota | edoskitzen | elikatzen | haurra elikatzen | haurtxoa | pertsona</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">haurra elikatzen: 6. mota</annotation>
+		<annotation cp="🧑🏻‍🎄">1–2. mota | bizar zuri | bizarzuri</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">bizarzuri: 1–2. mota</annotation>
+		<annotation cp="🧑🏼‍🎄">3. mota | bizar zuri | bizarzuri</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">bizarzuri: 3. mota</annotation>
+		<annotation cp="🧑🏽‍🎄">bitarteko azal-tonua | bizar zuri | bizarzuri</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">bizarzuri: bitarteko azal-tonua</annotation>
+		<annotation cp="🧑🏾‍🎄">5. mota | bizar zuri | bizarzuri</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">bizarzuri: 5. mota</annotation>
+		<annotation cp="🧑🏿‍🎄">6. mota | bizar zuri | bizarzuri</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">bizarzuri: 6. mota</annotation>
 		<annotation cp="👨🏻">1–2. mota | gizon | gizona | gizonezko</annotation>
 		<annotation cp="👨🏻" type="tts">gizona: 1–2. mota</annotation>
 		<annotation cp="👨🏼">3. mota | gizon | gizona | gizonezko</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">gizona: 5. mota eta burusoil</annotation>
 		<annotation cp="👨🏿‍🦲">6. mota | burusoil | gizon | gizona | gizonezko</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">gizona: 6. mota eta burusoil</annotation>
+		<annotation cp="👨🏻‍🍼">1–2. mota | elikatzen | gizona | gizona haurrari janaria ematen | haurtxoa | janaria ematen</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">gizona haurrari janaria ematen: 1–2. mota</annotation>
+		<annotation cp="👨🏼‍🍼">3. mota | elikatzen | gizona | gizona haurrari janaria ematen | haurtxoa | janaria ematen</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">gizona haurrari janaria ematen: 3. mota</annotation>
+		<annotation cp="👨🏽‍🍼">bitarteko azal-tonua | elikatzen | gizona | gizona haurrari janaria ematen | haurtxoa | janaria ematen</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">gizona haurrari janaria ematen: bitarteko azal-tonua</annotation>
+		<annotation cp="👨🏾‍🍼">5. mota | elikatzen | gizona | gizona haurrari janaria ematen | haurtxoa | janaria ematen</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">gizona haurrari janaria ematen: 5. mota</annotation>
+		<annotation cp="👨🏿‍🍼">6. mota | elikatzen | gizona | gizona haurrari janaria ematen | haurtxoa | janaria ematen</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">gizona haurrari janaria ematen: 6. mota</annotation>
 		<annotation cp="👩🏻">1–2. mota | emakume | emakumea | emakumezko</annotation>
 		<annotation cp="👩🏻" type="tts">emakumea: 1–2. mota</annotation>
 		<annotation cp="👩🏼">3. mota | emakume | emakumea | emakumezko</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">emakumea: 5. mota eta burusoil</annotation>
 		<annotation cp="👩🏿‍🦲">6. mota | burusoil | emakume | emakumea | emakumezko</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">emakumea: 6. mota eta burusoil</annotation>
+		<annotation cp="👩🏻‍🍼">1–2. mota | bularra ematen | edoskitzen | emakumea | emakumea bularra ematen | haurtxoa</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">emakumea bularra ematen: 1–2. mota</annotation>
+		<annotation cp="👩🏼‍🍼">3. mota | bularra ematen | edoskitzen | emakumea | emakumea bularra ematen | haurtxoa</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">emakumea bularra ematen: 3. mota</annotation>
+		<annotation cp="👩🏽‍🍼">bitarteko azal-tonua | bularra ematen | edoskitzen | emakumea | emakumea bularra ematen | haurtxoa</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">emakumea bularra ematen: bitarteko azal-tonua</annotation>
+		<annotation cp="👩🏾‍🍼">5. mota | bularra ematen | edoskitzen | emakumea | emakumea bularra ematen | haurtxoa</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">emakumea bularra ematen: 5. mota</annotation>
+		<annotation cp="👩🏿‍🍼">6. mota | bularra ematen | edoskitzen | emakumea | emakumea bularra ematen | haurtxoa</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">emakumea bularra ematen: 6. mota</annotation>
 		<annotation cp="🧓🏻">1–2. mota | adineko | agure | genero neutroko</annotation>
 		<annotation cp="🧓🏻" type="tts">agure: 1–2. mota</annotation>
 		<annotation cp="🧓🏼">3. mota | adineko | agure | genero neutroko</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">sorbaldak altxatzen ari den emakumea: 5. mota</annotation>
 		<annotation cp="🤷🏿‍♀">6. mota | altxatu | axolagabekeria | emakumea | ezjakintasuna | sorbaldak altxatzen ari den emakumea | zalantza</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">sorbaldak altxatzen ari den emakumea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍⚕">1–2. mota | erizain | osasun | sendagile | terapeuta</annotation>
+		<annotation cp="🧑🏻‍⚕">1–2. mota | erizain | osasun | sendagile | sendagilea | terapeuta</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">sendagilea: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍⚕">3. mota | erizain | osasun | sendagile | terapeuta</annotation>
+		<annotation cp="🧑🏼‍⚕">3. mota | erizain | osasun | sendagile | sendagilea | terapeuta</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">sendagilea: 3. mota</annotation>
-		<annotation cp="🧑🏽‍⚕">bitarteko azal-tonua | erizain | osasun | sendagile | terapeuta</annotation>
+		<annotation cp="🧑🏽‍⚕">bitarteko azal-tonua | erizain | osasun | sendagile | sendagilea | terapeuta</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">sendagilea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍⚕">5. mota | erizain | osasun | sendagile | terapeuta</annotation>
+		<annotation cp="🧑🏾‍⚕">5. mota | erizain | osasun | sendagile | sendagilea | terapeuta</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">sendagilea: 5. mota</annotation>
-		<annotation cp="🧑🏿‍⚕">6. mota | erizain | osasun | sendagile | terapeuta</annotation>
+		<annotation cp="🧑🏿‍⚕">6. mota | erizain | osasun | sendagile | sendagilea | terapeuta</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">sendagilea: 6. mota</annotation>
 		<annotation cp="👨🏻‍⚕">1–2. mota | erizaina | gizon | gizon sendagilea | gizonezko | osasun | sendagile | terapeuta</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">gizon sendagilea: 1–2. mota</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">emakume sendagilea: 5. mota</annotation>
 		<annotation cp="👩🏿‍⚕">6. mota | emakume | emakume sendagilea | emakumezko | erizain | osasun | sendagile | terapeuta</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">emakume sendagilea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🎓">1–2. mota | graduatu | ikasle</annotation>
+		<annotation cp="🧑🏻‍🎓">1–2. mota | graduatu | ikasle | ikaslea</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">ikaslea: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🎓">3. mota | graduatu | ikasle</annotation>
+		<annotation cp="🧑🏼‍🎓">3. mota | graduatu | ikasle | ikaslea</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">ikaslea: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🎓">bitarteko azal-tonua | graduatu | ikasle</annotation>
+		<annotation cp="🧑🏽‍🎓">bitarteko azal-tonua | graduatu | ikasle | ikaslea</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">ikaslea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🎓">5. mota | graduatu | ikasle</annotation>
+		<annotation cp="🧑🏾‍🎓">5. mota | graduatu | ikasle | ikaslea</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">ikaslea: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🎓">6. mota | graduatu | ikasle</annotation>
+		<annotation cp="🧑🏿‍🎓">6. mota | graduatu | ikasle | ikaslea</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">ikaslea: 6. mota</annotation>
 		<annotation cp="👨🏻‍🎓">1–2. mota | gizon | gizonezko | graduatu | ikasle | mutil ikaslea</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">mutil ikaslea: 1–2. mota</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">neska ikaslea: 5. mota</annotation>
 		<annotation cp="👩🏿‍🎓">6. mota | emakume | emakumezko | graduatu | ikasle | neska ikaslea</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">neska ikaslea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🏫">1–2. mota | irakasle</annotation>
+		<annotation cp="🧑🏻‍🏫">1–2. mota | irakasle | irakaslea</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">irakaslea: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🏫">3. mota | irakasle</annotation>
+		<annotation cp="🧑🏼‍🏫">3. mota | irakasle | irakaslea</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">irakaslea: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🏫">bitarteko azal-tonua | irakasle</annotation>
+		<annotation cp="🧑🏽‍🏫">bitarteko azal-tonua | irakasle | irakaslea</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">irakaslea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🏫">5. mota | irakasle</annotation>
+		<annotation cp="🧑🏾‍🏫">5. mota | irakasle | irakaslea</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">irakaslea: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🏫">6. mota | irakasle</annotation>
+		<annotation cp="🧑🏿‍🏫">6. mota | irakasle | irakaslea</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">irakaslea: 6. mota</annotation>
 		<annotation cp="👨🏻‍🏫">1–2. mota | gizon | gizon irakaslea | gizonezko | irakasle | maisu</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">gizon irakaslea: 1–2. mota</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">emakume irakaslea: 5. mota</annotation>
 		<annotation cp="👩🏿‍🏫">6. mota | andereño | emakume | emakume irakaslea | emakumezko | irakasle</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">emakume irakaslea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍⚖">1–2. mota | balantzak | epaile</annotation>
+		<annotation cp="🧑🏻‍⚖">1–2. mota | balantzak | epaile | epailea</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">epailea: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍⚖">3. mota | balantzak | epaile</annotation>
+		<annotation cp="🧑🏼‍⚖">3. mota | balantzak | epaile | epailea</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">epailea: 3. mota</annotation>
-		<annotation cp="🧑🏽‍⚖">balantzak | bitarteko azal-tonua | epaile</annotation>
+		<annotation cp="🧑🏽‍⚖">balantzak | bitarteko azal-tonua | epaile | epailea</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">epailea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍⚖">5. mota | balantzak | epaile</annotation>
+		<annotation cp="🧑🏾‍⚖">5. mota | balantzak | epaile | epailea</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">epailea: 5. mota</annotation>
-		<annotation cp="🧑🏿‍⚖">6. mota | balantzak | epaile</annotation>
+		<annotation cp="🧑🏿‍⚖">6. mota | balantzak | epaile | epailea</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">epailea: 6. mota</annotation>
 		<annotation cp="👨🏻‍⚖">1–2. mota | balantza | gizon | gizon epailea | gizonezko | justizia</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">gizon epailea: 1–2. mota</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">emakume epailea: 5. mota</annotation>
 		<annotation cp="👩🏿‍⚖">6. mota | balantzak | emakume | emakume epailea | emakumezko | epaiketa</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">emakume epailea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🌾">1–2. mota | baserritar | lorezain | nekazari</annotation>
+		<annotation cp="🧑🏻‍🌾">1–2. mota | baserritar | lorezain | nekazari | nekazaria</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">nekazaria: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🌾">3. mota | baserritar | lorezain | nekazari</annotation>
+		<annotation cp="🧑🏼‍🌾">3. mota | baserritar | lorezain | nekazari | nekazaria</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">nekazaria: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🌾">baserritar | bitarteko azal-tonua | lorezain | nekazari</annotation>
+		<annotation cp="🧑🏽‍🌾">baserritar | bitarteko azal-tonua | lorezain | nekazari | nekazaria</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">nekazaria: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🌾">5. mota | baserritar | lorezain | nekazari</annotation>
+		<annotation cp="🧑🏾‍🌾">5. mota | baserritar | lorezain | nekazari | nekazaria</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">nekazaria: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🌾">6. mota | baserritar | lorezain | nekazari</annotation>
+		<annotation cp="🧑🏿‍🌾">6. mota | baserritar | lorezain | nekazari | nekazaria</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">nekazaria: 6. mota</annotation>
 		<annotation cp="👨🏻‍🌾">1–2. mota | baserritar | gizon | gizon nekazaria | gizonezko | lorezain | nekazari</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">gizon nekazaria: 1–2. mota</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">emakume nekazaria: 5. mota</annotation>
 		<annotation cp="👩🏿‍🌾">6. mota | baserritar | emakume | emakume nekazaria | emakumezko | lorezain | nekazari</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">emakume nekazaria: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🍳">1–2. mota | chef | sukaldari</annotation>
+		<annotation cp="🧑🏻‍🍳">1–2. mota | chef | sukaldari | sukaldaria</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">sukaldaria: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🍳">3. mota | chef | sukaldari</annotation>
+		<annotation cp="🧑🏼‍🍳">3. mota | chef | sukaldari | sukaldaria</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">sukaldaria: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🍳">bitarteko azal-tonua | chef | sukaldari</annotation>
+		<annotation cp="🧑🏽‍🍳">bitarteko azal-tonua | chef | sukaldari | sukaldaria</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">sukaldaria: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🍳">5. mota | chef | sukaldari</annotation>
+		<annotation cp="🧑🏾‍🍳">5. mota | chef | sukaldari | sukaldaria</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">sukaldaria: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🍳">6. mota | chef | sukaldari</annotation>
+		<annotation cp="🧑🏿‍🍳">6. mota | chef | sukaldari | sukaldaria</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">sukaldaria: 6. mota</annotation>
 		<annotation cp="👨🏻‍🍳">1–2. mota | chef | gizon | gizon sukaldaria | gizonezko | sukaldari</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">gizon sukaldaria: 1–2. mota</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">emakume sukaldaria: 5. mota</annotation>
 		<annotation cp="👩🏿‍🍳">6. mota | chef | emakume | emakume sukaldaria | emakumezko | sukaldari</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">emakume sukaldaria: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🔧">1–2. mota | elektrikari | iturgin | mekanikari | saltzaile</annotation>
+		<annotation cp="🧑🏻‍🔧">1–2. mota | elektrikari | iturgin | mekanikari | mekanikaria | saltzaile</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">mekanikaria: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🔧">3. mota | elektrikari | iturgin | mekanikari | saltzaile</annotation>
+		<annotation cp="🧑🏼‍🔧">3. mota | elektrikari | iturgin | mekanikari | mekanikaria | saltzaile</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">mekanikaria: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🔧">bitarteko azal-tonua | elektrikari | iturgin | mekanikari | saltzaile</annotation>
+		<annotation cp="🧑🏽‍🔧">bitarteko azal-tonua | elektrikari | iturgin | mekanikari | mekanikaria | saltzaile</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">mekanikaria: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🔧">5. mota | elektrikari | iturgin | mekanikari | saltzaile</annotation>
+		<annotation cp="🧑🏾‍🔧">5. mota | elektrikari | iturgin | mekanikari | mekanikaria | saltzaile</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">mekanikaria: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🔧">6. mota | elektrikari | iturgin | mekanikari | saltzaile</annotation>
+		<annotation cp="🧑🏿‍🔧">6. mota | elektrikari | iturgin | mekanikari | mekanikaria | saltzaile</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mekanikaria: 6. mota</annotation>
 		<annotation cp="👨🏻‍🔧">1–2. mota | elektrikari | gizon | gizon mekanikaria | gizonezko | iturgin | mekarikari | saltzaile</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">gizon mekanikaria: 1–2. mota</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">emakume mekanikaria: 5. mota</annotation>
 		<annotation cp="👩🏿‍🔧">6. mota | elektrikari | emakume | emakume mekanikaria | emakumezko | iturgin | saltzaile</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">emakume mekanikaria: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🏭">1–2. mota | fabrika | industria | langile | mihiztatu</annotation>
+		<annotation cp="🧑🏻‍🏭">1–2. mota | fabrika | fabrikako langilea | industria | langile | mihiztatu</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">fabrikako langilea: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🏭">3. mota | fabrika | industria | langile | mihiztatu</annotation>
+		<annotation cp="🧑🏼‍🏭">3. mota | fabrika | fabrikako langilea | industria | langile | mihiztatu</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">fabrikako langilea: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🏭">bitarteko azal-tonua | fabrika | industria | langile | mihiztatu</annotation>
+		<annotation cp="🧑🏽‍🏭">bitarteko azal-tonua | fabrika | fabrikako langilea | industria | langile | mihiztatu</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">fabrikako langilea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🏭">5. mota | fabrika | industria | langile | mihiztatu</annotation>
+		<annotation cp="🧑🏾‍🏭">5. mota | fabrika | fabrikako langilea | industria | langile | mihiztatu</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">fabrikako langilea: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🏭">6. mota | fabrika | industria | langile | mihiztatu</annotation>
+		<annotation cp="🧑🏿‍🏭">6. mota | fabrika | fabrikako langilea | industria | langile | mihiztatu</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">fabrikako langilea: 6. mota</annotation>
 		<annotation cp="👨🏻‍🏭">1–2. mota | fabrika | fabrikako gizon langilea | gizon | gizonezko | industria | langile | mihiztatu</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">fabrikako gizon langilea: 1–2. mota</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">fabrikako emakume langilea: 5. mota</annotation>
 		<annotation cp="👩🏿‍🏭">6. mota | emakume | emakumezko | fabrika | fabrikako emakume langilea | industria | langile | mihiztatu</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">fabrikako emakume langilea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍💼">1–2. mota | alkandora | arkitekto | enpresa | kudeatzaile</annotation>
+		<annotation cp="🧑🏻‍💼">1–2. mota | alkandora | arkitekto | bulegaria | enpresa | kudeatzaile</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">bulegaria: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍💼">3. mota | alkandora | arkitekto | enpresa | kudeatzaile</annotation>
+		<annotation cp="🧑🏼‍💼">3. mota | alkandora | arkitekto | bulegaria | enpresa | kudeatzaile</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">bulegaria: 3. mota</annotation>
-		<annotation cp="🧑🏽‍💼">alkandora | arkitekto | bitarteko azal-tonua | enpresa | kudeatzaile</annotation>
+		<annotation cp="🧑🏽‍💼">alkandora | arkitekto | bitarteko azal-tonua | bulegaria | enpresa | kudeatzaile</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">bulegaria: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍💼">5. mota | alkandora | arkitekto | enpresa | kudeatzaile</annotation>
+		<annotation cp="🧑🏾‍💼">5. mota | alkandora | arkitekto | bulegaria | enpresa | kudeatzaile</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">bulegaria: 5. mota</annotation>
-		<annotation cp="🧑🏿‍💼">6. mota | alkandora | arkitekto | enpresa | kudeatzaile</annotation>
+		<annotation cp="🧑🏿‍💼">6. mota | alkandora | arkitekto | bulegaria | enpresa | kudeatzaile</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">bulegaria: 6. mota</annotation>
 		<annotation cp="👨🏻‍💼">1–2. mota | alkandora | arkitekto | bulego | enpresa | gizon | gizon bulegaria | gizonezko | kudeatzaile</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">gizon bulegaria: 1–2. mota</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">emakume bulegaria: 5. mota</annotation>
 		<annotation cp="👩🏿‍💼">6. mota | alkandora | arkitekto | bulego | emakume | emakume bulegaria | emakumezko | enpresa | kudeatzaile</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">emakume bulegaria: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🔬">1–2. mota | biologo | fisikari | ingeniari | kimikari | zientzialari</annotation>
+		<annotation cp="🧑🏻‍🔬">1–2. mota | biologo | fisikari | ingeniari | kimikari | zientzialari | zientzialaria</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">zientzialaria: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🔬">3. mota | biologo | fisikari | ingeniari | kimikari | zientzialari</annotation>
+		<annotation cp="🧑🏼‍🔬">3. mota | biologo | fisikari | ingeniari | kimikari | zientzialari | zientzialaria</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">zientzialaria: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🔬">biologo | bitarteko azal-tonua | fisikari | ingeniari | kimikari | zientzialari</annotation>
+		<annotation cp="🧑🏽‍🔬">biologo | bitarteko azal-tonua | fisikari | ingeniari | kimikari | zientzialari | zientzialaria</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">zientzialaria: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🔬">5. mota | biologo | fisikari | ingeniari | kimikari | zientzialari</annotation>
+		<annotation cp="🧑🏾‍🔬">5. mota | biologo | fisikari | ingeniari | kimikari | zientzialari | zientzialaria</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">zientzialaria: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🔬">6. mota | biologo | fisikari | ingeniari | kimikari | zientzialari</annotation>
+		<annotation cp="🧑🏿‍🔬">6. mota | biologo | fisikari | ingeniari | kimikari | zientzialari | zientzialaria</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">zientzialaria: 6. mota</annotation>
 		<annotation cp="👨🏻‍🔬">1–2. mota | biologo | fisikari | gizon | gizon zientzialaria | gizonezko | ingeniari | kimikari | matematikari | zientzialari</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">gizon zientzialaria: 1–2. mota</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">emakume zientzialaria: 5. mota</annotation>
 		<annotation cp="👩🏿‍🔬">6. mota | biologo | emakume | emakume zientzialaria | emakumezko | fisikari | ingeniari | kimikari | matematikari | zientzialari</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">emakume zientzialaria: 6. mota</annotation>
-		<annotation cp="🧑🏻‍💻">1–2. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari</annotation>
+		<annotation cp="🧑🏻‍💻">1–2. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari | teknologialaria</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">teknologialaria: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍💻">3. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari</annotation>
+		<annotation cp="🧑🏼‍💻">3. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari | teknologialaria</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">teknologialaria: 3. mota</annotation>
-		<annotation cp="🧑🏽‍💻">asmatzaile | bitarteko azal-tonua | garatzaile | kodetzaile | software | teknologialari</annotation>
+		<annotation cp="🧑🏽‍💻">asmatzaile | bitarteko azal-tonua | garatzaile | kodetzaile | software | teknologialari | teknologialaria</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">teknologialaria: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍💻">5. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari</annotation>
+		<annotation cp="🧑🏾‍💻">5. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari | teknologialaria</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">teknologialaria: 5. mota</annotation>
-		<annotation cp="🧑🏿‍💻">6. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari</annotation>
+		<annotation cp="🧑🏿‍💻">6. mota | asmatzaile | garatzaile | kodetzaile | software | teknologialari | teknologialaria</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">teknologialaria: 6. mota</annotation>
 		<annotation cp="👨🏻‍💻">1–2. mota | asmatzaile | garatzaile | gizon | gizon teknologialaria | gizonezko | kodetzaile | software | teknologia</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">gizon teknologialaria: 1–2. mota</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">emakume teknologialaria: 5. mota</annotation>
 		<annotation cp="👩🏿‍💻">6. mota | asmatzaile | emakume | emakume teknologialaria | emakumezko | garatzaile | kodetzaile | software | teknologia</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">emakume teknologialaria: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🎤">1–2. mota | abeslari | aisia | aktore | izar | rock</annotation>
+		<annotation cp="🧑🏻‍🎤">1–2. mota | abeslari | abeslaria | aisia | aktore | izar | rock</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">abeslaria: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🎤">3. mota | abeslari | aisia | aktore | izar | rock</annotation>
+		<annotation cp="🧑🏼‍🎤">3. mota | abeslari | abeslaria | aisia | aktore | izar | rock</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">abeslaria: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🎤">abeslari | aisia | aktore | bitarteko azal-tonua | izar | rock</annotation>
+		<annotation cp="🧑🏽‍🎤">abeslari | abeslaria | aisia | aktore | bitarteko azal-tonua | izar | rock</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">abeslaria: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🎤">5. mota | abeslari | aisia | aktore | izar | rock</annotation>
+		<annotation cp="🧑🏾‍🎤">5. mota | abeslari | abeslaria | aisia | aktore | izar | rock</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">abeslaria: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🎤">6. mota | abeslari | aisia | aktore | izar | rock</annotation>
+		<annotation cp="🧑🏿‍🎤">6. mota | abeslari | abeslaria | aisia | aktore | izar | rock</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">abeslaria: 6. mota</annotation>
 		<annotation cp="👨🏻‍🎤">1–2. mota | abeslari | aisia | aktore | gizon | gizon abeslaria | gizonezko | izar | rock</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">gizon abeslaria: 1–2. mota</annotation>
@@ -1366,15 +1416,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">emakume artista: 5. mota</annotation>
 		<annotation cp="👩🏿‍🎨">6. mota | artista | emakume | emakumezko | paleta</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">emakume artista: 6. mota</annotation>
-		<annotation cp="🧑🏻‍✈">1–2. mota | hegazkin | pilotu</annotation>
+		<annotation cp="🧑🏻‍✈">1–2. mota | hegazkin | pilotu | pilotua</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">pilotua: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍✈">3. mota | hegazkin | pilotu</annotation>
+		<annotation cp="🧑🏼‍✈">3. mota | hegazkin | pilotu | pilotua</annotation>
 		<annotation cp="🧑🏼‍✈" type="tts">pilotua: 3. mota</annotation>
-		<annotation cp="🧑🏽‍✈">bitarteko azal-tonua | hegazkin | pilotu</annotation>
+		<annotation cp="🧑🏽‍✈">bitarteko azal-tonua | hegazkin | pilotu | pilotua</annotation>
 		<annotation cp="🧑🏽‍✈" type="tts">pilotua: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍✈">5. mota | hegazkin | pilotu</annotation>
+		<annotation cp="🧑🏾‍✈">5. mota | hegazkin | pilotu | pilotua</annotation>
 		<annotation cp="🧑🏾‍✈" type="tts">pilotua: 5. mota</annotation>
-		<annotation cp="🧑🏿‍✈">6. mota | hegazkin | pilotu</annotation>
+		<annotation cp="🧑🏿‍✈">6. mota | hegazkin | pilotu | pilotua</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">pilotua: 6. mota</annotation>
 		<annotation cp="👨🏻‍✈">1–2. mota | gizon | gizon pilotua | gizonezko | hegazkin | pilotu</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">gizon pilotua: 1–2. mota</annotation>
@@ -1426,15 +1476,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚀" type="tts">emakume astronauta: 5. mota</annotation>
 		<annotation cp="👩🏿‍🚀">6. mota | astronauta | emakume | emakumezko | espazioa | suziri</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">emakume astronauta: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🚒">1–2. mota | suhiltzaile | suhiltzaile-kamioi</annotation>
+		<annotation cp="🧑🏻‍🚒">1–2. mota | suhiltzaile | suhiltzaile-kamioi | suhiltzailea</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">suhiltzailea: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🚒">3. mota | suhiltzaile | suhiltzaile-kamioi</annotation>
+		<annotation cp="🧑🏼‍🚒">3. mota | suhiltzaile | suhiltzaile-kamioi | suhiltzailea</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">suhiltzailea: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🚒">bitarteko azal-tonua | suhiltzaile | suhiltzaile-kamioi</annotation>
+		<annotation cp="🧑🏽‍🚒">bitarteko azal-tonua | suhiltzaile | suhiltzaile-kamioi | suhiltzailea</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">suhiltzailea: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🚒">5. mota | suhiltzaile | suhiltzaile-kamioi</annotation>
+		<annotation cp="🧑🏾‍🚒">5. mota | suhiltzaile | suhiltzaile-kamioi | suhiltzailea</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">suhiltzailea: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🚒">6. mota | suhiltzaile | suhiltzaile-kamioi</annotation>
+		<annotation cp="🧑🏿‍🚒">6. mota | suhiltzaile | suhiltzaile-kamioi | suhiltzailea</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">suhiltzailea: 6. mota</annotation>
 		<annotation cp="👨🏻‍🚒">1–2. mota | gizon | gizon suhiltzailea | gizonezko | suhiltzaile | suhiltzaile-kamioi</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">gizon suhiltzailea: 1–2. mota</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">buruan zapi bat daraman emakumea: 5. mota</annotation>
 		<annotation cp="🧕🏿">6. mota | buruan zapi bat daraman emakumea | hijab | mantilla | tichel | zapi</annotation>
 		<annotation cp="🧕🏿" type="tts">buruan zapi bat daraman emakumea: 6. mota</annotation>
-		<annotation cp="🤵🏻">1–2. mota | esmokin | gizon | gizona esmokinean | senargai</annotation>
-		<annotation cp="🤵🏻" type="tts">gizona esmokinean: 1–2. mota</annotation>
-		<annotation cp="🤵🏼">3. mota | esmokin | gizon | gizona esmokinean | senargai</annotation>
-		<annotation cp="🤵🏼" type="tts">gizona esmokinean: 3. mota</annotation>
-		<annotation cp="🤵🏽">bitarteko azal-tonua | esmokin | gizon | gizona esmokinean | senargai</annotation>
-		<annotation cp="🤵🏽" type="tts">gizona esmokinean: bitarteko azal-tonua</annotation>
-		<annotation cp="🤵🏾">5. mota | esmokin | gizon | gizona esmokinean | senargai</annotation>
-		<annotation cp="🤵🏾" type="tts">gizona esmokinean: 5. mota</annotation>
-		<annotation cp="🤵🏿">6. mota | esmokin | gizon | gizona esmokinean | senargai</annotation>
-		<annotation cp="🤵🏿" type="tts">gizona esmokinean: 6. mota</annotation>
-		<annotation cp="👰🏻">1–2. mota | belo | beloa daraman emaztegaia | emaztegai | ezkontza</annotation>
-		<annotation cp="👰🏻" type="tts">beloa daraman emaztegaia: 1–2. mota</annotation>
-		<annotation cp="👰🏼">3. mota | belo | beloa daraman emaztegaia | emaztegai | ezkontza</annotation>
-		<annotation cp="👰🏼" type="tts">beloa daraman emaztegaia: 3. mota</annotation>
-		<annotation cp="👰🏽">belo | beloa daraman emaztegaia | bitarteko azal-tonua | emaztegai | ezkontza</annotation>
-		<annotation cp="👰🏽" type="tts">beloa daraman emaztegaia: bitarteko azal-tonua</annotation>
-		<annotation cp="👰🏾">5. mota | belo | beloa daraman emaztegaia | emaztegai | ezkontza</annotation>
-		<annotation cp="👰🏾" type="tts">beloa daraman emaztegaia: 5. mota</annotation>
-		<annotation cp="👰🏿">6. mota | belo | beloa daraman emaztegaia | emaztegai | ezkontza</annotation>
-		<annotation cp="👰🏿" type="tts">beloa daraman emaztegaia: 6. mota</annotation>
+		<annotation cp="🤵🏻">1–2. mota | esmokin | pertsona | pertsona esmokinean | senargai</annotation>
+		<annotation cp="🤵🏻" type="tts">pertsona esmokinean: 1–2. mota</annotation>
+		<annotation cp="🤵🏼">3. mota | esmokin | pertsona | pertsona esmokinean | senargai</annotation>
+		<annotation cp="🤵🏼" type="tts">pertsona esmokinean: 3. mota</annotation>
+		<annotation cp="🤵🏽">bitarteko azal-tonua | esmokin | pertsona | pertsona esmokinean | senargai</annotation>
+		<annotation cp="🤵🏽" type="tts">pertsona esmokinean: bitarteko azal-tonua</annotation>
+		<annotation cp="🤵🏾">5. mota | esmokin | pertsona | pertsona esmokinean | senargai</annotation>
+		<annotation cp="🤵🏾" type="tts">pertsona esmokinean: 5. mota</annotation>
+		<annotation cp="🤵🏿">6. mota | esmokin | pertsona | pertsona esmokinean | senargai</annotation>
+		<annotation cp="🤵🏿" type="tts">pertsona esmokinean: 6. mota</annotation>
+		<annotation cp="🤵🏻‍♀">1–2. mota | emakume | emakumea esmokinean | esmokin</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">emakumea esmokinean: 1–2. mota</annotation>
+		<annotation cp="🤵🏼‍♀">3. mota | emakume | emakumea esmokinean | esmokin</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">emakumea esmokinean: 3. mota</annotation>
+		<annotation cp="🤵🏽‍♀">bitarteko azal-tonua | emakume | emakumea esmokinean | esmokin</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">emakumea esmokinean: bitarteko azal-tonua</annotation>
+		<annotation cp="🤵🏾‍♀">5. mota | emakume | emakumea esmokinean | esmokin</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">emakumea esmokinean: 5. mota</annotation>
+		<annotation cp="🤵🏿‍♀">6. mota | emakume | emakumea esmokinean | esmokin</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">emakumea esmokinean: 6. mota</annotation>
+		<annotation cp="🤵🏻‍♂">1–2. mota | esmokin | gizon | gizona esmokinean</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">gizona esmokinean: 1–2. mota</annotation>
+		<annotation cp="🤵🏼‍♂">3. mota | esmokin | gizon | gizona esmokinean</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">gizona esmokinean: 3. mota</annotation>
+		<annotation cp="🤵🏽‍♂">bitarteko azal-tonua | esmokin | gizon | gizona esmokinean</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">gizona esmokinean: bitarteko azal-tonua</annotation>
+		<annotation cp="🤵🏾‍♂">5. mota | esmokin | gizon | gizona esmokinean</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">gizona esmokinean: 5. mota</annotation>
+		<annotation cp="🤵🏿‍♂">6. mota | esmokin | gizon | gizona esmokinean</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">gizona esmokinean: 6. mota</annotation>
+		<annotation cp="👰🏻">1–2. mota | belo | beloa daraman pertsona | emaztegai | ezkontza</annotation>
+		<annotation cp="👰🏻" type="tts">beloa daraman pertsona: 1–2. mota</annotation>
+		<annotation cp="👰🏼">3. mota | belo | beloa daraman pertsona | emaztegai | ezkontza</annotation>
+		<annotation cp="👰🏼" type="tts">beloa daraman pertsona: 3. mota</annotation>
+		<annotation cp="👰🏽">belo | beloa daraman pertsona | bitarteko azal-tonua | emaztegai | ezkontza</annotation>
+		<annotation cp="👰🏽" type="tts">beloa daraman pertsona: bitarteko azal-tonua</annotation>
+		<annotation cp="👰🏾">5. mota | belo | beloa daraman pertsona | emaztegai | ezkontza</annotation>
+		<annotation cp="👰🏾" type="tts">beloa daraman pertsona: 5. mota</annotation>
+		<annotation cp="👰🏿">6. mota | belo | beloa daraman pertsona | emaztegai | ezkontza</annotation>
+		<annotation cp="👰🏿" type="tts">beloa daraman pertsona: 6. mota</annotation>
+		<annotation cp="👰🏻‍♀">1–2. mota | beloa | beloa daraman emakumea | emakumea</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">beloa daraman emakumea: 1–2. mota</annotation>
+		<annotation cp="👰🏼‍♀">3. mota | beloa | beloa daraman emakumea | emakumea</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">beloa daraman emakumea: 3. mota</annotation>
+		<annotation cp="👰🏽‍♀">beloa | beloa daraman emakumea | bitarteko azal-tonua | emakumea</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">beloa daraman emakumea: bitarteko azal-tonua</annotation>
+		<annotation cp="👰🏾‍♀">5. mota | beloa | beloa daraman emakumea | emakumea</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">beloa daraman emakumea: 5. mota</annotation>
+		<annotation cp="👰🏿‍♀">6. mota | beloa | beloa daraman emakumea | emakumea</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">beloa daraman emakumea: 6. mota</annotation>
+		<annotation cp="👰🏻‍♂">1–2. mota | beloa | beloa daraman gizona | gizona</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">beloa daraman gizona: 1–2. mota</annotation>
+		<annotation cp="👰🏼‍♂">3. mota | beloa | beloa daraman gizona | gizona</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">beloa daraman gizona: 3. mota</annotation>
+		<annotation cp="👰🏽‍♂">beloa | beloa daraman gizona | bitarteko azal-tonua | gizona</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">beloa daraman gizona: bitarteko azal-tonua</annotation>
+		<annotation cp="👰🏾‍♂">5. mota | beloa | beloa daraman gizona | gizona</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">beloa daraman gizona: 5. mota</annotation>
+		<annotation cp="👰🏿‍♂">6. mota | beloa | beloa daraman gizona | gizona</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">beloa daraman gizona: 6. mota</annotation>
 		<annotation cp="🤰🏻">1–2. mota | emakume | emakumea haurdun | haurdun</annotation>
 		<annotation cp="🤰🏻" type="tts">emakumea haurdun: 1–2. mota</annotation>
 		<annotation cp="🤰🏼">3. mota | emakume | emakumea haurdun | haurdun</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">belauniko dagoen emakumea: 5. mota</annotation>
 		<annotation cp="🧎🏿‍♀">6. mota | belauniko | belauniko dagoen emakumea | emakume | emakumezko</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">belauniko dagoen emakumea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🦯">1–2. mota | irisgarritasuna | itsua</annotation>
+		<annotation cp="🧑🏻‍🦯">1–2. mota | irisgarritasuna | itsu-makila daraman pertsona | itsua</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">itsu-makila daraman pertsona: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🦯">3. mota | irisgarritasuna | itsua</annotation>
+		<annotation cp="🧑🏼‍🦯">3. mota | irisgarritasuna | itsu-makila daraman pertsona | itsua</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">itsu-makila daraman pertsona: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🦯">bitarteko azal-tonua | irisgarritasuna | itsua</annotation>
+		<annotation cp="🧑🏽‍🦯">bitarteko azal-tonua | irisgarritasuna | itsu-makila daraman pertsona | itsua</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">itsu-makila daraman pertsona: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🦯">5. mota | irisgarritasuna | itsua</annotation>
+		<annotation cp="🧑🏾‍🦯">5. mota | irisgarritasuna | itsu-makila daraman pertsona | itsua</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">itsu-makila daraman pertsona: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🦯">6. mota | irisgarritasuna | itsua</annotation>
+		<annotation cp="🧑🏿‍🦯">6. mota | irisgarritasuna | itsu-makila daraman pertsona | itsua</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">itsu-makila daraman pertsona: 6. mota</annotation>
 		<annotation cp="👨🏻‍🦯">1–2. mota | gizon | gizonezko | irisgarritasun | itsu | itsu-makila daraman gizona</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">itsu-makila daraman gizona: 1–2. mota</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">itsu-makila daraman emakumea: 5. mota</annotation>
 		<annotation cp="👩🏿‍🦯">6. mota | emakume | emakumezko | irisgarritasun | itsu | itsu-makila daraman emakumea</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">itsu-makila daraman emakumea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🦼">1–2. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏻‍🦼">1–2. mota | gurpil-aulki motordunean doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">gurpil-aulki motordunean doan pertsona: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🦼">3. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏼‍🦼">3. mota | gurpil-aulki motordunean doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">gurpil-aulki motordunean doan pertsona: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🦼">bitarteko azal-tonua | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏽‍🦼">bitarteko azal-tonua | gurpil-aulki motordunean doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">gurpil-aulki motordunean doan pertsona: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🦼">5. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏾‍🦼">5. mota | gurpil-aulki motordunean doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">gurpil-aulki motordunean doan pertsona: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🦼">6. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏿‍🦼">6. mota | gurpil-aulki motordunean doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">gurpil-aulki motordunean doan pertsona: 6. mota</annotation>
 		<annotation cp="👨🏻‍🦼">1–2. mota | gizon | gizonezko | gurpil-aulki | gurpil-aulki motordunean doan gizona | irisgarritasun</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">gurpil-aulki motordunean doan gizona: 1–2. mota</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 5. mota</annotation>
 		<annotation cp="👩🏿‍🦼">6. mota | emakume | emakumezko | gurpil-aulki | gurpil-aulki motordunean doan emakumea | irisgarritasun</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">gurpil-aulki motordunean doan emakumea: 6. mota</annotation>
-		<annotation cp="🧑🏻‍🦽">1–2. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏻‍🦽">1–2. mota | eskuzko gurpil-aulkian doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">eskuzko gurpil-aulkian doan pertsona: 1–2. mota</annotation>
-		<annotation cp="🧑🏼‍🦽">3. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏼‍🦽">3. mota | eskuzko gurpil-aulkian doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">eskuzko gurpil-aulkian doan pertsona: 3. mota</annotation>
-		<annotation cp="🧑🏽‍🦽">bitarteko azal-tonua | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏽‍🦽">bitarteko azal-tonua | eskuzko gurpil-aulkian doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">eskuzko gurpil-aulkian doan pertsona: bitarteko azal-tonua</annotation>
-		<annotation cp="🧑🏾‍🦽">5. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏾‍🦽">5. mota | eskuzko gurpil-aulkian doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">eskuzko gurpil-aulkian doan pertsona: 5. mota</annotation>
-		<annotation cp="🧑🏿‍🦽">6. mota | gurpil-aulkia | irisgarritasuna</annotation>
+		<annotation cp="🧑🏿‍🦽">6. mota | eskuzko gurpil-aulkian doan pertsona | gurpil-aulkia | irisgarritasuna</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">eskuzko gurpil-aulkian doan pertsona: 6. mota</annotation>
 		<annotation cp="👨🏻‍🦽">1–2. mota | eskuzko gurpil-aulkian doan gizona | gizon | gizonezko | gurpil-aulki | irisgarritasun</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">eskuzko gurpil-aulkian doan gizona: 1–2. mota</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">pertsona bat ohean: 6. mota</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">1–2. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">bi pertsona elkarri eskua ematen: 1–2. mota</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">1–2. mota | 3. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">bi pertsona elkarri eskua ematen: 1–2. mota eta 3. mota</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">1–2. mota | bi pertsona elkarri eskua ematen | bikotea | bitarteko azal-tonua | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">bi pertsona elkarri eskua ematen: 1–2. mota eta bitarteko azal-tonua</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">1–2. mota | 5. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">bi pertsona elkarri eskua ematen: 1–2. mota eta 5. mota</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">1–2. mota | 6. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">bi pertsona elkarri eskua ematen: 1–2. mota eta 6. mota</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">1–2. mota | 3. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">bi pertsona elkarri eskua ematen: 3. mota eta 1–2. mota</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">3. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">bi pertsona elkarri eskua ematen: 3. mota</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">3. mota | bi pertsona elkarri eskua ematen | bikotea | bitarteko azal-tonua | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">bi pertsona elkarri eskua ematen: 3. mota eta bitarteko azal-tonua</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">3. mota | 5. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">bi pertsona elkarri eskua ematen: 3. mota eta 5. mota</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">3. mota | 6. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">bi pertsona elkarri eskua ematen: 3. mota eta 6. mota</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">1–2. mota | bi pertsona elkarri eskua ematen | bikotea | bitarteko azal-tonua | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">bi pertsona elkarri eskua ematen: bitarteko azal-tonua eta 1–2. mota</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">3. mota | bi pertsona elkarri eskua ematen | bikotea | bitarteko azal-tonua | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">bi pertsona elkarri eskua ematen: bitarteko azal-tonua eta 3. mota</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">bi pertsona elkarri eskua ematen | bikotea | bitarteko azal-tonua | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">bi pertsona elkarri eskua ematen: bitarteko azal-tonua</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">5. mota | bi pertsona elkarri eskua ematen | bikotea | bitarteko azal-tonua | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">bi pertsona elkarri eskua ematen: bitarteko azal-tonua eta 5. mota</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">6. mota | bi pertsona elkarri eskua ematen | bikotea | bitarteko azal-tonua | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">bi pertsona elkarri eskua ematen: bitarteko azal-tonua eta 6. mota</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">1–2. mota | 5. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">bi pertsona elkarri eskua ematen: 5. mota eta 1–2. mota</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">3. mota | 5. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">bi pertsona elkarri eskua ematen: 5. mota eta bitarteko azal-tonua</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">5. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">bi pertsona elkarri eskua ematen: 5. mota</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">5. mota | 6. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">bi pertsona elkarri eskua ematen: 5. mota eta 6. mota</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">1–2. mota | 6. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">bi pertsona elkarri eskua ematen: 6. mota eta 1–2. mota</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">3. mota | 6. mota | bi pertsona elkarri eskua ematen | bikotea | elkarri eskua ematen | eman | eskua | pertsona</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">bi pertsona elkarri eskua ematen: 6. mota</annotation>
 		<annotation cp="👭🏻">1–2. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
 		<annotation cp="👭🏻" type="tts">bi emakume elkarri eskua ematen: 1–2. mota</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">1–2. mota | 3. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">bi emakume elkarri eskua ematen: 1–2. mota eta 3. mota</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">1–2. mota | bi emakume elkarri eskua ematen | bikotea | bitarteko azal-tonua | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">bi emakume elkarri eskua ematen: 1–2. mota eta bitarteko azal-tonua</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">1–2. mota | 5. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">bi emakume elkarri eskua ematen: 1–2. mota eta 5. mota</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">1–2. mota | 6. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">bi emakume elkarri eskua ematen: 1–2. mota eta 6. mota</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">1–2. mota | 3. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">bi emakume elkarri eskua ematen: 3. mota eta 1–2. mota</annotation>
 		<annotation cp="👭🏼">3. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
 		<annotation cp="👭🏼" type="tts">bi emakume elkarri eskua ematen: 3. mota</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">3. mota | bi emakume elkarri eskua ematen | bikotea | bitarteko azal-tonua | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">bi emakume elkarri eskua ematen: 3. mota eta bitarteko azal-tonua</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">3. mota | 5. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">bi emakume elkarri eskua ematen: 3. mota eta 5. mota</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">3. mota | 6. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">bi emakume elkarri eskua ematen: 3. mota eta 6. mota</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">1–2. mota | bi emakume elkarri eskua ematen | bikotea | bitarteko azal-tonua | emakume | eman | eskua</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">bi emakume elkarri eskua ematen: bitarteko azal-tonua eta 1–2. mota</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">3. mota | bi emakume elkarri eskua ematen | bikotea | bitarteko azal-tonua | emakume | eman | eskua</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">bi emakume elkarri eskua ematen: bitarteko azal-tonua eta 3. mota</annotation>
 		<annotation cp="👭🏽">bi emakume elkarri eskua ematen | bikotea | bitarteko azal-tonua | emakume | eman | eskua</annotation>
 		<annotation cp="👭🏽" type="tts">bi emakume elkarri eskua ematen: bitarteko azal-tonua</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">5. mota | bi emakume elkarri eskua ematen | bikotea | bitarteko azal-tonua | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">bi emakume elkarri eskua ematen: bitarteko azal-tonua eta 5. mota</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">6. mota | bi emakume elkarri eskua ematen | bikotea | bitarteko azal-tonua | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">bi emakume elkarri eskua ematen: bitarteko azal-tonua eta 6. mota</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">1–2. mota | 5. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">bi emakume elkarri eskua ematen: 5. mota eta 1–2. mota</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">3. mota | 5. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">bi emakume elkarri eskua ematen: 5. mota eta bitarteko azal-tonua</annotation>
 		<annotation cp="👭🏾">5. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
 		<annotation cp="👭🏾" type="tts">bi emakume elkarri eskua ematen: 5. mota</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">5. mota | 6. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">bi emakume elkarri eskua ematen: 5. mota eta 6. mota</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">1–2. mota | 6. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">bi emakume elkarri eskua ematen: 6. mota eta 1–2. mota</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">3. mota | 6. mota | bi emakume elkarri eskua ematen | bikotea | emakume | eman | eskua</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">gizon-emakumeak elkarri eskua ematen: 6. mota</annotation>
 		<annotation cp="👬🏻">1–2. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👬🏻" type="tts">bi gizon elkarri eskua ematen: 1–2. mota</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">1–2. mota | 3. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">bi gizon elkarri eskua ematen: 1–2. mota eta 3. mota</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">1–2. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">bi gizon elkarri eskua ematen: 1–2. mota eta bitarteko azal-tonua</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">1–2. mota | 5. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">bi gizon elkarri eskua ematen: 1–2. mota eta 5. mota</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">1–2. mota | 6. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">bi gizon elkarri eskua ematen: 1–2. mota eta 6. mota</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">1–2. mota | 3. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">bi gizon elkarri eskua ematen: 3. mota eta 1–2. mota</annotation>
 		<annotation cp="👬🏼">3. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👬🏼" type="tts">bi gizon elkarri eskua ematen: 3. mota</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">3. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">bi gizon elkarri eskua ematen: 3. mota eta bitarteko azal-tonua</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">3. mota | 5. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">bi gizon elkarri eskua ematen: 3. mota eta 5. mota</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">3. mota | 6. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">bi gizon elkarri eskua ematen: 3. mota eta 6. mota</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">1–2. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">bi gizon elkarri eskua ematen: bitarteko azal-tonua eta 1–2. mota</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">3. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">bi gizon elkarri eskua ematen: bitarteko azal-tonua eta 3. mota</annotation>
 		<annotation cp="👬🏽">bi gizon elkarri eskua ematen | bikiak | bikotea | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👬🏽" type="tts">bi gizon elkarri eskua ematen: bitarteko azal-tonua</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">5. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">bi gizon elkarri eskua ematen: bitarteko azal-tonua eta 5. mota</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">6. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | bitarteko azal-tonua | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">bi gizon elkarri eskua ematen: bitarteko azal-tonua eta 6. mota</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">1–2. mota | 5. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">bi gizon elkarri eskua ematen: 5. mota eta 1–2. mota</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">3. mota | 5. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">bi gizon elkarri eskua ematen: 5. mota eta bitarteko azal-tonua</annotation>
 		<annotation cp="👬🏾">5. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👬🏾" type="tts">bi gizon elkarri eskua ematen: 5. mota</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">5. mota | 6. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">bi gizon elkarri eskua ematen: 5. mota eta 6. mota</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">1–2. mota | 6. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">bi gizon elkarri eskua ematen: 6. mota eta 1–2. mota</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">3. mota | 6. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
@@ -2856,11 +3006,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">bi gizon elkarri eskua ematen: 6. mota eta 5. mota</annotation>
 		<annotation cp="👬🏿">6. mota | bi gizon elkarri eskua ematen | bikiak | bikotea | elkarri eskua ematen | gemini | gizona | zodiakoa</annotation>
 		<annotation cp="👬🏿" type="tts">bi gizon elkarri eskua ematen: 6. mota</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">bikotea | emakumea | gizona | musua</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">bikotea | emakumea | gizona | musu | musua</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">musu: emakumea eta gizona</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">bikotea | gizona | musua</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">bikotea | gizona | musu | musua</annotation>
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">musu: gizona eta gizona</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">bikotea | emakumea | musua</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">bikotea | emakumea | musu | musua</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">musu: emakumea eta emakumea</annotation>
 		<annotation cp="👩‍❤‍👨">bihotza | bihotza erdian duen bikotea | bikotea | emakumea | gizona | maitasuna</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">bihotza erdian duen bikotea: emakumea eta gizona</annotation>

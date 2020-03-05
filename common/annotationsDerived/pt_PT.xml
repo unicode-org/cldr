@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -14,6 +14,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="PT"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | sarcástico | tipo de pele 1–2</annotation>
+		<annotation cp="🤌🏻" type="tts">dedos comprimidos: tipo de pele 1–2</annotation>
+		<annotation cp="🤌🏼">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | sarcástico | tipo de pele 3</annotation>
+		<annotation cp="🤌🏼" type="tts">dedos comprimidos: tipo de pele 3</annotation>
+		<annotation cp="🤌🏽">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | sarcástico | tipo de pele 4</annotation>
+		<annotation cp="🤌🏽" type="tts">dedos comprimidos: tipo de pele 4</annotation>
+		<annotation cp="🤌🏾">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | sarcástico | tipo de pele 5</annotation>
+		<annotation cp="🤌🏾" type="tts">dedos comprimidos: tipo de pele 5</annotation>
+		<annotation cp="🤌🏿">beliscado | dedos | dedos comprimidos | gesto de mão | interrogação | sarcástico | tipo de pele 6</annotation>
+		<annotation cp="🤌🏿" type="tts">dedos comprimidos: tipo de pele 6</annotation>
 		<annotation cp="👋🏻">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 1–2</annotation>
 		<annotation cp="👋🏻" type="tts">mão a acenar: tipo de pele 1–2</annotation>
 		<annotation cp="👋🏼">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 3</annotation>
@@ -274,15 +284,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙌🏾" type="tts">mãos no ar: tipo de pele 5</annotation>
 		<annotation cp="🙌🏿">celebração | corpo | gesto | mão | mãos levantadas | mãos no ar | tipo de pele 6 | viva</annotation>
 		<annotation cp="🙌🏿" type="tts">mãos no ar: tipo de pele 6</annotation>
-		<annotation cp="👐🏻">aberta | corpo | mão | tipo de pele 1–2</annotation>
+		<annotation cp="👐🏻">aberta | corpo | mão | mãos abertas | tipo de pele 1–2</annotation>
 		<annotation cp="👐🏻" type="tts">mãos abertas: tipo de pele 1–2</annotation>
-		<annotation cp="👐🏼">aberta | corpo | mão | tipo de pele 3</annotation>
+		<annotation cp="👐🏼">aberta | corpo | mão | mãos abertas | tipo de pele 3</annotation>
 		<annotation cp="👐🏼" type="tts">mãos abertas: tipo de pele 3</annotation>
-		<annotation cp="👐🏽">aberta | corpo | mão | tipo de pele 4</annotation>
+		<annotation cp="👐🏽">aberta | corpo | mão | mãos abertas | tipo de pele 4</annotation>
 		<annotation cp="👐🏽" type="tts">mãos abertas: tipo de pele 4</annotation>
-		<annotation cp="👐🏾">aberta | corpo | mão | tipo de pele 5</annotation>
+		<annotation cp="👐🏾">aberta | corpo | mão | mãos abertas | tipo de pele 5</annotation>
 		<annotation cp="👐🏾" type="tts">mãos abertas: tipo de pele 5</annotation>
-		<annotation cp="👐🏿">aberta | corpo | mão | tipo de pele 6</annotation>
+		<annotation cp="👐🏿">aberta | corpo | mão | mãos abertas | tipo de pele 6</annotation>
 		<annotation cp="👐🏿" type="tts">mãos abertas: tipo de pele 6</annotation>
 		<annotation cp="🤲🏻">mãos abertas | mãos estendidas | palmas abertas | palmas juntas abertas | palmas juntas para cima | prece | tipo de pele 1–2</annotation>
 		<annotation cp="🤲🏻" type="tts">palmas juntas abertas: tipo de pele 1–2</annotation>
@@ -294,15 +304,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤲🏾" type="tts">palmas juntas abertas: tipo de pele 5</annotation>
 		<annotation cp="🤲🏿">mãos abertas | mãos estendidas | palmas abertas | palmas juntas abertas | palmas juntas para cima | prece | tipo de pele 6</annotation>
 		<annotation cp="🤲🏿" type="tts">palmas juntas abertas: tipo de pele 6</annotation>
-		<annotation cp="🙏🏻">agradecimento | corpo | gesto | juntas | mão | pedido | por favor | reverência | rezar | tipo de pele 1–2</annotation>
+		<annotation cp="🙏🏻">agradecimento | corpo | gesto | juntas | mão | mãos juntas | pedido | por favor | reverência | rezar | tipo de pele 1–2</annotation>
 		<annotation cp="🙏🏻" type="tts">mãos juntas: tipo de pele 1–2</annotation>
-		<annotation cp="🙏🏼">agradecimento | corpo | gesto | juntas | mão | pedido | por favor | reverência | rezar | tipo de pele 3</annotation>
+		<annotation cp="🙏🏼">agradecimento | corpo | gesto | juntas | mão | mãos juntas | pedido | por favor | reverência | rezar | tipo de pele 3</annotation>
 		<annotation cp="🙏🏼" type="tts">mãos juntas: tipo de pele 3</annotation>
-		<annotation cp="🙏🏽">agradecimento | corpo | gesto | juntas | mão | pedido | por favor | reverência | rezar | tipo de pele 4</annotation>
+		<annotation cp="🙏🏽">agradecimento | corpo | gesto | juntas | mão | mãos juntas | pedido | por favor | reverência | rezar | tipo de pele 4</annotation>
 		<annotation cp="🙏🏽" type="tts">mãos juntas: tipo de pele 4</annotation>
-		<annotation cp="🙏🏾">agradecimento | corpo | gesto | juntas | mão | pedido | por favor | reverência | rezar | tipo de pele 5</annotation>
+		<annotation cp="🙏🏾">agradecimento | corpo | gesto | juntas | mão | mãos juntas | pedido | por favor | reverência | rezar | tipo de pele 5</annotation>
 		<annotation cp="🙏🏾" type="tts">mãos juntas: tipo de pele 5</annotation>
-		<annotation cp="🙏🏿">agradecimento | corpo | gesto | juntas | mão | pedido | por favor | reverência | rezar | tipo de pele 6</annotation>
+		<annotation cp="🙏🏿">agradecimento | corpo | gesto | juntas | mão | mãos juntas | pedido | por favor | reverência | rezar | tipo de pele 6</annotation>
 		<annotation cp="🙏🏿" type="tts">mãos juntas: tipo de pele 6</annotation>
 		<annotation cp="✍🏻">corpo | escrever | mão | mão a escrever | tipo de pele 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">mão a escrever: tipo de pele 1–2</annotation>
@@ -314,15 +324,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="✍🏾" type="tts">mão a escrever: tipo de pele 5</annotation>
 		<annotation cp="✍🏿">corpo | escrever | mão | mão a escrever | tipo de pele 6</annotation>
 		<annotation cp="✍🏿" type="tts">mão a escrever: tipo de pele 6</annotation>
-		<annotation cp="💅🏻">cosméticos | manicura | tipo de pele 1–2 | unha | verniz</annotation>
+		<annotation cp="💅🏻">cosméticos | manicura | tipo de pele 1–2 | unha | verniz | verniz para as unhas</annotation>
 		<annotation cp="💅🏻" type="tts">verniz para as unhas: tipo de pele 1–2</annotation>
-		<annotation cp="💅🏼">cosméticos | manicura | tipo de pele 3 | unha | verniz</annotation>
+		<annotation cp="💅🏼">cosméticos | manicura | tipo de pele 3 | unha | verniz | verniz para as unhas</annotation>
 		<annotation cp="💅🏼" type="tts">verniz para as unhas: tipo de pele 3</annotation>
-		<annotation cp="💅🏽">cosméticos | manicura | tipo de pele 4 | unha | verniz</annotation>
+		<annotation cp="💅🏽">cosméticos | manicura | tipo de pele 4 | unha | verniz | verniz para as unhas</annotation>
 		<annotation cp="💅🏽" type="tts">verniz para as unhas: tipo de pele 4</annotation>
-		<annotation cp="💅🏾">cosméticos | manicura | tipo de pele 5 | unha | verniz</annotation>
+		<annotation cp="💅🏾">cosméticos | manicura | tipo de pele 5 | unha | verniz | verniz para as unhas</annotation>
 		<annotation cp="💅🏾" type="tts">verniz para as unhas: tipo de pele 5</annotation>
-		<annotation cp="💅🏿">cosméticos | manicura | tipo de pele 6 | unha | verniz</annotation>
+		<annotation cp="💅🏿">cosméticos | manicura | tipo de pele 6 | unha | verniz | verniz para as unhas</annotation>
 		<annotation cp="💅🏿" type="tts">verniz para as unhas: tipo de pele 6</annotation>
 		<annotation cp="🤳🏻">câmara | selfie | telemóvel | tipo de pele 1–2</annotation>
 		<annotation cp="🤳🏻" type="tts">selfie: tipo de pele 1–2</annotation>
@@ -344,25 +354,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💪🏾" type="tts">bíceps fletido: tipo de pele 5</annotation>
 		<annotation cp="💪🏿">bíceps | bíceps fletido | corpo | desenho | flexão | músculo | tipo de pele 6</annotation>
 		<annotation cp="💪🏿" type="tts">bíceps fletido: tipo de pele 6</annotation>
-		<annotation cp="🦵🏻">extremidade | pontapé | tipo de pele 1–2</annotation>
+		<annotation cp="🦵🏻">extremidade | perna | pontapé | tipo de pele 1–2</annotation>
 		<annotation cp="🦵🏻" type="tts">perna: tipo de pele 1–2</annotation>
-		<annotation cp="🦵🏼">extremidade | pontapé | tipo de pele 3</annotation>
+		<annotation cp="🦵🏼">extremidade | perna | pontapé | tipo de pele 3</annotation>
 		<annotation cp="🦵🏼" type="tts">perna: tipo de pele 3</annotation>
-		<annotation cp="🦵🏽">extremidade | pontapé | tipo de pele 4</annotation>
+		<annotation cp="🦵🏽">extremidade | perna | pontapé | tipo de pele 4</annotation>
 		<annotation cp="🦵🏽" type="tts">perna: tipo de pele 4</annotation>
-		<annotation cp="🦵🏾">extremidade | pontapé | tipo de pele 5</annotation>
+		<annotation cp="🦵🏾">extremidade | perna | pontapé | tipo de pele 5</annotation>
 		<annotation cp="🦵🏾" type="tts">perna: tipo de pele 5</annotation>
-		<annotation cp="🦵🏿">extremidade | pontapé | tipo de pele 6</annotation>
+		<annotation cp="🦵🏿">extremidade | perna | pontapé | tipo de pele 6</annotation>
 		<annotation cp="🦵🏿" type="tts">perna: tipo de pele 6</annotation>
-		<annotation cp="🦶🏻">pisar | pontapé | tipo de pele 1–2</annotation>
+		<annotation cp="🦶🏻">pé | pisar | pontapé | tipo de pele 1–2</annotation>
 		<annotation cp="🦶🏻" type="tts">pé: tipo de pele 1–2</annotation>
-		<annotation cp="🦶🏼">pisar | pontapé | tipo de pele 3</annotation>
+		<annotation cp="🦶🏼">pé | pisar | pontapé | tipo de pele 3</annotation>
 		<annotation cp="🦶🏼" type="tts">pé: tipo de pele 3</annotation>
-		<annotation cp="🦶🏽">pisar | pontapé | tipo de pele 4</annotation>
+		<annotation cp="🦶🏽">pé | pisar | pontapé | tipo de pele 4</annotation>
 		<annotation cp="🦶🏽" type="tts">pé: tipo de pele 4</annotation>
-		<annotation cp="🦶🏾">pisar | pontapé | tipo de pele 5</annotation>
+		<annotation cp="🦶🏾">pé | pisar | pontapé | tipo de pele 5</annotation>
 		<annotation cp="🦶🏾" type="tts">pé: tipo de pele 5</annotation>
-		<annotation cp="🦶🏿">pisar | pontapé | tipo de pele 6</annotation>
+		<annotation cp="🦶🏿">pé | pisar | pontapé | tipo de pele 6</annotation>
 		<annotation cp="🦶🏿" type="tts">pé: tipo de pele 6</annotation>
 		<annotation cp="👂🏻">corpo | orelha | tipo de pele 1–2</annotation>
 		<annotation cp="👂🏻" type="tts">orelha: tipo de pele 1–2</annotation>
@@ -374,25 +384,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏾" type="tts">orelha: tipo de pele 5</annotation>
 		<annotation cp="👂🏿">corpo | orelha | tipo de pele 6</annotation>
 		<annotation cp="👂🏿" type="tts">orelha: tipo de pele 6</annotation>
-		<annotation cp="🦻🏻">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | tipo de pele 1–2</annotation>
+		<annotation cp="🦻🏻">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | ouvido com aparelho auditivo | tipo de pele 1–2</annotation>
 		<annotation cp="🦻🏻" type="tts">ouvido com aparelho auditivo: tipo de pele 1–2</annotation>
-		<annotation cp="🦻🏼">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | tipo de pele 3</annotation>
+		<annotation cp="🦻🏼">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | ouvido com aparelho auditivo | tipo de pele 3</annotation>
 		<annotation cp="🦻🏼" type="tts">ouvido com aparelho auditivo: tipo de pele 3</annotation>
-		<annotation cp="🦻🏽">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | tipo de pele 4</annotation>
+		<annotation cp="🦻🏽">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | ouvido com aparelho auditivo | tipo de pele 4</annotation>
 		<annotation cp="🦻🏽" type="tts">ouvido com aparelho auditivo: tipo de pele 4</annotation>
-		<annotation cp="🦻🏾">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | tipo de pele 5</annotation>
+		<annotation cp="🦻🏾">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | ouvido com aparelho auditivo | tipo de pele 5</annotation>
 		<annotation cp="🦻🏾" type="tts">ouvido com aparelho auditivo: tipo de pele 5</annotation>
-		<annotation cp="🦻🏿">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | tipo de pele 6</annotation>
+		<annotation cp="🦻🏿">acessibilidade | deficiência auditiva | orelha com aparelho auditivo | ouvido com aparelho auditivo | tipo de pele 6</annotation>
 		<annotation cp="🦻🏿" type="tts">ouvido com aparelho auditivo: tipo de pele 6</annotation>
-		<annotation cp="👃🏻">corpo | tipo de pele 1–2</annotation>
+		<annotation cp="👃🏻">corpo | nariz | tipo de pele 1–2</annotation>
 		<annotation cp="👃🏻" type="tts">nariz: tipo de pele 1–2</annotation>
-		<annotation cp="👃🏼">corpo | tipo de pele 3</annotation>
+		<annotation cp="👃🏼">corpo | nariz | tipo de pele 3</annotation>
 		<annotation cp="👃🏼" type="tts">nariz: tipo de pele 3</annotation>
-		<annotation cp="👃🏽">corpo | tipo de pele 4</annotation>
+		<annotation cp="👃🏽">corpo | nariz | tipo de pele 4</annotation>
 		<annotation cp="👃🏽" type="tts">nariz: tipo de pele 4</annotation>
-		<annotation cp="👃🏾">corpo | tipo de pele 5</annotation>
+		<annotation cp="👃🏾">corpo | nariz | tipo de pele 5</annotation>
 		<annotation cp="👃🏾" type="tts">nariz: tipo de pele 5</annotation>
-		<annotation cp="👃🏿">corpo | tipo de pele 6</annotation>
+		<annotation cp="👃🏿">corpo | nariz | tipo de pele 6</annotation>
 		<annotation cp="👃🏿" type="tts">nariz: tipo de pele 6</annotation>
 		<annotation cp="👶🏻">bebé | criança | pessoa | tipo de pele 1–2</annotation>
 		<annotation cp="👶🏻" type="tts">bebé: tipo de pele 1–2</annotation>
@@ -444,15 +454,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾" type="tts">pessoa: tipo de pele 5</annotation>
 		<annotation cp="🧑🏿">adulta | adulto | género neutro | pessoa | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿" type="tts">pessoa: tipo de pele 6</annotation>
-		<annotation cp="👱🏻">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | tipo de pele 1–2</annotation>
+		<annotation cp="👱🏻">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | pessoa: cabelo louro | tipo de pele 1–2</annotation>
 		<annotation cp="👱🏻" type="tts">pessoa: tipo de pele 1–2 e cabelo louro</annotation>
-		<annotation cp="👱🏼">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | tipo de pele 3</annotation>
+		<annotation cp="👱🏼">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | pessoa: cabelo louro | tipo de pele 3</annotation>
 		<annotation cp="👱🏼" type="tts">pessoa: tipo de pele 3 e cabelo louro</annotation>
-		<annotation cp="👱🏽">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | tipo de pele 4</annotation>
+		<annotation cp="👱🏽">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | pessoa: cabelo louro | tipo de pele 4</annotation>
 		<annotation cp="👱🏽" type="tts">pessoa: tipo de pele 4 e cabelo louro</annotation>
-		<annotation cp="👱🏾">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | tipo de pele 5</annotation>
+		<annotation cp="👱🏾">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | pessoa: cabelo louro | tipo de pele 5</annotation>
 		<annotation cp="👱🏾" type="tts">pessoa: tipo de pele 5 e cabelo louro</annotation>
-		<annotation cp="👱🏿">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | tipo de pele 6</annotation>
+		<annotation cp="👱🏿">cabelo louro | loira | loiro | loura | louro | pessoa com cabelo loiro | pessoa com cabelo louro | pessoa: cabelo louro | tipo de pele 6</annotation>
 		<annotation cp="👱🏿" type="tts">pessoa: tipo de pele 6 e cabelo louro</annotation>
 		<annotation cp="🧑‍🦰">adulta | adulto | cabelo ruivo | género neutro | pessoa</annotation>
 		<annotation cp="🧑‍🦰" type="tts">pessoa: cabelo ruivo</annotation>
@@ -500,6 +510,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">pessoa: tipo de pele 5 e careca</annotation>
 		<annotation cp="🧑🏿‍🦲">adulta | adulto | careca | género neutro | pessoa | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">pessoa: tipo de pele 6 e careca</annotation>
+		<annotation cp="🧑🏻‍🍼">alimentar | amamentação | bebé | pessoa | pessoa a alimentar bebé | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">pessoa a alimentar bebé: tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏼‍🍼">alimentar | amamentação | bebé | pessoa | pessoa a alimentar bebé | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">pessoa a alimentar bebé: tipo de pele 3</annotation>
+		<annotation cp="🧑🏽‍🍼">alimentar | amamentação | bebé | pessoa | pessoa a alimentar bebé | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">pessoa a alimentar bebé: tipo de pele 4</annotation>
+		<annotation cp="🧑🏾‍🍼">alimentar | amamentação | bebé | pessoa | pessoa a alimentar bebé | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">pessoa a alimentar bebé: tipo de pele 5</annotation>
+		<annotation cp="🧑🏿‍🍼">alimentar | amamentação | bebé | pessoa | pessoa a alimentar bebé | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">pessoa a alimentar bebé: tipo de pele 6</annotation>
+		<annotation cp="🧑🏻‍🎄">Natal | Sra. Natal | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Sra. Natal: tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏼‍🎄">Natal | Sra. Natal | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Sra. Natal: tipo de pele 3</annotation>
+		<annotation cp="🧑🏽‍🎄">Natal | Sra. Natal | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Sra. Natal: tipo de pele 4</annotation>
+		<annotation cp="🧑🏾‍🎄">Natal | Sra. Natal | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Sra. Natal: tipo de pele 5</annotation>
+		<annotation cp="🧑🏿‍🎄">Natal | Sra. Natal | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Sra. Natal: tipo de pele 6</annotation>
 		<annotation cp="👨🏻">adulto | homem | pessoa | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻" type="tts">homem: tipo de pele 1–2</annotation>
 		<annotation cp="👨🏼">adulto | homem | pessoa | tipo de pele 3</annotation>
@@ -520,15 +550,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧔🏾" type="tts">homem: tipo de pele 5 e barba</annotation>
 		<annotation cp="🧔🏿">barba | homem | homem: barba | pessoa | tipo de pele 6</annotation>
 		<annotation cp="🧔🏿" type="tts">homem: tipo de pele 6 e barba</annotation>
-		<annotation cp="👱🏻‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | louro | tipo de pele 1–2</annotation>
+		<annotation cp="👱🏻‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | homem: cabelo loiro | louro | tipo de pele 1–2</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">homem: tipo de pele 1–2 e cabelo loiro</annotation>
-		<annotation cp="👱🏼‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | louro | tipo de pele 3</annotation>
+		<annotation cp="👱🏼‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | homem: cabelo loiro | louro | tipo de pele 3</annotation>
 		<annotation cp="👱🏼‍♂" type="tts">homem: tipo de pele 3 e cabelo loiro</annotation>
-		<annotation cp="👱🏽‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | louro | tipo de pele 4</annotation>
+		<annotation cp="👱🏽‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | homem: cabelo loiro | louro | tipo de pele 4</annotation>
 		<annotation cp="👱🏽‍♂" type="tts">homem: tipo de pele 4 e cabelo loiro</annotation>
-		<annotation cp="👱🏾‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | louro | tipo de pele 5</annotation>
+		<annotation cp="👱🏾‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | homem: cabelo loiro | louro | tipo de pele 5</annotation>
 		<annotation cp="👱🏾‍♂" type="tts">homem: tipo de pele 5 e cabelo loiro</annotation>
-		<annotation cp="👱🏿‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | louro | tipo de pele 6</annotation>
+		<annotation cp="👱🏿‍♂">cabelo loiro | homem | homem com cabelo loiro | homem com cabelo louro | homem loiro | homem: cabelo loiro | louro | tipo de pele 6</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">homem: tipo de pele 6 e cabelo loiro</annotation>
 		<annotation cp="👨‍🦰">adulto | cabelo ruivo | homem | pessoa</annotation>
 		<annotation cp="👨‍🦰" type="tts">homem: cabelo ruivo</annotation>
@@ -576,6 +606,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">homem: tipo de pele 5 e careca</annotation>
 		<annotation cp="👨🏿‍🦲">adulto | careca | homem | pessoa | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">homem: tipo de pele 6 e careca</annotation>
+		<annotation cp="👨🏻‍🍼">alimentar | amamentação | bebé | homem | homem a alimentar bebé | tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">homem a alimentar bebé: tipo de pele 1–2</annotation>
+		<annotation cp="👨🏼‍🍼">alimentar | amamentação | bebé | homem | homem a alimentar bebé | tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">homem a alimentar bebé: tipo de pele 3</annotation>
+		<annotation cp="👨🏽‍🍼">alimentar | amamentação | bebé | homem | homem a alimentar bebé | tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">homem a alimentar bebé: tipo de pele 4</annotation>
+		<annotation cp="👨🏾‍🍼">alimentar | amamentação | bebé | homem | homem a alimentar bebé | tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">homem a alimentar bebé: tipo de pele 5</annotation>
+		<annotation cp="👨🏿‍🍼">alimentar | amamentação | bebé | homem | homem a alimentar bebé | tipo de pele 6</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">homem a alimentar bebé: tipo de pele 6</annotation>
 		<annotation cp="👩🏻">adulta | mulher | pessoa | tipo de pele 1–2</annotation>
 		<annotation cp="👩🏻" type="tts">mulher: tipo de pele 1–2</annotation>
 		<annotation cp="👩🏼">adulta | mulher | pessoa | tipo de pele 3</annotation>
@@ -586,15 +626,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">mulher: tipo de pele 5</annotation>
 		<annotation cp="👩🏿">adulta | mulher | pessoa | tipo de pele 6</annotation>
 		<annotation cp="👩🏿" type="tts">mulher: tipo de pele 6</annotation>
-		<annotation cp="👱🏻‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | tipo de pele 1–2</annotation>
+		<annotation cp="👱🏻‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | mulher: cabelo loiro | tipo de pele 1–2</annotation>
 		<annotation cp="👱🏻‍♀" type="tts">mulher: tipo de pele 1–2 e cabelo loiro</annotation>
-		<annotation cp="👱🏼‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | tipo de pele 3</annotation>
+		<annotation cp="👱🏼‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | mulher: cabelo loiro | tipo de pele 3</annotation>
 		<annotation cp="👱🏼‍♀" type="tts">mulher: tipo de pele 3 e cabelo loiro</annotation>
-		<annotation cp="👱🏽‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | tipo de pele 4</annotation>
+		<annotation cp="👱🏽‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | mulher: cabelo loiro | tipo de pele 4</annotation>
 		<annotation cp="👱🏽‍♀" type="tts">mulher: tipo de pele 4 e cabelo loiro</annotation>
-		<annotation cp="👱🏾‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | tipo de pele 5</annotation>
+		<annotation cp="👱🏾‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | mulher: cabelo loiro | tipo de pele 5</annotation>
 		<annotation cp="👱🏾‍♀" type="tts">mulher: tipo de pele 5 e cabelo loiro</annotation>
-		<annotation cp="👱🏿‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | tipo de pele 6</annotation>
+		<annotation cp="👱🏿‍♀">cabelo loiro | loura | mulher | mulher com cabelo loiro | mulher com cabelo louro | mulher loira | mulher: cabelo loiro | tipo de pele 6</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">mulher: tipo de pele 6 e cabelo loiro</annotation>
 		<annotation cp="👩‍🦰">adulta | cabelo ruivo | mulher | pessoa</annotation>
 		<annotation cp="👩‍🦰" type="tts">mulher: cabelo ruivo</annotation>
@@ -642,6 +682,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">mulher: tipo de pele 5 e careca</annotation>
 		<annotation cp="👩🏿‍🦲">adulta | careca | mulher | pessoa | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">mulher: tipo de pele 6 e careca</annotation>
+		<annotation cp="👩🏻‍🍼">alimentar | amamentação | bebé | mulher | mulher a alimentar bebé | tipo de pele 1–2</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">mulher a alimentar bebé: tipo de pele 1–2</annotation>
+		<annotation cp="👩🏼‍🍼">alimentar | amamentação | bebé | mulher | mulher a alimentar bebé | tipo de pele 3</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">mulher a alimentar bebé: tipo de pele 3</annotation>
+		<annotation cp="👩🏽‍🍼">alimentar | amamentação | bebé | mulher | mulher a alimentar bebé | tipo de pele 4</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">mulher a alimentar bebé: tipo de pele 4</annotation>
+		<annotation cp="👩🏾‍🍼">alimentar | amamentação | bebé | mulher | mulher a alimentar bebé | tipo de pele 5</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">mulher a alimentar bebé: tipo de pele 5</annotation>
+		<annotation cp="👩🏿‍🍼">alimentar | amamentação | bebé | mulher | mulher a alimentar bebé | tipo de pele 6</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">mulher a alimentar bebé: tipo de pele 6</annotation>
 		<annotation cp="🧓🏻">género neutro | pessoa de idade | pessoa idosa | tipo de pele 1–2</annotation>
 		<annotation cp="🧓🏻" type="tts">pessoa idosa: tipo de pele 1–2</annotation>
 		<annotation cp="🧓🏼">género neutro | pessoa de idade | pessoa idosa | tipo de pele 3</annotation>
@@ -662,15 +712,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👴🏾" type="tts">idoso: tipo de pele 5</annotation>
 		<annotation cp="👴🏿">adulto | homem | idoso | tipo de pele 6</annotation>
 		<annotation cp="👴🏿" type="tts">idoso: tipo de pele 6</annotation>
-		<annotation cp="👵🏻">mulher de idade avançada | mulher idosa | tipo de pele 1–2 | velha</annotation>
+		<annotation cp="👵🏻">idosa | mulher de idade avançada | mulher idosa | tipo de pele 1–2 | velha</annotation>
 		<annotation cp="👵🏻" type="tts">idosa: tipo de pele 1–2</annotation>
-		<annotation cp="👵🏼">mulher de idade avançada | mulher idosa | tipo de pele 3 | velha</annotation>
+		<annotation cp="👵🏼">idosa | mulher de idade avançada | mulher idosa | tipo de pele 3 | velha</annotation>
 		<annotation cp="👵🏼" type="tts">idosa: tipo de pele 3</annotation>
-		<annotation cp="👵🏽">mulher de idade avançada | mulher idosa | tipo de pele 4 | velha</annotation>
+		<annotation cp="👵🏽">idosa | mulher de idade avançada | mulher idosa | tipo de pele 4 | velha</annotation>
 		<annotation cp="👵🏽" type="tts">idosa: tipo de pele 4</annotation>
-		<annotation cp="👵🏾">mulher de idade avançada | mulher idosa | tipo de pele 5 | velha</annotation>
+		<annotation cp="👵🏾">idosa | mulher de idade avançada | mulher idosa | tipo de pele 5 | velha</annotation>
 		<annotation cp="👵🏾" type="tts">idosa: tipo de pele 5</annotation>
-		<annotation cp="👵🏿">mulher de idade avançada | mulher idosa | tipo de pele 6 | velha</annotation>
+		<annotation cp="👵🏿">idosa | mulher de idade avançada | mulher idosa | tipo de pele 6 | velha</annotation>
 		<annotation cp="👵🏿" type="tts">idosa: tipo de pele 6</annotation>
 		<annotation cp="🙍🏻">cara triste | gesto | pessoa de sobrolho franzido | tipo de pele 1–2</annotation>
 		<annotation cp="🙍🏻" type="tts">pessoa de sobrolho franzido: tipo de pele 1–2</annotation>
@@ -972,15 +1022,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">mulher a encolher os ombros: tipo de pele 5</annotation>
 		<annotation cp="🤷🏿‍♀">dúvida | indiferença | mulher | mulher a encolher os ombros | tipo de pele 6</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">mulher a encolher os ombros: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍⚕">cuidados de saúde | enfermeira | médico | terapeuta | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍⚕">cuidados de saúde | enfermeira | médico | profissional de saúde | terapeuta | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">profissional de saúde: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍⚕">cuidados de saúde | enfermeira | médico | terapeuta | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍⚕">cuidados de saúde | enfermeira | médico | profissional de saúde | terapeuta | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">profissional de saúde: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍⚕">cuidados de saúde | enfermeira | médico | terapeuta | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍⚕">cuidados de saúde | enfermeira | médico | profissional de saúde | terapeuta | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">profissional de saúde: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍⚕">cuidados de saúde | enfermeira | médico | terapeuta | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍⚕">cuidados de saúde | enfermeira | médico | profissional de saúde | terapeuta | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">profissional de saúde: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍⚕">cuidados de saúde | enfermeira | médico | terapeuta | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍⚕">cuidados de saúde | enfermeira | médico | profissional de saúde | terapeuta | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">profissional de saúde: tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍⚕">doutor | enfermeiro | homem | médico | profissional da área da saúde | profissional da saúde (homem) | profissional de saúde (homem) | saúde | terapeuta | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">profissional de saúde (homem): tipo de pele 1–2</annotation>
@@ -1002,15 +1052,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍⚕" type="tts">profissional de saúde (mulher): tipo de pele 5</annotation>
 		<annotation cp="👩🏿‍⚕">doutora | enfermeira | médica | mulher | profissional da área da saúde | profissional da saúde (mulher) | profissional de saúde (mulher) | serviço de saúde | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">profissional de saúde (mulher): tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🎓">estudante | tipo de pele 1–2 | universitário</annotation>
+		<annotation cp="🧑🏻‍🎓">aluno | estudante | tipo de pele 1–2 | universitário</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">aluno: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🎓">estudante | tipo de pele 3 | universitário</annotation>
+		<annotation cp="🧑🏼‍🎓">aluno | estudante | tipo de pele 3 | universitário</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">aluno: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🎓">estudante | tipo de pele 4 | universitário</annotation>
+		<annotation cp="🧑🏽‍🎓">aluno | estudante | tipo de pele 4 | universitário</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">aluno: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🎓">estudante | tipo de pele 5 | universitário</annotation>
+		<annotation cp="🧑🏾‍🎓">aluno | estudante | tipo de pele 5 | universitário</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">aluno: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🎓">estudante | tipo de pele 6 | universitário</annotation>
+		<annotation cp="🧑🏿‍🎓">aluno | estudante | tipo de pele 6 | universitário</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">aluno: tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍🎓">aluno | estudante | estudante (homem) | homem | tipo de pele 1–2 | universitário</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">estudante (homem): tipo de pele 1–2</annotation>
@@ -1042,15 +1092,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🏫" type="tts">professor: tipo de pele 5</annotation>
 		<annotation cp="🧑🏿‍🏫">educador | formador | instrutor | professor | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">professor: tipo de pele 6</annotation>
-		<annotation cp="👨🏻‍🏫">homem | instrutor | professor | tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍🏫">homem | instrutor | professor | professor (homem) | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">professor (homem): tipo de pele 1–2</annotation>
-		<annotation cp="👨🏼‍🏫">homem | instrutor | professor | tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍🏫">homem | instrutor | professor | professor (homem) | tipo de pele 3</annotation>
 		<annotation cp="👨🏼‍🏫" type="tts">professor (homem): tipo de pele 3</annotation>
-		<annotation cp="👨🏽‍🏫">homem | instrutor | professor | tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍🏫">homem | instrutor | professor | professor (homem) | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍🏫" type="tts">professor (homem): tipo de pele 4</annotation>
-		<annotation cp="👨🏾‍🏫">homem | instrutor | professor | tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍🏫">homem | instrutor | professor | professor (homem) | tipo de pele 5</annotation>
 		<annotation cp="👨🏾‍🏫" type="tts">professor (homem): tipo de pele 5</annotation>
-		<annotation cp="👨🏿‍🏫">homem | instrutor | professor | tipo de pele 6</annotation>
+		<annotation cp="👨🏿‍🏫">homem | instrutor | professor | professor (homem) | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🏫" type="tts">professor (homem): tipo de pele 6</annotation>
 		<annotation cp="👩🏻‍🏫">instrutora | mulher | professora | tipo de pele 1–2</annotation>
 		<annotation cp="👩🏻‍🏫" type="tts">professora: tipo de pele 1–2</annotation>
@@ -1072,35 +1122,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍⚖" type="tts">juiz: tipo de pele 5</annotation>
 		<annotation cp="🧑🏿‍⚖">balança | juiz | justiça | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">juiz: tipo de pele 6</annotation>
-		<annotation cp="👨🏻‍⚖">balança | homem | justiça | tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍⚖">balança | homem | juiz (homem) | justiça | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">juiz (homem): tipo de pele 1–2</annotation>
-		<annotation cp="👨🏼‍⚖">balança | homem | justiça | tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍⚖">balança | homem | juiz (homem) | justiça | tipo de pele 3</annotation>
 		<annotation cp="👨🏼‍⚖" type="tts">juiz (homem): tipo de pele 3</annotation>
-		<annotation cp="👨🏽‍⚖">balança | homem | justiça | tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍⚖">balança | homem | juiz (homem) | justiça | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍⚖" type="tts">juiz (homem): tipo de pele 4</annotation>
-		<annotation cp="👨🏾‍⚖">balança | homem | justiça | tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍⚖">balança | homem | juiz (homem) | justiça | tipo de pele 5</annotation>
 		<annotation cp="👨🏾‍⚖" type="tts">juiz (homem): tipo de pele 5</annotation>
-		<annotation cp="👨🏿‍⚖">balança | homem | justiça | tipo de pele 6</annotation>
+		<annotation cp="👨🏿‍⚖">balança | homem | juiz (homem) | justiça | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍⚖" type="tts">juiz (homem): tipo de pele 6</annotation>
-		<annotation cp="👩🏻‍⚖">balança | justiça | mulher | tipo de pele 1–2</annotation>
+		<annotation cp="👩🏻‍⚖">balança | juíza | justiça | mulher | tipo de pele 1–2</annotation>
 		<annotation cp="👩🏻‍⚖" type="tts">juíza: tipo de pele 1–2</annotation>
-		<annotation cp="👩🏼‍⚖">balança | justiça | mulher | tipo de pele 3</annotation>
+		<annotation cp="👩🏼‍⚖">balança | juíza | justiça | mulher | tipo de pele 3</annotation>
 		<annotation cp="👩🏼‍⚖" type="tts">juíza: tipo de pele 3</annotation>
-		<annotation cp="👩🏽‍⚖">balança | justiça | mulher | tipo de pele 4</annotation>
+		<annotation cp="👩🏽‍⚖">balança | juíza | justiça | mulher | tipo de pele 4</annotation>
 		<annotation cp="👩🏽‍⚖" type="tts">juíza: tipo de pele 4</annotation>
-		<annotation cp="👩🏾‍⚖">balança | justiça | mulher | tipo de pele 5</annotation>
+		<annotation cp="👩🏾‍⚖">balança | juíza | justiça | mulher | tipo de pele 5</annotation>
 		<annotation cp="👩🏾‍⚖" type="tts">juíza: tipo de pele 5</annotation>
-		<annotation cp="👩🏿‍⚖">balança | justiça | mulher | tipo de pele 6</annotation>
+		<annotation cp="👩🏿‍⚖">balança | juíza | justiça | mulher | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">juíza: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🌾">agricultor | jardineiro | rancheiro | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🌾">agricultor | jardineiro | lavrador | rancheiro | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">lavrador: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🌾">agricultor | jardineiro | rancheiro | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🌾">agricultor | jardineiro | lavrador | rancheiro | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">lavrador: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🌾">agricultor | jardineiro | rancheiro | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🌾">agricultor | jardineiro | lavrador | rancheiro | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">lavrador: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🌾">agricultor | jardineiro | rancheiro | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🌾">agricultor | jardineiro | lavrador | rancheiro | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">lavrador: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🌾">agricultor | jardineiro | rancheiro | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🌾">agricultor | jardineiro | lavrador | rancheiro | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">lavrador: tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍🌾">agricultor | fazendeiro | homem | jardineiro | lavrador | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">agricultor: tipo de pele 1–2</annotation>
@@ -1132,15 +1182,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🍳" type="tts">cozinheiro: tipo de pele 5</annotation>
 		<annotation cp="🧑🏿‍🍳">chefe de cozinha | cozinheiro | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">cozinheiro: tipo de pele 6</annotation>
-		<annotation cp="👨🏻‍🍳">chef | cozinheiro | homem | tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍🍳">chef | cozinheiro | cozinheiro (homem) | homem | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">cozinheiro (homem): tipo de pele 1–2</annotation>
-		<annotation cp="👨🏼‍🍳">chef | cozinheiro | homem | tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍🍳">chef | cozinheiro | cozinheiro (homem) | homem | tipo de pele 3</annotation>
 		<annotation cp="👨🏼‍🍳" type="tts">cozinheiro (homem): tipo de pele 3</annotation>
-		<annotation cp="👨🏽‍🍳">chef | cozinheiro | homem | tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍🍳">chef | cozinheiro | cozinheiro (homem) | homem | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍🍳" type="tts">cozinheiro (homem): tipo de pele 4</annotation>
-		<annotation cp="👨🏾‍🍳">chef | cozinheiro | homem | tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍🍳">chef | cozinheiro | cozinheiro (homem) | homem | tipo de pele 5</annotation>
 		<annotation cp="👨🏾‍🍳" type="tts">cozinheiro (homem): tipo de pele 5</annotation>
-		<annotation cp="👨🏿‍🍳">chef | cozinheiro | homem | tipo de pele 6</annotation>
+		<annotation cp="👨🏿‍🍳">chef | cozinheiro | cozinheiro (homem) | homem | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🍳" type="tts">cozinheiro (homem): tipo de pele 6</annotation>
 		<annotation cp="👩🏻‍🍳">chef | cozinheira | homem | tipo de pele 1–2</annotation>
 		<annotation cp="👩🏻‍🍳" type="tts">cozinheira: tipo de pele 1–2</annotation>
@@ -1162,15 +1212,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🔧" type="tts">mecânico: tipo de pele 5</annotation>
 		<annotation cp="🧑🏿‍🔧">canalizador | eletricista | mecânico | ofício | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mecânico: tipo de pele 6</annotation>
-		<annotation cp="👨🏻‍🔧">canalizador | electricista | eletricista | homem | mecânico | tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍🔧">canalizador | electricista | eletricista | homem | mecânico | mecânico (homem) | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mecânico (homem): tipo de pele 1–2</annotation>
-		<annotation cp="👨🏼‍🔧">canalizador | electricista | eletricista | homem | mecânico | tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍🔧">canalizador | electricista | eletricista | homem | mecânico | mecânico (homem) | tipo de pele 3</annotation>
 		<annotation cp="👨🏼‍🔧" type="tts">mecânico (homem): tipo de pele 3</annotation>
-		<annotation cp="👨🏽‍🔧">canalizador | electricista | eletricista | homem | mecânico | tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍🔧">canalizador | electricista | eletricista | homem | mecânico | mecânico (homem) | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍🔧" type="tts">mecânico (homem): tipo de pele 4</annotation>
-		<annotation cp="👨🏾‍🔧">canalizador | electricista | eletricista | homem | mecânico | tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍🔧">canalizador | electricista | eletricista | homem | mecânico | mecânico (homem) | tipo de pele 5</annotation>
 		<annotation cp="👨🏾‍🔧" type="tts">mecânico (homem): tipo de pele 5</annotation>
-		<annotation cp="👨🏿‍🔧">canalizador | electricista | eletricista | homem | mecânico | tipo de pele 6</annotation>
+		<annotation cp="👨🏿‍🔧">canalizador | electricista | eletricista | homem | mecânico | mecânico (homem) | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🔧" type="tts">mecânico (homem): tipo de pele 6</annotation>
 		<annotation cp="👩🏻‍🔧">canalizadora | electricista | eletricista | mecânica | mulher | tipo de pele 1–2</annotation>
 		<annotation cp="👩🏻‍🔧" type="tts">mecânica: tipo de pele 1–2</annotation>
@@ -1182,15 +1232,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🔧" type="tts">mecânica: tipo de pele 5</annotation>
 		<annotation cp="👩🏿‍🔧">canalizadora | electricista | eletricista | mecânica | mulher | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mecânica: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🏭">fábrica | industrial | montagem | tipo de pele 1–2 | trabalhador</annotation>
+		<annotation cp="🧑🏻‍🏭">fábrica | funcionário de fábrica | industrial | montagem | tipo de pele 1–2 | trabalhador | trabalhador fabril</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">trabalhador fabril: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🏭">fábrica | industrial | montagem | tipo de pele 3 | trabalhador</annotation>
+		<annotation cp="🧑🏼‍🏭">fábrica | funcionário de fábrica | industrial | montagem | tipo de pele 3 | trabalhador | trabalhador fabril</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">trabalhador fabril: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🏭">fábrica | industrial | montagem | tipo de pele 4 | trabalhador</annotation>
+		<annotation cp="🧑🏽‍🏭">fábrica | funcionário de fábrica | industrial | montagem | tipo de pele 4 | trabalhador | trabalhador fabril</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">trabalhador fabril: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🏭">fábrica | industrial | montagem | tipo de pele 5 | trabalhador</annotation>
+		<annotation cp="🧑🏾‍🏭">fábrica | funcionário de fábrica | industrial | montagem | tipo de pele 5 | trabalhador | trabalhador fabril</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">trabalhador fabril: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🏭">fábrica | industrial | montagem | tipo de pele 6 | trabalhador</annotation>
+		<annotation cp="🧑🏿‍🏭">fábrica | funcionário de fábrica | industrial | montagem | tipo de pele 6 | trabalhador | trabalhador fabril</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">trabalhador fabril: tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍🏭">fábrica | homem | industrial | montagem | operário | operário fabril | tipo de pele 1–2 | trabalhador</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">operário fabril: tipo de pele 1–2</annotation>
@@ -1212,15 +1262,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">operária fabril: tipo de pele 5</annotation>
 		<annotation cp="👩🏿‍🏭">fábrica | industrial | montagem | mulher | operária | operária fabril | tipo de pele 6 | trabalhadora</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">operária fabril: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍💼">arquiteto | gerente | negócios | tipo de pele 1–2 | trabalhador de escritório</annotation>
+		<annotation cp="🧑🏻‍💼">arquiteto | empregado de escritório | gerente | negócios | tipo de pele 1–2 | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">empregado de escritório: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍💼">arquiteto | gerente | negócios | tipo de pele 3 | trabalhador de escritório</annotation>
+		<annotation cp="🧑🏼‍💼">arquiteto | empregado de escritório | gerente | negócios | tipo de pele 3 | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">empregado de escritório: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍💼">arquiteto | gerente | negócios | tipo de pele 4 | trabalhador de escritório</annotation>
+		<annotation cp="🧑🏽‍💼">arquiteto | empregado de escritório | gerente | negócios | tipo de pele 4 | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">empregado de escritório: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍💼">arquiteto | gerente | negócios | tipo de pele 5 | trabalhador de escritório</annotation>
+		<annotation cp="🧑🏾‍💼">arquiteto | empregado de escritório | gerente | negócios | tipo de pele 5 | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">empregado de escritório: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍💼">arquiteto | gerente | negócios | tipo de pele 6 | trabalhador de escritório</annotation>
+		<annotation cp="🧑🏿‍💼">arquiteto | empregado de escritório | gerente | negócios | tipo de pele 6 | trabalhador de escritório</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">empregado de escritório: tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍💼">administrador | empresa | funcionário de escritório | gerente | homem | tipo de pele 1–2 | trabalhador de escritório</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">funcionário de escritório: tipo de pele 1–2</annotation>
@@ -1312,25 +1362,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🎤" type="tts">vocalista: tipo de pele 5</annotation>
 		<annotation cp="🧑🏿‍🎤">ator | cantor | estrela | rock | tipo de pele 6 | vocalista</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">vocalista: tipo de pele 6</annotation>
-		<annotation cp="👨🏻‍🎤">ator | estrela | homem | rock | tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍🎤">ator | cantor homem | estrela | homem | rock | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">cantor homem: tipo de pele 1–2</annotation>
-		<annotation cp="👨🏼‍🎤">ator | estrela | homem | rock | tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍🎤">ator | cantor homem | estrela | homem | rock | tipo de pele 3</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">cantor homem: tipo de pele 3</annotation>
-		<annotation cp="👨🏽‍🎤">ator | estrela | homem | rock | tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍🎤">ator | cantor homem | estrela | homem | rock | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">cantor homem: tipo de pele 4</annotation>
-		<annotation cp="👨🏾‍🎤">ator | estrela | homem | rock | tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍🎤">ator | cantor homem | estrela | homem | rock | tipo de pele 5</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">cantor homem: tipo de pele 5</annotation>
-		<annotation cp="👨🏿‍🎤">ator | estrela | homem | rock | tipo de pele 6</annotation>
+		<annotation cp="👨🏿‍🎤">ator | cantor homem | estrela | homem | rock | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">cantor homem: tipo de pele 6</annotation>
-		<annotation cp="👩🏻‍🎤">atriz | estrela | mulher | rock | tipo de pele 1–2</annotation>
+		<annotation cp="👩🏻‍🎤">atriz | cantora | estrela | mulher | rock | tipo de pele 1–2</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">cantora: tipo de pele 1–2</annotation>
-		<annotation cp="👩🏼‍🎤">atriz | estrela | mulher | rock | tipo de pele 3</annotation>
+		<annotation cp="👩🏼‍🎤">atriz | cantora | estrela | mulher | rock | tipo de pele 3</annotation>
 		<annotation cp="👩🏼‍🎤" type="tts">cantora: tipo de pele 3</annotation>
-		<annotation cp="👩🏽‍🎤">atriz | estrela | mulher | rock | tipo de pele 4</annotation>
+		<annotation cp="👩🏽‍🎤">atriz | cantora | estrela | mulher | rock | tipo de pele 4</annotation>
 		<annotation cp="👩🏽‍🎤" type="tts">cantora: tipo de pele 4</annotation>
-		<annotation cp="👩🏾‍🎤">atriz | estrela | mulher | rock | tipo de pele 5</annotation>
+		<annotation cp="👩🏾‍🎤">atriz | cantora | estrela | mulher | rock | tipo de pele 5</annotation>
 		<annotation cp="👩🏾‍🎤" type="tts">cantora: tipo de pele 5</annotation>
-		<annotation cp="👩🏿‍🎤">atriz | estrela | mulher | rock | tipo de pele 6</annotation>
+		<annotation cp="👩🏿‍🎤">atriz | cantora | estrela | mulher | rock | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">cantora: tipo de pele 6</annotation>
 		<annotation cp="🧑🏻‍🎨">artista | paleta | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">artista: tipo de pele 1–2</annotation>
@@ -1422,15 +1472,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚀" type="tts">astronauta (mulher): tipo de pele 5</annotation>
 		<annotation cp="👩🏿‍🚀">astronauta (mulher) | espaço | foguete | mulher | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">astronauta (mulher): tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🚒">bombeiro | camião dos bombeiros | carro dos bombeiros | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🚒">bombeiro | bombeiro (homem) | camião dos bombeiros | carro dos bombeiros | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">bombeiro (homem): tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🚒">bombeiro | camião dos bombeiros | carro dos bombeiros | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🚒">bombeiro | bombeiro (homem) | camião dos bombeiros | carro dos bombeiros | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">bombeiro (homem): tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🚒">bombeiro | camião dos bombeiros | carro dos bombeiros | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🚒">bombeiro | bombeiro (homem) | camião dos bombeiros | carro dos bombeiros | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">bombeiro (homem): tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🚒">bombeiro | camião dos bombeiros | carro dos bombeiros | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🚒">bombeiro | bombeiro (homem) | camião dos bombeiros | carro dos bombeiros | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">bombeiro (homem): tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🚒">bombeiro | camião dos bombeiros | carro dos bombeiros | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🚒">bombeiro | bombeiro (homem) | camião dos bombeiros | carro dos bombeiros | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">bombeiro (homem): tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍🚒">bombeiro | carro de bombeiro | homem | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">bombeiro: tipo de pele 1–2</annotation>
@@ -1482,15 +1532,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👮🏾‍♀" type="tts">polícia (mulher): tipo de pele 5</annotation>
 		<annotation cp="👮🏿‍♀">agente | bófia | chui | mulher | polícia (mulher) | tipo de pele 6</annotation>
 		<annotation cp="👮🏿‍♀" type="tts">polícia (mulher): tipo de pele 6</annotation>
-		<annotation cp="🕵🏻">espião | tipo de pele 1–2</annotation>
+		<annotation cp="🕵🏻">detetive | espião | tipo de pele 1–2</annotation>
 		<annotation cp="🕵🏻" type="tts">detetive: tipo de pele 1–2</annotation>
-		<annotation cp="🕵🏼">espião | tipo de pele 3</annotation>
+		<annotation cp="🕵🏼">detetive | espião | tipo de pele 3</annotation>
 		<annotation cp="🕵🏼" type="tts">detetive: tipo de pele 3</annotation>
-		<annotation cp="🕵🏽">espião | tipo de pele 4</annotation>
+		<annotation cp="🕵🏽">detetive | espião | tipo de pele 4</annotation>
 		<annotation cp="🕵🏽" type="tts">detetive: tipo de pele 4</annotation>
-		<annotation cp="🕵🏾">espião | tipo de pele 5</annotation>
+		<annotation cp="🕵🏾">detetive | espião | tipo de pele 5</annotation>
 		<annotation cp="🕵🏾" type="tts">detetive: tipo de pele 5</annotation>
-		<annotation cp="🕵🏿">espião | tipo de pele 6</annotation>
+		<annotation cp="🕵🏿">detetive | espião | tipo de pele 6</annotation>
 		<annotation cp="🕵🏿" type="tts">detetive: tipo de pele 6</annotation>
 		<annotation cp="🕵🏻‍♂">detetive (homem) | espião | homem | investigador | tipo de pele 1–2</annotation>
 		<annotation cp="🕵🏻‍♂" type="tts">detetive (homem): tipo de pele 1–2</annotation>
@@ -1582,15 +1632,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤴🏾" type="tts">príncipe: tipo de pele 5</annotation>
 		<annotation cp="🤴🏿">príncipe | tipo de pele 6</annotation>
 		<annotation cp="🤴🏿" type="tts">príncipe: tipo de pele 6</annotation>
-		<annotation cp="👸🏻">conto de fadas | fantasia | tipo de pele 1–2</annotation>
+		<annotation cp="👸🏻">conto de fadas | fantasia | princesa | tipo de pele 1–2</annotation>
 		<annotation cp="👸🏻" type="tts">princesa: tipo de pele 1–2</annotation>
-		<annotation cp="👸🏼">conto de fadas | fantasia | tipo de pele 3</annotation>
+		<annotation cp="👸🏼">conto de fadas | fantasia | princesa | tipo de pele 3</annotation>
 		<annotation cp="👸🏼" type="tts">princesa: tipo de pele 3</annotation>
-		<annotation cp="👸🏽">conto de fadas | fantasia | tipo de pele 4</annotation>
+		<annotation cp="👸🏽">conto de fadas | fantasia | princesa | tipo de pele 4</annotation>
 		<annotation cp="👸🏽" type="tts">princesa: tipo de pele 4</annotation>
-		<annotation cp="👸🏾">conto de fadas | fantasia | tipo de pele 5</annotation>
+		<annotation cp="👸🏾">conto de fadas | fantasia | princesa | tipo de pele 5</annotation>
 		<annotation cp="👸🏾" type="tts">princesa: tipo de pele 5</annotation>
-		<annotation cp="👸🏿">conto de fadas | fantasia | tipo de pele 6</annotation>
+		<annotation cp="👸🏿">conto de fadas | fantasia | princesa | tipo de pele 6</annotation>
 		<annotation cp="👸🏿" type="tts">princesa: tipo de pele 6</annotation>
 		<annotation cp="👳🏻">homem | pessoa com turbante | tipo de pele 1–2 | turbante</annotation>
 		<annotation cp="👳🏻" type="tts">pessoa com turbante: tipo de pele 1–2</annotation>
@@ -1642,26 +1692,66 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧕🏾" type="tts">mulher com lenço na cabeça: tipo de pele 5</annotation>
 		<annotation cp="🧕🏿">lenço | mulher com lenço islâmico | mulher com lenço na cabeça | tipo de pele 6</annotation>
 		<annotation cp="🧕🏿" type="tts">mulher com lenço na cabeça: tipo de pele 6</annotation>
-		<annotation cp="🤵🏻">homem | noivo | smoking | tipo de pele 1–2</annotation>
-		<annotation cp="🤵🏻" type="tts">homem de smoking: tipo de pele 1–2</annotation>
-		<annotation cp="🤵🏼">homem | noivo | smoking | tipo de pele 3</annotation>
-		<annotation cp="🤵🏼" type="tts">homem de smoking: tipo de pele 3</annotation>
-		<annotation cp="🤵🏽">homem | noivo | smoking | tipo de pele 4</annotation>
-		<annotation cp="🤵🏽" type="tts">homem de smoking: tipo de pele 4</annotation>
-		<annotation cp="🤵🏾">homem | noivo | smoking | tipo de pele 5</annotation>
-		<annotation cp="🤵🏾" type="tts">homem de smoking: tipo de pele 5</annotation>
-		<annotation cp="🤵🏿">homem | noivo | smoking | tipo de pele 6</annotation>
-		<annotation cp="🤵🏿" type="tts">homem de smoking: tipo de pele 6</annotation>
-		<annotation cp="👰🏻">casamento | noiva | noiva com véu | tipo de pele 1–2 | véu</annotation>
-		<annotation cp="👰🏻" type="tts">noiva com véu: tipo de pele 1–2</annotation>
-		<annotation cp="👰🏼">casamento | noiva | noiva com véu | tipo de pele 3 | véu</annotation>
-		<annotation cp="👰🏼" type="tts">noiva com véu: tipo de pele 3</annotation>
-		<annotation cp="👰🏽">casamento | noiva | noiva com véu | tipo de pele 4 | véu</annotation>
-		<annotation cp="👰🏽" type="tts">noiva com véu: tipo de pele 4</annotation>
-		<annotation cp="👰🏾">casamento | noiva | noiva com véu | tipo de pele 5 | véu</annotation>
-		<annotation cp="👰🏾" type="tts">noiva com véu: tipo de pele 5</annotation>
-		<annotation cp="👰🏿">casamento | noiva | noiva com véu | tipo de pele 6 | véu</annotation>
-		<annotation cp="👰🏿" type="tts">noiva com véu: tipo de pele 6</annotation>
+		<annotation cp="🤵🏻">noivo | pessoa | pessoa de smoking | smoking | tipo de pele 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">pessoa de smoking: tipo de pele 1–2</annotation>
+		<annotation cp="🤵🏼">noivo | pessoa | pessoa de smoking | smoking | tipo de pele 3</annotation>
+		<annotation cp="🤵🏼" type="tts">pessoa de smoking: tipo de pele 3</annotation>
+		<annotation cp="🤵🏽">noivo | pessoa | pessoa de smoking | smoking | tipo de pele 4</annotation>
+		<annotation cp="🤵🏽" type="tts">pessoa de smoking: tipo de pele 4</annotation>
+		<annotation cp="🤵🏾">noivo | pessoa | pessoa de smoking | smoking | tipo de pele 5</annotation>
+		<annotation cp="🤵🏾" type="tts">pessoa de smoking: tipo de pele 5</annotation>
+		<annotation cp="🤵🏿">noivo | pessoa | pessoa de smoking | smoking | tipo de pele 6</annotation>
+		<annotation cp="🤵🏿" type="tts">pessoa de smoking: tipo de pele 6</annotation>
+		<annotation cp="🤵🏻‍♀">mulher | mulher de smoking | smoking | tipo de pele 1–2</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">mulher de smoking: tipo de pele 1–2</annotation>
+		<annotation cp="🤵🏼‍♀">mulher | mulher de smoking | smoking | tipo de pele 3</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">mulher de smoking: tipo de pele 3</annotation>
+		<annotation cp="🤵🏽‍♀">mulher | mulher de smoking | smoking | tipo de pele 4</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">mulher de smoking: tipo de pele 4</annotation>
+		<annotation cp="🤵🏾‍♀">mulher | mulher de smoking | smoking | tipo de pele 5</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">mulher de smoking: tipo de pele 5</annotation>
+		<annotation cp="🤵🏿‍♀">mulher | mulher de smoking | smoking | tipo de pele 6</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">mulher de smoking: tipo de pele 6</annotation>
+		<annotation cp="🤵🏻‍♂">homem | homem de smoking | smoking | tipo de pele 1–2</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">homem de smoking: tipo de pele 1–2</annotation>
+		<annotation cp="🤵🏼‍♂">homem | homem de smoking | smoking | tipo de pele 3</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">homem de smoking: tipo de pele 3</annotation>
+		<annotation cp="🤵🏽‍♂">homem | homem de smoking | smoking | tipo de pele 4</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">homem de smoking: tipo de pele 4</annotation>
+		<annotation cp="🤵🏾‍♂">homem | homem de smoking | smoking | tipo de pele 5</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">homem de smoking: tipo de pele 5</annotation>
+		<annotation cp="🤵🏿‍♂">homem | homem de smoking | smoking | tipo de pele 6</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">homem de smoking: tipo de pele 6</annotation>
+		<annotation cp="👰🏻">casamento | noiva | pessoa | pessoa com véu | tipo de pele 1–2 | véu</annotation>
+		<annotation cp="👰🏻" type="tts">pessoa com véu: tipo de pele 1–2</annotation>
+		<annotation cp="👰🏼">casamento | noiva | pessoa | pessoa com véu | tipo de pele 3 | véu</annotation>
+		<annotation cp="👰🏼" type="tts">pessoa com véu: tipo de pele 3</annotation>
+		<annotation cp="👰🏽">casamento | noiva | pessoa | pessoa com véu | tipo de pele 4 | véu</annotation>
+		<annotation cp="👰🏽" type="tts">pessoa com véu: tipo de pele 4</annotation>
+		<annotation cp="👰🏾">casamento | noiva | pessoa | pessoa com véu | tipo de pele 5 | véu</annotation>
+		<annotation cp="👰🏾" type="tts">pessoa com véu: tipo de pele 5</annotation>
+		<annotation cp="👰🏿">casamento | noiva | pessoa | pessoa com véu | tipo de pele 6 | véu</annotation>
+		<annotation cp="👰🏿" type="tts">pessoa com véu: tipo de pele 6</annotation>
+		<annotation cp="👰🏻‍♀">mulher | mulher com véu | tipo de pele 1–2 | véu</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">mulher com véu: tipo de pele 1–2</annotation>
+		<annotation cp="👰🏼‍♀">mulher | mulher com véu | tipo de pele 3 | véu</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">mulher com véu: tipo de pele 3</annotation>
+		<annotation cp="👰🏽‍♀">mulher | mulher com véu | tipo de pele 4 | véu</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">mulher com véu: tipo de pele 4</annotation>
+		<annotation cp="👰🏾‍♀">mulher | mulher com véu | tipo de pele 5 | véu</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">mulher com véu: tipo de pele 5</annotation>
+		<annotation cp="👰🏿‍♀">mulher | mulher com véu | tipo de pele 6 | véu</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">mulher com véu: tipo de pele 6</annotation>
+		<annotation cp="👰🏻‍♂">homem | homem com véu | tipo de pele 1–2 | véu</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">homem com véu: tipo de pele 1–2</annotation>
+		<annotation cp="👰🏼‍♂">homem | homem com véu | tipo de pele 3 | véu</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">homem com véu: tipo de pele 3</annotation>
+		<annotation cp="👰🏽‍♂">homem | homem com véu | tipo de pele 4 | véu</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">homem com véu: tipo de pele 4</annotation>
+		<annotation cp="👰🏾‍♂">homem | homem com véu | tipo de pele 5 | véu</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">homem com véu: tipo de pele 5</annotation>
+		<annotation cp="👰🏿‍♂">homem | homem com véu | tipo de pele 6 | véu</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">homem com véu: tipo de pele 6</annotation>
 		<annotation cp="🤰🏻">grávida | mulher | tipo de pele 1–2</annotation>
 		<annotation cp="🤰🏻" type="tts">grávida: tipo de pele 1–2</annotation>
 		<annotation cp="🤰🏼">grávida | mulher | tipo de pele 3</annotation>
@@ -1712,55 +1802,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤶🏾" type="tts">mãe natal: tipo de pele 5</annotation>
 		<annotation cp="🤶🏿">mãe | natal | senhora Noel | tipo de pele 6</annotation>
 		<annotation cp="🤶🏿" type="tts">mãe natal: tipo de pele 6</annotation>
-		<annotation cp="🦸🏻">bom | herói | heroína | superpoder | tipo de pele 1–2</annotation>
+		<annotation cp="🦸🏻">bom | herói | heroína | super-herói | superpoder | tipo de pele 1–2</annotation>
 		<annotation cp="🦸🏻" type="tts">super-herói: tipo de pele 1–2</annotation>
-		<annotation cp="🦸🏼">bom | herói | heroína | superpoder | tipo de pele 3</annotation>
+		<annotation cp="🦸🏼">bom | herói | heroína | super-herói | superpoder | tipo de pele 3</annotation>
 		<annotation cp="🦸🏼" type="tts">super-herói: tipo de pele 3</annotation>
-		<annotation cp="🦸🏽">bom | herói | heroína | superpoder | tipo de pele 4</annotation>
+		<annotation cp="🦸🏽">bom | herói | heroína | super-herói | superpoder | tipo de pele 4</annotation>
 		<annotation cp="🦸🏽" type="tts">super-herói: tipo de pele 4</annotation>
-		<annotation cp="🦸🏾">bom | herói | heroína | superpoder | tipo de pele 5</annotation>
+		<annotation cp="🦸🏾">bom | herói | heroína | super-herói | superpoder | tipo de pele 5</annotation>
 		<annotation cp="🦸🏾" type="tts">super-herói: tipo de pele 5</annotation>
-		<annotation cp="🦸🏿">bom | herói | heroína | superpoder | tipo de pele 6</annotation>
+		<annotation cp="🦸🏿">bom | herói | heroína | super-herói | superpoder | tipo de pele 6</annotation>
 		<annotation cp="🦸🏿" type="tts">super-herói: tipo de pele 6</annotation>
-		<annotation cp="🦸🏻‍♂">bom | herói | homem | superpoder | tipo de pele 1–2</annotation>
+		<annotation cp="🦸🏻‍♂">bom | herói | homem | homem super-herói | superpoder | tipo de pele 1–2</annotation>
 		<annotation cp="🦸🏻‍♂" type="tts">homem super-herói: tipo de pele 1–2</annotation>
-		<annotation cp="🦸🏼‍♂">bom | herói | homem | superpoder | tipo de pele 3</annotation>
+		<annotation cp="🦸🏼‍♂">bom | herói | homem | homem super-herói | superpoder | tipo de pele 3</annotation>
 		<annotation cp="🦸🏼‍♂" type="tts">homem super-herói: tipo de pele 3</annotation>
-		<annotation cp="🦸🏽‍♂">bom | herói | homem | superpoder | tipo de pele 4</annotation>
+		<annotation cp="🦸🏽‍♂">bom | herói | homem | homem super-herói | superpoder | tipo de pele 4</annotation>
 		<annotation cp="🦸🏽‍♂" type="tts">homem super-herói: tipo de pele 4</annotation>
-		<annotation cp="🦸🏾‍♂">bom | herói | homem | superpoder | tipo de pele 5</annotation>
+		<annotation cp="🦸🏾‍♂">bom | herói | homem | homem super-herói | superpoder | tipo de pele 5</annotation>
 		<annotation cp="🦸🏾‍♂" type="tts">homem super-herói: tipo de pele 5</annotation>
-		<annotation cp="🦸🏿‍♂">bom | herói | homem | superpoder | tipo de pele 6</annotation>
+		<annotation cp="🦸🏿‍♂">bom | herói | homem | homem super-herói | superpoder | tipo de pele 6</annotation>
 		<annotation cp="🦸🏿‍♂" type="tts">homem super-herói: tipo de pele 6</annotation>
-		<annotation cp="🦸🏻‍♀">boa | herói | heroína | superpoder | tipo de pele 1–2</annotation>
+		<annotation cp="🦸🏻‍♀">boa | herói | heroína | super-heroína | superpoder | tipo de pele 1–2</annotation>
 		<annotation cp="🦸🏻‍♀" type="tts">super-heroína: tipo de pele 1–2</annotation>
-		<annotation cp="🦸🏼‍♀">boa | herói | heroína | superpoder | tipo de pele 3</annotation>
+		<annotation cp="🦸🏼‍♀">boa | herói | heroína | super-heroína | superpoder | tipo de pele 3</annotation>
 		<annotation cp="🦸🏼‍♀" type="tts">super-heroína: tipo de pele 3</annotation>
-		<annotation cp="🦸🏽‍♀">boa | herói | heroína | superpoder | tipo de pele 4</annotation>
+		<annotation cp="🦸🏽‍♀">boa | herói | heroína | super-heroína | superpoder | tipo de pele 4</annotation>
 		<annotation cp="🦸🏽‍♀" type="tts">super-heroína: tipo de pele 4</annotation>
-		<annotation cp="🦸🏾‍♀">boa | herói | heroína | superpoder | tipo de pele 5</annotation>
+		<annotation cp="🦸🏾‍♀">boa | herói | heroína | super-heroína | superpoder | tipo de pele 5</annotation>
 		<annotation cp="🦸🏾‍♀" type="tts">super-heroína: tipo de pele 5</annotation>
-		<annotation cp="🦸🏿‍♀">boa | herói | heroína | superpoder | tipo de pele 6</annotation>
+		<annotation cp="🦸🏿‍♀">boa | herói | heroína | super-heroína | superpoder | tipo de pele 6</annotation>
 		<annotation cp="🦸🏿‍♀" type="tts">super-heroína: tipo de pele 6</annotation>
-		<annotation cp="🦹🏻">criminoso | mau | superpoder | tipo de pele 1–2 | vilão</annotation>
+		<annotation cp="🦹🏻">criminoso | mau | superpoder | supervilão | tipo de pele 1–2 | vilão</annotation>
 		<annotation cp="🦹🏻" type="tts">supervilão: tipo de pele 1–2</annotation>
-		<annotation cp="🦹🏼">criminoso | mau | superpoder | tipo de pele 3 | vilão</annotation>
+		<annotation cp="🦹🏼">criminoso | mau | superpoder | supervilão | tipo de pele 3 | vilão</annotation>
 		<annotation cp="🦹🏼" type="tts">supervilão: tipo de pele 3</annotation>
-		<annotation cp="🦹🏽">criminoso | mau | superpoder | tipo de pele 4 | vilão</annotation>
+		<annotation cp="🦹🏽">criminoso | mau | superpoder | supervilão | tipo de pele 4 | vilão</annotation>
 		<annotation cp="🦹🏽" type="tts">supervilão: tipo de pele 4</annotation>
-		<annotation cp="🦹🏾">criminoso | mau | superpoder | tipo de pele 5 | vilão</annotation>
+		<annotation cp="🦹🏾">criminoso | mau | superpoder | supervilão | tipo de pele 5 | vilão</annotation>
 		<annotation cp="🦹🏾" type="tts">supervilão: tipo de pele 5</annotation>
-		<annotation cp="🦹🏿">criminoso | mau | superpoder | tipo de pele 6 | vilão</annotation>
+		<annotation cp="🦹🏿">criminoso | mau | superpoder | supervilão | tipo de pele 6 | vilão</annotation>
 		<annotation cp="🦹🏿" type="tts">supervilão: tipo de pele 6</annotation>
-		<annotation cp="🦹🏻‍♂">criminoso | homem | mau | superpoderoso | tipo de pele 1–2 | vilão</annotation>
+		<annotation cp="🦹🏻‍♂">criminoso | homem | homem supervilão | mau | superpoderoso | tipo de pele 1–2 | vilão</annotation>
 		<annotation cp="🦹🏻‍♂" type="tts">homem supervilão: tipo de pele 1–2</annotation>
-		<annotation cp="🦹🏼‍♂">criminoso | homem | mau | superpoderoso | tipo de pele 3 | vilão</annotation>
+		<annotation cp="🦹🏼‍♂">criminoso | homem | homem supervilão | mau | superpoderoso | tipo de pele 3 | vilão</annotation>
 		<annotation cp="🦹🏼‍♂" type="tts">homem supervilão: tipo de pele 3</annotation>
-		<annotation cp="🦹🏽‍♂">criminoso | homem | mau | superpoderoso | tipo de pele 4 | vilão</annotation>
+		<annotation cp="🦹🏽‍♂">criminoso | homem | homem supervilão | mau | superpoderoso | tipo de pele 4 | vilão</annotation>
 		<annotation cp="🦹🏽‍♂" type="tts">homem supervilão: tipo de pele 4</annotation>
-		<annotation cp="🦹🏾‍♂">criminoso | homem | mau | superpoderoso | tipo de pele 5 | vilão</annotation>
+		<annotation cp="🦹🏾‍♂">criminoso | homem | homem supervilão | mau | superpoderoso | tipo de pele 5 | vilão</annotation>
 		<annotation cp="🦹🏾‍♂" type="tts">homem supervilão: tipo de pele 5</annotation>
-		<annotation cp="🦹🏿‍♂">criminoso | homem | mau | superpoderoso | tipo de pele 6 | vilão</annotation>
+		<annotation cp="🦹🏿‍♂">criminoso | homem | homem supervilão | mau | superpoderoso | tipo de pele 6 | vilão</annotation>
 		<annotation cp="🦹🏿‍♂" type="tts">homem supervilão: tipo de pele 6</annotation>
 		<annotation cp="🦹🏻‍♀">criminosa | má | mulher | mulher supervilã | superpoder | tipo de pele 1–2 | vilã</annotation>
 		<annotation cp="🦹🏻‍♀" type="tts">mulher supervilã: tipo de pele 1–2</annotation>
@@ -2022,25 +2112,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧍🏾" type="tts">pessoa em pé: tipo de pele 5</annotation>
 		<annotation cp="🧍🏿">de pé | pessoa em pé | tipo de pele 6</annotation>
 		<annotation cp="🧍🏿" type="tts">pessoa em pé: tipo de pele 6</annotation>
-		<annotation cp="🧍🏻‍♂">em pé | homem | tipo de pele 1–2</annotation>
+		<annotation cp="🧍🏻‍♂">em pé | homem | homem em pé | tipo de pele 1–2</annotation>
 		<annotation cp="🧍🏻‍♂" type="tts">homem em pé: tipo de pele 1–2</annotation>
-		<annotation cp="🧍🏼‍♂">em pé | homem | tipo de pele 3</annotation>
+		<annotation cp="🧍🏼‍♂">em pé | homem | homem em pé | tipo de pele 3</annotation>
 		<annotation cp="🧍🏼‍♂" type="tts">homem em pé: tipo de pele 3</annotation>
-		<annotation cp="🧍🏽‍♂">em pé | homem | tipo de pele 4</annotation>
+		<annotation cp="🧍🏽‍♂">em pé | homem | homem em pé | tipo de pele 4</annotation>
 		<annotation cp="🧍🏽‍♂" type="tts">homem em pé: tipo de pele 4</annotation>
-		<annotation cp="🧍🏾‍♂">em pé | homem | tipo de pele 5</annotation>
+		<annotation cp="🧍🏾‍♂">em pé | homem | homem em pé | tipo de pele 5</annotation>
 		<annotation cp="🧍🏾‍♂" type="tts">homem em pé: tipo de pele 5</annotation>
-		<annotation cp="🧍🏿‍♂">em pé | homem | tipo de pele 6</annotation>
+		<annotation cp="🧍🏿‍♂">em pé | homem | homem em pé | tipo de pele 6</annotation>
 		<annotation cp="🧍🏿‍♂" type="tts">homem em pé: tipo de pele 6</annotation>
-		<annotation cp="🧍🏻‍♀">em pé | mulher | tipo de pele 1–2</annotation>
+		<annotation cp="🧍🏻‍♀">em pé | mulher | mulher em pé | tipo de pele 1–2</annotation>
 		<annotation cp="🧍🏻‍♀" type="tts">mulher em pé: tipo de pele 1–2</annotation>
-		<annotation cp="🧍🏼‍♀">em pé | mulher | tipo de pele 3</annotation>
+		<annotation cp="🧍🏼‍♀">em pé | mulher | mulher em pé | tipo de pele 3</annotation>
 		<annotation cp="🧍🏼‍♀" type="tts">mulher em pé: tipo de pele 3</annotation>
-		<annotation cp="🧍🏽‍♀">em pé | mulher | tipo de pele 4</annotation>
+		<annotation cp="🧍🏽‍♀">em pé | mulher | mulher em pé | tipo de pele 4</annotation>
 		<annotation cp="🧍🏽‍♀" type="tts">mulher em pé: tipo de pele 4</annotation>
-		<annotation cp="🧍🏾‍♀">em pé | mulher | tipo de pele 5</annotation>
+		<annotation cp="🧍🏾‍♀">em pé | mulher | mulher em pé | tipo de pele 5</annotation>
 		<annotation cp="🧍🏾‍♀" type="tts">mulher em pé: tipo de pele 5</annotation>
-		<annotation cp="🧍🏿‍♀">em pé | mulher | tipo de pele 6</annotation>
+		<annotation cp="🧍🏿‍♀">em pé | mulher | mulher em pé | tipo de pele 6</annotation>
 		<annotation cp="🧍🏿‍♀" type="tts">mulher em pé: tipo de pele 6</annotation>
 		<annotation cp="🧎🏻">pessoa de joelhos | tipo de pele 1–2</annotation>
 		<annotation cp="🧎🏻" type="tts">pessoa de joelhos: tipo de pele 1–2</annotation>
@@ -2072,15 +2162,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧎🏾‍♀" type="tts">mulher de joelhos: tipo de pele 5</annotation>
 		<annotation cp="🧎🏿‍♀">mulher de joelhos | tipo de pele 6</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">mulher de joelhos: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🦯">acessibilidade | cego | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🦯">acessibilidade | cego | pessoa com bengala para cegos | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">pessoa com bengala para cegos: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🦯">acessibilidade | cego | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🦯">acessibilidade | cego | pessoa com bengala para cegos | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">pessoa com bengala para cegos: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🦯">acessibilidade | cego | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🦯">acessibilidade | cego | pessoa com bengala para cegos | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">pessoa com bengala para cegos: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🦯">acessibilidade | cego | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🦯">acessibilidade | cego | pessoa com bengala para cegos | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">pessoa com bengala para cegos: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🦯">acessibilidade | cego | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🦯">acessibilidade | cego | pessoa com bengala para cegos | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">pessoa com bengala para cegos: tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍🦯">accessibilidade | cego | homem | homem com bengala para cegos | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">homem com bengala para cegos: tipo de pele 1–2</annotation>
@@ -2102,45 +2192,45 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦯" type="tts">mulher com bengala para cegos: tipo de pele 5</annotation>
 		<annotation cp="👩🏿‍🦯">accessibilidade | cega | mulher | mulher com bengala para cegos | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">mulher com bengala para cegos: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🦼">acessibilidade | cadeira de rodas | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🦼">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas elétrica | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">pessoa em cadeira de rodas elétrica: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🦼">acessibilidade | cadeira de rodas | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🦼">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas elétrica | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">pessoa em cadeira de rodas elétrica: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🦼">acessibilidade | cadeira de rodas | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🦼">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas elétrica | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">pessoa em cadeira de rodas elétrica: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🦼">acessibilidade | cadeira de rodas | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🦼">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas elétrica | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">pessoa em cadeira de rodas elétrica: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🦼">acessibilidade | cadeira de rodas | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🦼">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas elétrica | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">pessoa em cadeira de rodas elétrica: tipo de pele 6</annotation>
-		<annotation cp="👨🏻‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas motorizada | tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas elétrica | homem em cadeira de rodas motorizada | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">homem em cadeira de rodas elétrica: tipo de pele 1–2</annotation>
-		<annotation cp="👨🏼‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas motorizada | tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas elétrica | homem em cadeira de rodas motorizada | tipo de pele 3</annotation>
 		<annotation cp="👨🏼‍🦼" type="tts">homem em cadeira de rodas elétrica: tipo de pele 3</annotation>
-		<annotation cp="👨🏽‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas motorizada | tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas elétrica | homem em cadeira de rodas motorizada | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍🦼" type="tts">homem em cadeira de rodas elétrica: tipo de pele 4</annotation>
-		<annotation cp="👨🏾‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas motorizada | tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas elétrica | homem em cadeira de rodas motorizada | tipo de pele 5</annotation>
 		<annotation cp="👨🏾‍🦼" type="tts">homem em cadeira de rodas elétrica: tipo de pele 5</annotation>
-		<annotation cp="👨🏿‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas motorizada | tipo de pele 6</annotation>
+		<annotation cp="👨🏿‍🦼">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas elétrica | homem em cadeira de rodas motorizada | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🦼" type="tts">homem em cadeira de rodas elétrica: tipo de pele 6</annotation>
-		<annotation cp="👩🏻‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas motorizada | tipo de pele 1–2</annotation>
+		<annotation cp="👩🏻‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas elétrica | mulher em cadeira de rodas motorizada | tipo de pele 1–2</annotation>
 		<annotation cp="👩🏻‍🦼" type="tts">mulher em cadeira de rodas elétrica: tipo de pele 1–2</annotation>
-		<annotation cp="👩🏼‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas motorizada | tipo de pele 3</annotation>
+		<annotation cp="👩🏼‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas elétrica | mulher em cadeira de rodas motorizada | tipo de pele 3</annotation>
 		<annotation cp="👩🏼‍🦼" type="tts">mulher em cadeira de rodas elétrica: tipo de pele 3</annotation>
-		<annotation cp="👩🏽‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas motorizada | tipo de pele 4</annotation>
+		<annotation cp="👩🏽‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas elétrica | mulher em cadeira de rodas motorizada | tipo de pele 4</annotation>
 		<annotation cp="👩🏽‍🦼" type="tts">mulher em cadeira de rodas elétrica: tipo de pele 4</annotation>
-		<annotation cp="👩🏾‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas motorizada | tipo de pele 5</annotation>
+		<annotation cp="👩🏾‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas elétrica | mulher em cadeira de rodas motorizada | tipo de pele 5</annotation>
 		<annotation cp="👩🏾‍🦼" type="tts">mulher em cadeira de rodas elétrica: tipo de pele 5</annotation>
-		<annotation cp="👩🏿‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas motorizada | tipo de pele 6</annotation>
+		<annotation cp="👩🏿‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas elétrica | mulher em cadeira de rodas motorizada | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">mulher em cadeira de rodas elétrica: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🦽">acessibilidade | cadeira de rodas | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🦽">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas manual | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">pessoa em cadeira de rodas manual: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🦽">acessibilidade | cadeira de rodas | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🦽">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas manual | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">pessoa em cadeira de rodas manual: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🦽">acessibilidade | cadeira de rodas | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🦽">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas manual | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">pessoa em cadeira de rodas manual: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🦽">acessibilidade | cadeira de rodas | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🦽">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas manual | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">pessoa em cadeira de rodas manual: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🦽">acessibilidade | cadeira de rodas | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🦽">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas manual | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">pessoa em cadeira de rodas manual: tipo de pele 6</annotation>
 		<annotation cp="👨🏻‍🦽">acessibilidade | cadeira de rodas | homem | homem em cadeira de rodas manual | tipo de pele 1–2</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">homem em cadeira de rodas manual: tipo de pele 1–2</annotation>
@@ -2282,25 +2372,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧗🏾‍♀" type="tts">mulher a escalar: tipo de pele 5</annotation>
 		<annotation cp="🧗🏿‍♀">montanhista | mulher a escalar | tipo de pele 6</annotation>
 		<annotation cp="🧗🏿‍♀" type="tts">mulher a escalar: tipo de pele 6</annotation>
-		<annotation cp="🏇🏻">cavalo | jóquei | tipo de pele 1–2</annotation>
+		<annotation cp="🏇🏻">cavalo | corrida de cavalos | jóquei | tipo de pele 1–2</annotation>
 		<annotation cp="🏇🏻" type="tts">corrida de cavalos: tipo de pele 1–2</annotation>
-		<annotation cp="🏇🏼">cavalo | jóquei | tipo de pele 3</annotation>
+		<annotation cp="🏇🏼">cavalo | corrida de cavalos | jóquei | tipo de pele 3</annotation>
 		<annotation cp="🏇🏼" type="tts">corrida de cavalos: tipo de pele 3</annotation>
-		<annotation cp="🏇🏽">cavalo | jóquei | tipo de pele 4</annotation>
+		<annotation cp="🏇🏽">cavalo | corrida de cavalos | jóquei | tipo de pele 4</annotation>
 		<annotation cp="🏇🏽" type="tts">corrida de cavalos: tipo de pele 4</annotation>
-		<annotation cp="🏇🏾">cavalo | jóquei | tipo de pele 5</annotation>
+		<annotation cp="🏇🏾">cavalo | corrida de cavalos | jóquei | tipo de pele 5</annotation>
 		<annotation cp="🏇🏾" type="tts">corrida de cavalos: tipo de pele 5</annotation>
-		<annotation cp="🏇🏿">cavalo | jóquei | tipo de pele 6</annotation>
+		<annotation cp="🏇🏿">cavalo | corrida de cavalos | jóquei | tipo de pele 6</annotation>
 		<annotation cp="🏇🏿" type="tts">corrida de cavalos: tipo de pele 6</annotation>
-		<annotation cp="🏂🏻">esqui | neve | snowboard | tipo de pele 1–2</annotation>
+		<annotation cp="🏂🏻">esqui | neve | praticante de snowboard | snowboard | tipo de pele 1–2</annotation>
 		<annotation cp="🏂🏻" type="tts">praticante de snowboard: tipo de pele 1–2</annotation>
-		<annotation cp="🏂🏼">esqui | neve | snowboard | tipo de pele 3</annotation>
+		<annotation cp="🏂🏼">esqui | neve | praticante de snowboard | snowboard | tipo de pele 3</annotation>
 		<annotation cp="🏂🏼" type="tts">praticante de snowboard: tipo de pele 3</annotation>
-		<annotation cp="🏂🏽">esqui | neve | snowboard | tipo de pele 4</annotation>
+		<annotation cp="🏂🏽">esqui | neve | praticante de snowboard | snowboard | tipo de pele 4</annotation>
 		<annotation cp="🏂🏽" type="tts">praticante de snowboard: tipo de pele 4</annotation>
-		<annotation cp="🏂🏾">esqui | neve | snowboard | tipo de pele 5</annotation>
+		<annotation cp="🏂🏾">esqui | neve | praticante de snowboard | snowboard | tipo de pele 5</annotation>
 		<annotation cp="🏂🏾" type="tts">praticante de snowboard: tipo de pele 5</annotation>
-		<annotation cp="🏂🏿">esqui | neve | snowboard | tipo de pele 6</annotation>
+		<annotation cp="🏂🏿">esqui | neve | praticante de snowboard | snowboard | tipo de pele 6</annotation>
 		<annotation cp="🏂🏿" type="tts">praticante de snowboard: tipo de pele 6</annotation>
 		<annotation cp="🏌🏻">bola | golfe | golfista | tipo de pele 1–2</annotation>
 		<annotation cp="🏌🏻" type="tts">golfista: tipo de pele 1–2</annotation>
@@ -2482,15 +2572,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏋🏾‍♀" type="tts">mulher halterofilista: tipo de pele 5</annotation>
 		<annotation cp="🏋🏿‍♀">levantamento de pesos | mulher | mulher halterofilista | tipo de pele 6</annotation>
 		<annotation cp="🏋🏿‍♀" type="tts">mulher halterofilista: tipo de pele 6</annotation>
-		<annotation cp="🚴🏻">bicicleta | pessoa a andar de bicicleta | tipo de pele 1–2</annotation>
+		<annotation cp="🚴🏻">bicicleta | ciclista | pessoa a andar de bicicleta | tipo de pele 1–2</annotation>
 		<annotation cp="🚴🏻" type="tts">ciclista: tipo de pele 1–2</annotation>
-		<annotation cp="🚴🏼">bicicleta | pessoa a andar de bicicleta | tipo de pele 3</annotation>
+		<annotation cp="🚴🏼">bicicleta | ciclista | pessoa a andar de bicicleta | tipo de pele 3</annotation>
 		<annotation cp="🚴🏼" type="tts">ciclista: tipo de pele 3</annotation>
-		<annotation cp="🚴🏽">bicicleta | pessoa a andar de bicicleta | tipo de pele 4</annotation>
+		<annotation cp="🚴🏽">bicicleta | ciclista | pessoa a andar de bicicleta | tipo de pele 4</annotation>
 		<annotation cp="🚴🏽" type="tts">ciclista: tipo de pele 4</annotation>
-		<annotation cp="🚴🏾">bicicleta | pessoa a andar de bicicleta | tipo de pele 5</annotation>
+		<annotation cp="🚴🏾">bicicleta | ciclista | pessoa a andar de bicicleta | tipo de pele 5</annotation>
 		<annotation cp="🚴🏾" type="tts">ciclista: tipo de pele 5</annotation>
-		<annotation cp="🚴🏿">bicicleta | pessoa a andar de bicicleta | tipo de pele 6</annotation>
+		<annotation cp="🚴🏿">bicicleta | ciclista | pessoa a andar de bicicleta | tipo de pele 6</annotation>
 		<annotation cp="🚴🏿" type="tts">ciclista: tipo de pele 6</annotation>
 		<annotation cp="🚴🏻‍♂">bicicleta | ciclista | ciclista (homem) | homem | homem a andar de bicicleta | tipo de pele 1–2</annotation>
 		<annotation cp="🚴🏻‍♂" type="tts">ciclista (homem): tipo de pele 1–2</annotation>
@@ -2662,35 +2752,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤹🏾‍♀" type="tts">mulher a fazer malabarismo: tipo de pele 5</annotation>
 		<annotation cp="🤹🏿‍♀">habilidade | malabarismo | malabarista | mulher | mulher a fazer malabarismo | multitarefa | tipo de pele 6</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">mulher a fazer malabarismo: tipo de pele 6</annotation>
-		<annotation cp="🧘🏻">ioga | meditação | tipo de pele 1–2 | yoga</annotation>
+		<annotation cp="🧘🏻">ioga | meditação | pessoa na posição de lótus | tipo de pele 1–2 | yoga</annotation>
 		<annotation cp="🧘🏻" type="tts">pessoa na posição de lótus: tipo de pele 1–2</annotation>
-		<annotation cp="🧘🏼">ioga | meditação | tipo de pele 3 | yoga</annotation>
+		<annotation cp="🧘🏼">ioga | meditação | pessoa na posição de lótus | tipo de pele 3 | yoga</annotation>
 		<annotation cp="🧘🏼" type="tts">pessoa na posição de lótus: tipo de pele 3</annotation>
-		<annotation cp="🧘🏽">ioga | meditação | tipo de pele 4 | yoga</annotation>
+		<annotation cp="🧘🏽">ioga | meditação | pessoa na posição de lótus | tipo de pele 4 | yoga</annotation>
 		<annotation cp="🧘🏽" type="tts">pessoa na posição de lótus: tipo de pele 4</annotation>
-		<annotation cp="🧘🏾">ioga | meditação | tipo de pele 5 | yoga</annotation>
+		<annotation cp="🧘🏾">ioga | meditação | pessoa na posição de lótus | tipo de pele 5 | yoga</annotation>
 		<annotation cp="🧘🏾" type="tts">pessoa na posição de lótus: tipo de pele 5</annotation>
-		<annotation cp="🧘🏿">ioga | meditação | tipo de pele 6 | yoga</annotation>
+		<annotation cp="🧘🏿">ioga | meditação | pessoa na posição de lótus | tipo de pele 6 | yoga</annotation>
 		<annotation cp="🧘🏿" type="tts">pessoa na posição de lótus: tipo de pele 6</annotation>
-		<annotation cp="🧘🏻‍♂">ioga | meditação | tipo de pele 1–2 | yoga</annotation>
+		<annotation cp="🧘🏻‍♂">homem na posição de lótus | ioga | meditação | tipo de pele 1–2 | yoga</annotation>
 		<annotation cp="🧘🏻‍♂" type="tts">homem na posição de lótus: tipo de pele 1–2</annotation>
-		<annotation cp="🧘🏼‍♂">ioga | meditação | tipo de pele 3 | yoga</annotation>
+		<annotation cp="🧘🏼‍♂">homem na posição de lótus | ioga | meditação | tipo de pele 3 | yoga</annotation>
 		<annotation cp="🧘🏼‍♂" type="tts">homem na posição de lótus: tipo de pele 3</annotation>
-		<annotation cp="🧘🏽‍♂">ioga | meditação | tipo de pele 4 | yoga</annotation>
+		<annotation cp="🧘🏽‍♂">homem na posição de lótus | ioga | meditação | tipo de pele 4 | yoga</annotation>
 		<annotation cp="🧘🏽‍♂" type="tts">homem na posição de lótus: tipo de pele 4</annotation>
-		<annotation cp="🧘🏾‍♂">ioga | meditação | tipo de pele 5 | yoga</annotation>
+		<annotation cp="🧘🏾‍♂">homem na posição de lótus | ioga | meditação | tipo de pele 5 | yoga</annotation>
 		<annotation cp="🧘🏾‍♂" type="tts">homem na posição de lótus: tipo de pele 5</annotation>
-		<annotation cp="🧘🏿‍♂">ioga | meditação | tipo de pele 6 | yoga</annotation>
+		<annotation cp="🧘🏿‍♂">homem na posição de lótus | ioga | meditação | tipo de pele 6 | yoga</annotation>
 		<annotation cp="🧘🏿‍♂" type="tts">homem na posição de lótus: tipo de pele 6</annotation>
-		<annotation cp="🧘🏻‍♀">ioga | meditação | tipo de pele 1–2 | yoga</annotation>
+		<annotation cp="🧘🏻‍♀">ioga | meditação | mulher na posição de lótus | tipo de pele 1–2 | yoga</annotation>
 		<annotation cp="🧘🏻‍♀" type="tts">mulher na posição de lótus: tipo de pele 1–2</annotation>
-		<annotation cp="🧘🏼‍♀">ioga | meditação | tipo de pele 3 | yoga</annotation>
+		<annotation cp="🧘🏼‍♀">ioga | meditação | mulher na posição de lótus | tipo de pele 3 | yoga</annotation>
 		<annotation cp="🧘🏼‍♀" type="tts">mulher na posição de lótus: tipo de pele 3</annotation>
-		<annotation cp="🧘🏽‍♀">ioga | meditação | tipo de pele 4 | yoga</annotation>
+		<annotation cp="🧘🏽‍♀">ioga | meditação | mulher na posição de lótus | tipo de pele 4 | yoga</annotation>
 		<annotation cp="🧘🏽‍♀" type="tts">mulher na posição de lótus: tipo de pele 4</annotation>
-		<annotation cp="🧘🏾‍♀">ioga | meditação | tipo de pele 5 | yoga</annotation>
+		<annotation cp="🧘🏾‍♀">ioga | meditação | mulher na posição de lótus | tipo de pele 5 | yoga</annotation>
 		<annotation cp="🧘🏾‍♀" type="tts">mulher na posição de lótus: tipo de pele 5</annotation>
-		<annotation cp="🧘🏿‍♀">ioga | meditação | tipo de pele 6 | yoga</annotation>
+		<annotation cp="🧘🏿‍♀">ioga | meditação | mulher na posição de lótus | tipo de pele 6 | yoga</annotation>
 		<annotation cp="🧘🏿‍♀" type="tts">mulher na posição de lótus: tipo de pele 6</annotation>
 		<annotation cp="🛀🏻">banheira | banho | pessoa a tomar banho | tipo de pele 1–2</annotation>
 		<annotation cp="🛀🏻" type="tts">pessoa a tomar banho: tipo de pele 1–2</annotation>
@@ -2712,48 +2802,86 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏾" type="tts">pessoa na cama: tipo de pele 5</annotation>
 		<annotation cp="🛌🏿">dormir | hotel | pessoa na cama | tipo de pele 6</annotation>
 		<annotation cp="🛌🏿" type="tts">pessoa na cama: tipo de pele 6</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | tipo de pele 1–2</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | tipo de pele 1–2 | tipo de pele 3</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 3</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: tipo de pele 1–2 e tipo de pele 3</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 4</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: tipo de pele 1–2 e tipo de pele 4</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 5</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: tipo de pele 1–2 e tipo de pele 5</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: tipo de pele 1–2 e tipo de pele 6</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: tipo de pele 3 e tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | tipo de pele 3</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 3</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | tipo de pele 1–2 | tipo de pele 4</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 3 | tipo de pele 4</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: tipo de pele 3 e tipo de pele 4</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 3 | tipo de pele 5</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: tipo de pele 3 e tipo de pele 5</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 3 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: tipo de pele 3 e tipo de pele 6</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: tipo de pele 4 e tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | tipo de pele 3 | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 3 | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: tipo de pele 4 e tipo de pele 3</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | tipo de pele 4</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 4</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | tipo de pele 1–2 | tipo de pele 5</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 4 | tipo de pele 5</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: tipo de pele 4 e tipo de pele 5</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 4 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: tipo de pele 4 e tipo de pele 6</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: tipo de pele 5 e tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | tipo de pele 3 | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 3 | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: tipo de pele 5 e tipo de pele 3</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | tipo de pele 4 | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 4 | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: tipo de pele 5 e tipo de pele 4</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">casal | mão | mãos dadas | pessoa | tipo de pele 5</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 5</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | tipo de pele 1–2 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 5 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: tipo de pele 5 e tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 1–2 | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">pessoas de mãos dadas: tipo de pele 6 e tipo de pele 1–2</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | tipo de pele 3 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 3 | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">pessoas de mãos dadas: tipo de pele 6 e tipo de pele 3</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | tipo de pele 4 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 4 | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">pessoas de mãos dadas: tipo de pele 6 e tipo de pele 4</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">casal | mão | mãos dadas | pessoa | tipo de pele 5 | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 5 | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">pessoas de mãos dadas: tipo de pele 6 e tipo de pele 5</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">casal | mão | mãos dadas | pessoa | tipo de pele 6</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">casal | mão | mãos dadas | pessoa | pessoas de mãos dadas | tipo de pele 6</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">pessoas de mãos dadas: tipo de pele 6</annotation>
 		<annotation cp="👭🏻">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2</annotation>
 		<annotation cp="👭🏻" type="tts">mulheres de mãos dadas: tipo de pele 1–2</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 3</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">mulheres de mãos dadas: tipo de pele 1–2 e tipo de pele 3</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 4</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">mulheres de mãos dadas: tipo de pele 1–2 e tipo de pele 4</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 5</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">mulheres de mãos dadas: tipo de pele 1–2 e tipo de pele 5</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 6</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">mulheres de mãos dadas: tipo de pele 1–2 e tipo de pele 6</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 3</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">mulheres de mãos dadas: tipo de pele 3 e tipo de pele 1–2</annotation>
 		<annotation cp="👭🏼">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 3</annotation>
 		<annotation cp="👭🏼" type="tts">mulheres de mãos dadas: tipo de pele 3</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 3 | tipo de pele 4</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">mulheres de mãos dadas: tipo de pele 3 e tipo de pele 4</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 3 | tipo de pele 5</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">mulheres de mãos dadas: tipo de pele 3 e tipo de pele 5</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 3 | tipo de pele 6</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">mulheres de mãos dadas: tipo de pele 3 e tipo de pele 6</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 4</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">mulheres de mãos dadas: tipo de pele 4 e tipo de pele 1–2</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 3 | tipo de pele 4</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">mulheres de mãos dadas: tipo de pele 4 e tipo de pele 3</annotation>
 		<annotation cp="👭🏽">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 4</annotation>
 		<annotation cp="👭🏽" type="tts">mulheres de mãos dadas: tipo de pele 4</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 4 | tipo de pele 5</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">mulheres de mãos dadas: tipo de pele 4 e tipo de pele 5</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 4 | tipo de pele 6</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">mulheres de mãos dadas: tipo de pele 4 e tipo de pele 6</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 5</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">mulheres de mãos dadas: tipo de pele 5 e tipo de pele 1–2</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 3 | tipo de pele 5</annotation>
@@ -2762,6 +2890,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">mulheres de mãos dadas: tipo de pele 5 e tipo de pele 4</annotation>
 		<annotation cp="👭🏾">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 5</annotation>
 		<annotation cp="👭🏾" type="tts">mulheres de mãos dadas: tipo de pele 5</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 5 | tipo de pele 6</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">mulheres de mãos dadas: tipo de pele 5 e tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 1–2 | tipo de pele 6</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">mulheres de mãos dadas: tipo de pele 6 e tipo de pele 1–2</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">casal | mão | mãos dadas | mulheres | mulheres de mãos dadas | tipo de pele 3 | tipo de pele 6</annotation>
@@ -2824,16 +2954,34 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👫🏿" type="tts">mulher e homem de mãos dadas: tipo de pele 6</annotation>
 		<annotation cp="👬🏻">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2</annotation>
 		<annotation cp="👬🏻" type="tts">homens de mãos dadas: tipo de pele 1–2</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 3</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">homens de mãos dadas: tipo de pele 1–2 e tipo de pele 3</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 4</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">homens de mãos dadas: tipo de pele 1–2 e tipo de pele 4</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 5</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">homens de mãos dadas: tipo de pele 1–2 e tipo de pele 5</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 6</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">homens de mãos dadas: tipo de pele 1–2 e tipo de pele 6</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 3</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">homens de mãos dadas: tipo de pele 3 e tipo de pele 1–2</annotation>
 		<annotation cp="👬🏼">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 3</annotation>
 		<annotation cp="👬🏼" type="tts">homens de mãos dadas: tipo de pele 3</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 3 | tipo de pele 4</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">homens de mãos dadas: tipo de pele 3 e tipo de pele 4</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 3 | tipo de pele 5</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">homens de mãos dadas: tipo de pele 3 e tipo de pele 5</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 3 | tipo de pele 6</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">homens de mãos dadas: tipo de pele 3 e tipo de pele 6</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">homens de mãos dadas: tipo de pele 4 e tipo de pele 1–2</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 3 | tipo de pele 4</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">homens de mãos dadas: tipo de pele 4 e tipo de pele 3</annotation>
 		<annotation cp="👬🏽">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 4</annotation>
 		<annotation cp="👬🏽" type="tts">homens de mãos dadas: tipo de pele 4</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 4 | tipo de pele 5</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">homens de mãos dadas: tipo de pele 4 e tipo de pele 5</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 4 | tipo de pele 6</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">homens de mãos dadas: tipo de pele 4 e tipo de pele 6</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 5</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">homens de mãos dadas: tipo de pele 5 e tipo de pele 1–2</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 3 | tipo de pele 5</annotation>
@@ -2842,6 +2990,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">homens de mãos dadas: tipo de pele 5 e tipo de pele 4</annotation>
 		<annotation cp="👬🏾">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 5</annotation>
 		<annotation cp="👬🏾" type="tts">homens de mãos dadas: tipo de pele 5</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 5 | tipo de pele 6</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">homens de mãos dadas: tipo de pele 5 e tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 1–2 | tipo de pele 6</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">homens de mãos dadas: tipo de pele 6 e tipo de pele 1–2</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 3 | tipo de pele 6</annotation>
@@ -2852,64 +3002,64 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">homens de mãos dadas: tipo de pele 6 e tipo de pele 5</annotation>
 		<annotation cp="👬🏿">casal | gémeos | Gémeos | homem | homens | homens de mãos dadas | mãos dadas | signo | tipo de pele 6</annotation>
 		<annotation cp="👬🏿" type="tts">homens de mãos dadas: tipo de pele 6</annotation>
-		<annotation cp="👩‍❤‍💋‍👨">casal | homem | mulher | romance</annotation>
-		<annotation cp="👨‍❤‍💋‍👨">casal | homem | romance</annotation>
-		<annotation cp="👩‍❤‍💋‍👩">casal | mulher | romance</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">beijo | casal | homem | mulher | romance</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">beijo | casal | homem | romance</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">beijo | casal | mulher | romance</annotation>
 		<annotation cp="👩‍❤‍👨">amor | casal | casal com coração | coração | homem | mulher | romance</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">casal com coração: mulher e homem</annotation>
 		<annotation cp="👨‍❤‍👨">amor | casal | casal com coração | coração | homem | romance</annotation>
 		<annotation cp="👨‍❤‍👨" type="tts">casal com coração: homem e homem</annotation>
 		<annotation cp="👩‍❤‍👩">amor | casal | casal com coração | coração | mulher | romance</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">casal com coração: mulher e mulher</annotation>
-		<annotation cp="👨‍👩‍👦">criança | homem | mãe | mulher | pai | rapaz</annotation>
+		<annotation cp="👨‍👩‍👦">criança | família | homem | mãe | mulher | pai | rapaz</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">família: homem, mulher e rapaz</annotation>
-		<annotation cp="👨‍👩‍👧">criança | homem | mãe | mulher | pai | rapariga</annotation>
+		<annotation cp="👨‍👩‍👧">criança | família | homem | mãe | mulher | pai | rapariga</annotation>
 		<annotation cp="👨‍👩‍👧" type="tts">família: homem, mulher e rapariga</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">criança | homem | mãe | mulher | pai | rapariga | rapaz</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">criança | família | homem | mãe | mulher | pai | rapariga | rapaz</annotation>
 		<annotation cp="👨‍👩‍👧‍👦" type="tts">família: homem, mulher, rapariga e rapaz</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">criança | homem | mãe | mulher | pai | rapaz</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">criança | família | homem | mãe | mulher | pai | rapaz</annotation>
 		<annotation cp="👨‍👩‍👦‍👦" type="tts">família: homem, mulher, rapaz e rapaz</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">criança | homem | mãe | mulher | pai | rapariga</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">criança | família | homem | mãe | mulher | pai | rapariga</annotation>
 		<annotation cp="👨‍👩‍👧‍👧" type="tts">família: homem, mulher, rapariga e rapariga</annotation>
-		<annotation cp="👨‍👨‍👦">criança | homem | mãe | pai | rapaz</annotation>
+		<annotation cp="👨‍👨‍👦">criança | família | homem | mãe | pai | rapaz</annotation>
 		<annotation cp="👨‍👨‍👦" type="tts">família: homem, homem e rapaz</annotation>
-		<annotation cp="👨‍👨‍👧">criança | homem | mãe | pai | rapariga</annotation>
+		<annotation cp="👨‍👨‍👧">criança | família | homem | mãe | pai | rapariga</annotation>
 		<annotation cp="👨‍👨‍👧" type="tts">família: homem, homem e rapariga</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">criança | homem | mãe | pai | rapariga | rapaz</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">criança | família | homem | mãe | pai | rapariga | rapaz</annotation>
 		<annotation cp="👨‍👨‍👧‍👦" type="tts">família: homem, homem, rapariga e rapaz</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">criança | homem | mãe | pai | rapaz</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">criança | família | homem | mãe | pai | rapaz</annotation>
 		<annotation cp="👨‍👨‍👦‍👦" type="tts">família: homem, homem, rapaz e rapaz</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">criança | homem | mãe | pai | rapariga</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">criança | família | homem | mãe | pai | rapariga</annotation>
 		<annotation cp="👨‍👨‍👧‍👧" type="tts">família: homem, homem, rapariga e rapariga</annotation>
-		<annotation cp="👩‍👩‍👦">criança | mãe | mulher | pai | rapaz</annotation>
+		<annotation cp="👩‍👩‍👦">criança | família | mãe | mulher | pai | rapaz</annotation>
 		<annotation cp="👩‍👩‍👦" type="tts">família: mulher, mulher e rapaz</annotation>
-		<annotation cp="👩‍👩‍👧">criança | mãe | mulher | pai | rapariga</annotation>
+		<annotation cp="👩‍👩‍👧">criança | família | mãe | mulher | pai | rapariga</annotation>
 		<annotation cp="👩‍👩‍👧" type="tts">família: mulher, mulher e rapariga</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">criança | mãe | mulher | pai | rapariga | rapaz</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">criança | família | mãe | mulher | pai | rapariga | rapaz</annotation>
 		<annotation cp="👩‍👩‍👧‍👦" type="tts">família: mulher, mulher, rapariga e rapaz</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">criança | mãe | mulher | pai | rapaz</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">criança | família | mãe | mulher | pai | rapaz</annotation>
 		<annotation cp="👩‍👩‍👦‍👦" type="tts">família: mulher, mulher, rapaz e rapaz</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">criança | mãe | mulher | pai | rapariga</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">criança | família | mãe | mulher | pai | rapariga</annotation>
 		<annotation cp="👩‍👩‍👧‍👧" type="tts">família: mulher, mulher, rapariga e rapariga</annotation>
-		<annotation cp="👨‍👦">criança | homem | mãe | pai | rapaz</annotation>
+		<annotation cp="👨‍👦">criança | família | homem | mãe | pai | rapaz</annotation>
 		<annotation cp="👨‍👦" type="tts">família: homem e rapaz</annotation>
-		<annotation cp="👨‍👦‍👦">criança | homem | mãe | pai | rapaz</annotation>
+		<annotation cp="👨‍👦‍👦">criança | família | homem | mãe | pai | rapaz</annotation>
 		<annotation cp="👨‍👦‍👦" type="tts">família: homem, rapaz e rapaz</annotation>
-		<annotation cp="👨‍👧">criança | homem | mãe | pai | rapariga</annotation>
+		<annotation cp="👨‍👧">criança | família | homem | mãe | pai | rapariga</annotation>
 		<annotation cp="👨‍👧" type="tts">família: homem e rapariga</annotation>
-		<annotation cp="👨‍👧‍👦">criança | homem | mãe | pai | rapariga | rapaz</annotation>
+		<annotation cp="👨‍👧‍👦">criança | família | homem | mãe | pai | rapariga | rapaz</annotation>
 		<annotation cp="👨‍👧‍👦" type="tts">família: homem, rapariga e rapaz</annotation>
-		<annotation cp="👨‍👧‍👧">criança | homem | mãe | pai | rapariga</annotation>
+		<annotation cp="👨‍👧‍👧">criança | família | homem | mãe | pai | rapariga</annotation>
 		<annotation cp="👨‍👧‍👧" type="tts">família: homem, rapariga e rapariga</annotation>
-		<annotation cp="👩‍👦">criança | mãe | mulher | pai | rapaz</annotation>
+		<annotation cp="👩‍👦">criança | família | mãe | mulher | pai | rapaz</annotation>
 		<annotation cp="👩‍👦" type="tts">família: mulher e rapaz</annotation>
-		<annotation cp="👩‍👦‍👦">criança | mãe | mulher | pai | rapaz</annotation>
+		<annotation cp="👩‍👦‍👦">criança | família | mãe | mulher | pai | rapaz</annotation>
 		<annotation cp="👩‍👦‍👦" type="tts">família: mulher, rapaz e rapaz</annotation>
-		<annotation cp="👩‍👧">criança | mãe | mulher | pai | rapariga</annotation>
+		<annotation cp="👩‍👧">criança | família | mãe | mulher | pai | rapariga</annotation>
 		<annotation cp="👩‍👧" type="tts">família: mulher e rapariga</annotation>
-		<annotation cp="👩‍👧‍👦">criança | mãe | mulher | pai | rapariga | rapaz</annotation>
+		<annotation cp="👩‍👧‍👦">criança | família | mãe | mulher | pai | rapariga | rapaz</annotation>
 		<annotation cp="👩‍👧‍👦" type="tts">família: mulher, rapariga e rapaz</annotation>
-		<annotation cp="👩‍👧‍👧">criança | mãe | mulher | pai | rapariga</annotation>
+		<annotation cp="👩‍👧‍👧">criança | família | mãe | mulher | pai | rapariga</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">família: mulher, rapariga e rapariga</annotation>
 		<annotation cp="🇦🇲" type="tts">bandeira: Arménia</annotation>
 		<annotation cp="🇦🇽" type="tts">bandeira: Alanda</annotation>

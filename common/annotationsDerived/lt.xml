@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="lt"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">pirštai | rankos gestas | sarkastiškas | suspausti | šviesios odos</annotation>
+		<annotation cp="🤌🏻" type="tts">suspausti pirštai: šviesios odos</annotation>
+		<annotation cp="🤌🏼">pirštai | rankos gestas | sarkastiškas | suspausti | vidutinio gymio</annotation>
+		<annotation cp="🤌🏼" type="tts">suspausti pirštai: vidutinio gymio</annotation>
+		<annotation cp="🤌🏽">pirštai | rankos gestas | rusvos odos | sarkastiškas | suspausti</annotation>
+		<annotation cp="🤌🏽" type="tts">suspausti pirštai: rusvos odos</annotation>
+		<annotation cp="🤌🏾">pirštai | rankos gestas | sarkastiškas | suspausti | tamsios odos</annotation>
+		<annotation cp="🤌🏾" type="tts">suspausti pirštai: tamsios odos</annotation>
+		<annotation cp="🤌🏿">itin tamsios odos | pirštai | rankos gestas | sarkastiškas | suspausti</annotation>
+		<annotation cp="🤌🏿" type="tts">suspausti pirštai: itin tamsios odos</annotation>
 		<annotation cp="👋🏻">mojuoja | mojuojanti ranka | mojuoti | ranka | šviesios odos</annotation>
 		<annotation cp="👋🏻" type="tts">mojuojanti ranka: šviesios odos</annotation>
 		<annotation cp="👋🏼">mojuoja | mojuojanti ranka | mojuoti | ranka | vidutinio gymio</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">suaugusysis: tamsios odos plikas</annotation>
 		<annotation cp="🧑🏿‍🦲">itin tamsios odos | neutrali lytis | plikas | suaugusysis</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">suaugusysis: itin tamsios odos plikas</annotation>
+		<annotation cp="🧑🏻‍🍼">asmuo | kūdikį maitinantis asmuo | kūdikis | maitinimas | maitinimas krūtimi | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">kūdikį maitinantis asmuo: šviesios odos</annotation>
+		<annotation cp="🧑🏼‍🍼">asmuo | kūdikį maitinantis asmuo | kūdikis | maitinimas | maitinimas krūtimi | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">kūdikį maitinantis asmuo: vidutinio gymio</annotation>
+		<annotation cp="🧑🏽‍🍼">asmuo | kūdikį maitinantis asmuo | kūdikis | maitinimas | maitinimas krūtimi | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">kūdikį maitinantis asmuo: rusvos odos</annotation>
+		<annotation cp="🧑🏾‍🍼">asmuo | kūdikį maitinantis asmuo | kūdikis | maitinimas | maitinimas krūtimi | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">kūdikį maitinantis asmuo: tamsios odos</annotation>
+		<annotation cp="🧑🏿‍🍼">asmuo | itin tamsios odos | kūdikį maitinantis asmuo | kūdikis | maitinimas | maitinimas krūtimi</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">kūdikį maitinantis asmuo: itin tamsios odos</annotation>
+		<annotation cp="🧑🏻‍🎄">Kalėdos | Kalėdų asmuo | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Kalėdų asmuo: šviesios odos</annotation>
+		<annotation cp="🧑🏼‍🎄">Kalėdos | Kalėdų asmuo | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Kalėdų asmuo: vidutinio gymio</annotation>
+		<annotation cp="🧑🏽‍🎄">Kalėdos | Kalėdų asmuo | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Kalėdų asmuo: rusvos odos</annotation>
+		<annotation cp="🧑🏾‍🎄">Kalėdos | Kalėdų asmuo | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Kalėdų asmuo: tamsios odos</annotation>
+		<annotation cp="🧑🏿‍🎄">itin tamsios odos | Kalėdos | Kalėdų asmuo</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Kalėdų asmuo: itin tamsios odos</annotation>
 		<annotation cp="👨🏻">šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻" type="tts">vyras: šviesios odos</annotation>
 		<annotation cp="👨🏼">vidutinio gymio | vyras</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">vyras: tamsios odos plikas</annotation>
 		<annotation cp="👨🏿‍🦲">itin tamsios odos | plikas | vyras</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">vyras: itin tamsios odos plikas</annotation>
+		<annotation cp="👨🏻‍🍼">kūdikį maitinantis vyras | kūdikis | maitinimas | maitinimas krūtimi | šviesios odos | vyras</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">kūdikį maitinantis vyras: šviesios odos</annotation>
+		<annotation cp="👨🏼‍🍼">kūdikį maitinantis vyras | kūdikis | maitinimas | maitinimas krūtimi | vidutinio gymio | vyras</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">kūdikį maitinantis vyras: vidutinio gymio</annotation>
+		<annotation cp="👨🏽‍🍼">kūdikį maitinantis vyras | kūdikis | maitinimas | maitinimas krūtimi | rusvos odos | vyras</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">kūdikį maitinantis vyras: rusvos odos</annotation>
+		<annotation cp="👨🏾‍🍼">kūdikį maitinantis vyras | kūdikis | maitinimas | maitinimas krūtimi | tamsios odos | vyras</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">kūdikį maitinantis vyras: tamsios odos</annotation>
+		<annotation cp="👨🏿‍🍼">itin tamsios odos | kūdikį maitinantis vyras | kūdikis | maitinimas | maitinimas krūtimi | vyras</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">kūdikį maitinantis vyras: itin tamsios odos</annotation>
 		<annotation cp="👩🏻">moteris | šviesios odos</annotation>
 		<annotation cp="👩🏻" type="tts">moteris: šviesios odos</annotation>
 		<annotation cp="👩🏼">moteris | vidutinio gymio</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">moteris: tamsios odos plikas</annotation>
 		<annotation cp="👩🏿‍🦲">itin tamsios odos | moteris | plikas</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">moteris: itin tamsios odos plikas</annotation>
+		<annotation cp="👩🏻‍🍼">kūdikį maitinanti moteris | kūdikis | maitinimas | maitinimas krūtimi | moteris | šviesios odos</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">kūdikį maitinanti moteris: šviesios odos</annotation>
+		<annotation cp="👩🏼‍🍼">kūdikį maitinanti moteris | kūdikis | maitinimas | maitinimas krūtimi | moteris | vidutinio gymio</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">kūdikį maitinanti moteris: vidutinio gymio</annotation>
+		<annotation cp="👩🏽‍🍼">kūdikį maitinanti moteris | kūdikis | maitinimas | maitinimas krūtimi | moteris | rusvos odos</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">kūdikį maitinanti moteris: rusvos odos</annotation>
+		<annotation cp="👩🏾‍🍼">kūdikį maitinanti moteris | kūdikis | maitinimas | maitinimas krūtimi | moteris | tamsios odos</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">kūdikį maitinanti moteris: tamsios odos</annotation>
+		<annotation cp="👩🏿‍🍼">itin tamsios odos | kūdikį maitinanti moteris | kūdikis | maitinimas | maitinimas krūtimi | moteris</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">kūdikį maitinanti moteris: itin tamsios odos</annotation>
 		<annotation cp="🧓🏻">kitas suaugusysis | neutrali lytis | senas | šviesios odos</annotation>
 		<annotation cp="🧓🏻" type="tts">kitas suaugusysis: šviesios odos</annotation>
 		<annotation cp="🧓🏼">kitas suaugusysis | neutrali lytis | senas | vidutinio gymio</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">abejojanti moteris: tamsios odos</annotation>
 		<annotation cp="🤷🏿‍♀">abejingumas | abejojanti moteris | abejonė | itin tamsios odos | moteris | nežinojimas | trūkčioti pečiais</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">abejojanti moteris: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍⚕">gydytojas | slaugymas | sveikatos priežiūra | šviesios odos | terapistas</annotation>
+		<annotation cp="🧑🏻‍⚕">gydytojas | slaugymas | sveikatos darbuotojas | sveikatos priežiūra | šviesios odos | terapistas</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">sveikatos darbuotojas: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍⚕">gydytojas | slaugymas | sveikatos priežiūra | terapistas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍⚕">gydytojas | slaugymas | sveikatos darbuotojas | sveikatos priežiūra | terapistas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">sveikatos darbuotojas: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍⚕">gydytojas | rusvos odos | slaugymas | sveikatos priežiūra | terapistas</annotation>
+		<annotation cp="🧑🏽‍⚕">gydytojas | rusvos odos | slaugymas | sveikatos darbuotojas | sveikatos priežiūra | terapistas</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">sveikatos darbuotojas: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍⚕">gydytojas | slaugymas | sveikatos priežiūra | tamsios odos | terapistas</annotation>
+		<annotation cp="🧑🏾‍⚕">gydytojas | slaugymas | sveikatos darbuotojas | sveikatos priežiūra | tamsios odos | terapistas</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">sveikatos darbuotojas: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍⚕">gydytojas | itin tamsios odos | slaugymas | sveikatos priežiūra | terapistas</annotation>
+		<annotation cp="🧑🏿‍⚕">gydytojas | itin tamsios odos | slaugymas | sveikatos darbuotojas | sveikatos priežiūra | terapistas</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">sveikatos darbuotojas: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍⚕">gydytojas | medikas | slaugytojas | sveikata | šviesios odos | terapeutas | vyras</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">medikas: šviesios odos</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">medikė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍⚕">gydytoja | itin tamsios odos | medikė | moteris | seselė | sveikata | terapeutė</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">medikė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🎓">baigimas | studentas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🎓">baigimas | paskutinio kurso studentas | studentas | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">paskutinio kurso studentas: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🎓">baigimas | studentas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🎓">baigimas | paskutinio kurso studentas | studentas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">paskutinio kurso studentas: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🎓">baigimas | rusvos odos | studentas</annotation>
+		<annotation cp="🧑🏽‍🎓">baigimas | paskutinio kurso studentas | rusvos odos | studentas</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">paskutinio kurso studentas: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🎓">baigimas | studentas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🎓">baigimas | paskutinio kurso studentas | studentas | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">paskutinio kurso studentas: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🎓">baigimas | itin tamsios odos | studentas</annotation>
+		<annotation cp="🧑🏿‍🎓">baigimas | itin tamsios odos | paskutinio kurso studentas | studentas</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">paskutinio kurso studentas: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🎓">absolventas | studentas | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">studentas: šviesios odos</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">studentė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🎓">absolventė | itin tamsios odos | moteris | studentė</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">studentė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🏫">dėstytojas | instruktorius | mokytojas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🏫">dėstytojas | instruktorius | mokantis žmogus | mokytojas | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">mokantis žmogus: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🏫">dėstytojas | instruktorius | mokytojas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🏫">dėstytojas | instruktorius | mokantis žmogus | mokytojas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">mokantis žmogus: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🏫">dėstytojas | instruktorius | mokytojas | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🏫">dėstytojas | instruktorius | mokantis žmogus | mokytojas | rusvos odos</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">mokantis žmogus: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🏫">dėstytojas | instruktorius | mokytojas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🏫">dėstytojas | instruktorius | mokantis žmogus | mokytojas | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">mokantis žmogus: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🏫">dėstytojas | instruktorius | itin tamsios odos | mokytojas</annotation>
+		<annotation cp="🧑🏿‍🏫">dėstytojas | instruktorius | itin tamsios odos | mokantis žmogus | mokytojas</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">mokantis žmogus: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🏫">dėstytojas | mokytojas | profesorius | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">mokytojas: šviesios odos</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">mokytoja: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🏫">dėstytoja | itin tamsios odos | mokytoja | moteris | profesorė</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">mokytoja: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍⚖">svarstyklės | šviesios odos | teisėjas</annotation>
+		<annotation cp="🧑🏻‍⚖">svarstyklės | šviesios odos | teisėjas | teisiantis žmogus</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">teisiantis žmogus: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍⚖">svarstyklės | teisėjas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍⚖">svarstyklės | teisėjas | teisiantis žmogus | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">teisiantis žmogus: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍⚖">rusvos odos | svarstyklės | teisėjas</annotation>
+		<annotation cp="🧑🏽‍⚖">rusvos odos | svarstyklės | teisėjas | teisiantis žmogus</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">teisiantis žmogus: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍⚖">svarstyklės | tamsios odos | teisėjas</annotation>
+		<annotation cp="🧑🏾‍⚖">svarstyklės | tamsios odos | teisėjas | teisiantis žmogus</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">teisiantis žmogus: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍⚖">itin tamsios odos | svarstyklės | teisėjas</annotation>
+		<annotation cp="🧑🏿‍⚖">itin tamsios odos | svarstyklės | teisėjas | teisiantis žmogus</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">teisiantis žmogus: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍⚖">svarstyklės | šviesios odos | teisėjas | teisingumas | vyras</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">teisėjas: šviesios odos</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">teisėja: tamsios odos</annotation>
 		<annotation cp="👩🏿‍⚖">itin tamsios odos | moteris | svarstyklės | teisėja | teisingumas</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">teisėja: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🌾">sodininkas | šviesios odos | ūkininkas</annotation>
+		<annotation cp="🧑🏻‍🌾">sodininkas | šviesios odos | ūkininkas | ūkininkaujantis žmogus</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">ūkininkaujantis žmogus: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🌾">sodininkas | ūkininkas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🌾">sodininkas | ūkininkas | ūkininkaujantis žmogus | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">ūkininkaujantis žmogus: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🌾">rusvos odos | sodininkas | ūkininkas</annotation>
+		<annotation cp="🧑🏽‍🌾">rusvos odos | sodininkas | ūkininkas | ūkininkaujantis žmogus</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">ūkininkaujantis žmogus: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🌾">sodininkas | tamsios odos | ūkininkas</annotation>
+		<annotation cp="🧑🏾‍🌾">sodininkas | tamsios odos | ūkininkas | ūkininkaujantis žmogus</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">ūkininkaujantis žmogus: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🌾">itin tamsios odos | sodininkas | ūkininkas</annotation>
+		<annotation cp="🧑🏿‍🌾">itin tamsios odos | sodininkas | ūkininkas | ūkininkaujantis žmogus</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">ūkininkaujantis žmogus: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🌾">darbininkas | sodininkas | šviesios odos | ūkininkas | vyras</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">ūkininkas: šviesios odos</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">ūkininkė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🌾">darbininkė | itin tamsios odos | moteris | sodininkė | ūkininkė</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">ūkininkė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🍳">šefas | šviesios odos | virėjas</annotation>
+		<annotation cp="🧑🏻‍🍳">gaminantis žmogus | šefas | šviesios odos | virėjas</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">gaminantis žmogus: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🍳">šefas | vidutinio gymio | virėjas</annotation>
+		<annotation cp="🧑🏼‍🍳">gaminantis žmogus | šefas | vidutinio gymio | virėjas</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">gaminantis žmogus: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🍳">rusvos odos | šefas | virėjas</annotation>
+		<annotation cp="🧑🏽‍🍳">gaminantis žmogus | rusvos odos | šefas | virėjas</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">gaminantis žmogus: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🍳">šefas | tamsios odos | virėjas</annotation>
+		<annotation cp="🧑🏾‍🍳">gaminantis žmogus | šefas | tamsios odos | virėjas</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">gaminantis žmogus: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🍳">itin tamsios odos | šefas | virėjas</annotation>
+		<annotation cp="🧑🏿‍🍳">gaminantis žmogus | itin tamsios odos | šefas | virėjas</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">gaminantis žmogus: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🍳">šefas | šviesios odos | virėjas | vyras</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">virėjas: šviesios odos</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">virėja: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🍳">itin tamsios odos | moteris | šefė | virėja</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">virėja: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🔧">elektrikas | mechanikas | santechnikas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🔧">elektrikas | mechanikas | remontuojantis žmogus | santechnikas | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">remontuojantis žmogus: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🔧">elektrikas | mechanikas | santechnikas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🔧">elektrikas | mechanikas | remontuojantis žmogus | santechnikas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">remontuojantis žmogus: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🔧">elektrikas | mechanikas | rusvos odos | santechnikas</annotation>
+		<annotation cp="🧑🏽‍🔧">elektrikas | mechanikas | remontuojantis žmogus | rusvos odos | santechnikas</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">remontuojantis žmogus: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🔧">elektrikas | mechanikas | santechnikas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🔧">elektrikas | mechanikas | remontuojantis žmogus | santechnikas | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">remontuojantis žmogus: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🔧">elektrikas | itin tamsios odos | mechanikas | santechnikas</annotation>
+		<annotation cp="🧑🏿‍🔧">elektrikas | itin tamsios odos | mechanikas | remontuojantis žmogus | santechnikas</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">remontuojantis žmogus: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🔧">elektrikas | mechanikas | prekybininkas | santechnikas | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mechanikas: šviesios odos</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">mechanikė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🔧">elektrikė | itin tamsios odos | mechanikė | moteris | prekybininkė | santechnikė</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mechanikė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🏭">darbininkas | gamykla | industrinis | surinkimas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🏭">darbininkas | gamykla | gamyklos darbuotojas | industrinis | surinkimas | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">gamyklos darbuotojas: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🏭">darbininkas | gamykla | industrinis | surinkimas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🏭">darbininkas | gamykla | gamyklos darbuotojas | industrinis | surinkimas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">gamyklos darbuotojas: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🏭">darbininkas | gamykla | industrinis | rusvos odos | surinkimas</annotation>
+		<annotation cp="🧑🏽‍🏭">darbininkas | gamykla | gamyklos darbuotojas | industrinis | rusvos odos | surinkimas</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">gamyklos darbuotojas: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🏭">darbininkas | gamykla | industrinis | surinkimas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🏭">darbininkas | gamykla | gamyklos darbuotojas | industrinis | surinkimas | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">gamyklos darbuotojas: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🏭">darbininkas | gamykla | industrinis | itin tamsios odos | surinkimas</annotation>
+		<annotation cp="🧑🏿‍🏭">darbininkas | gamykla | gamyklos darbuotojas | industrinis | itin tamsios odos | surinkimas</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">gamyklos darbuotojas: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🏭">darbuotojas | fabrikas | fabriko darbininkas | gamyba | susirinkimas | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">fabriko darbininkas: šviesios odos</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">fabriko darbininkė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🏭">darbuotoja | fabrikas | fabriko darbininkė | gamyba | itin tamsios odos | moteris | susirinkimas</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">fabriko darbininkė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍💼">architektas | balta apykaklė | šviesios odos | vadybininkas | verslas</annotation>
+		<annotation cp="🧑🏻‍💼">architektas | balta apykaklė | dirbantysis biure | šviesios odos | vadybininkas | verslas</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">dirbantysis biure: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍💼">architektas | balta apykaklė | vadybininkas | verslas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍💼">architektas | balta apykaklė | dirbantysis biure | vadybininkas | verslas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">dirbantysis biure: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍💼">architektas | balta apykaklė | rusvos odos | vadybininkas | verslas</annotation>
+		<annotation cp="🧑🏽‍💼">architektas | balta apykaklė | dirbantysis biure | rusvos odos | vadybininkas | verslas</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">dirbantysis biure: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍💼">architektas | balta apykaklė | tamsios odos | vadybininkas | verslas</annotation>
+		<annotation cp="🧑🏾‍💼">architektas | balta apykaklė | dirbantysis biure | tamsios odos | vadybininkas | verslas</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">dirbantysis biure: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍💼">architektas | balta apykaklė | itin tamsios odos | vadybininkas | verslas</annotation>
+		<annotation cp="🧑🏿‍💼">architektas | balta apykaklė | dirbantysis biure | itin tamsios odos | vadybininkas | verslas</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">dirbantysis biure: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍💼">architektas | biuras | biuro darbuotojas | darbas įstaigoje | šviesios odos | vadybininkas | verslas | vyras</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">biuro darbuotojas: šviesios odos</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">biuro darbuotoja: tamsios odos</annotation>
 		<annotation cp="👩🏿‍💼">architektė | biuro darbuotoja | darbas įstaigoje | itin tamsios odos | moteris | vadybininkė | verslas</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">biuro darbuotoja: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | mokslo darbuotojas | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">mokslo darbuotojas: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | mokslo darbuotojas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">mokslo darbuotojas: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | mokslo darbuotojas | rusvos odos</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">mokslo darbuotojas: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🔬">biologas | chemikas | fizikas | inžinierius | mokslininkas | mokslo darbuotojas | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">mokslo darbuotojas: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🔬">biologas | chemikas | fizikas | inžinierius | itin tamsios odos | mokslininkas</annotation>
+		<annotation cp="🧑🏿‍🔬">biologas | chemikas | fizikas | inžinierius | itin tamsios odos | mokslininkas | mokslo darbuotojas</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">mokslo darbuotojas: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🔬">biologas | chemikas | fizikas | inžinierius | matematikas | mokslininkas | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">mokslininkas: šviesios odos</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">technologė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍💻">išradėja | itin tamsios odos | kūrėja | moteris | programinė įranga | programuotoja | technologė</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">technologė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🎤">aktorius | dainininkas | linksmintojas | rokas | šviesios odos | žvaigždė</annotation>
+		<annotation cp="🧑🏻‍🎤">aktorius | dainininkas | dainuojantis žmogus | linksmintojas | rokas | šviesios odos | žvaigždė</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">dainuojantis žmogus: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🎤">aktorius | dainininkas | linksmintojas | rokas | vidutinio gymio | žvaigždė</annotation>
+		<annotation cp="🧑🏼‍🎤">aktorius | dainininkas | dainuojantis žmogus | linksmintojas | rokas | vidutinio gymio | žvaigždė</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">dainuojantis žmogus: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🎤">aktorius | dainininkas | linksmintojas | rokas | rusvos odos | žvaigždė</annotation>
+		<annotation cp="🧑🏽‍🎤">aktorius | dainininkas | dainuojantis žmogus | linksmintojas | rokas | rusvos odos | žvaigždė</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">dainuojantis žmogus: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🎤">aktorius | dainininkas | linksmintojas | rokas | tamsios odos | žvaigždė</annotation>
+		<annotation cp="🧑🏾‍🎤">aktorius | dainininkas | dainuojantis žmogus | linksmintojas | rokas | tamsios odos | žvaigždė</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">dainuojantis žmogus: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🎤">aktorius | dainininkas | itin tamsios odos | linksmintojas | rokas | žvaigždė</annotation>
+		<annotation cp="🧑🏿‍🎤">aktorius | dainininkas | dainuojantis žmogus | itin tamsios odos | linksmintojas | rokas | žvaigždė</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">dainuojantis žmogus: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🎤">aktorius | dainininkas | rokas | šviesios odos | vyras | žvaigždė</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">dainininkas: šviesios odos</annotation>
@@ -1336,15 +1386,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎤" type="tts">dainininkė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🎤">aktorė | dainininkė | itin tamsios odos | moteris | rokas | žvaigždė</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">dainininkė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🎨">menininkas | paletė | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🎨">menininkas | paletė | šviesios odos | tapytojas</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">tapytojas: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🎨">menininkas | paletė | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🎨">menininkas | paletė | tapytojas | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🎨" type="tts">tapytojas: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🎨">menininkas | paletė | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🎨">menininkas | paletė | rusvos odos | tapytojas</annotation>
 		<annotation cp="🧑🏽‍🎨" type="tts">tapytojas: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🎨">menininkas | paletė | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🎨">menininkas | paletė | tamsios odos | tapytojas</annotation>
 		<annotation cp="🧑🏾‍🎨" type="tts">tapytojas: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🎨">itin tamsios odos | menininkas | paletė</annotation>
+		<annotation cp="🧑🏿‍🎨">itin tamsios odos | menininkas | paletė | tapytojas</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">tapytojas: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🎨">dailininkas | paletė | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">dailininkas: šviesios odos</annotation>
@@ -1366,15 +1416,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">dailininkė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🎨">dailininkė | itin tamsios odos | moteris | paletė</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">dailininkė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍✈">lėktuvas | pilotas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍✈">lėktuvas | pilotas | pilotuojantis žmogus | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">pilotuojantis žmogus: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍✈">lėktuvas | pilotas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍✈">lėktuvas | pilotas | pilotuojantis žmogus | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍✈" type="tts">pilotuojantis žmogus: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍✈">lėktuvas | pilotas | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍✈">lėktuvas | pilotas | pilotuojantis žmogus | rusvos odos</annotation>
 		<annotation cp="🧑🏽‍✈" type="tts">pilotuojantis žmogus: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍✈">lėktuvas | pilotas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍✈">lėktuvas | pilotas | pilotuojantis žmogus | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍✈" type="tts">pilotuojantis žmogus: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍✈">itin tamsios odos | lėktuvas | pilotas</annotation>
+		<annotation cp="🧑🏿‍✈">itin tamsios odos | lėktuvas | pilotas | pilotuojantis žmogus</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">pilotuojantis žmogus: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍✈">lėktuvas | pilotas | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilotas: šviesios odos</annotation>
@@ -1396,15 +1446,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍✈" type="tts">pilotė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍✈">itin tamsios odos | lėktuvas | moteris | pilotė</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilotė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🚀">astronautas | raketa | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🚀">astronautas | kosmonautas | raketa | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">kosmonautas: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🚀">astronautas | raketa | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🚀">astronautas | kosmonautas | raketa | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🚀" type="tts">kosmonautas: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🚀">astronautas | raketa | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🚀">astronautas | kosmonautas | raketa | rusvos odos</annotation>
 		<annotation cp="🧑🏽‍🚀" type="tts">kosmonautas: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🚀">astronautas | raketa | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🚀">astronautas | kosmonautas | raketa | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🚀" type="tts">kosmonautas: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🚀">astronautas | itin tamsios odos | raketa</annotation>
+		<annotation cp="🧑🏿‍🚀">astronautas | itin tamsios odos | kosmonautas | raketa</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">kosmonautas: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🚀">astronautas | raketa | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">astronautas: šviesios odos</annotation>
@@ -1426,15 +1476,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚀" type="tts">astronautė: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🚀">astronautė | itin tamsios odos | moteris | raketa</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">astronautė: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🚒">gaisrinė mašina | gaisrininkas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🚒">gaisrinė mašina | gaisrininkas | šviesios odos | ugniagesys</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">ugniagesys: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🚒">gaisrinė mašina | gaisrininkas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🚒">gaisrinė mašina | gaisrininkas | ugniagesys | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">ugniagesys: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🚒">gaisrinė mašina | gaisrininkas | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🚒">gaisrinė mašina | gaisrininkas | rusvos odos | ugniagesys</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">ugniagesys: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🚒">gaisrinė mašina | gaisrininkas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🚒">gaisrinė mašina | gaisrininkas | tamsios odos | ugniagesys</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">ugniagesys: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🚒">gaisrinė mašina | gaisrininkas | itin tamsios odos</annotation>
+		<annotation cp="🧑🏿‍🚒">gaisrinė mašina | gaisrininkas | itin tamsios odos | ugniagesys</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">ugniagesys: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🚒">gaisrininkas | gaisrininkų automobilis | šviesios odos | vyras</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">gaisrininkas: šviesios odos</annotation>
@@ -1646,16 +1696,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">moteris su skarele: tamsios odos</annotation>
 		<annotation cp="🧕🏿">itin tamsios odos | moteris su skarele | skarelė</annotation>
 		<annotation cp="🧕🏿" type="tts">moteris su skarele: itin tamsios odos</annotation>
-		<annotation cp="🤵🏻">jaunikis | smokingas | šviesios odos | vyras | vyras su smokingu</annotation>
-		<annotation cp="🤵🏻" type="tts">vyras su smokingu: šviesios odos</annotation>
-		<annotation cp="🤵🏼">jaunikis | smokingas | vidutinio gymio | vyras | vyras su smokingu</annotation>
-		<annotation cp="🤵🏼" type="tts">vyras su smokingu: vidutinio gymio</annotation>
-		<annotation cp="🤵🏽">jaunikis | rusvos odos | smokingas | vyras | vyras su smokingu</annotation>
-		<annotation cp="🤵🏽" type="tts">vyras su smokingu: rusvos odos</annotation>
-		<annotation cp="🤵🏾">jaunikis | smokingas | tamsios odos | vyras | vyras su smokingu</annotation>
-		<annotation cp="🤵🏾" type="tts">vyras su smokingu: tamsios odos</annotation>
-		<annotation cp="🤵🏿">itin tamsios odos | jaunikis | smokingas | vyras | vyras su smokingu</annotation>
-		<annotation cp="🤵🏿" type="tts">vyras su smokingu: itin tamsios odos</annotation>
+		<annotation cp="🤵🏻">asmuo su smokingu | jaunikis | smokingas | šviesios odos | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏻" type="tts">asmuo su smokingu: šviesios odos</annotation>
+		<annotation cp="🤵🏼">asmuo su smokingu | jaunikis | smokingas | vidutinio gymio | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏼" type="tts">asmuo su smokingu: vidutinio gymio</annotation>
+		<annotation cp="🤵🏽">asmuo su smokingu | jaunikis | rusvos odos | smokingas | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏽" type="tts">asmuo su smokingu: rusvos odos</annotation>
+		<annotation cp="🤵🏾">asmuo su smokingu | jaunikis | smokingas | tamsios odos | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏾" type="tts">asmuo su smokingu: tamsios odos</annotation>
+		<annotation cp="🤵🏿">asmuo su smokingu | itin tamsios odos | jaunikis | smokingas | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏿" type="tts">asmuo su smokingu: itin tamsios odos</annotation>
+		<annotation cp="🤵🏻‍♀">moteris | moteris su smokingu | smokingas | šviesios odos</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">moteris su smokingu: šviesios odos</annotation>
+		<annotation cp="🤵🏼‍♀">moteris | moteris su smokingu | smokingas | vidutinio gymio</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">moteris su smokingu: vidutinio gymio</annotation>
+		<annotation cp="🤵🏽‍♀">moteris | moteris su smokingu | rusvos odos | smokingas</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">moteris su smokingu: rusvos odos</annotation>
+		<annotation cp="🤵🏾‍♀">moteris | moteris su smokingu | smokingas | tamsios odos</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">moteris su smokingu: tamsios odos</annotation>
+		<annotation cp="🤵🏿‍♀">itin tamsios odos | moteris | moteris su smokingu | smokingas</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">moteris su smokingu: itin tamsios odos</annotation>
+		<annotation cp="🤵🏻‍♂">smokingas | šviesios odos | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">vyras su smokingu: šviesios odos</annotation>
+		<annotation cp="🤵🏼‍♂">smokingas | vidutinio gymio | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">vyras su smokingu: vidutinio gymio</annotation>
+		<annotation cp="🤵🏽‍♂">rusvos odos | smokingas | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">vyras su smokingu: rusvos odos</annotation>
+		<annotation cp="🤵🏾‍♂">smokingas | tamsios odos | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">vyras su smokingu: tamsios odos</annotation>
+		<annotation cp="🤵🏿‍♂">itin tamsios odos | smokingas | vyras | vyras su smokingu</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">vyras su smokingu: itin tamsios odos</annotation>
 		<annotation cp="👰🏻">nuotaka | nuotaka su veliumu | šviesios odos | veliumas | vestuvės</annotation>
 		<annotation cp="👰🏻" type="tts">nuotaka su veliumu: šviesios odos</annotation>
 		<annotation cp="👰🏼">nuotaka | nuotaka su veliumu | veliumas | vestuvės | vidutinio gymio</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">nuotaka su veliumu: tamsios odos</annotation>
 		<annotation cp="👰🏿">itin tamsios odos | nuotaka | nuotaka su veliumu | veliumas | vestuvės</annotation>
 		<annotation cp="👰🏿" type="tts">nuotaka su veliumu: itin tamsios odos</annotation>
+		<annotation cp="👰🏻‍♀">moteris | moteris su veliumu | šviesios odos | veliumas</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">moteris su veliumu: šviesios odos</annotation>
+		<annotation cp="👰🏼‍♀">moteris | moteris su veliumu | veliumas | vidutinio gymio</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">moteris su veliumu: vidutinio gymio</annotation>
+		<annotation cp="👰🏽‍♀">moteris | moteris su veliumu | rusvos odos | veliumas</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">moteris su veliumu: rusvos odos</annotation>
+		<annotation cp="👰🏾‍♀">moteris | moteris su veliumu | tamsios odos | veliumas</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">moteris su veliumu: tamsios odos</annotation>
+		<annotation cp="👰🏿‍♀">itin tamsios odos | moteris | moteris su veliumu | veliumas</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">moteris su veliumu: itin tamsios odos</annotation>
+		<annotation cp="👰🏻‍♂">šviesios odos | veliumas | vyras | vyras su veliumu</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">vyras su veliumu: šviesios odos</annotation>
+		<annotation cp="👰🏼‍♂">veliumas | vidutinio gymio | vyras | vyras su veliumu</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">vyras su veliumu: vidutinio gymio</annotation>
+		<annotation cp="👰🏽‍♂">rusvos odos | veliumas | vyras | vyras su veliumu</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">vyras su veliumu: rusvos odos</annotation>
+		<annotation cp="👰🏾‍♂">tamsios odos | veliumas | vyras | vyras su veliumu</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">vyras su veliumu: tamsios odos</annotation>
+		<annotation cp="👰🏿‍♂">itin tamsios odos | veliumas | vyras | vyras su veliumu</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">vyras su veliumu: itin tamsios odos</annotation>
 		<annotation cp="🤰🏻">moteris | neščia | nėščia moteris | šviesios odos</annotation>
 		<annotation cp="🤰🏻" type="tts">nėščia moteris: šviesios odos</annotation>
 		<annotation cp="🤰🏼">moteris | neščia | nėščia moteris | vidutinio gymio</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">klūpanti moteris: tamsios odos</annotation>
 		<annotation cp="🧎🏿‍♀">itin tamsios odos | klūpanti | moteris</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">klūpanti moteris: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🦯">aklas | prieinamumas | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🦯">aklas | prieinamumas | šviesios odos | žmogus neregio lazdele</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">žmogus neregio lazdele: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🦯">aklas | prieinamumas | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🦯">aklas | prieinamumas | vidutinio gymio | žmogus neregio lazdele</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">žmogus neregio lazdele: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🦯">aklas | prieinamumas | rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🦯">aklas | prieinamumas | rusvos odos | žmogus neregio lazdele</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">žmogus neregio lazdele: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🦯">aklas | prieinamumas | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🦯">aklas | prieinamumas | tamsios odos | žmogus neregio lazdele</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">žmogus neregio lazdele: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🦯">aklas | itin tamsios odos | prieinamumas</annotation>
+		<annotation cp="🧑🏿‍🦯">aklas | itin tamsios odos | prieinamumas | žmogus neregio lazdele</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">žmogus neregio lazdele: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🦯">aklas | prieinamumas | šviesios odos | vyras | vyras su neregio lazdele</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">vyras su neregio lazdele: šviesios odos</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">moteris su neregio lazdele: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🦯">akla | itin tamsios odos | moteris | moteris su neregio lazdele | prieinamumas</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">moteris su neregio lazdele: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🦼">prieinamumas | šviesios odos | vežimėlis</annotation>
+		<annotation cp="🧑🏻‍🦼">prieinamumas | šviesios odos | vežimėlis | žmogus motorizuotame vežimėlyje</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">žmogus motorizuotame vežimėlyje: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🦼">prieinamumas | vežimėlis | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🦼">prieinamumas | vežimėlis | vidutinio gymio | žmogus motorizuotame vežimėlyje</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">žmogus motorizuotame vežimėlyje: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🦼">prieinamumas | rusvos odos | vežimėlis</annotation>
+		<annotation cp="🧑🏽‍🦼">prieinamumas | rusvos odos | vežimėlis | žmogus motorizuotame vežimėlyje</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">žmogus motorizuotame vežimėlyje: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🦼">prieinamumas | tamsios odos | vežimėlis</annotation>
+		<annotation cp="🧑🏾‍🦼">prieinamumas | tamsios odos | vežimėlis | žmogus motorizuotame vežimėlyje</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">žmogus motorizuotame vežimėlyje: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🦼">itin tamsios odos | prieinamumas | vežimėlis</annotation>
+		<annotation cp="🧑🏿‍🦼">itin tamsios odos | prieinamumas | vežimėlis | žmogus motorizuotame vežimėlyje</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">žmogus motorizuotame vežimėlyje: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🦼">prieinamumas | šviesios odos | vežimėlis | vyras | vyras motorizuotame vežimėlyje</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">vyras motorizuotame vežimėlyje: šviesios odos</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">moteris motorizuotame vežimėlyje: tamsios odos</annotation>
 		<annotation cp="👩🏿‍🦼">itin tamsios odos | moteris | moteris motorizuotame vežimėlyje | prieinamumas | vežimėlis</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">moteris motorizuotame vežimėlyje: itin tamsios odos</annotation>
-		<annotation cp="🧑🏻‍🦽">prieinamumas | šviesios odos | vežimėlis</annotation>
+		<annotation cp="🧑🏻‍🦽">prieinamumas | šviesios odos | vežimėlis | žmogus rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">žmogus rankomis valdomame vežimėlyje: šviesios odos</annotation>
-		<annotation cp="🧑🏼‍🦽">prieinamumas | vežimėlis | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🦽">prieinamumas | vežimėlis | vidutinio gymio | žmogus rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">žmogus rankomis valdomame vežimėlyje: vidutinio gymio</annotation>
-		<annotation cp="🧑🏽‍🦽">prieinamumas | rusvos odos | vežimėlis</annotation>
+		<annotation cp="🧑🏽‍🦽">prieinamumas | rusvos odos | vežimėlis | žmogus rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">žmogus rankomis valdomame vežimėlyje: rusvos odos</annotation>
-		<annotation cp="🧑🏾‍🦽">prieinamumas | tamsios odos | vežimėlis</annotation>
+		<annotation cp="🧑🏾‍🦽">prieinamumas | tamsios odos | vežimėlis | žmogus rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">žmogus rankomis valdomame vežimėlyje: tamsios odos</annotation>
-		<annotation cp="🧑🏿‍🦽">itin tamsios odos | prieinamumas | vežimėlis</annotation>
+		<annotation cp="🧑🏿‍🦽">itin tamsios odos | prieinamumas | vežimėlis | žmogus rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">žmogus rankomis valdomame vežimėlyje: itin tamsios odos</annotation>
 		<annotation cp="👨🏻‍🦽">prieinamumas | šviesios odos | vežimėlis | vyras | vyras rankomis valdomame vežimėlyje</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">vyras rankomis valdomame vežimėlyje: šviesios odos</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">žmogus lovoje: itin tamsios odos</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | šviesios odos</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">rankomis susikibę žmonės: šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | šviesios odos | vidutinio gymio</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">rankomis susikibę žmonės: šviesios odos vidutinio gymio</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | rusvos odos | susikibusios rankos | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">rankomis susikibę žmonės: šviesios odos rusvos odos</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | šviesios odos | tamsios odos</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">rankomis susikibę žmonės: šviesios odos tamsios odos</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">asmuo | itin tamsios odos | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | šviesios odos</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">rankomis susikibę žmonės: šviesios odos itin tamsios odos</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | šviesios odos | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">rankomis susikibę žmonės: vidutinio gymio šviesios odos</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | vidutinio gymio</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">rankomis susikibę žmonės: vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | rusvos odos | susikibusios rankos | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">rankomis susikibę žmonės: vidutinio gymio rusvos odos</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | tamsios odos | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">rankomis susikibę žmonės: vidutinio gymio tamsios odos</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">asmuo | itin tamsios odos | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | vidutinio gymio</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">rankomis susikibę žmonės: vidutinio gymio itin tamsios odos</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | rusvos odos | susikibusios rankos | šviesios odos</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">rankomis susikibę žmonės: rusvos odos šviesios odos</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | rusvos odos | susikibusios rankos | vidutinio gymio</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">rankomis susikibę žmonės: rusvos odos vidutinio gymio</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | rusvos odos | susikibusios rankos</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">rankomis susikibę žmonės: rusvos odos</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | rusvos odos | susikibusios rankos | tamsios odos</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">rankomis susikibę žmonės: rusvos odos tamsios odos</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">asmuo | itin tamsios odos | laikyti | pora | ranka | rankomis susikibę žmonės | rusvos odos | susikibusios rankos</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">rankomis susikibę žmonės: rusvos odos itin tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | šviesios odos | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">rankomis susikibę žmonės: tamsios odos šviesios odos</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | tamsios odos | vidutinio gymio</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">rankomis susikibę žmonės: tamsios odos rusvos odos</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">asmuo | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | tamsios odos</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">rankomis susikibę žmonės: tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">asmuo | itin tamsios odos | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | tamsios odos</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">rankomis susikibę žmonės: tamsios odos itin tamsios odos</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">asmuo | itin tamsios odos | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | šviesios odos</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">rankomis susikibę žmonės: itin tamsios odos šviesios odos</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">asmuo | itin tamsios odos | laikyti | pora | ranka | rankomis susikibę žmonės | susikibusios rankos | vidutinio gymio</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">rankomis susikibę žmonės: itin tamsios odos</annotation>
 		<annotation cp="👭🏻">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | šviesios odos</annotation>
 		<annotation cp="👭🏻" type="tts">dvi moterys, susikibusios už rankų: šviesios odos</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | šviesios odos | vidutinio gymio</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">dvi moterys, susikibusios už rankų: šviesios odos vidutinio gymio</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | rusvos odos | šviesios odos</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">dvi moterys, susikibusios už rankų: šviesios odos rusvos odos</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | šviesios odos | tamsios odos</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">dvi moterys, susikibusios už rankų: šviesios odos tamsios odos</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">dvi moterys, susikibusios už rankų | itin tamsios odos | laikyti | moteris | pora | ranka | šviesios odos</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">dvi moterys, susikibusios už rankų: šviesios odos itin tamsios odos</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | šviesios odos | vidutinio gymio</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dvi moterys, susikibusios už rankų: vidutinio gymio šviesios odos</annotation>
 		<annotation cp="👭🏼">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | vidutinio gymio</annotation>
 		<annotation cp="👭🏼" type="tts">dvi moterys, susikibusios už rankų: vidutinio gymio</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | rusvos odos | vidutinio gymio</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">dvi moterys, susikibusios už rankų: vidutinio gymio rusvos odos</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | tamsios odos | vidutinio gymio</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">dvi moterys, susikibusios už rankų: vidutinio gymio tamsios odos</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">dvi moterys, susikibusios už rankų | itin tamsios odos | laikyti | moteris | pora | ranka | vidutinio gymio</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">dvi moterys, susikibusios už rankų: vidutinio gymio itin tamsios odos</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | rusvos odos | šviesios odos</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dvi moterys, susikibusios už rankų: rusvos odos šviesios odos</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | rusvos odos | vidutinio gymio</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dvi moterys, susikibusios už rankų: rusvos odos vidutinio gymio</annotation>
 		<annotation cp="👭🏽">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | rusvos odos</annotation>
 		<annotation cp="👭🏽" type="tts">dvi moterys, susikibusios už rankų: rusvos odos</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | rusvos odos | tamsios odos</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">dvi moterys, susikibusios už rankų: rusvos odos tamsios odos</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">dvi moterys, susikibusios už rankų | itin tamsios odos | laikyti | moteris | pora | ranka | rusvos odos</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">dvi moterys, susikibusios už rankų: rusvos odos itin tamsios odos</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | šviesios odos | tamsios odos</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dvi moterys, susikibusios už rankų: tamsios odos šviesios odos</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | tamsios odos | vidutinio gymio</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dvi moterys, susikibusios už rankų: tamsios odos rusvos odos</annotation>
 		<annotation cp="👭🏾">dvi moterys, susikibusios už rankų | laikyti | moteris | pora | ranka | tamsios odos</annotation>
 		<annotation cp="👭🏾" type="tts">dvi moterys, susikibusios už rankų: tamsios odos</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">dvi moterys, susikibusios už rankų | itin tamsios odos | laikyti | moteris | pora | ranka | tamsios odos</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">dvi moterys, susikibusios už rankų: tamsios odos itin tamsios odos</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">dvi moterys, susikibusios už rankų | itin tamsios odos | laikyti | moteris | pora | ranka | šviesios odos</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dvi moterys, susikibusios už rankų: itin tamsios odos šviesios odos</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">dvi moterys, susikibusios už rankų | itin tamsios odos | laikyti | moteris | pora | ranka | vidutinio gymio</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">vyras ir moteris, susikibę už rankų: itin tamsios odos</annotation>
 		<annotation cp="👬🏻">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | šviesios odos | vyras | zodiakas</annotation>
 		<annotation cp="👬🏻" type="tts">du vyrai, susikibę už rankų: šviesios odos</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | šviesios odos | vidutinio gymio | vyras | zodiakas</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">du vyrai, susikibę už rankų: šviesios odos vidutinio gymio</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | rusvos odos | šviesios odos | vyras | zodiakas</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">du vyrai, susikibę už rankų: šviesios odos rusvos odos</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | šviesios odos | tamsios odos | vyras | zodiakas</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">du vyrai, susikibę už rankų: šviesios odos tamsios odos</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">du vyrai, susikibę už rankų | dvyniai | itin tamsios odos | laikyti | pora | ranka | šviesios odos | vyras | zodiakas</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">du vyrai, susikibę už rankų: šviesios odos itin tamsios odos</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | šviesios odos | vidutinio gymio | vyras | zodiakas</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">du vyrai, susikibę už rankų: vidutinio gymio šviesios odos</annotation>
 		<annotation cp="👬🏼">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | vidutinio gymio | vyras | zodiakas</annotation>
 		<annotation cp="👬🏼" type="tts">du vyrai, susikibę už rankų: vidutinio gymio</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | rusvos odos | vidutinio gymio | vyras | zodiakas</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">du vyrai, susikibę už rankų: vidutinio gymio rusvos odos</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | tamsios odos | vidutinio gymio | vyras | zodiakas</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">du vyrai, susikibę už rankų: vidutinio gymio tamsios odos</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">du vyrai, susikibę už rankų | dvyniai | itin tamsios odos | laikyti | pora | ranka | vidutinio gymio | vyras | zodiakas</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">du vyrai, susikibę už rankų: vidutinio gymio itin tamsios odos</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | rusvos odos | šviesios odos | vyras | zodiakas</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">du vyrai, susikibę už rankų: rusvos odos šviesios odos</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | rusvos odos | vidutinio gymio | vyras | zodiakas</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">du vyrai, susikibę už rankų: rusvos odos vidutinio gymio</annotation>
 		<annotation cp="👬🏽">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | rusvos odos | vyras | zodiakas</annotation>
 		<annotation cp="👬🏽" type="tts">du vyrai, susikibę už rankų: rusvos odos</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | rusvos odos | tamsios odos | vyras | zodiakas</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">du vyrai, susikibę už rankų: rusvos odos tamsios odos</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">du vyrai, susikibę už rankų | dvyniai | itin tamsios odos | laikyti | pora | ranka | rusvos odos | vyras | zodiakas</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">du vyrai, susikibę už rankų: rusvos odos itin tamsios odos</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | šviesios odos | tamsios odos | vyras | zodiakas</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">du vyrai, susikibę už rankų: tamsios odos šviesios odos</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | tamsios odos | vidutinio gymio | vyras | zodiakas</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">du vyrai, susikibę už rankų: tamsios odos rusvos odos</annotation>
 		<annotation cp="👬🏾">du vyrai, susikibę už rankų | dvyniai | laikyti | pora | ranka | tamsios odos | vyras | zodiakas</annotation>
 		<annotation cp="👬🏾" type="tts">du vyrai, susikibę už rankų: tamsios odos</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">du vyrai, susikibę už rankų | dvyniai | itin tamsios odos | laikyti | pora | ranka | tamsios odos | vyras | zodiakas</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">du vyrai, susikibę už rankų: tamsios odos itin tamsios odos</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">du vyrai, susikibę už rankų | dvyniai | itin tamsios odos | laikyti | pora | ranka | šviesios odos | vyras | zodiakas</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">du vyrai, susikibę už rankų: itin tamsios odos šviesios odos</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">du vyrai, susikibę už rankų | dvyniai | itin tamsios odos | laikyti | pora | ranka | vidutinio gymio | vyras | zodiakas</annotation>

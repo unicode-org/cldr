@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="nb"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">fingre | fingrene sammen | hånd | hånd med fingertuppene sammen | hudtype 1–2 | sarkastisk | spørsmål</annotation>
+		<annotation cp="🤌🏻" type="tts">hånd med fingertuppene sammen: hudtype 1–2</annotation>
+		<annotation cp="🤌🏼">fingre | fingrene sammen | hånd | hånd med fingertuppene sammen | hudtype 3 | sarkastisk | spørsmål</annotation>
+		<annotation cp="🤌🏼" type="tts">hånd med fingertuppene sammen: hudtype 3</annotation>
+		<annotation cp="🤌🏽">fingre | fingrene sammen | hånd | hånd med fingertuppene sammen | hudtype 4 | sarkastisk | spørsmål</annotation>
+		<annotation cp="🤌🏽" type="tts">hånd med fingertuppene sammen: hudtype 4</annotation>
+		<annotation cp="🤌🏾">fingre | fingrene sammen | hånd | hånd med fingertuppene sammen | hudtype 5 | sarkastisk | spørsmål</annotation>
+		<annotation cp="🤌🏾" type="tts">hånd med fingertuppene sammen: hudtype 5</annotation>
+		<annotation cp="🤌🏿">fingre | fingrene sammen | hånd | hånd med fingertuppene sammen | hudtype 6 | sarkastisk | spørsmål</annotation>
+		<annotation cp="🤌🏿" type="tts">hånd med fingertuppene sammen: hudtype 6</annotation>
 		<annotation cp="👋🏻">hånd | hudtype 1–2 | vinke | vinkende hånd | vinking</annotation>
 		<annotation cp="👋🏻" type="tts">vinkende hånd: hudtype 1–2</annotation>
 		<annotation cp="👋🏼">hånd | hudtype 3 | vinke | vinkende hånd | vinking</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">voksen: hudtype 5, skallet</annotation>
 		<annotation cp="🧑🏿‍🦲">hudtype 6 | kjønnsnøytral | menneske | person | skallet | voksen</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">voksen: hudtype 6, skallet</annotation>
+		<annotation cp="🧑🏻‍🍼">baby | hudtype 1–2 | mat | person | person som mater baby | tåteflaske</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">person som mater baby: hudtype 1–2</annotation>
+		<annotation cp="🧑🏼‍🍼">baby | hudtype 3 | mat | person | person som mater baby | tåteflaske</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">person som mater baby: hudtype 3</annotation>
+		<annotation cp="🧑🏽‍🍼">baby | hudtype 4 | mat | person | person som mater baby | tåteflaske</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">person som mater baby: hudtype 4</annotation>
+		<annotation cp="🧑🏾‍🍼">baby | hudtype 5 | mat | person | person som mater baby | tåteflaske</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">person som mater baby: hudtype 5</annotation>
+		<annotation cp="🧑🏿‍🍼">baby | hudtype 6 | mat | person | person som mater baby | tåteflaske</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">person som mater baby: hudtype 6</annotation>
+		<annotation cp="🧑🏻‍🎄">feiring | hudtype 1–2 | jul | julenisse | nisse | person</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">julenisse: hudtype 1–2</annotation>
+		<annotation cp="🧑🏼‍🎄">feiring | hudtype 3 | jul | julenisse | nisse | person</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">julenisse: hudtype 3</annotation>
+		<annotation cp="🧑🏽‍🎄">feiring | hudtype 4 | jul | julenisse | nisse | person</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">julenisse: hudtype 4</annotation>
+		<annotation cp="🧑🏾‍🎄">feiring | hudtype 5 | jul | julenisse | nisse | person</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">julenisse: hudtype 5</annotation>
+		<annotation cp="🧑🏿‍🎄">feiring | hudtype 6 | jul | julenisse | nisse | person</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">julenisse: hudtype 6</annotation>
 		<annotation cp="👨🏻">hudtype 1–2 | mann | menneske | voksen</annotation>
 		<annotation cp="👨🏻" type="tts">mann: hudtype 1–2</annotation>
 		<annotation cp="👨🏼">hudtype 3 | mann | menneske | voksen</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">mann: hudtype 5, skallet</annotation>
 		<annotation cp="👨🏿‍🦲">hudtype 6 | mann | menneske | skallet | voksen</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mann: hudtype 6, skallet</annotation>
+		<annotation cp="👨🏻‍🍼">baby | hudtype 1–2 | mann | mann som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">mann som mater baby: hudtype 1–2</annotation>
+		<annotation cp="👨🏼‍🍼">baby | hudtype 3 | mann | mann som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">mann som mater baby: hudtype 3</annotation>
+		<annotation cp="👨🏽‍🍼">baby | hudtype 4 | mann | mann som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">mann som mater baby: hudtype 4</annotation>
+		<annotation cp="👨🏾‍🍼">baby | hudtype 5 | mann | mann som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">mann som mater baby: hudtype 5</annotation>
+		<annotation cp="👨🏿‍🍼">baby | hudtype 6 | mann | mann som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">mann som mater baby: hudtype 6</annotation>
 		<annotation cp="👩🏻">hudtype 1–2 | kvinne | menneske | voksen</annotation>
 		<annotation cp="👩🏻" type="tts">kvinne: hudtype 1–2</annotation>
 		<annotation cp="👩🏼">hudtype 3 | kvinne | menneske | voksen</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">kvinne: hudtype 5, skallet</annotation>
 		<annotation cp="👩🏿‍🦲">hudtype 6 | kvinne | menneske | skallet | voksen</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kvinne: hudtype 6, skallet</annotation>
+		<annotation cp="👩🏻‍🍼">baby | hudtype 1–2 | kvinne | kvinne som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">kvinne som mater baby: hudtype 1–2</annotation>
+		<annotation cp="👩🏼‍🍼">baby | hudtype 3 | kvinne | kvinne som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">kvinne som mater baby: hudtype 3</annotation>
+		<annotation cp="👩🏽‍🍼">baby | hudtype 4 | kvinne | kvinne som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">kvinne som mater baby: hudtype 4</annotation>
+		<annotation cp="👩🏾‍🍼">baby | hudtype 5 | kvinne | kvinne som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">kvinne som mater baby: hudtype 5</annotation>
+		<annotation cp="👩🏿‍🍼">baby | hudtype 6 | kvinne | kvinne som mater baby | mat | tåteflaske</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">kvinne som mater baby: hudtype 6</annotation>
 		<annotation cp="🧓🏻">eldre voksen | gammel | hudtype 1–2 | kjønnsnøytral | menneske | voksen</annotation>
 		<annotation cp="🧓🏻" type="tts">eldre voksen: hudtype 1–2</annotation>
 		<annotation cp="🧓🏼">eldre voksen | gammel | hudtype 3 | kjønnsnøytral | menneske | voksen</annotation>
@@ -686,25 +736,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍🏾" type="tts">rynker brynene: hudtype 5</annotation>
 		<annotation cp="🙍🏿">hudtype 6 | mimikk | rynker brynene | rynker pannen</annotation>
 		<annotation cp="🙍🏿" type="tts">rynker brynene: hudtype 6</annotation>
-		<annotation cp="🙍🏻‍♂">hudtype 1–2 | mann | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏻‍♂">hudtype 1–2 | mann | mann som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏻‍♂" type="tts">mann som rynker brynene: hudtype 1–2</annotation>
-		<annotation cp="🙍🏼‍♂">hudtype 3 | mann | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏼‍♂">hudtype 3 | mann | mann som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏼‍♂" type="tts">mann som rynker brynene: hudtype 3</annotation>
-		<annotation cp="🙍🏽‍♂">hudtype 4 | mann | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏽‍♂">hudtype 4 | mann | mann som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏽‍♂" type="tts">mann som rynker brynene: hudtype 4</annotation>
-		<annotation cp="🙍🏾‍♂">hudtype 5 | mann | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏾‍♂">hudtype 5 | mann | mann som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏾‍♂" type="tts">mann som rynker brynene: hudtype 5</annotation>
-		<annotation cp="🙍🏿‍♂">hudtype 6 | mann | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏿‍♂">hudtype 6 | mann | mann som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏿‍♂" type="tts">mann som rynker brynene: hudtype 6</annotation>
-		<annotation cp="🙍🏻‍♀">hudtype 1–2 | kvinne | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏻‍♀">hudtype 1–2 | kvinne | kvinne som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏻‍♀" type="tts">kvinne som rynker brynene: hudtype 1–2</annotation>
-		<annotation cp="🙍🏼‍♀">hudtype 3 | kvinne | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏼‍♀">hudtype 3 | kvinne | kvinne som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏼‍♀" type="tts">kvinne som rynker brynene: hudtype 3</annotation>
-		<annotation cp="🙍🏽‍♀">hudtype 4 | kvinne | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏽‍♀">hudtype 4 | kvinne | kvinne som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏽‍♀" type="tts">kvinne som rynker brynene: hudtype 4</annotation>
-		<annotation cp="🙍🏾‍♀">hudtype 5 | kvinne | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏾‍♀">hudtype 5 | kvinne | kvinne som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏾‍♀" type="tts">kvinne som rynker brynene: hudtype 5</annotation>
-		<annotation cp="🙍🏿‍♀">hudtype 6 | kvinne | mimikk | rynker pannen | skeptisk</annotation>
+		<annotation cp="🙍🏿‍♀">hudtype 6 | kvinne | kvinne som rynker brynene | mimikk | rynker pannen | skeptisk</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">kvinne som rynker brynene: hudtype 6</annotation>
 		<annotation cp="🙎🏻">furter | furting | hudtype 1–2 | mimikk | surmuling</annotation>
 		<annotation cp="🙎🏻" type="tts">furter: hudtype 1–2</annotation>
@@ -896,25 +946,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙇🏾" type="tts">bukker: hudtype 5</annotation>
 		<annotation cp="🙇🏿">beklagelse | beklager | bukk | bukker | hudtype 6 | unnskyld</annotation>
 		<annotation cp="🙇🏿" type="tts">bukker: hudtype 6</annotation>
-		<annotation cp="🙇🏻‍♂">beklagelse | bukk | hudtype 1–2 | mann | unnskyld</annotation>
+		<annotation cp="🙇🏻‍♂">beklagelse | bukk | bukkende mann | hudtype 1–2 | mann | unnskyld</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">bukkende mann: hudtype 1–2</annotation>
-		<annotation cp="🙇🏼‍♂">beklagelse | bukk | hudtype 3 | mann | unnskyld</annotation>
+		<annotation cp="🙇🏼‍♂">beklagelse | bukk | bukkende mann | hudtype 3 | mann | unnskyld</annotation>
 		<annotation cp="🙇🏼‍♂" type="tts">bukkende mann: hudtype 3</annotation>
-		<annotation cp="🙇🏽‍♂">beklagelse | bukk | hudtype 4 | mann | unnskyld</annotation>
+		<annotation cp="🙇🏽‍♂">beklagelse | bukk | bukkende mann | hudtype 4 | mann | unnskyld</annotation>
 		<annotation cp="🙇🏽‍♂" type="tts">bukkende mann: hudtype 4</annotation>
-		<annotation cp="🙇🏾‍♂">beklagelse | bukk | hudtype 5 | mann | unnskyld</annotation>
+		<annotation cp="🙇🏾‍♂">beklagelse | bukk | bukkende mann | hudtype 5 | mann | unnskyld</annotation>
 		<annotation cp="🙇🏾‍♂" type="tts">bukkende mann: hudtype 5</annotation>
-		<annotation cp="🙇🏿‍♂">beklagelse | bukk | hudtype 6 | mann | unnskyld</annotation>
+		<annotation cp="🙇🏿‍♂">beklagelse | bukk | bukkende mann | hudtype 6 | mann | unnskyld</annotation>
 		<annotation cp="🙇🏿‍♂" type="tts">bukkende mann: hudtype 6</annotation>
-		<annotation cp="🙇🏻‍♀">beklagelse | bukk | hudtype 1–2 | kvinne | unnskyld</annotation>
+		<annotation cp="🙇🏻‍♀">beklagelse | bukk | bukkende kvinne | hudtype 1–2 | kvinne | unnskyld</annotation>
 		<annotation cp="🙇🏻‍♀" type="tts">bukkende kvinne: hudtype 1–2</annotation>
-		<annotation cp="🙇🏼‍♀">beklagelse | bukk | hudtype 3 | kvinne | unnskyld</annotation>
+		<annotation cp="🙇🏼‍♀">beklagelse | bukk | bukkende kvinne | hudtype 3 | kvinne | unnskyld</annotation>
 		<annotation cp="🙇🏼‍♀" type="tts">bukkende kvinne: hudtype 3</annotation>
-		<annotation cp="🙇🏽‍♀">beklagelse | bukk | hudtype 4 | kvinne | unnskyld</annotation>
+		<annotation cp="🙇🏽‍♀">beklagelse | bukk | bukkende kvinne | hudtype 4 | kvinne | unnskyld</annotation>
 		<annotation cp="🙇🏽‍♀" type="tts">bukkende kvinne: hudtype 4</annotation>
-		<annotation cp="🙇🏾‍♀">beklagelse | bukk | hudtype 5 | kvinne | unnskyld</annotation>
+		<annotation cp="🙇🏾‍♀">beklagelse | bukk | bukkende kvinne | hudtype 5 | kvinne | unnskyld</annotation>
 		<annotation cp="🙇🏾‍♀" type="tts">bukkende kvinne: hudtype 5</annotation>
-		<annotation cp="🙇🏿‍♀">beklagelse | bukk | hudtype 6 | kvinne | unnskyld</annotation>
+		<annotation cp="🙇🏿‍♀">beklagelse | bukk | bukkende kvinne | hudtype 6 | kvinne | unnskyld</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">bukkende kvinne: hudtype 6</annotation>
 		<annotation cp="🤦🏻">ansikt | facepalm | fjes | hudtype 1–2 | irritasjon | oppgitt | slår hånden mot pannen | vantro</annotation>
 		<annotation cp="🤦🏻" type="tts">slår hånden mot pannen: hudtype 1–2</annotation>
@@ -926,25 +976,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤦🏾" type="tts">slår hånden mot pannen: hudtype 5</annotation>
 		<annotation cp="🤦🏿">ansikt | facepalm | fjes | hudtype 6 | irritasjon | oppgitt | slår hånden mot pannen | vantro</annotation>
 		<annotation cp="🤦🏿" type="tts">slår hånden mot pannen: hudtype 6</annotation>
-		<annotation cp="🤦🏻‍♂">ansikt | facepalm | fjes | hudtype 1–2 | irritasjon | mann | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏻‍♂">ansikt | facepalm | fjes | hudtype 1–2 | irritasjon | mann | mann som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">mann som slår hånden mot pannen: hudtype 1–2</annotation>
-		<annotation cp="🤦🏼‍♂">ansikt | facepalm | fjes | hudtype 3 | irritasjon | mann | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏼‍♂">ansikt | facepalm | fjes | hudtype 3 | irritasjon | mann | mann som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏼‍♂" type="tts">mann som slår hånden mot pannen: hudtype 3</annotation>
-		<annotation cp="🤦🏽‍♂">ansikt | facepalm | fjes | hudtype 4 | irritasjon | mann | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏽‍♂">ansikt | facepalm | fjes | hudtype 4 | irritasjon | mann | mann som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏽‍♂" type="tts">mann som slår hånden mot pannen: hudtype 4</annotation>
-		<annotation cp="🤦🏾‍♂">ansikt | facepalm | fjes | hudtype 5 | irritasjon | mann | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏾‍♂">ansikt | facepalm | fjes | hudtype 5 | irritasjon | mann | mann som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏾‍♂" type="tts">mann som slår hånden mot pannen: hudtype 5</annotation>
-		<annotation cp="🤦🏿‍♂">ansikt | facepalm | fjes | hudtype 6 | irritasjon | mann | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏿‍♂">ansikt | facepalm | fjes | hudtype 6 | irritasjon | mann | mann som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏿‍♂" type="tts">mann som slår hånden mot pannen: hudtype 6</annotation>
-		<annotation cp="🤦🏻‍♀">ansikt | facepalm | fjes | hudtype 1–2 | irritasjon | kvinne | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏻‍♀">ansikt | facepalm | fjes | hudtype 1–2 | irritasjon | kvinne | kvinne som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏻‍♀" type="tts">kvinne som slår hånden mot pannen: hudtype 1–2</annotation>
-		<annotation cp="🤦🏼‍♀">ansikt | facepalm | fjes | hudtype 3 | irritasjon | kvinne | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏼‍♀">ansikt | facepalm | fjes | hudtype 3 | irritasjon | kvinne | kvinne som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏼‍♀" type="tts">kvinne som slår hånden mot pannen: hudtype 3</annotation>
-		<annotation cp="🤦🏽‍♀">ansikt | facepalm | fjes | hudtype 4 | irritasjon | kvinne | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏽‍♀">ansikt | facepalm | fjes | hudtype 4 | irritasjon | kvinne | kvinne som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏽‍♀" type="tts">kvinne som slår hånden mot pannen: hudtype 4</annotation>
-		<annotation cp="🤦🏾‍♀">ansikt | facepalm | fjes | hudtype 5 | irritasjon | kvinne | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏾‍♀">ansikt | facepalm | fjes | hudtype 5 | irritasjon | kvinne | kvinne som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏾‍♀" type="tts">kvinne som slår hånden mot pannen: hudtype 5</annotation>
-		<annotation cp="🤦🏿‍♀">ansikt | facepalm | fjes | hudtype 6 | irritasjon | kvinne | oppgitt | vantro</annotation>
+		<annotation cp="🤦🏿‍♀">ansikt | facepalm | fjes | hudtype 6 | irritasjon | kvinne | kvinne som slår hånden mot pannen | oppgitt | vantro</annotation>
 		<annotation cp="🤦🏿‍♀" type="tts">kvinne som slår hånden mot pannen: hudtype 6</annotation>
 		<annotation cp="🤷🏻">hudtype 1–2 | likegyldighet | skuldertrekning | trekker på skuldrene | tvil</annotation>
 		<annotation cp="🤷🏻" type="tts">trekker på skuldrene: hudtype 1–2</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">kvinne som trekker på skuldrene: hudtype 5</annotation>
 		<annotation cp="🤷🏿‍♀">hudtype 6 | kvinne | kvinne som trekker på skuldrene | likegyldighet | skuldertrekning | tvil</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">kvinne som trekker på skuldrene: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍⚕">doktor | helsevesen | hudtype 1–2 | lege | sykepleier | terapeut</annotation>
+		<annotation cp="🧑🏻‍⚕">doktor | helsearbeider | helsevesen | hudtype 1–2 | lege | sykepleier | terapeut</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">helsearbeider: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍⚕">doktor | helsevesen | hudtype 3 | lege | sykepleier | terapeut</annotation>
+		<annotation cp="🧑🏼‍⚕">doktor | helsearbeider | helsevesen | hudtype 3 | lege | sykepleier | terapeut</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">helsearbeider: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍⚕">doktor | helsevesen | hudtype 4 | lege | sykepleier | terapeut</annotation>
+		<annotation cp="🧑🏽‍⚕">doktor | helsearbeider | helsevesen | hudtype 4 | lege | sykepleier | terapeut</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">helsearbeider: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍⚕">doktor | helsevesen | hudtype 5 | lege | sykepleier | terapeut</annotation>
+		<annotation cp="🧑🏾‍⚕">doktor | helsearbeider | helsevesen | hudtype 5 | lege | sykepleier | terapeut</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">helsearbeider: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍⚕">doktor | helsevesen | hudtype 6 | lege | sykepleier | terapeut</annotation>
+		<annotation cp="🧑🏿‍⚕">doktor | helsearbeider | helsevesen | hudtype 6 | lege | sykepleier | terapeut</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">helsearbeider: hudtype 6</annotation>
 		<annotation cp="👨🏻‍⚕">doktor | helsevesen | hudtype 1–2 | lege | mann | mannlig helsearbeider | sykepleier | terapeut</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">mannlig helsearbeider: hudtype 1–2</annotation>
@@ -1016,25 +1066,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🎓" type="tts">student: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🎓">hudtype 6 | skole | student | universitet</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">student: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🎓">hudtype 1–2 | mann | skole | student | universitet</annotation>
+		<annotation cp="👨🏻‍🎓">hudtype 1–2 | mann | mannlig student | skole | student | universitet</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">mannlig student: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🎓">hudtype 3 | mann | skole | student | universitet</annotation>
+		<annotation cp="👨🏼‍🎓">hudtype 3 | mann | mannlig student | skole | student | universitet</annotation>
 		<annotation cp="👨🏼‍🎓" type="tts">mannlig student: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🎓">hudtype 4 | mann | skole | student | universitet</annotation>
+		<annotation cp="👨🏽‍🎓">hudtype 4 | mann | mannlig student | skole | student | universitet</annotation>
 		<annotation cp="👨🏽‍🎓" type="tts">mannlig student: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🎓">hudtype 5 | mann | skole | student | universitet</annotation>
+		<annotation cp="👨🏾‍🎓">hudtype 5 | mann | mannlig student | skole | student | universitet</annotation>
 		<annotation cp="👨🏾‍🎓" type="tts">mannlig student: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🎓">hudtype 6 | mann | skole | student | universitet</annotation>
+		<annotation cp="👨🏿‍🎓">hudtype 6 | mann | mannlig student | skole | student | universitet</annotation>
 		<annotation cp="👨🏿‍🎓" type="tts">mannlig student: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🎓">hudtype 1–2 | kvinne | skole | student | universitet</annotation>
+		<annotation cp="👩🏻‍🎓">hudtype 1–2 | kvinne | kvinnelig student | skole | student | universitet</annotation>
 		<annotation cp="👩🏻‍🎓" type="tts">kvinnelig student: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🎓">hudtype 3 | kvinne | skole | student | universitet</annotation>
+		<annotation cp="👩🏼‍🎓">hudtype 3 | kvinne | kvinnelig student | skole | student | universitet</annotation>
 		<annotation cp="👩🏼‍🎓" type="tts">kvinnelig student: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🎓">hudtype 4 | kvinne | skole | student | universitet</annotation>
+		<annotation cp="👩🏽‍🎓">hudtype 4 | kvinne | kvinnelig student | skole | student | universitet</annotation>
 		<annotation cp="👩🏽‍🎓" type="tts">kvinnelig student: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🎓">hudtype 5 | kvinne | skole | student | universitet</annotation>
+		<annotation cp="👩🏾‍🎓">hudtype 5 | kvinne | kvinnelig student | skole | student | universitet</annotation>
 		<annotation cp="👩🏾‍🎓" type="tts">kvinnelig student: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🎓">hudtype 6 | kvinne | skole | student | universitet</annotation>
+		<annotation cp="👩🏿‍🎓">hudtype 6 | kvinne | kvinnelig student | skole | student | universitet</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">kvinnelig student: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🏫">hudtype 1–2 | lærer | skole | undervisning</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">lærer: hudtype 1–2</annotation>
@@ -1046,25 +1096,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🏫" type="tts">lærer: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🏫">hudtype 6 | lærer | skole | undervisning</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">lærer: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🏫">hudtype 1–2 | lærer | mann | skole | undervisning</annotation>
+		<annotation cp="👨🏻‍🏫">hudtype 1–2 | lærer | mann | mannlig lærer | skole | undervisning</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">mannlig lærer: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🏫">hudtype 3 | lærer | mann | skole | undervisning</annotation>
+		<annotation cp="👨🏼‍🏫">hudtype 3 | lærer | mann | mannlig lærer | skole | undervisning</annotation>
 		<annotation cp="👨🏼‍🏫" type="tts">mannlig lærer: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🏫">hudtype 4 | lærer | mann | skole | undervisning</annotation>
+		<annotation cp="👨🏽‍🏫">hudtype 4 | lærer | mann | mannlig lærer | skole | undervisning</annotation>
 		<annotation cp="👨🏽‍🏫" type="tts">mannlig lærer: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🏫">hudtype 5 | lærer | mann | skole | undervisning</annotation>
+		<annotation cp="👨🏾‍🏫">hudtype 5 | lærer | mann | mannlig lærer | skole | undervisning</annotation>
 		<annotation cp="👨🏾‍🏫" type="tts">mannlig lærer: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🏫">hudtype 6 | lærer | mann | skole | undervisning</annotation>
+		<annotation cp="👨🏿‍🏫">hudtype 6 | lærer | mann | mannlig lærer | skole | undervisning</annotation>
 		<annotation cp="👨🏿‍🏫" type="tts">mannlig lærer: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🏫">hudtype 1–2 | kvinne | lærer | skole | undervisning</annotation>
+		<annotation cp="👩🏻‍🏫">hudtype 1–2 | kvinne | kvinnelig lærer | lærer | skole | undervisning</annotation>
 		<annotation cp="👩🏻‍🏫" type="tts">kvinnelig lærer: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🏫">hudtype 3 | kvinne | lærer | skole | undervisning</annotation>
+		<annotation cp="👩🏼‍🏫">hudtype 3 | kvinne | kvinnelig lærer | lærer | skole | undervisning</annotation>
 		<annotation cp="👩🏼‍🏫" type="tts">kvinnelig lærer: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🏫">hudtype 4 | kvinne | lærer | skole | undervisning</annotation>
+		<annotation cp="👩🏽‍🏫">hudtype 4 | kvinne | kvinnelig lærer | lærer | skole | undervisning</annotation>
 		<annotation cp="👩🏽‍🏫" type="tts">kvinnelig lærer: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🏫">hudtype 5 | kvinne | lærer | skole | undervisning</annotation>
+		<annotation cp="👩🏾‍🏫">hudtype 5 | kvinne | kvinnelig lærer | lærer | skole | undervisning</annotation>
 		<annotation cp="👩🏾‍🏫" type="tts">kvinnelig lærer: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🏫">hudtype 6 | kvinne | lærer | skole | undervisning</annotation>
+		<annotation cp="👩🏿‍🏫">hudtype 6 | kvinne | kvinnelig lærer | lærer | skole | undervisning</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">kvinnelig lærer: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍⚖">dommer | hudtype 1–2 | jus | juss</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">dommer: hudtype 1–2</annotation>
@@ -1106,25 +1156,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🌾" type="tts">gårdbruker: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🌾">bonde | gårdbruker | hudtype 6 | jordbruk</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">gårdbruker: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🌾">bonde | dyrke | gårdbruker | hudtype 1–2 | jordbruk | mann</annotation>
+		<annotation cp="👨🏻‍🌾">bonde | dyrke | gårdbruker | hudtype 1–2 | jordbruk | mann | mannlig gårdbruker</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">mannlig gårdbruker: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🌾">bonde | dyrke | gårdbruker | hudtype 3 | jordbruk | mann</annotation>
+		<annotation cp="👨🏼‍🌾">bonde | dyrke | gårdbruker | hudtype 3 | jordbruk | mann | mannlig gårdbruker</annotation>
 		<annotation cp="👨🏼‍🌾" type="tts">mannlig gårdbruker: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🌾">bonde | dyrke | gårdbruker | hudtype 4 | jordbruk | mann</annotation>
+		<annotation cp="👨🏽‍🌾">bonde | dyrke | gårdbruker | hudtype 4 | jordbruk | mann | mannlig gårdbruker</annotation>
 		<annotation cp="👨🏽‍🌾" type="tts">mannlig gårdbruker: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🌾">bonde | dyrke | gårdbruker | hudtype 5 | jordbruk | mann</annotation>
+		<annotation cp="👨🏾‍🌾">bonde | dyrke | gårdbruker | hudtype 5 | jordbruk | mann | mannlig gårdbruker</annotation>
 		<annotation cp="👨🏾‍🌾" type="tts">mannlig gårdbruker: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🌾">bonde | dyrke | gårdbruker | hudtype 6 | jordbruk | mann</annotation>
+		<annotation cp="👨🏿‍🌾">bonde | dyrke | gårdbruker | hudtype 6 | jordbruk | mann | mannlig gårdbruker</annotation>
 		<annotation cp="👨🏿‍🌾" type="tts">mannlig gårdbruker: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🌾">bonde | dyrke | gårdbruker | hudtype 1–2 | jordbruk | kvinne</annotation>
+		<annotation cp="👩🏻‍🌾">bonde | dyrke | gårdbruker | hudtype 1–2 | jordbruk | kvinne | kvinnelig gårdbruker</annotation>
 		<annotation cp="👩🏻‍🌾" type="tts">kvinnelig gårdbruker: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🌾">bonde | dyrke | gårdbruker | hudtype 3 | jordbruk | kvinne</annotation>
+		<annotation cp="👩🏼‍🌾">bonde | dyrke | gårdbruker | hudtype 3 | jordbruk | kvinne | kvinnelig gårdbruker</annotation>
 		<annotation cp="👩🏼‍🌾" type="tts">kvinnelig gårdbruker: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🌾">bonde | dyrke | gårdbruker | hudtype 4 | jordbruk | kvinne</annotation>
+		<annotation cp="👩🏽‍🌾">bonde | dyrke | gårdbruker | hudtype 4 | jordbruk | kvinne | kvinnelig gårdbruker</annotation>
 		<annotation cp="👩🏽‍🌾" type="tts">kvinnelig gårdbruker: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🌾">bonde | dyrke | gårdbruker | hudtype 5 | jordbruk | kvinne</annotation>
+		<annotation cp="👩🏾‍🌾">bonde | dyrke | gårdbruker | hudtype 5 | jordbruk | kvinne | kvinnelig gårdbruker</annotation>
 		<annotation cp="👩🏾‍🌾" type="tts">kvinnelig gårdbruker: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🌾">bonde | dyrke | gårdbruker | hudtype 6 | jordbruk | kvinne</annotation>
+		<annotation cp="👩🏿‍🌾">bonde | dyrke | gårdbruker | hudtype 6 | jordbruk | kvinne | kvinnelig gårdbruker</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">kvinnelig gårdbruker: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🍳">hudtype 1–2 | kokk | matlaging | restaurant</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">kokk: hudtype 1–2</annotation>
@@ -1136,25 +1186,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🍳" type="tts">kokk: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🍳">hudtype 6 | kokk | matlaging | restaurant</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">kokk: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🍳">hudtype 1–2 | mann | matlaging | restaurant</annotation>
+		<annotation cp="👨🏻‍🍳">hudtype 1–2 | mann | mannlig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">mannlig kokk: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🍳">hudtype 3 | mann | matlaging | restaurant</annotation>
+		<annotation cp="👨🏼‍🍳">hudtype 3 | mann | mannlig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👨🏼‍🍳" type="tts">mannlig kokk: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🍳">hudtype 4 | mann | matlaging | restaurant</annotation>
+		<annotation cp="👨🏽‍🍳">hudtype 4 | mann | mannlig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👨🏽‍🍳" type="tts">mannlig kokk: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🍳">hudtype 5 | mann | matlaging | restaurant</annotation>
+		<annotation cp="👨🏾‍🍳">hudtype 5 | mann | mannlig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👨🏾‍🍳" type="tts">mannlig kokk: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🍳">hudtype 6 | mann | matlaging | restaurant</annotation>
+		<annotation cp="👨🏿‍🍳">hudtype 6 | mann | mannlig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👨🏿‍🍳" type="tts">mannlig kokk: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🍳">hudtype 1–2 | kvinne | matlaging | restaurant</annotation>
+		<annotation cp="👩🏻‍🍳">hudtype 1–2 | kvinne | kvinnelig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👩🏻‍🍳" type="tts">kvinnelig kokk: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🍳">hudtype 3 | kvinne | matlaging | restaurant</annotation>
+		<annotation cp="👩🏼‍🍳">hudtype 3 | kvinne | kvinnelig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👩🏼‍🍳" type="tts">kvinnelig kokk: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🍳">hudtype 4 | kvinne | matlaging | restaurant</annotation>
+		<annotation cp="👩🏽‍🍳">hudtype 4 | kvinne | kvinnelig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👩🏽‍🍳" type="tts">kvinnelig kokk: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🍳">hudtype 5 | kvinne | matlaging | restaurant</annotation>
+		<annotation cp="👩🏾‍🍳">hudtype 5 | kvinne | kvinnelig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👩🏾‍🍳" type="tts">kvinnelig kokk: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🍳">hudtype 6 | kvinne | matlaging | restaurant</annotation>
+		<annotation cp="👩🏿‍🍳">hudtype 6 | kvinne | kvinnelig kokk | matlaging | restaurant</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kvinnelig kokk: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🔧">bil | elektriker | håndverker | hudtype 1–2 | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">mekaniker: hudtype 1–2</annotation>
@@ -1166,25 +1216,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🔧" type="tts">mekaniker: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🔧">bil | elektriker | håndverker | hudtype 6 | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mekaniker: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🔧">bil | elektriker | håndverker | hudtype 1–2 | mann | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👨🏻‍🔧">bil | elektriker | håndverker | hudtype 1–2 | mann | mannlig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mannlig mekaniker: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🔧">bil | elektriker | håndverker | hudtype 3 | mann | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👨🏼‍🔧">bil | elektriker | håndverker | hudtype 3 | mann | mannlig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👨🏼‍🔧" type="tts">mannlig mekaniker: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🔧">bil | elektriker | håndverker | hudtype 4 | mann | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👨🏽‍🔧">bil | elektriker | håndverker | hudtype 4 | mann | mannlig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👨🏽‍🔧" type="tts">mannlig mekaniker: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🔧">bil | elektriker | håndverker | hudtype 5 | mann | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👨🏾‍🔧">bil | elektriker | håndverker | hudtype 5 | mann | mannlig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👨🏾‍🔧" type="tts">mannlig mekaniker: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🔧">bil | elektriker | håndverker | hudtype 6 | mann | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👨🏿‍🔧">bil | elektriker | håndverker | hudtype 6 | mann | mannlig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👨🏿‍🔧" type="tts">mannlig mekaniker: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🔧">bil | elektriker | håndverker | hudtype 1–2 | kvinne | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👩🏻‍🔧">bil | elektriker | håndverker | hudtype 1–2 | kvinne | kvinnelig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👩🏻‍🔧" type="tts">kvinnelig mekaniker: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🔧">bil | elektriker | håndverker | hudtype 3 | kvinne | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👩🏼‍🔧">bil | elektriker | håndverker | hudtype 3 | kvinne | kvinnelig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👩🏼‍🔧" type="tts">kvinnelig mekaniker: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🔧">bil | elektriker | håndverker | hudtype 4 | kvinne | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👩🏽‍🔧">bil | elektriker | håndverker | hudtype 4 | kvinne | kvinnelig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👩🏽‍🔧" type="tts">kvinnelig mekaniker: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🔧">bil | elektriker | håndverker | hudtype 5 | kvinne | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👩🏾‍🔧">bil | elektriker | håndverker | hudtype 5 | kvinne | kvinnelig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👩🏾‍🔧" type="tts">kvinnelig mekaniker: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🔧">bil | elektriker | håndverker | hudtype 6 | kvinne | mekaniker | motor | rørlegger</annotation>
+		<annotation cp="👩🏿‍🔧">bil | elektriker | håndverker | hudtype 6 | kvinne | kvinnelig mekaniker | mekaniker | motor | rørlegger</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">kvinnelig mekaniker: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🏭">arbeider | fabrikk | hudtype 1–2 | industri | industriarbeider | produksjon</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">industriarbeider: hudtype 1–2</annotation>
@@ -1196,35 +1246,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🏭" type="tts">industriarbeider: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🏭">arbeider | fabrikk | hudtype 6 | industri | industriarbeider | produksjon</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">industriarbeider: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🏭">arbeider | fabrikk | hudtype 1–2 | industri | industriarbeider | mann | produksjon</annotation>
+		<annotation cp="👨🏻‍🏭">arbeider | fabrikk | hudtype 1–2 | industri | industriarbeider | mann | mannlig industriarbeider | produksjon</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">mannlig industriarbeider: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🏭">arbeider | fabrikk | hudtype 3 | industri | industriarbeider | mann | produksjon</annotation>
+		<annotation cp="👨🏼‍🏭">arbeider | fabrikk | hudtype 3 | industri | industriarbeider | mann | mannlig industriarbeider | produksjon</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">mannlig industriarbeider: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🏭">arbeider | fabrikk | hudtype 4 | industri | industriarbeider | mann | produksjon</annotation>
+		<annotation cp="👨🏽‍🏭">arbeider | fabrikk | hudtype 4 | industri | industriarbeider | mann | mannlig industriarbeider | produksjon</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">mannlig industriarbeider: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🏭">arbeider | fabrikk | hudtype 5 | industri | industriarbeider | mann | produksjon</annotation>
+		<annotation cp="👨🏾‍🏭">arbeider | fabrikk | hudtype 5 | industri | industriarbeider | mann | mannlig industriarbeider | produksjon</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">mannlig industriarbeider: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🏭">arbeider | fabrikk | hudtype 6 | industri | industriarbeider | mann | produksjon</annotation>
+		<annotation cp="👨🏿‍🏭">arbeider | fabrikk | hudtype 6 | industri | industriarbeider | mann | mannlig industriarbeider | produksjon</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">mannlig industriarbeider: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🏭">arbeider | fabrikk | hudtype 1–2 | industri | industriarbeider | kvinne | produksjon</annotation>
+		<annotation cp="👩🏻‍🏭">arbeider | fabrikk | hudtype 1–2 | industri | industriarbeider | kvinne | kvinnelig industriarbeider | produksjon</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">kvinnelig industriarbeider: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🏭">arbeider | fabrikk | hudtype 3 | industri | industriarbeider | kvinne | produksjon</annotation>
+		<annotation cp="👩🏼‍🏭">arbeider | fabrikk | hudtype 3 | industri | industriarbeider | kvinne | kvinnelig industriarbeider | produksjon</annotation>
 		<annotation cp="👩🏼‍🏭" type="tts">kvinnelig industriarbeider: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🏭">arbeider | fabrikk | hudtype 4 | industri | industriarbeider | kvinne | produksjon</annotation>
+		<annotation cp="👩🏽‍🏭">arbeider | fabrikk | hudtype 4 | industri | industriarbeider | kvinne | kvinnelig industriarbeider | produksjon</annotation>
 		<annotation cp="👩🏽‍🏭" type="tts">kvinnelig industriarbeider: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🏭">arbeider | fabrikk | hudtype 5 | industri | industriarbeider | kvinne | produksjon</annotation>
+		<annotation cp="👩🏾‍🏭">arbeider | fabrikk | hudtype 5 | industri | industriarbeider | kvinne | kvinnelig industriarbeider | produksjon</annotation>
 		<annotation cp="👩🏾‍🏭" type="tts">kvinnelig industriarbeider: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🏭">arbeider | fabrikk | hudtype 6 | industri | industriarbeider | kvinne | produksjon</annotation>
+		<annotation cp="👩🏿‍🏭">arbeider | fabrikk | hudtype 6 | industri | industriarbeider | kvinne | kvinnelig industriarbeider | produksjon</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">kvinnelig industriarbeider: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍💼">hudtype 1–2 | kontor | leder | næringsliv</annotation>
+		<annotation cp="🧑🏻‍💼">hudtype 1–2 | kontor | kontorarbeider | leder | næringsliv</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">kontorarbeider: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍💼">hudtype 3 | kontor | leder | næringsliv</annotation>
+		<annotation cp="🧑🏼‍💼">hudtype 3 | kontor | kontorarbeider | leder | næringsliv</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">kontorarbeider: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍💼">hudtype 4 | kontor | leder | næringsliv</annotation>
+		<annotation cp="🧑🏽‍💼">hudtype 4 | kontor | kontorarbeider | leder | næringsliv</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">kontorarbeider: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍💼">hudtype 5 | kontor | leder | næringsliv</annotation>
+		<annotation cp="🧑🏾‍💼">hudtype 5 | kontor | kontorarbeider | leder | næringsliv</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">kontorarbeider: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍💼">hudtype 6 | kontor | leder | næringsliv</annotation>
+		<annotation cp="🧑🏿‍💼">hudtype 6 | kontor | kontorarbeider | leder | næringsliv</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">kontorarbeider: hudtype 6</annotation>
 		<annotation cp="👨🏻‍💼">hudtype 1–2 | kontor | leder | mann | mannlig kontorarbeider | næringsliv</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">mannlig kontorarbeider: hudtype 1–2</annotation>
@@ -1256,55 +1306,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🔬" type="tts">forsker: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🔬">biologi | forsker | forskning | hudtype 6 | kjemi | lab | laboratorium | medisin | vitenskap</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">forsker: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🔬">biologi | forsker | forskning | hudtype 1–2 | kjemi | lab | laboratorium | mann | medisin | vitenskap</annotation>
+		<annotation cp="👨🏻‍🔬">biologi | forsker | forskning | hudtype 1–2 | kjemi | lab | laboratorium | mann | mannlig forsker | medisin | vitenskap</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">mannlig forsker: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🔬">biologi | forsker | forskning | hudtype 3 | kjemi | lab | laboratorium | mann | medisin | vitenskap</annotation>
+		<annotation cp="👨🏼‍🔬">biologi | forsker | forskning | hudtype 3 | kjemi | lab | laboratorium | mann | mannlig forsker | medisin | vitenskap</annotation>
 		<annotation cp="👨🏼‍🔬" type="tts">mannlig forsker: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🔬">biologi | forsker | forskning | hudtype 4 | kjemi | lab | laboratorium | mann | medisin | vitenskap</annotation>
+		<annotation cp="👨🏽‍🔬">biologi | forsker | forskning | hudtype 4 | kjemi | lab | laboratorium | mann | mannlig forsker | medisin | vitenskap</annotation>
 		<annotation cp="👨🏽‍🔬" type="tts">mannlig forsker: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🔬">biologi | forsker | forskning | hudtype 5 | kjemi | lab | laboratorium | mann | medisin | vitenskap</annotation>
+		<annotation cp="👨🏾‍🔬">biologi | forsker | forskning | hudtype 5 | kjemi | lab | laboratorium | mann | mannlig forsker | medisin | vitenskap</annotation>
 		<annotation cp="👨🏾‍🔬" type="tts">mannlig forsker: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🔬">biologi | forsker | forskning | hudtype 6 | kjemi | lab | laboratorium | mann | medisin | vitenskap</annotation>
+		<annotation cp="👨🏿‍🔬">biologi | forsker | forskning | hudtype 6 | kjemi | lab | laboratorium | mann | mannlig forsker | medisin | vitenskap</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">mannlig forsker: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🔬">biologi | forsker | forskning | hudtype 1–2 | kjemi | kvinne | lab | laboratorium | medisin | vitenskap</annotation>
+		<annotation cp="👩🏻‍🔬">biologi | forsker | forskning | hudtype 1–2 | kjemi | kvinne | kvinnelig forsker | lab | laboratorium | medisin | vitenskap</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">kvinnelig forsker: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🔬">biologi | forsker | forskning | hudtype 3 | kjemi | kvinne | lab | laboratorium | medisin | vitenskap</annotation>
+		<annotation cp="👩🏼‍🔬">biologi | forsker | forskning | hudtype 3 | kjemi | kvinne | kvinnelig forsker | lab | laboratorium | medisin | vitenskap</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">kvinnelig forsker: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🔬">biologi | forsker | forskning | hudtype 4 | kjemi | kvinne | lab | laboratorium | medisin | vitenskap</annotation>
+		<annotation cp="👩🏽‍🔬">biologi | forsker | forskning | hudtype 4 | kjemi | kvinne | kvinnelig forsker | lab | laboratorium | medisin | vitenskap</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">kvinnelig forsker: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🔬">biologi | forsker | forskning | hudtype 5 | kjemi | kvinne | lab | laboratorium | medisin | vitenskap</annotation>
+		<annotation cp="👩🏾‍🔬">biologi | forsker | forskning | hudtype 5 | kjemi | kvinne | kvinnelig forsker | lab | laboratorium | medisin | vitenskap</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">kvinnelig forsker: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🔬">biologi | forsker | forskning | hudtype 6 | kjemi | kvinne | lab | laboratorium | medisin | vitenskap</annotation>
+		<annotation cp="👩🏿‍🔬">biologi | forsker | forskning | hudtype 6 | kjemi | kvinne | kvinnelig forsker | lab | laboratorium | medisin | vitenskap</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">kvinnelig forsker: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍💻">data | hudtype 1–2 | IT | koding | programvare | teknologi</annotation>
+		<annotation cp="🧑🏻‍💻">data | hudtype 1–2 | IT | IT-ekspert | koding | programvare | teknologi</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">IT-ekspert: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍💻">data | hudtype 3 | IT | koding | programvare | teknologi</annotation>
+		<annotation cp="🧑🏼‍💻">data | hudtype 3 | IT | IT-ekspert | koding | programvare | teknologi</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">IT-ekspert: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍💻">data | hudtype 4 | IT | koding | programvare | teknologi</annotation>
+		<annotation cp="🧑🏽‍💻">data | hudtype 4 | IT | IT-ekspert | koding | programvare | teknologi</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">IT-ekspert: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍💻">data | hudtype 5 | IT | koding | programvare | teknologi</annotation>
+		<annotation cp="🧑🏾‍💻">data | hudtype 5 | IT | IT-ekspert | koding | programvare | teknologi</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">IT-ekspert: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍💻">data | hudtype 6 | IT | koding | programvare | teknologi</annotation>
+		<annotation cp="🧑🏿‍💻">data | hudtype 6 | IT | IT-ekspert | koding | programvare | teknologi</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">IT-ekspert: hudtype 6</annotation>
-		<annotation cp="👨🏻‍💻">data | hudtype 1–2 | IT | koding | mann | programvare | teknologi</annotation>
+		<annotation cp="👨🏻‍💻">data | hudtype 1–2 | IT | koding | mann | mannlig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">mannlig IT-ekspert: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍💻">data | hudtype 3 | IT | koding | mann | programvare | teknologi</annotation>
+		<annotation cp="👨🏼‍💻">data | hudtype 3 | IT | koding | mann | mannlig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👨🏼‍💻" type="tts">mannlig IT-ekspert: hudtype 3</annotation>
-		<annotation cp="👨🏽‍💻">data | hudtype 4 | IT | koding | mann | programvare | teknologi</annotation>
+		<annotation cp="👨🏽‍💻">data | hudtype 4 | IT | koding | mann | mannlig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👨🏽‍💻" type="tts">mannlig IT-ekspert: hudtype 4</annotation>
-		<annotation cp="👨🏾‍💻">data | hudtype 5 | IT | koding | mann | programvare | teknologi</annotation>
+		<annotation cp="👨🏾‍💻">data | hudtype 5 | IT | koding | mann | mannlig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👨🏾‍💻" type="tts">mannlig IT-ekspert: hudtype 5</annotation>
-		<annotation cp="👨🏿‍💻">data | hudtype 6 | IT | koding | mann | programvare | teknologi</annotation>
+		<annotation cp="👨🏿‍💻">data | hudtype 6 | IT | koding | mann | mannlig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👨🏿‍💻" type="tts">mannlig IT-ekspert: hudtype 6</annotation>
-		<annotation cp="👩🏻‍💻">data | hudtype 1–2 | IT | koding | kvinne | programvare | teknologi</annotation>
+		<annotation cp="👩🏻‍💻">data | hudtype 1–2 | IT | koding | kvinne | kvinnelig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👩🏻‍💻" type="tts">kvinnelig IT-ekspert: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍💻">data | hudtype 3 | IT | koding | kvinne | programvare | teknologi</annotation>
+		<annotation cp="👩🏼‍💻">data | hudtype 3 | IT | koding | kvinne | kvinnelig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👩🏼‍💻" type="tts">kvinnelig IT-ekspert: hudtype 3</annotation>
-		<annotation cp="👩🏽‍💻">data | hudtype 4 | IT | koding | kvinne | programvare | teknologi</annotation>
+		<annotation cp="👩🏽‍💻">data | hudtype 4 | IT | koding | kvinne | kvinnelig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👩🏽‍💻" type="tts">kvinnelig IT-ekspert: hudtype 4</annotation>
-		<annotation cp="👩🏾‍💻">data | hudtype 5 | IT | koding | kvinne | programvare | teknologi</annotation>
+		<annotation cp="👩🏾‍💻">data | hudtype 5 | IT | koding | kvinne | kvinnelig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👩🏾‍💻" type="tts">kvinnelig IT-ekspert: hudtype 5</annotation>
-		<annotation cp="👩🏿‍💻">data | hudtype 6 | IT | koding | kvinne | programvare | teknologi</annotation>
+		<annotation cp="👩🏿‍💻">data | hudtype 6 | IT | koding | kvinne | kvinnelig IT-ekspert | programvare | teknologi</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">kvinnelig IT-ekspert: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🎤">artist | hudtype 1–2 | konsert | rock | sanger</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">artist: hudtype 1–2</annotation>
@@ -1316,25 +1366,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🎤" type="tts">artist: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🎤">artist | hudtype 6 | konsert | rock | sanger</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">artist: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🎤">artist | hudtype 1–2 | konsert | mann | rock | sanger</annotation>
+		<annotation cp="👨🏻‍🎤">artist | hudtype 1–2 | konsert | mann | mannlig artist | rock | sanger</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">mannlig artist: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🎤">artist | hudtype 3 | konsert | mann | rock | sanger</annotation>
+		<annotation cp="👨🏼‍🎤">artist | hudtype 3 | konsert | mann | mannlig artist | rock | sanger</annotation>
 		<annotation cp="👨🏼‍🎤" type="tts">mannlig artist: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🎤">artist | hudtype 4 | konsert | mann | rock | sanger</annotation>
+		<annotation cp="👨🏽‍🎤">artist | hudtype 4 | konsert | mann | mannlig artist | rock | sanger</annotation>
 		<annotation cp="👨🏽‍🎤" type="tts">mannlig artist: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🎤">artist | hudtype 5 | konsert | mann | rock | sanger</annotation>
+		<annotation cp="👨🏾‍🎤">artist | hudtype 5 | konsert | mann | mannlig artist | rock | sanger</annotation>
 		<annotation cp="👨🏾‍🎤" type="tts">mannlig artist: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🎤">artist | hudtype 6 | konsert | mann | rock | sanger</annotation>
+		<annotation cp="👨🏿‍🎤">artist | hudtype 6 | konsert | mann | mannlig artist | rock | sanger</annotation>
 		<annotation cp="👨🏿‍🎤" type="tts">mannlig artist: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🎤">artist | hudtype 1–2 | konsert | kvinne | rock | sanger</annotation>
+		<annotation cp="👩🏻‍🎤">artist | hudtype 1–2 | konsert | kvinne | kvinnelig artist | rock | sanger</annotation>
 		<annotation cp="👩🏻‍🎤" type="tts">kvinnelig artist: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🎤">artist | hudtype 3 | konsert | kvinne | rock | sanger</annotation>
+		<annotation cp="👩🏼‍🎤">artist | hudtype 3 | konsert | kvinne | kvinnelig artist | rock | sanger</annotation>
 		<annotation cp="👩🏼‍🎤" type="tts">kvinnelig artist: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🎤">artist | hudtype 4 | konsert | kvinne | rock | sanger</annotation>
+		<annotation cp="👩🏽‍🎤">artist | hudtype 4 | konsert | kvinne | kvinnelig artist | rock | sanger</annotation>
 		<annotation cp="👩🏽‍🎤" type="tts">kvinnelig artist: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🎤">artist | hudtype 5 | konsert | kvinne | rock | sanger</annotation>
+		<annotation cp="👩🏾‍🎤">artist | hudtype 5 | konsert | kvinne | kvinnelig artist | rock | sanger</annotation>
 		<annotation cp="👩🏾‍🎤" type="tts">kvinnelig artist: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🎤">artist | hudtype 6 | konsert | kvinne | rock | sanger</annotation>
+		<annotation cp="👩🏿‍🎤">artist | hudtype 6 | konsert | kvinne | kvinnelig artist | rock | sanger</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">kvinnelig artist: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🎨">hudtype 1–2 | kunstner | maler</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">kunstner: hudtype 1–2</annotation>
@@ -1346,25 +1396,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🎨" type="tts">kunstner: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🎨">hudtype 6 | kunstner | maler</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">kunstner: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🎨">hudtype 1–2 | kunstner | maler | mann</annotation>
+		<annotation cp="👨🏻‍🎨">hudtype 1–2 | kunstner | maler | mann | mannlig kunstner</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">mannlig kunstner: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🎨">hudtype 3 | kunstner | maler | mann</annotation>
+		<annotation cp="👨🏼‍🎨">hudtype 3 | kunstner | maler | mann | mannlig kunstner</annotation>
 		<annotation cp="👨🏼‍🎨" type="tts">mannlig kunstner: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🎨">hudtype 4 | kunstner | maler | mann</annotation>
+		<annotation cp="👨🏽‍🎨">hudtype 4 | kunstner | maler | mann | mannlig kunstner</annotation>
 		<annotation cp="👨🏽‍🎨" type="tts">mannlig kunstner: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🎨">hudtype 5 | kunstner | maler | mann</annotation>
+		<annotation cp="👨🏾‍🎨">hudtype 5 | kunstner | maler | mann | mannlig kunstner</annotation>
 		<annotation cp="👨🏾‍🎨" type="tts">mannlig kunstner: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🎨">hudtype 6 | kunstner | maler | mann</annotation>
+		<annotation cp="👨🏿‍🎨">hudtype 6 | kunstner | maler | mann | mannlig kunstner</annotation>
 		<annotation cp="👨🏿‍🎨" type="tts">mannlig kunstner: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🎨">hudtype 1–2 | kunstner | kvinne | maler</annotation>
+		<annotation cp="👩🏻‍🎨">hudtype 1–2 | kunstner | kvinne | kvinnelig kunstner | maler</annotation>
 		<annotation cp="👩🏻‍🎨" type="tts">kvinnelig kunstner: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🎨">hudtype 3 | kunstner | kvinne | maler</annotation>
+		<annotation cp="👩🏼‍🎨">hudtype 3 | kunstner | kvinne | kvinnelig kunstner | maler</annotation>
 		<annotation cp="👩🏼‍🎨" type="tts">kvinnelig kunstner: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🎨">hudtype 4 | kunstner | kvinne | maler</annotation>
+		<annotation cp="👩🏽‍🎨">hudtype 4 | kunstner | kvinne | kvinnelig kunstner | maler</annotation>
 		<annotation cp="👩🏽‍🎨" type="tts">kvinnelig kunstner: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🎨">hudtype 5 | kunstner | kvinne | maler</annotation>
+		<annotation cp="👩🏾‍🎨">hudtype 5 | kunstner | kvinne | kvinnelig kunstner | maler</annotation>
 		<annotation cp="👩🏾‍🎨" type="tts">kvinnelig kunstner: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🎨">hudtype 6 | kunstner | kvinne | maler</annotation>
+		<annotation cp="👩🏿‍🎨">hudtype 6 | kunstner | kvinne | kvinnelig kunstner | maler</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">kvinnelig kunstner: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍✈">fly | hudtype 1–2 | pilot</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">pilot: hudtype 1–2</annotation>
@@ -1376,25 +1426,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍✈" type="tts">pilot: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍✈">fly | hudtype 6 | pilot</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">pilot: hudtype 6</annotation>
-		<annotation cp="👨🏻‍✈">fly | hudtype 1–2 | mann | pilot</annotation>
+		<annotation cp="👨🏻‍✈">fly | hudtype 1–2 | mann | mannlig pilot | pilot</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">mannlig pilot: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍✈">fly | hudtype 3 | mann | pilot</annotation>
+		<annotation cp="👨🏼‍✈">fly | hudtype 3 | mann | mannlig pilot | pilot</annotation>
 		<annotation cp="👨🏼‍✈" type="tts">mannlig pilot: hudtype 3</annotation>
-		<annotation cp="👨🏽‍✈">fly | hudtype 4 | mann | pilot</annotation>
+		<annotation cp="👨🏽‍✈">fly | hudtype 4 | mann | mannlig pilot | pilot</annotation>
 		<annotation cp="👨🏽‍✈" type="tts">mannlig pilot: hudtype 4</annotation>
-		<annotation cp="👨🏾‍✈">fly | hudtype 5 | mann | pilot</annotation>
+		<annotation cp="👨🏾‍✈">fly | hudtype 5 | mann | mannlig pilot | pilot</annotation>
 		<annotation cp="👨🏾‍✈" type="tts">mannlig pilot: hudtype 5</annotation>
-		<annotation cp="👨🏿‍✈">fly | hudtype 6 | mann | pilot</annotation>
+		<annotation cp="👨🏿‍✈">fly | hudtype 6 | mann | mannlig pilot | pilot</annotation>
 		<annotation cp="👨🏿‍✈" type="tts">mannlig pilot: hudtype 6</annotation>
-		<annotation cp="👩🏻‍✈">fly | hudtype 1–2 | kvinne | pilot</annotation>
+		<annotation cp="👩🏻‍✈">fly | hudtype 1–2 | kvinne | kvinnelig pilot | pilot</annotation>
 		<annotation cp="👩🏻‍✈" type="tts">kvinnelig pilot: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍✈">fly | hudtype 3 | kvinne | pilot</annotation>
+		<annotation cp="👩🏼‍✈">fly | hudtype 3 | kvinne | kvinnelig pilot | pilot</annotation>
 		<annotation cp="👩🏼‍✈" type="tts">kvinnelig pilot: hudtype 3</annotation>
-		<annotation cp="👩🏽‍✈">fly | hudtype 4 | kvinne | pilot</annotation>
+		<annotation cp="👩🏽‍✈">fly | hudtype 4 | kvinne | kvinnelig pilot | pilot</annotation>
 		<annotation cp="👩🏽‍✈" type="tts">kvinnelig pilot: hudtype 4</annotation>
-		<annotation cp="👩🏾‍✈">fly | hudtype 5 | kvinne | pilot</annotation>
+		<annotation cp="👩🏾‍✈">fly | hudtype 5 | kvinne | kvinnelig pilot | pilot</annotation>
 		<annotation cp="👩🏾‍✈" type="tts">kvinnelig pilot: hudtype 5</annotation>
-		<annotation cp="👩🏿‍✈">fly | hudtype 6 | kvinne | pilot</annotation>
+		<annotation cp="👩🏿‍✈">fly | hudtype 6 | kvinne | kvinnelig pilot | pilot</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">kvinnelig pilot: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🚀">astronaut | hudtype 1–2 | romfart | verdensrommet</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">astronaut: hudtype 1–2</annotation>
@@ -1406,25 +1456,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🚀" type="tts">astronaut: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🚀">astronaut | hudtype 6 | romfart | verdensrommet</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">astronaut: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🚀">astronaut | hudtype 1–2 | mann | romfart | verdensrommet</annotation>
+		<annotation cp="👨🏻‍🚀">astronaut | hudtype 1–2 | mann | mannlig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">mannlig astronaut: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🚀">astronaut | hudtype 3 | mann | romfart | verdensrommet</annotation>
+		<annotation cp="👨🏼‍🚀">astronaut | hudtype 3 | mann | mannlig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👨🏼‍🚀" type="tts">mannlig astronaut: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🚀">astronaut | hudtype 4 | mann | romfart | verdensrommet</annotation>
+		<annotation cp="👨🏽‍🚀">astronaut | hudtype 4 | mann | mannlig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👨🏽‍🚀" type="tts">mannlig astronaut: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🚀">astronaut | hudtype 5 | mann | romfart | verdensrommet</annotation>
+		<annotation cp="👨🏾‍🚀">astronaut | hudtype 5 | mann | mannlig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👨🏾‍🚀" type="tts">mannlig astronaut: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🚀">astronaut | hudtype 6 | mann | romfart | verdensrommet</annotation>
+		<annotation cp="👨🏿‍🚀">astronaut | hudtype 6 | mann | mannlig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👨🏿‍🚀" type="tts">mannlig astronaut: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🚀">astronaut | hudtype 1–2 | kvinne | romfart | verdensrommet</annotation>
+		<annotation cp="👩🏻‍🚀">astronaut | hudtype 1–2 | kvinne | kvinnelig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👩🏻‍🚀" type="tts">kvinnelig astronaut: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🚀">astronaut | hudtype 3 | kvinne | romfart | verdensrommet</annotation>
+		<annotation cp="👩🏼‍🚀">astronaut | hudtype 3 | kvinne | kvinnelig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👩🏼‍🚀" type="tts">kvinnelig astronaut: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🚀">astronaut | hudtype 4 | kvinne | romfart | verdensrommet</annotation>
+		<annotation cp="👩🏽‍🚀">astronaut | hudtype 4 | kvinne | kvinnelig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👩🏽‍🚀" type="tts">kvinnelig astronaut: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🚀">astronaut | hudtype 5 | kvinne | romfart | verdensrommet</annotation>
+		<annotation cp="👩🏾‍🚀">astronaut | hudtype 5 | kvinne | kvinnelig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👩🏾‍🚀" type="tts">kvinnelig astronaut: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🚀">astronaut | hudtype 6 | kvinne | romfart | verdensrommet</annotation>
+		<annotation cp="👩🏿‍🚀">astronaut | hudtype 6 | kvinne | kvinnelig astronaut | romfart | verdensrommet</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">kvinnelig astronaut: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 1–2</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">brannkonstabel: hudtype 1–2</annotation>
@@ -1436,55 +1486,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🚒" type="tts">brannkonstabel: hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 6</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">brannkonstabel: hudtype 6</annotation>
-		<annotation cp="👨🏻‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 1–2 | mann</annotation>
+		<annotation cp="👨🏻‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 1–2 | mann | mannlig brannkonstabel</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">mannlig brannkonstabel: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 3 | mann</annotation>
+		<annotation cp="👨🏼‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 3 | mann | mannlig brannkonstabel</annotation>
 		<annotation cp="👨🏼‍🚒" type="tts">mannlig brannkonstabel: hudtype 3</annotation>
-		<annotation cp="👨🏽‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 4 | mann</annotation>
+		<annotation cp="👨🏽‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 4 | mann | mannlig brannkonstabel</annotation>
 		<annotation cp="👨🏽‍🚒" type="tts">mannlig brannkonstabel: hudtype 4</annotation>
-		<annotation cp="👨🏾‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 5 | mann</annotation>
+		<annotation cp="👨🏾‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 5 | mann | mannlig brannkonstabel</annotation>
 		<annotation cp="👨🏾‍🚒" type="tts">mannlig brannkonstabel: hudtype 5</annotation>
-		<annotation cp="👨🏿‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 6 | mann</annotation>
+		<annotation cp="👨🏿‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 6 | mann | mannlig brannkonstabel</annotation>
 		<annotation cp="👨🏿‍🚒" type="tts">mannlig brannkonstabel: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 1–2 | kvinne</annotation>
+		<annotation cp="👩🏻‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 1–2 | kvinne | kvinnelig brannkonstabel</annotation>
 		<annotation cp="👩🏻‍🚒" type="tts">kvinnelig brannkonstabel: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 3 | kvinne</annotation>
+		<annotation cp="👩🏼‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 3 | kvinne | kvinnelig brannkonstabel</annotation>
 		<annotation cp="👩🏼‍🚒" type="tts">kvinnelig brannkonstabel: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 4 | kvinne</annotation>
+		<annotation cp="👩🏽‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 4 | kvinne | kvinnelig brannkonstabel</annotation>
 		<annotation cp="👩🏽‍🚒" type="tts">kvinnelig brannkonstabel: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 5 | kvinne</annotation>
+		<annotation cp="👩🏾‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 5 | kvinne | kvinnelig brannkonstabel</annotation>
 		<annotation cp="👩🏾‍🚒" type="tts">kvinnelig brannkonstabel: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 6 | kvinne</annotation>
+		<annotation cp="👩🏿‍🚒">brannbil | brannkonstabel | brannmann | brannvesenet | hudtype 6 | kvinne | kvinnelig brannkonstabel</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">kvinnelig brannkonstabel: hudtype 6</annotation>
-		<annotation cp="👮🏻">betjent | hudtype 1–2 | menneske | politi</annotation>
+		<annotation cp="👮🏻">betjent | hudtype 1–2 | menneske | politi | politibetjent</annotation>
 		<annotation cp="👮🏻" type="tts">politibetjent: hudtype 1–2</annotation>
-		<annotation cp="👮🏼">betjent | hudtype 3 | menneske | politi</annotation>
+		<annotation cp="👮🏼">betjent | hudtype 3 | menneske | politi | politibetjent</annotation>
 		<annotation cp="👮🏼" type="tts">politibetjent: hudtype 3</annotation>
-		<annotation cp="👮🏽">betjent | hudtype 4 | menneske | politi</annotation>
+		<annotation cp="👮🏽">betjent | hudtype 4 | menneske | politi | politibetjent</annotation>
 		<annotation cp="👮🏽" type="tts">politibetjent: hudtype 4</annotation>
-		<annotation cp="👮🏾">betjent | hudtype 5 | menneske | politi</annotation>
+		<annotation cp="👮🏾">betjent | hudtype 5 | menneske | politi | politibetjent</annotation>
 		<annotation cp="👮🏾" type="tts">politibetjent: hudtype 5</annotation>
-		<annotation cp="👮🏿">betjent | hudtype 6 | menneske | politi</annotation>
+		<annotation cp="👮🏿">betjent | hudtype 6 | menneske | politi | politibetjent</annotation>
 		<annotation cp="👮🏿" type="tts">politibetjent: hudtype 6</annotation>
-		<annotation cp="👮🏻‍♂">betjent | hudtype 1–2 | mann | politi | politibetjent</annotation>
+		<annotation cp="👮🏻‍♂">betjent | hudtype 1–2 | mann | mannlig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">mannlig politibetjent: hudtype 1–2</annotation>
-		<annotation cp="👮🏼‍♂">betjent | hudtype 3 | mann | politi | politibetjent</annotation>
+		<annotation cp="👮🏼‍♂">betjent | hudtype 3 | mann | mannlig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏼‍♂" type="tts">mannlig politibetjent: hudtype 3</annotation>
-		<annotation cp="👮🏽‍♂">betjent | hudtype 4 | mann | politi | politibetjent</annotation>
+		<annotation cp="👮🏽‍♂">betjent | hudtype 4 | mann | mannlig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏽‍♂" type="tts">mannlig politibetjent: hudtype 4</annotation>
-		<annotation cp="👮🏾‍♂">betjent | hudtype 5 | mann | politi | politibetjent</annotation>
+		<annotation cp="👮🏾‍♂">betjent | hudtype 5 | mann | mannlig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏾‍♂" type="tts">mannlig politibetjent: hudtype 5</annotation>
-		<annotation cp="👮🏿‍♂">betjent | hudtype 6 | mann | politi | politibetjent</annotation>
+		<annotation cp="👮🏿‍♂">betjent | hudtype 6 | mann | mannlig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏿‍♂" type="tts">mannlig politibetjent: hudtype 6</annotation>
-		<annotation cp="👮🏻‍♀">betjent | hudtype 1–2 | kvinne | politi | politibetjent</annotation>
+		<annotation cp="👮🏻‍♀">betjent | hudtype 1–2 | kvinne | kvinnelig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏻‍♀" type="tts">kvinnelig politibetjent: hudtype 1–2</annotation>
-		<annotation cp="👮🏼‍♀">betjent | hudtype 3 | kvinne | politi | politibetjent</annotation>
+		<annotation cp="👮🏼‍♀">betjent | hudtype 3 | kvinne | kvinnelig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏼‍♀" type="tts">kvinnelig politibetjent: hudtype 3</annotation>
-		<annotation cp="👮🏽‍♀">betjent | hudtype 4 | kvinne | politi | politibetjent</annotation>
+		<annotation cp="👮🏽‍♀">betjent | hudtype 4 | kvinne | kvinnelig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏽‍♀" type="tts">kvinnelig politibetjent: hudtype 4</annotation>
-		<annotation cp="👮🏾‍♀">betjent | hudtype 5 | kvinne | politi | politibetjent</annotation>
+		<annotation cp="👮🏾‍♀">betjent | hudtype 5 | kvinne | kvinnelig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏾‍♀" type="tts">kvinnelig politibetjent: hudtype 5</annotation>
-		<annotation cp="👮🏿‍♀">betjent | hudtype 6 | kvinne | politi | politibetjent</annotation>
+		<annotation cp="👮🏿‍♀">betjent | hudtype 6 | kvinne | kvinnelig politibetjent | politi | politibetjent</annotation>
 		<annotation cp="👮🏿‍♀" type="tts">kvinnelig politibetjent: hudtype 6</annotation>
 		<annotation cp="🕵🏻">detektiv | hudtype 1–2 | spion</annotation>
 		<annotation cp="🕵🏻" type="tts">detektiv: hudtype 1–2</annotation>
@@ -1496,25 +1546,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕵🏾" type="tts">detektiv: hudtype 5</annotation>
 		<annotation cp="🕵🏿">detektiv | hudtype 6 | spion</annotation>
 		<annotation cp="🕵🏿" type="tts">detektiv: hudtype 6</annotation>
-		<annotation cp="🕵🏻‍♂">etterforske | forbrytelse | hudtype 1–2 | mann | privatdetektiv</annotation>
+		<annotation cp="🕵🏻‍♂">etterforske | forbrytelse | hudtype 1–2 | mann | mannlig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏻‍♂" type="tts">mannlig detektiv: hudtype 1–2</annotation>
-		<annotation cp="🕵🏼‍♂">etterforske | forbrytelse | hudtype 3 | mann | privatdetektiv</annotation>
+		<annotation cp="🕵🏼‍♂">etterforske | forbrytelse | hudtype 3 | mann | mannlig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏼‍♂" type="tts">mannlig detektiv: hudtype 3</annotation>
-		<annotation cp="🕵🏽‍♂">etterforske | forbrytelse | hudtype 4 | mann | privatdetektiv</annotation>
+		<annotation cp="🕵🏽‍♂">etterforske | forbrytelse | hudtype 4 | mann | mannlig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏽‍♂" type="tts">mannlig detektiv: hudtype 4</annotation>
-		<annotation cp="🕵🏾‍♂">etterforske | forbrytelse | hudtype 5 | mann | privatdetektiv</annotation>
+		<annotation cp="🕵🏾‍♂">etterforske | forbrytelse | hudtype 5 | mann | mannlig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏾‍♂" type="tts">mannlig detektiv: hudtype 5</annotation>
-		<annotation cp="🕵🏿‍♂">etterforske | forbrytelse | hudtype 6 | mann | privatdetektiv</annotation>
+		<annotation cp="🕵🏿‍♂">etterforske | forbrytelse | hudtype 6 | mann | mannlig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏿‍♂" type="tts">mannlig detektiv: hudtype 6</annotation>
-		<annotation cp="🕵🏻‍♀">etterforske | forbrytelse | hudtype 1–2 | kvinne | privatdetektiv</annotation>
+		<annotation cp="🕵🏻‍♀">etterforske | forbrytelse | hudtype 1–2 | kvinne | kvinnelig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏻‍♀" type="tts">kvinnelig detektiv: hudtype 1–2</annotation>
-		<annotation cp="🕵🏼‍♀">etterforske | forbrytelse | hudtype 3 | kvinne | privatdetektiv</annotation>
+		<annotation cp="🕵🏼‍♀">etterforske | forbrytelse | hudtype 3 | kvinne | kvinnelig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏼‍♀" type="tts">kvinnelig detektiv: hudtype 3</annotation>
-		<annotation cp="🕵🏽‍♀">etterforske | forbrytelse | hudtype 4 | kvinne | privatdetektiv</annotation>
+		<annotation cp="🕵🏽‍♀">etterforske | forbrytelse | hudtype 4 | kvinne | kvinnelig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏽‍♀" type="tts">kvinnelig detektiv: hudtype 4</annotation>
-		<annotation cp="🕵🏾‍♀">etterforske | forbrytelse | hudtype 5 | kvinne | privatdetektiv</annotation>
+		<annotation cp="🕵🏾‍♀">etterforske | forbrytelse | hudtype 5 | kvinne | kvinnelig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏾‍♀" type="tts">kvinnelig detektiv: hudtype 5</annotation>
-		<annotation cp="🕵🏿‍♀">etterforske | forbrytelse | hudtype 6 | kvinne | privatdetektiv</annotation>
+		<annotation cp="🕵🏿‍♀">etterforske | forbrytelse | hudtype 6 | kvinne | kvinnelig detektiv | privatdetektiv</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">kvinnelig detektiv: hudtype 6</annotation>
 		<annotation cp="💂🏻">gardist | hudtype 1–2 | menneske | vakt</annotation>
 		<annotation cp="💂🏻" type="tts">gardist: hudtype 1–2</annotation>
@@ -1526,25 +1576,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏾" type="tts">gardist: hudtype 5</annotation>
 		<annotation cp="💂🏿">gardist | hudtype 6 | menneske | vakt</annotation>
 		<annotation cp="💂🏿" type="tts">gardist: hudtype 6</annotation>
-		<annotation cp="💂🏻‍♂">gardist | hudtype 1–2 | mann | vakt</annotation>
+		<annotation cp="💂🏻‍♂">gardist | hudtype 1–2 | mann | mannlig gardist | vakt</annotation>
 		<annotation cp="💂🏻‍♂" type="tts">mannlig gardist: hudtype 1–2</annotation>
-		<annotation cp="💂🏼‍♂">gardist | hudtype 3 | mann | vakt</annotation>
+		<annotation cp="💂🏼‍♂">gardist | hudtype 3 | mann | mannlig gardist | vakt</annotation>
 		<annotation cp="💂🏼‍♂" type="tts">mannlig gardist: hudtype 3</annotation>
-		<annotation cp="💂🏽‍♂">gardist | hudtype 4 | mann | vakt</annotation>
+		<annotation cp="💂🏽‍♂">gardist | hudtype 4 | mann | mannlig gardist | vakt</annotation>
 		<annotation cp="💂🏽‍♂" type="tts">mannlig gardist: hudtype 4</annotation>
-		<annotation cp="💂🏾‍♂">gardist | hudtype 5 | mann | vakt</annotation>
+		<annotation cp="💂🏾‍♂">gardist | hudtype 5 | mann | mannlig gardist | vakt</annotation>
 		<annotation cp="💂🏾‍♂" type="tts">mannlig gardist: hudtype 5</annotation>
-		<annotation cp="💂🏿‍♂">gardist | hudtype 6 | mann | vakt</annotation>
+		<annotation cp="💂🏿‍♂">gardist | hudtype 6 | mann | mannlig gardist | vakt</annotation>
 		<annotation cp="💂🏿‍♂" type="tts">mannlig gardist: hudtype 6</annotation>
-		<annotation cp="💂🏻‍♀">gardist | hudtype 1–2 | kvinne | vakt</annotation>
+		<annotation cp="💂🏻‍♀">gardist | hudtype 1–2 | kvinne | kvinnelig gardist | vakt</annotation>
 		<annotation cp="💂🏻‍♀" type="tts">kvinnelig gardist: hudtype 1–2</annotation>
-		<annotation cp="💂🏼‍♀">gardist | hudtype 3 | kvinne | vakt</annotation>
+		<annotation cp="💂🏼‍♀">gardist | hudtype 3 | kvinne | kvinnelig gardist | vakt</annotation>
 		<annotation cp="💂🏼‍♀" type="tts">kvinnelig gardist: hudtype 3</annotation>
-		<annotation cp="💂🏽‍♀">gardist | hudtype 4 | kvinne | vakt</annotation>
+		<annotation cp="💂🏽‍♀">gardist | hudtype 4 | kvinne | kvinnelig gardist | vakt</annotation>
 		<annotation cp="💂🏽‍♀" type="tts">kvinnelig gardist: hudtype 4</annotation>
-		<annotation cp="💂🏾‍♀">gardist | hudtype 5 | kvinne | vakt</annotation>
+		<annotation cp="💂🏾‍♀">gardist | hudtype 5 | kvinne | kvinnelig gardist | vakt</annotation>
 		<annotation cp="💂🏾‍♀" type="tts">kvinnelig gardist: hudtype 5</annotation>
-		<annotation cp="💂🏿‍♀">gardist | hudtype 6 | kvinne | vakt</annotation>
+		<annotation cp="💂🏿‍♀">gardist | hudtype 6 | kvinne | kvinnelig gardist | vakt</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">kvinnelig gardist: hudtype 6</annotation>
 		<annotation cp="👷🏻">anlegg | anleggsarbeider | arbeider | hjelm | hudtype 1–2 | ingeniør | menneske</annotation>
 		<annotation cp="👷🏻" type="tts">anleggsarbeider: hudtype 1–2</annotation>
@@ -1556,25 +1606,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾" type="tts">anleggsarbeider: hudtype 5</annotation>
 		<annotation cp="👷🏿">anlegg | anleggsarbeider | arbeider | hjelm | hudtype 6 | ingeniør | menneske</annotation>
 		<annotation cp="👷🏿" type="tts">anleggsarbeider: hudtype 6</annotation>
-		<annotation cp="👷🏻‍♂">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | mann</annotation>
+		<annotation cp="👷🏻‍♂">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | mann | mannlig anleggsarbeider</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">mannlig anleggsarbeider: hudtype 1–2</annotation>
-		<annotation cp="👷🏼‍♂">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | mann</annotation>
+		<annotation cp="👷🏼‍♂">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | mann | mannlig anleggsarbeider</annotation>
 		<annotation cp="👷🏼‍♂" type="tts">mannlig anleggsarbeider: hudtype 3</annotation>
-		<annotation cp="👷🏽‍♂">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | mann</annotation>
+		<annotation cp="👷🏽‍♂">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | mann | mannlig anleggsarbeider</annotation>
 		<annotation cp="👷🏽‍♂" type="tts">mannlig anleggsarbeider: hudtype 4</annotation>
-		<annotation cp="👷🏾‍♂">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | mann</annotation>
+		<annotation cp="👷🏾‍♂">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | mann | mannlig anleggsarbeider</annotation>
 		<annotation cp="👷🏾‍♂" type="tts">mannlig anleggsarbeider: hudtype 5</annotation>
-		<annotation cp="👷🏿‍♂">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | mann</annotation>
+		<annotation cp="👷🏿‍♂">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | mann | mannlig anleggsarbeider</annotation>
 		<annotation cp="👷🏿‍♂" type="tts">mannlig anleggsarbeider: hudtype 6</annotation>
-		<annotation cp="👷🏻‍♀">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | kvinne</annotation>
+		<annotation cp="👷🏻‍♀">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
 		<annotation cp="👷🏻‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 1–2</annotation>
-		<annotation cp="👷🏼‍♀">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | kvinne</annotation>
+		<annotation cp="👷🏼‍♀">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
 		<annotation cp="👷🏼‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 3</annotation>
-		<annotation cp="👷🏽‍♀">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | kvinne</annotation>
+		<annotation cp="👷🏽‍♀">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
 		<annotation cp="👷🏽‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 4</annotation>
-		<annotation cp="👷🏾‍♀">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | kvinne</annotation>
+		<annotation cp="👷🏾‍♀">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
 		<annotation cp="👷🏾‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 5</annotation>
-		<annotation cp="👷🏿‍♀">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | kvinne</annotation>
+		<annotation cp="👷🏿‍♀">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 6</annotation>
 		<annotation cp="🤴🏻">hudtype 1–2 | prins</annotation>
 		<annotation cp="🤴🏻" type="tts">prins: hudtype 1–2</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">kvinne med hodeslør: hudtype 5</annotation>
 		<annotation cp="🧕🏿">hijab | hodeskjerf | hodeslør | hudtype 6 | kvinne med hodeslør | muslim</annotation>
 		<annotation cp="🧕🏿" type="tts">kvinne med hodeslør: hudtype 6</annotation>
-		<annotation cp="🤵🏻">brudgom | hudtype 1–2 | mann | mann i smoking | smoking</annotation>
-		<annotation cp="🤵🏻" type="tts">mann i smoking: hudtype 1–2</annotation>
-		<annotation cp="🤵🏼">brudgom | hudtype 3 | mann | mann i smoking | smoking</annotation>
-		<annotation cp="🤵🏼" type="tts">mann i smoking: hudtype 3</annotation>
-		<annotation cp="🤵🏽">brudgom | hudtype 4 | mann | mann i smoking | smoking</annotation>
-		<annotation cp="🤵🏽" type="tts">mann i smoking: hudtype 4</annotation>
-		<annotation cp="🤵🏾">brudgom | hudtype 5 | mann | mann i smoking | smoking</annotation>
-		<annotation cp="🤵🏾" type="tts">mann i smoking: hudtype 5</annotation>
-		<annotation cp="🤵🏿">brudgom | hudtype 6 | mann | mann i smoking | smoking</annotation>
-		<annotation cp="🤵🏿" type="tts">mann i smoking: hudtype 6</annotation>
-		<annotation cp="👰🏻">brud | brud med slør | bryllup | hudtype 1–2 | mennesker | slør</annotation>
-		<annotation cp="👰🏻" type="tts">brud: hudtype 1–2</annotation>
-		<annotation cp="👰🏼">brud | brud med slør | bryllup | hudtype 3 | mennesker | slør</annotation>
-		<annotation cp="👰🏼" type="tts">brud: hudtype 3</annotation>
-		<annotation cp="👰🏽">brud | brud med slør | bryllup | hudtype 4 | mennesker | slør</annotation>
-		<annotation cp="👰🏽" type="tts">brud: hudtype 4</annotation>
-		<annotation cp="👰🏾">brud | brud med slør | bryllup | hudtype 5 | mennesker | slør</annotation>
-		<annotation cp="👰🏾" type="tts">brud: hudtype 5</annotation>
-		<annotation cp="👰🏿">brud | brud med slør | bryllup | hudtype 6 | mennesker | slør</annotation>
-		<annotation cp="👰🏿" type="tts">brud: hudtype 6</annotation>
+		<annotation cp="🤵🏻">brudgom | hudtype 1–2 | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏻" type="tts">person i smoking: hudtype 1–2</annotation>
+		<annotation cp="🤵🏼">brudgom | hudtype 3 | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏼" type="tts">person i smoking: hudtype 3</annotation>
+		<annotation cp="🤵🏽">brudgom | hudtype 4 | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏽" type="tts">person i smoking: hudtype 4</annotation>
+		<annotation cp="🤵🏾">brudgom | hudtype 5 | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏾" type="tts">person i smoking: hudtype 5</annotation>
+		<annotation cp="🤵🏿">brudgom | hudtype 6 | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏿" type="tts">person i smoking: hudtype 6</annotation>
+		<annotation cp="🤵🏻‍♀">hudtype 1–2 | kvinne | kvinne i smoking | smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">kvinne i smoking: hudtype 1–2</annotation>
+		<annotation cp="🤵🏼‍♀">hudtype 3 | kvinne | kvinne i smoking | smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">kvinne i smoking: hudtype 3</annotation>
+		<annotation cp="🤵🏽‍♀">hudtype 4 | kvinne | kvinne i smoking | smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">kvinne i smoking: hudtype 4</annotation>
+		<annotation cp="🤵🏾‍♀">hudtype 5 | kvinne | kvinne i smoking | smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">kvinne i smoking: hudtype 5</annotation>
+		<annotation cp="🤵🏿‍♀">hudtype 6 | kvinne | kvinne i smoking | smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">kvinne i smoking: hudtype 6</annotation>
+		<annotation cp="🤵🏻‍♂">hudtype 1–2 | mann | mann i smoking | smoking</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">mann i smoking: hudtype 1–2</annotation>
+		<annotation cp="🤵🏼‍♂">hudtype 3 | mann | mann i smoking | smoking</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">mann i smoking: hudtype 3</annotation>
+		<annotation cp="🤵🏽‍♂">hudtype 4 | mann | mann i smoking | smoking</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">mann i smoking: hudtype 4</annotation>
+		<annotation cp="🤵🏾‍♂">hudtype 5 | mann | mann i smoking | smoking</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">mann i smoking: hudtype 5</annotation>
+		<annotation cp="🤵🏿‍♂">hudtype 6 | mann | mann i smoking | smoking</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">mann i smoking: hudtype 6</annotation>
+		<annotation cp="👰🏻">brud | brud med slør | bryllup | hudtype 1–2 | mennesker | person med slør | slør</annotation>
+		<annotation cp="👰🏻" type="tts">person med slør: hudtype 1–2</annotation>
+		<annotation cp="👰🏼">brud | brud med slør | bryllup | hudtype 3 | mennesker | person med slør | slør</annotation>
+		<annotation cp="👰🏼" type="tts">person med slør: hudtype 3</annotation>
+		<annotation cp="👰🏽">brud | brud med slør | bryllup | hudtype 4 | mennesker | person med slør | slør</annotation>
+		<annotation cp="👰🏽" type="tts">person med slør: hudtype 4</annotation>
+		<annotation cp="👰🏾">brud | brud med slør | bryllup | hudtype 5 | mennesker | person med slør | slør</annotation>
+		<annotation cp="👰🏾" type="tts">person med slør: hudtype 5</annotation>
+		<annotation cp="👰🏿">brud | brud med slør | bryllup | hudtype 6 | mennesker | person med slør | slør</annotation>
+		<annotation cp="👰🏿" type="tts">person med slør: hudtype 6</annotation>
+		<annotation cp="👰🏻‍♀">hudtype 1–2 | kvinne | kvinne med slør | slør</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">kvinne med slør: hudtype 1–2</annotation>
+		<annotation cp="👰🏼‍♀">hudtype 3 | kvinne | kvinne med slør | slør</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">kvinne med slør: hudtype 3</annotation>
+		<annotation cp="👰🏽‍♀">hudtype 4 | kvinne | kvinne med slør | slør</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">kvinne med slør: hudtype 4</annotation>
+		<annotation cp="👰🏾‍♀">hudtype 5 | kvinne | kvinne med slør | slør</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">kvinne med slør: hudtype 5</annotation>
+		<annotation cp="👰🏿‍♀">hudtype 6 | kvinne | kvinne med slør | slør</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">kvinne med slør: hudtype 6</annotation>
+		<annotation cp="👰🏻‍♂">hudtype 1–2 | mann | mann med slør | slør</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">mann med slør: hudtype 1–2</annotation>
+		<annotation cp="👰🏼‍♂">hudtype 3 | mann | mann med slør | slør</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">mann med slør: hudtype 3</annotation>
+		<annotation cp="👰🏽‍♂">hudtype 4 | mann | mann med slør | slør</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">mann med slør: hudtype 4</annotation>
+		<annotation cp="👰🏾‍♂">hudtype 5 | mann | mann med slør | slør</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">mann med slør: hudtype 5</annotation>
+		<annotation cp="👰🏿‍♂">hudtype 6 | mann | mann med slør | slør</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">mann med slør: hudtype 6</annotation>
 		<annotation cp="🤰🏻">gravid | hudtype 1–2 | kvinne</annotation>
 		<annotation cp="🤰🏻" type="tts">gravid kvinne: hudtype 1–2</annotation>
 		<annotation cp="🤰🏼">gravid | hudtype 3 | kvinne</annotation>
@@ -2026,25 +2116,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧍🏾" type="tts">person som står: hudtype 5</annotation>
 		<annotation cp="🧍🏿">hudtype 6 | person som står | stå</annotation>
 		<annotation cp="🧍🏿" type="tts">person som står: hudtype 6</annotation>
-		<annotation cp="🧍🏻‍♂">hudtype 1–2 | mann | står</annotation>
+		<annotation cp="🧍🏻‍♂">hudtype 1–2 | mann | mann som står | står</annotation>
 		<annotation cp="🧍🏻‍♂" type="tts">mann som står: hudtype 1–2</annotation>
-		<annotation cp="🧍🏼‍♂">hudtype 3 | mann | står</annotation>
+		<annotation cp="🧍🏼‍♂">hudtype 3 | mann | mann som står | står</annotation>
 		<annotation cp="🧍🏼‍♂" type="tts">mann som står: hudtype 3</annotation>
-		<annotation cp="🧍🏽‍♂">hudtype 4 | mann | står</annotation>
+		<annotation cp="🧍🏽‍♂">hudtype 4 | mann | mann som står | står</annotation>
 		<annotation cp="🧍🏽‍♂" type="tts">mann som står: hudtype 4</annotation>
-		<annotation cp="🧍🏾‍♂">hudtype 5 | mann | står</annotation>
+		<annotation cp="🧍🏾‍♂">hudtype 5 | mann | mann som står | står</annotation>
 		<annotation cp="🧍🏾‍♂" type="tts">mann som står: hudtype 5</annotation>
-		<annotation cp="🧍🏿‍♂">hudtype 6 | mann | står</annotation>
+		<annotation cp="🧍🏿‍♂">hudtype 6 | mann | mann som står | står</annotation>
 		<annotation cp="🧍🏿‍♂" type="tts">mann som står: hudtype 6</annotation>
-		<annotation cp="🧍🏻‍♀">hudtype 1–2 | kvinne | står</annotation>
+		<annotation cp="🧍🏻‍♀">hudtype 1–2 | kvinne | kvinne som står | står</annotation>
 		<annotation cp="🧍🏻‍♀" type="tts">kvinne som står: hudtype 1–2</annotation>
-		<annotation cp="🧍🏼‍♀">hudtype 3 | kvinne | står</annotation>
+		<annotation cp="🧍🏼‍♀">hudtype 3 | kvinne | kvinne som står | står</annotation>
 		<annotation cp="🧍🏼‍♀" type="tts">kvinne som står: hudtype 3</annotation>
-		<annotation cp="🧍🏽‍♀">hudtype 4 | kvinne | står</annotation>
+		<annotation cp="🧍🏽‍♀">hudtype 4 | kvinne | kvinne som står | står</annotation>
 		<annotation cp="🧍🏽‍♀" type="tts">kvinne som står: hudtype 4</annotation>
-		<annotation cp="🧍🏾‍♀">hudtype 5 | kvinne | står</annotation>
+		<annotation cp="🧍🏾‍♀">hudtype 5 | kvinne | kvinne som står | står</annotation>
 		<annotation cp="🧍🏾‍♀" type="tts">kvinne som står: hudtype 5</annotation>
-		<annotation cp="🧍🏿‍♀">hudtype 6 | kvinne | står</annotation>
+		<annotation cp="🧍🏿‍♀">hudtype 6 | kvinne | kvinne som står | står</annotation>
 		<annotation cp="🧍🏿‍♀" type="tts">kvinne som står: hudtype 6</annotation>
 		<annotation cp="🧎🏻">hudtype 1–2 | knele | kneler | person som kneler</annotation>
 		<annotation cp="🧎🏻" type="tts">person som kneler: hudtype 1–2</annotation>
@@ -2056,35 +2146,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾" type="tts">person som kneler: hudtype 5</annotation>
 		<annotation cp="🧎🏿">hudtype 6 | knele | kneler | person som kneler</annotation>
 		<annotation cp="🧎🏿" type="tts">person som kneler: hudtype 6</annotation>
-		<annotation cp="🧎🏻‍♂">hudtype 1–2 | kneler | mann</annotation>
+		<annotation cp="🧎🏻‍♂">hudtype 1–2 | kneler | mann | mann som kneler</annotation>
 		<annotation cp="🧎🏻‍♂" type="tts">mann som kneler: hudtype 1–2</annotation>
-		<annotation cp="🧎🏼‍♂">hudtype 3 | kneler | mann</annotation>
+		<annotation cp="🧎🏼‍♂">hudtype 3 | kneler | mann | mann som kneler</annotation>
 		<annotation cp="🧎🏼‍♂" type="tts">mann som kneler: hudtype 3</annotation>
-		<annotation cp="🧎🏽‍♂">hudtype 4 | kneler | mann</annotation>
+		<annotation cp="🧎🏽‍♂">hudtype 4 | kneler | mann | mann som kneler</annotation>
 		<annotation cp="🧎🏽‍♂" type="tts">mann som kneler: hudtype 4</annotation>
-		<annotation cp="🧎🏾‍♂">hudtype 5 | kneler | mann</annotation>
+		<annotation cp="🧎🏾‍♂">hudtype 5 | kneler | mann | mann som kneler</annotation>
 		<annotation cp="🧎🏾‍♂" type="tts">mann som kneler: hudtype 5</annotation>
-		<annotation cp="🧎🏿‍♂">hudtype 6 | kneler | mann</annotation>
+		<annotation cp="🧎🏿‍♂">hudtype 6 | kneler | mann | mann som kneler</annotation>
 		<annotation cp="🧎🏿‍♂" type="tts">mann som kneler: hudtype 6</annotation>
-		<annotation cp="🧎🏻‍♀">hudtype 1–2 | kneler | kvinne</annotation>
+		<annotation cp="🧎🏻‍♀">hudtype 1–2 | kneler | kvinne | kvinne som kneler</annotation>
 		<annotation cp="🧎🏻‍♀" type="tts">kvinne som kneler: hudtype 1–2</annotation>
-		<annotation cp="🧎🏼‍♀">hudtype 3 | kneler | kvinne</annotation>
+		<annotation cp="🧎🏼‍♀">hudtype 3 | kneler | kvinne | kvinne som kneler</annotation>
 		<annotation cp="🧎🏼‍♀" type="tts">kvinne som kneler: hudtype 3</annotation>
-		<annotation cp="🧎🏽‍♀">hudtype 4 | kneler | kvinne</annotation>
+		<annotation cp="🧎🏽‍♀">hudtype 4 | kneler | kvinne | kvinne som kneler</annotation>
 		<annotation cp="🧎🏽‍♀" type="tts">kvinne som kneler: hudtype 4</annotation>
-		<annotation cp="🧎🏾‍♀">hudtype 5 | kneler | kvinne</annotation>
+		<annotation cp="🧎🏾‍♀">hudtype 5 | kneler | kvinne | kvinne som kneler</annotation>
 		<annotation cp="🧎🏾‍♀" type="tts">kvinne som kneler: hudtype 5</annotation>
-		<annotation cp="🧎🏿‍♀">hudtype 6 | kneler | kvinne</annotation>
+		<annotation cp="🧎🏿‍♀">hudtype 6 | kneler | kvinne | kvinne som kneler</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">kvinne som kneler: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍🦯">blind | hudtype 1–2 | tilgjengelighet</annotation>
+		<annotation cp="🧑🏻‍🦯">blind | hudtype 1–2 | person med blindestokk | tilgjengelighet</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">person med blindestokk: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍🦯">blind | hudtype 3 | tilgjengelighet</annotation>
+		<annotation cp="🧑🏼‍🦯">blind | hudtype 3 | person med blindestokk | tilgjengelighet</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">person med blindestokk: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍🦯">blind | hudtype 4 | tilgjengelighet</annotation>
+		<annotation cp="🧑🏽‍🦯">blind | hudtype 4 | person med blindestokk | tilgjengelighet</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">person med blindestokk: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍🦯">blind | hudtype 5 | tilgjengelighet</annotation>
+		<annotation cp="🧑🏾‍🦯">blind | hudtype 5 | person med blindestokk | tilgjengelighet</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">person med blindestokk: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍🦯">blind | hudtype 6 | tilgjengelighet</annotation>
+		<annotation cp="🧑🏿‍🦯">blind | hudtype 6 | person med blindestokk | tilgjengelighet</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">person med blindestokk: hudtype 6</annotation>
 		<annotation cp="👨🏻‍🦯">blind | hudtype 1–2 | mann | mann med blindestokk | tilgjengelighet</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">mann med blindestokk: hudtype 1–2</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">kvinne med blindestokk: hudtype 5</annotation>
 		<annotation cp="👩🏿‍🦯">blind | hudtype 6 | kvinne | kvinne med blindestokk | tilgjengelighet</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">kvinne med blindestokk: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍🦼">hudtype 1–2 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏻‍🦼">hudtype 1–2 | person i motorisert rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">person i motorisert rullestol: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍🦼">hudtype 3 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏼‍🦼">hudtype 3 | person i motorisert rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">person i motorisert rullestol: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍🦼">hudtype 4 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏽‍🦼">hudtype 4 | person i motorisert rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">person i motorisert rullestol: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍🦼">hudtype 5 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏾‍🦼">hudtype 5 | person i motorisert rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">person i motorisert rullestol: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍🦼">hudtype 6 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏿‍🦼">hudtype 6 | person i motorisert rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">person i motorisert rullestol: hudtype 6</annotation>
 		<annotation cp="👨🏻‍🦼">hudtype 1–2 | mann | mann i motorisert rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">mann i motorisert rullestol: hudtype 1–2</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">kvinne i motorisert rullestol: hudtype 5</annotation>
 		<annotation cp="👩🏿‍🦼">hudtype 6 | kvinne | kvinne i motorisert rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">kvinne i motorisert rullestol: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍🦽">hudtype 1–2 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏻‍🦽">hudtype 1–2 | person i manuell rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">person i manuell rullestol: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍🦽">hudtype 3 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏼‍🦽">hudtype 3 | person i manuell rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">person i manuell rullestol: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍🦽">hudtype 4 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏽‍🦽">hudtype 4 | person i manuell rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">person i manuell rullestol: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍🦽">hudtype 5 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏾‍🦽">hudtype 5 | person i manuell rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">person i manuell rullestol: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍🦽">hudtype 6 | rullestol | tilgjengelighet</annotation>
+		<annotation cp="🧑🏿‍🦽">hudtype 6 | person i manuell rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">person i manuell rullestol: hudtype 6</annotation>
 		<annotation cp="👨🏻‍🦽">hudtype 1–2 | mann | mann i manuell rullestol | rullestol | tilgjengelighet</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">mann i manuell rullestol: hudtype 1–2</annotation>
@@ -2176,25 +2266,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃🏾" type="tts">løper: hudtype 5</annotation>
 		<annotation cp="🏃🏿">hudtype 6 | jogger | jogging | løper | løping | maraton | sport</annotation>
 		<annotation cp="🏃🏿" type="tts">løper: hudtype 6</annotation>
-		<annotation cp="🏃🏻‍♂">hudtype 1–2 | jogge | løpe | mann | maraton</annotation>
+		<annotation cp="🏃🏻‍♂">hudtype 1–2 | jogge | løpe | mann | mannlig løper | maraton</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">mannlig løper: hudtype 1–2</annotation>
-		<annotation cp="🏃🏼‍♂">hudtype 3 | jogge | løpe | mann | maraton</annotation>
+		<annotation cp="🏃🏼‍♂">hudtype 3 | jogge | løpe | mann | mannlig løper | maraton</annotation>
 		<annotation cp="🏃🏼‍♂" type="tts">mannlig løper: hudtype 3</annotation>
-		<annotation cp="🏃🏽‍♂">hudtype 4 | jogge | løpe | mann | maraton</annotation>
+		<annotation cp="🏃🏽‍♂">hudtype 4 | jogge | løpe | mann | mannlig løper | maraton</annotation>
 		<annotation cp="🏃🏽‍♂" type="tts">mannlig løper: hudtype 4</annotation>
-		<annotation cp="🏃🏾‍♂">hudtype 5 | jogge | løpe | mann | maraton</annotation>
+		<annotation cp="🏃🏾‍♂">hudtype 5 | jogge | løpe | mann | mannlig løper | maraton</annotation>
 		<annotation cp="🏃🏾‍♂" type="tts">mannlig løper: hudtype 5</annotation>
-		<annotation cp="🏃🏿‍♂">hudtype 6 | jogge | løpe | mann | maraton</annotation>
+		<annotation cp="🏃🏿‍♂">hudtype 6 | jogge | løpe | mann | mannlig løper | maraton</annotation>
 		<annotation cp="🏃🏿‍♂" type="tts">mannlig løper: hudtype 6</annotation>
-		<annotation cp="🏃🏻‍♀">hudtype 1–2 | jogge | kvinne | løpe | maraton</annotation>
+		<annotation cp="🏃🏻‍♀">hudtype 1–2 | jogge | kvinne | kvinnelig løper | løpe | maraton</annotation>
 		<annotation cp="🏃🏻‍♀" type="tts">kvinnelig løper: hudtype 1–2</annotation>
-		<annotation cp="🏃🏼‍♀">hudtype 3 | jogge | kvinne | løpe | maraton</annotation>
+		<annotation cp="🏃🏼‍♀">hudtype 3 | jogge | kvinne | kvinnelig løper | løpe | maraton</annotation>
 		<annotation cp="🏃🏼‍♀" type="tts">kvinnelig løper: hudtype 3</annotation>
-		<annotation cp="🏃🏽‍♀">hudtype 4 | jogge | kvinne | løpe | maraton</annotation>
+		<annotation cp="🏃🏽‍♀">hudtype 4 | jogge | kvinne | kvinnelig løper | løpe | maraton</annotation>
 		<annotation cp="🏃🏽‍♀" type="tts">kvinnelig løper: hudtype 4</annotation>
-		<annotation cp="🏃🏾‍♀">hudtype 5 | jogge | kvinne | løpe | maraton</annotation>
+		<annotation cp="🏃🏾‍♀">hudtype 5 | jogge | kvinne | kvinnelig løper | løpe | maraton</annotation>
 		<annotation cp="🏃🏾‍♀" type="tts">kvinnelig løper: hudtype 5</annotation>
-		<annotation cp="🏃🏿‍♀">hudtype 6 | jogge | kvinne | løpe | maraton</annotation>
+		<annotation cp="🏃🏿‍♀">hudtype 6 | jogge | kvinne | kvinnelig løper | løpe | maraton</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">kvinnelig løper: hudtype 6</annotation>
 		<annotation cp="💃🏻">dans | dansende kvinne | hudtype 1–2 | kvinne</annotation>
 		<annotation cp="💃🏻" type="tts">dansende kvinne: hudtype 1–2</annotation>
@@ -2646,25 +2736,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤹🏾" type="tts">sjonglering: hudtype 5</annotation>
 		<annotation cp="🤹🏿">balanse | ferdighet | hudtype 6 | multitasking | sjonglering</annotation>
 		<annotation cp="🤹🏿" type="tts">sjonglering: hudtype 6</annotation>
-		<annotation cp="🤹🏻‍♂">hudtype 1–2 | mann | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏻‍♂">hudtype 1–2 | mann | mannlig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏻‍♂" type="tts">mannlig sjonglør: hudtype 1–2</annotation>
-		<annotation cp="🤹🏼‍♂">hudtype 3 | mann | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏼‍♂">hudtype 3 | mann | mannlig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏼‍♂" type="tts">mannlig sjonglør: hudtype 3</annotation>
-		<annotation cp="🤹🏽‍♂">hudtype 4 | mann | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏽‍♂">hudtype 4 | mann | mannlig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏽‍♂" type="tts">mannlig sjonglør: hudtype 4</annotation>
-		<annotation cp="🤹🏾‍♂">hudtype 5 | mann | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏾‍♂">hudtype 5 | mann | mannlig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏾‍♂" type="tts">mannlig sjonglør: hudtype 5</annotation>
-		<annotation cp="🤹🏿‍♂">hudtype 6 | mann | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏿‍♂">hudtype 6 | mann | mannlig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏿‍♂" type="tts">mannlig sjonglør: hudtype 6</annotation>
-		<annotation cp="🤹🏻‍♀">hudtype 1–2 | kvinne | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏻‍♀">hudtype 1–2 | kvinne | kvinnelig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏻‍♀" type="tts">kvinnelig sjonglør: hudtype 1–2</annotation>
-		<annotation cp="🤹🏼‍♀">hudtype 3 | kvinne | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏼‍♀">hudtype 3 | kvinne | kvinnelig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏼‍♀" type="tts">kvinnelig sjonglør: hudtype 3</annotation>
-		<annotation cp="🤹🏽‍♀">hudtype 4 | kvinne | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏽‍♀">hudtype 4 | kvinne | kvinnelig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏽‍♀" type="tts">kvinnelig sjonglør: hudtype 4</annotation>
-		<annotation cp="🤹🏾‍♀">hudtype 5 | kvinne | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏾‍♀">hudtype 5 | kvinne | kvinnelig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏾‍♀" type="tts">kvinnelig sjonglør: hudtype 5</annotation>
-		<annotation cp="🤹🏿‍♀">hudtype 6 | kvinne | multitasking | sirkus | sjonglere</annotation>
+		<annotation cp="🤹🏿‍♀">hudtype 6 | kvinne | kvinnelig sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">kvinnelig sjonglør: hudtype 6</annotation>
 		<annotation cp="🧘🏻">hudtype 1–2 | lotusstilling | meditasjon | yoga</annotation>
 		<annotation cp="🧘🏻" type="tts">lotusstilling: hudtype 1–2</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">person i seng: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">hånd | holde hender | hudtype 1–2 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">personer som leier: hudtype 1–2</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">hånd | holde hender | hudtype 1–2 | hudtype 3 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">personer som leier: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">hånd | holde hender | hudtype 1–2 | hudtype 4 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">personer som leier: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">hånd | holde hender | hudtype 1–2 | hudtype 5 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">personer som leier: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">hånd | holde hender | hudtype 1–2 | hudtype 6 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">personer som leier: hudtype 1–2, hudtype 6</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">hånd | holde hender | hudtype 1–2 | hudtype 3 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">personer som leier: hudtype 3, hudtype 1–2</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">hånd | holde hender | hudtype 3 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">personer som leier: hudtype 3</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">hånd | holde hender | hudtype 3 | hudtype 4 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">personer som leier: hudtype 3, hudtype 4</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">hånd | holde hender | hudtype 3 | hudtype 5 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">personer som leier: hudtype 3, hudtype 5</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">hånd | holde hender | hudtype 3 | hudtype 6 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">personer som leier: hudtype 3, hudtype 6</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">hånd | holde hender | hudtype 1–2 | hudtype 4 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">personer som leier: hudtype 4, hudtype 1–2</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">hånd | holde hender | hudtype 3 | hudtype 4 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">personer som leier: hudtype 4, hudtype 3</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">hånd | holde hender | hudtype 4 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">personer som leier: hudtype 4</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">hånd | holde hender | hudtype 4 | hudtype 5 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">personer som leier: hudtype 4, hudtype 5</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">hånd | holde hender | hudtype 4 | hudtype 6 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">personer som leier: hudtype 4, hudtype 6</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">hånd | holde hender | hudtype 1–2 | hudtype 5 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">personer som leier: hudtype 5, hudtype 1–2</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">hånd | holde hender | hudtype 3 | hudtype 5 | par | personer | personer som leier</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">personer som leier: hudtype 5, hudtype 4</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">hånd | holde hender | hudtype 5 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">personer som leier: hudtype 5</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">hånd | holde hender | hudtype 5 | hudtype 6 | par | personer | personer som leier</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">personer som leier: hudtype 5, hudtype 6</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">hånd | holde hender | hudtype 1–2 | hudtype 6 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">personer som leier: hudtype 6, hudtype 1–2</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">hånd | holde hender | hudtype 3 | hudtype 6 | par | personer | personer som leier</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">personer som leier: hudtype 6</annotation>
 		<annotation cp="👭🏻">hånd | holder hender | hudtype 1–2 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👭🏻" type="tts">kvinner som leier: hudtype 1–2</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">hånd | holder hender | hudtype 1–2 | hudtype 3 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">kvinner som leier: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">hånd | holder hender | hudtype 1–2 | hudtype 4 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">kvinner som leier: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">hånd | holder hender | hudtype 1–2 | hudtype 5 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">kvinner som leier: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">hånd | holder hender | hudtype 1–2 | hudtype 6 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 1–2, hudtype 6</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">hånd | holder hender | hudtype 1–2 | hudtype 3 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 3, hudtype 1–2</annotation>
 		<annotation cp="👭🏼">hånd | holder hender | hudtype 3 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👭🏼" type="tts">kvinner som leier: hudtype 3</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">hånd | holder hender | hudtype 3 | hudtype 4 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">kvinner som leier: hudtype 3, hudtype 4</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">hånd | holder hender | hudtype 3 | hudtype 5 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">kvinner som leier: hudtype 3, hudtype 5</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">hånd | holder hender | hudtype 3 | hudtype 6 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 3, hudtype 6</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">hånd | holder hender | hudtype 1–2 | hudtype 4 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 4, hudtype 1–2</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">hånd | holder hender | hudtype 3 | hudtype 4 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kvinner som leier: hudtype 4, hudtype 3</annotation>
 		<annotation cp="👭🏽">hånd | holder hender | hudtype 4 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👭🏽" type="tts">kvinner som leier: hudtype 4</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">hånd | holder hender | hudtype 4 | hudtype 5 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">kvinner som leier: hudtype 4, hudtype 5</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">hånd | holder hender | hudtype 4 | hudtype 6 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 4, hudtype 6</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">hånd | holder hender | hudtype 1–2 | hudtype 5 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 5, hudtype 1–2</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">hånd | holder hender | hudtype 3 | hudtype 5 | kvinne | kvinner som leier | par</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kvinner som leier: hudtype 5, hudtype 4</annotation>
 		<annotation cp="👭🏾">hånd | holder hender | hudtype 5 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👭🏾" type="tts">kvinner som leier: hudtype 5</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">hånd | holder hender | hudtype 5 | hudtype 6 | kvinne | kvinner som leier | par</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 5, hudtype 6</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">hånd | holder hender | hudtype 1–2 | hudtype 6 | kvinne | kvinner som leier | par</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 6, hudtype 1–2</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">hånd | holder hender | hudtype 3 | hudtype 6 | kvinne | kvinner som leier | par</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">mann og kvinne som leier: hudtype 6</annotation>
 		<annotation cp="👬🏻">hånd | holde hender | hudtype 1–2 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👬🏻" type="tts">menn som leier: hudtype 1–2</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">hånd | holde hender | hudtype 1–2 | hudtype 3 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">menn som leier: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">hånd | holde hender | hudtype 1–2 | hudtype 4 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">menn som leier: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">hånd | holde hender | hudtype 1–2 | hudtype 5 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">menn som leier: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">hånd | holde hender | hudtype 1–2 | hudtype 6 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">menn som leier: hudtype 1–2, hudtype 6</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">hånd | holde hender | hudtype 1–2 | hudtype 3 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">menn som leier: hudtype 3, hudtype 1–2</annotation>
 		<annotation cp="👬🏼">hånd | holde hender | hudtype 3 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👬🏼" type="tts">menn som leier: hudtype 3</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">hånd | holde hender | hudtype 3 | hudtype 4 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">menn som leier: hudtype 3, hudtype 4</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">hånd | holde hender | hudtype 3 | hudtype 5 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">menn som leier: hudtype 3, hudtype 5</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">hånd | holde hender | hudtype 3 | hudtype 6 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">menn som leier: hudtype 3, hudtype 6</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">hånd | holde hender | hudtype 1–2 | hudtype 4 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">menn som leier: hudtype 4, hudtype 1–2</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">hånd | holde hender | hudtype 3 | hudtype 4 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">menn som leier: hudtype 4, hudtype 3</annotation>
 		<annotation cp="👬🏽">hånd | holde hender | hudtype 4 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👬🏽" type="tts">menn som leier: hudtype 4</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">hånd | holde hender | hudtype 4 | hudtype 5 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">menn som leier: hudtype 4, hudtype 5</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">hånd | holde hender | hudtype 4 | hudtype 6 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">menn som leier: hudtype 4, hudtype 6</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">hånd | holde hender | hudtype 1–2 | hudtype 5 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">menn som leier: hudtype 5, hudtype 1–2</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">hånd | holde hender | hudtype 3 | hudtype 5 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">menn som leier: hudtype 5, hudtype 4</annotation>
 		<annotation cp="👬🏾">hånd | holde hender | hudtype 5 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👬🏾" type="tts">menn som leier: hudtype 5</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">hånd | holde hender | hudtype 5 | hudtype 6 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">menn som leier: hudtype 5, hudtype 6</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">hånd | holde hender | hudtype 1–2 | hudtype 6 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">menn som leier: hudtype 6, hudtype 1–2</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">hånd | holde hender | hudtype 3 | hudtype 6 | mann | menn | menn som leier | par | stjernetegn | tvillingene</annotation>
@@ -3071,7 +3221,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇪🇹">flagg</annotation>
 		<annotation cp="🇪🇹" type="tts">flagg: Etiopia</annotation>
 		<annotation cp="🇪🇺">flagg</annotation>
-		<annotation cp="🇪🇺" type="tts">flagg: EU</annotation>
+		<annotation cp="🇪🇺" type="tts">flagg: Den europeiske union</annotation>
 		<annotation cp="🇫🇮">flagg</annotation>
 		<annotation cp="🇫🇮" type="tts">flagg: Finland</annotation>
 		<annotation cp="🇫🇯">flagg</annotation>

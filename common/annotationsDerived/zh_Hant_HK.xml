@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -15,6 +15,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="HK"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏽">中等皮膚 | 手勢 | 手指 | 捏 | 捏手指 | 疑問</annotation>
+		<annotation cp="🤌🏽" type="tts">捏手指: 中等皮膚</annotation>
+		<annotation cp="🤌🏾">中深皮膚 | 手勢 | 手指 | 捏 | 捏手指 | 疑問</annotation>
+		<annotation cp="🤌🏾" type="tts">捏手指: 中深皮膚</annotation>
 		<annotation cp="👋🏽">中等皮膚 | 手 | 揮手</annotation>
 		<annotation cp="👋🏽" type="tts">揮手: 中等皮膚</annotation>
 		<annotation cp="👋🏾">中深皮膚 | 手 | 揮手</annotation>
@@ -31,13 +35,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="✋🏽" type="tts">舉手: 中等皮膚</annotation>
 		<annotation cp="✋🏾">中深皮膚 | 招手 | 舉手</annotation>
 		<annotation cp="✋🏾" type="tts">舉手: 中深皮膚</annotation>
-		<annotation cp="🖖🏻">火神星人 | 白皮膚 | 舉手禮</annotation>
-		<annotation cp="🖖🏼">火神星人 | 舉手禮 | 黃皮膚</annotation>
-		<annotation cp="🖖🏽">中等皮膚 | 火神星人 | 舉手禮</annotation>
+		<annotation cp="🖖🏻">你好 | 火神星人 | 白皮膚 | 舉手禮</annotation>
+		<annotation cp="🖖🏼">你好 | 火神星人 | 舉手禮 | 黃皮膚</annotation>
+		<annotation cp="🖖🏽">中等皮膚 | 你好 | 火神星人 | 舉手禮</annotation>
 		<annotation cp="🖖🏽" type="tts">你好: 中等皮膚</annotation>
-		<annotation cp="🖖🏾">中深皮膚 | 火神星人 | 舉手禮</annotation>
+		<annotation cp="🖖🏾">中深皮膚 | 你好 | 火神星人 | 舉手禮</annotation>
 		<annotation cp="🖖🏾" type="tts">你好: 中深皮膚</annotation>
-		<annotation cp="🖖🏿">火神星人 | 舉手禮 | 黑皮膚</annotation>
+		<annotation cp="🖖🏿">你好 | 火神星人 | 舉手禮 | 黑皮膚</annotation>
 		<annotation cp="👌🏽">OK | OK 手勢 | 中等皮膚 | 沒問題</annotation>
 		<annotation cp="👌🏽" type="tts">OK 手勢: 中等皮膚</annotation>
 		<annotation cp="👌🏾">OK | OK 手勢 | 中深皮膚 | 沒問題</annotation>
@@ -225,13 +229,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👂🏽" type="tts">耳朵: 中等皮膚</annotation>
 		<annotation cp="👂🏾">中深皮膚 | 耳朵 | 身體部位</annotation>
 		<annotation cp="👂🏾" type="tts">耳朵: 中深皮膚</annotation>
-		<annotation cp="🦻🏻">白皮膚 | 聽障 | 身體殘障</annotation>
-		<annotation cp="🦻🏼">聽障 | 身體殘障 | 黃皮膚</annotation>
-		<annotation cp="🦻🏽">中等皮膚 | 聽障 | 身體殘障</annotation>
+		<annotation cp="🦻🏻">戴助聽器的耳朵 | 白皮膚 | 聽障 | 身體殘障</annotation>
+		<annotation cp="🦻🏼">戴助聽器的耳朵 | 聽障 | 身體殘障 | 黃皮膚</annotation>
+		<annotation cp="🦻🏽">中等皮膚 | 戴助聽器的耳朵 | 聽障 | 身體殘障</annotation>
 		<annotation cp="🦻🏽" type="tts">戴助聽器的耳朵: 中等皮膚</annotation>
-		<annotation cp="🦻🏾">中深皮膚 | 聽障 | 身體殘障</annotation>
+		<annotation cp="🦻🏾">中深皮膚 | 戴助聽器的耳朵 | 聽障 | 身體殘障</annotation>
 		<annotation cp="🦻🏾" type="tts">戴助聽器的耳朵: 中深皮膚</annotation>
-		<annotation cp="🦻🏿">聽障 | 身體殘障 | 黑皮膚</annotation>
+		<annotation cp="🦻🏿">戴助聽器的耳朵 | 聽障 | 身體殘障 | 黑皮膚</annotation>
 		<annotation cp="👃🏻">白皮膚 | 身體部位 | 鼻 | 鼻子</annotation>
 		<annotation cp="👃🏻" type="tts">鼻: 白皮膚</annotation>
 		<annotation cp="👃🏼">身體部位 | 黃皮膚 | 鼻 | 鼻子</annotation>
@@ -310,6 +314,20 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏽‍🦲" type="tts">大人: 中等皮膚 禿頭</annotation>
 		<annotation cp="🧑🏾‍🦲">中深皮膚 | 大人 | 禿頭</annotation>
 		<annotation cp="🧑🏾‍🦲" type="tts">大人: 中深皮膚 禿頭</annotation>
+		<annotation cp="🧑🏻‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 白皮膚 | 餵奶</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">正在餵奶的人: 白皮膚</annotation>
+		<annotation cp="🧑🏼‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶 | 黃皮膚</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">正在餵奶的人: 黃皮膚</annotation>
+		<annotation cp="🧑🏽‍🍼">中等皮膚 | 人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">正在餵奶的人: 中等皮膚</annotation>
+		<annotation cp="🧑🏾‍🍼">中深皮膚 | 人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">正在餵奶的人: 中深皮膚</annotation>
+		<annotation cp="🧑🏿‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶 | 黑皮膚</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">正在餵奶的人: 黑皮膚</annotation>
+		<annotation cp="🧑🏽‍🎄">中等皮膚 | 聖誕老人 | 跨性別聖誕老人</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">跨性別聖誕老人: 中等皮膚</annotation>
+		<annotation cp="🧑🏾‍🎄">中深皮膚 | 聖誕老人 | 跨性別聖誕老人</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">跨性別聖誕老人: 中深皮膚</annotation>
 		<annotation cp="👨🏽">中等皮膚 | 男 | 男人 | 男性</annotation>
 		<annotation cp="👨🏽" type="tts">男人: 中等皮膚</annotation>
 		<annotation cp="👨🏾">中深皮膚 | 男 | 男人 | 男性</annotation>
@@ -366,6 +384,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏽‍🦲" type="tts">男人: 中等皮膚 禿頭</annotation>
 		<annotation cp="👨🏾‍🦲">中深皮膚 | 男 | 男人 | 男性 | 禿頭</annotation>
 		<annotation cp="👨🏾‍🦲" type="tts">男人: 中深皮膚 禿頭</annotation>
+		<annotation cp="👨🏽‍🍼">中等皮膚 | 嬰兒 | 正在餵奶的爸爸 | 照顧 | 爸爸 | 餵奶</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">正在餵奶的爸爸: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🍼">中深皮膚 | 嬰兒 | 正在餵奶的爸爸 | 照顧 | 爸爸 | 餵奶</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">正在餵奶的爸爸: 中深皮膚</annotation>
 		<annotation cp="👩🏽">中等皮膚 | 女 | 女人 | 女性</annotation>
 		<annotation cp="👩🏽" type="tts">女人: 中等皮膚</annotation>
 		<annotation cp="👩🏾">中深皮膚 | 女 | 女人 | 女性</annotation>
@@ -412,6 +434,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏽‍🦲" type="tts">女人: 中等皮膚 禿頭</annotation>
 		<annotation cp="👩🏾‍🦲">中深皮膚 | 女 | 女人 | 女性 | 禿頭</annotation>
 		<annotation cp="👩🏾‍🦲" type="tts">女人: 中深皮膚 禿頭</annotation>
+		<annotation cp="👩🏻‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 白皮膚 | 餵奶</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">正在餵奶的媽媽: 白皮膚</annotation>
+		<annotation cp="👩🏼‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">正在餵奶的媽媽: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍🍼">中等皮膚 | 媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">正在餵奶的媽媽: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🍼">中深皮膚 | 媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">正在餵奶的媽媽: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">正在餵奶的媽媽: 黑皮膚</annotation>
 		<annotation cp="🧓🏻">白皮膚 | 老人家 | 老年人 | 長者</annotation>
 		<annotation cp="🧓🏼">老人家 | 老年人 | 長者 | 黃皮膚</annotation>
 		<annotation cp="🧓🏽">中等皮膚 | 老人家 | 老年人 | 長者</annotation>
@@ -619,13 +651,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙋🏾‍♀" type="tts">開心嘅女人舉起一隻手: 中深皮膚</annotation>
 		<annotation cp="🙋🏿‍♀">開心｜舉起一隻手｜女人｜哈囉｜hi | 開心嘅女人舉起一隻手 | 黑皮膚</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">開心嘅女人舉起一隻手: 黑皮膚</annotation>
-		<annotation cp="🧏🏻">殘障 | 白皮膚 | 耳朵 | 聽力 | 聾</annotation>
-		<annotation cp="🧏🏼">殘障 | 耳朵 | 聽力 | 聾 | 黃皮膚</annotation>
-		<annotation cp="🧏🏽">中等皮膚 | 殘障 | 耳朵 | 聽力 | 聾</annotation>
+		<annotation cp="🧏🏻">殘障 | 白皮膚 | 耳朵 | 聽力 | 聽障人士 | 聾</annotation>
+		<annotation cp="🧏🏼">殘障 | 耳朵 | 聽力 | 聽障人士 | 聾 | 黃皮膚</annotation>
+		<annotation cp="🧏🏽">中等皮膚 | 殘障 | 耳朵 | 聽力 | 聽障人士 | 聾</annotation>
 		<annotation cp="🧏🏽" type="tts">聽障人士: 中等皮膚</annotation>
-		<annotation cp="🧏🏾">中深皮膚 | 殘障 | 耳朵 | 聽力 | 聾</annotation>
+		<annotation cp="🧏🏾">中深皮膚 | 殘障 | 耳朵 | 聽力 | 聽障人士 | 聾</annotation>
 		<annotation cp="🧏🏾" type="tts">聽障人士: 中深皮膚</annotation>
-		<annotation cp="🧏🏿">殘障 | 耳朵 | 聽力 | 聾 | 黑皮膚</annotation>
+		<annotation cp="🧏🏿">殘障 | 耳朵 | 聽力 | 聽障人士 | 聾 | 黑皮膚</annotation>
 		<annotation cp="🧏🏻‍♂">男 | 白皮膚 | 聽障 | 聽障男人</annotation>
 		<annotation cp="🧏🏻‍♂" type="tts">聽障男人: 白皮膚</annotation>
 		<annotation cp="🧏🏼‍♂">男 | 聽障 | 聽障男人 | 黃皮膚</annotation>
@@ -646,13 +678,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧏🏾‍♀" type="tts">聽障女人: 中深皮膚</annotation>
 		<annotation cp="🧏🏿‍♀">女 | 聽障 | 聽障女人 | 黑皮膚</annotation>
 		<annotation cp="🧏🏿‍♀" type="tts">聽障女人: 黑皮膚</annotation>
-		<annotation cp="🙇🏻">白皮膚 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉</annotation>
-		<annotation cp="🙇🏼">鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 黃皮膚</annotation>
-		<annotation cp="🙇🏽">中等皮膚 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉</annotation>
+		<annotation cp="🙇🏻">白皮膚 | 鞠躬 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉</annotation>
+		<annotation cp="🙇🏼">鞠躬 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 黃皮膚</annotation>
+		<annotation cp="🙇🏽">中等皮膚 | 鞠躬 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉</annotation>
 		<annotation cp="🙇🏽" type="tts">鞠躬: 中等皮膚</annotation>
-		<annotation cp="🙇🏾">中深皮膚 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉</annotation>
+		<annotation cp="🙇🏾">中深皮膚 | 鞠躬 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉</annotation>
 		<annotation cp="🙇🏾" type="tts">鞠躬: 中深皮膚</annotation>
-		<annotation cp="🙇🏿">鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 黑皮膚</annotation>
+		<annotation cp="🙇🏿">鞠躬 | 鞠躬｜唔好意思｜對唔住｜sorry｜道歉 | 黑皮膚</annotation>
 		<annotation cp="🙇🏻‍♂">白皮膚 | 鞠躬｜唔好意思｜對唔住｜sorry｜男人｜道歉 | 鞠躬嘅男人</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">鞠躬嘅男人: 白皮膚</annotation>
 		<annotation cp="🙇🏼‍♂">鞠躬｜唔好意思｜對唔住｜sorry｜男人｜道歉 | 鞠躬嘅男人 | 黃皮膚</annotation>
@@ -733,9 +765,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">聳肩嘅女人: 中深皮膚</annotation>
 		<annotation cp="🤷🏿‍♀">是但 | 疑惑｜女人 | 聳肩 | 聳肩嘅女人 | 隨便 | 黑皮膚</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">聳肩嘅女人: 黑皮膚</annotation>
-		<annotation cp="🧑🏽‍⚕">中等皮膚 | 治療 | 護士 | 醫生 | 醫護</annotation>
+		<annotation cp="🧑🏽‍⚕">中等皮膚 | 治療 | 護士 | 醫生 | 醫護 | 醫護人員</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">醫護人員: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍⚕">中深皮膚 | 治療 | 護士 | 醫生 | 醫護</annotation>
+		<annotation cp="🧑🏾‍⚕">中深皮膚 | 治療 | 護士 | 醫生 | 醫護 | 醫護人員</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">醫護人員: 中深皮膚</annotation>
 		<annotation cp="👨🏻‍⚕">男醫生 | 男醫護人員 | 白皮膚 | 護士 | 醫師 | 醫生 | 醫護人員</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">男醫護人員: 白皮膚</annotation>
@@ -805,9 +837,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏽‍⚖" type="tts">女法官: 中等皮膚</annotation>
 		<annotation cp="👩🏾‍⚖">中深皮膚 | 女 | 女法官 | 法官</annotation>
 		<annotation cp="👩🏾‍⚖" type="tts">女法官: 中深皮膚</annotation>
-		<annotation cp="🧑🏽‍🌾">中等皮膚 | 園丁 | 農人 | 農夫</annotation>
+		<annotation cp="🧑🏽‍🌾">中等皮膚 | 園丁 | 農人 | 農夫 | 農民</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">農民: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍🌾">中深皮膚 | 園丁 | 農人 | 農夫</annotation>
+		<annotation cp="🧑🏾‍🌾">中深皮膚 | 園丁 | 農人 | 農夫 | 農民</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">農民: 中深皮膚</annotation>
 		<annotation cp="👨🏻‍🌾">園丁 | 男 | 男農夫 | 白皮膚 | 農夫 | 農民</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">男農夫: 白皮膚</annotation>
@@ -853,9 +885,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏽‍🔧" type="tts">女技工: 中等皮膚</annotation>
 		<annotation cp="👩🏾‍🔧">中深皮膚 | 女 | 女技工 | 技工 | 機械技師 | 黑手</annotation>
 		<annotation cp="👩🏾‍🔧" type="tts">女技工: 中深皮膚</annotation>
-		<annotation cp="🧑🏽‍🏭">中等皮膚 | 作業員 | 工廠 | 工業 | 焊接</annotation>
+		<annotation cp="🧑🏽‍🏭">中等皮膚 | 作業員 | 工廠 | 工廠作業員 | 工業 | 焊接</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">工廠作業員: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍🏭">中深皮膚 | 作業員 | 工廠 | 工業 | 焊接</annotation>
+		<annotation cp="🧑🏾‍🏭">中深皮膚 | 作業員 | 工廠 | 工廠作業員 | 工業 | 焊接</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">工廠作業員: 中深皮膚</annotation>
 		<annotation cp="👨🏻‍🏭">工廠 | 工廠工人 | 焊工 | 焊接 | 男 | 男工廠工人 | 白皮膚</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">男工廠工人: 白皮膚</annotation>
@@ -877,9 +909,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🏭" type="tts">女工廠工人: 中深皮膚</annotation>
 		<annotation cp="👩🏿‍🏭">女 | 女工廠工人 | 工廠 | 工廠工人 | 焊工 | 焊接 | 黑皮膚</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">女工廠工人: 黑皮膚</annotation>
-		<annotation cp="🧑🏽‍💼">中等皮膚 | 商務 | 白領 | 經理</annotation>
+		<annotation cp="🧑🏽‍💼">上班族 | 中等皮膚 | 商務 | 白領 | 經理</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">上班族: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍💼">中深皮膚 | 商務 | 白領 | 經理</annotation>
+		<annotation cp="🧑🏾‍💼">上班族 | 中深皮膚 | 商務 | 白領 | 經理</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">上班族: 中深皮膚</annotation>
 		<annotation cp="👨🏻‍💼">上班族 | 男 | 男職員 | 白皮膚 | 白領 | 職員</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">男職員: 白皮膚</annotation>
@@ -1040,20 +1072,20 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕵🏾">中深皮膚 | 偵探 | 線人 | 臥底 | 間諜</annotation>
 		<annotation cp="🕵🏾" type="tts">偵探: 中深皮膚</annotation>
 		<annotation cp="🕵🏿">偵探 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
-		<annotation cp="🕵🏻‍♂">偵探 | 男 | 白皮膚 | 線人 | 臥底 | 間諜</annotation>
-		<annotation cp="🕵🏼‍♂">偵探 | 男 | 線人 | 臥底 | 間諜 | 黃皮膚</annotation>
-		<annotation cp="🕵🏽‍♂">中等皮膚 | 偵探 | 男 | 線人 | 臥底 | 間諜</annotation>
+		<annotation cp="🕵🏻‍♂">偵探 | 男 | 男偵探 | 白皮膚 | 線人 | 臥底 | 間諜</annotation>
+		<annotation cp="🕵🏼‍♂">偵探 | 男 | 男偵探 | 線人 | 臥底 | 間諜 | 黃皮膚</annotation>
+		<annotation cp="🕵🏽‍♂">中等皮膚 | 偵探 | 男 | 男偵探 | 線人 | 臥底 | 間諜</annotation>
 		<annotation cp="🕵🏽‍♂" type="tts">男偵探: 中等皮膚</annotation>
-		<annotation cp="🕵🏾‍♂">中深皮膚 | 偵探 | 男 | 線人 | 臥底 | 間諜</annotation>
+		<annotation cp="🕵🏾‍♂">中深皮膚 | 偵探 | 男 | 男偵探 | 線人 | 臥底 | 間諜</annotation>
 		<annotation cp="🕵🏾‍♂" type="tts">男偵探: 中深皮膚</annotation>
-		<annotation cp="🕵🏿‍♂">偵探 | 男 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
-		<annotation cp="🕵🏻‍♀">偵探 | 女 | 白皮膚 | 線人 | 臥底 | 間諜</annotation>
-		<annotation cp="🕵🏼‍♀">偵探 | 女 | 線人 | 臥底 | 間諜 | 黃皮膚</annotation>
-		<annotation cp="🕵🏽‍♀">中等皮膚 | 偵探 | 女 | 線人 | 臥底 | 間諜</annotation>
+		<annotation cp="🕵🏿‍♂">偵探 | 男 | 男偵探 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
+		<annotation cp="🕵🏻‍♀">偵探 | 女 | 女偵探 | 白皮膚 | 線人 | 臥底 | 間諜</annotation>
+		<annotation cp="🕵🏼‍♀">偵探 | 女 | 女偵探 | 線人 | 臥底 | 間諜 | 黃皮膚</annotation>
+		<annotation cp="🕵🏽‍♀">中等皮膚 | 偵探 | 女 | 女偵探 | 線人 | 臥底 | 間諜</annotation>
 		<annotation cp="🕵🏽‍♀" type="tts">女偵探: 中等皮膚</annotation>
-		<annotation cp="🕵🏾‍♀">中深皮膚 | 偵探 | 女 | 線人 | 臥底 | 間諜</annotation>
+		<annotation cp="🕵🏾‍♀">中深皮膚 | 偵探 | 女 | 女偵探 | 線人 | 臥底 | 間諜</annotation>
 		<annotation cp="🕵🏾‍♀" type="tts">女偵探: 中深皮膚</annotation>
-		<annotation cp="🕵🏿‍♀">偵探 | 女 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
+		<annotation cp="🕵🏿‍♀">偵探 | 女 | 女偵探 | 線人 | 臥底 | 間諜 | 黑皮膚</annotation>
 		<annotation cp="💂🏻">守衛 | 步兵 | 白皮膚 | 英國衛兵 | 衛兵</annotation>
 		<annotation cp="💂🏻" type="tts">守衛: 白皮膚</annotation>
 		<annotation cp="💂🏼">守衛 | 步兵 | 英國衛兵 | 衛兵 | 黃皮膚</annotation>
@@ -1091,20 +1123,20 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👷🏾">中深皮膚 | 地盤工人 | 安全帽 | 工人 | 建築工人</annotation>
 		<annotation cp="👷🏾" type="tts">建築工人: 中深皮膚</annotation>
 		<annotation cp="👷🏿">地盤工人 | 安全帽 | 工人 | 建築工人 | 黑皮膚</annotation>
-		<annotation cp="👷🏻‍♂">地盤工人 | 工人 | 建築工人 | 男 | 白皮膚</annotation>
-		<annotation cp="👷🏼‍♂">地盤工人 | 工人 | 建築工人 | 男 | 黃皮膚</annotation>
-		<annotation cp="👷🏽‍♂">中等皮膚 | 地盤工人 | 工人 | 建築工人 | 男</annotation>
+		<annotation cp="👷🏻‍♂">地盤工人 | 工人 | 建築工人 | 男 | 男建築工人 | 白皮膚</annotation>
+		<annotation cp="👷🏼‍♂">地盤工人 | 工人 | 建築工人 | 男 | 男建築工人 | 黃皮膚</annotation>
+		<annotation cp="👷🏽‍♂">中等皮膚 | 地盤工人 | 工人 | 建築工人 | 男 | 男建築工人</annotation>
 		<annotation cp="👷🏽‍♂" type="tts">男建築工人: 中等皮膚</annotation>
-		<annotation cp="👷🏾‍♂">中深皮膚 | 地盤工人 | 工人 | 建築工人 | 男</annotation>
+		<annotation cp="👷🏾‍♂">中深皮膚 | 地盤工人 | 工人 | 建築工人 | 男 | 男建築工人</annotation>
 		<annotation cp="👷🏾‍♂" type="tts">男建築工人: 中深皮膚</annotation>
-		<annotation cp="👷🏿‍♂">地盤工人 | 工人 | 建築工人 | 男 | 黑皮膚</annotation>
-		<annotation cp="👷🏻‍♀">地盤工人 | 女 | 工人 | 建築工人 | 白皮膚</annotation>
-		<annotation cp="👷🏼‍♀">地盤工人 | 女 | 工人 | 建築工人 | 黃皮膚</annotation>
-		<annotation cp="👷🏽‍♀">中等皮膚 | 地盤工人 | 女 | 工人 | 建築工人</annotation>
+		<annotation cp="👷🏿‍♂">地盤工人 | 工人 | 建築工人 | 男 | 男建築工人 | 黑皮膚</annotation>
+		<annotation cp="👷🏻‍♀">地盤工人 | 女 | 女建築工人 | 工人 | 建築工人 | 白皮膚</annotation>
+		<annotation cp="👷🏼‍♀">地盤工人 | 女 | 女建築工人 | 工人 | 建築工人 | 黃皮膚</annotation>
+		<annotation cp="👷🏽‍♀">中等皮膚 | 地盤工人 | 女 | 女建築工人 | 工人 | 建築工人</annotation>
 		<annotation cp="👷🏽‍♀" type="tts">女建築工人: 中等皮膚</annotation>
-		<annotation cp="👷🏾‍♀">中深皮膚 | 地盤工人 | 女 | 工人 | 建築工人</annotation>
+		<annotation cp="👷🏾‍♀">中深皮膚 | 地盤工人 | 女 | 女建築工人 | 工人 | 建築工人</annotation>
 		<annotation cp="👷🏾‍♀" type="tts">女建築工人: 中深皮膚</annotation>
-		<annotation cp="👷🏿‍♀">地盤工人 | 女 | 工人 | 建築工人 | 黑皮膚</annotation>
+		<annotation cp="👷🏿‍♀">地盤工人 | 女 | 女建築工人 | 工人 | 建築工人 | 黑皮膚</annotation>
 		<annotation cp="🤴🏻">太子 | 王子 | 白皮膚 | 皇帝</annotation>
 		<annotation cp="🤴🏼">太子 | 王子 | 皇帝 | 黃皮膚</annotation>
 		<annotation cp="🤴🏽">中等皮膚 | 太子 | 王子 | 皇帝</annotation>
@@ -1179,10 +1211,38 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤵🏾" type="tts">着禮服嘅男人: 中深皮膚</annotation>
 		<annotation cp="🤵🏿">燕尾服 | 着禮服嘅男人 | 禮服 | 西裝 | 黑皮膚</annotation>
 		<annotation cp="🤵🏿" type="tts">着禮服嘅男人: 黑皮膚</annotation>
-		<annotation cp="👰🏽">中等皮膚 | 新娘 | 結婚 | 頭紗</annotation>
-		<annotation cp="👰🏽" type="tts">新娘: 中等皮膚</annotation>
-		<annotation cp="👰🏾">中深皮膚 | 新娘 | 結婚 | 頭紗</annotation>
-		<annotation cp="👰🏾" type="tts">新娘: 中深皮膚</annotation>
+		<annotation cp="🤵🏻‍♀">女子 | 燕尾服 | 白皮膚 | 穿燕尾服的女人</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">穿燕尾服的女人: 白皮膚</annotation>
+		<annotation cp="🤵🏼‍♀">女子 | 燕尾服 | 穿燕尾服的女人 | 黃皮膚</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">穿燕尾服的女人: 黃皮膚</annotation>
+		<annotation cp="🤵🏽‍♀">中等皮膚 | 女子 | 燕尾服 | 穿燕尾服的女人</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">穿燕尾服的女人: 中等皮膚</annotation>
+		<annotation cp="🤵🏾‍♀">中深皮膚 | 女子 | 燕尾服 | 穿燕尾服的女人</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">穿燕尾服的女人: 中深皮膚</annotation>
+		<annotation cp="🤵🏿‍♀">女子 | 燕尾服 | 穿燕尾服的女人 | 黑皮膚</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">穿燕尾服的女人: 黑皮膚</annotation>
+		<annotation cp="🤵🏽‍♂">中等皮膚 | 燕尾服 | 男人 | 穿燕尾服的男人</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">穿燕尾服的男人: 中等皮膚</annotation>
+		<annotation cp="🤵🏾‍♂">中深皮膚 | 燕尾服 | 男人 | 穿燕尾服的男人</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">穿燕尾服的男人: 中深皮膚</annotation>
+		<annotation cp="👰🏽">中等皮膚 | 披著頭紗的人 | 新娘 | 結婚 | 頭紗</annotation>
+		<annotation cp="👰🏽" type="tts">披著頭紗的人: 中等皮膚</annotation>
+		<annotation cp="👰🏾">中深皮膚 | 披著頭紗的人 | 新娘 | 結婚 | 頭紗</annotation>
+		<annotation cp="👰🏾" type="tts">披著頭紗的人: 中深皮膚</annotation>
+		<annotation cp="👰🏻‍♀">女子 | 披著頭紗的女人 | 白皮膚 | 頭紗</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">披著頭紗的女人: 白皮膚</annotation>
+		<annotation cp="👰🏼‍♀">女子 | 披著頭紗的女人 | 頭紗 | 黃皮膚</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">披著頭紗的女人: 黃皮膚</annotation>
+		<annotation cp="👰🏽‍♀">中等皮膚 | 女子 | 披著頭紗的女人 | 頭紗</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">披著頭紗的女人: 中等皮膚</annotation>
+		<annotation cp="👰🏾‍♀">中深皮膚 | 女子 | 披著頭紗的女人 | 頭紗</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">披著頭紗的女人: 中深皮膚</annotation>
+		<annotation cp="👰🏿‍♀">女子 | 披著頭紗的女人 | 頭紗 | 黑皮膚</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">披著頭紗的女人: 黑皮膚</annotation>
+		<annotation cp="👰🏽‍♂">中等皮膚 | 披著頭紗的男人 | 男人 | 頭紗</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">披著頭紗的男人: 中等皮膚</annotation>
+		<annotation cp="👰🏾‍♂">中深皮膚 | 披著頭紗的男人 | 男人 | 頭紗</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">披著頭紗的男人: 中深皮膚</annotation>
 		<annotation cp="🤰🏻">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 白皮膚</annotation>
 		<annotation cp="🤰🏼">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 黃皮膚</annotation>
 		<annotation cp="🤰🏽">中等皮膚 | 大肚 | 女性 | 孕婦 | 懷孕 | 有 bb</annotation>
@@ -1244,13 +1304,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦸🏾‍♂" type="tts">男超人: 中深皮膚</annotation>
 		<annotation cp="🦸🏿‍♂">天賦 | 男 | 男超人 | 英雄 | 超人 | 超能力 | 黑皮膚</annotation>
 		<annotation cp="🦸🏿‍♂" type="tts">男超人: 黑皮膚</annotation>
-		<annotation cp="🦸🏻‍♀">天賦 | 女 | 白皮膚 | 英雄 | 超人 | 超能力</annotation>
-		<annotation cp="🦸🏼‍♀">天賦 | 女 | 英雄 | 超人 | 超能力 | 黃皮膚</annotation>
-		<annotation cp="🦸🏽‍♀">中等皮膚 | 天賦 | 女 | 英雄 | 超人 | 超能力</annotation>
+		<annotation cp="🦸🏻‍♀">天賦 | 女 | 女超人 | 白皮膚 | 英雄 | 超人 | 超能力</annotation>
+		<annotation cp="🦸🏼‍♀">天賦 | 女 | 女超人 | 英雄 | 超人 | 超能力 | 黃皮膚</annotation>
+		<annotation cp="🦸🏽‍♀">中等皮膚 | 天賦 | 女 | 女超人 | 英雄 | 超人 | 超能力</annotation>
 		<annotation cp="🦸🏽‍♀" type="tts">女超人: 中等皮膚</annotation>
-		<annotation cp="🦸🏾‍♀">中深皮膚 | 天賦 | 女 | 英雄 | 超人 | 超能力</annotation>
+		<annotation cp="🦸🏾‍♀">中深皮膚 | 天賦 | 女 | 女超人 | 英雄 | 超人 | 超能力</annotation>
 		<annotation cp="🦸🏾‍♀" type="tts">女超人: 中深皮膚</annotation>
-		<annotation cp="🦸🏿‍♀">天賦 | 女 | 英雄 | 超人 | 超能力 | 黑皮膚</annotation>
+		<annotation cp="🦸🏿‍♀">天賦 | 女 | 女超人 | 英雄 | 超人 | 超能力 | 黑皮膚</annotation>
 		<annotation cp="🦹🏽">中等皮膚 | 反派 | 犯罪 | 超級反派 | 超能力 | 邪惡</annotation>
 		<annotation cp="🦹🏽" type="tts">超級反派: 中等皮膚</annotation>
 		<annotation cp="🦹🏾">中深皮膚 | 反派 | 犯罪 | 超級反派 | 超能力 | 邪惡</annotation>
@@ -1283,13 +1343,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧙🏾‍♂" type="tts">男巫師: 中深皮膚</annotation>
 		<annotation cp="🧙🏿‍♂">巫師 | 男巫師 | 男魔法師 | 魔法師 | 黑皮膚</annotation>
 		<annotation cp="🧙🏿‍♂" type="tts">男巫師: 黑皮膚</annotation>
-		<annotation cp="🧙🏻‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 白皮膚</annotation>
-		<annotation cp="🧙🏼‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 黃皮膚</annotation>
-		<annotation cp="🧙🏽‍♀">中等皮膚 | 女巫 | 女術士 | 女魔法師 | 巫婆</annotation>
+		<annotation cp="🧙🏻‍♀">女巫 | 女巫師 | 女術士 | 女魔法師 | 巫婆 | 白皮膚</annotation>
+		<annotation cp="🧙🏼‍♀">女巫 | 女巫師 | 女術士 | 女魔法師 | 巫婆 | 黃皮膚</annotation>
+		<annotation cp="🧙🏽‍♀">中等皮膚 | 女巫 | 女巫師 | 女術士 | 女魔法師 | 巫婆</annotation>
 		<annotation cp="🧙🏽‍♀" type="tts">女巫師: 中等皮膚</annotation>
-		<annotation cp="🧙🏾‍♀">中深皮膚 | 女巫 | 女術士 | 女魔法師 | 巫婆</annotation>
+		<annotation cp="🧙🏾‍♀">中深皮膚 | 女巫 | 女巫師 | 女術士 | 女魔法師 | 巫婆</annotation>
 		<annotation cp="🧙🏾‍♀" type="tts">女巫師: 中深皮膚</annotation>
-		<annotation cp="🧙🏿‍♀">女巫 | 女術士 | 女魔法師 | 巫婆 | 黑皮膚</annotation>
+		<annotation cp="🧙🏿‍♀">女巫 | 女巫師 | 女術士 | 女魔法師 | 巫婆 | 黑皮膚</annotation>
 		<annotation cp="🧚🏻">仙子 | 妖精 | 白皮膚</annotation>
 		<annotation cp="🧚🏻" type="tts">仙子: 白皮膚</annotation>
 		<annotation cp="🧚🏼">仙子 | 妖精 | 黃皮膚</annotation>
@@ -1327,38 +1387,38 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧛🏾">Vote 不死族 | 中深皮膚 | 吸血鬼 | 德古拉</annotation>
 		<annotation cp="🧛🏾" type="tts">吸血鬼: 中深皮膚</annotation>
 		<annotation cp="🧛🏿">Vote 不死族 | 吸血鬼 | 德古拉 | 黑皮膚</annotation>
-		<annotation cp="🧛🏻‍♂">不死族 | 德古拉｜男吸血鬼 | 白皮膚</annotation>
-		<annotation cp="🧛🏼‍♂">不死族 | 德古拉｜男吸血鬼 | 黃皮膚</annotation>
-		<annotation cp="🧛🏽‍♂">不死族 | 中等皮膚 | 德古拉｜男吸血鬼</annotation>
+		<annotation cp="🧛🏻‍♂">不死族 | 德古拉｜男吸血鬼 | 男吸血鬼 | 白皮膚</annotation>
+		<annotation cp="🧛🏼‍♂">不死族 | 德古拉｜男吸血鬼 | 男吸血鬼 | 黃皮膚</annotation>
+		<annotation cp="🧛🏽‍♂">不死族 | 中等皮膚 | 德古拉｜男吸血鬼 | 男吸血鬼</annotation>
 		<annotation cp="🧛🏽‍♂" type="tts">男吸血鬼: 中等皮膚</annotation>
-		<annotation cp="🧛🏾‍♂">不死族 | 中深皮膚 | 德古拉｜男吸血鬼</annotation>
+		<annotation cp="🧛🏾‍♂">不死族 | 中深皮膚 | 德古拉｜男吸血鬼 | 男吸血鬼</annotation>
 		<annotation cp="🧛🏾‍♂" type="tts">男吸血鬼: 中深皮膚</annotation>
-		<annotation cp="🧛🏿‍♂">不死族 | 德古拉｜男吸血鬼 | 黑皮膚</annotation>
-		<annotation cp="🧛🏻‍♀">不死族 | 德古拉｜女吸血鬼 | 白皮膚</annotation>
-		<annotation cp="🧛🏼‍♀">不死族 | 德古拉｜女吸血鬼 | 黃皮膚</annotation>
-		<annotation cp="🧛🏽‍♀">不死族 | 中等皮膚 | 德古拉｜女吸血鬼</annotation>
+		<annotation cp="🧛🏿‍♂">不死族 | 德古拉｜男吸血鬼 | 男吸血鬼 | 黑皮膚</annotation>
+		<annotation cp="🧛🏻‍♀">不死族 | 女吸血鬼 | 德古拉｜女吸血鬼 | 白皮膚</annotation>
+		<annotation cp="🧛🏼‍♀">不死族 | 女吸血鬼 | 德古拉｜女吸血鬼 | 黃皮膚</annotation>
+		<annotation cp="🧛🏽‍♀">不死族 | 中等皮膚 | 女吸血鬼 | 德古拉｜女吸血鬼</annotation>
 		<annotation cp="🧛🏽‍♀" type="tts">女吸血鬼: 中等皮膚</annotation>
-		<annotation cp="🧛🏾‍♀">不死族 | 中深皮膚 | 德古拉｜女吸血鬼</annotation>
+		<annotation cp="🧛🏾‍♀">不死族 | 中深皮膚 | 女吸血鬼 | 德古拉｜女吸血鬼</annotation>
 		<annotation cp="🧛🏾‍♀" type="tts">女吸血鬼: 中深皮膚</annotation>
-		<annotation cp="🧛🏿‍♀">不死族 | 德古拉｜女吸血鬼 | 黑皮膚</annotation>
+		<annotation cp="🧛🏿‍♀">不死族 | 女吸血鬼 | 德古拉｜女吸血鬼 | 黑皮膚</annotation>
 		<annotation cp="🧜🏽">中等皮膚 | 人魚</annotation>
 		<annotation cp="🧜🏽" type="tts">人魚: 中等皮膚</annotation>
 		<annotation cp="🧜🏾">中深皮膚 | 人魚</annotation>
 		<annotation cp="🧜🏾" type="tts">人魚: 中深皮膚</annotation>
-		<annotation cp="🧜🏻‍♂">男人魚｜人魚 | 白皮膚</annotation>
-		<annotation cp="🧜🏼‍♂">男人魚｜人魚 | 黃皮膚</annotation>
-		<annotation cp="🧜🏽‍♂">中等皮膚 | 男人魚｜人魚</annotation>
+		<annotation cp="🧜🏻‍♂">男人魚 | 男人魚｜人魚 | 白皮膚</annotation>
+		<annotation cp="🧜🏼‍♂">男人魚 | 男人魚｜人魚 | 黃皮膚</annotation>
+		<annotation cp="🧜🏽‍♂">中等皮膚 | 男人魚 | 男人魚｜人魚</annotation>
 		<annotation cp="🧜🏽‍♂" type="tts">男人魚: 中等皮膚</annotation>
-		<annotation cp="🧜🏾‍♂">中深皮膚 | 男人魚｜人魚</annotation>
+		<annotation cp="🧜🏾‍♂">中深皮膚 | 男人魚 | 男人魚｜人魚</annotation>
 		<annotation cp="🧜🏾‍♂" type="tts">男人魚: 中深皮膚</annotation>
-		<annotation cp="🧜🏿‍♂">男人魚｜人魚 | 黑皮膚</annotation>
-		<annotation cp="🧜🏻‍♀">白皮膚 | 美人魚｜人魚</annotation>
-		<annotation cp="🧜🏼‍♀">美人魚｜人魚 | 黃皮膚</annotation>
-		<annotation cp="🧜🏽‍♀">中等皮膚 | 美人魚｜人魚</annotation>
+		<annotation cp="🧜🏿‍♂">男人魚 | 男人魚｜人魚 | 黑皮膚</annotation>
+		<annotation cp="🧜🏻‍♀">白皮膚 | 美人魚 | 美人魚｜人魚</annotation>
+		<annotation cp="🧜🏼‍♀">美人魚 | 美人魚｜人魚 | 黃皮膚</annotation>
+		<annotation cp="🧜🏽‍♀">中等皮膚 | 美人魚 | 美人魚｜人魚</annotation>
 		<annotation cp="🧜🏽‍♀" type="tts">美人魚: 中等皮膚</annotation>
-		<annotation cp="🧜🏾‍♀">中深皮膚 | 美人魚｜人魚</annotation>
+		<annotation cp="🧜🏾‍♀">中深皮膚 | 美人魚 | 美人魚｜人魚</annotation>
 		<annotation cp="🧜🏾‍♀" type="tts">美人魚: 中深皮膚</annotation>
-		<annotation cp="🧜🏿‍♀">美人魚｜人魚 | 黑皮膚</annotation>
+		<annotation cp="🧜🏿‍♀">美人魚 | 美人魚｜人魚 | 黑皮膚</annotation>
 		<annotation cp="🧝🏻">白皮膚 | 精靈 | 精靈｜魔法</annotation>
 		<annotation cp="🧝🏻" type="tts">精靈: 白皮膚</annotation>
 		<annotation cp="🧝🏼">精靈 | 精靈｜魔法 | 黃皮膚</annotation>
@@ -1369,13 +1429,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧝🏾" type="tts">精靈: 中深皮膚</annotation>
 		<annotation cp="🧝🏿">精靈 | 精靈｜魔法 | 黑皮膚</annotation>
 		<annotation cp="🧝🏿" type="tts">精靈: 黑皮膚</annotation>
-		<annotation cp="🧝🏻‍♂">男精靈｜魔法 | 白皮膚</annotation>
-		<annotation cp="🧝🏼‍♂">男精靈｜魔法 | 黃皮膚</annotation>
-		<annotation cp="🧝🏽‍♂">中等皮膚 | 男精靈｜魔法</annotation>
+		<annotation cp="🧝🏻‍♂">男精靈 | 男精靈｜魔法 | 白皮膚</annotation>
+		<annotation cp="🧝🏼‍♂">男精靈 | 男精靈｜魔法 | 黃皮膚</annotation>
+		<annotation cp="🧝🏽‍♂">中等皮膚 | 男精靈 | 男精靈｜魔法</annotation>
 		<annotation cp="🧝🏽‍♂" type="tts">男精靈: 中等皮膚</annotation>
-		<annotation cp="🧝🏾‍♂">中深皮膚 | 男精靈｜魔法</annotation>
+		<annotation cp="🧝🏾‍♂">中深皮膚 | 男精靈 | 男精靈｜魔法</annotation>
 		<annotation cp="🧝🏾‍♂" type="tts">男精靈: 中深皮膚</annotation>
-		<annotation cp="🧝🏿‍♂">男精靈｜魔法 | 黑皮膚</annotation>
+		<annotation cp="🧝🏿‍♂">男精靈 | 男精靈｜魔法 | 黑皮膚</annotation>
 		<annotation cp="🧝🏻‍♀">女精靈 | 女精靈｜魔法 | 白皮膚</annotation>
 		<annotation cp="🧝🏼‍♀">女精靈 | 女精靈｜魔法 | 黃皮膚</annotation>
 		<annotation cp="🧝🏽‍♀">中等皮膚 | 女精靈 | 女精靈｜魔法</annotation>
@@ -1530,9 +1590,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧎🏾‍♀" type="tts">跪係度嘅女人: 中深皮膚</annotation>
 		<annotation cp="🧎🏿‍♀">女 | 跪 | 跪下 | 跪低 | 跪係度嘅女人 | 黑皮膚</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">跪係度嘅女人: 黑皮膚</annotation>
-		<annotation cp="🧑🏽‍🦯">中等皮膚 | 盲人 | 行動不便</annotation>
+		<annotation cp="🧑🏽‍🦯">中等皮膚 | 拿導盲手杖的人 | 盲人 | 行動不便</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">拿導盲手杖的人: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍🦯">中深皮膚 | 盲人 | 行動不便</annotation>
+		<annotation cp="🧑🏾‍🦯">中深皮膚 | 拿導盲手杖的人 | 盲人 | 行動不便</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">拿導盲手杖的人: 中深皮膚</annotation>
 		<annotation cp="👨🏻‍🦯">拎導盲拐杖嘅男人 | 無障礙 | 男 | 白皮膚 | 盲人 | 視障</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">拎導盲拐杖嘅男人: 白皮膚</annotation>
@@ -1554,9 +1614,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦯" type="tts">拎導盲拐杖嘅女人: 中深皮膚</annotation>
 		<annotation cp="👩🏿‍🦯">女 | 拎導盲拐杖嘅女人 | 無障礙 | 盲人 | 視障 | 黑皮膚</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">拎導盲拐杖嘅女人: 黑皮膚</annotation>
-		<annotation cp="🧑🏽‍🦼">中等皮膚 | 行動不便 | 輪椅</annotation>
+		<annotation cp="🧑🏽‍🦼">中等皮膚 | 坐電動輪椅的人 | 行動不便 | 輪椅</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">坐電動輪椅的人: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍🦼">中深皮膚 | 行動不便 | 輪椅</annotation>
+		<annotation cp="🧑🏾‍🦼">中深皮膚 | 坐電動輪椅的人 | 行動不便 | 輪椅</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">坐電動輪椅的人: 中深皮膚</annotation>
 		<annotation cp="👨🏻‍🦼">坐電動輪椅嘅男人 | 無障礙 | 男 | 白皮膚 | 輪椅</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">坐電動輪椅嘅男人: 白皮膚</annotation>
@@ -1578,9 +1638,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦼" type="tts">坐電動輪椅嘅女人: 中深皮膚</annotation>
 		<annotation cp="👩🏿‍🦼">坐電動輪椅嘅女人 | 女士 | 無障礙 | 輪椅 | 黑皮膚</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">坐電動輪椅嘅女人: 黑皮膚</annotation>
-		<annotation cp="🧑🏽‍🦽">中等皮膚 | 行動不便 | 輪椅</annotation>
+		<annotation cp="🧑🏽‍🦽">中等皮膚 | 坐輪椅的人 | 行動不便 | 輪椅</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">坐輪椅的人: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍🦽">中深皮膚 | 行動不便 | 輪椅</annotation>
+		<annotation cp="🧑🏾‍🦽">中深皮膚 | 坐輪椅的人 | 行動不便 | 輪椅</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">坐輪椅的人: 中深皮膚</annotation>
 		<annotation cp="👨🏻‍🦽">坐輪椅嘅男人 | 無障礙 | 男 | 白皮膚 | 輪椅</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">坐輪椅嘅男人: 白皮膚</annotation>
@@ -2139,16 +2199,34 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏿" type="tts">瞓覺: 黑皮膚</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">拖手的人 | 白皮膚</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">拖手的人: 白皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">拖手的人 | 白皮膚 | 黃皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">拖手的人: 白皮膚 黃皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">中等皮膚 | 拖手的人 | 白皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">拖手的人: 白皮膚 中等皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">中深皮膚 | 拖手的人 | 白皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">拖手的人: 白皮膚 中深皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">拖手的人 | 白皮膚 | 黑皮膚</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">拖手的人: 白皮膚 黑皮膚</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">拖手的人 | 白皮膚 | 黃皮膚</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">拖手的人: 黃皮膚 白皮膚</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">拖手的人 | 黃皮膚</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">拖手的人: 黃皮膚</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">中等皮膚 | 拖手的人 | 黃皮膚</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">拖手的人: 黃皮膚 中等皮膚</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">中深皮膚 | 拖手的人 | 黃皮膚</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">拖手的人: 黃皮膚 中深皮膚</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">拖手的人 | 黃皮膚 | 黑皮膚</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">拖手的人: 黃皮膚 黑皮膚</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">中等皮膚 | 拖手的人 | 白皮膚</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">拖手的人: 中等皮膚 白皮膚</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">中等皮膚 | 拖手的人 | 黃皮膚</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">拖手的人: 中等皮膚 黃皮膚</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">中等皮膚 | 拖手的人</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">拖手的人: 中等皮膚</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">中深皮膚 | 中等皮膚 | 拖手的人</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">拖手的人: 中等皮膚 中深皮膚</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">中等皮膚 | 拖手的人 | 黑皮膚</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">拖手的人: 中等皮膚 黑皮膚</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">中深皮膚 | 拖手的人 | 白皮膚</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">拖手的人: 中深皮膚 白皮膚</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">中深皮膚 | 拖手的人 | 黃皮膚</annotation>
@@ -2157,6 +2235,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">拖手的人: 中深皮膚 中等皮膚</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">中深皮膚 | 拖手的人</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">拖手的人: 中深皮膚</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">中深皮膚 | 拖手的人 | 黑皮膚</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">拖手的人: 中深皮膚 黑皮膚</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">拖手的人 | 白皮膚 | 黑皮膚</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">拖手的人: 黑皮膚 白皮膚</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">拖手的人 | 黃皮膚 | 黑皮膚</annotation>
@@ -2169,16 +2249,34 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">拖手的人: 黑皮膚</annotation>
 		<annotation cp="👭🏻">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚</annotation>
 		<annotation cp="👭🏻" type="tts">兩個女人拖住手: 白皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚 | 黃皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">兩個女人拖住手: 白皮膚 黃皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">中等皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">兩個女人拖住手: 白皮膚 中等皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">中深皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">兩個女人拖住手: 白皮膚 中深皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚 | 黑皮膚</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">兩個女人拖住手: 白皮膚 黑皮膚</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚 | 黃皮膚</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">兩個女人拖住手: 黃皮膚 白皮膚</annotation>
 		<annotation cp="👭🏼">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黃皮膚</annotation>
 		<annotation cp="👭🏼" type="tts">兩個女人拖住手: 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">中等皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">兩個女人拖住手: 黃皮膚 中等皮膚</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">中深皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">兩個女人拖住手: 黃皮膚 中深皮膚</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黃皮膚 | 黑皮膚</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">兩個女人拖住手: 黃皮膚 黑皮膚</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">中等皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">兩個女人拖住手: 中等皮膚 白皮膚</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">中等皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黃皮膚</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">兩個女人拖住手: 中等皮膚 黃皮膚</annotation>
 		<annotation cp="👭🏽">中等皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友</annotation>
 		<annotation cp="👭🏽" type="tts">兩個女人拖住手: 中等皮膚</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">中深皮膚 | 中等皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">兩個女人拖住手: 中等皮膚 中深皮膚</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">中等皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黑皮膚</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">兩個女人拖住手: 中等皮膚 黑皮膚</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">中深皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">兩個女人拖住手: 中深皮膚 白皮膚</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">中深皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黃皮膚</annotation>
@@ -2187,6 +2285,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">兩個女人拖住手: 中深皮膚 中等皮膚</annotation>
 		<annotation cp="👭🏾">中深皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友</annotation>
 		<annotation cp="👭🏾" type="tts">兩個女人拖住手: 中深皮膚</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">中深皮膚 | 兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黑皮膚</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">兩個女人拖住手: 中深皮膚 黑皮膚</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 白皮膚 | 黑皮膚</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">兩個女人拖住手: 黑皮膚 白皮膚</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">兩個女人拖住手 | 女人拖住手 | 拖手 | 朋友 | 黃皮膚 | 黑皮膚</annotation>
@@ -2249,16 +2349,34 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👫🏿" type="tts">一男一女拖住手: 黑皮膚</annotation>
 		<annotation cp="👬🏻">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚</annotation>
 		<annotation cp="👬🏻" type="tts">兩個男人拖住手: 白皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚 | 黃皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">兩個男人拖住手: 白皮膚 黃皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">中等皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">兩個男人拖住手: 白皮膚 中等皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">中深皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">兩個男人拖住手: 白皮膚 中深皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚 | 黑皮膚</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">兩個男人拖住手: 白皮膚 黑皮膚</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚 | 黃皮膚</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">兩個男人拖住手: 黃皮膚 白皮膚</annotation>
 		<annotation cp="👬🏼">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黃皮膚</annotation>
 		<annotation cp="👬🏼" type="tts">兩個男人拖住手: 黃皮膚</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">中等皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">兩個男人拖住手: 黃皮膚 中等皮膚</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">中深皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黃皮膚</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">兩個男人拖住手: 黃皮膚 中深皮膚</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黃皮膚 | 黑皮膚</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">兩個男人拖住手: 黃皮膚 黑皮膚</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">中等皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">兩個男人拖住手: 中等皮膚 白皮膚</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">中等皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黃皮膚</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">兩個男人拖住手: 中等皮膚 黃皮膚</annotation>
 		<annotation cp="👬🏽">中等皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友</annotation>
 		<annotation cp="👬🏽" type="tts">兩個男人拖住手: 中等皮膚</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">中深皮膚 | 中等皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">兩個男人拖住手: 中等皮膚 中深皮膚</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">中等皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黑皮膚</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">兩個男人拖住手: 中等皮膚 黑皮膚</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">中深皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">兩個男人拖住手: 中深皮膚 白皮膚</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">中深皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黃皮膚</annotation>
@@ -2267,6 +2385,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">兩個男人拖住手: 中深皮膚 中等皮膚</annotation>
 		<annotation cp="👬🏾">中深皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友</annotation>
 		<annotation cp="👬🏾" type="tts">兩個男人拖住手: 中深皮膚</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">中深皮膚 | 伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黑皮膚</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">兩個男人拖住手: 中深皮膚 黑皮膚</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 白皮膚 | 黑皮膚</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">兩個男人拖住手: 黑皮膚 白皮膚</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">伴侶 | 兩個男人 | 兩個男人拖住手 | 情人 | 情侶 | 男朋友 | 黃皮膚 | 黑皮膚</annotation>

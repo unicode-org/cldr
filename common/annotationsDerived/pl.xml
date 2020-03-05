@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="pl"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">gest | karnacja jasna | palce | przesłuchanie | sarkazm | złączone palce</annotation>
+		<annotation cp="🤌🏻" type="tts">złączone palce: karnacja jasna</annotation>
+		<annotation cp="🤌🏼">gest | karnacja średnio jasna | palce | przesłuchanie | sarkazm | złączone palce</annotation>
+		<annotation cp="🤌🏼" type="tts">złączone palce: karnacja średnio jasna</annotation>
+		<annotation cp="🤌🏽">gest | karnacja średnia | palce | przesłuchanie | sarkazm | złączone palce</annotation>
+		<annotation cp="🤌🏽" type="tts">złączone palce: karnacja średnia</annotation>
+		<annotation cp="🤌🏾">gest | karnacja średnio ciemna | palce | przesłuchanie | sarkazm | złączone palce</annotation>
+		<annotation cp="🤌🏾" type="tts">złączone palce: karnacja średnio ciemna</annotation>
+		<annotation cp="🤌🏿">gest | karnacja ciemna | palce | przesłuchanie | sarkazm | złączone palce</annotation>
+		<annotation cp="🤌🏿" type="tts">złączone palce: karnacja ciemna</annotation>
 		<annotation cp="👋🏻">karnacja jasna | machająca dłoń</annotation>
 		<annotation cp="👋🏻" type="tts">machająca dłoń: karnacja jasna</annotation>
 		<annotation cp="👋🏼">karnacja średnio jasna | machająca dłoń</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">dorosły: karnacja średnio ciemna i łysy</annotation>
 		<annotation cp="🧑🏿‍🦲">dorosły | karnacja ciemna | łysy | płeć neutralna</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">dorosły: karnacja ciemna i łysy</annotation>
+		<annotation cp="🧑🏻‍🍼">karmienie | karmienie piersią | karnacja jasna | niemowlę | osoba | osoba karmiąca niemowlę</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">osoba karmiąca niemowlę: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🍼">karmienie | karmienie piersią | karnacja średnio jasna | niemowlę | osoba | osoba karmiąca niemowlę</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">osoba karmiąca niemowlę: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🍼">karmienie | karmienie piersią | karnacja średnia | niemowlę | osoba | osoba karmiąca niemowlę</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">osoba karmiąca niemowlę: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🍼">karmienie | karmienie piersią | karnacja średnio ciemna | niemowlę | osoba | osoba karmiąca niemowlę</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">osoba karmiąca niemowlę: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🍼">karmienie | karmienie piersią | karnacja ciemna | niemowlę | osoba | osoba karmiąca niemowlę</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">osoba karmiąca niemowlę: karnacja ciemna</annotation>
+		<annotation cp="🧑🏻‍🎄">Boże Narodzenie | karnacja jasna | Mikołaj | Mikołajka | święta</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Mikołajka: karnacja jasna</annotation>
+		<annotation cp="🧑🏼‍🎄">Boże Narodzenie | karnacja średnio jasna | Mikołaj | Mikołajka | święta</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Mikołajka: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏽‍🎄">Boże Narodzenie | karnacja średnia | Mikołaj | Mikołajka | święta</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Mikołajka: karnacja średnia</annotation>
+		<annotation cp="🧑🏾‍🎄">Boże Narodzenie | karnacja średnio ciemna | Mikołaj | Mikołajka | święta</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Mikołajka: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏿‍🎄">Boże Narodzenie | karnacja ciemna | Mikołaj | Mikołajka | święta</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Mikołajka: karnacja ciemna</annotation>
 		<annotation cp="👨🏻">karnacja jasna | mężczyzna</annotation>
 		<annotation cp="👨🏻" type="tts">mężczyzna: karnacja jasna</annotation>
 		<annotation cp="👨🏼">karnacja średnio jasna | mężczyzna</annotation>
@@ -510,15 +540,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">mężczyzna: karnacja średnio ciemna</annotation>
 		<annotation cp="👨🏿">karnacja ciemna | mężczyzna</annotation>
 		<annotation cp="👨🏿" type="tts">mężczyzna: karnacja ciemna</annotation>
-		<annotation cp="🧔🏻">broda | karnacja jasna | osoba z brodą</annotation>
+		<annotation cp="🧔🏻">broda | karnacja jasna | mężczyzna z brodą | osoba z brodą</annotation>
 		<annotation cp="🧔🏻" type="tts">mężczyzna z brodą: karnacja jasna</annotation>
-		<annotation cp="🧔🏼">broda | karnacja średnio jasna | osoba z brodą</annotation>
+		<annotation cp="🧔🏼">broda | karnacja średnio jasna | mężczyzna z brodą | osoba z brodą</annotation>
 		<annotation cp="🧔🏼" type="tts">mężczyzna z brodą: karnacja średnio jasna</annotation>
-		<annotation cp="🧔🏽">broda | karnacja średnia | osoba z brodą</annotation>
+		<annotation cp="🧔🏽">broda | karnacja średnia | mężczyzna z brodą | osoba z brodą</annotation>
 		<annotation cp="🧔🏽" type="tts">mężczyzna z brodą: karnacja średnia</annotation>
-		<annotation cp="🧔🏾">broda | karnacja średnio ciemna | osoba z brodą</annotation>
+		<annotation cp="🧔🏾">broda | karnacja średnio ciemna | mężczyzna z brodą | osoba z brodą</annotation>
 		<annotation cp="🧔🏾" type="tts">mężczyzna z brodą: karnacja średnio ciemna</annotation>
-		<annotation cp="🧔🏿">broda | karnacja ciemna | osoba z brodą</annotation>
+		<annotation cp="🧔🏿">broda | karnacja ciemna | mężczyzna z brodą | osoba z brodą</annotation>
 		<annotation cp="🧔🏿" type="tts">mężczyzna z brodą: karnacja ciemna</annotation>
 		<annotation cp="👱🏻‍♂">blondyn | karnacja jasna | mężczyzna</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">blondyn: karnacja jasna</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">mężczyzna: karnacja średnio ciemna i łysy</annotation>
 		<annotation cp="👨🏿‍🦲">karnacja ciemna | łysy | mężczyzna</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mężczyzna: karnacja ciemna i łysy</annotation>
+		<annotation cp="👨🏻‍🍼">karmienie | karnacja jasna | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">mężczyzna karmiący niemowlę: karnacja jasna</annotation>
+		<annotation cp="👨🏼‍🍼">karmienie | karnacja średnio jasna | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">mężczyzna karmiący niemowlę: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏽‍🍼">karmienie | karnacja średnia | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">mężczyzna karmiący niemowlę: karnacja średnia</annotation>
+		<annotation cp="👨🏾‍🍼">karmienie | karnacja średnio ciemna | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">mężczyzna karmiący niemowlę: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏿‍🍼">karmienie | karnacja ciemna | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">mężczyzna karmiący niemowlę: karnacja ciemna</annotation>
 		<annotation cp="👩🏻">karnacja jasna | kobieta</annotation>
 		<annotation cp="👩🏻" type="tts">kobieta: karnacja jasna</annotation>
 		<annotation cp="👩🏼">karnacja średnio jasna | kobieta</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">kobieta: karnacja średnio ciemna i łysy</annotation>
 		<annotation cp="👩🏿‍🦲">karnacja ciemna | kobieta | łysy</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kobieta: karnacja ciemna i łysy</annotation>
+		<annotation cp="👩🏻‍🍼">karmienie | karmienie piersią | karnacja jasna | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">kobieta karmiąca niemowlę: karnacja jasna</annotation>
+		<annotation cp="👩🏼‍🍼">karmienie | karmienie piersią | karnacja średnio jasna | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">kobieta karmiąca niemowlę: karnacja średnio jasna</annotation>
+		<annotation cp="👩🏽‍🍼">karmienie | karmienie piersią | karnacja średnia | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">kobieta karmiąca niemowlę: karnacja średnia</annotation>
+		<annotation cp="👩🏾‍🍼">karmienie | karmienie piersią | karnacja średnio ciemna | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">kobieta karmiąca niemowlę: karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏿‍🍼">karmienie | karmienie piersią | karnacja ciemna | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">kobieta karmiąca niemowlę: karnacja ciemna</annotation>
 		<annotation cp="🧓🏻">karnacja jasna | płeć neutralna | starszy dorosły | stary</annotation>
 		<annotation cp="🧓🏻" type="tts">starszy dorosły: karnacja jasna</annotation>
 		<annotation cp="🧓🏼">karnacja średnio jasna | płeć neutralna | starszy dorosły | stary</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">kobieta wzruszająca ramionami: karnacja średnio ciemna</annotation>
 		<annotation cp="🤷🏿‍♀">karnacja ciemna | kobieta | kobieta wzruszająca ramionami | obojętność | wątpliwość | wzruszenie ramion</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">kobieta wzruszająca ramionami: karnacja ciemna</annotation>
-		<annotation cp="🧑🏻‍⚕">karnacja jasna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏻‍⚕">karnacja jasna | lekarz | opieka zdrowotna | pracownik służby zdrowia | terapeuta</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">pracownik służby zdrowia: karnacja jasna</annotation>
-		<annotation cp="🧑🏼‍⚕">karnacja średnio jasna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏼‍⚕">karnacja średnio jasna | lekarz | opieka zdrowotna | pracownik służby zdrowia | terapeuta</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">pracownik służby zdrowia: karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏽‍⚕">karnacja średnia | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏽‍⚕">karnacja średnia | lekarz | opieka zdrowotna | pracownik służby zdrowia | terapeuta</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">pracownik służby zdrowia: karnacja średnia</annotation>
-		<annotation cp="🧑🏾‍⚕">karnacja średnio ciemna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏾‍⚕">karnacja średnio ciemna | lekarz | opieka zdrowotna | pracownik służby zdrowia | terapeuta</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">pracownik służby zdrowia: karnacja średnio ciemna</annotation>
-		<annotation cp="🧑🏿‍⚕">karnacja ciemna | lekarz | opieka zdrowotna | terapeuta</annotation>
+		<annotation cp="🧑🏿‍⚕">karnacja ciemna | lekarz | opieka zdrowotna | pracownik służby zdrowia | terapeuta</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">pracownik służby zdrowia: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍⚕">karnacja jasna | lekarz | mężczyzna | terapeuta</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">lekarz: karnacja jasna</annotation>
@@ -1196,15 +1246,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🏭" type="tts">pracownik fabryki: karnacja średnio ciemna</annotation>
 		<annotation cp="🧑🏿‍🏭">fabryka | karnacja ciemna | montażysta | pracownik | pracownik fabryki</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">pracownik fabryki: karnacja ciemna</annotation>
-		<annotation cp="👨🏻‍🏭">fabryka | karnacja jasna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="👨🏻‍🏭">fabryka | karnacja jasna | mężczyzna | mężczyzna pracownik fabryki | montażysta | pracownik | pracownik fabryki</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja jasna</annotation>
-		<annotation cp="👨🏼‍🏭">fabryka | karnacja średnio jasna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="👨🏼‍🏭">fabryka | karnacja średnio jasna | mężczyzna | mężczyzna pracownik fabryki | montażysta | pracownik | pracownik fabryki</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja średnio jasna</annotation>
-		<annotation cp="👨🏽‍🏭">fabryka | karnacja średnia | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="👨🏽‍🏭">fabryka | karnacja średnia | mężczyzna | mężczyzna pracownik fabryki | montażysta | pracownik | pracownik fabryki</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja średnia</annotation>
-		<annotation cp="👨🏾‍🏭">fabryka | karnacja średnio ciemna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="👨🏾‍🏭">fabryka | karnacja średnio ciemna | mężczyzna | mężczyzna pracownik fabryki | montażysta | pracownik | pracownik fabryki</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja średnio ciemna</annotation>
-		<annotation cp="👨🏿‍🏭">fabryka | karnacja ciemna | mężczyzna | montażysta | pracownik | pracownik fabryki</annotation>
+		<annotation cp="👨🏿‍🏭">fabryka | karnacja ciemna | mężczyzna | mężczyzna pracownik fabryki | montażysta | pracownik | pracownik fabryki</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">mężczyzna pracownik fabryki: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍🏭">fabryka | karnacja jasna | kobieta | montażystka | pracownica | pracownica fabryki</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">pracownica fabryki: karnacja jasna</annotation>
@@ -1216,25 +1266,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">pracownica fabryki: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🏭">fabryka | karnacja ciemna | kobieta | montażystka | pracownica | pracownica fabryki</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">pracownica fabryki: karnacja ciemna</annotation>
-		<annotation cp="🧑🏻‍💼">architekt | biznesmen | karnacja jasna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏻‍💼">architekt | biznesmen | karnacja jasna | menedżer | praca biurowa | pracownik biurowy</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">pracownik biurowy: karnacja jasna</annotation>
-		<annotation cp="🧑🏼‍💼">architekt | biznesmen | karnacja średnio jasna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏼‍💼">architekt | biznesmen | karnacja średnio jasna | menedżer | praca biurowa | pracownik biurowy</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">pracownik biurowy: karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏽‍💼">architekt | biznesmen | karnacja średnia | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏽‍💼">architekt | biznesmen | karnacja średnia | menedżer | praca biurowa | pracownik biurowy</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">pracownik biurowy: karnacja średnia</annotation>
-		<annotation cp="🧑🏾‍💼">architekt | biznesmen | karnacja średnio ciemna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏾‍💼">architekt | biznesmen | karnacja średnio ciemna | menedżer | praca biurowa | pracownik biurowy</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">pracownik biurowy: karnacja średnio ciemna</annotation>
-		<annotation cp="🧑🏿‍💼">architekt | biznesmen | karnacja ciemna | menedżer | praca biurowa</annotation>
+		<annotation cp="🧑🏿‍💼">architekt | biznesmen | karnacja ciemna | menedżer | praca biurowa | pracownik biurowy</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">pracownik biurowy: karnacja ciemna</annotation>
-		<annotation cp="👨🏻‍💼">architekt | biuro | biznesmen | karnacja jasna | mężczyzna | pracownik biurowy</annotation>
+		<annotation cp="👨🏻‍💼">architekt | biuro | biznesmen | karnacja jasna | mężczyzna | mężczyzna pracownik biurowy | pracownik biurowy</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">mężczyzna pracownik biurowy: karnacja jasna</annotation>
-		<annotation cp="👨🏼‍💼">architekt | biuro | biznesmen | karnacja średnio jasna | mężczyzna | pracownik biurowy</annotation>
+		<annotation cp="👨🏼‍💼">architekt | biuro | biznesmen | karnacja średnio jasna | mężczyzna | mężczyzna pracownik biurowy | pracownik biurowy</annotation>
 		<annotation cp="👨🏼‍💼" type="tts">mężczyzna pracownik biurowy: karnacja średnio jasna</annotation>
-		<annotation cp="👨🏽‍💼">architekt | biuro | biznesmen | karnacja średnia | mężczyzna | pracownik biurowy</annotation>
+		<annotation cp="👨🏽‍💼">architekt | biuro | biznesmen | karnacja średnia | mężczyzna | mężczyzna pracownik biurowy | pracownik biurowy</annotation>
 		<annotation cp="👨🏽‍💼" type="tts">mężczyzna pracownik biurowy: karnacja średnia</annotation>
-		<annotation cp="👨🏾‍💼">architekt | biuro | biznesmen | karnacja średnio ciemna | mężczyzna | pracownik biurowy</annotation>
+		<annotation cp="👨🏾‍💼">architekt | biuro | biznesmen | karnacja średnio ciemna | mężczyzna | mężczyzna pracownik biurowy | pracownik biurowy</annotation>
 		<annotation cp="👨🏾‍💼" type="tts">mężczyzna pracownik biurowy: karnacja średnio ciemna</annotation>
-		<annotation cp="👨🏿‍💼">architekt | biuro | biznesmen | karnacja ciemna | mężczyzna | pracownik biurowy</annotation>
+		<annotation cp="👨🏿‍💼">architekt | biuro | biznesmen | karnacja ciemna | mężczyzna | mężczyzna pracownik biurowy | pracownik biurowy</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">mężczyzna pracownik biurowy: karnacja ciemna</annotation>
 		<annotation cp="👩🏻‍💼">architekt | biuro | bizneswoman | karnacja jasna | kobieta | pracownica biurowa</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">pracownica biurowa: karnacja jasna</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">kobieta w chuście: karnacja średnio ciemna</annotation>
 		<annotation cp="🧕🏿">chusta | hidżab | karnacja ciemna | kobieta w chuście</annotation>
 		<annotation cp="🧕🏿" type="tts">kobieta w chuście: karnacja ciemna</annotation>
-		<annotation cp="🤵🏻">elegancja | karnacja jasna | mężczyzna w smokingu | pan młody | smoking</annotation>
-		<annotation cp="🤵🏻" type="tts">mężczyzna w smokingu: karnacja jasna</annotation>
-		<annotation cp="🤵🏼">elegancja | karnacja średnio jasna | mężczyzna w smokingu | pan młody | smoking</annotation>
-		<annotation cp="🤵🏼" type="tts">mężczyzna w smokingu: karnacja średnio jasna</annotation>
-		<annotation cp="🤵🏽">elegancja | karnacja średnia | mężczyzna w smokingu | pan młody | smoking</annotation>
-		<annotation cp="🤵🏽" type="tts">mężczyzna w smokingu: karnacja średnia</annotation>
-		<annotation cp="🤵🏾">elegancja | karnacja średnio ciemna | mężczyzna w smokingu | pan młody | smoking</annotation>
-		<annotation cp="🤵🏾" type="tts">mężczyzna w smokingu: karnacja średnio ciemna</annotation>
-		<annotation cp="🤵🏿">elegancja | karnacja ciemna | mężczyzna w smokingu | pan młody | smoking</annotation>
-		<annotation cp="🤵🏿" type="tts">mężczyzna w smokingu: karnacja ciemna</annotation>
-		<annotation cp="👰🏻">karnacja jasna | panna młoda w welonie | ślub | welon | wesele</annotation>
-		<annotation cp="👰🏻" type="tts">panna młoda w welonie: karnacja jasna</annotation>
-		<annotation cp="👰🏼">karnacja średnio jasna | panna młoda w welonie | ślub | welon | wesele</annotation>
-		<annotation cp="👰🏼" type="tts">panna młoda w welonie: karnacja średnio jasna</annotation>
-		<annotation cp="👰🏽">karnacja średnia | panna młoda w welonie | ślub | welon | wesele</annotation>
-		<annotation cp="👰🏽" type="tts">panna młoda w welonie: karnacja średnia</annotation>
-		<annotation cp="👰🏾">karnacja średnio ciemna | panna młoda w welonie | ślub | welon | wesele</annotation>
-		<annotation cp="👰🏾" type="tts">panna młoda w welonie: karnacja średnio ciemna</annotation>
-		<annotation cp="👰🏿">karnacja ciemna | panna młoda w welonie | ślub | welon | wesele</annotation>
-		<annotation cp="👰🏿" type="tts">panna młoda w welonie: karnacja ciemna</annotation>
+		<annotation cp="🤵🏻">elegancja | karnacja jasna | osoba | osoba w smokingu | smoking</annotation>
+		<annotation cp="🤵🏻" type="tts">osoba w smokingu: karnacja jasna</annotation>
+		<annotation cp="🤵🏼">elegancja | karnacja średnio jasna | osoba | osoba w smokingu | smoking</annotation>
+		<annotation cp="🤵🏼" type="tts">osoba w smokingu: karnacja średnio jasna</annotation>
+		<annotation cp="🤵🏽">elegancja | karnacja średnia | osoba | osoba w smokingu | smoking</annotation>
+		<annotation cp="🤵🏽" type="tts">osoba w smokingu: karnacja średnia</annotation>
+		<annotation cp="🤵🏾">elegancja | karnacja średnio ciemna | osoba | osoba w smokingu | smoking</annotation>
+		<annotation cp="🤵🏾" type="tts">osoba w smokingu: karnacja średnio ciemna</annotation>
+		<annotation cp="🤵🏿">elegancja | karnacja ciemna | osoba | osoba w smokingu | smoking</annotation>
+		<annotation cp="🤵🏿" type="tts">osoba w smokingu: karnacja ciemna</annotation>
+		<annotation cp="🤵🏻‍♀">karnacja jasna | kobieta | kobieta w smokingu | smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">kobieta w smokingu: karnacja jasna</annotation>
+		<annotation cp="🤵🏼‍♀">karnacja średnio jasna | kobieta | kobieta w smokingu | smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">kobieta w smokingu: karnacja średnio jasna</annotation>
+		<annotation cp="🤵🏽‍♀">karnacja średnia | kobieta | kobieta w smokingu | smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">kobieta w smokingu: karnacja średnia</annotation>
+		<annotation cp="🤵🏾‍♀">karnacja średnio ciemna | kobieta | kobieta w smokingu | smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">kobieta w smokingu: karnacja średnio ciemna</annotation>
+		<annotation cp="🤵🏿‍♀">karnacja ciemna | kobieta | kobieta w smokingu | smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">kobieta w smokingu: karnacja ciemna</annotation>
+		<annotation cp="🤵🏻‍♂">karnacja jasna | mężczyzna | mężczyzna w smokingu | smoking</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">mężczyzna w smokingu: karnacja jasna</annotation>
+		<annotation cp="🤵🏼‍♂">karnacja średnio jasna | mężczyzna | mężczyzna w smokingu | smoking</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">mężczyzna w smokingu: karnacja średnio jasna</annotation>
+		<annotation cp="🤵🏽‍♂">karnacja średnia | mężczyzna | mężczyzna w smokingu | smoking</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">mężczyzna w smokingu: karnacja średnia</annotation>
+		<annotation cp="🤵🏾‍♂">karnacja średnio ciemna | mężczyzna | mężczyzna w smokingu | smoking</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">mężczyzna w smokingu: karnacja średnio ciemna</annotation>
+		<annotation cp="🤵🏿‍♂">karnacja ciemna | mężczyzna | mężczyzna w smokingu | smoking</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">mężczyzna w smokingu: karnacja ciemna</annotation>
+		<annotation cp="👰🏻">karnacja jasna | osoba | osoba w welonie | panna młoda | ślub | welon | wesele</annotation>
+		<annotation cp="👰🏻" type="tts">osoba w welonie: karnacja jasna</annotation>
+		<annotation cp="👰🏼">karnacja średnio jasna | osoba | osoba w welonie | panna młoda | ślub | welon | wesele</annotation>
+		<annotation cp="👰🏼" type="tts">osoba w welonie: karnacja średnio jasna</annotation>
+		<annotation cp="👰🏽">karnacja średnia | osoba | osoba w welonie | panna młoda | ślub | welon | wesele</annotation>
+		<annotation cp="👰🏽" type="tts">osoba w welonie: karnacja średnia</annotation>
+		<annotation cp="👰🏾">karnacja średnio ciemna | osoba | osoba w welonie | panna młoda | ślub | welon | wesele</annotation>
+		<annotation cp="👰🏾" type="tts">osoba w welonie: karnacja średnio ciemna</annotation>
+		<annotation cp="👰🏿">karnacja ciemna | osoba | osoba w welonie | panna młoda | ślub | welon | wesele</annotation>
+		<annotation cp="👰🏿" type="tts">osoba w welonie: karnacja ciemna</annotation>
+		<annotation cp="👰🏻‍♀">karnacja jasna | kobieta | kobieta w welonie | welon</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">kobieta w welonie: karnacja jasna</annotation>
+		<annotation cp="👰🏼‍♀">karnacja średnio jasna | kobieta | kobieta w welonie | welon</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">kobieta w welonie: karnacja średnio jasna</annotation>
+		<annotation cp="👰🏽‍♀">karnacja średnia | kobieta | kobieta w welonie | welon</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">kobieta w welonie: karnacja średnia</annotation>
+		<annotation cp="👰🏾‍♀">karnacja średnio ciemna | kobieta | kobieta w welonie | welon</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">kobieta w welonie: karnacja średnio ciemna</annotation>
+		<annotation cp="👰🏿‍♀">karnacja ciemna | kobieta | kobieta w welonie | welon</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">kobieta w welonie: karnacja ciemna</annotation>
+		<annotation cp="👰🏻‍♂">karnacja jasna | mężczyzna | mężczyzna w welonie | welon</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">mężczyzna w welonie: karnacja jasna</annotation>
+		<annotation cp="👰🏼‍♂">karnacja średnio jasna | mężczyzna | mężczyzna w welonie | welon</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">mężczyzna w welonie: karnacja średnio jasna</annotation>
+		<annotation cp="👰🏽‍♂">karnacja średnia | mężczyzna | mężczyzna w welonie | welon</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">mężczyzna w welonie: karnacja średnia</annotation>
+		<annotation cp="👰🏾‍♂">karnacja średnio ciemna | mężczyzna | mężczyzna w welonie | welon</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">mężczyzna w welonie: karnacja średnio ciemna</annotation>
+		<annotation cp="👰🏿‍♂">karnacja ciemna | mężczyzna | mężczyzna w welonie | welon</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">mężczyzna w welonie: karnacja ciemna</annotation>
 		<annotation cp="🤰🏻">ciąża | karnacja jasna | kobieta w ciąży</annotation>
 		<annotation cp="🤰🏻" type="tts">kobieta w ciąży: karnacja jasna</annotation>
 		<annotation cp="🤰🏼">ciąża | karnacja średnio jasna | kobieta w ciąży</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">klęcząca kobieta: karnacja średnio ciemna</annotation>
 		<annotation cp="🧎🏿‍♀">karnacja ciemna | klęcząca kobieta | klęczeć | kobieta</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">klęcząca kobieta: karnacja ciemna</annotation>
-		<annotation cp="🧑🏻‍🦯">dostępność | karnacja jasna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏻‍🦯">dostępność | karnacja jasna | niewidoma | niewidomy | osoba z białą laską</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">osoba z białą laską: karnacja jasna</annotation>
-		<annotation cp="🧑🏼‍🦯">dostępność | karnacja średnio jasna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏼‍🦯">dostępność | karnacja średnio jasna | niewidoma | niewidomy | osoba z białą laską</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">osoba z białą laską: karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏽‍🦯">dostępność | karnacja średnia | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏽‍🦯">dostępność | karnacja średnia | niewidoma | niewidomy | osoba z białą laską</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">osoba z białą laską: karnacja średnia</annotation>
-		<annotation cp="🧑🏾‍🦯">dostępność | karnacja średnio ciemna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏾‍🦯">dostępność | karnacja średnio ciemna | niewidoma | niewidomy | osoba z białą laską</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">osoba z białą laską: karnacja średnio ciemna</annotation>
-		<annotation cp="🧑🏿‍🦯">dostępność | karnacja ciemna | niewidoma | niewidomy</annotation>
+		<annotation cp="🧑🏿‍🦯">dostępność | karnacja ciemna | niewidoma | niewidomy | osoba z białą laską</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">osoba z białą laską: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🦯">dostępność | karnacja jasna | mężczyzna | mężczyzna z białą laską | niewidomy</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">mężczyzna z białą laską: karnacja jasna</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">kobieta z białą laską: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🦯">dostępność | karnacja ciemna | kobieta | kobieta z białą laską | niewidoma</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">kobieta z białą laską: karnacja ciemna</annotation>
-		<annotation cp="🧑🏻‍🦼">dostępność | karnacja jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏻‍🦼">dostępność | karnacja jasna | osoba na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja jasna</annotation>
-		<annotation cp="🧑🏼‍🦼">dostępność | karnacja średnio jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏼‍🦼">dostępność | karnacja średnio jasna | osoba na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏽‍🦼">dostępność | karnacja średnia | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏽‍🦼">dostępność | karnacja średnia | osoba na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja średnia</annotation>
-		<annotation cp="🧑🏾‍🦼">dostępność | karnacja średnio ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏾‍🦼">dostępność | karnacja średnio ciemna | osoba na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja średnio ciemna</annotation>
-		<annotation cp="🧑🏿‍🦼">dostępność | karnacja ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏿‍🦼">dostępność | karnacja ciemna | osoba na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">osoba na elektrycznym wózku inwalidzkim: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🦼">dostępność | karnacja jasna | mężczyzna | mężczyzna na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">mężczyzna na elektrycznym wózku inwalidzkim: karnacja jasna</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja średnio ciemna</annotation>
 		<annotation cp="👩🏿‍🦼">dostępność | karnacja ciemna | kobieta | kobieta na elektrycznym wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">kobieta na elektrycznym wózku inwalidzkim: karnacja ciemna</annotation>
-		<annotation cp="🧑🏻‍🦽">dostępność | karnacja jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏻‍🦽">dostępność | karnacja jasna | osoba na wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja jasna</annotation>
-		<annotation cp="🧑🏼‍🦽">dostępność | karnacja średnio jasna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏼‍🦽">dostępność | karnacja średnio jasna | osoba na wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja średnio jasna</annotation>
-		<annotation cp="🧑🏽‍🦽">dostępność | karnacja średnia | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏽‍🦽">dostępność | karnacja średnia | osoba na wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja średnia</annotation>
-		<annotation cp="🧑🏾‍🦽">dostępność | karnacja średnio ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏾‍🦽">dostępność | karnacja średnio ciemna | osoba na wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja średnio ciemna</annotation>
-		<annotation cp="🧑🏿‍🦽">dostępność | karnacja ciemna | wózek inwalidzki</annotation>
+		<annotation cp="🧑🏿‍🦽">dostępność | karnacja ciemna | osoba na wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">osoba na wózku inwalidzkim: karnacja ciemna</annotation>
 		<annotation cp="👨🏻‍🦽">dostępność | karnacja jasna | mężczyzna | mężczyzna na wózku inwalidzkim | wózek inwalidzki</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">mężczyzna na wózku inwalidzkim: karnacja jasna</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">osoba w łóżku: karnacja ciemna</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">karnacja jasna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja jasna</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">karnacja jasna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja jasna i karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">karnacja jasna | karnacja średnia | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja jasna i karnacja średnia</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">karnacja jasna | karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">karnacja ciemna | karnacja jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">osoby trzymające się za ręce: karnacja jasna i karnacja ciemna</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">karnacja jasna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnio jasna</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">karnacja średnia | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja średnio jasna i karnacja średnia</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">karnacja średnio ciemna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja średnio jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">karnacja ciemna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">osoby trzymające się za ręce: karnacja średnio jasna i karnacja ciemna</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">karnacja jasna | karnacja średnia | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja jasna</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">karnacja średnia | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">karnacja średnia | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja średnia</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">karnacja średnia | karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">karnacja ciemna | karnacja średnia | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">osoby trzymające się za ręce: karnacja średnia i karnacja ciemna</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">karnacja jasna | karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">karnacja średnio ciemna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">karnacja ciemna | karnacja średnio ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">osoby trzymające się za ręce: karnacja średnio ciemna i karnacja ciemna</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">karnacja ciemna | karnacja jasna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja jasna</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">karnacja ciemna | karnacja średnio jasna | osoby trzymające się za ręce | para | za ręce</annotation>
@@ -2746,35 +2856,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">osoby trzymające się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿">karnacja ciemna | osoby trzymające się za ręce | para | za ręce</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">osoby trzymające się za ręce: karnacja ciemna</annotation>
-		<annotation cp="👭🏻">dwie kobiety trzymające się za ręce | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏻">dwie kobiety trzymające się za ręce | karnacja jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👭🏻" type="tts">kobiety trzymające się za ręce: karnacja jasna</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">kobiety trzymające się za ręce: karnacja jasna i karnacja średnio jasna</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnia | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">kobiety trzymające się za ręce: karnacja jasna i karnacja średnia</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">kobiety trzymające się za ręce: karnacja jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">kobiety trzymające się za ręce: karnacja jasna i karnacja ciemna</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
-		<annotation cp="👭🏼">dwie kobiety trzymające się za ręce | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏼">dwie kobiety trzymające się za ręce | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👭🏼" type="tts">kobiety trzymające się za ręce: karnacja średnio jasna</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">kobiety trzymające się za ręce: karnacja średnio jasna i karnacja średnia</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">kobiety trzymające się za ręce: karnacja średnio jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">kobiety trzymające się za ręce: karnacja średnio jasna i karnacja ciemna</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnia | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja średnia i karnacja jasna</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kobiety trzymające się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
-		<annotation cp="👭🏽">dwie kobiety trzymające się za ręce | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏽">dwie kobiety trzymające się za ręce | karnacja średnia | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👭🏽" type="tts">kobiety trzymające się za ręce: karnacja średnia</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">kobiety trzymające się za ręce: karnacja średnia i karnacja średnio ciemna</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnia | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">kobiety trzymające się za ręce: karnacja średnia i karnacja ciemna</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja jasna | karnacja średnio ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja średnia | karnacja średnio ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
-		<annotation cp="👭🏾">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏾">dwie kobiety trzymające się za ręce | karnacja średnio ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👭🏾" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">kobiety trzymające się za ręce: karnacja średnio ciemna i karnacja ciemna</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja jasna</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio jasna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja średnio jasna</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnia | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja średnia</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">dwie kobiety trzymające się za ręce | karnacja ciemna | karnacja średnio ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">kobiety trzymające się za ręce: karnacja ciemna i karnacja średnio ciemna</annotation>
-		<annotation cp="👭🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👭🏿">dwie kobiety trzymające się za ręce | karnacja ciemna | kobiety trzymające się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👭🏿" type="tts">kobiety trzymające się za ręce: karnacja ciemna</annotation>
 		<annotation cp="👫🏻">karnacja jasna | mężczyzna i kobieta trzymający się za ręce | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👫🏻" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja jasna</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">mężczyzna i kobieta trzymający się za ręce: karnacja ciemna</annotation>
 		<annotation cp="👬🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja jasna</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja jasna i karnacja średnio jasna</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja jasna i karnacja średnia</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja jasna i karnacja ciemna</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna i karnacja jasna</annotation>
 		<annotation cp="👬🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">dwóch mężczyzn trzymających się za ręce | karnacja średnia | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna i karnacja średnia</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">dwóch mężczyzn trzymających się za ręce | karnacja średnio ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna i karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio jasna i karnacja ciemna</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja jasna</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnia | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja średnio jasna</annotation>
 		<annotation cp="👬🏽">dwóch mężczyzn trzymających się za ręce | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">dwóch mężczyzn trzymających się za ręce | karnacja średnia | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnia | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnia i karnacja ciemna</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja jasna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja jasna</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja średnio ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja średnia</annotation>
 		<annotation cp="👬🏾">dwóch mężczyzn trzymających się za ręce | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👬🏾" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnio ciemna | miłość | para | za ręce | zakochani</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja średnio ciemna i karnacja ciemna</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja jasna | miłość | para | za ręce | zakochani</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dwóch mężczyzn trzymających się za ręce: karnacja ciemna i karnacja jasna</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">dwóch mężczyzn trzymających się za ręce | karnacja ciemna | karnacja średnio jasna | miłość | para | za ręce | zakochani</annotation>

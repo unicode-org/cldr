@@ -1153,7 +1153,10 @@ public class SupplementalDataInfo {
 
         measurementData = CldrUtility.protectCollection(measurementData);
         
-        unitConverter.addAliases(typeToTagToReplacement.get("unit"));
+        final Map<String, R2<List<String>, String>> unitAliases = typeToTagToReplacement.get("unit");
+        if (unitAliases != null) { // don't load unless the information is there (for old releases);
+            unitConverter.addAliases(unitAliases);
+        }
         unitConverter.freeze();
         rationalParser.freeze();
         unitPreferences.freeze();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,6 +13,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<script type="Hans"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">卒 | 卒手指 | 嘲笑 | 手势 | 手指 | 浅肤色 | 质问</annotation>
+		<annotation cp="🤌🏻" type="tts">卒手指: 浅肤色</annotation>
+		<annotation cp="🤌🏼">中浅肤色 | 卒 | 卒手指 | 嘲笑 | 手势 | 手指 | 质问</annotation>
+		<annotation cp="🤌🏼" type="tts">卒手指: 中浅肤色</annotation>
+		<annotation cp="🤌🏽">中肤色 | 卒 | 卒手指 | 嘲笑 | 手势 | 手指 | 质问</annotation>
+		<annotation cp="🤌🏽" type="tts">卒手指: 中肤色</annotation>
+		<annotation cp="🤌🏾">中深肤色 | 卒 | 卒手指 | 嘲笑 | 手势 | 手指 | 质问</annotation>
+		<annotation cp="🤌🏾" type="tts">卒手指: 中深肤色</annotation>
+		<annotation cp="🤌🏿">卒 | 卒手指 | 嘲笑 | 手势 | 手指 | 深肤色 | 质问</annotation>
+		<annotation cp="🤌🏿" type="tts">卒手指: 深肤色</annotation>
 		<annotation cp="👋🏻">手 | 挥手 | 挥紧手 | 浅肤色</annotation>
 		<annotation cp="👋🏻" type="tts">挥手: 浅肤色</annotation>
 		<annotation cp="👋🏼">中浅肤色 | 手 | 挥手 | 挥紧手</annotation>
@@ -501,6 +511,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">成人: 中深肤色 光头</annotation>
 		<annotation cp="🧑🏿‍🦲">中性 | 光头 | 成人 | 深肤色</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">成人: 深肤色 光头</annotation>
+		<annotation cp="🧑🏻‍🍼">人 | 哺乳嘅人 | 哺育 | 喂哺 | 婴儿 | 浅肤色</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">哺乳嘅人: 浅肤色</annotation>
+		<annotation cp="🧑🏼‍🍼">中浅肤色 | 人 | 哺乳嘅人 | 哺育 | 喂哺 | 婴儿</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">哺乳嘅人: 中浅肤色</annotation>
+		<annotation cp="🧑🏽‍🍼">中肤色 | 人 | 哺乳嘅人 | 哺育 | 喂哺 | 婴儿</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">哺乳嘅人: 中肤色</annotation>
+		<annotation cp="🧑🏾‍🍼">中深肤色 | 人 | 哺乳嘅人 | 哺育 | 喂哺 | 婴儿</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">哺乳嘅人: 中深肤色</annotation>
+		<annotation cp="🧑🏿‍🍼">人 | 哺乳嘅人 | 哺育 | 喂哺 | 婴儿 | 深肤色</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">哺乳嘅人: 深肤色</annotation>
+		<annotation cp="🧑🏻‍🎄">圣诞打扮 | 圣诞老人 | 打扮 | 浅肤色</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">圣诞打扮: 浅肤色</annotation>
+		<annotation cp="🧑🏼‍🎄">中浅肤色 | 圣诞打扮 | 圣诞老人 | 打扮</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">圣诞打扮: 中浅肤色</annotation>
+		<annotation cp="🧑🏽‍🎄">中肤色 | 圣诞打扮 | 圣诞老人 | 打扮</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">圣诞打扮: 中肤色</annotation>
+		<annotation cp="🧑🏾‍🎄">中深肤色 | 圣诞打扮 | 圣诞老人 | 打扮</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">圣诞打扮: 中深肤色</annotation>
+		<annotation cp="🧑🏿‍🎄">圣诞打扮 | 圣诞老人 | 打扮 | 深肤色</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">圣诞打扮: 深肤色</annotation>
 		<annotation cp="👨🏻">浅肤色 | 男人</annotation>
 		<annotation cp="👨🏻" type="tts">男人: 浅肤色</annotation>
 		<annotation cp="👨🏼">中浅肤色 | 男人</annotation>
@@ -579,6 +609,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">男人: 中深肤色 光头</annotation>
 		<annotation cp="👨🏿‍🦲">光头 | 深肤色 | 男人</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">男人: 深肤色 光头</annotation>
+		<annotation cp="👨🏻‍🍼">哺乳 | 哺乳嘅男人 | 哺育 | 婴儿 | 浅肤色 | 男人</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">哺乳嘅男人: 浅肤色</annotation>
+		<annotation cp="👨🏼‍🍼">中浅肤色 | 哺乳 | 哺乳嘅男人 | 哺育 | 婴儿 | 男人</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">哺乳嘅男人: 中浅肤色</annotation>
+		<annotation cp="👨🏽‍🍼">中肤色 | 哺乳 | 哺乳嘅男人 | 哺育 | 婴儿 | 男人</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">哺乳嘅男人: 中肤色</annotation>
+		<annotation cp="👨🏾‍🍼">中深肤色 | 哺乳 | 哺乳嘅男人 | 哺育 | 婴儿 | 男人</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">哺乳嘅男人: 中深肤色</annotation>
+		<annotation cp="👨🏿‍🍼">哺乳 | 哺乳嘅男人 | 哺育 | 婴儿 | 深肤色 | 男人</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">哺乳嘅男人: 深肤色</annotation>
 		<annotation cp="👩🏻">女人 | 浅肤色</annotation>
 		<annotation cp="👩🏻" type="tts">女人: 浅肤色</annotation>
 		<annotation cp="👩🏼">中浅肤色 | 女人</annotation>
@@ -647,6 +687,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">女人: 中深肤色 光头</annotation>
 		<annotation cp="👩🏿‍🦲">光头 | 女人 | 深肤色</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">女人: 深肤色 光头</annotation>
+		<annotation cp="👩🏻‍🍼">哺乳 | 哺乳妈妈 | 哺育 | 女人 | 婴儿 | 浅肤色</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">哺乳妈妈: 浅肤色</annotation>
+		<annotation cp="👩🏼‍🍼">中浅肤色 | 哺乳 | 哺乳妈妈 | 哺育 | 女人 | 婴儿</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">哺乳妈妈: 中浅肤色</annotation>
+		<annotation cp="👩🏽‍🍼">中肤色 | 哺乳 | 哺乳妈妈 | 哺育 | 女人 | 婴儿</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">哺乳妈妈: 中肤色</annotation>
+		<annotation cp="👩🏾‍🍼">中深肤色 | 哺乳 | 哺乳妈妈 | 哺育 | 女人 | 婴儿</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">哺乳妈妈: 中深肤色</annotation>
+		<annotation cp="👩🏿‍🍼">哺乳 | 哺乳妈妈 | 哺育 | 女人 | 婴儿 | 深肤色</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">哺乳妈妈: 深肤色</annotation>
 		<annotation cp="🧓🏻">中性 | 浅肤色 | 老人 | 老年</annotation>
 		<annotation cp="🧓🏻" type="tts">老人: 浅肤色</annotation>
 		<annotation cp="🧓🏼">中性 | 中浅肤色 | 老人 | 老年</annotation>
@@ -977,15 +1027,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">耸肩嘅女人: 中深肤色</annotation>
 		<annotation cp="🤷🏿‍♀">不关心 | 女 | 怀疑 | 无知 | 深肤色 | 耸肩 | 耸肩嘅女人</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">耸肩嘅女人: 深肤色</annotation>
-		<annotation cp="🧑🏻‍⚕">医生 | 医疗保健 | 护士 | 治疗师 | 浅肤色</annotation>
+		<annotation cp="🧑🏻‍⚕">保健员 | 医生 | 医疗保健 | 护士 | 治疗师 | 浅肤色</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">保健员: 浅肤色</annotation>
-		<annotation cp="🧑🏼‍⚕">中浅肤色 | 医生 | 医疗保健 | 护士 | 治疗师</annotation>
+		<annotation cp="🧑🏼‍⚕">中浅肤色 | 保健员 | 医生 | 医疗保健 | 护士 | 治疗师</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">保健员: 中浅肤色</annotation>
-		<annotation cp="🧑🏽‍⚕">中肤色 | 医生 | 医疗保健 | 护士 | 治疗师</annotation>
+		<annotation cp="🧑🏽‍⚕">中肤色 | 保健员 | 医生 | 医疗保健 | 护士 | 治疗师</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">保健员: 中肤色</annotation>
-		<annotation cp="🧑🏾‍⚕">中深肤色 | 医生 | 医疗保健 | 护士 | 治疗师</annotation>
+		<annotation cp="🧑🏾‍⚕">中深肤色 | 保健员 | 医生 | 医疗保健 | 护士 | 治疗师</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">保健员: 中深肤色</annotation>
-		<annotation cp="🧑🏿‍⚕">医生 | 医疗保健 | 护士 | 治疗师 | 深肤色</annotation>
+		<annotation cp="🧑🏿‍⚕">保健员 | 医生 | 医疗保健 | 护士 | 治疗师 | 深肤色</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">保健员: 深肤色</annotation>
 		<annotation cp="👨🏻‍⚕">医生 | 医疗保健 | 护士 | 治疗师 | 浅肤色 | 男 | 男医护人员</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">男医护人员: 浅肤色</annotation>
@@ -1187,15 +1237,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">女技工: 中深肤色</annotation>
 		<annotation cp="👩🏿‍🔧">商人 | 女 | 女技工 | 技工 | 水管工人 | 深肤色 | 电工</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">女技工: 深肤色</annotation>
-		<annotation cp="🧑🏻‍🏭">工业 | 工人 | 工厂 | 浅肤色 | 组装</annotation>
+		<annotation cp="🧑🏻‍🏭">工业 | 工人 | 工厂 | 工厂工人 | 浅肤色 | 组装</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">工厂工人: 浅肤色</annotation>
-		<annotation cp="🧑🏼‍🏭">中浅肤色 | 工业 | 工人 | 工厂 | 组装</annotation>
+		<annotation cp="🧑🏼‍🏭">中浅肤色 | 工业 | 工人 | 工厂 | 工厂工人 | 组装</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">工厂工人: 中浅肤色</annotation>
-		<annotation cp="🧑🏽‍🏭">中肤色 | 工业 | 工人 | 工厂 | 组装</annotation>
+		<annotation cp="🧑🏽‍🏭">中肤色 | 工业 | 工人 | 工厂 | 工厂工人 | 组装</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">工厂工人: 中肤色</annotation>
-		<annotation cp="🧑🏾‍🏭">中深肤色 | 工业 | 工人 | 工厂 | 组装</annotation>
+		<annotation cp="🧑🏾‍🏭">中深肤色 | 工业 | 工人 | 工厂 | 工厂工人 | 组装</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">工厂工人: 中深肤色</annotation>
-		<annotation cp="🧑🏿‍🏭">工业 | 工人 | 工厂 | 深肤色 | 组装</annotation>
+		<annotation cp="🧑🏿‍🏭">工业 | 工人 | 工厂 | 工厂工人 | 深肤色 | 组装</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">工厂工人: 深肤色</annotation>
 		<annotation cp="👨🏻‍🏭">工业 | 工人 | 工厂 | 浅肤色 | 男 | 男工厂工人 | 装配</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">男工厂工人: 浅肤色</annotation>
@@ -1217,15 +1267,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">女工厂工人: 中深肤色</annotation>
 		<annotation cp="👩🏿‍🏭">女 | 女工厂工人 | 工业 | 工人 | 工厂 | 深肤色 | 装配</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">女工厂工人: 深肤色</annotation>
-		<annotation cp="🧑🏻‍💼">商业 | 建筑师 | 浅肤色 | 白领 | 经理</annotation>
+		<annotation cp="🧑🏻‍💼">办公室员工 | 商业 | 建筑师 | 浅肤色 | 白领 | 经理</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">办公室员工: 浅肤色</annotation>
-		<annotation cp="🧑🏼‍💼">中浅肤色 | 商业 | 建筑师 | 白领 | 经理</annotation>
+		<annotation cp="🧑🏼‍💼">中浅肤色 | 办公室员工 | 商业 | 建筑师 | 白领 | 经理</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">办公室员工: 中浅肤色</annotation>
-		<annotation cp="🧑🏽‍💼">中肤色 | 商业 | 建筑师 | 白领 | 经理</annotation>
+		<annotation cp="🧑🏽‍💼">中肤色 | 办公室员工 | 商业 | 建筑师 | 白领 | 经理</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">办公室员工: 中肤色</annotation>
-		<annotation cp="🧑🏾‍💼">中深肤色 | 商业 | 建筑师 | 白领 | 经理</annotation>
+		<annotation cp="🧑🏾‍💼">中深肤色 | 办公室员工 | 商业 | 建筑师 | 白领 | 经理</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">办公室员工: 中深肤色</annotation>
-		<annotation cp="🧑🏿‍💼">商业 | 建筑师 | 深肤色 | 白领 | 经理</annotation>
+		<annotation cp="🧑🏿‍💼">办公室员工 | 商业 | 建筑师 | 深肤色 | 白领 | 经理</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">办公室员工: 深肤色</annotation>
 		<annotation cp="👨🏻‍💼">业务 | 办公室 | 建筑师 | 浅肤色 | 男 | 男办公室职员 | 白领 | 经理</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">男办公室职员: 浅肤色</annotation>
@@ -1657,6 +1707,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾" type="tts">着晚礼服嘅男人: 中深肤色</annotation>
 		<annotation cp="🤵🏿">新郎 | 晚礼服 | 深肤色 | 男 | 着晚礼服嘅男人</annotation>
 		<annotation cp="🤵🏿" type="tts">着晚礼服嘅男人: 深肤色</annotation>
+		<annotation cp="🤵🏻‍♀">女人 | 浅肤色 | 燕尾服 | 着燕尾服嘅女人</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">着燕尾服嘅女人: 浅肤色</annotation>
+		<annotation cp="🤵🏼‍♀">中浅肤色 | 女人 | 燕尾服 | 着燕尾服嘅女人</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">着燕尾服嘅女人: 中浅肤色</annotation>
+		<annotation cp="🤵🏽‍♀">中肤色 | 女人 | 燕尾服 | 着燕尾服嘅女人</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">着燕尾服嘅女人: 中肤色</annotation>
+		<annotation cp="🤵🏾‍♀">中深肤色 | 女人 | 燕尾服 | 着燕尾服嘅女人</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">着燕尾服嘅女人: 中深肤色</annotation>
+		<annotation cp="🤵🏿‍♀">女人 | 深肤色 | 燕尾服 | 着燕尾服嘅女人</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">着燕尾服嘅女人: 深肤色</annotation>
+		<annotation cp="🤵🏻‍♂">浅肤色 | 燕尾服 | 男人 | 着燕尾服嘅男人</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">着燕尾服嘅男人: 浅肤色</annotation>
+		<annotation cp="🤵🏼‍♂">中浅肤色 | 燕尾服 | 男人 | 着燕尾服嘅男人</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">着燕尾服嘅男人: 中浅肤色</annotation>
+		<annotation cp="🤵🏽‍♂">中肤色 | 燕尾服 | 男人 | 着燕尾服嘅男人</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">着燕尾服嘅男人: 中肤色</annotation>
+		<annotation cp="🤵🏾‍♂">中深肤色 | 燕尾服 | 男人 | 着燕尾服嘅男人</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">着燕尾服嘅男人: 中深肤色</annotation>
+		<annotation cp="🤵🏿‍♂">深肤色 | 燕尾服 | 男人 | 着燕尾服嘅男人</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">着燕尾服嘅男人: 深肤色</annotation>
 		<annotation cp="👰🏻">婚礼 | 戴面纱嘅新娘 | 新娘 | 浅肤色 | 面纱</annotation>
 		<annotation cp="👰🏻" type="tts">戴面纱嘅新娘: 浅肤色</annotation>
 		<annotation cp="👰🏼">中浅肤色 | 婚礼 | 戴面纱嘅新娘 | 新娘 | 面纱</annotation>
@@ -1667,6 +1737,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">戴面纱嘅新娘: 中深肤色</annotation>
 		<annotation cp="👰🏿">婚礼 | 戴面纱嘅新娘 | 新娘 | 深肤色 | 面纱</annotation>
 		<annotation cp="👰🏿" type="tts">戴面纱嘅新娘: 深肤色</annotation>
+		<annotation cp="👰🏻‍♀">女人 | 戴面纱嘅女人 | 浅肤色 | 面纱</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">戴面纱嘅女人: 浅肤色</annotation>
+		<annotation cp="👰🏼‍♀">中浅肤色 | 女人 | 戴面纱嘅女人 | 面纱</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">戴面纱嘅女人: 中浅肤色</annotation>
+		<annotation cp="👰🏽‍♀">中肤色 | 女人 | 戴面纱嘅女人 | 面纱</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">戴面纱嘅女人: 中肤色</annotation>
+		<annotation cp="👰🏾‍♀">中深肤色 | 女人 | 戴面纱嘅女人 | 面纱</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">戴面纱嘅女人: 中深肤色</annotation>
+		<annotation cp="👰🏿‍♀">女人 | 戴面纱嘅女人 | 深肤色 | 面纱</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">戴面纱嘅女人: 深肤色</annotation>
+		<annotation cp="👰🏻‍♂">戴面纱嘅男人 | 浅肤色 | 男人 | 面纱</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">戴面纱嘅男人: 浅肤色</annotation>
+		<annotation cp="👰🏼‍♂">中浅肤色 | 戴面纱嘅男人 | 男人 | 面纱</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">戴面纱嘅男人: 中浅肤色</annotation>
+		<annotation cp="👰🏽‍♂">中肤色 | 戴面纱嘅男人 | 男人 | 面纱</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">戴面纱嘅男人: 中肤色</annotation>
+		<annotation cp="👰🏾‍♂">中深肤色 | 戴面纱嘅男人 | 男人 | 面纱</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">戴面纱嘅男人: 中深肤色</annotation>
+		<annotation cp="👰🏿‍♂">戴面纱嘅男人 | 深肤色 | 男人 | 面纱</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">戴面纱嘅男人: 深肤色</annotation>
 		<annotation cp="🤰🏻">女 | 孕妇 | 怀孕 | 浅肤色</annotation>
 		<annotation cp="🤰🏻" type="tts">孕妇: 浅肤色</annotation>
 		<annotation cp="🤰🏼">中浅肤色 | 女 | 孕妇 | 怀孕</annotation>
@@ -2077,15 +2167,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">跪嘅女人: 中深肤色</annotation>
 		<annotation cp="🧎🏿‍♀">女 | 深肤色 | 跪 | 跪嘅女人</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">跪嘅女人: 深肤色</annotation>
-		<annotation cp="🧑🏻‍🦯">无障碍 | 浅肤色 | 盲人</annotation>
+		<annotation cp="🧑🏻‍🦯">揸柺杖嘅人 | 无障碍 | 浅肤色 | 盲人</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">揸柺杖嘅人: 浅肤色</annotation>
-		<annotation cp="🧑🏼‍🦯">中浅肤色 | 无障碍 | 盲人</annotation>
+		<annotation cp="🧑🏼‍🦯">中浅肤色 | 揸柺杖嘅人 | 无障碍 | 盲人</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">揸柺杖嘅人: 中浅肤色</annotation>
-		<annotation cp="🧑🏽‍🦯">中肤色 | 无障碍 | 盲人</annotation>
+		<annotation cp="🧑🏽‍🦯">中肤色 | 揸柺杖嘅人 | 无障碍 | 盲人</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">揸柺杖嘅人: 中肤色</annotation>
-		<annotation cp="🧑🏾‍🦯">中深肤色 | 无障碍 | 盲人</annotation>
+		<annotation cp="🧑🏾‍🦯">中深肤色 | 揸柺杖嘅人 | 无障碍 | 盲人</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">揸柺杖嘅人: 中深肤色</annotation>
-		<annotation cp="🧑🏿‍🦯">无障碍 | 深肤色 | 盲人</annotation>
+		<annotation cp="🧑🏿‍🦯">揸柺杖嘅人 | 无障碍 | 深肤色 | 盲人</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">揸柺杖嘅人: 深肤色</annotation>
 		<annotation cp="👨🏻‍🦯">拎拐杖嘅男人 | 无障碍 | 浅肤色 | 男人 | 盲</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">拎拐杖嘅男人: 浅肤色</annotation>
@@ -2107,15 +2197,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">拎拐杖嘅女人: 中深肤色</annotation>
 		<annotation cp="👩🏿‍🦯">女人 | 拎拐杖嘅女人 | 无障碍 | 深肤色 | 盲</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">拎拐杖嘅女人: 深肤色</annotation>
-		<annotation cp="🧑🏻‍🦼">无障碍 | 浅肤色 | 轮椅</annotation>
+		<annotation cp="🧑🏻‍🦼">坐电动轮椅嘅人 | 无障碍 | 浅肤色 | 轮椅</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">坐电动轮椅嘅人: 浅肤色</annotation>
-		<annotation cp="🧑🏼‍🦼">中浅肤色 | 无障碍 | 轮椅</annotation>
+		<annotation cp="🧑🏼‍🦼">中浅肤色 | 坐电动轮椅嘅人 | 无障碍 | 轮椅</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">坐电动轮椅嘅人: 中浅肤色</annotation>
-		<annotation cp="🧑🏽‍🦼">中肤色 | 无障碍 | 轮椅</annotation>
+		<annotation cp="🧑🏽‍🦼">中肤色 | 坐电动轮椅嘅人 | 无障碍 | 轮椅</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">坐电动轮椅嘅人: 中肤色</annotation>
-		<annotation cp="🧑🏾‍🦼">中深肤色 | 无障碍 | 轮椅</annotation>
+		<annotation cp="🧑🏾‍🦼">中深肤色 | 坐电动轮椅嘅人 | 无障碍 | 轮椅</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">坐电动轮椅嘅人: 中深肤色</annotation>
-		<annotation cp="🧑🏿‍🦼">无障碍 | 深肤色 | 轮椅</annotation>
+		<annotation cp="🧑🏿‍🦼">坐电动轮椅嘅人 | 无障碍 | 深肤色 | 轮椅</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">坐电动轮椅嘅人: 深肤色</annotation>
 		<annotation cp="👨🏻‍🦼">坐电动轮椅嘅男人 | 无障碍 | 浅肤色 | 男人 | 轮椅</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">坐电动轮椅嘅男人: 浅肤色</annotation>
@@ -2137,15 +2227,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">坐电动轮椅嘅女人: 中深肤色</annotation>
 		<annotation cp="👩🏿‍🦼">坐电动轮椅嘅女人 | 女人 | 无障碍 | 深肤色 | 轮椅</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">坐电动轮椅嘅女人: 深肤色</annotation>
-		<annotation cp="🧑🏻‍🦽">无障碍 | 浅肤色 | 轮椅</annotation>
+		<annotation cp="🧑🏻‍🦽">坐手动轮椅嘅人 | 无障碍 | 浅肤色 | 轮椅</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">坐手动轮椅嘅人: 浅肤色</annotation>
-		<annotation cp="🧑🏼‍🦽">中浅肤色 | 无障碍 | 轮椅</annotation>
+		<annotation cp="🧑🏼‍🦽">中浅肤色 | 坐手动轮椅嘅人 | 无障碍 | 轮椅</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">坐手动轮椅嘅人: 中浅肤色</annotation>
-		<annotation cp="🧑🏽‍🦽">中肤色 | 无障碍 | 轮椅</annotation>
+		<annotation cp="🧑🏽‍🦽">中肤色 | 坐手动轮椅嘅人 | 无障碍 | 轮椅</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">坐手动轮椅嘅人: 中肤色</annotation>
-		<annotation cp="🧑🏾‍🦽">中深肤色 | 无障碍 | 轮椅</annotation>
+		<annotation cp="🧑🏾‍🦽">中深肤色 | 坐手动轮椅嘅人 | 无障碍 | 轮椅</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">坐手动轮椅嘅人: 中深肤色</annotation>
-		<annotation cp="🧑🏿‍🦽">无障碍 | 深肤色 | 轮椅</annotation>
+		<annotation cp="🧑🏿‍🦽">坐手动轮椅嘅人 | 无障碍 | 深肤色 | 轮椅</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">坐手动轮椅嘅人: 深肤色</annotation>
 		<annotation cp="👨🏻‍🦽">坐手动轮椅嘅男人 | 无障碍 | 浅肤色 | 男人 | 轮椅</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">坐手动轮椅嘅男人: 浅肤色</annotation>
@@ -2719,16 +2809,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">喺床上嘅人: 深肤色</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">拖住嘅人: 浅肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">中浅肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">拖住嘅人: 浅肤色 中浅肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">中肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">拖住嘅人: 浅肤色 中肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">中深肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">拖住嘅人: 浅肤色 中深肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色 | 深肤色</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">拖住嘅人: 浅肤色 深肤色</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">中浅肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">拖住嘅人: 中浅肤色 浅肤色</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">中浅肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">拖住嘅人: 中浅肤色</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">中浅肤色 | 中肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">拖住嘅人: 中浅肤色 中肤色</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">中浅肤色 | 中深肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">拖住嘅人: 中浅肤色 中深肤色</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">中浅肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 深肤色</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">拖住嘅人: 中浅肤色 深肤色</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">中肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">拖住嘅人: 中肤色 浅肤色</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">中浅肤色 | 中肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">拖住嘅人: 中肤色 中浅肤色</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">中肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">拖住嘅人: 中肤色</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">中深肤色 | 中肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">拖住嘅人: 中肤色 中深肤色</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">中肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 深肤色</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">拖住嘅人: 中肤色 深肤色</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">中深肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">拖住嘅人: 中深肤色 浅肤色</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">中浅肤色 | 中深肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
@@ -2737,6 +2845,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">拖住嘅人: 中深肤色 中肤色</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">中深肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">拖住嘅人: 中深肤色</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">中深肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 深肤色</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">拖住嘅人: 中深肤色 深肤色</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 浅肤色 | 深肤色</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">拖住嘅人: 深肤色 浅肤色</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">中浅肤色 | 人 | 情侣 | 手 | 拖住 | 拖住嘅人 | 拖住嘅手 | 深肤色</annotation>
@@ -2749,16 +2859,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">拖住嘅人: 深肤色</annotation>
 		<annotation cp="👭🏻">两个女人拖手 | 夫妇 | 女 | 手 | 拖 | 浅肤色</annotation>
 		<annotation cp="👭🏻" type="tts">两个女人拖手: 浅肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">两个女人拖手 | 中浅肤色 | 夫妇 | 女 | 手 | 拖 | 浅肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">两个女人拖手: 浅肤色 中浅肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">两个女人拖手 | 中肤色 | 夫妇 | 女 | 手 | 拖 | 浅肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">两个女人拖手: 浅肤色 中肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">两个女人拖手 | 中深肤色 | 夫妇 | 女 | 手 | 拖 | 浅肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">两个女人拖手: 浅肤色 中深肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">两个女人拖手 | 夫妇 | 女 | 手 | 拖 | 浅肤色 | 深肤色</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">两个女人拖手: 浅肤色 深肤色</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">两个女人拖手 | 中浅肤色 | 夫妇 | 女 | 手 | 拖 | 浅肤色</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">两个女人拖手: 中浅肤色 浅肤色</annotation>
 		<annotation cp="👭🏼">两个女人拖手 | 中浅肤色 | 夫妇 | 女 | 手 | 拖</annotation>
 		<annotation cp="👭🏼" type="tts">两个女人拖手: 中浅肤色</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">两个女人拖手 | 中浅肤色 | 中肤色 | 夫妇 | 女 | 手 | 拖</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">两个女人拖手: 中浅肤色 中肤色</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">两个女人拖手 | 中浅肤色 | 中深肤色 | 夫妇 | 女 | 手 | 拖</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">两个女人拖手: 中浅肤色 中深肤色</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">两个女人拖手 | 中浅肤色 | 夫妇 | 女 | 手 | 拖 | 深肤色</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">两个女人拖手: 中浅肤色 深肤色</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">两个女人拖手 | 中肤色 | 夫妇 | 女 | 手 | 拖 | 浅肤色</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">两个女人拖手: 中肤色 浅肤色</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">两个女人拖手 | 中浅肤色 | 中肤色 | 夫妇 | 女 | 手 | 拖</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">两个女人拖手: 中肤色 中浅肤色</annotation>
 		<annotation cp="👭🏽">两个女人拖手 | 中肤色 | 夫妇 | 女 | 手 | 拖</annotation>
 		<annotation cp="👭🏽" type="tts">两个女人拖手: 中肤色</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">两个女人拖手 | 中深肤色 | 中肤色 | 夫妇 | 女 | 手 | 拖</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">两个女人拖手: 中肤色 中深肤色</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">两个女人拖手 | 中肤色 | 夫妇 | 女 | 手 | 拖 | 深肤色</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">两个女人拖手: 中肤色 深肤色</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">两个女人拖手 | 中深肤色 | 夫妇 | 女 | 手 | 拖 | 浅肤色</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">两个女人拖手: 中深肤色 浅肤色</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">两个女人拖手 | 中浅肤色 | 中深肤色 | 夫妇 | 女 | 手 | 拖</annotation>
@@ -2767,6 +2895,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">两个女人拖手: 中深肤色 中肤色</annotation>
 		<annotation cp="👭🏾">两个女人拖手 | 中深肤色 | 夫妇 | 女 | 手 | 拖</annotation>
 		<annotation cp="👭🏾" type="tts">两个女人拖手: 中深肤色</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">两个女人拖手 | 中深肤色 | 夫妇 | 女 | 手 | 拖 | 深肤色</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">两个女人拖手: 中深肤色 深肤色</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">两个女人拖手 | 夫妇 | 女 | 手 | 拖 | 浅肤色 | 深肤色</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">两个女人拖手: 深肤色 浅肤色</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">两个女人拖手 | 中浅肤色 | 夫妇 | 女 | 手 | 拖 | 深肤色</annotation>
@@ -2829,16 +2959,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">男女拖手: 深肤色</annotation>
 		<annotation cp="👬🏻">两个男人拖手 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 男</annotation>
 		<annotation cp="👬🏻" type="tts">两个男人拖手: 浅肤色</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">两个男人拖手 | 中浅肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 男</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">两个男人拖手: 浅肤色 中浅肤色</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">两个男人拖手 | 中肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 男</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">两个男人拖手: 浅肤色 中肤色</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">两个男人拖手 | 中深肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 男</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">两个男人拖手: 浅肤色 中深肤色</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">两个男人拖手 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 深肤色 | 男</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">两个男人拖手: 浅肤色 深肤色</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">两个男人拖手 | 中浅肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 男</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">两个男人拖手: 中浅肤色 浅肤色</annotation>
 		<annotation cp="👬🏼">两个男人拖手 | 中浅肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
 		<annotation cp="👬🏼" type="tts">两个男人拖手: 中浅肤色</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">两个男人拖手 | 中浅肤色 | 中肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">两个男人拖手: 中浅肤色 中肤色</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">两个男人拖手 | 中浅肤色 | 中深肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">两个男人拖手: 中浅肤色 中深肤色</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">两个男人拖手 | 中浅肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 深肤色 | 男</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">两个男人拖手: 中浅肤色 深肤色</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">两个男人拖手 | 中肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 男</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">两个男人拖手: 中肤色 浅肤色</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">两个男人拖手 | 中浅肤色 | 中肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">两个男人拖手: 中肤色 中浅肤色</annotation>
 		<annotation cp="👬🏽">两个男人拖手 | 中肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
 		<annotation cp="👬🏽" type="tts">两个男人拖手: 中肤色</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">两个男人拖手 | 中深肤色 | 中肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">两个男人拖手: 中肤色 中深肤色</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">两个男人拖手 | 中肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 深肤色 | 男</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">两个男人拖手: 中肤色 深肤色</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">两个男人拖手 | 中深肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 男</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">两个男人拖手: 中深肤色 浅肤色</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">两个男人拖手 | 中浅肤色 | 中深肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
@@ -2847,6 +2995,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">两个男人拖手: 中深肤色 中肤色</annotation>
 		<annotation cp="👬🏾">两个男人拖手 | 中深肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 男</annotation>
 		<annotation cp="👬🏾" type="tts">两个男人拖手: 中深肤色</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">两个男人拖手 | 中深肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 深肤色 | 男</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">两个男人拖手: 中深肤色 深肤色</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">两个男人拖手 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 浅肤色 | 深肤色 | 男</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">两个男人拖手: 深肤色 浅肤色</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">两个男人拖手 | 中浅肤色 | 双子座 | 双胞胎 | 夫妇 | 手 | 拖 | 星座 | 深肤色 | 男</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -134,6 +134,21 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👲🏽">gua pi mao | hat | man | man with Chinese cap | medium skin tone | skullcap</annotation>
 		<annotation cp="👲🏾">gua pi mao | hat | man | man with Chinese cap | medium-dark skin tone | skullcap</annotation>
 		<annotation cp="👲🏿">dark skin tone | gua pi mao | hat | man | man with Chinese cap | skullcap</annotation>
+		<annotation cp="🤵🏻">groom | light skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏼">groom | medium-light skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏽">groom | medium skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏾">groom | medium-dark skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏿">dark skin tone | groom | person | person in tux | person in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏻‍♀">light skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
+		<annotation cp="🤵🏼‍♀">medium-light skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
+		<annotation cp="🤵🏽‍♀">medium skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
+		<annotation cp="🤵🏾‍♀">medium-dark skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
+		<annotation cp="🤵🏿‍♀">dark skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
+		<annotation cp="🤵🏻‍♂">light skin tone | man | man in tux | man in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵🏼‍♂">man | man in tux | man in tuxedo | medium-light skin tone | tuxedo</annotation>
+		<annotation cp="🤵🏽‍♂">man | man in tux | man in tuxedo | medium skin tone | tuxedo</annotation>
+		<annotation cp="🤵🏾‍♂">man | man in tux | man in tuxedo | medium-dark skin tone | tuxedo</annotation>
+		<annotation cp="🤵🏿‍♂">dark skin tone | man | man in tux | man in tuxedo | tuxedo</annotation>
 		<annotation cp="🤱🏻">baby | breast | breastfeeding | light skin tone | nursing</annotation>
 		<annotation cp="🤱🏻" type="tts">breastfeeding: light skin tone</annotation>
 		<annotation cp="🤱🏼">baby | breast | breastfeeding | medium-light skin tone | nursing</annotation>
@@ -164,10 +179,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💇🏽">barber | beauty | haircut | hairdresser | medium skin tone | parlour</annotation>
 		<annotation cp="💇🏾">barber | beauty | haircut | hairdresser | medium-dark skin tone | parlour</annotation>
 		<annotation cp="💇🏿">barber | beauty | dark skin tone | haircut | hairdresser | parlour</annotation>
+		<annotation cp="🧑🏻‍🦯">accessibility | blind | light skin tone | person with guide cane</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">person with guide cane: light skin tone</annotation>
+		<annotation cp="🧑🏼‍🦯">accessibility | blind | medium-light skin tone | person with guide cane</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">person with guide cane: medium-light skin tone</annotation>
+		<annotation cp="🧑🏽‍🦯">accessibility | blind | medium skin tone | person with guide cane</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">person with guide cane: medium skin tone</annotation>
+		<annotation cp="🧑🏾‍🦯">accessibility | blind | medium-dark skin tone | person with guide cane</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">person with guide cane: medium-dark skin tone</annotation>
+		<annotation cp="🧑🏿‍🦯">accessibility | blind | dark skin tone | person with guide cane</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">person with guide cane: dark skin tone</annotation>
 		<annotation cp="👨🏻‍🦯">accessibility | blind | light skin tone | man | man with guide cane</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">man with guide cane: light skin tone</annotation>
@@ -189,10 +209,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦯" type="tts">woman with guide cane: medium-dark skin tone</annotation>
 		<annotation cp="👩🏿‍🦯">accessibility | blind | dark skin tone | woman | woman with guide cane</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">woman with guide cane: dark skin tone</annotation>
+		<annotation cp="🧑🏻‍🦼">accessibility | light skin tone | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">person in powered wheelchair: light skin tone</annotation>
+		<annotation cp="🧑🏼‍🦼">accessibility | medium-light skin tone | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">person in powered wheelchair: medium-light skin tone</annotation>
+		<annotation cp="🧑🏽‍🦼">accessibility | medium skin tone | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">person in powered wheelchair: medium skin tone</annotation>
+		<annotation cp="🧑🏾‍🦼">accessibility | medium-dark skin tone | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">person in powered wheelchair: medium-dark skin tone</annotation>
+		<annotation cp="🧑🏿‍🦼">accessibility | dark skin tone | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">person in powered wheelchair: dark skin tone</annotation>
 		<annotation cp="👨🏻‍🦼">accessibility | light skin tone | man | man in powered wheelchair | wheelchair</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">man in powered wheelchair: light skin tone</annotation>

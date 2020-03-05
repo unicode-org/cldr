@@ -1307,7 +1307,9 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestEmojiOrder() {
         PathHeader.Factory phf = PathHeader.getFactory();
-        String[] desiredOrder = {"👨‍⚕", "👩‍⚕", "🧑‍⚕", "👨‍⚖", "👩‍⚖", "🧑‍⚖"};
+        String[] desiredOrder = {
+            "🧑‍⚕", "👨‍⚕", "👩‍⚕",
+            "🧑‍⚖", "👨‍⚖", "👩‍⚖"};
         List<PathHeader> pathHeaders = new ArrayList<>();
         for (String emoji : desiredOrder) {
             String base = "//ldml/annotations/annotation[@cp=\"" + emoji + "\"]";

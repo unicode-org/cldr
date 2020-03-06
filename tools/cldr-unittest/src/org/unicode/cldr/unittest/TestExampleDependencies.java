@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -24,14 +25,12 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestExampleDependencies extends TestFmwk {
-    CLDRConfig info = CLDRConfig.getInstance();
 
-    static boolean testDependencies = false; // make true to test
+    private final boolean JUST_LIST_PATHS = false;
+    private final boolean USE_STARRED_PATHS = true;
 
     public static void main(String[] args) {
-        testDependencies = true;
         new TestExampleDependencies().run(args);
-        testDependencies = false;
     }
 
     /**
@@ -44,26 +43,43 @@ public class TestExampleDependencies extends TestFmwk {
      * @throws IOException
      */
     public void TestExampleGeneratorDependencies() throws IOException {
-        if (!testDependencies) {
-            return;
-        }
-        final boolean JUST_LIST_PATHS = false;
-        final boolean USE_STARRED_PATHS = true;
-
         /*
          * Different localeId gives different dependencies.
-         * So far, have tested with these locales:
+         * For example:
          *   "fr": 650 "type A"
          *   "de": 652 "type A"
          *   "am": 618 "type A"
-         *   "zh": 12521 "type A"!
-         *   "ar": ?
+         *   "zh": 12521 "type A"
          */
-        final String localeId = "sr_Cyrl_BA";
+        final CLDRConfig info = CLDRConfig.getInstance();
+        final CLDRFile englishFile = info.getEnglish();
+        final Factory factory = info.getCldrFactory();
+        final Set<String> locales = factory.getAvailable();
+        final String outputDir = CLDRPaths.GEN_DIRECTORY + "test/";
 
-        CLDRFile englishFile = info.getEnglish();
+        System.out.println("...");
+        System.out.println("Starting to loop through " + locales.size() + " locales ...");
 
-        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        for (String localeId : locales) {
+            // if (CLDRFile.isSupplementalName(localeID)) continue;
+
+            String fileName = "example_dependencies_A_"
+                + localeId
+                + (USE_STARRED_PATHS ? "_star" : "") + ".json";
+
+            if (JUST_LIST_PATHS) {
+                fileName = "allpaths_" + localeId + ".txt";
+            }
+            if (new File(outputDir, fileName).exists()) {
+                System.out.println("Locale: " + localeId + " -- skipping since " + fileName + " already exists");
+            } else {
+                System.out.println("Locale: " + localeId + " -- creating " + fileName + " ...");
+                writeOneLocale(localeId, outputDir, fileName, factory, englishFile);
+            }
+        }
+    }
+
+    private void writeOneLocale(String localeId, String outputDir, String fileName, Factory factory, CLDRFile englishFile) {
         CLDRFile cldrFile = makeMutableResolved(factory, localeId); // time-consuming
         cldrFile.disableCaching();
         CLDRFile top = cldrFile.getUnresolved(); // can mutate top
@@ -71,9 +87,12 @@ public class TestExampleDependencies extends TestFmwk {
         Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
         CollectionUtilities.addAll(cldrFile.iterator(), paths); // time-consuming
         if (JUST_LIST_PATHS) {
-            String dir = CLDRPaths.GEN_DIRECTORY + "test/";
-            String name = "allpaths_" + localeId + ".txt";
-            PrintWriter writer = FileUtilities.openUTF8Writer(dir, name);
+            PrintWriter writer;
+            try {
+                writer = FileUtilities.openUTF8Writer(outputDir, fileName);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             ArrayList<String> list = new ArrayList<String>(paths);
             Collections.sort(list);
             for (String path : list) {
@@ -100,9 +119,6 @@ public class TestExampleDependencies extends TestFmwk {
                 continue;
             }
             originalValues.put(path, value);
-            if (false && path.equals("//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol")) {
-                System.out.println("Got " + path + " in first loop ...");
-            }
             egBase.getExampleHtml(path, value);
         }
         /*
@@ -127,7 +143,7 @@ public class TestExampleDependencies extends TestFmwk {
         long dependencyCount = 0;
 
         for (String pathA : paths) {
-            if (skipPathForDependencies(pathA, true)) {
+            if (skipPathForDependencies(pathA)) {
                 ++skipCount;
                 continue;
             }
@@ -171,7 +187,7 @@ public class TestExampleDependencies extends TestFmwk {
             boolean maybeTypeA = ExampleGenerator.pathMightBeTypeA(pathA);
 
             for (String pathB : paths) {
-                if (pathA.equals(pathB) || skipPathForDependencies(pathB, false)) {
+                if (pathA.equals(pathB) || skipPathForDependencies(pathB)) {
                     continue;
                 }
                 /*
@@ -234,8 +250,11 @@ public class TestExampleDependencies extends TestFmwk {
             }
         }
         final boolean countOnly = false;
-        writeDependenciesToFile(dependenciesA, "example_dependencies_A_" + localeId
-                + (USE_STARRED_PATHS ? "_star" : ""), countOnly);
+        try {
+            writeDependenciesToFile(dependenciesA, outputDir, fileName, countOnly);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // writeDependenciesToFile(dependenciesB, "example_dependencies_B_" + localeId, countOnly);
         System.out.println("count = " + count + "; skipCount = " + skipCount + "; dependencyCount = " + dependencyCount);
     }
@@ -316,31 +335,9 @@ public class TestExampleDependencies extends TestFmwk {
      * @param isTypeA true if path is playing role of pathA not pathB
      * @return true to skip, else false
      */
-    private static boolean skipPathForDependencies(String path, boolean isTypeA) {
+    private static boolean skipPathForDependencies(String path) {
         if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
             return true;
-        }
-        if (false && isTypeA) {
-            final String[] toSkip = {
-                "//ldml/characters/ellipsis",
-                "//ldml/characters/exemplarCharacters",
-                "//ldml/characters/parseLenients",
-                "//ldml/layout/orientation/lineOrder",
-                "//ldml/localeDisplayNames/codePatterns/codePattern",
-                "//ldml/localeDisplayNames/keys/key",
-                "//ldml/localeDisplayNames/languages/language",
-                "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
-                "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                "//ldml/localeDisplayNames/scripts/script",
-                "//ldml/localeDisplayNames/territories/territory",
-                "//ldml/localeDisplayNames/types/type",
-                "//ldml/localeDisplayNames/variants/variant",
-            };
-            for (String s: toSkip) {
-                if (path.startsWith(s)) {
-                    return true;
-                }
-            }
         }
         return false;
     }
@@ -359,11 +356,10 @@ public class TestExampleDependencies extends TestFmwk {
      *
      * @throws IOException
      */
-    private void writeDependenciesToFile(HashMap<String, HashSet<String>> dependencies, String fileName, boolean countOnly) throws IOException {
+    private void writeDependenciesToFile(HashMap<String, HashSet<String>> dependencies, String dir, String name, boolean countOnly) throws IOException {
         // JSONObject json = new JSONObject(dependencies);
         // json.write(writer);
-        String dir = CLDRPaths.GEN_DIRECTORY + "test/";
-        String name = fileName + ".json";
+
         PrintWriter writer = FileUtilities.openUTF8Writer(dir, name);
         writer.println("{");
 

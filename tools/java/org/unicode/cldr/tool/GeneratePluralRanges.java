@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -231,7 +232,7 @@ public class GeneratePluralRanges {
     public void reformatPluralRanges() {
         Map<Set<Count>, Relation<Set<String>, String>> seen = new TreeMap<Set<Count>, Relation<Set<String>, String>>(COUNT_SET_COMPARATOR);
         try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(CLDRPaths.SUPPLEMENTAL_DIRECTORY,"pluralRanges.xml")) {
-            out.println(DtdType.supplementalData.header(GeneratePluralRanges.class) + 
+            out.println(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass()) + 
                 "\t<version number=\"$Revision$\" />\n" + 
                 "\t<plurals>" 
                 );

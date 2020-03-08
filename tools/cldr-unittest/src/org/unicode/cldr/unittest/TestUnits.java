@@ -60,6 +60,7 @@ import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
@@ -74,12 +75,12 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
+    private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false); // set for verbose debugging information
+    private static final boolean GENERATE_TESTS = CldrUtility.getProperty("TestUnits:GENERATE_TESTS", false);
+
     private static final String TEST_SEP = ";\t";
 
     private static final ImmutableSet<String> WORLD_SET = ImmutableSet.of("001");
-
-    private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false);
-
     private static final CLDRConfig info = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
 
@@ -483,7 +484,7 @@ public class TestUnits extends TestFmwk {
         }
 
         // check all 
-        if (SHOW_DATA) System.out.println();
+        if (GENERATE_TESTS) System.out.println();
         Set<String> badUnits = new LinkedHashSet<>();
         Set<String> noQuantity = new LinkedHashSet<>();
         Multimap<Pair<String,Double>, String> testPrintout = TreeMultimap.create();
@@ -498,9 +499,7 @@ public class TestUnits extends TestFmwk {
             }
             checkUnitConvertability(converter, compoundBaseUnit, badUnits, noQuantity, type, unit, testPrintout);
         }
-        assertEquals("Unconvertable units", Collections.emptySet(), badUnits);
-        assertEquals("Units without Quantity", Collections.emptySet(), noQuantity);
-        if (SHOW_DATA) { // test data
+        if (GENERATE_TESTS) { // test data
             System.out.println(
                 "# Test data for unit conversions\n" 
                     + "# Format:\n"
@@ -511,12 +510,14 @@ public class TestUnits extends TestFmwk {
                     + "#   round to 4 decimal digits before comparing.\n"
                     + "# Note that certain conversions are approximate, such as degrees to radians\n"
                     + "#\n"
-                    + "# Generation: Set SHOW_DATA in TestUnits.java, and look at TestParseUnit results.\n"
+                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestParseUnit results.\n"
                 );
             for (Entry<Pair<String, Double>, String> entry : testPrintout.entries()) {
                 System.out.println(entry.getValue());
             }
         }
+        assertEquals("Unconvertable units", Collections.emptySet(), badUnits);
+        assertEquals("Units without Quantity", Collections.emptySet(), noQuantity);
     }
 
     static final Set<String> NOT_CONVERTABLE = ImmutableSet.of("generic");
@@ -530,7 +531,7 @@ public class TestUnits extends TestFmwk {
             if (quantity == null) {
                 noQuantity.add(unit);
             }
-            if (SHOW_DATA) {
+            if (GENERATE_TESTS) {
                 testPrintout.put(
                     new Pair<>(quantity, 1000d),
                     quantity
@@ -545,7 +546,7 @@ public class TestUnits extends TestFmwk {
             }
             if (unitInfo == null) {
                 badUnits.add(unit);
-            } else if (SHOW_DATA){
+            } else if (GENERATE_TESTS){
                 String quantity = converter.getQuantityFromBaseUnit(compoundBaseUnit.value);
                 if (quantity == null) {
                     noQuantity.add(compoundBaseUnit.value);
@@ -1355,7 +1356,7 @@ public class TestUnits extends TestFmwk {
 //        }
         prefs.getFastMap(converter); // call just to make sure we don't get an exception
 
-        if (SHOW_DATA) {
+        if (GENERATE_TESTS) {
             System.out.println(
                 "\n# Test data for unit preferences\n" 
                     + "# Format:\n"
@@ -1372,7 +1373,7 @@ public class TestUnits extends TestFmwk {
                     + "#\t The input and output units are unit identifers; they are neither localized nor adjusted for pluralization,"
                     + "#\t nor formatted with the skeleton.\n"
                     + "#\n"
-                    + "# Generation: Set SHOW_DATA in TestUnits.java, and look at TestUnitPreferences results.\n"
+                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestUnitPreferences results.\n"
                 );
             Rational ONE_TENTH = Rational.of(1,10);
 
@@ -1452,5 +1453,151 @@ public class TestUnits extends TestFmwk {
         System.out.println(quantity + TEST_SEP + usage + TEST_SEP + sampleRegion 
             + TEST_SEP + sampleBaseValue + TEST_SEP + sampleBaseValue.doubleValue() + TEST_SEP + baseUnit 
             + TEST_SEP + formattedUnit);
+    }
+
+    public void TestWithExternalData() throws IOException {
+
+        Multimap<String, ExternalUnitConversionData> seen = HashMultimap.create();
+        Set<ExternalUnitConversionData> cantConvert = new LinkedHashSet<>();
+        Map<ExternalUnitConversionData, Rational> convertDiff = new LinkedHashMap<>();
+        Set<String> remainingCldrUnits = new LinkedHashSet<>(converter.getInternalConversionData().keySet());
+
+        if (SHOW_DATA) {
+            System.out.println();
+        }
+        for (ExternalUnitConversionData data : NistUnits.externalConversionData) {
+            Rational externalResult = data.info.convert(Rational.ONE);
+            Rational cldrResult = converter.convert(Rational.ONE, data.source, data.target, false);
+            seen.put(data.source + "⟹" + data.target, data);
+            if (cldrResult.equals(Rational.NaN)) {
+                cantConvert.add(data);
+            } else {
+                final Rational symmetricDiff = symmetricDiff(externalResult, cldrResult);
+                if (symmetricDiff.compareTo(Rational.of(1, 1000000)) > 0){
+                    convertDiff.put(data, cldrResult);
+                } else {
+                    remainingCldrUnits.remove(data.source);
+                    remainingCldrUnits.remove(data.target);
+                    if (SHOW_DATA) System.out.println("*Converted"
+                        + "\t" + cldrResult.doubleValue() 
+                        + "\t" + externalResult.doubleValue() 
+                        + "\t" + symmetricDiff.doubleValue() 
+                        + "\t" + data);
+                }
+            }
+        }
+
+        // get additional data on derived units
+        for (Entry<String, TargetInfo> e : NistUnits.derivedUnitToConversion.entrySet()) {
+            String sourceUnit = e.getKey();
+            TargetInfo targetInfo = e.getValue();
+
+            Rational conversion = converter.convert(Rational.ONE, sourceUnit, targetInfo.target, false);
+            if (conversion.equals(Rational.NaN)) {
+                warnln("Could add conversion from\t" +  sourceUnit  + "\t" + targetInfo);
+            }
+        }
+        if (SHOW_DATA) {
+            for (Entry<String, Collection<String>> e : NistUnits.unitToQuantity.asMap().entrySet()) {
+                System.out.println("*Quantities:"  + "\t" +  e.getKey()  + "\t" +  e.getValue());
+            }
+        }
+
+        for (String remainingUnit : remainingCldrUnits) {
+            final TargetInfo targetInfo = converter.getInternalConversionData().get(remainingUnit);
+            if (!targetInfo.target.contentEquals(remainingUnit)) {
+                warnln("Not tested against external data\t" + remainingUnit + "\t" + targetInfo);
+            }
+        }
+
+        boolean showDiagnostics = false;
+        for (Entry<String, Collection<ExternalUnitConversionData>> entry : seen.asMap().entrySet()) {
+            if (entry.getValue().size() != 1) {
+                Multimap<ConversionInfo, ExternalUnitConversionData> factors = HashMultimap.create();
+                for (ExternalUnitConversionData s : entry.getValue()) {
+                    factors.put(s.info, s);
+                }
+                if (factors.keySet().size() > 1) {
+                    for (ExternalUnitConversionData s : entry.getValue()) {
+                        errln("*DUP-" + s);
+                        showDiagnostics = true;
+                    }
+                }
+            }
+        }
+
+        if (convertDiff.size() > 0) {
+            for (Entry<ExternalUnitConversionData, Rational> e : convertDiff.entrySet()) {
+                final Rational computed = e.getValue();
+                final ExternalUnitConversionData external = e.getKey();
+                Rational externalResult = external.info.convert(Rational.ONE);
+                showDiagnostics = true;
+                // for debugging
+                converter.convert(Rational.ONE, external.source, external.target, true);
+
+                errln("*DIFF CONVERT:"
+                    + "\t" + external.source
+                    + "\t⟹\t" + external.target
+                    + "\texpected\t" + externalResult.doubleValue()
+                    + "\tactual:\t" + computed.doubleValue()
+                    + "\tsdiff:\t" + symmetricDiff(computed, externalResult).doubleValue()
+                    + "\txdata:\t" + external);
+            }
+        }
+
+        // temporary: show the items that didn't covert correctly
+        if (showDiagnostics) {
+            System.out.println();
+            Rational x = showDelta("pound-fahrenheit", "gram-celsius", false);
+            Rational y = showDelta("calorie", "joule", false);
+            showDelta("product\t", x.multiply(y));
+            showDelta("british-thermal-unit", "calorie", false);
+            showDelta("inch-ofhg", "pascal", false);
+            showDelta("millimeter-ofhg", "pascal", false);
+            showDelta("ofhg", "kilogram-per-square-meter-square-second", false);
+            showDelta("13595.1*gravity", Rational.of("9.80665*13595.1"));
+
+            showDelta("fahrenheit-hour-square-foot-per-british-thermal-unit-inch", "meter-kelvin-per-watt", true);
+        }
+
+        if (showDiagnostics && NistUnits.skipping.size() > 0) {
+            System.out.println();
+            for (String s : NistUnits.skipping) {
+                System.out.println("*SKIPPING " + s);
+            }
+        }
+        if (showDiagnostics && NistUnits.idChanges.size() > 0) {
+            System.out.println();
+            for (Entry<String, Collection<String>> e : NistUnits.idChanges.asMap().entrySet()) {
+                if (SHOW_DATA) System.out.println("*CHANGES\t" + e.getKey() + "\t" + Joiner.on('\t').join(e.getValue()));
+            }
+        }
+
+        if (showDiagnostics && cantConvert.size() > 0) {
+            System.out.println();
+            for (ExternalUnitConversionData e : cantConvert) {
+                System.out.println("*CANT CONVERT-" + e);
+            }
+        }
+    }
+
+    private Rational showDelta(String firstUnit, String secondUnit, boolean showYourWork) {
+        Rational x = converter.convert(Rational.ONE, firstUnit, secondUnit, showYourWork);
+        return showDelta(firstUnit + "\t" + secondUnit, x);
+    }
+
+    private Rational showDelta(final String title, Rational rational) {
+        System.out.print("*CONST\t" + title);
+        System.out.print("\t" + rational.toString(FormatStyle.simple));
+        System.out.println("\t" + rational.doubleValue());
+        return rational;
+    }
+
+    private Rational symmetricDiff(Rational a, Rational b) {
+        return a.subtract(b)
+            .divide(a.add(b))
+            .multiply(Rational.of(2))
+            .abs()
+            ;
     }
 }

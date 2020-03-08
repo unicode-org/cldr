@@ -188,17 +188,17 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='atmosphere' baseUnit='kilogram-per-meter-square-second' factor='101325'/>
 
         <!-- pressure-per-length -->
-        <convertUnit source='ofhg' baseUnit='kilogram-per-square-meter-square-second' factor='10132500000/760000'/>
+        <convertUnit source='ofhg' baseUnit='kilogram-per-square-meter-square-second' factor='13595.1*gravity'/>
 
         <!-- energy -->
         <convertUnit source='electronvolt' baseUnit='kilogram-square-meter-per-square-second' factor='1.602177E-19'/>
         <convertUnit source='dalton' baseUnit='kilogram-square-meter-per-square-second' factor='1.49241808560E-10'/>
         <convertUnit source='joule' baseUnit='kilogram-square-meter-per-square-second'/>
-        <convertUnit source='calorie' baseUnit='kilogram-square-meter-per-square-second' factor='4.184'/>
-        <convertUnit source='british-thermal-unit' baseUnit='kilogram-square-meter-per-square-second' factor='1055.06' systems="ussystem uksystem"/>
-        <convertUnit source='foodcalorie' baseUnit='kilogram-square-meter-per-square-second' factor='4184' systems="ussystem uksystem"/>
-        <convertUnit source='therm-us' baseUnit='kilogram-square-meter-per-square-second' factor='105506000' systems="ussystem"/>
-        
+        <convertUnit source='calorie' baseUnit='kilogram-square-meter-per-square-second' factor='4.184'/> <!-- th -->
+        <convertUnit source='british-thermal-unit' baseUnit='kilogram-square-meter-per-square-second' factor='4.184*2267.96185/9' systems="ussystem uksystem"/> <!-- th -->
+        <convertUnit source='foodcalorie' baseUnit='kilogram-square-meter-per-square-second' factor='4184' systems="ussystem uksystem"/> <!-- th -->
+        <convertUnit source='therm-us' baseUnit='kilogram-square-meter-per-square-second' factor='105480400' systems="ussystem"/>
+
         <!-- power -->
         <convertUnit source='watt' baseUnit='kilogram-square-meter-per-cubic-second'/>
         <convertUnit source='horsepower' baseUnit='kilogram-square-meter-per-cubic-second' factor='ft_to_m * lb_to_kg * gravity * 550' systems="ussystem uksystem"/>

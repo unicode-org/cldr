@@ -48,7 +48,7 @@ public class ChartUnitConversions extends Chart {
             + "<li>" + QUANTITY_MSG + "</li>"
             + "<li>" + SPEC_GENERAL_MSG + ".</li>"
             + "</ul>"
-            + dataScrapeMessage("common/supplemental/units.xml", "common/testData/units/unitsTest.txt", "/tr35-general.html#Contents");
+            + dataScrapeMessage("/tr35-general.html#Contents", "common/testData/units/unitsTest.txt", "common/supplemental/units.xml");
     }
 
     @Override

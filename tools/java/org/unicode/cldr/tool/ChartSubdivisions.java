@@ -41,7 +41,8 @@ public class ChartSubdivisions extends Chart {
     @Override
     public String getExplanation() {
         return "<p>Shows the subdivisions of territories, using the Unicode Subdivision Codes with the English names (and sort order). "
-            + "For more information see the LDML spec.<p>";
+            + "For more information see the LDML spec.<p>"
+            + Chart.dataScrapeMessage(null, null, "common/supplemental/subdivisions.xml", "common/validity/subdivision.xml");
     }
 
     @Override

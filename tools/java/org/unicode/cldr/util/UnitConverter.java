@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 
+import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.Rational.RationalParser;
 
 import com.google.common.base.Splitter;
@@ -142,11 +143,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return toString("x");
         }
         public String toString(String unit) {
-            return factor 
+            return factor.toString(FormatStyle.simple) 
                 + " * " + unit
                 + (offset.equals(Rational.ZERO) ? "" : 
                     (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
-                    + offset.abs());
+                    + offset.abs().toString(FormatStyle.simple));
         }
 
         public String toDecimal() {
@@ -428,35 +429,35 @@ public class UnitConverter implements Freezable<UnitConverter> {
         boolean inNumerator = true;
         int power = 1;
 
-        Output<Rational> deprefix = new Output<>();
-
+        Output<Rational> deprefix = new Output<>();      
         Rational offset = Rational.ZERO;
         int countUnits = 0;
-        for (String unit : Continuation.split(derivedUnit, continuations)) {
+        for (Iterator<String> it = Continuation.split(derivedUnit, continuations).iterator(); it.hasNext();) {
+            String unit = it.next();
             ++countUnits;
             if (unit.equals("square")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of " + unit);
                 }
                 power = 2;
-                if (showYourWork) System.out.println(showRational("\t⟹ power: ", Rational.of(power), unit));
+                if (showYourWork) System.out.println(showRational("\t " + unit + ": ", Rational.of(power), "power"));
             } else if (unit.equals("cubic")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of " + unit);
                 }
                 power = 3;
-                if (showYourWork) System.out.println(showRational("\t⟹ power: ", Rational.of(power), unit));
+                if (showYourWork) System.out.println(showRational("\t " + unit + ": ", Rational.of(power), "power"));
             } else if (unit.startsWith("pow")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of " + unit);
                 }
                 power = Integer.parseInt(unit.substring(3));
-                if (showYourWork) System.out.println(showRational("\t⟹ power: ", Rational.of(power), unit));
+                if (showYourWork) System.out.println(showRational("\t " + unit + ": ", Rational.of(power), "power"));
             } else if (unit.equals("per")) {
                 if (power != 1) {
                     throw new IllegalArgumentException("Can't have power of per");
                 }
-                if (showYourWork && inNumerator == false) System.out.println("\t⟹ per: ");
+                if (showYourWork && inNumerator) System.out.println("\tper");
                 inNumerator = false; // ignore multiples
 //            } else if ('9' >= unit.charAt(0)) {
 //                if (power != 1) {
@@ -471,7 +472,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
             } else {
                 // kilo etc.
                 unit = stripPrefix(unit, deprefix);
-                if (showYourWork && deprefix.value != null) System.out.println(showRational("\t⟹ source: ", deprefix.value, unit));
+                if (showYourWork) {
+                    if (!deprefix.value.equals(Rational.ONE)) {
+                        System.out.println(showRational("\tprefix: ", deprefix.value, unit));
+                    } else {
+                        System.out.println("\t" + unit);
+                    }
+                }
 
                 Rational value = deprefix.value;
                 if (!isSimpleBaseUnit(unit)) {
@@ -481,18 +488,29 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         return null; // can't convert
                     }
                     String baseUnit = info.target;
+
                     value = info.unitInfo.factor.multiply(value);
-                    if (showYourWork && !info.unitInfo.factor.equals(Rational.ONE)) System.out.println(showRational("\t⟹ factor: ", info.unitInfo.factor, baseUnit));
-                    offset = offset.add(info.unitInfo.offset);
-                    if (showYourWork && !info.unitInfo.offset.equals(Rational.ZERO)) System.out.println(showRational("\t⟹ offset: ", info.unitInfo.offset, baseUnit));
+                    //if (showYourWork && !info.unitInfo.factor.equals(Rational.ONE)) System.out.println(showRational("\tfactor: ", info.unitInfo.factor, baseUnit));
+                    // Special handling for offsets. We disregard them if there are any other units.
+                    if (countUnits == 1 && !it.hasNext()) {
+                        offset = info.unitInfo.offset;
+                        if (showYourWork && !info.unitInfo.offset.equals(Rational.ZERO)) System.out.println(showRational("\toffset: ", info.unitInfo.offset, baseUnit));
+                    }
                     unit = baseUnit;
                 }
                 for (int p = 1; p <= power; ++p) {
-                    if (inNumerator) {
+                    String title = "";
+                    if (value.equals(Rational.ONE)) {
+                        if (showYourWork) System.out.println("\t(already base unit)");
+                        continue;
+                    } else if (inNumerator) {
                         numerator = numerator.multiply(value);
+                        title = "\t× ";
                     } else {
                         denominator = denominator.multiply(value);
+                        title = "\t÷ ";
                     }
+                    if (showYourWork) System.out.println(showRational("\t× ", value, " ⟹ " + unit) + "\t" + numerator.divide(denominator) + "\t" + numerator.divide(denominator).doubleValue());
                 }
                 // create cleaned up target unitid
                 outputUnit.add(continuations, unit, inNumerator, power);
@@ -500,7 +518,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
         }
         metricUnit.value = outputUnit.toString();
-        return new ConversionInfo(numerator.divide(denominator), countUnits == 1 ? offset : Rational.ZERO);
+        return new ConversionInfo(numerator.divide(denominator), offset);
     }
 
 
@@ -833,7 +851,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public Rational convert(Rational sourceValue, String sourceUnit, final String targetUnit, boolean showYourWork) {
         if (showYourWork) {
-            System.out.println(showRational("\nconvert: ", sourceValue, sourceUnit) + " ⟹ " + targetUnit);
+            System.out.println(showRational("\nconvert:\t", sourceValue, sourceUnit) + " ⟹ " + targetUnit);
         }
         sourceUnit = fixDenormalized(sourceUnit);
         Output<String> sourceBase = new Output<>();
@@ -844,8 +862,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return Rational.NaN;
         }
         Rational intermediateResult = sourceConversionInfo.convert(sourceValue);
-        if (showYourWork) System.out.println(showRational(" ⟹ intermediate: ", intermediateResult, sourceBase.value));
-        if (showYourWork) System.out.println(" ⟹ " + targetUnit);
+        if (showYourWork) System.out.println(showRational("intermediate:\t", intermediateResult, sourceBase.value));
+        if (showYourWork) System.out.println("invert:\t" + targetUnit);
         ConversionInfo targetConversionInfo = parseUnitId(targetUnit, targetBase, showYourWork);
         if (targetConversionInfo == null) {
             if (showYourWork) System.out.println("! unknown unit: " + targetUnit);
@@ -863,11 +881,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     return Rational.NaN;
                 }
                 intermediateResult = intermediateResult.reciprocal();
-                if (showYourWork) System.out.println(showRational(" ⟹ 1/intermediate: ", intermediateResult, reciprocalUnit));
+                if (showYourWork) System.out.println(showRational(" ⟹ 1/intermediate:\t", intermediateResult, reciprocalUnit));
             }
         }
         Rational result = targetConversionInfo.convertBackwards(intermediateResult);
-        if (showYourWork) System.out.println(showRational(" ⟹ target: ", result, targetUnit));
+        if (showYourWork) System.out.println(showRational("target:\t", result, targetUnit));
         return result;
     }
 

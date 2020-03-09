@@ -60,7 +60,8 @@ public enum DtdType {
     }
 
     /**
-     * Print a header for an XML file, where the generatedBy is normally MethodHandles.lookup().lookupClass(). The only time it needs to be changed is if it is not being called directly from the generating tool.
+     * Print a header for an XML file, where the generatedBy is normally MethodHandles.lookup().lookupClass(). 
+     * The only time it needs to be changed is if it is not being called directly from the generating tool.
      * @param generatedBy
      * @return
      */

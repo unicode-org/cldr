@@ -1,13 +1,17 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.ULocale;
 
 /**
  * To add a new chart, subclass this, and add the subclass to {@link ShowLanguages.printLanguageData()}. There isn't much
@@ -23,22 +27,27 @@ public abstract class Chart {
     private static final String GITHUB_ROOT = "https://github.com/unicode-org/cldr/blob/master/";
     private static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
-    public static String dataScrapeMessage(String dataFile, String testFile, String specPart) {
+    public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {
+        final String dataFileList = dataFiles.length == 0 ? null : 
+            ListFormatter.getInstance(ULocale.ENGLISH).format(
+                Arrays.asList(dataFiles).stream()
+                .map(dataFile -> Chart.dataFileLink(dataFile))
+                .collect(Collectors.toSet()));
+
         return "<p>"
-            + "<b>Warning:</b> Do not scrape this chart for production data.\n"
-            + "Instead, consult the " + ldmlSpecLink(specPart)  + " for the meaning of the fields and data, "
-            + "and access " + dataFileLink(dataFile)
-            + " for machine-readable source data, and "  + dataFileLink(testFile) + " for test data."
-            + "</p>"
-            + "\n";
+        + "<b>Warning:</b> Do not scrape this chart for production data.\n"
+        + "Instead, for the meaning of the fields and data consult the " + Chart.ldmlSpecLink(specPart)
+        + (dataFileList == null ? "" : ", and for machine-readable source data, access " + dataFileList)
+        + (testFile == null ? "" : ", and for test data, access "  + dataFileLink(testFile))
+        + ".</p>\n";
     }
-    
+
     private static String dataFileLink(String dataFile) {
         return "<a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile  + "'>" + dataFile + "</a>";
     }
 
     public static String ldmlSpecLink(String specPart) {
-        return "<a href='" + LDML_SPEC + specPart + "' target='units.xml'>LDML specification</a>";
+        return "<a href='" + LDML_SPEC + (specPart == null ? "" : specPart) + "' target='units.xml'>LDML specification</a>";
     }
 
     /**

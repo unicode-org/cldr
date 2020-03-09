@@ -54,7 +54,7 @@ public class ChartUnitPreferences extends Chart {
             + "<li>"  + ChartUnitConversions.QUANTITY_MSG + "</li>"
             + "<li>" + ChartUnitConversions.SPEC_GENERAL_MSG + ", and how to fall back if a given usage or region is not found.</li>\n"
             + "</ul>"
-            + dataScrapeMessage("common/supplemental/units.xml", "common/testData/units/unitPreferencesTest.txt", "/tr35-general.html#Contents");
+            + dataScrapeMessage("/tr35-general.html#Contents", "common/testData/units/unitPreferencesTest.txt", "common/supplemental/units.xml");
     }
 
     @Override

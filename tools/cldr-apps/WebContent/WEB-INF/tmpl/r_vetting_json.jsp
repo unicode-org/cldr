@@ -35,7 +35,7 @@ try {
 		VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
 		boolean forceRestart = subCtx.hasField("VVFORCERESTART");
 	    StringBuffer sb = new StringBuffer();
-	    VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx.getLocale(), sb, subCtx, subCtx.session, true);
+	    VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx.getLocale(), sb, subCtx, subCtx.session);
 	    subCtx.println(sb.toString());
 	}
 } catch (Throwable t) { // catch ALL errors, because we need to return JSON

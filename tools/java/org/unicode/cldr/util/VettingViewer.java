@@ -70,7 +70,6 @@ public class VettingViewer<T> {
     private static final String TEST_PATH = "//ldml/localeDisplayNames/territories/territory[@type=\"SX\"]";
     private static final double NANOSECS = 1000000000.0;
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
-    private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
 
     public static final Pattern ALT_PROPOSED = PatternCache.get("\\[@alt=\"[^\"]*proposed");
 
@@ -356,7 +355,7 @@ public class VettingViewer<T> {
         public List<CheckStatus> getErrorCheckStatus(String path, String value) {
             String fullPath = cldrFile.getFullXPath(path);
             ArrayList<CheckStatus> result2 = new ArrayList<CheckStatus>();
-            checkCldr.check(path, fullPath, value, options, result2);
+            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result2);
             return result2;
         }
 
@@ -371,7 +370,7 @@ public class VettingViewer<T> {
             Status result0 = Status.ok;
             StringBuilder errorMessage = new StringBuilder();
             String fullPath = cldrFile.getFullXPath(path);
-            checkCldr.check(path, fullPath, value, options, result);
+            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result);
             for (CheckStatus checkStatus : result) {
                 final CheckCLDR cause = checkStatus.getCause();
                 /*
@@ -520,7 +519,7 @@ public class VettingViewer<T> {
      *
      * Called only by writeVettingViewerOutput
      */
-    public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
+    public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(EnumSet<Choice> choices, String localeID, T user,
         Level usersLevel, boolean quick, CLDRFile sourceFile, CLDRFile baselineFile) {
 
         // Gather the relevant paths
@@ -769,8 +768,7 @@ public class VettingViewer<T> {
         }
     };
 
-    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices,
-        Predicate<String> includeLocale, T organization) {
+    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, T organization) {
         try {
 
             output
@@ -908,7 +906,7 @@ public class VettingViewer<T> {
         Set<Subtype> sortedBySize = subtypeCounterTotals.getKeysetSortedByCount(false);
 
         // header
-        writeDetailHeader(subtypeCounterTotals, sortedBySize, output);
+        writeDetailHeader(sortedBySize, output);
 
         // items
         for (Entry<String, FileInfo> entry : localeNameToFileInfo.entrySet()) {
@@ -932,7 +930,7 @@ public class VettingViewer<T> {
         }
 
         // subtotals
-        writeDetailHeader(subtypeCounterTotals, sortedBySize, output);
+        writeDetailHeader(sortedBySize, output);
         output.append("<tr>").append(TH_AND_STYLES).append("<i>Total</i>").append("</th>").append(TH_AND_STYLES).append("</th>");
         for (Subtype subtype : sortedBySize) {
             long count = subtypeCounterTotals.get(subtype);
@@ -945,7 +943,7 @@ public class VettingViewer<T> {
         output.append("</table>");
     }
 
-    private void writeDetailHeader(Counter<Subtype> subtypeCounterTotals, Set<Subtype> sortedBySize, Appendable output) throws IOException {
+    private void writeDetailHeader(Set<Subtype> sortedBySize, Appendable output) throws IOException {
         output.append("<tr>")
         .append(TH_AND_STYLES).append("Name").append("</th>")
         .append(TH_AND_STYLES).append("ID").append("</th>");
@@ -1419,10 +1417,9 @@ public class VettingViewer<T> {
      * @param localeId
      * @param user
      * @param usersLevel
-     * @param nonVettingPhase
      */
     public ArrayList<String> getErrorOnPath(EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, String path) {
+        Level usersLevel, String path) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -1754,12 +1751,9 @@ public class VettingViewer<T> {
         case newCode:
             tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, false);
             break;
-            // case oldCode:
-            // tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
-            // break;
         case summary:
             //System.out.println(tableView.getName("zh_Hant_HK"));
-            tableView.generateSummaryHtmlErrorTables(out, choiceSet, null, organization);
+            tableView.generateSummaryHtmlErrorTables(out, choiceSet, organization);
             break;
         }
         out.println("</body>\n</html>\n");

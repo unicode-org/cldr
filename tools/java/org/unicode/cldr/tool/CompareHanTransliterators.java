@@ -25,7 +25,7 @@ public class CompareHanTransliterators {
 
         handler.map = new UnicodeMap<String>();
 
-        reader.read(CLDRPaths.LAST_DIRECTORY + "/common/transforms/Han-Latin.xml",
+        reader.read(CLDRPaths.LAST_RELEASE_DIRECTORY + "/common/transforms/Han-Latin.xml",
             XMLFileReader.CONTENT_HANDLER, false);
         UnicodeMap<String> old = handler.map;
 

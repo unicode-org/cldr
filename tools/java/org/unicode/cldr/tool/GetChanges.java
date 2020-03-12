@@ -208,7 +208,7 @@ public class GetChanges {
         String release = "33.1";
 
         String subdir = "annotations"; // "main";
-        Factory lastReleaseFactory = Factory.make(CLDRPaths.LAST_DIRECTORY + "common/"
+        Factory lastReleaseFactory = Factory.make(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/"
             + subdir, ".*");
         Factory trunkFactory = testInfo.getAnnotationsFactory(); // CldrFactory();
         Factory snapshotFactory = Factory.make(CLDRPaths.AUX_DIRECTORY + "voting/"

@@ -61,7 +61,7 @@ public class ShowData {
         UOption.DESTDIR().setDefault(CLDRPaths.CHART_DIRECTORY + "summary/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("getscript", 'g', UOption.NO_ARG),
-        UOption.create("last", 'l', UOption.REQUIRES_ARG).setDefault(CLDRPaths.LAST_DIRECTORY + "common/main/"),
+        UOption.create("last", 'l', UOption.REQUIRES_ARG).setDefault(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/main/"),
         UOption.create("coverage", 'c', UOption.REQUIRES_ARG).setDefault(Level.MODERN.toString()),
     };
 

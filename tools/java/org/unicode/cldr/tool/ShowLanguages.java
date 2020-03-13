@@ -98,7 +98,7 @@ public class ShowLanguages {
         FileCopier.ensureDirectoryExists(FormattedFileWriter.CHART_TARGET_DIR);
         FileCopier.copy(ShowLanguages.class, "index.css", FormattedFileWriter.CHART_TARGET_DIR);
         FormattedFileWriter.copyIncludeHtmls(FormattedFileWriter.CHART_TARGET_DIR);
-        
+
         StringWriter sw = printLanguageData(cldrFactory, "index.html");
         writeSupplementalIndex("index.html", sw);
 
@@ -126,8 +126,10 @@ public class ShowLanguages {
         new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartLanguageGroups().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartSubdivisions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        new ChartUnitConversions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        new ChartUnitPreferences().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        if (ToolConstants.CHART_VERSION.compareTo("37") >= 0) {
+            new ChartUnitConversions().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+            new ChartUnitPreferences().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
+        }
 
         // since we don't want these listed on the supplemental page, use null
 
@@ -184,7 +186,7 @@ public class ShowLanguages {
         linfo.printCharacters(pw);
 
         pw.close();
-        
+
         return sw;
     }
 
@@ -1502,7 +1504,7 @@ public class ShowLanguages {
             return " <span title='" + x.getOfficialStatus().toString().replace('_', ' ') + "'>{"
             + x.getOfficialStatus().toShortString() + "}</span>";
         }
-        
+
         private String getRawOfficialStatus(String territoryCode, String languageCode) {
             PopulationData x = supplementalDataInfo.getLanguageAndTerritoryPopulationData(languageCode, territoryCode);
             if (x == null || x.getOfficialStatus() == OfficialStatus.unknown) return "";

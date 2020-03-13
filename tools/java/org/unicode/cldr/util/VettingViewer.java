@@ -33,7 +33,6 @@ import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -1610,8 +1609,7 @@ public class VettingViewer<T> {
         for (String s : DIRECTORIES) {
             fileDirectories[i++] = new File(s);
         }
-        final String version = ToolConstants.PREVIOUS_CHART_VERSION;
-        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
+        final String lastMain = CLDRPaths.LAST_RELEASE_DIRECTORY;
         //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
 
         do {

@@ -223,7 +223,10 @@
 			<languageMatch desired="cy"	supported="en"	distance="20"	oneway="true"/>	<!-- Welsh: cy ⇒ en -->
 			<languageMatch desired="ee"	supported="en"	distance="30"	oneway="true"/>	<!-- Ewe: ee ⇒ en -->
 			<languageMatch desired="eo"	supported="en"	distance="30"	oneway="true"/>	<!-- Esperanto: eo ⇒ en -->
-			<languageMatch desired="et"	supported="fi"	distance="30"	oneway="true"/>	<!-- Estonian: et ⇒ fi -->
+
+			<!-- CLDR-13650: No fallback for Estonian -->
+			<!-- languageMatch desired="et"	supported="fi"	distance="30"	oneway="true"/-->	<!-- Estonian: et ⇒ fi -->
+
 			<languageMatch desired="eu"	supported="es"	distance="20"	oneway="true"/>	<!-- Basque: eu ⇒ es -->
 			<languageMatch desired="fo"	supported="da"	distance="20"	oneway="true"/>	<!-- Faroese: fo ⇒ da -->
 			<languageMatch desired="fy"	supported="nl"	distance="20"	oneway="true"/>	<!-- Western Frisian: fy ⇒ nl -->

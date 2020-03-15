@@ -995,31 +995,27 @@ public class TestUnits extends TestFmwk {
         .putAll("area", "square-foot", "square-yard", "square-mile")
         .putAll("volume", "cubic-inch", "cubic-foot", "cubic-yard")
         .build();
-    static Set<String> OTHER_SYSTEM = ImmutableSet.of(
-        "g-force", "dalton", "calorie", "earth-radius", 
-        "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass", 
-        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "millimeter-ofhg", "atmosphere", 
-        "pixel", "dot", "permillion", "permyriad", "permille", "percent", "karat", "portion",
-        "minute", "hour", "day", "day-person", "week", "week-person",
-        "year", "year-person", "decade", "month", "month-person", "century",
-        "arc-second", "arc-minute", "degree", "radian", "revolution",
-        "electronvolt");
 
     public void TestEnglishSystems() {
-        Multimap<String, String> toSystems = converter.getSourceToSystems();
-        Multimap<String, String> systemToUnit = Multimaps.invertFrom(toSystems, TreeMultimap.create());
-        Set<String> metric = new HashSet<>(converter.canConvert());
-        for (Entry<String, Collection<String>> systemAndUnits : systemToUnit.asMap().entrySet()) {
+        Multimap<String, String> systemToUnits = TreeMultimap.create();
+        for (String unit : converter.canConvert()) {
+            Set<String> systems = converter.getSystems(unit);
+            if (systems.isEmpty()) {
+                systemToUnits.put("other", unit);
+            } else for (String s : systems) {
+                systemToUnits.put(s, unit);
+            }
+        }
+        for (Entry<String, Collection<String>> systemAndUnits : systemToUnits.asMap().entrySet()) {
             String system = systemAndUnits.getKey();
             final Collection<String> units = systemAndUnits.getValue();
-            printSystemUnits(metric, system, units);
+            printSystemUnits(system, units);
         }
-        printSystemUnits(metric, "other", OTHER_SYSTEM);
-        printSystemUnits(null, "metric", metric);
     }
 
-    private void printSystemUnits(Set<String> metric, String system, Collection<String> units) {
+    private void printSystemUnits(String system, Collection<String> units) {
         Multimap<String,String> quantityToUnits = TreeMultimap.create();
+        boolean metric = system.equals("metric");
         for (String unit : units) {
             quantityToUnits.put(converter.getQuantityFromUnit(unit, false), unit);
         }
@@ -1028,7 +1024,7 @@ public class TestUnits extends TestFmwk {
             String baseUnit = converter.getBaseUnitToQuantity().inverse().get(quantity);
             Multimap<Rational,String> sorted = TreeMultimap.create();
             sorted.put(Rational.ONE, baseUnit);
-            if (metric != null) {
+            if (!metric) {
                 String englishBaseUnit = getEnglishBaseUnit(baseUnit);
                 addUnit(baseUnit, englishBaseUnit, sorted);
                 Collection<String> extras = EXTRA_UNITS.get(quantity);
@@ -1040,9 +1036,6 @@ public class TestUnits extends TestFmwk {
             }
             for (String unit : entry.getValue()) {
                 addUnit(baseUnit, unit, sorted);
-                if (metric != null) {
-                    metric.remove(unit);
-                }
             }
             Set<String> comparableUnits = ImmutableSet.copyOf(sorted.values());
 
@@ -1164,7 +1157,6 @@ public class TestUnits extends TestFmwk {
                 errln("Failure on line: " + line + "; " + e.getMessage());
             }
         }
-        checkUnitPreferences(uprefs);
         if (SHOW_DATA) {
             PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
             foo.write(out);
@@ -1209,6 +1201,7 @@ public class TestUnits extends TestFmwk {
                     assertEquals(quantityPlusUsage + ": regions must be in only one set: " + entry.getValue(), 1, entry.getValue().size());
                 }
 
+                Set<String> systems = new TreeSet<>();
                 for (Entry<Set<String>, Collection<UnitPreference>> entry : regionsToUnitPreference.asMap().entrySet()) {
                     Collection<UnitPreference> uPrefs = entry.getValue();
                     Set<String> regions = entry.getKey();
@@ -1217,6 +1210,8 @@ public class TestUnits extends TestFmwk {
                     // reset these for every new set of regions
                     Rational lastSize = null;
                     String lastUnit = null;
+                    Rational lastgeq = null;
+                    systems.clear();
                     Set<String> lastRegions = null;
                     preferences:
                         for (UnitPreference up : uPrefs) {
@@ -1227,6 +1222,9 @@ public class TestUnits extends TestFmwk {
                             }
                             String lastQuantity = null;
                             Rational lastValue = null;
+                            Rational geq = converter.parseRational(String.valueOf(up.geq));
+
+                            // where we have an 'and' unit, get its information
                             for (String unit : SPLIT_AND.split(up.unit)) {
                                 try {
                                     if (topUnit == null) {
@@ -1238,7 +1236,6 @@ public class TestUnits extends TestFmwk {
                                     continue preferences;
                                 }
                                 String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
-                                Rational geq = converter.parseRational(String.valueOf(up.geq));
                                 if (geq.compareTo(Rational.ZERO) < 0) {
                                     throw new IllegalArgumentException("geq must be > 0" + geq);
                                 }
@@ -1254,6 +1251,7 @@ public class TestUnits extends TestFmwk {
                                 }
                                 lastValue = value;
                                 lastQuantity = quantity;
+                                systems.addAll(converter.getSystems(unit));
                             }
                             String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
                             Rational size = converter.convert(up.geq, topUnit, baseUnit, false);
@@ -1271,12 +1269,22 @@ public class TestUnits extends TestFmwk {
                             }
                             lastSize = size;
                             lastUnit = up.unit;
+                            lastgeq = geq;
                             lastRegions = regions;
                             if (SHOW_DATA) System.out.println(quantity + "\t" + usage + "\t" + regions + "\t" + up.geq + "\t" + up.unit + "\t" + up.skeleton);
                         }
+                    // Check that last geq is ONE.
+                    assertEquals(usage + " + " + regions + ": the least unit must have geq=1 (or equivalently, no geq)", Rational.ONE, lastgeq);
+
+                    // Check that each set has a consistent system.
+                    assertTrue(usage + " + " + regions + " has mixed systems: " + systems + "\n\t" + uPrefs, areConsistent(systems));
                 }
             }
         }
+    }
+
+    private boolean areConsistent(Set<String> systems) {
+        return !(systems.contains("metric") && (systems.contains("ussystem") || systems.contains("uksystem")));
     }
 
     public void TestBcp47() {
@@ -1461,6 +1469,7 @@ public class TestUnits extends TestFmwk {
         Set<ExternalUnitConversionData> cantConvert = new LinkedHashSet<>();
         Map<ExternalUnitConversionData, Rational> convertDiff = new LinkedHashMap<>();
         Set<String> remainingCldrUnits = new LinkedHashSet<>(converter.getInternalConversionData().keySet());
+        Set<ExternalUnitConversionData> couldAdd = new LinkedHashSet<>();
 
         if (SHOW_DATA) {
             System.out.println();
@@ -1469,6 +1478,11 @@ public class TestUnits extends TestFmwk {
             Rational externalResult = data.info.convert(Rational.ONE);
             Rational cldrResult = converter.convert(Rational.ONE, data.source, data.target, false);
             seen.put(data.source + "⟹" + data.target, data);
+
+            if (externalResult.isPowerOfTen()) {
+                couldAdd.add(data);
+            }
+
             if (cldrResult.equals(Rational.NaN)) {
                 cantConvert.add(data);
             } else {
@@ -1488,15 +1502,15 @@ public class TestUnits extends TestFmwk {
         }
 
         // get additional data on derived units
-        for (Entry<String, TargetInfo> e : NistUnits.derivedUnitToConversion.entrySet()) {
-            String sourceUnit = e.getKey();
-            TargetInfo targetInfo = e.getValue();
-
-            Rational conversion = converter.convert(Rational.ONE, sourceUnit, targetInfo.target, false);
-            if (conversion.equals(Rational.NaN)) {
-                warnln("Could add conversion from\t" +  sourceUnit  + "\t" + targetInfo);
-            }
-        }
+//        for (Entry<String, TargetInfo> e : NistUnits.derivedUnitToConversion.entrySet()) {
+//            String sourceUnit = e.getKey();
+//            TargetInfo targetInfo = e.getValue();
+//
+//            Rational conversion = converter.convert(Rational.ONE, sourceUnit, targetInfo.target, false);
+//            if (conversion.equals(Rational.NaN)) {
+//                couldAdd.add(new ExternalUnitConversionData("", sourceUnit, targetInfo.target, conversion, "?", null));
+//            }
+//        }
         if (SHOW_DATA) {
             for (Entry<String, Collection<String>> e : NistUnits.unitToQuantity.asMap().entrySet()) {
                 System.out.println("*Quantities:"  + "\t" +  e.getKey()  + "\t" +  e.getValue());
@@ -1578,6 +1592,30 @@ public class TestUnits extends TestFmwk {
             for (ExternalUnitConversionData e : cantConvert) {
                 System.out.println("*CANT CONVERT-" + e);
             }
+        }
+        Output<String> baseUnit = new Output<String>();
+        for (ExternalUnitConversionData s : couldAdd) {
+            String target = s.target;
+            Rational endFactor = s.info.factor;
+            String mark = "";
+            TargetInfo baseUnit2 = NistUnits.derivedUnitToConversion.get(s.target);
+            if (baseUnit2 != null) {
+                target = baseUnit2.target;
+                endFactor = baseUnit2.unitInfo.factor;
+                mark="¹";
+            } else {
+                ConversionInfo conversionInfo = converter.getUnitInfo(s.target, baseUnit);
+                if (conversionInfo != null && !s.target.equals(baseUnit.value)) {
+                    target = baseUnit.value;
+                    endFactor = conversionInfo.convert(s.info.factor);
+                    mark="²";
+                }
+            }
+            System.out.println("Could add 10^X conversion from a"
+                + "\t" +  s.source 
+                + "\tto" + mark
+                + "\t" + endFactor.toString(FormatStyle.simple)  
+                + "\t" + target);
         }
     }
 

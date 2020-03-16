@@ -292,7 +292,13 @@
           Names</a></li>
         </ul>
       </li>
-    </ul><!-- END Generated TOC: CheckHtmlFiles -->
+		<li class='changed'>15 <a href="#Grammatical_Features">Grammatical Features</a>
+		  <ul class="toc">
+		    <li>15.1<a href="#Gender" >Gender</a></li>
+<li>15.2<a href="#Case">Case</a></li>
+	      </ul>
+		</li>
+	</ul>
     <h2>1 <a name="Display_Name_Elements" href=
     "#Display_Name_Elements" id="Display_Name_Elements">Display
     Name Elements</a></h2>
@@ -4650,14 +4656,338 @@
               alternate names for this (type, subtype), use the one
               whose “alt” key is matching; otherwise, use the
               default alternate (which has no “alt” atribute in
-              CLDR).</li>
-            </ol>
-          </li>
+              CLDR).</li></ol></li>
         </ol>
       </li>
       <li>Concatenate the strings, with a separator between
       them.</li>
     </ol>
+	  <div class='changed'>
+    <h2>15 <a name="Grammatical_Features" href="#Grammatical_Features"
+    id="Grammatical_Features">Grammatical Features</h2>
+
+
+<p>
+LDML supplies grammatical information that can be used to distinguish localized forms on a per-locale basis. The current data is part of an initial phase; the longer term plan is to add structure to permit localized forms based on these features, starting with measurement units such as the dative form in Serbian of “kilometer”. That will allow unit values to be inserted as placeholders into messages and adopt the right forms for grammatical agreement.
+</p>
+<p>
+The current data includes the following:
+</p><ul>
+
+<li>There are currently 3 grammatical features found in the <a href="https://github.com/unicode-org/cldr/blob/master/common/dtd/ldmlSupplemental.dtd#1229">DTD</a>: Gender, Case, Definiteness
+<li>There are initial mappings from locales to grammatical features they exhibit in the file <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/grammaticalFeatures.xml">grammaticalFeatures.xml</a></li></ul>
+
+<p>
+Note that the CLDR plural categories overlap some of these features, since some languages use case and other devices to change words based on the numeric values.
+</p>
+<h2>Features</h2>
+
+
+<p class='dtd'>
+&lt;!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
+</p>
+<p>&nbsp;</p>
+<p class='dtd'>
+&lt;!ELEMENT grammaticalCase EMPTY>
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
+</p>
+<p>&nbsp;</p>
+<p class='dtd'>
+&lt;!ELEMENT grammaticalGender EMPTY>
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
+</p>
+<p>&nbsp;</p>
+<p class='dtd'>
+&lt;!ELEMENT grammaticalDefiniteness EMPTY>
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
+</p>
+<h3>15.1<a name="Gender" href="#Gender" >Gender</a></h3>
+<p>
+  Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)
+</p>
+<h4>Example</h4>
+
+
+
+
+
+<pre class="prettyprint">&lt;grammaticalFeatures targets="nominal" locales="es fr it pt">
+   &lt;grammaticalGender values="masculine feminine"/>
+</pre>
+
+
+<h4>Values</h4>
+
+
+
+<table>
+  <tr>
+   <td>animate
+   </td>
+   <td>In an animate/inanimate gender system, gender that denotes human or animate entities
+   </td>
+   <td>description adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a> <a href="http://linguistics-ontology.org/gold/2010/AnimateGender">linguistics-ontology.org/gold/2010/AnimateGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>inanimate
+   </td>
+   <td>In an animate/inanimate gender system, gender that denotes object or inanimate entities
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/InanimateGender">linguistics-ontology.org/gold/2010/InanimateGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>personal
+   </td>
+   <td>In an animate/inanimate gender system and in some language, gender that specifies the masculine gender of animate entities
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/HumanGender">linguistics-ontology.org/gold/2010/HumanGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>common
+   </td>
+   <td>In a common–neuter gender system, gender that denotes human entities.
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>feminine
+   </td>
+   <td>In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object.
+   </td>
+   <td>adapted from: wikipedia.org/wiki/Grammatical_gender  <a href="http://linguistics-ontology.org/gold/2010/FeminineGender">linguistics-ontology.org/gold/2010/FeminineGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>masculine
+   </td>
+   <td>In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object.
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/MasculineGender">linguistics-ontology.org/gold/2010/MasculineGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>neuter
+   </td>
+   <td>In a masculine/feminine/neuter gender system, gender that generally denotes object.
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a> 
+   </td>
+  </tr>
+</table><br>
+	<h3>15.2<a name="Case" href="#Case">Case</a></h3>
+
+<h3>Case</h3>
+
+
+<p>
+Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>) 
+</p>
+<h4>Example</h4>
+
+
+
+
+
+<pre class="prettyprint">&lt;grammaticalFeatures targets="nominal" locales="es fr it pt">
+   &lt;grammaticalGender values="masculine feminine"/>
+</pre>
+
+
+<h4>Values</h4>
+
+
+
+<table>
+  <tr>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>Definition</strong>
+   </td>
+   <td><strong>References</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>ablative
+   </td>
+   <td>Ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#AblativeCase">purl.org/olia/olia.owl#AblativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/AblativeCase">linguistics-ontology.org/gold/2010/AblativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>accusative
+   </td>
+   <td>Accusative case marks certain syntactic functions, usually direct objects.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Accusative">purl.org/olia/olia.owl#Accusative</a>  <a href="http://linguistics-ontology.org/gold/2010/AccusativeCase">linguistics-ontology.org/gold/2010/AccusativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>comitative
+   </td>
+   <td>Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by'.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#ComitativeCase">purl.org/olia/olia.owl#ComitativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/ComitativeCase">linguistics-ontology.org/gold/2010/ComitativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>dative
+   </td>
+   <td>Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#DativeCase">purl.org/olia/olia.owl#DativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/DativeCase">linguistics-ontology.org/gold/2010/DativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>ergative
+   </td>
+   <td>In ergative-absolutive languages, the ergative case identifies the subject of a transitive verb.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#ErgativeCase">purl.org/olia/olia.owl#ErgativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/ErgativeCase">linguistics-ontology.org/gold/2010/ErgativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>genitive
+   </td>
+   <td>Genitive case signals that the referent of the marked noun is the possessor of the referent of another noun, e.g. "the man's foot". In some languages, genitive case may express an associative relation between the marked noun and another noun.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#GenitiveCase">purl.org/olia/olia.owl#GenitiveCase</a>  <a href="http://linguistics-ontology.org/gold/2010/GenitiveCase">linguistics-ontology.org/gold/2010/GenitiveCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>instrumental
+   </td>
+   <td>InstrumentalCase indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#InstrumentalCase">purl.org/olia/olia.owl#InstrumentalCase</a>   <a href="http://linguistics-ontology.org/gold/2010/InstrumentalCase">linguistics-ontology.org/gold/2010/InstrumentalCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>locative
+   </td>
+   <td>Case that indicates a final location of action or a time of the action.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#LocativeCase">purl.org/olia/olia.owl#LocativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/LocativeCase">linguistics-ontology.org/gold/2010/LocativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>locativecopulative
+   </td>
+   <td>Copulative Case marker that indicates a location.
+   </td>
+   <td>TBD Add reference, example
+   </td>
+  </tr>
+  <tr>
+   <td>nominative
+   </td>
+   <td>In nominative-accusative languages, nominative case marks clausal subjects and is applied to nouns in isolation
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Nominative">purl.org/olia/olia.owl#Nominative</a>  <a href="http://linguistics-ontology.org/gold/2010/NominativeCase">linguistics-ontology.org/gold/2010/NominativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>oblique
+   </td>
+   <td>Case that is used when a noun is the object of a verb or a proposition, except for nominative and vocative case.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#ObliqueCase">purl.org/olia/olia.owl#ObliqueCase</a>
+   </td>
+  </tr>
+  <tr>
+   <td>partitive
+   </td>
+   <td>The partitive case is a grammatical case which denotes "partialness", "without result", or "without specific identity".
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#PartitiveCase">purl.org/olia/olia.owl#PartitiveCase</a>  <a href="http://linguistics-ontology.org/gold/2010/PartitiveCase">linguistics-ontology.org/gold/2010/PartitiveCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>prepositional
+   </td>
+   <td>Prepositional case refers to case marking that only occurs in combination with prepositions.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#PrepositionalCase">purl.org/olia/olia.owl#PrepositionalCase</a>
+   </td>
+  </tr>
+  <tr>
+   <td>sociative
+   </td>
+   <td>Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#SociativeCase">purl.org/olia/olia.owl#SociativeCase</a>
+   </td>
+  </tr>
+  <tr>
+   <td>vocative
+   </td>
+   <td>Vocative case marks a noun whose referent is being addressed.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#VocativeCase">purl.org/olia/olia.owl#VocativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/VocativeCase">linguistics-ontology.org/gold/2010/VocativeCase</a> 
+   </td>
+  </tr>
+</table>
+
+
+<h3>Definiteness</h3>
+
+
+<p>
+Feature that encodes the fact that a noun has been already mentioned, or is familiar in the discourse. (adapted from <a href="https://glossary.sil.org/term/definiteness">https://glossary.sil.org/term/definiteness</a> ) 
+</p>
+<h4>Values</h4>
+
+
+
+<table>
+  <tr>
+   <td>definite
+   </td>
+   <td>Value referring to the capacity of identification of an entity.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Definite">purl.org/olia/olia.owl#Definite</a>
+   </td>
+  </tr>
+  <tr>
+   <td>indefinite
+   </td>
+   <td>An entity is specified as indefinite when it refers to a non-particularized individual of the species denoted by the noun.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Indefinite">purl.org/olia/olia.owl#Indefinite</a>
+   </td>
+  </tr>
+  <tr>
+   <td>construct
+   </td>
+   <td>State of the first noun in a genitive phrase of a possessed noun followed by a possessor noun.
+   </td>
+   <td>no direct linked, but explained under: <a href="http://purl.org/olia/olia-top.owl#DefinitenessFeature">purl.org/olia/olia-top.owl#DefinitenessFeature</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>unspecified
+   </td>
+   <td>Noun without any definiteness marking in some specific construction (specific to Danish)
+   </td>
+   <td>TBD Add reference, example
+   </td>
+  </tr>
+</table>
+</div>
+
     <hr>
     <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or

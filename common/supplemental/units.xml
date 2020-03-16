@@ -315,6 +315,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="length" usage="person-height">
             <unitPreference regions="001">centimeter</unitPreference>
             <unitPreference regions="CA GB IN US" geq="3.0">foot-and-inch</unitPreference>
+            <unitPreference regions="CA GB IN US">inch</unitPreference>
             <unitPreference regions="AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN">meter-and-centimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="rainfall">
@@ -333,7 +334,10 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="GB" geq="0.5">mile</unitPreference>
             <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
             <unitPreference regions="GB">yard</unitPreference>
-            <unitPreference regions="SE" geq="0.1">mile-scandinavian</unitPreference>
+            <unitPreference regions="SE">mile-scandinavian</unitPreference>
+            <unitPreference regions="SE">kilometer</unitPreference>
+            <unitPreference regions="SE" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
+            <unitPreference regions="SE" skeleton="precision-increment/10">meter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="snowfall">
             <unitPreference regions="001">centimeter</unitPreference>

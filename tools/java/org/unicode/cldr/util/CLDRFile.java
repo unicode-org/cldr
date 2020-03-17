@@ -1012,69 +1012,71 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             boolean logicDuplicate = true;
 
             if (!checked.contains(curXpath)) {
-                // we compare logic Group and only removen when all are duplicate
+                // we compare logic Group and only remove when all are duplicate
                 Set<String> logicGroups = LogicalGrouping.getPaths(this, curXpath);
-                Iterator<String> iter = logicGroups.iterator();
-                while (iter.hasNext() && logicDuplicate) {
-                    String xpath = iter.next();
-                    switch (keepIfMatches.getRetention(xpath)) {
-                    case RETAIN:
-                        logicDuplicate = false;
-                        continue;
-                    case RETAIN_IF_DIFFERENT:
-                        String currentValue = dataSource.getValueAtPath(xpath);
-                        if (currentValue == null) {
+                if (logicGroups != null) {
+                    Iterator<String> iter = logicGroups.iterator();
+                    while (iter.hasNext() && logicDuplicate) {
+                        String xpath = iter.next();
+                        switch (keepIfMatches.getRetention(xpath)) {
+                        case RETAIN:
                             logicDuplicate = false;
                             continue;
-                        }
-                        String otherXpath = xpath;
-                        String otherValue = other.dataSource.getValueAtPath(otherXpath);
-                        if (!currentValue.equals(otherValue)) {
-                            if (MINIMIZE_ALT_PROPOSED) {
-                                otherXpath = CLDRFile.getNondraftNonaltXPath(xpath);
-                                if (otherXpath.equals(xpath)) {
-                                    logicDuplicate = false;
-                                    continue;
-                                }
-                                otherValue = other.dataSource.getValueAtPath(otherXpath);
-                                if (!currentValue.equals(otherValue)) {
-                                    logicDuplicate = false;
-                                    continue;
-                                }
-                            } else {
+                        case RETAIN_IF_DIFFERENT:
+                            String currentValue = dataSource.getValueAtPath(xpath);
+                            if (currentValue == null) {
                                 logicDuplicate = false;
                                 continue;
                             }
+                            String otherXpath = xpath;
+                            String otherValue = other.dataSource.getValueAtPath(otherXpath);
+                            if (!currentValue.equals(otherValue)) {
+                                if (MINIMIZE_ALT_PROPOSED) {
+                                    otherXpath = CLDRFile.getNondraftNonaltXPath(xpath);
+                                    if (otherXpath.equals(xpath)) {
+                                        logicDuplicate = false;
+                                        continue;
+                                    }
+                                    otherValue = other.dataSource.getValueAtPath(otherXpath);
+                                    if (!currentValue.equals(otherValue)) {
+                                        logicDuplicate = false;
+                                        continue;
+                                    }
+                                } else {
+                                    logicDuplicate = false;
+                                    continue;
+                                }
+                            }
+                            String keepValue = (String) XMLSource.getPathsAllowingDuplicates().get(xpath);
+                            if (keepValue != null && keepValue.equals(currentValue)) {
+                                logicDuplicate = false;
+                                continue;
+                            }
+                            // we've now established that the values are the same
+                            String currentFullXPath = dataSource.getFullPath(xpath);
+                            String otherFullXPath = other.dataSource.getFullPath(otherXpath);
+                            if (!equalsIgnoringDraft(currentFullXPath, otherFullXPath)) {
+                                logicDuplicate = false;
+                                continue;
+                            }
+                            if (DEBUG) {
+                                keepIfMatches.getRetention(xpath);
+                            }
+                            break;
+                        case REMOVE:
+                            if (DEBUG) {
+                                keepIfMatches.getRetention(xpath);
+                            }
+                            break;
                         }
-                        String keepValue = (String) XMLSource.getPathsAllowingDuplicates().get(xpath);
-                        if (keepValue != null && keepValue.equals(currentValue)) {
-                            logicDuplicate = false;
-                            continue;
-                        }
-                        // we've now established that the values are the same
-                        String currentFullXPath = dataSource.getFullPath(xpath);
-                        String otherFullXPath = other.dataSource.getFullPath(otherXpath);
-                        if (!equalsIgnoringDraft(currentFullXPath, otherFullXPath)) {
-                            logicDuplicate = false;
-                            continue;
-                        }
-                        if (DEBUG) {
-                            keepIfMatches.getRetention(xpath);
-                        }
-                        break;
-                    case REMOVE:
-                        if (DEBUG) {
-                            keepIfMatches.getRetention(xpath);
-                        }
-                        break;
+
                     }
 
+                    if (first) {
+                        first = false;
+                        if (butComment) appendFinalComment("Duplicates removed:");
+                    }
                 }
-                if (first) {
-                    first = false;
-                    if (butComment) appendFinalComment("Duplicates removed:");
-                }
-
                 // we can't remove right away, since that disturbs the iterator.
                 checked.addAll(logicGroups);
                 if (logicDuplicate) {

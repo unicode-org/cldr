@@ -356,7 +356,7 @@ public class GenerateProductionData {
                 // TODO Should be done in the converter tool!!
                 if (ADD_LOGICAL_GROUPS && !LogicalGrouping.isOptional(cldrFileResolved, xpath)) {
                     Set<String> paths = LogicalGrouping.getPaths(cldrFileResolved, xpath);
-                    if (paths.size() > 1) {
+                    if (paths != null && paths.size() > 1) {
                         for (String possiblePath : paths) {
                             // Unclear from API whether we need to do this filtering
                             if (!LogicalGrouping.isOptional(cldrFileResolved, possiblePath)) {

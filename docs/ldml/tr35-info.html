@@ -255,7 +255,10 @@
       <li>11 <a href="#Version_Information">Version
       Information</a></li>
       <li>12 <a href="#Parent_Locales">Parent Locales</a></li>
-    </ul><!-- END Generated TOC: CheckHtmlFiles -->
+      <li class='changed'>13 <a href="#Unit_Conversion" >Unit Conversion</a></li>
+      <li class='changed'>14 <a href="#Unit_Preferences">Unit Preferences</a></li>
+    </ul>
+    <!-- END Generated TOC: CheckHtmlFiles -->
     <h2>1 Introduction <a name="Supplemental_Data" href=
     "#Supplemental_Data" id="Supplemental_Data">Supplemental
     Data</a></h2>
@@ -586,7 +589,10 @@
     "#Preferred_Units_For_Usage" id=
     "Preferred_Units_For_Usage">Preferred Units for Specific
     Usages</a></h4>
-    <p>This data is intended to map from a particular usage — e.g.
+    <p class='changed'><em>For information about preferred units and unit conversion, see Section 13 <a href="#Unit_Conversion" >Unit Conversion</a> and Section 14 <a href="#Unit_Preferences" >Unit Preferences</a>.</em></p>
+    <div class='removed'>
+    <p >&nbsp;</p>
+		<p>This data is intended to map from a particular usage — e.g.
     measuring the height of a person or the fuel consumption of an
     automobile — to the unit or combination of units typically used
     for that usage in a given region. Considerations for such a
@@ -851,6 +857,7 @@
         <td>liter</td>
       </tr>
     </table>
+</div>
     <h3>2.5 <a name="rgScope" href="#rgScope" id=
     "rgScope">&lt;rgScope&gt;: Scope of the “rg” Locale
     Key</a></h3>
@@ -1768,6 +1775,708 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     described in detail in the <a href=
     "tr35.html#Parent_Locales">core specification section
     4.1.3.</a></p>
+	  <div class='changed'>
+    <h2>13 <a href="#Unit_Conversion" name="Unit_Conversion">Unit Conversion</a></h2>
+
+
+<p>
+The unit conversion data (<a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/units.xml">units.xml</a>) provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
+</p>
+<p class="dtd">
+&lt;!ELEMENT unitConstants ( unitConstant* ) >
+</p>
+<p class="dtd">
+&lt;!ELEMENT unitConstant EMPTY >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitConstant constant NMTOKEN #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitConstant value CDATA #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitConstant status NMTOKEN #IMPLIED >
+</p>
+<h2>Constants</h2>
+
+
+<p>
+The data uses a small set of constants for readability, such as:
+</p>
+		  <blockquote>
+<p>
+&lt;unitConstant constant=<em>"ft_to_m"</em> value=<em>"0.3048"</em>/>
+</p>
+<p>
+&lt;unitConstant constant=<em>"ft2_to_m2"</em> value=<em>"ft_to_m*ft_to_m"</em>/>
+</p>
+</blockquote>
+<p>
+The order of the elements in the file is significant.
+</p>
+<p>
+ 
+</p>
+<p>
+Each constant can have a value based on simple expressions using numbers, previous constants, plus the operators * and /. Parentheses are not allowed. The operator * binds more tightly than /, which may be unexpected. Thus  a * b / c * d is interpreted as (a * b) / (c * d). A consequent of that is that a * b / c * d = a * b / c / d. In the value, the numbers represent rational values. So 0.3048 is interpreted as exactly 3048 / 10000.
+</p>
+<p>
+In the above case, ft2-to-m2 is a conversion constant for going from square feet to square meters. The expression evaluates to 0.09290304. Where the constants cannot be expressed as rationals, or where their interpretation is fluid, that is marked with a status value:
+</p>
+<blockquote>
+&lt;unitConstant constant=<em>"PI"</em> value=<em>"411557987 / 131002976"</em> status=<em>'approximate'</em>/>
+</blockquote>
+<p>
+In such cases, software may decide to use different values for accuracy.
+</p>
+<p>
+An implementation need not use rationals directly for conversion; it could use doubles, for example, if only double accuracy is needed.
+</p>
+<h2>Conversion Data</h2>
+
+
+<p class="dtd">
+&lt;!ELEMENT convertUnits ( convertUnit* ) >
+</p>
+<p class="dtd">
+&lt;!ELEMENT convertUnit EMPTY >
+</p>
+<p class="dtd">
+&lt;!ATTLIST convertUnit source NMTOKEN #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST convertUnit baseUnit NMTOKEN #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST convertUnit factor CDATA #IMPLIED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST convertUnit offset CDATA #IMPLIED >
+</p>
+<p>
+The conversion data provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
+</p>
+<p>
+The data is expressed as conversions to the base unit. The information can also be used for the conversion back.
+</p>
+<p>
+Examples:
+</p>
+	<blockquote>
+<p>
+&lt;convertUnit source=<em>'carat'</em> baseUnit=<em>'kilogram'</em> factor=<em>'0.0002'</em>/>
+</p>
+<p>
+&lt;convertUnit source=<em>'gram'</em> baseUnit=<em>'kilogram'</em> factor=<em>'0.001'</em>/>
+</p>
+<p>
+&lt;convertUnit source=<em>'ounce'</em> baseUnit=<em>'kilogram'</em> factor=<em>'lb_to_kg/16'</em> systems=<em>"ussystem uksystem"</em>/>
+</p>
+<p>
+&lt;convertUnit source=<em>'fahrenheit'</em> baseUnit=<em>'kelvin'</em> factor=<em>'5/9'</em> offset=<em>'2298.35/9'</em> systems=<em>"ussystem uksystem"</em>/>
+</p>
+</blockquote>
+<p>
+For example, to convert from 3 carats to kilograms, the factor 0.0002 is used, resulting in 0.0006. To convert between carats and ounces, first the carets are converted to kilograms, then the kilograms to ounces (by reversing the mapping).
+</p>
+<p>
+The factor and offset use the same structure as in the value in unitConstant ; in particular, * binds more tightly than /.
+</p>
+<p>
+The conversion may also require an offset, such as the following:
+</p>
+<blockquote>
+&lt;convertUnit source=<em>'fahrenheit'</em> baseUnit=<em>'kelvin'</em> factor=<em>'5/9'</em> offset=<em>'2298.35/9'</em> systems=<em>"ussystem uksystem"</em>/>
+</blockquote>
+<p>
+The factor and offset can be simple expressions, just like the values in the unitConstants.
+</p>
+<p>
+Where a factor is not present, the value is 1; where an offset is not present, the value is 0. The systems attribute indicates where the value is not metric; currently the attribute values just include the <em>ussystem</em> and <em>uksystem</em> systems. The term <em>metric</em> is used in a broad sense, and includes units that are simple multiples of metric units, such as pound-metric (= ½ kilogram).
+</p>
+<p>
+For complex units, such as <em>pound-force-per-square-inch</em>, the conversions are computed by combining the conversions of each of the simple units: <em>pound-force</em> and <em>inch</em>. Because the conversions in convertUnit are reversible, the computation can go from complex source unit to complex base unit to complex target units.
+</p>
+<p>
+Here is an example:
+</p>
+	<blockquote>
+<p><strong>
+50 foot-per-minute ⟹ X mile-per-hour</strong> </p>
+<p>
+	⟹ source: 1 foot
+</p>
+<p>
+	⟹ factor: 381 / 1250 = 0.3048 meter
+</p>
+<p>
+	⟹ source: 1 minute
+</p>
+<p>
+	⟹ factor: 60 second
+</p>
+<p>
+ ⟹ intermediate: 127 / 500 = 0.254 meter-per-second
+</p>
+<p>
+ ⟹ mile-per-hour
+</p>
+<p>
+	⟹ source: 1 mile
+</p>
+<p>
+	⟹ factor: 201168 / 125 = 1609.344 meter
+</p>
+<p>
+	⟹ source: 1 hour
+</p>
+<p>
+	⟹ factor: 3600 second
+</p>
+<p>
+ ⟹ target: 25 / 44 ≅ 0.5681818 mile-per-hour
+</p>
+</blockquote>
+<p>
+<strong>Reciprocals. </strong>When you convert a complex unit to another complex unit, you typically convert the source to a complex base unit (like <em>meter-per-cubic-meter</em>), then convert the latter backwards to the desired target. However, there may not be a matching conversion from that complex base unit to the desired target unit. That is the case for converting from <em>mile-per-gallon</em> (used in the US) to <em>liter-per-100-kilometer</em> (used in Europe and elsewhere). When that happens, the reciprocal of the complex base unit is used, as in the following example:
+</p>
+	<blockquote>
+<p><strong>
+50 mile-per-gallon ⟹ X liter-per-100-kilometer
+</strong></p>
+<p>
+	⟹ source: 1 mile
+</p>
+<p>
+	⟹ factor: 201168 / 125 = 1609.344 meter
+</p>
+<p>
+	⟹ source: 1 gallon
+</p>
+<p>
+	⟹ factor: 473176473 / 125000000000 ≅ 0.003785412 cubic-meter
+</p>
+<p>
+ ⟹ intermediate: 2400000000000 / 112903 ≅ 2.125719E7 meter-per-cubic-meter
+</p>
+<p>
+ ⟹ liter-per-100-kilometer
+</p>
+<p>
+	⟹ source: 1 liter
+</p>
+<p>
+	⟹ factor: 1 / 1000 = 0.001 cubic-meter
+</p>
+<p>
+	⟹ source: 1 100-kilometer
+</p>
+<p>
+	⟹ factor: 100000 meter
+</p>
+<p>
+<strong> ⟹ 1/intermediate: 112903 / 2400000000000 ≅ 4.704292E-8 cubic-meter-per-meter</strong>
+</p>
+<p>
+ ⟹ target: 112903 / 24000 ≅ 4.704292 liter-per-100-kilometer
+</p>
+</blockquote>
+<p>
+This applies to more than just these cases: one can convert from any unit to related reciprocals as in the following example:
+</p>
+	<blockquote>
+<p><strong>
+50 foot-per-minute ⟹ X hour-per-mile</strong> </p>
+<p>
+	⟹ source: 1 foot
+</p>
+<p>
+	⟹ factor: 381 / 1250 = 0.3048 meter
+</p>
+<p>
+	⟹ source: 1 minute
+</p>
+<p>
+	⟹ factor: 60 second
+</p>
+<p>
+ ⟹ intermediate: 127 / 500 = 0.254 meter-per-second
+</p>
+<p>
+ ⟹ hour-per-mile
+</p>
+<p>
+	⟹ source: 1 hour
+</p>
+<p>
+	⟹ factor: 3600 second
+</p>
+<p>
+	⟹ source: 1 mile
+</p>
+<p>
+	⟹ factor: 201168 / 125 = 1609.344 meter
+</p>
+<p>
+<strong> ⟹ 1/intermediate: 500 / 127 ≅ 3.937008 second-per-meter</strong>
+</p>
+<p>
+ ⟹ target: 44 / 25 = 1.76 hour-per-mile
+</p>
+</blockquote>
+<h3>Exceptional Cases</h3>
+
+
+<h4>Identities</h4>
+
+
+<p>
+For completeness, identity mappings are also provided for the base units themselves, such as:
+</p>
+<blockquote>
+        &lt;convertUnit source=<em>'meter'</em> baseUnit=<em>'meter'</em>/>
+</blockquote>
+<h4>Aliases</h4>
+
+<p>
+In a few instances the old identifiers are deprecated in favor of regular syntax. Implementations should handle both on input:
+</p>
+<blockquote>
+<p>
+&lt;unitAlias type=<em>"meter-per-second-squared"</em> replacement=<em>"meter-per-square-second"</em> reason=<em>"deprecated"</em>/>
+</p>
+<p>
+&lt;unitAlias type=<em>"liter-per-100kilometers"</em> replacement=<em>"liter-per-100-kilometer"</em> reason=<em>"deprecated"</em>/>
+</p>
+<p>
+&lt;unitAlias type=<em>"pound-foot"</em> replacement=<em>"pound-force-foot"</em> reason=<em>"deprecated"</em>/>
+</p>
+<p>
+&lt;unitAlias type=<em>"pound-per-square-inch"</em> replacement=<em>"pound-force-per-square-inch"</em> reason=<em>"deprecated"</em>/>
+</p>
+</blockquote>
+<p>
+These use the standard alias elements in XML, and are also included in the <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/units.xml">units.xml</a> file.
+</p>
+<h4>“Duplicate” Units</h4>
+
+
+<p>
+Some CLDR units are provided simply because they have different names in some languages. For example, year and year-person, or foodcalorie and kilocalorie. One CLDR unit is not convertible (temperature-generic) it is only used for the translation (where the exact unit would be understood by context).
+</p>
+<h4>Discarding Offsets</h4>
+
+
+<p>
+The temperature units are special. When they represent a scale, they have an offset. But where they represent an amount, such as in complex units, they do not. So celsius-per-second is the same as kelvin-per-second. 
+</p>
+<h3>Unresolved Units</h3>
+
+
+<p>
+Some SI units contain the same units in the numerator and denominator, so those cannot be resolved. For example, if cubic-meter-per-meter were always resolved, then <em>consumption</em> (like “liter-per-kilometer”) could not be distinguished from <em>area</em> (square-meter).
+</p>
+<p>
+However, in conversion, it may be necessary to resolve them in order to find a match. For example, kilowatt-hour maps to the base unit kilogram-square-meter-second-per-cubic-second, but that needs to be resolved to kilogram-square-meter-per-square-second in order matched against an  <em>energy.</em>
+</p>
+<h2>Quantities and Base Units</h2>
+
+
+<p class="dtd">
+&lt;!ELEMENT unitQuantities ( unitQuantity* ) >
+</p>
+<p class="dtd">
+&lt;!ELEMENT unitQuantity EMPTY >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitQuantity baseUnit NMTOKEN #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitQuantity quantity NMTOKENS #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitQuantity status NMTOKEN #IMPLIED >
+</p>
+<p>
+Conversion is supported between comparable units. Those can be simple units, such as length, or more complex ‘derived’ units that are built up from <em>base units</em>. The &lt;unitQuantities> element provides information on the base units used for conversion. It also supplies information about their <em>quantity</em>: mass, length, time, etc., and whether they are simple or not. </p>
+<p>Examples: </p>
+	<blockquote>
+<p>
+&lt;unitQuantity baseUnit=<em>'kilogram'</em> quantity=<em>'mass'</em> status=<em>'simple'</em>/>
+</p>
+<p>
+&lt;unitQuantity baseUnit=<em>'meter-per-second'</em> quantity=<em>'speed'</em>/>
+</p>
+</blockquote>
+<p>
+The order of the elements in the file is significant, since it is used in 
+
+<a href="#Unit_Identifier_Normalization" >Unit_Identifier_Normalization</a>.
+<p>
+  The quantity values themselves are informative. Therer mayreflecting that <em>force per area</em> can be referenced as either <em>pressure</em> or <em>stress</em>, for example). The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as <em>inverse-consumption.</em>
+</p>
+<p>
+The base units for the quantities and the quantities themselves are based on <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a> and the earlier <a href="https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf">NIST Special Publication 1038</a>. In some cases, a different unit is chosen for the base. For example, a <em>revolution</em> (360°) is chosen for the base unit for angles instead of the SI <em>radian</em>, and <em>item</em> instead of the SI <em>mole</em>.  Additional base units are added where necessary, such as <em>bit</em> and <em>pixel</em>.
+</p>
+<p>
+This data is not necessary for conversion, but is needed for 
+
+  <a href="#Unit_Identifier_Normalization" >Unit_Identifier_Normalization</a>. Some of the unitQuantity elements are not needed to convert CLDR units, but are included for completeness. Example:
+</p>
+
+<blockquote>
+        &lt;unitQuantity baseUnit=<em>'ampere-per-square-meter'</em> quantity=<em>'current-density'</em>/>
+</blockquote>
+<h3>UnitType vs Quantity</h3>
+
+
+<p>
+The unitType (as in “length-meter”) is not the same as the quantity. It is often broader: for example, the unitType <em>electric</em> corresponds to the quantities <em>electric-current, electric-resistance, </em>and<em> voltage</em>. The unitType itself is also informative, and can be dropped from a long unit identifier to get a still-unique short unit identifier.
+</p>
+<h3><a href="#Unit_Identifier_Normalization" name="Unit_Identifier_Normalization">Unit Identifier Normalization</a></h3>
+
+
+<p>
+There are many possible ways to construct complex units. For comparison of unit identifiers, an implementation can normalize in the following way:
+</p>
+		  <ol>
+
+<li>Convert all but the first -per- to simple multiplication. The result then has the format of /numerator ( -per- denominator)?/ <ul>
+
+ <li>foot-per-second-per-second ⇒  foot-per-second-second
+</ul>
+</li>
+  <li>Within each of the numerator and denominator:</li>
+  <li>Convert multiple instances of a unit into the appropriate power.
+  <ul>
+    <li>foot-per-second-second ⇒ foot-per-square-second
+    </li>
+    <li>kilogram-meter-kilogram ⇒ meter-square-kilogram
+    </li>
+  </ul>
+  <li>For each single unit, disregarding prefixes and powers, find its base unit using &lt;convertUnit>, then get the order of that base unit among the unitQuantity elements in the <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/units.xml">units.xml</a>. Then sort the single units by that order.
+      <ul>
+      <li>meter-square-kilogram => square-kilogram-meter
+      </li>
+      <li>meter-square-gram ⇒ gram-meter
+      </li>
+    </ul>
+    </li>
+  <li>If two single units have the same simple unit but different SI prefixes, such as "kilometer-meter", sort the higher-power SI prefixes first.  </li>
+  <li>Within private-use single units, sort by the simple unit alphabetically.</li>
+</ol>
+
+<p>
+  The examples in #4 are due to the following ordering of the unitQuantity elements:
+</p><ol>
+
+<li>&lt;unitQuantity baseUnit=<em>'candela'</em> quantity=<em>'luminous-intensity'</em> status=<em>'simple'</em>/>
+<li>&lt;unitQuantity baseUnit=<em>'kilogram'</em> quantity=<em>'mass'</em> status=<em>'simple'</em>/>
+<li>&lt;unitQuantity baseUnit=<em>'meter'</em> quantity=<em>'length'</em> status=<em>'simple'</em>/>
+<li>…</li></ol>
+
+<h2>Mixed Units</h2>
+
+
+<p>
+Mixed units, or unit sequences, are units with the same base unit  which are listed in sequence.  Common examples are feet and inches, meters and centimeters, and hours, minutes, and seconds.  Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", and "hour-and-minute-and-second".
+</p>
+<p>
+Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization".  For example, numbers for "foot-and-inch" are expressed in feet.
+</p>
+<p>
+Mixed units are expected to be rendered in the order of the tokens in the identifier.  For example, the value 1.25 with the identifier "foot-and-inch" should be rendered as "1 foot and 3 inches" and 1.25 inch-and-foot should be rendered as “3 inches and 1 foot". <strong>NOTE:  </strong>the correct application of this may require adding locales to the regions attribute set.
+</p>
+
+<h2>Testing</h2>
+
+
+<p>
+The <a href="https://github.com/unicode-org/cldr/blob/master/common/testData/units/unitsTest.txt">unitsTest.txt</a> file supplies a list of all the CLDR units with conversions, for testing implementations. Instructions for use are supplied in the header of the file.
+</p>
+    <h2>14 <a href="#Unit_Preferences" name="Unit_Preferences">Unit Preferences</a></h2>
+
+
+<p>
+Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
+</p>
+<p>
+The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:
+</p><ul>
+
+<li>The list of possible usages large and open-ended. The intent here is to start with a small set for which there is an urgent need, and expand as necessary.
+<li>Even for a given usage such a measuring a road distance, there are multiple ranges in use. For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).
+<li>There are also differences between more formal usage (official signage, medical records) and more informal usage (conversation, texting).
+<li>For some usages, the measurement may be expressed using a sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2 pounds”.</li></ul>
+
+<p>
+The DTD structure is as follows:
+</p>
+<p class="dtd">
+&lt;!ELEMENT unitPreferenceData ( unitPreferences* ) >
+</p>
+<p class="dtd">
+&lt;!ELEMENT unitPreferences ( unitPreference* ) >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitPreferences category NMTOKEN #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitPreferences usage NMTOKENS #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ELEMENT unitPreference ( #PCDATA ) >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitPreference regions NMTOKENS #REQUIRED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitPreference geq NMTOKEN #IMPLIED >
+</p>
+<p class="dtd">
+&lt;!ATTLIST unitPreference skeleton CDATA #IMPLIED >
+</p>
+
+<table>
+  <tr>
+   <td>category
+   </td>
+   <td>A unit quantity, such as “area” or “length”. See Section 13 Unit Conversion
+   </td>
+  </tr>
+  <tr>
+   <td>usage
+   </td>
+   <td>A type of usage, such as person-height. 
+   </td>
+  </tr>
+  <tr>
+   <td>regions
+   </td>
+   <td>One or more region identifiers (macroregions or regions), subdivision identifiers, or language identifiers, such as 001, US, usca, and de-CH.
+   </td>
+  </tr>
+  <tr>
+   <td>geq
+   </td>
+   <td>A threshold value, in a unit determined by the unitPreference element value. The unitPreference element is only used for values higher than this value (and lower than any higher value). 
+<p>
+The value must be non-negative. For picking negative units (-3 meters), use the absolute value to pick the unit.
+   </td>
+  </tr>
+  <tr>
+   <td>skeleton
+   </td>
+   <td>A skeleton in the ICU number format syntax, that can be used to format unit
+   </td>
+  </tr>
+</table>
+
+
+<p>
+Example:
+</p>
+		  <blockquote>
+<p>
+        &lt;unitPreferences category=<em>"length"</em> usage=<em>"default"</em>>
+</p>
+			  <blockquote>
+<p>
+            &lt;unitPreference regions=<em>"001"</em>>kilometer&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"001"</em>>meter&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"001"</em>>centimeter&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"US GB"</em>>mile&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"US GB"</em>>foot&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"US GB"</em>>inch&lt;/unitPreference>
+</p>
+		    </blockquote>
+<p>
+        &lt;/unitPreferences>
+</p>
+</blockquote>
+<p>
+The above information says that for default usage, in the US people use mile, foot, and inch, where people in the rest of the world (001) use kilometer, meter, and centimeter.
+Take another example:</p>
+		  <blockquote>
+<p>
+        &lt;unitPreferences category=<em>"length"</em> usage=<em>"road"</em>>
+</p>
+			  <blockquote>
+<p>
+            &lt;unitPreference regions=<em>"001"</em> geq=<em>"0.9"</em>>kilometer&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"001"</em> geq=<em>"300.0"</em> skeleton=<em>"precision-increment/50"</em>>meter&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"001"</em> skeleton=<em>"precision-increment/10"</em>>meter&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"001"</em>>meter&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"US"</em> geq=<em>"0.5"</em>>mile&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"US"</em> geq=<em>"100.0"</em> skeleton=<em>"precision-increment/50"</em>>foot&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"US"</em> skeleton=<em>"precision-increment/10"</em>>foot&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"GB"</em> geq=<em>"0.5"</em>>mile&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"GB"</em> geq=<em>"100.0"</em> skeleton=<em>"precision-increment/50"</em>>yard&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"GB"</em>>yard&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"SE"</em> geq=<em>"0.1"</em>>mile-<span style="text-decoration:underline;">scandinavian</span>&lt;/unitPreference>
+</p>
+		    </blockquote>
+<p>
+        &lt;/unitPreferences>
+</p>
+</blockquote>
+<p>
+The intended usage is to take the measure to be formatted, and the desired category, usage, and region and find the best match as follows.
+</p>
+<ul>
+
+<li>First, see if there is an exact match, producing a list of one or more unitPreference elements. For example, length/road/GB has a match above, giving
+<blockquote>
+<p>
+            &lt;unitPreference regions=<em>"GB"</em> geq=<em>"0.5"</em>>mile&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"GB"</em> geq=<em>"100.0"</em> skeleton=<em>"precision-increment/50"</em>>yard&lt;/unitPreference>
+</p>
+<p>
+            &lt;unitPreference regions=<em>"GB"</em>>yard&lt;/unitPreference>
+</p>
+  </blockquote>
+</li>
+		  <li>If there is no match for the category, then the data is not available.</li>
+		  <li>Otherwise, given the category: <ul>
+
+ <li>If there is an exact match for the usage, but not for the region, try region=”001”.</li></ul>
+
+  <li>The specification allows for <a href="https://www.unicode.org/cldr/charts/34/supplemental/territory_containment_un_m_49.html">containment regions</a> , <a href="https://www.unicode.org/cldr/charts/34/supplemental/territory_subdivisions.html">region subdivisions</a>.
+  <li>While in version 37 only 001 is used, in the future the data may contain others.
+  <li>The fallback is: subdivision2 ⇒ subdivision1 ⇒ region/country ⇒ subcontinent ⇒ continent ⇒ world
+  <li>Example: 
+<blockquote>
+<table>
+  <tr>
+   <td>
+<strong>Region/subdivision</strong>
+   </td>
+   <td><strong>Code</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Blackpool
+   </td>
+   <td>gbbpl
+   </td>
+  </tr>
+  <tr>
+   <td>England
+   </td>
+   <td>gbeng
+   </td>
+  </tr>
+  <tr>
+   <td>United Kingdom
+   </td>
+   <td>GB
+   </td>
+  </tr>
+  <tr>
+   <td>Northern Europe
+   </td>
+   <td>154
+   </td>
+  </tr>
+  <tr>
+   <td>Europe
+   </td>
+   <td>150
+   </td>
+  </tr>
+  <tr>
+   <td>World
+   </td>
+   <td>001
+   </td>
+  </tr>
+</table>
+</blockquote>
+
+ <li>If there is an exact match for the region, but not for the usage,   <ul>
+
+  <li>If the usage has multiple parts (eg land-agriculture-grain) drop the last part (eg land-agriculture)
+  <li>Repeat dropping the last part and trying the result (eg land)
+  <li>If you eliminate all of them, try usage=”default”.
+ <li>If there is no exact match for either one, try usage=”default”, region=”001”. That will always match.</li> </ul>
+	 </li> </ul>
+
+<p>
+Once you have a list of unitPreference elements, find the applicable unitPreference. For a given category, usage, and set of regions (eg “US  GB”), the units are ordered from largest to smallest. 
+</p>
+<ul>
+<li>The geq item gives the value for the unit in the element value (or for the largest unit for mixed units). For example,<ul>
+	<li>...geq=<em>"0.5"</em>>mile&lt;...  means 0.9 kilometers</li>
+ <li>...geq=<em>"100.0"</em>>foot:inch&lt;...  means 100 feet</li></ul></li>
+<li>If there is no geq attribute, then the implicit value is 1.0.</li>
+<li>Implementations will probably convert the values into the base units, so that the comparison is fast. Thus the above would be converted internally to something like: <ul>
+
+ <li>≥ 804.672 meters ⇒ mile</li>
+	<li>≥ 30.48 meters ⇒ foot:inch</li></ul></li>
+<li>Search for the first matching unitPreference for the input measure. If there is no match (eg &lt; 100 feet in the above example), take the last unitPreference. 
+That is, the last unitPreference is effectively geq=&quot;0&quot;</li>
+</ul>
+
+<p>
+Once a matching unitPreference element is found:
+</p><ul>
+
+<li>The unit is the element value
+<li>The skeleton (if there is one) supplies formatting information for the unit. API settings may allow that to be overridden.
+<li>If the unit is mixed (eg foot:inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.
+<li>If the skeleton is missing, the default number formatting is used.</li></ul>
+
+<h3>Constraints</h3>
+
+<ul>
+
+<li>For a given category, there is always a “default” usage.
+<li>For a given category, and usage: <ul>
+
+ <li>There is always a 001 region.
+ <li>None of the sets of regions can overlap. That is, you can’t have “US” on one line and “US GB” on another.  You <em>can</em> have two lines with “US”, for different sizes of units.</li></ul></li>
+<li>For a given category, usage, and region-set <ul>
+	<li>The unitPreferences are in descending order.</li>
+	</ul>
+  </li>
+</ul>
+
+<h3>Caveats</h3>
+		  <p>The extended unit support is still being developed further. See the Known Issues on the release page for futher information.</p>
+
+</div>
     <hr>
     <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or

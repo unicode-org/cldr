@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
@@ -30,6 +31,7 @@ import com.ibm.icu.util.Output;
  *
  */
 public final class Rational implements Comparable<Rational> {
+    private static final Pattern INT_POWER_10 = Pattern.compile("10*");
     public final BigInteger numerator;
     public final BigInteger denominator;
 
@@ -78,6 +80,11 @@ public final class Rational implements Comparable<Rational> {
          * */
 
         public Rational parse(String input) {
+            switch (input) {
+            case "NaN" : return NaN;
+            case "INF" : return INFINITY;
+            case "-INF": return NEGATIVE_INFINITY;
+            }
             List<String> comps = slashSplitter.splitToList(input.replace(",", "")); // allow commas anywhere
             try {
                 switch (comps.size()) {
@@ -284,7 +291,7 @@ public final class Rational implements Comparable<Rational> {
         final String numStr = format(newNumerator.value);
         final String denStr = nf.format(newDenominator).toString();
         final boolean denIsOne = newDenominator.equals(BigInteger.ONE);
-        
+
         switch (style) {
         case simple: {
             return denIsOne ? numStr : numStr + "/" + denStr;
@@ -459,5 +466,19 @@ public final class Rational implements Comparable<Rational> {
 
     public BigInteger floor() {
         return numerator.divide(denominator);
+    }
+
+    public boolean isPowerOfTen() {
+        Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
+        final BigInteger newDenominator = minimalDenominator(newNumerator, denominator);
+        if (!newDenominator.equals(BigInteger.ONE)) {
+            return false;
+        }
+        // hack, figure out later
+        String str = newNumerator.value.unscaledValue().toString();
+        if (INT_POWER_10.matcher(str).matches()) {
+            return true;
+        }
+        return false;
     }
 }

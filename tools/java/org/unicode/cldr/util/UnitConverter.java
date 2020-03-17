@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.Rational.RationalParser;
@@ -813,6 +814,40 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public Multimap<String, String> getSourceToSystems() {
         return sourceToSystems;
+    }
+
+    public Set<String> getSystems(String unit) {
+        Set<String> result = new TreeSet<>();
+        UnitId id = createUnitId(unit);
+        for (String subunit : id.denUnitsToPowers.keySet()) {
+            addSystems(result, subunit);
+        }
+        for (String subunit : id.numUnitsToPowers.keySet()) {
+            addSystems(result, subunit);
+        }
+        return result;
+    }
+
+    public static final Set<String> OTHER_SYSTEM = ImmutableSet.of(
+        "g-force", "dalton", "calorie", "earth-radius", 
+        "solar-radius", "solar-radius", "astronomical-unit", "light-year", "parsec", "earth-mass", 
+        "solar-mass", "bit", "byte", "karat", "solar-luminosity", "ofhg", "atmosphere", 
+        "pixel", "dot", "permillion", "permyriad", "permille", "percent", "karat", "portion",
+        "minute", "hour", "day", "day-person", "week", "week-person",
+        "year", "year-person", "decade", "month", "month-person", "century",
+        "arc-second", "arc-minute", "degree", "radian", "revolution",
+        "electronvolt", 
+        // quasi-metric
+        "dunam", "mile-scandinavian", "carat", "cup-metric", "pint-metric"
+        );
+    
+    private void addSystems(Set<String> result, String subunit) {
+        Collection<String> systems = sourceToSystems.get(subunit);
+        if (!systems.isEmpty()) {
+            result.addAll(systems);
+        } else if (!OTHER_SYSTEM.contains(subunit)) {
+            result.add("metric");
+        }
     }
 
     public String reciprocalOf(String value) {

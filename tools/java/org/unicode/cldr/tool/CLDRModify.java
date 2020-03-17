@@ -2187,7 +2187,7 @@ public class CLDRModify {
                     return;
                 }
                 Set<String> paths = LogicalGrouping.getPaths(cldrFileToFilter, xpath);
-                if (paths.size() < 2) {
+                if (paths == null || paths.size() < 2) {
                     return;
                 }
                 Set<String> needed = new LinkedHashSet<>();

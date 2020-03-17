@@ -88,7 +88,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         }
 
         Set<String> paths = LogicalGrouping.getPaths(getCldrFileToCheck(), path);
-        if (paths.size() < 2) return this; // skip if not part of a logical grouping
+        if (paths == null || paths.size() < 2) return this; // skip if not part of a logical grouping
 
         // TODO 
         Set<String> paths2 = new HashSet<String>(paths);

@@ -4155,10 +4155,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     Set<UserLocaleStuff> allUserLocaleStuffs = new HashSet<UserLocaleStuff>();
 
-    public static final String DATAROW_JSP = "datarow_jsp"; // context tag for which datarow jsp to use
-
-    public static final String DATAROW_JSP_DEFAULT = "datarow_short.jsp";
-
     public static final String QUERY_VALUE_SUFFIX = "_v";
 
     /**
@@ -4639,133 +4635,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return getDiskFactory().getSupplementalDirectory();
     }
 
-    public void showMetazones(WebContext ctx, String continent) {
-        showPathList(ctx, "//ldml/dates/timeZoneNames/metazone" + DataSection.CONTINENT_DIVIDER + continent, (String) null);
-    }
-
-    /**
-     * for showing the list of zones to the user
-     */
-
-    public void showTimeZones(WebContext ctx) {
-        // String zone = ctx.field(QUERY_ZONE);
-        showPathList(ctx, DataSection.EXEMPLAR_PARENT, null, false);
-    }
-
     /**
      * This is the main function for showing lists of items (pods).
      */
     public void showPathList(WebContext ctx, String xpath, String lastElement) {
         showPathList(ctx, xpath, lastElement, false);
 
-    }
-
-    /**
-     *  width, in columns, of the typical data table
-     */
-    static int PODTABLE_WIDTH = 13;
-
-    /**
-     * section may be null.
-     *
-     * @param ctx
-     * @param section
-     */
-    static void printSectionTableOpenShort(WebContext ctx, DataSection section) {
-        ctx.println("<a name='st_data'></a>");
-        ctx.print("<table ");
-        if (section != null) {
-            ctx.print(" summary='Data Items for " + ctx.getLocale().toString() + " " + section.xpathPrefix + "' ");
-        }
-        ctx.println("class='data' border='1'>");
-        ctx.println("<tr class='headingb'>\n" + " <th colspan='1' width='50%'>[" + TRANS_HINT_LOCALE + "] "
-            + TRANS_HINT_LANGUAGE_NAME + "</th>\n" + // 3
-            " <th colspan='2' width='50%'>Your Language</th>\n"); // 8
-
-        ctx.println("</tr>");
-
-    }
-
-    /**
-     * section may be null.
-     *
-     * @param ctx
-     * @param section
-     */
-    static void printSectionTableOpenCode(WebContext ctx) {
-        ctx.includeFragment("datarow_open_table_code.jsp");
-        ctx.flush();
-    }
-
-    /**
-     * Print closing table
-     *
-     * @param ctx
-     */
-    static void printSectionTableCloseCode(WebContext ctx) {
-        ctx.includeFragment("datarow_close_table_code.jsp");
-        ctx.flush();
-    }
-
-    /**
-     * Section may be null.
-     *
-     * @param ctx
-     * @param section
-     */
-    void printSectionTableClose(WebContext ctx, DataSection section, boolean canModify) {
-        int table_width = (section != null) ? 13 : 10;
-        if (!canModify) {
-            table_width -= 4; // No vote, change, or no opinion columns
-        }
-
-        List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
-        if (section != null && (refsList != null) && (!refsList.isEmpty())) {
-            ctx.println("<tr></tr>");
-            ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='" + table_width
-                + "'>References</th></tr>");
-            int n = 0;
-
-            Hashtable<String, DataSection.DataRow> refsHash = (Hashtable<String, DataSection.DataRow>) ctx.temporaryStuff
-                .get("refsHash");
-            Hashtable<String, DataSection.DataRow.CandidateItem> refsItemHash = (Hashtable<String, DataSection.DataRow.CandidateItem>) ctx.temporaryStuff
-                .get("refsItemHash");
-
-            for (String ref : refsList) {
-                n++;
-                ctx.println("<tr class='referenceRow'><th><img src='http://unicode.org/cldr/data/dropbox/misc/images/reference.jpg'>#"
-                    + n + "</th>");
-                ctx.println("<td colspan='" + 1 + "'>" + ref + "</td>");
-                ctx.print("<td colspan='" + (table_width - 2) + "'>");
-                if (refsHash != null) {
-                    DataSection.DataRow refDataRow = refsHash.get(ref);
-                    DataSection.DataRow.CandidateItem refDataRowItem = refsItemHash.get(ref);
-                    if ((refDataRowItem != null) && (refDataRow != null)) {
-                        ctx.print(refDataRowItem.getValue());
-                        if (refDataRow.getDisplayName() != null) {
-                            ctx.println("<br>" + refDataRow.getDisplayName());
-                        }
-                        // ctx.print(refPea.displayName);
-                    } else {
-                        ctx.print("<i>unknown reference</i>");
-                    }
-                }
-                ctx.print("</td>");
-                ctx.println("</tr>");
-            }
-
-        }
-        if (refsList != null) {
-            ctx.temporaryStuff.remove("references");
-            ctx.temporaryStuff.remove("refsHash");
-            ctx.temporaryStuff.remove("refsItemHash");
-        }
-
-        ctx.println("</table>");
-    }
-
-    public void updateLocale(CLDRLocale locale) {
-        SurveyLog.logger.warning("updateLocale:" + locale.toString());
     }
 
     static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");

@@ -137,17 +137,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
     /**
-     * The "r_" prefix is for r_vetting_json.jsp (Dashboard) and r_vetting.jsp (obsolete?);
+     * The "r_" prefix is for r_vetting_json.jsp (Dashboard);
      * also "r_datetime", "r_zones", and "r_compact" -- see ReportMenu.
      * TODO: document "r_directiontest.jsp", "r_monkey.jsp"
      */
     private static final String REPORT_PREFIX = "r_";
-
-    /**
-     * TODO: R_VETTING isn't referenced anywhere; is r_vetting.jsp still in active use?
-     * https://st.unicode.org/cldr-apps/v#r_vetting/fr//
-     */
-    public static final String R_VETTING = REPORT_PREFIX + "vetting"; // r_vetting
 
     /**
      * r_vetting_json.jsp is for the Dashboard

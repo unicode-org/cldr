@@ -320,7 +320,12 @@ public class VettingViewerQueue {
                     } else {
                         if (DEBUG)
                             System.err.println("Starting summary gen..");
-                        vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, getLocalesWithVotes(st_org), usersOrg);
+                        /*
+                         * TODO: remove call to getLocalesWithVotes here, unless it has necessary side-effects.
+                         * Its return value was formerly an unused argument to generateSummaryHtmlErrorTables
+                         */
+                        getLocalesWithVotes(st_org);
+                        vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
                     }
                     if (running()) {
                         aBuffer.append("<hr/>" + PRE + "Processing time: " + ElapsedTimer.elapsedTime(start) + POST);
@@ -461,7 +466,7 @@ public class VettingViewerQueue {
                 VettingViewer.Choice.hasDispute,
                 VettingViewer.Choice.notApproved);
         }
-        ArrayList<String> out = vv.getErrorOnPath(choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, path);
+        ArrayList<String> out = vv.getErrorOnPath(choiceSet, locale.getBaseName(), usersOrg, usersLevel, path);
         JSONArray result = new JSONArray();
         for (String issues : out) {
             result.put(issues);
@@ -622,11 +627,10 @@ public class VettingViewerQueue {
      * @param aBuffer
      * @param ctx the WebContext, never null
      * @param sess the CookieSession
-     * @param rJson true if JSON output is desired (r_vetting_json.jsp), false for html (r_vetting.jsp -- obsolete??)
      *
-     * Called only by r_vetting_json.jsp and r_vetting.jsp; is the latter still in use?
+     * Called only by r_vetting_json.jsp
      */
-    public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess, boolean rJson) {
+    public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess) {
         Level usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
         String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
         /*
@@ -657,33 +661,29 @@ public class VettingViewerQueue {
 
         if (locale != SUMMARY_LOCALE) {
             String loc = locale.getBaseName();
-            if (rJson) {
-                /*
-                 * sourceFile provides the current winning values, taking into account recent votes.
-                 * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
-                 * are in the current XML in the cldr version control repository. The baseline values
-                 * are generally the last release values plus any changes that have been made by the
-                 * technical committee by committing directly to version control rather than voting.
-                 */
-                CLDRFile sourceFile = sourceFactory.make(loc, true);
-                Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-                CLDRFile baselineFile = baselineFactory.make(loc, true);
-                Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
-                file = vv.generateFileInfoReview(aBuffer, choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
-                this.getJSONReview(aBuffer, sourceFile, baselineFile, file, choiceSet, loc, true, quick, ctx);
-            } else {
-                /*
-                 * TODO: if this is not dead code (i.e., if r_vetting.jsp is still used), could pass
-                 * sourceFile and baselineFile to generateHtmlErrorTables rather than recreating in that function.
-                 * This really appears to be dead code!
-                 */
-                vv.generateHtmlErrorTables(aBuffer, choiceSet, loc, usersOrg, usersLevel, quick);
-            }
+            /*
+             * sourceFile provides the current winning values, taking into account recent votes.
+             * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
+             * are in the current XML in the cldr version control repository. The baseline values
+             * are generally the last release values plus any changes that have been made by the
+             * technical committee by committing directly to version control rather than voting.
+             */
+            CLDRFile sourceFile = sourceFactory.make(loc, true);
+            Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+            CLDRFile baselineFile = baselineFactory.make(loc, true);
+            Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> file;
+            file = vv.generateFileInfoReview(choiceSet, loc, usersOrg, usersLevel, quick, sourceFile, quick ? null : baselineFile);
+            this.getJSONReview(aBuffer, sourceFile, baselineFile, file, choiceSet, loc, true, quick, ctx);
         } else {
             if (DEBUG) {
                 System.err.println("Starting summary gen..");
             }
-            vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, createLocalesWithVotes(st_org), usersOrg);
+            /*
+             * TODO: remove call to createLocalesWithVotes here, unless it has necessary side-effects.
+             * Its return value was formerly an unused argument to generateSummaryHtmlErrorTables
+             */
+            createLocalesWithVotes(st_org);
+            vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, usersOrg);
         }
     }
 
@@ -705,15 +705,11 @@ public class VettingViewerQueue {
         LoadingPolicy forceRestart, Appendable output, JSONObject jStatus) throws IOException, JSONException {
         if (sess == null)
             sess = ctx.session;
-        SurveyMain sm = CookieSession.sm;
+        SurveyMain sm = CookieSession.sm; // TODO: ctx.sm if ctx never null
         Pair<CLDRLocale, Organization> key = new Pair<CLDRLocale, Organization>(locale, sess.user.vrOrg());
         boolean isSummary = (locale == SUMMARY_LOCALE);
         QueueEntry entry = null;
-//        if (!isSummary) {
         entry = getEntry(sess);
-//        } else {
-//            entry = getSummaryEntry();
-//        }
         if (status == null)
             status = new Status[1];
         jStatus.put("isSummary", isSummary);

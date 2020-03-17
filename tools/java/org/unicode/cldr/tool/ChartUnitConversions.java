@@ -15,8 +15,9 @@ public class ChartUnitConversions extends Chart {
 
     public static final String QUANTITY_MSG = "The units are grouped and ordered by Quantity (which are based on the NIST quantities, see "
         + "<a href='https://www.nist.gov/pml/special-publication-811' target='nist811'>NIST 811</a>). Note that the quantities are informative.";
-    public static final String RATIONAL_MSG = "Each numeric value is exact, presented in a simplified rational form: "
-        + "any divisors that would cause repeating fractions are separated out. Example: <sup>0.25</sup>/<sub>3<sub></sub></sub> = <sup>25</sup>/<sub>300<sub></sub></sub>";
+    public static final String RATIONAL_MSG = "Each numeric value is an exact rational. The format is a terminating decimal where possible; "
+        + "otherwise a repeating decimal if possible (where ˙ marks the start of the <a href='https://en.wikipedia.org/wiki/Repeating_decimal' target='wiki'>reptend</a>); "
+        + "otherwise a <a href='https://en.wikipedia.org/wiki/Rational_number' target='wiki'>rational number</a> (of the form <i>numerator/denominator</i>).";
     public static final String SPEC_GENERAL_MSG = "The " + ldmlSpecLink("/tr35-general.html#Contents")
     + " should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements";
 
@@ -82,13 +83,12 @@ public class ChartUnitConversions extends Chart {
             tablePrinter.addRow()
             .addCell(quantity)
             .addCell(sourceUnit)
-            .addCell(targetInfo.unitInfo.factor.toString(FormatStyle.html))
-            .addCell(targetInfo.unitInfo.offset.equals(Rational.ZERO) ? "" : targetInfo.unitInfo.offset.toString(FormatStyle.html))
+            .addCell(targetInfo.unitInfo.factor.toString(FormatStyle.repeating))
+            .addCell(targetInfo.unitInfo.offset.equals(Rational.ZERO) ? "" : targetInfo.unitInfo.offset.toString(FormatStyle.repeating))
             .addCell(targetInfo.target)
             .addCell(Joiner.on(", ").join(converter.getSourceToSystems().get(sourceUnit)))
             .addCell(quantity)
             .finishRow();
-
         }
         pw.write(tablePrinter.toTable());
     }

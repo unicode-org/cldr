@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "http://unicode.org/reports/reports.css" type="text/css">
+  "https://unicode.org/reports/reports.css" type="text/css">
   <title>UTS #35: Unicode Locale Data Markup Language</title>
   <style type="text/css">
   <!--
@@ -76,7 +76,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="http://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -8998,41 +8998,32 @@ decimal?, group?, special*)) &gt;</pre>
     "Modifications">Modifications</a></h2>
 
     <p class="changed"><b>Revision 58</b></p>
-	  <ul>
-		  <li class="changed"><b>Proposed Update</b> for CLDR 37.</li>
-	  </ul>
-	  <p>&nbsp;</p>
-	  <p class="removed"><b>Revision 57</b></p>
-	<ul class="removed">
-	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>
-	    <ul>
-		  <li><strong>Section 3.2 <a href="#Unicode_locale_identifier">Unicode Locale Identifier</a></strong>
-			<ul>
-			  <li>Clarified differences between Unicode locale identifiers and RFC 6067. [<a href=
-			  "https://unicode-org.atlassian.net/browse/CLDR-11770">CLDR-11770</a>]</li>
-			</ul>
-		  </li>
+	<ul class="changed">
+	  <li ><b>Proposed Update</b> for CLDR 37.</li>
+
+	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
+		        <ul>
+          <li><em>no changes</em>
+          </li>
         </ul>
-	  </li>
+	</li>
 	  <li><strong>Part 2: <a href=
     "tr35-general.html#Contents">General</a> (display names &amp;
 	  transforms, etc.)</strong>
 	    <ul>
-		  <li><strong>Section 11 <a href="tr35-general.html#ListPatterns">List Patterns</a></strong>
-			<ul>
-			  <li>Add entries for standard-narrow and or-narrow patterns.
-			  [<a href="https://unicode-org.atlassian.net/browse/CLDR-13301">CLDR-13301</a>]</li>
-			</ul>
-		  </li>
+ 	        <li>Added new subsections of<em> <strong>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a></strong></em>
+ 	          <ul>
+ 	            <li >6.1 <a href="tr35-general.html#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
+                <li >6.2 <a href="tr35-general.html#Unit_Identifiers">Unit Identifiers</a></li>
+                <li >6.3 <a href="tr35-general.html#Example_Units">Example Units</a></li>
+                <li>And renumbered other subsections of Section 6</li>
+              </ul>
+ 	        </li>
+ 	        <li>Added <strong><em>Section 15 <a href="tr35-general.html#Grammatical_Features">Grammatical Features</a></em></strong>
+            </li>
 
-		  <li><strong>Section 14.1 <a href="tr35-general.html#SynthesizingNames">Synthesizing Sequence Names</a></strong>
-			<ul>
-			  <li>Document changes in the Emoji derived name algorithm.
-			  [<a href="https://unicode-org.atlassian.net/browse/CLDR-11952">CLDR-11952</a>]</li>
-			</ul>
-		  </li>
         </ul>
-	  </li>
+      </li>
 	  <li>
 	    <p><strong>Part 3: <a href=
     "tr35-numbers.html#Contents">Numbers</a> (number &amp; currency
@@ -9053,7 +9044,15 @@ decimal?, group?, special*)) &gt;</pre>
         <p><strong>Part 6: <a href=
     "tr35-info.html#Contents">Supplemental</a> (supplemental
           data)</strong></p>
-        <ul><li><em>no changes</em></li></ul>
+        <ul>
+          <li><em>Added</em>
+sections            
+  <ul>
+              <li ><strong>Section 13 <a href="#Unit_Conversion" >Unit Conversion</a></strong></li>
+              <li ><strong>Section 14 <a href="#Unit_Preferences">Unit Preferences</a></strong></li>
+            </ul>
+          </li>
+        </ul>
         <p><strong>Part 7: <a href=
     "tr35-keyboards.html#Contents">Keyboards</a> (keyboard
           mappings)</strong></p>

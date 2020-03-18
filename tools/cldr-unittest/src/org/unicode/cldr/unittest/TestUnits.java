@@ -1486,8 +1486,8 @@ public class TestUnits extends TestFmwk {
             if (cldrResult.equals(Rational.NaN)) {
                 cantConvert.add(data);
             } else {
-                final Rational symmetricDiff = symmetricDiff(externalResult, cldrResult);
-                if (symmetricDiff.compareTo(Rational.of(1, 1000000)) > 0){
+                final Rational symmetricDiff = externalResult.symmetricDiff(cldrResult);
+                if (symmetricDiff.abs().compareTo(Rational.of(1, 1000000)) > 0){
                     convertDiff.put(data, cldrResult);
                 } else {
                     remainingCldrUnits.remove(data.source);
@@ -1554,7 +1554,7 @@ public class TestUnits extends TestFmwk {
                     + "\t⟹\t" + external.target
                     + "\texpected\t" + externalResult.doubleValue()
                     + "\tactual:\t" + computed.doubleValue()
-                    + "\tsdiff:\t" + symmetricDiff(computed, externalResult).doubleValue()
+                    + "\tsdiff:\t" + computed.symmetricDiff(externalResult).abs().doubleValue()
                     + "\txdata:\t" + external);
             }
         }
@@ -1631,11 +1631,65 @@ public class TestUnits extends TestFmwk {
         return rational;
     }
 
-    private Rational symmetricDiff(Rational a, Rational b) {
-        return a.subtract(b)
-            .divide(a.add(b))
-            .multiply(Rational.of(2))
-            .abs()
-            ;
+    public void TestRepeating() {
+        Set<Rational> seen = new HashSet<>();
+        String[][] tests = {
+            {"0/0", "NaN"},
+            {"1/0", "INF"},
+            {"-1/0", "-INF"},
+            {"0/1", "0"},
+            {"1/1", "1"},
+            {"1/2", "0.5"},
+            {"1/3", "0.˙3"},
+            {"1/4", "0.25"},
+            {"1/5", "0.2"},
+            {"1/6", "0.1˙6"},
+            {"1/7", "0.˙142857"},
+            {"1/8", "0.125"},
+            {"1/9", "0.˙1"},
+            {"1/10", "0.1"},
+            {"1/11", "0.˙09"},
+            {"1/12", "0.08˙3"},
+            {"1/13", "0.˙076923"},
+            {"1/14", "0.0˙714285"},
+            {"1/15", "0.0˙6"},
+            {"1/16", "0.0625"},
+        };
+        for (String[] test : tests) {
+            Rational source = Rational.of(test[0]);
+            seen.add(source);
+            String expected = test[1];
+            String actual = source.toString(FormatStyle.repeating);
+            assertEquals(test[0], expected, actual);
+            Rational roundtrip = Rational.of(expected);
+            assertEquals(expected, source, roundtrip);
+        }
+        for (int i = -50; i < 200; ++i) {
+            for (int j = 0; j < 50; ++j) {
+                checkFormat(Rational.of(i, j), seen);
+            }
+        }
+        for (Entry<String, TargetInfo> unitAndInfo : converter.getInternalConversionData().entrySet()) {
+            final TargetInfo targetInfo2 = unitAndInfo.getValue();
+            ConversionInfo targetInfo = targetInfo2.unitInfo;
+            checkFormat(targetInfo.factor, seen);
+            if (SHOW_DATA) {
+                String rFormat = targetInfo.factor.toString(FormatStyle.repeating);
+                String sFormat = targetInfo.factor.toString(FormatStyle.simple);
+                if (!rFormat.equals(sFormat)) {
+                    System.out.println("\t\t" + unitAndInfo.getKey() + "\t" + targetInfo2.target + "\t" + sFormat + "\t" + rFormat + "\t" + targetInfo.factor.doubleValue());
+                }
+            }
+        }
+    }
+
+    private void checkFormat(Rational source, Set<Rational> seen) {
+        if (seen.contains(source)) {
+            return;
+        }
+        seen.add(source);
+        String formatted = source.toString(FormatStyle.repeating);
+        Rational roundtrip = Rational.of(formatted);
+        assertEquals("roundtrip " + formatted, source, roundtrip);
     }
 }

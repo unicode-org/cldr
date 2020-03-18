@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -52,6 +53,8 @@ public final class Rational implements Comparable<Rational> {
 
     public static final Rational TEN = Rational.of(10, 1);
     public static final Rational TENTH = TEN.reciprocal();
+    
+    public static final char REPTEND_MARKER = '˙';
 
     public static class RationalParser implements Freezable<RationalParser>{
 
@@ -106,12 +109,27 @@ public final class Rational implements Comparable<Rational> {
             return result;
         }
 
-        static final UnicodeSet ALLOWED_CHARS = new UnicodeSet("[-A-Za-z0-9_]").freeze();
+        static final UnicodeSet ALLOWED_CHARS = new UnicodeSet("[-A-Za-z0-9_]").add(REPTEND_MARKER).freeze();
 
         private Rational process2(String input) {
             final char firstChar = input.charAt(0);
             if (firstChar == '-' || (firstChar >= '0' && firstChar <= '9')) {
-                return Rational.of(new BigDecimal(input));
+                int pos = input.indexOf(REPTEND_MARKER);
+                if (pos < 0) {
+                    return Rational.of(new BigDecimal(input));
+                }
+                // handle repeating fractions
+                String reptend = input.substring(pos+1);
+                int rlen = reptend.length();
+                input = input.substring(0,pos) + reptend;
+
+                BigDecimal rf = new BigDecimal(input);
+                BigDecimal rfPow = new BigDecimal(input+reptend).scaleByPowerOfTen(rlen);
+                BigDecimal num = rfPow.subtract(rf);
+
+                Rational result = Rational.of(num);
+                Rational den = Rational.of(BigDecimal.ONE.scaleByPowerOfTen(rlen).subtract(BigDecimal.ONE)); // could optimize
+                return result.divide(den);
             } else {
                 if (!ALLOWED_CHARS.containsAll(input)) {
                     throw new IllegalArgumentException("Bad characters in: " + input);
@@ -273,7 +291,7 @@ public final class Rational implements Comparable<Rational> {
         }
     }
 
-    public enum FormatStyle {plain, simple, html}
+    public enum FormatStyle {plain, simple, repeating, html}
 
     @Override
     public String toString() {
@@ -283,7 +301,8 @@ public final class Rational implements Comparable<Rational> {
 
 
     public String toString(FormatStyle style) {
-        if (style == FormatStyle.plain) {
+        switch (style) {
+        case plain:
             return numerator + (denominator.equals(BigInteger.ONE) ? "" : " / " + denominator);
         }
         Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
@@ -293,6 +312,12 @@ public final class Rational implements Comparable<Rational> {
         final boolean denIsOne = newDenominator.equals(BigInteger.ONE);
 
         switch (style) {
+        case repeating: 
+            String result = toRepeating(30); // limit of 30 on the repeating length, so we don't get crazy
+            if (result != null) {
+                return result;
+            }
+            // otherwise drop through to simple
         case simple: {
             return denIsOne ? numStr : numStr + "/" + denStr;
         }
@@ -466,6 +491,67 @@ public final class Rational implements Comparable<Rational> {
 
     public BigInteger floor() {
         return numerator.divide(denominator);
+    }
+
+    public Rational symmetricDiff(Rational b) {
+        return this.subtract(b)
+            .divide(this.abs().add(b.abs()))
+            .multiply(Rational.of(2))
+            ;
+    }
+
+    /** Return repeating fraction, as long as the length is reasonable */
+    private String toRepeating(int stringLimit) {
+        BigInteger p = numerator;
+        BigInteger q = denominator;
+        StringBuilder s = new StringBuilder();
+
+        // Edge cases
+        final int pTo0 = p.compareTo(BigInteger.ZERO);
+        if (q.compareTo(BigInteger.ZERO) == 0) {
+            return pTo0 == 0 ? "NaN" : pTo0 > 0 ? "INF" : "-INF";
+        }
+        if (pTo0 == 0) {
+            return "0";
+        } else if (pTo0 < 0) {
+            p = p.negate();
+            s.append('-');
+        }
+        final int pToq = p.compareTo(q);
+        if (pToq == 0) {
+            s.append('1');
+            return s.toString();
+        } else if (pToq > 0) {
+            BigInteger intPart = p.divide(q);
+            s.append(nf.format(intPart));
+            p = p.remainder(q);
+            if (p.compareTo(BigInteger.ZERO) == 0) {
+                return s.toString();
+            }
+        } else {
+            s.append('0');
+        }
+
+        // main loop
+        s.append(".");
+        int pos = -1; // all places are right to the radix point
+        Map<BigInteger, Integer> occurs = new HashMap<>();
+        while (!occurs.containsKey(p)) {
+            occurs.put(p, pos);  // the position of the place with remainder p
+            BigInteger p10 = p.multiply(BigInteger.TEN);
+            BigInteger z = p10.divide(q); // index z of digit within: 0 ≤ z ≤ b-1
+            p = p10.subtract(z.multiply(q));    // 0 ≤ p < q
+            s = s.append(((char)('0' + z.intValue()))); // append the character of the digit
+            if (p.equals(BigInteger.ZERO)) {
+                return s.toString();
+            } else if (s.length() > stringLimit) {
+                return null;
+            }
+            pos -= 1;
+        }
+        int L = occurs.get(p)-pos; // the length of the reptend (being < q)
+        s.insert(s.length()-L, REPTEND_MARKER);
+        return s.toString();
     }
 
     public boolean isPowerOfTen() {

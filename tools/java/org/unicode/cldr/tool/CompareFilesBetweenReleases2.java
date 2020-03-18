@@ -7,19 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
+
+import com.google.common.collect.ImmutableSet;
 
 public class CompareFilesBetweenReleases2 {
 
-    private static final String STAGING_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "../cldr-staging/production");
+    //private static final String STAGING_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "../cldr-staging/production");
     private static final String RELEASE_DIRECTORY = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + "/";
 
     public static void main(String[] args) throws IOException {
-        Set<String> staging = getFiles(new File(STAGING_DIRECTORY));
+        Set<String> staging = getFiles(new File(CLDRPaths.BASE_DIRECTORY));
         Set<String> lastRelease = getFiles(new File(RELEASE_DIRECTORY));
-        System.out.println("\nIn cldr-staging, but not last release:\n");
+        System.out.println("\nIn trunk, but not last release:\n");
         showDiff(staging, lastRelease);
-        System.out.println("\nIn last release, but not cldr-staging:\n");
+        System.out.println("\nIn last release, but not trunk:\n");
         showDiff(lastRelease, staging);
     }
 
@@ -38,10 +39,13 @@ public class CompareFilesBetweenReleases2 {
         return result;
     }
 
+    static final Set<String> SKIP = ImmutableSet.of("seed", "exemplars", "docs", "tools");
+    
     private static void getFiles(int baseLen, File subdir, Set<String> names) throws IOException {
         String name = subdir.getName();
         if (subdir.isDirectory()) {
-            if (name.equals("seed") || name.equals("exemplars")) {
+            if (SKIP.contains(name)
+                || name.startsWith(".")) {
                 return;
             }
             for (File file : subdir.listFiles()) {

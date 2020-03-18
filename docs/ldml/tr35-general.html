@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "http://www.unicode.org/reports/reports.css" type="text/css">
+  "https://www.unicode.org/reports/reports.css" type="text/css">
   <title>UTS #35: Unicode LDML: General</title>
   <style type="text/css">
   <!--
@@ -71,7 +71,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="http://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -212,12 +212,15 @@
       </li>
       <li>6 <a href="#Unit_Elements">Unit Elements</a>
         <ul class="toc">
-          <li>6.1 <a href="#perUnitPatterns">per Unit
+          <li class='changed'>6.1 <a href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
+          <li class='changed'>6.2 <a href="#Unit_Identifiers">Unit Identifiers</a></li>
+          <li class='changed'>6.3 <a href="#Example_Units">Example Units</a></li>
+			<li> 6.<span class='changed'>4</span> <a href="#perUnitPatterns">per Unit
           patterns</a></li>
-          <li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
-          <li>6.3 <a href="#durationUnit">durationUnit</a></li>
-          <li>6.4 <a href="#coordinateUnit">coordinateUnit</a></li>
-          <li>6.5 <a href=
+          <li>6.<span class='changed'>5</span> <a href="#Unit_Sequences">Unit Sequences</a></li>
+          <li>6.<span class='changed'>6</span> <a href="#durationUnit">durationUnit</a></li>
+          <li>6.<span class='changed'>7</span> <a href="#coordinateUnit">coordinateUnit</a></li>
+          <li>6.<span class='changed'>8</span> <a href=
           "#Territory_Based_Unit_Preferences">Territory-Based Unit
           Preferences</a></li>
         </ul>
@@ -292,7 +295,13 @@
           Names</a></li>
         </ul>
       </li>
-    </ul><!-- END Generated TOC: CheckHtmlFiles -->
+		<li class='changed'>15 <a href="#Grammatical_Features">Grammatical Features</a>
+		  <ul class="toc">
+		    <li>15.1<a href="#Gender" >Gender</a></li>
+<li>15.2<a href="#Case">Case</a></li>
+	      </ul>
+		</li>
+	</ul>
     <h2>1 <a name="Display_Name_Elements" href=
     "#Display_Name_Elements" id="Display_Name_Elements">Display
     Name Elements</a></h2>
@@ -412,7 +421,7 @@
 		    <ul>
 		      <li>If CombineLanguage is false, only choose matches with the language subtag matching.</li>
 	        </ul>
-		  </li>
+	    </li>
 		  <li><strong>Script, Region, Variants.</strong> Where any of these subtags are in L, append the matching element value to LQS.</li>
 		  <li><strong>T extensions. </strong>Get the value of the key=&quot;h0&quot; type=&quot;hybrid&quot; element, if there is one; otherwise  the value of the &lt;key type=&quot;t&quot;&gt; element. Next get the locale display name of the tlang. Join the pair using localePattern&gt; and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.</li>
 		  <li><strong>U  extensions. </strong>If there is an attribute value A, process the key-value pair &lt;&quot;u&quot;, A&gt; as below and append to LQS.  Then format and add display names for each of the remaining key-type pairs as described below.</li>
@@ -1373,50 +1382,291 @@
         <td>Days</td>
         <td style="color: silver">enter the vacation length</td>
       </tr>
-    </table>
-    <p>&nbsp;</p>
-    <p>The value of the type attribute are <em>unit
-    identifiers</em> (e.g., <code>duration-day</code>).
-    Syntactically, they have the following structure:</p>
-    <table>
-      <tr>
-        <td><code>unit_identifier</code></td>
-        <td><code>:= type "-" core_unit_identifier</code></td>
-      </tr>
-      <tr>
-        <td><code>type</code></td>
-        <td><code>:= [a-z]+</code></td>
-      </tr>
-      <tr>
-        <td><code>core_unit_identifier</code></td>
-        <td><code>:=
-        compound_unit | simple_unit</code></td>
-      </tr>
-      <tr>
-        <td><code>compound_unit</code></td>
-        <td><code>:= simple_unit "-per-" simple_unit</code></td>
-      </tr>
-      <tr>
-        <td><code>simple_unit</code></td>
-        <td><code>:= [a-z]+([-][a-z]+)*</code> and may not contain
-        <code>"-per-"</code></td>
-      </tr>
-    </table>
-    <p>Both the unit identifier and the <em>core unit
-    identifier</em> (e.g., <code>day</code>) are guaranteed to be
-    unique, and clients can use either one to identify a unit. The
-    associations between types and core unit identifiers are as
-    prescribed in CLDR data; it is invalid for a client to create any
-    additional associations. Except as specified in <em>Section 6.6
-    <a href="#Private_Use_Units">Private-Use Units</a></em>, all
-    values for <code>type</code> and <code>simple_unit</code>​ are
-    reserved by CLDR. It is valid to construct a
-    <code>compound_unit</code> with any two valid
-    <code>simple_unit</code>s; the first
-    <code>simple_unit</code> in a <code>compound_unit</code> is
-    called the <em>numerator</em>, and the second
-    <code>simple_unit</code> in a <code>compound_unit</code> is
-    called the <em>demonimator</em>.</p>
+    </table><br>
+<div class='changed'>
+	<h3>6.1 <a name="Unit_Preference_and_Conversion" href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a> </h3>
+
+
+<p>
+Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
+</p>
+<p>
+The unit preference and conversion data allows formatting functions to pick the right measurement units for the locale and usage, and convert input measurement into those units. For example, a program (or database) could use 1.88 meters internally, but then for person-height have that measurement convert to <em>6 foot 2 inches</em> for en-US and to <em>188 centimeters </em>for de-CH. Using the unit display names and list formats, those results can then be displayed according to the desired width (eg <em>2″</em> vs <em>2 in</em> vs 2 <em>inches</em>) and using the locale display names and number formats.
+</p>
+<p>
+The size of the measurement can also be taken into account, so that an infant can have a height as <em>18 inches</em>, and an adult the height as <em>6 foot 2 inches.</em>
+</p>
+<p>
+This data is supplied in <strong>Part 6: <a href=
+    "tr35-info.html#Contents">Supplemental</a></strong>: <a href=
+    "tr35-info.html#Unit_Conversion">Section 13 Unit Conversion</a> and <a href=
+    "tr35-info.html#Unit_Preferences">Section 13 Unit Preferences</a>.
+</p>
+<h3>6.2 <a name="Unit_Identifiers" href="#Unit_Identifiers" >Unit Identifiers</a></h3>
+<p>
+  Units are identified internally as described in this section. As with other identifiers in CLDR, the American English spelling is used for unit identifiers. These names should not be presented to end users, however. As in other cases, the translated names for different languages (or variants of English) are available in the CLDR localized data.
+</p>
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Example</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>long unit identifier
+   </td>
+   <td>length-meter, mass-pound, duration-day
+   </td>
+  </tr>
+  <tr>
+   <td>core unit identifier
+   </td>
+   <td>meter, pound, day
+   </td>
+  </tr>
+</table><br>
+
+
+<p>
+Both the <em>unit identifier</em> and the <em>core unit identifier</em> are guaranteed to be unique, and clients can use either one to identify a unit. The associations between types and core unit identifiers are as prescribed in CLDR data; it is invalid for a client to create any additional associations. Except as specified in <em>Section 6.6 <a href="https://www.unicode.org/reports/tr35/tr35-general.html#Private_Use_Units">Private-Use Units</a></em>, all values are reserved by CLDR. 
+</p>
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Examples</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>simple unit ID
+   </td>
+   <td>meter, foot, inch, pound, pound-force, …
+   </td>
+  </tr>
+  <tr>
+   <td>prefixed unit ID
+   </td>
+   <td>kilometer, centigram, …
+<p>
+<em>plus simple unit IDs</em>
+   </td>
+  </tr>
+  <tr>
+   <td>single unit ID
+   </td>
+   <td>square-foot, cubic-centimeter, …<br>
+<em>plus prefixed unit IDs</em>
+   </td>
+  </tr>
+  <tr>
+   <td>core unit ID
+   </td>
+   <td>kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, …
+<p>
+<em>plus single unit IDs</em>
+   </td>
+  </tr>
+  <tr>
+   <td>mixed unit ID
+   </td>
+   <td>foot-and-pound
+   </td>
+  </tr>
+</table><br>
+
+
+<p>
+A core unit that is not a simple unit is called a <em>complex unit</em>. It is valid to construct a complex unit identifier from multiple simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter). As usual, with division the part before the (first) -per- is called the <em>numerator</em>, and the part after it is called the <em>denominator</em>. 
+</p>
+<p>
+The conversion information uses the short unit identifiers, discarding the unitType. Thus “meter” is used instead of “length-meter”. The translation data currently uses the long unit identifiers, for backwards compatibility. However, that is likely to change in a future version.
+</p>
+<p>
+The identifiers and unit conversion data are built to handle arbitrary combinations of core unit IDs using division (kilometer-per-hour), multiplication (kilogram-meter), powers (square-second), and SI prefixes (kilo-). Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
+</p><ul>
+
+<li>A power (square, cubic, pow4, etc) modifies one prefixed unit ID, and must occur immediately before it in the identifier: square-foot, not foot-square.
+<li>Multiplication binds more tightly than division, so kilogram-meter-per-second-ampere is interpreted as (kg ⋅ m) / (s ⋅ a). 
+<li>Thus if -per- occurs multiple times, each occurrence after the first is equivalent to a multiplication:  <ul>
+
+ <li>kilogram-meter-per-second-ampere ⩧ kilogram-meter-per-second-per-ampere. 
+</ul>
+</li></ul>
+
+<h4>Nomenclature</h4>
+
+
+<p>
+For the US spelling, see the <a href="https://www.nist.gov/pml/special-publication-811">Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811</a>, which is explicit about the discrepancy with the English-language BIPM spellings: 
+</p>
+<p>
+
+    In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”
+</p>
+<h4>Syntax</h4>
+
+
+<p>
+The formal syntax for identifiers is provided below.
+</p>
+
+<table>
+  <tr>
+   <td>unit_identifier
+   </td>
+   <td>:=
+   </td>
+   <td>long_unit_identifier<br>
+| mixed_unit_identifier
+<p>
+| core_unit_identifier
+   </td>
+  </tr>
+  <tr>
+   <td>long_unit_identifier
+   </td>
+   <td>:= 
+   </td>
+   <td>type "-" core_unit_identifier
+   </td>
+  </tr>
+  <tr>
+   <td>core_unit_identifier
+   </td>
+   <td>:=
+   </td>
+   <td>product_unit ("-per-" product_unit)* <ul>
+
+<li><em>Example: foot-per-second-per-second</em></li></ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>mixed_unit_identifier
+   </td>
+   <td>:=
+   </td>
+   <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*<ul>
+
+<li><em>Example: foot-and-inch</em>
+   </ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>product_unit
+   </td>
+   <td>:=
+   </td>
+   <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*
+<p>
+| pu_single_unit ("-" pu_single_unit)*<ul>
+
+<li><em>Example: foot-pound-force</em>
+<li><em>No pu_single_unit may precede a single unit</em></li></ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>single_unit
+   </td>
+   <td>:=
+   </td>
+   <td>(dimensionality_prefix)? prefixed_unit<ul>
+
+<li><em>Example: square-meter</em></li></ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>pu_single_unit
+   </td>
+   <td>:=
+   </td>
+   <td>“xxx-” single-unit | “x-” single-unit<ul>
+
+<li><em>Example: xxx-square-knuts (a Harry Potter unit)</em>
+<li><em>“x-” is only for backwards compatibility</em>
+<li>See Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a>
+   </ul></td>
+  </tr>
+  <tr>
+   <td>dimensionality_prefix
+   </td>
+   <td>:=
+   </td>
+   <td>"square-"
+<p>
+| "cubic-"
+<p>
+| "pow" ([2-9]|1[0-5]) "-"<ul>
+
+<li><em>"pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</em></li></ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>prefixed_unit
+   </td>
+   <td>
+   </td>
+   <td>(si_prefix)? simple_unit<ul>
+
+<li><em>Example: kilometer</em></li></ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>si_prefix
+   </td>
+   <td>:=
+   </td>
+   <td>"deka" | "hecto" | "kilo", … <ul>
+
+<li>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>simple_unit
+   </td>
+   <td>:=
+   </td>
+   <td>unit_component ("-" unit_component)*
+<p>
+ | “em” | “g” | “us” | “hg” | “of”<ul>
+
+<li>At least one unit_component must not itself be a simple_unit
+<li>3 simple units are grandfathered in, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”) <ul>
+
+ <li><em>We will likely deprecate those and add conformant aliases in the future.</em>
+ <li><em>“hg” and “of” are already only in deprecated simple_units.</em>
+<li><em>Example: gallon-imperial</em></li></ul>
+</li></ul>
+
+   </td>
+  </tr>
+  <tr>
+   <td>unit_component
+   </td>
+   <td>:=
+   </td>
+   <td>[a-z]{3,∞} | “1” “0”{2,3}<ul>
+
+<li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.
+<li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.
+<li><em>Example: foot</em></li></ul>
+
+   </td>
+  </tr>
+</table>
+
+
+    <h3>6.3 <a name="Example_Units" href="#Example_Units">Example Units</a></h3>
+    </div>
     <p>The
     following table contains examples of types and units currently
     defined by CLDR. The units in CLDR are not
@@ -2138,7 +2388,7 @@
         <td>simple</td>
         <td>{0} bbl</td>
       </tr>
-    </table>
+    </table><br>
     <p>There are three widths: <strong>long</strong>,
     <strong>short</strong>, and <strong>narrow</strong>. As usual,
     the narrow forms may not be unique: in English, 1′ could mean 1
@@ -2167,7 +2417,7 @@
     example, in "zh", references to a person being 3 days old or 30
     years old would use the forms “他3天大” and “他30岁”
     respectively.</p>
-    <h3>6.1 <a name="perUnitPatterns" href="#perUnitPatterns" id=
+    <h3>6.<span class='changed'>4</span> <a name="perUnitPatterns" href="#perUnitPatterns" id=
     "perUnitPatterns">per Unit patterns</a><a name=
     "compoundUnitPattern" href="#compoundUnitPattern" id=
     "compoundUnitPattern"></a></h3>
@@ -2231,17 +2481,17 @@
     <p>The patterns can have different unit lengths, so the
     appropriate unit length should be used (with fallbacks if
     necessary).</p>
-    <h3>6.2 <a name="Unit_Sequences" href="#Unit_Sequences" id=
-    "Unit_Sequences">Unit Sequences</a></h3>
-    <p>Units may be used in composed sequences, such as <strong>5°
+    <h3>6.<span class='changed'>5</span> <a name="Unit_Sequences" href="#Unit_Sequences" id=
+    "Unit_Sequences">Unit Sequences<span class='changed'> (Mixed Units)</span></a></h3>
+    <p>Units may be used in composed sequences <span  class='changed'></span>(aka <em>mixed units</em>)</span>, such as <strong>5°
     30′</strong> for 5 degrees 30 minutes, or <strong>3 ft 2
-    in.</strong>For that purpose, the appropriate width of the unit
+    in.</strong> For that purpose, the appropriate width of the unit
     listPattern can be used to compose the units in a sequence.</p>
     <pre>&lt;listPattern type="unit"&gt; (for the long form)
 &lt;listPattern type="unit-narrow"&gt;
 &lt;listPattern type="unit-short"&gt;
 </pre>
-    <h3>6.3 <a name="durationUnit" href="#durationUnit" id=
+    <h3>6.<span class='changed'>6</span> <a name="durationUnit" href="#durationUnit" id=
     "durationUnit">durationUnit</a></h3>
     <p>The durationUnit is a special type of unit used for composed
     time unit durations.</p>
@@ -2252,7 +2502,7 @@
     'm' for minutes, and 's' for sections. These are the same
     symbols used in availableFormats, except that there is no need
     to distinguish different forms of the hour.</p>
-    <h3>6.4 <a name="coordinateUnit" href="#coordinateUnit" id=
+    <h3>6.<span class='changed'>7</span> <a name="coordinateUnit" href="#coordinateUnit" id=
     "coordinateUnit">coordinateUnit</a></h3>
     <p>The <strong>coordinateUnitPattern</strong> is a special type
     of pattern used for composing degrees of latitude and
@@ -2274,7 +2524,7 @@
     type="south"&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
     &lt;coordinateUnitPattern
     type="west"&gt;{0}W&lt;/coordinateUnitPattern&gt;</p>
-    <h3>6.5 <a name="Territory_Based_Unit_Preferences" href=
+    <h3>6.<span class='changed'>8</span> <a name="Territory_Based_Unit_Preferences" href=
     "#Territory_Based_Unit_Preferences" id=
     "Territory_Based_Unit_Preferences">Territory-Based Unit
     Preferences</a></h3>
@@ -2294,27 +2544,24 @@
     the scale of the measurement (e.g measuring the height of an
     adult versus that of an infant).</p>
 
-      <h3>6.6 <a name="Private_Use_Units" href="#Private_Use_Units"
+      <h3>6.<span class='changed'>9</span> <a name="Private_Use_Units" href="#Private_Use_Units"
       id="Private_Use_Units">Private-Use Units</a></h3>
-      <p>CLDR has reserved the <code>"x-"</code> prefix in the
-      <code>simple_unit</code> part of the unit identifer BNF for
-      private-use units. CLDR will never define a type, simple unit,
-      or compound unit such that the unit identifier starts with
-      <code>"x-"</code>, ends with <code>"-x"</code>, or contains
-      <code>"-x-"</code>.</p>
-      <p>For example, if you wanted to define your own unit "foo",
-      you could use the simple unit
-      <code>"x-foo"</code>.</p>
-      <p>It is valid to construct compound units containing one or
-      more private-use simple units. For example,
-      <code>"x-foo-per-second"</code> and
-      <code>"x-foo-per-x-bar"</code> are both valid core
-      unit identifiers for compound units.</p>
-      <p>As explained earlier, CLDR defines all associations
-      between types and units. It is therefore not possible to
-      construct a valid unit identifier containing a private-use
-      unit; only core unit identifiers are possible.</p>
-
+	<div class='changed'>
+      <p>
+CLDR has reserved the "xxx-" prefix in the simple_unit part of the unit identifier BNF for private-use units. CLDR will never define a type, simple unit, or compound unit such that the unit identifier starts with "xxx-", ends with "-xxx", or contains "-xxx-".
+</p>
+<p>
+For example, if you wanted to define your own unit "foo", you could use the simple unit "xxx-foo".
+</p>
+<p>
+It is valid to construct compound units containing one or more private-use simple units. For example, "xxx-foo-per-second" and "xxx-foo-per-xxx-bar" are both valid core unit identifiers for compound units.
+</p>
+<p>
+As explained earlier, CLDR defines all associations between types and units. It is therefore not possible to construct a valid long unit identifier containing a private-use unit; only core unit identifiers are possible.
+</p>
+<p>
+The older syntax used “x-”, which was expanded to “xxx-” to simplify use with BCP47 syntax. That should be converted to “xxx-”.</p>
+</div>
     <h2>7 <a name="POSIX_Elements" href="#POSIX_Elements" id=
     "POSIX_Elements">POSIX Elements</a></h2>
     <p class="dtd">&lt;!ELEMENT posix (alias | (messages*,
@@ -4650,14 +4897,338 @@
               alternate names for this (type, subtype), use the one
               whose “alt” key is matching; otherwise, use the
               default alternate (which has no “alt” atribute in
-              CLDR).</li>
-            </ol>
-          </li>
+              CLDR).</li></ol></li>
         </ol>
       </li>
       <li>Concatenate the strings, with a separator between
       them.</li>
     </ol>
+	  <div class='changed'>
+    <h2>15 <a name="Grammatical_Features" href="#Grammatical_Features"
+    id="Grammatical_Features">Grammatical Features</h2>
+
+
+<p>
+LDML supplies grammatical information that can be used to distinguish localized forms on a per-locale basis. The current data is part of an initial phase; the longer term plan is to add structure to permit localized forms based on these features, starting with measurement units such as the dative form in Serbian of “kilometer”. That will allow unit values to be inserted as placeholders into messages and adopt the right forms for grammatical agreement.
+</p>
+<p>
+The current data includes the following:
+</p><ul>
+
+<li>There are currently 3 grammatical features found in the <a href="https://github.com/unicode-org/cldr/blob/master/common/dtd/ldmlSupplemental.dtd#1229">DTD</a>: Gender, Case, Definiteness
+<li>There are initial mappings from locales to grammatical features they exhibit in the file <a href="https://github.com/unicode-org/cldr/blob/master/common/supplemental/grammaticalFeatures.xml">grammaticalFeatures.xml</a></li></ul>
+
+<p>
+Note that the CLDR plural categories overlap some of these features, since some languages use case and other devices to change words based on the numeric values.
+</p>
+<h2>Features</h2>
+
+
+<p class='dtd'>
+&lt;!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
+</p>
+<p>&nbsp;</p>
+<p class='dtd'>
+&lt;!ELEMENT grammaticalCase EMPTY>
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
+</p>
+<p>&nbsp;</p>
+<p class='dtd'>
+&lt;!ELEMENT grammaticalGender EMPTY>
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
+</p>
+<p>&nbsp;</p>
+<p class='dtd'>
+&lt;!ELEMENT grammaticalDefiniteness EMPTY>
+</p>
+<p class='dtd'>
+&lt;!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
+</p>
+<h3>15.1<a name="Gender" href="#Gender" >Gender</a></h3>
+<p>
+  Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)
+</p>
+<h4>Example</h4>
+
+
+
+
+
+<pre class="prettyprint">&lt;grammaticalFeatures targets="nominal" locales="es fr it pt">
+   &lt;grammaticalGender values="masculine feminine"/>
+</pre>
+
+
+<h4>Values</h4>
+
+
+
+<table>
+  <tr>
+   <td>animate
+   </td>
+   <td>In an animate/inanimate gender system, gender that denotes human or animate entities
+   </td>
+   <td>description adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a> <a href="http://linguistics-ontology.org/gold/2010/AnimateGender">linguistics-ontology.org/gold/2010/AnimateGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>inanimate
+   </td>
+   <td>In an animate/inanimate gender system, gender that denotes object or inanimate entities
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/InanimateGender">linguistics-ontology.org/gold/2010/InanimateGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>personal
+   </td>
+   <td>In an animate/inanimate gender system and in some language, gender that specifies the masculine gender of animate entities
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/HumanGender">linguistics-ontology.org/gold/2010/HumanGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>common
+   </td>
+   <td>In a common–neuter gender system, gender that denotes human entities.
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>feminine
+   </td>
+   <td>In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object.
+   </td>
+   <td>adapted from: wikipedia.org/wiki/Grammatical_gender  <a href="http://linguistics-ontology.org/gold/2010/FeminineGender">linguistics-ontology.org/gold/2010/FeminineGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>masculine
+   </td>
+   <td>In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object.
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/MasculineGender">linguistics-ontology.org/gold/2010/MasculineGender</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>neuter
+   </td>
+   <td>In a masculine/feminine/neuter gender system, gender that generally denotes object.
+   </td>
+   <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a> 
+   </td>
+  </tr>
+</table><br>
+	<h3>15.2<a name="Case" href="#Case">Case</a></h3>
+
+<h3>Case</h3>
+
+
+<p>
+Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>) 
+</p>
+<h4>Example</h4>
+
+
+
+
+
+<pre class="prettyprint">&lt;grammaticalFeatures targets="nominal" locales="es fr it pt">
+   &lt;grammaticalGender values="masculine feminine"/>
+</pre>
+
+
+<h4>Values</h4>
+
+
+
+<table>
+  <tr>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>Definition</strong>
+   </td>
+   <td><strong>References</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>ablative
+   </td>
+   <td>Ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#AblativeCase">purl.org/olia/olia.owl#AblativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/AblativeCase">linguistics-ontology.org/gold/2010/AblativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>accusative
+   </td>
+   <td>Accusative case marks certain syntactic functions, usually direct objects.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Accusative">purl.org/olia/olia.owl#Accusative</a>  <a href="http://linguistics-ontology.org/gold/2010/AccusativeCase">linguistics-ontology.org/gold/2010/AccusativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>comitative
+   </td>
+   <td>Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by'.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#ComitativeCase">purl.org/olia/olia.owl#ComitativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/ComitativeCase">linguistics-ontology.org/gold/2010/ComitativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>dative
+   </td>
+   <td>Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#DativeCase">purl.org/olia/olia.owl#DativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/DativeCase">linguistics-ontology.org/gold/2010/DativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>ergative
+   </td>
+   <td>In ergative-absolutive languages, the ergative case identifies the subject of a transitive verb.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#ErgativeCase">purl.org/olia/olia.owl#ErgativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/ErgativeCase">linguistics-ontology.org/gold/2010/ErgativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>genitive
+   </td>
+   <td>Genitive case signals that the referent of the marked noun is the possessor of the referent of another noun, e.g. "the man's foot". In some languages, genitive case may express an associative relation between the marked noun and another noun.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#GenitiveCase">purl.org/olia/olia.owl#GenitiveCase</a>  <a href="http://linguistics-ontology.org/gold/2010/GenitiveCase">linguistics-ontology.org/gold/2010/GenitiveCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>instrumental
+   </td>
+   <td>InstrumentalCase indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#InstrumentalCase">purl.org/olia/olia.owl#InstrumentalCase</a>   <a href="http://linguistics-ontology.org/gold/2010/InstrumentalCase">linguistics-ontology.org/gold/2010/InstrumentalCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>locative
+   </td>
+   <td>Case that indicates a final location of action or a time of the action.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#LocativeCase">purl.org/olia/olia.owl#LocativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/LocativeCase">linguistics-ontology.org/gold/2010/LocativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>locativecopulative
+   </td>
+   <td>Copulative Case marker that indicates a location.
+   </td>
+   <td>TBD Add reference, example
+   </td>
+  </tr>
+  <tr>
+   <td>nominative
+   </td>
+   <td>In nominative-accusative languages, nominative case marks clausal subjects and is applied to nouns in isolation
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Nominative">purl.org/olia/olia.owl#Nominative</a>  <a href="http://linguistics-ontology.org/gold/2010/NominativeCase">linguistics-ontology.org/gold/2010/NominativeCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>oblique
+   </td>
+   <td>Case that is used when a noun is the object of a verb or a proposition, except for nominative and vocative case.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#ObliqueCase">purl.org/olia/olia.owl#ObliqueCase</a>
+   </td>
+  </tr>
+  <tr>
+   <td>partitive
+   </td>
+   <td>The partitive case is a grammatical case which denotes "partialness", "without result", or "without specific identity".
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#PartitiveCase">purl.org/olia/olia.owl#PartitiveCase</a>  <a href="http://linguistics-ontology.org/gold/2010/PartitiveCase">linguistics-ontology.org/gold/2010/PartitiveCase</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>prepositional
+   </td>
+   <td>Prepositional case refers to case marking that only occurs in combination with prepositions.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#PrepositionalCase">purl.org/olia/olia.owl#PrepositionalCase</a>
+   </td>
+  </tr>
+  <tr>
+   <td>sociative
+   </td>
+   <td>Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#SociativeCase">purl.org/olia/olia.owl#SociativeCase</a>
+   </td>
+  </tr>
+  <tr>
+   <td>vocative
+   </td>
+   <td>Vocative case marks a noun whose referent is being addressed.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#VocativeCase">purl.org/olia/olia.owl#VocativeCase</a>  <a href="http://linguistics-ontology.org/gold/2010/VocativeCase">linguistics-ontology.org/gold/2010/VocativeCase</a> 
+   </td>
+  </tr>
+</table>
+
+
+<h3>Definiteness</h3>
+
+
+<p>
+Feature that encodes the fact that a noun has been already mentioned, or is familiar in the discourse. (adapted from <a href="https://glossary.sil.org/term/definiteness">https://glossary.sil.org/term/definiteness</a> ) 
+</p>
+<h4>Values</h4>
+
+
+
+<table>
+  <tr>
+   <td>definite
+   </td>
+   <td>Value referring to the capacity of identification of an entity.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Definite">purl.org/olia/olia.owl#Definite</a>
+   </td>
+  </tr>
+  <tr>
+   <td>indefinite
+   </td>
+   <td>An entity is specified as indefinite when it refers to a non-particularized individual of the species denoted by the noun.
+   </td>
+   <td><a href="http://purl.org/olia/olia.owl#Indefinite">purl.org/olia/olia.owl#Indefinite</a>
+   </td>
+  </tr>
+  <tr>
+   <td>construct
+   </td>
+   <td>State of the first noun in a genitive phrase of a possessed noun followed by a possessor noun.
+   </td>
+   <td>no direct linked, but explained under: <a href="http://purl.org/olia/olia-top.owl#DefinitenessFeature">purl.org/olia/olia-top.owl#DefinitenessFeature</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>unspecified
+   </td>
+   <td>Noun without any definiteness marking in some specific construction (specific to Danish)
+   </td>
+   <td>TBD Add reference, example
+   </td>
+  </tr>
+</table>
+</div>
+
     <hr>
     <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or

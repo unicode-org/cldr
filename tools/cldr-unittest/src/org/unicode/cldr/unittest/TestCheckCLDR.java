@@ -289,21 +289,21 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public void TestAllLocales() {
-
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
         Set<String> unique = new HashSet<String>();
-
         LanguageTagParser ltp = new LanguageTagParser();
-        int count = 0;
+        Set<String> locales = new HashSet<String>();
         for (String locale : getInclusion() <= 5 ? eightPointLocales : factory.getAvailable()) {
-            if (!ltp.set(locale).getRegion().isEmpty()) {
-                continue;
+            /*
+             * Only test locales without regions. E.g., test "pt", skip "pt_PT"
+             */
+            if (ltp.set(locale).getRegion().isEmpty()) {
+                locales.add(locale);
             }
-            checkLocale(test, locale, null, unique);
-            ++count;
         }
-        logln("Count:\t" + count);
+        locales.parallelStream().forEach(locale -> checkLocale(test, locale, null, unique));
+        logln("Count:\t" + locales.size());
     }
 
     public void TestA() {

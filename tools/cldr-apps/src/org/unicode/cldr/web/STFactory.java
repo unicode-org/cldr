@@ -40,7 +40,6 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -56,6 +55,8 @@ import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.VersionInfo;
@@ -1655,7 +1656,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     private Map<CLDRLocale, Reference<PerLocaleData>> locales = new HashMap<CLDRLocale, Reference<PerLocaleData>>();
 
-    private LruMap<CLDRLocale, PerLocaleData> rLocales = new LruMap<CLDRLocale, PerLocaleData>(5);
+    private Cache<CLDRLocale, PerLocaleData> rLocales = CacheBuilder.newBuilder().softValues().build();
 
     private Map<CLDRLocale, MutableStamp> localeStamps = new ConcurrentHashMap<CLDRLocale, MutableStamp>(SurveyMain.getLocales().length);
 
@@ -1700,7 +1701,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @return
      */
     private synchronized final PerLocaleData get(CLDRLocale locale) {
-        PerLocaleData pld = rLocales.get(locale);
+        PerLocaleData pld = rLocales.getIfPresent(locale);
         if (pld == null) {
             Reference<PerLocaleData> ref = locales.get(locale);
             if (ref != null) {

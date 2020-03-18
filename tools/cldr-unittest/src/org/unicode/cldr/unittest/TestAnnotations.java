@@ -37,7 +37,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.dev.util.UnicodeMap.EntryRange;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
@@ -47,9 +46,6 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestAnnotations extends TestFmwkPlus {
     private static final boolean DEBUG = false;
-
-    private static final boolean SHOW_LIST = false;
-    private static final boolean SHOW_ENGLISH = false;
 
     public static void main(String[] args) {
         new TestAnnotations().run(args);
@@ -96,19 +92,6 @@ public class TestAnnotations extends TestFmwkPlus {
                 case empty:
                     assertEquals("mismatch", Collections.emptySet(), set);
                     break;
-                }
-            }
-        }
-    }
-
-    public void TestList() {
-        if (!SHOW_LIST) {
-            return;
-        }
-        if (isVerbose()) {
-            for (String locale : Annotations.getAvailable()) {
-                for (EntryRange<Annotations> s : Annotations.getData(locale).entryRanges()) {
-                    logln(s.toString());
                 }
             }
         }
@@ -229,87 +212,61 @@ public class TestAnnotations extends TestFmwkPlus {
     }
 
     public void TestUniqueness() {
-//        if (logKnownIssue("cldrbug:10104", "Disable until the uniqueness problems are fixed")) {
-//            return;
-//        }
         Set<String> locales = new TreeSet<>();
-
         locales.add("en");
         locales.addAll(Annotations.getAvailable());
         locales.remove("root");
-//        if (getInclusion() < 6) {
-//            locales.retainAll(CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr));
-//        }
-        //locales.remove("sr_Latn");
-        Multimap<String, String> localeToNameToEmoji = TreeMultimap.create();
-        Multimap<String, String> nameToEmoji = TreeMultimap.create();
-        UnicodeMap<Annotations> english = Annotations.getData("en");
-        UnicodeSet englishKeys = getCurrent(english.keySet());
-        Map<String, UnicodeSet> localeToMissing = new TreeMap<>();
+        /*
+         * Note: "problems" here is a work-around for what appears to be a deficiency
+         * in the function sourceLocation, involving the call stack. Seemingly sourceLocation
+         * can't handle the "->" notation used for parallelStream().forEach() if
+         * uniquePerLocale calls errln directly.
+         */
+        Set<String> problems = new HashSet<String>();
+        locales.parallelStream().forEach(locale -> uniquePerLocale(locale, problems));
+        if (!problems.isEmpty()) {
+            problems.forEach(s -> errln(s));
+        }
+    }
 
-        for (String locale : locales) {
-            logln("uniqueness: " + locale);
-            AnnotationSet data = Annotations.getDataSet(locale);
-            nameToEmoji.clear();
-            localeToMissing.put(locale, new UnicodeSet(englishKeys).removeAll(data.keySet()).freeze());
-            for (String emoji : Emoji.getAllRgi()) { // Entry<String, Annotations> value : data.entrySet()) {
-                String name = data.getShortName(emoji);
-                if (name == null) {
-                    continue;
-                }
-                if (name.contains(CldrUtility.INHERITANCE_MARKER)) {
-                    throw new IllegalArgumentException(CldrUtility.INHERITANCE_MARKER + " in name of " + emoji + " in " + locale);
-                }
-                nameToEmoji.put(name, emoji);
+    private void uniquePerLocale(String locale, Set<String> problems) {
+        logln("uniqueness: " + locale);
+        Multimap<String, String> nameToEmoji = TreeMultimap.create();
+        AnnotationSet data = Annotations.getDataSet(locale);
+        for (String emoji : Emoji.getAllRgi()) {
+            String name = data.getShortName(emoji);
+            if (name == null) {
+                continue;
             }
-            for (Entry<String, Collection<String>> entry : nameToEmoji.asMap().entrySet()) {
-                String name = entry.getKey();
-                Collection<String> emojis = entry.getValue();
-                if (emojis.size() > 1) {
-                    errln("Duplicate name in " + locale + ": “" + name + "” for "
+            if (name.contains(CldrUtility.INHERITANCE_MARKER)) {
+                throw new IllegalArgumentException(CldrUtility.INHERITANCE_MARKER + " in name of " + emoji + " in " + locale);
+            }
+            nameToEmoji.put(name, emoji);
+        }
+        Multimap<String, String> duplicateNameToEmoji = null;
+        for (Entry<String, Collection<String>> entry : nameToEmoji.asMap().entrySet()) {
+            String name = entry.getKey();
+            Collection<String> emojis = entry.getValue();
+            if (emojis.size() > 1) {
+                synchronized(problems) {
+                    problems.add("Duplicate name in " + locale + ": “" + name + "” for "
                         + CollectionUtilities.join(emojis, " & "));
-                    localeToNameToEmoji.putAll(locale + "\t" + name, emojis);
                 }
+                if (duplicateNameToEmoji == null) {
+                    duplicateNameToEmoji = TreeMultimap.create();
+                }
+                duplicateNameToEmoji.putAll(name, emojis);
             }
         }
-        if (isVerbose() && !localeToNameToEmoji.isEmpty()) {
+        if (isVerbose() && duplicateNameToEmoji != null && !duplicateNameToEmoji.isEmpty()) {
             System.out.println("\nCollisions");
-            for (Entry<String, String> entry : localeToNameToEmoji.entries()) {
-                String locale = entry.getKey();
+            for (Entry<String, String> entry : duplicateNameToEmoji.entries()) {
                 String emoji = entry.getValue();
                 System.out.println(locale
                     + "\t" + eng.getShortName(emoji)
                     + "\t" + emoji);
             }
         }
-        if (SHOW_LIST && !localeToMissing.isEmpty()) {
-            System.out.println("\nMissing");
-            int count = 2;
-            for (Entry<String, UnicodeSet> entry : localeToMissing.entrySet()) {
-                String locale = entry.getKey();
-                for (String emoji : entry.getValue()) {
-                    System.out.println(locale
-                        + "\t" + emoji
-                        + "\t" + eng.getShortName(emoji)
-                        + "\t" + "=GOOGLETRANSLATE(C" + count + ",\"en\",A" + count + ")"
-                        // =GOOGLETRANSLATE(C2,"en",A2)
-                        );
-                    ++count;
-                }
-            }
-        }
-
-    }
-
-    private UnicodeSet getCurrent(UnicodeSet keySet) {
-        UnicodeSet currentAge = new UnicodeSet("[:age=9.0:]");
-        UnicodeSet result = new UnicodeSet();
-        for (String s : keySet) {
-            if (currentAge.containsAll(s)) {
-                result.add(s);
-            }
-        }
-        return result.freeze();
     }
 
     public void testAnnotationPaths() {

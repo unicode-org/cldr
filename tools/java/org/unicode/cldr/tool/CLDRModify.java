@@ -1941,7 +1941,7 @@ public class CLDRModify {
                         keyValues.addAll(localeMatcher.getValue());
                     }
                 }
-                System.out.println("# Checking entries & adding:\t" + keyValues.size());
+                System.out.println("# Checking entries & changing:\t" + keyValues.size());
                 for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
                     ConfigMatch action = entry.get(ConfigKeys.action);
                     //ConfigMatch locale = entry.get(ConfigKeys.locale);
@@ -2039,6 +2039,9 @@ public class CLDRModify {
             public void handlePath(String xpath) {
                 // slow method; could optimize
                 for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
+                    if (xpath.equals("AKUAPEM")) {
+                        int debug = 0;
+                    }
                     ConfigMatch pathMatch = entry.get(ConfigKeys.path);
                     if (pathMatch != null && !pathMatch.matches(xpath)) {
                         continue;
@@ -2184,7 +2187,7 @@ public class CLDRModify {
                     return;
                 }
                 Set<String> paths = LogicalGrouping.getPaths(cldrFileToFilter, xpath);
-                if (paths.size() < 2) {
+                if (paths == null || paths.size() < 2) {
                     return;
                 }
                 Set<String> needed = new LinkedHashSet<>();

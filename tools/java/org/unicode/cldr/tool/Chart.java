@@ -1,13 +1,17 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.ULocale;
 
 /**
  * To add a new chart, subclass this, and add the subclass to {@link ShowLanguages.printLanguageData()}. There isn't much
@@ -19,6 +23,35 @@ public abstract class Chart {
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     public static final CLDRFile ENGLISH = CONFIG.getEnglish();
     public static final String LS = System.lineSeparator();
+    
+    public static final String PREV_CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
+    public static final String CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
+
+    private static final String GITHUB_ROOT = "https://github.com/unicode-org/cldr/blob/master/";
+    private static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
+
+    public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {
+        final String dataFileList = dataFiles.length == 0 ? null : 
+            ListFormatter.getInstance(ULocale.ENGLISH).format(
+                Arrays.asList(dataFiles).stream()
+                .map(dataFile -> Chart.dataFileLink(dataFile))
+                .collect(Collectors.toSet()));
+
+        return "<p>"
+        + "<b>Warning:</b> Do not scrape this chart for production data.\n"
+        + "Instead, for the meaning of the fields and data consult the " + Chart.ldmlSpecLink(specPart)
+        + (dataFileList == null ? "" : ", and for machine-readable source data, access " + dataFileList)
+        + (testFile == null ? "" : ", and for test data, access "  + dataFileLink(testFile))
+        + ".</p>\n";
+    }
+
+    private static String dataFileLink(String dataFile) {
+        return "<a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile  + "'>" + dataFile + "</a>";
+    }
+
+    public static String ldmlSpecLink(String specPart) {
+        return "<a href='" + LDML_SPEC + (specPart == null ? "" : specPart) + "' target='units.xml'>LDML specification</a>";
+    }
 
     /**
      * null means a string will be constructed from the title. Otherwise a real file name (no html extension).
@@ -80,7 +113,7 @@ public abstract class Chart {
         pw.write("<div style='text-align: center; margin-top:2em; margin-bottom: 60em;'><br>\n"
             + "<a href='http://www.unicode.org/unicode/copyright.html'>\n"
             + "<img src='http://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height=50px;' alt='Access to Copyright and terms of use'>"
-            + "</a><br>\n<script language='Javascript' type='text/javascript' src='http://www.unicode.org/webscripts/lastModified.js'></script>"
+            + "</a><br>\n<script src='http://www.unicode.org/webscripts/lastModified.js'></script>"
             + "</div><script>\n\n"
             + "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
             + "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"

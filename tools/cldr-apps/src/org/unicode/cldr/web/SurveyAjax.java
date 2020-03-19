@@ -197,6 +197,7 @@ public class SurveyAjax extends HttpServlet {
             for (Map.Entry<String, Long> e : valueToVote.entrySet()) {
                 valueToVoteA.put(e.getKey()).put(e.getValue());
             }
+            ret.put("valueIsLocked", r.isValueLocked());
             ret.put("value_vote", valueToVoteA);
             ret.put("nameTime", r.getNameTime());
             return ret;
@@ -2518,15 +2519,29 @@ public class SurveyAjax extends HttpServlet {
                     System.err.println("Voting for::  " + val);
                 Integer withVote = null;
                 try {
-                    withVote = Integer.parseInt(request.getParameter("voteReduced"));
+                    withVote = Integer.parseInt(request.getParameter("voteLevelChanged"));
                 } catch (Throwable t) {
                     withVote = null;
                 }
-                ballotBox.voteForValue(mySession.user, xp, val, withVote);
-                String subRes = ballotBox.getResolver(xp).toString();
-                if (DEBUG)
-                    System.err.println("Voting result ::  " + subRes);
-                r.put("submitResultRaw", subRes);
+                boolean badNoForum = false;
+                try {
+                    ballotBox.voteForValue(mySession.user, xp, val, withVote);
+                } catch (VoteNotAcceptedException e) {
+                    if (e.getErrCode() == ErrorCode.E_PERMANENT_VOTE_NO_FORUM) {
+                        badNoForum = true;
+                    } else {
+                        throw(e);
+                    }
+                }
+                if (badNoForum) {
+                    r.put("statusAction", CheckCLDR.StatusAction.FORBID_PERMANENT_WITHOUT_FORUM);
+                } else {
+                    String subRes = ballotBox.getResolver(xp).toString();
+                    if (DEBUG) {
+                        System.err.println("Voting result ::  " + subRes);
+                    }
+                    r.put("submitResultRaw", subRes);
+                }
             }
         } else {
             if (DEBUG)
@@ -2807,6 +2822,12 @@ public class SurveyAjax extends HttpServlet {
         out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
         out.write("<title>SurveyTool File Submission | " + title + "</title>\n");
         out.write("<link rel='stylesheet' type='text/css' href='./surveytool.css' />\n");
+
+        /*
+         * TODO: Avoid browser console showing "ReferenceError: surveyRunningStamp is not defined" in
+         * survey.js. surveyRunningStamp is undefined unless ajax_status.jsp is included.
+         * Here we include survey.js but not ajax_status.jsp.
+         */
         out.write("<script src='" + contextPath + "/js/survey.js'></script>\n");
         out.write("</head>\n<body>\n");
         out.write("<a href=\"upload.jsp?s=" + sid + "&email=" + theirU.email + "\">Re-Upload File/Try Another</a>");
@@ -3039,5 +3060,56 @@ public class SurveyAjax extends HttpServlet {
             out.write("</form>\n");
         }
         out.write("</body>\n</html>\n");
+    }
+
+    /**
+     * Write the script tags for Survey Tool JavaScript files
+     *
+     * @param request the HttpServletRequest
+     * @param out the Writer
+     * @throws IOException
+     *
+     * Some code was moved here from js_include.jsp
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13585
+     *
+     * Called from ajax_status.jsp
+     */
+    public static void includeJavaScript(HttpServletRequest request, Writer out) throws IOException {
+        /*
+         * TODO: investigate putting "defer" after "script"; may cause page to appear
+         * to load faster, though order of loading jquery, dojo may be problematic...
+         */
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>\n");
+
+        /*
+         * TODO: figure out what we're using jquery-ui for.
+         * If we don't use it, don't include it.
+         * If we don't include jquery-ui we get "TypeError: p.easing[this.easing] is not a function"
+         */
+        out.write("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>\n");
+
+        String prefix = "<script src='" + request.getContextPath() + "/js/";
+        String tail = "'></script>\n";
+
+        /**
+         * INCLUDE_SCRIPT_VERSION leave false for now (CLDR-13585).
+         * May change to true per:
+         *    https://unicode-org.atlassian.net/browse/CLDR-13582
+         *    "Make sure browser uses most recent JavaScript files for ST"
+         */
+        final boolean INCLUDE_SCRIPT_VERSION = false;
+        final String v = INCLUDE_SCRIPT_VERSION ? "?v=" + CLDRConfig.getInstance().getProperty("CLDR_DIR_HASH") : "";
+
+        out.write(prefix + "jquery.autosize.min.js" + tail);
+
+        out.write(prefix + "CldrStAjax.js" + v + tail);
+        out.write(prefix + "survey.js" + v + tail);
+        out.write(prefix + "CldrSurveyVettingLoader.js" + v + tail);
+        out.write(prefix + "CldrSurveyVettingTable.js" + v + tail);
+
+        out.write(prefix + "bootstrap.min.js" + tail);
+
+        out.write(prefix + "redesign.js" + v + tail);
+        out.write(prefix + "review.js" + v + tail);
     }
 }

@@ -289,6 +289,10 @@ public class TestAttributeValues extends TestFmwk {
 
             // get the status & store
             ValueStatus valueStatus = dtdData.getValueStatus(element, attribute, attrValue);
+            if (valueStatus != ValueStatus.valid) {
+                // Set breakpoint here for debugging (referenced from http://cldr.unicode.org/development/testattributevalues)
+                dtdData.getValueStatus(element, attribute, attrValue);
+            }
             synchronized (valueStatusInfo) {
                 valueStatusInfo.put(valueStatus, element, attribute, attrValue, Boolean.TRUE);
             }
@@ -313,13 +317,14 @@ public class TestAttributeValues extends TestFmwk {
                 return;
             }
             StringBuilder out = new StringBuilder();
-            out.append("\n");
+            out.append("\nIf the test fails, look at http://cldr.unicode.org/development/testattributevalues\n");
 
             out.append("file\tCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
             out.append("element\tCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
             out.append("attribute\tCount:\t" + dtdData.dtdType + "\t" + attributeCount + "\n");
 
-            out.append("status\tdtdType\telement\tattribute\tmatch\t#attr values\tattr values\n");
+            out.append("\nStatus\tDtdType\tElement\tAttribute\tMatch expression\t#Failures\tFailing values\n");
+            
             for (Entry<ValueStatus, Map<String, Map<String, Map<String, Boolean>>>> entry : valueStatusInfo) {
                 ValueStatus valueStatus = entry.getKey();
                 if (retain != null && !retain.contains(valueStatus)) {
@@ -376,7 +381,7 @@ public class TestAttributeValues extends TestFmwk {
                 } 
             }
             synchronized (testLog) {
-                testLog.warnln(out.toString());
+                testLog.errln(out.toString());
             }
         }
     }

@@ -829,10 +829,6 @@ public class GenerateSidewaysView {
         ShowData.getChartTemplate("By-Type Chart: " + title,
             ToolConstants.CHART_DISPLAY_VERSION,
             "",
-            // "<link rel='stylesheet' type='text/css' href='by_type.css'>" +
-            // "<style type='text/css'>" + Utility.LINE_SEPARATOR +
-            // "h1 {margin-bottom:1em}" + Utility.LINE_SEPARATOR +
-            // "</style>" + Utility.LINE_SEPARATOR,
             headerAndFooter, null, false);
         out.println(headerAndFooter[0]);
         return out;

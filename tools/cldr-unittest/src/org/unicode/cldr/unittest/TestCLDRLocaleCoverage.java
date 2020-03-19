@@ -50,7 +50,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
     public void TestLanguageNameCoverage() {
         
-        Set<String> additionsToTranslate = new TreeSet<>(Arrays.asList("zxx", "ceb", "ny", "co", "ht", "hmn", "la", "sm", "st", "su", "sa", "mul"));
+        Set<String> additionsToTranslate = new TreeSet<>(Arrays.asList("zxx", "ceb", "ny", "co", "ht", "hmn", "la", "sm", "st", "sa", "mul"));
         
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang = Multimaps.invertFrom(Multimaps.forMap(validity), TreeMultimap.create());

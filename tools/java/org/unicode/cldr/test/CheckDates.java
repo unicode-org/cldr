@@ -342,33 +342,36 @@ public class CheckDates extends FactoryCheckCLDR {
                             wideValue);
                     result.add(item);
                 }
-                for (String lgPath : LogicalGrouping.getPaths(getCldrFileToCheck(), path)) {
-                    String lgPathValue = getCldrFileToCheck().getWinningValueWithBailey(lgPath);
-                    if (lgPathValue == null) {
-                        continue;
-                    }
-                    String lgPathToWide = lgPath.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
-                    String lgPathWideValue = getCldrFileToCheck().getWinningValueWithBailey(lgPathToWide);
-                    // This helps us get around things like "de març" vs. "març" in Catalan
-                    String thisValueStripped = stripPrefix(value);
-                    String wideValueStripped = stripPrefix(wideValue);
-                    String lgPathValueStripped = stripPrefix(lgPathValue);
-                    String lgPathWideValueStripped = stripPrefix(lgPathWideValue);
-                    boolean thisPathHasPeriod = value.contains(".");
-                    boolean lgPathHasPeriod = lgPathValue.contains(".");
-                    if (!thisValueStripped.equalsIgnoreCase(wideValueStripped) && !lgPathValueStripped.equalsIgnoreCase(lgPathWideValueStripped) &&
-                        thisPathHasPeriod != lgPathHasPeriod) {
-                        CheckStatus.Type et = CheckStatus.errorType;
-                        if (path.contains("dayPeriod")) {
-                            et = CheckStatus.warningType;
+                Set<String> grouping = LogicalGrouping.getPaths(getCldrFileToCheck(), path);
+                if (grouping != null) {
+                    for (String lgPath : grouping) {
+                        String lgPathValue = getCldrFileToCheck().getWinningValueWithBailey(lgPath);
+                        if (lgPathValue == null) {
+                            continue;
                         }
-                        CheckStatus item = new CheckStatus()
-                            .setCause(this)
-                            .setMainType(et)
-                            .setSubtype(Subtype.inconsistentPeriods)
-                            .setMessage("Inconsistent use of periods in abbreviations for this section.");
-                        result.add(item);
-                        break;
+                        String lgPathToWide = lgPath.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
+                        String lgPathWideValue = getCldrFileToCheck().getWinningValueWithBailey(lgPathToWide);
+                        // This helps us get around things like "de març" vs. "març" in Catalan
+                        String thisValueStripped = stripPrefix(value);
+                        String wideValueStripped = stripPrefix(wideValue);
+                        String lgPathValueStripped = stripPrefix(lgPathValue);
+                        String lgPathWideValueStripped = stripPrefix(lgPathWideValue);
+                        boolean thisPathHasPeriod = value.contains(".");
+                        boolean lgPathHasPeriod = lgPathValue.contains(".");
+                        if (!thisValueStripped.equalsIgnoreCase(wideValueStripped) && !lgPathValueStripped.equalsIgnoreCase(lgPathWideValueStripped) &&
+                            thisPathHasPeriod != lgPathHasPeriod) {
+                            CheckStatus.Type et = CheckStatus.errorType;
+                            if (path.contains("dayPeriod")) {
+                                et = CheckStatus.warningType;
+                            }
+                            CheckStatus item = new CheckStatus()
+                                .setCause(this)
+                                .setMainType(et)
+                                .setSubtype(Subtype.inconsistentPeriods)
+                                .setMessage("Inconsistent use of periods in abbreviations for this section.");
+                            result.add(item);
+                            break;
+                        }
                     }
                 }
             } else if (path.indexOf("[@type=\"narrow\"]") >= 0) {

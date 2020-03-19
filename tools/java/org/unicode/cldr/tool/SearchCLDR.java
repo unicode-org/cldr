@@ -130,16 +130,22 @@ public class SearchCLDR {
         showPath = myOptions.get("z-showPath").doesOccur();
         organization = myOptions.get("organization").getValue();
 
+        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
         if (myOptions.get("PathHeader").doesOccur()) {
-            PATH_HEADER_FACTORY = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
+            PATH_HEADER_FACTORY = PathHeader.getFactory(english);
         }
 
         boolean showParent = myOptions.get("q-showParent").doesOccur();
 
         boolean showEnglish = myOptions.get("english").doesOccur();
 
-        Factory cldrFactory = Factory.make(sourceDirectory, fileMatcher);
+        File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY),
+            new File(sourceDirectory) };
+
+        Factory cldrFactory = SimpleFactory.make(paths, fileMatcher); 
+
         Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
 
         String rawVersion = myOptions.get("diff").getValue();
@@ -151,7 +157,6 @@ public class SearchCLDR {
             cldrDiffFactory = SimpleFactory.make(files, ".*");
         }
 
-        CLDRFile english = cldrFactory.make("en", true);
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
         String errorMatcherText = myOptions.get("Error").getValue();
@@ -204,6 +209,9 @@ public class SearchCLDR {
             CLDRFile diffFile = null;
 
             if (checkCldr != null) {
+                if (locale.equals("eo")) {
+                    int debug = 0;
+                }
                 result.clear();
                 checkCldr.setCldrFileToCheck(resolvedFile, options, result);
             }
@@ -228,6 +236,9 @@ public class SearchCLDR {
             Status status = new Status();
             Set<PathHeader> sorted = new TreeSet<PathHeader>();
             for (String path : file.fullIterable()) {
+                if (locale.equals("eo") && path.contains("type=\"MK\"")) {
+                    int debug = 0;
+                }
                 String stringValue = file.getStringValue(path);
                 if (stringValue == null) {
                     continue;
@@ -254,6 +265,9 @@ public class SearchCLDR {
                 String path = pathHeader.getOriginalPath();
                 String fullPath = file.getFullXPath(path);
                 String value = file.getStringValue(path);
+                if (locale.equals("eo") && path.contains("type=\"MK\"")) {
+                    int debug = 0;
+                }
 
                 if (pathMatcher != null && pathExclude == pathMatcher.reset(fullPath).find()) {
                     continue;
@@ -273,7 +287,11 @@ public class SearchCLDR {
                 }
 
                 if (checkCldr != null) {
+                    if (checkCldr.isSkipTest()) {
+                        continue;
+                    }
                     result.clear();
+
                     checkCldr.check(path, file.getFullXPath(path), value, options, result);
                     if (result.isEmpty()) {
                         continue;
@@ -287,7 +305,9 @@ public class SearchCLDR {
                     if (count == 0) {
                         continue;
                     }
+                    // for debugging
                     int debug = 0;
+                    checkCldr.check(path, file.getFullXPath(path), value, options, result);
                 }
 
                 // made it through the sieve
@@ -311,7 +331,7 @@ public class SearchCLDR {
                     : file.getSourceLocaleID(path, status)
                     + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
                 if (checkCldr != null) {
-                    SearchXml.show(ConfigOption.delete, locale, fullPath, value, null, null, null);
+                    SearchXml.show(ConfigOption.delete, locale, file.getDistinguishingXPath(fullPath, null), value, null, null, null);
                 } else {
                     showLine(showPath, showParent, showEnglish, resolved, locale,
                         path, fullPath, value,

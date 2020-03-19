@@ -37,6 +37,7 @@ import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.Rational.RationalParser;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
@@ -907,6 +908,12 @@ public class SupplementalDataInfo {
     public Map<AttributeValidityInfo, String> attributeValidityInfo = new LinkedHashMap<>();
 
     public Multimap<String, String> languageGroups = TreeMultimap.create();
+    
+    public RationalParser rationalParser = new RationalParser();
+    public UnitConverter unitConverter = new UnitConverter(rationalParser);
+    
+    public UnitPreferences unitPreferences = new UnitPreferences();
+
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -1145,6 +1152,15 @@ public class SupplementalDataInfo {
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
 
         measurementData = CldrUtility.protectCollection(measurementData);
+        
+        final Map<String, R2<List<String>, String>> unitAliases = typeToTagToReplacement.get("unit");
+        if (unitAliases != null) { // don't load unless the information is there (for old releases);
+            unitConverter.addAliases(unitAliases);
+        }
+        unitConverter.freeze();
+        rationalParser.freeze();
+        unitPreferences.freeze();
+        
         timeData = CldrUtility.protectCollection(timeData);
 
         validityInfo = CldrUtility.protectCollection(validityInfo);
@@ -1286,6 +1302,22 @@ public class SupplementalDataInfo {
                     if (handleMeasurementData(level2, parts)) {
                         return;
                     }
+                } else if (level1.equals("unitConstants")) {
+                    if (handleUnitConstants(parts)) {
+                        return;
+                    }
+                } else if (level1.equals("unitQuantities")) {
+                    if (handleUnitQuantities(parts)) {
+                        return;
+                    }
+                } else if (level1.equals("convertUnits")) {
+                    if (handleUnitConversion(parts)) {
+                        return;
+                    }
+                } else if (level1.equals("unitPreferenceData")) {
+                    if (handleUnitPreferences(parts, value)) {
+                        return;
+                    }
                 } else if (level1.equals("timeData")) {
                     if (handleTimeData(parts)) {
                         return;
@@ -1308,6 +1340,28 @@ public class SupplementalDataInfo {
                 throw (IllegalArgumentException) new IllegalArgumentException("Exception while processing path: "
                     + path + ",\tvalue: " + value).initCause(e);
             }
+        }
+
+        /*
+         * Handles
+         * <unitPreferences category="area" usage="_default">
+         *<unitPreference regions="001" draft="unconfirmed">square-centimeter</unitPreference>
+            */
+        
+        private boolean handleUnitPreferences(XPathParts parts, String value) {
+            String geq = parts.getAttributeValue(-1, "geq");
+            String small = parts.getAttributeValue(-2, "scope");
+            if (small != null) {
+                geq = "0.1234";
+            }
+            unitPreferences.add(
+                parts.getAttributeValue(-2, "category"),
+                parts.getAttributeValue(-2, "usage"),
+                parts.getAttributeValue(-1, "regions"),
+                geq,
+                parts.getAttributeValue(-1, "skeleton"),
+                value);
+            return true;
         }
 
         private boolean handleLanguageGroups(String value, XPathParts parts) {
@@ -1334,6 +1388,45 @@ public class SupplementalDataInfo {
             }
             return true;
         }
+        
+        private boolean handleUnitConstants(XPathParts parts) {
+            //      <unitConstant constant="ft2m" value="0.3048"/>
+
+            final String constant = parts.getAttributeValue(-1, "constant");
+            final String value = parts.getAttributeValue(-1, "value");
+            final String status = parts.getAttributeValue(-1, "status");
+            rationalParser.addConstant(constant, value, status);
+            return true;
+        }
+        
+        private boolean handleUnitQuantities(XPathParts parts) {
+            //      <unitQuantity quantity='wave-number' baseUnit='reciprocal-meter'/>
+
+            final String baseUnit = parts.getAttributeValue(-1, "baseUnit");
+            final String quantity = parts.getAttributeValue(-1, "quantity");
+            final String status = parts.getAttributeValue(-1, "status");
+            unitConverter.addQuantityInfo(baseUnit, quantity, status);
+            return true;
+        }
+
+        private boolean handleUnitConversion(XPathParts parts) {
+            // <convertUnit source='acre' target='square-meter' factor='ft2m^2 * 43560'/>
+            
+            final String source = parts.getAttributeValue(-1, "source");
+            final String target = parts.getAttributeValue(-1, "baseUnit");
+//            if (source.contentEquals(target)) {
+//                throw new IllegalArgumentException("Cannot convert from something to itself " + parts);
+//            }
+            String factor = parts.getAttributeValue(-1, "factor");
+            String offset = parts.getAttributeValue(-1, "offset");
+            String systems = parts.getAttributeValue(-1, "systems");
+            unitConverter.addRaw(
+                source, target, 
+                factor, offset, 
+                systems);
+            return true;
+        }
+
 
         private boolean handleTimeData(XPathParts parts) {
             /**
@@ -4312,5 +4405,17 @@ public class SupplementalDataInfo {
 
     public Multimap<String, String> getLanguageGroups() {
         return languageGroups;
+    }
+    
+    public UnitConverter getUnitConverter() {
+        return unitConverter;
+    }
+    
+    public RationalParser getRationalParser() {
+        return rationalParser;
+    }
+
+    public UnitPreferences getUnitPreferences() {
+        return unitPreferences;
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="sq"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">gishta | gishta të mbledhur | gjest me dorë | hetim | mbledhur | nuancë lëkure e çelët | sarkastik</annotation>
+		<annotation cp="🤌🏻" type="tts">gishta të mbledhur: nuancë lëkure e çelët</annotation>
+		<annotation cp="🤌🏼">gishta | gishta të mbledhur | gjest me dorë | hetim | mbledhur | nuancë lëkure gjysmë e çelët | sarkastik</annotation>
+		<annotation cp="🤌🏼" type="tts">gishta të mbledhur: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🤌🏽">gishta | gishta të mbledhur | gjest me dorë | hetim | mbledhur | nuancë lëkure zeshkane | sarkastik</annotation>
+		<annotation cp="🤌🏽" type="tts">gishta të mbledhur: nuancë lëkure zeshkane</annotation>
+		<annotation cp="🤌🏾">gishta | gishta të mbledhur | gjest me dorë | hetim | mbledhur | nuancë lëkure gjysmë e errët | sarkastik</annotation>
+		<annotation cp="🤌🏾" type="tts">gishta të mbledhur: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🤌🏿">gishta | gishta të mbledhur | gjest me dorë | hetim | mbledhur | nuancë lëkure e errët | sarkastik</annotation>
+		<annotation cp="🤌🏿" type="tts">gishta të mbledhur: nuancë lëkure e errët</annotation>
 		<annotation cp="👋🏻">dorë | dorë që tundet | nuancë lëkure e çelët | që tundet | trup | tund</annotation>
 		<annotation cp="👋🏻" type="tts">dorë që tundet: nuancë lëkure e çelët</annotation>
 		<annotation cp="👋🏼">dorë | dorë që tundet | nuancë lëkure gjysmë e çelët | që tundet | trup | tund</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">fëmijë i rritur: nuancë lëkure gjysmë e errët e qeros</annotation>
 		<annotation cp="🧑🏿‍🦲">adoleshent | adoleshente | e rritur | fëmijë i rritur | i rritur | nuancë lëkure e errët | qeros</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">fëmijë i rritur: nuancë lëkure e errët e qeros</annotation>
+		<annotation cp="🧑🏻‍🍼">foshnjë | nuancë lëkure e çelët | person | person që ushqen foshnjë | ushqim | ushqim me gji</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">person që ushqen foshnjë: nuancë lëkure e çelët</annotation>
+		<annotation cp="🧑🏼‍🍼">foshnjë | nuancë lëkure gjysmë e çelët | person | person që ushqen foshnjë | ushqim | ushqim me gji</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">person që ushqen foshnjë: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🧑🏽‍🍼">foshnjë | nuancë lëkure zeshkane | person | person që ushqen foshnjë | ushqim | ushqim me gji</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">person që ushqen foshnjë: nuancë lëkure zeshkane</annotation>
+		<annotation cp="🧑🏾‍🍼">foshnjë | nuancë lëkure gjysmë e errët | person | person që ushqen foshnjë | ushqim | ushqim me gji</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">person që ushqen foshnjë: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🧑🏿‍🍼">foshnjë | nuancë lëkure e errët | person | person që ushqen foshnjë | ushqim | ushqim me gji</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">person që ushqen foshnjë: nuancë lëkure e errët</annotation>
+		<annotation cp="🧑🏻‍🎄">Klaus, krishtlindje | nuancë lëkure e çelët | zx klaus</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">zx klaus: nuancë lëkure e çelët</annotation>
+		<annotation cp="🧑🏼‍🎄">Klaus, krishtlindje | nuancë lëkure gjysmë e çelët | zx klaus</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">zx klaus: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🧑🏽‍🎄">Klaus, krishtlindje | nuancë lëkure zeshkane | zx klaus</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">zx klaus: nuancë lëkure zeshkane</annotation>
+		<annotation cp="🧑🏾‍🎄">Klaus, krishtlindje | nuancë lëkure gjysmë e errët | zx klaus</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">zx klaus: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🧑🏿‍🎄">Klaus, krishtlindje | nuancë lëkure e errët | zx klaus</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">zx klaus: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻">burrë | mashkull | nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏻" type="tts">burrë: nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏼">burrë | mashkull | nuancë lëkure gjysmë e çelët</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">burrë: nuancë lëkure gjysmë e errët e qeros</annotation>
 		<annotation cp="👨🏿‍🦲">burrë | mashkull | nuancë lëkure e errët | qeros</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">burrë: nuancë lëkure e errët e qeros</annotation>
+		<annotation cp="👨🏻‍🍼">burrë | burrë që ushqen foshnjë | foshnjë | nuancë lëkure e çelët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">burrë që ushqen foshnjë: nuancë lëkure e çelët</annotation>
+		<annotation cp="👨🏼‍🍼">burrë | burrë që ushqen foshnjë | foshnjë | nuancë lëkure gjysmë e çelët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">burrë që ushqen foshnjë: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👨🏽‍🍼">burrë | burrë që ushqen foshnjë | foshnjë | nuancë lëkure zeshkane | ushqim | ushqim me gji</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">burrë që ushqen foshnjë: nuancë lëkure zeshkane</annotation>
+		<annotation cp="👨🏾‍🍼">burrë | burrë që ushqen foshnjë | foshnjë | nuancë lëkure gjysmë e errët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">burrë që ushqen foshnjë: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👨🏿‍🍼">burrë | burrë që ushqen foshnjë | foshnjë | nuancë lëkure e errët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">burrë që ushqen foshnjë: nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏻">femër | grua | nuancë lëkure e çelët</annotation>
 		<annotation cp="👩🏻" type="tts">grua: nuancë lëkure e çelët</annotation>
 		<annotation cp="👩🏼">femër | grua | nuancë lëkure gjysmë e çelët</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">grua: nuancë lëkure gjysmë e errët e qeros</annotation>
 		<annotation cp="👩🏿‍🦲">femër | grua | nuancë lëkure e errët | qeros</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">grua: nuancë lëkure e errët e qeros</annotation>
+		<annotation cp="👩🏻‍🍼">foshnjë | grua | grua që ushqen foshnjë | nuancë lëkure e çelët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">grua që ushqen foshnjë: nuancë lëkure e çelët</annotation>
+		<annotation cp="👩🏼‍🍼">foshnjë | grua | grua që ushqen foshnjë | nuancë lëkure gjysmë e çelët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">grua që ushqen foshnjë: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👩🏽‍🍼">foshnjë | grua | grua që ushqen foshnjë | nuancë lëkure zeshkane | ushqim | ushqim me gji</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">grua që ushqen foshnjë: nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏾‍🍼">foshnjë | grua | grua që ushqen foshnjë | nuancë lëkure gjysmë e errët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">grua që ushqen foshnjë: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏿‍🍼">foshnjë | grua | grua që ushqen foshnjë | nuancë lëkure e errët | ushqim | ushqim me gji</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">grua që ushqen foshnjë: nuancë lëkure e errët</annotation>
 		<annotation cp="🧓🏻">i ri | i rritur | nuancë lëkure e çelët</annotation>
 		<annotation cp="🧓🏻" type="tts">i ri: nuancë lëkure e çelët</annotation>
 		<annotation cp="🧓🏼">i ri | i rritur | nuancë lëkure gjysmë e çelët</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">grua që ngre supet: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="🤷🏿‍♀">dyshime | grua | grua që ngre supet | indiferencë | ngritje supesh | nuancë lëkure e errët</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">grua që ngre supet: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍⚕">doktor | infermier | mjek | nuancë lëkure e çelët | terapeut</annotation>
+		<annotation cp="🧑🏻‍⚕">doktor | infermier | mjek | nuancë lëkure e çelët | person punonjës shëndetësor | terapeut</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">person punonjës shëndetësor: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍⚕">doktor | infermier | mjek | nuancë lëkure gjysmë e çelët | terapeut</annotation>
+		<annotation cp="🧑🏼‍⚕">doktor | infermier | mjek | nuancë lëkure gjysmë e çelët | person punonjës shëndetësor | terapeut</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">person punonjës shëndetësor: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍⚕">doktor | infermier | mjek | nuancë lëkure zeshkane | terapeut</annotation>
+		<annotation cp="🧑🏽‍⚕">doktor | infermier | mjek | nuancë lëkure zeshkane | person punonjës shëndetësor | terapeut</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">person punonjës shëndetësor: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍⚕">doktor | infermier | mjek | nuancë lëkure gjysmë e errët | terapeut</annotation>
+		<annotation cp="🧑🏾‍⚕">doktor | infermier | mjek | nuancë lëkure gjysmë e errët | person punonjës shëndetësor | terapeut</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">person punonjës shëndetësor: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍⚕">doktor | infermier | mjek | nuancë lëkure e errët | terapeut</annotation>
+		<annotation cp="🧑🏿‍⚕">doktor | infermier | mjek | nuancë lëkure e errët | person punonjës shëndetësor | terapeut</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">person punonjës shëndetësor: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍⚕">burrë | doktor | infermier | kujdes mjekësor | nuancë lëkure e çelët | punonjës shëndetësor</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">punonjës shëndetësor: nuancë lëkure e çelët</annotation>
@@ -1006,15 +1056,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚕" type="tts">punonjëse shëndetësor: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍⚕">doktore | grua | infermiere | kujdes mjekësor | nuancë lëkure e errët | punonjëse shëndetësor</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">punonjëse shëndetësor: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🎓">gjimnazist | i diplomuar | nuancë lëkure e çelët | student</annotation>
+		<annotation cp="🧑🏻‍🎓">gjimnazist | i diplomuar | nuancë lëkure e çelët | person student | student</annotation>
 		<annotation cp="🧑🏻‍🎓" type="tts">person student: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🎓">gjimnazist | i diplomuar | nuancë lëkure gjysmë e çelët | student</annotation>
+		<annotation cp="🧑🏼‍🎓">gjimnazist | i diplomuar | nuancë lëkure gjysmë e çelët | person student | student</annotation>
 		<annotation cp="🧑🏼‍🎓" type="tts">person student: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🎓">gjimnazist | i diplomuar | nuancë lëkure zeshkane | student</annotation>
+		<annotation cp="🧑🏽‍🎓">gjimnazist | i diplomuar | nuancë lëkure zeshkane | person student | student</annotation>
 		<annotation cp="🧑🏽‍🎓" type="tts">person student: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🎓">gjimnazist | i diplomuar | nuancë lëkure gjysmë e errët | student</annotation>
+		<annotation cp="🧑🏾‍🎓">gjimnazist | i diplomuar | nuancë lëkure gjysmë e errët | person student | student</annotation>
 		<annotation cp="🧑🏾‍🎓" type="tts">person student: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🎓">gjimnazist | i diplomuar | nuancë lëkure e errët | student</annotation>
+		<annotation cp="🧑🏿‍🎓">gjimnazist | i diplomuar | nuancë lëkure e errët | person student | student</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">person student: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🎓">diplomim | mashkull | nuancë lëkure e çelët | student</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">student: nuancë lëkure e çelët</annotation>
@@ -1036,15 +1086,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎓" type="tts">studente: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🎓">diplomim | femër | nuancë lëkure e errët | studente</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">studente: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🏫">instruktor | mësues | nuancë lëkure e çelët | profesor</annotation>
+		<annotation cp="🧑🏻‍🏫">instruktor | mësues | nuancë lëkure e çelët | person mësues | profesor</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">person mësues: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🏫">instruktor | mësues | nuancë lëkure gjysmë e çelët | profesor</annotation>
+		<annotation cp="🧑🏼‍🏫">instruktor | mësues | nuancë lëkure gjysmë e çelët | person mësues | profesor</annotation>
 		<annotation cp="🧑🏼‍🏫" type="tts">person mësues: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🏫">instruktor | mësues | nuancë lëkure zeshkane | profesor</annotation>
+		<annotation cp="🧑🏽‍🏫">instruktor | mësues | nuancë lëkure zeshkane | person mësues | profesor</annotation>
 		<annotation cp="🧑🏽‍🏫" type="tts">person mësues: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🏫">instruktor | mësues | nuancë lëkure gjysmë e errët | profesor</annotation>
+		<annotation cp="🧑🏾‍🏫">instruktor | mësues | nuancë lëkure gjysmë e errët | person mësues | profesor</annotation>
 		<annotation cp="🧑🏾‍🏫" type="tts">person mësues: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🏫">instruktor | mësues | nuancë lëkure e errët | profesor</annotation>
+		<annotation cp="🧑🏿‍🏫">instruktor | mësues | nuancë lëkure e errët | person mësues | profesor</annotation>
 		<annotation cp="🧑🏿‍🏫" type="tts">person mësues: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🏫">burrë | instruktor | mësues | nuancë lëkure e çelët | profesor</annotation>
 		<annotation cp="👨🏻‍🏫" type="tts">mësues: nuancë lëkure e çelët</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">mësuese: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🏫">grua | Instruktore | mësuese | nuancë lëkure e errët | profesore</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">mësuese: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍⚖">drejtësi | gjykatës | nuancë lëkure e çelët | peshore</annotation>
+		<annotation cp="🧑🏻‍⚖">drejtësi | gjykatës | nuancë lëkure e çelët | person gjykatës | peshore</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">person gjykatës: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍⚖">drejtësi | gjykatës | nuancë lëkure gjysmë e çelët | peshore</annotation>
+		<annotation cp="🧑🏼‍⚖">drejtësi | gjykatës | nuancë lëkure gjysmë e çelët | person gjykatës | peshore</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">person gjykatës: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍⚖">drejtësi | gjykatës | nuancë lëkure zeshkane | peshore</annotation>
+		<annotation cp="🧑🏽‍⚖">drejtësi | gjykatës | nuancë lëkure zeshkane | person gjykatës | peshore</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">person gjykatës: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍⚖">drejtësi | gjykatës | nuancë lëkure gjysmë e errët | peshore</annotation>
+		<annotation cp="🧑🏾‍⚖">drejtësi | gjykatës | nuancë lëkure gjysmë e errët | person gjykatës | peshore</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">person gjykatës: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍⚖">drejtësi | gjykatës | nuancë lëkure e errët | peshore</annotation>
+		<annotation cp="🧑🏿‍⚖">drejtësi | gjykatës | nuancë lëkure e errët | person gjykatës | peshore</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">person gjykatës: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍⚖">burrë | drejtësi | gjykatës | nuancë lëkure e çelët | peshore</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">gjykatës: nuancë lëkure e çelët</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">gjykatëse: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍⚖">drejtësi | gjykatëse | grua | nuancë lëkure e errët | peshore</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">gjykatëse: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🌾">bujk | fermer | kopshtar | nuancë lëkure e çelët</annotation>
+		<annotation cp="🧑🏻‍🌾">bujk | fermer | kopshtar | nuancë lëkure e çelët | person bujk</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">person bujk: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🌾">bujk | fermer | kopshtar | nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🧑🏼‍🌾">bujk | fermer | kopshtar | nuancë lëkure gjysmë e çelët | person bujk</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">person bujk: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🌾">bujk | fermer | kopshtar | nuancë lëkure zeshkane</annotation>
+		<annotation cp="🧑🏽‍🌾">bujk | fermer | kopshtar | nuancë lëkure zeshkane | person bujk</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">person bujk: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🌾">bujk | fermer | kopshtar | nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🧑🏾‍🌾">bujk | fermer | kopshtar | nuancë lëkure gjysmë e errët | person bujk</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">person bujk: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🌾">bujk | fermer | kopshtar | nuancë lëkure e errët</annotation>
+		<annotation cp="🧑🏿‍🌾">bujk | fermer | kopshtar | nuancë lëkure e errët | person bujk</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">person bujk: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🌾">bujk | burrë | kopshtar | nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">bujk: nuancë lëkure e çelët</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">bujkeshë: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🌾">bujkeshë | grua | kopshtare | nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">bujkeshë: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🍳">kuzhinier | nuancë lëkure e çelët | shef kuzhine</annotation>
+		<annotation cp="🧑🏻‍🍳">kuzhinier | nuancë lëkure e çelët | person kuzhinier | shef kuzhine</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">person kuzhinier: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🍳">kuzhinier | nuancë lëkure gjysmë e çelët | shef kuzhine</annotation>
+		<annotation cp="🧑🏼‍🍳">kuzhinier | nuancë lëkure gjysmë e çelët | person kuzhinier | shef kuzhine</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">person kuzhinier: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🍳">kuzhinier | nuancë lëkure zeshkane | shef kuzhine</annotation>
+		<annotation cp="🧑🏽‍🍳">kuzhinier | nuancë lëkure zeshkane | person kuzhinier | shef kuzhine</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">person kuzhinier: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🍳">kuzhinier | nuancë lëkure gjysmë e errët | shef kuzhine</annotation>
+		<annotation cp="🧑🏾‍🍳">kuzhinier | nuancë lëkure gjysmë e errët | person kuzhinier | shef kuzhine</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">person kuzhinier: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🍳">kuzhinier | nuancë lëkure e errët | shef kuzhine</annotation>
+		<annotation cp="🧑🏿‍🍳">kuzhinier | nuancë lëkure e errët | person kuzhinier | shef kuzhine</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">person kuzhinier: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🍳">burrë | kuzhinë | kuzhinier | nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">kuzhinier: nuancë lëkure e çelët</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">kuzhiniere: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🍳">grua | kuzhinë | kuzhiniere | nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kuzhiniere: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure e çelët | zanatçi</annotation>
+		<annotation cp="🧑🏻‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure e çelët | person mekanik | zanatçi</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">person mekanik: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure gjysmë e çelët | zanatçi</annotation>
+		<annotation cp="🧑🏼‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure gjysmë e çelët | person mekanik | zanatçi</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">person mekanik: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure zeshkane | zanatçi</annotation>
+		<annotation cp="🧑🏽‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure zeshkane | person mekanik | zanatçi</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">person mekanik: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure gjysmë e errët | zanatçi</annotation>
+		<annotation cp="🧑🏾‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure gjysmë e errët | person mekanik | zanatçi</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">person mekanik: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure e errët | zanatçi</annotation>
+		<annotation cp="🧑🏿‍🔧">elektricist | hidraulik | mekanik | nuancë lëkure e errët | person mekanik | zanatçi</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">person mekanik: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🔧">burrë | elektricist | hidraulik | mekanik | nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mekanik: nuancë lëkure e çelët</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">mekanike: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🔧">burrë | elektriciste | hidraulike | mekanike | nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mekanike: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🏭">fabrikë | industriale | nuancë lëkure e çelët | punëtor | uzinë</annotation>
+		<annotation cp="🧑🏻‍🏭">fabrikë | industriale | nuancë lëkure e çelët | person punëtor fabrike | punëtor | uzinë</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">person punëtor fabrike: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🏭">fabrikë | industriale | nuancë lëkure gjysmë e çelët | punëtor | uzinë</annotation>
+		<annotation cp="🧑🏼‍🏭">fabrikë | industriale | nuancë lëkure gjysmë e çelët | person punëtor fabrike | punëtor | uzinë</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">person punëtor fabrike: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🏭">fabrikë | industriale | nuancë lëkure zeshkane | punëtor | uzinë</annotation>
+		<annotation cp="🧑🏽‍🏭">fabrikë | industriale | nuancë lëkure zeshkane | person punëtor fabrike | punëtor | uzinë</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">person punëtor fabrike: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🏭">fabrikë | industriale | nuancë lëkure gjysmë e errët | punëtor | uzinë</annotation>
+		<annotation cp="🧑🏾‍🏭">fabrikë | industriale | nuancë lëkure gjysmë e errët | person punëtor fabrike | punëtor | uzinë</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">person punëtor fabrike: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🏭">fabrikë | industriale | nuancë lëkure e errët | punëtor | uzinë</annotation>
+		<annotation cp="🧑🏿‍🏭">fabrikë | industriale | nuancë lëkure e errët | person punëtor fabrike | punëtor | uzinë</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">person punëtor fabrike: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🏭">burrë | fabrikë | industri | montator | nuancë lëkure e çelët | punëtor fabrike</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">punëtor fabrike: nuancë lëkure e çelët</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">punëtore fabrike: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🏭">fabrikë | grua | industri | montatore | nuancë lëkure e errët | punëtore fabrike</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">punëtore fabrike: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍💼">arkitekt | biznes | menaxher | nuancë lëkure e çelët | punë zyre</annotation>
+		<annotation cp="🧑🏻‍💼">arkitekt | biznes | menaxher | nuancë lëkure e çelët | person punonjës zyre | punë zyre</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">person punonjës zyre: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍💼">arkitekt | biznes | menaxher | nuancë lëkure gjysmë e çelët | punë zyre</annotation>
+		<annotation cp="🧑🏼‍💼">arkitekt | biznes | menaxher | nuancë lëkure gjysmë e çelët | person punonjës zyre | punë zyre</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">person punonjës zyre: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍💼">arkitekt | biznes | menaxher | nuancë lëkure zeshkane | punë zyre</annotation>
+		<annotation cp="🧑🏽‍💼">arkitekt | biznes | menaxher | nuancë lëkure zeshkane | person punonjës zyre | punë zyre</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">person punonjës zyre: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍💼">arkitekt | biznes | menaxher | nuancë lëkure gjysmë e errët | punë zyre</annotation>
+		<annotation cp="🧑🏾‍💼">arkitekt | biznes | menaxher | nuancë lëkure gjysmë e errët | person punonjës zyre | punë zyre</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">person punonjës zyre: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍💼">arkitekt | biznes | menaxher | nuancë lëkure e errët | punë zyre</annotation>
+		<annotation cp="🧑🏿‍💼">arkitekt | biznes | menaxher | nuancë lëkure e errët | person punonjës zyre | punë zyre</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">person punonjës zyre: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍💼">arkitekt | biznes | burrë | menaxher | nuancë lëkure e çelët | punonjës zyre</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">punonjës zyre: nuancë lëkure e çelët</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">punonjëse zyre: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍💼">arkitekte | biznes | grua | menaxher | nuancë lëkure e errët | punonjëse zyre</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">punonjëse zyre: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🔬">biolog | inxhinier | kimist | nuancë lëkure e çelët | shkencëtar</annotation>
+		<annotation cp="🧑🏻‍🔬">biolog | inxhinier | kimist | nuancë lëkure e çelët | person shkencëtar | shkencëtar</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">person shkencëtar: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🔬">biolog | inxhinier | kimist | nuancë lëkure gjysmë e çelët | shkencëtar</annotation>
+		<annotation cp="🧑🏼‍🔬">biolog | inxhinier | kimist | nuancë lëkure gjysmë e çelët | person shkencëtar | shkencëtar</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">person shkencëtar: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🔬">biolog | inxhinier | kimist | nuancë lëkure zeshkane | shkencëtar</annotation>
+		<annotation cp="🧑🏽‍🔬">biolog | inxhinier | kimist | nuancë lëkure zeshkane | person shkencëtar | shkencëtar</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">person shkencëtar: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🔬">biolog | inxhinier | kimist | nuancë lëkure gjysmë e errët | shkencëtar</annotation>
+		<annotation cp="🧑🏾‍🔬">biolog | inxhinier | kimist | nuancë lëkure gjysmë e errët | person shkencëtar | shkencëtar</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">person shkencëtar: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🔬">biolog | inxhinier | kimist | nuancë lëkure e errët | shkencëtar</annotation>
+		<annotation cp="🧑🏿‍🔬">biolog | inxhinier | kimist | nuancë lëkure e errët | person shkencëtar | shkencëtar</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">person shkencëtar: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🔬">biolog | fizikan | kimist | nuancë lëkure e çelët | shkencëtar</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">shkencëtar: nuancë lëkure e çelët</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">shkencëtare: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🔬">biologe | fizikane | kimiste | nuancë lëkure e errët | shkencëtare</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">shkencëtare: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍💻">kodues | nuancë lëkure e çelët | shpikës | softuer | teknolog | zhvillues</annotation>
+		<annotation cp="🧑🏻‍💻">kodues | nuancë lëkure e çelët | person teknolog | shpikës | softuer | teknolog | zhvillues</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">person teknolog: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍💻">kodues | nuancë lëkure gjysmë e çelët | shpikës | softuer | teknolog | zhvillues</annotation>
+		<annotation cp="🧑🏼‍💻">kodues | nuancë lëkure gjysmë e çelët | person teknolog | shpikës | softuer | teknolog | zhvillues</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">person teknolog: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍💻">kodues | nuancë lëkure zeshkane | shpikës | softuer | teknolog | zhvillues</annotation>
+		<annotation cp="🧑🏽‍💻">kodues | nuancë lëkure zeshkane | person teknolog | shpikës | softuer | teknolog | zhvillues</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">person teknolog: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍💻">kodues | nuancë lëkure gjysmë e errët | shpikës | softuer | teknolog | zhvillues</annotation>
+		<annotation cp="🧑🏾‍💻">kodues | nuancë lëkure gjysmë e errët | person teknolog | shpikës | softuer | teknolog | zhvillues</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">person teknolog: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍💻">kodues | nuancë lëkure e errët | shpikës | softuer | teknolog | zhvillues</annotation>
+		<annotation cp="🧑🏿‍💻">kodues | nuancë lëkure e errët | person teknolog | shpikës | softuer | teknolog | zhvillues</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">person teknolog: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍💻">burrë | kodues | nuancë lëkure e çelët | softuer | teknolog | zhvillues</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">teknolog: nuancë lëkure e çelët</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">teknologe: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍💻">grua | koduese | nuancë lëkure e errët | softuer | teknologe | zhvilluese</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">teknologe: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🎤">aktor | këngëtar | nuancë lëkure e çelët | yll muzikor | zbavitës</annotation>
+		<annotation cp="🧑🏻‍🎤">aktor | këngëtar | nuancë lëkure e çelët | person këngëtar | yll muzikor | zbavitës</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">person këngëtar: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🎤">aktor | këngëtar | nuancë lëkure gjysmë e çelët | yll muzikor | zbavitës</annotation>
+		<annotation cp="🧑🏼‍🎤">aktor | këngëtar | nuancë lëkure gjysmë e çelët | person këngëtar | yll muzikor | zbavitës</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">person këngëtar: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🎤">aktor | këngëtar | nuancë lëkure zeshkane | yll muzikor | zbavitës</annotation>
+		<annotation cp="🧑🏽‍🎤">aktor | këngëtar | nuancë lëkure zeshkane | person këngëtar | yll muzikor | zbavitës</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">person këngëtar: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🎤">aktor | këngëtar | nuancë lëkure gjysmë e errët | yll muzikor | zbavitës</annotation>
+		<annotation cp="🧑🏾‍🎤">aktor | këngëtar | nuancë lëkure gjysmë e errët | person këngëtar | yll muzikor | zbavitës</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">person këngëtar: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🎤">aktor | këngëtar | nuancë lëkure e errët | yll muzikor | zbavitës</annotation>
+		<annotation cp="🧑🏿‍🎤">aktor | këngëtar | nuancë lëkure e errët | person këngëtar | yll muzikor | zbavitës</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">person këngëtar: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🎤">aktor | burrë | këngëtar | muzikant | nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">këngëtar: nuancë lëkure e çelët</annotation>
@@ -1336,15 +1386,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎤" type="tts">këngëtare: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🎤">aktore | grua | këngëtare | muzikante | nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">këngëtare: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🎨">artist | nuancë lëkure e çelët | paletë piktori | piktor</annotation>
+		<annotation cp="🧑🏻‍🎨">artist | nuancë lëkure e çelët | paletë piktori | person artist | piktor</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">person artist: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🎨">artist | nuancë lëkure gjysmë e çelët | paletë piktori | piktor</annotation>
+		<annotation cp="🧑🏼‍🎨">artist | nuancë lëkure gjysmë e çelët | paletë piktori | person artist | piktor</annotation>
 		<annotation cp="🧑🏼‍🎨" type="tts">person artist: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🎨">artist | nuancë lëkure zeshkane | paletë piktori | piktor</annotation>
+		<annotation cp="🧑🏽‍🎨">artist | nuancë lëkure zeshkane | paletë piktori | person artist | piktor</annotation>
 		<annotation cp="🧑🏽‍🎨" type="tts">person artist: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🎨">artist | nuancë lëkure gjysmë e errët | paletë piktori | piktor</annotation>
+		<annotation cp="🧑🏾‍🎨">artist | nuancë lëkure gjysmë e errët | paletë piktori | person artist | piktor</annotation>
 		<annotation cp="🧑🏾‍🎨" type="tts">person artist: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🎨">artist | nuancë lëkure e errët | paletë piktori | piktor</annotation>
+		<annotation cp="🧑🏿‍🎨">artist | nuancë lëkure e errët | paletë piktori | person artist | piktor</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">person artist: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🎨">artist | burrë | nuancë lëkure e çelët | paletë | piktor</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">artist: nuancë lëkure e çelët</annotation>
@@ -1366,15 +1416,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">artiste: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🎨">artiste | grua | nuancë lëkure e errët | paletë | piktore</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">artiste: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍✈">aeroplan | nuancë lëkure e çelët | pilot</annotation>
+		<annotation cp="🧑🏻‍✈">aeroplan | nuancë lëkure e çelët | person pilot | pilot</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">person pilot: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍✈">aeroplan | nuancë lëkure gjysmë e çelët | pilot</annotation>
+		<annotation cp="🧑🏼‍✈">aeroplan | nuancë lëkure gjysmë e çelët | person pilot | pilot</annotation>
 		<annotation cp="🧑🏼‍✈" type="tts">person pilot: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍✈">aeroplan | nuancë lëkure zeshkane | pilot</annotation>
+		<annotation cp="🧑🏽‍✈">aeroplan | nuancë lëkure zeshkane | person pilot | pilot</annotation>
 		<annotation cp="🧑🏽‍✈" type="tts">person pilot: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍✈">aeroplan | nuancë lëkure gjysmë e errët | pilot</annotation>
+		<annotation cp="🧑🏾‍✈">aeroplan | nuancë lëkure gjysmë e errët | person pilot | pilot</annotation>
 		<annotation cp="🧑🏾‍✈" type="tts">person pilot: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍✈">aeroplan | nuancë lëkure e errët | pilot</annotation>
+		<annotation cp="🧑🏿‍✈">aeroplan | nuancë lëkure e errët | person pilot | pilot</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">person pilot: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍✈">aeroplan | burrë | nuancë lëkure e çelët | pilot</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilot: nuancë lëkure e çelët</annotation>
@@ -1396,15 +1446,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍✈" type="tts">pilote: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍✈">aeroplan | grua | nuancë lëkure e errët | pilote</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilote: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🚀">astronaut | nuancë lëkure e çelët | raketë</annotation>
+		<annotation cp="🧑🏻‍🚀">astronaut | nuancë lëkure e çelët | person astronaut | raketë</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">person astronaut: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🚀">astronaut | nuancë lëkure gjysmë e çelët | raketë</annotation>
+		<annotation cp="🧑🏼‍🚀">astronaut | nuancë lëkure gjysmë e çelët | person astronaut | raketë</annotation>
 		<annotation cp="🧑🏼‍🚀" type="tts">person astronaut: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🚀">astronaut | nuancë lëkure zeshkane | raketë</annotation>
+		<annotation cp="🧑🏽‍🚀">astronaut | nuancë lëkure zeshkane | person astronaut | raketë</annotation>
 		<annotation cp="🧑🏽‍🚀" type="tts">person astronaut: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🚀">astronaut | nuancë lëkure gjysmë e errët | raketë</annotation>
+		<annotation cp="🧑🏾‍🚀">astronaut | nuancë lëkure gjysmë e errët | person astronaut | raketë</annotation>
 		<annotation cp="🧑🏾‍🚀" type="tts">person astronaut: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🚀">astronaut | nuancë lëkure e errët | raketë</annotation>
+		<annotation cp="🧑🏿‍🚀">astronaut | nuancë lëkure e errët | person astronaut | raketë</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">person astronaut: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🚀">astronaut | burrë | hapësirë | nuancë lëkure e çelët | raketë</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">astronaut: nuancë lëkure e çelët</annotation>
@@ -1426,15 +1476,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚀" type="tts">astronaute: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🚀">astronaute | grua | hapësirë | nuancë lëkure e errët | raketë</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">astronaute: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🚒">nuancë lëkure e çelët | zjarrfikës | zjarrfikëse</annotation>
+		<annotation cp="🧑🏻‍🚒">nuancë lëkure e çelët | person zjarrfikës | zjarrfikës | zjarrfikëse</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">person zjarrfikës: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🚒">nuancë lëkure gjysmë e çelët | zjarrfikës | zjarrfikëse</annotation>
+		<annotation cp="🧑🏼‍🚒">nuancë lëkure gjysmë e çelët | person zjarrfikës | zjarrfikës | zjarrfikëse</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">person zjarrfikës: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🚒">nuancë lëkure zeshkane | zjarrfikës | zjarrfikëse</annotation>
+		<annotation cp="🧑🏽‍🚒">nuancë lëkure zeshkane | person zjarrfikës | zjarrfikës | zjarrfikëse</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">person zjarrfikës: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🚒">nuancë lëkure gjysmë e errët | zjarrfikës | zjarrfikëse</annotation>
+		<annotation cp="🧑🏾‍🚒">nuancë lëkure gjysmë e errët | person zjarrfikës | zjarrfikës | zjarrfikëse</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">person zjarrfikës: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🚒">nuancë lëkure e errët | zjarrfikës | zjarrfikëse</annotation>
+		<annotation cp="🧑🏿‍🚒">nuancë lëkure e errët | person zjarrfikës | zjarrfikës | zjarrfikëse</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">person zjarrfikës: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🚒">burrë | makinë zjarrfikëse | nuancë lëkure e çelët | zjarrfikës</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">zjarrfikës: nuancë lëkure e çelët</annotation>
@@ -1646,16 +1696,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">grua me shami: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="🧕🏿">grua me shami | hixhab | mbulesë | nuancë lëkure e errët | shami | tikël</annotation>
 		<annotation cp="🧕🏿" type="tts">grua me shami: nuancë lëkure e errët</annotation>
-		<annotation cp="🤵🏻">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure e çelët</annotation>
-		<annotation cp="🤵🏻" type="tts">burrë me kostum: nuancë lëkure e çelët</annotation>
-		<annotation cp="🤵🏼">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🤵🏼" type="tts">burrë me kostum: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🤵🏽">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure zeshkane</annotation>
-		<annotation cp="🤵🏽" type="tts">burrë me kostum: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🤵🏾">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🤵🏾" type="tts">burrë me kostum: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🤵🏿">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure e errët</annotation>
-		<annotation cp="🤵🏿" type="tts">burrë me kostum: nuancë lëkure e errët</annotation>
+		<annotation cp="🤵🏻">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure e çelët | person me kostum</annotation>
+		<annotation cp="🤵🏻" type="tts">person me kostum: nuancë lëkure e çelët</annotation>
+		<annotation cp="🤵🏼">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure gjysmë e çelët | person me kostum</annotation>
+		<annotation cp="🤵🏼" type="tts">person me kostum: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🤵🏽">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure zeshkane | person me kostum</annotation>
+		<annotation cp="🤵🏽" type="tts">person me kostum: nuancë lëkure zeshkane</annotation>
+		<annotation cp="🤵🏾">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure gjysmë e errët | person me kostum</annotation>
+		<annotation cp="🤵🏾" type="tts">person me kostum: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🤵🏿">burrë | burrë me kostum | dhëndër | kostum | nuancë lëkure e errët | person me kostum</annotation>
+		<annotation cp="🤵🏿" type="tts">person me kostum: nuancë lëkure e errët</annotation>
+		<annotation cp="🤵🏻‍♀">grua | grua me kostum | kostum | nuancë lëkure e çelët</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">grua me kostum: nuancë lëkure e çelët</annotation>
+		<annotation cp="🤵🏼‍♀">grua | grua me kostum | kostum | nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">grua me kostum: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🤵🏽‍♀">grua | grua me kostum | kostum | nuancë lëkure zeshkane</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">grua me kostum: nuancë lëkure zeshkane</annotation>
+		<annotation cp="🤵🏾‍♀">grua | grua me kostum | kostum | nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">grua me kostum: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🤵🏿‍♀">grua | grua me kostum | kostum | nuancë lëkure e errët</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">grua me kostum: nuancë lëkure e errët</annotation>
+		<annotation cp="🤵🏻‍♂">burrë | burrë me kostum | kostum | nuancë lëkure e çelët</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">burrë me kostum: nuancë lëkure e çelët</annotation>
+		<annotation cp="🤵🏼‍♂">burrë | burrë me kostum | kostum | nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">burrë me kostum: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🤵🏽‍♂">burrë | burrë me kostum | kostum | nuancë lëkure zeshkane</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">burrë me kostum: nuancë lëkure zeshkane</annotation>
+		<annotation cp="🤵🏾‍♂">burrë | burrë me kostum | kostum | nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">burrë me kostum: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🤵🏿‍♂">burrë | burrë me kostum | kostum | nuancë lëkure e errët</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">burrë me kostum: nuancë lëkure e errët</annotation>
 		<annotation cp="👰🏻">dasmë | nuancë lëkure e çelët | nuse | nuse me vello | vello</annotation>
 		<annotation cp="👰🏻" type="tts">nuse me vello: nuancë lëkure e çelët</annotation>
 		<annotation cp="👰🏼">dasmë | nuancë lëkure gjysmë e çelët | nuse | nuse me vello | vello</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">nuse me vello: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👰🏿">dasmë | nuancë lëkure e errët | nuse | nuse me vello | vello</annotation>
 		<annotation cp="👰🏿" type="tts">nuse me vello: nuancë lëkure e errët</annotation>
+		<annotation cp="👰🏻‍♀">grua | grua me vello | nuancë lëkure e çelët | vello</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">grua me vello: nuancë lëkure e çelët</annotation>
+		<annotation cp="👰🏼‍♀">grua | grua me vello | nuancë lëkure gjysmë e çelët | vello</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">grua me vello: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👰🏽‍♀">grua | grua me vello | nuancë lëkure zeshkane | vello</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">grua me vello: nuancë lëkure zeshkane</annotation>
+		<annotation cp="👰🏾‍♀">grua | grua me vello | nuancë lëkure gjysmë e errët | vello</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">grua me vello: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👰🏿‍♀">grua | grua me vello | nuancë lëkure e errët | vello</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">grua me vello: nuancë lëkure e errët</annotation>
+		<annotation cp="👰🏻‍♂">burrë | burrë me vello | nuancë lëkure e çelët | vello</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">burrë me vello: nuancë lëkure e çelët</annotation>
+		<annotation cp="👰🏼‍♂">burrë | burrë me vello | nuancë lëkure gjysmë e çelët | vello</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">burrë me vello: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👰🏽‍♂">burrë | burrë me vello | nuancë lëkure zeshkane | vello</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">burrë me vello: nuancë lëkure zeshkane</annotation>
+		<annotation cp="👰🏾‍♂">burrë | burrë me vello | nuancë lëkure gjysmë e errët | vello</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">burrë me vello: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👰🏿‍♂">burrë | burrë me vello | nuancë lëkure e errët | vello</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">burrë me vello: nuancë lëkure e errët</annotation>
 		<annotation cp="🤰🏻">grua | nuancë lëkure e çelët | shtatzënë</annotation>
 		<annotation cp="🤰🏻" type="tts">grua shtatzënë: nuancë lëkure e çelët</annotation>
 		<annotation cp="🤰🏼">grua | nuancë lëkure gjysmë e çelët | shtatzënë</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">grua në gjunjë: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="🧎🏿‍♀">gjunjëzim | grua | grua në gjunjë | nuancë lëkure e errët</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">grua në gjunjë: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🦯">i verbër | nuancë lëkure e çelët | qasshmëri</annotation>
+		<annotation cp="🧑🏻‍🦯">i verbër | nuancë lëkure e çelët | person me shkop gjurmimi | qasshmëri</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">person me shkop gjurmimi: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🦯">i verbër | nuancë lëkure gjysmë e çelët | qasshmëri</annotation>
+		<annotation cp="🧑🏼‍🦯">i verbër | nuancë lëkure gjysmë e çelët | person me shkop gjurmimi | qasshmëri</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">person me shkop gjurmimi: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🦯">i verbër | nuancë lëkure zeshkane | qasshmëri</annotation>
+		<annotation cp="🧑🏽‍🦯">i verbër | nuancë lëkure zeshkane | person me shkop gjurmimi | qasshmëri</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">person me shkop gjurmimi: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🦯">i verbër | nuancë lëkure gjysmë e errët | qasshmëri</annotation>
+		<annotation cp="🧑🏾‍🦯">i verbër | nuancë lëkure gjysmë e errët | person me shkop gjurmimi | qasshmëri</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">person me shkop gjurmimi: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🦯">i verbër | nuancë lëkure e errët | qasshmëri</annotation>
+		<annotation cp="🧑🏿‍🦯">i verbër | nuancë lëkure e errët | person me shkop gjurmimi | qasshmëri</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">person me shkop gjurmimi: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🦯">burrë | burrë me shkop gjurmimi | i verbër | nuancë lëkure e çelët | qasshmëri</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">burrë me shkop gjurmimi: nuancë lëkure e çelët</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">grua me shkop gjurmimi: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🦯">e verbër | grua | grua me shkop gjurmimi | nuancë lëkure e errët | qasshmëri</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">grua me shkop gjurmimi: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🦼">karrocë invalidi | nuancë lëkure e çelët | qasshmëri</annotation>
+		<annotation cp="🧑🏻‍🦼">karrocë invalidi | nuancë lëkure e çelët | person në karrocë të motorizuar invalidi | qasshmëri</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">person në karrocë të motorizuar invalidi: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🦼">karrocë invalidi | nuancë lëkure gjysmë e çelët | qasshmëri</annotation>
+		<annotation cp="🧑🏼‍🦼">karrocë invalidi | nuancë lëkure gjysmë e çelët | person në karrocë të motorizuar invalidi | qasshmëri</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">person në karrocë të motorizuar invalidi: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🦼">karrocë invalidi | nuancë lëkure zeshkane | qasshmëri</annotation>
+		<annotation cp="🧑🏽‍🦼">karrocë invalidi | nuancë lëkure zeshkane | person në karrocë të motorizuar invalidi | qasshmëri</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">person në karrocë të motorizuar invalidi: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🦼">karrocë invalidi | nuancë lëkure gjysmë e errët | qasshmëri</annotation>
+		<annotation cp="🧑🏾‍🦼">karrocë invalidi | nuancë lëkure gjysmë e errët | person në karrocë të motorizuar invalidi | qasshmëri</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">person në karrocë të motorizuar invalidi: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🦼">karrocë invalidi | nuancë lëkure e errët | qasshmëri</annotation>
+		<annotation cp="🧑🏿‍🦼">karrocë invalidi | nuancë lëkure e errët | person në karrocë të motorizuar invalidi | qasshmëri</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">person në karrocë të motorizuar invalidi: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🦼">burrë | burrë në karrocë të motorizuar invalidi | karrocë invalidi | nuancë lëkure e çelët | qasshmëri</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">burrë në karrocë të motorizuar invalidi: nuancë lëkure e çelët</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">grua në karrocë të motorizuar invalidi: nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏿‍🦼">grua | grua në karrocë të motorizuar invalidi | karrocë invalidi | nuancë lëkure e errët | qasshmëri</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">grua në karrocë të motorizuar invalidi: nuancë lëkure e errët</annotation>
-		<annotation cp="🧑🏻‍🦽">karrocë invalidi | nuancë lëkure e çelët | qasshmëri</annotation>
+		<annotation cp="🧑🏻‍🦽">nuancë lëkure e çelët | person në karrocë invalidi manuale</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">person në karrocë invalidi manuale: nuancë lëkure e çelët</annotation>
-		<annotation cp="🧑🏼‍🦽">karrocë invalidi | nuancë lëkure gjysmë e çelët | qasshmëri</annotation>
+		<annotation cp="🧑🏼‍🦽">nuancë lëkure gjysmë e çelët | person në karrocë invalidi manuale</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">person në karrocë invalidi manuale: nuancë lëkure gjysmë e çelët</annotation>
-		<annotation cp="🧑🏽‍🦽">karrocë invalidi | nuancë lëkure zeshkane | qasshmëri</annotation>
+		<annotation cp="🧑🏽‍🦽">nuancë lëkure zeshkane | person në karrocë invalidi manuale</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">person në karrocë invalidi manuale: nuancë lëkure zeshkane</annotation>
-		<annotation cp="🧑🏾‍🦽">karrocë invalidi | nuancë lëkure gjysmë e errët | qasshmëri</annotation>
+		<annotation cp="🧑🏾‍🦽">nuancë lëkure gjysmë e errët | person në karrocë invalidi manuale</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">person në karrocë invalidi manuale: nuancë lëkure gjysmë e errët</annotation>
-		<annotation cp="🧑🏿‍🦽">karrocë invalidi | nuancë lëkure e errët | qasshmëri</annotation>
+		<annotation cp="🧑🏿‍🦽">nuancë lëkure e errët | person në karrocë invalidi manuale</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">person në karrocë invalidi manuale: nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏻‍🦽">burrë | burrë në karrocë manuale invalidi | karrocë invalidi | nuancë lëkure e çelët | qasshmëri</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">burrë në karrocë manuale invalidi: nuancë lëkure e çelët</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">njeri në krevat: nuancë lëkure e errët</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">njerëz të kapur për duarsh: nuancë lëkure e çelët</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e çelët | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">njerëz të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure zeshkane | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">njerëz të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure zeshkane</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e errët | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">njerëz të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure e errët | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">njerëz të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure e errët</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e çelët | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure gjysmë e çelët | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure zeshkane | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure gjysmë e errët | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure gjysmë e çelët | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure e errët</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure zeshkane | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">njerëz të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure e çelët</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure zeshkane | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">njerëz të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure zeshkane | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">njerëz të kapur për duarsh: nuancë lëkure zeshkane</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure gjysmë e errët | nuancë lëkure zeshkane | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">njerëz të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure zeshkane | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">njerëz të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure e errët</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e errët | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure e çelët</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure gjysmë e errët | të kapur për duarsh</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure gjysmë e errët | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure gjysmë e errët | të kapur për duarsh</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">njerëz të kapur për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure e errët</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure e errët | të kapur për duarsh</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">njerëz të kapur për duarsh: nuancë lëkure e errët e nuancë lëkure e çelët</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">çift | dorë | njerëz | njerëz të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure gjysmë e çelët | të kapur për duarsh</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">njerëz të kapur për duarsh: nuancë lëkure e errët</annotation>
 		<annotation cp="👭🏻">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët</annotation>
 		<annotation cp="👭🏻" type="tts">dy gra të kapura për duarsh: nuancë lëkure e çelët</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">dy gra të kapura për duarsh: nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">dy gra të kapura për duarsh: nuancë lëkure e çelët e nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">dy gra të kapura për duarsh: nuancë lëkure e çelët e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure e errët</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">dy gra të kapura për duarsh: nuancë lëkure e çelët e nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure gjysmë e çelët</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët</annotation>
 		<annotation cp="👭🏼">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure gjysmë e çelët</annotation>
 		<annotation cp="👭🏼" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure gjysmë e çelët | nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure gjysmë e çelët | nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e errët | nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure zeshkane</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dy gra të kapura për duarsh: nuancë lëkure zeshkane e nuancë lëkure e çelët</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure gjysmë e çelët | nuancë lëkure zeshkane</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dy gra të kapura për duarsh: nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët</annotation>
 		<annotation cp="👭🏽">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure zeshkane</annotation>
 		<annotation cp="👭🏽" type="tts">dy gra të kapura për duarsh: nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure gjysmë e errët | nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">dy gra të kapura për duarsh: nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e errët | nuancë lëkure zeshkane</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">dy gra të kapura për duarsh: nuancë lëkure zeshkane e nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure e çelët</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure gjysmë e çelët | nuancë lëkure gjysmë e errët</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane</annotation>
 		<annotation cp="👭🏾">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="👭🏾" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e errët | nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">dy gra të kapura për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e çelët | nuancë lëkure e errët</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dy gra të kapura për duarsh: nuancë lëkure e errët e nuancë lëkure e çelët</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">çift | dorë | dy gra të kapura për duarsh | grua | mbaj | nuancë lëkure e errët | nuancë lëkure gjysmë e çelët</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">burrë dhe grua që kapin duart: nuancë lëkure e errët</annotation>
 		<annotation cp="👬🏻">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | zodiak</annotation>
 		<annotation cp="👬🏻" type="tts">dy burra të kapur për duarsh: nuancë lëkure e çelët</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e çelët | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">dy burra të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure zeshkane | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">dy burra të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure zeshkane</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e errët | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">dy burra të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure e errët | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">dy burra të kapur për duarsh: nuancë lëkure e çelët e nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e çelët | zodiak</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët</annotation>
 		<annotation cp="👬🏼">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure gjysmë e çelët | zodiak</annotation>
 		<annotation cp="👬🏼" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e çelët</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure zeshkane | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure gjysmë e errët | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure gjysmë e çelët | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e çelët e nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure zeshkane | zodiak</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dy burra të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure zeshkane | zodiak</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dy burra të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët</annotation>
 		<annotation cp="👬🏽">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure zeshkane | zodiak</annotation>
 		<annotation cp="👬🏽" type="tts">dy burra të kapur për duarsh: nuancë lëkure zeshkane</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure gjysmë e errët | nuancë lëkure zeshkane | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">dy burra të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure zeshkane | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">dy burra të kapur për duarsh: nuancë lëkure zeshkane e nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure gjysmë e errët | zodiak</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure gjysmë e çelët | nuancë lëkure gjysmë e errët | zodiak</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane</annotation>
 		<annotation cp="👬🏾">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure gjysmë e errët | zodiak</annotation>
 		<annotation cp="👬🏾" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e errët</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure gjysmë e errët | zodiak</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">dy burra të kapur për duarsh: nuancë lëkure gjysmë e errët e nuancë lëkure e errët</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e çelët | nuancë lëkure e errët | zodiak</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dy burra të kapur për duarsh: nuancë lëkure e errët e nuancë lëkure e çelët</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">binjakë | çift | dy burra të kapur për duarsh | nuancë lëkure e errët | nuancë lëkure gjysmë e çelët | zodiak</annotation>

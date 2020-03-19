@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -18,33 +18,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<localeKeyTypePattern draft="contributed">↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
-			<language type="aa" draft="contributed">Afar</language>
-			<language type="ab" draft="contributed">Abkhazian</language>
-			<language type="ace" draft="contributed">Achinese</language>
+			<language type="aa">Afar</language>
+			<language type="ab">Abkhazian</language>
+			<language type="ace">Achinese</language>
 			<language type="ach">↑↑↑</language>
-			<language type="ada" draft="contributed">Adangme</language>
-			<language type="ady" draft="contributed">Adyghe</language>
+			<language type="ada">Adangme</language>
+			<language type="ady">Adyghe</language>
 			<language type="ae">↑↑↑</language>
 			<language type="aeb">↑↑↑</language>
 			<language type="af">Afrikaans</language>
 			<language type="afh">↑↑↑</language>
 			<language type="agq">Aghem</language>
-			<language type="ain" draft="contributed">Ainu</language>
+			<language type="ain">Ainu</language>
 			<language type="ak">Akan</language>
 			<language type="akk">↑↑↑</language>
 			<language type="akz">↑↑↑</language>
-			<language type="ale" draft="contributed">Aleut</language>
+			<language type="ale">Aleut</language>
 			<language type="aln">↑↑↑</language>
-			<language type="alt" draft="contributed">Southern Altai</language>
+			<language type="alt">Southern Altai</language>
 			<language type="am">Amharic</language>
-			<language type="an" draft="contributed">Aragonese</language>
-			<language type="anp" draft="contributed">Angika</language>
+			<language type="an">Aragonese</language>
+			<language type="anp">Angika</language>
 			<language type="ar">Arabic</language>
 			<language type="ar_001">Modern Standard Arabic</language>
 			<language type="arc">↑↑↑</language>
-			<language type="arn" draft="contributed">Mapuche</language>
+			<language type="arn">Mapuche</language>
 			<language type="aro">↑↑↑</language>
-			<language type="arp" draft="contributed">Arapaho</language>
+			<language type="arp">Arapaho</language>
 			<language type="arq">↑↑↑</language>
 			<language type="ars">↑↑↑</language>
 			<language type="arw">↑↑↑</language>
@@ -54,15 +54,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="asa">Asu</language>
 			<language type="ase">↑↑↑</language>
 			<language type="ast">Asturian</language>
-			<language type="av" draft="contributed">Avaric</language>
+			<language type="av">Avaric</language>
 			<language type="avk">↑↑↑</language>
-			<language type="awa" draft="contributed">Awadhi</language>
-			<language type="ay" draft="contributed">Aymara</language>
+			<language type="awa">Awadhi</language>
+			<language type="ay">Aymara</language>
 			<language type="az">Azerbaijani</language>
 			<language type="az" alt="short">Azeri</language>
-			<language type="ba" draft="contributed">Bashkir</language>
+			<language type="ba">Bashkir</language>
 			<language type="bal">↑↑↑</language>
-			<language type="ban" draft="contributed">Balinese</language>
+			<language type="ban">Balinese</language>
 			<language type="bar">↑↑↑</language>
 			<language type="bas">Basaa</language>
 			<language type="bax">Bamun</language>
@@ -77,13 +77,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bfq">↑↑↑</language>
 			<language type="bg">Bulgarian</language>
 			<language type="bgn">↑↑↑</language>
-			<language type="bho" draft="contributed">Bhojpuri</language>
-			<language type="bi" draft="contributed">Bislama</language>
+			<language type="bho">Bhojpuri</language>
+			<language type="bi">Bislama</language>
 			<language type="bik">↑↑↑</language>
-			<language type="bin" draft="contributed">Bini</language>
+			<language type="bin">Bini</language>
 			<language type="bjn">↑↑↑</language>
 			<language type="bkm">Kom</language>
-			<language type="bla" draft="contributed">Siksika</language>
+			<language type="bla">Siksika</language>
 			<language type="bm">Bambara</language>
 			<language type="bn">↑↑↑</language>
 			<language type="bo">Tibetan</language>
@@ -96,9 +96,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bs">Bosnian</language>
 			<language type="bss">Akoose</language>
 			<language type="bua">↑↑↑</language>
-			<language type="bug" draft="contributed">Buginese</language>
+			<language type="bug">Buginese</language>
 			<language type="bum">Bulu</language>
-			<language type="byn" draft="contributed">Blin</language>
+			<language type="byn">Blin</language>
 			<language type="byv">Medumba</language>
 			<language type="ca">Catalan</language>
 			<language type="cad">↑↑↑</language>
@@ -109,17 +109,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ce">Chechen</language>
 			<language type="ceb">Cebuano</language>
 			<language type="cgg">Chiga</language>
-			<language type="ch" draft="contributed">Chamorro</language>
+			<language type="ch">Chamorro</language>
 			<language type="chb">↑↑↑</language>
 			<language type="chg">↑↑↑</language>
-			<language type="chk" draft="contributed">Chuukese</language>
-			<language type="chm" draft="contributed">Mari</language>
+			<language type="chk">Chuukese</language>
+			<language type="chm">Mari</language>
 			<language type="chn">↑↑↑</language>
-			<language type="cho" draft="contributed">Choctaw</language>
+			<language type="cho">Choctaw</language>
 			<language type="chp">↑↑↑</language>
 			<language type="chr">Cherokee</language>
-			<language type="chy" draft="contributed">Cheyenne</language>
+			<language type="chy">Cheyenne</language>
 			<language type="ckb">↑↑↑</language>
+			<language type="ckb" alt="menu">↑↑↑</language>
+			<language type="ckb" alt="variant">↑↑↑</language>
 			<language type="co">Corsican</language>
 			<language type="cop">↑↑↑</language>
 			<language type="cps">↑↑↑</language>
@@ -129,35 +131,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cs">Czech</language>
 			<language type="csb">↑↑↑</language>
 			<language type="cu">Church Slavic</language>
-			<language type="cv" draft="contributed">Chuvash</language>
+			<language type="cv">Chuvash</language>
 			<language type="cy">Welsh</language>
 			<language type="da">Danish</language>
-			<language type="dak" draft="contributed">Dakota</language>
-			<language type="dar" draft="contributed">Dargwa</language>
+			<language type="dak">Dakota</language>
+			<language type="dar">Dargwa</language>
 			<language type="dav">Taita</language>
 			<language type="de">German</language>
 			<language type="de_AT">Austrian German</language>
 			<language type="de_CH">Swiss High German</language>
 			<language type="del">↑↑↑</language>
 			<language type="den">↑↑↑</language>
-			<language type="dgr" draft="contributed">Dogrib</language>
+			<language type="dgr">Dogrib</language>
 			<language type="din">↑↑↑</language>
 			<language type="dje">Zarma</language>
 			<language type="doi">↑↑↑</language>
 			<language type="dsb">Lower Sorbian</language>
 			<language type="dtp">↑↑↑</language>
 			<language type="dua">Duala</language>
-			<language type="dv" draft="contributed">Divehi</language>
+			<language type="dv">Divehi</language>
 			<language type="dyo">Jola-Fonyi</language>
 			<language type="dyu">↑↑↑</language>
 			<language type="dz">Dzongkha</language>
-			<language type="dzg" draft="contributed">Dazaga</language>
+			<language type="dzg">Dazaga</language>
 			<language type="ebu">Embu</language>
 			<language type="ee">Ewe</language>
-			<language type="efi" draft="contributed">Efik</language>
+			<language type="efi">Efik</language>
 			<language type="egl">↑↑↑</language>
 			<language type="egy">↑↑↑</language>
-			<language type="eka" draft="contributed">Ekajuk</language>
+			<language type="eka">Ekajuk</language>
 			<language type="el">Greek</language>
 			<language type="elx">↑↑↑</language>
 			<language type="en">English</language>
@@ -178,16 +180,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ewo">Ewondo</language>
 			<language type="ext">↑↑↑</language>
 			<language type="fa">Persian</language>
-			<language type="fa_AF" draft="contributed">Dari</language>
+			<language type="fa_AF">Dari</language>
 			<language type="fan">↑↑↑</language>
 			<language type="fat">↑↑↑</language>
 			<language type="ff">Fulah</language>
 			<language type="fi">Finnish</language>
 			<language type="fil">Filipino</language>
 			<language type="fit">↑↑↑</language>
-			<language type="fj" draft="contributed">Fijian</language>
+			<language type="fj">Fijian</language>
 			<language type="fo">Faroese</language>
-			<language type="fon" draft="contributed">Fon</language>
+			<language type="fon">Fon</language>
 			<language type="fr">French</language>
 			<language type="fr_CA">Canadian French</language>
 			<language type="fr_CH">Swiss French</language>
@@ -198,21 +200,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fur">Friulian</language>
 			<language type="fy">Western Frisian</language>
 			<language type="ga">Irish</language>
-			<language type="gaa" draft="contributed">Ga</language>
+			<language type="gaa">Ga</language>
 			<language type="gag">↑↑↑</language>
 			<language type="gan">↑↑↑</language>
 			<language type="gay">↑↑↑</language>
 			<language type="gba">↑↑↑</language>
 			<language type="gbz">↑↑↑</language>
 			<language type="gd">Scottish Gaelic</language>
-			<language type="gez" draft="contributed">Geez</language>
-			<language type="gil" draft="contributed">Gilbertese</language>
+			<language type="gez">Geez</language>
+			<language type="gil">Gilbertese</language>
 			<language type="gl">Galician</language>
 			<language type="glk">↑↑↑</language>
-			<language type="gn" draft="contributed">Guarani</language>
+			<language type="gn">Guarani</language>
 			<language type="gom">↑↑↑</language>
 			<language type="gon">↑↑↑</language>
-			<language type="gor" draft="contributed">Gorontalo</language>
+			<language type="gor">Gorontalo</language>
 			<language type="got">↑↑↑</language>
 			<language type="grb">↑↑↑</language>
 			<language type="grc">↑↑↑</language>
@@ -222,7 +224,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="gur">↑↑↑</language>
 			<language type="guz">Gusii</language>
 			<language type="gv">Manx</language>
-			<language type="gwi" draft="contributed">Gwichʼin</language>
+			<language type="gwi">Gwichʼin</language>
 			<language type="ha">Hausa</language>
 			<language type="hai">↑↑↑</language>
 			<language type="hak">↑↑↑</language>
@@ -230,7 +232,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="he">Hebrew</language>
 			<language type="hi">Hindi</language>
 			<language type="hif">↑↑↑</language>
-			<language type="hil" draft="contributed">Hiligaynon</language>
+			<language type="hil">Hiligaynon</language>
 			<language type="hit">↑↑↑</language>
 			<language type="hmn">Hmong</language>
 			<language type="ho">↑↑↑</language>
@@ -239,27 +241,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hsn">↑↑↑</language>
 			<language type="ht">↑↑↑</language>
 			<language type="hu">Hungarian</language>
-			<language type="hup" draft="contributed">Hupa</language>
+			<language type="hup">Hupa</language>
 			<language type="hy">Armenian</language>
-			<language type="hz" draft="contributed">Herero</language>
+			<language type="hz">Herero</language>
 			<language type="ia">Interlingua</language>
-			<language type="iba" draft="contributed">Iban</language>
+			<language type="iba">Iban</language>
 			<language type="ibb">Ibibio</language>
 			<language type="id">Indonesian</language>
 			<language type="ie">↑↑↑</language>
 			<language type="ig">Igbo</language>
 			<language type="ii">Sichuan Yi</language>
 			<language type="ik">↑↑↑</language>
-			<language type="ilo" draft="contributed">Iloko</language>
-			<language type="inh" draft="contributed">Ingush</language>
-			<language type="io" draft="contributed">Ido</language>
+			<language type="ilo">Iloko</language>
+			<language type="inh">Ingush</language>
+			<language type="io">Ido</language>
 			<language type="is">Icelandic</language>
 			<language type="it">Italian</language>
-			<language type="iu" draft="contributed">Inuktitut</language>
+			<language type="iu">Inuktitut</language>
 			<language type="izh">↑↑↑</language>
 			<language type="ja">Japanese</language>
 			<language type="jam">↑↑↑</language>
-			<language type="jbo" draft="contributed">Lojban</language>
+			<language type="jbo">Lojban</language>
 			<language type="jgo">Ngomba</language>
 			<language type="jmc">Machame</language>
 			<language type="jpr">↑↑↑</language>
@@ -269,65 +271,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ka">Georgian</language>
 			<language type="kaa">↑↑↑</language>
 			<language type="kab">Kabyle</language>
-			<language type="kac" draft="contributed">Kachin</language>
-			<language type="kaj" draft="contributed">Jju</language>
+			<language type="kac">Kachin</language>
+			<language type="kaj">Jju</language>
 			<language type="kam">Kamba</language>
 			<language type="kaw">↑↑↑</language>
-			<language type="kbd" draft="contributed">Kabardian</language>
+			<language type="kbd">Kabardian</language>
 			<language type="kbl">↑↑↑</language>
-			<language type="kcg" draft="contributed">Tyap</language>
+			<language type="kcg">Tyap</language>
 			<language type="kde">Makonde</language>
 			<language type="kea">Kabuverdianu</language>
 			<language type="ken">↑↑↑</language>
-			<language type="kfo" draft="contributed">Koro</language>
+			<language type="kfo">Koro</language>
 			<language type="kg">↑↑↑</language>
 			<language type="kgp">↑↑↑</language>
-			<language type="kha" draft="contributed">Khasi</language>
+			<language type="kha">Khasi</language>
 			<language type="kho">↑↑↑</language>
 			<language type="khq">Koyra Chiini</language>
 			<language type="khw">↑↑↑</language>
 			<language type="ki">Kikuyu</language>
 			<language type="kiu">↑↑↑</language>
-			<language type="kj" draft="contributed">Kuanyama</language>
+			<language type="kj">Kuanyama</language>
 			<language type="kk">Kazakh</language>
 			<language type="kkj">Kako</language>
 			<language type="kl">Kalaallisut</language>
 			<language type="kln">Kalenjin</language>
 			<language type="km">Khmer</language>
-			<language type="kmb" draft="contributed">Kimbundu</language>
+			<language type="kmb">Kimbundu</language>
 			<language type="kn">Kannada</language>
 			<language type="ko">Korean</language>
 			<language type="koi">↑↑↑</language>
 			<language type="kok">Konkani</language>
 			<language type="kos">↑↑↑</language>
-			<language type="kpe" draft="contributed">Kpelle</language>
+			<language type="kpe">Kpelle</language>
 			<language type="kr">Kanuri</language>
-			<language type="krc" draft="contributed">Karachay-Balkar</language>
+			<language type="krc">Karachay-Balkar</language>
 			<language type="kri">↑↑↑</language>
 			<language type="krj">↑↑↑</language>
-			<language type="krl" draft="contributed">Karelian</language>
-			<language type="kru" draft="contributed">Kurukh</language>
+			<language type="krl">Karelian</language>
+			<language type="kru">Kurukh</language>
 			<language type="ks">Kashmiri</language>
 			<language type="ksb">Shambala</language>
 			<language type="ksf">Bafia</language>
 			<language type="ksh">Colognian</language>
 			<language type="ku">Kurdish</language>
-			<language type="kum" draft="contributed">Kumyk</language>
+			<language type="kum">Kumyk</language>
 			<language type="kut">↑↑↑</language>
-			<language type="kv" draft="contributed">Komi</language>
+			<language type="kv">Komi</language>
 			<language type="kw">Cornish</language>
 			<language type="ky">Kyrgyz</language>
 			<language type="ky" alt="variant">Kirghiz</language>
 			<language type="la">Latin</language>
-			<language type="lad" draft="contributed">Ladino</language>
+			<language type="lad">Ladino</language>
 			<language type="lag">Langi</language>
 			<language type="lah">↑↑↑</language>
 			<language type="lam">↑↑↑</language>
 			<language type="lb">Luxembourgish</language>
-			<language type="lez" draft="contributed">Lezghian</language>
+			<language type="lez">Lezghian</language>
 			<language type="lfn">↑↑↑</language>
 			<language type="lg">Ganda</language>
-			<language type="li" draft="contributed">Limburgish</language>
+			<language type="li">Limburgish</language>
 			<language type="lij">↑↑↑</language>
 			<language type="liv">↑↑↑</language>
 			<language type="lkt">Lakota</language>
@@ -336,30 +338,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lo">Lao</language>
 			<language type="lol">↑↑↑</language>
 			<language type="lou">↑↑↑</language>
-			<language type="loz" draft="contributed">Lozi</language>
+			<language type="loz">Lozi</language>
 			<language type="lrc">↑↑↑</language>
 			<language type="lt">Lithuanian</language>
 			<language type="ltg">↑↑↑</language>
 			<language type="lu">Luba-Katanga</language>
-			<language type="lua" draft="contributed">Luba-Lulua</language>
+			<language type="lua">Luba-Lulua</language>
 			<language type="lui">↑↑↑</language>
-			<language type="lun" draft="contributed">Lunda</language>
+			<language type="lun">Lunda</language>
 			<language type="luo">Luo</language>
 			<language type="lus">↑↑↑</language>
 			<language type="luy">Luyia</language>
 			<language type="lv">Latvian</language>
 			<language type="lzh">↑↑↑</language>
 			<language type="lzz">↑↑↑</language>
-			<language type="mad" draft="contributed">Madurese</language>
+			<language type="mad">Madurese</language>
 			<language type="maf">Mafa</language>
-			<language type="mag" draft="contributed">Magahi</language>
-			<language type="mai" draft="contributed">Maithili</language>
-			<language type="mak" draft="contributed">Makasar</language>
+			<language type="mag">Magahi</language>
+			<language type="mai">Maithili</language>
+			<language type="mak">Makasar</language>
 			<language type="man">↑↑↑</language>
 			<language type="mas">Masai</language>
-			<language type="mdf" draft="contributed">Moksha</language>
+			<language type="mdf">Moksha</language>
 			<language type="mdr">↑↑↑</language>
-			<language type="men" draft="contributed">Mende</language>
+			<language type="men">Mende</language>
 			<language type="mer">Meru</language>
 			<language type="mfe">Morisyen</language>
 			<language type="mg">Malagasy</language>
@@ -368,42 +370,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="mh">↑↑↑</language>
 			<language type="mi">Maori</language>
 			<language type="mic">↑↑↑</language>
-			<language type="min" draft="contributed">Minangkabau</language>
+			<language type="min">Minangkabau</language>
 			<language type="mk">Macedonian</language>
 			<language type="ml">Malayalam</language>
 			<language type="mn">Mongolian</language>
 			<language type="mnc">↑↑↑</language>
-			<language type="mni" draft="contributed">Manipuri</language>
-			<language type="moh" draft="contributed">Mohawk</language>
-			<language type="mos" draft="contributed">Mossi</language>
+			<language type="mni">Manipuri</language>
+			<language type="moh">Mohawk</language>
+			<language type="mos">Mossi</language>
 			<language type="mr">Marathi</language>
 			<language type="mrj">↑↑↑</language>
 			<language type="ms">Malay</language>
 			<language type="mt">Maltese</language>
 			<language type="mua">Mundang</language>
 			<language type="mul">↑↑↑</language>
-			<language type="mus" draft="contributed">Creek</language>
-			<language type="mwl" draft="contributed">Mirandese</language>
+			<language type="mus">Creek</language>
+			<language type="mwl">Mirandese</language>
 			<language type="mwr">↑↑↑</language>
 			<language type="mwv">↑↑↑</language>
 			<language type="my">Burmese</language>
 			<language type="my" alt="variant">↑↑↑</language>
 			<language type="mye">↑↑↑</language>
-			<language type="myv" draft="contributed">Erzya</language>
+			<language type="myv">Erzya</language>
 			<language type="mzn">↑↑↑</language>
-			<language type="na" draft="contributed">Nauru</language>
+			<language type="na">Nauru</language>
 			<language type="nan">↑↑↑</language>
-			<language type="nap" draft="contributed">Neapolitan</language>
+			<language type="nap">Neapolitan</language>
 			<language type="naq">Nama</language>
 			<language type="nb">Norwegian Bokmål</language>
 			<language type="nd">North Ndebele</language>
 			<language type="nds">↑↑↑</language>
 			<language type="nds_NL">West Low German</language>
 			<language type="ne">Nepali</language>
-			<language type="new" draft="contributed">Newari</language>
-			<language type="ng" draft="contributed">Ndonga</language>
-			<language type="nia" draft="contributed">Nias</language>
-			<language type="niu" draft="contributed">Niuean</language>
+			<language type="new">Newari</language>
+			<language type="ng">Ndonga</language>
+			<language type="nia">Nias</language>
+			<language type="niu">Niuean</language>
 			<language type="njo">↑↑↑</language>
 			<language type="nl">Dutch</language>
 			<language type="nl_BE">Flemish</language>
@@ -411,20 +413,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nn">Norwegian Nynorsk</language>
 			<language type="nnh">Ngiemboon</language>
 			<language type="no">↑↑↑</language>
-			<language type="nog" draft="contributed">Nogai</language>
+			<language type="nog">Nogai</language>
 			<language type="nov">↑↑↑</language>
-			<language type="nqo" draft="contributed">N’Ko</language>
-			<language type="nr" draft="contributed">South Ndebele</language>
-			<language type="nso" draft="contributed">Northern Sotho</language>
+			<language type="nqo">N’Ko</language>
+			<language type="nr">South Ndebele</language>
+			<language type="nso">Northern Sotho</language>
 			<language type="nus">Nuer</language>
-			<language type="nv" draft="contributed">Navajo</language>
+			<language type="nv">Navajo</language>
 			<language type="nwc">↑↑↑</language>
 			<language type="ny">Nyanja</language>
 			<language type="nym">↑↑↑</language>
 			<language type="nyn">Nyankole</language>
 			<language type="nyo">↑↑↑</language>
 			<language type="nzi">↑↑↑</language>
-			<language type="oc" draft="contributed">Occitan</language>
+			<language type="oc">Occitan</language>
 			<language type="oj">↑↑↑</language>
 			<language type="om">Oromo</language>
 			<language type="or">↑↑↑</language>
@@ -432,11 +434,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="osa">↑↑↑</language>
 			<language type="ota">↑↑↑</language>
 			<language type="pa">Punjabi</language>
-			<language type="pag" draft="contributed">Pangasinan</language>
+			<language type="pag">Pangasinan</language>
 			<language type="pal">↑↑↑</language>
-			<language type="pam" draft="contributed">Pampanga</language>
-			<language type="pap" draft="contributed">Papiamento</language>
-			<language type="pau" draft="contributed">Palauan</language>
+			<language type="pam">Pampanga</language>
+			<language type="pap">Papiamento</language>
+			<language type="pau">Palauan</language>
 			<language type="pcd">↑↑↑</language>
 			<language type="pcm">↑↑↑</language>
 			<language type="pdc">↑↑↑</language>
@@ -455,40 +457,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_BR">Brazilian Portuguese</language>
 			<language type="pt_PT">European Portuguese</language>
 			<language type="qu">Quechua</language>
-			<language type="quc" draft="contributed">Kʼicheʼ</language>
+			<language type="quc">Kʼicheʼ</language>
 			<language type="qug">↑↑↑</language>
 			<language type="raj">↑↑↑</language>
-			<language type="rap" draft="contributed">Rapanui</language>
-			<language type="rar" draft="contributed">Rarotongan</language>
+			<language type="rap">Rapanui</language>
+			<language type="rar">Rarotongan</language>
 			<language type="rgn">↑↑↑</language>
 			<language type="rif">↑↑↑</language>
 			<language type="rm">Romansh</language>
 			<language type="rn">Rundi</language>
 			<language type="ro">Romanian</language>
-			<language type="ro_MD" draft="contributed">Moldavian</language>
+			<language type="ro_MD">Moldavian</language>
 			<language type="rof">Rombo</language>
 			<language type="rom">↑↑↑</language>
-			<language type="root" draft="contributed">Root</language>
+			<language type="root">Root</language>
 			<language type="rtm">↑↑↑</language>
 			<language type="ru">Russian</language>
 			<language type="rue">↑↑↑</language>
 			<language type="rug">↑↑↑</language>
-			<language type="rup" draft="contributed">Aromanian</language>
+			<language type="rup">Aromanian</language>
 			<language type="rw">Kinyarwanda</language>
 			<language type="rwk">Rwa</language>
 			<language type="sa">Sanskrit</language>
-			<language type="sad" draft="contributed">Sandawe</language>
+			<language type="sad">Sandawe</language>
 			<language type="sah">Sakha</language>
 			<language type="sam">↑↑↑</language>
 			<language type="saq">Samburu</language>
 			<language type="sas">↑↑↑</language>
-			<language type="sat" draft="contributed">Santali</language>
+			<language type="sat">Santali</language>
 			<language type="saz">↑↑↑</language>
-			<language type="sba" draft="contributed">Ngambay</language>
+			<language type="sba">Ngambay</language>
 			<language type="sbp">Sangu</language>
-			<language type="sc" draft="contributed">Sardinian</language>
-			<language type="scn" draft="contributed">Sicilian</language>
-			<language type="sco" draft="contributed">Scots</language>
+			<language type="sc">Sardinian</language>
+			<language type="scn">Sicilian</language>
+			<language type="sco">Scots</language>
 			<language type="sd">Sindhi</language>
 			<language type="sdc">↑↑↑</language>
 			<language type="sdh">↑↑↑</language>
@@ -502,7 +504,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sgs">↑↑↑</language>
 			<language type="sh">↑↑↑</language>
 			<language type="shi">Tachelhit</language>
-			<language type="shn" draft="contributed">Shan</language>
+			<language type="shn">Shan</language>
 			<language type="shu">↑↑↑</language>
 			<language type="si">Sinhala</language>
 			<language type="sid">↑↑↑</language>
@@ -511,76 +513,76 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sli">↑↑↑</language>
 			<language type="sly">↑↑↑</language>
 			<language type="sm">Samoan</language>
-			<language type="sma" draft="contributed">Southern Sami</language>
-			<language type="smj" draft="contributed">Lule Sami</language>
+			<language type="sma">Southern Sami</language>
+			<language type="smj">Lule Sami</language>
 			<language type="smn">Inari Sami</language>
-			<language type="sms" draft="contributed">Skolt Sami</language>
+			<language type="sms">Skolt Sami</language>
 			<language type="sn">Shona</language>
-			<language type="snk" draft="contributed">Soninke</language>
+			<language type="snk">Soninke</language>
 			<language type="so">Somali</language>
 			<language type="sog">↑↑↑</language>
 			<language type="sq">Albanian</language>
 			<language type="sr">Serbian</language>
-			<language type="srn" draft="contributed">Sranan Tongo</language>
+			<language type="srn">Sranan Tongo</language>
 			<language type="srr">↑↑↑</language>
-			<language type="ss" draft="contributed">Swati</language>
-			<language type="ssy" draft="contributed">Saho</language>
+			<language type="ss">Swati</language>
+			<language type="ssy">Saho</language>
 			<language type="st">Southern Sotho</language>
 			<language type="stq">↑↑↑</language>
 			<language type="su">Sundanese</language>
-			<language type="suk" draft="contributed">Sukuma</language>
+			<language type="suk">Sukuma</language>
 			<language type="sus">↑↑↑</language>
 			<language type="sux">↑↑↑</language>
 			<language type="sv">Swedish</language>
 			<language type="sw">Swahili</language>
-			<language type="sw_CD" draft="contributed">Congo Swahili</language>
-			<language type="swb" draft="contributed">Comorian</language>
+			<language type="sw_CD">Congo Swahili</language>
+			<language type="swb">Comorian</language>
 			<language type="syc">↑↑↑</language>
-			<language type="syr" draft="contributed">Syriac</language>
+			<language type="syr">Syriac</language>
 			<language type="szl">↑↑↑</language>
 			<language type="ta">Tamil</language>
 			<language type="tcy">↑↑↑</language>
 			<language type="te">Telugu</language>
-			<language type="tem" draft="contributed">Timne</language>
+			<language type="tem">Timne</language>
 			<language type="teo">Teso</language>
-			<language type="tet" draft="contributed">Tetum</language>
+			<language type="tet">Tetum</language>
 			<language type="tg">Tajik</language>
 			<language type="th">Thai</language>
 			<language type="ti">Tigrinya</language>
-			<language type="tig" draft="contributed">Tigre</language>
+			<language type="tig">Tigre</language>
 			<language type="tk">Turkmen</language>
 			<language type="tkr">↑↑↑</language>
 			<language type="tl">↑↑↑</language>
-			<language type="tlh" draft="contributed">Klingon</language>
+			<language type="tlh">Klingon</language>
 			<language type="tly">↑↑↑</language>
 			<language type="tmh">↑↑↑</language>
-			<language type="tn" draft="contributed">Tswana</language>
+			<language type="tn">Tswana</language>
 			<language type="to">Tongan</language>
 			<language type="tog">↑↑↑</language>
-			<language type="tpi" draft="contributed">Tok Pisin</language>
+			<language type="tpi">Tok Pisin</language>
 			<language type="tr">Turkish</language>
 			<language type="tru">↑↑↑</language>
-			<language type="trv" draft="contributed">Taroko</language>
-			<language type="ts" draft="contributed">Tsonga</language>
+			<language type="trv">Taroko</language>
+			<language type="ts">Tsonga</language>
 			<language type="tsd">↑↑↑</language>
 			<language type="tt">Tatar</language>
 			<language type="ttt">↑↑↑</language>
-			<language type="tum" draft="contributed">Tumbuka</language>
-			<language type="tvl" draft="contributed">Tuvalu</language>
+			<language type="tum">Tumbuka</language>
+			<language type="tvl">Tuvalu</language>
 			<language type="twq">Tasawaq</language>
-			<language type="ty" draft="contributed">Tahitian</language>
-			<language type="tyv" draft="contributed">Tuvinian</language>
+			<language type="ty">Tahitian</language>
+			<language type="tyv">Tuvinian</language>
 			<language type="tzm">Central Atlas Tamazight</language>
-			<language type="udm" draft="contributed">Udmurt</language>
+			<language type="udm">Udmurt</language>
 			<language type="ug">Uyghur</language>
 			<language type="ug" alt="variant">Uighur</language>
 			<language type="uk">Ukrainian</language>
-			<language type="umb" draft="contributed">Umbundu</language>
+			<language type="umb">Umbundu</language>
 			<language type="und">↑↑↑</language>
 			<language type="ur">Urdu</language>
 			<language type="uz">Uzbek</language>
 			<language type="vai">Vai</language>
-			<language type="ve" draft="contributed">Venda</language>
+			<language type="ve">Venda</language>
 			<language type="vec">↑↑↑</language>
 			<language type="vep">↑↑↑</language>
 			<language type="vi">Vietnamese</language>
@@ -589,14 +591,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vo">Volapük</language>
 			<language type="vro">↑↑↑</language>
 			<language type="vun">Vunjo</language>
-			<language type="wa" draft="contributed">Walloon</language>
+			<language type="wa">Walloon</language>
 			<language type="wae">Walser</language>
 			<language type="wal">↑↑↑</language>
-			<language type="war" draft="contributed">Waray</language>
+			<language type="war">Waray</language>
 			<language type="wbp">↑↑↑</language>
 			<language type="wo">Wolof</language>
 			<language type="wuu">↑↑↑</language>
-			<language type="xal" draft="contributed">Kalmyk</language>
+			<language type="xal">Kalmyk</language>
 			<language type="xh">Xhosa</language>
 			<language type="xmf">↑↑↑</language>
 			<language type="xog">Soga</language>
@@ -618,9 +620,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zh_Hant">Traditional Chinese</language>
 			<language type="zh_Hant" alt="long" draft="contributed">Traditional Mandarin Chinese</language>
 			<language type="zu">Zulu</language>
-			<language type="zun" draft="contributed">Zuni</language>
+			<language type="zun">Zuni</language>
 			<language type="zxx">No linguistic content</language>
-			<language type="zza" draft="contributed">Zaza</language>
+			<language type="zza">Zaza</language>
 		</languages>
 		<scripts>
 			<script type="Arab" draft="contributed">↑↑↑</script>
@@ -1785,8 +1787,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="provisional">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="provisional">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
 							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
@@ -2316,9 +2318,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="provisional">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="provisional">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="provisional">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
 							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
@@ -5414,7 +5416,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard>Norfolk Island Time</standard>
+					<generic>Norfolk Island Time</generic>
+					<standard>Norfolk Island Standard Time</standard>
+					<daylight>Norfolk Island Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -6881,8 +6885,78 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>deca{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern draft="contributed">↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -6892,7 +6966,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -6992,7 +7066,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7022,7 +7096,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7513,17 +7587,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -7603,7 +7677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -7762,8 +7836,78 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern draft="contributed">↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -7773,7 +7917,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -7873,7 +8017,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7903,7 +8047,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -8394,17 +8538,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>mmHg</displayName>
 				<unitPattern count="one">{0} mmHg</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>inHG</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -8484,7 +8628,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -8643,8 +8787,78 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p9">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p12">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p15">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p18">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p21">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern draft="contributed">↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -8654,7 +8868,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8705,7 +8919,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8940,17 +9154,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

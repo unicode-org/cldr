@@ -24,30 +24,24 @@ define({
 		file_ticket_must: "You must file a ticket to modify this item.",
 		file_ticket_notice: "May not be modified- see details.",
 		
-		htmlst: "Errors",
 		htmldraft: "A",
-		htmlvoted: "Voting",
 		htmlcode: "Code",
 		htmltranshint: "$TRANS_HINT_LANGUAGE_NAME",
 		htmlproposed: "Winning",
 		htmlothers: "Others",
 		htmltoadd: "Add",
-		htmlchange: "Change",
 		htmlnoopinion: "Abstain",
 
 		possibleProblems: "Possible problems with this locale:",
 
 		flyoveradd: "Add another value",
-		flyoverst: "Status Icon",
 		flyoverdraft: "Approval Status",
-		flyovervoted: "Shows a checkmark if you voted",
 		flyovercode: "Code for this item",
 		extraAttribute_desc: "Additional specifiers for this item",
 		extraAttribute_heading: "Note: there are additional specifiers for this item. Read the help page for further details.",
 		flyovercomparison: "Comparison value",
 		flyoverproposed: "Winning value",
 		flyoverothers: "Other non-winning items",
-		flyoverchange: "Enter new values here",
 		flyovernoopinion: "Abstain from voting on this item",
 		"i-override_desc": "You have voted on this item with a lower vote count (shown in parenthesis).",
 
@@ -160,6 +154,7 @@ define({
 		flag_desc: "This item has been flagged for review by the CLDR Technical Committee.",
 		flag_d_desc: "Losing items may be flagged for CLDR Committee review.",
 		explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
+		valueIsLocked: "This item has been locked by the CLDR Technical Committee. See the forum entry.",
 		xpath_desc: "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",
 
 		winningStatus_disputed: "Disputed",
@@ -192,7 +187,7 @@ define({
 		voteInfo_voteTitle_desc: "The total vote score for this value",
 		voteInfo_orgsVote_desc: "This vote is the organization's winning vote",
 		voteInfo_orgsNonVote_desc: "This vote is not the organization's winning vote",
-		voteInfo_baseline_desc: "This mark shows on the baseline item, which was approved in the last release, plus latest XML fixes by the Technical Committee, if any.",
+		voteInfo_baseline_desc: "This is the “baseline” data. See http://cldr.org/index/survey-tool/guide#TOC-Icons",
 		voteInfo_winningItem_desc: "This mark shows the item which is currently winning.",
 		voteInfo_winningKey_desc: "This mark shows the item which is currently winning.",
 		voteInfo_perValue_desc: "This shows the state and voters for a particular item.",
@@ -207,6 +202,7 @@ define({
 		StatusAction_FORBID_READONLY:  "The item is read-only.",
 		StatusAction_FORBID_NULL:      "The item has no value.",
 		StatusAction_FORBID_ROOT:      "The item is a root annotation code.",
+		StatusAction_FORBID_PERMANENT_WITHOUT_FORUM: "A forum entry is required to make a Permanent vote.",
 
 		// v.jsp
 		"v-title2_desc": "Locale title",

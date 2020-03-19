@@ -35,11 +35,6 @@ public class JspWebContext extends WebContext {
     Set<String> podBases = null;
 
     /**
-     * Name of the JSP to be used for showing a row of output
-     */
-    private static final Object DATAROW_JSP_CODE = "datarow_short_code.jsp";
-
-    /**
      * Create a JspContext from a raw HTTP connection.
      *
      * @param irq

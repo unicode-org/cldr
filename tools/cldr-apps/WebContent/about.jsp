@@ -8,8 +8,8 @@
 	<head>
 		<title>Unicode | CLDR | About the Survey Tool</title>
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
-        <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'
-            djConfig='parseOnLoad: true, isDebug: false'></script>
+
+         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 	</head>
     
     <body>

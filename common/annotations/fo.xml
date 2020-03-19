@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -749,10 +749,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲" type="tts">persónur við kinesiskari húgvu</annotation>
 		<annotation cp="🧕">hijab | kona | kvinna | kvinna við turriklæði | kvinnuplagg | mantilla | turriklæði</annotation>
 		<annotation cp="🧕" type="tts">kvinna við turriklæði</annotation>
-		<annotation cp="🤵">brúðgómur | maður | maður í smoking | smoking</annotation>
-		<annotation cp="🤵" type="tts">maður í smoking</annotation>
-		<annotation cp="👰">brúdleyp | brúður | brúður í sløri | kona | kvinna | slør</annotation>
-		<annotation cp="👰" type="tts">brúður í sløri</annotation>
+		<annotation cp="🤵">brúðgómur | persónur | persónur í smoking | smoking</annotation>
+		<annotation cp="🤵" type="tts">persónur í smoking</annotation>
+		<annotation cp="🤵‍♀">kvinna | kvinna í smoking | smoking</annotation>
+		<annotation cp="🤵‍♀" type="tts">kvinna í smoking</annotation>
+		<annotation cp="🤵‍♂">maður | maður í smoking | smoking</annotation>
+		<annotation cp="🤵‍♂" type="tts">maður í smoking</annotation>
+		<annotation cp="👰">brúdleyp | brúður | persónur í sløri | slør</annotation>
+		<annotation cp="👰" type="tts">persónur í sløri</annotation>
+		<annotation cp="👰‍♀">kvinna | kvinna í sløri | slør</annotation>
+		<annotation cp="👰‍♀" type="tts">kvinna í sløri</annotation>
+		<annotation cp="👰‍♂">maður | maður í sløri | slør</annotation>
+		<annotation cp="👰‍♂" type="tts">maður í sløri</annotation>
 		<annotation cp="🤰">kona | kvinna | kvinna við barn | upp á vegin | við barn</annotation>
 		<annotation cp="🤰" type="tts">kvinna við barn</annotation>
 		<annotation cp="🤱">bróstaføði | bróstageving | geva bróst | pinkubarn</annotation>
@@ -2779,18 +2787,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☑" type="tts">flugubein í fýrakanti</annotation>
 		<annotation cp="✔">flugubein | tjúkt flugubein</annotation>
 		<annotation cp="✔" type="tts">tjúkt flugubein</annotation>
-		<annotation cp="✖">annullera | falda | ganga | strika | tjúkt falda x | x</annotation>
-		<annotation cp="✖" type="tts">tjúkt falda x</annotation>
+		<annotation cp="✖">× | annullera | falda | ganga | strika | x</annotation>
+		<annotation cp="✖" type="tts">falda</annotation>
 		<annotation cp="❌">annullera | falda | ganga | kross | kross symbol | strika | x</annotation>
 		<annotation cp="❌" type="tts">kross symbol</annotation>
 		<annotation cp="❎">annullera | falda | ganga | kross | kross symbol knappur | strika | x</annotation>
 		<annotation cp="❎" type="tts">kross symbol knappur</annotation>
-		<annotation cp="➕">matematikk | pluss | plussmerki | rokning | støddfrøði | tjúkt plussmerki</annotation>
-		<annotation cp="➕" type="tts">tjúkt plussmerki</annotation>
-		<annotation cp="➖">matematikk | minus | minusmerki | rokning | støddfrøði | tjúkt minusmerki</annotation>
-		<annotation cp="➖" type="tts">tjúkt minusmerki</annotation>
-		<annotation cp="➗">býti | deila | matematikk | rokning | støddfrøði | tjúkt býting merki</annotation>
-		<annotation cp="➗" type="tts">tjúkt býting merki</annotation>
+		<annotation cp="➕">+ | matematikk | pluss | plussmerki | rokning | støddfrøði</annotation>
+		<annotation cp="➕" type="tts">pluss</annotation>
+		<annotation cp="➖">- | − | matematikk | minus | minusmerki | rokning | støddfrøði</annotation>
+		<annotation cp="➖" type="tts">minus</annotation>
+		<annotation cp="➗">÷ | býti | deila | matematikk | rokning | støddfrøði</annotation>
+		<annotation cp="➗" type="tts">deila</annotation>
 		<annotation cp="➰">bukt | lykkja | sloyfa | snar</annotation>
 		<annotation cp="➰" type="tts">bukt</annotation>
 		<annotation cp="➿">bukt | dupult | lykkja | sloyfa | snar</annotation>

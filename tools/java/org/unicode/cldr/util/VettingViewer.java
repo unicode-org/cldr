@@ -33,7 +33,6 @@ import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -70,7 +69,6 @@ public class VettingViewer<T> {
     private static final String TEST_PATH = "//ldml/localeDisplayNames/territories/territory[@type=\"SX\"]";
     private static final double NANOSECS = 1000000000.0;
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
-    private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
 
     public static final Pattern ALT_PROPOSED = PatternCache.get("\\[@alt=\"[^\"]*proposed");
 
@@ -111,9 +109,9 @@ public class VettingViewer<T> {
             "The English value has changed in CLDR, but the corresponding value for your language has not. Check if any changes are needed in your language.",
             6),
         /**
-         * The value changed from the last version of CLDR
+         * The value changed from the baseline
          */
-        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)", 7),
+        changedOldValue('C', "Changed", "The winning value was altered from the baseline value. (Informational)", 7),
         /**
          * Given the users' coverage, some items are missing.
          */
@@ -356,7 +354,7 @@ public class VettingViewer<T> {
         public List<CheckStatus> getErrorCheckStatus(String path, String value) {
             String fullPath = cldrFile.getFullXPath(path);
             ArrayList<CheckStatus> result2 = new ArrayList<CheckStatus>();
-            checkCldr.check(path, fullPath, value, options, result2);
+            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result2);
             return result2;
         }
 
@@ -371,7 +369,7 @@ public class VettingViewer<T> {
             Status result0 = Status.ok;
             StringBuilder errorMessage = new StringBuilder();
             String fullPath = cldrFile.getFullXPath(path);
-            checkCldr.check(path, fullPath, value, options, result);
+            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result);
             for (CheckStatus checkStatus : result) {
                 final CheckCLDR cause = checkStatus.getCause();
                 /*
@@ -479,10 +477,9 @@ public class VettingViewer<T> {
      * @param localeId
      * @param user
      * @param usersLevel
-     * @param nonVettingPhase
      */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, boolean quick) {
+        Level usersLevel, boolean quick) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -501,7 +498,7 @@ public class VettingViewer<T> {
             }
         }
 
-        FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user,
+        FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user,
             usersLevel, quick);
 
         // now write the results out
@@ -521,15 +518,15 @@ public class VettingViewer<T> {
      *
      * Called only by writeVettingViewerOutput
      */
-    public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, boolean quick, CLDRFile sourceFile, CLDRFile baselineFile) {
+    public Relation<R2<SectionId, PageId>, WritingInfo> generateFileInfoReview(EnumSet<Choice> choices, String localeID, T user,
+        Level usersLevel, boolean quick, CLDRFile sourceFile, CLDRFile baselineFile) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
         Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
             new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
 
-        new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user,
+        new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user,
             usersLevel, quick);
 
         // now write the results out
@@ -551,16 +548,30 @@ public class VettingViewer<T> {
 
         private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile baselineFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
-            EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
+            EnumSet<Choice> choices, String localeID,
             T user, Level usersLevel, boolean quick) {
             return this.getFileInfo(sourceFile, baselineFile, sorted,
-                choices, localeID, nonVettingPhase,
+                choices, localeID,
                 user, usersLevel, quick, null);
         }
 
+        /**
+         * Loop through paths for the Dashboard
+         *
+         * @param sourceFile
+         * @param baselineFile
+         * @param sorted
+         * @param choices
+         * @param localeID
+         * @param user
+         * @param usersLevel
+         * @param quick
+         * @param xpath
+         * @return
+         */
         private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile baselineFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
-            EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
+            EnumSet<Choice> choices, String localeID,
             T user, Level usersLevel, boolean quick, String xpath) {
 
             errorChecker.initErrorStatus(sourceFile);
@@ -756,8 +767,7 @@ public class VettingViewer<T> {
         }
     };
 
-    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices,
-        Predicate<String> includeLocale, T organization) {
+    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, T organization) {
         try {
 
             output
@@ -860,7 +870,7 @@ public class VettingViewer<T> {
             if (organization != null) {
                 level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
             }
-            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, null, choices, localeID, true, organization, level, false);
+            FileInfo fileInfo = new FileInfo().getFileInfo(sourceFile, baselineFile, null, choices, localeID, organization, level, false);
             localeNameToFileInfo.put(name, fileInfo);
             totals.addAll(fileInfo);
 
@@ -895,7 +905,7 @@ public class VettingViewer<T> {
         Set<Subtype> sortedBySize = subtypeCounterTotals.getKeysetSortedByCount(false);
 
         // header
-        writeDetailHeader(subtypeCounterTotals, sortedBySize, output);
+        writeDetailHeader(sortedBySize, output);
 
         // items
         for (Entry<String, FileInfo> entry : localeNameToFileInfo.entrySet()) {
@@ -919,7 +929,7 @@ public class VettingViewer<T> {
         }
 
         // subtotals
-        writeDetailHeader(subtypeCounterTotals, sortedBySize, output);
+        writeDetailHeader(sortedBySize, output);
         output.append("<tr>").append(TH_AND_STYLES).append("<i>Total</i>").append("</th>").append(TH_AND_STYLES).append("</th>");
         for (Subtype subtype : sortedBySize) {
             long count = subtypeCounterTotals.get(subtype);
@@ -932,7 +942,7 @@ public class VettingViewer<T> {
         output.append("</table>");
     }
 
-    private void writeDetailHeader(Counter<Subtype> subtypeCounterTotals, Set<Subtype> sortedBySize, Appendable output) throws IOException {
+    private void writeDetailHeader(Set<Subtype> sortedBySize, Appendable output) throws IOException {
         output.append("<tr>")
         .append(TH_AND_STYLES).append("Name").append("</th>")
         .append(TH_AND_STYLES).append("ID").append("</th>");
@@ -1205,7 +1215,7 @@ public class VettingViewer<T> {
      * @return
      */
     public static String getHeaderStyles() {
-        return "<style type='text/css'>\n"
+        return "<style>\n"
             + ".hide {display:none}\n"
             + ".vve {}\n"
             + ".vvn {}\n"
@@ -1269,7 +1279,7 @@ public class VettingViewer<T> {
                 .append("</td></tr>\n");
             }
             output.append("</table>\n</form>\n"
-                + "<script type='text/javascript'>\n" +
+                + "<script>\n" +
                 "<!-- \n" +
                 "setStyles()\n" +
                 "-->\n"
@@ -1406,10 +1416,9 @@ public class VettingViewer<T> {
      * @param localeId
      * @param user
      * @param usersLevel
-     * @param nonVettingPhase
      */
     public ArrayList<String> getErrorOnPath(EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, String path) {
+        Level usersLevel, String path) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -1426,7 +1435,7 @@ public class VettingViewer<T> {
         } catch (Exception e) {
         }
 
-        EnumSet<Choice> errors = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, nonVettingPhase, user, usersLevel,
+        EnumSet<Choice> errors = new FileInfo().getFileInfo(sourceFile, baselineFile, sorted, choices, localeID, user, usersLevel,
             false, path).problems;
 
         ArrayList<String> out = new ArrayList<String>();
@@ -1597,8 +1606,7 @@ public class VettingViewer<T> {
         for (String s : DIRECTORIES) {
             fileDirectories[i++] = new File(s);
         }
-        final String version = ToolConstants.PREVIOUS_CHART_VERSION;
-        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
+        final String lastMain = CLDRPaths.LAST_RELEASE_DIRECTORY;
         //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
 
         do {
@@ -1739,14 +1747,11 @@ public class VettingViewer<T> {
 
         switch (newCode) {
         case newCode:
-            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, SHOW_ALL, false);
+            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, false);
             break;
-            // case oldCode:
-            // tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
-            // break;
         case summary:
             //System.out.println(tableView.getName("zh_Hant_HK"));
-            tableView.generateSummaryHtmlErrorTables(out, choiceSet, null, organization);
+            tableView.generateSummaryHtmlErrorTables(out, choiceSet, organization);
             break;
         }
         out.println("</body>\n</html>\n");

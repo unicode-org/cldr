@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -321,7 +321,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MF" draft="contributed">Frankriikka Saint Martin</territory>
 			<territory type="MG" draft="contributed">Madagaskar</territory>
 			<territory type="MH" draft="contributed">Marshallsullot</territory>
-			<territory type="MK">↑↑↑</territory>
 			<territory type="ML" draft="contributed">Mali</territory>
 			<territory type="MM" draft="contributed">Burma</territory>
 			<territory type="MN" draft="contributed">Mongolia</territory>
@@ -1661,7 +1660,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two" draft="contributed">{0} hevosvoima</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hevosvoima</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName draft="contributed">bealgi kvikksølv</displayName>
 				<unitPattern count="one" draft="contributed">{0} bealgi kvikksølv</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} bealgi kvikksølv</unitPattern>
@@ -1745,7 +1744,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<unitPattern count="one" draft="unconfirmed">{0} m/s²</unitPattern>
 				<unitPattern count="two" draft="unconfirmed">{0} m/s²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} m/s²</unitPattern>
@@ -2035,7 +2034,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two" draft="contributed">{0} hv</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hv</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName draft="contributed">bealgi kvikksølv</displayName>
 				<unitPattern count="one" draft="contributed">{0} bealgi Hg</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} bealgi Hg</unitPattern>
@@ -2161,7 +2160,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two" draft="contributed">{0}G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<unitPattern count="one" draft="unconfirmed">{0}m/s²</unitPattern>
 				<unitPattern count="two" draft="unconfirmed">{0}m/s²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}m/s²</unitPattern>
@@ -2409,7 +2408,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="two" draft="contributed">{0}hv</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}hv</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<unitPattern count="one" draft="contributed">{0} bealgi Hg</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} bealgi Hg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} bealgi Hg</unitPattern>

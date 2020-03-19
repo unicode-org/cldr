@@ -255,7 +255,7 @@ public class PathHeader implements Comparable<PathHeader> {
         RegionMapping(SectionId.Supplemental),
         WZoneMapping( SectionId.Supplemental),
         Transform(SectionId.Supplemental),
-        UnitPreferences(SectionId.Supplemental),
+        Units(SectionId.Supplemental),
         Likely(SectionId.Supplemental),
         LanguageMatch( SectionId.Supplemental),
         TerritoryInfo(SectionId.Supplemental),

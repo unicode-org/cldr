@@ -32,6 +32,7 @@ public enum Organization {
     iran_hci("Iran HCI"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
+    kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom??"),
     longnow("The Long Now Foundation", "Long Now","PanLex"),
@@ -77,6 +78,10 @@ public enum Organization {
         }
     }
 
+    /**
+     * @param displayName Preferred display name for the organization
+     * @param names Alternate aliases for this organization
+     */
     private Organization(String displayName, String... names) {
         this.displayName = displayName;
         this.names = names;

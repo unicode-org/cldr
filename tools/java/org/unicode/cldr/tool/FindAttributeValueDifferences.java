@@ -46,7 +46,7 @@ public class FindAttributeValueDifferences {
 
         CLDRConfig config = CLDRConfig.getInstance();
         Factory current = config.getCldrFactory();
-        Factory last = Factory.make(LAST_ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.PREVIOUS_CHART_VERSION + "/common/main/", ".*");
+        Factory last = Factory.make(LAST_ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + "/common/main/", ".*");
 
         @SuppressWarnings({ "rawtypes", "unchecked" })
         M4<String, String, String, Boolean> newValues = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);

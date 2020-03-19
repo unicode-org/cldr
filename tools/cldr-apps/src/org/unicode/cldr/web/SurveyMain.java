@@ -137,17 +137,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
     /**
-     * The "r_" prefix is for r_vetting_json.jsp (Dashboard) and r_vetting.jsp (obsolete?);
+     * The "r_" prefix is for r_vetting_json.jsp (Dashboard);
      * also "r_datetime", "r_zones", and "r_compact" -- see ReportMenu.
      * TODO: document "r_directiontest.jsp", "r_monkey.jsp"
      */
     private static final String REPORT_PREFIX = "r_";
-
-    /**
-     * TODO: R_VETTING isn't referenced anywhere; is r_vetting.jsp still in active use?
-     * https://st.unicode.org/cldr-apps/v#r_vetting/fr//
-     */
-    public static final String R_VETTING = REPORT_PREFIX + "vetting"; // r_vetting
 
     /**
      * r_vetting_json.jsp is for the Dashboard
@@ -446,7 +440,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String RAW_MENU_ITEM = "raw";
     public static final String TEST_MENU_ITEM = "test";
 
-    public static final String SHOWHIDE_SCRIPT = "<script type='text/javascript'><!-- \n"
+    public static final String SHOWHIDE_SCRIPT = "<script><!-- \n"
         + "function show(what)\n"
         + "{document.getElementById(what).style.display=\"block\";\ndocument.getElementById(\"h_\"+what).style.display=\"none\";}\n"
         + "function hide(what)\n"
@@ -802,7 +796,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public void showOfflinePage(HttpServletRequest request, HttpServletResponse response, PrintWriter out) throws ServletException, IOException {
         out.println(SHOWHIDE_SCRIPT);
         SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
-        out.println("<script type=\"text/javascript\">timerSpeed = 60080;</script>"); // don't
+        out.println("<script>timerSpeed = 60080;</script>"); // don't
         // flood
         // server
         // if
@@ -883,9 +877,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<link rel='stylesheet' type='text/css' href='" + base + "/../surveytool.css'>");
             SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
             if (isUnofficial()) {
-                out.println("<script type=\"text/javascript\">timerSpeed = 2500;</script>");
+                out.println("<script>timerSpeed = 2500;</script>");
             } else {
-                out.println("<script type=\"text/javascript\">timerSpeed = 10000;</script>");
+                out.println("<script>timerSpeed = 10000;</script>");
             }
             // todo: include st_top.jsp instead
             out.println("</head><body>");
@@ -912,8 +906,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<br><i id='uptime'> " + getGuestsAndUsers() + "</i><br>");
             // TODO: on up, goto <base>
 
-            out.println("<script type=\"text/javascript\">loadOnOk = '" + loadOnOk + "';</script>");
-            out.println("<script type=\"text/javascript\">clickContinue = '" + loadOnOk + "';</script>");
+            out.println("<script>loadOnOk = '" + loadOnOk + "';</script>");
+            out.println("<script>clickContinue = '" + loadOnOk + "';</script>");
             if (!isMaintenance()) {
                 if (!isGET) {
                     out.println("(Sorry,  we can't automatically retry your " + request.getMethod()
@@ -1010,7 +1004,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     private void doSql(WebContext ctx) {
         printHeader(ctx, "SQL Console@" + localhost());
-        ctx.println("<script type=\"text/javascript\">timerSpeed = 6000;</script>");
+        ctx.println("<script>timerSpeed = 6000;</script>");
         String q = ctx.field("q");
         boolean tblsel = false;
         printAdminMenu(ctx, "/AdminSql");
@@ -4155,10 +4149,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     Set<UserLocaleStuff> allUserLocaleStuffs = new HashSet<UserLocaleStuff>();
 
-    public static final String DATAROW_JSP = "datarow_jsp"; // context tag for which datarow jsp to use
-
-    public static final String DATAROW_JSP_DEFAULT = "datarow_short.jsp";
-
     public static final String QUERY_VALUE_SUFFIX = "_v";
 
     /**
@@ -4639,133 +4629,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return getDiskFactory().getSupplementalDirectory();
     }
 
-    public void showMetazones(WebContext ctx, String continent) {
-        showPathList(ctx, "//ldml/dates/timeZoneNames/metazone" + DataSection.CONTINENT_DIVIDER + continent, (String) null);
-    }
-
-    /**
-     * for showing the list of zones to the user
-     */
-
-    public void showTimeZones(WebContext ctx) {
-        // String zone = ctx.field(QUERY_ZONE);
-        showPathList(ctx, DataSection.EXEMPLAR_PARENT, null, false);
-    }
-
     /**
      * This is the main function for showing lists of items (pods).
      */
     public void showPathList(WebContext ctx, String xpath, String lastElement) {
         showPathList(ctx, xpath, lastElement, false);
 
-    }
-
-    /**
-     *  width, in columns, of the typical data table
-     */
-    static int PODTABLE_WIDTH = 13;
-
-    /**
-     * section may be null.
-     *
-     * @param ctx
-     * @param section
-     */
-    static void printSectionTableOpenShort(WebContext ctx, DataSection section) {
-        ctx.println("<a name='st_data'></a>");
-        ctx.print("<table ");
-        if (section != null) {
-            ctx.print(" summary='Data Items for " + ctx.getLocale().toString() + " " + section.xpathPrefix + "' ");
-        }
-        ctx.println("class='data' border='1'>");
-        ctx.println("<tr class='headingb'>\n" + " <th colspan='1' width='50%'>[" + TRANS_HINT_LOCALE + "] "
-            + TRANS_HINT_LANGUAGE_NAME + "</th>\n" + // 3
-            " <th colspan='2' width='50%'>Your Language</th>\n"); // 8
-
-        ctx.println("</tr>");
-
-    }
-
-    /**
-     * section may be null.
-     *
-     * @param ctx
-     * @param section
-     */
-    static void printSectionTableOpenCode(WebContext ctx) {
-        ctx.includeFragment("datarow_open_table_code.jsp");
-        ctx.flush();
-    }
-
-    /**
-     * Print closing table
-     *
-     * @param ctx
-     */
-    static void printSectionTableCloseCode(WebContext ctx) {
-        ctx.includeFragment("datarow_close_table_code.jsp");
-        ctx.flush();
-    }
-
-    /**
-     * Section may be null.
-     *
-     * @param ctx
-     * @param section
-     */
-    void printSectionTableClose(WebContext ctx, DataSection section, boolean canModify) {
-        int table_width = (section != null) ? 13 : 10;
-        if (!canModify) {
-            table_width -= 4; // No vote, change, or no opinion columns
-        }
-
-        List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
-        if (section != null && (refsList != null) && (!refsList.isEmpty())) {
-            ctx.println("<tr></tr>");
-            ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='" + table_width
-                + "'>References</th></tr>");
-            int n = 0;
-
-            Hashtable<String, DataSection.DataRow> refsHash = (Hashtable<String, DataSection.DataRow>) ctx.temporaryStuff
-                .get("refsHash");
-            Hashtable<String, DataSection.DataRow.CandidateItem> refsItemHash = (Hashtable<String, DataSection.DataRow.CandidateItem>) ctx.temporaryStuff
-                .get("refsItemHash");
-
-            for (String ref : refsList) {
-                n++;
-                ctx.println("<tr class='referenceRow'><th><img src='http://unicode.org/cldr/data/dropbox/misc/images/reference.jpg'>#"
-                    + n + "</th>");
-                ctx.println("<td colspan='" + 1 + "'>" + ref + "</td>");
-                ctx.print("<td colspan='" + (table_width - 2) + "'>");
-                if (refsHash != null) {
-                    DataSection.DataRow refDataRow = refsHash.get(ref);
-                    DataSection.DataRow.CandidateItem refDataRowItem = refsItemHash.get(ref);
-                    if ((refDataRowItem != null) && (refDataRow != null)) {
-                        ctx.print(refDataRowItem.getValue());
-                        if (refDataRow.getDisplayName() != null) {
-                            ctx.println("<br>" + refDataRow.getDisplayName());
-                        }
-                        // ctx.print(refPea.displayName);
-                    } else {
-                        ctx.print("<i>unknown reference</i>");
-                    }
-                }
-                ctx.print("</td>");
-                ctx.println("</tr>");
-            }
-
-        }
-        if (refsList != null) {
-            ctx.temporaryStuff.remove("references");
-            ctx.temporaryStuff.remove("refsHash");
-            ctx.temporaryStuff.remove("refsItemHash");
-        }
-
-        ctx.println("</table>");
-    }
-
-    public void updateLocale(CLDRLocale locale) {
-        SurveyLog.logger.warning("updateLocale:" + locale.toString());
     }
 
     static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");

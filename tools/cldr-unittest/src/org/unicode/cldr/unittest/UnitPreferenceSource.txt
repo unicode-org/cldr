@@ -1,0 +1,162 @@
+# Generate data for UnitPreferencesSource.txt, will eventually turn into ... <unitPreference regions="CA GB IN US" geq="1.5" unit="foot+inch" />
+area; default; 001; ; ; square-kilometer
+area; default; 001; ; ; hectare
+area; default; 001; ; ; square-meter
+area; default; 001; ; ; square-centimeter
+area; default; US GB; ; ; square-mile
+area; default; US GB; ; ; acre
+area; default; US GB; ; ; square-foot
+area; default; US GB; ; ; square-inch
+
+area; geograph; 001; ; ; square-kilometer
+area; geograph; US GB; ; ; square-mile
+
+area; land; 001; ; ; hectare
+area; land; US GB; ; ; acre
+
+mass-density; default; 001; ; ; kilogram-per-cubic-meter
+mass-density; blood-glucose; 001; ; ; milligram-per-deciliter
+
+concentration; default; 001; ; ; item-per-cubic-meter
+concentration; blood-glucose; AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA; ; ; millimole-per-liter
+
+consumption; default; 001; ; ; liter-per-100-kilometer
+consumption; vehicle-fuel; 001; ; ; liter-per-100-kilometer
+consumption; vehicle-fuel; BR IT JP KR MX MY NL TH TR; ; ; liter-per-kilometer
+
+consumption-inverse; default; 001; ; ; kilometer-per-centiliter
+consumption-inverse; vehicle-fuel; 001; ; ; kilometer-per-centiliter
+consumption-inverse; vehicle-fuel; US; ; ; mile-per-gallon
+consumption-inverse; vehicle-fuel; CA GB; ; ; mile-per-gallon-imperial
+
+year-duration; default; 001; ; ; year
+year-duration; default; 001; ; ; month
+duration; default; 001; ; ; day
+duration; default; 001; ; ; hour
+duration; default; 001; ; ; minute
+duration; default; 001; ; ; second
+duration; default; 001; ; ; millisecond
+duration; default; 001; ; ; microsecond
+duration; default; 001; ; ; nanosecond
+
+duration; media; 001; ; ; minute-and-second
+duration; media; 001; ; ; second
+
+year-duration; person-age; 001; 2.5; ; year-person
+year-duration; person-age; 001; ; ; year-person-and-month-person
+year-duration; person-age; 001; ; ; month-person
+
+energy; default; 001; ; ; kilowatt-hour
+energy; food; US; ; ; foodcalorie
+energy; food; 001; ; ; kilocalorie
+
+length; default; 001; ; ; kilometer
+length; default; 001; ; ; meter
+length; default; 001; ; ; centimeter
+length; default; US GB; ; ; mile
+length; default; US GB; ; ; foot
+length; default; US GB; ; ; inch
+
+length; person; 001; ; ; centimeter
+length; person; CA GB IN US; ; ; inch
+length; person-height; 001; ; ; centimeter
+length; person-height; CA GB IN US; 3; ; foot-and-inch
+length; person-height; AT BE BR CN DE DK DZ EG ES FR HK ID IL IT JO MX MY NL NO PL PT RU SA SE TR VN; ; ; meter-and-centimeter
+
+length; road; 001; 0.9; ; kilometer
+length; road; 001; 300; precision-increment/50; meter
+length; road; 001; ; precision-increment/10; meter
+length; road; 001; ; ; meter
+length; road; US ; 0.5; ; mile
+length; road; US; 100; precision-increment/50; foot
+length; road; US; ; precision-increment/10; foot
+length; road; GB; 0.5; ; mile
+length; road; GB; 100; precision-increment/50; yard
+length; road; GB; ; ; yard
+length; road; SE; 0.1; ; mile-scandinavian
+
+length; rainfall; BR; ; ; centimeter
+length; rainfall; US; ; ; inch
+length; rainfall; 001; ; ; millimeter
+
+length; snowfall; 001; ; ; centimeter
+length; snowfall; US; ; ; inch
+
+length; vehicle; GB US; ; ; foot-and-inch
+length; vehicle; 001; ; ; meter
+length; vehicle; MX; ; ; meter-and-centimeter
+
+length; visiblty; 001; 0.1; ; kilometer
+length; visiblty; 001; ; ; meter
+length; visiblty; DE NL; ; ; meter
+length; visiblty; GB US; ; ; mile
+length; visiblty; GB US; ; ; foot
+
+mass; default; 001; ; ; metric-ton
+mass; default; 001; ; ; kilogram
+mass; default; 001; ; ; gram
+mass; default; 001; ; ; milligram
+mass; default; 001; ; ; microgram
+
+mass; default; US GB; ; ; ton
+mass; default; US GB; ; ; pound
+mass; default; US GB; ; ; ounce
+
+mass; person; 001; ; ; kilogram
+mass; person; 001; ; ; gram
+mass; person; DZ EG ES JO SA; ; ; kilogram-and-gram
+mass; person; US; ; ; pound
+mass; person; US; ; ; pound-and-ounce
+mass; person; GB; ; ; stone-and-pound
+mass; person; GB; ; ; pound-and-ounce
+mass; person; HK; ; ; pound-and-ounce
+
+power; default; 001; ; ; gigawatt
+power; default; 001; ; ; megawatt
+power; default; 001; ; ; kilowatt
+power; default; 001; ; ; watt
+power; default; 001; ; ; milliwatt
+power; engine; 001; ; ; kilowatt
+power; engine; US GB; ; ; horsepower
+
+pressure; default; 001; ; ; megapascal
+pressure; baromtrc; 001; ; ; hectopascal
+pressure; default; 001; ; ; pascal
+pressure; default; US GB; ; ; pound-force-per-square-inch
+pressure; baromtrc; IN US; ; ; inch-ofhg
+pressure; baromtrc; BR EG GB IL TH; ; ; millibar
+pressure; baromtrc; MX RU; ; ; millimeter-ofhg
+
+speed; default; 001; ; ; kilometer-per-hour
+speed; default; GB US; ; ; mile-per-hour
+speed; wind; 001; ; ; kilometer-per-hour
+speed; wind; FI KR NO PL RU SE; ; ; meter-per-second
+speed; wind; US; ; ; mile-per-hour
+
+temperature; default; 001; ; ; celsius
+temperature; default; US; ; ; fahrenheit
+temperature; weather; 001; ; ; celsius
+temperature; weather; BS BZ KY PR PW US; ; ; fahrenheit
+
+volume; default; 001; ; ; cubic-meter
+volume; default; 001; ; ; cubic-centimeter
+
+volume; default; US GB; ; ; cubic-foot
+volume; default; US GB; ; ; cubic-inch
+
+volume; fluid; 001; ; ; liter
+volume; fluid; 001; ; ; milliliter
+volume; fluid; US; ; ; gallon
+volume; fluid; US; ; ; quart
+volume; fluid; US; ; ; pint
+volume; fluid; US; ; ; cup
+volume; fluid; US; ; ; fluid-ounce
+volume; fluid; US; ; ; tablespoon
+volume; fluid; US; ; ; teaspoon
+volume; fluid; GB; ; ; gallon-imperial
+volume; fluid; GB; ; ; fluid-ounce-imperial
+
+volume; oil; 001; ; ; barrel
+
+volume; vehicle; US; ; ; gallon
+volume; vehicle; 001; ; ; liter

@@ -655,7 +655,7 @@ public class WebContext implements Cloneable, Appendable {
 
     public void redirectToVurl(String vurl) {
         println("<a class='vredirect' href='" + vurl + "'>Redirecting to " + vurl + "</a>");
-        println("<script type='text/javascript'>window.location=' " + vurl + "/'+window.location.hash.substring(1);</script>");
+        println("<script>window.location=' " + vurl + "/'+window.location.hash.substring(1);</script>");
     }
 
     public void setServletPath(String path) {
@@ -1247,7 +1247,7 @@ public class WebContext implements Cloneable, Appendable {
         if (message == null) {
             message = "[" + icon + "]";
         }
-        return "<img border='0' alt='[" + icon + "]' style='width: 16px; height: 16px;' src='" + context(request, icon + ".png")
+        return "<img alt='[" + icon + "]' style='width: 16px; height: 16px; border: 0;' src='" + context(request, icon + ".png")
             + "' title='" + message + "' />";
     }
 

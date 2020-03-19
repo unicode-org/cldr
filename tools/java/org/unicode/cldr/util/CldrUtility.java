@@ -155,11 +155,11 @@ public class CldrUtility {
         return getPath(path, null);
     }
 
-    public static final String ANALYTICS = "<script type=\"text/javascript\">\n"
+    public static final String ANALYTICS = "<script>\n"
         + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
         + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
         + "</script>\n"
-        + "<script type=\"text/javascript\">\n"
+        + "<script>\n"
         + "try {\n"
         + "var pageTracker = _gat._getTracker(\"UA-7672775-1\");\n"
         + "pageTracker._trackPageview();\n"

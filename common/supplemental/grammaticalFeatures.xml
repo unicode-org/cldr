@@ -80,13 +80,13 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="he">
       <grammaticalGender values="masculine feminine"/>
-      <grammaticalState values="definite indefinite construct"/>
+      <grammaticalDefiniteness values="definite indefinite construct"/>
       <!-- Note that Hebrew nouns also inflect in possessives, with agreement on person, number and gender -->
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="ar">
       <grammaticalCase values="nominative genitive accusative"/>
       <grammaticalGender values="masculine feminine"/>
-      <grammaticalState values="definite indefinite construct"/>
+      <grammaticalDefiniteness values="definite indefinite construct"/>
       <!-- Note that Arabic nouns also inflect in possessives, with agreement on person, number and gender -->
     </grammaticalFeatures>
     <grammaticalFeatures targets="nominal" locales="bn">

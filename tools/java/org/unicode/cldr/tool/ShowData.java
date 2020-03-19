@@ -61,7 +61,7 @@ public class ShowData {
         UOption.DESTDIR().setDefault(CLDRPaths.CHART_DIRECTORY + "summary/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("getscript", 'g', UOption.NO_ARG),
-        UOption.create("last", 'l', UOption.REQUIRES_ARG).setDefault(CLDRPaths.LAST_DIRECTORY + "common/main/"),
+        UOption.create("last", 'l', UOption.REQUIRES_ARG).setDefault(CLDRPaths.LAST_RELEASE_DIRECTORY + "common/main/"),
         UOption.create("coverage", 'c', UOption.REQUIRES_ARG).setDefault(Level.MODERN.toString()),
     };
 
@@ -233,7 +233,7 @@ public class ShowData {
                 getChartTemplate(
                     "Locale Data Summary for " + getLocaleNameAndCode(locale),
                     ToolConstants.CHART_DISPLAY_VERSION,
-                    "<script type='text/javascript'>" + System.lineSeparator()
+                    "<script>" + System.lineSeparator()
                         + "if (location.href.split('?')[1].split(',')[0]=='hide') {" + System.lineSeparator()
                         + "document.write('<style>');" + System.lineSeparator()
                         + "document.write('.xx {display:none}');" + System.lineSeparator()

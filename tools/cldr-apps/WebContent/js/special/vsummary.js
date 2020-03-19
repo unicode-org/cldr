@@ -146,7 +146,7 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 		
 		/**
 		 * processVVJson
-		 * Called only by the load param for dojo.xhrGet in doReload.
+		 * Called only by the load function in doReload.
 		 */
 		function processVVJson(json, onSuccess, onFailure) {
 			if(json.err) {
@@ -210,7 +210,7 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 			stopRefresh();
 			vsReload.disabled = true;
 						
-			dojo.xhrGet({
+			cldrStAjax.sendXhr({
 				url: xurl + '&loadingpolicy='+policy,
 				handleAs: 'json',
 				load: function(json) {
@@ -219,9 +219,9 @@ define("js/special/vsummary.js", ["js/special/SpecialPage.js"], function(Special
 							function(){}, 
 							function(){});
 				},
-				error: function(err, ioArgs) {
+				error: function(err) {
 					stopRefresh();
-		        	params.special.showError(params, null, {err: err, ioArgs: ioArgs,
+					params.special.showError(params, null, {err: err,
 		        		what: "Starting Vetting Viewer: " + policy});
 				}
 			});

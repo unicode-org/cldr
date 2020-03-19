@@ -1138,7 +1138,8 @@ public class TestPathHeader extends TestFmwkPlus {
                         final String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
 //                        logln("\t\t" + path);
-                        if (path.startsWith("//supplementalData/grammaticalData")) {
+                        if (path.startsWith("//supplementalData/unitPreferenceData/unitPreferences")
+                            && path.contains("skeleton")) {
                             int debug = 0;
                         }
                         pathChecker.checkPathHeader(dtdData, path);
@@ -1218,7 +1219,10 @@ public class TestPathHeader extends TestFmwkPlus {
                 System.out.println("\tNo match in PathHeader.txt for " + path 
                     + "\n\tYou get only one message for all paths matching " + star
                     + "\n\tFor example, check to see if the field in PathHeader.txt is in PathHeader.PageId."
-                    + "\n\tIf not, either correct PathHeader.txt or add it to PageId");
+                    + "\n\tIf not, either correct PathHeader.txt or add it to PageId"
+                    + "\n\tIf you have a value attribute, you will need extra _ characters. The value attribute will show at the end with prefixed _, eg [...]/_skeleton."
+                    + "If there can be a value for the path then that element will add _. "
+                    );
             }
         }
     }

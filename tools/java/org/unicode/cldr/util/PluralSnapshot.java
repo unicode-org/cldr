@@ -260,7 +260,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
     }
 
     public static String getDefaultStyles() {
-        return "<style type='text/css'>\n"
+        return "<style>\n"
             +
             "td.l, td.z, td.o, td.t, td.f, td.m, td.x, th.h, table.pluralComp {border: 1px solid #666; font-size: 8pt}\n"
             +

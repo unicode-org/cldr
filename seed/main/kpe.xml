@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -19,6 +19,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[a b ɓ d e ə ɛ f g ĝ {gb} {gw} ɣ h i j k {kp} {kw} l m n {ny} ɲ ŋ {ŋw} o ɔ p t u v w y z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B Ɓ C D E Ə Ɛ F G Ɣ H I J K L M N Ɲ Ŋ O Ɔ P Q R S T U V W X Y Z]</exemplarCharacters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>h:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<currencies>
 			<currency type="LRD">

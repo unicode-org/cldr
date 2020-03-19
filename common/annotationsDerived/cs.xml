@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="cs"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">gesto rukou | ironie | italské sarkastické gesto | otázka | prsty | sarkasmus | sevřené | špetka z pěti prstů | světlý odstín pleti</annotation>
+		<annotation cp="🤌🏻" type="tts">špetka z pěti prstů: světlý odstín pleti</annotation>
+		<annotation cp="🤌🏼">gesto rukou | ironie | italské sarkastické gesto | otázka | prsty | sarkasmus | sevřené | špetka z pěti prstů | středně světlý odstín pleti</annotation>
+		<annotation cp="🤌🏼" type="tts">špetka z pěti prstů: středně světlý odstín pleti</annotation>
+		<annotation cp="🤌🏽">gesto rukou | ironie | italské sarkastické gesto | otázka | prsty | sarkasmus | sevřené | špetka z pěti prstů | střední odstín pleti</annotation>
+		<annotation cp="🤌🏽" type="tts">špetka z pěti prstů: střední odstín pleti</annotation>
+		<annotation cp="🤌🏾">gesto rukou | ironie | italské sarkastické gesto | otázka | prsty | sarkasmus | sevřené | špetka z pěti prstů | středně tmavý odstín pleti</annotation>
+		<annotation cp="🤌🏾" type="tts">špetka z pěti prstů: středně tmavý odstín pleti</annotation>
+		<annotation cp="🤌🏿">gesto rukou | ironie | italské sarkastické gesto | otázka | prsty | sarkasmus | sevřené | špetka z pěti prstů | tmavý odstín pleti</annotation>
+		<annotation cp="🤌🏿" type="tts">špetka z pěti prstů: tmavý odstín pleti</annotation>
 		<annotation cp="👋🏻">mávající ruka | mávání | mávat | ruka | světlý odstín pleti | tělo</annotation>
 		<annotation cp="👋🏻" type="tts">mávající ruka: světlý odstín pleti</annotation>
 		<annotation cp="👋🏼">mávající ruka | mávání | mávat | ruka | středně světlý odstín pleti | tělo</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">dospělý člověk: středně tmavý odstín pleti, bez vlasů</annotation>
 		<annotation cp="🧑🏿‍🦲">bez vlasů | člověk | dospělák | dospělý člověk | neutrální | osoba | tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">dospělý člověk: tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="🧑🏻‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba | osoba krmící dítě z lahve | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">osoba krmící dítě z lahve: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba | osoba krmící dítě z lahve | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">osoba krmící dítě z lahve: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba | osoba krmící dítě z lahve | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">osoba krmící dítě z lahve: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba | osoba krmící dítě z lahve | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">osoba krmící dítě z lahve: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🍼">dítě | kojenec | kojení | krmení | nemluvně | osoba | osoba krmící dítě z lahve | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">osoba krmící dítě z lahve: tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🎄">fantasy | oslava | pohádka | santa | Santa | santa claus | světlý odstín pleti | vánoce</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Santa: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🎄">fantasy | oslava | pohádka | santa | Santa | santa claus | středně světlý odstín pleti | vánoce</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Santa: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🎄">fantasy | oslava | pohádka | santa | Santa | santa claus | střední odstín pleti | vánoce</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Santa: střední odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🎄">fantasy | oslava | pohádka | santa | Santa | santa claus | středně tmavý odstín pleti | vánoce</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Santa: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🎄">fantasy | oslava | pohádka | santa | Santa | santa claus | tmavý odstín pleti | vánoce</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Santa: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻">muž | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻" type="tts">muž: světlý odstín pleti</annotation>
 		<annotation cp="👨🏼">muž | středně světlý odstín pleti</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">muž: středně tmavý odstín pleti, bez vlasů</annotation>
 		<annotation cp="👨🏿‍🦲">bez vlasů | muž | tmavý odstín pleti</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">muž: tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👨🏻‍🍼">dítě | kojenec | kojení | krmení | muž | muž krmící dítě z lahve | nemluvně | světlý odstín pleti</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">muž krmící dítě z lahve: světlý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🍼">dítě | kojenec | kojení | krmení | muž | muž krmící dítě z lahve | nemluvně | středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">muž krmící dítě z lahve: středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏽‍🍼">dítě | kojenec | kojení | krmení | muž | muž krmící dítě z lahve | nemluvně | střední odstín pleti</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">muž krmící dítě z lahve: střední odstín pleti</annotation>
+		<annotation cp="👨🏾‍🍼">dítě | kojenec | kojení | krmení | muž | muž krmící dítě z lahve | nemluvně | středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">muž krmící dítě z lahve: středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🍼">dítě | kojenec | kojení | krmení | muž | muž krmící dítě z lahve | nemluvně | tmavý odstín pleti</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">muž krmící dítě z lahve: tmavý odstín pleti</annotation>
 		<annotation cp="👩🏻">světlý odstín pleti | žena</annotation>
 		<annotation cp="👩🏻" type="tts">žena: světlý odstín pleti</annotation>
 		<annotation cp="👩🏼">středně světlý odstín pleti | žena</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">žena: středně tmavý odstín pleti, bez vlasů</annotation>
 		<annotation cp="👩🏿‍🦲">bez vlasů | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">žena: tmavý odstín pleti, bez vlasů</annotation>
+		<annotation cp="👩🏻‍🍼">dítě | kojenec | kojení | krmení | nemluvně | světlý odstín pleti | žena | žena krmící dítě z lahve</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">žena krmící dítě z lahve: světlý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🍼">dítě | kojenec | kojení | krmení | nemluvně | středně světlý odstín pleti | žena | žena krmící dítě z lahve</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">žena krmící dítě z lahve: středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🍼">dítě | kojenec | kojení | krmení | nemluvně | střední odstín pleti | žena | žena krmící dítě z lahve</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">žena krmící dítě z lahve: střední odstín pleti</annotation>
+		<annotation cp="👩🏾‍🍼">dítě | kojenec | kojení | krmení | nemluvně | středně tmavý odstín pleti | žena | žena krmící dítě z lahve</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">žena krmící dítě z lahve: středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏿‍🍼">dítě | kojenec | kojení | krmení | nemluvně | tmavý odstín pleti | žena | žena krmící dítě z lahve</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">žena krmící dítě z lahve: tmavý odstín pleti</annotation>
 		<annotation cp="🧓🏻">člověk | neutrální | osoba | stará | starší dospělý člověk | starý | světlý odstín pleti</annotation>
 		<annotation cp="🧓🏻" type="tts">starší dospělý člověk: světlý odstín pleti</annotation>
 		<annotation cp="🧓🏼">člověk | neutrální | osoba | stará | starší dospělý člověk | starý | středně světlý odstín pleti</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">žena krčící rameny: středně tmavý odstín pleti</annotation>
 		<annotation cp="🤷🏿‍♀">nejistota | nerozhodnost | nevědomost | nevím | nezájem | pochybnost | pochyby | pokrčení | pokrčit | ramena | tmavý odstín pleti | žena | žena krčící rameny</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">žena krčící rameny: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍⚕">doktor | doktorka | nemocnice | sestřička | světlý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏻‍⚕">doktor | doktorka | nemocnice | sestřička | světlý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník | zdravotník/zdravotnice</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">zdravotník/zdravotnice: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍⚕">doktor | doktorka | nemocnice | sestřička | středně světlý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏼‍⚕">doktor | doktorka | nemocnice | sestřička | středně světlý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník | zdravotník/zdravotnice</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">zdravotník/zdravotnice: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍⚕">doktor | doktorka | nemocnice | sestřička | střední odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏽‍⚕">doktor | doktorka | nemocnice | sestřička | střední odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník | zdravotník/zdravotnice</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">zdravotník/zdravotnice: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍⚕">doktor | doktorka | nemocnice | sestřička | středně tmavý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏾‍⚕">doktor | doktorka | nemocnice | sestřička | středně tmavý odstín pleti | terapeut | terapeutka | zdravotnice | zdravotník | zdravotník/zdravotnice</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">zdravotník/zdravotnice: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍⚕">doktor | doktorka | nemocnice | sestřička | terapeut | terapeutka | tmavý odstín pleti | zdravotnice | zdravotník</annotation>
+		<annotation cp="🧑🏿‍⚕">doktor | doktorka | nemocnice | sestřička | terapeut | terapeutka | tmavý odstín pleti | zdravotnice | zdravotník | zdravotník/zdravotnice</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">zdravotník/zdravotnice: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍⚕">doktor | nemocnice | světlý odstín pleti | terapeut | zdravotník</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">zdravotník: světlý odstín pleti</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">učitelka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🏫">instruktorka | profesorka | tmavý odstín pleti | učitelka | žena</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">učitelka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍⚖">právo | soudce | soudkyně | spravedlnost | světlý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏻‍⚖">právo | soudce | soudce/soudkyně | soudkyně | spravedlnost | světlý odstín pleti | váhy</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">soudce/soudkyně: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍⚖">právo | soudce | soudkyně | spravedlnost | středně světlý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏼‍⚖">právo | soudce | soudce/soudkyně | soudkyně | spravedlnost | středně světlý odstín pleti | váhy</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">soudce/soudkyně: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍⚖">právo | soudce | soudkyně | spravedlnost | střední odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏽‍⚖">právo | soudce | soudce/soudkyně | soudkyně | spravedlnost | střední odstín pleti | váhy</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">soudce/soudkyně: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍⚖">právo | soudce | soudkyně | spravedlnost | středně tmavý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏾‍⚖">právo | soudce | soudce/soudkyně | soudkyně | spravedlnost | středně tmavý odstín pleti | váhy</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">soudce/soudkyně: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍⚖">právo | soudce | soudkyně | spravedlnost | tmavý odstín pleti | váhy</annotation>
+		<annotation cp="🧑🏿‍⚖">právo | soudce | soudce/soudkyně | soudkyně | spravedlnost | tmavý odstín pleti | váhy</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">soudce/soudkyně: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍⚖">muž | právo | soudce | spravedlnost | světlý odstín pleti | váhy</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">soudce: světlý odstín pleti</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">soudkyně: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍⚖">právo | soudkyně | spravedlnost | tmavý odstín pleti | váhy | žena</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">soudkyně: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🌾">farmář | farmářka | sedlák | selka | světlý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏻‍🌾">farmář | farmář/farmářka | farmářka | sedlák | selka | světlý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">farmář/farmářka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🌾">farmář | farmářka | sedlák | selka | středně světlý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏼‍🌾">farmář | farmář/farmářka | farmářka | sedlák | selka | středně světlý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">farmář/farmářka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🌾">farmář | farmářka | sedlák | selka | střední odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏽‍🌾">farmář | farmář/farmářka | farmářka | sedlák | selka | střední odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">farmář/farmářka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🌾">farmář | farmářka | sedlák | selka | středně tmavý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏾‍🌾">farmář | farmář/farmářka | farmářka | sedlák | selka | středně tmavý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">farmář/farmářka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🌾">farmář | farmářka | sedlák | selka | tmavý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
+		<annotation cp="🧑🏿‍🌾">farmář | farmář/farmářka | farmářka | sedlák | selka | tmavý odstín pleti | zahradnice | zahradník | zemědělec | zemědělkyně</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">farmář/farmářka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🌾">farmář | muž | sedlák | světlý odstín pleti | zahradník | zemědělec</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">farmář: světlý odstín pleti</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">farmářka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🌾">farmářka | selka | tmavý odstín pleti | zahradnice | zemědělkyně | žena</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">farmářka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🍳">kuchař | kuchař/kuchařka | kuchařka | šéfkuchař | šéfkuchařka | světlý odstín pleti</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">kuchař/kuchařka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🍳">kuchař | kuchař/kuchařka | kuchařka | šéfkuchař | šéfkuchařka | středně světlý odstín pleti</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">kuchař/kuchařka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🍳">kuchař | kuchař/kuchařka | kuchařka | šéfkuchař | šéfkuchařka | střední odstín pleti</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">kuchař/kuchařka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🍳">kuchař | kuchař/kuchařka | kuchařka | šéfkuchař | šéfkuchařka | středně tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">kuchař/kuchařka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🍳">kuchař | kuchařka | šéfkuchař | šéfkuchařka | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🍳">kuchař | kuchař/kuchařka | kuchařka | šéfkuchař | šéfkuchařka | tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">kuchař/kuchařka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🍳">kuchař | muž | šéfkuchař | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">kuchař: světlý odstín pleti</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">kuchařka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🍳">kuchařka | šéfkuchařka | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kuchařka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | světlý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏻‍🔧">elektrikář | elektrikářka | mechanička | mechanik | mechanik/mechanička | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | světlý odstín pleti | živnostnice | živnostník</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">mechanik/mechanička: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | středně světlý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏼‍🔧">elektrikář | elektrikářka | mechanička | mechanik | mechanik/mechanička | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | středně světlý odstín pleti | živnostnice | živnostník</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">mechanik/mechanička: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | střední odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏽‍🔧">elektrikář | elektrikářka | mechanička | mechanik | mechanik/mechanička | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | střední odstín pleti | živnostnice | živnostník</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">mechanik/mechanička: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | středně tmavý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏾‍🔧">elektrikář | elektrikářka | mechanička | mechanik | mechanik/mechanička | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | středně tmavý odstín pleti | živnostnice | živnostník</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">mechanik/mechanička: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🔧">elektrikář | elektrikářka | mechanička | mechanik | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | tmavý odstín pleti | živnostnice | živnostník</annotation>
+		<annotation cp="🧑🏿‍🔧">elektrikář | elektrikářka | mechanička | mechanik | mechanik/mechanička | montér | montérka | opravář | opravářka | řemeslnice | řemeslník | tmavý odstín pleti | živnostnice | živnostník</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mechanik/mechanička: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🔧">elektrikář | mechanik | montér | muž | opravář | řemeslník | světlý odstín pleti | živnostník</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mechanik: světlý odstín pleti</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">mechanička: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🔧">elektrikářka | mechanička | montérka | opravářka | řemeslnice | tmavý odstín pleti | žena | živnostnice</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mechanička: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🏭">dělnice | dělník | průmysl | světlý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏻‍🏭">dělnice | dělník | osoba pracující v továrně | průmysl | světlý odstín pleti | továrna | výroba</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">osoba pracující v továrně: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🏭">dělnice | dělník | průmysl | středně světlý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏼‍🏭">dělnice | dělník | osoba pracující v továrně | průmysl | středně světlý odstín pleti | továrna | výroba</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">osoba pracující v továrně: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🏭">dělnice | dělník | průmysl | střední odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏽‍🏭">dělnice | dělník | osoba pracující v továrně | průmysl | střední odstín pleti | továrna | výroba</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">osoba pracující v továrně: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🏭">dělnice | dělník | průmysl | středně tmavý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏾‍🏭">dělnice | dělník | osoba pracující v továrně | průmysl | středně tmavý odstín pleti | továrna | výroba</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">osoba pracující v továrně: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🏭">dělnice | dělník | průmysl | tmavý odstín pleti | továrna | výroba</annotation>
+		<annotation cp="🧑🏿‍🏭">dělnice | dělník | osoba pracující v továrně | průmysl | tmavý odstín pleti | továrna | výroba</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">osoba pracující v továrně: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🏭">dělník | dělník v továrně | muž | průmysl | světlý odstín pleti | výroba</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">dělník v továrně: světlý odstín pleti</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">dělnice v továrně: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🏭">dělnice | dělnice v továrně | průmysl | tmavý odstín pleti | výroba | žena</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">dělnice v továrně: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | světlý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏻‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažer/manažerka | manažerka | světlý odstín pleti | úřednice | úředník</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">manažer/manažerka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | středně světlý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏼‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažer/manažerka | manažerka | středně světlý odstín pleti | úřednice | úředník</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">manažer/manažerka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | střední odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏽‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažer/manažerka | manažerka | střední odstín pleti | úřednice | úředník</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">manažer/manažerka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | středně tmavý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏾‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažer/manažerka | manažerka | středně tmavý odstín pleti | úřednice | úředník</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">manažer/manažerka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažerka | tmavý odstín pleti | úřednice | úředník</annotation>
+		<annotation cp="🧑🏿‍💼">architekt | architektka | bílý límeček | byznys | kancelář | manažer | manažer/manažerka | manažerka | tmavý odstín pleti | úřednice | úředník</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">manažer/manažerka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍💼">bílý límeček | byznys | kancelář | manažer | muž | světlý odstín pleti | úředník</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">manažer: světlý odstín pleti</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">manažerka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍💼">bílý límeček | byznys | kancelář | manažerka | tmavý odstín pleti | úřednice | žena</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">manažerka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | světlý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏻‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | světlý odstín pleti | vědec | vědec/vědkyně | vědkyně</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">vědec/vědkyně: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | středně světlý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏼‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | středně světlý odstín pleti | vědec | vědec/vědkyně | vědkyně</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">vědec/vědkyně: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | střední odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏽‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | střední odstín pleti | vědec | vědec/vědkyně | vědkyně</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">vědec/vědkyně: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | středně tmavý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏾‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | středně tmavý odstín pleti | vědec | vědec/vědkyně | vědkyně</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">vědec/vědkyně: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | tmavý odstín pleti | vědec | vědkyně</annotation>
+		<annotation cp="🧑🏿‍🔬">biolog | bioložka | chemička | chemik | fyzička | fyzik | inženýr | inženýrka | matematička | matematik | tmavý odstín pleti | vědec | vědec/vědkyně | vědkyně</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">vědec/vědkyně: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🔬">biolog | chemik | fyzik | inženýr | matematik | muž | světlý odstín pleti | věda | vědec</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">vědec: světlý odstín pleti</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">vědkyně: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🔬">bioložka | chemička | fyzička | inženýrka | matematička | tmavý odstín pleti | věda | vědkyně | žena</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">vědkyně: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍💻">kodér | kodérka | software | světlý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏻‍💻">kodér | kodérka | programátor/programátorka | software | světlý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">programátor/programátorka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍💻">kodér | kodérka | software | středně světlý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏼‍💻">kodér | kodérka | programátor/programátorka | software | středně světlý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">programátor/programátorka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍💻">kodér | kodérka | software | střední odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏽‍💻">kodér | kodérka | programátor/programátorka | software | střední odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">programátor/programátorka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍💻">kodér | kodérka | software | středně tmavý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏾‍💻">kodér | kodérka | programátor/programátorka | software | středně tmavý odstín pleti | technologie | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">programátor/programátorka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍💻">kodér | kodérka | software | technologie | tmavý odstín pleti | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
+		<annotation cp="🧑🏿‍💻">kodér | kodérka | programátor/programátorka | software | technologie | tmavý odstín pleti | vynálezce | vynálezkyně | vývojář | vývojářka</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">programátor/programátorka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍💻">kodér | muž | notebook | počítač | programátor | programování | software | světlý odstín pleti | technologie | vynálezce | vývoj | vývojář</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">programátor: světlý odstín pleti</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">programátorka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍💻">kodérka | notebook | počítač | programátorka | programování | software | technologie | tmavý odstín pleti | vynálezkyně | vývoj | vývojářka | žena</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">programátorka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | světlý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏻‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | světlý odstín pleti | zpěvačka | zpěvák | zpěvák/zpěvačka</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">zpěvák/zpěvačka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | středně světlý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏼‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | středně světlý odstín pleti | zpěvačka | zpěvák | zpěvák/zpěvačka</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">zpěvák/zpěvačka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | střední odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏽‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | střední odstín pleti | zpěvačka | zpěvák | zpěvák/zpěvačka</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">zpěvák/zpěvačka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | středně tmavý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏾‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | středně tmavý odstín pleti | zpěvačka | zpěvák | zpěvák/zpěvačka</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">zpěvák/zpěvačka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | tmavý odstín pleti | zpěvačka | zpěvák</annotation>
+		<annotation cp="🧑🏿‍🎤">bavič | bavička | herec | herečka | hvězda | rocker | rockerka | tmavý odstín pleti | zpěvačka | zpěvák | zpěvák/zpěvačka</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">zpěvák/zpěvačka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🎤">bavič | herec | hvězda | muž | rock | rocker | světlý odstín pleti | zábava | zpěvák</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">zpěvák: světlý odstín pleti</annotation>
@@ -1336,15 +1386,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎤" type="tts">zpěvačka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🎤">bavička | herečka | hvězda | rock | rockerka | tmavý odstín pleti | zábava | žena | zpěvačka</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">zpěvačka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🎨">malíř | malířka | paleta | světlý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏻‍🎨">malíř | malíř/malířka | malířka | paleta | světlý odstín pleti | umělec | umělkyně | umění</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">malíř/malířka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🎨">malíř | malířka | paleta | středně světlý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏼‍🎨">malíř | malíř/malířka | malířka | paleta | středně světlý odstín pleti | umělec | umělkyně | umění</annotation>
 		<annotation cp="🧑🏼‍🎨" type="tts">malíř/malířka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🎨">malíř | malířka | paleta | střední odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏽‍🎨">malíř | malíř/malířka | malířka | paleta | střední odstín pleti | umělec | umělkyně | umění</annotation>
 		<annotation cp="🧑🏽‍🎨" type="tts">malíř/malířka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🎨">malíř | malířka | paleta | středně tmavý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏾‍🎨">malíř | malíř/malířka | malířka | paleta | středně tmavý odstín pleti | umělec | umělkyně | umění</annotation>
 		<annotation cp="🧑🏾‍🎨" type="tts">malíř/malířka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🎨">malíř | malířka | paleta | tmavý odstín pleti | umělec | umělkyně | umění</annotation>
+		<annotation cp="🧑🏿‍🎨">malíř | malíř/malířka | malířka | paleta | tmavý odstín pleti | umělec | umělkyně | umění</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">malíř/malířka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🎨">malíř | muž | paleta | světlý odstín pleti | umělec | umění</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">malíř: světlý odstín pleti</annotation>
@@ -1366,15 +1416,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">malířka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🎨">malířka | paleta | tmavý odstín pleti | umělkyně | umění | žena</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">malířka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍✈">letadlo | pilot | pilotka | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍✈">letadlo | pilot | pilot/pilotka | pilotka | světlý odstín pleti</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">pilot/pilotka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍✈">letadlo | pilot | pilotka | středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍✈">letadlo | pilot | pilot/pilotka | pilotka | středně světlý odstín pleti</annotation>
 		<annotation cp="🧑🏼‍✈" type="tts">pilot/pilotka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍✈">letadlo | pilot | pilotka | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍✈">letadlo | pilot | pilot/pilotka | pilotka | střední odstín pleti</annotation>
 		<annotation cp="🧑🏽‍✈" type="tts">pilot/pilotka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍✈">letadlo | pilot | pilotka | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍✈">letadlo | pilot | pilot/pilotka | pilotka | středně tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏾‍✈" type="tts">pilot/pilotka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍✈">letadlo | pilot | pilotka | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍✈">letadlo | pilot | pilot/pilotka | pilotka | tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">pilot/pilotka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍✈">letadlo | muž | pilot | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilot: světlý odstín pleti</annotation>
@@ -1396,15 +1446,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍✈" type="tts">pilotka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍✈">letadlo | pilotka | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilotka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | světlý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏻‍🚀">astronaut | astronautka | kosmonaut | kosmonaut/kosmonautka | kosmonautka | raketa | světlý odstín pleti | vesmíír</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">kosmonaut/kosmonautka: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | středně světlý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏼‍🚀">astronaut | astronautka | kosmonaut | kosmonaut/kosmonautka | kosmonautka | raketa | středně světlý odstín pleti | vesmíír</annotation>
 		<annotation cp="🧑🏼‍🚀" type="tts">kosmonaut/kosmonautka: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | střední odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏽‍🚀">astronaut | astronautka | kosmonaut | kosmonaut/kosmonautka | kosmonautka | raketa | střední odstín pleti | vesmíír</annotation>
 		<annotation cp="🧑🏽‍🚀" type="tts">kosmonaut/kosmonautka: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | středně tmavý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏾‍🚀">astronaut | astronautka | kosmonaut | kosmonaut/kosmonautka | kosmonautka | raketa | středně tmavý odstín pleti | vesmíír</annotation>
 		<annotation cp="🧑🏾‍🚀" type="tts">kosmonaut/kosmonautka: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🚀">astronaut | astronautka | kosmonaut | kosmonautka | raketa | tmavý odstín pleti | vesmíír</annotation>
+		<annotation cp="🧑🏿‍🚀">astronaut | astronautka | kosmonaut | kosmonaut/kosmonautka | kosmonautka | raketa | tmavý odstín pleti | vesmíír</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">kosmonaut/kosmonautka: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🚀">astronaut | kosmonaut | muž | raketa | světlý odstín pleti | vesmír</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">kosmonaut: světlý odstín pleti</annotation>
@@ -1426,15 +1476,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚀" type="tts">kosmonautka: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🚀">astronautka | kosmonautka | raketa | tmavý odstín pleti | vesmír | žena</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">kosmonautka: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | stříkačka | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🚒">hasič | hasič/hasička | hasička | hasičské auto | požár | požárnice | požárník | stříkačka | světlý odstín pleti</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">hasič/hasička: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | středně světlý odstín pleti | stříkačka</annotation>
+		<annotation cp="🧑🏼‍🚒">hasič | hasič/hasička | hasička | hasičské auto | požár | požárnice | požárník | středně světlý odstín pleti | stříkačka</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">hasič/hasička: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | střední odstín pleti | stříkačka</annotation>
+		<annotation cp="🧑🏽‍🚒">hasič | hasič/hasička | hasička | hasičské auto | požár | požárnice | požárník | střední odstín pleti | stříkačka</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">hasič/hasička: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | středně tmavý odstín pleti | stříkačka</annotation>
+		<annotation cp="🧑🏾‍🚒">hasič | hasič/hasička | hasička | hasičské auto | požár | požárnice | požárník | středně tmavý odstín pleti | stříkačka</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">hasič/hasička: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🚒">hasič | hasička | hasičské auto | požár | požárnice | požárník | stříkačka | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏿‍🚒">hasič | hasič/hasička | hasička | hasičské auto | požár | požárnice | požárník | stříkačka | tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">hasič/hasička: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🚒">hasič | hasičské auto | muž | požár | požárník | stříkačka | světlý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">hasič: světlý odstín pleti</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">žena v šátku: středně tmavý odstín pleti</annotation>
 		<annotation cp="🧕🏿">hidžáb | šátek | tmavý odstín pleti | závoj | žena v šátku</annotation>
 		<annotation cp="🧕🏿" type="tts">žena v šátku: tmavý odstín pleti</annotation>
-		<annotation cp="🤵🏻">muž | muž ve smokingu | smoking | světlý odstín pleti | ženich</annotation>
-		<annotation cp="🤵🏻" type="tts">muž ve smokingu: světlý odstín pleti</annotation>
-		<annotation cp="🤵🏼">muž | muž ve smokingu | smoking | středně světlý odstín pleti | ženich</annotation>
-		<annotation cp="🤵🏼" type="tts">muž ve smokingu: středně světlý odstín pleti</annotation>
-		<annotation cp="🤵🏽">muž | muž ve smokingu | smoking | střední odstín pleti | ženich</annotation>
-		<annotation cp="🤵🏽" type="tts">muž ve smokingu: střední odstín pleti</annotation>
-		<annotation cp="🤵🏾">muž | muž ve smokingu | smoking | středně tmavý odstín pleti | ženich</annotation>
-		<annotation cp="🤵🏾" type="tts">muž ve smokingu: středně tmavý odstín pleti</annotation>
-		<annotation cp="🤵🏿">muž | muž ve smokingu | smoking | tmavý odstín pleti | ženich</annotation>
-		<annotation cp="🤵🏿" type="tts">muž ve smokingu: tmavý odstín pleti</annotation>
-		<annotation cp="👰🏻">nevěsta | nevěsta se závojem | svatba | světlý odstín pleti | závoj</annotation>
-		<annotation cp="👰🏻" type="tts">nevěsta se závojem: světlý odstín pleti</annotation>
-		<annotation cp="👰🏼">nevěsta | nevěsta se závojem | středně světlý odstín pleti | svatba | závoj</annotation>
-		<annotation cp="👰🏼" type="tts">nevěsta se závojem: středně světlý odstín pleti</annotation>
-		<annotation cp="👰🏽">nevěsta | nevěsta se závojem | střední odstín pleti | svatba | závoj</annotation>
-		<annotation cp="👰🏽" type="tts">nevěsta se závojem: střední odstín pleti</annotation>
-		<annotation cp="👰🏾">nevěsta | nevěsta se závojem | středně tmavý odstín pleti | svatba | závoj</annotation>
-		<annotation cp="👰🏾" type="tts">nevěsta se závojem: středně tmavý odstín pleti</annotation>
-		<annotation cp="👰🏿">nevěsta | nevěsta se závojem | svatba | tmavý odstín pleti | závoj</annotation>
-		<annotation cp="👰🏿" type="tts">nevěsta se závojem: tmavý odstín pleti</annotation>
+		<annotation cp="🤵🏻">osoba | osoba ve smokingu | smoking | světlý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏻" type="tts">osoba ve smokingu: světlý odstín pleti</annotation>
+		<annotation cp="🤵🏼">osoba | osoba ve smokingu | smoking | středně světlý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏼" type="tts">osoba ve smokingu: středně světlý odstín pleti</annotation>
+		<annotation cp="🤵🏽">osoba | osoba ve smokingu | smoking | střední odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏽" type="tts">osoba ve smokingu: střední odstín pleti</annotation>
+		<annotation cp="🤵🏾">osoba | osoba ve smokingu | smoking | středně tmavý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏾" type="tts">osoba ve smokingu: středně tmavý odstín pleti</annotation>
+		<annotation cp="🤵🏿">osoba | osoba ve smokingu | smoking | tmavý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏿" type="tts">osoba ve smokingu: tmavý odstín pleti</annotation>
+		<annotation cp="🤵🏻‍♀">smoking | světlý odstín pleti | žena | žena ve smokingu</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">žena ve smokingu: světlý odstín pleti</annotation>
+		<annotation cp="🤵🏼‍♀">smoking | středně světlý odstín pleti | žena | žena ve smokingu</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">žena ve smokingu: středně světlý odstín pleti</annotation>
+		<annotation cp="🤵🏽‍♀">smoking | střední odstín pleti | žena | žena ve smokingu</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">žena ve smokingu: střední odstín pleti</annotation>
+		<annotation cp="🤵🏾‍♀">smoking | středně tmavý odstín pleti | žena | žena ve smokingu</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">žena ve smokingu: středně tmavý odstín pleti</annotation>
+		<annotation cp="🤵🏿‍♀">smoking | tmavý odstín pleti | žena | žena ve smokingu</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">žena ve smokingu: tmavý odstín pleti</annotation>
+		<annotation cp="🤵🏻‍♂">muž | muž ve smokingu | smoking | světlý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">muž ve smokingu: světlý odstín pleti</annotation>
+		<annotation cp="🤵🏼‍♂">muž | muž ve smokingu | smoking | středně světlý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">muž ve smokingu: středně světlý odstín pleti</annotation>
+		<annotation cp="🤵🏽‍♂">muž | muž ve smokingu | smoking | střední odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">muž ve smokingu: střední odstín pleti</annotation>
+		<annotation cp="🤵🏾‍♂">muž | muž ve smokingu | smoking | středně tmavý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">muž ve smokingu: středně tmavý odstín pleti</annotation>
+		<annotation cp="🤵🏿‍♂">muž | muž ve smokingu | smoking | tmavý odstín pleti | ženich</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">muž ve smokingu: tmavý odstín pleti</annotation>
+		<annotation cp="👰🏻">nevěsta | osoba | osoba se závojem | svatba | světlý odstín pleti | závoj</annotation>
+		<annotation cp="👰🏻" type="tts">osoba se závojem: světlý odstín pleti</annotation>
+		<annotation cp="👰🏼">nevěsta | osoba | osoba se závojem | středně světlý odstín pleti | svatba | závoj</annotation>
+		<annotation cp="👰🏼" type="tts">osoba se závojem: středně světlý odstín pleti</annotation>
+		<annotation cp="👰🏽">nevěsta | osoba | osoba se závojem | střední odstín pleti | svatba | závoj</annotation>
+		<annotation cp="👰🏽" type="tts">osoba se závojem: střední odstín pleti</annotation>
+		<annotation cp="👰🏾">nevěsta | osoba | osoba se závojem | středně tmavý odstín pleti | svatba | závoj</annotation>
+		<annotation cp="👰🏾" type="tts">osoba se závojem: středně tmavý odstín pleti</annotation>
+		<annotation cp="👰🏿">nevěsta | osoba | osoba se závojem | svatba | tmavý odstín pleti | závoj</annotation>
+		<annotation cp="👰🏿" type="tts">osoba se závojem: tmavý odstín pleti</annotation>
+		<annotation cp="👰🏻‍♀">nevěsta | svatba | světlý odstín pleti | závoj | žena | žena se závojem</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">žena se závojem: světlý odstín pleti</annotation>
+		<annotation cp="👰🏼‍♀">nevěsta | středně světlý odstín pleti | svatba | závoj | žena | žena se závojem</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">žena se závojem: středně světlý odstín pleti</annotation>
+		<annotation cp="👰🏽‍♀">nevěsta | střední odstín pleti | svatba | závoj | žena | žena se závojem</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">žena se závojem: střední odstín pleti</annotation>
+		<annotation cp="👰🏾‍♀">nevěsta | středně tmavý odstín pleti | svatba | závoj | žena | žena se závojem</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">žena se závojem: středně tmavý odstín pleti</annotation>
+		<annotation cp="👰🏿‍♀">nevěsta | svatba | tmavý odstín pleti | závoj | žena | žena se závojem</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">žena se závojem: tmavý odstín pleti</annotation>
+		<annotation cp="👰🏻‍♂">muž | muž se závojem | svatba | světlý odstín pleti | závoj | ženich</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">muž se závojem: světlý odstín pleti</annotation>
+		<annotation cp="👰🏼‍♂">muž | muž se závojem | středně světlý odstín pleti | svatba | závoj | ženich</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">muž se závojem: středně světlý odstín pleti</annotation>
+		<annotation cp="👰🏽‍♂">muž | muž se závojem | střední odstín pleti | svatba | závoj | ženich</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">muž se závojem: střední odstín pleti</annotation>
+		<annotation cp="👰🏾‍♂">muž | muž se závojem | středně tmavý odstín pleti | svatba | závoj | ženich</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">muž se závojem: středně tmavý odstín pleti</annotation>
+		<annotation cp="👰🏿‍♂">muž | muž se závojem | svatba | tmavý odstín pleti | závoj | ženich</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">muž se závojem: tmavý odstín pleti</annotation>
 		<annotation cp="🤰🏻">světlý odstín pleti | těhotenství | těhotná | žena</annotation>
 		<annotation cp="🤰🏻" type="tts">těhotná žena: světlý odstín pleti</annotation>
 		<annotation cp="🤰🏼">středně světlý odstín pleti | těhotenství | těhotná | žena</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">klečící žena: středně tmavý odstín pleti</annotation>
 		<annotation cp="🧎🏿‍♀">klečet | klečící | klek | poklek | tmavý odstín pleti | žena</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">klečící žena: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🦯">handicap | hendikep | pomůcka | postižení | slepý | světlý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏻‍🦯">člověk se slepeckou holí | handicap | hendikep | pomůcka | postižení | slepý | světlý odstín pleti | usnadnění</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">člověk se slepeckou holí: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🦯">handicap | hendikep | pomůcka | postižení | slepý | středně světlý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏼‍🦯">člověk se slepeckou holí | handicap | hendikep | pomůcka | postižení | slepý | středně světlý odstín pleti | usnadnění</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">člověk se slepeckou holí: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🦯">handicap | hendikep | pomůcka | postižení | slepý | střední odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏽‍🦯">člověk se slepeckou holí | handicap | hendikep | pomůcka | postižení | slepý | střední odstín pleti | usnadnění</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">člověk se slepeckou holí: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🦯">handicap | hendikep | pomůcka | postižení | slepý | středně tmavý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏾‍🦯">člověk se slepeckou holí | handicap | hendikep | pomůcka | postižení | slepý | středně tmavý odstín pleti | usnadnění</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">člověk se slepeckou holí: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🦯">handicap | hendikep | pomůcka | postižení | slepý | tmavý odstín pleti | usnadnění</annotation>
+		<annotation cp="🧑🏿‍🦯">člověk se slepeckou holí | handicap | hendikep | pomůcka | postižení | slepý | tmavý odstín pleti | usnadnění</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">člověk se slepeckou holí: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🦯">handicap | hendikep | muž | muž se slepeckou holí | pomůcka | postižení | slepý | světlý odstín pleti | usnadnění</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">muž se slepeckou holí: světlý odstín pleti</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">žena se slepeckou holí: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🦯">handicap | hendikep | pomůcka | postižení | slepá | tmavý odstín pleti | usnadnění | žena | žena se slepeckou holí</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">žena se slepeckou holí: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏻‍🦼">člověk na elektrickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">člověk na elektrickém invalidním vozíku: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏼‍🦼">člověk na elektrickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">člověk na elektrickém invalidním vozíku: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏽‍🦼">člověk na elektrickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">člověk na elektrickém invalidním vozíku: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏾‍🦼">člověk na elektrickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">člověk na elektrickém invalidním vozíku: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏿‍🦼">člověk na elektrickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">člověk na elektrickém invalidním vozíku: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🦼">handicap | hendikep | invalidní | muž | muž na elektrickém invalidním vozíku | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">muž na elektrickém invalidním vozíku: světlý odstín pleti</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">žena na elektrickém invalidním vozíku: středně tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🦼">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík | žena | žena na elektrickém invalidním vozíku</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">žena na elektrickém invalidním vozíku: tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏻‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏻‍🦽">člověk na mechanickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">člověk na mechanickém invalidním vozíku: světlý odstín pleti</annotation>
-		<annotation cp="🧑🏼‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏼‍🦽">člověk na mechanickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | středně světlý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">člověk na mechanickém invalidním vozíku: středně světlý odstín pleti</annotation>
-		<annotation cp="🧑🏽‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏽‍🦽">člověk na mechanickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | střední odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">člověk na mechanickém invalidním vozíku: střední odstín pleti</annotation>
-		<annotation cp="🧑🏾‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏾‍🦽">člověk na mechanickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | středně tmavý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">člověk na mechanickém invalidním vozíku: středně tmavý odstín pleti</annotation>
-		<annotation cp="🧑🏿‍🦽">handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
+		<annotation cp="🧑🏿‍🦽">člověk na mechanickém invalidním vozíku | handicap | hendikep | invalidní | pomůcka | postižení | tmavý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">člověk na mechanickém invalidním vozíku: tmavý odstín pleti</annotation>
 		<annotation cp="👨🏻‍🦽">handicap | hendikep | invalidní | muž | muž na mechanickém invalidním vozíku | pomůcka | postižení | světlý odstín pleti | usnadnění | vozík</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">muž na mechanickém invalidním vozíku: světlý odstín pleti</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">osoba v posteli: tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | světlý odstín pleti</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: světlý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | světlý odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">dva lidé držící se za ruce: světlý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | světlý odstín pleti</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | střední odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">dva lidé držící se za ruce: středně světlý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti | světlý odstín pleti</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | střední odstín pleti</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">dva lidé držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | střední odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: střední odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | střední odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">dva lidé držící se za ruce: střední odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">dva lidé držící se za ruce: středně tmavý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | světlý odstín pleti | tmavý odstín pleti</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">dva lidé držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">člověk | držet | dva lidé držící se za ruce | dvojice | osoba | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">dva lidé držící se za ruce: tmavý odstín pleti</annotation>
 		<annotation cp="👭🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | světlý odstín pleti | žena</annotation>
 		<annotation cp="👭🏻" type="tts">dvě ženy držící se za ruce: světlý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: světlý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">dvě ženy držící se za ruce: světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">dvě ženy držící se za ruce: světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">dvě ženy držící se za ruce: světlý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | žena</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👭🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | žena</annotation>
 		<annotation cp="👭🏼" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">dvě ženy držící se za ruce: středně světlý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | světlý odstín pleti | žena</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | střední odstín pleti | žena</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">dvě ženy držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
 		<annotation cp="👭🏽">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | žena</annotation>
 		<annotation cp="👭🏽" type="tts">dvě ženy držící se za ruce: střední odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">dvě ženy držící se za ruce: střední odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | střední odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">dvě ženy držící se za ruce: střední odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | žena</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | žena</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
 		<annotation cp="👭🏾">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | žena</annotation>
 		<annotation cp="👭🏾" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | žena</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">dvě ženy držící se za ruce: středně tmavý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | světlý odstín pleti | tmavý odstín pleti | žena</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">dvě ženy držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">držet | dvě ženy držící se za ruce | dvojice | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | žena</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">muž a žena držící se za ruce: tmavý odstín pleti</annotation>
 		<annotation cp="👬🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | světlý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏻" type="tts">dva muži držící se za ruce: světlý odstín pleti</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: světlý odstín pleti, středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">dva muži držící se za ruce: světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">dva muži držící se za ruce: světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">dva muži držící se za ruce: světlý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: středně světlý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👬🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏼" type="tts">dva muži držící se za ruce: středně světlý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | střední odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">dva muži držící se za ruce: středně světlý odstín pleti, střední odstín pleti</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">dva muži držící se za ruce: středně světlý odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">dva muži držící se za ruce: středně světlý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: střední odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | střední odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dva muži držící se za ruce: střední odstín pleti, středně světlý odstín pleti</annotation>
 		<annotation cp="👬🏽">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏽" type="tts">dva muži držící se za ruce: střední odstín pleti</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | střední odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">dva muži držící se za ruce: střední odstín pleti, středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | střední odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">dva muži držící se za ruce: střední odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | světlý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | středně tmavý odstín pleti | zvěrokruh</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, střední odstín pleti</annotation>
 		<annotation cp="👬🏾">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👬🏾" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně tmavý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">dva muži držící se za ruce: středně tmavý odstín pleti, tmavý odstín pleti</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dva muži držící se za ruce: tmavý odstín pleti, světlý odstín pleti</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">blíženci | držet | dva muži držící se za ruce | dvojčata | dvojice | muž | pár | ruka | středně světlý odstín pleti | tmavý odstín pleti | zvěrokruh</annotation>

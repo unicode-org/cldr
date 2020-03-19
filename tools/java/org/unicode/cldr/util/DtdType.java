@@ -59,6 +59,12 @@ public enum DtdType {
         return DtdType.valueOf(m.group(1));
     }
 
+    /**
+     * Print a header for an XML file, where the generatedBy is normally MethodHandles.lookup().lookupClass(). 
+     * The only time it needs to be changed is if it is not being called directly from the generating tool.
+     * @param generatedBy
+     * @return
+     */
     public String header(Class<?> generatedBy) {
         String gline = "";
         if (generatedBy != null) {

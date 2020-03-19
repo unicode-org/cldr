@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="sl"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">izpraševanje | kretnja z roko | prsti | prsti, stisnjeni skupaj | sarkastično | stisnjen | svetel ten kože</annotation>
+		<annotation cp="🤌🏻" type="tts">prsti, stisnjeni skupaj: svetel ten kože</annotation>
+		<annotation cp="🤌🏼">izpraševanje | kretnja z roko | prsti | prsti, stisnjeni skupaj | sarkastično | srednje svetel ten kože | stisnjen</annotation>
+		<annotation cp="🤌🏼" type="tts">prsti, stisnjeni skupaj: srednje svetel ten kože</annotation>
+		<annotation cp="🤌🏽">izpraševanje | kretnja z roko | prsti | prsti, stisnjeni skupaj | sarkastično | srednji ten kože | stisnjen</annotation>
+		<annotation cp="🤌🏽" type="tts">prsti, stisnjeni skupaj: srednji ten kože</annotation>
+		<annotation cp="🤌🏾">izpraševanje | kretnja z roko | prsti | prsti, stisnjeni skupaj | sarkastično | srednje temen ten kože | stisnjen</annotation>
+		<annotation cp="🤌🏾" type="tts">prsti, stisnjeni skupaj: srednje temen ten kože</annotation>
+		<annotation cp="🤌🏿">izpraševanje | kretnja z roko | prsti | prsti, stisnjeni skupaj | sarkastično | stisnjen | temen ten kože</annotation>
+		<annotation cp="🤌🏿" type="tts">prsti, stisnjeni skupaj: temen ten kože</annotation>
 		<annotation cp="👋🏻">dlan | mahajoča dlan | mahanje | mahati | svetel ten kože | telo</annotation>
 		<annotation cp="👋🏻" type="tts">mahajoča dlan: svetel ten kože</annotation>
 		<annotation cp="👋🏼">dlan | mahajoča dlan | mahanje | mahati | srednje svetel ten kože | telo</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">odrasla oseba: srednje temen ten kože in plešast</annotation>
 		<annotation cp="🧑🏿‍🦲">odrasla oseba | plešast | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">odrasla oseba: temen ten kože in plešast</annotation>
+		<annotation cp="🧑🏻‍🍼">dojenček | dojenje | hranjenje | oseba | oseba, ki hrani doječnka | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">oseba, ki hrani dojenčka: svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🍼">dojenček | dojenje | hranjenje | oseba | oseba, ki hrani doječnka | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">oseba, ki hrani dojenčka: srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏽‍🍼">dojenček | dojenje | hranjenje | oseba | oseba, ki hrani doječnka | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">oseba, ki hrani dojenčka: srednji ten kože</annotation>
+		<annotation cp="🧑🏾‍🍼">dojenček | dojenje | hranjenje | oseba | oseba, ki hrani doječnka | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">oseba, ki hrani dojenčka: srednje temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🍼">dojenček | dojenje | hranjenje | oseba | oseba, ki hrani doječnka | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">oseba, ki hrani dojenčka: temen ten kože</annotation>
+		<annotation cp="🧑🏻‍🎄">božiček, božič | mx božiček | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">mx božiček: svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🎄">božiček, božič | mx božiček | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">mx božiček: srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏽‍🎄">božiček, božič | mx božiček | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">mx božiček: srednji ten kože</annotation>
+		<annotation cp="🧑🏾‍🎄">božiček, božič | mx božiček | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">mx božiček: srednje temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🎄">božiček, božič | mx božiček | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">mx božiček: temen ten kože</annotation>
 		<annotation cp="👨🏻">fant | moški | svetel ten kože</annotation>
 		<annotation cp="👨🏻" type="tts">moški: svetel ten kože</annotation>
 		<annotation cp="👨🏼">fant | moški | srednje svetel ten kože</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">moški: srednje temen ten kože in plešast</annotation>
 		<annotation cp="👨🏿‍🦲">fant | moški | plešast | temen ten kože</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">moški: temen ten kože in plešast</annotation>
+		<annotation cp="👨🏻‍🍼">dojenček | dojenje | hranjenje | moški | moški, ki hrani dojenčka | svetel ten kože</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">moški, ki hrani dojenčka: svetel ten kože</annotation>
+		<annotation cp="👨🏼‍🍼">dojenček | dojenje | hranjenje | moški | moški, ki hrani dojenčka | srednje svetel ten kože</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">moški, ki hrani dojenčka: srednje svetel ten kože</annotation>
+		<annotation cp="👨🏽‍🍼">dojenček | dojenje | hranjenje | moški | moški, ki hrani dojenčka | srednji ten kože</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">moški, ki hrani dojenčka: srednji ten kože</annotation>
+		<annotation cp="👨🏾‍🍼">dojenček | dojenje | hranjenje | moški | moški, ki hrani dojenčka | srednje temen ten kože</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">moški, ki hrani dojenčka: srednje temen ten kože</annotation>
+		<annotation cp="👨🏿‍🍼">dojenček | dojenje | hranjenje | moški | moški, ki hrani dojenčka | temen ten kože</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">moški, ki hrani dojenčka: temen ten kože</annotation>
 		<annotation cp="👩🏻">dekle | svetel ten kože | ženska</annotation>
 		<annotation cp="👩🏻" type="tts">ženska: svetel ten kože</annotation>
 		<annotation cp="👩🏼">dekle | srednje svetel ten kože | ženska</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">ženska: srednje temen ten kože in plešast</annotation>
 		<annotation cp="👩🏿‍🦲">dekle | plešast | temen ten kože | ženska</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">ženska: temen ten kože in plešast</annotation>
+		<annotation cp="👩🏻‍🍼">dojenček | dojenje | hranjenje | svetel ten kože | ženska | ženska, ki doji dojenčka</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">ženska, ki doji dojenčka: svetel ten kože</annotation>
+		<annotation cp="👩🏼‍🍼">dojenček | dojenje | hranjenje | srednje svetel ten kože | ženska | ženska, ki doji dojenčka</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">ženska, ki doji dojenčka: srednje svetel ten kože</annotation>
+		<annotation cp="👩🏽‍🍼">dojenček | dojenje | hranjenje | srednji ten kože | ženska | ženska, ki doji dojenčka</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">ženska, ki doji dojenčka: srednji ten kože</annotation>
+		<annotation cp="👩🏾‍🍼">dojenček | dojenje | hranjenje | srednje temen ten kože | ženska | ženska, ki doji dojenčka</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">ženska, ki doji dojenčka: srednje temen ten kože</annotation>
+		<annotation cp="👩🏿‍🍼">dojenček | dojenje | hranjenje | temen ten kože | ženska | ženska, ki doji dojenčka</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">ženska, ki doji dojenčka: temen ten kože</annotation>
 		<annotation cp="🧓🏻">spolno nevtralen | starejši | starejši odrasli | svetel ten kože</annotation>
 		<annotation cp="🧓🏻" type="tts">starejši odrasli: svetel ten kože</annotation>
 		<annotation cp="🧓🏼">spolno nevtralen | srednje svetel ten kože | starejši | starejši odrasli</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">ženska, ki skomiga z rameni: srednje temen ten kože</annotation>
 		<annotation cp="🤷🏿‍♀">dekle | dvom | nevednost | nezanimanje | skomigniti | temen ten kože | ženska | ženska, ki skomiga z rameni</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">ženska, ki skomiga z rameni: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍⚕">medicinska sestra | svetel ten kože | terapevt | zdravnik | zdravstvo</annotation>
+		<annotation cp="🧑🏻‍⚕">medicinska sestra | svetel ten kože | terapevt | zdravnik | zdravstveni delavci | zdravstvo</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">zdravstveni delavci: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍⚕">medicinska sestra | srednje svetel ten kože | terapevt | zdravnik | zdravstvo</annotation>
+		<annotation cp="🧑🏼‍⚕">medicinska sestra | srednje svetel ten kože | terapevt | zdravnik | zdravstveni delavci | zdravstvo</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">zdravstveni delavci: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍⚕">medicinska sestra | srednji ten kože | terapevt | zdravnik | zdravstvo</annotation>
+		<annotation cp="🧑🏽‍⚕">medicinska sestra | srednji ten kože | terapevt | zdravnik | zdravstveni delavci | zdravstvo</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">zdravstveni delavci: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍⚕">medicinska sestra | srednje temen ten kože | terapevt | zdravnik | zdravstvo</annotation>
+		<annotation cp="🧑🏾‍⚕">medicinska sestra | srednje temen ten kože | terapevt | zdravnik | zdravstveni delavci | zdravstvo</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">zdravstveni delavci: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍⚕">medicinska sestra | temen ten kože | terapevt | zdravnik | zdravstvo</annotation>
+		<annotation cp="🧑🏿‍⚕">medicinska sestra | temen ten kože | terapevt | zdravnik | zdravstveni delavci | zdravstvo</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">zdravstveni delavci: temen ten kože</annotation>
 		<annotation cp="👨🏻‍⚕">fant | medicinski tehnik | moški | svetel ten kože | terapevt | zdravnik | zdravstveni delavec | zdravstvo</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">zdravstveni delavec: svetel ten kože</annotation>
@@ -1066,15 +1116,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">učiteljica: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🏫">dekle | inštruktorica | profesorica | temen ten kože | učiteljica | ženska</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">učiteljica: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍⚖">sodnik | svetel ten kože | tehtnica</annotation>
+		<annotation cp="🧑🏻‍⚖">sodnik | svetel ten kože | tehtnica | varuh zakona</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">varuh zakona: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍⚖">sodnik | srednje svetel ten kože | tehtnica</annotation>
+		<annotation cp="🧑🏼‍⚖">sodnik | srednje svetel ten kože | tehtnica | varuh zakona</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">varuh zakona: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍⚖">sodnik | srednji ten kože | tehtnica</annotation>
+		<annotation cp="🧑🏽‍⚖">sodnik | srednji ten kože | tehtnica | varuh zakona</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">varuh zakona: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍⚖">sodnik | srednje temen ten kože | tehtnica</annotation>
+		<annotation cp="🧑🏾‍⚖">sodnik | srednje temen ten kože | tehtnica | varuh zakona</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">varuh zakona: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍⚖">sodnik | tehtnica | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍⚖">sodnik | tehtnica | temen ten kože | varuh zakona</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">varuh zakona: temen ten kože</annotation>
 		<annotation cp="👨🏻‍⚖">fant | moški | pravica | pravosodje | sodnik | svetel ten kože | tehtnica</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">sodnik: svetel ten kože</annotation>
@@ -1156,15 +1206,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">kuharica: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🍳">chef | dekle | kuharica | šefinja kuhinje | temen ten kože | ženska</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kuharica: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🔧">električar | mehanik | svetel ten kože | trgovec | vodovodar</annotation>
+		<annotation cp="🧑🏻‍🔧">električar | mehanik | serviser | svetel ten kože | trgovec | vodovodar</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">serviser: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🔧">električar | mehanik | srednje svetel ten kože | trgovec | vodovodar</annotation>
+		<annotation cp="🧑🏼‍🔧">električar | mehanik | serviser | srednje svetel ten kože | trgovec | vodovodar</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">serviser: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🔧">električar | mehanik | srednji ten kože | trgovec | vodovodar</annotation>
+		<annotation cp="🧑🏽‍🔧">električar | mehanik | serviser | srednji ten kože | trgovec | vodovodar</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">serviser: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🔧">električar | mehanik | srednje temen ten kože | trgovec | vodovodar</annotation>
+		<annotation cp="🧑🏾‍🔧">električar | mehanik | serviser | srednje temen ten kože | trgovec | vodovodar</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">serviser: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🔧">električar | mehanik | temen ten kože | trgovec | vodovodar</annotation>
+		<annotation cp="🧑🏿‍🔧">električar | mehanik | serviser | temen ten kože | trgovec | vodovodar</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">serviser: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🔧">avtomehanik | električar | fant | mehanična delavnica | mehanik | moški | orodje | prodajalec | svetel ten kože | vodovodar</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mehanik: svetel ten kože</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">mehaničarka: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🔧">avtomehaničarka | dekle | električarka | mehaničarka | mehanična delavnica | orodje | prodajalka | temen ten kože | vodovodarka | ženska</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">mehaničarka: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🏭">delavec | industrijski | svetel ten kože | tekoči trak | tovarna</annotation>
+		<annotation cp="🧑🏻‍🏭">delavec | industrijski | svetel ten kože | tekoči trak | tovarna | tovarniški delavec</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">tovarniški delavec: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🏭">delavec | industrijski | srednje svetel ten kože | tekoči trak | tovarna</annotation>
+		<annotation cp="🧑🏼‍🏭">delavec | industrijski | srednje svetel ten kože | tekoči trak | tovarna | tovarniški delavec</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">tovarniški delavec: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🏭">delavec | industrijski | srednji ten kože | tekoči trak | tovarna</annotation>
+		<annotation cp="🧑🏽‍🏭">delavec | industrijski | srednji ten kože | tekoči trak | tovarna | tovarniški delavec</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">tovarniški delavec: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🏭">delavec | industrijski | srednje temen ten kože | tekoči trak | tovarna</annotation>
+		<annotation cp="🧑🏾‍🏭">delavec | industrijski | srednje temen ten kože | tekoči trak | tovarna | tovarniški delavec</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">tovarniški delavec: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🏭">delavec | industrijski | tekoči trak | temen ten kože | tovarna</annotation>
+		<annotation cp="🧑🏿‍🏭">delavec | industrijski | tekoči trak | temen ten kože | tovarna | tovarniški delavec</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">tovarniški delavec: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🏭">delavec | delavec v tovarni | fant | industrijski | moški | proizvodnja | svetel ten kože | tekoči trak | tovarna | tovarnar</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">delavec v tovarni: svetel ten kože</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">delavka v tovarni: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🏭">dekle | delavka | delavka v tovarni | industrijski | proizvodnja | tekoči trak | temen ten kože | tovarna | tovarnarka | ženska</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">delavka v tovarni: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍💼">arhitekt | direktor | pisarniški delavec | podjetje | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍💼">arhitekt | delavec v pisarni | direktor | pisarniški delavec | podjetje | svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">delavec v pisarni: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍💼">arhitekt | direktor | pisarniški delavec | podjetje | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍💼">arhitekt | delavec v pisarni | direktor | pisarniški delavec | podjetje | srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">delavec v pisarni: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍💼">arhitekt | direktor | pisarniški delavec | podjetje | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍💼">arhitekt | delavec v pisarni | direktor | pisarniški delavec | podjetje | srednji ten kože</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">delavec v pisarni: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍💼">arhitekt | direktor | pisarniški delavec | podjetje | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍💼">arhitekt | delavec v pisarni | direktor | pisarniški delavec | podjetje | srednje temen ten kože</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">delavec v pisarni: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍💼">arhitekt | direktor | pisarniški delavec | podjetje | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍💼">arhitekt | delavec v pisarni | direktor | pisarniški delavec | podjetje | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">delavec v pisarni: temen ten kože</annotation>
 		<annotation cp="👨🏻‍💼">arhitekt | direktor | fant | moški | pisarna | pisarniški | pisarniški delavec | podjetje | svetel ten kože | tajnik</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">pisarniški delavec: svetel ten kože</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">pisarniška delavka: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍💼">arhitektka | dekle | direktorica | pisarna | pisarniška delavka | pisarniški | podjetje | tajnica | temen ten kože | ženska</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">pisarniška delavka: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🔬">biolog | fizik | inženir | kemik | matematik | svetel ten kože | znanstvenik</annotation>
+		<annotation cp="🧑🏻‍🔬">biolog | fizik | inženir | kemik | matematik | raziskovalec | svetel ten kože | znanstvenik</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">raziskovalec: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🔬">biolog | fizik | inženir | kemik | matematik | srednje svetel ten kože | znanstvenik</annotation>
+		<annotation cp="🧑🏼‍🔬">biolog | fizik | inženir | kemik | matematik | raziskovalec | srednje svetel ten kože | znanstvenik</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">raziskovalec: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🔬">biolog | fizik | inženir | kemik | matematik | srednji ten kože | znanstvenik</annotation>
+		<annotation cp="🧑🏽‍🔬">biolog | fizik | inženir | kemik | matematik | raziskovalec | srednji ten kože | znanstvenik</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">raziskovalec: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🔬">biolog | fizik | inženir | kemik | matematik | srednje temen ten kože | znanstvenik</annotation>
+		<annotation cp="🧑🏾‍🔬">biolog | fizik | inženir | kemik | matematik | raziskovalec | srednje temen ten kože | znanstvenik</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">raziskovalec: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🔬">biolog | fizik | inženir | kemik | matematik | temen ten kože | znanstvenik</annotation>
+		<annotation cp="🧑🏿‍🔬">biolog | fizik | inženir | kemik | matematik | raziskovalec | temen ten kože | znanstvenik</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">raziskovalec: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🔬">biolog | fant | fizik | inženir | kemik | matematik | moški | svetel ten kože | znanstvenik</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">znanstvenik: svetel ten kože</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">znanstvenica: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🔬">biologinja | dekle | fizika | inženirka | kemija | matematika | temen ten kože | ženska | znanstvenica</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">znanstvenica: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | svetel ten kože | tehnolog | tehnologija</annotation>
+		<annotation cp="🧑🏻‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | strokovnjak za tehnologijo | svetel ten kože | tehnolog | tehnologija</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">strokovnjak za tehnologijo: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | srednje svetel ten kože | tehnolog | tehnologija</annotation>
+		<annotation cp="🧑🏼‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | srednje svetel ten kože | strokovnjak za tehnologijo | tehnolog | tehnologija</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">strokovnjak za tehnologijo: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | srednji ten kože | tehnolog | tehnologija</annotation>
+		<annotation cp="🧑🏽‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | srednji ten kože | strokovnjak za tehnologijo | tehnolog | tehnologija</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">strokovnjak za tehnologijo: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | srednje temen ten kože | tehnolog | tehnologija</annotation>
+		<annotation cp="🧑🏾‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | srednje temen ten kože | strokovnjak za tehnologijo | tehnolog | tehnologija</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">strokovnjak za tehnologijo: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | tehnolog | tehnologija | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍💻">izumitelj | programer | programska oprema | računalnik | razvijalec | strokovnjak za tehnologijo | tehnolog | tehnologija | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">strokovnjak za tehnologijo: temen ten kože</annotation>
 		<annotation cp="👨🏻‍💻">fant | izumitelj | moški | programer | programska oprema | računalnik | razvijalec | svetel ten kože | tehnolog | tehnologija</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">tehnolog: svetel ten kože</annotation>
@@ -1306,15 +1356,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💻" type="tts">tehnologinja: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍💻">dekle | izumiteljica | programerka | programska oprema | računalnik | razvijalka | tehnologija | tehnologinja | temen ten kože | ženska</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">tehnologinja: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🎤">igralec | komik | pevec | roker | svetel ten kože | zabavljač | zvezdnik</annotation>
+		<annotation cp="🧑🏻‍🎤">igralec | izvajalec | komik | pevec | roker | svetel ten kože | zabavljač | zvezdnik</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">izvajalec: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🎤">igralec | komik | pevec | roker | srednje svetel ten kože | zabavljač | zvezdnik</annotation>
+		<annotation cp="🧑🏼‍🎤">igralec | izvajalec | komik | pevec | roker | srednje svetel ten kože | zabavljač | zvezdnik</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">izvajalec: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🎤">igralec | komik | pevec | roker | srednji ten kože | zabavljač | zvezdnik</annotation>
+		<annotation cp="🧑🏽‍🎤">igralec | izvajalec | komik | pevec | roker | srednji ten kože | zabavljač | zvezdnik</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">izvajalec: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🎤">igralec | komik | pevec | roker | srednje temen ten kože | zabavljač | zvezdnik</annotation>
+		<annotation cp="🧑🏾‍🎤">igralec | izvajalec | komik | pevec | roker | srednje temen ten kože | zabavljač | zvezdnik</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">izvajalec: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🎤">igralec | komik | pevec | roker | temen ten kože | zabavljač | zvezdnik</annotation>
+		<annotation cp="🧑🏿‍🎤">igralec | izvajalec | komik | pevec | roker | temen ten kože | zabavljač | zvezdnik</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">izvajalec: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🎤">fant | igralec | komik | moški | pevec | roker | svetel ten kože | zabavljač | zvezdnik</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">pevec: svetel ten kože</annotation>
@@ -1336,15 +1386,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎤" type="tts">pevka: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🎤">dekle | igralka | pevka | rokerica | temen ten kože | zabavljačica | ženska | zvezdnica</annotation>
 		<annotation cp="👩🏿‍🎤" type="tts">pevka: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🎨">paleta | svetel ten kože | umetnik</annotation>
+		<annotation cp="🧑🏻‍🎨">paleta | slikar | svetel ten kože | umetnik</annotation>
 		<annotation cp="🧑🏻‍🎨" type="tts">slikar: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🎨">paleta | srednje svetel ten kože | umetnik</annotation>
+		<annotation cp="🧑🏼‍🎨">paleta | slikar | srednje svetel ten kože | umetnik</annotation>
 		<annotation cp="🧑🏼‍🎨" type="tts">slikar: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🎨">paleta | srednji ten kože | umetnik</annotation>
+		<annotation cp="🧑🏽‍🎨">paleta | slikar | srednji ten kože | umetnik</annotation>
 		<annotation cp="🧑🏽‍🎨" type="tts">slikar: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🎨">paleta | srednje temen ten kože | umetnik</annotation>
+		<annotation cp="🧑🏾‍🎨">paleta | slikar | srednje temen ten kože | umetnik</annotation>
 		<annotation cp="🧑🏾‍🎨" type="tts">slikar: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🎨">paleta | temen ten kože | umetnik</annotation>
+		<annotation cp="🧑🏿‍🎨">paleta | slikar | temen ten kože | umetnik</annotation>
 		<annotation cp="🧑🏿‍🎨" type="tts">slikar: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🎨">fant | moški | paleta | slikar | svetel ten kože | umetnik | umetnost</annotation>
 		<annotation cp="👨🏻‍🎨" type="tts">umetnik: svetel ten kože</annotation>
@@ -1366,15 +1416,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🎨" type="tts">umetnica: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🎨">dekle | paleta | slikarka | temen ten kože | umetnica | umetnost | ženska</annotation>
 		<annotation cp="👩🏿‍🎨" type="tts">umetnica: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍✈">letalo | pilot | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍✈">letalo | pilot | pilot letala | svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍✈" type="tts">pilot letala: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍✈">letalo | pilot | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍✈">letalo | pilot | pilot letala | srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍✈" type="tts">pilot letala: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍✈">letalo | pilot | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍✈">letalo | pilot | pilot letala | srednji ten kože</annotation>
 		<annotation cp="🧑🏽‍✈" type="tts">pilot letala: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍✈">letalo | pilot | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍✈">letalo | pilot | pilot letala | srednje temen ten kože</annotation>
 		<annotation cp="🧑🏾‍✈" type="tts">pilot letala: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍✈">letalo | pilot | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍✈">letalo | pilot | pilot letala | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍✈" type="tts">pilot letala: temen ten kože</annotation>
 		<annotation cp="👨🏻‍✈">fant | letalo | moški | pilot | stevard | svetel ten kože</annotation>
 		<annotation cp="👨🏻‍✈" type="tts">pilot: svetel ten kože</annotation>
@@ -1396,15 +1446,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍✈" type="tts">pilotka: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍✈">dekle | letalo | pilotka | stevardesa | temen ten kože | ženska</annotation>
 		<annotation cp="👩🏿‍✈" type="tts">pilotka: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🚀">astronavt | raketa | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🚀">astronavt | kozmonavt | raketa | svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍🚀" type="tts">kozmonavt: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🚀">astronavt | raketa | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🚀">astronavt | kozmonavt | raketa | srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍🚀" type="tts">kozmonavt: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🚀">astronavt | raketa | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🚀">astronavt | kozmonavt | raketa | srednji ten kože</annotation>
 		<annotation cp="🧑🏽‍🚀" type="tts">kozmonavt: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🚀">astronavt | raketa | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🚀">astronavt | kozmonavt | raketa | srednje temen ten kože</annotation>
 		<annotation cp="🧑🏾‍🚀" type="tts">kozmonavt: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🚀">astronavt | raketa | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🚀">astronavt | kozmonavt | raketa | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍🚀" type="tts">kozmonavt: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🚀">astronavt | fant | moški | raketa | svetel ten kože | vesolje</annotation>
 		<annotation cp="👨🏻‍🚀" type="tts">astronavt: svetel ten kože</annotation>
@@ -1426,15 +1476,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚀" type="tts">astronavtka: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🚀">astronavtka | dekle | raketa | temen ten kože | vesolje | ženska</annotation>
 		<annotation cp="👩🏿‍🚀" type="tts">astronavtka: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🚒">gasilec | gasilni avto | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🚒">gasilec | gasilni avto | poklicni gasilec | svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍🚒" type="tts">poklicni gasilec: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🚒">gasilec | gasilni avto | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🚒">gasilec | gasilni avto | poklicni gasilec | srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍🚒" type="tts">poklicni gasilec: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🚒">gasilec | gasilni avto | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🚒">gasilec | gasilni avto | poklicni gasilec | srednji ten kože</annotation>
 		<annotation cp="🧑🏽‍🚒" type="tts">poklicni gasilec: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🚒">gasilec | gasilni avto | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🚒">gasilec | gasilni avto | poklicni gasilec | srednje temen ten kože</annotation>
 		<annotation cp="🧑🏾‍🚒" type="tts">poklicni gasilec: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🚒">gasilec | gasilni avto | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🚒">gasilec | gasilni avto | poklicni gasilec | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍🚒" type="tts">poklicni gasilec: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🚒">fant | gasilec | gasilni avto | moški | ogenj | svetel ten kože</annotation>
 		<annotation cp="👨🏻‍🚒" type="tts">gasilec: svetel ten kože</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">ženska z naglavno ruto: srednje temen ten kože</annotation>
 		<annotation cp="🧕🏿">hidžab | mantilja | naglavna ruta | temen ten kože | ženska z naglavno ruto</annotation>
 		<annotation cp="🧕🏿" type="tts">ženska z naglavno ruto: temen ten kože</annotation>
-		<annotation cp="🤵🏻">moški | moški v smokingu | smoking | svetel ten kože | ženin</annotation>
-		<annotation cp="🤵🏻" type="tts">moški v smokingu: svetel ten kože</annotation>
-		<annotation cp="🤵🏼">moški | moški v smokingu | smoking | srednje svetel ten kože | ženin</annotation>
-		<annotation cp="🤵🏼" type="tts">moški v smokingu: srednje svetel ten kože</annotation>
-		<annotation cp="🤵🏽">moški | moški v smokingu | smoking | srednji ten kože | ženin</annotation>
-		<annotation cp="🤵🏽" type="tts">moški v smokingu: srednji ten kože</annotation>
-		<annotation cp="🤵🏾">moški | moški v smokingu | smoking | srednje temen ten kože | ženin</annotation>
-		<annotation cp="🤵🏾" type="tts">moški v smokingu: srednje temen ten kože</annotation>
-		<annotation cp="🤵🏿">moški | moški v smokingu | smoking | temen ten kože | ženin</annotation>
-		<annotation cp="🤵🏿" type="tts">moški v smokingu: temen ten kože</annotation>
-		<annotation cp="👰🏻">nevesta | nevesta s pajčolanom | pajčolan | poroka | svetel ten kože</annotation>
-		<annotation cp="👰🏻" type="tts">nevesta s pajčolanom: svetel ten kože</annotation>
-		<annotation cp="👰🏼">nevesta | nevesta s pajčolanom | pajčolan | poroka | srednje svetel ten kože</annotation>
-		<annotation cp="👰🏼" type="tts">nevesta s pajčolanom: srednje svetel ten kože</annotation>
-		<annotation cp="👰🏽">nevesta | nevesta s pajčolanom | pajčolan | poroka | srednji ten kože</annotation>
-		<annotation cp="👰🏽" type="tts">nevesta s pajčolanom: srednji ten kože</annotation>
-		<annotation cp="👰🏾">nevesta | nevesta s pajčolanom | pajčolan | poroka | srednje temen ten kože</annotation>
-		<annotation cp="👰🏾" type="tts">nevesta s pajčolanom: srednje temen ten kože</annotation>
-		<annotation cp="👰🏿">nevesta | nevesta s pajčolanom | pajčolan | poroka | temen ten kože</annotation>
-		<annotation cp="👰🏿" type="tts">nevesta s pajčolanom: temen ten kože</annotation>
+		<annotation cp="🤵🏻">oseba | oseba v smokingu | smoking | svetel ten kože | ženin</annotation>
+		<annotation cp="🤵🏻" type="tts">oseba v smokingu: svetel ten kože</annotation>
+		<annotation cp="🤵🏼">oseba | oseba v smokingu | smoking | srednje svetel ten kože | ženin</annotation>
+		<annotation cp="🤵🏼" type="tts">oseba v smokingu: srednje svetel ten kože</annotation>
+		<annotation cp="🤵🏽">oseba | oseba v smokingu | smoking | srednji ten kože | ženin</annotation>
+		<annotation cp="🤵🏽" type="tts">oseba v smokingu: srednji ten kože</annotation>
+		<annotation cp="🤵🏾">oseba | oseba v smokingu | smoking | srednje temen ten kože | ženin</annotation>
+		<annotation cp="🤵🏾" type="tts">oseba v smokingu: srednje temen ten kože</annotation>
+		<annotation cp="🤵🏿">oseba | oseba v smokingu | smoking | temen ten kože | ženin</annotation>
+		<annotation cp="🤵🏿" type="tts">oseba v smokingu: temen ten kože</annotation>
+		<annotation cp="🤵🏻‍♀">smoking | svetel ten kože | ženska | ženska v smokingu</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">ženska v smokingu: svetel ten kože</annotation>
+		<annotation cp="🤵🏼‍♀">smoking | srednje svetel ten kože | ženska | ženska v smokingu</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">ženska v smokingu: srednje svetel ten kože</annotation>
+		<annotation cp="🤵🏽‍♀">smoking | srednji ten kože | ženska | ženska v smokingu</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">ženska v smokingu: srednji ten kože</annotation>
+		<annotation cp="🤵🏾‍♀">smoking | srednje temen ten kože | ženska | ženska v smokingu</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">ženska v smokingu: srednje temen ten kože</annotation>
+		<annotation cp="🤵🏿‍♀">smoking | temen ten kože | ženska | ženska v smokingu</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">ženska v smokingu: temen ten kože</annotation>
+		<annotation cp="🤵🏻‍♂">moški | moški v smokingu | smoking | svetel ten kože</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">moški v smokingu: svetel ten kože</annotation>
+		<annotation cp="🤵🏼‍♂">moški | moški v smokingu | smoking | srednje svetel ten kože</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">moški v smokingu: srednje svetel ten kože</annotation>
+		<annotation cp="🤵🏽‍♂">moški | moški v smokingu | smoking | srednji ten kože</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">moški v smokingu: srednji ten kože</annotation>
+		<annotation cp="🤵🏾‍♂">moški | moški v smokingu | smoking | srednje temen ten kože</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">moški v smokingu: srednje temen ten kože</annotation>
+		<annotation cp="🤵🏿‍♂">moški | moški v smokingu | smoking | temen ten kože</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">moški v smokingu: temen ten kože</annotation>
+		<annotation cp="👰🏻">nevesta | oseba | oseba s pajčolanom | pajčolan | poroka | svetel ten kože</annotation>
+		<annotation cp="👰🏻" type="tts">oseba s pajčolanom: svetel ten kože</annotation>
+		<annotation cp="👰🏼">nevesta | oseba | oseba s pajčolanom | pajčolan | poroka | srednje svetel ten kože</annotation>
+		<annotation cp="👰🏼" type="tts">oseba s pajčolanom: srednje svetel ten kože</annotation>
+		<annotation cp="👰🏽">nevesta | oseba | oseba s pajčolanom | pajčolan | poroka | srednji ten kože</annotation>
+		<annotation cp="👰🏽" type="tts">oseba s pajčolanom: srednji ten kože</annotation>
+		<annotation cp="👰🏾">nevesta | oseba | oseba s pajčolanom | pajčolan | poroka | srednje temen ten kože</annotation>
+		<annotation cp="👰🏾" type="tts">oseba s pajčolanom: srednje temen ten kože</annotation>
+		<annotation cp="👰🏿">nevesta | oseba | oseba s pajčolanom | pajčolan | poroka | temen ten kože</annotation>
+		<annotation cp="👰🏿" type="tts">oseba s pajčolanom: temen ten kože</annotation>
+		<annotation cp="👰🏻‍♀">pajčolan | svetel ten kože | ženska | ženska s pajčolanom</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">ženska s pajčolanom: svetel ten kože</annotation>
+		<annotation cp="👰🏼‍♀">pajčolan | srednje svetel ten kože | ženska | ženska s pajčolanom</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">ženska s pajčolanom: srednje svetel ten kože</annotation>
+		<annotation cp="👰🏽‍♀">pajčolan | srednji ten kože | ženska | ženska s pajčolanom</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">ženska s pajčolanom: srednji ten kože</annotation>
+		<annotation cp="👰🏾‍♀">pajčolan | srednje temen ten kože | ženska | ženska s pajčolanom</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">ženska s pajčolanom: srednje temen ten kože</annotation>
+		<annotation cp="👰🏿‍♀">pajčolan | temen ten kože | ženska | ženska s pajčolanom</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">ženska s pajčolanom: temen ten kože</annotation>
+		<annotation cp="👰🏻‍♂">moški | moški s pajčolanom | pajčolan | svetel ten kože</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">moški s pajčolanom: svetel ten kože</annotation>
+		<annotation cp="👰🏼‍♂">moški | moški s pajčolanom | pajčolan | srednje svetel ten kože</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">moški s pajčolanom: srednje svetel ten kože</annotation>
+		<annotation cp="👰🏽‍♂">moški | moški s pajčolanom | pajčolan | srednji ten kože</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">moški s pajčolanom: srednji ten kože</annotation>
+		<annotation cp="👰🏾‍♂">moški | moški s pajčolanom | pajčolan | srednje temen ten kože</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">moški s pajčolanom: srednje temen ten kože</annotation>
+		<annotation cp="👰🏿‍♂">moški | moški s pajčolanom | pajčolan | temen ten kože</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">moški s pajčolanom: temen ten kože</annotation>
 		<annotation cp="🤰🏻">nosečnica | svetel ten kože | ženska</annotation>
 		<annotation cp="🤰🏻" type="tts">nosečnica: svetel ten kože</annotation>
 		<annotation cp="🤰🏼">nosečnica | srednje svetel ten kože | ženska</annotation>
@@ -1836,25 +1926,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧚🏾‍♀" type="tts">vila: srednje temen ten kože</annotation>
 		<annotation cp="🧚🏿‍♀">temen ten kože | vila</annotation>
 		<annotation cp="🧚🏿‍♀" type="tts">vila: temen ten kože</annotation>
-		<annotation cp="🧛🏻">Drakula | nesmrtnost | svetel ten kože | vampir</annotation>
+		<annotation cp="🧛🏻">Drakula | nesmrtnost | svetel ten kože | vampir | vampirji</annotation>
 		<annotation cp="🧛🏻" type="tts">vampirji: svetel ten kože</annotation>
-		<annotation cp="🧛🏼">Drakula | nesmrtnost | srednje svetel ten kože | vampir</annotation>
+		<annotation cp="🧛🏼">Drakula | nesmrtnost | srednje svetel ten kože | vampir | vampirji</annotation>
 		<annotation cp="🧛🏼" type="tts">vampirji: srednje svetel ten kože</annotation>
-		<annotation cp="🧛🏽">Drakula | nesmrtnost | srednji ten kože | vampir</annotation>
+		<annotation cp="🧛🏽">Drakula | nesmrtnost | srednji ten kože | vampir | vampirji</annotation>
 		<annotation cp="🧛🏽" type="tts">vampirji: srednji ten kože</annotation>
-		<annotation cp="🧛🏾">Drakula | nesmrtnost | srednje temen ten kože | vampir</annotation>
+		<annotation cp="🧛🏾">Drakula | nesmrtnost | srednje temen ten kože | vampir | vampirji</annotation>
 		<annotation cp="🧛🏾" type="tts">vampirji: srednje temen ten kože</annotation>
-		<annotation cp="🧛🏿">Drakula | nesmrtnost | temen ten kože | vampir</annotation>
+		<annotation cp="🧛🏿">Drakula | nesmrtnost | temen ten kože | vampir | vampirji</annotation>
 		<annotation cp="🧛🏿" type="tts">vampirji: temen ten kože</annotation>
-		<annotation cp="🧛🏻‍♂">Drakula | moški vampir | nesmrtnost | svetel ten kože</annotation>
+		<annotation cp="🧛🏻‍♂">Drakula | moški vampir | nesmrtnost | svetel ten kože | vampir</annotation>
 		<annotation cp="🧛🏻‍♂" type="tts">vampir: svetel ten kože</annotation>
-		<annotation cp="🧛🏼‍♂">Drakula | moški vampir | nesmrtnost | srednje svetel ten kože</annotation>
+		<annotation cp="🧛🏼‍♂">Drakula | moški vampir | nesmrtnost | srednje svetel ten kože | vampir</annotation>
 		<annotation cp="🧛🏼‍♂" type="tts">vampir: srednje svetel ten kože</annotation>
-		<annotation cp="🧛🏽‍♂">Drakula | moški vampir | nesmrtnost | srednji ten kože</annotation>
+		<annotation cp="🧛🏽‍♂">Drakula | moški vampir | nesmrtnost | srednji ten kože | vampir</annotation>
 		<annotation cp="🧛🏽‍♂" type="tts">vampir: srednji ten kože</annotation>
-		<annotation cp="🧛🏾‍♂">Drakula | moški vampir | nesmrtnost | srednje temen ten kože</annotation>
+		<annotation cp="🧛🏾‍♂">Drakula | moški vampir | nesmrtnost | srednje temen ten kože | vampir</annotation>
 		<annotation cp="🧛🏾‍♂" type="tts">vampir: srednje temen ten kože</annotation>
-		<annotation cp="🧛🏿‍♂">Drakula | moški vampir | nesmrtnost | temen ten kože</annotation>
+		<annotation cp="🧛🏿‍♂">Drakula | moški vampir | nesmrtnost | temen ten kože | vampir</annotation>
 		<annotation cp="🧛🏿‍♂" type="tts">vampir: temen ten kože</annotation>
 		<annotation cp="🧛🏻‍♀">nesmrtnost | svetel ten kože | vampirka</annotation>
 		<annotation cp="🧛🏻‍♀" type="tts">vampirka: svetel ten kože</annotation>
@@ -1896,35 +1986,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧜🏾‍♀" type="tts">morska deklica: srednje temen ten kože</annotation>
 		<annotation cp="🧜🏿‍♀">morska deklica | temen ten kože</annotation>
 		<annotation cp="🧜🏿‍♀" type="tts">morska deklica: temen ten kože</annotation>
-		<annotation cp="🧝🏻">čarovnija | svetel ten kože | vilin</annotation>
+		<annotation cp="🧝🏻">čarovnija | škrati | svetel ten kože | vilin</annotation>
 		<annotation cp="🧝🏻" type="tts">škrati: svetel ten kože</annotation>
-		<annotation cp="🧝🏼">čarovnija | srednje svetel ten kože | vilin</annotation>
+		<annotation cp="🧝🏼">čarovnija | škrati | srednje svetel ten kože | vilin</annotation>
 		<annotation cp="🧝🏼" type="tts">škrati: srednje svetel ten kože</annotation>
-		<annotation cp="🧝🏽">čarovnija | srednji ten kože | vilin</annotation>
+		<annotation cp="🧝🏽">čarovnija | škrati | srednji ten kože | vilin</annotation>
 		<annotation cp="🧝🏽" type="tts">škrati: srednji ten kože</annotation>
-		<annotation cp="🧝🏾">čarovnija | srednje temen ten kože | vilin</annotation>
+		<annotation cp="🧝🏾">čarovnija | škrati | srednje temen ten kože | vilin</annotation>
 		<annotation cp="🧝🏾" type="tts">škrati: srednje temen ten kože</annotation>
-		<annotation cp="🧝🏿">čarovnija | temen ten kože | vilin</annotation>
+		<annotation cp="🧝🏿">čarovnija | škrati | temen ten kože | vilin</annotation>
 		<annotation cp="🧝🏿" type="tts">škrati: temen ten kože</annotation>
-		<annotation cp="🧝🏻‍♂">čarovnija | svetel ten kože | vilin</annotation>
+		<annotation cp="🧝🏻‍♂">čarovnija | škrat | svetel ten kože | vilin</annotation>
 		<annotation cp="🧝🏻‍♂" type="tts">škrat: svetel ten kože</annotation>
-		<annotation cp="🧝🏼‍♂">čarovnija | srednje svetel ten kože | vilin</annotation>
+		<annotation cp="🧝🏼‍♂">čarovnija | škrat | srednje svetel ten kože | vilin</annotation>
 		<annotation cp="🧝🏼‍♂" type="tts">škrat: srednje svetel ten kože</annotation>
-		<annotation cp="🧝🏽‍♂">čarovnija | srednji ten kože | vilin</annotation>
+		<annotation cp="🧝🏽‍♂">čarovnija | škrat | srednji ten kože | vilin</annotation>
 		<annotation cp="🧝🏽‍♂" type="tts">škrat: srednji ten kože</annotation>
-		<annotation cp="🧝🏾‍♂">čarovnija | srednje temen ten kože | vilin</annotation>
+		<annotation cp="🧝🏾‍♂">čarovnija | škrat | srednje temen ten kože | vilin</annotation>
 		<annotation cp="🧝🏾‍♂" type="tts">škrat: srednje temen ten kože</annotation>
-		<annotation cp="🧝🏿‍♂">čarovnija | temen ten kože | vilin</annotation>
+		<annotation cp="🧝🏿‍♂">čarovnija | škrat | temen ten kože | vilin</annotation>
 		<annotation cp="🧝🏿‍♂" type="tts">škrat: temen ten kože</annotation>
-		<annotation cp="🧝🏻‍♀">svetel ten kože | vilinka</annotation>
+		<annotation cp="🧝🏻‍♀">škratovka | svetel ten kože | vilinka</annotation>
 		<annotation cp="🧝🏻‍♀" type="tts">škratovka: svetel ten kože</annotation>
-		<annotation cp="🧝🏼‍♀">srednje svetel ten kože | vilinka</annotation>
+		<annotation cp="🧝🏼‍♀">škratovka | srednje svetel ten kože | vilinka</annotation>
 		<annotation cp="🧝🏼‍♀" type="tts">škratovka: srednje svetel ten kože</annotation>
-		<annotation cp="🧝🏽‍♀">srednji ten kože | vilinka</annotation>
+		<annotation cp="🧝🏽‍♀">škratovka | srednji ten kože | vilinka</annotation>
 		<annotation cp="🧝🏽‍♀" type="tts">škratovka: srednji ten kože</annotation>
-		<annotation cp="🧝🏾‍♀">srednje temen ten kože | vilinka</annotation>
+		<annotation cp="🧝🏾‍♀">škratovka | srednje temen ten kože | vilinka</annotation>
 		<annotation cp="🧝🏾‍♀" type="tts">škratovka: srednje temen ten kože</annotation>
-		<annotation cp="🧝🏿‍♀">temen ten kože | vilinka</annotation>
+		<annotation cp="🧝🏿‍♀">škratovka | temen ten kože | vilinka</annotation>
 		<annotation cp="🧝🏿‍♀" type="tts">škratovka: temen ten kože</annotation>
 		<annotation cp="💆🏻">masaža | masaža obraza | salon | svetel ten kože</annotation>
 		<annotation cp="💆🏻" type="tts">masaža obraza: svetel ten kože</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">klečeča ženska: srednje temen ten kože</annotation>
 		<annotation cp="🧎🏿‍♀">klečanje | klečeča ženska | temen ten kože | ženska</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">klečeča ženska: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🦯">invalid | slep | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🦯">invalid | oseba s palico za slepe | slep | svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">oseba s palico za slepe: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🦯">invalid | slep | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🦯">invalid | oseba s palico za slepe | slep | srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">oseba s palico za slepe: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🦯">invalid | slep | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🦯">invalid | oseba s palico za slepe | slep | srednji ten kože</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">oseba s palico za slepe: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🦯">invalid | slep | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🦯">invalid | oseba s palico za slepe | slep | srednje temen ten kože</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">oseba s palico za slepe: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🦯">invalid | slep | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🦯">invalid | oseba s palico za slepe | slep | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">oseba s palico za slepe: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🦯">invalid | moški | moški s palico za slepe | slep | svetel ten kože</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">moški s palico za slepe: svetel ten kože</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">ženska s palico za slepe: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🦯">invalid | slepa | temen ten kože | ženska | ženska s palico za slepe</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">ženska s palico za slepe: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🦼">invalid | svetel ten kože | voziček</annotation>
+		<annotation cp="🧑🏻‍🦼">invalid | oseba na motoriziranem invalidskem vozičku | svetel ten kože | voziček</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">oseba na motoriziranem invalidskem vozičku: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🦼">invalid | srednje svetel ten kože | voziček</annotation>
+		<annotation cp="🧑🏼‍🦼">invalid | oseba na motoriziranem invalidskem vozičku | srednje svetel ten kože | voziček</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">oseba na motoriziranem invalidskem vozičku: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🦼">invalid | srednji ten kože | voziček</annotation>
+		<annotation cp="🧑🏽‍🦼">invalid | oseba na motoriziranem invalidskem vozičku | srednji ten kože | voziček</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">oseba na motoriziranem invalidskem vozičku: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🦼">invalid | srednje temen ten kože | voziček</annotation>
+		<annotation cp="🧑🏾‍🦼">invalid | oseba na motoriziranem invalidskem vozičku | srednje temen ten kože | voziček</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">oseba na motoriziranem invalidskem vozičku: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🦼">invalid | temen ten kože | voziček</annotation>
+		<annotation cp="🧑🏿‍🦼">invalid | oseba na motoriziranem invalidskem vozičku | temen ten kože | voziček</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">oseba na motoriziranem invalidskem vozičku: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🦼">invalid | moški | moški na motoriziranem invalidskem vozičku | svetel ten kože | voziček</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">moški na motoriziranem invalidskem vozičku: svetel ten kože</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">ženska na motoriziranem invalidskem vozičku: srednje temen ten kože</annotation>
 		<annotation cp="👩🏿‍🦼">invalid | temen ten kože | voziček | ženska | ženska na motoriziranem invalidskem vozičku</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">ženska na motoriziranem invalidskem vozičku: temen ten kože</annotation>
-		<annotation cp="🧑🏻‍🦽">invalid | svetel ten kože | voziček</annotation>
+		<annotation cp="🧑🏻‍🦽">invalid | oseba na ročnem invalidskem vozičku | svetel ten kože | voziček</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">oseba na ročnem invalidskem vozičku: svetel ten kože</annotation>
-		<annotation cp="🧑🏼‍🦽">invalid | srednje svetel ten kože | voziček</annotation>
+		<annotation cp="🧑🏼‍🦽">invalid | oseba na ročnem invalidskem vozičku | srednje svetel ten kože | voziček</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">oseba na ročnem invalidskem vozičku: srednje svetel ten kože</annotation>
-		<annotation cp="🧑🏽‍🦽">invalid | srednji ten kože | voziček</annotation>
+		<annotation cp="🧑🏽‍🦽">invalid | oseba na ročnem invalidskem vozičku | srednji ten kože | voziček</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">oseba na ročnem invalidskem vozičku: srednji ten kože</annotation>
-		<annotation cp="🧑🏾‍🦽">invalid | srednje temen ten kože | voziček</annotation>
+		<annotation cp="🧑🏾‍🦽">invalid | oseba na ročnem invalidskem vozičku | srednje temen ten kože | voziček</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">oseba na ročnem invalidskem vozičku: srednje temen ten kože</annotation>
-		<annotation cp="🧑🏿‍🦽">invalid | temen ten kože | voziček</annotation>
+		<annotation cp="🧑🏿‍🦽">invalid | oseba na ročnem invalidskem vozičku | temen ten kože | voziček</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">oseba na ročnem invalidskem vozičku: temen ten kože</annotation>
 		<annotation cp="👨🏻‍🦽">invalid | moški | moški na ročnem invalidskem vozičku | svetel ten kože | voziček</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">moški na ročnem invalidskem vozičku: svetel ten kože</annotation>
@@ -2276,15 +2366,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧗🏾‍♂" type="tts">plezalec: srednje temen ten kože</annotation>
 		<annotation cp="🧗🏿‍♂">moški, ki pleza | plezalec | temen ten kože</annotation>
 		<annotation cp="🧗🏿‍♂" type="tts">plezalec: temen ten kože</annotation>
-		<annotation cp="🧗🏻‍♀">plezalec | svetel ten kože | ženska, ki pleza</annotation>
+		<annotation cp="🧗🏻‍♀">plezalec | plezalka | svetel ten kože | ženska, ki pleza</annotation>
 		<annotation cp="🧗🏻‍♀" type="tts">plezalka: svetel ten kože</annotation>
-		<annotation cp="🧗🏼‍♀">plezalec | srednje svetel ten kože | ženska, ki pleza</annotation>
+		<annotation cp="🧗🏼‍♀">plezalec | plezalka | srednje svetel ten kože | ženska, ki pleza</annotation>
 		<annotation cp="🧗🏼‍♀" type="tts">plezalka: srednje svetel ten kože</annotation>
-		<annotation cp="🧗🏽‍♀">plezalec | srednji ten kože | ženska, ki pleza</annotation>
+		<annotation cp="🧗🏽‍♀">plezalec | plezalka | srednji ten kože | ženska, ki pleza</annotation>
 		<annotation cp="🧗🏽‍♀" type="tts">plezalka: srednji ten kože</annotation>
-		<annotation cp="🧗🏾‍♀">plezalec | srednje temen ten kože | ženska, ki pleza</annotation>
+		<annotation cp="🧗🏾‍♀">plezalec | plezalka | srednje temen ten kože | ženska, ki pleza</annotation>
 		<annotation cp="🧗🏾‍♀" type="tts">plezalka: srednje temen ten kože</annotation>
-		<annotation cp="🧗🏿‍♀">plezalec | temen ten kože | ženska, ki pleza</annotation>
+		<annotation cp="🧗🏿‍♀">plezalec | plezalka | temen ten kože | ženska, ki pleza</annotation>
 		<annotation cp="🧗🏿‍♀" type="tts">plezalka: temen ten kože</annotation>
 		<annotation cp="🏇🏻">dirkalni konj | dirkanje | džokej | konj | konjske dirke | svetel ten kože</annotation>
 		<annotation cp="🏇🏻" type="tts">konjske dirke: svetel ten kože</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">oseba v postelji: temen ten kože</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">držati | oseba | osebi se držita za roke | par | roka | svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">osebi se držita za roke: svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">osebi se držita za roke: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">držati | oseba | osebi se držita za roke | par | roka | srednji ten kože | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">osebi se držita za roke: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">držati | oseba | osebi se držita za roke | par | roka | srednje temen ten kože | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">osebi se držita za roke: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">držati | oseba | osebi se držita za roke | par | roka | svetel ten kože | temen ten kože</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">osebi se držita za roke: svetel ten kože in temen ten kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">osebi se držita za roke: srednje svetel ten kože in svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">osebi se držita za roke: srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | srednji ten kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">osebi se držita za roke: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">osebi se držita za roke: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | temen ten kože</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">osebi se držita za roke: srednje svetel ten kože in temen ten kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">držati | oseba | osebi se držita za roke | par | roka | srednji ten kože | svetel ten kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">osebi se držita za roke: srednji ten kože in svetel ten kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | srednji ten kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">osebi se držita za roke: srednji ten kože in srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">držati | oseba | osebi se držita za roke | par | roka | srednji ten kože</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">osebi se držita za roke: srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">držati | oseba | osebi se držita za roke | par | roka | srednje temen ten kože | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">osebi se držita za roke: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">držati | oseba | osebi se držita za roke | par | roka | srednji ten kože | temen ten kože</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">osebi se držita za roke: srednji ten kože in temen ten kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">držati | oseba | osebi se držita za roke | par | roka | srednje temen ten kože | svetel ten kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">osebi se držita za roke: srednje temen ten kože in svetel ten kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | srednje temen ten kože</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">osebi se držita za roke: srednje temen ten kože in srednji ten kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">držati | oseba | osebi se držita za roke | par | roka | srednje temen ten kože</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">osebi se držita za roke: srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">držati | oseba | osebi se držita za roke | par | roka | srednje temen ten kože | temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">osebi se držita za roke: srednje temen ten kože in temen ten kože</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">držati | oseba | osebi se držita za roke | par | roka | svetel ten kože | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">osebi se držita za roke: temen ten kože in svetel ten kože</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">držati | oseba | osebi se držita za roke | par | roka | srednje svetel ten kože | temen ten kože</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">osebi se držita za roke: temen ten kože</annotation>
 		<annotation cp="👭🏻">držati | par | roka | svetel ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👭🏻" type="tts">ženski se držita za roke: svetel ten kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">držati | par | roka | srednje svetel ten kože | svetel ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">ženski se držita za roke: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">držati | par | roka | srednji ten kože | svetel ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">ženski se držita za roke: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">držati | par | roka | srednje temen ten kože | svetel ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">ženski se držita za roke: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">držati | par | roka | svetel ten kože | temen ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">ženski se držita za roke: svetel ten kože in temen ten kože</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">držati | par | roka | srednje svetel ten kože | svetel ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">ženski se držita za roke: srednje svetel ten kože in svetel ten kože</annotation>
 		<annotation cp="👭🏼">držati | par | roka | srednje svetel ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👭🏼" type="tts">ženski se držita za roke: srednje svetel ten kože</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">držati | par | roka | srednje svetel ten kože | srednji ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">ženski se držita za roke: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">držati | par | roka | srednje svetel ten kože | srednje temen ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">ženski se držita za roke: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">držati | par | roka | srednje svetel ten kože | temen ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">ženski se držita za roke: srednje svetel ten kože in temen ten kože</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">držati | par | roka | srednji ten kože | svetel ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">ženski se držita za roke: srednji ten kože in svetel ten kože</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">držati | par | roka | srednje svetel ten kože | srednji ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">ženski se držita za roke: srednji ten kože in srednje svetel ten kože</annotation>
 		<annotation cp="👭🏽">držati | par | roka | srednji ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👭🏽" type="tts">ženski se držita za roke: srednji ten kože</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">držati | par | roka | srednje temen ten kože | srednji ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">ženski se držita za roke: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">držati | par | roka | srednji ten kože | temen ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">ženski se držita za roke: srednji ten kože in temen ten kože</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">držati | par | roka | srednje temen ten kože | svetel ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">ženski se držita za roke: srednje temen ten kože in svetel ten kože</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">držati | par | roka | srednje svetel ten kože | srednje temen ten kože | ženska | ženski se držita za roke</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">ženski se držita za roke: srednje temen ten kože in srednji ten kože</annotation>
 		<annotation cp="👭🏾">držati | par | roka | srednje temen ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👭🏾" type="tts">ženski se držita za roke: srednje temen ten kože</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">držati | par | roka | srednje temen ten kože | temen ten kože | ženska | ženski se držita za roke</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">ženski se držita za roke: srednje temen ten kože in temen ten kože</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">držati | par | roka | svetel ten kože | temen ten kože | ženska | ženski se držita za roke</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">ženski se držita za roke: temen ten kože in svetel ten kože</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">držati | par | roka | srednje svetel ten kože | temen ten kože | ženska | ženski se držita za roke</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">moški in ženska se držita za roke: temen ten kože</annotation>
 		<annotation cp="👬🏻">dvojčka | moška se držita za roke | moški | par | svetel ten kože | zodiak</annotation>
 		<annotation cp="👬🏻" type="tts">moška se držita za roke: svetel ten kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | svetel ten kože | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">moška se držita za roke: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">dvojčka | moška se držita za roke | moški | par | srednji ten kože | svetel ten kože | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">moška se držita za roke: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">dvojčka | moška se držita za roke | moški | par | srednje temen ten kože | svetel ten kože | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">moška se držita za roke: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">dvojčka | moška se držita za roke | moški | par | svetel ten kože | temen ten kože | zodiak</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">moška se držita za roke: svetel ten kože in temen ten kože</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | svetel ten kože | zodiak</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">moška se držita za roke: srednje svetel ten kože in svetel ten kože</annotation>
 		<annotation cp="👬🏼">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | zodiak</annotation>
 		<annotation cp="👬🏼" type="tts">moška se držita za roke: srednje svetel ten kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | srednji ten kože | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">moška se držita za roke: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | srednje temen ten kože | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">moška se držita za roke: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | temen ten kože | zodiak</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">moška se držita za roke: srednje svetel ten kože in temen ten kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">dvojčka | moška se držita za roke | moški | par | srednji ten kože | svetel ten kože | zodiak</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">moška se držita za roke: srednji ten kože in svetel ten kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | srednji ten kože | zodiak</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">moška se držita za roke: srednji ten kože in srednje svetel ten kože</annotation>
 		<annotation cp="👬🏽">dvojčka | moška se držita za roke | moški | par | srednji ten kože | zodiak</annotation>
 		<annotation cp="👬🏽" type="tts">moška se držita za roke: srednji ten kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">dvojčka | moška se držita za roke | moški | par | srednje temen ten kože | srednji ten kože | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">moška se držita za roke: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">dvojčka | moška se držita za roke | moški | par | srednji ten kože | temen ten kože | zodiak</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">moška se držita za roke: srednji ten kože in temen ten kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">dvojčka | moška se držita za roke | moški | par | srednje temen ten kože | svetel ten kože | zodiak</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">moška se držita za roke: srednje temen ten kože in svetel ten kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | srednje temen ten kože | zodiak</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">moška se držita za roke: srednje temen ten kože in srednji ten kože</annotation>
 		<annotation cp="👬🏾">dvojčka | moška se držita za roke | moški | par | srednje temen ten kože | zodiak</annotation>
 		<annotation cp="👬🏾" type="tts">moška se držita za roke: srednje temen ten kože</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">dvojčka | moška se držita za roke | moški | par | srednje temen ten kože | temen ten kože | zodiak</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">moška se držita za roke: srednje temen ten kože in temen ten kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">dvojčka | moška se držita za roke | moški | par | svetel ten kože | temen ten kože | zodiak</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">moška se držita za roke: temen ten kože in svetel ten kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">dvojčka | moška se držita za roke | moški | par | srednje svetel ten kože | temen ten kože | zodiak</annotation>

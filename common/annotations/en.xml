@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -38,9 +38,9 @@ annotations.
 		<annotation cp="»" type="tts">right guillemet</annotation>
 		<annotation cp="§">paragraph | part | section | silcrow</annotation>
 		<annotation cp="§" type="tts">section</annotation>
-		<annotation cp="†">dagger | obelisk | obelus</annotation>
+		<annotation cp="†">dagger | dagger sign | obelisk | obelus</annotation>
 		<annotation cp="†" type="tts">dagger sign</annotation>
-		<annotation cp="‡">dagger | double | obelisk | obelus</annotation>
+		<annotation cp="‡">dagger | double | double dagger sign | obelisk | obelus</annotation>
 		<annotation cp="‡" type="tts">double dagger sign</annotation>
 		<annotation cp="•">bullet | dot</annotation>
 		<annotation cp="•" type="tts">bullet</annotation>
@@ -74,7 +74,7 @@ annotations.
 		<annotation cp="⁻" type="tts">superscript minus</annotation>
 		<annotation cp="√">radical | radix | root | square | surd</annotation>
 		<annotation cp="√" type="tts">square root</annotation>
-		<annotation cp="∞">infinity</annotation>
+		<annotation cp="∞">infinity | infinity sign</annotation>
 		<annotation cp="∞" type="tts">infinity sign</annotation>
 		<annotation cp="∩">intersection | set</annotation>
 		<annotation cp="∩" type="tts">intersection</annotation>
@@ -614,7 +614,7 @@ annotations.
 		<annotation cp="🧑" type="tts">person</annotation>
 		<annotation cp="👱">blond | blond-haired person | hair | person: blond hair</annotation>
 		<annotation cp="👱" type="tts">person: blond hair</annotation>
-		<annotation cp="🧑‍🍼">baby, feeding, nursing, person | person feeding baby</annotation> <!-- 1F9D1 200D 1F37C -->
+		<annotation cp="🧑‍🍼">baby | feeding | nursing | person</annotation> <!-- 1F9D1 200D 1F37C -->
 		<annotation cp="🧑‍🍼" type="tts">person feeding baby</annotation>
 		<annotation cp="🧑‍🎄">Claus, christmas | mx claus</annotation> <!-- 1F9D1 200D 1F384 -->
 		<annotation cp="🧑‍🎄" type="tts">mx claus</annotation>
@@ -2885,7 +2885,7 @@ annotations.
 		<annotation cp="➕" type="tts">plus</annotation>
 		<annotation cp="➖">- | − | math | minus | sign</annotation>
 		<annotation cp="➖" type="tts">minus</annotation>
-		<annotation cp="➗">÷ | division | math | sign</annotation>
+		<annotation cp="➗">÷ | divide | division | math | sign</annotation>
 		<annotation cp="➗" type="tts">divide</annotation>
 		<annotation cp="➰">curl | curly loop | loop</annotation>
 		<annotation cp="➰" type="tts">curly loop</annotation>

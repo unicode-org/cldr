@@ -1,10 +1,14 @@
 package org.unicode.cldr.tool;
 
 import java.util.List;
+import java.util.Set;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * Constants specific to CLDR tools.
@@ -21,27 +25,6 @@ public class ToolConstants {
         trunk, // before the release is tagged
         release // for release version
     }
-
-    // Change the following for each release depending on the phase
-
-    private static final String DEFAULT_CHART_VERSION = "37";
-    public static final String CHART_DISPLAY_VERSION = "37β";
-    public static final String LAST_RELEASE_VERSION = "36";
-
-    private static final ChartStatus DEFAULT_CHART_STATUS = ChartStatus.beta;
-
-    // DON'T CHANGE ANY OF THE FOLLOWING; THEY ARE DRIVEN BY THE ABOVE
-
-    // allows overriding with -D
-    public static final String CHART_VERSION = CldrUtility.getProperty("CHART_VERSION", DEFAULT_CHART_VERSION);
-    public static final String LAST_CHART_VERSION = Integer.parseInt(CHART_VERSION) + ".0"; // must have 1 decimal
-    public static final ChartStatus CHART_STATUS = !CHART_VERSION.equals(DEFAULT_CHART_VERSION) ? ChartStatus.release
-        : ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS", DEFAULT_CHART_STATUS.toString()));
-
-    // build from the above
-    public static final boolean BETA = CHART_STATUS == ChartStatus.beta;
-    public static final String CHART_SOURCE = "http://unicode.org/repos/cldr/"
-        + (CHART_STATUS != ChartStatus.release ? "trunk/" : "tags/release-" + CHART_VERSION + "/");
 
     public static final List<String> CLDR_VERSIONS = ImmutableList.of(
         "1.1.1",
@@ -71,18 +54,59 @@ public class ToolConstants {
         "34.0",
         "35.0",
         "35.1",
-        "36.0"
-    // add to this once the release is final!
-    );
-    public static final String PREVIOUS_CHART_VERSION;
-    static {
+        "36.0",
+        "36.1"
+        // add to this once the release is final!
+        );
+    public static final String DEV_VERSION = "37";
+
+    public static final Set<String> CLDR_RELEASE_VERSION_SET = ImmutableSet.copyOf(ToolConstants.CLDR_VERSIONS);
+    public static final Set<String> CLDR_RELEASE_AND_DEV_VERSION_SET = ImmutableSet.<String>builder().addAll(CLDR_RELEASE_VERSION_SET).add(DEV_VERSION).build();
+
+    public static String previousVersion(String version) {
         String last = "";
         for (String current : CLDR_VERSIONS) {
-            if (current.equals(LAST_CHART_VERSION)) {
+            if (current.equals(version)) {
                 break;
             }
             last = current;
         }
-        PREVIOUS_CHART_VERSION = last;
+        return last;
     }
+
+    public static String getBaseDirectory(String version) {
+        if (CLDR_RELEASE_VERSION_SET.contains(version)) {
+            return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/";
+        }
+        return CLDRPaths.BASE_DIRECTORY;
+    }
+
+    // allows overriding with -D
+    public static final String CHART_VERSION = CldrUtility.getProperty("CHART_VERSION", DEV_VERSION);
+    public static final VersionInfo CHART_VI = VersionInfo.getInstance(CHART_VERSION);
+
+    public static final String PREV_CHART_VERSION = CldrUtility.getProperty("PREV_CHART_VERSION", previousVersion(CHART_VERSION));
+    public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(CHART_VERSION);
+    public static final String PREV_CHART_VERSION_WITH0 = PREV_CHART_VI.getVersionString(2, 2); // must have 1 decimal
+
+    public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS", 
+        CLDR_RELEASE_VERSION_SET.contains(CHART_VERSION) 
+        ? "release" 
+            : "beta"));
+    public static final boolean BETA = CHART_STATUS == ChartStatus.beta;
+
+    // DON'T CHANGE ANY OF THE FOLLOWING DEFINITIONS; THEY ARE DRIVEN BY THE ABOVE
+
+    public static final String CHART_DISPLAY_VERSION = CHART_VI.getVersionString(2, 2) + (BETA ? "β" : "");
+
+    public static final String LAST_RELEASE_VERSION = CLDR_VERSIONS.get(CLDR_VERSIONS.size()-1);
+    public static final VersionInfo LAST_RELEASE_VI = VersionInfo.getInstance(LAST_RELEASE_VERSION);
+    public static final String LAST_RELEASE_VERSION_WITH0 = LAST_RELEASE_VI.getVersionString(2, 2); // must have 1 decimal
+
+
+    //public static final String CHART_SOURCE_DIRECTORY = CLDR_VERSIONS.contains(CHART_VERSION) ? ""
+
+    public static final String CHART_SOURCE = "http://unicode.org/repos/cldr/"
+        + (CHART_STATUS != ChartStatus.release ? "trunk/" : "tags/release-" + CHART_VERSION + "/");
+
 }

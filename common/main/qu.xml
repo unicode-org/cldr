@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3839,7 +3839,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard>Hora de la Isla Norfolk</standard>
+					<generic draft="contributed">Hora de la Isla Norfolk</generic>
+					<standard draft="contributed">Hora Estandar de la Isla Norfolk</standard>
+					<daylight draft="contributed">Hora de Verano de la Isla Norfolk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -4200,7 +4202,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
-				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFN">
@@ -4214,7 +4215,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
-				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
@@ -4246,7 +4246,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZN">
-				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAM">
@@ -5093,7 +5092,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5174,7 +5173,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5198,7 +5197,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5582,15 +5581,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5654,7 +5653,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5790,7 +5789,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
+			<unit type="acceleration-meter-per-square-second">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5871,7 +5870,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-part-per-million">
+			<unit type="concentr-permillion">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5895,7 +5894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6279,15 +6278,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-millimeter-of-mercury">
+			<unit type="pressure-millimeter-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-pound-per-square-inch">
+			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="pressure-inch-hg">
+			<unit type="pressure-inch-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6351,7 +6350,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="torque-pound-foot">
+			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6487,7 +6486,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-liter-per-100kilometers">
+			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6754,7 +6753,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wdth" subtype="62.5" alt="compressed">↑↑↑</styleName>
 		<styleName type="wdth" subtype="62.5" alt="narrow">↑↑↑</styleName>
 		<styleName type="wdth" subtype="75">↑↑↑</styleName>
-		<styleName type="wdth" subtype="75" alt="compressed">↑↑↑</styleName>
 		<styleName type="wdth" subtype="75" alt="narrow">↑↑↑</styleName>
 		<styleName type="wdth" subtype="87.5">↑↑↑</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed">↑↑↑</styleName>
@@ -6764,8 +6762,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wdth" subtype="112.5" alt="extended">↑↑↑</styleName>
 		<styleName type="wdth" subtype="112.5" alt="wide">↑↑↑</styleName>
 		<styleName type="wdth" subtype="125">↑↑↑</styleName>
-		<styleName type="wdth" subtype="125" alt="extended">↑↑↑</styleName>
-		<styleName type="wdth" subtype="125" alt="wide">↑↑↑</styleName>
 		<styleName type="wdth" subtype="150">↑↑↑</styleName>
 		<styleName type="wdth" subtype="150" alt="extended">↑↑↑</styleName>
 		<styleName type="wdth" subtype="150" alt="wide">↑↑↑</styleName>
@@ -6785,10 +6781,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wght" subtype="700">↑↑↑</styleName>
 		<styleName type="wght" subtype="800">↑↑↑</styleName>
 		<styleName type="wght" subtype="900">↑↑↑</styleName>
-		<styleName type="wght" subtype="900" alt="heavy">↑↑↑</styleName>
 		<styleName type="wght" subtype="950">↑↑↑</styleName>
-		<styleName type="wght" subtype="950" alt="ultrablack">↑↑↑</styleName>
-		<styleName type="wght" subtype="950" alt="ultraheavy">↑↑↑</styleName>
 		<featureName type="afrc">↑↑↑</featureName>
 		<featureName type="cpsp">↑↑↑</featureName>
 		<featureName type="dlig">↑↑↑</featureName>

@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "http://unicode.org/reports/reports.css" type="text/css">
+  "https://unicode.org/reports/reports.css" type="text/css">
   <title>UTS #35: Unicode Locale Data Markup Language</title>
   <style type="text/css">
   <!--
@@ -76,7 +76,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="http://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -102,7 +102,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2019-10-30</td>
+        <td class="changed">2012-03-18</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -6320,7 +6320,7 @@ root</pre>
         </tr>
         <tr>
           <th>prop</th>
-          <td><code>= '\\' [pP] '{' propName ([≠=] s value1+)?
+          <td><code>= <span class='changed'>'\'</span> [pP] '{' propName ([≠=] s value1+)?
           '}'<br>
           | '[:' '^'? propName ([≠=] s value2+)? ':]'</code></td>
           <td>\p{x=y}, [:x=y:]<br></td>
@@ -6334,7 +6334,7 @@ root</pre>
         <tr>
           <th>value1</th>
           <td><code>= [^\}]<br>
-          | '\\' quoted</code></td>
+          | <span class="changed">'\'</span> quoted</code></td>
           <td>Lm,<br>
           \n,<br>
           \}</td>
@@ -6342,7 +6342,7 @@ root</pre>
         <tr>
           <th>value2</th>
           <td><code>= [^:]<br>
-          | '\\' quoted</code></td>
+          | <span class="changed">'\'</span> quoted</code></td>
           <td>Lm,<br>
           \n,<br>
           \:</td>
@@ -6350,7 +6350,7 @@ root</pre>
         <tr>
           <th>char</th>
           <td><code>= [^\&amp; \- \[ \[ \] \\ \} \{ [:Pat_WS:]]<br>
-          | '\\' quoted</code></td>
+          | <span class="changed">'\'</span> quoted</code></td>
           <td>a, b, c, \n</td>
         </tr>
         <tr>
@@ -6359,8 +6359,13 @@ root</pre>
           | 'x' (hex{2} | bracketedHex)<br>
           | 'U00' ('0' hex{5} | '10' hex{4})<br>
           | 'N{' propName '}'<br>
-          | [\u0000-\U00010FFFF]</code></td>
-          <td>&nbsp;</td>
+          | <span class='changed'>[</span>[\u0000-\U00010FFFF]<span class='changed'>-[uxUN]]</span></code></td>
+          <td span class='changed'><em><strong>error</strong> if lengths not exact</em></td>
+        </tr>
+        <tr class='changed'>
+          <th>charName</th>
+          <td><code>= s [A-Za-z0-9] [-A-Za-z0-9_\x20]* s</code></td>
+          <td>TIBETAN LETTER -A</td>
         </tr>
         <tr>
           <th>bracketedHex</th>
@@ -6387,7 +6392,7 @@ root</pre>
     </div>
     <p>Some constraints on UnicodeSet syntax are not captured by
     this EBNF. Notably, property names and values are restricted to
-    those supported by the implementation.</p>
+    those supported by the implementation, <span class='changed'>and have additional constraints imposed by [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. In addition, quoted values that resolve to more than one code point are disallowed in ranges of the form <code>char '-' char</code>.</span></p>
     <p>The syntax characters are listed in the table below:</p>
     <table>
       <tbody>
@@ -6503,7 +6508,7 @@ root</pre>
       </tr>
       <tr>
         <td>\xhh</td>
-        <td>1-2 hex digits</td>
+        <td><span class='removed'>1-</span>2 hex digits</td>
       </tr>
       <tr>
         <td>\uhhhh</td>
@@ -7057,67 +7062,78 @@ decimal?, group?, special*)) &gt;</pre>
       <tbody>
         <tr>
           <th>Constraint</th>
-          <th>Comments</th>
+          <th colspan="2">Comments</th>
         </tr>
         <tr>
           <td>any</td>
-          <td>any string value</td>
+          <td colspan="2">any string value</td>
         </tr>
         <tr>
           <td>any/TODO</td>
-          <td>placeholder for future constraints</td>
+          <td colspan="2">placeholder for future constraints</td>
         </tr>
         <tr>
           <td>bcp47/anykey</td>
-          <td>any bcp47 key or tkey</td>
+          <td colspan="2">any bcp47 key or tkey</td>
         </tr>
         <tr>
           <td>bcp47/anyvalue</td>
-          <td>any bcp47 value (type) or tvalue</td>
+          <td colspan="2">any bcp47 value (type) or tvalue</td>
         </tr>
         <tr>
           <td>literal/{literal values}</td>
-          <td>comma separated</td>
+          <td colspan="2">comma separated</td>
         </tr>
         <tr>
           <td>regex/{regex expression}</td>
-          <td>valid regex expression</td>
+          <td colspan="2">valid regex expression</td>
         </tr>
         <tr>
           <td>bcp47/{key or tkey}</td>
-          <td>matches possible values for that key or tkey</td>
+          <td colspan="2">matches possible values for that key or tkey</td>
         </tr>
         <tr>
           <td>metazone</td>
-          <td>valid metazone</td>
+          <td colspan="2">valid metazone</td>
         </tr>
         <tr>
           <td>range/{start_number~{end_number}}</td>
-          <td>number between (inclusive) start and end</td>
+          <td colspan="2">number between (inclusive) start and end</td>
         </tr>
         <tr>
           <td>time/{time or date or date-time pattern}</td>
-          <td>eg HH:mm</td>
+          <td colspan="2">eg HH:mm</td>
         </tr>
         <tr>
           <td>unicodeset/{unicodeset pattern}</td>
-          <td>valid unicodeset</td>
+          <td colspan="2">valid unicodeset</td>
         </tr>
         <tr>
-          <td>validity/{field}</td>
-          <td>currency, language, locale, region, script, subdivision, unit, variant</td>
+          <td rowspan="4">validity/{field}</td>
+          <td colspan="2">currency, language, locale, region, script, subdivision, <span class='changed'>short-unit, </span>unit, variant</td>
+        </tr>
+        <tr class='changed'>
+          <td colspan="2">The field can be qualified by particular enums, such as:</td>
+        </tr>
+        <tr class='changed'>
+          <td>validity/unit/regular deprecated</td>
+          <td>matches only <em>deprecated</em> and <em>regular</em></td>
+        </tr class='changed'>
+        <tr class='changed'>
+          <td>validity/unit/!deprecated</td>
+          <td>matches all but <em>deprecated</em></td>
         </tr>
         <tr>
           <td>version</td>
-          <td>1 to 4 digit field version, such as 35.3.9</td>
+          <td colspan="2">1 to 4 digit field version, such as 35.3.9</td>
         </tr>
         <tr>
           <td>set/{match}</td>
-          <td>set of elements that match {match}</td>
+          <td colspan="2">set of elements that match {match}</td>
         </tr>
         <tr>
           <td>or/{match1}XX{match2}…</td>
-          <td>matches at least one of {match1}, etc</td>
+          <td colspan="2">matches at least one of {match1}, etc</td>
         </tr>
       </tbody>
     </table><br>
@@ -8998,41 +9014,29 @@ decimal?, group?, special*)) &gt;</pre>
     "Modifications">Modifications</a></h2>
 
     <p class="changed"><b>Revision 58</b></p>
-	  <ul>
-		  <li class="changed"><b>Proposed Update</b> for CLDR 37.</li>
-	  </ul>
-	  <p>&nbsp;</p>
-	  <p class="removed"><b>Revision 57</b></p>
-	<ul class="removed">
-	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>
-	    <ul>
-		  <li><strong>Section 3.2 <a href="#Unicode_locale_identifier">Unicode Locale Identifier</a></strong>
-			<ul>
-			  <li>Clarified differences between Unicode locale identifiers and RFC 6067. [<a href=
-			  "https://unicode-org.atlassian.net/browse/CLDR-11770">CLDR-11770</a>]</li>
-			</ul>
-		  </li>
+	<ul class="changed">
+	  <li ><b>Proposed Update</b> for CLDR 37.</li>
+
+	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
+		        <ul>
+          <li><strong>Section 5.7.1 <a href="#match_expressions" >Attribute Value Constraints</a></strong>: added enhancements for /validity, especially for units.</li>
+          <li><strong>Section <a href="#Unicode_Sets">5.3.3 Unicode Sets</a>: cleaned up syntax definitions</strong></li>
         </ul>
-	  </li>
+	</li>
 	  <li><strong>Part 2: <a href=
     "tr35-general.html#Contents">General</a> (display names &amp;
 	  transforms, etc.)</strong>
 	    <ul>
-		  <li><strong>Section 11 <a href="tr35-general.html#ListPatterns">List Patterns</a></strong>
-			<ul>
-			  <li>Add entries for standard-narrow and or-narrow patterns.
-			  [<a href="https://unicode-org.atlassian.net/browse/CLDR-13301">CLDR-13301</a>]</li>
-			</ul>
-		  </li>
-
-		  <li><strong>Section 14.1 <a href="tr35-general.html#SynthesizingNames">Synthesizing Sequence Names</a></strong>
-			<ul>
-			  <li>Document changes in the Emoji derived name algorithm.
-			  [<a href="https://unicode-org.atlassian.net/browse/CLDR-11952">CLDR-11952</a>]</li>
-			</ul>
-		  </li>
+	      <li><em> <strong>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a></strong></em>: added new subsections, and  renumbered other subsections
+            <ul>
+              <li ><strong>6.1 <a href="tr35-general.html#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></strong></li>
+              <li ><strong>6.2 <a href="tr35-general.html#Unit_Identifiers">Unit Identifiers</a></strong></li>
+              <li ><strong>6.3 <a href="tr35-general.html#Example_Units">Example Units</a></strong><a href="tr35-general.html#Example_Units"></a></li>
+            </ul>
+ 	        </li>
+ 	        <li><strong><em>Section 15 <a href="tr35-general.html#Grammatical_Features">Grammatical Features</a></em></strong>: added </li>
         </ul>
-	  </li>
+      </li>
 	  <li>
 	    <p><strong>Part 3: <a href=
     "tr35-numbers.html#Contents">Numbers</a> (number &amp; currency
@@ -9053,7 +9057,10 @@ decimal?, group?, special*)) &gt;</pre>
         <p><strong>Part 6: <a href=
     "tr35-info.html#Contents">Supplemental</a> (supplemental
           data)</strong></p>
-        <ul><li><em>no changes</em></li></ul>
+        <ul>
+              <li ><strong>Section 13 <a href="#Unit_Conversion" >Unit Conversion</a></strong>: added</li>
+              <li ><strong>Section 14 <a href="#Unit_Preferences">Unit Preferences</a></strong>: added</li>
+        </ul>
         <p><strong>Part 7: <a href=
     "tr35-keyboards.html#Contents">Keyboards</a> (keyboard
           mappings)</strong></p>

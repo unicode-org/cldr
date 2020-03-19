@@ -34,7 +34,7 @@ public class CLDRPaths {
     /** Maintained in GitHub, base directory for CLDR */
     
     public static final String BASE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_DIR", null));
-            
+    
     public static final String COMMON_DIRECTORY = CldrUtility.getPath(BASE_DIRECTORY, "common/");
     public static final String COLLATION_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, COLLATION_SUBDIR);
     public static final String CASING_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, CASING_SUBDIR);
@@ -81,9 +81,8 @@ public class CLDRPaths {
 
     public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE",
         CldrUtility.getPath(LOCAL_DIRECTORY, "cldr-archive/")));
-    public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.PREVIOUS_CHART_VERSION + "/";
-    public static final String LAST_RELEASE_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + "/";
-    public static final String LAST_COMMON_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
+    public static final String LAST_RELEASE_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION_WITH0 + "/";
+    public static final String LAST_COMMON_DIRECTORY = CldrUtility.getPath(LAST_RELEASE_DIRECTORY, "common/");
     public static final String LAST_TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, TRANSFORMS_SUBDIR);
 
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",

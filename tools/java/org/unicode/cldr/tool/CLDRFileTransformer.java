@@ -142,10 +142,10 @@ public class CLDRFileTransformer {
             String ruleString = CLDRTransforms.getIcuRulesFromXmlFile(transformDir, localeTransform.getTransformFilename(), directionInfo);
             transliterator = Transliterator.createFromRules(directionInfo.getId(),
                 ruleString, localeTransform.getDirection());
-            transliterators.put(localeTransform, transliterator);
         } else {
             transliterator = Transliterator.getInstance(localeTransform.getTransformFilename());
         }
+        transliterators.put(localeTransform, transliterator);
         return transliterator;
     }
 
@@ -253,11 +253,13 @@ public class CLDRFileTransformer {
             if (dir.equals("casing") // skip, field contents are keywords, not localizable content
                 || dir.equals("collation") // skip, field contents are complex, and can't be simply remapped
                 || dir.equals("annotationsDerived") // skip, derived later
-            ) {
+                ) {
                 continue;
             }
             System.out.println("\nDirectory: " + dir);
-            Factory factory = Factory.make(CLDRPaths.COMMON_DIRECTORY + dir + "/", ".*");
+            final String sourceDirectory = CLDRPaths.COMMON_DIRECTORY + dir + "/";
+            Factory factory = Factory.make(sourceDirectory, ".*");
+
             CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator);
             for (LocaleTransform localeTransform : LocaleTransform.values()) {
                 CLDRFile output = transformer.transform(localeTransform);
@@ -267,14 +269,15 @@ public class CLDRFileTransformer {
                 }
                 String outputDir = CLDRPaths.GEN_DIRECTORY + "common/" + dir + File.separator;
                 String outputFile = output.getLocaleID() + ".xml";
-                PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
-                System.out.println("Generating locale file: " + outputDir + outputFile);
-                if (!transformer.unconverted.isEmpty()) {
-                    System.out.println("Untransformed characters: " + transformer.unconverted);
-                    transformer.unconverted.clear();
+                
+                try (PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile)) {
+                    System.out.println("Generating locale file: " + outputDir + outputFile);
+                    if (!transformer.unconverted.isEmpty()) {
+                        System.out.println("Untransformed characters: " + transformer.unconverted);
+                        transformer.unconverted.clear();
+                    }
+                    output.write(out);
                 }
-                output.write(out);
-                out.close();
             }
         }
     }

@@ -1,4 +1,5 @@
 <%@page import="org.unicode.cldr.web.WebContext"%>
+<%@page import="com.google.common.collect.ImmutableSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -109,14 +110,18 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
                            if(dstatus != null) {
 	                           dstatus.appendChild(document.createElement('br'));
 	                           dstatus.appendChild(document.createTextNode('.'));
-	                           dojo.ready(function(){
-	                               dstatus.appendChild(document.createTextNode('.'));
-	                            	   window.setTimeout(function(){
-	                                       dstatus.appendChild(document.createTextNode('.'));
-	                            		    dojo.xhrGet({url: survURL, load: function(data) {   
-	                            		        dstatus.appendChild(document.createTextNode('Loaded  '+data.length + ' bytes from SurveyTool. Reloading this page..')); window.location.reload(true);
-	                            	   }, 2000 /* two seconds */);
-	                           	   });
+                               require(["dojo/ready"], function(ready) {
+                                   ready(function() {
+                                       dstatus.appendChild(document.createTextNode('.'));
+                                           window.setTimeout(function(){
+                                               dstatus.appendChild(document.createTextNode('.'));
+                                               cldrStAjax.sendXhr({url: survURL, load: function(data) {
+                                                   dstatus.appendChild(document.createTextNode('Loaded  ' + data.length +
+                                                       ' bytes from SurveyTool. Reloading this page..'));
+                                                   window.location.reload(true);
+                                               }, 2000 /* two seconds */);
+                                    });
+                               });
                            }
 <% } %>
                             
@@ -198,7 +203,7 @@ if(false) { // if we need to redirect for some reason..
 	// TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css
 %>
 <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
-<script type="text/javascript">
+<script>
 // set from incoming session
 surveySessionId = '<%=ctx.session.id%>';
 survURL = '<%=survURL%>';
@@ -213,7 +218,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 <body lang='<%=SurveyMain.TRANS_HINT_LOCALE.toLanguageTag()%>' data-spy="scroll" data-target="#itemInfo">
 
 <div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="CLDR Survey Tool"
-    execute="" data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">
+    data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">
 
     <div id='ariContent' class="dijitDialogPaneContentArea">
     	<div id='ariHelp'><a href='http://cldr.unicode.org/index/survey-tool#disconnected'>Help</a></div>
@@ -303,20 +308,25 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 	               <span class="hasTooltip" title="<%= ctx.session.user.email %>"><%= ctx.session.user.name %></span>
 	               <span class='glyphicon glyphicon-user tip-log' title='<%= ctx.session.user.org %>'></span>
 	              
-	              <% Integer reducedLevelVote =ctx.session.user.getLevel().canVoteAtReducedLevel(); 
-	              	 int regularVote = ctx.session.user.getLevel().getVotes(); %>
-	              <% if(reducedLevelVote != null) { %>
-	              	<select title="vote with a reduced number of votes" id="voteReduced" name="voteReduced">
-	              		<option selected="selected" value="<%= regularVote %>"><%= regularVote %> votes</option>
-	              		<option value="<%= reducedLevelVote %>"><%= reducedLevelVote %> votes</option>
-	             		</select>
-	              	 
-	              <% } %>
+	              <%
+	              VoteResolver.Level userLevel = ctx.session.user.getLevel();
+	              ImmutableSet<Integer> voteCountMenu = userLevel.getVoteCountMenu();
+	              if (voteCountMenu != null) {
+		              Integer regularVote = (Integer) userLevel.getVotes();
+					%>
+					<select title="vote with a different number of votes" id="voteLevelChanged" name="voteLevelChanged">
+					<% for (Integer voteLevel: voteCountMenu) {
+						String selectedOrNot = regularVote.equals(voteLevel) ? " selected=\"selected\"" : "";
+						%>
+						<option value="<%= voteLevel %>"<%= selectedOrNot %>><%= voteLevel %> votes</option>
+					<% } %>
+					</select>
+				<% } %>
 	               | <a class='navbar-link' href='<%= survURL + "?do=logout" %>'><span class='glyphicon glyphicon-log-out tip-log' title='Logout'></span><%= cookieMessage %></a>
-	                <script type="text/javascript">var isVisitor = 0</script>
+	                <script>var isVisitor = 0</script>
 	        <% } else { %>
                    | (<a href='<%= request.getContextPath() %>/login.jsp' class='navbar-link'>Login…</a>)
-      		        <script type="text/javascript">var isVisitor = 1</script>
+                   <script>var isVisitor = 1</script>
             		
             <% } %>
           </p>
@@ -427,7 +437,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
     <div class="row" id="main-row" style="padding-top:147px;">
     	<div class="col-md-9">
 		    <div data-dojo-type="dijit/layout/ContentPane" id="MainContentPane" data-dojo-props="splitter:true, region:'center'" >
-		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait<img src='loader.gif'></div>
+		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait<img src='loader.gif' alt='Please Wait'></div>
 		        <div id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
  			    <div id='nav-page-footer'>
 					<p class='nav-button'>
@@ -451,7 +461,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 	</div>
 </div>
 <div id="overlay"></div>
-<div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">

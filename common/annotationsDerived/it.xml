@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="it"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">carnagione chiara | dita | dita unite | gesto della mano | interrogativo | mano a pigna | sarcastico</annotation>
+		<annotation cp="🤌🏻" type="tts">mano a pigna: carnagione chiara</annotation>
+		<annotation cp="🤌🏼">carnagione abbastanza chiara | dita | dita unite | gesto della mano | interrogativo | mano a pigna | sarcastico</annotation>
+		<annotation cp="🤌🏼" type="tts">mano a pigna: carnagione abbastanza chiara</annotation>
+		<annotation cp="🤌🏽">carnagione olivastra | dita | dita unite | gesto della mano | interrogativo | mano a pigna | sarcastico</annotation>
+		<annotation cp="🤌🏽" type="tts">mano a pigna: carnagione olivastra</annotation>
+		<annotation cp="🤌🏾">carnagione abbastanza scura | dita | dita unite | gesto della mano | interrogativo | mano a pigna | sarcastico</annotation>
+		<annotation cp="🤌🏾" type="tts">mano a pigna: carnagione abbastanza scura</annotation>
+		<annotation cp="🤌🏿">carnagione scura | dita | dita unite | gesto della mano | interrogativo | mano a pigna | sarcastico</annotation>
+		<annotation cp="🤌🏿" type="tts">mano a pigna: carnagione scura</annotation>
 		<annotation cp="👋🏻">carnagione chiara | mano | mano che saluta | salutare</annotation>
 		<annotation cp="👋🏻" type="tts">mano che saluta: carnagione chiara</annotation>
 		<annotation cp="👋🏼">carnagione abbastanza chiara | mano | mano che saluta | salutare</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">persona: carnagione abbastanza scura e calvo</annotation>
 		<annotation cp="🧑🏿‍🦲">adulto | calvo | carnagione scura | persona</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">persona: carnagione scura e calvo</annotation>
+		<annotation cp="🧑🏻‍🍼">allattamento | bebè | carnagione chiara | nutrire | persona | persona che allatta</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">persona che allatta: carnagione chiara</annotation>
+		<annotation cp="🧑🏼‍🍼">allattamento | bebè | carnagione abbastanza chiara | nutrire | persona | persona che allatta</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">persona che allatta: carnagione abbastanza chiara</annotation>
+		<annotation cp="🧑🏽‍🍼">allattamento | bebè | carnagione olivastra | nutrire | persona | persona che allatta</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">persona che allatta: carnagione olivastra</annotation>
+		<annotation cp="🧑🏾‍🍼">allattamento | bebè | carnagione abbastanza scura | nutrire | persona | persona che allatta</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">persona che allatta: carnagione abbastanza scura</annotation>
+		<annotation cp="🧑🏿‍🍼">allattamento | bebè | carnagione scura | nutrire | persona | persona che allatta</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">persona che allatta: carnagione scura</annotation>
+		<annotation cp="🧑🏻‍🎄">carnagione chiara | Claus, Natale | Santa Claus</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Santa Claus: carnagione chiara</annotation>
+		<annotation cp="🧑🏼‍🎄">carnagione abbastanza chiara | Claus, Natale | Santa Claus</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Santa Claus: carnagione abbastanza chiara</annotation>
+		<annotation cp="🧑🏽‍🎄">carnagione olivastra | Claus, Natale | Santa Claus</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Santa Claus: carnagione olivastra</annotation>
+		<annotation cp="🧑🏾‍🎄">carnagione abbastanza scura | Claus, Natale | Santa Claus</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Santa Claus: carnagione abbastanza scura</annotation>
+		<annotation cp="🧑🏿‍🎄">carnagione scura | Claus, Natale | Santa Claus</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Santa Claus: carnagione scura</annotation>
 		<annotation cp="👨🏻">carnagione chiara | maschio | persone | uomo</annotation>
 		<annotation cp="👨🏻" type="tts">uomo: carnagione chiara</annotation>
 		<annotation cp="👨🏼">carnagione abbastanza chiara | maschio | persone | uomo</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">uomo: carnagione abbastanza scura e calvo</annotation>
 		<annotation cp="👨🏿‍🦲">calvo | carnagione scura | maschio | persone | uomo</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">uomo: carnagione scura e calvo</annotation>
+		<annotation cp="👨🏻‍🍼">allattamento | bebè | carnagione chiara | nutrire | uomo | uomo che allatta</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">uomo che allatta: carnagione chiara</annotation>
+		<annotation cp="👨🏼‍🍼">allattamento | bebè | carnagione abbastanza chiara | nutrire | uomo | uomo che allatta</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">uomo che allatta: carnagione abbastanza chiara</annotation>
+		<annotation cp="👨🏽‍🍼">allattamento | bebè | carnagione olivastra | nutrire | uomo | uomo che allatta</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">uomo che allatta: carnagione olivastra</annotation>
+		<annotation cp="👨🏾‍🍼">allattamento | bebè | carnagione abbastanza scura | nutrire | uomo | uomo che allatta</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">uomo che allatta: carnagione abbastanza scura</annotation>
+		<annotation cp="👨🏿‍🍼">allattamento | bebè | carnagione scura | nutrire | uomo | uomo che allatta</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">uomo che allatta: carnagione scura</annotation>
 		<annotation cp="👩🏻">carnagione chiara | donna | femmina | persone</annotation>
 		<annotation cp="👩🏻" type="tts">donna: carnagione chiara</annotation>
 		<annotation cp="👩🏼">carnagione abbastanza chiara | donna | femmina | persone</annotation>
@@ -646,15 +686,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">donna: carnagione abbastanza scura e calvo</annotation>
 		<annotation cp="👩🏿‍🦲">calvo | carnagione scura | donna | femmina | persone</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">donna: carnagione scura e calvo</annotation>
-		<annotation cp="🧓🏻">adulto anziano | anziano | carnagione chiara</annotation>
+		<annotation cp="👩🏻‍🍼">allattamento | bebè | carnagione chiara | donna | donna che allatta | nutrire</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">donna che allatta: carnagione chiara</annotation>
+		<annotation cp="👩🏼‍🍼">allattamento | bebè | carnagione abbastanza chiara | donna | donna che allatta | nutrire</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">donna che allatta: carnagione abbastanza chiara</annotation>
+		<annotation cp="👩🏽‍🍼">allattamento | bebè | carnagione olivastra | donna | donna che allatta | nutrire</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">donna che allatta: carnagione olivastra</annotation>
+		<annotation cp="👩🏾‍🍼">allattamento | bebè | carnagione abbastanza scura | donna | donna che allatta | nutrire</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">donna che allatta: carnagione abbastanza scura</annotation>
+		<annotation cp="👩🏿‍🍼">allattamento | bebè | carnagione scura | donna | donna che allatta | nutrire</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">donna che allatta: carnagione scura</annotation>
+		<annotation cp="🧓🏻">adulto anziano | anziano | carnagione chiara | persona anziana</annotation>
 		<annotation cp="🧓🏻" type="tts">persona anziana: carnagione chiara</annotation>
-		<annotation cp="🧓🏼">adulto anziano | anziano | carnagione abbastanza chiara</annotation>
+		<annotation cp="🧓🏼">adulto anziano | anziano | carnagione abbastanza chiara | persona anziana</annotation>
 		<annotation cp="🧓🏼" type="tts">persona anziana: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧓🏽">adulto anziano | anziano | carnagione olivastra</annotation>
+		<annotation cp="🧓🏽">adulto anziano | anziano | carnagione olivastra | persona anziana</annotation>
 		<annotation cp="🧓🏽" type="tts">persona anziana: carnagione olivastra</annotation>
-		<annotation cp="🧓🏾">adulto anziano | anziano | carnagione abbastanza scura</annotation>
+		<annotation cp="🧓🏾">adulto anziano | anziano | carnagione abbastanza scura | persona anziana</annotation>
 		<annotation cp="🧓🏾" type="tts">persona anziana: carnagione abbastanza scura</annotation>
-		<annotation cp="🧓🏿">adulto anziano | anziano | carnagione scura</annotation>
+		<annotation cp="🧓🏿">adulto anziano | anziano | carnagione scura | persona anziana</annotation>
 		<annotation cp="🧓🏿" type="tts">persona anziana: carnagione scura</annotation>
 		<annotation cp="👴🏻">anziano | carnagione chiara | nonno | persone | uomo</annotation>
 		<annotation cp="👴🏻" type="tts">uomo anziano: carnagione chiara</annotation>
@@ -976,15 +1026,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷🏾‍♀" type="tts">donna che scrolla le spalle: carnagione abbastanza scura</annotation>
 		<annotation cp="🤷🏿‍♀">carnagione scura | donna | donna che scrolla le spalle | dubitare | gesto | indifferenza</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">donna che scrolla le spalle: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍⚕">carnagione chiara | infermiera | infermiere | medico | sanità | terapista</annotation>
+		<annotation cp="🧑🏻‍⚕">carnagione chiara | infermiera | infermiere | medico | persona che lavora nella sanità | sanità | terapista</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">persona che lavora nella sanità: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍⚕">carnagione abbastanza chiara | infermiera | infermiere | medico | sanità | terapista</annotation>
+		<annotation cp="🧑🏼‍⚕">carnagione abbastanza chiara | infermiera | infermiere | medico | persona che lavora nella sanità | sanità | terapista</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">persona che lavora nella sanità: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍⚕">carnagione olivastra | infermiera | infermiere | medico | sanità | terapista</annotation>
+		<annotation cp="🧑🏽‍⚕">carnagione olivastra | infermiera | infermiere | medico | persona che lavora nella sanità | sanità | terapista</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">persona che lavora nella sanità: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍⚕">carnagione abbastanza scura | infermiera | infermiere | medico | sanità | terapista</annotation>
+		<annotation cp="🧑🏾‍⚕">carnagione abbastanza scura | infermiera | infermiere | medico | persona che lavora nella sanità | sanità | terapista</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">persona che lavora nella sanità: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍⚕">carnagione scura | infermiera | infermiere | medico | sanità | terapista</annotation>
+		<annotation cp="🧑🏿‍⚕">carnagione scura | infermiera | infermiere | medico | persona che lavora nella sanità | sanità | terapista</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">persona che lavora nella sanità: carnagione scura</annotation>
 		<annotation cp="👨🏻‍⚕">camice | carnagione chiara | dottore | operatore sanitario | ospedale | uomo</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">operatore sanitario: carnagione chiara</annotation>
@@ -1096,15 +1146,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍⚖" type="tts">giudice donna: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍⚖">bilancia | carnagione scura | donna | giudice | giustizia</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">giudice donna: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍🌾">allevatore | carnagione chiara | contadino | giardiniere</annotation>
+		<annotation cp="🧑🏻‍🌾">agricoltore | allevatore | carnagione chiara | contadino | giardiniere</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">agricoltore: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍🌾">allevatore | carnagione abbastanza chiara | contadino | giardiniere</annotation>
+		<annotation cp="🧑🏼‍🌾">agricoltore | allevatore | carnagione abbastanza chiara | contadino | giardiniere</annotation>
 		<annotation cp="🧑🏼‍🌾" type="tts">agricoltore: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍🌾">allevatore | carnagione olivastra | contadino | giardiniere</annotation>
+		<annotation cp="🧑🏽‍🌾">agricoltore | allevatore | carnagione olivastra | contadino | giardiniere</annotation>
 		<annotation cp="🧑🏽‍🌾" type="tts">agricoltore: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍🌾">allevatore | carnagione abbastanza scura | contadino | giardiniere</annotation>
+		<annotation cp="🧑🏾‍🌾">agricoltore | allevatore | carnagione abbastanza scura | contadino | giardiniere</annotation>
 		<annotation cp="🧑🏾‍🌾" type="tts">agricoltore: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍🌾">allevatore | carnagione scura | contadino | giardiniere</annotation>
+		<annotation cp="🧑🏿‍🌾">agricoltore | allevatore | carnagione scura | contadino | giardiniere</annotation>
 		<annotation cp="🧑🏿‍🌾" type="tts">agricoltore: carnagione scura</annotation>
 		<annotation cp="👨🏻‍🌾">allevatore | carnagione chiara | contadino | fattoria | uomo</annotation>
 		<annotation cp="👨🏻‍🌾" type="tts">contadino: carnagione chiara</annotation>
@@ -1126,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🌾" type="tts">contadina: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍🌾">allevatrice | carnagione scura | contadina | donna | fattoria</annotation>
 		<annotation cp="👩🏿‍🌾" type="tts">contadina: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍🍳">carnagione chiara | chef | cuoco</annotation>
+		<annotation cp="🧑🏻‍🍳">carnagione chiara | chef | cuoco | persona che cucina</annotation>
 		<annotation cp="🧑🏻‍🍳" type="tts">persona che cucina: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍🍳">carnagione abbastanza chiara | chef | cuoco</annotation>
+		<annotation cp="🧑🏼‍🍳">carnagione abbastanza chiara | chef | cuoco | persona che cucina</annotation>
 		<annotation cp="🧑🏼‍🍳" type="tts">persona che cucina: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍🍳">carnagione olivastra | chef | cuoco</annotation>
+		<annotation cp="🧑🏽‍🍳">carnagione olivastra | chef | cuoco | persona che cucina</annotation>
 		<annotation cp="🧑🏽‍🍳" type="tts">persona che cucina: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍🍳">carnagione abbastanza scura | chef | cuoco</annotation>
+		<annotation cp="🧑🏾‍🍳">carnagione abbastanza scura | chef | cuoco | persona che cucina</annotation>
 		<annotation cp="🧑🏾‍🍳" type="tts">persona che cucina: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍🍳">carnagione scura | chef | cuoco</annotation>
+		<annotation cp="🧑🏿‍🍳">carnagione scura | chef | cuoco | persona che cucina</annotation>
 		<annotation cp="🧑🏿‍🍳" type="tts">persona che cucina: carnagione scura</annotation>
 		<annotation cp="👨🏻‍🍳">carnagione chiara | chef | cucinare | cuoco | uomo</annotation>
 		<annotation cp="👨🏻‍🍳" type="tts">cuoco: carnagione chiara</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">meccanico donna: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍🔧">carnagione scura | chiave inglese | donna | idraulico donna | meccanico</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">meccanico donna: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍🏭">assemblaggio | carnagione chiara | fabbrica | industria | operaio</annotation>
+		<annotation cp="🧑🏻‍🏭">assemblaggio | carnagione chiara | fabbrica | industria | operaio | persona che lavora in fabbrica</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">persona che lavora in fabbrica: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍🏭">assemblaggio | carnagione abbastanza chiara | fabbrica | industria | operaio</annotation>
+		<annotation cp="🧑🏼‍🏭">assemblaggio | carnagione abbastanza chiara | fabbrica | industria | operaio | persona che lavora in fabbrica</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">persona che lavora in fabbrica: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍🏭">assemblaggio | carnagione olivastra | fabbrica | industria | operaio</annotation>
+		<annotation cp="🧑🏽‍🏭">assemblaggio | carnagione olivastra | fabbrica | industria | operaio | persona che lavora in fabbrica</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">persona che lavora in fabbrica: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍🏭">assemblaggio | carnagione abbastanza scura | fabbrica | industria | operaio</annotation>
+		<annotation cp="🧑🏾‍🏭">assemblaggio | carnagione abbastanza scura | fabbrica | industria | operaio | persona che lavora in fabbrica</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">persona che lavora in fabbrica: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍🏭">assemblaggio | carnagione scura | fabbrica | industria | operaio</annotation>
+		<annotation cp="🧑🏿‍🏭">assemblaggio | carnagione scura | fabbrica | industria | operaio | persona che lavora in fabbrica</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">persona che lavora in fabbrica: carnagione scura</annotation>
 		<annotation cp="👨🏻‍🏭">carnagione chiara | fabbrica | industria | operaio | uomo</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">operaio: carnagione chiara</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">operaia: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍🏭">carnagione scura | donna | fabbrica | industria | operaia</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">operaia: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍💼">architetto | business | carnagione chiara | impiegato | manager</annotation>
+		<annotation cp="🧑🏻‍💼">architetto | business | carnagione chiara | impiegato | manager | persona che fa un lavoro d’ufficio</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">persona che fa un lavoro d’ufficio: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍💼">architetto | business | carnagione abbastanza chiara | impiegato | manager</annotation>
+		<annotation cp="🧑🏼‍💼">architetto | business | carnagione abbastanza chiara | impiegato | manager | persona che fa un lavoro d’ufficio</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">persona che fa un lavoro d’ufficio: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍💼">architetto | business | carnagione olivastra | impiegato | manager</annotation>
+		<annotation cp="🧑🏽‍💼">architetto | business | carnagione olivastra | impiegato | manager | persona che fa un lavoro d’ufficio</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">persona che fa un lavoro d’ufficio: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍💼">architetto | business | carnagione abbastanza scura | impiegato | manager</annotation>
+		<annotation cp="🧑🏾‍💼">architetto | business | carnagione abbastanza scura | impiegato | manager | persona che fa un lavoro d’ufficio</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">persona che fa un lavoro d’ufficio: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍💼">architetto | business | carnagione scura | impiegato | manager</annotation>
+		<annotation cp="🧑🏿‍💼">architetto | business | carnagione scura | impiegato | manager | persona che fa un lavoro d’ufficio</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">persona che fa un lavoro d’ufficio: carnagione scura</annotation>
 		<annotation cp="👨🏻‍💼">business | carnagione chiara | impiegato | manager | ufficio | uomo</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">impiegato: carnagione chiara</annotation>
@@ -1246,15 +1296,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍💼" type="tts">impiegata: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍💼">business | carnagione scura | donna | impiegata | manager | ufficio</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">impiegata: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍🔬">biologo | carnagione chiara | chimico | fisico | ingegnere | scienziato</annotation>
+		<annotation cp="🧑🏻‍🔬">biologo | carnagione chiara | chimico | fisico | ingegnere | persona che lavora in campo scientifico | scienziato</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">persona che lavora in campo scientifico: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍🔬">biologo | carnagione abbastanza chiara | chimico | fisico | ingegnere | scienziato</annotation>
+		<annotation cp="🧑🏼‍🔬">biologo | carnagione abbastanza chiara | chimico | fisico | ingegnere | persona che lavora in campo scientifico | scienziato</annotation>
 		<annotation cp="🧑🏼‍🔬" type="tts">persona che lavora in campo scientifico: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍🔬">biologo | carnagione olivastra | chimico | fisico | ingegnere | scienziato</annotation>
+		<annotation cp="🧑🏽‍🔬">biologo | carnagione olivastra | chimico | fisico | ingegnere | persona che lavora in campo scientifico | scienziato</annotation>
 		<annotation cp="🧑🏽‍🔬" type="tts">persona che lavora in campo scientifico: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍🔬">biologo | carnagione abbastanza scura | chimico | fisico | ingegnere | scienziato</annotation>
+		<annotation cp="🧑🏾‍🔬">biologo | carnagione abbastanza scura | chimico | fisico | ingegnere | persona che lavora in campo scientifico | scienziato</annotation>
 		<annotation cp="🧑🏾‍🔬" type="tts">persona che lavora in campo scientifico: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍🔬">biologo | carnagione scura | chimico | fisico | ingegnere | scienziato</annotation>
+		<annotation cp="🧑🏿‍🔬">biologo | carnagione scura | chimico | fisico | ingegnere | persona che lavora in campo scientifico | scienziato</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">persona che lavora in campo scientifico: carnagione scura</annotation>
 		<annotation cp="👨🏻‍🔬">biologia | carnagione chiara | chimica | scienza | scienziato | uomo</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">scienziato: carnagione chiara</annotation>
@@ -1276,15 +1326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔬" type="tts">scienziata: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍🔬">biologia | carnagione scura | chimica | donna | scienza | scienziata</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">scienziata: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍💻">carnagione chiara | inventore | programmatore | software | sviluppatore | tecnologo</annotation>
+		<annotation cp="🧑🏻‍💻">carnagione chiara | inventore | persona esperta di tecnologia | programmatore | software | sviluppatore | tecnologo</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">persona esperta di tecnologia: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍💻">carnagione abbastanza chiara | inventore | programmatore | software | sviluppatore | tecnologo</annotation>
+		<annotation cp="🧑🏼‍💻">carnagione abbastanza chiara | inventore | persona esperta di tecnologia | programmatore | software | sviluppatore | tecnologo</annotation>
 		<annotation cp="🧑🏼‍💻" type="tts">persona esperta di tecnologia: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍💻">carnagione olivastra | inventore | programmatore | software | sviluppatore | tecnologo</annotation>
+		<annotation cp="🧑🏽‍💻">carnagione olivastra | inventore | persona esperta di tecnologia | programmatore | software | sviluppatore | tecnologo</annotation>
 		<annotation cp="🧑🏽‍💻" type="tts">persona esperta di tecnologia: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍💻">carnagione abbastanza scura | inventore | programmatore | software | sviluppatore | tecnologo</annotation>
+		<annotation cp="🧑🏾‍💻">carnagione abbastanza scura | inventore | persona esperta di tecnologia | programmatore | software | sviluppatore | tecnologo</annotation>
 		<annotation cp="🧑🏾‍💻" type="tts">persona esperta di tecnologia: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍💻">carnagione scura | inventore | programmatore | software | sviluppatore | tecnologo</annotation>
+		<annotation cp="🧑🏿‍💻">carnagione scura | inventore | persona esperta di tecnologia | programmatore | software | sviluppatore | tecnologo</annotation>
 		<annotation cp="🧑🏿‍💻" type="tts">persona esperta di tecnologia: carnagione scura</annotation>
 		<annotation cp="👨🏻‍💻">carnagione chiara | computer | programmatore | sviluppatore | tecnologo | uomo</annotation>
 		<annotation cp="👨🏻‍💻" type="tts">tecnologo: carnagione chiara</annotation>
@@ -1646,26 +1696,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">donna con velo: carnagione abbastanza scura</annotation>
 		<annotation cp="🧕🏿">carnagione scura | donna con foulard | donna con hijab | donna con velo</annotation>
 		<annotation cp="🧕🏿" type="tts">donna con velo: carnagione scura</annotation>
-		<annotation cp="🤵🏻">carnagione chiara | smoking | sposo | uomo | uomo in smoking</annotation>
-		<annotation cp="🤵🏻" type="tts">uomo in smoking: carnagione chiara</annotation>
-		<annotation cp="🤵🏼">carnagione abbastanza chiara | smoking | sposo | uomo | uomo in smoking</annotation>
-		<annotation cp="🤵🏼" type="tts">uomo in smoking: carnagione abbastanza chiara</annotation>
-		<annotation cp="🤵🏽">carnagione olivastra | smoking | sposo | uomo | uomo in smoking</annotation>
-		<annotation cp="🤵🏽" type="tts">uomo in smoking: carnagione olivastra</annotation>
-		<annotation cp="🤵🏾">carnagione abbastanza scura | smoking | sposo | uomo | uomo in smoking</annotation>
-		<annotation cp="🤵🏾" type="tts">uomo in smoking: carnagione abbastanza scura</annotation>
-		<annotation cp="🤵🏿">carnagione scura | smoking | sposo | uomo | uomo in smoking</annotation>
-		<annotation cp="🤵🏿" type="tts">uomo in smoking: carnagione scura</annotation>
-		<annotation cp="👰🏻">carnagione chiara | matrimonio persone | sposa | sposa con il velo | velo</annotation>
-		<annotation cp="👰🏻" type="tts">sposa: carnagione chiara</annotation>
-		<annotation cp="👰🏼">carnagione abbastanza chiara | matrimonio persone | sposa | sposa con il velo | velo</annotation>
-		<annotation cp="👰🏼" type="tts">sposa: carnagione abbastanza chiara</annotation>
-		<annotation cp="👰🏽">carnagione olivastra | matrimonio persone | sposa | sposa con il velo | velo</annotation>
-		<annotation cp="👰🏽" type="tts">sposa: carnagione olivastra</annotation>
-		<annotation cp="👰🏾">carnagione abbastanza scura | matrimonio persone | sposa | sposa con il velo | velo</annotation>
-		<annotation cp="👰🏾" type="tts">sposa: carnagione abbastanza scura</annotation>
-		<annotation cp="👰🏿">carnagione scura | matrimonio persone | sposa | sposa con il velo | velo</annotation>
-		<annotation cp="👰🏿" type="tts">sposa: carnagione scura</annotation>
+		<annotation cp="🤵🏻">carnagione chiara | persona | persona in smoking | smoking | sposo</annotation>
+		<annotation cp="🤵🏻" type="tts">persona in smoking: carnagione chiara</annotation>
+		<annotation cp="🤵🏼">carnagione abbastanza chiara | persona | persona in smoking | smoking | sposo</annotation>
+		<annotation cp="🤵🏼" type="tts">persona in smoking: carnagione abbastanza chiara</annotation>
+		<annotation cp="🤵🏽">carnagione olivastra | persona | persona in smoking | smoking | sposo</annotation>
+		<annotation cp="🤵🏽" type="tts">persona in smoking: carnagione olivastra</annotation>
+		<annotation cp="🤵🏾">carnagione abbastanza scura | persona | persona in smoking | smoking | sposo</annotation>
+		<annotation cp="🤵🏾" type="tts">persona in smoking: carnagione abbastanza scura</annotation>
+		<annotation cp="🤵🏿">carnagione scura | persona | persona in smoking | smoking | sposo</annotation>
+		<annotation cp="🤵🏿" type="tts">persona in smoking: carnagione scura</annotation>
+		<annotation cp="🤵🏻‍♀">carnagione chiara | donna | donna in smoking | smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">donna in smoking: carnagione chiara</annotation>
+		<annotation cp="🤵🏼‍♀">carnagione abbastanza chiara | donna | donna in smoking | smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">donna in smoking: carnagione abbastanza chiara</annotation>
+		<annotation cp="🤵🏽‍♀">carnagione olivastra | donna | donna in smoking | smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">donna in smoking: carnagione olivastra</annotation>
+		<annotation cp="🤵🏾‍♀">carnagione abbastanza scura | donna | donna in smoking | smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">donna in smoking: carnagione abbastanza scura</annotation>
+		<annotation cp="🤵🏿‍♀">carnagione scura | donna | donna in smoking | smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">donna in smoking: carnagione scura</annotation>
+		<annotation cp="🤵🏻‍♂">carnagione chiara | smoking | uomo | uomo in smoking</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">uomo in smoking: carnagione chiara</annotation>
+		<annotation cp="🤵🏼‍♂">carnagione abbastanza chiara | smoking | uomo | uomo in smoking</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">uomo in smoking: carnagione abbastanza chiara</annotation>
+		<annotation cp="🤵🏽‍♂">carnagione olivastra | smoking | uomo | uomo in smoking</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">uomo in smoking: carnagione olivastra</annotation>
+		<annotation cp="🤵🏾‍♂">carnagione abbastanza scura | smoking | uomo | uomo in smoking</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">uomo in smoking: carnagione abbastanza scura</annotation>
+		<annotation cp="🤵🏿‍♂">carnagione scura | smoking | uomo | uomo in smoking</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">uomo in smoking: carnagione scura</annotation>
+		<annotation cp="👰🏻">carnagione chiara | matrimonio persone | persona con velo | sposa | sposa con il velo | velo</annotation>
+		<annotation cp="👰🏻" type="tts">persona con velo: carnagione chiara</annotation>
+		<annotation cp="👰🏼">carnagione abbastanza chiara | matrimonio persone | persona con velo | sposa | sposa con il velo | velo</annotation>
+		<annotation cp="👰🏼" type="tts">persona con velo: carnagione abbastanza chiara</annotation>
+		<annotation cp="👰🏽">carnagione olivastra | matrimonio persone | persona con velo | sposa | sposa con il velo | velo</annotation>
+		<annotation cp="👰🏽" type="tts">persona con velo: carnagione olivastra</annotation>
+		<annotation cp="👰🏾">carnagione abbastanza scura | matrimonio persone | persona con velo | sposa | sposa con il velo | velo</annotation>
+		<annotation cp="👰🏾" type="tts">persona con velo: carnagione abbastanza scura</annotation>
+		<annotation cp="👰🏿">carnagione scura | matrimonio persone | persona con velo | sposa | sposa con il velo | velo</annotation>
+		<annotation cp="👰🏿" type="tts">persona con velo: carnagione scura</annotation>
+		<annotation cp="👰🏻‍♀">carnagione chiara | sposa | sposa con velo | velo</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">sposa con velo: carnagione chiara</annotation>
+		<annotation cp="👰🏼‍♀">carnagione abbastanza chiara | sposa | sposa con velo | velo</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">sposa con velo: carnagione abbastanza chiara</annotation>
+		<annotation cp="👰🏽‍♀">carnagione olivastra | sposa | sposa con velo | velo</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">sposa con velo: carnagione olivastra</annotation>
+		<annotation cp="👰🏾‍♀">carnagione abbastanza scura | sposa | sposa con velo | velo</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">sposa con velo: carnagione abbastanza scura</annotation>
+		<annotation cp="👰🏿‍♀">carnagione scura | sposa | sposa con velo | velo</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">sposa con velo: carnagione scura</annotation>
+		<annotation cp="👰🏻‍♂">carnagione chiara | sposo | sposo con velo | velo</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">sposo con velo: carnagione chiara</annotation>
+		<annotation cp="👰🏼‍♂">carnagione abbastanza chiara | sposo | sposo con velo | velo</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">sposo con velo: carnagione abbastanza chiara</annotation>
+		<annotation cp="👰🏽‍♂">carnagione olivastra | sposo | sposo con velo | velo</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">sposo con velo: carnagione olivastra</annotation>
+		<annotation cp="👰🏾‍♂">carnagione abbastanza scura | sposo | sposo con velo | velo</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">sposo con velo: carnagione abbastanza scura</annotation>
+		<annotation cp="👰🏿‍♂">carnagione scura | sposo | sposo con velo | velo</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">sposo con velo: carnagione scura</annotation>
 		<annotation cp="🤰🏻">carnagione chiara | donna | gravidanza | incinta</annotation>
 		<annotation cp="🤰🏻" type="tts">donna incinta: carnagione chiara</annotation>
 		<annotation cp="🤰🏼">carnagione abbastanza chiara | donna | gravidanza | incinta</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">donna inginocchiata: carnagione abbastanza scura</annotation>
 		<annotation cp="🧎🏿‍♀">carnagione scura | donna | donna inginocchiata | in ginocchio | inginocchiarsi</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">donna inginocchiata: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍🦯">accessibilità | carnagione chiara | cecità</annotation>
+		<annotation cp="🧑🏻‍🦯">accessibilità | carnagione chiara | cecità | persona con bastone di orientamento</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">persona con bastone di orientamento: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍🦯">accessibilità | carnagione abbastanza chiara | cecità</annotation>
+		<annotation cp="🧑🏼‍🦯">accessibilità | carnagione abbastanza chiara | cecità | persona con bastone di orientamento</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">persona con bastone di orientamento: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍🦯">accessibilità | carnagione olivastra | cecità</annotation>
+		<annotation cp="🧑🏽‍🦯">accessibilità | carnagione olivastra | cecità | persona con bastone di orientamento</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">persona con bastone di orientamento: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍🦯">accessibilità | carnagione abbastanza scura | cecità</annotation>
+		<annotation cp="🧑🏾‍🦯">accessibilità | carnagione abbastanza scura | cecità | persona con bastone di orientamento</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">persona con bastone di orientamento: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍🦯">accessibilità | carnagione scura | cecità</annotation>
+		<annotation cp="🧑🏿‍🦯">accessibilità | carnagione scura | cecità | persona con bastone di orientamento</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">persona con bastone di orientamento: carnagione scura</annotation>
 		<annotation cp="👨🏻‍🦯">accessibilità | carnagione chiara | cecità | ciechi | cieco | ipovedente | ipovedenti | non vedente | non vedenti | uomo | uomo con bastone bianco di orientamento</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">uomo con bastone bianco di orientamento: carnagione chiara</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">donna con bastone bianco di orientamento: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍🦯">accessibilità | carnagione scura | cecità | cieca | cieche | donna con bastone bianco di orientamento | donna non vedente | donne non vedenti | ipovedente | ipovedenti</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">donna con bastone bianco di orientamento: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍🦼">accessibilità | carnagione chiara | sedia a rotelle</annotation>
+		<annotation cp="🧑🏻‍🦼">accessibilità | carnagione chiara | persona su sedia a rotelle motorizzata | sedia a rotelle</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">persona su sedia a rotelle motorizzata: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍🦼">accessibilità | carnagione abbastanza chiara | sedia a rotelle</annotation>
+		<annotation cp="🧑🏼‍🦼">accessibilità | carnagione abbastanza chiara | persona su sedia a rotelle motorizzata | sedia a rotelle</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">persona su sedia a rotelle motorizzata: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍🦼">accessibilità | carnagione olivastra | sedia a rotelle</annotation>
+		<annotation cp="🧑🏽‍🦼">accessibilità | carnagione olivastra | persona su sedia a rotelle motorizzata | sedia a rotelle</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">persona su sedia a rotelle motorizzata: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍🦼">accessibilità | carnagione abbastanza scura | sedia a rotelle</annotation>
+		<annotation cp="🧑🏾‍🦼">accessibilità | carnagione abbastanza scura | persona su sedia a rotelle motorizzata | sedia a rotelle</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">persona su sedia a rotelle motorizzata: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍🦼">accessibilità | carnagione scura | sedia a rotelle</annotation>
+		<annotation cp="🧑🏿‍🦼">accessibilità | carnagione scura | persona su sedia a rotelle motorizzata | sedia a rotelle</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">persona su sedia a rotelle motorizzata: carnagione scura</annotation>
 		<annotation cp="👨🏻‍🦼">accessibilità | carnagione chiara | uomo in carrozzina | uomo in sedia a rotelle | uomo su sedia a rotelle motorizzata</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">uomo su sedia a rotelle motorizzata: carnagione chiara</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">donna su sedia a rotelle motorizzata: carnagione abbastanza scura</annotation>
 		<annotation cp="👩🏿‍🦼">accessibilità | carnagione scura | donna in carrozzina | donna in sedia a rotelle | donna su sedia a rotelle motorizzata</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">donna su sedia a rotelle motorizzata: carnagione scura</annotation>
-		<annotation cp="🧑🏻‍🦽">accessibilità | carnagione chiara | sedia a rotelle</annotation>
+		<annotation cp="🧑🏻‍🦽">accessibilità | carnagione chiara | persona su sedia a rotelle manuale | sedia a rotelle</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">persona su sedia a rotelle manuale: carnagione chiara</annotation>
-		<annotation cp="🧑🏼‍🦽">accessibilità | carnagione abbastanza chiara | sedia a rotelle</annotation>
+		<annotation cp="🧑🏼‍🦽">accessibilità | carnagione abbastanza chiara | persona su sedia a rotelle manuale | sedia a rotelle</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">persona su sedia a rotelle manuale: carnagione abbastanza chiara</annotation>
-		<annotation cp="🧑🏽‍🦽">accessibilità | carnagione olivastra | sedia a rotelle</annotation>
+		<annotation cp="🧑🏽‍🦽">accessibilità | carnagione olivastra | persona su sedia a rotelle manuale | sedia a rotelle</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">persona su sedia a rotelle manuale: carnagione olivastra</annotation>
-		<annotation cp="🧑🏾‍🦽">accessibilità | carnagione abbastanza scura | sedia a rotelle</annotation>
+		<annotation cp="🧑🏾‍🦽">accessibilità | carnagione abbastanza scura | persona su sedia a rotelle manuale | sedia a rotelle</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">persona su sedia a rotelle manuale: carnagione abbastanza scura</annotation>
-		<annotation cp="🧑🏿‍🦽">accessibilità | carnagione scura | sedia a rotelle</annotation>
+		<annotation cp="🧑🏿‍🦽">accessibilità | carnagione scura | persona su sedia a rotelle manuale | sedia a rotelle</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">persona su sedia a rotelle manuale: carnagione scura</annotation>
 		<annotation cp="👨🏻‍🦽">accessibilità | carnagione chiara | uomo in carrozzina | uomo in sedia a rotelle | uomo su sedia a rotelle manuale</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">uomo su sedia a rotelle manuale: carnagione chiara</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">persona a letto: carnagione scura</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">carnagione chiara | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">persone che si tengono per mano: carnagione chiara</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">carnagione abbastanza chiara | carnagione chiara | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">persone che si tengono per mano: carnagione chiara e carnagione abbastanza chiara</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">carnagione chiara | carnagione olivastra | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">persone che si tengono per mano: carnagione chiara e carnagione olivastra</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">carnagione abbastanza scura | carnagione chiara | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">persone che si tengono per mano: carnagione chiara e carnagione abbastanza scura</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">carnagione chiara | carnagione scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">persone che si tengono per mano: carnagione chiara e carnagione scura</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">carnagione abbastanza chiara | carnagione chiara | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">persone che si tengono per mano: carnagione abbastanza chiara e carnagione chiara</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">carnagione abbastanza chiara | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">persone che si tengono per mano: carnagione abbastanza chiara</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">carnagione abbastanza chiara | carnagione olivastra | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">persone che si tengono per mano: carnagione abbastanza chiara e carnagione olivastra</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">carnagione abbastanza chiara | carnagione abbastanza scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">persone che si tengono per mano: carnagione abbastanza chiara e carnagione abbastanza scura</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">carnagione abbastanza chiara | carnagione scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">persone che si tengono per mano: carnagione abbastanza chiara e carnagione scura</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">carnagione chiara | carnagione olivastra | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">persone che si tengono per mano: carnagione olivastra e carnagione chiara</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">carnagione abbastanza chiara | carnagione olivastra | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">persone che si tengono per mano: carnagione olivastra e carnagione abbastanza chiara</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">carnagione olivastra | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">persone che si tengono per mano: carnagione olivastra</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">carnagione abbastanza scura | carnagione olivastra | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">persone che si tengono per mano: carnagione olivastra e carnagione abbastanza scura</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">carnagione olivastra | carnagione scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">persone che si tengono per mano: carnagione olivastra e carnagione scura</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">carnagione abbastanza scura | carnagione chiara | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">persone che si tengono per mano: carnagione abbastanza scura e carnagione chiara</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">carnagione abbastanza chiara | carnagione abbastanza scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">persone che si tengono per mano: carnagione abbastanza scura e carnagione olivastra</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">carnagione abbastanza scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">persone che si tengono per mano: carnagione abbastanza scura</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">carnagione abbastanza scura | carnagione scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">persone che si tengono per mano: carnagione abbastanza scura e carnagione scura</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">carnagione chiara | carnagione scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">persone che si tengono per mano: carnagione scura e carnagione chiara</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">carnagione abbastanza chiara | carnagione scura | coppia | coppia che si tiene per mano | coppia per mano | persone che si tengono per mano | tenersi per mano</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">persone che si tengono per mano: carnagione scura</annotation>
 		<annotation cp="👭🏻">carnagione chiara | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👭🏻" type="tts">due donne che si tengono per mano: carnagione chiara</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">carnagione abbastanza chiara | carnagione chiara | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">due donne che si tengono per mano: carnagione chiara e carnagione abbastanza chiara</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">carnagione chiara | carnagione olivastra | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">due donne che si tengono per mano: carnagione chiara e carnagione olivastra</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">carnagione abbastanza scura | carnagione chiara | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">due donne che si tengono per mano: carnagione chiara e carnagione abbastanza scura</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">carnagione chiara | carnagione scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">due donne che si tengono per mano: carnagione chiara e carnagione scura</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">carnagione abbastanza chiara | carnagione chiara | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">due donne che si tengono per mano: carnagione abbastanza chiara e carnagione chiara</annotation>
 		<annotation cp="👭🏼">carnagione abbastanza chiara | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👭🏼" type="tts">due donne che si tengono per mano: carnagione abbastanza chiara</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">carnagione abbastanza chiara | carnagione olivastra | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">due donne che si tengono per mano: carnagione abbastanza chiara e carnagione olivastra</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">carnagione abbastanza chiara | carnagione abbastanza scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">due donne che si tengono per mano: carnagione abbastanza chiara e carnagione abbastanza scura</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">carnagione abbastanza chiara | carnagione scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">due donne che si tengono per mano: carnagione abbastanza chiara e carnagione scura</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">carnagione chiara | carnagione olivastra | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">due donne che si tengono per mano: carnagione olivastra e carnagione chiara</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">carnagione abbastanza chiara | carnagione olivastra | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">due donne che si tengono per mano: carnagione olivastra e carnagione abbastanza chiara</annotation>
 		<annotation cp="👭🏽">carnagione olivastra | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👭🏽" type="tts">due donne che si tengono per mano: carnagione olivastra</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">carnagione abbastanza scura | carnagione olivastra | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">due donne che si tengono per mano: carnagione olivastra e carnagione abbastanza scura</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">carnagione olivastra | carnagione scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">due donne che si tengono per mano: carnagione olivastra e carnagione scura</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">carnagione abbastanza scura | carnagione chiara | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">due donne che si tengono per mano: carnagione abbastanza scura e carnagione chiara</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">carnagione abbastanza chiara | carnagione abbastanza scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">due donne che si tengono per mano: carnagione abbastanza scura e carnagione olivastra</annotation>
 		<annotation cp="👭🏾">carnagione abbastanza scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👭🏾" type="tts">due donne che si tengono per mano: carnagione abbastanza scura</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">carnagione abbastanza scura | carnagione scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">due donne che si tengono per mano: carnagione abbastanza scura e carnagione scura</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">carnagione chiara | carnagione scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">due donne che si tengono per mano: carnagione scura e carnagione chiara</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">carnagione abbastanza chiara | carnagione scura | coppia | due donne che si tengono per mano | due donne per mano | tenersi per mano</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">uomo e donna che si tengono per mano: carnagione scura</annotation>
 		<annotation cp="👬🏻">carnagione chiara | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👬🏻" type="tts">due uomini che si tengono per mano: carnagione chiara</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">carnagione abbastanza chiara | carnagione chiara | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">due uomini che si tengono per mano: carnagione chiara e carnagione abbastanza chiara</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">carnagione chiara | carnagione olivastra | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">due uomini che si tengono per mano: carnagione chiara e carnagione olivastra</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">carnagione abbastanza scura | carnagione chiara | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">due uomini che si tengono per mano: carnagione chiara e carnagione abbastanza scura</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">carnagione chiara | carnagione scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">due uomini che si tengono per mano: carnagione chiara e carnagione scura</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">carnagione abbastanza chiara | carnagione chiara | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">due uomini che si tengono per mano: carnagione abbastanza chiara e carnagione chiara</annotation>
 		<annotation cp="👬🏼">carnagione abbastanza chiara | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👬🏼" type="tts">due uomini che si tengono per mano: carnagione abbastanza chiara</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">carnagione abbastanza chiara | carnagione olivastra | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">due uomini che si tengono per mano: carnagione abbastanza chiara e carnagione olivastra</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">carnagione abbastanza chiara | carnagione abbastanza scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">due uomini che si tengono per mano: carnagione abbastanza chiara e carnagione abbastanza scura</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">carnagione abbastanza chiara | carnagione scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">due uomini che si tengono per mano: carnagione abbastanza chiara e carnagione scura</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">carnagione chiara | carnagione olivastra | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">due uomini che si tengono per mano: carnagione olivastra e carnagione chiara</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">carnagione abbastanza chiara | carnagione olivastra | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">due uomini che si tengono per mano: carnagione olivastra e carnagione abbastanza chiara</annotation>
 		<annotation cp="👬🏽">carnagione olivastra | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👬🏽" type="tts">due uomini che si tengono per mano: carnagione olivastra</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">carnagione abbastanza scura | carnagione olivastra | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">due uomini che si tengono per mano: carnagione olivastra e carnagione abbastanza scura</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">carnagione olivastra | carnagione scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">due uomini che si tengono per mano: carnagione olivastra e carnagione scura</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">carnagione abbastanza scura | carnagione chiara | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">due uomini che si tengono per mano: carnagione abbastanza scura e carnagione chiara</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">carnagione abbastanza chiara | carnagione abbastanza scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">due uomini che si tengono per mano: carnagione abbastanza scura e carnagione olivastra</annotation>
 		<annotation cp="👬🏾">carnagione abbastanza scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👬🏾" type="tts">due uomini che si tengono per mano: carnagione abbastanza scura</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">carnagione abbastanza scura | carnagione scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">due uomini che si tengono per mano: carnagione abbastanza scura e carnagione scura</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">carnagione chiara | carnagione scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">due uomini che si tengono per mano: carnagione scura e carnagione chiara</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">carnagione abbastanza chiara | carnagione scura | coppia | due uomini che si tengono per mano | due uomini per mano | persone | tenersi per mano</annotation>

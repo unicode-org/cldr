@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2019 Unicode, Inc.
+<!-- Copyright © 1991-2020 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="tr"/>
 	</identity>
 	<annotations>
+		<annotation cp="🤌🏻">açık cilt tonu | bravo | çok güzel | harika | kıstırma hareketi yapan parmaklar | lezzetli | parmaklar</annotation>
+		<annotation cp="🤌🏻" type="tts">kıstırma hareketi yapan parmaklar: açık cilt tonu</annotation>
+		<annotation cp="🤌🏼">bravo | çok güzel | harika | kıstırma hareketi yapan parmaklar | lezzetli | orta açık cilt tonu | parmaklar</annotation>
+		<annotation cp="🤌🏼" type="tts">kıstırma hareketi yapan parmaklar: orta açık cilt tonu</annotation>
+		<annotation cp="🤌🏽">bravo | çok güzel | harika | kıstırma hareketi yapan parmaklar | lezzetli | orta cilt tonu | parmaklar</annotation>
+		<annotation cp="🤌🏽" type="tts">kıstırma hareketi yapan parmaklar: orta cilt tonu</annotation>
+		<annotation cp="🤌🏾">bravo | çok güzel | harika | kıstırma hareketi yapan parmaklar | lezzetli | orta koyu cilt tonu | parmaklar</annotation>
+		<annotation cp="🤌🏾" type="tts">kıstırma hareketi yapan parmaklar: orta koyu cilt tonu</annotation>
+		<annotation cp="🤌🏿">bravo | çok güzel | harika | kıstırma hareketi yapan parmaklar | koyu cilt tonu | lezzetli | parmaklar</annotation>
+		<annotation cp="🤌🏿" type="tts">kıstırma hareketi yapan parmaklar: koyu cilt tonu</annotation>
 		<annotation cp="👋🏻">açık cilt tonu | el | sallama</annotation>
 		<annotation cp="👋🏻" type="tts">el sallama: açık cilt tonu</annotation>
 		<annotation cp="👋🏼">el | orta açık cilt tonu | sallama</annotation>
@@ -500,6 +510,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">yetişkin: orta koyu cilt tonu kel</annotation>
 		<annotation cp="🧑🏿‍🦲">kel | kişi | koyu cilt tonu | yetişkin</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">yetişkin: koyu cilt tonu kel</annotation>
+		<annotation cp="🧑🏻‍🍼">açık cilt tonu | bakıcılık | bebek | bebek emziren kişi | emzirme | kişi</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">bebek emziren kişi: açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🍼">bakıcılık | bebek | bebek emziren kişi | emzirme | kişi | orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">bebek emziren kişi: orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🍼">bakıcılık | bebek | bebek emziren kişi | emzirme | kişi | orta cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">bebek emziren kişi: orta cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🍼">bakıcılık | bebek | bebek emziren kişi | emzirme | kişi | orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">bebek emziren kişi: orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🍼">bakıcılık | bebek | bebek emziren kişi | emzirme | kişi | koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">bebek emziren kişi: koyu cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🎄">açık cilt tonu | cinsiyet belirtmeyen noel karakteri | noel | Noel figürü</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri: açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🎄">cinsiyet belirtmeyen noel karakteri | noel | Noel figürü | orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri: orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🎄">cinsiyet belirtmeyen noel karakteri | noel | Noel figürü | orta cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri: orta cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🎄">cinsiyet belirtmeyen noel karakteri | noel | Noel figürü | orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri: orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🎄">cinsiyet belirtmeyen noel karakteri | koyu cilt tonu | noel | Noel figürü</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri: koyu cilt tonu</annotation>
 		<annotation cp="👨🏻">açık cilt tonu | erkek | kişiler</annotation>
 		<annotation cp="👨🏻" type="tts">erkek: açık cilt tonu</annotation>
 		<annotation cp="👨🏼">erkek | kişiler | orta açık cilt tonu</annotation>
@@ -578,6 +608,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">erkek: orta koyu cilt tonu kel</annotation>
 		<annotation cp="👨🏿‍🦲">erkek | kel | kişiler | koyu cilt tonu</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">erkek: koyu cilt tonu kel</annotation>
+		<annotation cp="👨🏻‍🍼">açık cilt tonu | bakıcılık | bebek | bebek emziren erkek | emzirme | erkek</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">bebek emziren erkek: açık cilt tonu</annotation>
+		<annotation cp="👨🏼‍🍼">bakıcılık | bebek | bebek emziren erkek | emzirme | erkek | orta açık cilt tonu</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">bebek emziren erkek: orta açık cilt tonu</annotation>
+		<annotation cp="👨🏽‍🍼">bakıcılık | bebek | bebek emziren erkek | emzirme | erkek | orta cilt tonu</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">bebek emziren erkek: orta cilt tonu</annotation>
+		<annotation cp="👨🏾‍🍼">bakıcılık | bebek | bebek emziren erkek | emzirme | erkek | orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">bebek emziren erkek: orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏿‍🍼">bakıcılık | bebek | bebek emziren erkek | emzirme | erkek | koyu cilt tonu</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">bebek emziren erkek: koyu cilt tonu</annotation>
 		<annotation cp="👩🏻">açık cilt tonu | kadın | kişiler</annotation>
 		<annotation cp="👩🏻" type="tts">kadın: açık cilt tonu</annotation>
 		<annotation cp="👩🏼">kadın | kişiler | orta açık cilt tonu</annotation>
@@ -646,6 +686,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">kadın: orta koyu cilt tonu kel</annotation>
 		<annotation cp="👩🏿‍🦲">kadın | kel | kişiler | koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kadın: koyu cilt tonu kel</annotation>
+		<annotation cp="👩🏻‍🍼">açık cilt tonu | bakım | bebek | bebek emziren kadın | emzirme | kadın</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">bebek emziren kadın: açık cilt tonu</annotation>
+		<annotation cp="👩🏼‍🍼">bakım | bebek | bebek emziren kadın | emzirme | kadın | orta açık cilt tonu</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">bebek emziren kadın: orta açık cilt tonu</annotation>
+		<annotation cp="👩🏽‍🍼">bakım | bebek | bebek emziren kadın | emzirme | kadın | orta cilt tonu</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">bebek emziren kadın: orta cilt tonu</annotation>
+		<annotation cp="👩🏾‍🍼">bakım | bebek | bebek emziren kadın | emzirme | kadın | orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">bebek emziren kadın: orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏿‍🍼">bakım | bebek | bebek emziren kadın | emzirme | kadın | koyu cilt tonu</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">bebek emziren kadın: koyu cilt tonu</annotation>
 		<annotation cp="🧓🏻">açık cilt tonu | kişi | yaşlı | yaşlı yetişkin</annotation>
 		<annotation cp="🧓🏻" type="tts">yaşlı yetişkin: açık cilt tonu</annotation>
 		<annotation cp="🧓🏼">kişi | orta açık cilt tonu | yaşlı | yaşlı yetişkin</annotation>
@@ -1186,15 +1236,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🔧" type="tts">kadın tamirci: orta koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🔧">bayan | elektrikçi | esnaf | kadın | koyu cilt tonu | tamirci | tesisatçı</annotation>
 		<annotation cp="👩🏿‍🔧" type="tts">kadın tamirci: koyu cilt tonu</annotation>
-		<annotation cp="🧑🏻‍🏭">açık cilt tonu | endüstri | fabrika | işçi | montaj | sanayi</annotation>
+		<annotation cp="🧑🏻‍🏭">açık cilt tonu | endüstri | fabrika | fabrika işçisi | işçi | montaj | sanayi</annotation>
 		<annotation cp="🧑🏻‍🏭" type="tts">fabrika işçisi: açık cilt tonu</annotation>
-		<annotation cp="🧑🏼‍🏭">endüstri | fabrika | işçi | montaj | orta açık cilt tonu | sanayi</annotation>
+		<annotation cp="🧑🏼‍🏭">endüstri | fabrika | fabrika işçisi | işçi | montaj | orta açık cilt tonu | sanayi</annotation>
 		<annotation cp="🧑🏼‍🏭" type="tts">fabrika işçisi: orta açık cilt tonu</annotation>
-		<annotation cp="🧑🏽‍🏭">endüstri | fabrika | işçi | montaj | orta cilt tonu | sanayi</annotation>
+		<annotation cp="🧑🏽‍🏭">endüstri | fabrika | fabrika işçisi | işçi | montaj | orta cilt tonu | sanayi</annotation>
 		<annotation cp="🧑🏽‍🏭" type="tts">fabrika işçisi: orta cilt tonu</annotation>
-		<annotation cp="🧑🏾‍🏭">endüstri | fabrika | işçi | montaj | orta koyu cilt tonu | sanayi</annotation>
+		<annotation cp="🧑🏾‍🏭">endüstri | fabrika | fabrika işçisi | işçi | montaj | orta koyu cilt tonu | sanayi</annotation>
 		<annotation cp="🧑🏾‍🏭" type="tts">fabrika işçisi: orta koyu cilt tonu</annotation>
-		<annotation cp="🧑🏿‍🏭">endüstri | fabrika | işçi | koyu cilt tonu | montaj | sanayi</annotation>
+		<annotation cp="🧑🏿‍🏭">endüstri | fabrika | fabrika işçisi | işçi | koyu cilt tonu | montaj | sanayi</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">fabrika işçisi: koyu cilt tonu</annotation>
 		<annotation cp="👨🏻‍🏭">açık cilt tonu | adam | erkek | erkek fabrika işçisi | fabrika | işçi | montaj | sanayi</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">erkek fabrika işçisi: açık cilt tonu</annotation>
@@ -1216,15 +1266,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏭" type="tts">kadın fabrika işçisi: orta koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🏭">bayan | fabrika | işçi | kadın | kadın fabrika işçisi | koyu cilt tonu | montaj | sanayi</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">kadın fabrika işçisi: koyu cilt tonu</annotation>
-		<annotation cp="🧑🏻‍💼">açık cilt tonu | beyaz yakalı | iş yeri | mimar | müdür | yönetici</annotation>
+		<annotation cp="🧑🏻‍💼">açık cilt tonu | beyaz yakalı | iş yeri | mimar | müdür | ofis çalışanı | yönetici</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">ofis çalışanı: açık cilt tonu</annotation>
-		<annotation cp="🧑🏼‍💼">beyaz yakalı | iş yeri | mimar | müdür | orta açık cilt tonu | yönetici</annotation>
+		<annotation cp="🧑🏼‍💼">beyaz yakalı | iş yeri | mimar | müdür | ofis çalışanı | orta açık cilt tonu | yönetici</annotation>
 		<annotation cp="🧑🏼‍💼" type="tts">ofis çalışanı: orta açık cilt tonu</annotation>
-		<annotation cp="🧑🏽‍💼">beyaz yakalı | iş yeri | mimar | müdür | orta cilt tonu | yönetici</annotation>
+		<annotation cp="🧑🏽‍💼">beyaz yakalı | iş yeri | mimar | müdür | ofis çalışanı | orta cilt tonu | yönetici</annotation>
 		<annotation cp="🧑🏽‍💼" type="tts">ofis çalışanı: orta cilt tonu</annotation>
-		<annotation cp="🧑🏾‍💼">beyaz yakalı | iş yeri | mimar | müdür | orta koyu cilt tonu | yönetici</annotation>
+		<annotation cp="🧑🏾‍💼">beyaz yakalı | iş yeri | mimar | müdür | ofis çalışanı | orta koyu cilt tonu | yönetici</annotation>
 		<annotation cp="🧑🏾‍💼" type="tts">ofis çalışanı: orta koyu cilt tonu</annotation>
-		<annotation cp="🧑🏿‍💼">beyaz yakalı | iş yeri | koyu cilt tonu | mimar | müdür | yönetici</annotation>
+		<annotation cp="🧑🏿‍💼">beyaz yakalı | iş yeri | koyu cilt tonu | mimar | müdür | ofis çalışanı | yönetici</annotation>
 		<annotation cp="🧑🏿‍💼" type="tts">ofis çalışanı: koyu cilt tonu</annotation>
 		<annotation cp="👨🏻‍💼">açık cilt tonu | adam | beyaz yaka | erkek | erkek ofis çalışanı | iş | mimar | ofis | yönetici</annotation>
 		<annotation cp="👨🏻‍💼" type="tts">erkek ofis çalışanı: açık cilt tonu</annotation>
@@ -1646,16 +1696,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕🏾" type="tts">başörtülü kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="🧕🏿">başörtülü kadın | koyu cilt tonu</annotation>
 		<annotation cp="🧕🏿" type="tts">başörtülü kadın: koyu cilt tonu</annotation>
-		<annotation cp="🤵🏻">açık cilt tonu | adam | damat | simokin | smokinli adam</annotation>
-		<annotation cp="🤵🏻" type="tts">smokinli adam: açık cilt tonu</annotation>
-		<annotation cp="🤵🏼">adam | damat | orta açık cilt tonu | simokin | smokinli adam</annotation>
-		<annotation cp="🤵🏼" type="tts">smokinli adam: orta açık cilt tonu</annotation>
-		<annotation cp="🤵🏽">adam | damat | orta cilt tonu | simokin | smokinli adam</annotation>
-		<annotation cp="🤵🏽" type="tts">smokinli adam: orta cilt tonu</annotation>
-		<annotation cp="🤵🏾">adam | damat | orta koyu cilt tonu | simokin | smokinli adam</annotation>
-		<annotation cp="🤵🏾" type="tts">smokinli adam: orta koyu cilt tonu</annotation>
-		<annotation cp="🤵🏿">adam | damat | koyu cilt tonu | simokin | smokinli adam</annotation>
-		<annotation cp="🤵🏿" type="tts">smokinli adam: koyu cilt tonu</annotation>
+		<annotation cp="🤵🏻">açık cilt tonu | damat | kişi | smokin | smokinli kişi</annotation>
+		<annotation cp="🤵🏻" type="tts">smokinli kişi: açık cilt tonu</annotation>
+		<annotation cp="🤵🏼">damat | kişi | orta açık cilt tonu | smokin | smokinli kişi</annotation>
+		<annotation cp="🤵🏼" type="tts">smokinli kişi: orta açık cilt tonu</annotation>
+		<annotation cp="🤵🏽">damat | kişi | orta cilt tonu | smokin | smokinli kişi</annotation>
+		<annotation cp="🤵🏽" type="tts">smokinli kişi: orta cilt tonu</annotation>
+		<annotation cp="🤵🏾">damat | kişi | orta koyu cilt tonu | smokin | smokinli kişi</annotation>
+		<annotation cp="🤵🏾" type="tts">smokinli kişi: orta koyu cilt tonu</annotation>
+		<annotation cp="🤵🏿">damat | kişi | koyu cilt tonu | smokin | smokinli kişi</annotation>
+		<annotation cp="🤵🏿" type="tts">smokinli kişi: koyu cilt tonu</annotation>
+		<annotation cp="🤵🏻‍♀">açık cilt tonu | kadın | smokin | smokinli kadın</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">smokinli kadın: açık cilt tonu</annotation>
+		<annotation cp="🤵🏼‍♀">kadın | orta açık cilt tonu | smokin | smokinli kadın</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">smokinli kadın: orta açık cilt tonu</annotation>
+		<annotation cp="🤵🏽‍♀">kadın | orta cilt tonu | smokin | smokinli kadın</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">smokinli kadın: orta cilt tonu</annotation>
+		<annotation cp="🤵🏾‍♀">kadın | orta koyu cilt tonu | smokin | smokinli kadın</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">smokinli kadın: orta koyu cilt tonu</annotation>
+		<annotation cp="🤵🏿‍♀">kadın | koyu cilt tonu | smokin | smokinli kadın</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">smokinli kadın: koyu cilt tonu</annotation>
+		<annotation cp="🤵🏻‍♂">açık cilt tonu | adam | smokin | smokinli adam | smokinli erkek</annotation>
+		<annotation cp="🤵🏻‍♂" type="tts">smokinli erkek: açık cilt tonu</annotation>
+		<annotation cp="🤵🏼‍♂">adam | orta açık cilt tonu | smokin | smokinli adam | smokinli erkek</annotation>
+		<annotation cp="🤵🏼‍♂" type="tts">smokinli erkek: orta açık cilt tonu</annotation>
+		<annotation cp="🤵🏽‍♂">adam | orta cilt tonu | smokin | smokinli adam | smokinli erkek</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">smokinli erkek: orta cilt tonu</annotation>
+		<annotation cp="🤵🏾‍♂">adam | orta koyu cilt tonu | smokin | smokinli adam | smokinli erkek</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">smokinli erkek: orta koyu cilt tonu</annotation>
+		<annotation cp="🤵🏿‍♂">adam | koyu cilt tonu | smokin | smokinli adam | smokinli erkek</annotation>
+		<annotation cp="🤵🏿‍♂" type="tts">smokinli erkek: koyu cilt tonu</annotation>
 		<annotation cp="👰🏻">açık cilt tonu | duvak | duvaklı gelin | evlilik | kişiler</annotation>
 		<annotation cp="👰🏻" type="tts">duvaklı gelin: açık cilt tonu</annotation>
 		<annotation cp="👰🏼">duvak | duvaklı gelin | evlilik | kişiler | orta açık cilt tonu</annotation>
@@ -1666,6 +1736,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">duvaklı gelin: orta koyu cilt tonu</annotation>
 		<annotation cp="👰🏿">duvak | duvaklı gelin | evlilik | kişiler | koyu cilt tonu</annotation>
 		<annotation cp="👰🏿" type="tts">duvaklı gelin: koyu cilt tonu</annotation>
+		<annotation cp="👰🏻‍♀">açık cilt tonu | duvak | duvaklı kadın | kadın</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">duvaklı kadın: açık cilt tonu</annotation>
+		<annotation cp="👰🏼‍♀">duvak | duvaklı kadın | kadın | orta açık cilt tonu</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">duvaklı kadın: orta açık cilt tonu</annotation>
+		<annotation cp="👰🏽‍♀">duvak | duvaklı kadın | kadın | orta cilt tonu</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">duvaklı kadın: orta cilt tonu</annotation>
+		<annotation cp="👰🏾‍♀">duvak | duvaklı kadın | kadın | orta koyu cilt tonu</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">duvaklı kadın: orta koyu cilt tonu</annotation>
+		<annotation cp="👰🏿‍♀">duvak | duvaklı kadın | kadın | koyu cilt tonu</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">duvaklı kadın: koyu cilt tonu</annotation>
+		<annotation cp="👰🏻‍♂">açık cilt tonu | adam | duvak | duvaklı adam | duvaklı erkek</annotation>
+		<annotation cp="👰🏻‍♂" type="tts">duvaklı erkek: açık cilt tonu</annotation>
+		<annotation cp="👰🏼‍♂">adam | duvak | duvaklı adam | duvaklı erkek | orta açık cilt tonu</annotation>
+		<annotation cp="👰🏼‍♂" type="tts">duvaklı erkek: orta açık cilt tonu</annotation>
+		<annotation cp="👰🏽‍♂">adam | duvak | duvaklı adam | duvaklı erkek | orta cilt tonu</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">duvaklı erkek: orta cilt tonu</annotation>
+		<annotation cp="👰🏾‍♂">adam | duvak | duvaklı adam | duvaklı erkek | orta koyu cilt tonu</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">duvaklı erkek: orta koyu cilt tonu</annotation>
+		<annotation cp="👰🏿‍♂">adam | duvak | duvaklı adam | duvaklı erkek | koyu cilt tonu</annotation>
+		<annotation cp="👰🏿‍♂" type="tts">duvaklı erkek: koyu cilt tonu</annotation>
 		<annotation cp="🤰🏻">açık cilt tonu | hamile | kadın</annotation>
 		<annotation cp="🤰🏻" type="tts">hamile kadın: açık cilt tonu</annotation>
 		<annotation cp="🤰🏼">hamile | kadın | orta açık cilt tonu</annotation>
@@ -2076,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">diz çöken kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="🧎🏿‍♀">diz çöken | diz çöken kadın | kadın | koyu cilt tonu</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">diz çöken kadın: koyu cilt tonu</annotation>
-		<annotation cp="🧑🏻‍🦯">açık cilt tonu | erişilebilirlik | görme engelli | kör</annotation>
+		<annotation cp="🧑🏻‍🦯">açık cilt tonu | erişilebilirlik | görme engelli | görme engelli bastonlu kişi | kör</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">görme engelli bastonlu kişi: açık cilt tonu</annotation>
-		<annotation cp="🧑🏼‍🦯">erişilebilirlik | görme engelli | kör | orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🦯">erişilebilirlik | görme engelli | görme engelli bastonlu kişi | kör | orta açık cilt tonu</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">görme engelli bastonlu kişi: orta açık cilt tonu</annotation>
-		<annotation cp="🧑🏽‍🦯">erişilebilirlik | görme engelli | kör | orta cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🦯">erişilebilirlik | görme engelli | görme engelli bastonlu kişi | kör | orta cilt tonu</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">görme engelli bastonlu kişi: orta cilt tonu</annotation>
-		<annotation cp="🧑🏾‍🦯">erişilebilirlik | görme engelli | kör | orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🦯">erişilebilirlik | görme engelli | görme engelli bastonlu kişi | kör | orta koyu cilt tonu</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">görme engelli bastonlu kişi: orta koyu cilt tonu</annotation>
-		<annotation cp="🧑🏿‍🦯">erişilebilirlik | görme engelli | kör | koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🦯">erişilebilirlik | görme engelli | görme engelli bastonlu kişi | kör | koyu cilt tonu</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">görme engelli bastonlu kişi: koyu cilt tonu</annotation>
 		<annotation cp="👨🏻‍🦯">açık cilt tonu | erişilebilirlik | erkek | görme engelli | görme engelli bastonlu erkek</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">görme engelli bastonlu erkek: açık cilt tonu</annotation>
@@ -2106,15 +2196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦯" type="tts">görme engelli bastonlu kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🦯">erişilebilirlik | görme engelli | görme engelli bastonlu kadın | kadın | koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">görme engelli bastonlu kadın: koyu cilt tonu</annotation>
-		<annotation cp="🧑🏻‍🦼">açık cilt tonu | erişilebilirlik | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏻‍🦼">açık cilt tonu | elektrikli tekerlekli sandalyede kişi | erişilebilirlik | tekerlekli sandalye</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">elektrikli tekerlekli sandalyede kişi: açık cilt tonu</annotation>
-		<annotation cp="🧑🏼‍🦼">erişilebilirlik | orta açık cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏼‍🦼">elektrikli tekerlekli sandalyede kişi | erişilebilirlik | orta açık cilt tonu | tekerlekli sandalye</annotation>
 		<annotation cp="🧑🏼‍🦼" type="tts">elektrikli tekerlekli sandalyede kişi: orta açık cilt tonu</annotation>
-		<annotation cp="🧑🏽‍🦼">erişilebilirlik | orta cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏽‍🦼">elektrikli tekerlekli sandalyede kişi | erişilebilirlik | orta cilt tonu | tekerlekli sandalye</annotation>
 		<annotation cp="🧑🏽‍🦼" type="tts">elektrikli tekerlekli sandalyede kişi: orta cilt tonu</annotation>
-		<annotation cp="🧑🏾‍🦼">erişilebilirlik | orta koyu cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏾‍🦼">elektrikli tekerlekli sandalyede kişi | erişilebilirlik | orta koyu cilt tonu | tekerlekli sandalye</annotation>
 		<annotation cp="🧑🏾‍🦼" type="tts">elektrikli tekerlekli sandalyede kişi: orta koyu cilt tonu</annotation>
-		<annotation cp="🧑🏿‍🦼">erişilebilirlik | koyu cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏿‍🦼">elektrikli tekerlekli sandalyede kişi | erişilebilirlik | koyu cilt tonu | tekerlekli sandalye</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">elektrikli tekerlekli sandalyede kişi: koyu cilt tonu</annotation>
 		<annotation cp="👨🏻‍🦼">açık cilt tonu | elektrikli tekerlekli sandalyede erkek | erişilebilirlik | erkek | tekerlekli sandalye</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">elektrikli tekerlekli sandalyede erkek: açık cilt tonu</annotation>
@@ -2136,15 +2226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦼" type="tts">elektrikli tekerlekli sandalyede kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🦼">elektrikli tekerlekli sandalyede kadın | erişilebilirlik | kadın | koyu cilt tonu | tekerlekli sandalye</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">elektrikli tekerlekli sandalyede kadın: koyu cilt tonu</annotation>
-		<annotation cp="🧑🏻‍🦽">açık cilt tonu | erişilebilirlik | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏻‍🦽">açık cilt tonu | erişilebilirlik | tekerlekli sandalye | tekerlekli sandalyede kişi</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">tekerlekli sandalyede kişi: açık cilt tonu</annotation>
-		<annotation cp="🧑🏼‍🦽">erişilebilirlik | orta açık cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏼‍🦽">erişilebilirlik | orta açık cilt tonu | tekerlekli sandalye | tekerlekli sandalyede kişi</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">tekerlekli sandalyede kişi: orta açık cilt tonu</annotation>
-		<annotation cp="🧑🏽‍🦽">erişilebilirlik | orta cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏽‍🦽">erişilebilirlik | orta cilt tonu | tekerlekli sandalye | tekerlekli sandalyede kişi</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">tekerlekli sandalyede kişi: orta cilt tonu</annotation>
-		<annotation cp="🧑🏾‍🦽">erişilebilirlik | orta koyu cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏾‍🦽">erişilebilirlik | orta koyu cilt tonu | tekerlekli sandalye | tekerlekli sandalyede kişi</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">tekerlekli sandalyede kişi: orta koyu cilt tonu</annotation>
-		<annotation cp="🧑🏿‍🦽">erişilebilirlik | koyu cilt tonu | tekerlekli sandalye</annotation>
+		<annotation cp="🧑🏿‍🦽">erişilebilirlik | koyu cilt tonu | tekerlekli sandalye | tekerlekli sandalyede kişi</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">tekerlekli sandalyede kişi: koyu cilt tonu</annotation>
 		<annotation cp="👨🏻‍🦽">açık cilt tonu | erişilebilirlik | erkek | tekerlekli sandalye | tekerlekli sandalyede erkek</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">tekerlekli sandalyede erkek: açık cilt tonu</annotation>
@@ -2718,16 +2808,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏿" type="tts">yatakta yatan kişi: koyu cilt tonu</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">el ele tutuşan insanlar: açık cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | orta açık cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">el ele tutuşan insanlar: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | orta cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">el ele tutuşan insanlar: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | orta koyu cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">el ele tutuşan insanlar: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | koyu cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">el ele tutuşan insanlar: açık cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | orta açık cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">el ele tutuşan insanlar: orta açık cilt tonu açık cilt tonu</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼">çift | el | el ele | el ele tutuşan insanlar | kişi | orta açık cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">el ele tutuşan insanlar: orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">çift | el | el ele | el ele tutuşan insanlar | kişi | orta açık cilt tonu | orta cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">el ele tutuşan insanlar: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">çift | el | el ele | el ele tutuşan insanlar | kişi | orta açık cilt tonu | orta koyu cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">el ele tutuşan insanlar: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">çift | el | el ele | el ele tutuşan insanlar | kişi | koyu cilt tonu | orta açık cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">el ele tutuşan insanlar: orta açık cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | orta cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">el ele tutuşan insanlar: orta cilt tonu açık cilt tonu</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼">çift | el | el ele | el ele tutuşan insanlar | kişi | orta açık cilt tonu | orta cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">el ele tutuşan insanlar: orta cilt tonu orta açık cilt tonu</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽">çift | el | el ele | el ele tutuşan insanlar | kişi | orta cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">el ele tutuşan insanlar: orta cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">çift | el | el ele | el ele tutuşan insanlar | kişi | orta cilt tonu | orta koyu cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">el ele tutuşan insanlar: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">çift | el | el ele | el ele tutuşan insanlar | kişi | koyu cilt tonu | orta cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">el ele tutuşan insanlar: orta cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | orta koyu cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">el ele tutuşan insanlar: orta koyu cilt tonu açık cilt tonu</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼">çift | el | el ele | el ele tutuşan insanlar | kişi | orta açık cilt tonu | orta koyu cilt tonu | tutmak | tutuşan eller</annotation>
@@ -2736,6 +2844,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">el ele tutuşan insanlar: orta koyu cilt tonu orta cilt tonu</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾">çift | el | el ele | el ele tutuşan insanlar | kişi | orta koyu cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">el ele tutuşan insanlar: orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">çift | el | el ele | el ele tutuşan insanlar | kişi | koyu cilt tonu | orta koyu cilt tonu | tutmak | tutuşan eller</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">el ele tutuşan insanlar: orta koyu cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | koyu cilt tonu | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">el ele tutuşan insanlar: koyu cilt tonu açık cilt tonu</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼">çift | el | el ele | el ele tutuşan insanlar | kişi | koyu cilt tonu | orta açık cilt tonu | tutmak | tutuşan eller</annotation>
@@ -2748,16 +2858,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">el ele tutuşan insanlar: koyu cilt tonu</annotation>
 		<annotation cp="👭🏻">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar</annotation>
 		<annotation cp="👭🏻" type="tts">el ele tutuşan kadınlar: açık cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta açık cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">el ele tutuşan kadınlar: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">el ele tutuşan kadınlar: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">el ele tutuşan kadınlar: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | koyu cilt tonu</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">el ele tutuşan kadınlar: açık cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta açık cilt tonu</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">el ele tutuşan kadınlar: orta açık cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👭🏼">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta açık cilt tonu</annotation>
 		<annotation cp="👭🏼" type="tts">el ele tutuşan kadınlar: orta açık cilt tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta açık cilt tonu | orta cilt tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">el ele tutuşan kadınlar: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta açık cilt tonu | orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">el ele tutuşan kadınlar: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | koyu cilt tonu | orta açık cilt tonu</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">el ele tutuşan kadınlar: orta açık cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta cilt tonu</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">el ele tutuşan kadınlar: orta cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta açık cilt tonu | orta cilt tonu</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">el ele tutuşan kadınlar: orta cilt tonu orta açık cilt tonu</annotation>
 		<annotation cp="👭🏽">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta cilt tonu</annotation>
 		<annotation cp="👭🏽" type="tts">el ele tutuşan kadınlar: orta cilt tonu</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta cilt tonu | orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">el ele tutuşan kadınlar: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | koyu cilt tonu | orta cilt tonu</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">el ele tutuşan kadınlar: orta cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta koyu cilt tonu</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">el ele tutuşan kadınlar: orta koyu cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta açık cilt tonu | orta koyu cilt tonu</annotation>
@@ -2766,6 +2894,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">el ele tutuşan kadınlar: orta koyu cilt tonu orta cilt tonu</annotation>
 		<annotation cp="👭🏾">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | orta koyu cilt tonu</annotation>
 		<annotation cp="👭🏾" type="tts">el ele tutuşan kadınlar: orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | koyu cilt tonu | orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">el ele tutuşan kadınlar: orta koyu cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻">açık cilt tonu | çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | koyu cilt tonu</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">el ele tutuşan kadınlar: koyu cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼">çift | el | el ele tutuşan | el ele tutuşan kadınlar | kadınlar | koyu cilt tonu | orta açık cilt tonu</annotation>
@@ -2828,16 +2958,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👫🏿" type="tts">el ele tutuşan erkek ve kadın: koyu cilt tonu</annotation>
 		<annotation cp="👬🏻">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler</annotation>
 		<annotation cp="👬🏻" type="tts">el ele tutuşan erkekler: açık cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta açık cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">el ele tutuşan erkekler: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">el ele tutuşan erkekler: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">el ele tutuşan erkekler: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | koyu cilt tonu</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">el ele tutuşan erkekler: açık cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta açık cilt tonu</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">el ele tutuşan erkekler: orta açık cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👬🏼">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta açık cilt tonu</annotation>
 		<annotation cp="👬🏼" type="tts">el ele tutuşan erkekler: orta açık cilt tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta açık cilt tonu | orta cilt tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">el ele tutuşan erkekler: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta açık cilt tonu | orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">el ele tutuşan erkekler: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | koyu cilt tonu | orta açık cilt tonu</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">el ele tutuşan erkekler: orta açık cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta cilt tonu</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">el ele tutuşan erkekler: orta cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta açık cilt tonu | orta cilt tonu</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">el ele tutuşan erkekler: orta cilt tonu orta açık cilt tonu</annotation>
 		<annotation cp="👬🏽">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta cilt tonu</annotation>
 		<annotation cp="👬🏽" type="tts">el ele tutuşan erkekler: orta cilt tonu</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta cilt tonu | orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">el ele tutuşan erkekler: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | koyu cilt tonu | orta cilt tonu</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">el ele tutuşan erkekler: orta cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta koyu cilt tonu</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">el ele tutuşan erkekler: orta koyu cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta açık cilt tonu | orta koyu cilt tonu</annotation>
@@ -2846,6 +2994,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">el ele tutuşan erkekler: orta koyu cilt tonu orta cilt tonu</annotation>
 		<annotation cp="👬🏾">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | orta koyu cilt tonu</annotation>
 		<annotation cp="👬🏾" type="tts">el ele tutuşan erkekler: orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | koyu cilt tonu | orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">el ele tutuşan erkekler: orta koyu cilt tonu koyu cilt tonu</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻">açık cilt tonu | çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | koyu cilt tonu</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">el ele tutuşan erkekler: koyu cilt tonu açık cilt tonu</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼">çift | el ele tutuşan | el ele tutuşan erkekler | el ele tutuşan iki erkek | erkek | ikizler | kişiler | koyu cilt tonu | orta açık cilt tonu</annotation>

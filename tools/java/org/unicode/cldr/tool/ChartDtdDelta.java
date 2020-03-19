@@ -92,11 +92,10 @@ public class ChartDtdDelta extends Chart {
             .setSpanRows(false);
 
         String last = null;
-        LinkedHashSet<String> allVersions = new LinkedHashSet<>(ToolConstants.CLDR_VERSIONS);
-        allVersions.add(ToolConstants.LAST_CHART_VERSION);
-        for (String current : allVersions) {
+        
+        for (String current : ToolConstants.CLDR_RELEASE_AND_DEV_VERSION_SET) {
             System.out.println("DTD delta: " + current);
-            final boolean finalVersion = current.equals(ToolConstants.LAST_CHART_VERSION);
+            final boolean finalVersion = current.equals(ToolConstants.DEV_VERSION);
             String currentName = finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current;
             for (DtdType type : TYPES) {
                 String firstVersion = type.firstVersion; // FIRST_VERSION.get(type);
@@ -106,7 +105,10 @@ public class ChartDtdDelta extends Chart {
                 DtdData dtdCurrent = null;
                 try {
                     dtdCurrent = DtdData.getInstance(type,
-                        finalVersion && ToolConstants.CHART_STATUS != ToolConstants.ChartStatus.release ? null : current);
+                        finalVersion 
+                        // && ToolConstants.CHART_STATUS != ToolConstants.ChartStatus.release 
+                        ? null 
+                            : current);
                 } catch (Exception e) {
                     if (!(e.getCause() instanceof FileNotFoundException)) {
                         throw e;
@@ -127,6 +129,9 @@ public class ChartDtdDelta extends Chart {
                 diff(currentName, dtdLast, dtdCurrent);
             }
             last = current;
+            if (current.contentEquals(ToolConstants.CHART_VERSION)) {
+                break;
+            }
         }
 
         for (DiffElement datum : data) {

@@ -114,7 +114,9 @@ public class Emoji {
             emojiToMajorCategory.put(original, majorCategory);
             emojiToMinorCategory.put(original, minorCategory);
             String comment = it.next();
+            // The comment is now of the form:  # 😁 E0.6 beaming face with smiling eyes
             int spacePos = comment.indexOf(' ');
+            spacePos = comment.indexOf(' ', spacePos+1); // get second space
             String name = comment.substring(spacePos+1).trim();
             toName.put(original, name);
 

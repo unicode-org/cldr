@@ -3871,7 +3871,83 @@ The older syntax used “x-”, which was expanded to “xxx-” to simplify use
       element.</li>
     </ol>
     <p>Thus a list (a,b,c,...m, n) is formatted as:
-    start(a,middle(b,middle(c,middle(...end(m, n))...)))</p>
+    <code>start(a,middle(b,middle(c,middle(...end(m, n))...)))</code></p>
+    <div class='changed'>
+      <p>More sophisticated implementations can customize the process to improve the results for languages where context is important. For example:</p>
+    <table>
+        <tr>
+   <td rowspan="3">Spanish
+   </td>
+   <td>AND
+   </td>
+   <td>Use ‘e’ instead of ‘y’ in the listPatternPart for &quot;end&quot; and &quot;2&quot; in either of the following cases:
+     <ol>
+       
+       <li>The value substituted for {1} starts with ‘i’
+         <ol>
+           <li><em>fuerte <strong>e</strong> indomable, </em>not <em>fuerte <strong>y</strong> indomable</em></li>
+           </ol></li>
+  <li>The value substituted for {1}  starts with ‘hi’, but not with ‘hie’ or ‘hia’
+    <ol>
+      <li><em>tos <strong>e</strong> hipo,</em> not <em>tos <strong>y</strong> hipo </em></li>
+      <li><em>gua <strong>y</strong> hielo,</em> not <em>agua <strong>e</strong> hielo </em></li>
+      </ol>
+  </li>
+       </ol></td>
+   </tr>
+  <tr>
+   <td>OR
+   </td>
+   <td>Use ‘u’ instead of ‘o’ in the listPatternPart for &quot;end&quot; and &quot;2&quot; in any of the following cases:
+     <ol>
+       
+  <li>The value substituted for {1} starts with ‘o’ or ‘ho’
+    <ol>
+      <li><em>delfines <strong>u</strong> orcas,</em> not <em>deflines <strong>o</strong> orcas</em></li>
+      <li><em>mañana <strong>u</strong> hoy,</em> not <em>mañana <strong>o</strong> hoy</em></li>
+      </ol>
+  </li>
+  <li> The value substituted for {1} starts with ‘8’
+    <ol>
+      <li><em>6 <strong>u</strong> 8,</em> not <em>6 <strong>o</strong> 8</em></li>
+      </ol>
+  </li>
+  <li>The value substituted for {1} starts with ‘11’ where the numeric value is 11 x 10<sup>3×y</sup>
+    (eg 11 thousand, 11.23 million, ...)
+    <ol>
+      <li><em>10 <strong>u</strong> 11,</em> not <em>10 <strong>o</strong> 11</em></li>
+      <li><em>10 <strong>u</strong> 11.000,</em> not <em>10 <strong>o</strong> 11.000</em></li>
+      <li><em>10 <strong>o</strong> 111,</em> not <em>10 <strong>u</strong> 111</em></li>
+      </ol>
+  </li></ol>
+     
+   </td>
+   </tr>
+  <tr>
+    <td colspan="2">See <a href='https://www.rae.es/consultas/cambio-de-la-y-copulativa-en-e'>Cambio de la y copulativa en e</a><br>
+      <strong>Note: </strong>more advanced implementations may also consider  the pronunciation, such as foreign words where the  ‘h’ is not mute.</td>
+    </tr>
+  <tr>
+   <td rowspan="2">Hebrew
+   </td>
+   <td>AND
+   </td>
+   <td>Use ‘-ו’ instead of ‘ו’ in the listPatternPart for &quot;end&quot; and &quot;2&quot; in the following case:
+     <ol>
+     <li>if the value substituted for {1} starts with something other than a Hebrew letter, such as a digit (0-9) or a Latin-script letter
+       <ol>
+         <li><em>one hour and two minutes =‎ ‏"שעה ושתי דקות"‏</em></li>
+         <li><em>one hour and 9 minutes =‎ ‏"שעה ו-9 דקות”‏ </em></li>
+         </ol></li>
+     
+     
+     </ol></td>
+   </tr>
+  <tr>
+    <td colspan="2">See <a href="https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475">https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475</a></td>
+    </tr>
+      </table><br>
+	</div>
     <p>The following type attributes are in use:</p>
     <table border="1" cellpadding="2" cellspacing="0" class=
     'simple'>

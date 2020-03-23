@@ -289,21 +289,25 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public void TestAllLocales() {
-
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
         Set<String> unique = new HashSet<String>();
-
         LanguageTagParser ltp = new LanguageTagParser();
-        int count = 0;
+        Set<String> locales = new HashSet<String>();
         for (String locale : getInclusion() <= 5 ? eightPointLocales : factory.getAvailable()) {
-            if (!ltp.set(locale).getRegion().isEmpty()) {
-                continue;
+            /*
+             * Only test locales without regions. E.g., test "pt", skip "pt_PT"
+             */
+            if (ltp.set(locale).getRegion().isEmpty()) {
+                locales.add(locale);
             }
-            checkLocale(test, locale, null, unique);
-            ++count;
         }
-        logln("Count:\t" + count);
+        // With ICU4J libs of 2020-03-23, using locales.parallelStream().forEach below
+        // hangs, or crashes with NPE. Likely an ICU4J issue, but we don't really need 
+        // parallelStream() here anyway since we are only handling around 35 locales.
+        // (And in fact this test seems faster without it)
+        locales.forEach(locale -> checkLocale(test, locale, null, unique));
+        logln("Count:\t" + locales.size());
     }
 
     public void TestA() {

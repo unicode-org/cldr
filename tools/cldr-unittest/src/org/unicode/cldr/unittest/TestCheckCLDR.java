@@ -302,7 +302,11 @@ public class TestCheckCLDR extends TestFmwk {
                 locales.add(locale);
             }
         }
-        locales.parallelStream().forEach(locale -> checkLocale(test, locale, null, unique));
+        // With ICU4J libs of 2020-03-23, using locales.parallelStream().forEach below
+        // hangs, or crashes with NPE. Likely an ICU4J issue, but we don't really need 
+        // parallelStream() here anyway since we are only handling around 35 locales.
+        // (And in fact this test seems faster without it)
+        locales.forEach(locale -> checkLocale(test, locale, null, unique));
         logln("Count:\t" + locales.size());
     }
 

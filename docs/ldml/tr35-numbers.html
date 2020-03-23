@@ -2031,14 +2031,14 @@ System Data</a>.</em> ) &gt;<br>
     following.</p>
     <pre>&lt;currencySpacing&gt;
   &lt;beforeCurrency&gt;
-    &lt;currencyMatch&gt;[:letter:]&lt;/currencyMatch&gt;
+    &lt;currencyMatch&gt;[:<span class="changed">^S</span>:]&lt;/currencyMatch&gt;
     &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
-    &lt;insertBetween&gt;&amp;#x00a0;&lt;/insertBetween&gt;
+    &lt;insertBetween&gt;<span class="changed"> </span>&lt;/insertBetween&gt;
   &lt;/beforeCurrency&gt;
   &lt;afterCurrency&gt;
-    &lt;currencyMatch&gt;[:letter:]&lt;/currencyMatch&gt;
+    &lt;currencyMatch&gt;[:<span class="changed">^S</span>:]&lt;/currencyMatch&gt;
     &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
-    &lt;insertBetween&gt;&amp;#x00a0;&lt;/insertBetween&gt;
+    &lt;insertBetween&gt;<span class="changed"> </span>&lt;/insertBetween&gt;
   &lt;/afterCurrency&gt;
 &lt;/currencySpacing&gt;
 </pre>

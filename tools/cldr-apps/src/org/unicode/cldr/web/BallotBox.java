@@ -78,20 +78,6 @@ public interface BallotBox<T> {
     public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException;
 
     /**
-     * Delete an item. Will (eventually) throw a number of
-     * exceptions.
-     *
-     * @param user
-     *            voter's object
-     * @param distinguishingXpath
-     *            dpath of item
-     * @param value
-     *            new string value to vote for, or null for "unvote"
-     * @return the full xpath of the user's vote, or null if not applicable.
-     */
-    public void deleteValue(T user, String distinguishingXpath, String value) throws InvalidXPathException;
-
-    /**
      * Return a vote for a value, as a string
      *
      * @param user

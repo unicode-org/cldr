@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,15 +20,26 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.RecordingCLDRFile;
 import org.unicode.cldr.util.XMLSource;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestExampleDependencies extends TestFmwk {
 
-    private final boolean JUST_LIST_PATHS = false;
     private final boolean USE_STARRED_PATHS = true;
+    private final boolean USE_RECORDING = true;
+    private final String fileExtension = USE_RECORDING ? ".java" : ".json";
+
+    private CLDRConfig info;
+    private CLDRFile englishFile;
+    private Factory factory;
+    private Set<String> locales;
+    private String outputDir;
+    private PathStarrer pathStarrer;
 
     public static void main(String[] args) {
         new TestExampleDependencies().run(args);
@@ -38,111 +50,142 @@ public class TestExampleDependencies extends TestFmwk {
      *
      * The goal is to optimize example caching by only regenerating examples when necessary.
      *
-     * Still under construction. Reference: https://unicode-org.atlassian.net/browse/CLDR-13331
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13636
      *
      * @throws IOException
      */
     public void TestExampleGeneratorDependencies() throws IOException {
-        /*
-         * Different localeId gives different dependencies.
-         * For example:
-         *   "fr": 650 "type A"
-         *   "de": 652 "type A"
-         *   "am": 618 "type A"
-         *   "zh": 12521 "type A"
-         */
-        final CLDRConfig info = CLDRConfig.getInstance();
-        final CLDRFile englishFile = info.getEnglish();
-        final Factory factory = info.getCldrFactory();
-        final Set<String> locales = factory.getAvailable();
-        final String outputDir = CLDRPaths.GEN_DIRECTORY + "test/";
+        info = CLDRConfig.getInstance();
+        englishFile = info.getEnglish();
+        factory = info.getCldrFactory();
+        locales = factory.getAvailable();
+        outputDir = CLDRPaths.GEN_DIRECTORY + "test" + File.separator;
+        pathStarrer = USE_STARRED_PATHS ? new PathStarrer().setSubstitutionPattern("*") : null;
 
         System.out.println("...");
-        System.out.println("Starting to loop through " + locales.size() + " locales ...");
+        System.out.println("Looping through " + locales.size() + " locales ...");
 
+        if (USE_RECORDING) {
+            /*
+             * Fast method: use RecordingCLDRFile to learn which paths are checked
+             * to produce the example for a given path. This is fast enough that we
+             * can do it for all locales at once to produce a single file.
+             */
+            useRecording();
+        } else {
+            /*
+             * Slow method: loop through all paths, modifying the value for each path
+             * and then doing an inner loop through all paths to see whether the example
+             * changed for each other path. This is extremely slow, so we produce one file
+             * for each locale, with the intention of merging the files afterwards.
+             */
+            useModifying();
+        }
+    }
+
+    private void useRecording() throws IOException {
+        final Multimap<String, String> dependencies = TreeMultimap.create();
         for (String localeId : locales) {
-            // if (CLDRFile.isSupplementalName(localeID)) continue;
+            System.out.println(localeId);
+            addDependenciesForLocale(dependencies, localeId);
+        }
+        String fileName = "ExampleDependencies" + fileExtension;
+        System.out.println("Creating " + outputDir + fileName + " ...");
+        writeDependenciesToFile(dependencies, outputDir, fileName);
+    }
 
-            String fileName = "example_dependencies_A_"
-                + localeId
-                + (USE_STARRED_PATHS ? "_star" : "") + ".json";
+    private void addDependenciesForLocale(Multimap<String, String> dependencies, String localeId) {
+        RecordingCLDRFile cldrFile = makeRecordingCldrFile(localeId);
+        cldrFile.disableCaching();
 
-            if (JUST_LIST_PATHS) {
-                fileName = "allpaths_" + localeId + ".txt";
+        Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
+        CollectionUtilities.addAll(cldrFile.iterator(), paths); // time-consuming
+
+        ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        egTest.setCachingEnabled(false); // will not employ a cache -- this should save some time, since cache would be wasted
+
+        for (String pathB : paths) {
+            if (skipPathForDependencies(pathB)) {
+                continue;
             }
-            if (new File(outputDir, fileName).exists()) {
-                System.out.println("Locale: " + localeId + " -- skipping since " + fileName + " already exists");
-            } else {
-                System.out.println("Locale: " + localeId + " -- creating " + fileName + " ...");
-                writeOneLocale(localeId, outputDir, fileName, factory, englishFile);
+            String valueB = cldrFile.getStringValue(pathB);
+            if (valueB == null) {
+                continue;
+            }
+            String starredB = USE_STARRED_PATHS ? pathStarrer.set(pathB) : null;
+            cldrFile.clearRecordedPaths();
+            egTest.getExampleHtml(pathB, valueB);
+            HashSet<String> pathsA = cldrFile.getRecordedPaths();
+            for (String pathA: pathsA) {
+                if (pathA.equals(pathB) || skipPathForDependencies(pathA)) {
+                    continue;
+                }
+                String starredA = USE_STARRED_PATHS ? pathStarrer.set(pathA) : null;
+                dependencies.put(USE_STARRED_PATHS ? starredA : pathA,
+                                  USE_STARRED_PATHS ? starredB : pathB);
             }
         }
     }
 
-    private void writeOneLocale(String localeId, String outputDir, String fileName, Factory factory, CLDRFile englishFile) {
+    private RecordingCLDRFile makeRecordingCldrFile(String localeId) {
+        XMLSource topSource = factory.makeSource(localeId);
+        List<XMLSource> parents = getParentSources(factory, localeId);
+        XMLSource[] a = new XMLSource[parents.size()];
+        return new RecordingCLDRFile(topSource, parents.toArray(a));
+    }
+
+    private void useModifying() throws IOException {
+        for (String localeId : locales) {
+            String fileName = "example_dependencies_A_"
+                + localeId
+                + (USE_STARRED_PATHS ? "_star" : "")
+                + fileExtension;
+
+            if (new File(outputDir, fileName).exists()) {
+                System.out.println("Locale: " + localeId + " -- skipping since " +
+                    outputDir + fileName + " already exists");
+            } else {
+                System.out.println("Locale: " + localeId + " -- creating "
+                    + outputDir + fileName + " ...");
+                writeOneLocale(localeId, outputDir, fileName);
+            }
+        }
+    }
+
+    private void writeOneLocale(String localeId, String outputDir, String fileName) throws IOException {
         CLDRFile cldrFile = makeMutableResolved(factory, localeId); // time-consuming
         cldrFile.disableCaching();
-        CLDRFile top = cldrFile.getUnresolved(); // can mutate top
 
         Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
         CollectionUtilities.addAll(cldrFile.iterator(), paths); // time-consuming
-        if (JUST_LIST_PATHS) {
-            PrintWriter writer = null;
-            try {
-                writer = FileUtilities.openUTF8Writer(outputDir, fileName);
-            } catch (IOException e) {
-                e.printStackTrace();
-                return;
-            }
-            ArrayList<String> list = new ArrayList<String>(paths);
-            Collections.sort(list);
-            for (String path : list) {
-                // writer.println(path);
-                writer.println(path.replaceAll("\"", "\\\\\""));
-            }
-            return;
-        }
-        final PathStarrer pathStarrer = USE_STARRED_PATHS ? new PathStarrer().setSubstitutionPattern("*") : null;
 
         ExampleGenerator egBase = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
         HashMap<String, String> originalValues = new HashMap<String, String>();
 
-        /*
-         * Get all the examples so they'll be added to the cache for egBase.
-         */
-        for (String path : paths) {
-            if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
-                continue;
-            }
-            String value = cldrFile.getStringValue(path);
-            if (value == null) {
-                continue;
-            }
-            originalValues.put(path, value);
-            egBase.getExampleHtml(path, value);
-        }
+        getExamplesForBase(egBase, cldrFile, paths, originalValues);
         /*
          * Make egBase "cacheOnly" so that getExampleHtml will throw an exception if future queries
          * are not found in the cache. Alternatively, could just make a local hashmap originalExamples,
          * similar to originalValues. That might be more robust, require more memory, faster or slower?
          * Should try both ways.
          */
-        egBase.makeCacheOnly();
+        egBase.setCacheOnly(true);
 
         ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-        egTest.disableCaching(); // will not employ a cache -- this should save some time, since cache would be wasted
+        egTest.setCachingEnabled(false); // will not employ a cache -- this should save some time, since cache would be wasted
+
+        CLDRFile top = cldrFile.getUnresolved(); // can mutate top
+
+        final Multimap<String, String> dependencies = TreeMultimap.create();
+        long count = 0;
+        long skipCount = 0;
+        long dependencyCount = 0;
 
         /*
          * For each path (A), temporarily change its value, and then check each other path (B),
          * to see whether changing the value for A changed the example for B.
          */
-        HashMap<String, HashSet<String>> dependenciesA = new HashMap<String, HashSet<String>>();
-        // HashMap<String, HashSet<String>> dependenciesB = new HashMap<String, HashSet<String>>();
-        long count = 0;
-        long skipCount = 0;
-        long dependencyCount = 0;
-
         for (String pathA : paths) {
             if (skipPathForDependencies(pathA)) {
                 ++skipCount;
@@ -158,6 +201,7 @@ public class TestExampleDependencies extends TestFmwk {
             if (count > 500000) {
                 break;
             }
+            String starredA = USE_STARRED_PATHS ? pathStarrer.set(pathA) : null;
             /*
              * Modify the value for pathA in some random way
              */
@@ -174,18 +218,11 @@ public class TestExampleDependencies extends TestFmwk {
              * Reality check, did we really change the value returned by cldrFile.getStringValue?
              */
             String valueAX = cldrFile.getStringValue(pathA);
-            if (valueAX.equals(newValue)) {
-                // Good, expected
-                // System.out.println("Changing top changed cldrFile: newValue = " + newValue
-                //    + "; valueAX = " + valueAX + "; valueA = " + valueA);
-            } else {
+            if (!valueAX.equals(newValue)) {
                 // Bad, didn't work as expected
                 System.out.println("Changing top did not change cldrFile: newValue = " + newValue
                     + "; valueAX = " + valueAX + "; valueA = " + valueA);
             }
-            String starredA = USE_STARRED_PATHS ? pathStarrer.set(pathA) : null;
-            HashSet<String> a = USE_STARRED_PATHS ? dependenciesA.get(starredA) : null;
-            boolean maybeTypeA = ExampleGenerator.pathMightBeTypeA(pathA);
 
             for (String pathB : paths) {
                 if (pathA.equals(pathB) || skipPathForDependencies(pathB)) {
@@ -199,13 +236,8 @@ public class TestExampleDependencies extends TestFmwk {
                  * pathB and the original valueB.
                  */
                 String valueB = originalValues.get(pathB);
-                // String valueB = cldrFile.getStringValue(pathB);
                 if (valueB == null) {
                     continue;
-                }
-                if (false && pathA.equals("//ldml/localeDisplayNames/languages/language[@type=\"aa\"]")
-                    && pathB.equals("//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol")) {
-                    System.out.println("Got our paths in inner loop...");
                 }
                 pathB = pathB.intern();
 
@@ -215,28 +247,9 @@ public class TestExampleDependencies extends TestFmwk {
                 if ((exTest == null) != (exBase == null)) {
                     throw new InternalError("One null but not both? " + pathA + " --- " + pathB);
                 } else if (exTest != null && !exTest.equals(exBase)) {
-                    if (!maybeTypeA) {
-                        System.out.println("Warning: !maybeTypeA: " + pathA);
-                    }
-                    if (a == null) {
-                        a = new HashSet<String>();
-                    }
-                    a.add(USE_STARRED_PATHS ? pathStarrer.set(pathB).intern() : pathB);
-
-                    /***
-                    HashSet<String> b = dependenciesB.get(pathB);
-                    if (b == null) {
-                        b = new HashSet<String>();
-                    }
-                    b.add(pathA);
-                    dependenciesB.put(pathB, b);
-                    ***/
-
+                    dependencies.put(USE_STARRED_PATHS ? starredA : pathA, USE_STARRED_PATHS ? pathStarrer.set(pathB).intern() : pathB);
                     ++dependencyCount;
                 }
-            }
-            if (a != null && !a.isEmpty()) {
-                dependenciesA.put(USE_STARRED_PATHS ? starredA : pathA, a);
             }
             /*
              * Restore the original value, so that the changes due to this pathA don't get
@@ -250,14 +263,31 @@ public class TestExampleDependencies extends TestFmwk {
                     + "; valueA = " + valueA);
             }
         }
-        final boolean countOnly = false;
-        try {
-            writeDependenciesToFile(dependenciesA, outputDir, fileName, countOnly);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // writeDependenciesToFile(dependenciesB, "example_dependencies_B_" + localeId, countOnly);
+        writeDependenciesToFile(dependencies, outputDir, fileName);
         System.out.println("count = " + count + "; skipCount = " + skipCount + "; dependencyCount = " + dependencyCount);
+    }
+
+    /**
+     * Get all the examples so they'll be added to the cache for egBase.
+     * Also fill originalValues.
+     *
+     * @param egBase
+     * @param cldrFile
+     * @param paths
+     * @param originalValues
+     */
+    private void getExamplesForBase(ExampleGenerator egBase, CLDRFile cldrFile, Set<String> paths, HashMap<String, String> originalValues) {
+        for (String path : paths) {
+            if (skipPathForDependencies(path)) {
+                continue;
+            }
+            String value = cldrFile.getStringValue(path);
+            if (value == null) {
+                continue;
+            }
+            originalValues.put(path, value);
+            egBase.getExampleHtml(path, value);
+        }
     }
 
     /**
@@ -266,8 +296,8 @@ public class TestExampleDependencies extends TestFmwk {
      * @param value
      * @return the modified value, guaranteed to be different from value
      *
-     * TODO: avoid IllegalArgumentException thrown/caught in, e.g., ICUServiceBuilder.getSymbolString;
-     * this function might need path as parameter, to generate only "legal" values for specific paths.
+     * Note: it might be best to avoid IllegalArgumentException thrown/caught in, e.g., ICUServiceBuilder.getSymbolString;
+     * in which case this function might need path as parameter, to generate only "legal" values for specific paths.
      */
     private String modifyValueRandomly(String value) {
         /*
@@ -288,7 +318,6 @@ public class TestExampleDependencies extends TestFmwk {
          * String concatenation, e.g., change "foo" to "foo1"
          */
         return value + "1";
-        // return "1".equals(value) ? "2" : "1";
     }
 
     /**
@@ -300,12 +329,12 @@ public class TestExampleDependencies extends TestFmwk {
      * will be a SimpleXMLSource.
      *
      * @param factory
-     * @param localeID
+     * @param localeId
      * @return the CLDRFile
      */
-    private static CLDRFile makeMutableResolved(Factory factory, String localeID) {
-        XMLSource topSource = factory.makeSource(localeID).cloneAsThawed(); // make top one modifiable
-        List<XMLSource> parents = getParentSources(factory, localeID);
+    private static CLDRFile makeMutableResolved(Factory factory, String localeId) {
+        XMLSource topSource = factory.makeSource(localeId).cloneAsThawed(); // make top one modifiable
+        List<XMLSource> parents = getParentSources(factory, localeId);
         XMLSource[] a = new XMLSource[parents.size()];
         return new CLDRFile(topSource, parents.toArray(a));
     }
@@ -314,14 +343,14 @@ public class TestExampleDependencies extends TestFmwk {
      * Get the parent sources for the given localeId
      *
      * @param factory
-     * @param localeID
+     * @param localeId
      * @return the List of XMLSource objects
      *
      * Called only by makeMutableResolved
      */
-    private static List<XMLSource> getParentSources(Factory factory, String localeID) {
+    private static List<XMLSource> getParentSources(Factory factory, String localeId) {
         List<XMLSource> parents = new ArrayList<>();
-        for (String currentLocaleID = LocaleIDParser.getParent(localeID);
+        for (String currentLocaleID = LocaleIDParser.getParent(localeId);
             currentLocaleID != null;
             currentLocaleID = LocaleIDParser.getParent(currentLocaleID)) {
             parents.add(factory.makeSource(currentLocaleID));
@@ -344,26 +373,53 @@ public class TestExampleDependencies extends TestFmwk {
     }
 
     /**
-     * Write the given map of example-generator path dependencies to a json file.
+     * Write the given map of example-generator path dependencies to a json or java file.
      *
-     * If this function is to be used and revised long-term, it would be better to use JSONObject,
+     * If this function is to be used for json and revised long-term, it would be better to use JSONObject,
      * or write a format other than json.
      * JSONObject isn't currently linked to cldr-unittest TestAll, package org.unicode.cldr.unittest.
      *
-     * @param dependencies the map of example-generator path dependencies
-     * @param fileName the name of the file to create, without path or extension
-     * @param countOnly true to show only the count of the set for each key path in the map
-     *                  false to include all the paths
+     * @param dependencies the multimap of example-generator path dependencies
+     * @param dir the directory in which to create the file
+     * @param fileName the name of the file to create
      *
      * @throws IOException
      */
-    private void writeDependenciesToFile(HashMap<String, HashSet<String>> dependencies, String dir, String name, boolean countOnly) throws IOException {
-        // JSONObject json = new JSONObject(dependencies);
-        // json.write(writer);
-
+    private void writeDependenciesToFile(Multimap<String, String> dependencies, String dir, String name) throws IOException {
         PrintWriter writer = FileUtilities.openUTF8Writer(dir, name);
-        writer.println("{");
+        if (fileExtension.equals(".json")) {
+            writeJson(dependencies, dir, name, writer);
+        } else {
+            writeJava(dependencies, dir, name, writer);
+        }
+    }
 
+    private void writeJava(Multimap<String, String> dependencies, String dir, String name, PrintWriter writer) {
+        writer.println("package org.unicode.cldr.test;");
+        writer.println("import com.google.common.collect.ImmutableSetMultimap;");
+        writer.println("public class ExampleDependencies {");
+        writer.println("    public static ImmutableSetMultimap<String, String> dependencies");
+        writer.println("            = new ImmutableSetMultimap.Builder<String, String>()");
+        int dependenciesWritten = 0;
+        ArrayList<String> listA = new ArrayList<String>(dependencies.keySet());
+        Collections.sort(listA);
+        for (String pathA : listA) {
+            ArrayList<String> listB = new ArrayList<String>(dependencies.get(pathA));
+            Collections.sort(listB);
+            String a = "\"" + pathA.replaceAll("\"", "\\\\\"") + "\"";
+            for (String pathB : listB) {
+                String b = "\"" + pathB.replaceAll("\"", "\\\\\"") + "\"";
+                writer.println("        .put(" + a + ", " + b + ")");
+                ++dependenciesWritten;
+            }
+        }
+        writer.println("        .build();");
+        writer.println("}");
+        writer.close();
+        System.out.println("Wrote " + dependenciesWritten + " dependencies to " + dir + name);
+    }
+
+    private void writeJson(Multimap<String, String> dependencies, String dir, String name, PrintWriter writer) {
         ArrayList<String> list = new ArrayList<String>(dependencies.keySet());
         Collections.sort(list);
         boolean firstPathA = true;
@@ -374,28 +430,22 @@ public class TestExampleDependencies extends TestFmwk {
             } else {
                 writer.println(",");
             }
-            HashSet<String> set = dependencies.get(pathA);
+            Collection<String> values = dependencies.get(pathA);
             writer.print("  " + "\"" + pathA.replaceAll("\"", "\\\\\"") + "\"" + ": ");
-            if (countOnly) {
-                Integer count = set.size();
-                writer.println(count.toString());
-            } else {
-                writer.println("[");
-                boolean firstPathB = true;
-                for (String pathB : set) {
-                    if (firstPathB) {
-                        firstPathB = false;
-                    } else {
-                        writer.println(",");
-                    }
-                    writer.print("    " + "\"" + pathB.replaceAll("\"", "\\\\\"") + "\"");
+            writer.println("[");
+            boolean firstPathB = true;
+            for (String pathB : values) {
+                if (firstPathB) {
+                    firstPathB = false;
+                } else {
+                    writer.println(",");
                 }
-                writer.println("");
-                writer.print("  ]");
+                writer.print("    " + "\"" + pathB.replaceAll("\"", "\\\\\"") + "\"");
             }
+            writer.println("");
+            writer.print("  ]");
             ++keysWritten;
         }
-
         writer.println("");
         writer.println("}");
         writer.close();

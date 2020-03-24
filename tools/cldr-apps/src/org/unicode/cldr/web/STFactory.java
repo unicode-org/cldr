@@ -196,6 +196,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param resolver the VoteResolver
          * @param resolveMorePaths true for making vxml, else false
          * @return the VoteResolver
+         *
+         * TODO: reevaluate whether resolveMorePaths is needed anymore.
          */
         public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver, boolean resolveMorePaths) {
             PerLocaleData.PerXPathData xpd = ballotBox.peekXpathData(path);
@@ -252,7 +254,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 delegate.removeValueAtDPath(path);
             }
-            notifyListeners(path);
             return resolver;
         }
 
@@ -1143,7 +1144,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
             }
 
+            String oldVal = xmlsource.getValueAtDPath(distinguishingXpath);
+
             if (!readonly) {
+                /*
+                 * TODO: move this block to a subroutine
+                 */
                 boolean didClearFlag = false;
                 makeSource(false);
                 ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
@@ -1251,6 +1257,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             xmlsource.setValueFromResolver(distinguishingXpath, null, false /* resolveMorePaths */);
+
+            String newVal = xmlsource.getValueAtDPath(distinguishingXpath);
+            if (newVal != null && !newVal.equals(oldVal)) {
+                xmlsource.notifyListeners(distinguishingXpath);
+            }
         }
 
         /**
@@ -1291,84 +1302,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             getXPathData(distinguishingXpath).setVoteForValue(user, distinguishingXpath, value, voteOverride, when);
             stamp.next();
-        }
-
-        @Override
-        public synchronized void deleteValue(User user, String distinguishingXpath, String value) throws BallotBox.InvalidXPathException {
-            if (!getPathsForFile().contains(distinguishingXpath)) {
-                throw new BallotBox.InvalidXPathException(distinguishingXpath);
-            }
-
-            //make sure user is not deleting a path with 1 or more votes
-            if (getVotesForValue(distinguishingXpath, value) != null) {
-                SurveyLog.debug("failed to delete value: " + value + " because it has 1 or more votes");
-                return;
-            }
-
-            SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " deleting '" + value + "'");
-            ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user, locale); // this
-            // has
-            // to
-            // do
-            // with
-            // changing
-            // a
-            // vote
-            // -
-            // not
-            // counting
-            // it.
-            if (denial != null) {
-                throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial);
-            }
-            if (!readonly) {
-                makeSource(false);
-                ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
-                    + distinguishingXpath + " : " + user + " deleting '" + value);
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = DBUtils.getInstance().getDBConnection();
-
-                    ps = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + DBUtils.Table.VOTE_VALUE_ALT + " where value=? ");
-
-                    DBUtils.setStringUTF8(ps, 1, value);
-
-                    ps.executeUpdate();
-
-                    conn.commit();
-                } catch (SQLException e) {
-                    SurveyLog.logException(e);
-                    SurveyMain.busted("Could not delete value " + value + " in locale locale " + locale, e);
-                    throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
-                } finally {
-                    DBUtils.close(ps, conn);
-                }
-                SurveyLog.debug(et);
-            } else {
-                readonly();
-            }
-
-            internalDeleteValue(user, distinguishingXpath, value, null, xmlsource); // will create/throw away a resolver.
-        }
-
-        /**
-         * @param user
-         * @param distinguishingXpath
-         * @param value
-         * @param source
-         * @return
-         * 
-         * TODO: does this function accomplish anything? Deleted stub removeFromOthers
-         * Called by deleteValue only.
-         */
-        private final VoteResolver<String> internalDeleteValue(User user, String distinguishingXpath, String value,
-            VoteResolver<String> resolver, DataBackedSource source) throws InvalidXPathException {
-            if (!getPathsForFile().contains(distinguishingXpath)) {
-                throw new InvalidXPathException(distinguishingXpath);
-            }
-            stamp.next();
-            return resolver = source.setValueFromResolver(distinguishingXpath, resolver, false /* resolveMorePaths */);
         }
 
         @Override

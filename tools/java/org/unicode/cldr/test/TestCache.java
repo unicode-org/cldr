@@ -177,12 +177,6 @@ public class TestCache implements XMLSource.Listener {
      *
      * @param xpath the xpath
      * @param locale the CLDRLocale
-     *
-     * There is room for improvement of performance. Currently we invalidate all paths for any affected locale.
-     * Ideally, cache invalidation should only be done for each locale+path whose test results or examples potentially
-     * depend on the given locale+path, due to inheritance, aliasing, logical groups, etc. That could be done using a mapping
-     * between paths that are related by such dependencies; that mapping would be constant for as long as the paths and tests
-     * (or example-generation methods) don't change.
      */
     private void valueChangedInvalidateRecursively(String xpath, final CLDRLocale locale) {
         if (DEBUG) {

@@ -1670,15 +1670,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     }
 
     /**
-     * Notifies all listeners that a change has occurred. This method should be
-     * called by the XMLSource being updated after any change
-     * (usually in putValueAtDPath() and removeValueAtDPath()).
-     * This should only be called by XMLSource / CLDRFile
+     * Notifies all listeners that the winning value for the given path has changed.
      *
      * @param xpath
      *            the xpath where the change occurred.
      */
-    protected void notifyListeners(String xpath) {
+    public void notifyListeners(String xpath) {
         int i = 0;
         while (i < listeners.size()) {
             Listener listener = listeners.get(i).get();

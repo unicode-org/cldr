@@ -1349,11 +1349,13 @@
     west) #REQUIRED &gt;<br>
     <br>
     &lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br></p>
+
     <p>These elements specify the localized way of formatting
     quantities of units such as years, months, days, hours, minutes
     and seconds— for example, in English, "1 day" or "3 days". The
     English rules that produce this example are as follows ({0}
     indicates the position of the formatted numeric value):</p>
+
     <pre>&lt;unit type="duration-day"&gt;
   &lt;displayName&gt;days&lt;/displayName&gt;
   &lt;unitPattern count="one"&gt;<span style=
@@ -1361,17 +1363,37 @@
   &lt;unitPattern count="other"&gt;<span style=
 "color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
+
     <p>In addition to supporting language-specific plural cases
     such as “one” and “other”, unitPatterns support the
     language-independent explicit cases “0” and “1” for special
     handling of numeric values that are exactly 0 or 1; see
     <a href="tr35-numbers.html#Explicit_0_1_rules">Explicit 0 and 1
     rules</a>.</p>
+
+    <p class="changed">The &lt;unitPattern&gt; elements may be used to format
+    quantities with decimal values; in such cases the choice of plural form will
+    depend not only on the numeric value, but also on its formatting (see
+    <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a>).
+    In addition to formatting units for stand-alone use,  &lt;unitPattern&gt;
+    elements are increasingly being used to format units for use in running text;
+    for such usages, the developing <a href="#Grammatical_Features">Grammatical Features</a>
+    information will be very useful.</p>
+
+    <p class="changed">Note that for certain plural cases, the unit pattern may not
+    provide for inclusion of a numeric value—that is, it may not include “{0}”. This
+    is especially true for the explicit cases “0” and “1” (which may have patterns like
+    “zero seconds”). In certain languages such as Arabic and Hebrew, this may also be
+    true with certain units for the plural cases “zero”, “one”, or “two” (in these
+    languages, such plural cases are only used for the corresponding exact numeric
+    values, so there is no concern about loss of precision without the numeric value).</p>
+
     <p>Units, like other values with a <strong>count</strong>
     attribute, use a special inheritance. See <strong>Part 1:
     Core:</strong> <em>Section 4.1 <a href=
     "tr35.html#Multiple_Inheritance">Multiple Inheritance</a></em>
     .</p>
+
     <p>The displayName is used for labels, such as in a UI. It is
     typically lowercased and as neutral a plural form as possible,
     and then uses the casing context for the proper display. For
@@ -2481,6 +2503,7 @@ The formal syntax for identifiers is provided below.
     <p>The patterns can have different unit lengths, so the
     appropriate unit length should be used (with fallbacks if
     necessary).</p>
+
     <h3>6.<span class='changed'>5</span> <a name="Unit_Sequences" href="#Unit_Sequences" id=
     "Unit_Sequences">Unit Sequences<span class='changed'> (Mixed Units)</span></a></h3>
     <p>Units may be used in composed sequences <span  class='changed'>(aka <em>mixed units</em>)</span>, such as <strong>5°
@@ -2491,6 +2514,9 @@ The formal syntax for identifiers is provided below.
 &lt;listPattern type="unit-narrow"&gt;
 &lt;listPattern type="unit-short"&gt;
 </pre>
+    <p class="changed">In such a sequence, decimal fractions are typically only displayed for
+    the last element of the sequence, if at all.</p>
+
     <h3>6.<span class='changed'>6</span> <a name="durationUnit" href="#durationUnit" id=
     "durationUnit">durationUnit</a></h3>
     <p>The durationUnit is a special type of unit used for composed

@@ -526,23 +526,32 @@ var stui = {
 	disconnected: "Disconnected",
 	startup: "Starting up...",
 	ari_sessiondisconnect_message: "Your session has been disconnected.",
-	str: function(x) {
+};
+
+/*
+ * These temporary versions of stui.str and stui.sub are "while we wait for the resources to load";
+ * see loadStui() later in this file.
+ * TODO: modernize with modules, avoid duplication here and later of stui.str, stui.sub!
+ *
+ * https://dojotoolkit.org/reference-guide/1.10/dojo/string.html
+ */
+require(["dojo/string"], function(string) {
+	stui.str = function(x) {
 		if (stui[x]) {
 			return stui[x];
 		}
 		else {
 			return "";
 		}
-	},
-	sub: function(x, y) {
-		/*
-		 * https://dojotoolkit.org/reference-guide/1.10/dojo/string.html
-		 */
-		require(["dojo/string"], function(string) {
-			return string.substitute(stui.str(x), y);
-		});
-	}
-};
+	};
+	stui.sub = function(x, y) {
+		let template = stui.str(x);
+		if (!template) {
+			return "";
+		}
+		return string.substitute(template, y);
+	};
+});
 
 var stuidebug_enabled = (window.location.search.indexOf('&stui_debug=') > -1);
 
@@ -3037,18 +3046,22 @@ function updateCoverage(theDiv) {
 function loadStui(loc, cb) {
 	if (!stui.ready) {
 		/*
+		 * https://dojotoolkit.org/reference-guide/1.10/dojo/string.html
 		 * https://dojotoolkit.org/reference-guide/1.10/dojo/i18n.html
 		 */
-		require(["dojo/i18n!./surveyTool/nls/stui.js"], function(stuibundle) {
+		require(["dojo/string", "dojo/i18n!./surveyTool/nls/stui.js"],
+		function(string, stuibundle) {
 			if (!stuidebug_enabled) {
 				stui.str = function(x) {
 					if (stuibundle[x]) return stuibundle[x];
 					else return x;
 				};
 				stui.sub = function(x, y) {
-					require(["dojo/string"], function(string) {
-						return string.substitute(stui.str(x), y);
-					});
+					let template = stui.str(x);
+					if (!template) {
+						return "";
+					}
+					return string.substitute(template, y);
 				};
 			} else {
 				stui.str = stui_str; // debug

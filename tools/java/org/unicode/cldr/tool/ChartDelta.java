@@ -108,7 +108,7 @@ public class ChartDelta extends Chart {
     private final boolean verbose;
 
     public static void main(String[] args) {
-        System.out.println("use -DCHART_VERSION=28 to generate version 28.");
+        System.out.println("use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
         MyOptions.parse(args, true);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
         if (MyOptions.orgFilter.option.doesOccur()) {
@@ -171,7 +171,7 @@ public class ChartDelta extends Chart {
     public void writeContents(FormattedFileWriter pw) throws IOException {
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
         FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
-        FormattedFileWriter.copyIncludeHtmls(getDirectory());
+        FormattedFileWriter.copyIncludeHtmls(getDirectory(), true);
         counter.clear();
         fileCounters.clear();
         writeNonLdmlPlain(anchors);
@@ -284,17 +284,18 @@ public class ChartDelta extends Chart {
 
             Counter<PathHeader> counts = new Counter<>();
 
-            String dirBase = 
-                ToolConstants.CLDR_RELEASE_VERSION_SET.contains(ToolConstants.PREV_CHART_VERSION) ? CURRENT_DIRECTORY 
-                    : vxml ? CLDRPaths.SVN_DIRECTORY + "cldr-aux/" + "voting/36/vxml/" // TODO fix version to be variable
-                        : CLDRPaths.BASE_DIRECTORY;
+            String dirBase = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
+            String prevDirBase = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
+//                ToolConstants.CLDR_RELEASE_VERSION_SET.contains(ToolConstants.PREV_CHART_VERSION) ? CURRENT_DIRECTORY 
+//                    : vxml ? CLDRPaths.SVN_DIRECTORY + "cldr-aux/" + "voting/36/vxml/" // TODO fix version to be variable
+//                        : CLDRPaths.BASE_DIRECTORY;
 
             for (String dir : DtdType.ldml.directories) {
                 if (dir.equals("annotationsDerived") || dir.equals("casing")) {
                     continue;
                 }
                 String current = dirBase + "common/" + dir;
-                String past = LAST_ARCHIVE_DIRECTORY + "common/" + dir;
+                String past = prevDirBase + "common/" + dir;
                 try {
                     factories.add(Factory.make(current, ".*"));
                 } catch (Exception e1) {
@@ -311,7 +312,8 @@ public class ChartDelta extends Chart {
                 System.out.println("Will compare: " + dir + "\t\t" + current + "\t\t" + past);
             }
             if (factories.isEmpty()) {
-                throw new IllegalArgumentException("No factories found");
+                throw new IllegalArgumentException("No factories found for " 
+                    + dirBase + ": " + DtdType.ldml.directories);
             }
             // get a list of all the locales to cycle over
 
@@ -820,10 +822,11 @@ public class ChartDelta extends Chart {
 
         @Override
         public String getExplanation() {
-            return "<p>Lists data fields that differ from the last version."
+            return "<p>Lists data fields that differ from the last major version (see versions above)."
                 + " Inherited differences in locales are suppressed, except where the source locales are different. "
-                + " The collations and metadata still have a raw format."
-                + " The rbnf, segmentations, and annotations are not yet included.<p>";
+//                + " The collations and metadata still have a raw format."
+//                + " The rbnf, segmentations, and annotations are not yet included."
+                + "<p>";
         }
 
         @Override

@@ -170,8 +170,12 @@ public class FormattedFileWriter extends java.io.Writer {
     }
 
     public static void copyIncludeHtmls (String targetDirectory) {
+        copyIncludeHtmls(targetDirectory, false);
+    }
+    
+    public static void copyIncludeHtmls (String targetDirectory, boolean addPrevVersion) {
         String[] replacements = {
-            "%version%", ToolConstants.CHART_DISPLAY_VERSION,
+            "%version%", ToolConstants.CHART_DISPLAY_VERSION + (addPrevVersion ? " – " + ToolConstants.PREV_CHART_VERSION_WITH0 : ""),
             "%date%", CldrUtility.isoFormatDateOnly(new Date())
         };
         writeTargetWithReplacements(targetDirectory, "include-date.html", "include-date.html", replacements);

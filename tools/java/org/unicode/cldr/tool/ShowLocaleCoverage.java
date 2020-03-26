@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -75,12 +74,12 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 
 public class ShowLocaleCoverage {
     private static final String VXML_CONSTANT = CLDRPaths.AUX_DIRECTORY + "voting/" + CLDRFile.GEN_VERSION + "/vxml/common/";
@@ -133,7 +132,7 @@ public class ShowLocaleCoverage {
             ;
     private static final String TSV_MISSING_BASIC_HEADER = "";
     
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
 
     private static final String LATEST = ToolConstants.CHART_VERSION;
@@ -290,34 +289,48 @@ public class ShowLocaleCoverage {
 //                break;
 //            }
 //        }
-        Map<String, FoundAndTotal> latestData = addGrowth(factory, null, matcher, DEBUG);
-        addCompletionList(getYearFromVersion(LATEST, false), getCompletion(latestData, latestData), growthData);
-        if (DEBUG) System.out.println(latestData);
-        //System.out.println(growthData);
-        List<String> dirs = new ArrayList<>(Arrays.asList(new File(CLDRPaths.ARCHIVE_DIRECTORY).list()));
-        Collections.reverse(dirs);
-        for (String dir : dirs) {
-            if (!dir.startsWith("cldr")) {
-                continue;
-            }
-            String version = getNormalizedVersion(dir);
-            if (version == null) {
-                continue;
-            }
-//            if (version.compareTo("12") < 0) {
-//                continue;
-//            }
-            System.out.println("Reading: " + version);
-            if (version.equals("2008")) {
-                int debug = 0;
-            }
+        Map<String, FoundAndTotal> latestData = null;
+        for (ReleaseInfo versionNormalizedVersionAndYear : versionToYear) {
+            VersionInfo version = versionNormalizedVersionAndYear.version;
+            int year = versionNormalizedVersionAndYear.year;
+            String dir = ToolConstants.getBaseDirectory(version.getVersionString(2, 3));
             Map<String, FoundAndTotal> currentData = addGrowth(factory, dir, matcher, false);
-            System.out.println("Read: " + version + "\t" + currentData);
+            System.out.println("year: " + year + "; version: " + version + "; size: " + currentData);
+            if (latestData == null) {
+                latestData = currentData;
+            }
             Counter2<String> completionData = getCompletion(latestData, currentData);
-            //System.out.println(version + "\t" + completionData);
-            addCompletionList(version, completionData, growthData);
+            addCompletionList(year+"", completionData, growthData);
             if (DEBUG) System.out.println(currentData);
         }
+//        Map<String, FoundAndTotal> latestData = addGrowth(factory, null, matcher, false);
+//        addCompletionList(getYearFromVersion(LATEST, false), getCompletion(latestData, latestData), growthData);
+//        if (DEBUG) System.out.println(latestData);
+//        //System.out.println(growthData);
+//        List<String> dirs = new ArrayList<>(Arrays.asList(new File(CLDRPaths.ARCHIVE_DIRECTORY).list()));
+//        Collections.reverse(dirs);
+//        for (String dir : dirs) {
+//            if (!dir.startsWith("cldr")) {
+//                continue;
+//            }
+//            String version = getNormalizedVersion(dir);
+//            if (version == null) {
+//                continue;
+//            }
+////            if (version.compareTo("12") < 0) {
+////                continue;
+////            }
+//            System.out.println("Reading: " + version);
+//            if (version.equals("2008")) {
+//                int debug = 0;
+//            }
+//            Map<String, FoundAndTotal> currentData = addGrowth(factory, dir, matcher, false);
+//            System.out.println("Read: " + version + "\t" + currentData);
+//            Counter2<String> completionData = getCompletion(latestData, currentData);
+//            //System.out.println(version + "\t" + completionData);
+//            addCompletionList(version, completionData, growthData);
+//            if (DEBUG) System.out.println(currentData);
+//        }
         boolean first = true;
         for (Entry<String, List<Double>> entry : growthData.entrySet()) {
             if (first) {
@@ -331,51 +344,73 @@ public class ShowLocaleCoverage {
         }
     }
 
-    static final Map<String, String> versionToYear = new HashMap<>();
+    static final class ReleaseInfo {
+        public ReleaseInfo(VersionInfo versionInfo, int year) {
+            this.version = versionInfo;
+            this.year = year;
+        }
+        VersionInfo version;
+        int year;
+    }
+    
+    // TODO merge this into ToolConstants, and have the version expressed as VersionInfo.
+    static final List<ReleaseInfo> versionToYear;
     static {
-        int[][] mapping = {
-            { 34, 2018 },
-            { 32, 2017 },
-            { 30, 2016 },
-            { 28, 2015 },
-            { 26, 2014 },
-            { 24, 2013 },
-            { 22, 2012 },
-            { 20, 2011 },
-            { 19, 2010 },
-            { 17, 2009 },
-            { 16, 2008 },
-            { 15, 2007 },
-            { 14, 2006 },
-            { 13, 2005 },
-            { 12, 2004 },
-            { 10, 2003 },
+        Object[][] mapping = {
+            { VersionInfo.getInstance(37), 2020 },
+            { VersionInfo.getInstance(36), 2019 },
+            { VersionInfo.getInstance(34), 2018 },
+            { VersionInfo.getInstance(32), 2017 },
+            { VersionInfo.getInstance(30), 2016 },
+            { VersionInfo.getInstance(28), 2015 },
+            { VersionInfo.getInstance(26), 2014 },
+            { VersionInfo.getInstance(24), 2013 },
+            { VersionInfo.getInstance(22,1), 2012 },
+            { VersionInfo.getInstance(2,0,1), 2011 },
+            { VersionInfo.getInstance(1,9,1), 2010 },
+            { VersionInfo.getInstance(1,7,2), 2009 },
+            { VersionInfo.getInstance(1,6,1), 2008 },
+            { VersionInfo.getInstance(1,5,1), 2007 },
+            { VersionInfo.getInstance(1,4,1), 2006 },
+            { VersionInfo.getInstance(1,3), 2005 },
+            { VersionInfo.getInstance(1,2), 2004 },
+            { VersionInfo.getInstance(1,1,1), 2003 },
         };
-        for (int[] row : mapping) {
-            versionToYear.put(String.valueOf(row[0]), String.valueOf(row[1]));
+        List<ReleaseInfo> _versionToYear = new ArrayList<>();
+        for (Object[] row : mapping) {
+            _versionToYear.add(new ReleaseInfo((VersionInfo)row[0], (int)row[1]));
         }
+        versionToYear = ImmutableList.copyOf(_versionToYear);
     }
 
-    public static String getNormalizedVersion(String dir) {
-        String rawVersion = dir.substring(dir.indexOf('-') + 1);
-        int firstDot = rawVersion.indexOf('.');
-        int secondDot = rawVersion.indexOf('.', firstDot + 1);
-        if (secondDot > 0) {
-            rawVersion = rawVersion.substring(0, firstDot) + rawVersion.substring(firstDot + 1, secondDot);
-        } else {
-            rawVersion = rawVersion.substring(0, firstDot);
-        }
-        String result = getYearFromVersion(rawVersion, true);
-        return result == null ? null : result.toString();
-    }
+//    public static String getNormalizedVersion(String dir) {
+//        String rawVersion = dir.substring(dir.indexOf('-') + 1);
+//        int firstDot = rawVersion.indexOf('.');
+//        int secondDot = rawVersion.indexOf('.', firstDot + 1);
+//        if (secondDot > 0) {
+//            rawVersion = rawVersion.substring(0, firstDot) + rawVersion.substring(firstDot + 1, secondDot);
+//        } else {
+//            rawVersion = rawVersion.substring(0, firstDot);
+//        }
+//        String result = getYearFromVersion(rawVersion, true);
+//        return result == null ? null : result.toString();
+//    }
 
-    private static String getYearFromVersion(String version, boolean allowNull) {
-        String result = versionToYear.get(version);
-        if (!allowNull && result == null) {
-            throw new IllegalArgumentException("No year for version: " + version);
-        }
-        return result;
-    }
+//    private static String getYearFromVersion(String version, boolean allowNull) {
+//        String result = versionToYear.get(version);
+//        if (!allowNull && result == null) {
+//            throw new IllegalArgumentException("No year for version: " + version);
+//        }
+//        return result;
+//    }
+//
+//    private static String getVersionFromYear(String year, boolean allowNull) {
+//        String result = versionToYear.inverse().get(year);
+//        if (!allowNull && result == null) {
+//            throw new IllegalArgumentException("No version for year: " + year);
+//        }
+//        return result;
+//    }
 
     public static void addCompletionList(String version, Counter2<String> completionData, TreeMap<String, List<Double>> growthData) {
         List<Double> x = new ArrayList<>();
@@ -430,9 +465,10 @@ public class ShowLocaleCoverage {
     }
 
     private static Map<String, FoundAndTotal> addGrowth(org.unicode.cldr.util.Factory latestFactory, String dir, Matcher matcher, boolean showMissing) {
-        org.unicode.cldr.util.Factory newFactory = dir == null ? factory
-            : org.unicode.cldr.util.Factory.make(
-                CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
+        final File mainDir = new File(dir + "/common/main/");
+        final File annotationDir = new File(dir + "/common/annotations/");
+        File[] paths = annotationDir.exists() ? new File[] {mainDir, annotationDir} : new File[] {mainDir};
+        org.unicode.cldr.util.Factory newFactory = SimpleFactory.make(paths, ".*");
         Map<String, FoundAndTotal> data = new HashMap<>();
         char c = 0;
         Set<String> latestAvailable = newFactory.getAvailableLanguages();
@@ -522,25 +558,6 @@ public class ShowLocaleCoverage {
                     System.out.println(++count + "\t" + locale + "\t" + CldrUtility.toString(e));
                 }
                 int debug = 0;
-            }
-
-            // add annotations
-            System.out.println(locale + " annotations");
-            try {
-                UnicodeMap<Annotations> annotations = dir == null ? Annotations.getData(locale)
-                    : Annotations.getData(CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/annotations/", locale);
-                for (String cp : ENG_ANN) {
-                    Annotations annotation = annotations.get(cp);
-                    if (annotation == null) {
-                        missingCounter.add(Level.MODERN, 1);
-                    } else if (annotation.getShortName() == null) {
-                        missingCounter.add(Level.MODERN, 1);
-                    } else {
-                        foundCounter.add(Level.MODERN, 1);
-                    }
-                }
-            } catch (Exception e1) {
-                missingCounter.add(Level.MODERN, ENG_ANN.size());
             }
 
             data.put(locale, new FoundAndTotal(foundCounter, unconfirmedCounter, missingCounter));

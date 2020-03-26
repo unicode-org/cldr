@@ -26,6 +26,7 @@ public class ToolConstants {
         release // for release version
     }
 
+    // TODO change this to a list of VersionInfos, add add in the ShowLocaleCoverage years.
     public static final List<String> CLDR_VERSIONS = ImmutableList.of(
         "1.1.1",
         "1.2",
@@ -75,10 +76,13 @@ public class ToolConstants {
     }
 
     public static String getBaseDirectory(String version) {
-        if (CLDR_RELEASE_VERSION_SET.contains(version)) {
+        if (version.equals(DEV_VERSION) || version.equals(DEV_VERSION + ".0")) {
+            return CLDRPaths.BASE_DIRECTORY;
+        } else if (CLDR_RELEASE_VERSION_SET.contains(version)) {
             return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/";
+        } else {
+            throw new IllegalArgumentException("not a known version: " + version);
         }
-        return CLDRPaths.BASE_DIRECTORY;
     }
 
     // allows overriding with -D
@@ -86,7 +90,7 @@ public class ToolConstants {
     public static final VersionInfo CHART_VI = VersionInfo.getInstance(CHART_VERSION);
 
     public static final String PREV_CHART_VERSION = CldrUtility.getProperty("PREV_CHART_VERSION", previousVersion(CHART_VERSION));
-    public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(CHART_VERSION);
+    public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(PREV_CHART_VERSION);
     public static final String PREV_CHART_VERSION_WITH0 = PREV_CHART_VI.getVersionString(2, 2); // must have 1 decimal
 
     public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS", 

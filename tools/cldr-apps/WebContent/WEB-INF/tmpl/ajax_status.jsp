@@ -15,7 +15,7 @@
 <script>
 dojoConfig = {
 		parseOnLoad: true,
-		/* async: true, */
+		async: true,
 		};</script>
 <script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>
 <script>

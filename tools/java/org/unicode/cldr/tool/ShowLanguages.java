@@ -80,7 +80,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
-@CLDRTool(alias = "showlanguages", description = "Generate Lanugage info charts")
+@CLDRTool(alias = "showlanguages", description = "Generate Language info charts")
 public class ShowLanguages {
     private static final boolean SHOW_NATIVE = true;
 

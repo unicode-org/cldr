@@ -415,10 +415,9 @@ DIV.1st {
 						(such as "1-2", used in expressions like "1-2 meters long"). CLDR
 						uses short, mnemonic tags for these plural categories. For more
 						information on these categories, see <a
-							href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural
+							href="http://cldr.unicode.org/index/cldr-spec/plural-rules" target='spec'>Plural
 							Rules</a>.
 					</p>
-					<p></p>
 					<ul>
 						<li><b>Examples:</b> The symbol ~ (as in "1.7~2.1") has a
 							special meaning: it is a range of numbers that includes the end
@@ -427,11 +426,15 @@ DIV.1st {
 							and 2.0, but not 2 or 1.91 or 1.90). The samples are generated mechanically, and
 							are not comprehensive: “0, 2~19, 101~119, …” could show up as the less-complete
 							“0, 2~16, 101 …”.</li>
+						<li><strong>Rules:</strong> The plural categories are computed based on machine-readable rules, 
+						using the syntax described in <a href="http://unicode.org/reports/tr35/tr35-numbers.html#Language_Plural_Rules" target='spec'>Language Plural Rules</a>. 
+						In particular, they use special variables and relation defined in <a href="http://unicode.org/reports/tr35/tr35-numbers.html#Operands" target='spec'>Plural Rule Operands</a>
+						and following.</li>
 						<li><b>Reporting Defects:</b> When you find errors or
 							omissions in this data, please report the information with a <a
 							target="_blank" href="http://unicode.org/cldr/trac/newticket">bug
 								report</a>. But first read &quot;Reporting Defects&quot; on <a
-							href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural
+							href="http://cldr.unicode.org/index/cldr-spec/plural-rules" target='spec'>Plural
 								Rules</a>.</li>
 					</ul>
 				</td>

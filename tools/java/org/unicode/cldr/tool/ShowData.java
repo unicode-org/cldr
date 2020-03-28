@@ -35,6 +35,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -100,7 +101,7 @@ public class ShowData {
             // + "main/";
             String targetDir = options[DESTDIR].value; // Utility.GEN_DIRECTORY +
             // "main/";
-            cldrFactory = Factory.make(sourceDir, ".*");
+            cldrFactory = CLDRConfig.getInstance().getMainAndAnnotationsFactory(); // ignore source directory for now
             english = cldrFactory.make("en", true);
             String lastSourceDir = options[LAST_DIR].value; // Utility.COMMON_DIRECTORY
 
@@ -330,7 +331,7 @@ public class ShowData {
                         (hide ? "<tr class='xx'><td" : "<tr><td")
                             + statusClass
                             + ">"
-                            + CldrUtility.getDoubleLinkedText(String.valueOf(++count))
+                            + CldrUtility.getDoubleLinkedText(Long.toHexString(StringId.getId(path)), String.valueOf(++count))
                             + addPart(oldParts == null ? null : oldParts.getSection(), prettyPath.getSection())
                             + addPart(oldParts == null ? null : oldParts.getPage(), prettyPath.getPage())
                             + addPart(oldParts == null ? null : oldParts.getHeader(), prettyPath.getHeader())

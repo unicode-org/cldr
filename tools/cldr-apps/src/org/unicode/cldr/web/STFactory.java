@@ -708,11 +708,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         String xpath = sm.xpt.getById(xp);
                         int submitter = rs.getInt(2);
                         String value = DBUtils.getStringUTF8(rs, 3);
-                        Integer voteOverride = rs.getInt(4); // 4 override
+                        /*
+                         * 4 = locale is unused here, but is required in the query in case deleteRow
+                         * is called below. See openQueryByLocaleRW for explanation.
+                         */
+                        Integer voteOverride = rs.getInt(5); // 5 override
                         if (voteOverride == 0 && rs.wasNull()) { // if override was a null..
                             voteOverride = null;
                         }
-                        Timestamp last_mod = rs.getTimestamp(5); // last mod
+                        Timestamp last_mod = rs.getTimestamp(6); // last mod
                         User theSubmitter = sm.reg.getInfo(submitter);
                         if (theSubmitter == null) {
                             SurveyLog.warnOnce("Ignoring votes for deleted user #" + submitter);
@@ -1846,8 +1850,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     private PreparedStatement openQueryByLocaleRW(Connection conn) throws SQLException {
         setupDB();
+        /*
+         * locale must be included in the SELECT list as well as the WHERE clause,
+         * to prevent SQL exception in the special case where deleteRow is called on
+         * the result set for votes for invalid (e.g., obsolete) paths. The query
+         * "must select all primary keys from that table".
+         */
         return DBUtils
-            .prepareForwardUpdateable(conn, "SELECT xpath,submitter,value," + VOTE_OVERRIDE + ",last_mod FROM " + DBUtils.Table.VOTE_VALUE
+            .prepareForwardUpdateable(conn, "SELECT xpath,submitter,value,locale," + VOTE_OVERRIDE + ",last_mod FROM " + DBUtils.Table.VOTE_VALUE
                 + " WHERE locale = ?");
     }
 

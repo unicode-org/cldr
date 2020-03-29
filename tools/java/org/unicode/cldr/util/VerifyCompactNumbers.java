@@ -52,7 +52,7 @@ public class VerifyCompactNumbers {
 
     // later, look at DateTimeFormats to set up as an HTML table
 
-    private static final Set<String> USES_GROUPS_OF_4 = new HashSet<String>(Arrays.asList("ko", "ja", "zh", "zh_Hant"));
+    public static final Set<String> USES_GROUPS_OF_4 = new HashSet<String>(Arrays.asList("ko", "ja", "zh", "zh_Hant"));
 
     /**
      * Produce a set of static tables from the vxml data. Only a stopgap until the above is integrated into ST.
@@ -163,10 +163,11 @@ public class VerifyCompactNumbers {
             ;
 
             ULocale locale2 = new ULocale(locale);
-            NumberFormat nf = NumberFormat.getInstance(locale2);
+            ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+            NumberFormat nf = builder.getNumberFormat(1);
+            
             // nf.setMaximumFractionDigits(0);
             SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
-            PluralInfo pluralInfo = sdi.getPlurals(locale);
             String[] debugOriginals = null;
             CompactDecimalFormat cdf = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
                 debugOriginals, CompactStyle.SHORT, locale2, CurrencyStyle.PLAIN, currencyCode);
@@ -186,56 +187,7 @@ public class VerifyCompactNumbers {
 //             CompactDecimalFormat cdfsCurrISO = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
 //             debugOriginals, CompactStyle.LONG, locale2, CurrencyStyle.ISO_CURRENCY, "EUR");
 
-            // Collect samples for display
-            // one path for group-3, one for group-4
-            // TODO, fix for indic.
-            int factor = USES_GROUPS_OF_4.contains(locale) ? 10000 : 1000;
-
-            // we want to collect a sample of at least one sample for each plural category for each
-            // power of ten
-            Set<Double> samples = new TreeSet<Double>();
-            samples.add(1.1d);
-            samples.add(1.5d);
-            samples.add(1100d);
-            collectItems(pluralInfo, 1, 10, samples);
-            collectItems(pluralInfo, 10, 100, samples);
-            collectItems(pluralInfo, 100, 1000, samples);
-            int sigDigits = 3;
-            if (factor > 1000) {
-                collectItems(pluralInfo, 1000, 10000, samples);
-                sigDigits = 4;
-            }
-            if (cdf != null) {
-                cdf.setMaximumSignificantDigits(sigDigits);
-            }
-            if (cdfs != null) {
-                cdfs.setMaximumSignificantDigits(sigDigits);
-            }
-            if (cdfCurr != null) {
-                cdfCurr.setCurrency(Currency.getInstance(currencyCode));
-                cdfCurr.setMaximumSignificantDigits(sigDigits);
-            }
-//            cdfU.setMaximumSignificantDigits(sigDigits);
-
-            // for (Entry<Count, List<Double>> entry : pluralInfo.getCountToExamplesMap().entrySet()) {
-            // samples.add(entry.getValue().get(0));
-            // }
-            //
-            // Set<Double> samples2 = new TreeSet<Double>();
-            // for (int i = 10; i < factor; i *= 10) {
-            // for (Double sample : samples) {
-            // samples2.add(sample*i);
-            // }
-            // }
-            // samples.addAll(samples2);
-
-            Set<Double> allSamples = new TreeSet<Double>();
-            for (long i = 1; i <= 100000000000000L; i *= factor) {
-                for (Double sample : samples) {
-                    double source = i * sample;
-                    allSamples.add(source);
-                }
-            }
+            Set<Double> allSamples = collectSamplesAndSetFormats(currencyCode, locale, sdi, cdf, cdfs, cdfCurr);
 
             try {
                 for (double source : allSamples) {
@@ -246,6 +198,7 @@ public class VerifyCompactNumbers {
                     String formattedNumber = nf.format(source);
                     String compactFormattedNumber = cdf == null ? "n/a" : cdf.format(source);
                     String compactLongFormattedNumber = cdfs == null ? "n/a" : cdfs.format(source);
+                    String compactCurrFormattedNumber = !showCurrency || cdfs == null ? "n/a" : cdfCurr.format(source);
                     // plainText.println(locale
                     // + "\t__" + source
                     // + "\t__" + compactFormattedNumber
@@ -257,7 +210,7 @@ public class VerifyCompactNumbers {
                         .addCell(compactLongFormattedNumber);
                     if (showCurrency) {
                         tablePrinter1
-                            .addCell(cdfCurr == null ? "n/a" : cdfCurr.format(source))
+                            .addCell(compactCurrFormattedNumber)
 //                            .addCell(cdfU.format(source))
 //                             .addCell(cdfsCurr.format(source))
                         // .addCell(cdfsCurrLong.format(source))
@@ -298,6 +251,62 @@ public class VerifyCompactNumbers {
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
+    }
+
+    public static Set<Double> collectSamplesAndSetFormats(String currencyCode, String locale, SupplementalDataInfo sdi, CompactDecimalFormat cdf,
+        CompactDecimalFormat cdfs, CompactDecimalFormat cdfCurr) {
+        // Collect samples for display
+        // one path for group-3, one for group-4
+        // TODO, fix for indic.
+        int factor = USES_GROUPS_OF_4.contains(locale) ? 10000 : 1000;
+
+        // we want to collect a sample of at least one sample for each plural category for each
+        // power of ten
+        PluralInfo pluralInfo = sdi.getPlurals(locale);
+        Set<Double> samples = new TreeSet<Double>();
+        samples.add(1.1d);
+        samples.add(1.5d);
+        samples.add(1100d);
+        collectItems(pluralInfo, 1, 10, samples);
+        collectItems(pluralInfo, 10, 100, samples);
+        collectItems(pluralInfo, 100, 1000, samples);
+        int sigDigits = 3;
+        if (factor > 1000) {
+            collectItems(pluralInfo, 1000, 10000, samples);
+            sigDigits = 4;
+        }
+        if (cdf != null) {
+            cdf.setMaximumSignificantDigits(sigDigits);
+        }
+        if (cdfs != null) {
+            cdfs.setMaximumSignificantDigits(sigDigits);
+        }
+        if (cdfCurr != null) {
+            cdfCurr.setCurrency(Currency.getInstance(currencyCode));
+            cdfCurr.setMaximumSignificantDigits(sigDigits);
+        }
+//            cdfU.setMaximumSignificantDigits(sigDigits);
+
+        // for (Entry<Count, List<Double>> entry : pluralInfo.getCountToExamplesMap().entrySet()) {
+        // samples.add(entry.getValue().get(0));
+        // }
+        //
+        // Set<Double> samples2 = new TreeSet<Double>();
+        // for (int i = 10; i < factor; i *= 10) {
+        // for (Double sample : samples) {
+        // samples2.add(sample*i);
+        // }
+        // }
+        // samples.addAll(samples2);
+
+        Set<Double> allSamples = new TreeSet<Double>();
+        for (long i = 1; i <= 100000000000000L; i *= factor) {
+            for (Double sample : samples) {
+                double source = i * sample;
+                allSamples.add(source);
+            }
+        }
+        return allSamples;
     }
 
     private static String surveyUrl = CLDR_CONFIG.getProperty("CLDR_SURVEY_URL",

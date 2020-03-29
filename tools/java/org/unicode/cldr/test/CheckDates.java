@@ -222,6 +222,9 @@ public class CheckDates extends FactoryCheckCLDR {
             // possibleErrors.add(flexInfo.getFailurePath(path));
         }
         redundants.clear();
+        /*
+         * TODO: NullPointerException may be thrown in ICU here during cldr-unittest TestAll
+         */
         flexInfo.getRedundants(redundants);
         // Set baseSkeletons = flexInfo.gen.getBaseSkeletons(new TreeSet());
         // Set notCovered = new TreeSet(neededFormats);
@@ -567,7 +570,8 @@ public class CheckDates extends FactoryCheckCLDR {
         } catch (Exception e) {
             // e.printStackTrace();
             // HACK
-            if (!HACK_CONFLICTING.matcher(e.getMessage()).find()) {
+            String msg = e.getMessage();
+            if (msg == null || !HACK_CONFLICTING.matcher(msg).find()) {
                 CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.illegalDatePattern)
                     .setMessage("Error in creating date format {0}", new Object[] { e });

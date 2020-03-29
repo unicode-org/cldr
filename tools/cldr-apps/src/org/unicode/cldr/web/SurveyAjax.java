@@ -233,9 +233,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String REQ_SESS = "s";
     public static final String WHAT_STATUS = "status";
     public static final String AJAX_STATUS_SCRIPT = "ajax_status.jspf";
-    public static final String WHAT_VERIFY = "verify";
     public static final String WHAT_SUBMIT = "submit";
-    public static final String WHAT_DELETE = "delete";
     public static final String WHAT_GETROW = "getrow";
     public static final String WHAT_GETSIDEWAYS = "getsideways";
     public static final String WHAT_GETXPATH = "getxpath";
@@ -518,7 +516,7 @@ public class SurveyAjax extends HttpServlet {
                 if (mySession == null) {
                     sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, ErrorCode.E_SESSION_DISCONNECTED);
                 } else {
-                    if (what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT) || what.equals(WHAT_DELETE)) {
+                    if (what.equals(WHAT_SUBMIT)) {
                         mySession.userDidAction();
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -622,21 +620,9 @@ public class SurveyAjax extends HttpServlet {
                                 r.put("xpathTested", xp);
                                 r.put("dataEmpty", Boolean.toString(dataEmpty));
 
-                                if (what.equals(WHAT_SUBMIT)) {
-                                    submitVoteOrAbstention(r, val, mySession, locale, xp, stf, otherErr, result, request, ballotBox);
-                                } else if (what.equals(WHAT_DELETE)) {
-                                    if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
-                                        throw new InternalError("User cannot modify locale.");
-                                    }
-
-                                    ballotBox.deleteValue(mySession.user, xp, val);
-                                    String delRes = ballotBox.getResolver(xp).toString();
-                                    if (DEBUG)
-                                        System.err.println("Voting result ::  " + delRes);
-                                    r.put("deleteResultRaw", delRes);
-                                }
+                                submitVoteOrAbstention(r, val, mySession, locale, xp, stf, otherErr, result, request, ballotBox);
                             } catch (Throwable t) {
-                                SurveyLog.logException(t, "Processing submission/deletion " + locale + ":" + xp);
+                                SurveyLog.logException(t, "Processing submission " + locale + ":" + xp);
                                 SurveyAjax.JSONWriter.putException(r, t);
                             } finally {
                                 if (uf != null)

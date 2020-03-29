@@ -392,7 +392,17 @@ public class CheckNumbers extends FactoryCheckCLDR {
         Set<String> inconsistentItems = new TreeSet<String>();
         Set<Count> otherCounts = new HashSet<Count>(pluralTypes);
         if (thisCount != null) {
-            if (pluralExamples.get(thisCount).size() == 1 && numIntegerDigits <= 0) {
+            Set<Double> pe = pluralExamples.get(thisCount);
+            if (pe == null) {
+                /*
+                 * This can happen for unknown reasons when path =
+                 * //ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+                 * TODO: something? At least don't throw NullPointerException, as happened when the code
+                 * was "... pluralExamples.get(thisCount).size() ..."; never assume get() returns non-null
+                 */
+                 return;
+            }
+            if (pe.size() == 1 && numIntegerDigits <= 0) {
                 // If a plural case corresponds to a single double value, the format is
                 // allowed to not include a numeric value and in this way be inconsistent
                 // with the numeric formats used for other plural cases.

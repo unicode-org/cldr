@@ -502,9 +502,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 if(s != null && !s.isEmpty()) {
                     SurveyMain.CLDR_APPS_HASH  = s;
                     ((CLDRConfigImpl)cconfig).setCldrAppsHash(s);
-//                    String oldV = (String)cconfig.put("CLDR_APPS_HASH", s);
-//                    System.err.println("CLDR_APPS_HASH = " + s + ", was " + oldV);
-                    System.err.println("Updated CLDR_APPS_HASH to" + getCurrevStr());
+                    System.err.println("Updated CLDR_APPS_HASH to " + getCurrevStr());
                 } else {
                     System.err.println("CLDR_APPS_HASH = unknown (no value in manifest)");
                 }
@@ -1608,10 +1606,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @return
      */
     public static String getCurrevCldrApps() {
-        if(CLDR_APPS_HASH != null) return CLDR_APPS_HASH; // use cachd version
-        return CLDRConfigImpl.getGitHashForSlug("CLDR_APPS_HASH");
+        if (CLDR_APPS_HASH == null) {
+            CLDR_APPS_HASH = CLDRConfigImpl.getGitHashForSlug("CLDR_APPS_HASH");
+        }
+        return CLDR_APPS_HASH;
     }
-    
+
     /**
      * Get the current source revision, as a string
      * This will either be a single string '(unknown)' or '1234568'

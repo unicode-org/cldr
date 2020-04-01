@@ -310,6 +310,7 @@ function unpackMenuSideBar(json) {
 	html += '<ul>';
 	$.each(menus, function(index, element) {
 		var menuName = element.name;
+	        let childCount = 0;
 		html += '<li class="list-unstyled open-menu"><div>' + menuName +
 			'<span class="pull-right glyphicon glyphicon-chevron-right"></span></div><ul class="second-level">';
 		$.each(element.pages, function(index, element) {
@@ -318,9 +319,13 @@ function unpackMenuSideBar(json) {
 			$.each(element.levs, function(index, element) {
 				if (parseInt(element) <= level) {
 					html += '<li class="sidebar-chooser list-unstyled" id="' + pageId + '"><div>' + pageName + '</div></li>';
+					childCount ++;
 				}
 			});
 		});
+	    if( childCount === 0) {
+                html += '<i>' + stui.str('coverage_no_items') + '</i>';
+            }
 		html += '</ul></li>';
 	});
 

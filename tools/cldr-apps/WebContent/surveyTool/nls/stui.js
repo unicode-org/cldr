@@ -324,7 +324,7 @@ define({
 		coverage_modern: 'Modern',
 		coverage_comprehensive: 'Comprehensive',
 		coverage_optional: 'Optional',
-
+                coverage_no_items: 'No items at this current coverage level.',
 		coverage_menu_desc: 'Change the displayed coverage level. "Automatic" will use your organization\'s preferred value for this locale, if any.',
 
 		section_mail: 'Messages',

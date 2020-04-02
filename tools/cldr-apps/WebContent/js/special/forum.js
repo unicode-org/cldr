@@ -65,7 +65,6 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 	};
 
 	Page.prototype.show = function show(params) {
-	
 		if(surveyCurrentLocale=='') {
 			hideLoader(null);
 			params.flipper.flipTo(params.pages.other, createChunk(stui.str("generic_nolocale"),"p","helpContent"));
@@ -96,6 +95,10 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 					return false;
 				});
 				ourDiv.appendChild(createChunk(stui.sub("forum_msg", { forum: locmap.getLocaleName(locmap.getLanguage(surveyCurrentLocale)),  locale: surveyCurrentLocaleName  }), "h4", ""));
+
+				ourDiv.appendChild(cldrStForumFilter.createMenu(surveyUser.id));
+				ourDiv.appendChild(document.createElement('br'));
+
 				ourDiv.appendChild(postButton);
 				ourDiv.appendChild(document.createElement('hr'));
 				if(json.ret.length == 0) {
@@ -117,7 +120,6 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 			});
 		}
 	};
-
 
 	return Page;
 });

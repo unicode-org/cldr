@@ -699,6 +699,8 @@ function createUser(user) {
  * @param {Object} json - options
  * @param {Array} j.ret - forum post data
  * @return {Object} new DOM object
+ *
+ * TODO: shorten this function, over 200 lines long
  */
 function parseForumContent(json) {
 	var forumDiv = document.createDocumentFragment();
@@ -896,14 +898,19 @@ function parseForumContent(json) {
 		}
 	}
 
-	// Now, bubble up recent posts to the top
+	// Now, bubble up recent posts to the top, with filtering
+
+	var newForumDiv = document.createDocumentFragment();
+
 	for (var num = json.ret.length - 1; num >= 0; num--) {
 		var post = json.ret[num];
 		var topicDiv = topicDivs[post.threadId];
-		forumDiv.removeChild(topicDiv);
-		forumDiv.insertBefore(topicDiv, forumDiv.firstChild);
+		// topicDiv = forumDiv.removeChild(topicDiv);
+		if (cldrStForumFilter.passes(post, topicDiv)) {
+			newForumDiv.insertBefore(topicDiv, newForumDiv.firstChild);
+		}
 	}
-	return forumDiv;
+	return newForumDiv;
 }
 
 /**

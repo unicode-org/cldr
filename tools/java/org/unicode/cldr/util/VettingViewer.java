@@ -848,7 +848,7 @@ public class VettingViewer<T> {
         output.append("<h2>Level: ").append(desiredLevel.toString()).append("</h2>");
         output.append("<table class='tvs-table'>\n");
         char lastChar = ' ';
-        Map<String, FileInfo> localeNameToFileInfo = new TreeMap();
+        Map<String, FileInfo> localeNameToFileInfo = new TreeMap<String, FileInfo>();
         FileInfo totals = new FileInfo();
 
         for (Entry<String, String> entry : sortedNames.entrySet()) {
@@ -1525,7 +1525,7 @@ public class VettingViewer<T> {
         missingCounter.clear();
 
         boolean latin = VettingViewer.isLatinScriptLocale(file);
-        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(file.getLocaleID());
+        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(), file.getLocaleID());
 
         for (String path : allPaths) {
 
@@ -1606,8 +1606,6 @@ public class VettingViewer<T> {
         for (String s : DIRECTORIES) {
             fileDirectories[i++] = new File(s);
         }
-        final String lastMain = CLDRPaths.LAST_RELEASE_DIRECTORY;
-        //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
 
         do {
             Timer timer = new Timer();
@@ -1623,6 +1621,7 @@ public class VettingViewer<T> {
 
             UsersChoice<Organization> usersChoice = new UsersChoice<Organization>() {
                 // Fake values for now
+                @SuppressWarnings("unused")
                 public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
                     if (path.contains("USD")) {
                         return "&dummy ‘losing’ value";
@@ -1682,11 +1681,10 @@ public class VettingViewer<T> {
         } while (repeat);
     }
 
-    public enum CodeChoice {
+    private enum CodeChoice {
         /** For the normal (locale) view of data **/
         newCode,
-        // /** @deprecated **/
-        // oldCode,
+
         /** For a summary view of data **/
         summary
     }

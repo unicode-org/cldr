@@ -305,7 +305,7 @@ const cldrSurveyTable = (function() {
 	 *
 	 * IMPORTANT: this function is used for the Dashboard as well as the main Vetting table.
 	 * Mostly the Dashboard tables are currently created by review.js showReviewPage
-	 * (invoked through EmbeddedReport.jsp, r_vetting_json.jsp, writeVettingViewerOutput);
+	 * (invoked through writeVettingViewerOutput);
 	 * they're not created here. Nevertheless the calls here to isDashboard() do serve a purpose,
 	 * isDashboard() is true here when called by insertFixInfo in review.js. To see this, put
 	 * a breakpoint in this function, go to Dashboard, and click on a "Fix" button, whose pop-up

@@ -44,6 +44,33 @@ const cldrStForumFilter = (function() {
 		return select;
 	}
 
+	/**
+	 * Filter the threads and assemble them into a new document fragment
+	 *
+	 * @param posts the array of post objects, from oldest to newest
+	 * @param topicDivs the array of thread elements, indexed by threadId
+	 * @return the new document fragment
+	 */
+	function assembleThreads(posts, topicDivs) {
+
+		let filtered = {};
+		Object.keys(topicDivs).forEach(function(threadId) {
+			filtered[threadId] = true; // TODO
+			// cldrStForumFilter.passes(post, topicDiv)
+		});
+
+		let newForumDiv = document.createDocumentFragment();
+
+		for (let num = posts.length - 1; num >= 0; num--) {
+			let post = posts[num];
+			if (post.parent < 0 && post.threadId in filtered) {
+				let topicDiv = topicDivs[post.threadId];
+				newForumDiv.insertBefore(topicDiv, newForumDiv.firstChild);
+			}
+		}
+		return newForumDiv;
+	}
+
 	function passes(post, topicDiv) {
 		if (filters[filterIndex].func(post, topicDiv)) {
 			console.log("cldrStForumFilter.passes true: " + filterIndex + ", " + post + ", " + topicDiv);
@@ -77,6 +104,7 @@ const cldrStForumFilter = (function() {
 	 */
 	return {
 		createMenu: createMenu,
+		assembleThreads: assembleThreads,
 		passes: passes,
 	};
 })();

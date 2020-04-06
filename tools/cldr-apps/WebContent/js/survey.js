@@ -899,18 +899,7 @@ function parseForumContent(json) {
 	}
 
 	// Now, bubble up recent posts to the top, with filtering
-
-	var newForumDiv = document.createDocumentFragment();
-
-	for (var num = json.ret.length - 1; num >= 0; num--) {
-		var post = json.ret[num];
-		var topicDiv = topicDivs[post.threadId];
-		// topicDiv = forumDiv.removeChild(topicDiv);
-		if (cldrStForumFilter.passes(post, topicDiv)) {
-			newForumDiv.insertBefore(topicDiv, newForumDiv.firstChild);
-		}
-	}
-	return newForumDiv;
+	return cldrStForumFilter.assembleThreads(json.ret, topicDivs);
 }
 
 /**

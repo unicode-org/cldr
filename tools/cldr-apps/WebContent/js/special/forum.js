@@ -65,6 +65,7 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 	};
 
 	Page.prototype.show = function show(params) {
+
 		if(surveyCurrentLocale=='') {
 			hideLoader(null);
 			params.flipper.flipTo(params.pages.other, createChunk(stui.str("generic_nolocale"),"p","helpContent"));

@@ -11,18 +11,41 @@
  */
 const cldrStForumFilter = (function() {
 
+	/**
+	 * An array of filter objects, each having a name and a boolean function
+	 */
 	const filters = [
 		{name: 'All threads', func: passAll},
-		{name: 'Threads you have posted to', func: youDidPost},
-		{name: 'Threads you have NOT posted to', func: youDidNotPost},
+		{name: 'Threads you have posted to', func: passIfYouPosted},
+		{name: 'Threads you have NOT posted to', func: passIfYouDidNotPost},
 	];
 
+	/**
+	 * The index of the current filter in the "filters" array
+	 */
 	var filterIndex = 0;
 	
+	/**
+	 * The id of the current user
+	 */
 	var filterUserId = 0;
 
-	function createMenu(userId) {
+	/**
+	 * A function to call whenever a different filter is selected
+	 */
+	var filterReload = null;
+
+	/**
+	 * Get a popup menu from which the user can choose a filter, and set the
+	 * user id and reload function
+	 *
+	 * @param userId the id of the current user, for setting filterUserId
+	 * @param reloadFunction the reload function, for setting filterReload
+	 * @return the select element containing the menu
+	 */
+	function createMenu(userId, reloadFunction) {
 		filterUserId = userId;
+		filterReload = reloadFunction;
 		let select = document.createElement('select');
 		select.id = 'forumFilterMenu';
 		for (let i = 0; i < filters.length; i++) {
@@ -38,65 +61,98 @@ const cldrStForumFilter = (function() {
 			let i = parseInt(select.value, 10);
 			if (i !== filterIndex) {
 				filterIndex = i;
-				reloadV(); // TODO: this works, but it's an ugly dependency. Caller should specify the function as a callback?
+				if (filterReload) {
+					filterReload();
+				}
 			}
 		});
 		return select;
 	}
 
 	/**
-	 * Filter the threads and assemble them into a new document fragment
+	 * Get an array of all the threadId strings for threads that pass the current filter
 	 *
-	 * @param posts the array of post objects, from oldest to newest
-	 * @param topicDivs the array of thread elements, indexed by threadId
-	 * @return the new document fragment
+	 * @param posts the array of post objects, from newest to oldest
+	 * @return the filtered array of threadId strings
 	 */
-	function assembleThreads(posts, topicDivs) {
+	function getFilteredThreadIds(posts) {
+		const threadsToPosts = getThreadsToPosts(posts);
 
-		let filtered = {};
-		Object.keys(topicDivs).forEach(function(threadId) {
-			filtered[threadId] = true; // TODO
-			// cldrStForumFilter.passes(post, topicDiv)
-		});
-
-		let newForumDiv = document.createDocumentFragment();
-
-		for (let num = posts.length - 1; num >= 0; num--) {
-			let post = posts[num];
-			if (post.parent < 0 && post.threadId in filtered) {
-				let topicDiv = topicDivs[post.threadId];
-				newForumDiv.insertBefore(topicDiv, newForumDiv.firstChild);
+		let filtered = [];
+		Object.keys(threadsToPosts).forEach(function(threadId) {
+			if (threadPasses(threadsToPosts[threadId])) {
+				filtered.push(threadId);
 			}
-		}
-		return newForumDiv;
+		});
+		return filtered;
 	}
 
-	function passes(post, topicDiv) {
-		if (filters[filterIndex].func(post, topicDiv)) {
-			console.log("cldrStForumFilter.passes true: " + filterIndex + ", " + post + ", " + topicDiv);
-			return true;
-		} else {
-			console.log("cldrStForumFilter.passes false: " + filterIndex + ", " + post + ", " + topicDiv);
-			return false;			
-		}
+	/**
+	 * Get an object mapping each threadId to an array of all the posts in that thread
+	 *
+	 * @param posts the array of post objects, from newest to oldest
+	 * @return the mapping object
+	 */
+	function getThreadsToPosts(posts) {
+		let threadsToPosts = {};
+		posts.forEach(function(post) {
+			let threadId = post.threadId;
+			if (!(threadId in threadsToPosts)) {
+				threadsToPosts[threadId] = [];
+			}
+			threadsToPosts[threadId].push(post);
+		});
+		return threadsToPosts;
 	}
 
-	function passAll(post, topicDiv) {
+	/**
+	 * Does the thread with the given array of posts pass the current filter?
+	 *
+	 * @param postsThisThread the array of posts in one thread
+	 * @return true or false
+	 */
+	function threadPasses(postsThisThread) {
+		return filters[filterIndex].func(postsThisThread);
+	}
+
+	/**
+	 * Pass all threads
+	 *
+	 * @param postsThisThread the array of posts in one thread (unused)
+	 * @return true
+	 */
+	function passAll(postsThisThread) {
 		return true;
 	}
 
-	function youDidPost(post, topicDiv) {
-		if (post.posterInfo.id === filterUserId) {
-			return true;
+	/**
+	 * Does the thread with the given array of posts include at least one post by the current user?
+	 *
+	 * @param postsThisThread the array of posts in one thread
+	 * @return true or false
+	 */
+	function passIfYouPosted(postsThisThread) {
+		for (let i = 0; i < postsThisThread.length; i++) {
+			if (postsThisThread[i].posterInfo.id === filterUserId) {
+				return true;
+			}
 		}
 		return false;
 	}
 
-	function youDidNotPost(post, topicDiv) {
-		if (post.posterInfo.id !== filterUserId) {
-			return true;
+	/**
+	 * Does the thread with the given array of posts include zero posts by the current user?
+	 *
+	 * @param postsThisThread the array of posts in one thread
+	 * @return true or false
+	 */
+	function passIfYouDidNotPost(postsThisThread) {
+		for (let i = 0; i < postsThisThread.length; i++) {
+			if (postsThisThread[i].posterInfo.id === filterUserId) {
+				return false;
+			}
 		}
-		return false;
+		return true;
 	}
 
 	/*
@@ -104,7 +160,6 @@ const cldrStForumFilter = (function() {
 	 */
 	return {
 		createMenu: createMenu,
-		assembleThreads: assembleThreads,
-		passes: passes,
+		getFilteredThreadIds: getFilteredThreadIds,
 	};
 })();

@@ -96,7 +96,7 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 				});
 				ourDiv.appendChild(createChunk(stui.sub("forum_msg", { forum: locmap.getLocaleName(locmap.getLanguage(surveyCurrentLocale)),  locale: surveyCurrentLocaleName  }), "h4", ""));
 
-				ourDiv.appendChild(cldrStForumFilter.createMenu(surveyUser.id));
+				ourDiv.appendChild(cldrStForumFilter.createMenu(surveyUser.id, reloadV));
 				ourDiv.appendChild(document.createElement('br'));
 
 				ourDiv.appendChild(postButton);

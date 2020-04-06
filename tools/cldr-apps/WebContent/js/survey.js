@@ -700,10 +700,11 @@ function createUser(user) {
  * @param {Array} j.ret - forum post data
  * @return {Object} new DOM object
  *
- * TODO: shorten this function, over 200 lines long
+ * TODO: shorten this function, currently about 200 lines long. Also, avoid creating DOM
+ * elements until finished constructing the data, to make the code cleaner, more
+ * testable, and possibly faster.
  */
 function parseForumContent(json) {
-	var forumDiv = document.createDocumentFragment();
 
 	// json.ret has posts in reverse order (newest first).
 	var postDivs = {}; //  postid -> div
@@ -744,7 +745,6 @@ function parseForumContent(json) {
 					var localeLink = createChunk(locmap.getLocaleName(post.locale), "a", "localeName");
 					if (post.locale != surveyCurrentLocale) {
 						localeLink.href = linkToLocale(post.locale);
-						//localeLink.className = localeLink.className + " label label-warning";
 					}
 					topicInfo.appendChild(localeLink);
 				}
@@ -774,9 +774,6 @@ function parseForumContent(json) {
 			}
 			topicDivs[post.threadId] = topicDiv;
 			topicDiv.id = "fthr_" + post.threadId;
-
-			// add to the div
-			forumDiv.appendChild(topicDiv);
 		}
 	}
 	// Now, top to bottom, just create the post divs
@@ -784,8 +781,6 @@ function parseForumContent(json) {
 		var post = json.ret[num];
 
 		var subpost = createChunk("", "div", "post"); // was: subpost
-		// Don't add subpost to the DIV yet - will reparent into the topic Divs
-		///  --forumDiv.appendChild(subpost);
 		postDivs[post.id] = subpost;
 		subpost.id = "fp" + post.id;
 
@@ -893,13 +888,37 @@ function parseForumContent(json) {
 				topicDivs[post.threadId].appendChild(postDivs[post.id]);
 			}
 		} else {
-			// 'top level' post, put it into the forumdiv.
+			// 'top level' post
 			topicDivs[post.threadId].appendChild(postDivs[post.id]);
 		}
 	}
 
 	// Now, bubble up recent posts to the top, with filtering
-	return cldrStForumFilter.assembleThreads(json.ret, topicDivs);
+	return filterAndAssembleForumThreads(json.ret, topicDivs);
+}
+
+/**
+ * Filter the forum threads and assemble them into a new document fragment
+ *
+ * @param posts the array of post objects, from newest to oldest
+ * @param topicDivs the array of thread elements, indexed by threadId
+ * @return the new document fragment
+ */
+function filterAndAssembleForumThreads(posts, topicDivs) {
+	'use strict';
+
+	const filtered = cldrStForumFilter.getFilteredThreadIds(posts);
+
+	const newForumDiv = document.createDocumentFragment();
+
+	for (let num = posts.length - 1; num >= 0; num--) {
+		let post = posts[num];
+		if (post.parent < 0 && filtered.includes(post.threadId)) {
+			let topicDiv = topicDivs[post.threadId];
+			newForumDiv.insertBefore(topicDiv, newForumDiv.firstChild);
+		}
+	}
+	return newForumDiv;
 }
 
 /**

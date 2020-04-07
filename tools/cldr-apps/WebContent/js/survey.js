@@ -700,8 +700,8 @@ function createUser(user) {
  * @param {Array} j.ret - forum post data
  * @return {Object} new DOM object
  *
- * TODO: shorten this function, currently about 200 lines long. Also, avoid creating DOM
- * elements until finished constructing the data, to make the code cleaner, more
+ * TODO: shorten this function, currently about 200 lines long. Also, avoid creating
+ * DOM elements until finished constructing the data, to make the code cleaner, more
  * testable, and possibly faster.
  */
 function parseForumContent(json) {
@@ -892,13 +892,13 @@ function parseForumContent(json) {
 			topicDivs[post.threadId].appendChild(postDivs[post.id]);
 		}
 	}
-
-	// Now, bubble up recent posts to the top, with filtering
 	return filterAndAssembleForumThreads(json.ret, topicDivs);
 }
 
 /**
- * Filter the forum threads and assemble them into a new document fragment
+ * Filter the forum threads and assemble them into a new document fragment,
+ * ordering threads from newest to oldest, determining the time of each thread
+ * by the newest post it contains
  *
  * @param posts the array of post objects, from newest to oldest
  * @param topicDivs the array of thread elements, indexed by threadId
@@ -907,18 +907,22 @@ function parseForumContent(json) {
 function filterAndAssembleForumThreads(posts, topicDivs) {
 	'use strict';
 
-	const filtered = cldrStForumFilter.getFilteredThreadIds(posts);
+	let filteredArray = cldrStForumFilter.getFilteredThreadIds(posts);
 
-	const newForumDiv = document.createDocumentFragment();
+	const forumDiv = document.createDocumentFragment();
 
-	for (let num = posts.length - 1; num >= 0; num--) {
-		let post = posts[num];
-		if (post.parent < 0 && filtered.includes(post.threadId)) {
-			let topicDiv = topicDivs[post.threadId];
-			newForumDiv.insertBefore(topicDiv, newForumDiv.firstChild);
-		}
-	}
-	return newForumDiv;
+	posts.forEach(function(post) {
+		if (filteredArray.includes(post.threadId)) {
+			/*
+			 * Append the div for this threadId, then remove this threadId
+			 * from filteredArray to prevent appending the same div again
+			 * (which would move the div to the bottom, not duplicate it).
+			 */
+			forumDiv.append(topicDivs[post.threadId]);
+			filteredArray = filteredArray.filter(id => (id !== post.threadId));
+		}		
+	});
+	return forumDiv;
 }
 
 /**

@@ -72,19 +72,21 @@ const cldrStForumFilter = (function() {
 	/**
 	 * Get an array of all the threadId strings for threads that pass the current filter
 	 *
+	 * Assume each post has post.threadId.
+	 *
 	 * @param posts the array of post objects, from newest to oldest
 	 * @return the filtered array of threadId strings
 	 */
 	function getFilteredThreadIds(posts) {
 		const threadsToPosts = getThreadsToPosts(posts);
 
-		let filtered = [];
+		let filteredArray = [];
 		Object.keys(threadsToPosts).forEach(function(threadId) {
 			if (threadPasses(threadsToPosts[threadId])) {
-				filtered.push(threadId);
+				filteredArray.push(threadId);
 			}
 		});
-		return filtered;
+		return filteredArray;
 	}
 
 	/**
@@ -108,50 +110,52 @@ const cldrStForumFilter = (function() {
 	/**
 	 * Does the thread with the given array of posts pass the current filter?
 	 *
-	 * @param postsThisThread the array of posts in one thread
+	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
-	function threadPasses(postsThisThread) {
-		return filters[filterIndex].func(postsThisThread);
+	function threadPasses(threadPosts) {
+		return filters[filterIndex].func(threadPosts);
 	}
 
 	/**
 	 * Pass all threads
 	 *
-	 * @param postsThisThread the array of posts in one thread (unused)
+	 * @param threadPosts the array of posts in the thread (unused)
 	 * @return true
 	 */
-	function passAll(postsThisThread) {
+	function passAll(threadPosts) {
 		return true;
 	}
 
 	/**
 	 * Does the thread with the given array of posts include at least one post by the current user?
 	 *
-	 * @param postsThisThread the array of posts in one thread
+	 * Assume each post has post.posterInfo.id.
+	 *
+	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
-	function passIfYouPosted(postsThisThread) {
-		for (let i = 0; i < postsThisThread.length; i++) {
-			if (postsThisThread[i].posterInfo.id === filterUserId) {
+	function passIfYouPosted(threadPosts) {
+		threadPosts.forEach(function(post) {
+			if (post.posterInfo.id === filterUserId) {
 				return true;
 			}
-		}
+		});
 		return false;
 	}
 
 	/**
 	 * Does the thread with the given array of posts include zero posts by the current user?
 	 *
-	 * @param postsThisThread the array of posts in one thread
+	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
-	function passIfYouDidNotPost(postsThisThread) {
-		for (let i = 0; i < postsThisThread.length; i++) {
-			if (postsThisThread[i].posterInfo.id === filterUserId) {
+	function passIfYouDidNotPost(threadPosts) {
+		threadPosts.forEach(function(post) {
+			if (post.posterInfo.id === filterUserId) {
 				return false;
 			}
-		}
+		});
 		return true;
 	}
 

@@ -699,9 +699,12 @@ function createUser(user) {
  * @param {Object} json - options
  * @param {Array} j.ret - forum post data
  * @return {Object} new DOM object
+ *
+ * TODO: shorten this function, currently about 200 lines long, by moving code into
+ * subroutines. Also, postpone creating DOM elements until finished constructing the
+ * filtered list of threads, to make the code cleaner, faster, and more testable.
  */
 function parseForumContent(json) {
-	var forumDiv = document.createDocumentFragment();
 
 	// json.ret has posts in reverse order (newest first).
 	var postDivs = {}; //  postid -> div
@@ -742,7 +745,6 @@ function parseForumContent(json) {
 					var localeLink = createChunk(locmap.getLocaleName(post.locale), "a", "localeName");
 					if (post.locale != surveyCurrentLocale) {
 						localeLink.href = linkToLocale(post.locale);
-						//localeLink.className = localeLink.className + " label label-warning";
 					}
 					topicInfo.appendChild(localeLink);
 				}
@@ -772,9 +774,6 @@ function parseForumContent(json) {
 			}
 			topicDivs[post.threadId] = topicDiv;
 			topicDiv.id = "fthr_" + post.threadId;
-
-			// add to the div
-			forumDiv.appendChild(topicDiv);
 		}
 	}
 	// Now, top to bottom, just create the post divs
@@ -782,8 +781,6 @@ function parseForumContent(json) {
 		var post = json.ret[num];
 
 		var subpost = createChunk("", "div", "post"); // was: subpost
-		// Don't add subpost to the DIV yet - will reparent into the topic Divs
-		///  --forumDiv.appendChild(subpost);
 		postDivs[post.id] = subpost;
 		subpost.id = "fp" + post.id;
 
@@ -891,18 +888,40 @@ function parseForumContent(json) {
 				topicDivs[post.threadId].appendChild(postDivs[post.id]);
 			}
 		} else {
-			// 'top level' post, put it into the forumdiv.
+			// 'top level' post
 			topicDivs[post.threadId].appendChild(postDivs[post.id]);
 		}
 	}
+	return filterAndAssembleForumThreads(json.ret, topicDivs);
+}
 
-	// Now, bubble up recent posts to the top
-	for (var num = json.ret.length - 1; num >= 0; num--) {
-		var post = json.ret[num];
-		var topicDiv = topicDivs[post.threadId];
-		forumDiv.removeChild(topicDiv);
-		forumDiv.insertBefore(topicDiv, forumDiv.firstChild);
-	}
+/**
+ * Filter the forum threads and assemble them into a new document fragment,
+ * ordering threads from newest to oldest, determining the time of each thread
+ * by the newest post it contains
+ *
+ * @param posts the array of post objects, from newest to oldest
+ * @param topicDivs the array of thread elements, indexed by threadId
+ * @return the new document fragment
+ */
+function filterAndAssembleForumThreads(posts, topicDivs) {
+	'use strict';
+
+	let filteredArray = cldrStForumFilter.getFilteredThreadIds(posts);
+
+	const forumDiv = document.createDocumentFragment();
+
+	posts.forEach(function(post) {
+		if (filteredArray.includes(post.threadId)) {
+			/*
+			 * Append the div for this threadId, then remove this threadId
+			 * from filteredArray to prevent appending the same div again
+			 * (which would move the div to the bottom, not duplicate it).
+			 */
+			forumDiv.append(topicDivs[post.threadId]);
+			filteredArray = filteredArray.filter(id => (id !== post.threadId));
+		}		
+	});
 	return forumDiv;
 }
 

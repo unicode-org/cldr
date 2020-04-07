@@ -456,17 +456,16 @@ public class TestSTFactory extends TestFmwk {
                     try {
                         box.voteForValue(u, xpath, value);
                         if (needException) {
-                            errln(pathCount + " Expected exceptoin, didn't get one");
+                            errln(pathCount + " Expected exception, didn't get one");
                         }
                     } catch (InvalidXPathException e) {
-                        // TODO Auto-generated catch block
                         errln("Error: invalid xpath exception " + xpath + " : " + e);
                     } catch (VoteNotAcceptedException iae) {
                         if (needException == true) {
                             logln("Caught expected: " + iae);
                         } else {
                             iae.printStackTrace();
-                            errln("Unexpected exceptoin: " + iae);
+                            errln("Unexpected exception: " + iae);
                         }
                     }
                     logln(u + " " + elem + "d for " + xpath + " = " + value);

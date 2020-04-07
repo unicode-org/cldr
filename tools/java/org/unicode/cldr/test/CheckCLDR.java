@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -1380,5 +1381,13 @@ abstract public class CheckCLDR {
 
     public void setEnglishFile(CLDRFile englishFile) {
         this.englishFile = englishFile;
+    }
+
+    public static void logInternalErrors(LinkedList<CheckStatus> result) {
+        for (CheckStatus s : result) {
+            if (s.subtype == Subtype.internalError) {
+                System.err.println(s.getMessage());
+            }
+        }
     }
 }

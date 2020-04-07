@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -798,7 +799,9 @@ public class VoteResolver<T> {
      * @param value
      * @param voter
      * @param withVotes override to lower the user's voting permission. May be null for default.
-     * @param date 
+     * @param date
+     *
+     * Called by getResolverInternal
      */
     public void add(T value, int voter, Integer withVotes, Date date) {
         if (resolved) {
@@ -817,7 +820,8 @@ public class VoteResolver<T> {
      * @param value
      * @param voter
      * @param withVotes override to lower the user's voting permission. May be null for default.
-    
+     *
+     * Called only for TestUtilities, not used in Survey Tool.
      */
     public void add(T value, int voter, Integer withVotes) {
         if (resolved) {
@@ -829,13 +833,18 @@ public class VoteResolver<T> {
     }
 
     /**
+     * Used only in add(value, voter) for making a pseudo-Date
+     */
+    private int maxcounter = 100;
+
+    /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
      *
      * @param value
      * @param voter
+     *
+     * Called by ConsoleCheckCLDR and TestUtilities; not used in SurveyTool.
      */
-    int maxcounter = 100;
-
     public void add(T value, int voter) {
         Date date = new Date(++maxcounter);
         add(value, voter, null, date);
@@ -846,6 +855,8 @@ public class VoteResolver<T> {
      *
      * @param value
      * @param voter
+     *
+     * Called by getResolverInternal for the baseline (trunk) value; also called for ConsoleCheckCLDR.
      */
     public void add(T value) {
         if (resolved) {
@@ -855,6 +866,8 @@ public class VoteResolver<T> {
     }
 
     private Set<T> values = new TreeSet<T>(ucaCollator);
+
+    private Set<T> disqualifiedValues = null;
 
     private final Comparator<T> votesThenUcaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
@@ -1932,5 +1945,17 @@ public class VoteResolver<T> {
      */
     public boolean canFlagOnLosing() {
         return valueIsLocked || (requiredVotes == HIGH_BAR);
+    }
+
+    /**
+     * Disqualify the given value for winning with this VoteResolver.
+     *
+     * @param value the value to be disqualified
+     */
+    public void disqualify(T value) {
+        if (disqualifiedValues == null) {
+            disqualifiedValues = new HashSet<T>();
+        }
+        disqualifiedValues.add(value);
     }
 }

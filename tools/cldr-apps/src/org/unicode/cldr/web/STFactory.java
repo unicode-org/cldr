@@ -880,20 +880,35 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
 
                     testBundle.check(path, result, value);
-                    if (false) System.out.println("Checking result of " + path + " = " + value + " := haserr " + CheckCLDR.CheckStatus.hasError(result));
                     if (CheckCLDR.CheckStatus.hasError(result)) {
                         badValues.add(value);
+                        CheckCLDR.logInternalErrors(result);
                         return false;
                     } else {
                         allValues.add(value);
-                        return true; // OK
+                        return true;
                     }
                 }
             }
 
         }
 
-        private static final boolean ERRORS_ALLOWED_IN_VETTING = true;
+        /**
+         * If true, disable ValueChecker, to allow items to win in spite of test failures.
+         *
+         * Changed to false per https://unicode-org.atlassian.net/browse/CLDR-13238
+         *
+         * If necessary, ValueChecker can be revised to disallow only specific errors such as CheckForCopy.
+         */
+        private static final boolean ERRORS_ALLOWED_IN_VETTING = false;
+
+        /**
+         * If true, disqualify items from winning if they have test failures, while still making
+         * the visible to VoteResolver and in the Info Panel.
+         *
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-13238
+         */
+        private static final boolean ERRORS_PREVENT_WINNING = (true && !ERRORS_ALLOWED_IN_VETTING);
 
         /**
          * Create or update a VoteResolver for this item
@@ -937,7 +952,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // set current Trunk (baseline) value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
-            if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {
+
+            if (ERRORS_PREVENT_WINNING) {
+                r.setTrunk(currentValue, currentStatus);
+                r.add(currentValue);
+                if (vc.canUseValue(currentValue) == false) {
+                    r.disqualify(currentValue);
+                }
+            } else if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {
                 r.setTrunk(currentValue, currentStatus);
                 r.add(currentValue);
             }
@@ -950,9 +972,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 for (Entry<User, PerLocaleData.PerXPathData.PerUserData> e : perXPathData.getVotes()) {
                     PerLocaleData.PerXPathData.PerUserData v = e.getValue();
 
-                    if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(v.getValue())) {
-                        r.add(v.getValue(), // user's vote
-                            e.getKey().id, v.getOverride(), v.getWhen()); // user's id
+                    String value = v.getValue(); // value the user voted for
+                    if (ERRORS_PREVENT_WINNING) {
+                        r.add(value, e.getKey().id /* user's id */, v.getOverride(), v.getWhen());
+                        if (vc.canUseValue(value) == false) {
+                            r.disqualify(value);
+                        }
+                    } else if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(value)) {
+                        r.add(value, e.getKey().id /* user's id */, v.getOverride(), v.getWhen());
                     }
                 }
             }

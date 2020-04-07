@@ -145,18 +145,13 @@ const cldrStForumFilter = (function() {
 	}
 
 	/**
-	 * Does the thread with the given array of posts include zero posts by the current user?
+	 * Does the thread with the given array of posts include no posts by the current user?
 	 *
 	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
 	function passIfYouDidNotPost(threadPosts) {
-		threadPosts.forEach(function(post) {
-			if (post.posterInfo.id === filterUserId) {
-				return false;
-			}
-		});
-		return true;
+		return !passIfYouPosted(threadPosts);
 	}
 
 	/*

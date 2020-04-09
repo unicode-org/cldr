@@ -30,6 +30,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -37,6 +39,7 @@ import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -852,12 +855,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          */
         private class ValueChecker {
             private final String path;
-            HashSet<String> allValues = new HashSet<String>(8); // 16 is
-            // probably too
-            // many values
-            HashSet<String> badValues = new HashSet<String>(8); // 16 is
-            // probably too
-            // many values
+            /*
+             * Use 8 for initial HashSet size; 16 is probably too many values for best performance
+             */
+            HashSet<String> goodValues = new HashSet<String>(8);
+            HashSet<String> badValues = new HashSet<String>(8);
 
             LinkedList<CheckCLDR.CheckStatus> result = null;
             TestResultBundle testBundle = null;
@@ -866,11 +868,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 this.path = path;
             }
 
-            boolean canUseValue(String value) {
-                if (value == null || allValues.contains(value)) {
-                    return true;
+            boolean valueMustBeDisqualified(String value, String baileyValue) {
+                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    value = baileyValue;
+                }
+                if (value == null || goodValues.contains(value)) {
+                    return false; // OK
                 } else if (badValues.contains(value)) {
-                    return false;
+                    return true; // disqualify
                 } else {
                     if (testBundle == null) {
                         testBundle = getDiskTestBundle(locale);
@@ -880,35 +885,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
 
                     testBundle.check(path, result, value);
-                    if (CheckCLDR.CheckStatus.hasError(result)) {
+                    /*
+                     * Currently only Subtype.sameAsCode is a disqualifying error. Other errors don't disqualify.
+                     */
+                    if (CheckStatus.hasTypeAndSubtype(result, CheckStatus.errorType, Subtype.sameAsCode)) {
                         badValues.add(value);
                         CheckCLDR.logInternalErrors(result);
-                        return false;
+                        return true; // disqualify
                     } else {
-                        allValues.add(value);
-                        return true;
+                        goodValues.add(value);
+                        return false; // OK
                     }
                 }
             }
-
         }
-
-        /**
-         * If true, disable ValueChecker, to allow items to win in spite of test failures.
-         *
-         * Changed to false per https://unicode-org.atlassian.net/browse/CLDR-13238
-         *
-         * If necessary, ValueChecker can be revised to disallow only specific errors such as CheckForCopy.
-         */
-        private static final boolean ERRORS_ALLOWED_IN_VETTING = false;
-
-        /**
-         * If true, disqualify items from winning if they have test failures, while still making
-         * the visible to VoteResolver and in the Info Panel.
-         *
-         * Reference: https://unicode-org.atlassian.net/browse/CLDR-13238
-         */
-        private static final boolean ERRORS_PREVENT_WINNING = (true && !ERRORS_ALLOWED_IN_VETTING);
 
         /**
          * Create or update a VoteResolver for this item
@@ -944,7 +934,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
              */
             r.setUsingKeywordAnnotationVoting(path.startsWith("//ldml/annotations/annotation") && !path.contains(Emoji.TYPE_TTS));
 
-            final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
+            final ValueChecker vc = new ValueChecker(path);
 
             // Set established locale
             r.setLocale(locale, getPathHeader(path));
@@ -953,33 +943,28 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
 
-            if (ERRORS_PREVENT_WINNING) {
-                r.setTrunk(currentValue, currentStatus);
-                r.add(currentValue);
-                if (vc.canUseValue(currentValue) == false) {
-                    r.disqualify(currentValue);
-                }
-            } else if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {
-                r.setTrunk(currentValue, currentStatus);
-                r.add(currentValue);
-            }
-
             CLDRFile cf = make(locale, true);
-            r.setBaileyValue(cf.getConstructedBaileyValue(path, null, null));
+            final String baileyValue = cf.getConstructedBaileyValue(path, null, null);
+            r.setBaileyValue(baileyValue);
+
+            r.setTrunk(currentValue, currentStatus);
+            r.add(currentValue);
+
+            if (vc.valueMustBeDisqualified(currentValue, baileyValue)) {
+                r.disqualify(currentValue);
+            }
+            if (vc.valueMustBeDisqualified(baileyValue, baileyValue)) {
+                r.disqualify(baileyValue);
+            }
 
             // add each vote
             if (perXPathData != null && !perXPathData.isEmpty()) {
                 for (Entry<User, PerLocaleData.PerXPathData.PerUserData> e : perXPathData.getVotes()) {
                     PerLocaleData.PerXPathData.PerUserData v = e.getValue();
-
                     String value = v.getValue(); // value the user voted for
-                    if (ERRORS_PREVENT_WINNING) {
-                        r.add(value, e.getKey().id /* user's id */, v.getOverride(), v.getWhen());
-                        if (vc.canUseValue(value) == false) {
-                            r.disqualify(value);
-                        }
-                    } else if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(value)) {
-                        r.add(value, e.getKey().id /* user's id */, v.getOverride(), v.getWhen());
+                    r.add(value, e.getKey().id /* user's id */, v.getOverride(), v.getWhen());
+                    if (vc.valueMustBeDisqualified(value, baileyValue)) {
+                        r.disqualify(value);
                     }
                 }
             }

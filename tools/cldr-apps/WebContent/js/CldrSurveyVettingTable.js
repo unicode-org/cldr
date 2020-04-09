@@ -26,10 +26,10 @@ const cldrSurveyTable = (function() {
 	const NEVER_REUSE_TABLE = false;
 
 	/*
-	 * ERROR_NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
-	 * Compare ERROR_NO_WINNING_VALUE in VoteResolver.java.
+	 * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
+	 * It must match NO_WINNING_VALUE in the server Java code.
 	 */
-	const ERROR_NO_WINNING_VALUE = "error-no-winning-value";
+	const NO_WINNING_VALUE = "no-winning-value";
 
 	/**
 	 * Prepare rows to be inserted into the table
@@ -498,18 +498,14 @@ const cldrSurveyTable = (function() {
 	function checkRowConsistency(theRow) {
 		if (!theRow.winningVhash) {
 			/*
-			 * The server, not the client, is responsible for ensuring that a winning item is present.
+			 * The server is responsible for ensuring that a winning item is present, or using
+			 * the placeholder NO_WINNING_VALUE, which is not null.
 			 */
 			console.error('For ' + theRow.xpstrid + ' - there is no winningVhash');
 		} else if (!theRow.items) {
 			console.error('For ' + theRow.xpstrid + ' - there are no items');
 		} else if (!theRow.items[theRow.winningVhash]) {
 			console.error('For ' + theRow.xpstrid + ' - there is winningVhash but no item for it');
-		} else {
-			const item = theRow.items[theRow.winningVhash];
-			if (item.value && item.value === ERROR_NO_WINNING_VALUE) {
-				console.log('For ' + theRow.xpstrid + ' - there is ' + ERROR_NO_WINNING_VALUE);
-			}
 		}
 
 		for (var k in theRow.items) {
@@ -650,7 +646,9 @@ const cldrSurveyTable = (function() {
 		var n = 0;
 		while (n < vr.value_vote.length) {
 			var value = vr.value_vote[n++];
-			if (value == null) continue;
+			if (value == null || value === NO_WINNING_VALUE) {
+				continue;
+			}
 			var vote = vr.value_vote[n++];
 			var item = tr.rawValueToItem[value]; // backlink to specific item in hash
 			if (item == null) continue;
@@ -1183,8 +1181,8 @@ const cldrSurveyTable = (function() {
 
 	/**
 	 * Get the winning value for the given row, if it's a valid value.
-	 * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
-	 * See ERROR_NO_WINNING_VALUE in VoteResolver.java.
+	 * Null and NO_WINNING_VALUE ('no-winning-value') are not valid.
+	 * See NO_WINNING_VALUE in VoteResolver.java.
 	 *
 	 * @param theRow
 	 * @returns the winning value, or null if there is not a valid winning value
@@ -1194,7 +1192,7 @@ const cldrSurveyTable = (function() {
 			const item = theRow.items[theRow.winningVhash];
 			if (item.value) {
 				const val = item.value;
-				if (val !== ERROR_NO_WINNING_VALUE) {
+				if (val !== NO_WINNING_VALUE) {
 					return val;
 				}
 			}

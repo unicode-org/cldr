@@ -924,6 +924,26 @@ abstract public class CheckCLDR {
             }
             return false;
         }
+
+        /**
+         * Do any items in this list have the given type and subtype?
+         *
+         * @param result the list of CheckStatus items
+         * @param type the Type
+         * @param sub the Subtype
+         * @return true if any items in result are of given type and subtype, else false
+         */
+        public static boolean hasTypeAndSubtype(LinkedList<CheckStatus> result, Type type, Subtype sub) {
+            if (result == null || type == null || sub == null) {
+                return false;
+            }
+            for (CheckStatus s : result) {
+                if (s.getType().equals(type) && sub.equals(s.subtype)) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     public static abstract class SimpleDemo {

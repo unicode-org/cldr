@@ -22,7 +22,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,7 +41,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
@@ -1351,10 +1349,6 @@ public class WebContext implements Cloneable, Appendable {
         return (String) get(k);
     }
 
-    public Boolean getBoolean(String k) {
-        return (Boolean) get(k);
-    }
-
     /**
      * @return the CLDRLocale with which this WebContext currently pertains.
      * @see CLDRLocale
@@ -1645,7 +1639,6 @@ public class WebContext implements Cloneable, Appendable {
 
     private boolean checkedPage = false;
     private PageId pageId = null;
-    static Pattern REPORT_SUFFIX_PATTERN = PatternCache.get("^[0-9a-z]([0-9a-z_]*)$");
 
     public PageId getPageId() {
         if (!checkedPage) {
@@ -1901,26 +1894,5 @@ public class WebContext implements Cloneable, Appendable {
     public void loginRemember(User user) {
         addCookie(SurveyMain.QUERY_EMAIL, user.email, SurveyMain.TWELVE_WEEKS);
         addCookie(SurveyMain.QUERY_PASSWORD, user.password, SurveyMain.TWELVE_WEEKS);
-    }
-
-    /**
-     * Show a 'report' template (r_)
-     *
-     * @param which
-     *            current section
-     */
-    public boolean doReport(String which) {
-        if (WebContext.isLegalReportName(which)) {
-            flush();
-            includeFragment(which + ".jsp");
-            return true;
-        } else {
-            println("<i>Illegal report name: " + which + "</i><br/>");
-            return false;
-        }
-    }
-
-    static boolean isLegalReportName(String which) {
-        return REPORT_SUFFIX_PATTERN.matcher(which.substring(2)).matches();
     }
 }

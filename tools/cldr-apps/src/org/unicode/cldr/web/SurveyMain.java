@@ -139,7 +139,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /**
      * The "r_" prefix is for r_vetting_json.jsp (Dashboard);
      * also "r_datetime", "r_zones", and "r_compact" -- see ReportMenu.
-     * TODO: document "r_directiontest.jsp", "r_monkey.jsp"
      */
     private static final String REPORT_PREFIX = "r_";
 
@@ -302,6 +301,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     // ===== Special bug numbers.
     public static final String URL_HOST = "http://www.unicode.org/";
     public static final String URL_CLDR = URL_HOST + "cldr/";
+    
+    /*
+     * TODO: CLDR no longer uses trac; change BUG_URL_BASE to link to github instead
+     */
     public static final String BUG_URL_BASE = URL_CLDR + "trac";
     public static final String GENERAL_HELP_URL = URL_CLDR + "survey_tool.html";
     public static final String GENERAL_HELP_NAME = "Instructions";
@@ -3989,17 +3992,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 return;
             }
 
-            if (which.startsWith(REPORT_PREFIX)) {
-                if (!subCtx.doReport(which)) {
-                    doMain(ctx);
-                }
-            } else if (pageId != null && !which.equals(xMAIN)) {
+            if (pageId != null && !which.equals(xMAIN)) {
                 showPathList(subCtx, which, pageId);
             } else if (RAW_MENU_ITEM.equals(which)) {
                 getOutputFileManager().doRaw(subCtx);
             } else {
                 which = xMAIN;
-                doMain(subCtx);
+                doMain(subCtx); // TODO: does this ever happen? Or is doMain effectively dead code?
             }
         }
     }
@@ -5720,14 +5719,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 t.printStackTrace();
                 SurveyLog.logger.warning("While shutting down reg ");
             }
-            try {
-                if (xpt != null)
-                    xpt.shutdownDB();
-            } catch (Throwable t) {
-                t.printStackTrace();
-                SurveyLog.logger.warning("While shutting down xpt ");
-            }
-
             if (dbUtils != null) {
                 dbUtils.doShutdown();
             }

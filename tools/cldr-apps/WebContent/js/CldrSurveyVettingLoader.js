@@ -1717,7 +1717,7 @@ function showV() {
 								) {
 									ready(function() {
 
-										var url = contextPath + "/EmbeddedReport.jsp?x=" + surveyCurrentSpecial + "&_=" + surveyCurrentLocale + "&s=" + surveySessionId + cacheKill();
+										var url = contextPath + "/SurveyAjax?what=report&x=" + surveyCurrentSpecial + "&_=" + surveyCurrentLocale + "&s=" + surveySessionId + cacheKill();
 										var errFunction = function errFunction(err) {
 											console.log("Error: loading " + url + " -> " + err);
 											hideLoader(null, stui.loading2);

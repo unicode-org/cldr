@@ -506,9 +506,6 @@ public class VoteResolver<T> {
                 Iterator<T> iterator = items.getKeysetSortedByCount(false).iterator();
                 T value = iterator.next();
                 long weight = getQualifiedCount(items, value);
-                if (weight == 0) {
-                    continue;
-                }
                 Organization org = entry.getKey();
                 if (DEBUG) {
                     System.out.println("sortedKeys?? " + value + " " + org.displayName);
@@ -526,6 +523,10 @@ public class VoteResolver<T> {
                     }
                 }
                 // This is deprecated, but preserve it until the method is removed.
+                /*
+                 * TODO: explain the above comment, and follow through. What is deprecated (orgToAdd, or getOrgVote)?
+                 * Preserve until which method is removed (getOrgVote)?
+                 */
                 orgToAdd.put(org, value);
 
                 // We add the max vote for each of the organizations choices
@@ -606,12 +607,16 @@ public class VoteResolver<T> {
                         orgToVotesString += ", ";
                     }
                     Organization org = entry.getKey();
-                    orgToVotesString += org + "=" + counter;
+                    orgToVotesString += org.toString() + "=" + counter.toString();
                 }
             }
             EnumSet<Organization> conflicted = EnumSet.noneOf(Organization.class);
-            return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: "
-                + conflicted + "}";
+            String disq = (disqualifiedValues == null) ? "[]" : disqualifiedValues.toString();
+            return "{orgToVotes: " + orgToVotesString
+                + ", totals: " + getTotals(conflicted)
+                + ", conflicted: " + conflicted.toString()
+                + ", disqualified: " + disq
+                + "}";
         }
 
         /**
@@ -638,7 +643,12 @@ public class VoteResolver<T> {
             return result;
         }
 
-        public void disqualify(T value) {
+        /**
+         * Disqualify the given value from winning
+         *
+         * @param value the candidate value
+         */
+        private void disqualify(T value) {
             if (value == null) {
                 return;
             }
@@ -649,6 +659,14 @@ public class VoteResolver<T> {
             disqualifiedValues.add(valueOrBailey);
         }
 
+        /**
+         * Get the count for the given value and items, adjusting to zero
+         * if the value is disqualified
+         *
+         * @param items the Counter<T>
+         * @param value the candidate value
+         * @return the possibly adjusted count
+         */
         private long getQualifiedCount(Counter<T> items, T value) {
             if (isDisqualified(value)) {
                 return 0;
@@ -656,7 +674,13 @@ public class VoteResolver<T> {
             return items.getCount(value);
         }
 
-        public boolean isDisqualified(T value) {
+        /**
+         * Is the given value disqualified from winning?
+         *
+         * @param value the candidate value
+         * @return true if disqualified, else false
+         */
+        private boolean isDisqualified(T value) {
             if (disqualifiedValues != null) {
                 T valueOrBailey = CldrUtility.INHERITANCE_MARKER.equals(value) ? baileyValue : value;
                 if (disqualifiedValues.contains(valueOrBailey)) {
@@ -1499,9 +1523,15 @@ public class VoteResolver<T> {
         return organizationToValueAndVote.getNameTime();
     }
 
+    /**
+     * Get a String representation of this VoteResolver.
+     * This is sent to the client as "voteResolver.raw" and is used only for debugging.
+     *
+     * Compare SurveyAjax.JSONWriter.wrap(VoteResolver<String>) which creates the data
+     * actually used by the client.
+     */
     public String toString() {
         return "{"
-            + "test: {" + "randomTest }, "
             + "bailey: " + (organizationToValueAndVote.baileySet ? ("“" + organizationToValueAndVote.baileyValue + "” ") : "none ")
             + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
             + organizationToValueAndVote
@@ -1984,5 +2014,14 @@ public class VoteResolver<T> {
      */
     public void disqualify(T value) {
         organizationToValueAndVote.disqualify(value);
+    }
+
+    /**
+     * Get the set of disqualified values
+     *
+     * @return the set, or null
+     */
+    public Set<T> getDisqualifiedValues() {
+        return organizationToValueAndVote.disqualifiedValues;
     }
 }

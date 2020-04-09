@@ -167,6 +167,15 @@ public class SurveyAjax extends HttpServlet {
             return newList;
         }
 
+        /**
+         * Make a json object representing the given VoteResolver, for sending to the client
+         *
+         * @param r the VoteResolver
+         * @return the JSONObject
+         * @throws JSONException
+         *
+         * Called only by DataSection.DataRow.toJSONString()
+         */
         public static JSONObject wrap(final VoteResolver<String> r) throws JSONException {
             JSONObject ret = new JSONObject()
                 .put("raw", r.toString()) /* "raw" is only used for debugging (stdebug_enabled) */
@@ -176,18 +185,24 @@ public class SurveyAjax extends HttpServlet {
 
             Map<String, Long> valueToVote = r.getResolvedVoteCounts();
 
+            Set<String> disqualified = r.getDisqualifiedValues();
+
             JSONObject orgs = new JSONObject();
             for (Organization o : Organization.values()) {
-                String orgVote = r.getOrgVote(o);
-                if (orgVote == null)
+                if (disqualified != null && disqualified.contains("am")) {
+                    System.out.println("Here we are");
+                }
+                String orgVote = r.getOrgVote(o); // deprecated, but used by client!
+                if (orgVote == null) {
                     continue;
+                }
                 Map<String, Long> votes = r.getOrgToVotes(o);
 
                 JSONObject org = new JSONObject();
                 org.put("status", r.getStatusForOrganization(o));
                 org.put("orgVote", orgVote);
                 org.put("votes", votes);
-                if (conflictedOrgs.contains(org)) {
+                if (conflictedOrgs.contains(o)) {
                     org.put("conflicted", true);
                 }
                 orgs.put(o.name(), org);
@@ -200,6 +215,9 @@ public class SurveyAjax extends HttpServlet {
             ret.put("valueIsLocked", r.isValueLocked());
             ret.put("value_vote", valueToVoteA);
             ret.put("nameTime", r.getNameTime());
+            if (disqualified != null) {
+                ret.put("disqualified", disqualified);
+            }
             return ret;
         }
 

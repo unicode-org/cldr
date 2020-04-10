@@ -35,8 +35,10 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class CLDRTransforms {
@@ -339,15 +341,15 @@ public class CLDRTransforms {
             throw new IllegalArgumentException("**No transform for " + id);
         }
         return getInstance(matcher.group(2) + "-" + matcher.group(1)
-            + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
+        + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
     private BiMap<String,String> displayNameToId = HashBiMap.create();
-    
+
     public BiMap<String, String> getDisplayNameToId() {
         return displayNameToId;
     }
-    
+
     private void addDisplayNameToId(Map<String, String> ids2, ParsedTransformID directionInfo) {
         displayNameToId.put(directionInfo.getDisplayId(), directionInfo.toString());
     }
@@ -364,10 +366,10 @@ public class CLDRTransforms {
             }
             throw e;
         }
-        
+
         String id = directionInfo.getId();
         addDisplayNameToId(displayNameToId, directionInfo);
-        
+
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
             internalRegister(id, ruleString, Transliterator.FORWARD);
             for (String alias : directionInfo.getAliases()) {
@@ -565,7 +567,7 @@ public class CLDRTransforms {
                         filename = null;
                     } catch (RuntimeException e) {
                         throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
-                            .initCause(e);
+                        .initCause(e);
                     }
                 } else {
                     append(dir + "root.txt unhandled line:" + line);
@@ -733,6 +735,7 @@ public class CLDRTransforms {
     }
 
     public static class ParsedTransformID {
+        private static final LocaleDisplayNames LOCALE_DISPLAY_NAMES = LocaleDisplayNames.getInstance(Locale.ENGLISH);
         public String source = "Any";
         public String target = "Any";
         public String variant;
@@ -779,26 +782,126 @@ public class CLDRTransforms {
                 return sourceOrTarget;
             }
         }
-        
+
         static final LikelySubtags likely = new LikelySubtags();
-        
+
         public static String getScriptCode(String sourceOrTarget) {
-            int uscript = UScript.getCodeFromName(sourceOrTarget);
-            if (uscript >= 0) {
-                return UScript.getShortName(uscript);
-            }
             if (sourceOrTarget.contains("FONIPA")) {
-                return "Ipa0";
+                return "Latn";
             }
             if (sourceOrTarget.equals("InterIndic")) {
                 return "Ind0";
             }
+            int uscript = UScript.getCodeFromName(sourceOrTarget);
+            if (uscript >= 0) {
+                return UScript.getShortName(uscript);
+            }
             try {
-                String max = likely.maximize(sourceOrTarget);
-                return max == null ? null : new LanguageTagParser().set(max).getScript();
+                switch(sourceOrTarget) {
+                case "Zawgyi":
+                    return "Qaag";
+                case "ConjoiningJamo":
+                    return "Jamo";
+                case "tlh":
+                    return "Latn";
+                case "Pinyin":
+                    return "Latn";
+                default:
+                    String max = likely.maximize(sourceOrTarget);
+                    return max == null ? null : new LanguageTagParser().set(max).getScript();
+                }
             } catch (Exception e) {
                 return null;
             }
+        }
+        
+        public static String getScriptName(String scriptCode) {
+            try {
+                switch(scriptCode) {
+                case "Qaag":
+                    return "Zawgyi*";
+                case "Jamo":
+                    return "Jamo";
+                case "Ind0":
+                    return "InterIndic";
+                default:
+                    return LOCALE_DISPLAY_NAMES.scriptDisplayName(scriptCode);
+                }
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+
+
+        public static int getScriptNumberFromCode(String scriptCode) {
+            switch(scriptCode) {
+            case "Ind0": return -10;
+            case "Ipa0": return -11;
+            default:
+                int scriptNumber = UScript.getCodeFromName(scriptCode);
+                if (scriptNumber < 0) {
+                    throw new IllegalArgumentException("Missing script: " + scriptCode);
+                }
+                return scriptNumber;
+            }
+        }
+
+        public static String getScriptCodeFromNumber(int scriptNumber) {
+            switch(scriptNumber) {
+            case -10: return "Ind0";
+            case -11: return "Ipa0";
+            default:
+                String scriptCode = UScript.getShortName(scriptNumber);
+                if (scriptCode == null) {
+                    throw new IllegalArgumentException("Missing script code for: " + scriptNumber);
+                }
+                return scriptCode;
+            }
+        }
+
+        public static final UnicodeSet IPA = (UnicodeSet) new UnicodeSet(
+            "[a-zæçðøħŋœǀ-ǃɐ-ɨɪ-ɶ ɸ-ɻɽɾʀ-ʄʈ-ʒʔʕʘʙʛ-ʝʟʡʢ ʤʧʰ-ʲʴʷʼˈˌːˑ˞ˠˤ̀́̃̄̆̈ ̘̊̋̏-̜̚-̴̠̤̥̩̪̬̯̰̹-̽͜ ͡βθχ↑-↓↗↘]"
+            ).freeze();
+
+        public static final UnicodeSet INTERINDIC = (UnicodeSet) new UnicodeSet(
+            "[\uE001-\uE039\uE03C-\uE04D\uE050-\uE083]"
+            ).freeze();
+
+        private static final UnicodeSet NEUTRAL = new UnicodeSet("[:scx=Inherited:]");
+        public static final UnicodeSet NOT_NFKC = new UnicodeSet("[:nfkcqc=N:]");
+
+        public static UnicodeSet getUnicodeSet(String scriptCode) {
+            UnicodeSet result;
+            switch(scriptCode) {
+            case "Ind0": 
+                result = INTERINDIC.cloneAsThawed();
+                break;
+            case "Ipa0": 
+                result = IPA.cloneAsThawed();
+                break;
+            case "Hans": case "Hant":
+                result = new UnicodeSet("[:scx=Hani:]");
+                break;
+            case "Jpan":
+                result = new UnicodeSet("[[:scx=Hani:][:scx=Kana:][:scx=Hira:]]");
+                break;
+            case "Hrkt":
+                result = new UnicodeSet("[[:scx=Kana:][:scx=Hira:]]");
+                break;
+            case "Qaag":
+                result = new UnicodeSet("[:Block=Myanmar:]");
+                break;
+            case "Jamo":
+                result = new UnicodeSet("[[:scx=Hangul:]-[:hst=LV:]-[:hst=LVT:]]");
+                break;
+            case "Kore":
+                result = new UnicodeSet("[[:scx=Hangul:][:scx=Hani:]]");
+                break;
+            default:
+                result = new UnicodeSet("[:scx=" + scriptCode + ":]");
+            }
+            return result.removeAll(NOT_NFKC).freeze(); // result.addAll(NEUTRAL).freeze();
         }
 
         public String getBackwardId() {
@@ -956,7 +1059,7 @@ public class CLDRTransforms {
         }
 
         public void handlePathValue(String path, String value) {
-             if (first) {
+            if (first) {
                 if (path.startsWith("//supplementalData/version")) {
                     return;
                 } else if (path.startsWith("//supplementalData/generation")) {

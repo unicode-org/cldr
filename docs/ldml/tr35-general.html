@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "https://www.unicode.org/reports/reports.css" type="text/css">
+  "../reports.css" type="text/css">
   <title>UTS #35: Unicode LDML: General</title>
   <style type="text/css">
   <!--
@@ -71,7 +71,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="../logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -1560,9 +1560,18 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>:=
    </td>
-   <td>product_unit ("-per-" product_unit)* <ul>
+   <td>product_unit ("-per-" product_unit)*<br>| &quot;per-&quot; product_unit (&quot;-per-&quot; product_unit)*
+     <ul>
 
-<li><em>Example: foot-per-second-per-second</em></li></ul>
+<li><em>Examples:</em>
+  <ul>
+	<li>foot-per-second-per-second</li>
+	<li>per-second</li>
+  </ul>
+		<li><em>Note: </em>The normalized form will have only one &quot;per&quot;</li>
+
+</li>
+     </ul>
 
    </td>
   </tr>
@@ -1587,8 +1596,8 @@ The formal syntax for identifiers is provided below.
 <p>
 | pu_single_unit ("-" pu_single_unit)*<ul>
 
-<li><em>Example: foot-pound-force</em>
-<li><em>No pu_single_unit may precede a single unit</em></li></ul>
+<li><em>Example: </em>foot-pound-force
+<li><em>Constraint:</em> No pu_single_unit may precede a single unit</li></ul>
 
    </td>
   </tr>
@@ -1599,7 +1608,7 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>(dimensionality_prefix)? prefixed_unit<ul>
 
-<li><em>Example: square-meter</em></li></ul>
+<li><em>Example: </em>square-meter</li></ul>
 
    </td>
   </tr>
@@ -1610,8 +1619,8 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>“xxx-” single-unit | “x-” single-unit<ul>
 
-<li><em>Example: xxx-square-knuts (a Harry Potter unit)</em>
-<li><em>“x-” is only for backwards compatibility</em>
+<li><em>Example: </em>xxx-square-knuts (a Harry Potter unit)
+<li><em>Note: </em>“x-” is only for backwards compatibility
 <li>See Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a>
    </ul></td>
   </tr>
@@ -1626,7 +1635,7 @@ The formal syntax for identifiers is provided below.
 <p>
 | "pow" ([2-9]|1[0-5]) "-"<ul>
 
-<li><em>"pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</em></li></ul>
+<li><em>Note: </em>"pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li></ul>
 
    </td>
   </tr>
@@ -1637,7 +1646,7 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>(si_prefix)? simple_unit<ul>
 
-<li><em>Example: kilometer</em></li></ul>
+<li><em>Example: </em>kilometer</li></ul>
 
    </td>
   </tr>
@@ -1648,7 +1657,7 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>"deka" | "hecto" | "kilo", … <ul>
 
-<li>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul>
+<li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul>
 
    </td>
   </tr>
@@ -1661,13 +1670,17 @@ The formal syntax for identifiers is provided below.
 <p>
  | “em” | “g” | “us” | “hg” | “of”<ul>
 
-<li>At least one unit_component must not itself be a simple_unit
-<li>3 simple units are grandfathered in, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”) <ul>
-
- <li><em>We will likely deprecate those and add conformant aliases in the future.</em>
- <li><em>“hg” and “of” are already only in deprecated simple_units.</em>
-<li><em>Example: gallon-imperial</em></li></ul>
-</li></ul>
+	   <li><em>Example: </em>gallon-imperial</li>
+<li><em>Constraint: </em>At least one unit_component must not itself be a simple_unit
+<li><em>Note: </em>3 simple units are grandfathered in, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”) 
+  
+  <ul>
+    
+    <li>We will likely deprecate those and add conformant aliases in the future.
+      <li>“hg” and “of” are already only in deprecated simple_units.
+      </ul>
+</li>
+	   </ul>
 
    </td>
   </tr>
@@ -1678,9 +1691,10 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>[a-z]{3,∞} | “1” “0”{2,3}<ul>
 
-<li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.
-<li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.
-<li><em>Example: foot</em></li></ul>
+<li><em>Constraints: </em>
+  <ul><li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.</li>
+<li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.</li></ul>
+<li><em>Example: </em>foot</li></ul>
 
    </td>
   </tr>
@@ -5092,7 +5106,7 @@ Note that the CLDR plural categories overlap some of these features, since some 
   <tr>
    <td>personal
    </td>
-   <td>In an animate/inanimate gender system and in some language, gender that specifies the masculine gender of animate entities
+   <td>In an animate/inanimate gender system  in some languages, gender that specifies the masculine gender of animate entities
    </td>
    <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/HumanGender">linguistics-ontology.org/gold/2010/HumanGender</a> 
    </td>
@@ -5124,7 +5138,7 @@ Note that the CLDR plural categories overlap some of these features, since some 
   <tr>
    <td>neuter
    </td>
-   <td>In a masculine/feminine/neuter gender system, gender that generally denotes object.
+   <td>In a masculine/feminine/neuter or common-neuter gender system, gender that generally denotes an object.
    </td>
    <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a> 
    </td>
@@ -5325,8 +5339,7 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
    </td>
    <td>Noun without any definiteness marking in some specific construction (specific to Danish)
    </td>
-   <td>TBD Add reference, example
-   </td>
+   <td>&nbsp;</td>
   </tr>
 </table>
 </div>

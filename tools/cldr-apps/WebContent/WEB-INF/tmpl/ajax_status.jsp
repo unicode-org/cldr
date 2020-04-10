@@ -23,6 +23,11 @@ require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContaine
 </script>
 <script>
 // just things that must be JSP generated
+/*
+ * All these JavaScript var declarations append to the window (global) object.
+ * TODO: use Java instead of JSP; deliver data to the client as json; and store
+ * it in our own JavaScript object(s), not the window.
+ */
 var surveyRunningStamp = '<%= SurveyMain.surveyRunningStamp.current() %>';
 var contextPath = '<%= request.getContextPath() %>';
 var surveyCurrentId = '';

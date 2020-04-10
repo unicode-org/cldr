@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -26,7 +27,6 @@ import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 
@@ -69,10 +69,11 @@ import com.ibm.icu.util.ULocale;
 public class VoteResolver<T> {
     private static final boolean DEBUG = false;
 
-    /*
+    /**
      * A placeholder for winningValue when it would otherwise be null.
+     * It must match NO_WINNING_VALUE in the client JavaScript code.
      */
-    private static String ERROR_NO_WINNING_VALUE = "error-no-winning-value";
+    private static String NO_WINNING_VALUE = "no-winning-value";
 
     /**
      * The status levels according to the committee, in ascending order
@@ -382,6 +383,8 @@ public class VoteResolver<T> {
         private T baileyValue;
         private boolean baileySet; // was the bailey value set
 
+        private Set<T> disqualifiedValues = null;
+
         OrganizationToValueAndVote() {
             for (Organization org : Organization.values()) {
                 orgToVotes.put(org, new MaxCounter<T>(true));
@@ -501,10 +504,7 @@ public class VoteResolver<T> {
                 }
                 Iterator<T> iterator = items.getKeysetSortedByCount(false).iterator();
                 T value = iterator.next();
-                long weight = items.getCount(value);
-                if (weight == 0) {
-                    continue;
-                }
+                long weight = getQualifiedCount(items, value);
                 Organization org = entry.getKey();
                 if (DEBUG) {
                     System.out.println("sortedKeys?? " + value + " " + org.displayName);
@@ -513,7 +513,7 @@ public class VoteResolver<T> {
                 // if there is more than one item, check that it is less
                 if (iterator.hasNext()) {
                     T value2 = iterator.next();
-                    long weight2 = items.getCount(value2);
+                    long weight2 = getQualifiedCount(items, value2);
                     // if the votes for #1 are not better than #2, we have a dispute
                     if (weight == weight2) {
                         if (conflictedOrganizations != null) {
@@ -522,6 +522,10 @@ public class VoteResolver<T> {
                     }
                 }
                 // This is deprecated, but preserve it until the method is removed.
+                /*
+                 * TODO: explain the above comment, and follow through. What is deprecated (orgToAdd, or getOrgVote)?
+                 * Preserve until which method is removed (getOrgVote)?
+                 */
                 orgToAdd.put(org, value);
 
                 // We add the max vote for each of the organizations choices
@@ -534,7 +538,7 @@ public class VoteResolver<T> {
                     if (DEBUG) {
                         System.out.println("Items in order: " + item.toString() + new Timestamp(items.getTime(item)).toString());
                     }
-                    long count = items.getCount(item);
+                    long count = getQualifiedCount(items, item);
                     long time = items.getTime(item);
                     if (count > maxCount) {
                         maxCount = count;
@@ -576,8 +580,6 @@ public class VoteResolver<T> {
         public int getOrgCount(T winningValue) {
             int orgCount = 0;
             for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
-//            for (Organization org : orgToVotes.keySet()) {
-//                Counter<T> counter = orgToVotes.get(org);
                 Counter<T> counter = entry.getValue();
                 long count = counter.getCount(winningValue);
                 if (count > 0) {
@@ -590,8 +592,6 @@ public class VoteResolver<T> {
         public int getBestPossibleVote() {
             int total = 0;
             for (Map.Entry<Organization, Integer> entry : orgToMax.entrySet()) {
-                //    for (Organization org : orgToMax.keySet()) {
-//                total += orgToMax.get(org);
                 total += entry.getValue();
             }
             return total;
@@ -600,20 +600,22 @@ public class VoteResolver<T> {
         public String toString() {
             String orgToVotesString = "";
             for (Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
-//            for (Organization org : orgToVotes.keySet()) {
-//                Counter<T> counter = orgToVotes.get(org);
                 Counter<T> counter = entry.getValue();
                 if (counter.size() != 0) {
                     if (orgToVotesString.length() != 0) {
                         orgToVotesString += ", ";
                     }
                     Organization org = entry.getKey();
-                    orgToVotesString += org + "=" + counter;
+                    orgToVotesString += org.toString() + "=" + counter.toString();
                 }
             }
             EnumSet<Organization> conflicted = EnumSet.noneOf(Organization.class);
-            return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: "
-                + conflicted + "}";
+            String disq = (disqualifiedValues == null) ? "[]" : disqualifiedValues.toString();
+            return "{orgToVotes: " + orgToVotesString
+                + ", totals: " + getTotals(conflicted)
+                + ", conflicted: " + conflicted.toString()
+                + ", disqualified: " + disq
+                + "}";
         }
 
         /**
@@ -637,10 +639,54 @@ public class VoteResolver<T> {
             for (T item : counter) {
                 result.put(item, counter.getCount(item));
             }
-            // Skip the System.out.println here normally, it clutters the logs. 
-            // See https://unicode.org/cldr/trac/ticket/10295
-            // System.out.println("getOrgToVotes : " + org.displayName + " : " + result.toString());
             return result;
+        }
+
+        /**
+         * Disqualify the given value from winning
+         *
+         * @param value the candidate value
+         */
+        private void disqualify(T value) {
+            if (value == null) {
+                return;
+            }
+            if (disqualifiedValues == null) {
+                disqualifiedValues = new HashSet<T>();
+            }
+            T valueOrBailey = CldrUtility.INHERITANCE_MARKER.equals(value) ? baileyValue : value;
+            disqualifiedValues.add(valueOrBailey);
+        }
+
+        /**
+         * Get the count for the given value and items, adjusting to zero
+         * if the value is disqualified
+         *
+         * @param items the Counter<T>
+         * @param value the candidate value
+         * @return the possibly adjusted count
+         */
+        private long getQualifiedCount(Counter<T> items, T value) {
+            if (isDisqualified(value)) {
+                return 0;
+            }
+            return items.getCount(value);
+        }
+
+        /**
+         * Is the given value disqualified from winning?
+         *
+         * @param value the candidate value
+         * @return true if disqualified, else false
+         */
+        private boolean isDisqualified(T value) {
+            if (disqualifiedValues != null) {
+                T valueOrBailey = CldrUtility.INHERITANCE_MARKER.equals(value) ? baileyValue : value;
+                if (disqualifiedValues.contains(valueOrBailey)) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 
@@ -798,7 +844,9 @@ public class VoteResolver<T> {
      * @param value
      * @param voter
      * @param withVotes override to lower the user's voting permission. May be null for default.
-     * @param date 
+     * @param date
+     *
+     * Called by getResolverInternal
      */
     public void add(T value, int voter, Integer withVotes, Date date) {
         if (resolved) {
@@ -817,7 +865,8 @@ public class VoteResolver<T> {
      * @param value
      * @param voter
      * @param withVotes override to lower the user's voting permission. May be null for default.
-    
+     *
+     * Called only for TestUtilities, not used in Survey Tool.
      */
     public void add(T value, int voter, Integer withVotes) {
         if (resolved) {
@@ -829,13 +878,18 @@ public class VoteResolver<T> {
     }
 
     /**
+     * Used only in add(value, voter) for making a pseudo-Date
+     */
+    private int maxcounter = 100;
+
+    /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
      *
      * @param value
      * @param voter
+     *
+     * Called by ConsoleCheckCLDR and TestUtilities; not used in SurveyTool.
      */
-    int maxcounter = 100;
-
     public void add(T value, int voter) {
         Date date = new Date(++maxcounter);
         add(value, voter, null, date);
@@ -846,6 +900,8 @@ public class VoteResolver<T> {
      *
      * @param value
      * @param voter
+     *
+     * Called by getResolverInternal for the baseline (trunk) value; also called for ConsoleCheckCLDR.
      */
     public void add(T value) {
         if (resolved) {
@@ -889,8 +945,8 @@ public class VoteResolver<T> {
 
     /**
      * Resolve the votes. Resolution entails counting votes and setting
-     *  members for this VoteResolver, including winningStatus, winningValue,
-     *  and many others.
+     * members for this VoteResolver, including winningStatus, winningValue,
+     * and many others.
      */
     private void resolveVotes() {
         resolved = true;
@@ -905,7 +961,7 @@ public class VoteResolver<T> {
         
         /*
          * If there are no (unconflicted) votes, return baseline (trunk) if not null,
-         * else INHERITANCE_MARKER if baileySet, else ERROR_NO_WINNING_VALUE.
+         * else INHERITANCE_MARKER if baileySet, else NO_WINNING_VALUE.
          * Avoid setting winningValue to null. VoteResolver should be fully in charge of vote resolution.
          * Note: formerly if trunkValue was null here, winningValue was set to null, such
          * as for http://localhost:8080/cldr-apps/v#/aa/Numbering_Systems/7b8ee7884f773afa
@@ -924,12 +980,18 @@ public class VoteResolver<T> {
                 /*
                  * TODO: When can this still happen? See https://unicode.org/cldr/trac/ticket/11299 "Example C".
                  * Also http://localhost:8080/cldr-apps/v#/en_CA/Gregorian/
+                 * -- also http://localhost:8080/cldr-apps/v#/aa/Languages_A_D/
+                 *    xpath //ldml/localeDisplayNames/languages/language[@type="zh_Hans"][@alt="long"]
                  * See also checkDataRowConsistency in DataSection.java.
                  */
-                winningValue = (T) ERROR_NO_WINNING_VALUE;
+                winningValue = (T) NO_WINNING_VALUE;
                 winningStatus = Status.missing;
             }
-            valuesWithSameVotes.add(winningValue); // may be null
+            if (organizationToValueAndVote.isDisqualified(winningValue)) {
+                winningValue = (T) NO_WINNING_VALUE;
+                winningStatus = Status.missing;
+            }
+            valuesWithSameVotes.add(winningValue);
             return;
         }
         if (values.size() == 0) {
@@ -974,6 +1036,10 @@ public class VoteResolver<T> {
             winningValue = trunkValue;
             valuesWithSameVotes.clear();
             valuesWithSameVotes.add(winningValue);
+        }
+        if (organizationToValueAndVote.isDisqualified(winningValue)) {
+            winningValue = (T) NO_WINNING_VALUE;
+            winningStatus = Status.missing;
         }
     }
 
@@ -1456,9 +1522,15 @@ public class VoteResolver<T> {
         return organizationToValueAndVote.getNameTime();
     }
 
+    /**
+     * Get a String representation of this VoteResolver.
+     * This is sent to the client as "voteResolver.raw" and is used only for debugging.
+     *
+     * Compare SurveyAjax.JSONWriter.wrap(VoteResolver<String>) which creates the data
+     * actually used by the client.
+     */
     public String toString() {
         return "{"
-            + "test: {" + "randomTest }, "
             + "bailey: " + (organizationToValueAndVote.baileySet ? ("“" + organizationToValueAndVote.baileyValue + "” ") : "none ")
             + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
             + organizationToValueAndVote
@@ -1468,28 +1540,6 @@ public class VoteResolver<T> {
             + ", totals: " + totals
             + ", winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
             + "}";
-    }
-
-    public static Map<String, Map<Organization, Relation<Level, Integer>>> getLocaleToVetters() {
-        Map<String, Map<Organization, Relation<Level, Integer>>> result = new TreeMap<String, Map<Organization, Relation<Level, Integer>>>();
-        for (int voter : getVoterToInfo().keySet()) {
-            VoterInfo info = getVoterToInfo().get(voter);
-            if (info.getLevel() == Level.locked) {
-                continue;
-            }
-            for (String locale : info.getLocales()) {
-                Map<Organization, Relation<Level, Integer>> orgToVoter = result.get(locale);
-                if (orgToVoter == null) {
-                    result.put(locale, orgToVoter = new TreeMap<Organization, Relation<Level, Integer>>());
-                }
-                Relation<Level, Integer> rel = orgToVoter.get(info.getOrganization());
-                if (rel == null) {
-                    orgToVoter.put(info.getOrganization(), rel = Relation.of(new TreeMap<Level, Set<Integer>>(), TreeSet.class));
-                }
-                rel.put(info.getLevel(), voter);
-            }
-        }
-        return result;
     }
 
     private static Map<Integer, VoterInfo> getVoterToInfo() {
@@ -1932,5 +1982,23 @@ public class VoteResolver<T> {
      */
     public boolean canFlagOnLosing() {
         return valueIsLocked || (requiredVotes == HIGH_BAR);
+    }
+
+    /**
+     * Disqualify the given value for winning with this VoteResolver.
+     *
+     * @param value the value to be disqualified
+     */
+    public void disqualify(T value) {
+        organizationToValueAndVote.disqualify(value);
+    }
+
+    /**
+     * Get the set of disqualified values
+     *
+     * @return the set, or null
+     */
+    public Set<T> getDisqualifiedValues() {
+        return organizationToValueAndVote.disqualifiedValues;
     }
 }

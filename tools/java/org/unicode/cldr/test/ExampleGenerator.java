@@ -576,8 +576,17 @@ public class ExampleGenerator {
         org.unicode.cldr.util.DayPeriodInfo.Type aType = dayPeriodType.equals("format") ? DayPeriodInfo.Type.format : DayPeriodInfo.Type.selection;
         DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(aType, cldrFile.getLocaleID());
         String periodString = parts.getAttributeValue(-1, "type");
-
-        DayPeriod dayPeriod = DayPeriod.valueOf(periodString);
+        DayPeriod dayPeriod;
+        try {
+            dayPeriod = DayPeriod.valueOf(periodString);            
+        } catch (NullPointerException e) {
+            /*
+             * TODO: fix this NullPointerException! It occurs during ConsoleCheckCLDR
+             * https://unicode-org.atlassian.net/browse/CLDR-13707
+             */
+            e.printStackTrace();
+            return null;
+        }
         String periods = dayPeriodInfo.toString(dayPeriod);
         examples.add(periods);
         if ("format".equals(dayPeriodType)) {

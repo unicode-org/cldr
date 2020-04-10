@@ -194,6 +194,8 @@ define({
 		voteInfo_moreInfo: "Click here for a full explanation of the icons and their meanings.",
 		voteInfo_votesForInheritance: "These are votes for inheritance.",
 		voteInfo_votesForSpecificValue: "These are votes for the specific value currently matching the inherited value. Votes for this specific value are combined with any votes for inheritance.",
+		voteInfo_valueDisqualified: "This value is disqualified from winning due to failing a test.",
+
 		// CheckCLDR.StatusAction 
 		StatusAction_msg:              "Not submitted: ${0}",
 		StatusAction_popupmsg:         "Sorry, your vote for '${1}' could not be submitted: ${0}", // same as StatusAction_msg but with context
@@ -360,7 +362,4 @@ define({
 		E_BAD_VALUE: "The vote was not accepted: ${err_data.message}",
 		E_BAD_XPATH: "This item does not exist in this locale.",
 		"": ""})
-//		"mt-MT": false
-
-		// sublocales
 });

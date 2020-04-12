@@ -1990,7 +1990,7 @@ public class VoteResolver<T> {
      * @param value the value to be disqualified
      */
     public void disqualify(T value) {
-        organizationToValueAndVote.disqualify(value);
+        // organizationToValueAndVote.disqualify(value);
     }
 
     /**

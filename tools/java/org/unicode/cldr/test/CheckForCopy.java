@@ -182,4 +182,45 @@ public class CheckForCopy extends FactoryCheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
     }
+
+    public static boolean sameAsCode(String value, String path, CLDRFile cldrFile) {
+
+        if (SKIP_CODE_CHECK.get(path)) {
+            return false;
+        }
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            value = cldrFile.getConstructedBaileyValue(path, null, null);
+        }
+        String value2 = value;
+        /*
+         * TODO: clarify the purpose of using topStringValue and getConstructedValue here;
+         * maybe related to getConstructedBaileyValue
+         */
+        String topStringValue = cldrFile.getUnresolved().getStringValue(path);
+        if (CldrUtility.INHERITANCE_MARKER.equals(topStringValue)) {
+            value2 = cldrFile.getConstructedValue(path);
+            if (value2 == null) { // no special constructed value
+                value2 = value;
+            }
+        }
+
+        XPathParts parts = XPathParts.getFrozenInstance(path);
+
+        int elementCount = parts.size();
+        for (int i = 2; i < elementCount; ++i) {
+            Map<String, String> attributes = parts.getAttributes(i);
+            for (Entry<String, String> attributeEntry : attributes.entrySet()) {
+                final String attributeValue = attributeEntry.getValue();
+                try {
+                    if (value2.equals(attributeValue)) {
+                        return true;
+                    }
+                } catch (NullPointerException e) {
+                    throw new ICUException("Value: " + value + "\nattributeValue: " + attributeValue
+                        + "\nPath: " + path, e);
+                }
+            }
+        }
+        return false;
+    }
 }

@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,9 +15,14 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.Rational.RationalParser;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.BiMap;
@@ -29,9 +35,13 @@ import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 
 public class UnitConverter implements Freezable<UnitConverter> {
 
@@ -49,6 +59,18 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Multimap<String, Continuation> continuations = TreeMultimap.create();
     private MapComparator<String> quantityComparator; 
     private Map<String,String> fixDenormalized;
+
+    public static final BiMap<String,String> SHORT_TO_LONG_ID;
+    static {
+        Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
+        Map<String,String> _SHORT_TO_LONG_ID = new LinkedHashMap<>();
+        for (String longUnit : VALID_UNITS) {
+            int dashPos = longUnit.indexOf('-');
+            String coreUnit = longUnit.substring(dashPos+1);
+            _SHORT_TO_LONG_ID.put(coreUnit, longUnit);
+        }
+        SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
+    }
 
     private boolean frozen = false;
 
@@ -561,14 +583,16 @@ public class UnitConverter implements Freezable<UnitConverter> {
         .add("per").add("square").add("cubic").addAll(BASE_UNITS)
         .build();
 
+    static final Pattern PLACEHOLDER = Pattern.compile("[ \\u00A0]*\\{0\\}[ \\u00A0]*");
+
     /** 
      * Only handles the canonical units; no kilo-, only normalized, etc.
      * @author markdavis
      *
      */
-    public class UnitId implements Freezable<UnitId> {
-        private Map<String, Integer> numUnitsToPowers = new TreeMap<>(UNIT_COMPARATOR);
-        private Map<String, Integer> denUnitsToPowers = new TreeMap<>(UNIT_COMPARATOR);
+    public class UnitId implements Freezable<UnitId>, Comparable<UnitId> {
+        public Map<String, Integer> numUnitsToPowers = new TreeMap<>(UNIT_COMPARATOR);
+        public Map<String, Integer> denUnitsToPowers = new TreeMap<>(UNIT_COMPARATOR);
         private boolean frozen = false;
 
         private UnitId() {} // 
@@ -641,6 +665,154 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
             return builder.toString();
         }
+
+        public String toString(CLDRFile resolvedFile, String width, String pluralCategory) {
+            String result = null;
+            String numerator = null;
+            String timesPattern = null;
+            boolean before = false;
+            String placeholderPattern = null;
+            Output<Integer> deprefix = new Output<>();
+            Matcher placeholderMatcher = PLACEHOLDER.matcher("");
+            PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(resolvedFile.getLocaleID());
+            PluralRules pluralRules = pluralInfo.getPluralRules();
+            String singularPluralCategory = pluralRules.select(1d);
+            final ULocale locale = new ULocale(resolvedFile.getLocaleID());
+
+            for (int i = 1; i >= 0; --i) { // two passes, numerator then den.
+                boolean positivePass = i > 0;
+                Map<String, Integer> target = positivePass ? numUnitsToPowers : denUnitsToPowers;
+                for (Entry<String, Integer> entry : target.entrySet()) {
+                    String unit = entry.getKey();
+                    int power = entry.getValue();
+
+                    if (!positivePass) {
+                        if (numerator == null) {
+                            numerator = result; // from now on, result ::= denominator
+                            result = null;
+                            // all else is singular
+                            pluralCategory = singularPluralCategory;
+                        }
+                        if (result == null) { // special case exact match for per form, and no previous result
+                            switch (power) {
+                            case 1: 
+                                break;
+                            case 2: 
+                                unit = "square-" + unit;
+                                break;
+                            case 3: 
+                                unit = "cubic-" + unit;
+                                break;
+                            default: 
+                                throw new IllegalArgumentException("No power pattern > 3: " + this);
+                            }
+                            String longUnitId = SHORT_TO_LONG_ID.get(unit);
+
+                            String fullPerPatternPath = "//ldml/units/unitLength[@type=\""
+                                +  width + "\"]/unit[@type=\""
+                                + longUnitId + "\"]/perUnitPattern";
+                            String fullPerPattern = resolvedFile.getStringValue(fullPerPatternPath);
+                            if (fullPerPattern != null) {
+                                numerator = MessageFormat.format(fullPerPattern, numerator);
+                                continue;
+                            }
+                        }
+                    }
+                    
+                    // TODO for times pattern, use singular for all but LAST form
+
+                    String powerPatternPath = null;
+                    switch (power) {
+                    case 1: 
+                        break;
+                    case 2: 
+                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
+                            + width + "\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"" 
+                            + pluralCategory + "\"]";
+                        // example: Quadrat{0}
+                        break;
+                    case 3: 
+                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
+                            + width + "\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1[@count=\"" 
+                            + pluralCategory + "\"]";
+                        break;
+                    default: 
+                        throw new IllegalArgumentException("No power pattern > 3: " + this);
+                    }
+
+                    // handle prefix, like kilo-
+                    unit = stripPrefixInt(unit, deprefix);
+                    String prefixPattern = null;
+                    if (deprefix.value != 1) {
+                        String prefixPatternPath = "//ldml/units/unitLength[@type=\""
+                            + width + "\"]/compoundUnit[@type=\"10p"
+                            + deprefix.value + "\"]/unitPrefixPattern";
+                        prefixPattern = resolvedFile.getStringValue(prefixPatternPath);
+                    }
+
+                    // get the core pattern. Detect and remove the the placeholder (and surrounding spaces)
+                    String unitPattern = getUnitPattern(resolvedFile, unit, width, pluralCategory);
+                    if (unitPattern == null) {
+                        return null; // unavailable
+                    }
+                    // we are set up for 2 kinds of placeholder patterns for units. {0}\s?stuff or stuff\s?{0}, or nothing(Eg Arabic)
+                    if (placeholderMatcher.reset(unitPattern).find()) {
+                        if (placeholderMatcher.start() == 0) {
+                            before = true;
+                            unitPattern = unitPattern.substring(placeholderMatcher.end());
+                        } else if (placeholderMatcher.end() == unitPattern.length()) {
+                            before = false;
+                            unitPattern = unitPattern.substring(0, placeholderMatcher.start());
+                        } else {
+                            throw new IllegalArgumentException("Unexpected pattern " + unitPattern);
+                        }
+                        placeholderPattern = placeholderMatcher.group();
+                    }
+
+                    // we have all the pieces, so build it up
+                    if (prefixPattern != null) {
+                        unitPattern = combineLowercasing(locale, width, prefixPattern, unitPattern);
+                    }
+                    if (powerPatternPath != null) {
+                        String powerPattern = resolvedFile.getStringValue(powerPatternPath);
+                        unitPattern = combineLowercasing(locale, width, powerPattern, unitPattern);
+                    }
+                    if (result != null) {
+                        if (timesPattern == null) {
+                            String timesPatternPath = "//ldml/units/unitLength[@type=\""
+                                + width + "\"]/compoundUnit[@type=\"times\"]/compoundUnitPattern";
+                            timesPattern = resolvedFile.getStringValue(timesPatternPath);
+                        }
+                        result = MessageFormat.format(timesPattern, result, unitPattern);
+                    } else {
+                        result = unitPattern;
+                    }
+                }
+            }
+            // glue the two parts together, if we have them
+            if (numerator != null) {
+                if (result == null) {
+                    result = numerator;
+                } else {
+                    String perPatternPath = "//ldml/units/unitLength[@type=\"" + width + "\"]/compoundUnit[@type=\"per\"]/compoundUnitPattern";
+                    String perPattern = resolvedFile.getStringValue(perPatternPath);
+                    result = MessageFormat.format(perPattern, numerator, result);
+                }
+            }
+            return placeholderPattern == null ? result
+                : before ? placeholderPattern + result
+                    : result + placeholderPattern;
+        }
+
+        private String combineLowercasing(final ULocale locale, String width, String prefixPattern, String unitPattern) {
+            // catch special case, ZentiLiter
+            if (width.equals("long") && !prefixPattern.contains(" {")) {
+                unitPattern = UCharacter.toLowerCase(locale, unitPattern);
+            }
+            unitPattern = MessageFormat.format(prefixPattern, unitPattern);
+            return unitPattern;
+        }
+
         @Override
         public boolean equals(Object obj) {
             UnitId other = (UnitId) obj;
@@ -691,7 +863,17 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
             return result.freeze();
         }
+
+        @Override
+        public int compareTo(UnitId o) {
+            int diff = MAP_COMP.compare(numUnitsToPowers, o.numUnitsToPowers);
+            if (diff != 0) return diff;
+            return MAP_COMP.compare(denUnitsToPowers, o.denUnitsToPowers);
+        }
+
     }
+
+    static final CollectionUtilities.MapComparator<String,Integer> MAP_COMP = new CollectionUtilities.MapComparator<>();
 
     public final UnitId createUnitId(String unit) {
         return new UnitId().add(continuations, unit, true, 1).freeze();
@@ -710,28 +892,37 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     // TODO change to TRIE if the performance isn't good enough, or restructure with regex
-    public static final ImmutableMap<String, Rational> PREFIXES = ImmutableMap.<String, Rational>builder()
-        .put("yocto", Rational.pow10(-24))
-        .put("zepto", Rational.pow10(-21))
-        .put("atto", Rational.pow10(-18))
-        .put("femto", Rational.pow10(-15))
-        .put("pico", Rational.pow10(-12))
-        .put("nano", Rational.pow10(-9))
-        .put("micro", Rational.pow10(-6))
-        .put("milli", Rational.pow10(-3))
-        .put("centi", Rational.pow10(-2))
-        .put("deci", Rational.pow10(-1))
-        .put("deka", Rational.pow10(1))
-        .put("hecto", Rational.pow10(2))
-        .put("kilo", Rational.pow10(3))
-        .put("mega", Rational.pow10(6))
-        .put("giga", Rational.pow10(9))
-        .put("tera", Rational.pow10(12))
-        .put("peta", Rational.pow10(15))
-        .put("exa", Rational.pow10(18))
-        .put("zetta", Rational.pow10(21))
-        .put("yotta", Rational.pow10(24))        
+    public static final ImmutableMap<String, Integer> PREFIX_POWERS = ImmutableMap.<String, Integer>builder()
+        .put("yocto", -24)
+        .put("zepto", -21)
+        .put("atto", -18)
+        .put("femto", -15)
+        .put("pico", -12)
+        .put("nano", -9)
+        .put("micro", -6)
+        .put("milli", -3)
+        .put("centi", -2)
+        .put("deci", -1)
+        .put("deka", 1)
+        .put("hecto", 2)
+        .put("kilo", 3)
+        .put("mega", 6)
+        .put("giga", 9)
+        .put("tera", 12)
+        .put("peta", 15)
+        .put("exa", 18)
+        .put("zetta", 21)
+        .put("yotta", 24)        
         .build();
+
+    public static final ImmutableMap<String, Rational> PREFIXES;
+    static {
+        Map<String, Rational> temp = new LinkedHashMap<>();
+        for (Entry<String, Integer> entry : PREFIX_POWERS.entrySet()) {
+            temp.put(entry.getKey(), Rational.pow10(entry.getValue()));
+        }
+        PREFIXES = ImmutableMap.copyOf(temp);
+    }
 
     static final Set<String> SKIP_PREFIX = ImmutableSet.of(
         "millimeter-ofhg", 
@@ -739,16 +930,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
         );
 
     /** 
-     * If there is no prefix, return the unit and Rational.ONE.
+     * If there is no prefix, return the unit and ONE.
      * If there is a prefix return the unit (with prefix stripped) and the prefix factor 
      * */
-    private String stripPrefix(String unit, Output<Rational> deprefix) {
-        deprefix.value = Rational.ONE;
+    private <V> String stripPrefixCommon(String unit, Output<V> deprefix, Map<String, V> unitMap) {
         if (SKIP_PREFIX.contains(unit)) {
             return unit;
         }
 
-        for (Entry<String, Rational> entry : PREFIXES.entrySet()) {
+        for (Entry<String, V> entry : unitMap.entrySet()) {
             String prefix = entry.getKey();
             if (unit.startsWith(prefix)) {
                 deprefix.value = entry.getValue();
@@ -756,6 +946,16 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
         }
         return unit;
+    }
+
+    public String stripPrefix(String unit, Output<Rational> deprefix) {
+        deprefix.value = Rational.ONE;
+        return stripPrefixCommon(unit, deprefix, PREFIXES);
+    }
+
+    public String stripPrefixInt(String unit, Output<Integer> deprefix) {
+        deprefix.value = Integer.valueOf(1);
+        return stripPrefixCommon(unit, deprefix, PREFIX_POWERS);
     }
 
     public BiMap<String, String> getBaseUnitToQuantity() {
@@ -840,7 +1040,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         // quasi-metric
         "dunam", "mile-scandinavian", "carat", "cup-metric", "pint-metric"
         );
-    
+
     private void addSystems(Set<String> result, String subunit) {
         Collection<String> systems = sourceToSystems.get(subunit);
         if (!systems.isEmpty()) {
@@ -948,5 +1148,14 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public Set<String> getQuantities() {
         return getBaseUnitToQuantity().inverse().keySet();
+    }
+
+    public static String getUnitPattern(CLDRFile resolvedFile, String shortUnitId, String width, String count) {
+        String longUnitId = SHORT_TO_LONG_ID.get(shortUnitId);
+        String namePath = "//ldml/units/unitLength[@type=\""
+            + width + "\"]/unit[@type=\""
+            + longUnitId + "\"]/unitPattern[@count=\""
+            + count + "\"]";
+        return resolvedFile.getStringValue(namePath);
     }
 }

@@ -75,6 +75,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
+    private static final Integer INTEGER_ONE = Integer.valueOf(1);
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false); // set for verbose debugging information
     private static final boolean GENERATE_TESTS = CldrUtility.getProperty("TestUnits:GENERATE_TESTS", false);
 
@@ -1691,5 +1692,65 @@ public class TestUnits extends TestFmwk {
         String formatted = source.toString(FormatStyle.repeating);
         Rational roundtrip = Rational.of(formatted);
         assertEquals("roundtrip " + formatted, source, roundtrip);
+    }
+
+    static final Pattern NORM_SPACES = Pattern.compile("[ \u00A0]");
+
+    public void TestPrefixes() {
+        // first gather all the English examples
+        System.out.println();
+        Output<Rational> deprefix = new Output<>();
+        Map<String, UnitId> idToUnitId = new TreeMap<>();
+        for (String id : CORE_TO_TYPE.keySet()) {
+            UnitId uid = converter.createUnitId(id).freeze();
+            boolean doTest = false;
+            for (Entry<String, Integer> entry : uid.numUnitsToPowers.entrySet()) {
+                final String unitPart = entry.getKey();
+                converter.stripPrefix(unitPart, deprefix);
+                if (!deprefix.value.equals(Rational.ONE) || !entry.getValue().equals(INTEGER_ONE)) {
+                    doTest = true;
+                    break;
+                }
+            }
+            if (!doTest) {
+                for (Entry<String, Integer> entry : uid.denUnitsToPowers.entrySet()) {
+                    final String unitPart = entry.getKey();
+                    converter.stripPrefix(unitPart, deprefix);
+                    if (!deprefix.value.equals(Rational.ONE)) {
+                        doTest = true;
+                        break;
+                    }
+                }
+            }
+            if (doTest) {
+                idToUnitId.put(id, uid);
+            }
+        }
+        for (String localeId : Arrays.asList("en", "fr", "de", "hr")) { // TODO all CLDR locales
+            CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(localeId, true);
+            for (Entry<String, UnitId> entry : idToUnitId.entrySet()) {
+                final String shortUnitId = entry.getKey();
+                final UnitId unitId = entry.getValue();
+                if (shortUnitId.startsWith("dot") || shortUnitId.equals("millimeter-ofhg")) {
+                    warnln("Skipping unsupported unit: " + shortUnitId);
+                    continue;
+                }
+                for (String width : Arrays.asList("long")) { // , "short", "narrow"
+                    for (String pluralCategory : Arrays.asList("one", "other")) {
+                        String composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                        if (composedName != null && (composedName.contains("′") || composedName.contains("″"))) { // skip special cases
+                            continue;
+                        }
+                        String transName = UnitConverter.getUnitPattern(resolvedFile, shortUnitId, width, pluralCategory);
+                        // HACK to fix different spaces around placeholder
+                        transName = NORM_SPACES.matcher(transName).replaceAll(" ");
+                        composedName = composedName == null ? null : NORM_SPACES.matcher(composedName).replaceAll(" ");
+                        if (!assertEquals(localeId + ", " + shortUnitId + ", " + width + ", " + pluralCategory, transName, composedName)) {
+                            composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

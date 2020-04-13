@@ -203,6 +203,7 @@ define({
 		StatusAction_FORBID_NULL:      "The item has no value.",
 		StatusAction_FORBID_ROOT:      "The item is a root annotation code.",
 		StatusAction_FORBID_PERMANENT_WITHOUT_FORUM: "A forum entry is required to make a Permanent vote.",
+		StatusAction_FORBID_CODE:      "The item is the same as the code.",
 
 		// v.jsp
 		"v-title2_desc": "Locale title",

@@ -441,7 +441,7 @@ public class ConsoleCheckCLDR {
             .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         english = backCldrFactory.make("en", true);
 
-        checkCldr.setDisplayInformation(english);
+        CheckCLDR.setDisplayInformation(english);
         checkCldr.setEnglishFile(english);
         setExampleGenerator(new ExampleGenerator(english, english, CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         PathShower pathShower = new PathShower();

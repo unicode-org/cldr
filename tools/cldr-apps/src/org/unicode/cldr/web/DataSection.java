@@ -1138,9 +1138,6 @@ public class DataSection implements JSONString {
                 System.out.println("Error in checkDataRowConsistency: inheritedItem without inheritedLocale or pathWhereFound" +
                     "; xpath = " + xpath + "; inheritedValue = " + inheritedValue);
             }
-            /*
-             * Note: we could also report if ERROR_NO_WINNING_VALUE.equals(winningValue) here...
-             */
         }
 
         /**

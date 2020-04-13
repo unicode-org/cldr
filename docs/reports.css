@@ -1,0 +1,229 @@
+/*
+	Style sheet for web-based Unicode Standard Annexes, Technical Standards and Technical Reports 
+	M.Davis and A.Freytag
+	
+	Last edited: 2013-03-27 RM
+	To use, in <head>... 
+	insert:<link REL="stylesheet" HREF="../reports.css" TYPE="text/css">
+ */
+/* for proofing highlight the web only sections */
+div.book-only { background-color: #00FFFF; }
+
+
+/* conditional display */
+.web-only  { }
+.book-only { display: none; }
+.ref-only { display: none; } /* this material will be removed eventually */
+ 
+body		{ margin: 0; font-family:  Arial, 'Lucida Sans Unicode', 'Arial Unicode MS', sans-serif;
+				color: black; background-color: white; background-repeat:repeat; 
+				background-attachment: scroll; background-position: 0%; }
+div.body	{ margin: 3em; } 	/* margin for body only */
+div.book 	{ margin:0; }		 /* add a margin for entire document, currently 0 */
+						 
+blockquote	{ margin: 20px; }
+blockquote.tus	{ font-size: 11pt; font-family: Times New Roman, serif; }
+dt			{ font-style: italic; }
+li 			{margin-top: 0.25em; margin-bottom: 0.25em; }
+.bb 		 { page-break-before: always; }
+.copyright	{ font-size: 75%; }
+.codeComment { color: #0000FF; }
+
+/*use these styles for contrastive background coloring associated with specific conventions */
+.syntax		{ background-color: #EEEEFF; }
+.example	{ background-color: #EEFFEE; }
+.values		{ background-color: #FFFFEE; }
+
+/* use these styles for constrastive background coloring with no specific meaning */
+.lightblue { background-color: #EEEEFF; }
+.medgray 	{background-color: #C0C0C0; }
+.lightyellow {background-color: #FFFF80; }
+ 
+span.codepoint   { font-family: monospace; }
+span.charSample { font-size: 200%; }
+span.name 	{text-transform: lowercase; font-variant: small-caps; font-size: 75%; }
+
+span.section { font-style: italic; }
+span.secno { font-style: italic; }
+
+td p.stdp	{  } /* book specific - ignore on web */
+
+p.caption	 	{ page-break-after: avoid; font-weight: bold; text-align: center; }
+p.rule		 { font-style:italic; background-color: #F8F8F8; }	
+
+
+/* from UAX#29 */
+.symbol      { font-size: 90%; font-family: Arial Unicode MS; }
+.example2    { background-color: #FFFF99; }
+.charlist    { font-size: 90%; font-family: monospace; }
+.pairItem    { text-align: Center; }
+.lbclass     { text-align: Center; }
+span.transform { font-weight:bold; color:#0000FF; }
+
+/* from UAX#31 */
+.rule_head { font-style: italic; border-width: 0; }
+.rule_head   { font-weight: bold; }
+.rule_body { font-style: italic; border-width: 0; }
+
+
+/* table related styles*/
+table		{ border-spacing: 0; border-collapse: collapse;
+			border-style: solid; border-color: black; border-width: 1px; }
+th, td		{ border-spacing: 0; border-collapse: collapse;
+			border-style: solid; border-color: black; border-width: 1px;
+			font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial, sans-serif;
+			color: black; vertical-align: top; text-align: left; }
+table.body	{ border-style: none; width: 100%; }
+td.body		{ border-style: none; padding: 20px; }
+caption		{ font-size: 120%; font-weight: bold; padding-bottom: 0.75em; }
+td.icon 	{ border-style: none; border-width: 0; padding: 2px; margin: 0;
+			background-color: #990000; color: #fffffe;
+			font-size: 100%; text-align: left;
+			font-weight: bold; font-family: Arial, Geneva, sans-serif; }
+				
+td.gray 	{ border-style: none; border-width: 0; padding: 0px; margin: 0;
+			background-color: #999999; color: #FFFFFE;
+			font-size: 6pt; }
+
+table.header	{ border-style: none; border-width: 0; margin: 0; width: 100%; }
+.noborder	{ border-style: none; border-width: 0; margin: 0; }
+.nb 		{ border-style: none; border-width: 0; margin: 0; }
+.nbwide 	{ width: 92%; border-style: none; border-width: 0; margin: 0; }
+.wide		{ width: 92%; }
+.ref 		{ width: 92%; border-style: none; border-width: 0; margin: 0; padding: .33em; }
+
+
+/* Tables should inherit from body, but do not seem to in NN */
+a:link		{ color: red; }
+a:active	{ color: blue; }
+a:visited	{ color: #666666; }
+a:hover 	{ color: #ff3333; }
+
+/* HEADERS and RELATED STYLES */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; margin-top: 8px; }
+h1			{ font-size: x-large; text-transform: uppercase; text-align: center; }
+h2			{ font-size: large; }
+h2.nonumber { font-size: large; }
+h2.uaxtitle	{ font-size: large; text-align:center; }
+h3			{ font-size: medium; }
+h4			{ font-size: medium; font-style: italic; }
+h5			{ font-size: small; }
+h6			{ font-size: small; font-style: italic; }
+
+/* don't red-color links on headers and captions, unless hovering */
+h2 a:link, h3 a:link, h4 a:link, h5 a:link, p.caption a:link, caption a:link,
+h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, p.caption a:visited, caption a:visited {
+    color:black; 
+    text-decoration:none;
+    }
+h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, p.caption a:hover, caption a:hover {
+    color: red; 
+    text-decoration:underline;
+    }
+
+/* ignored in web format */
+h1 nocap 	{ }
+
+/* run in headers  */
+span.run_in	{ font-style:italic; font-weight: bold; }
+span.note	{ font-style: italic; }
+
+
+p.bar		{ background-color: #990000; color: #fffffe; font-size: 100%; font-weight: bold;
+			font-family: Arial, Geneva, sans-serif; text-align: right; padding: 4px; }
+
+a.bar:link	 { color: #fffffe; }
+a.bar:visited { color: #fffffe; }
+a.bar:active { color: #fffffe; }
+a.bar:hover { color: #ff3333; }
+
+/* some UAXs use h3 some h4 */
+h4.summary { margin-top: 1em; }
+h3.summary { margin-top: 1em; }
+
+h4.contents {}
+h4.status {}
+
+ 
+/* link style for character class */
+a.charclass { font-weight:bold; text-decoration: none; color: #808080 }
+
+ 
+/* syntax coloring for C source code samples */
+ 
+.CKeyword		{color: rgb(0,0,255); }
+.CComment		{color: rgb(0,128,0); }
+.CCommand		{ font-weight:bold; color: rgb(255,0,0); }
+
+
+.changed	 	{ background-color: #FFFF00; border-style: dotted; border-width: 1px; }
+.removed	 	{ text-decoration: line-through; background-color: #FFFF00; border-style: dotted; border-width: 1px; }
+.changed2	 	{ background-color: #00FFFF; border-style: dotted; border-width: 1px; }
+.removed2	 	{ text-decoration: line-through; background-color: #00FFFF; border-style: dotted; border-width: 1px; }
+
+span.changedspan	{ background-color: #FFFF00; border-style: dotted; border-width: 1px; }
+span.removedspan	{ text-decoration: line-through; background-color: #FFFF00; border-style: dotted; border-width: 1px; }
+
+.reviewnote 	{ background-color: #FFFF80; color: #CC0000; border-style: dashed;
+			border-width: 1px; }
+
+ 
+ 
+/* table w/o a grid, except for lines in first and last row like in TR#25 */
+ 
+table.gray	 { border-collapse: collapse; border-style: none; border-width: medium; }
+ 
+th.grayfirst, td.grayfirst { border-left-style: none; border-left-width: medium; border-right-style: none; 
+				border-right-width: medium; border-top: 1.5pt solid gray;
+				border-bottom: .75pt solid gray; padding-left: 5.4pt;
+				padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in }
+td.graymiddle, td.graymiddle { border-style: none; border-width: medium; padding-left: 5.4pt; 
+				padding-right:5.4pt; padding-top: 0in; padding-bottom: 0in; }
+
+td.graylast, td.graylast { border-left-style: none; border-left-width: medium; border-right-style: none; 
+				border-right-width: medium; border-top-style: none;
+				border-top-width: medium; border-bottom: 1.5pt solid gray;
+				padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in;
+				padding-bottom: 0in; }
+
+
+/* list styles that work well in table of contents */
+ul.toc		{ list-style-position: outside; list-style-type: none; margin-left: 1em; margin-bottom: 0pt;
+				margin-top: 0pt; line-height: 90%; }
+ 
+ol.toc		{ list-style-type: decimal; margin-bottom: 0pt; }
+ 
+ol ul.toc	{ list-style-position: outside; list-style-type: none; margin-left: 0em; margin-bottom: 0pt;
+					margin-top: 0pt; line-height: 90%; }
+ 
+ul ul.toc	{ list-style-position: outside; list-style-type: none; margin-left: 1.3em; margin-bottom: 0pt;
+					margin-top: 0pt; line-height: 90%; }
+ul.toc li 		{ margin-left: 0; }
+
+/* prevent open circles starting bullets inside numbered points */
+ol ul 		{ list-style-type: disc; }
+ul.nobullet		{ list-style-type: none; }
+
+/* is the preceding needed for web ? */
+			
+.right       { text-align: right; }
+.left        { text-align: Left; }
+.center      { text-align: center; }
+
+
+/* UAX#14 specific styles, duplicated here in case they are applicable elsehwere */
+table.pair		{border:1px solid; font-size:8pt; }
+table.pair th	{text-align:center; font-size:8pt; }	
+table.pair th.pairItem { background-color:#800080; }
+.nb-la			{ width:7em; border-style: none; border-width: 0; padding-left: 0.2em; background-color:#F0F0F0; }
+.nb-lb			{ border-style: none; border-width: 0; padding-left: 0.2em; background-color:#F8F8F8; }
+td.nb-lb p		{ margin-left:0em; }
+
+/* use some font styles conditionally */
+span.mathsym1	{ }
+span.mathsym2   { font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial, sans-serif; }
+span.mathsym3   { font-family:  'Arial Unicode MS', Arial, 'Lucida Sans Unicode', sans-serif; }
+span.specials-book { display: none; }
+span.specials-web { font-size: smaller; }
+span.glyphs-book { display: none; }
+span.symbol-web { font-size: 90%; font-family: 'Arial Unicode MS'; } /* same as .symbol */

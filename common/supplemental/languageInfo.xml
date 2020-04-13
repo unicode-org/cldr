@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc. CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) For terms 
-	of use, see http://www.unicode.org/copyright.html -->
+<!--
+Copyright © 1991-2020 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <supplementalData>
 	<version number="$Revision$"/>
 	<languageMatching>
@@ -273,7 +276,7 @@
 			<languageMatch desired="my"	supported="en"	distance="30"	oneway="true"/>	<!-- Myanmar: my ⇒ en -->
 			<languageMatch desired="ne"	supported="en"	distance="30"	oneway="true"/>	<!-- Nepali: ne ⇒ en -->
 			<languageMatch desired="nn"	supported="nb"	distance="20"/>	<!-- Nynorsk: nn ⟺ nb -->
-			<languageMatch desired="nn"	supported="no"	distance="20"	oneway="true"/>	<!-- Nynorsk: nn ⇒ no -->
+			<languageMatch desired="nn"	supported="no"	distance="20"/>	<!-- Nynorsk: nn ⟺ no; CLDR-13679  -->
 			<languageMatch desired="nso"	supported="en"	distance="30"	oneway="true"/>	<!-- Northern Sotho: nso ⇒ en -->
 			<languageMatch desired="ny"	supported="en"	distance="30"	oneway="true"/>	<!-- Nyanja: ny ⇒ en -->
 			<languageMatch desired="nyn"	supported="en"	distance="30"	oneway="true"/>	<!-- Nyankole: nyn ⇒ en -->

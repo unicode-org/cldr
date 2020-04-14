@@ -95,10 +95,6 @@ public class Race {
             + " " + resolver.getWinningStatus() + "\n";
     }
 
-    public String getOrgVote(String organization) {
-        return getOrgVote(Organization.valueOf(organization));
-    }
-
     public String getOrgVote(Organization org) {
         return resolver.getOrgVote(org);
     }

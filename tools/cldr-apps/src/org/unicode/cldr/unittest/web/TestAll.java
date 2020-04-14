@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.apache.derby.jdbc.EmbeddedDataSource;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
@@ -84,6 +85,7 @@ public class TestAll extends TestGroup {
     public static final String DERBY_PREFIX = "jdbc:derby:";
 
     public static void main(String[] args) {
+        CheckCLDR.setDisplayInformation(CLDRConfig.getInstance().getEnglish());
         args = TestAll.doResetDb(args);
         new TestAll().run(args);
     }
@@ -93,14 +95,6 @@ public class TestAll extends TestGroup {
             throw new InternalError(
                 "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS (replaces old -DCLDR_WEB_TESTS");
         }
-
-        // TODO remove this after some time- just warn people about the old message
-        final String cwt = System.getProperty("CLDR_WEB_TESTS");
-        if (cwt != null && cwt.equals("true")) {
-            throw new InternalError(
-                "Error: CLDR_WEB_TESTS is obsolete - please set the CLDR_ENVIRONMENT to UNITTEST or LOCAL (or don't set it) -  ( -DCLDR_ENVIRONMENT=UNITTEST");
-        }
-
         if (CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
             if (DEBUG)
                 SurveyLog.logger.warning("Keeping database..");
@@ -348,20 +342,17 @@ public class TestAll extends TestGroup {
 
             @Override
             public CLDRProgressTask openProgress(String what, int max) {
-                // TODO Auto-generated method stub
                 final String whatP = what;
                 return new CLDRProgressTask() {
 
                     @Override
                     public void close() {
-                        // TODO Auto-generated method stub
 
                     }
 
                     @Override
                     public void update(int count) {
                         update(count, "");
-
                     }
 
                     @Override
@@ -376,7 +367,6 @@ public class TestAll extends TestGroup {
 
                     @Override
                     public long startTime() {
-                        // TODO Auto-generated method stub
                         return 0;
                     }
                 };

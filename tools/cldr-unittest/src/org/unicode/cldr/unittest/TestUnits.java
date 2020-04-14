@@ -52,6 +52,7 @@ import org.unicode.cldr.util.UnitConverter.Continuation;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.PathType;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
+import org.unicode.cldr.util.UnitConverter.UnitComplexity;
 import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitPreferences;
 import org.unicode.cldr.util.UnitPreferences.UnitPreference;
@@ -72,7 +73,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -1702,39 +1702,20 @@ public class TestUnits extends TestFmwk {
     static final Pattern NORM_SPACES = Pattern.compile("[ \u00A0\u200E]");
 
     public void TestFallbackNames() {
+        String[][] sampleUnits = {{"square-decimeter", ""}};
+        for (String[] row : sampleUnits) {
+            String shortUnitId = row[0];
+            String expectedName = row[1];
+            final UnitId unitId = converter.createUnitId(shortUnitId);
+            assertEquals(shortUnitId, expectedName, unitId.toString());
+        }
+        
         // first gather all the  examples
         System.out.println();
-        Output<Rational> deprefix = new Output<>();
-        Map<String, UnitId> idToUnitId = new TreeMap<>();
-        for (String id : CORE_TO_TYPE.keySet()) {
-            UnitId uid = converter.createUnitId(id).freeze();
-            boolean doTest = false;
-            for (Entry<String, Integer> entry : uid.numUnitsToPowers.entrySet()) {
-                final String unitPart = entry.getKey();
-                UnitConverter.stripPrefix(unitPart, deprefix);
-                if (!deprefix.value.equals(Rational.ONE) || !entry.getValue().equals(INTEGER_ONE)) {
-                    doTest = true;
-                    break;
-                }
-            }
-            if (!doTest) {
-                for (Entry<String, Integer> entry : uid.denUnitsToPowers.entrySet()) {
-                    final String unitPart = entry.getKey();
-                    UnitConverter.stripPrefix(unitPart, deprefix);
-                    if (!deprefix.value.equals(Rational.ONE)) {
-                        doTest = true;
-                        break;
-                    }
-                }
-            }
-            if (doTest) {
-                idToUnitId.put(id, uid);
-            }
-        }
         Set<String> skippedUnits = new LinkedHashSet<>();
         Set<String> testSet = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
-        Multimap<PathType, String> partsExplicit = LinkedHashMultimap.create();
-        Multimap<PathType, String> partsComposed = LinkedHashMultimap.create();
+        Multimap<PathType, String> partsExplicit = TreeMultimap.create();
+        
         for (String localeId : testSet) { // TODO all CLDR locales
             if (localeId.contains("_")) {
                 continue; // skip to make test shorter
@@ -1743,40 +1724,37 @@ public class TestUnits extends TestFmwk {
             PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(localeId);
             PluralRules pluralRules = pluralInfo.getPluralRules();
 
-            for (Entry<String, UnitId> entry : idToUnitId.entrySet()) {
+            for (Entry<String, String> entry : UnitConverter.SHORT_TO_LONG_ID.entrySet()) {
                 final String shortUnitId = entry.getKey();
-                final UnitId unitId = entry.getValue();
+                if (converter.getComplexity(shortUnitId) == UnitComplexity.simple) {
+                    continue;
+                }
+                final String longUnitId = entry.getKey();
+                final UnitId unitId = converter.createUnitId(shortUnitId);
                 if (shortUnitId.startsWith("dot") || shortUnitId.equals("millimeter-ofhg")) {
                     skippedUnits.add(shortUnitId);
                     continue;
                 }
                 for (String width : Arrays.asList("long")) { // , "short", "narrow"
-                    for (String pluralCategory : pluralRules.getKeywords()) {
+                    for (String pluralCategory : Arrays.asList("one", "other")) {
                         String composedName;
                         try {
-                            partsComposed.clear();
-                            composedName = unitId.toString(resolvedFile, width, pluralCategory, partsComposed);
+                            composedName = unitId.toString(resolvedFile, width, pluralCategory, "nominative");
                         } catch (Exception e) {
-                            composedName = "ERROR:" + e.getMessage();
+                            composedName = e.getMessage();
                         }
                         if (composedName != null && (composedName.contains("′") || composedName.contains("″"))) { // skip special cases
                             continue;
                         }
                         partsExplicit.clear();
-                        String transName = UnitConverter.getTrans(PathType.unit, resolvedFile, width, shortUnitId, pluralCategory, partsExplicit);
+                        String transName = UnitConverter.getTrans(PathType.unit, resolvedFile, width, shortUnitId, pluralCategory, "nominative", null, partsExplicit);
                         // HACK to fix different spaces around placeholder
-                        transName = NORM_SPACES.matcher(transName).replaceAll(" ");
+                        transName = transName == null ? null : NORM_SPACES.matcher(transName).replaceAll(" ");
                         composedName = composedName == null ? null : NORM_SPACES.matcher(composedName).replaceAll(" ");
-                        if (!transName.contentEquals(composedName)) {
-                            Collection<String> partsExplicitList = partsExplicit.get(PathType.unit);
-                            String partsExplicitString = CollectionUtilities.join(partsExplicitList, " ● ");
-                            partsExplicitString = partsExplicitList.size() == 1 && !partsExplicitString.contains("≠") ? "" : partsExplicitString;
-                            String partsComposedString = CollectionUtilities.join(partsComposed.entries(), " ● ");
-                            warnln("\t" + localeId + "\t" + shortUnitId + "\t" + width + "\t" + pluralCategory + "\texpected ≠ fallback\t«" 
-                                + transName + "»\t≠\t«" + composedName+ "»\t" 
-                                + partsExplicitString + "\t" + partsComposedString);
+                        if (!Objects.equals(transName, composedName)) {
+                            warnln("\t" + localeId + "\t" + shortUnitId + "\t" + width + "\t" + pluralCategory + "\texpected ≠ fallback\t«" + transName + "»\t≠\t«" + composedName+ "»");
                             try {
-                                composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                                composedName = unitId.toString(resolvedFile, width, pluralCategory, "nominative");
                             } catch (Exception e) {
                                 composedName = e.getMessage();
                             }

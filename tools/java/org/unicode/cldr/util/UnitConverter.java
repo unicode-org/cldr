@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,6 +47,8 @@ import com.ibm.icu.util.ULocale;
 
 public class UnitConverter implements Freezable<UnitConverter> {
 
+    public static final Integer INTEGER_ONE = Integer.valueOf(1);
+
     static final Splitter BAR_SPLITTER = Splitter.on('-');
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
 
@@ -60,6 +63,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Multimap<String, Continuation> continuations = TreeMultimap.create();
     private Comparator<String> quantityComparator; 
     private Map<String,String> fixDenormalized;
+    private ImmutableMap<String, UnitId> idToUnitId;
 
     public static final BiMap<String,String> SHORT_TO_LONG_ID;
     static {
@@ -106,6 +110,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         quantityToSimpleUnits.put(quantity, baseUnit);
     }
 
+
     public static final Set<String> BASE_UNIT_PARTS = ImmutableSet.<String>builder()
         .add("per").add("square").add("cubic").addAll(BASE_UNITS)
         .build();
@@ -137,6 +142,38 @@ public class UnitConverter implements Freezable<UnitConverter> {
             baseUnits = builder.build();
             continuations = ImmutableMultimap.copyOf(continuations);
             targetInfoComparator = new TargetInfoComparator();
+
+            Map<String, UnitId> _idToUnitId = new TreeMap<>();
+            for (Entry<String, String> shortAndLongId : SHORT_TO_LONG_ID.entrySet()) {
+                String shortId = shortAndLongId.getKey();
+                String longId = shortAndLongId.getKey();
+                UnitId uid = createUnitId(shortId).freeze();
+                boolean doTest = false;
+                Output<Rational> deprefix = new Output<>();
+                for (Entry<String, Integer> entry : uid.numUnitsToPowers.entrySet()) {
+                    final String unitPart = entry.getKey();
+                    UnitConverter.stripPrefix(unitPart, deprefix );
+                    if (!deprefix.value.equals(Rational.ONE) || !entry.getValue().equals(INTEGER_ONE)) {
+                        doTest = true;
+                        break;
+                    }
+                }
+                if (!doTest) {
+                    for (Entry<String, Integer> entry : uid.denUnitsToPowers.entrySet()) {
+                        final String unitPart = entry.getKey();
+                        UnitConverter.stripPrefix(unitPart, deprefix);
+                        if (!deprefix.value.equals(Rational.ONE)) {
+                            doTest = true;
+                            break;
+                        }
+                    }
+                }
+                if (doTest) {
+                    _idToUnitId.put(shortId, uid);
+                    _idToUnitId.put(longId, uid);
+                }
+            }
+            idToUnitId = ImmutableMap.copyOf(_idToUnitId);
         }
         return this;
     }
@@ -691,12 +728,18 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return builder.toString();
         }
 
-        public String toString(CLDRFile resolvedFile, String width, String _pluralCategory) {
-            return toString(resolvedFile, width, _pluralCategory, null);
+        public String toString(CLDRFile resolvedFile, String width, String _pluralCategory, String caseVariant) {
+            return toString(resolvedFile, width, _pluralCategory, caseVariant, null, null);
         }
 
-        public String toString(CLDRFile resolvedFile, String width, String _pluralCategory, Multimap<PathType, String> partsUsed) {
-            String result = null;
+        public String toString(CLDRFile resolvedFile, String width, String _pluralCategory, String caseVariant, String genderVariant, Multimap<PathType, String> partsUsed) {
+            // special-case single unit
+            String result = getTrans(PathType.unit, resolvedFile, width, this.toString(), _pluralCategory, caseVariant, genderVariant, partsUsed);
+            if (result != null) {
+                return result;
+            }
+
+            result = null;
             String numerator = null;
             String timesPattern = null;
             boolean before = false;
@@ -723,7 +766,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                             numerator = result; // from now on, result ::= denominator
                             result = null;
                         }
-                        if (result == null) { // special case exact match for per form, and no previous result
+                        if (result == null && numerator != null && denUnitsToPowers.size() == 1) { // special case exact match for per form, and no previous result
                             switch (power) {
                             case 1: 
                                 break;
@@ -736,9 +779,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                             default: 
                                 throw new IllegalArgumentException("No power pattern > 3: " + this);
                             }
-                            String longUnitId = SHORT_TO_LONG_ID.get(unit);
-
-                            String fullPerPattern = getTrans(PathType.perUnit, resolvedFile, width, longUnitId, null, partsUsed);
+                            String fullPerPattern = getTrans(PathType.perUnit, resolvedFile, width, unit, _pluralCategory, caseVariant, genderVariant, partsUsed);
                             if (fullPerPattern != null) {
                                 numerator = MessageFormat.format(fullPerPattern, numerator);
                                 continue;
@@ -746,15 +787,36 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         }
                     }
 
+                    // TODO for times pattern, use singular for all but LAST form
+
+                    String powerPatternPath = null;
+                    switch (power) {
+                    case 1: 
+                        break;
+                    case 2: 
+                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
+                            + width + "\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"" 
+                            + pluralCategory + "\"]";
+                        // example: Quadrat{0}
+                        break;
+                    case 3: 
+                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
+                            + width + "\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1[@count=\"" 
+                            + pluralCategory + "\"]";
+                        break;
+                    default: 
+                        throw new IllegalArgumentException("No power pattern > 3: " + this);
+                    }
+
                     // handle prefix, like kilo-
                     unit = stripPrefixInt(unit, deprefix);
                     String prefixPattern = null;
                     if (deprefix.value != 1) {
-                        prefixPattern = getTrans(PathType.prefix, resolvedFile, width, "10p" + deprefix.value, null, partsUsed);
+                        prefixPattern = getTrans(PathType.prefix, resolvedFile, width, "10p" + deprefix.value, _pluralCategory, caseVariant, genderVariant, partsUsed);
                     }
 
                     // get the core pattern. Detect and remove the the placeholder (and surrounding spaces)
-                    String unitPattern = getTrans(PathType.unit, resolvedFile, width, unit, pluralCategory, partsUsed);
+                    String unitPattern = getTrans(PathType.unit, resolvedFile, width, unit, pluralCategory, caseVariant, genderVariant, partsUsed);
                     if (unitPattern == null) {
                         return null; // unavailable
                     }
@@ -782,10 +844,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     case 1: 
                         break;
                     case 2: 
-                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power2", pluralCategory, partsUsed);
+                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power2", pluralCategory, caseVariant, genderVariant, partsUsed);
                         break;
                     case 3: 
-                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power3", pluralCategory, partsUsed);
+                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power3", pluralCategory, caseVariant, genderVariant, partsUsed);
                         break;
                     default: 
                         throw new IllegalArgumentException("No power pattern > 3: " + this);
@@ -803,7 +865,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
                                 }
                             }
                             if (timesPattern == null) {
-                                timesPattern = getTrans(PathType.times, resolvedFile, width, null, null, partsUsed);
+                                // timesPattern = getTrans(PathType.times, resolvedFile, width, null, null, partsUsed);
+                                String timesPatternPath = "//ldml/units/unitLength[@type=\""
+                                    + width + "\"]/compoundUnit[@type=\"times\"]/compoundUnitPattern";
+                                timesPattern = resolvedFile.getStringValue(timesPatternPath);
                             }
                         }
                         result = MessageFormat.format(timesPattern, result, unitPattern);
@@ -817,7 +882,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 if (result == null) {
                     result = numerator;
                 } else {
-                    String perPattern = getTrans(PathType.per, resolvedFile, width, null, null, partsUsed);
+                    String perPattern = getTrans(PathType.per, resolvedFile, width, null, _pluralCategory, caseVariant, genderVariant, partsUsed);
                     result = MessageFormat.format(perPattern, numerator, result);
                 }
             }
@@ -933,9 +998,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
     }
 
-
+    private ConcurrentHashMap<String, UnitId> UNIT_ID = new ConcurrentHashMap<>();
+    // TODO This is safe but should use regular cache
     public final UnitId createUnitId(String unit) {
-        return new UnitId(UNIT_COMPARATOR).add(continuations, unit, true, 1).freeze();
+        UnitId result = UNIT_ID.get(unit);
+        if (result == null) {
+            result = new UnitId(UNIT_COMPARATOR).add(continuations, unit, true, 1).freeze();
+            UNIT_ID.put(unit, result);
+        }
+        return result;
     }
 
     public boolean isBaseUnit(String unit) {
@@ -1209,41 +1280,38 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return getBaseUnitToQuantity().inverse().keySet();
     }
 
-    public static String getTrans(PathType type, CLDRFile resolvedFile, String width, String unit, String pluralCategory, 
-        Multimap<PathType, String> partsUsed) {
+    public static String getTrans(PathType type, CLDRFile resolvedFile, String width, String shortUnitId, String pluralCategory, String caseVariant, String genderVariant, Multimap<PathType, String> partsUsed) {
         final String pathPrefix = "//ldml/units/unitLength[@type=\"" + width;
         String path;
+        String longUnitId;
         switch (type) {
         case times: 
-            path = pathPrefix + "\"]/compoundUnit[@type=\""
-                + "times" + "\"]/compoundUnitPattern";
+            path = pathPrefix + "\"]/compoundUnit[@type=\"" + "times" + "\"]/compoundUnitPattern";
             break;
         case per: 
-            path = pathPrefix + "\"]/compoundUnit[@type=\""
-                + "per" + "\"]/compoundUnitPattern";
+            path = pathPrefix + "\"]/compoundUnit[@type=\"" + "per" + "\"]/compoundUnitPattern";
             break;
         case prefix: 
-            path = pathPrefix + "\"]/compoundUnit[@type=\""
-                + unit + "\"]/unitPrefixPattern";
+            longUnitId = SHORT_TO_LONG_ID.get(shortUnitId);
+            path = pathPrefix + "\"]/compoundUnit[@type=\"" + longUnitId + "\"]/unitPrefixPattern";
             break;
         case power: 
-            path  = pathPrefix + "\"]/compoundUnit[@type=\""
-                + unit + "\"]/compoundUnitPattern1[@count=\"" 
-                + pluralCategory + "\"]";
+           longUnitId = SHORT_TO_LONG_ID.get(shortUnitId);
+           path  = pathPrefix + "\"]/compoundUnit[@type=\"" + longUnitId + "\"]/compoundUnitPattern1[@count=\"" + pluralCategory + "\"]";
             break;
         case unit: 
-            String longUnitId = SHORT_TO_LONG_ID.get(unit);
-            path =  pathPrefix + "\"]/unit[@type=\""
-                + longUnitId + "\"]/unitPattern[@count=\""
-                + pluralCategory + "\"]";
+            longUnitId = SHORT_TO_LONG_ID.get(shortUnitId);
+            path =  pathPrefix + "\"]/unit[@type=\""  + longUnitId + "\"]/unitPattern[@count=\"" + pluralCategory + "\"]";
             break;
         case perUnit: 
-            path = pathPrefix + "\"]/unit[@type=\""
-                + unit + "\"]/perUnitPattern";
+            path = pathPrefix + "\"]/unit[@type=\"" + shortUnitId + "\"]/perUnitPattern";
             break; 
         default: throw new IllegalArgumentException("PathType: " + type);
         }
         String result = resolvedFile.getStringValue(path);
+        if (result == null) {
+            int debug = 0;
+        }
         if (partsUsed != null) {
             CLDRFile.Status status = new CLDRFile.Status();
             String foundLocale = resolvedFile.getSourceLocaleID(path, status );
@@ -1251,9 +1319,57 @@ public class UnitConverter implements Freezable<UnitConverter> {
             partsUsed.put(type, (result != null ? result : "∅") + (state.equals("==") ? "" : "; "
                 + state + "; "
                 + width + "; "
-                + (unit != null ? unit : "∅") + "; "
+                + (shortUnitId != null ? shortUnitId : "∅") + "; "
                 + (pluralCategory != null ? pluralCategory : "∅"))
                 );
+        }
+        return result;
+    }
+
+    public enum UnitComplexity {simple, non_simple}
+    
+    private ConcurrentHashMap<String, UnitComplexity> COMPLEXITY = new ConcurrentHashMap<>();
+    // TODO This is safe but should use regular cache
+
+    public UnitComplexity getComplexity (String longOrShortId){
+        UnitComplexity result = COMPLEXITY.get(longOrShortId);
+        if (result == null) {
+            String shortId;
+            String longId = SHORT_TO_LONG_ID.get(longOrShortId);
+            if (longId == null) {
+                longId = longOrShortId;
+                shortId = SHORT_TO_LONG_ID.inverse().get(longId);
+            } else {
+                shortId = longOrShortId;
+            }
+            UnitId uid = createUnitId(shortId);
+            result = UnitComplexity.simple;
+
+            if (uid.numUnitsToPowers.size() != 1 || !uid.denUnitsToPowers.isEmpty()) {
+                result = UnitComplexity.non_simple;
+            } else {
+                Output<Rational> deprefix = new Output<>();
+                for (Entry<String, Integer> entry : uid.numUnitsToPowers.entrySet()) {
+                    final String unitPart = entry.getKey();
+                    UnitConverter.stripPrefix(unitPart, deprefix );
+                    if (!deprefix.value.equals(Rational.ONE) || !entry.getValue().equals(INTEGER_ONE)) {
+                        result = UnitComplexity.non_simple;
+                        break;
+                    }
+                }
+                if (result == UnitComplexity.simple) {
+                    for (Entry<String, Integer> entry : uid.denUnitsToPowers.entrySet()) {
+                        final String unitPart = entry.getKey();
+                        UnitConverter.stripPrefix(unitPart, deprefix);
+                        if (!deprefix.value.equals(Rational.ONE)) {
+                            result = UnitComplexity.non_simple;
+                            break;
+                        }
+                    }
+                }
+            }
+            COMPLEXITY.put(shortId, result);
+            COMPLEXITY.put(longId, result);
         }
         return result;
     }

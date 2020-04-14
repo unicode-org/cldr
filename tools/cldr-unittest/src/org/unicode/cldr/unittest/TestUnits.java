@@ -35,6 +35,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.MapComparator;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.ContinuedFraction;
@@ -462,7 +463,7 @@ public class TestUnits extends TestFmwk {
                 UnitId unitId = converter.createUnitId(baseUnit);
                 assertNotNull("Can't parse baseUnit: " + baseUnit, unitId);
             } catch (Exception e) {
-                UnitId unitId = converter.createUnitId(baseUnit); // for debugging
+                converter.createUnitId(baseUnit); // for debugging
                 errln("Can't parse baseUnit: " + baseUnit);
             }
         }
@@ -1084,6 +1085,7 @@ public class TestUnits extends TestFmwk {
         for (Object[] test : tests0) {
             ContinuedFraction source = (ContinuedFraction) test[0];
             Rational expected = (Rational) test[1];
+            @SuppressWarnings("unchecked")
             List<Rational> expectedIntermediates = (List<Rational>) test[2];
             List<Rational> intermediates = new ArrayList<>();
             final Rational actual = source.toRational(intermediates);            
@@ -1694,10 +1696,10 @@ public class TestUnits extends TestFmwk {
         assertEquals("roundtrip " + formatted, source, roundtrip);
     }
 
-    static final Pattern NORM_SPACES = Pattern.compile("[ \u00A0]");
+    static final Pattern NORM_SPACES = Pattern.compile("[ \u00A0\u200E]");
 
-    public void TestPrefixes() {
-        // first gather all the English examples
+    public void TestFallbackNames() {
+        // first gather all the  examples
         System.out.println();
         Output<Rational> deprefix = new Output<>();
         Map<String, UnitId> idToUnitId = new TreeMap<>();
@@ -1706,7 +1708,7 @@ public class TestUnits extends TestFmwk {
             boolean doTest = false;
             for (Entry<String, Integer> entry : uid.numUnitsToPowers.entrySet()) {
                 final String unitPart = entry.getKey();
-                converter.stripPrefix(unitPart, deprefix);
+                UnitConverter.stripPrefix(unitPart, deprefix);
                 if (!deprefix.value.equals(Rational.ONE) || !entry.getValue().equals(INTEGER_ONE)) {
                     doTest = true;
                     break;
@@ -1715,7 +1717,7 @@ public class TestUnits extends TestFmwk {
             if (!doTest) {
                 for (Entry<String, Integer> entry : uid.denUnitsToPowers.entrySet()) {
                     final String unitPart = entry.getKey();
-                    converter.stripPrefix(unitPart, deprefix);
+                    UnitConverter.stripPrefix(unitPart, deprefix);
                     if (!deprefix.value.equals(Rational.ONE)) {
                         doTest = true;
                         break;
@@ -1726,18 +1728,28 @@ public class TestUnits extends TestFmwk {
                 idToUnitId.put(id, uid);
             }
         }
-        for (String localeId : Arrays.asList("en", "fr", "de", "hr")) { // TODO all CLDR locales
+        Set<String> skippedUnits = new LinkedHashSet<>();
+        Set<String> testSet = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
+        for (String localeId : testSet) { // TODO all CLDR locales
+            if (localeId.contains("_")) {
+                continue; // skip to make test shorter
+            }
             CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(localeId, true);
             for (Entry<String, UnitId> entry : idToUnitId.entrySet()) {
                 final String shortUnitId = entry.getKey();
                 final UnitId unitId = entry.getValue();
                 if (shortUnitId.startsWith("dot") || shortUnitId.equals("millimeter-ofhg")) {
-                    warnln("Skipping unsupported unit: " + shortUnitId);
+                    skippedUnits.add(shortUnitId);
                     continue;
                 }
                 for (String width : Arrays.asList("long")) { // , "short", "narrow"
                     for (String pluralCategory : Arrays.asList("one", "other")) {
-                        String composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                        String composedName;
+                        try {
+                            composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                        } catch (Exception e) {
+                            composedName = e.getMessage();
+                        }
                         if (composedName != null && (composedName.contains("′") || composedName.contains("″"))) { // skip special cases
                             continue;
                         }
@@ -1745,12 +1757,20 @@ public class TestUnits extends TestFmwk {
                         // HACK to fix different spaces around placeholder
                         transName = NORM_SPACES.matcher(transName).replaceAll(" ");
                         composedName = composedName == null ? null : NORM_SPACES.matcher(composedName).replaceAll(" ");
-                        if (!assertEquals(localeId + ", " + shortUnitId + ", " + width + ", " + pluralCategory, transName, composedName)) {
-                            composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                        if (!transName.contentEquals(composedName)) {
+                            warnln("\t" + localeId + "\t" + shortUnitId + "\t" + width + "\t" + pluralCategory + "\texpected ≠ fallback\t«" + transName + "»\t≠\t«" + composedName+ "»");
+                            try {
+                                composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                            } catch (Exception e) {
+                                composedName = e.getMessage();
+                            }
                         }
                     }
                 }
             }
+        }
+        if (!skippedUnits.isEmpty()) {
+            warnln("Skipping unsupported unit: " + skippedUnits);
         }
     }
 }

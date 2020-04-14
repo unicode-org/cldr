@@ -1717,6 +1717,7 @@ public class SurveyAjax extends HttpServlet {
             translationHintsFile = sm.getTranslationHintsFile();
         }
         XMLSource diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
+        CLDRFile cldrFile = fac.make(loc, true, true);
 
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
@@ -1739,6 +1740,9 @@ public class SurveyAjax extends HttpServlet {
                 }
                 if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                     continue; // out of coverage
+                }
+                if (CheckForCopy.sameAsCode(value, xpathString, cldrFile)) {
+                    continue; // not allowed
                 }
                 String curValue = diskData.getValueAtDPath(xpathString);
                 boolean isWinning = equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString);
@@ -2190,7 +2194,7 @@ public class SurveyAjax extends HttpServlet {
                 if (curValue == null) {
                     continue;
                 }
-                if (valueCanBeImported(value, curValue, diskData, xpathString, fac, loc)) {
+                if (valueCanBeAutoImported(value, curValue, diskData, xpathString, fac, loc)) {
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /*
                      * Only import the most recent vote (or abstention) for the given user and xpathString.
@@ -2215,7 +2219,7 @@ public class SurveyAjax extends HttpServlet {
     }
 
     /**
-     * Can the value be imported?
+     * Can the value be auto-imported?
      *
      * Import if the value is null (abstain), or is winning (equalsOrInheritsCurrentValue) and
      * is not a code-copy failure (sameAsCode).
@@ -2232,7 +2236,7 @@ public class SurveyAjax extends HttpServlet {
      * @param loc the locale string
      * @return true if OK to import, else false
      */
-    private boolean valueCanBeImported(String value, String curValue, XMLSource diskData, String xpathString, STFactory fac, String loc) {
+    private boolean valueCanBeAutoImported(String value, String curValue, XMLSource diskData, String xpathString, STFactory fac, String loc) {
         if (value == null) {
             return true;
         }
@@ -2500,7 +2504,7 @@ public class SurveyAjax extends HttpServlet {
             if (pvi.wouldInheritNull()) {
                 showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
             } else {
-                CLDRFile cldrFile = stf.make(locale.getBaseName(), true, true);;
+                CLDRFile cldrFile = stf.make(locale.getBaseName(), true, true);
                 if (CheckForCopy.sameAsCode(val, xp, cldrFile)) {
                     showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
                 }
@@ -2993,6 +2997,9 @@ public class SurveyAjax extends HttpServlet {
                     DataSection.DataRow pvi = section.getDataRow(base);
                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
 
+                    if (CheckForCopy.sameAsCode(val0, x, baseFile)) {
+                        showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
+                    }
                     if (showRowAction.isForbidden()) {
                         result = "Item may not be modified. ("
                                 + showRowAction + ")";

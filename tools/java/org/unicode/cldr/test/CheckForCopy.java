@@ -113,13 +113,13 @@ public class CheckForCopy extends FactoryCheckCLDR {
          *
          * TODO: clarify the purpose of using topStringValue and getConstructedValue here;
          * cf. getConstructedBaileyValue. This code is confusing and warrants explanation.
-         * The meaning of "explicit" here is the opposite its meaning elsewhere.
+         * The meaning of "explicit" here seems to be the opposite of its meaning elsewhere.
          */
         String topStringValue = cldrFile.getUnresolved().getStringValue(path);
         final boolean isExplicitBailey = CldrUtility.INHERITANCE_MARKER.equals(topStringValue);
         if (!contextIsVoteSubmission && !isExplicitBailey) {
             String loc = cldrFile.getSourceLocaleID(path, status);
-            if (cldrFile.getLocaleID().equals(loc)
+            if (!cldrFile.getLocaleID().equals(loc)
                 || !path.equals(status.pathWhereFound)) {
                 return Failure.ok;
             }

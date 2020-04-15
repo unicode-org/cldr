@@ -73,6 +73,10 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+<<<<<<< HEAD
+=======
+import com.ibm.icu.dev.util.CollectionUtilities;
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -1714,8 +1718,13 @@ public class TestUnits extends TestFmwk {
         System.out.println();
         Set<String> skippedUnits = new LinkedHashSet<>();
         Set<String> testSet = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
+<<<<<<< HEAD
         Multimap<PathType, String> partsExplicit = TreeMultimap.create();
         
+=======
+        Multimap<PathType, String> partsExplicit = LinkedHashMultimap.create();
+        Multimap<PathType, String> partsComposed = LinkedHashMultimap.create();
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
         for (String localeId : testSet) { // TODO all CLDR locales
             if (localeId.contains("_")) {
                 continue; // skip to make test shorter
@@ -1724,7 +1733,11 @@ public class TestUnits extends TestFmwk {
             PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(localeId);
             PluralRules pluralRules = pluralInfo.getPluralRules();
 
+<<<<<<< HEAD
             for (Entry<String, String> entry : UnitConverter.SHORT_TO_LONG_ID.entrySet()) {
+=======
+            for (Entry<String, UnitId> entry : idToUnitId.entrySet()) {
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                 final String shortUnitId = entry.getKey();
                 if (converter.getComplexity(shortUnitId) == UnitComplexity.simple) {
                     continue;
@@ -1736,23 +1749,43 @@ public class TestUnits extends TestFmwk {
                     continue;
                 }
                 for (String width : Arrays.asList("long")) { // , "short", "narrow"
-                    for (String pluralCategory : Arrays.asList("one", "other")) {
+                    for (String pluralCategory : pluralRules.getKeywords()) {
                         String composedName;
                         try {
+<<<<<<< HEAD
                             composedName = unitId.toString(resolvedFile, width, pluralCategory, "nominative");
+=======
+                            partsComposed.clear();
+                            composedName = unitId.toString(resolvedFile, width, pluralCategory, partsComposed);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                         } catch (Exception e) {
-                            composedName = e.getMessage();
+                            composedName = "ERROR:" + e.getMessage();
                         }
                         if (composedName != null && (composedName.contains("′") || composedName.contains("″"))) { // skip special cases
                             continue;
                         }
                         partsExplicit.clear();
+<<<<<<< HEAD
                         String transName = UnitConverter.getTrans(PathType.unit, resolvedFile, width, shortUnitId, pluralCategory, "nominative", null, partsExplicit);
+=======
+                        String transName = UnitConverter.getTrans(PathType.unit, resolvedFile, width, shortUnitId, pluralCategory, partsExplicit);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                         // HACK to fix different spaces around placeholder
                         transName = transName == null ? null : NORM_SPACES.matcher(transName).replaceAll(" ");
                         composedName = composedName == null ? null : NORM_SPACES.matcher(composedName).replaceAll(" ");
+<<<<<<< HEAD
                         if (!Objects.equals(transName, composedName)) {
                             warnln("\t" + localeId + "\t" + shortUnitId + "\t" + width + "\t" + pluralCategory + "\texpected ≠ fallback\t«" + transName + "»\t≠\t«" + composedName+ "»");
+=======
+                        if (!transName.contentEquals(composedName)) {
+                            Collection<String> partsExplicitList = partsExplicit.get(PathType.unit);
+                            String partsExplicitString = CollectionUtilities.join(partsExplicitList, " ● ");
+                            partsExplicitString = partsExplicitList.size() == 1 && !partsExplicitString.contains("≠") ? "" : partsExplicitString;
+                            String partsComposedString = CollectionUtilities.join(partsComposed.entries(), " ● ");
+                            warnln("\t" + localeId + "\t" + shortUnitId + "\t" + width + "\t" + pluralCategory + "\texpected ≠ fallback\t«" 
+                                + transName + "»\t≠\t«" + composedName+ "»\t" 
+                                + partsExplicitString + "\t" + partsComposedString);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                             try {
                                 composedName = unitId.toString(resolvedFile, width, pluralCategory, "nominative");
                             } catch (Exception e) {

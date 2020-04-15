@@ -110,7 +110,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
         quantityToSimpleUnits.put(quantity, baseUnit);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
     public static final Set<String> BASE_UNIT_PARTS = ImmutableSet.<String>builder()
         .add("per").add("square").add("cubic").addAll(BASE_UNITS)
         .build();
@@ -728,6 +731,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return builder.toString();
         }
 
+<<<<<<< HEAD
         public String toString(CLDRFile resolvedFile, String width, String _pluralCategory, String caseVariant) {
             return toString(resolvedFile, width, _pluralCategory, caseVariant, null, null);
         }
@@ -740,6 +744,14 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
 
             result = null;
+=======
+        public String toString(CLDRFile resolvedFile, String width, String _pluralCategory) {
+            return toString(resolvedFile, width, _pluralCategory, null);
+        }
+
+        public String toString(CLDRFile resolvedFile, String width, String _pluralCategory, Multimap<PathType, String> partsUsed) {
+            String result = null;
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
             String numerator = null;
             String timesPattern = null;
             boolean before = false;
@@ -779,7 +791,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
                             default: 
                                 throw new IllegalArgumentException("No power pattern > 3: " + this);
                             }
+<<<<<<< HEAD
                             String fullPerPattern = getTrans(PathType.perUnit, resolvedFile, width, unit, _pluralCategory, caseVariant, genderVariant, partsUsed);
+=======
+                            String longUnitId = SHORT_TO_LONG_ID.get(unit);
+
+                            String fullPerPattern = getTrans(PathType.perUnit, resolvedFile, width, longUnitId, null, partsUsed);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                             if (fullPerPattern != null) {
                                 numerator = MessageFormat.format(fullPerPattern, numerator);
                                 continue;
@@ -787,36 +805,23 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         }
                     }
 
-                    // TODO for times pattern, use singular for all but LAST form
-
-                    String powerPatternPath = null;
-                    switch (power) {
-                    case 1: 
-                        break;
-                    case 2: 
-                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
-                            + width + "\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"" 
-                            + pluralCategory + "\"]";
-                        // example: Quadrat{0}
-                        break;
-                    case 3: 
-                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
-                            + width + "\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1[@count=\"" 
-                            + pluralCategory + "\"]";
-                        break;
-                    default: 
-                        throw new IllegalArgumentException("No power pattern > 3: " + this);
-                    }
-
                     // handle prefix, like kilo-
                     unit = stripPrefixInt(unit, deprefix);
                     String prefixPattern = null;
                     if (deprefix.value != 1) {
+<<<<<<< HEAD
                         prefixPattern = getTrans(PathType.prefix, resolvedFile, width, "10p" + deprefix.value, _pluralCategory, caseVariant, genderVariant, partsUsed);
                     }
 
                     // get the core pattern. Detect and remove the the placeholder (and surrounding spaces)
                     String unitPattern = getTrans(PathType.unit, resolvedFile, width, unit, pluralCategory, caseVariant, genderVariant, partsUsed);
+=======
+                        prefixPattern = getTrans(PathType.prefix, resolvedFile, width, "10p" + deprefix.value, null, partsUsed);
+                    }
+
+                    // get the core pattern. Detect and remove the the placeholder (and surrounding spaces)
+                    String unitPattern = getTrans(PathType.unit, resolvedFile, width, unit, pluralCategory, partsUsed);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                     if (unitPattern == null) {
                         return null; // unavailable
                     }
@@ -844,10 +849,17 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     case 1: 
                         break;
                     case 2: 
+<<<<<<< HEAD
                         powerPattern = getTrans(PathType.power, resolvedFile, width, "power2", pluralCategory, caseVariant, genderVariant, partsUsed);
                         break;
                     case 3: 
                         powerPattern = getTrans(PathType.power, resolvedFile, width, "power3", pluralCategory, caseVariant, genderVariant, partsUsed);
+=======
+                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power2", pluralCategory, partsUsed);
+                        break;
+                    case 3: 
+                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power3", pluralCategory, partsUsed);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                         break;
                     default: 
                         throw new IllegalArgumentException("No power pattern > 3: " + this);
@@ -865,10 +877,14 @@ public class UnitConverter implements Freezable<UnitConverter> {
                                 }
                             }
                             if (timesPattern == null) {
+<<<<<<< HEAD
                                 // timesPattern = getTrans(PathType.times, resolvedFile, width, null, null, partsUsed);
                                 String timesPatternPath = "//ldml/units/unitLength[@type=\""
                                     + width + "\"]/compoundUnit[@type=\"times\"]/compoundUnitPattern";
                                 timesPattern = resolvedFile.getStringValue(timesPatternPath);
+=======
+                                timesPattern = getTrans(PathType.times, resolvedFile, width, null, null, partsUsed);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                             }
                         }
                         result = MessageFormat.format(timesPattern, result, unitPattern);
@@ -882,7 +898,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 if (result == null) {
                     result = numerator;
                 } else {
+<<<<<<< HEAD
                     String perPattern = getTrans(PathType.per, resolvedFile, width, null, _pluralCategory, caseVariant, genderVariant, partsUsed);
+=======
+                    String perPattern = getTrans(PathType.per, resolvedFile, width, null, null, partsUsed);
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                     result = MessageFormat.format(perPattern, numerator, result);
                 }
             }
@@ -1280,6 +1300,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return getBaseUnitToQuantity().inverse().keySet();
     }
 
+<<<<<<< HEAD
     public static String getTrans(PathType type, CLDRFile resolvedFile, String width, String shortUnitId, String pluralCategory, String caseVariant, String genderVariant, Multimap<PathType, String> partsUsed) {
         final String pathPrefix = "//ldml/units/unitLength[@type=\"" + width;
         String path;
@@ -1305,13 +1326,49 @@ public class UnitConverter implements Freezable<UnitConverter> {
             break;
         case perUnit: 
             path = pathPrefix + "\"]/unit[@type=\"" + shortUnitId + "\"]/perUnitPattern";
+=======
+    public static String getTrans(PathType type, CLDRFile resolvedFile, String width, String unit, String pluralCategory, 
+        Multimap<PathType, String> partsUsed) {
+        final String pathPrefix = "//ldml/units/unitLength[@type=\"" + width;
+        String path;
+        switch (type) {
+        case times: 
+            path = pathPrefix + "\"]/compoundUnit[@type=\""
+                + "times" + "\"]/compoundUnitPattern";
+            break;
+        case per: 
+            path = pathPrefix + "\"]/compoundUnit[@type=\""
+                + "per" + "\"]/compoundUnitPattern";
+            break;
+        case prefix: 
+            path = pathPrefix + "\"]/compoundUnit[@type=\""
+                + unit + "\"]/unitPrefixPattern";
+            break;
+        case power: 
+            path  = pathPrefix + "\"]/compoundUnit[@type=\""
+                + unit + "\"]/compoundUnitPattern1[@count=\"" 
+                + pluralCategory + "\"]";
+            break;
+        case unit: 
+            String longUnitId = SHORT_TO_LONG_ID.get(unit);
+            path =  pathPrefix + "\"]/unit[@type=\""
+                + longUnitId + "\"]/unitPattern[@count=\""
+                + pluralCategory + "\"]";
+            break;
+        case perUnit: 
+            path = pathPrefix + "\"]/unit[@type=\""
+                + unit + "\"]/perUnitPattern";
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
             break; 
         default: throw new IllegalArgumentException("PathType: " + type);
         }
         String result = resolvedFile.getStringValue(path);
+<<<<<<< HEAD
         if (result == null) {
             int debug = 0;
         }
+=======
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
         if (partsUsed != null) {
             CLDRFile.Status status = new CLDRFile.Status();
             String foundLocale = resolvedFile.getSourceLocaleID(path, status );
@@ -1319,11 +1376,16 @@ public class UnitConverter implements Freezable<UnitConverter> {
             partsUsed.put(type, (result != null ? result : "∅") + (state.equals("==") ? "" : "; "
                 + state + "; "
                 + width + "; "
+<<<<<<< HEAD
                 + (shortUnitId != null ? shortUnitId : "∅") + "; "
+=======
+                + (unit != null ? unit : "∅") + "; "
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
                 + (pluralCategory != null ? pluralCategory : "∅"))
                 );
         }
         return result;
+<<<<<<< HEAD
     }
 
     public enum UnitComplexity {simple, non_simple}
@@ -1372,5 +1434,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             COMPLEXITY.put(longId, result);
         }
         return result;
+=======
+>>>>>>> CLDR-13654 extend to all plural forms, add instrumentation.
     }
 }

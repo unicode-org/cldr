@@ -105,12 +105,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         quantityToSimpleUnits.put(quantity, baseUnit);
     }
-    
+
     public static final Set<String> BASE_UNIT_PARTS = ImmutableSet.<String>builder()
         .add("per").add("square").add("cubic").addAll(BASE_UNITS)
         .build();
 
-    static final Pattern PLACEHOLDER = Pattern.compile("[ \\u00A0\\u200E]*\\{0\\}[ \\u00A0\\u200E]*");
+    static final Pattern PLACEHOLDER = Pattern.compile("[ \\u00A0\\u200E\\u200F]*\\{0\\}[ \\u00A0\\u200E\\u200F]*");
     public static final boolean HACK = true;
     private static final ULocale GREEK = new ULocale("el");
 
@@ -603,6 +603,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     };
 
     Comparator<String> UNIT_COMPARATOR = new UnitComparator();
+    public enum PathType {perUnit, times, per, prefix, power, unit}
 
     /** 
      * Only handles the canonical units; no kilo-, only normalized, etc.
@@ -691,6 +692,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
 
         public String toString(CLDRFile resolvedFile, String width, String _pluralCategory) {
+            return toString(resolvedFile, width, _pluralCategory, null);
+        }
+
+        public String toString(CLDRFile resolvedFile, String width, String _pluralCategory, Multimap<PathType, String> partsUsed) {
             String result = null;
             String numerator = null;
             String timesPattern = null;
@@ -733,10 +738,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                             }
                             String longUnitId = SHORT_TO_LONG_ID.get(unit);
 
-                            String fullPerPatternPath = "//ldml/units/unitLength[@type=\""
-                                +  width + "\"]/unit[@type=\""
-                                + longUnitId + "\"]/perUnitPattern";
-                            String fullPerPattern = resolvedFile.getStringValue(fullPerPatternPath);
+                            String fullPerPattern = getTrans(PathType.perUnit, resolvedFile, width, longUnitId, null, partsUsed);
                             if (fullPerPattern != null) {
                                 numerator = MessageFormat.format(fullPerPattern, numerator);
                                 continue;
@@ -744,39 +746,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         }
                     }
 
-                    // TODO for times pattern, use singular for all but LAST form
-
-                    String powerPatternPath = null;
-                    switch (power) {
-                    case 1: 
-                        break;
-                    case 2: 
-                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
-                            + width + "\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"" 
-                            + pluralCategory + "\"]";
-                        // example: Quadrat{0}
-                        break;
-                    case 3: 
-                        powerPatternPath = "//ldml/units/unitLength[@type=\"" 
-                            + width + "\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1[@count=\"" 
-                            + pluralCategory + "\"]";
-                        break;
-                    default: 
-                        throw new IllegalArgumentException("No power pattern > 3: " + this);
-                    }
-
                     // handle prefix, like kilo-
                     unit = stripPrefixInt(unit, deprefix);
                     String prefixPattern = null;
                     if (deprefix.value != 1) {
-                        String prefixPatternPath = "//ldml/units/unitLength[@type=\""
-                            + width + "\"]/compoundUnit[@type=\"10p"
-                            + deprefix.value + "\"]/unitPrefixPattern";
-                        prefixPattern = resolvedFile.getStringValue(prefixPatternPath);
+                        prefixPattern = getTrans(PathType.prefix, resolvedFile, width, "10p" + deprefix.value, null, partsUsed);
                     }
 
                     // get the core pattern. Detect and remove the the placeholder (and surrounding spaces)
-                    String unitPattern = getUnitPattern(resolvedFile, unit, width, pluralCategory);
+                    String unitPattern = getTrans(PathType.unit, resolvedFile, width, unit, pluralCategory, partsUsed);
                     if (unitPattern == null) {
                         return null; // unavailable
                     }
@@ -798,10 +776,25 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     if (prefixPattern != null) {
                         unitPattern = combineLowercasing(locale, width, prefixPattern, unitPattern);
                     }
-                    if (powerPatternPath != null) {
-                        String powerPattern = resolvedFile.getStringValue(powerPatternPath);
+
+                    String powerPattern = null;
+                    switch (power) {
+                    case 1: 
+                        break;
+                    case 2: 
+                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power2", pluralCategory, partsUsed);
+                        break;
+                    case 3: 
+                        powerPattern = getTrans(PathType.power, resolvedFile, width, "power3", pluralCategory, partsUsed);
+                        break;
+                    default: 
+                        throw new IllegalArgumentException("No power pattern > 3: " + this);
+                    }
+
+                    if (powerPattern != null) {
                         unitPattern = combineLowercasing(locale, width, powerPattern, unitPattern);
                     }
+
                     if (result != null) {
                         if (timesPattern == null) {
                             if (HACK) {                                // TODO fix hack!
@@ -810,9 +803,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                                 }
                             }
                             if (timesPattern == null) {
-                                String timesPatternPath = "//ldml/units/unitLength[@type=\""
-                                    + width + "\"]/compoundUnit[@type=\"times\"]/compoundUnitPattern";
-                                timesPattern = resolvedFile.getStringValue(timesPatternPath);
+                                timesPattern = getTrans(PathType.times, resolvedFile, width, null, null, partsUsed);
                             }
                         }
                         result = MessageFormat.format(timesPattern, result, unitPattern);
@@ -826,8 +817,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 if (result == null) {
                     result = numerator;
                 } else {
-                    String perPatternPath = "//ldml/units/unitLength[@type=\"" + width + "\"]/compoundUnit[@type=\"per\"]/compoundUnitPattern";
-                    String perPattern = resolvedFile.getStringValue(perPatternPath);
+                    String perPattern = getTrans(PathType.per, resolvedFile, width, null, null, partsUsed);
                     result = MessageFormat.format(perPattern, numerator, result);
                 }
             }
@@ -1219,12 +1209,52 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return getBaseUnitToQuantity().inverse().keySet();
     }
 
-    public static String getUnitPattern(CLDRFile resolvedFile, String shortUnitId, String width, String count) {
-        String longUnitId = SHORT_TO_LONG_ID.get(shortUnitId);
-        String namePath = "//ldml/units/unitLength[@type=\""
-            + width + "\"]/unit[@type=\""
-            + longUnitId + "\"]/unitPattern[@count=\""
-            + count + "\"]";
-        return resolvedFile.getStringValue(namePath);
+    public static String getTrans(PathType type, CLDRFile resolvedFile, String width, String unit, String pluralCategory, 
+        Multimap<PathType, String> partsUsed) {
+        final String pathPrefix = "//ldml/units/unitLength[@type=\"" + width;
+        String path;
+        switch (type) {
+        case times: 
+            path = pathPrefix + "\"]/compoundUnit[@type=\""
+                + "times" + "\"]/compoundUnitPattern";
+            break;
+        case per: 
+            path = pathPrefix + "\"]/compoundUnit[@type=\""
+                + "per" + "\"]/compoundUnitPattern";
+            break;
+        case prefix: 
+            path = pathPrefix + "\"]/compoundUnit[@type=\""
+                + unit + "\"]/unitPrefixPattern";
+            break;
+        case power: 
+            path  = pathPrefix + "\"]/compoundUnit[@type=\""
+                + unit + "\"]/compoundUnitPattern1[@count=\"" 
+                + pluralCategory + "\"]";
+            break;
+        case unit: 
+            String longUnitId = SHORT_TO_LONG_ID.get(unit);
+            path =  pathPrefix + "\"]/unit[@type=\""
+                + longUnitId + "\"]/unitPattern[@count=\""
+                + pluralCategory + "\"]";
+            break;
+        case perUnit: 
+            path = pathPrefix + "\"]/unit[@type=\""
+                + unit + "\"]/perUnitPattern";
+            break; 
+        default: throw new IllegalArgumentException("PathType: " + type);
+        }
+        String result = resolvedFile.getStringValue(path);
+        if (partsUsed != null) {
+            CLDRFile.Status status = new CLDRFile.Status();
+            String foundLocale = resolvedFile.getSourceLocaleID(path, status );
+            final String state = (foundLocale.equals(resolvedFile.getLocaleID()) ? "=" : "≠") + (status.pathWhereFound.equals(path) ? "=" : "≠");
+            partsUsed.put(type, (result != null ? result : "∅") + (state.equals("==") ? "" : "; "
+                + state + "; "
+                + width + "; "
+                + (unit != null ? unit : "∅") + "; "
+                + (pluralCategory != null ? pluralCategory : "∅"))
+                );
+        }
+        return result;
     }
 }

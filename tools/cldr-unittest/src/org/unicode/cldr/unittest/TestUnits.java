@@ -50,6 +50,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.Continuation;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
+import org.unicode.cldr.util.UnitConverter.PathType;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitPreferences;
@@ -71,6 +72,8 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
@@ -1730,11 +1733,16 @@ public class TestUnits extends TestFmwk {
         }
         Set<String> skippedUnits = new LinkedHashSet<>();
         Set<String> testSet = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
+        Multimap<PathType, String> partsExplicit = LinkedHashMultimap.create();
+        Multimap<PathType, String> partsComposed = LinkedHashMultimap.create();
         for (String localeId : testSet) { // TODO all CLDR locales
             if (localeId.contains("_")) {
                 continue; // skip to make test shorter
             }
             CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(localeId, true);
+            PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(localeId);
+            PluralRules pluralRules = pluralInfo.getPluralRules();
+
             for (Entry<String, UnitId> entry : idToUnitId.entrySet()) {
                 final String shortUnitId = entry.getKey();
                 final UnitId unitId = entry.getValue();
@@ -1743,22 +1751,30 @@ public class TestUnits extends TestFmwk {
                     continue;
                 }
                 for (String width : Arrays.asList("long")) { // , "short", "narrow"
-                    for (String pluralCategory : Arrays.asList("one", "other")) {
+                    for (String pluralCategory : pluralRules.getKeywords()) {
                         String composedName;
                         try {
-                            composedName = unitId.toString(resolvedFile, width, pluralCategory);
+                            partsComposed.clear();
+                            composedName = unitId.toString(resolvedFile, width, pluralCategory, partsComposed);
                         } catch (Exception e) {
-                            composedName = e.getMessage();
+                            composedName = "ERROR:" + e.getMessage();
                         }
                         if (composedName != null && (composedName.contains("′") || composedName.contains("″"))) { // skip special cases
                             continue;
                         }
-                        String transName = UnitConverter.getUnitPattern(resolvedFile, shortUnitId, width, pluralCategory);
+                        partsExplicit.clear();
+                        String transName = UnitConverter.getTrans(PathType.unit, resolvedFile, width, shortUnitId, pluralCategory, partsExplicit);
                         // HACK to fix different spaces around placeholder
                         transName = NORM_SPACES.matcher(transName).replaceAll(" ");
                         composedName = composedName == null ? null : NORM_SPACES.matcher(composedName).replaceAll(" ");
                         if (!transName.contentEquals(composedName)) {
-                            warnln("\t" + localeId + "\t" + shortUnitId + "\t" + width + "\t" + pluralCategory + "\texpected ≠ fallback\t«" + transName + "»\t≠\t«" + composedName+ "»");
+                            Collection<String> partsExplicitList = partsExplicit.get(PathType.unit);
+                            String partsExplicitString = CollectionUtilities.join(partsExplicitList, " ● ");
+                            partsExplicitString = partsExplicitList.size() == 1 && !partsExplicitString.contains("≠") ? "" : partsExplicitString;
+                            String partsComposedString = CollectionUtilities.join(partsComposed.entries(), " ● ");
+                            warnln("\t" + localeId + "\t" + shortUnitId + "\t" + width + "\t" + pluralCategory + "\texpected ≠ fallback\t«" 
+                                + transName + "»\t≠\t«" + composedName+ "»\t" 
+                                + partsExplicitString + "\t" + partsComposedString);
                             try {
                                 composedName = unitId.toString(resolvedFile, width, pluralCategory);
                             } catch (Exception e) {

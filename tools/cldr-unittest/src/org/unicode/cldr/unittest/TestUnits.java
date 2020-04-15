@@ -502,6 +502,8 @@ public class TestUnits extends TestFmwk {
         if (GENERATE_TESTS) { // test data
             System.out.println(
                 "# Test data for unit conversions\n" 
+                    + CldrUtility.getCopyrightString("#  ") + "\n"
+                    + "#\n" 
                     + "# Format:\n"
                     + "#\tQuantity\t;\tx\t;\ty\t;\tconversion to y (rational)\t;\ttest: 1000 x ⟹ y\n"
                     + "#\n"
@@ -1367,6 +1369,8 @@ public class TestUnits extends TestFmwk {
         if (GENERATE_TESTS) {
             System.out.println(
                 "\n# Test data for unit preferences\n" 
+                    + CldrUtility.getCopyrightString("#  ") + "\n"
+                    + "#\n" 
                     + "# Format:\n"
                     + "#\tQuantity;\tUsage;\tRegion;\tInput (r);\tInput (d);\tInput Unit;\tOutput (r);\tOutput (d);\tOutput Unit\n"
                     + "#\n"
@@ -1378,8 +1382,11 @@ public class TestUnits extends TestFmwk {
                     + "#\t The Output amount and Unit are repeated for mixed units. In such a case, only the smallest unit will have\n"
                     + "#\t both a rational and decimal amount; the others will have a single integer value, such as:\n"
                     + "#\t   length; person-height; CA; 3429 / 12500; 0.27432; meter; 2; foot; 54 / 5; 10.8; inch\n"
-                    + "#\t The input and output units are unit identifers; they are neither localized nor adjusted for pluralization,"
-                    + "#\t nor formatted with the skeleton.\n"
+                    + "#\t The input and output units are unit identifers; in particular, the output does not have further processing:\n"
+                    + "#\t\t • no localization\n"
+                    + "#\t\t • no adjustment for pluralization\n"
+                    + "#\t\t • no formatted with the skeleton\n"
+                    + "#\t\t • no suppression of zero values (for secondary -and- units such as pound in stone-and-pound)\n"
                     + "#\n"
                     + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestUnitPreferences results.\n"
                 );
@@ -1409,6 +1416,9 @@ public class TestUnits extends TestFmwk {
                         // show samples
                         Set<String> regions = entry3.getKey();
                         String sampleRegion = regions.iterator().next();
+                        if (usage.equals("person-age")) {
+                            int debug = 0;
+                        }
                         Collection<UnitPreference> uprefs = entry3.getValue();
                         for (Rational sample : samples) {
                             showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs);
@@ -1439,6 +1449,7 @@ public class TestUnits extends TestFmwk {
     }
 
     private void showSample2(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, String lastUnit) {
+        Rational originalSampleBaseValue = sampleBaseValue;
         // Known slow algorithm for mixed values, but for generating tests we don't care.
         final List<String> units = UnitPreferences.SPLIT_AND.splitToList(lastUnit);
         StringBuilder formattedUnit = new StringBuilder();
@@ -1459,7 +1470,7 @@ public class TestUnits extends TestFmwk {
             }
         }
         System.out.println(quantity + TEST_SEP + usage + TEST_SEP + sampleRegion 
-            + TEST_SEP + sampleBaseValue + TEST_SEP + sampleBaseValue.doubleValue() + TEST_SEP + baseUnit 
+            + TEST_SEP + originalSampleBaseValue + TEST_SEP + originalSampleBaseValue.doubleValue() + TEST_SEP + baseUnit
             + TEST_SEP + formattedUnit);
     }
 

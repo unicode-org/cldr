@@ -1364,11 +1364,15 @@ public class CldrUtility {
     }
 
     public static String getCopyrightString() {
+        return getCopyrightString("");
+    }
+    
+    public static String getCopyrightString(String linePrefix) {
         // now do the rest
-        return "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
-            + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
-            + "Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries." + CldrUtility.LINE_SEPARATOR
-            + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
+        return linePrefix + "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
+            + linePrefix + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
+            + linePrefix + "Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries." + CldrUtility.LINE_SEPARATOR
+            + linePrefix + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
     }
 
     // TODO Move to collection utilities

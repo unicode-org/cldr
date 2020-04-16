@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SurveyTool JavaScript Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+  </head>
+  <body>
+  <div style="padding-top: 48pt; padding-left: 32pt; font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+      <h1>CLDR SurveyTool JavaScript Tests</h1>
+      <em>Reference:</em> <a href="https://mochajs.org/#running-mocha-in-the-browser">running-mocha-in-the-browser</a>
+    </div>
+    <div id="mocha"></div>
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script class="mocha-init">
+      mocha.setup('bdd');
+      mocha.checkLeaks();
+    </script>
+    <script src="../WebContent/js/CldrStForumFilter.js"></script>
+    <script src="TestCldrStForumFilter.js"></script>
+    <script class="mocha-exec">
+      mocha.run();
+    </script>
+  </body>
+</html>

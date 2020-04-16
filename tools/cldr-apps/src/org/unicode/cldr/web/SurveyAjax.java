@@ -3092,6 +3092,7 @@ public class SurveyAjax extends HttpServlet {
 
         out.write(prefix + "CldrStAjax.js" + v + tail);
         out.write(prefix + "CldrStForumFilter.js" + v + tail);
+        out.write(prefix + "CldrStForum.js" + v + tail);
         out.write(prefix + "survey.js" + v + tail);
         out.write(prefix + "CldrSurveyVettingLoader.js" + v + tail);
         out.write(prefix + "CldrSurveyVettingTable.js" + v + tail);

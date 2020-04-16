@@ -694,238 +694,6 @@ function createUser(user) {
 }
 
 /**
- * Create a DOM object referring to this forum post
- *
- * @param {Object} json - options
- * @param {Array} j.ret - forum post data
- * @return {Object} new DOM object
- *
- * TODO: shorten this function, currently about 200 lines long, by moving code into
- * subroutines. Also, postpone creating DOM elements until finished constructing the
- * filtered list of threads, to make the code cleaner, faster, and more testable.
- */
-function parseForumContent(json) {
-
-	// json.ret has posts in reverse order (newest first).
-	var postDivs = {}; //  postid -> div
-	var topicDivs = {}; // xpath -> div or "#123" -> div
-	var postHash = {}; // postid -> item
-
-	// first, collect the posts.
-	for (num in json.ret) {
-		postHash[json.ret[num].id] = json.ret[num];
-	}
-
-	// now, collect the threads
-	function threadId(post) {
-		if (post.parent >= 0 && postHash[post.parent]) {
-			// if  the parent exists.
-			return threadId(postHash[post.parent]);
-		}
-		if (post.xpath) {
-			return post.locale + "|" + post.xpath; // item post
-		} else {
-			return post.locale + "|#" + post.id; // non-item post
-		}
-	}
-
-	// next, add threadIds and create the topic divs
-	for (num in json.ret) {
-		var post = json.ret[num];
-		post.threadId = threadId(post);
-
-		if (!topicDivs[post.threadId]) {
-			// add the topic div
-			var topicDiv = document.createElement('div');
-			topicDiv.className = 'well well-sm postTopic';
-			var topicInfo = createChunk("", "h4", "postTopicInfo");
-			if (!json.noItemLink) {
-				topicDiv.appendChild(topicInfo);
-				if (post.locale) {
-					var localeLink = createChunk(locmap.getLocaleName(post.locale), "a", "localeName");
-					if (post.locale != surveyCurrentLocale) {
-						localeLink.href = linkToLocale(post.locale);
-					}
-					topicInfo.appendChild(localeLink);
-				}
-			}
-			if (!post.xpath) {
-				topicInfo.appendChild(createChunk(post2text(post.subject), "span", "topicSubject"));
-			} else {
-				if (!json.noItemLink) {
-					var itemLink = createChunk(stui.str("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
-					itemLink.href = "#/" + post.locale + "//" + post.xpath;
-					topicInfo.appendChild(itemLink);
-					(function(topicInfo) {
-						var loadingMsg = createChunk(stui.str("loading"), "i", "loadingMsg");
-						topicInfo.appendChild(loadingMsg);
-						xpathMap.get({
-							hex: post.xpath
-						}, function(o) {
-							if (o.result) {
-								topicInfo.removeChild(loadingMsg);
-								var itemPh = createChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
-								itemPh.title = o.result.path;
-								topicInfo.appendChild(itemPh);
-							}
-						});
-					})(topicInfo);
-				}
-			}
-			topicDivs[post.threadId] = topicDiv;
-			topicDiv.id = "fthr_" + post.threadId;
-		}
-	}
-	// Now, top to bottom, just create the post divs
-	for (num in json.ret) {
-		var post = json.ret[num];
-
-		var subpost = createChunk("", "div", "post"); // was: subpost
-		postDivs[post.id] = subpost;
-		subpost.id = "fp" + post.id;
-
-		var headingLine = createChunk("", "h4", "selected");
-
-		// If post.posterInfo is undefined, don't crash; insert "[Poster no longer active]".
-		if (!post.posterInfo) {
-			headingLine.appendChild(createChunk("[Poster no longer active]", "span", ""));
-		} else {
-			var gravitar = createGravitar(post.posterInfo);
-			gravitar.className = "gravitar pull-left";
-			subpost.appendChild(gravitar);
-			if (post.posterInfo.id == surveyUser.id) {
-				headingLine.appendChild(createChunk(stui.str("user_me"), "span", "forum-me"));
-			} else {
-				var usera = createChunk(post.posterInfo.name + ' ', "a", "");
-				if (post.posterInfo.email) {
-					usera.appendChild(createChunk("", "span", "glyphicon glyphicon-envelope"));
-					usera.href = "mailto:" + post.posterInfo.email;
-				}
-				headingLine.appendChild(usera);
-				headingLine.appendChild(document.createTextNode(' (' + post.posterInfo.org + ') '));
-			}
-			var userLevelChunk = createChunk(stui.str("userlevel_" + post.posterInfo.userlevelName), "span", "userLevelName label-info label");
-			userLevelChunk.title = stui.str("userlevel_" + post.posterInfo.userlevelName + "_desc");
-			headingLine.appendChild(userLevelChunk);
-		}
-		var date = fmtDateTime(post.date_long);
-		if (post.version) {
-			date = "[v" + post.version + "] " + date;
-		}
-		var dateChunk = createChunk(date, "span", "label label-primary pull-right forumLink");
-		(function(post) {
-			listenFor(dateChunk, "click", function(e) {
-				if (post.locale && locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
-					surveyCurrentLocale = locmap.getLanguage(post.locale);
-				}
-				surveyCurrentPage = '';
-				surveyCurrentId = post.id;
-				replaceHash(false);
-				if (surveyCurrentSpecial != 'forum') {
-					surveyCurrentSpecial = 'forum';
-					reloadV();
-				}
-				return stStopPropagation(e);
-			});
-		})(post);
-		headingLine.appendChild(dateChunk);
-		subpost.appendChild(headingLine);
-
-		var subSubChunk = createChunk("", "div", "postHeaderInfoGroup");
-		subpost.appendChild(subSubChunk); {
-			var subChunk = createChunk("", "div", "postHeaderItem");
-			subSubChunk.appendChild(subChunk);
-			subChunk.appendChild(createChunk(post2text(post.subject), "b", "postSubject"));
-		}
-
-		// actual text
-		var postText = post2text(post.text);
-		var postContent;
-		subpost.appendChild(postContent = createChunk(postText, "div", "postContent"));
-		if (json.replyButton) {
-			var replyButton = createChunk(stui.str("forum_reply"), "button", "btn btn-default btn-sm");
-			(function(post) {
-				listenFor(replyButton, "click", function(e) {
-					openReply({
-						locale: surveyCurrentLocale,
-						//xpath: '',
-						replyTo: post.id,
-						replyData: post,
-						onReplyClose: json.onReplyClose
-					});
-					stStopPropagation(e);
-					return false;
-				});
-			})(post);
-			subpost.appendChild(replyButton);
-		}
-
-		// reply link
-		if (json.replyStub) {
-			var replyChunk = createChunk("Reply (leaves this page)", "a", "postReply");
-			replyChunk.href = json.replyStub + post.id;
-			subpost.appendChild(replyChunk);
-		}
-	}
-	// reparent any nodes that we can
-	for (num in json.ret) {
-		var post = json.ret[num];
-		if (post.parent != -1) {
-			stdebug("reparenting " + post.id + " to " + post.parent);
-			if (postDivs[post.parent]) {
-				if (!postDivs[post.parent].replies) {
-					// add the "replies" area
-					stdebug("ADding replies area to " + post.parent);
-					postDivs[post.parent].replies = createChunk("", "div", "postReplies");
-					postDivs[post.parent].appendChild(postDivs[post.parent].replies);
-				}
-				// add to new location
-				postDivs[post.parent].replies.appendChild(postDivs[post.id]);
-			} else {
-				// The parent of this post was deleted.
-				stdebug("The parent of post #" + post.id + " is " + post.parent + " but it was deleted or not visible");
-				// link it in somewhere
-				topicDivs[post.threadId].appendChild(postDivs[post.id]);
-			}
-		} else {
-			// 'top level' post
-			topicDivs[post.threadId].appendChild(postDivs[post.id]);
-		}
-	}
-	return filterAndAssembleForumThreads(json.ret, topicDivs);
-}
-
-/**
- * Filter the forum threads and assemble them into a new document fragment,
- * ordering threads from newest to oldest, determining the time of each thread
- * by the newest post it contains
- *
- * @param posts the array of post objects, from newest to oldest
- * @param topicDivs the array of thread elements, indexed by threadId
- * @return the new document fragment
- */
-function filterAndAssembleForumThreads(posts, topicDivs) {
-	'use strict';
-
-	let filteredArray = cldrStForumFilter.getFilteredThreadIds(posts);
-
-	const forumDiv = document.createDocumentFragment();
-
-	posts.forEach(function(post) {
-		if (filteredArray.includes(post.threadId)) {
-			/*
-			 * Append the div for this threadId, then remove this threadId
-			 * from filteredArray to prevent appending the same div again
-			 * (which would move the div to the bottom, not duplicate it).
-			 */
-			forumDiv.append(topicDivs[post.threadId]);
-			filteredArray = filteredArray.filter(id => (id !== post.threadId));
-		}		
-	});
-	return forumDiv;
-}
-
-/**
  * Used from within event handlers. cross platform 'stop propagation'
  *
  * @param e event
@@ -1230,6 +998,12 @@ function handleDisconnect(why, json, word, what) {
 		saidDisconnect = true;
 		if (json && json.err) {
 			why = why + "\n The error message was: \n" + json.err;
+			if (json.err.fileName) {
+				why = why + "\nFile: " + json.err.fileName;
+				if (json.err.lineNumber) {
+					why = why + "\nLine: " + json.err.lineNumber;
+				}
+			}
 		}
 		console.log("Disconnect: " + why);
 		var oneword = document.getElementById("progress_oneword");
@@ -1975,11 +1749,6 @@ function showForumStuff(frag, forumDivClone, tr) {
 			myLoad(url, "sidewaysView", function(json) {
 				/*
 				 * Count the number of unique locales in json.others and json.novalue.
-				 *
-				 * There was a bug here:
-				 *	var locale_count = Object.keys(json.others).length + json.novalue.length;
-				 * This's not a valid way to count the locales, since the keys of json.others are candidate
-				 * values, not locales. Reference: https://unicode.org/cldr/trac/ticket/11688
 				 */
 				var relatedLocales = json.novalue.slice();
 				for (var s in json.others) {
@@ -2164,7 +1933,7 @@ function showForumStuff(frag, forumDivClone, tr) {
 						if (couldFlag) {
 							subj = subj + " (Flag for review)";
 						}
-						openReply({
+						cldrStForum.openReply({
 							locale: surveyCurrentLocale,
 							xpath: theRow.xpstrid,
 							subject: subj,
@@ -2262,7 +2031,7 @@ function updateInfoPanelForumPosts(tr) {
 	let loadHandler = function(json) {
 		try {
 			if (json && json.ret) {
-				let content = parseForumContent({
+				let content = cldrStForum.parseContent({
 					ret: json.ret,
 					replyButton: true,
 					noItemLink: true
@@ -2587,7 +2356,10 @@ function checkLRmarker(field, dir, value) {
  * @return {DOM} the new span
  */
 function appendItem(div, value, pClass, tr) {
-	var text = document.createTextNode(value ? value : stui.str("no value"));
+	if (!value) {
+		return;
+	}
+	var text = document.createTextNode(value);
 	var span = document.createElement("span");
 	span.appendChild(text);
 	if (!value) {
@@ -2904,16 +2676,19 @@ function appendExample(parent, text, loc) {
  * @param {DOM} newButton	 button prototype object
  */
 function addVitem(td, tr, theRow, item, newButton) {
+	var displayValue = item.value;
+	if (displayValue === INHERITANCE_MARKER) {
+		displayValue = theRow.inheritedValue;
+		if (displayValue == null) {
+			return;
+		}
+	}
 	var div = document.createElement("div");
 	var isWinner = (td == tr.proposedcell);
 	var testKind = getTestKind(item.tests);
 	setDivClass(div, testKind);
 	item.div = div; // back link
 
-	var displayValue = item.value;
-	if (item.value === INHERITANCE_MARKER) {
-		displayValue = theRow.inheritedValue; // TODO: what if theRow.inheritedValue is undefined, as it sometimes is?
-	}
 
 	var choiceField = document.createElement("div");
 	var wrap;

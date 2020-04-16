@@ -130,18 +130,14 @@ const cldrStForumFilter = (function() {
 	/**
 	 * Does the thread with the given array of posts include at least one post by the current user?
 	 *
-	 * Assume each post has post.posterInfo.id.
+	 * Assume each post has post.poster.
+	 * (Some but not all posts also have post.posterInfo.id; if so, it's equal to post.poster.)
 	 *
 	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
 	function passIfYouPosted(threadPosts) {
-		threadPosts.forEach(function(post) {
-			if (post.posterInfo.id === filterUserId) {
-				return true;
-			}
-		});
-		return false;
+		return threadPosts.some(post => post.poster && (post.poster === filterUserId));
 	}
 
 	/**
@@ -155,7 +151,7 @@ const cldrStForumFilter = (function() {
 	}
 
 	/*
-	 * Make only these functions accessible from other files:
+	 * Make only these functions accessible from other files
 	 */
 	return {
 		createMenu: createMenu,

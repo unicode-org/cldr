@@ -275,7 +275,14 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     .setMessage("ParseLenient sample not in value: {0} ∌ {1}", us, sampleValue);
                 result.add(message);
             }
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
+            /*
+             * new UnicodeSet(value) throws IllegalArgumentException if, for example, value is null or value = "?".
+             * This can happen during cldr-unittest TestAll.
+             * path = //ldml/characters/parseLenients[@scope="general"][@level="lenient"]/parseLenient[@sample="’"]
+             * or
+             * path = //ldml/characters/parseLenients[@scope="date"][@level="lenient"]/parseLenient[@sample="-"]
+             */
             CheckStatus message = new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.badParseLenient)

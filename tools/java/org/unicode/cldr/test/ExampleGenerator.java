@@ -573,10 +573,27 @@ public class ExampleGenerator {
         //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
         List<String> examples = new ArrayList<>();
         final String dayPeriodType = parts.getAttributeValue(5, "type");
+        if (dayPeriodType == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/dates/calendars/calendar[@type="chinese"]/dayPeriods/alias
+             * Avoid NullPointerException in dayPeriodType.equals("format").
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         org.unicode.cldr.util.DayPeriodInfo.Type aType = dayPeriodType.equals("format") ? DayPeriodInfo.Type.format : DayPeriodInfo.Type.selection;
         DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(aType, cldrFile.getLocaleID());
         String periodString = parts.getAttributeValue(-1, "type");
-
+        if (periodString == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/dates/calendars/calendar[@type="buddhist"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/alias
+             * Avoid NullPointerException in DayPeriod.valueOf(periodString)
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         DayPeriod dayPeriod = DayPeriod.valueOf(periodString);
         String periods = dayPeriodInfo.toString(dayPeriod);
         examples.add(periods);
@@ -755,9 +772,9 @@ public class ExampleGenerator {
         }
     }
 
-    IntervalFormat intervalFormat = new IntervalFormat();
+    private IntervalFormat intervalFormat = new IntervalFormat();
 
-    static Calendar generatingCalendar = Calendar.getInstance(ULocale.US);
+    private static Calendar generatingCalendar = Calendar.getInstance(ULocale.US);
 
     private static Date getDate(int year, int month, int date, int hour, int minute, int second) {
         synchronized (generatingCalendar) {
@@ -767,8 +784,8 @@ public class ExampleGenerator {
         }
     }
 
-    static Date FIRST_INTERVAL = getDate(2008, 1, 13, 5, 7, 9);
-    static Map<String, Date> SECOND_INTERVAL = CldrUtility.asMap(new Object[][] {
+    private static Date FIRST_INTERVAL = getDate(2008, 1, 13, 5, 7, 9);
+    private static Map<String, Date> SECOND_INTERVAL = CldrUtility.asMap(new Object[][] {
         { "y", getDate(2009, 2, 14, 17, 8, 10) },
         { "M", getDate(2008, 2, 14, 17, 8, 10) },
         { "d", getDate(2008, 1, 14, 17, 8, 10) },
@@ -788,7 +805,20 @@ public class ExampleGenerator {
                 dateFormat.format(SECOND_INTERVAL.get("y")));
         }
         String greatestDifference = parts.getAttributeValue(-1, "id");
-        if (greatestDifference.equals("H")) greatestDifference = "h";
+        /*
+         * Choose an example interval suitable for the symbol. If testing years, use an interval
+         * of more than one year, and so forth. For the purpose of choosing the interval,
+         * "H" is equivalent to "h", and so forth; map to a symbol that occurs in SECOND_INTERVAL.
+         */
+        if (greatestDifference.equals("H")) { // Hour [0-23]
+            greatestDifference = "h"; // Hour [1-12]
+        } else if (greatestDifference.equals("B")) { // flexible day periods
+            greatestDifference = "a"; // AM, PM
+        } else if (greatestDifference.equals("b")) { // am, pm, noon, midnight
+            greatestDifference = "a"; // AM, PM
+        } else if (greatestDifference.equals("G")) { // Era name.
+            greatestDifference = "y"; // year
+        }
         // intervalFormatFallback
         // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
         // find where to split the value
@@ -796,12 +826,10 @@ public class ExampleGenerator {
         Date later = SECOND_INTERVAL.get(greatestDifference);
         if (later == null) {
             /*
-             * TODO: handle this properly or at least explain it. It happens in locale "fr" for:
-             * xpath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Bhm\"]/greatestDifference[@id=\"B\"]";
-             * value = "h:mm B – h:mm B";
-             * Formerly null was passed to intervalFormat.format(), leading to NullPointerException.
-             * The problem is that greatestDifference = "B", and SECOND_INTERVAL doesn't have
-             * a key for "B". It also happens with "G" as in "y G – y G".
+             * This may still happen for some less-frequently used symbols such as "Q" (Quarter),
+             * if they ever occur in the data.
+             * Reference: https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+             * For now, such paths do not get examples.
              */
             return null;
         }
@@ -842,6 +870,15 @@ public class ExampleGenerator {
 
     private String handleRegularListPatterns(XPathParts parts, String value, ListTypeLength listTypeLength) {
         String patternType = parts.getAttributeValue(-1, "type");
+        if (patternType == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/listPatterns/listPattern[@type="or-narrow"]/alias
+             * Avoid NullPointerException in patternType.equals("2")
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
@@ -856,6 +893,15 @@ public class ExampleGenerator {
 
     private String handleDurationListPatterns(XPathParts parts, String value, UnitLength unitWidth) {
         String patternType = parts.getAttributeValue(-1, "type");
+        if (patternType == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/listPatterns/listPattern[@type="unit-short"]/alias
+             * Avoid NullPointerException in patternType.equals("2")
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         String duration1 = getFormattedUnit("duration-day", unitWidth, 4);
         String duration2 = getFormattedUnit("duration-hour", unitWidth, 2);
         if (patternType.equals("2")) {
@@ -1023,6 +1069,9 @@ public class ExampleGenerator {
         }
 
         public IntervalFormat setPattern(XPathParts parts, String pattern) {
+            if (formatParser == null || pattern == null) {
+                return this;
+            }
             formatParser.set(pattern);
             first.setLength(0);
             second.setLength(0);

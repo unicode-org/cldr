@@ -461,11 +461,8 @@ if(request.getParameter("remove_maint")!=null) {
 							String fileErr = null;
 							final String thePath = SurveyMain.CLDR_DIR + " ="
 									+ cldrDir.getAbsolutePath() + " :";
-							final String checkoutFix = "Please consider running <pre>svn checkout "
-									+ SurveyMain.CLDR_DIR_REPOS
-									+ "/trunk "
-									+ cldrDir.getAbsolutePath()
-									+ "</pre> to fix this situation, or go back and fix <b>CLDR_DIR</b> to point to a valid CLDR root. Then try reloading this page.";
+							final String checkoutFix = "Please consider running using git"
+									+ " to fix this situation, or go back and fix <b>CLDR_DIR</b> to point to a valid CLDR root. Then try reloading this page.";
 
 							if (!cldrDir.isDirectory()) {
 								fileErr = thePath + " not a directory. <br>"

@@ -3255,11 +3255,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 Thread.currentThread().getName() + " " + ctx.session.user.id + ":" + ctx.session.user.toString());
 
         }
-        // only do forum for logged in user
-        if (ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
-            fora.doForum(ctx, sessionMessage); // TODO: does this ever happen? If so, when??
-            return;
-        }
 
         // locale REDIRECTS ------------------------------
         // looking for a stringid?

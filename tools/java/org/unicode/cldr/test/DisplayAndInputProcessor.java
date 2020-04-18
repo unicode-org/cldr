@@ -314,6 +314,7 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processInput(String path, String value, Exception[] internalException) {
         String original = value;
+        value = stripProblematicControlCharacters(value);
         value = Normalizer.compose(value, false); // Always normalize all input to NFC.
         if (internalException != null) {
             internalException[0] = null;
@@ -471,6 +472,23 @@ public class DisplayAndInputProcessor {
             }
             return original;
         }
+    }
+
+    /**
+     * Strip out all code points less than U+0020 except for U+0009 tab,
+     * U+000A line feed, and U+000D carriage return.
+     *
+     * @param s the string
+     * @return the resulting string
+     */
+    private String stripProblematicControlCharacters(String s) {
+        if (s == null || s.isEmpty()) {
+            return s;
+        }
+        return s.codePoints()
+            .filter(c -> (c >= 0x20 || c == 9 || c == 0xA || c == 0xD))
+            .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+            .toString();
     }
 
     private static final boolean REMOVE_COVERED_KEYWORDS = true;

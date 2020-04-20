@@ -87,13 +87,13 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">37</td>
+        <td>37</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -102,18 +102,18 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2012-04-15</td>
+        <td>2020-04-15</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
         <td>This Version</td>
-        <td class="changed">
-		<a href="http://www.unicode.org/reports/tr35/tr35-58/tr35.html">
-		http://www.unicode.org/reports/tr35/tr35-58/tr35.html</a></td>
+        <td>
+		<a href="http://www.unicode.org/reports/tr35/tr35-59/tr35.html">
+		http://www.unicode.org/reports/tr35/tr35-59/tr35.html</a></td>
       </tr>
       <tr>
         <td>Previous Version</td>
-        <td class="changed">
+        <td>
 		<a href="http://www.unicode.org/reports/tr35/tr35-57/tr35.html">
 		http://www.unicode.org/reports/tr35/tr35-57/tr35.html</a></td>
       </tr>
@@ -139,12 +139,12 @@
       </tr>
       <tr>
         <td>DTDs</td>
-        <td class="changed"><a href="http://unicode.org/cldr/dtd/37/">
+        <td><a href="http://unicode.org/cldr/dtd/37/">
 		http://unicode.org/cldr/dtd/37/</a></td>
       </tr>
       <tr>
         <td>Revision</td>
-        <td class="changed"><a href="#Modifications">58</a></td>
+        <td><a href="#Modifications">59</a></td>
       </tr>
     </table>
     <h3><i>Summary</i></h3>
@@ -154,7 +154,7 @@
     Data Repository</a>.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED -->
+    <!-- NOT YET APPROVED
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -164,14 +164,14 @@
                                 progress.
                         </i>
                 </p>
-    <!-- END NOT YET APPROVED -->
-    <!-- APPROVED 
+     END NOT YET APPROVED -->
+    <!-- APPROVED -->
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-     END APPROVED -->
+    <!-- END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -6110,7 +6110,7 @@ root</pre>
     <p>For more information on precisely how these values are
     computed for any given release, see 
 	<a href=
-    "http://cldr.unicode.org/index/process#TOC-Data--Submission-and-Vetting" class="changed">
+    "http://cldr.unicode.org/index/process#TOC-Data--Submission-and-Vetting">
     Data Submission and Vetting Process</a> on the CLDR
     website.</p>
     <p>The draft attribute should only occur on "leaf" elements,
@@ -6320,7 +6320,7 @@ root</pre>
         </tr>
         <tr>
           <th>prop</th>
-          <td><code>= <span class='changed'>'\'</span> [pP] '{' propName ([≠=] s value1+)?
+          <td><code>= '\' [pP] '{' propName ([≠=] s value1+)?
           '}'<br>
           | '[:' '^'? propName ([≠=] s value2+)? ':]'</code></td>
           <td>\p{x=y}, [:x=y:]<br></td>
@@ -6334,7 +6334,7 @@ root</pre>
         <tr>
           <th>value1</th>
           <td><code>= [^\}]<br>
-          | <span class="changed">'\'</span> quoted</code></td>
+          | '\' quoted</code></td>
           <td>Lm,<br>
           \n,<br>
           \}</td>
@@ -6342,7 +6342,7 @@ root</pre>
         <tr>
           <th>value2</th>
           <td><code>= [^:]<br>
-          | <span class="changed">'\'</span> quoted</code></td>
+          | '\' quoted</code></td>
           <td>Lm,<br>
           \n,<br>
           \:</td>
@@ -6350,7 +6350,7 @@ root</pre>
         <tr>
           <th>char</th>
           <td><code>= [^\&amp; \- \[ \[ \] \\ \} \{ [:Pat_WS:]]<br>
-          | <span class="changed">'\'</span> quoted</code></td>
+          | '\' quoted</code></td>
           <td>a, b, c, \n</td>
         </tr>
         <tr>
@@ -6359,10 +6359,10 @@ root</pre>
           | 'x' (hex{2} | bracketedHex)<br>
           | 'U00' ('0' hex{5} | '10' hex{4})<br>
           | 'N{' propName '}'<br>
-          | <span class='changed'>[</span>[\u0000-\U00010FFFF]<span class='changed'>-[uxUN]]</span></code></td>
-          <td class='changed'><em><strong>error</strong> if lengths not exact</em></td>
+          | [[\u0000-\U00010FFFF]-[uxUN]]</code></td>
+          <td><em><strong>error</strong> if lengths not exact</em></td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <th>charName</th>
           <td><code>= s [A-Za-z0-9] [-A-Za-z0-9_\x20]* s</code></td>
           <td>TIBETAN LETTER -A</td>
@@ -6392,7 +6392,10 @@ root</pre>
     </div>
     <p>Some constraints on UnicodeSet syntax are not captured by
     this EBNF. Notably, property names and values are restricted to
-    those supported by the implementation, <span class='changed'>and have additional constraints imposed by [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. In addition, quoted values that resolve to more than one code point are disallowed in ranges of the form <code>char '-' char</code>.</span></p>
+    those supported by the implementation, and have additional constraints imposed by
+    [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. In addition, quoted
+    values that resolve to more than one code point are disallowed in ranges of the form
+    <code>char '-' char</code>.</p>
     <p>The syntax characters are listed in the table below:</p>
     <table>
       <tbody>
@@ -6508,7 +6511,7 @@ root</pre>
       </tr>
       <tr>
         <td>\xhh</td>
-        <td><span class='removed'>1-</span>2 hex digits</td>
+        <td>2 hex digits</td>
       </tr>
       <tr>
         <td>\uhhhh</td>
@@ -7110,16 +7113,16 @@ decimal?, group?, special*)) &gt;</pre>
         </tr>
         <tr>
           <td rowspan="4">validity/{field}</td>
-          <td colspan="2">currency, language, locale, region, script, subdivision, <span class='changed'>short-unit, </span>unit, variant</td>
+          <td colspan="2">currency, language, locale, region, script, subdivision, short-unit, unit, variant</td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td colspan="2">The field can be qualified by particular enums, such as:</td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td>validity/unit/regular deprecated</td>
           <td>matches only <em>deprecated</em> and <em>regular</em></td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td>validity/unit/!deprecated</td>
           <td>matches all but <em>deprecated</em></td>
         </tr>
@@ -8934,7 +8937,7 @@ decimal?, group?, special*)) &gt;</pre>
         Division Home Page<br>
         <a href="http://tf.nist.gov/">http://tf.nist.gov/<br></a>
         U.S. Naval Observatory: What is Universal Time?<br>
-        <a class='changed' href=
+        <a href=
         "https://www.usno.navy.mil/USNO/time/master-clock/systems-of-time">https://www.usno.navy.mil/USNO/time/master-clock/systems-of-time</a></td>
       </tr>
       <tr>
@@ -9011,8 +9014,8 @@ decimal?, group?, special*)) &gt;</pre>
     <h2><a name="Modifications" href="#Modifications" id=
     "Modifications">Modifications</a></h2>
 
-    <p class="changed"><b>Revision 58</b></p>
-	<ul class="changed">
+    <p><b>Revision 59</b></p>
+	<ul>
 	  <li ><b>Proposed Update</b> for CLDR 37.</li>
 
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
@@ -9076,7 +9079,7 @@ decimal?, group?, special*)) &gt;</pre>
     respective versions. Click on <strong>Previous Version</strong>
     in the header until you get to the desired version.</p>
     <hr>
-    <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
+    <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or
     implied warranty of any kind, and assumes no liability for
     errors or omissions. No liability is assumed for incidental and

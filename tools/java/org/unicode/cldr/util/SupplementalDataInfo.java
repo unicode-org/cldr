@@ -3873,8 +3873,18 @@ public class SupplementalDataInfo {
      */
     public String getDefaultCurrency(String territory) {
 
-        Set<CurrencyDateInfo> targetCurrencyInfo = getCurrencyDateInfo(territory);
         String result = "XXX";
+        Set<CurrencyDateInfo> targetCurrencyInfo = getCurrencyDateInfo(territory);
+        if (targetCurrencyInfo == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * territory = "419"
+             * path = //ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength/currencyFormat[@type="accounting"]/pattern[@type="standard"]
+             * value = ¤#,##0.00
+             * Prevent NullPointerException
+             */
+            return result;
+        }
         Date now = new Date();
         for (CurrencyDateInfo cdi : targetCurrencyInfo) {
             if (cdi.getStart().before(now) && cdi.getEnd().after(now) && cdi.isLegalTender()) {

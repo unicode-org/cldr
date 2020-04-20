@@ -83,8 +83,6 @@ public class ExampleGenerator {
 
     private static final String EXEMPLAR_CITY_LOS_ANGELES = "//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity";
 
-    private static final boolean SHOW_ERROR = true;
-
     private static final Pattern URL_PATTERN = Pattern
         .compile("http://[\\-a-zA-Z0-9]+(\\.[\\-a-zA-Z0-9]+)*([/#][\\-a-zA-Z0-9]+)*");
 
@@ -313,20 +311,6 @@ public class ExampleGenerator {
             }
             result = constructExampleHtml(xpath, value);
             cacheItem.putExample(result);
-        } catch (NullPointerException e) {
-            /*
-             * TODO: stop catching NullPointerException here, after further testing.
-             * It formerly happened (in locale "fr") for:
-             * xpath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Bhm\"]/greatestDifference[@id=\"B\"]";
-             * value = "h:mm B – h:mm B"; due to a bug in handleIntervalFormats, now fixed.
-             *
-             * This normally happened during cldr-unittest TestAll, for example, but was masked
-             * since SHOW_ERROR was false. Such bugs shouldn't be ignored.
-             */
-            if (SHOW_ERROR) {
-                e.printStackTrace();
-            }
-            result = null;
         } catch (RuntimeException e) {
             String unchained = verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";
             result = "<i>Parsing error. " + finalizeBackground(e.getMessage()) + "</i>" + unchained;
@@ -573,10 +557,27 @@ public class ExampleGenerator {
         //ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
         List<String> examples = new ArrayList<>();
         final String dayPeriodType = parts.getAttributeValue(5, "type");
+        if (dayPeriodType == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/dates/calendars/calendar[@type="chinese"]/dayPeriods/alias
+             * Avoid NullPointerException in dayPeriodType.equals("format").
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         org.unicode.cldr.util.DayPeriodInfo.Type aType = dayPeriodType.equals("format") ? DayPeriodInfo.Type.format : DayPeriodInfo.Type.selection;
         DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(aType, cldrFile.getLocaleID());
         String periodString = parts.getAttributeValue(-1, "type");
-
+        if (periodString == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/dates/calendars/calendar[@type="buddhist"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/alias
+             * Avoid NullPointerException in DayPeriod.valueOf(periodString)
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         DayPeriod dayPeriod = DayPeriod.valueOf(periodString);
         String periods = dayPeriodInfo.toString(dayPeriod);
         examples.add(periods);
@@ -598,6 +599,11 @@ public class ExampleGenerator {
     }
 
     private String handleFormatUnit(Count count, String value) {
+        /*
+         * PluralRules.FixedDecimal is deprecated, but deprecated in ICU is
+         * also used to mark internal methods (which are OK for us to use in CLDR).
+         */
+        @SuppressWarnings("deprecation")
         FixedDecimal amount = getBest(count);
         if (amount == null) {
             return "n/a";
@@ -613,6 +619,7 @@ public class ExampleGenerator {
         return handleCompoundUnit(unitLength, compoundType, count);
     }
 
+    @SuppressWarnings("deprecation")
     public String handleCompoundUnit(UnitLength unitLength, String compoundType, Count count) {
         /**
          *  <units>
@@ -659,7 +666,6 @@ public class ExampleGenerator {
         String unit1 = backgroundStartSymbol + unit1mid.trim() + backgroundEndSymbol;
         String unit2 = backgroundStartSymbol + unit2mid.trim() + backgroundEndSymbol;
 
-        // TODO fix hack
         String form = this.pluralInfo.getPluralRules().select(amount);
         // we rebuild a path, because we may have changed it.
         String perPath = makeCompoundUnitPath(unitLength, compoundType, "compoundUnitPattern");
@@ -689,12 +695,14 @@ public class ExampleGenerator {
     public String handleCompoundUnit1(UnitLength unitLength, Count count, String compoundPattern) {
 
         // we want to get a number that works for the count passed in.
+        @SuppressWarnings("deprecation")
         FixedDecimal amount = getBest(count);
         if (amount == null) {
             return "n/a";
         }
-        FixedDecimal oneValue = new FixedDecimal(1d, 0);
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
+
+        @SuppressWarnings("deprecation")
         String form1 = this.pluralInfo.getPluralRules().select(amount);
         
         String pathFormat = "//ldml/units/unitLength" + unitLength.typeString
@@ -731,6 +739,7 @@ public class ExampleGenerator {
             + "/" + patternType;
     }
 
+    @SuppressWarnings("deprecation")
     private FixedDecimal getBest(Count count) {
         FixedDecimalSamples samples = pluralInfo.getPluralRules().getDecimalSamples(count.name(), SampleType.DECIMAL);
         if (samples == null) {
@@ -755,9 +764,9 @@ public class ExampleGenerator {
         }
     }
 
-    IntervalFormat intervalFormat = new IntervalFormat();
+    private IntervalFormat intervalFormat = new IntervalFormat();
 
-    static Calendar generatingCalendar = Calendar.getInstance(ULocale.US);
+    private static Calendar generatingCalendar = Calendar.getInstance(ULocale.US);
 
     private static Date getDate(int year, int month, int date, int hour, int minute, int second) {
         synchronized (generatingCalendar) {
@@ -767,8 +776,9 @@ public class ExampleGenerator {
         }
     }
 
-    static Date FIRST_INTERVAL = getDate(2008, 1, 13, 5, 7, 9);
-    static Map<String, Date> SECOND_INTERVAL = CldrUtility.asMap(new Object[][] {
+    private static Date FIRST_INTERVAL = getDate(2008, 1, 13, 5, 7, 9);
+    private static Map<String, Date> SECOND_INTERVAL = CldrUtility.asMap(new Object[][] {
+        { "G", getDate(1009, 2, 14, 17, 8, 10) }, // "G" mostly useful for calendars that have short eras, like Japanese
         { "y", getDate(2009, 2, 14, 17, 8, 10) },
         { "M", getDate(2008, 2, 14, 17, 8, 10) },
         { "d", getDate(2008, 1, 14, 17, 8, 10) },
@@ -788,7 +798,17 @@ public class ExampleGenerator {
                 dateFormat.format(SECOND_INTERVAL.get("y")));
         }
         String greatestDifference = parts.getAttributeValue(-1, "id");
-        if (greatestDifference.equals("H")) greatestDifference = "h";
+        /*
+         * Choose an example interval suitable for the symbol. If testing years, use an interval
+         * of more than one year, and so forth. For the purpose of choosing the interval,
+         * "H" is equivalent to "h", and so forth; map to a symbol that occurs in SECOND_INTERVAL.
+         */
+        if (greatestDifference.equals("H")) { // Hour [0-23]
+            greatestDifference = "h"; // Hour [1-12]
+        } else if (greatestDifference.equals("B") // flexible day periods
+                || greatestDifference.equals("b")) { // am, pm, noon, midnight
+            greatestDifference = "a"; // AM, PM
+        }
         // intervalFormatFallback
         // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
         // find where to split the value
@@ -796,12 +816,10 @@ public class ExampleGenerator {
         Date later = SECOND_INTERVAL.get(greatestDifference);
         if (later == null) {
             /*
-             * TODO: handle this properly or at least explain it. It happens in locale "fr" for:
-             * xpath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Bhm\"]/greatestDifference[@id=\"B\"]";
-             * value = "h:mm B – h:mm B";
-             * Formerly null was passed to intervalFormat.format(), leading to NullPointerException.
-             * The problem is that greatestDifference = "B", and SECOND_INTERVAL doesn't have
-             * a key for "B". It also happens with "G" as in "y G – y G".
+             * This may still happen for some less-frequently used symbols such as "Q" (Quarter),
+             * if they ever occur in the data.
+             * Reference: https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+             * For now, such paths do not get examples.
              */
             return null;
         }
@@ -842,6 +860,15 @@ public class ExampleGenerator {
 
     private String handleRegularListPatterns(XPathParts parts, String value, ListTypeLength listTypeLength) {
         String patternType = parts.getAttributeValue(-1, "type");
+        if (patternType == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/listPatterns/listPattern[@type="or-narrow"]/alias
+             * Avoid NullPointerException in patternType.equals("2")
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
@@ -856,6 +883,15 @@ public class ExampleGenerator {
 
     private String handleDurationListPatterns(XPathParts parts, String value, UnitLength unitWidth) {
         String patternType = parts.getAttributeValue(-1, "type");
+        if (patternType == null) {
+            /*
+             * This happens during ConsoleCheckCLDR
+             * path = //ldml/listPatterns/listPattern[@type="unit-short"]/alias
+             * Avoid NullPointerException in patternType.equals("2")
+             * For now, such paths do not get examples.
+             */
+            return null;
+        }
         String duration1 = getFormattedUnit("duration-day", unitWidth, 4);
         String duration2 = getFormattedUnit("duration-hour", unitWidth, 2);
         if (patternType.equals("2")) {
@@ -890,15 +926,18 @@ public class ExampleGenerator {
         }
     }
 
+    @SuppressWarnings("deprecation")
     private String getFormattedUnit(String unitType, UnitLength unitWidth, FixedDecimal unitAmount) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
         return getFormattedUnit(unitType, unitWidth, unitAmount, numberFormat.format(unitAmount));
     }
 
+    @SuppressWarnings("deprecation")
     private String getFormattedUnit(String unitType, UnitLength unitWidth, double unitAmount) {
         return getFormattedUnit(unitType, unitWidth, new FixedDecimal(unitAmount));
     }
 
+    @SuppressWarnings("deprecation")
     private String getFormattedUnit(String unitType, UnitLength unitWidth, FixedDecimal unitAmount, String formattedUnitAmount) {
         String form = this.pluralInfo.getPluralRules().select(unitAmount);
         String pathFormat = "//ldml/units/unitLength" + unitWidth.typeString
@@ -918,11 +957,15 @@ public class ExampleGenerator {
         String startPattern = getPattern(listPathFormat, "start", patternType, value);
         String middlePattern = getPattern(listPathFormat, "middle", patternType, value);
         String endPattern = getPattern(listPathFormat, "end", patternType, value);
+        /*
+         * DateTimePatternGenerator.FormatParser is deprecated, but deprecated in ICU is
+         * also used to mark internal methods (which are OK for us to use in CLDR).
+         */
+        @SuppressWarnings("deprecation")
         ListFormatter listFormatter = new ListFormatter(doublePattern, startPattern, middlePattern, endPattern);
-        String example = listFormatter.format(items);
+        String example = listFormatter.format((Object[]) items);
         return invertBackground(example);
     }
-
 
     /**
      * Helper method for handleListPatterns. Returns the pattern to be used for
@@ -1007,7 +1050,8 @@ public class ExampleGenerator {
         return result;
     }
 
-    class IntervalFormat {
+    private class IntervalFormat {
+        @SuppressWarnings("deprecation")
         DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
         SimpleDateFormat firstFormat = new SimpleDateFormat();
         SimpleDateFormat secondFormat = new SimpleDateFormat();
@@ -1019,11 +1063,33 @@ public class ExampleGenerator {
             if (earlier == null || later == null) {
                 return null;
             }
+            if (later.compareTo(earlier) < 0) {
+                /*
+                 * Swap so earlier is earlier than later.
+                 * This is necessary for "G" (Era) given the current FIRST_INTERVAL, SECOND_INTERVAL
+                 */
+                Date tmp = earlier;
+                earlier = later;
+                later = tmp;
+            }
             return firstFormat.format(earlier) + secondFormat.format(later);
         }
 
+        @SuppressWarnings("deprecation")
         public IntervalFormat setPattern(XPathParts parts, String pattern) {
-            formatParser.set(pattern);
+            if (formatParser == null || pattern == null) {
+                return this;
+            }
+            try {
+                formatParser.set(pattern);
+            } catch (NullPointerException e) {
+                /*
+                 * This has been observed to occur, within ICU, for unknown reasons.
+                 */
+                System.err.println("Caught NullPointerException in IntervalFormat.setPattern, pattern = " + pattern);
+                e.printStackTrace();
+                return null;
+            }
             first.setLength(0);
             second.setLength(0);
             boolean doFirst = true;
@@ -1061,14 +1127,13 @@ public class ExampleGenerator {
     }
 
     private String handleDurationUnit(String value) {
-        //            ULocale locale = new ULocale(this.icuServiceBuilder.getCldrFile().getLocaleID());
-        //            SimpleDateFormat df = new SimpleDateFormat(value.replace('h', 'H'), locale);
         DateFormat df = this.icuServiceBuilder.getDateFormat("gregorian", value.replace('h', 'H'));
         df.setTimeZone(TimeZone.GMT_ZONE);
         long time = ((5 * 60 + 37) * 60 + 23) * 1000;
         return df.format(new Date(time));
     }
 
+    @SuppressWarnings("deprecation")
     static final List<FixedDecimal> CURRENCY_SAMPLES = Arrays.asList(
         new FixedDecimal(1.23),
         new FixedDecimal(0),
@@ -1077,6 +1142,7 @@ public class ExampleGenerator {
         new FixedDecimal(5.67),
         new FixedDecimal(1));
 
+    @SuppressWarnings("deprecation")
     private String formatCountValue(String xpath, XPathParts parts, String value) {
         if (!parts.containsAttribute("count")) { // no examples for items that don't format
             return null;
@@ -1092,7 +1158,7 @@ public class ExampleGenerator {
         final boolean isCurrency = !parts.contains("units");
 
         Count count = null;
-        final LinkedHashSet<FixedDecimal> exampleCount = new LinkedHashSet();
+        final LinkedHashSet<FixedDecimal> exampleCount = new LinkedHashSet<FixedDecimal>();
         exampleCount.addAll(CURRENCY_SAMPLES);
         String countString = parts.getAttributeValue(-1, "count");
         if (countString == null) {
@@ -1168,6 +1234,7 @@ public class ExampleGenerator {
         return result.isEmpty() ? null : result;
     }
 
+    @SuppressWarnings("deprecation")
     static public void getStartEndSamples(PluralRules.FixedDecimalSamples samples, Set<FixedDecimal> target) {
         if (samples != null) {
             for (FixedDecimalRange item : samples.getSamples()) {
@@ -1177,6 +1244,7 @@ public class ExampleGenerator {
         }
     }
 
+    @SuppressWarnings("deprecation")
     private String formatCurrency(String value, String unitType, final boolean isPattern, final boolean isCurrency, Count count,
         FixedDecimal example) {
         String resultItem;
@@ -1418,6 +1486,7 @@ public class ExampleGenerator {
         return result;
     }
 
+    @SuppressWarnings("deprecation")
     private String handleDateFormatItem(String xpath, String value) {
 
         String fullpath = cldrFile.getFullXPath(xpath);
@@ -1571,7 +1640,7 @@ public class ExampleGenerator {
 
     /**
      * Calculates a numerical example to use for the specified pattern using
-     * brute force (TODO: there should be a more elegant way to do this).
+     * brute force (there should be a more elegant way to do this).
      *
      * @param format
      * @param count
@@ -1583,26 +1652,6 @@ public class ExampleGenerator {
         }
         int numDigits = format.getMinimumIntegerDigits();
         Map<Count, Double> samples = patternExamples.getSamples(numDigits);
-        //        int min = (int) Math.pow(10, numDigits - 1);
-        //        int max = min * 10;
-        //        Map<Count, Integer> examples = patternExamples.get(numDigits);
-        //        if (examples == null) {
-        //            patternExamples.put(numDigits, examples = new HashMap<Count, Integer>());
-        //            Set<Count> typesLeft = new HashSet<Count>(pluralInfo.getCountToExamplesMap().keySet());
-        //            // Add at most one example of each type.
-        //            for (int i = min; i < max; ++i) {
-        //                if (typesLeft.isEmpty()) break;
-        //                Count type = Count.valueOf(pluralInfo.getPluralRules().select(i));
-        //                if (!typesLeft.contains(type)) continue;
-        //                examples.put(type, i);
-        //                typesLeft.remove(type);
-        //            }
-        //            // Add zero as an example only if there is no other option.
-        //            if (min == 1) {
-        //                Count type = Count.valueOf(pluralInfo.getPluralRules().select(0));
-        //                if (!examples.containsKey(type)) examples.put(type, 0);
-        //            }
-        //        }
         return samples.get(count);
     }
 
@@ -1837,9 +1886,7 @@ public class ExampleGenerator {
     /**
      * Put a background on an item, skipping enclosed patterns, except for {0}
      * @param patternToEmbed
-     *            TODO
      * @param sampleTerritory
-     *
      * @return
      */
     private String setBackgroundExceptMatch(String input, Pattern patternToEmbed) {
@@ -1897,10 +1944,8 @@ public class ExampleGenerator {
     /**
      * This is called just before we return a result. It fixes the special characters that were added by setBackground.
      *
-     * @param input
-     *            string with special characters from setBackground.
+     * @param input string with special characters from setBackground.
      * @param invert
-     *            TODO
      * @return string with HTML for the background.
      */
     private String finalizeBackground(String input) {

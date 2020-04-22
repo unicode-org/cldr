@@ -13,8 +13,8 @@ import com.google.common.collect.ImmutableSet;
 class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
-    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData", "pluralRanges",
-        "subdivisions");
+    public static final ImmutableSet<String> IGNORE_FILE_SET = ImmutableSet.of("attributeValueValidity", "coverageLevels", "grammaticalFeatures", "postalCodeData", "pluralRanges",
+        "subdivisions", "units");
 
     /**
      * The attribute list that should become part of the name in form of
@@ -423,6 +423,7 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/languageAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*/scriptAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*/territoryAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+        new PathTransformSpec("(.*/subdivisionAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*/variantAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*/zoneAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),

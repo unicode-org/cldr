@@ -639,6 +639,7 @@ public class ZoneParser {
             { "America/Argentina/Cordoba", "America/Cordoba" },
             { "America/Argentina/Jujuy", "America/Jujuy" },
             { "America/Argentina/Mendoza", "America/Mendoza" },
+            { "America/Nuuk", "America/Godthab" },
             { "America/Kentucky/Louisville", "America/Louisville" },
             { "America/Indiana/Indianapolis", "America/Indianapolis" },
             { "Africa/Asmara", "Africa/Asmera" },

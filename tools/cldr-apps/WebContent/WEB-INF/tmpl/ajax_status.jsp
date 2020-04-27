@@ -118,7 +118,6 @@ var surveyUserURL = {
         manageUser: "survey?do=list",
 
         flag: "tc-flagged.jsp?s="+surveySessionId,
-        RSS: "survey/feed?email=" + userEmail + "&pw=" + userPWD+ "&&feed=rss_2.0",
                 
         about: "about.jsp",
         browse: "browse.jsp"
@@ -145,12 +144,6 @@ var surveyImgInfo = {
             title: "flag",
             border: 0,
         },
-        RSS: {
-            src: "feed.png",
-            alt: "[feed]",
-            title: "RSS 2.0",
-            border: 0,
-        }
 };
 var warnIcon = "<%=WebContext.iconHtml(request,"warn","Test Warning")%>";
 var stopIcon = "<%=WebContext.iconHtml(request,"stop","Test Error")%>";

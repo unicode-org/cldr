@@ -16,8 +16,11 @@ const cldrStForumFilter = (function() {
 	 */
 	const filters = [
 		{name: 'All threads', func: passAll},
+		{name: 'Open threads', func: passIfOpen},
+		{name: 'Closed threads', func: passIfClosed},
 		{name: 'Threads you have posted to', func: passIfYouPosted},
 		{name: 'Threads you have NOT posted to', func: passIfYouDidNotPost},
+		{name: 'Open threads you have not posted to', func: passIfOpenAndYouDidNotPost},
 	];
 
 	/**
@@ -75,14 +78,15 @@ const cldrStForumFilter = (function() {
 	 * Assume each post has post.threadId.
 	 *
 	 * @param posts the array of post objects, from newest to oldest
+	 * @param applyFilter true if the currently menu-selected filter should be applied
 	 * @return the filtered array of threadId strings
 	 */
-	function getFilteredThreadIds(posts) {
+	function getFilteredThreadIds(posts, applyFilter) {
 		const threadsToPosts = getThreadsToPosts(posts);
 
 		let filteredArray = [];
 		Object.keys(threadsToPosts).forEach(function(threadId) {
-			if (threadPasses(threadsToPosts[threadId])) {
+			if (!applyFilter || threadPasses(threadsToPosts[threadId])) {
 				filteredArray.push(threadId);
 			}
 		});
@@ -130,18 +134,14 @@ const cldrStForumFilter = (function() {
 	/**
 	 * Does the thread with the given array of posts include at least one post by the current user?
 	 *
-	 * Assume each post has post.posterInfo.id.
+	 * Assume each post has post.poster.
+	 * (Some but not all posts also have post.posterInfo.id; if so, it's equal to post.poster.)
 	 *
 	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
 	function passIfYouPosted(threadPosts) {
-		threadPosts.forEach(function(post) {
-			if (post.posterInfo.id === filterUserId) {
-				return true;
-			}
-		});
-		return false;
+		return threadPosts.some(post => post.poster && (post.poster === filterUserId));
 	}
 
 	/**
@@ -154,8 +154,38 @@ const cldrStForumFilter = (function() {
 		return !passIfYouPosted(threadPosts);
 	}
 
+	/**
+	 * Is the thread with the given array of posts open?
+	 *
+	 * @param threadPosts the array of posts in the thread
+	 * @return true or false
+	 */
+	function passIfOpen(threadPosts) {
+		return !passIfClosed(threadPosts);
+	}
+
+	/**
+	 * Is the thread with the given array of posts closed?
+	 *
+	 * @param threadPosts the array of posts in the thread
+	 * @return true or false
+	 */
+	function passIfClosed(threadPosts) {
+		return threadPosts.some(post => post.forumStatus && (post.forumStatus === 'Closed'));
+	}
+
+	/**
+	 * Is the thread with the given array of posts open and does it include no posts by the current user?
+	 *
+	 * @param threadPosts the array of posts in the thread
+	 * @return true or false
+	 */
+	function passIfOpenAndYouDidNotPost(threadPosts) {
+		return passIfYouDidNotPost(threadPosts) && passIfOpen(threadPosts);
+	}
+
 	/*
-	 * Make only these functions accessible from other files:
+	 * Make only these functions accessible from other files
 	 */
 	return {
 		createMenu: createMenu,

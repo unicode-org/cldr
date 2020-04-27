@@ -400,7 +400,7 @@ function showV() {
 				 *
 				 * @param doPush {Boolean} if true, do a push (instead of replace)
 				 *
-				 * Called by parseForumContent in survey.js, as well as locally.
+				 * Called by cldrStForum.parseContent, as well as locally.
 				 *
 				 * TODO: avoid attaching this, or anything, to "window"! Define our own objects instead.
 				 */
@@ -728,12 +728,6 @@ function showV() {
 								special: 'flagged',
 								level: 2,
 								img: surveyImgInfo.flag
-							},
-							{
-								title: 'RSS 2.0',
-								level: 2,
-								url: surveyUserURL.RSS,
-								img: surveyImgInfo.RSS
 							},
 							{
 								special: 'mail',

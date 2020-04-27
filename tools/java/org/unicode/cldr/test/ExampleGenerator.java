@@ -305,6 +305,9 @@ public class ExampleGenerator {
         try {
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                 value = cldrFile.getConstructedBaileyValue(xpath, null, null);
+                if (value == null) {
+                    return null;
+                }
             }
             ExampleCache.ExampleCacheItem cacheItem = exCache.new ExampleCacheItem(xpath, value);
             result = cacheItem.getExample();

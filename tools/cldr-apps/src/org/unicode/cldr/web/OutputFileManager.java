@@ -135,7 +135,6 @@ public class OutputFileManager {
     public static final String PXML_PREFIX = "/pxml/main";
     public static final String TXML_PREFIX = "/txml/main";
     public static final String RXML_PREFIX = "/rxml/main";
-    public static final String FEED_PREFIX = "/feed";
 
     public boolean tryCommit = true;
     public String tryCommitWhyNot = null;
@@ -938,14 +937,9 @@ public class OutputFileManager {
         if ((s == null)
             || !(s.startsWith(XML_PREFIX) || s.startsWith(ZXML_PREFIX) || s.startsWith(ZVXML_PREFIX)
                 || s.startsWith(VXML_PREFIX) || s.startsWith(PXML_PREFIX)
-                || s.startsWith(RXML_PREFIX) || s.startsWith(TXML_PREFIX) || s.startsWith(FEED_PREFIX))) {
+                || s.startsWith(RXML_PREFIX) || s.startsWith(TXML_PREFIX))) {
             return false;
         }
-
-        if (s.startsWith(FEED_PREFIX)) {
-            return sm.fora.doFeed(request, response);
-        }
-
         CLDRProgressTask p = sm.openProgress("Raw XML");
         try {
 

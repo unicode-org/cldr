@@ -9,7 +9,6 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
@@ -56,22 +55,6 @@ public class JspWebContext extends WebContext {
         if (other instanceof JspWebContext) {
             this.podBases = ((JspWebContext) other).podBases;
         }
-    }
-
-    /**
-     * @return the resolved CLDRFile for the current locale.
-     * @deprecated leaks UserFile
-     */
-    public CLDRFile resolvedFile() {
-        return SurveyForum.getResolvedFile(this);
-    }
-
-    /**
-     * @return the non-resolved CLDRFile for the current locale.
-     * @deprecated leaks UserFile
-     */
-    public CLDRFile cldrFile() {
-        return SurveyForum.getCLDRFile(this);
     }
 
     /**

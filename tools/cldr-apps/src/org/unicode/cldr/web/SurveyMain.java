@@ -402,7 +402,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     static final String PREF_NOSHOWDELETE = "p_nodelete";
     static final String PREF_DELETEZOOMOUT = "p_deletezoomout";
     public static final String PREF_NOJAVASCRIPT = "p_nojavascript";
-    static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
     public static final String PREF_LISTROWS = "p_listrows";
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
@@ -440,8 +439,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static final String GREGO_XPATH = "//ldml/dates/" + LDMLConstants.CALENDARS + "/" + LDMLConstants.CALENDAR
         + "[@type=\"gregorian\"]";
-    public static final String RAW_MENU_ITEM = "raw";
-    public static final String TEST_MENU_ITEM = "test";
 
     public static final String SHOWHIDE_SCRIPT = "<script><!-- \n"
         + "function show(what)\n"
@@ -1419,16 +1416,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-
-        // no RSS on the official site- for now
-        if (ctx.getLocale() != null) {
-            ctx.println(fora.forumFeedStuff(ctx));
-        } else {
-            if (!ctx.hasField("x") && !ctx.hasField("do") && !ctx.hasField("sql") && !ctx.hasField("dump")) {
-                ctx.println(fora.mainFeedStuff(ctx));
-            }
-        }
-
         ctx.put("TITLE", title);
         ctx.includeFragment("st_top.jsp");
         ctx.no_js_warning();
@@ -1722,15 +1709,31 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /* print a user table without any extra help in it */
-    public void printUserTable(WebContext ctx) {
+    private void printUserTable(WebContext ctx) {
         printUserTableWithHelp(ctx, null, null);
     }
 
+    /**
+     *
+     * @param ctx
+     * @param helpLink
+     *
+     * Called by DisputePageManager as well as locally
+     */
     public void printUserTableWithHelp(WebContext ctx, String helpLink) {
         printUserTableWithHelp(ctx, helpLink, null);
     }
 
-    public void printUserTableWithHelp(WebContext ctx, String helpLink, String helpName) {
+    /**
+     * Display information about one more users
+     *
+     * @param ctx
+     * @param helpLink
+     * @param helpName
+     *
+     * Called, for example, when the user chooses "Settings" under "My Account" in the gear menu
+     */
+    private void printUserTableWithHelp(WebContext ctx, String helpLink, String helpName) {
         ctx.put("helpLink", helpLink);
         ctx.put("helpName", helpName);
         ctx.includeFragment("usermenu.jsp");
@@ -3255,11 +3258,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 Thread.currentThread().getName() + " " + ctx.session.user.id + ":" + ctx.session.user.toString());
 
         }
-        // only do forum for logged in user
-        if (ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
-            fora.doForum(ctx, sessionMessage); // TODO: does this ever happen? If so, when??
-            return;
-        }
 
         // locale REDIRECTS ------------------------------
         // looking for a stringid?
@@ -3655,7 +3653,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     void doLocaleList(WebContext ctx, WebContext baseContext) {
         boolean showCodes = ctx.prefBool(PREF_SHOWCODES);
 
-        ctx.println(fora.mainFeedIcon(ctx) + "<br>");
         ctx.println("<h1>Locales</h1>");
         {
             WebContext nuCtx = (WebContext) ctx.clone();
@@ -3668,11 +3665,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
 
         LocaleTree lm = getLocaleTree();
-        // if(lm == null) {
-        // busted("Can't load CLDR data files from " + fileBase);
-        // throw new RuntimeException("Can't load CLDR data files from " +
-        // fileBase);
-        // }
 
         ctx.println("<table summary='Locale List' border=1 class='list'>");
         int n = 0;
@@ -3697,12 +3689,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         ctx.println(", ");
                     }
                     CLDRLocale subLocale = sm.get(sn);
-                    // if(subLocale.length()>0) {
                     printLocaleLink(baseContext, (subLocale), sn);
                     if (showCodes) {
                         ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                     }
-                    // }
                     j++;
                 }
             } else {
@@ -3738,8 +3728,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx.flush();
             ctx.redirectToVurl(ctx.context(VURL_LOCALES)); // may blink.
             return;
-            //doLocaleList(ctx, baseContext);
-            //ctx.println("<br/>");
         } else {
             showLocale(ctx, which, whyBad);
         }
@@ -3934,15 +3922,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         subCtx.put("which", which);
         subCtx.put(WebContext.CAN_MODIFY, canModify);
         subCtx.includeFragment("menu_top.jsp"); // ' code lists .. ' etc
-
-        // not in the jsp- advanced idems.
-        if (ctx.prefBool(PREF_ADV)) {
-            subCtx.println("<p class='hang'>Advanced Items: ");
-            // printMenu(subCtx, which, TEST_MENU_ITEM);
-            printMenu(subCtx, which, RAW_MENU_ITEM);
-            subCtx.println("</p>");
-        }
-
         subCtx.println("</div>");
     }
 
@@ -3994,8 +3973,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             if (pageId != null && !which.equals(xMAIN)) {
                 showPathList(subCtx, which, pageId);
-            } else if (RAW_MENU_ITEM.equals(which)) {
-                getOutputFileManager().doRaw(subCtx);
             } else {
                 which = xMAIN;
                 doMain(subCtx); // TODO: does this ever happen? Or is doMain effectively dead code?

@@ -1,7 +1,7 @@
 /**
- * Example special module that shows a forum page. 
- * Modify 'js/special/forum.js' below to reflect your special page's name.
- * @module forum
+ * Special Dojo "module" that shows a forum page.
+ *
+ * TODO: migrate to modern strict JavaScript module
  */
 define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "dojo/window"], 
 		function(SpecialPage, request, win) {
@@ -16,6 +16,9 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 
 	/**
 	 * parse a hash tag
+	 *
+	 * Reference: https://dojotoolkit.org/reference-guide/1.10/dojo/hash.html
+	 *
 	 * @function parseHash
 	 */
 	Page.prototype.parseHash = function parseHash(hash, pieces) {
@@ -49,14 +52,10 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 				console.log("Scrolling " + itemid);
 				win.scrollIntoView(pdiv);
 				(function(o,itemid,pdiv){
-					//if(!o.lastHighlight) {
-					//	o.lastHighlight=itemid;
 						pdiv.style["background-color"]="yellow";
 						window.setTimeout(function(){
 							pdiv.style["background-color"]=null;
-						//	o.lastHighlight=null;
 						}, 2000);
-					//}
 				})(this,itemid,pdiv);
 			} else {
 				console.log("No item "+itemid);
@@ -85,9 +84,14 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 				var postButton = createChunk(stui.str("forumNewPostButton"), "button", "btn btn-default btn-sm");
 				postButton.appendChild(createChunk("","span",""));
 				listenFor(postButton, "click", function(e) {
-					openReply({
+					cldrStForum.openPostOrReply({
 						locale: surveyCurrentLocale,
-						onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
+						onReplyClose: function(postModal, form, formDidChange) {
+							if (formDidChange) {
+								console.log('forum.js calling reloadV for forumNewPostButton.');
+								reloadV();
+							}
+						},
 						//xpath: '',
 						//replyTo: post.id,
 						//replyData: post
@@ -95,20 +99,30 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 					stStopPropagation(e);
 					return false;
 				});
-				ourDiv.appendChild(createChunk(stui.sub("forum_msg", { forum: locmap.getLocaleName(locmap.getLanguage(surveyCurrentLocale)),  locale: surveyCurrentLocaleName  }), "h4", ""));
+				ourDiv.appendChild(createChunk(stui.sub("forum_msg", {
+						forum: locmap.getLocaleName(locmap.getLanguage(surveyCurrentLocale)),
+						locale: surveyCurrentLocaleName}),
+					"h4", ""));
 
-				ourDiv.appendChild(cldrStForumFilter.createMenu(surveyUser.id, reloadV));
-				ourDiv.appendChild(document.createElement('br'));
+				/*
+				 * Arrange the menu and the button side by side, with some space in between.
+				 */
+				let filterMenu = cldrStForumFilter.createMenu(surveyUser.id, reloadV);
+				let controlSpan = document.createElement('span');
+				let spacerSpan = document.createElement('span');
+				spacerSpan.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+				controlSpan.appendChild(filterMenu);
+				controlSpan.appendChild(spacerSpan);
+				controlSpan.appendChild(postButton);
+				ourDiv.appendChild(controlSpan);
 
-				ourDiv.appendChild(postButton);
 				ourDiv.appendChild(document.createElement('hr'));
-				if(json.ret.length == 0) {
+				const posts = json.ret;
+				if (posts.length == 0) {
 					ourDiv.appendChild(createChunk(stui.str("forum_noposts"),"p","helpContent"));
 				} else {
-					ourDiv.appendChild(parseForumContent({ret: json.ret,
-						replyButton: true,					
-						onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
-						noItemLink: false}));
+					const content = cldrStForum.parseContent(posts, 'main');
+					ourDiv.appendChild(content);
 				}
 				
 				// No longer loading

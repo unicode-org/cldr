@@ -701,19 +701,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatusQuick(sm);
-                        r.put("what", what);
-                        final String subjStr = request.getParameter("subj");
-                        final String textStr = request.getParameter("text");
-                        final String subj = SurveyForum.HTMLSafe(subjStr);
-                        final String text = SurveyForum.HTMLSafe(textStr);
-                        final int replyTo = getIntParameter(request, "replyTo", SurveyForum.NO_PARENT);
-                        final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, replyTo);
-                        r.put("postId", postId);
-                        if (postId > 0) {
-                            r.put("ret", sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
-                        }
-                        send(r, out);
+                        postToForum(request, response, out, xpath, l, mySession, sm);
                     } else if (what.equals("mail")) {
                         mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
@@ -1019,6 +1007,47 @@ public class SurveyAjax extends HttpServlet {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
         }
+    }
+
+    /**
+     * Make a new forum post using data submitted by the client, save it to the database,
+     * and send the client a json version of the post
+     *
+     * @param request the HttpServletRequest
+     * @param response the HttpServletResponse
+     * @param out the PrintWriter
+     * @param xpath the path, or null
+     * @param l the CLDRLocale
+     * @param mySession the CookieSession
+     * @param sm the SurveyMain
+     *
+     * @throws SurveyException
+     * @throws JSONException
+     * @throws IOException
+     */
+    private void postToForum(HttpServletRequest request, HttpServletResponse response, PrintWriter out,
+            String xpath, CLDRLocale l, CookieSession mySession, SurveyMain sm) throws SurveyException, JSONException, IOException {
+
+        JSONWriter r = newJSONStatusQuick(sm);
+        r.put("what", WHAT_FORUM_POST);
+
+        final String subj = SurveyForum.HTMLSafe(request.getParameter("subj"));
+        final String text = SurveyForum.HTMLSafe(request.getParameter("text"));
+        final String status = SurveyForum.HTMLSafe(request.getParameter("forumStatus"));
+
+        final int replyTo = getIntParameter(request, "replyTo", SurveyForum.NO_PARENT);
+
+        final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, status, replyTo);
+
+        r.put("postId", postId);
+        if (postId > 0) {
+            /*
+             * TODO: explain XPathTable.NO_XPATH here.
+             * toJSON is called for WHAT_FORUM_FETCH as toJSON(mySession, locale, id, 0)
+             */
+            r.put("ret", sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
+        }
+        send(r, out);
     }
 
     /**
@@ -3092,6 +3121,7 @@ public class SurveyAjax extends HttpServlet {
 
         out.write(prefix + "CldrStAjax.js" + v + tail);
         out.write(prefix + "CldrStForumFilter.js" + v + tail);
+        out.write(prefix + "CldrStForum.js" + v + tail);
         out.write(prefix + "survey.js" + v + tail);
         out.write(prefix + "CldrSurveyVettingLoader.js" + v + tail);
         out.write(prefix + "CldrSurveyVettingTable.js" + v + tail);

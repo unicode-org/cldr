@@ -54,6 +54,7 @@ class LdmlConvertRules {
         "measurementData:measurementSystem:category",
         "supplemental:plurals:type",
         "pluralRules:pluralRule:count",
+        "compoundUnit:compoundUnitPattern1:count",
         "languageMatches:languageMatch:desired");
 
     /**

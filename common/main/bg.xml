@@ -1026,6 +1026,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="colNumeric">Сортиране на цифрите</key>
 			<key type="colStrength">Сила на сортиране</key>
 			<key type="currency">валута</key>
+			<key type="fw">Първи ден от седмицата</key>
 			<key type="hc">Часови формат (12- или 24-часов)</key>
 			<key type="lb">Стил за нов ред</key>
 			<key type="ms">Мерна система</key>
@@ -1087,6 +1088,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="fwidth">С пълна ширина</type>
 			<type key="d0" type="hwidth">С половин ширина</type>
 			<type key="d0" type="npinyin" draft="contributed">Цифрови</type>
+			<type key="fw" type="fri">Седмицата започва в петък</type>
+			<type key="fw" type="mon">Седмицата започва в понеделник</type>
+			<type key="fw" type="sat">Седмицата започва в събота</type>
+			<type key="fw" type="sun">Седмицата започва в неделя</type>
+			<type key="fw" type="thu">Седмицата започва в четвъртък</type>
+			<type key="fw" type="tue">Седмицата започва във вторник</type>
+			<type key="fw" type="wed">Седмицата започва в сряда</type>
 			<type key="hc" type="h11">12-часова система (0 – 11)</type>
 			<type key="hc" type="h12">12-часова система (1 – 12)</type>
 			<type key="hc" type="h23">24-часова система (0 – 23)</type>

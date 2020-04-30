@@ -12,6 +12,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<tRule>
 # Malayalam-InterIndic
 #:: NFD (NFC) ;
+\u0D46\u0D3E→\uE04A;      # VOWEL SIGN O
+\u0D47\u0D3E→\uE04B;      # VOWEL SIGN OO
+\u0D46\u0D57→\uE04C;      # VOWEL SIGN AU (archaic form)
+\u0D00→\uE002;      # SIGN COMBINING ANUSVARA ABOVE, fallback to SIGN ANUSVARA
+\u0D01→\uE001;      # SIGN CANDRABINDU
 ം→\uE002;      # SIGN ANUSVARA
 ഃ→\uE003;      # SIGN VISARGA
 അ→\uE005;      # LETTER A
@@ -48,6 +53,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 ദ→\uE026;      # LETTER DA
 ധ→\uE027;      # LETTER DHA
 ന→\uE028;      # LETTER NA
+ഩ→\uE029;      # LETTER NNNA
 പ→\uE02A;      # LETTER PA
 ഫ→\uE02B;      # LETTER PHA
 ബ→\uE02C;      # LETTER BA
@@ -64,19 +70,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 ഷ→\uE037;      # LETTER SSA
 സ→\uE038;      # LETTER SA
 ഹ→\uE039;      # LETTER HA
+#ഺ→\uE03A;      # LETTER TTTA, not currently mapped
+\u0D3B→\uE04D;      # SIGN VERTICAL BAR VIRAMA
+\u0D3C→\uE04D;      # SIGN CIRCULAR VIRAMA
+ഽ→\uE04D;      # SIGN AVAGRAHA
 ാ→\uE03E;      # VOWEL SIGN AA
 ി→\uE03F;      # VOWEL SIGN I
 ീ→\uE040;      # VOWEL SIGN II
-ു→\uE041;      # VOWEL SIGN U
-ൂ→\uE042;      # VOWEL SIGN UU
-ൃ→\uE043;      # VOWEL SIGN VOCALIC R
+\u0D41→\uE041;      # VOWEL SIGN U
+\u0D42→\uE042;      # VOWEL SIGN UU
+\u0D43→\uE043;      # VOWEL SIGN VOCALIC R
+\u0D44→\uE044;      # VOWEL SIGN VOCALIC RR
 െ→\uE046;      # VOWEL SIGN E
 േ→\uE047;      # VOWEL SIGN EE
 ൈ→\uE048;      # VOWEL SIGN AI
-്→\uE04D;      # SIGN VIRAMA
-ൗ→\uE057;      # AU LENGTH MARK
+\u0D4A→\uE04A;      # VOWEL SIGN O
+\u0D4B→\uE04B;      # VOWEL SIGN OO
+\u0D4C→\uE04C;      # VOWEL SIGN AU (archaic form)
+\u0D4D→\uE04D;      # SIGN VIRAMA
+\u0D4E→\uE030\uE04D;      # LETTER DOT REPH, fallback to RA VIRAMA
+#\u0D4F→\uE04F;      # SIGN PARA, not currently mapped
+\u0D54→\uE02E\uE04D;      # LETTER CHILLU M, fallback to MA VIRAMA
+\u0D55→\uE02F\uE04D;      # LETTER CHILLU Y, fallback to YA VIRAMA
+\u0D56→\uE034\uE04D;      # LETTER CHILLU LLL, fallback to LLLA VIRAMA
+ൗ→\uE04C;      # AU LENGTH MARK, fallback to VOWEL SIGN AU
+\u0D58→1⁄160;      # FRACTION ONE ONE-HUNDRED-AND-SIXTIETH, fallback
+\u0D59→1⁄40;      # FRACTION ONE FORTIETH, fallback
+\u0D5A→3⁄80;      # FRACTION THREE EIGHTIETHS, fallback
+\u0D5B→1⁄20;      # FRACTION ONE TWENTIETH, fallback
+\u0D5C→⅒;      # FRACTION ONE TENTH, fallback
+\u0D5D→3⁄20;      # FRACTION THREE TWENTIETHS, fallback
+\u0D5E→⅕;      # FRACTION ONE FIFTH, fallback
+ൟ→\uE008;      # LETTER ARCHAIC II, fallback to LETTER II
 ൠ→\uE060;      # LETTER VOCALIC RR
 ൡ→\uE061;      # LETTER VOCALIC LL
+\u0D62→\uE062;      # VOWEL SIGN VOCALIC L
+\u0D63→\uE063;      # VOWEL SIGN VOCALIC LL
 ൦→\uE066;      # DIGIT ZERO
 ൧→\uE067;      # DIGIT ONE
 ൨→\uE068;      # DIGIT TWO
@@ -87,6 +116,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 ൭→\uE06D;      # DIGIT SEVEN
 ൮→\uE06E;      # DIGIT EIGHT
 ൯→\uE06F;      # DIGIT NINE
+൰→\uE067\uE066;      # NUMBER TEN, fallback to 10
+൱→\uE067\uE066\uE066;      # NUMBER ONE HUNDRED, fallback to 100
+൲→\uE067\uE066\uE066\uE066;      # NUMBER ONE THOUSAND, fallback to 1000
+൳→¼;      # FRACTION ONE QUARTER, fallback
+൴→½;      # FRACTION ONE HALF, fallback
+൵→¾;      # FRACTION THREE QUARTERS, fallback
+\u0D76→1⁄16;      # FRACTION ONE SIXTEENTH, fallback
+\u0D77→⅛;      # FRACTION ONE EIGHTH, fallback
+\u0D78→3⁄16;      # FRACTION THREE SIXTEENTHS, fallback
+#൹ DATE MARK, not currently mapped
+ൺ→\uE023\uE04D;      # LETTER CHILLU NN, fallback to NNA VIRAMA
+ൻ→\uE028\uE04D;      # LETTER CHILLU N, fallback to NA VIRAMA
+ർ→\uE030\uE04D;      # LETTER CHILLU RR, fallback to RA VIRAMA
+ൽ→\uE032\uE04D;      # LETTER CHILLU L, fallback to LA VIRAMA
+ൾ→\uE033\uE04D;      # LETTER CHILLU LL, fallback to LLA VIRAMA
+ൿ→\uE015\uE04D;      # LETTER CHILLU K, fallback to KA VIRAMA
 #    :: NFC (NFD) ;
 # eof
 			</tRule>

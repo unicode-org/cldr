@@ -382,4 +382,14 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         }
         return "?";
     }
+
+    /**
+     * Test whether DisplayAndInputProcessor.processInput removes backspaces
+     */
+    public void TestBackspaceFilter() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
+        String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"fr\"]";
+        String value = daip.processInput(xpath, "\btest\bTEST\b", null);
+        assertEquals("Backspaces are filtered out", "testTEST", value);
+    }
 }

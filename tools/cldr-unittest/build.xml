@@ -35,7 +35,7 @@
 			2) JVM_EXTRA_OPTIONS=xxx in build.properties
 			3) Environment variable - JVM_EXTRA_OPTIONS=xxx
 			4) Final fallback - "-Xmx6g" below -->
-		<property name="env.JVM_EXTRA_OPTIONS" value="-Xmx6g" />
+		<property name="env.JVM_EXTRA_OPTIONS" value="-Xmx6g -enableassertions" />
 		<property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}" />
 		<property name="jvm_options" value="${JVM_OPTIONS} ${JVM_EXTRA_OPTIONS}" />
 

@@ -127,7 +127,7 @@ const cldrSurveyTable = (function() {
 			}
 		}
 		insertRowsIntoTbody(theTable, reuseTable);
-		if (!reuseTable) {
+		if (!reuseTable || !theDiv.contains(theTable)) { // reference: CLDR-13727
 			theDiv.appendChild(theTable);
 		}
 		hideLoader(theDiv.loader);

@@ -1241,10 +1241,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 SurveyLog.debug(et);
 
                 if (didClearFlag) {
-                    int newPostId;
                     try {
-                        newPostId = sm.fora.doPostInternal(xpathId, -1, locale, "Flag Removed", "(The flag was removed.)", false, user);
-                        SurveyLog.warnOnce("TODO: no email notify on flag clear. This may be OK, it could be a lot of mail.");
+                        int newPostId = sm.fora.postFlagRemoved(xpathId, locale, user);
                         System.out.println("NOTE: flag was removed from " + locale + " " + distinguishingXpath + " - post ID=" + newPostId + "  by "
                             + user.toString());
                     } catch (SurveyException e) {

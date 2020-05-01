@@ -71,7 +71,6 @@ String helpName = subCtx.getString("helpName");
               <% }  else { %>
               	<i>(no flagged items.)</i><br/>
               <% } %>
-              <%= ctx.sm.fora.mainFeedIcon(ctx) %>
           <%
         }
           subCtx.flush();

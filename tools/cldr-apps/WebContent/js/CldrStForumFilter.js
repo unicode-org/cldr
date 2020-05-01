@@ -16,8 +16,11 @@ const cldrStForumFilter = (function() {
 	 */
 	const filters = [
 		{name: 'All threads', func: passAll},
+		{name: 'Open threads', func: passIfOpen},
+		{name: 'Closed threads', func: passIfClosed},
 		{name: 'Threads you have posted to', func: passIfYouPosted},
 		{name: 'Threads you have NOT posted to', func: passIfYouDidNotPost},
+		{name: 'Open threads you have not posted to', func: passIfOpenAndYouDidNotPost},
 	];
 
 	/**
@@ -75,14 +78,15 @@ const cldrStForumFilter = (function() {
 	 * Assume each post has post.threadId.
 	 *
 	 * @param posts the array of post objects, from newest to oldest
+	 * @param applyFilter true if the currently menu-selected filter should be applied
 	 * @return the filtered array of threadId strings
 	 */
-	function getFilteredThreadIds(posts) {
+	function getFilteredThreadIds(posts, applyFilter) {
 		const threadsToPosts = getThreadsToPosts(posts);
 
 		let filteredArray = [];
 		Object.keys(threadsToPosts).forEach(function(threadId) {
-			if (threadPasses(threadsToPosts[threadId])) {
+			if (!applyFilter || threadPasses(threadsToPosts[threadId])) {
 				filteredArray.push(threadId);
 			}
 		});
@@ -148,6 +152,36 @@ const cldrStForumFilter = (function() {
 	 */
 	function passIfYouDidNotPost(threadPosts) {
 		return !passIfYouPosted(threadPosts);
+	}
+
+	/**
+	 * Is the thread with the given array of posts open?
+	 *
+	 * @param threadPosts the array of posts in the thread
+	 * @return true or false
+	 */
+	function passIfOpen(threadPosts) {
+		return !passIfClosed(threadPosts);
+	}
+
+	/**
+	 * Is the thread with the given array of posts closed?
+	 *
+	 * @param threadPosts the array of posts in the thread
+	 * @return true or false
+	 */
+	function passIfClosed(threadPosts) {
+		return threadPosts.some(post => post.forumStatus && (post.forumStatus === 'Closed'));
+	}
+
+	/**
+	 * Is the thread with the given array of posts open and does it include no posts by the current user?
+	 *
+	 * @param threadPosts the array of posts in the thread
+	 * @return true or false
+	 */
+	function passIfOpenAndYouDidNotPost(threadPosts) {
+		return passIfYouDidNotPost(threadPosts) && passIfOpen(threadPosts);
 	}
 
 	/*

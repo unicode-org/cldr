@@ -730,12 +730,6 @@ function showV() {
 								img: surveyImgInfo.flag
 							},
 							{
-								title: 'RSS 2.0',
-								level: 2,
-								url: surveyUserURL.RSS,
-								img: surveyImgInfo.RSS
-							},
-							{
 								special: 'mail',
 								level: 2,
 								display: !surveyOfficial

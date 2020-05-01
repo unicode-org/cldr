@@ -9,28 +9,13 @@ String helpName = ctx.getString("helpName");
 		<td>
 			<a id='generalHelpLink' class='notselected'  href='<%= SurveyMain.GENERAL_HELP_URL %>'><%= SurveyMain.GENERAL_HELP_NAME %></a>
 <%
-/*     	if(helpLink != null) {
-    		ctx.println(" | ");
-    		if(helpName != null) {
-    			ctx.printHelpLink(helpLink, helpName);
-    		} else {
-    			ctx.printHelpLink(helpLink, "Page&nbsp;Instructions");
-    		}
-    	}
- */    	ctx.println("</td><td align='right'>");
+        ctx.println("</td><td align='right'>");
     	String doWhat = ctx.field(SurveyMain.QUERY_DO);
 
-    	//        ctx.println("The SurveyTool is in phase <b><span title='"+phase().name()+"'>"+phase().toString()+"</span></b> for version <b>"+getNewVersion()+"</b><br>" );
-
     	if(ctx.session.user == null)  {
-    		//ctx.println("<a class='notselected' href='" + ctx.jspLink("login.jsp") +"'>Login</a>");
     		ctx.println("<form id='login' method='POST' action='"+ctx.base()+"'>");
     		%><%@ include file="/WEB-INF/tmpl/small_login.jsp" %><%
     		ctx.println("</form>");
-    		//            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
-    		//                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-    		//                ctx.print(" | ");
-    		//            }
 
     		String curSetting = ctx.getCoverageSetting();
     		if(curSetting!=null && !curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
@@ -68,12 +53,9 @@ String helpName = ctx.getString("helpName");
     		ctx.print(" | ");
     		String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";
     		ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout"+cookieMessage+"</a> | ");
-    		//            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) {
-    		//                ctx.sm.printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-    		//                ctx.print(" | ");
-    		//            }
     		String curSetting = ctx.getCoverageSetting();
     		if(!(ctx.hasField("xpath")||ctx.hasField("forum")) && ( ctx.hasField(SurveyMain.QUERY_LOCALE) || ctx.field(SurveyMain.QUERY_DO).equals("disputed"))) {
+                // TODO: is this code ever run? Or is it dead code, including SurveyForum.forumLink?
                 if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
                     ctx.println("<span style='border: 2px solid blue'>");
                 }
@@ -93,7 +75,7 @@ String helpName = ctx.getString("helpName");
                 }
                 if(ctx.getLocale()!=null) {
                                     String forum = ctx.getLocale().getLanguage();
-                                    %><%=SurveyForum.forumLink(subCtx,forum)%><%=SurveyForum.forumFeedIcon(subCtx, forum)%><%
+                                    %><%=SurveyForum.forumLink(subCtx,forum)%><%
                 }
     		} else {
     			ctx.print(" <smaller>Coverage: "+curSetting+"</smaller>");
@@ -103,7 +85,6 @@ String helpName = ctx.getString("helpName");
             	ctx.println(ctx.iconHtml("flag", "(flagged items"));
             }
             ctx.sm.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);
-    		//ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
     		if(UserRegistry.userIsAdmin(ctx.session.user)) {
     			ctx.println("| <a href='" + ctx.context("AdminPanel.jsp") + "?vap=" + ctx.sm.vap + "'>[Admin Panel]</a>");
     			if(ctx.session.user.id == 1) {

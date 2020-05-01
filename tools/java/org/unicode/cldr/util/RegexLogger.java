@@ -473,7 +473,12 @@ public class RegexLogger {
                     break;
                 }
                 if (current.startsWith("org.unicode.cldr.test.CheckCLDR") &&
-                    !lastClass.startsWith("org.unicode.cldr.test.CheckCLDR")) {
+                    /*
+                     * TODO: fix this function to avoid referencing lastClass when it is null.
+                     * The condition lastClass == null here prevents compiler warning/error or possible NullPointerException,
+                     * since lastClass is ALWAYS null here; but this is obviously not the best solution.
+                     */
+                    (lastClass == null || !lastClass.startsWith("org.unicode.cldr.test.CheckCLDR"))) {
                     lastClass = current;
                     // leave out
                     continue;

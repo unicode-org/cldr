@@ -1105,7 +1105,7 @@ public class SurveyForum {
      * 
      * Note: this function is not always called when a forum post is shown; instead
      * commonly SurveyForum.toJSON is called to assemble the data, and then the formatting
-     * is done by parseForumContent in survey.js.
+     * is done by cldrStForum.parseContent.
      *
      * Note: showPost is also the name of a JavaScript function in review.js.
      */
@@ -1897,7 +1897,7 @@ public class SurveyForum {
 
     /**
      * Gather forum post information into a JSONArray, in preparation for
-     * displaying it to the user (which is done by parseForumContent in survey.js).
+     * displaying it to the user (which is done by cldrStForum.parseContent).
      *
      * @param session
      * @param locale
@@ -1957,7 +1957,7 @@ public class SurveyForum {
                 // DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
                 if (o != null) {
                     /* Gather the post data. Note that showPost is not called here.
-                     * The formatting is done by parseForumContent in survey.js.
+                     * The formatting is done by cldrStForum.parseContent.
                      */
                     for (int i = 0; i < o.length; i++) {
                         int poster = (Integer) o[i][0];

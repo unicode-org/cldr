@@ -1,7 +1,7 @@
 /**
- * Example special module that shows a forum page. 
- * Modify 'js/special/forum.js' below to reflect your special page's name.
- * @module forum
+ * Special Dojo "module" that shows a forum page.
+ *
+ * TODO: migrate to modern strict JavaScript module
  */
 define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "dojo/window"], 
 		function(SpecialPage, request, win) {
@@ -16,6 +16,9 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 
 	/**
 	 * parse a hash tag
+	 *
+	 * Reference: https://dojotoolkit.org/reference-guide/1.10/dojo/hash.html
+	 *
 	 * @function parseHash
 	 */
 	Page.prototype.parseHash = function parseHash(hash, pieces) {
@@ -85,7 +88,7 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 				var postButton = createChunk(stui.str("forumNewPostButton"), "button", "btn btn-default btn-sm");
 				postButton.appendChild(createChunk("","span",""));
 				listenFor(postButton, "click", function(e) {
-					openReply({
+					cldrStForum.openReply({
 						locale: surveyCurrentLocale,
 						onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
 						//xpath: '',
@@ -105,7 +108,7 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 				if(json.ret.length == 0) {
 					ourDiv.appendChild(createChunk(stui.str("forum_noposts"),"p","helpContent"));
 				} else {
-					ourDiv.appendChild(parseForumContent({ret: json.ret,
+					ourDiv.appendChild(cldrStForum.parseContent({ret: json.ret,
 						replyButton: true,					
 						onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
 						noItemLink: false}));

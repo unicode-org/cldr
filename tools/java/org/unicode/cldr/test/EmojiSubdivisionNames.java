@@ -91,9 +91,22 @@ public class EmojiSubdivisionNames {
                 _nameToSubdivisionId = getNameToSubdivisionPath(parentLocaleId);
                 _subdivisionIdToName = localeToSubdivisionIdToName.get(parentLocaleId);
             }
-            localeToNameToSubdivisionId.put(localeID, _nameToSubdivisionId);
-            localeToSubdivisionIdToName.put(localeID, _subdivisionIdToName);
-        } catch (Exception e) {}
+            /*
+             * In practice _subdivisionIdToName == null actually happens here.
+             * Check for null rather than triggering NullPointerException.
+             */
+            if (_nameToSubdivisionId != null) {
+                localeToNameToSubdivisionId.put(localeID, _nameToSubdivisionId);
+            }
+            if (_subdivisionIdToName != null) {
+                localeToSubdivisionIdToName.put(localeID, _subdivisionIdToName);
+            }
+        } catch (Exception e) {
+            /*
+             * TODO: If there is a valid rationale for catching and ignoring all exceptions here,
+             * document it. Otherwise it should be avoided since it tends to hide programming errors.
+             */
+        }
     }
 
     static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");

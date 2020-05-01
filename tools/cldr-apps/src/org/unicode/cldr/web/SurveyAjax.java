@@ -33,6 +33,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
@@ -1716,14 +1717,12 @@ public class SurveyAjax extends HttpServlet {
             translationHintsFile = sm.getTranslationHintsFile();
         }
         XMLSource diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
+        CLDRFile cldrFile = fac.make(loc, true, true);
 
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         long viewableVoteCount = 0;
         for (Map<String, Object> m : rows) {
-            // TODO: clarify which exceptions should be caught here, such as invalid xpathString.
-            // For now, catch all silently and skip old votes that generate exceptions -- they're
-            // invalid; neither winning nor losing, but invisible as far as import is concerned.
             try {
                 String value = m.get("value").toString();
                 if (value == null) {
@@ -1741,6 +1740,9 @@ public class SurveyAjax extends HttpServlet {
                 }
                 if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                     continue; // out of coverage
+                }
+                if (CheckForCopy.sameAsCode(value, xpathString, cldrFile)) {
+                    continue; // not allowed
                 }
                 String curValue = diskData.getValueAtDPath(xpathString);
                 boolean isWinning = equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString);
@@ -1774,6 +1776,15 @@ public class SurveyAjax extends HttpServlet {
                    }
                }
             } catch (Exception e) {
+                /*
+                 * Skip old votes that generate exceptions -- they're invalid; neither winning nor
+                 * losing, but invisible as far as import is concerned.
+                 *
+                 * Log any exception that we don't want to ignore completely.
+                 * InvalidXPathException and VoteNotAcceptedException would be OK to ignore, but
+                 * they can't happen here.
+                 */
+                SurveyLog.logException(e, "Viewing old votes");
                 continue;
             }
         }
@@ -2183,13 +2194,7 @@ public class SurveyAjax extends HttpServlet {
                 if (curValue == null) {
                     continue;
                 }
-                /*
-                 * Import if the value is winning (equalsOrInheritsCurrentValue), or is null (abstain).
-                 * By importing null (abstain) votes, we fix a problem where, for example, the user
-                 * voted for a value "x" in one old version, then voted to abstain in a later version,
-                 * and then the "x" still got imported into an even later version. 
-                 */
-                if (value == null || equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString)) {
+                if (valueCanBeAutoImported(value, curValue, diskData, xpathString, fac, loc)) {
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /*
                      * Only import the most recent vote (or abstention) for the given user and xpathString.
@@ -2210,8 +2215,39 @@ public class SurveyAjax extends HttpServlet {
                 /* Silently catch IllegalByDtdException, otherwise logs grow too fast with useless warnings */
             }
         }
-        // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
+    }
+
+    /**
+     * Can the value be auto-imported?
+     *
+     * Import if the value is null (abstain), or is winning (equalsOrInheritsCurrentValue) and
+     * is not a code-copy failure (sameAsCode).
+     *
+     * By importing null (abstain) votes, we fix a problem where, for example, the user
+     * voted for a value "x" in one old version, then voted to abstain in a later version,
+     * and then the "x" still got imported into an even later version.
+     *
+     * @param value the value in question
+     * @param curValue the current value, that is, file.getStringValue(xpathString)
+     * @param diskData the XMLSource for getBaileyValue
+     * @param xpathString the path identifier
+     * @param fac the STFactory
+     * @param loc the locale string
+     * @return true if OK to import, else false
+     */
+    private boolean valueCanBeAutoImported(String value, String curValue, XMLSource diskData, String xpathString, STFactory fac, String loc) {
+        if (value == null) {
+            return true;
+        }
+        if (!equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString)) {
+            return false;
+        }
+        CLDRFile cldrFile = fac.make(loc, true, true);
+        if (CheckForCopy.sameAsCode(value, xpathString, cldrFile)) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -2224,7 +2260,7 @@ public class SurveyAjax extends HttpServlet {
      * 
      * @param value the value in question
      * @param curValue the current value, that is, file.getStringValue(xpathString)
-     * @param file the CLDRFile for getBaileyValue
+     * @param diskData the XMLSource for getBaileyValue
      * @param xpathString the path identifier
      * @return true if it matches or inherits, else false
      */
@@ -2464,8 +2500,15 @@ public class SurveyAjax extends HttpServlet {
 
         DataRow pvi = section.getDataRow(xp);
         CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
-        if (CldrUtility.INHERITANCE_MARKER.equals(val) && pvi.wouldInheritNull()) {
-            showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
+        if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
+            if (pvi.wouldInheritNull()) {
+                showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
+            } else {
+                CLDRFile cldrFile = stf.make(locale.getBaseName(), true, true);
+                if (CheckForCopy.sameAsCode(val, xp, cldrFile)) {
+                    showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
+                }
+            }
         } else if (pvi.isUnvotableRoot(val)) {
             showRowAction = CheckCLDR.StatusAction.FORBID_ROOT;
         }
@@ -2508,8 +2551,11 @@ public class SurveyAjax extends HttpServlet {
                     System.err.println("Voting for::  " + val);
                 Integer withVote = null;
                 try {
-                    withVote = Integer.parseInt(request.getParameter("voteLevelChanged"));
-                } catch (Throwable t) {
+                    String voteLevelParam = request.getParameter("voteLevelChanged");
+                    if (voteLevelParam != null) {
+                        withVote = Integer.parseInt(voteLevelParam);
+                    }
+                } catch (NumberFormatException e) {
                     withVote = null;
                 }
                 boolean badNoForum = false;
@@ -2951,6 +2997,9 @@ public class SurveyAjax extends HttpServlet {
                     DataSection.DataRow pvi = section.getDataRow(base);
                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
 
+                    if (CheckForCopy.sameAsCode(val0, x, baseFile)) {
+                        showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
+                    }
                     if (showRowAction.isForbidden()) {
                         result = "Item may not be modified. ("
                                 + showRowAction + ")";

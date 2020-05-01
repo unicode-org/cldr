@@ -852,12 +852,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          */
         private class ValueChecker {
             private final String path;
-            HashSet<String> allValues = new HashSet<String>(8); // 16 is
-            // probably too
-            // many values
-            HashSet<String> badValues = new HashSet<String>(8); // 16 is
-            // probably too
-            // many values
+            /*
+             * Use 8 for initial HashSet size; 16 is probably too many values for best performance
+             */
+            HashSet<String> goodValues = new HashSet<String>(8);
+            HashSet<String> badValues = new HashSet<String>(8);
 
             LinkedList<CheckCLDR.CheckStatus> result = null;
             TestResultBundle testBundle = null;
@@ -867,7 +866,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             boolean canUseValue(String value) {
-                if (value == null || allValues.contains(value)) {
+                if (value == null || goodValues.contains(value)) {
                     return true;
                 } else if (badValues.contains(value)) {
                     return false;
@@ -885,7 +884,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         badValues.add(value);
                         return false;
                     } else {
-                        allValues.add(value);
+                        goodValues.add(value);
                         return true; // OK
                     }
                 }
@@ -893,6 +892,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         }
 
+        /**
+         * Disable ValueChecker
+         */
         private static final boolean ERRORS_ALLOWED_IN_VETTING = true;
 
         /**

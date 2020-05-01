@@ -109,6 +109,7 @@ abstract public class CheckCLDR {
         FORBID_UNLESS_DATA_SUBMISSION(true), 
         FORBID_NULL(true),
         FORBID_ROOT(true),
+        FORBID_CODE(true),
         FORBID_PERMANENT_WITHOUT_FORUM(true);
 
         private final boolean isForbidden;

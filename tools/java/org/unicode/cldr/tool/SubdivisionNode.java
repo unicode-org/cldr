@@ -501,7 +501,7 @@ public class SubdivisionNode {
              */
             output.append(
                 DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
+                + "\t<version number=\"$Revision" + "$\"/>\n"
                 + "\t<subdivisionContainment>\n");
             printXml(output, sdset.BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");

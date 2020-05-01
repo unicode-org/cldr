@@ -17,7 +17,7 @@
 		<property name="doc.params" value="" />
 
 		<!-- Load local definitions from an optional properties file, if 
-			available. build.properties is NOT checked into SVN. -->
+			available. build.properties is NOT checked into version control. -->
 		<property file="build.properties" />
 		<!-- Load environment variables -->
 		<property environment="env" />

@@ -101,7 +101,7 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 	 
 	 <hr>
     <form method='POST' action='<%= request.getContextPath() + request.getServletPath() %>'>
-        <i>REPLACE ALL LOCAL DATA with users and votes as follows.  Does NOT update SVN data.</i><br>
+        <i>REPLACE ALL LOCAL DATA with users and votes as follows.</i><br>
         
                 <label>ABSOLUTE PATH to users.xml or usersa.xml file: <input name='users' size=80></label>
                         <i>See: <a href='http://www.unicode.org/repos/cldr-tmp2/usersa/usersa.xml'>http://www.unicode.org/repos/cldr-tmp2/usersa/usersa.xml</a></i>

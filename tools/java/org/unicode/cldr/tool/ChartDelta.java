@@ -286,9 +286,6 @@ public class ChartDelta extends Chart {
 
             String dirBase = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
             String prevDirBase = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
-//                ToolConstants.CLDR_RELEASE_VERSION_SET.contains(ToolConstants.PREV_CHART_VERSION) ? CURRENT_DIRECTORY 
-//                    : vxml ? CLDRPaths.SVN_DIRECTORY + "cldr-aux/" + "voting/36/vxml/" // TODO fix version to be variable
-//                        : CLDRPaths.BASE_DIRECTORY;
 
             for (String dir : DtdType.ldml.directories) {
                 if (dir.equals("annotationsDerived") || dir.equals("casing")) {

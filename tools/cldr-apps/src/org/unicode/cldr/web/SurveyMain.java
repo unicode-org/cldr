@@ -3994,8 +3994,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             if (pageId != null && !which.equals(xMAIN)) {
                 showPathList(subCtx, which, pageId);
-            } else if (RAW_MENU_ITEM.equals(which)) {
-                getOutputFileManager().doRaw(subCtx);
             } else {
                 which = xMAIN;
                 doMain(subCtx); // TODO: does this ever happen? Or is doMain effectively dead code?
@@ -4079,7 +4077,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 busted("Not able to checkout " + dir.getAbsolutePath() + " for " + param + " - go into setup mode.");
                 return; /* NOTREACHED */
             }
-            throw new InternalError("Please run this manually:  'svn checkout " + url + " " + dir.getAbsolutePath()
+            throw new InternalError("Please checkout " + url + " " + dir.getAbsolutePath()
                 + "' - and restart the server. TODO- this will be fixed by the step-by-step install.");
         }
     }
@@ -4997,7 +4995,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (!dataDir.mkdirs()) {
                 throw new IOException("Couldn't create " + dataDir.getAbsolutePath());
             }
-            getOutputFileManager().svnAddOrWarn(dataDir);
         }
         return dataDir;
     }
@@ -5018,14 +5015,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (!subDir.mkdirs()) {
                 throw new IOException("Couldn't create " + subDir.getAbsolutePath());
             }
-            getOutputFileManager().svnAddOrWarn(subDir);
         }
         File subSubDir = new File(subDir, dirType.name());
         if (!subSubDir.exists()) {
             if (!subSubDir.mkdirs()) {
                 throw new IOException("Couldn't create " + subSubDir.getAbsolutePath());
             }
-            getOutputFileManager().svnAddOrWarn(subSubDir);
         }
         return subSubDir;
     }
@@ -5119,8 +5114,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             progress.update("Shutting down database..." + destroyTimer);
             doShutdownDB();
-            progress.update("Shutting down SVN..." + destroyTimer);
-            getOutputFileManager().svnShutdown();
             outputFileManager = null;
             progress.update("Destroying servlet..." + destroyTimer);
             if (isBusted != null)

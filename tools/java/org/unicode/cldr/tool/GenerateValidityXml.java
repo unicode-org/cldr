@@ -148,7 +148,7 @@ public class GenerateValidityXml {
             try (TempPrintWriter output = TempPrintWriter.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY, "validity/" + type + ".xml")) {
                 adder.target = output;
                 output.append(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                    + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
+                    + "\t<version number=\"$Revision" + "$\"/>\n"
                     + "\t<idValidity>\n");
                 for (Entry<Status, Collection<String>> entry2 : subtypeMap.asMap().entrySet()) {
                     Validity.Status subtype = entry2.getKey();

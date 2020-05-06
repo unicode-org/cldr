@@ -5277,9 +5277,13 @@ root</pre>
       return it.</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Remove
       the variants from max.</li>
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em">Get the 
+	      components of the max (<em>language<sub>max</sub></em>, 
+	      <em>script<sub>max</sub></em>, <em>region<sub>max</sub></em>).</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Then for
-      <i>trial</i> in {language, language _ region, language _
-      script}
+      <i>trial</i> in {<em>language<sub>max</sub></em>, 
+	      <em>language<sub>max</sub>_region<sub>max</sub></em>, 
+	      <em>language<sub>max</sub>_script<sub>max</sub></em>}
         <ul>
           <li style="margin-top: 0.5em; margin-bottom: 0.5em">If
           AddLikelySubtags(<i>trial</i>) = max, then return

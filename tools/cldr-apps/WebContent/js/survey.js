@@ -10,24 +10,6 @@
 const INHERITANCE_MARKER = "↑↑↑";
 
 /**
- * Format a date and time for display in a forum post.
- *
- * @param x the number of seconds since 1970-01-01
- * @returns the formatted date and time as a string
- *
- * Like "2018-05-16 13:45" per cldr-dev@unicode.org.
- */
-function fmtDateTime(x) {
-	const d = new Date(x);
-
-	function pad(n) {
-		return (n < 10) ? '0' + n : n;
-	}
-	return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
-		' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
-}
-
-/**
  * Is the given string for a report, that is, does it start with "r_"?
  *
  * @class GLOBAL
@@ -71,23 +53,6 @@ function addClass(obj, className) {
 		obj.className = className + " " + obj.className;
 	}
 	return obj;
-}
-
-/**
- *
- */
-function post2text(text) {
-	if (text === undefined || text === null) {
-		text = "(empty)";
-	}
-	var out = text;
-	out = out.replace(/<p>/g, '\n');
-	out = out.replace(/&quot;/g, '"');
-	out = out.replace(/&lt;/g, '<');
-	out = out.replace(/&gt;/g, '>');
-	out = out.replace(/&amp;/g, '&');
-
-	return out;
 }
 
 /**
@@ -1917,33 +1882,32 @@ function showForumStuff(frag, forumDivClone, tr) {
 		}
 	}
 	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
-	if (!isDashboard()) {
-		frag.appendChild(newButton);
+	frag.appendChild(newButton);
 
-		(function(theRow, couldFlag) {
-			listenFor(newButton, "click", function(e) {
-				xpathMap.get({
-						hex: theRow.xpstrid
-					},
-					function(o) {
-						var subj = theRow.code + ' ' + theRow.xpstrid;
-						if (o.result && o.result.ph) {
-							subj = xpathMap.formatPathHeader(o.result.ph);
-						}
-						if (couldFlag) {
-							subj = subj + " (Flag for review)";
-						}
-						cldrStForum.openReply({
-							locale: surveyCurrentLocale,
-							xpath: theRow.xpstrid,
-							subject: subj,
-						});
+	(function(theRow, couldFlag) {
+		listenFor(newButton, "click", function(e) {
+			xpathMap.get({
+					hex: theRow.xpstrid
+				},
+				function(o) {
+					var subj = theRow.code + ' ' + theRow.xpstrid;
+					if (o.result && o.result.ph) {
+						subj = xpathMap.formatPathHeader(o.result.ph);
+					}
+					if (couldFlag) {
+						subj = subj + " (Flag for review)";
+					}
+					cldrStForum.openPostOrReply({
+						locale: surveyCurrentLocale,
+						xpath: theRow.xpstrid,
+						subject: subj,
 					});
-				stStopPropagation(e);
-				return false;
-			});
-		})(tr.theRow, couldFlag);
-	}
+				});
+			stStopPropagation(e);
+			return false;
+		});
+	})(tr.theRow, couldFlag);
+
 	var loader2 = createChunk(stui.str("loading"), "i");
 	frag.appendChild(loader2);
 
@@ -1994,14 +1958,13 @@ function showForumStuff(frag, forumDivClone, tr) {
 /**
  * Update the forum posts in the Info Panel
  *
+ * This includes the version of the Info Panel displayed in the Dashboard "Fix" window
+ *
  * @param tr the table-row element with which the forum posts are associated,
  *		and whose info is shown in the Info Panel; or null, to get the
  *		tr from surveyCurrentId
  */
 function updateInfoPanelForumPosts(tr) {
-	if (isDashboard()) {
-		return; // no Info Panel in Dashboard
-	}
 	if (!tr) {
 		if (surveyCurrentId !== '') {
 			/*
@@ -2009,12 +1972,17 @@ function updateInfoPanelForumPosts(tr) {
 			 */
 			tr = document.getElementById('r@' + surveyCurrentId);
 		} else {
-			console.log("updateInfoPanelForumPosts: tr was null, surveyCurrentId was empty");
+			/*
+			 * This is normal when adding a post in the main forum interface, which has no Info Panel).
+			 */
 			return;
 		}
 	}
 	if (!tr || !tr.forumDiv || !tr.forumDiv.url) {
-		console.log("updateInfoPanelForumPosts: !tr || !tr.forumDiv || !tr.forumDiv.url");
+		/*
+		 * This is normal for updateInfoPanelForumPosts(null) called by success handler
+		 * for submitPost, from Dashboard, since Fix window is no longer open
+		 */
 		return;
 	}
 	let ourUrl = tr.forumDiv.url + "&what=forum_fetch";
@@ -2031,20 +1999,17 @@ function updateInfoPanelForumPosts(tr) {
 	let loadHandler = function(json) {
 		try {
 			if (json && json.ret) {
-				let content = cldrStForum.parseContent({
-					ret: json.ret,
-					replyButton: true,
-					noItemLink: true
-				});
+				const posts = json.ret;
+				const content = cldrStForum.parseContent(posts, 'info');
 				/*
 				 * Reality check: the json should refer to the same path as tr, which in practice
 				 * always matches surveyCurrentId. If not, log a warning and substitute "Please reload"
 				 * for the content.
 				 */
-				let xpstrid = json.ret[0].xpath;
+				let xpstrid = posts[0].xpath;
 				if (xpstrid !== tr.xpstrid || xpstrid !== surveyCurrentId) {
 					console.log('Warning: xpath strid mismatch in updateInfoPanelForumPosts loadHandler:');
-					console.log('json.ret[0].xpath = ' + json.ret[0].xpath);
+					console.log('posts[0].xpath = ' + posts[0].xpath);
 					console.log('tr.xpstrid = ' + tr.xpstrid);
 					console.log('surveyCurrentId = ' + surveyCurrentId);
 

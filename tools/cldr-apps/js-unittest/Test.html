@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>SurveyTool JavaScript Tests</title>
+    <title>JavaScript Tests for CLDR SurveyTool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
   </head>
@@ -19,7 +19,10 @@
       mocha.checkLeaks();
     </script>
     <script src="../WebContent/js/CldrStForumFilter.js"></script>
+    <script src="../WebContent/js/CldrStForum.js"></script>
+    <script src="data/forum_fr.js"></script>
     <script src="TestCldrStForumFilter.js"></script>
+    <script src="TestCldrStForum.js"></script>
     <script class="mocha-exec">
       mocha.run();
     </script>

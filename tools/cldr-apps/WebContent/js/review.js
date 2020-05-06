@@ -24,7 +24,6 @@ $(function() {
 	dynamic.on('click', 'button.fix', toggleFix);
 	dynamic.on('click', '.hide-review', toggleReviewLine);
 	dynamic.on('click', '.show-items', toggleItems);
-	dynamic.on('click', '.post-review', cldrStForum.openPost);
 	dynamic.on('click', '.hide-review.done', toggleReview);
 
 	$(window).scroll(function() {
@@ -155,14 +154,12 @@ function showReviewPage(json, showFn) {
 									engElement + '</td><td dir="' + direction + '">' + oldElement + '</td><td dir="' + direction + '">' +
 									element.winning + '</td>';
 
-								// "Fix" section
+								// "Fix" and "Hide" sections
 								html += '<td class="button-review"><div class="tip fix-parent" title="Fix">' +
 									'<button type="button" class="btn btn-success fix" data-toggle="popover">' +
 									'<span class="glyphicon glyphicon-pencil"></span></button></div> ' +
 									'<button type="button" class="btn btn-info hide-review tip" title="Hide">' +
-									'<span class="glyphicon glyphicon-eye-close"></span></button>' +
-									'<button type="button" class="btn btn-primary tip post-review" title="Forum">' +
-									'<span class="glyphicon glyphicon-comment"></span></button>';
+									'<span class="glyphicon glyphicon-eye-close"></span></button>';
 								if (element.comment) {
 									html += '<button class="btn btn-default help-comment" data-html="true" data-toggle="popover" data-content="' +
 										element.comment + '"><span class="glyphicon glyphicon-info-sign"></span></button>';

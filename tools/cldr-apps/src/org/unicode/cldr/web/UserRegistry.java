@@ -903,10 +903,6 @@ public class UserRegistry {
                 logger.severe("Duplicate user for " + email + " - ids " + u.id + " and " + rs.getInt(1));
                 return null;
             }
-            if (!ip.startsWith("RSS@") && !ip.equals(INTERNAL)) {
-                // logger.info("Login: " + email + " @ " + ip);
-            }
-
             return u;
         } catch (SQLException se) {
             logger.log(java.util.logging.Level.SEVERE,

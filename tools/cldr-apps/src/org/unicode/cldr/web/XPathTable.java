@@ -445,7 +445,7 @@ public class XPathTable {
      * @param path
      * @return
      * 
-     * Called by handlePathValue, by makeProposedFile, and by doForum (which is possibly never called?)
+     * Called by handlePathValue and makeProposedFile
      */
     public static String removeAlt(String path) {
         XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute

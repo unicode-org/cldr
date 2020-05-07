@@ -1140,15 +1140,25 @@
       <li>Replace aliases in the <code><a href=
     "#unicode_language_id">unicode_language_id</a></code> and  tlang (if any) using the following process:
         <ul>
-          <li>If the language subtag matches the <i>type</i> attribute of a <i>languageAlias</i> element in <a href="tr35-info.html#Supplemental_Data">Supplemental
-            Data</a>, replace the language subtag with the <i>replacement</i> value.
-            <ol>
-              <li>If there are additional subtags in the <i>replacement</i> value, add them to the result, but
-                only if there is no corresponding subtag already in the
-                tag.</li>
-              <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) are in  type attributes, and are also replaced.</li>
-            </ol>
+	  <li>Get the components of the <code><a href="#unicode_language_id">unicode_language_id</a></code> 
+		  (<i>language</i>, <i>script</i>, and <i>region</i>), plus any variants and extensions.</li>
+	  <li>For <i>trial</i> in {<i>language</i> _ <i>variant</i>,
+		  <i>language</i> _ <i>script</i> _ <i>region</i>,
+		  <i>language</i> _ <i>region</i>, <i>language</i>}
+            <ul>
+	      <li>If <i>trial</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		      in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace
+		      the language subtag with the <i>replacement</i> value.
+                <ol>
+                  <li>If there are additional subtags in the <i>replacement</i> value, add them to
+			  the result, but only if there is no corresponding subtag already in the tag.</li>
+                  <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) are in 
+			  <i>type</i> attributes, and are also replaced.</li>
+		</ol>
+	      </li>      
+            </ul>
           </li>
+	  </li>
           <li>If the  region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i> element in <a href=
       "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
             replace the language subtag with the <i>replacement</i> value, as follows:
@@ -1267,21 +1277,30 @@
     converted to a valid Unicode BCP 47 locale identifier by
     performing the following transformation.</p>
     <ol>
-	  <li>Canonicalize the syntax of the language tag (afterwards, there will be
-	  no extlang subtags) as per <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 Canonical Unicode Locale Identifiers</a>.</li>
-      <li>If the BCP 47 primary language subtag matches the
-      <i>type</i> attribute of a <i>languageAlias</i> element in
-      <a href="tr35-info.html#Supplemental_Data">Supplemental
-      Data</a>, replace the language subtag with the
-      <i>replacement</i> value.
-        <ol>
-          <li>If there are additional subtags in the
-          <i>replacement</i> value, add them to the result, but
-          only if there is no corresponding subtag already in the
-          tag.</li>
-          <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) are in  type attributes, and are also replaced.</li>
-          <li><strong>Note: </strong>there are currently no valid 4-letter primary language subtags. While it is extremely unlikely that BCP47 would ever register them, if so then <i>languageAlias</i> mappings will be supplied for them, mapping to defined CLDR language subtags (from the idStatus=&quot;reserved&quot; set).</li>
-        </ol>
+      <li>Canonicalize the syntax of the language tag (afterwards, there will
+	      be no extlang subtags) as per <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 
+	      Canonical Unicode Locale Identifiers</a>.</li>
+      <li>Get the components of the BCP 47 language tag (<i>language</i>, <i>script</i>,
+	      and <i>region</i>), plus any variants and extensions.</li>
+      <li>For <i>trial</i> in {l<i>anguage</i> _ <i>variant</i>, <i>language</i> _ <i>script</i> _ <i>region</i>,
+	      <i>language _ <i>region</i>, <i>language</i>}
+	<ul>      
+	  <li>If <i>trial</i> matches the <i>type</i> attribute of a <i>languageAlias</i>
+		  element in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
+		  replace the language subtag with the <i>replacement</i> value.
+            <ol>
+              <li>If there are additional subtags in the <i>replacement</i> value,add them to 
+		      the result, but only if there is no corresponding subtag already in the tag.</li>
+              <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) 
+		      are in  type attributes, and are also replaced.</li>
+              <li><strong>Note: </strong>there are currently no valid 4-letter primary 
+		      language subtags. While it is extremely unlikely that BCP47
+		      would ever register them, if so then <i>languageAlias</i> mappings
+		      will be supplied for them, mapping to defined CLDR language 
+		      subtags (from the idStatus=&quot;reserved&quot; set).</li>
+            </ol>
+          </li>
+	</ul>
       </li>
       <li>If the BCP 47 region subtag matches the <i>type</i>
       attribute of a <i>territoryAlias</i> element in <a href=

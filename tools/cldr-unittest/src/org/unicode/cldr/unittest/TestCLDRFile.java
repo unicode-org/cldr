@@ -52,11 +52,12 @@ public class TestCLDRFile extends TestFmwk {
 
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     static SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
-
+    
     public static void main(String[] args) {
         new TestCLDRFile().run(args);
     }
 
+    
     public void testFallbackNames() {
         String[][] tests = {
             { "zh-Hanb", "Chinese (Han with Bopomofo)" },
@@ -133,6 +134,25 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testExtraPaths() {
+//        Set<String> validUnits = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
+//        validUnits.forEach(System.out::println);
+//        
+//        grammarInfo = testInfo.getSupplementalDataInfo().getGrammarInfo();
+//        for (Entry<String, GrammarInfo> entry : grammarInfo.entrySet()) {
+//            System.out.println(entry);
+//        }
+
+//        CLDRFile toCheck = testInfo.getCldrFactory().make("de", true); // testInfo.getFullCldrFactory().make("en", false);
+//        Set<String> sorted = new TreeSet<>(CLDRFile.getComparator(DtdType.ldml));
+//        sorted.addAll(toCheck.getExtraPaths());
+//        for (String path : sorted) {
+//            XPathParts parts = XPathParts.getFrozenInstance(path);
+//            assertEquals("parts: ", parts.toString(), path);
+//            System.out.println(path);
+//        }
+//        int debug = 0;
+
+
         Map<String, LocaleInfo> localeInfos = new LinkedHashMap<String, LocaleInfo>();
         Relation<String, String> missingPathsToLocales = Relation.of(
             new TreeMap<String, Set<String>>(CLDRFile

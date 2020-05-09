@@ -37,6 +37,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -59,6 +62,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -101,6 +105,7 @@ import com.ibm.icu.util.VersionInfo;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
+    private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of("nominative");
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
      * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different
@@ -653,7 +658,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Only call if xpath doesn't exist in the current file.
      * <p>
-     * For now, just handle counts: see getCountPath Also handle extraPaths
+     * For now, just handle counts and cases: see getCountPath Also handle extraPaths
      *
      * @param xpath
      * @param winning
@@ -663,6 +668,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     private String getFallbackPath(String xpath, boolean winning) {
         if (xpath.contains("[@count=")) {
             return getCountPathWithFallback(xpath, Count.other, winning);
+            // TODO fix  || xpath.contains("[@case=")
         }
         if (getRawExtraPaths().contains(xpath)) {
             return xpath;
@@ -3296,7 +3302,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public Collection<String> getRawExtraPaths() {
         if (extraPaths == null) {
-            extraPaths = Collections.unmodifiableCollection(getRawExtraPathsPrivate(new HashSet<String>()));
+            extraPaths = ImmutableSet.copyOf(getRawExtraPathsPrivate(new LinkedHashSet<String>()));
             if (DEBUG) {
                 System.out.println(getLocaleID() + "\textras: " + extraPaths.size());
             }
@@ -3332,7 +3338,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (plurals == null && DEBUG) {
             System.err.println("No " + PluralType.cardinal + "  plurals for " + getLocaleID() + " in " + supplementalData.getDirectory().getAbsolutePath());
         }
-        Set<Count> pluralCounts = null;
+        Set<Count> pluralCounts = Collections.emptySet();
         if (plurals != null) {
             pluralCounts = plurals.getCounts();
             if (pluralCounts.size() != 1) {
@@ -3391,14 +3397,63 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String currencyCode = code.toUpperCase();
             toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
             toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName");
-            if (pluralCounts != null) {
+            if (!pluralCounts.isEmpty()) {
                 for (Count count : pluralCounts) {
                     toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName[@count=\"" + count.toString() + "\"]");
                 }
             }
         }
 
+        // grammatical info; for now, just add gender for short units; others will inherit
+        GrammarInfo grammarInfo = supplementalData.getGrammarInfo().get(getLocaleID());
+        if ("de".equals(getLocaleID())) {
+            int debug = 0;
+        }
+        if (grammarInfo != null) {
+            if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
+                Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+                Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+                Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
+                if (!genders.isEmpty()) {
+                    for (String unit : GrammarInfo.TRANSLATION_UNITS) {
+                        toAddTo.add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"" + unit + "\"]/gender");
+                    }
+
+                    for (Count plural : pluralCounts) {
+                        for (String gender : genders) {
+                            for (String case1 : nomCases) {
+                            final String grammaticalAttributes = getGrammaticalInfoAttributes(plural, gender, case1);
+                            
+                            toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1" + grammaticalAttributes);
+                            toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1" + grammaticalAttributes);
+                            }
+                        }
+                    }
+                }
+                if (!rawCases.isEmpty()) {
+                    for (String case1 : rawCases) {
+                        for (Count plural : pluralCounts) {
+                            for (String unit : GrammarInfo.TRANSLATION_UNITS) {
+                                toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
+                                    + getGrammaticalInfoAttributes(plural, null, case1));
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return toAddTo;
+    }
+
+    public String getGrammaticalInfoAttributes(Count plural, String gender, String case1) {
+        String grammaticalAttributes = "[@count=\"" + plural + "\"]";
+        if (gender != null) {
+            grammaticalAttributes += "[@gender=\"" + gender + "\"]";
+        }
+        if (case1 != null && !case1.equals("nominative")) {
+            grammaticalAttributes += "[@case=\"" + case1 + "\"]";
+        }
+        return grammaticalAttributes;
     }
 
     private void addPluralCounts(Collection<String> toAddTo,

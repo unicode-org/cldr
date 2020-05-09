@@ -94,6 +94,8 @@ public class SupplementalDataInfo {
     private static final StandardCodes sc = StandardCodes.make();
     private static final String UNKNOWN_SCRIPT = "Zzzz";
 
+    public static final Splitter split_space = Splitter.on(' ').omitEmptyStrings();
+
     // TODO add structure for items shown by TestSupplementalData to be missing
     /*
      * [calendarData/calendar,
@@ -435,7 +437,10 @@ public class SupplementalDataInfo {
         }
 
         public BasicLanguageData cloneAsThawed() {
-            throw new UnsupportedOperationException();
+            BasicLanguageData result = new BasicLanguageData();
+            result.scripts = new TreeSet<>(scripts);
+            result.territories = new TreeSet<>(territories);
+            return this;
         }
 
         public void addScripts(Set<String> scripts2) {
@@ -815,7 +820,9 @@ public class SupplementalDataInfo {
             }
         }
     }
-    
+
+    public enum RBNFGroup {SpelloutRules, OrdinalRules, NumberingSystemRules}
+
     public static final String STAR = "*";
     public static final Set<String> STAR_SET = Builder.with(new HashSet<String>()).add("*").freeze();
 
@@ -902,18 +909,19 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<Row.R2<String, String>, String>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<Row.R2<String, String>, String>();
     public Map<String, String> bcp47ValueType = new TreeMap<String, String>();
-    
+
 
     public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<String, Row.R2<String, String>>();
     public Map<AttributeValidityInfo, String> attributeValidityInfo = new LinkedHashMap<>();
 
     public Multimap<String, String> languageGroups = TreeMultimap.create();
-    
+
     public RationalParser rationalParser = new RationalParser();
     public UnitConverter unitConverter = new UnitConverter(rationalParser);
-    
+
     public UnitPreferences unitPreferences = new UnitPreferences();
 
+    public Map<String, GrammarInfo> grammarLocaleToTargetToFeatureToValues = new TreeMap<>();
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -1152,7 +1160,7 @@ public class SupplementalDataInfo {
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
 
         measurementData = CldrUtility.protectCollection(measurementData);
-        
+
         final Map<String, R2<List<String>, String>> unitAliases = typeToTagToReplacement.get("unit");
         if (unitAliases != null) { // don't load unless the information is there (for old releases);
             unitConverter.addAliases(unitAliases);
@@ -1160,13 +1168,15 @@ public class SupplementalDataInfo {
         unitConverter.freeze();
         rationalParser.freeze();
         unitPreferences.freeze();
-        
+
         timeData = CldrUtility.protectCollection(timeData);
 
         validityInfo = CldrUtility.protectCollection(validityInfo);
         attributeValidityInfo = CldrUtility.protectCollection(attributeValidityInfo);
         parentLocales = Collections.unmodifiableMap(parentLocales);
         languageGroups = ImmutableSetMultimap.copyOf(languageGroups);
+
+        grammarLocaleToTargetToFeatureToValues = CldrUtility.protectCollection(grammarLocaleToTargetToFeatureToValues);
 
         ImmutableSet.Builder<String> newScripts = ImmutableSet.<String> builder();
         Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getStatusToCodes(LstrType.script);
@@ -1251,7 +1261,7 @@ public class SupplementalDataInfo {
                     if (handleCurrencyData(level2, parts)) {
                         return;
                     }
-                 } else if ("metazoneInfo".equals(level2)) {
+                } else if ("metazoneInfo".equals(level2)) {
                     if (handleMetazoneInfo(level3, parts)) {
                         return;
                     }
@@ -1326,6 +1336,10 @@ public class SupplementalDataInfo {
                     if (handleLanguageGroups(value, parts)) {
                         return;
                     }
+                } else if (level1.contentEquals("grammaticalData")) {
+                    if (handleGrammaticalData(value, parts)) {
+                        return;
+                    }
                 }
 
                 // capture elements we didn't look at, since we should cover everything.
@@ -1335,19 +1349,35 @@ public class SupplementalDataInfo {
                 if (!skippedElements.contains(skipKey)) {
                     skippedElements.add(skipKey);
                 }
-                // System.out.println("Skipped Element: " + path);
+                //System.out.println("Skipped Element: " + path);
             } catch (Exception e) {
                 throw (IllegalArgumentException) new IllegalArgumentException("Exception while processing path: "
                     + path + ",\tvalue: " + value).initCause(e);
             }
         }
 
+        private boolean handleGrammaticalData(String value, XPathParts parts) {
+            for (String locale : split_space.split(parts.getAttributeValue(2, "locales"))) {
+                GrammarInfo targetToFeatureToValues = grammarLocaleToTargetToFeatureToValues.get(locale);
+                if (targetToFeatureToValues == null) {
+                    grammarLocaleToTargetToFeatureToValues.put(locale, targetToFeatureToValues = new GrammarInfo());
+                }
+                final String targets = parts.getAttributeValue(2, "targets");
+                if (parts.size() < 4) {
+                    targetToFeatureToValues.add(targets, null, null, null); // special case "known no features"
+                } else {
+                    targetToFeatureToValues.add(targets, parts.getElement(3), parts.getAttributeValue(3, "scope"), parts.getAttributeValue(3, "values"));
+                }
+            }
+            return true;
+        }
+
         /*
          * Handles
          * <unitPreferences category="area" usage="_default">
          *<unitPreference regions="001" draft="unconfirmed">square-centimeter</unitPreference>
-            */
-        
+         */
+
         private boolean handleUnitPreferences(XPathParts parts, String value) {
             String geq = parts.getAttributeValue(-1, "geq");
             String small = parts.getAttributeValue(-2, "scope");
@@ -1388,7 +1418,7 @@ public class SupplementalDataInfo {
             }
             return true;
         }
-        
+
         private boolean handleUnitConstants(XPathParts parts) {
             //      <unitConstant constant="ft2m" value="0.3048"/>
 
@@ -1398,7 +1428,7 @@ public class SupplementalDataInfo {
             rationalParser.addConstant(constant, value, status);
             return true;
         }
-        
+
         private boolean handleUnitQuantities(XPathParts parts) {
             //      <unitQuantity quantity='wave-number' baseUnit='reciprocal-meter'/>
 
@@ -1411,7 +1441,7 @@ public class SupplementalDataInfo {
 
         private boolean handleUnitConversion(XPathParts parts) {
             // <convertUnit source='acre' target='square-meter' factor='ft2m^2 * 43560'/>
-            
+
             final String source = parts.getAttributeValue(-1, "source");
             final String target = parts.getAttributeValue(-1, "baseUnit");
 //            if (source.contentEquals(target)) {
@@ -1506,7 +1536,7 @@ public class SupplementalDataInfo {
                 if (subtypeDescription != null) {
                     bcp47Descriptions.put(key_subtype, subtypeDescription.replaceAll("\\s+", " "));
                 }
-                if (subtypeDescription != null) {
+                if (subtypeSince != null) {
                     bcp47Since.put(key_subtype, subtypeSince);
                 }
                 if (subtypePreferred != null) {
@@ -1748,7 +1778,7 @@ public class SupplementalDataInfo {
                         String cleaned = SubdivisionNames.isOldSubdivisionCode(item) 
                             ? replacement.replace("-", "").toLowerCase(Locale.ROOT)
                                 : item;
-                        builder.add(cleaned);
+                            builder.add(cleaned);
                     }
                     replacementList = ImmutableList.copyOf(builder);
                 }
@@ -1885,7 +1915,7 @@ public class SupplementalDataInfo {
                 // if (language.equals("en")) {
                 // System.out.println(territory + "\tnewData:\t" + newData + "\tdata:\t" + data);
                 // }
-                
+
                 if (languageTagParser == null) {
                     languageTagParser = new LanguageTagParser();
                 }
@@ -4416,16 +4446,23 @@ public class SupplementalDataInfo {
     public Multimap<String, String> getLanguageGroups() {
         return languageGroups;
     }
-    
+
     public UnitConverter getUnitConverter() {
         return unitConverter;
     }
-    
+
     public RationalParser getRationalParser() {
         return rationalParser;
     }
 
     public UnitPreferences getUnitPreferences() {
         return unitPreferences;
+    }
+
+    /**
+     * locale => GrammaticalTarget => GrammaticalFeature => values
+     */
+    public Map<String, GrammarInfo> getGrammarInfo() {
+        return grammarLocaleToTargetToFeatureToValues;
     }
 }

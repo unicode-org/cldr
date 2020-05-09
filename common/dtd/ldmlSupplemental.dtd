@@ -1237,6 +1237,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@MATCH:set/literal/nominal-->
 <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
     <!--@MATCH:set/validity/language-->
+<!ATTLIST grammaticalFeatures scope NMTOKENS #IMPLIED >
+    <!--@MATCH:set/literal/units-->
 
 <!ELEMENT grammaticalCase EMPTY >
 <!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >

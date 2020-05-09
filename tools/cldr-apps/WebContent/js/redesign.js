@@ -375,10 +375,9 @@ function unpackMenuSideBar(json) {
 
 	// forum link
 	$('#forum-link').click(function() {
-		window.surveyCurrentSpecial = 'forum';
-		surveyCurrentId = '';
-		surveyCurrentPage = '';
-		reloadV();
+		if (cldrStForum) {
+			cldrStForum.reload();
+		}
 	});
 
 	if (surveyCurrentLocale) {

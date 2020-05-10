@@ -191,7 +191,7 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
           set = new UnicodeSet();
           List<String> values = prop.getAvailableValues();
           for (String value : values) {
-            if (patternMatcher.matches(value)) {
+            if (patternMatcher.test(value)) {
               for (String other : values) {
                 if (other.compareTo(value) <= 0) {
                   set.addAll(prop.getSet(other));
@@ -234,7 +234,7 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
             this.comparator = comparator;
           }
 
-        public boolean matches(Object value) {
+        public boolean test(Object value) {
           int comp = comparator.compare(pattern, value.toString());
           switch (relation) {
           case less: return comp < 0;

@@ -20,10 +20,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.util.CollectionUtilities.InverseMatcher;
-import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.SymbolTable;
@@ -352,7 +351,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 }
             }
         }
-        ObjectMatcher<String> matcher = isType(STRING_OR_MISC_MASK) ?
+        Predicate<String> matcher = isType(STRING_OR_MISC_MASK) ?
             new StringEqualityMatcher(propertyValue) : new NameMatcher(propertyValue);
         return getSet(matcher, result);
     }
@@ -386,7 +385,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     public static final String UNUSED = "??";
 
-    public UnicodeSet getSet(ObjectMatcher matcher, UnicodeSet result) {
+    public UnicodeSet getSet(Predicate matcher, UnicodeSet result) {
         if (result == null)
             result = new UnicodeSet();
         boolean uniformUnassigned = hasUniformUnassigned();
@@ -394,7 +393,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             for (UnicodeSetIterator usi = getStuffToTest(uniformUnassigned); usi.next();) { // int i = 0; i <= 0x10FFFF; ++i
                 int i = usi.codepoint;
                 String value = getValue(i);
-                if (value != null && matcher.matches(value)) {
+                if (value != null && matcher.test(value)) {
                     result.add(i);
                 }
             }
@@ -405,7 +404,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         Iterator it = um.getAvailableValues(null).iterator();
         main: while (it.hasNext()) {
             String value = (String) it.next();
-            if (matcher.matches(value)) {  // fastpath
+            if (matcher.test(value)) {  // fastpath
                 um.keySet(value, result);
                 continue main;
             }
@@ -414,8 +413,8 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             while (it2.hasNext()) {
                 String value2 = (String) it2.next();
                 // System.out.println("Values:" + value2);
-                if (matcher.matches(value2)
-                        || matcher.matches(toSkeleton(value2))) {
+                if (matcher.test(value2)
+                        || matcher.test(toSkeleton(value2))) {
                     um.keySet(value, result);
                     continue main;
                 }
@@ -1153,7 +1152,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     }
 
     /** Matches using .equals(). */
-    private static final class StringEqualityMatcher implements ObjectMatcher<String> {
+    private static final class StringEqualityMatcher implements Predicate<String> {
         private final String pattern;
 
         StringEqualityMatcher(String pattern) {
@@ -1161,13 +1160,13 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         @Override
-        public boolean matches(String value) {
+        public boolean test(String value) {
             return pattern.equals(value);
         }
     }
 
     /** Matches skeleton strings. Computes the pattern skeleton only once. */
-    private static final class NameMatcher implements ObjectMatcher<String> {
+    private static final class NameMatcher implements Predicate<String> {
         private final String pattern;
         private final String skeleton;
 
@@ -1177,19 +1176,18 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         @Override
-        public boolean matches(String value) {
+        public boolean test(String value) {
             return pattern.equals(value) || skeleton.equals(toSkeleton(value));
         }
     }
 
     private static final NameMatcher YES_MATCHER = new NameMatcher("Yes");
 
-    public interface PatternMatcher extends ObjectMatcher {
-        public PatternMatcher set(String pattern);
+    public interface PatternMatcher extends Predicate {
+        PatternMatcher set(String pattern);
     }
 
-    public static class InversePatternMatcher extends InverseMatcher implements
-    PatternMatcher {
+    public static class InversePatternMatcher implements PatternMatcher {
         PatternMatcher other;
 
         public PatternMatcher set(PatternMatcher toInverse) {
@@ -1197,8 +1195,8 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return this;
         }
 
-        public boolean matches(Object value) {
-            return !other.matches(value);
+        public boolean test(Object value) {
+            return !other.test(value);
         }
 
         public PatternMatcher set(String pattern) {
@@ -1217,7 +1215,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             this.pattern = pattern;
         }
 
-        public boolean matches(Object value) {
+        public boolean test(Object value) {
             if (comparator == null)
                 return pattern.equals(value);
             return comparator.compare(pattern, value) == 0;
@@ -1237,7 +1235,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return this;
         }
         UFormat foo;
-        public boolean matches(Object value) {
+        public boolean test(Object value) {
             matcher.reset(value.toString());
             return matcher.find();
         }

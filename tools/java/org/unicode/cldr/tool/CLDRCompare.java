@@ -11,8 +11,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-
 public class CLDRCompare {
     public static void main(String[] args) throws Exception {
         String filter = CldrUtility.getProperty("filter", ".*");
@@ -62,13 +60,13 @@ public class CLDRCompare {
                 CLDRFile newCldrFile = null;
                 try {
                     newCldrFile = cldrFactory.make(file, false);
-                    CollectionUtilities.addAll(newCldrFile.iterator(), paths);
+                    newCldrFile.forEach(paths::add);
                 } catch (Exception e) {
                 }
                 CLDRFile oldCldrFile = null;
                 try {
                     oldCldrFile = oldFactory.make(file, false);
-                    CollectionUtilities.addAll(oldCldrFile.iterator(), paths);
+                    oldCldrFile.forEach(paths::add);
                 } catch (Exception e1) {
                 }
 

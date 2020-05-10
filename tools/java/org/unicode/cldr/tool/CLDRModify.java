@@ -69,7 +69,6 @@ import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -525,13 +524,13 @@ public class CLDRModify {
                         testPath = "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/alias";
                         System.out.println(k.getStringValue(testPath));
                         // System.out.println(k.getFullXPath(testPath));
-                        Iterator it4 = k.iterator();
-                        Set s = CollectionUtilities.addAll(it4, new TreeSet());
+                        TreeSet s = new TreeSet();
+                        k.forEach(s::add);
 
                         System.out.println(k.getStringValue(testPath));
                         // if (true) return;
                         Set orderedSet = new TreeSet(k.getComparator());
-                        CollectionUtilities.addAll(k.iterator(), orderedSet);
+                        k.forEach(orderedSet::add);
                         for (Iterator it3 = orderedSet.iterator(); it3.hasNext();) {
                             String path = (String) it3.next();
                             // System.out.println(path);
@@ -2283,7 +2282,7 @@ public class CLDRModify {
         Map<String, ValuePair> haveSameValues = new TreeMap<String, ValuePair>();
         CLDRFile resolvedFile = cldrFactory.make(key, true);
         // get only those paths that are not in "root"
-        CollectionUtilities.addAll(resolvedFile.iterator(), skipPaths);
+        resolvedFile.forEach(skipPaths::add);
 
         // first, collect all the paths
         for (String locale : availableChildren) {

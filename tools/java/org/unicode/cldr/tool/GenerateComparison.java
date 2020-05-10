@@ -20,7 +20,6 @@ import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.Timer;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.Collator;
@@ -163,11 +162,11 @@ public class GenerateComparison {
             Set<String> paths;
             try {
                 paths = new HashSet<String>();
-                CollectionUtilities.addAll(oldFile.iterator(), paths);
+                oldFile.forEach(paths::add);
                 if (oldList.contains(locale)) {
                     paths.addAll(oldFile.getExtraPaths());
                 }
-                CollectionUtilities.addAll(newFile.iterator(), paths);
+                newFile.forEach(paths::add);
                 if (newList.contains(locale)) {
                     paths.addAll(newFile.getExtraPaths());
                 }

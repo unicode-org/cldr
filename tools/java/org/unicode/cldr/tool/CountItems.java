@@ -51,7 +51,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMapIterator;
 import com.ibm.icu.impl.Relation;
@@ -85,35 +85,36 @@ public class CountItems {
         + " America/Los_Angeles America/Phoenix America/Denver America/Chicago America/Indianapolis"
         + " America/New_York";
 
-    static final Map<String, String> country_map = CollectionUtilities.asMap(new String[][] {
-        { "AQ", "http://www.worldtimezone.com/time-antarctica24.php" },
-        { "AR", "http://www.worldtimezone.com/time-south-america24.php" },
-        { "AU", "http://www.worldtimezone.com/time-australia24.php" },
-        { "BR", "http://www.worldtimezone.com/time-south-america24.php" },
-        { "CA", "http://www.worldtimezone.com/time-canada24.php" },
-        { "CD", "http://www.worldtimezone.com/time-africa24.php" },
-        { "CL", "http://www.worldtimezone.com/time-south-america24.php" },
-        { "CN", "http://www.worldtimezone.com/time-cis24.php" },
-        { "EC", "http://www.worldtimezone.com/time-south-america24.php" },
-        { "ES", "http://www.worldtimezone.com/time-europe24.php" },
-        { "FM", "http://www.worldtimezone.com/time-oceania24.php" },
-        { "GL", "http://www.worldtimezone.com/index24.php" },
-        { "ID", "http://www.worldtimezone.com/time-asia24.php" },
-        { "KI", "http://www.worldtimezone.com/time-oceania24.php" },
-        { "KZ", "http://www.worldtimezone.com/time-cis24.php" },
-        { "MH", "http://www.worldtimezone.com/time-oceania24.php" },
-        { "MN", "http://www.worldtimezone.com/time-cis24.php" },
-        { "MX", "http://www.worldtimezone.com/index24.php" },
-        { "MY", "http://www.worldtimezone.com/time-asia24.php" },
-        { "NZ", "http://www.worldtimezone.com/time-oceania24.php" },
-        { "PF", "http://www.worldtimezone.com/time-oceania24.php" },
-        { "PT", "http://www.worldtimezone.com/time-europe24.php" },
-        { "RU", "http://www.worldtimezone.com/time-russia24.php" },
-        { "SJ", "http://www.worldtimezone.com/index24.php" },
-        { "UA", "http://www.worldtimezone.com/time-cis24.php" },
-        { "UM", "http://www.worldtimezone.com/time-oceania24.php" },
-        { "US", "http://www.worldtimezone.com/time-usa24.php" },
-        { "UZ", "http://www.worldtimezone.com/time-cis24.php" }, });
+    static final ImmutableMap<String, String> country_map = ImmutableMap.<String, String>builder()
+        .put("AQ", "http://www.worldtimezone.com/time-antarctica24.php")
+        .put("AR", "http://www.worldtimezone.com/time-south-america24.php")
+        .put("AU", "http://www.worldtimezone.com/time-australia24.php")
+        .put("BR", "http://www.worldtimezone.com/time-south-america24.php")
+        .put("CA", "http://www.worldtimezone.com/time-canada24.php")
+        .put("CD", "http://www.worldtimezone.com/time-africa24.php")
+        .put("CL", "http://www.worldtimezone.com/time-south-america24.php")
+        .put("CN", "http://www.worldtimezone.com/time-cis24.php")
+        .put("EC", "http://www.worldtimezone.com/time-south-america24.php")
+        .put("ES", "http://www.worldtimezone.com/time-europe24.php")
+        .put("FM", "http://www.worldtimezone.com/time-oceania24.php")
+        .put("GL", "http://www.worldtimezone.com/index24.php")
+        .put("ID", "http://www.worldtimezone.com/time-asia24.php")
+        .put("KI", "http://www.worldtimezone.com/time-oceania24.php")
+        .put("KZ", "http://www.worldtimezone.com/time-cis24.php")
+        .put("MH", "http://www.worldtimezone.com/time-oceania24.php")
+        .put("MN", "http://www.worldtimezone.com/time-cis24.php")
+        .put("MX", "http://www.worldtimezone.com/index24.php")
+        .put("MY", "http://www.worldtimezone.com/time-asia24.php")
+        .put("NZ", "http://www.worldtimezone.com/time-oceania24.php")
+        .put("PF", "http://www.worldtimezone.com/time-oceania24.php")
+        .put("PT", "http://www.worldtimezone.com/time-europe24.php")
+        .put("RU", "http://www.worldtimezone.com/time-russia24.php")
+        .put("SJ", "http://www.worldtimezone.com/index24.php")
+        .put("UA", "http://www.worldtimezone.com/time-cis24.php")
+        .put("UM", "http://www.worldtimezone.com/time-oceania24.php")
+        .put("US", "http://www.worldtimezone.com/time-usa24.php")
+        .put("UZ", "http://www.worldtimezone.com/time-cis24.php")
+        .build();
 
     /**
      * Count the data.
@@ -1043,7 +1044,7 @@ public class CountItems {
 
             CLDRFile itemResolved = cldrFactory.make(locale, true);
             temp.clear();
-            CollectionUtilities.addAll(itemResolved.iterator(), temp);
+            itemResolved.forEach(temp::add);
             int resolvedCurrent = temp.size();
 
             System.out.println(locale + "\tPlain:\t" + current + "\tResolved:\t"

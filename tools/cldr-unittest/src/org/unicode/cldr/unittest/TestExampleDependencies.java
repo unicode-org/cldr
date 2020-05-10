@@ -26,7 +26,6 @@ import org.unicode.cldr.util.XMLSource;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestExampleDependencies extends TestFmwk {
 
@@ -99,7 +98,8 @@ public class TestExampleDependencies extends TestFmwk {
         cldrFile.disableCaching();
 
         Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
-        CollectionUtilities.addAll(cldrFile.iterator(), paths); // time-consuming
+        // time-consuming
+        cldrFile.forEach(paths::add);
 
         ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         egTest.setCachingEnabled(false); // will not employ a cache -- this should save some time, since cache would be wasted
@@ -157,7 +157,8 @@ public class TestExampleDependencies extends TestFmwk {
         cldrFile.disableCaching();
 
         Set<String> paths = new TreeSet<String>(cldrFile.getComparator());
-        CollectionUtilities.addAll(cldrFile.iterator(), paths); // time-consuming
+        // time-consuming
+        cldrFile.forEach(paths::add);
 
         ExampleGenerator egBase = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 

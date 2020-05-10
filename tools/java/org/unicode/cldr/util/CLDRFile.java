@@ -64,7 +64,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.util.concurrent.UncheckedExecutionException;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -412,7 +411,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public boolean write(PrintWriter pw, Map<String, ?> options) {
         Set<String> orderedSet = new TreeSet<String>(getComparator());
-        CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
+        dataSource.forEach(orderedSet::add);
 
         String firstPath = null;
         String firstFullPath = null;
@@ -1259,10 +1258,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         Iterator<String> it = (prefix == null || prefix.length() == 0)
             ? dataSource.iterator()
                 : dataSource.iterator(prefix);
-            if (comparator == null) return it;
-            Set<String> orderedSet = new TreeSet<String>(comparator);
-            CollectionUtilities.addAll(it, orderedSet);
-            return orderedSet.iterator();
+        if (comparator == null) return it;
+        Set<String> orderedSet = new TreeSet<String>(comparator);
+        it.forEachRemaining(orderedSet::add);
+        return orderedSet.iterator();
     }
 
     public Iterable<String> fullIterable() {

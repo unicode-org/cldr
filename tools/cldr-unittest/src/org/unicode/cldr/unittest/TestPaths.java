@@ -36,7 +36,6 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestPaths extends TestFmwkPlus {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -46,11 +45,10 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     public void VerifyEnglishVsRoot() {
-        Set<String> rootPaths = CollectionUtilities.addAll(testInfo
-            .getRoot().iterator(),
-            new HashSet<String>());
-        Set<String> englishPaths = CollectionUtilities.addAll(testInfo
-            .getEnglish().iterator(), new HashSet<String>());
+        HashSet<String> rootPaths = new HashSet<String>();
+        testInfo.getRoot().forEach(rootPaths::add);
+        HashSet<String> englishPaths = new HashSet<String>();
+        testInfo.getEnglish().forEach(englishPaths::add);
         englishPaths.removeAll(rootPaths);
         if (englishPaths.size() == 0) {
             return;

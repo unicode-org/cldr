@@ -24,7 +24,6 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -633,7 +632,7 @@ public abstract class MatchValue implements Predicate<String> {
         final List<MatchValue> subtests;
 
         private OrMatchValue(Iterator<MatchValue> iterator) {
-            this.subtests = ImmutableList.copyOf(CollectionUtilities.addAll(iterator, new ArrayList<>()));
+            this.subtests = ImmutableList.copyOf(iterator);
         }
 
         @Override

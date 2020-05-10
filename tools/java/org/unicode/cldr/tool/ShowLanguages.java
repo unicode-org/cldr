@@ -64,10 +64,10 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
@@ -569,13 +569,13 @@ public class ShowLanguages {
         .finishRow();
     }
 
-    static Map<String, String> fixScriptGif = CollectionUtilities.asMap(new String[][] {
-        { "hangul", "hangulsyllables" },
-        { "japanese", "hiragana" },
-        { "unknown or invalid script", "unknown" },
-        { "Hant", "Hant" },
-        { "Hans", "Hans" },
-    });
+    static ImmutableMap<String, String> fixScriptGif = ImmutableMap.<String, String>builder()
+        .put("hangul", "hangulsyllables")
+        .put("japanese", "hiragana")
+        .put("unknown or invalid script", "unknown")
+        .put("Hant", "Hant")
+        .put("Hans", "Hans")
+        .build();
 
     private static String getGifName(String script) {
         String temp = fixScriptGif.get(script);

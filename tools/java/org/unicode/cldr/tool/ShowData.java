@@ -40,7 +40,6 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
@@ -179,13 +178,13 @@ public class ShowData {
 
                 // get all of the paths
                 Set<String> allPaths = new HashSet<>();
-                CollectionUtilities.addAll(file.iterator(), allPaths);
+                file.forEach(allPaths::add);
 
                 if (!locale.equals("root")) {
                     for (String childLocale : children) {
                         CLDRFile childCldrFile = cldrFactory.make(childLocale, false);
                         if (childCldrFile != null) {
-                            CollectionUtilities.addAll(childCldrFile.iterator(), allPaths);
+                            childCldrFile.forEach(allPaths::add);
                         }
                         sublocales.put(childLocale, childCldrFile);
                     }

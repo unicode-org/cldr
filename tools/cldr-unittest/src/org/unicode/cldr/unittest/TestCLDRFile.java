@@ -135,9 +135,17 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testExtraPaths() {
-        for (String path : CLDRConfig.getInstance().getCldrFactory().make("de", false).getExtraPaths()) {
-            if (GrammaticalFeature.pathHasFeature(path) != null) {
-                System.out.println(path);
+        // for debugging
+        final CLDRFile german = CLDRConfig.getInstance().getCldrFactory().make("de", true);
+        System.out.println();
+        Set<String> sorted = new TreeSet<>(german.getExtraPaths());
+        for (String path : sorted) {
+            if (GrammaticalFeature.pathHasFeature(path) != null || path.endsWith("/gender")) {
+                System.out.println(path + "\t" + german.getStringValue(path));
+                String newPath = path.replace("[@case=\"accusative\"]", "");
+                if (!newPath.contentEquals(path) && !sorted.contains(newPath)) {
+                    System.out.println(newPath + "\t" + german.getStringValue(newPath));
+                }
             }
             
         }

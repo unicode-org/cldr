@@ -105,7 +105,7 @@ import com.ibm.icu.util.VersionInfo;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
-    private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalDefiniteness.getDefault(null));
+    private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
      * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different
@@ -3428,7 +3428,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
                 if (!genders.isEmpty()) {
                     for (String unit : GrammarInfo.TRANSLATION_UNITS) {
-                        toAddTo.add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"" + unit + "\"]/gender");
+                        toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender");
                     }
 
                     for (Count plural : pluralCounts) {
@@ -3469,7 +3469,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (gender != null && !gender.equals(GrammaticalFeature.grammaticalGender.getDefault(genders))) {
             grammaticalAttributes += "[@gender=\"" + gender + "\"]";
         }
-        if (case1 != null && !case1.equals(GrammaticalFeature.grammaticalDefiniteness.getDefault(null))) {
+        if (case1 != null && !case1.equals(GrammaticalFeature.grammaticalCase.getDefault(null))) {
             grammaticalAttributes += "[@case=\"" + case1 + "\"]";
         }
         return grammaticalAttributes;

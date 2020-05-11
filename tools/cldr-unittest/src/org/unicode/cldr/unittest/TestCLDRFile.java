@@ -28,6 +28,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -134,6 +135,12 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testExtraPaths() {
+        for (String path : CLDRConfig.getInstance().getCldrFactory().make("de", false).getExtraPaths()) {
+            if (GrammaticalFeature.pathHasFeature(path) != null) {
+                System.out.println(path);
+            }
+            
+        }
 //        Set<String> validUnits = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
 //        validUnits.forEach(System.out::println);
 //        
@@ -457,8 +464,7 @@ public class TestCLDRFile extends TestFmwk {
             Size countOrdinary = new Size();
 
             for (String path : cldrFile.fullIterable()) {
-                String baileyValue = cldrFile.getBaileyValue(path,
-                    pathWhereFound, localeWhereFound);
+                String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
                 String topValue = cldrFileUnresolved.getStringValue(path);
                 String resolvedValue = cldrFile.getStringValue(path);
 
@@ -473,19 +479,31 @@ public class TestCLDRFile extends TestFmwk {
                                 topValue,
                                 resolvedValue);
                     } else {
-                        String locale2 = cldrFile.getSourceLocaleID(path,
-                            status);
-                        assertEquals(
+                        String locale2 = cldrFile.getSourceLocaleID(path, status);
+                        if (!assertEquals(
                             "bailey value≠\t" + locale + "\t" + phf.fromPath(path),
                                 resolvedValue,
-                                baileyValue);
-                        assertEquals(
+                                baileyValue)) {
+                            int debug = 0;
+                            baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
+                            topValue = cldrFileUnresolved.getStringValue(path);
+                            resolvedValue = cldrFile.getStringValue(path);
+                        };
+                        if (!assertEquals(
                             "bailey locale≠\t" + locale + "\t" + phf.fromPath(path),
                                 locale2,
-                                localeWhereFound.value);
-                        assertEquals(
+                                localeWhereFound.value)) {
+                            baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
+                            topValue = cldrFileUnresolved.getStringValue(path);
+                            resolvedValue = cldrFile.getStringValue(path);
+                        }
+                        if (!assertEquals(
                             "bailey path≠\t" + locale + "\t" + phf.fromPath(path),
-                                status.pathWhereFound, pathWhereFound.value);
+                                status.pathWhereFound, pathWhereFound.value)) {
+                            baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
+                            topValue = cldrFileUnresolved.getStringValue(path);
+                            resolvedValue = cldrFile.getStringValue(path);
+                        }
                     }
                 }
 

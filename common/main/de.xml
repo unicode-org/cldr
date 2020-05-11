@@ -7835,6 +7835,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} Tag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} Tage</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
+			<caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
+			<caseMinimalPairs case="genitive">Anstatt {0}, …</caseMinimalPairs>
+			<caseMinimalPairs case="dative">… mit {0} …</caseMinimalPairs>
+			<caseMinimalPairs case="accusative">… für {0} …</caseMinimalPairs>
+            <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>
+            <genderMinimalPairs gender="feminine">Die {0} ist …</genderMinimalPairs>
+            <genderMinimalPairs gender="neuter">Das {0} ist …</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

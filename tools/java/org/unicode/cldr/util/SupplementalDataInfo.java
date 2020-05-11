@@ -4465,4 +4465,15 @@ public class SupplementalDataInfo {
     public Map<String, GrammarInfo> getGrammarInfo() {
         return grammarLocaleToTargetToFeatureToValues;
     }
+    
+    public GrammarInfo getGrammarInfo(String locale) {
+        while (locale != null) {
+            GrammarInfo result = grammarLocaleToTargetToFeatureToValues.get(locale);
+            if (result != null) {
+                return result;
+            }
+            locale = LocaleIDParser.getParent(locale);
+        }
+        return null;
+    }
 }

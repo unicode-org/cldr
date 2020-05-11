@@ -105,7 +105,7 @@ import com.ibm.icu.util.VersionInfo;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
-    private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of("nominative");
+    private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalDefiniteness.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
      * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different
@@ -598,7 +598,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         try {
             String result = dataSource.getValueAtPath(xpath);
             if (result == null && dataSource.isResolving()) {
-                final String fallbackPath = getFallbackPath(xpath, false);
+                final String fallbackPath = getFallbackPath(xpath, false, true);
                 if (fallbackPath != null) {
                     result = dataSource.getValueAtPath(fallbackPath);
                 }
@@ -610,15 +610,25 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
-     * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file.
+     * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file at that path.
+     * If the value is null or INHERITANCE_MARKER (with resolving), then baileyValue = resolved value.
      * A non-resolving CLDRFile will always return null.
      */
     public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         String result = dataSource.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
         if ((result == null || result.equals(CldrUtility.INHERITANCE_MARKER)) && dataSource.isResolving()) {
-            final String fallbackPath = getFallbackPath(xpath, false);
+            final String fallbackPath = getFallbackPath(xpath, false, false); // return null if there is no different sideways path
+            if (xpath.equals(fallbackPath)) {
+                getFallbackPath(xpath, false, true);
+                throw new IllegalArgumentException(); // should never happen
+            }
             if (fallbackPath != null) {
-                result = dataSource.getBaileyValue(fallbackPath, pathWhereFound, localeWhereFound);
+                result = dataSource.getValueAtPath(fallbackPath);
+                if (result != null) {
+                    Status status = new Status();
+                    localeWhereFound.value = dataSource.getSourceLocaleID(fallbackPath, status);
+                    pathWhereFound.value = status.pathWhereFound;
+                }
             }
         }
         return result;
@@ -655,6 +665,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return getBaileyValue(xpath, pathWhereFound, localeWhereFound);
     }
 
+    
     /**
      * Only call if xpath doesn't exist in the current file.
      * <p>
@@ -663,14 +674,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @param xpath
      * @param winning
      *            TODO
+     * @param checkExtraPaths TODO
      * @return
      */
-    private String getFallbackPath(String xpath, boolean winning) {
-        if (xpath.contains("[@count=")) {
+    private String getFallbackPath(String xpath, boolean winning, boolean checkExtraPaths) {
+        if (GrammaticalFeature.pathHasFeature(xpath) != null) {
             return getCountPathWithFallback(xpath, Count.other, winning);
-            // TODO fix  || xpath.contains("[@case=")
         }
-        if (getRawExtraPaths().contains(xpath)) {
+        if (checkExtraPaths && getRawExtraPaths().contains(xpath)) {
             return xpath;
         }
         return null;
@@ -695,14 +706,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             throw new NullPointerException("Null distinguishing xpath");
         }
         String result = dataSource.getFullPath(xpath);
-        if (result == null && dataSource.isResolving()) {
-            String fallback = getFallbackPath(xpath, true);
-            if (fallback != null) {
-                // TODO, add attributes from fallback into main
-                result = xpath;
-            }
-        }
-        return result;
+        return result != null ? result : xpath; // we can't add any non-distinguishing values if there is nothing there.
+//        if (result == null && dataSource.isResolving()) {
+//            String fallback = getFallbackPath(xpath, true);
+//            if (fallback != null) {
+//                // TODO, add attributes from fallback into main
+//                result = xpath;
+//            }
+//        }
+//        return result;
     }
 
     /**
@@ -740,7 +752,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getSourceLocaleIdExtended(String distinguishedXPath, CLDRFile.Status status, boolean skipInheritanceMarker) {
         String result = dataSource.getSourceLocaleIdExtended(distinguishedXPath, status, skipInheritanceMarker);
         if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
-            final String fallbackPath = getFallbackPath(distinguishedXPath, false);
+            final String fallbackPath = getFallbackPath(distinguishedXPath, false, true);
             if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
                 result = dataSource.getSourceLocaleIdExtended(fallbackPath, status, skipInheritanceMarker);
             }
@@ -3405,7 +3417,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
 
         // grammatical info; for now, just add gender for short units; others will inherit
-        GrammarInfo grammarInfo = supplementalData.getGrammarInfo().get(getLocaleID());
+        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID());
         if ("de".equals(getLocaleID())) {
             int debug = 0;
         }
@@ -3422,20 +3434,27 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     for (Count plural : pluralCounts) {
                         for (String gender : genders) {
                             for (String case1 : nomCases) {
-                            final String grammaticalAttributes = getGrammaticalInfoAttributes(plural, gender, case1);
+                            final String grammaticalAttributes = getGrammaticalInfoAttributes(plural, gender, case1, genders);
                             
                             toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1" + grammaticalAttributes);
                             toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1" + grammaticalAttributes);
                             }
                         }
                     }
+                    //             <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>
+                    for (String gender : genders) {
+                        toAddTo.add("//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + gender + "\"]");
+                    }
                 }
                 if (!rawCases.isEmpty()) {
                     for (String case1 : rawCases) {
+                        //          <caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
+                        toAddTo.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
+
                         for (Count plural : pluralCounts) {
                             for (String unit : GrammarInfo.TRANSLATION_UNITS) {
                                 toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
-                                    + getGrammaticalInfoAttributes(plural, null, case1));
+                                    + getGrammaticalInfoAttributes(plural, null, case1, null));
                             }
                         }
                     }
@@ -3445,12 +3464,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return toAddTo;
     }
 
-    public String getGrammaticalInfoAttributes(Count plural, String gender, String case1) {
+    public String getGrammaticalInfoAttributes(Count plural, String gender, String case1, Collection<String> genders) {
         String grammaticalAttributes = "[@count=\"" + plural + "\"]";
-        if (gender != null) {
+        if (gender != null && !gender.equals(GrammaticalFeature.grammaticalGender.getDefault(genders))) {
             grammaticalAttributes += "[@gender=\"" + gender + "\"]";
         }
-        if (case1 != null && !case1.equals("nominative")) {
+        if (case1 != null && !case1.equals(GrammaticalFeature.grammaticalDefiniteness.getDefault(null))) {
             grammaticalAttributes += "[@case=\"" + case1 + "\"]";
         }
         return grammaticalAttributes;
@@ -3505,13 +3524,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
-     * Get the path with the given count.
-     * It acts like there is an alias in root from count=n to count=one,
+     * Get the path with the given count, case, or gender, with fallback. The fallback acts like an alias in root.
+     * <p>Count:</p>
+     * <p>It acts like there is an alias in root from count=n to count=one,
      * then for currency display names from count=one to no count <br>
      * For unitPatterns, falls back to Count.one. <br>
-     * For others, falls back to Count.one, then no count.
-     * <p>
-     * The fallback acts like an alias in root.
+     * For others, falls back to Count.one, then no count.</p>
+     * <p>Case</p>
+     * <p>The fallback is to no case, which = nominative.</p>
+     * <p>Case</p>
+     * <p>The fallback is to no case, which = nominative.</p>
      *
      * @param xpath
      * @param count
@@ -3523,42 +3545,73 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getCountPathWithFallback(String xpath, Count count, boolean winning) {
         String result;
         XPathParts parts = XPathParts.getInstance(xpath); // not frozen, addAttribute in getCountPathWithFallback2
+
+        // In theory we should do all combinations of gender, case, count (and eventually definiteness), but for simplicity
+        // we just successively try "zeroing" each one in a set order.
+        // tryDefault modifies the parts in question
+        Output<String> newPath = new Output<>();
+        if (tryDefault(parts, "gender", null, newPath)) {
+            return newPath.value;
+        }
+
+        if (tryDefault(parts, "case", null, newPath)) {
+            return newPath.value;
+        }
+
         boolean isDisplayName = parts.contains("displayName");
 
-        String intCount = parts.getAttributeValue(-1, "count");
-        if (intCount != null && CldrUtility.DIGITS.containsAll(intCount)) {
-            try {
-                int item = Integer.parseInt(intCount);
-                String locale = getLocaleID();
-                // TODO get data from SupplementalDataInfo...
-                PluralRules rules = PluralRules.forLocale(new ULocale(locale));
-                String keyword = rules.select(item);
-                Count itemCount = Count.valueOf(keyword);
-                result = getCountPathWithFallback2(parts, xpath, itemCount, winning);
-                if (result != null && isNotRoot(result)) {
-                    return result;
+        String actualCount = parts.getAttributeValue(-1, "count");
+        if (actualCount != null) {
+            if (CldrUtility.DIGITS.containsAll(actualCount)) {
+                try {
+                    int item = Integer.parseInt(actualCount);
+                    String locale = getLocaleID();
+                    // TODO get data from SupplementalDataInfo...
+                    PluralRules rules = PluralRules.forLocale(new ULocale(locale));
+                    String keyword = rules.select(item);
+                    Count itemCount = Count.valueOf(keyword);
+                    result = getCountPathWithFallback2(parts, xpath, itemCount, winning);
+                    if (result != null && isNotRoot(result)) {
+                        return result;
+                    }
+                } catch (NumberFormatException e) {
                 }
-            } catch (NumberFormatException e) {
             }
-        }
 
-        // try the given count first
-        result = getCountPathWithFallback2(parts, xpath, count, winning);
-        if (result != null && isNotRoot(result)) {
-            return result;
-        }
-        // now try fallback
-        if (count != Count.other) {
-            result = getCountPathWithFallback2(parts, xpath, Count.other, winning);
+            // try the given count first
+            result = getCountPathWithFallback2(parts, xpath, count, winning);
             if (result != null && isNotRoot(result)) {
                 return result;
             }
+            // now try fallback
+            if (count != Count.other) {
+                result = getCountPathWithFallback2(parts, xpath, Count.other, winning);
+                if (result != null && isNotRoot(result)) {
+                    return result;
+                }
+            }
+            // now try deletion (for currency)
+            if (isDisplayName) {
+                result = getCountPathWithFallback2(parts, xpath, null, winning);
+            }
+            return result;
         }
-        // now try deletion (for currency)
-        if (isDisplayName) {
-            result = getCountPathWithFallback2(parts, xpath, null, winning);
+        return null;
+    }
+
+    /** 
+     * Modify the parts by setting the attribute in question to the default value (typically null to clear). If there is a value for that path, use it.
+     */
+    public boolean tryDefault(XPathParts parts, String attribute, String defaultValue, Output<String> newPath) {
+        String oldValue = parts.getAttributeValue(-1, attribute);
+        if (oldValue != null) {
+            parts.setAttribute(-1, attribute, null);
+            newPath.value = parts.toString();
+            if (dataSource.getValueAtPath(newPath.value) != null) {
+                return true;
+            }
         }
-        return result;
+        return false;
     }
 
     private String getCountPathWithFallback2(XPathParts parts, String xpathWithNoCount,
@@ -3600,7 +3653,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (isNotRoot(winningPath)) {
             return getStringValue(winningPath);
         }
-        String fallbackPath = getFallbackPath(winningPath, true);
+        String fallbackPath = getFallbackPath(winningPath, true, true);
         if (fallbackPath != null) {
             String value = getWinningValue(fallbackPath);
             if (value != null) {
@@ -3759,7 +3812,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
             String result = dataSource.getValueAtPath(xpath);
             if (result == null && dataSource.isResolving()) {
-                final String fallbackPath = getFallbackPath(xpath, false);
+                final String fallbackPath = getFallbackPath(xpath, false, true);
                 if (fallbackPath != null) {
                     result = dataSource.getValueAtPath(fallbackPath);
                 }

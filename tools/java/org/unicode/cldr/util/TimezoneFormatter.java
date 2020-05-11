@@ -173,7 +173,10 @@ public class TimezoneFormatter extends UFormat {
         String temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
         if (temp != null) {
             XPathParts xpp = XPathParts.getFrozenInstance(temp);
-            singleCountriesList = (String) xpp.findAttributeValue("singleCountries", "list");
+            temp = (String) xpp.findAttributeValue("singleCountries", "list");
+            if (temp != null) {
+                singleCountriesList = temp;
+            }
         }
         singleCountriesSet = new TreeSet<String>(CldrUtility.splitList(singleCountriesList, ' '));
     }

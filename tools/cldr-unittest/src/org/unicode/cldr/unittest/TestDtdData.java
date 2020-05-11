@@ -462,7 +462,14 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("parseLenients") && (attribute.equals("scope") || attribute.equals("level")))
                 || (elementName.equals("parseLenient") && attribute.equals("sample"))
                 || (elementName.equals("ordinalMinimalPairs") && attribute.equals("ordinal"))
-                || (elementName.equals("styleName") && attribute.equals("subtype"));
+                || (elementName.equals("styleName") && attribute.equals("subtype"))
+                || (elementName.equals("unitPattern") && attribute.equals("case"))
+                || (elementName.equals("compoundUnitPattern") && attribute.equals("case"))
+                || (elementName.equals("compoundUnitPattern1") && (attribute.equals("case") || attribute.equals("gender")))
+                || (elementName.equals("genderMinimalPairs") && attribute.equals("gender"))
+                || (elementName.equals("caseMinimalPairs") && attribute.equals("case"))
+                ;
+                
         case ldmlBCP47:
             return attribute.equals("_q")
                 //|| attribute.equals("alias")
@@ -569,7 +576,7 @@ public class TestDtdData extends TestFmwk {
                 && (attribute.equals("desired") || attribute.equals("supported"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
                     .equals("variant")))
-                || (elementName.equals("grammaticalFeatures") && (attribute.equals("locales") || attribute.equals("targets")))
+                || (elementName.equals("grammaticalFeatures") && (attribute.equals("locales") || attribute.equals("targets") || attribute.equals("scope")))
                 || (elementName.equals("convertUnit") && (attribute.equals("source") || attribute.equals("target")))
                 || (elementName.equals("unitConstant") && attribute.equals("constant"))
                 || (elementName.equals("unitQuantity") && attribute.equals("baseUnit"))

@@ -1211,9 +1211,10 @@ public final class XPathParts implements Freezable<XPathParts> {
         return null;
     }
 
-    public void setAttribute(int elementIndex, String attributeName, String attributeValue) {
+    public XPathParts setAttribute(int elementIndex, String attributeName, String attributeValue) {
         Element element = elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size());
         element.putAttribute(attributeName, attributeValue);
+        return this;
     }
 
     @Override

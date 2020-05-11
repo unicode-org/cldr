@@ -241,6 +241,10 @@ public class TestExampleGenerator extends TestFmwk {
 
                 if (simplified.contains("null")) {
                     if (true || !seen.contains(javaEscapedStarred)) {
+                        // debug
+                        exampleGenerator.getExampleHtml(path, value);
+                        ExampleGenerator.simplify(example, false);
+                        
                         errln("'null' in message:\t<" + value + ">\t"
                             + simplified + "\t" + javaEscapedStarred);
                         // String example2 =
@@ -637,10 +641,11 @@ public class TestExampleGenerator extends TestFmwk {
             }
             String value = cldrFile.getStringValue(xpath);
             checkPathValue(exampleGenerator, xpath, value, null);
-            if (xpath.contains("count=\"one\"")) {
-                String xpath2 = xpath.replace("count=\"one\"", "count=\"1\"");
-                checkPathValue(exampleGenerator, xpath2, value, null);
-            }
+            // remove this, no longer used
+//            if (xpath.contains("count=\"one\"")) {
+//                String xpath2 = xpath.replace("count=\"one\"", "count=\"1\"");
+//                checkPathValue(exampleGenerator, xpath2, value, null);
+//            }
         }
     }
 

@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
@@ -18,18 +20,34 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     
     public enum GrammaticalTarget {nominal}
 
-    public enum GrammaticalFeature {grammaticalCase("case", "Ⓒ"), grammaticalDefiniteness("definiteness", "Ⓓ"), grammaticalGender("gender", "Ⓖ");
+    public enum GrammaticalFeature {
+        grammaticalCase("case", "Ⓒ", "nominative"), 
+        grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite"), 
+        grammaticalGender("gender", "Ⓖ", "neuter");
+        
         private final String shortName;
         private final String symbol;
-        GrammaticalFeature(String shortName, String symbol) {
+        private final String defaultValue;
+        
+        public static final Pattern PATH_HAS_FEATURE = Pattern.compile("\\[@(count|case|gender|definiteness)=");
+        
+        GrammaticalFeature(String shortName, String symbol, String defaultValue) {
             this.shortName = shortName;
             this.symbol = symbol;
+            this.defaultValue = defaultValue;
         }
         public String getShortName() {
             return shortName;
         }
         public CharSequence getSymbol() {
             return symbol;
+        }
+        public String getDefault(Collection<String> values) {
+            return this == grammaticalGender && !values.contains("neuter") ? "masculine" : defaultValue;
+        }
+        public static Matcher pathHasFeature(String path) {
+            Matcher result = PATH_HAS_FEATURE.matcher(path);
+            return result.find() ? result : null;
         }
     }
 

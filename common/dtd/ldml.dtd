@@ -2471,7 +2471,7 @@ $Revision$
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
     <!--@MATCH:bcp47/nu-->
 
-<!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* ) ) >
+<!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, caseMinimalPairs*, genderMinimalPairs*, special* ) ) >
 <!ATTLIST minimalPairs alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST minimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -2493,6 +2493,23 @@ $Revision$
     <!--@MATCH:literal/variant-->
 <!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+
+<!ELEMENT caseMinimalPairs ( #PCDATA ) >
+<!ATTLIST caseMinimalPairs case NMTOKEN #IMPLIED >
+    <!--@MATCH:any-->
+<!ATTLIST caseMinimalPairs alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST caseMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT genderMinimalPairs ( #PCDATA ) >
+<!ATTLIST genderMinimalPairs gender NMTOKEN #IMPLIED >
+    <!--@MATCH:any-->
+<!ATTLIST genderMinimalPairs alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST genderMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
 
 <!-- ######################################################### -->
 

@@ -464,9 +464,6 @@ public class CldrUtility {
         } else if (source instanceof Collection) {
             // TODO use ImmutableSet, List, ...
             Collection sourceCollection = (Collection) source;
-            if (sourceCollection.isEmpty()) {
-                int debug = 0;
-            }
             Collection<Object> resultCollection = clone(sourceCollection);
             if (resultCollection == null) return (T) sourceCollection; // failed
             resultCollection.clear();

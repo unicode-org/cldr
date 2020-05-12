@@ -18,7 +18,7 @@ public class CheckUnits extends CheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
 
-        if (!path.startsWith("//ldml/units")) {
+        if (value == null || !path.startsWith("//ldml/units")) {
             return this;
         }
         // Note, the following test has some overlaps with the checkAndReplacePlaceholders

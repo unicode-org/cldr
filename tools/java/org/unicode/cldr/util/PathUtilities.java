@@ -44,8 +44,6 @@ public class PathUtilities {
             if (path.startsWith(LOCALEDISPLAYPATTERN_XPATH)) {
                 theMenu = LDMLConstants.LOCALEDISPLAYPATTERN;
             }
-            // } else if(path.startsWith(GREGO_XPATH)) {
-            // theMenu=GREGORIAN_CALENDAR;
         } else if (path.startsWith(OTHER_CALENDARS_XPATH)) {
             String items[] = getCalendarsItems();
             for (String which : items) {

@@ -26,13 +26,6 @@ public class Race {
         resolver = ballotBox.getResolver(xpath);
     }
 
-    private DataTester tester = null;
-
-    public void setTester(DataTester tester) {
-        STFactory.unimp();
-        this.tester = tester;
-    }
-
     // All votes for a particular item
     class Chad implements Comparable<Chad> {
         String value;

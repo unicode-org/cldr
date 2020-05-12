@@ -39,8 +39,6 @@ public class InterestSort extends SortMode {
      */
     @Override
     Membership[] memberships() {
-        // return
-        // (SurveyMain.isPhaseSubmit()||SurveyMain.isPhaseVetting())?submitMemberships:vettingMemberships;
         return memberships;
     }
 

@@ -28,10 +28,8 @@
 				+ "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"
 				+ ctx.sm.getLocaleLink(ctx, dcParent, null)
 				+ "</b> instead.");
-		//                ctx.printHelpLink("/DefaultContent","Help with Default Content");
 		ctx.print("</div>");
 
-		//printLocaleTreeMenu(ctx, which);
 		ctx.sm.printFooter(ctx);
 		return; // Disable viewing of default content
 
@@ -44,7 +42,6 @@
 				+ "</b>. Please make sure that all the changes that you make here are appropriate for <b>"
 				+ dcChildDisplay
 				+ "</b>. If there are multiple acceptable choices, please try to pick the one that would work for the most sublocales. ");
-		//ctx.printHelpLink("/DefaultContent","Help with Default Content");
 		ctx.print("</div>");
 		ctx.redirectToVurl(ctx.vurl(ctx.getLocale(), null, null, null));
 	} else {

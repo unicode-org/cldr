@@ -436,16 +436,20 @@ public class SurveyAjax extends HttpServlet {
                     " group by " + DBUtils.Table.VOTE_VALUE + ".locale order by " + DBUtils.Table.VOTE_VALUE + ".locale desc";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
-                if (user != null && !user.isEmpty())
+                if (user != null && !user.isEmpty()) {
                     try {
-                    u = sm.reg.getInfo(Integer.parseInt(user));
+                        u = sm.reg.getInfo(Integer.parseInt(user));
                     } catch (Throwable t) {
-                    SurveyLog.logException(t, "Parsing user " + user);
+                        SurveyLog.logException(t, "Parsing user " + user);
                     }
-
-                JSONObject query;
-                query = DBUtils.queryToJSON(q1, u.id);
-                r.put("mine", query);
+                }
+                /*
+                 * Avoid NullPointerException: u can be null if you hand-edit the url, e.g., changing the number in '...myvotes.jsp?user=3...';
+                 */
+                if (u != null) {
+                    JSONObject query = DBUtils.queryToJSON(q1, u.id);
+                    r.put("mine", query);
+                }
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
                 JSONWriter r = newJSONStatus(sm);
@@ -747,15 +751,8 @@ public class SurveyAjax extends HttpServlet {
                             JSONArray reports = new JSONArray();
                             for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) {
                                 JSONObject report = new JSONObject();
-
-                                if (m.hasQuery()) {
-                                    report.put("url", m.urlQuery());
-                                    report.put("hasQuery", true);
-                                } else {
-                                    report.put("url", m.urlStub());
-                                    report.put("hasQuery", false);
-                                }
-
+                                report.put("url", m.urlStub());
+                                report.put("hasQuery", false);
                                 report.put("display", m.display());
                                 reports.put(report);
                             }
@@ -906,10 +903,10 @@ public class SurveyAjax extends HttpServlet {
                             r.put("id", userid);
 
                             UserRegistry.User them = sm.reg.getInfo(userid);
-                            if ((them.id == mySession.user.id) || // it's me
+                            if (them != null && ((them.id == mySession.user.id) || // it's me
                                 UserRegistry.userIsTC(mySession.user) ||
                                 (UserRegistry.userIsExactlyManager(mySession.user) &&
-                                    (them.getOrganization() == mySession.user.getOrganization()))) {
+                                    (them.getOrganization() == mySession.user.getOrganization())))) {
                                 r.put("user", JSONWriter.wrap(them));
                             } else {
                                 r.put("err", "No permission to view this user's info");
@@ -1422,7 +1419,6 @@ public class SurveyAjax extends HttpServlet {
 
     private void setupStatus(SurveyMain sm, JSONWriter r) {
         r.put("SurveyOK", "1");
-        // r.put("progress", sm.getTopBox(false));
         try {
             r.put("status", sm.statusJSON());
         } catch (JSONException e) {
@@ -1434,10 +1430,8 @@ public class SurveyAjax extends HttpServlet {
      *  
      * @param sm the SurveyMain
      * @return the JSONWriter
-     * 
-     * Public for use by unit test TestImportOldVotes.
      */
-    public JSONWriter newJSONStatus(SurveyMain sm) {
+    private JSONWriter newJSONStatus(SurveyMain sm) {
         JSONWriter r = newJSON();
         setupStatus(sm, r);
         return r;
@@ -1535,10 +1529,8 @@ public class SurveyAjax extends HttpServlet {
      *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     *
-     * Called locally by processRequest, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public void importOldVotes(JSONWriter r, User user, SurveyMain sm, boolean isSubmit, String val, String loc)
+    private void importOldVotes(JSONWriter r, User user, SurveyMain sm, boolean isSubmit, String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
         r.put("what", WHAT_OLDVOTES);
         if (user == null) {
@@ -1563,8 +1555,6 @@ public class SurveyAjax extends HttpServlet {
      *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
      * @param loc the locale as a string, empty when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     *
-     * Called locally by importOldVotes, and also by unit test TestImportOldVotes.java, therefore public.
      * 
      *  Three ways this function is called:
 
@@ -1573,7 +1563,7 @@ public class SurveyAjax extends HttpServlet {
         (3) loc == 'aa', isSubmit == true: update db based on vote
 
      */
-    public void importOldVotesForValidatedUser(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
+    private void importOldVotesForValidatedUser(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
                String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
 
@@ -1708,10 +1698,9 @@ public class SurveyAjax extends HttpServlet {
      * 
      * @return the number of entries that will be viewable for this locale in the Import Old Votes interface.
      *
-     * Called locally by importOldVotesForValidatedUser and listLocalesForImportOldVotes,
-     * and also ideally by unit test TestImportOldVotes.java, therefore public.
+     * Called locally by importOldVotesForValidatedUser and listLocalesForImportOldVotes
      */
-    public long viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale, 
+    private long viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale, 
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
@@ -1843,7 +1832,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws JSONException
      * @throws SQLException
      *
-     * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
+     * Called locally by importOldVotesForValidatedUser
      * 
      * On the frontend, submitOldVotes is called in response to the user clicking a button
      * set up in addOldvotesType in CldrSurveyVettingLoader.js: submit.on("click",function(e) {...
@@ -1855,7 +1844,7 @@ public class SurveyAjax extends HttpServlet {
      * };
      * That saveList is what we receive here as "val", and expand into "list".
      */
-    public void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
+    private void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
@@ -2097,10 +2086,8 @@ public class SurveyAjax extends HttpServlet {
      * @throws IOException
      * @throws JSONException
      * @throws SQLException
-     *
-     * Called locally by processRequest, and also eventually by unit test TestImportOldVotes.java, therefore public.
      */
-    public int doAutoImportOldWinningVotes(JSONWriter r, User user, SurveyMain sm)
+    private int doAutoImportOldWinningVotes(JSONWriter r, User user, SurveyMain sm)
                throws ServletException, IOException, JSONException, SQLException {
 
         if (alreadyAutoImportedVotes(user.id, "ask")) {

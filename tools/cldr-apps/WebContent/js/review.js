@@ -180,6 +180,12 @@ function showReviewPage(json, showFn) {
 			'For more information, see the ' +
 			'<a href="http://cldr.unicode.org/translation">Information Hub for Linguists</a></p>';
 	}
+	if (cldrStForum) {
+		cldrStForumFilter.setUserId(surveyUser.id);
+		html += "<h3>Forum Summary</h3>\n";
+		html += cldrStForum.getForumSummaryHtml(surveyCurrentLocale);
+		html += "<p><a onclick='cldrStForum.reload();'>Go to Forum</a></p>\n";
+	}
 	notificationsRoot.html(html);
 	showFn(); // calls the flipper to flip to the 'other' page.
 

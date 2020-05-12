@@ -11,7 +11,8 @@
  *
  * Dependencies on external code:
  * window.surveyCurrentLocale, window.surveySessionId, window.surveyUser, window.locmap,
- * createGravitar, stui.str, listenFor, bootstrap.js, reloadV, contextPath, surveyCurrentSpecial, ...
+ * createGravitar, stui.str, listenFor, bootstrap.js, reloadV, contextPath,
+ * surveyCurrentSpecial, showInPop2, hideLoader, ...!
  *
  * TODO: possibly move these functions here from survey.js: showForumStuff, havePosts, updateInfoPanelForumPosts, appendForumStuff;
  * also some/all code from forum.js
@@ -27,10 +28,80 @@ const cldrStForum = (function() {
 	}
 
 	/**
-	 * Mapping from post id to post object, describing the set of
-	 * posts in the most recently parsed json
+	 * The locale, like "fr_CA", for which to show Forum posts.
+	 * This module has persistent data for only one locale at a time, except that sublocales may be
+	 * combined, such as "fr_CA" combined with "fr".
+	 * Caution: the locale for a reply must exactly match the locale for the post to which it's a reply,
+	 * so the locale for a particular post might for example be "fr" even though forumLocale is "fr_CA",
+	 * or vice-versa.
+	 */
+	let forumLocale = null;
+
+	/**
+	 * The time when the posts were last updated from the server
+	 */
+	let forumUpdateTime = null;
+
+	/**
+	 * Mapping from post id to post object, describing the most recently parsed
+	 * full set of posts from the server
 	 */
 	let postHash = {};
+
+	/**
+	 * Fetch the Forum data from the server, and "load" it
+	 *
+	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
+	 * @param forumMessage the forum message
+	 * @param params an object with various properties such as exports, special, flipper, otherSpecial, name, ...
+	 */
+	function loadForum(locale, forumMessage, params) {
+		setLocale(locale);
+		const url = getLoadForumUrl();
+		const errorHandler = function(err) {
+			// const responseText = cldrStAjax.errResponseText(err);
+			params.special.showError(params, null, {err: err, what: "Loading forum data"});
+		};
+		const loadHandler = function(json) {
+			if (json.err) {
+				if (params.special) {
+					params.special.showError(params, json, {what: "Loading forum data"});
+				}
+				return;
+			}
+			// set up the 'right sidebar'
+			showInPop2(forumStr(params.name + "Guidance"), null, null, null, true); /* show the box the first time */
+
+			const ourDiv = document.createElement("div");
+			ourDiv.appendChild(forumCreateChunk(forumMessage, "h4", ""));
+
+			const filterMenu = cldrStForumFilter.createMenu(reloadV);
+			const summaryDiv = document.createElement("div");
+			summaryDiv.innerHTML = '';
+			ourDiv.appendChild(summaryDiv);
+			ourDiv.appendChild(filterMenu);
+			ourDiv.appendChild(document.createElement('hr'));
+			const posts = json.ret;
+			if (posts.length == 0) {
+				ourDiv.appendChild(forumCreateChunk(forumStr("forum_noposts"), "p", "helpContent"));
+			} else {
+				const content = parseContent(posts, 'main');
+				ourDiv.appendChild(content);
+				summaryDiv.innerHTML = getForumSummaryHtml(forumLocale); // after parseContent
+			}
+			// No longer loading
+			hideLoader(null);
+			params.flipper.flipTo(params.pages.other, ourDiv);
+			params.special.handleIdChanged(surveyCurrentId); // rescroll.
+		};
+		const xhrArgs = {
+			url: url,
+			handleAs: 'json',
+			load: loadHandler,
+			error: errorHandler
+		};
+		cldrStAjax.sendXhr(xhrArgs);
+	}
 
 	/**
 	 * Make a new forum post or a reply.
@@ -41,12 +112,11 @@ const cldrStForum = (function() {
 		const isReply = (params.replyTo && params.replyTo >= 0) ? true : false
 		const replyTo = isReply ? params.replyTo : -1;
 		const parentPost = (isReply && params.replyData) ? params.replyData : null;
-		const isOriginalPoster = userIsOriginalPoster(parentPost);
-		const userCanClose = canUserClose(isReply, isOriginalPoster);
-		const locale = params.locale ? params.locale : '';
-		const xpath = params.xpath ? params.xpath : '';
+		const firstPost = parentPost ? getFirstPostInThread(parentPost) : null;
+		const locale = isReply ? firstPost.locale : (params.locale ? params.locale : '');
+		const xpath = isReply ? firstPost.xpath : (params.xpath ? params.xpath : '');
 		const subjectParam = params.subject ? params.subject : '';
-		const html = makePostHtml(isReply, userCanClose, isOriginalPoster, locale, xpath, replyTo);
+		const html = makePostHtml(isReply, firstPost, locale, xpath, replyTo);
 		const subject = makePostSubject(isReply, parentPost, subjectParam);
 
 		openPostWindow(subject, html, parentPost);
@@ -56,13 +126,12 @@ const cldrStForum = (function() {
 	 * Assemble the form and related html elements for creating a forum post
 	 *
 	 * @param isReply is this a reply? True or false
-	 * @param userCanClose true if this user is allowed to close, else false
-	 * @param isOriginalPoster true if the current user is the original poster in the thread
+	 * @param firstPost the original post in the thread
 	 * @param locale the locale string
 	 * @param xpath the xpath string
 	 * @param replyTo the post id of the post being replied to, or -1
 	 */
-	function makePostHtml(isReply, userCanClose, isOriginalPoster, locale, xpath, replyTo) {
+	function makePostHtml(isReply, firstPost, locale, xpath, replyTo) {
 		let html = '';
 
 		html += '<form role="form" id="post-form">';
@@ -70,7 +139,7 @@ const cldrStForum = (function() {
 		html += '<div class="input-group"><span class="input-group-addon">Subject:</span>';
 		html += '<input class="form-control" name="subj" type="text" value=""></div>';
 		html += '<textarea name="text" class="form-control" placeholder="Write your post here"></textarea></div>';
-		html += postStatusMenu(isReply, userCanClose, isOriginalPoster);
+		html += postStatusMenu(isReply, firstPost);
 		html += '<button class="btn btn-success submit-post btn-block">Submit</button>';
 		html += '<input type="hidden" name="forum" value="true">';
 		html += '<input type="hidden" name="_" value="' + locale + '">';
@@ -107,13 +176,12 @@ const cldrStForum = (function() {
 	 * Get the html content for the Status menu
 	 *
 	 * @param isReply true if this post is a reply, else false
-	 * @param userCanClose true if this user is allowed to close, else false
-	 * @param isOriginalPoster true if the current user is the original poster in the thread
+	 * @param firstPost the original post in the thread
 	 * @return the html
 	 *
 	 * Compare SurveyForum.ForumStatus on server
 	 */
-	function postStatusMenu(isReply, userCanClose, isOriginalPoster) {
+	function postStatusMenu(isReply, firstPost) {
 		let content = '<p id="forum-status-area">Status: ';
 
 		content += '<select id="forum-status-menu" required>\n';
@@ -123,33 +191,18 @@ const cldrStForum = (function() {
 			content += '<option value="Request">Request a change</option>\n';
 		}
 		content += '<option value="Question">Ask a question</option>\n';
-		if (isReply && !isOriginalPoster) {
+		if (isReply) {
+			content += '<option value="Information">Information</option>\n';
+		}
+		if (isReply && firstPost && !userIsPoster(firstPost) && firstPost.status === 'Request') {
 			content += '<option value="Agreed">Agree</option>\n';
 			content += '<option value="Disputed">Disagree</option>\n';
 		}
-		if (userCanClose) {
+		if (canUserClose(isReply, firstPost)) {
 			content += '<option value="Closed">Close</option>\n';
 		}
 		content += '</select></p>\n';
 		return content;
-	}
-
-	/**
-	 * Is the current user the original poster in the thread containing this post?
-	 *
-	 * @param post either this post or its parent, for getFirstPostInThread
-	 * @returns true or false
-	 */
-	function userIsOriginalPoster(post) {
-		if (!post) {
-			return false;
-		}
-		if (typeof surveyUser !== 'undefined') {
-			if (surveyUser === getFirstPostInThread(post).poster) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -159,11 +212,26 @@ const cldrStForum = (function() {
 	 * or a TC (technical committee) member.
 	 *
 	 * @param isReply true if this post is a reply, else false
-	 * @param isOriginalPoster true if the current user is the original poster in the thread
+	 * @param firstPost the original post in the thread, or null
 	 * @return true if this user is allowed to close, else false
 	 */
-	function canUserClose(isReply, isOriginalPoster) {
-		return isReply && (isOriginalPoster || userIsTC());
+	function canUserClose(isReply, firstPost) {
+		return isReply && (userIsPoster(firstPost) || userIsTC());
+	}
+
+	/**
+	 * Is the current user the poster of this post?
+	 *
+	 * @param post the post, or null
+	 * @returns true or false
+	 */
+	function userIsPoster(post) {
+		if (post && typeof surveyUser !== 'undefined') {
+			if (surveyUser === post.poster) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -183,7 +251,7 @@ const cldrStForum = (function() {
 	 *
 	 * @param subject the subject string
 	 * @param html the main html for the form
-	 * @param parentPost the post object, if any, to which this is a reply, for display at the bottom of the window 
+	 * @param parentPost the post object, if any, to which this is a reply, for display at the bottom of the window
 	 *
 	 * Reference: Bootstrap.js post-modal: https://getbootstrap.com/docs/4.1/components/modal/
 	 */
@@ -233,55 +301,58 @@ const cldrStForum = (function() {
 	 *
 	 * @param text the non-empty body of the message
 	 * @param forumStatus the status string
-	 *
-	 * NOTE: this function uses JQuery (not Dojo) for ajax
 	 */
 	function reallySubmitPost(text, forumStatus) {
 		$('#post-form button').fadeOut();
 		$('#post-form .input-group').fadeOut(); // subject line
 		$('#forum-status-area').fadeOut();
+
 		const xpath = $('#post-form input[name=xpath]').val();
+		const locale = $('#post-form input[name=_]').val();
 		const url = contextPath + "/SurveyAjax";
 		const replyTo = $('#post-form input[name=replyTo]').val();
 		const subj = $('#post-form input[name=subj]').val();
-		const ajaxParams = {
-			data: {
-				s: surveySessionId,
-				"_": surveyCurrentLocale,
-				replyTo: replyTo,
-				xpath: xpath,
-				text: text,
-				subj: subj,
-				forumStatus: forumStatus,
-				what: "forum_post"
-			},
-			type: "POST",
-			url: url,
-			contentType: "application/x-www-form-urlencoded;",
-			dataType: 'json',
-			success: function(data) {
-				if (data.err) {
-					const post = $('.post').first();
-					post.before("<p class='warn'>error: " + data.err + "</p>");
-				} else if (data.ret && data.ret.length > 0) {
-					const postModal = $('#post-modal');
-					postModal.modal('hide');
-					if (surveyCurrentSpecial && surveyCurrentSpecial === 'forum') {
-						reloadV();
-					} else {
-						updateInfoPanelForumPosts(null);
-					}
-				} else {
-					const post = $('.post').first();
-					post.before("<i>Your post was added, #" + data.postId + " but could not be shown.</i>");
-				}
-			},
-			error: function(err) {
+
+		const errorHandler = function(err) {
+			const responseText = cldrStAjax.errResponseText(err);
+			const post = $('.post').first();
+			post.before("<p class='warn'>error! " + err + " " + responseText + "</p>");
+		};
+		const loadHandler = function(data) {
+			if (data.err) {
 				const post = $('.post').first();
-				post.before("<p class='warn'>error! " + err + "</p>");
+				post.before("<p class='warn'>error: " + data.err + "</p>");
+			} else if (data.ret && data.ret.length > 0) {
+				const postModal = $('#post-modal');
+				postModal.modal('hide');
+				if (surveyCurrentSpecial && surveyCurrentSpecial === 'forum') {
+					reloadV();
+				} else {
+					updateInfoPanelForumPosts(null);
+				}
+			} else {
+				const post = $('.post').first();
+				post.before("<i>Your post was added, #" + data.postId + " but could not be shown.</i>");
 			}
 		};
-		$.ajax(ajaxParams);
+		const postData = {
+			s: surveySessionId,
+			"_": locale,
+			replyTo: replyTo,
+			xpath: xpath,
+			text: text,
+			subj: subj,
+			forumStatus: forumStatus,
+			what: "forum_post"
+		};
+		const xhrArgs = {
+			url: url,
+			handleAs: 'json',
+			load: loadHandler,
+			error: errorHandler,
+			postData: postData
+		};
+		cldrStAjax.sendXhr(xhrArgs);
 	}
 
 	/**
@@ -294,7 +365,8 @@ const cldrStForum = (function() {
 	 *
 	 * TODO: shorten this function by moving code into subroutines. Also, postpone creating
 	 * DOM elements until finished constructing the filtered list of threads, to make the code
-	 * cleaner, faster, and more testable.
+	 * cleaner, faster, and more testable. If context is 'summary', all DOM element creation here
+	 * is a waste of time. 
 	 *
 	 * Threading has been revised, so that the same locale+path can have multiple distinct threads,
 	 * rather than always combining posts with the same locale+path into a single "thread".
@@ -309,23 +381,23 @@ const cldrStForum = (function() {
 		}
 		updatePostHash(posts);
 
-		var postDivs = {}; //  postid -> div
-		var topicDivs = {}; // xpath -> div or "#123" -> div
+		const postDivs = {}; //  postid -> div
+		const topicDivs = {}; // xpath -> div or "#123" -> div
 
 		// next, add threadIds and create the topic divs
 		for (let num in posts) {
-			var post = posts[num];
+			const post = posts[num];
 			post.threadId = getThreadId(post);
 
 			if (!topicDivs[post.threadId]) {
 				// add the topic div
-				var topicDiv = document.createElement('div');
+				const topicDiv = document.createElement('div');
 				topicDiv.className = 'well well-sm postTopic';
-				var topicInfo = forumCreateChunk("", "h4", "postTopicInfo");
+				const topicInfo = forumCreateChunk("", "h4", "postTopicInfo");
 				if (opts.showItemLink) {
 					topicDiv.appendChild(topicInfo);
 					if (post.locale) {
-						var localeLink = forumCreateChunk(locmap.getLocaleName(post.locale), "a", "localeName");
+						const localeLink = forumCreateChunk(locmap.getLocaleName(post.locale), "a", "localeName");
 						if (post.locale != surveyCurrentLocale) {
 							localeLink.href = linkToLocale(post.locale);
 						}
@@ -335,18 +407,18 @@ const cldrStForum = (function() {
 				if (!post.xpath) {
 					topicInfo.appendChild(forumCreateChunk(post2text(post.subject), "span", "topicSubject"));
 				} else if (opts.showItemLink) {
-					var itemLink = forumCreateChunk(forumStr("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
+					const itemLink = forumCreateChunk(forumStr("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
 					itemLink.href = "#/" + post.locale + "//" + post.xpath;
 					topicInfo.appendChild(itemLink);
 					(function(topicInfo) {
-						var loadingMsg = forumCreateChunk(forumStr("loading"), "i", "loadingMsg");
+						const loadingMsg = forumCreateChunk(forumStr("loading"), "i", "loadingMsg");
 						topicInfo.appendChild(loadingMsg);
 						xpathMap.get({
 							hex: post.xpath
 						}, function(o) {
 							if (o.result) {
 								topicInfo.removeChild(loadingMsg);
-								var itemPh = forumCreateChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
+								const itemPh = forumCreateChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
 								itemPh.title = o.result.path;
 								topicInfo.appendChild(itemPh);
 							}
@@ -359,13 +431,13 @@ const cldrStForum = (function() {
 		}
 		// Now, top to bottom, just create the post divs
 		for (let num in posts) {
-			var post = posts[num];
+			const post = posts[num];
 
-			var subpost = forumCreateChunk("", "div", "post");
+			const subpost = forumCreateChunk("", "div", "post");
 			postDivs[post.id] = subpost;
 			subpost.id = "fp" + post.id;
 
-			var headingLine = forumCreateChunk("", "h4", "selected");
+			const headingLine = forumCreateChunk("", "h4", "selected");
 
 			// If post.posterInfo is undefined, don't crash; insert "[Poster no longer active]".
 			if (!post.posterInfo) {
@@ -374,7 +446,7 @@ const cldrStForum = (function() {
 				/*
 				 * TODO: encapsulate "createGravitar" dependency
 				 */
-				var gravitar;
+				let gravitar;
 				if (typeof createGravitar !== 'undefined') {
 					gravitar = createGravitar(post.posterInfo);
 				} else {
@@ -388,7 +460,7 @@ const cldrStForum = (function() {
 				if (typeof surveyUser !== 'undefined' && post.posterInfo.id === surveyUser.id) {
 					headingLine.appendChild(forumCreateChunk(forumStr("user_me"), "span", "forum-me"));
 				} else {
-					var usera = forumCreateChunk(post.posterInfo.name + ' ', "a", "");
+					const usera = forumCreateChunk(post.posterInfo.name + ' ', "a", "");
 					if (post.posterInfo.email) {
 						usera.appendChild(forumCreateChunk("", "span", "glyphicon glyphicon-envelope"));
 						usera.href = "mailto:" + post.posterInfo.email;
@@ -396,15 +468,15 @@ const cldrStForum = (function() {
 					headingLine.appendChild(usera);
 					headingLine.appendChild(document.createTextNode(' (' + post.posterInfo.org + ') '));
 				}
-				var userLevelChunk = forumCreateChunk(forumStr("userlevel_" + post.posterInfo.userlevelName), "span", "userLevelName label-info label");
+				const userLevelChunk = forumCreateChunk(forumStr("userlevel_" + post.posterInfo.userlevelName), "span", "userLevelName label-info label");
 				userLevelChunk.title = forumStr("userlevel_" + post.posterInfo.userlevelName + "_desc");
 				headingLine.appendChild(userLevelChunk);
 			}
-			var date = fmtDateTime(post.date_long);
+			let date = fmtDateTime(post.date_long);
 			if (post.version) {
 				date = "[v" + post.version + "] " + date;
 			}
-			var dateChunk = forumCreateChunk(date, "span", "label label-primary pull-right forumLink");
+			const dateChunk = forumCreateChunk(date, "span", "label label-primary pull-right forumLink");
 			(function(post) {
 				/*
 				 * TODO: encapsulate "listenFor" and "reloadV" dependencies
@@ -429,22 +501,22 @@ const cldrStForum = (function() {
 			headingLine.appendChild(dateChunk);
 			subpost.appendChild(headingLine);
 
-			var subSubChunk = forumCreateChunk("", "div", "postHeaderInfoGroup");
+			const subSubChunk = forumCreateChunk("", "div", "postHeaderInfoGroup");
 			subpost.appendChild(subSubChunk); {
-				var subChunk = forumCreateChunk("", "div", "postHeaderItem");
+				const subChunk = forumCreateChunk("", "div", "postHeaderItem");
 				subSubChunk.appendChild(subChunk);
 				subChunk.appendChild(forumCreateChunk(post2text(post.subject), "b", "postSubject"));
 			}
 
 			// actual text
-			var postText = post2text(post.text);
-			var postContent = forumCreateChunk(postText, "div", "postContent");
+			const postText = post2text(post.text);
+			const postContent = forumCreateChunk(postText, "div", "postContent");
 			subpost.appendChild(postContent);
-			
+
 			subpost.appendChild(forumCreateChunk('【' + post.forumStatus + '】', 'div', ''));
 
 			if (opts.showReplyButton) {
-				var replyButton = forumCreateChunk(forumStr("forum_reply"), "button", "btn btn-default btn-sm");
+				const replyButton = forumCreateChunk(forumStr("forum_reply"), "button", "btn btn-default btn-sm");
 				(function(post) {
 					/*
 					 * TODO: encapsulate "listenFor" dependency
@@ -454,8 +526,10 @@ const cldrStForum = (function() {
 					}
 					listenFor(replyButton, "click", function(e) {
 						openPostOrReply({
-							locale: surveyCurrentLocale,
-							//xpath: '',
+							/*
+							 * Don't specify locale or xpath for reply. Instead they will be set to
+							 * match the original post in the thread.
+							 */
 							replyTo: post.id,
 							replyData: post
 						});
@@ -468,7 +542,7 @@ const cldrStForum = (function() {
 		}
 		// reparent any nodes that we can
 		for (let num in posts) {
-			var post = posts[num];
+			const post = posts[num];
 			if (post.parent != -1) {
 				forumDebug("reparenting " + post.id + " to " + post.parent);
 				if (postDivs[post.parent]) {
@@ -519,12 +593,14 @@ const cldrStForum = (function() {
 	 *   showThreadCount = true to display the number of threads
 	 */
 	function getOptionsForContext(context) {
-		let opts = getDefaultParseOptions();
+		const opts = getDefaultParseOptions();
 		if (context === 'main') {
 			opts.showItemLink = true;
 			opts.showReplyButton = true;
 			opts.applyFilter = true;
 			opts.showThreadCount = true;
+		} else if (context === 'summary') {
+			opts.applyFilter = true;
 		} else if (context === 'info') {
 			opts.showReplyButton = true;
 		} else if (context === 'new') {
@@ -545,7 +621,7 @@ const cldrStForum = (function() {
 	 * @return a new object with the default properties
 	 */
 	function getDefaultParseOptions() {
-		let opts = {};
+		const opts = {};
 		opts.showItemLink = false;
 		opts.showReplyButton = false;
 		opts.fullSet = true;
@@ -563,6 +639,7 @@ const cldrStForum = (function() {
 		for (let num in posts) {
 			postHash[posts[num].id] = posts[num];
 		}
+		forumUpdateTime = Date.now();
 	}
 
 	/**
@@ -574,7 +651,7 @@ const cldrStForum = (function() {
 		if (text === undefined || text === null) {
 			text = "(empty)";
 		}
-		var out = text;
+		let out = text;
 		out = out.replace(/<p>/g, '\n');
 		out = out.replace(/&quot;/g, '"');
 		out = out.replace(/&lt;/g, '<');
@@ -597,7 +674,7 @@ const cldrStForum = (function() {
 		if (!tag) {
 			tag = "span";
 		}
-		var chunk = document.createElement(tag);
+		const chunk = document.createElement(tag);
 		if (className) {
 			chunk.className = className;
 		}
@@ -673,7 +750,7 @@ const cldrStForum = (function() {
 			}
 		});
 		if (showThreadCount) {
-			countEl.innerHTML = threadCount + ' threads';
+			countEl.innerHTML = threadCount + ((threadCount === 1) ? ' thread' : ' threads');
 		}
 		return forumDiv;
 	}
@@ -709,11 +786,141 @@ const cldrStForum = (function() {
 			' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
 	}
 
+	/**
+	 * Get a piece of html text summarizing the current Forum statistics
+	 *
+	 * @param locale the locale string
+	 * @return the html
+	 */
+	function getForumSummaryHtml(locale) {
+		setLocale(locale);
+		return reallyGetForumSummaryHtml(true /* canDoAjax */);
+	}
+
+	/**
+	 * Get a piece of html text summarizing the current Forum statistics
+	 *
+	 * @param canDoAjax true to call loadForumForSummaryOnly if needed, false otherwise; should
+	 *                  be false if the caller is the loadHandler for loadForumForSummaryOnly,
+	 *                  to prevent endless back-and-forth if things go wrong 
+	 * @return the html
+	 */
+	function reallyGetForumSummaryHtml(canDoAjax) {
+		const id = 'forumSummary';
+		let html = "<div id='" + id + "'>\n";
+		if (!forumUpdateTime) {
+			if (canDoAjax) {
+				html += "<p>Loading Forum Summary...</p>\n";
+				loadForumForSummaryOnly(forumLocale, id)
+			} else {
+				html += "<p>Load failed</p>n";
+			}
+		} else {
+			if (FORUM_DEBUG) {
+				html += "<p>Retrieved " + fmtDateTime(forumUpdateTime) + "</p>\n";				
+			}
+			if (cldrStForumFilter) {
+				const c = cldrStForumFilter.getFilteredThreadCounts();
+				html += "<ul>\n";
+				Object.keys(c).forEach(function(k) {
+					html += "<li>" + k + ": " + c[k] + "</li>\n";
+				});
+				html += "</ul>\n";
+			}
+		}
+		html += '</div>\n';
+		return html;
+	}
+
+	/**
+	 * Fetch the Forum data from the server, and show a summary
+	 *
+	 * @param locale the locale
+	 * @param id the id of the element to display the summary
+	 */
+	function loadForumForSummaryOnly(locale, id) {
+		if (typeof cldrStAjax === 'undefined') {
+			return;
+		}
+		setLocale(locale);
+		const url = getLoadForumUrl();
+		const errorHandler = function(err) {
+			const el = document.getElementById(id);
+			if (el) {
+				el.innerHTML = cldrStAjax.errResponseText(err);
+			}
+		};
+		const loadHandler = function(json) {
+			const el = document.getElementById(id);
+			if (!el) {
+				return;
+			}
+			if (json.err) {
+				el.innerHTML = 'Error';
+				return;
+			}
+			const posts = json.ret;
+			parseContent(posts, 'summary');
+			el.innerHTML = reallyGetForumSummaryHtml(false /* do not reload recursively */); // after parseContent
+		};
+		const xhrArgs = {
+			url: url,
+			handleAs: 'json',
+			load: loadHandler,
+			error: errorHandler
+		};
+		cldrStAjax.sendXhr(xhrArgs);
+	}
+
+	/**
+	 * Load or reload the main Forum page
+	 */
+	function reload() {
+		window.surveyCurrentSpecial = 'forum';
+		window.surveyCurrentId = '';
+		window.surveyCurrentPage = '';
+		reloadV();
+	}
+
+	/**
+	 * Get the URL to use for loading the Forum
+	 */
+	function getLoadForumUrl() {
+		if (typeof surveySessionId === 'undefined') {
+			console.log('Error: surveySessionId undefined in getLoadForumUrl');
+			return '';
+		}
+		return 'SurveyAjax?s=' + surveySessionId + '&what=forum_fetch&xpath=0&_=' + forumLocale;
+	}
+
+	/**
+	 * If the given locale is not the one we've already loaded, switch to it,
+	 * initializing data to avoid using data for the wrong locale
+	 *
+	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
+	 */
+	function setLocale(locale) {
+		if (locale !== forumLocale) {
+			forumLocale = locale;
+			forumUpdateTime = null;
+			postHash = {};
+		}
+	}
+
 	/*
 	 * Make only these functions accessible from other files:
 	 */
 	return {
 		openPostOrReply: openPostOrReply,
 		parseContent: parseContent,
+		getForumSummaryHtml: getForumSummaryHtml,
+		loadForum: loadForum,
+		reload: reload,
+		/*
+		 * The following are meant to be accessible for unit testing only:
+		 */
+		test: {
+			postStatusMenu: postStatusMenu,
+		}
 	};
 })();

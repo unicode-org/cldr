@@ -46,18 +46,13 @@ public class SurveyForum {
      */
     private ConcurrentHashMap<Integer, ForumStatus> allStatus = new ConcurrentHashMap<Integer, ForumStatus>();
 
-    public static String DB_FORA = "sf_fora"; // forum name -> id
-    public static String DB_READERS = "sf_readers"; //
+    private static String DB_FORA = "sf_fora"; // forum name -> id
 
-    public static String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for selects.
+    private static String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for selects.
 
-    /* --------- FORUM ------------- */
-    static final String F_FORUM = "forum";
+    private static final String F_FORUM = "forum";
+
     public static final String F_XPATH = "xpath";
-    static final String F_DO = "d";
-    static final String F_VIEW = "view";
-
-    static final String POST_SPIEL = "Post a comment to other vetters. (Don't use this to report SurveyTool issues or propose data changes: use the bug forms.)";
 
     /**
      * prepare text for posting
@@ -104,12 +99,8 @@ public class SurveyForum {
      */
     public static final int NO_PARENT = -1;
 
-    /**
-     * May return
-     * @param forum
-     * @return forum number, or BAD_FORUM or NO_FORUM
-     */
-    private synchronized int getForumNumber(String forum) {
+    private synchronized int getForumNumber(CLDRLocale locale) {
+        String forum = localeToForum(locale);
         if (forum.length() == 0) {
             return NO_FORUM; // all forums
         }
@@ -117,18 +108,12 @@ public class SurveyForum {
         if ((forum == null) || (forum.indexOf('_') >= 0) || !sm.isValidLocale(CLDRLocale.getInstance(forum))) {
             return BAD_FORUM;
         }
-
-        // now with that out of the way..
         Integer i = (Integer) nameToNum.get(forum);
         if (i == null) {
             return createForum(forum);
         } else {
             return i.intValue();
         }
-    }
-
-    private int getForumNumber(CLDRLocale locale) {
-        return getForumNumber(localeToForum(locale));
     }
 
     private int getForumNumberFromDB(String forum) {
@@ -239,19 +224,8 @@ public class SurveyForum {
     }
 
     /**
-     * 
-     * @param replyTo
-     * @return
-     * 
-     * Called by doXpathPost and by doPost
-     */
-    private int getXpathForPost(int replyTo) {
-        int base_xpath;
-        base_xpath = DBUtils.sqlCount("select xpath from " + DBUtils.Table.FORUM_POSTS + " where id=?", replyTo); // default to -1
-        return base_xpath;
-    }
-
-    /**
+     * Send email notification to a set of users
+     *
      * @param ctx
      * @param forum
      * @param base_xpath
@@ -509,6 +483,12 @@ public class SurveyForum {
         }
     }
 
+    /**
+     * Get the status of the post with the given id
+     *
+     * @param postId
+     * @return the ForumStatus
+     */
     private ForumStatus getStatusOfPost(int postId) {
         ForumStatus forumStatus = allStatus.get(postId);
         if (forumStatus == null) {
@@ -546,10 +526,9 @@ public class SurveyForum {
     /**
      * Called by SM to create the reg
      *
-     * @param xlogger
-     *            the logger to use
-     * @param ourConn
-     *            the conn to use
+     * @param xlogger the logger to use
+     * @param ourConn the conn to use
+     * @return the SurveyForum
      */
     public static SurveyForum createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm)
         throws SQLException {
@@ -762,20 +741,17 @@ public class SurveyForum {
         return localeToForum(locale.toULocale());
     }
 
-    private static String forumUrl(WebContext ctx, String forum) {
-        return (ctx.base() + "?" + F_FORUM + "=" + forum);
-    }
-
     /**
      *
      * @param ctx
      * @param forum
      * @return
      *
-     * Possibly called by tmpl/usermenu.jsp
+     * Possibly called by tmpl/usermenu.jsp -- maybe dead code?
      */
     public static String forumLink(WebContext ctx, String forum) {
-        return "<a " + ctx.atarget(WebContext.TARGET_DOCS) + " class='forumlink' href='" + forumUrl(ctx, forum) + "' >" // title='"+title+"'
+        String url = ctx.base() + "?" + F_FORUM + "=" + forum;
+        return "<a " + ctx.atarget(WebContext.TARGET_DOCS) + " class='forumlink' href='" + url + "' >" // title='"+title+"'
             + "Forum" + "</a>";
     }
 
@@ -924,7 +900,9 @@ public class SurveyForum {
     }
 
     private void assertCanAccessForum(CookieSession session, CLDRLocale locale) throws SurveyException {
-        if (session == null || session.user == null) throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
+        if (session == null || session.user == null) {
+            throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
+        }
         assertCanAccessForum(session.user, locale);
     }
 
@@ -974,7 +952,7 @@ public class SurveyForum {
             replyTo = NO_PARENT;
             base_xpath = sm.xpt.getXpathIdOrNoneFromStringID(xpath);
         } else {
-            base_xpath = getXpathForPost(replyTo); // base_xpath is ignored on replies.
+            base_xpath = DBUtils.sqlCount("select xpath from " + DBUtils.Table.FORUM_POSTS + " where id=?", replyTo); // default to -1
         }
         final boolean couldFlagOnLosing = couldFlagOnLosing(mySession.user, sm.xpt.getById(base_xpath), l) && !sm.getSTFactory().getFlag(l, base_xpath);
 
@@ -1005,8 +983,9 @@ public class SurveyForum {
         CLOSED(0, "Closed"),
         QUESTION(1, "Question"),
         REQUEST(2, "Request"),
-        DISPUTED(2, "Disputed"),
-        AGREED(3, "Agreed");
+        INFORMATION(3, "Information"),
+        AGREED(4, "Agreed"),
+        DISPUTED(5, "Disputed");
 
         ForumStatus(int id, String name) {
             this.id = id;

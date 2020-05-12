@@ -4460,12 +4460,15 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * locale => GrammaticalTarget => GrammaticalFeature => values
+     * locales that have grammar info
      */
-    public Map<String, GrammarInfo> getGrammarInfo() {
-        return grammarLocaleToTargetToFeatureToValues;
+    public Set<String> hasGrammarInfo() {
+        return grammarLocaleToTargetToFeatureToValues.keySet();
     }
     
+    /**
+     * Grammar info for locales, with inheritance
+     */
     public GrammarInfo getGrammarInfo(String locale) {
         while (locale != null) {
             GrammarInfo result = grammarLocaleToTargetToFeatureToValues.get(locale);

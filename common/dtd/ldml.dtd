@@ -2416,7 +2416,7 @@ $Revision$
 <!ELEMENT unitPattern ( #PCDATA ) >
 <!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >
 <!ATTLIST unitPattern case (NMTOKENS) #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, prepositional, sociative, vocative-->
 <!ATTLIST unitPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST unitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -2496,7 +2496,7 @@ $Revision$
 
 <!ELEMENT caseMinimalPairs ( #PCDATA ) >
 <!ATTLIST caseMinimalPairs case NMTOKEN #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, prepositional, sociative, vocative-->
 <!ATTLIST caseMinimalPairs alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST caseMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -2504,7 +2504,7 @@ $Revision$
 
 <!ELEMENT genderMinimalPairs ( #PCDATA ) >
 <!ATTLIST genderMinimalPairs gender NMTOKEN #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:literal/animate, common, feminine, inanimate, masculine, neuter, personal-->
 <!ATTLIST genderMinimalPairs alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST genderMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -2541,7 +2541,7 @@ $Revision$
 
 <!ELEMENT gender ( #PCDATA ) >
 <!ATTLIST gender alt NMTOKENS #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:literal/animate, common, feminine, inanimate, masculine, neuter, personal-->
 <!ATTLIST gender draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
@@ -2583,9 +2583,9 @@ $Revision$
 <!ELEMENT compoundUnitPattern1 ( #PCDATA ) >
 <!ATTLIST compoundUnitPattern1 count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
 <!ATTLIST compoundUnitPattern1 gender NMTOKENS #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:literal/animate, common, feminine, inanimate, masculine, neuter, personal-->
 <!ATTLIST compoundUnitPattern1 case NMTOKENS #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, prepositional, sociative, vocative-->
 <!ATTLIST compoundUnitPattern1 alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST compoundUnitPattern1 draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -2595,7 +2595,7 @@ $Revision$
 
 <!ELEMENT compoundUnitPattern ( #PCDATA ) >
 <!ATTLIST compoundUnitPattern case NMTOKENS #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, prepositional, sociative, vocative-->
 <!ATTLIST compoundUnitPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST compoundUnitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

@@ -449,7 +449,9 @@ public class CldrUtility {
             Map<Object,Object> sourceMap = (Map) source;
             ImmutableMap.Builder<Object,Object> builder = ImmutableMap.builder();
             for (Entry<Object,Object> entry : sourceMap.entrySet()) {
-                builder.put(protectCollection(entry.getKey()), protectCollection(entry.getValue()));
+                final Object key = entry.getKey();
+                final Object value = entry.getValue();
+                builder.put(protectCollection(key), protectCollection(value));
             }
             return (T) builder.build();
         } else if (source instanceof Multimap) {
@@ -462,6 +464,9 @@ public class CldrUtility {
         } else if (source instanceof Collection) {
             // TODO use ImmutableSet, List, ...
             Collection sourceCollection = (Collection) source;
+            if (sourceCollection.isEmpty()) {
+                int debug = 0;
+            }
             Collection<Object> resultCollection = clone(sourceCollection);
             if (resultCollection == null) return (T) sourceCollection; // failed
             resultCollection.clear();

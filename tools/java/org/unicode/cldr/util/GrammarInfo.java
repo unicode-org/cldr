@@ -2,35 +2,34 @@ package org.unicode.cldr.util;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
 import com.ibm.icu.util.Freezable;
 
 public class GrammarInfo implements Freezable<GrammarInfo>{
-    
+
     public enum GrammaticalTarget {nominal}
 
     public enum GrammaticalFeature {
         grammaticalCase("case", "Ⓒ", "nominative"), 
         grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite"), 
         grammaticalGender("gender", "Ⓖ", "neuter");
-        
+
         private final String shortName;
         private final String symbol;
         private final String defaultValue;
-        
+
         public static final Pattern PATH_HAS_FEATURE = Pattern.compile("\\[@(count|case|gender|definiteness)=");
-        
+
         GrammaticalFeature(String shortName, String symbol, String defaultValue) {
             this.shortName = shortName;
             this.symbol = symbol;
@@ -53,22 +52,49 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
 
     public enum GrammaticalScope {general, units};
 
-    private Map<GrammaticalTarget, Map<GrammaticalFeature, Multimap<GrammaticalScope,String>>> targetToFeatureToUsageToValues = new TreeMap<>();
+    private Map<GrammaticalTarget, Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>>> targetToFeatureToUsageToValues = new TreeMap<>();
     private boolean frozen = false;
 
     public void add(GrammaticalTarget target, GrammaticalFeature feature, GrammaticalScope usage, String value) {
-        Map<GrammaticalFeature, Multimap<GrammaticalScope, String>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
+        Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
         if (featureToUsageToValues == null) {
-            targetToFeatureToUsageToValues.put(target, featureToUsageToValues = new LinkedHashMap<>());
+            targetToFeatureToUsageToValues.put(target, featureToUsageToValues = new TreeMap<>());
         }
         if (feature != null) {
-            Multimap<GrammaticalScope, String> usageToValues = featureToUsageToValues.get(feature);
+            Map<GrammaticalScope,Set<String>> usageToValues = featureToUsageToValues.get(feature);
             if (usageToValues == null) {
-                featureToUsageToValues.put(feature, usageToValues = LinkedHashMultimap.create());
+                featureToUsageToValues.put(feature, usageToValues = new TreeMap<>());
             }
-            usageToValues.put(usage, value);
+            Set<String> values = usageToValues.get(usage);
+            if (values == null) {
+                usageToValues.put(usage, values = new TreeSet<>());
+            }
+            if (value != null) {
+                values.add(value);
+            } else {
+                int debug = 0;
+            }
         }
     }
+
+    public void add(GrammaticalTarget target, GrammaticalFeature feature, GrammaticalScope usage, Collection<String> valueSet) {
+        Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
+        if (featureToUsageToValues == null) {
+            targetToFeatureToUsageToValues.put(target, featureToUsageToValues = new TreeMap<>());
+        }
+        if (feature != null) {
+            Map<GrammaticalScope,Set<String>> usageToValues = featureToUsageToValues.get(feature);
+            if (usageToValues == null) {
+                featureToUsageToValues.put(feature, usageToValues = new TreeMap<>());
+            }
+            Set<String> values = usageToValues.get(usage);
+            if (values == null) {
+                usageToValues.put(usage, values = new TreeSet<>());
+            }
+            values.addAll(valueSet);
+        }
+    }
+
 
     /**
      * Note: when there is known to be no features, the featureRaw will be null
@@ -77,18 +103,16 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         for (String targetString : SupplementalDataInfo.split_space.split(targetsRaw)) {
             GrammaticalTarget target = GrammaticalTarget.valueOf(targetString);
             if (featureRaw == null) {
-                add(target, null, null, null);
+                add(target, null, null, (String)null);
             } else {
                 final GrammaticalFeature feature = GrammaticalFeature.valueOf(featureRaw);
 
                 List<String> usages = usagesRaw == null ? Collections.singletonList(GrammaticalScope.general.toString()) : SupplementalDataInfo.split_space.splitToList(usagesRaw);
 
-                List<String> values = valuesRaw == null ? null : SupplementalDataInfo.split_space.splitToList(valuesRaw);
+                List<String> values = valuesRaw == null ? Collections.emptyList() : SupplementalDataInfo.split_space.splitToList(valuesRaw);
                 for (String usageRaw : usages) {
                     GrammaticalScope usage = GrammaticalScope.valueOf(usageRaw);
-                    for (String value : values) {
-                        add(target, feature, usage, value);
-                    }
+                    add(target, feature, usage, values);
                 }
             }
         }
@@ -102,8 +126,12 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     @Override
     public GrammarInfo freeze() {
         if (!frozen) {
+            Map<GrammaticalTarget, Map<GrammaticalFeature, Map<GrammaticalScope, Set<String>>>> temp = CldrUtility.protectCollection(targetToFeatureToUsageToValues);
+            if (!temp.equals(targetToFeatureToUsageToValues)) {
+                throw new IllegalArgumentException();
+            }
+            targetToFeatureToUsageToValues = temp;
             frozen = true;
-            targetToFeatureToUsageToValues = CldrUtility.protectCollection(targetToFeatureToUsageToValues);
         }
         return this;
     }
@@ -111,43 +139,66 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     @Override
     public GrammarInfo cloneAsThawed() {
         GrammarInfo result = new GrammarInfo();
-        this.forEach((t,f,u,v) -> result.add(t,f,u,v));
+        this.forEach3((t,f,u,v) -> result.add(t,f,u,v));
         return result;
     }
-    
-    static interface Handler<T,F,U,V> {
+
+    static interface Handler4<T,F,U,V> {
         void apply(T t, F f, U u, V v);
     }
-    
-    public void forEach(Handler<GrammaticalTarget, GrammaticalFeature, GrammaticalScope, String> handler) {
-        for (Entry<GrammaticalTarget, Map<GrammaticalFeature, Multimap<GrammaticalScope, String>>> entry1 : targetToFeatureToUsageToValues.entrySet()) {
+
+    public void forEach(Handler4<GrammaticalTarget, GrammaticalFeature, GrammaticalScope, String> handler) {
+        for (Entry<GrammaticalTarget, Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>>> entry1 : targetToFeatureToUsageToValues.entrySet()) {
             GrammaticalTarget target = entry1.getKey();
-            final Map<GrammaticalFeature, Multimap<GrammaticalScope, String>> featureToUsageToValues = entry1.getValue();
+            final Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = entry1.getValue();
             if (featureToUsageToValues.isEmpty()) {
                 handler.apply(target, null, null, null);
             } else 
-                for (Entry<GrammaticalFeature, Multimap<GrammaticalScope, String>> entry2 : featureToUsageToValues.entrySet()) {
+                for (Entry<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> entry2 : featureToUsageToValues.entrySet()) {
                     GrammaticalFeature feature = entry2.getKey();
-                    for (Entry<GrammaticalScope, String> entry3 : entry2.getValue().entries()) {
+                    for (Entry<GrammaticalScope, Set<String>> entry3 : entry2.getValue().entrySet()) {
                         final GrammaticalScope usage = entry3.getKey();
-                        final String value = entry3.getValue();
-                        handler.apply(target, feature, usage, value);
+                        for (String value : entry3.getValue()) {
+                            handler.apply(target, feature, usage, value);
+                        }
+                    }
+                }
+        }
+    }
+
+    static interface Handler3<T,F,U, V> {
+        void apply(T t, F f, U u, V v);
+    }
+
+    public void forEach3(Handler3<GrammaticalTarget, GrammaticalFeature, GrammaticalScope, Collection<String>> handler) {
+        for (Entry<GrammaticalTarget, Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>>> entry1 : targetToFeatureToUsageToValues.entrySet()) {
+            GrammaticalTarget target = entry1.getKey();
+            final Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = entry1.getValue();
+            if (featureToUsageToValues.isEmpty()) {
+                handler.apply(target, null, null, null);
+            } else 
+                for (Entry<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> entry2 : featureToUsageToValues.entrySet()) {
+                    GrammaticalFeature feature = entry2.getKey();
+                    for (Entry<GrammaticalScope, Set<String>> entry3 : entry2.getValue().entrySet()) {
+                        final GrammaticalScope usage = entry3.getKey();
+                        final Collection<String> values = entry3.getValue();
+                        handler.apply(target, feature, usage, values);
                     }
                 }
         }
     }
 
     public Collection<String> get(GrammaticalTarget target, GrammaticalFeature feature, GrammaticalScope usage) {
-        Map<GrammaticalFeature, Multimap<GrammaticalScope, String>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
+        Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
         if (featureToUsageToValues == null) {
             return Collections.emptySet();
         }
-        Multimap<GrammaticalScope, String> usageToValues = featureToUsageToValues.get(feature);
+        Map<GrammaticalScope,Set<String>> usageToValues = featureToUsageToValues.get(feature);
         if (usageToValues == null) {
             return Collections.emptySet(); 
         }
         Collection<String> result = usageToValues.get(usage);
-        return result.isEmpty() 
+        return result == null 
             ? usageToValues.get(GrammaticalScope.general) 
                 : result; 
     }
@@ -155,14 +206,24 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     public boolean hasInfo(GrammaticalTarget target) {
         return targetToFeatureToUsageToValues.containsKey(target);
     }
-    
+
     @Override
     public String toString() {
+        return toString("\n");
+    }
+    public String toString(String lineSep) {
         StringBuilder result = new StringBuilder();
-        this.forEach((t,f,u,v) -> result.append("\t" + t + "\t" + f + "\t" + u + "\t" + v + "\n"));
+        this.forEach3((t,f,u, v) ->
+        {
+            result.append(lineSep);
+            result.append("{" + (t == null ? "" : t.toString()) + "}"
+                + "\t{" + (f == null ? "" : f.toString()) + "}"
+                + "\t{" +  (u == null ? "" : u.toString()) + "}"
+                + "\t{" +  (v == null ? "" : Joiner.on(' ').join(v)) + "}");
+        });
         return result.toString();
     }
-    
+
     /**
      * TODO: change this to be data-file driven
      */
@@ -177,7 +238,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         "volume-pinch", 
         "volume-quart-imperial",
         "volume-pint-imperial",
-        
+
         "acceleration-meter-per-square-second", "area-acre", "area-hectare", 
         "area-square-centimeter", "area-square-foot", "area-square-kilometer", "area-square-mile", "concentr-percent", "consumption-mile-per-gallon", 
         "consumption-mile-per-gallon-imperial", "duration-day", "duration-hour", "duration-minute", "duration-month", "duration-second", "duration-week", 

@@ -33,6 +33,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -64,6 +68,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -88,6 +93,8 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
+    private static final boolean DEBUG = true;
+
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final StandardCodes STANDARD_CODES = testInfo
@@ -190,8 +197,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     && !counts.contains(count)) {
                     assertTrue(
                         locale
-                            + "\t pluralRanges categories must be valid for locale:\t"
-                            + count + " must be in " + counts,
+                        + "\t pluralRanges categories must be valid for locale:\t"
+                        + count + " must be in " + counts,
                         !pluralRanges.isExplicitlySet(count));
                 }
                 for (Count end : Count.values()) {
@@ -418,7 +425,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     }
                     assertFalse(
                         "Rule '" + rule + "' for " + Arrays.asList(locales)
-                            + " doesn't contain 'within'",
+                        + " doesn't contain 'within'",
                         rule.contains("within"));
                 }
             }
@@ -437,25 +444,25 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             { "en", "other", "4", "1000-9999, 1000.0, 1000.1, 1000.2, …" },
             { "hr", "one", "1", "1, 0.1, 2.10, 1.1, …" },
             { "hr", "one", "2",
-                "21, 31, 41, 51, 61, 71, …, 10.1, 12.10, 11.1, …" },
+            "21, 31, 41, 51, 61, 71, …, 10.1, 12.10, 11.1, …" },
             { "hr", "one", "3",
-                "101, 121, 131, 141, 151, 161, …, 100.1, 102.10, 101.1, …" },
+            "101, 121, 131, 141, 151, 161, …, 100.1, 102.10, 101.1, …" },
             { "hr", "one", "4",
-                "1001, 1021, 1031, 1041, 1051, 1061, …, 1000.1, 1002.10, 1001.1, …" },
+            "1001, 1021, 1031, 1041, 1051, 1061, …, 1000.1, 1002.10, 1001.1, …" },
             { "hr", "few", "1", "2-4, 0.2, 0.3, 0.4, …" },
             { "hr", "few", "2",
-                "22-24, 32-34, 42-44, …, 10.2, 10.3, 10.4, …" },
+            "22-24, 32-34, 42-44, …, 10.2, 10.3, 10.4, …" },
             { "hr", "few", "3",
-                "102-104, 122-124, 132-134, …, 100.2, 100.3, 100.4, …" },
+            "102-104, 122-124, 132-134, …, 100.2, 100.3, 100.4, …" },
             { "hr", "few", "4",
-                "1002-1004, 1022-1024, 1032-1034, …, 1000.2, 1000.3, 1000.4, …" },
+            "1002-1004, 1022-1024, 1032-1034, …, 1000.2, 1000.3, 1000.4, …" },
             { "hr", "other", "1", "0, 5-9, 0.0, 0.5, 0.6, …" },
             { "hr", "other", "2",
-                "10-20, 25-30, 35-40, …, 10.0, 10.5, 10.6, …" },
+            "10-20, 25-30, 35-40, …, 10.0, 10.5, 10.6, …" },
             { "hr", "other", "3",
-                "100, 105-120, 125-130, 135-140, …, 100.0, 100.5, 100.6, …" },
+            "100, 105-120, 125-130, 135-140, …, 100.0, 100.5, 100.6, …" },
             { "hr", "other", "4",
-                "1000, 1005-1020, 1025-1030, 1035-1040, …, 1000.0, 1000.5, 1000.6, …" }, };
+            "1000, 1005-1020, 1025-1030, 1035-1040, …, 1000.0, 1000.5, 1000.6, …" }, };
         for (String[] row : tests) {
             PluralInfo plurals = SUPPLEMENTAL.getPlurals(row[0]);
             SampleList uset = plurals.getSamples9999(Count.valueOf(row[1]),
@@ -627,7 +634,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
         if (!ruleToExceptions.isEmpty()) {
             System.out
-                .println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
+            .println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
             for (Entry<String, String> entry : ruleToExceptions.entrySet()) {
                 System.out.println(entry.getValue() + "\t// " + entry.getKey());
             }
@@ -797,9 +804,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> current12preferred = new HashSet<String>();
 
         boolean haveWorld = false;
-        
+
         ImmutableSet<HourStyle> oldSchool = ImmutableSet.copyOf(EnumSet.of(HourStyle.H, HourStyle.h, HourStyle.K, HourStyle.k));
-        
+
         for (Entry<String, PreferredAndAllowedHour> e : timeData.entrySet()) {
             String region = e.getKey();
             if (region.equals("001")) {
@@ -808,10 +815,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             regionsSoFar.add(region);
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
             assertNotNull("Preferred must not be null", preferredAndAllowedHour.preferred);
-            
+
             // find first h or H
             HourStyle found = null;
-            
+
             for (HourStyle item : preferredAndAllowedHour.allowed) {
                 if (oldSchool.contains(item)) {
                     found = item;
@@ -819,7 +826,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         String message = "Inconsistent values for " + region + ": preferred=" + preferredAndAllowedHour.preferred
                             + " but that isn't the first " + oldSchool + " in allowed: " + preferredAndAllowedHour.allowed;
                         //if (!logKnownIssue("cldrbug:11448", message)) {
-                            errln(message);
+                        errln(message);
                         //}
                     }
                     break;
@@ -877,7 +884,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> only24lang = new TreeSet<String>(
             Arrays.asList(("sq, br, bu, ca, hr, cs, da, de, nl, et, eu, fi, "
                 + "fr, gl, he, is, id, it, nb, pt, ro, ru, sr, sk, sl, sv, tr, hy")
-                    .split(",\\s*")));
+                .split(",\\s*")));
         // With the new preferences, this is changed 
         Set<String> only24region = new TreeSet<String>();
         Set<String> either24or12region = new TreeSet<String>();
@@ -1329,6 +1336,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     private static final Date LIMIT_FOR_NEW_CURRENCY = new Date(
         new Date().getYear() - 5, 1, 1);
     private static final Date NOW = new Date();
+
     private Matcher oldMatcher = Pattern.compile(
         "\\bold\\b|\\([0-9]{4}-[0-9]{4}\\)", Pattern.CASE_INSENSITIVE)
         .matcher("");
@@ -1376,7 +1384,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 final Date end = dateInfo.getEnd();
                 if (dateInfo.getErrors().length() != 0) {
                     logln("parsing " + territory + "\t" + dateInfo.toString()
-                        + "\t" + dateInfo.getErrors());
+                    + "\t" + dateInfo.getErrors());
                 }
                 Date firstValue = currencyFirstValid.get(currency);
                 if (firstValue == null || firstValue.compareTo(start) < 0) {
@@ -1472,7 +1480,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
         }
         logln("Non-Modern Codes (with dates): " + nonModernCurrencyCodes.size()
-            + "\t" + nonModernCurrencyCodes);
+        + "\t" + nonModernCurrencyCodes);
         for (String currency : nonModernCurrencyCodes.keySet()) {
             final String name = testInfo.getEnglish().getName(
                 CLDRFile.CURRENCY_NAME, currency);
@@ -1655,7 +1663,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             CoverageIssue needsCoverage = testLocales.contains(locale)
                 ? CoverageIssue.error
-                : CoverageIssue.log;
+                    : CoverageIssue.log;
             CoverageIssue needsCoverage2 = needsCoverage == CoverageIssue.error ? CoverageIssue.warn : needsCoverage;
 
             //            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga locales")) {
@@ -1707,7 +1715,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     .keyValuesSet()) {
                     if (entry.getValue().size() != 1) {
                         errOrLog(needsCoverage, locale + "\t" + type + "\t duplicate samples: " + entry.getValue()
-                            + " => «" + entry.getKey() + "»", "cldrbug:7119", "Some duplicate minimal pairs");
+                        + " => «" + entry.getKey() + "»", "cldrbug:7119", "Some duplicate minimal pairs");
                         errOrLog(needsCoverage2, failureCases.toString());
                     }
                 }
@@ -1880,5 +1888,36 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             tempNames.add(testInfo.getEnglish().getName(CLDRFile.LANGUAGE_NAME, langCode) + " (" + langCode + ")");
         }
         return tempNames;
+    }
+
+    public void TestGrammarInfo() {
+        Multimap<String,String> allValues = TreeMultimap.create();
+        for (String locale : SUPPLEMENTAL.hasGrammarInfo()) {
+            if (locale.contentEquals("tr")) {
+                int debug = 0;
+            }
+            GrammarInfo grammarInfo = SUPPLEMENTAL.getGrammarInfo(locale);
+            for (GrammaticalTarget target : GrammaticalTarget.values()) {
+                for (GrammaticalFeature feature : GrammaticalFeature.values()) {
+                    Collection<String> general = grammarInfo.get(target, feature, GrammaticalScope.general);
+                    for (GrammaticalScope scope : GrammaticalScope.values()) {
+                        Collection<String> units = grammarInfo.get(target, feature, scope);
+                        allValues.putAll(target + "/" + feature + "/" + scope, units);
+                        if (scope != GrammaticalScope.general) {
+                            assertTrue(general + " > " + scope + " " + units, general.containsAll(units));
+                        }
+                    }
+                }
+            }
+            if (DEBUG) {
+                System.out.println(grammarInfo.toString("\n" + locale + "\t"));
+            }
+        }
+        if (DEBUG) {
+            System.out.println();
+            for (Entry<String, Collection<String>> entry : allValues.asMap().entrySet()) {
+                System.out.println(entry.getKey() + "\t" + Joiner.on(", ").join(entry.getValue()));
+            }
+        }
     }
 }

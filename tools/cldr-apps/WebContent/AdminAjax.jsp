@@ -26,15 +26,10 @@
             sess.put("lastBrowserCallMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastBrowserCallMillisSinceEpoch()));
             sess.put("lastActionMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastActionMillisSinceEpoch()));
             sess.put("millisTillKick", cs.millisTillKick());
-			//			sess.put("locales",new JSONArray().put(cs.getLocales().keys()));
 			users.put(cs.id, sess);
 		}
 		new JSONWriter(out).object().key("users").value(users)
 				.endObject();
-// 	} else if (action.equals("verifycheckout")) {
-// 		CLDRConfig cconfig = CLDRConfig.getInstance();
-		
-// 		CookieSession.sm.ensureOrCheckout(out, "CLDR_DIR", new java.io.File(cconfig.getProperty("CLDR_DIR")), SurveyMain.CLDR_DIR_REPOS);
 	} else if (action.equals("unlink")) {
 		String s= request.getParameter("s");
 		CookieSession cs = CookieSession.retrieveWithoutTouch(s);
@@ -120,10 +115,8 @@
         java.io.Reader r = request.getReader();
         int ch;
         while((ch = r.read())>-1) {
-//                       System.err.println("[post read] >> " + Integer.toHexString(ch));
              sb.append((char)ch);
         }
-   //     System.err.println(request.getMethod() + " len " + request.getContentLength() + "type"+ request.getContentType() + "[ chars="+sb+"]");
           CLDRConfig cci = (CLDRConfig.getInstance());
           cci.setProperty(setting,sb.toString());
           settings.put("ok", true);

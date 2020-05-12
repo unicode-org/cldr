@@ -8,8 +8,6 @@ String helpLink = subCtx.getString("helpLink");
 String helpName = subCtx.getString("helpName");
 
         String doWhat = subCtx.field(SurveyMain.QUERY_DO);
-
-        //        subCtx.println("The SurveyTool is in phase <b><span title='"+phase().name()+"'>"+phase().toString()+"</span></b> for version <b>"+getNewVersion()+"</b><br>" );
 %>
 
     <div class='manageSubpages'>
@@ -42,8 +40,6 @@ String helpName = subCtx.getString("helpName");
 	        <% } 
             if(UserRegistry.userIsTC(subCtx.session.user)) {
                 SurveyMain.printMenu(subCtx, doWhat, "list", "Manage&nbsp;Users", SurveyMain.QUERY_DO);
-                // subCtx.print(" | ");
-                //              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
             } else {
                 if(UserRegistry.userIsVetter(subCtx.session.user)) {
                     SurveyMain.printMenu(subCtx, doWhat, "list", "List " + subCtx.session.user.org + " Users", subCtx.sm.QUERY_DO);
@@ -51,7 +47,6 @@ String helpName = subCtx.getString("helpName");
                     subCtx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + subCtx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
             }
-            // SurveyMain.printMenu(subCtx, doWhat, "disputed", "Dispute Resolution", SurveyMain.QUERY_DO); 
             if(SurveyMain.isPhaseReadonly()) {
                 subCtx.println("<br>(The SurveyTool is in a read-only state, no changes may be made.)");
             } else if(SurveyMain.isPhaseVetting() 

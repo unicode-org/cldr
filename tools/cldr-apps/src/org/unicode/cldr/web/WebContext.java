@@ -1357,15 +1357,6 @@ public class WebContext implements Cloneable, Appendable {
         return locale;
     }
 
-    /**
-     * @return display name of current locale if set
-     * @see #getLocale()
-     * @see SurveyMain#getLocaleDisplayName(CLDRLocale)
-     */
-    public String getLocaleDisplayName() {
-        return getLocaleDisplayName(getLocale());
-    }
-
     // Display Context Data
     protected Boolean canModify = null;
 

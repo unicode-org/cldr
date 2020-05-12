@@ -2017,7 +2017,7 @@ public class UserRegistry {
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
         if (localeList == null || isAllLocales(localeList))
             return s; // empty
-//        Set<CLDRLocale> topLocs = SurveyMain.getTopLocalesSet();
+
         Set<CLDRLocale> allLocs = SurveyMain.getLocalesSet();
         CLDRLocale locs[] = tokenizeCLDRLocale(localeList);
         for (CLDRLocale l : locs) {

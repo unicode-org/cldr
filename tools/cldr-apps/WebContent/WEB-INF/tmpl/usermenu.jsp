@@ -80,6 +80,10 @@ String helpName = ctx.getString("helpName");
     		} else {
     			ctx.print(" <smaller>Coverage: "+curSetting+"</smaller>");
     		}
+            /*
+             * It's possible to reach here, for example by going to http://localhost:8080/cldr-apps/survey?do=list
+             * after logging in as admin
+             */
     		ctx.print(" | ");
             if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  ctx.sm.getSTFactory().haveFlags()) { 
             	ctx.println(ctx.iconHtml("flag", "(flagged items"));

@@ -837,9 +837,6 @@ public class TestSTFactory extends TestFmwk {
             SurveyMain.fileBaseA = new File(CLDRPaths.BASE_DIRECTORY, "common/annotations/").getAbsolutePath();
             SurveyMain.fileBaseASeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
 
-            SurveyMain.setFileBaseOld(CLDRPaths.BASE_DIRECTORY);
-            // sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose
-            // vetting
             SurveyLog.logger = Logger.getAnonymousLogger();
 
             et0 = new ElapsedTimer("setup DB");
@@ -857,16 +854,6 @@ public class TestSTFactory extends TestFmwk {
             et0 = new ElapsedTimer("close connection");
             DBUtils.closeDBConnection(conn);
             logln(et0.toString());
-            // sm.vet = Vetting.createTable(sm.logger, sm);
-
-            // CLDRDBSourceFactory fac = new CLDRDBSourceFactory(sm,
-            // sm.fileBase, Logger.getAnonymousLogger(), cacheDir);
-            // logln("Setting up DB");
-            // sm.setDBSourceFactory(fac);ignore
-            // fac.setupDB(DBUtils.getInstance().getDBConnection());
-            // logln("Vetter Ready (this will take a while..)");
-            // fac.vetterReady(TestAll.getProgressIndicator(this));
-
             et0 = new ElapsedTimer("Set up STFactory");
             gFac = sm.getSTFactory();
             logln(et0.toString());

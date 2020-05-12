@@ -27,4 +27,4 @@ if(menu==null) {
 }
 
 %>
-<%= SurveyMain.getMenu(ctx,which,menu,title,key,null) %>
+<%= SurveyMain.getMenu(ctx,which,menu,title,key) %>

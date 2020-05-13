@@ -716,7 +716,7 @@ abstract public class CheckCLDR {
             patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear, 
             invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods, 
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
-            badParseLenient, tooManyValues, invalidSymbol;
+            badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

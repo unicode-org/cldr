@@ -626,8 +626,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 result = dataSource.getValueAtPath(fallbackPath);
                 if (result != null) {
                     Status status = new Status();
-                    localeWhereFound.value = dataSource.getSourceLocaleID(fallbackPath, status);
-                    pathWhereFound.value = status.pathWhereFound;
+                    if (localeWhereFound != null) {
+                        localeWhereFound.value = dataSource.getSourceLocaleID(fallbackPath, status);
+                    }
+                    if (pathWhereFound != null) {
+                        pathWhereFound.value = status.pathWhereFound;
+                    }
                 }
             }
         }

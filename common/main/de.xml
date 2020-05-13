@@ -8737,9 +8737,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} Bushel</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>Gallonen</displayName>
-				<unitPattern count="one">{0} Gallone</unitPattern>
-				<unitPattern count="other">{0} Gallonen</unitPattern>
+                <gender>feminine</gender>
+                <displayName draft="provisional">Britische Gallone</displayName>
+                <unitPattern count="one" draft="provisional">{0} britische Gallone</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} britische Gallonen</unitPattern>
+                <unitPattern count="one" case="accusative" draft="provisional">{0} britische Gallone</unitPattern>
+                <unitPattern count="other" case="accusative" draft="provisional">{0} britische Gallonen</unitPattern>
+                <unitPattern count="one" case="dative" draft="provisional">{0} britischen Gallone</unitPattern>
+                <unitPattern count="other" case="dative" draft="provisional">{0} britischen Gallonen</unitPattern>
+                <unitPattern count="one" case="genitive" draft="provisional">{0} britischen Gallone</unitPattern>
+                <unitPattern count="other" case="genitive" draft="provisional">{0} britischer Gallonen</unitPattern>
 				<perUnitPattern>{0} pro Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">

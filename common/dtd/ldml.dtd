@@ -2415,7 +2415,7 @@ $Revision$
 
 <!ELEMENT unitPattern ( #PCDATA ) >
 <!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >
-<!ATTLIST unitPattern case (NMTOKENS) #IMPLIED >
+<!ATTLIST unitPattern case NMTOKENS #IMPLIED >
     <!--@MATCH:literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, prepositional, sociative, vocative-->
 <!ATTLIST unitPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->

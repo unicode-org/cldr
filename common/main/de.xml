@@ -8738,22 +8738,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-gallon">
                 <gender>feminine</gender>
+                <displayName>Gallone</displayName>
+                <unitPattern count="one">{0} Gallone</unitPattern>
+                <unitPattern count="other">{0} Gallonen</unitPattern>
+				<perUnitPattern>{0} pro Gallone</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+                <gender>feminine</gender>
                 <displayName draft="provisional">Imp. Gallone</displayName>
                 <unitPattern count="one" draft="provisional">{0} Imp. Gallone</unitPattern>
-                <unitPattern count="other" draft="provisional">{0} Imp. Gallone</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} Imp. Gallonen</unitPattern>
                 <unitPattern count="one" case="accusative" draft="provisional">{0} britische Gallone</unitPattern>
                 <unitPattern count="other" case="accusative" draft="provisional">{0} britische Gallonen</unitPattern>
                 <unitPattern count="one" case="dative" draft="provisional">{0} britischen Gallone</unitPattern>
                 <unitPattern count="other" case="dative" draft="provisional">{0} britischen Gallonen</unitPattern>
                 <unitPattern count="one" case="genitive" draft="provisional">{0} britischen Gallone</unitPattern>
                 <unitPattern count="other" case="genitive" draft="provisional">{0} britischer Gallonen</unitPattern>
-				<perUnitPattern>{0} pro Gallone</perUnitPattern>
-			</unit>
-			<unit type="volume-gallon-imperial">
-				<displayName>Imp. Gallone</displayName>
-				<unitPattern count="one">{0} Imp. Gallone</unitPattern>
-				<unitPattern count="other">{0} Imp. Gallonen</unitPattern>
-				<perUnitPattern>{0} pro Imp. Gallone</perUnitPattern>
+				<perUnitPattern draft="provisional">{0} pro Imp. Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>Quart</displayName>

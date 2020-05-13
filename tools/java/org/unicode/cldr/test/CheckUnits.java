@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -27,7 +28,7 @@ public class CheckUnits extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         GrammarInfo grammarInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(cldrFileToCheck.getLocaleID());
-        genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+        genders = grammarInfo == null ? Collections.emptySet() : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
         return this;
     }
     

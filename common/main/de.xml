@@ -7834,14 +7834,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} Tag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} Tage</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
-			<caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
-			<caseMinimalPairs case="genitive">Anstatt {0}, …</caseMinimalPairs>
-			<caseMinimalPairs case="dative">… mit {0} …</caseMinimalPairs>
-			<caseMinimalPairs case="accusative">… für {0} …</caseMinimalPairs>
-            <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>
-            <genderMinimalPairs gender="feminine">Die {0} ist …</genderMinimalPairs>
-            <genderMinimalPairs gender="neuter">Das {0} ist …</genderMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="provisional">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="provisional">{0} kostet €3,50.</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="provisional">Anstatt {0}, …</caseMinimalPairs>
+			<caseMinimalPairs case="dative" draft="provisional">… mit {0} …</caseMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="provisional">… für {0} …</caseMinimalPairs>
+            <genderMinimalPairs gender="masculine" draft="provisional">{0}, der zu viel ist, …</genderMinimalPairs>
+            <genderMinimalPairs gender="feminine" draft="provisional">{0}, die zu viel ist, …</genderMinimalPairs>
+            <genderMinimalPairs gender="neuter" draft="provisional">{0}, das zu viel ist, …</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -8738,9 +8738,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-gallon">
                 <gender>feminine</gender>
-                <displayName draft="provisional">Britische Gallone</displayName>
-                <unitPattern count="one" draft="provisional">{0} britische Gallone</unitPattern>
-                <unitPattern count="other" draft="provisional">{0} britische Gallonen</unitPattern>
+                <displayName draft="provisional">Imp. Gallone</displayName>
+                <unitPattern count="one" draft="provisional">{0} Imp. Gallone</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} Imp. Gallone</unitPattern>
                 <unitPattern count="one" case="accusative" draft="provisional">{0} britische Gallone</unitPattern>
                 <unitPattern count="other" case="accusative" draft="provisional">{0} britische Gallonen</unitPattern>
                 <unitPattern count="one" case="dative" draft="provisional">{0} britischen Gallone</unitPattern>

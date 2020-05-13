@@ -188,6 +188,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         }
     }
 
+    /** Returns null if there is no known information. Otherwise returns the information for the locale (which may be empty if there are no variants) */
     public Collection<String> get(GrammaticalTarget target, GrammaticalFeature feature, GrammaticalScope usage) {
         Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = targetToFeatureToUsageToValues.get(target);
         if (featureToUsageToValues == null) {

@@ -69,28 +69,35 @@ function showReviewPage(json, showFn) {
 	var notifications = json.allNotifications;
 	var menuRoot = $('#itemInfo');
 	var hidden = json.hidden;
-	var menuDom = $(document.createElement('ul')).addClass('nav nav-pills nav-stacked affix menu-review');
 	var direction = json.direction;
 	var lastVersion = surveyVersion - 1;
 
 	// populate menu
 	var activeMenu = true;
+	let sidebarHtml = ''
 	$.each(menuData, function(index, element) {
-		var html = '';
 		// activate this menu first
 		if (activeMenu) {
-			html += '<li class="active">';
+			sidebarHtml += '<li class="active">';
 			activeMenu = false;
 		} else {
-			html += '<li>';
+			sidebarHtml += '<li>';
 		}
 		// inactivate the one with no element
-		html += '<a href="#' + element.name + '">';
-		html += element.name.replace('_', ' ') + ' (<span class="remaining-count">0</span>/<span class="total-count">' +
+		sidebarHtml += '<a href="#' + element.name + '">';
+		sidebarHtml += element.name.replace('_', ' ') + ' (<span class="remaining-count">0</span>/<span class="total-count">' +
 			element.count + '</span>)<div class="pull-right"><span class="glyphicon glyphicon-info-sign help-review-pop" data-content="' +
 			element.description + '"></span></div></a></li>';
-		menuDom.append(html);
 	});
+
+	if (cldrStForum) {
+		const userId = (surveyUser && surveyUser.id) ? surveyUser.id : 0;
+		sidebarHtml += "<li><a id='dashToForum' onclick='cldrStForum.reload();'>Forum</a></li>\n";
+		sidebarHtml += "<li>" + cldrStForum.getForumSummaryHtml(surveyCurrentLocale, userId) + "</li>\n";
+	}
+	const menuDom = document.createElement('ul');
+	menuDom.className = 'nav nav-pills nav-stacked affix menu-review';
+	menuDom.innerHTML = sidebarHtml;
 
 	// populate body
 	var html = '';
@@ -180,12 +187,6 @@ function showReviewPage(json, showFn) {
 			'For more information, see the ' +
 			'<a href="http://cldr.unicode.org/translation">Information Hub for Linguists</a></p>';
 	}
-	if (cldrStForum) {
-		cldrStForumFilter.setUserId(surveyUser.id);
-		html += "<h3>Forum Summary</h3>\n";
-		html += cldrStForum.getForumSummaryHtml(surveyCurrentLocale);
-		html += "<p><a onclick='cldrStForum.reload();'>Go to Forum</a></p>\n";
-	}
 	notificationsRoot.html(html);
 	showFn(); // calls the flipper to flip to the 'other' page.
 
@@ -196,6 +197,9 @@ function showReviewPage(json, showFn) {
 
 	// hack to solve anchor issue
 	$('#itemInfo .nav a').click(function(event) {
+		if (event.target.id === 'dashToForum') {
+			return;
+		}
 		var href = $(this).attr('href').replace('#', '');
 		var aTag = $('#' + href);
 		if (aTag.length) {
@@ -258,6 +262,9 @@ function refreshCounter() {
 	menus.each(function(index) {
 		var element = $(this);
 		var href = element.attr('href');
+		if (!href) {
+			return; // skip, dashToForum
+		}
 		var id = href.slice(1, href.length);
 		var selection = $('div[data-type="' + id + '"] tr.data-review');
 		var total = selection.length;

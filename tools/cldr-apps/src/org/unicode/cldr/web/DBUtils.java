@@ -1568,13 +1568,13 @@ public class DBUtils {
         /* These constants represent names and other attributes of database tables.
          * 
          * The (false, false) constructor makes isVersioned, hasBeta both false for
-         * the FORUM_POSTS and FORUM_STATUS tables: these tables are not version-specific.
+         * the FORUM_POSTS and FORUM_TYPES tables: these tables are not version-specific.
          *
          * The LOCKED_XPATHS(false, true) constructor makes isVersioned, hasBeta both false.
          *
          * Other constants here have default constructor equivalent to (true, true).
          */
-        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS(false, false), FORUM_STATUS(false, false),
+        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS(false, false), FORUM_TYPES(false, false),
         REVIEW_HIDE, REVIEW_POST, IMPORT, IMPORT_AUTO, LOCKED_XPATHS(false, false);
 
         /**

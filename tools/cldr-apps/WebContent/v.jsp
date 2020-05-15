@@ -13,6 +13,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
     %>
     <head>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/CldrStForum.css" />
     <title>SurveyTool | Offline.</title>
     </head>
     <body>
@@ -30,6 +31,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
     <head>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/redesign.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/CldrStForum.css" />
     <%@include file="/WEB-INF/jspf/bootstrap_css.jspf" %>
     <title>Survey Tool | Starting</title>
 <% if(request.getParameter("_STARTINGUP")==null) { %>
@@ -199,6 +201,7 @@ if(false) { // if we need to redirect for some reason..
 <meta name="gigabot" content="noarchive">
 <meta name="gigabot" content="nofollow">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/surveytool.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/CldrStForum.css" />
 <%
 	// TODO: when v.jsp includes ajax_status.js, avoid redundant links for bootstrap, surveytool.css, redesign.css
 %>

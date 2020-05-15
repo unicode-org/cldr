@@ -18,24 +18,44 @@
 			this.timeout(5000);
 
 			const posts = json.ret;
-
 			assert(posts != null, "posts is not null");
 
 			const content = cldrStForum.parseContent(posts, 'info');
-
 			assert(content != null, "content is not null");
 
 			assert.equal(content.childElementCount, 1065, "content has 1065 children");
 
 			assert(content.firstChild != null, "first child is not null");
-
 			assert.equal(content.firstChild.id, "fthr_fr_CA|45347");
+			const s1 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:26Closetest"
+				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:28Closetest reply blah!Discuss";
+			assert.equal(normalizeWhitespace(content.firstChild.textContent), normalizeWhitespace(s1));
 
-			const s = "n "
-				+ "(Gaeilge) userlevel_tc[v38] 2020-02-06 12:26Reviewtest【Closed】forum_replyn "
-				+ "(Gaeilge) userlevel_tc[v38] 2020-02-06 12:28Re: Reviewtest reply blah!【Closed】forum_reply";
+			const firstSibling = content.firstChild.nextSibling;
+			assert(firstSibling != null, "first sibling is not null");
+			assert.equal(firstSibling.id, "fthr_fr_CA|45346");
+			const s2 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:20CloseFUrthermoreDiscuss";
+			assert.equal(normalizeWhitespace(firstSibling.textContent), normalizeWhitespace(s2));
 
-			assert.equal(normalizeWhitespace(s), normalizeWhitespace(content.firstChild.textContent));
+			const secondSibling = firstSibling.nextSibling;
+			assert(secondSibling != null, "second sibling is not null");
+			assert.equal(secondSibling.id, "fthr_fr_CA|45343");
+			const s3 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:17Closetest"
+				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:18CloseOK, replying to test in Dashboard"
+				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:19CloseAnd replying to replyDiscuss";
+			assert.equal(normalizeWhitespace(secondSibling.textContent), normalizeWhitespace(s3));
+
+			const thirdSibling = secondSibling.nextSibling;
+			assert(thirdSibling != null, "third sibling is not null");
+			assert.equal(thirdSibling.id, "fthr_fr_CA|45341");
+			const s4 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:12CloseAnd another post from Dashboard."
+				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:14CloseAnd another reply, this time from Dashboard Fix pop-up!!!Discuss";
+			assert.equal(normalizeWhitespace(thirdSibling.textContent), normalizeWhitespace(s4));
+
+			assert(content.lastChild != null, "last child is not null");
+			assert.equal(content.lastChild.id, "fthr_fr|363");
+			const sLast = "n (Microsoft) userlevel_vetter[v28] 2015-05-19 11:58Close...Discuss";
+			assert.equal(normalizeWhitespace(content.lastChild.textContent), normalizeWhitespace(sLast));
 		});
 	});
 
@@ -64,24 +84,6 @@
 
 		it('should contain angle brackets', function() {
 			assert((htmlStr.indexOf('<') !== -1) && (htmlStr.indexOf('>') !== -1), 'does contain angle brackets');
-		});
-	});
-
-	describe('cldrStForum.test.postStatusMenu', function() {
-		const html = cldrStForum.test.postStatusMenu();
-
-		it('should not return null or empty', function() {
-			assert((html != null && html !== ''), "html is neither null nor empty");
-		});
-
-		it('should return good html', function() {
-			assert(markupParsesOk(html, 'text/html'), 'parses OK as text/html');
-		});
-
-		// not xml: status menu uses "<select required>". Could make it "<select required='required'>".
-
-		it('should contain angle brackets', function() {
-			assert((html.indexOf('<') !== -1) && (html.indexOf('>') !== -1), 'does contain angle brackets');
 		});
 	});
 

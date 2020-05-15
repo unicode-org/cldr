@@ -1031,11 +1031,11 @@ public class SurveyAjax extends HttpServlet {
 
         final String subj = SurveyForum.HTMLSafe(request.getParameter("subj"));
         final String text = SurveyForum.HTMLSafe(request.getParameter("text"));
-        final String status = SurveyForum.HTMLSafe(request.getParameter("forumStatus"));
+        final String postType = SurveyForum.HTMLSafe(request.getParameter("postType"));
 
         final int replyTo = getIntParameter(request, "replyTo", SurveyForum.NO_PARENT);
 
-        final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, status, replyTo);
+        final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, postType, replyTo);
 
         r.put("postId", postId);
         if (postId > 0) {

@@ -1237,6 +1237,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "minute", "minute-short", "minute-narrow",
         "second", "second-short", "second-narrow",
         "zone", "zone-short", "zone-narrow").freeze();
+    
+    /* TODO: change this to be data-file driven. Can do with new Unit preferences info; also put them in a more meaningful order (metric vs other; size) */
+    
     static MapComparator<String> unitOrder = new MapComparator<String>().add(
         "acceleration-g-force", "acceleration-meter-per-square-second",
         "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
@@ -1245,6 +1248,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "area-dunam",
         "concentr-karat",
         "concentr-milligram-per-deciliter", "concentr-millimole-per-liter",
+        "concentr-item",
+        "concentr-portion",
         "concentr-permillion", "concentr-percent", "concentr-permille", "concentr-permyriad",
         "concentr-mole",
         "consumption-liter-per-kilometer", "consumption-liter-per-100-kilometer",
@@ -1270,7 +1275,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "graphics-em", "graphics-pixel", "graphics-megapixel",
         "graphics-pixel-per-centimeter", "graphics-pixel-per-inch",
         "graphics-dot-per-centimeter", "graphics-dot-per-inch", 
-        "length-kilometer", "length-meter", "length-decimeter", "length-centimeter",
+        "graphics-dot",
+        "length-earth-radius",
+        "length-100-kilometer", "length-kilometer", "length-meter", "length-decimeter", "length-centimeter",
         "length-millimeter", "length-micrometer", "length-nanometer", "length-picometer",
         "length-mile", "length-yard", "length-foot", "length-inch",
         "length-parsec", "length-light-year", "length-astronomical-unit",
@@ -1279,6 +1286,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "length-point",
         "length-solar-radius",
         "light-lux",
+        "light-candela",
         "light-solar-luminosity",
         "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",
         "mass-ton", "mass-stone", "mass-pound", "mass-ounce",
@@ -1286,9 +1294,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "mass-dalton",
         "mass-earth-mass",
         "mass-solar-mass",
+        
+        "mass-grain", 
+        
         "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
         "power-horsepower",
         "pressure-millimeter-ofhg",
+        "pressure-ofhg",
         "pressure-pound-force-per-square-inch", "pressure-inch-ofhg", "pressure-bar", "pressure-millibar", "pressure-atmosphere",
         "pressure-pascal",
         "pressure-hectopascal", 
@@ -1305,7 +1317,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-acre-foot",
         "volume-bushel", "volume-gallon", "volume-gallon-imperial", "volume-quart", "volume-pint", "volume-cup",
         "volume-fluid-ounce", "volume-fluid-ounce-imperial", "volume-tablespoon", "volume-teaspoon",
-        "volume-barrel").freeze();
+        "volume-barrel",
+        
+        "volume-dessert-spoon", 
+        "volume-dessert-spoon-imperial", 
+        "volume-drop", 
+        "volume-dram-fluid", 
+        "volume-jigger", 
+        "volume-pinch", 
+        "volume-quart-imperial",
+        "volume-pint-imperial"
+        ).freeze();
 
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
         "0", "1", "zero", "one", "two", "few", "many", "other").freeze();

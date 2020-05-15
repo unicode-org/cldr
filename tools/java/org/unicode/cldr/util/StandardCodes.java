@@ -342,8 +342,8 @@ public class StandardCodes {
         return country_modernCurrency.get(countryCode);
     }
 
-    private EnumMap<Organization, Map<String, Level>> platform_locale_level = null;
-    private EnumMap<Organization, Relation<Level, String>> platform_level_locale = null;
+    private Map<Organization, Map<String, Level>> platform_locale_level = null;
+    private Map<Organization, Relation<Level, String>> platform_level_locale = null;
     private Map<String, Map<String, String>> platform_locale_levelString = null;
 
 //    /**

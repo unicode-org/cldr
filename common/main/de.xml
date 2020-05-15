@@ -7834,7 +7834,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} Tag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} Tage</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="provisional">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="provisional">{0} kostet €3,50.</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="provisional">Anstatt {0}, …</caseMinimalPairs>
+			<caseMinimalPairs case="dative" draft="provisional">… mit {0} …</caseMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="provisional">… für {0} …</caseMinimalPairs>
+            <genderMinimalPairs gender="masculine" draft="provisional">{0}, der zu viel ist, …</genderMinimalPairs>
+            <genderMinimalPairs gender="feminine" draft="provisional">{0}, die zu viel ist, …</genderMinimalPairs>
+            <genderMinimalPairs gender="neuter" draft="provisional">{0}, das zu viel ist, …</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -8730,16 +8737,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} Bushel</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>Gallonen</displayName>
-				<unitPattern count="one">{0} Gallone</unitPattern>
-				<unitPattern count="other">{0} Gallonen</unitPattern>
+                <gender>feminine</gender>
+                <displayName>Gallone</displayName>
+                <unitPattern count="one">{0} Gallone</unitPattern>
+                <unitPattern count="other">{0} Gallonen</unitPattern>
 				<perUnitPattern>{0} pro Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>Imp. Gallone</displayName>
-				<unitPattern count="one">{0} Imp. Gallone</unitPattern>
-				<unitPattern count="other">{0} Imp. Gallonen</unitPattern>
-				<perUnitPattern>{0} pro Imp. Gallone</perUnitPattern>
+                <gender>feminine</gender>
+                <displayName draft="provisional">Imp. Gallone</displayName>
+                <unitPattern count="one" draft="provisional">{0} Imp. Gallone</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} Imp. Gallonen</unitPattern>
+                <unitPattern count="one" case="accusative" draft="provisional">{0} britische Gallone</unitPattern>
+                <unitPattern count="other" case="accusative" draft="provisional">{0} britische Gallonen</unitPattern>
+                <unitPattern count="one" case="dative" draft="provisional">{0} britischen Gallone</unitPattern>
+                <unitPattern count="other" case="dative" draft="provisional">{0} britischen Gallonen</unitPattern>
+                <unitPattern count="one" case="genitive" draft="provisional">{0} britischen Gallone</unitPattern>
+                <unitPattern count="other" case="genitive" draft="provisional">{0} britischer Gallonen</unitPattern>
+				<perUnitPattern draft="provisional">{0} pro Imp. Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>Quart</displayName>

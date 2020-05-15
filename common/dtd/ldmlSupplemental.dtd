@@ -1232,23 +1232,29 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT grammaticalData ( grammaticalFeatures* ) >
 
-<!ELEMENT grammaticalFeatures ( grammaticalCase?, grammaticalGender?, grammaticalDefiniteness? ) >
+<!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) >
 <!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
     <!--@MATCH:set/literal/nominal-->
 <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
     <!--@MATCH:set/validity/language-->
 
 <!ELEMENT grammaticalCase EMPTY >
-<!ATTLIST grammaticalCase values NMTOKENS #REQUIRED >
+<!ATTLIST grammaticalCase scope NMTOKENS #IMPLIED >
+    <!--@MATCH:set/literal/units-->
+<!ATTLIST grammaticalCase values NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, partitive, prepositional, sociative, vocative-->
     <!--@VALUE-->
 
 <!ELEMENT grammaticalGender EMPTY >
-<!ATTLIST grammaticalGender values NMTOKENS #REQUIRED >
+<!ATTLIST grammaticalGender scope NMTOKENS #IMPLIED >
+    <!--@MATCH:set/literal/units-->
+<!ATTLIST grammaticalGender values NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/animate, common, feminine, inanimate, masculine, neuter, personal-->
     <!--@VALUE-->
 
 <!ELEMENT grammaticalDefiniteness EMPTY >
-<!ATTLIST grammaticalDefiniteness values NMTOKENS #REQUIRED >
+<!ATTLIST grammaticalDefiniteness scope NMTOKENS #IMPLIED >
+    <!--@MATCH:set/literal/units-->
+<!ATTLIST grammaticalDefiniteness values NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/definite, indefinite, unspecified, construct-->
     <!--@VALUE-->

@@ -1,9 +1,17 @@
 package org.unicode.cldr.test;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XPathParts;
 
@@ -14,13 +22,33 @@ public class CheckUnits extends CheckCLDR {
     private static final Pattern MINUTE_SYMBOL = PatternCache.get("m{1,2}");
     private static final Pattern SECONDS_SYMBOL = PatternCache.get("ss");
 
+    private Collection<String> genders = null;
+    
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
+        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        GrammarInfo grammarInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(cldrFileToCheck.getLocaleID());
+        genders = grammarInfo == null ? Collections.emptySet() : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+        return this;
+    }
+    
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
 
-        if (!path.startsWith("//ldml/units")) {
+        if (value == null || !path.startsWith("//ldml/units")) {
             return this;
         }
+        
+        if (genders != null && !genders.isEmpty() && path.endsWith("/gender")) {
+            if (!genders.contains(value)) {
+                result.add(new CheckStatus().setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.invalidGenderCode)
+                    .setMessage("The gender value for this locale must be one of: {0}", genders));
+            }
+        }
+        
         // Note, the following test has some overlaps with the checkAndReplacePlaceholders
         // test in CheckForExamplars (why there?). That is probably OK, they check in
         // different ways, but some errors will produce two somewhat different error messages.

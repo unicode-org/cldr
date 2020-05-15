@@ -46,6 +46,9 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -443,16 +446,23 @@ public class CldrUtility {
     public static <T> T protectCollection(T source) {
         // TODO - exclude UnmodifiableMap, Set, ...
         if (source instanceof Map) {
-            Map sourceMap = (Map) source;
-            Map resultMap = clone(sourceMap);
-            if (resultMap == null) return (T) sourceMap; // failed
-            resultMap.clear();
-            for (Object key : sourceMap.keySet()) {
-                resultMap.put(protectCollection(key), protectCollection(sourceMap.get(key)));
+            Map<Object,Object> sourceMap = (Map) source;
+            ImmutableMap.Builder<Object,Object> builder = ImmutableMap.builder();
+            for (Entry<Object,Object> entry : sourceMap.entrySet()) {
+                final Object key = entry.getKey();
+                final Object value = entry.getValue();
+                builder.put(protectCollection(key), protectCollection(value));
             }
-            return resultMap instanceof SortedMap ? (T) Collections.unmodifiableSortedMap((SortedMap) resultMap)
-                : (T) Collections.unmodifiableMap(resultMap);
+            return (T) builder.build();
+        } else if (source instanceof Multimap) {
+            Multimap<Object,Object> sourceMap = (Multimap) source;
+            ImmutableMultimap.Builder<Object,Object> builder = ImmutableMultimap.builder();
+            for (Entry<Object,Object> entry : sourceMap.entries()) {
+                builder.put(protectCollection(entry.getKey()), protectCollection(entry.getValue()));
+            }
+            return (T) builder.build();
         } else if (source instanceof Collection) {
+            // TODO use ImmutableSet, List, ...
             Collection sourceCollection = (Collection) source;
             Collection<Object> resultCollection = clone(sourceCollection);
             if (resultCollection == null) return (T) sourceCollection; // failed

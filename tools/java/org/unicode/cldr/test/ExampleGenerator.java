@@ -319,6 +319,7 @@ public class ExampleGenerator {
             result = constructExampleHtml(xpath, value);
             cacheItem.putExample(result);
         } catch (RuntimeException e) {
+            e.printStackTrace();
             String unchained = verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";
             result = "<i>Parsing error. " + finalizeBackground(e.getMessage()) + "</i>" + unchained;
         }
@@ -1278,21 +1279,19 @@ public class ExampleGenerator {
     }
 
     private String getUnitPattern(String unitType, final boolean isCurrency, Count count) {
-        String unitPattern;
-        String unitPatternPath = cldrFile.getCountPathWithFallback(isCurrency
-            ? "//ldml/numbers/currencyFormats/unitPattern"
-                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-                count, true);
-        unitPattern = cldrFile.getWinningValue(unitPatternPath);
-        return unitPattern;
+        return cldrFile.getStringValue(isCurrency
+            ? "//ldml/numbers/currencyFormats/unitPattern"  + countAttribute(count)
+                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern" + countAttribute(count));
     }
 
     private String getUnitName(String unitType, final boolean isCurrency, Count count) {
-        String unitNamePath = cldrFile.getCountPathWithFallback(isCurrency
-            ? "//ldml/numbers/currencies/currency[@type=\"" + unitType + "\"]/displayName"
-                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
-                count, true);
-        return unitNamePath == null ? unitType : cldrFile.getWinningValue(unitNamePath);
+        return cldrFile.getStringValue(isCurrency
+            ? "//ldml/numbers/currencies/currency[@type=\"" + unitType + "\"]/displayName" + countAttribute(count)
+                : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern" + countAttribute(count));
+    }
+
+    public String countAttribute(Count count) {
+        return "[@count=\"" + count + "\"]";
     }
 
     private String handleNumberSymbol(XPathParts parts, String value) {

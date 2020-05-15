@@ -11,7 +11,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.Freezable;
 
@@ -224,6 +228,16 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         });
         return result.toString();
     }
+
+    public static final ImmutableMultimap<String,PluralInfo.Count> NON_COMPUTABLE_PLURALS = ImmutableListMultimap.of(
+        "pl", PluralInfo.Count.one, 
+        "pl", PluralInfo.Count.other, 
+        "ru", PluralInfo.Count.one, 
+        "ru", PluralInfo.Count.other);
+    /**
+     * TODO: change this to be data-file driven
+     */
+    public static final Set<String> SEED_LOCALES = ImmutableSet.of("pl", "ru", "da", "de", "nb", "sv", "hi", "id", "es", "fr", "it", "nl", "pt", "en", "ja", "th", "vi", "zh", "zh_TW", "ko", "yue");
 
     /**
      * TODO: change this to be data-file driven

@@ -3420,22 +3420,34 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
 
-        // grammatical info; for now, just add gender for short units; others will inherit
-        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID());
+        // grammatical info
+        
+        // restricted for first release
+        GrammarInfo grammarInfo = GrammarInfo.SEED_LOCALES.contains(getLocaleID()) 
+            ? supplementalData.getGrammarInfo(getLocaleID()) 
+                : null;
+
         if ("de".equals(getLocaleID())) {
             int debug = 0;
         }
+        
         if (grammarInfo != null) {
             if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
                 Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
                 Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
                 Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
+                Collection<Count> adjustedPlurals = GrammarInfo.NON_COMPUTABLE_PLURALS.get(locale);
+                if (adjustedPlurals.isEmpty()) {
+                    adjustedPlurals = pluralCounts;
+                } else {
+                    int debug = 0;
+                }
+
                 if (!genders.isEmpty()) {
                     for (String unit : GrammarInfo.TRANSLATION_UNITS) {
                         toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender");
                     }
-
-                    for (Count plural : pluralCounts) {
+                    for (Count plural : adjustedPlurals) {
                         for (String gender : genders) {
                             for (String case1 : nomCases) {
                             final String grammaticalAttributes = getGrammaticalInfoAttributes(plural, gender, case1, genders);
@@ -3455,7 +3467,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                         //          <caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
                         toAddTo.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
 
-                        for (Count plural : pluralCounts) {
+                        for (Count plural : adjustedPlurals) {
                             for (String unit : GrammarInfo.TRANSLATION_UNITS) {
                                 toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
                                     + getGrammaticalInfoAttributes(plural, null, case1, null));

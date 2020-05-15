@@ -26,9 +26,12 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -43,11 +46,13 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.Output;
@@ -172,6 +177,34 @@ public class TestCLDRFile extends TestFmwk {
                 }
             }
         }
+        
+        Set<String> badCoverage = new TreeSet<>();
+        Counter<String> extraPaths = new Counter<>();
+        for (String locale : sdi.hasGrammarInfo()) {
+            if (sdi.getGrammarInfo(locale).hasInfo(GrammaticalTarget.nominal)) {
+                final CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+                Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
+                for (String path : sorted2) {
+                    if (path.contains("/gender") || path.contains("@gender") || path.contains("@case")) {
+                        Level level = sdi.getCoverageLevel(path, locale);
+                        if (level.compareTo(Level.MODERN) > 0) {
+                            badCoverage.add(path);
+                        }
+                        extraPaths.add(locale, 1);
+                    }
+                }
+
+            }
+        }
+        System.out.println("Units with grammar info: " + GrammarInfo.TRANSLATION_UNITS.size());
+        System.out.println("Inflection Paths");
+        for (R2<Long, String> locale : extraPaths.getEntrySetSortedByCount(false, null)) {
+            System.out.println(locale.get0() + "\t" + locale.get1());
+        }
+        if (!badCoverage.isEmpty()) {
+            errln("Paths not at modern: " + Joiner.on("\n\t").join(badCoverage));
+        }
+
 //        Set<String> validUnits = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
 //        validUnits.forEach(System.out::println);
 //        

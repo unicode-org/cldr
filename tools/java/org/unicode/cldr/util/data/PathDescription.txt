@@ -104,7 +104,7 @@
 ^//ldml/numbers/minimalPairs/ordinalMinimalPairs\[@ordinal="([^"]*)"] ; Minimal pairs for ordinals. For more information, please see http://cldr.org/translation/getting-started/plurals#TOC-Minimal-Pairs.
 ^//ldml/numbers/minimalPairs/pluralMinimalPairs\[@count="([^"]*)"] ; Minimal pairs for plurals (cardinals). For more information, please see http://cldr.org/translation/getting-started/plurals#TOC-Minimal-Pairs.
 ^//ldml/numbers/minimalPairs/caseMinimalPairs\[@case="([^"]*)"] ; Minimal pairs for cases used in the language. For more information, please see http://cldr.org/translation/getting-started/plurals#TOC-Minimal-Pairs.
-^//ldml/numbers/minimalPairs/caseMinimalPairs\[@gender="([^"]*)"] ; Minimal pairs for genders. For more information, please see http://cldr.org/translation/getting-started/plurals#TOC-Minimal-Pairs.
+^//ldml/numbers/minimalPairs/genderMinimalPairs\[@gender="([^"]*)"] ; Minimal pairs for genders. For more information, please see http://cldr.org/translation/getting-started/plurals#TOC-Minimal-Pairs.
 
 ^//ldml/numbers/([a-z]*)Formats(\[@numberSystem="([^"]*)"])?/\1FormatLength/\1Format\[@type="standard"]/pattern\[@type="standard"]$    ;   Special pattern used to compose {1} numbers. Note: before translating, be sure to read http://cldr.org/translation/numbers-currency/number-patterns.
 ^//ldml/numbers/currencyFormats\[@numberSystem="([^"]*)"]/currencyFormatLength/currencyFormat\[@type="accounting"]/pattern    ;   Special pattern used to compose currency values for accounting purposes. Note: before translating, be sure to read http://cldr.org/translation/numbers-currency/number-patterns.

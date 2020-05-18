@@ -35,7 +35,7 @@ import com.ibm.icu.util.Freezable;
  * Each Element object has an "element" string such as "ldml", "characters", or "exemplarCharacters",
  * plus attributes such as a Map from key "type" to value "auxiliary".
  */
-public final class XPathParts implements Freezable<XPathParts> {
+public final class XPathParts implements Freezable<XPathParts>, Comparable<XPathParts> {
     private static final boolean DEBUGGING = false;
 
     private volatile boolean frozen = false;
@@ -681,6 +681,12 @@ public final class XPathParts implements Freezable<XPathParts> {
             return false;
         }
     }
+    
+    @Override
+    public int compareTo(XPathParts that) {
+        return dtdData.getDtdComparator().xpathComparator(this, that);
+    }
+
 
     /**
      * boilerplate
@@ -902,7 +908,7 @@ public final class XPathParts implements Freezable<XPathParts> {
                 return false;
             }
         }
-
+        
         public int hashCode() {
             return element.hashCode() * 37 + (attributes == null ? 0 : attributes.hashCode());
         }

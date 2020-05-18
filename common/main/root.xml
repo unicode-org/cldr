@@ -4626,6 +4626,10 @@ for derived annotations.
 				<displayName>px</displayName>
 				<unitPattern count="other">{0} px</unitPattern>
 			</unit>
+            <unit type="graphics-dot">
+                <displayName>dot</displayName>
+                <unitPattern count="other">{0} dot</unitPattern>
+            </unit>
 			<unit type="graphics-megapixel">
 				<displayName>MP</displayName>
 				<unitPattern count="other">{0} MP</unitPattern>
@@ -4731,14 +4735,26 @@ for derived annotations.
 				<displayName>pt</displayName>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
-			<unit type="length-solar-radius">
-				<displayName>R☉</displayName>
-				<unitPattern count="other">{0} R☉</unitPattern>
-			</unit>
-			<unit type="light-lux">
-				<displayName>lx</displayName>
-				<unitPattern count="other">{0} lx</unitPattern>
-			</unit>
+            <unit type="length-solar-radius">
+                <displayName>R☉</displayName>
+                <unitPattern count="other">{0} R☉</unitPattern>
+            </unit>
+            <unit type="length-earth-radius">
+                <displayName>R⊕</displayName>
+                <unitPattern count="other">{0} R⊕</unitPattern>
+            </unit>
+            <unit type="light-lux">
+                <displayName>lx</displayName>
+                <unitPattern count="other">{0} lx</unitPattern>
+            </unit>
+            <unit type="light-candela">
+                <displayName>cd</displayName>
+                <unitPattern count="other">{0} cd</unitPattern>
+            </unit>
+            <unit type="light-lumen">
+                <displayName>lm</displayName>
+                <unitPattern count="other">{0} lm</unitPattern>
+            </unit>
 			<unit type="light-solar-luminosity">
 				<displayName>L☉</displayName>
 				<unitPattern count="other">{0} L☉</unitPattern>
@@ -5020,6 +5036,39 @@ for derived annotations.
 				<displayName>bbl</displayName>
 				<unitPattern count="other">{0} bbl</unitPattern>
 			</unit>
+			
+			<unit type="mass-grain">
+                <displayName>grain</displayName>
+                <unitPattern count="other">{0} grain</unitPattern>
+            </unit>
+            <unit type="volume-dessert-spoon">
+                <displayName>dstspn</displayName>
+                <unitPattern count="other">{0} dstspn</unitPattern>
+            </unit>
+            <unit type="volume-dessert-spoon-imperial">
+                <displayName>dstspn Imp</displayName>
+                <unitPattern count="other">{0} dstspn Imp</unitPattern>
+            </unit>
+            <unit type="volume-drop">
+                <displayName>drop</displayName>
+                <unitPattern count="other">{0} drop</unitPattern>
+            </unit>
+            <unit type="volume-dram">
+                <displayName>dram fluid</displayName>
+                <unitPattern count="other">{0} dram fl</unitPattern>
+            </unit>
+            <unit type="volume-jigger">
+                <displayName>jigger</displayName>
+                <unitPattern count="other">{0} jigger</unitPattern>
+            </unit>
+            <unit type="volume-pinch">
+                <displayName>pinch</displayName>
+                <unitPattern count="other">{0} pinch</unitPattern>
+            </unit>
+            <unit type="volume-quart-imperial">
+                <displayName>qt Imp</displayName>
+                <unitPattern count="other">{0} qt Imp.</unitPattern>
+            </unit>			
 			<coordinateUnit>
 				<displayName>direction</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>

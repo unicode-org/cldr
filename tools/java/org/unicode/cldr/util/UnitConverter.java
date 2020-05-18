@@ -414,6 +414,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         return targetToInfo.target;
     }
+    
+    public boolean isSimple(String unit) {
+        UnitId id = createUnitId(unit).resolve();
+        return id.denUnitsToPowers.size() + id.numUnitsToPowers.size() == 1;
+    }
 
     /**
      * Takes a derived unit id, and produces the equivalent derived base unit id and UnitInfo to convert to it

@@ -71,6 +71,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitQuantity baseUnit='item-per-cubic-meter' quantity='concentration'/>
         <unitQuantity baseUnit='candela-per-square-meter' quantity='luminance'/>
         <unitQuantity baseUnit='candela-square-meter-per-square-meter' quantity='luminous-flux'/>
+        <unitQuantity baseUnit='candela-square-meter' quantity='luminence'/>
         <unitQuantity baseUnit='kilogram-per-kilogram' quantity='mass-fraction'/>
         
         <!-- Additional derived units -->
@@ -83,12 +84,14 @@ For terms of use, see http://www.unicode.org/copyright.html
         a) NIST Special Publication 1038 
         https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf
         b) https://arxiv.org/pdf/1510.07674.pdf
+        See also https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes
          -->
 
         <!-- luminous-intensity -->
         <convertUnit source='candela' baseUnit='candela'/>
         
         <!-- mass -->
+        <convertUnit source='grain' baseUnit='kilogram' factor='lb_to_kg/7000' systems="ussystem uksystem"/>
         <convertUnit source='carat' baseUnit='kilogram' factor='0.0002'/>
         <convertUnit source='gram' baseUnit='kilogram' factor='0.001'/>
         <convertUnit source='ounce' baseUnit='kilogram' factor='lb_to_kg/16' systems="ussystem uksystem"/>
@@ -215,16 +218,23 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='hectare' baseUnit='square-meter' factor='10000'/>
         
         <!-- volume -->
+        <convertUnit source='drop' baseUnit='cubic-meter' factor='gal_to_m3/128*576' systems="ussystem"/>
+        <convertUnit source='pinch' baseUnit='cubic-meter' factor='gal_to_m3/128*128' systems="ussystem"/>
+        <convertUnit source='dessert-spoon' baseUnit='cubic-meter' factor='gal_to_m3/16*128' systems="ussystem"/>
+        <convertUnit source='dessert-spoon-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3/16*128' systems="uksystem"/>
+        <convertUnit source='dram' baseUnit='cubic-meter' factor='gal_to_m3/128*8' systems="ussystem"/>
         <convertUnit source='teaspoon' baseUnit='cubic-meter' factor='gal_to_m3/16*48' systems="ussystem"/>
         <convertUnit source='tablespoon' baseUnit='cubic-meter' factor='gal_to_m3/256' systems="ussystem"/>
         <convertUnit source='fluid-ounce-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3/160' systems="uksystem"/>
         <convertUnit source='fluid-ounce' baseUnit='cubic-meter' factor='gal_to_m3/128' systems="ussystem"/>
+        <convertUnit source='jigger' baseUnit='cubic-meter' factor='gal_to_m3*3/128*2' systems="ussystem"/>
         <convertUnit source='cup' baseUnit='cubic-meter' factor='gal_to_m3/16' systems="ussystem"/>
         <convertUnit source='cup-metric' baseUnit='cubic-meter' factor='0.00025'/>
         <convertUnit source='pint' baseUnit='cubic-meter' factor='gal_to_m3/8' systems="ussystem"/>
         <convertUnit source='pint-metric' baseUnit='cubic-meter' factor='0.0005'/>
         <convertUnit source='quart' baseUnit='cubic-meter' factor='gal_to_m3/4' systems="ussystem"/>
         <convertUnit source='liter' baseUnit='cubic-meter' factor='0.001'/>
+        <convertUnit source='quart-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3/4' systems="uksystem"/>
         <convertUnit source='gallon' baseUnit='cubic-meter' factor='gal_to_m3' systems="ussystem"/>
         <convertUnit source='gallon-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3' systems="uksystem"/>
         <convertUnit source='bushel' baseUnit='cubic-meter' factor='2150.42*in3_to_m3' systems="ussystem"/>
@@ -236,8 +246,11 @@ For terms of use, see http://www.unicode.org/copyright.html
         <!-- acceleration -->
         <convertUnit source='g-force' baseUnit='meter-per-square-second' factor='gravity'/>
         
+        <!-- luminance -->
+        <convertUnit source='lux' baseUnit='candela-per-square-meter'/>
+
         <!-- luminous-flux -->
-        <convertUnit source='lux' baseUnit='candela-square-meter-per-square-meter'/>
+        <convertUnit source='lumen' baseUnit='candela-square-meter-per-square-meter'/>
     </convertUnits>
     <unitPreferenceData draft="contributed">
         <unitPreferences category="area" usage="default">

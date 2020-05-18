@@ -196,7 +196,6 @@ public class PathHeader implements Comparable<PathHeader> {
         Overrides(SectionId.Timezones),
         
         Symbols( SectionId.Numbers),
-        MinimalPairs(SectionId.Numbers, "Minimal Pairs"),
         Number_Formatting_Patterns( SectionId.Numbers, "Number Formatting Patterns"),
         Compact_Decimal_Formatting( SectionId.Numbers, "Compact Decimal Formatting"),
         Compact_Decimal_Formatting_Other( SectionId.Numbers, "Compact Decimal Formatting (Other Numbering Systems)"),
@@ -216,8 +215,10 @@ public class PathHeader implements Comparable<PathHeader> {
         Coordinates( SectionId.Units),
         OtherUnits( SectionId.Units, "Other Units"),
         CompoundUnits( SectionId.Units, "Compound Units"),
-        Displaying_Lists( SectionId.Misc, "Displaying Lists"),
         
+        
+        Displaying_Lists( SectionId.Misc, "Displaying Lists"),
+        MinimalPairs(SectionId.Misc, "Minimal Pairs"),
         Transforms( SectionId.Misc),
         
         Identity( SectionId.Special),

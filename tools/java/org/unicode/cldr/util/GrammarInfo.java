@@ -242,17 +242,17 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     /**
      * TODO: change this to be data-file driven
      */
-    public static final Set<String> TRANSLATION_UNITS = ImmutableSet.of(
+    public static final Set<String> SPECIAL_TRANSLATION_UNITS = ImmutableSet.of(
         // new in v38
         "mass-grain", 
         "volume-dessert-spoon", 
         "volume-dessert-spoon-imperial",
         "volume-drop", 
-        "volume-dram-fluid", 
+        "volume-dram", 
         "volume-jigger", 
         "volume-pinch", 
         "volume-quart-imperial",
-        "volume-pint-imperial",
+       // "volume-pint-imperial",
 
         "acceleration-meter-per-square-second", "area-acre", "area-hectare", 
         "area-square-centimeter", "area-square-foot", "area-square-kilometer", "area-square-mile", "concentr-percent", "consumption-mile-per-gallon", 

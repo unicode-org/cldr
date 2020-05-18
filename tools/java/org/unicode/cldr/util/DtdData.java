@@ -779,11 +779,19 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return dtdComparator;
     }
 
-    private class DtdComparator implements Comparator<String> {
+    public DtdComparator getDtdComparator() {
+        return dtdComparator;
+    }
+
+    public class DtdComparator implements Comparator<String> {
         @Override
         public int compare(String path1, String path2) {
             XPathParts a = XPathParts.getFrozenInstance(path1);
             XPathParts b = XPathParts.getFrozenInstance(path2);
+            return xpathComparator(a, b);
+        }
+
+        public int xpathComparator(XPathParts a, XPathParts b) {
             // there must always be at least one element
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
@@ -872,6 +880,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public MapComparator<String> getAttributeComparator() {
         return attributeComparator;
     }
+    
 
     public MapComparator<String> getElementComparator() {
         return elementComparator;
@@ -1240,7 +1249,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     
     /* TODO: change this to be data-file driven. Can do with new Unit preferences info; also put them in a more meaningful order (metric vs other; size) */
     
-    static MapComparator<String> unitOrder = new MapComparator<String>().add(
+    public static final MapComparator<String> unitOrder = new MapComparator<String>().add(
         "acceleration-g-force", "acceleration-meter-per-square-second",
         "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
         "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
@@ -1277,7 +1286,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "graphics-dot-per-centimeter", "graphics-dot-per-inch", 
         "graphics-dot",
         "length-earth-radius",
-        "length-100-kilometer", "length-kilometer", "length-meter", "length-decimeter", "length-centimeter",
+        "length-100-kilometer", 
+        "length-kilometer", "length-meter", "length-decimeter", "length-centimeter",
         "length-millimeter", "length-micrometer", "length-nanometer", "length-picometer",
         "length-mile", "length-yard", "length-foot", "length-inch",
         "length-parsec", "length-light-year", "length-astronomical-unit",
@@ -1287,6 +1297,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "length-solar-radius",
         "light-lux",
         "light-candela",
+        "light-lumen",
         "light-solar-luminosity",
         "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",
         "mass-ton", "mass-stone", "mass-pound", "mass-ounce",
@@ -1300,7 +1311,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "power-gigawatt", "power-megawatt", "power-kilowatt", "power-watt", "power-milliwatt",
         "power-horsepower",
         "pressure-millimeter-ofhg",
-        "pressure-ofhg",
+         "pressure-ofhg",
         "pressure-pound-force-per-square-inch", "pressure-inch-ofhg", "pressure-bar", "pressure-millibar", "pressure-atmosphere",
         "pressure-pascal",
         "pressure-hectopascal", 
@@ -1322,11 +1333,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-dessert-spoon", 
         "volume-dessert-spoon-imperial", 
         "volume-drop", 
-        "volume-dram-fluid", 
+        "volume-dram", 
         "volume-jigger", 
         "volume-pinch", 
-        "volume-quart-imperial",
-        "volume-pint-imperial"
+        "volume-quart-imperial"
+       // "volume-pint-imperial"
         ).freeze();
 
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(

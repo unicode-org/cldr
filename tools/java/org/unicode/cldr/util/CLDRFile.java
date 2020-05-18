@@ -3444,7 +3444,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 }
 
                 if (!genders.isEmpty()) {
-                    for (String unit : GrammarInfo.TRANSLATION_UNITS) {
+                    for (String unit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
                         toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender");
                     }
                     for (Count plural : adjustedPlurals) {
@@ -3468,7 +3468,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                         toAddTo.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
 
                         for (Count plural : adjustedPlurals) {
-                            for (String unit : GrammarInfo.TRANSLATION_UNITS) {
+                            for (String unit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
                                 toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
                                     + getGrammaticalInfoAttributes(plural, null, case1, null));
                             }

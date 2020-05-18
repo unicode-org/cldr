@@ -131,7 +131,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     private final Matcher exclusions = PatternCache.get("=\"narrow\"]").matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
-    private final Matcher ignoreAltAndCountAttributes = PatternCache.get("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher ignoreAltAndCountAttributes = PatternCache.get("\\[@(?:count|alt|gender|case)=\"[^\"]*+\"]").matcher("");
     private final Matcher ignoreAltAttributes = PatternCache.get("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher ignoreAltShortOrVariantAttributes = PatternCache.get("\\[@(?:alt)=\"(?:short|variant)\"]").matcher("");
     private final Matcher compoundUnitPatterns = PatternCache.get("compoundUnitPattern").matcher("");

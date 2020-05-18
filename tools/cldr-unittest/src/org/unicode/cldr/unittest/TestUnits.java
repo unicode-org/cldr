@@ -25,6 +25,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -32,8 +33,10 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
@@ -55,11 +58,12 @@ import org.unicode.cldr.util.UnitPreferences;
 import org.unicode.cldr.util.UnitPreferences.UnitPreference;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
-import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.BiMap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -618,24 +622,8 @@ public class TestUnits extends TestFmwk {
     }
 
 
-    static final Map<String,String> CORE_TO_TYPE;
-    static final Multimap<String,String> TYPE_TO_CORE;
-    static {
-        Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
-
-        Map<String, String> coreToType = new TreeMap<>();
-        TreeMultimap<String, String> typeToCore = TreeMultimap.create();
-        for (String s : VALID_UNITS) {
-            int dashPos = s.indexOf('-');
-            String unitType = s.substring(0,dashPos);
-            String coreUnit = s.substring(dashPos+1);
-            coreUnit = converter.fixDenormalized(coreUnit);
-            coreToType.put(coreUnit, unitType);
-            typeToCore.put(unitType, coreUnit);
-        }
-        CORE_TO_TYPE = ImmutableMap.copyOf(coreToType);
-        TYPE_TO_CORE = ImmutableMultimap.copyOf(typeToCore);
-    }
+    static final Map<String,String> CORE_TO_TYPE = Units.CORE_TO_TYPE;
+    static final Multimap<String,String> TYPE_TO_CORE = Units.TYPE_TO_CORE;
 
     public void TestUnitCategory() {
         if (SHOW_DATA) System.out.println();
@@ -683,7 +671,7 @@ public class TestUnits extends TestFmwk {
                     break;
                 case "light":
                     switch (quantity) {
-                    case "luminous-flux": case "power": case "luminous-intensity": continue;
+                    case "lumen": case "luminous-flux": case "power": case "luminous-intensity": case "luminance": continue;
                     }
                     break;
                 case "mass":
@@ -1702,5 +1690,90 @@ public class TestUnits extends TestFmwk {
         String formatted = source.toString(FormatStyle.repeating);
         Rational roundtrip = Rational.of(formatted);
         assertEquals("roundtrip " + formatted, source, roundtrip);
+    }
+
+    /** Check that units to be translated are as expected. */
+    public void testDistinguishedSetsOfUnits() {
+        Set<String> comparatorUnitIds = new LinkedHashSet<>(DtdData.unitOrder.getOrder());
+        Set<String> validLongUnitIds = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
+        final UnitConverter unitConverter = SDI.getUnitConverter();
+        final BiMap<String, String> shortToLong = Units.LONG_TO_SHORT.inverse();
+        Set<String> errors = new LinkedHashSet<>();
+        Set<String> unitsConvertibleLongIds = unitConverter.canConvert().stream()
+            .map(x -> {
+                String result = shortToLong.get(x);
+                if (result == null) {
+                    errors.add("No short form of " + x);
+                }
+                return result;
+            })
+            .collect(Collectors.toSet());
+        assertEquals("", Collections.emptySet(), errors);
+        
+        Set<String> simpleConvertibleLongIds = unitConverter.canConvert().stream()
+            .filter(x -> converter.isSimple(x))
+            .map((String x) -> Units.LONG_TO_SHORT.inverse().get(x))
+            .collect(Collectors.toSet());
+        CLDRFile root = CLDRConfig.getInstance().getCldrFactory().make("root", true);
+        ImmutableSet<String> unitLongIdsRoot = ImmutableSet.copyOf(getUnits(root, new TreeSet<>()));
+        ImmutableSet<String> unitLongIdsEnglish = ImmutableSet.copyOf(getUnits(CLDRConfig.getInstance().getEnglish(), new TreeSet<>()));
+
+        assertSameCollections("root unit IDs", "English", unitLongIdsRoot, unitLongIdsEnglish);
+        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds, Arrays.asList("concentr-item", "concentr-portion", "length-100-kilometer", "pressure-ofhg"));
+        assertSameCollections("root unit IDs", "valid regular", unitLongIdsRoot, validLongUnitIdsMinusOddballs);
+        assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validLongUnitIds);
+
+        assertSuperset("valid regular", "specials", validLongUnitIds, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
+        
+        assertSuperset("root unit IDs", "specials", unitLongIdsRoot, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
+
+        //assertSuperset("long convertible units", "valid regular", unitsConvertibleLongIds, validLongUnitIds);
+        Output<String> baseUnit = new Output<>();
+        for (String longUnit : validLongUnitIds) {
+            if (longUnit.equals("temperature-generic")) {
+                continue;
+            }
+            String shortUnit = Units.getShort(longUnit);
+             ConversionInfo conversionInfo = converter.parseUnitId(shortUnit, baseUnit, false);
+            if (!assertNotNull("Can convert " + longUnit, conversionInfo)) {
+                converter.getUnitInfo(shortUnit, baseUnit);
+                int debug = 0;
+            }
+        }
+        
+        assertSuperset("valid regular", "simple convertible units", validLongUnitIds, simpleConvertibleLongIds);
+
+        SupplementalDataInfo.getInstance().getUnitConverter();
+    }
+
+    public void assertSameCollections(String title1, String title2, Collection<String> c1, Collection<String> c2) {
+        assertSuperset(title1, title2, c1, c2);
+        assertSuperset(title2, title1, c2, c1);
+    }
+
+    public void assertSuperset(String title1, String title2, Collection<String> c1, Collection<String> c2) {
+        if (!assertEquals(title1 + " ⊇ " + title2, Collections.emptySet(), minus(c2, c1))) {
+            int debug = 0;
+        }
+    }
+
+    public Set<String> minus(Collection<String> a, Collection<String> b) {
+        Set<String> result = new LinkedHashSet<>(a);
+        result.removeAll(b);
+        return result;
+    }
+
+    public Set<String> getUnits(CLDRFile root, Set<String> unitLongIds) {
+        for (String path : root) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            int item = parts.findElement("unit");
+            if (item == -1) {
+                continue;
+            }
+            String type = parts.getAttributeValue(item, "type");
+            unitLongIds.add(type);
+            // "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender"
+        }
+        return unitLongIds;
     }
 }

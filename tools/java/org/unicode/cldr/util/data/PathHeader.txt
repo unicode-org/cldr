@@ -148,9 +148,6 @@
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns &numberingSystem($1) ; &count(currencies-$2) ; LTR_ALWAYS
 //ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns &numberingSystem($1) ; $2 ; LTR_ALWAYS
 
-//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"%A\"]     ; Numbers ; Minimal Pairs ; Ordinal ; $1 ; LTR_ALWAYS
-//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"%A\"]        ; Numbers ; Minimal Pairs ; Plural ; $1 ; LTR_ALWAYS
-
 //ldml/numbers/(currency)Formats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Currency &numberingSystem(latn); &count2($6-digits-$3-$7)
 //ldml/numbers/(currency)Formats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Currency &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
 //ldml/numbers/%EFormats[@numberSystem="latn"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats &numberingSystem(latn) ; &count2($6-digits-$3-$7)
@@ -235,8 +232,12 @@
 //ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/perUnitPattern                                     ; Units ; Other Units ; &unit($2) ; &unitCount($1-per)
 
 # Warning: the longer match must come first
-//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-$3)
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"][@gender="%A"][@case="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-$4-$5-$3)
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"][@case="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-dg-$4-$3)
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"][@gender="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-$4-dc-$3)
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-dg-dc-$3)
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1                        ; Units ; Compound Units ; $2 ; $1
+
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern                        ; Units ; Compound Units ; $2 ; $1
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/unitPrefixPattern							; Units ; Compound Units ; $2 ; $1
 //ldml/units/durationUnit[@type="(hms|hm|ms)"]                                                        	; Units ; Duration ; Duration Patterns ; $1
@@ -259,9 +260,10 @@
 //ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
 
-//ldml/typographicNames/axisName[@type="%A"]	; Characters ; Typography ; Axis ; $1
-//ldml/typographicNames/styleName[@type="%A"][@subtype="%A"]	; Characters ; Typography; Style ; $1-$2
-//ldml/typographicNames/featureName[@type="%A"]			; Characters ; Typography ; Feature ; $1
+//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"%A\"]     ; Misc ; Minimal Pairs ; Ordinal ; $1 ; LTR_ALWAYS
+//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"%A\"]        ; Misc ; Minimal Pairs ; Plural ; $1 ; LTR_ALWAYS
+//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"%A\"]        ; Misc ; Minimal Pairs ; Case ; $1 ; LTR_ALWAYS
+//ldml/numbers/minimalPairs/genderlMinimalPairs[@gender=\"%A\"]        ; Misc ; Minimal Pairs ; Gender ; $1 ; LTR_ALWAYS
 
 #Emoji, etc.
 
@@ -274,6 +276,11 @@
 # Use special hyphens
 //ldml/annotations/annotation[@cp="%A"][@type="tts"]	; Characters ; &major($1) ; &minor($1) ; &emoji($1 -name)
 //ldml/annotations/annotation[@cp="%A"]					; Characters ; &major($1) ; &minor($1) ; &emoji($1 –keywords)
+
+//ldml/typographicNames/axisName[@type="%A"]    ; Characters ; Typography ; Axis ; $1
+//ldml/typographicNames/styleName[@type="%A"][@subtype="%A"]    ; Characters ; Typography; Style ; $1-$2
+//ldml/typographicNames/featureName[@type="%A"]         ; Characters ; Typography ; Feature ; $1
+
 
 #OLD
 //ldml/annotations/annotation_[@cp="%A"]/_tts			; Characters ; Annotation ; $1 ; TTS ; HIDE

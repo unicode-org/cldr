@@ -108,7 +108,7 @@ public class TestPathHeader extends TestFmwkPlus {
         for (String directory : DtdType.ldml.directories) {
             Factory factory2 = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
             Set<String> source = factory2.getAvailable();
-            for (String file : getFilesToTest(source, "root", "en", "da")) {
+            for (String file : getFilesToTest(source, "root", "en", "de")) {
                 if (DEBUG) warnln(" TestCompletenessLdmlDtd: " + directory + ", " + file);
                 DtdData dtdData = null;
                 CLDRFile cldrFile = factory2.make(file, true);

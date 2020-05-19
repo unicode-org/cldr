@@ -87,13 +87,13 @@
     </tr>
   </table>
   <div class="body">
-    <h2 style="text-align: center">Unicode Technical Standard #35</h2>
+    <h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
     <h1>Unicode Locale Data Markup Language (LDML)</h1>
     <!-- At least the first row of this header table should be identical across the parts of this UTS. -->
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td>37</td>
+        <td class="changed">38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -102,20 +102,20 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td>2020-04-15</td>
+        <td class="changed">2020-05-13</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
         <td>This Version</td>
-        <td>
-		<a href="http://www.unicode.org/reports/tr35/tr35-59/tr35.html">
-		http://www.unicode.org/reports/tr35/tr35-59/tr35.html</a></td>
+        <td class="changed">
+		<a href="http://www.unicode.org/reports/tr35/tr35-60/tr35.html">
+		http://www.unicode.org/reports/tr35/tr35-60/tr35.html</a></td>
       </tr>
       <tr>
         <td>Previous Version</td>
-        <td>
-		<a href="http://www.unicode.org/reports/tr35/tr35-57/tr35.html">
-		http://www.unicode.org/reports/tr35/tr35-57/tr35.html</a></td>
+        <td class="changed">
+		<a href="http://www.unicode.org/reports/tr35/tr35-59/tr35.html">
+		http://www.unicode.org/reports/tr35/tr35-59/tr35.html</a></td>
       </tr>
       <tr>
         <td>Latest Version</td>
@@ -139,12 +139,12 @@
       </tr>
       <tr>
         <td>DTDs</td>
-        <td><a href="http://unicode.org/cldr/dtd/37/">
-		http://unicode.org/cldr/dtd/37/</a></td>
+        <td class="changed"><a href="http://unicode.org/cldr/dtd/38/">
+		http://unicode.org/cldr/dtd/38/</a></td>
       </tr>
       <tr>
         <td>Revision</td>
-        <td><a href="#Modifications">59</a></td>
+        <td class="changed"><a href="#Modifications">60</a></td>
       </tr>
     </table>
     <h3><i>Summary</i></h3>
@@ -154,7 +154,7 @@
     Data Repository</a>.</p>
     <h3><i>Status</i></h3>
 
-    <!-- NOT YET APPROVED
+    <!-- NOT YET APPROVED -->
                 <p>
                                 <i class="changed">This is a<b><font color="#ff3333">
                                 draft </font></b>document which may be updated, replaced, or superseded by
@@ -164,14 +164,14 @@
                                 progress.
                         </i>
                 </p>
-     END NOT YET APPROVED -->
-    <!-- APPROVED -->
+    <!-- END NOT YET APPROVED -->
+    <!-- APPROVED 
     <p><i>This document has been reviewed by Unicode members and
     other interested parties, and has been approved for publication
     by the Unicode Consortium. This is a stable document and may be
     used as reference material or cited as a normative reference by
     other specifications.</i></p>
-    <!-- END APPROVED -->
+     END APPROVED -->
 
     <blockquote>
       <p><i><b>A Unicode Technical Standard (UTS)</b> is an
@@ -8622,15 +8622,13 @@ decimal?, group?, special*)) &gt;</pre>
         process for technical reports, and for a list of technical
         reports.</i></td>
       </tr>
-      <tr>
+      <tr class="changed">
         <td class="noborder" width="148">[<a name="Unicode" href=
         "#Unicode" id="Unicode">Unicode</a>]</td>
-        <td class="noborder" width="730">The Unicode Consortium.
-        <em>The Unicode Standard, Version
-        7.0.0</em>,&nbsp;(Mountain View, CA: The Unicode
-        Consortium, 2014. ISBN 978-1-936213-09-2)<br>
-        <a href=
-        "http://www.unicode.org/versions/Unicode7.0.0/">http://www.unicode.org/versions/Unicode7.0.0/</a></td>
+        <td class="noborder" width="730">The Unicode Consortium, <i>The Unicode Standard, Version 13.0.0</i><br>
+        (Mountain View, CA: The Unicode Consortium, 2020. ISBN 978-1-936213-26-9)<br>
+        <a href="http://www.unicode.org/versions/Unicode13.0.0/">http://www.unicode.org/versions/Unicode13.0.0/</a>
+      </td>
       </tr>
       <tr>
         <td class="noborder" width="148">[<a name="Versions" href=
@@ -9014,9 +9012,14 @@ decimal?, group?, special*)) &gt;</pre>
     <h2><a name="Modifications" href="#Modifications" id=
     "Modifications">Modifications</a></h2>
 
+    <p class="changed"><b>Revision 60</b></p>
+	<ul>
+	  <li class="changed" ><b>Proposed Update</b> for CLDR 38.</li>
+	</ul>
+
     <p><b>Revision 59</b></p>
 	<ul>
-	  <li ><b>Proposed Update</b> for CLDR 37.</li>
+	  <li class="changed" ><b>Updated</b> for CLDR 37.</li>
 
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
 		        <ul>

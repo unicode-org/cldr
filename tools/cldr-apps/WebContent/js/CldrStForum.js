@@ -49,13 +49,19 @@ const cldrStForum = (function() {
 	let postHash = {};
 
 	/**
+	 * Mapping from thread id to array of post objects, describing the most recently parsed
+	 * full set of posts from the server
+	 */
+	let threadHash = {};
+
+	/**
 	 * Fetch the Forum data from the server, and "load" it
 	 *
 	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
 	 * @param forumMessage the forum message
 	 * @param params an object with various properties such as exports, special, flipper, otherSpecial, name, ...
 	 */
-	function loadForum(locale, forumMessage, params) {
+	function loadForum(locale, userId, forumMessage, params) {
 		setLocale(locale);
 		const url = getLoadForumUrl();
 		const errorHandler = function(err) {
@@ -87,7 +93,7 @@ const cldrStForum = (function() {
 			} else {
 				const content = parseContent(posts, 'main');
 				ourDiv.appendChild(content);
-				summaryDiv.innerHTML = getForumSummaryHtml(forumLocale); // after parseContent
+				summaryDiv.innerHTML = getForumSummaryHtml(forumLocale, userId); // after parseContent
 			}
 			// No longer loading
 			hideLoader(null);
@@ -112,34 +118,39 @@ const cldrStForum = (function() {
 		const isReply = (params.replyTo && params.replyTo >= 0) ? true : false
 		const replyTo = isReply ? params.replyTo : -1;
 		const parentPost = (isReply && params.replyData) ? params.replyData : null;
-		const firstPost = parentPost ? getFirstPostInThread(parentPost) : null;
+		const firstPost = parentPost ? getOldestPostInThread(parentPost) : null;
 		const locale = isReply ? firstPost.locale : (params.locale ? params.locale : '');
 		const xpath = isReply ? firstPost.xpath : (params.xpath ? params.xpath : '');
 		const subjectParam = params.subject ? params.subject : '';
-		const html = makePostHtml(isReply, firstPost, locale, xpath, replyTo);
+		const postType = params.postType ? params.postType : null;
+		const html = makePostHtml(postType, locale, xpath, replyTo);
 		const subject = makePostSubject(isReply, parentPost, subjectParam);
+		const myValue = params.myValue ? params.myValue : null;
+		const text = prefillPostText(postType, myValue);
 
-		openPostWindow(subject, html, parentPost);
+		openPostWindow(html, subject, text, parentPost);
 	}
 
 	/**
 	 * Assemble the form and related html elements for creating a forum post
 	 *
-	 * @param isReply is this a reply? True or false
-	 * @param firstPost the original post in the thread
+	 * @param postType the verb, such as 'Discuss'
 	 * @param locale the locale string
 	 * @param xpath the xpath string
 	 * @param replyTo the post id of the post being replied to, or -1
 	 */
-	function makePostHtml(isReply, firstPost, locale, xpath, replyTo) {
+	function makePostHtml(postType, locale, xpath, replyTo) {
 		let html = '';
 
 		html += '<form role="form" id="post-form">';
 		html += '<div class="form-group">';
-		html += '<div class="input-group"><span class="input-group-addon">Subject:</span>';
-		html += '<input class="form-control" name="subj" type="text" value=""></div>';
-		html += '<textarea name="text" class="form-control" placeholder="Write your post here"></textarea></div>';
-		html += postStatusMenu(isReply, firstPost);
+		html += '<div class="input-group">';
+		html += '<span class="input-group-addon">Subject:</span>';
+		html += '<input class="form-control" name="subj" type="text" value="">';
+		html += '</div>'; // input-group
+		html += '<div id="postType" class="pull-right postType">' + postType + '</div>';
+		html += '<textarea name="text" class="form-control" placeholder="Write your post here"></textarea>';
+		html += '</div>'; // form-group
 		html += '<button class="btn btn-success submit-post btn-block">Submit</button>';
 		html += '<input type="hidden" name="forum" value="true">';
 		html += '<input type="hidden" name="_" value="' + locale + '">';
@@ -173,77 +184,25 @@ const cldrStForum = (function() {
 	}
 
 	/**
-	 * Get the html content for the Status menu
+	 * Make the text (body) string for a forum post
 	 *
-	 * @param isReply true if this post is a reply, else false
-	 * @param firstPost the original post in the thread
-	 * @return the html
-	 *
-	 * Compare SurveyForum.ForumStatus on server
+	 * @param postType the verb such as 'Request', 'Discuss', ...
+	 * @param myValue the value the current user voted for, or null
+	 * @return the string
 	 */
-	function postStatusMenu(isReply, firstPost) {
-		let content = '<p id="forum-status-area">Status: ';
-
-		content += '<select id="forum-status-menu" required>\n';
-		content += '<option value="" disabled selected>Select one</option>\n';
-
-		if (!isReply) {
-			content += '<option value="Request">Request a change</option>\n';
-		}
-		content += '<option value="Question">Ask a question</option>\n';
-		if (isReply) {
-			content += '<option value="Information">Information</option>\n';
-		}
-		if (isReply && firstPost && !userIsPoster(firstPost) && firstPost.status === 'Request') {
-			content += '<option value="Agreed">Agree</option>\n';
-			content += '<option value="Disputed">Disagree</option>\n';
-		}
-		if (canUserClose(isReply, firstPost)) {
-			content += '<option value="Closed">Close</option>\n';
-		}
-		content += '</select></p>\n';
-		return content;
-	}
-
-	/**
-	 * Is this user allowed to close the thread now?
-	 *
-	 * The user is only allowed if they are the original poster of the thread,
-	 * or a TC (technical committee) member.
-	 *
-	 * @param isReply true if this post is a reply, else false
-	 * @param firstPost the original post in the thread, or null
-	 * @return true if this user is allowed to close, else false
-	 */
-	function canUserClose(isReply, firstPost) {
-		return isReply && (userIsPoster(firstPost) || userIsTC());
-	}
-
-	/**
-	 * Is the current user the poster of this post?
-	 *
-	 * @param post the post, or null
-	 * @returns true or false
-	 */
-	function userIsPoster(post) {
-		if (post && typeof surveyUser !== 'undefined') {
-			if (surveyUser === post.poster) {
-				return true;
+	function prefillPostText(postType, myValue) {
+		if (postType === 'Close') {
+			return "I'm closing this thread";
+		} else if (postType === 'Request') {
+			if (myValue) {
+				return 'Please consider voting for ' + myValue + '\n';
 			}
+		} else if (postType === 'Agree') {
+			return 'I agree';
+		} else if (postType === 'Decline') {
+			return 'I decline, since ';
 		}
-		return false;
-	}
-
-	/**
-	 * Is the current user a TC (Technical Committee) member?
-	 *
-	 * @returns true or false
-	 */
-	function userIsTC() {
-		if (typeof surveyUserPerms !== 'undefined' && surveyUserPerms.userIsTC) {
-			return true;
-		}
-		return false;
+		return '';
 	}
 
 	/**
@@ -255,13 +214,14 @@ const cldrStForum = (function() {
 	 *
 	 * Reference: Bootstrap.js post-modal: https://getbootstrap.com/docs/4.1/components/modal/
 	 */
-	function openPostWindow(subject, html, parentPost) {
+	function openPostWindow(html, subject, text, parentPost) {
 		const postModal = $('#post-modal');
 		postModal.find('.modal-body').html(html);
 		postModal.find('input[name=subj]')[0].value = subject;
+		$('#post-form textarea[name=text]').val(text);
 
 		if (parentPost) {
-			const forumDiv = parseContent([parentPost], 'new');
+			const forumDiv = parseContent([parentPost], 'parent');
 			const postHolder = postModal.find('.modal-body').find('.forumDiv');
 			postHolder[0].appendChild(forumDiv);
 		}
@@ -279,18 +239,9 @@ const cldrStForum = (function() {
 	 * @param event
 	 */
 	function submitPost(event) {
-		const forumStatus = document.getElementById('forum-status-menu').value;
-		if (!forumStatus) {
-			/*
-			 * Normally this won't happen, since the menu has the attribute "required".
-			 * The browser should prevent the form from being submitted, and it should ask
-			 * the user to make a selection. If we do get here anyway, return silently.
-			 */
-			return;
-		}
 		const text = $('#post-form textarea[name=text]').val();
 		if (text) {
-			reallySubmitPost(text, forumStatus);
+			reallySubmitPost(text);
 		}
 		event.preventDefault();
 		event.stopPropagation();
@@ -300,18 +251,17 @@ const cldrStForum = (function() {
 	 * Submit a forum post
 	 *
 	 * @param text the non-empty body of the message
-	 * @param forumStatus the status string
 	 */
-	function reallySubmitPost(text, forumStatus) {
+	function reallySubmitPost(text) {
 		$('#post-form button').fadeOut();
 		$('#post-form .input-group').fadeOut(); // subject line
-		$('#forum-status-area').fadeOut();
 
 		const xpath = $('#post-form input[name=xpath]').val();
 		const locale = $('#post-form input[name=_]').val();
-		const url = contextPath + "/SurveyAjax";
 		const replyTo = $('#post-form input[name=replyTo]').val();
 		const subj = $('#post-form input[name=subj]').val();
+		const postType = document.getElementById('postType').innerHTML;
+		const url = contextPath + "/SurveyAjax";
 
 		const errorHandler = function(err) {
 			const responseText = cldrStAjax.errResponseText(err);
@@ -342,7 +292,7 @@ const cldrStForum = (function() {
 			xpath: xpath,
 			text: text,
 			subj: subj,
-			forumStatus: forumStatus,
+			postType: postType,
 			what: "forum_post"
 		};
 		const xhrArgs = {
@@ -366,35 +316,34 @@ const cldrStForum = (function() {
 	 * TODO: shorten this function by moving code into subroutines. Also, postpone creating
 	 * DOM elements until finished constructing the filtered list of threads, to make the code
 	 * cleaner, faster, and more testable. If context is 'summary', all DOM element creation here
-	 * is a waste of time. 
+	 * is a waste of time.
 	 *
 	 * Threading has been revised, so that the same locale+path can have multiple distinct threads,
 	 * rather than always combining posts with the same locale+path into a single "thread".
 	 * Reference: https://unicode-org.atlassian.net/browse/CLDR-13695
 	 */
 	function parseContent(posts, context) {
-
 		const opts = getOptionsForContext(context);
 
-		if (opts.fullSet) {
-			postHash = {};
-		}
-		updatePostHash(posts);
+		updateForumData(posts, opts.fullSet);
 
 		const postDivs = {}; //  postid -> div
 		const topicDivs = {}; // xpath -> div or "#123" -> div
 
-		// next, add threadIds and create the topic divs
+		/*
+		 * create the topic (thread) divs -- populate topicDivs with DOM elements
+		 *
+		 * TODO: skip this loop if opts.createDomElements is false. Currently we have to do this even
+		 * if opts.createDomElements if false, since filterAndAssembleForumThreads depends on topicDivs.
+		 */
 		for (let num in posts) {
 			const post = posts[num];
-			post.threadId = getThreadId(post);
-
 			if (!topicDivs[post.threadId]) {
 				// add the topic div
 				const topicDiv = document.createElement('div');
 				topicDiv.className = 'well well-sm postTopic';
-				const topicInfo = forumCreateChunk("", "h4", "postTopicInfo");
 				if (opts.showItemLink) {
+					const topicInfo = forumCreateChunk("", "h4", "postTopicInfo");
 					topicDiv.appendChild(topicInfo);
 					if (post.locale) {
 						const localeLink = forumCreateChunk(locmap.getLocaleName(post.locale), "a", "localeName");
@@ -403,27 +352,10 @@ const cldrStForum = (function() {
 						}
 						topicInfo.appendChild(localeLink);
 					}
-				}
-				if (!post.xpath) {
-					topicInfo.appendChild(forumCreateChunk(post2text(post.subject), "span", "topicSubject"));
-				} else if (opts.showItemLink) {
-					const itemLink = forumCreateChunk(forumStr("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
-					itemLink.href = "#/" + post.locale + "//" + post.xpath;
-					topicInfo.appendChild(itemLink);
-					(function(topicInfo) {
-						const loadingMsg = forumCreateChunk(forumStr("loading"), "i", "loadingMsg");
-						topicInfo.appendChild(loadingMsg);
-						xpathMap.get({
-							hex: post.xpath
-						}, function(o) {
-							if (o.result) {
-								topicInfo.removeChild(loadingMsg);
-								const itemPh = forumCreateChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
-								itemPh.title = o.result.path;
-								topicInfo.appendChild(itemPh);
-							}
-						});
-					})(topicInfo);
+					if (post.xpath) {
+						topicInfo.appendChild(makeItemLink(post));
+					}
+					addThreadSubjectSpan(topicInfo, getOldestPostInThread(post));
 				}
 				topicDivs[post.threadId] = topicDiv;
 				topicDiv.id = "fthr_" + post.threadId;
@@ -502,42 +434,18 @@ const cldrStForum = (function() {
 			subpost.appendChild(headingLine);
 
 			const subSubChunk = forumCreateChunk("", "div", "postHeaderInfoGroup");
-			subpost.appendChild(subSubChunk); {
-				const subChunk = forumCreateChunk("", "div", "postHeaderItem");
-				subSubChunk.appendChild(subChunk);
-				subChunk.appendChild(forumCreateChunk(post2text(post.subject), "b", "postSubject"));
-			}
+			subpost.appendChild(subSubChunk);
+			const subChunk = forumCreateChunk("", "div", "postHeaderItem");
+			subSubChunk.appendChild(subChunk);
+			subChunk.appendChild(forumCreateChunk(post.postType, 'div', 'postTypeLabel'));
 
 			// actual text
 			const postText = post2text(post.text);
-			const postContent = forumCreateChunk(postText, "div", "postContent");
+			const postContent = forumCreateChunk(postText, "div", "postContent postTextBorder");
 			subpost.appendChild(postContent);
 
-			subpost.appendChild(forumCreateChunk('【' + post.forumStatus + '】', 'div', ''));
-
-			if (opts.showReplyButton) {
-				const replyButton = forumCreateChunk(forumStr("forum_reply"), "button", "btn btn-default btn-sm");
-				(function(post) {
-					/*
-					 * TODO: encapsulate "listenFor" dependency
-					 */
-					if (typeof listenFor === 'undefined') {
-						return;
-					}
-					listenFor(replyButton, "click", function(e) {
-						openPostOrReply({
-							/*
-							 * Don't specify locale or xpath for reply. Instead they will be set to
-							 * match the original post in the thread.
-							 */
-							replyTo: post.id,
-							replyData: post
-						});
-						stStopPropagation(e);
-						return false;
-					});
-				})(post);
-				subpost.appendChild(replyButton);
+			if (opts.showReplyButton && (post === getNewestPostInThread(post))) {
+				addReplyButtons(subpost, post);
 			}
 		}
 		// reparent any nodes that we can
@@ -569,6 +477,299 @@ const cldrStForum = (function() {
 	}
 
 	/**
+	 * Update several persistent data structures to describe the given set of posts
+	 *
+	 * @param posts the array of post objects, from newest to oldest
+	 * @param fullSet true if we should start fresh with these posts
+	 */
+	function updateForumData(posts, fullSet) {
+		if (fullSet) {
+			postHash = {};
+			threadHash = {};
+		}
+		updatePostHash(posts);
+		addThreadIds(posts);
+		updateThreadHash(posts);
+		forumUpdateTime = Date.now();
+	}
+
+	/**
+	 * Update the postHash mapping from post id to post object
+	 *
+	 * @param posts the array of post objects, from newest to oldest
+	 */
+	function updatePostHash(posts) {
+		posts.forEach(function(post) {
+			postHash[post.id] = post;
+		});
+	}
+
+	/**
+	 * Add a "threadId" attribute to each post object in the given array
+	 *
+	 * For a post with a parent, the thread id is the same as the thread id of the parent.
+	 *
+	 * For a post without a parent, the thread id is like "aa|1234", where aa is the locale and 1234 is the post id.
+	 *
+	 * Make sure that the thread id uses the locale of the first post in its thread, for consistency.
+	 * Formerly, a post could have a different locale than the first post. For example, even though
+	 * post 32034 is fr_CA, its child 32036 was fr. That bug is believed to have been fixed, in the
+	 * code and in the db.
+	 *
+	 * @param posts the array of post objects
+	 */
+	function addThreadIds(posts) {
+		posts.forEach(function(post) {
+			const firstPost = getOldestPostInThread(post);
+			post.threadId = firstPost.locale + "|" + firstPost.id;
+		});
+	}
+
+	/**
+	 * Update the threadHash mapping from threadId to an array of all the posts in that thread
+	 *
+	 * @param posts the array of post objects, from newest to oldest
+	 *
+	 * The posts are assumed to have threadId set already by addThreadIds.
+	 */
+	function updateThreadHash(posts) {
+		posts.forEach(function(post) {
+			const threadId = post.threadId;
+			if (!(threadId in threadHash)) {
+				threadHash[threadId] = [];
+			}
+			threadHash[threadId].push(post);
+		});
+	}
+
+	/**
+	 * Make a hyperlink from the given post to the the same post in the main Forum window
+	 *
+	 * @param post the post object
+	 * @return the DOM element
+	 */
+	function makeItemLink(post) {
+		const itemLink = forumCreateChunk(forumStr("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
+		itemLink.href = "#/" + post.locale + "//" + post.xpath;
+		return itemLink;
+	}
+
+	/**
+	 * Make a span containing a subject line for the specified thread
+	 *
+	 * @param topicInfo the DOM element to which to attach the span
+	 * @param firstPost the oldest post in the thread
+	 */
+	function addThreadSubjectSpan(topicInfo, firstPost) {
+		/*
+		 * Starting with CLDR v38, posts should all have post.xpath, and post.subject
+		 * should be like "Characters | Typography | Style | wght-900-heavy" (recognizable
+		 * by containing the character '|'), constructed from the xpath and path-header when
+		 * the post is created.
+		 *
+		 * In such normal cases (or if there is no xpath), the thread subject is the same as
+		 * the subject of the oldest post in the thread.
+		 */
+		if (firstPost.subject.indexOf('|') >= 0 || !firstPost.xpath) {
+			topicInfo.appendChild(forumCreateChunk(post2text(firstPost.subject), "span", "topicSubject"));
+			return;
+		}
+		/*
+		 * Some old posts have subjects like "Review" or "Flag Removed".
+		 * In this case, construct a new subject based on the xpath and path-header.
+		 * This is awkward since xpathMap.get is asynchronous. Display the word
+		 * "Loading" as a place-holder while waiting for the result.
+		 */
+		const loadingMsg = forumCreateChunk(forumStr("loading"), "i", "loadingMsg");
+		topicInfo.appendChild(loadingMsg);
+		xpathMap.get({
+			hex: firstPost.xpath
+		}, function(o) {
+			if (o.result) {
+				topicInfo.removeChild(loadingMsg);
+				const itemPh = forumCreateChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
+				itemPh.title = o.result.path;
+				topicInfo.appendChild(itemPh);
+			}
+		});
+	}
+
+	/**
+	 * Make one or more new-post buttons for the given post, and append them to the given element
+	 *
+	 * @param el the DOM element to append to
+	 * @param locale the locale
+	 * @param couldFlag true if the user could add a flag for this path, else false
+	 * @param xpstrid the xpath string id
+	 * @param code the "code" for the xpath
+	 * @param myValue the value the current user voted for, or null
+	 */
+	function addNewPostButtons(el, locale, couldFlag, xpstrid, code, myValue) {
+		const options = getStatusOptions(false /* isReply */, null /* firstPost */, myValue);
+
+		Object.keys(options).forEach(function(postType) {
+			el.appendChild(makeOneNewPostButton(postType, options[postType], locale, couldFlag, xpstrid, code, myValue));
+		});
+	}
+
+	/**
+	 * Make one or more reply buttons for the given post, and append them to the given element
+	 *
+	 * @param el the DOM element to append to
+	 * @param post the post
+	 */
+	function addReplyButtons(el, post) {
+		const firstPost = getOldestPostInThread(post);
+		const options = getStatusOptions(true /* isReply */, firstPost, null /* myValue */);
+
+		Object.keys(options).forEach(function(postType) {
+			el.appendChild(makeOneReplyButton(post, postType, options[postType]));
+		});
+	}
+
+	function makeOneNewPostButton(postType, label, locale, couldFlag, xpstrid, code, myValue) {
+
+		const buttonTitle = couldFlag ? "forumNewPostFlagButton" : "forumNewPostButton";
+
+		const buttonClass = couldFlag ? "forumNewPostFlagButton btn btn-default btn-sm"
+									: "forumNewButton btn btn-default btn-sm";
+
+		const newButton = forumCreateChunk(label, "button", buttonClass);
+
+		if (typeof listenFor !== 'undefined') {
+			listenFor(newButton, "click", function(e) {
+				xpathMap.get({
+					hex: xpstrid
+				},
+				function(o) {
+					let subj = code + ' ' + xpstrid;
+					if (o.result && o.result.ph) {
+						subj = xpathMap.formatPathHeader(o.result.ph);
+					}
+					if (couldFlag) {
+						subj += " (Flag for review)";
+					}
+					openPostOrReply({
+						locale: locale,
+						xpath: xpstrid,
+						subject: subj,
+						postType: postType,
+						myValue: myValue
+					});
+				});
+				stStopPropagation(e);
+				return false;
+			});
+		}
+		return newButton;
+	}
+
+	function makeOneReplyButton(post, postType, label) {
+		const replyButton = forumCreateChunk(label, "button", "btn btn-default btn-sm");
+		/*
+		 * TODO: encapsulate "listenFor" dependency
+		 */
+		if (typeof listenFor !== 'undefined') {
+			listenFor(replyButton, "click", function(e) {
+				openPostOrReply({
+					/*
+					 * Don't specify locale or xpath for reply. Instead they will be set to
+					 * match the original post in the thread.
+					 */
+					replyTo: post.id,
+					replyData: post,
+					postType: postType
+				});
+				stStopPropagation(e);
+				return false;
+			});
+		}
+		return replyButton;
+	}
+
+	/**
+	 * Get an object defining the currently allowed forum status values
+	 * for making a new post, for the current user and given parameters
+	 *
+	 * @param isReply true if this post is a reply, else false
+	 * @param firstPost the original post in the thread
+	 * @param myValue the value the current user voted for, or null
+	 * @return the object mapping verbs like 'Request' to label strings like 'Request'
+	 *         (Currently the labels are the same as the verbs)
+	 *
+	 * Compare SurveyForum.ForumStatus on server
+	 */
+	function getStatusOptions(isReply, firstPost, myValue) {
+		const options = {};
+		if (myValue && !isReply) { // only allow Request if this user has voted
+			options['Request'] = 'Request';
+		}
+		options['Discuss'] = 'Discuss';
+		if (isReply && firstPost && !userIsPoster(firstPost) && firstPost.status === 'Request') {
+			options['Agree'] = 'Agree';
+			options['Decline'] = 'Decline';
+		}
+		if (userCanClose(isReply, firstPost)) {
+			options['Close'] = 'Close';
+		}
+		return options;
+	}
+
+	/**
+	 * Is the current user the poster of this post?
+	 *
+	 * @param post the post, or null
+	 * @returns true or false
+	 */
+	function userIsPoster(post) {
+		if (post && typeof surveyUser !== 'undefined') {
+			if (surveyUser === post.poster) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Is the current user a TC (Technical Committee) member?
+	 *
+	 * @return true or false
+	 */
+	function userIsTC() {
+		if (typeof surveyUserPerms !== 'undefined' && surveyUserPerms.userIsTC) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Is this user allowed to close the thread now?
+	 *
+	 * The user is only allowed if they are the original poster of the thread,
+	 * or a TC (technical committee) member.
+	 *
+	 * @param isReply true if this post is a reply, else false
+	 * @param firstPost the original post in the thread, or null
+	 * @return true if this user is allowed to close, else false
+	 */
+	function userCanClose(isReply, firstPost) {
+		return isReply
+			&& !threadIsClosed(firstPost)
+			&& (userIsPoster(firstPost) || userIsTC());
+	}
+
+	/**
+	 * Is this thread closed?
+	 *
+	 * @param firstPost the original post in the thread, or null
+	 * @return true if this user is allowed to close, else false
+	 */
+	function threadIsClosed(firstPost) {
+		const threadPosts = threadHash[firstPost.threadId];
+		return cldrStForumFilter.passIfClosed(threadPosts);
+	}
+
+	/**
 	 * Get an object whose properties define the parseContent options to be used for a particular
 	 * context in which parseContent is called
 	 *
@@ -576,9 +777,11 @@ const cldrStForum = (function() {
 	 *
 	 *   'main' for the context in which "Forum" is chosen from the left sidebar
 	 *
+	 *   'summary' for the context of getForumSummaryHtml
+	 *
 	 *   'info' for the "Info Panel" context (either main vetting view row, or Dashboard "Fix" button)
 	 *
-	 *   'new' for creation of a new post or reply
+	 *   'parent' for the replied-to post at the bottom of the create-reply dialog
 	 *
 	 * @return an object with these properties:
 	 *
@@ -591,6 +794,8 @@ const cldrStForum = (function() {
 	 *   applyFilter = true if the currently menu-selected filter should be applied
 	 *
 	 *   showThreadCount = true to display the number of threads
+	 *
+	 *   createDomElements = true to create the DOM objects (false for summary)
 	 */
 	function getOptionsForContext(context) {
 		const opts = getDefaultParseOptions();
@@ -601,13 +806,10 @@ const cldrStForum = (function() {
 			opts.showThreadCount = true;
 		} else if (context === 'summary') {
 			opts.applyFilter = true;
+			opts.createDomElements = false;
 		} else if (context === 'info') {
 			opts.showReplyButton = true;
-		} else if (context === 'new') {
-			/*
-			 * posts may have zero, one, or more elements here, for parent(s),
-			 * if any, of a new post in the process of being created
-			 */
+		} else if (context === 'parent') {
 			opts.fullSet = false;
 		} else {
 			console.log('Unrecognized context in getOptionsForContext: ' + context)
@@ -627,19 +829,8 @@ const cldrStForum = (function() {
 		opts.fullSet = true;
 		opts.applyFilter = false;
 		opts.showThreadCount = false;
+		opts.createDomElements = true;
 		return opts;
-	}
-
-	/**
-	 * Update the postHash mapping from post id to post object
-	 *
-	 * @param posts the array of posts
-	 */
-	function updatePostHash(posts) {
-		for (let num in posts) {
-			postHash[posts[num].id] = posts[num];
-		}
-		forumUpdateTime = Date.now();
 	}
 
 	/**
@@ -668,7 +859,7 @@ const cldrStForum = (function() {
 	 * @param className CSS className, or null for none.
 	 * @return new DOM object
 	 *
-	 * This duplicated a function in survey.js; copied here to avoid the dependency, at least while testing/refactoring
+	 * This duplicated a function in survey.js; copied here to avoid the dependency
 	 */
 	function forumCreateChunk(text, tag, className) {
 		if (!tag) {
@@ -685,35 +876,30 @@ const cldrStForum = (function() {
 	}
 
 	/**
-	 * Get the "thread id" for the given post.
-	 *
-	 * For a post with a parent, the thread id is the same as the thread id of the parent.
-	 *
-	 * For post without a parent, the thread id is like "aa|1234", where aa is the locale and 1234 is the post id.
-	 *
-	 * Caution: strangely, a post may have a different locale than the first post in its thread.
-	 * For example, even though post 32034 is fr_CA, its child 32036 is fr.
-	 * The thread id must use the locale of of the first post, for consistency.
-	 *
-	 * @param post the post object
-	 * @return the thread id string
-	 */
-	function getThreadId(post) {
-		const firstPost = getFirstPostInThread(post);
-		return firstPost.locale + "|" + firstPost.id;
-	}
-
-	/**
 	 * Get the first (original) post in the thread containing this post
 	 *
 	 * @param post the post object
 	 * @return the first post in the thread
 	 */
-	function getFirstPostInThread(post) {
+	function getOldestPostInThread(post) {
 		while (post.parent >= 0 && postHash[post.parent]) {
 			post = postHash[post.parent];
 		}
 		return post;
+	}
+
+	/**
+	 * Get the last (most recent) post in the thread containing this post
+	 *
+	 * @param post the post object
+	 * @return the first post in the thread
+	 */
+	function getNewestPostInThread(post) {
+		const threadPosts = threadHash[post.threadId];
+		/*
+		 * threadPosts is ordered from newest to oldest
+		 */
+		return threadPosts[0];
 	}
 
 	/**
@@ -728,8 +914,7 @@ const cldrStForum = (function() {
 	 * @return the new document fragment
 	 */
 	function filterAndAssembleForumThreads(posts, topicDivs, applyFilter, showThreadCount) {
-
-		let filteredArray = cldrStForumFilter.getFilteredThreadIds(posts, applyFilter);
+		let filteredArray = cldrStForumFilter.getFilteredThreadIds(threadHash, applyFilter);
 		const forumDiv = document.createDocumentFragment();
 		let countEl = null;
 		if (showThreadCount) {
@@ -790,10 +975,12 @@ const cldrStForum = (function() {
 	 * Get a piece of html text summarizing the current Forum statistics
 	 *
 	 * @param locale the locale string
+	 * @param userId the current user's id, for cldrStForumFilter
 	 * @return the html
 	 */
-	function getForumSummaryHtml(locale) {
+	function getForumSummaryHtml(locale, userId) {
 		setLocale(locale);
+		cldrStForumFilter.setUserId(userId);
 		return reallyGetForumSummaryHtml(true /* canDoAjax */);
 	}
 
@@ -802,7 +989,7 @@ const cldrStForum = (function() {
 	 *
 	 * @param canDoAjax true to call loadForumForSummaryOnly if needed, false otherwise; should
 	 *                  be false if the caller is the loadHandler for loadForumForSummaryOnly,
-	 *                  to prevent endless back-and-forth if things go wrong 
+	 *                  to prevent endless back-and-forth if things go wrong
 	 * @return the html
 	 */
 	function reallyGetForumSummaryHtml(canDoAjax) {
@@ -817,16 +1004,14 @@ const cldrStForum = (function() {
 			}
 		} else {
 			if (FORUM_DEBUG) {
-				html += "<p>Retrieved " + fmtDateTime(forumUpdateTime) + "</p>\n";				
+				html += "<p>Retrieved " + fmtDateTime(forumUpdateTime) + "</p>\n";
 			}
-			if (cldrStForumFilter) {
-				const c = cldrStForumFilter.getFilteredThreadCounts();
-				html += "<ul>\n";
-				Object.keys(c).forEach(function(k) {
-					html += "<li>" + k + ": " + c[k] + "</li>\n";
-				});
-				html += "</ul>\n";
-			}
+			const c = cldrStForumFilter.getFilteredThreadCounts();
+			html += "<ul>\n";
+			Object.keys(c).forEach(function(k) {
+				html += "<li>" + k + ": " + c[k] + "</li>\n";
+			});
+			html += "</ul>\n";
 		}
 		html += '</div>\n';
 		return html;
@@ -907,20 +1092,25 @@ const cldrStForum = (function() {
 		}
 	}
 
+	function getThreadHash(posts) {
+		updateForumData(posts, true /* fullSet */);
+		return threadHash;
+	}
+
 	/*
 	 * Make only these functions accessible from other files:
 	 */
 	return {
-		openPostOrReply: openPostOrReply,
 		parseContent: parseContent,
 		getForumSummaryHtml: getForumSummaryHtml,
 		loadForum: loadForum,
 		reload: reload,
+		addNewPostButtons: addNewPostButtons,
 		/*
 		 * The following are meant to be accessible for unit testing only:
 		 */
 		test: {
-			postStatusMenu: postStatusMenu,
+			getThreadHash: getThreadHash,
 		}
 	};
 })();

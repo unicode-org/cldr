@@ -42,9 +42,9 @@ public class SurveyForum {
     private static java.util.logging.Logger logger;
 
     /**
-     * Map post id to ForumStatus
+     * Map post id to PostType
      */
-    private ConcurrentHashMap<Integer, ForumStatus> allStatus = new ConcurrentHashMap<Integer, ForumStatus>();
+    private ConcurrentHashMap<Integer, PostType> allPostType = new ConcurrentHashMap<Integer, PostType>();
 
     private static String DB_FORA = "sf_fora"; // forum name -> id
 
@@ -268,7 +268,7 @@ public class SurveyForum {
      * @param locale
      * @param subj
      * @param text
-     * @param statusStr the status string like "Open", or null
+     * @param postTypeStr the PostType name like "Close", or null
      * @param couldFlagOnLosing
      * @param user
      * @return the new post id, or <= 0 for failure
@@ -278,15 +278,15 @@ public class SurveyForum {
      * Called by STFactory.PerLocaleData.voteForValue (for "Flag Removed" only) as well as locally by doPost
      */
     private Integer doPostInternal(int base_xpath, int replyTo, final CLDRLocale locale, String subj, String text,
-            String status, final boolean couldFlagOnLosing, final UserRegistry.User user) throws SurveyException {
+            String postTypeStr, final boolean couldFlagOnLosing, final UserRegistry.User user) throws SurveyException {
 
-        ForumStatus forumStatus = ForumStatus.fromName(status, null);
-        if (forumStatus == null || !userCanPostWithStatus(user, forumStatus, replyTo)) {
+        PostType postType = PostType.fromName(postTypeStr, null);
+        if (postType == null || !userCanUsePostType(user, postType, replyTo)) {
             return 0;
         }
         int postId = savePostToDb(user, subj, text, replyTo, locale, base_xpath, couldFlagOnLosing);
 
-        setStatus(postId, forumStatus);
+        setPostType(postId, postType);
 
         emailNotify(user, locale, base_xpath, subj, text, postId);
 
@@ -352,19 +352,19 @@ public class SurveyForum {
     }
 
     /**
-     * Is the current user allowed to post with the given status in this context?
+     * Is the current user allowed to post with the given PostType in this context?
      * This was already checked on the client, but don't trust the client too much.
      * Check on server as well, at least to prevent someone closing a post who shouldn't be allowed to.
      *
      * @param user the current user
-     * @param forumStatus the ForumStatus
+     * @param postType the PostType
      * @param replyTo the post id of the parent, or NO_PARENT
      * @return true or false
      *
      * @throws SurveyException
      */
-    private boolean userCanPostWithStatus(User user, ForumStatus forumStatus, int replyTo) throws SurveyException {
-        if (forumStatus != ForumStatus.CLOSED) {
+    private boolean userCanUsePostType(User user, PostType postType, int replyTo) throws SurveyException {
+        if (postType != PostType.CLOSE) {
             return true;
         }
         if (replyTo == NO_PARENT) {
@@ -419,20 +419,20 @@ public class SurveyForum {
     }
 
     /**
-     * Add a row to the FORUM_STATUS db table for the given post and status
-     * and add it to allStatus, unless this status doesn't belong in the table
+     * Add a row to the FORUM_TYPES db table for the given post and PostType
+     * and add it to allPostType, unless this PostType doesn't belong in the table
      *
      * @param postId the post id
-     * @param status the ForumStatus, or null
+     * @param postType the PostType, or null
      * @throws SurveyException
      */
-    private void setStatus(int postId, ForumStatus forumStatus) throws SurveyException {
+    private void setPostType(int postId, PostType postType) throws SurveyException {
 
-        if (forumStatus == null || !forumStatus.belongsInTable()) {
+        if (postType == null || !postType.belongsInTable()) {
             return;
         }
-        int statusId = forumStatus.toInt();
-        allStatus.put(postId, forumStatus);
+        int postTypeId = postType.toInt();
+        allPostType.put(postId, postType);
         try {
             Connection conn = null;
             PreparedStatement pAdd = null;
@@ -440,42 +440,42 @@ public class SurveyForum {
                 conn = sm.dbUtils.getDBConnection();
                 pAdd = prepare_pAddStatus(conn);
                 pAdd.setInt(1, postId);
-                pAdd.setInt(2, statusId);
+                pAdd.setInt(2, postTypeId);
                 int n = pAdd.executeUpdate();
                 conn.commit();
                 if (n != 1) {
-                    throw new RuntimeException("Couldn't add status for post.");
+                    throw new RuntimeException("Couldn't add type for post.");
                 }
             } finally {
                 DBUtils.close(pAdd, conn);
             }
         } catch (SQLException se) {
-            String complaint = "SurveyForum: Couldn't add status for post - " + DBUtils.unchainSqlException(se);
+            String complaint = "SurveyForum: Couldn't add type for post - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(se, complaint);
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
         }
     }
 
     /**
-     * Read the status table and fill in the allStatus hash
+     * Read the PostType table and fill in the allPostType hash
      */
-    private void getAllStatusFromTable() {
+    private void getallPostTypeFromTable() {
         Connection conn = null;
         PreparedStatement pList = null;
         try {
             conn = sm.dbUtils.getDBConnection();
-            pList = DBUtils.prepareStatement(conn, "pList", "SELECT id,status FROM " + DBUtils.Table.FORUM_STATUS.toString());
+            pList = DBUtils.prepareStatement(conn, "pList", "SELECT id,type FROM " + DBUtils.Table.FORUM_TYPES.toString());
             ResultSet rs = pList.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt(1);
                 int si = rs.getInt(2);
-                ForumStatus status = ForumStatus.fromInt(si, ForumStatus.CLOSED);
-                if (status != ForumStatus.CLOSED) {
-                    allStatus.put(id, status);
+                PostType postType = PostType.fromInt(si, PostType.CLOSE);
+                if (postType != PostType.CLOSE) {
+                    allPostType.put(id, postType);
                 }
             }
         } catch (SQLException se) {
-            String complaint = "SurveyForum: Could not get status from table " + DBUtils.unchainSqlException(se);
+            String complaint = "SurveyForum: Could not get type from table " + DBUtils.unchainSqlException(se);
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         } finally {
@@ -484,17 +484,17 @@ public class SurveyForum {
     }
 
     /**
-     * Get the status of the post with the given id
+     * Get the PostType of the post with the given id
      *
      * @param postId
-     * @return the ForumStatus
+     * @return the PostType
      */
-    private ForumStatus getStatusOfPost(int postId) {
-        ForumStatus forumStatus = allStatus.get(postId);
-        if (forumStatus == null) {
-            return ForumStatus.CLOSED;
+    private PostType getPostType(int postId) {
+        PostType postType = allPostType.get(postId);
+        if (postType == null) {
+            return PostType.CLOSE;
         }
-        return forumStatus;
+        return postType;
     }
 
     /**
@@ -675,20 +675,20 @@ public class SurveyForum {
             s.close();
             conn.commit();
         }
-        if (!DBUtils.hasTable(conn, DBUtils.Table.FORUM_STATUS.toString())) {
+        if (!DBUtils.hasTable(conn, DBUtils.Table.FORUM_TYPES.toString())) {
             /*
-             * Create a new forum-status table.
+             * Create a new FORUM_TYPES table.
              */
             Statement s = conn.createStatement();
-            sql = "CREATE TABLE " + DBUtils.Table.FORUM_STATUS + " (id INT NOT NULL, status INT NOT NULL)";
+            sql = "CREATE TABLE " + DBUtils.Table.FORUM_TYPES + " (id INT NOT NULL, type INT NOT NULL)";
             s.execute(sql);
-            sql = "CREATE UNIQUE INDEX " + DBUtils.Table.FORUM_STATUS + "_id ON " + DBUtils.Table.FORUM_STATUS + " (id)";
+            sql = "CREATE UNIQUE INDEX " + DBUtils.Table.FORUM_TYPES + "_id ON " + DBUtils.Table.FORUM_TYPES + " (id)";
             s.execute(sql);
             s.close();
             conn.commit();
         }
         reloadLocales(conn);
-        getAllStatusFromTable();
+        getallPostTypeFromTable();
     }
 
     private SurveyMain sm = null;
@@ -716,7 +716,7 @@ public class SurveyForum {
     }
 
     /**
-     * Prepare a statement for adding a new post to the forum status table.
+     * Prepare a statement for adding a new post to the FORUM_TYPES table.
      *
      * @param conn the Connection
      * @return the PreparedStatement
@@ -725,8 +725,8 @@ public class SurveyForum {
      * Called only by addStatusToTable
      */
     private static PreparedStatement prepare_pAddStatus(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO " + DBUtils.Table.FORUM_STATUS.toString()
-            + " (id,status) values (?,?)");
+        return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO " + DBUtils.Table.FORUM_TYPES.toString()
+            + " (id,type) values (?,?)");
     }
 
     private static PreparedStatement prepare_pIntUsers(Connection conn) throws SQLException {
@@ -858,7 +858,7 @@ public class SurveyForum {
                             post.put("poster", poster)
                                 .put("subject", subj2)
                                 .put("text", text2)
-                                .put("forumStatus", getStatusOfPost(id).toName())
+                                .put("postType", getPostType(id).toName())
                                 .put("date", lastDate)
                                 .put("date_long", lastDate.getTime())
                                 .put("id", id)
@@ -939,13 +939,13 @@ public class SurveyForum {
      * @param l the CLDRLocale
      * @param subj the subject of the post
      * @param text the text of the post
-     * @param status the status string such as "Open", or null
+     * @param postTypeStr the PostType string such as "Close", or null
      * @param replyTo the id of the post to which this is a reply; {@link #NO_PARENT} if there is no parent
      * @return the post id
      *
      * @throws SurveyException
      */
-    public int doPost(CookieSession mySession, String xpath, CLDRLocale l, String subj, String text, String status, int replyTo) throws SurveyException {
+    public int doPost(CookieSession mySession, String xpath, CLDRLocale l, String subj, String text, String postTypeStr, int replyTo) throws SurveyException {
         assertCanAccessForum(mySession, l);
         int base_xpath;
         if (replyTo < 0) {
@@ -959,7 +959,7 @@ public class SurveyForum {
         if (couldFlagOnLosing) {
             text = text + FLAGGED_FOR_REVIEW_HTML;
         }
-        return doPostInternal(base_xpath, replyTo, l, subj, text, status, couldFlagOnLosing, mySession.user);
+        return doPostInternal(base_xpath, replyTo, l, subj, text, postTypeStr, couldFlagOnLosing, mySession.user);
     }
 
     /**
@@ -973,21 +973,20 @@ public class SurveyForum {
      * @throws SurveyException
      */
     public int postFlagRemoved(int xpathId, CLDRLocale locale, User user) throws SurveyException {
-        return doPostInternal(xpathId, -1, locale, "Flag Removed", "(The flag was removed.)", ForumStatus.CLOSED.toName(), false, user);
+        return doPostInternal(xpathId, -1, locale, "Flag Removed", "(The flag was removed.)", PostType.CLOSE.toName(), false, user);
     }
 
     /**
      * Status values associated with forum posts and threads
      */
-    private enum ForumStatus {
-        CLOSED(0, "Closed"),
-        QUESTION(1, "Question"),
+    private enum PostType {
+        CLOSE(0, "Close"),
+        DISCUSS(1, "Discuss"),
         REQUEST(2, "Request"),
-        INFORMATION(3, "Information"),
-        AGREED(4, "Agreed"),
-        DISPUTED(5, "Disputed");
+        AGREE(3, "Agree"),
+        DECLINE(4, "Decline");
 
-        ForumStatus(int id, String name) {
+        PostType(int id, String name) {
             this.id = id;
             this.name = name;
         }
@@ -996,7 +995,7 @@ public class SurveyForum {
         private final String name;
 
         /**
-         * Get the integer id for this ForumStatus
+         * Get the integer id for this PostType
          *
          * @return the id
          */
@@ -1005,7 +1004,7 @@ public class SurveyForum {
         }
 
         /**
-         * Get the name for this ForumStatus
+         * Get the name for this PostType
          *
          * @return the name
          */
@@ -1014,15 +1013,15 @@ public class SurveyForum {
         }
 
         /**
-         * Get a ForumStatus value from its name, or if the name is not associated with
-         * a ForumStatus value, use the given default ForumStatus
+         * Get a PostType value from its name, or if the name is not associated with
+         * a PostType value, use the given default PostType
          *
          * @param i
          * @param defaultStatus
-         * @return the ForumStatus
+         * @return the PostType
          */
-        public static ForumStatus fromInt(int i, ForumStatus defaultStatus) {
-            for (ForumStatus s : ForumStatus.values()) {
+        public static PostType fromInt(int i, PostType defaultStatus) {
+            for (PostType s : PostType.values()) {
                 if (s.id == i) {
                     return s;
                 }
@@ -1031,16 +1030,16 @@ public class SurveyForum {
         }
 
         /**
-         * Get a ForumStatus value from its name, or if the name is not associated with
-         * a ForumStatus value, use the given default ForumStatus
+         * Get a PostType value from its name, or if the name is not associated with
+         * a PostType value, use the given default PostType
          *
          * @param name
          * @param defaultStatus
-         * @return the ForumStatus
+         * @return the PostType
          */
-        public static ForumStatus fromName(String name, ForumStatus defaultStatus) {
+        public static PostType fromName(String name, PostType defaultStatus) {
             if (name != null) {
-                for (ForumStatus s : ForumStatus.values()) {
+                for (PostType s : PostType.values()) {
                     if (s.name.equals(name)) {
                         return s;
                     }
@@ -1050,14 +1049,14 @@ public class SurveyForum {
         }
 
         /**
-         * Does the given ForumStatus belong in the FORUM_STATUS db table?
+         * Does the given PostType belong in the FORUM_TYPES db table?
          *
-         * Keep the table smaller by not storing rows in it for status CLOSED.
+         * Keep the table smaller by not storing rows in it for CLOSE.
          *
          * @return true or false
          */
         public boolean belongsInTable() {
-            return this != CLOSED;
+            return this != CLOSE;
         }
     }
 }

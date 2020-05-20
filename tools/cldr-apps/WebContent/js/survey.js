@@ -1867,46 +1867,15 @@ function showForumStuff(frag, forumDivClone, tr) {
 		}, 2000); // wait 2 seconds before loading this.
 	}
 
-	// prepend something
-	var buttonTitle = "forumNewPostButton";
-	var buttonClass = "forumNewButton btn btn-default btn-sm";
-	var couldFlag = false;
 	if (tr.theRow) {
-		if (tr.theRow.voteVhash !== tr.theRow.winningVhash &&
-				tr.theRow.voteVhash !== '' &&
-				tr.theRow.canFlagOnLosing &&
-				!tr.theRow.rowFlagged) {
-			buttonTitle = "forumNewPostFlagButton";
-			buttonClass = "forumNewPostFlagButton btn btn-default btn-sm";
-			couldFlag = true;
-		}
+		const theRow = tr.theRow;
+		const couldFlag = theRow.canFlagOnLosing &&
+				theRow.voteVhash !== theRow.winningVhash &&
+				theRow.voteVhash !== '' &&
+				!theRow.rowFlagged;
+		const myValue = theRow.hasVoted ? getUsersValue(theRow) : null;
+		cldrStForum.addNewPostButtons(frag, surveyCurrentLocale, couldFlag, theRow.xpstrid, theRow.code, myValue);
 	}
-	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
-	frag.appendChild(newButton);
-
-	(function(theRow, couldFlag) {
-		listenFor(newButton, "click", function(e) {
-			xpathMap.get({
-					hex: theRow.xpstrid
-				},
-				function(o) {
-					var subj = theRow.code + ' ' + theRow.xpstrid;
-					if (o.result && o.result.ph) {
-						subj = xpathMap.formatPathHeader(o.result.ph);
-					}
-					if (couldFlag) {
-						subj = subj + " (Flag for review)";
-					}
-					cldrStForum.openPostOrReply({
-						locale: surveyCurrentLocale,
-						xpath: theRow.xpstrid,
-						subject: subj,
-					});
-				});
-			stStopPropagation(e);
-			return false;
-		});
-	})(tr.theRow, couldFlag);
 
 	var loader2 = createChunk(stui.str("loading"), "i");
 	frag.appendChild(loader2);
@@ -1953,6 +1922,22 @@ function showForumStuff(frag, forumDivClone, tr) {
 		};
 		cldrStAjax.queueXhr(xhrArgs);
 	}, 1900);
+
+	function getUsersValue(theRow) {
+		'use strict';
+		if (surveyUser && surveyUser.id) {
+			if (theRow.voteVhash && theRow.voteVhash !== '') {
+				const item = theRow.items[theRow.voteVhash];
+				if (item && item.votes && item.votes[surveyUser.id]) {
+					if (item.value === INHERITANCE_MARKER) {
+						return theRow.inheritedValue;
+					}
+					return item.value;
+				}
+			}
+		}
+		return null;
+	}
 }
 
 /**

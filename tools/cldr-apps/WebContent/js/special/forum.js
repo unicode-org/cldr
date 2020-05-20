@@ -1,8 +1,8 @@
 /**
  * Special Dojo "module" that shows a forum page.
- *
- * TODO: migrate to modern strict JavaScript module
  */
+'use strict';
+
 define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "dojo/window"],
 		function(SpecialPage, request, win) {
 	var _super;
@@ -74,8 +74,8 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "doj
 				forum: forumName,
 				locale: surveyCurrentLocaleName
 			});
-			cldrStForumFilter.setUserId(surveyUser.id);
-			cldrStForum.loadForum(surveyCurrentLocale, forumMessage, params);
+			const userId = (surveyUser && surveyUser.id) ? surveyUser.id : 0;
+			cldrStForum.loadForum(surveyCurrentLocale, userId, forumMessage, params);
 		}
 	};
 

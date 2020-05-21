@@ -3117,8 +3117,10 @@ annotations.
 		<annotation cp="‧" type="tts">hyphenation point</annotation>
 		<annotation cp="・">interpunct | middot | katakana | dots</annotation>
 		<annotation cp="・" type="tts">katakana middle dot</annotation>
+		<!-- causes tool breakage
 		<annotation cp="">whitespace</annotation>
 		<annotation cp="" type="tts">space</annotation>
+		-->
 		<annotation cp=","></annotation>
 		<annotation cp="," type="tts">comma</annotation>
 		<annotation cp="、">comma | ideographic</annotation>

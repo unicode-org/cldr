@@ -196,9 +196,9 @@ public class Emoji {
             {"arrow", "→ ↓ ↑ ← ↔ ↕ ⇆ ⇅"},
             {"alphanum", "© ® ℗ ™ µ"},
             {"geometric", "▼ ▶ ▲ ◀ ● ○ ◯ ◊"},
-            {"math", "× ÷ √ ∞ ∆ ∇ ⁻ ¹ ² ³ ≡ ∈ ⊂ ∩ ∪ °"},
-            {"punctuation", "– — » « • · § † ‡"},
-            {"currency", "€ £ ¥ ₹ ₽"},
+            {"math", "× ÷ √ ∞ ∆ ∇ ⁻ ¹ ² ³ ≡ ∈ ⊂ ∩ ∪ ° + ± − = ≈ ≠ > < ≤ ≥ ¬ | ~"},
+            {"punctuation", "§ † ‡ \\u0020  , 、 ، ; : ؛ ! ¡ ? ¿ ؟ ¶ ※ / \\ & # % ‰ ′ ″ ‴ @ * ♪ ♭ ♯ ` ´ ^ ¨ ‐ ― _ - – — • · . … 。 ‧ ・ ‘ ’ ‚ ' “ ” „ » « ( ) [ ] { } 〔 〕 〈 〉 《 》 「 」 『 』 〖 〗 【 】"},
+            {"currency", "€ £ ¥ ₹ ₽ $ ¢ ฿ ₪ ₺ ₫ ₱ ₩ ₡ ₦ ₮ ৳ ₴ ₸ ₲ ₵ ៛ ₭ ֏ ₥ ₾ ₼ ₿ ؋"},
         };
         // get the maximum suborder for each subcategory
         Map<String, Long> subcategoryToMaxSuborder = new HashMap<>();

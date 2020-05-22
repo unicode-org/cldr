@@ -429,9 +429,9 @@ System Data</a>.</em> ) &gt;<br>
     "Number_Symbols">Number Symbols</a></h3>
     <p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*,
     list*, percentSign*, nativeZeroDigit*, patternDigit*,
-    plusSign*, minusSign*, exponential*, superscriptingExponent*,
-    perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*,
-    timeSeparator*, special*)) &gt;</p>
+    plusSign*, minusSign*, approximatelySign*, exponential*,
+    superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*,
+    currencyGroup*, timeSeparator*, special*)) &gt;</p>
     <p>Number symbols define the localized symbols that are
     commonly used when formatting numbers in a given locale. These
     symbols can be referenced using a number formatting pattern as
@@ -488,6 +488,10 @@ System Data</a>.</em> ) &gt;<br>
       or implicitly. In the explicit pattern, the value of the
       plusSign can be substituted for the value of the minusSign to
       produce a pattern that has an explicit plus sign.</dd>
+      <dt><b>approximatelySign</b></dt>
+      <dd>- Symbol used to denote a value that is approximate but
+      not exact. The symbol is substituted in place of the minusSign
+      using the same semantics as plusSign substitution.</dd>
       <dt><b>exponential</b></dt>
       <dd>- Symbol separating the mantissa and exponent
       values.</dd>
@@ -563,10 +567,12 @@ System Data</a>.</em> ) &gt;<br>
 "color: blue">+</span>&lt;/plusSign&gt;
       &lt;minusSign&gt;<span style=
 "color: blue">-</span>&lt;/minusSign&gt;
+      &lt;approximatelySign&gt;<span style=
+"color: blue">~</span>&lt;/approximatelySign&gt;
       &lt;exponential&gt;<span style=
 "color: blue">E</span>&lt;/exponential&gt;
       &lt;superscriptingExponent&gt;<span style=
-"color: blue">×</span>&lt;/exponential&gt;
+"color: blue">×</span>&lt;/superscriptingExponent&gt;
       &lt;perMille&gt;<span style=
 "color: blue">‰</span>&lt;/perMille&gt;
       &lt;infinity&gt;<span style=
@@ -982,7 +988,7 @@ System Data</a>.</em> ) &gt;<br>
         <tr valign="top" bgcolor="#EEEEFF">
           <td>-</td>
           <td>Number</td>
-          <td>minusSign</td>
+          <td>minusSign, plusSign, approximatelySign</td>
           <td colspan="2">Minus sign. <strong>Warning:</strong> the
           pattern '-'0.0 is not the same as the pattern -0.0. In
           the former case, the minus sign is a literal. In the

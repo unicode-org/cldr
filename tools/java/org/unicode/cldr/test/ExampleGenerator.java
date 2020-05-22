@@ -1315,6 +1315,11 @@ public class ExampleGenerator {
             index = 2;
             numberSample = 0.023;
             originalValue = cldrFile.getWinningValue(parts.addRelative("../percentSign").toString());
+        } else if (symbolType.equals("approximatelySign")) {
+            // Substitute the approximately symbol in for the minus sign.
+            index = 1;
+            numberSample = -numberSample;
+            originalValue = cldrFile.getWinningValue(parts.addRelative("../minusSign").toString());
         } else if (symbolType.equals("exponential") || symbolType.equals("plusSign")) {
             index = 3;
         } else if (symbolType.equals("superscriptingExponent")) {

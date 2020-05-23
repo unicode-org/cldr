@@ -7408,6 +7408,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} grano</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} grani</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
@@ -7711,24 +7713,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} cucchiaino da dessert</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} cucchiaini da dessert</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} cucchiaio</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} cucchiai</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} goccia</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} gocce</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} dramma</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dramme</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} jigger</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} jigger</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} pizzico</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} pizzichi</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} quarto imperiale</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} quarti imperiali</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>punti cardinali</displayName>

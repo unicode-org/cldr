@@ -6757,6 +6757,10 @@ annotations.
 				<unitPattern count="one">{0} knot</unitPattern>
 				<unitPattern count="other">{0} knots</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<unitPattern count="one" draft="provisional">{0} degree</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} degrees</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>degrees Celsius</displayName>
 				<unitPattern count="one">{0} degree Celsius</unitPattern>

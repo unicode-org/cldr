@@ -10440,6 +10440,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} grain</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} grains</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatts</displayName>
@@ -10737,24 +10739,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<gender draft="provisional">feminine</gender>
+                <unitPattern count="one" draft="provisional">{0} cuillère à dessert</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} cuillères à dessert</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender draft="provisional">feminine</gender>
+                <unitPattern count="one" draft="provisional">{0} cuillère à dessert impériale</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} cuillères à dessert impériale</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} goutte</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} gouttes</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<gender draft="provisional">feminine</gender>
+                <unitPattern count="one" draft="provisional">{0} drachme impériale</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} drachmes impériales</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} shot</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} shots</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} pincée</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} pincées</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<gender draft="provisional">masculine</gender>
+                <unitPattern count="one" draft="provisional">{0} quart impérial</unitPattern>
+                <unitPattern count="other" draft="provisional">{0} quarts impériaux</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>direction</displayName>

@@ -8218,6 +8218,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} grano</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} granos</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigavatios</displayName>
@@ -8517,24 +8519,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} cucharada de postre</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} cucharadas de postre</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} cucharada de postre imperial</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} cucharadas de postre imperiales</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} gota</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} gotas</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} dracma líquido británico</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dracmas líquidos británicos</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} jigger</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} jiggers</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} pizca</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} pizcas</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} cuarto británico</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} cuartos británicos</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>punto cardinal</displayName>

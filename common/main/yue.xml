@@ -5427,9 +5427,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>加里寧格勒</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>辛非洛浦</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>莫斯科</exemplarCity>
 			</zone>
@@ -5624,6 +5621,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>基輔</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>辛非洛浦</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>札波羅結</exemplarCity>
@@ -9057,6 +9057,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>太陽質量</displayName>
 				<unitPattern count="other">{0} 太陽質量</unitPattern>
 			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="other" draft="provisional">{0}格令</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>吉瓦</displayName>
 				<unitPattern count="other">{0} 吉瓦</unitPattern>
@@ -9273,6 +9276,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-barrel">
 				<displayName>桶</displayName>
 				<unitPattern count="other">{0} 桶</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<unitPattern count="other" draft="provisional">{0}甜品匙</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other" draft="provisional">英制甜品匙{0}匙</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="other" draft="provisional">{0}滴</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<unitPattern count="other" draft="provisional">{0}英制液量打蘭</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other" draft="provisional">量酒器{0}杯</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="other" draft="provisional">{0}小撮</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<unitPattern count="other" draft="provisional">{0}英制夸脫</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>方向</displayName>

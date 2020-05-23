@@ -16820,6 +16820,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} korrel</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} korrels</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
@@ -17117,24 +17119,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} dessertlepel</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dessertlepels</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} imp. dessertlepel</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} imp. dessertlepels</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} druppel</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} druppels</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} vloeistof drachm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} vloeistof drachm</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} jigger</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} jiggers</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} snufje</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} snufjes</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} imp. quart</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} imp. quarts</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>windstreek</displayName>

@@ -14600,6 +14600,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} grain</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} grain</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
@@ -14898,24 +14900,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} dessertskje</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dessertskjeer</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} britisk dessertskje</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britiske dessertskjeer</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} dråpe</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dråper</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} britisk flytende dram</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britiske flytende drammer</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} jigg</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} jigg</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} klype</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} klyper</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} britisk quart</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britiske quarts</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>himmelretning</displayName>

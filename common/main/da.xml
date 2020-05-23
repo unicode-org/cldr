@@ -7883,6 +7883,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} gran</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} gran</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
@@ -8175,24 +8177,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} dessertske</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dessertskeer</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} britisk dessertske</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britiske dessertskeer</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} dråbe</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dråber</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} britisk flydende dram</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britiske flydende dramme</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} jigger</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} jigger</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} knivspids</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} knivspidser</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} britisk quart</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britiske quarts</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>kompasretning</displayName>

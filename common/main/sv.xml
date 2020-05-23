@@ -8975,6 +8975,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} grain</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} grains</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
@@ -9272,24 +9274,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} dessertsked</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dessertskedar</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} brittisk dessertsked</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} brittisk dessertskedar</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} droppe</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} droppar</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} brittisk dram</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} brittiska dramer</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} mätglas</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} mätglas</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} nypa</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} nypor</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<gender draft="provisional">common</gender>
+				<unitPattern count="one" draft="provisional">{0} brittisk quart</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} brittiska quarts</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>kompassriktning</displayName>

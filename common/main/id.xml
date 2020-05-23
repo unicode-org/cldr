@@ -4359,9 +4359,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningrad</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskwa</exemplarCity>
 			</zone>
@@ -4556,6 +4553,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiev</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Simferopol</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporizhia</exemplarCity>
@@ -7711,6 +7711,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>massa Matahari</displayName>
 				<unitPattern count="other">{0} massa Matahari</unitPattern>
 			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="other" draft="provisional">{0} grain</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatt</displayName>
 				<unitPattern count="other">{0} gigawatt</unitPattern>
@@ -7923,6 +7926,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-barrel">
 				<displayName>barrel</displayName>
 				<unitPattern count="other">{0} barrel</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<unitPattern count="other" draft="provisional">{0} sendok dessert</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other" draft="provisional">{0} sendok dessert imperial</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="other" draft="provisional">{0} tetes</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<unitPattern count="other" draft="provisional">{0} dram cairan imperial</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other" draft="provisional">{0} jigger</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="other" draft="provisional">{0} jumput</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<unitPattern count="other" draft="provisional">{0} kuart imperial</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>arah mata angin</displayName>

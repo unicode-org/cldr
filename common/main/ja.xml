@@ -5792,9 +5792,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>カリーニングラード</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>シンフェロポリ</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>モスクワ</exemplarCity>
 			</zone>
@@ -5989,6 +5986,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>キエフ</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>シンフェロポリ</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ザポリージャ</exemplarCity>
@@ -9390,6 +9390,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>太陽質量</displayName>
 				<unitPattern count="other">{0} 太陽質量</unitPattern>
 			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="other" draft="provisional">{0} グレーン</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ギガワット</displayName>
 				<unitPattern count="other">{0} ギガワット</unitPattern>
@@ -9606,6 +9609,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-barrel">
 				<displayName>バレル</displayName>
 				<unitPattern count="other">{0} バレル</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<unitPattern count="other" draft="provisional">{0} デザートスプーン</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other" draft="provisional">{0} 英デザートスプーン</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="other" draft="provisional">{0} 滴</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<unitPattern count="other" draft="provisional">{0} 英液量ドラム</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other" draft="provisional">{0} ジガー</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="other" draft="provisional">{0} つまみ</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<unitPattern count="other" draft="provisional">{0} 英クォート</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>方位</displayName>

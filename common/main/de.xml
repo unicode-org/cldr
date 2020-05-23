@@ -4457,9 +4457,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningrad</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskau</exemplarCity>
 			</zone>
@@ -4654,6 +4651,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiew</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Simferopol</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Saporischja</exemplarCity>
@@ -7835,13 +7835,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} Tag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} Tage</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other" draft="provisional">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
-			<caseMinimalPairs case="nominative" draft="provisional">{0} kostet €3,50.</caseMinimalPairs>
-			<caseMinimalPairs case="genitive" draft="provisional">Anstatt {0}, …</caseMinimalPairs>
-			<caseMinimalPairs case="dative" draft="provisional">… mit {0} …</caseMinimalPairs>
 			<caseMinimalPairs case="accusative" draft="provisional">… für {0} …</caseMinimalPairs>
-            <genderMinimalPairs gender="masculine" draft="provisional">{0}, der zu viel ist, …</genderMinimalPairs>
-            <genderMinimalPairs gender="feminine" draft="provisional">{0}, die zu viel ist, …</genderMinimalPairs>
-            <genderMinimalPairs gender="neuter" draft="provisional">{0}, das zu viel ist, …</genderMinimalPairs>
+			<caseMinimalPairs case="dative" draft="provisional">… mit {0} …</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="provisional">Anstatt {0}, …</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="provisional">{0} kostet €3,50.</caseMinimalPairs>
+			<genderMinimalPairs gender="feminine" draft="provisional">{0}, die zu viel ist, …</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine" draft="provisional">{0}, der zu viel ist, …</genderMinimalPairs>
+			<genderMinimalPairs gender="neuter" draft="provisional">{0}, das zu viel ist, …</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7923,11 +7923,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<gender draft="provisional">neuter</gender>
 				<displayName>g-Kraft</displayName>
 				<unitPattern count="one">{0}-fache Erdbeschleunigung</unitPattern>
 				<unitPattern count="other">{0}-fache Erdbeschleunigung</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Meter pro Quadratsekunde</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7943,6 +7945,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Radianten</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Grad</displayName>
 				<unitPattern count="one">{0} Grad</unitPattern>
 				<unitPattern count="other">{0} Grad</unitPattern>
@@ -7958,35 +7961,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Winkelsekunden</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratkilometer</displayName>
 				<unitPattern count="one">{0} Quadratkilometer</unitPattern>
 				<unitPattern count="other">{0} Quadratkilometer</unitPattern>
 				<perUnitPattern>{0} pro Quadratkilometer</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Hektar</displayName>
 				<unitPattern count="one">{0} Hektar</unitPattern>
 				<unitPattern count="other">{0} Hektar</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratmeter</displayName>
 				<unitPattern count="one">{0} Quadratmeter</unitPattern>
 				<unitPattern count="other">{0} Quadratmeter</unitPattern>
 				<perUnitPattern>{0} pro Quadratmeter</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratzentimeter</displayName>
 				<unitPattern count="one">{0} Quadratzentimeter</unitPattern>
 				<unitPattern count="other">{0} Quadratzentimeter</unitPattern>
 				<perUnitPattern>{0} pro Quadratzentimeter</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Quadratmeilen</displayName>
 				<unitPattern count="one">{0} Quadratmeile</unitPattern>
 				<unitPattern count="other">{0} Quadratmeilen</unitPattern>
 				<perUnitPattern>{0} pro Quadratmeile</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Acres</displayName>
 				<unitPattern count="one">{0} Acre</unitPattern>
 				<unitPattern count="other">{0} Acres</unitPattern>
@@ -7997,6 +8006,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Quadratyards</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratfuß</displayName>
 				<unitPattern count="one">{0} Quadratfuß</unitPattern>
 				<unitPattern count="other">{0} Quadratfuß</unitPattern>
@@ -8033,6 +8043,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Parts per million</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Prozent</displayName>
 				<unitPattern count="one">{0} Prozent</unitPattern>
 				<unitPattern count="other">{0} Prozent</unitPattern>
@@ -8058,16 +8069,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Liter pro Kilometer</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Liter auf 100 Kilometer</displayName>
 				<unitPattern count="one">{0} Liter auf 100 Kilometer</unitPattern>
 				<unitPattern count="other">{0} Liter auf 100 Kilometer</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen pro Gallone</displayName>
 				<unitPattern count="one">{0} Meile pro Gallone</unitPattern>
 				<unitPattern count="other">{0} Meilen pro Gallone</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen pro Imp. Gallone</displayName>
 				<unitPattern count="one">{0} Meile pro Imp. Gallone</unitPattern>
 				<unitPattern count="other">{0} Meilen pro Imp. Gallone</unitPattern>
@@ -8078,6 +8092,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Petabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Terabytes</displayName>
 				<unitPattern count="one">{0} Terabyte</unitPattern>
 				<unitPattern count="other">{0} Terabytes</unitPattern>
@@ -8088,41 +8103,49 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Terabits</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Gigabytes</displayName>
 				<unitPattern count="one">{0} Gigabyte</unitPattern>
 				<unitPattern count="other">{0} Gigabytes</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Gigabits</displayName>
 				<unitPattern count="one">{0} Gigabit</unitPattern>
 				<unitPattern count="other">{0} Gigabits</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Megabytes</displayName>
 				<unitPattern count="one">{0} Megabyte</unitPattern>
 				<unitPattern count="other">{0} Megabytes</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Megabits</displayName>
 				<unitPattern count="one">{0} Megabit</unitPattern>
 				<unitPattern count="other">{0} Megabits</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilobytes</displayName>
 				<unitPattern count="one">{0} Kilobyte</unitPattern>
 				<unitPattern count="other">{0} Kilobytes</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilobits</displayName>
 				<unitPattern count="one">{0} Kilobit</unitPattern>
 				<unitPattern count="other">{0} Kilobits</unitPattern>
 			</unit>
 			<unit type="digital-byte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Bytes</displayName>
 				<unitPattern count="one">{0} Byte</unitPattern>
 				<unitPattern count="other">{0} Bytes</unitPattern>
 			</unit>
 			<unit type="digital-bit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Bits</displayName>
 				<unitPattern count="one">{0} Bit</unitPattern>
 				<unitPattern count="other">{0} Bits</unitPattern>
@@ -8138,42 +8161,49 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Jahrzehnte</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Jahre</displayName>
 				<unitPattern count="one">{0} Jahr</unitPattern>
 				<unitPattern count="other">{0} Jahre</unitPattern>
 				<perUnitPattern>{0} pro Jahr</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Monate</displayName>
 				<unitPattern count="one">{0} Monat</unitPattern>
 				<unitPattern count="other">{0} Monate</unitPattern>
 				<perUnitPattern>{0} pro Monat</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Wochen</displayName>
 				<unitPattern count="one">{0} Woche</unitPattern>
 				<unitPattern count="other">{0} Wochen</unitPattern>
 				<perUnitPattern>{0} pro Woche</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Tage</displayName>
 				<unitPattern count="one">{0} Tag</unitPattern>
 				<unitPattern count="other">{0} Tage</unitPattern>
 				<perUnitPattern>{0} pro Tag</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Stunden</displayName>
 				<unitPattern count="one">{0} Stunde</unitPattern>
 				<unitPattern count="other">{0} Stunden</unitPattern>
 				<perUnitPattern>{0} pro Stunde</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Minuten</displayName>
 				<unitPattern count="one">{0} Minute</unitPattern>
 				<unitPattern count="other">{0} Minuten</unitPattern>
 				<perUnitPattern>{0} pro Minute</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Sekunden</displayName>
 				<unitPattern count="one">{0} Sekunde</unitPattern>
 				<unitPattern count="other">{0} Sekunden</unitPattern>
@@ -8210,11 +8240,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Ohm</unitPattern>
 			</unit>
 			<unit type="electric-volt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Volt</displayName>
 				<unitPattern count="one">{0} Volt</unitPattern>
 				<unitPattern count="other">{0} Volt</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Kilokalorien</displayName>
 				<unitPattern count="one">{0} Kilokalorie</unitPattern>
 				<unitPattern count="other">{0} Kilokalorien</unitPattern>
@@ -8225,6 +8257,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kalorien</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Kilokalorien</displayName>
 				<unitPattern count="one">{0} Kilokalorien</unitPattern>
 				<unitPattern count="other">{0} Kilokalorien</unitPattern>
@@ -8325,12 +8358,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Punkte pro Inch</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kilometer</displayName>
 				<unitPattern count="one">{0} Kilometer</unitPattern>
 				<unitPattern count="other">{0} Kilometer</unitPattern>
 				<perUnitPattern>{0} pro Kilometer</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Meter</displayName>
 				<unitPattern count="one">{0} Meter</unitPattern>
 				<unitPattern count="other">{0} Meter</unitPattern>
@@ -8342,12 +8377,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Dezimeter</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Zentimeter</displayName>
 				<unitPattern count="one">{0} Zentimeter</unitPattern>
 				<unitPattern count="other">{0} Zentimeter</unitPattern>
 				<perUnitPattern>{0} pro Zentimeter</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Millimeter</displayName>
 				<unitPattern count="one">{0} Millimeter</unitPattern>
 				<unitPattern count="other">{0} Millimeter</unitPattern>
@@ -8363,33 +8400,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Nanometer</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Pikometer</displayName>
 				<unitPattern count="one">{0} Pikometer</unitPattern>
 				<unitPattern count="other">{0} Pikometer</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen</displayName>
 				<unitPattern count="one">{0} Meile</unitPattern>
 				<unitPattern count="other">{0} Meilen</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Yards</displayName>
 				<unitPattern count="one">{0} Yard</unitPattern>
 				<unitPattern count="other">{0} Yards</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Fuß</displayName>
 				<unitPattern count="one">{0} Fuß</unitPattern>
 				<unitPattern count="other">{0} Fuß</unitPattern>
 				<perUnitPattern>{0} pro Fuß</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Zoll</displayName>
 				<unitPattern count="one">{0} Zoll</unitPattern>
 				<unitPattern count="other">{0} Zoll</unitPattern>
 				<perUnitPattern>{0} pro Zoll</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Parsec</displayName>
 				<unitPattern count="one">{0} Parsec</unitPattern>
 				<unitPattern count="other">{0} Parsec</unitPattern>
@@ -8430,6 +8473,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Punkte</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Sonnenradius</displayName>
 				<unitPattern count="one">{0} Sonnenradius</unitPattern>
 				<unitPattern count="other">{0} Sonnenradien</unitPattern>
@@ -8440,6 +8484,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Lux</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
+				<gender draft="provisional">feminine</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8450,18 +8495,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Tonnen</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilogramm</displayName>
 				<unitPattern count="one">{0} Kilogramm</unitPattern>
 				<unitPattern count="other">{0} Kilogramm</unitPattern>
 				<perUnitPattern>{0} pro Kilogramm</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Gramm</displayName>
 				<unitPattern count="one">{0} Gramm</unitPattern>
 				<unitPattern count="other">{0} Gramm</unitPattern>
 				<perUnitPattern>{0} pro Gramm</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Milligramm</displayName>
 				<unitPattern count="one">{0} Milligramm</unitPattern>
 				<unitPattern count="other">{0} Milligramm</unitPattern>
@@ -8482,12 +8530,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} Stones</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Pfund</displayName>
 				<unitPattern count="one">{0} Pfund</unitPattern>
 				<unitPattern count="other">{0} Pfund</unitPattern>
 				<perUnitPattern>{0} pro Pfund</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Unzen</displayName>
 				<unitPattern count="one">{0} Unze</unitPattern>
 				<unitPattern count="other">{0} Unzen</unitPattern>
@@ -8504,19 +8554,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Karat</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Dalton</displayName>
 				<unitPattern count="one">{0} Dalton</unitPattern>
 				<unitPattern count="other">{0} Dalton</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Erdmasse</displayName>
 				<unitPattern count="one">{0} Erdmasse</unitPattern>
 				<unitPattern count="other">{0} Erdmasse</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Sonnenmasse</displayName>
 				<unitPattern count="one">{0} Sonnenmasse</unitPattern>
 				<unitPattern count="other">{0} Sonnenmasse</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<gender draft="provisional">feminine</gender>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>Gigawatt</displayName>
@@ -8524,16 +8580,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Gigawatt</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Megawatt</displayName>
 				<unitPattern count="one">{0} Megawatt</unitPattern>
 				<unitPattern count="other">{0} Megawatt</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilowatt</displayName>
 				<unitPattern count="one">{0} Kilowatt</unitPattern>
 				<unitPattern count="other">{0} Kilowatt</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Watt</displayName>
 				<unitPattern count="one">{0} Watt</unitPattern>
 				<unitPattern count="other">{0} Watt</unitPattern>
@@ -8589,6 +8648,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Hektopascal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilopascal</displayName>
 				<unitPattern count="one">{0} Kilopascal</unitPattern>
 				<unitPattern count="other">{0} Kilopascal</unitPattern>
@@ -8599,16 +8659,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Megapascal</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kilometer pro Stunde</displayName>
 				<unitPattern count="one">{0} Kilometer pro Stunde</unitPattern>
 				<unitPattern count="other">{0} Kilometer pro Stunde</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Meter pro Sekunde</displayName>
 				<unitPattern count="one">{0} Meter pro Sekunde</unitPattern>
 				<unitPattern count="other">{0} Meter pro Sekunde</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen pro Stunde</displayName>
 				<unitPattern count="one">{0} Meile pro Stunde</unitPattern>
 				<unitPattern count="other">{0} Meilen pro Stunde</unitPattern>
@@ -8619,21 +8682,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Knoten</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
+				<gender draft="provisional">neuter</gender>
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Grad Celsius</displayName>
 				<unitPattern count="one">{0} Grad Celsius</unitPattern>
 				<unitPattern count="other">{0} Grad Celsius</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Grad Fahrenheit</displayName>
 				<unitPattern count="one">{0} Grad Fahrenheit</unitPattern>
 				<unitPattern count="other">{0} Grad Fahrenheit</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kelvin</displayName>
 				<unitPattern count="one">{0} Kelvin</unitPattern>
 				<unitPattern count="other">{0} Kelvin</unitPattern>
@@ -8654,18 +8721,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kubikkilometer</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kubikmeter</displayName>
 				<unitPattern count="one">{0} Kubikmeter</unitPattern>
 				<unitPattern count="other">{0} Kubikmeter</unitPattern>
 				<perUnitPattern>{0} pro Kubikmeter</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kubikzentimeter</displayName>
 				<unitPattern count="one">{0} Kubikzentimeter</unitPattern>
 				<unitPattern count="other">{0} Kubikzentimeter</unitPattern>
 				<perUnitPattern>{0} pro Kubikzentimeter</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Kubikmeilen</displayName>
 				<unitPattern count="one">{0} Kubikmeile</unitPattern>
 				<unitPattern count="other">{0} Kubikmeilen</unitPattern>
@@ -8676,6 +8746,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kubikyards</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kubikfuß</displayName>
 				<unitPattern count="one">{0} Kubikfuß</unitPattern>
 				<unitPattern count="other">{0} Kubikfuß</unitPattern>
@@ -8696,22 +8767,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Hektoliter</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Liter</displayName>
 				<unitPattern count="one">{0} Liter</unitPattern>
 				<unitPattern count="other">{0} Liter</unitPattern>
 				<perUnitPattern>{0} pro Liter</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Deziliter</displayName>
 				<unitPattern count="one">{0} Deziliter</unitPattern>
 				<unitPattern count="other">{0} Deziliter</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Zentiliter</displayName>
 				<unitPattern count="one">{0} Zentiliter</unitPattern>
 				<unitPattern count="other">{0} Zentiliter</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Milliliter</displayName>
 				<unitPattern count="one">{0} Milliliter</unitPattern>
 				<unitPattern count="other">{0} Milliliter</unitPattern>
@@ -8737,56 +8812,63 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} Bushel</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-                <gender>feminine</gender>
-                <displayName>Gallone</displayName>
-                <unitPattern count="one">{0} Gallone</unitPattern>
-                <unitPattern count="other">{0} Gallonen</unitPattern>
+				<gender>feminine</gender>
+				<displayName>Gallone</displayName>
+				<unitPattern count="one">{0} Gallone</unitPattern>
+				<unitPattern count="other">{0} Gallonen</unitPattern>
 				<perUnitPattern>{0} pro Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-                <gender>feminine</gender>
-                <displayName draft="provisional">Imp. Gallone</displayName>
-                <unitPattern count="one" draft="provisional">{0} Imp. Gallone</unitPattern>
-                <unitPattern count="other" draft="provisional">{0} Imp. Gallonen</unitPattern>
-                <unitPattern count="one" case="accusative" draft="provisional">{0} britische Gallone</unitPattern>
-                <unitPattern count="other" case="accusative" draft="provisional">{0} britische Gallonen</unitPattern>
-                <unitPattern count="one" case="dative" draft="provisional">{0} britischen Gallone</unitPattern>
-                <unitPattern count="other" case="dative" draft="provisional">{0} britischen Gallonen</unitPattern>
-                <unitPattern count="one" case="genitive" draft="provisional">{0} britischen Gallone</unitPattern>
-                <unitPattern count="other" case="genitive" draft="provisional">{0} britischer Gallonen</unitPattern>
+				<gender>feminine</gender>
+				<displayName draft="provisional">Imp. Gallone</displayName>
+				<unitPattern count="one" draft="provisional">{0} Imp. Gallone</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} britische Gallone</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} britischen Gallone</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} britischen Gallone</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Imp. Gallonen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} britische Gallonen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} britischen Gallonen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} britischer Gallonen</unitPattern>
 				<perUnitPattern draft="provisional">{0} pro Imp. Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Quart</displayName>
 				<unitPattern count="one">{0} Quart</unitPattern>
 				<unitPattern count="other">{0} Quart</unitPattern>
 			</unit>
 			<unit type="volume-pint">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Pints</displayName>
 				<unitPattern count="one">{0} Pint</unitPattern>
 				<unitPattern count="other">{0} Pints</unitPattern>
 			</unit>
 			<unit type="volume-cup">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Cups</displayName>
 				<unitPattern count="one">{0} Cup</unitPattern>
 				<unitPattern count="other">{0} Cups</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Flüssigunzen</displayName>
 				<unitPattern count="one">{0} Flüssigunze</unitPattern>
 				<unitPattern count="other">{0} Flüssigunzen</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Imp. Flüssigunzen</displayName>
 				<unitPattern count="one">{0} Imp. Flüssigunze</unitPattern>
 				<unitPattern count="other">{0} Imp. Flüssigunzen</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Esslöffel</displayName>
 				<unitPattern count="one">{0} Esslöffel</unitPattern>
 				<unitPattern count="other">{0} Esslöffel</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Teelöffel</displayName>
 				<unitPattern count="one">{0} Teelöffel</unitPattern>
 				<unitPattern count="other">{0} Teelöffel</unitPattern>
@@ -8795,6 +8877,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Barrel</displayName>
 				<unitPattern count="one">{0} Barrel</unitPattern>
 				<unitPattern count="other">{0} Barrel</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<gender draft="provisional">masculine</gender>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<gender draft="provisional">masculine</gender>
+			</unit>
+			<unit type="volume-drop">
+				<gender draft="provisional">masculine</gender>
+			</unit>
+			<unit type="volume-dram">
+				<gender draft="provisional">neuter</gender>
+			</unit>
+			<unit type="volume-jigger">
+				<gender draft="provisional">masculine</gender>
+			</unit>
+			<unit type="volume-pinch">
+				<gender draft="provisional">feminine</gender>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<gender draft="provisional">neuter</gender>
 			</unit>
 			<coordinateUnit>
 				<displayName>Himmelsrichtung</displayName>

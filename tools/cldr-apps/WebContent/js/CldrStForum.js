@@ -14,8 +14,8 @@
  * createGravitar, stui.str, listenFor, bootstrap.js, reloadV, contextPath,
  * surveyCurrentSpecial, showInPop2, hideLoader, ...!
  *
- * TODO: possibly move these functions here from survey.js: showForumStuff, havePosts, updateInfoPanelForumPosts, appendForumStuff;
- * also some/all code from forum.js
+ * TODO: possibly move these functions here from survey.js: showForumStuff, havePosts,
+ * updateInfoPanelForumPosts, appendForumStuff; also some/all code from forum.js
  */
 const cldrStForum = (function() {
 
@@ -58,6 +58,7 @@ const cldrStForum = (function() {
 	 * Fetch the Forum data from the server, and "load" it
 	 *
 	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
+	 * @param userId the id of the current user
 	 * @param forumMessage the forum message
 	 * @param params an object with various properties such as exports, special, flipper, otherSpecial, name, ...
 	 */
@@ -93,7 +94,7 @@ const cldrStForum = (function() {
 			} else {
 				const content = parseContent(posts, 'main');
 				ourDiv.appendChild(content);
-				summaryDiv.innerHTML = getForumSummaryHtml(forumLocale, userId); // after parseContent
+				summaryDiv.innerHTML = getForumSummaryHtml(forumLocale, userId, true); // after parseContent
 			}
 			// No longer loading
 			hideLoader(null);
@@ -118,17 +119,19 @@ const cldrStForum = (function() {
 		const isReply = (params.replyTo && params.replyTo >= 0) ? true : false
 		const replyTo = isReply ? params.replyTo : -1;
 		const parentPost = (isReply && params.replyData) ? params.replyData : null;
-		const firstPost = parentPost ? getOldestPostInThread(parentPost) : null;
-		const locale = isReply ? firstPost.locale : (params.locale ? params.locale : '');
-		const xpath = isReply ? firstPost.xpath : (params.xpath ? params.xpath : '');
+		const rootPost = parentPost ? getThreadRootPost(parentPost) : null;
+		const locale = isReply ? rootPost.locale : (params.locale ? params.locale : '');
+		const xpath = isReply ? rootPost.xpath : (params.xpath ? params.xpath : '');
 		const subjectParam = params.subject ? params.subject : '';
 		const postType = params.postType ? params.postType : null;
-		const html = makePostHtml(postType, locale, xpath, replyTo);
-		const subject = makePostSubject(isReply, parentPost, subjectParam);
-		const myValue = params.myValue ? params.myValue : null;
-		const text = prefillPostText(postType, myValue);
+		const subject = makePostSubject(isReply, rootPost, subjectParam);
+		const value = params.value ? params.value : ((rootPost && rootPost.value) ? rootPost.value : null);
+		const root = isReply ? rootPost.id : -1;
+		const open = isReply ? rootPost.open : true;
+		const html = makePostHtml(postType, locale, xpath, subject, replyTo, root, open, value);
+		const text = prefillPostText(postType, value);
 
-		openPostWindow(html, subject, text, parentPost);
+		openPostWindow(html, text, parentPost);
 	}
 
 	/**
@@ -137,29 +140,34 @@ const cldrStForum = (function() {
 	 * @param postType the verb, such as 'Discuss'
 	 * @param locale the locale string
 	 * @param xpath the xpath string
+	 * @param subject the subject string (path-header)
 	 * @param replyTo the post id of the post being replied to, or -1
+	 * @param root the post id of the original post in the thread, or -1
+	 * @param open true or false, is this thread open
+	 * @param value the value that was requested in the root post, or null
+	 * @return the html
 	 */
-	function makePostHtml(postType, locale, xpath, replyTo) {
+	function makePostHtml(postType, locale, xpath, subject, replyTo, root, open, value) {
 		let html = '';
 
-		html += '<form role="form" id="post-form">';
-		html += '<div class="form-group">';
-		html += '<div class="input-group">';
-		html += '<span class="input-group-addon">Subject:</span>';
-		html += '<input class="form-control" name="subj" type="text" value="">';
-		html += '</div>'; // input-group
-		html += '<div id="postType" class="pull-right postType">' + postType + '</div>';
-		html += '<textarea name="text" class="form-control" placeholder="Write your post here"></textarea>';
-		html += '</div>'; // form-group
-		html += '<button class="btn btn-success submit-post btn-block">Submit</button>';
-		html += '<input type="hidden" name="forum" value="true">';
-		html += '<input type="hidden" name="_" value="' + locale + '">';
-		html += '<input type="hidden" name="xpath" value="' + xpath + '">';
-		html += '<input type="hidden" name="replyTo" value="' + replyTo + '">';
-		html += '</form>';
+		html += '<div id="postSubject" class="topicSubject">' + subject + '</div>\n';
+		html += '<div id="postType" class="postTypeLabel">' + postType + '</div>\n';
 
-		html += '<div class="post"></div>';
-		html += '<div class="forumDiv"></div>';
+		html += '<form role="form" id="post-form">\n';
+		html += '<div class="form-group">\n';
+		html += '<textarea name="text" class="postTextArea" placeholder="Write your post here"></textarea>\n';
+		html += '<button class="btn btn-success submit-post btn-block">Submit</button>\n';
+		html += '<input type="hidden" name="forum" value="true">\n';
+		html += '<input type="hidden" name="_" value="' + locale + '">\n';
+		html += '<input type="hidden" name="xpath" value="' + xpath + '">\n';
+		html += '<input type="hidden" name="replyTo" value="' + replyTo + '">\n';
+		html += '<input type="hidden" name="root" value="' + root + '">\n';
+		html += '<input type="hidden" name="open" value="' + open + '">\n';
+		html += '<input type="hidden" name="value" value="' + value + '">\n';
+		html += '</form>\n';
+
+		html += '<div class="post"></div>\n';
+		html += '<div class="forumDiv"></div>\n';
 
 		return html;
 	}
@@ -168,17 +176,13 @@ const cldrStForum = (function() {
 	 * Make the subject string for a forum post
 	 *
 	 * @param isReply is this a reply? True or false
-	 * @param parentPost the post object for the post being replied to, or null
+	 * @param rootPost the original post in the thread, or null
 	 * @param subjectParam the subject for this post supplied in parameters
 	 * @return the string
 	 */
-	function makePostSubject(isReply, parentPost, subjectParam) {
-		if (isReply && parentPost) {
-			let subject = post2text(parentPost.subject);
-			if (subject.substring(0, 3) != 'Re:') {
-				subject = 'Re: ' + subject;
-			}
-			return subject;
+	function makePostSubject(isReply, rootPost, subjectParam) {
+		if (isReply && rootPost) {
+			return post2text(rootPost.subject);
 		}
 		return subjectParam;
 	}
@@ -187,20 +191,20 @@ const cldrStForum = (function() {
 	 * Make the text (body) string for a forum post
 	 *
 	 * @param postType the verb such as 'Request', 'Discuss', ...
-	 * @param myValue the value the current user voted for, or null
+	 * @param value the value that was requested in the root post, or null
 	 * @return the string
 	 */
-	function prefillPostText(postType, myValue) {
+	function prefillPostText(postType, value) {
 		if (postType === 'Close') {
 			return "I'm closing this thread";
 		} else if (postType === 'Request') {
-			if (myValue) {
-				return 'Please consider voting for ' + myValue + '\n';
+			if (value) {
+				return 'Please consider voting for “' + value + '”\n';
 			}
 		} else if (postType === 'Agree') {
-			return 'I agree';
+			return 'I agree. I am changing my vote to the requested “' + value + '”';
 		} else if (postType === 'Decline') {
-			return 'I decline, since ';
+			return 'I decline changing my vote to the requested “' + value + '”. My reasons are:\n';
 		}
 		return '';
 	}
@@ -208,18 +212,15 @@ const cldrStForum = (function() {
 	/**
 	 * Open a window displaying the form for creating a post
 	 *
-	 * @param subject the subject string
 	 * @param html the main html for the form
 	 * @param parentPost the post object, if any, to which this is a reply, for display at the bottom of the window
 	 *
 	 * Reference: Bootstrap.js post-modal: https://getbootstrap.com/docs/4.1/components/modal/
 	 */
-	function openPostWindow(html, subject, text, parentPost) {
+	function openPostWindow(html, text, parentPost) {
 		const postModal = $('#post-modal');
 		postModal.find('.modal-body').html(html);
-		postModal.find('input[name=subj]')[0].value = subject;
 		$('#post-form textarea[name=text]').val(text);
-
 		if (parentPost) {
 			const forumDiv = parseContent([parentPost], 'parent');
 			const postHolder = postModal.find('.modal-body').find('.forumDiv');
@@ -254,13 +255,17 @@ const cldrStForum = (function() {
 	 */
 	function reallySubmitPost(text) {
 		$('#post-form button').fadeOut();
-		$('#post-form .input-group').fadeOut(); // subject line
 
 		const xpath = $('#post-form input[name=xpath]').val();
 		const locale = $('#post-form input[name=_]').val();
 		const replyTo = $('#post-form input[name=replyTo]').val();
-		const subj = $('#post-form input[name=subj]').val();
+		const root = $('#post-form input[name=root]').val();
+		const open = $('#post-form input[name=open]').val();
+		const value = $('#post-form input[name=value]').val();
+
+		const subj = document.getElementById('postSubject').innerHTML;
 		const postType = document.getElementById('postType').innerHTML;
+
 		const url = contextPath + "/SurveyAjax";
 
 		const errorHandler = function(err) {
@@ -293,6 +298,9 @@ const cldrStForum = (function() {
 			text: text,
 			subj: subj,
 			postType: postType,
+			value: value,
+			open: open,
+			root: root,
 			what: "forum_post"
 		};
 		const xhrArgs = {
@@ -342,6 +350,7 @@ const cldrStForum = (function() {
 				// add the topic div
 				const topicDiv = document.createElement('div');
 				topicDiv.className = 'well well-sm postTopic';
+				const rootPost = getThreadRootPost(post);
 				if (opts.showItemLink) {
 					const topicInfo = forumCreateChunk("", "h4", "postTopicInfo");
 					topicDiv.appendChild(topicInfo);
@@ -355,7 +364,7 @@ const cldrStForum = (function() {
 					if (post.xpath) {
 						topicInfo.appendChild(makeItemLink(post));
 					}
-					addThreadSubjectSpan(topicInfo, getOldestPostInThread(post));
+					addThreadSubjectSpan(topicInfo, rootPost);
 				}
 				topicDivs[post.threadId] = topicDiv;
 				topicDiv.id = "fthr_" + post.threadId;
@@ -433,45 +442,26 @@ const cldrStForum = (function() {
 			headingLine.appendChild(dateChunk);
 			subpost.appendChild(headingLine);
 
-			const subSubChunk = forumCreateChunk("", "div", "postHeaderInfoGroup");
-			subpost.appendChild(subSubChunk);
-			const subChunk = forumCreateChunk("", "div", "postHeaderItem");
-			subSubChunk.appendChild(subChunk);
-			subChunk.appendChild(forumCreateChunk(post.postType, 'div', 'postTypeLabel'));
+			const subChunk = forumCreateChunk("", "div", '');
+			subpost.appendChild(subChunk);
+
+			if (post.parent === -1) {
+				const openOrClosed = post.open ? 'Open' : 'Closed';
+				const comboChunk = forumCreateChunk(openOrClosed, 'div', 'forumThreadStatus');
+				comboChunk.appendChild(forumCreateChunk(post.postType, 'span', 'postTypeComboLabel'));
+				subChunk.appendChild(comboChunk);
+			} else {
+				subChunk.appendChild(forumCreateChunk(post.postType, 'div', 'postTypeLabel'));
+			}
 
 			// actual text
 			const postText = post2text(post.text);
 			const postContent = forumCreateChunk(postText, "div", "postContent postTextBorder");
 			subpost.appendChild(postContent);
-
-			if (opts.showReplyButton && (post === getNewestPostInThread(post))) {
-				addReplyButtons(subpost, post);
-			}
 		}
-		// reparent any nodes that we can
-		for (let num in posts) {
-			const post = posts[num];
-			if (post.parent != -1) {
-				forumDebug("reparenting " + post.id + " to " + post.parent);
-				if (postDivs[post.parent]) {
-					if (!postDivs[post.parent].replies) {
-						// add the "replies" area
-						forumDebug("Adding replies area to " + post.parent);
-						postDivs[post.parent].replies = forumCreateChunk("", "div", "postReplies");
-						postDivs[post.parent].appendChild(postDivs[post.parent].replies);
-					}
-					// add to new location
-					postDivs[post.parent].replies.appendChild(postDivs[post.id]);
-				} else {
-					// The parent of this post was deleted.
-					forumDebug("The parent of post #" + post.id + " is " + post.parent + " but it was deleted or not visible");
-					// link it in somewhere
-					topicDivs[post.threadId].appendChild(postDivs[post.id]);
-				}
-			} else {
-				// 'top level' post
-				topicDivs[post.threadId].appendChild(postDivs[post.id]);
-			}
+		appendPostDivsToTopicDivs(posts, topicDivs, postDivs);
+		if (opts.createDomElements) {
+			addReplyButtonsToEachTopic(topicDivs);
 		}
 		return filterAndAssembleForumThreads(posts, topicDivs, opts.applyFilter, opts.showThreadCount);
 	}
@@ -507,21 +497,25 @@ const cldrStForum = (function() {
 	/**
 	 * Add a "threadId" attribute to each post object in the given array
 	 *
-	 * For a post with a parent, the thread id is the same as the thread id of the parent.
-	 *
 	 * For a post without a parent, the thread id is like "aa|1234", where aa is the locale and 1234 is the post id.
 	 *
-	 * Make sure that the thread id uses the locale of the first post in its thread, for consistency.
-	 * Formerly, a post could have a different locale than the first post. For example, even though
+	 * For a post without a parent, the thread id is the same as the root post id.
+	 *
+	 * Make sure that the thread id uses the locale of the original post in its thread, for consistency.
+	 * Formerly, a post could have a different locale than the original post. For example, even though
 	 * post 32034 is fr_CA, its child 32036 was fr. That bug is believed to have been fixed, in the
 	 * code and in the db.
 	 *
 	 * @param posts the array of post objects
+	 * 
+	 * TODO: simplify this and related code, given that post objects from server now have
+	 * post.root. Probably there is no longer any reason to include locale in thread id,
+	 * nor to distinguish between thread id and rootPost.id.
 	 */
 	function addThreadIds(posts) {
 		posts.forEach(function(post) {
-			const firstPost = getOldestPostInThread(post);
-			post.threadId = firstPost.locale + "|" + firstPost.id;
+			const rootPost = getThreadRootPost(post);
+			post.threadId = rootPost.locale + "|" + rootPost.id;
 		});
 	}
 
@@ -558,9 +552,9 @@ const cldrStForum = (function() {
 	 * Make a span containing a subject line for the specified thread
 	 *
 	 * @param topicInfo the DOM element to which to attach the span
-	 * @param firstPost the oldest post in the thread
+	 * @param rootPost the oldest post in the thread
 	 */
-	function addThreadSubjectSpan(topicInfo, firstPost) {
+	function addThreadSubjectSpan(topicInfo, rootPost) {
 		/*
 		 * Starting with CLDR v38, posts should all have post.xpath, and post.subject
 		 * should be like "Characters | Typography | Style | wght-900-heavy" (recognizable
@@ -570,8 +564,8 @@ const cldrStForum = (function() {
 		 * In such normal cases (or if there is no xpath), the thread subject is the same as
 		 * the subject of the oldest post in the thread.
 		 */
-		if (firstPost.subject.indexOf('|') >= 0 || !firstPost.xpath) {
-			topicInfo.appendChild(forumCreateChunk(post2text(firstPost.subject), "span", "topicSubject"));
+		if (rootPost.subject.indexOf('|') >= 0 || !rootPost.xpath) {
+			topicInfo.appendChild(forumCreateChunk(post2text(rootPost.subject), "span", "topicSubject"));
 			return;
 		}
 		/*
@@ -583,13 +577,69 @@ const cldrStForum = (function() {
 		const loadingMsg = forumCreateChunk(forumStr("loading"), "i", "loadingMsg");
 		topicInfo.appendChild(loadingMsg);
 		xpathMap.get({
-			hex: firstPost.xpath
+			hex: rootPost.xpath
 		}, function(o) {
 			if (o.result) {
 				topicInfo.removeChild(loadingMsg);
 				const itemPh = forumCreateChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
 				itemPh.title = o.result.path;
 				topicInfo.appendChild(itemPh);
+			}
+		});
+	}
+
+	/**
+	 * Append post divs to their topic divs.
+	 * Within each thread, put old posts before new posts.
+	 * Go through the posts array in reverse order, old before new.
+	 *
+	 * @param posts the array of forum post objects, newest first
+	 * @param topicDivs the map from threadId to DOM elements
+	 * @param postDivs the map from post id to DOM elements
+	 */
+	function appendPostDivsToTopicDivs(posts, topicDivs, postDivs) {
+		const USE_HORIZONTAL_RULE = true;
+		for (let i = posts.length - 1; i >= 0; i--) {
+			const post = posts[i];
+			if (post.root === -1) { // this post is the root of its thread, not a reply
+				topicDivs[post.threadId].appendChild(postDivs[post.id]);
+			}
+			else { // this is a reply
+				if (USE_HORIZONTAL_RULE) {
+					const horizontalRule = forumCreateChunk('', 'hr', 'postRule');
+					topicDivs[post.threadId].appendChild(horizontalRule);
+					topicDivs[post.threadId].appendChild(postDivs[post.id]);
+				} else {
+					if (postDivs[post.root]) {
+						if (!postDivs[post.root].replies) {
+							// add the "replies" area
+							forumDebug("Adding replies area to " + post.root);
+							postDivs[post.root].replies = forumCreateChunk("", "div", "postReplies");
+							postDivs[post.root].appendChild(postDivs[post.root].replies);
+						}
+						// add to new location
+						postDivs[post.root].replies.appendChild(postDivs[post.id]);
+					} else {
+						// The root of this post was deleted.
+						forumDebug("The root of post #" + post.id + " is " + post.root + " but it was deleted or not visible");
+						// link it in somewhere
+						topicDivs[post.threadId].appendChild(postDivs[post.id]);
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Add a set of reply buttons for each div in topicDivs
+	 *
+	 * @param topicDivs the map from threadId to DOM elements
+	 */
+	function addReplyButtonsToEachTopic(topicDivs) {
+		Object.keys(topicDivs).forEach(function(threadId) {
+			const rootPost = getRootPostFromThreadId(threadId);
+			if (rootPost) {
+				addReplyButtons(topicDivs[threadId], rootPost);
 			}
 		});
 	}
@@ -602,13 +652,13 @@ const cldrStForum = (function() {
 	 * @param couldFlag true if the user could add a flag for this path, else false
 	 * @param xpstrid the xpath string id
 	 * @param code the "code" for the xpath
-	 * @param myValue the value the current user voted for, or null
+	 * @param value the value the current user voted for, or null
 	 */
-	function addNewPostButtons(el, locale, couldFlag, xpstrid, code, myValue) {
-		const options = getStatusOptions(false /* isReply */, null /* firstPost */, myValue);
+	function addNewPostButtons(el, locale, couldFlag, xpstrid, code, value) {
+		const options = getPostTypeOptions(false /* isReply */, null /* rootPost */, value);
 
 		Object.keys(options).forEach(function(postType) {
-			el.appendChild(makeOneNewPostButton(postType, options[postType], locale, couldFlag, xpstrid, code, myValue));
+			el.appendChild(makeOneNewPostButton(postType, options[postType], locale, couldFlag, xpstrid, code, value));
 		});
 	}
 
@@ -616,23 +666,22 @@ const cldrStForum = (function() {
 	 * Make one or more reply buttons for the given post, and append them to the given element
 	 *
 	 * @param el the DOM element to append to
-	 * @param post the post
+	 * @param rootPost the original post in the thread
 	 */
-	function addReplyButtons(el, post) {
-		const firstPost = getOldestPostInThread(post);
-		const options = getStatusOptions(true /* isReply */, firstPost, null /* myValue */);
+	function addReplyButtons(el, rootPost) {
+		const options = getPostTypeOptions(true /* isReply */, rootPost, rootPost.value);
 
 		Object.keys(options).forEach(function(postType) {
-			el.appendChild(makeOneReplyButton(post, postType, options[postType]));
+			el.appendChild(makeOneReplyButton(rootPost, postType, options[postType]));
 		});
 	}
 
-	function makeOneNewPostButton(postType, label, locale, couldFlag, xpstrid, code, myValue) {
+	function makeOneNewPostButton(postType, label, locale, couldFlag, xpstrid, code, value) {
 
 		const buttonTitle = couldFlag ? "forumNewPostFlagButton" : "forumNewPostButton";
 
-		const buttonClass = couldFlag ? "forumNewPostFlagButton btn btn-default btn-sm"
-									: "forumNewButton btn btn-default btn-sm";
+		const buttonClass = couldFlag ? "addPostButton forumNewPostFlagButton btn btn-default btn-sm"
+									: "addPostButton forumNewButton btn btn-default btn-sm";
 
 		const newButton = forumCreateChunk(label, "button", buttonClass);
 
@@ -654,7 +703,7 @@ const cldrStForum = (function() {
 						xpath: xpstrid,
 						subject: subj,
 						postType: postType,
-						myValue: myValue
+						value: value
 					});
 				});
 				stStopPropagation(e);
@@ -665,7 +714,7 @@ const cldrStForum = (function() {
 	}
 
 	function makeOneReplyButton(post, postType, label) {
-		const replyButton = forumCreateChunk(label, "button", "btn btn-default btn-sm");
+		const replyButton = forumCreateChunk(label, "button", "addPostButton btn btn-default btn-sm");
 		/*
 		 * TODO: encapsulate "listenFor" dependency
 		 */
@@ -673,7 +722,7 @@ const cldrStForum = (function() {
 			listenFor(replyButton, "click", function(e) {
 				openPostOrReply({
 					/*
-					 * Don't specify locale or xpath for reply. Instead they will be set to
+					 * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
 					 * match the original post in the thread.
 					 */
 					replyTo: post.id,
@@ -688,31 +737,49 @@ const cldrStForum = (function() {
 	}
 
 	/**
-	 * Get an object defining the currently allowed forum status values
+	 * Get an object defining the currently allowed post-type values
 	 * for making a new post, for the current user and given parameters
 	 *
 	 * @param isReply true if this post is a reply, else false
-	 * @param firstPost the original post in the thread
-	 * @param myValue the value the current user voted for, or null
+	 * @param rootPost the original post in the thread, or null if not replying
+	 * @param value the value the root post requested, or null
 	 * @return the object mapping verbs like 'Request' to label strings like 'Request'
 	 *         (Currently the labels are the same as the verbs)
 	 *
 	 * Compare SurveyForum.ForumStatus on server
 	 */
-	function getStatusOptions(isReply, firstPost, myValue) {
+	function getPostTypeOptions(isReply, rootPost, value) {
 		const options = {};
-		if (myValue && !isReply) { // only allow Request if this user has voted
-			options['Request'] = 'Request';
-		}
-		options['Discuss'] = 'Discuss';
-		if (isReply && firstPost && !userIsPoster(firstPost) && firstPost.status === 'Request') {
-			options['Agree'] = 'Agree';
-			options['Decline'] = 'Decline';
-		}
-		if (userCanClose(isReply, firstPost)) {
-			options['Close'] = 'Close';
+		if (rootPost === null || rootPost.open) {
+			options['Discuss'] = 'Discuss';
+			if (value) {
+				if (!isReply) {
+					options['Request'] = 'Request';
+				} else if (rootPost && !userIsPoster(rootPost) && rootPost.postType === 'Request') {
+					options['Agree'] = 'Agree';
+					options['Decline'] = 'Decline';
+				}
+			}
+			if (userCanClose(isReply, rootPost)) {
+				options['Close'] = 'Close';
+			}
 		}
 		return options;
+	}
+
+	/**
+	 * Is this user allowed to close the thread now?
+	 *
+	 * The user is only allowed if they are the original poster of the thread,
+	 * or a TC (technical committee) member.
+	 *
+	 * @param isReply true if this post is a reply, else false
+	 * @param rootPost the original post in the thread, or null
+	 * @return true if this user is allowed to close, else false
+	 */
+	function userCanClose(isReply, rootPost) {
+		return isReply && rootPost.open
+			&& (userIsPoster(rootPost) || userIsTC());
 	}
 
 	/**
@@ -723,7 +790,7 @@ const cldrStForum = (function() {
 	 */
 	function userIsPoster(post) {
 		if (post && typeof surveyUser !== 'undefined') {
-			if (surveyUser === post.poster) {
+			if (surveyUser.id === post.poster) {
 				return true;
 			}
 		}
@@ -740,33 +807,6 @@ const cldrStForum = (function() {
 			return true;
 		}
 		return false;
-	}
-
-	/**
-	 * Is this user allowed to close the thread now?
-	 *
-	 * The user is only allowed if they are the original poster of the thread,
-	 * or a TC (technical committee) member.
-	 *
-	 * @param isReply true if this post is a reply, else false
-	 * @param firstPost the original post in the thread, or null
-	 * @return true if this user is allowed to close, else false
-	 */
-	function userCanClose(isReply, firstPost) {
-		return isReply
-			&& !threadIsClosed(firstPost)
-			&& (userIsPoster(firstPost) || userIsTC());
-	}
-
-	/**
-	 * Is this thread closed?
-	 *
-	 * @param firstPost the original post in the thread, or null
-	 * @return true if this user is allowed to close, else false
-	 */
-	function threadIsClosed(firstPost) {
-		const threadPosts = threadHash[firstPost.threadId];
-		return cldrStForumFilter.passIfClosed(threadPosts);
 	}
 
 	/**
@@ -876,12 +916,32 @@ const cldrStForum = (function() {
 	}
 
 	/**
+	 * Get the root (original) post in the thread, i.e., the last one in the array
+	 *
+	 * @param threadId the thread id
+	 * @return the root post, or null if not found
+	 */
+	function getRootPostFromThreadId(threadId) {
+		const threadPosts = threadHash[threadId]
+		if (threadPosts.length < 1) {
+			return null;
+		}
+		return threadPosts[threadPosts.length - 1];
+	}
+
+	/**
 	 * Get the first (original) post in the thread containing this post
 	 *
 	 * @param post the post object
-	 * @return the first post in the thread
+	 * @return the original post in the thread
 	 */
-	function getOldestPostInThread(post) {
+	function getThreadRootPost(post) {
+		if (postHash[post.root]) {
+			return postHash[post.root];
+		}
+		/*
+		 * The following shouldn't be necessary unless data is missing/corrupted
+		 */
 		while (post.parent >= 0 && postHash[post.parent]) {
 			post = postHash[post.parent];
 		}
@@ -892,7 +952,7 @@ const cldrStForum = (function() {
 	 * Get the last (most recent) post in the thread containing this post
 	 *
 	 * @param post the post object
-	 * @return the first post in the thread
+	 * @return the original post in the thread
 	 */
 	function getNewestPostInThread(post) {
 		const threadPosts = threadHash[post.threadId];
@@ -976,12 +1036,13 @@ const cldrStForum = (function() {
 	 *
 	 * @param locale the locale string
 	 * @param userId the current user's id, for cldrStForumFilter
+	 * @param getTable true to get a table, false to get a one-liner
 	 * @return the html
 	 */
-	function getForumSummaryHtml(locale, userId) {
+	function getForumSummaryHtml(locale, userId, getTable) {
 		setLocale(locale);
 		cldrStForumFilter.setUserId(userId);
-		return reallyGetForumSummaryHtml(true /* canDoAjax */);
+		return reallyGetForumSummaryHtml(true /* canDoAjax */, getTable);
 	}
 
 	/**
@@ -990,30 +1051,45 @@ const cldrStForum = (function() {
 	 * @param canDoAjax true to call loadForumForSummaryOnly if needed, false otherwise; should
 	 *                  be false if the caller is the loadHandler for loadForumForSummaryOnly,
 	 *                  to prevent endless back-and-forth if things go wrong
+	 * @param getTable true to get a table, false to get a one-liner like "27/0/27"
 	 * @return the html
 	 */
-	function reallyGetForumSummaryHtml(canDoAjax) {
+	function reallyGetForumSummaryHtml(canDoAjax, getTable) {
 		const id = 'forumSummary';
-		let html = "<div id='" + id + "'>\n";
+		const tag = getTable ? 'div' : 'span';
+		let html = "<" + tag + " id='" + id + "'>\n";
 		if (!forumUpdateTime) {
 			if (canDoAjax) {
-				html += "<p>Loading Forum Summary...</p>\n";
-				loadForumForSummaryOnly(forumLocale, id)
-			} else {
+				if (getTable) {
+					html += "<p>Loading Forum Summary...</p>\n";
+				}
+				loadForumForSummaryOnly(forumLocale, id, getTable)
+			} else if (getTable) {
 				html += "<p>Load failed</p>n";
 			}
 		} else {
-			if (FORUM_DEBUG) {
+			if (FORUM_DEBUG && getTable) {
 				html += "<p>Retrieved " + fmtDateTime(forumUpdateTime) + "</p>\n";
 			}
 			const c = cldrStForumFilter.getFilteredThreadCounts();
-			html += "<ul>\n";
-			Object.keys(c).forEach(function(k) {
-				html += "<li>" + k + ": " + c[k] + "</li>\n";
-			});
-			html += "</ul>\n";
+			if (getTable) {
+				html += "<ul>\n";
+				Object.keys(c).forEach(function(k) {
+					html += "<li>" + k + ": " + c[k] + "</li>\n";
+				});
+				html += "</ul>\n";
+			} else {
+				let first = true;
+				Object.keys(c).forEach(function(k) {
+					if (!first) {
+						html += '/';
+					}
+					html += c[k];
+					first = false;
+				});
+			}
 		}
-		html += '</div>\n';
+		html += '</' + tag + '>\n';
 		return html;
 	}
 
@@ -1022,8 +1098,9 @@ const cldrStForum = (function() {
 	 *
 	 * @param locale the locale
 	 * @param id the id of the element to display the summary
+	 * @param getTable true to get a table, false to get a one-liner
 	 */
-	function loadForumForSummaryOnly(locale, id) {
+	function loadForumForSummaryOnly(locale, id, getTable) {
 		if (typeof cldrStAjax === 'undefined') {
 			return;
 		}
@@ -1046,7 +1123,7 @@ const cldrStForum = (function() {
 			}
 			const posts = json.ret;
 			parseContent(posts, 'summary');
-			el.innerHTML = reallyGetForumSummaryHtml(false /* do not reload recursively */); // after parseContent
+			el.innerHTML = reallyGetForumSummaryHtml(false /* do not reload recursively */, getTable); // after parseContent
 		};
 		const xhrArgs = {
 			url: url,
@@ -1075,7 +1152,7 @@ const cldrStForum = (function() {
 			console.log('Error: surveySessionId undefined in getLoadForumUrl');
 			return '';
 		}
-		return 'SurveyAjax?s=' + surveySessionId + '&what=forum_fetch&xpath=0&_=' + forumLocale;
+		return 'SurveyAjax?what=forum_fetch&xpath=0&_=' + forumLocale + '&s=' + surveySessionId;
 	}
 
 	/**

@@ -90,10 +90,10 @@ function showReviewPage(json, showFn) {
 			element.description + '"></span></div></a></li>';
 	});
 
-	if (cldrStForum) {
-		const userId = (surveyUser && surveyUser.id) ? surveyUser.id : 0;
+	if (cldrStForum && surveyCurrentLocale && surveyUser && surveyUser.id) {
+		const forumSummary = cldrStForum.getForumSummaryText(surveyCurrentLocale, surveyUser.id, true /* table */);
 		sidebarHtml += "<li><a id='dashToForum' onclick='cldrStForum.reload();'>Forum</a></li>\n";
-		sidebarHtml += "<li>" + cldrStForum.getForumSummaryHtml(surveyCurrentLocale, userId) + "</li>\n";
+		sidebarHtml += "<li>" + forumSummary + "</li>\n";
 	}
 	const menuDom = document.createElement('ul');
 	menuDom.className = 'nav nav-pills nav-stacked affix menu-review';

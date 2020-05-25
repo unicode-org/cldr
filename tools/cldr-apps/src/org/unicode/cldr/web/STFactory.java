@@ -1153,103 +1153,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             String oldVal = xmlsource.getValueAtDPath(distinguishingXpath);
 
             if (!readonly) {
-                /*
-                 * TODO: move this block to a subroutine
-                 */
-                boolean didClearFlag = false;
-                makeSource(false);
-                ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
-                    + distinguishingXpath + " : " + user + " voting for '" + value);
-                Connection conn = null;
-                PreparedStatement saveOld = null; // save off old value
-                PreparedStatement ps = null; // all for mysql, or 1st step for
-                // derby
-                PreparedStatement ps2 = null; // 2nd step for derby
-                ResultSet rs = null;
-                final boolean wasFlagged = getFlag(locale, xpathId); // do this outside of the txn..
-                int submitter = user.id;
-                try {
-                    conn = DBUtils.getInstance().getDBConnection();
-
-                    String add0 = "", add1 = "", add2 = "";
-
-                    // #1 - save the "VOTE_VALUE_ALT"  ( possible proposal) value.
-                    if (DBUtils.db_Mysql) {
-                        add0 = "IGNORE";
-                        // add1="ON DUPLICATE KEY IGNORE";
-                    } else {
-                        add2 = "and not exists (select * from " + DBUtils.Table.VOTE_VALUE_ALT + " where " + DBUtils.Table.VOTE_VALUE_ALT + ".locale="
-                            + DBUtils.Table.VOTE_VALUE
-                            + ".locale and " + DBUtils.Table.VOTE_VALUE_ALT + ".xpath=" + DBUtils.Table.VOTE_VALUE + ".xpath " + " and "
-                            + DBUtils.Table.VOTE_VALUE_ALT
-                            + ".value=" + DBUtils.Table.VOTE_VALUE + ".value )";
-                    }
-                    String sql = "insert " + add0 + " into " + DBUtils.Table.VOTE_VALUE_ALT + "   " + add1 + " select " + DBUtils.Table.VOTE_VALUE + ".locale,"
-                        + DBUtils.Table.VOTE_VALUE + ".xpath," + DBUtils.Table.VOTE_VALUE + ".value "
-                        + " from " + DBUtils.Table.VOTE_VALUE + " where locale=? and xpath=? and submitter=? and value is not null " + add2;
-                    saveOld = DBUtils.prepareStatementWithArgs(conn, sql, locale.getBaseName(), xpathId, user.id);
-                    saveOld.executeUpdate();
-
-                    // #2 - save the actual vote.
-                    if (DBUtils.db_Mysql) { // use 'on duplicate key' syntax
-                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
-                            + " (locale,xpath,submitter,value,last_mod," + VOTE_OVERRIDE + ") values (?,?,?,?,CURRENT_TIMESTAMP,?) "
-                            + "ON DUPLICATE KEY UPDATE locale=?,xpath=?,submitter=?,value=?,last_mod=CURRENT_TIMESTAMP," + VOTE_OVERRIDE + "=?");
-                        int colNum = 6;
-                        ps.setString(colNum++, locale.getBaseName());
-                        ps.setInt(colNum++, xpathId);
-                        ps.setInt(colNum++, submitter);
-                        DBUtils.setStringUTF8(ps, colNum++, value);
-                        DBUtils.setInteger(ps, colNum++, withVote);
-                    } else { // derby
-                        ps2 = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + DBUtils.Table.VOTE_VALUE
-                            + " where locale=? and xpath=? and submitter=? ");
-                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
-                            + " (locale,xpath,submitter,value,last_mod," + VOTE_OVERRIDE + ") VALUES (?,?,?,?,CURRENT_TIMESTAMP,?) ");
-                        int colNum = 1;
-                        ps2.setString(colNum++, locale.getBaseName());
-                        ps2.setInt(colNum++, xpathId);
-                        ps2.setInt(colNum++, submitter);
-                        // NB:  no "VOTE_OVERRIDE" column on delete.
-                    }
-
-                    {
-                        int colNum = 1;
-                        ps.setString(colNum++, locale.getBaseName());
-                        ps.setInt(colNum++, xpathId);
-                        ps.setInt(colNum++, submitter);
-                        DBUtils.setStringUTF8(ps, colNum++, value);
-                        DBUtils.setInteger(ps, colNum++, withVote);
-                    }
-                    if (ps2 != null) {
-                        ps2.executeUpdate();
-                    }
-                    ps.executeUpdate();
-
-                    if (wasFlagged && UserRegistry.userIsTC(user)) {
-                        clearFlag(conn, locale, xpathId, user);
-                        didClearFlag = true;
-                    }
-                    conn.commit();
-                } catch (SQLException e) {
-                    SurveyLog.logException(e);
-                    SurveyMain.busted("Could not vote for value in locale locale " + locale, e);
-                    throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
-                } finally {
-                    DBUtils.close(saveOld, rs, ps, ps2, conn);
-                }
-                SurveyLog.debug(et);
-
-                if (didClearFlag) {
-                    try {
-                        int newPostId = sm.fora.postFlagRemoved(xpathId, locale, user);
-                        System.out.println("NOTE: flag was removed from " + locale + " " + distinguishingXpath + " - post ID=" + newPostId + "  by "
-                            + user.toString());
-                    } catch (SurveyException e) {
-                        SurveyLog.logException(e, "Error trying to post that a flag was removed from " + locale + " " + distinguishingXpath);
-                    }
-                }
-
+                saveVoteToDb(user, distinguishingXpath, value, withVote, xpathId);
             } else {
                 readonly();
             }
@@ -1265,6 +1169,106 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             String newVal = xmlsource.getValueAtDPath(distinguishingXpath);
             if (newVal != null && !newVal.equals(oldVal)) {
                 xmlsource.notifyListeners(distinguishingXpath);
+            }
+        }
+
+        /**
+         * Save the vote to the database
+         *
+         * @param user
+         * @param distinguishingXpath
+         * @param value
+         * @param withVote
+         * @param xpathId
+         */
+        private void saveVoteToDb(final User user, final String distinguishingXpath, final String value,
+                final Integer withVote, final int xpathId) {
+            boolean didClearFlag = false;
+            makeSource(false);
+            ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
+                + distinguishingXpath + " : " + user + " voting for '" + value);
+            Connection conn = null;
+            PreparedStatement saveOld = null; // save off old value
+            PreparedStatement ps = null; // all for mysql, or 1st step for
+            // derby
+            PreparedStatement ps2 = null; // 2nd step for derby
+            ResultSet rs = null;
+            final boolean wasFlagged = getFlag(locale, xpathId); // do this outside of the txn..
+            int submitter = user.id;
+            try {
+                conn = DBUtils.getInstance().getDBConnection();
+
+                String add0 = "", add1 = "", add2 = "";
+
+                // #1 - save the "VOTE_VALUE_ALT"  ( possible proposal) value.
+                if (DBUtils.db_Mysql) {
+                    add0 = "IGNORE";
+                    // add1="ON DUPLICATE KEY IGNORE";
+                } else {
+                    add2 = "and not exists (select * from " + DBUtils.Table.VOTE_VALUE_ALT
+                        + " where " + DBUtils.Table.VOTE_VALUE_ALT + ".locale="
+                        + DBUtils.Table.VOTE_VALUE + ".locale and "
+                        + DBUtils.Table.VOTE_VALUE_ALT + ".xpath=" + DBUtils.Table.VOTE_VALUE + ".xpath and "
+                        + DBUtils.Table.VOTE_VALUE_ALT + ".value=" + DBUtils.Table.VOTE_VALUE + ".value )";
+                }
+                String sql = "insert " + add0 + " into " + DBUtils.Table.VOTE_VALUE_ALT + " " + add1
+                    + " select " + DBUtils.Table.VOTE_VALUE + ".locale,"
+                    + DBUtils.Table.VOTE_VALUE + ".xpath," + DBUtils.Table.VOTE_VALUE + ".value "
+                    + " from " + DBUtils.Table.VOTE_VALUE
+                    + " where locale=? and xpath=? and submitter=? and value is not null " + add2;
+                saveOld = DBUtils.prepareStatementWithArgs(conn, sql, locale.getBaseName(), xpathId, user.id);
+                saveOld.executeUpdate();
+
+                // #2 - save the actual vote.
+                if (DBUtils.db_Mysql) { // use 'on duplicate key' syntax
+                    ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
+                        + " (locale,xpath,submitter,value,last_mod," + VOTE_OVERRIDE + ") values (?,?,?,?,CURRENT_TIMESTAMP,?) "
+                        + "ON DUPLICATE KEY UPDATE locale=?,xpath=?,submitter=?,value=?,last_mod=CURRENT_TIMESTAMP," + VOTE_OVERRIDE + "=?");
+                    int colNum = 6;
+                    ps.setString(colNum++, locale.getBaseName());
+                    ps.setInt(colNum++, xpathId);
+                    ps.setInt(colNum++, submitter);
+                    DBUtils.setStringUTF8(ps, colNum++, value);
+                    DBUtils.setInteger(ps, colNum++, withVote);
+                } else { // derby
+                    ps2 = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + DBUtils.Table.VOTE_VALUE
+                        + " where locale=? and xpath=? and submitter=? ");
+                    ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
+                        + " (locale,xpath,submitter,value,last_mod," + VOTE_OVERRIDE + ") VALUES (?,?,?,?,CURRENT_TIMESTAMP,?) ");
+                    int colNum = 1;
+                    ps2.setString(colNum++, locale.getBaseName());
+                    ps2.setInt(colNum++, xpathId);
+                    ps2.setInt(colNum++, submitter);
+                    // NB:  no "VOTE_OVERRIDE" column on delete.
+                }
+
+                int colNum = 1;
+                ps.setString(colNum++, locale.getBaseName());
+                ps.setInt(colNum++, xpathId);
+                ps.setInt(colNum++, submitter);
+                DBUtils.setStringUTF8(ps, colNum++, value);
+                DBUtils.setInteger(ps, colNum++, withVote);
+                if (ps2 != null) {
+                    ps2.executeUpdate();
+                }
+                ps.executeUpdate();
+
+                if (wasFlagged && UserRegistry.userIsTC(user)) {
+                    clearFlag(conn, locale, xpathId, user);
+                    didClearFlag = true;
+                }
+                conn.commit();
+            } catch (SQLException e) {
+                SurveyLog.logException(e);
+                SurveyMain.busted("Could not vote for value in locale locale " + locale, e);
+                throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
+            } finally {
+                DBUtils.close(saveOld, rs, ps, ps2, conn);
+            }
+            SurveyLog.debug(et);
+
+            if (sm.fora != null) {
+                sm.fora.doForumAfterVote(locale, user, distinguishingXpath, xpathId, value, didClearFlag);
             }
         }
 

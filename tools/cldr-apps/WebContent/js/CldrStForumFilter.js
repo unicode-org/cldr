@@ -12,22 +12,18 @@
 const cldrStForumFilter = (function() {
 
 	/**
-	 * The index of 'Open threads' in the filters array
+	 * The zero-based index of 'Open threads' in the filters array
 	 */
-	const OPEN_THREADS_INDEX = 0;
+	const OPEN_THREADS_INDEX = 2;
 
 	/**
 	 * An array of filter objects, each having a name and a boolean function
 	 */
 	const filters = [
+		{name: 'Needing action', func: passIfNeedingAction, keepCount: true},
+		{name: 'Open requests by you', func: passIfOpenRequestYouStarted, keepCount: true},
 		{name: 'Open threads', func: passIfOpen, keepCount: true},
-		{name: 'Your open threads', func: passIfOpenAndYouStarted, keepCount: true},
-		{name: 'Open threads you have not posted to', func: passIfOpenAndYouDidNotPost, keepCount: true},
-
 		{name: 'All threads', func: passAll, keepCount: false},
-		{name: 'Closed threads', func: passIfClosed, keepCount: false},
-		{name: 'Threads you have posted to', func: passIfYouPosted, keepCount: false},
-		{name: 'Threads you have not posted to', func: passIfYouDidNotPost, keepCount: false},
 	];
 
 	/**
@@ -155,7 +151,7 @@ const cldrStForumFilter = (function() {
 
 	/**
 	 * If the count for 'Open threads' is zero, simplify filterCounts, since then there is
-	 * no need to display counts for 'Your open threads' or 'Open threads you have not posted to'
+	 * no need to display counts for 'Needing action' (implies open) or 'Open requests by you'
 	 */
 	function simplifyCounts() {
 		if (filterCounts[filters[OPEN_THREADS_INDEX].name] === 0) {
@@ -211,66 +207,45 @@ const cldrStForumFilter = (function() {
 	}
 
 	/**
-	 * Does the thread with the given array of posts include at least one post by the current user?
-	 *
-	 * Assume each post has post.poster.
-	 * (Some but not all posts also have post.posterInfo.id; if so, it's equal to post.poster.)
-	 *
-	 * @param threadPosts the array of posts in the thread
-	 * @return true or false
-	 */
-	function passIfYouPosted(threadPosts) {
-		return threadPosts.some(post => post.poster && (post.poster === filterUserId));
-	}
-
-	/**
-	 * Does the thread with the given array of posts include no posts by the current user?
-	 *
-	 * @param threadPosts the array of posts in the thread
-	 * @return true or false
-	 */
-	function passIfYouDidNotPost(threadPosts) {
-		return !passIfYouPosted(threadPosts);
-	}
-
-	/**
 	 * Is the thread with the given array of posts open?
 	 *
 	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
 	function passIfOpen(threadPosts) {
-		return !passIfClosed(threadPosts);
+		const rootPost = getRootPost(threadPosts);
+		return rootPost && rootPost.open;
 	}
 
 	/**
-	 * Is the thread with the given array of posts closed?
+	 * Does the thread with the given array of posts need action?
+	 *
+	 * (Open request from others AND (I haven’t agreed or declined))
+	 * OR (open discuss-only thread AND I’m not the last poster)
 	 *
 	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
-	function passIfClosed(threadPosts) {
-		return threadPosts.some(post => post.postType && (post.postType === 'Close'));
-	}
-
-	/**
-	 * Is the thread with the given array of posts open and does it include no posts by the current user?
-	 *
-	 * @param threadPosts the array of posts in the thread
-	 * @return true or false
-	 */
-	function passIfOpenAndYouDidNotPost(threadPosts) {
-		return passIfYouDidNotPost(threadPosts) && passIfOpen(threadPosts);
-	}
-
-	/**
-	 * Is the thread with the given array of posts open and does it include no posts by the current user?
-	 *
-	 * @param threadPosts the array of posts in the thread
-	 * @return true or false
-	 */
-	function passIfOpenAndYouDidNotPost(threadPosts) {
-		return passIfYouDidNotPost(threadPosts) && passIfOpen(threadPosts);
+	function passIfNeedingAction(threadPosts) {
+		const rootPost = getRootPost(threadPosts);
+		if (!rootPost || !rootPost.open) {
+			return false;
+		}
+		if (rootPost.postType === 'Request') {
+			if (!rootPost.poster || (rootPost.poster === filterUserId)) {
+				return false;
+			}
+			if (threadPosts.some(post => post.poster
+					&& (post.poster === filterUserId)
+					&& (post.postType === 'Agree' || post.postType === 'Decline'))) {
+				return false;
+			}
+			return true;
+		} else if (rootPost.postType === 'Discuss') {
+			const newestPost = threadPosts[0];
+			return (newestPost.poster && newestPost.poster !== filterUserId);
+		}
+		return false;
 	}
 
 	/**
@@ -279,25 +254,35 @@ const cldrStForumFilter = (function() {
 	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
-	function passIfOpenAndYouStarted(threadPosts) {
-		return passIfOpen(threadPosts) && passIfYouStarted(threadPosts);
+	function passIfOpenRequestYouStarted(threadPosts) {
+		return passIfOpen(threadPosts) && passIfRequestYouStarted(threadPosts);
 	}
 
 	/**
-	 * Was the thread with the given array of posts started by the current user?
+	 * Was the thread with the given array of posts a "Request" post started by the current user?
 	 *
 	 * @param threadPosts the array of posts in the thread
 	 * @return true or false
 	 */
-	function passIfYouStarted(threadPosts) {
+	function passIfRequestYouStarted(threadPosts) {
+		const rootPost = getRootPost(threadPosts);
+		return rootPost && (rootPost.poster === filterUserId) && (rootPost.postType === 'Request');
+	}
+
+	/**
+	 * Get the root (original) post in the thread, i.e., the last one in the array
+	 *
+	 * @param threadPosts the array of posts in the thread
+	 * @return the root post, or null if not found
+	 */
+	function getRootPost(threadPosts) {
 		/*
-		 * The first (original) post in the thread is the last one in the array
+		 * The root (original) post in the thread is the last one in the array
 		 */
 		if (threadPosts.length < 1) {
-			return false;
+			return null;
 		}
-		const post = threadPosts[threadPosts.length - 1];
-		return post.poster === filterUserId;
+		return threadPosts[threadPosts.length - 1];
 	}
 
 	/*
@@ -307,7 +292,6 @@ const cldrStForumFilter = (function() {
 		setUserId: setUserId,
 		createMenu: createMenu,
 		getFilteredThreadIds: getFilteredThreadIds,
-		getFilteredThreadCounts: getFilteredThreadCounts,
-		passIfClosed, passIfClosed
+		getFilteredThreadCounts: getFilteredThreadCounts
 	};
 })();

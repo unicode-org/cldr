@@ -627,7 +627,7 @@ function createLinkToFn(strid, fn, tag) {
 function createGravitar(user) {
 	if (user.emailHash) {
 		var gravatar = document.createElement("img");
-		gravatar.src = 'http://www.gravatar.com/avatar/' + user.emailHash + '?d=identicon&r=g&s=32';
+		gravatar.src = 'https://www.gravatar.com/avatar/' + user.emailHash + '?d=identicon&r=g&s=32';
 		gravatar.title = 'gravatar - http://www.gravatar.com';
 		return gravatar;
 	} else {
@@ -3986,6 +3986,11 @@ function refreshCounterVetting() {
 	}
 	document.getElementById('progress-voted').style.width = voted * 100 / total + '%';
 	document.getElementById('progress-abstain').style.width = abstain * 100 / total + '%';
+
+	if (cldrStForum && surveyCurrentLocale && surveyUser && surveyUser.id) {
+		const forumSummary = cldrStForum.getForumSummaryHtml(surveyCurrentLocale, surveyUser.id, false);
+		document.getElementById('vForum').innerHTML = forumSummary;
+	}
 }
 
 /**

@@ -427,8 +427,11 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 						  <div id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title='Abstain' style="width: 0%">
 						  </div>
 					</div>
-					<div class='counter-infos'>Votes: <span id='count-voted'></span> - Abstain: <span id='count-abstain'></span> - Total: <span id='count-total'></span>
-			    	
+					<div class='counter-infos'><a onclick='cldrStForum.reload();'>Forum:</a>
+						<span id='vForum'>...</span> ●
+						Votes: <span id='count-voted'></span>
+						- Abstain: <span id='count-abstain'></span>
+						- Total: <span id='count-total'></span>
 			    	</div>
 		    </div>
        </div>

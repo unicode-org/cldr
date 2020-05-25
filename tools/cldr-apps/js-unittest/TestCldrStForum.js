@@ -27,40 +27,40 @@
 
 			assert(content.firstChild != null, "first child is not null");
 			assert.equal(content.firstChild.id, "fthr_fr_CA|45347");
-			const s1 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:26Closetest"
-				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:28Closetest reply blah!Discuss";
+			const s1 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:26ClosedClosetest"
+				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:28Closetest reply blah!";
 			assert.equal(normalizeWhitespace(content.firstChild.textContent), normalizeWhitespace(s1));
 
 			const firstSibling = content.firstChild.nextSibling;
 			assert(firstSibling != null, "first sibling is not null");
 			assert.equal(firstSibling.id, "fthr_fr_CA|45346");
-			const s2 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:20CloseFUrthermoreDiscuss";
+			const s2 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:20ClosedCloseFUrthermore";
 			assert.equal(normalizeWhitespace(firstSibling.textContent), normalizeWhitespace(s2));
 
 			const secondSibling = firstSibling.nextSibling;
 			assert(secondSibling != null, "second sibling is not null");
 			assert.equal(secondSibling.id, "fthr_fr_CA|45343");
-			const s3 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:17Closetest"
+			const s3 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:17ClosedClosetest"
 				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:18CloseOK, replying to test in Dashboard"
-				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:19CloseAnd replying to replyDiscuss";
+				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:19CloseAnd replying to reply";
 			assert.equal(normalizeWhitespace(secondSibling.textContent), normalizeWhitespace(s3));
 
 			const thirdSibling = secondSibling.nextSibling;
 			assert(thirdSibling != null, "third sibling is not null");
 			assert.equal(thirdSibling.id, "fthr_fr_CA|45341");
-			const s4 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:12CloseAnd another post from Dashboard."
-				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:14CloseAnd another reply, this time from Dashboard Fix pop-up!!!Discuss";
+			const s4 = "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:12ClosedCloseAnd another post from Dashboard."
+				+ "n (Gaeilge) userlevel_tc[v38] 2020-02-06 12:14CloseAnd another reply, this time from Dashboard Fix pop-up!!!";
 			assert.equal(normalizeWhitespace(thirdSibling.textContent), normalizeWhitespace(s4));
 
 			assert(content.lastChild != null, "last child is not null");
 			assert.equal(content.lastChild.id, "fthr_fr|363");
-			const sLast = "n (Microsoft) userlevel_vetter[v28] 2015-05-19 11:58Close...Discuss";
+			const sLast = "n (Microsoft) userlevel_vetter[v28] 2015-05-19 11:58ClosedClose...";
 			assert.equal(normalizeWhitespace(content.lastChild.textContent), normalizeWhitespace(sLast));
 		});
 	});
 
 	describe('cldrStForum.getForumSummaryHtml', function() {
-		const html = cldrStForum.getForumSummaryHtml();
+		const html = cldrStForum.getForumSummaryHtml('aa', 1, true);
 
 		it('should not return null or empty', function() {
 			assert((html != null && html !== ''), "html is neither null nor empty");

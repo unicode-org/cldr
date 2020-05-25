@@ -4839,9 +4839,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>칼리닌그라드</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>심페로폴</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>모스크바</exemplarCity>
 			</zone>
@@ -5036,6 +5033,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>키예프</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>심페로폴</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>자포로지예</exemplarCity>
@@ -8122,6 +8122,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>태양 질량</displayName>
 				<unitPattern count="other">{0}태양 질량</unitPattern>
 			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="other" draft="provisional">{0}그레인</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>기가와트</displayName>
 				<unitPattern count="other">{0}기가와트</unitPattern>
@@ -8334,6 +8337,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-barrel">
 				<displayName>배럴</displayName>
 				<unitPattern count="other">{0}배럴</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<unitPattern count="other" draft="provisional">{0}디저트스푼</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other" draft="provisional">{0}영국 디저트스푼</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="other" draft="provisional">{0}방울</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<unitPattern count="other" draft="provisional">{0}영국 액량 드램</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other" draft="provisional">{0}지거</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="other" draft="provisional">{0}꼬집</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<unitPattern count="other" draft="provisional">{0}영국 쿼트</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>방향</displayName>

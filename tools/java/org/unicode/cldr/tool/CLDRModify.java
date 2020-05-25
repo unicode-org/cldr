@@ -51,6 +51,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.PathChecker;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
@@ -703,6 +704,9 @@ public class CLDRModify {
     // return result;
     // }
     // }
+    
+    static PathChecker pathChecker = new PathChecker();
+
 
     abstract static class CLDRFilter {
         protected CLDRFile cldrFileToFilter;
@@ -809,6 +813,10 @@ public class CLDRModify {
                 oldFullPath = temp;
             }
             boolean pathSame = oldFullPath.equals(newFullPath);
+
+            if (!pathChecker.checkPath(newFullPath)) {
+                throw new IllegalArgumentException("Bad path: " + newFullPath);
+            }
 
             if (pathSame) {
                 if (newValue == null) {
@@ -1955,8 +1963,9 @@ public class CLDRModify {
                     case add:
                         if (pathMatch != null || valueMatch != null || newPath == null || newValue == null) {
                             throw new IllegalArgumentException(
-                                "Bad arguments, must have " +
-                                    "path==null, value=null, new_path!=null, new_value!=null:\n\t"
+                                "Bad arguments, must have non-null for one of:" +
+                                    "path, value, new_path, new_value "
+                                    + ":\n\t"
                                     + entry);
                         }
                         String newPathString = newPath.getPath(getResolved());
@@ -2021,7 +2030,8 @@ public class CLDRModify {
                         if (locale == null || keyValue.get(ConfigKeys.action) == null) {
                             throw new IllegalArgumentException();
                         }
-
+                        
+                        // validate new path
                         LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = locale2keyValues
                             .get(locale);
                         if (keyValues == null) {

@@ -101,6 +101,8 @@ public class TestPathHeader extends TestFmwkPlus {
         assertRelation("pathheader", true, ph3, TestFmwkPlus.LEQ, ph2);
     }
 
+    static final String[] MIN_LOCALES = {"root", "en", "de"};
+
     public void tempTestCompletenessLdmlDtd() {
         // List<String> failures = null;
         pathHeaderFactory.clearCache();
@@ -108,7 +110,7 @@ public class TestPathHeader extends TestFmwkPlus {
         for (String directory : DtdType.ldml.directories) {
             Factory factory2 = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
             Set<String> source = factory2.getAvailable();
-            for (String file : getFilesToTest(source, "root", "en", "de")) {
+            for (String file : getFilesToTest(source, MIN_LOCALES)) {
                 if (DEBUG) warnln(" TestCompletenessLdmlDtd: " + directory + ", " + file);
                 DtdData dtdData = null;
                 CLDRFile cldrFile = factory2.make(file, true);
@@ -627,34 +629,38 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestUniqueness() {
-        CLDRFile nativeFile = info.getEnglish();
-        Map<PathHeader, String> headerToPath = new HashMap<PathHeader, String>();
-        Map<String, String> headerVisibleToPath = new HashMap<String, String>();
-        for (String path : nativeFile.fullIterable()) {
-            PathHeader p = pathHeaderFactory.fromPath(path);
-            if (p.getSectionId() == SectionId.Special) {
-                continue;
-            }
-            String old = headerToPath.get(p);
-            if (old == null) {
-                headerToPath.put(p, path);
-            } else if (!old.equals(path)) {
-                if (true) { // for debugging
-                    pathHeaderFactory.clearCache();
-                    List<String> failuresOld = new ArrayList<>();
-                    pathHeaderFactory.fromPath(old, failuresOld);
-                    List<String> failuresPath = new ArrayList<>();
-                    pathHeaderFactory.fromPath(path, failuresPath);
+        Factory factory2 = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
+        Set<String> source = factory2.getAvailable();
+        for (String file : getFilesToTest(source, MIN_LOCALES)) {
+            CLDRFile nativeFile = factory2.make(file,true);
+            Map<PathHeader, String> headerToPath = new HashMap<PathHeader, String>();
+            Map<String, String> headerVisibleToPath = new HashMap<String, String>();
+            for (String path : nativeFile.fullIterable()) {
+                PathHeader p = pathHeaderFactory.fromPath(path);
+                if (p.getSectionId() == SectionId.Special) {
+                    continue;
                 }
-                errln("Collision with path " + p + "\t" + old + "\t" + path);
-            }
-            final String visible = p.toString();
-            old = headerVisibleToPath.get(visible);
-            if (old == null) {
-                headerVisibleToPath.put(visible, path);
-            } else if (!old.equals(path)) {
-                errln("Collision with path " + visible + "\t" + old + "\t"
-                    + path);
+                String old = headerToPath.get(p);
+                if (old == null) {
+                    headerToPath.put(p, path);
+                } else if (!old.equals(path)) {
+                    if (true) { // for debugging
+                        pathHeaderFactory.clearCache();
+                        List<String> failuresOld = new ArrayList<>();
+                        pathHeaderFactory.fromPath(old, failuresOld);
+                        List<String> failuresPath = new ArrayList<>();
+                        pathHeaderFactory.fromPath(path, failuresPath);
+                    }
+                    errln("Collision with path " + p + "\t" + old + "\t" + path);
+                }
+                final String visible = p.toString();
+                old = headerVisibleToPath.get(visible);
+                if (old == null) {
+                    headerVisibleToPath.put(visible, path);
+                } else if (!old.equals(path)) {
+                    errln("Collision with path " + visible + "\t" + old + "\t"
+                        + path);
+                }
             }
         }
     }

@@ -422,7 +422,7 @@ public class Annotations {
                     rem = code + rem;
                     code = "💏";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
-                } else if (code.contains(EmojiConstants.HEART)) {
+                } else if (code.contains(EmojiConstants.HEART) && !code.startsWith(EmojiConstants.HEART)) {
                     rem = code + rem;
                     code = "💑";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;

@@ -279,7 +279,9 @@ public class TestAnnotations extends TestFmwkPlus {
                 Pattern.compile("//ldml/annotations/annotation.*tts.*").matcher(""),
                 new TreeSet<>());
             Set<String> annotationPathsExpected = Emoji.getNamePaths();
-            checkAMinusBIsC("(" + locale + ".xml - Emoji.getNamePaths)", annotationPaths, annotationPathsExpected, Collections.<String> emptySet());
+            if (!checkAMinusBIsC("(" + locale + ".xml - Emoji.getNamePaths)", annotationPaths, annotationPathsExpected, Collections.<String> emptySet())) {
+                System.out.println("Check Emoji.SPECIALS");
+            }
             checkAMinusBIsC("(Emoji.getNamePaths - " + locale + ".xml)", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
         }
     }
@@ -442,7 +444,7 @@ public class TestAnnotations extends TestFmwkPlus {
         return superfluous;
     }
 
-    private void checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
+    private boolean checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
         Set<String> aMb = new TreeSet<>(a);
         aMb.removeAll(b);
         for (Iterator<String> it = aMb.iterator(); it.hasNext();) {
@@ -451,7 +453,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 it.remove();
             }
         }
-        assertEquals(title + " (" + aMb.size() + ")", c, aMb);
+        return assertEquals(title + " (" + aMb.size() + ")", c, aMb);
     }
 
     public void testListFormatter() {

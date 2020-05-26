@@ -199,7 +199,7 @@ const cldrStForum = (function() {
 			return "I'm closing this thread";
 		} else if (postType === 'Request') {
 			if (value) {
-				return 'Please consider voting for “' + value + '”\n';
+				return 'Please consider voting for “' + value + '”. My reasons are:\n';
 			}
 		} else if (postType === 'Agree') {
 			return 'I agree. I am changing my vote to the requested “' + value + '”';
@@ -366,6 +366,12 @@ const cldrStForum = (function() {
 					}
 					addThreadSubjectSpan(topicInfo, rootPost);
 				}
+				if (opts.createDomElements) {
+					if (rootPost.postType === 'Request' && rootPost.value) {
+						const requestInfo = forumCreateChunk('Requesting “' + post.value + '”', "h4", "postTopicInfo");
+						topicDiv.appendChild(requestInfo);
+					}
+				}
 				topicDivs[post.threadId] = topicDiv;
 				topicDiv.id = "fthr_" + post.threadId;
 			}
@@ -451,7 +457,11 @@ const cldrStForum = (function() {
 				comboChunk.appendChild(forumCreateChunk(post.postType, 'span', 'postTypeComboLabel'));
 				subChunk.appendChild(comboChunk);
 			} else {
-				subChunk.appendChild(forumCreateChunk(post.postType, 'div', 'postTypeLabel'));
+				let typeLabel = post.postType;
+				if (typeLabel === 'Discuss') {
+					typeLabel = 'Comment'; // for replies, label 'Comment' instead of 'Discuss'
+				}
+				subChunk.appendChild(forumCreateChunk(typeLabel, 'div', 'postTypeLabel'));
 			}
 
 			// actual text
@@ -460,7 +470,7 @@ const cldrStForum = (function() {
 			subpost.appendChild(postContent);
 		}
 		appendPostDivsToTopicDivs(posts, topicDivs, postDivs);
-		if (opts.createDomElements) {
+		if (opts.showReplyButton) {
 			addReplyButtonsToEachTopic(topicDivs);
 		}
 		return filterAndAssembleForumThreads(posts, topicDivs, opts.applyFilter, opts.showThreadCount);
@@ -566,7 +576,6 @@ const cldrStForum = (function() {
 		 */
 		if (rootPost.subject.indexOf('|') >= 0 || !rootPost.xpath) {
 			topicInfo.appendChild(forumCreateChunk(post2text(rootPost.subject), "span", "topicSubject"));
-			return;
 		}
 		/*
 		 * Some old posts have subjects like "Review" or "Flag Removed".
@@ -598,16 +607,19 @@ const cldrStForum = (function() {
 	 * @param postDivs the map from post id to DOM elements
 	 */
 	function appendPostDivsToTopicDivs(posts, topicDivs, postDivs) {
-		const USE_HORIZONTAL_RULE = true;
+		const SIMPLE_REPLY_STYLE = true;
+		const USE_HORIZONTAL_RULE = false;
 		for (let i = posts.length - 1; i >= 0; i--) {
 			const post = posts[i];
 			if (post.root === -1) { // this post is the root of its thread, not a reply
 				topicDivs[post.threadId].appendChild(postDivs[post.id]);
 			}
 			else { // this is a reply
-				if (USE_HORIZONTAL_RULE) {
-					const horizontalRule = forumCreateChunk('', 'hr', 'postRule');
-					topicDivs[post.threadId].appendChild(horizontalRule);
+				if (SIMPLE_REPLY_STYLE) {
+					if (USE_HORIZONTAL_RULE) {
+						const horizontalRule = forumCreateChunk('', 'hr', 'postRule');
+						topicDivs[post.threadId].appendChild(horizontalRule);
+					}
 					topicDivs[post.threadId].appendChild(postDivs[post.id]);
 				} else {
 					if (postDivs[post.root]) {
@@ -684,8 +696,9 @@ const cldrStForum = (function() {
 									: "addPostButton forumNewButton btn btn-default btn-sm";
 
 		const newButton = forumCreateChunk(label, "button", buttonClass);
-
-		if (typeof listenFor !== 'undefined') {
+		if (postType === 'Request' && value === null) {
+			newButton.disabled = true;
+		} else if (typeof listenFor !== 'undefined') {
 			listenFor(newButton, "click", function(e) {
 				xpathMap.get({
 					hex: xpstrid
@@ -751,15 +764,20 @@ const cldrStForum = (function() {
 	function getPostTypeOptions(isReply, rootPost, value) {
 		const options = {};
 		if (rootPost === null || rootPost.open) {
-			options['Discuss'] = 'Discuss';
-			if (value) {
-				if (!isReply) {
-					options['Request'] = 'Request';
-				} else if (rootPost && !userIsPoster(rootPost) && rootPost.postType === 'Request') {
-					options['Agree'] = 'Agree';
-					options['Decline'] = 'Decline';
-				}
+			if (!isReply) {
+				/*
+				 * Show Request button even if value is null. It will be visible but disabled if value is null.
+				 */
+				options['Request'] = 'Request';
 			}
+			if (value && isReply && rootPost && !userIsPoster(rootPost) && rootPost.postType === 'Request') {
+				options['Agree'] = 'Agree';
+				options['Decline'] = 'Decline';
+			}
+			/*
+			 * For replies, label 'Comment' instead of 'Discuss'
+			 */
+			options['Discuss'] = isReply ? 'Comment' : 'Discuss';
 			if (userCanClose(isReply, rootPost)) {
 				options['Close'] = 'Close';
 			}
@@ -995,7 +1013,7 @@ const cldrStForum = (function() {
 			}
 		});
 		if (showThreadCount) {
-			countEl.innerHTML = threadCount + ((threadCount === 1) ? ' thread' : ' threads');
+			countEl.innerHTML = threadCount + ((threadCount === 1) ? ' topic' : ' topics');
 		}
 		return forumDiv;
 	}

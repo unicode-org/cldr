@@ -101,7 +101,7 @@ public class TestPathHeader extends TestFmwkPlus {
         assertRelation("pathheader", true, ph3, TestFmwkPlus.LEQ, ph2);
     }
 
-    static final String[] MIN_LOCALES = {"root", "en", "de"};
+    static final String[] MIN_LOCALES = {"root", "en", "de", "ru", "ko"}; // choose locales with range of case/gender structures
 
     public void tempTestCompletenessLdmlDtd() {
         // List<String> failures = null;
@@ -651,7 +651,7 @@ public class TestPathHeader extends TestFmwkPlus {
                         List<String> failuresPath = new ArrayList<>();
                         pathHeaderFactory.fromPath(path, failuresPath);
                     }
-                    errln("Collision with path " + p + "\t" + old + "\t" + path);
+                    errln(file + " collision with path " + p + "\t" + old + "\t" + path);
                 }
                 final String visible = p.toString();
                 old = headerVisibleToPath.get(visible);
@@ -1083,6 +1083,16 @@ public class TestPathHeader extends TestFmwkPlus {
         }
     }
 
+    public static final Set<String> GERMAN_UNIT_ORDER = ImmutableSet.of(
+        "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]",
+        "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]",
+        "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]",
+        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]",
+        "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]",
+        "//ldml/units/unitLength[@type=\"narrrow\"]/unit[@type=\"volume-liter\"]",
+        "//ldml/numbers/minimalPairs/caseMinimalPairs",
+        "//ldml/numbers/minimalPairs/genderMinimalPairs"
+        );
     public void TestOrder() {
         String[] paths = {
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"noon\"]",
@@ -1096,9 +1106,81 @@ public class TestPathHeader extends TestFmwkPlus {
             }
             pathHeaderLast = pathHeader;
         }
-
+        CLDRFile german = factory.make("de", true);
+        Multimap<PathHeader, String> pathHeaderToPaths = TreeMultimap.create();
+        for (String path : german.fullIterable()) {
+            for (String prefix : GERMAN_UNIT_ORDER) {
+                if (path.startsWith(prefix)) {
+                    PathHeader pathHeader = pathHeaderFactory.fromPath(path);
+                    pathHeaderToPaths.put(pathHeader, path);
+                }
+            }
+        }
+        String[] germanExpected = {
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/gender", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/perUnitPattern", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]", 
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/displayName", 
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/perUnitPattern", 
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]", 
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"accusative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"dative\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"genitive\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"]", 
+            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", 
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", 
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", 
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", 
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", 
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", 
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", 
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1"};
+        
+        int germanExpectedIndex = 0;
+        for (Entry<PathHeader, Collection<String>> entry : pathHeaderToPaths.asMap().entrySet()) {
+            PathHeader ph = entry.getKey();
+            Collection<String> epaths = entry.getValue();
+            assertEquals("PathHeader order", germanExpected[germanExpectedIndex++], epaths.iterator().next());
+            assertEquals(entry.toString(), 1, epaths.size());
+            //System.out.println(epaths.iterator().next() + "\t" + ph);
+        }
     }
-
+    
     public void Test8414() {
         PathDescription pathDescription = new PathDescription(supplemental,
             english, null, null, PathDescription.ErrorHandling.CONTINUE);

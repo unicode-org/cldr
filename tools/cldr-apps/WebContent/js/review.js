@@ -91,7 +91,7 @@ function showReviewPage(json, showFn) {
 	});
 
 	if (cldrStForum && surveyCurrentLocale && surveyUser && surveyUser.id) {
-		const forumSummary = cldrStForum.getForumSummaryText(surveyCurrentLocale, surveyUser.id, true /* table */);
+		const forumSummary = cldrStForum.getForumSummaryHtml(surveyCurrentLocale, surveyUser.id, true /* table */);
 		sidebarHtml += "<li><a id='dashToForum' onclick='cldrStForum.reload();'>Forum</a></li>\n";
 		sidebarHtml += "<li>" + forumSummary + "</li>\n";
 	}

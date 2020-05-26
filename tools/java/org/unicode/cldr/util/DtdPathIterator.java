@@ -143,7 +143,6 @@ public class DtdPathIterator {
         for (String locale : Arrays.asList("en", "de", "zh", "ar", "ru")) {
             CLDRFile cfile = factory.make(locale, true);
             for (String path : cfile.fullIterable()) {
-                if (path.contains(s))
                 String starred = ps.set(path);
                 starred = starred.replace("[@alt=\"%A\"]","");
                 if (!starredToSample.containsKey(starred) && !starred.endsWith("/alias") && !starred.startsWith("//ldml/identity/")) {

@@ -1807,7 +1807,8 @@ public class PathHeader implements Comparable<PathHeader> {
             } else {
                 languageOnlyPart = s;
             }
-            return englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart).substring(0, 1).toUpperCase();
+            final String name = englishFile.getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart);
+            return name == null ? "?" : name.substring(0, 1).toUpperCase();
         }
 
         static class HyphenSplitter {

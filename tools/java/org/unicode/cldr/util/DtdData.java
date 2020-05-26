@@ -161,6 +161,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public String toString() {
             return element.name + ":" + name;
         }
+        
+        public String getSampleValue() {
+            return type == AttributeType.ENUMERATED_TYPE  ? (values.containsKey("year") ? "year" : values.keySet().iterator().next())
+                : matchValue != null ? matchValue.getSample()
+                    : MatchValue.DEFAULT_SAMPLE;
+        }
 
         public StringBuilder appendDtdString(StringBuilder b) {
             Attribute a = this;

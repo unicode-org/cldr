@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,10 +35,16 @@ import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
 public abstract class MatchValue implements Predicate<String> {
+    public static final String DEFAULT_SAMPLE = "❓";
+
     @Override
     public abstract boolean is(String item);
     public abstract String getName();
 
+    public String getSample() {
+        return DEFAULT_SAMPLE;
+    }
+    
     @Override
     public String toString() {
         return getName();
@@ -134,6 +141,11 @@ public abstract class MatchValue implements Predicate<String> {
                 && ltp.getExtensions().isEmpty()
                 && ltp.getLocaleExtensions().isEmpty()
                 ;
+        }
+
+        @Override
+        public String getSample() {
+            return "de";
         }        
     }
 
@@ -301,12 +313,17 @@ public abstract class MatchValue implements Predicate<String> {
             final Status status = Validity.getInstance().getCodeToStatus(type).get(item);
             return status != null && statuses.contains(status);
         }
+        
+        @Override
+        public String getSample() {
+            return Validity.getInstance().getCodeToStatus(type).keySet().iterator().next();
+        }
     }
 
     static public class Bcp47MatchValue extends MatchValue {
         private final String key;
         private Set<String> valid;
-
+        
         @Override
         public String getName() {
             return "bcp47/" + key;
@@ -399,6 +416,12 @@ public abstract class MatchValue implements Predicate<String> {
                 valid.addAll(aliases);
             }
         }
+        @Override
+        public String getSample() {
+            is("X"); // force load data
+            return valid == null ? "XX" 
+                : valid.iterator().next();
+        }
     }
 
     static final Splitter RANGE = Splitter.on('~').trimResults();
@@ -441,6 +464,10 @@ public abstract class MatchValue implements Predicate<String> {
             }
             return start <= value && value <= end;
         }
+        @Override
+        public String getSample() {
+            return String.valueOf((int)(start + end)/2);
+        }
     }
 
     static final Splitter LIST = Splitter.on(", ").trimResults();
@@ -465,6 +492,11 @@ public abstract class MatchValue implements Predicate<String> {
         @Override
         public boolean is(String item) {
             return items.contains(item);
+        }
+        
+        @Override
+        public String getSample() {
+            return items.iterator().next();
         }
     }
 
@@ -588,6 +620,11 @@ public abstract class MatchValue implements Predicate<String> {
         public  boolean is(String items) {
             return and(subtest,SPACE_SPLITTER.split(items));
         }
+        
+        @Override
+        public String getSample() {
+            return subtest.getSample();
+        }
     }
 
     static final Splitter BARS_SPLITTER = Splitter.on("||").omitEmptyStrings();
@@ -621,13 +658,25 @@ public abstract class MatchValue implements Predicate<String> {
             }
             return false;
         }
+        @Override
+        public String getSample() {
+            for (MatchValue subtest : subtests) {
+                String result = subtest.getSample();
+                if (!result.equals(DEFAULT_SAMPLE)) {
+                    return result;
+                }
+            }
+            return DEFAULT_SAMPLE;
+        }
     }
 
     static public class TimeMatchValue extends MatchValue {
+        final String sample;
         final SimpleDateFormat formatter;
 
         public TimeMatchValue(String key) {
             formatter = new SimpleDateFormat(key,ULocale.ROOT);
+            sample = formatter.format(new Date());
         }
 
         @Override
@@ -648,13 +697,19 @@ public abstract class MatchValue implements Predicate<String> {
                 return false;
             }
         }
+        @Override
+        public String getSample() {
+            return sample;
+        }
     }
 
     static public class UnicodeSpanMatchValue extends MatchValue {
+        final String sample;
         final UnicodeSet uset;
 
         public UnicodeSpanMatchValue(String key) {
             uset = new UnicodeSet(key);
+            sample = new StringBuilder().appendCodePoint(uset.getRangeStart(0)).toString();
         }
 
         @Override
@@ -669,6 +724,11 @@ public abstract class MatchValue implements Predicate<String> {
         @Override
         public  boolean is(String item) {
             return uset.span(item, SpanCondition.CONTAINED) == item.length();
+        }
+        
+        @Override
+        public String getSample() {
+            return sample;
         }
     }
 

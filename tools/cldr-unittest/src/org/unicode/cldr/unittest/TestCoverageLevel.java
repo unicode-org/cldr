@@ -613,7 +613,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             } else if (path.startsWith("//ldml/units")) {
                 // Skip paths for narrow unit fields.
-                if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))) {
+                if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
+                    || path.endsWith("/compoundUnitPattern1")
+                    ) {
                     continue;
                 }
             }

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRTool;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
@@ -162,7 +162,7 @@ public class Option {
         } else if (match instanceof Class) {
             try {
                 Enum[] valuesMethod = (Enum[]) ((Class) match).getMethod("values").invoke(null);
-                return Pattern.compile(CollectionUtilities.join(valuesMethod, "|"));
+                return Pattern.compile(Joiner.on("|").join(valuesMethod));
             } catch (Exception e) {
                 throw new IllegalArgumentException(e);
             }

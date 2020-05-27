@@ -40,10 +40,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.CompactDecimalFormat;
@@ -135,11 +135,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 + "\t"
                 + starred
                 + "\t"
-                + CollectionUtilities.join(levelsFound, ", ")
+                + Joiner.on(", ").join(levelsFound)
                 + "\t"
                 + (maxLevelCount == 1 ? "all" : localesWithUniqueLevels
-                    .size() == 0 ? "none" : CollectionUtilities.join(
-                        localesWithUniqueLevels, ", ")));
+                    .size() == 0 ? "none" : Joiner.on(", ").join(localesWithUniqueLevels)));
         }
     }
 

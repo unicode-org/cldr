@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.unicode.cldr.draft.FileUtilities;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 abstract public class DataDrivenTestHelper {
@@ -44,7 +44,7 @@ abstract public class DataDrivenTestHelper {
                 } else {
                     String first = components.iterator().next();
                     String sep = first.startsWith("@") ? "=" : SEPARATOR;
-                    out.append(CollectionUtilities.join(components, sep));
+                    out.append(Joiner.on(sep).join(components));
                     if (!comment.isEmpty()) {
                         out.append("\t# ").append(comment);
                     }

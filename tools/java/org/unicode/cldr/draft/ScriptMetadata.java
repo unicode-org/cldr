@@ -19,7 +19,7 @@ import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transform;
@@ -299,7 +299,7 @@ public class ScriptMetadata {
 
         private Map<String, Info> getData() {
             if (!errors.isEmpty()) {
-                throw new RuntimeException(CollectionUtilities.join(errors, "\n\t"));
+                throw new RuntimeException(Joiner.on("\n\t").join(errors));
             }
             return Collections.unmodifiableMap(data);
         }

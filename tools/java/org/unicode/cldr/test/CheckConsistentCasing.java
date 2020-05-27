@@ -21,7 +21,7 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.ULocale;
@@ -287,7 +287,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             info.put(category, type);
         }
         if (DEBUG && missing.size() != 0) {
-            System.out.println("Paths skipped:\n" + CollectionUtilities.join(missing, "\n"));
+            System.out.println("Paths skipped:\n" + Joiner.on("\n").join(missing));
         }
         return info;
     }

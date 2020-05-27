@@ -29,6 +29,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.TempPrintWriter;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DecimalFormat;
@@ -258,9 +259,10 @@ public class GeneratePluralRanges {
                 item.put(s, locale);
             }
             for (Entry<Set<Count>, Relation<Set<String>, String>> entry0 : seen.entrySet()) {
-                out.println("\n<!-- " + CollectionUtilities.join(entry0.getKey(), ", ") + " -->");
+                out.println("\n<!-- " + Joiner.on(", ").join(entry0.getKey()) + " -->");
                 for (Entry<Set<String>, Set<String>> entry : entry0.getValue().keyValuesSet()) {
-                    out.println("\t\t<pluralRanges locales=\"" + CollectionUtilities.join(entry.getValue(), " ") + "\">");
+                    out.println("\t\t<pluralRanges locales=\"" + Joiner.on(" ")
+                        .join(entry.getValue()) + "\">");
                     for (String line : entry.getKey()) {
                         out.println("\t\t\t" + line);
                     }

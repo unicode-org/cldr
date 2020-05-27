@@ -15,7 +15,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.NumberFormat;
@@ -196,7 +196,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
 
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append("Plurals: 0, 1, ").append(CollectionUtilities.join(not01, ", "));
+        result.append("Plurals: 0, 1, ").append(Joiner.on(", ").join(not01));
         if (coveredBy01.size() != 0) {
             result.append("\nCovered by {0,1}:\t").append(coveredBy01);
         }

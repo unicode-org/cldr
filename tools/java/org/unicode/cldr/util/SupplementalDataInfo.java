@@ -44,13 +44,13 @@ import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingS
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -369,8 +369,8 @@ public class SupplementalDataInfo {
 
         public String toString() {
             return "[" + type
-                + (scripts.isEmpty() ? "" : "; scripts=" + CollectionUtilities.join(scripts, " "))
-                + (scripts.isEmpty() ? "" : "; territories=" + CollectionUtilities.join(territories, " "))
+                + (scripts.isEmpty() ? "" : "; scripts=" + Joiner.on(" ").join(scripts))
+                + (scripts.isEmpty() ? "" : "; territories=" + Joiner.on(" ").join(territories))
                 + "]";
         }
 

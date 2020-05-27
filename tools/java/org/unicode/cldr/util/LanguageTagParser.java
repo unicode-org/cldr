@@ -32,7 +32,6 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -801,7 +800,7 @@ public class LanguageTagParser {
 
     private void appendField(Format format, StringBuilder result, String fieldName, Collection<String> fieldValues) {
         if (!fieldValues.isEmpty()) {
-            appendField(format, result, fieldName, CollectionUtilities.join(fieldValues, ","));
+            appendField(format, result, fieldName, Joiner.on(",").join(fieldValues));
         }
     }
 
@@ -829,35 +828,42 @@ public class LanguageTagParser {
                     if (!haveT) {
                         result.append(format.separator).append('t');
                         if (haveTLang) { // empty is illegal, but just in case
-                            result.append(format.separator).append(CollectionUtilities.join(tLang, format.separator));
+                            result.append(format.separator).append(
+                                Joiner.on(format.separator).join(tLang));
                             haveTLang = false;
                         }
                         haveT = true;
                     }
-                    appendFieldKey(format, result, entry.getKey(), CollectionUtilities.join(entry.getValue(), format.separator));
+                    appendFieldKey(format, result, entry.getKey(),
+                        Joiner.on(format.separator).join(entry.getValue()));
                 } else {
                     if (!haveU) {
                         result2.append(format.separator).append('u');
                         if (haveUSpecial) { // not yet valid, but just in case
-                            result2.append(format.separator).append(CollectionUtilities.join(uSpecial, format.separator));
+                            result2.append(format.separator).append(
+                                Joiner.on(format.separator).join(uSpecial));
                             haveUSpecial = false;
                         }
                         haveU = true;
                     }
-                    appendFieldKey(format, result2, entry.getKey(), CollectionUtilities.join(entry.getValue(), format.separator));
+                    appendFieldKey(format, result2, entry.getKey(),
+                        Joiner.on(format.separator).join(entry.getValue()));
                 }
             }
             if (haveTLang) {
-                result.append(format.separator).append('t').append(format.separator).append(CollectionUtilities.join(tLang, format.separator));
+                result.append(format.separator).append('t').append(format.separator).append(
+                    Joiner.on(format.separator).join(tLang));
             }
             if (haveUSpecial) {
-                result2.append(format.separator).append('u').append(format.separator).append(CollectionUtilities.join(uSpecial, format.separator));
+                result2.append(format.separator).append('u').append(format.separator).append(
+                    Joiner.on(format.separator).join(uSpecial));
             }
             result.append(result2); // put in right order
         } else {
             for (Entry<String, List<String>> entry : fieldValues.entrySet()) {
                 if (match == null || match.contains(entry.getKey())) {
-                    appendFieldKey(format, result, entry.getKey(), CollectionUtilities.join(entry.getValue(), format.separator));
+                    appendFieldKey(format, result, entry.getKey(),
+                        Joiner.on(format.separator).join(entry.getValue()));
                 }
             }
         }

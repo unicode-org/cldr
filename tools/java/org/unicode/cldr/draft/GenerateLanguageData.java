@@ -19,7 +19,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.NumberFormat;
 
 public class GenerateLanguageData {
@@ -131,8 +131,8 @@ public class GenerateLanguageData {
 
                 String lang = entry.getKey();
                 out.println(fixLang(lang)
-                    + "\t" + (top.size() < 6 ? CollectionUtilities.join(top, ", ")
-                        : CollectionUtilities.join(top.subList(0, 5), ", ") + ", …"));
+                    + "\t" + (top.size() < 6 ? Joiner.on(", ").join(top)
+                        : Joiner.on(", ").join(top.subList(0, 5)) + ", …"));
                 missing.remove(lang);
             }
             for (String lang : missing) {

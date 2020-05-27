@@ -54,9 +54,9 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.math.DoubleMath;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -2177,7 +2177,7 @@ public class ConvertLanguageData {
             return "* " + this
                 + " *\t" + problem + ":"
                 + "\t" + details
-                + (row != null && row.size() > 0 ? "\t" + CollectionUtilities.join(row, "\t") : "");
+                + (row != null && row.size() > 0 ? "\t" + Joiner.on("\t").join(row) : "");
         }
     }
 

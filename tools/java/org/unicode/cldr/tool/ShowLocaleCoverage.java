@@ -66,6 +66,7 @@ import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -73,7 +74,6 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
@@ -340,7 +340,7 @@ public class ShowLocaleCoverage {
                 out.println();
                 first = false;
             }
-            out.println(entry.getKey() + "\t" + CollectionUtilities.join(entry.getValue(), "\t"));
+            out.println(entry.getKey() + "\t" + Joiner.on("\t").join(entry.getValue()));
         }
     }
 
@@ -597,7 +597,7 @@ public class ShowLocaleCoverage {
 
             fixCommonLocales();
 
-            System.out.println(CollectionUtilities.join(languageToRegion.keyValuesSet(), "\n"));
+            System.out.println(Joiner.on("\n").join(languageToRegion.keyValuesSet()));
 
             System.out.println("# Checking: " + availableLanguages);
 
@@ -1034,8 +1034,8 @@ public class ShowLocaleCoverage {
                         //                            ;
                         //                    }
                     }
-                    String coreMissingString = 
-                        CollectionUtilities.join(coreMissing, ", ");
+                    String coreMissingString =
+                        Joiner.on(", ").join(coreMissing);
 
                     tablePrinter
                     .addCell(coreMissingString)
@@ -1113,7 +1113,7 @@ public class ShowLocaleCoverage {
                     tsv_missing_summary.println(
                         level 
                         + "\t" + localeSet.size()
-                        + "\t" + CollectionUtilities.join(localeSet, " ")
+                        + "\t" + Joiner.on(" ").join(localeSet)
                         + "\t" + phString
                         );
                 }

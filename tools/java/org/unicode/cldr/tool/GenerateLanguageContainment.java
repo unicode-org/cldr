@@ -33,6 +33,7 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
@@ -42,7 +43,6 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
@@ -291,7 +291,8 @@ public class GenerateLanguageContainment {
         if (base.equals("und")) {
             // skip, no good info
         } else {
-            newFile.add("//" + DtdType.supplementalData + "/languageGroups/languageGroup[@parent=\"" + base + "\"]", CollectionUtilities.join(children, " "));
+            newFile.add("//" + DtdType.supplementalData + "/languageGroups/languageGroup[@parent=\"" + base + "\"]",
+                Joiner.on(" ").join(children));
 //            System.out.println("\t<languageGroup parent='" 
 //                + base + "'>" 
 //                + CollectionUtilities.join(children, " ") + "</languageGroup>");

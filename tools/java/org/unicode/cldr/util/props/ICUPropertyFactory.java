@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -464,7 +464,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
             // sort by short form
             sorted.put(UScript.getShortName(scriptCode), UScript.getName(scriptCode));
         }
-        return CollectionUtilities.join(sorted.values(), " ");
+        return Joiner.on(" ").join(sorted.values());
     }
 
     private static ICUPropertyFactory singleton = null;

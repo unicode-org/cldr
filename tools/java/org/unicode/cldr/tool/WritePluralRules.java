@@ -12,6 +12,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.PluralRules;
@@ -87,7 +88,7 @@ public class WritePluralRules {
     }
 
     public static String formatPluralRuleHeader(Set<String> values) {
-        String locales = CollectionUtilities.join(values, " ");
+        String locales = Joiner.on(" ").join(values);
         String result = ("        <pluralRules locales=\"" + locales + "\">"
         //+ (comment != null ? comment : "")
         );

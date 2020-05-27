@@ -43,9 +43,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -366,7 +366,7 @@ public class GenerateMaximalLocales {
         Map<String, String> oldLikely = SupplementalDataInfo.getInstance().getLikelySubtags();
         Set<String> changes = compareMapsAndFixNew("*WARNING* Likely Subtags: ", oldLikely, toMaximized, "ms_Arab",
             "ms_Arab_ID");
-        System.out.println(CollectionUtilities.join(changes, "\n"));
+        System.out.println(Joiner.on("\n").join(changes));
 
         if (OUTPUT_STYLE == OutputStyle.C_ALT) {
             doAlt(toMaximized);
@@ -2057,24 +2057,24 @@ public class GenerateMaximalLocales {
         Map<String, String> oldDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(
             ConvertLanguageData.supplementalData.getDefaultContentLocales(), new TreeMap<String, String>(), errors);
         if (!errors.isEmpty()) {
-            System.out.println(CollectionUtilities.join(errors, "\n"));
+            System.out.println(Joiner.on("\n").join(errors));
             errors.clear();
         }
         Map<String, String> newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent,
             new TreeMap<String, String>(), errors);
         if (!errors.isEmpty()) {
-            System.out.println("Default Content errors: " + CollectionUtilities.join(errors, "\n"));
+            System.out.println("Default Content errors: " + Joiner.on("\n").join(errors));
             errors.clear();
         }
         Set<String> changes = compareMapsAndFixNew("*WARNING* Default Content: ", oldDefaultContent, newDefaultContent,
             "ar", "ar_001");
-        System.out.println(CollectionUtilities.join(changes, "\n"));
+        System.out.println(Joiner.on("\n").join(changes));
         defaultLocaleContent.clear();
         defaultLocaleContent.addAll(newDefaultContent.values());
         newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent,
             new TreeMap<String, String>(), errors);
         if (!errors.isEmpty()) {
-            System.out.println("***New Errors: " + CollectionUtilities.join(errors, "\n"));
+            System.out.println("***New Errors: " + Joiner.on("\n").join(errors));
         }
     }
 

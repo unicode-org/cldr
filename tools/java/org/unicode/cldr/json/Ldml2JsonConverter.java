@@ -38,13 +38,13 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonWriter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON
@@ -767,7 +767,7 @@ public class Ldml2JsonConverter {
             scriptInfo.put(script, i);
         }
         if (ScriptMetadata.errors.size() > 0) {
-            System.err.println(CollectionUtilities.join(ScriptMetadata.errors, "\n\t"));
+            System.err.println(Joiner.on("\n\t").join(ScriptMetadata.errors));
             //throw new IllegalArgumentException();
         }
 

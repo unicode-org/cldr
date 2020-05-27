@@ -20,7 +20,7 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -218,7 +218,7 @@ public class LocaleReplacements {
                 String key = replacementAndReason.get0();
                 Set<String> replacements = replacementAndReason.get1();
                 final String message = type + "\t" + reason + "\t" + key + "\t"
-                    + CollectionUtilities.join(replacements, " ");
+                    + Joiner.on(" ").join(replacements);
                 // System.out.println(message);
                 newStuff.add(message);
             }
@@ -235,7 +235,7 @@ public class LocaleReplacements {
                 List<String> replacements = replacementAndReason.get0();
                 String reason = replacementAndReason.get1();
                 oldStuff.add(type + "\t" + reason + "\t" + item
-                    + "\t" + (replacements == null ? "" : CollectionUtilities.join(replacements, " ")));
+                    + "\t" + (replacements == null ? "" : Joiner.on(" ").join(replacements)));
             }
         }
         Set<Row.R2<String, String>> merged = new TreeSet<Row.R2<String, String>>();

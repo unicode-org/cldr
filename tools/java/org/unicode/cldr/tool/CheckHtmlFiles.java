@@ -44,8 +44,8 @@ import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.BreakIterator;
@@ -879,7 +879,7 @@ public class CheckHtmlFiles {
             }
             if (!captionWarnings.isEmpty()) {
                 System.out.println("WARNING: Missing <caption> on the following lines: "
-                    + "\n    " + CollectionUtilities.join(captionWarnings, ", ")
+                    + "\n    " + Joiner.on(", ").join(captionWarnings)
                     + "\n\tTo fix, add <caption> after the <table>, such as:"
                     + "\n\t\t<table>"
                     + "\n\t\t\t<caption>Private Use Codes in CLDR</a></caption>"

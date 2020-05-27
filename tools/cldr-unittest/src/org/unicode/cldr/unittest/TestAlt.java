@@ -14,10 +14,10 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.Output;
@@ -70,7 +70,7 @@ public class TestAlt extends TestFmwk {
             }
         }
         for (Entry<String, Collection<R4<String, String, String, String>>> entry : altStarred.asMap().entrySet()) {
-            System.out.println(entry.getKey() + "\t" + CollectionUtilities.join(entry.getValue(), "\t"));
+            System.out.println(entry.getKey() + "\t" + Joiner.on("\t").join(entry.getValue()));
         }
     }
     

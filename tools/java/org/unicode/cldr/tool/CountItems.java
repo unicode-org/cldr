@@ -50,6 +50,7 @@ import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMapIterator;
@@ -633,7 +634,7 @@ public class CountItems {
             bad3letter.add(alpha3);
             String targetAliased;
             if (languageAliasInfo.containsKey(target)) {
-                targetAliased = CollectionUtilities.join(languageAliasInfo.get(target).get0(), " ");
+                targetAliased = Joiner.on(" ").join(languageAliasInfo.get(target).get0());
             } else {
                 targetAliased = target;
             }
@@ -805,7 +806,7 @@ public class CountItems {
         }
         System.out.println("    </codeMappings>");
         System.out.println("<!-- end of Code Mappings generated with CountItems tool ...");
-        System.out.println(CollectionUtilities.join(warnings, CldrUtility.LINE_SEPARATOR));
+        System.out.println(Joiner.on(CldrUtility.LINE_SEPARATOR).join(warnings));
     }
 
     enum VariableType {
@@ -894,7 +895,7 @@ public class CountItems {
             Map<String, R2<List<String>, String>> territoryAliasInfo = supplementalData.getLocaleAliasInfo().get("territory");
             String result;
             if (territoryAliasInfo.containsKey(region)) {
-                result = CollectionUtilities.join(territoryAliasInfo.get(region).get0(), " ");
+                result = Joiner.on(" ").join(territoryAliasInfo.get(region).get0());
             } else {
                 result = region;
             }

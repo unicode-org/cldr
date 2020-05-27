@@ -15,13 +15,12 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 
 public class ShowChildren {
 
     public static void main(String[] args) {
-        System.out.println("Arguments: " + CollectionUtilities.join(args, " "));
+        System.out.println("Arguments: " + String.join(" ", args));
 
         long startTime = System.currentTimeMillis();
 

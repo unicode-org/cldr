@@ -6,6 +6,7 @@ import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -96,9 +97,9 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
         return "<hours preferred=\""
             + preferred
             + "\" allowed=\""
-            + CollectionUtilities.join(allowed, " ")
+            + Joiner.on(" ").join(allowed)
             + "\" regions=\""
-            + CollectionUtilities.join(regions, " ")
+            + Joiner.on(" ").join(regions)
             + "\"/>";
     }
 

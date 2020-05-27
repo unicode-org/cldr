@@ -61,12 +61,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -895,9 +895,9 @@ public class TestBasic extends TestFmwkPlus {
                     int debug = 0;
                 }
                 if (leaves.size() == 1) {
-                    System.out.println(prefix + CollectionUtilities.join(presentation, " "));
+                    System.out.println(prefix + Joiner.on(" ").join(presentation));
                 } else {
-                    System.out.println(prefix + "{" + CollectionUtilities.join(presentation, " ") + "}");
+                    System.out.println(prefix + "{" + Joiner.on(" ").join(presentation) + "}");
                 }
             }
             for (String parent : parents) {

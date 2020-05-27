@@ -42,7 +42,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -153,7 +153,8 @@ public class ShowKeyboards {
             }
         }
         if (totalErrors.size() != 0) {
-            System.out.println("Errors\t" + CollectionUtilities.join(totalErrors, System.lineSeparator() + "\t"));
+            System.out.println("Errors\t" + Joiner.on(System.lineSeparator() + "\t")
+                .join(totalErrors));
         }
         for (String item : totalModifiers) {
             System.out.println(item);
@@ -407,7 +408,7 @@ public class ShowKeyboards {
                 String keyString = key == Gesture.LONGPRESS ? "LP" : key.toString();
                 final V value = entry.getValue();
                 String valueString = value instanceof Collection
-                    ? CollectionUtilities.join((Collection) value, " ")
+                    ? Joiner.on(" ").join((Collection) value)
                     : value.toString();
                 hover.append(TransliteratorUtilities.toHTML.transform(keyString)).append("→")
                     .append(TransliteratorUtilities.toHTML.transform(valueString));

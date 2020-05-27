@@ -9,7 +9,7 @@ import java.util.TreeMap;
 
 import org.unicode.cldr.util.ChainedMap.M3;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {
@@ -129,7 +129,7 @@ public enum LanguageGroup {
             Set<ULocale> locales = LanguageGroup.getLocales(languageGroup);
             String englishName = languageGroup.getName(english);
             System.out.print("\t\t<languageGroup id=\"" + languageGroup.iso
-                + "\" code=\"" + CollectionUtilities.join(locales, ", ")
+                + "\" code=\"" + Joiner.on(", ").join(locales)
                 + "\"/>\t<!-- " + englishName + " -->\n");
         }
         System.out.print("\t</languageGroups>"

@@ -21,11 +21,11 @@ import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.VersionInfo;
 
@@ -262,8 +262,8 @@ public class ChartDtdDelta extends Chart {
             }
             dtdType = dtdCurrent.dtdType;
             this.newPath = fix(newPath);
-            this.attributeNames = attributeNames2.isEmpty() ? NONE :  
-                START_ATTR + CollectionUtilities.join(attributeNames2, END_ATTR + START_ATTR) + END_ATTR;
+            this.attributeNames = attributeNames2.isEmpty() ? NONE :
+                START_ATTR + Joiner.on(END_ATTR + START_ATTR).join(attributeNames2) + END_ATTR;
             this.newElement = newElement;
         }
 

@@ -10,7 +10,7 @@ import java.util.Set;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -90,7 +90,7 @@ public class GenerateBcp47Text {
     }
 
     private void showField(PrintWriter out, String title, Collection<String> set) {
-        showField(out, title, set == null || set.isEmpty() ? null : CollectionUtilities.join(set, ", "));
+        showField(out, title, set == null || set.isEmpty() ? null : Joiner.on(", ").join(set));
     }
 
     private void showField(PrintWriter out, String title, String item) {

@@ -53,12 +53,12 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -724,7 +724,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     data = Relation.of(new TreeMap<String, Set<String>>(),
                         TreeSet.class));
             }
-            data.put(starred, CollectionUtilities.join(attr, "|"));
+            data.put(starred, Joiner.on("|").join(attr));
         }
         for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2
             .entrySet()) {

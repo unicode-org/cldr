@@ -28,13 +28,13 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestCLDRLocaleCoverage extends TestFmwkPlus {
@@ -179,7 +179,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             for (String locale : temp) {
                 temp2.add(locale + "\t" + ENGLISH.getName(locale));
             }
-            warnln("Missing:\t" + temp.size() + "\n\t" + CollectionUtilities.join(temp2, "\n\t"));
+            warnln("Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
         }
         return result;
     }
@@ -231,7 +231,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             diff2.removeAll(skip);
             if (!diff2.isEmpty()) {
                 String diffString = diff2.toString();
-                String levelString = CollectionUtilities.join(level, "+");
+                String levelString = Joiner.on("+").join(level);
                 for (String localeId : diff2) {
                     diffString += "\n\t" + localeId + "\t" + CLDRConfig.getInstance().getEnglish().getName(localeId);
                 }

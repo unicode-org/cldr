@@ -17,7 +17,7 @@ import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 
 public class ShowDtdDiffs {
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -153,7 +153,7 @@ public class ShowDtdDiffs {
             }
             names.add(name);
         }
-        return names.isEmpty() ? "" : CollectionUtilities.join(names, ", ");
+        return names.isEmpty() ? "" : Joiner.on(", ").join(names);
     }
 
     private static boolean isDeprecated(DtdType dtdType, String elementName, String attributeName) {

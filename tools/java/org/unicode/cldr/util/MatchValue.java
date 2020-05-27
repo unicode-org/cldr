@@ -478,7 +478,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "literal/" + CollectionUtilities.join(items, ", ");
+            return "literal/" + Joiner.on(", ").join(items);
         }
 
         private LiteralMatchValue(String key) {
@@ -638,7 +638,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "or/"+ CollectionUtilities.join(subtests, "||");
+            return "or/"+ Joiner.on("||").join(subtests);
         }
 
         public static OrMatchValue of(String key) {

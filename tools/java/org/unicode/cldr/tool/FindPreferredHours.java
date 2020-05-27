@@ -22,7 +22,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.With;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
@@ -244,7 +244,7 @@ public class FindPreferredHours {
             }
             String subcontinent = Containment.getSubcontinent(region);
             String continent = Containment.getContinent(region);
-            String tag = CollectionUtilities.join(preferredSet.keySet(), ",");
+            String tag = Joiner.on(",").join(preferredSet.keySet());
             if (tag.equals("h")) {
                 tag += "*";
             }
@@ -270,9 +270,9 @@ public class FindPreferredHours {
                 + preferredAndAllowedHour.preferred
                 + "\""
                 + " allowed=\""
-                + CollectionUtilities.join(preferredAndAllowedHour.allowed, " ")
+                + Joiner.on(" ").join(preferredAndAllowedHour.allowed)
                 + "\""
-                + " regions=\"" + CollectionUtilities.join(regions, " ") + "\""
+                + " regions=\"" + Joiner.on(" ").join(regions) + "\""
                 + "/>");
         }
         System.out.println("    </timeData>");

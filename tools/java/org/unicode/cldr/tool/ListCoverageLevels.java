@@ -30,6 +30,7 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableList;
@@ -37,7 +38,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class ListCoverageLevels {
     public static void main(String[] args) {
@@ -137,7 +137,7 @@ public class ListCoverageLevels {
                 String localeName = getLocaleName(ALL, locales);
                 items.add(level + ":" + (mixed ? "" : "°") + localeName);
             }
-            System.out.println(starred + "\t" + items.size() + "\t" + CollectionUtilities.join(items, " "));
+            System.out.println(starred + "\t" + items.size() + "\t" + Joiner.on(" ").join(items));
         }
         for (Level level : data.keySet()) {
             M3<String, Attributes, Boolean> data2 = data.get(level);
@@ -160,12 +160,12 @@ public class ListCoverageLevels {
         Function<Set<CLDRLocale>,String> remainderName = x -> {
             Set<CLDRLocale> y = new LinkedHashSet<>(all);
             y.removeAll(x);
-            return "AllLcs-(" + CollectionUtilities.join(y, "|") + ")";
+            return "AllLcs-(" + Joiner.on("|").join(y) + ")";
         };
-        return all == null ? CollectionUtilities.join(locales, "|")
+        return all == null ? Joiner.on("|").join(locales)
             : locales.equals(all) ? "AllLcs" 
                 : locales.size()*2 > all.size() ? remainderName.apply(locales)
-                    : CollectionUtilities.join(locales, "|");
+                    : Joiner.on("|").join(locales);
     }
 
     static class Attributes implements Comparable<Attributes>{
@@ -285,7 +285,8 @@ public class ListCoverageLevels {
         }
         @Override
         public String toString() {
-            return attributes.isEmpty() ? cLoc.toString() : cLoc + "|" + CollectionUtilities.join(attributes, "|");
+            return attributes.isEmpty() ? cLoc.toString() : cLoc + "|" + Joiner.on("|")
+                .join(attributes);
         }
     }
 }

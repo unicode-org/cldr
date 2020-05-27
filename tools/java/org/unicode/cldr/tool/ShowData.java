@@ -38,6 +38,7 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -410,7 +411,7 @@ public class ShowData {
                         .append("</td><td class='v'>")
                         .append(DataShower.getPrettyValue(value.substring(breakPoint + 2)))
                         .append("</td><td>")
-                        .append(CollectionUtilities.join(s.getValue(), ", "))
+                        .append(Joiner.on(", ").join(s.getValue()))
                         .append("</td></tr>")
                         .append(System.lineSeparator());
                     addRow = true;
@@ -429,7 +430,7 @@ public class ShowData {
         final boolean noLocales = locales == null || locales.isEmpty();
         pw.println("<td"
             + (isExemplar ? " style='max-width:20%'" : "")
-            + (noLocales ? "" : " title='" + CollectionUtilities.join(locales, ", ") + "'")
+            + (noLocales ? "" : " title='" + Joiner.on(", ").join(locales) + "'")
             + (value == null ? "></i>n/a</i>" : " class='v'" + DataShower.getBidiStyle(value) + ">" + DataShower.getPrettyValue(value))
             + "</td>");
     }

@@ -42,8 +42,8 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -280,7 +280,7 @@ public class GenerateItemCounts {
                     + "\t" + noOccur);
             }
             out.println("\nERRORS/WARNINGS");
-            out.println(CollectionUtilities.join(errors, "\n"));
+            out.println(Joiner.on("\n").join(errors));
         }
     }
 
@@ -563,7 +563,7 @@ public class GenerateItemCounts {
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());
         for (Entry<String, Set<String>> entry : localesToPaths.keyValuesSet()) {
-            summary2.println(entry.getKey() + "\t" + CollectionUtilities.join(entry.getValue(), "\t"));
+            summary2.println(entry.getKey() + "\t" + Joiner.on("\t").join(entry.getValue()));
         }
         summary2.close();
     }

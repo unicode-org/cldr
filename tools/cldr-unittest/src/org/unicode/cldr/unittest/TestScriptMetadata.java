@@ -24,7 +24,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
@@ -69,11 +69,11 @@ public class TestScriptMetadata extends TestFmwkPlus {
             if (ScriptMetadata.errors.size() == 1) {
                 logln("ScriptMetadata initialization errors\t"
                     + ScriptMetadata.errors.size() + "\t"
-                    + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
+                    + Joiner.on("\n").join(ScriptMetadata.errors));
             } else {
                 errln("ScriptMetadata initialization errors\t"
                     + ScriptMetadata.errors.size() + "\t"
-                    + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
+                    + Joiner.on("\n").join(ScriptMetadata.errors));
             }
         }
 

@@ -19,6 +19,7 @@ import org.unicode.cldr.util.DtdData.AttributeType;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -266,12 +267,12 @@ public class DtdDataCheck {
             }
             System.out.println("            <distinguishingItems"
                 + " type=\"" + type
-                + "\" elements=\"" + CollectionUtilities.join(areDisting, " ")
+                + "\" elements=\"" + Joiner.on(" ").join(areDisting)
                 + "\" attributes=\"" + attribute
                 + "\"/>"
                 + "\n            <!-- NONDISTINGUISH."
                 + " TYPE=\"" + type
-                + "\" ELEMENTS=\"" + CollectionUtilities.join(areNotDisting, " ")
+                + "\" ELEMENTS=\"" + Joiner.on(" ").join(areNotDisting)
                 + "\" ATTRIBUTES=\"" + attribute
                 + "\" -->");
         }
@@ -294,7 +295,7 @@ public class DtdDataCheck {
         System.out.println("            <distinguishingItems"
             + " type=\"" + type
             + "\" elements=\"*"
-            + "\" attributes=\"" + CollectionUtilities.join(allElements, " ")
+            + "\" attributes=\"" + Joiner.on(" ").join(allElements)
             + "\"/>");
         allElements.clear();
         allElements.add("_q");

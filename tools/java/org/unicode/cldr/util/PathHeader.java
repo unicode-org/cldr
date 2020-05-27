@@ -1668,7 +1668,8 @@ public class PathHeader implements Comparable<PathHeader> {
             // Sorts numberSystem items (except for decimal formats).
             functionMap.put("number", new Transform<String, String>() {
                 private final String[] symbols = { "decimal", "group",
-                    "plusSign", "minusSign", "percentSign", "perMille",
+                    "plusSign", "minusSign", "approximatelySign",
+                    "percentSign", "perMille",
                     "exponential", "superscriptingExponent",
                     "infinity", "nan", "list", "currencies"
                 };

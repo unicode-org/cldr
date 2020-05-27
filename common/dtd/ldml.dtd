@@ -2015,7 +2015,7 @@ $Revision$
 <!ATTLIST minimumGroupingDigits references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT symbols ( alias | ( decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, special* ) ) >
+<!ELEMENT symbols ( alias | ( decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, approximatelySign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, special* ) ) >
 <!ATTLIST symbols alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST symbols draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -2125,6 +2125,14 @@ $Revision$
     <!--@METADATA-->
 <!ATTLIST minusSign numberSystem CDATA #IMPLIED >
     <!--@DEPRECATED-->
+
+<!ELEMENT approximatelySign ( #PCDATA ) >
+<!ATTLIST approximatelySign alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST approximatelySign draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST approximatelySign references CDATA #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT exponential ( #PCDATA ) >
 <!ATTLIST exponential alt NMTOKENS #IMPLIED >

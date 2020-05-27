@@ -710,7 +710,7 @@ abstract public class CheckCLDR {
             missingMainExemplars, mustNotStartOrEndWithSpace, illegalCharactersInNumberPattern, 
             numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, missingMinusSign, 
             badNumericType, percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, 
-            metazoneContainsDigit, tooManyGroupingSeparators, inconsistentPluralFormat, sameAsEnglish, sameAsCode, 
+            metazoneContainsDigit, tooManyGroupingSeparators, inconsistentPluralFormat, missingZeros, sameAsEnglish, sameAsCode, 
             dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus, 
             errorOrWarningInLogicalGroup, valueTooWide, valueTooNarrow, nameContainsYear, patternCannotContainDigits, 
             patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear, 

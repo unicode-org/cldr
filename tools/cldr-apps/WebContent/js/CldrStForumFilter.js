@@ -22,8 +22,8 @@ const cldrStForumFilter = (function() {
 	const filters = [
 		{name: 'Needing action', func: passIfNeedingAction, keepCount: true},
 		{name: 'Open requests by you', func: passIfOpenRequestYouStarted, keepCount: true},
-		{name: 'Open threads', func: passIfOpen, keepCount: true},
-		{name: 'All threads', func: passAll, keepCount: false},
+		{name: 'Open topics', func: passIfOpen, keepCount: true},
+		{name: 'All topics', func: passAll, keepCount: false},
 	];
 
 	/**

@@ -72,7 +72,6 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -389,7 +388,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(
             PluralType.valueOf(row[1]), row[0]);
         Count count = pluralInfo.getCount(new FixedDecimal(row[2]));
-        assertEquals(CollectionUtilities.join(row, ", "),
+        assertEquals(String.join(", ", row),
             Count.valueOf(row[3]), count);
     }
 
@@ -627,7 +626,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         c.toString());
                     ruleToExceptions.put(countRules == null ? "" : countRules,
                         "{\"" + locale + "\", \"" + c + "\", \""
-                            + CollectionUtilities.join(compose, ",")
+                            + Joiner.on(",").join(compose)
                             + "\"},");
                 }
             }
@@ -750,7 +749,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             addName(CLDRFile.SCRIPT_NAME, ltp.getScript(), b);
             addName(CLDRFile.TERRITORY_NAME, ltp.getRegion(), b);
         }
-        return CollectionUtilities.join(b, "; ");
+        return Joiner.on("; ").join(b);
     }
 
     private void addName(int languageName, String code, Set<String> b) {
@@ -1027,7 +1026,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     errln(code + "\t=>\t" + oldReplacement + "\tshould be:\n\t"
                         + "<" + type + "Alias type=\"" + code
                         + "\" replacement=\""
-                        + CollectionUtilities.join(newReplacement, " ")
+                        + Joiner.on(" ").join(newReplacement)
                         + "\" reason=\"XXX\"/> <!-- YYY -->\n");
                 }
             }

@@ -22,7 +22,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
@@ -183,7 +183,7 @@ public class Keyboard {
                 .read(fileName, -1, true);
             return keyboardHandler.getKeyboard();
         } catch (Exception e) {
-            throw new KeyboardException(fileName + "\n" + CollectionUtilities.join(errors, ", "), e);
+            throw new KeyboardException(fileName + "\n" + Joiner.on(", ").join(errors), e);
         }
     }
 

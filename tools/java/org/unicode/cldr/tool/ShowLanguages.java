@@ -63,6 +63,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
@@ -881,8 +882,8 @@ public class ShowLanguages {
                     String type = entry2.getKey();
                     R2<List<String>, String> replacementReason = entry2.getValue();
                     List<String> replacementList = replacementReason.get0();
-                    String replacement = replacementList == null ? null : CollectionUtilities
-                        .join(replacementList, " ");
+                    String replacement = replacementList == null ? null :
+                        Joiner.on(" ").join(replacementList);
                     String reason = replacementReason.get1();
                     if (element.equals("timezone")) {
                         element = "zone";
@@ -1137,7 +1138,7 @@ public class ShowLanguages {
             pw2.close();
             try (PrintWriter pw21plain = FileUtilities.openUTF8Writer(ffw.getDir(), ffw.getBaseFileName() + ".txt")) {
                 for (Comparable[] row : plainData) {
-                    pw21plain.println(CollectionUtilities.join(row, "\t"));
+                    pw21plain.println(Joiner.on("\t").join(row));
                 }
             }
         }

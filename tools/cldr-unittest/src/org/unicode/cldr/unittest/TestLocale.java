@@ -43,7 +43,6 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.io.Files;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -726,7 +725,7 @@ public class TestLocale extends TestFmwkPlus {
     private void showItem(LanguageTagParser ltp, String extension, String key, String gorp, String... values) {
 
         String locale = "en-GB-" + extension + (extension.equals("t") ? "-hi" : "")
-            + "-" + key + "-" + CollectionUtilities.join(values, "-") + gorp;
+            + "-" + key + "-" + String.join("-", values) + gorp;
         ltp.set(locale);
 
         logln(ltp.toString(Format.bcp47) 

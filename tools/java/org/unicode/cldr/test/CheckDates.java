@@ -43,7 +43,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.props.UnicodeProperty.PatternMatcher;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -662,7 +662,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 results.add(stringValue);
             }
         }
-        return "{" + CollectionUtilities.join(results, "},{") + "}";
+        return "{" + Joiner.on("},{").join(results) + "}";
     }
 
     static final Pattern HACK_CONFLICTING = PatternCache.get("Conflicting fields:\\s+M+,\\s+l");
@@ -981,7 +981,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                         .setSubtype(Subtype.missingDatePattern)
                         .setMessage(msg,
-                            dateTimeLength, dateOrTime, value, CollectionUtilities.join(bases, ", ")));
+                            dateTimeLength, dateOrTime, value, Joiner.on(", ").join(bases)));
                 }
             }
         }

@@ -27,7 +27,7 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer2;
@@ -130,9 +130,9 @@ public class TestTransforms extends TestFmwkPlus {
                 }
             }
             logln("Success! " + latinFromCyrillicSucceeds.size() + "\n"
-                + CollectionUtilities.join(latinFromCyrillicSucceeds, "\n"));
+                + Joiner.on("\n").join(latinFromCyrillicSucceeds));
             logln("\nFAILS!" + latinFromCyrillicFails.size() + "\n"
-                + CollectionUtilities.join(latinFromCyrillicFails, "\n"));
+                + Joiner.on("\n").join(latinFromCyrillicFails));
         }
     }
 

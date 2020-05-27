@@ -67,7 +67,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -316,7 +316,7 @@ public class GenerateXMB {
         }
         String skipPath = pathFindRemover.get(path, null, matches, matcherFound, myFailures);
         if (myFailures != null && failures.size() != 0) {
-            System.out.println("Failures\n\t" + CollectionUtilities.join(failures, "\n\t"));
+            System.out.println("Failures\n\t" + Joiner.on("\n\t").join(failures));
             failures.clear();
         }
         if (skipPath == null || skipPath.equals("MAYBE")) {

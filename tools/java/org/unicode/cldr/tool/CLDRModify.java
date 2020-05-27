@@ -66,6 +66,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -1845,7 +1846,7 @@ public class CLDRModify {
                     int debug = 0;
                 }
                 DisplayAndInputProcessor.filterCoveredKeywords(sorted);
-                String newKeywordValue = CollectionUtilities.join(sorted, " | ");
+                String newKeywordValue = Joiner.on(" | ").join(sorted);
                 if (!newKeywordValue.equals(keywordValue)) {
                     replace(keywordPath, keywordPath, newKeywordValue);
                 }

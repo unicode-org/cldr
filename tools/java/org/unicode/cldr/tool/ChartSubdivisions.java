@@ -16,7 +16,7 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 
@@ -116,7 +116,8 @@ public class ChartSubdivisions extends Chart {
             tablePrinter.addRow()
                 .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
                 .addCell(region)
-                .addCell(regionAliases == null ? "«none»" : "=" + CollectionUtilities.join(regionAliases, ", "))
+                .addCell(regionAliases == null ? "«none»" : "=" + Joiner.on(", ")
+                    .join(regionAliases))
                 //.addCell(type)
                 .addCell("")
                 .addCell("")

@@ -40,7 +40,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
@@ -180,7 +180,7 @@ public class SubdivisionNode {
             "municipality"
         };
 
-        static final Pattern CRUFT_PATTERN = PatternCache.get("(?i)\\b" + CollectionUtilities.join(CRUFT, "|") + "\\b");
+        static final Pattern CRUFT_PATTERN = PatternCache.get("(?i)\\b" + String.join("|", CRUFT) + "\\b");
         static final Pattern BRACKETED = PatternCache.get("\\[.*\\]");
 
         static String clean(String input) {
@@ -573,7 +573,8 @@ public class SubdivisionNode {
             }
             output.append("<subdivisionAlias"
                 + " type=\"" + toReplace + "\""
-                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0, 2) + "?" : CollectionUtilities.join(replaceBy, " ")) + "\""
+                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0, 2) + "?" :
+                Joiner.on(" ").join(replaceBy)) + "\""
                 + " reason=\"" + reason + "\"/>"
                 + (replaceBy == null ? " <!- - " : " <!-- ")
                 + sdset.getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"

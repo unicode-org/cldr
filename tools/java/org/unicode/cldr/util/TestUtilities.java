@@ -30,7 +30,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateAttributeList;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -303,7 +303,7 @@ public class TestUtilities {
             "comment",
             // collation
             "base", "settings", "suppress_contractions", "optimize", "rules" };
-        String list = CollectionUtilities.join(elements, " ");
+        String list = String.join(" ", elements);
         String prefix = "//supplementalData[@version=\"1.4\"]/metaData/";
         meta.add(prefix + "elementOrder", list);
 
@@ -320,7 +320,7 @@ public class TestUtilities {
             "validSubLocales", "standard", "references", "elements", "element", "attributes", "attribute",
             // these are always at the end
             "alt", "draft", };
-        meta.add(prefix + "attributeOrder", CollectionUtilities.join(attOrder, " "));
+        meta.add(prefix + "attributeOrder", String.join(" ", attOrder));
 
         String[] serialElements = new String[] { "variable", "comment",
             "tRule",
@@ -329,7 +329,7 @@ public class TestUtilities {
             "first_tertiary_ignorable", "last_tertiary_ignorable",
             "first_secondary_ignorable", "last_secondary_ignorable", "first_primary_ignorable",
             "last_primary_ignorable", "first_non_ignorable", "last_non_ignorable", "first_trailing", "last_trailing" };
-        meta.add(prefix + "serialElements", CollectionUtilities.join(serialElements, " "));
+        meta.add(prefix + "serialElements", String.join(" ", serialElements));
         /*
          *
          * <attributeValues elements="weekendStart weekendEnd" attributes="day"
@@ -356,33 +356,33 @@ public class TestUtilities {
                 Set<String>[] valueSets = attribute_valueSet.get(attribute);
                 for (int i = 0; i < 2; ++i) {
                     meta.add(prefix + "valid/attributeValues" + "[@elements=\"" + element + "\"]" + "[@attributes=\""
-                        + attribute + "\"]" + (i == 1 ? "[@x=\"true\"]" : ""), CollectionUtilities.join(
-                            valueSets[i], " "));
+                        + attribute + "\"]" + (i == 1 ? "[@x=\"true\"]" : ""),
+                        Joiner.on(" ").join(valueSets[i]));
                 }
             }
         }
 
         String[] dayValueOrder = new String[] { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
         meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\"" + "day" + "\"]",
-            CollectionUtilities.join(dayValueOrder, " "));
+            String.join(" ", dayValueOrder));
         meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"" + "day" + "\"][@elements=\""
-            + "firstDay weekendEnd weekendStart" + "\"]", CollectionUtilities.join(dayValueOrder, " "));
+            + "firstDay weekendEnd weekendStart" + "\"]", String.join(" ", dayValueOrder));
 
         String[] widths = { "monthWidth", "dayWidth", "quarterWidth" };
         String[] widthOrder = new String[] { "abbreviated", "narrow", "wide" };
         meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\""
-            + CollectionUtilities.join(widths, " ") + "\"]", CollectionUtilities.join(widthOrder, " "));
+            + String.join(" ", widths) + "\"]", String.join(" ", widthOrder));
 
         String[] formatLengths = { "dateFormatLength", "timeFormatLength", "dateTimeFormatLength",
             "decimalFormatLength", "scientificFormatLength", "percentFormatLength", "currencyFormatLength" };
         String[] lengthOrder = new String[] { "full", "long", "medium", "short" };
         meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\""
-            + CollectionUtilities.join(formatLengths, " ") + "\"]", CollectionUtilities.join(lengthOrder, " "));
+            + String.join(" ", formatLengths) + "\"]", String.join(" ", lengthOrder));
 
         String[] dateFieldOrder = new String[] { "era", "year", "month", "week", "day", "weekday", "dayperiod", "hour",
             "minute", "second", "zone" };
         meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\"field\"]",
-            CollectionUtilities.join(dateFieldOrder, " "));
+            String.join(" ", dateFieldOrder));
 
         String[][] suppressData = { { "ldml", "version", "*" }, { "orientation", "characters", "left-to-right" },
             { "orientation", "lines", "top-to-bottom" }, { "weekendStart", "time", "00:00" },
@@ -595,7 +595,7 @@ public class TestUtilities {
                 System.out.println("\t\t\t<" + aliasType + "Alias type=\"" + tag + "\" replacement=\"" + preferred
                     + "\"/> <!-- CLDR:" + sdata.get(0) + " -->");
             }
-            String allCodeString = CollectionUtilities.join(allCodes, " ");
+            String allCodeString = Joiner.on(" ").join(allCodes);
             System.out
                 .println("\t\t\t<variable id=\"$" + oldType + "\" type=\"list\">" + allCodeString + "</variable>");
         }

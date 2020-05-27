@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
@@ -97,7 +97,7 @@ public class IsoRegionData {
                         errors.removeAll(other_internet);
                     }
                     other_internet.removeAll(internetStrings);
-                    internet = CollectionUtilities.join(internetStrings, " ");
+                    internet = Joiner.on(" ").join(internetStrings);
                 }
                 String fips10 = values[4];
                 _numeric.put(alpha2, numeric);
@@ -112,7 +112,7 @@ public class IsoRegionData {
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
-        _internet.put("ZZ", CollectionUtilities.join(other_internet, " "));
+        _internet.put("ZZ", Joiner.on(" ").join(other_internet));
 
         other_internet = Collections.unmodifiableSet(other_internet);
 

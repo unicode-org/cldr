@@ -18,11 +18,11 @@ import org.unicode.cldr.tool.ChartAnnotations;
 import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
@@ -561,7 +561,7 @@ public class Annotations {
                 keywords = Collections.singleton(EQUIVALENT);
             }
 
-            String result = CollectionUtilities.join(keywords, " |\u00a0");
+            String result = Joiner.on(" |\u00a0").join(keywords);
             if (shortName != null) {
                 String ttsString = (html ? "*<b>" : "*") + shortName + (html ? "</b>" : "*");
                 if (result.isEmpty()) {
@@ -642,7 +642,7 @@ public class Annotations {
             annotations2 = new LinkedHashSet<String>(getKeywords());
             annotations2.remove(getShortName());
         }
-        String result = CollectionUtilities.join(annotations2, " |\u00a0");
+        String result = Joiner.on(" |\u00a0").join(annotations2);
         if (getShortName() != null) {
             String ttsString = (html ? "*<b>" : "*") + getShortName() + (html ? "</b>" : "*");
             if (result.isEmpty()) {
@@ -687,7 +687,7 @@ public class Annotations {
             System.out.println(Utility.hex(key, 4, "_").toLowerCase(Locale.ROOT)
                 + "\t" + key
                 + "\t" + map.get(key).getShortName()
-                + "\t" + CollectionUtilities.join(map.get(key).getKeywords(), " | "));
+                + "\t" + Joiner.on(" | ").join(map.get(key).getKeywords()));
         }
         for (String s : Arrays.asList(
             "💏", "👩‍❤️‍💋‍👩",
@@ -699,7 +699,8 @@ public class Annotations {
             "🚴", "🚴🏿", "🚴‍♂️", "🚴🏿‍♂️", "🚴‍♀️", "🚴🏿‍♀️")) {
             final String shortName = eng.getShortName(s);
             final Set<String> keywords = eng.getKeywords(s);
-            System.out.println("{\"" + s + "\",\"" + shortName + "\",\"" + CollectionUtilities.join(keywords, "|") + "\"},");
+            System.out.println("{\"" + s + "\",\"" + shortName + "\",\"" + Joiner.on("|")
+                .join(keywords) + "\"},");
         }
     }
 
@@ -718,8 +719,8 @@ public class Annotations {
             System.out.println(key + "\tname\t"
                 + "\t" + value.getShortName()
                 + "\t" + (value100 == null ? "" : value100.getShortName())
-                + "\t" + CollectionUtilities.join(value.getKeywords(), " | ")
-                + "\t" + (keywords100 == null ? "" : CollectionUtilities.join(keywords100, " | ")));
+                + "\t" + Joiner.on(" | ").join(value.getKeywords())
+                + "\t" + (keywords100 == null ? "" : Joiner.on(" | ").join(keywords100)));
         }
     }
 }

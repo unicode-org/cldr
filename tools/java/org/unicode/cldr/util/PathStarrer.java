@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Transform;
 
@@ -75,7 +75,7 @@ public class PathStarrer implements Transform<String, String> {
     }
 
     public String getAttributesString(String separator) {
-        return CollectionUtilities.join(attributes, separator);
+        return Joiner.on(separator).join(attributes);
     }
 
     public String getResult() {

@@ -25,7 +25,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -365,7 +365,7 @@ public class CheckYear {
         PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY
             + "datecheck/", filename);
         out.println("Name\tid\t"
-            + CollectionUtilities.join(Category.values(), "\t"));
+            + Joiner.on("\t").join(Category.values()));
         for (Entry<String, String> entry : sorted.entrySet()) {
             String localeId = entry.getValue();
             boolean priority = getPriority(localeId);
@@ -378,7 +378,7 @@ public class CheckYear {
             for (Category item : Category.values()) {
                 Set<String> items = localeInfo.category2base.get(item);
                 if (items != null) {
-                    out.print("\t" + CollectionUtilities.join(items, " "));
+                    out.print("\t" + Joiner.on(" ").join(items));
                 } else {
                     out.print("\t");
                 }

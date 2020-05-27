@@ -25,10 +25,10 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.Output;
 
 public class DiffCldr {
@@ -217,6 +217,6 @@ public class DiffCldr {
                 cleanedValues.add(item);
             }
         }
-        return CollectionUtilities.join(DtdData.CR_SPLITTER.split(CollectionUtilities.join(values, " ␍ ")), " ␍ ");
+        return Joiner.on(" ␍ ").join(DtdData.CR_SPLITTER.split(Joiner.on(" ␍ ").join(values)));
     }
 }

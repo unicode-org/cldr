@@ -23,9 +23,9 @@ import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -212,7 +212,7 @@ public class ChartAnnotations extends Chart {
                             }
                         }
                         for (Entry<String, Collection<String>> entry : valueToSub.asMap().entrySet()) {
-                            baseAnnotation += "<hr><i>" + CollectionUtilities.join(entry.getValue(), ", ") + "</i>: " + entry.getKey();
+                            baseAnnotation += "<hr><i>" + Joiner.on(", ").join(entry.getValue()) + "</i>: " + entry.getKey();
                         }
                     }
                     tablePrinter.addCell(baseAnnotation);
@@ -333,7 +333,7 @@ public class ChartAnnotations extends Chart {
                 + "The keywords plus the words in the short name are typically used for search and predictive typing.<p>\n"
                 + "<p>Most short names and keywords that can be constructed with the mechanism in " + LDML_ANNOTATIONS + " are omitted. "
                 + "However, a few are included for comparison: "
-                + CollectionUtilities.join(EXTRAS.addAllTo(new TreeSet<>()), ", ") + ". "
+                + Joiner.on(", ").join(EXTRAS.addAllTo(new TreeSet<>())) + ". "
                 + "In this chart, missing items are marked with “" + Annotations.MISSING_MARKER + "”, "
                 + "‘fallback’ constructed items with “" + Annotations.BAD_MARKER + "”, "
                 + "substituted English values with “" + Annotations.ENGLISH_MARKER + "”, and "

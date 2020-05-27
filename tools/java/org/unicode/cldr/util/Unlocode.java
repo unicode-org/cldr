@@ -20,7 +20,7 @@ import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.ChainedMap.M3;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
@@ -497,7 +497,7 @@ public class Unlocode {
                 + "-->");
         }
         System.out.println();
-        System.out.println(CollectionUtilities.join(errors, "\n"));
+        System.out.println(Joiner.on("\n").join(errors));
         System.out.println();
         showLocodes("In exemplars already:", already);
         System.out.println();

@@ -26,7 +26,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.Timer;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
@@ -88,7 +88,7 @@ public class Misc {
             } else if (locale.equals("zh_Hant")) {
                 scripts.add("Hant");
             }
-            System.out.println(locale + "\t" + CollectionUtilities.join(scripts, " "));
+            System.out.println(locale + "\t" + Joiner.on(" ").join(scripts));
         }
 
         StringTransform unicode = Transliterator.getInstance("hex/unicode");

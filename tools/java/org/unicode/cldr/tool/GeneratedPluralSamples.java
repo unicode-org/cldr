@@ -25,7 +25,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TempPrintWriter;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
@@ -609,7 +609,8 @@ public class GeneratedPluralSamples {
 
                     if (fileFormat) {
                         if (!keywords.equals(oldKeywords)) {
-                            out.println("\n        <!-- " + keywords.size() + ": " + CollectionUtilities.join(keywords, ",") + " -->\n");
+                            out.println("\n        <!-- " + keywords.size() + ": " + Joiner.on(",")
+                                .join(keywords) + " -->\n");
                             oldKeywords = keywords;
                         }
                         out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
@@ -662,7 +663,8 @@ public class GeneratedPluralSamples {
                         Set<String> remainder = new LinkedHashSet<String>(entry.getValue());
                         String first = remainder.iterator().next();
                         remainder.remove(first);
-                        System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + CollectionUtilities.join(remainder, ", "));
+                        System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + Joiner.on(", ")
+                            .join(remainder));
                     }
                     System.out.println();
                 }

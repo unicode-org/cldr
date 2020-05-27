@@ -47,10 +47,10 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
@@ -118,7 +118,7 @@ public class ChartDelta extends Chart {
             String rawOrg = MyOptions.orgFilter.option.getValue();
             Organization org = Organization.fromString(rawOrg);
             Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(org);
-            fileFilter = PatternCache.get("^(main|annotations)/(" + CollectionUtilities.join(locales, "|") + ")$").matcher("");
+            fileFilter = PatternCache.get("^(main|annotations)/(" + Joiner.on("|").join(locales) + ")$").matcher("");
         }
         Level coverage = !MyOptions.coverageFilter.option.doesOccur() ? null : Level.fromString(MyOptions.coverageFilter.option.getValue());
         boolean verbose = MyOptions.verbose.option.doesOccur();
@@ -722,7 +722,7 @@ public class ChartDelta extends Chart {
             .addCell(ph.getPageId())
             .addCell(ph.getHeader())
             .addCell(ph.getCode())
-            .addCell(CollectionUtilities.join(locales, " "))
+            .addCell(Joiner.on(" ").join(locales))
             .finishRow();
         }
     }
@@ -933,11 +933,11 @@ public class ChartDelta extends Chart {
 //                        Set<String> s2M1 = new LinkedHashSet<>(set2);
 //                        s2M1.removeAll(set1);
                             if (s1MOld.isEmpty()) {
-                                addRow(target, key, "▷missing◁", CollectionUtilities.join(s2M1, ", "));
+                                addRow(target, key, "▷missing◁", Joiner.on(", ").join(s2M1));
                                 addChange(parentAndFile, ChangeType.added, s2M1.size());
                                 countAdded.add(key, 1);
                             } else if (s2M1.isEmpty()) {
-                                addRow(target, key, CollectionUtilities.join(s1MOld, ", "), "▷removed◁");
+                                addRow(target, key, Joiner.on(", ").join(s1MOld), "▷removed◁");
                                 addChange(parentAndFile, ChangeType.deleted, s1MOld.size());
                                 countDeleted.add(key, 1);
                             } else {

@@ -20,6 +20,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
@@ -30,7 +31,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.Output;
@@ -69,7 +69,8 @@ public class XLocaleDistance {
 
         for (String container : SDI.getContainers()) {
             Set<String> contained = SDI.getContained(container);
-            System.out.println(".putAll(\"" + container + "\", \"" + CollectionUtilities.join(contained, "\", \"") + "\")");
+            System.out.println(".putAll(\"" + container + "\", \"" + Joiner.on("\", \"")
+                .join(contained) + "\")");
         }
 
         ImmutableMultimap.Builder<String, String> containerToFinalContainedBuilder = new ImmutableMultimap.Builder<>();
@@ -778,7 +779,8 @@ public class XLocaleDistance {
         }
         if (PRINT_OVERRIDES) {
             System.out.println("\t\t<languageMatches type=\"written\" alt=\"enhanced\">");
-            System.out.println("\t\t\t<paradigmLocales locales=\"" + CollectionUtilities.join(paradigmRegions, " ")
+            System.out.println("\t\t\t<paradigmLocales locales=\"" + String
+                .join(" ", paradigmRegions)
                 + "\"/>");
             for (String[] variableRule : variableOverrides) {
                 System.out.println("\t\t\t<matchVariable id=\"" + variableRule[0]
@@ -879,8 +881,8 @@ public class XLocaleDistance {
 
     private static void printMatchXml(List<String> desired, List<String> supported, Integer distance, Boolean oneway) {
         if (PRINT_OVERRIDES) {
-            String desiredStr = CollectionUtilities.join(desired, "_");
-            String supportedStr = CollectionUtilities.join(supported, "_");
+            String desiredStr = Joiner.on("_").join(desired);
+            String supportedStr = Joiner.on("_").join(supported);
             String desiredName = fixedName(desired);
             String supportedName = fixedName(supported);
             System.out.println("\t\t\t<languageMatch"
@@ -918,7 +920,7 @@ public class XLocaleDistance {
                 result.insert(0, english.getName(CLDRFile.TERRITORY_NAME, language));
             }
         }
-        return CollectionUtilities.join(alt, "; ");
+        return Joiner.on("; ").join(alt);
     }
 
     static public void add(StringDistanceTable languageDesired2Supported, List<String> desired, List<String> supported, int percentage) {

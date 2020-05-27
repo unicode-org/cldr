@@ -23,13 +23,13 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 
 import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
 
@@ -309,7 +309,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         public String getMatchString() {
-            return type == AttributeType.ENUMERATED_TYPE ? "⟨" + CollectionUtilities.join(values.keySet(), ", ") + "⟩" 
+            return type == AttributeType.ENUMERATED_TYPE ? "⟨" + Joiner.on(", ")
+                .join(values.keySet()) + "⟩"
                 : matchValue != null ? "⟪" + matchValue.toString() + "⟫"
                     : "";
         }
@@ -1065,7 +1066,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             if (attributeDeprecated) {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
             } else if (!deprecatedValues.isEmpty()) {
-                b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
+                b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + Joiner.on(", ")
+                    .join(deprecatedValues) + "-->");
             }
         }
         if (current.children.size() > 0) {

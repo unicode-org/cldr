@@ -11,7 +11,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.FileCopier;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
@@ -32,7 +32,7 @@ public class GenerateScriptMetadata {
             sorted.add(r);
         }
         if (ScriptMetadata.errors.size() > 0) {
-            System.err.println(CollectionUtilities.join(ScriptMetadata.errors, "\n\t"));
+            System.err.println(Joiner.on("\n\t").join(ScriptMetadata.errors));
             //throw new IllegalArgumentException();
         }
         VersionInfo currentUnicodeVersion = UCharacter.getUnicodeVersion();

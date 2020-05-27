@@ -59,7 +59,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
@@ -346,7 +345,7 @@ public class TestAttributeValues extends TestFmwk {
                             + "\t" + attributeName 
                             + "\t" + (matchValue == null ? "" : matchValue)
                             + "\t" + validFound.size()
-                            + "\t" + CollectionUtilities.join(validFound, ", ")
+                            + "\t" + Joiner.on(", ").join(validFound)
                             + "\n"
                             );
                         if (valueStatus == ValueStatus.valid) try {
@@ -372,7 +371,7 @@ public class TestAttributeValues extends TestFmwk {
                                         + "\t" + attributeName 
                                         + "\t" + "" 
                                         + "\t" + "" 
-                                        + "\t" + CollectionUtilities.join(missing, ", ")
+                                        + "\t" + Joiner.on(", ").join(missing)
                                         + "\n"
                                     );
                             }

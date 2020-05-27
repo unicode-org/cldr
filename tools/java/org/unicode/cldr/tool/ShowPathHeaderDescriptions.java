@@ -15,11 +15,11 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.LinkedHashMultiset;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
@@ -139,7 +139,7 @@ public class ShowPathHeaderDescriptions {
 
         process(SphType.sph, sphv, done);
 
-        System.out.println(CollectionUtilities.join(urls, "\n"));
+        System.out.println(Joiner.on("\n").join(urls));
     }
 
     private static void showProgress(Set<String> done, Multimap<String, R3<SectionId, PageId, String>> valueToKey) {

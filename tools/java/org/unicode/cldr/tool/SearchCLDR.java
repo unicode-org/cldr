@@ -34,7 +34,6 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.VersionInfo;
@@ -399,7 +398,7 @@ public class SearchCLDR {
             + locale 
             + "\t⟪" + value + "⟫"
             + (showEnglish ? "\t⟪" + englishValue + "⟫" : "")
-            + (!showParent ? "" : CollectionUtilities.equals(value, parentValue) ? "\t≣" : "\t⟪" + parentValue + "⟫")
+            + (!showParent ? "" : Objects.equals(value, parentValue) ? "\t≣" : "\t⟪" + parentValue + "⟫")
             + "\t" + shortPath
             + (showPath ? "\t" + fullPath : "")
             + (resolved ? "\t" + resolvedSource : "")

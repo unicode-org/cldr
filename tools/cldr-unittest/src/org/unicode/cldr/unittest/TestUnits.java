@@ -1776,4 +1776,16 @@ public class TestUnits extends TestFmwk {
         }
         return unitLongIds;
     }
+        
+    public void TestExamples() {
+        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        Set<String> unitLongIds = getUnits(english, new TreeSet<>());
+        ExampleGenerator exgen = new ExampleGenerator(english, english, null);
+        for (String unitLongId : unitLongIds) {
+            String xpath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unitLongId + "\"]/displayName";
+            String sample = exgen.getExampleHtml(xpath, "x");
+            System.out.println(unitLongId + "\t" + sample);
+        }
+      
+    }
 }

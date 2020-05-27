@@ -3965,8 +3965,8 @@ function showstats(hname) {
  * Update the counter on top of the vetting page
  */
 function refreshCounterVetting() {
-	if (isVisitor) {
-		// if the user is a visitor, don't display the counter informations
+	if (isVisitor || isDashboard()) {
+		// if the user is a visitor, or this is the Dashboard, don't display the counter informations
 		$('#nav-page .counter-infos, #nav-page .nav-progress').hide();
 		return;
 	}

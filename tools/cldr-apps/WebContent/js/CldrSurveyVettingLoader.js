@@ -1256,6 +1256,14 @@ function showV() {
 					isLoading = false;
 
 					/*
+					 * Scroll back to top when loading a new page, to avoid a bug where, for
+					 * example, having scrolled towards bottom, we switch from a Section page
+					 * to the Forum page and the scrollbar stays where it was, making the new
+					 * content effectively invisible.
+					 */
+					window.scrollTo(0, 0);
+
+					/*
 					 * TODO: explain code related to "showers".
 					 */
 					showers[flipper.get(pages.data).id] = function() {

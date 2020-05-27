@@ -1470,6 +1470,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_US", "en_US", "short");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "az", "az", "short");
             
+            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "menu");
+            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "variant");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "yue", "yue", "menu");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh", "zh", "menu");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hans", "zh", "long");

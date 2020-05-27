@@ -3760,9 +3760,15 @@ for derived annotations.
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencies>
-			<currency type="AOA">
-				<symbol alt="narrow">Kz</symbol>
-			</currency>
+            <currency type="AFN">
+                <symbol alt="narrow">؋</symbol>
+            </currency>
+            <currency type="AMD">
+                <symbol alt="narrow">֏</symbol>
+            </currency>
+            <currency type="AOA">
+                <symbol alt="narrow">Kz</symbol>
+            </currency>
 			<currency type="ARS">
 				<symbol alt="narrow">$</symbol>
 			</currency>
@@ -3770,6 +3776,9 @@ for derived annotations.
 				<symbol>A$</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
+            <currency type="AZN">
+                <symbol alt="narrow">₼</symbol>
+            </currency>
 			<currency type="BAM">
 				<symbol alt="narrow">KM</symbol>
 			</currency>
@@ -3859,9 +3868,12 @@ for derived annotations.
 			<currency type="GEL">
 				<symbol alt="narrow">₾</symbol>
 			</currency>
-			<currency type="GIP">
-				<symbol alt="narrow">£</symbol>
-			</currency>
+            <currency type="GIP">
+                <symbol alt="narrow">£</symbol>
+            </currency>
+            <currency type="GHS">
+                <symbol alt="narrow">GH₵</symbol>
+            </currency>
 			<currency type="GNF">
 				<symbol alt="narrow">FG</symbol>
 			</currency>

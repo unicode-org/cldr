@@ -128,7 +128,8 @@ const cldrStForum = (function() {
 		const value = params.value ? params.value : ((rootPost && rootPost.value) ? rootPost.value : null);
 		const root = isReply ? rootPost.id : -1;
 		const open = isReply ? rootPost.open : true;
-		const html = makePostHtml(postType, locale, xpath, subject, replyTo, root, open, value);
+		const typeLabel = makePostTypeLabel(postType, isReply);
+		const html = makePostHtml(postType, typeLabel, locale, xpath, subject, replyTo, root, open, value);
 		const text = prefillPostText(postType, value);
 
 		openPostWindow(html, text, parentPost);
@@ -137,7 +138,8 @@ const cldrStForum = (function() {
 	/**
 	 * Assemble the form and related html elements for creating a forum post
 	 *
-	 * @param postType the verb, such as 'Discuss'
+	 * @param postType the post type, such as 'Discuss'
+	 * @param typeLabel the post type label, such as 'Comment'
 	 * @param locale the locale string
 	 * @param xpath the xpath string
 	 * @param subject the subject string (path-header)
@@ -147,12 +149,12 @@ const cldrStForum = (function() {
 	 * @param value the value that was requested in the root post, or null
 	 * @return the html
 	 */
-	function makePostHtml(postType, locale, xpath, subject, replyTo, root, open, value) {
+	function makePostHtml(postType, typeLabel, locale, xpath, subject, replyTo, root, open, value) {
+
 		let html = '';
 
 		html += '<div id="postSubject" class="topicSubject">' + subject + '</div>\n';
-		html += '<div id="postType" class="postTypeLabel">' + postType + '</div>\n';
-
+		html += '<div class="postTypeLabel">' + typeLabel + '</div>\n';
 		html += '<form role="form" id="post-form">\n';
 		html += '<div class="form-group">\n';
 		html += '<textarea name="text" class="postTextArea" placeholder="Write your post here"></textarea>\n';
@@ -164,6 +166,7 @@ const cldrStForum = (function() {
 		html += '<input type="hidden" name="root" value="' + root + '">\n';
 		html += '<input type="hidden" name="open" value="' + open + '">\n';
 		html += '<input type="hidden" name="value" value="' + value + '">\n';
+		html += '<input type="hidden" name="postType" value="' + postType + '">\n';
 		html += '</form>\n';
 
 		html += '<div class="post"></div>\n';
@@ -262,9 +265,9 @@ const cldrStForum = (function() {
 		const root = $('#post-form input[name=root]').val();
 		const open = $('#post-form input[name=open]').val();
 		const value = $('#post-form input[name=value]').val();
+		const postType = $('#post-form input[name=postType]').val();
 
 		const subj = document.getElementById('postSubject').innerHTML;
-		const postType = document.getElementById('postType').innerHTML;
 
 		const url = contextPath + "/SurveyAjax";
 
@@ -450,17 +453,14 @@ const cldrStForum = (function() {
 
 			const subChunk = forumCreateChunk("", "div", '');
 			subpost.appendChild(subChunk);
-
-			if (post.parent === -1) {
+			const isReply = (post.parent !== -1);
+			const typeLabel = makePostTypeLabel(post.postType, isReply);
+			if (!isReply) {
 				const openOrClosed = post.open ? 'Open' : 'Closed';
 				const comboChunk = forumCreateChunk(openOrClosed, 'div', 'forumThreadStatus');
-				comboChunk.appendChild(forumCreateChunk(post.postType, 'span', 'postTypeComboLabel'));
+				comboChunk.appendChild(forumCreateChunk(typeLabel, 'span', 'postTypeComboLabel'));
 				subChunk.appendChild(comboChunk);
 			} else {
-				let typeLabel = post.postType;
-				if (typeLabel === 'Discuss') {
-					typeLabel = 'Comment'; // for replies, label 'Comment' instead of 'Discuss'
-				}
 				subChunk.appendChild(forumCreateChunk(typeLabel, 'div', 'postTypeLabel'));
 			}
 
@@ -775,15 +775,26 @@ const cldrStForum = (function() {
 				options['Agree'] = 'Agree';
 				options['Decline'] = 'Decline';
 			}
-			/*
-			 * For replies, label 'Comment' instead of 'Discuss'
-			 */
-			options['Discuss'] = isReply ? 'Comment' : 'Discuss';
+			options['Discuss'] = makePostTypeLabel('Discuss', isReply);
 			if (userCanClose(isReply, rootPost)) {
 				options['Close'] = 'Close';
 			}
 		}
 		return options;
+	}
+
+	/**
+	 * For replies, label 'Comment' instead of 'Discuss'
+	 *
+	 * @param postType the post type
+	 * @param isReply true if this post is a reply, else false
+	 * @return the label
+	 */
+	function makePostTypeLabel(postType, isReply) {
+		if (postType === 'Discuss' && isReply) {
+			return 'Comment';
+		}
+		return postType;
 	}
 
 	/**

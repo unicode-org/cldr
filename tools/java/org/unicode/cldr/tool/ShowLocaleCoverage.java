@@ -1048,8 +1048,6 @@ public class ShowLocaleCoverage {
                         .append('\n');
                     }
 
-                    //out2.println(header + "\t" + coreValue + "\t" + CollectionUtilities.join(missing, ", "));
-
                     // Write missing paths (for >99% and specials
 
                     //                if (false) { // checkModernLocales.contains(locale)

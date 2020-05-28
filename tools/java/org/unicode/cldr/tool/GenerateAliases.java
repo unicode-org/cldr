@@ -100,8 +100,6 @@ public class GenerateAliases {
                     System.out.println("missing" + "\t" + localeID);
                 }
             }
-
-            // System.out.println(CollectionUtilities.join(aliasMap.entrySet(), "\n"));
         }
 
         private void addToLikely(Map<String, String> likely) {

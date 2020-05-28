@@ -77,8 +77,6 @@ public class LikelySubtags {
                 }
             }
         }
-        // System.out.println("Currency to Territory:\n\t" +
-        // CollectionUtilities.join(currencyToLikelyTerritory.entrySet(), "\n\t"));
     }
 
     /**

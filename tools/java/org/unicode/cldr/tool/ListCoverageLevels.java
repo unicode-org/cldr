@@ -197,16 +197,6 @@ public class ListCoverageLevels {
 //                getName(map, result);
 //            }            
 //
-//
-////            localeNameToAttributeList.forEach((name,list) -> {
-////                if (result.length() != 0) {
-////                    result.append(' ');
-////                }
-////                result.append(name);
-////                if (!list.isEmpty()) {
-////                    result.append(':').append(CollectionUtilities.join(list, "|"));
-////                }
-////                });
 //            return result;
 //        }
 

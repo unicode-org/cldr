@@ -208,9 +208,6 @@ public class CountItems {
                 Collator spaceCol = Collator.getInstance(new ULocale(locale));
                 spaceCol.setStrength(Collator.PRIMARY);
                 out.println(locale + ":\t\u200E" + v + '\u200E');
-                // String fixedFull = CollectionUtilities.prettyPrint(exemplars, col, false);
-                // System.out.println(" =>\t" + fixedFull);
-                // verifyEquality(exemplars, new UnicodeSet(fixedFull));
                 String fixed = new UnicodeSetPrettyPrinter()
                     .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                     .setSpaceComparator(spaceCol != null ? spaceCol : ROOT_PRIMARY_COLLATOR)

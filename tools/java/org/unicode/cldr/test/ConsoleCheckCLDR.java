@@ -578,7 +578,7 @@ public class ConsoleCheckCLDR {
                 showValue(file, null, localeID, null, null, null, null, statusString, status.getSubtype());
             }
             paths.clear();
-            // CollectionUtilities.addAll(file.iterator(pathFilter), paths);
+
             CoverageInfo covInfo = cldrConf.getCoverageInfo();
             for (String path : file.fullIterable()) {
                 if (pathFilter != null && !pathFilter.reset(path).find()) {
@@ -596,7 +596,6 @@ public class ConsoleCheckCLDR {
             // addPrettyPaths(file, file.getExtraPaths(), pathFilter, prettyPathMaker, noaliases, false, paths);
 
             // also add the English paths
-            // CollectionUtilities.addAll(checkCldr.getDisplayInformation().iterator(pathFilter), paths);
             // initialize the first time in.
             if (englishPaths == null) {
                 englishPaths = new HashSet<String>();

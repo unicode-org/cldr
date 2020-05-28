@@ -33,7 +33,7 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
@@ -570,15 +570,14 @@ public class GenerateEnums {
     Set<String> corrigendum = new TreeSet<String>(Arrays.asList(new String[] { "QE", "833",
         "830", "172" })); // 003, 419
 
-    private Map extraNames = CollectionUtilities.asMap(new String[][] {
-        { "BU", "Burma" }, { "TP", "East Timor" }, { "YU", "Yugoslavia" },
-        { "ZR", "Zaire" }, { "CD", "Congo (Kinshasa, Democratic Republic)" },
-        { "CI", "Ivory Coast (Cote d'Ivoire)" },
-        { "FM", "Micronesia (Federated States)" },
-        { "TL", "East Timor (Timor-Leste)" },
-        // {"155","Western Europe"},
-
-    });
+    private ImmutableMap<String, String> extraNames = ImmutableMap.<String, String>builder()
+        .put("BU", "Burma").put("TP", "East Timor").put("YU", "Yugoslavia")
+        .put("ZR", "Zaire").put("CD", "Congo (Kinshasa, Democratic Republic)")
+        .put("CI", "Ivory Coast (Cote d'Ivoire)")
+        .put("FM", "Micronesia (Federated States)")
+        .put("TL", "East Timor (Timor-Leste)")
+        // .put("155", "Western Europe")
+        .build();
 
     private Set<String> currencyCodes;
 

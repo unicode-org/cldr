@@ -20,7 +20,6 @@ import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -202,7 +201,7 @@ public class DtdDataCheck {
                 Comparator<String> comp = dtdData.getDtdComparator(null);
                 CLDRFile test = ToolConfig.getToolInstance().getEnglish();
                 Set<String> sorted = new TreeSet(test.getComparator());
-                CollectionUtilities.addAll(test.iterator(), sorted);
+                test.forEach(sorted::add);
                 String[] sortedArray = sorted.toArray(new String[sorted.size()]);
 
                 // compare for identity

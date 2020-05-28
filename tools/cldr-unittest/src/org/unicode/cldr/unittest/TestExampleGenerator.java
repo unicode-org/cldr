@@ -18,7 +18,6 @@ import org.unicode.cldr.util.With;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestExampleGenerator extends TestFmwk {
     CLDRConfig info = CLDRConfig.getInstance();
@@ -212,8 +211,9 @@ public class TestExampleGenerator extends TestFmwk {
         PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<String>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
-        for (String path : CollectionUtilities.addAll(cldrFile.fullIterable()
-            .iterator(), new TreeSet<String>(cldrFile.getComparator()))) {
+        TreeSet<String> target = new TreeSet<String>(cldrFile.getComparator());
+        cldrFile.fullIterable().forEach(target::add);
+        for (String path : target) {
             String plainStarred = ps.set(path);
             String value = cldrFile.getStringValue(path);
             if (value == null || path.endsWith("/alias")

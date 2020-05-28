@@ -16,8 +16,6 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 //import org.unicode.cldr.util.XPathParts.Comments;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-
 public class CLDRFormat {
     public static void main(String[] args) throws Exception {
         // TODO - make these parameters
@@ -83,8 +81,8 @@ public class CLDRFormat {
     private static String findFirstDifference(CLDRFile cldrFile, CLDRFile regenFile) {
         keys1.clear();
         keys2.clear();
-        CollectionUtilities.addAll(cldrFile.iterator(), keys1);
-        CollectionUtilities.addAll(regenFile.iterator(), keys2);
+        cldrFile.forEach(keys1::add);
+        regenFile.forEach(keys2::add);
         if (!keys1.equals(keys2)) {
             Set<String> missing = new TreeSet<String>(keys1);
             missing.removeAll(keys2);

@@ -25,7 +25,6 @@ import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.With.SimpleIterator;
 
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
@@ -1874,7 +1873,8 @@ public class PathHeader implements Comparable<PathHeader> {
          */
         public Set<String> pathsForFile(CLDRFile file) {
             // make sure we cache all the path headers
-            Set<String> filePaths = CollectionUtilities.addAll(file.fullIterable().iterator(), new HashSet<String>());
+            HashSet<String> filePaths = new HashSet<String>();
+            file.fullIterable().forEach(filePaths::add);
             for (String path : filePaths) {
                 try {
                     fromPath(path); // call to make sure cached

@@ -55,6 +55,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 
 public class TestCLDRFile extends TestFmwk {
@@ -92,6 +93,8 @@ public class TestCLDRFile extends TestFmwk {
     static final Pattern COUNT_MATCHER = Pattern
         .compile("\\[@count=\"([^\"]+)\"]");
 
+    static final UnicodeSet DIGITS = new UnicodeSet('0', '9').freeze();
+    
     private void checkPlurals(String locale) {
         CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
         Matcher m = COUNT_MATCHER.matcher("");
@@ -106,6 +109,9 @@ public class TestCLDRFile extends TestFmwk {
             }
             if (!m.reset(path).find()) {
                 throw new IllegalArgumentException();
+            }
+            if (DIGITS.containsAll(m.group(1))) {
+                continue;
             }
             String skeleton = path.substring(0, m.start(1)) + ".*"
                 + path.substring(m.end(1));

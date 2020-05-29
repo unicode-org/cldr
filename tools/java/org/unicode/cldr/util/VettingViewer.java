@@ -1097,7 +1097,7 @@ public class VettingViewer<T> {
         String value = sourceFile.getStringValue(path);
         Status status = new Status();
         sourceFile.getSourceLocaleID(path, status);
-        boolean isAliased = path.equals(status.pathWhereFound);
+        boolean isAliased = !path.equals(status.pathWhereFound); // this was path.equals, which would be incorrect!
 
         if (value == null) {
             result = ValuePathStatus.isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;

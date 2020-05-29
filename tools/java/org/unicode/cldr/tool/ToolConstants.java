@@ -26,7 +26,7 @@ public class ToolConstants {
         release // for release version
     }
 
-    // TODO change this to a list of VersionInfos, add add in the ShowLocaleCoverage years.
+    // TODO change this to CldrVersion, add add in the ShowLocaleCoverage years.
     public static final List<String> CLDR_VERSIONS = ImmutableList.of(
         "1.1.1",
         "1.2",
@@ -56,7 +56,8 @@ public class ToolConstants {
         "35.0",
         "35.1",
         "36.0",
-        "36.1"
+        "36.1",
+        "37.0"
         // add to this once the release is final!
         );
     public static final String DEV_VERSION = "37";

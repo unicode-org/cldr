@@ -22,8 +22,7 @@ public class TestMetadata {
     public static void main(String[] args) {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile metadata = cldrFactory.make("supplementalMetadata", false);
-        // Set allKeys = new TreeSet();
-        // CollectionUtilities.addAll(metadata.iterator(), allKeys);
+        // Set allKeys = new TreeSet(metadata);
         // System.out.println("Keys: " + allKeys);
         // attribute order
 

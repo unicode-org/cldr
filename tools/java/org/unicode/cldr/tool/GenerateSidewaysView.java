@@ -309,14 +309,6 @@ public class GenerateSidewaysView {
             .format((System.currentTimeMillis() - startTime) / 1000.0));
     }
 
-    // static Comparator UCA;
-    // static {
-    // RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-    // UCA2.setNumericCollation(true);
-    // UCA2.setStrength(UCA2.IDENTICAL);
-    // UCA = new CollectionUtilities.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
-    // }
-
     static final String[][] EXEMPLARS = {
         { "//ldml/characters/exemplarCharacters", "main", "Main Exemplars" },
         { "//ldml/characters/exemplarCharacters[@type=\"punctuation\"]", "punctuation", "Punctuation Exemplars" },

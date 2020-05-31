@@ -106,7 +106,6 @@ public class SearchCLDR {
 
     public static void main(String[] args) {
         myOptions.parse(args, true);
-        // System.out.println("Arguments: " + CollectionUtilities.join(args, " "));
 
         long startTime = System.currentTimeMillis();
 

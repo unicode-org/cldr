@@ -550,7 +550,7 @@ public class SubdivisionNode {
                 String reason = "deprecated";
                 R2<List<String>, String> aliasInfo = subdivisionAliasesFormer.get(toReplace);
                 if (aliasInfo != null) {
-                    replaceBy = aliasInfo.get0(); //  == null ? null : CollectionUtilities.join(aliasInfo.get0(), " ");
+                    replaceBy = aliasInfo.get0();
                     reason = aliasInfo.get1();
                     System.out.println("Adding former alias: " + toReplace + " => " + replaceBy);
                 } else {

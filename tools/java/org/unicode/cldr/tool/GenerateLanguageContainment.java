@@ -293,9 +293,6 @@ public class GenerateLanguageContainment {
         } else {
             newFile.add("//" + DtdType.supplementalData + "/languageGroups/languageGroup[@parent=\"" + base + "\"]",
                 Joiner.on(" ").join(children));
-//            System.out.println("\t<languageGroup parent='" 
-//                + base + "'>" 
-//                + CollectionUtilities.join(children, " ") + "</languageGroup>");
         }
         for (String child : children) {
             printXML(newFile, parentToChild, child);

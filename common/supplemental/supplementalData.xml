@@ -1499,8 +1499,8 @@ XXX Code for transations where no currency is involved
 		<language type="dng" scripts="Cyrl"/>
 		<language type="dnj" scripts="Latn"/>
 		<language type="dnj" territories="CI" alt="secondary"/>
-		<language type="doi" scripts="Arab"/>
-		<language type="doi" scripts="Takr" territories="IN" alt="secondary"/>
+		<language type="doi" scripts="Deva"/>
+		<language type="doi" scripts="Arab Takr" territories="IN" alt="secondary"/>
 		<language type="dsb" scripts="Latn"/>
 		<language type="dtm" scripts="Latn"/>
 		<language type="dtp" scripts="Latn"/>
@@ -3143,7 +3143,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="gv" populationPercent="1.9" officialStatus="official"/>	<!--Manx-->
 		</territory>
 		<territory type="IN" gdp="9474000000000" literacyPercent="62.8" population="1296830000">	<!--India-->
-			<languagePopulation type="hi" populationPercent="41" officialStatus="official" references="R1066"/>	<!--Hindi-->
+            <languagePopulation type="hi" populationPercent="41" officialStatus="official" references="R1066"/> <!--Hindi-->
+            <languagePopulation type="hi_Latn" populationPercent="1"/> <!-- Hinglish -->
 			<languagePopulation type="en" populationPercent="19" officialStatus="official" references="R1033"/>	<!--English-->
 			<languagePopulation type="bn" populationPercent="8.1" officialStatus="official_regional" references="R1195"/>	<!--Bangla-->
 			<languagePopulation type="te" populationPercent="7.2" officialStatus="official_regional" references="R1195"/>	<!--Telugu-->

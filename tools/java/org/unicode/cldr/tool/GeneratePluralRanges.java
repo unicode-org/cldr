@@ -1,8 +1,10 @@
 package org.unicode.cldr.tool;
 
+import static com.google.common.collect.Comparators.lexicographical;
+import static java.util.Comparator.naturalOrder;
+
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
@@ -30,7 +32,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.TempPrintWriter;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.collect.Comparators;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
@@ -221,14 +223,16 @@ public class GeneratePluralRanges {
     private final SupplementalDataInfo SUPPLEMENTAL;
     private final PluralRulesFactory prf;
 
-    public static final Comparator<Set<String>> STRING_SET_COMPARATOR = new SetComparator<String, Set<String>>();
-    public static final Comparator<Set<Count>> COUNT_SET_COMPARATOR = new SetComparator<Count, Set<Count>>();
-
-    static final class SetComparator<T extends Comparable<T>, U extends Set<T>> implements Comparator<U> {
-        public int compare(U o1, U o2) {
-            return CollectionUtilities.compare((Collection<T>) o1, (Collection<T>) o2);
-        }
-    };
+    // Ordering by size-of-set first, and then lexicographically, with a final tie-break on the
+    // string representation.
+    // Note: This code was refactored from a legacy utility method (which allowed null) but it's
+    // not actually clear if nulls need to be allowed in this case.
+    private static final Comparator<Set<String>> STRING_SET_COMPARATOR =
+        Comparator.<Set<String>, Integer>comparing(Set::size)
+            .thenComparing(lexicographical(Comparator.<String>nullsFirst(naturalOrder())));
+    private static final Comparator<Set<Count>> COUNT_SET_COMPARATOR =
+        Comparator.<Set<Count>, Integer>comparing(Set::size)
+            .thenComparing(lexicographical(Comparator.<Count>nullsFirst(naturalOrder())));
 
     public void reformatPluralRanges() {
         Map<Set<Count>, Relation<Set<String>, String>> seen = new TreeMap<Set<Count>, Relation<Set<String>, String>>(COUNT_SET_COMPARATOR);

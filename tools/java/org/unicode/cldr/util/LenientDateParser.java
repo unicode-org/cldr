@@ -24,7 +24,6 @@ import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.LenientDateParser.Token.Type;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.OlsonTimeZone;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
@@ -400,8 +399,8 @@ public class LenientDateParser {
             if (firstType != null) {
                 // skip
             } else {
-                boolean hasDate = CollectionUtilities.containsSome(dateTypes, set);
-                boolean hasTime = CollectionUtilities.containsSome(timeTypes, set);
+                boolean hasDate = !Collections.disjoint(dateTypes, set);
+                boolean hasTime = !Collections.disjoint(timeTypes, set);
                 if (hasDate != hasTime) {
                     firstType = hasDate ? Type.YEAR : Type.HOUR;
                 }

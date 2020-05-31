@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.google.common.collect.Iterators;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
@@ -620,12 +621,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      */
     public Iterator<String> iterator(String prefix) {
         if (prefix == null || prefix.length() == 0) return iterator();
-        return new com.ibm.icu.dev.util.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
+        return Iterators.filter(iterator(), s -> s.startsWith(prefix));
     }
 
     public Iterator<String> iterator(Matcher pathFilter) {
         if (pathFilter == null) return iterator();
-        return new com.ibm.icu.dev.util.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
+        return Iterators.filter(iterator(), s -> pathFilter.reset(s).matches());
     }
 
     /**

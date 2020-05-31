@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -33,7 +34,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -41,7 +41,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class CheckAttributeValues extends FactoryCheckCLDR {
 
-    private static final ObjectMatcher<String> NOT_DONE_YET = new RegexMatcher().set(".*", Pattern.COMMENTS);
+    private static final Predicate<String> NOT_DONE_YET = new RegexMatcher().set(".*", Pattern.COMMENTS);
     private static final boolean FIND_MISSING = CldrUtility.getProperty("FIND_MISSING_ATTRIBUTE_TESTS", false); // turn on to show <attributeValues> that are missing.
     private static final boolean SHOW_UNNECESSARY = false; // turn on to show <attributeValues> we should delete.
 
@@ -191,7 +191,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         if (matcherPattern == null) {
             return false; // no test
         }
-        if (matcherPattern.matcher.matches(attributeValue)) {
+        if (matcherPattern.matcher.test(attributeValue)) {
             return true;
         }
         // special check for deprecated codes
@@ -261,7 +261,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                 localeMatcher = LocaleMatcher.make();
             }
         }
-        if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
+        if (!localeMatcher.test(cldrFileToCheck.getLocaleID())) {
             possibleErrors.add(new CheckStatus()
                 .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
                 .setMessage("Invalid Locale {0}",
@@ -449,7 +449,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
     private static class MatcherPattern {
         public String value;
-        ObjectMatcher<String> matcher;
+        Predicate<String> matcher;
         String pattern;
 
         public String toString() {
@@ -457,66 +457,66 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
     }
 
-    public static class RegexMatcher implements ObjectMatcher<String> {
+    public static class RegexMatcher implements Predicate<String> {
         private java.util.regex.Matcher matcher;
 
-        public ObjectMatcher<String> set(String pattern) {
+        public Predicate<String> set(String pattern) {
             matcher = PatternCache.get(pattern).matcher("");
             return this;
         }
 
-        public ObjectMatcher<String> set(String pattern, int flags) {
+        public Predicate<String> set(String pattern, int flags) {
             matcher = Pattern.compile(pattern, flags).matcher("");
             return this;
         }
 
-        public boolean matches(String value) {
+        public boolean test(String value) {
             matcher.reset(value.toString());
             return matcher.matches();
         }
     }
 
-    public static class CollectionMatcher implements ObjectMatcher<String> {
+    public static class CollectionMatcher implements Predicate<String> {
         private Collection<String> collection;
 
-        public ObjectMatcher<String> set(Collection<String> collection) {
+        public Predicate<String> set(Collection<String> collection) {
             this.collection = collection;
             return this;
         }
 
-        public boolean matches(String value) {
+        public boolean test(String value) {
             return collection.contains(value);
         }
     }
 
-    public static class OrMatcher implements ObjectMatcher<String> {
-        private ObjectMatcher<String> a;
-        private ObjectMatcher<String> b;
+    public static class OrMatcher implements Predicate<String> {
+        private Predicate<String> a;
+        private Predicate<String> b;
 
-        public ObjectMatcher<String> set(ObjectMatcher<String> a, ObjectMatcher<String> b) {
+        public Predicate<String> set(Predicate<String> a, Predicate<String> b) {
             this.a = a;
             this.b = b;
             return this;
         }
 
-        public boolean matches(String value) {
-            return a.matches(value) || b.matches(value);
+        public boolean test(String value) {
+            return a.test(value) || b.test(value);
         }
     }
 
-    public static class ListMatcher implements ObjectMatcher<String> {
-        private ObjectMatcher<String> other;
+    public static class ListMatcher implements Predicate<String> {
+        private Predicate<String> other;
 
-        public ObjectMatcher<String> set(ObjectMatcher<String> other) {
+        public Predicate<String> set(Predicate<String> other) {
             this.other = other;
             return this;
         }
 
-        public boolean matches(String value) {
+        public boolean test(String value) {
             String[] values = value.trim().split("\\s+");
             if (values.length == 1 && values[0].length() == 0) return true;
             for (int i = 0; i < values.length; ++i) {
-                if (!other.matches(values[i])) {
+                if (!other.test(values[i])) {
                     return false;
                 }
             }
@@ -524,12 +524,12 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
     }
 
-    public static class LocaleMatcher implements ObjectMatcher<String> {
-        ObjectMatcher<String> grandfathered = variables.get("$grandfathered").matcher;
-        ObjectMatcher<String> language = variables.get("$language").matcher;
-        ObjectMatcher<String> script = variables.get("$script").matcher;
-        ObjectMatcher<String> territory = variables.get("$territory").matcher;
-        ObjectMatcher<String> variant = variables.get("$variant").matcher;
+    public static class LocaleMatcher implements Predicate<String> {
+        Predicate<String> grandfathered = variables.get("$grandfathered").matcher;
+        Predicate<String> language = variables.get("$language").matcher;
+        Predicate<String> script = variables.get("$script").matcher;
+        Predicate<String> territory = variables.get("$territory").matcher;
+        Predicate<String> variant = variables.get("$variant").matcher;
         LocaleIDParser lip = new LocaleIDParser();
         static LocaleMatcher singleton = null;
         static Object sync = new Object();
@@ -546,18 +546,18 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return singleton;
         }
 
-        public boolean matches(String value) {
-            if (grandfathered.matches(value)) return true;
+        public boolean test(String value) {
+            if (grandfathered.test(value)) return true;
             lip.set((String) value);
             String field = lip.getLanguage();
-            if (!language.matches(field)) return false;
+            if (!language.test(field)) return false;
             field = lip.getScript();
-            if (field.length() != 0 && !script.matches(field)) return false;
+            if (field.length() != 0 && !script.test(field)) return false;
             field = lip.getRegion();
-            if (field.length() != 0 && !territory.matches(field)) return false;
+            if (field.length() != 0 && !territory.test(field)) return false;
             String[] fields = lip.getVariants();
             for (int i = 0; i < fields.length; ++i) {
-                if (!variant.matches(fields[i])) return false;
+                if (!variant.test(fields[i])) return false;
             }
             return true;
         }

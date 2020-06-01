@@ -161,7 +161,7 @@ define({
 		winningStatus_msg:  "${1} ${0} Value ",
 		
 		reportGuidance: " ",
-		dataPageInitialGuidance: "Please consult the <a target='_blank' href='http://cldr.unicode.org/index/survey-tool/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",
+		dataPageInitialGuidance: "Please consult the <a target='_blank' href='http://cldr.unicode.org/translation/getting-started/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",
 		generalPageInitialGuidance: "This area will show details of items as you work with the Survey Tool.",
 		localesInitialGuidance: "Choose a locale to get started.  <ul><li><span class='locked'>locked</span> locales may not be modified by anyone,</li><li><span class='canmodify'>hand icon</span> indicates editing allowed by you</li><li><span class='name_var'>Locales with (Variants)</span> may have specific differences to note.</li></ul><p>Don't see your locale? See: <a href='http://cldr.unicode.org/index/bug-reports#New_Locales'>Adding New Locales</a></p>",
 		
@@ -187,7 +187,7 @@ define({
 		voteInfo_voteTitle_desc: "The total vote score for this value",
 		voteInfo_orgsVote_desc: "This vote is the organization's winning vote",
 		voteInfo_orgsNonVote_desc: "This vote is not the organization's winning vote",
-		voteInfo_baseline_desc: "This is the “baseline” data. See http://cldr.org/index/survey-tool/guide#TOC-Icons",
+		voteInfo_baseline_desc: "This is the “baseline” data. See http://cldr.unicode.org/translation/getting-started/guide#TOC-Icons",
 		voteInfo_winningItem_desc: "This mark shows the item which is currently winning.",
 		voteInfo_winningKey_desc: "This mark shows the item which is currently winning.",
 		voteInfo_perValue_desc: "This shows the state and voters for a particular item.",

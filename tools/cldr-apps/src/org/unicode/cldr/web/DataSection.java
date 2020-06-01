@@ -283,7 +283,7 @@ public class DataSection implements JSONString {
              * 
              * Called by CandidateItem.toJSONString (for item.pClass)
              * 
-             * Relationships between class, color, and inheritance (http://cldr.unicode.org/index/survey-tool/guide#TOC-Inheritance):
+             * Relationships between class, color, and inheritance (http://cldr.unicode.org/translation/getting-started/guide#TOC-Inheritance):
              * "The inherited values are color coded:
              *  1.  Darker [blue] The original is from a parent locale, such as if you are working in
              *      Latin American Spanish (es_419), this value is inherited from European Spanish (es).

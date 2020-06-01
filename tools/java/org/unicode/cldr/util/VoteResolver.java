@@ -81,8 +81,8 @@ public class VoteResolver<T> {
      * A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value.
      * Green/orange check: The item has enough votes to be used in CLDR.
      * Red/orange/black X: The item does not have enough votes to be used in CLDR, by most implementations (or is completely missing).
-     * Reference: http://cldr.unicode.org/index/survey-tool/guide
-     * 
+     * Reference: http://cldr.unicode.org/translation/getting-started/guide
+     *
      * New January, 2019: When the item is inherited, i.e., winningValue is INHERITANCE_MARKER (↑↑↑),
      * then orange/red X are replaced by orange/red up-arrow. That change is made only on the client.
      * Reference: https://unicode.org/cldr/trac/ticket/11103

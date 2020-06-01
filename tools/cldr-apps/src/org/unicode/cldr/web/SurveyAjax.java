@@ -3162,26 +3162,32 @@ public class SurveyAjax extends HttpServlet {
         String tail = "'></script>\n";
 
         /**
-         * INCLUDE_SCRIPT_VERSION true per:
-         *    https://unicode-org.atlassian.net/browse/CLDR-13582
-         *    "Make sure browser uses most recent JavaScript files for ST"
+         * If we're running with a reverse proxy (nginx), use "cache-busting" to make sure browser uses
+         * the most recent JavaScript files.
+         * Change filename to be like "CldrStAjax._b7a33e9fe_.js", instead of adding a query string,
+         * like "CldrStAjax.js?v=b7a33e9fe", since a query string appears sometimes to be ignored by some
+         * browsers. The server (nginx) needs a rewrite rule like this to remove the hexadecimal hash:
+         *     rewrite ^/(.+)\._[\da-f]+_\.(js|css)$ /$1.$2 break;
+         * Include underscores to avoid unwanted rewrite if we had a name like "example.bad.js",
+         * where "bad" could be mistaken for a hexadecimal hash.
          */
-        final boolean INCLUDE_SCRIPT_VERSION = true;
-        final String v = INCLUDE_SCRIPT_VERSION ? "?v=" + CLDRConfig.getInstance().getProperty("CLDR_DIR_HASH") : "";
+        final boolean useHash = (request.getHeader("X-Real-IP") != null);
+        final String hash = useHash ? ("._" + CLDRConfig.getInstance().getProperty("CLDR_DIR_HASH") + "_") : "";
+        final String js = hash + ".js" + tail;
 
         out.write(prefix + "jquery.autosize.min.js" + tail);
 
-        out.write(prefix + "CldrStAjax.js" + v + tail);
-        out.write(prefix + "CldrStForumFilter.js" + v + tail);
-        out.write(prefix + "CldrStForum.js" + v + tail);
-        out.write(prefix + "survey.js" + v + tail);
-        out.write(prefix + "CldrSurveyVettingLoader.js" + v + tail);
-        out.write(prefix + "CldrSurveyVettingTable.js" + v + tail);
+        out.write(prefix + "CldrStAjax" + js);
+        out.write(prefix + "CldrStForumFilter" + js);
+        out.write(prefix + "CldrStForum" + js);
+        out.write(prefix + "survey" + js);
+        out.write(prefix + "CldrSurveyVettingLoader" + js);
+        out.write(prefix + "CldrSurveyVettingTable" + js);
 
         out.write(prefix + "bootstrap.min.js" + tail);
 
-        out.write(prefix + "redesign.js" + v + tail);
-        out.write(prefix + "review.js" + v + tail);
+        out.write(prefix + "redesign" + js);
+        out.write(prefix + "review" + js);
     }
 
     /**

@@ -36,10 +36,10 @@ public class CaseIterator {
     private static Map toCaseFold = new HashMap();
     private static int maxLength = 0;
 
-    // This exception list is generated on the console by turning on the GENERATED flag, 
+    // This exception list is generated on the console by turning on the GENERATED flag,
     // which MUST be false for normal operation.
     // Once the list is generated, it is pasted in here.
-    // A bit of a cludge, but this bootstrapping is the easiest way 
+    // A bit of a cludge, but this bootstrapping is the easiest way
     // to get around certain complications in the data.
 
     private static final boolean GENERATE = false;
@@ -298,7 +298,7 @@ public class CaseIterator {
         fromCaseFold = fromCaseFold2;
 
         // We have processed everything, so the iterator will now work
-        // The following is normally OFF. 
+        // The following is normally OFF.
         // It is here to generate (under the GENERATE flag) the static exception list.
         // It must be at the very end of initialization, so that the iterator is functional.
         // (easiest to do it that way)
@@ -396,7 +396,7 @@ public class CaseIterator {
         }
     }
 
-    // ============ PRIVATE CLASS DATA ============ 
+    // ============ PRIVATE CLASS DATA ============
 
     // pieces that we will put together
     // is not changed during iteration
@@ -410,7 +410,7 @@ public class CaseIterator {
     // internal buffer for efficiency
     private StringBuffer nextBuffer = new StringBuffer();
 
-    // ========================  
+    // ========================
 
     /**
      * Reset to different source. Once reset, the iteration starts from the beginning.

@@ -56,7 +56,7 @@ public class TestMixedScript {
 
     // Note: if UScript were an enum, we could avoid use of bitsets, but...
     private final BitSet singleScripts = new BitSet();
-    private final HashSet<BitSet> combinations = new HashSet<BitSet>();
+    private final HashSet<BitSet> combinations = new HashSet<>();
     private BitSet tempBitSet = new BitSet();
 
     /**
@@ -65,7 +65,7 @@ public class TestMixedScript {
      * described under {@link #MixedScriptLevel}.
      * <p>
      * <b>Note:</b> thread-safe call
-     * 
+     *
      * @param source
      *            Input text.
      * @return this, for chaining
@@ -285,7 +285,7 @@ public class TestMixedScript {
     /**
      * Test numbers to see whether or not they are decimal, and if so, whether from different systems. Returns the first
      * error found, or 'ok'.
-     * 
+     *
      * @param text
      * @return
      */

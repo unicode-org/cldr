@@ -36,9 +36,9 @@ public class LocaleTree {
      * en_AU ] ... sr -> "Serbian (Yugoslavia)" -> sr_YU
      */
 
-    Map<String, CLDRLocale> localeListMap = new TreeMap<String, CLDRLocale>(RuleBasedCollator.getInstance());
-    Map<String, CLDRLocale> localeNameToCode = new HashMap<String, CLDRLocale>();
-    Map<CLDRLocale, Map<String, CLDRLocale>> subLocales = new HashMap<CLDRLocale, Map<String, CLDRLocale>>();
+    Map<String, CLDRLocale> localeListMap = new TreeMap<>(RuleBasedCollator.getInstance());
+    Map<String, CLDRLocale> localeNameToCode = new HashMap<>();
+    Map<CLDRLocale, Map<String, CLDRLocale>> subLocales = new HashMap<>();
 
     private void addLocaleToListMap(CLDRLocale localeName) {
         String l = localeName.getLanguage();
@@ -69,7 +69,7 @@ public class LocaleTree {
 
         Map<String, CLDRLocale> lm = subLocales.get(lsl);
         if (lm == null) {
-            lm = new TreeMap<String, CLDRLocale>();
+            lm = new TreeMap<>();
             subLocales.put(lsl, lm);
         }
 

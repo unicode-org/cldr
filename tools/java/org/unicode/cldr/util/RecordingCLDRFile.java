@@ -12,7 +12,7 @@ import java.util.HashSet;
  * to get the set of all paths in this file that were accessed to generate the example.
  */
 public class RecordingCLDRFile extends CLDRFile {
-    private HashSet<String> recordedPaths = new HashSet<String>();
+    private HashSet<String> recordedPaths = new HashSet<>();
 
     public RecordingCLDRFile(XMLSource dataSource) {
         super(dataSource);
@@ -30,16 +30,19 @@ public class RecordingCLDRFile extends CLDRFile {
         return recordedPaths;
     }
 
+    @Override
     public String getStringValue(String xpath) {
         recordPath(xpath);
         return super.getStringValue(xpath);
     }
 
+    @Override
     public String getWinningValue(String xpath) {
         recordPath(xpath);
         return super.getWinningValue(xpath);
     }
 
+    @Override
     public String getConstructedValue(String xpath) {
         recordPath(xpath);
         return super.getConstructedValue(xpath);

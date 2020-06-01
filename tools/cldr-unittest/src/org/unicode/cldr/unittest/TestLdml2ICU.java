@@ -37,6 +37,7 @@ public class TestLdml2ICU extends TestFmwk {
     static final CLDRConfig info = CLDRConfig.getInstance();
 
     private static final Transform<String, RegexFinder> XPATH_TRANSFORM = new Transform<String, RegexFinder>() {
+        @Override
         public RegexFinder transform(String source) {
             final String newSource = source.replace("[@", "\\[@");
             return new RegexFinder("^" + newSource + "$");
@@ -51,6 +52,7 @@ public class TestLdml2ICU extends TestFmwk {
         UNCONVERTED, IGNORE, // May be converted or not, but we don't care
         WARNING;
         public static Transform<String, Pair<ExclusionType, String>> TRANSFORM = new Transform<String, Pair<ExclusionType, String>>() {
+            @Override
             public Pair<ExclusionType, String> transform(String source) {
                 String value = null;
                 if (source.contains(";")) {

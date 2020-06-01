@@ -24,8 +24,8 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     public enum GrammaticalTarget {nominal}
 
     public enum GrammaticalFeature {
-        grammaticalCase("case", "Ⓒ", "nominative"), 
-        grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite"), 
+        grammaticalCase("case", "Ⓒ", "nominative"),
+        grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite"),
         grammaticalGender("gender", "Ⓖ", "neuter");
 
         private final String shortName;
@@ -54,7 +54,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         }
     }
 
-    public enum GrammaticalScope {general, units};
+    public enum GrammaticalScope {general, units}
 
     private Map<GrammaticalTarget, Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>>> targetToFeatureToUsageToValues = new TreeMap<>();
     private boolean frozen = false;
@@ -157,7 +157,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
             final Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = entry1.getValue();
             if (featureToUsageToValues.isEmpty()) {
                 handler.apply(target, null, null, null);
-            } else 
+            } else
                 for (Entry<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> entry2 : featureToUsageToValues.entrySet()) {
                     GrammaticalFeature feature = entry2.getKey();
                     for (Entry<GrammaticalScope, Set<String>> entry3 : entry2.getValue().entrySet()) {
@@ -180,7 +180,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
             final Map<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> featureToUsageToValues = entry1.getValue();
             if (featureToUsageToValues.isEmpty()) {
                 handler.apply(target, null, null, null);
-            } else 
+            } else
                 for (Entry<GrammaticalFeature, Map<GrammaticalScope,Set<String>>> entry2 : featureToUsageToValues.entrySet()) {
                     GrammaticalFeature feature = entry2.getKey();
                     for (Entry<GrammaticalScope, Set<String>> entry3 : entry2.getValue().entrySet()) {
@@ -200,12 +200,12 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         }
         Map<GrammaticalScope,Set<String>> usageToValues = featureToUsageToValues.get(feature);
         if (usageToValues == null) {
-            return Collections.emptySet(); 
+            return Collections.emptySet();
         }
         Collection<String> result = usageToValues.get(usage);
-        return result == null 
-            ? usageToValues.get(GrammaticalScope.general) 
-                : result; 
+        return result == null
+            ? usageToValues.get(GrammaticalScope.general)
+                : result;
     }
 
     public boolean hasInfo(GrammaticalTarget target) {
@@ -230,9 +230,9 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     }
 
     public static final ImmutableMultimap<String,PluralInfo.Count> NON_COMPUTABLE_PLURALS = ImmutableListMultimap.of(
-        "pl", PluralInfo.Count.one, 
-        "pl", PluralInfo.Count.other, 
-        "ru", PluralInfo.Count.one, 
+        "pl", PluralInfo.Count.one,
+        "pl", PluralInfo.Count.other,
+        "ru", PluralInfo.Count.one,
         "ru", PluralInfo.Count.other);
     /**
      * TODO: change this to be data-file driven
@@ -244,27 +244,27 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
      */
     public static final Set<String> SPECIAL_TRANSLATION_UNITS = ImmutableSet.of(
         // new in v38
-        "mass-grain", 
-        "volume-dessert-spoon", 
+        "mass-grain",
+        "volume-dessert-spoon",
         "volume-dessert-spoon-imperial",
-        "volume-drop", 
-        "volume-dram", 
-        "volume-jigger", 
-        "volume-pinch", 
+        "volume-drop",
+        "volume-dram",
+        "volume-jigger",
+        "volume-pinch",
         "volume-quart-imperial",
        // "volume-pint-imperial",
 
-        "acceleration-meter-per-square-second", "area-acre", "area-hectare", 
-        "area-square-centimeter", "area-square-foot", "area-square-kilometer", "area-square-mile", "concentr-percent", "consumption-mile-per-gallon", 
-        "consumption-mile-per-gallon-imperial", "duration-day", "duration-hour", "duration-minute", "duration-month", "duration-second", "duration-week", 
-        "duration-year", "energy-foodcalorie", "energy-kilocalorie", "length-centimeter", "length-foot", "length-inch", "length-kilometer", "length-meter", 
-        "length-mile", "length-millimeter", "length-parsec", "length-picometer", "length-solar-radius", "length-yard", "light-solar-luminosity", "mass-dalton", 
-        "mass-earth-mass", "mass-milligram", "mass-solar-mass", "pressure-kilopascal", "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", 
-        "temperature-celsius", "temperature-fahrenheit", "temperature-generic", "temperature-kelvin", "acceleration-g-force", "consumption-liter-per-100-kilometer", 
-        "mass-gram", "mass-kilogram", "mass-ounce", "mass-pound", "volume-centiliter", "volume-cubic-centimeter", "volume-cubic-foot", "volume-cubic-mile", 
-        "volume-cup", "volume-deciliter", "volume-fluid-ounce", "volume-fluid-ounce-imperial", "volume-gallon", "volume-gallon", "volume-gallon-imperial", 
+        "acceleration-meter-per-square-second", "area-acre", "area-hectare",
+        "area-square-centimeter", "area-square-foot", "area-square-kilometer", "area-square-mile", "concentr-percent", "consumption-mile-per-gallon",
+        "consumption-mile-per-gallon-imperial", "duration-day", "duration-hour", "duration-minute", "duration-month", "duration-second", "duration-week",
+        "duration-year", "energy-foodcalorie", "energy-kilocalorie", "length-centimeter", "length-foot", "length-inch", "length-kilometer", "length-meter",
+        "length-mile", "length-millimeter", "length-parsec", "length-picometer", "length-solar-radius", "length-yard", "light-solar-luminosity", "mass-dalton",
+        "mass-earth-mass", "mass-milligram", "mass-solar-mass", "pressure-kilopascal", "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour",
+        "temperature-celsius", "temperature-fahrenheit", "temperature-generic", "temperature-kelvin", "acceleration-g-force", "consumption-liter-per-100-kilometer",
+        "mass-gram", "mass-kilogram", "mass-ounce", "mass-pound", "volume-centiliter", "volume-cubic-centimeter", "volume-cubic-foot", "volume-cubic-mile",
+        "volume-cup", "volume-deciliter", "volume-fluid-ounce", "volume-fluid-ounce-imperial", "volume-gallon", "volume-gallon", "volume-gallon-imperial",
         "volume-liter", "volume-milliliter", "volume-pint", "volume-quart", "volume-tablespoon", "volume-teaspoon");
     // compounds
-    // "kilogram-per-cubic-meter", "kilometer-per-liter", "concentr-gram-per-mole", "speed-mile-per-second", "volumetricflow-cubic-foot-per-second", 
-    // "volumetricflow-cubic-meter-per-second", "gram-per-cubic-centimeter", 
+    // "kilogram-per-cubic-meter", "kilometer-per-liter", "concentr-gram-per-mole", "speed-mile-per-second", "volumetricflow-cubic-foot-per-second",
+    // "volumetricflow-cubic-meter-per-second", "gram-per-cubic-centimeter",
 }

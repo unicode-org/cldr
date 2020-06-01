@@ -29,7 +29,7 @@ public class GenerateBcp47Tests {
         System.out.println("#Tests");
         Relation<String, String> extension2Keys = info.getBcp47Extension2Keys();
         Relation<String, String> keys2subtypes = info.getBcp47Keys();
-        Set<String> deprecatedSet = new LinkedHashSet<String>();
+        Set<String> deprecatedSet = new LinkedHashSet<>();
         for (Entry<String, Set<String>> extensionKeys : extension2Keys.keyValuesSet()) {
             String extension = extensionKeys.getKey();
             Set<String> keys = extensionKeys.getValue();

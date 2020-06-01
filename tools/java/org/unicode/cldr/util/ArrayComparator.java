@@ -10,6 +10,7 @@ import java.util.Comparator;
 
 public class ArrayComparator implements Comparator {
     public static final Comparator COMPARABLE = new Comparator() {
+        @Override
         public int compare(Object o1, Object o2) {
             return ((Comparable) o1).compareTo(o2);
         }
@@ -37,10 +38,11 @@ public class ArrayComparator implements Comparator {
     }
 
     /* Lexigraphic compare. Returns the first difference
-     * @return zero if equal. Otherwise +/- (i+1) 
+     * @return zero if equal. Otherwise +/- (i+1)
      * where i is the index of the first comparator finding a difference
      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
      */
+    @Override
     public int compare(Object a0, Object a1) {
         Object[] arg0 = (Object[]) a0;
         Object[] arg1 = (Object[]) a1;
@@ -63,6 +65,7 @@ public class ArrayComparator implements Comparator {
             this.other = other;
         }
 
+        @Override
         public int compare(Object arg0, Object arg1) throws RuntimeException {
             try {
                 return other.compare(arg0, arg1);

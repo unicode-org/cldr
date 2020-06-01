@@ -101,7 +101,7 @@ public class ShowPlurals {
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         Set<String> cardinalLocales = supplementalDataInfo.getPluralLocales(PluralType.cardinal);
         Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
-        Set<String> all = new LinkedHashSet<String>(cardinalLocales);
+        Set<String> all = new LinkedHashSet<>(cardinalLocales);
         all.addAll(ordinalLocales);
 
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();

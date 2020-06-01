@@ -69,11 +69,11 @@ public class SimpleHtmlParser {
          * '&lt;element&gt;' contents '&lt;/element&gt;'
          */
         ELEMENT_CONTENT
-    };
+    }
 
     private enum State {
         BASE, IN_ELEMENT, AFTER_ELEMENT, IN_CONTENT, IN_ATTRIBUTE, IN_ATTRIBUTE_CONTENT, IN_ATTRIBUTE_CONTENT1, IN_ATTRIBUTE_CONTENT2, ELEMENT_STOP, IN_QUOTE
-    };
+    }
 
     private Reader input;
 

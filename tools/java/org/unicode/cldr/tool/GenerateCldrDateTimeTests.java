@@ -21,9 +21,9 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 class GenerateCldrDateTimeTests {
-    Map<ULocale, UnicodeSet> ulocale_exemplars = new TreeMap<ULocale, UnicodeSet>(GenerateCldrTests.ULocaleComparator);
-    Map<UnicodeSet, UnicodeSet> uniqueExemplars = new HashMap<UnicodeSet, UnicodeSet>();
-    Set<ULocale> locales = new TreeSet<ULocale>(GenerateCldrTests.ULocaleComparator);
+    Map<ULocale, UnicodeSet> ulocale_exemplars = new TreeMap<>(GenerateCldrTests.ULocaleComparator);
+    Map<UnicodeSet, UnicodeSet> uniqueExemplars = new HashMap<>();
+    Set<ULocale> locales = new TreeSet<>(GenerateCldrTests.ULocaleComparator);
 
     UnicodeSet getExemplarSet(ULocale locale) {
         return ulocale_exemplars.get(locale);
@@ -53,11 +53,11 @@ class GenerateCldrDateTimeTests {
         // now do inheritance manually
         for (Iterator<ULocale> it = locales.iterator(); it.hasNext();) {
             ULocale locale = it.next();
-            UnicodeSet ex = (UnicodeSet) ulocale_exemplars.get(locale);
+            UnicodeSet ex = ulocale_exemplars.get(locale);
             if (ex != null) continue;
             for (ULocale parent = locale.getFallback(); parent != null; parent = parent.getFallback()) {
                 ULocale fixedParent = parent.getLanguage().length() == 0 ? ROOT : parent;
-                ex = (UnicodeSet) ulocale_exemplars.get(fixedParent);
+                ex = ulocale_exemplars.get(fixedParent);
                 if (ex == null) continue;
                 ulocale_exemplars.put(locale, ex);
                 break;
@@ -77,7 +77,7 @@ class GenerateCldrDateTimeTests {
         // if (path.indexOf("[@draft=") >= 0) System.out.println("Skipping draft: " + locale + ",\t" + path);
         String exemplars = cldrFile.getStringValue(cpath);
         UnicodeSet exemplarSet = new UnicodeSet(exemplars);
-        UnicodeSet fixed = (UnicodeSet) uniqueExemplars.get(exemplarSet);
+        UnicodeSet fixed = uniqueExemplars.get(exemplarSet);
         if (fixed == null) {
             uniqueExemplars.put(exemplarSet, exemplarSet);
             fixed = exemplarSet;

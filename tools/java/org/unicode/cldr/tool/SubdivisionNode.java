@@ -102,7 +102,7 @@ public class SubdivisionNode {
             new TreeMap<String, Object>(),
             new TreeMap<String, Object>(),
             String.class);
-        final Map<String, String> TO_COUNTRY_CODE = new TreeMap<String, String>();
+        final Map<String, String> TO_COUNTRY_CODE = new TreeMap<>();
         final Relation<String, String> ID_SAMPLE = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         final Map<String, String> SUB_TO_CAT = new TreeMap<>();
         final Relation<String, String> REGION_CONTAINS = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -270,7 +270,7 @@ public class SubdivisionNode {
             if (cldrName != null) {
                 return fixName(cldrName);
             }
-            
+
             Collection<String> oldAliases = SubdivisionInfo.subdivisionIdToOld.get(value);
             if (oldAliases != null) {
                 for (String oldAlias : oldAliases) {
@@ -475,13 +475,13 @@ public class SubdivisionNode {
 
     static class SubDivisionExtractor {
         final SubdivisionSet sdset;
-        final Validity validityFormer; 
+        final Validity validityFormer;
         final Map<String, R2<List<String>, String>> subdivisionAliasesFormer;
         final Relation<String, String> formerRegionToSubdivisions;
 
-        public SubDivisionExtractor(SubdivisionSet sdset, 
-            Validity validityFormer, 
-            Map<String, R2<List<String>, String>> subdivisionAliasesFormer, 
+        public SubDivisionExtractor(SubdivisionSet sdset,
+            Validity validityFormer,
+            Map<String, R2<List<String>, String>> subdivisionAliasesFormer,
             Relation<String, String> formerRegionToSubdivisions) {
             this.sdset = sdset;
             this.validityFormer = validityFormer;
@@ -654,7 +654,7 @@ public class SubdivisionNode {
                         output.append(ENGLISH_ICU.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
                     }
                     countEqual.clear();
-                    ;
+
                     lastCC = countryCode;
                 }
                 for (String value : entry.getValue()) {

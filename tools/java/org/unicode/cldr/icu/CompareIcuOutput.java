@@ -96,7 +96,7 @@ public class CompareIcuOutput {
     }
 
     private static IcuData loadDataFromTextfiles(String icuPath, String locale) throws IOException {
-        List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<Row.R2<MyTokenizer.Type, String>>();
+        List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<>();
         IcuData icuData = new IcuData(locale + ".xml", locale, true);
         String filename = icuPath + '/' + locale + ".txt";
         if (new File(filename).exists()) {
@@ -115,21 +115,21 @@ public class CompareIcuOutput {
      */
     private static boolean analyseMatches(IcuData oldData, IcuData newData, StringBuffer buffer) {
         boolean hasDifferences = false;
-        Set<String> missing = new TreeSet<String>(oldData.keySet());
+        Set<String> missing = new TreeSet<>(oldData.keySet());
         missing.removeAll(newData.keySet());
         if (missing.size() > 0) {
             buffer.append("Missing paths:\n");
             printAllInSet(oldData, missing, buffer);
             hasDifferences = true;
         }
-        Set<String> extra = new TreeSet<String>(newData.keySet());
+        Set<String> extra = new TreeSet<>(newData.keySet());
         extra.removeAll(oldData.keySet());
         if (extra.size() > 0) {
             buffer.append("Extra paths:\n");
             printAllInSet(newData, extra, buffer);
             hasDifferences = true;
         }
-        Set<String> common = new TreeSet<String>(oldData.keySet());
+        Set<String> common = new TreeSet<>(oldData.keySet());
         common.retainAll(newData.keySet());
         for (String rbPath : common) {
             if (rbPath.startsWith("/Version")) continue; // skip version
@@ -222,8 +222,8 @@ public class CompareIcuOutput {
         in = FileUtilities.openUTF8Reader("", filename);
         MyTokenizer tokenIterator = new MyTokenizer(in);
         StringBuffer tokenText = new StringBuffer();
-        List<String> oldPaths = new ArrayList<String>();
-        List<Integer> indices = new ArrayList<Integer>();
+        List<String> oldPaths = new ArrayList<>();
+        List<Integer> indices = new ArrayList<>();
         String lastLabel = null;
         String path = "";
         /*
@@ -271,7 +271,7 @@ public class CompareIcuOutput {
             case OPEN_BRACE:
                 // Check for array-type values.
                 if (lastToken == MyTokenizer.Type.COMMA) {
-                    arrayValues = new ArrayList<String>();
+                    arrayValues = new ArrayList<>();
                 } else {
                     oldPaths.add(path);
                     indices.add(0);
@@ -422,7 +422,6 @@ public class CompareIcuOutput {
                     tokenText.appendCodePoint(cp);
                     cp = getCodePoint();
                 }
-                ;
                 return Type.QUOTED;
             }
             if (cp == '{') {
@@ -481,6 +480,7 @@ public class CompareIcuOutput {
          *
          * @see com.ibm.icu.text.UForwardCharacterIterator#next()
          */
+        @Override
         public int next() {
             if (bufferedChar >= 0) {
                 int temp = bufferedChar;
@@ -499,6 +499,7 @@ public class CompareIcuOutput {
          *
          * @see com.ibm.icu.text.UForwardCharacterIterator#nextCodePoint()
          */
+        @Override
         public int nextCodePoint() {
             int ch1 = next();
             if (UTF16.isLeadSurrogate((char) ch1)) {

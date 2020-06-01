@@ -19,19 +19,19 @@ public class GetDescriptions {
 
     static Matcher matcher = PatternCache.get("([^,(]+)(,([^(]+))?(.*)").matcher("");
 
-    static Map<String, String> items = new TreeMap<String, String>();
+    static Map<String, String> items = new TreeMap<>();
     static int allCount = 1;
     static int commaCount = 1;
 
-    private static Map<String, Map<String, Set<String>>> name_type_codes = new TreeMap<String, Map<String, Set<String>>>();
+    private static Map<String, Map<String, Set<String>>> name_type_codes = new TreeMap<>();
 
-    private static Set<String> preCommas = new TreeSet<String>();
+    private static Set<String> preCommas = new TreeSet<>();
 
-    private static Set<String> postCommas = new TreeSet<String>();
+    private static Set<String> postCommas = new TreeSet<>();
 
-    private static Map<String, String> descriptionWithoutComments = new TreeMap<String, String>();
+    private static Map<String, String> descriptionWithoutComments = new TreeMap<>();
 
-    private static Set<String> uninvertedNames = new HashSet<String>();
+    private static Set<String> uninvertedNames = new HashSet<>();
 
     public static void main(String[] args) throws IOException {
         StandardCodes sc = StandardCodes.make();
@@ -200,9 +200,9 @@ public class GetDescriptions {
         String code, String newDescriptionWithoutComment) {
         Map<String, Set<String>> type_codes = name_type_codes.get(newDescriptionWithoutComment);
         if (type_codes == null)
-            name_type_codes.put(newDescriptionWithoutComment, type_codes = new TreeMap<String, Set<String>>());
+            name_type_codes.put(newDescriptionWithoutComment, type_codes = new TreeMap<>());
         Set<String> codes = type_codes.get(type);
-        if (codes == null) type_codes.put(type, codes = new TreeSet<String>());
+        if (codes == null) type_codes.put(type, codes = new TreeSet<>());
         codes.add(code);
     }
 
@@ -216,7 +216,7 @@ public class GetDescriptions {
         .matcher("");
 
     private static void checkInversion(PrintWriter commas, String type, String code, String[] parts) {
-        Set<String> items = new TreeSet<String>(Arrays.asList(parts));
+        Set<String> items = new TreeSet<>(Arrays.asList(parts));
         for (String item : items) {
             if (!directional.reset(item).matches()) {
                 continue;

@@ -51,7 +51,7 @@ public class TestDayPeriods extends TestFmwkPlus {
         for (int i = 0; i < dayPeriodInfo.getPeriodCount(); ++i) {
             R3<Integer, Boolean, DayPeriod> info = dayPeriodInfo.getPeriod(i);
             int start = info.get0();
-            assertEquals("Time is even hours", (int) (start / DayPeriodInfo.HOUR) * DayPeriodInfo.HOUR, (int) start);
+            assertEquals("Time is even hours", start / DayPeriodInfo.HOUR * DayPeriodInfo.HOUR, start);
             R2<Integer, DayPeriod> row = Row.of(start, info.get2());
             sorted.add(row);
         }

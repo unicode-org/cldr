@@ -91,7 +91,7 @@ public class ResourceSplitter {
     ResourceSplitter(ICULog log, String baseDirPath, List<SplitInfo> splitInfos) {
         this.log = log;
         this.splitInfos = splitInfos;
-        this.targetDirs = new HashMap<String, File>();
+        this.targetDirs = new HashMap<>();
 
         File baseDir = new File(baseDirPath);
 
@@ -139,9 +139,9 @@ public class ResourceSplitter {
             this.source = source;
 
             this.path = new Path("/");
-            this.resultMap = new HashMap<String, ResourceTable>();
-            this.aliasMap = new HashMap<String, ResourceTable>();
-            this.remainingInfos = new ArrayList<SplitInfo>();
+            this.resultMap = new HashMap<>();
+            this.aliasMap = new HashMap<>();
+            this.remainingInfos = new ArrayList<>();
             this.remainingInfos.addAll(splitInfos);
         }
 
@@ -175,7 +175,7 @@ public class ResourceSplitter {
                 }
             }
 
-            List<ResultInfo> results = new ArrayList<ResultInfo>();
+            List<ResultInfo> results = new ArrayList<>();
             results.add(source); // write out what's left of the original
 
             for (Map.Entry<String, ResourceTable> e : resultMap.entrySet()) {

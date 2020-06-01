@@ -35,7 +35,6 @@ public enum LanguageGroup {
             if (map.put(loc, group) != null) {
                 throw new IllegalArgumentException("duplicate: " + s + ", " + group);
             }
-            ;
             GROUP_LANGUAGE.put(group, loc, count);
             ++count;
         }

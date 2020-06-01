@@ -39,6 +39,7 @@ public class StateMachine<T> {
         short pushState = StateMachine.UNDEFINED;
         short action = -1;
 
+        @Override
         public boolean equals(Object other) {
             StateAction that = (StateAction) other;
             return advanceToNextCodePoint == that.advanceToNextCodePoint
@@ -83,6 +84,7 @@ public class StateMachine<T> {
 
         }
 
+        @Override
         public String toString() {
             StringBuilder result = new StringBuilder("[");
             for (int i = stackSize - 1; i >= 0; --i) {
@@ -125,6 +127,7 @@ public class StateMachine<T> {
         return Arrays.asList(actionNames);
     }
 
+    @Override
     public String toString() {
         StringBuffer output = new StringBuffer();
         int i = 0;

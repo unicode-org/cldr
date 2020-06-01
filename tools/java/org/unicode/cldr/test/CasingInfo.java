@@ -50,7 +50,7 @@ public class CasingInfo {
     private List<File> casingDirs;
 
     public CasingInfo(Factory factory) {
-        casingDirs = new ArrayList<File>();
+        casingDirs = new ArrayList<>();
         for (File f : factory.getSourceDirectories()) {
             this.casingDirs.add(new File(f.getAbsolutePath() + "/../casing"));
         }
@@ -61,7 +61,7 @@ public class CasingInfo {
      * ONLY usable in command line tests.
      */
     public CasingInfo() {
-        casingDirs = new ArrayList<File>();
+        casingDirs = new ArrayList<>();
         this.casingDirs.add(new File(CLDRPaths.CASING_DIRECTORY));
         casing = CldrUtility.newConcurrentHashMap();
     }
@@ -122,10 +122,10 @@ public class CasingInfo {
         Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
         String sourceDirectory = CldrUtility.checkValidDirectory(CLDRPaths.MAIN_DIRECTORY);
         Factory cldrFactory = Factory.make(sourceDirectory, localePattern);
-        Set<String> locales = new LinkedHashSet<String>(cldrFactory.getAvailable());
+        Set<String> locales = new LinkedHashSet<>(cldrFactory.getAvailable());
         locales.removeAll(defaultContentLocales); // Skip all default content locales
         UnicodeSet allCaps = new UnicodeSet("[:Lu:]");
-        Map<String, Boolean> localeUsesCasing = new HashMap<String, Boolean>();
+        Map<String, Boolean> localeUsesCasing = new HashMap<>();
         LocaleIDParser parser = new LocaleIDParser();
 
         for (String localeID : locales) {
@@ -199,7 +199,7 @@ public class CasingInfo {
     private void createCasingXml(String localeID, Map<Category, CasingType> localeCasing) {
         // Load any existing overrides over casing info.
         CasingHandler handler = loadFromXml(localeID);
-        Map<Category, CasingType> overrides = handler == null ? new EnumMap<Category, CasingType>(Category.class) : handler.getOverrides();
+        Map<Category, CasingType> overrides = handler == null ? new EnumMap<>(Category.class) : handler.getOverrides();
         localeCasing.putAll(overrides);
 
         XMLSource source = new SimpleXMLSource(localeID);
@@ -247,8 +247,8 @@ public class CasingInfo {
     private class CasingHandler extends XMLFileReader.SimpleHandler {
         private Pattern localePattern = PatternCache.get("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
         private String localeID;
-        private Map<Category, CasingTypeAndErrFlag> caseMap = new EnumMap<Category, CasingTypeAndErrFlag>(Category.class);
-        private Map<Category, CasingType> overrideMap = new EnumMap<Category, CasingType>(Category.class);
+        private Map<Category, CasingTypeAndErrFlag> caseMap = new EnumMap<>(Category.class);
+        private Map<Category, CasingType> overrideMap = new EnumMap<>(Category.class);
 
         @Override
         public void handlePathValue(String path, String value) {

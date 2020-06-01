@@ -842,14 +842,14 @@ public class DateTimeFormats {
         Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, LOCALES);
         System.out.println("Total locales: " + factory.getAvailableLanguages().size());
         DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
-        
+
         new File(DIR).mkdirs();
         FileCopier.copy(ShowData.class, "verify-index.html", CLDRPaths.VERIFY_DIR, "index.html");
         FileCopier.copy(ChartDelta.class, "index.css", CLDRPaths.VERIFY_DIR, "index.css");
         FormattedFileWriter.copyIncludeHtmls(CLDRPaths.VERIFY_DIR);
         PrintWriter index = openIndex(DIR, "Date/Time");
 
-        Map<String, String> sorted = new TreeMap<String, String>();
+        Map<String, String> sorted = new TreeMap<>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> defaultContent = sdi.getDefaultContentLocales();
         for (String localeID : factory.getAvailableLanguages()) {

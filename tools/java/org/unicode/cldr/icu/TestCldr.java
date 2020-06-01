@@ -82,7 +82,7 @@ public class TestCldr extends TestFmwk {
 
     String directory;
 
-    Set<String> allLocales = new TreeSet<String>();
+    Set<String> allLocales = new TreeSet<>();
 
     public void TestScripts() {
         Factory cldrFactory = Factory.make(
@@ -92,7 +92,7 @@ public class TestCldr extends TestFmwk {
             ULocale locale = locales[i];
             logln(locale.toString());
             int[] scriptNumbers = UScript.getCode(locale);
-            Set<String> ICUScripts = new TreeSet<String>();
+            Set<String> ICUScripts = new TreeSet<>();
             for (int j = 0; j < scriptNumbers.length; ++j) {
                 ICUScripts.add(UScript.getShortName(scriptNumbers[j]));
             }
@@ -128,7 +128,7 @@ public class TestCldr extends TestFmwk {
         }
         scriptBits.clear(UScript.COMMON);
         scriptBits.clear(UScript.INHERITED);
-        Set<String> scripts = new TreeSet<String>();
+        Set<String> scripts = new TreeSet<>();
         for (int j = 0; j < scriptBits.size(); ++j) {
             if (scriptBits.get(j)) {
                 scripts.add(UScript.getShortName(j));
@@ -156,7 +156,7 @@ public class TestCldr extends TestFmwk {
          * }
          */
         // only get ICU's locales
-        Set<String> s = new TreeSet<String>();
+        Set<String> s = new TreeSet<>();
         addLocales(NumberFormat.getAvailableULocales(), s);
         addLocales(DateFormat.getAvailableULocales(), s);
         addLocales(Collator.getAvailableULocales(), s);
@@ -196,15 +196,15 @@ public class TestCldr extends TestFmwk {
     // ============ SAX Handler Infrastructure ============
     enum AttributeName {
         numberType, dateType, timeType, date, field, zone, parse, input, draft
-    };
+    }
 
     abstract public class Handler {
 
-        Map<AttributeName, String> settings = new TreeMap<AttributeName, String>();
+        Map<AttributeName, String> settings = new TreeMap<>();
 
         String name;
 
-        List<ULocale> currentLocales = new ArrayList<ULocale>();
+        List<ULocale> currentLocales = new ArrayList<>();
 
         int failures = 0;
 
@@ -247,7 +247,7 @@ public class TestCldr extends TestFmwk {
             for (Iterator<AttributeName> it = settings.keySet().iterator(); it
                 .hasNext();) {
                 AttributeName attributeName = it.next();
-                String attributeValue = (String) settings.get(attributeName);
+                String attributeValue = settings.get(attributeName);
                 temp += " " + attributeName + "=<" + attributeValue + ">";
             }
             logln(temp + "]");
@@ -290,7 +290,7 @@ public class TestCldr extends TestFmwk {
     public Handler getHandler(String name, Attributes attributes) {
         if (DEBUG)
             logln("Creating Handler: " + name);
-        Handler result = (Handler) RegisteredHandlers.get(name);
+        Handler result = RegisteredHandlers.get(name);
         if (result == null)
             logln("Unexpected test type: " + name);
         else {
@@ -304,7 +304,7 @@ public class TestCldr extends TestFmwk {
         RegisteredHandlers.put(name, handler);
     }
 
-    Map<String, Handler> RegisteredHandlers = new HashMap<String, Handler>();
+    Map<String, Handler> RegisteredHandlers = new HashMap<>();
 
     // ============ Statics for Date/Number Support ============
 
@@ -339,6 +339,7 @@ public class TestCldr extends TestFmwk {
 
     {
         addHandler("collation", new Handler() {
+            @Override
             public void handleResult(ULocale currentLocale, String value) {
                 Collator col = Collator.getInstance(currentLocale);
                 String lastLine = "";
@@ -370,6 +371,7 @@ public class TestCldr extends TestFmwk {
         addHandler("number", new Handler() {
             String numberType = null;
 
+            @Override
             public void handleResult(ULocale locale, String result) {
                 NumberFormat nf = null;
                 double v = Double.NaN;
@@ -435,6 +437,7 @@ public class TestCldr extends TestFmwk {
 
             int timeFormat = 0;
 
+            @Override
             public void handleResult(ULocale locale, String result)
                 throws ParseException {
                 Date date = new Date();
@@ -515,6 +518,7 @@ public class TestCldr extends TestFmwk {
 
             String pattern = "";
 
+            @Override
             public void handleResult(ULocale locale, String result)
                 throws ParseException {
                 for (Iterator<AttributeName> it = settings.keySet().iterator(); it
@@ -575,6 +579,7 @@ public class TestCldr extends TestFmwk {
 
         Handler handler;
 
+        @Override
         public void startElement(String uri, String localName, String qName,
             Attributes attributes) throws SAXException {
             // data.put(new ContextStack(contextStack), lastChars);
@@ -598,6 +603,7 @@ public class TestCldr extends TestFmwk {
             }
         }
 
+        @Override
         public void endElement(String uri, String localName, String qName)
             throws SAXException {
             try {
@@ -615,6 +621,7 @@ public class TestCldr extends TestFmwk {
         }
 
         // Have to hack around the fact that the character data might be in pieces
+        @Override
         public void characters(char[] ch, int start, int length)
             throws SAXException {
             try {
@@ -630,20 +637,24 @@ public class TestCldr extends TestFmwk {
 
         // just for debugging
 
+        @Override
         public void notationDecl(String name, String publicId, String systemId)
             throws SAXException {
             logln("notationDecl: " + name + ", " + publicId + ", " + systemId);
         }
 
+        @Override
         public void processingInstruction(String target, String data)
             throws SAXException {
             logln("processingInstruction: " + target + ", " + data);
         }
 
+        @Override
         public void skippedEntity(String name) throws SAXException {
             logln("skippedEntity: " + name);
         }
 
+        @Override
         public void unparsedEntityDecl(String name, String publicId,
             String systemId, String notationName) throws SAXException {
             logln("unparsedEntityDecl: " + name + ", " + publicId + ", " + systemId

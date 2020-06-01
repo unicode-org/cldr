@@ -33,7 +33,7 @@ public class FindPreferredHours {
     private static final CLDRFile ENGLISH = INFO.getEnglish();
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
-    private static final Set<Character> ONLY24 = Collections.unmodifiableSet(new LinkedHashSet<Character>(Arrays
+    private static final Set<Character> ONLY24 = Collections.unmodifiableSet(new LinkedHashSet<>(Arrays
         .asList('H')));
 
     private final static Map<String, Set<Character>> OVERRIDE_ALLOWED = Builder
@@ -149,7 +149,7 @@ public class FindPreferredHours {
 
         // gather data per region
 
-        Map<String, Relation<Character, String>> region2Preferred2locales = new TreeMap<String, Relation<Character, String>>();
+        Map<String, Relation<Character, String>> region2Preferred2locales = new TreeMap<>();
         Relation<String, Character> region2Allowed = Relation.of(new TreeMap<String, Set<Character>>(), TreeSet.class);
         final LanguageTagParser ltp = new LanguageTagParser();
 
@@ -196,7 +196,7 @@ public class FindPreferredHours {
                 if (preferredSet.size() == 1) {
                     overrides.append(region + " didn't need override!!\n");
                 } else {
-                    LinkedHashSet<Entry<Character, String>> oldValues = new LinkedHashSet<Entry<Character, String>>();
+                    LinkedHashSet<Entry<Character, String>> oldValues = new LinkedHashSet<>();
                     StringBuilder oldValuesString = new StringBuilder();
                     for (Entry<Character, String> x : preferredSet.keyValueSet()) {
                         if (!x.getKey().equals(resolvedValue)) {
@@ -212,7 +212,7 @@ public class FindPreferredHours {
                 }
             }
 
-            Set<Character> allAllowed = new TreeSet<Character>();
+            Set<Character> allAllowed = new TreeSet<>();
             Character preferred = null;
 
             for (Entry<Character, Set<String>> pref : preferredSet.keyValuesSet()) {

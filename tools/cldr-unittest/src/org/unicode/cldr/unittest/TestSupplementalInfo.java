@@ -1694,7 +1694,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     type.standardType);
                 StringBuilder failureCases = new StringBuilder();
                 for (Count count : counts) {
-                    String pattern = prf.getSamplePattern(locale, type.standardType, count);
+                    String pattern = PluralRulesFactory.getSamplePattern(locale, type.standardType, count);
                     final String rangeLine = getRangeLine(count, pluralInfo.getPluralRules(), pattern);
                     failureCases.append('\n').append(locale).append('\t').append(type).append('\t').append(rangeLine);
                     if (countsFound == null || !countsFound.contains(count)) {

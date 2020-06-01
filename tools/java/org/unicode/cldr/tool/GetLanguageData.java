@@ -18,8 +18,8 @@ public class GetLanguageData {
         .make(CLDRPaths.MAIN_DIRECTORY, ".*");
     CLDRFile english = cldrFactory.make("en", true);
     Set<String> euCountries = sdata.getContained("EU");
-    Counter<String> languageToGdp = new Counter<String>();
-    Counter<String> languageToPop = new Counter<String>();
+    Counter<String> languageToGdp = new Counter<>();
+    Counter<String> languageToPop = new Counter<>();
 
     public static void main(String[] args) {
         new GetLanguageData().run();
@@ -90,7 +90,7 @@ public class GetLanguageData {
             }
             if (langUnknown > 0) {
                 languageToGdp.add("und", (long) (gdp * langUnknown / territoryPop));
-                languageToPop.add("und", (long) (langUnknown));
+                languageToPop.add("und", (langUnknown));
             }
         }
     }

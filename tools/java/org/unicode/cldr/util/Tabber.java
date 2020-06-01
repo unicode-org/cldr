@@ -60,6 +60,7 @@ public abstract class Tabber {
         private List stops = new ArrayList();
         private List types = new ArrayList();
 
+        @Override
         public Tabber clear() {
             stops.clear();
             types.clear();
@@ -67,6 +68,7 @@ public abstract class Tabber {
             return this;
         }
 
+        @Override
         public String toString() {
             StringBuffer buffer = new StringBuffer();
             for (int i = 0; i < stops.size(); ++i) {
@@ -93,6 +95,7 @@ public abstract class Tabber {
         /**
          * Adds relative tab stop and how to align the text UP TO that stop
          */
+        @Override
         public Tabber add(int fieldWidth, byte type) {
             int last = getStop(stops.size() - 1);
             stops.add(new Integer(last + fieldWidth));
@@ -112,6 +115,7 @@ public abstract class Tabber {
             return ((Integer) types.get(fieldNumber)).intValue();
         }
 
+        @Override
         public void process_field(int count, String source, int start, int limit, StringBuffer output) {
             String piece = source.substring(start, limit);
             int startPos = getStop(count - 1);
@@ -149,6 +153,7 @@ public abstract class Tabber {
     }
 
     public static Tabber NULL_TABBER = new Tabber() {
+        @Override
         public void process_field(int count, String source, int start, int limit, StringBuffer output) {
             if (count > 0) output.append("\t");
             output.append(source.substring(start, limit));
@@ -181,6 +186,7 @@ public abstract class Tabber {
             return this;
         }
 
+        @Override
         public void process_field(int count, String source, int start, int limit, StringBuffer output) {
             output.append("<" + element);
             String params = null;

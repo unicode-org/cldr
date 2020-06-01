@@ -24,6 +24,7 @@ public class ValuePathStatus {
     }
 
     public static Transform<String, ValuePathStatus.MissingOK> MISSING_STATUS_TRANSFORM = new Transform<String, ValuePathStatus.MissingOK>() {
+        @Override
         public ValuePathStatus.MissingOK transform(String source) {
             return ValuePathStatus.MissingOK.valueOf(source);
         }
@@ -45,7 +46,7 @@ public class ValuePathStatus {
     }
 
     public static boolean isMissingOk(CLDRFile sourceFile, String path, boolean latin, boolean aliased) {
-        Output<String[]> arguments = new Output<String[]>();
+        Output<String[]> arguments = new Output<>();
         List<String> failures = null;
 //        if (path.startsWith("//ldml/characters/parseLenients")) {
 //            int debug = 0;

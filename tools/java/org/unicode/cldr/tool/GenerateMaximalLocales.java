@@ -79,7 +79,7 @@ public class GenerateMaximalLocales {
 
     enum OutputStyle {
         PLAINTEXT, C, C_ALT, XML
-    };
+    }
 
     private static OutputStyle OUTPUT_STYLE = OutputStyle.valueOf(CldrUtility.getProperty("OutputStyle", "XML", "XML")
         .toUpperCase());
@@ -119,7 +119,7 @@ public class GenerateMaximalLocales {
     private static final ImmutableSet<String> deprecatedISONotInLST = ImmutableSet.of("scc", "scr");
 
     /**
-     * This is the simplest way to override, by supplying the max value. 
+     * This is the simplest way to override, by supplying the max value.
      * It gets a very low weight, so doesn't override any stronger value.
      */
     private static final String[] MAX_ADDITIONS = new String[] {
@@ -306,7 +306,7 @@ public class GenerateMaximalLocales {
         { "und", "Latn" }, // Ultimate fallback
     };
 
-    private static Map<String, String> localeToScriptCache = new TreeMap<String, String>();
+    private static Map<String, String> localeToScriptCache = new TreeMap<>();
     static {
         for (String language : standardCodes.getAvailableCodes("language")) {
             Map<String, String> info = standardCodes.getLangData("language", language);
@@ -338,7 +338,7 @@ public class GenerateMaximalLocales {
 
         printDefaultLanguagesAndScripts();
 
-        Map<String, String> toMaximized = new TreeMap<String, String>();
+        Map<String, String> toMaximized = new TreeMap<>();
 
         tryDifferentAlgorithm(toMaximized);
 
@@ -487,6 +487,7 @@ public class GenerateMaximalLocales {
             return pop;
         }
 
+        @Override
         public int compareTo(RowData o) {
             // TODO Auto-generated method stub
             int result = os.compareTo(o.os);
@@ -496,10 +497,12 @@ public class GenerateMaximalLocales {
             return name.compareTo(o.name);
         }
 
+        @Override
         public boolean equals(Object o) {
             return 0 == compareTo((RowData) o);
         }
 
+        @Override
         public int hashCode() {
             throw new UnsupportedOperationException();
         }
@@ -510,8 +513,8 @@ public class GenerateMaximalLocales {
         final int minTotalPopulation = 10000000;
         final int minTerritoryPopulation = 1000000;
         final double minTerritoryPercent = 1.0 / 3;
-        Map<String, Set<RowData>> languageToReason = new TreeMap<String, Set<RowData>>();
-        Counter<String> languageToLiteratePopulation = new Counter<String>();
+        Map<String, Set<RowData>> languageToReason = new TreeMap<>();
+        Counter<String> languageToLiteratePopulation = new Counter<>();
         NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
         nf.setGroupingUsed(true);
         LanguageTagParser ltp = new LanguageTagParser();
@@ -527,7 +530,7 @@ public class GenerateMaximalLocales {
          * language coverage‡ in CLDR itself.
          */
         OfficialStatus minimalStatus = OfficialStatus.official_regional; // OfficialStatus.de_facto_official;
-        Map<String, String> languages = new TreeMap<String, String>();
+        Map<String, String> languages = new TreeMap<>();
         for (String language : standardCodes.getAvailableCodes("language")) {
             String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language);
             String result = english.getStringValue(path);
@@ -625,7 +628,7 @@ public class GenerateMaximalLocales {
 
         // now list them
 
-        Set<String> others = new TreeSet<String>();
+        Set<String> others = new TreeSet<>();
         others.addAll(standardCodes.getGoodAvailableCodes("language"));
         others.removeAll(languageToReason.keySet());
         System.out.println("\nIncluded Languages:\t" + languageToReason.keySet().size());
@@ -643,7 +646,7 @@ public class GenerateMaximalLocales {
     }
 
     private static void showLanguages(Set<String> others, Map<String, Set<RowData>> languageToReason) {
-        Set<String> sorted = new TreeSet<String>(Collator.getInstance(ULocale.ENGLISH));
+        Set<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ENGLISH));
         for (String language : others) {
             sorted.add(getLanguageName(language, languageToReason));
         }
@@ -687,14 +690,14 @@ public class GenerateMaximalLocales {
         String territory = english.getName("territory", territoryRaw) + " [" + territoryRaw + "]";
         Set<RowData> set = languageToReason.get(language);
         if (set == null) {
-            languageToReason.put(language, set = new TreeSet<RowData>());
+            languageToReason.put(language, set = new TreeSet<>());
         }
         set.add(new RowData(status, territory, population));
     }
 
     private static void printDefaultContent(Map<String, String> toMaximized) throws IOException {
 
-        Set<String> defaultLocaleContent = new TreeSet<String>();
+        Set<String> defaultLocaleContent = new TreeSet<>();
 
         // go through all the cldr locales, and add default contents
         // now computed from toMaximized
@@ -703,7 +706,7 @@ public class GenerateMaximalLocales {
         LanguageTagParser ltp = new LanguageTagParser();
 
         // System.out.println(maximize("az_Latn_AZ", toMaximized));
-        Set<String> hasScript = new TreeSet<String>();
+        Set<String> hasScript = new TreeSet<>();
 
         // first get a mapping to children
         for (String locale : available) {
@@ -724,13 +727,13 @@ public class GenerateMaximalLocales {
         }
 
         // Suppress script for locales for which we only have one locale in common/main. See ticket #7834.
-        Set<String> suppressScriptLocales = new HashSet<String>(Arrays.asList(
+        Set<String> suppressScriptLocales = new HashSet<>(Arrays.asList(
             "bm_ML", "en_US", "ha_NG", "iu_CA", "ms_MY", "mn_MN",
             "byn_ER", "ff_SN", "dyo_SN", "kk_KZ", "ku_TR", "ky_KG", "ml_IN", "so_SO", "sw_TZ", "wo_SN", "yo_NG", "dje_NE",
             "blt_VN"));
 
         // if any have a script, then throw out any that don't have a script (unless they're specifically included.)
-        Set<String> toRemove = new TreeSet<String>();
+        Set<String> toRemove = new TreeSet<>();
         for (String locale : hasScript) {
             toRemove.clear();
             Set<String> children = toChildren.getAll(locale);
@@ -753,7 +756,7 @@ public class GenerateMaximalLocales {
                 continue;
             }
             Set<String> children = toChildren.getAll(locale);
-            Map<String, String> debugStuff = new TreeMap<String, String>();
+            Map<String, String> debugStuff = new TreeMap<>();
             for (String child : children) {
                 String maximizedChild = maximize(child, toMaximized);
                 if (maximized.equals(maximizedChild)) {
@@ -832,18 +835,18 @@ public class GenerateMaximalLocales {
 
     private static class MaxData {
         Relation<String, Row.R3<Double, String, String>> languages = Relation.of(new TreeMap<String, Set<Row.R3<Double, String, String>>>(), TreeSet.class);
-        Map<String, Counter<String>> languagesToScripts = new TreeMap<String, Counter<String>>();
-        Map<String, Counter<String>> languagesToRegions = new TreeMap<String, Counter<String>>();
+        Map<String, Counter<String>> languagesToScripts = new TreeMap<>();
+        Map<String, Counter<String>> languagesToRegions = new TreeMap<>();
 
         Relation<String, Row.R3<Double, String, String>> scripts = Relation.of(new TreeMap<String, Set<Row.R3<Double, String, String>>>(), TreeSet.class);
-        Map<String, Counter<String>> scriptsToLanguages = new TreeMap<String, Counter<String>>();
-        Map<String, Counter<String>> scriptsToRegions = new TreeMap<String, Counter<String>>();
+        Map<String, Counter<String>> scriptsToLanguages = new TreeMap<>();
+        Map<String, Counter<String>> scriptsToRegions = new TreeMap<>();
 
         Relation<String, Row.R3<Double, String, String>> regions = Relation.of(new TreeMap<String, Set<Row.R3<Double, String, String>>>(), TreeSet.class);
-        Map<String, Counter<String>> regionsToLanguages = new TreeMap<String, Counter<String>>();
-        Map<String, Counter<String>> regionsToScripts = new TreeMap<String, Counter<String>>();
+        Map<String, Counter<String>> regionsToLanguages = new TreeMap<>();
+        Map<String, Counter<String>> regionsToScripts = new TreeMap<>();
 
-        Map<String, Counter<Row.R2<String, String>>> containersToLanguage = new TreeMap<String, Counter<Row.R2<String, String>>>();
+        Map<String, Counter<Row.R2<String, String>>> containersToLanguage = new TreeMap<>();
         Relation<String, Row.R4<Double, String, String, String>> containersToLangRegion = Relation.of(
             new TreeMap<String, Set<Row.R4<Double, String, String, String>>>(), TreeSet.class);
 
@@ -891,7 +894,7 @@ public class GenerateMaximalLocales {
                     containersToLangRegion.put(container, Row.of(order, language, script, region));
                     Counter<R2<String, String>> data = containersToLanguage.get(container);
                     if (data == null) {
-                        containersToLanguage.put(container, data = new Counter<R2<String, String>>());
+                        containersToLanguage.put(container, data = new Counter<>());
                     }
                     data.add(Row.of(language, script), (long) (double) order);
 
@@ -923,7 +926,7 @@ public class GenerateMaximalLocales {
         // Set<Row.R3<String,String,String>,Double> rowsToCounts = new TreeMap();
         MaxData maxData = new MaxData();
         Set<String> cldrLocales = factory.getAvailable();
-        Set<String> otherTerritories = new TreeSet<String>(standardCodes.getGoodAvailableCodes("territory"));
+        Set<String> otherTerritories = new TreeSet<>(standardCodes.getGoodAvailableCodes("territory"));
 
         // process all the information to get the top values for each triple.
         // each of the combinations of 1 or 2 components gets to be a key.
@@ -995,7 +998,7 @@ public class GenerateMaximalLocales {
             String language = entry.getKey();
             final Collection<String> values = entry.getValue();
             if (values.size() != 1) {
-                continue; // skip, no either way 
+                continue; // skip, no either way
             }
             Set<R3<Double, String, String>> old = maxData.languages.get(language);
             if (!maxData.languages.containsKey(language)) {
@@ -1047,16 +1050,16 @@ public class GenerateMaximalLocales {
             R3<Double, String, String> value = maxData.languages.getAll(language).iterator().next();
             final Comparable<String> script = value.get1();
             final Comparable<String> region = value.get2();
-            add(language, language + "_" + script + "_" + region, toMaximized, "L->SR", Override.REPLACE_EXISTING,
+            add(language, language + "_" + script + "_" + region, toMaximized, "L->SR", LocaleOverride.REPLACE_EXISTING,
                 SHOW_ADD);
         }
         for (String language : maxData.languagesToScripts.keySet()) {
             String script = maxData.languagesToScripts.get(language).getKeysetSortedByCount(true).iterator().next();
-            add(language, language + "_" + script, toMaximized, "L->S", Override.REPLACE_EXISTING, SHOW_ADD);
+            add(language, language + "_" + script, toMaximized, "L->S", LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String language : maxData.languagesToRegions.keySet()) {
             String region = maxData.languagesToRegions.get(language).getKeysetSortedByCount(true).iterator().next();
-            add(language, language + "_" + region, toMaximized, "L->R", Override.REPLACE_EXISTING, SHOW_ADD);
+            add(language, language + "_" + region, toMaximized, "L->R", LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (String script : maxData.scripts.keySet()) {
@@ -1064,15 +1067,15 @@ public class GenerateMaximalLocales {
             final Comparable<String> language = value.get1();
             final Comparable<String> region = value.get2();
             add("und_" + script, language + "_" + script + "_" + region, toMaximized, "S->LR",
-                Override.REPLACE_EXISTING, SHOW_ADD);
+                LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String script : maxData.scriptsToLanguages.keySet()) {
             String language = maxData.scriptsToLanguages.get(script).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + script, language + "_" + script, toMaximized, "S->L", Override.REPLACE_EXISTING, SHOW_ADD);
+            add("und_" + script, language + "_" + script, toMaximized, "S->L", LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String script : maxData.scriptsToRegions.keySet()) {
             String region = maxData.scriptsToRegions.get(script).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + script, "und_" + script + "_" + region, toMaximized, "S->R", Override.REPLACE_EXISTING,
+            add("und_" + script, "und_" + script + "_" + region, toMaximized, "S->R", LocaleOverride.REPLACE_EXISTING,
                 SHOW_ADD);
         }
 
@@ -1081,15 +1084,15 @@ public class GenerateMaximalLocales {
             final Comparable<String> language = value.get1();
             final Comparable<String> script = value.get2();
             add("und_" + region, language + "_" + script + "_" + region, toMaximized, "R->LS",
-                Override.REPLACE_EXISTING, SHOW_ADD);
+                LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String region : maxData.regionsToLanguages.keySet()) {
             String language = maxData.regionsToLanguages.get(region).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + region, language + "_" + region, toMaximized, "R->L", Override.REPLACE_EXISTING, SHOW_ADD);
+            add("und_" + region, language + "_" + region, toMaximized, "R->L", LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String region : maxData.regionsToScripts.keySet()) {
             String script = maxData.regionsToScripts.get(region).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + region, "und_" + script + "_" + region, toMaximized, "R->S", Override.REPLACE_EXISTING,
+            add("und_" + region, "und_" + script + "_" + region, toMaximized, "R->S", LocaleOverride.REPLACE_EXISTING,
                 SHOW_ADD);
         }
 
@@ -1114,7 +1117,7 @@ public class GenerateMaximalLocales {
             if (skipLanguages != null
                 && skipLanguages.contains(language)) {
                 add("und_" + region, language + "_" + script + "_" + region, toMaximized, "R*->LS",
-                    Override.REPLACE_EXISTING, SHOW_ADD);
+                    LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
                 continue;
             }
 
@@ -1124,7 +1127,7 @@ public class GenerateMaximalLocales {
                 final Comparable<String> script2 = e.get2();
                 if (language2.equals(language) && script2.equals(script)) {
                     add("und_" + region, language + "_" + script + "_" + e.get3(), toMaximized, "R*->LS",
-                        Override.REPLACE_EXISTING, SHOW_ADD);
+                        LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
                     break;
                 }
             }
@@ -1136,7 +1139,7 @@ public class GenerateMaximalLocales {
             final Comparable<String> script = languageScript.get1();
             final Comparable<String> region = value.get1();
             add(language + "_" + script, language + "_" + script + "_" + region, toMaximized, "LS->R",
-                Override.REPLACE_EXISTING, SHOW_ADD);
+                LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (R2<String, String> scriptRegion : maxData.scriptRegions.keySet()) {
@@ -1145,7 +1148,7 @@ public class GenerateMaximalLocales {
             final Comparable<String> region = scriptRegion.get1();
             final Comparable<String> language = value.get1();
             add("und_" + script + "_" + region, language + "_" + script + "_" + region, toMaximized, "SR->L",
-                Override.REPLACE_EXISTING, SHOW_ADD);
+                LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (R2<String, String> languageRegion : maxData.languageRegions.keySet()) {
@@ -1154,26 +1157,26 @@ public class GenerateMaximalLocales {
             final Comparable<String> region = languageRegion.get1();
             final Comparable<String> script = value.get1();
             add(language + "_" + region, language + "_" + script + "_" + region, toMaximized, "LR->S",
-                Override.REPLACE_EXISTING, SHOW_ADD);
+                LocaleOverride.REPLACE_EXISTING, SHOW_ADD);
         }
 
         // get the script info from metadata as fallback
 
-        TreeSet<String> sorted = new TreeSet<String>(ScriptMetadata.getScripts());
+        TreeSet<String> sorted = new TreeSet<>(ScriptMetadata.getScripts());
         for (String script : sorted) {
             Info i = ScriptMetadata.getInfo(script);
             String likelyLanguage = i.likelyLanguage;
             String originCountry = i.originCountry;
             final String result = likelyLanguage + "_" + script + "_" + originCountry;
             add("und_" + script, result, toMaximized, "S->LR•",
-                Override.KEEP_EXISTING, SHOW_ADD);
+                LocaleOverride.KEEP_EXISTING, SHOW_ADD);
             add(likelyLanguage, result, toMaximized, "L->SR•",
-                Override.KEEP_EXISTING, SHOW_ADD);
+                LocaleOverride.KEEP_EXISTING, SHOW_ADD);
         }
 
         // add overrides
         for (String key : LANGUAGE_OVERRIDES.keySet()) {
-            add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE", Override.REPLACE_EXISTING, true);
+            add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE", LocaleOverride.REPLACE_EXISTING, true);
         }
     }
 
@@ -1187,7 +1190,7 @@ public class GenerateMaximalLocales {
 
     private static void doAlt(Map<String, String> toMaximized) {
         // TODO Auto-generated method stub
-        Map<String, String> temp = new TreeMap<String, String>();
+        Map<String, String> temp = new TreeMap<>();
         for (String locale : toMaximized.keySet()) {
             String target = toMaximized.get(locale);
             temp.put(toAlt(locale, true), toAlt(target, true));
@@ -1326,11 +1329,11 @@ public class GenerateMaximalLocales {
     // }
     // }
 
-    enum Override {
+    enum LocaleOverride {
         KEEP_EXISTING, REPLACE_EXISTING
     }
 
-    private static void add(String key, String value, Map<String, String> toAdd, String kind, Override override,
+    private static void add(String key, String value, Map<String, String> toAdd, String kind, LocaleOverride override,
         boolean showAction) {
         if (key.equals(DEBUG_ADD_KEY)) {
             System.out.println("*debug*");
@@ -1340,7 +1343,7 @@ public class GenerateMaximalLocales {
             if (showAction) {
                 System.out.println("Adding:\t\t" + getName(key) + "\t=>\t" + getName(value) + "\t\t\t\t" + kind);
             }
-        } else if (override == Override.KEEP_EXISTING || value.equals(oldValue)) {
+        } else if (override == LocaleOverride.KEEP_EXISTING || value.equals(oldValue)) {
             // if (showAction) {
             // System.out.println("Skipping:\t" + key + "\t=>\t" + value + "\t\t\t\t" + kind);
             // }
@@ -1577,7 +1580,7 @@ public class GenerateMaximalLocales {
                 + "</supplementalData>";
         out.println(header);
         boolean first = true;
-        Set<String> keys = new TreeSet<String>(new LocaleStringComparator());
+        Set<String> keys = new TreeSet<>(new LocaleStringComparator());
         keys.addAll(fluffup.keySet());
         for (String printingLocale : keys) {
             String printingTarget = fluffup.get(printingLocale);
@@ -1716,7 +1719,7 @@ public class GenerateMaximalLocales {
     public static void minimize(Map<String, String> fluffup) {
         LanguageTagParser parser = new LanguageTagParser();
         LanguageTagParser targetParser = new LanguageTagParser();
-        Set<String> removals = new TreeSet<String>();
+        Set<String> removals = new TreeSet<>();
         while (true) {
             removals.clear();
             for (String locale : fluffup.keySet()) {
@@ -2025,7 +2028,7 @@ public class GenerateMaximalLocales {
         }
         scriptBits.clear(UScript.COMMON);
         scriptBits.clear(UScript.INHERITED);
-        Set<String> scripts = new TreeSet<String>();
+        Set<String> scripts = new TreeSet<>();
         for (int j = 0; j < scriptBits.size(); ++j) {
             if (scriptBits.get(j)) {
                 scripts.add(UScript.getShortName(j));
@@ -2053,7 +2056,7 @@ public class GenerateMaximalLocales {
     // };
 
     static void showDefaultContentDifferencesAndFix(Set<String> defaultLocaleContent) {
-        Set<String> errors = new LinkedHashSet<String>();
+        Set<String> errors = new LinkedHashSet<>();
         Map<String, String> oldDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(
             ConvertLanguageData.supplementalData.getDefaultContentLocales(), new TreeMap<String, String>(), errors);
         if (!errors.isEmpty()) {
@@ -2081,11 +2084,11 @@ public class GenerateMaximalLocales {
     private static Set<String> compareMapsAndFixNew(String title,
         Map<String, String> oldContent,
         Map<String, String> newContent, String... allowedOverrideValues) {
-        Map<String, String> allowedOverrideValuesTest = new HashMap<String, String>();
+        Map<String, String> allowedOverrideValuesTest = new HashMap<>();
         for (int i = 0; i < allowedOverrideValues.length; i += 2) {
             allowedOverrideValuesTest.put(allowedOverrideValues[i], allowedOverrideValues[i + 1]);
         }
-        Set<String> changes = new TreeSet<String>();
+        Set<String> changes = new TreeSet<>();
         for (String parent : Builder.with(new TreeSet<String>()).addAll(newContent.keySet())
             .addAll(oldContent.keySet()).get()) {
             String oldValue = oldContent.get(parent);
@@ -2141,6 +2144,7 @@ public class GenerateMaximalLocales {
         LanguageTagParser ltp0 = new LanguageTagParser();
         LanguageTagParser ltp1 = new LanguageTagParser();
 
+        @Override
         public int compare(String arg0, String arg1) {
             ltp0.set(arg0);
             ltp1.set(arg1);

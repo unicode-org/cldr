@@ -63,7 +63,7 @@ import com.ibm.icu.util.TimeZone;
 public class CldrUtility {
 
     public static final boolean DEBUG_MISSING_DIRECTORIES = false;
-    
+
     public static final Charset UTF8 = Charset.forName("utf-8");
     public static final boolean BETA = false;
 
@@ -99,7 +99,7 @@ public class CldrUtility {
      */
     public static class VariableReplacer {
         // simple implementation for now
-        private Map<String, String> m = new TreeMap<String, String>(Collections.reverseOrder());
+        private Map<String, String> m = new TreeMap<>(Collections.reverseOrder());
 
         public VariableReplacer add(String variable, String value) {
             m.put(variable, value);
@@ -196,6 +196,7 @@ public class CldrUtility {
             this.flags = flags;
         }
 
+        @Override
         public int compare(String line1, String line2) {
             // first, see if we want to skip one or the other lines
             int skipper = 0;
@@ -371,7 +372,7 @@ public class CldrUtility {
         // each item is of the form abc...
         // or "..." (required if a comma or quote is contained)
         // " in a field is represented by ""
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder item = new StringBuilder();
         boolean inQuote = false;
         for (int i = 0; i < line.length(); ++i) {
@@ -424,7 +425,7 @@ public class CldrUtility {
     }
 
     public static List<String> splitList(String source, String separator, boolean trim, List<String> output) {
-        if (output == null) output = new ArrayList<String>();
+        if (output == null) output = new ArrayList<>();
         if (source.length() == 0) return output;
         int pos = 0;
         do {
@@ -529,7 +530,7 @@ public class CldrUtility {
         }
     }
 
-    private static final Set<Object> KNOWN_IMMUTABLES = new HashSet<Object>(Arrays.asList(
+    private static final Set<Object> KNOWN_IMMUTABLES = new HashSet<>(Arrays.asList(
         String.class));
 
     public static boolean isImmutable(Object source) {
@@ -734,7 +735,7 @@ public class CldrUtility {
         // otherwise, we figure out what is in the set, and will return
         StringBuilder base = new StringBuilder("[");
         StringBuilder alternates = new StringBuilder();
-        Map<UnicodeSet, UnicodeSet> lastToFirst = new TreeMap<UnicodeSet, UnicodeSet>(new UnicodeSetComparator());
+        Map<UnicodeSet, UnicodeSet> lastToFirst = new TreeMap<>(new UnicodeSetComparator());
         int alternateCount = 0;
         while (it.nextRange()) {
             if (it.codepoint == UnicodeSetIterator.IS_STRING) {
@@ -807,18 +808,21 @@ public class CldrUtility {
     }
 
     public static class UnicodeSetComparator implements Comparator<UnicodeSet> {
+        @Override
         public int compare(UnicodeSet o1, UnicodeSet o2) {
             return o1.compareTo(o2);
         }
     }
 
     public static class CollectionComparator<T extends Comparable<T>> implements Comparator<Collection<T>> {
+        @Override
         public int compare(Collection<T> o1, Collection<T> o2) {
             return UnicodeSet.compare(o1, o2, UnicodeSet.ComparisonStyle.SHORTER_FIRST);
         }
     }
 
     public static class ComparableComparator<T extends Comparable<T>> implements Comparator<T> {
+        @Override
         public int compare(T arg0, T arg1) {
             return Utility.checkCompare(arg0, arg1);
         }
@@ -829,13 +833,14 @@ public class CldrUtility {
         Map<Object, Object> base = coverageData;
         for (int i = 0; i < objects.length - 2; ++i) {
             Map<Object, Object> nextOne = (Map<Object, Object>) base.get(objects[i]);
-            if (nextOne == null) base.put(objects[i], nextOne = new TreeMap<Object, Object>());
+            if (nextOne == null) base.put(objects[i], nextOne = new TreeMap<>());
             base = nextOne;
         }
         base.put(objects[objects.length - 2], objects[objects.length - 1]);
     }
 
     public static abstract class CollectionTransform<S, T> implements Transform<S, T> {
+        @Override
         public abstract T transform(S source);
 
         public Collection<T> transform(Collection<S> input, Collection<T> output) {
@@ -939,6 +944,7 @@ public class CldrUtility {
             return this;
         }
 
+        @Override
         public boolean contains(T o) {
             return matcher.reset(o.toString()).matches();
         }
@@ -1138,7 +1144,7 @@ public class CldrUtility {
     public static void showMethods(Class<?> cls) throws ClassNotFoundException {
         System.out.println("Possible methods of " + cls.getCanonicalName() + " are: ");
         Method[] methods = cls.getMethods();
-        Set<String> names = new TreeSet<String>();
+        Set<String> names = new TreeSet<>();
         for (int i = 0; i < methods.length; ++i) {
             if (methods[i].getGenericParameterTypes().length != 0) continue;
             //int mods = methods[i].getModifiers();
@@ -1336,7 +1342,7 @@ public class CldrUtility {
 
     public static <K, V> ConcurrentHashMap<K, V> newConcurrentHashMap() {
         // http://ria101.wordpress.com/2011/12/12/concurrenthashmap-avoid-a-common-misuse/
-        return new ConcurrentHashMap<K, V>(4, 0.9f, 1);
+        return new ConcurrentHashMap<>(4, 0.9f, 1);
     }
 
     public static <K, V> ConcurrentHashMap<K, V> newConcurrentHashMap(Map<K, V> source) {
@@ -1376,7 +1382,7 @@ public class CldrUtility {
     public static String getCopyrightString() {
         return getCopyrightString("");
     }
-    
+
     public static String getCopyrightString(String linePrefix) {
         // now do the rest
         return linePrefix + "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR

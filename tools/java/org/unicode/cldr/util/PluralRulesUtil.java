@@ -78,7 +78,7 @@ public class PluralRulesUtil {
 
         // Compute if the quick test is insufficient.
 
-        HashSet<Double> subtractedSet = new HashSet<Double>(values);
+        HashSet<Double> subtractedSet = new HashSet<>(values);
         for (Double explicit : explicits) {
             // int rounded = (int) Math.round(explicit*1000000);
             subtractedSet.remove(explicit - offset);

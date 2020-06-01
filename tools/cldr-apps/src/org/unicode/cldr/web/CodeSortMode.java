@@ -44,6 +44,7 @@ public class CodeSortMode extends SortMode {
         return new Comparator<DataRow>() {
             final Collator myCollator = createCollator();
 
+            @Override
             public int compare(DataRow p1, DataRow p2) {
                 if (p1 == p2) {
                     return 0;

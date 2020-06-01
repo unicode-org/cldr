@@ -79,7 +79,7 @@ public class GenerateBirth {
 
         String filePattern = myOptions.get("file").getValue();
 
-        ArrayList<Factory> list = new ArrayList<Factory>();
+        ArrayList<Factory> list = new ArrayList<>();
         for (CldrVersion version : VERSIONS) {
             if (version == CldrVersion.unknown) {
                 continue;
@@ -87,7 +87,7 @@ public class GenerateBirth {
             List<File> paths = version.getPathsForFactory();
 //            String base = version.getBaseDirectory();
 //            File[] paths = version.compareTo(CldrVersion.v27_0) > 0 ? // warning, order is reversed
-//                new File[] { new File(base + "common/main/") } : 
+//                new File[] { new File(base + "common/main/") } :
 //                    new File[] { new File(base + "common/main/"), new File(base + "common/annotations/") };
 
             System.out.println(version + ", " + paths);
@@ -144,7 +144,7 @@ public class GenerateBirth {
 
         // Load and process all the locales
 
-        TreeMap<String, Set<String>> localeToNewer = new TreeMap<String, Set<String>>();
+        TreeMap<String, Set<String>> localeToNewer = new TreeMap<>();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String fileName : factories[0].getAvailable()) {
             if (fileName.equals("en")) {
@@ -175,7 +175,7 @@ public class GenerateBirth {
         // Doublecheck the data
 
         OutdatedPaths outdatedPaths = new OutdatedPaths(dataDirectory);
-        Set<String> needPrevious = new TreeSet<String>();
+        Set<String> needPrevious = new TreeSet<>();
         int errorCount = 0;
         for (Entry<String, Set<String>> localeAndNewer : localeToNewer.entrySet()) {
             String locale = localeAndNewer.getKey();
@@ -215,7 +215,7 @@ public class GenerateBirth {
         final String locale;
         static final Pattern TYPE = PatternCache.get("\\[@type=\"([^\"]*)\"");
         final Matcher typeMatcher = TYPE.matcher("");
-        Set<String> emptyPrevious = new HashSet<String>();
+        Set<String> emptyPrevious = new HashSet<>();
 
         Births(String file) {
             locale = file;
@@ -231,7 +231,7 @@ public class GenerateBirth {
                 }
             }
             birthToPaths = Relation.of(new TreeMap<CldrVersion, Set<String>>(), TreeSet.class);
-            pathToBirthCurrentPrevious = new HashMap<String, Row.R3<CldrVersion, String, String>>();
+            pathToBirthCurrentPrevious = new HashMap<>();
             for (String xpath : files[0]) {
                 xpath = xpath.intern();
                 if (xpath.contains("[@type=\"ar\"]")) {
@@ -310,8 +310,8 @@ public class GenerateBirth {
 
             out.println("Loc\tVersion\tValue\tPrevValue\tEVersion\tEValue\tEPrevValue\tPath");
 
-            Set<String> newer = new HashSet<String>();
-            HashMap<Long, String> sanityCheck = new HashMap<Long, String>();
+            Set<String> newer = new HashSet<>();
+            HashMap<Long, String> sanityCheck = new HashMap<>();
             CldrVersion onlyNewerVersion = null;
             String otherValue = "n/a";
             String olderOtherValue = "n/a";

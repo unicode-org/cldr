@@ -166,7 +166,7 @@ public class DBUtils {
         boolean hasEscapeable = false;
         boolean hasNonEscapeable = false;
         for (byte b : what) {
-            int j = ((int) b) & 0xff;
+            int j = (b) & 0xff;
             char c = (char) j;
             if (escapeIsBasic(c)) {
                 continue;
@@ -208,7 +208,7 @@ public class DBUtils {
     public static final String escapeHex(byte what[]) {
         StringBuffer out = new StringBuffer("x'");
         for (byte b : what) {
-            int j = ((int) b) & 0xff;
+            int j = (b) & 0xff;
             if (j < 0x10) {
                 out.append('0');
             }
@@ -231,7 +231,7 @@ public class DBUtils {
     public static final String escapeLiterals(byte what[]) {
         StringBuffer out = new StringBuffer("'");
         for (byte b : what) {
-            int j = ((int) b) & 0xff;
+            int j = (b) & 0xff;
             char c = (char) j;
             switch (c) {
             case 0:
@@ -526,7 +526,7 @@ public class DBUtils {
                 SurveyLog.logException(se, "Error [SQL was: " + str + "]");
                 throw se; // rethrow
             }
-            ArrayList<String[]> al = new ArrayList<String[]>();
+            ArrayList<String[]> al = new ArrayList<>();
             while (rs.next()) {
                 al.add(arrayOfResult(rs));
             }
@@ -732,6 +732,7 @@ public class DBUtils {
     /**
      * @deprecated Use {@link #getDBConnection()} instead
      */
+    @Deprecated
     public final Connection getDBConnection(SurveyMain surveyMain) {
         return getDBConnection();
     }
@@ -747,6 +748,7 @@ public class DBUtils {
     /**
      * @deprecated Use {@link #getDBConnection(String)} instead
      */
+    @Deprecated
     public final Connection getDBConnection(SurveyMain surveyMain, String options) {
         return getDBConnection(options);
     }
@@ -1023,7 +1025,7 @@ public class DBUtils {
     }
 
     public static String[][] resultToArrayArray(ResultSet rs) throws SQLException {
-        ArrayList<String[]> al = new ArrayList<String[]>();
+        ArrayList<String[]> al = new ArrayList<>();
         while (rs.next()) {
             al.add(arrayOfResult(rs));
         }
@@ -1031,7 +1033,7 @@ public class DBUtils {
     }
 
     public static Object[][] resultToArrayArrayObj(ResultSet rs) throws SQLException {
-        ArrayList<Object[]> al = new ArrayList<Object[]>();
+        ArrayList<Object[]> al = new ArrayList<>();
         ResultSetMetaData rsm = rs.getMetaData();
         int colCount = rsm.getColumnCount();
         while (rs.next()) {
@@ -1043,7 +1045,7 @@ public class DBUtils {
     @SuppressWarnings("unchecked")
     private static Map<String, Object>[] resultToArrayAssoc(ResultSet rs) throws SQLException {
         ResultSetMetaData rsm = rs.getMetaData();
-        ArrayList<Map<String, Object>> al = new ArrayList<Map<String, Object>>();
+        ArrayList<Map<String, Object>> al = new ArrayList<>();
         while (rs.next()) {
             al.add(assocOfResult(rs, rsm));
         }
@@ -1055,7 +1057,7 @@ public class DBUtils {
     }
 
     private static Map<String, Object> assocOfResult(ResultSet rs, ResultSetMetaData rsm) throws SQLException {
-        Map<String, Object> m = new HashMap<String, Object>(rsm.getColumnCount());
+        Map<String, Object> m = new HashMap<>(rsm.getColumnCount());
         for (int i = 1; i <= rsm.getColumnCount(); i++) {
             Object obj = extractObject(rs, rsm, i);
             m.put(rsm.getColumnName(i).toLowerCase(), obj);
@@ -1389,7 +1391,7 @@ public class DBUtils {
         }
     }
 
-    private Map<String, Reference<JSONObject>> cachedJsonQuery = new ConcurrentHashMap<String, Reference<JSONObject>>();
+    private Map<String, Reference<JSONObject>> cachedJsonQuery = new ConcurrentHashMap<>();
 
     /**
      * Run a query, caching the JSON response
@@ -1442,7 +1444,7 @@ public class DBUtils {
             }
             result.put("queryms", (Long) (queryms));
             result.put("id", id);
-            ref = new SoftReference<JSONObject>(result);
+            ref = new SoftReference<>(result);
             instance.cachedJsonQuery.put(id, ref);
         }
 
@@ -1566,7 +1568,7 @@ public class DBUtils {
      */
     public enum Table {
         /* These constants represent names and other attributes of database tables.
-         * 
+         *
          * The (false, false) constructor makes isVersioned, hasBeta both false for
          * the FORUM_POSTS and FORUM_TYPES tables: these tables are not version-specific.
          *
@@ -1579,7 +1581,7 @@ public class DBUtils {
 
         /**
          * Construct a Table constant with explicit parameters for isVersioned, hasBeta.
-         * 
+         *
          * @param isVersioned true for tables whose name depends on version like cldr_vote_value_33,
          *                    false for tables whose name is version independent, like forum_posts
          * @param hasBeta true for tables whose name is different for beta versions like cldr_vote_value_32_beta,
@@ -1606,6 +1608,7 @@ public class DBUtils {
          * High runner case.
          * WARNING: Do not use in constant strings
          */
+        @Override
         public synchronized String toString() {
             if (defaultString == null) {
                 if (!SurveyMain.isConfigSetup && CLDRConfig.getInstance().getEnvironment() != CLDRConfig.Environment.UNITTEST) {

@@ -40,6 +40,7 @@ final public class DualWriter extends Writer {
         return autoflush;
     }
 
+    @Override
     public void write(char cbuf[],
         int off,
         int len) throws IOException {
@@ -48,11 +49,13 @@ final public class DualWriter extends Writer {
         if (autoflush) flush();
     }
 
+    @Override
     public void close() throws IOException {
         a.close();
         b.close();
     }
 
+    @Override
     public void flush() throws IOException {
         a.flush();
         b.flush();

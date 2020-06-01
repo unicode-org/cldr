@@ -50,7 +50,7 @@ public class ListCoverageLevels {
         Factory mainAndAnnotationsFactory = config.getMainAndAnnotationsFactory();
 
         Set<String> toTest = sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.allOf(Level.class));
-        // ImmutableSortedSet.of("it", "root", "ja"); 
+        // ImmutableSortedSet.of("it", "root", "ja");
         // mainAndAnnotationsFactory.getAvailable();
         final Set<CLDRLocale> ALL;
         {
@@ -61,12 +61,12 @@ public class ListCoverageLevels {
 
         M4<Level, String, Attributes, Boolean> data = ChainedMap.of(
             new TreeMap<Level,Object>(),
-            new TreeMap<String,Object>(), 
+            new TreeMap<String,Object>(),
             new TreeMap<Attributes,Object>(),
             Boolean.class);
          M5<String, Level, CLDRLocale, List<String>, Boolean> starredToLevels = ChainedMap.of(
             new TreeMap<String,Object>(),
-            new TreeMap<Level,Object>(), 
+            new TreeMap<Level,Object>(),
             new TreeMap<CLDRLocale,Object>(),
             new HashMap<List<String>,Object>(),
             Boolean.class);
@@ -111,7 +111,7 @@ public class ListCoverageLevels {
 //                starredToLevels.put(starred, level, cLoc, Boolean.TRUE);
 //            }
 //        }
-        
+
         System.out.println("ALL=" + getLocaleName(null, ALL));
 
         for (Entry<String, Map<Level, Map<CLDRLocale, Map<List<String>, Boolean>>>> entry : starredToLevels) {
@@ -146,10 +146,10 @@ public class ListCoverageLevels {
                 Multimap<String, List<String>> localesToAttrs = Attributes.getLocaleNameToAttributeList(ALL, attributes);
                 for (Entry<String, Collection<List<String>>> entry : localesToAttrs.asMap().entrySet()) {
                     Collection<List<String>> attrs = entry.getValue();
-                    System.out.println(level 
-                        + "\t" + starred 
-                        + "\t" + entry.getKey() 
-                        + "\t" + attrs.size() 
+                    System.out.println(level
+                        + "\t" + starred
+                        + "\t" + entry.getKey()
+                        + "\t" + attrs.size()
                         + "\t" + Attributes.compact(attrs, new StringBuilder()));
                 }
             }
@@ -163,7 +163,7 @@ public class ListCoverageLevels {
             return "AllLcs-(" + Joiner.on("|").join(y) + ")";
         };
         return all == null ? Joiner.on("|").join(locales)
-            : locales.equals(all) ? "AllLcs" 
+            : locales.equals(all) ? "AllLcs"
                 : locales.size()*2 > all.size() ? remainderName.apply(locales)
                     : Joiner.on("|").join(locales);
     }
@@ -195,7 +195,7 @@ public class ListCoverageLevels {
 //                Collection<List<String>> attrList = entry.getValue();
 //                Map<String, Map> map = getMap(attrList);
 //                getName(map, result);
-//            }            
+//            }
 //
 //            return result;
 //        }
@@ -256,7 +256,7 @@ public class ListCoverageLevels {
             for (Iterable<T> list : source) {
                 Map<T, Map> top = items;
                 for (T item : list) {
-                    Map<T, Map> value = (Map<T, Map>) top.get(item);
+                    Map<T, Map> value = top.get(item);
                     if (value == null) {
                         top.put(item, value = new LinkedHashMap<>());
                     }

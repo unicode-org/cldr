@@ -250,8 +250,8 @@ public abstract class CLDRURLS {
      */
     public static String gitHashToLink(String hash) {
         if(!isKnownHash(hash)) return "<span class=\"githashLink\">"+hash+"</span>"; // Not linkifiable
-        return "<a class=\"githashLink\" href=\"" + 
-                CldrUtility.getProperty("CLDR_COMMIT_BASE", "https://github.com/unicode-org/cldr/commit/") 
+        return "<a class=\"githashLink\" href=\"" +
+                CldrUtility.getProperty("CLDR_COMMIT_BASE", "https://github.com/unicode-org/cldr/commit/")
                 + hash + "\">" + hash + "</a>";
     }
 

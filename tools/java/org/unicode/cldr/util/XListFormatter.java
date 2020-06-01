@@ -13,21 +13,21 @@ import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UTF16;
 
 public class XListFormatter {
-    
+
     public enum ListTypeLength {
-        AND_WIDE(""), 
-        AND_SHORT("[@type=\"standard-short\"]"), 
-        AND_NARROW("[@type=\"standard-narrow\"]"), 
-        OR_WIDE("[@type=\"or\"]"), 
-        OR_SHORT("[@type=\"or-short\"]"), 
-        OR_NARROW("[@type=\"or-narrow\"]"), 
-        UNIT_WIDE("[@type=\"unit\"]"), 
-        UNIT_SHORT("[@type=\"unit-short\"]"), 
+        AND_WIDE(""),
+        AND_SHORT("[@type=\"standard-short\"]"),
+        AND_NARROW("[@type=\"standard-narrow\"]"),
+        OR_WIDE("[@type=\"or\"]"),
+        OR_SHORT("[@type=\"or-short\"]"),
+        OR_NARROW("[@type=\"or-narrow\"]"),
+        UNIT_WIDE("[@type=\"unit\"]"),
+        UNIT_SHORT("[@type=\"unit-short\"]"),
         UNIT_NARROW("[@type=\"unit-narrow\"]")
         ;
 
         public static final ListTypeLength NORMAL = AND_WIDE;
-        
+
         final String typeString;
 
         static final Map<String, ListTypeLength> stringToEnum;
@@ -55,9 +55,9 @@ public class XListFormatter {
                 + "/listPatternPart[@type=\"{0}\"]";
         }
     }
-    
+
     private ListFormatter listFormatter;
-    
+
     public XListFormatter(CLDRFile cldrFile, ListTypeLength listTypeLength) {
         SimpleFormatter listPathFormat = SimpleFormatter.compile(listTypeLength.getPath());
         String doublePattern = cldrFile.getWinningValue(listPathFormat.format("2"));
@@ -66,7 +66,7 @@ public class XListFormatter {
         String endPattern = cldrFile.getWinningValue(listPathFormat.format("end"));
         listFormatter = new ListFormatter(doublePattern, startPattern, middlePattern, endPattern);
     }
-    
+
     public String format(Object... items) {
         return listFormatter.format(items);
     }
@@ -74,7 +74,7 @@ public class XListFormatter {
     public String format(Collection<?> items) {
         return listFormatter.format(items);
     }
-    
+
     public String formatCodePoints(String items) {
         List<String> source = new ArrayList<>();
         for (int sourceInt : CharSequences.codePoints(items)) { // TODO add utility in CharSequences

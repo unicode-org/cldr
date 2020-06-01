@@ -24,7 +24,7 @@ public class JspWebContext extends WebContext {
 
     private enum MainFormState {
         OPEN, CLOSED
-    };
+    }
 
     MainFormState mainFormState = MainFormState.CLOSED;
     /**

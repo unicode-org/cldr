@@ -6,8 +6,8 @@ import java.util.Locale;
 import java.util.Map;
 
 public class EnumNames<T extends Enum<?>> {
-    private Map<String, T> namesToEnum = new HashMap<String, T>();
-    private ArrayList<String> enumToPreferredName = new ArrayList<String>();
+    private Map<String, T> namesToEnum = new HashMap<>();
+    private ArrayList<String> enumToPreferredName = new ArrayList<>();
 
     public void add(T enumItem, String... alternateNames) {
         final String name = enumItem.name();

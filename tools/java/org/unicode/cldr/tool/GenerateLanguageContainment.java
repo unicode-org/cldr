@@ -242,7 +242,7 @@ public class GenerateLanguageContainment {
         System.out.println("Checking " + "he" + "\t" + Containment.getAllDirected(childToParent, "he"));
 
         PrintWriter out = new PrintWriter(System.out);
-        print(out, parentToChild, new ArrayList<String>(Arrays.asList("mul")));
+        print(out, parentToChild, new ArrayList<>(Arrays.asList("mul")));
         System.out.println(out);
         SimpleXMLSource xmlSource = new SimpleXMLSource("languageGroup");
         xmlSource.setNonInheriting(true); // should be gotten from DtdType...
@@ -388,9 +388,9 @@ public class GenerateLanguageContainment {
 //        }
 //        String last = chain.get(0);
 //        for (int i = 1; i < chain.size(); ++i) {
-//            String item = chain.get(i); 
+//            String item = chain.get(i);
 //            if (!COLLECTIONS.contains(item)) {
-//                chain.set(i, item.equals("zh") ? "zhx" : ""); 
+//                chain.set(i, item.equals("zh") ? "zhx" : "");
 //                DROPPED_PARENTS_TO_CHILDREN.put(item, last);
 //            } else {
 //                last = item;

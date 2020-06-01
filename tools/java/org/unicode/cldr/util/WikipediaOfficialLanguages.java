@@ -116,7 +116,7 @@ public class WikipediaOfficialLanguages {
                         System.out.println(++count + " Couldn't parse region: <" + items[0] + "> in line: " + line);
                         regionSet = Collections.emptySet();
                     } else {
-                        regionSet = new HashSet<String>();
+                        regionSet = new HashSet<>();
                         regionSet.add(region);
                     }
                 } else if (line.contains("[edit]") || line.trim().isEmpty()) {
@@ -188,7 +188,7 @@ public class WikipediaOfficialLanguages {
         }
         comments = comments.substring(inLen);
 
-        Set<String> result = new HashSet<String>();
+        Set<String> result = new HashSet<>();
         String[] parts = comments.split("(,?\\s+and|,|;)\\s+");
         for (String part : parts) {
             if (part.isEmpty() || part.equals("de facto")) {
@@ -227,11 +227,11 @@ public class WikipediaOfficialLanguages {
         Set<String> locales = sc.getLocaleCoverageLocales("google"); // for now, restrict this
 
         System.out.println("Cc\tCountry\tLc\tLanguage Name\tWiki status (heuristic)\tCLDR status\t\tWiki notes");
-        Set<String> seen = new HashSet<String>();
+        Set<String> seen = new HashSet<>();
         for (String region : getRegions()) {
             //boolean regionShown = false;
             Set<String> cldrLanguagesRaw = supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(region);
-            Map<String, PopulationData> cldrLanguageInfo = new HashMap<String, PopulationData>();
+            Map<String, PopulationData> cldrLanguageInfo = new HashMap<>();
             for (String s : cldrLanguagesRaw) {
                 if (s.contains("_")) {
                     PopulationData sInfo = supplementalDataInfo.getLanguageAndTerritoryPopulationData(s, region);
@@ -250,7 +250,7 @@ public class WikipediaOfficialLanguages {
                 OfficialStatus cldrStatus = sInfo == null ? OfficialStatus.unknown : sInfo.getOfficialStatus();
                 if (!areCompatible(info.status, cldrStatus)) {
                     System.out.print(region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
-                    ;
+
                     System.out.println("\t" + info.language
                         + "\t" + english.getName(info.language)
                         + "\t" + info.status
@@ -265,7 +265,7 @@ public class WikipediaOfficialLanguages {
                     OfficialStatus officialStatus = sInfo.getOfficialStatus();
                     if (OfficialStatus.unknown != officialStatus) {
                         System.out.print(region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
-                        ;
+
                         System.out.println("\t" + r2
                             + "\t" + english.getName(r2)
                             + "\t" + "CLDR-ONLY"

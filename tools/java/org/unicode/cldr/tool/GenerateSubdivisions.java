@@ -31,7 +31,7 @@ public class GenerateSubdivisions {
 
 
     // TODO: consider whether to use the last archive directory to generate
-    // There are pros and cons. 
+    // There are pros and cons.
     // Pros are that we don't introduce "fake" deprecated elements that are introduced and deprecated during the 6 month CLDR cycle
     // Cons are that we may have to repeat work
 
@@ -99,8 +99,8 @@ public class GenerateSubdivisions {
 
         SubdivisionSet sdset1 = new SubdivisionSet(GenerateSubdivisions.ISO_SUBDIVISION_CODES);
         SubDivisionExtractor sdset = new SubDivisionExtractor(sdset1,
-            SubdivisionInfo.VALIDITY_FORMER, 
-            SubdivisionInfo.SUBDIVISION_ALIASES_FORMER, 
+            SubdivisionInfo.VALIDITY_FORMER,
+            SubdivisionInfo.SUBDIVISION_ALIASES_FORMER,
             SubdivisionInfo.formerRegionToSubdivisions);
 
         try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisions.xml")) {

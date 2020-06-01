@@ -26,7 +26,7 @@ public class CLDRBuild extends Task {
     private String srcFile;
     private String destFile;
     private boolean noArgs;
-    private List<Run> runs = new ArrayList<Run>();
+    private List<Run> runs = new ArrayList<>();
 
     private UOption srcDir = UOption.SOURCEDIR();
     private UOption destDir = UOption.DESTDIR();
@@ -38,6 +38,7 @@ public class CLDRBuild extends Task {
             this.filePattern = filePattern == null ? null : PatternCache.get(filePattern);
         }
 
+        @Override
         public boolean accept(File pathname) {
             return filePattern != null && filePattern.matcher(pathname.getName()).matches();
         }
@@ -58,7 +59,7 @@ public class CLDRBuild extends Task {
         File destdir = new File(dest);
         File[] destFiles = destdir.listFiles(new PatternFilter(destFile));
 
-        Map<String, String> ret = new TreeMap<String, String>();
+        Map<String, String> ret = new TreeMap<>();
 
         if (config != null) {
             List<InExclude> localesList = config.locales.localesList;
@@ -115,7 +116,7 @@ public class CLDRBuild extends Task {
 
     public Set<String> getIncludedLocales(Config config) {
 
-        Set<String> ret = new HashSet<String>();
+        Set<String> ret = new HashSet<>();
         if (config != null) {
             List<InExclude> localesList = config.locales.localesList;
             for (InExclude inex : localesList) {
@@ -184,7 +185,7 @@ public class CLDRBuild extends Task {
                     continue;
                 }
 
-                List<String> argList = new ArrayList<String>();
+                List<String> argList = new ArrayList<>();
                 StringBuilder printArgs = new StringBuilder();
                 for (Map.Entry<String, String> e : runArgs.map.entrySet()) {
                     String key = e.getKey();
@@ -225,7 +226,7 @@ public class CLDRBuild extends Task {
                 }
 
                 if (run.remapper != null) {
-                    List<SplitInfo> infos = new ArrayList<SplitInfo>();
+                    List<SplitInfo> infos = new ArrayList<>();
                     for (Remap remap : run.remapper.remaps) {
                         infos.add(new SplitInfo(remap.sourcePath, remap.targetDir, remap.targetPath));
                     }
@@ -308,7 +309,7 @@ public class CLDRBuild extends Task {
     }
 
     public static class Args extends Task {
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
 
         public void addConfiguredArg(Arg arg) {
             if (arg.name == null) {
@@ -364,7 +365,7 @@ public class CLDRBuild extends Task {
     }
 
     public static class Locales extends Task {
-        List<InExclude> localesList = new ArrayList<InExclude>();
+        List<InExclude> localesList = new ArrayList<>();
 
         public void addConfiguredInclude(Include include) {
             addInEx(include);
@@ -482,21 +483,21 @@ public class CLDRBuild extends Task {
 
         public void addConfiguredAlias(Alias alias) {
             if (aliasList == null) {
-                aliasList = new ArrayList<CLDRConverterTool.Alias>();
+                aliasList = new ArrayList<>();
             }
             aliasList.add(new CLDRConverterTool.Alias(alias.from, alias.to, alias.xpath, alias.rbPath, alias.value));
         }
 
         public void addConfiguredEmptyLocale(EmptyLocale alias) {
             if (emptyLocaleList == null) {
-                emptyLocaleList = new ArrayList<String>();
+                emptyLocaleList = new ArrayList<>();
             }
             emptyLocaleList.add(alias.locale);
         }
 
         public void addConfiguredAliasLocale(AliasLocale alias) {
             if (aliasLocaleList == null) {
-                aliasLocaleList = new ArrayList<String>();
+                aliasLocaleList = new ArrayList<>();
             }
             aliasLocaleList.add(alias.locale);
         }
@@ -557,7 +558,7 @@ public class CLDRBuild extends Task {
         public String locales;
         public String draft;
 
-        private List<Task> pathList = new ArrayList<Task>();
+        private List<Task> pathList = new ArrayList<>();
 
         public void addConfiguredInclude(Include include) {
             pathList.add(include);
@@ -624,7 +625,7 @@ public class CLDRBuild extends Task {
     }
 
     public static class OverrideFallback extends Task {
-        List<Paths> pathsList = new ArrayList<Paths>();
+        List<Paths> pathsList = new ArrayList<>();
 
         public void addConfiguredPaths(Paths paths) {
             pathsList.add(paths);
@@ -651,7 +652,7 @@ public class CLDRBuild extends Task {
 
     public static class Remapper extends Task {
         public String baseDir;
-        List<Remap> remaps = new ArrayList<Remap>();
+        List<Remap> remaps = new ArrayList<>();
 
         public void setBaseDir(String baseDir) {
             this.baseDir = baseDir;

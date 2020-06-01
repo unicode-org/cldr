@@ -27,7 +27,7 @@ import com.ibm.icu.util.Output;
 /**
  * Very basic class for rational numbers. No attempt to optimize, since it will just
  * be used for testing within CLDR.
- * 
+ *
  * @author markdavis
  *
  */
@@ -37,7 +37,7 @@ public final class Rational implements Comparable<Rational> {
     public final BigInteger denominator;
 
     // Constraints:
-    //   always stored in normalized form. 
+    //   always stored in normalized form.
     //   no common factor > 1 (reduced)
     //   denominator never negative
     //   if numerator is zero, denominator is 1 or 0
@@ -53,7 +53,7 @@ public final class Rational implements Comparable<Rational> {
 
     public static final Rational TEN = Rational.of(10, 1);
     public static final Rational TENTH = TEN.reciprocal();
-    
+
     public static final char REPTEND_MARKER = '˙';
 
     public static class RationalParser implements Freezable<RationalParser>{
@@ -71,12 +71,12 @@ public final class Rational implements Comparable<Rational> {
                 throw new IllegalArgumentException("Can't reset constant " + id + " = " + value);
             }
             if (status != null) {
-                constantStatus.put(id, status); 
+                constantStatus.put(id, status);
             }
             return this;
         }
 
-        /* 
+        /*
          * input = comp (/ comp)?
          * comp = comp2 (* comp2)*
          * comp2 = digits (. digits)? | constant
@@ -277,8 +277,8 @@ public final class Rational implements Comparable<Rational> {
 
     public static Rational of(BigDecimal bigDecimal) {
         // scale()
-        // If zero or positive, the scale is the number of digits to the right of the decimal point. 
-        // If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. 
+        // If zero or positive, the scale is the number of digits to the right of the decimal point.
+        // If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale.
         // For example, a scale of -3 means the unscaled value is multiplied by 1000.
         final int scale = bigDecimal.scale();
         final BigInteger unscaled = bigDecimal.unscaledValue();
@@ -312,7 +312,7 @@ public final class Rational implements Comparable<Rational> {
         final boolean denIsOne = newDenominator.equals(BigInteger.ONE);
 
         switch (style) {
-        case repeating: 
+        case repeating:
             String result = toRepeating(30); // limit of 30 on the repeating length, so we don't get crazy
             if (result != null) {
                 return result;
@@ -338,7 +338,7 @@ public final class Rational implements Comparable<Rational> {
          * Only for large/small numbers, eg:
          * ≥ 1,000,000.0, => 1×10<sup>6</sup> — more than 6 trailing 0's
          * ≤ 0.0000001 — more than 6 leading zeros
-         * 
+         *
          * relevant BigDecimal APIs:
          * 123.4567 scale: 4 bigint: 1234567
          * 123456700 scale: 0 bigint: 123456700
@@ -382,7 +382,7 @@ public final class Rational implements Comparable<Rational> {
 
 
     /**
-     * Goal is to be able to display rationals in a short but exact form, like 1,234,567/3 or 1.234567E21/3. 
+     * Goal is to be able to display rationals in a short but exact form, like 1,234,567/3 or 1.234567E21/3.
      * To do this, find the smallest denominator (excluding powers of 2 and 5), and modify the numerator in the same way.
      * @param denominator TODO
      * @param current

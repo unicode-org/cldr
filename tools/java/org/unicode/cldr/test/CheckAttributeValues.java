@@ -45,17 +45,17 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     private static final boolean FIND_MISSING = CldrUtility.getProperty("FIND_MISSING_ATTRIBUTE_TESTS", false); // turn on to show <attributeValues> that are missing.
     private static final boolean SHOW_UNNECESSARY = false; // turn on to show <attributeValues> we should delete.
 
-    static LinkedHashSet<String> elementOrder = new LinkedHashSet<String>();
-    static LinkedHashSet<String> attributeOrder = new LinkedHashSet<String>();
-    static LinkedHashSet<String> serialElements = new LinkedHashSet<String>();
-    static Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
-    static Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
-    static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
+    static LinkedHashSet<String> elementOrder = new LinkedHashSet<>();
+    static LinkedHashSet<String> attributeOrder = new LinkedHashSet<>();
+    static LinkedHashSet<String> serialElements = new LinkedHashSet<>();
+    static Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<>();
+    static Map<String, MatcherPattern> common_attribute_validity = new HashMap<>();
+    static Map<String, MatcherPattern> variables = new HashMap<>();
     // static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
     // -- to do later.
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
-    static Map<String, Map<String, String>> code_type_replacement = new TreeMap<String, Map<String, String>>();
+    static Map<String, Map<String, String>> code_type_replacement = new TreeMap<>();
     static final SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
     static DtdData ldmlDtdData = DtdData.getInstance(DtdType.ldml);
 
@@ -69,12 +69,14 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         super(factory);
     }
 
+    @Override
     public void handleFinish() {
         for (Entry<String, Set<String>> entry : missingTests.keyValuesSet()) {
             System.out.println("Missing element: " + entry.getKey() + ", attributes: " + entry.getValue());
         }
     }
 
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -333,7 +335,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                     // System.out.println("\t" + element);
                     Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
                     if (attribute_validity == null) {
-                        element_attribute_validity.put(element, attribute_validity = new TreeMap<String, MatcherPattern>());
+                        element_attribute_validity.put(element, attribute_validity = new TreeMap<>());
                     }
                     addAttributes(attributeList, attribute_validity, mp);
                 }
@@ -420,7 +422,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         result.value = value;
         if ("choice".equals(typeAttribute)) {
             result.matcher = new CollectionMatcher()
-                .set(new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
+                .set(new HashSet<>(Arrays.asList(value.trim().split("\\s+"))));
         } else if ("bcp47".equals(typeAttribute)) {
             result = getBcp47MatcherPattern(value);
         } else if ("regex".equals(typeAttribute)) {
@@ -452,6 +454,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         Predicate<String> matcher;
         String pattern;
 
+        @Override
         public String toString() {
             return matcher.getClass().getName() + "\t" + pattern;
         }
@@ -470,6 +473,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             matcher.reset(value.toString());
             return matcher.matches();
@@ -484,6 +488,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             return collection.contains(value);
         }
@@ -499,6 +504,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             return a.test(value) || b.test(value);
         }
@@ -512,6 +518,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             String[] values = value.trim().split("\\s+");
             if (values.length == 1 && values[0].length() == 0) return true;
@@ -546,6 +553,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return singleton;
         }
 
+        @Override
         public boolean test(String value) {
             if (grandfathered.test(value)) return true;
             lip.set((String) value);

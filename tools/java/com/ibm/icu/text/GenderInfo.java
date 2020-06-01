@@ -139,7 +139,7 @@ public class GenderInfo {
     // TODO Get this data from a resource bundle generated from CLDR.
     // For now, hard coded.
 
-    private static Map<ULocale, ListGenderStyle> localeToListGender = new HashMap<ULocale, ListGenderStyle>();
+    private static Map<ULocale, ListGenderStyle> localeToListGender = new HashMap<>();
     static {
         for (String locale : Arrays.asList("ar", "ca", "cs", "hr", "es", "fr", "he", "hi", "it", "lt", "lv", "mr",
             "nl", "pl", "pt", "ro", "ru", "sk", "sl", "sr", "uk", "ur", "zh")) {

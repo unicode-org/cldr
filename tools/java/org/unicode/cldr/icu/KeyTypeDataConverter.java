@@ -37,7 +37,7 @@ public class KeyTypeDataConverter {
 
     public void convert(ICUWriter writer) {
         // creating key mapping data
-        Map<String, String> keyMap = new TreeMap<String, String>();
+        Map<String, String> keyMap = new TreeMap<>();
         for (Document doc : getDocuments()) {
             addKeyMap(keyMap, doc);
         }
@@ -48,8 +48,8 @@ public class KeyTypeDataConverter {
         }
 
         // creating type mapping data
-        Map<String, Map<String, String>> typeMaps = new TreeMap<String, Map<String, String>>();
-        Map<String, Map<String, String>> typeAliases = new TreeMap<String, Map<String, String>>();
+        Map<String, Map<String, String>> typeMaps = new TreeMap<>();
+        Map<String, Map<String, String>> typeAliases = new TreeMap<>();
         for (Document doc : getDocuments()) {
             addTypeMaps(typeMaps, typeAliases, doc);
         }
@@ -126,9 +126,10 @@ public class KeyTypeDataConverter {
             return documents;
         }
 
-        documents = new ArrayList<Document>();
+        documents = new ArrayList<>();
 
         FilenameFilter filter = new FilenameFilter() {
+            @Override
             public boolean accept(File dir, String name) {
                 if (name.endsWith(".xml")) {
                     return true;
@@ -238,7 +239,7 @@ public class KeyTypeDataConverter {
                                 // add 2nd and following type values into the alias map
                                 Map<String, String> singleTypeAliases = typeAliases.get(key);
                                 if (singleTypeAliases == null) {
-                                    singleTypeAliases = new TreeMap<String, String>();
+                                    singleTypeAliases = new TreeMap<>();
                                     typeAliases.put(key, singleTypeAliases);
                                 }
                                 for (int i = 1; i < types.length; i++) {
@@ -251,7 +252,7 @@ public class KeyTypeDataConverter {
                             // only populating mapping data when bcp47 representation is different
                             Map<String, String> singleTypeMap = typeMaps.get(key);
                             if (singleTypeMap == null) {
-                                singleTypeMap = new TreeMap<String, String>();
+                                singleTypeMap = new TreeMap<>();
                                 typeMaps.put(key, singleTypeMap);
                             }
                             singleTypeMap.put(escapeKey(type), bcpType);

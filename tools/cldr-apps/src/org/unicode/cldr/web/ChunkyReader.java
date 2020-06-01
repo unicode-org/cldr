@@ -74,10 +74,10 @@ public class ChunkyReader implements Runnable {
         }
 
         private void addField(String field, String value) {
-            fields.add(new Pair<String, String>(field, value));
+            fields.add(new Pair<>(field, value));
         }
 
-        private List<Pair<String, String>> fields = new ArrayList<Pair<String, String>>();
+        private List<Pair<String, String>> fields = new ArrayList<>();
 
         public long getTime() {
             return time;
@@ -95,6 +95,7 @@ public class ChunkyReader implements Runnable {
             }
         }
 
+        @Override
         public String toString() {
             return recordSep + " " + getTime() + " - " + new Date(getTime()) + " - " + getHeader();
         }
@@ -166,7 +167,7 @@ public class ChunkyReader implements Runnable {
         lastSize = nextSize;
     }
 
-    private Map<Long, Entry> cache = new TreeMap<Long, Entry>(new Comparator<Long>() {
+    private Map<Long, Entry> cache = new TreeMap<>(new Comparator<Long>() {
 
         @Override
         public int compare(Long arg0, Long arg1) {

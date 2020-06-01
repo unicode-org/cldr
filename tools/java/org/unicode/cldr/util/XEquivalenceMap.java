@@ -23,10 +23,10 @@ import com.ibm.icu.impl.Row.R2;
  */
 public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
 
-    Map<K, Row.R2<V, Set<R>>> source_target_reasons = new HashMap<K, Row.R2<V, Set<R>>>();
+    Map<K, Row.R2<V, Set<R>>> source_target_reasons = new HashMap<>();
 
     Map<V, Set<K>> target_sourceSet;
-    Map<K, Set<K>> source_Set = new HashMap<K, Set<K>>(); // not really needed: could go source-target-sourceset
+    Map<K, Set<K>> source_Set = new HashMap<>(); // not really needed: could go source-target-sourceset
 
     public XEquivalenceMap() {
         this(new HashMap<V, Set<K>>());
@@ -50,7 +50,7 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
     public XEquivalenceMap add(K source, V target, R reason) {
         R2<V, Set<R>> target_reasons = source_target_reasons.get(source);
         if (target_reasons == null) {
-            Set<R> reasons = new HashSet<R>();
+            Set<R> reasons = new HashSet<>();
             if (reason != null) {
                 reasons.add(reason);
             }
@@ -70,7 +70,7 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
         }
 
         Set<K> s = target_sourceSet.get(target);
-        if (s == null) target_sourceSet.put(target, s = new HashSet<K>());
+        if (s == null) target_sourceSet.put(target, s = new HashSet<>());
         s.add(source);
         source_Set.put(source, s);
         return this;
@@ -83,7 +83,7 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
     }
 
     public boolean areEquivalent(K source1, K source2) {
-        Set<K> s = (Set) source_Set.get(source1);
+        Set<K> s = source_Set.get(source1);
         if (s == null) return false;
         return s.contains(source2);
     }
@@ -101,6 +101,7 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
         return Collections.unmodifiableSet(s);
     }
 
+    @Override
     public Iterator<Set<K>> iterator() {
         return UnmodifiableIterator.from(target_sourceSet.values());
     }
@@ -118,7 +119,7 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
         private Iterator<T> source;
 
         public static <T> UnmodifiableIterator<T> from(Iterator<T> source) {
-            UnmodifiableIterator<T> result = new UnmodifiableIterator<T>();
+            UnmodifiableIterator<T> result = new UnmodifiableIterator<>();
             result.source = source;
             return result;
         }
@@ -127,14 +128,17 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
             return from(source.iterator());
         }
 
+        @Override
         public void remove() {
             throw new UnsupportedOperationException();
         }
 
+        @Override
         public boolean hasNext() {
             return source.hasNext();
         }
 
+        @Override
         public T next() {
             return source.next();
         }

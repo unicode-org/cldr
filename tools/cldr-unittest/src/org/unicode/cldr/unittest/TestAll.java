@@ -134,6 +134,7 @@ public class TestAll extends TestGroup {
             millis = (int) (m - (seconds * 1000));
         }
 
+        @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
             if (hours > 0) {

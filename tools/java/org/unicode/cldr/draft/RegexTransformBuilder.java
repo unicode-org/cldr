@@ -19,12 +19,12 @@ public class RegexTransformBuilder {
 
     // initially just very rough rule parser, for proof-of-concept
     public static StringTransform createFromRules(String string) {
-        List<StringTransform> compound = new ArrayList<StringTransform>();
+        List<StringTransform> compound = new ArrayList<>();
 
-        List<Rule> rules = new ArrayList<Rule>();
+        List<Rule> rules = new ArrayList<>();
         String[] ruleSet = string.split(";");
         Matcher m = RULE_PATTERN.matcher("");
-        List<String> results = new ArrayList<String>();
+        List<String> results = new ArrayList<>();
         Matcher variable = VARIABLE.matcher("");
         UnicodeSet filter = null;
 

@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
@@ -179,7 +180,7 @@ public class TestAttributeValues extends TestFmwk {
                 while(r.hasNext()) {
                     try {
                         switch(r.next()){
-                        case XMLStreamReader.START_ELEMENT:
+                        case XMLStreamConstants.START_ELEMENT:
                             element = r.getLocalName();
                             ++_elementCount;
                             int attributeSize = r.getAttributeCount();

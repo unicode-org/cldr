@@ -57,7 +57,7 @@ public class GenerateCasingChart {
         <contextTransformUsage type="month-standalone-except-narrow">
             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
         </contextTransformUsage>
-    
+
      */
     public static void main(String[] args) {
         check(ULocale.ENGLISH);

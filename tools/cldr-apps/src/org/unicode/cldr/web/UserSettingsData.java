@@ -33,11 +33,12 @@ public class UserSettingsData {
     public class DBUserSettings extends UserSettings {
         private int id;
 
-        HashMap<String, String> values = new HashMap<String, String>();
+        HashMap<String, String> values = new HashMap<>();
 
         /**
          * @return true - this type does persist
          */
+        @Override
         public boolean persistent() {
             return true;
         }
@@ -54,6 +55,7 @@ public class UserSettingsData {
             this.id = id;
         }
 
+        @Override
         public int hashCode() {
             return id;
         }
@@ -67,6 +69,7 @@ public class UserSettingsData {
          *            default value to return (may be null)
          * @return the result, or default
          */
+        @Override
         public String get(String name, String defaultValue) {
             try {
                 String value = values.get(name);
@@ -95,6 +98,7 @@ public class UserSettingsData {
          * @param value
          *            may be any Unicode string
          */
+        @Override
         public void set(String name, String value) {
             String ivalue = values.get(name);
             if (value == null && ivalue == null) {
@@ -326,7 +330,7 @@ public class UserSettingsData {
         }
     }
 
-    private Map<Integer, UserSettings> idToSettings = new HashMap<Integer, UserSettings>();
-    private Map<String, Integer> knownSettings = new HashMap<String, Integer>();
+    private Map<Integer, UserSettings> idToSettings = new HashMap<>();
+    private Map<String, Integer> knownSettings = new HashMap<>();
 
 }

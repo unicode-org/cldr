@@ -26,7 +26,7 @@ class Makefile {
     private static final Pattern VARIABLE = PatternCache.get("\\$\\([\\w_]++\\)");
 
     private String prefix;
-    private List<MakefileEntry> entries = new ArrayList<MakefileEntry>();
+    private List<MakefileEntry> entries = new ArrayList<>();
 
     private static final Comparator<String> valueComparator = new Comparator<String>() {
         @Override
@@ -38,7 +38,7 @@ class Makefile {
     class MakefileEntry {
         String name;
         String comment;
-        List<String> values = new ArrayList<String>();
+        List<String> values = new ArrayList<>();
 
         public MakefileEntry(String name, String comment) {
             this.name = name;

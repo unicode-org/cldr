@@ -74,6 +74,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
      * Defaults to SMOKETEST for server
      * @return
      */
+    @Override
     protected Environment getDefaultEnvironment() {
         return Environment.SMOKETEST;
     }
@@ -171,19 +172,19 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         // File(cldrHome).getAbsolutePath() + " time="+setupTime);
 
         loadIntoProperties(survprops, propFile);
-     
+
         // SCM versions.
-        // 
+        //
         // currev.properties used to contain CLDR_CURREV=1234  where 1234 was a svn (later git) revision.
         survprops.put("CLDR_APPS_HASH", getGitHashForSlug("CLDR-Apps")); // Not available until init() is called.
         survprops.put("CLDR_TOOLS_HASH", getGitHashForSlug("CLDR-Tools"));
         survprops.put("CLDR_DIR_HASH", getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));
-        
+
         survprops.put("CLDRHOME", cldrHome);
 
         isInitted = true;
     }
-    
+
     public final static String ALL_GIT_HASHES[] = { "CLDR_APPS_HASH", "CLDR_TOOLS_HASH", "CLDR_DIR_HASH" };
 
     /**
@@ -358,16 +359,18 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         }
     }
 
+    @Override
     public SupplementalDataInfo getSupplementalDataInfo() {
         init();
         return CookieSession.sm.getSupplementalDataInfo();
     }
 
+    @Override
     public String getProperty(String key) {
         init();
         return survprops.getProperty(key);
     }
-    
+
     public void setCldrAppsHash(String hash) {
         survprops.setProperty("CLDR_APPS_HASH", hash);
     }

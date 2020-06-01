@@ -117,7 +117,7 @@ public class PivotData {
         // find all the unique paths that I have, where the value or fullpath is different from the parent.
         // AND the parent has the path
 
-        Set<String> uniquePaths = new TreeSet<String>();
+        Set<String> uniquePaths = new TreeSet<>();
         CLDRFile resolvedParent = factory.make(parentID, true);
         if (resolvedParent.getFullXPath("//ldml/alias", true) != null) {
             throw new IllegalArgumentException("File cannot be completely aliased: " + localeID);

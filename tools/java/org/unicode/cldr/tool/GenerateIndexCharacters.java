@@ -39,7 +39,7 @@ public class GenerateIndexCharacters {
         ULocale uLocale = new ULocale(locale);
         Collator collator = Collator.getInstance(uLocale);
         collator.setStrength(Collator.PRIMARY); // TODO: ought to build the collator from CLDR instead of from ICU.
-        AlphabeticIndex<String> index = new AlphabeticIndex<String>(uLocale);
+        AlphabeticIndex<String> index = new AlphabeticIndex<>(uLocale);
         index.clearRecords();
         UnicodeSet indexLabels = cFile.getExemplarSet("index", WinningChoice.WINNING);
         if (indexLabels != null && indexLabels.size() > 0) {

@@ -42,6 +42,7 @@ public abstract class Quoter {
     }
 
     // warning, allows access to internals
+    @Override
     public String toString() {
         setQuoting(false); // finish quoting
         return output.toString();
@@ -53,14 +54,16 @@ public abstract class Quoter {
     public static class RuleQuoter extends Quoter {
         private StringBuffer quoteBuffer = new StringBuffer();
 
+        @Override
         public void setQuoting(boolean value) {
             if (quoting == value) return;
             if (quoting) { // stop quoting
-                Utility.appendToRule(output, (int) -1, true, false, quoteBuffer); // close previous quote
+                Utility.appendToRule(output, -1, true, false, quoteBuffer); // close previous quote
             }
             quoting = value;
         }
 
+        @Override
         public Quoter append(String s) {
             if (DEBUG) System.out.println("\"" + s + "\"");
             if (quoting) {

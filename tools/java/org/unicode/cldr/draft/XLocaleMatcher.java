@@ -42,14 +42,14 @@ public class XLocaleMatcher {
     public static class Builder {
         private Set<ULocale> supportedLanguagesList;
         private int thresholdDistance = -1;
-        private int demotionPerAdditionalDesiredLocale = -1;;
+        private int demotionPerAdditionalDesiredLocale = -1;
         private ULocale defaultLanguage;
         private XLocaleDistance localeDistance;
         private DistanceOption distanceOption;
 
         /**
          * @param languagePriorityList the languagePriorityList to set
-         * @return 
+         * @return
          */
         public Builder setSupportedLocales(String languagePriorityList) {
             this.supportedLanguagesList = asSet(LocalePriorityList.add(languagePriorityList).build());
@@ -68,7 +68,7 @@ public class XLocaleMatcher {
 
         /**
          * @param thresholdDistance the thresholdDistance to set, with -1 = default
-         * @return 
+         * @return
          */
         public Builder setThresholdDistance(int thresholdDistance) {
             this.thresholdDistance = thresholdDistance;
@@ -77,7 +77,7 @@ public class XLocaleMatcher {
 
         /**
          * @param demotionPerAdditionalDesiredLocale the demotionPerAdditionalDesiredLocale to set, with -1 = default
-         * @return 
+         * @return
          */
         public Builder setDemotionPerAdditionalDesiredLocale(int demotionPerAdditionalDesiredLocale) {
             this.demotionPerAdditionalDesiredLocale = demotionPerAdditionalDesiredLocale;
@@ -86,7 +86,7 @@ public class XLocaleMatcher {
 
         /**
          * @param localeDistance the localeDistance to set, with default = XLocaleDistance.getDefault().
-         * @return 
+         * @return
          */
         public Builder setLocaleDistance(XLocaleDistance localeDistance) {
             this.localeDistance = localeDistance;
@@ -96,7 +96,7 @@ public class XLocaleMatcher {
         /**
          * Set the default language, with null = default = first supported language
          * @param defaultLanguage
-         * @return 
+         * @return
          */
         public Builder setDefaultLanguage(ULocale defaultLanguage) {
             this.defaultLanguage = defaultLanguage;
@@ -104,10 +104,10 @@ public class XLocaleMatcher {
         }
 
         /**
-         * If true, then the language differences are smaller than than script differences. 
+         * If true, then the language differences are smaller than than script differences.
          * This is used in situations (such as maps) where it is better to fall back to the same script than a similar language.
          * @param distanceOption
-         * @return 
+         * @return
          */
         public Builder setDistanceOption(DistanceOption distanceOption) {
             this.distanceOption = distanceOption;
@@ -243,11 +243,10 @@ public class XLocaleMatcher {
         for (ULocale locale : languageList) {
             temp.add(locale);
         }
-        ;
         return temp;
     }
 
-    /** 
+    /**
      * Get the best match between the desired languages and supported languages
      * @param desiredLanguages Typically the supplied user's languages, in order of preference, with best first.
      * @param outputBestDesired The one of the desired languages that matched best.
@@ -317,7 +316,7 @@ public class XLocaleMatcher {
         return bestSupportedLocales.iterator().next();
     }
 
-    /** 
+    /**
      * Get the best match between the desired languages and supported languages
      * @param desiredLanguages Typically the supplied user's languages, in order of preference, with best first.
      * @param outputBestDesired The one of the desired languages that matched best.
@@ -454,6 +453,7 @@ public class XLocaleMatcher {
      * @return value between 0 and 1, inclusive.
      * @deprecated Use the form with 2 parameters instead.
      */
+    @Deprecated
     public double match(ULocale desired, ULocale desiredMax, ULocale supported, ULocale supportedMax) {
         return match(desired, supported);
     }

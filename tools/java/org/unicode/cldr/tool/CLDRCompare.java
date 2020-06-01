@@ -38,7 +38,7 @@ public class CLDRCompare {
 
             final String oldSubDir = oldVersion.getCanonicalPath() + "/" + subDir;
 
-            TreeSet<String> files = new TreeSet<String>();
+            TreeSet<String> files = new TreeSet<>();
 
             Factory cldrFactory = Factory.make(newSubDir, ".*");
             files.addAll(cldrFactory.getAvailable());
@@ -56,7 +56,7 @@ public class CLDRCompare {
                     continue;
                 }
 
-                HashSet<String> paths = new HashSet<String>();
+                HashSet<String> paths = new HashSet<>();
                 CLDRFile newCldrFile = null;
                 try {
                     newCldrFile = cldrFactory.make(file, false);

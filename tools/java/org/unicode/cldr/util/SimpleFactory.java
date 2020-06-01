@@ -128,6 +128,7 @@ public class SimpleFactory extends Factory {
             return true;
         }
 
+        @Override
         public String toString() {
             return "[ LocaleName: " + localeName + " Resolved: " + resolved + " Draft status: " + draftStatus + " Directories: " + directories + " ]";
         }
@@ -283,7 +284,7 @@ public class SimpleFactory extends Factory {
 
     // private volatile CLDRFile result; // used in handleMake
     private File sourceDirectories[];
-    private Set<String> localeList = new TreeSet<String>();
+    private Set<String> localeList = new TreeSet<>();
     private Cache<CLDRCacheKey, CLDRFile> combinedCache = null;
     //private   Map<CLDRCacheKey,CLDRFile> combinedCache=  null;
     //     Collections.synchronizedMap(new LruMap<CLDRCacheKey, CLDRFile>(CACHE_LIMIT));
@@ -306,6 +307,7 @@ public class SimpleFactory extends Factory {
     private SimpleFactory() {
     }
 
+    @Override
     public DraftStatus getMinimalDraftStatus() {
         return minimalDraftStatus;
     }
@@ -462,6 +464,7 @@ public class SimpleFactory extends Factory {
         return sb.toString();
     }
 
+    @Override
     protected Set<String> handleGetAvailable() {
         return localeList;
     }
@@ -484,6 +487,7 @@ public class SimpleFactory extends Factory {
      * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
      * use clone().
      */
+    @Override
     @SuppressWarnings("unchecked")
     public CLDRFile handleMake(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
         @SuppressWarnings("rawtypes")

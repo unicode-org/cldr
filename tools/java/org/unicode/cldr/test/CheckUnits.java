@@ -23,7 +23,7 @@ public class CheckUnits extends CheckCLDR {
     private static final Pattern SECONDS_SYMBOL = PatternCache.get("ss");
 
     private Collection<String> genders = null;
-    
+
     @Override
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
@@ -31,7 +31,7 @@ public class CheckUnits extends CheckCLDR {
         genders = grammarInfo == null ? Collections.emptySet() : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
         return this;
     }
-    
+
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
@@ -39,7 +39,7 @@ public class CheckUnits extends CheckCLDR {
         if (value == null || !path.startsWith("//ldml/units")) {
             return this;
         }
-        
+
         if (genders != null && !genders.isEmpty() && path.endsWith("/gender")) {
             if (!genders.contains(value)) {
                 result.add(new CheckStatus().setCause(this)
@@ -48,7 +48,7 @@ public class CheckUnits extends CheckCLDR {
                     .setMessage("The gender value for this locale must be one of: {0}", genders));
             }
         }
-        
+
         // Note, the following test has some overlaps with the checkAndReplacePlaceholders
         // test in CheckForExamplars (why there?). That is probably OK, they check in
         // different ways, but some errors will produce two somewhat different error messages.

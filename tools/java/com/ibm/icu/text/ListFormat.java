@@ -135,7 +135,7 @@ final public class ListFormat {
     // TODO Replace by use of RB
     // Verify in building that all of the patterns contain {0}, {1}.
 
-    static Map<ULocale, ListFormat> localeToData = new HashMap<ULocale, ListFormat>();
+    static Map<ULocale, ListFormat> localeToData = new HashMap<>();
 
     static void add(String locale, String... data) {
         localeToData.put(new ULocale(locale), new ListFormat(data[0], data[1], data[2], data[3]));

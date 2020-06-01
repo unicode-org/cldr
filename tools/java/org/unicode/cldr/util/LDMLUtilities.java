@@ -811,7 +811,7 @@ public class LDMLUtilities {
         StringBuffer xp1 = new StringBuffer();
         StringBuffer xp2 = new StringBuffer();
         int l1 = xp1.length(), l2 = xp2.length();
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         if (n2 == null || n2.length == 0) {
             Node[] na = new Node[n1.length];
             for (int i = 0; i < n1.length; i++) {
@@ -878,7 +878,7 @@ public class LDMLUtilities {
              * continue;
              */
             // initialize the stack for every alias!
-            stack = new HashMap<String, String>();
+            stack = new HashMap<>();
             if (node == null) {
                 System.err.println("list.item(" + i + ") returned null!. The list reports it's length as: "
                     + array.length);
@@ -1316,7 +1316,7 @@ public class LDMLUtilities {
         NodeList list = parent.getChildNodes();
         int length = list.getLength();
 
-        List<Node> al = new ArrayList<Node>();
+        List<Node> al = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             Node item = list.item(i);
             if (item.getNodeType() != Node.ELEMENT_NODE) {
@@ -1853,6 +1853,7 @@ public class LDMLUtilities {
         // Local class: cheap non-printing ErrorHandler
         // This is used to suppress validation warnings
         ErrorHandler nullHandler = new ErrorHandler() {
+            @Override
             public void warning(SAXParseException e) throws SAXException {
                 int col = e.getColumnNumber();
                 String msg = (filename2 + ":" + e.getLineNumber()
@@ -1865,6 +1866,7 @@ public class LDMLUtilities {
                 }
             }
 
+            @Override
             public void error(SAXParseException e) throws SAXException {
                 int col = e.getColumnNumber();
                 String msg = (filename2 + ":" + e.getLineNumber()
@@ -1876,6 +1878,7 @@ public class LDMLUtilities {
                 }
             }
 
+            @Override
             public void fatalError(SAXParseException e) throws SAXException {
                 throw e;
             }
@@ -2228,6 +2231,7 @@ public class LDMLUtilities {
     private static void setNamespace(XPath xpath, String string) {
         if (string.contains("special/icu:")) {
             xpath.setNamespaceContext(new javax.xml.namespace.NamespaceContext() {
+                @Override
                 public String getNamespaceURI(String prefix) {
                     if (prefix.equals("icu")) {
                         return "http://www.icu-project.org";
@@ -2235,10 +2239,12 @@ public class LDMLUtilities {
                     return null;
                 }
 
+                @Override
                 public String getPrefix(String namespaceURI) {
                     return null;
                 }
 
+                @Override
                 public Iterator<String> getPrefixes(String namespaceURI) {
                     return null;
                 }

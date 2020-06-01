@@ -42,7 +42,7 @@ import com.ibm.icu.text.UTF16;
  */
 public class VettingAdder {
 
-    private Map<String, Set<String>> locale_files = new TreeMap<String, Set<String>>();
+    private Map<String, Set<String>> locale_files = new TreeMap<>();
     private Comparator<String> scomp = new UTF16.StringComparator();
     private Set<Object[]> conflictSet = new TreeSet<Object[]>(
         new ArrayComparator(new Comparator[] { scomp, scomp, scomp }));
@@ -65,7 +65,7 @@ public class VettingAdder {
             String localeName = name.substring(0, name.length() - 4);
             Set<String> s = locale_files.get(localeName);
             if (s == null) {
-                locale_files.put(localeName, s = new TreeSet<String>());
+                locale_files.put(localeName, s = new TreeSet<>());
             }
             s.add(f.getParent());
         } else {
@@ -87,6 +87,7 @@ public class VettingAdder {
             this.dir = dir;
         }
 
+        @Override
         public String toString() {
             return "source: " + dir + ";\t value: <" + value + ">";
         }
@@ -100,18 +101,19 @@ public class VettingAdder {
     }
 
     static Comparator PathAndValueComparator = new Comparator() {
+        @Override
         public int compare(Object o1, Object o2) {
             return ((VettingInfo) o1).compareByPathAndValue((VettingInfo) o2);
         }
     };
 
     static class VettingInfoSet {
-        private Map<String, List<VettingInfo>> path_vettingInfoList = new TreeMap<String, List<VettingInfo>>();
+        private Map<String, List<VettingInfo>> path_vettingInfoList = new TreeMap<>();
 
         public void add(String path, String dir, String fullPath, String value) {
             VettingInfo vi = new VettingInfo(dir, fullPath, value);
             List<VettingInfo> s = path_vettingInfoList.get(path);
-            if (s == null) path_vettingInfoList.put(path, s = new ArrayList<VettingInfo>(1));
+            if (s == null) path_vettingInfoList.put(path, s = new ArrayList<>(1));
             s.add(vi);
         }
 
@@ -272,7 +274,7 @@ public class VettingAdder {
         Log.logln("D. Missing Vetting");
         Log.logln("");
 
-        Set<String> availableLocales = new TreeSet<String>(cldrFactory.getAvailable());
+        Set<String> availableLocales = new TreeSet<>(cldrFactory.getAvailable());
         availableLocales.removeAll(vettedLocales);
 
         for (Iterator<String> it = availableLocales.iterator(); it.hasNext();) {
@@ -300,7 +302,7 @@ public class VettingAdder {
         String lastLocale = "";
         CLDRFile cldr = null;
         Transliterator any_latin = Transliterator.getInstance("any-latin");
-        Set<String> emails = new LinkedHashSet<String>();
+        Set<String> emails = new LinkedHashSet<>();
         String[] pieces = new String[5];
 
         for (Iterator<Object[]> it = s.iterator(); it.hasNext();) {

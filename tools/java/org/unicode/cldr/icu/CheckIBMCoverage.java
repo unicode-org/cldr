@@ -81,6 +81,7 @@ public class CheckIBMCoverage extends CLDRConverterTool {
         cov.processArgs(args);
     }
 
+    @Override
     public void processArgs(String[] args) {
         int remainingArgc = 0;
         // for some reason when
@@ -123,6 +124,7 @@ public class CheckIBMCoverage extends CLDRConverterTool {
                 }
             } else if (sourceDir != null) {
                 FilenameFilter filter = new FilenameFilter() {
+                    @Override
                     public boolean accept(File dir, String name) {
                         if (name.matches(".*_.*\\.xml")) {
                             return true;
@@ -306,15 +308,15 @@ public class CheckIBMCoverage extends CLDRConverterTool {
         Factory cldrFactory = Factory.make(sourceDir, "xml");
         CheckCoverage coverage = new CheckCoverage(cldrFactory);
         CLDRFile file = cldrFactory.make(locale, true);
-        List<CheckStatus> result = new ArrayList<CheckStatus>();
-        Map<String, String> options = new HashMap<String, String>();
+        List<CheckStatus> result = new ArrayList<>();
+        Map<String, String> options = new HashMap<>();
         options.put("CoverageLevel.localeType", group);
         options.put("CheckCoverage.requiredLevel", group);
         options.put("submission", "true");
         printInfo("Processing file " + locale);
         coverage.setCldrFileToCheck(file, options, result);
         CLDRFile resolved = coverage.getResolvedCldrFileToCheck();
-        Set<String> paths = new TreeSet<String>(resolved.getComparator());
+        Set<String> paths = new TreeSet<>(resolved.getComparator());
         resolved.forEach(paths::add);
         int ret = 0;
         if (level != null) {
@@ -322,7 +324,7 @@ public class CheckIBMCoverage extends CLDRConverterTool {
         }
         for (Iterator<String> it2 = paths.iterator(); it2.hasNext();) {
 
-            String path = (String) it2.next();
+            String path = it2.next();
             String value = file.getStringValue(path);
             String fullPath = file.getFullXPath(path);
             if (verbose) {
@@ -331,7 +333,7 @@ public class CheckIBMCoverage extends CLDRConverterTool {
             result.clear();
             coverage.check(path, fullPath, value, options, result);
             for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext();) {
-                CheckStatus status = (CheckStatus) it3.next();
+                CheckStatus status = it3.next();
                 // String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
                 CheckStatus.Type statusType = status.getType();
 

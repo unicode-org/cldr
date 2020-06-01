@@ -26,7 +26,7 @@ public class GenerateSupplementalZoneData {
      */
     public static void main(String[] args) throws Exception {
         ZoneParser zp = new ZoneParser();
-        Set<String> tzids = new TreeSet<String>();
+        Set<String> tzids = new TreeSet<>();
         tzids.addAll(zp.getZoneData().keySet());
         // Add POSIX legacy IDs
         tzids.add("EST5EDT");

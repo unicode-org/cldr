@@ -17,8 +17,8 @@ public class TestIntHash extends TestFmwk {
     public static final int TEST_COUNT = 10000;
 
     public void TestGetPut() {
-        IntHash<Integer> hash = new IntHash<Integer>();
-        Set<Integer> s = new HashSet<Integer>();
+        IntHash<Integer> hash = new IntHash<>();
+        Set<Integer> s = new HashSet<>();
         for (int i = 0; i < TEST_COUNT; i++) {
             int n = (i * 12) + i;
             hash.put(n, n);

@@ -10,7 +10,7 @@ import com.ibm.icu.text.Transform;
 
 public class EnumLookup<T extends Enum<?>> {
     private final String name;
-    private final Map<String, T> map = new HashMap<String, T>();
+    private final Map<String, T> map = new HashMap<>();
     private Transform<String, String> transform;
 
     public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className) {
@@ -20,7 +20,7 @@ public class EnumLookup<T extends Enum<?>> {
     @SuppressWarnings("unchecked")
     public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className, Transform<String, String> t, String from,
         T to, Object... extras) {
-        Map<String, T> newExtras = new HashMap<String, T>();
+        Map<String, T> newExtras = new HashMap<>();
         newExtras.put(from, to);
         for (int i = 0; i < extras.length; i += 2) {
             newExtras.put(extras[i].toString(), (T) extras[i + 1]);
@@ -32,7 +32,7 @@ public class EnumLookup<T extends Enum<?>> {
         Map<String, T> extras) {
         String name_ = className.getName();
         int lastDot = name_.lastIndexOf('.');
-        EnumLookup<T> result = new EnumLookup<T>(name_.substring(lastDot + 1));
+        EnumLookup<T> result = new EnumLookup<>(name_.substring(lastDot + 1));
 
         try {
             result.transform = t = t == null ? CLEAN : t;

@@ -21,7 +21,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetSpanner;
 
 public class Units {
-    
+
     private static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
     public static Pattern NO_SPACE_PREFIX = Pattern.compile("\\}" + ExampleGenerator.backgroundEndSymbol + "?\\p{L}|\\p{L}" + ExampleGenerator.backgroundStartSymbol + "?\\{");
 
@@ -41,7 +41,7 @@ public class Units {
         }
 
         // hack to fix casing
-        if (lowercaseUnitIfNoSpaceInCompound 
+        if (lowercaseUnitIfNoSpaceInCompound
             && NO_SPACE_PREFIX.matcher(compoundPattern).find()) {
             modFormat = modFormat.replace(modUnit, modUnit.toLowerCase(Locale.ENGLISH));
         }
@@ -50,7 +50,7 @@ public class Units {
     }
 
     static final UnicodeSetSpanner SPACE_SPANNER = new UnicodeSetSpanner(WHITESPACE);
-    
+
     public static final Map<String,String> CORE_TO_TYPE;
     public static final Multimap<String,String> TYPE_TO_CORE;
     public static final BiMap<String,String> LONG_TO_SHORT;

@@ -35,7 +35,7 @@ public class TestXPathTable extends TestFmwk {
         Connection conn = DBUtils.getInstance().getDBConnection();
         XPathTable xpt = XPathTable.createTable(conn);
         DBUtils.closeDBConnection(conn);
-        HashMap<Integer, String> s = new HashMap<Integer, String>();
+        HashMap<Integer, String> s = new HashMap<>();
         for (int i = 0; i < TEST_COUNT; i++) {
             int n = i;
             String str = "//test/" + n + "/[@hash=\"" + CookieSession.cheapEncode(i) + "\"]/item";
@@ -153,8 +153,8 @@ public class TestXPathTable extends TestFmwk {
                 if (ueMap == null || ueMap.isEmpty()) {
                     errln("Error for xpath " + xpath + " expected nondistinguishing =" + expect + " got " + ueMap.toString());
                 } else {
-                    Map<String, String> mymap = new TreeMap<String, String>();
-                    Map<String, String> uemap2 = new TreeMap<String, String>(ueMap);
+                    Map<String, String> mymap = new TreeMap<>();
+                    Map<String, String> uemap2 = new TreeMap<>(ueMap);
 
                     for (String pair : expect.split(",")) {
                         String kv[] = pair.split("=");

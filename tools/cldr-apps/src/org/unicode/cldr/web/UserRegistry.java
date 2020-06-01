@@ -68,7 +68,7 @@ public class UserRegistry {
      * Special constant for specifying access to no locales. Used with intlocs (not with locale access)
      */
     public static final String NO_LOCALES = "none";
-    
+
     /**
      * The number of anonymous users, ANONYMOUS_USER_COUNT, limits the number of distinct values that
      * can be added for a given locale and path as anonymous imported old losing votes. If eventually more
@@ -95,7 +95,7 @@ public class UserRegistry {
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement s = null;
-        Set<String> res = new HashSet<String>();
+        Set<String> res = new HashSet<>();
 
         try {
             conn = DBUtils.getInstance().getDBConnection();
@@ -122,7 +122,7 @@ public class UserRegistry {
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement s = null;
-        Set<CLDRLocale> res = new HashSet<CLDRLocale>();
+        Set<CLDRLocale> res = new HashSet<>();
 
         try {
             conn = DBUtils.getInstance().getDBConnection();
@@ -149,7 +149,7 @@ public class UserRegistry {
         public void handleUserChanged(User u);
     }
 
-    private List<UserChangedListener> listeners = new LinkedList<UserChangedListener>();
+    private List<UserChangedListener> listeners = new LinkedList<>();
 
     public synchronized void addListener(UserChangedListener l) {
         listeners.add(l);
@@ -268,6 +268,7 @@ public class UserRegistry {
         /**
          * @deprecated may not use
          */
+        @Deprecated
         private User() {
             this.id = -1;
             settings = userSettings.getSettings(id); // may not use settings.
@@ -291,6 +292,7 @@ public class UserRegistry {
             UserRegistry.this.touch(id);
         }
 
+        @Override
         public boolean equals(Object other) {
             if (!(other instanceof User)) {
                 return false;
@@ -303,6 +305,7 @@ public class UserRegistry {
             UserRegistry.printPasswordLink(ctx, email, password);
         }
 
+        @Override
         public String toString() {
             return email + "(" + org + ")-" + levelAsStr(userlevel) + "#" + userlevel + " - " + name + ", locs=" + locales;
         }
@@ -327,6 +330,7 @@ public class UserRegistry {
             }
         }
 
+        @Override
         public int hashCode() {
             return id;
         }
@@ -368,6 +372,7 @@ public class UserRegistry {
          * @param locale
          * @return
          */
+        @Deprecated
         public final boolean userIsSpecialForCLDR15(CLDRLocale locale) {
             return false;
         }
@@ -392,7 +397,7 @@ public class UserRegistry {
             // Smith&quot;) },
             Organization o = this.getOrganization();
             VoteResolver.Level l = this.getLevel();
-            Set<String> localesSet = new HashSet<String>();
+            Set<String> localesSet = new HashSet<>();
             if (!isAllLocales(locales)) {
                 for (String s : tokenizeLocale(locales)) {
                     localesSet.add(s);
@@ -408,6 +413,7 @@ public class UserRegistry {
          * @deprecated use getVoterInfo
          * @see #getVoterInfo
          */
+        @Deprecated
         public VoterInfo voterInfo() {
             return getVoterInfo();
         }
@@ -455,6 +461,7 @@ public class UserRegistry {
          * @see VoteResolver.Level.isAdminFor()
          * @deprecated
          */
+        @Deprecated
         public boolean isAdminFor(User other) {
             return getLevel().isManagerFor(getOrganization(), other.getLevel(), other.getOrganization());
         }
@@ -517,7 +524,7 @@ public class UserRegistry {
         ctx.println("<a href='" + ctx.base() + "?email=" + email + "&amp;uid=" + password + "'>Login for " + email + "</a>");
     }
 
-    private static Map<String, Organization> orgToVrOrg = new HashMap<String, Organization>();
+    private static Map<String, Organization> orgToVrOrg = new HashMap<>();
 
     public static synchronized Organization computeVROrganization(String org) {
         Organization o = Organization.fromString(org);
@@ -938,6 +945,7 @@ public class UserRegistry {
      * @deprecated
      * @return
      */
+    @Deprecated
     public UserRegistry.User getEmptyUser() {
         User u = new User();
         u.name = "UNKNOWN";
@@ -1062,7 +1070,7 @@ public class UserRegistry {
             if (list.equals(NO_LOCALES)) {
                 return "";
             }
-            Set<String> s = new TreeSet<String>();
+            Set<String> s = new TreeSet<>();
             for (String l : UserRegistry.tokenizeLocale(list)) {
                 String forum = new ULocale(l).getBaseName();
                 s.add(forum);
@@ -1096,7 +1104,7 @@ public class UserRegistry {
         String[] il = user.getInterestList();
         if (il != null) {
             updateIntLoc.setInt(1, id);
-            Set<String> s = new HashSet<String>();
+            Set<String> s = new HashSet<>();
             for (String l : il) {
                 String forum = new ULocale(l).getLanguage();
                 s.add(forum);
@@ -1285,6 +1293,7 @@ public class UserRegistry {
             this.sqlField = sqlField;
         }
 
+        @Override
         public String toString() {
             return title;
         }
@@ -1305,7 +1314,7 @@ public class UserRegistry {
         public String toAction() {
             return CHANGE + name();
         }
-    };
+    }
 
     String updateInfo(WebContext ctx, int theirId, String theirEmail, InfoType type, String value) {
         if (type == InfoType.INFO_ORG && ctx.session.user.userlevel > ADMIN) {
@@ -2014,7 +2023,7 @@ public class UserRegistry {
         if (isAllLocales(localeList)) {
             throw new IllegalArgumentException("Don't call this function with '" + ALL_LOCALES + "' - " + localeList);
         }
-        Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
+        Set<CLDRLocale> s = new TreeSet<>();
         if (localeList == null || isAllLocales(localeList))
             return s; // empty
 
@@ -2096,7 +2105,7 @@ public class UserRegistry {
             BufferedReader in = new BufferedReader(new FileReader(extFile));
             String line;
             int lines = 0;
-            Set<User> newSet = new HashSet<User>();
+            Set<User> newSet = new HashSet<>();
             System.err.println("* Reading special user file: " + externalErrorName);
             while ((line = in.readLine()) != null) {
                 lines++;
@@ -2145,7 +2154,7 @@ public class UserRegistry {
      */
     public synchronized Map<Integer, VoterInfo> getVoterToInfo() {
         if (voterInfo == null) {
-            Map<Integer, VoterInfo> map = new TreeMap<Integer, VoterInfo>();
+            Map<Integer, VoterInfo> map = new TreeMap<>();
 
             ResultSet rs = null;
             Connection conn = null;
@@ -2197,7 +2206,7 @@ public class UserRegistry {
 
     /**
      * Not yet implemented.
-     * 
+     *
      * TODO: get rid of this code, or document its purpose, referencing a ticket.
      *
      * @return
@@ -2223,7 +2232,7 @@ public class UserRegistry {
      */
     private void resetOrgList() {
         // get all orgs in use...
-        Set<String> orgs = new TreeSet<String>();
+        Set<String> orgs = new TreeSet<>();
         Connection conn = null;
         Statement s = null;
         try {
@@ -2261,7 +2270,7 @@ public class UserRegistry {
         } // end try
 
         // get all possible VR orgs..
-        Set<Organization> allvr = new HashSet<Organization>();
+        Set<Organization> allvr = new HashSet<>();
         for (Organization org : Organization.values()) {
             allvr.add(org);
         }
@@ -2308,7 +2317,7 @@ public class UserRegistry {
             createUserTable(conn);
 
             XMLFileReader myReader = new XMLFileReader();
-            final Map<String, String> attrs = new TreeMap<String, String>();
+            final Map<String, String> attrs = new TreeMap<>();
 
             // <user id="10" email="u_10@apple.example.com" level="vetter"
             // name="Apple#10" org="apple" locales="nl nl_BE nl_NL"/>
@@ -2321,6 +2330,7 @@ public class UserRegistry {
             myReader.setHandler(new XMLFileReader.SimpleHandler() {
                 int maxUserId = 1;
 
+                @Override
                 public void handlePathValue(String path, String value) {
                     XPathParts xpp = XPathParts.getFrozenInstance(path);
                     attrs.clear();
@@ -2390,7 +2400,7 @@ public class UserRegistry {
                             + attrs.toString() + ">" + value + "</" + elem + ">");
                         throw new IllegalArgumentException(e);
                     }
-                };
+                }
             });
             myReader.read(inFile.getAbsolutePath(), -1, false);
             nusers++;
@@ -2514,7 +2524,7 @@ public class UserRegistry {
     public Set<User> getAnonymousUsers() {
         if (anonymousUsers == null) {
             anonymousUsers = getAnonymousUsersFromDb();
-            int existingCount = anonymousUsers.size(); 
+            int existingCount = anonymousUsers.size();
             if (existingCount < ANONYMOUS_USER_COUNT) {
                 createAnonymousUsers(existingCount, ANONYMOUS_USER_COUNT);
                 /*
@@ -2536,7 +2546,7 @@ public class UserRegistry {
      * @return the Set.
      */
     private Set<User> getAnonymousUsersFromDb() {
-        Set<User> set = new HashSet<User>();
+        Set<User> set = new HashSet<>();
         ResultSet rs = null;
         Connection conn = null;
         try {
@@ -2574,7 +2584,7 @@ public class UserRegistry {
 
     /**
      * Given that there aren't enough anonymous users in the database yet, create some.
-     * 
+     *
      * @param existingCount the number of anonymous users that already exist
      * @param desiredCount the desired total number of anonymous users
      */

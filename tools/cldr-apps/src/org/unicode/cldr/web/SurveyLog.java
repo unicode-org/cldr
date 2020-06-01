@@ -66,7 +66,7 @@ public class SurveyLog {
 
     enum LogField {
         SURVEY_EXCEPTION, DATE, UPTIME, CTX, LOGSITE, MESSAGE, STACK, SQL, REVISION, SURVEYEXCEPTION
-    };
+    }
 
     private static File gBaseDir = null;
 
@@ -214,7 +214,7 @@ public class SurveyLog {
         return DEBUG;
     }
 
-    static Set<String> alreadyWarned = new HashSet<String>();
+    static Set<String> alreadyWarned = new HashSet<>();
 
     /**
      * Warn one time, ignore after that

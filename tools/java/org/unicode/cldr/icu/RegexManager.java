@@ -44,7 +44,7 @@ class RegexManager {
     // Matches arguments with or without enclosing quotes.
     private static final Pattern ARGUMENT = PatternCache.get("[<\"]?\\$(\\d)[\">]?");
 
-    private static Map<String, Function> functionMap = new HashMap<String, Function>();
+    private static Map<String, Function> functionMap = new HashMap<>();
 
     private String converterFile;
     private Map<String, RegexResult> unprocessedMatchers;
@@ -141,7 +141,7 @@ class RegexManager {
 
         public List<String> processValues(String[] arguments, String cldrValue) {
             if (valueArg == null) {
-                List<String> values = new ArrayList<String>();
+                List<String> values = new ArrayList<>();
                 values.add(cldrValue);
                 return values;
             }
@@ -161,7 +161,7 @@ class RegexManager {
         private List<String> splitValues(String unsplitValues) {
             // Split up values using spaces unless enclosed by non-escaped quotes,
             // e.g. a "b \" c" would become {"a", "b \" c"}
-            List<String> args = new ArrayList<String>();
+            List<String> args = new ArrayList<>();
             StringBuffer valueBuffer = new StringBuffer();
             boolean shouldSplit = true;
             char lastChar = ' ';
@@ -254,7 +254,7 @@ class RegexManager {
         private Set<PathValueInfo> unprocessed;
 
         public RegexResult() {
-            unprocessed = new HashSet<PathValueInfo>();
+            unprocessed = new HashSet<>();
         }
 
         public void add(String rbPath, Map<String, String> instructions,
@@ -273,15 +273,15 @@ class RegexManager {
         private Map<String, R2<List<String>, String>> map;
 
         public CldrArray() {
-            map = new HashMap<String, R2<List<String>, String>>();
+            map = new HashMap<>();
         }
 
         public void put(String key, List<String> values, String groupKey) {
-            map.put(key, new R2<List<String>, String>(values, groupKey));
+            map.put(key, new R2<>(values, groupKey));
         }
 
         public void add(String key, String[] values, String groupKey) {
-            List<String> list = new ArrayList<String>();
+            List<String> list = new ArrayList<>();
             for (String value : values) {
                 list.add(value);
             }
@@ -289,7 +289,7 @@ class RegexManager {
         }
 
         public void add(String key, String value, String groupKey) {
-            List<String> list = new ArrayList<String>();
+            List<String> list = new ArrayList<>();
             list.add(value);
             put(key, list, groupKey);
         }
@@ -315,11 +315,11 @@ class RegexManager {
         }
 
         public List<String[]> sortValues(Comparator<String> comparator) {
-            List<String> sortedKeys = new ArrayList<String>(map.keySet());
+            List<String> sortedKeys = new ArrayList<>(map.keySet());
             Collections.sort(sortedKeys, comparator);
-            List<String[]> sortedValues = new ArrayList<String[]>();
+            List<String[]> sortedValues = new ArrayList<>();
             // Group isArray for the same xpath together.
-            List<String> arrayValues = new ArrayList<String>();
+            List<String> arrayValues = new ArrayList<>();
             for (int i = 0, len = sortedKeys.size(); i < len; i++) {
                 String key = sortedKeys.get(i);
                 R2<List<String>, String> currentEntry = map.get(key);
@@ -416,17 +416,17 @@ class RegexManager {
         private int numXpathArgs; // Number of args in the xpath
 
         public FallbackInfo(List<Integer> argsUsed, int numXpathArgs) {
-            fallbackItems = new ArrayList<R3<Finder, String, List<String>>>();
+            fallbackItems = new ArrayList<>();
             this.argsUsed = argsUsed;
             this.numXpathArgs = numXpathArgs;
         }
 
         public void addItem(Finder xpathMatcher, String fallbackXpath, String[] fallbackValues) {
-            List<String> values = new ArrayList<String>();
+            List<String> values = new ArrayList<>();
             for (String fallbackValue : fallbackValues) {
                 values.add(fallbackValue);
             }
-            fallbackItems.add(new R3<Finder, String, List<String>>(xpathMatcher, fallbackXpath, values));
+            fallbackItems.add(new R3<>(xpathMatcher, fallbackXpath, values));
         }
 
         /**
@@ -480,7 +480,7 @@ class RegexManager {
      */
     RegexManager(String converterFile) {
         this.converterFile = converterFile;
-        unprocessedMatchers = new HashMap<String, RegexResult>();
+        unprocessedMatchers = new HashMap<>();
     }
 
     /**
@@ -533,7 +533,7 @@ class RegexManager {
                     return into.merge(a);
                 }
             });
-        xpathVariables = new HashMap<String, String>();
+        xpathVariables = new HashMap<>();
         BufferedReader reader = FileReaders.openFile(NewLdml2IcuConverter.class, converterFile);
         VariableReplacer variables = new VariableReplacer();
         Finder xpathMatcher = null;
@@ -610,7 +610,7 @@ class RegexManager {
         }
 
         // Parse remaining special instructions.
-        Map<String, String> instructions = new HashMap<String, String>();
+        Map<String, String> instructions = new HashMap<>();
         for (int i = 2; i < content.length; i++) {
             String[] instruction = content[i].split("=", 2);
             if (instruction[0].equals("fallback")) {
@@ -635,7 +635,7 @@ class RegexManager {
      *            the fallback value
      */
     private void addFallback(Finder xpathMatcher, String rbPath, String fallbackValue) {
-        ArrayList<StringBuffer> args = new ArrayList<StringBuffer>();
+        ArrayList<StringBuffer> args = new ArrayList<>();
         int numBraces = 0;
         int argNum = 0;
         // Create RB path matcher and xpath replacement.
@@ -674,7 +674,7 @@ class RegexManager {
         Matcher matcher = ARGUMENT.matcher(rbPath);
         StringBuffer rbPattern = new StringBuffer();
         int lastIndex = 0;
-        List<Integer> argsUsed = new ArrayList<Integer>();
+        List<Integer> argsUsed = new ArrayList<>();
         while (matcher.find()) {
             rbPattern.append(rbPath.substring(lastIndex, matcher.start()));
             argNum = Integer.parseInt(matcher.group(1));
@@ -701,7 +701,7 @@ class RegexManager {
     void addFallbackValues(CLDRFile cldrFile, Map<String, CldrArray> pathValueMap) {
         RegexLookup<FallbackInfo> fallbackConverter = getFallbackConverter();
         for (String rbPath : pathValueMap.keySet()) {
-            Output<String[]> arguments = new Output<String[]>();
+            Output<String[]> arguments = new Output<>();
             FallbackInfo fallbackInfo = fallbackConverter.get(rbPath, null, arguments);
             if (fallbackInfo == null) continue;
             CldrArray values = pathValueMap.get(rbPath);
@@ -716,7 +716,7 @@ class RegexManager {
                             " still contains unreplaced arguments.");
                     }
                     List<String> fallbackValues = info.get2();
-                    List<String> valueList = new ArrayList<String>();
+                    List<String> valueList = new ArrayList<>();
                     for (String value : fallbackValues) {
                         value = processString(value, arguments.value);
                         // Value is an xpath, so get real value from CLDRFile.

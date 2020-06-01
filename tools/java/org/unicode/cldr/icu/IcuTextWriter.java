@@ -109,7 +109,7 @@ public class IcuTextWriter {
         // Write the ICU data to file.
         out.append(name);
         if (!icuData.hasFallback()) out.append(":table(nofallback)");
-        List<String> sortedPaths = new ArrayList<String>(icuData.keySet());
+        List<String> sortedPaths = new ArrayList<>(icuData.keySet());
         Collections.sort(sortedPaths, PATH_COMPARATOR);
         String[] lastLabels = new String[] {};
         boolean wasSingular = false;

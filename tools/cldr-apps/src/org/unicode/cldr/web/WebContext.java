@@ -69,7 +69,7 @@ public class WebContext implements Cloneable, Appendable {
     public CLDRLocale docLocale[] = new CLDRLocale[0];
     public CookieSession session = null;
     public ElapsedTimer reqTimer = null;
-    public Hashtable<String, Object> temporaryStuff = new Hashtable<String, Object>();
+    public Hashtable<String, Object> temporaryStuff = new Hashtable<>();
     public static final String CLDR_WEBCONTEXT = "cldr_webcontext";
 
     public static final String TARGET_ZOOMED = "CLDR-ST-ZOOMED";
@@ -80,7 +80,7 @@ public class WebContext implements Cloneable, Appendable {
     protected Writer out = null;
     private PrintWriter pw = null;
     String outQuery = null;
-    TreeMap<String, String> outQueryMap = new TreeMap<String, String>();
+    TreeMap<String, String> outQueryMap = new TreeMap<>();
     boolean dontCloseMe = false;
     HttpServletRequest request;
     HttpServletResponse response;
@@ -526,7 +526,7 @@ public class WebContext implements Cloneable, Appendable {
             outQuery = null;
             TreeMap<String, String> oldMap = outQueryMap;
             oldMap.put(k, v); // replace
-            outQueryMap = new TreeMap<String, String>();
+            outQueryMap = new TreeMap<>();
             for (Iterator<String> i = oldMap.keySet().iterator(); i.hasNext();) {
                 String somek = i.next();
                 addQuery(somek, oldMap.get(somek));
@@ -557,7 +557,7 @@ public class WebContext implements Cloneable, Appendable {
             outQuery = null;
             TreeMap<String, String> oldMap = outQueryMap;
             oldMap.remove(k); // replace
-            outQueryMap = new TreeMap<String, String>();
+            outQueryMap = new TreeMap<>();
             for (Iterator<String> i = oldMap.keySet().iterator(); i.hasNext();) {
                 String somek = i.next();
                 addQuery(somek, oldMap.get(somek));
@@ -935,7 +935,7 @@ public class WebContext implements Cloneable, Appendable {
         locale = l;
         // localeString = locale.getBaseName();
         processor = new DisplayAndInputProcessor(l, false);
-        Vector<CLDRLocale> localesVector = new Vector<CLDRLocale>();
+        Vector<CLDRLocale> localesVector = new Vector<>();
         for (CLDRLocale parents : locale.getParentIterator()) {
             localesVector.add(parents);
         }
@@ -973,6 +973,7 @@ public class WebContext implements Cloneable, Appendable {
      * @deprecated use getLocale().toString() -
      * @see #getLocale()
      */
+    @Deprecated
     public final String localeString() {
         if (locale == null) {
             throw new InternalError("localeString is null, locale=" + locale);
@@ -1113,11 +1114,11 @@ public class WebContext implements Cloneable, Appendable {
 
     public enum LoadingShow {
         dontShowLoading, showLoading
-    };
+    }
 
     private static final boolean CACHE_DATA_SECTION = false; // TESTING, not ready for use
 
-    private static final Map<String, DataSection> dataSectionCache = CACHE_DATA_SECTION ? new ConcurrentHashMap<String, DataSection>() : null;
+    private static final Map<String, DataSection> dataSectionCache = CACHE_DATA_SECTION ? new ConcurrentHashMap<>() : null;
 
     /**
      * Get a DataSection
@@ -1198,6 +1199,7 @@ public class WebContext implements Cloneable, Appendable {
      * @param doEdit
      * @deprecated editing is deprecated
      */
+    @Deprecated
     public void printHelpLink(String what, String title, boolean doEdit) {
         printHelpLink(what, title, doEdit, true);
     }
@@ -1209,6 +1211,7 @@ public class WebContext implements Cloneable, Appendable {
      * @param doEdit
      * @param parens
      */
+    @Deprecated
     public void printHelpLink(String what, String title, boolean doEdit, boolean parens) {
         if (parens) {
             print("(");
@@ -1254,6 +1257,7 @@ public class WebContext implements Cloneable, Appendable {
      *
      * @see #WebContext(WebContext)
      */
+    @Override
     public Object clone() {
         Object o;
         try {
@@ -1375,6 +1379,7 @@ public class WebContext implements Cloneable, Appendable {
             this.str = str;
         }
 
+        @Override
         public String toString() {
             return str;
         }

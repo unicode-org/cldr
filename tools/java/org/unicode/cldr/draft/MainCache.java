@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class MainCache {
-    private static Map<Class<?>, Map<Object, Object>> cache = new HashMap<Class<?>, Map<Object, Object>>();
+    private static Map<Class<?>, Map<Object, Object>> cache = new HashMap<>();
 
     protected synchronized Object get(Object key) {
         Class<?> classKey = this.getClass();
         Map<Object, Object> submap = cache.get(classKey);
         if (submap == null) {
-            cache.put(classKey, submap = new HashMap<Object, Object>());
+            cache.put(classKey, submap = new HashMap<>());
         }
         Object result = submap.get(key);
         if (result == null) {

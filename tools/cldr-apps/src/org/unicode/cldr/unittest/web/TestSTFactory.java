@@ -377,12 +377,13 @@ public class TestSTFactory extends TestFmwk {
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
 
         XMLFileReader myReader = new XMLFileReader();
-        final Map<String, String> attrs = new TreeMap<String, String>();
-        final Map<String, String> vars = new TreeMap<String, String>();
+        final Map<String, String> attrs = new TreeMap<>();
+        final Map<String, String> vars = new TreeMap<>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
-            final Map<String, UserRegistry.User> users = new TreeMap<String, UserRegistry.User>();
+            final Map<String, UserRegistry.User> users = new TreeMap<>();
             int pathCount = 0;
 
+            @Override
             public void handlePathValue(String path, String value) {
                 ++pathCount;
                 if (value != null && value.startsWith("$")) {
@@ -478,7 +479,7 @@ public class TestSTFactory extends TestFmwk {
                     CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     CLDRFile cf = fac.make(locale, true);
-                    
+
                     /*
                      * TODO: ideally it should be possible, when there are both "soft" votes for inheritance
                      * and "hard" votes for the Bailey value, to distinguish between the hard or the soft vote
@@ -689,7 +690,7 @@ public class TestSTFactory extends TestFmwk {
                     throw new IllegalArgumentException("Undeclared user: " + attr + "=\"" + attrValue + "\" - are you missing a <user> element?");
                 }
                 return u;
-            };
+            }
             // public void handleComment(String path, String comment) {};
             // public void handleElementDecl(String name, String model) {};
             // public void handleAttributeDecl(String eName, String aName,
@@ -871,7 +872,7 @@ public class TestSTFactory extends TestFmwk {
         }
     }
 
-    static final Map<String, Object> noDtdPlease = new TreeMap<String, Object>();
+    static final Map<String, Object> noDtdPlease = new TreeMap<>();
     static {
         noDtdPlease.put("DTD_DIR", CLDRPaths.COMMON_DIRECTORY + File.separator + "dtd" + File.separator);
     }

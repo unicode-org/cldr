@@ -22,7 +22,7 @@ public class EmojiConstants {
         .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B0))
         .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B1))
         .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B2))
-        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B3)) 
+        .add(EmojiConstants.fromCodePoints(JOINER,0x1F9B3))
         .freeze();
 
     public static final String KISS = "💋";
@@ -37,21 +37,21 @@ public class EmojiConstants {
     public static final String JOINER_MALE_SIGN = JOINER_STRING + MALE_SIGN;
     public static final String JOINER_FEMALE_SIGN = JOINER_STRING + FEMALE_SIGN;
     public static final UnicodeSet HAIR_EXPLICIT = new UnicodeSet("[🧔 👱]").freeze();
-    
+
     public static final ListTypeLength COMPOSED_NAME_LIST = ListTypeLength.UNIT_SHORT;
 
     //public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
     public static String getFlagCode(String s) {
         return String.valueOf((char) (s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
     }
-    
+
     public static String getEmojiFromRegionCodes(String chars) {
         return new StringBuilder()
                 .appendCodePoint(chars.codePointAt(0) + FIRST_REGIONAL - 'A')
                 .appendCodePoint(chars.codePointAt(1) + FIRST_REGIONAL - 'A')
                 .toString();
     }
-    
+
     public static final int TAG_BASE = 0xE0000;
     public static final int TAG_TERM_CHAR = 0xE007F;
 

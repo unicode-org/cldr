@@ -664,7 +664,7 @@ public class ExampleGenerator {
         String perPath = makeCompoundUnitPath(unitLength, compoundType, "compoundUnitPattern");
         return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
-    
+
     public String handleCompoundUnit1(XPathParts parts, String compoundPattern) {
         UnitLength unitLength = getUnitLength(parts);
         String pathCount = parts.getAttributeValue(-1, "count");
@@ -679,7 +679,7 @@ public class ExampleGenerator {
         String pathFormat = "//ldml/units/unitLength" + unitLength.typeString + "/unit[@type=\"{0}\"]/displayName";
 
         String meterFormat = getValueFromFormat(pathFormat, "length-meter");
-        
+
         String modFormat = combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
 
         return removeEmptyRuns(modFormat);
@@ -697,14 +697,14 @@ public class ExampleGenerator {
 
         @SuppressWarnings("deprecation")
         String form1 = this.pluralInfo.getPluralRules().select(amount);
-        
+
         String pathFormat = "//ldml/units/unitLength" + unitLength.typeString
             + "/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"]";
-        
+
         // now pick up the meter pattern
 
         String meterFormat = getValueFromFormat(pathFormat, "length-meter", form1);
-        
+
         // now combine them
 
         String modFormat = combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
@@ -713,7 +713,7 @@ public class ExampleGenerator {
     }
 
     // TODO, pass in unitLength instead of last parameter, and do work in Units.combinePattern.
-    
+
     public String combinePrefix(String unitFormat, String inCompoundPattern, boolean lowercaseUnitIfNoSpaceInCompound) {
         // mark the part except for the {0} as foreground
         String compoundPattern =  backgroundEndSymbol
@@ -721,7 +721,7 @@ public class ExampleGenerator {
             +   backgroundStartSymbol;
 
         String modFormat = Units.combinePattern(unitFormat, compoundPattern, lowercaseUnitIfNoSpaceInCompound);
-        
+
         return backgroundStartSymbol + modFormat + backgroundEndSymbol;
     }
 
@@ -1139,7 +1139,7 @@ public class ExampleGenerator {
         final boolean isCurrency = !parts.contains("units");
 
         Count count = null;
-        final LinkedHashSet<FixedDecimal> exampleCount = new LinkedHashSet<FixedDecimal>();
+        final LinkedHashSet<FixedDecimal> exampleCount = new LinkedHashSet<>();
         exampleCount.addAll(CURRENCY_SAMPLES);
         String countString = parts.getAttributeValue(-1, "count");
         if (countString == null) {
@@ -1162,7 +1162,7 @@ public class ExampleGenerator {
         int decimalCount = currencyFormat.getMinimumFractionDigits();
 
         // we will cycle until we have (at most) two examples.
-        Set<FixedDecimal> examplesSeen = new HashSet<FixedDecimal>();
+        Set<FixedDecimal> examplesSeen = new HashSet<>();
         int maxCount = 2;
         main:
             // If we are a currency, we will try to see if we can set the decimals to match.
@@ -1511,7 +1511,7 @@ public class ExampleGenerator {
                 if (id == null || id.indexOf('B') < 0) {
                     return sdf.format(DATE_SAMPLE);
                 } else {
-                    List<String> examples = new ArrayList<String>();
+                    List<String> examples = new ArrayList<>();
                     examples.add(sdf.format(DATE_SAMPLE3));
                     examples.add(sdf.format(DATE_SAMPLE));
                     examples.add(sdf.format(DATE_SAMPLE4));
@@ -1702,7 +1702,7 @@ public class ExampleGenerator {
             String localePattern = getLocaleDisplayPattern("localePattern", element, value);
             String localeSeparator = getLocaleDisplayPattern("localeSeparator", element, value);
 
-            List<String> locales = new ArrayList<String>();
+            List<String> locales = new ArrayList<>();
             if (element.equals("localePattern")) {
                 locales.add("uz-AF");
             }
@@ -1727,7 +1727,7 @@ public class ExampleGenerator {
                 }
             } else {
                 value = setBackground(value);
-                List<String> examples = new ArrayList<String>();
+                List<String> examples = new ArrayList<>();
                 String nameType = parts.getElement(3);
 
                 Map<String, String> likely = supplementalDataInfo.getLikelySubtags();
@@ -1794,7 +1794,7 @@ public class ExampleGenerator {
                     examples.add(invertBackground(format(localePattern, languageName, scriptTerritory)));
                 }
                 Output<String> pathWhereFound = null;
-                if (isStandAloneValue 
+                if (isStandAloneValue
                     || cldrFile.getStringValueWithBailey(xpath + ALT_STAND_ALONE, pathWhereFound = new Output<>(), null) == null
                     || !pathWhereFound.value.contains(ALT_STAND_ALONE)) {
                     // only do this if either it is a stand-alone form,
@@ -1952,11 +1952,11 @@ public class ExampleGenerator {
     }
 
     private String invertBackground(String input) {
-        return input == null ? null 
-            : backgroundStartSymbol 
+        return input == null ? null
+            : backgroundStartSymbol
             + input.replace(backgroundStartSymbol, backgroundTempSymbol)
             .replace(backgroundEndSymbol, backgroundStartSymbol)
-            .replace(backgroundTempSymbol, backgroundEndSymbol) 
+            .replace(backgroundTempSymbol, backgroundEndSymbol)
             + backgroundEndSymbol;
     }
 
@@ -2042,8 +2042,8 @@ public class ExampleGenerator {
         // lazy initialization
 
         if (pathDescription == null) {
-            Map<String, List<Set<String>>> starredPaths = new HashMap<String, List<Set<String>>>();
-            Map<String, String> extras = new HashMap<String, String>();
+            Map<String, List<Set<String>>> starredPaths = new HashMap<>();
+            Map<String, String> extras = new HashMap<>();
 
             this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
                 PathDescription.ErrorHandling.CONTINUE);

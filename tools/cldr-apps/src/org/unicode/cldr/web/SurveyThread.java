@@ -120,6 +120,7 @@ public class SurveyThread extends Thread {
         /**
          * Get some info about the task.
          */
+        @Override
         public String toString() {
             StringBuilder sb = new StringBuilder(name);
             if (!running()) {
@@ -184,6 +185,7 @@ public class SurveyThread extends Thread {
     /**
      * The current state of the thread.
      */
+    @Override
     public String toString() {
         return "{ST Threads: Tasks waiting:" + tasksRemaining() + ", Current:" + current + ", Running:" + surveyThreadIsRunning
             + "}";
@@ -216,6 +218,7 @@ public class SurveyThread extends Thread {
     /**
      * The main run loop. Perform tasks or wait.
      */
+    @Override
     public void run() {
         if (DEBUG)
             System.err.println("SurveyThread: Bootation.");
@@ -291,6 +294,7 @@ public class SurveyThread extends Thread {
     public void requestStop() {
         surveyThreadIsRunning = false; // shutdown the next time through
         addTask(new SurveyTask("shutdown") {
+            @Override
             public void run() throws Throwable {
                 System.err.println("Shutdown task: stop requested!");
                 // add other items here.
@@ -324,7 +328,7 @@ public class SurveyThread extends Thread {
     /**
      * Main list of tasks.
      */
-    LinkedBlockingQueue<SurveyTask> tasks = new LinkedBlockingQueue<SurveyTask>();
+    LinkedBlockingQueue<SurveyTask> tasks = new LinkedBlockingQueue<>();
 
     /**
      * Back-pointer.

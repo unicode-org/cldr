@@ -23,8 +23,8 @@ public class UExtension {
     static Relation<String, String> validKeyTypes = data.getBcp47Keys();
 
     private boolean validating = false;
-    private SortedMap<String, List<String>> keyTypes = new TreeMap<String, List<String>>();
-    private Set<String> attributes = new TreeSet<String>();
+    private SortedMap<String, List<String>> keyTypes = new TreeMap<>();
+    private Set<String> attributes = new TreeSet<>();
 
     public Set<String> getKeys() {
         return keyTypes.keySet();
@@ -82,7 +82,7 @@ public class UExtension {
                 if (list != null) {
                     throw new IllegalArgumentException("Multiple keys with same value: " + subtag);
                 }
-                list = new ArrayList<String>();
+                list = new ArrayList<>();
                 keyTypes.put(key, list);
             } else { // add subtype
                 if (key == null) {
@@ -114,6 +114,7 @@ public class UExtension {
         return this;
     }
 
+    @Override
     public String toString() {
         return "{attributes=" + attributes + ", keyTypes=" + keyTypes + "}";
     }

@@ -82,9 +82,9 @@ public class EmojiSubdivisionNames {
                         _subdivisionIdToName.put(m.group(1), m.group(2));
                     }
                 }
-                _nameToSubdivisionId = _nameToSubdivisionId.isEmpty() ? Collections.emptyMap() 
+                _nameToSubdivisionId = _nameToSubdivisionId.isEmpty() ? Collections.emptyMap()
                     : ImmutableMap.copyOf(_nameToSubdivisionId);
-                _subdivisionIdToName = _subdivisionIdToName.isEmpty() ? Collections.emptyMap() 
+                _subdivisionIdToName = _subdivisionIdToName.isEmpty() ? Collections.emptyMap()
                     : ImmutableMap.copyOf(_subdivisionIdToName);
             } else {
                 String parentLocaleId = LocaleIDParser.getParent(localeID);

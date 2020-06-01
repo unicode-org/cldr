@@ -247,13 +247,13 @@ public class CheckHtmlFiles {
     static Pattern WHITESPACE = PatternCache.get("[\\s]+");
     static Pattern BADSECTION = PatternCache.get("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
 
-    static final Set<String> FORCEBREAK = new HashSet<String>(Arrays.asList(
+    static final Set<String> FORCEBREAK = new HashSet<>(Arrays.asList(
         "table", "div", "blockquote",
         "p", "br", "td", "th", "h1", "h2", "h3", "h4", "h5", "li"));
 
 //    enum ContentsElements {h1, h2, h3, h4, h5, caption}
 
-    static final Set<String> DO_CONTENTS = new HashSet<String>(Arrays.asList(
+    static final Set<String> DO_CONTENTS = new HashSet<>(Arrays.asList(
         "h1", "h2", "h3", "h4", "h5", "caption"));
 
     static class Levels implements Comparable<Levels> {
@@ -354,7 +354,7 @@ public class CheckHtmlFiles {
     static class HeadingInfo {
         private Levels levels = new Levels();
         private String text = "";
-        private Set<String> ids = new LinkedHashSet<String>();
+        private Set<String> ids = new LinkedHashSet<>();
         private boolean suppressSection;
         private boolean isHeader;
 
@@ -478,8 +478,8 @@ public class CheckHtmlFiles {
     static class HeadingInfoList {
         private static final long serialVersionUID = -6722150173224993960L;
         Levels lastBuildLevel;
-        private Set<String> errors = new LinkedHashSet<String>();
-        Output<Boolean> missingLevel = new Output<Boolean>(false);
+        private Set<String> errors = new LinkedHashSet<>();
+        Output<Boolean> missingLevel = new Output<>(false);
         private String fileName;
         ArrayList<HeadingInfo> list = new ArrayList<>();
 
@@ -509,7 +509,7 @@ public class CheckHtmlFiles {
         public void listContents() {
 
             System.out.print("\n\t\t<!-- START Generated TOC: CheckHtmlFiles -->");
-            Counter<String> idCounter = new Counter<String>();
+            Counter<String> idCounter = new Counter<>();
 
             int lastLevel = new Levels().getDepth();
             String pad = PAD;
@@ -640,12 +640,12 @@ public class CheckHtmlFiles {
 
     static class Data implements Iterable<String> {
         private static final Pattern ELEMENT_ATTLIST = Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
-        List<String> sentences = new ArrayList<String>();
+        List<String> sentences = new ArrayList<>();
         M4<String, String, String, Boolean> dtdItems = ChainedMap.of(
             new LinkedHashMap<String, Object>(),
             new TreeMap<String, Object>(),
             new TreeMap<String, Object>(), Boolean.class);
-        Counter<String> hashedSentences = new Counter<String>();
+        Counter<String> hashedSentences = new Counter<>();
         int count = 0;
         int totalErrorCount = 0;
         int totalFatalCount = 0;
@@ -731,7 +731,7 @@ public class CheckHtmlFiles {
             // for detecting missing captions
             boolean pushedTable = false;
             boolean checkCaption = false;
-            List<Integer> captionWarnings = new ArrayList<Integer>();
+            List<Integer> captionWarnings = new ArrayList<>();
 
             main: while (true) {
                 int lineCount = parser.getLineCount();

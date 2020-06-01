@@ -24,10 +24,10 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateCldrCollationTests {
     String sourceDir;
-    Set<String> validLocales = new TreeSet<String>();
-    Map<String, Object> ulocale_rules = new TreeMap<String, Object>(GenerateCldrTests.ULocaleComparator);
-    Map<String, Map<String, RuleBasedCollator>> locale_types_rules = new TreeMap<String, Map<String, RuleBasedCollator>>();
-    Map<RuleBasedCollator, RuleBasedCollator> collation_collation = new HashMap<RuleBasedCollator, RuleBasedCollator>();
+    Set<String> validLocales = new TreeSet<>();
+    Map<String, Object> ulocale_rules = new TreeMap<>(GenerateCldrTests.ULocaleComparator);
+    Map<String, Map<String, RuleBasedCollator>> locale_types_rules = new TreeMap<>();
+    Map<RuleBasedCollator, RuleBasedCollator> collation_collation = new HashMap<>();
     RuleBasedCollator emptyCollator = (RuleBasedCollator) Collator.getInstance(new ULocale(""));
 
     public Set<String> getAvailableSet() {
@@ -85,7 +85,7 @@ public class GenerateCldrCollationTests {
                 if (type.equals("unihan")) {
                     if (!locale.startsWith("zh")) continue;
                 }
-                RuleBasedCollator col = (RuleBasedCollator) types_rules.get(type);
+                RuleBasedCollator col = types_rules.get(type);
                 String name = type.equals("standard") ? locale : locale + "@collation=" + type;
                 ulocale_rules.put(name, col);
             }
@@ -111,7 +111,7 @@ public class GenerateCldrCollationTests {
         System.out.println("Loading collation:\t" + locale);
         CollationMapper mapper = new CollationMapper(sourceDir, null);
         StringBuilder stringBuilder = new StringBuilder();
-        TreeMap<String, RuleBasedCollator> types_rules = new TreeMap<String, RuleBasedCollator>();
+        TreeMap<String, RuleBasedCollator> types_rules = new TreeMap<>();
         IcuData[] dataList = mapper.fillFromCldr(locale);
         IcuData icuData = dataList[0];
         for (String rbPath : icuData.keySet()) {
@@ -159,7 +159,7 @@ public class GenerateCldrCollationTests {
                 rules = GenerateCldrTests.replace(rules, "[optimize[", "[optimize [");
                 rules = GenerateCldrTests.replace(rules, "[suppressContractions[", "[suppressContractions [");
                 RuleBasedCollator col = new RuleBasedCollator(rules);
-                fixed = (RuleBasedCollator) collation_collation.get(col);
+                fixed = collation_collation.get(col);
                 if (fixed == null) {
                     collation_collation.put(col, col);
                     fixed = col;

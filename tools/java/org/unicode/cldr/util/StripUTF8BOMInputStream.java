@@ -24,6 +24,7 @@ class StripUTF8BOMInputStream extends InputStream {
      *
      * @see java.io.InputStream#read()
      */
+    @Override
     public int read() throws IOException {
         int result = base.read();
         if (!checkForUTF8BOM) return result;

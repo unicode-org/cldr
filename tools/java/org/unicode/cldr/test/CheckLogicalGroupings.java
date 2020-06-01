@@ -26,7 +26,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
 
     private boolean phaseCausesError;
     private CoverageLevel2 coverageLevel;
-    
+
     public CheckLogicalGroupings(Factory factory) {
         super(factory);
     }
@@ -36,18 +36,18 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
-        // skip the test unless we are at the top level, eg 
+        // skip the test unless we are at the top level, eg
         //    test root, fr, sr_Latn, ...
         //    but skip fr_CA, sr_Latn_RS, etc.
         // TODO: could simplify some of the code later, since non-topLevel locales are skipped
-        // NOTE: we could have a weaker test. 
+        // NOTE: we could have a weaker test.
         // Skip if all of the items are either inherited, or aliased *including votes for inherited (3 up arrows)*
 
         String parent = LocaleIDParser.getParent(cldrFileToCheck.getLocaleID());
         boolean isTopLevel = parent == null || parent.equals("root");
         setSkipTest(!isTopLevel);
         phaseCausesError = PHASES_CAUSE_ERROR.contains(getPhase());
-        
+
         coverageLevel = CoverageLevel2.getInstance(cldrFileToCheck.getLocaleID());
 
         return this;
@@ -58,7 +58,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*
 
     /**
-     * We are not as strict with sublocales (where the parent is neither root nor code_fallback). 
+     * We are not as strict with sublocales (where the parent is neither root nor code_fallback).
      * @param path
      * @return
      */
@@ -79,6 +79,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         return !source.equals(XMLSource.ROOT_ID) && !source.equals(XMLSource.CODE_FALLBACK_ID);
     }
 
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
 
@@ -90,8 +91,8 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         Set<String> paths = LogicalGrouping.getPaths(getCldrFileToCheck(), path);
         if (paths == null || paths.size() < 2) return this; // skip if not part of a logical grouping
 
-        // TODO 
-        Set<String> paths2 = new HashSet<String>(paths);
+        // TODO
+        Set<String> paths2 = new HashSet<>(paths);
         for (String p : paths2) {
             if (LogicalGrouping.isOptional(getCldrFileToCheck(), p)) {
                 paths.remove(p);
@@ -99,7 +100,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         }
         if (paths.size() < 2) return this; // skip if not part of a logical grouping
 
-        Set<String> missingPaths = new HashSet<String>();
+        Set<String> missingPaths = new HashSet<>();
         boolean havePath = false;
         String firstPath = null;
         for (String apath : paths) {
@@ -111,7 +112,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
                 }
                 missingPaths.add(apath);
             }
-        }        
+        }
 
         if (havePath && !missingPaths.isEmpty()) {
             if (path.equals(firstPath)) {
@@ -120,7 +121,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
                     .map(x -> getPathReferenceForMessage(x, true))
                     .collect(Collectors.toSet());
                 Level cLevel = coverageLevel.getLevel(path);
-                
+
                 CheckStatus.Type showError = phaseCausesError ? CheckStatus.errorType : CheckStatus.warningType;
                 result.add(new CheckStatus().setCause(this).setMainType(showError)
                     .setSubtype(Subtype.incompleteLogicalGroup)
@@ -177,7 +178,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
             return this; // bail if we are ok
         }
 
-        // If some other path in the LG has a higher draft status, then cause error on this path. 
+        // If some other path in the LG has a higher draft status, then cause error on this path.
         // NOTE: changed to show in Vetting, not just Resolution
 
         for (String apath : paths) {
@@ -197,7 +198,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
                 CheckStatus.Type showError = phaseCausesError ? CheckStatus.errorType : CheckStatus.warningType;
                 result.add(new CheckStatus().setCause(this).setMainType(showError)
                     .setSubtype(Subtype.inconsistentDraftStatus) // typically warningType or errorType
-                    .setMessage("This item has a lower draft status (in its logical group) than {0}.", 
+                    .setMessage("This item has a lower draft status (in its logical group) than {0}.",
                         getPathReferenceForMessage(apath, true))); // the
                 break; // no need to continue
             }

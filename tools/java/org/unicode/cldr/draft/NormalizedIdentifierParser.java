@@ -17,18 +17,18 @@ public class NormalizedIdentifierParser {
         Illegal, NameContinueNFC, NameContinueOther, NameStartNFC, NameStartOther, Whitespace, Other
     }
 
-    static final UnicodeSet XmlNameStartChar = (UnicodeSet) new UnicodeSet("[\\: A-Z _ a-z " +
+    static final UnicodeSet XmlNameStartChar = new UnicodeSet("[\\: A-Z _ a-z " +
         "\\u00C0-\\u00D6 \\u00D8-\\u00F6 \\u00F8-\\u02FF \\u0370-\\u037D \\u037F-\\u1FFF \\u200C-\\u200D" +
         "\\u2070-\\u218F \\u2C00-\\u2FEF \\u3001-\\uD7FF \\uF900-\\uFDCF \\uFDF0-\\uFFFD \\U00010000-\\U000EFFFF]")
             .freeze();
-    static final UnicodeSet XmlNameContinueChar = (UnicodeSet) new UnicodeSet(
+    static final UnicodeSet XmlNameContinueChar = new UnicodeSet(
         "[- . 0-9 \\u00B7 \\u0300-\\u036F \\u203F-\\u2040]").freeze();
-    static final UnicodeSet XmlNameChar = (UnicodeSet) new UnicodeSet(XmlNameStartChar).addAll(XmlNameContinueChar)
+    static final UnicodeSet XmlNameChar = new UnicodeSet(XmlNameStartChar).addAll(XmlNameContinueChar)
         .freeze();
-    static final UnicodeSet XmlWhiteSpace = (UnicodeSet) new UnicodeSet("[\\u0009\\u000D\\u000A\\u0020]").freeze();
-    static final UnicodeSet XmlIllegal = (UnicodeSet) new UnicodeSet(
+    static final UnicodeSet XmlWhiteSpace = new UnicodeSet("[\\u0009\\u000D\\u000A\\u0020]").freeze();
+    static final UnicodeSet XmlIllegal = new UnicodeSet(
         "[^\\u0009\\u000D\\u000A\\u0020-\uD7FF\\uE000-\\uFFFD\\U00010000-\\U000EFFFF]").freeze();
-    static final UnicodeSet NfcSafe = (UnicodeSet) new UnicodeSet("[:nfkcqc=yes:]").freeze();
+    static final UnicodeSet NfcSafe = new UnicodeSet("[:nfkcqc=yes:]").freeze();
 
     private String input;
     private int endPosition;
@@ -141,7 +141,7 @@ public class NormalizedIdentifierParser {
     }
 
     static void showDiffs() {
-        Map<Status, Map<Status, UnicodeSet>> map = new TreeMap<Status, Map<Status, UnicodeSet>>();
+        Map<Status, Map<Status, UnicodeSet>> map = new TreeMap<>();
         NormalizedIdentifierParser parser = new NormalizedIdentifierParser();
         for (int codePoint = 0; codePoint <= 0x10FFFF; ++codePoint) {
             String source = new StringBuilder().appendCodePoint(codePoint).toString();
@@ -153,7 +153,7 @@ public class NormalizedIdentifierParser {
             }
             Map<Status, UnicodeSet> map2 = map.get(sourceStatus);
             if (map2 == null) {
-                map.put(sourceStatus, map2 = new TreeMap<Status, UnicodeSet>());
+                map.put(sourceStatus, map2 = new TreeMap<>());
             }
             UnicodeSet set = map2.get(targetStatus);
             if (set == null) {

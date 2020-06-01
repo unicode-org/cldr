@@ -20,17 +20,17 @@ import org.unicode.cldr.util.PatternCache;
 
 public class AttributeChoice {
 
-    static Hashtable<String, Pattern> allXpaths = new Hashtable<String, Pattern>(); // String
+    static Hashtable<String, Pattern> allXpaths = new Hashtable<>(); // String
     // ->
     // matcher
-    static Hashtable<String, List<String>> allValues = new Hashtable<String, List<String>>(); // String
+    static Hashtable<String, List<String>> allValues = new Hashtable<>(); // String
     // ->
     // {
     // true,
     // false,
     // ...
     // }
-    static Hashtable<String, String> allAttributes = new Hashtable<String, String>(); // commonyUsed
+    static Hashtable<String, String> allAttributes = new Hashtable<>(); // commonyUsed
     // ->
     // used
 
@@ -51,7 +51,7 @@ public class AttributeChoice {
             List<String> valueList = null;
             if (!allXpaths.containsKey(k)) {
                 allXpaths.put(k, PatternCache.get(k));
-                valueList = new ArrayList<String>();
+                valueList = new ArrayList<>();
                 allValues.put(k, valueList);
             } else {
                 valueList = allValues.get(k);
@@ -73,7 +73,7 @@ public class AttributeChoice {
         this.type = type;
         this.values = allValues.get(type);
         this.attribute = allAttributes.get(type);
-        this.valuesList = (String[]) values.toArray(new String[0]);
+        this.valuesList = values.toArray(new String[0]);
 
         // fix the baseXpath
         String value = valueOfXpath(baseXpath);

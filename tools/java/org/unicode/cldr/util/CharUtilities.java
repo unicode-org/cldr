@@ -15,30 +15,37 @@ public class CharUtilities {
             this.source = source;
         }
 
+        @Override
         public boolean hasCharAt(int index) {
             return index < source.length();
         }
 
+        @Override
         public char charAt(int index) {
             return source.charAt(index);
         }
 
+        @Override
         public int toSourceOffset(int index) {
             return index;
         }
 
+        @Override
         public CharSource sublist(int start, int end) {
-            return new CharSourceWrapper<CharSequence>(source.subSequence(start, end));
+            return new CharSourceWrapper<>(source.subSequence(start, end));
         }
 
+        @Override
         public CharSource sublist(int start) {
-            return new CharSourceWrapper<CharSequence>(source.subSequence(start, source.length()));
+            return new CharSourceWrapper<>(source.subSequence(start, source.length()));
         }
 
+        @Override
         public int getKnownLength() {
             return source.length();
         }
 
+        @Override
         public CharSequence subSequence(int start, int end) {
             return source.subSequence(start, end);
         }
@@ -52,14 +59,17 @@ public class CharUtilities {
             return source.subSequence(toSourceOffset(start), toSourceOffset(end));
         }
 
+        @Override
         public int fromSourceOffset(int index) {
             return index;
         }
 
+        @Override
         public CharSource setStart(int index) {
             return this;
         }
 
+        @Override
         public int getStart() {
             return 0;
         }

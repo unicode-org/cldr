@@ -41,7 +41,7 @@ public class ChartCollation extends Chart {
     static final String NOT_TAILORED = "notTailored";
     static final String NOT_EXEMPLARS = "notExemplars";
 
-    private static final String KNOWN_PROBLEMS = 
+    private static final String KNOWN_PROBLEMS =
         "<ul>" + LS
         + "<li>The characters used in the illustration are:" + LS
         + "<ol>" + LS
@@ -90,6 +90,7 @@ public class ChartCollation extends Chart {
             + dataScrapeMessage("/tr35-collation.html", "common/testData/units/unitsTest.txt", "common/collation")+ LS;
     }
 
+    @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
         FileCopier.ensureDirectoryExists(DIR);
         FileCopier.copy(Chart.class, "index.css", DIR);

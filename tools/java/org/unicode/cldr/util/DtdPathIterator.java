@@ -74,7 +74,7 @@ public class DtdPathIterator {
         // get possible attributes
         List<Attribute> optionalAttributes = new ArrayList<>();
         for (Attribute attribute : parent.getAttributes().keySet()) {
-            if (attribute.isDeprecated() 
+            if (attribute.isDeprecated()
                 || attribute.getStatus() != AttributeStatus.distinguished) {
                 continue;
             }
@@ -93,7 +93,7 @@ public class DtdPathIterator {
         }
         if (!optionalAttributes.isEmpty()) {
             int comboMax = (1 << optionalAttributes.size());
-            for (int bitmask = comboMax - 1; bitmask >= 0; --bitmask) { 
+            for (int bitmask = comboMax - 1; bitmask >= 0; --bitmask) {
                 // for two items, go from 0b11, 0b10, 0b01, 0b00; for 1: 0b1, 0b0
                 for (int bit = 0; bit < optionalAttributes.size(); ++bit) {
                     final Attribute attribute = optionalAttributes.get(bit);
@@ -129,15 +129,15 @@ public class DtdPathIterator {
     }
 
     public static void main(String[] args) {
-        Set<XPathParts>seen = new HashSet<>(); 
-        Set<PathHeader>seenPh = new HashSet<>(); 
+        Set<XPathParts>seen = new HashSet<>();
+        Set<PathHeader>seenPh = new HashSet<>();
         DtdPathIterator dtdPathIterator = new DtdPathIterator(DtdData.getInstance(DtdType.ldml));
         Factory phf = PathHeader.getFactory();
         List<String> failures = new ArrayList<>();
         org.unicode.cldr.util.Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-        
+
         // get all the actual starred patterns
-        
+
         PathStarrer ps = new PathStarrer().setSubstitutionPattern("%A");
         Map<String, String> starredToSample = new TreeMap<>();
         for (String locale : Arrays.asList("en", "de", "zh", "ar", "ru")) {

@@ -6,7 +6,7 @@ package org.unicode.cldr.draft;
  * that such changes are generally not random; instead they tend to happen more often in either nearby or successive
  * locations.
  * The structure of the class keeps 2 buffers; one for the front and one for the end.
- * 
+ *
  * @author markdavis
  */
 // TODO investigate whether keeping the future in reverse order is the right approach in terms of performance.
@@ -24,6 +24,7 @@ public class GapString implements CharSequence {
         insert(0, s);
     }
 
+    @Override
     public char charAt(int index) {
         try {
             return buffer[index < pastLength ? index : index + gapLength];
@@ -32,15 +33,18 @@ public class GapString implements CharSequence {
         }
     }
 
+    @Override
     public int length() {
         return buffer.length - gapLength;
     }
 
+    @Override
     public CharSequence subSequence(int start, int end) {
         // TODO optimize this
         return toString().subSequence(start, end);
     }
 
+    @Override
     public String toString() {
         StringBuilder b = new StringBuilder();
         // check to see whether second argument is length or count
@@ -210,6 +214,7 @@ public class GapString implements CharSequence {
         return this;
     }
 
+    @Override
     public boolean equals(Object other) {
         try {
             return equals((CharSequence) other);
@@ -239,6 +244,7 @@ public class GapString implements CharSequence {
         return true;
     }
 
+    @Override
     public int hashCode() {
         int result = 0;
         int i = 0;

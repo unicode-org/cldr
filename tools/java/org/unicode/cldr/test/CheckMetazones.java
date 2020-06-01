@@ -11,6 +11,7 @@ public class CheckMetazones extends CheckCLDR {
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*Metazones.*
 
     // If you don't need any file initialization or postprocessing, you only need this one routine
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths

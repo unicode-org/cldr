@@ -35,7 +35,7 @@ public class PluralsMapper {
      */
     public PluralsMapper(String supplementalDir) {
         this.supplementalDir = supplementalDir;
-        ruleOrder = new HashMap<String, Integer>();
+        ruleOrder = new HashMap<>();
     }
 
     /**
@@ -68,7 +68,7 @@ public class PluralsMapper {
             this.icuData = icuData;
             prefix = type == PluralType.cardinal ? "/locales/" : "/locales_ordinals/";
             currentText = new StringBuffer();
-            currentRules = new ArrayList<R2<String, String>>();
+            currentRules = new ArrayList<>();
         }
 
         @Override
@@ -110,7 +110,7 @@ public class PluralsMapper {
                 }
                 currentRules.clear();
             } else if (qName.equals("pluralRule")) {
-                currentRules.add(new R2<String, String>(currentCount,
+                currentRules.add(new R2<>(currentCount,
                     currentText.toString()));
                 currentText.setLength(0);
             }

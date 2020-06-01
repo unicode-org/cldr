@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -43,7 +42,7 @@ public abstract class MatchValue implements Predicate<String> {
     public String getSample() {
         return DEFAULT_SAMPLE;
     }
-    
+
     @Override
     public String toString() {
         return getName();
@@ -66,13 +65,13 @@ public abstract class MatchValue implements Predicate<String> {
             case "set":
                 result =  SetMatchValue.of(subargument);
                 break;
-            case "validity": 
+            case "validity":
                 result =  ValidityMatchValue.of(subargument);
                 break;
-            case "bcp47": 
+            case "bcp47":
                 result =  Bcp47MatchValue.of(subargument);
                 break;
-            case "range": 
+            case "range":
                 result =  RangeMatchValue.of(subargument);
                 break;
             case "literal":
@@ -96,7 +95,7 @@ public abstract class MatchValue implements Predicate<String> {
             case "unicodeset":
                 result =  UnicodeSpanMatchValue.of(subargument);
                 break;
-            default: 
+            default:
                 throw new IllegalArgumentException("Illegal/Unimplemented match type: " + originalArg);
             }
             if (!originalArg.equals(result.getName())) {
@@ -131,11 +130,11 @@ public abstract class MatchValue implements Predicate<String> {
                 return false;
             }
             return lang.is(ltp.getLanguage())
-                && (ltp.getScript().isEmpty() 
+                && (ltp.getScript().isEmpty()
                     || script.is(ltp.getScript()))
-                && (ltp.getRegion().isEmpty() 
+                && (ltp.getRegion().isEmpty()
                     || region.is(ltp.getRegion()))
-                && (ltp.getVariants().isEmpty() 
+                && (ltp.getVariants().isEmpty()
                     || and(variant,ltp.getVariants()))
                 && ltp.getExtensions().isEmpty()
                 && ltp.getLocaleExtensions().isEmpty()
@@ -145,7 +144,7 @@ public abstract class MatchValue implements Predicate<String> {
         @Override
         public String getSample() {
             return "de";
-        }        
+        }
     }
 
     // TODO remove these if possible — ticket/10120
@@ -233,8 +232,8 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "validity/" 
-                + (shortId ? "short-" : "") + type.toString() 
+            return "validity/"
+                + (shortId ? "short-" : "") + type.toString()
                 + (enumParser.isAll(statuses) ? "" : "/" + enumParser.format(statuses));
         }
 
@@ -273,21 +272,21 @@ public abstract class MatchValue implements Predicate<String> {
         public boolean is(String item) {
             // TODO handle deprecated
             switch(type) {
-            case script: 
+            case script:
                 if (SCRIPT_HACK.contains(item)) {
-                    return true; 
+                    return true;
                 }
                 break;
-            case variant: 
+            case variant:
                 if (VARIANT_HACK.contains(item)) {
-                    return true; 
+                    return true;
                 }
-                item = item.toLowerCase(Locale.ROOT); 
+                item = item.toLowerCase(Locale.ROOT);
                 break;
-            case language: 
-                item = item.equals("root") ? "und" : item; 
+            case language:
+                item = item.equals("root") ? "und" : item;
                 break;
-            case unit: 
+            case unit:
                 if (shortId) {
                     if (shortCodeToStatus == null) { // lazy evaluation to avoid circular dependencies
                         Map<String, Status> _shortCodeToStatus = new TreeMap<>();
@@ -312,7 +311,7 @@ public abstract class MatchValue implements Predicate<String> {
             final Status status = Validity.getInstance().getCodeToStatus(type).get(item);
             return status != null && statuses.contains(status);
         }
-        
+
         @Override
         public String getSample() {
             return Validity.getInstance().getCodeToStatus(type).keySet().iterator().next();
@@ -322,7 +321,7 @@ public abstract class MatchValue implements Predicate<String> {
     static public class Bcp47MatchValue extends MatchValue {
         private final String key;
         private Set<String> valid;
-        
+
         @Override
         public String getName() {
             return "bcp47/" + key;
@@ -418,7 +417,7 @@ public abstract class MatchValue implements Predicate<String> {
         @Override
         public String getSample() {
             is("X"); // force load data
-            return valid == null ? "XX" 
+            return valid == null ? "XX"
                 : valid.iterator().next();
         }
     }
@@ -492,7 +491,7 @@ public abstract class MatchValue implements Predicate<String> {
         public boolean is(String item) {
             return items.contains(item);
         }
-        
+
         @Override
         public String getSample() {
             return items.iterator().next();
@@ -619,7 +618,7 @@ public abstract class MatchValue implements Predicate<String> {
         public  boolean is(String items) {
             return and(subtest,SPACE_SPLITTER.split(items));
         }
-        
+
         @Override
         public String getSample() {
             return subtest.getSample();
@@ -724,7 +723,7 @@ public abstract class MatchValue implements Predicate<String> {
         public  boolean is(String item) {
             return uset.span(item, SpanCondition.CONTAINED) == item.length();
         }
-        
+
         @Override
         public String getSample() {
             return sample;

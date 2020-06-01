@@ -78,7 +78,7 @@ public class SurveyForum {
             .replaceAll("&amp;", "&");
     }
 
-    private Hashtable<String, Integer> nameToNum = new Hashtable<String, Integer>();
+    private Hashtable<String, Integer> nameToNum = new Hashtable<>();
 
     private static final int BAD_FORUM = -1;
     private static final int NO_FORUM = -2;
@@ -98,7 +98,7 @@ public class SurveyForum {
         if ((forum == null) || (forum.indexOf('_') >= 0) || !sm.isValidLocale(CLDRLocale.getInstance(forum))) {
             return BAD_FORUM;
         }
-        Integer i = (Integer) nameToNum.get(forum);
+        Integer i = nameToNum.get(forum);
         if (i == null) {
             return createForum(forum);
         } else {
@@ -135,10 +135,10 @@ public class SurveyForum {
     }
 
     /**
-     * 
+     *
      * @param forum
      * @return the forum number
-     * 
+     *
      * Called only by getForumNumber.
      */
     private int createForum(String forum) {
@@ -222,15 +222,15 @@ public class SurveyForum {
      * @param subj
      * @param text
      * @param postId
-     * 
+     *
      * Called by doPostInternal
      */
     private void emailNotify(UserRegistry.User user, CLDRLocale locale, int base_xpath, String subj, String text, Integer postId) {
         String forum = localeToForum(locale);
         ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
         // Do email-
-        Set<Integer> cc_emails = new HashSet<Integer>();
-        Set<Integer> bcc_emails = new HashSet<Integer>();
+        Set<Integer> cc_emails = new HashSet<>();
+        Set<Integer> bcc_emails = new HashSet<>();
 
         // Collect list of users to send to.
         gatherInterestedUsers(forum, cc_emails, bcc_emails);
@@ -725,7 +725,7 @@ public class SurveyForum {
 
     /**
      * Construct a portion of an sql query for getting all needed columns from the forum posts table.
-     * 
+     *
      * @param forumPosts the table name
      * @return the string to be used as part of a query
      */
@@ -838,7 +838,7 @@ public class SurveyForum {
         Connection conn = null;
         PreparedStatement pList = null;
         String tableName = DBUtils.Table.FORUM_POSTS.toString();
-        Map<Integer, String> posts = new HashMap<Integer, String>();
+        Map<Integer, String> posts = new HashMap<>();
         try {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",

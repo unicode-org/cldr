@@ -25,7 +25,7 @@ public class StateMachineTest {
         // icu4c-trunk/source/common/rbbirpt.txt
         // "icu4c-trunk/source/i18n/regexcst.txt"
 
-        List<String[]> testLines = new ArrayList<String[]>();
+        List<String[]> testLines = new ArrayList<>();
         while (true) {
             String line = in.readLine();
             if (line == null)
@@ -47,9 +47,9 @@ public class StateMachineTest {
             System.out.println(machine);
         }
         MyActions[] valuesUsed = UnicodeSetBuilder.MyActions.values();
-        Set<String> possibleActions = new TreeSet<String>();
-        Set<String> actionsUsed = new TreeSet<String>();
-        Set<String> errors = new TreeSet<String>();
+        Set<String> possibleActions = new TreeSet<>();
+        Set<String> actionsUsed = new TreeSet<>();
+        Set<String> errors = new TreeSet<>();
         for (MyActions valueUsed : valuesUsed) {
             final String string = valueUsed.toString();
             actionsUsed.add(string);
@@ -63,7 +63,7 @@ public class StateMachineTest {
         }
 
         System.out.println("Errors: " + errors);
-        Set<String> temp = new TreeSet<String>();
+        Set<String> temp = new TreeSet<>();
         temp.addAll(possibleActions);
         temp.removeAll(actionsUsed);
         System.out.println("Unused Actions: " + temp);

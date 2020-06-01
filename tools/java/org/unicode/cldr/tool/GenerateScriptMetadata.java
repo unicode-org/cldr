@@ -25,7 +25,7 @@ public class GenerateScriptMetadata {
 //        FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
         FileCopier.copy(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
 
-        Set<R3<Integer, String, Info>> sorted = new TreeSet<R3<Integer, String, Info>>();
+        Set<R3<Integer, String, Info>> sorted = new TreeSet<>();
         for (String script : ScriptMetadata.getScripts()) {
             Info i = ScriptMetadata.getInfo(script);
             R3<Integer, String, Info> r = Row.of(i.rank, script, i);

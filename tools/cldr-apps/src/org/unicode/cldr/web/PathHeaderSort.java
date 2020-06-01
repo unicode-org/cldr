@@ -33,6 +33,7 @@ public class PathHeaderSort extends SortMode {
         return null; // not used
     }
 
+    @Override
     public DataSection.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
         // final Set<String> headings = new TreeSet<String>();
         DataRow rows[] = createSortedList(new Comparator<DataRow>() {
@@ -47,7 +48,7 @@ public class PathHeaderSort extends SortMode {
             }
         }, matcher, values);
 
-        List<Partition> thePartitions = new LinkedList<Partition>();
+        List<Partition> thePartitions = new LinkedList<>();
         Partition last = null;
         String headerLast = null;
         for (int i = 0; i < rows.length; i++) {

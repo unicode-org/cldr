@@ -21,8 +21,8 @@ import com.ibm.icu.text.MessageFormat;
 class BreakIteratorMapper extends Mapper {
     private String sourceDir;
     private Factory specialFactory;
-    private Set<String> brkSource = new HashSet<String>();
-    private Set<String> dictSource = new HashSet<String>();
+    private Set<String> brkSource = new HashSet<>();
+    private Set<String> dictSource = new HashSet<>();
 
     /**
      * @param specialFactory the factory containing the ICU xml files for break iterators.

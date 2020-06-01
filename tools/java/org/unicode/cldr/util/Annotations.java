@@ -126,7 +126,7 @@ public class Annotations {
         }
 
         static final Pattern SPACES = Pattern.compile("\\s+");
-        
+
         @Override
         public void handlePathValue(String path, String value) {
             if (value.contains(CldrUtility.INHERITANCE_MARKER)) {
@@ -270,6 +270,7 @@ public class Annotations {
         /**
          * @deprecated Use {@link #getLabelSet(String)} instead
          */
+        @Deprecated
         private Set<String> getLabelSet() {
             return getLabelSet("flag");
         }
@@ -413,11 +414,11 @@ public class Annotations {
 //                        code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
 //                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
 //                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-//                    if (matchesInitialPattern(code)) { // 
+//                    if (matchesInitialPattern(code)) { //
 //                        rem = EmojiConstants.WOMAN + rem;
 //                        code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
 //                    }
-//                } else 
+//                } else
                 if (code.contains(EmojiConstants.KISS)) {
                     rem = code + rem;
                     code = "💏";
@@ -428,7 +429,7 @@ public class Annotations {
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (code.contains(EmojiConstants.HANDSHAKE)) {
                     code = code.startsWith(EmojiConstants.MAN) ? "👬"
-                        : code.endsWith(EmojiConstants.MAN) ? "👫" 
+                        : code.endsWith(EmojiConstants.MAN) ? "👫"
                             : code.startsWith(EmojiConstants.WOMAN) ? "👭"
                             : NEUTRAL_HOLDING;
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
@@ -505,7 +506,7 @@ public class Annotations {
                         modName = Utility.hex(mod); // ultimate fallback
                     }
                 }
-                if (hackBlond && shortName != null) { 
+                if (hackBlond && shortName != null) {
                     // HACK: make the blond names look like the other hair names
                     // Split the short name into pieces, if possible, and insert the modName first
                     String sep = initialPattern.format("", "");
@@ -537,6 +538,7 @@ public class Annotations {
         /**
          * @deprecated Use {@link #toString(String,boolean,AnnotationSet)} instead
          */
+        @Deprecated
         public String toString(String code, boolean html) {
             return toString(code, html, null);
         }
@@ -585,7 +587,7 @@ public class Annotations {
             String shortName = getShortName(code);
             Set<String> keywords = getKeywords(code);
             if (shortName != null && keywords.contains(shortName)) {
-                keywords = new LinkedHashSet<String>(keywords);
+                keywords = new LinkedHashSet<>(keywords);
                 keywords.remove(shortName);
             }
             return keywords;
@@ -639,7 +641,7 @@ public class Annotations {
     public String toString(boolean html) {
         Set<String> annotations2 = getKeywords();
         if (getShortName() != null && annotations2.contains(getShortName())) {
-            annotations2 = new LinkedHashSet<String>(getKeywords());
+            annotations2 = new LinkedHashSet<>(getKeywords());
             annotations2.remove(getShortName());
         }
         String result = Joiner.on(" |\u00a0").join(annotations2);

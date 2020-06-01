@@ -209,8 +209,8 @@ public class LocaleMapper extends Mapper {
 
         // First pass through the unresolved CLDRFile to get all icu paths.
         CLDRFile cldr = unresolvedFactory.make(locale, false);
-        Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
-        Set<String> validRbPaths = new HashSet<String>();
+        Map<String, CldrArray> pathValueMap = new HashMap<>();
+        Set<String> validRbPaths = new HashSet<>();
         for (String xpath : cldr) {
             // Territory hacks to be removed once CLDR data is fixed.
             Matcher matcher = TERRITORY_XPATH.matcher(xpath);
@@ -222,7 +222,7 @@ public class LocaleMapper extends Mapper {
             }
 
             // Add rb paths.
-            Output<Finder> matcherFound = new Output<Finder>();
+            Output<Finder> matcherFound = new Output<>();
             Output<String[]> firstInfo = new Output<>();
             RegexResult regexResult = matchXPath(pathConverter, cldr, xpath, matcherFound, firstInfo);
             if (regexResult == null) continue;
@@ -318,7 +318,7 @@ public class LocaleMapper extends Mapper {
         Output<Finder> matcherFound, Output<String[]> firstInfo) {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
-        List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
+        List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<>() : null;
         Output<String[]> info = new Output<>();
         RegexResult result = lookup.get(fullPath, null, info, matcherFound, debugResults);
         if (debugResults != null) {
@@ -351,7 +351,7 @@ public class LocaleMapper extends Mapper {
     private void addMatchesForPath(String xpath, CLDRFile cldrFile,
         Set<String> validRbPaths, RegexLookup<RegexResult> pathConverter,
         Map<String, CldrArray> pathValueMap) {
-        Output<Finder> matcher = new Output<Finder>();
+        Output<Finder> matcher = new Output<>();
         Output<String[]> firstInfo = new Output<>();
         RegexResult regexResult = matchXPath(pathConverter,
             cldrFile, xpath, matcher, firstInfo);

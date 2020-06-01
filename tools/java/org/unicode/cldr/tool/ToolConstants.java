@@ -94,9 +94,9 @@ public class ToolConstants {
     public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(PREV_CHART_VERSION);
     public static final String PREV_CHART_VERSION_WITH0 = PREV_CHART_VI.getVersionString(2, 2); // must have 1 decimal
 
-    public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS", 
-        CLDR_RELEASE_VERSION_SET.contains(CHART_VERSION) 
-        ? "release" 
+    public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS",
+        CLDR_RELEASE_VERSION_SET.contains(CHART_VERSION)
+        ? "release"
             : "beta"));
     public static final boolean BETA = CHART_STATUS == ChartStatus.beta;
 

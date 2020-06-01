@@ -393,8 +393,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
             // can happen if count is numeric literal, like "1"
         }
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
-        Set<String> inconsistentItems = new TreeSet<String>();
-        Set<Count> otherCounts = new HashSet<Count>(pluralTypes);
+        Set<String> inconsistentItems = new TreeSet<>();
+        Set<Count> otherCounts = new HashSet<>(pluralTypes);
         if (thisCount != null) {
             Set<Double> pe = pluralExamples.get(thisCount);
             if (pe == null) {
@@ -562,7 +562,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
     /**
      * Produce a canonical pattern, which will vary according to type and whether it is posix or not.
-     * @param count 
+     * @param count
      *
      * @param path
      */
@@ -611,6 +611,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         public SimpleDemo getDemo() {
             return new MyDemo().setFormat(df);
         }
@@ -623,10 +624,12 @@ public class CheckNumbers extends FactoryCheckCLDR {
     static class MyDemo extends FormatDemo {
         private DecimalFormat df;
 
+        @Override
         protected String getPattern() {
             return df.toPattern();
         }
 
+        @Override
         protected String getSampleInput() {
             return String.valueOf(ExampleGenerator.NUMBER_SAMPLE);
         }
@@ -636,6 +639,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         protected void getArguments(Map<String, String> inout) {
             currentPattern = currentInput = currentFormatted = currentReparsed = "?";
             double d;

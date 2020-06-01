@@ -20,8 +20,8 @@ public class CountryCodeConverter {
 
     private static final boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
 
-    private static Map<String, String> nameToCountryCode = new TreeMap<String, String>(new UTF16.StringComparator(true, true, 0));
-    private static Set<String> parseErrors = new LinkedHashSet<String>();
+    private static Map<String, String> nameToCountryCode = new TreeMap<>(new UTF16.StringComparator(true, true, 0));
+    private static Set<String> parseErrors = new LinkedHashSet<>();
 
     public static String getCodeFromName(String display) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
@@ -81,7 +81,7 @@ public class CountryCodeConverter {
         Set<String> goodAvailableCodes = sc.getGoodAvailableCodes("territory");
 
         for (String country : goodAvailableCodes) {
-            String description = (String) sc.getFullData("territory", country).get(0);
+            String description = sc.getFullData("territory", country).get(0);
             if (country.equals("057")) continue;
             addName(description, country);
         }
@@ -97,6 +97,7 @@ public class CountryCodeConverter {
             this.goodAvailableCodes = goodAvailableCodes;
         }
 
+        @Override
         public boolean handle(String line) {
             if (line.trim().length() == 0) {
                 return true; // don't show skips

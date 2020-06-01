@@ -66,7 +66,7 @@ public class XChoiceFormat {
                 return true; // CN
             }
         }
-    };
+    }
 
     private Condition[] conditions;
 

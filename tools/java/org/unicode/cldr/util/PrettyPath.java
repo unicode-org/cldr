@@ -20,6 +20,7 @@ import com.ibm.icu.text.Transliterator;
  * @deprecated
  * TODO: what is supposed to replace PrettyPath? If no replacement is planned, make it no longer deprecated?
  */
+@Deprecated
 public class PrettyPath {
     private Transliterator prettyPathZoneTransform;
     {
@@ -28,8 +29,8 @@ public class PrettyPath {
     }
     private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
 
-    private Map<String, String> prettyPath_path = new HashMap<String, String>();
-    private Map<String, String> path_prettyPath_sortable = new HashMap<String, String>();
+    private Map<String, String> prettyPath_path = new HashMap<>();
+    private Map<String, String> path_prettyPath_sortable = new HashMap<>();
     private boolean showErrors;
 
     /**
@@ -53,7 +54,7 @@ public class PrettyPath {
      * @return pretty path
      */
     public String getPrettyPath(String path, boolean sortable) {
-        String prettyString = (String) path_prettyPath_sortable.get(path);
+        String prettyString = path_prettyPath_sortable.get(path);
         if (path_prettyPath_sortable.get(path) == null) {
             prettyString = prettyPathTransform.transliterate(path);
             // some internal errors, shown here for debugging for now.
@@ -80,7 +81,7 @@ public class PrettyPath {
     }
 
     private void addBackmap(String prettyString, String path, Map<String, String> prettyPath_path_map) {
-        String old = (String) prettyPath_path_map.get(prettyString);
+        String old = prettyPath_path_map.get(prettyString);
         if (old != null) {
             if (showErrors) System.out.println("Warning:\tFailed bijection, " + prettyString);
             if (showErrors) System.out.println("Warning:\tPath1: " + path);
@@ -97,7 +98,7 @@ public class PrettyPath {
      * @return
      */
     public String getOriginal(String prettyPath) {
-        return (String) prettyPath_path.get(prettyPath);
+        return prettyPath_path.get(prettyPath);
     }
 
     /**

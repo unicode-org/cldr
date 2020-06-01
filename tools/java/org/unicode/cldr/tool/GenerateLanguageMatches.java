@@ -66,7 +66,7 @@ public class GenerateLanguageMatches {
             }
 
             // Filter out what is in LanguageInfo already
-            
+
             if (desiredToSupported.containsEntry(locale, macroLanguage)) {
                 continue;
             }
@@ -97,6 +97,7 @@ public class GenerateLanguageMatches {
     }
 
     static final Transform<String, String> MENU = new Transform<String, String>() {
+        @Override
         public String transform(@SuppressWarnings("unused") String source) {
             return "menu";
         }

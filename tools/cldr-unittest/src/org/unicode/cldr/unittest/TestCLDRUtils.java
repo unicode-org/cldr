@@ -29,6 +29,7 @@ import com.ibm.icu.util.ULocale;
 public class TestCLDRUtils extends TestFmwk {
 
     static Transform<String, String> SHORT_ALT_PICKER = new Transform<String, String>() {
+        @Override
         public String transform(@SuppressWarnings("unused") String source) {
             return "short";
         }

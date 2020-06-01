@@ -72,7 +72,7 @@ public class GenerateTransformCharts {
     // Latin Arabic Bengali Cyrillic Devanagari Greek Greek/UNGEGN Gujarati Gurmukhi Hangul Hebrew Hiragana Kannada
     // Katakana Malayalam Oriya Tamil Telugu Thai
 
-    static Map<String, UnicodeSet> scriptExtras = new HashMap<String, UnicodeSet>();
+    static Map<String, UnicodeSet> scriptExtras = new HashMap<>();
     static {
         scriptExtras.put("Arab", new UnicodeSet("[\u0660-\u0669]"));
         scriptExtras.put("Hang", TestTransformsSimple.getRepresentativeHangul());
@@ -353,7 +353,7 @@ public class GenerateTransformCharts {
             + "For more information, see below.</blockquote>");
         index.flush();
         index.println("<ul>");
-        Set<String> nonScripts = new TreeSet<String>(Arrays.asList("ConjoiningJamo", "InterIndic", "Han",
+        Set<String> nonScripts = new TreeSet<>(Arrays.asList("ConjoiningJamo", "InterIndic", "Han",
             "el", "Jamo", "JapaneseKana", "Korean", "NumericPinyin", "ThaiLogical", "ThaiSemi"));
         try {
 //            SimpleEquivalenceClass ec = new SimpleEquivalenceClass(UCA);
@@ -486,15 +486,15 @@ public class GenerateTransformCharts {
 //            return;
 //        }
         CLDRTransforms.ParsedTransformID parsedID = new CLDRTransforms.ParsedTransformID();
-        Set<String> ids = new TreeSet<String>();
-        Map<String, UnicodeSet> id_unmapped = new HashMap<String, UnicodeSet>();
-        Map<String, Map<String, String>> id_noRoundTrip = new HashMap<String, Map<String, String>>();
-        Set<String> latinItems = new TreeSet<String>(UCA);
+        Set<String> ids = new TreeSet<>();
+        Map<String, UnicodeSet> id_unmapped = new HashMap<>();
+        Map<String, Map<String, String>> id_noRoundTrip = new HashMap<>();
+        Set<String> latinItems = new TreeSet<>(UCA);
 
-        Map<String, String> nonLatinToLatin = new TreeMap<String, String>(UCA);
-        Set<String> totalLatin = new TreeSet<String>();
-        Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
-        Map<String, Map<String, Map<String, Boolean>>> nonLatinToLatinTagged = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
+        Map<String, String> nonLatinToLatin = new TreeMap<>(UCA);
+        Set<String> totalLatin = new TreeSet<>();
+        Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin = new TreeMap<>(UCA);
+        Map<String, Map<String, Map<String, Boolean>>> nonLatinToLatinTagged = new TreeMap<>(UCA);
 
         UnicodeSet totalNonLatinSet = new UnicodeSet();
 
@@ -514,7 +514,7 @@ public class GenerateTransformCharts {
             // }
             UnicodeSet nonLatinUnmapped = new UnicodeSet();
             id_unmapped.put(id, nonLatinUnmapped);
-            Map<String, String> noRoundTrip = new TreeMap<String, String>(UCA);
+            Map<String, String> noRoundTrip = new TreeMap<>(UCA);
             id_noRoundTrip.put(id, noRoundTrip);
             ids.add(parsedID.toString());
             UnicodeSet nonLatinUnicodeSet = getNonLatinSet(script, scriptCode);
@@ -776,13 +776,13 @@ public class GenerateTransformCharts {
         Map<String, Map<String, Map<String, Boolean>>> xToTagToYToRoundtrip, boolean fromNonLatinToLatin,
         String scriptChoice, UnicodeSet totalNonLatinSet) {
 
-        Set<String> extras = new TreeSet<String>(UCA);
+        Set<String> extras = new TreeSet<>(UCA);
         for (UnicodeSetIterator it = new UnicodeSetIterator(totalNonLatinSet); it.next();) {
             extras.add(it.getString());
         }
 
         // find the ids that actually occur
-        Set<String> ids = new TreeSet<String>(UCA);
+        Set<String> ids = new TreeSet<>(UCA);
         for (String x : xToTagToYToRoundtrip.keySet()) {
             ids.addAll(xToTagToYToRoundtrip.get(x).keySet());
         }
@@ -945,6 +945,7 @@ public class GenerateTransformCharts {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     static public class CollectionOfComparablesComparator implements Comparator {
+        @Override
         public int compare(Object o1, Object o2) {
             if (o1 == null) {
                 if (o2 == null) return 0;
@@ -973,6 +974,7 @@ public class GenerateTransformCharts {
     }
 
     static class ReverseComparator implements Comparator<Object> {
+        @Override
         public int compare(Object o1, Object o2) {
             String a = o1.toString();
             char a1 = a.charAt(0);

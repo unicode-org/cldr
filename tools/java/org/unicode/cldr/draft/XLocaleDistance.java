@@ -208,9 +208,10 @@ public class XLocaleDistance {
         /**
          * Return an id, or null if there is none.
          */
+        @Override
         public Integer toId(T source) {
             return objectToInt.get(source);
-//            return value == null ? 0 : value; 
+//            return value == null ? 0 : value;
         }
 
         /**
@@ -305,6 +306,7 @@ public class XLocaleDistance {
             }
         }
 
+        @Override
         public DistanceTable getDistanceTable() {
             return distanceTable;
         }
@@ -341,6 +343,7 @@ public class XLocaleDistance {
             this(newMap());
         }
 
+        @Override
         public boolean isEmpty() {
             return subtables.isEmpty();
         }
@@ -359,6 +362,7 @@ public class XLocaleDistance {
             return subtables.hashCode();
         }
 
+        @Override
         public int getDistance(String desired, String supported, Output<DistanceTable> distanceTable, boolean starEquals) {
             boolean star = false;
             Map<String, DistanceNode> sub2 = subtables.get(desired);
@@ -503,8 +507,9 @@ public class XLocaleDistance {
             return toString(false);
         }
 
+        @Override
         public String toString(boolean abbreviate) {
-            return toString(abbreviate, "", new IdMakerFull<Object>("interner"), new StringBuilder()).toString();
+            return toString(abbreviate, "", new IdMakerFull<>("interner"), new StringBuilder()).toString();
         }
 
         public StringBuilder toString(boolean abbreviate, String indent, IdMakerFull<Object> intern, StringBuilder buffer) {
@@ -548,6 +553,7 @@ public class XLocaleDistance {
             return buffer;
         }
 
+        @Override
         public StringDistanceTable compact() {
             return new CompactAndImmutablizer().compact(this);
         }
@@ -576,6 +582,7 @@ public class XLocaleDistance {
             return dnode == null ? null : dnode.distance;
         }
 
+        @Override
         public DistanceNode getInternalNode(String a, String b) {
             Map<String, DistanceNode> subsub = subtables.get(a);
             if (subsub == null) {
@@ -584,6 +591,7 @@ public class XLocaleDistance {
             return subsub.get(b);
         }
 
+        @Override
         public Map<String, Set<String>> getInternalMatches() {
             Map<String, Set<String>> result = new LinkedHashMap<>();
             for (Entry<String, Map<String, DistanceNode>> entry : subtables.entrySet()) {
@@ -643,7 +651,7 @@ public class XLocaleDistance {
      * ULocales must be in canonical, addLikelySubtags format. Returns distance
      * @param desired
      * @param supported
-     * @param distanceOption 
+     * @param distanceOption
      * @return
      */
     public int distanceRaw(LSR desired, LSR supported, int threshold, DistanceOption distanceOption) {
@@ -895,7 +903,7 @@ public class XLocaleDistance {
     }
 
     private static String fixedName(List<String> match) {
-        List<String> alt = new ArrayList<String>(match);
+        List<String> alt = new ArrayList<>(match);
         StringBuilder result = new StringBuilder();
         switch (alt.size()) {
         case 3:
@@ -1001,6 +1009,7 @@ public class XLocaleDistance {
             paradigms = ImmutableSet.copyOf(paradigmsIn);
         }
 
+        @Override
         public String toId(String region) {
             String result = regionToPartition.get(region);
             return result == null ? "" : result;
@@ -1116,7 +1125,7 @@ public class XLocaleDistance {
     }
 
     /**
-     * Parses a string of regions like "US+005-BR" and produces a set of resolved regions. 
+     * Parses a string of regions like "US+005-BR" and produces a set of resolved regions.
      * All macroregions are fully resolved to sets of non-macro regions.
      * <br>Syntax is simple for now:
      * <pre>regionSet := region ([-+] region)*</pre>

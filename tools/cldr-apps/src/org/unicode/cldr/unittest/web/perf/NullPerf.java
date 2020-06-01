@@ -17,6 +17,7 @@ public class NullPerf extends PerfTest {
         new NullPerf().run(args);
     }
 
+    @Override
     protected void setup(String[] args) {
         // We only take one argument, the pattern
         // if (args.length != 1) {
@@ -29,11 +30,13 @@ public class NullPerf extends PerfTest {
         return new PerfTest.Function() {
             // setup here
 
+            @Override
             public void call() {
                 for (int i = 0; i < 10; i++)
                     ;
             }
 
+            @Override
             public long getOperationsPerIteration() {
                 return 10;
             }

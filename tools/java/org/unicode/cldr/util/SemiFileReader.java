@@ -7,6 +7,7 @@ public abstract class SemiFileReader extends FileProcessor {
 
     protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
 
+    @Override
     protected void handleEnd() {
     }
 

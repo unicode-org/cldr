@@ -220,6 +220,7 @@ public class ListUnits {
         final String path;
         final String value;
 
+        @Override
         public String toString() {
             return "locale=en"
                 + " ; action=add"
@@ -229,7 +230,7 @@ public class ListUnits {
     }
 
     private static Set<String> getUnits(CLDRFile cldrFile, Task task, Map<String, Data> extra) {
-        Set<String> seen = new TreeSet<String>();
+        Set<String> seen = new TreeSet<>();
         for (String path : cldrFile) {
             if (!path.contains("/unit")) {
                 continue;

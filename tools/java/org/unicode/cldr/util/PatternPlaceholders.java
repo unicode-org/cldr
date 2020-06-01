@@ -18,7 +18,7 @@ public class PatternPlaceholders {
         MULTIPLE("Zero or more placeholders allowed."), //
         LOCALE_DEPENDENT( "Varies by locale."),
         REQUIRED("Placeholder required");
-        
+
         final String message;
 
         private PlaceholderStatus(String message) {
@@ -28,7 +28,7 @@ public class PatternPlaceholders {
 
     private static class PlaceholderData {
         PlaceholderStatus status = PlaceholderStatus.REQUIRED;
-        Map<String, PlaceholderInfo> data = new LinkedHashMap<String, PlaceholderInfo>();
+        Map<String, PlaceholderInfo> data = new LinkedHashMap<>();
 
         public void add(String id, String name, String example) {
             PlaceholderInfo row = new PlaceholderInfo(name, example);

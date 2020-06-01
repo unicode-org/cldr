@@ -132,7 +132,7 @@ public class Emoji {
             if (!emojiToOrder.containsKey(minimal)) {
                 putUnique(emojiToOrder, minimal, emojiToOrder.size()*100L);
             }
-            // 
+            //
             // majorPlusMinorToEmoji.put(Pair.of(majorOrder, minorOrder), minimal);
 
             boolean singleton = CharSequences.getSingleCodePoint(minimal) != Integer.MAX_VALUE;
@@ -173,8 +173,8 @@ public class Emoji {
     private static <K, V> void putUnique(Map<K, V> map, K key, V value) {
         V oldValue = map.put(key, value);
         if (oldValue != null) {
-            throw new ICUException("Attempt to change value of " + map 
-                + " for " + key 
+            throw new ICUException("Attempt to change value of " + map
+                + " for " + key
                 + " from " + oldValue
                 + " to " + value
                 );
@@ -246,7 +246,7 @@ public class Emoji {
         if (minorCat == null) {
             minorCat = EXTRA_SYMBOL_MINOR_CATEGORIES.get(emoji);
             if (minorCat == null) {
-                throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+                throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji
                     + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
             }
         }
@@ -262,7 +262,7 @@ public class Emoji {
         if (result == null) {
             result = EXTRA_SYMBOL_ORDER.get(emoji);
             if (result == null) {
-                throw new InternalCldrException("No Order found for " + emoji 
+                throw new InternalCldrException("No Order found for " + emoji
                     + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
             }
         }
@@ -272,7 +272,7 @@ public class Emoji {
     public static long getEmojiMinorOrder(String minor) {
         Long result = minorToOrder.get(minor);
         if (result == null) {
-            throw new InternalCldrException("No minor category (aka subgroup) found for " + minor 
+            throw new InternalCldrException("No minor category (aka subgroup) found for " + minor
                 + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
         }
         return result;
@@ -284,7 +284,7 @@ public class Emoji {
             if (EXTRA_SYMBOL_MINOR_CATEGORIES.containsKey(emoji)) {
                 majorCat = "Symbols";
             } else {
-                throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji 
+                throw new InternalCldrException("No minor category (aka subgroup) found for " + emoji
                     + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"major\", ...");
             }
         }

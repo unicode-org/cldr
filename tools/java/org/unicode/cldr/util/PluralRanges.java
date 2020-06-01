@@ -21,6 +21,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      * @internal
      * @deprecated
      */
+    @Deprecated
     public static final class Matrix implements Comparable<Matrix>, Cloneable {
         private byte[] data = new byte[Count.LENGTH * Count.LENGTH];
         {
@@ -34,6 +35,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
          * @internal
          * @deprecated
          */
+        @Deprecated
         public void set(Count start, Count end, Count result) {
             data[start.ordinal() * Count.LENGTH + end.ordinal()] = result == null ? (byte) -1 : (byte) result.ordinal();
         }
@@ -43,6 +45,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
          * @internal
          * @deprecated
          */
+        @Deprecated
         public void setIfNew(Count start, Count end, Count result) {
             byte old = data[start.ordinal() * Count.LENGTH + end.ordinal()];
             if (old >= 0) {
@@ -57,6 +60,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
          * @internal
          * @deprecated
          */
+        @Deprecated
         public Count get(Count start, Count end) {
             byte result = data[start.ordinal() * Count.LENGTH + end.ordinal()];
             return result < 0 ? null : Count.VALUES.get(result);
@@ -67,6 +71,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
          * @internal
          * @deprecated
          */
+        @Deprecated
         public Count endSame(Count end) {
             Count first = null;
             for (Count start : Count.VALUES) {
@@ -90,6 +95,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
          * @internal
          * @deprecated
          */
+        @Deprecated
         public Count startSame(Count start, EnumSet<Count> endDone, Output<Boolean> emit) {
             emit.value = false;
             Count first = null;
@@ -168,6 +174,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      * @internal
      * @deprecated
      */
+    @Deprecated
     public void add(Count rangeStart, Count rangeEnd, Count result) {
         explicit[result.ordinal()] = true;
         if (rangeStart == null) {
@@ -202,6 +209,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      * @internal
      * @deprecated
      */
+    @Deprecated
     public static String showRange(Count start, Count end, Count result) {
         String startEnd = "start=\"" + start + "\"" + Utility.repeat(" ", 5 - start.toString().length())
             + " end=\"" + end + "\"" + Utility.repeat(" ", 5 - end.toString().length());
@@ -240,13 +248,14 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      * @internal
      * @deprecated
      */
+    @Deprecated
     public boolean isExplicitlySet(Count count) {
         return explicit[count.ordinal()];
     }
 
     @Override
     public boolean equals(Object other) {
-        return other instanceof PluralRanges ? matrix.equals((PluralRanges) other) : false;
+        return other instanceof PluralRanges ? matrix.equals(other) : false;
     }
 
     @Override

@@ -13,6 +13,7 @@ public class DelegatingIterator<T> implements Iterator<T> {
         this.iterators = iterators;
     }
 
+    @Override
     public boolean hasNext() {
         while (item < iterators.length) {
             boolean result = iterators[item].hasNext();
@@ -24,6 +25,7 @@ public class DelegatingIterator<T> implements Iterator<T> {
         return false;
     }
 
+    @Override
     public T next() {
         while (item < iterators.length) {
             try {
@@ -35,13 +37,14 @@ public class DelegatingIterator<T> implements Iterator<T> {
         throw new NoSuchElementException();
     }
 
+    @Override
     public void remove() {
         throw new UnsupportedOperationException();
     }
 
     @SuppressWarnings("unchecked")
     public static <T> Iterable<T> iterable(Iterable<T>... s) {
-        return new MyIterable<T>(s);
+        return new MyIterable<>(s);
     }
 
     @SuppressWarnings("unchecked")
@@ -57,13 +60,14 @@ public class DelegatingIterator<T> implements Iterator<T> {
             iterables = s;
         }
 
+        @Override
         @SuppressWarnings("unchecked")
         public Iterator<T> iterator() {
             Iterator<T>[] iterators = new Iterator[iterables.length];
             for (int i = 0; i < iterables.length; ++i) {
                 iterators[i] = iterables[i].iterator();
             }
-            return new DelegatingIterator<T>(iterators);
+            return new DelegatingIterator<>(iterators);
         }
     }
 }

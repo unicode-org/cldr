@@ -52,7 +52,7 @@ public final class KeyboardTool {
     }
     System.out.println(KeylayoutParser.KEYBOARD_ID_MAP.unmatchedIds());
     }
-    
+
     private enum KeylayoutFilenameFilter implements FilenameFilter {
     INSTANCE;
     @Override public boolean accept(File dir, String name) {

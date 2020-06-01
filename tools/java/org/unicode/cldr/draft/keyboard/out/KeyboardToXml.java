@@ -162,7 +162,7 @@ public final class KeyboardToXml {
           longPressBuilder.append(" ");
         }
           }
-        
+
           if (longPressBuilder.length() > 0) {
         comment.append("  long=");
         comment.append(longPressBuilder.toString());

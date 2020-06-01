@@ -13,7 +13,7 @@ public class GenerateAllCharts {
         FormattedFileWriter.copyIncludeHtmls(CLDRPaths.CHART_DIRECTORY);
 
         ShowLanguages.main(args);
-        
+
         new ChartAnnotations().writeChart(null);
         new ChartSubdivisionNames().writeChart(null);
         GenerateBcp47Text.main(args);
@@ -23,7 +23,7 @@ public class GenerateAllCharts {
         ShowKeyboards.main(args);
         ChartDelta.main(args);
         ChartCollation.main(args);
-        
+
         VerifyCompactNumbers.main(args);
         VerifyZones.main(args);
         DateTimeFormats.main(args);

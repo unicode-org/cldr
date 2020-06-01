@@ -14,19 +14,23 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransformsSimple;
+import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.FileCopier;
+import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
@@ -36,7 +40,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
@@ -83,14 +87,15 @@ public class GenerateTransformCharts {
         System.out.println("Start");
 
         FileCopier.ensureDirectoryExists(TRANSFORM_DIRECTORY);
-        FileCopier.copy(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
+        //FileCopier.copy(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
+        FileCopier.copy(Chart.class, "index.css", TRANSFORM_DIRECTORY, "index.css");
         FormattedFileWriter.copyIncludeHtmls(TRANSFORM_DIRECTORY);
 
         // PrintWriter out = new PrintWriter(System.out);
         CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null, false);
         System.out.println("Transliterators registered");
         try {
-            showAllLatin();
+            showAll();
             // doIndic();
         } finally {
             System.out.println("Done");
@@ -331,7 +336,7 @@ public class GenerateTransformCharts {
 
     static PrintWriter index;
 
-    private static void showAllLatin() throws IOException {
+    private static void showAll() throws IOException {
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate("Transliteration Charts",
             null, "",
@@ -352,25 +357,28 @@ public class GenerateTransformCharts {
             + "For the latest snapshot of the data files, see <a href='http://unicode.org/repos/cldr/trunk/common/transforms/'>Transform XML Data</a>. "
             + "For more information, see below.</blockquote>");
         index.flush();
-        index.println("<ul>");
         Set<String> nonScripts = new TreeSet<String>(Arrays.asList("ConjoiningJamo", "InterIndic", "Han",
             "el", "Jamo", "JapaneseKana", "Korean", "NumericPinyin", "ThaiLogical", "ThaiSemi"));
+        Anchors anchors = new Anchors();
         try {
 //            SimpleEquivalenceClass ec = new SimpleEquivalenceClass(UCA);
             BiMap<String, String> availableTransliterators = getAvailableTransliterators();
             Multimap<Pair<String,String>,String> scriptToIds = TreeMultimap.create();
+            Set<String> scriptCodes = new TreeSet<>();
 //            Set<String> scripts = new TreeSet<String>();
             for (Entry<String, String> displayToId : availableTransliterators.entrySet()) {
                 String display = displayToId.getKey();
                 String id = displayToId.getValue();
-                System.out.println(display + " => " + id);
 
                 ParsedTransformID parsedID = new ParsedTransformID().set(id);
                 String sourceScript = ParsedTransformID.getScriptCode(parsedID.getSource());
                 String targetScript = ParsedTransformID.getScriptCode(parsedID.getTarget());
 //                String target = parsedID.target;
+                System.out.println(display + "\t" + id + "\t" + sourceScript + "\t" + targetScript 
+                    + "\t" + (sourceScript == null || targetScript == null ? "*" : ""));
+
                 if (sourceScript == null || targetScript == null) {
-                    System.out.println("Skipping " + display + " => " + id);
+//                    System.out.println("Skipping " + display + " => " + id);
 
                     continue; // only handle scripts now
                 }
@@ -395,10 +403,25 @@ public class GenerateTransformCharts {
 //                    continue;
 //                }
 //                scripts.add(parsedID.getTargetVariant());
-                 Pair<String,String> key = sourceScript.compareTo(targetScript) < 0 ? Pair.of(sourceScript, targetScript) :  Pair.of(targetScript, sourceScript);
+                Pair<String,String> key = Pair.of(sourceScript, targetScript); // getBestSourceTarget(sourceScript, targetScript);
                 scriptToIds.put(key, id);
+                scriptCodes.add(sourceScript);
+                scriptCodes.add(targetScript);
 //                ec.add(parsedID.getSourceVariant(), UScript.getName(UScript.getCodeFromName(sourceScript)));
 //                ec.add(parsedID.getTargetVariant(), UScript.getName(UScript.getCodeFromName(targetScript)));
+            }
+
+            Set<String> missingScriptCodes = new LinkedHashSet<>(); 
+            for (String code : scriptCodes) {
+                try {
+                    if (!ParsedTransformID.getUnicodeSet(code).isEmpty()) {
+                        continue;
+                    }
+                } catch (Exception e) {}
+                missingScriptCodes.add(code);
+            }
+            if (!missingScriptCodes.isEmpty()) {
+                throw new IllegalArgumentException(missingScriptCodes.toString());
             }
 
 //            Set<String> alreadySeen = new HashSet<String>();
@@ -407,49 +430,52 @@ public class GenerateTransformCharts {
 //                scriptSet.addAll(it.next());
 //                scriptSet.removeAll(alreadySeen);
 //                if (scriptSet.size() <= 0) continue;
-                System.out.println(entry.getKey() + " => " + entry.getValue());
+                final String sourceScript = entry.getKey().getFirst();
+                final String targetScript = entry.getKey().getSecond();
+                System.out.println(sourceScript + " => " + entry.getValue());
 
-                showLatin(entry.getKey(), (Set<String>) entry.getValue());
+                TransformComparison tc = new TransformComparison(sourceScript, targetScript, (Set<String>) entry.getValue(), anchors);
+                tc.showSourceToTarget();
 //                alreadySeen.addAll(scriptSet);
             }
         } finally {
-            index.println("</ul>");
+            index.println(anchors);
             index.println("<h2>Key</h2><ul>");
             index.println("<li>A cell with a blue background indicates a case that doesn't roundtrip.</li>");
             index.println("<li>A cell with a red background indicates a missing case.</li>");
             index
-                .println("<li>Hovering over each cell should show the character name, if enabled on your browser.</li>");
+            .println("<li>Hovering over each cell should show the character name, if enabled on your browser.</li>");
             index.println("</ul>");
             index.println("<h2>Known Data Issues</h2><ul>");
             index.println("<li>The CLDR data currently does not contain many language-specific transliterations. " +
                 "So, for example, the Cyrillic transliteration is not very natural for English speakers.</li>");
             index
-                .println("<li>The unmarked script transliterations to Latin are generally designed to be reversible, "
-                    + "thus some of the transliterations use extra accents to provide for a round-trip. "
-                    +
-                    "(Implementations like ICU allows those to be easily stripped.). "
-                    + "Variant transliterations (such as BGN) typically only go one direction.</li>");
+            .println("<li>The unmarked script transliterations to Latin are generally designed to be reversible, "
+                + "thus some of the transliterations use extra accents to provide for a round-trip. "
+                +
+                "(Implementations like ICU allows those to be easily stripped.). "
+                + "Variant transliterations (such as BGN) typically only go one direction.</li>");
             index
-                .println("<li>Less common characters may be missing; as may be some characters that don't appear in isolation.</li>");
+            .println("<li>Less common characters may be missing; as may be some characters that don't appear in isolation.</li>");
             index
-                .println("<li>Some transliterations only work in context, which won't be visible. For example, an isolated 'a' transliterates to </li>");
+            .println("<li>Some transliterations only work in context, which won't be visible. For example, an isolated 'a' transliterates to </li>");
             index.println("<li>There are known bugs in some of the charts, such as Hangul.</li>");
             index.println("</ul>");
 
             index.println("<h2>Known Chart Issues</h2><ul>");
             index
-                .println(
-                    "<li>Some browsers will not show combinations of accents correctly. See <a href='http://www.unicode.org/help/display_problems.html'>Display Problems?</a></li>");
+            .println(
+                "<li>Some browsers will not show combinations of accents correctly. See <a href='http://www.unicode.org/help/display_problems.html'>Display Problems?</a></li>");
             index
-                .println("<li>Because the context is not taken into account, significant combinations will not show in the charts. "
-                    +
-                    "For example: For greek, \u03A8 shows as 'PH', when the transliteration rules will change it to 'Ph' in front of lowercase letters. "
-                    +
-                    "Characters that are not normally used in isolation, such as \u3041, will show as an odd format (eg with extra punctuations marks or accents).</li>");
+            .println("<li>Because the context is not taken into account, significant combinations will not show in the charts. "
+                +
+                "For example: For greek, \u03A8 shows as 'PH', when the transliteration rules will change it to 'Ph' in front of lowercase letters. "
+                +
+                "Characters that are not normally used in isolation, such as \u3041, will show as an odd format (eg with extra punctuations marks or accents).</li>");
             index.println("<li>Only the script-script charts are shown.</li>");
             index
-                .println(
-                    "<li>The display in some of the charts needs to be improved, such as Greek, Indic, and Kana. In particular, the nonLatin-Latin display needs to be merged.</li>");
+            .println(
+                "<li>The display in some of the charts needs to be improved, such as Greek, Indic, and Kana.</li>");
             index.println("</ul>");
             index.println(headerAndFooter[1]);
             // index.println("</body></html>");
@@ -459,9 +485,31 @@ public class GenerateTransformCharts {
 
     }
 
-    private static boolean isLatin(String target) {
-        return target.equals("Latin") || target.equals("Latn");
+    private static Pair<String, String> getBestSourceTarget(String sourceScript, String targetScript) {
+        return BETTER_IS_LESS.compare(sourceScript, targetScript) < 0 ? Pair.of(sourceScript, targetScript) :  Pair.of(targetScript, sourceScript);
     }
+
+    static final Comparator<String> BETTER_IS_LESS = new Comparator<String>() {
+        MapComparator<String> m = new MapComparator<String>();
+        {
+            m.add("Latn", "Ind0", "Cyrl", "Arab");
+        }
+        @Override
+        public int compare(String o1, String o2) {
+            if (m.getOrdering(o1) == -1) {
+                m.add(o1);
+            }
+            if (m.getOrdering(o2) == -1) {
+                m.add(o2);
+            }
+            return m.compare(o1, o2);
+        }
+
+    };
+
+//    private static boolean isLatin(String target) {
+//        return target.equals("Latin") || target.equals("Latn");
+//    }
 
 //    private static String getName(Set<String> scriptSet) {
 //        if (scriptSet.size() == 1) return scriptSet.iterator().next().toString();
@@ -481,220 +529,244 @@ public class GenerateTransformCharts {
         UCA = new org.unicode.cldr.util.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0));
     }
 
-    private static void showLatin(Pair<String,String> scriptChoice, Set<String> targetVariant) throws IOException {
+    static final class TransformComparison {
+
+        private static final Transliterator NULL_TRANSLIT = Transliterator.getInstance("null");
+
+        final String sourceScript;
+        final String targetScript;
+        final Set<String> translitIds;
+
+        CLDRTransforms.ParsedTransformID parsedID = new CLDRTransforms.ParsedTransformID();
+//        Set<String> ids = new TreeSet<String>();
+//        Map<String, UnicodeSet> id_unmapped = new HashMap<String, UnicodeSet>();
+//        Map<String, Map<String, String>> id_noRoundTrip = new HashMap<String, Map<String, String>>();
+//        Set<String> targetItems = new TreeSet<String>(UCA);
+//
+        Map<String, String> sourceToTarget = new TreeMap<>(UCA);
+        Map<String, String> targetToSource = new TreeMap<>(UCA);
+//
+//        Set<String> totalTarget = new TreeSet<String>();
+        Map<String, Map<String, Map<String, Boolean>>> targetToTaggedSource = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
+        Map<String, Map<String, Map<String, Boolean>>> sourceToTargetTagged = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
+
+        UnicodeSet totalSourceSet = new UnicodeSet();
+        UnicodeSet totalTargetSet = new UnicodeSet();
+
+        private Anchors anchors;
+
+        public TransformComparison(String sourceScript, String targetScript, Set<String> translitIds, Anchors anchors) {
+            this.sourceScript = sourceScript;
+            this.targetScript = targetScript;
+            this.translitIds = translitIds;
+            this.anchors = anchors;
+
+            UnicodeSet sourceScriptSet = ParsedTransformID.getUnicodeSet(this.sourceScript).freeze();
+            UnicodeSet targetScriptSet = ParsedTransformID.getUnicodeSet(this.targetScript).freeze();
+
+            // gather info
+            for (String translitId : translitIds) {
+                UnicodeSet sourceSet = new UnicodeSet();
+                UnicodeSet targetSet = new UnicodeSet();
+                Transliterator sourceToTargetTrans = null; // nonLatin => source
+                Transliterator targetToSourceTrans = NULL_TRANSLIT; // latin => target
+                parsedID.set(translitId);
+                try {
+                    sourceToTargetTrans = getTransliterator(parsedID.source, parsedID.target, parsedID.variant);
+                    final UnicodeSet sourceSet2 = sourceToTargetTrans.getSourceSet();
+                    final UnicodeSet targetSet2 = sourceToTargetTrans.getTargetSet();
+                    sourceSet.addAll(sourceSet2);
+                    targetSet.addAll(targetSet2);
+                } catch (RuntimeException e) {}
+                if (sourceToTargetTrans == null) {
+                    System.out.println("Skipping " + translitId);
+                    continue;
+                }
+//                try {
+//                    targetToSourceTrans = getTransliterator(parsedID.target, parsedID.source, parsedID.variant);
+//                    // swap them
+//                    final UnicodeSet targetSet2 = targetToSourceTrans.getSourceSet();
+//                    final UnicodeSet sourceSet2 = targetToSourceTrans.getTargetSet();
+//                    targetSet.addAll(targetSet2); 
+//                    sourceSet.addAll(sourceSet2);
+//                } catch (RuntimeException e) {}
+
+                sourceSet = retainScript(sourceSet, sourceScriptSet);
+                targetSet = retainScript(targetSet, targetScriptSet);
+
+                System.out.println(translitId + "\t" + sourceSet.size() + ", " + targetSet.size());
+
+                for (String s : sourceSet) {
+                    String t = sourceToTargetTrans.transform(s);
+                    if (!t.isEmpty() 
+                        && !areSame(s, t)
+                        && targetScriptSet.containsSome(t)
+                        && sourceScriptSet.containsNone(t)
+                        ) {
+                        sourceToTarget.put(s, t);
+                        totalSourceSet.add(s);
+                        totalTargetSet.add(t);
+                    }
+                }
+//                Map<String,String> targetToSource = new TreeMap<>();
+//                for (String t : targetSet) {
+//                    String s = targetToSourceTrans.transform(t);
+//                    if (!s.isEmpty() && !areSame(s,t) && sourceSet.containsSome(s)) {
+//                        targetToSource.put(t,s);
+//                        totalSourceSet.add(s);
+//                        totalTargetSet.add(t);
+//                    }
+//                }
+                System.out.println(translitId 
+                    + "\n\t" + totalSourceSet.toPattern(false)
+                    + "\n\t" + totalTargetSet.toPattern(false)
+                    );
+
+                for (Entry<String, String> entry : sourceToTarget.entrySet()) {
+                    String source = entry.getKey();
+                    String target = entry.getValue();
+                    String backToSource = targetToSource.get(target);
+                    final boolean backToSourceIsSame = areSame(source, backToSource);
+                    CldrUtility.addTreeMapChain(sourceToTargetTagged, source, parsedID.toString(), target, backToSourceIsSame);
+                    if (!backToSourceIsSame && backToSource != null) {
+                        String backToTarget = sourceToTarget.get(backToSource);
+                        final boolean backToTargetIsSame = areSame(target, backToTarget);
+                        CldrUtility.addTreeMapChain(targetToTaggedSource, target, parsedID.toString(), backToSource, backToTargetIsSame);
+                    }
+                }
+            }
+
+
+            if (sourceToTargetTagged.size() == 0) {
+                System.out.println("Skipping empty data table " + sourceScript + "-" + targetScript);
+            }
+        }
+
+        private UnicodeSet retainScript(UnicodeSet sourceSet, UnicodeSet sourceScript) {
+            UnicodeSet result = new UnicodeSet();
+            for (String s : sourceSet) {
+                if (sourceScript.containsSome(s)) {
+                    result.add(s);
+                }
+            }
+            return result;
+        }
+
+        public void showSourceToTarget() throws IOException {
 //        if (scriptChoice.equals("Latin")) {
 //            return;
 //        }
-        CLDRTransforms.ParsedTransformID parsedID = new CLDRTransforms.ParsedTransformID();
-        Set<String> ids = new TreeSet<String>();
-        Map<String, UnicodeSet> id_unmapped = new HashMap<String, UnicodeSet>();
-        Map<String, Map<String, String>> id_noRoundTrip = new HashMap<String, Map<String, String>>();
-        Set<String> latinItems = new TreeSet<String>(UCA);
 
-        Map<String, String> nonLatinToLatin = new TreeMap<String, String>(UCA);
-        Set<String> totalLatin = new TreeSet<String>();
-        Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
-        Map<String, Map<String, Map<String, Boolean>>> nonLatinToLatinTagged = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
+            String shortName = this.sourceScript + "-" + this.targetScript;
+            String filename = shortName + ".html";
+            String title = ParsedTransformID.getScriptName(sourceScript) + "–" + ParsedTransformID.getScriptName(targetScript);
+            anchors.add(title, filename, null);
+            
+            //index.println("<li><a href='" + filename + "'>" + this.sourceScript + "-" + this.targetScript + "</a></li>");
+            PrintWriter pw = FileUtilities.openUTF8Writer(TRANSFORM_DIRECTORY, filename);
+            String[] headerAndFooter = new String[2];
+            ShowData.getChartTemplate(title + " Transliteration Chart",
+                null, "",
+                // "<style>" + Utility.LINE_SEPARATOR +
+                // "td, th { background-color: white }" + Utility.LINE_SEPARATOR +
+                // "td { text-align: Center; font-size: 200%}" + Utility.LINE_SEPARATOR +
+                // "tt { font-size: 50% }" + Utility.LINE_SEPARATOR +
+                // "td.miss { background-color: #CCCCFF }" + Utility.LINE_SEPARATOR +
+                // "td.none { background-color: #FFCCCC }" + Utility.LINE_SEPARATOR +
+                // "td.main { align: center; vertical-align: top; background-color: #DDDDDD }" + Utility.LINE_SEPARATOR +
+                // "</style>",
+                headerAndFooter, null, false);
+            pw.println(headerAndFooter[0]);
 
-        UnicodeSet totalNonLatinSet = new UnicodeSet();
+            // pw.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+            // pw.println("<title>Latin-" + scriptChoice + " Transliteration Chart</title>");
+            // pw.println("<style>");
+            // pw.println("td, th { background-color: white }");
+            // pw.println("td { text-align: Center; font-size: 200%}");
+            // pw.println("tt { font-size: 50% }");
+            // pw.println("td.miss { background-color: #CCCCFF }");
+            // pw.println("td.none { background-color: #FFCCCC }");
+            // pw.println("td.main { align: center; vertical-align: top; background-color: #DDDDDD }");
+            // pw.println("</style></head><body bgcolor='#FFFFFF'>");
+            // pw.println("<h1>Latin-" + scriptChoice + " Transliteration Chart</h1>");
+            pw.println(
+                "<p>This chart illustrates one or more of the transliterations in CLDR. It only illustrates the translation; in particular, it does not show examples where transliterations differ according to context.</p>"
+                    +
+                "<p><b>Note:</b> For known issues and more information, see the <a href='index.html'>index</a>.</p>"
+                    );
 
-        // gather info
-        for (Iterator<String> i = targetVariant.iterator(); i.hasNext();) {
-            String id = i.next();
-            parsedID.set(id);
-            String nonLatinId = null;
-            String script = scriptChoice.getFirst();
-            int scriptCode = UScript.getCodeFromName(scriptChoice.getFirst());
-            if (scriptCode < 0) {
-                throw new IllegalArgumentException("Missing script: " + scriptChoice);
-            }
-            // if (scriptCode < 0) {
-            // System.out.println("Skipping id: " + script);
-            // continue;
+            pw.println("<div align='center'>");
+            pw.println("<table border='1' cellspacing='0' cellpadding='8'>");
+            pw.println("<tr>");
+            pw.println("<th>" + shortName + "</th>");
+
+            // pw.println("<th>Unmapped</th>");
+            // pw.println("<th>No Round Trip</th>");
+            pw.println("</tr><tr><td class='main'>");
+
+            doMainTable(pw, sourceToTargetTagged, true, this.sourceScript, totalSourceSet);
+
+//            if (!targetToTaggedSource.isEmpty()) {
+//                pw.println("</td><td class='main'>");
+//
+//                doMainTable(parsedID, translitIds, pw, targetToTaggedSource, false, this.sourceScript, new UnicodeSet());
+//            }
+
+            // pw.println("</td><td class='main'>");
+            //
+            // pw.println("<table border='1' cellspacing='0'>");
+            // for (Iterator it2 = ids.iterator(); it2.hasNext();) {
+            // String id = (String)it2.next();
+            // UnicodeSet unmapped = (UnicodeSet) id_unmapped.get(id);
+            // if (unmapped.size() == 0) continue;
+            // parsedID.set(id);
+            // pw.println("<tr><th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) +
+            // "</th></tr>");
+            // for (UnicodeSetIterator it = new UnicodeSetIterator(unmapped); it.next();) {
+            // pw.println("<tr>");
+            // String source = it.getString();
+            // showCell(pw, source, " class='miss'");
+            // pw.println("</tr>");
             // }
-            UnicodeSet nonLatinUnmapped = new UnicodeSet();
-            id_unmapped.put(id, nonLatinUnmapped);
-            Map<String, String> noRoundTrip = new TreeMap<String, String>(UCA);
-            id_noRoundTrip.put(id, noRoundTrip);
-            ids.add(parsedID.toString());
-            UnicodeSet nonLatinUnicodeSet = getNonLatinSet(script, scriptCode);
-            totalNonLatinSet.addAll(nonLatinUnicodeSet);
+            //
+            // }
+            // pw.println("</table>");
+            //
+            // pw.println("</td><td class='main'>");
+            //
+            // pw.println("<table border='1' cellspacing='0'>");
+            // for (Iterator it2 = ids.iterator(); it2.hasNext();) {
+            // String id = (String)it2.next();
+            // Map noRoundTrip = (Map) id_noRoundTrip.get(id);
+            // if (noRoundTrip.size() == 0) continue;
+            // parsedID.set(id);
+            // pw.println("<tr><th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) +
+            // "</th><th>Latin</th></tr>");
+            // for (Iterator it = noRoundTrip.keySet().iterator(); it.hasNext();) {
+            // pw.println("<tr>");
+            // String source = (String) it.next();
+            // String target = (String)noRoundTrip.get(source);
+            // showCell(pw, source, "");
+            // showCell(pw, target, " class='miss'");
+            // pw.println("</tr>");
+            // }
+            // }
+            // pw.println("</table>");
 
-            Transliterator nonLatin_latin;
-            Transliterator latin_nonLatin;
-            try {
-                nonLatin_latin = getTransliterator(parsedID.source, parsedID.target, parsedID.variant);
-            } catch (RuntimeException e) {
-                continue; // couldn't go from nonLatin to latin
-            }
-            try {
-                latin_nonLatin = getTransliterator(parsedID.target, parsedID.source, parsedID.variant);
-            } catch (RuntimeException e) {
-                latin_nonLatin = Transliterator.getInstance("null");
-            }
+            pw.println("</td></tr></table></div>");
 
-            boolean sourceIsCased = false;
-            for (UnicodeSetIterator it = new UnicodeSetIterator(nonLatinUnicodeSet); it.next();) {
-                String nonLatin = it.getString();
-                if (nonLatin.equals("느")) {
-                    System.out.println("??");
-                    // Transliterator.DEBUG = true;
-                }
-                String latin = nonLatin_latin.transliterate(nonLatin);
-                // Transliterator.DEBUG = false;
-
-                if (areSame(nonLatin, latin) || NON_LATIN.containsSome(latin)) {
-                    nonLatinUnmapped.add(nonLatin);
-                    continue;
-                }
-                if (latin.length() != 0) {
-                    latinItems.add(latin);
-                }
-                String backToNonLatin = latin_nonLatin.transliterate(latin);
-                boolean convertsLatin = !areSame(backToNonLatin, latin);
-
-                boolean nonLatinToLatinReversible = convertsLatin && areSame(backToNonLatin, nonLatin);
-
-                if (!nonLatinToLatinReversible) {
-                    noRoundTrip.put(nonLatin, latin);
-                    // continue;
-                } else { // does round trip, check target
-                    if (!sourceIsCased && !UCharacter.foldCase(nonLatin, true).equals(nonLatin)) {
-                        sourceIsCased = true;
-                    }
-                }
-                if (!totalLatin.contains(latin) && latin.length() > 0) {
-                    nonLatinToLatin.put(nonLatin, latin);
-                    totalLatin.add(latin);
-                }
-
-                CldrUtility.addTreeMapChain(nonLatinToLatinTagged, nonLatin, nonLatinId, latin,
-                    areSame(nonLatin, backToNonLatin));
-                if (convertsLatin) {
-                    String backToLatin = nonLatin_latin.transliterate(backToNonLatin);
-                    CldrUtility.addTreeMapChain(latinToTaggedNonLatin, latin, nonLatinId, backToNonLatin,
-                        areSame(latin, backToLatin));
-                }
-            }
-            for (int c = 'a'; c <= 'z'; ++c) {
-                String latin = UTF16.valueOf(c);
-                addToLatinMap(latinItems, latinToTaggedNonLatin, nonLatinToLatinTagged, nonLatinId, nonLatin_latin,
-                    latin_nonLatin, latin);
-            }
-            if (sourceIsCased)
-                for (int c = 'A'; c <= 'Z'; ++c) {
-                String latin = UTF16.valueOf(c);
-                addToLatinMap(latinItems, latinToTaggedNonLatin, nonLatinToLatinTagged, nonLatinId, nonLatin_latin,
-                    latin_nonLatin, latin);
-                }
+            // pw.println("</body></html>");
+            pw.println(headerAndFooter[1]);
+            pw.close();
         }
-
-        String filename = scriptChoice.getFirst() + "-" + scriptChoice.getSecond() + ".html";
-        index.println("<li><a href='" + filename + "'>" + scriptChoice.getFirst() + "-" + scriptChoice.getSecond() + "</a></li>");
-        PrintWriter pw = FileUtilities.openUTF8Writer(TRANSFORM_DIRECTORY, filename);
-        String[] headerAndFooter = new String[2];
-        ShowData.getChartTemplate("Latin-" + scriptChoice + " Transliteration Chart",
-            null, "",
-            // "<style>" + Utility.LINE_SEPARATOR +
-            // "td, th { background-color: white }" + Utility.LINE_SEPARATOR +
-            // "td { text-align: Center; font-size: 200%}" + Utility.LINE_SEPARATOR +
-            // "tt { font-size: 50% }" + Utility.LINE_SEPARATOR +
-            // "td.miss { background-color: #CCCCFF }" + Utility.LINE_SEPARATOR +
-            // "td.none { background-color: #FFCCCC }" + Utility.LINE_SEPARATOR +
-            // "td.main { align: center; vertical-align: top; background-color: #DDDDDD }" + Utility.LINE_SEPARATOR +
-            // "</style>",
-            headerAndFooter, null, false);
-        pw.println(headerAndFooter[0]);
-
-        // pw.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
-        // pw.println("<title>Latin-" + scriptChoice + " Transliteration Chart</title>");
-        // pw.println("<style>");
-        // pw.println("td, th { background-color: white }");
-        // pw.println("td { text-align: Center; font-size: 200%}");
-        // pw.println("tt { font-size: 50% }");
-        // pw.println("td.miss { background-color: #CCCCFF }");
-        // pw.println("td.none { background-color: #FFCCCC }");
-        // pw.println("td.main { align: center; vertical-align: top; background-color: #DDDDDD }");
-        // pw.println("</style></head><body bgcolor='#FFFFFF'>");
-        // pw.println("<h1>Latin-" + scriptChoice + " Transliteration Chart</h1>");
-        pw.println(
-            "<p>This chart illustrates one or more of the transliterations in CLDR. It is not complete; in particular, it does not show examples where transliterations differ according to context.</p>"
-                +
-                "<p><b>Note:</b> This chart is preliminary; for known issues and more information (such as how to see character names), see the <a href='index.html'>index</a>.</p>");
-
-        pw.println("<div align='center'>");
-        pw.println("<table border='1' cellspacing='0' cellpadding='8'>");
-        pw.println("<tr>");
-        pw.println("<th>" + scriptChoice + "-Latin</th>");
-
-        if (!latinToTaggedNonLatin.isEmpty()) {
-            pw.println("<th>Latin-" + scriptChoice + "</th>");
-        }
-        // pw.println("<th>Unmapped</th>");
-        // pw.println("<th>No Round Trip</th>");
-        pw.println("</tr><tr><td class='main'>");
-
-        doMainTable(parsedID, targetVariant, pw, nonLatinToLatinTagged, true, scriptChoice.getFirst(), totalNonLatinSet);
-
-        if (!latinToTaggedNonLatin.isEmpty()) {
-            pw.println("</td><td class='main'>");
-
-            doMainTable(parsedID, targetVariant, pw, latinToTaggedNonLatin, false, scriptChoice.getFirst(), new UnicodeSet());
-        }
-
-        // pw.println("</td><td class='main'>");
-        //
-        // pw.println("<table border='1' cellspacing='0'>");
-        // for (Iterator it2 = ids.iterator(); it2.hasNext();) {
-        // String id = (String)it2.next();
-        // UnicodeSet unmapped = (UnicodeSet) id_unmapped.get(id);
-        // if (unmapped.size() == 0) continue;
-        // parsedID.set(id);
-        // pw.println("<tr><th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) +
-        // "</th></tr>");
-        // for (UnicodeSetIterator it = new UnicodeSetIterator(unmapped); it.next();) {
-        // pw.println("<tr>");
-        // String source = it.getString();
-        // showCell(pw, source, " class='miss'");
-        // pw.println("</tr>");
-        // }
-        //
-        // }
-        // pw.println("</table>");
-        //
-        // pw.println("</td><td class='main'>");
-        //
-        // pw.println("<table border='1' cellspacing='0'>");
-        // for (Iterator it2 = ids.iterator(); it2.hasNext();) {
-        // String id = (String)it2.next();
-        // Map noRoundTrip = (Map) id_noRoundTrip.get(id);
-        // if (noRoundTrip.size() == 0) continue;
-        // parsedID.set(id);
-        // pw.println("<tr><th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) +
-        // "</th><th>Latin</th></tr>");
-        // for (Iterator it = noRoundTrip.keySet().iterator(); it.hasNext();) {
-        // pw.println("<tr>");
-        // String source = (String) it.next();
-        // String target = (String)noRoundTrip.get(source);
-        // showCell(pw, source, "");
-        // showCell(pw, target, " class='miss'");
-        // pw.println("</tr>");
-        // }
-        // }
-        // pw.println("</table>");
-
-        pw.println("</td></tr></table></div>");
-
-        // pw.println("</body></html>");
-        pw.println(headerAndFooter[1]);
-        pw.close();
     }
 
     private static boolean areSame(String a, String b) {
-        return Normalizer.compare(a, b, 0) == 0;
+        return Objects.equals(a, b) 
+            || a != null && b != null && NFD.normalize(a).equals(NFD.normalize(b));
     }
 
-    private static void addToLatinMap(Set<String> latinItems, Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin,
+    private static void addToTargetMap(Set<String> latinItems, Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin,
         Map<String, Map<String, Map<String, Boolean>>> nonLatinToLatinTagged,
         String nonLatinId, Transliterator nonLatin_latin, Transliterator latin_nonLatin, String latin) {
         latinItems.add(latin);
@@ -708,9 +780,11 @@ public class GenerateTransformCharts {
         }
     }
 
+    private static Normalizer2 NFD = Normalizer2.getNFDInstance();
+
     private static UnicodeSet getNonLatinSet(String script, int scriptCode) {
-        String scriptName = UScript.getShortName(scriptCode);
-        UnicodeSet nonLatinUnicodeSet = new UnicodeSet("[:script=" + scriptName + ":]");
+        String scriptName = ParsedTransformID.getScriptCodeFromNumber(scriptCode);
+        UnicodeSet nonLatinUnicodeSet = ParsedTransformID.getUnicodeSet(scriptName).cloneAsThawed();
 
         // skip some characters
         nonLatinUnicodeSet.removeAll(stuffToSkip);
@@ -719,7 +793,7 @@ public class GenerateTransformCharts {
         // add NFD of characters
         extras = new UnicodeSet();
         for (UnicodeSetIterator usi = new UnicodeSetIterator(nonLatinUnicodeSet); usi.next();) {
-            String d = Normalizer.normalize(usi.getString(), Normalizer.NFD, 0);
+            String d = NFD.normalize(usi.getString());
             extras.addAll(d);
         }
         extras.removeAll(nonLatinUnicodeSet);
@@ -772,8 +846,7 @@ public class GenerateTransformCharts {
 //        return codeFromName;
 //    }
 
-    private static void doMainTable(CLDRTransforms.ParsedTransformID parsedID, Set<String> ids_old, PrintWriter pw,
-        Map<String, Map<String, Map<String, Boolean>>> xToTagToYToRoundtrip, boolean fromNonLatinToLatin,
+    private static void doMainTable(PrintWriter pw, Map<String, Map<String, Map<String, Boolean>>> xToTagToYToRoundtrip, boolean fromNonLatinToLatin,
         String scriptChoice, UnicodeSet totalNonLatinSet) {
 
         Set<String> extras = new TreeSet<String>(UCA);
@@ -792,14 +865,10 @@ public class GenerateTransformCharts {
         System.out.println("ids: " + ids);
 
         pw.println("<table border='1' cellspacing='0'><tr>");
-        if (fromNonLatinToLatin) {
-            pw.println("<th>" + scriptChoice + "</th>");
-        } else {
-            pw.println("<th>Latin</th>");
-        }
+        pw.println("<th>" + scriptChoice + "</th>");
         for (String id : ids) {
             id = id.replace("/", "/​"); // add code to allow linebreak
-            pw.println("<th>" + (fromNonLatinToLatin ? id + "<br>to Latin" : "Latin to<br>" + id) + "</th>");
+            pw.println("<th>" + id + "</th>");
         }
         pw.println("</tr>");
 

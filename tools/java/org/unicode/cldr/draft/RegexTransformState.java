@@ -58,7 +58,7 @@ public class RegexTransformState {
 
     /**
      * return true if the rule matches at offset in text, without touching text before start or after finish
-     * 
+     *
      * @param text
      * @param offset
      * @param start
@@ -112,6 +112,7 @@ public class RegexTransformState {
         return Status.MATCH;
     }
 
+    @Override
     public String toString() {
         return processedAlready.toString();
     }

@@ -58,7 +58,7 @@ public class Compacter {
      */
     public static List<String> decodeString(String encodedString) {
         List<Interval> intermediate = CharacterListCompressor.base88DecodeList(encodedString);
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         for (Interval interval : intermediate) {
             for (int i = interval.first; i <= interval.last; ++i) {
                 result.add(UTF16.valueOf(i));
@@ -68,7 +68,7 @@ public class Compacter {
     }
 
     private static List<Interval> codePointsToIntervals(Collection<String> set2) {
-        List<Interval> result = new ArrayList<Interval>();
+        List<Interval> result = new ArrayList<>();
         int first = -1;
         int last = -1;
         for (String item : set2) {
@@ -149,7 +149,7 @@ public class Compacter {
         if (Compacter.useCibus) {
             return decodeString(in);
         }
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         int cp;
         int first = 0;
         for (int i = 0; i < in.length(); i += Character.charCount(cp)) {

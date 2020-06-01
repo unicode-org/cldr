@@ -51,7 +51,7 @@ public abstract class SortMode {
     }
 
     public static List<String> getSortModesFor(String xpath) {
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         if (xpath.contains("/calendars")) {
             list.add(CalendarSortMode.name);
         } else if (xpath.contains("zone")) {
@@ -116,7 +116,7 @@ public abstract class SortMode {
 
     enum SortKeyType {
         SORTKEY_INTEREST, SORTKEY_CALENDAR, SORTKEY_METAZONE
-    };
+    }
 
     public static final int[] reserveForSort() {
         int[] x = new int[SortKeyType.values().length];
@@ -155,7 +155,7 @@ public abstract class SortMode {
      * @return
      */
     protected Partition[] createPartitions(Membership[] memberships, DataRow[] rows) {
-        Vector<Partition> v = new Vector<Partition>();
+        Vector<Partition> v = new Vector<>();
         if (memberships != null) { // something with partitions
             Partition testPartitions[] = createPartitions(memberships);
 
@@ -199,7 +199,7 @@ public abstract class SortMode {
             // default partition - e'erthing.
             v.add(new Partition(null, 0, rows.length));
         }
-        return (Partition[]) v.toArray(new Partition[0]); // fold it up
+        return v.toArray(new Partition[0]); // fold it up
     }
 
     /**
@@ -232,7 +232,7 @@ public abstract class SortMode {
         // matcher,rowsHash.values()), sortMode);
         Set<DataRow> newSet;
 
-        newSet = new TreeSet<DataRow>(comparator);
+        newSet = new TreeSet<>(comparator);
 
         if (matcher == null) {
             newSet.addAll(rows); // sort it

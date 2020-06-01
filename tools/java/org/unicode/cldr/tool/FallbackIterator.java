@@ -24,7 +24,7 @@ public class FallbackIterator implements Iterator<String> {
         public FallbackRule(String string) {
             String[] data = string.split(";");
             boolean first = true;
-            List<String> strings = new ArrayList<String>();
+            List<String> strings = new ArrayList<>();
             for (String datum : data) {
                 if (first) {
                     matcher = PatternCache.get(datum).matcher("");
@@ -42,7 +42,7 @@ public class FallbackIterator implements Iterator<String> {
         }
 
         public List<String> getAdditions() {
-            List<String> results = new ArrayList<String>(additions.length);
+            List<String> results = new ArrayList<>(additions.length);
             results.add(source);
             for (String addition : additions) {
                 String copy = addition;
@@ -55,18 +55,19 @@ public class FallbackIterator implements Iterator<String> {
             return results;
         }
 
+        @Override
         public String toString() {
             return "{" + matcher.toString() + ", " + Arrays.asList(additions) + "}";
         }
     }
 
-    private static final List<FallbackIterator.FallbackRule> FALLBACK_LIST = new ArrayList<FallbackIterator.FallbackRule>();
-    private static final List<FallbackIterator.FallbackRule> CANONICALIZE_LIST = new ArrayList<FallbackIterator.FallbackRule>();
-    private static final List<FallbackIterator.FallbackRule> DECANONICALIZE_LIST = new ArrayList<FallbackIterator.FallbackRule>();
+    private static final List<FallbackIterator.FallbackRule> FALLBACK_LIST = new ArrayList<>();
+    private static final List<FallbackIterator.FallbackRule> CANONICALIZE_LIST = new ArrayList<>();
+    private static final List<FallbackIterator.FallbackRule> DECANONICALIZE_LIST = new ArrayList<>();
 
     private enum Type {
         canonicalize, fallback, decanonicalize
-    };
+    }
 
     static {
         // TODO add "JP" (ja_JP_JP) "TH" (th_TH_TH) "NY" (no_NO_NY)
@@ -225,7 +226,7 @@ public class FallbackIterator implements Iterator<String> {
     public FallbackIterator set(String source) {
         // all of this can be optimized later
         String original = source;
-        List<String> items = new ArrayList<String>();
+        List<String> items = new ArrayList<>();
         items.add(original);
         // canonicalize (normally in constructor)
         canonicalize: while (true) {
@@ -264,7 +265,7 @@ public class FallbackIterator implements Iterator<String> {
 
         // for each decanonicalize rule, add all premutations it generates
         for (FallbackIterator.FallbackRule rule : DECANONICALIZE_LIST) {
-            List<String> localExpanded = new ArrayList<String>();
+            List<String> localExpanded = new ArrayList<>();
             for (String localeItem : items) {
                 if (rule.matches(localeItem)) {
                     localExpanded.addAll(rule.getAdditions());
@@ -275,7 +276,7 @@ public class FallbackIterator implements Iterator<String> {
             items = localExpanded;
         }
         // if we didn't need to start with the original, we could skip this bit.
-        LinkedHashSet<String> results = new LinkedHashSet<String>();
+        LinkedHashSet<String> results = new LinkedHashSet<>();
         // results.add(original);
         results.addAll(items);
         iterator = results.iterator();
@@ -284,14 +285,17 @@ public class FallbackIterator implements Iterator<String> {
 
     // Matcher regularFallback = PatternCache.get("(.*)[-_][^-_]*").matcher("");
 
+    @Override
     public void remove() {
         throw new UnsupportedOperationException();
     }
 
+    @Override
     public boolean hasNext() {
         return iterator.hasNext();
     }
 
+    @Override
     public String next() {
         return iterator.next();
     }

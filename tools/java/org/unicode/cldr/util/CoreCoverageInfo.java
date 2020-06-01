@@ -33,21 +33,21 @@ public class CoreCoverageInfo {
     private static final LikelySubtags ls = new LikelySubtags(sdi);
 
     public enum CoreItems {
-        // Drop the exemplars, since 
+        // Drop the exemplars, since
         // main_exemplar, auxiliary_exemplar, // numbers_exemplar, punctuation_exemplar, index_exemplar(Level.MODERN)
-        orientation, 
-        plurals, 
-        default_content, likely_subtags, 
-        country_data, 
-        casing, 
+        orientation,
+        plurals,
+        default_content, likely_subtags,
+        country_data,
+        casing,
         collation,
-        romanization(Level.MODERATE), 
-        ordinals(Level.MODERN), 
+        romanization(Level.MODERATE),
+        ordinals(Level.MODERN),
         ;
-        
+
         public static Set<CoreItems> ONLY_RECOMMENDED = ImmutableSet.copyOf(
             EnumSet.of(romanization, ordinals));
-        
+
 //        private static final Set<CoreItems> EXEMPLARS = ImmutableSet.copyOf(EnumSet.of(
 //            main_exemplar, auxiliary_exemplar
 //            //, numbers_exemplar, punctuation_exemplar, index_exemplar
@@ -55,7 +55,7 @@ public class CoreCoverageInfo {
 
         public static final int COUNT = CoreItems.values().length;
         public final Level desiredLevel;
-        
+
         CoreItems(Level desiredLevel) {
             this.desiredLevel = desiredLevel;
         }

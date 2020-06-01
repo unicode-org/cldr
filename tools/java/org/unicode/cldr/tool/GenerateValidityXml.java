@@ -128,7 +128,7 @@ public class GenerateValidityXml {
             Status oldStatus = get(currency);
             if (oldStatus == null || newStatus.compareTo(oldStatus) < 0) {
                 put(currency, newStatus);
-            }            
+            }
         }
     }
 
@@ -321,7 +321,7 @@ public class GenerateValidityXml {
                     switch (code) {
                     case "Aran":
                     case "Qaag":
-                    case "Zsye": 
+                    case "Zsye":
                     case "Zanb":
                     case "Zinh":
                     case "Zyyy":
@@ -329,7 +329,7 @@ public class GenerateValidityXml {
                         break;
                     default:
                         switch (subtype) {
-                        case private_use: 
+                        case private_use:
                             if (code.compareTo("Qaaq") < 0) {
                                 subtype = Validity.Status.reserved;
                             }

@@ -37,7 +37,7 @@ public class FixDelimiters {
             System.out.println(entry);
         }
         Factory factory = SimpleFactory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        Set<String> remainder = new LinkedHashSet<String>(Data.locales2delimiters.keySet());
+        Set<String> remainder = new LinkedHashSet<>(Data.locales2delimiters.keySet());
 
         String[] paths = {
             "//ldml/delimiters/quotationStart",
@@ -98,13 +98,14 @@ public class FixDelimiters {
             end = quotes.group(2);
         }
 
+        @Override
         public String toString() {
             return start + "...." + end;
         }
     }
 
     static class Data {
-        static Map<String, Row.R2<Quotes, Quotes>> locales2delimiters = new LinkedHashMap<String, Row.R2<Quotes, Quotes>>();
+        static Map<String, Row.R2<Quotes, Quotes>> locales2delimiters = new LinkedHashMap<>();
         static Matcher localeString = PatternCache.get(".*\\((.*)\\)").matcher("");
         static {
             final String instructionFile = "delimiterFixes.txt";

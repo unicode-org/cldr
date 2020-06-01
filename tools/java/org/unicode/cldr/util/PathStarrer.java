@@ -20,7 +20,7 @@ public class PathStarrer implements Transform<String, String> {
     public static final String STAR_PATTERN = "([^\"]*+)";
 
     private String starredPathString;
-    private final List<String> attributes = new ArrayList<String>();
+    private final List<String> attributes = new ArrayList<>();
     private final List<String> protectedAttributes = Collections.unmodifiableList(attributes);
     private String substitutionPattern = STAR_PATTERN;
 

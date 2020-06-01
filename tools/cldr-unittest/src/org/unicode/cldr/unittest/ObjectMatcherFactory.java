@@ -108,6 +108,7 @@ class ObjectMatcherFactory {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             matcher.reset(value.toString());
             return matcher.matches();
@@ -122,6 +123,7 @@ class ObjectMatcherFactory {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             return collection.contains(value);
         }
@@ -138,6 +140,7 @@ class ObjectMatcherFactory {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             return a.test(value) || b.test(value);
         }
@@ -153,6 +156,7 @@ class ObjectMatcherFactory {
             return this;
         }
 
+        @Override
         public boolean test(String value) {
             List<String> values = WHITESPACE_SPLITTER.splitToList(value.trim());
             if (values.size() == 1 && values.get(0).length() == 0)
@@ -173,6 +177,7 @@ class ObjectMatcherFactory {
             defaultValue = val;
         }
 
+        @Override
         public boolean test(String o) {
             return defaultValue;
         }
@@ -202,6 +207,7 @@ class ObjectMatcherFactory {
         public Predicate<String> matcher;
         public String pattern;
 
+        @Override
         public String toString() {
             return matcher.getClass().getName() + "\t" + pattern;
         }

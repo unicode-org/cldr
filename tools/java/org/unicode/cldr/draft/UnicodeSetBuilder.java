@@ -15,7 +15,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Provides for parsing and formatting UnicodeSet according to different Targets and other settings.
- * 
+ *
  * @author markdavis
  */
 public class UnicodeSetBuilder {
@@ -28,7 +28,7 @@ public class UnicodeSetBuilder {
             BufferedReader in = FileUtilities.openUTF8Reader("../", "cldr-code/java/org/unicode/cldr/draft/UnicodeSetStates.txt");
             // icu4c-trunk/source/common/rbbirpt.txt
             // "icu4c-trunk/source/i18n/regexcst.txt"
-            StateMachineBuilder<UnicodeSet> builder = new StateMachineBuilder<UnicodeSet>();
+            StateMachineBuilder<UnicodeSet> builder = new StateMachineBuilder<>();
             // builder.add("quoted:=[@]");
             // builder.add("rule_char:=[^\\*\\?\\+\\[\\(/)\\{\\}\\^\\$\\|\\\\\\.]");
             // builder.add("digit_char:=[0-9]");
@@ -49,6 +49,7 @@ public class UnicodeSetBuilder {
 
     private static final class MyObjectBuilderFactory implements
         StateObjectBuilderFactory<UnicodeSet> {
+        @Override
         public StateObjectBuilder<UnicodeSet> getInstance() {
             return new MyObjectBuilder();
         }
@@ -56,13 +57,13 @@ public class UnicodeSetBuilder {
 
     public enum MyActions {
         unhandled, doSetLiteral, doSetLiteralEscaped, doHex, doSetRange, doSetNegate, doName, doPropName, doPropRelation, doPropValue, doStartSetProp, doSetBeginUnion, doSetEnd, doSetBeginDifference1, doSetBeginIntersection1, doSetDifference2, doSetIntersection2, doSetBackslash_s, doSetBackslash_S, doSetBackslash_w, doSetBackslash_W, doSetBackslash_d, doSetBackslash_D, doSetAddAmp, doSetAddDash,
-    };
+    }
 
     private static final class MyObjectBuilder extends StateObjectBuilder<UnicodeSet> {
 
         private enum Operation {
             union, difference, intersection, symmetric
-        };
+        }
 
         private static class Info {
             UnicodeSet set;
@@ -77,17 +78,17 @@ public class UnicodeSetBuilder {
             }
         }
 
-        private static final UnicodeSet WHITESPACE = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
+        private static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
 
-        private static final UnicodeSet NOT_WHITESPACE = (UnicodeSet) new UnicodeSet("[:^whitespace:]").freeze();
+        private static final UnicodeSet NOT_WHITESPACE = new UnicodeSet("[:^whitespace:]").freeze();
 
-        private static final UnicodeSet WORD = (UnicodeSet) new UnicodeSet("[[:alphabetic:][:digit:]]").freeze();
+        private static final UnicodeSet WORD = new UnicodeSet("[[:alphabetic:][:digit:]]").freeze();
 
-        private static final UnicodeSet NOT_WORD = (UnicodeSet) new UnicodeSet("[^[:alphabetic:][:digit:]]").freeze();
+        private static final UnicodeSet NOT_WORD = new UnicodeSet("[^[:alphabetic:][:digit:]]").freeze();
 
-        private static final UnicodeSet DIGIT = (UnicodeSet) new UnicodeSet("[:Nd:]").freeze();
+        private static final UnicodeSet DIGIT = new UnicodeSet("[:Nd:]").freeze();
 
-        private static final UnicodeSet NOT_DIGIT = (UnicodeSet) new UnicodeSet("[:^Nd:]").freeze();
+        private static final UnicodeSet NOT_DIGIT = new UnicodeSet("[:^Nd:]").freeze();
 
         UnicodeSet current = new UnicodeSet();
         private Operation operation;
@@ -97,7 +98,7 @@ public class UnicodeSetBuilder {
         private String valueName;
         private boolean negateProp;
 
-        private List<Info> setStack = new ArrayList<Info>();
+        private List<Info> setStack = new ArrayList<>();
 
         private int lastLiteral = 0;
         private int lastPosition;

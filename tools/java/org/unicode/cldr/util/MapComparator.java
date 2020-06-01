@@ -28,8 +28,8 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
     {
         uca.setNumericCollation(true);
     }
-    private Map<K, Integer> ordering = new TreeMap<K, Integer>(); // maps from name to rank
-    private List<K> rankToName = new ArrayList<K>();
+    private Map<K, Integer> ordering = new TreeMap<>(); // maps from name to rank
+    private List<K> rankToName = new ArrayList<>();
     private boolean errorOnMissing = true;
     private volatile boolean locked = false;
     private int before = 1;
@@ -121,6 +121,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
 
     private static final UnicodeSet numbers = new UnicodeSet("[\\-0-9.]").freeze();
 
+    @Override
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public int compare(K a, K b) {
         if (false && (a.equals("lines") || b.equals("lines"))) {
@@ -192,6 +193,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         return ((Comparable) a).compareTo(b);
     }
 
+    @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         boolean isFirst = true;
@@ -211,6 +213,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
      *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
+    @Override
     public boolean isFrozen() {
         return locked;
     }
@@ -220,6 +223,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
      *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
+    @Override
     public MapComparator<K> freeze() {
         locked = true;
         return this;
@@ -230,6 +234,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
      *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
+    @Override
     @SuppressWarnings("unchecked")
     public MapComparator<K> cloneAsThawed() {
         try {
@@ -242,7 +247,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
             throw new InternalError("should never happen");
         }
     }
-    
+
     public int getOrdering(K item) {
         Integer result = ordering.get(item);
         return result == null ? -1 : result;

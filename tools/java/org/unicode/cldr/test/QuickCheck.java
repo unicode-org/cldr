@@ -49,7 +49,7 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class QuickCheck {
-    private static final Set<String> skipAttributes = new HashSet<String>(Arrays.asList(new String[] {
+    private static final Set<String> skipAttributes = new HashSet<>(Arrays.asList(new String[] {
         "alt", "draft", "references" }));
 
     private static String localeRegex;
@@ -131,16 +131,19 @@ public class QuickCheck {
     }
 
     static class MyErrorHandler implements ErrorHandler {
+        @Override
         public void error(SAXParseException exception) throws SAXException {
             System.out.println("\nerror: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void fatalError(SAXParseException exception) throws SAXException {
             System.out.println("\nfatalError: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void warning(SAXParseException exception) throws SAXException {
             System.out.println("\nwarning: " + XMLFileReader.showSAX(exception));
             throw exception;
@@ -276,7 +279,7 @@ public class QuickCheck {
                     + CldrUtility.LINE_SEPARATOR);
             }
             PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
-            Set<String> badPaths = new TreeSet<String>();
+            Set<String> badPaths = new TreeSet<>();
             for (String path : pathToLocale.keySet()) {
                 String prettied = prettyPath.getPrettyPath(path, false);
                 if (showInfo) System.out.println(prettied + "\t\t" + path);

@@ -9,7 +9,7 @@ public class Rule {
     private final Pattern prematch;
     private final boolean prematchFindAtEnd;
     private final Pattern postmatch;
-    private final List<Item> results = new ArrayList<Item>();
+    private final List<Item> results = new ArrayList<>();
     /**
      * if negative, is position before start position; otherwise is position relative to end of replacement.
      * To put *at* the start position, put a CURSOR at the start of the results.
@@ -19,7 +19,7 @@ public class Rule {
 
     /**
      * contains a replacement text with a set of replacements (up to 10) plus a new cursor point
-     * 
+     *
      * @author markdavis
      */
     // TODO add function calls &foo(....)
@@ -35,10 +35,12 @@ public class Rule {
             replacement = s;
         }
 
+        @Override
         public String compose(Matcher prematcher, Matcher postmatcher) {
             return replacement;
         }
 
+        @Override
         public String toString() {
             return replacement;
         }
@@ -53,10 +55,12 @@ public class Rule {
             post = b;
         }
 
+        @Override
         public String compose(Matcher prematcher, Matcher postmatcher) {
             return post ? postmatcher.group(number) : prematcher.group(number);
         }
 
+        @Override
         public String toString() {
             return "$" + number;
         }
@@ -65,10 +69,12 @@ public class Rule {
     public static class CursorItem implements Item {
         static Item CURSOR = new CursorItem();
 
+        @Override
         public String compose(Matcher prematcher, Matcher postmatcher) {
             throw new UnsupportedOperationException();
         }
 
+        @Override
         public String toString() {
             return "|";
         }
@@ -101,7 +107,7 @@ public class Rule {
 
     /**
      * Modifies result, returns new cursor
-     * 
+     *
      * @param result
      * @param offset
      * @param matcher
@@ -123,6 +129,7 @@ public class Rule {
                 : result.length() + outOfBoundsCursor;
     }
 
+    @Override
     public String toString() {
         String main = postmatch.toString();
         return (prematch == null ? "" : prematch.toString())

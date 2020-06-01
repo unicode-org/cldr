@@ -82,7 +82,7 @@ public class OutputFileManager {
         }
 
         private final String desc;
-    };
+    }
 
     /**
      * @param kind
@@ -300,7 +300,7 @@ public class OutputFileManager {
 
             out.write("<ol>\n");
 
-            Set<CLDRLocale> sortSet = new TreeSet<CLDRLocale>();
+            Set<CLDRLocale> sortSet = new TreeSet<>();
             sortSet.addAll(SurveyMain.getLocalesSet());
             /*
              * If makeSeparateDir is false, only replace files if they need to be updated; use
@@ -699,8 +699,8 @@ public class OutputFileManager {
             throws IOException {
 
         String bxmlDir = CLDRConfig.getInstance().getCldrBaseDirectory().toString();
-        ArrayList<String> vxmlFiles = new ArrayList<String>();
-        ArrayList<String> bxmlFiles = new ArrayList<String>(); /* bxml = baseline cldr xml */
+        ArrayList<String> vxmlFiles = new ArrayList<>();
+        ArrayList<String> bxmlFiles = new ArrayList<>(); /* bxml = baseline cldr xml */
         for (String c: DirNames.commonAndSeed) {
             for (String m: DirNames.mainAndAnnotations) {
                 File vxmlDirFile = new File(vxmlDir + "/" + c + "/" + m);
@@ -762,9 +762,9 @@ public class OutputFileManager {
      * @return the Set
      */
     private static Set<String> symmetricDifference(final ArrayList<String> list1, final ArrayList<String> list2) {
-        Set<String> diff = new HashSet<String>(list1);
+        Set<String> diff = new HashSet<>(list1);
         diff.addAll(list2);
-        Set<String> tmp = new HashSet<String>(list1);
+        Set<String> tmp = new HashSet<>(list1);
         tmp.retainAll(list2);
         diff.removeAll(tmp);
         return diff;
@@ -1149,7 +1149,7 @@ public class OutputFileManager {
         System.err.println("addPeriodicTask... updater");
         SurveyMain.addPeriodicTask(new Runnable() {
             // Start on a different locale each time.
-            int spinner = (int) Math.round(Math.random() * (double) SurveyMain.getLocales().length);
+            int spinner = (int) Math.round(Math.random() * SurveyMain.getLocales().length);
 
             @Override
             public void run() {
@@ -1258,7 +1258,7 @@ public class OutputFileManager {
     }
 
     // statistics helpers
-    private static Map<CLDRLocale, Pair<String, String>> localeNameCache = new ConcurrentHashMap<CLDRLocale, Pair<String, String>>();
+    private static Map<CLDRLocale, Pair<String, String>> localeNameCache = new ConcurrentHashMap<>();
 
     // for the statistics page - wrap locale ids in an <old data> span to show they were from the previous revision
     private static final String OLD_DATA_BEGIN = "<span class='olddata'>";
@@ -1267,7 +1267,7 @@ public class OutputFileManager {
     public static Pair<String, String> statGetLocaleDisplayName(CLDRLocale loc) {
         Pair<String, String> ret = localeNameCache.get(loc), toAdd = null;
         if (ret == null) {
-            toAdd = ret = new Pair<String, String>();
+            toAdd = ret = new Pair<>();
         }
         // note, may concurrently modify this object- that's OK.
         if (ret.getFirst() == null) {

@@ -54,6 +54,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
 
         boolean shownException = false;
 
+        @Override
         public String _getValue(int codePoint) {
             switch (propEnum) {
             case UProperty.AGE:
@@ -111,7 +112,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
             case isCased:
                 return String.valueOf(UCharacter.toLowerCase(Locale.ENGLISH, UTF16.valueOf(codePoint)).equals(
                         UTF16.valueOf(codePoint)));
-            case UProperty.SCRIPT_EXTENSIONS: 
+            case UProperty.SCRIPT_EXTENSIONS:
                 return getStringScriptExtensions(codePoint);
             }
             if (propEnum < UProperty.INT_LIMIT) {
@@ -220,6 +221,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
             return newValue;
         }
 
+        @Override
         public List _getNameAliases(List result) {
             if (result == null)
                 result = new ArrayList();
@@ -259,6 +261,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
             }
         }
 
+        @Override
         public List _getAvailableValues(List result) {
             if (result == null)
                 result = new ArrayList();
@@ -309,6 +312,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
             return AGES;
         }
 
+        @Override
         public List _getValueAliases(String valueAlias, List result) {
             if (result == null)
                 result = new ArrayList();
@@ -383,9 +387,10 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see com.ibm.icu.dev.test.util.UnicodeProperty#getVersion()
          */
+        @Override
         public String _getVersion() {
             return VersionInfo.ICU_VERSION.toString();
         }
@@ -459,7 +464,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
         if (result >= 0) {
             return UScript.getName(result);
         }
-        TreeMap<String,String> sorted = new TreeMap<String,String>();
+        TreeMap<String,String> sorted = new TreeMap<>();
         for (int scriptCode = BITSET.nextSetBit(0); scriptCode >= 0; scriptCode = BITSET.nextSetBit(scriptCode+1)) {
             // sort by short form
             sorted.put(UScript.getShortName(scriptCode), UScript.getName(scriptCode));
@@ -518,7 +523,7 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.ibm.icu.dev.test.util.UnicodePropertySource#getProperty(java.lang.String)
      */
     // TODO file bug on getPropertyValueName for Canonical_Combining_Class

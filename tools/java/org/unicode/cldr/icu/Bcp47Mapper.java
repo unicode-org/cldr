@@ -31,7 +31,7 @@ public class Bcp47Mapper {
      */
     public IcuData[] fillFromCldr() {
         IcuData timezoneData = new IcuData("common/bcp47/timezone.xml", "timezoneTypes", false);
-        Map<String, String> keyMap = new HashMap<String, String>();
+        Map<String, String> keyMap = new HashMap<>();
         // Timezone data is put in a different file.
         fillFromFile("timezone", timezoneData, keyMap);
 

@@ -117,7 +117,7 @@ public class ConvertXTB {
 
         public XtbInfo(String locale) {
             this.locale = locale;
-            entries = new ArrayList<XtbEntry>();
+            entries = new ArrayList<>();
         }
 
         @Override
@@ -162,7 +162,7 @@ public class ConvertXTB {
         public XtbHandler(Set<String> oldMessages, XtbInfo output) {
             daip = new DisplayAndInputProcessor(CLDRLocale.getInstance(output.locale));
             currentText = new StringBuffer();
-            orphanedMessages = new HashSet<String>();
+            orphanedMessages = new HashSet<>();
             this.oldMessages = oldMessages;
             this.output = output;
         }
@@ -346,7 +346,7 @@ public class ConvertXTB {
         private Set<String> messageIds;
 
         public WsbHandler() {
-            messageIds = new HashSet<String>();
+            messageIds = new HashSet<>();
         }
 
         @Override
@@ -372,11 +372,11 @@ public class ConvertXTB {
      */
     private String getPlaceholderForName(String xpath, String name) {
         if (loadedReverseTagMaps == null) {
-            loadedReverseTagMaps = new HashMap<String, Map<String, String>>();
+            loadedReverseTagMaps = new HashMap<>();
         }
         Map<String, String> map = loadedReverseTagMaps.get(xpath);
         if (map == null) {
-            map = new HashMap<String, String>();
+            map = new HashMap<>();
             loadedReverseTagMaps.put(xpath, map);
             Map<String, PlaceholderInfo> tagMap = getTagMap(xpath);
             for (Map.Entry<String, PlaceholderInfo> entry : tagMap.entrySet()) {
@@ -495,8 +495,8 @@ public class ConvertXTB {
         for (XtbEntry info : xtbInfo) {
             cldrFile.add(info.xpath, info.value);
         }
-        Map<String, String> options = new HashMap<String, String>();
-        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+        Map<String, String> options = new HashMap<>();
+        List<CheckStatus> possibleErrors = new ArrayList<>();
         checkCldr.setCldrFileToCheck(cldrFile, options, possibleErrors);
         for (CheckStatus status : possibleErrors) {
             System.out.println(locale + "\tLOCALE ERROR\t" + status.getMessage());

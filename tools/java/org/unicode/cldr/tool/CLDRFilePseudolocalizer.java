@@ -78,7 +78,7 @@ public class CLDRFilePseudolocalizer {
         private int charCount = 0;
 
         private static Map<Integer, String> buildReplacementsTable() {
-            Map<Integer, String> table = new HashMap<Integer, String>();
+            Map<Integer, String> table = new HashMap<>();
             table.put((int) ' ', "\u2003");
             table.put((int) '!', "\u00a1");
             table.put((int) '"', "\u2033");
@@ -172,11 +172,13 @@ public class CLDRFilePseudolocalizer {
             return table;
         }
 
+        @Override
         public String start() {
             charCount = 0;
             return "[";
         }
 
+        @Override
         public String end() {
             StringBuilder expansionText = new StringBuilder();
             int expansion = (charCount + 1) / 2;
@@ -198,6 +200,7 @@ public class CLDRFilePseudolocalizer {
             return expansionText.toString();
         }
 
+        @Override
         public String fragment(String text) {
             StringBuilder buf = new StringBuilder();
             int index = 0;
@@ -228,6 +231,7 @@ public class CLDRFilePseudolocalizer {
         /** Postfix to add after each LTR word */
         private static final String BIDI_POSTFIX = PDF + RLM;
 
+        @Override
         public String fragment(String text) {
             StringBuilder output = new StringBuilder();
             boolean wrapping = false;

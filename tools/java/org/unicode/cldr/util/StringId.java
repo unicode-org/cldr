@@ -14,8 +14,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author markdavis
  */
 public final class StringId {
-    private static final Map<String, Long> STRING_TO_ID = new ConcurrentHashMap<String, Long>();
-    private static final Map<Long, String> ID_TO_STRING = new ConcurrentHashMap<Long, String>();
+    private static final Map<String, Long> STRING_TO_ID = new ConcurrentHashMap<>();
+    private static final Map<Long, String> ID_TO_STRING = new ConcurrentHashMap<>();
     private static final MessageDigest digest;
     private static final Charset UTF_8 = Charset.forName("UTF-8");
     private static final int RETRY_LIMIT = 9;

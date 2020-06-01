@@ -81,16 +81,16 @@ public class FileReaders {
             throw new IllegalArgumentException("File not found: " + resourceString);
         }
     }
-    
-    
+
+
     public static class ReadLineSimpleIterator implements SimpleIterator<String> {
         final BufferedReader bufferedReader;
-        
+
         public ReadLineSimpleIterator(BufferedReader bufferedReader) {
             super();
             this.bufferedReader = bufferedReader;
         }
-        
+
         @Override
         public String next() {
             try {

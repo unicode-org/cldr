@@ -51,7 +51,7 @@ public class GetChanges {
                 continue;
             }
             for (File commonSeed : commonSeedFiles) {
-                if (!commonSeed.isDirectory() 
+                if (!commonSeed.isDirectory()
                     || "dtd".equals(commonSeed.getName())) {
                     continue;
                 }
@@ -149,7 +149,7 @@ public class GetChanges {
                 if (verbose) {
                     System.out.println(
                         dir
-                        +";\tnew\t" 
+                        +";\tnew\t"
                         + "\tlocale=" + localeID + ";"
                         + "\taction=add;"
                         + "\tpath=\t" + path
@@ -157,7 +157,7 @@ public class GetChanges {
                         );
                 }
             } else {
-                // we do a lot of processing on the annotations, so most likely are just changes introduced by that. 
+                // we do a lot of processing on the annotations, so most likely are just changes introduced by that.
                 // So ignore for now
                 if (path.startsWith("//ldml/annotations")) {
                     continue;
@@ -220,8 +220,8 @@ public class GetChanges {
         int totalCount = 0;
         int localeCount = 0;
 
-        Output<String> localeWhereFound = new Output<String>();
-        Output<String> pathWhereFound = new Output<String>();
+        Output<String> localeWhereFound = new Output<>();
+        Output<String> pathWhereFound = new Output<>();
 
         CLDRFile englishCldrFile = trunkFactory.make("en", false);
         final Set<String> paths = ImmutableSet.copyOf(englishCldrFile.iterator());
@@ -261,11 +261,11 @@ public class GetChanges {
             } catch (Exception e) {
             }
 
-            Map<PathHeader, Data> results = new TreeMap<PathHeader, Data>();
+            Map<PathHeader, Data> results = new TreeMap<>();
 
             for (String xpath : paths) {
-                if (xpath.contains("fallbackRegionFormat") 
-                    || xpath.contains("exemplar") 
+                if (xpath.contains("fallbackRegionFormat")
+                    || xpath.contains("exemplar")
                     || xpath.contains("/identity")) {
                     continue;
                 }
@@ -311,19 +311,19 @@ public class GetChanges {
             for (Entry<PathHeader, Data> entry : results.entrySet()) {
                 PathHeader ph = entry.getKey();
                 String englishValue = englishCldrFile.getStringValue(ph.getOriginalPath());
-                System.out.println(localeCount 
-                    + "\t" + ++itemCount 
-                    + "\t" + locale 
-                    + "\t" + english.getName(locale) 
-                    + "\t" + ph 
-                    + "\t«" + englishValue 
+                System.out.println(localeCount
+                    + "\t" + ++itemCount
+                    + "\t" + locale
+                    + "\t" + english.getName(locale)
+                    + "\t" + ph
+                    + "\t«" + englishValue
                     + "»\t" + entry.getValue());
             }
             totalCount += itemCount;
         }
         System.out.println("##Total:\t" + totalCount);
         for ( Entry<String, PathHeader> entry : missing.entries()) {
-            System.out.println(entry.getKey() + "\t" + entry.getValue()); 
+            System.out.println(entry.getKey() + "\t" + entry.getValue());
         }
     }
 

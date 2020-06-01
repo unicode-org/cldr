@@ -15,7 +15,7 @@ public class SpreadSheet {
     }
 
     public static List<List<String>> convert(BufferedReader r) throws IOException {
-        List<List<String>> result = new ArrayList<List<String>>();
+        List<List<String>> result = new ArrayList<>();
         // boolean inQuote = false;
         while (true) {
             String line = r.readLine();
@@ -24,7 +24,7 @@ public class SpreadSheet {
                 System.out.println("Spreadsheet:\t" + line);
             }
             String[] parts = line.split("\t");
-            List<String> row = new ArrayList<String>(parts.length);
+            List<String> row = new ArrayList<>(parts.length);
             for (String part : parts) {
                 if (part.startsWith("\"") && part.endsWith("\"")) {
                     row.add(part.substring(1, part.length() - 1));

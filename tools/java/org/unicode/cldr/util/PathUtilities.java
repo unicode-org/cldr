@@ -8,6 +8,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 /**
  * @deprecated
  */
+@Deprecated
 public class PathUtilities {
 
     // ===== types of data and menu names
@@ -102,7 +103,7 @@ public class PathUtilities {
         return (defaultMetazonesItems.split(" "));
     }
 
-    private static Map<String, String> mzXpathToContinent = new HashMap<String, String>();
+    private static Map<String, String> mzXpathToContinent = new HashMap<>();
 
     private synchronized static String getMetazoneContinent(String xpath) {
         String continent = mzXpathToContinent.get(xpath);
@@ -121,7 +122,7 @@ public class PathUtilities {
             System.err
                 .println(
                     "PathUtilities.java getMetazoneToContinentMap(): TODO: Get this data from supplemental data! http://unicode.org/cldr/trac/ticket/3761");
-            HashMap<String, String> newMap = new HashMap<String, String>();
+            HashMap<String, String> newMap = new HashMap<>();
             for (int i = 0; i < mzToContinentStatic.length; i += 2) {
                 newMap.put(mzToContinentStatic[i + 0], mzToContinentStatic[i + 1]);
             }

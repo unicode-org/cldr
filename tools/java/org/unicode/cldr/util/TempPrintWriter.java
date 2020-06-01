@@ -13,8 +13,8 @@ import org.unicode.cldr.draft.FileUtilities;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
- * Simple utility to create a temporary file, write into it, then close it. 
- * If the file differs from the old file (except for date), then it is deleted. 
+ * Simple utility to create a temporary file, write into it, then close it.
+ * If the file differs from the old file (except for date), then it is deleted.
  * Otherwise it replaces the target file. Moved from UnicodeTools.
  * @author markdavis
  */
@@ -23,15 +23,15 @@ public class TempPrintWriter extends Writer {
     final String tempName;
     final String filename;
 
-    
+
     public static TempPrintWriter openUTF8Writer(String filename) {
         return new TempPrintWriter(new File(filename));
     }
-    
+
     public static TempPrintWriter openUTF8Writer(String dir, String filename) {
         return new TempPrintWriter(new File(dir, filename));
     }
-    
+
     public TempPrintWriter(String dir, String filename) {
         this(new File(dir, filename));
     }
@@ -80,12 +80,12 @@ public class TempPrintWriter extends Writer {
     public void print(Object line) {
         tempPrintWriter.print(line);
     }
-    
+
     public void println() {
         tempPrintWriter.println();
     }
 
-    /** 
+    /**
      * If contents(newFile) ≠ contents(oldFile), rename newFile to old. Otherwise delete newfile. Return true if replaced. *
      */
     private static boolean replaceDifferentOrDelete(String oldFile, String newFile, boolean skipCopyright) throws IOException {
@@ -185,7 +185,7 @@ public class TempPrintWriter extends Writer {
         }
     }
 
-    /** 
+    /**
      * Returns -1 if strings are equal; otherwise the first position they are different at.
      */
     public static int compare(String a, String b) {

@@ -9,7 +9,7 @@ import org.unicode.cldr.util.SimpleFactory;
 
 public class RemoveEmptyCldrFiles {
     public static void main(String[] args) {
-        File[] paths = { 
+        File[] paths = {
             new File(CLDRPaths.ANNOTATIONS_DIRECTORY)
         };
         Factory factory = SimpleFactory.make(paths, ".*");

@@ -36,9 +36,9 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
     public Counter2(Comparator<T> comparator) {
         if (comparator != null) {
             this.comparator = comparator;
-            map = new TreeMap<T, Double>(comparator);
+            map = new TreeMap<>(comparator);
         } else {
-            map = new LinkedHashMap<T, Double>();
+            map = new LinkedHashMap<>();
         }
     }
 
@@ -112,6 +112,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
             this.byValue = byValue;
         }
 
+        @Override
         public int compare(Entry<T> o1, Entry<T> o2) {
             if (o1.count != o2.count) {
                 if (o1.count < o2.count) return -countOrdering;
@@ -129,12 +130,12 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
     }
 
     public Set<T> getKeysetSortedByCount(boolean ascending, Comparator<T> byValue) {
-        Set<Entry<T>> count_key = new TreeSet<Entry<T>>(new EntryComparator<T>(ascending, byValue));
+        Set<Entry<T>> count_key = new TreeSet<>(new EntryComparator<>(ascending, byValue));
         int counter = 0;
         for (T key : map.keySet()) {
-            count_key.add(new Entry<T>(map.get(key), key, counter++));
+            count_key.add(new Entry<>(map.get(key), key, counter++));
         }
-        Set<T> result = new LinkedHashSet<T>();
+        Set<T> result = new LinkedHashSet<>();
         for (Entry<T> entry : count_key) {
             result.add(entry.value);
         }
@@ -142,7 +143,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
     }
 
     public Set<T> getKeysetSortedByKey() {
-        Set<T> s = new TreeSet<T>(comparator);
+        Set<T> s = new TreeSet<>(comparator);
         s.addAll(map.keySet());
         return s;
     }
@@ -161,6 +162,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
         return map.keySet();
     }
 
+    @Override
     public Iterator<T> iterator() {
         return map.keySet().iterator();
     }
@@ -173,6 +175,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
         return map.size();
     }
 
+    @Override
     public String toString() {
         return map.toString();
     }
@@ -191,6 +194,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
         return this;
     }
 
+    @Override
     public int compareTo(Counter2<T> o) {
         Iterator<T> i = map.keySet().iterator();
         Iterator<T> j = o.map.keySet().iterator();

@@ -212,7 +212,7 @@ public abstract class CLDRConverterTool {
             return xpathList;
         }
 
-        ArrayList<String> myXPathList = new ArrayList<String>(xpathList.size());
+        ArrayList<String> myXPathList = new ArrayList<>(xpathList.size());
         StandardCodes sc = StandardCodes.make();
         // Instantiate CoverageInfo outside the loop
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();

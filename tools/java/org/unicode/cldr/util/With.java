@@ -33,7 +33,7 @@ import com.ibm.icu.text.UTF16;
  * @param <V>
  */
 public final class With<V> implements Iterable<V>, Iterator<V> {
-    List<Iterator<V>> iterators = new ArrayList<Iterator<V>>();
+    List<Iterator<V>> iterators = new ArrayList<>();
     int current;
 
     /**
@@ -285,7 +285,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     @SuppressWarnings("unchecked")
     public With<V> and(SimpleIterator<V>... iterators) {
         for (SimpleIterator<V> iterator : iterators) {
-            this.iterators.add(new ToIterator<V>(iterator));
+            this.iterators.add(new ToIterator<>(iterator));
         }
         return this;
     }
@@ -299,7 +299,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
             this.iterators
-                .add((Iterator<V>) new ToIterator<CharSequence>(new CharSequenceSimpleIterator(charSequence)));
+                .add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }
@@ -327,15 +327,15 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     }
 
     public static <T> Iterator<T> toIterator(SimpleIterator<T> simple) {
-        return new ToIterator<T>(simple);
+        return new ToIterator<>(simple);
     }
 
     public static <T> Iterable<T> toIterable(SimpleIterator<T> simple) {
-        return new ToIterator<T>(simple);
+        return new ToIterator<>(simple);
     }
 
     public static <T> ToSimpleIterator<T> toSimpleIterator(Iterator<T> iterator) {
-        return new ToSimpleIterator<T>(iterator);
+        return new ToSimpleIterator<>(iterator);
     }
 
     private static class ToIterator<T> implements Iterator<T>, Iterable<T> {

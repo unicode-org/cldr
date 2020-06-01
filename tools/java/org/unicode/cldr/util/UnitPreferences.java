@@ -22,7 +22,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
     Set<String> usages = new TreeSet<>();
 
     /**
-     * Special class encapsulating 
+     * Special class encapsulating
      * @author markdavis
      *
      */
@@ -56,6 +56,7 @@ public class UnitPreferences implements Freezable<UnitPreferences> {
         public String toString(String baseUnit) {
             return geq + (baseUnit == null ? "": " " + baseUnit) + ", " + unit + (skeleton.isEmpty() ? "" : ", " + skeleton);
         }
+        @Override
         public String toString() {
             return toString(null);
         }

@@ -146,6 +146,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         return this;
     }
 
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have

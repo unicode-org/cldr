@@ -29,7 +29,7 @@ import com.ibm.icu.impl.Relation;
 public class SurveyMenus implements Iterable<SurveyMenus.Section> {
     PathHeader.Factory phf;
     STFactory fac;
-    List<Section> sections = new ArrayList<Section>();
+    List<Section> sections = new ArrayList<>();
     SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
 
     public SurveyMenus(STFactory stFactory, PathHeader.Factory phf) {
@@ -69,7 +69,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
 
     public class Section implements Iterable<Section.Page> {
         private SectionId sectionKey;
-        private List<Page> subitems = new ArrayList<Page>();
+        private List<Page> subitems = new ArrayList<>();
         SurveyToolStatus status = SurveyToolStatus.HIDE;
 
         public SurveyToolStatus getStatus() {
@@ -91,6 +91,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             return subitems.isEmpty();
         }
 
+        @Override
         public String toString() {
             return sectionKey.toString();
         }
@@ -128,6 +129,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                 return pageKey;
             }
 
+            @Override
             public String toString() {
                 return pageKey.toString();
             }
@@ -159,7 +161,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                 return PathHeader.Factory.getCachedPaths(sectionKey, pageKey);
             }
 
-            Map<CLDRLocale, Integer> levs = new HashMap<CLDRLocale, Integer>();
+            Map<CLDRLocale, Integer> levs = new HashMap<>();
 
         }
 

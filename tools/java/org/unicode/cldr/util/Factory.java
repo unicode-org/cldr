@@ -31,6 +31,7 @@ public abstract class Factory implements SublocaleProvider {
      * @deprecated
      * @return the first directory
      */
+    @Deprecated
     public String getSourceDirectory() {
         return getSourceDirectories()[0].getAbsolutePath();
     }
@@ -62,7 +63,7 @@ public abstract class Factory implements SublocaleProvider {
      */
     public enum SourceTreeType {
         common, seed, other
-    };
+    }
 
     /**
      * Returns the source tree type of either an XML file or its parent directory.
@@ -88,7 +89,7 @@ public abstract class Factory implements SublocaleProvider {
 
     public enum DirectoryType {
         main, supplemental, bcp47, casing, collation, dtd, rbnf, segments, transforms, other
-    };
+    }
 
     public static final DirectoryType getDirectoryType(File fileOrDir) {
         if (fileOrDir == null) return null;
@@ -152,7 +153,7 @@ public abstract class Factory implements SublocaleProvider {
      * @return
      */
     protected ResolvingSource makeResolvingSource(String localeID, DraftStatus madeWithMinimalDraftStatus) {
-        List<XMLSource> sourceList = new ArrayList<XMLSource>();
+        List<XMLSource> sourceList = new ArrayList<>();
         String curLocale = localeID;
         while (curLocale != null) {
             if (DEBUG_FACTORY) {
@@ -212,7 +213,7 @@ public abstract class Factory implements SublocaleProvider {
      * Get a set of the available language locales (according to isLanguage).
      */
     public Set<String> getAvailableLanguages() {
-        Set<String> result = new TreeSet<String>();
+        Set<String> result = new TreeSet<>();
         for (Iterator<String> it = handleGetAvailable().iterator(); it.hasNext();) {
             String s = it.next();
             if (XPathParts.isLanguage(s)) result.add(s);
@@ -227,7 +228,7 @@ public abstract class Factory implements SublocaleProvider {
      *            if false, then parent itself will match
      */
     public Set<String> getAvailableWithParent(String parent, boolean isProper) {
-        Set<String> result = new TreeSet<String>();
+        Set<String> result = new TreeSet<>();
 
         for (Iterator<String> it = handleGetAvailable().iterator(); it.hasNext();) {
             String s = it.next();
@@ -273,6 +274,7 @@ public abstract class Factory implements SublocaleProvider {
     /**
      * These factory implementations don't do any caching.
      */
+    @Override
     public Set<CLDRLocale> subLocalesOf(CLDRLocale forLocale) {
         return calculateSubLocalesOf(forLocale, getAvailableCLDRLocales());
     }
@@ -294,7 +296,7 @@ public abstract class Factory implements SublocaleProvider {
      * @return
      */
     public Set<CLDRLocale> calculateSubLocalesOf(CLDRLocale locale, Set<CLDRLocale> available) {
-        Set<CLDRLocale> sub = new TreeSet<CLDRLocale>();
+        Set<CLDRLocale> sub = new TreeSet<>();
         for (CLDRLocale l : available) {
             if (l.getParent() == locale) {
                 sub.add(l);

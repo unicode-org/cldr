@@ -192,8 +192,8 @@ public class ShowLanguages {
     }
 
     private static void writeSupplementalIndex(String filename, StringWriter sw) throws IOException {
-        String[] replacements = { 
-            "%date%", CldrUtility.isoFormatDateOnly(new Date()), 
+        String[] replacements = {
+            "%date%", CldrUtility.isoFormatDateOnly(new Date()),
             "%contents%", SUPPLEMENTAL_INDEX_ANCHORS.toString(),
             "%data%", sw.toString(),
             "%index%", "../index.html" };
@@ -229,7 +229,7 @@ public class ShowLanguages {
             .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
 
         // get the codes so we can show the remainder
-        Set<String> remainingScripts = new TreeSet<String>(getScriptsToShow()); // StandardCodes.MODERN_SCRIPTS);
+        Set<String> remainingScripts = new TreeSet<>(getScriptsToShow()); // StandardCodes.MODERN_SCRIPTS);
         UnicodeSet temp = new UnicodeSet();
         for (String script : getScriptsToShow()) {
             temp.clear();
@@ -251,7 +251,7 @@ public class ShowLanguages {
         remainingScripts.remove("Zzzz");
         remainingScripts.remove("Zyyy");
 
-        Set<String> remainingLanguages = new TreeSet<String>(getLanguagesToShow());
+        Set<String> remainingLanguages = new TreeSet<>(getLanguagesToShow());
         for (String language : getLanguagesToShow()) {
             Scope s = Iso639Data.getScope(language);
             Type t = Iso639Data.getType(language);
@@ -291,7 +291,7 @@ public class ShowLanguages {
 
     }
 
-    static final Map<String, OfficialStatus> languageToBestStatus = new HashMap<String, OfficialStatus>();
+    static final Map<String, OfficialStatus> languageToBestStatus = new HashMap<>();
     static {
         for (String language : supplementalDataInfo.getLanguagesForTerritoriesPopulationData()) {
             Set<String> territories = supplementalDataInfo.getTerritoriesForPopulationData(language);
@@ -336,7 +336,7 @@ public class ShowLanguages {
     }
 
     private static Set<String> getEnglishTypes(String type, int code) {
-        Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
+        Set<String> result = new HashSet<>(sc.getSurveyToolDisplayCodes(type));
         for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
             XPathParts parts = XPathParts.getFrozenInstance(it.next());
             String newType = parts.getAttributeValue(-1, "type");
@@ -369,8 +369,8 @@ public class ShowLanguages {
             .addColumn("Code", "class='target'", null, "class='target'", true);
 
         // get the codes so we can show the remainder
-        Set<String> remainingScripts = new TreeSet<String>(getScriptsToShow());
-        Set<String> remainingTerritories = new TreeSet<String>(sc.getGoodAvailableCodes("territory"));
+        Set<String> remainingScripts = new TreeSet<>(getScriptsToShow());
+        Set<String> remainingTerritories = new TreeSet<>(sc.getGoodAvailableCodes("territory"));
         UnicodeSet temp = new UnicodeSet();
         for (String script : getScriptsToShow()) {
             temp.clear();
@@ -392,7 +392,7 @@ public class ShowLanguages {
         remainingScripts.remove("Zzzz");
         remainingScripts.remove("Zyyy");
 
-        Set<String> remainingLanguages = new TreeSet<String>(getLanguagesToShow());
+        Set<String> remainingLanguages = new TreeSet<>(getLanguagesToShow());
         for (String language : getLanguagesToShow()) {
             Scope s = Iso639Data.getScope(language);
             Type t = Iso639Data.getType(language);
@@ -414,7 +414,7 @@ public class ShowLanguages {
                     // mainTerritories.add("ZZ");
                 }
 
-                TreeSet<String> mainScripts = new TreeSet<String>(basicData.getScripts());
+                TreeSet<String> mainScripts = new TreeSet<>(basicData.getScripts());
                 if (mainScripts.size() == 0) {
                     continue;
                 }
@@ -451,7 +451,7 @@ public class ShowLanguages {
         }
         Set<String> territories = territoryFix.getAll(language);
         if (territories == null) {
-            territories = new TreeSet<String>();
+            territories = new TreeSet<>();
         }
         return territories;
     }
@@ -642,13 +642,13 @@ public class ShowLanguages {
     }
 
     static class LanguageInfo {
-        private static final Map<String, Map<String, String>> localeAliasInfo = new TreeMap<String, Map<String, String>>();
+        private static final Map<String, Map<String, String>> localeAliasInfo = new TreeMap<>();
 
         Multimap<String, String> language_scripts = TreeMultimap.create();
 
         Multimap<String, String> language_territories = TreeMultimap.create();
 
-        List<Map<String, String>> deprecatedItems = new ArrayList<Map<String, String>>();
+        List<Map<String, String>> deprecatedItems = new ArrayList<>();
 
         Multimap<String, String> territory_languages;
 
@@ -666,19 +666,19 @@ public class ShowLanguages {
 
         Map<String, Set> territory_currency = new TreeMap<String, Set>(col);
 
-        Set<String> territoriesWithCurrencies = new TreeSet<String>();
+        Set<String> territoriesWithCurrencies = new TreeSet<>();
 
-        Set<String> currenciesWithTerritories = new TreeSet<String>();
+        Set<String> currenciesWithTerritories = new TreeSet<>();
 
-        Map<String, Map<String, Set<String>>> territoryData = new TreeMap<String, Map<String, Set<String>>>();
+        Map<String, Map<String, Set<String>>> territoryData = new TreeMap<>();
 
-        Set<String> territoryTypes = new TreeSet<String>();
+        Set<String> territoryTypes = new TreeSet<>();
 
         Map<String, LinkedHashSet<String>> charSubstitutions = new TreeMap<String, LinkedHashSet<String>>(col);
 
         String defaultDigits = null;
 
-        Map<String, Map<String, Object>> territoryLanguageData = new TreeMap<String, Map<String, Object>>();
+        Map<String, Map<String, Object>> territoryLanguageData = new TreeMap<>();
 
         private Relation<String, String> territoriesToModernCurrencies = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class,
             null);
@@ -982,6 +982,7 @@ public class ShowLanguages {
         }
 
         static final Comparator INVERSE_COMPARABLE = new Comparator() {
+            @Override
             public int compare(Object o1, Object o2) {
                 return ((Comparable) o2).compareTo(o1);
             }
@@ -1076,11 +1077,11 @@ public class ShowLanguages {
                 // .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
                 // .addColumn("Territory GDP (PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
                 ;
-            TreeSet<String> languages = new TreeSet<String>();
-            Collection<Comparable[]> data = new ArrayList<Comparable[]>();
+            TreeSet<String> languages = new TreeSet<>();
+            Collection<Comparable[]> data = new ArrayList<>();
             String msg = "<br><i>Please click on each country code</i>";
 
-            Collection<Comparable[]> plainData = new ArrayList<Comparable[]>();
+            Collection<Comparable[]> plainData = new ArrayList<>();
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
                 // PopulationData territoryData = supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
@@ -1184,7 +1185,7 @@ public class ShowLanguages {
                 .addColumn("Code", "class='source'",
                     "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false);
             Map<Organization, Map<String, Level>> vendordata = sc.getLocaleTypes();
-            Set<String> locales = new TreeSet<String>();
+            Set<String> locales = new TreeSet<>();
             Set<Organization> vendors = new LinkedHashSet<>();
             Set<Organization> smallVendors = new LinkedHashSet<>();
 
@@ -1202,8 +1203,8 @@ public class ShowLanguages {
                 locales.addAll(data.keySet());
             }
 
-            Collection<Comparable[]> data = new ArrayList<Comparable[]>();
-            List<String> list = new ArrayList<String>();
+            Collection<Comparable[]> data = new ArrayList<>();
+            List<String> list = new ArrayList<>();
             LanguageTagParser ltp = new LanguageTagParser();
             //String alias2 = getAlias("sh_YU");
 
@@ -1548,7 +1549,7 @@ public class ShowLanguages {
                 return;
             LinkedHashSet<String> already = charSubstitutions.get(value);
             if (already == null)
-                charSubstitutions.put(value, already = new LinkedHashSet<String>(0));
+                charSubstitutions.put(value, already = new LinkedHashSet<>(0));
             already.add(substitute);
             Log.logln(hex(value, " ") + "; " + hex(substitute, " "));
         }
@@ -1585,11 +1586,11 @@ public class ShowLanguages {
                 String territory = getName(CLDRFile.TERRITORY_NAME, territories[i], false);
                 Map<String, Set<String>> s = territoryData.get(territory);
                 if (s == null) {
-                    territoryData.put(territory, s = new TreeMap<String, Set<String>>());
+                    territoryData.put(territory, s = new TreeMap<>());
                 }
                 Set<String> ss = s.get(type);
                 if (ss == null) {
-                    s.put(type, ss = new TreeSet<String>());
+                    s.put(type, ss = new TreeSet<>());
                 }
                 ss.add(info);
             }
@@ -1645,7 +1646,7 @@ public class ShowLanguages {
 
         public void showCorrespondances() {
             // show correspondances between language and script
-            Map<String, String> name_script = new TreeMap<String, String>();
+            Map<String, String> name_script = new TreeMap<>();
             for (Iterator<String> it = sc.getAvailableCodes("script").iterator(); it.hasNext();) {
                 String script = it.next();
                 String name = english.getName(CLDRFile.SCRIPT_NAME, script);
@@ -1659,7 +1660,7 @@ public class ShowLanguages {
                  * : source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.SCRIPT_NAME ? language_scripts
                  */}
             String delimiter = "\\P{L}+";
-            Map<String, String> name_language = new TreeMap<String, String>();
+            Map<String, String> name_language = new TreeMap<>();
             for (Iterator<String> it = sc.getAvailableCodes("language").iterator(); it.hasNext();) {
                 String language = it.next();
                 String names = english.getName(CLDRFile.LANGUAGE_NAME, language);
@@ -2113,7 +2114,7 @@ public class ShowLanguages {
             if (contains == null) {
                 contains = sc.getCountryToZoneSet().get(start);
                 if (contains == null && depth == 3) {
-                    contains = new TreeSet<String>();
+                    contains = new TreeSet<>();
                     if (start.compareTo("A") >= 0) {
                         contains.add("<font color='red'>MISSING TZID</font>");
                     } else {
@@ -2130,7 +2131,7 @@ public class ShowLanguages {
          *
          */
         public void printMissing(PrintWriter pw, int source, int table) {
-            Set<String> missingItems = new HashSet<String>();
+            Set<String> missingItems = new HashSet<>();
             String type = null;
             if (source == CLDRFile.TERRITORY_NAME) {
                 type = "territory";
@@ -2241,6 +2242,7 @@ public class ShowLanguages {
         }
 
         Comparator territoryNameComparator = new Comparator() {
+            @Override
             public int compare(Object o1, Object o2) {
                 return col.compare(getName(CLDRFile.TERRITORY_NAME, (String) o1, false),
                     getName(CLDRFile.TERRITORY_NAME, (String) o2, false));
@@ -2250,14 +2252,14 @@ public class ShowLanguages {
         static String[] stringArrayPattern = new String[0];
         static String[][] string2ArrayPattern = new String[0][];
 
-        public static Map<String, String> territoryAliases = new HashMap<String, String>();
+        public static Map<String, String> territoryAliases = new HashMap<>();
 
         public void printContains(PrintWriter index) throws IOException {
             String title = "Territory Containment (UN M.49)";
 
             PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, SUPPLEMENTAL_INDEX_ANCHORS));
             // doTitle(pw, title);
-            List<String[]> rows = new ArrayList<String[]>();
+            List<String[]> rows = new ArrayList<>();
             printContains3("001", rows, new ArrayList<String>());
             TablePrinter tablePrinter = new TablePrinter()
                 .addColumn("World", "class='source'", null, "class='z0'", true).setSortPriority(0)
@@ -2378,7 +2380,7 @@ public class ShowLanguages {
      */
     private static Map<String, Set<String>> getInverse(Map<String, Set<String>> language_territories) {
         // get inverse relation
-        Map<String, Set<String>> territory_languages = new TreeMap<String, Set<String>>();
+        Map<String, Set<String>> territory_languages = new TreeMap<>();
         for (Iterator<String> it = language_territories.keySet().iterator(); it.hasNext();) {
             String language = it.next();
             Set<String> territories = language_territories.get(language);

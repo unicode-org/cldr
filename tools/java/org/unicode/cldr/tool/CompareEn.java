@@ -75,7 +75,7 @@ public class CompareEn {
 
             for (String path : paths) {
                 if (path.startsWith("//ldml/identity")) {
-                    continue; 
+                    continue;
                 }
              // skip certain paths
                 if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")) {

@@ -26,7 +26,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
 /**
- * 
+ *
  */
 
 public class ExemplarInfo {
@@ -46,7 +46,7 @@ public class ExemplarInfo {
 
     private static UnicodeSetPrettyPrinter pp = new UnicodeSetPrettyPrinter();
 
-    private static Map<String, ExemplarInfo> languageToExemplars = new TreeMap<String, ExemplarInfo>();
+    private static Map<String, ExemplarInfo> languageToExemplars = new TreeMap<>();
     private static UnicodeSet az = new UnicodeSet("[a-z]").freeze();
     static {
 
@@ -124,7 +124,7 @@ public class ExemplarInfo {
     UnicodeSet auxiliariesX;
     UnicodeSet exemplarScripts;
     UnicodeSet auxiliaryScripts;
-    UnicodeMap<String> educationLevels = new UnicodeMap<String>();
+    UnicodeMap<String> educationLevels = new UnicodeMap<>();
 
     static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
 
@@ -327,7 +327,7 @@ public class ExemplarInfo {
     }
 
     public static void main(String[] args) {
-        Set<String> missingExemplars = new TreeSet<String>();
+        Set<String> missingExemplars = new TreeSet<>();
         System.out.println(Charset.availableCharsets());
 
         System.out.println(ExemplarInfo.make("ja", missingExemplars).getEducationLevel("\u4e00"));

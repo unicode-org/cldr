@@ -200,7 +200,7 @@ public class ShowRegionalVariants {
                         + ENGLISH.getName(s.toString()));
                 }
 
-                ArrayList<CLDRFile> parentChain = new ArrayList<CLDRFile>();
+                ArrayList<CLDRFile> parentChain = new ArrayList<>();
                 for (CLDRLocale current = parent;;) {
                     parentChain.add(FACTORY.make(current.toString(), true));
                     CLDRLocale grand = current.getParent();

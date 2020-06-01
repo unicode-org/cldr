@@ -9,7 +9,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class PluralSamples {
-    private static final Map<String, PluralSamples> cache = new ConcurrentHashMap<String, PluralSamples>();
+    private static final Map<String, PluralSamples> cache = new ConcurrentHashMap<>();
     private final Map<Count, Double>[] samples = new Map[4]; // we do 1, 2, 3, and 4 decimals
 
     public PluralSamples(String locale) {
@@ -24,14 +24,14 @@ public class PluralSamples {
     }
 
     private Map<Count, Double> getValuesForDigits(PluralInfo pluralInfo, int total, int start, int end) {
-        Map<Count, Double> set = new EnumMap<Count, Double>(Count.class);
+        Map<Count, Double> set = new EnumMap<>(Count.class);
         // Cycle through digits
         boolean favorPositive = start == 0;
         if (favorPositive) {
             ++start;
         }
         for (int item = start; item < end; ++item) {
-            double dItem = (double) item;
+            double dItem = item;
             Count count = pluralInfo.getCount(dItem);
             Double old = set.get(count);
             if (old == null) {

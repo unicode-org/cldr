@@ -40,11 +40,11 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
 
     private volatile boolean frozen = false;
 
-    private List<Element> elements = new ArrayList<Element>();
+    private List<Element> elements = new ArrayList<>();
 
     private DtdData dtdData = null;
 
-    private static final Map<String, XPathParts> cache = new ConcurrentHashMap<String, XPathParts>();
+    private static final Map<String, XPathParts> cache = new ConcurrentHashMap<>();
 
     /**
      * Construct a new empty XPathParts object.
@@ -181,7 +181,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
             LINE, PREBLOCK, POSTBLOCK
         }
 
-        private EnumMap<CommentType, Map<String, String>> comments = new EnumMap<CommentType, Map<String, String>>(
+        private EnumMap<CommentType, Map<String, String>> comments = new EnumMap<>(
             CommentType.class);
 
         public Comments() {
@@ -210,7 +210,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         }
 
         public List<String> extractCommentsWithoutBase() {
-            List<String> result = new ArrayList<String>();
+            List<String> result = new ArrayList<>();
             for (CommentType style : CommentType.values()) {
                 for (Iterator<String> it = comments.get(style).keySet().iterator(); it.hasNext();) {
                     String key = it.next();
@@ -222,11 +222,12 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
             return result;
         }
 
+        @Override
         public Object clone() {
             try {
                 Comments result = (Comments) super.clone();
                 for (CommentType c : CommentType.values()) {
-                    result.comments.put(c, new HashMap<String, String>(comments.get(c)));
+                    result.comments.put(c, new HashMap<>(comments.get(c)));
                 }
                 return result;
             } catch (CloneNotSupportedException e) {
@@ -461,7 +462,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         if (attributes == null) {
             return null;
         }
-        return (String) attributes.get(attributeName);
+        return attributes.get(attributeName);
     }
 
     /**
@@ -631,6 +632,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
     /**
      * boilerplate
      */
+    @Override
     public String toString() {
         return toString(elements.size());
     }
@@ -667,6 +669,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
     /**
      * boilerplate
      */
+    @Override
     public boolean equals(Object other) {
         try {
             XPathParts that = (XPathParts) other;
@@ -681,7 +684,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
             return false;
         }
     }
-    
+
     @Override
     public int compareTo(XPathParts that) {
         return dtdData.getDtdComparator().xpathComparator(this, that);
@@ -691,6 +694,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
     /**
      * boilerplate
      */
+    @Override
     public int hashCode() {
         int result = elements.size();
         for (int i = 0; i < elements.size(); ++i) {
@@ -727,7 +731,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
             if (attributes == null) {
                 this.attributes = null;
             } else {
-                this.attributes = new TreeMap<String, String>(getAttributeComparator());
+                this.attributes = new TreeMap<>(getAttributeComparator());
                 this.attributes.putAll(attributes);
             }
         }
@@ -759,7 +763,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
                 }
             } else {
                 if (attributes == null) {
-                    attributes = new TreeMap<String, String>(getAttributeComparator());
+                    attributes = new TreeMap<>(getAttributeComparator());
                 }
                 attributes.put(attribute, value);
             }
@@ -785,6 +789,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
             }
         }
 
+        @Override
         public String toString() {
             throw new IllegalArgumentException("Don't use");
         }
@@ -870,7 +875,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
          * @param attribute
          * @param value
          * @return true to skip, else false
-         * 
+         *
          * Called only by writeAttributes
          *
          * Assume suppressionMap isn't null.
@@ -893,6 +898,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
             return skip;
         }
 
+        @Override
         public boolean equals(Object other) {
             if (other == null) {
                 return false;
@@ -908,7 +914,8 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
                 return false;
             }
         }
-        
+
+        @Override
         public int hashCode() {
             return element.hashCode() * 37 + (attributes == null ? 0 : attributes.hashCode());
         }
@@ -981,7 +988,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
      * Get the MapComparator for this XPathParts.
      *
      * @return the MapComparator, or null
-     * 
+     *
      * Called by the Element constructor, and by putAttribute
      */
     private MapComparator<String> getAttributeComparator() {
@@ -1032,7 +1039,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
 
     /**
      * Replace the elements of this XPathParts with clones of the elements of the given other XPathParts
-     *  
+     *
      * @param parts the given other XPathParts (not modified)
      * @return this XPathParts (modified)
      *
@@ -1065,7 +1072,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
             throw new UnsupportedOperationException("Can't modify frozen Element");
         }
         List<Element> temp = elements;
-        elements = new ArrayList<Element>();
+        elements = new ArrayList<>();
         set(parts);
         for (; i < temp.size(); ++i) {
             elements.add(temp.get(i));
@@ -1252,7 +1259,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         xppClone.dtdData = this.dtdData;
         for (Element e : this.elements) {
             xppClone.elements.add(e.cloneAsThawed());
-        }        
+        }
         return xppClone;
     }
 
@@ -1294,7 +1301,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
                     continue;
                 }
                 if (ueMap == null) {
-                    ueMap = new TreeMap<String, String>();
+                    ueMap = new TreeMap<>();
                 }
                 ueMap.put(k, entry.getValue());
             }
@@ -1312,6 +1319,6 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         for (int i = 0; i < elements.size(); ++i) {
             elements.get(i).putAttribute(attribute, null);
         }
-        return this; 
+        return this;
     }
 }

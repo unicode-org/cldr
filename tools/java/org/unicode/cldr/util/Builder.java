@@ -68,19 +68,19 @@ public final class Builder {
     }
 
     public static <E, C extends Collection<E>> CBuilder<E, C> with(C collection, EqualAction ea) {
-        return new CBuilder<E, C>(collection, ea);
+        return new CBuilder<>(collection, ea);
     }
 
     public static <E, C extends Collection<E>> CBuilder<E, C> with(C collection) {
-        return new CBuilder<E, C>(collection, EqualAction.NATIVE);
+        return new CBuilder<>(collection, EqualAction.NATIVE);
     }
 
     public static <K, V, M extends Map<K, V>> MBuilder<K, V, M> with(M map, EqualAction ea) {
-        return new MBuilder<K, V, M>(map, ea);
+        return new MBuilder<>(map, ea);
     }
 
     public static <K, V, M extends Map<K, V>> MBuilder<K, V, M> with(M map) {
-        return new MBuilder<K, V, M>(map, EqualAction.NATIVE);
+        return new MBuilder<>(map, EqualAction.NATIVE);
     }
 
     // ===== Collections ======
@@ -233,7 +233,7 @@ public final class Builder {
         }
 
         public CBuilder<E, U> keepNew(Collection<? extends E> c) {
-            HashSet<E> extras = new HashSet<E>(c);
+            HashSet<E> extras = new HashSet<>(c);
             extras.removeAll(collection);
             collection.clear();
             collection.addAll(extras);
@@ -251,7 +251,7 @@ public final class Builder {
         }
 
         public CBuilder<E, U> filter(Transform<E, Boolean> filter) {
-            HashSet<E> temp = new HashSet<E>();
+            HashSet<E> temp = new HashSet<>();
             for (E item : collection) {
                 if (filter.transform(item) == Boolean.FALSE) {
                     temp.add(item);
@@ -283,6 +283,7 @@ public final class Builder {
             return temp;
         }
 
+        @Override
         public String toString() {
             return collection.toString();
         }
@@ -455,7 +456,7 @@ public final class Builder {
         }
 
         public <N extends Map<K, V>> MBuilder<K, V, M> keepNew(N c) {
-            HashSet<K> extras = new HashSet<K>(c.keySet());
+            HashSet<K> extras = new HashSet<>(c.keySet());
             extras.removeAll(map.keySet());
             map.clear();
             for (K key : extras) {
@@ -482,6 +483,7 @@ public final class Builder {
             return temp;
         }
 
+        @Override
         public String toString() {
             return map.toString();
         }

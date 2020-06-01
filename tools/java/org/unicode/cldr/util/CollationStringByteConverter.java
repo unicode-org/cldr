@@ -20,7 +20,7 @@ public class CollationStringByteConverter extends DictionaryStringByteConverter 
     }
 
     private static StateDictionary<String> getDictionaryInfo(RuleBasedCollator collation, StringByteConverter byteMaker) {
-        Map<CharSequence, String> map = new TreeMap<CharSequence, String>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
+        Map<CharSequence, String> map = new TreeMap<>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
         new CollationMapMaker().generateCollatorFolding(collation, map);
         return new StateDictionaryBuilder<String>().setByteConverter(byteMaker)
             .setIntMapFactory(new IntMap.CompactStringIntMapFactory()).make(map);

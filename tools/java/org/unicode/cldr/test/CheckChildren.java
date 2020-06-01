@@ -14,12 +14,13 @@ import org.unicode.cldr.util.Factory;
 
 public class CheckChildren extends FactoryCheckCLDR {
     CLDRFile[] immediateChildren;
-    Map<String, String> tempSet = new HashMap<String, String>();
+    Map<String, String> tempSet = new HashMap<>();
 
     public CheckChildren(Factory factory) {
         super(factory);
     }
 
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {
         if (immediateChildren == null) return this; // skip - test isn't even relevant
@@ -71,7 +72,7 @@ public class CheckChildren extends FactoryCheckCLDR {
             return this;
         }
 
-        List<CLDRFile> iChildren = new ArrayList<CLDRFile>();
+        List<CLDRFile> iChildren = new ArrayList<>();
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         CLDRLocale myLocale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID());
         if (myLocale.getCountry() != null && myLocale.getCountry().length() == 2) {
@@ -95,7 +96,7 @@ public class CheckChildren extends FactoryCheckCLDR {
             immediateChildren = null;
         else {
             immediateChildren = new CLDRFile[iChildren.size()];
-            immediateChildren = (CLDRFile[]) iChildren.toArray(immediateChildren);
+            immediateChildren = iChildren.toArray(immediateChildren);
         }
         return this;
     }

@@ -25,7 +25,7 @@ public class ShowChildren {
         long startTime = System.currentTimeMillis();
 
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
+        Set<String> locales = new TreeSet<>(cldrFactory.getAvailable());
 
         Relation<String, String> parent2children = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
@@ -38,17 +38,17 @@ public class ShowChildren {
         PrettyPath prettyPath = new PrettyPath();
 
         final CLDRFile english = ToolConfig.getToolInstance().getEnglish();
-        Counter<String> deviations = new Counter<String>();
+        Counter<String> deviations = new Counter<>();
 
         for (Entry<String, Set<String>> entry : parent2children.keyValuesSet()) {
-            Map<String, Relation<String, String>> path2value2locales = new TreeMap<String, Relation<String, String>>();
+            Map<String, Relation<String, String>> path2value2locales = new TreeMap<>();
             String parent = entry.getKey();
             String parentName = english.getName(parent);
-            CLDRFile parentFile = (CLDRFile) cldrFactory.make(parent, true);
+            CLDRFile parentFile = cldrFactory.make(parent, true);
 
             Set<String> children = entry.getValue();
             for (String child : children) {
-                CLDRFile file = (CLDRFile) cldrFactory.make(child, false);
+                CLDRFile file = cldrFactory.make(child, false);
                 for (String path : file) {
                     if (path.startsWith("//ldml/identity")
                         || path.endsWith("/alias")

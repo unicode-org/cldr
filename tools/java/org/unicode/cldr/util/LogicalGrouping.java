@@ -58,14 +58,14 @@ public class LogicalGrouping {
     /**
      * Cache from locale and path (<Pair<String, String>), to logical group (Set<String>)
      */
-    private static ConcurrentHashMap<Pair<String, String>, Set<String>> cacheLocaleAndPathToLogicalGroup = new ConcurrentHashMap<Pair<String, String>, Set<String>>();
+    private static ConcurrentHashMap<Pair<String, String>, Set<String>> cacheLocaleAndPathToLogicalGroup = new ConcurrentHashMap<>();
 
     /**
      * Statistics on occurrences of types of logical groups, for performance testing, debugging.
      * GET_TYPE_COUNTS should be false for production to maximize performance.
      */
     public static final boolean GET_TYPE_COUNTS = false;
-    public static final ConcurrentHashMap<String, Long> typeCount = GET_TYPE_COUNTS ? new ConcurrentHashMap<String, Long>() : null;
+    public static final ConcurrentHashMap<String, Long> typeCount = GET_TYPE_COUNTS ? new ConcurrentHashMap<>() : null;
 
     /**
      * GET_TYPE_FROM_PARTS is more elegant when true, but performance is a little faster when it's false.
@@ -89,7 +89,7 @@ public class LogicalGrouping {
      * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]
      * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]
      * //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]
-     * 
+     *
      * Caches: Most of the calculations are independent of the locale, and can be cached on a static basis.
      * The paths that are locale-dependent are /dayPeriods and @count. Those can be computed on a per-locale basis;
      * and cached (they are shared across a number of locales).
@@ -114,7 +114,7 @@ public class LogicalGrouping {
         }
 
         if (GET_TYPE_COUNTS) {
-            typeCount.compute(pathType.toString(), (k, v) -> (v == null) ? 1 : v + 1);            
+            typeCount.compute(pathType.toString(), (k, v) -> (v == null) ? 1 : v + 1);
         }
 
         if (pathType == PathType.SINGLETON) {
@@ -122,7 +122,7 @@ public class LogicalGrouping {
              * Skip cache for PathType.SINGLETON and simply return a set of one.
              * TODO: should we ever return null instead of singleton here?
              */
-            Set<String> set = new TreeSet<String>();
+            Set<String> set = new TreeSet<>();
             set.add(path);
             return set;
         }
@@ -133,11 +133,11 @@ public class LogicalGrouping {
 
         if (PathType.isLocaleDependent(pathType)) {
             String locale = cldrFile.getLocaleID();
-            Pair<String, String> key = new Pair<String, String>(locale, path);
+            Pair<String, String> key = new Pair<>(locale, path);
             if (cacheLocaleAndPathToLogicalGroup.containsKey(key)) {
-                return new TreeSet<String>(cacheLocaleAndPathToLogicalGroup.get(key));
+                return new TreeSet<>(cacheLocaleAndPathToLogicalGroup.get(key));
             }
-            Set<String> set = new TreeSet<String>();
+            Set<String> set = new TreeSet<>();
             pathType.addPaths(set, cldrFile, path, parts);
             cacheLocaleAndPathToLogicalGroup.put(key, set);
             return set;
@@ -146,9 +146,9 @@ public class LogicalGrouping {
              * All other paths are locale-independent.
              */
             if (cachePathToLogicalGroup.containsKey(path)) {
-                return new TreeSet<String>(cachePathToLogicalGroup.get(path));
+                return new TreeSet<>(cachePathToLogicalGroup.get(path));
             }
-            Set<String> set = new TreeSet<String>();
+            Set<String> set = new TreeSet<>();
             pathType.addPaths(set, cldrFile, path, parts);
             cachePathToLogicalGroup.putAll(path, set);
             return set;
@@ -190,7 +190,7 @@ public class LogicalGrouping {
 
         PluralRules pluralRules = getPluralInfo(cldrFile).getPluralRules();
         parts.setAttribute(-1, "count", "0");
-        Set<Double> explicits = new HashSet<Double>();
+        Set<Double> explicits = new HashSet<>();
         if (cldrFile.isHere(parts.toString())) {
             explicits.add(0.0);
         }
@@ -431,7 +431,7 @@ public class LogicalGrouping {
         private static PathType getPathTypeFromPath(String path) {
             /*
              * Would changing the order of these tests ever change the return value?
-             * Assume it could if in doubt. 
+             * Assume it could if in doubt.
              */
             if (path.indexOf("/metazone") > 0) {
                 return PathType.METAZONE;
@@ -478,7 +478,7 @@ public class LogicalGrouping {
         private static PathType getPathTypeFromParts(XPathParts parts) {
             /*
              * Would changing the order of these tests ever change the return value?
-             * Assume it could if in doubt. 
+             * Assume it could if in doubt.
              */
             if (parts.containsElement("metazone")) {
                 return PathType.METAZONE;

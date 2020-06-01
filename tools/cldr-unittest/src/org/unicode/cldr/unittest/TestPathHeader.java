@@ -1066,7 +1066,7 @@ public class TestPathHeader extends TestFmwkPlus {
         for (String item : threeLevel) {
             logln(item);
         }
-        LinkedHashMap<String, Set<String>> sectionsToPages = pathHeaderFactory
+        LinkedHashMap<String, Set<String>> sectionsToPages = org.unicode.cldr.util.PathHeader.Factory
             .getSectionsToPages();
         logln("\nMenus:\t" + sectionsToPages.size());
         for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {

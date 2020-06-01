@@ -32,11 +32,11 @@ public class TestCache implements XMLSource.Listener {
         final CLDRFile file;
         final private CheckCLDR.Options options;
         final private ConcurrentHashMap<Pair<String, String>, List<CheckStatus>> pathCache;
-        final protected List<CheckStatus> possibleProblems = new ArrayList<CheckStatus>();
-        
+        final protected List<CheckStatus> possibleProblems = new ArrayList<>();
+
         protected TestResultBundle(CheckCLDR.Options cldrOptions) {
             options = cldrOptions;
-            pathCache = new ConcurrentHashMap<Pair<String, String>, List<CheckStatus>>();
+            pathCache = new ConcurrentHashMap<>();
             file = getFactory().make(options.getLocale().getBaseName(), true);
             cc.setCldrFileToCheck(file, options, possibleProblems);
         }
@@ -44,7 +44,7 @@ public class TestCache implements XMLSource.Listener {
         /**
          * Check the given value for the given path, using this TestResultBundle for
          * options, pathCache and cc (CheckCLDR).
-         * 
+         *
          * @param path the path
          * @param result the list to which CheckStatus objects may be added; this function
          *               clears any objects that might already be in it
@@ -58,7 +58,7 @@ public class TestCache implements XMLSource.Listener {
               * currently redundant here. Clear it here unconditionally to be sure.
               */
              result.clear();
-             Pair<String, String> key = new Pair<String, String>(path, value);
+             Pair<String, String> key = new Pair<>(path, value);
              List<CheckStatus> cachedResult = pathCache.get(key);
              if (cachedResult != null) {
                  result.addAll(cachedResult);
@@ -133,7 +133,7 @@ public class TestCache implements XMLSource.Listener {
 
     /**
      * Convert this TestCache to a string
-     * 
+     *
      * Used only for debugging?
      */
     @Override
@@ -171,7 +171,7 @@ public class TestCache implements XMLSource.Listener {
 
     /**
      * Update the caches as needed, given that the value has changed for this xpath and locale.
-     * 
+     *
      * Called by valueChanged(String xpath, XMLSource source),
      * and also calls itself recursively for sublocales
      *

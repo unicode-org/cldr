@@ -336,6 +336,7 @@ public class MailSender implements Runnable {
 
     private int lastIdProcessed = -1; // spinner
 
+    @Override
     public void run() {
         if (!CLDR_SENDMAIL) {
             SurveyLog.warnOnce("*** Mail processing disabled per cldr.properties. To enable, set CLDR_SENDMAIL=true ***");
@@ -352,7 +353,7 @@ public class MailSender implements Runnable {
 //            return; // wait a bit
 //        }
 
-        // Skip the System.out.println here normally, it clutters the logs. 
+        // Skip the System.out.println here normally, it clutters the logs.
         // See https://unicode.org/cldr/trac/ticket/10295
         // System.out.println("MailSender: processing mail queue");
 
@@ -532,6 +533,6 @@ public class MailSender implements Runnable {
     }
 
     private void processMail() {
-        CookieSession.sm.getTimer().submit(this); // Cause a quick retry.
+        SurveyMain.getTimer().submit(this); // Cause a quick retry.
     }
 }

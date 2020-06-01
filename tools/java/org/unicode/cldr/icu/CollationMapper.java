@@ -30,7 +30,7 @@ public class CollationMapper extends Mapper {
     private static Pattern SPECIALS_PATH = PatternCache.get("//ldml/special/icu:([\\w_]++)\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
     private String sourceDir;
     private Factory specialFactory;
-    private Set<String> validSubLocales = new HashSet<String>();
+    private Set<String> validSubLocales = new HashSet<>();
 
     // TODO: CLDR 28 ticket #8289 "Move collator CLDR settings into ICU format"
     // deprecated the collation sub-elements
@@ -62,7 +62,7 @@ public class CollationMapper extends Mapper {
      */
     @Override
     public IcuData[] fillFromCldr(String locale) {
-        List<IcuData> dataList = new ArrayList<IcuData>();
+        List<IcuData> dataList = new ArrayList<>();
         IcuData mainLocale = new IcuData("common/collation/" + locale + ".xml", locale, true);
         CollationHandler handler = new CollationHandler(mainLocale);
         File file = new File(sourceDir, locale + ".xml");
@@ -123,8 +123,8 @@ public class CollationMapper extends Mapper {
         private StringBuilder currentText = new StringBuilder();
         private String collationType;
         private boolean isShort;
-        private List<String> properties = new ArrayList<String>();
-        private List<String> rules = new ArrayList<String>();
+        private List<String> properties = new ArrayList<>();
+        private List<String> rules = new ArrayList<>();
         private String[] subLocales;
 
         public CollationHandler(IcuData icuData) {
@@ -244,8 +244,8 @@ public class CollationMapper extends Mapper {
         makefile.addSyntheticAlias(aliases);
         makefile.addAliasSource();
         // Split sources into locales and sublocales.
-        List<String> subLocales = new ArrayList<String>();
-        List<String> locales = new ArrayList<String>();
+        List<String> subLocales = new ArrayList<>();
+        List<String> locales = new ArrayList<>();
         locales.add("$(COLLATION_EMPTY_SOURCE)");
         for (String source : sources) {
             if (validSubLocales.contains(source)) {

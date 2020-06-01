@@ -19,7 +19,7 @@ public class ReviewHide {
     private HashMap<String, List<Integer>> hiddenField;
 
     public ReviewHide() {
-        this.hiddenField = new HashMap<String, List<Integer>>();
+        this.hiddenField = new HashMap<>();
     }
 
     //create the table (path, locale, type of notifications as key to get unique line)
@@ -77,7 +77,7 @@ public class ReviewHide {
                         String choice = rs.getString("choice");
                         List<Integer> paths = this.hiddenField.get(choice);
                         if (paths == null)
-                            paths = new ArrayList<Integer>();
+                            paths = new ArrayList<>();
                         paths.add(rs.getInt("path"));
 
                         this.hiddenField.put(choice, paths);

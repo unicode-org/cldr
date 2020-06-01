@@ -309,7 +309,7 @@ public class ChartDelta extends Chart {
                 System.out.println("Will compare: " + dir + "\t\t" + current + "\t\t" + past);
             }
             if (factories.isEmpty()) {
-                throw new IllegalArgumentException("No factories found for " 
+                throw new IllegalArgumentException("No factories found for "
                     + dirBase + ": " + DtdType.ldml.directories);
             }
             // get a list of all the locales to cycle over
@@ -387,8 +387,8 @@ public class ChartDelta extends Chart {
                             }
                         }
 
-                        Output<String> reformattedValue = new Output<String>();
-                        Output<Boolean> hasReformattedValue = new Output<Boolean>();
+                        Output<String> reformattedValue = new Output<>();
+                        Output<Boolean> hasReformattedValue = new Output<>();
 
                         for (String path : paths) {
                             if (path.startsWith("//ldml/identity")
@@ -555,7 +555,7 @@ public class ChartDelta extends Chart {
                 continue;
             }
             if (fullAttributes == null) {
-                fullAttributes = new TreeSet<String>();
+                fullAttributes = new TreeSet<>();
             } else {
                 fullAttributes.clear();
             }
@@ -851,8 +851,8 @@ public class ChartDelta extends Chart {
             Counter<PathHeader> countSame = new Counter<>();
             Counter<PathHeader> countAdded = new Counter<>();
             Counter<PathHeader> countDeleted = new Counter<>();
-            
-            
+
+
 
             for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
                 if (DtdType.ldml.directories.contains(dir)
@@ -887,7 +887,7 @@ public class ChartDelta extends Chart {
                     Relation<PathHeader, String> contentsOld = fillData(dirOld.toString() + "/", file);
                     Relation<PathHeader, String> contents2 = fillData(dir2.toString() + "/", file);
 
-                    Set<PathHeader> keys = new TreeSet<PathHeader>(CldrUtility.ifNull(contentsOld.keySet(), Collections.<PathHeader> emptySet()));
+                    Set<PathHeader> keys = new TreeSet<>(CldrUtility.ifNull(contentsOld.keySet(), Collections.<PathHeader> emptySet()));
                     keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<PathHeader> emptySet()));
                     DtdType dtdType = null;
                     for (PathHeader key : keys) {

@@ -56,7 +56,7 @@ public class DisplayAndInputProcessor {
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
         .freeze();
 
-    public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
+    public static final UnicodeSet TO_QUOTE = new UnicodeSet(
         "[[:Cn:]" +
             "[:Default_Ignorable_Code_Point:]" +
             "[:patternwhitespace:]" +
@@ -105,7 +105,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
     private static final CLDRLocale FF_ADLAM = CLDRLocale.getInstance("ff_Adlm");
-    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<String>(
+    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<>(
         Arrays.asList("br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
@@ -495,7 +495,7 @@ public class DisplayAndInputProcessor {
 
     /**
      * Produce a modification of the given annotation by sorting its components and filtering covered keywords.
-     * 
+     *
      * Examples: Given "b | a", return "a | b". Given "bear | panda | panda bear", return "bear | panda".
      *
      * @param value the string
@@ -514,7 +514,7 @@ public class DisplayAndInputProcessor {
     /**
      * Filter from the given set some keywords that include spaces, if they duplicate,
      * or are "covered by", other keywords in the set.
-     * 
+     *
      * For example, if the set is {"bear", "panda", "panda bear"} (annotation was "bear | panda | panda bear"),
      * then remove "panda bear", treating it as "covered" since the set already includes "panda" and "bear".
      *
@@ -880,10 +880,10 @@ public class DisplayAndInputProcessor {
             switch (string) {
             case "\u2011": toAdd.add("-"); break; // nobreak hyphen
             case "-": toAdd.add("\u2011"); break; // nobreak hyphen
-            
+
             case " ": toAdd.add("\u00a0"); break; // nobreak space
             case "\u00a0": toAdd.add(" "); break; // nobreak space
-            
+
             case "\u202F": toAdd.add("\u2009"); break; // nobreak narrow space
             case "\u2009": toAdd.add("\u202F"); break; // nobreak narrow space
             }
@@ -970,7 +970,7 @@ public class DisplayAndInputProcessor {
         private int[] posixDigitCount;
 
         private NumericType() {
-        };
+        }
 
         private NumericType(int[] digitCount, int[] posixDigitCount) {
             this.digitCount = digitCount;
@@ -1012,5 +1012,5 @@ public class DisplayAndInputProcessor {
         public int[] getPosixDigitCount() {
             return posixDigitCount;
         }
-    };
+    }
 }

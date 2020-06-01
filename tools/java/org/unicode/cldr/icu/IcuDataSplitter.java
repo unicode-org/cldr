@@ -20,7 +20,7 @@ public class IcuDataSplitter {
 
     private final List<SplitInfo> splitInfos;
     private final Map<String, File> targetDirs;
-    private final Map<String, Set<String>> splitSources = new HashMap<String, Set<String>>();
+    private final Map<String, Set<String>> splitSources = new HashMap<>();
 
     /**
      * Splits the
@@ -29,7 +29,7 @@ public class IcuDataSplitter {
      */
     private IcuDataSplitter(List<SplitInfo> splitInfos) {
         this.splitInfos = splitInfos;
-        targetDirs = new HashMap<String, File>();
+        targetDirs = new HashMap<>();
     }
 
     /**
@@ -86,7 +86,7 @@ public class IcuDataSplitter {
      * @return
      */
     public Map<String, IcuData> split(IcuData icuData, String fallbackDir) {
-        Map<String, IcuData> splitData = new HashMap<String, IcuData>();
+        Map<String, IcuData> splitData = new HashMap<>();
         String sourceFile = icuData.getSourceFile();
         String name = icuData.getName();
         boolean hasFallback = icuData.hasFallback();
@@ -157,7 +157,7 @@ public class IcuDataSplitter {
     private static void add(Map<String, Set<String>> map, String key, String value) {
         Set<String> set = map.get(key);
         if (set == null) {
-            map.put(key, set = new HashSet<String>());
+            map.put(key, set = new HashSet<>());
         }
         set.add(value);
     }

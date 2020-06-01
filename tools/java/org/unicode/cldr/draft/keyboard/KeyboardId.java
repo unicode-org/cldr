@@ -18,10 +18,10 @@ import com.ibm.icu.util.ULocale;
  * An object that is used to uniquely identify a particular keyboard. This object can be serialized
  * as a string. The string has the following format:
  * {@code <locale>-t-k0-<platform>-<attribute0>-<attribute1>-<attributeN>}
- * 
+ *
  * <p>
  * The locale and platform tags are mandatory, the attributes are not.
- * 
+ *
  * <p>
  * The following are all valid keyboard locale strings:
  * <ul>

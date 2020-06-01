@@ -130,7 +130,7 @@ class FlexibleDateFromCLDR {
         System.out.println("END");
     }
 
-    Map<String, String> failureMap = new TreeMap<String, String>();
+    Map<String, String> failureMap = new TreeMap<>();
 
     /**
      * @param path

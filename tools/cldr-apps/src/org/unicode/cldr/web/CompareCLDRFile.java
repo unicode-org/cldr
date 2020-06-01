@@ -9,15 +9,15 @@ import org.unicode.cldr.util.CLDRFile;
 
 public class CompareCLDRFile {
 
-    private Set<Entry> entries = new TreeSet<Entry>();
+    private Set<Entry> entries = new TreeSet<>();
 
-    private Set<String> allXpaths = new TreeSet<String>();
+    private Set<String> allXpaths = new TreeSet<>();
 
     public class Entry implements Comparable<Entry> {
         private String title;
         private CLDRFile file;
 
-        private Set<String> xpaths = new TreeSet<String>();
+        private Set<String> xpaths = new TreeSet<>();
 
         private Entry(CLDRFile f, String t) {
             this.file = f;
@@ -30,6 +30,7 @@ public class CompareCLDRFile {
             allXpaths.addAll(xpaths);
         }
 
+        @Override
         public String toString() {
             return title;
         }
@@ -43,7 +44,7 @@ public class CompareCLDRFile {
         }
 
         public Set<String> getUniqueXPaths() {
-            Set<String> aSet = new TreeSet<String>(getAllXPaths());
+            Set<String> aSet = new TreeSet<>(getAllXPaths());
             for (Entry e : getResults()) {
                 if (e != this) {
                     aSet.removeAll(e.getXPaths());
@@ -75,4 +76,4 @@ public class CompareCLDRFile {
     public Set<Entry> getResults() {
         return entries;
     }
-};
+}

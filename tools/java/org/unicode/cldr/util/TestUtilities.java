@@ -55,7 +55,7 @@ public class TestUtilities {
     enum State {
         a, b, c;
         public static State cc = c;
-    };
+    }
 
     String s;
 
@@ -166,8 +166,8 @@ public class TestUtilities {
     private static void checkNumericTimezone() throws IOException {
         String[] map_integer_zones = new String[1000];
         StandardCodes sc = StandardCodes.make();
-        Set<String> timezones = new TreeSet<String>(sc.getGoodAvailableCodes("tzid"));
-        Map<String, Integer> map_timezone_integer = new TreeMap<String, Integer>();
+        Set<String> timezones = new TreeSet<>(sc.getGoodAvailableCodes("tzid"));
+        Map<String, Integer> map_timezone_integer = new TreeMap<>();
         BufferedReader input = CldrUtility.getUTF8Data("timezone_numeric.txt");
         int maxNumeric = -1;
         Map<String, String> fixOld = sc.zoneParser.getZoneLinkold_new();
@@ -206,11 +206,11 @@ public class TestUtilities {
         RuleBasedCollator eng = (RuleBasedCollator) Collator.getInstance();
         eng.setNumericCollation(true);
 
-        Set<String> extra = new TreeSet<String>(eng);
+        Set<String> extra = new TreeSet<>(eng);
         extra.addAll(map_timezone_integer.keySet());
         extra.removeAll(timezones);
         System.out.println("Extra: " + extra);
-        Set<String> needed = new TreeSet<String>(eng);
+        Set<String> needed = new TreeSet<>(eng);
         needed.addAll(timezones);
         needed.removeAll(map_timezone_integer.keySet());
         System.out.println("Needed: " + needed);
@@ -218,7 +218,7 @@ public class TestUtilities {
         // fill in the slots with the missing items
         // make Etc/GMT go first
         int numeric = 1;
-        List<String> ordered = new ArrayList<String>(needed);
+        List<String> ordered = new ArrayList<>(needed);
         // if (ordered.contains("Etc/GMT")) {
         // ordered.remove("Etc/GMT");
         // ordered.add(0,"Etc/GMT");
@@ -235,7 +235,7 @@ public class TestUtilities {
 
         // print it out
         Map<String, Set<String>> equiv = sc.zoneParser.getZoneLinkNew_OldSet();
-        Set<String> old = new TreeSet<String>();
+        Set<String> old = new TreeSet<>();
         for (int i = 1; i <= maxNumeric; ++i) {
             Set<String> s = equiv.get(map_integer_zones[i]);
             if (s != null) {
@@ -412,19 +412,23 @@ public class TestUtilities {
 
     static class MyHandler extends XMLFileReader.SimpleHandler {
 
+        @Override
         public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
             System.out.println("eName: " + eName + ",\t aName: " + aName + ",\t type: " + type + ",\t mode: " + mode
                 + ",\t value: " + value);
         }
 
+        @Override
         public void handleElementDecl(String name, String model) {
             System.out.println("name: " + name + ",\t model: " + model);
         }
 
+        @Override
         public void handlePathValue(String path, String value) {
             System.out.println("path: " + path + ",\t value: " + value);
         }
 
+        @Override
         public void handleComment(String path, String comment) {
             System.out.println("path: " + path + ",\t comment: " + comment);
         }
@@ -515,11 +519,11 @@ public class TestUtilities {
 
             String oldType = type.equals("region") ? "territory" : type;
             Set<String> allCodes = sc.getAvailableCodes(oldType);
-            Set<String> temp = new TreeSet<String>(subtagData.keySet());
+            Set<String> temp = new TreeSet<>(subtagData.keySet());
             temp.removeAll(allCodes);
             System.out.println(type + "\t in new but not old\t" + temp);
 
-            temp = new TreeSet<String>(allCodes);
+            temp = new TreeSet<>(allCodes);
             temp.removeAll(subtagData.keySet());
             System.out.println(type + "\t in old but not new\t" + temp);
         }
@@ -565,8 +569,8 @@ public class TestUtilities {
             String oldType = type.equals("region") ? "territory" : type;
 
             String aliasType = oldType.equals("grandfathered") ? "language" : oldType;
-            Set<String> allCodes = new TreeSet<String>();
-            Set<String> deprecatedCodes = new TreeSet<String>();
+            Set<String> allCodes = new TreeSet<>();
+            Set<String> deprecatedCodes = new TreeSet<>();
 
             for (Iterator<String> it2 = subtagData.keySet().iterator(); it2.hasNext();) {
                 String tag = it2.next();
@@ -585,7 +589,7 @@ public class TestUtilities {
             }
             // get old ones
             Set<String> goodCodes = sc.getAvailableCodes(oldType);
-            TreeSet<String> oldAndNotNew = new TreeSet<String>(goodCodes);
+            TreeSet<String> oldAndNotNew = new TreeSet<>(goodCodes);
             oldAndNotNew.removeAll(allCodes);
             oldAndNotNew.removeAll(deprecatedCodes);
             for (Iterator<String> it2 = oldAndNotNew.iterator(); it2.hasNext();) {
@@ -614,12 +618,12 @@ public class TestUtilities {
 
         Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
         Set<String> availableLocales = mainCldrFactory.getAvailable();
-        Set<String> available = new TreeSet<String>();
+        Set<String> available = new TreeSet<>();
         LocaleIDParser lip = new LocaleIDParser();
         for (Iterator<String> it = availableLocales.iterator(); it.hasNext();) {
             available.add(lip.set(it.next()).getLanguage());
         }
-        Set<String> langHack = new TreeSet<String>();
+        Set<String> langHack = new TreeSet<>();
         for (int i = 0; i < language_territory_hack.length; ++i) {
             String lang = language_territory_hack[i][0];
             langHack.add(lang);

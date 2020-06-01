@@ -725,6 +725,7 @@ public class TestCheckCLDR extends TestFmwk {
         "somename");
 
     private static final UserInfo dummyUserInfo = new UserInfo() {
+        @Override
         public VoterInfo getVoterInfo() {
             return dummyVoterInfo;
         }
@@ -754,24 +755,31 @@ public class TestCheckCLDR extends TestFmwk {
 
         };
 
+        @Override
         public Collection<? extends CandidateInfo> getValues() {
             throw new UnsupportedOperationException();
         }
+        @Override
         public CandidateInfo getCurrentItem() {
             return candidateInfo;
         }
+        @Override
         public String getBaselineValue() {
             return baselineValue;
         }
+        @Override
         public Level getCoverageLevel() {
             return Level.MODERN;
         }
+        @Override
         public boolean hadVotesSometimeThisRelease() {
             throw new UnsupportedOperationException();
         }
+        @Override
         public CLDRLocale getLocale() {
             return locale;
         }
+        @Override
         public String getXpath() {
             return xpath;
         }

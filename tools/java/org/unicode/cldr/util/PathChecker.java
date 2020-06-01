@@ -9,7 +9,7 @@ import org.unicode.cldr.util.DtdData.ValueStatus;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 
-/** 
+/**
  * Checks that an {element,attribute,attributeValue} tuple is valid, caching the results.
  */
 public class PathChecker {
@@ -17,7 +17,7 @@ public class PathChecker {
     private static final Map<XPathParts, Boolean> seen = new ConcurrentHashMap<>();
     private static Map<DtdType, Map<String,Map<String,Map<String,ValueStatus>>>> seenEAV = new ConcurrentHashMap<>();
 
-    /** 
+    /**
      * Returns true if the path is ok. The detailed errors (if any) are set only the first time the path is seen!
      */
     public boolean checkPath(String path) {
@@ -25,7 +25,7 @@ public class PathChecker {
         return checkPath(parts, null);
     }
 
-    /** 
+    /**
      * Returns true if the path is ok. The detailed errors (if any) are set only the first time the path is seen!
      */
 
@@ -34,7 +34,7 @@ public class PathChecker {
         return checkPath(parts, errors);
     }
 
-    /** 
+    /**
      * Returns true if the path is ok. The detailed errors (if any) are set only the first time the path is seen!
      */
     public boolean checkPath(XPathParts parts, Map<Row.R3<String, String, String>, ValueStatus> errors) {
@@ -93,7 +93,7 @@ public class PathChecker {
             }
             attrValueToStatus.putIfAbsent(attrValue, valueStatus);
         }
-        
+
         if (errors != null && valueStatus != ValueStatus.valid) {
             errors.put(Row.of(element, attribute, attrValue), valueStatus);
         }

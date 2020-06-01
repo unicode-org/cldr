@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Do not manually edit this file.
  */
 public class IdToPath {
-    static final HashMap<String, String> map = new HashMap<String, String>();
+    static final HashMap<String, String> map = new HashMap<>();
 
     public static String getPath(String id) {
         return map.get(id);

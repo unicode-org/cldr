@@ -30,7 +30,7 @@ public class Iso639Data {
     static Relation<String, String> toNames;
 
     static Relation<String, String> toRetirements;
-    
+
     static Map<String, String> toChangeTo;
 
     static Map<String, Scope> toScope;
@@ -97,7 +97,7 @@ public class Iso639Data {
             }
             return Scope.valueOf(input); // to get exception
         }
-    };
+    }
 
     /**
      * <h3><a NAME="L"></a>Living languages</h3>
@@ -130,7 +130,7 @@ public class Iso639Data {
      */
     public enum Type {
         Ancient, Constructed, Extinct, Historical, Living, Special, Collection, Unknown
-    };
+    }
 
     /**
      * This indicates the source of the language subtag.
@@ -140,7 +140,7 @@ public class Iso639Data {
      */
     public enum Source {
         ISO_639_1, ISO_639_2, ISO_639_3, BCP47, CLDR
-    };
+    }
 
     public static String getVersion() {
         return version;
@@ -269,7 +269,7 @@ public class Iso639Data {
      */
     enum IsoColumn {
         Id, Part2B, Part2T, Part1, Scope, Type, Ref_Name
-    };
+    }
 
     /**
      * Id char(3) NOT NULL, -- The three-letter 639-3 identifier Print_Name
@@ -279,7 +279,7 @@ public class Iso639Data {
      */
     enum IsoNamesColumn {
         Id, Print_Name, Inverted_Name
-    };
+    }
 
     private static void getData() {
         try {
@@ -289,18 +289,18 @@ public class Iso639Data {
 
             in = CldrUtility.getUTF8Data("iso-639-3.tab");
             SplitToArray tabs = new SplitToArray(Splitter.on('\t').trimResults());
-            toAlpha3 = new HashMap<String, String>();
-            fromAlpha3 = new HashMap<String, String>();
-            toBiblio3 = new HashMap<String, String>();
-            fromBiblio3 = new HashMap<String, String>();
-            toScope = new HashMap<String, Scope>();
-            toType = new HashMap<String, Type>();
+            toAlpha3 = new HashMap<>();
+            fromAlpha3 = new HashMap<>();
+            toBiblio3 = new HashMap<>();
+            fromBiblio3 = new HashMap<>();
+            toScope = new HashMap<>();
+            toType = new HashMap<>();
             toNames = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             toRetirements = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
-            toChangeTo = new TreeMap<String, String>();
+            toChangeTo = new TreeMap<>();
             macro_encompassed = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
-            encompassed_macro = new HashMap<String, String>();
-            toSource = new HashMap<String, Source>();
+            encompassed_macro = new HashMap<>();
+            toSource = new HashMap<>();
             toSource.put("sh", Source.ISO_639_1); // add deprecated language
 
             int count = 0; // line count for debugging
@@ -469,7 +469,7 @@ public class Iso639Data {
             }
             in.close();
 
-            Map<String, String> toHeirarchyTemp = new TreeMap<String, String>();
+            Map<String, String> toHeirarchyTemp = new TreeMap<>();
             in = CldrUtility.getUTF8Data("external/Iso639-5.html");
             String lastCode = null;
             int column = 0;
@@ -563,7 +563,7 @@ public class Iso639Data {
             in.close();
 
             Pattern SPLIT_HEIRARCHY = PatternCache.get("\\s*:\\s*");
-            toHeirarchy = new TreeMap<String, List<String>>();
+            toHeirarchy = new TreeMap<>();
             // for (String code : toHeirarchyTemp.keySet()) {
             // System.out.println(code + " => " + toHeirarchyTemp.get(code));
             // }
@@ -643,7 +643,7 @@ public class Iso639Data {
     public static Set<String> getEncompassed() {
         return encompassed_macro.keySet();
     }
-    
+
     public static String getChangeTo(String subtag) {
         return getChangeToMap().get(subtag);
     }

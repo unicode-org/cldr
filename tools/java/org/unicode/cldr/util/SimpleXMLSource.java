@@ -40,17 +40,19 @@ public class SimpleXMLSource extends XMLSource {
         locked = true;
     }
 
+    @Override
     public String getValueAtDPath(String xpath) {
-        return (String) xpath_value.get(xpath);
+        return xpath_value.get(xpath);
     }
-    
+
     public String getValueAtDPathSkippingInheritanceMarker(String xpath) {
-        String result = (String) xpath_value.get(xpath);
+        String result = xpath_value.get(xpath);
         return CldrUtility.INHERITANCE_MARKER.equals(result) ? null : result;
     }
 
+    @Override
     public String getFullPathAtDPath(String xpath) {
-        String result = (String) xpath_fullXPath.get(xpath);
+        String result = xpath_fullXPath.get(xpath);
         if (result != null) return result;
         if (xpath_value.get(xpath) != null) return xpath; // we don't store duplicates
         // System.err.println("WARNING: "+getLocaleID()+": path not present in data: " + xpath);
@@ -58,10 +60,12 @@ public class SimpleXMLSource extends XMLSource {
         return null; // throw new IllegalArgumentException("Path not present in data: " + xpath);
     }
 
+    @Override
     public Comments getXpathComments() {
         return xpath_comments;
     }
 
+    @Override
     public void setXpathComments(Comments xpath_comments) {
         this.xpath_comments = xpath_comments;
     }
@@ -74,6 +78,7 @@ public class SimpleXMLSource extends XMLSource {
     // xpath_fullXPath.put(distinguishingXPath, fixedPath[0]);
     // }
     // }
+    @Override
     public void removeValueAtDPath(String distinguishingXPath) {
         String oldValue = xpath_value.get(distinguishingXPath);
         xpath_value.remove(distinguishingXPath);
@@ -81,15 +86,18 @@ public class SimpleXMLSource extends XMLSource {
         updateValuePathMapping(distinguishingXPath, oldValue, null);
     }
 
+    @Override
     public Iterator<String> iterator() { // must be unmodifiable or locked
         return Collections.unmodifiableSet(xpath_value.keySet()).iterator();
     }
 
+    @Override
     public XMLSource freeze() {
         locked = true;
         return this;
     }
 
+    @Override
     public XMLSource cloneAsThawed() {
         SimpleXMLSource result = (SimpleXMLSource) super.cloneAsThawed();
         result.xpath_comments = (Comments) result.xpath_comments.clone();
@@ -98,10 +106,12 @@ public class SimpleXMLSource extends XMLSource {
         return result;
     }
 
+    @Override
     public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
         xpath_fullXPath.put(distinguishingXPath, fullxpath);
     }
 
+    @Override
     public void putValueAtDPath(String distinguishingXPath, String value) {
         String oldValue = xpath_value.get(distinguishingXPath);
         xpath_value.put(distinguishingXPath, value);
@@ -203,6 +213,7 @@ public class SimpleXMLSource extends XMLSource {
         this.dtdVersionInfo = dtdVersionInfo;
     }
 
+    @Override
     public VersionInfo getDtdVersionInfo() {
         return dtdVersionInfo;
     }

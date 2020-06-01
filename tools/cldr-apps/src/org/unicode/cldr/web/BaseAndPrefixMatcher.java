@@ -8,6 +8,7 @@ package org.unicode.cldr.web;
  * @author srl
  * @deprecated better to use a custom subclass of XPathMatcher
  */
+@Deprecated
 public class BaseAndPrefixMatcher extends XPathMatcher {
 
     int only_base_xpath = XPathTable.NO_XPATH;

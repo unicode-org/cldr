@@ -57,7 +57,7 @@ public class IcuData implements Iterable<String> {
         this.hasFallback = hasFallback;
         this.sourceFile = sourceFile;
         this.name = name;
-        rbPathToValues = new HashMap<String, List<String[]>>();
+        rbPathToValues = new HashMap<>();
         this.enumMap = enumMap;
     }
 
@@ -108,7 +108,7 @@ public class IcuData implements Iterable<String> {
     public void add(String path, String... values) {
         List<String[]> list = rbPathToValues.get(path);
         if (list == null) {
-            rbPathToValues.put(path, list = new ArrayList<String[]>(1));
+            rbPathToValues.put(path, list = new ArrayList<>(1));
         }
         list.add(normalizeValues(path, values));
     }
@@ -132,14 +132,14 @@ public class IcuData implements Iterable<String> {
     }
 
     public void replace(String path, String... values) {
-        List<String[]> list = new ArrayList<String[]>(1);
+        List<String[]> list = new ArrayList<>(1);
         rbPathToValues.put(path, list);
         list.add(normalizeValues(path, values));
     }
 
     private String[] normalizeValues(String rbPath, String[] values) {
         if (isIntRbPath(rbPath)) {
-            List<String> normalizedValues = new ArrayList<String>();
+            List<String> normalizedValues = new ArrayList<>();
             for (int i = 0; i < values.length; i++) {
                 String curValue = values[i];
                 String enumValue = enumMap.get(curValue);

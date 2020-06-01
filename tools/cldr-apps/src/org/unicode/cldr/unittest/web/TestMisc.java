@@ -50,7 +50,7 @@ public class TestMisc extends TestFmwk {
             assertEquals(loc + ":" + xpath, (long) expectedSize, (long) lms.getSize(loc, xpath));
         }
     }
- 
+
     /**
      * Test that the function WebContext.isCoverageOrganization returns
      * true for "Microsoft" and "microsoft", and false for "FakeOrgName".
@@ -80,7 +80,7 @@ public class TestMisc extends TestFmwk {
         }
         System.out.println("✅");
     }
-    
+
     public void TestGitHash() {
         String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
         assertNotNull(appsVersion, "getting CLDR-Apps version");

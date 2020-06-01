@@ -85,6 +85,7 @@ public final class FileUtilities {
 
         protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
 
+        @Override
         protected void handleEnd() {
         }
 
@@ -124,7 +125,7 @@ public final class FileUtilities {
 
         /**
          * Return false to abort
-         * 
+         *
          * @param lineCount
          * @param line
          * @return
@@ -204,7 +205,7 @@ public final class FileUtilities {
                 in.close();
                 handleEnd();
             } catch (Exception e) {
-                throw (RuntimeException) new ICUUncheckedIOException(lineCount + ":\t" + line, e);
+                throw new ICUUncheckedIOException(lineCount + ":\t" + line, e);
             }
             return this;
         }
@@ -285,7 +286,7 @@ public final class FileUtilities {
         // each item is of the form abc...
         // or "..." (required if a comma or quote is contained)
         // " in a field is represented by ""
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder item = new StringBuilder();
         boolean inQuote = false;
         for (int i = 0; i < line.length(); ++i) {
@@ -442,9 +443,9 @@ public final class FileUtilities {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(Class<?> class1, String file) {
         return With.in(new FileLines(openFile(class1, file, UTF8)));
@@ -455,9 +456,9 @@ public final class FileUtilities {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(Class<?> class1, String file, Charset charset) {
         return With.in(new FileLines(openFile(class1, file, charset)));
@@ -468,9 +469,9 @@ public final class FileUtilities {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(String directory, String file) {
         return With.in(new FileLines(openFile(directory, file, UTF8)));
@@ -481,9 +482,9 @@ public final class FileUtilities {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(BufferedReader reader) {
         return With.in(new FileLines(reader));
@@ -494,9 +495,9 @@ public final class FileUtilities {
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
-     * 
+     *
      * @author markdavis
-     * 
+     *
      */
     public static Iterable<String> in(String directory, String file, Charset charset) {
         return With.in(new FileLines(openFile(directory, file, charset)));
@@ -546,7 +547,7 @@ public final class FileUtilities {
     public interface LineHandler {
         /**
          * Return false if line was skipped
-         * 
+         *
          * @param line
          * @return
          */

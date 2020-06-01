@@ -10,7 +10,7 @@ import com.ibm.icu.text.UnicodeSet.SpanCondition;
 
 final public class UnicodeSets {
     /**
-     * Return the strings that are redundant, 
+     * Return the strings that are redundant,
      * where all of the string's code points are already in the UnicodeSet.
      * <br>Example: in [abc{ab}{ad}], {ab} is redundant, but {ad} is not.
      * Also checks where a combination of the string's substrings are otherwise

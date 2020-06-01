@@ -272,12 +272,12 @@ public class TestMetazones {
      * @return
      */
     private List<Pair<Long, Long>> getDifferencesOverRange(OlsonTimeZone zone1, OlsonTimeZone zone2, DateRange overlap) {
-        Set<Long> list1 = new TreeSet<Long>();
+        Set<Long> list1 = new TreeSet<>();
         addTransitions(zone1, overlap, list1);
         addTransitions(zone2, overlap, list1);
 
         // Remove any transition points that keep the same delta relationship
-        List<Long> list = new ArrayList<Long>();
+        List<Long> list = new ArrayList<>();
         int lastDelta = 0;
         for (long point : list1) {
             int offset1 = getOffset(zone1, point);
@@ -290,7 +290,7 @@ public class TestMetazones {
         }
 
         // now combine into a list of start/end pairs
-        List<Pair<Long, Long>> result = new ArrayList<Pair<Long, Long>>();
+        List<Pair<Long, Long>> result = new ArrayList<>();
         long lastPoint = Long.MIN_VALUE;
         for (long point : list) {
             if (lastPoint != Long.MIN_VALUE) {
@@ -318,7 +318,7 @@ public class TestMetazones {
                     if (skipPartialDays && end - start < DAY) {
                         // do nothing
                     } else {
-                        result.add(new Pair<Long, Long>(start, end)); // back up 1 minute
+                        result.add(new Pair<>(start, end)); // back up 1 minute
                     }
                 }
             }
@@ -419,7 +419,7 @@ public class TestMetazones {
             }
             Set<DateRangeAndZone> values = mzoneToData.getAll(mzone);
 
-            Map<String, DateRanges> zoneToRanges = new TreeMap<String, DateRanges>();
+            Map<String, DateRanges> zoneToRanges = new TreeMap<>();
             DateRanges mzoneRanges = new DateRanges();
             // first determine what the max and min dates are
 
@@ -482,7 +482,7 @@ public class TestMetazones {
         errorLog.println("*** Verify coverage of canonical zones");
         errorLog.println();
         Set<String> canonicalZones = supplementalData.getCanonicalZones();
-        Set<String> missing = new TreeSet<String>(canonicalZones);
+        Set<String> missing = new TreeSet<>(canonicalZones);
         missing.removeAll(zoneToDateRanges.keySet());
         for (Iterator<String> it = missing.iterator(); it.hasNext();) {
             String value = it.next();
@@ -493,7 +493,7 @@ public class TestMetazones {
         if (missing.size() != 0) {
             errln("Missing canonical zones: " + missing);
         }
-        Set<String> extras = new TreeSet<String>(zoneToDateRanges.keySet());
+        Set<String> extras = new TreeSet<>(zoneToDateRanges.keySet());
         extras.removeAll(canonicalZones);
         if (extras.size() != 0) {
             errln("Superfluous  zones (not canonical): " + extras);
@@ -542,6 +542,7 @@ public class TestMetazones {
             this.zone = zone;
         }
 
+        @Override
         public int compareTo(DateRangeAndZone other) {
             int result = range.compareTo(other.range);
             if (result != 0)
@@ -549,13 +550,14 @@ public class TestMetazones {
             return zone.compareTo(other.zone);
         }
 
+        @Override
         public String toString() {
             return "{" + range + " => " + zone + "}";
         }
     }
 
     static class DateRanges {
-        Set<DateRange> contents = new TreeSet<DateRange>();
+        Set<DateRange> contents = new TreeSet<>();
 
         public void add(DateRange o) {
             contents.add(o);
@@ -596,14 +598,17 @@ public class TestMetazones {
             return true;
         }
 
+        @Override
         public boolean equals(Object other) {
             return contents.equals(((DateRanges) other).contents);
         }
 
+        @Override
         public int hashCode() {
             return contents.hashCode();
         }
 
+        @Override
         public String toString() {
             return contents.toString();
         }
@@ -701,6 +706,7 @@ public class TestMetazones {
 
         static DateFormat iso2 = new SimpleDateFormat("yyyy-MM-dd");
 
+        @Override
         public int compareTo(DateRange other) {
             if (startDate < other.startDate)
                 return -1;
@@ -724,6 +730,7 @@ public class TestMetazones {
 
         static long MAX_DATE = getDateTimeinMillis(110, 0, 1, 0, 0, 0);
 
+        @Override
         public String toString() {
             return "{" + format(startDate) + " to " + format(endDate) + "}";
         }

@@ -107,6 +107,7 @@ public class Registerable {
      *
      * @return this item as a string
      */
+    @Override
     public String toString() {
         return "{Registerable " + key + " @ " + locale.toString() + ", valid:" + peekIsValid() + "}";
     }

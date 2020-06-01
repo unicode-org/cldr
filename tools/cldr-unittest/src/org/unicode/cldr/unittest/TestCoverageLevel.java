@@ -268,6 +268,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
         }
 
+        @Override
         public String transform(String source) {
             String result = ENGLISH.getName(field, source);
             String extra = "";
@@ -291,6 +292,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     RegexLookup<Level> exceptions = RegexLookup.of(null,
         new Transform<String, Level>() {
+            @Override
             public Level transform(String source) {
                 return Level.fromLevel(Integer.parseInt(source));
             }

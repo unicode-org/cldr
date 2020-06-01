@@ -57,7 +57,7 @@ public class XMLModify {
         private static Set<String> parse(String[] args, boolean showArguments) {
             /*
              * TODO: instead of the last arg below being "true", should it be "showArguments", which is otherwise unused?
-             * Also myOptions.parse doesn't use its first parameter... 
+             * Also myOptions.parse doesn't use its first parameter...
              */
             return myOptions.parse(MyOptions.values()[0], args, true);
         }

@@ -55,7 +55,7 @@ public class UnicodeMapBuilder<T> {
 
     public UnicodeMapBuilder<T> putFromLines(BufferedReader br) {
         if (result == null) {
-            result = new UnicodeMap<T>();
+            result = new UnicodeMap<>();
         }
         UnicodeSet sources = new UnicodeSet();
         String line = null;

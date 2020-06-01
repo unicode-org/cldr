@@ -47,7 +47,7 @@ public class UnmodifiableBitSet extends BitSet {
     @Override
     public void flip(int bitIndex) {
         throw new UnsupportedOperationException("Cannot modify.");
-    };
+    }
 
     @Override
     public void flip(int fromIndex, int toIndex) {

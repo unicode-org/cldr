@@ -20,7 +20,7 @@ import com.ibm.icu.text.NumberFormat;
  */
 public class SurveyProgressManager implements CLDRProgressIndicator {
     private static final boolean DEBUG_PROGRESS = true;
-    private Deque<SurveyProgressTask> tasks = new LinkedList<SurveyProgressTask>();
+    private Deque<SurveyProgressTask> tasks = new LinkedList<>();
 
     private class SurveyProgressTask implements CLDRProgressIndicator.CLDRProgressTask {
         boolean dead = false;
@@ -70,6 +70,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
          *
          * @param what
          */
+        @Override
         public void update(String what) {
             progressSub = what;
             if (progressMax < 0) {
@@ -99,6 +100,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
         NumberFormat pctFmt = NumberFormat.getPercentInstance();
 
+        @Override
         public String toString() {
             if (dead)
                 return "";
@@ -197,7 +199,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
     public String getProgress() {
         // make a list of non-dead tasks, sorted by age
-        Set<SurveyProgressTask> orderedTasks = new TreeSet<SurveyProgressTask>(new Comparator<SurveyProgressTask>() {
+        Set<SurveyProgressTask> orderedTasks = new TreeSet<>(new Comparator<SurveyProgressTask>() {
 
             @Override
             public int compare(SurveyProgressTask arg0, SurveyProgressTask arg1) {
@@ -240,7 +242,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
                 cur = 0;
             }
 
-            double barWid = (cur / max) * (double) SurveyMain.PROGRESS_WID;
+            double barWid = (cur / max) * SurveyMain.PROGRESS_WID;
 
             int barX = (int) barWid;
             int remainX = SurveyMain.PROGRESS_WID - barX;

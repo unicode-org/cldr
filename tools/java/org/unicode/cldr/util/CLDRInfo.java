@@ -21,7 +21,7 @@ public class CLDRInfo {
         CandidateInfo getCurrentItem();
 
         String getBaselineValue();
-        
+
         default Status getBaselineStatus() {
             return Status.missing;
         }
@@ -29,7 +29,7 @@ public class CLDRInfo {
         Level getCoverageLevel();
 
         boolean hadVotesSometimeThisRelease();
-        
+
         CLDRLocale getLocale();
 
         String getXpath();

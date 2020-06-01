@@ -16,7 +16,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class MakeAnnotationHistogram {
-    private static final Integer ZERO = (Integer) 0;
+    private static final Integer ZERO = 0;
 
     public static void main(String[] args) {
         AnnotationSet english = Annotations.getDataSet("en");

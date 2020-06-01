@@ -52,6 +52,7 @@ public class CheckZones extends FactoryCheckCLDR {
     String previousFrom = new String("1970-01-01");
     String previousTo = new String("present");
 
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -114,7 +115,7 @@ public class CheckZones extends FactoryCheckCLDR {
     public static String exampleTextForXpath(TimezoneFormatter timezoneFormatter, String path) {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         if (parts.containsElement("zone")) {
-            String id = (String) parts.getAttributeValue(3, "type");
+            String id = parts.getAttributeValue(3, "type");
             TimeZone tz = TimeZone.getTimeZone(id);
             String pat = "vvvv";
             if (parts.containsElement("exemplarCity")) {

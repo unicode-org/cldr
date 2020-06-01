@@ -41,10 +41,10 @@ public class TablePrinter {
         System.out.println(s);
     }
 
-    private List<Column> columns = new ArrayList<Column>();
+    private List<Column> columns = new ArrayList<>();
     private String tableAttributes;
     private transient Column[] columnsFlat;
-    private List<Comparable<Object>[]> rows = new ArrayList<Comparable<Object>[]>();
+    private List<Comparable<Object>[]> rows = new ArrayList<>();
     private String caption;
 
     public String getTableAttributes() {
@@ -171,7 +171,7 @@ public class TablePrinter {
         if (partialRow != null) {
             throw new IllegalArgumentException("Cannot add partial row before calling finishRow()");
         }
-        partialRow = new ArrayList<Comparable<Object>>();
+        partialRow = new ArrayList<>();
         return this;
     }
 
@@ -227,18 +227,19 @@ public class TablePrinter {
         return this;
     }
 
+    @Override
     public String toString() {
         return toTable();
     }
 
     public void toTsv(PrintWriter tsvFile) {
-        Comparable[][] sortedFlat = (Comparable[][]) (rows.toArray(new Comparable[rows.size()][]));
+        Comparable[][] sortedFlat = (rows.toArray(new Comparable[rows.size()][]));
         toTsvInternal(sortedFlat, tsvFile);
     }
 
     @SuppressWarnings("rawtypes")
     public String toTable() {
-        Comparable[][] sortedFlat = (Comparable[][]) (rows.toArray(new Comparable[rows.size()][]));
+        Comparable[][] sortedFlat = (rows.toArray(new Comparable[rows.size()][]));
         return toTableInternal(sortedFlat);
     }
 
@@ -248,6 +249,7 @@ public class TablePrinter {
         private BitSet ascending = new BitSet();
         Collator englishCollator = Collator.getInstance(ULocale.ENGLISH);
 
+        @Override
         @SuppressWarnings("unchecked")
         public int compare(T[] o1, T[] o2) {
             int result;
@@ -287,7 +289,7 @@ public class TablePrinter {
     }
 
     @SuppressWarnings("rawtypes")
-    ColumnSorter<Comparable> columnSorter = new ColumnSorter<Comparable>();
+    ColumnSorter<Comparable> columnSorter = new ColumnSorter<>();
     private boolean sort;
 
     public void toTsvInternal(@SuppressWarnings("rawtypes") Comparable[][] sortedFlat, PrintWriter tsvFile) {

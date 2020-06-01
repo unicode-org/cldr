@@ -26,12 +26,12 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 public class ElementAttributeInfo {
 
     private DtdType dtdType;
-    private Map<R2<String, String>, R3<Set<String>, String, String>> elementAttribute2Data = new TreeMap<R2<String, String>, R3<Set<String>, String, String>>();
+    private Map<R2<String, String>, R3<Set<String>, String, String>> elementAttribute2Data = new TreeMap<>();
     private Relation<String, String> element2children = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
     private Relation<String, String> element2parents = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
     private Relation<String, String> element2attributes = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
-    static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<String, Map<DtdType, ElementAttributeInfo>>(); // new
+    static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<>(); // new
     // HashMap<DtdType,
     // Data>();
 
@@ -53,7 +53,7 @@ public class ElementAttributeInfo {
                     }
                 }
                 if (result == null) {
-                    result = new HashMap<DtdType, ElementAttributeInfo>();
+                    result = new HashMap<>();
                     // pick short files that are in repository
                     result.put(DtdType.ldml, new ElementAttributeInfo(canonicalCommonDirectory + "/main/root.xml",
                         DtdType.ldml));
@@ -140,6 +140,7 @@ public class ElementAttributeInfo {
             myData = indata;
         }
 
+        @Override
         public void attributeDecl(String eName, String aName, String type, String mode, String value)
             throws SAXException {
             if (SHOW)
@@ -158,7 +159,7 @@ public class ElementAttributeInfo {
         }
 
         private Set<String> getIdentifiers(String type) {
-            Set<String> result = new LinkedHashSet<String>();
+            Set<String> result = new LinkedHashSet<>();
             idmatcher.reset(type);
             while (idmatcher.find()) {
                 result.add(idmatcher.group());
@@ -169,6 +170,7 @@ public class ElementAttributeInfo {
             return result;
         }
 
+        @Override
         public void elementDecl(String name, String model) throws SAXException {
             if (SHOW) System.out.println(myData.getDtdType() + "\tElement\t" + name + "\t" + model);
             Set<String> identifiers = getIdentifiers(model);
@@ -183,11 +185,13 @@ public class ElementAttributeInfo {
             }
         }
 
+        @Override
         public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
             // TODO Auto-generated method stub
 
         }
 
+        @Override
         public void internalEntityDecl(String name, String value) throws SAXException {
             // TODO Auto-generated method stub
 

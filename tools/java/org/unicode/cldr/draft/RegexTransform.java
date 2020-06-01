@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 
 /**
  * Immutable class that performs transformations
- * 
+ *
  * @author markdavis
  */
 public class RegexTransform implements com.ibm.icu.text.StringTransform {
@@ -16,13 +16,13 @@ public class RegexTransform implements com.ibm.icu.text.StringTransform {
     private final List<Rule>[] buckets = new List[BUCKETSIZE];
 
     public RegexTransform(List<Rule> rules2) {
-        rules = new ArrayList<Rule>(rules2);
+        rules = new ArrayList<>(rules2);
 
         // we now fill the buckets with rules, in order, that might match that bucket.
         for (int i = 0; i < BUCKETSIZE; ++i) {
-            buckets[i] = new ArrayList<Rule>();
+            buckets[i] = new ArrayList<>();
         }
-        List<Matcher> matchers = new ArrayList<Matcher>();
+        List<Matcher> matchers = new ArrayList<>();
         for (Rule rule : rules) {
             matchers.add(rule.getPostmatcher(""));
         }
@@ -40,7 +40,7 @@ public class RegexTransform implements com.ibm.icu.text.StringTransform {
 
     /**
      * right now, this doesn't do anything; later we can optimize by picking just those rules that could match
-     * 
+     *
      * @param toProcess
      * @return
      */
@@ -54,10 +54,12 @@ public class RegexTransform implements com.ibm.icu.text.StringTransform {
         return rules.iterator();
     }
 
+    @Override
     public String transform(String text) {
         return new RegexTransformState(this, text).toString();
     }
 
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < rules.size(); ++i) {

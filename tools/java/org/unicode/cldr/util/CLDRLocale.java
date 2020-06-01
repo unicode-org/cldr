@@ -209,7 +209,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     public enum FormatBehavior {
         replace, extend, extendHtml
-    };
+    }
 
     /**
      * The parent locale id string, or null if no parent
@@ -291,6 +291,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Return the full locale name, in CLDR format.
      */
+    @Override
     public String toString() {
         return fullname;
     }
@@ -318,6 +319,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Compare to another CLDRLocale. Uses string order of toString().
      */
+    @Override
     public int compareTo(CLDRLocale o) {
         if (o == this) return 0;
         return fullname.compareTo(o.fullname);
@@ -326,6 +328,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Hashcode - is the hashcode of the full string
      */
+    @Override
     public int hashCode() {
         return fullname.hashCode();
     }
@@ -389,7 +392,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return getInstance(u.getBaseName());
     }
 
-    private static ConcurrentHashMap<String, CLDRLocale> stringToLoc = new ConcurrentHashMap<String, CLDRLocale>();
+    private static ConcurrentHashMap<String, CLDRLocale> stringToLoc = new ConcurrentHashMap<>();
 
     /**
      * Return the parent locale of this item. Null if no parent (root has no parent)
@@ -440,14 +443,17 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     public Iterable<CLDRLocale> getParentIterator() {
         final CLDRLocale newThis = this;
         return new Iterable<CLDRLocale>() {
+            @Override
             public Iterator<CLDRLocale> iterator() {
                 return new Iterator<CLDRLocale>() {
                     CLDRLocale what = newThis;
 
+                    @Override
                     public boolean hasNext() {
                         return what.getParent() != null;
                     }
 
+                    @Override
                     public CLDRLocale next() {
                         CLDRLocale curr = what;
                         if (what != null) {
@@ -456,6 +462,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
                         return curr;
                     }
 
+                    @Override
                     public void remove() {
                         throw new InternalError("unmodifiable iterator");
                     }
@@ -506,6 +513,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * Most objects should be singletons, and so equality/inequality comparison is done first.
      */
+    @Override
     public boolean equals(Object o) {
         if (o == this) return true;
         if (!(o instanceof CLDRLocale)) return false;
@@ -615,7 +623,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * @return
      */
     public static Set<CLDRLocale> getInstance(Iterable<String> available) {
-        Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
+        Set<CLDRLocale> s = new TreeSet<>();
         for (String str : available) {
             s.add(CLDRLocale.getInstance(str));
         }

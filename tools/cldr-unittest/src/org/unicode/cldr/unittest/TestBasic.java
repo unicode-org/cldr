@@ -318,16 +318,19 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     class MyErrorHandler implements ErrorHandler {
+        @Override
         public void error(SAXParseException exception) throws SAXException {
             errln("error: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void fatalError(SAXParseException exception) throws SAXException {
             errln("fatalError: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void warning(SAXParseException exception) throws SAXException {
             errln("warning: " + XMLFileReader.showSAX(exception));
             throw exception;
@@ -371,7 +374,7 @@ public class TestBasic extends TestFmwkPlus {
         Set<String> currencies = testInfo.getStandardCodes().getAvailableCodes(
             "currency");
 
-        final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = (UnicodeSet) new UnicodeSet(
+        final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = new UnicodeSet(
             "[[:sc:]-[\\u0000-\\u00FF]]").freeze();
 
         CharacterFallbacks fallbacks = CharacterFallbacks.make();
@@ -381,7 +384,7 @@ public class TestBasic extends TestFmwkPlus {
             if (file.isNonInheriting())
                 continue;
 
-            final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet(
+            final UnicodeSet OK_CURRENCY_FALLBACK = new UnicodeSet(
                 "[\\u0000-\\u00FF]").addAll(safeExemplars(file, ""))
                     .addAll(safeExemplars(file, "auxiliary"))
                     .freeze();
@@ -1475,6 +1478,7 @@ public class TestBasic extends TestFmwkPlus {
             dtdType = overrideDtdType;
         }
 
+        @Override
         public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
             if (dtdType == null) {
                 try {

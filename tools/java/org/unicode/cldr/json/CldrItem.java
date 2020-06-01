@@ -30,7 +30,7 @@ public class CldrItem implements Comparable<CldrItem> {
         }
 
         int start = 0;
-        ArrayList<String> segments = new ArrayList<String>();
+        ArrayList<String> segments = new ArrayList<>();
         boolean inBracket = false;
         boolean inBracketQuote = false;
         for (int pos = start; pos < path.length(); ++pos) {
@@ -163,7 +163,7 @@ public class CldrItem implements Comparable<CldrItem> {
         String[] pathSegments = splitPathToSegments(path);
         String[] fullPathSegments = splitPathToSegments(fullPath);
         assert (pathSegments.length == fullPathSegments.length);
-        ArrayList<CldrNode> nodesInPath = new ArrayList<CldrNode>();
+        ArrayList<CldrNode> nodesInPath = new ArrayList<>();
 
         String parent = "";
         for (int i = 0; i < pathSegments.length; i++) {
@@ -224,7 +224,7 @@ public class CldrItem implements Comparable<CldrItem> {
 
         for (SplittableAttributeSpec s : LdmlConvertRules.SPLITTABLE_ATTRS) {
             if (fullxpp.containsElement(s.element) && fullxpp.containsAttribute(s.attribute)) {
-                ArrayList<CldrItem> list = new ArrayList<CldrItem>();
+                ArrayList<CldrItem> list = new ArrayList<>();
                 String wordString = fullxpp.findAttributeValue(s.element, s.attribute);
                 String[] words = null;
                 words = wordString.trim().split("\\s+");

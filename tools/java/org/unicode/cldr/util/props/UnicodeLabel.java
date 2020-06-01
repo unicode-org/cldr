@@ -10,17 +10,17 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UTF16;
 
 public abstract class UnicodeLabel implements com.ibm.icu.text.Transform<Integer, String> {
-    
+
     public abstract String getValue(int codepoint, boolean isShort);
 
     @Override
     public String transform(Integer codepoint) {
         return getValue(codepoint, true);
     }
-    
+
     public String getValue(String s, String separator, boolean withCodePoint) {
         if (s.length() == 1) { // optimize simple case
-            return getValue(s.charAt(0), withCodePoint); 
+            return getValue(s.charAt(0), withCodePoint);
         }
         StringBuffer sb = new StringBuffer();
         int cp;
@@ -31,19 +31,19 @@ public abstract class UnicodeLabel implements com.ibm.icu.text.Transform<Integer
         }
         return sb.toString();
     }
-    
+
     public int getMaxWidth(boolean isShort) {
         return 0;
     }
-    
+
     private static class Hex extends UnicodeLabel {
         @Override
         public String getValue(int codepoint, boolean isShort) {
             if (isShort) return Utility.hex(codepoint,4);
             return "U+" + Utility.hex(codepoint,4);
-        }       
+        }
     }
-    
+
     public static class Constant extends UnicodeLabel {
         private String value;
         public Constant(String value) {
@@ -56,7 +56,7 @@ public abstract class UnicodeLabel implements com.ibm.icu.text.Transform<Integer
         }
         @Override
         public int getMaxWidth(boolean isShort) {
-            return value.length();      
+            return value.length();
         }
     }
     public static final UnicodeLabel NULL = new Constant("");

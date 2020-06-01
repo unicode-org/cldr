@@ -29,7 +29,7 @@ public class FindPluralDifferences {
         x.set(3, 6);
         x.set(9);
         x.set(11, 13);
-        Map<String, BitSet> foo = new TreeMap<String, BitSet>();
+        Map<String, BitSet> foo = new TreeMap<>();
         foo.put("x", x);
         FindPluralDifferences.show(foo);
 
@@ -78,7 +78,7 @@ public class FindPluralDifferences {
                 System.out.println("Modifications:");
 
                 for (String locale : oldLocales) {
-                    Map<String, BitSet> results = new TreeMap<String, BitSet>();
+                    Map<String, BitSet> results = new TreeMap<>();
                     PluralInfo oldPluralInfo = supplementalOld.getPlurals(pluralType, locale);
                     PluralRules oldRules = oldPluralInfo.getPluralRules();
                     PluralInfo newPluralInfo = supplementalNew.getPlurals(pluralType, locale);

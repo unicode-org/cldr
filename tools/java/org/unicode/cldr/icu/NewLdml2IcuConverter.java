@@ -95,7 +95,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     private Map<String, String> getDirMapping() {
         if (dirMapping == null) {
             dirMapping = loadMapFromFile("ldml2icu_dir_mapping.txt");
-            allDirs = new HashSet<String>(dirMapping.values());
+            allDirs = new HashSet<>(dirMapping.values());
             allDirs.remove("*");
             allDirs.add(LOCALES_DIR);
         }
@@ -103,7 +103,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     }
 
     private static Map<String, String> loadMapFromFile(String filename) {
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
         BufferedReader reader = FileReaders.openFile(NewLdml2IcuConverter.class, filename);
         String line;
         try {
@@ -126,7 +126,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     private List<SplitInfo> loadSplitInfoFromFile() {
         Map<String, String> dirMapping = getDirMapping();
-        List<SplitInfo> splitInfos = new ArrayList<SplitInfo>();
+        List<SplitInfo> splitInfos = new ArrayList<>();
         for (Entry<String, String> entry : dirMapping.entrySet()) {
             SplitInfo splitInfo = new SplitInfo(entry.getKey(), entry.getValue());
             splitInfos.add(splitInfo);
@@ -184,7 +184,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         Set<String> includedLocales = getIncludedLocales();
         Map<String, String> localesMap = getLocalesMap();
         if (includedLocales != null && includedLocales.size() > 0) {
-            final Set<String> locales = new HashSet<String>();
+            final Set<String> locales = new HashSet<>();
             for (String locale : includedLocales) {
                 if (localesMap.containsKey(locale + ".xml")) {
                     locales.add(locale);
@@ -396,7 +396,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      * @return
      */
     private Set<String> writeSyntheticFiles(Set<String> sources, String outputDir) {
-        Set<String> targets = new HashSet<String>();
+        Set<String> targets = new HashSet<>();
         if (aliasDeprecates != null) {
             if (aliasDeprecates.emptyLocaleList != null) {
                 for (String locale : aliasDeprecates.emptyLocaleList) {

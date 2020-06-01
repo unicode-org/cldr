@@ -23,7 +23,7 @@ public class POSIXUtilities {
 
     private static UnicodeSet repertoire = new UnicodeSet(0x0000, 0x10FFFF);
     private static CLDRFile char_fallbk;
-    private static Map<Integer, String> controlCodeNames = new HashMap<Integer, String>();
+    private static Map<Integer, String> controlCodeNames = new HashMap<>();
 
     // Since UCharacter.getExtendedName() in ICU doesn't provide the names for control characters
     // we have to force the issue here. Required elements for the POSIX portable character set will be

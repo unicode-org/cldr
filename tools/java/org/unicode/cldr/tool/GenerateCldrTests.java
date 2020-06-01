@@ -184,7 +184,7 @@ public class GenerateCldrTests {
      * @return
      */
     private static Set<String> filter(Object[] cols) {
-        Set<String> result = new TreeSet<String>();
+        Set<String> result = new TreeSet<>();
         for (int i = 0; i < cols.length; ++i) {
             String s = cols[i].toString();
             if (s.indexOf('_') >= 0)
@@ -225,7 +225,7 @@ public class GenerateCldrTests {
          */
     }
 
-    Set<String> collationLocales = new TreeSet<String>(); // =ULocaleComparator
+    Set<String> collationLocales = new TreeSet<>(); // =ULocaleComparator
     // addULocales(Collator.getAvailableULocales(),
     // new
     // TreeSet(ULocaleComparator));
@@ -234,7 +234,7 @@ public class GenerateCldrTests {
     // TreeSet(ULocaleComparator));
     // Set dateLocales = addULocales(DateFormat.getAvailableLocales(), new
     // TreeSet(ULocaleComparator));
-    Set<String> allLocales = new TreeSet<String>(); // ULocaleComparator
+    Set<String> allLocales = new TreeSet<>(); // ULocaleComparator
 
     // Map localesToRules = new HashMap();
 
@@ -295,7 +295,7 @@ public class GenerateCldrTests {
         allLocales.addAll(mainCldrFactory.getAvailable());
         if (!allLocales.containsAll(collationCldrFactory.getAvailable())) {
             System.err.println("Collation locale that is not in main!\t"
-                + Builder.with(new TreeSet<String>(collationCldrFactory.getAvailable())).removeAll(allLocales).get());
+                + Builder.with(new TreeSet<>(collationCldrFactory.getAvailable())).removeAll(allLocales).get());
         }
         allLocales.addAll(collationCldrFactory.getAvailable());
         allLocales = Collections.unmodifiableSet(allLocales);
@@ -311,7 +311,7 @@ public class GenerateCldrTests {
         }
         if (!allLocales.containsAll(collationLocales)) {
             System.err.println("Collation locale that is not in main!\t"
-                + Builder.with(new TreeSet<String>(collationLocales)).removeAll(allLocales).get());
+                + Builder.with(new TreeSet<>(collationLocales)).removeAll(allLocales).get());
         }
         collationLocales = allLocales;
 
@@ -405,7 +405,7 @@ public class GenerateCldrTests {
             String key = col.getRules() + "\uFFFF" + getExemplarSet(locale, 0, DraftStatus.unconfirmed);
             Set<String> s = uniqueLocales.get(key);
             if (s == null) {
-                s = new TreeSet<String>(ULocaleComparator);
+                s = new TreeSet<>(ULocaleComparator);
                 uniqueLocales.put(key, s);
             }
             System.out.println("Adding " + locale);
@@ -439,6 +439,7 @@ public class GenerateCldrTests {
     }
 
     public static final Comparator<Object> ULocaleComparator = new Comparator<Object>() {
+        @Override
         public int compare(Object o1, Object o2) {
             return o1.toString().compareTo(o2.toString());
         }
@@ -453,9 +454,9 @@ public class GenerateCldrTests {
      * output; }
      */
     class ResultsPrinter {
-        private Set<Map> listOfSettings = new LinkedHashSet<Map>();
+        private Set<Map> listOfSettings = new LinkedHashSet<>();
 
-        private transient LinkedHashMap<String, String> settings = new LinkedHashMap<String, String>();
+        private transient LinkedHashMap<String, String> settings = new LinkedHashMap<>();
 
         ResultsPrinter() {
         }
@@ -531,6 +532,7 @@ public class GenerateCldrTests {
             }
         }
 
+        @Override
         public boolean equals(Object other) {
             try {
                 ResultsPrinter that = (ResultsPrinter) other;
@@ -540,6 +542,7 @@ public class GenerateCldrTests {
             }
         }
 
+        @Override
         public int hashCode() {
             throw new IllegalArgumentException();
         }
@@ -575,17 +578,17 @@ public class GenerateCldrTests {
 
     private void generateItems(String locale, Collection<String> onlyLocales,
         DataShower generator) throws Exception {
-        Set<String> sublocales = new TreeSet<String>(); // ULocaleComparator
+        Set<String> sublocales = new TreeSet<>(); // ULocaleComparator
         sublocales.add(locale);
         sublocales.addAll(parentToLocales.getAll(locale));
         sublocales.retainAll(onlyLocales);
-        Map<String, ResultsPrinter> locale_results = new TreeMap<String, ResultsPrinter>(ULocaleComparator);
+        Map<String, ResultsPrinter> locale_results = new TreeMap<>(ULocaleComparator);
         for (Iterator<String> it = sublocales.iterator(); it.hasNext();) {
             String current = it.next();
             locale_results.put(current, generator.show(current));
         }
         // do it this way so that the locales stay in order
-        Set<String> matchingLocales = new TreeSet<String>(ULocaleComparator);
+        Set<String> matchingLocales = new TreeSet<>(ULocaleComparator);
         while (sublocales.size() != 0) {
             String first = sublocales.iterator().next();
             ResultsPrinter r = locale_results.get(first);
@@ -654,6 +657,7 @@ public class GenerateCldrTests {
 
         String[] dates = { "2004-01-15T12:00:00Z", "2004-07-15T12:00:00Z" };
 
+        @Override
         public ResultsPrinter show(String first, DraftStatus minimalDraftStatus) {
             TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, first
                 .toString(), minimalDraftStatus);
@@ -709,12 +713,14 @@ public class GenerateCldrTests {
              */
         }
 
+        @Override
         public String getElement() {
             return "zoneFields";
         }
     };
 
     DataShower DateShower = new DataShower() {
+        @Override
         public ResultsPrinter show(String locale, DraftStatus minimalDraftStatus) {
             String[] samples = { "1900-01-31T00:00:00Z", "1909-02-28T00:00:01Z",
                 "1918-03-26T00:59:59Z", "1932-04-24T01:00:00Z",
@@ -747,8 +753,8 @@ public class GenerateCldrTests {
                         rp.set("timeType", ICUServiceBuilder.getDateNames(k));
                         if (false && i == 2 && k == 0) {
                             System.out.println("debug: date "
-                                + icuServiceBuilder.getDateNames(i) + ", time "
-                                + icuServiceBuilder.getDateNames(k) + " = "
+                                + ICUServiceBuilder.getDateNames(i) + ", time "
+                                + ICUServiceBuilder.getDateNames(k) + " = "
                                 + df.format(datetime));
                         }
                         rp.setResult(df.format(datetime));
@@ -758,12 +764,14 @@ public class GenerateCldrTests {
             return rp;
         }
 
+        @Override
         public String getElement() {
             return "date";
         }
     };
 
     DataShower NumberShower = new DataShower() {
+        @Override
         public ResultsPrinter show(String locale, DraftStatus minimalDraftStatus) {
             CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true,
                 minimalDraftStatus);
@@ -790,6 +798,7 @@ public class GenerateCldrTests {
             return rp;
         }
 
+        @Override
         public String getElement() {
             return "number";
         }
@@ -815,6 +824,7 @@ public class GenerateCldrTests {
     // zh
 
     DataShower CollationShower = new DataShower() {
+        @Override
         public ResultsPrinter show(String locale, DraftStatus minimalDraftStatus) {
             // if
             // (locale.equals(zhHack))
@@ -869,6 +879,7 @@ public class GenerateCldrTests {
             return doCollationResult(col, tailored, bag);
         }
 
+        @Override
         public String getElement() {
             return "collation";
         }
@@ -953,7 +964,7 @@ public class GenerateCldrTests {
 
     static public Set<String> getMatchingXMLFiles(String dir, String localeRegex) {
         Matcher m = PatternCache.get(localeRegex).matcher("");
-        Set<String> s = new TreeSet<String>();
+        Set<String> s = new TreeSet<>();
         File[] files = new File(dir).listFiles();
         for (int i = 0; i < files.length; ++i) {
             String name = files[i].getName();
@@ -1023,6 +1034,7 @@ public class GenerateCldrTests {
 
     static UnicodeSet nfc(UnicodeSet source) {
         return apply(source, new Apply() {
+            @Override
             public String apply(String source) {
                 return Normalizer.compose(source, false);
             }
@@ -1058,6 +1070,7 @@ public class GenerateCldrTests {
 
         UnicodeSetIterator bit = new UnicodeSetIterator();
 
+        @Override
         public int compare(Object o1, Object o2) {
             if (o1 == o2)
                 return 0;
@@ -1094,10 +1107,11 @@ public class GenerateCldrTests {
 
         UnicodeSet NONE = new UnicodeSet();
 
-        UnicodeMap<UnicodeSet> map = new UnicodeMap<UnicodeSet>(); // new
+        UnicodeMap<UnicodeSet> map = new UnicodeMap<>(); // new
 
         // UnicodeSetComparator()
 
+        @Override
         public UnicodeSet close(int cp, UnicodeSet toAddTo) {
             UnicodeSet result = map.getValue(cp);
             if (result == null) {

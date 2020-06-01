@@ -354,6 +354,7 @@ public class ICUResourceWriter {
     public static class ResourceAlias extends Resource {
         String val;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -376,6 +377,7 @@ public class ICUResourceWriter {
          * @param out
          *            A File output stream which has already been set up to write to.
          */
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
             byte[] valLenBytes;
             byte[] valBytes;
@@ -405,6 +407,7 @@ public class ICUResourceWriter {
             return usedOffset;
         }
 
+        @Override
         public void setSize() {
             // a pointer + the string
             size = SIZE_OF_INT + ((val.length() + 1) * SIZE_OF_CHAR);
@@ -412,6 +415,7 @@ public class ICUResourceWriter {
     }
 
     public static class ResourceArray extends Resource {
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -437,6 +441,7 @@ public class ICUResourceWriter {
             write(writer, CLOSEBRACE + LINESEP);
         }
 
+        @Override
         public void sort() {
             if (noSort == true) {
                 return;
@@ -448,6 +453,7 @@ public class ICUResourceWriter {
             }
         }
 
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
             int count = 0;
             int[] resources = new int[numChildren];
@@ -529,6 +535,7 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource.
          */
+        @Override
         public void setSize() {
             // Arrays have children.
             int x = 0;
@@ -557,6 +564,7 @@ public class ICUResourceWriter {
     public static class ResourceInt extends Resource {
         String val;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -571,6 +579,7 @@ public class ICUResourceWriter {
             }
         }
 
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
             return usedOffset;
         }
@@ -578,6 +587,7 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
+        @Override
         public void setSize() {
             size = 0;
 
@@ -587,6 +597,7 @@ public class ICUResourceWriter {
     public static class ResourceIntVector extends Resource {
         public String smallComment = null;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -609,6 +620,7 @@ public class ICUResourceWriter {
             write(writer, CLOSEBRACE + LINESEP);
         }
 
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
             int count = 0;
             int[] numbers = new int[numChildren];
@@ -638,6 +650,7 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
+        @Override
         public void setSize() {
             // has children
             int x = 0;
@@ -668,6 +681,7 @@ public class ICUResourceWriter {
          */
         public String smallComment = null;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -753,6 +767,7 @@ public class ICUResourceWriter {
             }
         }
 
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
 
             // clean up quotes if any
@@ -793,6 +808,7 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
+        @Override
         public void setSize() {
             // a pointer to the key + a string
             size = SIZE_OF_INT + (SIZE_OF_CHAR * (val.length() + 1));
@@ -803,6 +819,7 @@ public class ICUResourceWriter {
         public String annotation;
         public static final String NO_FALLBACK = "nofallback";
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -824,6 +841,7 @@ public class ICUResourceWriter {
 
         // insertion sort of the linked list
         // from Algorithms in C++ Sedgewick
+        @Override
         public void sort() {
             if (noSort == true) {
                 return;
@@ -880,6 +898,7 @@ public class ICUResourceWriter {
             return mustBe32;
         }
 
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
             int count = 0;
             int pad;
@@ -1013,6 +1032,7 @@ public class ICUResourceWriter {
         /**
          * This method will set the size of the resource. Overwritten for each child object
          */
+        @Override
         public void setSize() {
             // Tables have children.
             int x = 0;
@@ -1049,6 +1069,7 @@ public class ICUResourceWriter {
         String external;
         byte[] data;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -1063,11 +1084,13 @@ public class ICUResourceWriter {
             }
         }
 
+        @Override
         public void setSize() {
             // sizeof(int32_t) + sizeof(uint8_t) * length + BIN_ALIGNMENT;
             size = SIZE_OF_INT + data.length + BIN_ALIGNMENT;
         }
 
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
             int pad = 0;
             int extrapad = pad32(this.size);
@@ -1103,6 +1126,7 @@ public class ICUResourceWriter {
         String val;
         String ext;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -1118,6 +1142,7 @@ public class ICUResourceWriter {
             }
         }
 
+        @Override
         public int writeBinary(FileOutputStream out, int usedOffset) {
             if (this.name.equals("depends")) {
 
@@ -1135,6 +1160,7 @@ public class ICUResourceWriter {
     public static class ResourceImport extends Resource {
         String val;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -1155,6 +1181,7 @@ public class ICUResourceWriter {
     public static class ResourceInclude extends Resource {
         String val;
 
+        @Override
         public void write(OutputStream writer, int numIndent, boolean bare) {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);

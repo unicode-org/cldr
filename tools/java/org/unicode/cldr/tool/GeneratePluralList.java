@@ -48,7 +48,7 @@ public class GeneratePluralList {
         this.out = out;
     }
 
-    private Map<String, Map<String, String>> localesToNouns = new HashMap<String, Map<String, String>>();
+    private Map<String, Map<String, String>> localesToNouns = new HashMap<>();
 
     private void loadNouns() throws IOException {
         BufferedReader reader = FileReaders.openFile(GeneratePluralList.class, "fractionnum.csv");
@@ -59,7 +59,7 @@ public class GeneratePluralList {
             String format = fields[5];
             Map<String, String> nouns = localesToNouns.get(locale);
             if (nouns == null) {
-                localesToNouns.put(locale, nouns = new HashMap<String, String>());
+                localesToNouns.put(locale, nouns = new HashMap<>());
             }
             nouns.put(count, format);
         }
@@ -70,7 +70,7 @@ public class GeneratePluralList {
         private Set<String> list3;
 
         public ExampleManager() {
-            list3 = new HashSet<String>();
+            list3 = new HashSet<>();
         }
 
         public void add(String example) {
@@ -102,11 +102,11 @@ public class GeneratePluralList {
         // Setup.
         Count[] digits = new Count[1000];
         // 0 is always considered a plural type even if the plural rules say otherwise.
-        Set<Count> missingTypes = new HashSet<Count>();
+        Set<Count> missingTypes = new HashSet<>();
         for (String keyword : rules.getKeywords()) {
             missingTypes.add(Count.valueOf(keyword));
         }
-        Map<String, List<Integer>> integerMap = new HashMap<String, List<Integer>>();
+        Map<String, List<Integer>> integerMap = new HashMap<>();
         digits[0] = Count.zero;
         missingTypes.remove(Count.zero);
         put(integerMap, "zero", 0);
@@ -147,9 +147,9 @@ public class GeneratePluralList {
         int limit = (int) Math.pow(10, numDigits);
 
         // Generate all examples.
-        Map<String, String> exampleMap = new HashMap<String, String>();
-        Map<String, ExampleManager> positionedExamples = new HashMap<String, ExampleManager>();
-        Set<String> allKeywords = new HashSet<String>(rules.getKeywords());
+        Map<String, String> exampleMap = new HashMap<>();
+        Map<String, ExampleManager> positionedExamples = new HashMap<>();
+        Set<String> allKeywords = new HashSet<>(rules.getKeywords());
         allKeywords.add("zero");
         allKeywords.retainAll(integerMap.keySet());
         List<Integer> values;
@@ -181,7 +181,7 @@ public class GeneratePluralList {
         }
 
         // Output examples to file.
-        Set<String> finalExamples = new TreeSet<String>(new Comparator<String>() {
+        Set<String> finalExamples = new TreeSet<>(new Comparator<String>() {
             @Override
             public int compare(String arg0, String arg1) {
                 String[] forms1 = arg1.split("\\|");
@@ -212,7 +212,7 @@ public class GeneratePluralList {
     private static <A, B> void put(Map<A, List<B>> map, A key, B value) {
         List<B> list = map.get(key);
         if (list == null) {
-            map.put(key, list = new ArrayList<B>());
+            map.put(key, list = new ArrayList<>());
         }
         list.add(value);
     }

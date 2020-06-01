@@ -15,7 +15,7 @@ import org.unicode.cldr.util.VoteResolver;
  * a forum entry by one of those voters, the locale+path becomes "locked".
  * If two voters make permanent votes to Abstain for the same locale and path, the locale+path becomes "unlocked".
  *
- * Reference: https://docs.google.com/document/d/1VsJ2y7dp2kq_Iu-zLTjOvCooX4kRfVPui6WO51aFGzE/edit?skip_itp2_check=true#heading=h.trc1g4nsvdb8 
+ * Reference: https://docs.google.com/document/d/1VsJ2y7dp2kq_Iu-zLTjOvCooX4kRfVPui6WO51aFGzE/edit?skip_itp2_check=true#heading=h.trc1g4nsvdb8
  */
 public class PermanentVote {
     private String localeName;

@@ -56,22 +56,22 @@ public class XMLFileReader {
 
     public static class SimpleHandler {
         public void handlePathValue(String path, String value) {
-        };
+        }
 
         public void handleComment(String path, String comment) {
-        };
+        }
 
         public void handleElementDecl(String name, String model) {
-        };
+        }
 
         public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
-        };
+        }
 
         public void handleEndDtd() {
         }
 
         public void handleStartDtd(String name, String publicId, String systemId) {
-        };
+        }
     }
 
     public XMLFileReader setHandler(SimpleHandler simpleHandler) {
@@ -200,52 +200,64 @@ public class XMLFileReader {
             if (SHOW_ALL) Log.logln("startDocument");
         }
 
+        @Override
         public void characters(char[] ch, int start, int length) throws SAXException {
             if (SHOW_ALL) Log.logln("characters");
         }
 
+        @Override
         public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
             throws SAXException {
             if (SHOW_ALL) Log.logln("startElement");
         }
 
+        @Override
         public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
             if (SHOW_ALL) Log.logln("endElement");
         }
 
+        @Override
         public void startDTD(String name, String publicId, String systemId) throws SAXException {
             if (SHOW_ALL) Log.logln("startDTD");
         }
 
+        @Override
         public void endDTD() throws SAXException {
             if (SHOW_ALL) Log.logln("endDTD");
         }
 
+        @Override
         public void comment(char[] ch, int start, int length) throws SAXException {
             if (SHOW_ALL) Log.logln(" comment " + new String(ch, start, length));
         }
 
+        @Override
         public void elementDecl(String name, String model) throws SAXException {
             if (SHOW_ALL) Log.logln("elementDecl");
         }
 
+        @Override
         public void attributeDecl(String eName, String aName, String type, String mode, String value)
             throws SAXException {
             if (SHOW_ALL) Log.logln("attributeDecl");
-        }        
+        }
 
+        @Override
         public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
             if (SHOW_ALL) Log.logln("ignorableWhitespace length: " + length);
         }
 
+        @Override
         public void endDocument() throws SAXException {
             if (SHOW_ALL) Log.logln("endDocument");
         }
 
+        @Override
         public void internalEntityDecl(String name, String value) throws SAXException {
             if (SHOW_ALL) Log.logln("Internal Entity\t" + name + "\t" + value);
         }
 
+        @Override
         public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
             if (SHOW_ALL) Log.logln("Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
         }
@@ -256,11 +268,13 @@ public class XMLFileReader {
                 + ", " + systemId);
         }
 
+        @Override
         public void processingInstruction(String target, String data)
             throws SAXException {
             if (SHOW_ALL) Log.logln("processingInstruction: " + target + ", " + data);
         }
 
+        @Override
         public void skippedEntity(String name)
             throws SAXException {
             if (SHOW_ALL) Log.logln("skippedEntity: " + name);
@@ -274,31 +288,38 @@ public class XMLFileReader {
                 + ", " + notationName);
         }
 
+        @Override
         public void setDocumentLocator(Locator locator) {
             if (SHOW_ALL) Log.logln("setDocumentLocator Locator " + locator);
         }
 
+        @Override
         public void startPrefixMapping(String prefix, String uri) throws SAXException {
             if (SHOW_ALL) Log.logln("startPrefixMapping prefix: " + prefix +
                 ", uri: " + uri);
         }
 
+        @Override
         public void endPrefixMapping(String prefix) throws SAXException {
             if (SHOW_ALL) Log.logln("endPrefixMapping prefix: " + prefix);
         }
 
+        @Override
         public void startEntity(String name) throws SAXException {
             if (SHOW_ALL) Log.logln("startEntity name: " + name);
         }
 
+        @Override
         public void endEntity(String name) throws SAXException {
             if (SHOW_ALL) Log.logln("endEntity name: " + name);
         }
 
+        @Override
         public void startCDATA() throws SAXException {
             if (SHOW_ALL) Log.logln("startCDATA");
         }
 
+        @Override
         public void endCDATA() throws SAXException {
             if (SHOW_ALL) Log.logln("endCDATA");
         }
@@ -308,6 +329,7 @@ public class XMLFileReader {
          *
          * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
          */
+        @Override
         public void error(SAXParseException exception) throws SAXException {
             if (SHOW_ALL) Log.logln("error: " + showSAX(exception));
             throw exception;
@@ -318,6 +340,7 @@ public class XMLFileReader {
          *
          * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
          */
+        @Override
         public void fatalError(SAXParseException exception) throws SAXException {
             if (SHOW_ALL) Log.logln("fatalError: " + showSAX(exception));
             throw exception;
@@ -328,6 +351,7 @@ public class XMLFileReader {
          *
          * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
          */
+        @Override
         public void warning(SAXParseException exception) throws SAXException {
             if (SHOW_ALL) Log.logln("warning: " + showSAX(exception));
             throw exception;
@@ -338,7 +362,7 @@ public class XMLFileReader {
     public class MyContentHandler extends LoggingHandler {
         StringBuffer chars = new StringBuffer();
         StringBuffer commentChars = new StringBuffer();
-        Stack<String> startElements = new Stack<String>();
+        Stack<String> startElements = new Stack<>();
         StringBuffer tempPath = new StringBuffer();
         boolean lastIsStart = false;
 
@@ -350,10 +374,12 @@ public class XMLFileReader {
             return this;
         }
 
+        @Override
         public void characters(char[] ch, int start, int length) throws SAXException {
             if (lastIsStart) chars.append(ch, start, length);
         }
 
+        @Override
         public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
             throws SAXException {
             tempPath.setLength(0);
@@ -366,8 +392,9 @@ public class XMLFileReader {
             lastIsStart = true;
         }
 
+        @Override
         public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
-            String startElement = (String) startElements.pop();
+            String startElement = startElements.pop();
             if (lastIsStart) {
                 // System.out.println(startElement + ":" + chars);
                 simpleHandler.handlePathValue(startElement, chars.toString());
@@ -376,6 +403,7 @@ public class XMLFileReader {
             lastIsStart = false;
         }
 
+        @Override
         public void startDTD(String name, String publicId, String systemId) throws SAXException {
             if (SHOW_ALL) Log.logln("startDTD name: " + name
                 + ", publicId: " + publicId
@@ -383,22 +411,26 @@ public class XMLFileReader {
             simpleHandler.handleStartDtd(name, publicId, systemId);
         }
 
+        @Override
         public void endDTD() throws SAXException {
             if (SHOW_ALL) Log.logln("endDTD");
             simpleHandler.handleEndDtd();
         }
 
+        @Override
         public void comment(char[] ch, int start, int length) throws SAXException {
             if (SHOW_ALL) Log.logln(" comment " + new String(ch, start, length));
             commentChars.append(ch, start, length);
-            simpleHandler.handleComment((String) startElements.peek(), commentChars.toString());
+            simpleHandler.handleComment(startElements.peek(), commentChars.toString());
             commentChars.setLength(0);
         }
 
+        @Override
         public void elementDecl(String name, String model) throws SAXException {
             simpleHandler.handleElementDecl(name, model);
         }
 
+        @Override
         public void attributeDecl(String eName, String aName, String type, String mode, String value)
             throws SAXException {
             simpleHandler.handleAttributeDecl(eName, aName, type, mode, value);
@@ -453,6 +485,7 @@ public class XMLFileReader {
     static final class DebuggingInputStream extends InputStream {
         InputStream contents;
 
+        @Override
         public void close() throws IOException {
             contents.close();
         }
@@ -461,6 +494,7 @@ public class XMLFileReader {
             contents = fis;
         }
 
+        @Override
         public int read() throws IOException {
             int x = contents.read();
             System.out.println(Integer.toHexString(x) + ",");
@@ -472,6 +506,7 @@ public class XMLFileReader {
         InputStream contents;
         boolean first = true;
 
+        @Override
         public void close() throws IOException {
             contents.close();
         }
@@ -480,6 +515,7 @@ public class XMLFileReader {
             contents = fis;
         }
 
+        @Override
         public int read() throws IOException {
             int x = contents.read();
             if (first) {
@@ -537,7 +573,7 @@ public class XMLFileReader {
 
         public PathValueListHandler(List<Pair<String, String>> data, boolean full, Function<String, String> valueFilter) {
             super();
-            this.data = data != null ? data : new ArrayList<Pair<String, String>>();
+            this.data = data != null ? data : new ArrayList<>();
             this.full = full;
             this.valueFilter = valueFilter;
         }

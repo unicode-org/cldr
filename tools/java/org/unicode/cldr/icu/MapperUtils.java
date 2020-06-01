@@ -117,7 +117,7 @@ public class MapperUtils {
      * @return
      */
     public static List<String> getNames(File sourceDir) {
-        List<String> locales = new ArrayList<String>();
+        List<String> locales = new ArrayList<>();
         for (String filename : sourceDir.list()) {
             if (!filename.endsWith(".xml")) continue;
             String locale = filename.substring(0, filename.length() - 4);

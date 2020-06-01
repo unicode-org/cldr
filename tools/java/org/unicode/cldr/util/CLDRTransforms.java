@@ -58,7 +58,7 @@ public class CLDRTransforms {
         return this;
     }
 
-    final Set<String> overridden = new HashSet<String>();
+    final Set<String> overridden = new HashSet<>();
     final DependencyOrder dependencyOrder = new DependencyOrder();
 
     static public class RegexFindFilenameFilter implements FilenameFilter {
@@ -72,7 +72,7 @@ public class CLDRTransforms {
         public boolean accept(File dir, String name) {
             return matcher.reset(name).find();
         }
-    };
+    }
 
     /**
      *
@@ -279,10 +279,10 @@ public class CLDRTransforms {
         }
 
         public Set<String> getOrderedItems(Collection<String> rawInput, Matcher filter, boolean hasXmlSuffix) {
-            Set<String> input = new LinkedHashSet<String>(rawInput);
+            Set<String> input = new LinkedHashSet<>(rawInput);
             // input.addAll(extras);
 
-            Set<String> ordered = new LinkedHashSet<String>();
+            Set<String> ordered = new LinkedHashSet<>();
 
             // for (String other : doFirst) {
             // ordered.add(hasXmlSuffix ? other + ".xml" : other);
@@ -343,11 +343,11 @@ public class CLDRTransforms {
     }
 
     private BiMap<String,String> displayNameToId = HashBiMap.create();
-    
+
     public BiMap<String, String> getDisplayNameToId() {
         return displayNameToId;
     }
-    
+
     private void addDisplayNameToId(Map<String, String> ids2, ParsedTransformID directionInfo) {
         displayNameToId.put(directionInfo.getDisplayId(), directionInfo.toString());
     }
@@ -364,10 +364,10 @@ public class CLDRTransforms {
             }
             throw e;
         }
-        
+
         String id = directionInfo.getId();
         addDisplayNameToId(displayNameToId, directionInfo);
-        
+
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
             internalRegister(id, ruleString, Transliterator.FORWARD);
             for (String alias : directionInfo.getAliases()) {
@@ -487,15 +487,15 @@ public class CLDRTransforms {
         Matcher getSource = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
         Matcher translitID = PatternCache.get("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
 
-        Map<String, String> fixedIDs = new TreeMap<String, String>();
-        Set<String> oddIDs = new TreeSet<String>();
+        Map<String, String> fixedIDs = new TreeMap<>();
+        Set<String> oddIDs = new TreeSet<>();
 
         File dir = new File(directory);
         // get the list of files to take, and their directions
         BufferedReader input = FileUtilities.openUTF8Reader(directory, "root.txt");
         String id = null;
         String filename = null;
-        Map<String, String> aliasMap = new LinkedHashMap<String, String>();
+        Map<String, String> aliasMap = new LinkedHashMap<>();
 
         // deregisterIcuTransliterators();
 
@@ -612,7 +612,7 @@ public class CLDRTransforms {
         Transliterator.registerAny(); // do this last!
     }
 
-    Map<String, RuleDirection> idToRules = new TreeMap<String, RuleDirection>();
+    Map<String, RuleDirection> idToRules = new TreeMap<>();
 
     private class RuleDirection {
         String ruleString;
@@ -668,7 +668,7 @@ public class CLDRTransforms {
     public void deregisterIcuTransliterators(Matcher filter) {
         // Remove all of the current registrations
         // first load into array, so we don't get sync problems.
-        List<String> rawAvailable = new ArrayList<String>();
+        List<String> rawAvailable = new ArrayList<>();
         for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
             final String id = en.nextElement();
             if (filter != null && !filter.reset(id).matches()) {
@@ -680,7 +680,7 @@ public class CLDRTransforms {
         // deregisterIcuTransliterators(rawAvailable);
 
         Set<String> available = dependencyOrder.getOrderedItems(rawAvailable, filter, false);
-        List<String> reversed = new LinkedList<String>();
+        List<String> reversed = new LinkedList<>();
         for (String item : available) {
             reversed.add(0, item);
         }
@@ -779,9 +779,9 @@ public class CLDRTransforms {
                 return sourceOrTarget;
             }
         }
-        
+
         static final LikelySubtags likely = new LikelySubtags();
-        
+
         public static String getScriptCode(String sourceOrTarget) {
             int uscript = UScript.getCodeFromName(sourceOrTarget);
             if (uscript >= 0) {
@@ -882,6 +882,7 @@ public class CLDRTransforms {
             return source;
         }
 
+        @Override
         public String toString() {
             return source + "-" + getTargetVariant();
         }
@@ -955,6 +956,7 @@ public class CLDRTransforms {
             this.directionInfo = directionInfo;
         }
 
+        @Override
         public void handlePathValue(String path, String value) {
              if (first) {
                 if (path.startsWith("//supplementalData/version")) {

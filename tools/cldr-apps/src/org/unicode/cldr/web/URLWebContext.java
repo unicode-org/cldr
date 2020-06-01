@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class URLWebContext extends WebContext {
     URL url;
-    Map<String, String> params = new HashMap<String, String>();
+    Map<String, String> params = new HashMap<>();
 
     public URLWebContext(URLWebContext other) {
         super(other);
@@ -30,7 +30,7 @@ public class URLWebContext extends WebContext {
         setURL(url);
     }
     */
-    
+
     public void setURL(String urlString) throws java.net.MalformedURLException {
         this.url = new URL(urlString);
         String work = this.url.getQuery(); // .replaceAll("+"," ");
@@ -50,23 +50,28 @@ public class URLWebContext extends WebContext {
 
     // imps
 
+    @Override
     public Map<String, String> getParameterMap() {
         return params;
         // throw new InternalError("unsupported");
     }
 
+    @Override
     public boolean hasField(String x) {
         return params.get(x) != null;
     }
 
+    @Override
     String userIP() {
         return "127.0.0.1";
     }
 
+    @Override
     String serverName() {
         return SurveyMain.localhost();
     }
 
+    @Override
     String serverHostport() {
         int port = url.getPort();
         if (port == url.getDefaultPort()) {
@@ -76,14 +81,17 @@ public class URLWebContext extends WebContext {
         }
     }
 
+    @Override
     String schemeHostPort() {
         return url.getProtocol() + "://" + serverHostport();
     }
 
+    @Override
     public String context() {
         return "/cldr-apps";
     }
 
+    @Override
     public String field(String x, String def) {
         String res = params.get(x);
         if (res == null) {
@@ -93,10 +101,12 @@ public class URLWebContext extends WebContext {
         }
     }
 
+    @Override
     public String base() {
         return context() + "/survey";
     }
 
+    @Override
     public Object clone() {
         return new URLWebContext(this);
     }

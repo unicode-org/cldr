@@ -52,7 +52,7 @@ public class ChainedMap {
 
         @SuppressWarnings("unchecked")
         public Iterable<Row.R3<K2, K1, V>> rows() {
-            List<R3<K2, K1, V>> result = new ArrayList<R3<K2, K1, V>>();
+            List<R3<K2, K1, V>> result = new ArrayList<>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
                 for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
                     R3<K2, K1, V> item = (R3<K2, K1, V>) Row.of(entry0.getKey(), entry1.getKey(), entry1.getValue());
@@ -85,7 +85,7 @@ public class ChainedMap {
 
         public M3<K2, K1, V> get(K3 key3) {
             final Map<?, ?> submap = (Map<?, ?>) super.handleGet(key3);
-            return submap == null ? null : new M3<K2, K1, V>(submap, super.mapConstructors, super.indexStart + 1);
+            return submap == null ? null : new M3<>(submap, super.mapConstructors, super.indexStart + 1);
         }
 
         @SuppressWarnings("unchecked")
@@ -101,7 +101,7 @@ public class ChainedMap {
 
         @SuppressWarnings("unchecked")
         public Iterable<Row.R4<K3, K2, K1, V>> rows() {
-            List<R4<K3, K2, K1, V>> result = new ArrayList<R4<K3, K2, K1, V>>();
+            List<R4<K3, K2, K1, V>> result = new ArrayList<>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
                 for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
                     for (Entry<Object, Object> entry2 : ((Map<Object, Object>) entry1.getValue()).entrySet()) {
@@ -133,7 +133,7 @@ public class ChainedMap {
         public M4<K3, K2, K1, V> get(K4 key4) {
             final Map<?, ?> submap = (Map<?, ?>) super.handleGet(key4);
             return submap == null ? null
-                : new M4<K3, K2, K1, V>(submap, super.mapConstructors, super.indexStart + 2);
+                : new M4<>(submap, super.mapConstructors, super.indexStart + 2);
         }
 
         @SuppressWarnings("unchecked")
@@ -149,7 +149,7 @@ public class ChainedMap {
 
         @SuppressWarnings("unchecked")
         public Iterable<Row.R5<K4, K3, K2, K1, V>> rows() {
-            List<R5<K4, K3, K2, K1, V>> result = new ArrayList<R5<K4, K3, K2, K1, V>>();
+            List<R5<K4, K3, K2, K1, V>> result = new ArrayList<>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
                 for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
                     for (Entry<Object, Object> entry2 : ((Map<Object, Object>) entry1.getValue()).entrySet()) {
@@ -211,16 +211,16 @@ public class ChainedMap {
     }
 
     public static <K2, K1, V> M3<K2, K1, V> of(Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
-        return new M3<K2, K1, V>(map2, map1, valueClass);
+        return new M3<>(map2, map1, valueClass);
     }
 
     public static <K3, K2, K1, V> M4<K3, K2, K1, V> of(Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
-        return new M4<K3, K2, K1, V>(map3, map2, map1, valueClass);
+        return new M4<>(map3, map2, map1, valueClass);
     }
 
     public static <K4, K3, K2, K1, V> M5<K4, K3, K2, K1, V> of(
         Map<K4, Object> map4, Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
-        return new M5<K4, K3, K2, K1, V>(map4, map3, map2, map1, valueClass);
+        return new M5<>(map4, map3, map2, map1, valueClass);
     }
 
     private Object iterator() {

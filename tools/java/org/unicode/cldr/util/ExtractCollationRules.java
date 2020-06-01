@@ -17,7 +17,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 public class ExtractCollationRules {
-    Map<String, String> type_rules = new TreeMap<String, String>();
+    Map<String, String> type_rules = new TreeMap<>();
     StringBuffer rules = new StringBuffer();
 
     public ExtractCollationRules set(CLDRFile file) {
@@ -134,7 +134,7 @@ public class ExtractCollationRules {
     }
 
     public String getRules(Object key) {
-        return (String) type_rules.get(key);
+        return type_rules.get(key);
     }
 
     static StringBuffer quoteOperandBuffer = new StringBuffer(); // faster

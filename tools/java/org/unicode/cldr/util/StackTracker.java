@@ -33,7 +33,7 @@ import java.util.Map;
  */
 @CLDRTool(alias = "test.stacktracker", description = "Test for StackTracker", hidden = "test")
 public class StackTracker implements Iterable<Object> {
-    private Hashtable<Object, String> stacks = new Hashtable<Object, String>();
+    private Hashtable<Object, String> stacks = new Hashtable<>();
 
     /**
      * Add object (i.e. added to cache)

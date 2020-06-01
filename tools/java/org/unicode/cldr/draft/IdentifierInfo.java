@@ -26,7 +26,7 @@ import com.ibm.icu.text.UnicodeSet;
  * <li>call getRestrictionLevel to see what the UTS36 restriction level is. (This has some proposed changes from the
  * current one, however.)
  * </ol>
- * 
+ *
  * @author markdavis
  * @internal
  */
@@ -63,7 +63,7 @@ public class IdentifierInfo {
 
     private String identifier;
     private final BitSet requiredScripts = new BitSet();
-    private final Set<BitSet> scriptSetSet = new HashSet<BitSet>();
+    private final Set<BitSet> scriptSetSet = new HashSet<>();
     private final BitSet commonAmongAlternates = new BitSet();
     private final UnicodeSet numerics = new UnicodeSet();
     private final UnicodeSet identifierProfile = new UnicodeSet(0, 0x10FFFF);
@@ -149,7 +149,7 @@ public class IdentifierInfo {
 
     public static boolean isMultiScript(String identifier) {
         // Non-optimized code, for simplicity
-        Set<BitSet> setOfScriptSets = new HashSet<BitSet>();
+        Set<BitSet> setOfScriptSets = new HashSet<>();
         BitSet temp = new BitSet();
         int cp;
         for (int i = 0; i < identifier.length(); i += Character.charCount(i)) {
@@ -213,7 +213,7 @@ public class IdentifierInfo {
     }
 
     public Set<BitSet> getAlternates() {
-        Set<BitSet> result = new HashSet<BitSet>();
+        Set<BitSet> result = new HashSet<>();
         for (BitSet item : scriptSetSet) {
             result.add((BitSet) item.clone());
         }
@@ -323,7 +323,7 @@ public class IdentifierInfo {
     }
 
     public static Set<BitSet> parseAlternates(String scriptsSetString) {
-        Set<BitSet> result = new HashSet<BitSet>();
+        Set<BitSet> result = new HashSet<>();
         for (String item : scriptsSetString.trim().split("\\s*;\\s*")) {
             if (!item.isEmpty()) {
                 result.add(parseScripts(item));
@@ -334,7 +334,7 @@ public class IdentifierInfo {
 
     /**
      * Test containment. Should be a method on BitSet...
-     * 
+     *
      * @param container
      * @param containee
      * @return
@@ -350,7 +350,7 @@ public class IdentifierInfo {
 
     /**
      * Sets a number of values at once. Should be on BitSet.
-     * 
+     *
      * @param container
      * @param containee
      * @return

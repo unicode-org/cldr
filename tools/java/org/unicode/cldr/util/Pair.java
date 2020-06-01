@@ -22,7 +22,7 @@ public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implem
     private boolean frozen;
 
     public static <T extends Comparable<T>, U extends Comparable<U>> Pair<T, U> of(T arg0, U arg1) {
-        return new Pair<T, U>(arg0, arg1);
+        return new Pair<>(arg0, arg1);
     }
 
     public static <T extends Comparable<T>, U extends Comparable<U>> Pair<T, U> ofFrozen(T arg0, U arg1) {
@@ -67,10 +67,12 @@ public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implem
     public Pair() {
     }
 
+    @Override
     public int hashCode() {
         return Utility.checkHash(first) * 37 + Utility.checkHash(second);
     }
 
+    @Override
     public boolean equals(Object other) {
         try {
             Pair<?, ?> that = (Pair<?, ?>) other;
@@ -80,12 +82,14 @@ public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implem
         }
     }
 
+    @Override
     public int compareTo(Pair<T, U> that) {
         int trial = Utility.checkCompare(first, that.first);
         if (trial != 0) return trial;
         return Utility.checkCompare(second, that.second);
     }
 
+    @Override
     public Object clone() {
         if (frozen) return this;
         try {
@@ -95,20 +99,24 @@ public final class Pair<T extends Comparable<T>, U extends Comparable<U>> implem
         }
     }
 
+    @Override
     public String toString() {
         return '(' + (first == null ? "null" : first.toString())
             + ',' + (second == null ? "null" : second.toString()) + ')';
     }
 
+    @Override
     public boolean isFrozen() {
         return frozen;
     }
 
+    @Override
     public Pair<T, U> freeze() {
         frozen = true;
         return this;
     }
 
+    @Override
     public Object cloneAsThawed() {
         try {
             Pair<?, ?> result = (Pair<?, ?>) super.clone();

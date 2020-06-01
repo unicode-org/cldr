@@ -28,7 +28,7 @@ import com.ibm.icu.text.UnicodeSet;
 public class GenerateEnglishChanged {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final File TRUNK_DIRECTORY = new File(CLDRPaths.BASE_DIRECTORY);
-// TODO 
+// TODO
     private static final File RELEASE_DIRECTORY = new File(CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + ".0" + "/");
 private static final boolean TRIAL = false;
 
@@ -86,7 +86,7 @@ private static final boolean TRIAL = false;
             }
         }
         System.out.println("Errors: " + errorCount);
-        
+
         if (TRIAL) {
             String multipath = "(";
 
@@ -96,7 +96,7 @@ private static final boolean TRIAL = false;
                 for (List<String> list : entry.getValue()) {
                     // prepare the data
                     if (store == null) {
-                        store = new ArrayList<Set<String>>();
+                        store = new ArrayList<>();
                         for (int i = 0; i < list.size(); ++i) {
                             store.add(new LinkedHashSet<String>());
                         }
@@ -118,7 +118,7 @@ private static final boolean TRIAL = false;
                     String compressed = MinimizeRegex.compressWith(attrValues, alphabet);// (attrValues, alphabet);
                     //String compressed = MinimizeRegex.simplePattern(attrValues);// (attrValues, alphabet);
                     path = path.replaceFirst(placeholder, "(" + compressed + ")");
-                }                
+                }
                 multipath += "|" + path;
 
 

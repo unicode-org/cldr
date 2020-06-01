@@ -29,20 +29,20 @@ public class DtdDataCheck {
 
     static SupplementalDataInfo SUPPLEMENTAL = SupplementalDataInfo.getInstance();
 
-    static final Set<Row.R4<DtdType, String, String, String>> DEPRECATED = new LinkedHashSet<Row.R4<DtdType, String, String, String>>();
-    static final Map<Row.R2<DtdType, String>, Relation<Boolean, String>> TYPE_ATTRIBUTE_TO_DIST_ELEMENTS = new TreeMap<Row.R2<DtdType, String>, Relation<Boolean, String>>();
+    static final Set<Row.R4<DtdType, String, String, String>> DEPRECATED = new LinkedHashSet<>();
+    static final Map<Row.R2<DtdType, String>, Relation<Boolean, String>> TYPE_ATTRIBUTE_TO_DIST_ELEMENTS = new TreeMap<>();
 
     private static final boolean CHECK_CORRECTNESS = false;
 
     private static class Walker {
-        HashSet<Element> seen = new HashSet<Element>();
-        Set<Element> elementsMissingDraft = new LinkedHashSet<Element>();
-        Set<Element> elementsMissingAlt = new LinkedHashSet<Element>();
-        static final Set<String> SKIP_ATTRIBUTES = new HashSet<String>(Arrays.asList(
+        HashSet<Element> seen = new HashSet<>();
+        Set<Element> elementsMissingDraft = new LinkedHashSet<>();
+        Set<Element> elementsMissingAlt = new LinkedHashSet<>();
+        static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList(
             "draft", "alt", "standard", "references"));
-        static final Set<String> SKIP_ELEMENTS = new HashSet<String>(Arrays.asList(
+        static final Set<String> SKIP_ELEMENTS = new HashSet<>(Arrays.asList(
             "alias", "special"));
-        Set<Attribute> attributesWithDefaultValues = new LinkedHashSet<Attribute>();
+        Set<Attribute> attributesWithDefaultValues = new LinkedHashSet<>();
 
         private DtdData dtdData;
 
@@ -184,7 +184,7 @@ public class DtdDataCheck {
             }
             new Walker(dtdData).show(dtdData.ROOT);
             if (CHECK_CORRECTNESS && type == DtdType.ldml) {
-                Set<String> errors = new LinkedHashSet<String>();
+                Set<String> errors = new LinkedHashSet<>();
                 //                checkOrder(dtdData.ROOT, errors);
                 //                for (String error : errors) {
                 //                    System.out.println("ERROR:\t" + error);
@@ -240,7 +240,7 @@ public class DtdDataCheck {
         }
         int i = 0;
         System.out.println("        <distinguishing>");
-        Set<String> allElements = new TreeSet<String>();
+        Set<String> allElements = new TreeSet<>();
         allElements.add("_q");
         DtdType lastType = null;
 

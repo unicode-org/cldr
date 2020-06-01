@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public abstract class Mapper {
     // Store list of sources for makefile generation.
-    protected Set<String> sources = new HashSet<String>();
+    protected Set<String> sources = new HashSet<>();
 
     /**
      * Converts the specified locale into one or more IcuData objects.

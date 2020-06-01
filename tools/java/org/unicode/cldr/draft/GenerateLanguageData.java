@@ -39,10 +39,10 @@ public class GenerateLanguageData {
 
     private void run() throws IOException {
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "langData/", "generatedLanguageData.txt")) {
-            Counter2<String> langToPopulation = new Counter2<String>();
+            Counter2<String> langToPopulation = new Counter2<>();
             // Counter2<String> langToGDP = new Counter2<String>();
             LanguageTagParser ltp = new LanguageTagParser();
-            Map<String, String> languageNameToCode = new TreeMap<String, String>();
+            Map<String, String> languageNameToCode = new TreeMap<>();
             for (String languageCode : info.getLanguages()) {
                 languageNameToCode.put(english.getName(languageCode), languageCode);
             }

@@ -46,7 +46,7 @@ public class GeneratedPluralSamples {
     private static final int UNBOUNDED_LIMIT = 20;
     private static final String RANGE_SEPARATOR = "~";
     public static final String SEQUENCE_SEPARATOR = ", ";
-    
+
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo(); // forward declaration
 
     static class Range implements Comparable<Range> {
@@ -127,6 +127,7 @@ public class GeneratedPluralSamples {
             return b;
         }
 
+        @Override
         public String toString() {
             return format(new StringBuilder()).toString();
         }
@@ -159,7 +160,7 @@ public class GeneratedPluralSamples {
         int size = 0;
         {
             for (int i = 0; i < data.length; ++i) {
-                data[i] = new TreeSet<Range>();
+                data[i] = new TreeSet<>();
             }
         }
 
@@ -231,7 +232,7 @@ public class GeneratedPluralSamples {
             Warning, Error
         }
 
-        Set<String> bounds = new TreeSet<String>();
+        Set<String> bounds = new TreeSet<>();
 
         public void add(Type type, String string) {
             if (string != null && !string.isEmpty()) {
@@ -254,7 +255,7 @@ public class GeneratedPluralSamples {
     static class DataSample {
         int count;
         int countNoTrailing = -1;
-        final Set<Double> noTrailing = new TreeSet<Double>();
+        final Set<Double> noTrailing = new TreeSet<>();
         final Ranges samples = new Ranges();
         final FixedDecimal[] digitToSample = new FixedDecimal[10];
         final PluralRules.SampleType sampleType;
@@ -264,6 +265,7 @@ public class GeneratedPluralSamples {
             this.sampleType = sampleType;
         }
 
+        @Override
         public String toString() {
             Ranges samples2 = new Ranges(samples);
             for (FixedDecimal ni : digitToSample) {
@@ -370,6 +372,7 @@ public class GeneratedPluralSamples {
             }
         }
 
+        @Override
         public String toString() {
             String integersString = integers.toString();
             String decimalsString = type == PluralType.ordinal ? "" : decimals.toString();
@@ -440,7 +443,7 @@ public class GeneratedPluralSamples {
         return result;
     }
 
-    private final TreeMap<String, DataSamples> keywordToData = new TreeMap<String, DataSamples>();
+    private final TreeMap<String, DataSamples> keywordToData = new TreeMap<>();
     private final PluralType type;
 
     GeneratedPluralSamples(PluralInfo pluralInfo, PluralType type) {
@@ -506,7 +509,7 @@ public class GeneratedPluralSamples {
 
     public static String checkForDuplicates(PluralRules pluralRules, FixedDecimal ni) {
         // add test that there are no duplicates
-        Set<String> keywords = new LinkedHashSet<String>();
+        Set<String> keywords = new LinkedHashSet<>();
         for (String keywordCheck : pluralRules.getKeywords()) {
             if (pluralRules.matches(ni, keywordCheck)) {
                 keywords.add(keywordCheck);
@@ -587,8 +590,8 @@ public class GeneratedPluralSamples {
                 }
 
                 // sort if necessary
-                Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<Entry<PluralInfo, Set<String>>>()
-                    : new TreeSet<Entry<PluralInfo, Set<String>>>(new HackComparator(type == PluralType.cardinal
+                Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<>()
+                    : new TreeSet<>(new HackComparator(type == PluralType.cardinal
                     ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
                 for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                     sorted.add(entry);
@@ -660,7 +663,7 @@ public class GeneratedPluralSamples {
                         if (entry.getValue().size() == 1) {
                             continue;
                         }
-                        Set<String> remainder = new LinkedHashSet<String>(entry.getValue());
+                        Set<String> remainder = new LinkedHashSet<>(entry.getValue());
                         String first = remainder.iterator().next();
                         remainder.remove(first);
                         System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + Joiner.on(", ")

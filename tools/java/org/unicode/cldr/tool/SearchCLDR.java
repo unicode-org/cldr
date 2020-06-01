@@ -111,7 +111,7 @@ public class SearchCLDR {
 
         String sourceDirectory = myOptions.get("source").getValue();
 
-        Output<Boolean> exclude = new Output<Boolean>();
+        Output<Boolean> exclude = new Output<>();
         fileMatcher = myOptions.get("file").getValue();
 
         pathMatcher = getMatcher(myOptions.get("path").getValue(), exclude);
@@ -142,9 +142,9 @@ public class SearchCLDR {
             new File(CLDRPaths.MAIN_DIRECTORY),
             new File(sourceDirectory) };
 
-        Factory cldrFactory = SimpleFactory.make(paths, fileMatcher); 
+        Factory cldrFactory = SimpleFactory.make(paths, fileMatcher);
 
-        Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
+        Set<String> locales = new TreeSet<>(cldrFactory.getAvailable());
 
         String rawVersion = myOptions.get("diff").getValue();
 
@@ -159,7 +159,7 @@ public class SearchCLDR {
 
         String errorMatcherText = myOptions.get("Error").getValue();
         subtype = null;
-        checkCldr = null; 
+        checkCldr = null;
         if (errorMatcherText != null) {
             int errorSepPos = errorMatcherText.indexOf(':');
             if (errorSepPos >= 0) {
@@ -201,8 +201,8 @@ public class SearchCLDR {
             Level organizationLevel = organization == null ? null
                 : StandardCodes.make().getLocaleCoverageLevel(organization, locale);
 
-            CLDRFile file = (CLDRFile) cldrFactory.make(locale, resolved);
-            CLDRFile resolvedFile = resolved == true ? file 
+            CLDRFile file = cldrFactory.make(locale, resolved);
+            CLDRFile resolvedFile = resolved == true ? file
                 : (CLDRFile) cldrFactory.make(locale, true);
             CLDRFile diffFile = null;
 
@@ -222,7 +222,7 @@ public class SearchCLDR {
                 }
             }
 
-            Counter<Level> levelCounter = new Counter<Level>();
+            Counter<Level> levelCounter = new Counter<>();
             //CLDRFile parent = null;
             boolean headerShown = false;
 
@@ -232,7 +232,7 @@ public class SearchCLDR {
 
             level = CoverageLevel2.getInstance(locale);
             Status status = new Status();
-            Set<PathHeader> sorted = new TreeSet<PathHeader>();
+            Set<PathHeader> sorted = new TreeSet<>();
             for (String path : file.fullIterable()) {
                 if (locale.equals("eo") && path.contains("type=\"MK\"")) {
                     int debug = 0;
@@ -298,7 +298,7 @@ public class SearchCLDR {
                     for (CheckStatus item : result) {
                         if (item.getSubtype() == subtype) {
                             ++count;
-                        };
+                        }
                     }
                     if (count == 0) {
                         continue;
@@ -329,7 +329,7 @@ public class SearchCLDR {
                     : file.getSourceLocaleID(path, status)
                     + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
                 if (checkCldr != null) {
-                    SearchXml.show(ConfigOption.delete, locale, file.getDistinguishingXPath(fullPath, null), value, null, null, null);
+                    SearchXml.show(ConfigOption.delete, locale, CLDRFile.getDistinguishingXPath(fullPath, null), value, null, null, null);
                 } else {
                     showLine(showPath, showParent, showEnglish, resolved, locale,
                         path, fullPath, value,
@@ -349,7 +349,7 @@ public class SearchCLDR {
                 }
             }
             if (localeCount != 0) {
-                System.out.println("# " + locale 
+                System.out.println("# " + locale
                     + " Total " + localeCount + " found");
             }
             System.out.flush();
@@ -371,7 +371,7 @@ public class SearchCLDR {
                     throw new ICUUncheckedIOException("source doesn't contain /cldr/");
                 }
                 newDirs[item++] = new File(base, path.substring(baseLoc + 5));
-            } catch (IOException e) { 
+            } catch (IOException e) {
                 throw new ICUUncheckedIOException(e);
             }
         }
@@ -394,7 +394,7 @@ public class SearchCLDR {
             }
         }
         System.out.println("# "
-            + locale 
+            + locale
             + "\t⟪" + value + "⟫"
             + (showEnglish ? "\t⟪" + englishValue + "⟫" : "")
             + (!showParent ? "" : Objects.equals(value, parentValue) ? "\t≣" : "\t⟪" + parentValue + "⟫")

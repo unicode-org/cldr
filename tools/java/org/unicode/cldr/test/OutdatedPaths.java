@@ -70,8 +70,8 @@ public class OutdatedPaths {
      * @param directory
      */
     public OutdatedPaths(String directory) {
-        Map<Long, PathHeader> id2header = new HashMap<Long, PathHeader>(); // for debugging
-        
+        Map<Long, PathHeader> id2header = new HashMap<>(); // for debugging
+
         readLocaleToPaths(directory, id2header);
 
         // now previous English
@@ -98,7 +98,7 @@ public class OutdatedPaths {
                 if (DEBUG) {
                     System.out.println("OutdatedPaths: Locale: " + locale);
                 }
-                final HashSet<Long> data = new HashSet<Long>();
+                final HashSet<Long> data = new HashSet<>();
                 int size = dataIn.readInt();
                 for (int i = 0; i < size; ++i) {
                     long item = dataIn.readLong();
@@ -115,7 +115,7 @@ public class OutdatedPaths {
         }
     }
 
-    public static void readBirthValues(String outdatedDirectory, Map<Long, PathHeader> id2header, 
+    public static void readBirthValues(String outdatedDirectory, Map<Long, PathHeader> id2header,
         Map<Long, Pair<CldrVersion, String>> pathToBirthNPrevious2) {
         try {
             DataInputStream dataIn = openDataInput(outdatedDirectory, OUTDATED_ENGLISH_DATA);
@@ -134,7 +134,7 @@ public class OutdatedPaths {
                 CldrVersion birth = CldrVersion.from(dataIn.readUTF());
 
                 if (DEBUG) {
-                    System.out.println("en\t(" + previous + ")" 
+                    System.out.println("en\t(" + previous + ")"
                         + (id2header == null ? "" : "\t" + id2header.get(pathId)));
                 }
                 pathToBirthNPrevious2.put(pathId, Pair.of(birth,previous).freeze());
@@ -150,7 +150,7 @@ public class OutdatedPaths {
     }
 
     public Map<Long, PathHeader> getIdToPath(Factory factory) {
-        Map<Long, PathHeader> result = new HashMap<Long, PathHeader>();
+        Map<Long, PathHeader> result = new HashMap<>();
         CLDRFile english = factory.make("en", true);
         PathHeader.Factory pathHeaders = PathHeader.getFactory(english);
         for (String s : english) {
@@ -268,10 +268,10 @@ public class OutdatedPaths {
         OutdatedPaths outdatedPaths = SINGLETON.get();
         if (outdatedPaths == null) {
             outdatedPaths = new OutdatedPaths();
-            SINGLETON = new SoftReference<OutdatedPaths>(outdatedPaths);
+            SINGLETON = new SoftReference<>(outdatedPaths);
         }
         return outdatedPaths;
     }
 
-    private static Reference<OutdatedPaths> SINGLETON = new SoftReference<OutdatedPaths>(null);
+    private static Reference<OutdatedPaths> SINGLETON = new SoftReference<>(null);
 }

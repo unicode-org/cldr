@@ -46,7 +46,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     // new ByteString(false); // new
     // ByteString(true); //
 
-    private IntMapFactory<T> intMapFactory = new BasicIntMapFactory<T>();
+    private IntMapFactory<T> intMapFactory = new BasicIntMapFactory<>();
 
     /**
      * Get/set the IntMapFactory used to store the values for T. The default is BasicIntMapFactory.
@@ -85,17 +85,18 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
      * @param source
      * @return
      */
+    @Override
     public StateDictionary<T> make(Map<CharSequence, T> source) {
         // clear out state
         buildingCurrentAddRow = null;
         builtTotalBytes = builtTotalStrings = builtMaxByteLength = 0;
-        builtRows = new ArrayList<Row>();
+        builtRows = new ArrayList<>();
         builtBaseRow = makeRow();
         builtResults = intMapFactory.make(source.values());
         if (SHOW_SIZE) System.out.println("***VALUE STORAGE: " + builtResults.approximateStorage());
 
         Map<T, Integer> valueToInt = builtResults.getValueMap();
-        Map<byte[], Integer> sorted = new TreeMap<byte[], Integer>(SHORTER_BYTE_ARRAY_COMPARATOR);
+        Map<byte[], Integer> sorted = new TreeMap<>(SHORTER_BYTE_ARRAY_COMPARATOR);
         for (CharSequence text : source.keySet()) {
             sorted.put(byteConverter.toBytes(text), valueToInt.get(source.get(text)));
         }
@@ -106,9 +107,9 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
 
         // now compact the rows
         // first find out which rows are equivalent (recursively)
-        Map<Row, Row> replacements = new HashMap<Row, Row>();
+        Map<Row, Row> replacements = new HashMap<>();
         {
-            Map<Row, Row> equivalents = new TreeMap<Row, Row>(StateDictionary.rowComparator);
+            Map<Row, Row> equivalents = new TreeMap<>(StateDictionary.rowComparator);
             for (Row row : builtRows) {
                 Row cardinal = equivalents.get(row);
                 if (cardinal == null) {
@@ -131,7 +132,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
             }
         }
         // now compact the rows array
-        ArrayList<Row> newRows = new ArrayList<Row>();
+        ArrayList<Row> newRows = new ArrayList<>();
         for (Row row : builtRows) {
             if (!replacements.containsKey(row)) {
                 newRows.add(row);
@@ -141,7 +142,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
         setUniqueValues(builtBaseRow);
         builtRows = newRows;
         if (SHOW_SIZE) System.out.println("***ROWS: " + builtRows.size());
-        return new StateDictionary<T>(builtBaseRow, builtRows, builtResults, builtMaxByteLength, byteConverter);
+        return new StateDictionary<>(builtBaseRow, builtRows, builtResults, builtMaxByteLength, byteConverter);
     }
 
     private Row makeRow() {
@@ -237,6 +238,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
 
     static final Comparator<byte[]> SHORTER_BYTE_ARRAY_COMPARATOR = new Comparator<byte[]>() {
 
+        @Override
         public int compare(byte[] o1, byte[] o2) {
             int minLen = o1.length;
             if (minLen > o2.length) {

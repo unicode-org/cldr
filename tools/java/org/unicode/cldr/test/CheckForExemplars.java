@@ -134,7 +134,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         ")");
     private Matcher leadOrTrailWhitespaceOk = LEAD_OR_TRAIL_WHITESPACE_OK.matcher("");
 
-    private static UnicodeSet ASCII = (UnicodeSet) new UnicodeSet("[\\u0020-\\u007F]").freeze();
+    private static UnicodeSet ASCII = new UnicodeSet("[\\u0020-\\u007F]").freeze();
 
     private PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
     private SupplementalDataInfo sdi;
@@ -156,7 +156,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     static class PlaceholderTransform implements Transform<String, Set<String>> {
         @Override
         public Set<String> transform(String source) {
-            Set<String> placeholders = new LinkedHashSet<String>();
+            Set<String> placeholders = new LinkedHashSet<>();
             String[] parts = source.split(";\\s+");
             for (String part : parts) {
                 int equalsPos = part.indexOf('=');
@@ -257,6 +257,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return result;
     }
 
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value,
         Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -464,7 +465,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private String checkAndReplacePlaceholders(String path, String value, List<CheckStatus> result) {
         // add checks for patterns. Make sure that all and only the message format patterns have {n}
         Matcher matcher = patternMatcher.reset(value);
-        Set<String> matchList = new HashSet<String>();
+        Set<String> matchList = new HashSet<>();
         StringBuffer placeholderBuffer = new StringBuffer();
         while (matcher.find()) {
             // Look for duplicate values.
@@ -493,7 +494,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             placeholderBuffer.setLength(0);
             // Check that the needed placeholders are there.
-            if (placeholders == null) placeholders = new HashSet<String>();
+            if (placeholders == null) placeholders = new HashSet<>();
             for (String placeholder : placeholders) {
                 if (!matchList.contains(placeholder)) {
                     placeholderBuffer.append(", ").append(placeholder);
@@ -608,7 +609,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         scriptToCurrencies = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
         for (Object curScript : scriptToTerritories.keySet()) {
             Set<String> territories = scriptToTerritories.get(curScript);
-            Set<String> currencies = new HashSet<String>();
+            Set<String> currencies = new HashSet<>();
             for (String territory : territories) {
                 Set<CurrencyDateInfo> currencyInfo = sdi.getCurrencyDateInfo(territory);
                 for (CurrencyDateInfo info : currencyInfo) {

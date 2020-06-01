@@ -191,7 +191,7 @@ public class CldrResolver {
     public Set<String> getLocaleNames(String localeRegex) {
         ResolverUtils.debugPrint("Getting list of locales...", 3);
         Set<String> allLocales = cldrFactory.getAvailable();
-        Set<String> locales = new TreeSet<String>();
+        Set<String> locales = new TreeSet<>();
         // Iterate through all the locales
         for (String locale : allLocales) {
             // Check if the locale name matches the regex
@@ -229,7 +229,7 @@ public class CldrResolver {
     private CLDRFile resolveLocaleInternal(CLDRFile file, ResolutionType resolutionType) {
         String locale = file.getLocaleID();
         // Make parent files for simple resolution.
-        List<CLDRFile> ancestors = new ArrayList<CLDRFile>();
+        List<CLDRFile> ancestors = new ArrayList<>();
         if (resolutionType == ResolutionType.SIMPLE && !locale.equals(ROOT)) {
             String parentLocale = locale;
             do {

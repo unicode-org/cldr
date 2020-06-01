@@ -65,7 +65,7 @@ public class SupplementalMapper {
                 throw new IllegalArgumentException(value + " is not a valid date field type");
             }
         }
-    };
+    }
 
     /**
      * Comparator for sorting LDML supplementalData xpaths.
@@ -183,7 +183,7 @@ public class SupplementalMapper {
             /**
              * "Y-M-D" to "Y M D". Year value might be negative.
              * Also leading zeros are removed.
-             * 
+             *
              * Month value is 1-base unlike month
              * field in ICU calendar implementation.
              */
@@ -219,7 +219,7 @@ public class SupplementalMapper {
      * @return an IcuData object
      */
     public IcuData fillFromCldr(String outputName) {
-        Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
+        Map<String, CldrArray> pathValueMap = new HashMap<>();
         String category = outputName;
         if (outputName.equals("supplementalData")) {
             String[] categories = {
@@ -304,12 +304,12 @@ public class SupplementalMapper {
             return;
         }
         String inputFile = new File(inputDir, category + ".xml").getAbsolutePath();
-        List<Pair<String, String>> contents = new ArrayList<Pair<String, String>>();
+        List<Pair<String, String>> contents = new ArrayList<>();
         XMLFileReader.loadPathValues(inputFile, contents, true);
         RegexLookup<RegexResult> pathConverter = regexMapper.getPathConverter();
         fifoCounter = 0; // Helps to keep unsorted rb paths in order.
         for (Pair<String, String> pair : contents) {
-            Output<Finder> matcher = new Output<Finder>();
+            Output<Finder> matcher = new Output<>();
             XPathParts parts = XPathParts.getFrozenInstance(pair.getFirst());
             String fullPath = parts.toString();
             // Only convert contributed or higher data
@@ -317,7 +317,7 @@ public class SupplementalMapper {
                 parts.containsAttributeValue("draft", "unconfirmed")) {
                 continue;
             }
-            List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
+            List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<>() : null;
             Output<String[]> argInfo = new Output<>();
             RegexResult regexResult = pathConverter.get(fullPath, null, argInfo, matcher, debugResults);
             if (regexResult == null) {

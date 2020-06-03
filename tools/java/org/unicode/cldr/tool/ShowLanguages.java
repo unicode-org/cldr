@@ -1022,22 +1022,9 @@ public class ShowLanguages {
             }
         }
 
-        // http://trac.edgewall.org/wiki/TracTickets#PresetValuesforNewTickets
-        // http://unicode.org/cldr/trac/newticket?summary=Fix_XXX
         private String addBug(int bugNumber, String text, String from, String subject, String body) {
-            String parameters = "";
-            // if (from != null && from.length() != 0) {
-            // parameters += "&from=" + urlEncode(from);
-            // }
-            if (body != null && body.length() != 0) {
-                parameters += "&amp;description=" + urlEncode(body);
-            }
-            if (subject != null && subject.length() != 0) {
-                parameters += "&amp;summary=" + urlEncode(subject);
-            }
-            if (parameters.length() != 0) parameters = "?" + parameters;
             return "<a target='_blank' href='" + CLDRURLS.CLDR_NEWTICKET_URL
-                + parameters + "'>" + text + "</a>";
+                + "'>" + text + "</a>";
         }
 
         private void showLanguageCountryInfo(PrintWriter pw) throws IOException {

@@ -11,7 +11,7 @@ public abstract class CLDRURLS {
     public static final String DEFAULT_HOST = "st.unicode.org";
     public static final String DEFAULT_PATH = "/cldr-apps";
     public static final String DEFAULT_BASE = "http://" + DEFAULT_HOST + DEFAULT_PATH;
-    public static final String CLDR_NEWTICKET_URL = "https://unicode.org/cldr/trac/newticket"; // This is an alias to Jira
+    public static final String CLDR_NEWTICKET_URL = "http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
     /**
      * Override this property if you want to change the absolute URL to the SurveyTool base from DEFAULT_BASE
      */

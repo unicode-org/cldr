@@ -16,6 +16,7 @@ import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
@@ -39,7 +40,9 @@ public class ChartAnnotations extends Chart {
     private static final String LDML_ANNOTATIONS = "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>LDML Annotations</a>";
 
     private static final String MAIN_HEADER = "<p>Annotations provide names and keywords for Unicode characters, currently focusing on emoji. "
-        + "If you see any problems, please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> with the corrected values for the locale. "
+        + "If you see any problems, please <a target='_blank' href='"
+        + CLDRURLS.CLDR_NEWTICKET_URL
+        + "'>file a ticket</a> with the corrected values for the locale. "
         + "For the XML data used for these charts, see "
         + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>latest-release annotations </a> "
         + "or <a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>beta annotations</a>. "

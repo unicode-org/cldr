@@ -13,15 +13,24 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.collect.Comparators;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.PluralRules;
 
 public class WritePluralRules {
+    // Ordering by size-of-set first, and then lexicographically, with a final tie-break on the
+    // string representation.
+    private static final Comparator<PluralRules> PLURAL_RULES_COMPARATOR =
+        Comparator.<PluralRules, Integer>comparing(r -> r.getKeywords().size())
+            .thenComparing(PluralRules::getKeywords,
+                Comparators.lexicographical(Comparator.<String>naturalOrder()))
+            .thenComparing(Object::toString);
+
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     public static void main(String[] args) {
-        Relation<PluralRules, String> rulesToLocales = Relation.of(new TreeMap<PluralRules, Set<String>>(new PluralRulesComparator()), TreeSet.class);
+        Relation<PluralRules, String> rulesToLocales =
+            Relation.of(new TreeMap<>(PLURAL_RULES_COMPARATOR), TreeSet.class);
         for (String locale : sInfo.getPluralLocales(PluralType.cardinal)) {
             if (locale.equals("root")) {
                 continue;
@@ -126,8 +135,6 @@ public class WritePluralRules {
 
     static class HackComparator implements Comparator<Entry<PluralRules, Set<String>>> {
         // we get the order of the first items in each of the old rules, and use that order where we can.
-        PluralRulesComparator prc = new PluralRulesComparator();
-
         @Override
         public int compare(Entry<PluralRules, Set<String>> o1, Entry<PluralRules, Set<String>> o2) {
             Integer firstLocale1 = HACK_ORDER_PLURALS.get(o1.getValue().iterator().next());
@@ -140,7 +147,7 @@ public class WritePluralRules {
             } else if (firstLocale2 != null) {
                 return 1;
             } else { // only if BOTH are null, use better comparison
-                return prc.compare(o1.getKey(), o2.getKey());
+                return PLURAL_RULES_COMPARATOR.compare(o1.getKey(), o2.getKey());
             }
         }
     }
@@ -157,21 +164,6 @@ public class WritePluralRules {
 //        for (String s : "af fil hu sv en it ca mr gu hi bn zu".split(" ")) {
 //            HACK_ORDER_ORDINALS.put(s, i++);
 //        }
-    }
-
-    static class PluralRulesComparator implements Comparator<PluralRules> {
-        CollectionUtilities.CollectionComparator<String> comp = new CollectionUtilities.CollectionComparator<>();
-
-        @Override
-        public int compare(PluralRules arg0, PluralRules arg1) {
-            Set<String> key0 = arg0.getKeywords();
-            Set<String> key1 = arg1.getKeywords();
-            int diff = comp.compare(key0, key1);
-            if (diff != 0) {
-                return diff;
-            }
-            return arg0.toString().compareTo(arg1.toString());
-        }
     }
 
     static PluralRules forLocale(String locale) {

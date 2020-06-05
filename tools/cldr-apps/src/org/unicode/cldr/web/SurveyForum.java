@@ -806,6 +806,8 @@ public class SurveyForum {
         if (value != null) {
             autoPostAgree(locale, user, xpathId, value);
         }
+        autoPostDecline(locale, user, xpathId, value);
+        autoPostClose(locale, user, xpathId, value);
     }
 
     /**
@@ -843,7 +845,7 @@ public class SurveyForum {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
-                + " WHERE type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
+                + " WHERE open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
             pList.setInt(1, PostType.REQUEST.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -875,7 +877,121 @@ public class SurveyForum {
         try {
             doPostInternal(postInfo);
         } catch (SurveyException e) {
-            SurveyLog.logException(e, "SurveyForum: autoPostAgreeOne root " + root);
+            SurveyLog.logException(e, "SurveyForum: autoPostReplyAgree root " + root);
+        }
+    }
+
+    /**
+     * For each open AGREE post by this user, for this locale+path, where
+     * the given value is NOT the same as the requested value, generate a new DECLINE post.
+     *
+     * @param locale
+     * @param user
+     * @param xpathId
+     * @param value
+     */
+    private void autoPostDecline(CLDRLocale locale, User user, int xpathId, String value) {
+        String dbValue = value == null ? "" : value;
+        Connection conn = null;
+        PreparedStatement pList = null;
+        String tableName = DBUtils.Table.FORUM_POSTS.toString();
+        Map<Integer, String> posts = new HashMap<>();
+        try {
+            conn = sm.dbUtils.getDBConnection();
+            pList = DBUtils.prepareStatement(conn, "pList",
+                "SELECT root,subj FROM " + tableName
+                + " WHERE open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+            pList.setInt(1, PostType.AGREE.toInt());
+            pList.setString(2, locale.toString());
+            pList.setInt(3, xpathId);
+            pList.setInt(4, user.id);
+            DBUtils.setStringUTF8(pList, 5, dbValue);
+            ResultSet rs = pList.executeQuery();
+            while (rs.next()) {
+                posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
+            }
+            posts.forEach((root, subject) -> autoPostReplyDecline(root, subject, locale, user, xpathId, value));
+         } catch (SQLException se) {
+            String complaint = "SurveyForum: autoPostDecline - " + DBUtils.unchainSqlException(se);
+            SurveyLog.logException(se, complaint);
+        } finally {
+            DBUtils.close(pList, conn);
+        }
+    }
+
+    private void autoPostReplyDecline(int root, String subject, CLDRLocale locale, User user,
+            int xpathId, String value) {
+        String text = (value == null)
+                ? "(Auto-generated:) I changed my vote to Abstain, and will reconsider my vote."
+                : "(Auto-generated:) I changed my vote to “" + value + "”, which now disagrees with the request.";
+        PostInfo postInfo = new PostInfo(locale, PostType.DECLINE.toName(), text);
+        postInfo.setSubj(subject);
+        postInfo.setPath(xpathId);
+        postInfo.setUser(user);
+        postInfo.setReplyTo(root /* replyTo */);
+        postInfo.setRoot(root);
+        postInfo.setValue(value == null ? "Abstain" : value); /* NOT the same as the requested value */
+        try {
+            doPostInternal(postInfo);
+        } catch (SurveyException e) {
+            SurveyLog.logException(e, "SurveyForum: autoPostReplyDecline root " + root);
+        }
+    }
+
+    /**
+     * I request a vote for “X”, then I change to “Y” (or abstain)
+     * Auto-generated: I changed my vote to “Y”, disagreeing with my request. This topic is being closed. ⇒ Close
+     *
+     * @param locale
+     * @param user
+     * @param xpathId
+     * @param value
+     */
+    private void autoPostClose(CLDRLocale locale, User user, int xpathId, String value) {
+        String dbValue = value == null ? "" : value;
+        Connection conn = null;
+        PreparedStatement pList = null;
+        String tableName = DBUtils.Table.FORUM_POSTS.toString();
+        Map<Integer, String> posts = new HashMap<>();
+        try {
+            conn = sm.dbUtils.getDBConnection();
+            pList = DBUtils.prepareStatement(conn, "pList",
+                "SELECT id,subj FROM " + tableName
+                + " WHERE open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+            pList.setInt(1, PostType.REQUEST.toInt());
+            pList.setString(2, locale.toString());
+            pList.setInt(3, xpathId);
+            pList.setInt(4, user.id);
+            DBUtils.setStringUTF8(pList, 5, dbValue);
+            ResultSet rs = pList.executeQuery();
+            while (rs.next()) {
+                posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
+            }
+            posts.forEach((root, subject) -> autoPostReplyClose(root, subject, locale, user, xpathId, value));
+         } catch (SQLException se) {
+            String complaint = "SurveyForum: autoPostClose - " + DBUtils.unchainSqlException(se);
+            SurveyLog.logException(se, complaint);
+        } finally {
+            DBUtils.close(pList, conn);
+        }
+    }
+
+    private void autoPostReplyClose(int root, String subject, CLDRLocale locale, User user,
+            int xpathId, String value) {
+        String abstainOrQuotedValue = value == null ? "Abstain" : "“" + value + "”";
+        String text = "(Auto-generated:) I changed my vote to " + abstainOrQuotedValue
+                + ", disagreeing with my request. This topic is being closed.";
+        PostInfo postInfo = new PostInfo(locale, PostType.CLOSE.toName(), text);
+        postInfo.setSubj(subject);
+        postInfo.setPath(xpathId);
+        postInfo.setUser(user);
+        postInfo.setReplyTo(root /* replyTo */);
+        postInfo.setRoot(root);
+        postInfo.setValue(value == null ? "Abstain" : value); /* NOT the same as the requested value */
+        try {
+            doPostInternal(postInfo);
+        } catch (SurveyException e) {
+            SurveyLog.logException(e, "SurveyForum: autoPostReplyClose root " + root);
         }
     }
 

@@ -19,11 +19,17 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.Freezable;
 
+/**
+ * Get the info from supplemental data, eg CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo("fr"); Use hasGrammarInfo() to see which locales have it.
+ * @author markdavis
+ *
+ */
 public class GrammarInfo implements Freezable<GrammarInfo>{
 
     public enum GrammaticalTarget {nominal}
 
     public enum GrammaticalFeature {
+        grammaticalNumber("plurality", "Ⓟ", "other"),
         grammaticalCase("case", "Ⓒ", "nominative"),
         grammaticalDefiniteness("definiteness", "Ⓓ", "indefinite"),
         grammaticalGender("gender", "Ⓖ", "neuter");
@@ -229,6 +235,27 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         return result.toString();
     }
 
+    static public String getGrammaticalInfoAttributes(GrammarInfo grammarInfo, UnitPathType pathType, String plural, String gender, String caseVariant) {
+        String grammaticalAttributes = "";
+        if (pathType.features.contains(GrammaticalFeature.grammaticalNumber)) { // count is special
+            grammaticalAttributes += "[@count=\"" + (plural == null ? "other" : plural) + "\"]";
+        }
+        if (grammarInfo != null && gender != null
+            && pathType.features.contains(GrammaticalFeature.grammaticalGender)
+            ) {
+            Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+            if (!gender.equals(GrammaticalFeature.grammaticalGender.getDefault(genders))) {
+                grammaticalAttributes += "[@gender=\"" + gender + "\"]";
+            }
+        }
+        if (grammarInfo != null && caseVariant != null
+            && pathType.features.contains(GrammaticalFeature.grammaticalCase)
+            && !caseVariant.equals(GrammaticalFeature.grammaticalCase.getDefault(null))) {
+            grammaticalAttributes += "[@case=\"" + caseVariant + "\"]";
+        }
+        return grammaticalAttributes;
+    }
+
     public static final ImmutableMultimap<String,PluralInfo.Count> NON_COMPUTABLE_PLURALS = ImmutableListMultimap.of(
         "pl", PluralInfo.Count.one,
         "pl", PluralInfo.Count.other,
@@ -252,7 +279,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
         "volume-jigger",
         "volume-pinch",
         "volume-quart-imperial",
-       // "volume-pint-imperial",
+        // "volume-pint-imperial",
 
         "acceleration-meter-per-square-second", "area-acre", "area-hectare",
         "area-square-centimeter", "area-square-foot", "area-square-kilometer", "area-square-mile", "concentr-percent", "consumption-mile-per-gallon",

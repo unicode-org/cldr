@@ -6026,6 +6026,9 @@ annotations.
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0} per {1}</compoundUnitPattern>
 			</compoundUnit>
+            <compoundUnit type="times">
+                <compoundUnitPattern>{0}-{1}</compoundUnitPattern>
+            </compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>square {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">square {0}</compoundUnitPattern1>

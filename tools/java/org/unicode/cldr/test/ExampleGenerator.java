@@ -42,6 +42,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
@@ -375,8 +377,9 @@ public class ExampleGenerator {
             || parts.getElement(-1).equals("unitPrefixPattern")) {
             result = handleCompoundUnit1(parts, value);
         } else if (parts.getElement(-1).equals("unitPattern")) {
-            String count = parts.getAttributeValue(-1, "count");
-            result = handleFormatUnit(Count.valueOf(count), value);
+            result = handleFormatUnit(parts, value);
+        } else if (parts.getElement(-1).equals("perUnitPattern")) {
+            result = handleFormatPerUnit(parts, value);
         } else if (parts.getElement(-1).equals("durationUnitPattern")) {
             result = handleDurationUnit(value);
         } else if (parts.contains("intervalFormats")) {
@@ -591,18 +594,51 @@ public class ExampleGenerator {
         return UnitLength.valueOf(parts.getAttributeValue(-3, "type").toUpperCase(Locale.ENGLISH));
     }
 
-    private String handleFormatUnit(Count count, String value) {
+    private String handleFormatUnit(XPathParts parts, String value) {
+        String count = parts.getAttributeValue(-1, "count");
+        List<String> examples = new ArrayList<>();
         /*
          * PluralRules.FixedDecimal is deprecated, but deprecated in ICU is
          * also used to mark internal methods (which are OK for us to use in CLDR).
          */
         @SuppressWarnings("deprecation")
-        FixedDecimal amount = getBest(count);
-        if (amount == null) {
-            return "n/a";
+        FixedDecimal amount = getBest(Count.valueOf(count));
+        if (amount != null) {
+            DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
+            examples.add(format(value, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol));
         }
+        if (parts.getElement(-2).equals("unit")) {
+            String longUnitId = parts.getAttributeValue(-2, "type");
+            final String shortUnitId = UnitConverter.getShortId(longUnitId);
+            if (UnitConverter.HACK_SKIP_UNIT_NAMES.contains(shortUnitId)) {
+                return null;
+            }
+            UnitConverter uc = supplementalDataInfo.getUnitConverter();
+            final UnitId unitId = uc.createUnitId(shortUnitId);
+            // LocaleStringProvider stringProvider = new OverridingStringProvider(getCldrFile(), parts.toString(), backgroundPattern(value));
+            // removeEmptyRuns(
+            String width = parts.getAttributeValue(2, "type");
+            String pattern = unitId.toString(getCldrFile(), width, count, "nominative", null, false);
+            if (!value.contentEquals(pattern)) {
+                examples.add(pattern);
+            }
+        }
+        return formatExampleList(examples);
+    }
+
+    private String backgroundPattern(String value) {
+        Matcher matcher = UnitConverter.PLACEHOLDER.matcher(value);
+        if (!matcher.find()) {
+            return backgroundStartSymbol + value + backgroundEndSymbol;
+        }
+        return backgroundStartSymbol + value.substring(0,matcher.start(0)) + backgroundEndSymbol
+            + value.substring(matcher.start(0),matcher.end(0))
+            + backgroundStartSymbol + value.substring(matcher.end(0)) + backgroundEndSymbol;
+    }
+
+    private String handleFormatPerUnit(XPathParts parts, String value) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
-        return format(value, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
+        return format(value, backgroundStartSymbol + numberFormat.format(1) + backgroundEndSymbol);
     }
 
     public String handleCompoundUnit(XPathParts parts) {
@@ -1598,7 +1634,14 @@ public class ExampleGenerator {
     }
 
     private String formatCountDecimal(DecimalFormat numberFormat, String countValue) {
-        Count count = Count.valueOf(countValue);
+        Count count;
+        try {
+            count = Count.valueOf(countValue);
+        } catch (Exception e) {
+            String locale = getCldrFile().getLocaleID();
+            PluralInfo pluralInfo = supplementalDataInfo.getPlurals(locale);
+            count = pluralInfo.getCount(new FixedDecimal(countValue));
+        }
         Double numberSample = getExampleForPattern(numberFormat, count);
         if (numberSample == null) {
             // Ideally, we would suppress the value in the survey tool.

@@ -807,7 +807,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                             before = false;
                             unitPattern = unitPattern.substring(0, placeholderMatcher.start());
                         } else {
-                            throw new IllegalArgumentException("Unexpected pattern «" + unitPattern + "»\t" + Utility.hex(unitPattern));
+                            return null;
                         }
                         placeholderPattern = placeholderMatcher.group();
                     }

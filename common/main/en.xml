@@ -6023,7 +6023,31 @@ annotations.
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>yotta{0}</unitPrefixPattern>
 			</compoundUnit>
-			<compoundUnit type="per">
+            <compoundUnit type="1024p1">
+                <unitPrefixPattern>kibi{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="1024p2">
+                <unitPrefixPattern>mebi{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="1024p3">
+                <unitPrefixPattern>gibi{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="1024p4">
+                <unitPrefixPattern>tebi{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="1024p5">
+                <unitPrefixPattern>pebi{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="1024p6">
+                <unitPrefixPattern>exbi{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="1024p7">
+                <unitPrefixPattern>zebi{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="1024p8">
+                <unitPrefixPattern>yobe{0}</unitPrefixPattern>
+            </compoundUnit>
+            <compoundUnit type="per">
 				<compoundUnitPattern>{0} per {1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">

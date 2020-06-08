@@ -2576,7 +2576,7 @@ $Revision$
 
 <!ELEMENT compoundUnit ( alias | ( compoundUnitPattern1*, compoundUnitPattern*, unitPrefixPattern*, special* ) ) >
 <!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
-    <!--@MATCH:or/regex/10p-?[0-9]{1,2}||literal/per, times, power2, power3-->
+    <!--@MATCH:or/regex/10p-?[0-9]{1,2}||regex/1024p[1-8]||literal/per, times, power2, power3-->
 <!ATTLIST compoundUnit alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST compoundUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

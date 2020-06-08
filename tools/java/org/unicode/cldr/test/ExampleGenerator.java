@@ -36,12 +36,15 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
+import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
@@ -267,7 +270,9 @@ public class ExampleGenerator {
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
         synchronized (ExampleGenerator.class) {
             if (supplementalDataInfo == null) {
-                supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDirectory);
+                supplementalDataInfo = supplementalDataDirectory == null 
+                    ? SupplementalDataInfo.getInstance() 
+                    : SupplementalDataInfo.getInstance(supplementalDataDirectory);
             }
         }
         icuServiceBuilder.setCldrFile(cldrFile);
@@ -397,6 +402,8 @@ public class ExampleGenerator {
             result = handleLabel(parts, value);
         } else if (parts.getElement(-1).equals("characterLabelPattern")) {
             result = handleLabelPattern(parts, value);
+        } else if (parts.getElement(1).equals("units") && parts.getElement(-1).equals("displayName")) {
+            result = handleUnitDisplayName(parts, value);
         }
         if (result != null) {
             if (!typeIsEnglish) {
@@ -405,6 +412,21 @@ public class ExampleGenerator {
             result = finalizeBackground(result);
         }
         return result;
+    }
+
+    private String handleUnitDisplayName(XPathParts parts, String value) {
+        //ldml/units/unitLength[@type="long"]/unit[@type="mass-grain"]/displayName
+        UnitConverter unitConverter = supplementalDataInfo.getUnitConverter();
+        String longUnit = parts.getAttributeValue(3, "type");
+        
+        String shortUnit = longUnit.substring(longUnit.indexOf('-')+1);
+        Set<String> systems = unitConverter.getSystems(shortUnit);
+        Output<String> metricUnit = new Output<>();
+        ConversionInfo conversionInfo = unitConverter.parseUnitId(shortUnit, metricUnit, false);
+        if (conversionInfo == null) {
+            return null;
+        }
+        return "= " + conversionInfo.factor.toString(FormatStyle.repeating) + " " + metricUnit + "; Systems: " + systems;
     }
 
     private String handleLabelPattern(XPathParts parts, String value) {

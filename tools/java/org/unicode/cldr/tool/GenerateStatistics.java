@@ -354,8 +354,8 @@ class GenerateStatistics {
         if (notitlecase) return in;
         String result = UCharacter.toTitleCase(new ULocale(localeID), in, null);
         if (HACK) {
-            result = GenerateCldrTests.replace(result, "U.s.", "U.S.");
-            result = GenerateCldrTests.replace(result, "S.a.r.", "S.A.R.");
+            result = result.replace("U.s.", "U.S.");
+            result = result.replace("S.a.r.", "S.A.R.");
         }
         return result;
     }

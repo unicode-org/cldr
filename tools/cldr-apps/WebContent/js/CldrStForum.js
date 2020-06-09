@@ -371,7 +371,7 @@ const cldrStForum = (function() {
 				}
 				if (opts.createDomElements) {
 					if (rootPost.postType === 'Request' && rootPost.value) {
-						const requestInfo = forumCreateChunk('Requesting “' + post.value + '”', "h4", "postTopicInfo");
+						const requestInfo = forumCreateChunk('Requesting “' + rootPost.value + '”', "h4", "postTopicInfo");
 						topicDiv.appendChild(requestInfo);
 					}
 				}

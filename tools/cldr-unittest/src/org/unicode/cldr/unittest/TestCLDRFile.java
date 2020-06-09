@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -68,7 +69,6 @@ public class TestCLDRFile extends TestFmwk {
         new TestCLDRFile().run(args);
     }
 
-
     public void testFallbackNames() {
         String[][] tests = {
             { "zh-Hanb", "Chinese (Han with Bopomofo)" },
@@ -94,7 +94,7 @@ public class TestCLDRFile extends TestFmwk {
         .compile("\\[@count=\"([^\"]+)\"]");
 
     static final UnicodeSet DIGITS = new UnicodeSet('0', '9').freeze();
-    
+
     private void checkPlurals(String locale) {
         CLDRFile cldrFile = testInfo.getCLDRFile(locale, true);
         Matcher m = COUNT_MATCHER.matcher("");
@@ -130,7 +130,7 @@ public class TestCLDRFile extends TestFmwk {
     static class LocaleInfo {
         final String locale;
         final CLDRFile cldrFile;
-        final Set<String> paths = new HashSet<String>();
+        final Set<String> paths = new HashSet<>();
 
         LocaleInfo(String locale) {
             this.locale = locale;
@@ -150,6 +150,7 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     static final boolean DEBUG = false;
+    static final boolean DEBUG_testExtraPaths = true;
 
     public void testExtraPaths() {
         // for debugging
@@ -160,19 +161,24 @@ public class TestCLDRFile extends TestFmwk {
         PatternPlaceholders pph = PatternPlaceholders.getInstance();
 
         for (String path : sorted) {
+            if (DEBUG_testExtraPaths && path.equals("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"acceleration-g-force\"]/unitPattern")) {
+                List<String> failures = new ArrayList<>();
+                phf.fromPath(path, failures );
+            }
             PathHeader ph = phf.fromPath(path);
             if (ph.getPageId() != PageId.Deprecated) {
                 assertNotEquals("bad placeholder: " + path + " ; " + ph, SectionId.Special, ph.getSectionId());
             }
             PlaceholderStatus phStatus = pph.getStatus(path);
-            
-            PlaceholderStatus expected = path.contains("/metazone") || path.contains("/timeZoneNames") || path.contains("/gender")  || path.startsWith("//ldml/numbers/currencies/currency") ? PlaceholderStatus.DISALLOWED 
-                    : path.contains("/compoundUnitPattern1") ? PlaceholderStatus.REQUIRED 
+
+            PlaceholderStatus expected = path.contains("/metazone") || path.contains("/timeZoneNames") || path.contains("/gender")
+                || path.startsWith("//ldml/numbers/currencies/currency") ? PlaceholderStatus.DISALLOWED
+                    : path.contains("/compoundUnitPattern1") ? PlaceholderStatus.REQUIRED
                         : PlaceholderStatus.LOCALE_DEPENDENT;
             if (!assertEquals(path, expected, phStatus)) {
                 int debug = 0;
             }
-            
+
             if (DEBUG) {
                 if (GrammaticalFeature.pathHasFeature(path) != null || path.endsWith("/gender")) {
                     System.out.println(path + "\t" + german.getStringValue(path));
@@ -183,7 +189,7 @@ public class TestCLDRFile extends TestFmwk {
                 }
             }
         }
-        
+
         Set<String> badCoverage = new TreeSet<>();
         Counter<String> extraPaths = new Counter<>();
         for (String locale : sdi.hasGrammarInfo()) {
@@ -213,7 +219,7 @@ public class TestCLDRFile extends TestFmwk {
 
 //        Set<String> validUnits = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
 //        validUnits.forEach(System.out::println);
-//        
+//
 //        grammarInfo = testInfo.getSupplementalDataInfo().getGrammarInfo();
 //        for (Entry<String, GrammarInfo> entry : grammarInfo.entrySet()) {
 //            System.out.println(entry);
@@ -229,8 +235,7 @@ public class TestCLDRFile extends TestFmwk {
 //        }
 //        int debug = 0;
 
-
-        Map<String, LocaleInfo> localeInfos = new LinkedHashMap<String, LocaleInfo>();
+        Map<String, LocaleInfo> localeInfos = new LinkedHashMap<>();
         Relation<String, String> missingPathsToLocales = Relation.of(
             new TreeMap<String, Set<String>>(CLDRFile
                 .getComparator(DtdType.ldml)),
@@ -288,8 +293,8 @@ public class TestCLDRFile extends TestFmwk {
                             && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]"))) // morning1, afternoon1, ...
                         || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
                             && localeInfo.locale.equals("root"))
-                        // //ldml/characters/exemplarCharacters[@type="index"][root]
-                        ) {
+                    // //ldml/characters/exemplarCharacters[@type="index"][root]
+                    ) {
                         continue;
                     }
                     String localeAndStatus = localeInfo.locale
@@ -334,11 +339,13 @@ public class TestCLDRFile extends TestFmwk {
             String originalLocale = englishInfo.cldrFile.getSourceLocaleID(
                 path, status);
             String engName = "en"
-                + (englishInfo.cldrFile.isHere(path) ? "" : " (source_locale:"
-                    + originalLocale
-                    + (path.equals(status.pathWhereFound) ? "" : ", source_path: "
-                        + status)
-                    + ")");
+                + (englishInfo.cldrFile.isHere(path) ? ""
+                    : " (source_locale:"
+                        + originalLocale
+                        + (path.equals(status.pathWhereFound) ? ""
+                            : ", source_path: "
+                                + status)
+                        + ")");
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.contains("[@alt=\"accounting\"]")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
@@ -352,8 +359,8 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> locales = entry.getValue();
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.startsWith("//ldml/numbers/otherNumberingSystems/")
-                // || path.contains("[@alt=\"accounting\"]")
-                ) {
+            // || path.contains("[@alt=\"accounting\"]")
+            ) {
                 logln("-en, +" + locales + "\t" + path);
             } else {
                 logln("-en, +" + locales + "\t" + path);
@@ -392,7 +399,7 @@ public class TestCLDRFile extends TestFmwk {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
                 errln(cldr.getLocaleID() + "\t" + cldr.getStringValue(path)
-                + "\t" + cldr.getFullXPath(path));
+                    + "\t" + cldr.getFullXPath(path));
             }
             if (path == null) {
                 errln("Null path");
@@ -464,7 +471,7 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     private Set<String> getNonAliased(Set<String> paths, CLDRFile file) {
-        Set<String> result = new LinkedHashSet<String>();
+        Set<String> result = new LinkedHashSet<>();
         for (String path : paths) {
             if (file.isHere(path)) {
                 result.add(path);
@@ -523,10 +530,10 @@ public class TestCLDRFile extends TestFmwk {
 
             CLDRFile cldrFileUnresolved = testInfo.getCLDRFile(locale, false);
             Status status = new Status();
-            Output<String> localeWhereFound = new Output<String>();
-            Output<String> pathWhereFound = new Output<String>();
+            Output<String> localeWhereFound = new Output<>();
+            Output<String> pathWhereFound = new Output<>();
 
-            Map<String, String> diff = new TreeMap<String, String>(
+            Map<String, String> diff = new TreeMap<>(
                 CLDRFile.getComparator(DtdType.ldml));
 
             Size countSuperfluous = new Size();
@@ -558,7 +565,7 @@ public class TestCLDRFile extends TestFmwk {
                             baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
                             topValue = cldrFileUnresolved.getStringValue(path);
                             resolvedValue = cldrFile.getStringValue(path);
-                        };
+                        }
                         if (!assertEquals(
                             "bailey locale≠\t" + locale + "\t" + phf.fromPath(path),
                             locale2,
@@ -668,7 +675,7 @@ public class TestCLDRFile extends TestFmwk {
         TreeSet<String> mainList = new TreeSet<>(Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY).list()));
 
         for (String dir : DtdType.ldml.directories) {
-            Set<String> dirFiles = new TreeSet<String>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
+            Set<String> dirFiles = new TreeSet<>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
             if (!mainList.containsAll(dirFiles)) {
                 dirFiles.removeAll(mainList);
                 errln(dir + " has extra files" + dirFiles);
@@ -725,7 +732,7 @@ public class TestCLDRFile extends TestFmwk {
                 }
             }
 
-            // establish that the parent of locale is somewhere in the same 
+            // establish that the parent of locale is somewhere in the same
 //                assertEquals(dir + " locale file has minimal id: ", min, loc);
 //            if (!dir.endsWith("exemplars")) {
 //                continue;
@@ -802,7 +809,7 @@ public class TestCLDRFile extends TestFmwk {
             }
             String value = swissHighGerman.getStringValue(xpath);
             if (value.indexOf('ß') >= 0) {
-                System.err.println("«" + value + "» contains ß at " + xpath);
+                warnln("«" + value + "» contains ß at " + xpath);
             }
         }
     }
@@ -810,8 +817,7 @@ public class TestCLDRFile extends TestFmwk {
     public void TestExtraPaths() {
         List<String> testCases = Arrays.asList(
             "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Gy\"]/greatestDifference[@id=\"G\"]"
-            );
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Gy\"]/greatestDifference[@id=\"G\"]");
         CLDRFile af = testInfo.getCldrFactory().make("af", true);
         Set<String> missing = new HashSet<>(testCases);
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance("af");
@@ -827,12 +833,11 @@ public class TestCLDRFile extends TestFmwk {
                 System.out.println(""
                     + "\nPathHeader:\t" + ph
                     + "\nValue:\t" + value
-                    + "\nLevel:\t" + level 
-                    + "\nReq. Locale:\t" + "af" 
+                    + "\nLevel:\t" + level
+                    + "\nReq. Locale:\t" + "af"
                     + "\nSource Locale:\t" + source
-                    + "\nReq. XPath:\t" + xpath 
-                    + "\nSource Path:\t" + status
-                    );
+                    + "\nReq. XPath:\t" + xpath
+                    + "\nSource Path:\t" + status);
                 missing.remove(xpath);
             }
         }

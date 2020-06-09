@@ -27,18 +27,29 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Options;
+import org.unicode.cldr.test.CheckUnits;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.LocaleStringProvider;
 import org.unicode.cldr.util.MapComparator;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.ContinuedFraction;
 import org.unicode.cldr.util.Rational.FormatStyle;
@@ -53,11 +64,14 @@ import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.Continuation;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
+import org.unicode.cldr.util.UnitConverter.UnitComplexity;
 import org.unicode.cldr.util.UnitConverter.UnitId;
+import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.UnitPreferences;
 import org.unicode.cldr.util.UnitPreferences.UnitPreference;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -74,11 +88,14 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
+    private static final Integer INTEGER_ONE = Integer.valueOf(1);
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false); // set for verbose debugging information
     private static final boolean GENERATE_TESTS = CldrUtility.getProperty("TestUnits:GENERATE_TESTS", false);
 
@@ -209,7 +226,7 @@ public class TestUnits extends TestFmwk {
 
     static final String PATH_METER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"{1}\"]";
     static final String PATH_MILLIMETER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"length-millimeter\"]/unitPattern[@count=\"{1}\"]";
-    static final String PATH_SQUARE_METER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"{1}\"]";    
+    static final String PATH_SQUARE_METER_PATTERN = "//ldml/units/unitLength[@type=\"{0}\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"{1}\"]";
 
     public void TestCompoundUnit3() {
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
@@ -237,7 +254,7 @@ public class TestUnits extends TestFmwk {
                 final boolean isPrefix = prefixType.startsWith("1");
 
                 for (String len : Arrays.asList("long", "short", "narrow")) {
-                    String prefixPath = ExampleGenerator.format(isPrefix ? PATH_PREFIX_PATTERN 
+                    String prefixPath = ExampleGenerator.format(isPrefix ? PATH_PREFIX_PATTERN
                         : PATH_SUFFIX_PATTERN,
                         len, prefixType);
                     String prefixValue = file.getStringValue(prefixPath);
@@ -257,14 +274,14 @@ public class TestUnits extends TestFmwk {
                                 continue;
                             }
                         }
-                        if (!assertEquals2(errMsg, testCount++ + ") " 
-                            + locale + "/" + len + "/" + count + "/" + prefix + "+" + baseUnit 
+                        if (!assertEquals2(errMsg, testCount++ + ") "
+                            + locale + "/" + len + "/" + count + "/" + prefix + "+" + baseUnit
                             + ": constructed pattern",
-                            targetUnitPattern, 
+                            targetUnitPattern,
                             composedTargetUnitPattern)) {
                             Units.combinePattern(baseUnitPattern, prefixValue, lowercaseIfSpaced);
                             int debug = 0;
-                        };
+                        }
                     }
                 }
             }
@@ -309,7 +326,7 @@ public class TestUnits extends TestFmwk {
                 String value = english.getStringValue(path);
                 prefixes.add(value.replace("{0}", "").trim());
             }
-        }        
+        }
         Map<Status, Set<String>> unitValidity = Validity.getInstance().getStatusToCodes(LstrType.unit);
         Multimap<String, String> from = LinkedHashMultimap.create();
         for (String unit : unitValidity.get(Status.regular)) {
@@ -436,7 +453,7 @@ public class TestUnits extends TestFmwk {
             String canonicalUnit = converter.getBaseUnit(simple);
             UnitId unitId = converter.createUnitId(canonicalUnit);
             String output = unitId.toString();
-            if (!assertEquals(simple + ": targets should be in canonical form", 
+            if (!assertEquals(simple + ": targets should be in canonical form",
                 output, canonicalUnit)) {
                 // for debugging
                 converter.createUnitId(canonicalUnit);
@@ -449,7 +466,7 @@ public class TestUnits extends TestFmwk {
             try {
                 UnitId unitId = converter.createUnitId(baseUnit);
                 String output = unitId.toString();
-                if (!assertEquals(quantity + ": targets should be in canonical form", 
+                if (!assertEquals(quantity + ": targets should be in canonical form",
                     output, baseUnit)) {
                     // for debugging
                     converter.createUnitId(baseUnit);
@@ -465,7 +482,7 @@ public class TestUnits extends TestFmwk {
                 UnitId unitId = converter.createUnitId(baseUnit);
                 assertNotNull("Can't parse baseUnit: " + baseUnit, unitId);
             } catch (Exception e) {
-                UnitId unitId = converter.createUnitId(baseUnit); // for debugging
+                converter.createUnitId(baseUnit); // for debugging
                 errln("Can't parse baseUnit: " + baseUnit);
             }
         }
@@ -487,7 +504,7 @@ public class TestUnits extends TestFmwk {
             assertEquals(source, expectedRational, unitInfo.factor);
         }
 
-        // check all 
+        // check all
         if (GENERATE_TESTS) System.out.println();
         Set<String> badUnits = new LinkedHashSet<>();
         Set<String> noQuantity = new LinkedHashSet<>();
@@ -505,9 +522,9 @@ public class TestUnits extends TestFmwk {
         }
         if (GENERATE_TESTS) { // test data
             System.out.println(
-                "# Test data for unit conversions\n" 
+                "# Test data for unit conversions\n"
                     + CldrUtility.getCopyrightString("#  ") + "\n"
-                    + "#\n" 
+                    + "#\n"
                     + "# Format:\n"
                     + "#\tQuantity\t;\tx\t;\ty\t;\tconversion to y (rational)\t;\ttest: 1000 x ⟹ y\n"
                     + "#\n"
@@ -528,8 +545,8 @@ public class TestUnits extends TestFmwk {
 
     static final Set<String> NOT_CONVERTABLE = ImmutableSet.of("generic");
 
-    private void checkUnitConvertability(UnitConverter converter, Output<String> compoundBaseUnit, 
-        Set<String> badUnits, Set<String> noQuantity, String type, String unit, 
+    private void checkUnitConvertability(UnitConverter converter, Output<String> compoundBaseUnit,
+        Set<String> badUnits, Set<String> noQuantity, String type, String unit,
         Multimap<Pair<String, Double>, String> testPrintout) {
 
         if (converter.isBaseUnit(unit)) {
@@ -618,12 +635,28 @@ public class TestUnits extends TestFmwk {
         assertEquals("", 6.02214076E+23d, parser.parse("6.02214076E+23").toBigDecimal().doubleValue());
         Rational temp = parser.parse("gal_to_m3");
         //System.out.println(" " + temp);
-        assertEquals("", 0.003785411784, temp.numerator.doubleValue()/temp.denominator.doubleValue());        
+        assertEquals("", 0.003785411784, temp.numerator.doubleValue()/temp.denominator.doubleValue());
     }
 
 
-    static final Map<String,String> CORE_TO_TYPE = Units.CORE_TO_TYPE;
-    static final Multimap<String,String> TYPE_TO_CORE = Units.TYPE_TO_CORE;
+    static final Map<String,String> CORE_TO_TYPE;
+    static final Multimap<String,String> TYPE_TO_CORE;
+    static {
+        Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
+
+        Map<String, String> coreToType = new TreeMap<>();
+        TreeMultimap<String, String> typeToCore = TreeMultimap.create();
+        for (String s : VALID_UNITS) {
+            int dashPos = s.indexOf('-');
+            String unitType = s.substring(0,dashPos);
+            String coreUnit = s.substring(dashPos+1);
+            coreUnit = converter.fixDenormalized(coreUnit);
+            coreToType.put(coreUnit, unitType);
+            typeToCore.put(unitType, coreUnit);
+        }
+        CORE_TO_TYPE = ImmutableMap.copyOf(coreToType);
+        TYPE_TO_CORE = ImmutableMultimap.copyOf(typeToCore);
+    }
 
     public void TestUnitCategory() {
         if (SHOW_DATA) System.out.println();
@@ -644,7 +677,7 @@ public class TestUnits extends TestFmwk {
                 errln("Null quantity " + coreUnit);
             } else if (!unitType.equals(quantity)) {
                 switch (unitType) {
-                case "concentr": 
+                case "concentr":
                     switch (quantity) {
                     case "portion": case "mass-density": case "concentration": case "substance-amount": continue;
                     }
@@ -654,7 +687,7 @@ public class TestUnits extends TestFmwk {
                     case "consumption-inverse": continue;
                     }
                     break;
-                case "duration": 
+                case "duration":
                     switch (quantity) {
                     case "year-duration": continue;
                     }
@@ -786,7 +819,7 @@ public class TestUnits extends TestFmwk {
 
     public void TestConversionLineOrder() {
         Map<String, TargetInfo> data = converter.getInternalConversionData();
-        Multimap<TargetInfo, String> sorted = TreeMultimap.create(converter.targetInfoComparator, 
+        Multimap<TargetInfo, String> sorted = TreeMultimap.create(converter.targetInfoComparator,
             Comparator.naturalOrder());
         Multimaps.invertFrom(Multimaps.forMap(data), sorted);
 
@@ -799,7 +832,9 @@ public class TestUnits extends TestFmwk {
             final TargetInfo tInfo = entry.getKey();
             final String unit = entry.getValue();
             if (lastUnit != null) {
-                assertTrue(lastUnit + " < " + unit, conversionOrder.compare(lastUnit, unit) < 0);
+                if (!(conversionOrder.compare(lastUnit, unit) < 0)) {
+                    warnln("Expected " + lastUnit + " < " + unit);
+                }
             }
             lastUnit = unit;
             if (SHOW_DATA) {
@@ -864,7 +899,7 @@ public class TestUnits extends TestFmwk {
     static final Pattern ukSystemPattern = Pattern.compile("\\b(lb_to_kg|ft_to_m|ft2_to_m2|ft3_to_m3|in3_to_m3|gal_imp_to_m3)\\b");
 
     static final Set<String> OK_BOTH = ImmutableSet.of(
-        "ounce-troy", "nautical-mile", "fahrenheit", "inch-ofhg", 
+        "ounce-troy", "nautical-mile", "fahrenheit", "inch-ofhg",
         "british-thermal-unit", "foodcalorie", "knot");
 
     static final Set<String> OK_US = ImmutableSet.of(
@@ -887,14 +922,14 @@ public class TestUnits extends TestFmwk {
             if (inputFactor == null) {
                 inputFactor = "";
             }
-            boolean usSystem = !NOT_US.contains(unit) && 
+            boolean usSystem = !NOT_US.contains(unit) &&
                 (OK_BOTH.contains(unit)
-                    || OK_US.contains(unit) 
+                    || OK_US.contains(unit)
                     || usSystemPattern.matcher(inputFactor).find());
 
-            boolean ukSystem = !NOT_UK.contains(unit) && 
+            boolean ukSystem = !NOT_UK.contains(unit) &&
                 (OK_BOTH.contains(unit)
-                    || OK_UK.contains(unit) 
+                    || OK_UK.contains(unit)
                     || ukSystemPattern.matcher(inputFactor).find());
 
             Collection<String> systems = toSystems.get(unit);
@@ -916,7 +951,7 @@ public class TestUnits extends TestFmwk {
         Output<String> metricUnit = new Output<>();
         Stream<String> lines;
         try {
-            lines = Files.lines(testFile.toPath()); 
+            lines = Files.lines(testFile.toPath());
         } catch (IOException e) {
             throw new ICUUncheckedIOException("Couldn't process " + testFile);
         }
@@ -971,7 +1006,7 @@ public class TestUnits extends TestFmwk {
         int count = 0;
         for (String[] test : tests) {
             final Rational sourceValue = Rational.of(test[0]);
-            final String sourceUnit = test[1]; 
+            final String sourceUnit = test[1];
             final String targetUnit = test[2];
             final Rational expectedValue = Rational.of(test[3]);
             final Rational conversion = converter.convert(sourceValue, sourceUnit, targetUnit, SHOW_DATA);
@@ -1049,7 +1084,7 @@ public class TestUnits extends TestFmwk {
             for (String targetUnit : comparableUnits) {
                 Rational rational = converter.convert(Rational.ONE, sourceUnit, targetUnit, false);
                 if (SHOW_DATA) System.out.print("\t" + rational.toBigDecimal(MathContext.DECIMAL64).doubleValue());
-            }               
+            }
             if (SHOW_DATA) System.out.println();
         }
     }
@@ -1073,9 +1108,10 @@ public class TestUnits extends TestFmwk {
         for (Object[] test : tests0) {
             ContinuedFraction source = (ContinuedFraction) test[0];
             Rational expected = (Rational) test[1];
+            @SuppressWarnings("unchecked")
             List<Rational> expectedIntermediates = (List<Rational>) test[2];
             List<Rational> intermediates = new ArrayList<>();
-            final Rational actual = source.toRational(intermediates);            
+            final Rational actual = source.toRational(intermediates);
             assertEquals("continued", expected, actual);
             assertEquals("continued", expectedIntermediates, intermediates);
         }
@@ -1107,9 +1143,9 @@ public class TestUnits extends TestFmwk {
                 final BigDecimal dec64 = item.toBigDecimal(MathContext.DECIMAL64);
                 final BigDecimal dec128 = item.toBigDecimal(MathContext.DECIMAL128);
                 final boolean goodEnough = bigPiD == item.toBigDecimal(MathContext.DECIMAL128).doubleValue();
-                System.out.println(item 
+                System.out.println(item
                     + "\t" + dec64
-                    + "x\t" + dec128 
+                    + "x\t" + dec128
                     + "x\t" + goodEnough
                     + "\t" + item.toBigDecimal(MathContext.DECIMAL128).subtract(bigPi));
                 if (goodEnough && goodCount++ > 6) {
@@ -1177,7 +1213,7 @@ public class TestUnits extends TestFmwk {
                 Set<Set<String>> regionSets = regionsToUnitPreference.keySet();
 
                 // all quantity + usage pairs must contain 001 (one exception)
-                assertTrue("For " + quantityPlusUsage + ", the set of sets of regions must contain 001", regionSets.contains(WORLD_SET) 
+                assertTrue("For " + quantityPlusUsage + ", the set of sets of regions must contain 001", regionSets.contains(WORLD_SET)
                     || quantityPlusUsage.contentEquals("concentration/blood-glucose"));
 
                 // Check that regions don't overlap for same quantity/usage
@@ -1246,7 +1282,7 @@ public class TestUnits extends TestFmwk {
                             String baseUnit = converter.getBaseUnitFromQuantity(unitQuantity);
                             Rational size = converter.convert(up.geq, topUnit, baseUnit, false);
                             if (lastSize != null) { // ensure descending order
-                                if (!assertTrue("Successive items must be ≥ previous:\n\t" + quantityPlusUsage 
+                                if (!assertTrue("Successive items must be ≥ previous:\n\t" + quantityPlusUsage
                                     + "; unit: " + up.unit
                                     + "; size: " + size
                                     + "; regions: " + regions
@@ -1356,9 +1392,9 @@ public class TestUnits extends TestFmwk {
 
         if (GENERATE_TESTS) {
             System.out.println(
-                "\n# Test data for unit preferences\n" 
+                "\n# Test data for unit preferences\n"
                     + CldrUtility.getCopyrightString("#  ") + "\n"
-                    + "#\n" 
+                    + "#\n"
                     + "# Format:\n"
                     + "#\tQuantity;\tUsage;\tRegion;\tInput (r);\tInput (d);\tInput Unit;\tOutput (r);\tOutput (d);\tOutput Unit\n"
                     + "#\n"
@@ -1404,9 +1440,6 @@ public class TestUnits extends TestFmwk {
                         // show samples
                         Set<String> regions = entry3.getKey();
                         String sampleRegion = regions.iterator().next();
-                        if (usage.equals("person-age")) {
-                            int debug = 0;
-                        }
                         Collection<UnitPreference> uprefs = entry3.getValue();
                         for (Rational sample : samples) {
                             showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs);
@@ -1457,7 +1490,7 @@ public class TestUnits extends TestFmwk {
                 formattedUnit.append(sample + TEST_SEP + sample.doubleValue() + TEST_SEP + unit);
             }
         }
-        System.out.println(quantity + TEST_SEP + usage + TEST_SEP + sampleRegion 
+        System.out.println(quantity + TEST_SEP + usage + TEST_SEP + sampleRegion
             + TEST_SEP + originalSampleBaseValue + TEST_SEP + originalSampleBaseValue.doubleValue() + TEST_SEP + baseUnit
             + TEST_SEP + formattedUnit);
     }
@@ -1492,9 +1525,9 @@ public class TestUnits extends TestFmwk {
                     remainingCldrUnits.remove(data.source);
                     remainingCldrUnits.remove(data.target);
                     if (SHOW_DATA) System.out.println("*Converted"
-                        + "\t" + cldrResult.doubleValue() 
-                        + "\t" + externalResult.doubleValue() 
-                        + "\t" + symmetricDiff.doubleValue() 
+                        + "\t" + cldrResult.doubleValue()
+                        + "\t" + externalResult.doubleValue()
+                        + "\t" + symmetricDiff.doubleValue()
                         + "\t" + data);
                 }
             }
@@ -1592,7 +1625,7 @@ public class TestUnits extends TestFmwk {
                 System.out.println("*CANT CONVERT-" + e);
             }
         }
-        Output<String> baseUnit = new Output<String>();
+        Output<String> baseUnit = new Output<>();
         for (ExternalUnitConversionData s : couldAdd) {
             String target = s.target;
             Rational endFactor = s.info.factor;
@@ -1611,9 +1644,9 @@ public class TestUnits extends TestFmwk {
                 }
             }
             System.out.println("Could add 10^X conversion from a"
-                + "\t" +  s.source 
+                + "\t" +  s.source
                 + "\tto" + mark
-                + "\t" + endFactor.toString(FormatStyle.simple)  
+                + "\t" + endFactor.toString(FormatStyle.simple)
                 + "\t" + target);
         }
     }
@@ -1709,7 +1742,7 @@ public class TestUnits extends TestFmwk {
             })
             .collect(Collectors.toSet());
         assertEquals("", Collections.emptySet(), errors);
-        
+
         Set<String> simpleConvertibleLongIds = unitConverter.canConvert().stream()
             .filter(x -> converter.isSimple(x))
             .map((String x) -> Units.LONG_TO_SHORT.inverse().get(x))
@@ -1724,7 +1757,7 @@ public class TestUnits extends TestFmwk {
         assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validLongUnitIds);
 
         assertSuperset("valid regular", "specials", validLongUnitIds, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
-        
+
         assertSuperset("root unit IDs", "specials", unitLongIdsRoot, GrammarInfo.SPECIAL_TRANSLATION_UNITS);
 
         //assertSuperset("long convertible units", "valid regular", unitsConvertibleLongIds, validLongUnitIds);
@@ -1734,13 +1767,13 @@ public class TestUnits extends TestFmwk {
                 continue;
             }
             String shortUnit = Units.getShort(longUnit);
-             ConversionInfo conversionInfo = converter.parseUnitId(shortUnit, baseUnit, false);
+            ConversionInfo conversionInfo = converter.parseUnitId(shortUnit, baseUnit, false);
             if (!assertNotNull("Can convert " + longUnit, conversionInfo)) {
                 converter.getUnitInfo(shortUnit, baseUnit);
                 int debug = 0;
             }
         }
-        
+
         assertSuperset("valid regular", "simple convertible units", validLongUnitIds, simpleConvertibleLongIds);
 
         SupplementalDataInfo.getInstance().getUnitConverter();
@@ -1775,5 +1808,204 @@ public class TestUnits extends TestFmwk {
             // "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender"
         }
         return unitLongIds;
+    }
+
+    static final Pattern NORM_SPACES = Pattern.compile("[ \u00A0\u200E]");
+
+    public void TestGender() {
+        Output<String> source = new Output<>();
+        Multimap<UnitPathType, String> partsUsed = TreeMultimap.create();
+
+        for (String locale : SDI.hasGrammarInfo()) {
+            // skip ones without gender info
+            GrammarInfo gi = SDI.getGrammarInfo("fr");
+            Collection<String> genderInfo = gi.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.general);
+            if (genderInfo.isEmpty()) {
+                continue;
+            }
+            // check others
+            CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            for (Entry<String, String> entry : UnitConverter.SHORT_TO_LONG_ID.entrySet()) {
+                final String shortUnitId = entry.getKey();
+                final String longUnitId = entry.getValue();
+                final UnitId unitId = converter.createUnitId(shortUnitId);
+                partsUsed.clear();
+                String rawGender = UnitPathType.gender.getTrans(resolvedFile, "long", shortUnitId, null, null, null, partsUsed);
+
+                if (rawGender != null) {
+                    String gender = unitId.getGender(resolvedFile, source, partsUsed);
+                    if (gender != null && !shortUnitId.equals(source.value)) {
+                        assertEquals("See if computed gender = raw gender for " + locale + "/" + shortUnitId + "\n\t" + Joiner.on("\n\t\t").join(partsUsed.asMap().entrySet()), rawGender, gender);
+                    }
+                }
+            }
+        }
+    }
+
+    public void TestFallbackNames() {
+        String[][] sampleUnits = {
+            {"fr", "square-meter", "one", "nominative", "{0} mètre carré"},
+            {"fr", "square-meter", "other", "nominative", "{0} mètres carrés"},
+            {"fr", "square-decimeter", "other", "nominative", "{0} décimètres carrés"},
+            {"fr", "meter-per-square-second", "one", "nominative", "{0} mètre par seconde carrée"},
+            {"fr", "meter-per-square-second", "other", "nominative", "{0} mètres par seconde carrée"},
+
+            {"de", "square-meter", "other", "nominative", "{0} Quadratmeter"},
+            {"de", "square-decimeter", "other", "nominative", "{0} Quadratdezimeter"}, // real fail
+
+            {"de", "per-meter", "other", "nominative", "{0} pro Meter"},
+            {"de", "per-square-meter", "other", "nominative", "{0} pro Quadratmeter"},
+            {"de", "second-per-meter", "other", "nominative", "{0} Sekunden pro Meter"},
+            {"de", "meter-per-second", "other", "nominative", "{0} Meter pro Sekunde"},
+            {"de", "meter-per-square-second", "other", "nominative", "{0} Meter pro Quadratsekunde"},
+
+            {"de", "gigasecond-per-decimeter", "other", "nominative", "{0} Gigasekunden pro Dezimeter"},
+            {"de", "decimeter-per-gigasecond", "other", "nominative", "{0} Dezimeter pro Gigasekunde"}, // real fail
+
+            {"de", "gigasecond-milligram-per-centimeter-decisecond", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter⋅Dezisekunde"},
+            {"de", "milligram-per-centimeter-decisecond", "other", "nominative", "{0} Milligramm pro Zentimeter⋅Dezisekunde"},
+            {"de", "per-centimeter-decisecond", "other", "nominative", "{0} pro Zentimeter⋅Dezisekunde"},
+            {"de", "gigasecond-milligram-per-centimeter", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter"},
+            {"de", "gigasecond-milligram", "other", "nominative", "{0} Milligramm⋅Gigasekunden"},
+
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "nominative", "{0} britischer Dessertlöffel pro britischen Dessertlöffel"},
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "accusative", "{0} britischen Dessertlöffel pro britischen Dessertlöffel"},
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "dative", "{0} britischem Dessertlöffel pro britischen Dessertlöffel"},
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "genitive", "{0} britischen Dessertlöffels pro britischen Dessertlöffel"},
+            // {"de", "foebar-foobar-per-fiebar-faebar", "other", "genitive", null},
+
+        };
+        ImmutableMap<String, String> frOverrides = ImmutableMap.<String, String>builder() // insufficient data in French as yet
+            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", "{0} carré") //
+            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", "{0} carrés") //
+            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]", "{0} carrée") //
+            .put("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]", "{0} carrées") //
+            .build();
+
+        Multimap<UnitPathType, String> partsUsed = TreeMultimap.create();
+        int count = 0;
+        for (String[] row : sampleUnits) {
+            ++count;
+            final String locale = row[0];
+            CLDRFile resolvedFileRaw = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            LocaleStringProvider resolvedFile;
+            switch(locale) {
+            case "fr":  resolvedFile = resolvedFileRaw.makeOverridingStringProvider(frOverrides); break;
+            default: resolvedFile = resolvedFileRaw;
+            }
+
+            String shortUnitId = row[1];
+            String pluralCategory = row[2];
+            String caseVariant = row[3];
+            String expectedName = row[4];
+            final UnitId unitId = converter.createUnitId(shortUnitId);
+            final String actual = unitId.toString(resolvedFile, "long", pluralCategory, caseVariant, partsUsed, false);
+            assertEquals(count + ") " + Arrays.asList(row).toString() + "\n\t" + Joiner.on("\n\t").join(partsUsed.asMap().entrySet()), fixSpaces(expectedName), fixSpaces(actual));
+        }
+
+    }
+    public void TestFileFallbackNames() {
+        Multimap<UnitPathType, String> partsUsed = TreeMultimap.create();
+
+        // first gather all the  examples
+        Set<String> skippedUnits = new LinkedHashSet<>();
+        Set<String> testSet = CLDRConfig.getInstance().getStandardCodes().getLocaleCoverageLocales(Organization.cldr);
+        Counter<String> localeToErrorCount = new Counter<>();
+        for (String localeId : testSet) {
+            if (localeId.contains("_")) {
+                continue; // skip to make test shorter
+            }
+            CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(localeId, true);
+            PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(localeId);
+            PluralRules pluralRules = pluralInfo.getPluralRules();
+            GrammarInfo grammarInfo =CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(localeId);
+            Collection<String> caseVariants = grammarInfo == null ? null
+                : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+            if (caseVariants == null || caseVariants.isEmpty()) {
+                caseVariants = Collections.singleton("nominative");
+            }
+
+
+            for (Entry<String, String> entry : UnitConverter.SHORT_TO_LONG_ID.entrySet()) {
+                final String shortUnitId = entry.getKey();
+                if (converter.getComplexity(shortUnitId) == UnitComplexity.simple) {
+                    continue;
+                }
+                if (UnitConverter.HACK_SKIP_UNIT_NAMES.contains(shortUnitId)) {
+                    skippedUnits.add(shortUnitId);
+                    continue;
+                }
+                final String longUnitId = entry.getValue();
+                final UnitId unitId = converter.createUnitId(shortUnitId);
+                for (String width : Arrays.asList("long")) { // , "short", "narrow"
+                    for (String pluralCategory : pluralRules.getKeywords()) {
+                        for (String caseVariant : caseVariants) {
+                            String composedName;
+                            try {
+                                composedName = unitId.toString(resolvedFile, width, pluralCategory, caseVariant, partsUsed, false);
+                            } catch (Exception e) {
+                                composedName = "ERROR:" + e.getMessage();
+                            }
+                            if (composedName != null && (composedName.contains("′") || composedName.contains("″"))) { // skip special cases
+                                continue;
+                            }
+                            partsUsed.clear();
+                            String transName = UnitPathType.unit.getTrans(resolvedFile, width, shortUnitId, pluralCategory, caseVariant, null, isVerbose() ? partsUsed : null);
+
+                            // HACK to fix different spaces around placeholder
+                            if (!Objects.equals(fixSpaces(transName), fixSpaces(composedName))) {
+                                logln("\t" + localeId
+                                    + "\t" + shortUnitId
+                                    + "\t" + width
+                                    + "\t" + pluralCategory
+                                    + "\t" + caseVariant
+                                    + "\texpected ≠ fallback\t«" + transName + "»\t≠\t«" + composedName+ "»"
+                                    + partsUsed);
+                                localeToErrorCount.add(localeId, 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (!localeToErrorCount.isEmpty()) {
+            warnln("Use -v for details");
+            for (R2<Long, String> entry : localeToErrorCount.getEntrySetSortedByCount(false, null)) {
+                warnln("composed name ≠ translated name: " + entry.get0() + "\t" + entry.get1());
+            }
+        }
+
+        if (!skippedUnits.isEmpty()) {
+            warnln("Skipping unsupported unit: " + skippedUnits);
+        }
+    }
+
+    public String fixSpaces(String transName) {
+        return transName == null ? null : NORM_SPACES.matcher(transName).replaceAll(" ");
+    }
+
+    public void TestCheckUnits() {
+        CheckUnits checkUnits = new CheckUnits();
+        PathHeader.Factory phf = PathHeader.getFactory();
+        for (String locale : Arrays.asList("en", "fr", "de", "pl", "el")) {
+            CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+
+            Options options = new Options();
+            List<CheckStatus> possibleErrors = new ArrayList<>();
+            checkUnits.setCldrFileToCheck(cldrFile, options, possibleErrors);
+
+            for (String path : StreamSupport.stream(cldrFile.spliterator(), false).sorted().collect(Collectors.toList())) {
+                UnitPathType pathType = UnitPathType.getPathType(XPathParts.getFrozenInstance(path));
+                if (pathType == null || pathType == UnitPathType.unit) {
+                    continue;
+                }
+                String value = cldrFile.getStringValue(path);
+                checkUnits.check(path, path, value, options, possibleErrors);
+                if (!possibleErrors.isEmpty()) {
+                    PathHeader ph = phf.fromPath(path);
+                    logln(locale + "\t" + ph.getCode() + "\t" + possibleErrors.toString());
+                }
+            }
+        }
     }
 }

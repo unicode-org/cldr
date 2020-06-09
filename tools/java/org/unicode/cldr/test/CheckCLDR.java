@@ -716,7 +716,9 @@ abstract public class CheckCLDR {
             patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear,
             invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods,
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
-            badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode;
+            badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
+            mismatchedUnitComponent
+            ;
 
             @Override
             public String toString() {

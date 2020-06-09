@@ -807,6 +807,10 @@ public class PathHeader implements Comparable<PathHeader> {
             public int hashCode() {
                 return sectionId.hashCode() ^ pageId.hashCode();
             }
+            @Override
+            public String toString() {
+                return sectionId + " > " + pageId;
+            }
         }
 
         /**

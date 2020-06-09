@@ -240,7 +240,7 @@ public class VerifyCompactNumbers {
                 + "All of those you should be able to substitute for the numbers in the Minimal Pairs, "
                 + "with an acceptable result. "
                 + "If any would be incorrect, please "
-                + "<a target='ticket' href='https://unicode.org/cldr/trac/newticket'>file a ticket</a>.</p>"
+                + "<a target='ticket' href='" + CLDRURLS.CLDR_NEWTICKET_URL + "'>file a ticket</a>.</p>"
                 + "<p>For more details, see " +
                 "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/cldr-spec/plural-rules'>Plural Rules</a>.</p>");
             ShowPlurals showPlurals = new ShowPlurals(CLDR_CONFIG.getSupplementalDataInfo());

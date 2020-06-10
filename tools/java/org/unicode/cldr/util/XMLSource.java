@@ -1628,11 +1628,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             String norm = null;
             for (String alias : aliases) {
                 if (alias.startsWith(pathPrefix)) {
-                    if (norm == null) {
+                    if (norm == null && valueToMatch != null) {
                         norm = SimpleXMLSource.normalize(valueToMatch);
                     }
                     String value = getValueAtDPath(alias);
-                    if (SimpleXMLSource.normalize(value).equals(norm)) {
+                    if (value != null && SimpleXMLSource.normalize(value).equals(norm)) {
                         filteredPaths.add(alias);
                     }
                 }

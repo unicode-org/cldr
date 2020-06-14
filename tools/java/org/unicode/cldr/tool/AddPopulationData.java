@@ -97,7 +97,7 @@ public class AddPopulationData {
         Set<String> altNames = new TreeSet<String>();
         String oldCode = "";
         for (String display : CountryCodeConverter.names()) {
-            String code = CountryCodeConverter.getCodeFromName(display);
+            String code = CountryCodeConverter.getCodeFromName(display, true);
             String icu = ULocale.getDisplayCountry("und-" + code, "en");
             if (!display.equalsIgnoreCase(icu)) {
                 altNames.add(code + "\t" + display + "\t" + icu);
@@ -201,7 +201,7 @@ public class AddPopulationData {
                     return false;
                 }
                 String[] pieces = line.split("\\s{2,}");
-                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces));
+                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces), true);
                 if (code == null) {
                     return false;
                 }
@@ -293,7 +293,7 @@ public class AddPopulationData {
         CldrUtility.handleFile(filename, new LineHandler() {
             public boolean handle(String line) {
                 String[] pieces = line.split("\\t");
-                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces));
+                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces), true);
                 if (code == null) {
                     return false;
                 }
@@ -344,7 +344,7 @@ public class AddPopulationData {
                 if (last == null) {
                     return false;
                 }
-                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces));
+                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces), true);
                 if (country == null) {
                     return false;
                 }
@@ -383,7 +383,7 @@ public class AddPopulationData {
                 if (pieces.length != 14 || pieces[1].length() == 0 || !DIGITS.containsAll(pieces[1])) {
                     return false;
                 }
-                String code = CountryCodeConverter.getCodeFromName(pieces[0]);
+                String code = CountryCodeConverter.getCodeFromName(pieces[0], true);
                 if (code == null) {
                     return false;
                 }
@@ -437,7 +437,7 @@ public class AddPopulationData {
             }
             if (myErrors.length() != 0) {
                 throw new IllegalArgumentException(
-                    "Missing Country values, the following and add to external/other_country_data to fix:"
+                    "Missing Country values, the following and add to external/other_country_data to fix, chaning the 0 to the real value:"
                         + myErrors);
             }
         } catch (IOException e) {

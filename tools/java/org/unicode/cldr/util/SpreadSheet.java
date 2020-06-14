@@ -20,6 +20,9 @@ public class SpreadSheet {
         while (true) {
             String line = r.readLine();
             if (line == null) break;
+            if (line.startsWith("#")) {
+                continue;
+            }
             if (DEBUG) {
                 System.out.println("Spreadsheet:\t" + line);
             }

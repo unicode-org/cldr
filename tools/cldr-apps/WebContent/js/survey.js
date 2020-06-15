@@ -2629,9 +2629,9 @@ function addVitem(td, tr, theRow, item, newButton) {
 	var displayValue = item.value;
 	if (displayValue === INHERITANCE_MARKER) {
 		displayValue = theRow.inheritedValue;
-		if (displayValue == null) {
-			return;
-		}
+	}
+	if (!displayValue) {
+		return;
 	}
 	var div = document.createElement("div");
 	var isWinner = (td == tr.proposedcell);

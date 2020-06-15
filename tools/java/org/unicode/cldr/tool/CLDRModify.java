@@ -1112,7 +1112,7 @@ public class CLDRModify {
                 }
                 String oldFullXPath = cldrFileToFilter.getFullXPath(xpath);
                 String value = cldrFileToFilter.getStringValue(xpath);
-                XPathParts fullparts = XPathParts.getInstance(oldFullXPath); // not frozen, for removeAttribute
+                XPathParts fullparts = XPathParts.getFrozenInstance(oldFullXPath).cloneAsThawed(); // not frozen, for removeAttribute
                 fullparts.removeAttribute("pattern", "alt");
                 fullparts.setAttribute("currencyFormat", "type", "accounting");
                 String newFullXPath = fullparts.toString();
@@ -1203,12 +1203,13 @@ public class CLDRModify {
                 if (!xpath.contains("/language")) {
                     return;
                 }
-                XPathParts parts = XPathParts.getInstance(xpath); // not frozen, for setAttribute
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 String languageCode = parts.findAttributeValue("language", "type");
                 String v = resolved.getStringValue(xpath);
                 if (!languageCode.equals("swc")) {
                     return;
                 }
+                parts = parts.cloneAsThawed();
                 parts.setAttribute("language", "type", "sw_CD");
                 replace(xpath, parts.toString(), v);
             }
@@ -1291,7 +1292,7 @@ public class CLDRModify {
                     return;
                 }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts parts = XPathParts.getInstance(fullpath); // not frozen, for setAttribute
+                XPathParts parts = XPathParts.getFrozenInstance(fullpath).cloneAsThawed(); // not frozen, for setAttribute
                 String countValue = parts.getAttributeValue(-1, "count");
                 if (!DIGITS.containsAll(countValue)) {
                     return;
@@ -1328,7 +1329,7 @@ public class CLDRModify {
                 String userID = options[USER].value;
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
                 String value = cldrFileToFilter.getStringValue(xpath);
-                XPathParts parts = XPathParts.getInstance(fullpath); // not frozen, for addAttribute
+                XPathParts parts = XPathParts.getFrozenInstance(fullpath).cloneAsThawed(); // not frozen, for addAttribute
                 parts.addAttribute("draft", "unconfirmed");
                 parts.addAttribute("alt", "proposed-u" + userID + "-implicit1.8");
                 String newPath = parts.toString();
@@ -1499,7 +1500,7 @@ public class CLDRModify {
             public void handlePath(String xpath) {
                 if (xpath.indexOf("proposed") < 0) return;
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts parts = XPathParts.getInstance(fullXPath); // not frozen, for removeProposed
+                XPathParts parts = XPathParts.getFrozenInstance(fullXPath).cloneAsThawed(); // not frozen, for removeProposed
                 String newFullXPath = parts.removeProposed().toString();
                 // now see if there is an uninherited value
                 String value = cldrFileToFilter.getStringValue(xpath);
@@ -1727,7 +1728,7 @@ public class CLDRModify {
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
                 if (!fullpath.contains("reference")) return;
                 String value = cldrFileToFilter.getStringValue(xpath);
-                XPathParts fullparts = XPathParts.getInstance(fullpath); // can't be frozen
+                XPathParts fullparts = XPathParts.getFrozenInstance(fullpath).cloneAsThawed(); // can't be frozen
                 if ("reference".equals(fullparts.getElement(-1))) {
                     fixType(value, "type", fullpath, fullparts);
                 } else if (fullparts.getAttributeValue(-1, "references") != null) {
@@ -1772,13 +1773,14 @@ public class CLDRModify {
                     return;
                 }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                XPathParts parts = XPathParts.getInstance(fullpath); // not frozen, for putAttributeValue
+                XPathParts parts = XPathParts.getFrozenInstance(fullpath);
                 String cp = parts.getAttributeValue(2, "cp");
                 String tts = parts.getAttributeValue(2, "tts");
                 String type = parts.getAttributeValue(2, "type");
                 if ("tts".equals(type)) {
                     return; // ok, skip
                 }
+                parts = parts.cloneAsThawed();
                 String hex = "1F600";
                 if (cp.startsWith("[")) {
                     UnicodeSet us = new UnicodeSet(cp);
@@ -2269,7 +2271,7 @@ public class CLDRModify {
                         continue;
                     }
 
-                    XPathParts fullparts = XPathParts.getInstance(fullPath); // not frozen, for setAttribute
+                    XPathParts fullparts = XPathParts.getFrozenInstance(fullPath).cloneAsThawed(); // not frozen, for setAttribute
                     fullparts.setAttribute(-1, "draft", worstStatus.toString());
                     replace(fullPath, fullparts.toString(), value, "Fleshing out bailey to " + worstStatus);
                 }

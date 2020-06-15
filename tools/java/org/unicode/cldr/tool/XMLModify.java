@@ -85,7 +85,7 @@ public class XMLModify {
                         out.println("<!--" + value + " -->");
                         continue;
                     }
-                    XPathParts parts = XPathParts.getInstance(path); // not frozen, for setAttribute
+                    XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for setAttribute
                     if (pathMatcher.reset(path).matches()) {
                         String type = parts.getAttributeValue(-1, "type");
                         parts.setAttribute(-1, "type", type.toLowerCase(Locale.ROOT).replaceAll("-", ""));

@@ -342,7 +342,7 @@ public class ExampleGenerator {
          * Need getInstance, not getFrozenInstance here: some functions such as handleNumberSymbol
          * expect to call functions like parts.addRelative which throw exceptions if parts is frozen.
          */
-        XPathParts parts = XPathParts.getInstance(xpath);
+        XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
         if (parts.contains("dateRangePattern")) { // {0} - {1}
             result = handleDateRangePattern(value);
         } else if (parts.contains("timeZoneNames")) {

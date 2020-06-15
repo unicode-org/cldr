@@ -449,7 +449,7 @@ public class XPathTable {
      * Called by handlePathValue and makeProposedFile
      */
     public static String removeAlt(String path) {
-        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         xpp.removeAttribute(-1, LDMLConstants.ALT);
         return xpp.toString();
     }
@@ -463,7 +463,7 @@ public class XPathTable {
      * @return
      */
     public static String removeDraftAltProposed(String path) {
-        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
 
         // Remove alt proposed, but leave the type
@@ -511,7 +511,7 @@ public class XPathTable {
      * This is NOT the same as the two-parameter xpathToBaseXpath elsewhere in this file
      */
     public static String xpathToBaseXpath(String xpath) {
-        XPathParts xpp = XPathParts.getInstance(xpath); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(xpath);
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String oldAlt = lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
@@ -520,10 +520,12 @@ public class XPathTable {
 
         String newAlt = LDMLUtilities.parseAlt(oldAlt)[0]; // #0 : altType
         if (newAlt == null) {
+            xpp = xpp.cloneAsThawed();
             xpp.removeAttribute(-1, LDMLConstants.ALT); // alt dropped out existence
         } else if (newAlt.equals(oldAlt)) {
             return xpath; // No change
         } else {
+            xpp = xpp.cloneAsThawed();
             xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
@@ -562,7 +564,7 @@ public class XPathTable {
      * @return the type as a string
      */
     private String whatFromPathToTinyXpath(String path, String what) {
-        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String type = lastAtts.get(what);
         if (type != null) {

@@ -399,7 +399,7 @@ public class TestPaths extends TestFmwkPlus {
                     for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(fullName, new ArrayList<Pair<String, String>>(), true)) {
                         String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
-                        XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeNonDistinguishing
+                        XPathParts parts = XPathParts.getFrozenInstance(path);
                         if (dtdData == null) {
                             type = DtdType.valueOf(parts.getElement(0));
                             dtdData = DtdData.getInstance(type);
@@ -449,6 +449,7 @@ public class TestPaths extends TestFmwkPlus {
                         if (!normalizedPath.equals(path) && !normalizedPath[0].equals(dpath)) {
                             checkParts(normalizedPath[0], dtdData);
                         }
+                        parts = parts.cloneAsThawed();
                         counter = removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
                         String cleaned = parts.toString();
                         Pair<String, String> pair = Pair.of(type == DtdType.ldml ? file : type.toString(), cleaned);

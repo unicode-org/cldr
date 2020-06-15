@@ -104,7 +104,7 @@ public class LogicalGrouping {
         XPathParts parts = null;
         PathType pathType = null;
         if (GET_TYPE_FROM_PARTS) {
-            parts = XPathParts.getInstance(path); // can't always be frozen, some addPath do setAttribute
+            parts = XPathParts.getFrozenInstance(path);
             pathType = PathType.getPathTypeFromParts(parts);
         } else {
             /*
@@ -128,7 +128,9 @@ public class LogicalGrouping {
         }
 
         if (!GET_TYPE_FROM_PARTS) {
-            parts = XPathParts.getInstance(path);
+            parts = XPathParts.getFrozenInstance(path).cloneAsThawed();
+        } else {
+            parts = parts.cloneAsThawed();
         }
 
         if (PathType.isLocaleDependent(pathType)) {
@@ -171,7 +173,7 @@ public class LogicalGrouping {
      *         that it belongs to.
      */
     public static boolean isOptional(CLDRFile cldrFile, String path) {
-        XPathParts parts = XPathParts.getInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
 
         if (parts.containsElement("relative")) {
             String fieldType = parts.findAttributeValue("field", "type");
@@ -188,6 +190,7 @@ public class LogicalGrouping {
         if (pluralType.equals("0") || pluralType.equals("1")) return true;
         if (!pluralType.equals("zero") && !pluralType.equals("one")) return false;
 
+        parts = parts.cloneAsThawed();
         PluralRules pluralRules = getPluralInfo(cldrFile).getPluralRules();
         parts.setAttribute(-1, "count", "0");
         Set<Double> explicits = new HashSet<>();

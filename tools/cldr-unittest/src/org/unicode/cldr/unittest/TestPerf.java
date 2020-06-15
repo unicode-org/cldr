@@ -123,7 +123,7 @@ public class TestPerf extends TestFmwkPlus {
         int size = 0;
         for (String p : testPaths) {
             for (int i = 0; i < ITERATIONS; ++i) {
-                XPathParts xpp = XPathParts.getInstance(p);
+                XPathParts xpp = XPathParts.getFrozenInstance(p);
                 size += xpp.size();
             }
         }

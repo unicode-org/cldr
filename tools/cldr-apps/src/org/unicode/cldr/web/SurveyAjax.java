@@ -2983,7 +2983,7 @@ public class SurveyAjax extends HttpServlet {
         try {
             for (String x : all) {
                 String full = cf.getFullXPath(x);
-                XPathParts xppMine = XPathParts.getInstance(full); // not frozen, for xPathPartsToBase
+                XPathParts xppMine = XPathParts.getFrozenInstance(full).cloneAsThawed(); // not frozen, for xPathPartsToBase
                 String valOrig = cf.getStringValue(x);
                 Exception exc[] = new Exception[1];
                 final String val0 = processor.processInput(x, valOrig, exc);
@@ -3005,7 +3005,7 @@ public class SurveyAjax extends HttpServlet {
                     style = "opacity: 0.9;";
                 }
 
-                XPathParts xpp = XPathParts.getInstance(base); // not frozen, for removeAttribute
+                XPathParts xpp = XPathParts.getFrozenInstance(base).cloneAsThawed(); // not frozen, for removeAttribute
                 xpp.removeAttribute(-1, LDMLConstants.ALT);
 
                 String result = "";

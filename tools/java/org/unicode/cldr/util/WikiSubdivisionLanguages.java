@@ -343,7 +343,7 @@ public final class WikiSubdivisionLanguages {
             R2<List<String>, String> replacement = SUBDIVISION_ALIASES.get(type);
             if (replacement != null) {
                 String fullPath = oldFileSubdivisions.getFullXPath(path);
-                XPathParts parts2 = XPathParts.getInstance(fullPath);
+                XPathParts parts2 = XPathParts.getFrozenInstance(fullPath).cloneAsThawed();
                 for (String replacementType : replacement.get0()) {
                     parts2.setAttribute(-1, "type", replacementType);
                     toRemove.add(path);

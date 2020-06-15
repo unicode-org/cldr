@@ -472,7 +472,7 @@ public class ChartDelta extends Chart {
         // NEW:     <annotation cp="😀">face | grin</annotation>
         //          <annotation cp="😀" type="tts">grinning face</annotation>
         // from the NEW paths, get the OLD values
-        XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         boolean isTts = parts.getAttributeValue(-1, "type") != null;
         if (isTts) {
             parts.removeAttribute(-1, "type");

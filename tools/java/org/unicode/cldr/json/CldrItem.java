@@ -229,10 +229,10 @@ public class CldrItem implements Comparable<CldrItem> {
                 String[] words = null;
                 words = wordString.trim().split("\\s+");
                 for (String word : words) {
-                    XPathParts newxpp = XPathParts.getInstance(xpp.toString());
-                    XPathParts newfullxpp = XPathParts.getInstance(fullxpp.toString());
-                    XPathParts untransformednewxpp = XPathParts.getInstance(untransformedxpp.toString());
-                    XPathParts untransformednewfullxpp = XPathParts.getInstance(untransformedfullxpp.toString());
+                    XPathParts newxpp = xpp.cloneAsThawed();
+                    XPathParts newfullxpp = fullxpp.cloneAsThawed();
+                    XPathParts untransformednewxpp = untransformedxpp.cloneAsThawed();
+                    XPathParts untransformednewfullxpp = untransformedfullxpp.cloneAsThawed();
 
                     newxpp.setAttribute(s.element, s.attribute, word);
                     newfullxpp.setAttribute(s.element, s.attribute, word);

@@ -202,7 +202,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         if (type == NumericType.NOT_NUMERIC) {
             return this; // skip
         }
-        XPathParts parts = XPathParts.getInstance(path); // can't be frozen because some of the following code modifies it!
+        XPathParts parts = XPathParts.getFrozenInstance(path);
 
         boolean isPositive = true;
         for (String patternPart : SEMI_SPLITTER.split(value)) {
@@ -280,6 +280,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // Tests that assume that the value is a valid number pattern.
         // Notice that we pick up any exceptions, so that we can
         // give a reasonable error message.
+        parts = parts.cloneAsThawed();
         try {
             if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED) {
                 // Check for consistency in short/long decimal formats.

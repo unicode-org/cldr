@@ -640,10 +640,11 @@ public class TestMisc {
             String path = it.next();
             String value = supp.getStringValue(path);
             String fullPath = supp.getFullXPath(path);
-            XPathParts parts = XPathParts.getInstance(fullPath); // not frozen, for putAttributeValue
+            XPathParts parts = XPathParts.getFrozenInstance(fullPath);
             String type = parts.getAttributeValue(-1, "type");
             String pop = language_territory_hack_map.get(type);
             if (pop != null) {
+                parts = parts.cloneAsThawed();
                 parts.putAttributeValue(-1, "mostPopulousTerritory", pop);
                 fullPath = parts.toString();
             }

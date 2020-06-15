@@ -38,6 +38,9 @@ public class ChartDtdDelta extends Chart {
     private static final String DEPRECATED_PREFIX = "⊖";
 
     private static final String NEW_PREFIX = "+";
+    private static final String ORDERED_SIGN = "⇣";
+    private static final String UNORDERED_SIGN = "⇟";
+
 
     private static final Set<String> OMITTED_ATTRIBUTES = Collections.singleton("⊕");
 
@@ -69,6 +72,7 @@ public class ChartDtdDelta extends Chart {
             + AttributeStatus.metadata.shortName + "=" + AttributeStatus.metadata + ".</li>\n"
             + "<li>Attribute value constraints are marked with ⟨…⟩ (for DTD constraints) and ⟪…⟫ (for augmented constraints, added in v35.0).</li>\n"
             + "<li>Changes in status or constraints are shown with ➠.</li>\n"
+            + "<li>Newly ordered elements are indicated with " + ORDERED_SIGN + "; newly unordered with " + UNORDERED_SIGN + ".</li>\n"
             + "</ul></li></ul>\n"
             + "<p>For more information, see the LDML spec.</p>";
     }
@@ -204,21 +208,24 @@ public class ChartDtdDelta extends Chart {
 
 
         Element oldElement = null;
+        boolean ordered = element.isOrdered();
 
         if (!oldNameToElement.containsKey(name)) {
             Set<String> attributeNames = getAttributeNames(dtdCurrent, dtdLast, name, Collections.emptyMap(), element.getAttributes());
-            addData(dtdCurrent, NEW_PREFIX + name, version, newPath, attributeNames);
+            addData(dtdCurrent, NEW_PREFIX + name + (ordered ? ORDERED_SIGN : ""), version, newPath, attributeNames);
         } else {
             oldElement = oldNameToElement.get(name);
+            boolean oldOrdered = oldElement.isOrdered();
             Set<String> attributeNames = getAttributeNames(dtdCurrent, dtdLast, name, oldElement.getAttributes(), element.getAttributes());
             boolean currentDeprecated = element.isDeprecated();
             boolean lastDeprecated = dtdLast == null ? false : oldElement.isDeprecated(); //  + (currentDeprecated ? "ⓓ" : "")
             boolean newlyDeprecated = currentDeprecated && !lastDeprecated;
+            String orderingStatus = (ordered == oldOrdered || currentDeprecated) ? "" : ordered ? ORDERED_SIGN : UNORDERED_SIGN;
             if (newlyDeprecated) {
-                addData(dtdCurrent, DEPRECATED_PREFIX + name, version, newPath, Collections.emptySet());
+                addData(dtdCurrent, DEPRECATED_PREFIX + name + orderingStatus, version, newPath, Collections.emptySet());
             }
             if (!attributeNames.isEmpty()) {
-                addData(dtdCurrent, (newlyDeprecated ? DEPRECATED_PREFIX : "") + name, version, newPath, attributeNames);
+                addData(dtdCurrent, (newlyDeprecated ? DEPRECATED_PREFIX : "") + name + orderingStatus, version, newPath, attributeNames);
             }
         }
         if (element.getName().equals("coordinateUnit")) {

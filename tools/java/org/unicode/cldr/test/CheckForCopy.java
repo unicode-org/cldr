@@ -156,6 +156,9 @@ public class CheckForCopy extends FactoryCheckCLDR {
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             value = cldrFile.getConstructedBaileyValue(path, null, null);
         }
+        if ("year".equals(value) || "month".equals(value) || "day".equals(value) || "hour".equals(value)) {
+            return Failure.ok;
+        }
         String value2 = value;
         if (isExplicitBailey) {
             value2 = cldrFile.getConstructedValue(path);

@@ -61,6 +61,9 @@ public class CLDRPaths {
 
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/" + MAIN_SUBDIR);
     public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/births/");
+    
+    public static final String CHART_DIRECTORY = CldrUtility.getPath(STAGING_DIRECTORY + "docs/charts/", ToolConstants.CHART_VERSION);
+    public static final String VERIFY_DIR = CLDRPaths.CHART_DIRECTORY + "verify/";
 
     /** Maintained in SVN */
 
@@ -68,8 +71,6 @@ public class CLDRPaths {
 
     public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         CldrUtility.getPath(SVN_DIRECTORY, "cldr-aux/")));
-    public static final String CHART_DIRECTORY = CldrUtility.getPath(AUX_DIRECTORY + "charts/", ToolConstants.CHART_VERSION);
-    public static final String VERIFY_DIR = CLDRPaths.CHART_DIRECTORY + "verify/";
 
     public static final String UCD_DATA_DIRECTORY = CldrUtility.getPath(SVN_DIRECTORY + "unicodetools/unicodetools/data/");
 

@@ -1,6 +1,6 @@
 # Unicode CLDR Project
 
-Latest Release: [v36.0](http://cldr.unicode.org/index/downloads/cldr-36#TOC-V36) published 2019-10-04
+Latest Release: [v37.0](http://cldr.unicode.org/index/downloads/cldr-37#TOC-V37) published 2020-04-23
 
 [![Build Status](https://cldr-build.unicode.org/jenkins/buildStatus/icon?job=cldr%2Fcldr-master)](https://cldr-build.unicode.org/jenkins/job/cldr/job/cldr-master/)
 

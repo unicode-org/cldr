@@ -502,7 +502,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }
-            XPathParts current = XPathParts.getInstance(xpath);
+            XPathParts current = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
             current.writeDifference(pw, current, last, "", tempComments);
             last = current;
         }
@@ -527,12 +527,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
              * The difference between "filtered" (currentFiltered) and "not filtered" (current) is that
              * current uses getFullXPath(xpath), while currentFiltered uses xpath.
              */
-            XPathParts currentFiltered = XPathParts.getInstance(xpath);
+            XPathParts currentFiltered = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
             if (currentFiltered.size() >= 2
                 && currentFiltered.getElement(1).equals("identity")) {
                 continue;
             }
-            XPathParts current = XPathParts.getInstance(getFullXPath(xpath));
+            XPathParts current = XPathParts.getFrozenInstance(getFullXPath(xpath)).cloneAsThawed();
             current.writeDifference(pw, currentFiltered, last, v, tempComments);
             last = current;
             wroteAtLeastOnePath = true;
@@ -883,7 +883,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     && !key.startsWith("//ldml/identity")) {
                     for (int i = 0;; ++i) {
                         String prop = "proposed" + (i == 0 ? "" : String.valueOf(i));
-                        XPathParts parts = XPathParts.getInstance(other.getFullXPath(key)); // not frozen, for addAttribut
+                        XPathParts parts = XPathParts.getFrozenInstance(other.getFullXPath(key)).cloneAsThawed(); // not frozen, for addAttribut
                         String fullPath = parts.addAttribute("alt", prop).toString();
                         String path = getDistinguishingXPath(fullPath, null);
                         if (dataSource.getValueAtPath(path) != null) {
@@ -1338,7 +1338,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             return xpath;
         }
         synchronized (syncObject) {
-            XPathParts parts = XPathParts.getInstance(xpath); // can't be frozen since we call removeAttributes
+            XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // can't be frozen since we call removeAttributes
             String restore;
             HashSet<String> toRemove = new HashSet<>();
             for (int i = 0; i < parts.size(); ++i) {
@@ -2744,7 +2744,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         for (Iterator<String> it = dataSource.iterator(); it.hasNext();) {
             String path = it.next();
-            XPathParts parts = XPathParts.getInstance(dataSource.getFullPath(path)); // not frozen, for addAttribute
+            XPathParts parts = XPathParts.getFrozenInstance(dataSource.getFullPath(path)).cloneAsThawed(); // not frozen, for addAttribute
             parts.addAttribute("draft", draftStatus.toString());
             dataSource.putValueAtPath(parts.toString(), dataSource.getValueAtPath(path));
         }
@@ -2888,7 +2888,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             //     synchronized (distinguishingMap) {
             String result = distinguishingMap.get(xpath);
             if (result == null) {
-                XPathParts distinguishingParts = XPathParts.getInstance(xpath); // not frozen, for removeAttributes
+                XPathParts distinguishingParts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // not frozen, for removeAttributes
 
                 DtdType type = distinguishingParts.getDtdData().dtdType;
                 Set<String> toRemove = new HashSet<>();
@@ -3587,7 +3587,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public String getCountPathWithFallback(String xpath, Count count, boolean winning) {
         String result;
-        XPathParts parts = XPathParts.getInstance(xpath); // not frozen, addAttribute in getCountPathWithFallback2
+        XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // not frozen, addAttribute in getCountPathWithFallback2
 
         // In theory we should do all combinations of gender, case, count (and eventually definiteness), but for simplicity
         // we just successively try "zeroing" each one in a set order.

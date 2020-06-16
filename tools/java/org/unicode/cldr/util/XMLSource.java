@@ -847,7 +847,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // find the differences, and add them into xpath
                 // we do this by walking through each element, adding the corresponding attribute values.
                 // we add attributes FROM THE END, in case the lengths are different!
-                XPathParts xpathParts = XPathParts.getInstance(xpath); // not frozen, for putAttributeValue
+                XPathParts xpathParts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // not frozen, for putAttributeValue
                 XPathParts fullPathWhereFoundParts = XPathParts.getFrozenInstance(fullPathWhereFound);
                 XPathParts pathWhereFoundParts = XPathParts.getFrozenInstance(fullStatus.pathWhereFound);
                 int offset = xpathParts.size() - pathWhereFoundParts.size();

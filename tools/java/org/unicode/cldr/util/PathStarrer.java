@@ -28,7 +28,7 @@ public class PathStarrer implements Transform<String, String> {
     private final StringBuilder starredPathOld = new StringBuilder();
 
     public String set(String path) {
-        XPathParts parts = XPathParts.getInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed();
         return set(parts, Collections.<String> emptySet());
     }
 

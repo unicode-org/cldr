@@ -294,7 +294,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (!path.contains("[@count=") || "0".equals(value)) {
                 return this;
             }
-            XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeElement
+            XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeElement
             String type = parts.getAttributeValue(-1, "type");
             myPrefix = parts.removeElement(-1).toString();
             matcher = PatternCache.get(myPrefix.replaceAll("\\[", "\\\\[") +

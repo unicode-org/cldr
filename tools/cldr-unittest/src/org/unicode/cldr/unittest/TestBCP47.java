@@ -46,20 +46,20 @@ public class TestBCP47 extends TestFmwk {
         String.class);
     static {
         for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/keys/key"))) {
-            XPathParts parts = XPathParts.getInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String value = ENGLISH.getStringValue(path);
             String key = parts.getAttributeValue(-1, "type");
             keyTypeTranslations.put(key, "", value);
         }
         for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/types/type"))) {
-            XPathParts parts = XPathParts.getInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String value = ENGLISH.getStringValue(path);
             String key = parts.getAttributeValue(-1, "key");
             String type = parts.getAttributeValue(-1, "type");
             keyTypeTranslations.put(key, type, value);
         }
         for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/transformNames/transformName"))) {
-            XPathParts parts = XPathParts.getInstance(path);
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String value = ENGLISH.getStringValue(path);
             String type = parts.getAttributeValue(-1, "type");
             keyTypeTranslations.put("d0", type, value);
@@ -181,7 +181,7 @@ public class TestBCP47 extends TestFmwk {
         return "key: " + key + "\taliases: " + keyAliases + (type.isEmpty() ? "" : "\ttype: " + type + "\taliases: " + typeAliases) + "\tbcp: "
             + bcp47Description + ",\teng: " + eng;
     }
-    
+
     static final Set<String> BOGUS_TZIDS = ImmutableSet.of(
         "ACT", "AET", "AGT", "ART", "AST", "BET", "BST", "CAT", "CET", "CNT", "CST", "CTT", "EAT", "ECT", "EET", "Factory", "IET", "IST", "JST", "MET", "MIT",
         "NET", "NST", "PLT", "PNT", "PRT", "PST", "SST", "SystemV/AST4", "SystemV/AST4ADT", "SystemV/CST6", "SystemV/CST6CDT", "SystemV/EST5",
@@ -212,7 +212,7 @@ public class TestBCP47 extends TestFmwk {
                 }
             }
         }
-        
+
         warnln("CLDR deprecated bcp47 ids: " + deprecatedBcp47s);
         warnln("CLDR deprecated tzids: " + deprecatedAliases);
 
@@ -250,7 +250,7 @@ public class TestBCP47 extends TestFmwk {
         } else if (!bcp47IdsNotUsed.isEmpty()) {
             warnln("CLDR has unused (but deprecated) bcp47 ids: " + bcp47IdsNotUsed);
         }
-        
+
         diff = new LinkedHashSet<>(missingAliases);
         diff.removeAll(deprecatedAliases);
         if (!diff.isEmpty()) {

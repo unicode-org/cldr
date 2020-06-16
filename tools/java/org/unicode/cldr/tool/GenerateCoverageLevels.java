@@ -214,7 +214,7 @@ public class GenerateCoverageLevels {
         }
 
         private XPathParts setNewParts(String path) {
-            XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeElement
+            XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeElement
             if (path.startsWith("//ldml/dates/timeZoneNames/metazone")
                 || path.startsWith("//ldml/dates/timeZoneNames/zone")) {
                 String element = nextParts.getElement(-1);

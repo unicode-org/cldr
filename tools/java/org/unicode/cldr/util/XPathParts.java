@@ -1272,10 +1272,6 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         return result;
     }
 
-    public static XPathParts getInstance(String path) {
-        return getFrozenInstance(path).cloneAsThawed();
-    }
-
     public DtdData getDtdData() {
         return dtdData;
     }
@@ -1310,7 +1306,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
     }
 
     public static String getPathWithoutAlt(String xpath) {
-        XPathParts xpp = getInstance(xpath);
+        XPathParts xpp = getFrozenInstance(xpath).cloneAsThawed();
         xpp.removeAttribute("alt");
         return xpp.toString();
     }

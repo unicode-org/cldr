@@ -4118,7 +4118,7 @@ public class SupplementalDataInfo {
 
     public boolean isDeprecated(DtdType type, String path) {
 
-        XPathParts parts = XPathParts.getInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path);
         for (int i = 0; i < parts.size(); ++i) {
             String element = parts.getElement(i);
             if (isDeprecated(type, element, "*", "*")) {

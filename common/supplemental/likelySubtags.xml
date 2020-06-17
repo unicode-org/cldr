@@ -592,8 +592,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Dan; ?; ? } => { Dan; Latin; Côte d’Ivoire }-->
 		<likelySubtag from="dob" to="dob_Latn_ZZ"/>
 		<!--{ Dobu; ?; ? } => { Dobu; Latin; Unknown Region }-->
-		<likelySubtag from="doi" to="doi_Arab_IN"/>
-		<!--{ Dogri; ?; ? } => { Dogri; Arabic; India }-->
+		<likelySubtag from="doi" to="doi_Deva_IN"/>
+		<!--{ Dogri; ?; ? } => { Dogri; Devanagari; India }-->
 		<likelySubtag from="dop" to="dop_Latn_ZZ"/>
 		<!--{ Lukpa; ?; ? } => { Lukpa; Latin; Unknown Region }-->
 		<likelySubtag from="dow" to="dow_Latn_ZZ"/>
@@ -936,8 +936,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Hoyahoya; ?; ? } => { Hoyahoya; Latin; Unknown Region }-->
 		<likelySubtag from="hi" to="hi_Deva_IN"/>
 		<!--{ Hindi; ?; ? } => { Hindi; Devanagari; India }-->
-		<likelySubtag from="hi_Latn" to="hi_Latn_IN"/>
-		<!--{ Hindi; Latin; ? } => { Hindi; Latin; India }-->
 		<likelySubtag from="hia" to="hia_Latn_ZZ"/>
 		<!--{ Lamang; ?; ? } => { Lamang; Latin; Unknown Region }-->
 		<likelySubtag from="hif" to="hif_Latn_FJ"/>
@@ -1290,8 +1288,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Kurukh; ?; ? } => { Kurukh; Devanagari; India }-->
 		<likelySubtag from="ks" to="ks_Arab_IN"/>
 		<!--{ Kashmiri; ?; ? } => { Kashmiri; Arabic; India }-->
-		<likelySubtag from="ks_Deva" to="ks_Deva_IN"/>
-		<!--{ Kashmiri; Devanagari; ? } => { Kashmiri; Devanagari; India }-->
 		<likelySubtag from="ksb" to="ksb_Latn_TZ"/>
 		<!--{ Shambala; ?; ? } => { Shambala; Latin; Tanzania }-->
 		<likelySubtag from="ksd" to="ksd_Latn_ZZ"/>
@@ -1692,8 +1688,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Malay; ?; ? } => { Malay; Latin; Malaysia }-->
 		<likelySubtag from="ms_CC" to="ms_Arab_CC"/>
 		<!--{ Malay; ?; Cocos (Keeling) Islands } => { Malay; Arabic; Cocos (Keeling) Islands }-->
-		<likelySubtag from="ms_ID" to="ms_Latn_ID"/>
-		<!--{ Malay; ?; Indonesia } => { Malay; Latin; Indonesia }-->
 		<likelySubtag from="mt" to="mt_Latn_MT"/>
 		<!--{ Maltese; ?; ? } => { Maltese; Latin; Malta }-->
 		<likelySubtag from="mtc" to="mtc_Latn_ZZ"/>
@@ -3014,8 +3008,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; Spain } => { Spanish; Latin; Spain }-->
 		<likelySubtag from="und_ET" to="am_Ethi_ET"/>
 		<!--{ ?; ?; Ethiopia } => { Amharic; Ethiopic; Ethiopia }-->
-		<likelySubtag from="und_EU" to="en_Latn_GB"/>
-		<!--{ ?; ?; European Union } => { English; Latin; United Kingdom }-->
+		<likelySubtag from="und_EU" to="en_Latn_IE"/>
+		<!--{ ?; ?; European Union } => { English; Latin; Ireland }-->
 		<likelySubtag from="und_EZ" to="de_Latn_EZ"/>
 		<!--{ ?; ?; Eurozone } => { German; Latin; Eurozone }-->
 		<likelySubtag from="und_FI" to="fi_Latn_FI"/>

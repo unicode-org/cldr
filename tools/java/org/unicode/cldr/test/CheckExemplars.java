@@ -357,7 +357,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         } catch (Exception e) {
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.illegalExemplarSet)
-                .setMessage("This field must be a set of the form [a b c-d ...]: ", new Object[] { e.getMessage() }));
+                .setMessage("This field must be a set of the form [a b c-d ...]: {0}", new Object[] { e.getMessage() }));
             return;
         }
 

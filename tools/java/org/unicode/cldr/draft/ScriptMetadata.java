@@ -172,7 +172,7 @@ public class ScriptMetadata {
             density = Column.DENSITY.getInt(items, -1);
 
             final String countryRaw = Column.ORIGIN_COUNTRY.getItem(items);
-            String country = CountryCodeConverter.getCodeFromName(countryRaw);
+            String country = CountryCodeConverter.getCodeFromName(countryRaw, false);
             // NAME_TO_REGION_CODE.get(countryRaw.toUpperCase(Locale.ENGLISH));
             if (country == null) {
                 errors.add("Can't map " + countryRaw + " to country/region");

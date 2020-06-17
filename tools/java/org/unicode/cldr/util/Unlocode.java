@@ -645,7 +645,7 @@ public class Unlocode {
     static final Transform<String, String> REMOVE_ACCENTS = Transliterator.getInstance("nfd;[:mn:]remove");
 
     static void add(String countryName, String subdivision, String cityName, Relation<String, LocodeData> countryNameToCities, Set<String> errors2) {
-        String countryCode = CountryCodeConverter.getCodeFromName(countryName);
+        String countryCode = CountryCodeConverter.getCodeFromName(countryName, false);
         if (countryCode == null) {
             if (noncountries.contains(countryName)) {
                 return; // skip

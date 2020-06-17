@@ -23,7 +23,7 @@ public class CountryCodeConverter {
     private static Map<String, String> nameToCountryCode = new TreeMap<>(new UTF16.StringComparator(true, true, 0));
     private static Set<String> parseErrors = new LinkedHashSet<>();
 
-    public static String getCodeFromName(String display) {
+    public static String getCodeFromName(String display, boolean showMissing) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
         if (trial.startsWith("\"") && trial.endsWith("\"")) {
             trial = trial.substring(1, trial.length() - 2);
@@ -44,8 +44,8 @@ public class CountryCodeConverter {
                 // }
             }
         }
-        if (SHOW_SKIP && result == null) {
-            System.out.println("Missing code; add to external/alternate_country_names.txt a line like:" +
+        if (result == null && (showMissing || SHOW_SKIP)) {
+            System.err.println("CountryCodeConverter missing code; add to external/alternate_country_names.txt a line like:" +
                 "\t<code>;\t<name>;\t" + display);
         }
         return result;

@@ -69,9 +69,9 @@ public class WikipediaOfficialLanguages {
             //"British Antarctic Territory",
             "British Indian Ocean Territory", "British Virgin Islands", "Cayman Islands", "Falkland Islands", "Gibraltar",
             "Montserrat", "Pitcairn Islands", "Saint Helena", "Ascension Island", "Tristan da Cunha")) {
-            String region = CountryCodeConverter.getCodeFromName(s);
+            String region = CountryCodeConverter.getCodeFromName(s, false);
             if (region == null) {
-                System.out.println("Couldn't parse region: <" + s + ">");
+                System.err.println("Couldn't parse region: <" + s + ">");
             } else {
                 REPLACE_REGIONS.put("United Kingdom and overseas territories", region);
             }
@@ -79,9 +79,9 @@ public class WikipediaOfficialLanguages {
         for (String s : Arrays.asList("French Guiana", "French Polynesia", "Guadeloupe", "Martinique",
             "Mayotte", "New Caledonia", "Réunion", "Saint Barthélemy", "Saint Martin", "Saint Pierre and Miquelon",
             "Wallis and Futuna")) {
-            String region = CountryCodeConverter.getCodeFromName(s);
+            String region = CountryCodeConverter.getCodeFromName(s, false);
             if (region == null) {
-                System.out.println("Couldn't parse region: <" + s + ">");
+                System.err.println("Couldn't parse region: <" + s + ">");
             } else {
                 REPLACE_REGIONS.put("France and overseas departments and territories", region);
             }
@@ -111,9 +111,9 @@ public class WikipediaOfficialLanguages {
                         continue;
                     }
 
-                    String region = CountryCodeConverter.getCodeFromName(items[0]);
+                    String region = CountryCodeConverter.getCodeFromName(items[0], false);
                     if (region == null) {
-                        System.out.println(++count + " Couldn't parse region: <" + items[0] + "> in line: " + line);
+                        System.err.println(++count + " Couldn't parse region: <" + items[0] + "> in line: " + line);
                         regionSet = Collections.emptySet();
                     } else {
                         regionSet = new HashSet<>();
@@ -194,7 +194,7 @@ public class WikipediaOfficialLanguages {
             if (part.isEmpty() || part.equals("de facto")) {
                 continue;
             }
-            String region = CountryCodeConverter.getCodeFromName(part);
+            String region = CountryCodeConverter.getCodeFromName(part, false);
             if (region == null) {
                 System.err.println("* Can't convert " + region + " in " + part);
             } else {

@@ -1985,7 +1985,7 @@ public class ConvertLanguageData {
                 String[] territoryList = parts[4].split("\\s*[;,-]\\s*");
                 for (String territoryName : territoryList) {
                     if (territoryName.equals("ISO/DIS 639") || territoryName.equals("3")) continue;
-                    String territoryCode = CountryCodeConverter.getCodeFromName(territoryName);
+                    String territoryCode = CountryCodeConverter.getCodeFromName(territoryName, true);
                     if (territoryCode == null) {
                         BadItem.ERROR.show("no name found for territory", "<" + territoryName + ">", languageSubtag);
                     } else {

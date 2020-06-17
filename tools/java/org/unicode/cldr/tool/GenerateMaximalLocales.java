@@ -22,6 +22,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
@@ -34,6 +35,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
@@ -98,6 +100,7 @@ public class GenerateMaximalLocales {
         new File(CLDRPaths.EXEMPLARS_DIRECTORY) };
 
     private static Factory factory = SimpleFactory.make(list, ".*");
+    private static Factory mainFactory = CLDRConfig.getInstance().getCldrFactory();
     private static SupplementalDataInfo supplementalData = SupplementalDataInfo
         .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     private static StandardCodes standardCodes = StandardCodes.make();
@@ -284,6 +287,7 @@ public class GenerateMaximalLocales {
         { "mis_Medf", "mis_Medf_NG" },
 
         { "ku_Yezi", "ku_Yezi_GE" },
+        { "und_EU", "en_Latn_IE" },
     });
 
     /**
@@ -528,6 +532,7 @@ public class GenerateMaximalLocales {
          *
          * B. X is an exception explicitly approved by the committee or X has minimal
          * language coverage‡ in CLDR itself.
+         * C. The language is in the CLDR-target locales
          */
         OfficialStatus minimalStatus = OfficialStatus.official_regional; // OfficialStatus.de_facto_official;
         Map<String, String> languages = new TreeMap<>();
@@ -542,6 +547,9 @@ public class GenerateMaximalLocales {
             System.out.println(language + "\t" + languages.get(language));
         }
 
+        // also CLDR-target locales
+        final Set<String> CLDRMainLanguages = new TreeSet<>(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr));
+        
         for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
             PopulationData territoryPop = supplementalData.getPopulationDataForTerritory(territory);
             double territoryPopulation = territoryPop.getLiteratePopulation();
@@ -569,6 +577,9 @@ public class GenerateMaximalLocales {
                 // #3
                 if (literatePopulation > minTerritoryPopulation
                     && literatePopulation > minTerritoryPercent * territoryPopulation) {
+                    add = true;
+                }
+                if (add == false && CLDRMainLanguages.contains(language)) {
                     add = true;
                 }
                 if (add) {
@@ -730,7 +741,11 @@ public class GenerateMaximalLocales {
         Set<String> suppressScriptLocales = new HashSet<>(Arrays.asList(
             "bm_ML", "en_US", "ha_NG", "iu_CA", "ms_MY", "mn_MN",
             "byn_ER", "ff_SN", "dyo_SN", "kk_KZ", "ku_TR", "ky_KG", "ml_IN", "so_SO", "sw_TZ", "wo_SN", "yo_NG", "dje_NE",
-            "blt_VN"));
+            "blt_VN",
+            "hi_IN",
+            "nv_US",
+            "doi_IN"
+            ));
 
         // if any have a script, then throw out any that don't have a script (unless they're specifically included.)
         Set<String> toRemove = new TreeSet<>();
@@ -743,7 +758,7 @@ public class GenerateMaximalLocales {
                 }
             }
             if (toRemove.size() != 0) {
-                System.out.println("Removing:\t" + locale + "\t" + toRemove + "\tfrom\t" + children);
+                System.out.println("\tRemoving:\t" + locale + "\t" + toRemove + "\tfrom\t" + children);
                 toChildren.removeAll(locale, toRemove);
             }
         }
@@ -1341,7 +1356,7 @@ public class GenerateMaximalLocales {
         String oldValue = toAdd.get(key);
         if (oldValue == null) {
             if (showAction) {
-                System.out.println("Adding:\t\t" + getName(key) + "\t=>\t" + getName(value) + "\t\t\t\t" + kind);
+                System.out.println("\tAdding:\t\t" + getName(key) + "\t=>\t" + getName(value) + "\t\t\t\t" + kind);
             }
         } else if (override == LocaleOverride.KEEP_EXISTING || value.equals(oldValue)) {
             // if (showAction) {
@@ -1350,7 +1365,7 @@ public class GenerateMaximalLocales {
             return;
         } else {
             if (showAction) {
-                System.out.println("Replacing:\t" + getName(key) + "\t=>\t" + getName(value) + "\t, was\t" + getName(oldValue) + "\t\t" + kind);
+                System.out.println("\tReplacing:\t" + getName(key) + "\t=>\t" + getName(value) + "\t, was\t" + getName(oldValue) + "\t\t" + kind);
             }
         }
         toAdd.put(key, value);

@@ -126,10 +126,10 @@ const cldrSurveyTable = (function() {
 				theTable.curSortMode = "metazon";
 			}
 		}
-		insertRowsIntoTbody(theTable, reuseTable);
-		if (!reuseTable || !theDiv.contains(theTable)) { // reference: CLDR-13727
+		if (!reuseTable || !theDiv.contains(theTable)) { // reference: CLDR-13727 and CLDR-13885
 			theDiv.appendChild(theTable);
 		}
+		insertRowsIntoTbody(theTable, reuseTable);
 		hideLoader(theDiv.loader);
 	}
 
@@ -227,9 +227,9 @@ const cldrSurveyTable = (function() {
 			if (!tr) {
 				tr = cloneAnon(toAdd);
 				tbody.appendChild(tr);
-				// console.log("🦞 make new table row");
+				// console.log("🦞 make new table row for " + theRow.xpstrid);
 			} else {
-				// console.log("🦋 re-use table row");
+				// console.log("🦋 re-use table row for " + theRow.xpstrid);
 			}
 			tr.rowHash = k;
 			tr.theTable = theTable;

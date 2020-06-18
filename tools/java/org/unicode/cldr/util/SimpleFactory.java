@@ -558,9 +558,15 @@ public class SimpleFactory extends Factory {
                         sb.append(minimalDraftStatus);
                         System.out.println(sb.toString());
                     }
-                    // result = makeFile(localeName, parentDirs, minimalDraftStatus);
-                    result = CLDRFileCache.SINGLETON.getCLDRFile(localeName, parentDirs, minimalDraftStatus);
-                    result.freeze();
+                    if (CLDRFileCache.USE_GLOBAL_CLDRFILE_CACHE) {
+                        result = CLDRFileCache.SINGLETON.getCLDRFile(localeName, parentDirs, minimalDraftStatus);
+                    } else {
+                        result = makeFile(localeName, parentDirs, minimalDraftStatus);
+                    }
+                    // check frozen
+                    if (!result.isFrozen()) {
+                        result.freeze();
+                    }
                 }
             }
             if (result != null) {

@@ -20,6 +20,8 @@ public class CLDRFileCache {
 
     Cache<CLDRCacheKey, CLDRFile> cache;
 
+    public static final boolean USE_GLOBAL_CLDRFILE_CACHE = CldrUtility.getProperty("USE_GLOBAL_CLDRFILE_CACHE", true);
+
     public CLDRFileCache () {
         cache =  CacheBuilder.newBuilder().maximumSize(CACHE_LIMIT).build();
     }
@@ -46,6 +48,10 @@ public class CLDRFileCache {
                 CLDRFile cldrFile = cache.getIfPresent(fileCacheKey);
                 if (cldrFile == null) {
                     cldrFile = SimpleFactory.makeFile(localeName, dir, minimalDraftStatus);
+                    // check frozen
+                    if (!cldrFile.isFrozen()) {
+                        cldrFile.freeze();
+                    }
                     cache.put(fileCacheKey, cldrFile);
                 }
                 list.add(cldrFile);
@@ -58,6 +64,10 @@ public class CLDRFileCache {
                 CLDRFile combinedCLDRFile = list.get(0).cloneAsThawed();
                 for (int i = 1; i < list.size(); i++) {
                     combinedCLDRFile.putAll(list.get(i), CLDRFile.MERGE_KEEP_MINE);
+                }
+                // check frozen
+                if (!combinedCLDRFile.isFrozen()) {
+                    combinedCLDRFile.freeze();
                 }
                 cache.put(cacheKey, combinedCLDRFile);
                 return combinedCLDRFile;

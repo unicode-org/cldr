@@ -342,6 +342,16 @@ public class CLDRConfig extends Properties {
         return fullFactory;
     }
 
+    public void flushFullCldrFactory() {
+        synchronized (FULL_FACTORY_SYNC) {
+            if (fullFactory != null) {
+                ((SimpleFactory) fullFactory).flushCombinedCache();
+            }
+            cldrFileResolvedCache.invalidateAll();
+            cldrFileUnresolvedCache.invalidateAll();
+        }
+    }
+
     public Factory getSupplementalFactory() {
         synchronized (CLDR_FACTORY_SYNC) {
             if (supplementalFactory == null) {

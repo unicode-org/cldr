@@ -453,6 +453,10 @@ public class SimpleFactory extends Factory {
         }
     }
 
+    public void flushCombinedCache() {
+        combinedCache.invalidateAll();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{" + getClass().getName())
@@ -563,6 +567,7 @@ public class SimpleFactory extends Factory {
                     } else {
                         result = makeFile(localeName, parentDirs, minimalDraftStatus);
                     }
+
                     // check frozen
                     if (!result.isFrozen()) {
                         result.freeze();

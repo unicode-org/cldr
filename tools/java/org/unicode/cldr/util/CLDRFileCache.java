@@ -20,7 +20,7 @@ public class CLDRFileCache {
 
     Cache<CLDRCacheKey, CLDRFile> cache;
 
-    public static final boolean USE_GLOBAL_CLDRFILE_CACHE = CldrUtility.getProperty("USE_GLOBAL_CLDRFILE_CACHE", true);
+    public static boolean USE_GLOBAL_CLDRFILE_CACHE = CldrUtility.getProperty("USE_GLOBAL_CLDRFILE_CACHE", true);
 
     public CLDRFileCache () {
         cache =  CacheBuilder.newBuilder().maximumSize(CACHE_LIMIT).build();

@@ -16,11 +16,11 @@ public class CLDRFileCache {
 
     public static final CLDRFileCache SINGLETON = new CLDRFileCache();
 
-    private static final int CACHE_LIMIT = 75;
+    private static final int CACHE_LIMIT = 100;
 
     Cache<CLDRCacheKey, CLDRFile> cache;
 
-    public static boolean USE_GLOBAL_CLDRFILE_CACHE = CldrUtility.getProperty("USE_GLOBAL_CLDRFILE_CACHE", true);
+    public static boolean USE_CLDRFILE_CACHE = CldrUtility.getProperty("USE_CLDRFILE_CACHE", true);
 
     public CLDRFileCache () {
         cache =  CacheBuilder.newBuilder().maximumSize(CACHE_LIMIT).build();

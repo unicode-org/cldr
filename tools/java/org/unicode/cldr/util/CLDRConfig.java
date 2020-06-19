@@ -330,6 +330,14 @@ public class CLDRConfig extends Properties {
         return commonAndSeedAndMainAndAnnotationsFactory;
     }
 
+    public void flushCommonAndSeedAndMainAndAnnotationsFactory() {
+        synchronized (FULL_FACTORY_SYNC) {
+            if (commonAndSeedAndMainAndAnnotationsFactory != null) {
+                ((SimpleFactory) commonAndSeedAndMainAndAnnotationsFactory).flushCombinedCache();
+            }
+        }
+    }
+
     public Factory getFullCldrFactory() {
         synchronized (FULL_FACTORY_SYNC) {
             if (fullFactory == null) {
@@ -340,16 +348,6 @@ public class CLDRConfig extends Properties {
             }
         }
         return fullFactory;
-    }
-
-    public void flushFullCldrFactory() {
-        synchronized (FULL_FACTORY_SYNC) {
-            if (fullFactory != null) {
-                ((SimpleFactory) fullFactory).flushCombinedCache();
-            }
-            cldrFileResolvedCache.invalidateAll();
-            cldrFileUnresolvedCache.invalidateAll();
-        }
     }
 
     public Factory getSupplementalFactory() {

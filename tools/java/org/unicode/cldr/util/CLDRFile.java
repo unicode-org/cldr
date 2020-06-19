@@ -170,6 +170,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             + "}";
     }
 
+    public Set<String> getDataSourceFullPathValueSet(){
+        return dataSource.getFullPathValueSet();
+    }
+
+
     // for refactoring
 
     public CLDRFile setNonInheriting(boolean isSupplemental) {

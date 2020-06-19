@@ -562,7 +562,7 @@ public class SimpleFactory extends Factory {
                         sb.append(minimalDraftStatus);
                         System.out.println(sb.toString());
                     }
-                    if (CLDRFileCache.USE_GLOBAL_CLDRFILE_CACHE) {
+                    if (CLDRFileCache.USE_CLDRFILE_CACHE) {
                         result = CLDRFileCache.SINGLETON.getCLDRFile(localeName, parentDirs, minimalDraftStatus);
                     } else {
                         result = makeFile(localeName, parentDirs, minimalDraftStatus);
@@ -644,6 +644,7 @@ public class SimpleFactory extends Factory {
     }
 
     public static CLDRFile makeFile(String localeName, File dir, CLDRFile.DraftStatus minimalDraftStatus) {
+       //  System.out.println("make file for " + localeName + ", dir is " + dir);
         CLDRFile file = makeFromFile(makeFileName(localeName, dir), localeName, minimalDraftStatus);
         return file;
     }

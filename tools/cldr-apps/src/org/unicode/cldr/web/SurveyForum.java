@@ -874,6 +874,7 @@ public class SurveyForum {
         postInfo.setReplyTo(root /* replyTo */);
         postInfo.setRoot(root);
         postInfo.setValue(value);
+        postInfo.setSendEmail(false);
         try {
             doPostInternal(postInfo);
         } catch (SurveyException e) {
@@ -988,6 +989,7 @@ public class SurveyForum {
         postInfo.setReplyTo(root /* replyTo */);
         postInfo.setRoot(root);
         postInfo.setValue(value == null ? "Abstain" : value); /* NOT the same as the requested value */
+        postInfo.setSendEmail(false);
         try {
             doPostInternal(postInfo);
         } catch (SurveyException e) {
@@ -996,14 +998,13 @@ public class SurveyForum {
     }
 
     /**
-     * Respond to the user making a new forum post. Save the post in the database.
+     * Respond to the user making a new forum post. Save the post in the database,
+     * and send an email if appropriate.
      *
      * @param postInfo the post info
      *
      * @return the new post id, or <= 0 for failure
      * @throws SurveyException
-     *
-     * Called by STFactory.PerLocaleData.voteForValue (for "Flag Removed" only) as well as locally by doPost
      */
     private Integer doPostInternal(PostInfo postInfo) throws SurveyException {
         if (!postInfo.isValid()) {
@@ -1018,8 +1019,9 @@ public class SurveyForum {
         }
         int postId = savePostToDb(postInfo);
 
-        emailNotify(user, postInfo.getLocale(), postInfo.getPath(), postInfo.getSubj(), postInfo.getText(), postId);
-
+        if (postInfo.getSendEmail()) {
+            emailNotify(user, postInfo.getLocale(), postInfo.getPath(), postInfo.getSubj(), postInfo.getText(), postId);
+        }
         return postId;
     }
 
@@ -1103,6 +1105,7 @@ public class SurveyForum {
         private boolean open = true;
         private boolean couldFlag = false;
         private UserRegistry.User user = null;
+        private boolean sendEmail = true;
 
         public PostInfo(CLDRLocale locale, String postTypeStr, String text) {
             this.locale = locale;
@@ -1135,7 +1138,7 @@ public class SurveyForum {
             return pathString;
         }
 
-         public String getValue() {
+        public String getValue() {
             return value;
         }
 
@@ -1177,6 +1180,10 @@ public class SurveyForum {
 
         public User getUser() {
             return user;
+        }
+
+        public boolean getSendEmail() {
+            return sendEmail;
         }
 
         /*
@@ -1221,6 +1228,10 @@ public class SurveyForum {
 
         public void setValue(String value) {
             this.value = value;
+        }
+
+        public void setSendEmail(boolean sendEmail) {
+            this.sendEmail = sendEmail;
         }
     }
 

@@ -1152,7 +1152,7 @@
 	      <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
 	      <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
 	    </ol>   
-          </li>	
+	  </li>	
 	  <li>If <i>language</i> _ <i>script</i> _ <i>region</i> _ matches the <i>type</i> attribute of a <i>languageAlias</i> element
 		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
 		  with the <i>replacement</i> value.
@@ -1161,7 +1161,7 @@
 		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
 	      <li>Let <i>language</i> be <i>replaceLanguage</i>
 	    </ol>   
-          </li>	
+	  </li>	
 	  <li>If <i>language</i> _ <i>script</i> _ <i>all variants</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
 		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
 		  with the <i>replacement</i> value.
@@ -1171,7 +1171,7 @@
 	      <li>Let <i>language</i> be <i>replaceLanguage</i>
 	      <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
 	    </ol>   
-          </li>			
+	  </li>			
 	  <li>If <i>language</i> _ <i>region</i> _ <i>all variants</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
 		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
 		  with the <i>replacement</i> value.
@@ -1181,7 +1181,7 @@
 	      <li>Let <i>language</i> be <i>replaceLanguage</i>
 	      <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
 	    </ol>   
-          </li>			
+	  </li>			
 	  <li>If <i>language</i> _ <i>script</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
 		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
 		  with the <i>replacement</i> value.
@@ -1191,7 +1191,7 @@
 	      <li>Let <i>language</i> be <i>replaceLanguage</i>
 	      <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
 	    </ol>   
-          </li>
+	  </li>
 	  <li>If <i>language</i> _ <i>region</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
 		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
 		  with the <i>replacement</i> value.
@@ -1201,7 +1201,7 @@
 	      <li>Let <i>language</i> be <i>replaceLanguage</i>
 	      <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
 	    </ol>   
-          </li>
+	  </li>
 	  <li>If <i>language</i> _ <i>all variants</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
 		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
 		  with the <i>replacement</i> value.
@@ -1212,7 +1212,7 @@
 	      <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
 	      <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
 	    </ol>   
-          </li>	
+	  </li>	
 	  <li>If <i>language</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
 		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
 		  with the <i>replacement</i> value.
@@ -1223,7 +1223,7 @@
 	      <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
 	      <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
 	    </ol>   
-          </li>	
+	  </li>	
           <li>If the region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i> element in <a href=
       "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
             replace the language subtag with the <i>replacement</i> value, as follows:
@@ -1345,28 +1345,90 @@
       <li>Canonicalize the syntax of the language tag (afterwards, there will
 	      be no extlang subtags) as per <a href="#Canonical_Unicode_Locale_Identifiers">3.2.1 
 	      Canonical Unicode Locale Identifiers</a>.</li>
-      <li>Get the components of the BCP 47 language tag (<i>language</i>, <i>script</i>,
-	      and <i>region</i>), plus any variants and extensions.</li>
-      <li>For <i>trial</i> in {l<i>anguage</i> _ <i>variant</i>, <i>language</i> _ <i>script</i> _ <i>region</i>,
-	      <i>language _ <i>region</i>, <i>language</i>}
-	<ul>      
-	  <li>If <i>trial</i> matches the <i>type</i> attribute of a <i>languageAlias</i>
-		  element in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-		  replace the language subtag with the <i>replacement</i> value.
-            <ol>
-              <li>If there are additional subtags in the <i>replacement</i> value,add them to 
-		      the result, but only if there is no corresponding subtag already in the tag.</li>
-              <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) 
-		      are in  type attributes, and are also replaced.</li>
-              <li><strong>Note: </strong>there are currently no valid 4-letter primary 
-		      language subtags. While it is extremely unlikely that BCP47
-		      would ever register them, if so then <i>languageAlias</i> mappings
-		      will be supplied for them, mapping to defined CLDR language 
-		      subtags (from the idStatus=&quot;reserved&quot; set).</li>
-            </ol>
-          </li>
-	</ul>
+      <li>Get the components of of the BCP 47 language tag 
+		  (<i>language</i>, <i>script</i>, and <i>region</i>), plus <i>all variants</i> and extensions.</li>
+      <li>If <i>language</i> _ <i>script</i> _ <i>region</i> _ <i>all variants</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+          <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
+          <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
+        </ol>   
+      </li>	
+      <li>If <i>language</i> _ <i>script</i> _ <i>region</i> _ matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+        </ol>   
+      </li>	
+      <li>If <i>language</i> _ <i>script</i> _ <i>all variants</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+          <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
+        </ol>   
+      </li>			
+      <li>If <i>language</i> _ <i>region</i> _ <i>all variants</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+          <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
+        </ol>   
+      </li>			
+      <li>If <i>language</i> _ <i>script</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+          <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
+        </ol>   
       </li>
+      <li>If <i>language</i> _ <i>region</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+          <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
+        </ol>   
+      </li>
+      <li>If <i>language</i> _ <i>all variants</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+          <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
+          <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
+        </ol>   
+      </li>	
+      <li>If <i>language</i> matches the <i>type</i> attribute of a <i>languageAlias</i> element
+		  in <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>, replace them
+		  with the <i>replacement</i> value.
+        <ol>
+          <li>Get the components of the <i>replacement</i> 
+		  (<i>replaceLanguage</i>, <i>replaceScript</i>, and <i>replaceRegion</i>)
+          <li>Let <i>language</i> be <i>replaceLanguage</i>
+          <li>If <i>script</i> is empty and <i>replaceScript</i> is not empty, let <i>script</i> be <i>replaceScript</i>.
+          <li>If <i>region</i> is empty and <i>replaceRegion</i> is not empty, let <i>region</i> be <i>replaceRegion</i>.		      
+        </ol>   
+      </li>	
       <li>If the BCP 47 region subtag matches the <i>type</i>
       attribute of a <i>territoryAlias</i> element in <a href=
       "tr35-info.html#Supplemental_Data">Supplemental Data</a>,

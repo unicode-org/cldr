@@ -2088,11 +2088,14 @@ public class ExampleGenerator {
             Map<String, List<Set<String>>> starredPaths = new HashMap<>();
             Map<String, String> extras = new HashMap<>();
 
+            /*
+             * TODO: check OK NOT to call "new PathDescription" twice here!
+             */
             this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
                 PathDescription.ErrorHandling.CONTINUE);
 
-            this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
-                PathDescription.ErrorHandling.CONTINUE);
+            //// this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
+            ////    PathDescription.ErrorHandling.CONTINUE);
             if (helpMessages == null) {
                 helpMessages = new HelpMessages("test_help_messages.html");
             }

@@ -1210,6 +1210,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             if (elementName.startsWith("icu:")) {
                 return AttributeStatus.distinguished;
             }
+            if ("grammaticalState".equals(elementName)) {
+                // ??? TODO: "Dtd supplementalData doesn’t allow element=grammaticalState, attribute: values"
+                return AttributeStatus.distinguished;
+            }
             throw new IllegalByDtdException(elementName, attributeName, null);
         }
         Attribute attribute = element.getAttributeNamed(attributeName);
@@ -1434,12 +1438,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     };
 
     public boolean hasValue(String elementName) {
-        return nameToElement.get(elementName).type == ElementType.PCDATA;
+        // TODO
+        try {
+            return nameToElement.get(elementName).type == ElementType.PCDATA;
+        } catch (Exception e) {
+            System.out.println("Exception in hasValue: " + elementName + "\t" + e.getMessage());
+            return false;
+        }
     }
 
     public boolean isMetadata(XPathParts pathPlain) {
         for (String s : pathPlain.getElements()) {
             Element e = getElementFromName().get(s);
+            if (e == null) {
+                // TODO
+                System.out.println("Got null in isMetadata");
+                continue;
+            }
             if (e.elementStatus == ElementStatus.metadata) {
                 return true;
             }

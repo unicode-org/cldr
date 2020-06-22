@@ -59,10 +59,10 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
-public class ChartDelta extends Chart {
+public class ChartChurn extends Chart {
     private static final boolean verbose_skipping = false;
 
-    private static final String DIR_NAME = "delta";
+    private static final String DIR_NAME = "churn";
 
     private static final boolean SKIP_REFORMAT_ANNOTATIONS = ToolConstants.PREV_CHART_VERSION.compareTo("30") >= 0;
 
@@ -103,8 +103,16 @@ public class ChartDelta extends Chart {
     private final Level minimumPathCoverage;
     private final boolean verbose;
 
+    /**
+     * Generate charts describing CLDR data "churn", i.e., changes in paths of particular
+     * importance for stability; for example, "//ldml/characters/exemplarCharacters".
+     *
+     * This main() can be run directly or through GenerateAllCharts.main().
+     *
+     * @param args
+     */
     public static void main(String[] args) {
-        System.out.println("use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
+        System.out.println("use -DCHART_VERSION=37.0 -DPREV_CHART_VERSION=36.0 to generate the churn between v36 and v37.");
         MyOptions.parse(args);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
         if (MyOptions.orgFilter.option.doesOccur()) {
@@ -119,7 +127,7 @@ public class ChartDelta extends Chart {
         Level coverage = !MyOptions.coverageFilter.option.doesOccur() ? null : Level.fromString(MyOptions.coverageFilter.option.getValue());
         boolean verbose = MyOptions.verbose.option.doesOccur();
         String DIR = CLDRPaths.CHART_DIRECTORY + MyOptions.directory.option.getValue();
-        ChartDelta temp = new ChartDelta(fileFilter, coverage, DIR, verbose);
+        ChartChurn temp = new ChartChurn(fileFilter, coverage, DIR, verbose);
         temp.writeChart(null);
         temp.showTotals();
         System.out.println("Finished. Files may have been created in these directories:");
@@ -127,7 +135,7 @@ public class ChartDelta extends Chart {
         System.out.println(getTsvDir(DIR, DIR_NAME));
     }
 
-    private ChartDelta(Matcher fileFilter, Level coverage, String dir, boolean verbose) {
+    private ChartChurn(Matcher fileFilter, Level coverage, String dir, boolean verbose) {
         this.fileFilter = fileFilter;
         this.verbose = verbose;
         this.DIR = dir;
@@ -149,7 +157,7 @@ public class ChartDelta extends Chart {
 
     @Override
     public String getTitle() {
-        return "Delta Charts";
+        return "Churn Charts";
     }
 
     @Override
@@ -167,7 +175,7 @@ public class ChartDelta extends Chart {
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
         FormattedFileWriter.Anchors anchors = new FormattedFileWriter.Anchors();
-        FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
+        FileUtilities.copyFile(ChartChurn.class, "index.css", getDirectory());
         FormattedFileWriter.copyIncludeHtmls(getDirectory(), true);
         counter.clear();
         fileCounters.clear();
@@ -253,6 +261,13 @@ public class ChartDelta extends Chart {
         pw.println();
     }
 
+    /**
+     *
+     * @param anchors
+     * @throws IOException
+     *
+     * TODO: shorten the function using subroutines
+     */
     private void writeLdml(Anchors anchors)  throws IOException {
 
         try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + ".tsv");
@@ -369,12 +384,15 @@ public class ChartDelta extends Chart {
                         Output<Boolean> hasReformattedValue = new Output<>();
 
                         for (String path : paths) {
+                            if (!pathCountsForChurn(path)) {
+                                continue;
+                            }
                             if (path.startsWith("//ldml/identity")
                                 || path.endsWith("/alias")
                                 || path.startsWith("//ldml/segmentations") // do later
                                 || path.startsWith("//ldml/rbnf") // do later
                                 ) {
-                                continue;
+                                continue; // TODO: superfluous after pathCountsForChurn?
                             }
                             PathHeader ph = getPathHeader(path);
                             if (ph == null) {
@@ -425,6 +443,70 @@ public class ChartDelta extends Chart {
             tsvCountFile.println("# EOF");
         }
 
+    }
+
+    /**
+     * Should the given path be taken into account for generating "churn" reports?
+     *
+     * @param path
+     * @return true if it counts, else false to ignore
+     */
+    private boolean pathCountsForChurn(String path) {
+        // TODO: more paths, use RegexLookup, read from file
+        final Set<String> churnPaths = new HashSet<>(Arrays.asList(
+            "//ldml/characters/exemplarCharacters",
+            "//ldml/numbers/defaultNumberingSystem",
+            "//ldml/numbers/otherNumberingSystems/native",
+            "//ldml/localeDisplayNames/territories/territory",
+            "//ldml/localeDisplayNames/languages/language",
+            "//ldml/dates/fields/field[@type=\"year\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"month\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"week\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"day\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"hour\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"era\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"minute\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"second\"]/displayName",
+            "//supplementalData/weekData/firstDay",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MMMEd\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MEd\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"am\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"am\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"pm\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"pm\"]",
+            "//ldml/numbers/currencies/currency[@type=\"KRW\"]/displayName",
+            "//ldml/numbers/currencies/currency[@type=\"KRW\"]/symbol",
+            "//ldml/numbers/currencies/currency[@type=\"KRW\"]/symbol[@alt=\"narrow\"]",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol",
+            "//ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol[@alt=\"narrow\"]",
+            "//ldml/numbers/minimumGroupingDigits",
+            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal",
+            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group",
+            "//ldml/numbers/symbols[@numberSystem=\"arab\"]/decimal",
+            "//ldml/numbers/symbols[@numberSystem=\"arab\"]/group",
+            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/decimalFormats[@numberSystem=\"arab\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/percentFormats[@numberSystem=\"arab\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//supplementalData/metadata/alias",
+            "//supplementalData/territoryContainment"
+        ));
+
+        if (churnPaths.contains(path)) {
+            return true;
+        }
+        return false;
     }
 
     private boolean allowPath(String locale, String path) {
@@ -749,18 +831,18 @@ public class ChartDelta extends Chart {
             .finishRow();
 
         }
-        writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta", tsvFile);
+        writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Churn", tsvFile);
 
         diff.clear();
     }
 
-    private class ChartDeltaSub extends Chart {
+    private class ChartChurnSub extends Chart {
         private String title;
         private String file;
         private TablePrinter tablePrinter;
         private PrintWriter tsvFile;
 
-        private ChartDeltaSub(String title, String file, TablePrinter tablePrinter, PrintWriter tsvFile) {
+        private ChartChurnSub(String title, String file, TablePrinter tablePrinter, PrintWriter tsvFile) {
             super();
             this.title = title;
             this.file = file;
@@ -803,8 +885,8 @@ public class ChartDelta extends Chart {
     }
 
     private void writeTable(Anchors anchors, String file, TablePrinter tablePrinter, String title, PrintWriter tsvFile) {
-        ChartDeltaSub chartDeltaSub = new ChartDeltaSub(title, file, tablePrinter, tsvFile);
-        chartDeltaSub.writeChart(anchors);
+        ChartChurnSub chartChurnSub = new ChartChurnSub(title, file, tablePrinter, tsvFile);
+        chartChurnSub.writeChart(anchors);
     }
 
     private void writeNonLdmlPlain(Anchors anchors) throws IOException {
@@ -859,6 +941,9 @@ public class ChartDelta extends Chart {
                     DtdType dtdType = null;
                     for (PathHeader key : keys) {
                         String originalPath = key.getOriginalPath();
+                        if (!pathCountsForChurn(originalPath)) {
+                            continue;
+                        }
                         boolean isTransform = originalPath.contains("/tRule");
                         if (dtdType == null) {
                             dtdType = DtdType.fromPath(originalPath);
@@ -920,9 +1005,9 @@ public class ChartDelta extends Chart {
                     }
                 }
             }
-            writeDiffs(anchors, "bcp47", "¤¤BCP47 Delta", bcp, tsvFile);
-            writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Delta", supplemental, tsvFile);
-            writeDiffs(anchors, "transforms", "¤¤Transforms Delta", transforms, tsvFile);
+            writeDiffs(anchors, "bcp47", "¤¤BCP47 Churn", bcp, tsvFile);
+            writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Churn", supplemental, tsvFile);
+            writeDiffs(anchors, "transforms", "¤¤Transforms Churn", transforms, tsvFile);
 
             writeCounter(tsvCountFile, "CountSame", countSame);
             tsvCountFile.println();
@@ -966,6 +1051,9 @@ public class ChartDelta extends Chart {
 
         for (Pair<String, String> s : contents1) {
             String path = s.getFirst();
+            if (!pathCountsForChurn(path)) {
+                continue;
+            }
             String value = s.getSecond();
             if (dtdType == null) {
                 dtdType = DtdType.fromPath(path);

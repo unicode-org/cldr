@@ -27,5 +27,7 @@ public class GenerateAllCharts {
         VerifyCompactNumbers.main(args);
         VerifyZones.main(args);
         DateTimeFormats.main(args);
+
+        ChartChurn.main(args);
     }
 }

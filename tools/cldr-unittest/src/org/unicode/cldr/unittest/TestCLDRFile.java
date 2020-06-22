@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -24,6 +25,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRFileCache;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -842,6 +844,50 @@ public class TestCLDRFile extends TestFmwk {
             }
         }
         assertTrue("Should be empty", missing.isEmpty());
+    }
+
+    public void testCLDRFileCache () {
+        CLDRFileCache.USE_CLDRFILE_CACHE = true;
+        String[] locales = {"root", "en", "en_GB", "zh", "zh_Hant", "zh_Hans_SG", "zh_Hans_HK"};
+        Map<String, CLDRFile> mapNew = new HashMap<>();
+        Map<String, CLDRFile> mapNewR = new HashMap<>();
+        Map<String, CLDRFile> mapOld = new HashMap<>();
+        Map<String, CLDRFile> mapOldR = new HashMap<>();
+
+        for(String locale: locales) {
+            // get CLDR file (unresolved)
+            CLDRFile localeFile = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory().make(locale, false);
+            mapNew.put(locale, localeFile);
+
+            // get CLDR file (resolved)
+            CLDRFile localeFileR = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory().make(locale, true);
+            mapNewR.put(locale, localeFileR);
+        }
+
+        // flush cache
+        testInfo.flushCommonAndSeedAndMainAndAnnotationsFactory();
+
+        CLDRFileCache.USE_CLDRFILE_CACHE = false;
+
+        for(String locale: locales) {
+            // get CLDR file (unresolved)
+            CLDRFile localeFile = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory().make(locale, false);
+            mapOld.put(locale, localeFile);
+
+            // get CLDR file (resolved)
+            CLDRFile localeFileR = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory().make(locale, true);
+            mapOldR.put(locale, localeFileR);
+        }
+
+        // compare mapNew and mapOld, mapNewR and mapOldR
+        for (String locale: locales) {
+             assertEquals("localeName should be same", mapNew.get(locale).getLocaleID(), mapOld.get(locale).getLocaleID());
+             assertEquals("datasource should be same", mapNew.get(locale).getDataSourceFullPathValueSet(), mapOld.get(locale).getDataSourceFullPathValueSet());
+
+             assertEquals("localeName should be same", mapNewR.get(locale).getLocaleID(), mapOldR.get(locale).getLocaleID());
+             assertEquals("datasource should be same", mapNewR.get(locale).getDataSourceFullPathValueSet(), mapOldR.get(locale).getDataSourceFullPathValueSet());
+        }
+
     }
 
 }

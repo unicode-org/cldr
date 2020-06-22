@@ -678,6 +678,23 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     }
 
     /**
+     * just for testing; shouldn't be called for production
+     */
+    public Set<String> getFullPathValueSet() {
+        Set<String> set = new HashSet<>();
+        StringBuilder sb = new StringBuilder();
+        for (Iterator<String> it = iterator(); it.hasNext();) {
+            sb.setLength(0);
+            String path = it.next();
+            String value = getValueAtDPath(path);
+            String fullpath = getFullPathAtDPath(path);
+            sb.append(fullpath).append(" =\t ").append(value).append(CldrUtility.LINE_SEPARATOR);
+            set.add(sb.toString());
+        }
+        return set;
+    }
+
+    /**
      * for debugging only
      */
     public String toString(String regex) {

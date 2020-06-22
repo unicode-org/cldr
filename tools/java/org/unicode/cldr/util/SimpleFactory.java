@@ -65,7 +65,7 @@ public class SimpleFactory extends Factory {
      * @author ribnitz
      *
      */
-    private static class CLDRCacheKey {
+    static class CLDRCacheKey {
         private final String localeName;
         private final boolean resolved;
         private final DraftStatus draftStatus;
@@ -453,6 +453,13 @@ public class SimpleFactory extends Factory {
         }
     }
 
+    /**
+     * just for testing; shouldn't be called for production
+     */
+    public void flushCombinedCache() {
+        combinedCache.invalidateAll();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{" + getClass().getName())
@@ -558,8 +565,16 @@ public class SimpleFactory extends Factory {
                         sb.append(minimalDraftStatus);
                         System.out.println(sb.toString());
                     }
-                    result = makeFile(localeName, parentDirs, minimalDraftStatus);
-                    result.freeze();
+                    if (CLDRFileCache.USE_CLDRFILE_CACHE) {
+                        result = CLDRFileCache.SINGLETON.getCLDRFile(localeName, parentDirs, minimalDraftStatus);
+                    } else {
+                        result = makeFile(localeName, parentDirs, minimalDraftStatus);
+                    }
+
+                    // check frozen
+                    if (!result.isFrozen()) {
+                        result.freeze();
+                    }
                 }
             }
             if (result != null) {

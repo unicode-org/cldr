@@ -330,6 +330,17 @@ public class CLDRConfig extends Properties {
         return commonAndSeedAndMainAndAnnotationsFactory;
     }
 
+    /**
+     * just for testing; shouldn't be called for production
+     */
+    public void flushCommonAndSeedAndMainAndAnnotationsFactory() {
+        synchronized (FULL_FACTORY_SYNC) {
+            if (commonAndSeedAndMainAndAnnotationsFactory != null) {
+                ((SimpleFactory) commonAndSeedAndMainAndAnnotationsFactory).flushCombinedCache();
+            }
+        }
+    }
+
     public Factory getFullCldrFactory() {
         synchronized (FULL_FACTORY_SYNC) {
             if (fullFactory == null) {

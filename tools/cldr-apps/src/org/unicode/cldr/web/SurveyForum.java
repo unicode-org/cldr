@@ -803,11 +803,14 @@ public class SurveyForum {
                     + locale + " " + distinguishingXpath);
             }
         }
-        if (value != null) {
-            autoPostAgree(locale, user, xpathId, value);
+        final boolean ENABLE_AUTO_POSTING = false;
+        if (ENABLE_AUTO_POSTING) {
+            if (value != null) {
+                autoPostAgree(locale, user, xpathId, value);
+            }
+            autoPostDecline(locale, user, xpathId, value);
+            autoPostClose(locale, user, xpathId, value);
         }
-        autoPostDecline(locale, user, xpathId, value);
-        autoPostClose(locale, user, xpathId, value);
     }
 
     /**

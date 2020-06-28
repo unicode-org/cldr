@@ -467,7 +467,7 @@ function showV() {
 							});
 						} catch (e) {
 							console.log("Error in ajax post [" + message + "]  " + e.message + " / " + e.name);
-							handleDisconnect("Exception while  loading: " + message + " - " + e.message + ", n=" + e.name, null); // in case the 2nd line doesn't work
+							handleDisconnect("Exception while loading: " + message + " - " + e.message + ", n=" + e.name + ' \nStack:\n' + (e.stack || '[none]'), null); // in case the 2nd line doesn't work
 						}
 					};
 					var xhrArgs = {

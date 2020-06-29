@@ -1078,9 +1078,7 @@ public class ConsoleCheckCLDR {
 
         private static void addDataToErrorFile(String localeID, String path, ErrorType shortStatus,
             Subtype subType) {
-            String section = path == null
-                ? null
-                    : org.unicode.cldr.util.PathUtilities.xpathToMenu(path);
+            String section = path == null ? null : XPathToMenu.xpathToMenu(path);
             if (section == null) {
                 section = "general";
             }

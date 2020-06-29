@@ -1,37 +1,40 @@
-package org.unicode.cldr.util;
+package org.unicode.cldr.test;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.XPathParts;
 
 /**
- * @deprecated
+ * Deprecated utility class only used by ConsoleCheckCLDR.
+ *
+ * @deprecated Do not use.
  */
 @Deprecated
-public class PathUtilities {
-
+final class XPathToMenu {
     // ===== types of data and menu names
-    public static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
+    private static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
+    private static final String OTHER_CALENDARS_XPATH = "//ldml/dates/calendars/calendar";
+
+    private static final String CURRENCIES = "currencies";
+    private static final String TIMEZONES = "timezones";
+    private static final String METAZONES = "metazones";
+    private static final String MISC = "misc";
+    private static final String CODEPATTERNS = "codePatterns";
+    private static final String MEASNAMES = "measurementSystemNames";
+
+    private static final String LOCALEDISPLAYPATTERN_XPATH =
+            LOCALEDISPLAYNAMES + LDMLConstants.LOCALEDISPLAYPATTERN;
+    private static final String NUMBERSCURRENCIES =
+            LDMLConstants.NUMBERS + "/" + CURRENCIES;
+
     /**
      * All of the data items under LOCALEDISPLAYNAMES (menu items)
      */
-    public static final String LOCALEDISPLAYNAMES_ITEMS[] = { LDMLConstants.LANGUAGES,
+    private static final String[] LOCALEDISPLAYNAMES_ITEMS = { LDMLConstants.LANGUAGES,
         LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES, LDMLConstants.VARIANTS, LDMLConstants.KEYS,
-        LDMLConstants.TYPES, PathUtilities.CURRENCIES, PathUtilities.TIMEZONES,
-        PathUtilities.CODEPATTERNS, PathUtilities.MEASNAMES };
-    public static final String OTHER_CALENDARS_XPATH = "//ldml/dates/calendars/calendar";
-
-    public static final String LOCALEDISPLAYPATTERN_XPATH = LOCALEDISPLAYNAMES
-        + LDMLConstants.LOCALEDISPLAYPATTERN;
-    public static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/"
-        + PathUtilities.CURRENCIES;
-    public static final String CURRENCIES = "currencies";
-    public static final String TIMEZONES = "timezones";
-    public static final String METAZONES = "metazones";
-    public static String xOTHER = "misc";
-    public static final String CODEPATTERNS = "codePatterns";
-    public static final String MEASNAMES = "measurementSystemNames";
+        LDMLConstants.TYPES, CURRENCIES, TIMEZONES, CODEPATTERNS, MEASNAMES };
 
     public static String xpathToMenu(String path) {
         String theMenu = null;
@@ -74,13 +77,13 @@ public class PathUtilities {
         } else if (path.startsWith("//ldml/" + LDMLConstants.REFERENCES)) {
             theMenu = LDMLConstants.REFERENCES;
         } else {
-            theMenu = xOTHER;
+            theMenu = MISC;
             // other?
         }
         return theMenu;
     }
 
-    public static String[] getCalendarsItems() {
+    private static String[] getCalendarsItems() {
         // TODO : Make this data driven from supplementalMetaData ;
         // I couldn't get the xpath right....
         // CLDRFile mySupp = getFactory().make("supplementalMetaData",false);
@@ -98,24 +101,13 @@ public class PathUtilities {
         // }
     }
 
-    public static String[] getMetazonesItems() {
-        String defaultMetazonesItems = "Africa America Antarctica Asia Australia Europe Atlantic Indian Pacific";
-        return (defaultMetazonesItems.split(" "));
+    private static String getMetazoneContinent(String xpath) {
+        XPathParts parts = XPathParts.getFrozenInstance(xpath);
+        String thisMetazone = parts.getAttributeValue(3, "type");
+        return getMetazoneToContinentMap().get(thisMetazone);
     }
 
-    private static Map<String, String> mzXpathToContinent = new HashMap<>();
-
-    private synchronized static String getMetazoneContinent(String xpath) {
-        String continent = mzXpathToContinent.get(xpath);
-        if (continent == null) {
-            XPathParts parts = XPathParts.getFrozenInstance(xpath);
-            String thisMetazone = parts.getAttributeValue(3, "type");
-            continent = getMetazoneToContinentMap().get(thisMetazone);
-        }
-        return continent;
-    }
-
-    static Map<String, String> mzToContinentMap = null;
+    private static Map<String, String> mzToContinentMap = null;
 
     private static Map<String, String> getMetazoneToContinentMap() {
         if (mzToContinentMap == null) {
@@ -132,7 +124,6 @@ public class PathUtilities {
     }
 
     private static final String mzToContinentStatic[] = {
-
         "Philippines", "Asia",
         "Gambier", "Pacific",
         "Ecuador", "America",
@@ -324,4 +315,5 @@ public class PathUtilities {
         "Samara", "Europe",
     };
 
+    private XPathToMenu() {}
 }

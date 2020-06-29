@@ -84,7 +84,6 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
@@ -370,9 +369,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     static final int CODES_PER_PAGE = 1024; // This is only a default.
 
     public static String xMAIN = "general";
-
-    public static String CALENDARS_ITEMS[] = PathUtilities.getCalendarsItems();
-    public static String METAZONES_ITEMS[] = PathUtilities.getMetazonesItems();
 
     public static final String SHOWHIDE_SCRIPT = "<script><!-- \n"
         + "function show(what)\n"

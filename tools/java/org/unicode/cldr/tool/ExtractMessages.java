@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
@@ -70,7 +71,7 @@ class ExtractMessages {
                     continue;
                 if (file.length() == 0)
                     continue;
-                String canonicalFile = file.getCanonicalPath();
+                String canonicalFile = PathUtilities.getNormalizedPathString(file);
                 if (!canonicalFile.endsWith(".xtb")) {
                     continue;
                 }

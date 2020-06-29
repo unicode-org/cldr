@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.Timer;
@@ -65,12 +66,15 @@ public class GenerateComparison {
 
         // Get the args
 
-        String oldDirectory = CldrUtility.getProperty("oldDirectory", new File(CLDRPaths.BASE_DIRECTORY,
-            "common/main").getCanonicalPath() + "/");
-        String newDirectory = CldrUtility.getProperty("newDirectory", new File(CLDRPaths.BASE_DIRECTORY,
-            "../cldr-release-1-7/common/main").getCanonicalPath() + "/");
-        String changesDirectory = CldrUtility.getProperty("changesDirectory", new File(CLDRPaths.CHART_DIRECTORY
-            + "/changes/").getCanonicalPath()
+        String oldDirectory = CldrUtility.getProperty("oldDirectory", PathUtilities.getNormalizedPathString(new File(
+                CLDRPaths.BASE_DIRECTORY,
+            "common/main")) + "/");
+        String newDirectory = CldrUtility.getProperty("newDirectory", PathUtilities.getNormalizedPathString(new File(
+                CLDRPaths.BASE_DIRECTORY,
+            "../cldr-release-1-7/common/main")) + "/");
+        String changesDirectory = CldrUtility.getProperty("changesDirectory", PathUtilities
+                .getNormalizedPathString(CLDRPaths.CHART_DIRECTORY
+            + "/changes/")
             + "/");
 
         String filter = CldrUtility.getProperty("localeFilter", ".*");

@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TransliteratorUtilities;
@@ -104,7 +105,7 @@ public class GenerateAttributeList {
 
     private void addFromDirectory(String directory) throws IOException {
         File dir = new File(directory);
-        directory = dir.getCanonicalPath();
+        directory = PathUtilities.getNormalizedPathString(dir);
         String[] files = dir.list();
         for (int i = 0; i < files.length; ++i) {
             if (files[i].startsWith(".#")) continue;

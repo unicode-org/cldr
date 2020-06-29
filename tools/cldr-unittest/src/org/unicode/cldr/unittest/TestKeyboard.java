@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -10,22 +12,15 @@ import java.util.Set;
 import org.unicode.cldr.draft.Keyboard;
 import org.unicode.cldr.draft.Keyboard.KeyboardWarningException;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.PathUtilities;
 
 public class TestKeyboard extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestKeyboard().run(args);
     }
 
-    static final String dtdLocation;
-    static {
-        try {
-            dtdLocation = CLDRConfig.getInstance().getCldrBaseDirectory()
-                .getCanonicalPath()
-                + "/keyboards/dtd/ldmlKeyboard.dtd";
-        } catch (IOException e) {
-            throw new IllegalArgumentException(e);
-        }
-    }
+    static final String dtdLocation =
+            getNormalizedPathString(CLDRConfig.getInstance().getCldrBaseDirectory()) + "/keyboards/dtd/ldmlKeyboard.dtd";
 
     public void TestGoodSample() throws IOException {
         // preload these to make debugging easier

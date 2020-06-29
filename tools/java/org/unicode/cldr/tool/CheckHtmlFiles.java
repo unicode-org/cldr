@@ -38,6 +38,7 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
@@ -671,7 +672,7 @@ public class CheckHtmlFiles {
             if (!sourceDirectory.exists()) {
                 throw new IllegalArgumentException("Can't find " + sourceDirectory);
             }
-            String canonicalBase = sourceDirectory.getCanonicalPath();
+            String canonicalBase = PathUtilities.getNormalizedPathString(sourceDirectory);
             String FileRegex = canonicalBase + File.separator + regex;
             FileRegex = FileRegex.replace("\\", "\\\\");
             FileRegex = FileRegex.replace("\\\\.", "\\.");

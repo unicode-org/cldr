@@ -35,6 +35,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -183,7 +184,7 @@ public class TestCldr extends TestFmwk {
         // oLocale = uLocale.toLocale();
 
         File f = new File(directory, localeName + ".xml");
-        logln("Testing " + f.getCanonicalPath());
+        logln("Testing " + PathUtilities.getNormalizedPathString(f));
         SAX.parse(f, DEFAULT_HANDLER);
     }
 

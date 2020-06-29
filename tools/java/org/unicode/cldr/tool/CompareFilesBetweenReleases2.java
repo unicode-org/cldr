@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.PathUtilities;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -34,7 +35,7 @@ public class CompareFilesBetweenReleases2 {
 
     private static Set<String> getFiles(File base) throws IOException {
         Set<String> result = new TreeSet<>();
-        int baseLen = base.getCanonicalPath().length();
+        int baseLen = PathUtilities.getNormalizedPathString(base).length();
         getFiles(baseLen, base, result);
         return result;
     }
@@ -55,7 +56,7 @@ public class CompareFilesBetweenReleases2 {
         if (name.startsWith(".")) {
             return;
         }
-        String fullName = subdir.getCanonicalPath();
+        String fullName = PathUtilities.getNormalizedPathString(subdir);
         names.add(fullName.substring(baseLen));
     }
 }

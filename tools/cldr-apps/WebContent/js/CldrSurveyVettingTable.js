@@ -56,13 +56,13 @@ const cldrSurveyTable = (function() {
 			/*
 			 * Re-use the old table, just update contents of individual cells
 			 */
-			// console.log("🦋🦋🦋 re-use table");
+			// console.log('🦋🦋🦋 re-use table, ' + Object.keys(json.section.rows).length + ' rows');
 			theTable = theDiv.theTable;
 		} else {
 			/*
 			 * Re-create the table from scratch
 			 */
-			// console.log("🦞🦞🦞 make new table");
+			// console.log('🦞🦞🦞 make new table, ' + Object.keys(json.section.rows).length + ' rows');
 			theTable = cloneLocalizeAnon(document.getElementById('proto-datatable'));
 			/*
 			 * Note: isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
@@ -149,7 +149,7 @@ const cldrSurveyTable = (function() {
 			json1.pageId === json2.pageId &&
 			json1.locale === json2.locale &&
 			json1.canModify === json2.canModify &&
-			json1.section.rows.length === json2.section.rows.length) {
+			Object.keys(json1.section.rows).length === Object.keys(json2.section.rows).length) {
 			return true;
 		}
 		return false;
@@ -261,6 +261,10 @@ const cldrSurveyTable = (function() {
 			if (tr.className === 'tr_checking1' || tr.className === 'tr_checking2') {
 				// console.log("Skipping updateRow for tr.className === " + tr.className);
 			} else {
+				/*
+				 * TODO: for performance, if reuseTable and new data matches old data for this row, leave the DOM as-is.
+				 * Figure out an efficient way to test whether this row's data has changed.
+				 */
 				updateRow(tr, theRow);
 			}
 		}

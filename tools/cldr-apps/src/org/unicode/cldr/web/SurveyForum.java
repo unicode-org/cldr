@@ -803,7 +803,7 @@ public class SurveyForum {
                     + locale + " " + distinguishingXpath);
             }
         }
-        final boolean ENABLE_AUTO_POSTING = false;
+        final boolean ENABLE_AUTO_POSTING = true;
         if (ENABLE_AUTO_POSTING) {
             if (value != null) {
                 autoPostAgree(locale, user, xpathId, value);

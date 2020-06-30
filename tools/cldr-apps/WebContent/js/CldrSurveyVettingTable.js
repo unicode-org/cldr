@@ -500,6 +500,10 @@ const cldrSurveyTable = (function() {
 	 * for automated testing with WebDriver.
 	 */
 	function checkRowConsistency(theRow) {
+		if (!theRow) {
+			console.error('theRow is null or undefined in checkRowConsistency');
+			return;
+		}
 		if (!theRow.winningVhash) {
 			/*
 			 * The server is responsible for ensuring that a winning item is present, or using
@@ -615,6 +619,10 @@ const cldrSurveyTable = (function() {
 	 * TODO: shorten this function by using subroutines.
 	 */
 	function updateRowVoteInfo(tr, theRow) {
+		if (!theRow) {
+			console.error('theRow is null or undefined in updateRowVoteInfo');
+			return;
+		}
 		var vr = theRow.voteResolver;
 		tr.voteDiv = document.createElement("div");
 		tr.voteDiv.className = "voteDiv";
@@ -992,7 +1000,7 @@ const cldrSurveyTable = (function() {
 		listenToPop(null, tr, cell, cell.showFn);
 	}
 
-	/*
+	/**
 	 * Update the "Others" cell (column) of this row
 	 *
 	 * @param tr the table row
@@ -1189,6 +1197,10 @@ const cldrSurveyTable = (function() {
 	 * @returns the winning value, or null if there is not a valid winning value
 	 */
 	function getValidWinningValue(theRow) {
+		if (!theRow) {
+			console.error('theRow is null or undefined in getValidWinningValue');
+			return null;
+		}
 		if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
 			const item = theRow.items[theRow.winningVhash];
 			if (item.value) {

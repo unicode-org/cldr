@@ -282,7 +282,7 @@ public class DataSection implements JSONString {
              * All return values: "winner", "alias", "fallback", "fallback_code", "fallback_root", "loser".
              *
              * Called by CandidateItem.toJSONString (for item.pClass)
-             * 
+             *
              * Relationships between class, color, and inheritance (http://cldr.unicode.org/translation/getting-started/guide#TOC-Inheritance):
              * "The inherited values are color coded:
              *  1.  Darker [blue] The original is from a parent locale, such as if you are working in
@@ -1100,7 +1100,7 @@ public class DataSection implements JSONString {
          *
          * JSON sent from server to client must be COMPLETE and CONSISTENT
          * Establish and test rules like:
-         *   winningVHash cannot be empty;
+         *   winningVhash cannot be empty;
          *   There must be an item that corresponds to the winningValue;
          *   There must be an item with INHERITANCE_MARKER;
          *   ...

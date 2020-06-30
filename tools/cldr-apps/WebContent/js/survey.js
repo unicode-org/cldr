@@ -840,6 +840,13 @@ function handleChangedLocaleStamp(stamp, name) {
 	if (stamp <= surveyNextLocaleStamp) {
 		return;
 	}
+	/*
+	 * For performance, postpone the all-row WHAT_GETROW update if multiple
+	 * requests (e.g., vote or single-row WHAT_GETROW requests) are pending.
+	 */
+	if (cldrStAjax.queueCount() > 1) {
+		return;
+	}
 	if (Object.keys(showers).length == 0) {
 		/*
 		 * TODO: explain this code. When, if ever, is it executed, and why?

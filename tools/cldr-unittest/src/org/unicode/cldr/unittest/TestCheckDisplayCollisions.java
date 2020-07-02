@@ -23,20 +23,20 @@ import com.google.common.collect.ImmutableList;
 public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String ukRegion =  "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
     private static final String englandSubdivision = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"gbeng\"]";
-    
+
     private static final String scorpioEmoji = "//ldml/annotations/annotation[@cp=\"♏\"][@type=\"tts\"]";
     private static final String scorpionEmoji = "//ldml/annotations/annotation[@cp=\"🦂\"][@type=\"tts\"]";
-    
+
     private static final String japanRegion = "//ldml/localeDisplayNames/territories/territory[@type=\"JP\"]";
     private static final String japanMap = "//ldml/annotations/annotation[@cp=\"🗾\"][@type=\"tts\"]";
-    
+
     private static final String milli = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p-3\"]/unitPrefixPattern";
     private static final String mega = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p6\"]/unitPrefixPattern";
-    
+
     private static final String deciLong = "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
     private static final String deciNarrow = "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
     private static final String deciShort = "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"10p-1\"]/unitPrefixPattern";
-    
+
         public static void main(String[] args) {
         new TestCheckDisplayCollisions().run(args);
     }
@@ -57,7 +57,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         frSource.putValueAtDPath(japanMap, "carte du Japon");
         frSource.putValueAtDPath(milli, "m{0}");
         frSource.putValueAtDPath(mega, "M{0}");
-        
+
         frSource.putValueAtDPath(deciLong, "d{0}");
         frSource.putValueAtDPath(deciNarrow, "d{0}");
         frSource.putValueAtDPath(deciShort, "d{0}");
@@ -78,15 +78,46 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
 
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
         cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
-        
+
         CLDRFile frResolved = factory.make("fr", true);
         checkFile(cdc, fr, frResolved);
 
         CLDRFile frCaResolved = factory.make("fr_CA", false);
-        checkFile(cdc, frCA, frCaResolved, 
+        checkFile(cdc, frCA, frCaResolved,
             scorpioEmoji, ukRegion);
     }
-    
+
+    public void testCountNormalization() {
+        final String testLocale = "pt";
+        final String unitPattern1 = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"]";
+        final String unitPattern2 = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-point\"]/unitPattern[@count=\"two\"]";
+        final String duplicatedValue = "{0}pontos";
+
+        final XMLSource rootSource = new SimpleXMLSource("root");
+        final CLDRFile root = new CLDRFile(rootSource);
+
+        final XMLSource enSource = new SimpleXMLSource("en");
+        final CLDRFile en = new CLDRFile(enSource);
+
+        final XMLSource source = new SimpleXMLSource(testLocale);
+
+        source.putValueAtPath(unitPattern1, duplicatedValue);
+        source.putValueAtPath(unitPattern2, duplicatedValue);
+
+        CLDRFile file = new CLDRFile(source);
+
+        TestFactory factory = new TestFactory();
+        factory.addFile(root);
+        factory.addFile(en);
+        factory.addFile(file);
+
+        CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
+        cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
+
+        CLDRFile ptResolved = factory.make(testLocale, true);
+        checkFile(cdc, file, ptResolved, unitPattern1, unitPattern2);
+    }
+
     private void checkFile(CheckDisplayCollisions cdc, CLDRFile cldrFile, CLDRFile cldrFileResolved, String... expectedErrors) {
         List<CheckStatus> possibleErrors = new ArrayList<>();
         Options options = new Options();
@@ -119,7 +150,24 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
             } else {
                 errln(cldrFile.getLocaleID() + " unexpected error: " + path + " : " + entry.getValue());
             }
+            checkUnknown(path, entry);
         }
         assertEquals(cldrFile.getLocaleID() + " expected to be errors: ", Collections.emptySet(), expected);
+    }
+
+    /**
+     * Report an error if the CheckStatus parameters contain the word "Unknown",
+     * which can be a symptom of errors such as removal of required "count" attribute.
+     * "Unknown" may not always be an error, but for the data used in this test we don't expect it.
+     *
+     * @param path
+     * @param entry
+     */
+    private void checkUnknown(String path, Entry<String, List<CheckStatus>> entry) {
+        CheckStatus cs = entry.getValue().get(0);
+        String s = cs.getParameters()[0].toString();
+        if (s.contains("Unknown")) {
+            errln("Found Unknown in : " + path + ":\n" + s);
+        }
     }
 }

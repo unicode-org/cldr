@@ -131,6 +131,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     private final Matcher exclusions = PatternCache.get("=\"narrow\"]").matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
+    private final Matcher countPattern = PatternCache.get("\\[@count=\"[a-z]+\"]").matcher("");
     private final Matcher ignoreAltAndCountAttributes = PatternCache.get("\\[@(?:count|alt|gender|case)=\"[^\"]*+\"]").matcher("");
     private final Matcher ignoreAltAttributes = PatternCache.get("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher ignoreAltShortOrVariantAttributes = PatternCache.get("\\[@(?:alt)=\"(?:short|variant)\"]").matcher("");
@@ -303,6 +304,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             message = "Can't have same number pattern as {0}";
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.exact);
         } else if (myType == Type.UNITS || myType == Type.UNIT_PREFIX) {
+            currentAttributesToIgnore = ignoreAltAttributes;
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.unit);
         } else if (myType == Type.CARDINAL_MINIMAL || myType == Type.ORDINAL_MINIMAL) {
             if (value.equals("{0}?")) {
@@ -597,7 +599,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
 
         // Do first cleanup
-        // remove paths with "alt/count"; they can be duplicates
+        // remove paths with "alt/count"; they can be duplicates; but if count is required, normalize it to "other"
+        final boolean normalizeCount = (myType == Type.UNITS && path.contains("[@count="));
         Set<String> paths = new HashSet<>();
         for (String pathName : retrievedPaths) {
             Type thisPathType = Type.getType(pathName);
@@ -630,14 +633,31 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
             // clean up the pat
             String newPath = currentAttributesToIgnore.reset(pathName).replaceAll("");
+
+            if (normalizeCount) {
+                newPath = doNormalizeCount(newPath);
+            }
             paths.add(newPath);
         }
         //   System.out.println("Paths has a size of:"+paths.size());
         String cleanPath = currentAttributesToIgnore.reset(path).replaceAll("");
+        if (normalizeCount) {
+            cleanPath = doNormalizeCount(cleanPath);
+        }
         paths.remove(cleanPath);
         //  System.out.println("Removed path: '"+cleanPath+"'");
         //System.out.println("Paths returned has a size of "+paths.size());
         return paths;
+    }
+
+    /**
+     * Normalize [@count="X"] to [@count="other"] for any X
+     *
+     * @param path the input path
+     * @return the normalized path
+     */
+    private String doNormalizeCount(String path) {
+        return countPattern.reset(path).replaceFirst("[@count=\"other\"]");
     }
 
     private boolean isCodeFallback(String dpath) {

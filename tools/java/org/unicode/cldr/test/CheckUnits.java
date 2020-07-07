@@ -1,7 +1,6 @@
 package org.unicode.cldr.test;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -19,11 +18,13 @@ import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.text.UnicodeSet;
 
 public class CheckUnits extends CheckCLDR {
     private static final Pattern HOUR_SYMBOL = PatternCache.get("h{1,2}");
     private static final Pattern MINUTE_SYMBOL = PatternCache.get("m{1,2}");
     private static final Pattern SECONDS_SYMBOL = PatternCache.get("ss");
+    private static final UnicodeSet DISALLOW_LONG_POWER = new UnicodeSet("[²³]").freeze();
 
     static final UnitConverter unitConverter = CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter();
 
@@ -32,8 +33,18 @@ public class CheckUnits extends CheckCLDR {
     @Override
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+
+        // skip if
+        if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
+            setSkipTest(false); // ok
+        } else {
+            setSkipTest(true);
+            return this;
+        }
+
         GrammarInfo grammarInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(cldrFileToCheck.getLocaleID());
-        genders = grammarInfo == null ? Collections.emptySet() : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+        genders = grammarInfo == null ? null : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+
         return this;
     }
 
@@ -93,8 +104,24 @@ public class CheckUnits extends CheckCLDR {
             }
             String idType;
             switch(pathType) {
+            case power: {
+                final String width = parts.getAttributeValue(-3, "type");
+                if (value != null && "long".contentEquals(width)) {
+                    if (DISALLOW_LONG_POWER.containsSome(fixedValueIfInherited(value, path))) {
+                        String unresolvedValue = getCldrFileToCheck().getUnresolved().getStringValue(path);
+                        if (unresolvedValue != null) {
+                            final String message = genders == null
+                                ? "Long value for power can’t use superscripts; it must be spelled out."
+                                    : "Long value for power can’t use superscripts; it must be spelled out. [NOTE: values can vary by gender.]";
+                            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.longPowerWithSubscripts)
+                                .setMessage(message));
+                        }
+                    }
+                }
+            }
+            // fall through
             case prefix:
-            case power:
                 idType = parts.getAttributeValue(-2, "type");
                 for (String shortUnitId : pathType.sampleComposedShortUnitIds.get(idType)) {
                     final UnitId unitId = unitConverter.createUnitId(shortUnitId);
@@ -113,6 +140,8 @@ public class CheckUnits extends CheckCLDR {
                         }
                     }
                 }
+                break;
+            default:
                 break;
             }
         }

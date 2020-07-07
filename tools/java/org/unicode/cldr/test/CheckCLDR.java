@@ -717,7 +717,7 @@ abstract public class CheckCLDR {
             invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods,
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
-            mismatchedUnitComponent
+            mismatchedUnitComponent, longPowerWithSubscripts
             ;
 
             @Override
@@ -1391,5 +1391,9 @@ abstract public class CheckCLDR {
 
     public void setEnglishFile(CLDRFile englishFile) {
         this.englishFile = englishFile;
+    }
+
+    public CharSequence fixedValueIfInherited(String value, String path) {
+        return !CldrUtility.INHERITANCE_MARKER.equals(value) ? value: getCldrFileToCheck().getStringValueWithBailey(path);
     }
 }

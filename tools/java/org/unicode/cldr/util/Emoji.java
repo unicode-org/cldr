@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -20,6 +21,8 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUException;
+
+import sun.text.normalizer.UTF16;
 
 public class Emoji {
     public static final String EMOJI_VARIANT = "\uFE0F";
@@ -191,7 +194,7 @@ public class Emoji {
 
     public static final UnicodeMap<String> EXTRA_SYMBOL_MINOR_CATEGORIES = new UnicodeMap<>();
     public static final Map<String,Long> EXTRA_SYMBOL_ORDER;
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     static {
         String[][] data = {
             {"arrow", "→ ↓ ↑ ← ↔ ↕ ⇆ ⇅"},
@@ -200,6 +203,7 @@ public class Emoji {
             {"math", "× ÷ √ ∞ ∆ ∇ ⁻ ¹ ² ³ ≡ ∈ ⊂ ∩ ∪ ° + ± − = ≈ ≠ > < ≤ ≥ ¬ | ~"},
             {"punctuation", "§ † ‡ \\u0020  , 、 ، ; : ؛ ! ¡ ? ¿ ؟ ¶ ※ / \\ & # % ‰ ′ ″ ‴ @ * ♪ ♭ ♯ ` ´ ^ ¨ ‐ ― _ - – — • · . … 。 ‧ ・ ‘ ’ ‚ ' “ ” „ » « ( ) [ ] { } 〔 〕 〈 〉 《 》 「 」 『 』 〖 〗 【 】"},
             {"currency", "€ £ ¥ ₹ ₽ $ ¢ ฿ ₪ ₺ ₫ ₱ ₩ ₡ ₦ ₮ ৳ ₴ ₸ ₲ ₵ ៛ ₭ ֏ ₥ ₾ ₼ ₿ ؋"},
+            {"other-symbol", "‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼"},
         };
         // get the maximum suborder for each subcategory
         Map<String, Long> subcategoryToMaxSuborder = new HashMap<>();
@@ -217,13 +221,17 @@ public class Emoji {
             }
         }
         if (DEBUG) System.out.println(subcategoryToMaxSuborder);
-        Splitter spaceSplitter = Splitter.on(' ').omitEmptyStrings();
         Map<String,Long> _EXTRA_SYMBOL_ORDER = new LinkedHashMap<>();
         for (String[] row : data) {
             final String subcategory = row[0];
-            final String spaceDelimitedStringList = row[1];
+            final String characters = row[1];
 
-            List<String> items = spaceSplitter.splitToList(spaceDelimitedStringList);
+            List<String> items = new ArrayList<>();
+            for (int cp : With.codePointArray(characters)) {
+                if (cp != ' ') {
+                    items.add(UTF16.valueOf(cp));
+                }
+            }
             final UnicodeSet uset = new UnicodeSet().addAll(items);
             if (uset.containsSome(EXTRA_SYMBOL_MINOR_CATEGORIES.keySet())) {
                 throw new IllegalArgumentException("Duplicate values in " + EXTRA_SYMBOL_MINOR_CATEGORIES);

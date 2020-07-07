@@ -22,8 +22,6 @@ import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUException;
 
-import sun.text.normalizer.UTF16;
-
 public class Emoji {
     public static final String EMOJI_VARIANT = "\uFE0F";
     public static final String COMBINING_ENCLOSING_KEYCAP = "\u20E3";
@@ -194,7 +192,7 @@ public class Emoji {
 
     public static final UnicodeMap<String> EXTRA_SYMBOL_MINOR_CATEGORIES = new UnicodeMap<>();
     public static final Map<String,Long> EXTRA_SYMBOL_ORDER;
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     static {
         String[][] data = {
             {"arrow", "→ ↓ ↑ ← ↔ ↕ ⇆ ⇅"},
@@ -229,7 +227,7 @@ public class Emoji {
             List<String> items = new ArrayList<>();
             for (int cp : With.codePointArray(characters)) {
                 if (cp != ' ') {
-                    items.add(UTF16.valueOf(cp));
+                    items.add(With.fromCodePoint(cp));
                 }
             }
             final UnicodeSet uset = new UnicodeSet().addAll(items);
@@ -311,6 +309,12 @@ public class Emoji {
         Set<String> result = new LinkedHashSet<>(emojiToMinorCategory.values());
         result.addAll(EXTRA_SYMBOL_MINOR_CATEGORIES.getAvailableValues());
         return ImmutableSet.copyOf(result);
+    }
+
+    public static UnicodeSet getEmojiInMinorCategoriesWithExtras(String minorCategory) {
+        return new UnicodeSet(emojiToMinorCategory.getSet(minorCategory))
+            .addAll(EXTRA_SYMBOL_MINOR_CATEGORIES.getSet(minorCategory))
+            .freeze();
     }
 
     public static UnicodeSet getNonConstructed() {

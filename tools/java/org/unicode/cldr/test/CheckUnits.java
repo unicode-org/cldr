@@ -34,14 +34,6 @@ public class CheckUnits extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
-        // skip if
-        if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
-            setSkipTest(false); // ok
-        } else {
-            setSkipTest(true);
-            return this;
-        }
-
         GrammarInfo grammarInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(cldrFileToCheck.getLocaleID());
         genders = grammarInfo == null ? null : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
 

@@ -2,16 +2,16 @@ package org.unicode.cldr.test;
 
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 
 public class CheckNew extends FactoryCheckCLDR {
     private OutdatedPaths outdatedPaths;
-    private CLDRFile annotationsRoot;
+    boolean isRoot;
 
     public CheckNew(Factory factory) {
         super(factory);
@@ -24,41 +24,30 @@ public class CheckNew extends FactoryCheckCLDR {
         if (cldrFileToCheck == null) {
             return this;
         }
-        //        if (Phase.VETTING == getPhase()) {
-        //            setSkipTest(false); // ok
-        //        } else {
-        //            setSkipTest(true);
-        //            return this;
-        //        }
-
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        annotationsRoot = CLDRConfig.getInstance().getAnnotationsFactory().make("root", false);
+        isRoot = "root".equals(cldrFileToCheck.getLocaleID());
+
         return this;
     }
+
+    static final Pattern BAD_EMOJI = Pattern.compile("E\\d+(\\.\\d+)?-\\d+");
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
 
         CLDRFile cldrFileToCheck = getCldrFileToCheck();
-        if (path.startsWith("//ldml/annotations/annotation") && value != null) {
+        if (!isRoot
+            && value != null
+            && path.startsWith("//ldml/annotations/annotation")
+            && cldrFileToCheck.getUnresolved().getStringValue(path) != null) { // don't check inherited values
             // first see if the value is inherited or not
-            boolean skip = false;
-            if (cldrFileToCheck.isResolved()) {
-                Status status = new Status();
-                String localeFound = cldrFileToCheck.getSourceLocaleID(path, status);
-                if ("root".equals(localeFound)) {
-                    skip = true;
-                }
-            }
-            if (!skip) {
-                String rootValue = annotationsRoot.getStringValueWithBailey(path);
-                if (value.equals(rootValue)) {
-                    result.add(new CheckStatus().setCause(this)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.valueMustBeOverridden)
-                        .setMessage("This value must be a real translation, NOT the name/keyword placeholder."));
-                }
+            Matcher matcher = BAD_EMOJI.matcher(value);
+            if (matcher.matches()) {
+                result.add(new CheckStatus().setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.valueMustBeOverridden)
+                    .setMessage("This value must be a real translation, NOT the name/keyword placeholder."));
             }
         }
 

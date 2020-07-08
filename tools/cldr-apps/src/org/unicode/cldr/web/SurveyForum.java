@@ -464,7 +464,7 @@ public class SurveyForum {
                 + " version VARCHAR(122), " // CLDR version
                 + " root INT NOT NULL,"
                 + " type INT NOT NULL,"
-                + " open BOOLEAN NOT NULL,"
+                + " is_open BOOLEAN NOT NULL,"
                 + " value " + DBUtils.DB_SQL_UNICODE
                 + " )";
             s.execute(sql);
@@ -509,7 +509,7 @@ public class SurveyForum {
     private static PreparedStatement prepare_pAdd(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO "
             + DBUtils.Table.FORUM_POSTS.toString()
-            + " (poster,subj,text,forum,parent,loc,xpath,version,root,type,open,value)"
+            + " (poster,subj,text,forum,parent,loc,xpath,version,root,type,is_open,value)"
             + " values (?,?,?,?,?,?,?,?,?,?,?,?)");
     }
 
@@ -525,7 +525,7 @@ public class SurveyForum {
     private static PreparedStatement prepare_pCloseThread(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "pAdd", "UPDATE "
             + DBUtils.Table.FORUM_POSTS.toString()
-            + " SET open=false WHERE id=? OR root=?");
+            + " SET is_open=false WHERE id=? OR root=?");
     }
 
     private static PreparedStatement prepare_pIntUsers(Connection conn) throws SQLException {
@@ -741,7 +741,7 @@ public class SurveyForum {
             + forumPosts + ".version,"
             + forumPosts + ".root,"
             + forumPosts + ".type,"
-            + forumPosts + ".open,"
+            + forumPosts + ".is_open,"
             + forumPosts + ".value";
     }
 
@@ -848,7 +848,7 @@ public class SurveyForum {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
-                + " WHERE open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
+                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
             pList.setInt(1, PostType.REQUEST.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -904,7 +904,7 @@ public class SurveyForum {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT root,subj FROM " + tableName
-                + " WHERE open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
             pList.setInt(1, PostType.AGREE.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -961,7 +961,7 @@ public class SurveyForum {
             conn = sm.dbUtils.getDBConnection();
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
-                + " WHERE open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
             pList.setInt(1, PostType.REQUEST.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -1030,7 +1030,7 @@ public class SurveyForum {
 
     /**
      * Save a new post to the FORUM_POSTS table; if it's a CLOSE post,
-     * also set open=false for all posts in this thread
+     * also set is_open=false for all posts in this thread
      *
      * @param PostInfo the post info
      * @return the new post id, or <= 0 for failure

@@ -180,6 +180,27 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     }
 
     /**
+     * Create a string from a list of code points; the inverse of codePointArray.
+     * @param codePoints
+     * @return string
+     */
+    public static String fromCodePoint(int... codePoints) {
+        switch (codePoints.length) {
+        case 0: return "";
+        case 1: {
+            return String.valueOf(Character.toChars(codePoints[0]));
+        }
+        default: {
+            StringBuilder b = new StringBuilder();
+            for (int cp : codePoints) {
+                b.appendCodePoint(cp);
+            }
+            return b.toString();
+        }
+        }
+    }
+
+    /**
      * An alterative to With.in(CharSequence) that is better when it is likely that only a portion of the text will be
      * looked at,
      * such as when an iterator over codepoints is aborted partway.
@@ -299,7 +320,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
             this.iterators
-                .add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
+            .add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }

@@ -16,6 +16,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRConfig;
@@ -24,8 +25,10 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XListFormatter;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 
@@ -174,7 +177,7 @@ public class TestAnnotations extends TestFmwkPlus {
             }
         }
     }
-    
+
     public void TestCategories() {
         if (DEBUG) System.out.println();
 
@@ -202,7 +205,7 @@ public class TestAnnotations extends TestFmwkPlus {
             String emoji = row2.get0();
             String shortName = row2.get1();
             String keywords = row2.get2();
-            if (DEBUG) System.out.println(majorCategory 
+            if (DEBUG) System.out.println(majorCategory
                 + "\t" + emojiOrder
                 + "\t" + minorCategory
                 + "\t" + emoji
@@ -223,7 +226,7 @@ public class TestAnnotations extends TestFmwkPlus {
          * can't handle the "->" notation used for parallelStream().forEach() if
          * uniquePerLocale calls errln directly.
          */
-        Set<String> problems = new HashSet<String>();
+        Set<String> problems = new HashSet<>();
         locales.parallelStream().forEach(locale -> uniquePerLocale(locale, problems));
         if (!problems.isEmpty()) {
             problems.forEach(s -> errln(s));
@@ -291,7 +294,7 @@ public class TestAnnotations extends TestFmwkPlus {
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);
 
         String emojiImageDir = CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/WebContent/images/emoji";
-        for (String emoji : Emoji.getNonConstructed()) { 
+        for (String emoji : Emoji.getNonConstructed()) {
             String noVs = emoji.replace(Emoji.EMOJI_VARIANT, "");
 
             // example: emoji_1f1e7_1f1ec.png
@@ -346,11 +349,11 @@ public class TestAnnotations extends TestFmwkPlus {
                 int errorType = ERR;
                 if (logKnownIssue("cldr13660", "slightly out of order")) {
                     errorType = WARN;
-                };
-                msg("Out of order: " 
-                + lastEmoji + " (" + lastEmojiOrdering + ") " + lastName
-                + " > " 
-                + emoji + " (" + emojiOrdering + ") " + name, errorType, true, true);
+                }
+                msg("Out of order: "
+                    + lastEmoji + " (" + lastEmojiOrdering + ") " + lastName
+                    + " > "
+                    + emoji + " (" + emojiOrdering + ") " + name, errorType, true, true);
             }
 
             String major = Emoji.getMajorCategory(emoji);
@@ -361,7 +364,7 @@ public class TestAnnotations extends TestFmwkPlus {
             String oldMajor = minorToMajor.get(minor);
             // never get major1:minor1 and major2:minor1
             if (oldMajor == null) {
-                minorToMajor.put(minor, major); 
+                minorToMajor.put(minor, major);
             } else {
                 assertEquals(minor + " maps to different majors for " + Utility.hex(emoji), oldMajor, major);
             }
@@ -473,6 +476,41 @@ public class TestAnnotations extends TestFmwkPlus {
             String source = (String)test[2];
             String actual = xlistFormatter.formatCodePoints(source);
             assertEquals(test[0] + ", " + listTypeLength + ", " + source, expected, actual);
+        }
+    }
+
+    public void testCoverage() {
+        UnicodeMap<Level> levels = new UnicodeMap<>();
+        UnicodeSet shouldBeComprehensive = new UnicodeSet("[‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼]").freeze();
+        for (String minorCategory : Emoji.getMinorCategoriesWithExtras()) {
+            for (String s : Emoji.getEmojiInMinorCategoriesWithExtras(minorCategory)) {
+                if (s.contentEquals("‾")) {
+                    int debug = 0;
+                }
+                CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(), "en");
+                final String pathKeyword = "//ldml/annotations/annotation[@cp=\"" + s + "\"]";
+                final String pathName = pathKeyword + "[@type=\"tts\"]";
+                Level levelKeyword = coverageLevel.getLevel(pathKeyword);
+                Level levelName = coverageLevel.getLevel(pathName);
+                assertEquals(s, levelName, levelKeyword);
+                levels.put(s, levelName);
+            }
+        }
+        for (Level level : Level.values()) {
+            UnicodeSet us = levels.getSet(level);
+            System.out.println(level + "\t" + us.size());
+            switch(level) {
+            case COMPREHENSIVE:
+                UnicodeSet us2 = new UnicodeSet(us).removeAll(us.strings());
+                assertEquals(level.toString(), shouldBeComprehensive.toPattern(false), us2.toPattern(false));
+                break;
+            case MODERN:
+                assertNotEquals(level.toString(), 0, us.size());
+                break;
+            default:
+                assertEquals(level.toString(), 0, us.size());
+                break;
+            }
         }
     }
 }

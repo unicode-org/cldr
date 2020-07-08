@@ -303,6 +303,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             message = "Can't have same number pattern as {0}";
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.exact);
         } else if (myType == Type.UNITS || myType == Type.UNIT_PREFIX) {
+            currentAttributesToIgnore = ignoreAltAttributes;
             paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.unit);
         } else if (myType == Type.CARDINAL_MINIMAL || myType == Type.ORDINAL_MINIMAL) {
             if (value.equals("{0}?")) {
@@ -597,7 +598,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
 
         // Do first cleanup
-        // remove paths with "alt/count"; they can be duplicates
+        // remove paths with "alt/count" per currentAttributesToIgnore; they can be duplicates
         Set<String> paths = new HashSet<>();
         for (String pathName : retrievedPaths) {
             Type thisPathType = Type.getType(pathName);

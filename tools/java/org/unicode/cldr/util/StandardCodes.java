@@ -61,7 +61,7 @@ public class StandardCodes {
 
     private static final Set<String> TypeStringSet;
     static {
-        LinkedHashSet<String> foo = new LinkedHashSet<String>();
+        LinkedHashSet<String> foo = new LinkedHashSet<>();
         for (CodeType x : CodeType.values()) {
             foo.add(x.toString());
         }
@@ -74,18 +74,18 @@ public class StandardCodes {
 
     private static StandardCodes singleton;
 
-    private EnumMap<CodeType, Map<String, List<String>>> type_code_data = new EnumMap<CodeType, Map<String, List<String>>>(
+    private EnumMap<CodeType, Map<String, List<String>>> type_code_data = new EnumMap<>(
         CodeType.class);
 
-    private EnumMap<CodeType, Map<String, List<String>>> type_name_codes = new EnumMap<CodeType, Map<String, List<String>>>(
+    private EnumMap<CodeType, Map<String, List<String>>> type_name_codes = new EnumMap<>(
         CodeType.class);
 
-    private EnumMap<CodeType, Map<String, String>> type_code_preferred = new EnumMap<CodeType, Map<String, String>>(
+    private EnumMap<CodeType, Map<String, String>> type_code_preferred = new EnumMap<>(
         CodeType.class);
 
-    private Map<String, Set<String>> country_modernCurrency = new TreeMap<String, Set<String>>();
+    private Map<String, Set<String>> country_modernCurrency = new TreeMap<>();
 
-    private Map<CodeType, Set<String>> goodCodes = new TreeMap<CodeType, Set<String>>();
+    private Map<CodeType, Set<String>> goodCodes = new TreeMap<>();
 
     private static final boolean DEBUG = false;
 
@@ -177,7 +177,7 @@ public class StandardCodes {
         // position 2.
         if (data.size() < 3)
             return null;
-        String replacement = (String) data.get(2);
+        String replacement = data.get(2);
         if (!replacement.equals("") && !replacement.equals("--"))
             return replacement;
         return null;
@@ -284,10 +284,10 @@ public class StandardCodes {
                 SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
                 if (code_name == null)
                     return null;
-                result = new TreeSet<String>(code_name.keySet());
+                result = new TreeSet<>(code_name.keySet());
                 switch (type) {
                 case currency:
-                    break; // nothing special                    
+                    break; // nothing special
                 case language:
                     return sd.getCLDRLanguageCodes();
                 case script:
@@ -296,7 +296,7 @@ public class StandardCodes {
                     break; // nothing special
                 default:
                     for (Iterator<String> it = result.iterator(); it.hasNext();) {
-                        String code = (String) it.next();
+                        String code = it.next();
                         if (code.equals("root") || code.equals("QO"))
                             continue;
                         List<String> data = getFullData(type, code);
@@ -323,7 +323,7 @@ public class StandardCodes {
     public Set<String> getGoodCountries() {
         synchronized (goodCodes) {
             if (GOOD_COUNTRIES == null) {
-                Set<String> temp = new LinkedHashSet<String>();
+                Set<String> temp = new LinkedHashSet<>();
                 for (String s : getGoodAvailableCodes(CodeType.territory)) {
                     if (isCountry(s)) {
                         temp.add(s);
@@ -342,8 +342,8 @@ public class StandardCodes {
         return country_modernCurrency.get(countryCode);
     }
 
-    private EnumMap<Organization, Map<String, Level>> platform_locale_level = null;
-    private EnumMap<Organization, Relation<Level, String>> platform_level_locale = null;
+    private Map<Organization, Map<String, Level>> platform_locale_level = null;
+    private Map<Organization, Relation<Level, String>> platform_level_locale = null;
     private Map<String, Map<String, String>> platform_locale_levelString = null;
 
 //    /**
@@ -364,6 +364,7 @@ public class StandardCodes {
 
     static Comparator caseless = new Comparator() {
 
+        @Override
         public int compare(Object arg0, Object arg1) {
             String s1 = (String) arg0;
             String s2 = (String) arg1;
@@ -378,6 +379,7 @@ public class StandardCodes {
      *
      * @deprecated
      */
+    @Deprecated
     public Map<Organization, Map<String, Level>> getLocaleTypes() {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
@@ -492,7 +494,7 @@ public class StandardCodes {
     }
 
     public Set<String> getLocaleCoverageLocales(Organization organization, Set<Level> choice) {
-        Set<String> result = new LinkedHashSet<String>();
+        Set<String> result = new LinkedHashSet<>();
         for (String locale : getLocaleCoverageLocales(organization)) {
             if (choice.contains(getLocaleCoverageLevel(organization, locale))) {
                 result.add(locale);
@@ -503,7 +505,7 @@ public class StandardCodes {
 
     private void loadPlatformLocaleStatus() {
         LocaleIDParser parser = new LocaleIDParser();
-        platform_locale_level = new EnumMap<Organization, Map<String, Level>>(Organization.class);
+        platform_locale_level = new EnumMap<>(Organization.class);
         SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = sd.getDefaultContentLocales();
         String line;
@@ -531,7 +533,7 @@ public class StandardCodes {
                 }
 
                 // verify that the locale is valid BCP47
-                String locale = (String) stuff.get(1);
+                String locale = stuff.get(1);
                 if (!locale.equals("*")) {
                     parser.set(locale);
                     String valid = validate(parser);
@@ -546,13 +548,13 @@ public class StandardCodes {
                     }
                 }
 
-                Level status = Level.get((String) stuff.get(2));
+                Level status = Level.get(stuff.get(2));
                 if (status == Level.UNDETERMINED) {
                     System.out.println("Warning: Level unknown on: " + line);
                 }
                 Map<String, Level> locale_status = platform_locale_level.get(organization);
                 if (locale_status == null) {
-                    platform_locale_level.put(organization, locale_status = new TreeMap<String, Level>());
+                    platform_locale_level.put(organization, locale_status = new TreeMap<>());
                 }
                 locale_status.put(locale, status);
                 if (!locale.equals("*")) {
@@ -577,7 +579,7 @@ public class StandardCodes {
 
                 String language = parser.getLanguage();
                 if (!language.equals(locale)) {
-                    Level languageLevel = (Level) locale_level.get(language);
+                    Level languageLevel = locale_level.get(language);
                     if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
                         locale_level.put(language, childLevel);
                     }
@@ -585,7 +587,7 @@ public class StandardCodes {
                 String oldLanguage = language;
                 language = parser.getLanguageScript();
                 if (!language.equals(oldLanguage)) {
-                    Level languageLevel = (Level) locale_level.get(language);
+                    Level languageLevel = locale_level.get(language);
                     if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
                         locale_level.put(language, childLevel);
                     }
@@ -593,10 +595,10 @@ public class StandardCodes {
             }
         }
         // backwards compat hack
-        platform_locale_levelString = new TreeMap<String, Map<String, String>>();
+        platform_locale_levelString = new TreeMap<>();
         platform_level_locale = new EnumMap<>(Organization.class);
         for (Organization platform : platform_locale_level.keySet()) {
-            Map<String, String> locale_levelString = new TreeMap<String, String>();
+            Map<String, String> locale_levelString = new TreeMap<>();
             platform_locale_levelString.put(platform.toString(), locale_levelString);
             Map<String, Level> locale_level = platform_locale_level.get(platform);
             for (String locale : locale_level.keySet()) {
@@ -738,10 +740,10 @@ public class StandardCodes {
                         if (type.equals("currency")) {
                             // currency | TPE | Timor Escudo | TP | EAST TIMOR | O
                             if (data.get(3).equals("C")) {
-                                String country = (String) data.get(1);
+                                String country = data.get(1);
                                 Set<String> codes = country_modernCurrency.get(country);
                                 if (codes == null) {
-                                    country_modernCurrency.put(country, codes = new TreeSet<String>());
+                                    country_modernCurrency.put(country, codes = new TreeSet<>());
                                 }
                                 codes.add(code);
                             }
@@ -753,7 +755,7 @@ public class StandardCodes {
                     // ArrayList());
                     String preferred = null;
                     for (int i = 0; i < pieces.size(); ++i) {
-                        code = (String) pieces.get(i);
+                        code = pieces.get(i);
                         add(type, code, data);
                         if (preferred == null)
                             preferred = code;
@@ -786,7 +788,7 @@ public class StandardCodes {
             Map<String, Map<String, String>> m = languageRegistry.get(type);
             for (String code : m.keySet()) {
                 Map<String, String> mm = m.get(code);
-                List<String> data = new ArrayList<String>(0);
+                List<String> data = new ArrayList<>(0);
                 data.add(mm.get("Description"));
                 data.add(mm.get("Added"));
                 String pref = mm.get("Preferred-Value");
@@ -849,7 +851,7 @@ public class StandardCodes {
      * @param string3
      */
     private void add(CodeType type, String string2, String string3) {
-        List<String> l = new ArrayList<String>();
+        List<String> l = new ArrayList<>();
         l.add(string3);
         add(type, string2, l);
     }
@@ -858,10 +860,10 @@ public class StandardCodes {
         // hack
         if (type == CodeType.script) {
             if (code.equals("Qaai")) {
-                otherData = new ArrayList<String>(otherData);
+                otherData = new ArrayList<>(otherData);
                 otherData.set(0, "Inherited");
             } else if (code.equals("Zyyy")) {
-                otherData = new ArrayList<String>(otherData);
+                otherData = new ArrayList<>(otherData);
                 otherData.set(0, "Common");
             }
         }
@@ -873,7 +875,7 @@ public class StandardCodes {
         // add to main list
         Map<String, List<String>> code_data = getCodeData(type);
         if (code_data == null) {
-            code_data = new TreeMap<String, List<String>>();
+            code_data = new TreeMap<>();
             type_code_data.put(type, code_data);
         }
         List<String> lastData = code_data.get(code);
@@ -886,12 +888,12 @@ public class StandardCodes {
         // now add mapping from name to codes
         Map<String, List<String>> name_codes = type_name_codes.get(type);
         if (name_codes == null) {
-            name_codes = new TreeMap<String, List<String>>();
+            name_codes = new TreeMap<>();
             type_name_codes.put(type, name_codes);
         }
         List<String> codes = name_codes.get(name);
         if (codes == null) {
-            codes = new ArrayList<String>();
+            codes = new ArrayList<>();
             name_codes.put(name, codes);
         }
         codes.add(code);
@@ -911,7 +913,7 @@ public class StandardCodes {
     public Map<String, List<String>> getWorldBankInfo() {
         if (WorldBankInfo == null) {
             List<String> temp = fillFromCommaFile("WorldBankInfo.txt", false);
-            WorldBankInfo = new HashMap<String, List<String>>();
+            WorldBankInfo = new HashMap<>();
             for (String line : temp) {
                 List<String> row = CldrUtility.splitList(line, ';', true);
                 String key = row.get(0);
@@ -928,7 +930,7 @@ public class StandardCodes {
     public Set<String> getMoribundLanguages() {
         if (moribundLanguages == null) {
             List<String> temp = fillFromCommaFile("moribund_languages.txt", true);
-            moribundLanguages = new TreeSet<String>();
+            moribundLanguages = new TreeSet<>();
             moribundLanguages.addAll(temp);
             moribundLanguages = CldrUtility.protectCollection(moribundLanguages);
         }
@@ -938,7 +940,7 @@ public class StandardCodes {
     // produces a list of the 'clean' lines
     private List<String> fillFromCommaFile(String filename, boolean trim) {
         try {
-            List<String> result = new ArrayList<String>();
+            List<String> result = new ArrayList<>();
             String line;
             BufferedReader lstreg = CldrUtility.getUTF8Data(filename);
             while (true) {
@@ -1024,11 +1026,11 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und", "zxx", "mul", "mis", "root"), 
-        script("Zzzz", "Zsym", "Zxxx", "Zmth"), 
-        region("ZZ"), 
-        variant(), 
-        extlang(true, false), 
+        language("und", "zxx", "mul", "mis", "root"),
+        script("Zzzz", "Zsym", "Zxxx", "Zmth"),
+        region("ZZ"),
+        variant(),
+        extlang(true, false),
         grandfathered(true, false),
         redundant(true, false),
         /** specialized codes for validity; TODO: rename LstrType **/
@@ -1056,7 +1058,7 @@ public class StandardCodes {
             isUnicode = unicode;
         }
 
-        // 
+        //
         static final Pattern WELLFORMED = Pattern.compile("([0-9]{3}|[a-zA-Z]{2})[a-zA-Z0-9]{1,4}");
 
         boolean isWellFormed(String candidate) {
@@ -1120,11 +1122,11 @@ public class StandardCodes {
     }
 
     private static void initLstr() {
-        Map<LstrType, Map<String, Map<LstrField, String>>> result2 = new TreeMap<LstrType, Map<String, Map<LstrField, String>>>();
+        Map<LstrType, Map<String, Map<LstrField, String>>> result2 = new TreeMap<>();
 
         int lineNumber = 1;
 
-        Set<String> funnyTags = new TreeSet<String>();
+        Set<String> funnyTags = new TreeSet<>();
         String line;
         try {
             BufferedReader lstreg = CldrUtility.getUTF8Data(registryName);
@@ -1182,7 +1184,7 @@ public class StandardCodes {
                 if (label == LstrField.Type) {
                     subtagData = CldrUtility.get(result2, lastType = LstrType.valueOf(rest));
                     if (subtagData == null) {
-                        result2.put(LstrType.valueOf(rest), subtagData = new TreeMap<String, Map<LstrField, String>>());
+                        result2.put(LstrType.valueOf(rest), subtagData = new TreeMap<>());
                     }
                 } else if (label == LstrField.Subtag
                     || label == LstrField.Tag) {
@@ -1194,7 +1196,7 @@ public class StandardCodes {
                         endTag = lastTag.substring(pos + 2);
                         lastTag = lastTag.substring(0, pos);
                     }
-                    currentData = new TreeMap<LstrField, String>();
+                    currentData = new TreeMap<>();
                     if (endTag == null) {
                         putSubtagData(lastTag, subtagData, currentData);
                         languageCount.add(lastType, 1);
@@ -1225,7 +1227,7 @@ public class StandardCodes {
                     //                        lastRest = translitCache.get(rest);
                     //                    }
                     lastRest = rest;
-                    String oldValue = (String) CldrUtility.get(currentData, lastLabel);
+                    String oldValue = CldrUtility.get(currentData, lastLabel);
                     if (oldValue != null) {
                         lastRest = oldValue + DESCRIPTION_SEPARATOR + lastRest;
                     }
@@ -1243,15 +1245,15 @@ public class StandardCodes {
             }
         }
         // copy raw
-        Map<LstrType, Map<String, Map<LstrField, String>>> rawLstreg = new TreeMap<LstrType, Map<String, Map<LstrField, String>>>();
+        Map<LstrType, Map<String, Map<LstrField, String>>> rawLstreg = new TreeMap<>();
         for (Entry<LstrType, Map<String, Map<LstrField, String>>> entry1 : result2.entrySet()) {
             LstrType key1 = entry1.getKey();
-            TreeMap<String, Map<LstrField, String>> raw1 = new TreeMap<String, Map<LstrField, String>>();
+            TreeMap<String, Map<LstrField, String>> raw1 = new TreeMap<>();
             rawLstreg.put(key1, raw1);
             for (Entry<String, Map<LstrField, String>> entry2 : entry1.getValue().entrySet()) {
                 String key2 = entry2.getKey();
                 final Map<LstrField, String> value2 = entry2.getValue();
-                TreeMap<LstrField, String> raw2 = new TreeMap<LstrField, String>();
+                TreeMap<LstrField, String> raw2 = new TreeMap<>();
                 raw2.putAll(value2);
                 raw1.put(key2, raw2);
             }
@@ -1262,9 +1264,9 @@ public class StandardCodes {
         for (int i = 0; i < extras.length; ++i) {
             Map<String, Map<LstrField, String>> subtagData = CldrUtility.get(result2, LstrType.valueOf(extras[i][0]));
             if (subtagData == null) {
-                result2.put(LstrType.valueOf(extras[i][0]), subtagData = new TreeMap<String, Map<LstrField, String>>());
+                result2.put(LstrType.valueOf(extras[i][0]), subtagData = new TreeMap<>());
             }
-            Map<LstrField, String> labelData = new TreeMap<LstrField, String>();
+            Map<LstrField, String> labelData = new TreeMap<>();
             for (int j = 2; j < extras[i].length; j += 2) {
                 labelData.put(LstrField.from(extras[i][j]), extras[i][j + 1]);
             }
@@ -1282,12 +1284,12 @@ public class StandardCodes {
             subtagData.put(extras[i][1], labelData);
         }
         // build compatibility map
-        Map<String, Map<String, Map<String, String>>> result = new LinkedHashMap<String, Map<String, Map<String, String>>>();
+        Map<String, Map<String, Map<String, String>>> result = new LinkedHashMap<>();
         for (Entry<LstrType, Map<String, Map<LstrField, String>>> entry : result2.entrySet()) {
-            Map<String, Map<String, String>> copy2 = new LinkedHashMap<String, Map<String, String>>();
+            Map<String, Map<String, String>> copy2 = new LinkedHashMap<>();
             result.put(entry.getKey().toString(), copy2);
             for (Entry<String, Map<LstrField, String>> entry2 : entry.getValue().entrySet()) {
-                Map<String, String> copy3 = new LinkedHashMap<String, String>();
+                Map<String, String> copy3 = new LinkedHashMap<>();
                 copy2.put(entry2.getKey(), copy3);
                 for (Entry<LstrField, String> entry3 : entry2.getValue().entrySet()) {
                     copy3.put(entry3.getKey().toString(), entry3.getValue());
@@ -1310,7 +1312,7 @@ public class StandardCodes {
         return subtagData.put(lastTag, currentData);
     }
 
-    static Counter<LstrType> languageCount = new Counter<LstrType>();
+    static Counter<LstrType> languageCount = new Counter<>();
 
     public static Counter<LstrType> getLanguageCount() {
         return languageCount;
@@ -1339,6 +1341,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Map<String, List<ZoneLine>> getZone_rules() {
         return zoneParser.getZone_rules();
     }
@@ -1346,6 +1349,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Map<String, List<String>> getZoneData() {
         return zoneParser.getZoneData();
     }
@@ -1353,6 +1357,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Set<String> getCanonicalTimeZones() {
         return zoneParser.getZoneData().keySet();
     }
@@ -1360,6 +1365,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Map<String, Set<String>> getCountryToZoneSet() {
         return zoneParser.getCountryToZoneSet();
     }
@@ -1367,6 +1373,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public List<String> getDeprecatedZoneIDs() {
         return zoneParser.getDeprecatedZoneIDs();
     }
@@ -1374,6 +1381,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Comparator<String> getTZIDComparator() {
         return zoneParser.getTZIDComparator();
     }
@@ -1381,6 +1389,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Map<String, Set<String>> getZoneLinkNew_OldSet() {
         return zoneParser.getZoneLinkNew_OldSet();
     }
@@ -1388,6 +1397,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Map<String, String> getZoneLinkold_new() {
         return zoneParser.getZoneLinkold_new();
     }
@@ -1395,6 +1405,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Map getZoneRuleID_rules() {
         return zoneParser.getZoneRuleID_rules();
     }
@@ -1402,6 +1413,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public Map<String, String> getZoneToCounty() {
         return zoneParser.getZoneToCounty();
     }
@@ -1409,6 +1421,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
+    @Deprecated
     public String getZoneVersion() {
         return zoneParser.getVersion();
     }

@@ -113,7 +113,7 @@ public class DictionaryStringByteConverter extends StringByteConverter {
         byteMaker.fromBytes(input, byteStart, byteLength, internal);
         // then convert using dictionary
         if (backMatcher == null) {
-            Map<CharSequence, CharSequence> back = new TreeMap<CharSequence, CharSequence>(
+            Map<CharSequence, CharSequence> back = new TreeMap<>(
                 Dictionary.CHAR_SEQUENCE_COMPARATOR);
             for (Iterator<Entry<CharSequence, String>> m = dictionary.getMapping(); m.hasNext();) {
                 Entry<CharSequence, String> entry = m.next();

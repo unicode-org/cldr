@@ -40,7 +40,7 @@ public class CompareFilesBetweenReleases2 {
     }
 
     static final Set<String> SKIP = ImmutableSet.of("seed", "exemplars", "docs", "tools");
-    
+
     private static void getFiles(int baseLen, File subdir, Set<String> names) throws IOException {
         String name = subdir.getName();
         if (subdir.isDirectory()) {

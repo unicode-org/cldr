@@ -40,10 +40,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.CompactDecimalFormat;
@@ -135,11 +135,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 + "\t"
                 + starred
                 + "\t"
-                + CollectionUtilities.join(levelsFound, ", ")
+                + Joiner.on(", ").join(levelsFound)
                 + "\t"
                 + (maxLevelCount == 1 ? "all" : localesWithUniqueLevels
-                    .size() == 0 ? "none" : CollectionUtilities.join(
-                        localesWithUniqueLevels, ", ")));
+                    .size() == 0 ? "none" : Joiner.on(", ").join(localesWithUniqueLevels)));
         }
     }
 
@@ -269,6 +268,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
         }
 
+        @Override
         public String transform(String source) {
             String result = ENGLISH.getName(field, source);
             String extra = "";
@@ -292,6 +292,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     RegexLookup<Level> exceptions = RegexLookup.of(null,
         new Transform<String, Level>() {
+            @Override
             public Level transform(String source) {
                 return Level.fromLevel(Integer.parseInt(source));
             }
@@ -613,7 +614,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             } else if (path.startsWith("//ldml/units")) {
                 // Skip paths for narrow unit fields.
-                if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))) {
+                if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
+                    || path.endsWith("/compoundUnitPattern1")
+                    ) {
                     continue;
                 }
             }

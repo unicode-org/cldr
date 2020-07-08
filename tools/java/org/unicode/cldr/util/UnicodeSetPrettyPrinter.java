@@ -27,9 +27,9 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  */
 public class UnicodeSetPrettyPrinter {
     private static final StringComparator CODEPOINT_ORDER = new UTF16.StringComparator(true, false, 0);
-    private static final UnicodeSet PATTERN_WHITESPACE = (UnicodeSet) new UnicodeSet("[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]").freeze();
-    private static final UnicodeSet SORT_AT_END = (UnicodeSet) new UnicodeSet("[[:Cn:][:Cs:][:Co:][:Ideographic:]]").freeze();
-    private static final UnicodeSet QUOTED_SYNTAX = (UnicodeSet) new UnicodeSet("[\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]").addAll(PATTERN_WHITESPACE).freeze();
+    private static final UnicodeSet PATTERN_WHITESPACE = new UnicodeSet("[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]").freeze();
+    private static final UnicodeSet SORT_AT_END = new UnicodeSet("[[:Cn:][:Cs:][:Co:][:Ideographic:]]").freeze();
+    private static final UnicodeSet QUOTED_SYNTAX = new UnicodeSet("[\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]").addAll(PATTERN_WHITESPACE).freeze();
 
     private boolean first = true;
     private StringBuffer target = new StringBuffer();
@@ -104,7 +104,7 @@ public class UnicodeSetPrettyPrinter {
      */
     public UnicodeSetPrettyPrinter setToQuote(UnicodeSet toQuote) {
         if (toQuote != null) {
-            toQuote = (UnicodeSet) toQuote.cloneAsThawed();
+            toQuote = toQuote.cloneAsThawed();
             toQuote.addAll(PATTERN_WHITESPACE);
             this.toQuote = toQuote;
         }
@@ -120,7 +120,7 @@ public class UnicodeSetPrettyPrinter {
         first = true;
         UnicodeSet putAtEnd = new UnicodeSet(uset).retainAll(SORT_AT_END); // remove all the unassigned gorp for now
         // make sure that comparison separates all strings, even canonically equivalent ones
-        TreeSet<String> orderedStrings = new TreeSet<String>(ordering);
+        TreeSet<String> orderedStrings = new TreeSet<>(ordering);
         for (UnicodeSetIterator it = new UnicodeSetIterator(uset); it.nextRange();) {
             if (it.codepoint == UnicodeSetIterator.IS_STRING) {
                 orderedStrings.add(it.string);
@@ -180,7 +180,7 @@ public class UnicodeSetPrettyPrinter {
     }
 
     /**
-     * 
+     *
      */
     private void addSpaceAsNeededBefore(String s) {
         if (first) {

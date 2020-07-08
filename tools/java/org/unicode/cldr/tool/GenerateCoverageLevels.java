@@ -98,7 +98,7 @@ public class GenerateCoverageLevels {
         String locale = "en";
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
-        Set<R3<Level, String, Inheritance>> items = new TreeSet<R3<Level, String, Inheritance>>(new RowComparator());
+        Set<R3<Level, String, Inheritance>> items = new TreeSet<>(new RowComparator());
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -121,6 +121,7 @@ public class GenerateCoverageLevels {
 
     private static class RowComparator implements Comparator<R3<Level, String, Inheritance>> {
 
+        @Override
         public int compare(R3<Level, String, Inheritance> o1, R3<Level, String, Inheritance> o2) {
             int result = o1.get0().compareTo(o2.get0());
             if (result != 0) return result;
@@ -166,7 +167,7 @@ public class GenerateCoverageLevels {
         Inheritance lastInheritance;
         int count = 0;
 
-        TreeMap<String, Relation<String, String>> differences = new TreeMap<String, Relation<String, String>>();
+        TreeMap<String, Relation<String, String>> differences = new TreeMap<>();
 
         R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> add(
             R3<Level, String, Inheritance> next) {
@@ -192,7 +193,7 @@ public class GenerateCoverageLevels {
             R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> results = Row.of(
                 lastLevel, lastInheritance, count - 1, lastParts.toString().replace("/", "\u200B/"), differences);
             lastParts = nextParts;
-            differences = new TreeMap<String, Relation<String, String>>();
+            differences = new TreeMap<>();
             nextParts = new XPathParts();
             lastLevel = level;
             lastInheritance = inherited;
@@ -213,7 +214,7 @@ public class GenerateCoverageLevels {
         }
 
         private XPathParts setNewParts(String path) {
-            XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeElement
+            XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeElement
             if (path.startsWith("//ldml/dates/timeZoneNames/metazone")
                 || path.startsWith("//ldml/dates/timeZoneNames/zone")) {
                 String element = nextParts.getElement(-1);
@@ -284,12 +285,12 @@ public class GenerateCoverageLevels {
         decimal.setMaximumFractionDigits(2);
         percent.setMaximumFractionDigits(2);
         NumberFormat integer = NumberFormat.getIntegerInstance();
-        Set<String> localesFound = new TreeSet<String>();
+        Set<String> localesFound = new TreeSet<>();
 
         // get list of locales
         LocaleLevelData mapLevelData = new LocaleLevelData();
-        TreeSet<String> mainAvailableSource = new TreeSet<String>(cldrFactory.getAvailable());
-        TreeSet<String> mainAvailable = new TreeSet<String>();
+        TreeSet<String> mainAvailableSource = new TreeSet<>(cldrFactory.getAvailable());
+        TreeSet<String> mainAvailable = new TreeSet<>();
         Relation<String, String> localeToVariants = Relation.of(new HashMap(), HashSet.class);
         for (String locale : mainAvailableSource) {
             if (localeFilter.skipLocale(locale, localeToVariants)) {
@@ -299,8 +300,8 @@ public class GenerateCoverageLevels {
         }
 
         System.out.println("gathering rbnf data");
-        Set<String> ordinals = new TreeSet<String>();
-        Set<String> spellout = new TreeSet<String>();
+        Set<String> ordinals = new TreeSet<>();
+        Set<String> spellout = new TreeSet<>();
         localesFound.clear();
         for (String locale : rbnfFactory.getAvailable()) {
             if (localeFilter.skipLocale(locale, null)) continue;
@@ -316,7 +317,7 @@ public class GenerateCoverageLevels {
         }
 
         System.out.println("gathering plural data");
-        localesFound = new TreeSet<String>(supplementalData.getPluralLocales(PluralType.cardinal));
+        localesFound = new TreeSet<>(supplementalData.getPluralLocales(PluralType.cardinal));
         markData("Plurals", localesFound, mapLevelData, mainAvailable, PLURALS_LEVEL, PLURALS_WEIGHT,
             Row.of("//supplementalData/plurals", "UCA"));
 
@@ -481,6 +482,7 @@ public class GenerateCoverageLevels {
             return result != LocaleStatus.BASE;
         }
 
+        @Override
         public LocaleStatus transform(String locale) {
             ltp.set(locale);
             if (checkAliases) {
@@ -503,6 +505,7 @@ public class GenerateCoverageLevels {
     private static class BooleanLocaleFilter implements Transform<String, Boolean> {
         private final LocaleFilter filter = new LocaleFilter(false);
 
+        @Override
         public Boolean transform(String locale) {
             return filter.transform(locale) == LocaleStatus.BASE ? Boolean.TRUE : Boolean.FALSE;
         }
@@ -575,14 +578,14 @@ public class GenerateCoverageLevels {
     }
 
     static class LevelData {
-        Counter<Level> missing = new Counter<Level>();
+        Counter<Level> missing = new Counter<>();
         Relation<Level, R2<String, String>> samples = Relation.of(new EnumMap<Level, Set<R2<String, String>>>(
             Level.class), LinkedHashSet.class);
-        Counter<Level> found = new Counter<Level>();
+        Counter<Level> found = new Counter<>();
     }
 
     static class LocaleLevelData {
-        Map<String, LevelData> locale_levelData = new TreeMap<String, LevelData>();
+        Map<String, LevelData> locale_levelData = new TreeMap<>();
 
         public LevelData get(String locale) {
             if (locale.equals("zh_Hans") || locale.equals("iw")) {

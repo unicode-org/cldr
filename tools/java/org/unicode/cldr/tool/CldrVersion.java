@@ -22,20 +22,21 @@ import com.ibm.icu.util.VersionInfo;
  * @author markdavis
  *
  */
+// TODO compute the VersionInfo for each at creation time, and stash as field.
 public enum CldrVersion {
-    unknown, 
-    v1_1_1, v1_2, v1_3, v1_4_1, v1_5_1, v1_6_1, v1_7_2, v1_8_1, v1_9_1, v2_0_1, 
+    unknown,
+    v1_1_1, v1_2, v1_3, v1_4_1, v1_5_1, v1_6_1, v1_7_2, v1_8_1, v1_9_1, v2_0_1,
     v21_0, v22_1, v23_1, v24_0, v25_0, v26_0, v27_0, v28_0, v29_0, v30_0, v31_0, v32_0, v33_0, v33_1, v34_0,
-    v35_0, v35_1, v36_0,
+    v35_0, v35_1, v36_0, v36_1, v37_0,
     trunk;
 
     private final String baseDirectory;
     private final String dotName;
     private final VersionInfo versionInfo;
-    
-    /** 
+
+    /**
      * Get the closest available version (successively dropping lower-significance values)
-     * We do this because the archive might contain a dot-dot version 
+     * We do this because the archive might contain a dot-dot version
      * but have a folder called by the round(er) version number.
      */
     public static CldrVersion from(VersionInfo versionInfo) {
@@ -51,22 +52,23 @@ public enum CldrVersion {
                     : versionInfo.getMinor() != 0 ? VersionInfo.getInstance(versionInfo.getMajor())
                         : unknown.versionInfo; // will always terminate with unknown.
         }
-    };
+    }
 
     public static CldrVersion from(String versionString) {
         return valueOf(versionString.charAt(0) < 'A' ? "v" + versionString.replace('.', '_') : versionString);
-    };
+    }
 
     public VersionInfo getVersionInfo() {
         return versionInfo;
     }
+    @Override
     public String toString() {
         return dotName;
-    };
+    }
     public String getBaseDirectory() {
         return baseDirectory;
     }
-    
+
     public boolean isOlderThan(CldrVersion other) {
         return compareTo(other) < 0;
     }
@@ -116,8 +118,8 @@ public enum CldrVersion {
     public List<File> getPathsForFactory() {
         return ImmutableList.copyOf(versionInfo != null && versionInfo.getMajor() < 27
             ? new File[] { new File(getBaseDirectory() + "common/main/") }
-        : new File[] { 
-            new File(getBaseDirectory() + "common/main/"), 
+        : new File[] {
+            new File(getBaseDirectory() + "common/main/"),
             new File(getBaseDirectory() + "common/annotations/") });
     }
 
@@ -164,7 +166,7 @@ public enum CldrVersion {
             LinkedHashSet<VersionInfo> fileMTc = new LinkedHashSet<>(allFileVersions);
             fileMTc.removeAll(allTc);
             if (!fileMTc.isEmpty()) {
-                errorMessages.add("Extra " + CLDRPaths.ARCHIVE_DIRECTORY + " compared to ToolConstants.CLDR_VERSIONS: " + fileMTc);
+                errorMessages.add("Extra folders in " + CLDRPaths.ARCHIVE_DIRECTORY + " compared to ToolConstants.CLDR_VERSIONS: " + fileMTc);
             }
         }
 

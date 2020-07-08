@@ -57,8 +57,8 @@ public class CookieSession {
     static final boolean DEBUG_INOUT = false;
     public String id;
     public String ip;
-    public Hashtable<String, Object> stuff = new Hashtable<String, Object>(); // user data
-    public Hashtable<String, Comparable> prefs = new Hashtable<String, Comparable>(); // user prefs
+    public Hashtable<String, Object> stuff = new Hashtable<>(); // user data
+    public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
     /**
      * @deprecated need to refactor anything that uses this.
@@ -66,6 +66,7 @@ public class CookieSession {
      * SurveyAjax.processRequest, which requires the HttpServletRequest.
      * Another possibility: WebContext.sm (not static; e.g. "ctx.sm")
      */
+    @Deprecated
     public static SurveyMain sm = null;
 
     private Connection conn = null;
@@ -95,7 +96,7 @@ public class CookieSession {
      *
      * @return the number of milliseconds remaining before the user will be disconnected
      *         unless the user does something "active" before then.
-     * 
+     *
      * Here, something "active" means anything that causes userDidAction() to be called.
      *
      * Called locally and by SurveyAjax.processRequest
@@ -158,6 +159,7 @@ public class CookieSession {
     /**
      * TODO: clarify who calls this and why; the usage of durationDiff with millisTillKick appears dubious
      */
+    @Override
     public String toString() {
         return "{CookieSession#" + id
             + ", user=" + user
@@ -167,8 +169,8 @@ public class CookieSession {
             + "}";
     }
 
-    static Hashtable<String, CookieSession> gHash = new Hashtable<String, CookieSession>(); // hash by sess ID
-    static Hashtable<String, CookieSession> uHash = new Hashtable<String, CookieSession>(); // hash by user ID
+    static Hashtable<String, CookieSession> gHash = new Hashtable<>(); // hash by sess ID
+    static Hashtable<String, CookieSession> uHash = new Hashtable<>(); // hash by user ID
 
     /**
      *
@@ -177,7 +179,8 @@ public class CookieSession {
      */
     public static Set<CookieSession> getAllSet() {
         synchronized (gHash) {
-            TreeSet<CookieSession> sessSet = new TreeSet<CookieSession>(new Comparator<Object>() {
+            TreeSet<CookieSession> sessSet = new TreeSet<>(new Comparator<Object>() {
+                @Override
                 public int compare(Object a, Object b) {
                     CookieSession aa = (CookieSession) a;
                     CookieSession bb = (CookieSession) b;
@@ -498,7 +501,7 @@ public class CookieSession {
         synchronized (stuff) {
             Hashtable<String, Hashtable<String, Object>> l = (Hashtable<String, Hashtable<String, Object>>) get("locales");
             if (l == null) {
-                l = new Hashtable<String, Hashtable<String, Object>>();
+                l = new Hashtable<>();
                 put("locales", l);
             }
             return l;
@@ -544,7 +547,7 @@ public class CookieSession {
     public static final String cheapDecodeString(String s) {
         return new String(cheapDecode(s), StandardCharsets.UTF_8);
     }
-    
+
     public static final byte[] cheapDecode(String s) {
         return Base64.getUrlDecoder().decode(s);
     }
@@ -603,7 +606,7 @@ public class CookieSession {
             }
             return value;
         }
-    };
+    }
 
     /**
      * Return true if too many users are logged in.
@@ -709,7 +712,7 @@ public class CookieSession {
             lastReapMillisSinceEpoch = nowMillisSinceEpoch;
 
             // remove any sessions we need to get rid of, count the rest.
-            List<CookieSession> toRemove = new LinkedList<CookieSession>();
+            List<CookieSession> toRemove = new LinkedList<>();
             for (CookieSession cs : gHash.values()) {
                 if (cs.user == null) { // guest
                     if (tooManyUsers
@@ -780,7 +783,7 @@ public class CookieSession {
     private static class BadUserRecord {
         String ip;
         int hits = 0;
-        Set<String> agents = new HashSet<String>();
+        Set<String> agents = new HashSet<>();
 
         public BadUserRecord(String IP) {
             ip = IP;
@@ -791,6 +794,7 @@ public class CookieSession {
             hits++;
         }
 
+        @Override
         public String toString() {
             String s = " hits: " + hits + ", from :";
             for (String ua : agents) {

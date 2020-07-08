@@ -106,9 +106,10 @@ public class Validity {
     }
 
     /**
-     * 
+     *
      * @deprecated Use {@link #getStatusToCodes(LstrType)}
      */
+    @Deprecated
     public Map<LstrType, Map<Status, Set<String>>> getData() {
         return typeToStatusToCodes;
     }

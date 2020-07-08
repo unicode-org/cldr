@@ -57,7 +57,7 @@ public class XMLModify {
         private static Set<String> parse(String[] args, boolean showArguments) {
             /*
              * TODO: instead of the last arg below being "true", should it be "showArguments", which is otherwise unused?
-             * Also myOptions.parse doesn't use its first parameter... 
+             * Also myOptions.parse doesn't use its first parameter...
              */
             return myOptions.parse(MyOptions.values()[0], args, true);
         }
@@ -85,7 +85,7 @@ public class XMLModify {
                         out.println("<!--" + value + " -->");
                         continue;
                     }
-                    XPathParts parts = XPathParts.getInstance(path); // not frozen, for setAttribute
+                    XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for setAttribute
                     if (pathMatcher.reset(path).matches()) {
                         String type = parts.getAttributeValue(-1, "type");
                         parts.setAttribute(-1, "type", type.toLowerCase(Locale.ROOT).replaceAll("-", ""));

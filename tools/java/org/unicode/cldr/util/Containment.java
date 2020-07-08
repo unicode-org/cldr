@@ -22,7 +22,7 @@ public class Containment {
     static final Set<String> continents = containmentCore.get("001");
     static final Set<String> subcontinents;
     static {
-        LinkedHashSet<String> temp = new LinkedHashSet<String>();
+        LinkedHashSet<String> temp = new LinkedHashSet<>();
         for (String continent : continents) {
             temp.addAll(containmentCore.get(continent));
         }
@@ -30,7 +30,7 @@ public class Containment {
     }
     static final Relation<String, String> containmentFull = supplementalData
         .getTerritoryToContained();
-    static final Relation<String, String> containedToContainer = (Relation<String, String>) Relation
+    static final Relation<String, String> containedToContainer = Relation
         .of(new HashMap<String, Set<String>>(),
             HashSet.class)
         .addAllInverted(containmentFull)
@@ -44,7 +44,7 @@ public class Containment {
         // for each container, get all of its leaf nodes
         Set<String> containers = supplementalData.getContainers();
         for (String s : containers) {
-            HashSet<String> leaves = new HashSet<String>();
+            HashSet<String> leaves = new HashSet<>();
             addLeaves(s, leaves, containers);
             leavesToContainers.putAll(leaves, s);
         }
@@ -54,12 +54,12 @@ public class Containment {
 //        }
     }
 
-    static final Relation<String, String> containedToContainerCore = (Relation<String, String>) Relation
+    static final Relation<String, String> containedToContainerCore = Relation
         .of(new HashMap<String, Set<String>>(),
             HashSet.class)
         .addAllInverted(containmentCore)
         .freeze();
-    static final Map<String, Integer> toOrder = new LinkedHashMap<String, Integer>();
+    static final Map<String, Integer> toOrder = new LinkedHashMap<>();
     static int level = 0;
     static int order;
     static {
@@ -201,7 +201,7 @@ public class Containment {
     }
 
     public static Set<List<String>> getAllDirected(Multimap<String, String> multimap, String lang) {
-        LinkedHashSet<List<String>> result = new LinkedHashSet<List<String>>();
+        LinkedHashSet<List<String>> result = new LinkedHashSet<>();
         getAllDirected(multimap, lang, new ArrayList<String>(), result);
         return result;
     }

@@ -26,7 +26,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
 
     // quick test
     static public void main(String[] args) {
-        XEquivalenceClass<String, Integer> foo1 = new XEquivalenceClass<String, Integer>(1);
+        XEquivalenceClass<String, Integer> foo1 = new XEquivalenceClass<>(1);
         String[][] tests = { { "b", "a1" }, { "b", "c" }, { "a1", "c" }, { "d", "e" }, { "e", "f" }, { "c", "d" } };
         for (int i = 0; i < tests.length; ++i) {
             System.out.println("Adding: " + tests[i][0] + ", " + tests[i][1]);
@@ -149,7 +149,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     /**
-     * 
+     *
      */
     private void addReason(T a, T b, R reason) {
         Map<T, Set<R>> obj_reasons = obj_obj_reasons.get(a);
@@ -175,7 +175,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     public Set<T> getEquivalences(T a) {
         Set<T> aPartitionSet = toPartitionSet.get(a);
         if (aPartitionSet == null) { // manufacture an equivalence
-            aPartitionSet = new HashSet<T>();
+            aPartitionSet = new HashSet<>();
             aPartitionSet.add(a);
         }
         return Collections.unmodifiableSet(aPartitionSet);
@@ -186,7 +186,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     public Set<Set<T>> getEquivalenceSets() {
-        Set<Set<T>> result = new HashSet<Set<T>>();
+        Set<Set<T>> result = new HashSet<>();
         for (T item : toPartitionSet.keySet()) {
             Set<T> partition = toPartitionSet.get(item);
             result.add(Collections.unmodifiableSet(partition));
@@ -206,7 +206,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     /**
-     * Gets a sample object in the equivalence set for a. 
+     * Gets a sample object in the equivalence set for a.
      *
      */
     public T getSample(T a) {
@@ -229,7 +229,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     /**
-     * gets the set of all the samples, one from each equivalence class. 
+     * gets the set of all the samples, one from each equivalence class.
      *
      */
     public Set<T> getSamples() {
@@ -244,6 +244,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         return result;
     }
 
+    @Override
     public Iterator<T> iterator() {
         return getSamples().iterator();
     }
@@ -257,6 +258,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
             this.result = result;
         }
 
+        @Override
         public String toString() {
             return reasons + (result == null ? "" : ARROW + result);
         }
@@ -284,13 +286,13 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         // see if they connect
         if (aPartitionSet == null || bPartitionSet == null || aPartitionSet != bPartitionSet || a.equals(b)) return null;
 
-        ArrayList<Linkage<T, R>> list = new ArrayList<Linkage<T, R>>();
+        ArrayList<Linkage<T, R>> list = new ArrayList<>();
         list.add(new Linkage(null, a));
-        ArrayList<ArrayList<Linkage<T, R>>> lists = new ArrayList<ArrayList<Linkage<T, R>>>();
+        ArrayList<ArrayList<Linkage<T, R>>> lists = new ArrayList<>();
         lists.add(list);
 
         // this will contain the results
-        Set<T> sawLastTime = new HashSet<T>();
+        Set<T> sawLastTime = new HashSet<>();
         sawLastTime.add(a);
 
         // each time, we extend each lists by one (adding multiple other lists)
@@ -327,6 +329,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     /**
      * For debugging.
      */
+    @Override
     public String toString() {
         return getEquivalenceSets().toString();
     }

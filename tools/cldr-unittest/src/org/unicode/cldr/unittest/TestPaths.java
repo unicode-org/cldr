@@ -36,7 +36,6 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestPaths extends TestFmwkPlus {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -46,11 +45,10 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     public void VerifyEnglishVsRoot() {
-        Set<String> rootPaths = CollectionUtilities.addAll(testInfo
-            .getRoot().iterator(),
-            new HashSet<String>());
-        Set<String> englishPaths = CollectionUtilities.addAll(testInfo
-            .getEnglish().iterator(), new HashSet<String>());
+        HashSet<String> rootPaths = new HashSet<String>();
+        testInfo.getRoot().forEach(rootPaths::add);
+        HashSet<String> englishPaths = new HashSet<String>();
+        testInfo.getEnglish().forEach(englishPaths::add);
         englishPaths.removeAll(rootPaths);
         if (englishPaths.size() == 0) {
             return;
@@ -92,10 +90,10 @@ public class TestPaths extends TestFmwkPlus {
         StringBuilder b = new StringBuilder();
         for (PathHeader path : altPaths) {
             b.append("\n\t\t")
-                .append(path)
-                .append(":\t")
-                .append(testInfo.getEnglish().getStringValue(
-                    path.getOriginalPath()));
+            .append(path)
+            .append(":\t")
+            .append(testInfo.getEnglish().getStringValue(
+                path.getOriginalPath()));
         }
         return b.toString();
     }
@@ -151,22 +149,28 @@ public class TestPaths extends TestFmwkPlus {
         String fullPath = file.getFullXPath(path);
         String value = file.getStringValue(path);
         String source = file.getSourceLocaleID(path, status);
+
+        assertEquals("CanonicalOrder", XPathParts.getFrozenInstance(path).toString(), path);
+
         if (fullPath == null) {
-            errln("Locale: " + locale + ",\t FullPath: " + path);
+            errln("Locale: " + locale + ",\t Null FullPath: " + path);
+        } else if (!path.equals(fullPath)) {
+            assertEquals("CanonicalOrder (FP)", XPathParts.getFrozenInstance(fullPath).toString(), fullPath);
         }
+
         if (value == null) {
-            /*
-             * Allow null value for some exceptional extra paths.
-             */
-            if (!isExtraPath || !extraPathAllowsNullValue(path)) {
-                errln("Locale: " + locale + ",\t Value: " + path);
+            if (isExtraPath && extraPathAllowsNullValue(path)) {
+                return;
             }
+            errln("Locale: " + locale + ",\t Null Value: " + path);
         }
+
         if (source == null) {
-            errln("Locale: " + locale + ",\t Source: " + path);
+            errln("Locale: " + locale + ",\t Null Source: " + path);
         }
+
         if (status.pathWhereFound == null) {
-            errln("Locale: " + locale + ",\t Found Path: " + path);
+            errln("Locale: " + locale + ",\t Null Found Path: " + path);
         }
     }
 
@@ -195,9 +199,14 @@ public class TestPaths extends TestFmwkPlus {
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-11238
      */
     private boolean extraPathAllowsNullValue(String path) {
-        if (path.contains("timeZoneNames/metazone") ||
-            path.contains("timeZoneNames/zone") ||
-            path.contains("dayPeriods/dayPeriodContext")) {
+        if (path.contains("/timeZoneNames/metazone")
+            || path.contains("/timeZoneNames/zone")
+            || path.contains("/dayPeriods/dayPeriodContext")
+            || path.contains("/unitPattern")
+            || path.contains("/gender")
+            || path.contains("/caseMinimalPairs")
+            || path.contains("/genderMinimalPairs")
+            ) {
             return true;
         }
         return false;
@@ -226,10 +235,9 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     private Collection<String> getLocalesToTest() {
-        return params.inclusion <= 5 ? Arrays.asList("root", "en", "ja", "ar")
-            : params.inclusion < 10 ? testInfo.getCldrFactory()
-                .getAvailableLanguages() : testInfo.getCldrFactory()
-                    .getAvailable();
+        return params.inclusion <= 5 ? Arrays.asList("root", "en", "ja", "ar", "de", "ru")
+            : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages() 
+                : testInfo.getCldrFactory().getAvailable();
     }
 
     /**
@@ -370,7 +378,7 @@ public class TestPaths extends TestFmwkPlus {
 //                    || fileName.equals("dtd")  // TODO as flat files
 //                    || fileName.equals(".project")  // TODO as flat files
 //                    //|| dir.equals("uca") // TODO as flat files
-                ) {
+                    ) {
                     continue;
                 }
 
@@ -391,7 +399,7 @@ public class TestPaths extends TestFmwkPlus {
                     for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(fullName, new ArrayList<Pair<String, String>>(), true)) {
                         String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
-                        XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeNonDistinguishing
+                        XPathParts parts = XPathParts.getFrozenInstance(path);
                         if (dtdData == null) {
                             type = DtdType.valueOf(parts.getElement(0));
                             dtdData = DtdData.getInstance(type);
@@ -441,6 +449,7 @@ public class TestPaths extends TestFmwkPlus {
                         if (!normalizedPath.equals(path) && !normalizedPath[0].equals(dpath)) {
                             checkParts(normalizedPath[0], dtdData);
                         }
+                        parts = parts.cloneAsThawed();
                         counter = removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
                         String cleaned = parts.toString();
                         Pair<String, String> pair = Pair.of(type == DtdType.ldml ? file : type.toString(), cleaned);

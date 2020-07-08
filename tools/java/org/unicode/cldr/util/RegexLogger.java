@@ -164,10 +164,12 @@ public class RegexLogger {
 
         }
 
+        @Override
         public void log(Pattern pattern, String matchStr, boolean matched, LogType type, Class<?> cls) {
             log(pattern.pattern(), matchStr, matched, type, cls);
         }
 
+        @Override
         public void log(String pattern, String matchStr, boolean matched, LogType type, Class<?> cls) {
             log(pattern, matchStr, matched, 0, type, cls);
         }
@@ -175,6 +177,7 @@ public class RegexLogger {
         /**
          * Get all entries
          */
+        @Override
         public NavigableSet<PatternCountInterface> getEntries() {
             return getEntries(1);
         }
@@ -200,7 +203,7 @@ public class RegexLogger {
 
         @Override
         public NavigableSet<PatternCountInterface> getEntries(int minCount) {
-            NavigableSet<PatternCountInterface> returned = (NavigableSet<PatternCountInterface>) Sets.newTreeSet(Collections.EMPTY_SET);
+            NavigableSet<PatternCountInterface> returned = Sets.newTreeSet(Collections.EMPTY_SET);
             return returned;
         }
     }
@@ -297,6 +300,7 @@ public class RegexLogger {
             super(minCount, c);
         }
 
+        @Override
         public void process(PatternStringWithBoolean item, Multiset<PatternStringWithBoolean> countSet) {
             if (countSet.count(item) >= minCount) {
                 super.process(item, countSet);
@@ -361,6 +365,7 @@ public class RegexLogger {
                 this.callLocations);
         }
 
+        @Override
         public String getPattern() {
             return pattern;
         }
@@ -473,7 +478,12 @@ public class RegexLogger {
                     break;
                 }
                 if (current.startsWith("org.unicode.cldr.test.CheckCLDR") &&
-                    !lastClass.startsWith("org.unicode.cldr.test.CheckCLDR")) {
+                    /*
+                     * TODO: fix this function to avoid referencing lastClass when it is null.
+                     * The condition lastClass == null here prevents compiler warning/error or possible NullPointerException,
+                     * since lastClass is ALWAYS null here; but this is obviously not the best solution.
+                     */
+                    (lastClass == null || !lastClass.startsWith("org.unicode.cldr.test.CheckCLDR"))) {
                     lastClass = current;
                     // leave out
                     continue;
@@ -556,6 +566,7 @@ public class RegexLogger {
         private final Multimap<PatternStringWithBoolean, String> occurrences = TreeMultimap.create();
         private final IterableTransformer<String, String> transformer = new StringIterableTransformer();
 
+        @Override
         public void log(String pattern, String matchStr, boolean matched, double time, LogType type, Class<?> cls) {
             boolean isRegexFinder = findClassName("org.unicode.cldr.util.RegexLookup", 10);
             PatternStringWithBoolean key = new PatternStringWithBoolean(pattern, isRegexFinder);
@@ -663,6 +674,7 @@ public class RegexLogger {
             return ret;
         }
 
+        @Override
         public NavigableSet<PatternCountInterface> getEntries(final int minCount) {
             CountSets c = new CountSets(matchedFindSet, failedFindSet, matchedMatchSet, failedMatchSet, occurrences);
             final AddAllEntryProcessor processor = (minCount == 1) ? new AddAllEntryProcessor(minCount, c) : new EntryProcessor(minCount, c);

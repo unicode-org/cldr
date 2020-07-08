@@ -42,8 +42,8 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -54,7 +54,7 @@ public class GenerateItemCounts {
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig.getInstance().getSupplementalDataInfo();
     private static final boolean SKIP_ORDERING = true;
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/itemcount/"; // CldrUtility.MAIN_DIRECTORY;
-    private Map<String, List<StackTraceElement>> cantRead = new TreeMap<String, List<StackTraceElement>>();
+    private Map<String, List<StackTraceElement>> cantRead = new TreeMap<>();
     static {
         System.err.println("Probably obsolete tool");
     }
@@ -280,7 +280,7 @@ public class GenerateItemCounts {
                     + "\t" + noOccur);
             }
             out.println("\nERRORS/WARNINGS");
-            out.println(CollectionUtilities.join(errors, "\n"));
+            out.println(Joiner.on("\n").join(errors));
         }
     }
 
@@ -288,7 +288,7 @@ public class GenerateItemCounts {
         Relation<String, String> elementPathToAttributes = Relation.of(new TreeMap<String, Set<String>>(),
             TreeSet.class);
         final PathStarrer PATH_STARRER = new PathStarrer().setSubstitutionPattern("*");
-        final Set<String> STARRED_PATHS = new TreeSet<String>();
+        final Set<String> STARRED_PATHS = new TreeSet<>();
         StringBuilder elementPath = new StringBuilder();
 
         public void add(String path) {
@@ -330,10 +330,10 @@ public class GenerateItemCounts {
     static Pattern prefix = PatternCache.get("([^/]+/[^/]+)(.*)");
 
     static class Delta {
-        Counter<String> newCount = new Counter<String>();
-        Counter<String> deletedCount = new Counter<String>();
-        Counter<String> changedCount = new Counter<String>();
-        Counter<String> unchangedCount = new Counter<String>();
+        Counter<String> newCount = new Counter<>();
+        Counter<String> deletedCount = new Counter<>();
+        Counter<String> changedCount = new Counter<>();
+        Counter<String> unchangedCount = new Counter<>();
 
         void print(PrintWriter changesSummary, Set<String> prefixes) {
             changesSummary.println("Total"
@@ -423,15 +423,15 @@ public class GenerateItemCounts {
         "([a-z]{2,3})(?:[_-]([A-Z][a-z]{3}))?(?:[_-]([a-zA-Z0-9]{2,3}))?([_-][a-zA-Z0-9]{1,8})*");
 
     public static void doSummary() throws IOException {
-        Map<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>> key_release_count = new TreeMap<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>>();
+        Map<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>> key_release_count = new TreeMap<>();
         Matcher countryLocale = LOCALE_PATTERN.matcher("");
-        List<String> releases = new ArrayList<String>();
+        List<String> releases = new ArrayList<>();
         Pattern releaseNumber = PatternCache.get("count_(?:.*-(\\d+(\\.\\d+)*)|trunk)\\.txt");
         // int releaseCount = 1;
         Relation<String, String> release_keys = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Relation<String, String> localesToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Set<String> writtenLanguages = new TreeSet<String>();
-        Set<String> countries = new TreeSet<String>();
+        Set<String> writtenLanguages = new TreeSet<>();
+        Set<String> countries = new TreeSet<>();
 
         File[] listFiles = new File(OUT_DIRECTORY).listFiles();
         // find the most recent version
@@ -563,7 +563,7 @@ public class GenerateItemCounts {
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());
         for (Entry<String, Set<String>> entry : localesToPaths.keyValuesSet()) {
-            summary2.println(entry.getKey() + "\t" + CollectionUtilities.join(entry.getValue(), "\t"));
+            summary2.println(entry.getKey() + "\t" + Joiner.on("\t").join(entry.getValue()));
         }
         summary2.close();
     }
@@ -676,7 +676,10 @@ public class GenerateItemCounts {
         }
 
         private String fixKeyPath(String path) {
-            XPathParts parts = XPathParts.getInstance(path); // not frozen, for addAttribute
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (!SKIP_ORDERING) {
+                parts = parts.cloneAsThawed();
+            }
             for (int i = 0; i < parts.size(); ++i) {
                 String element = parts.getElement(i);
                 if (!SKIP_ORDERING) {
@@ -724,16 +727,19 @@ public class GenerateItemCounts {
     }
 
     static class MyErrorHandler implements ErrorHandler {
+        @Override
         public void error(SAXParseException exception) throws SAXException {
             System.out.println("\nerror: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void fatalError(SAXParseException exception) throws SAXException {
             System.out.println("\nfatalError: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void warning(SAXParseException exception) throws SAXException {
             System.out.println("\nwarning: " + XMLFileReader.showSAX(exception));
             throw exception;

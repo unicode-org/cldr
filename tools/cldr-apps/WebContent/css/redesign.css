@@ -318,7 +318,8 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	position:relative;
 	top:2px;
 }
-.post-review, .help-comment {
+
+.help-comment {
 	margin-left:4px;
 }
 
@@ -423,10 +424,13 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 .data .d-example {
 	display:none;
 }
-/* direct override of bootstrap */
+/* direct override of bootstrap
+   TODO: explain and/or reevaluate this "override". Potentially problematic for performance
+   (especially z-index) and compatibility with newer versions of bootstrap if we update. */
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {vertical-align:middle}
 .modal-backdrop {z-index:104000000;}
 .modal {z-index:104000001;}
+
 /* direct override of claro */
 html.claro {
 width: auto;

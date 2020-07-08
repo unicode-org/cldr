@@ -35,7 +35,7 @@ public class Partition {
         }
 
         public abstract boolean isMember(DataSection.DataRow p);
-    };
+    }
 
     public Membership pm;
 
@@ -58,8 +58,9 @@ public class Partition {
         limit = -1;
     }
 
+    @Override
     public String toString() {
         return name + " - [" + start + ".." + limit + "]";
     }
 
-};
+}

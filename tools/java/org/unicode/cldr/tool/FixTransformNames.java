@@ -32,12 +32,12 @@ public class FixTransformNames {
         new FixTransformNames().run(args);
     }
 
-    Map<String, String> fieldToCode = new HashMap<String, String>();
-    Map<String, String> oldToNewVariant = new HashMap<String, String>();
-    Map<String, String> fieldToVariant = new HashMap<String, String>();
-    Map<String, String> targetToCode = new HashMap<String, String>();
+    Map<String, String> fieldToCode = new HashMap<>();
+    Map<String, String> oldToNewVariant = new HashMap<>();
+    Map<String, String> fieldToVariant = new HashMap<>();
+    Map<String, String> targetToCode = new HashMap<>();
 
-    Set<String> languageCodes = new HashSet<String>();
+    Set<String> languageCodes = new HashSet<>();
 
     private void run(String[] args) {
         CLDRFile file = testInfo.getEnglish();
@@ -78,7 +78,7 @@ public class FixTransformNames {
             <transformName type="x-Jamo">Jamo</transformName>
             <transformName type="x-Pinyin">Pinyin</transformName>
             <transformName type="x-Publishing">Publishing</transformName>
-        
+
         ??Accents   [Any-Accents]
         ??ConjoiningJamo    [Latin-ConjoiningJamo]
         ??Fullwidth [Fullwidth-Halfwidth]
@@ -96,17 +96,17 @@ public class FixTransformNames {
         ??Title [az-Title, el-Title, lt-Title, nl-Title, tr-Title]
         ??Traditional   [Simplified-Traditional]
         ??Upper [az-Upper, el-Upper, lt-Upper, tr-Upper]
-        
+
          */
 
         //CLDRTransforms transforms = CLDRTransforms.getInstance();
         Relation<String, String> missing = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Set<String> found = new TreeSet<String>();
-        Map<String, String> allFields = new TreeMap<String, String>();
-        Map<String, String> specialFields = new TreeMap<String, String>();
-        Map<String, String> allVariants = new TreeMap<String, String>();
+        Set<String> found = new TreeSet<>();
+        Map<String, String> allFields = new TreeMap<>();
+        Map<String, String> specialFields = new TreeMap<>();
+        Map<String, String> allVariants = new TreeMap<>();
 
-        Set<String> internal = new TreeSet<String>();
+        Set<String> internal = new TreeSet<>();
         Set<String> cldrIds = getCldrIds(internal);
 
         for (String id : CLDRTransforms.getAvailableIds()) {
@@ -122,7 +122,7 @@ public class FixTransformNames {
                 System.out.println("*Missing:\t" + id);
             }
         }
-        Set<String> icuOnlyIds = new TreeSet<String>();
+        Set<String> icuOnlyIds = new TreeSet<>();
         for (Enumeration<String> x = Transliterator.getAvailableIDs(); x.hasMoreElements();) {
             String icuId = x.nextElement();
             if (!cldrIds.contains(icuId)) {
@@ -269,7 +269,7 @@ public class FixTransformNames {
     }
 
     private Set<String> getCldrIds(Set<String> internal) {
-        Set<String> result = new LinkedHashSet<String>();
+        Set<String> result = new LinkedHashSet<>();
         for (String s : CLDRTransforms.getAvailableIds()) {
             //String dir;
             ParsedTransformID directionInfo = new ParsedTransformID();

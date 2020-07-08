@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class MergeLists<T> {
 
-    Collection<Collection<T>> source = new ArrayList<Collection<T>>();
+    Collection<Collection<T>> source = new ArrayList<>();
     Set<T> orderedWorkingSet;
 
     public MergeLists() {
@@ -27,7 +27,7 @@ public class MergeLists<T> {
         if (orderedItems.size() == 0) { // skip empties
             return this;
         }
-        final LinkedHashSet<T> linkedHashSet = new LinkedHashSet<T>(orderedItems);
+        final LinkedHashSet<T> linkedHashSet = new LinkedHashSet<>(orderedItems);
         if (linkedHashSet.size() != orderedItems.size()) {
             throw new IllegalArgumentException("Multiple items in ordering!");
         }
@@ -48,7 +48,7 @@ public class MergeLists<T> {
     }
 
     public List<T> merge() {
-        List<T> result = new ArrayList<T>();
+        List<T> result = new ArrayList<>();
 
         for (Collection<T> sublist : source) {
             orderedWorkingSet.addAll(sublist);
@@ -58,11 +58,11 @@ public class MergeLists<T> {
         // this is slower, but puts things into as much of the order specified as possible
         // could be optimized further, but we don't care that much
 
-        Set<T> first = new LinkedHashSet<T>();
+        Set<T> first = new LinkedHashSet<>();
         while (orderedWorkingSet.size() != 0) {
             getFirsts(first);
             if (first.size() == 0) {
-                Map<T, Collection<T>> reasons = new LinkedHashMap<T, Collection<T>>();
+                Map<T, Collection<T>> reasons = new LinkedHashMap<>();
                 getFirsts(first, reasons);
                 throw new IllegalArgumentException(
                     "Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: "
@@ -78,7 +78,7 @@ public class MergeLists<T> {
     }
 
     public static <T> boolean hasConsistentOrder(Collection<T> a, Collection<T> b) {
-        LinkedHashSet<T> remainder = new LinkedHashSet<T>(a);
+        LinkedHashSet<T> remainder = new LinkedHashSet<>(a);
         remainder.retainAll(b);
         if (remainder.size() == 0) {
             return true;

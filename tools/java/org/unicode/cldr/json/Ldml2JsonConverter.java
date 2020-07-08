@@ -38,13 +38,13 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonWriter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON
@@ -58,15 +58,15 @@ public class Ldml2JsonConverter {
 
     private enum RunType {
         main, supplemental, segments, rbnf
-    };
+    }
 
     private static final StandardCodes sc = StandardCodes.make();
     private Set<String> defaultContentLocales = SupplementalDataInfo.getInstance().getDefaultContentLocales();
-    private Set<String> skippedDefaultContentLocales = new TreeSet<String>();
+    private Set<String> skippedDefaultContentLocales = new TreeSet<>();
 
     private class availableLocales {
-        Set<String> modern = new TreeSet<String>();
-        Set<String> full = new TreeSet<String>();
+        Set<String> modern = new TreeSet<>();
+        Set<String> full = new TreeSet<>();
     }
 
     private availableLocales avl = new availableLocales();
@@ -143,13 +143,14 @@ public class Ldml2JsonConverter {
         public Matcher matcher;
         public String packageName;
 
+        @Override
         public int compareTo(JSONSection other) {
             return section.compareTo(other.section);
         }
 
     }
 
-    private Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<JSONSection, List<CldrItem>>();
+    private Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<>();
 
     private Map<String, String> dependencies;
     private List<JSONSection> sections;
@@ -166,9 +167,9 @@ public class Ldml2JsonConverter {
         this.writePackages = writePackages;
         this.coverageValue = Level.get(coverage).getLevel();
 
-        sections = new ArrayList<JSONSection>();
-        packages = new TreeSet<String>();
-        dependencies = new HashMap<String, String>();
+        sections = new ArrayList<>();
+        packages = new TreeSet<>();
+        dependencies = new HashMap<>();
 
         FileProcessor myReader = new FileProcessor() {
             @Override
@@ -296,7 +297,7 @@ public class Ldml2JsonConverter {
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher rootIdentityMatcher = LdmlConvertRules.ROOT_IDENTITY_PATTERN.matcher("");
-        Set<String> activeNumberingSystems = new TreeSet<String>();
+        Set<String> activeNumberingSystems = new TreeSet<>();
         activeNumberingSystems.add("latn"); // Always include latin script numbers
         for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
             String ns = file.getWinningValue(np);
@@ -368,7 +369,7 @@ public class Ldml2JsonConverter {
 
                     List<CldrItem> cldrItems = sectionItems.get(js);
                     if (cldrItems == null) {
-                        cldrItems = new ArrayList<CldrItem>();
+                        cldrItems = new ArrayList<>();
                     }
                     cldrItems.add(item);
                     sectionItems.put(js, cldrItems);
@@ -384,7 +385,7 @@ public class Ldml2JsonConverter {
         if (others == null) {
             return;
         }
-        List<CldrItem> otherSectionItems = new ArrayList<CldrItem>(others);
+        List<CldrItem> otherSectionItems = new ArrayList<>(others);
         int addedItemCount = 0;
         boolean copyIdentityInfo = Boolean.parseBoolean(options.get("identity").getValue());
 
@@ -485,7 +486,7 @@ public class Ldml2JsonConverter {
                     dir.mkdirs();
                 }
 
-                List<String> outputDirs = new ArrayList<String>();
+                List<String> outputDirs = new ArrayList<>();
                 outputDirs.add(outputDirname.toString());
                 if (writePackages && type == RunType.main && tier.equals("-modern")) {
                     outputDirs.add(outputDirname.toString().replaceFirst("-modern", "-full"));
@@ -500,10 +501,10 @@ public class Ldml2JsonConverter {
                     JsonWriter out = new JsonWriter(outf);
                     out.setIndent("  ");
 
-                    ArrayList<CldrItem> sortingItems = new ArrayList<CldrItem>();
-                    ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
+                    ArrayList<CldrItem> sortingItems = new ArrayList<>();
+                    ArrayList<CldrItem> arrayItems = new ArrayList<>();
 
-                    ArrayList<CldrNode> nodesForLastItem = new ArrayList<CldrNode>();
+                    ArrayList<CldrNode> nodesForLastItem = new ArrayList<>();
                     String lastLeadingArrayItemPath = null;
                     String leadingArrayItemPath = "";
                     int valueCount = 0;
@@ -761,13 +762,13 @@ public class Ldml2JsonConverter {
     public void writeScriptMetadata(String outputDir) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "scriptMetadata.json");
         System.out.println("Creating script metadata file => " + outputDir + File.separator + "cldr-core" + File.separator + "scriptMetadata.json");
-        Map<String, Info> scriptInfo = new TreeMap<String, Info>();
+        Map<String, Info> scriptInfo = new TreeMap<>();
         for (String script : ScriptMetadata.getScripts()) {
             Info i = ScriptMetadata.getInfo(script);
             scriptInfo.put(script, i);
         }
         if (ScriptMetadata.errors.size() > 0) {
-            System.err.println(CollectionUtilities.join(ScriptMetadata.errors, "\n\t"));
+            System.err.println(Joiner.on("\n\t").join(ScriptMetadata.errors));
             //throw new IllegalArgumentException();
         }
 
@@ -793,7 +794,7 @@ public class Ldml2JsonConverter {
         ArrayList<CldrNode> nodesForLastItem,
         ArrayList<CldrItem> sortingItems)
         throws IOException, ParseException {
-        ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
+        ArrayList<CldrItem> arrayItems = new ArrayList<>();
         String lastLeadingArrayItemPath = null;
 
         if (!sortingItems.isEmpty()) {

@@ -40,7 +40,7 @@ public class GeneratePluralConfirmation {
         for (String uLocale : new TreeSet<>(prf.getLocales())) {
             for (PluralRules.PluralType type : PluralRules.PluralType.values()) {
                 for (Count count : Count.values()) {
-                    String pattern = prf.getSamplePattern(uLocale, type, count);
+                    String pattern = PluralRulesFactory.getSamplePattern(uLocale, type, count);
                     if (pattern.contains("{no pattern available}")) {
                         continue;
                     }
@@ -71,7 +71,7 @@ public class GeneratePluralConfirmation {
             }
             EnumSet<Count> counts = EnumSet.noneOf(Count.class);
             for (Count count : Count.VALUES) {
-                String pat = prf.getSamplePattern(loc, ICU_ORDINAL, count);
+                String pat = PluralRulesFactory.getSamplePattern(loc, ICU_ORDINAL, count);
                 if (pat != null && !pat.contains("{no pattern available}")) {
                     counts.add(count);
                 }
@@ -81,13 +81,13 @@ public class GeneratePluralConfirmation {
                 System.out.format("%s\t%s\t%s\t%s\n", loc, "missing", "n/a", "n/a");
                 break;
             case 1: {
-                String pat = prf.getSamplePattern(loc, ICU_ORDINAL, Count.other);
+                String pat = PluralRulesFactory.getSamplePattern(loc, ICU_ORDINAL, Count.other);
                 System.out.format("%s\t%s\t%s\t%s\n", loc, "constant", Count.other, "n/a");
             }
                 break;
             default:
                 for (Count count : counts) {
-                    String pat = prf.getSamplePattern(loc, ICU_ORDINAL, count);
+                    String pat = PluralRulesFactory.getSamplePattern(loc, ICU_ORDINAL, count);
                     System.out.format("%s\t%s\t%s\t%s\n", loc, "multiple", count, pat);
                 }
                 break;
@@ -185,7 +185,7 @@ public class GeneratePluralConfirmation {
             for (Entry<Count, Set<FixedDecimal>> entry : soFar.keyValuesSet()) {
                 Count count = entry.getKey();
                 for (FixedDecimal fd : entry.getValue()) {
-                    String pattern = prf.getSamplePattern(locale, type.standardType, count);
+                    String pattern = PluralRulesFactory.getSamplePattern(locale, type.standardType, count);
                     buffer.append(locale + "\t" + type + "\t" + count + "\t" + fd + "\t«" + pattern.replace("{0}", String.valueOf(fd)) + "»\n");
                 }
                 buffer.append("\n");

@@ -39,8 +39,6 @@ public class InterestSort extends SortMode {
      */
     @Override
     Membership[] memberships() {
-        // return
-        // (SurveyMain.isPhaseSubmit()||SurveyMain.isPhaseVetting())?submitMemberships:vettingMemberships;
         return memberships;
     }
 
@@ -61,6 +59,7 @@ public class InterestSort extends SortMode {
         final Collator collator = CodeSortMode.createCollator();
         return new Comparator<DataRow>() {
 
+            @Override
             public int compare(DataRow p1, DataRow p2) {
                 if (p1 == p2) {
                     return 0;
@@ -89,6 +88,7 @@ public class InterestSort extends SortMode {
     }
 
     private static Partition.Membership memberships[] = { new Partition.Membership("Errors") {
+        @Override
         public boolean isMember(DataRow p) {
             return (p.hasErrors);
         }
@@ -100,6 +100,7 @@ public class InterestSort extends SortMode {
         // }
         // },
         new Partition.Membership("Warnings") {
+            @Override
             public boolean isMember(DataRow p) {
                 return (p.hasWarnings);
             }
@@ -111,14 +112,17 @@ public class InterestSort extends SortMode {
         // PROVISIONAL (2),
         // UNCONFIRMED (3);
         new Partition.Membership("Not (minimally) Approved") {
+            @Override
             public boolean isMember(DataRow p) {
                 return p.winningXpathId != -1 && p.confirmStatus != Status.approved && p.confirmStatus != Status.contributed;
             }
         }, new Partition.Membership("Approved") {
+            @Override
             public boolean isMember(DataRow p) {
                 return p.winningXpathId != -1; // will be APPROVED
             }
         }, new Partition.Membership("Missing") {
+            @Override
             public boolean isMember(DataRow p) {
                 // extrapaths and some special paths may not have an inherited item
                 return p.inheritedLocale != null &&
@@ -126,6 +130,7 @@ public class InterestSort extends SortMode {
                     XMLSource.CODE_FALLBACK_ID.equals(p.inheritedLocale.getBaseName()));
             }
         }, new Partition.Membership("Inherited") {
+            @Override
             public boolean isMember(DataRow p) {
                 return true;
             }

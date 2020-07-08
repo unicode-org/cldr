@@ -27,7 +27,7 @@ public interface TestLog {
      * Warn about missing tests or data.
      */
     void warn(String message);
-    
+
     void warnln(String message);
 
 

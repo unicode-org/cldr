@@ -39,8 +39,8 @@ public class DeriveScripts {
 
     static {
         File[] paths = {
-//            new File(CLDRPaths.MAIN_DIRECTORY), 
-//            new File(CLDRPaths.SEED_DIRECTORY), 
+//            new File(CLDRPaths.MAIN_DIRECTORY),
+//            new File(CLDRPaths.SEED_DIRECTORY),
             new File(CLDRPaths.EXEMPLARS_DIRECTORY) };
         final Factory fullCldrFactory = SimpleFactory.make(paths, ".*");
         LikelySubtags ls = new LikelySubtags();
@@ -60,7 +60,7 @@ public class DeriveScripts {
 //                    if (!suppressValue.equals(likelyScript)) {
 //                        System.out.println("#" + langCode + "\tWarning: likely=" + likelyScript + ", suppress=" + suppressValue);
 //                    } else {
-//                        System.out.println("#" + langCode + "\tSuppress=Likely: " + suppressValue); 
+//                        System.out.println("#" + langCode + "\tSuppress=Likely: " + suppressValue);
 //                    }
                     continue;
                 }

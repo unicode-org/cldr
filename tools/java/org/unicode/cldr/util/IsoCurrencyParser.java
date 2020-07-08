@@ -94,8 +94,8 @@ public class IsoCurrencyParser {
         .put("EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ")
         .build();
 
-    static Map<String, String> iso4217CountryToCountryCode = new TreeMap<String, String>();
-    static Set<String> exceptionList = new LinkedHashSet<String>();
+    static Map<String, String> iso4217CountryToCountryCode = new TreeMap<>();
+    static Set<String> exceptionList = new LinkedHashSet<>();
     static {
         StandardCodes sc = StandardCodes.make();
         Set<String> countries = sc.getAvailableCodes("territory");
@@ -138,11 +138,13 @@ public class IsoCurrencyParser {
             return minor_unit;
         }
 
+        @Override
         public String toString() {
             return String.format("[%s,\t%s [%s],\t%d]", name, countryCode,
                 StandardCodes.make().getData("territory", countryCode), numericCode);
         }
 
+        @Override
         public int compareTo(Object o) {
             Data other = (Data) o;
             int result;
@@ -213,7 +215,7 @@ public class IsoCurrencyParser {
         // we can remove these as well.
         // SVC - El Salvador Colon - not used anymore ( uses USD instead )
         // ZWL - Last Zimbabwe Dollar - abandoned due to hyper-inflation.
-        Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<String>(Arrays.asList("SVC", "ZWL"));
+        Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<>(Arrays.asList("SVC", "ZWL"));
         String country_code;
         String currency_name;
         String alphabetic_code;
@@ -226,6 +228,7 @@ public class IsoCurrencyParser {
         public void cleanup() {
         }
 
+        @Override
         public void handlePathValue(String path, String value) {
             try {
                 XPathParts parts = XPathParts.getFrozenInstance(path);

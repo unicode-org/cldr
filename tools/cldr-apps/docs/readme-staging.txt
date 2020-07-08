@@ -27,7 +27,7 @@ DIRECTORIES AND PIECES
  src/tools-cldr            symlink to src/cldr/tools/java
 
  src/icu4j                 Some "unicode" library, whatever that is
-                            (checked out via SVN over anonymous HTTP)
+                            (checked out over anonymous HTTP)
  
  ~/.cldrrc                 Glue: sets up some variables that ant will use
    export ICU4J_HOME=${HOME}/src/icu4j
@@ -60,7 +60,7 @@ Updating Libraries and Infrastructure
 1. If tomcat is updated make sure to preserve any configuration, such as
 passwords. Other jars such as derby, etc can be updated as needed.
 2. ICU should not need to be updated, normally. But, it can be updated with
-svn, and re-run "ant jar cldrUtil" to build icu4j.jar and utilities.jar
+version control, and re-run "ant jar cldrUtil" to build icu4j.jar and utilities.jar
 3. "sh update-libs-on-unicode.sh" will post new jars - may need to restart server then.
   The current list of jars updated is: JARS="icu4j.jar utilities.jar
   jdom.jar derby.jar mysql-connector-java-5.0.jar mail.jar activation.jar "

@@ -33,7 +33,7 @@ public class ICUServiceBuilder {
     public static Currency NO_CURRENCY = Currency.getInstance("XXX");
     private CLDRFile cldrFile;
     private CLDRFile collationFile;
-    private static Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<CLDRLocale, ICUServiceBuilder>();
+    private static Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<>();
 
     private static TimeZone utc = TimeZone.getTimeZone("GMT");
     private static DateFormat iso = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", ULocale.ENGLISH);
@@ -54,11 +54,11 @@ public class ICUServiceBuilder {
         return iso.parse(date);
     }
 
-    private Map<String, SimpleDateFormat> cacheDateFormats = new HashMap<String, SimpleDateFormat>();
-    private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap<String, DateFormatSymbols>();
-    private Map<String, NumberFormat> cacheNumberFormats = new HashMap<String, NumberFormat>();
-    private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap<String, DecimalFormatSymbols>();
-    private Map<String, RuleBasedCollator> cacheRuleBasedCollators = new HashMap<String, RuleBasedCollator>();
+    private Map<String, SimpleDateFormat> cacheDateFormats = new HashMap<>();
+    private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap<>();
+    private Map<String, NumberFormat> cacheNumberFormats = new HashMap<>();
+    private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap<>();
+    private Map<String, RuleBasedCollator> cacheRuleBasedCollators = new HashMap<>();
 
     private SupplementalDataInfo supplementalData;
 
@@ -130,7 +130,7 @@ public class ICUServiceBuilder {
     }
 
     public RuleBasedCollator getRuleBasedCollator(String type) throws Exception {
-        RuleBasedCollator col = (RuleBasedCollator) cacheRuleBasedCollators.get(type);
+        RuleBasedCollator col = cacheRuleBasedCollators.get(type);
         if (col == null) {
             col = _getRuleBasedCollator(type);
             cacheRuleBasedCollators.put(type, col);
@@ -182,7 +182,7 @@ public class ICUServiceBuilder {
 
     public SimpleDateFormat getDateFormat(String calendar, int dateIndex, int timeIndex, String numbersOverride) {
         String key = cldrFile.getLocaleID() + "," + calendar + "," + dateIndex + "," + timeIndex;
-        SimpleDateFormat result = (SimpleDateFormat) cacheDateFormats.get(key);
+        SimpleDateFormat result = cacheDateFormats.get(key);
         if (result != null) return (SimpleDateFormat) result.clone();
 
         String pattern = getPattern(calendar, dateIndex, timeIndex);
@@ -195,7 +195,7 @@ public class ICUServiceBuilder {
 
     public SimpleDateFormat getDateFormat(String calendar, String pattern, String numbersOverride) {
         String key = cldrFile.getLocaleID() + "," + calendar + ",," + pattern + ",,," + numbersOverride;
-        SimpleDateFormat result = (SimpleDateFormat) cacheDateFormats.get(key);
+        SimpleDateFormat result = cacheDateFormats.get(key);
         if (result != null) return (SimpleDateFormat) result.clone();
         result = getFullFormat(calendar, pattern, numbersOverride);
         cacheDateFormats.put(key, result);
@@ -282,7 +282,7 @@ public class ICUServiceBuilder {
         int minEras = (calendar.equals("chinese") || calendar.equals("dangi")) ? 0 : 1;
 
         List<String> temp = getArray(prefix + "eras/eraAbbr/era[@type=\"", 0, null, "\"]", minEras);
-        formatData.setEras(last = (String[]) temp.toArray(new String[temp.size()]));
+        formatData.setEras(last = temp.toArray(new String[temp.size()]));
         if (minEras != 0) checkFound(last);
         // if (temp.size() < 2 && notGregorian) {
         // if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
@@ -290,7 +290,7 @@ public class ICUServiceBuilder {
         // }
 
         temp = getArray(prefix + "eras/eraNames/era[@type=\"", 0, null, "\"]", minEras);
-        formatData.setEraNames(last = (String[]) temp.toArray(new String[temp.size()]));
+        formatData.setEraNames(last = temp.toArray(new String[temp.size()]));
         if (minEras != 0) checkFound(last);
         // if (temp.size() < 2 && notGregorian) {
         // if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
@@ -437,7 +437,7 @@ public class ICUServiceBuilder {
         final int arrayCount = isDay ? 7 : type.equals("month") ? 12 : 4;
         List<String> temp = getArray(prefix, isDay ? 0 : 1, isDay ? Days : null, postfix, arrayCount);
         if (isDay) temp.add(0, "");
-        String[] result = (String[]) temp.toArray(new String[temp.size()]);
+        String[] result = temp.toArray(new String[temp.size()]);
         checkFound(result);
         return result;
     }
@@ -445,7 +445,7 @@ public class ICUServiceBuilder {
     static final Matcher gregorianMonthsMatcher = PatternCache.get(".*gregorian.*months.*").matcher("");
 
     private List<String> getArray(String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         String lastType;
         for (int i = firstIndex;; ++i) {
             lastType = itemNames != null && i < itemNames.length ? itemNames[i] : String.valueOf(i);
@@ -459,10 +459,6 @@ public class ICUServiceBuilder {
             throw new RuntimeException("Internal Error: ICUServiceBuilder.getArray():" + cldrFile.getLocaleID() + " "
                 + prefix + lastType + postfix + " - result.size=" + result.size() + ", less than acceptable minimum "
                 + minimumSize);
-            // Collection s = CollectionUtilities.addAll(cldrFile.iterator(prefix), new
-            // TreeSet());//cldrFile.keySet(".*gregorian.*months.*", );
-            // String item = cldrFile.getWinningValueWithBailey(prefix + lastType + postfix);
-            // throw new IllegalArgumentException("Can't find enough items");
         }
         /*
          * <months>
@@ -495,6 +491,7 @@ public class ICUServiceBuilder {
             this.roundingIncrement = currencyNumberInfo.getRoundingIncrement();
         }
 
+        @Override
         public String getName(ULocale locale,
             int nameStyle,
             boolean[] isChoiceFormat) {
@@ -529,10 +526,12 @@ public class ICUServiceBuilder {
          * @return the non-negative rounding increment, or 0.0 if none
          * @stable ICU 2.2
          */
+        @Override
         public double getRoundingIncrement() {
             return roundingIncrement;
         }
 
+        @Override
         public int getDefaultFractionDigits() {
             return fractDigits;
         }
@@ -592,7 +591,7 @@ public class ICUServiceBuilder {
 
     public NumberFormat getGenericNumberFormat(String ns) {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
-        NumberFormat result = (NumberFormat) cacheNumberFormats.get(cldrFile.getLocaleID() + "@numbers=" + ns);
+        NumberFormat result = cacheNumberFormats.get(cldrFile.getLocaleID() + "@numbers=" + ns);
         if (result == null) {
             ULocale ulocale = new ULocale(cldrFile.getLocaleID() + "@numbers=" + ns);
             result = NumberFormat.getInstance(ulocale);
@@ -747,7 +746,7 @@ public class ICUServiceBuilder {
     private DecimalFormatSymbols _getDecimalFormatSymbols(String numberSystem) {
         String key = (numberSystem == null) ? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers="
             + numberSystem;
-        DecimalFormatSymbols symbols = (DecimalFormatSymbols) cacheDecimalFormatSymbols.get(key);
+        DecimalFormatSymbols symbols = cacheDecimalFormatSymbols.get(key);
         if (symbols != null) {
             return (DecimalFormatSymbols) symbols.clone();
         }
@@ -865,6 +864,7 @@ public class ICUServiceBuilder {
 
     public enum Context {
         format, stand_alone;
+        @Override
         public String toString() {
             return name().replace('_', '-');
         }

@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "https://www.unicode.org/reports/reports.css" type="text/css">
+  "../reports.css" type="text/css">
   <title>UTS #35: Unicode LDML: Supplemental</title>
   <style type="text/css">
   <!--
@@ -71,7 +71,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="../logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -89,7 +89,7 @@
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">37</td>
+        <td class="changed">38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -255,8 +255,8 @@
       <li>11 <a href="#Version_Information">Version
       Information</a></li>
       <li>12 <a href="#Parent_Locales">Parent Locales</a></li>
-      <li class='changed'>13 <a href="#Unit_Conversion" >Unit Conversion</a></li>
-      <li class='changed'>14 <a href="#Unit_Preferences">Unit Preferences</a></li>
+      <li>13 <a href="#Unit_Conversion" >Unit Conversion</a></li>
+      <li>14 <a href="#Unit_Preferences">Unit Preferences</a></li>
     </ul>
     <!-- END Generated TOC: CheckHtmlFiles -->
     <h2>1 Introduction <a name="Supplemental_Data" href=
@@ -589,275 +589,7 @@
     "#Preferred_Units_For_Usage" id=
     "Preferred_Units_For_Usage">Preferred Units for Specific
     Usages</a></h4>
-    <p class='changed'><em>For information about preferred units and unit conversion, see Section 13 <a href="#Unit_Conversion" >Unit Conversion</a> and Section 14 <a href="#Unit_Preferences" >Unit Preferences</a>.</em></p>
-    <div class='removed'>
-    <p >&nbsp;</p>
-		<p>This data is intended to map from a particular usage — e.g.
-    measuring the height of a person or the fuel consumption of an
-    automobile — to the unit or combination of units typically used
-    for that usage in a given region. Considerations for such a
-    mapping include:</p>
-    <ul>
-      <li>The list of possible usages large and open-ended. The
-      intent here is to start with a small set for which there is
-      an urgent need, and expand as necessary.</li>
-      <li>Even for a given usage such a measuring a road distance,
-      there are multiple ranges in use. For example, one set of
-      units may be used for indicating the distance to the next
-      city (kilometers or miles), while another may be used for
-      indicating the distance to the next exit (meters, yards, or
-      feet).</li>
-      <li>There are also differences between more formal usage
-      (official signage, medical records) and more informal usage
-      (conversation, texting).</li>
-      <li>For some usages, the measurement may be expressed using a
-      sequence of units, such as “1 meter, 78 centimeters” or “12
-      stone, 2 pounds”.</li>
-    </ul>
-    <p>The DTD structure is as follows:</p>
-    <p class="dtd">&lt;!ELEMENT unitPreferenceData (
-    unitPreferences* ) &gt;<br>
-    <br>
-    &lt;!ELEMENT unitPreferences ( unitPreference* ) &gt;<br>
-    &lt;!ATTLIST unitPreferences category NMTOKEN #REQUIRED
-    &gt;<br>
-    &lt;!ATTLIST unitPreferences usage NMTOKENS #REQUIRED &gt;<br>
-    &lt;!ATTLIST unitPreferences scope (small) #IMPLIED &gt;<br>
-    <br>
-    &lt;!ELEMENT unitPreference ( #PCDATA ) &gt;<br>
-    &lt;!ATTLIST unitPreference regions NMTOKENS #REQUIRED
-    &gt;<br></p>
-    <p>An example of data using this structure is as follows:</p>
-    <pre>
-   &lt;unitPreferenceData&gt;
-      ...
-      &lt;unitPreferences category="length" usage="person"&gt;
-           &lt;unitPreference regions="001"&gt;centimeter&lt;/unitPreference&gt;
-           &lt;unitPreference regions="BR CN DE DK MX NL NO PL PT RU" alt="informal"&gt;meter centimeter&lt;/unitPreference&gt;
-           &lt;unitPreference regions="AT BE DZ EG ES FR HK ID IL IT JO MY SA SE TR VN"&gt;meter centimeter&lt;/unitPreference&gt;
-           &lt;unitPreference regions="CA GB IN US" alt="informal"&gt;foot inch&lt;/unitPreference&gt;
-           &lt;unitPreference regions="US"&gt;inch&lt;/unitPreference&gt;
-      &lt;/unitPreferences&gt;
-      &lt;unitPreferences category="length" usage="person" scope="small"&gt;
-           &lt;unitPreference regions="001"&gt;centimeter&lt;/unitPreference&gt;
-           &lt;unitPreference regions="CA GB IN" alt="informal"&gt;inch&lt;/unitPreference&gt;
-           &lt;unitPreference regions="US"&gt;inch&lt;/unitPreference&gt;
-      &lt;/unitPreferences&gt;
-      ...
-   &lt;/unitPreferenceData&gt;
-</pre>
-    <p>There are several things to note:</p>
-    <ul>
-      <li>The &lt;unitPreferences&gt; <em>category</em> attribute
-      values match a &lt;unit&gt; element <em>type</em> attribute
-      value, as listed in <a href=
-      "tr35-general.html#Unit_Elements">Unit Elements</a>.</li>
-      <li>The &lt;unitPreferences&gt; <em>usage</em> attribute
-      values are specific to this data; current values are listed
-      in a table at the end of this section.</li>
-      <li>The &lt;unitPreferences&gt; element may have a
-      <em>scope="small"</em> attribute to indicate that it is
-      intended for the smaller range of values for that usage, such
-      measuring the height or weight of an infant versus that of an
-      adult, or measuring the road distance to the next exit versus
-      that to the next city.</li>
-      <li>Each &lt;unitPreferences&gt; element must contain one
-      &lt;unitPreference&gt; element with attribute
-      <em>regions="001"</em>; this specifies the worldwide default
-      unit or unit sequence for the usage and scope specified by
-      the &lt;unitPreferences&gt; element. There may be additional
-      &lt;unitPreference&gt; elements which specify a different
-      unit or unit sequence for specific regions and possibly for a
-      different degree of formality.</li>
-      <li>The &lt;unitPreference&gt; element may have an
-      <em>alt="informal"</em> attribute to indicate that the
-      specified unit or unit sequence is preferred in more informal
-      usage.</li>
-      <li>The value of the &lt;unitPreference&gt; element is a
-      sequence of one or more space-separated unit names from the a
-      &lt;unit&gt; element <em>unit</em> attribute values for the
-      relevant type, as listed in <a href=
-      "tr35-general.html#Unit_Elements">Unit Elements</a>.</li>
-    </ul>
-    <p>For a given combination of category, usage, scope and
-    formality, the intended procedure for looking up the unit or
-    unit combination to use for a given region is as follows:</p>
-    <ul>
-      <li>Get the appropriate &lt;unitPreferences&gt; element for
-      the desired <em>category</em> and <em>usage</em>: If
-      scope=small is desired and a &lt;unitPreferences&gt; element
-      with <em>scope="small"</em> exists for the desired
-      <em>category</em> and <em>usage</em>, use it. Otherwise, use
-      a &lt;unitPreferences&gt; element for the desired
-      <em>category</em> and <em>usage</em> that has no
-      <em>scope</em> attribute. In the selected
-      &lt;unitPreferences&gt; element, pick a
-      &lt;unitPreference&gt; element using the following
-      steps.</li>
-      <li>If informal usage is preferred, look for a
-      &lt;unitPreference&gt; element with <em>alt="informal"</em>
-      whose <em>regions</em> attribute includes the given region.
-      If found, use the specified unit [sequence].</li>
-      <li>Look for a &lt;unitPreference&gt; element whose
-      <em>regions</em> attribute includes the given region. If
-      found, use the specified unit [sequence].</li>
-      <li>Look for a &lt;unitPreference&gt; element with
-      <em>alt="informal"</em> whose <em>regions</em> attribute is
-      "001". If found, use the specified unit [sequence].</li>
-      <li>Look for a &lt;unitPreference&gt; element whose
-      <em>regions</em> attribute is "001". If found, use the
-      specified unit [sequence].</li>
-    </ul>
-    <p>CLDR 29 contains usage mapping data for the following
-    combinations of category, usage, and scope:</p>
-    <table border="1" cellpadding="4" cellspacing="0">
-      <caption>
-        <a name="Unit_Preference_Categories" href=
-        "#Unit_Preference_Categories" id=
-        "Unit_Preference_Categories">Unit Preference Categories</a>
-      </caption>
-      <tr>
-        <td><strong>Category</strong></td>
-        <td><strong>Usage</strong></td>
-        <td><strong>Sample Value</strong></td>
-      </tr>
-      <tr>
-        <td><em>area</em></td>
-        <td>land-agricult</td>
-        <td>hectare</td>
-      </tr>
-      <tr>
-        <td><em>area</em></td>
-        <td>land-commercl</td>
-        <td>hectare</td>
-      </tr>
-      <tr>
-        <td><em>area</em></td>
-        <td>land-residntl</td>
-        <td>hectare</td>
-      </tr>
-      <tr>
-        <td><em>concentr</em></td>
-        <td>blood-glucose</td>
-        <td>milligram-per-deciliter</td>
-      </tr>
-      <tr>
-        <td><em>consumption</em></td>
-        <td>vehicle-fuel</td>
-        <td>liter-per-100-kilometer</td>
-      </tr>
-      <tr>
-        <td><em>duration</em></td>
-        <td>music-track</td>
-        <td>minute second</td>
-      </tr>
-      <tr>
-        <td><em>duration</em></td>
-        <td>person-age</td>
-        <td>year-person month-person</td>
-      </tr>
-      <tr>
-        <td><em>duration</em></td>
-        <td>tv-program</td>
-        <td>minute second</td>
-      </tr>
-      <tr>
-        <td><em>energy</em></td>
-        <td>food</td>
-        <td>foodcalorie</td>
-      </tr>
-      <tr>
-        <td><em>energy</em></td>
-        <td>person-usage</td>
-        <td>kilocalorie</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>person</td>
-        <td>centimeter</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>person, scope=small</td>
-        <td>centimeter</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>rainfall</td>
-        <td>millimeter</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>road</td>
-        <td>kilometer</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>road, scope=small</td>
-        <td>meter</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>snowfall</td>
-        <td>centimeter</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>vehicle</td>
-        <td>meter</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>visiblty</td>
-        <td>kilometer</td>
-      </tr>
-      <tr>
-        <td><em>length</em></td>
-        <td>visiblty, scope=small</td>
-        <td>meter</td>
-      </tr>
-      <tr>
-        <td><em>mass</em></td>
-        <td>person</td>
-        <td>kilogram</td>
-      </tr>
-      <tr>
-        <td><em>mass</em></td>
-        <td>person, scope=small</td>
-        <td>gram</td>
-      </tr>
-      <tr>
-        <td><em>pressure</em></td>
-        <td>baromtrc</td>
-        <td>hectopascal</td>
-      </tr>
-      <tr>
-        <td><em>speed</em></td>
-        <td>road-travel</td>
-        <td>kilometer-per-hour</td>
-      </tr>
-      <tr>
-        <td><em>speed</em></td>
-        <td>wind</td>
-        <td>kilometer-per-hour</td>
-      </tr>
-      <tr>
-        <td><em>temperature</em></td>
-        <td>person</td>
-        <td>celsius</td>
-      </tr>
-      <tr>
-        <td><em>temperature</em></td>
-        <td>weather</td>
-        <td>celsius</td>
-      </tr>
-      <tr>
-        <td><em>volume</em></td>
-        <td>vehicle-fuel</td>
-        <td>liter</td>
-      </tr>
-    </table>
-</div>
+    <p><em>For information about preferred units and unit conversion, see Section 13 <a href="#Unit_Conversion" >Unit Conversion</a> and Section 14 <a href="#Unit_Preferences" >Unit Preferences</a>.</em></p>
     <h3>2.5 <a name="rgScope" href="#rgScope" id=
     "rgScope">&lt;rgScope&gt;: Scope of the “rg” Locale
     Key</a></h3>
@@ -1775,7 +1507,6 @@ LY MA OM PS QA SA SD SY TN YE"/&gt;
     described in detail in the <a href=
     "tr35.html#Parent_Locales">core specification section
     4.1.3.</a></p>
-	  <div class='changed'>
     <h2>13 <a href="#Unit_Conversion" name="Unit_Conversion">Unit Conversion</a></h2>
 
 
@@ -2158,7 +1889,7 @@ There are many possible ways to construct complex units. For comparison of unit 
       <ul>
       <li>meter-square-kilogram => square-kilogram-meter
       </li>
-      <li>meter-square-gram ⇒ gram-meter
+      <li>meter-square-gram ⇒ square-gram-meter
       </li>
     </ul>
     </li>
@@ -2272,6 +2003,8 @@ The value must be non-negative. For picking negative units (-3 meters), use the 
   </tr>
 </table>
 
+<p><strong>Note:</strong> As of CLDR 37, the &lt;unitPreference&gt; geq attribute replaces
+the now-deprecated &lt;unitPreferences&gt; scope attribute.</p>
 
 <p>
 Example:
@@ -2476,9 +2209,8 @@ Once a matching unitPreference element is found:
 <h3>Caveats</h3>
 		  <p>The extended unit support is still being developed further. See the Known Issues on the release page for futher information.</p>
 
-</div>
     <hr>
-    <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
+    <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or
     implied warranty of any kind, and assumes no liability for
     errors or omissions. No liability is assumed for incidental and

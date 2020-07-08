@@ -20,7 +20,7 @@ import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.ChainedMap.M3;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
@@ -44,7 +44,7 @@ public class Unlocode {
         }
 
         public Iso3166_2Data(Collection<String> names) {
-            this.names = Collections.unmodifiableSet(new LinkedHashSet<String>(names));
+            this.names = Collections.unmodifiableSet(new LinkedHashSet<>(names));
         }
 
         @Override
@@ -54,7 +54,7 @@ public class Unlocode {
 
         @Override
         public boolean equals(Object obj) {
-            return names.equals((Iso3166_2Data) obj);
+            return names.equals(obj);
         }
 
         @Override
@@ -64,7 +64,7 @@ public class Unlocode {
 
         @Override
         public Iso3166_2Data merge(Iso3166_2Data b) {
-            LinkedHashSet<String> set = new LinkedHashSet<String>(names);
+            LinkedHashSet<String> set = new LinkedHashSet<>(names);
             set.addAll(b.names);
             return new Iso3166_2Data(set);
         }
@@ -83,7 +83,7 @@ public class Unlocode {
 
         public LocodeData(String locode, Collection<String> names, String subdivision, float north, float east) {
             this.locode = locode;
-            this.names = Collections.unmodifiableSet(new LinkedHashSet<String>(names));
+            this.names = Collections.unmodifiableSet(new LinkedHashSet<>(names));
             this.subdivision = subdivision;
             this.north = north;
             this.east = east;
@@ -123,7 +123,7 @@ public class Unlocode {
                 && subdivision.equals(other.subdivision)
                 && north == other.north
                 && east == other.east) {
-                LinkedHashSet<String> set = new LinkedHashSet<String>(names);
+                LinkedHashSet<String> set = new LinkedHashSet<>(names);
                 set.addAll(other.names);
                 return new LocodeData(locode, set, subdivision, north, east);
             }
@@ -132,9 +132,9 @@ public class Unlocode {
 
     }
 
-    static Map<String, LocodeData> locodeToData = new HashMap<String, LocodeData>();
+    static Map<String, LocodeData> locodeToData = new HashMap<>();
     static Relation<String, LocodeData> nameToLocodeData = Relation.of(new HashMap<String, Set<LocodeData>>(), HashSet.class);
-    static Map<String, Iso3166_2Data> iso3166_2Data = new HashMap<String, Iso3166_2Data>();
+    static Map<String, Iso3166_2Data> iso3166_2Data = new HashMap<>();
     static Relation<String, String> ERRORS = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
     static {
@@ -294,7 +294,7 @@ public class Unlocode {
                 "data/external/2013-1_UNLOCODE_CodeListPart" + file + ".csv",
                 LATIN1);
         M3<String, String, Boolean> nameToAlternate = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), Boolean.class);
-        Output<String> tempOutput = new Output<String>();
+        Output<String> tempOutput = new Output<>();
 
         String oldCountryCode = null;
         while (true) {
@@ -467,19 +467,19 @@ public class Unlocode {
 
     public static void main(String[] args) throws IOException {
         Relation<String, LocodeData> countryNameToCities = Relation.of(new TreeMap<String, Set<LocodeData>>(), TreeSet.class);
-        Set<String> errors = new TreeSet<String>();
+        Set<String> errors = new TreeSet<>();
         loadCitiesCapitals(countryNameToCities, errors);
         loadCitiesOver1M(countryNameToCities, errors);
         SupplementalDataInfo supp = ToolConfig.getToolInstance().getSupplementalDataInfo();
-        Set<String> missing = new TreeSet<String>(
+        Set<String> missing = new TreeSet<>(
             supp.getBcp47Keys().get("tz"));
-        Set<String> already = new TreeSet<String>();
+        Set<String> already = new TreeSet<>();
 
         for (Entry<String, LocodeData> entry : countryNameToCities.keyValueSet()) {
             String countryName = entry.getKey();
             LocodeData item = entry.getValue();
             String firstName = item.names.iterator().next();
-            LinkedHashSet<String> remainingNames = new LinkedHashSet<String>(item.names);
+            LinkedHashSet<String> remainingNames = new LinkedHashSet<>(item.names);
             remainingNames.remove(firstName);
             String lowerLocode = item.locode.toLowerCase(Locale.ENGLISH);
             String info = countryName
@@ -497,7 +497,7 @@ public class Unlocode {
                 + "-->");
         }
         System.out.println();
-        System.out.println(CollectionUtilities.join(errors, "\n"));
+        System.out.println(Joiner.on("\n").join(errors));
         System.out.println();
         showLocodes("In exemplars already:", already);
         System.out.println();
@@ -513,7 +513,7 @@ public class Unlocode {
         //            System.out.println((i++) + "\t" + s + "\t" + Unlocode.getIso3166_2Data(s));
         //            //if (i > 1000) break;
         //        }
-        for (String s : new TreeSet<String>(Unlocode.getAvailable())) {
+        for (String s : new TreeSet<>(Unlocode.getAvailable())) {
             if (!s.startsWith("GT")) {
                 continue;
             }
@@ -536,8 +536,8 @@ public class Unlocode {
     }
 
     public static void showLocodes(String title, Set<String> already) {
-        Set<String> noData = new TreeSet<String>();
-        Set<String> noData2 = new TreeSet<String>();
+        Set<String> noData = new TreeSet<>();
+        Set<String> noData2 = new TreeSet<>();
         for (String locode : already) {
             String upperLocode = locode.toUpperCase(Locale.ENGLISH);
             String countryName = ULocale.getDisplayCountry("und-" + upperLocode.substring(0, 2), ULocale.ENGLISH);
@@ -638,14 +638,14 @@ public class Unlocode {
         return i;
     }
 
-    static final Set<String> noncountries = new HashSet<String>(Arrays.asList(
+    static final Set<String> noncountries = new HashSet<>(Arrays.asList(
         "United States Virgin Islands", "Akrotiri and Dhekelia", "Easter Island", "Somaliland", "Northern Cyprus", "Nagorno-Karabakh Republic", "Abkhazia",
         "Transnistria", "South Ossetia"));
 
     static final Transform<String, String> REMOVE_ACCENTS = Transliterator.getInstance("nfd;[:mn:]remove");
 
     static void add(String countryName, String subdivision, String cityName, Relation<String, LocodeData> countryNameToCities, Set<String> errors2) {
-        String countryCode = CountryCodeConverter.getCodeFromName(countryName);
+        String countryCode = CountryCodeConverter.getCodeFromName(countryName, false);
         if (countryCode == null) {
             if (noncountries.contains(countryName)) {
                 return; // skip
@@ -665,7 +665,7 @@ public class Unlocode {
         if (locodeDatas == null) {
             errors2.add("** No matching record for\t" + countryName + "\t" + countryCode + "\t" + cityName);
         } else {
-            Set<LocodeData> rem = new LinkedHashSet<LocodeData>();
+            Set<LocodeData> rem = new LinkedHashSet<>();
             for (LocodeData x : locodeDatas) {
                 if (x.locode.startsWith(countryCode)) {
                     if (x.subdivision.equals(subdivision)) {

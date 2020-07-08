@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Transform;
 
@@ -20,7 +20,7 @@ public class PathStarrer implements Transform<String, String> {
     public static final String STAR_PATTERN = "([^\"]*+)";
 
     private String starredPathString;
-    private final List<String> attributes = new ArrayList<String>();
+    private final List<String> attributes = new ArrayList<>();
     private final List<String> protectedAttributes = Collections.unmodifiableList(attributes);
     private String substitutionPattern = STAR_PATTERN;
 
@@ -28,7 +28,7 @@ public class PathStarrer implements Transform<String, String> {
     private final StringBuilder starredPathOld = new StringBuilder();
 
     public String set(String path) {
-        XPathParts parts = XPathParts.getInstance(path);
+        XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed();
         return set(parts, Collections.<String> emptySet());
     }
 
@@ -75,7 +75,7 @@ public class PathStarrer implements Transform<String, String> {
     }
 
     public String getAttributesString(String separator) {
-        return CollectionUtilities.join(attributes, separator);
+        return Joiner.on(separator).join(attributes);
     }
 
     public String getResult() {

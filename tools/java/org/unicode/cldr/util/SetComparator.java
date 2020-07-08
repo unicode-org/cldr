@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class SetComparator<T extends Comparable<T>> implements Comparator<Set<T>> {
+    @Override
     public int compare(Set<T> o1, Set<T> o2) {
         int size1 = o1.size();
         int size2 = o2.size();

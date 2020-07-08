@@ -3,12 +3,12 @@ package org.unicode.cldr.unittest;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.PatternCache;
 
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 
 /**
  * Factory for ObjectMatchers that are not tightly coupled
@@ -23,7 +23,7 @@ class ObjectMatcherFactory {
      * @param pattern
      * @return
      */
-    public static ObjectMatcher<String> createRegexMatcher(String pattern) {
+    public static Predicate<String> createRegexMatcher(String pattern) {
         return new RegexMatcher().set(pattern);
     }
 
@@ -34,7 +34,7 @@ class ObjectMatcherFactory {
      * @param flags
      * @return
      */
-    public static ObjectMatcher<String> createRegexMatcher(String pattern,
+    public static Predicate<String> createRegexMatcher(String pattern,
         int flags) {
         return new RegexMatcher().set(pattern, flags);
     }
@@ -45,18 +45,18 @@ class ObjectMatcherFactory {
      * @param col
      * @return
      */
-    public static ObjectMatcher<String> createCollectionMatcher(
+    public static Predicate<String> createCollectionMatcher(
         Collection<String> col) {
         return new CollectionMatcher().set(col);
     }
 
-    public static ObjectMatcher<String> createOrMatcher(
-        ObjectMatcher<String> m1, ObjectMatcher<String> m2) {
+    public static Predicate<String> createOrMatcher(
+        Predicate<String> m1, Predicate<String> m2) {
         return new OrMatcher().set(m1, m2);
     }
 
-    public static ObjectMatcher<String> createListMatcher(
-        ObjectMatcher<String> matcher) {
+    public static Predicate<String> createListMatcher(
+        Predicate<String> matcher) {
         return new ListMatcher().set(matcher);
     }
 
@@ -65,7 +65,7 @@ class ObjectMatcherFactory {
      *
      * @return
      */
-    public static ObjectMatcher<String> createDefaultingMatcher(boolean retVal) {
+    public static Predicate<String> createDefaultingMatcher(boolean retVal) {
         return new DefaultingMatcher(retVal);
     }
 
@@ -78,7 +78,7 @@ class ObjectMatcherFactory {
      * @param valueIfAbsent
      * @return
      */
-    public static ObjectMatcher<String> createNullHandlingMatcher(
+    public static Predicate<String> createNullHandlingMatcher(
         Map<String, ObjectMatcherFactory.MatcherPattern> m, String key,
         boolean valueIfAbsent) {
         return new NullHandlingMatcher(m, key, valueIfAbsent);
@@ -91,74 +91,78 @@ class ObjectMatcherFactory {
      * @param toMatch
      * @return
      */
-    public static ObjectMatcher<String> createStringMatcher(String toMatch) {
+    public static Predicate<String> createStringMatcher(String toMatch) {
         return new StringMatcher(toMatch);
     }
 
-    private static class RegexMatcher implements ObjectMatcher<String> {
+    private static class RegexMatcher implements Predicate<String> {
         private java.util.regex.Matcher matcher;
 
-        public ObjectMatcher<String> set(String pattern) {
+        public Predicate<String> set(String pattern) {
             matcher = PatternCache.get(pattern).matcher("");
             return this;
         }
 
-        public ObjectMatcher<String> set(String pattern, int flags) {
+        public Predicate<String> set(String pattern, int flags) {
             matcher = Pattern.compile(pattern, flags).matcher("");
             return this;
         }
 
-        public boolean matches(String value) {
+        @Override
+        public boolean test(String value) {
             matcher.reset(value.toString());
             return matcher.matches();
         }
     }
 
-    private static class CollectionMatcher implements ObjectMatcher<String> {
+    private static class CollectionMatcher implements Predicate<String> {
         private Collection<String> collection;
 
-        public ObjectMatcher<String> set(Collection<String> collection) {
+        public Predicate<String> set(Collection<String> collection) {
             this.collection = collection;
             return this;
         }
 
-        public boolean matches(String value) {
+        @Override
+        public boolean test(String value) {
             return collection.contains(value);
         }
     }
 
-    private static class OrMatcher implements ObjectMatcher<String> {
-        private ObjectMatcher<String> a;
-        private ObjectMatcher<String> b;
+    private static class OrMatcher implements Predicate<String> {
+        private Predicate<String> a;
+        private Predicate<String> b;
 
-        public ObjectMatcher<String> set(ObjectMatcher<String> a,
-            ObjectMatcher<String> b) {
+        public Predicate<String> set(Predicate<String> a,
+            Predicate<String> b) {
             this.a = a;
             this.b = b;
             return this;
         }
 
-        public boolean matches(String value) {
-            return a.matches(value) || b.matches(value);
+        @Override
+        public boolean test(String value) {
+            return a.test(value) || b.test(value);
         }
     }
 
-    private static class ListMatcher implements ObjectMatcher<String> {
-        private ObjectMatcher<String> other;
+    private static class ListMatcher implements Predicate<String> {
+        private Predicate<String> other;
         private static final Splitter WHITESPACE_SPLITTER = Splitter
             .on(PatternCache.get("\\s+"));
 
-        public ObjectMatcher<String> set(ObjectMatcher<String> other) {
+        public Predicate<String> set(Predicate<String> other) {
             this.other = other;
             return this;
         }
 
-        public boolean matches(String value) {
+        @Override
+        public boolean test(String value) {
             List<String> values = WHITESPACE_SPLITTER.splitToList(value.trim());
             if (values.size() == 1 && values.get(0).length() == 0)
                 return true;
             for (String toMatch : values) {
-                if (!other.matches(toMatch)) {
+                if (!other.test(toMatch)) {
                     return false;
                 }
             }
@@ -166,21 +170,22 @@ class ObjectMatcherFactory {
         }
     }
 
-    private static class DefaultingMatcher implements ObjectMatcher<String> {
+    private static class DefaultingMatcher implements Predicate<String> {
         private final boolean defaultValue;
 
         public DefaultingMatcher(boolean val) {
             defaultValue = val;
         }
 
-        public boolean matches(String o) {
+        @Override
+        public boolean test(String o) {
             return defaultValue;
         }
     }
 
-    private static class NullHandlingMatcher implements ObjectMatcher<String> {
+    private static class NullHandlingMatcher implements Predicate<String> {
 
-        final ObjectMatcher<String> matcher;
+        final Predicate<String> matcher;
 
         public NullHandlingMatcher(
             Map<String, ObjectMatcherFactory.MatcherPattern> col,
@@ -191,23 +196,24 @@ class ObjectMatcherFactory {
         }
 
         @Override
-        public boolean matches(String o) {
-            return matcher.matches(o);
+        public boolean test(String o) {
+            return matcher.test(o);
         }
 
     }
 
     public static class MatcherPattern {
         public String value;
-        public ObjectMatcher<String> matcher;
+        public Predicate<String> matcher;
         public String pattern;
 
+        @Override
         public String toString() {
             return matcher.getClass().getName() + "\t" + pattern;
         }
     }
 
-    private static class StringMatcher implements ObjectMatcher<String> {
+    private static class StringMatcher implements Predicate<String> {
         private final String value;
 
         public StringMatcher(String value) {
@@ -215,7 +221,7 @@ class ObjectMatcherFactory {
         }
 
         @Override
-        public boolean matches(String o) {
+        public boolean test(String o) {
             return o.equals(value);
         }
 

@@ -43,6 +43,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
     private BufferedImage bimg;
     private String string = "𝛛";
 
+    @Override
     public void paint(Graphics g) {
         Dimension d = getSize();
         if (bimg == null || bimg.getWidth() != d.width || bimg.getHeight() != d.height) {
@@ -71,7 +72,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
         try {
             PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
             // TODO Auto-generated method stub
-            UnicodeMap<Integer> map = new UnicodeMap<Integer>();
+            UnicodeMap<Integer> map = new UnicodeMap<>();
             Widths widths = new Widths(g, new Font("Serif", 0, 100), new Font("SansSerif", 0, 100));
 
             UnicodeSet CHECK = new UnicodeSet("[[:^c:][:cc:][:cf:]]");
@@ -101,7 +102,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
             out.println("# ApproximateWidth\n" +
                 "# @missing: 0000..10FFFF; " + defaultWidth);
 
-            Set<Integer> values = new TreeSet<Integer>(map.values());
+            Set<Integer> values = new TreeSet<>(map.values());
             for (Integer integer0 : values) {
                 if (integer0 == null) {
                     continue;
@@ -263,14 +264,17 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
         demo.init();
         Frame f = new Frame("Frame");
         f.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }
 
+            @Override
             public void windowDeiconified(WindowEvent e) {
                 demo.start();
             }
 
+            @Override
             public void windowIconified(WindowEvent e) {
                 demo.stop();
             }

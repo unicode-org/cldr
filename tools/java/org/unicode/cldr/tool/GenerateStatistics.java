@@ -55,10 +55,10 @@ class GenerateStatistics {
         //String dir = logDir + "main" + File.separator;
         // DraftChecker dc = new DraftChecker(dir);
         english = factory.make("en", true);
-        Set<String> languages = new TreeSet<String>(col), countries = new TreeSet<String>(col), draftLanguages = new TreeSet<String>(
-            col), draftCountries = new TreeSet<String>(col);
-        Set<Object> nativeLanguages = new TreeSet<Object>(), nativeCountries = new TreeSet<Object>(), draftNativeLanguages = new TreeSet<Object>(),
-            draftNativeCountries = new TreeSet<Object>();
+        Set<String> languages = new TreeSet<>(col), countries = new TreeSet<>(col), draftLanguages = new TreeSet<>(
+            col), draftCountries = new TreeSet<>(col);
+        Set<Object> nativeLanguages = new TreeSet<>(), nativeCountries = new TreeSet<>(), draftNativeLanguages = new TreeSet<>(),
+            draftNativeCountries = new TreeSet<>();
         int localeCount = 0;
         int draftLocaleCount = 0;
 
@@ -117,7 +117,7 @@ class GenerateStatistics {
      */
     private static Set<String> removeSingleLanguagesWhereWeHaveScripts(Set<String> contents) {
         StandardCodes sc = StandardCodes.make();
-        contents = new TreeSet<String>(contents); // make writable
+        contents = new TreeSet<>(contents); // make writable
         if (false && HACK) {
             contents.add("bs_Latn");
             contents.add("bs_Cyrl");
@@ -125,7 +125,7 @@ class GenerateStatistics {
             contents.add("bs_Cyrl_BA");
         }
         // find the languages with scripts
-        Set<String> toRemove = new HashSet<String>();
+        Set<String> toRemove = new HashSet<>();
         if (HACK) toRemove.add("sh");
 
         for (Iterator<String> it = contents.iterator(); it.hasNext();) {
@@ -189,8 +189,8 @@ class GenerateStatistics {
             s.add(llist);
         }
 
-        Set<String> titleSet = new TreeSet<String>(col);
-        Set<String> qualifierSet = new TreeSet<String>(col);
+        Set<String> titleSet = new TreeSet<>(col);
+        Set<String> qualifierSet = new TreeSet<>(col);
 
         for (Iterator<String> it = sb.keySet().iterator(); it.hasNext();) {
             String englishName = it.next();
@@ -332,6 +332,7 @@ class GenerateStatistics {
             contents = new Object[] { englishName, locale, localName };
         }
 
+        @Override
         public int compareTo(Object o) {
             return comp.compare(contents, ((LanguageList) o).contents);
         }
@@ -353,8 +354,8 @@ class GenerateStatistics {
         if (notitlecase) return in;
         String result = UCharacter.toTitleCase(new ULocale(localeID), in, null);
         if (HACK) {
-            result = GenerateCldrTests.replace(result, "U.s.", "U.S.");
-            result = GenerateCldrTests.replace(result, "S.a.r.", "S.A.R.");
+            result = result.replace("U.s.", "U.S.");
+            result = result.replace("S.a.r.", "S.A.R.");
         }
         return result;
     }
@@ -405,7 +406,7 @@ class GenerateStatistics {
         return name;
     }
 
-    static Map<String, String> fixCountryNames = new HashMap<String, String>();
+    static Map<String, String> fixCountryNames = new HashMap<>();
     static {
         fixCountryNames.put("\u0408\u0443\u0433\u043E\u0441\u043B\u0430\u0432\u0438\u0458\u0430",
             "\u0421\u0440\u0431\u0438\u0458\u0430 \u0438 \u0426\u0440\u043D\u0430 \u0413\u043E\u0440\u0430");
@@ -416,7 +417,7 @@ class GenerateStatistics {
 
     public static class DraftChecker {
         String dir;
-        Map<String, Object> cache = new HashMap<String, Object>();
+        Map<String, Object> cache = new HashMap<>();
         Object TRUE = new Object();
         Object FALSE = new Object();
 

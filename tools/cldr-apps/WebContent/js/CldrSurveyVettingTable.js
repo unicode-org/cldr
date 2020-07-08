@@ -26,10 +26,10 @@ const cldrSurveyTable = (function() {
 	const NEVER_REUSE_TABLE = false;
 
 	/*
-	 * ERROR_NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
-	 * Compare ERROR_NO_WINNING_VALUE in VoteResolver.java.
+	 * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
+	 * It must match NO_WINNING_VALUE in the server Java code.
 	 */
-	const ERROR_NO_WINNING_VALUE = "error-no-winning-value";
+	const NO_WINNING_VALUE = "no-winning-value";
 
 	/**
 	 * Prepare rows to be inserted into the table
@@ -56,13 +56,13 @@ const cldrSurveyTable = (function() {
 			/*
 			 * Re-use the old table, just update contents of individual cells
 			 */
-			// console.log("🦋🦋🦋 re-use table");
+			// console.log('🦋🦋🦋 re-use table, ' + Object.keys(json.section.rows).length + ' rows');
 			theTable = theDiv.theTable;
 		} else {
 			/*
 			 * Re-create the table from scratch
 			 */
-			// console.log("🦞🦞🦞 make new table");
+			// console.log('🦞🦞🦞 make new table, ' + Object.keys(json.section.rows).length + ' rows');
 			theTable = cloneLocalizeAnon(document.getElementById('proto-datatable'));
 			/*
 			 * Note: isDashboard() is currently never true here; see comments in insertRowsIntoTbody and updateRow
@@ -126,10 +126,10 @@ const cldrSurveyTable = (function() {
 				theTable.curSortMode = "metazon";
 			}
 		}
-		insertRowsIntoTbody(theTable, reuseTable);
-		if (!reuseTable) {
+		if (!reuseTable || !theDiv.contains(theTable)) { // reference: CLDR-13727 and CLDR-13885
 			theDiv.appendChild(theTable);
 		}
+		insertRowsIntoTbody(theTable, reuseTable);
 		hideLoader(theDiv.loader);
 	}
 
@@ -149,7 +149,7 @@ const cldrSurveyTable = (function() {
 			json1.pageId === json2.pageId &&
 			json1.locale === json2.locale &&
 			json1.canModify === json2.canModify &&
-			json1.section.rows.length === json2.section.rows.length) {
+			Object.keys(json1.section.rows).length === Object.keys(json2.section.rows).length) {
 			return true;
 		}
 		return false;
@@ -227,9 +227,9 @@ const cldrSurveyTable = (function() {
 			if (!tr) {
 				tr = cloneAnon(toAdd);
 				tbody.appendChild(tr);
-				// console.log("🦞 make new table row");
+				// console.log("🦞 make new table row for " + theRow.xpstrid);
 			} else {
-				// console.log("🦋 re-use table row");
+				// console.log("🦋 re-use table row for " + theRow.xpstrid);
 			}
 			tr.rowHash = k;
 			tr.theTable = theTable;
@@ -261,6 +261,10 @@ const cldrSurveyTable = (function() {
 			if (tr.className === 'tr_checking1' || tr.className === 'tr_checking2') {
 				// console.log("Skipping updateRow for tr.className === " + tr.className);
 			} else {
+				/*
+				 * TODO: for performance, if reuseTable and new data matches old data for this row, leave the DOM as-is.
+				 * Figure out an efficient way to test whether this row's data has changed.
+				 */
 				updateRow(tr, theRow);
 			}
 		}
@@ -305,7 +309,7 @@ const cldrSurveyTable = (function() {
 	 *
 	 * IMPORTANT: this function is used for the Dashboard as well as the main Vetting table.
 	 * Mostly the Dashboard tables are currently created by review.js showReviewPage
-	 * (invoked through EmbeddedReport.jsp, r_vetting_json.jsp, writeVettingViewerOutput);
+	 * (invoked through writeVettingViewerOutput);
 	 * they're not created here. Nevertheless the calls here to isDashboard() do serve a purpose,
 	 * isDashboard() is true here when called by insertFixInfo in review.js. To see this, put
 	 * a breakpoint in this function, go to Dashboard, and click on a "Fix" button, whose pop-up
@@ -496,20 +500,20 @@ const cldrSurveyTable = (function() {
 	 * for automated testing with WebDriver.
 	 */
 	function checkRowConsistency(theRow) {
+		if (!theRow) {
+			console.error('theRow is null or undefined in checkRowConsistency');
+			return;
+		}
 		if (!theRow.winningVhash) {
 			/*
-			 * The server, not the client, is responsible for ensuring that a winning item is present.
+			 * The server is responsible for ensuring that a winning item is present, or using
+			 * the placeholder NO_WINNING_VALUE, which is not null.
 			 */
 			console.error('For ' + theRow.xpstrid + ' - there is no winningVhash');
 		} else if (!theRow.items) {
 			console.error('For ' + theRow.xpstrid + ' - there are no items');
 		} else if (!theRow.items[theRow.winningVhash]) {
 			console.error('For ' + theRow.xpstrid + ' - there is winningVhash but no item for it');
-		} else {
-			const item = theRow.items[theRow.winningVhash];
-			if (item.value && item.value === ERROR_NO_WINNING_VALUE) {
-				console.log('For ' + theRow.xpstrid + ' - there is ' + ERROR_NO_WINNING_VALUE);
-			}
 		}
 
 		for (var k in theRow.items) {
@@ -615,8 +619,12 @@ const cldrSurveyTable = (function() {
 	 * TODO: shorten this function by using subroutines.
 	 */
 	function updateRowVoteInfo(tr, theRow) {
+		if (!theRow) {
+			console.error('theRow is null or undefined in updateRowVoteInfo');
+			return;
+		}
 		var vr = theRow.voteResolver;
-		var div = tr.voteDiv = document.createElement("div");
+		tr.voteDiv = document.createElement("div");
 		tr.voteDiv.className = "voteDiv";
 		if (theRow.voteVhash &&
 			theRow.voteVhash !== '' && surveyUser) {
@@ -631,35 +639,35 @@ const cldrSurveyTable = (function() {
 			if (theRow.voteVhash !== theRow.winningVhash &&
 				theRow.canFlagOnLosing) {
 				if (!theRow.rowFlagged) {
-					var newIcon = addIcon(tr.voteDiv, "i-stop");
+					addIcon(tr.voteDiv, "i-stop");
 					tr.voteDiv.appendChild(createChunk(stui.sub("mustflag_explain_msg", {}), "p", "helpContent"));
 				} else {
-					var newIcon = addIcon(tr.voteDiv, "i-flag");
+					addIcon(tr.voteDiv, "i-flag");
 					tr.voteDiv.appendChild(createChunk(stui.str("flag_desc", "p", "helpContent")));
 				}
 			}
 		}
 		if (!theRow.rowFlagged && theRow.canFlagOnLosing) {
-			var newIcon = addIcon(tr.voteDiv, "i-flag-d");
+			addIcon(tr.voteDiv, "i-flag-d");
 			tr.voteDiv.appendChild(createChunk(stui.str("flag_d_desc", "p", "helpContent")));
 		}
-		var haveWinner = false;
-		var haveLast = false;
-		// next, the org votes
-		var perValueContainer = div; // IF NEEDED: >>  = document.createElement("div");  perValueContainer.className = "perValueContainer";
+		/*
+		 * The value_vote array has an even number of elements,
+		 * like [value0, vote0, value1, vote1, value2, vote2, ...].
+		 */
 		var n = 0;
 		while (n < vr.value_vote.length) {
 			var value = vr.value_vote[n++];
-			if (value == null) continue;
 			var vote = vr.value_vote[n++];
-			var item = tr.rawValueToItem[value]; // backlink to specific item in hash
-			if (item == null) continue;
-			var vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote");
-			if (n > 2) {
-				var valdiv = createChunk(null, "div", "value-div");
-			} else {
-				var valdiv = createChunk(null, "div", "value-div first")
+			if (value == null /* TODO: impossible? */ || value === NO_WINNING_VALUE) {
+				continue;
 			}
+			var item = tr.rawValueToItem[value]; // backlink to specific item in hash
+			if (item == null) {
+				continue;
+			}
+			var vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote");
+			var valdiv = createChunk(null, "div", (n > 2) ? "value-div" : "value-div first");
 			// heading row
 			var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_tr_heading");
 			if (item.rawValue === INHERITANCE_MARKER || (item.votes && Object.keys(item.votes).length > 0)) {
@@ -686,8 +694,13 @@ const cldrSurveyTable = (function() {
 			}
 			setLang(valdiv);
 			if (value === INHERITANCE_MARKER) {
-				appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);
-				valdiv.appendChild(createChunk(stui.str("voteInfo_votesForInheritance"), 'p'));
+				/*
+				 * theRow.inheritedValue can be undefined here; then do not append
+				 */
+				if (theRow.inheritedValue) {
+					appendItem(valdiv, theRow.inheritedValue, item.pClass, tr);
+					valdiv.appendChild(createChunk(stui.str("voteInfo_votesForInheritance"), 'p'));
+				}
 			} else {
 				appendItem(valdiv, value, (value === theRow.winningValue) ? "winner" : "value", tr);
 				if (value === theRow.inheritedValue) {
@@ -713,16 +726,16 @@ const cldrSurveyTable = (function() {
 			} else {
 				updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv);
 			}
-			perValueContainer.appendChild(valdiv);
-			perValueContainer.appendChild(vdiv);
+			tr.voteDiv.appendChild(valdiv);
+			tr.voteDiv.appendChild(vdiv);
 		}
 		if (vr.valueIsLocked) {
-			perValueContainer.appendChild(createChunk(stui.str("valueIsLocked"), "p", "alert alert-warning fix-popover-help"));
+			tr.voteDiv.appendChild(createChunk(stui.str("valueIsLocked"), "p", "alert alert-warning fix-popover-help"));
 		} else if (vr.requiredVotes) {
 			var msg = stui.sub("explainRequiredVotes", {
 				requiredVotes: vr.requiredVotes
 			});
-			perValueContainer.appendChild(createChunk(msg, "p", "alert alert-warning fix-popover-help"));
+			tr.voteDiv.appendChild(createChunk(msg, "p", "alert alert-warning fix-popover-help"));
 		}
 		// done with voteresolver table
 		if (stdebug_enabled) {
@@ -741,16 +754,7 @@ const cldrSurveyTable = (function() {
 	 * @param vdiv a table created by the caller as vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote")
 	 */
 	function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
-		var createVoter = function(v) {
-			if (v == null) {
-				return createChunk("(missing information)!", "i", "stopText");
-			}
-			var div = createChunk(v.name || stui.str('emailHidden'), "td", "voteInfo_voterInfo voteInfo_td");
-			div.setAttribute('data-name', v.name || stui.str('emailHidden'));
-			div.setAttribute('data-email', v.email || '');
-			return div;
-		};
-		for (org in theRow.voteResolver.orgs) {
+		for (let org in vr.orgs) {
 			var theOrg = vr.orgs[org];
 			var vrRaw = {};
 			var orgVoteValue = theOrg.votes[value];
@@ -764,7 +768,7 @@ const cldrSurveyTable = (function() {
 			 */
 			if (orgVoteValue !== undefined) { // someone in the org actually voted for it
 				var topVoter = null; // top voter for this item
-				var orgsVote = (theOrg.orgVote == value);
+				var orgsVote = (theOrg.orgVote == value); // boolean
 				var topVoterTime = 0; // Calculating the latest time for a user from same org
 				if (orgsVote) {
 					// find a top-ranking voter to use for the top line
@@ -774,14 +778,10 @@ const cldrSurveyTable = (function() {
 								// Get the latest time vote only
 								if (vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]) {
 									topVoter = voter;
-									// console.log(item);
-									// console.log(vr.nameTime[item.votes[topVoter].name]);
 									topVoterTime = vr.nameTime[item.votes[topVoter].name];
 								}
 							} else {
 								topVoter = voter;
-								// console.log(item);
-								// console.log(vr.nameTime[item.votes[topVoter].name]);
 								topVoterTime = vr.nameTime[item.votes[topVoter].name];
 							}
 						}
@@ -798,15 +798,6 @@ const cldrSurveyTable = (function() {
 				// ORG SUBHEADING row
 
 				/*
-				 * There was some buggy code here, testing item.votes[topVoter].isVoteForBailey, but no element
-				 * of the votes array could have had isVoteForBailey, which was a property of an "item" (CandidateItem)
-				 * not a "vote" (based on UserRegistry.User -- see CandidateItem.toJSONString in DataSection.java)
-				 *
-				 * item.votes[topVoter].isVoteForBailey was always undefined (effectively false), so baileyClass
-				 * was always "" (empty string) here.
-				 *
-				 * This has been fixed, to test item.rawValue === INHERITANCE_MARKER instead.
-				 *
 				 * This only affects cells ("td" elements) with style "voteInfo_voteCount", which appear in the info panel,
 				 * and which have contents like '<span class="badge">12</span>'. If the "fallback" style is added, then
 				 * these circled numbers are surrounded (outside the circle) by a colored background.
@@ -846,6 +837,22 @@ const cldrSurveyTable = (function() {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Create an element representing a voter, including a link to the voter's email
+	 *
+	 * @param v the voter
+	 * @return the element
+	 */
+	function createVoter(v) {
+		if (v == null) {
+			return createChunk("(missing information)!", "i", "stopText");
+		}
+		var div = createChunk(v.name || stui.str('emailHidden'), "td", "voteInfo_voterInfo voteInfo_td");
+		div.setAttribute('data-name', v.name || stui.str('emailHidden'));
+		div.setAttribute('data-email', v.email || '');
+		return div;
 	}
 
 	/*
@@ -993,7 +1000,7 @@ const cldrSurveyTable = (function() {
 		listenToPop(null, tr, cell, cell.showFn);
 	}
 
-	/*
+	/**
 	 * Update the "Others" cell (column) of this row
 	 *
 	 * @param tr the table row
@@ -1183,18 +1190,22 @@ const cldrSurveyTable = (function() {
 
 	/**
 	 * Get the winning value for the given row, if it's a valid value.
-	 * Null and ERROR_NO_WINNING_VALUE ('error-no-winning-value') are not valid.
-	 * See ERROR_NO_WINNING_VALUE in VoteResolver.java.
+	 * Null and NO_WINNING_VALUE ('no-winning-value') are not valid.
+	 * See NO_WINNING_VALUE in VoteResolver.java.
 	 *
 	 * @param theRow
 	 * @returns the winning value, or null if there is not a valid winning value
 	 */
 	function getValidWinningValue(theRow) {
+		if (!theRow) {
+			console.error('theRow is null or undefined in getValidWinningValue');
+			return null;
+		}
 		if (theRow.items && theRow.winningVhash && theRow.items[theRow.winningVhash]) {
 			const item = theRow.items[theRow.winningVhash];
 			if (item.value) {
 				const val = item.value;
-				if (val !== ERROR_NO_WINNING_VALUE) {
+				if (val !== NO_WINNING_VALUE) {
 					return val;
 				}
 			}

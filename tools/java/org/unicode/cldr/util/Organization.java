@@ -68,7 +68,7 @@ public enum Organization {
 
     static Map<String, Organization> OrganizationNameMap;
     static {
-        OrganizationNameMap = new HashMap<String, Organization>();
+        OrganizationNameMap = new HashMap<>();
         for (Organization x : values()) {
             OrganizationNameMap.put(x.displayName.toLowerCase().replace('-', '_').replace('.', '_'), x);
             for (String name : x.names) {

@@ -16,6 +16,7 @@ import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
@@ -23,9 +24,9 @@ import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -39,7 +40,9 @@ public class ChartAnnotations extends Chart {
     private static final String LDML_ANNOTATIONS = "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>LDML Annotations</a>";
 
     private static final String MAIN_HEADER = "<p>Annotations provide names and keywords for Unicode characters, currently focusing on emoji. "
-        + "If you see any problems, please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> with the corrected values for the locale. "
+        + "If you see any problems, please <a target='_blank' href='"
+        + CLDRURLS.CLDR_NEWTICKET_URL
+        + "'>file a ticket</a> with the corrected values for the locale. "
         + "For the XML data used for these charts, see "
         + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>latest-release annotations </a> "
         + "or <a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>beta annotations</a>. "
@@ -71,6 +74,7 @@ public class ChartAnnotations extends Chart {
         return MAIN_HEADER + "<p>The charts are presented in groups of related languages, for easier comparison.<p>";
     }
 
+    @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
         FileCopier.ensureDirectoryExists(DIR);
         FileCopier.copy(Chart.class, "index.css", DIR);
@@ -108,7 +112,7 @@ public class ChartAnnotations extends Chart {
 
         // set up right order for columns
 
-        Map<String, String> nameToCode = new LinkedHashMap<String, String>();
+        Map<String, String> nameToCode = new LinkedHashMap<>();
         Relation<LanguageGroup, R3<Integer, String, String>> groupToNameAndCodeSorted = Relation.of(
             new EnumMap<LanguageGroup, Set<R3<Integer, String, String>>>(LanguageGroup.class),
             TreeSet.class);
@@ -212,7 +216,7 @@ public class ChartAnnotations extends Chart {
                             }
                         }
                         for (Entry<String, Collection<String>> entry : valueToSub.asMap().entrySet()) {
-                            baseAnnotation += "<hr><i>" + CollectionUtilities.join(entry.getValue(), ", ") + "</i>: " + entry.getKey();
+                            baseAnnotation += "<hr><i>" + Joiner.on(", ").join(entry.getValue()) + "</i>: " + entry.getKey();
                         }
                     }
                     tablePrinter.addCell(baseAnnotation);
@@ -333,7 +337,7 @@ public class ChartAnnotations extends Chart {
                 + "The keywords plus the words in the short name are typically used for search and predictive typing.<p>\n"
                 + "<p>Most short names and keywords that can be constructed with the mechanism in " + LDML_ANNOTATIONS + " are omitted. "
                 + "However, a few are included for comparison: "
-                + CollectionUtilities.join(EXTRAS.addAllTo(new TreeSet<>()), ", ") + ". "
+                + Joiner.on(", ").join(EXTRAS.addAllTo(new TreeSet<>())) + ". "
                 + "In this chart, missing items are marked with “" + Annotations.MISSING_MARKER + "”, "
                 + "‘fallback’ constructed items with “" + Annotations.BAD_MARKER + "”, "
                 + "substituted English values with “" + Annotations.ENGLISH_MARKER + "”, and "

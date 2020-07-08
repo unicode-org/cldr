@@ -9,9 +9,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
@@ -35,27 +35,27 @@ public class MinimizeRegex {
         //defaultArg = "aa|ace|ad[ay]|ain|al[et]|anp?|arp|ast|av|awa|ay|ma[dgik]|mdf|men|mh|mi[cn]|mni|mos|mu[ls]|mwl|myv";
         String regexString = args.length < 1 ? defaultArg : args[0];
         UnicodeSet set = new UnicodeSet(args.length < 2 ? "[:ascii:]" : args[1]);
-        
+
         System.out.println(defaultArg + "\n");
         Output<Set<String>> flattenedOut = new Output<>();
         String recompressed = compressWith(regexString, set, flattenedOut);
-        System.out.println(CollectionUtilities.join(flattenedOut.value,"|") + "\n");
+        System.out.println(Joiner.on("|").join(flattenedOut.value) + "\n");
         System.out.println(recompressed + "\n");
     }
 
     public static String compressWith(String regexString, UnicodeSet set) {
         return compressWith(regexString, set, null);
     }
-    
+
     public static String simplePattern(Collection<String> strings) {
         TreeSet<String> temp = new TreeSet<>(LENGTH_FIRST_COMPARE);
         temp.addAll(strings);
-        return CollectionUtilities.join(temp,"|");
+        return Joiner.on("|").join(temp);
     }
-    
+
     public static String compressWith(String regexString, UnicodeSet set, Output<Set<String>> flattenedOut) {
         Set<String> flattened = flatten(Pattern.compile(regexString), "", set);
-        String regexString2 = CollectionUtilities.join(flattened,"|");
+        String regexString2 = Joiner.on("|").join(flattened);
         Set<String> flattened2 = flatten(Pattern.compile(regexString2), "", set);
         if (!flattened2.equals(flattened)) {
             throw new IllegalArgumentException("Failed to compress: " + regexString + " using " + set + ", got " + regexString2);
@@ -135,11 +135,11 @@ public class MinimizeRegex {
         }
         switch (strings.size()) {
         case 0: throw new IllegalArgumentException();
-        case 1: 
+        case 1:
             isSingle.value = true;
             return strings.iterator().next() + (hasEmpty ? "?" : "");
         default:
-            String result = CollectionUtilities.join(strings, "|");
+            String result = Joiner.on("|").join(strings);
             if (hasEmpty) {
                 isSingle.value = true;
                 return '(' + result + ")?";
@@ -152,7 +152,7 @@ public class MinimizeRegex {
     public static TreeSet<String> flatten(Pattern pattern, String prefix, UnicodeSet set) {
         return flatten(pattern.matcher(""), prefix, set, new TreeSet<>(LENGTH_FIRST_COMPARE));
     }
-    
+
     private static TreeSet<String> flatten(Matcher matcher, String prefix, UnicodeSet set, TreeSet<String> results) {
         for (String s : set) {
             String trial = prefix + s;

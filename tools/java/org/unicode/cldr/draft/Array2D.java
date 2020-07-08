@@ -4,14 +4,14 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 class Array2D<T> {
-    private ArrayList<ArrayList<T>> data = new ArrayList<ArrayList<T>>();
+    private ArrayList<ArrayList<T>> data = new ArrayList<>();
     private int columnSize;
 
     void set(int row, int column, T value) {
         ensureSize(data, row + 1);
         ArrayList<T> rowList = data.get(row);
         if (rowList == null) {
-            data.set(row, rowList = new ArrayList<T>());
+            data.set(row, rowList = new ArrayList<>());
         }
         ensureSize(rowList, column + 1);
         if (columnSize < rowList.size()) {

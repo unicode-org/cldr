@@ -23,12 +23,12 @@ import com.ibm.icu.lang.UProperty.NameChoice;
 import com.ibm.icu.text.UnicodeSet;
 
 public class Typology {
-    private static final Set<String> NOLABELS = Collections.unmodifiableSet(new HashSet<String>(Arrays
+    private static final Set<String> NOLABELS = Collections.unmodifiableSet(new HashSet<>(Arrays
         .asList("NOLABEL")));
     public static final UnicodeSet SKIP = new UnicodeSet("[[:C:]-[:Cf:]-[:Cc:]]").freeze();
     // static UnicodeMap<String> reasons = new UnicodeMap<String>();
-    public static Map<String, UnicodeSet> label_to_uset = new TreeMap<String, UnicodeSet>();
-    public static UnicodeMap<Set<String>> char2labels = new UnicodeMap<Set<String>>();
+    public static Map<String, UnicodeSet> label_to_uset = new TreeMap<>();
+    public static UnicodeMap<Set<String>> char2labels = new UnicodeMap<>();
     // static {
     // label_to_uset.put("S", new UnicodeSet("[:S:]").freeze());
     // label_to_uset.put("L", new UnicodeSet("[:L:]").freeze());
@@ -38,14 +38,14 @@ public class Typology {
     // label_to_uset.put("Z", new UnicodeSet("[:Z:]").freeze());
     // label_to_uset.put("P", new UnicodeSet("[:P:]").freeze());
     // }
-    static Set<String> skiplabels = new HashSet<String>(Arrays.asList("", "Symbol", "Punctuation", "Letter", "S", "L", "M",
+    static Set<String> skiplabels = new HashSet<>(Arrays.asList("", "Symbol", "Punctuation", "Letter", "S", "L", "M",
         "N", "C", "Z", "P"));
 
-    public static Map<String, UnicodeSet> full_path_to_uset = new TreeMap<String, UnicodeSet>();
-    public static Map<String, UnicodeSet> path_to_uset = new TreeMap<String, UnicodeSet>();
+    public static Map<String, UnicodeSet> full_path_to_uset = new TreeMap<>();
+    public static Map<String, UnicodeSet> path_to_uset = new TreeMap<>();
     // static Map<List<String>,UnicodeSet> path_to_uset = new TreeMap<List<String>,UnicodeSet>();
     public static Relation<String, String> labelToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-    public static Map<String, Map<String, UnicodeSet>> label_parent_uset = new TreeMap<String, Map<String, UnicodeSet>>();
+    public static Map<String, Map<String, UnicodeSet>> label_parent_uset = new TreeMap<>();
 
     // public static Relation<String, String> pathToList = new Relation(new TreeMap(), TreeSet.class);
 
@@ -54,6 +54,7 @@ public class Typology {
         public final static Pattern SPLIT = PatternCache.get("\\s*\t\\s*");
         public final static Pattern NON_ALPHANUM = PatternCache.get("[^0-9A-Za-z]+");
 
+        @Override
         protected String[] splitLine(String line) {
             return SPLIT.split(line);
         }
@@ -90,7 +91,7 @@ public class Typology {
 
             String[] labels = fullPath.split("/");
             String path = "";
-            Set<String> labelSet = new TreeSet<String>();
+            Set<String> labelSet = new TreeSet<>();
             for (String item : labels) {
                 if (skiplabels.contains(item)) {
                     continue;
@@ -116,8 +117,8 @@ public class Typology {
             return true;
         }
 
-        Map<List<String>, List<String>> listCache = new HashMap<List<String>, List<String>>();
-        Map<Set<String>, Set<String>> setCache = new HashMap<Set<String>, Set<String>>();
+        Map<List<String>, List<String>> listCache = new HashMap<>();
+        Map<Set<String>, Set<String>> setCache = new HashMap<>();
 
         private <T> T intern(Map<T, T> cache, T list) {
             T old = cache.get(list);
@@ -132,7 +133,7 @@ public class Typology {
         new MyReader().process(Typology.class, "Categories.txt"); // "09421-u52m09xxxx.txt"
 
         // fix the paths
-        Map<String, UnicodeSet> temp = new TreeMap<String, UnicodeSet>();
+        Map<String, UnicodeSet> temp = new TreeMap<>();
         for (int i = 0; i < UCharacter.CHAR_CATEGORY_COUNT; ++i) {
             UnicodeSet same = new UnicodeSet()
                 .applyIntPropertyValue(UProperty.GENERAL_CATEGORY, i);
@@ -156,7 +157,7 @@ public class Typology {
                     }
                     Map<String, UnicodeSet> map = label_parent_uset.get(labels[j]);
                     if (map == null) {
-                        label_parent_uset.put(labels[j], map = new TreeMap<String, UnicodeSet>());
+                        label_parent_uset.put(labels[j], map = new TreeMap<>());
                     }
                     UnicodeSet uset2 = map.get(parent);
                     if (uset2 == null) {

@@ -8,8 +8,8 @@ import com.ibm.icu.util.VersionInfo;
 
 public class GenerateUnicodeCounts {
     public static void main(String[] args) {
-        UnicodeMap<VersionInfo> ages = new UnicodeMap<VersionInfo>();
-        UnicodeMap<String> scripts = new UnicodeMap<String>();
+        UnicodeMap<VersionInfo> ages = new UnicodeMap<>();
+        UnicodeMap<String> scripts = new UnicodeMap<>();
         UnicodeSet us = new UnicodeSet("[[:cn:][:cs:][:co:]]").complement();
         for (String s : us) {
             int i = s.codePointAt(0);

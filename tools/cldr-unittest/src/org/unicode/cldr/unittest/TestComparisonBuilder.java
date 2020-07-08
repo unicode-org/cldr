@@ -242,6 +242,7 @@ public class TestComparisonBuilder extends TestFmwk {
         for (Ordering order : Ordering.values()) {
             Builder<String> builder = new Builder<String>(order);
             builder.setFallbackComparator(new Comparator<String>() {
+                @Override
                 public int compare(String o1, String o2) {
                     return o1.compareTo(o2);
                 }

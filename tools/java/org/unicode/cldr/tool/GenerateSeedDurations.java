@@ -46,7 +46,7 @@ public class GenerateSeedDurations {
     public static void main(String[] args) {
         Factory cldrFactory = testInfo.getCldrFactory();
         String[] data = new String[4];
-        Set<String> warnings = new LinkedHashSet<String>();
+        Set<String> warnings = new LinkedHashSet<>();
         for (String locale : cldrFactory.getAvailableLanguages()) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             String localeString = locale + "\t" + testInfo.getEnglish().getName(locale);

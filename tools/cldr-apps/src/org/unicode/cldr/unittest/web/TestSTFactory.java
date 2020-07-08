@@ -377,12 +377,13 @@ public class TestSTFactory extends TestFmwk {
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
 
         XMLFileReader myReader = new XMLFileReader();
-        final Map<String, String> attrs = new TreeMap<String, String>();
-        final Map<String, String> vars = new TreeMap<String, String>();
+        final Map<String, String> attrs = new TreeMap<>();
+        final Map<String, String> vars = new TreeMap<>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
-            final Map<String, UserRegistry.User> users = new TreeMap<String, UserRegistry.User>();
+            final Map<String, UserRegistry.User> users = new TreeMap<>();
             int pathCount = 0;
 
+            @Override
             public void handlePathValue(String path, String value) {
                 ++pathCount;
                 if (value != null && value.startsWith("$")) {
@@ -456,17 +457,16 @@ public class TestSTFactory extends TestFmwk {
                     try {
                         box.voteForValue(u, xpath, value);
                         if (needException) {
-                            errln(pathCount + " Expected exceptoin, didn't get one");
+                            errln(pathCount + " Expected exception, didn't get one");
                         }
                     } catch (InvalidXPathException e) {
-                        // TODO Auto-generated catch block
                         errln("Error: invalid xpath exception " + xpath + " : " + e);
                     } catch (VoteNotAcceptedException iae) {
                         if (needException == true) {
                             logln("Caught expected: " + iae);
                         } else {
                             iae.printStackTrace();
-                            errln("Unexpected exceptoin: " + iae);
+                            errln("Unexpected exception: " + iae);
                         }
                     }
                     logln(u + " " + elem + "d for " + xpath + " = " + value);
@@ -479,7 +479,7 @@ public class TestSTFactory extends TestFmwk {
                     CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     CLDRFile cf = fac.make(locale, true);
-                    
+
                     /*
                      * TODO: ideally it should be possible, when there are both "soft" votes for inheritance
                      * and "hard" votes for the Bailey value, to distinguish between the hard or the soft vote
@@ -690,7 +690,7 @@ public class TestSTFactory extends TestFmwk {
                     throw new IllegalArgumentException("Undeclared user: " + attr + "=\"" + attrValue + "\" - are you missing a <user> element?");
                 }
                 return u;
-            };
+            }
             // public void handleComment(String path, String comment) {};
             // public void handleElementDecl(String name, String model) {};
             // public void handleAttributeDecl(String eName, String aName,
@@ -838,9 +838,6 @@ public class TestSTFactory extends TestFmwk {
             SurveyMain.fileBaseA = new File(CLDRPaths.BASE_DIRECTORY, "common/annotations/").getAbsolutePath();
             SurveyMain.fileBaseASeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
 
-            SurveyMain.setFileBaseOld(CLDRPaths.BASE_DIRECTORY);
-            // sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose
-            // vetting
             SurveyLog.logger = Logger.getAnonymousLogger();
 
             et0 = new ElapsedTimer("setup DB");
@@ -858,16 +855,6 @@ public class TestSTFactory extends TestFmwk {
             et0 = new ElapsedTimer("close connection");
             DBUtils.closeDBConnection(conn);
             logln(et0.toString());
-            // sm.vet = Vetting.createTable(sm.logger, sm);
-
-            // CLDRDBSourceFactory fac = new CLDRDBSourceFactory(sm,
-            // sm.fileBase, Logger.getAnonymousLogger(), cacheDir);
-            // logln("Setting up DB");
-            // sm.setDBSourceFactory(fac);ignore
-            // fac.setupDB(DBUtils.getInstance().getDBConnection());
-            // logln("Vetter Ready (this will take a while..)");
-            // fac.vetterReady(TestAll.getProgressIndicator(this));
-
             et0 = new ElapsedTimer("Set up STFactory");
             gFac = sm.getSTFactory();
             logln(et0.toString());
@@ -885,7 +872,7 @@ public class TestSTFactory extends TestFmwk {
         }
     }
 
-    static final Map<String, Object> noDtdPlease = new TreeMap<String, Object>();
+    static final Map<String, Object> noDtdPlease = new TreeMap<>();
     static {
         noDtdPlease.put("DTD_DIR", CLDRPaths.COMMON_DIRECTORY + File.separator + "dtd" + File.separator);
     }

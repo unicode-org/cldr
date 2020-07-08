@@ -23,7 +23,7 @@ public abstract class Chart {
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     public static final CLDRFile ENGLISH = CONFIG.getEnglish();
     public static final String LS = System.lineSeparator();
-    
+
     public static final String PREV_CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
     public static final String CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
 
@@ -31,7 +31,7 @@ public abstract class Chart {
     private static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
     public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {
-        final String dataFileList = dataFiles.length == 0 ? null : 
+        final String dataFileList = dataFiles.length == 0 ? null :
             ListFormatter.getInstance(ULocale.ENGLISH).format(
                 Arrays.asList(dataFiles).stream()
                 .map(dataFile -> Chart.dataFileLink(dataFile))
@@ -59,7 +59,7 @@ public abstract class Chart {
      */
     public String getFileName() {
         return null;
-    };
+    }
 
     /**
      * Show Date?

@@ -61,7 +61,7 @@ public class TestSupplementalData {
         }
         // gather the data
         // this could be slightly simpler using supplementalData.get
-        Set<String> singulars = new TreeSet<String>();
+        Set<String> singulars = new TreeSet<>();
         for (String region : territoryToZones.keySet()) {
             final Set<String> zones = territoryToZones.getAll(region);
             if (zones.size() == 1 || region.equals("001")) {
@@ -92,7 +92,7 @@ public class TestSupplementalData {
 
     private static void checkPlurals() {
         Relation<PluralInfo, String> pluralsToLocale = Relation.<PluralInfo, String> of(new HashMap<PluralInfo, Set<String>>(), TreeSet.class);
-        for (String locale : new TreeSet<String>(supplementalData.getPluralLocales())) {
+        for (String locale : new TreeSet<>(supplementalData.getPluralLocales())) {
             PluralInfo pluralInfo = supplementalData.getPlurals(locale);
             System.out.println(locale + ":\t" + pluralInfo);
             pluralsToLocale.put(pluralInfo, locale);
@@ -128,7 +128,7 @@ public class TestSupplementalData {
 
     private static void checkTerritoryMapping() {
         Relation<String, String> alpha3 = supplementalData.getAlpha3TerritoryMapping();
-        Set<String> temp = new TreeSet<String>(sc.getAvailableCodes("territory"));
+        Set<String> temp = new TreeSet<>(sc.getAvailableCodes("territory"));
         for (Iterator<String> it = temp.iterator(); it.hasNext();) {
             String code = it.next();
             if (numericTerritory.reset(code).matches()) {
@@ -158,7 +158,7 @@ public class TestSupplementalData {
     }
 
     private static Set<String> getFirstMinusSecond(Set<String> name, Set<String> availableCodes) {
-        Set<String> temp = new TreeSet<String>(name);
+        Set<String> temp = new TreeSet<>(name);
         temp.removeAll(availableCodes);
         return temp;
     }
@@ -170,10 +170,10 @@ public class TestSupplementalData {
             Set<BasicLanguageData> newLanguageData = supplementalData.getBasicLanguageData(language);
             if (newLanguageData != null) {
                 for (BasicLanguageData languageData : newLanguageData) {
-                    Set<String> territories = new TreeSet<String>(languageData.getTerritories());
+                    Set<String> territories = new TreeSet<>(languageData.getTerritories());
                     territories.addAll(languageData.getTerritories());
                     if (territories != null) {
-                        Set<String> scripts = new TreeSet<String>(languageData.getScripts());
+                        Set<String> scripts = new TreeSet<>(languageData.getScripts());
                         scripts.addAll(languageData.getScripts());
                         if (scripts == null || scripts.size() < 2) {
                             otherTerritoryToLanguages.putAll(territories, language);
@@ -192,9 +192,9 @@ public class TestSupplementalData {
             Set<String> otherLanguages = otherTerritoryToLanguages.getAll(territory);
             if (otherLanguages == null) otherLanguages = Collections.emptySet();
             if (!Objects.equals(languages, otherLanguages)) {
-                Set<String> languagesLeftover = new TreeSet<String>(languages);
+                Set<String> languagesLeftover = new TreeSet<>(languages);
                 languagesLeftover.removeAll(otherLanguages);
-                Set<String> otherLanguagesLeftover = new TreeSet<String>(otherLanguages);
+                Set<String> otherLanguagesLeftover = new TreeSet<>(otherLanguages);
                 otherLanguagesLeftover.removeAll(languages);
                 String territoryString = english.getName(CLDRFile.TERRITORY_NAME, territory);
                 if (otherLanguagesLeftover.size() != 0) {
@@ -214,7 +214,7 @@ public class TestSupplementalData {
      */
     public static void genData() throws IOException {
         BufferedReader codes = CldrUtility.getUTF8Data("territory_codes.txt");
-        Set<Pair> sorted = new TreeSet<Pair>();
+        Set<Pair> sorted = new TreeSet<>();
         while (true) {
             String line = codes.readLine();
             if (line == null)

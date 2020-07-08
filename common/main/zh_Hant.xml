@@ -8810,9 +8810,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>加里寧格勒</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>辛非洛浦</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>莫斯科</exemplarCity>
 			</zone>
@@ -9007,6 +9004,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>基輔</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>辛非洛浦</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>札波羅結</exemplarCity>
@@ -14050,14 +14050,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="per">
 				<compoundUnitPattern>每{1} {0}</compoundUnitPattern>
 			</compoundUnit>
-			<compoundUnit type="power2">
-				<compoundUnitPattern1>{0}²</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
-			</compoundUnit>
-			<compoundUnit type="power3">
-				<compoundUnitPattern1>{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
-			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
@@ -14542,6 +14534,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>太陽質量</displayName>
 				<unitPattern count="other">{0} 太陽質量</unitPattern>
 			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="other" draft="provisional">{0}格令</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>吉瓦</displayName>
 				<unitPattern count="other">{0} 吉瓦</unitPattern>
@@ -14758,6 +14753,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-barrel">
 				<displayName>桶</displayName>
 				<unitPattern count="other">{0} 桶</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<unitPattern count="other" draft="provisional">甜點匙{0}匙</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other" draft="provisional">英制甜點匙{0}匙</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="other" draft="provisional">{0}滴</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<unitPattern count="other" draft="provisional">{0}英制打蘭</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other" draft="provisional">量酒器{0}杯</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="other" draft="provisional">{0}小撮</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<unitPattern count="other" draft="provisional">{0}英制夸脫</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>基本方向</displayName>

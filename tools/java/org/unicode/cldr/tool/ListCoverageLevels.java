@@ -30,6 +30,7 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableList;
@@ -37,7 +38,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class ListCoverageLevels {
     public static void main(String[] args) {
@@ -50,7 +50,7 @@ public class ListCoverageLevels {
         Factory mainAndAnnotationsFactory = config.getMainAndAnnotationsFactory();
 
         Set<String> toTest = sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.allOf(Level.class));
-        // ImmutableSortedSet.of("it", "root", "ja"); 
+        // ImmutableSortedSet.of("it", "root", "ja");
         // mainAndAnnotationsFactory.getAvailable();
         final Set<CLDRLocale> ALL;
         {
@@ -61,12 +61,12 @@ public class ListCoverageLevels {
 
         M4<Level, String, Attributes, Boolean> data = ChainedMap.of(
             new TreeMap<Level,Object>(),
-            new TreeMap<String,Object>(), 
+            new TreeMap<String,Object>(),
             new TreeMap<Attributes,Object>(),
             Boolean.class);
          M5<String, Level, CLDRLocale, List<String>, Boolean> starredToLevels = ChainedMap.of(
             new TreeMap<String,Object>(),
-            new TreeMap<Level,Object>(), 
+            new TreeMap<Level,Object>(),
             new TreeMap<CLDRLocale,Object>(),
             new HashMap<List<String>,Object>(),
             Boolean.class);
@@ -111,7 +111,7 @@ public class ListCoverageLevels {
 //                starredToLevels.put(starred, level, cLoc, Boolean.TRUE);
 //            }
 //        }
-        
+
         System.out.println("ALL=" + getLocaleName(null, ALL));
 
         for (Entry<String, Map<Level, Map<CLDRLocale, Map<List<String>, Boolean>>>> entry : starredToLevels) {
@@ -137,7 +137,7 @@ public class ListCoverageLevels {
                 String localeName = getLocaleName(ALL, locales);
                 items.add(level + ":" + (mixed ? "" : "°") + localeName);
             }
-            System.out.println(starred + "\t" + items.size() + "\t" + CollectionUtilities.join(items, " "));
+            System.out.println(starred + "\t" + items.size() + "\t" + Joiner.on(" ").join(items));
         }
         for (Level level : data.keySet()) {
             M3<String, Attributes, Boolean> data2 = data.get(level);
@@ -146,10 +146,10 @@ public class ListCoverageLevels {
                 Multimap<String, List<String>> localesToAttrs = Attributes.getLocaleNameToAttributeList(ALL, attributes);
                 for (Entry<String, Collection<List<String>>> entry : localesToAttrs.asMap().entrySet()) {
                     Collection<List<String>> attrs = entry.getValue();
-                    System.out.println(level 
-                        + "\t" + starred 
-                        + "\t" + entry.getKey() 
-                        + "\t" + attrs.size() 
+                    System.out.println(level
+                        + "\t" + starred
+                        + "\t" + entry.getKey()
+                        + "\t" + attrs.size()
                         + "\t" + Attributes.compact(attrs, new StringBuilder()));
                 }
             }
@@ -160,12 +160,12 @@ public class ListCoverageLevels {
         Function<Set<CLDRLocale>,String> remainderName = x -> {
             Set<CLDRLocale> y = new LinkedHashSet<>(all);
             y.removeAll(x);
-            return "AllLcs-(" + CollectionUtilities.join(y, "|") + ")";
+            return "AllLcs-(" + Joiner.on("|").join(y) + ")";
         };
-        return all == null ? CollectionUtilities.join(locales, "|")
-            : locales.equals(all) ? "AllLcs" 
+        return all == null ? Joiner.on("|").join(locales)
+            : locales.equals(all) ? "AllLcs"
                 : locales.size()*2 > all.size() ? remainderName.apply(locales)
-                    : CollectionUtilities.join(locales, "|");
+                    : Joiner.on("|").join(locales);
     }
 
     static class Attributes implements Comparable<Attributes>{
@@ -195,18 +195,8 @@ public class ListCoverageLevels {
 //                Collection<List<String>> attrList = entry.getValue();
 //                Map<String, Map> map = getMap(attrList);
 //                getName(map, result);
-//            }            
+//            }
 //
-//
-////            localeNameToAttributeList.forEach((name,list) -> {
-////                if (result.length() != 0) {
-////                    result.append(' ');
-////                }
-////                result.append(name);
-////                if (!list.isEmpty()) {
-////                    result.append(':').append(CollectionUtilities.join(list, "|"));
-////                }
-////                });
 //            return result;
 //        }
 
@@ -266,7 +256,7 @@ public class ListCoverageLevels {
             for (Iterable<T> list : source) {
                 Map<T, Map> top = items;
                 for (T item : list) {
-                    Map<T, Map> value = (Map<T, Map>) top.get(item);
+                    Map<T, Map> value = top.get(item);
                     if (value == null) {
                         top.put(item, value = new LinkedHashMap<>());
                     }
@@ -285,7 +275,8 @@ public class ListCoverageLevels {
         }
         @Override
         public String toString() {
-            return attributes.isEmpty() ? cLoc.toString() : cLoc + "|" + CollectionUtilities.join(attributes, "|");
+            return attributes.isEmpty() ? cLoc.toString() : cLoc + "|" + Joiner.on("|")
+                .join(attributes);
         }
     }
 }

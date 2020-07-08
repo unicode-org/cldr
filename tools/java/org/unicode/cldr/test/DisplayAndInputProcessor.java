@@ -56,7 +56,7 @@ public class DisplayAndInputProcessor {
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
         .freeze();
 
-    public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
+    public static final UnicodeSet TO_QUOTE = new UnicodeSet(
         "[[:Cn:]" +
             "[:Default_Ignorable_Code_Point:]" +
             "[:patternwhitespace:]" +
@@ -105,7 +105,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
     private static final CLDRLocale FF_ADLAM = CLDRLocale.getInstance("ff_Adlm");
-    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<String>(
+    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<>(
         Arrays.asList("br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
@@ -314,6 +314,7 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processInput(String path, String value, Exception[] internalException) {
         String original = value;
+        value = stripProblematicControlCharacters(value);
         value = Normalizer.compose(value, false); // Always normalize all input to NFC.
         if (internalException != null) {
             internalException[0] = null;
@@ -473,11 +474,28 @@ public class DisplayAndInputProcessor {
         }
     }
 
+    /**
+     * Strip out all code points less than U+0020 except for U+0009 tab,
+     * U+000A line feed, and U+000D carriage return.
+     *
+     * @param s the string
+     * @return the resulting string
+     */
+    private String stripProblematicControlCharacters(String s) {
+        if (s == null || s.isEmpty()) {
+            return s;
+        }
+        return s.codePoints()
+            .filter(c -> (c >= 0x20 || c == 9 || c == 0xA || c == 0xD))
+            .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+            .toString();
+    }
+
     private static final boolean REMOVE_COVERED_KEYWORDS = true;
 
     /**
      * Produce a modification of the given annotation by sorting its components and filtering covered keywords.
-     * 
+     *
      * Examples: Given "b | a", return "a | b". Given "bear | panda | panda bear", return "bear | panda".
      *
      * @param value the string
@@ -496,7 +514,7 @@ public class DisplayAndInputProcessor {
     /**
      * Filter from the given set some keywords that include spaces, if they duplicate,
      * or are "covered by", other keywords in the set.
-     * 
+     *
      * For example, if the set is {"bear", "panda", "panda bear"} (annotation was "bear | panda | panda bear"),
      * then remove "panda bear", treating it as "covered" since the set already includes "panda" and "bear".
      *
@@ -862,10 +880,10 @@ public class DisplayAndInputProcessor {
             switch (string) {
             case "\u2011": toAdd.add("-"); break; // nobreak hyphen
             case "-": toAdd.add("\u2011"); break; // nobreak hyphen
-            
+
             case " ": toAdd.add("\u00a0"); break; // nobreak space
             case "\u00a0": toAdd.add(" "); break; // nobreak space
-            
+
             case "\u202F": toAdd.add("\u2009"); break; // nobreak narrow space
             case "\u2009": toAdd.add("\u202F"); break; // nobreak narrow space
             }
@@ -952,7 +970,7 @@ public class DisplayAndInputProcessor {
         private int[] posixDigitCount;
 
         private NumericType() {
-        };
+        }
 
         private NumericType(int[] digitCount, int[] posixDigitCount) {
             this.digitCount = digitCount;
@@ -994,5 +1012,5 @@ public class DisplayAndInputProcessor {
         public int[] getPosixDigitCount() {
             return posixDigitCount;
         }
-    };
+    }
 }

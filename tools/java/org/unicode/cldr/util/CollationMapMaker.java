@@ -49,6 +49,7 @@ public class CollationMapMaker {
     static class ExemplarComparator implements java.util.Comparator {
         Comparator comp;
 
+        @Override
         public int compare(Object o1, Object o2) {
             String s1 = (String) o1;
             String s2 = (String) o2;
@@ -85,10 +86,11 @@ public class CollationMapMaker {
     public static class Folder implements Cloneable {
         private UnicodeMap m = new UnicodeMap();
 
+        @Override
         public Object clone() {
             try {
                 Folder result = (Folder) super.clone();
-                result.m = (UnicodeMap) m.cloneAsThawed();
+                result.m = m.cloneAsThawed();
                 return result;
             } catch (CloneNotSupportedException e) {
                 throw new InternalError("Clone problem");
@@ -118,7 +120,7 @@ public class CollationMapMaker {
         }
 
         public void minimalize() {
-            UnicodeMap newMap = (UnicodeMap) (m.cloneAsThawed());
+            UnicodeMap newMap = (m.cloneAsThawed());
 
             for (UnicodeSetIterator i = new UnicodeSetIterator(m.keySet()); i.next();) {
                 String s = (String) m.getValue(i.codepoint);
@@ -199,7 +201,7 @@ public class CollationMapMaker {
         }
 
         public UnicodeMap getUnicodeMap() {
-            return (UnicodeMap) m.cloneAsThawed();
+            return m.cloneAsThawed();
 
         }
 
@@ -207,7 +209,7 @@ public class CollationMapMaker {
 
     static final boolean showDetails = false;
     static final RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-    static final UnicodeSet filteredChars = (UnicodeSet) new UnicodeSet(
+    static final UnicodeSet filteredChars = new UnicodeSet(
         "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]").freeze(); // skip
     // a
     // bunch
@@ -232,7 +234,7 @@ public class CollationMapMaker {
         this.equivalenceClassCollator = equivalenceClassCollator;
         try {
             RuleBasedCollator exemplarCollator = (RuleBasedCollator) equivalenceClassCollator.clone();
-            exemplarCollator.setStrength(exemplarCollator.IDENTICAL);
+            exemplarCollator.setStrength(Collator.IDENTICAL);
             exemplarCollator.setDecomposition(Collator.CANONICAL_DECOMPOSITION);
             exemplarCollator.setUpperCaseFirst(false);
             exemplarCollator.setAlternateHandlingShifted(false);
@@ -278,7 +280,7 @@ public class CollationMapMaker {
             // if there is only one result, drop it
             if (values1.size() == 1) {
                 if (false && SHOW_DEBUG) {
-                    String item = (String) values1.iterator().next();
+                    String item = values1.iterator().next();
                     System.out.println("Skipping: " + item + "\t"
                         + equivalenceClassCollator.getRawCollationKey(item, null));
                 }
@@ -349,6 +351,7 @@ public class CollationMapMaker {
     VariantFolder caseFolder = new VariantFolder(new CaseVariantFolder());
 
     VariantFolder.AlternateFetcher COLLATION_FETCHER = new VariantFolder.AlternateFetcher() {
+        @Override
         public Set<String> getAlternates(String item, Set<String> output) {
             output.add(item);
             Set set = equivMap.getEquivalences(item);
@@ -362,8 +365,8 @@ public class CollationMapMaker {
     private void closeUnderFolding() {
         if (false) return;
         // TODO Generalize
-        Set<String> others = new HashSet<String>();
-        List<Collection<String>> input = new ArrayList<Collection<String>>();
+        Set<String> others = new HashSet<>();
+        List<Collection<String>> input = new ArrayList<>();
         VariantFolder recursiveFolder = new VariantFolder(COLLATION_FETCHER);
         TreeSet<CharSequence> hack = new TreeSet();
         hack.add("aa");
@@ -507,7 +510,7 @@ public class CollationMapMaker {
         }
     }
 
-    Set<CharSequence> seenSoFar = new TreeSet<CharSequence>();
+    Set<CharSequence> seenSoFar = new TreeSet<>();
 
     private void addToEquiv(String item, String original) {
         if (item.equals("aA")) {

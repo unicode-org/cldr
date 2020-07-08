@@ -33,7 +33,7 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
@@ -58,12 +58,12 @@ public class GenerateEnums {
 //    private Factory supplementalFactory = Factory.make(
 //        CLDRPaths.SUPPLEMENTAL_DIRECTORY, ".*");
 
-    private Set<String> cldrCodes = new TreeSet<String>();
+    private Set<String> cldrCodes = new TreeSet<>();
 
     // private Map enum_canonical = new TreeMap();
-    private Map<String, String> enum_alpha3 = new TreeMap<String, String>();
+    private Map<String, String> enum_alpha3 = new TreeMap<>();
 
-    private Map<String, String> enum_UN = new TreeMap<String, String>();
+    private Map<String, String> enum_UN = new TreeMap<>();
 
     // private Map enum_FIPS10 = new TreeMap();
 
@@ -78,9 +78,9 @@ public class GenerateEnums {
 
     private Relation<String, String> unlimitedCurrencyCodes;
 
-    private Set<String> scripts = new TreeSet<String>();
+    private Set<String> scripts = new TreeSet<>();
 
-    private Set<String> languages = new TreeSet<String>();
+    private Set<String> languages = new TreeSet<>();
 
     public static void main(String[] args) throws IOException {
         GenerateEnums gen = new GenerateEnums();
@@ -111,12 +111,12 @@ public class GenerateEnums {
         showGeneratedCommentStart(CODE_INDENT);
         compareSets("currencies from sup.data", currencyCodes, "valid currencies",
             validCurrencyCodes);
-        Set<String> unused = new TreeSet<String>(validCurrencyCodes);
+        Set<String> unused = new TreeSet<>(validCurrencyCodes);
         unused.removeAll(currencyCodes);
         showCurrencies(currencyCodes);
         Log.println();
         showCurrencies(unused);
-        Map<String, String> sorted = new TreeMap<String, String>(Collator
+        Map<String, String> sorted = new TreeMap<>(Collator
             .getInstance(ULocale.ENGLISH));
         for (String code : validCurrencyCodes) {
             if (unused.contains(code) && !code.equals("CLF"))
@@ -169,7 +169,7 @@ public class GenerateEnums {
         Log.println();
 
         showGeneratedCommentStart(CODE_INDENT);
-        Map<String, String> code_replacements = new TreeMap<String, String>();
+        Map<String, String> code_replacements = new TreeMap<>();
         int len = "  /** Arabic */                                        Arab,"
             .length();
         for (Iterator<String> it = scripts.iterator(); it.hasNext();) {
@@ -328,7 +328,7 @@ public class GenerateEnums {
         }
 
         BufferedReader codes = CldrUtility.getUTF8Data("UnMacroRegions.txt");
-        Map<String, String> macro_name = new TreeMap<String, String>();
+        Map<String, String> macro_name = new TreeMap<>();
         while (true) {
             String line = codes.readLine();
             if (line == null)
@@ -348,7 +348,7 @@ public class GenerateEnums {
         codes.close();
 //        String values = supplementalDataInfo.getValidityInfo().get("$territory").get1().trim();
         Map<Status, Set<String>> validRegions = Validity.getInstance().getStatusToCodes(LstrType.region);
-        Set<String> regions = new TreeSet<String>();
+        Set<String> regions = new TreeSet<>();
         regions.addAll(validRegions.get(Status.regular));
         regions.addAll(validRegions.get(Status.macroregion));
 //        String[] validTerritories = values.split("\\s+");
@@ -372,9 +372,9 @@ public class GenerateEnums {
         }
         checkDuplicates(enum_UN);
         checkDuplicates(enum_alpha3);
-        Set<String> availableCodes = new TreeSet<String>(sc.getAvailableCodes("territory"));
+        Set<String> availableCodes = new TreeSet<>(sc.getAvailableCodes("territory"));
         compareSets("RFC 4646", availableCodes, "CLDR", cldrCodes);
-        Set<String> missing = new TreeSet<String>(availableCodes);
+        Set<String> missing = new TreeSet<>(availableCodes);
         missing.removeAll(cldrCodes);
         // don't care list: "003"
         // missing.remove("003");
@@ -391,7 +391,7 @@ public class GenerateEnums {
                 + missing);
         }
 
-        Set<String> UNValues = new TreeSet<String>(enum_UN.values());
+        Set<String> UNValues = new TreeSet<>(enum_UN.values());
 
         for (Iterator<String> it = macro_name.keySet().iterator(); it.hasNext();) {
             Object key = it.next();
@@ -421,7 +421,7 @@ public class GenerateEnums {
             new SimpleDateFormat("yyyy-MM"), new SimpleDateFormat("yyyy"), };
         Date today = new Date();
         Date longAgo = new Date(1000 - 1900, 1, 1);
-        currencyCodes = new TreeSet<String>();
+        currencyCodes = new TreeSet<>();
         unlimitedCurrencyCodes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
         for (Iterator<String> it = supplementalData
             .iterator("//supplementalData/currencyData/region"); it.hasNext();) {
@@ -451,7 +451,7 @@ public class GenerateEnums {
             currencyCodes.add(code);
         }
 
-        validCurrencyCodes = new TreeSet<String>();
+        validCurrencyCodes = new TreeSet<>();
         Set<String> bcp47CurrencyCodes = supplementalDataInfo.getBcp47Keys().getAll("cu");
         for (String code : bcp47CurrencyCodes) {
             validCurrencyCodes.add(code.toUpperCase());
@@ -506,7 +506,7 @@ public class GenerateEnums {
         // addContains(region, temp);
         // recursiveContainment.put(region, temp);
         // }
-        Set<String> startingFromWorld = new TreeSet<String>();
+        Set<String> startingFromWorld = new TreeSet<>();
         addContains("001", startingFromWorld);
         compareSets("World", startingFromWorld, "CLDR", cldrCodes);
         // generateContains();
@@ -525,13 +525,13 @@ public class GenerateEnums {
         }
     }
 
-    Map<String, List<String>> containment = new TreeMap<String, List<String>>();
+    Map<String, List<String>> containment = new TreeMap<>();
 
     // Map recursiveContainment = new TreeMap();
 
     private void addContains(String string, Set<String> startingFromWorld) {
         startingFromWorld.add(string);
-        List<String> contained = (List<String>) containment.get(string);
+        List<String> contained = containment.get(string);
         if (contained == null)
             return;
         for (Iterator<String> it = contained.iterator(); it.hasNext();) {
@@ -567,18 +567,17 @@ public class GenerateEnums {
         }
     }
 
-    Set<String> corrigendum = new TreeSet<String>(Arrays.asList(new String[] { "QE", "833",
+    Set<String> corrigendum = new TreeSet<>(Arrays.asList(new String[] { "QE", "833",
         "830", "172" })); // 003, 419
 
-    private Map extraNames = CollectionUtilities.asMap(new String[][] {
-        { "BU", "Burma" }, { "TP", "East Timor" }, { "YU", "Yugoslavia" },
-        { "ZR", "Zaire" }, { "CD", "Congo (Kinshasa, Democratic Republic)" },
-        { "CI", "Ivory Coast (Cote d'Ivoire)" },
-        { "FM", "Micronesia (Federated States)" },
-        { "TL", "East Timor (Timor-Leste)" },
-        // {"155","Western Europe"},
-
-    });
+    private ImmutableMap<String, String> extraNames = ImmutableMap.<String, String>builder()
+        .put("BU", "Burma").put("TP", "East Timor").put("YU", "Yugoslavia")
+        .put("ZR", "Zaire").put("CD", "Congo (Kinshasa, Democratic Republic)")
+        .put("CI", "Ivory Coast (Cote d'Ivoire)")
+        .put("FM", "Micronesia (Federated States)")
+        .put("TL", "East Timor (Timor-Leste)")
+        // .put("155", "Western Europe")
+        .build();
 
     private Set<String> currencyCodes;
 
@@ -599,9 +598,9 @@ public class GenerateEnums {
         System.out.println();
         showGeneratedCommentStart(CODE_INDENT);
 
-        Set<String> reordered = new TreeSet<String>(new LengthFirstComparator());
+        Set<String> reordered = new TreeSet<>(new LengthFirstComparator());
         reordered.addAll(enum_UN.keySet());
-        Map<String, String> code_replacements = new TreeMap<String, String>();
+        Map<String, String> code_replacements = new TreeMap<>();
         int len = "  /** Polynesia */                                    UN061,"
             .length();
         for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
@@ -631,7 +630,7 @@ public class GenerateEnums {
                     .getName("territory", territory));
             // remove all the ISO 639-3 until they are part of BCP 47
             // we need to remove in earlier pass so we have the count
-            Set<String> languages = new TreeSet<String>();
+            Set<String> languages = new TreeSet<>();
             for (String language : supplementalDataInfo
                 .getLanguagesForTerritoryWithPopulationData(territory)) {
                 if (Iso639Data.getSource(language) == Iso639Data.Source.ISO_639_3) {
@@ -668,7 +667,7 @@ public class GenerateEnums {
         showGeneratedCommentStart(DATA_INDENT);
         // addInfo(RegionCode.US, 840, "USA", "US", "US/XX", ....); ... are
         // containees
-        reordered = new TreeSet<String>(new DeprecatedAndLengthFirstComparator("territory"));
+        reordered = new TreeSet<>(new DeprecatedAndLengthFirstComparator("territory"));
         reordered.addAll(enum_UN.keySet());
         for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
             String region = it.next();
@@ -678,7 +677,7 @@ public class GenerateEnums {
             // int un = Integer.parseInt((String) enum_UN.get(region)); // get around
             // dumb octal
             // syntax
-            String isoCode = (String) enum_alpha3.get(region);
+            String isoCode = enum_alpha3.get(region);
             if (isoCode == null)
                 continue;
             Log.println(DATA_INDENT + "add(" + quote(isoCode) + ", " + "RegionCode."
@@ -696,7 +695,7 @@ public class GenerateEnums {
             // String cldrName = region.length() < 5 ? region : region.substring(2); // fix
             // UN
             // name
-            int un = Integer.parseInt((String) enum_UN.get(region), 10); // get
+            int un = Integer.parseInt(enum_UN.get(region), 10); // get
             // around
             // dumb
             // octal
@@ -716,7 +715,7 @@ public class GenerateEnums {
             if (newCode != null)
                 continue;
 
-            int un = Integer.parseInt((String) enum_UN.get(region), 10); // get
+            int un = Integer.parseInt(enum_UN.get(region), 10); // get
             // around
             // dumb
             // octal
@@ -773,6 +772,7 @@ public class GenerateEnums {
     }
 
     public final static class LengthFirstComparator implements Comparator<Object> {
+        @Override
         public int compare(Object a, Object b) {
             String as = a.toString();
             String bs = b.toString();
@@ -791,6 +791,7 @@ public class GenerateEnums {
             this.type = type;
         }
 
+        @Override
         public int compare(Object a, Object b) {
             String as = a.toString();
             String bs = b.toString();
@@ -834,7 +835,7 @@ public class GenerateEnums {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         String replacement = parts.findAttributeValue("territoryAlias", "replacement");
         if (replacement == null) {
-            return "";            
+            return "";
         }
         return replacement;
     }
@@ -887,7 +888,7 @@ public class GenerateEnums {
     private String getEnglishName(String codeName) {
         if (codeName.length() > 3)
             codeName = codeName.substring(2); // fix UN name
-        String name = (String) extraNames.get(codeName);
+        String name = extraNames.get(codeName);
         if (name != null)
             return name;
         name = english.getName(CLDRFile.TERRITORY_NAME, codeName);
@@ -902,7 +903,7 @@ public class GenerateEnums {
         List<String> list = sc.getFullData("territory", codeName);
         if (list == null)
             return null;
-        return (String) list.get(0);
+        return list.get(0);
     }
 
     private String enumName(String codeName) {

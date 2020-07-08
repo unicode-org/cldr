@@ -37,6 +37,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -59,8 +62,8 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.util.concurrent.UncheckedExecutionException;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -99,8 +102,9 @@ import com.ibm.icu.util.VersionInfo;
  * http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 
-public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
+public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleStringProvider {
 
+    private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
      * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different
@@ -123,11 +127,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-    public static final String GEN_VERSION = "37";
-    public static final List<String> SUPPLEMENTAL_NAMES = Arrays.asList("characters", "coverageLevels", "dayPeriods", "genderList", "languageInfo",
+    public static final String GEN_VERSION = "38";
+    public static final List<String> SUPPLEMENTAL_NAMES = Arrays.asList("characters", "coverageLevels", "dayPeriods", "genderList", "grammaticalFeatures",
+        "languageInfo",
         "languageGroup", "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "rgScope", "supplementalData",
-        "supplementalMetadata",
-        "telephoneCodeData", "windowsZones");
+        "supplementalMetadata", "telephoneCodeData", "units", "windowsZones");
 
     private Collection<String> extraPaths = null;
 
@@ -146,8 +150,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             return string == null ? DraftStatus.approved
                 : DraftStatus.valueOf(string.toLowerCase(Locale.ENGLISH));
         }
-    };
+    }
 
+    @Override
     public String toString() {
         return "{"
             + "locked=" + locked
@@ -198,7 +203,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public CLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
-        List<XMLSource> sourceList = new ArrayList<XMLSource>();
+        List<XMLSource> sourceList = new ArrayList<>();
         sourceList.add(dataSource);
         sourceList.addAll(Arrays.asList(resolvingParents));
         this.dataSource = new ResolvingSource(sourceList);
@@ -359,11 +364,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      *
      * @see com.ibm.icu.dev.test.util.Freezeble
      */
+    @Override
     public CLDRFile cloneAsThawed() {
         try {
             CLDRFile result = (CLDRFile) super.clone();
             result.locked = false;
-            result.dataSource = (XMLSource) result.dataSource.cloneAsThawed();
+            result.dataSource = result.dataSource.cloneAsThawed();
             return result;
         } catch (CloneNotSupportedException e) {
             throw new InternalError("should never happen");
@@ -407,8 +413,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * TODO: shorten this method (over 170 lines) using subroutines.
      */
     public boolean write(PrintWriter pw, Map<String, ?> options) {
-        Set<String> orderedSet = new TreeSet<String>(getComparator());
-        CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
+        Set<String> orderedSet = new TreeSet<>(getComparator());
+        dataSource.forEach(orderedSet::add);
 
         String firstPath = null;
         String firstFullPath = null;
@@ -417,7 +423,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         boolean suppressInheritanceMarkers = false;
 
         if (orderedSet.size() > 0) { // May not have any elements.
-            firstPath = (String) orderedSet.iterator().next();
+            firstPath = orderedSet.iterator().next();
             firstFullPath = getFullXPath(firstPath);
             firstFullPathParts = XPathParts.getFrozenInstance(firstFullPath);
             dtdType = DtdType.valueOf(firstFullPathParts.getElement(0));
@@ -448,7 +454,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * <language type="en"/>
          */
         // if ldml has any attributes, get them.
-        Set<String> identitySet = new TreeSet<String>(getComparator());
+        Set<String> identitySet = new TreeSet<>(getComparator());
         if (!isNonInheriting()) {
             String ldml_identity = "//ldml/identity";
             if (firstFullPath != null) { // if we had a path
@@ -492,11 +498,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * There is no difference between "filtered" and "not filtered" in this loop.
          */
         for (Iterator<String> it2 = identitySet.iterator(); it2.hasNext();) {
-            String xpath = (String) it2.next();
+            String xpath = it2.next();
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }
-            XPathParts current = XPathParts.getInstance(xpath);
+            XPathParts current = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
             current.writeDifference(pw, current, last, "", tempComments);
             last = current;
         }
@@ -521,12 +527,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
              * The difference between "filtered" (currentFiltered) and "not filtered" (current) is that
              * current uses getFullXPath(xpath), while currentFiltered uses xpath.
              */
-            XPathParts currentFiltered = XPathParts.getInstance(xpath);
+            XPathParts currentFiltered = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
             if (currentFiltered.size() >= 2
                 && currentFiltered.getElement(1).equals("identity")) {
                 continue;
             }
-            XPathParts current = XPathParts.getInstance(getFullXPath(xpath));
+            XPathParts current = XPathParts.getFrozenInstance(getFullXPath(xpath)).cloneAsThawed();
             current.writeDifference(pw, currentFiltered, last, v, tempComments);
             last = current;
             wroteAtLeastOnePath = true;
@@ -590,11 +596,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Get a string value from an xpath.
      */
+    @Override
     public String getStringValue(String xpath) {
         try {
             String result = dataSource.getValueAtPath(xpath);
             if (result == null && dataSource.isResolving()) {
-                final String fallbackPath = getFallbackPath(xpath, false);
+                final String fallbackPath = getFallbackPath(xpath, false, true);
                 if (fallbackPath != null) {
                     result = dataSource.getValueAtPath(fallbackPath);
                 }
@@ -606,15 +613,29 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
-     * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file.
+     * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file at that path.
+     * If the value is null or INHERITANCE_MARKER (with resolving), then baileyValue = resolved value.
      * A non-resolving CLDRFile will always return null.
      */
     public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         String result = dataSource.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
         if ((result == null || result.equals(CldrUtility.INHERITANCE_MARKER)) && dataSource.isResolving()) {
-            final String fallbackPath = getFallbackPath(xpath, false);
+            final String fallbackPath = getFallbackPath(xpath, false, false); // return null if there is no different sideways path
+            if (xpath.equals(fallbackPath)) {
+                getFallbackPath(xpath, false, true);
+                throw new IllegalArgumentException(); // should never happen
+            }
             if (fallbackPath != null) {
-                result = dataSource.getBaileyValue(fallbackPath, pathWhereFound, localeWhereFound);
+                result = dataSource.getValueAtPath(fallbackPath);
+                if (result != null) {
+                    Status status = new Status();
+                    if (localeWhereFound != null) {
+                        localeWhereFound.value = dataSource.getSourceLocaleID(fallbackPath, status);
+                    }
+                    if (pathWhereFound != null) {
+                        pathWhereFound.value = status.pathWhereFound;
+                    }
+                }
             }
         }
         return result;
@@ -627,10 +648,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             this.alt = alt;
         }
 
+        @Override
         public String transform(@SuppressWarnings("unused") String source) {
             return alt;
         }
-    };
+    }
 
     /**
      * Get the constructed GeorgeBailey value: that is, if the item would otherwise be constructed (such as "Chinese (Simplified)") use that.
@@ -654,18 +676,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Only call if xpath doesn't exist in the current file.
      * <p>
-     * For now, just handle counts: see getCountPath Also handle extraPaths
+     * For now, just handle counts and cases: see getCountPath Also handle extraPaths
      *
      * @param xpath
      * @param winning
      *            TODO
+     * @param checkExtraPaths TODO
      * @return
      */
-    private String getFallbackPath(String xpath, boolean winning) {
-        if (xpath.contains("[@count=")) {
+    private String getFallbackPath(String xpath, boolean winning, boolean checkExtraPaths) {
+        if (GrammaticalFeature.pathHasFeature(xpath) != null) {
             return getCountPathWithFallback(xpath, Count.other, winning);
         }
-        if (getRawExtraPaths().contains(xpath)) {
+        if (checkExtraPaths && getRawExtraPaths().contains(xpath)) {
             return xpath;
         }
         return null;
@@ -690,14 +713,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             throw new NullPointerException("Null distinguishing xpath");
         }
         String result = dataSource.getFullPath(xpath);
-        if (result == null && dataSource.isResolving()) {
-            String fallback = getFallbackPath(xpath, true);
-            if (fallback != null) {
-                // TODO, add attributes from fallback into main
-                result = xpath;
-            }
-        }
-        return result;
+        return result != null ? result : xpath; // we can't add any non-distinguishing values if there is nothing there.
+//        if (result == null && dataSource.isResolving()) {
+//            String fallback = getFallbackPath(xpath, true);
+//            if (fallback != null) {
+//                // TODO, add attributes from fallback into main
+//                result = xpath;
+//            }
+//        }
+//        return result;
     }
 
     /**
@@ -717,6 +741,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @param status
      *            the distinguished path where the item was found. Pass in null if you don't care.
      */
+    @Override
     public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
         return getSourceLocaleIdExtended(distinguishedXPath, status, true /* skipInheritanceMarker */);
     }
@@ -735,7 +760,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getSourceLocaleIdExtended(String distinguishedXPath, CLDRFile.Status status, boolean skipInheritanceMarker) {
         String result = dataSource.getSourceLocaleIdExtended(distinguishedXPath, status, skipInheritanceMarker);
         if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
-            final String fallbackPath = getFallbackPath(distinguishedXPath, false);
+            final String fallbackPath = getFallbackPath(distinguishedXPath, false, true);
             if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
                 result = dataSource.getSourceLocaleIdExtended(fallbackPath, status, skipInheritanceMarker);
             }
@@ -814,7 +839,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             dataSource.putAll(other.dataSource, MERGE_REPLACE_MINE);
         } else if (conflict_resolution == MERGE_REPLACE_MY_DRAFT) {
             // first find all my alt=..proposed items
-            Set<String> hasDraftVersion = new HashSet<String>();
+            Set<String> hasDraftVersion = new HashSet<>();
             for (Iterator<String> it = dataSource.iterator(); it.hasNext();) {
                 String cpath = it.next();
                 String fullpath = getFullXPath(cpath);
@@ -858,7 +883,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     && !key.startsWith("//ldml/identity")) {
                     for (int i = 0;; ++i) {
                         String prop = "proposed" + (i == 0 ? "" : String.valueOf(i));
-                        XPathParts parts = XPathParts.getInstance(other.getFullXPath(key)); // not frozen, for addAttribut
+                        XPathParts parts = XPathParts.getFrozenInstance(other.getFullXPath(key)).cloneAsThawed(); // not frozen, for addAttribut
                         String fullPath = parts.addAttribute("alt", prop).toString();
                         String path = getDistinguishingXPath(fullPath, null);
                         if (dataSource.getValueAtPath(path) != null) {
@@ -963,7 +988,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
             "|pattern" +
-        ")");
+            ")");
 
     static public final Pattern specialsToPushFromRoot = PatternCache.get(
         "/(" +
@@ -974,7 +999,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "(?!.*\\[@type=\"stand-alone\"].*\\[@type=\"(abbreviated|wide)\"])" +
             "|numbers/symbols/(decimal/group)" +
             "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-        ")");
+            ")");
 
     private static final boolean MINIMIZE_ALT_PROPOSED = false;
 
@@ -1002,11 +1027,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         // Matcher specialPathMatcher = dontRemoveSpecials ? specialsToKeep.matcher("") : null;
         boolean first = true;
         if (removedItems == null) {
-            removedItems = new ArrayList<String>();
+            removedItems = new ArrayList<>();
         } else {
             removedItems.clear();
         }
-        Set<String> checked = new HashSet<String>();
+        Set<String> checked = new HashSet<>();
         for (Iterator<String> it = iterator(); it.hasNext();) { // see what items we have that the other also has
             String curXpath = it.next();
             boolean logicDuplicate = true;
@@ -1047,7 +1072,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                                     continue;
                                 }
                             }
-                            String keepValue = (String) XMLSource.getPathsAllowingDuplicates().get(xpath);
+                            String keepValue = XMLSource.getPathsAllowingDuplicates().get(xpath);
                             if (keepValue != null && keepValue.equals(currentValue)) {
                                 logicDuplicate = false;
                                 continue;
@@ -1116,6 +1141,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * @return Returns the locale ID. In the case of a supplemental data file, it is SUPPLEMENTAL_NAME.
      */
+    @Override
     public String getLocaleID() {
         return dataSource.getLocaleID();
     }
@@ -1145,6 +1171,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * @see com.ibm.icu.util.Freezable#isFrozen()
      */
+    @Override
     public synchronized boolean isFrozen() {
         return locked;
     }
@@ -1152,6 +1179,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * @see com.ibm.icu.util.Freezable#freeze()
      */
+    @Override
     public synchronized CLDRFile freeze() {
         locked = true;
         dataSource.freeze();
@@ -1180,7 +1208,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         dataSource.getXpathComments().setFinalComment(
             CldrUtility
-            .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
+                .joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
         return this;
     }
 
@@ -1200,7 +1228,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Note that supplementalData is always skipped, and root is always included.
      */
     public static Set<String> getMatchingXMLFiles(File sourceDirs[], Matcher m) {
-        Set<String> s = new TreeSet<String>();
+        Set<String> s = new TreeSet<>();
 
         for (File dir : sourceDirs) {
             if (!dir.exists()) {
@@ -1222,6 +1250,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return s;
     }
 
+    @Override
     public Iterator<String> iterator() {
         return dataSource.iterator();
     }
@@ -1237,11 +1266,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public Iterator<String> iterator(String prefix, Comparator<String> comparator) {
         Iterator<String> it = (prefix == null || prefix.length() == 0)
             ? dataSource.iterator()
-                : dataSource.iterator(prefix);
-            if (comparator == null) return it;
-            Set<String> orderedSet = new TreeSet<String>(comparator);
-            CollectionUtilities.addAll(it, orderedSet);
-            return orderedSet.iterator();
+            : dataSource.iterator(prefix);
+        if (comparator == null) return it;
+        Set<String> orderedSet = new TreeSet<>(comparator);
+        it.forEachRemaining(orderedSet::add);
+        return orderedSet.iterator();
     }
 
     public Iterable<String> fullIterable() {
@@ -1309,9 +1338,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             return xpath;
         }
         synchronized (syncObject) {
-            XPathParts parts = XPathParts.getInstance(xpath); // can't be frozen since we call removeAttributes
+            XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // can't be frozen since we call removeAttributes
             String restore;
-            HashSet<String> toRemove = new HashSet<String>();
+            HashSet<String> toRemove = new HashSet<>();
             for (int i = 0; i < parts.size(); ++i) {
                 if (parts.getAttributeCount(i) == 0) {
                     continue;
@@ -1324,7 +1353,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     if (attribute.equals("draft")) {
                         toRemove.add(attribute);
                     } else if (attribute.equals("alt")) {
-                        String value = (String) attributes.get(attribute);
+                        String value = attributes.get(attribute);
                         int proposedPos = value.indexOf("proposed");
                         if (proposedPos >= 0) {
                             toRemove.add(attribute);
@@ -1371,9 +1400,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             try {
                 result = (testList[i].length() != 0)
                     ? XMLReaderFactory.createXMLReader(testList[i])
-                        : XMLReaderFactory.createXMLReader();
-                    result.setFeature("http://xml.org/sax/features/validation", validating);
-                    break;
+                    : XMLReaderFactory.createXMLReader();
+                result.setFeature("http://xml.org/sax/features/validation", validating);
+                break;
             } catch (SAXException e1) {
             }
         }
@@ -1409,6 +1438,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public File[] getSupplementalXMLFiles() {
         return getSupplementalDirectory().listFiles(new FilenameFilter() {
+            @Override
             public boolean accept(@SuppressWarnings("unused") File dir, String name) {
                 return name.endsWith(".xml");
             }
@@ -1439,26 +1469,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // "gb2312han"};
 
     /*    *//**
-     * Value that contains a node. WARNING: this is not done yet, and may change.
-     * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-     */
+            * Value that contains a node. WARNING: this is not done yet, and may change.
+            * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+            */
     /*
      * static public class NodeValue extends Value {
      * private Node nodeValue;
      *//**
-     * Creation. WARNING, may change.
-     *
-     * @param value
-     * @param currentFullXPath
-     */
+        * Creation. WARNING, may change.
+        *
+        * @param value
+        * @param currentFullXPath
+        */
     /*
      * public NodeValue(Node value, String currentFullXPath) {
      * super(currentFullXPath);
      * this.nodeValue = value;
      * }
      *//**
-     * boilerplate
-     */
+        * boilerplate
+        */
 
     /*
      * public boolean hasSameValue(Object other) {
@@ -1466,8 +1496,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * return nodeValue.equals(((NodeValue)other).nodeValue);
      * }
      *//**
-     * boilerplate
-     */
+        * boilerplate
+        */
     /*
      * public String getStringValue() {
      * return nodeValue.toString();
@@ -1620,7 +1650,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         /**
          * Types which changed from 'type' to 'choice', but not in supplemental data.
          */
-        private static Set<String> changedTypes = new HashSet<String>(Arrays.asList(new String[] {
+        private static Set<String> changedTypes = new HashSet<>(Arrays.asList(new String[] {
             "abbreviationFallback",
             "default", "mapping", "measurementSystem", "preferenceOrdering" }));
 
@@ -1725,10 +1755,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         private void warnOnOverride(String former, String formerPath) {
             String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null);
             System.out.println("\tERROR in " + target.getLocaleID()
-            + ";\toverriding old value <" + former + "> at path " + distinguishing +
-            "\twith\t<" + lastChars + ">" +
-            CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
-            CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPath);
+                + ";\toverriding old value <" + former + "> at path " + distinguishing +
+                "\twith\t<" + lastChars + ">" +
+                CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
+                CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPath);
             overrideCount += 1;
         }
 
@@ -1779,22 +1809,24 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         // SAX items we need to catch
 
+        @Override
         public void startElement(
             String uri,
             String localName,
             String qName,
             Attributes attributes)
-                throws SAXException {
+            throws SAXException {
             Log.logln(LOG_PROGRESS || SHOW_START_END, "startElement uri\t" + uri
                 + "\tlocalName " + localName
                 + "\tqName " + qName
                 + "\tattributes " + show(attributes));
             try {
                 if (isSupplemental < 0) { // set by first element
-                    attributeOrder = new TreeMap<String, String>(
+                    attributeOrder = new TreeMap<>(
                         // HACK for ldmlIcu
                         dtdData.dtdType == DtdType.ldml
-                        ? CLDRFile.getAttributeOrdering() : dtdData.getAttributeComparator());
+                            ? CLDRFile.getAttributeOrdering()
+                            : dtdData.getAttributeComparator());
                     isSupplemental = target.dtdType == DtdType.ldml ? 0 : 1;
                 }
                 push(qName, attributes);
@@ -1804,6 +1836,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
 
+        @Override
         public void endElement(String uri, String localName, String qName)
             throws SAXException {
             Log.logln(LOG_PROGRESS || SHOW_START_END, "endElement uri\t" + uri + "\tlocalName " + localName
@@ -1819,6 +1852,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         //static final char XML_LINESEPARATOR = (char) 0xA;
         //static final String XML_LINESEPARATOR_STRING = String.valueOf(XML_LINESEPARATOR);
 
+        @Override
         public void characters(char[] ch, int start, int length)
             throws SAXException {
             try {
@@ -1836,6 +1870,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
 
+        @Override
         public void startDTD(String name, String publicId, String systemId) throws SAXException {
             Log.logln(LOG_PROGRESS, "startDTD name: " + name
                 + ", publicId: " + publicId
@@ -1845,11 +1880,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             target.dtdData = dtdData = DtdData.getInstance(target.dtdType);
         }
 
+        @Override
         public void endDTD() throws SAXException {
             Log.logln(LOG_PROGRESS, "endDTD");
             commentStack--;
         }
 
+        @Override
         public void comment(char[] ch, int start, int length) throws SAXException {
             final String string = new String(ch, start, length);
             Log.logln(LOG_PROGRESS, commentStack + " comment " + string);
@@ -1867,6 +1904,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
 
+        @Override
         public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
             if (LOG_PROGRESS)
                 Log.logln(LOG_PROGRESS,
@@ -1883,11 +1921,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             // }
         }
 
+        @Override
         public void startDocument() throws SAXException {
             Log.logln(LOG_PROGRESS, "startDocument");
             commentStack = 0; // initialize
         }
 
+        @Override
         public void endDocument() throws SAXException {
             Log.logln(LOG_PROGRESS, "endDocument");
             try {
@@ -1900,58 +1940,71 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         // ==== The following are just for debuggin =====
 
+        @Override
         public void elementDecl(String name, String model) throws SAXException {
             Log.logln(LOG_PROGRESS, "Attribute\t" + name + "\t" + model);
         }
 
+        @Override
         public void attributeDecl(String eName, String aName, String type, String mode, String value)
             throws SAXException {
             Log.logln(LOG_PROGRESS, "Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
         }
 
+        @Override
         public void internalEntityDecl(String name, String value) throws SAXException {
             Log.logln(LOG_PROGRESS, "Internal Entity\t" + name + "\t" + value);
         }
 
+        @Override
         public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
             Log.logln(LOG_PROGRESS, "Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
         }
 
+        @Override
         public void processingInstruction(String target, String data)
             throws SAXException {
             Log.logln(LOG_PROGRESS, "processingInstruction: " + target + ", " + data);
         }
 
+        @Override
         public void skippedEntity(String name)
             throws SAXException {
             Log.logln(LOG_PROGRESS, "skippedEntity: " + name);
         }
 
+        @Override
         public void setDocumentLocator(Locator locator) {
             Log.logln(LOG_PROGRESS, "setDocumentLocator Locator " + locator);
         }
 
+        @Override
         public void startPrefixMapping(String prefix, String uri) throws SAXException {
             Log.logln(LOG_PROGRESS, "startPrefixMapping prefix: " + prefix +
                 ", uri: " + uri);
         }
 
+        @Override
         public void endPrefixMapping(String prefix) throws SAXException {
             Log.logln(LOG_PROGRESS, "endPrefixMapping prefix: " + prefix);
         }
 
+        @Override
         public void startEntity(String name) throws SAXException {
             Log.logln(LOG_PROGRESS, "startEntity name: " + name);
         }
 
+        @Override
         public void endEntity(String name) throws SAXException {
             Log.logln(LOG_PROGRESS, "endEntity name: " + name);
         }
 
+        @Override
         public void startCDATA() throws SAXException {
             Log.logln(LOG_PROGRESS, "startCDATA");
         }
 
+        @Override
         public void endCDATA() throws SAXException {
             Log.logln(LOG_PROGRESS, "endCDATA");
         }
@@ -1961,6 +2014,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          *
          * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
          */
+        @Override
         public void error(SAXParseException exception) throws SAXException {
             Log.logln(LOG_PROGRESS || true, "error: " + showSAX(exception));
             throw exception;
@@ -1971,6 +2025,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          *
          * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
          */
+        @Override
         public void fatalError(SAXParseException exception) throws SAXException {
             Log.logln(LOG_PROGRESS, "fatalError: " + showSAX(exception));
             throw exception;
@@ -1981,6 +2036,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          *
          * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
          */
+        @Override
         public void warning(SAXParseException exception) throws SAXException {
             Log.logln(LOG_PROGRESS, "warning: " + showSAX(exception));
             throw exception;
@@ -2002,7 +2058,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Says whether the whole file is draft
      */
     public boolean isDraft() {
-        String item = (String) iterator().next();
+        String item = iterator().next();
         return item.startsWith("//ldml[@draft=\"unconfirmed\"]");
     }
 
@@ -2267,7 +2323,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return -1;
     }
 
-
     /**
      * Returns the name of the given bcp47 identifier. Note that extensions must
      * be specified using the old "\@key=type" syntax.
@@ -2333,8 +2388,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         Transform<String, String> altPicker,
         String localeKeyTypePattern,
         String localePattern,
-        String localeSeparator
-        ) {
+        String localeSeparator) {
 
         String name;
         String original;
@@ -2380,53 +2434,54 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
 
         // Look for key-type pairs.
-        main:
-            for (Entry<String, List<String>> extension : lparser.getLocaleExtensionsDetailed().entrySet()) {
-                String key = extension.getKey();
-                if (key.equals("h0")) {
-                    continue;
-                }
-                List<String> keyValue = extension.getValue();
-                String oldFormatType = (key.equals("ca") ? JOIN_HYPHEN : JOIN_UNDERBAR).join(keyValue); // default value
-                // Check if key/type pairs exist in the CLDRFile first.
-                String value = getKeyValueName(key, oldFormatType);
-                if (value != null) {
-                    value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
-                } else {
-                    // if we fail, then we construct from the key name and the value
-                    String kname = getKeyName(key);
-                    if (kname == null) {
-                        kname = key; // should not happen, but just in case
-                    }
-                    switch(key) {
-                    case "t":
-                        List<String> hybrid = lparser.getLocaleExtensionsDetailed().get("h0");
-                        if (hybrid != null) {
-                            kname = getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
-                        }
-                        oldFormatType = getName(oldFormatType);
-                        break;
-                    case "h0":
-                        continue main;
-                    case "cu":
-                        oldFormatType = getName(CURRENCY_SYMBOL, oldFormatType.toUpperCase(Locale.ROOT));
-                        break;
-                    case "tz":
-                        oldFormatType = getTZName(oldFormatType, "VVVV");
-                        break;
-                    case "kr":
-                        oldFormatType = getReorderName(localeSeparator, keyValue);
-                        break;
-                    case "rg": case "sd":
-                        oldFormatType = getName(SUBDIVISION_NAME, oldFormatType);
-                        break;
-                    default: oldFormatType = JOIN_HYPHEN.join(keyValue);
-                    }
-                    value = MessageFormat.format(localeKeyTypePattern, new Object[] { kname, oldFormatType });
-                    value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
-                }
-                extras = extras.isEmpty() ? value : MessageFormat.format(localeSeparator, new Object[] { extras, value });
+        main: for (Entry<String, List<String>> extension : lparser.getLocaleExtensionsDetailed().entrySet()) {
+            String key = extension.getKey();
+            if (key.equals("h0")) {
+                continue;
             }
+            List<String> keyValue = extension.getValue();
+            String oldFormatType = (key.equals("ca") ? JOIN_HYPHEN : JOIN_UNDERBAR).join(keyValue); // default value
+            // Check if key/type pairs exist in the CLDRFile first.
+            String value = getKeyValueName(key, oldFormatType);
+            if (value != null) {
+                value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+            } else {
+                // if we fail, then we construct from the key name and the value
+                String kname = getKeyName(key);
+                if (kname == null) {
+                    kname = key; // should not happen, but just in case
+                }
+                switch (key) {
+                case "t":
+                    List<String> hybrid = lparser.getLocaleExtensionsDetailed().get("h0");
+                    if (hybrid != null) {
+                        kname = getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
+                    }
+                    oldFormatType = getName(oldFormatType);
+                    break;
+                case "h0":
+                    continue main;
+                case "cu":
+                    oldFormatType = getName(CURRENCY_SYMBOL, oldFormatType.toUpperCase(Locale.ROOT));
+                    break;
+                case "tz":
+                    oldFormatType = getTZName(oldFormatType, "VVVV");
+                    break;
+                case "kr":
+                    oldFormatType = getReorderName(localeSeparator, keyValue);
+                    break;
+                case "rg":
+                case "sd":
+                    oldFormatType = getName(SUBDIVISION_NAME, oldFormatType);
+                    break;
+                default:
+                    oldFormatType = JOIN_HYPHEN.join(keyValue);
+                }
+                value = MessageFormat.format(localeKeyTypePattern, new Object[] { kname, oldFormatType });
+                value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+            }
+            extras = extras.isEmpty() ? value : MessageFormat.format(localeSeparator, new Object[] { extras, value });
+        }
         // now handle stray extensions
         for (Entry<String, List<String>> extension : lparser.getExtensionsDetailed().entrySet()) {
             String value = MessageFormat.format(localeKeyTypePattern, new Object[] { extension.getKey(), JOIN_HYPHEN.join(extension.getValue()) });
@@ -2520,8 +2575,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return result;
     }
 
-
-
     /**
      * Returns the name of the given bcp47 identifier. Note that extensions must
      * be specified using the old "\@key=type" syntax.
@@ -2537,6 +2590,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * For use in getting short names.
      */
     public static final Transform<String, String> SHORT_ALTS = new Transform<String, String>() {
+        @Override
         public String transform(@SuppressWarnings("unused") String source) {
             return "short";
         }
@@ -2559,8 +2613,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"),
-            altPicker
-            );
+            altPicker);
     }
 
     /**
@@ -2604,6 +2657,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return ordered collection with items.
      * @deprecated
      */
+    @Deprecated
     public static List<String> getElementOrder() {
         return Collections.emptyList(); // elementOrdering.getOrder(); // already unmodifiable
     }
@@ -2689,8 +2743,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public CLDRFile makeDraft(DraftStatus draftStatus) {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         for (Iterator<String> it = dataSource.iterator(); it.hasNext();) {
-            String path = (String) it.next();
-            XPathParts parts = XPathParts.getInstance(dataSource.getFullPath(path)); // not frozen, for addAttribute
+            String path = it.next();
+            XPathParts parts = XPathParts.getFrozenInstance(dataSource.getFullPath(path)).cloneAsThawed(); // not frozen, for addAttribute
             parts.addAttribute("draft", draftStatus.toString());
             dataSource.putValueAtPath(parts.toString(), dataSource.getValueAtPath(path));
         }
@@ -2707,7 +2761,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     static final UnicodeSet HACK_CASE_CLOSURE_SET = new UnicodeSet(
         "[ſẛﬀẞ{i̇}\u1F71\u1F73\u1F75\u1F77\u1F79\u1F7B\u1F7D\u1FBB\u1FBE\u1FC9\u1FCB\u1FD3\u1FDB\u1FE3\u1FEB\u1FF9\u1FFB\u2126\u212A\u212B]")
-        .freeze();
+            .freeze();
 
     public enum ExemplarType {
         main, auxiliary, index, punctuation, numbers;
@@ -2750,7 +2804,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         private NumberingSystem(String path) {
             this.path = path;
         }
-    };
+    }
 
     public UnicodeSet getExemplarsNumeric(NumberingSystem system) {
         String numberingSystem = system.path == null ? "latn" : getStringValue(system.path);
@@ -2790,7 +2844,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public String getCurrentMetazone(String zone) {
         for (Iterator<String> it2 = iterator(); it2.hasNext();) {
-            String xpath = (String) it2.next();
+            String xpath = it2.next();
             if (xpath.startsWith("//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/usesMetazone")) {
                 XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 if (!parts.containsAttribute("to")) {
@@ -2823,8 +2877,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 "normalizedPathMap:" + normalizedPathMap.size();
         }
 
-        private static Map<String, String> distinguishingMap = new ConcurrentHashMap<String, String>();
-        private static Map<String, String> normalizedPathMap = new ConcurrentHashMap<String, String>();
+        private static Map<String, String> distinguishingMap = new ConcurrentHashMap<>();
+        private static Map<String, String> normalizedPathMap = new ConcurrentHashMap<>();
 
         static {
             distinguishingMap.put("", ""); // seed this to make the code simpler
@@ -2832,12 +2886,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
             //     synchronized (distinguishingMap) {
-            String result = (String) distinguishingMap.get(xpath);
+            String result = distinguishingMap.get(xpath);
             if (result == null) {
-                XPathParts distinguishingParts = XPathParts.getInstance(xpath); // not frozen, for removeAttributes
+                XPathParts distinguishingParts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // not frozen, for removeAttributes
 
                 DtdType type = distinguishingParts.getDtdData().dtdType;
-                Set<String> toRemove = new HashSet<String>();
+                Set<String> toRemove = new HashSet<>();
 
                 // first clean up draft and alt
                 String draft = null;
@@ -2856,14 +2910,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     Map<String, String> attributes = distinguishingParts.getAttributes(i);
                     for (String attribute : attributes.keySet()) {
                         if (attribute.equals("draft")) {
-                            draft = (String) attributes.get(attribute);
+                            draft = attributes.get(attribute);
                             toRemove.add(attribute);
                         } else if (attribute.equals("alt")) {
-                            alt = (String) attributes.get(attribute);
+                            alt = attributes.get(attribute);
                             toRemove.add(attribute);
                         } else if (attribute.equals("references")) {
                             if (references.length() != 0) references += " ";
-                            references += (String) attributes.get("references");
+                            references += attributes.get("references");
                             toRemove.add(attribute);
                         }
                     }
@@ -2914,7 +2968,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 distinguishingMap.put(xpath, result);
             }
             if (normalizedPath != null) {
-                normalizedPath[0] = (String) normalizedPathMap.get(xpath);
+                normalizedPath[0] = normalizedPathMap.get(xpath);
                 if (normalizedPath[0] == null) {
                     normalizedPath[0] = xpath;
                 }
@@ -2925,7 +2979,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         public Map<String, String> getNonDistinguishingAttributes(String fullPath, Map<String, String> result,
             Set<String> skipList) {
             if (result == null) {
-                result = new LinkedHashMap<String, String>();
+                result = new LinkedHashMap<>();
             } else {
                 result.clear();
             }
@@ -2948,6 +3002,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static class Status {
         public String pathWhereFound;
 
+        @Override
         public String toString() {
             return pathWhereFound;
         }
@@ -2986,7 +3041,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         String versionString = parts.findFirstAttributeValue("version");
         return versionString == null
             ? null
-                : VersionInfo.getInstance(versionString);
+            : VersionInfo.getInstance(versionString);
     }
 
     private boolean contains(Map<String, String> a, Map<String, String> b) {
@@ -3011,7 +3066,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         Map<String, String> lastAttributes = parts.getAttributes(parts.size() - 1);
         String base = parts.toString(parts.size() - 1) + "/" + parts.getElement(parts.size() - 1); // trim final element
         for (Iterator<String> it = iterator(base); it.hasNext();) {
-            String otherPath = (String) it.next();
+            String otherPath = it.next();
             XPathParts other = XPathParts.getFrozenInstance(otherPath);
             if (other.size() != parts.size()) {
                 continue;
@@ -3080,8 +3135,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getWinningValueWithBailey(String path) {
         String winningValue = getWinningValue(path);
         if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
-            Output<String> localeWhereFound = new Output<String>();
-            Output<String> pathWhereFound = new Output<String>();
+            Output<String> localeWhereFound = new Output<>();
+            Output<String> pathWhereFound = new Output<>();
             winningValue = getBaileyValue(path, pathWhereFound, localeWhereFound);
         }
         return winningValue;
@@ -3101,8 +3156,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public String getStringValueWithBailey(String path) {
         String value = getStringValue(path);
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            Output<String> localeWhereFound = new Output<String>();
-            Output<String> pathWhereFound = new Output<String>();
+            Output<String> localeWhereFound = new Output<>();
+            Output<String> pathWhereFound = new Output<>();
             value = getBaileyValue(path, pathWhereFound, localeWhereFound);
         }
         return value;
@@ -3143,7 +3198,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public Set<String> getPathsWithValue(String valueToMatch, String pathPrefix, Matcher pathMatcher, Set<String> result) {
         if (result == null) {
-            result = new HashSet<String>();
+            result = new HashSet<>();
         }
         dataSource.getPathsWithValue(valueToMatch, pathPrefix, result);
         if (pathMatcher == null) {
@@ -3168,7 +3223,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public Set<String> getPaths(String pathPrefix, Matcher pathMatcher, Set<String> result) {
         if (result == null) {
-            result = new HashSet<String>();
+            result = new HashSet<>();
         }
         for (Iterator<String> it = dataSource.iterator(pathPrefix); it.hasNext();) {
             String path = it.next();
@@ -3182,7 +3237,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public enum WinningChoice {
         NORMAL, WINNING
-    };
+    }
 
     /**
      * Used in TestUser to get the "winning" path. Simple implementation just for testing.
@@ -3202,6 +3257,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * at
          * the number of votes next, and whither there was an approved or provisional path.
          */
+        @Override
         public int compare(String o1, String o2) {
             if (o1.contains(user)) {
                 if (!o2.contains(user)) {
@@ -3222,7 +3278,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public static class TestUser extends CLDRFile {
 
-        Map<String, String> userOverrides = new HashMap<String, String>();
+        Map<String, String> userOverrides = new HashMap<>();
 
         public TestUser(CLDRFile baseFile, String user, boolean resolved) {
             super(resolved ? baseFile.dataSource : baseFile.dataSource.getUnresolving());
@@ -3265,7 +3321,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public Collection<String> getExtraPaths() {
-        Set<String> toAddTo = new HashSet<String>();
+        Set<String> toAddTo = new HashSet<>();
         toAddTo.addAll(getRawExtraPaths());
         for (String path : this) {
             toAddTo.remove(path);
@@ -3297,7 +3353,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public Collection<String> getRawExtraPaths() {
         if (extraPaths == null) {
-            extraPaths = Collections.unmodifiableCollection(getRawExtraPathsPrivate(new HashSet<String>()));
+            extraPaths = ImmutableSet.copyOf(getRawExtraPathsPrivate(new LinkedHashSet<String>()));
             if (DEBUG) {
                 System.out.println(getLocaleID() + "\textras: " + extraPaths.size());
             }
@@ -3333,7 +3389,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (plurals == null && DEBUG) {
             System.err.println("No " + PluralType.cardinal + "  plurals for " + getLocaleID() + " in " + supplementalData.getDirectory().getAbsolutePath());
         }
-        Set<Count> pluralCounts = null;
+        Set<Count> pluralCounts = Collections.emptySet();
         if (plurals != null) {
             pluralCounts = plurals.getCounts();
             if (pluralCounts.size() != 1) {
@@ -3345,7 +3401,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         String locale = getLocaleID();
         DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(DayPeriodInfo.Type.format, locale);
         if (dayPeriods != null) {
-            LinkedHashSet<DayPeriod> items = new LinkedHashSet<DayPeriod>(dayPeriods.getPeriods());
+            LinkedHashSet<DayPeriod> items = new LinkedHashSet<>(dayPeriods.getPeriods());
             items.add(DayPeriod.am);
             items.add(DayPeriod.pm);
             for (String context : new String[] { "format", "stand-alone" }) {
@@ -3392,13 +3448,73 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String currencyCode = code.toUpperCase();
             toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
             toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName");
-            if (pluralCounts != null) {
+            if (!pluralCounts.isEmpty()) {
                 for (Count count : pluralCounts) {
                     toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName[@count=\"" + count.toString() + "\"]");
                 }
             }
         }
 
+        // grammatical info
+
+        // restricted for first release
+        GrammarInfo grammarInfo = GrammarInfo.SEED_LOCALES.contains(getLocaleID())
+            ? supplementalData.getGrammarInfo(getLocaleID())
+            : null;
+
+        if ("de".equals(getLocaleID())) {
+            int debug = 0;
+        }
+
+        if (grammarInfo != null) {
+            if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
+                Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+                Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+                Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
+                Collection<Count> adjustedPlurals = GrammarInfo.NON_COMPUTABLE_PLURALS.get(locale);
+                if (adjustedPlurals.isEmpty()) {
+                    adjustedPlurals = pluralCounts;
+                } else {
+                    int debug = 0;
+                }
+
+                // TODO use UnitPathType to get paths
+                if (!genders.isEmpty()) {
+                    for (String unit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+                        toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/gender");
+                    }
+                    for (Count plural : adjustedPlurals) {
+                        for (String gender : genders) {
+                            for (String case1 : nomCases) {
+                                final String grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.power, plural.toString(),
+                                    gender, case1);
+                                toAddTo
+                                    .add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1" + grammaticalAttributes);
+                                toAddTo
+                                    .add("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1" + grammaticalAttributes);
+                            }
+                        }
+                    }
+                    //             <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>
+                    for (String gender : genders) {
+                        toAddTo.add("//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + gender + "\"]");
+                    }
+                }
+                if (!rawCases.isEmpty()) {
+                    for (String case1 : rawCases) {
+                        //          <caseMinimalPairs case="nominative">{0} kostet €3,50.</caseMinimalPairs>
+                        toAddTo.add("//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + case1 + "\"]");
+
+                        for (Count plural : adjustedPlurals) {
+                            for (String unit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+                                toAddTo.add("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"" + unit + "\"]/unitPattern"
+                                    + GrammarInfo.getGrammaticalInfoAttributes(grammarInfo, UnitPathType.unit, plural.toString(), null, case1));
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return toAddTo;
     }
 
@@ -3443,7 +3559,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (excludedZones == null) {
                 SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
                 // SupplementalDataInfo.getInstance(getSupplementalDirectory());
-                excludedZones = new HashSet<String>(supplementalData.getSingleRegionZones());
+                excludedZones = new HashSet<>(supplementalData.getSingleRegionZones());
                 excludedZones = Collections.unmodifiableSet(excludedZones); // protect
             }
             return excludedZones;
@@ -3451,13 +3567,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     /**
-     * Get the path with the given count.
-     * It acts like there is an alias in root from count=n to count=one,
+     * Get the path with the given count, case, or gender, with fallback. The fallback acts like an alias in root.
+     * <p>Count:</p>
+     * <p>It acts like there is an alias in root from count=n to count=one,
      * then for currency display names from count=one to no count <br>
      * For unitPatterns, falls back to Count.one. <br>
-     * For others, falls back to Count.one, then no count.
-     * <p>
-     * The fallback acts like an alias in root.
+     * For others, falls back to Count.one, then no count.</p>
+     * <p>Case</p>
+     * <p>The fallback is to no case, which = nominative.</p>
+     * <p>Case</p>
+     * <p>The fallback is to no case, which = nominative.</p>
      *
      * @param xpath
      * @param count
@@ -3468,43 +3587,74 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public String getCountPathWithFallback(String xpath, Count count, boolean winning) {
         String result;
-        XPathParts parts = XPathParts.getInstance(xpath); // not frozen, addAttribute in getCountPathWithFallback2
+        XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // not frozen, addAttribute in getCountPathWithFallback2
+
+        // In theory we should do all combinations of gender, case, count (and eventually definiteness), but for simplicity
+        // we just successively try "zeroing" each one in a set order.
+        // tryDefault modifies the parts in question
+        Output<String> newPath = new Output<>();
+        if (tryDefault(parts, "gender", null, newPath)) {
+            return newPath.value;
+        }
+
+        if (tryDefault(parts, "case", null, newPath)) {
+            return newPath.value;
+        }
+
         boolean isDisplayName = parts.contains("displayName");
 
-        String intCount = parts.getAttributeValue(-1, "count");
-        if (intCount != null && CldrUtility.DIGITS.containsAll(intCount)) {
-            try {
-                int item = Integer.parseInt(intCount);
-                String locale = getLocaleID();
-                // TODO get data from SupplementalDataInfo...
-                PluralRules rules = PluralRules.forLocale(new ULocale(locale));
-                String keyword = rules.select(item);
-                Count itemCount = Count.valueOf(keyword);
-                result = getCountPathWithFallback2(parts, xpath, itemCount, winning);
-                if (result != null && isNotRoot(result)) {
-                    return result;
+        String actualCount = parts.getAttributeValue(-1, "count");
+        if (actualCount != null) {
+            if (CldrUtility.DIGITS.containsAll(actualCount)) {
+                try {
+                    int item = Integer.parseInt(actualCount);
+                    String locale = getLocaleID();
+                    // TODO get data from SupplementalDataInfo...
+                    PluralRules rules = PluralRules.forLocale(new ULocale(locale));
+                    String keyword = rules.select(item);
+                    Count itemCount = Count.valueOf(keyword);
+                    result = getCountPathWithFallback2(parts, xpath, itemCount, winning);
+                    if (result != null && isNotRoot(result)) {
+                        return result;
+                    }
+                } catch (NumberFormatException e) {
                 }
-            } catch (NumberFormatException e) {
             }
-        }
 
-        // try the given count first
-        result = getCountPathWithFallback2(parts, xpath, count, winning);
-        if (result != null && isNotRoot(result)) {
-            return result;
-        }
-        // now try fallback
-        if (count != Count.other) {
-            result = getCountPathWithFallback2(parts, xpath, Count.other, winning);
+            // try the given count first
+            result = getCountPathWithFallback2(parts, xpath, count, winning);
             if (result != null && isNotRoot(result)) {
                 return result;
             }
+            // now try fallback
+            if (count != Count.other) {
+                result = getCountPathWithFallback2(parts, xpath, Count.other, winning);
+                if (result != null && isNotRoot(result)) {
+                    return result;
+                }
+            }
+            // now try deletion (for currency)
+            if (isDisplayName) {
+                result = getCountPathWithFallback2(parts, xpath, null, winning);
+            }
+            return result;
         }
-        // now try deletion (for currency)
-        if (isDisplayName) {
-            result = getCountPathWithFallback2(parts, xpath, null, winning);
+        return null;
+    }
+
+    /**
+     * Modify the parts by setting the attribute in question to the default value (typically null to clear). If there is a value for that path, use it.
+     */
+    public boolean tryDefault(XPathParts parts, String attribute, String defaultValue, Output<String> newPath) {
+        String oldValue = parts.getAttributeValue(-1, attribute);
+        if (oldValue != null) {
+            parts.setAttribute(-1, attribute, null);
+            newPath.value = parts.toString();
+            if (dataSource.getValueAtPath(newPath.value) != null) {
+                return true;
+            }
         }
-        return result;
+        return false;
     }
 
     private String getCountPathWithFallback2(XPathParts parts, String xpathWithNoCount,
@@ -3546,7 +3696,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (isNotRoot(winningPath)) {
             return getStringValue(winningPath);
         }
-        String fallbackPath = getFallbackPath(winningPath, true);
+        String fallbackPath = getFallbackPath(winningPath, true, true);
         if (fallbackPath != null) {
             String value = getWinningValue(fallbackPath);
             if (value != null) {
@@ -3705,7 +3855,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
             String result = dataSource.getValueAtPath(xpath);
             if (result == null && dataSource.isResolving()) {
-                final String fallbackPath = getFallbackPath(xpath, false);
+                final String fallbackPath = getFallbackPath(xpath, false, true);
                 if (fallbackPath != null) {
                     result = dataSource.getValueAtPath(fallbackPath);
                 }
@@ -3728,4 +3878,40 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return sourceFileUnresolved.getStringValue(xpath);
     }
 
+
+    /**
+     * Create an overriding LocaleStringProvider for testing and example generation
+     * @param pathAndValueOverrides
+     * @return
+     */
+    public LocaleStringProvider makeOverridingStringProvider(Map<String, String> pathAndValueOverrides) {
+        return new OverridingStringProvider(pathAndValueOverrides);
+    }
+
+    public class OverridingStringProvider implements LocaleStringProvider {
+        private final Map<String,String> pathAndValueOverrides;
+
+        public OverridingStringProvider(Map<String, String> pathAndValueOverrides) {
+            this.pathAndValueOverrides = pathAndValueOverrides;
+        }
+        @Override
+        public String getStringValue(String xpath) {
+            String value = pathAndValueOverrides.get(xpath);
+            return value != null ? value : CLDRFile.this.getStringValue(xpath);
+        }
+        @Override
+        public String getLocaleID() {
+            return CLDRFile.this.getLocaleID();
+        }
+        @Override
+        public String getSourceLocaleID(String xpath, Status status) {
+            if (pathAndValueOverrides.containsKey(xpath)) {
+                if (status != null) {
+                    status.pathWhereFound = xpath;
+                }
+                return getLocaleID() + "-override";
+            }
+            return CLDRFile.this.getSourceLocaleID(xpath, status);
+        }
+    }
 }

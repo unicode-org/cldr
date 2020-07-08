@@ -27,9 +27,10 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -130,9 +131,9 @@ public class TestTransforms extends TestFmwkPlus {
                 }
             }
             logln("Success! " + latinFromCyrillicSucceeds.size() + "\n"
-                + CollectionUtilities.join(latinFromCyrillicSucceeds, "\n"));
+                + Joiner.on("\n").join(latinFromCyrillicSucceeds));
             logln("\nFAILS!" + latinFromCyrillicFails.size() + "\n"
-                + CollectionUtilities.join(latinFromCyrillicFails, "\n"));
+                + Joiner.on("\n").join(latinFromCyrillicFails));
         }
     }
 
@@ -140,8 +141,8 @@ public class TestTransforms extends TestFmwkPlus {
         String prefixSource, String suffix) {
         String result = cyrillicToLatin.transform(prefixSource);
         if (!result.isEmpty()
-            && UCharacter.getType(suffix.codePointAt(0)) != UCharacter.UPPERCASE_LETTER
-            && UCharacter.getType(result.codePointAt(0)) == UCharacter.UPPERCASE_LETTER) {
+            && UCharacter.getType(suffix.codePointAt(0)) != ECharacterCategory.UPPERCASE_LETTER
+            && UCharacter.getType(result.codePointAt(0)) == ECharacterCategory.UPPERCASE_LETTER) {
             result = UCharacter.toTitleCase(result, null);
         }
         return result + suffix;

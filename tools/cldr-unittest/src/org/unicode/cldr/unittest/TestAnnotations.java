@@ -30,12 +30,12 @@ import org.unicode.cldr.util.XListFormatter;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 
 import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -154,7 +154,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 final Set<String> keywords = eng.getKeywords(emoji);
                 System.out.println("{\"" + emoji
                     + "\",\"" + shortName
-                    + "\",\"" + CollectionUtilities.join(keywords, " | ")
+                    + "\",\"" + Joiner.on(" | ").join(keywords)
                     + "\"},");
             }
         }
@@ -189,7 +189,8 @@ public class TestAnnotations extends TestFmwkPlus {
             }
             String minorCategory = Emoji.getMinorCategory(emoji);
             long emojiOrder = Emoji.getEmojiToOrder(emoji);
-            R3<String, String, String> row2 = Row.of(emoji, annotations.getShortName(), CollectionUtilities.join(annotations.getKeywords(), " | "));
+            R3<String, String, String> row2 = Row.of(emoji, annotations.getShortName(),
+                Joiner.on(" | ").join(annotations.getKeywords()));
             R4<PageId, Long, String, R3<String, String, String>> row = Row.of(majorCategory, emojiOrder, minorCategory, row2);
             sorted.add(row);
         }
@@ -250,7 +251,7 @@ public class TestAnnotations extends TestFmwkPlus {
             if (emojis.size() > 1) {
                 synchronized(problems) {
                     problems.add("Duplicate name in " + locale + ": “" + name + "” for "
-                        + CollectionUtilities.join(emojis, " & "));
+                        + Joiner.on(" & ").join(emojis));
                 }
                 if (duplicateNameToEmoji == null) {
                     duplicateNameToEmoji = TreeMultimap.create();
@@ -279,7 +280,9 @@ public class TestAnnotations extends TestFmwkPlus {
                 Pattern.compile("//ldml/annotations/annotation.*tts.*").matcher(""),
                 new TreeSet<>());
             Set<String> annotationPathsExpected = Emoji.getNamePaths();
-            checkAMinusBIsC("(" + locale + ".xml - Emoji.getNamePaths)", annotationPaths, annotationPathsExpected, Collections.<String> emptySet());
+            if (!checkAMinusBIsC("(" + locale + ".xml - Emoji.getNamePaths)", annotationPaths, annotationPathsExpected, Collections.<String> emptySet())) {
+                System.out.println("Check Emoji.SPECIALS");
+            }
             checkAMinusBIsC("(Emoji.getNamePaths - " + locale + ".xml)", annotationPathsExpected, annotationPaths, Collections.<String> emptySet());
         }
     }
@@ -442,7 +445,7 @@ public class TestAnnotations extends TestFmwkPlus {
         return superfluous;
     }
 
-    private void checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
+    private boolean checkAMinusBIsC(String title, Set<String> a, Set<String> b, Set<String> c) {
         Set<String> aMb = new TreeSet<>(a);
         aMb.removeAll(b);
         for (Iterator<String> it = aMb.iterator(); it.hasNext();) {
@@ -451,7 +454,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 it.remove();
             }
         }
-        assertEquals(title + " (" + aMb.size() + ")", c, aMb);
+        return assertEquals(title + " (" + aMb.size() + ")", c, aMb);
     }
 
     public void testListFormatter() {

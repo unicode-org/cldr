@@ -400,7 +400,7 @@ function showV() {
 				 *
 				 * @param doPush {Boolean} if true, do a push (instead of replace)
 				 *
-				 * Called by parseForumContent in survey.js, as well as locally.
+				 * Called by cldrStForum.parseContent, as well as locally.
 				 *
 				 * TODO: avoid attaching this, or anything, to "window"! Define our own objects instead.
 				 */
@@ -467,7 +467,7 @@ function showV() {
 							});
 						} catch (e) {
 							console.log("Error in ajax post [" + message + "]  " + e.message + " / " + e.name);
-							handleDisconnect("Exception while  loading: " + message + " - " + e.message + ", n=" + e.name, null); // in case the 2nd line doesn't work
+							handleDisconnect("Exception while loading: " + message + " - " + e.message + ", n=" + e.name + ' \nStack:\n' + (e.stack || '[none]'), null); // in case the 2nd line doesn't work
 						}
 					};
 					var xhrArgs = {
@@ -728,12 +728,6 @@ function showV() {
 								special: 'flagged',
 								level: 2,
 								img: surveyImgInfo.flag
-							},
-							{
-								title: 'RSS 2.0',
-								level: 2,
-								url: surveyUserURL.RSS,
-								img: surveyImgInfo.RSS
 							},
 							{
 								special: 'mail',
@@ -1262,6 +1256,14 @@ function showV() {
 					isLoading = false;
 
 					/*
+					 * Scroll back to top when loading a new page, to avoid a bug where, for
+					 * example, having scrolled towards bottom, we switch from a Section page
+					 * to the Forum page and the scrollbar stays where it was, making the new
+					 * content effectively invisible.
+					 */
+					window.scrollTo(0, 0);
+
+					/*
 					 * TODO: explain code related to "showers".
 					 */
 					showers[flipper.get(pages.data).id] = function() {
@@ -1717,7 +1719,7 @@ function showV() {
 								) {
 									ready(function() {
 
-										var url = contextPath + "/EmbeddedReport.jsp?x=" + surveyCurrentSpecial + "&_=" + surveyCurrentLocale + "&s=" + surveySessionId + cacheKill();
+										var url = contextPath + "/SurveyAjax?what=report&x=" + surveyCurrentSpecial + "&_=" + surveyCurrentLocale + "&s=" + surveySessionId + cacheKill();
 										var errFunction = function errFunction(err) {
 											console.log("Error: loading " + url + " -> " + err);
 											hideLoader(null, stui.loading2);

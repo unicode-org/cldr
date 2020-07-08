@@ -1337,7 +1337,7 @@ XXX Code for transations where no currency is involved
 		<language type="ba" scripts="Cyrl"/>
 		<language type="ba" territories="RU" alt="secondary"/>
 		<language type="bal" scripts="Arab"/>
-		<language type="bal" scripts="Latn" territories="AF IR PK" alt="secondary"/>
+		<language type="bal" scripts="Latn" territories="IR PK" alt="secondary"/>
 		<language type="ban" scripts="Latn"/>
 		<language type="ban" scripts="Bali" territories="ID" alt="secondary"/>
 		<language type="bap" scripts="Deva"/>
@@ -1499,8 +1499,8 @@ XXX Code for transations where no currency is involved
 		<language type="dng" scripts="Cyrl"/>
 		<language type="dnj" scripts="Latn"/>
 		<language type="dnj" territories="CI" alt="secondary"/>
-		<language type="doi" scripts="Arab"/>
-		<language type="doi" scripts="Takr" territories="IN" alt="secondary"/>
+		<language type="doi" scripts="Deva"/>
+		<language type="doi" scripts="Arab Takr" territories="IN" alt="secondary"/>
 		<language type="dsb" scripts="Latn"/>
 		<language type="dtm" scripts="Latn"/>
 		<language type="dtp" scripts="Latn"/>
@@ -1637,7 +1637,7 @@ XXX Code for transations where no currency is involved
 		<language type="haz" territories="AF" alt="secondary"/>
 		<language type="he" scripts="Hebr" territories="IL"/>
 		<language type="hi" scripts="Deva" territories="IN"/>
-		<language type="hi" scripts="Latn Mahj" territories="FJ ZA" alt="secondary"/>
+		<language type="hi" scripts="Latn Mahj" territories="FJ IN ZA" alt="secondary"/>
 		<language type="hif" scripts="Deva Latn" territories="FJ"/>
 		<language type="hil" scripts="Latn"/>
 		<language type="hil" territories="PH" alt="secondary"/>
@@ -2246,7 +2246,7 @@ XXX Code for transations where no currency is involved
 		<language type="tru" scripts="Latn"/>
 		<language type="tru" scripts="Syrc" alt="secondary"/>
 		<language type="trv" scripts="Latn"/>
-                <language type="trw" scripts="Arab"/>
+		<language type="trw" scripts="Arab"/>
 		<language type="ts" scripts="Latn"/>
 		<language type="ts" territories="MZ ZA" alt="secondary"/>
 		<language type="tsd" scripts="Grek"/>
@@ -2400,7 +2400,6 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="uz_Arab" populationPercent="4.7" officialStatus="official_regional"/>	<!--Uzbek (Arabic)-->
 			<languagePopulation type="tk" populationPercent="1.7" officialStatus="official_regional"/>	<!--Turkmen-->
 			<languagePopulation type="prd" populationPercent="1.2"/>	<!--Parsi-Dari-->
-			<languagePopulation type="bal" populationPercent="0.67" officialStatus="official_regional"/>	<!--Baluchi-->
 			<languagePopulation type="bgn" writingPercent="5" populationPercent="0.63" references="R1209"/>	<!--Western Balochi-->
 			<languagePopulation type="ug" populationPercent="0.0086" references="R1165"/>	<!--Uyghur-->
 			<languagePopulation type="kk_Arab" populationPercent="0.0057" references="R1119"/>	<!--Kazakh (Arabic)-->
@@ -3191,6 +3190,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bhb" populationPercent="0.12"/>	<!--Bhili-->
 			<languagePopulation type="mni" populationPercent="0.11"/>	<!--Manipuri-->
 			<languagePopulation type="raj" populationPercent="0.1"/>	<!--Rajasthani-->
+			<languagePopulation type="hi_Latn" populationPercent="0.1" references="R1317"/>	<!--Hindi (Latin)-->
 			<languagePopulation type="hoc" populationPercent="0.099" references="R1195"/>	<!--Ho-->
 			<languagePopulation type="mtr" populationPercent="0.097"/>	<!--Mewari-->
 			<languagePopulation type="unr" populationPercent="0.094"/>	<!--Mundari-->
@@ -3464,7 +3464,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="93" officialStatus="official"/>	<!--English-->
 			<languagePopulation type="mh" populationPercent="73" officialStatus="official"/>	<!--Marshallese-->
 		</territory>
-		<territory type="MK" gdp="30590000000" literacyPercent="97" population="2082960">	<!--North Macedonia-->
+		<territory type="MK" gdp="31030000000" literacyPercent="97.4" population="2118950">	<!--North Macedonia-->
 			<languagePopulation type="mk" populationPercent="67" officialStatus="official"/>	<!--Macedonian-->
 			<languagePopulation type="sq" populationPercent="25" officialStatus="official_regional" references="R1053"/>	<!--Albanian-->
 			<languagePopulation type="tr" populationPercent="3.5"/>	<!--Turkish-->
@@ -3764,7 +3764,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="kxp" populationPercent="0.11"/>	<!--Wadiyara Koli-->
 			<languagePopulation type="gjk" populationPercent="0.11"/>	<!--Kachi Koli-->
 			<languagePopulation type="ks" populationPercent="0.069"/>	<!--Kashmiri-->
-                        <languagePopulation type="trw" populationPercent="0.053"/>	<!--Torwali-->
+			<languagePopulation type="trw" populationPercent="0.053"/>	<!--Torwali-->
 			<languagePopulation type="btv" populationPercent="0.019"/>	<!--Bateri-->
 		</territory>
 		<territory type="PL" gdp="1126000000000" literacyPercent="99.7" population="38420700">	<!--Poland-->
@@ -5625,6 +5625,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1314" uri="http://www.axl.cefan.ulaval.ca/afrique/soudan.htm">[missing]</reference>
 		<reference type="R1315" uri="https://en.wikipedia.org/wiki/Languages_of_Brazil">[missing]</reference>
 		<reference type="R1316" uri="http://www.bfs.admin.ch/bfs/portal/en/index/themen/01/05/blank/key/sprachen.html">[missing]</reference>
+		<reference type="R1317">No hard figures for this yet, so this is a placeholder figure.</reference>
 		<reference type="R1318" uri="https://en.wikipedia.org/wiki/Bavarian_language">Widely spoken less written, and most speakers know standard German as well</reference>
 		<reference type="R1319" uri="http://nso.gov.mt/en/publicatons/Publications_by_Unit/Documents/C1_Living_Conditions_and_Culture_Statistics/Culture_Participation_Survey_2011.pdf">[missing]</reference>
 		<reference type="R1320" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/hk.html">and https://www.ethnologue.com/language/yue</reference>

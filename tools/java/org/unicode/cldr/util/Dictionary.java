@@ -166,7 +166,7 @@ public abstract class Dictionary<T> {
          * @return
          */
         public Matcher<T> setText(CharSequence text) {
-            this.text = new CharUtilities.CharSourceWrapper<CharSequence>(text);
+            this.text = new CharUtilities.CharSourceWrapper<>(text);
             return setOffset(0);
         }
 
@@ -290,7 +290,7 @@ public abstract class Dictionary<T> {
              * Only one value: the longest MATCH or PARTIAL (but only the Partial if it is at the end).
              */
             LONGEST_WITH_FINAL_PARTIAL
-        };
+        }
 
         /**
          * Finds the next match, and sets the matchValue and matchEnd. Normally you
@@ -425,6 +425,7 @@ public abstract class Dictionary<T> {
         /**
          * For debugging
          */
+        @Override
         public String toString() {
             return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \""
                 + text.subSequence(0, text.getKnownLength())
@@ -451,6 +452,7 @@ public abstract class Dictionary<T> {
      * If the text has isolated surrogates, they will not sort correctly.
      */
     public static final Comparator<CharSequence> CHAR_SEQUENCE_COMPARATOR = new Comparator<CharSequence>() {
+        @Override
         public int compare(CharSequence o1, CharSequence o2) {
             return CharUtilities.compare(o1, o2);
         }
@@ -470,6 +472,7 @@ public abstract class Dictionary<T> {
             sourceOffsets = new int[source.length()];
         }
 
+        @Override
         public boolean hasCharAt(int index) {
             if (index >= buffer.length()) {
                 if (atEnd) {
@@ -481,6 +484,7 @@ public abstract class Dictionary<T> {
             return true;
         }
 
+        @Override
         public char charAt(int index) {
             if (!atEnd && index >= buffer.length()) {
                 growToOffset(index + 1);
@@ -527,11 +531,13 @@ public abstract class Dictionary<T> {
             }
         }
 
+        @Override
         public int fromSourceOffset(int offset) {
             // TODO fix to do real binary search; returning a determinate value.
             return Arrays.binarySearch(sourceOffsets, offset);
         }
 
+        @Override
         public int toSourceOffset(int offset) {
             if (offset > buffer.length()) {
                 growToOffset(offset);
@@ -542,6 +548,7 @@ public abstract class Dictionary<T> {
             return sourceOffsets[offset];
         }
 
+        @Override
         public CharSequence subSequence(int start, int end) {
             if (!atEnd && end > buffer.length()) {
                 growToOffset(end);
@@ -549,6 +556,7 @@ public abstract class Dictionary<T> {
             return buffer.subSequence(start, end);
         }
 
+        @Override
         public CharSequence sourceSubSequence(int start, int end) {
             // TODO Auto-generated method stub
             return source.subSequence(toSourceOffset(start), toSourceOffset(end));

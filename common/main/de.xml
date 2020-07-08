@@ -4457,9 +4457,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningrad</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskau</exemplarCity>
 			</zone>
@@ -4654,6 +4651,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiew</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Simferopol</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Saporischja</exemplarCity>
@@ -5799,6 +5799,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign>%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
+			<approximatelySign>≈</approximatelySign>
 			<exponential>E</exponential>
 			<superscriptingExponent>·</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -7834,7 +7835,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} Tag</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} Tage</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other" draft="provisional">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
+			<caseMinimalPairs case="accusative" draft="provisional">… für {0} …</caseMinimalPairs>
+			<caseMinimalPairs case="dative" draft="provisional">… mit {0} …</caseMinimalPairs>
+			<caseMinimalPairs case="genitive" draft="provisional">Anstatt {0}, …</caseMinimalPairs>
+			<caseMinimalPairs case="nominative" draft="provisional">{0} kostet €3,50.</caseMinimalPairs>
+			<genderMinimalPairs gender="feminine" draft="provisional">{0}, die zu viel ist, …</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine" draft="provisional">{0}, der zu viel ist, …</genderMinimalPairs>
+			<genderMinimalPairs gender="neuter" draft="provisional">{0}, das zu viel ist, …</genderMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -7916,14 +7924,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<gender draft="provisional">neuter</gender>
 				<displayName>g-Kraft</displayName>
 				<unitPattern count="one">{0}-fache Erdbeschleunigung</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} g-Kraft</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} g-Kraft</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} g-Kraft</unitPattern>
 				<unitPattern count="other">{0}-fache Erdbeschleunigung</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} g-Kraft</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} g-Kraft</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} g-Kraft</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Meter pro Quadratsekunde</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Meter pro Quadratsekunde</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Meter pro Quadratsekunde</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Meters pro Quadratsekunde</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Meter pro Quadratsekunde</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Meter pro Quadratsekunde</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Meter pro Quadratsekunde</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>Umdrehung</displayName>
@@ -7936,9 +7958,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Radianten</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Grad</displayName>
 				<unitPattern count="one">{0} Grad</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Grads</unitPattern>
 				<unitPattern count="other">{0} Grad</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Grad</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>Winkelminuten</displayName>
@@ -7951,38 +7980,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Winkelsekunden</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratkilometer</displayName>
 				<unitPattern count="one">{0} Quadratkilometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Quadratkilometer</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Quadratkilometer</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Quadratkilometers</unitPattern>
 				<unitPattern count="other">{0} Quadratkilometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Quadratkilometer</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Quadratkilometern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Quadratkilometer</unitPattern>
 				<perUnitPattern>{0} pro Quadratkilometer</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Hektar</displayName>
 				<unitPattern count="one">{0} Hektar</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Hektar</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Hektar</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Hektars</unitPattern>
 				<unitPattern count="other">{0} Hektar</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Hektar</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Hektar</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Hektar</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratmeter</displayName>
 				<unitPattern count="one">{0} Quadratmeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Quadratmeter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Quadratmeter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Quadratmeters</unitPattern>
 				<unitPattern count="other">{0} Quadratmeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Quadratmeter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Quadratmetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Quadratmeter</unitPattern>
 				<perUnitPattern>{0} pro Quadratmeter</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratzentimeter</displayName>
 				<unitPattern count="one">{0} Quadratzentimeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Quadratzentimeter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Quadratzentimeter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Quadratzentimeters</unitPattern>
 				<unitPattern count="other">{0} Quadratzentimeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Quadratzentimeter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Quadratzentimetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Quadratzentimeter</unitPattern>
 				<perUnitPattern>{0} pro Quadratzentimeter</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Quadratmeilen</displayName>
 				<unitPattern count="one">{0} Quadratmeile</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Quadratmeile</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Quadratmeile</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Quadratmeile</unitPattern>
 				<unitPattern count="other">{0} Quadratmeilen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Quadratmeilen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Quadratmeilen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Quadratmeilen</unitPattern>
 				<perUnitPattern>{0} pro Quadratmeile</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Acres</displayName>
 				<unitPattern count="one">{0} Acre</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Acre</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Acre</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Acres</unitPattern>
 				<unitPattern count="other">{0} Acres</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Acre</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Acre</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Acre</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>Quadratyards</displayName>
@@ -7990,9 +8061,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Quadratyards</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Quadratfuß</displayName>
 				<unitPattern count="one">{0} Quadratfuß</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Quadratfuß</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Quadratfuß</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Quadratfußes</unitPattern>
 				<unitPattern count="other">{0} Quadratfuß</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Quadratfuß</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Quadratfuß</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Quadratfuß</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>Quadratzoll</displayName>
@@ -8026,9 +8104,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Parts per million</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Prozent</displayName>
 				<unitPattern count="one">{0} Prozent</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Prozent</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Prozent</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Prozents</unitPattern>
 				<unitPattern count="other">{0} Prozent</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Prozent</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Prozent</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Prozent</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>Promille</displayName>
@@ -8051,19 +8136,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Liter pro Kilometer</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Liter auf 100 Kilometer</displayName>
 				<unitPattern count="one">{0} Liter auf 100 Kilometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Liter pro 100 Kilometer</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Liter pro 100 Kilometer</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Liter pro 100 Kilometer</unitPattern>
 				<unitPattern count="other">{0} Liter auf 100 Kilometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Liter pro 100 Kilometer</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Litern pro 100 Kilometer</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Liter pro 100 Kilometer</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen pro Gallone</displayName>
 				<unitPattern count="one">{0} Meile pro Gallone</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} amerikanische Meile pro Gallone</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} amerikanischer Meile pro Gallone</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} amerikanischer Meile pro Gallone</unitPattern>
 				<unitPattern count="other">{0} Meilen pro Gallone</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} amerikanische Meilen pro Gallone</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} amerikanischen Meilen pro Gallone</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} amerikanischer Meilen pro Gallone</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen pro Imp. Gallone</displayName>
 				<unitPattern count="one">{0} Meile pro Imp. Gallone</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Meile pro britische Gallone</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Meile pro britische Gallone</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Meile pro britische Gallone</unitPattern>
 				<unitPattern count="other">{0} Meilen pro Imp. Gallone</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Meilen pro britische Gallone</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Meilen pro britische Gallone</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Meilen pro britische Gallone</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>Petabytes</displayName>
@@ -8071,9 +8177,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Petabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Terabytes</displayName>
 				<unitPattern count="one">{0} Terabyte</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Terabyte</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Terabyte</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Terabytes</unitPattern>
 				<unitPattern count="other">{0} Terabytes</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Terabytes</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Terabytes</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Terabytes</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>Terabits</displayName>
@@ -8081,44 +8194,100 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Terabits</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Gigabytes</displayName>
 				<unitPattern count="one">{0} Gigabyte</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Gigabyte</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Gigabyte</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Gigabytes</unitPattern>
 				<unitPattern count="other">{0} Gigabytes</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Gigabytes</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Gigabytes</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Gigabytes</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Gigabits</displayName>
 				<unitPattern count="one">{0} Gigabit</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Gigabit</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Gigabit</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Gigabits</unitPattern>
 				<unitPattern count="other">{0} Gigabits</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Gigabits</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Gigabits</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Gigabits</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Megabytes</displayName>
 				<unitPattern count="one">{0} Megabyte</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Megabyte</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Megabyte</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Megabytes</unitPattern>
 				<unitPattern count="other">{0} Megabytes</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Megabytes</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Megabytes</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Megabytes</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Megabits</displayName>
 				<unitPattern count="one">{0} Megabit</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Megabit</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Megabit</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Megabits</unitPattern>
 				<unitPattern count="other">{0} Megabits</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Megabits</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Megabits</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Megabits</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilobytes</displayName>
 				<unitPattern count="one">{0} Kilobyte</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilobyte</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilobyte</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilobytes</unitPattern>
 				<unitPattern count="other">{0} Kilobytes</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilobytes</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilobytes</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilobytes</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilobits</displayName>
 				<unitPattern count="one">{0} Kilobit</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilobit</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilobit</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilobits</unitPattern>
 				<unitPattern count="other">{0} Kilobits</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilobits</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilobits</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilobits</unitPattern>
 			</unit>
 			<unit type="digital-byte">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Bytes</displayName>
 				<unitPattern count="one">{0} Byte</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Byte</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Byte</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Bytes</unitPattern>
 				<unitPattern count="other">{0} Bytes</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Bytes</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Bytes</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Bytes</unitPattern>
 			</unit>
 			<unit type="digital-bit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Bits</displayName>
 				<unitPattern count="one">{0} Bit</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Bit</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Bit</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Bits</unitPattern>
 				<unitPattern count="other">{0} Bits</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Bits</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Bits</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Bits</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>Jahrhunderte</displayName>
@@ -8131,45 +8300,94 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Jahrzehnte</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Jahre</displayName>
 				<unitPattern count="one">{0} Jahr</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Jahr</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Jahr</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Jahrs</unitPattern>
 				<unitPattern count="other">{0} Jahre</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Jahre</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Jahren</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Jahre</unitPattern>
 				<perUnitPattern>{0} pro Jahr</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Monate</displayName>
 				<unitPattern count="one">{0} Monat</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Monat</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Monat</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Monats</unitPattern>
 				<unitPattern count="other">{0} Monate</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Monate</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Monaten</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Monate</unitPattern>
 				<perUnitPattern>{0} pro Monat</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Wochen</displayName>
 				<unitPattern count="one">{0} Woche</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Woche</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Woche</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Woche</unitPattern>
 				<unitPattern count="other">{0} Wochen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Wochen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Wochen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Wochen</unitPattern>
 				<perUnitPattern>{0} pro Woche</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Tage</displayName>
 				<unitPattern count="one">{0} Tag</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Tag</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Tag</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Tages</unitPattern>
 				<unitPattern count="other">{0} Tage</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Tage</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Tagen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Tage</unitPattern>
 				<perUnitPattern>{0} pro Tag</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Stunden</displayName>
 				<unitPattern count="one">{0} Stunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Stunde</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Stunde</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Stunde</unitPattern>
 				<unitPattern count="other">{0} Stunden</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Stunden</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Stunden</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Stunden</unitPattern>
 				<perUnitPattern>{0} pro Stunde</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Minuten</displayName>
 				<unitPattern count="one">{0} Minute</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Minute</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Minute</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Minute</unitPattern>
 				<unitPattern count="other">{0} Minuten</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Minuten</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Minuten</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Minuten</unitPattern>
 				<perUnitPattern>{0} pro Minute</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Sekunden</displayName>
 				<unitPattern count="one">{0} Sekunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Sekunde</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Sekunde</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Sekunde</unitPattern>
 				<unitPattern count="other">{0} Sekunden</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Sekunden</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Sekunden</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Sekunden</unitPattern>
 				<perUnitPattern>{0} pro Sekunde</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -8203,14 +8421,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Ohm</unitPattern>
 			</unit>
 			<unit type="electric-volt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Volt</displayName>
 				<unitPattern count="one">{0} Volt</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Volt</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Volt</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Volts</unitPattern>
 				<unitPattern count="other">{0} Volt</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Volt</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Volt</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Volt</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Kilokalorien</displayName>
 				<unitPattern count="one">{0} Kilokalorie</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilokalorie</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilokalorie</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilokalorie</unitPattern>
 				<unitPattern count="other">{0} Kilokalorien</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilokalorien</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilokalorien</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilokalorien</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<displayName>Kalorien</displayName>
@@ -8218,9 +8450,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kalorien</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Kilokalorien</displayName>
 				<unitPattern count="one">{0} Kilokalorien</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kalorie</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kalorie</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kalorie</unitPattern>
 				<unitPattern count="other">{0} Kilokalorien</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kalorien</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kalorien</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kalorien</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>Kilojoule</displayName>
@@ -8318,15 +8557,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Punkte pro Inch</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kilometer</displayName>
 				<unitPattern count="one">{0} Kilometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilometer</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilometer</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilometers</unitPattern>
 				<unitPattern count="other">{0} Kilometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilometer</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilometern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilometer</unitPattern>
 				<perUnitPattern>{0} pro Kilometer</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Meter</displayName>
 				<unitPattern count="one">{0} Meter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Meter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Meter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Meters</unitPattern>
 				<unitPattern count="other">{0} Meter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Meter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Metern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Meter</unitPattern>
 				<perUnitPattern>{0} pro Meter</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
@@ -8335,15 +8588,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Dezimeter</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Zentimeter</displayName>
 				<unitPattern count="one">{0} Zentimeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Zentimeter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Zentimeter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Zentimeters</unitPattern>
 				<unitPattern count="other">{0} Zentimeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Zentimeter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Zentimetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Zentimeter</unitPattern>
 				<perUnitPattern>{0} pro Zentimeter</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Millimeter</displayName>
 				<unitPattern count="one">{0} Millimeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Millimeter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Millimeter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Millimeters</unitPattern>
 				<unitPattern count="other">{0} Millimeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Millimeter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Millimetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Millimeter</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>Mikrometer</displayName>
@@ -8356,36 +8623,78 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Nanometer</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Pikometer</displayName>
 				<unitPattern count="one">{0} Pikometer</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Pikometer</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Pikometer</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Pikometers</unitPattern>
 				<unitPattern count="other">{0} Pikometer</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Pikometer</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Pikometern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Pikometer</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen</displayName>
 				<unitPattern count="one">{0} Meile</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Meile</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Meile</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Meile</unitPattern>
 				<unitPattern count="other">{0} Meilen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Meilen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Meilen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Meilen</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Yards</displayName>
 				<unitPattern count="one">{0} Yard</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Yard</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Yard</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Yards</unitPattern>
 				<unitPattern count="other">{0} Yards</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Yard</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Yard</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Yard</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Fuß</displayName>
 				<unitPattern count="one">{0} Fuß</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Fuß</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Fuß</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Fußes</unitPattern>
 				<unitPattern count="other">{0} Fuß</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Fuß</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Fuß</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Fuß</unitPattern>
 				<perUnitPattern>{0} pro Fuß</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Zoll</displayName>
 				<unitPattern count="one">{0} Zoll</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Zoll</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Zoll</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Zolls</unitPattern>
 				<unitPattern count="other">{0} Zoll</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Zoll</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Zoll</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Zoll</unitPattern>
 				<perUnitPattern>{0} pro Zoll</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Parsec</displayName>
 				<unitPattern count="one">{0} Parsec</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Parsec</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Parsec</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Parsec</unitPattern>
 				<unitPattern count="other">{0} Parsec</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Parsec</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Parsec</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Parsec</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>Lichtjahre</displayName>
@@ -8423,9 +8732,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Punkte</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Sonnenradius</displayName>
 				<unitPattern count="one">{0} Sonnenradius</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Sonnenradius</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Sonnenradius</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Sonnenradius</unitPattern>
 				<unitPattern count="other">{0} Sonnenradien</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Sonnenradien</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Sonnenradien</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Sonnenradien</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>Lux</displayName>
@@ -8433,9 +8749,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Lux</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
+				<gender draft="provisional">feminine</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Sonnenleuchtkraft</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Sonnenleuchtkraft</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Sonnenleuchtkraft</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Sonnenleuchtkräfte</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Sonnenleuchtkräften</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Sonnenleuchtkräfte</unitPattern>
 			</unit>
 			<unit type="mass-metric-ton">
 				<displayName>Tonnen</displayName>
@@ -8443,21 +8766,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Tonnen</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilogramm</displayName>
 				<unitPattern count="one">{0} Kilogramm</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilogramm</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilogramm</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilogramms</unitPattern>
 				<unitPattern count="other">{0} Kilogramm</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilogramm</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilogramm</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilogramm</unitPattern>
 				<perUnitPattern>{0} pro Kilogramm</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Gramm</displayName>
 				<unitPattern count="one">{0} Gramm</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Gramm</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Gramm</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Gramms</unitPattern>
 				<unitPattern count="other">{0} Gramm</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Gramm</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Gramm</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Gramm</unitPattern>
 				<perUnitPattern>{0} pro Gramm</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Milligramm</displayName>
 				<unitPattern count="one">{0} Milligramm</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Milligramm</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Milligramm</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Milligramms</unitPattern>
 				<unitPattern count="other">{0} Milligramm</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Milligramm</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Milligramm</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Milligramm</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>Mikrogramm</displayName>
@@ -8475,15 +8819,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} Stones</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Pfund</displayName>
 				<unitPattern count="one">{0} Pfund</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Pfund</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Pfund</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Pfunds</unitPattern>
 				<unitPattern count="other">{0} Pfund</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Pfund</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Pfund</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Pfund</unitPattern>
 				<perUnitPattern>{0} pro Pfund</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Unzen</displayName>
 				<unitPattern count="one">{0} Unze</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Unze</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Unze</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Unze</unitPattern>
 				<unitPattern count="other">{0} Unzen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Unzen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Unzen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Unzen</unitPattern>
 				<perUnitPattern>{0} pro Unze</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
@@ -8497,19 +8855,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Karat</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Dalton</displayName>
 				<unitPattern count="one">{0} Dalton</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} atomare Masseneinheit</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} atomarer Masseneinheit</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} atomarer Masseneinheit</unitPattern>
 				<unitPattern count="other">{0} Dalton</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} atomare Masseneinheiten</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} atomaren Masseneinheiten</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} atomarer Masseneinheiten</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Erdmasse</displayName>
 				<unitPattern count="one">{0} Erdmasse</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Erdmasse</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Erdmasse</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Erdmasse</unitPattern>
 				<unitPattern count="other">{0} Erdmasse</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Erdmassen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Erdmassen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Erdmassen</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Sonnenmasse</displayName>
 				<unitPattern count="one">{0} Sonnenmasse</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Sonnenmasse</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Sonnenmasse</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Sonnenmasse</unitPattern>
 				<unitPattern count="other">{0} Sonnenmasse</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Sonnenmassen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Sonnenmassen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Sonnenmassen</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} Messerspitze</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Messerspitze</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Messerspitze</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Messerspitze</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Messerspitzen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Messerspitzen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Messerspitzen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Messerspitzen</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>Gigawatt</displayName>
@@ -8517,19 +8907,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Gigawatt</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Megawatt</displayName>
 				<unitPattern count="one">{0} Megawatt</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Megawatt</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Megawatt</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Megawatts</unitPattern>
 				<unitPattern count="other">{0} Megawatt</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Megawatt</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Megawatt</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Megawatt</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilowatt</displayName>
 				<unitPattern count="one">{0} Kilowatt</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilowatt</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilowatt</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilowatts</unitPattern>
 				<unitPattern count="other">{0} Kilowatt</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilowatt</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilowatt</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilowatt</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Watt</displayName>
 				<unitPattern count="one">{0} Watt</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Watt</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Watt</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Watts</unitPattern>
 				<unitPattern count="other">{0} Watt</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Watt</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Watt</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Watt</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>Milliwatt</displayName>
@@ -8582,9 +8993,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Hektopascal</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kilopascal</displayName>
 				<unitPattern count="one">{0} Kilopascal</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilopascal</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilopascal</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilopascals</unitPattern>
 				<unitPattern count="other">{0} Kilopascal</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilopascal</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilopascal</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilopascal</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName>Megapascal</displayName>
@@ -8592,19 +9010,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Megapascal</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kilometer pro Stunde</displayName>
 				<unitPattern count="one">{0} Kilometer pro Stunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kilometer pro Stunde</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kilometer pro Stunde</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kilometers pro Stunde</unitPattern>
 				<unitPattern count="other">{0} Kilometer pro Stunde</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kilometer pro Stunde</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kilometern pro Stunde</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kilometer pro Stunde</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Meter pro Sekunde</displayName>
 				<unitPattern count="one">{0} Meter pro Sekunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Meter pro Sekunde</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Meter pro Sekunde</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Meters pro Sekunde</unitPattern>
 				<unitPattern count="other">{0} Meter pro Sekunde</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Meter pro Sekunde</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Metern pro Sekunde</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Meter pro Sekunde</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Meilen pro Stunde</displayName>
 				<unitPattern count="one">{0} Meile pro Stunde</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Meile pro Stunde</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Meile pro Stunde</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Meile pro Stunde</unitPattern>
 				<unitPattern count="other">{0} Meilen pro Stunde</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Meilen pro Stunde</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Meilen pro Stunde</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Meilen pro Stunde</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName>Knoten</displayName>
@@ -8612,24 +9051,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Knoten</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
+				<gender draft="provisional">neuter</gender>
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Grads</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Grad</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Grad</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Grad Celsius</displayName>
 				<unitPattern count="one">{0} Grad Celsius</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Grad Celsius</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Grad Celsius</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Grads Celsius</unitPattern>
 				<unitPattern count="other">{0} Grad Celsius</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Grad Celsius</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Grad Celsius</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Grad Celsius</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Grad Fahrenheit</displayName>
 				<unitPattern count="one">{0} Grad Fahrenheit</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Grad Fahrenheit</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Grad Fahrenheit</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Grads Fahrenheit</unitPattern>
 				<unitPattern count="other">{0} Grad Fahrenheit</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Grad Fahrenheit</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Grad Fahrenheit</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Grad Fahrenheit</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Kelvin</displayName>
 				<unitPattern count="one">{0} Kelvin</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kelvin</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kelvin</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kelvins</unitPattern>
 				<unitPattern count="other">{0} Kelvin</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kelvin</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kelvin</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kelvin</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
@@ -8647,21 +9114,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kubikkilometer</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kubikmeter</displayName>
 				<unitPattern count="one">{0} Kubikmeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kubikmeter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kubikmeter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kubikmeters</unitPattern>
 				<unitPattern count="other">{0} Kubikmeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kubikmeter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kubikmetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kubikmeter</unitPattern>
 				<perUnitPattern>{0} pro Kubikmeter</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kubikzentimeter</displayName>
 				<unitPattern count="one">{0} Kubikzentimeter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kubikzentimeter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kubikzentimeter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kubikzentimeters</unitPattern>
 				<unitPattern count="other">{0} Kubikzentimeter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kubikzentimeter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kubikzentimetern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kubikzentimeter</unitPattern>
 				<perUnitPattern>{0} pro Kubikzentimeter</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Kubikmeilen</displayName>
 				<unitPattern count="one">{0} Kubikmeile</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kubikmeile</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kubikmeile</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kubikmeile</unitPattern>
 				<unitPattern count="other">{0} Kubikmeilen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kubikmeilen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kubikmeilen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kubikmeilen</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>Kubikyards</displayName>
@@ -8669,9 +9157,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Kubikyards</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Kubikfuß</displayName>
 				<unitPattern count="one">{0} Kubikfuß</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Kubikfuß</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Kubikfuß</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Kubikfußes</unitPattern>
 				<unitPattern count="other">{0} Kubikfuß</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Kubikfuß</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Kubikfuß</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Kubikfuß</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>Kubikzoll</displayName>
@@ -8689,25 +9184,53 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Hektoliter</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Liter</displayName>
 				<unitPattern count="one">{0} Liter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Liter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Liter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Liters</unitPattern>
 				<unitPattern count="other">{0} Liter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Liter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Litern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Liter</unitPattern>
 				<perUnitPattern>{0} pro Liter</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Deziliter</displayName>
 				<unitPattern count="one">{0} Deziliter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Deziliter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Deziliter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Deziliters</unitPattern>
 				<unitPattern count="other">{0} Deziliter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Deziliter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Dezilitern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Deziliter</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Zentiliter</displayName>
 				<unitPattern count="one">{0} Zentiliter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Zentiliter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Zentiliter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Zentiliters</unitPattern>
 				<unitPattern count="other">{0} Zentiliter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Zentiliter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Zentilitern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Zentiliter</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Milliliter</displayName>
 				<unitPattern count="one">{0} Milliliter</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Milliliter</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Milliliter</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Milliliters</unitPattern>
 				<unitPattern count="other">{0} Milliliter</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Milliliter</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Millilitern</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Milliliter</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>metrische Pints</displayName>
@@ -8716,8 +9239,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>Tasse</displayName>
-				<unitPattern count="one">{0} Tasse</unitPattern>
-				<unitPattern count="other">{0} Tassen</unitPattern>
+				<unitPattern count="one">{0} metrische Tasse</unitPattern>
+				<unitPattern count="other">{0} metrische Tassen</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>Acre-Feet</displayName>
@@ -8730,56 +9253,196 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} Bushel</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>Gallonen</displayName>
+				<gender>feminine</gender>
+				<displayName>Gallone</displayName>
 				<unitPattern count="one">{0} Gallone</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} amerikanische Flüssiggallone</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} amerikanischer Flüssiggallone</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} amerikanischer Flüssiggallone</unitPattern>
 				<unitPattern count="other">{0} Gallonen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} amerikanische Flüssiggallonen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} amerikanischen Flüssiggallonen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} amerikanischer Flüssiggallonen</unitPattern>
 				<perUnitPattern>{0} pro Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>Imp. Gallone</displayName>
-				<unitPattern count="one">{0} Imp. Gallone</unitPattern>
-				<unitPattern count="other">{0} Imp. Gallonen</unitPattern>
-				<perUnitPattern>{0} pro Imp. Gallone</perUnitPattern>
+				<gender>feminine</gender>
+				<displayName draft="provisional">Imp. Gallone</displayName>
+				<unitPattern count="one" draft="provisional">{0} Imp. Gallone</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} britische Gallone</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} britischen Gallone</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} britischen Gallone</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Imp. Gallonen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} britische Gallonen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} britischen Gallonen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} britischer Gallonen</unitPattern>
+				<perUnitPattern draft="provisional">{0} pro Imp. Gallone</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Quart</displayName>
 				<unitPattern count="one">{0} Quart</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Quart</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Quart</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Quarts</unitPattern>
 				<unitPattern count="other">{0} Quart</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Quarts</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Quarts</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Quarts</unitPattern>
 			</unit>
 			<unit type="volume-pint">
+				<gender draft="provisional">neuter</gender>
 				<displayName>Pints</displayName>
 				<unitPattern count="one">{0} Pint</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Pint</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Pint</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Pints</unitPattern>
 				<unitPattern count="other">{0} Pints</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Pints</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Pints</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Pints</unitPattern>
 			</unit>
 			<unit type="volume-cup">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Cups</displayName>
 				<unitPattern count="one">{0} Cup</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Tasse</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Tasse</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Tasse</unitPattern>
 				<unitPattern count="other">{0} Cups</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Tassen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Tassen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Tassen</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Flüssigunzen</displayName>
 				<unitPattern count="one">{0} Flüssigunze</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Flüssigunze</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Flüssigunze</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Flüssigunze</unitPattern>
 				<unitPattern count="other">{0} Flüssigunzen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Flüssigunzen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Flüssigunzen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Flüssigunzen</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
+				<gender draft="provisional">feminine</gender>
 				<displayName>Imp. Flüssigunzen</displayName>
 				<unitPattern count="one">{0} Imp. Flüssigunze</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} britische Flüssigunze</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} britischer Flüssigunze</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} britischer Flüssigunze</unitPattern>
 				<unitPattern count="other">{0} Imp. Flüssigunzen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} britische Flüssigunzen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} britischen Flüssigunzen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} britischer Flüssigunzen</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Esslöffel</displayName>
 				<unitPattern count="one">{0} Esslöffel</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Esslöffel</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Esslöffel</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Esslöffels</unitPattern>
 				<unitPattern count="other">{0} Esslöffel</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Esslöffel</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Esslöffeln</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Esslöffel</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
+				<gender draft="provisional">masculine</gender>
 				<displayName>Teelöffel</displayName>
 				<unitPattern count="one">{0} Teelöffel</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Teelöffel</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Teelöffel</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Teelöffels</unitPattern>
 				<unitPattern count="other">{0} Teelöffel</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Teelöffel</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Teelöffeln</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Teelöffel</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>Barrel</displayName>
 				<unitPattern count="one">{0} Barrel</unitPattern>
 				<unitPattern count="other">{0} Barrel</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} Dessertlöffel</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Dessertlöffel</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Dessertlöffel</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Dessertlöffels</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Dessertlöffel</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Dessertlöffel</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Dessertlöffeln</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Dessertlöffel</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} britischer Dessertlöffel</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} britischen Dessertlöffel</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} britischem Dessertlöffel</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} britischen Dessertlöffels</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britische Dessertlöffel</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} britische Dessertlöffel</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} britischen Dessertlöffeln</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} britischer Dessertlöffel</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} Tropfen</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Tropfen</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Tropfen</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Tropfens</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Tropfen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Tropfen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Tropfen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Tropfen</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} britisches Flüssigdram</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} britisches Flüssigdram</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} britischem Flüssigdram</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} britischen Flüssigdrams</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britische Flüssigdram</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} britische Flüssigdram</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} britischen Flüssigdram</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} britischer Flüssigdram</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<gender draft="provisional">masculine</gender>
+				<unitPattern count="one" draft="provisional">{0} Schuss</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Schuss</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Schuss</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Schusses</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Schuss</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Schuss</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Schuss</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Schuss</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<gender draft="provisional">feminine</gender>
+				<unitPattern count="one" draft="provisional">{0} Prise</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} Prise</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} Prise</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} Prise</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Prisen</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} Prisen</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} Prisen</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} Prisen</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<gender draft="provisional">neuter</gender>
+				<unitPattern count="one" draft="provisional">{0} britisches Quart</unitPattern>
+				<unitPattern count="one" case="accusative" draft="provisional">{0} britisches Quart</unitPattern>
+				<unitPattern count="one" case="dative" draft="provisional">{0} britischem Quart</unitPattern>
+				<unitPattern count="one" case="genitive" draft="provisional">{0} britischen Quarts</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} britische Quart</unitPattern>
+				<unitPattern count="other" case="accusative" draft="provisional">{0} britische Quart</unitPattern>
+				<unitPattern count="other" case="dative" draft="provisional">{0} britischen Quart</unitPattern>
+				<unitPattern count="other" case="genitive" draft="provisional">{0} britischer Quart</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>Himmelsrichtung</displayName>

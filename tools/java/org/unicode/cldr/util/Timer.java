@@ -41,6 +41,7 @@ public final class Timer {
         return getDuration();
     }
 
+    @Override
     public String toString() {
         return nf.format(getDuration() / NANOS_PER_SECOND) + "s";
     }

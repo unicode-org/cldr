@@ -73,19 +73,19 @@ public class VerifyZones {
 
     private final static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
     private final static Map<String, Map<String, String>> metazoneToRegionToZone = sdi.getMetazoneToRegionToZone();
-    private final static Set<MetazoneRow> rows = new TreeSet<MetazoneRow>();
-    private final static Set<String> goldenZones = new HashSet<String>();
-    private final static Map<String, Integer> countryToOrder = new HashMap<String, Integer>();
+    private final static Set<MetazoneRow> rows = new TreeSet<>();
+    private final static Set<String> goldenZones = new HashSet<>();
+    private final static Map<String, Integer> countryToOrder = new HashMap<>();
 
     private final static List<Format> FORMAT_LIST = Arrays.asList(Format.VVVV, Format.vvvv, Format.v, Format.zzzz,
         Format.z, Format.zzzz, Format.z);
     static {
 
         // find out which canonical zones are not in a metazone
-        Map<String, String> nameToCountry = new TreeMap<String, String>();
+        Map<String, String> nameToCountry = new TreeMap<>();
         String[] zones = TimeZone.getAvailableIDs();
-        Set<String> zoneSet = new LinkedHashSet<String>();
-        Set<String> noncanonical = new LinkedHashSet<String>();
+        Set<String> zoneSet = new LinkedHashSet<>();
+        Set<String> noncanonical = new LinkedHashSet<>();
         for (String zone : zones) {
             String countryCode = TimeZone.getRegion(zone);
             String englishTerritory = ULocale.getDisplayCountry("und-" + countryCode, ULocale.ENGLISH);
@@ -113,7 +113,7 @@ public class VerifyZones {
             showVennSets(metazones, metazoneToRegionToZone.keySet());
         }
 
-        Set<String> zonesInMetazones = new LinkedHashSet<String>();
+        Set<String> zonesInMetazones = new LinkedHashSet<>();
         for (String metazone : metazones) {
             //String container = PathHeader.getMetazonePageTerritory(metazone);
             Map<String, String> regionToZone = metazoneToRegionToZone.get(metazone);
@@ -130,7 +130,7 @@ public class VerifyZones {
         //System.out.println("Zones. A = canonical zones, B = zones in metazonesToRegionToZone");
         //showVennSets(zoneSet, zonesInMetazones);
         vennSets(zoneSet, zonesInMetazones);
-        Set<String> found = new LinkedHashSet<String>();
+        Set<String> found = new LinkedHashSet<>();
         for (String zone : zoneSet) {
             Set<MetaZoneRange> metaZoneRanges = sdi.getMetaZoneRanges(zone);
             if (metaZoneRanges == null) {
@@ -181,9 +181,9 @@ public class VerifyZones {
     }
 
     private static void showVennSets(Set<String> zoneSet, Set<String> zonesInMetazones) {
-        Set<String> common = new LinkedHashSet<String>();
-        Set<String> firstMinusSecond = new LinkedHashSet<String>();
-        Set<String> secondMinusFirst = new LinkedHashSet<String>();
+        Set<String> common = new LinkedHashSet<>();
+        Set<String> firstMinusSecond = new LinkedHashSet<>();
+        Set<String> secondMinusFirst = new LinkedHashSet<>();
         vennSets(zoneSet, zonesInMetazones, common, firstMinusSecond, secondMinusFirst);
         if (!common.isEmpty()) System.out.println("A & B:\t" + common.size() + "\t" + common);
         if (!firstMinusSecond.isEmpty()) System.out.println("A - B:\t" + firstMinusSecond.size() + "\t" + firstMinusSecond);
@@ -234,7 +234,7 @@ public class VerifyZones {
 
         Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
-        
+
         new File(DIR).mkdirs();
         FileCopier.copy(ShowData.class, "verify-index.html", CLDRPaths.VERIFY_DIR, "index.html");
         FileCopier.copy(ChartDelta.class, "index.css", CLDRPaths.VERIFY_DIR, "index.css");

@@ -26,13 +26,6 @@ public class Race {
         resolver = ballotBox.getResolver(xpath);
     }
 
-    private DataTester tester = null;
-
-    public void setTester(DataTester tester) {
-        STFactory.unimp();
-        this.tester = tester;
-    }
-
     // All votes for a particular item
     class Chad implements Comparable<Chad> {
         String value;
@@ -93,10 +86,6 @@ public class Race {
     public String resolverToString() {
         return resolver.toString() + "\n" + "WinningXpath: " + resolver.getWinningValue() + "#" + resolver.getWinningValue()
             + " " + resolver.getWinningStatus() + "\n";
-    }
-
-    public String getOrgVote(String organization) {
-        return getOrgVote(Organization.valueOf(organization));
     }
 
     public String getOrgVote(Organization org) {

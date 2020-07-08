@@ -20,21 +20,21 @@ import org.unicode.cldr.util.SetComparator;
  * This definition can be expanded across multiple combinations. For example {@code optR+caps? cmd+shift} gets
  * transformed into {@code optR+caps, optR,
  * cmd+shiftL, cmd+shiftR, cmd+shiftL+shiftR} .
- * 
+ *
  * <h1>Usage</h1>
  * <p>
  * There is a 1 to 1 relationship between a {@link KeyboardModifierSet} and a particular key map (a mapping from
  * physical keys to their output).
- * 
+ *
  * <pre>
- * {@code 
+ * {@code
  * // Create the set from the XML modifier=".." attribute
- * ModifierSet modifierSet = ModifierSet.parseSet(<modifier=".." value from XML>); 
+ * ModifierSet modifierSet = ModifierSet.parseSet(<modifier=".." value from XML>);
  * // Test if this set is active for a particular input combination provided by the keyboard
  * modifierSet.contains(<some combination to test>);
  * }
  * </pre>
- * 
+ *
  * @author rwainman@google.com (Raymond Wainman)
  */
 public class KeyboardModifierSet {
@@ -45,7 +45,7 @@ public class KeyboardModifierSet {
         cmd, ctrlL, ctrlR, caps, altL, altR, optL, optR, shiftL, shiftR;
     }
 
-    static final SetComparator<Modifier> SINGLETON_COMPARATOR = new SetComparator<Modifier>();
+    static final SetComparator<Modifier> SINGLETON_COMPARATOR = new SetComparator<>();
 
     /** Initial input string */
     private final String input;
@@ -54,14 +54,14 @@ public class KeyboardModifierSet {
 
     /**
      * Private constructor. See factory {@link #parseSet} method.
-     * 
+     *
      * @param variants
      *            A set containing all possible variants of the combination
      *            provided in the input string.
      */
     private KeyboardModifierSet(String input, Set<EnumSet<Modifier>> variants) {
         this.input = input;
-        Set<Set<Modifier>> safe = new TreeSet<Set<Modifier>>(SINGLETON_COMPARATOR);
+        Set<Set<Modifier>> safe = new TreeSet<>(SINGLETON_COMPARATOR);
         for (EnumSet<Modifier> item : variants) {
             safe.add(Collections.unmodifiableSet(item));
         }
@@ -70,7 +70,7 @@ public class KeyboardModifierSet {
 
     /**
      * Return all possible variants for this combination.
-     * 
+     *
      * @return Set containing all possible variants.
      */
     public Set<Set<Modifier>> getVariants() {
@@ -79,7 +79,7 @@ public class KeyboardModifierSet {
 
     /**
      * Determines if the given combination is valid within this set.
-     * 
+     *
      * @param combination
      *            A combination of Modifier elements.
      * @return True if the combination is valid, false otherwise.
@@ -118,7 +118,7 @@ public class KeyboardModifierSet {
      * </ul>
      * <p>
      * The '?' symbol appended to some modifiers indicates that this modifier is optional (it can be ON or OFF).
-     * 
+     *
      * @param input
      *            String representing the sets of modifier sets. This string
      *            must match the format defined in the LDML Keyboard Standard.
@@ -133,7 +133,7 @@ public class KeyboardModifierSet {
         }
 
         String modifierSetInputs[] = input.trim().split(" ");
-        Set<EnumSet<Modifier>> variants = new HashSet<EnumSet<Modifier>>();
+        Set<EnumSet<Modifier>> variants = new HashSet<>();
         for (String modifierSetInput : modifierSetInputs) {
             variants.addAll(parseSingleSet(modifierSetInput));
         }
@@ -146,7 +146,7 @@ public class KeyboardModifierSet {
      * containing all possible variants for that particular modifier set.
      * <p>
      * For example {@code alt+caps+cmd?} gets expanded into {@code alt+caps+cmd?, alt+caps} .
-     * 
+     *
      * @param input
      *            The input string representing the modifiers. This String must
      *            match the format defined in the LDML Keyboard Standard.
@@ -164,13 +164,13 @@ public class KeyboardModifierSet {
 
         String modifiers[] = input.trim().split("\\+");
 
-        List<EnumSet<Modifier>> variants = new ArrayList<EnumSet<Modifier>>();
+        List<EnumSet<Modifier>> variants = new ArrayList<>();
         variants.add(EnumSet.noneOf(Modifier.class)); // Add an initial set
                                                       // which is empty
 
         // Trivial case
         if (input.isEmpty()) {
-            return new HashSet<EnumSet<Modifier>>(variants);
+            return new HashSet<>(variants);
         }
 
         for (String modifier : modifiers) {
@@ -183,7 +183,7 @@ public class KeyboardModifierSet {
                 // Keep a collection of the new variants that need to be added
                 // while iterating over the
                 // existing ones
-                Set<EnumSet<Modifier>> newVariants = new HashSet<EnumSet<Modifier>>();
+                Set<EnumSet<Modifier>> newVariants = new HashSet<>();
                 for (EnumSet<Modifier> variant : variants) {
                     // A parent key gets exploded into {Left, Right, Left+Right}
                     // or {Left, Right, Left+Right,
@@ -228,7 +228,7 @@ public class KeyboardModifierSet {
                 // Don't care case, make a copy of the existing variants and add
                 // the new key to it.
                 else {
-                    List<EnumSet<Modifier>> newVariants = new ArrayList<EnumSet<Modifier>>();
+                    List<EnumSet<Modifier>> newVariants = new ArrayList<>();
                     for (EnumSet<Modifier> variant : variants) {
                         EnumSet<Modifier> newVariant = EnumSet.copyOf(variant);
                         newVariant.add(modifierElement);
@@ -239,7 +239,7 @@ public class KeyboardModifierSet {
             }
         }
 
-        return new HashSet<EnumSet<Modifier>>(variants);
+        return new HashSet<>(variants);
     }
 
     /**
@@ -260,7 +260,7 @@ public class KeyboardModifierSet {
 
         /**
          * Determines if the String passed in is a valid parent key.
-         * 
+         *
          * @param modifier
          *            The modifier string to verify.
          * @return True if it is a parent key, false otherwise.

@@ -11,17 +11,17 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class IsoRegionData {
-    static Map<String, String> _numeric = new HashMap<String, String>();
-    static Map<String, String> _alpha3 = new HashMap<String, String>();
-    static Map<String, String> _fips10 = new HashMap<String, String>();
-    static Map<String, String> _internet = new HashMap<String, String>();
-    static Set<String> other_internet = new TreeSet<String>();
-    static Set<String> available = new HashSet<String>();
+    static Map<String, String> _numeric = new HashMap<>();
+    static Map<String, String> _alpha3 = new HashMap<>();
+    static Map<String, String> _fips10 = new HashMap<>();
+    static Map<String, String> _internet = new HashMap<>();
+    static Set<String> other_internet = new TreeSet<>();
+    static Set<String> available = new HashSet<>();
 
     static final UnicodeSet NMTOKEN = new UnicodeSet(
         "[\\-.0-\\:A-Z_a-z\\u00B7\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u037D\\u037F-\\u1FFF\\u200C\\u200D\\u203F\\u2040\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\U00010000-\\U000EFFFF]")
@@ -66,7 +66,7 @@ public class IsoRegionData {
             }
             codes.close();
 
-            Set<String> errors = new LinkedHashSet<String>();
+            Set<String> errors = new LinkedHashSet<>();
             codes = CldrUtility.getUTF8Data("territory_codes.txt");
             while (true) {
                 String line = codes.readLine();
@@ -90,14 +90,14 @@ public class IsoRegionData {
                 String internet = values[3];
                 if (internet != null) {
                     internet = internet.toUpperCase();
-                    LinkedHashSet<String> internetStrings = new LinkedHashSet<String>(
+                    LinkedHashSet<String> internetStrings = new LinkedHashSet<>(
                         Arrays.asList(internet.split("/")));
                     if (!other_internet.containsAll(internetStrings)) {
                         errors.addAll(internetStrings);
                         errors.removeAll(other_internet);
                     }
                     other_internet.removeAll(internetStrings);
-                    internet = CollectionUtilities.join(internetStrings, " ");
+                    internet = Joiner.on(" ").join(internetStrings);
                 }
                 String fips10 = values[4];
                 _numeric.put(alpha2, numeric);
@@ -112,7 +112,7 @@ public class IsoRegionData {
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
-        _internet.put("ZZ", CollectionUtilities.join(other_internet, " "));
+        _internet.put("ZZ", Joiner.on(" ").join(other_internet));
 
         other_internet = Collections.unmodifiableSet(other_internet);
 

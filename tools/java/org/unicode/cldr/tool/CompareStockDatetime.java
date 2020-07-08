@@ -28,7 +28,7 @@ public class CompareStockDatetime {
             { "time", "short" },
         };
 
-        Map<String, Relation<String, String>> lengthToSkeletonToLocales = new TreeMap<String, Relation<String, String>>();
+        Map<String, Relation<String, String>> lengthToSkeletonToLocales = new TreeMap<>();
         // new Relation(new TreeMap(), TreeSet.class);
         Set<String> defaultContentLocales = info.getSupplementalDataInfo().getDefaultContentLocales();
 

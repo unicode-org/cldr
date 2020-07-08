@@ -19,15 +19,15 @@ public final class Transformer<S, V> implements Iterator<V> {
     private V nextItem;
 
     public static <S, V> Transformer<S, V> iterator(Transform<S, ? extends V> transform, Iterator<? extends S> iterator) {
-        return new Transformer<S, V>(transform, iterator);
+        return new Transformer<>(transform, iterator);
     }
 
     public static <S, V> Transformer<S, V> iterator(Transform<S, ? extends V> transform, Iterable<? extends S> iterable) {
-        return new Transformer<S, V>(transform, iterable.iterator());
+        return new Transformer<>(transform, iterable.iterator());
     }
 
     public static <S, V> Transformer<S, V> iterator(Transform<S, ? extends V> transform, S... items) {
-        return new Transformer<S, V>(transform, Arrays.asList(items).iterator());
+        return new Transformer<>(transform, Arrays.asList(items).iterator());
     }
 
     public static <S, V> With<V> iterable(Transform<S, ? extends V> transform, Iterator<? extends S> iterator) {

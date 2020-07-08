@@ -37,9 +37,9 @@ public class JsonConverter {
                                                                           // //CldrUtility.MAIN_DIRECTORY;
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/jason/"; // CldrUtility.MAIN_DIRECTORY;
     private static boolean COMPACT = false;
-    static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<String>(
+    static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<>(
         Arrays.asList("type id key count".split("\\s")));
-    static final Set<String> EXTRA_DISTINGUISHING = new HashSet<String>(
+    static final Set<String> EXTRA_DISTINGUISHING = new HashSet<>(
         Arrays.asList("locales territory desired supported".split("\\s")));
     static final Relation<String, String> mainInfo = ElementAttributeInfo.getInstance(DtdType.ldml)
         .getElement2Attributes();
@@ -49,7 +49,7 @@ public class JsonConverter {
     public static void main(String[] args) throws IOException {
         final String subdirectory = new File(MAIN_DIRECTORY).getName();
         final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
-        final Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
+        final Set<String> locales = new TreeSet<>(cldrFactory.getAvailable());
         /*
          * TODO: "parts" is always empty, so all the code using it is wasted!
          */
@@ -64,7 +64,7 @@ public class JsonConverter {
                 final String xpath = it.next();
                 final String fullXpath = file.getFullXPath(xpath);
                 String value = file.getStringValue(xpath);
-                XPathParts oldParts = XPathParts.getInstance(fullXpath); // not frozen, rewrite can modify
+                XPathParts oldParts = XPathParts.getFrozenInstance(fullXpath).cloneAsThawed(); // not frozen, rewrite can modify
                 if (dtdType == null) {
                     dtdType = DtdType.valueOf(parts.getElement(0));
                 }
@@ -230,6 +230,7 @@ public class JsonConverter {
             suffix.append('$').append(attribute).append('=').append(attributeValue);
         }
 
+        @Override
         public String toString() {
             if (suffix == null) {
                 return base;
@@ -309,6 +310,7 @@ public class JsonConverter {
             return result.append('"');
         }
 
+        @Override
         public String toString() {
             return print(new StringBuilder(), 0).toString();
         }
@@ -342,12 +344,13 @@ public class JsonConverter {
             super(parent);
         }
 
-        private Map<String, Item> map = new LinkedHashMap<String, Item>();
+        private Map<String, Item> map = new LinkedHashMap<>();
 
         public Item get(String element) {
             return map.get(element);
         }
 
+        @Override
         public void put(String element, String value) {
             Item old = map.get(element);
             if (old != null) {
@@ -362,6 +365,7 @@ public class JsonConverter {
             map.put(element, new StringItem(value));
         }
 
+        @Override
         public Item makeSubItem(String element, Type ordered) {
             Item result = map.get(element);
             if (result != null) {
@@ -374,6 +378,7 @@ public class JsonConverter {
             return result;
         }
 
+        @Override
         public Appendable print(Appendable result, int i) {
             try {
                 if (map.size() == 0) {
@@ -412,7 +417,7 @@ public class JsonConverter {
             super(parent);
         }
 
-        private List<Row.R2<String, Item>> list = new ArrayList<Row.R2<String, Item>>();
+        private List<Row.R2<String, Item>> list = new ArrayList<>();
 
         @Override
         public Appendable print(Appendable result, int i) {
@@ -443,12 +448,14 @@ public class JsonConverter {
             }
         }
 
+        @Override
         public Item makeSubItem(String element, Type ordered) {
             Item result = create(ordered);
             list.add(Row.of(element, result));
             return result;
         }
 
+        @Override
         public void put(String element, String value) {
             list.add(Row.of(element, (Item) new StringItem(value)));
         }

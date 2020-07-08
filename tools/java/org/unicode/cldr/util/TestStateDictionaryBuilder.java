@@ -55,10 +55,10 @@ public class TestStateDictionaryBuilder<T> {
     Dictionary<T> simpleDictionary;
     Dictionary.Matcher<T> simpleMatcher;
 
-    Map<CharSequence, T> baseMapping = new TreeMap<CharSequence, T>();
+    Map<CharSequence, T> baseMapping = new TreeMap<>();
 
-    final StateDictionaryBuilder<T> stateDictionaryBuilder = new StateDictionaryBuilder<T>();
-    final SimpleDictionaryBuilder<T> simpleDictionaryBuilder = new SimpleDictionaryBuilder<T>();
+    final StateDictionaryBuilder<T> stateDictionaryBuilder = new StateDictionaryBuilder<>();
+    final SimpleDictionaryBuilder<T> simpleDictionaryBuilder = new SimpleDictionaryBuilder<>();
 
     // TODO: convert to TestFramework
     public static void main(String[] args) {
@@ -235,7 +235,7 @@ public class TestStateDictionaryBuilder<T> {
             "[[:assigned:] - [:ideographic:] - [:Co:] - [:Cs:]]"); // &
         // [\\u0000-\\u0FFF]
         int count = 0;
-        Map<String, T> data = new TreeMap<String, T>();
+        Map<String, T> data = new TreeMap<>();
         for (UnicodeSetIterator it = new UnicodeSetIterator(testSet); it.next();) {
             String name = UCharacter.getExtendedName(it.codepoint);
             if (name == null) {
@@ -283,7 +283,7 @@ public class TestStateDictionaryBuilder<T> {
             if ((++count & 0xFF) == 0xFF) {
                 System.out.println(count + ":\t" + myText);
             }
-            crossCheck(new CharSourceWrapper<CharSequence>(myText));
+            crossCheck(new CharSourceWrapper<>(myText));
             crossCheck("!" + myText);
             crossCheck(myText + "!");
         }
@@ -305,7 +305,7 @@ public class TestStateDictionaryBuilder<T> {
     }
 
     private void crossCheck(CharSequence myText) {
-        crossCheck(new CharSourceWrapper<CharSequence>(myText));
+        crossCheck(new CharSourceWrapper<>(myText));
     }
 
     private void crossCheck(CharSource myText) {
@@ -411,10 +411,10 @@ public class TestStateDictionaryBuilder<T> {
                 System.out.println("  DIFFERENCE");
                 showWords("Simple", simpleMatcher, myText);
                 showWords("STATE", stateMatcher, myText);
-                Set<String> simpleMinusState = new LinkedHashSet<String>(simpleResult);
+                Set<String> simpleMinusState = new LinkedHashSet<>(simpleResult);
                 simpleMinusState.removeAll(stateResult);
                 System.out.println("Simple-State" + simpleMinusState);
-                Set<String> stateMinusSimple = new LinkedHashSet<String>(stateResult);
+                Set<String> stateMinusSimple = new LinkedHashSet<>(stateResult);
                 stateMinusSimple.removeAll(simpleResult);
                 System.out.println("State-Simple" + stateMinusSimple);
             }
@@ -425,7 +425,7 @@ public class TestStateDictionaryBuilder<T> {
         title = title.equals("") ? "" : "\tType: " + title;
         // Walk through a strings and gather information about what we find
         // according to the matcher
-        Set<String> result = new LinkedHashSet<String>();
+        Set<String> result = new LinkedHashSet<>();
         // Set the text to operate on
         matcher.setText(myText);
         boolean uniquePartial = false;

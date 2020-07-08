@@ -48,20 +48,20 @@ public class AddPopulationData {
     private static final String GCP = "NY.GNP.MKTP.PP.CD";
     private static final String POP = "SP.POP.TOTL";
     private static final String EMPTY = "..";
-    private static Counter2<String> worldbank_gdp = new Counter2<String>();
-    private static Counter2<String> worldbank_population = new Counter2<String>();
-    private static Counter2<String> un_literacy = new Counter2<String>();
+    private static Counter2<String> worldbank_gdp = new Counter2<>();
+    private static Counter2<String> worldbank_population = new Counter2<>();
+    private static Counter2<String> un_literacy = new Counter2<>();
 
-    private static Counter2<String> factbook_gdp = new Counter2<String>();
-    private static Counter2<String> factbook_population = new Counter2<String>();
-    private static Counter2<String> factbook_literacy = new Counter2<String>();
+    private static Counter2<String> factbook_gdp = new Counter2<>();
+    private static Counter2<String> factbook_population = new Counter2<>();
+    private static Counter2<String> factbook_literacy = new Counter2<>();
 
     private static CountryData other = new CountryData();
 
     static class CountryData {
-        private static Counter2<String> population = new Counter2<String>();
-        private static Counter2<String> gdp = new Counter2<String>();
-        private static Counter2<String> literacy = new Counter2<String>();
+        private static Counter2<String> population = new Counter2<>();
+        private static Counter2<String> gdp = new Counter2<>();
+        private static Counter2<String> literacy = new Counter2<>();
     }
 
     public static void main(String[] args) throws IOException {
@@ -75,7 +75,7 @@ public class AddPopulationData {
         for (String country : StandardCodes.make().getGoodCountries()) {
             showCountryData(country);
         }
-        Set<String> outliers = new TreeSet<String>();
+        Set<String> outliers = new TreeSet<>();
         outliers.addAll(factbook_population.keySet());
         outliers.addAll(worldbank_population.keySet());
         outliers.addAll(factbook_gdp.keySet());
@@ -94,10 +94,10 @@ public class AddPopulationData {
             }
             throw new IllegalArgumentException("Mistakes: data for non-country codes");
         }
-        Set<String> altNames = new TreeSet<String>();
+        Set<String> altNames = new TreeSet<>();
         String oldCode = "";
         for (String display : CountryCodeConverter.names()) {
-            String code = CountryCodeConverter.getCodeFromName(display);
+            String code = CountryCodeConverter.getCodeFromName(display, true);
             String icu = ULocale.getDisplayCountry("und-" + code, "en");
             if (!display.equalsIgnoreCase(icu)) {
                 altNames.add(code + "\t" + display + "\t" + icu);
@@ -161,7 +161,7 @@ public class AddPopulationData {
         // each item is of the form abc...
         // or "..." (required if a comma or quote is contained)
         // " in a field is represented by ""
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder item = new StringBuilder();
         boolean inQuote = false;
         for (int i = 0; i < line.length(); ++i) {
@@ -195,13 +195,14 @@ public class AddPopulationData {
 
     private static void loadFactbookInfo(String filename, final Counter2<String> factbookGdp) throws IOException {
         CldrUtility.handleFile(filename, new LineHandler() {
+            @Override
             public boolean handle(String line) {
                 if (line.length() == 0 || line.startsWith("This tab") || line.startsWith("Rank")
                     || line.startsWith(" This file")) {
                     return false;
                 }
                 String[] pieces = line.split("\\s{2,}");
-                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces));
+                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces), true);
                 if (code == null) {
                     return false;
                 }
@@ -239,6 +240,7 @@ public class AddPopulationData {
             this.countryData = countryData;
         }
 
+        @Override
         public boolean handle(String line) throws ParseException {
             if (line.startsWith("#")) return true;
             if (line.length() == 0) {
@@ -286,14 +288,15 @@ public class AddPopulationData {
         }
     }
 
-    static final UnicodeSet DIGITS = (UnicodeSet) new UnicodeSet("[:Nd:]").freeze();
+    static final UnicodeSet DIGITS = new UnicodeSet("[:Nd:]").freeze();
 
     private static void loadFactbookLiteracy() throws IOException {
         final String filename = "external/factbook_literacy.txt";
         CldrUtility.handleFile(filename, new LineHandler() {
+            @Override
             public boolean handle(String line) {
                 String[] pieces = line.split("\\t");
-                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces));
+                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces), true);
                 if (code == null) {
                     return false;
                 }
@@ -322,6 +325,7 @@ public class AddPopulationData {
         // List<List<String>> data = SpreadSheet.convert(CldrUtility.getUTF8Data(filename));
 
         CldrUtility.handleFile(filename, new LineHandler() {
+            @Override
             public boolean handle(String line) {
                 if (line.contains("Series Code")) {
                     return false;
@@ -344,7 +348,7 @@ public class AddPopulationData {
                 if (last == null) {
                     return false;
                 }
-                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces));
+                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces), true);
                 if (country == null) {
                     return false;
                 }
@@ -374,6 +378,7 @@ public class AddPopulationData {
 
     private static void loadUnLiteracy() throws IOException {
         CldrUtility.handleFile("external/un_literacy.csv", new CldrUtility.LineHandler() {
+            @Override
             public boolean handle(String line) {
                 // Afghanistan,2000, ,28,43,13,,34,51,18
                 // "Country or area","Year",,"Adult (15+) literacy rate",,,,,,"         Youth (15-24) literacy rate",,,,
@@ -383,7 +388,7 @@ public class AddPopulationData {
                 if (pieces.length != 14 || pieces[1].length() == 0 || !DIGITS.containsAll(pieces[1])) {
                     return false;
                 }
-                String code = CountryCodeConverter.getCodeFromName(pieces[0]);
+                String code = CountryCodeConverter.getCodeFromName(pieces[0], true);
                 if (code == null) {
                     return false;
                 }
@@ -437,7 +442,7 @@ public class AddPopulationData {
             }
             if (myErrors.length() != 0) {
                 throw new IllegalArgumentException(
-                    "Missing Country values, the following and add to external/other_country_data to fix:"
+                    "Missing Country values, the following and add to external/other_country_data to fix, chaning the 0 to the real value:"
                         + myErrors);
             }
         } catch (IOException e) {

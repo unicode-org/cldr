@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.unicode.cldr.draft;
 
@@ -47,7 +47,7 @@ public class CharEncoder {
      * the bytes
      * converted, and fill in the destination. In either case, if isVerifyRoundtrip() then check that the roundtrip
      * works.
-     * 
+     *
      * @param codepoint
      * @param destination
      * @param offset

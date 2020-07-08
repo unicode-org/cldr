@@ -20,6 +20,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
@@ -30,7 +31,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.Output;
@@ -69,7 +69,8 @@ public class XLocaleDistance {
 
         for (String container : SDI.getContainers()) {
             Set<String> contained = SDI.getContained(container);
-            System.out.println(".putAll(\"" + container + "\", \"" + CollectionUtilities.join(contained, "\", \"") + "\")");
+            System.out.println(".putAll(\"" + container + "\", \"" + Joiner.on("\", \"")
+                .join(contained) + "\")");
         }
 
         ImmutableMultimap.Builder<String, String> containerToFinalContainedBuilder = new ImmutableMultimap.Builder<>();
@@ -207,9 +208,10 @@ public class XLocaleDistance {
         /**
          * Return an id, or null if there is none.
          */
+        @Override
         public Integer toId(T source) {
             return objectToInt.get(source);
-//            return value == null ? 0 : value; 
+//            return value == null ? 0 : value;
         }
 
         /**
@@ -304,6 +306,7 @@ public class XLocaleDistance {
             }
         }
 
+        @Override
         public DistanceTable getDistanceTable() {
             return distanceTable;
         }
@@ -340,6 +343,7 @@ public class XLocaleDistance {
             this(newMap());
         }
 
+        @Override
         public boolean isEmpty() {
             return subtables.isEmpty();
         }
@@ -358,6 +362,7 @@ public class XLocaleDistance {
             return subtables.hashCode();
         }
 
+        @Override
         public int getDistance(String desired, String supported, Output<DistanceTable> distanceTable, boolean starEquals) {
             boolean star = false;
             Map<String, DistanceNode> sub2 = subtables.get(desired);
@@ -502,8 +507,9 @@ public class XLocaleDistance {
             return toString(false);
         }
 
+        @Override
         public String toString(boolean abbreviate) {
-            return toString(abbreviate, "", new IdMakerFull<Object>("interner"), new StringBuilder()).toString();
+            return toString(abbreviate, "", new IdMakerFull<>("interner"), new StringBuilder()).toString();
         }
 
         public StringBuilder toString(boolean abbreviate, String indent, IdMakerFull<Object> intern, StringBuilder buffer) {
@@ -547,6 +553,7 @@ public class XLocaleDistance {
             return buffer;
         }
 
+        @Override
         public StringDistanceTable compact() {
             return new CompactAndImmutablizer().compact(this);
         }
@@ -575,6 +582,7 @@ public class XLocaleDistance {
             return dnode == null ? null : dnode.distance;
         }
 
+        @Override
         public DistanceNode getInternalNode(String a, String b) {
             Map<String, DistanceNode> subsub = subtables.get(a);
             if (subsub == null) {
@@ -583,6 +591,7 @@ public class XLocaleDistance {
             return subsub.get(b);
         }
 
+        @Override
         public Map<String, Set<String>> getInternalMatches() {
             Map<String, Set<String>> result = new LinkedHashMap<>();
             for (Entry<String, Map<String, DistanceNode>> entry : subtables.entrySet()) {
@@ -642,7 +651,7 @@ public class XLocaleDistance {
      * ULocales must be in canonical, addLikelySubtags format. Returns distance
      * @param desired
      * @param supported
-     * @param distanceOption 
+     * @param distanceOption
      * @return
      */
     public int distanceRaw(LSR desired, LSR supported, int threshold, DistanceOption distanceOption) {
@@ -778,7 +787,8 @@ public class XLocaleDistance {
         }
         if (PRINT_OVERRIDES) {
             System.out.println("\t\t<languageMatches type=\"written\" alt=\"enhanced\">");
-            System.out.println("\t\t\t<paradigmLocales locales=\"" + CollectionUtilities.join(paradigmRegions, " ")
+            System.out.println("\t\t\t<paradigmLocales locales=\"" + String
+                .join(" ", paradigmRegions)
                 + "\"/>");
             for (String[] variableRule : variableOverrides) {
                 System.out.println("\t\t\t<matchVariable id=\"" + variableRule[0]
@@ -879,8 +889,8 @@ public class XLocaleDistance {
 
     private static void printMatchXml(List<String> desired, List<String> supported, Integer distance, Boolean oneway) {
         if (PRINT_OVERRIDES) {
-            String desiredStr = CollectionUtilities.join(desired, "_");
-            String supportedStr = CollectionUtilities.join(supported, "_");
+            String desiredStr = Joiner.on("_").join(desired);
+            String supportedStr = Joiner.on("_").join(supported);
             String desiredName = fixedName(desired);
             String supportedName = fixedName(supported);
             System.out.println("\t\t\t<languageMatch"
@@ -893,7 +903,7 @@ public class XLocaleDistance {
     }
 
     private static String fixedName(List<String> match) {
-        List<String> alt = new ArrayList<String>(match);
+        List<String> alt = new ArrayList<>(match);
         StringBuilder result = new StringBuilder();
         switch (alt.size()) {
         case 3:
@@ -918,7 +928,7 @@ public class XLocaleDistance {
                 result.insert(0, english.getName(CLDRFile.TERRITORY_NAME, language));
             }
         }
-        return CollectionUtilities.join(alt, "; ");
+        return Joiner.on("; ").join(alt);
     }
 
     static public void add(StringDistanceTable languageDesired2Supported, List<String> desired, List<String> supported, int percentage) {
@@ -999,6 +1009,7 @@ public class XLocaleDistance {
             paradigms = ImmutableSet.copyOf(paradigmsIn);
         }
 
+        @Override
         public String toId(String region) {
             String result = regionToPartition.get(region);
             return result == null ? "" : result;
@@ -1114,7 +1125,7 @@ public class XLocaleDistance {
     }
 
     /**
-     * Parses a string of regions like "US+005-BR" and produces a set of resolved regions. 
+     * Parses a string of regions like "US+005-BR" and produces a set of resolved regions.
      * All macroregions are fully resolved to sets of non-macro regions.
      * <br>Syntax is simple for now:
      * <pre>regionSet := region ([-+] region)*</pre>

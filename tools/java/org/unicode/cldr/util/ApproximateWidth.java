@@ -3,7 +3,7 @@ package org.unicode.cldr.util;
 import com.ibm.icu.dev.util.UnicodeMap;
 
 public class ApproximateWidth {
-    static UnicodeMap<Integer> data = new UnicodeMap<Integer>();
+    static UnicodeMap<Integer> data = new UnicodeMap<>();
     static Integer defaultWidth;
 
     public static Integer getWidth(int cp) {
@@ -11,8 +11,8 @@ public class ApproximateWidth {
         return result == null ? defaultWidth : result;
     }
 
-    /** 
-     * Return # of ems * 10 
+    /**
+     * Return # of ems * 10
      */
     public static int getWidth(CharSequence s) {
         int result = 0;
@@ -32,7 +32,7 @@ public class ApproximateWidth {
                     String[] items = SPLIT.split(line);
                     defaultWidth = Integer.parseInt(items[1]);
                 }
-            };
+            }
 
             @Override
             protected boolean handleLine(int lineCount, int start, int end, String[] items) {

@@ -10,24 +10,6 @@
 const INHERITANCE_MARKER = "↑↑↑";
 
 /**
- * Format a date and time for display in a forum post.
- *
- * @param x the number of seconds since 1970-01-01
- * @returns the formatted date and time as a string
- *
- * Like "2018-05-16 13:45" per cldr-dev@unicode.org.
- */
-function fmtDateTime(x) {
-	const d = new Date(x);
-
-	function pad(n) {
-		return (n < 10) ? '0' + n : n;
-	}
-	return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
-		' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
-}
-
-/**
  * Is the given string for a report, that is, does it start with "r_"?
  *
  * @class GLOBAL
@@ -71,23 +53,6 @@ function addClass(obj, className) {
 		obj.className = className + " " + obj.className;
 	}
 	return obj;
-}
-
-/**
- *
- */
-function post2text(text) {
-	if (text === undefined || text === null) {
-		text = "(empty)";
-	}
-	var out = text;
-	out = out.replace(/<p>/g, '\n');
-	out = out.replace(/&quot;/g, '"');
-	out = out.replace(/&lt;/g, '<');
-	out = out.replace(/&gt;/g, '>');
-	out = out.replace(/&amp;/g, '&');
-
-	return out;
 }
 
 /**
@@ -662,7 +627,7 @@ function createLinkToFn(strid, fn, tag) {
 function createGravitar(user) {
 	if (user.emailHash) {
 		var gravatar = document.createElement("img");
-		gravatar.src = 'http://www.gravatar.com/avatar/' + user.emailHash + '?d=identicon&r=g&s=32';
+		gravatar.src = 'https://www.gravatar.com/avatar/' + user.emailHash + '?d=identicon&r=g&s=32';
 		gravatar.title = 'gravatar - http://www.gravatar.com';
 		return gravatar;
 	} else {
@@ -691,219 +656,6 @@ function createUser(user) {
 	div.appendChild(div.userOrg = createChunk(user.orgName + ' #' + user.id, "span", "adminOrgName"));
 	div.appendChild(div.userEmail = createChunk(user.email, "address", "adminUserAddress"));
 	return div;
-}
-
-/**
- * Create a DOM object referring to this forum post
- *
- * @param {Object} json - options
- * @param {Array} j.ret - forum post data
- * @return {Object} new DOM object
- */
-function parseForumContent(json) {
-	var forumDiv = document.createDocumentFragment();
-
-	// json.ret has posts in reverse order (newest first).
-	var postDivs = {}; //  postid -> div
-	var topicDivs = {}; // xpath -> div or "#123" -> div
-	var postHash = {}; // postid -> item
-
-	// first, collect the posts.
-	for (num in json.ret) {
-		postHash[json.ret[num].id] = json.ret[num];
-	}
-
-	// now, collect the threads
-	function threadId(post) {
-		if (post.parent >= 0 && postHash[post.parent]) {
-			// if  the parent exists.
-			return threadId(postHash[post.parent]);
-		}
-		if (post.xpath) {
-			return post.locale + "|" + post.xpath; // item post
-		} else {
-			return post.locale + "|#" + post.id; // non-item post
-		}
-	}
-
-	// next, add threadIds and create the topic divs
-	for (num in json.ret) {
-		var post = json.ret[num];
-		post.threadId = threadId(post);
-
-		if (!topicDivs[post.threadId]) {
-			// add the topic div
-			var topicDiv = document.createElement('div');
-			topicDiv.className = 'well well-sm postTopic';
-			var topicInfo = createChunk("", "h4", "postTopicInfo");
-			if (!json.noItemLink) {
-				topicDiv.appendChild(topicInfo);
-				if (post.locale) {
-					var localeLink = createChunk(locmap.getLocaleName(post.locale), "a", "localeName");
-					if (post.locale != surveyCurrentLocale) {
-						localeLink.href = linkToLocale(post.locale);
-						//localeLink.className = localeLink.className + " label label-warning";
-					}
-					topicInfo.appendChild(localeLink);
-				}
-			}
-			if (!post.xpath) {
-				topicInfo.appendChild(createChunk(post2text(post.subject), "span", "topicSubject"));
-			} else {
-				if (!json.noItemLink) {
-					var itemLink = createChunk(stui.str("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
-					itemLink.href = "#/" + post.locale + "//" + post.xpath;
-					topicInfo.appendChild(itemLink);
-					(function(topicInfo) {
-						var loadingMsg = createChunk(stui.str("loading"), "i", "loadingMsg");
-						topicInfo.appendChild(loadingMsg);
-						xpathMap.get({
-							hex: post.xpath
-						}, function(o) {
-							if (o.result) {
-								topicInfo.removeChild(loadingMsg);
-								var itemPh = createChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
-								itemPh.title = o.result.path;
-								topicInfo.appendChild(itemPh);
-							}
-						});
-					})(topicInfo);
-				}
-			}
-			topicDivs[post.threadId] = topicDiv;
-			topicDiv.id = "fthr_" + post.threadId;
-
-			// add to the div
-			forumDiv.appendChild(topicDiv);
-		}
-	}
-	// Now, top to bottom, just create the post divs
-	for (num in json.ret) {
-		var post = json.ret[num];
-
-		var subpost = createChunk("", "div", "post"); // was: subpost
-		// Don't add subpost to the DIV yet - will reparent into the topic Divs
-		///  --forumDiv.appendChild(subpost);
-		postDivs[post.id] = subpost;
-		subpost.id = "fp" + post.id;
-
-		var headingLine = createChunk("", "h4", "selected");
-
-		// If post.posterInfo is undefined, don't crash; insert "[Poster no longer active]".
-		if (!post.posterInfo) {
-			headingLine.appendChild(createChunk("[Poster no longer active]", "span", ""));
-		} else {
-			var gravitar = createGravitar(post.posterInfo);
-			gravitar.className = "gravitar pull-left";
-			subpost.appendChild(gravitar);
-			if (post.posterInfo.id == surveyUser.id) {
-				headingLine.appendChild(createChunk(stui.str("user_me"), "span", "forum-me"));
-			} else {
-				var usera = createChunk(post.posterInfo.name + ' ', "a", "");
-				if (post.posterInfo.email) {
-					usera.appendChild(createChunk("", "span", "glyphicon glyphicon-envelope"));
-					usera.href = "mailto:" + post.posterInfo.email;
-				}
-				headingLine.appendChild(usera);
-				headingLine.appendChild(document.createTextNode(' (' + post.posterInfo.org + ') '));
-			}
-			var userLevelChunk = createChunk(stui.str("userlevel_" + post.posterInfo.userlevelName), "span", "userLevelName label-info label");
-			userLevelChunk.title = stui.str("userlevel_" + post.posterInfo.userlevelName + "_desc");
-			headingLine.appendChild(userLevelChunk);
-		}
-		var date = fmtDateTime(post.date_long);
-		if (post.version) {
-			date = "[v" + post.version + "] " + date;
-		}
-		var dateChunk = createChunk(date, "span", "label label-primary pull-right forumLink");
-		(function(post) {
-			listenFor(dateChunk, "click", function(e) {
-				if (post.locale && locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
-					surveyCurrentLocale = locmap.getLanguage(post.locale);
-				}
-				surveyCurrentPage = '';
-				surveyCurrentId = post.id;
-				replaceHash(false);
-				if (surveyCurrentSpecial != 'forum') {
-					surveyCurrentSpecial = 'forum';
-					reloadV();
-				}
-				return stStopPropagation(e);
-			});
-		})(post);
-		headingLine.appendChild(dateChunk);
-		subpost.appendChild(headingLine);
-
-		var subSubChunk = createChunk("", "div", "postHeaderInfoGroup");
-		subpost.appendChild(subSubChunk); {
-			var subChunk = createChunk("", "div", "postHeaderItem");
-			subSubChunk.appendChild(subChunk);
-			subChunk.appendChild(createChunk(post2text(post.subject), "b", "postSubject"));
-		}
-
-		// actual text
-		var postText = post2text(post.text);
-		var postContent;
-		subpost.appendChild(postContent = createChunk(postText, "div", "postContent"));
-		if (json.replyButton) {
-			var replyButton = createChunk(stui.str("forum_reply"), "button", "btn btn-default btn-sm");
-			(function(post) {
-				listenFor(replyButton, "click", function(e) {
-					openReply({
-						locale: surveyCurrentLocale,
-						//xpath: '',
-						replyTo: post.id,
-						replyData: post,
-						onReplyClose: json.onReplyClose
-					});
-					stStopPropagation(e);
-					return false;
-				});
-			})(post);
-			subpost.appendChild(replyButton);
-		}
-
-		// reply link
-		if (json.replyStub) {
-			var replyChunk = createChunk("Reply (leaves this page)", "a", "postReply");
-			replyChunk.href = json.replyStub + post.id;
-			subpost.appendChild(replyChunk);
-		}
-	}
-	// reparent any nodes that we can
-	for (num in json.ret) {
-		var post = json.ret[num];
-		if (post.parent != -1) {
-			stdebug("reparenting " + post.id + " to " + post.parent);
-			if (postDivs[post.parent]) {
-				if (!postDivs[post.parent].replies) {
-					// add the "replies" area
-					stdebug("ADding replies area to " + post.parent);
-					postDivs[post.parent].replies = createChunk("", "div", "postReplies");
-					postDivs[post.parent].appendChild(postDivs[post.parent].replies);
-				}
-				// add to new location
-				postDivs[post.parent].replies.appendChild(postDivs[post.id]);
-			} else {
-				// The parent of this post was deleted.
-				stdebug("The parent of post #" + post.id + " is " + post.parent + " but it was deleted or not visible");
-				// link it in somewhere
-				topicDivs[post.threadId].appendChild(postDivs[post.id]);
-			}
-		} else {
-			// 'top level' post, put it into the forumdiv.
-			topicDivs[post.threadId].appendChild(postDivs[post.id]);
-		}
-	}
-
-	// Now, bubble up recent posts to the top
-	for (var num = json.ret.length - 1; num >= 0; num--) {
-		var post = json.ret[num];
-		var topicDiv = topicDivs[post.threadId];
-		forumDiv.removeChild(topicDiv);
-		forumDiv.insertBefore(topicDiv, forumDiv.firstChild);
-	}
-	return forumDiv;
 }
 
 /**
@@ -1088,6 +840,13 @@ function handleChangedLocaleStamp(stamp, name) {
 	if (stamp <= surveyNextLocaleStamp) {
 		return;
 	}
+	/*
+	 * For performance, postpone the all-row WHAT_GETROW update if multiple
+	 * requests (e.g., vote or single-row WHAT_GETROW requests) are pending.
+	 */
+	if (cldrStAjax.queueCount() > 1) {
+		return;
+	}
 	if (Object.keys(showers).length == 0) {
 		/*
 		 * TODO: explain this code. When, if ever, is it executed, and why?
@@ -1211,6 +970,12 @@ function handleDisconnect(why, json, word, what) {
 		saidDisconnect = true;
 		if (json && json.err) {
 			why = why + "\n The error message was: \n" + json.err;
+			if (json.err.fileName) {
+				why = why + "\nFile: " + json.err.fileName;
+				if (json.err.lineNumber) {
+					why = why + "\nLine: " + json.err.lineNumber;
+				}
+			}
 		}
 		console.log("Disconnect: " + why);
 		var oneword = document.getElementById("progress_oneword");
@@ -1956,11 +1721,6 @@ function showForumStuff(frag, forumDivClone, tr) {
 			myLoad(url, "sidewaysView", function(json) {
 				/*
 				 * Count the number of unique locales in json.others and json.novalue.
-				 *
-				 * There was a bug here:
-				 *	var locale_count = Object.keys(json.others).length + json.novalue.length;
-				 * This's not a valid way to count the locales, since the keys of json.others are candidate
-				 * values, not locales. Reference: https://unicode.org/cldr/trac/ticket/11688
 				 */
 				var relatedLocales = json.novalue.slice();
 				for (var s in json.others) {
@@ -2114,48 +1874,16 @@ function showForumStuff(frag, forumDivClone, tr) {
 		}, 2000); // wait 2 seconds before loading this.
 	}
 
-	// prepend something
-	var buttonTitle = "forumNewPostButton";
-	var buttonClass = "forumNewButton btn btn-default btn-sm";
-	var couldFlag = false;
 	if (tr.theRow) {
-		if (tr.theRow.voteVhash !== tr.theRow.winningVhash &&
-				tr.theRow.voteVhash !== '' &&
-				tr.theRow.canFlagOnLosing &&
-				!tr.theRow.rowFlagged) {
-			buttonTitle = "forumNewPostFlagButton";
-			buttonClass = "forumNewPostFlagButton btn btn-default btn-sm";
-			couldFlag = true;
-		}
+		const theRow = tr.theRow;
+		const couldFlag = theRow.canFlagOnLosing &&
+				theRow.voteVhash !== theRow.winningVhash &&
+				theRow.voteVhash !== '' &&
+				!theRow.rowFlagged;
+		const myValue = theRow.hasVoted ? getUsersValue(theRow) : null;
+		cldrStForum.addNewPostButtons(frag, surveyCurrentLocale, couldFlag, theRow.xpstrid, theRow.code, myValue);
 	}
-	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
-	if (!isDashboard()) {
-		frag.appendChild(newButton);
 
-		(function(theRow, couldFlag) {
-			listenFor(newButton, "click", function(e) {
-				xpathMap.get({
-						hex: theRow.xpstrid
-					},
-					function(o) {
-						var subj = theRow.code + ' ' + theRow.xpstrid;
-						if (o.result && o.result.ph) {
-							subj = xpathMap.formatPathHeader(o.result.ph);
-						}
-						if (couldFlag) {
-							subj = subj + " (Flag for review)";
-						}
-						openReply({
-							locale: surveyCurrentLocale,
-							xpath: theRow.xpstrid,
-							subject: subj,
-						});
-					});
-				stStopPropagation(e);
-				return false;
-			});
-		})(tr.theRow, couldFlag);
-	}
 	var loader2 = createChunk(stui.str("loading"), "i");
 	frag.appendChild(loader2);
 
@@ -2201,19 +1929,34 @@ function showForumStuff(frag, forumDivClone, tr) {
 		};
 		cldrStAjax.queueXhr(xhrArgs);
 	}, 1900);
+
+	function getUsersValue(theRow) {
+		'use strict';
+		if (surveyUser && surveyUser.id) {
+			if (theRow.voteVhash && theRow.voteVhash !== '') {
+				const item = theRow.items[theRow.voteVhash];
+				if (item && item.votes && item.votes[surveyUser.id]) {
+					if (item.value === INHERITANCE_MARKER) {
+						return theRow.inheritedValue;
+					}
+					return item.value;
+				}
+			}
+		}
+		return null;
+	}
 }
 
 /**
  * Update the forum posts in the Info Panel
+ *
+ * This includes the version of the Info Panel displayed in the Dashboard "Fix" window
  *
  * @param tr the table-row element with which the forum posts are associated,
  *		and whose info is shown in the Info Panel; or null, to get the
  *		tr from surveyCurrentId
  */
 function updateInfoPanelForumPosts(tr) {
-	if (isDashboard()) {
-		return; // no Info Panel in Dashboard
-	}
 	if (!tr) {
 		if (surveyCurrentId !== '') {
 			/*
@@ -2221,12 +1964,17 @@ function updateInfoPanelForumPosts(tr) {
 			 */
 			tr = document.getElementById('r@' + surveyCurrentId);
 		} else {
-			console.log("updateInfoPanelForumPosts: tr was null, surveyCurrentId was empty");
+			/*
+			 * This is normal when adding a post in the main forum interface, which has no Info Panel).
+			 */
 			return;
 		}
 	}
 	if (!tr || !tr.forumDiv || !tr.forumDiv.url) {
-		console.log("updateInfoPanelForumPosts: !tr || !tr.forumDiv || !tr.forumDiv.url");
+		/*
+		 * This is normal for updateInfoPanelForumPosts(null) called by success handler
+		 * for submitPost, from Dashboard, since Fix window is no longer open
+		 */
 		return;
 	}
 	let ourUrl = tr.forumDiv.url + "&what=forum_fetch";
@@ -2243,20 +1991,17 @@ function updateInfoPanelForumPosts(tr) {
 	let loadHandler = function(json) {
 		try {
 			if (json && json.ret) {
-				let content = parseForumContent({
-					ret: json.ret,
-					replyButton: true,
-					noItemLink: true
-				});
+				const posts = json.ret;
+				const content = cldrStForum.parseContent(posts, 'info');
 				/*
 				 * Reality check: the json should refer to the same path as tr, which in practice
 				 * always matches surveyCurrentId. If not, log a warning and substitute "Please reload"
 				 * for the content.
 				 */
-				let xpstrid = json.ret[0].xpath;
+				let xpstrid = posts[0].xpath;
 				if (xpstrid !== tr.xpstrid || xpstrid !== surveyCurrentId) {
 					console.log('Warning: xpath strid mismatch in updateInfoPanelForumPosts loadHandler:');
-					console.log('json.ret[0].xpath = ' + json.ret[0].xpath);
+					console.log('posts[0].xpath = ' + posts[0].xpath);
 					console.log('tr.xpstrid = ' + tr.xpstrid);
 					console.log('surveyCurrentId = ' + surveyCurrentId);
 
@@ -2568,7 +2313,10 @@ function checkLRmarker(field, dir, value) {
  * @return {DOM} the new span
  */
 function appendItem(div, value, pClass, tr) {
-	var text = document.createTextNode(value ? value : stui.str("no value"));
+	if (!value) {
+		return;
+	}
+	var text = document.createTextNode(value);
 	var span = document.createElement("span");
 	span.appendChild(text);
 	if (!value) {
@@ -2885,16 +2633,19 @@ function appendExample(parent, text, loc) {
  * @param {DOM} newButton	 button prototype object
  */
 function addVitem(td, tr, theRow, item, newButton) {
+	var displayValue = item.value;
+	if (displayValue === INHERITANCE_MARKER) {
+		displayValue = theRow.inheritedValue;
+	}
+	if (!displayValue) {
+		return;
+	}
 	var div = document.createElement("div");
 	var isWinner = (td == tr.proposedcell);
 	var testKind = getTestKind(item.tests);
 	setDivClass(div, testKind);
 	item.div = div; // back link
 
-	var displayValue = item.value;
-	if (item.value === INHERITANCE_MARKER) {
-		displayValue = theRow.inheritedValue; // TODO: what if theRow.inheritedValue is undefined, as it sometimes is?
-	}
 
 	var choiceField = document.createElement("div");
 	var wrap;
@@ -3631,492 +3382,496 @@ function loadAdminPanel() {
 	loadStui();
 	var adminStuff = document.getElementById("adminStuff");
 	if (!adminStuff) return;
-
-	var content = document.createDocumentFragment();
-
-	var list = document.createElement("ul");
-	list.className = "adminList";
-	content.appendChild(list);
-
-	function loadOrFail(urlAppend, theDiv, loadHandler, postData) {
-		var ourUrl = contextPath + "/AdminAjax.jsp?vap=" + vap + "&" + urlAppend;
-		var errorHandler = function(err) {
-			let responseText = cldrStAjax.errResponseText(err);
-			console.log('adminload ' + urlAppend + ' Error: ' + err + ' response ' + responseText);
-			theDiv.className = "ferrbox";
-			theDiv.innerHTML = "Error while  loading: " + err.name + " <br> " +
-				err.message + "<div style='border: 1px solid red;'>" + responseText + "</div>";
-		};
-		var xhrArgs = {
-			url: ourUrl + cacheKill(),
-			handleAs: "json",
-			load: loadHandler,
-			error: errorHandler,
-			postData: postData
-		};
-		if (!loadHandler) {
-			xhrArgs.handleAs = "text";
-			xhrArgs.load = function(text) {
-				theDiv.innerHTML = text;
+	
+	// make sure the stui strings are loaded first
+    loadStui(null, function(stui) { 
+	
+		var content = document.createDocumentFragment();
+	
+		var list = document.createElement("ul");
+		list.className = "adminList";
+		content.appendChild(list);
+	
+		function loadOrFail(urlAppend, theDiv, loadHandler, postData) {
+			var ourUrl = contextPath + "/AdminAjax.jsp?vap=" + vap + "&" + urlAppend;
+			var errorHandler = function(err) {
+				let responseText = cldrStAjax.errResponseText(err);
+				console.log('adminload ' + urlAppend + ' Error: ' + err + ' response ' + responseText);
+				theDiv.className = "ferrbox";
+				theDiv.innerHTML = "Error while  loading: " + err.name + " <br> " +
+					err.message + "<div style='border: 1px solid red;'>" + responseText + "</div>";
 			};
-		}
-		if (xhrArgs.postData) {
-			/*
-			 * Make a POST request
-			 */
-			console.log("admin post: ourUrl: " + ourUrl + " data:" + postData);
-			xhrArgs.headers = {
-				"Content-Type": "text/plain"
+			var xhrArgs = {
+				url: ourUrl + cacheKill(),
+				handleAs: "json",
+				load: loadHandler,
+				error: errorHandler,
+				postData: postData
 			};
-		} else {
-			/*
-			 * Make a GET request
-			 */
-			console.log("admin get: ourUrl: " + ourUrl);
-		}
-		cldrStAjax.sendXhr(xhrArgs);
-	}
-	var panelLast = null;
-	var panels = {};
-	var panelFirst = null;
-
-	function panelSwitch(name) {
-		if (panelLast) {
-			panelLast.div.style.display = 'none';
-			panelLast.listItem.className = 'notselected';
-			panelLast = null;
-		}
-		if (name && panels[name]) {
-			panelLast = panels[name];
-			panelLast.listItem.className = 'selected';
-			panelLast.fn(panelLast.udiv);
-			panelLast.div.style.display = 'block';
-			window.location.hash = "#!" + name;
-		}
-	}
-
-	function addAdminPanel(type, fn) {
-		var panel = panels[type] = {
-			type: type,
-			name: stui.str(type),
-			desc: stui.str(type + "_desc"),
-			fn: fn
-		};
-		panel.div = document.createElement("div");
-		panel.div.style.display = 'none';
-		panel.div.className = 'adminPanel';
-
-		var h = document.createElement("h3");
-		h.className = "adminTitle";
-		h.appendChild(document.createTextNode(panel.desc));
-		panel.div.appendChild(h);
-
-		panel.udiv = document.createElement("div");
-		panel.div.appendChild(panel.udiv);
-
-		panel.listItem = document.createElement("li");
-		panel.listItem.appendChild(document.createTextNode(panel.name));
-		panel.listItem.title = panel.desc;
-		panel.listItem.className = "notselected";
-		panel.listItem.onclick = function(e) {
-			panelSwitch(panel.type);
-			return false;
-		};
-		list.appendChild(panel.listItem);
-
-		content.appendChild(panel.div);
-
-		if (!panelFirst) {
-			panelFirst = panel;
-		}
-	}
-
-	addAdminPanel("admin_users", function(div) {
-		var frag = document.createDocumentFragment();
-
-		var u = document.createElement("div");
-		u.appendChild(document.createTextNode("Loading..."));
-		frag.appendChild(u);
-
-		removeAllChildNodes(div);
-		div.appendChild(frag);
-		loadOrFail("do=users", u, function(json) {
-			var frag2 = document.createDocumentFragment();
-
-			if (!json || !json.users || Object.keys(json.users) == 0) {
-				frag2.appendChild(document.createTextNode(stui.str("No users.")));
+			if (!loadHandler) {
+				xhrArgs.handleAs = "text";
+				xhrArgs.load = function(text) {
+					theDiv.innerHTML = text;
+				};
+			}
+			if (xhrArgs.postData) {
+				/*
+				 * Make a POST request
+				 */
+				console.log("admin post: ourUrl: " + ourUrl + " data:" + postData);
+				xhrArgs.headers = {
+					"Content-Type": "text/plain"
+				};
 			} else {
-				for (sess in json.users) {
-					var cs = json.users[sess];
-					var user = createChunk(null, "div", "adminUser");
-					user.appendChild(createChunk("Session: " + sess, "span", "adminUserSession"));
-					if (cs.user) {
-						user.appendChild(createUser(cs.user));
-					} else {
-						user.appendChild(createChunk("(anonymous)", "div", "adminUserUser"));
-					}
-					/*
-					 * cs.lastBrowserCallMillisSinceEpoch = time elapsed in millis since server heard from client
-					 * cs.lastActionMillisSinceEpoch = time elapsed in millis since user did active action
-					 * cs.millisTillKick = how many millis before user will be kicked if inactive
-					 */
-					user.appendChild(createChunk(
-						"LastCall: " + cs.lastBrowserCallMillisSinceEpoch +
-						", LastAction: " + cs.lastActionMillisSinceEpoch +
-						", IP: " + cs.ip +
-						", ttk:" + (parseInt(cs.millisTillKick) / 1000).toFixed(1) + "s",
-						"span", "adminUserInfo"));
-
-					var unlinkButton = createChunk(stui.str("admin_users_action_kick"), "button", "admin_users_action_kick");
-					user.appendChild(unlinkButton);
-					unlinkButton.onclick = function(e) {
-						unlinkButton.className = 'deactivated';
-						unlinkButton.onclick = null;
-						loadOrFail("do=unlink&s=" + cs.id, unlinkButton, function(json) {
-							removeAllChildNodes(unlinkButton);
-							if (json.removing == null) {
-								unlinkButton.appendChild(document.createTextNode('Already Removed'));
-							} else {
-								unlinkButton.appendChild(document.createTextNode('Removed.'));
-							}
-						});
-						return stStopPropagation(e);
-					};
-					frag2.appendChild(user);
-					frag2.appendChild(document.createElement("hr"));
-				}
+				/*
+				 * Make a GET request
+				 */
+				console.log("admin get: ourUrl: " + ourUrl);
 			}
-			removeAllChildNodes(u);
-			u.appendChild(frag2);
-		});
-	});
-
-	addAdminPanel("admin_threads", function(div) {
-		var frag = document.createDocumentFragment();
-
-		div.className = "adminThreads";
-		var u = createChunk("Loading...", "div", "adminThreadList");
-		var stack = createChunk(null, "div", "adminThreadStack");
-		frag.appendChild(u);
-		frag.appendChild(stack);
-		var c2s = createChunk(stui.str("clickToSelect"), "button", "clickToSelect");
-		clickToSelect(c2s, stack);
-
-		removeAllChildNodes(div);
-		div.appendChild(c2s);
-		var clicked = null;
-
-		div.appendChild(frag);
-		loadOrFail("do=threads", u, function(json) {
-			if (!json || !json.threads || Object.keys(json.threads.all) == 0) {
-				removeAllChildNodes(u);
-				u.appendChild(document.createTextNode(stui.str("No threads.")));
-			} else {
-				var frag2 = document.createDocumentFragment();
-				removeAllChildNodes(stack);
-				stack.innerHTML = stui.str("adminClickToViewThreads");
-				deadThreads = {};
-				if (json.threads.dead) {
-					var header = createChunk(stui.str("adminDeadThreadsHeader"), "div", "adminDeadThreadsHeader");
-					var deadul = createChunk("", "ul", "adminDeadThreads");
-					for (var jj = 0; jj < json.threads.dead.length; jj++) {
-						var theThread = json.threads.dead[jj];
-						var deadLi = createChunk("#" + theThread.id, "li");
-						//deadLi.appendChild(createChunk(theThread.text,"pre"));
-						deadThreads[theThread.id] = theThread.text;
-						deadul.appendChild(deadLi);
-					}
-					header.appendChild(deadul);
-					stack.appendChild(header);
-				}
-				for (id in json.threads.all) {
-					var t = json.threads.all[id];
-					var thread = createChunk(null, "div", "adminThread");
-					var tid;
-					thread.appendChild(tid = createChunk(id, "span", "adminThreadId"));
-					if (deadThreads[id]) {
-						tid.className = tid.className + " deadThread";
-					}
-					thread.appendChild(createChunk(t.name, "span", "adminThreadName"));
-					thread.appendChild(createChunk(stui.str(t.state), "span", "adminThreadState_" + t.state));
-					thread.onclick = (function(t, id) {
-						return (function() {
-							stack.innerHTML = "<b>" + id + ":" + t.name + "</b>\n";
-							if (deadThreads[id]) {
-								stack.appendChild(createChunk(deadThreads[id], "pre", "deadThreadInfo"));
-							}
-							stack.appendChild(createChunk("\n\n{{{\n", "span", "textForTrac"));
-							for (var q in t.stack) {
-								stack.innerHTML = stack.innerHTML + t.stack[q] + "\n";
-							}
-							stack.appendChild(createChunk("}}}\n\n", "span", "textForTrac"));
-						});
-					})(t, id);
-					frag2.appendChild(thread);
-				}
-
-				removeAllChildNodes(u);
-				u.appendChild(frag2);
+			cldrStAjax.sendXhr(xhrArgs);
+		}
+		var panelLast = null;
+		var panels = {};
+		var panelFirst = null;
+	
+		function panelSwitch(name) {
+			if (panelLast) {
+				panelLast.div.style.display = 'none';
+				panelLast.listItem.className = 'notselected';
+				panelLast = null;
 			}
-		});
-	});
-
-	addAdminPanel("admin_exceptions", function(div) {
-		var frag = document.createDocumentFragment();
-
-		div.className = "adminThreads";
-		var v = createChunk(null, "div", "adminExceptionList");
-		var stack = createChunk(null, "div", "adminThreadStack");
-		frag.appendChild(v);
-		var u = createChunk(null, "div");
-		v.appendChild(u);
-		frag.appendChild(stack);
-
-		var c2s = createChunk(stui.str("clickToSelect"), "button", "clickToSelect");
-		clickToSelect(c2s, stack);
-
-		removeAllChildNodes(div);
-		div.appendChild(c2s);
-		var clicked = null;
-
-		var last = -1;
-
-		var exceptions = [];
-
-		var exceptionNames = {};
-
-		div.appendChild(frag);
-		var more = createChunk(stui_str("more_exceptions"), "p", "adminExceptionMore adminExceptionFooter");
-		var loading = createChunk(stui_str("loading"), "p", "adminExceptionFooter");
-
-		v.appendChild(loading);
-		var loadNext = function(from) {
-			var append = "do=exceptions";
-			if (from) {
-				append = append + "&before=" + from;
+			if (name && panels[name]) {
+				panelLast = panels[name];
+				panelLast.listItem.className = 'selected';
+				panelLast.fn(panelLast.udiv);
+				panelLast.div.style.display = 'block';
+				window.location.hash = "#!" + name;
 			}
-			console.log("Loading: " + append);
-			loadOrFail(append, u, function(json) {
-				if (!json || !json.exceptions || !json.exceptions.entry) {
-					if (!from) {
-						v.appendChild(createChunk(stui_str("no_exceptions"), "p", "adminExceptionFooter"));
-					} else {
-						v.removeChild(loading);
-						v.appendChild(createChunk(stui_str("last_exception"), "p", "adminExceptionFooter"));
-						// just the last one.
-					}
-				} else {
-					if (json.exceptions.entry.time == from) {
-						console.log("Asked for <" + from + " but got =" + from);
-						v.removeChild(loading);
-						return; //
-					}
-					var frag2 = document.createDocumentFragment();
-					if (!from) {
-						removeAllChildNodes(stack);
-						stack.innerHTML = stui.str("adminClickToViewExceptions");
-					}
-					// TODO: if(json.threads.dead) frag2.appendChunk(json.threads.dead.toString(),"span","adminDeadThreads");
-					last = json.exceptions.lastTime;
-					if (json.exceptions.entry) {
-						var e = json.exceptions.entry;
-						exceptions.push(json.exceptions.entry);
-						var exception = createChunk(null, "div", "adminException");
-						if (e.header && e.header.length < 80) {
-							exception.appendChild(createChunk(e.header, "span", "adminExceptionHeader"));
-						} else {
-							var t;
-							exception.appendChild(t = createChunk(e.header.substring(0, 80) + "...", "span", "adminExceptionHeader"));
-							t.title = e.header;
-						}
-						exception.appendChild(createChunk(e.DATE, "span", "adminExceptionDate"));
-						var clicky = (function(e) {
-							return (function(ee) {
-								var frag3 = document.createDocumentFragment();
-								frag3.appendChild(createChunk("{{{\n", "span", "textForTrac"));
-								frag3.appendChild(createChunk(e.header, "span", "adminExceptionHeader"));
-								frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
-								frag3.appendChild(createChunk(e.DATE, "span", "adminExceptionDate"));
-
-								if (e.UPTIME) {
-									frag3.appendChild(createChunk(e.UPTIME, "span", "adminExceptionUptime"));
-								}
-								if (e.CTX) {
-									frag3.appendChild(createChunk(e.CTX, "span", "adminExceptionUptime"));
-								}
-								for (var q in e.fields) {
-									var f = e.fields[q];
-									var k = Object.keys(f);
-									frag3.appendChild(createChunk("\n'''" + k[0] + "'''\n" + "{{{\n", "span", "textForTrac"));
-									frag3.appendChild(createChunk(f[k[0]], "pre", "adminException" + k[0]));
-									frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
-								}
-
-								if (e.LOGSITE) {
-									frag3.appendChild(createChunk("'''LOGSITE'''\n{{{\n", "span", "textForTrac"));
-									frag3.appendChild(createChunk(e.LOGSITE, "pre", "adminExceptionLogsite"));
-									frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
-								}
-								removeAllChildNodes(stack);
-								stack.appendChild(frag3);
-								stStopPropagation(ee);
-								return false;
-							});
-						})(e);
-						listenFor(exception, "click", clicky);
-						var head = exceptionNames[e.header];
-						if (head) {
-							if (!head.others) {
-								head.others = [];
-								head.count = document.createTextNode("");
-								var countSpan = document.createElement("span");
-								countSpan.appendChild(head.count);
-								countSpan.className = "adminExceptionCount";
-								listenFor(countSpan, "click", function(e) {
-									// prepare div
-									if (!head.otherdiv) {
-										head.otherdiv = createChunk(null, "div", "adminExceptionOtherList");
-										head.otherdiv.appendChild(createChunk(stui.str("adminExceptionDupList"), "h4"));
-										for (k in head.others) {
-											head.otherdiv.appendChild(head.others[k]);
-										}
-									}
-									removeAllChildNodes(stack);
-									stack.appendChild(head.otherdiv);
-									stStopPropagation(e);
-									return false;
-								});
-								head.appendChild(countSpan);
-							}
-							head.others.push(exception);
-							head.count.nodeValue = stui.sub("adminExceptionDup", [head.others.length]);
-							head.otherdiv = null; // reset
-						} else {
-							frag2.appendChild(exception);
-							exceptionNames[e.header] = exception;
-						}
-					}
-					u.appendChild(frag2);
-
-					if (json.exceptions.entry && json.exceptions.entry.time) {
-						if (exceptions.length > 0 && (exceptions.length % 8 == 0)) {
-							v.removeChild(loading);
-							v.appendChild(more);
-							more.onclick = more.onmouseover = function() {
-								v.removeChild(more);
-								v.appendChild(loading);
-								loadNext(json.exceptions.entry.time);
-								return false;
-							};
-						} else {
-							setTimeout(function() {
-								loadNext(json.exceptions.entry.time);
-							}, 500);
-						}
-					}
-				}
-			});
-		};
-		loadNext(); // load the first exception
-	});
-
-	addAdminPanel("admin_settings", function(div) {
-		var frag = document.createDocumentFragment();
-
-		div.className = "adminSettings";
-		var u = createChunk("Loading...", "div", "adminSettingsList");
-		frag.appendChild(u);
-		loadOrFail("do=settings", u, function(json) {
-			if (!json || !json.settings || Object.keys(json.settings.all) == 0) {
-				removeAllChildNodes(u);
-				u.appendChild(document.createTextNode(stui.str("nosettings")));
-			} else {
-				var frag2 = document.createDocumentFragment();
-				for (id in json.settings.all) {
-					var t = json.settings.all[id];
-
-					var thread = createChunk(null, "div", "adminSetting");
-
-					thread.appendChild(createChunk(id, "span", "adminSettingId"));
-					if (id == "CLDR_HEADER") {
-						(function(theHeader, theValue) {
-							var setHeader = null;
-							setHeader = appendInputBox(thread, "adminSettingsChangeTemp");
-							setHeader.value = theValue;
-							setHeader.stChange = function(onOk, onErr) {
-								loadOrFail("do=settings_set&setting=" + theHeader, u, function(json) {
-									if (!json || !json.settings_set || !json.settings_set.ok) {
-										onErr(stui_str("failed"));
-										onErr(json.settings_set.err);
-									} else {
-										if (json.settings_set[theHeader]) {
-											setHeader.value = json.settings_set[theHeader];
-											if (theHeader == "CLDR_HEADER") {
-												updateSpecialHeader(setHeader.value);
-											}
-										} else {
-											setHeader.value = "";
-											if (theHeader == "CLDR_HEADER") {
-												updateSpecialHeader(null);
-											}
-										}
-										onOk(stui_str("changed"));
-									}
-								}, setHeader.value);
-								return false;
-							};
-						})(id, t); // call it
-
-						if (id == "CLDR_HEADER") {
-							updateSpecialHeader(t);
-						}
-					} else {
-						thread.appendChild(createChunk(t, "span", "adminSettingValue"));
-					}
-					frag2.appendChild(thread);
-				}
-				removeAllChildNodes(u);
-				u.appendChild(frag2);
-			}
-		});
-
-		removeAllChildNodes(div);
-		div.appendChild(frag);
-	});
-
-	addAdminPanel("admin_ops", function(div) {
-		var frag = document.createDocumentFragment();
-
-		div.className = "adminThreads";
-
-		var baseUrl = contextPath + "/AdminPanel.jsp?vap=" + vap + "&do=";
-		var hashSuff = ""; //  "#" + window.location.hash;
-
-		var actions = ["rawload"];
-		for (var k in actions) {
-			var action = actions[k];
-			var newUrl = baseUrl + action + hashSuff;
-			var b = createChunk(stui_str(action), "button");
-			b.onclick = function() {
-				window.location = newUrl;
+		}
+	
+		function addAdminPanel(type, fn) {
+			var panel = panels[type] = {
+				type: type,
+				name: stui.str(type) || type,
+				desc: stui.str(type + "_desc") || '(no description - missing from stui)',
+				fn: fn
+			};
+			panel.div = document.createElement("div");
+			panel.div.style.display = 'none';
+			panel.div.className = 'adminPanel';
+	
+			var h = document.createElement("h3");
+			h.className = "adminTitle";
+			h.appendChild(document.createTextNode(panel.desc || type));
+			panel.div.appendChild(h);
+	
+			panel.udiv = document.createElement("div");
+			panel.div.appendChild(panel.udiv);
+	
+			panel.listItem = document.createElement("li");
+			panel.listItem.appendChild(document.createTextNode(panel.name || type));
+			panel.listItem.title = panel.desc || type;
+			panel.listItem.className = "notselected";
+			panel.listItem.onclick = function(e) {
+				panelSwitch(panel.type);
 				return false;
 			};
-			frag.appendChild(b);
+			list.appendChild(panel.listItem);
+	
+			content.appendChild(panel.div);
+	
+			if (!panelFirst) {
+				panelFirst = panel;
+			}
 		}
-		removeAllChildNodes(div);
-		div.appendChild(frag);
-
+	
+		addAdminPanel("admin_users", function(div) {
+			var frag = document.createDocumentFragment();
+	
+			var u = document.createElement("div");
+			u.appendChild(document.createTextNode("Loading..."));
+			frag.appendChild(u);
+	
+			removeAllChildNodes(div);
+			div.appendChild(frag);
+			loadOrFail("do=users", u, function(json) {
+				var frag2 = document.createDocumentFragment();
+	
+				if (!json || !json.users || Object.keys(json.users) == 0) {
+					frag2.appendChild(document.createTextNode(stui.str("No users.")));
+				} else {
+					for (sess in json.users) {
+						var cs = json.users[sess];
+						var user = createChunk(null, "div", "adminUser");
+						user.appendChild(createChunk("Session: " + sess, "span", "adminUserSession"));
+						if (cs.user) {
+							user.appendChild(createUser(cs.user));
+						} else {
+							user.appendChild(createChunk("(anonymous)", "div", "adminUserUser"));
+						}
+						/*
+						 * cs.lastBrowserCallMillisSinceEpoch = time elapsed in millis since server heard from client
+						 * cs.lastActionMillisSinceEpoch = time elapsed in millis since user did active action
+						 * cs.millisTillKick = how many millis before user will be kicked if inactive
+						 */
+						user.appendChild(createChunk(
+							"LastCall: " + cs.lastBrowserCallMillisSinceEpoch +
+							", LastAction: " + cs.lastActionMillisSinceEpoch +
+							", IP: " + cs.ip +
+							", ttk:" + (parseInt(cs.millisTillKick) / 1000).toFixed(1) + "s",
+							"span", "adminUserInfo"));
+	
+						var unlinkButton = createChunk(stui.str("admin_users_action_kick"), "button", "admin_users_action_kick");
+						user.appendChild(unlinkButton);
+						unlinkButton.onclick = function(e) {
+							unlinkButton.className = 'deactivated';
+							unlinkButton.onclick = null;
+							loadOrFail("do=unlink&s=" + cs.id, unlinkButton, function(json) {
+								removeAllChildNodes(unlinkButton);
+								if (json.removing == null) {
+									unlinkButton.appendChild(document.createTextNode('Already Removed'));
+								} else {
+									unlinkButton.appendChild(document.createTextNode('Removed.'));
+								}
+							});
+							return stStopPropagation(e);
+						};
+						frag2.appendChild(user);
+						frag2.appendChild(document.createElement("hr"));
+					}
+				}
+				removeAllChildNodes(u);
+				u.appendChild(frag2);
+			});
+		});
+	
+		addAdminPanel("admin_threads", function(div) {
+			var frag = document.createDocumentFragment();
+	
+			div.className = "adminThreads";
+			var u = createChunk("Loading...", "div", "adminThreadList");
+			var stack = createChunk(null, "div", "adminThreadStack");
+			frag.appendChild(u);
+			frag.appendChild(stack);
+			var c2s = createChunk(stui.str("clickToSelect"), "button", "clickToSelect");
+			clickToSelect(c2s, stack);
+	
+			removeAllChildNodes(div);
+			div.appendChild(c2s);
+			var clicked = null;
+	
+			div.appendChild(frag);
+			loadOrFail("do=threads", u, function(json) {
+				if (!json || !json.threads || Object.keys(json.threads.all) == 0) {
+					removeAllChildNodes(u);
+					u.appendChild(document.createTextNode(stui.str("No threads.")));
+				} else {
+					var frag2 = document.createDocumentFragment();
+					removeAllChildNodes(stack);
+					stack.innerHTML = stui.str("adminClickToViewThreads");
+					deadThreads = {};
+					if (json.threads.dead) {
+						var header = createChunk(stui.str("adminDeadThreadsHeader"), "div", "adminDeadThreadsHeader");
+						var deadul = createChunk("", "ul", "adminDeadThreads");
+						for (var jj = 0; jj < json.threads.dead.length; jj++) {
+							var theThread = json.threads.dead[jj];
+							var deadLi = createChunk("#" + theThread.id, "li");
+							//deadLi.appendChild(createChunk(theThread.text,"pre"));
+							deadThreads[theThread.id] = theThread.text;
+							deadul.appendChild(deadLi);
+						}
+						header.appendChild(deadul);
+						stack.appendChild(header);
+					}
+					for (id in json.threads.all) {
+						var t = json.threads.all[id];
+						var thread = createChunk(null, "div", "adminThread");
+						var tid;
+						thread.appendChild(tid = createChunk(id, "span", "adminThreadId"));
+						if (deadThreads[id]) {
+							tid.className = tid.className + " deadThread";
+						}
+						thread.appendChild(createChunk(t.name, "span", "adminThreadName"));
+						thread.appendChild(createChunk(stui.str(t.state), "span", "adminThreadState_" + t.state));
+						thread.onclick = (function(t, id) {
+							return (function() {
+								stack.innerHTML = "<b>" + id + ":" + t.name + "</b>\n";
+								if (deadThreads[id]) {
+									stack.appendChild(createChunk(deadThreads[id], "pre", "deadThreadInfo"));
+								}
+								stack.appendChild(createChunk("\n\n{{{\n", "span", "textForTrac"));
+								for (var q in t.stack) {
+									stack.innerHTML = stack.innerHTML + t.stack[q] + "\n";
+								}
+								stack.appendChild(createChunk("}}}\n\n", "span", "textForTrac"));
+							});
+						})(t, id);
+						frag2.appendChild(thread);
+					}
+	
+					removeAllChildNodes(u);
+					u.appendChild(frag2);
+				}
+			});
+		});
+	
+		addAdminPanel("admin_exceptions", function(div) {
+			var frag = document.createDocumentFragment();
+	
+			div.className = "adminThreads";
+			var v = createChunk(null, "div", "adminExceptionList");
+			var stack = createChunk(null, "div", "adminThreadStack");
+			frag.appendChild(v);
+			var u = createChunk(null, "div");
+			v.appendChild(u);
+			frag.appendChild(stack);
+	
+			var c2s = createChunk(stui.str("clickToSelect"), "button", "clickToSelect");
+			clickToSelect(c2s, stack);
+	
+			removeAllChildNodes(div);
+			div.appendChild(c2s);
+			var clicked = null;
+	
+			var last = -1;
+	
+			var exceptions = [];
+	
+			var exceptionNames = {};
+	
+			div.appendChild(frag);
+			var more = createChunk(stui_str("more_exceptions"), "p", "adminExceptionMore adminExceptionFooter");
+			var loading = createChunk(stui_str("loading"), "p", "adminExceptionFooter");
+	
+			v.appendChild(loading);
+			var loadNext = function(from) {
+				var append = "do=exceptions";
+				if (from) {
+					append = append + "&before=" + from;
+				}
+				console.log("Loading: " + append);
+				loadOrFail(append, u, function(json) {
+					if (!json || !json.exceptions || !json.exceptions.entry) {
+						if (!from) {
+							v.appendChild(createChunk(stui_str("no_exceptions"), "p", "adminExceptionFooter"));
+						} else {
+							v.removeChild(loading);
+							v.appendChild(createChunk(stui_str("last_exception"), "p", "adminExceptionFooter"));
+							// just the last one.
+						}
+					} else {
+						if (json.exceptions.entry.time == from) {
+							console.log("Asked for <" + from + " but got =" + from);
+							v.removeChild(loading);
+							return; //
+						}
+						var frag2 = document.createDocumentFragment();
+						if (!from) {
+							removeAllChildNodes(stack);
+							stack.innerHTML = stui.str("adminClickToViewExceptions");
+						}
+						// TODO: if(json.threads.dead) frag2.appendChunk(json.threads.dead.toString(),"span","adminDeadThreads");
+						last = json.exceptions.lastTime;
+						if (json.exceptions.entry) {
+							var e = json.exceptions.entry;
+							exceptions.push(json.exceptions.entry);
+							var exception = createChunk(null, "div", "adminException");
+							if (e.header && e.header.length < 80) {
+								exception.appendChild(createChunk(e.header, "span", "adminExceptionHeader"));
+							} else {
+								var t;
+								exception.appendChild(t = createChunk(e.header.substring(0, 80) + "...", "span", "adminExceptionHeader"));
+								t.title = e.header;
+							}
+							exception.appendChild(createChunk(e.DATE, "span", "adminExceptionDate"));
+							var clicky = (function(e) {
+								return (function(ee) {
+									var frag3 = document.createDocumentFragment();
+									frag3.appendChild(createChunk("{{{\n", "span", "textForTrac"));
+									frag3.appendChild(createChunk(e.header, "span", "adminExceptionHeader"));
+									frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
+									frag3.appendChild(createChunk(e.DATE, "span", "adminExceptionDate"));
+	
+									if (e.UPTIME) {
+										frag3.appendChild(createChunk(e.UPTIME, "span", "adminExceptionUptime"));
+									}
+									if (e.CTX) {
+										frag3.appendChild(createChunk(e.CTX, "span", "adminExceptionUptime"));
+									}
+									for (var q in e.fields) {
+										var f = e.fields[q];
+										var k = Object.keys(f);
+										frag3.appendChild(createChunk("\n'''" + k[0] + "'''\n" + "{{{\n", "span", "textForTrac"));
+										frag3.appendChild(createChunk(f[k[0]], "pre", "adminException" + k[0]));
+										frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
+									}
+	
+									if (e.LOGSITE) {
+										frag3.appendChild(createChunk("'''LOGSITE'''\n{{{\n", "span", "textForTrac"));
+										frag3.appendChild(createChunk(e.LOGSITE, "pre", "adminExceptionLogsite"));
+										frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
+									}
+									removeAllChildNodes(stack);
+									stack.appendChild(frag3);
+									stStopPropagation(ee);
+									return false;
+								});
+							})(e);
+							listenFor(exception, "click", clicky);
+							var head = exceptionNames[e.header];
+							if (head) {
+								if (!head.others) {
+									head.others = [];
+									head.count = document.createTextNode("");
+									var countSpan = document.createElement("span");
+									countSpan.appendChild(head.count);
+									countSpan.className = "adminExceptionCount";
+									listenFor(countSpan, "click", function(e) {
+										// prepare div
+										if (!head.otherdiv) {
+											head.otherdiv = createChunk(null, "div", "adminExceptionOtherList");
+											head.otherdiv.appendChild(createChunk(stui.str("adminExceptionDupList"), "h4"));
+											for (k in head.others) {
+												head.otherdiv.appendChild(head.others[k]);
+											}
+										}
+										removeAllChildNodes(stack);
+										stack.appendChild(head.otherdiv);
+										stStopPropagation(e);
+										return false;
+									});
+									head.appendChild(countSpan);
+								}
+								head.others.push(exception);
+								head.count.nodeValue = stui.sub("adminExceptionDup", [head.others.length]);
+								head.otherdiv = null; // reset
+							} else {
+								frag2.appendChild(exception);
+								exceptionNames[e.header] = exception;
+							}
+						}
+						u.appendChild(frag2);
+	
+						if (json.exceptions.entry && json.exceptions.entry.time) {
+							if (exceptions.length > 0 && (exceptions.length % 8 == 0)) {
+								v.removeChild(loading);
+								v.appendChild(more);
+								more.onclick = more.onmouseover = function() {
+									v.removeChild(more);
+									v.appendChild(loading);
+									loadNext(json.exceptions.entry.time);
+									return false;
+								};
+							} else {
+								setTimeout(function() {
+									loadNext(json.exceptions.entry.time);
+								}, 500);
+							}
+						}
+					}
+				});
+			};
+			loadNext(); // load the first exception
+		});
+	
+		addAdminPanel("admin_settings", function(div) {
+			var frag = document.createDocumentFragment();
+	
+			div.className = "adminSettings";
+			var u = createChunk("Loading...", "div", "adminSettingsList");
+			frag.appendChild(u);
+			loadOrFail("do=settings", u, function(json) {
+				if (!json || !json.settings || Object.keys(json.settings.all) == 0) {
+					removeAllChildNodes(u);
+					u.appendChild(document.createTextNode(stui.str("nosettings")));
+				} else {
+					var frag2 = document.createDocumentFragment();
+					for (id in json.settings.all) {
+						var t = json.settings.all[id];
+	
+						var thread = createChunk(null, "div", "adminSetting");
+	
+						thread.appendChild(createChunk(id, "span", "adminSettingId"));
+						if (id == "CLDR_HEADER") {
+							(function(theHeader, theValue) {
+								var setHeader = null;
+								setHeader = appendInputBox(thread, "adminSettingsChangeTemp");
+								setHeader.value = theValue;
+								setHeader.stChange = function(onOk, onErr) {
+									loadOrFail("do=settings_set&setting=" + theHeader, u, function(json) {
+										if (!json || !json.settings_set || !json.settings_set.ok) {
+											onErr(stui_str("failed"));
+											onErr(json.settings_set.err);
+										} else {
+											if (json.settings_set[theHeader]) {
+												setHeader.value = json.settings_set[theHeader];
+												if (theHeader == "CLDR_HEADER") {
+													updateSpecialHeader(setHeader.value);
+												}
+											} else {
+												setHeader.value = "";
+												if (theHeader == "CLDR_HEADER") {
+													updateSpecialHeader(null);
+												}
+											}
+											onOk(stui_str("changed"));
+										}
+									}, setHeader.value);
+									return false;
+								};
+							})(id, t); // call it
+	
+							if (id == "CLDR_HEADER") {
+								updateSpecialHeader(t);
+							}
+						} else {
+							thread.appendChild(createChunk(t, "span", "adminSettingValue"));
+						}
+						frag2.appendChild(thread);
+					}
+					removeAllChildNodes(u);
+					u.appendChild(frag2);
+				}
+			});
+	
+			removeAllChildNodes(div);
+			div.appendChild(frag);
+		});
+	
+		addAdminPanel("admin_ops", function(div) {
+			var frag = document.createDocumentFragment();
+	
+			div.className = "adminThreads";
+	
+			var baseUrl = contextPath + "/AdminPanel.jsp?vap=" + vap + "&do=";
+			var hashSuff = ""; //  "#" + window.location.hash;
+	
+			var actions = ["rawload"];
+			for (var k in actions) {
+				var action = actions[k];
+				var newUrl = baseUrl + action + hashSuff;
+				var b = createChunk(stui_str(action), "button");
+				b.onclick = function() {
+					window.location = newUrl;
+					return false;
+				};
+				frag.appendChild(b);
+			}
+			removeAllChildNodes(div);
+			div.appendChild(frag);
+	
+		});
+	
+		// last panel loaded.
+		// If it's in the hashtag, use it, otherwise first.
+		if (window.location.hash && window.location.hash.indexOf("#!") == 0) {
+			panelSwitch(window.location.hash.substring(2));
+		}
+		if (!panelLast) { // not able to load anything.
+			panelSwitch(panelFirst.type);
+		}
+		adminStuff.appendChild(content);
 	});
-
-	// last panel loaded.
-	// If it's in the hashtag, use it, otherwise first.
-	if (window.location.hash && window.location.hash.indexOf("#!") == 0) {
-		panelSwitch(window.location.hash.substring(2));
-	}
-	if (!panelLast) { // not able to load anything.
-		panelSwitch(panelFirst.type);
-	}
-	adminStuff.appendChild(content);
 }
 
 /**
@@ -4221,8 +3976,8 @@ function showstats(hname) {
  * Update the counter on top of the vetting page
  */
 function refreshCounterVetting() {
-	if (isVisitor) {
-		// if the user is a visitor, don't display the counter informations
+	if (isVisitor || isDashboard()) {
+		// if the user is a visitor, or this is the Dashboard, don't display the counter informations
 		$('#nav-page .counter-infos, #nav-page .nav-progress').hide();
 		return;
 	}
@@ -4242,6 +3997,11 @@ function refreshCounterVetting() {
 	}
 	document.getElementById('progress-voted').style.width = voted * 100 / total + '%';
 	document.getElementById('progress-abstain').style.width = abstain * 100 / total + '%';
+
+	if (cldrStForum && surveyCurrentLocale && surveyUser && surveyUser.id) {
+		const forumSummary = cldrStForum.getForumSummaryHtml(surveyCurrentLocale, surveyUser.id, false);
+		document.getElementById('vForum').innerHTML = forumSummary;
+	}
 }
 
 /**

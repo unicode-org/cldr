@@ -5,13 +5,13 @@ import java.text.ParsePosition;
 
 /**
  * @author markdavis
- * 
+ *
  */
 public interface Parser<T, S extends CharSequence> {
     /**
      * Parses text from the beginning of the given string to produce an object.
      * The method may not use the entire text of the given string.
-     * 
+     *
      * @param source
      *            A <code>String</code> whose beginning should be parsed.
      * @return An <code>Object</code> parsed from the string.
@@ -30,7 +30,7 @@ public interface Parser<T, S extends CharSequence> {
      * be used to indicate the starting point for the next call to this method. If an error occurs, then the index of
      * <code>pos</code> is not changed, the error index of <code>pos</code> is set to the index of the character where
      * the error occurred, and null is returned.
-     * 
+     *
      * @param source
      *            A <code>String</code>, part of which should be parsed.
      * @param pos

@@ -21,14 +21,14 @@ public class FindHardInheritance {
         final int redundantCount;
         final int constructedCount;
         final int coverageCount;
-        
+
         final int regularCountCps;
         final int inheritedCountCps;
         final int redundantCountCps;
         final int constructedCountCps;
         final int coverageCountCps;
-        
-        public Info(int regularCount, int inheritedCount, int redundantCount, int constructedCount, int coverageCount, 
+
+        public Info(int regularCount, int inheritedCount, int redundantCount, int constructedCount, int coverageCount,
             int regularCountCps, int inheritedCountCps, int redundantCountCps, int constructedCountCps, int coverageCountCps) {
             this.regularCount = regularCount;
             this.inheritedCount = inheritedCount;
@@ -50,7 +50,7 @@ public class FindHardInheritance {
                 + "\t" + coverageCount + "\t" + coverageCountCps
                 ;
         }
-        static final String HEADER = 
+        static final String HEADER =
                     "count\tcps"
                 + "\tinher.\tcps"
                 + "\tredund.\tcps"
@@ -68,7 +68,7 @@ public class FindHardInheritance {
 //            System.out.println(localeId + "\t" + name);
 //        }
 //        if (true) return;
-        
+
         Map<String, Info> data = new LinkedHashMap<>();
         System.out.println(
             "dir."
@@ -100,18 +100,18 @@ public class FindHardInheritance {
         int constructedCount = 0;
         int inheritedCount = 0;
         int coverageCount = 0;
-        
+
         int redundantCountCps = 0;
         int regularCountCps = 0;
         int constructedCountCps = 0;
         int inheritedCountCps = 0;
         int coverageCountCps = 0;
-        
+
         boolean allConstructed = "annotationsDerived".equals(dir);
         CoverageLevel2 coverage = CoverageLevel2.getInstance(localeId);
         CLDRFile cldrFile = factory.make(localeId, true, DraftStatus.contributed);
         CLDRFile unresolvedCldrFile = factory.make(localeId, false, DraftStatus.contributed);
-        
+
         for (String path : cldrFile) {
             if (path.startsWith("//ldml/identity/")) {
                 continue;
@@ -141,7 +141,7 @@ public class FindHardInheritance {
                 regularCountCps+=cps;
             }
         }
-        Info info = new Info(regularCount, inheritedCount, redundantCount, constructedCount, coverageCount, 
+        Info info = new Info(regularCount, inheritedCount, redundantCount, constructedCount, coverageCount,
             regularCountCps, inheritedCountCps, redundantCountCps, constructedCountCps, coverageCountCps);
         return info;
     }

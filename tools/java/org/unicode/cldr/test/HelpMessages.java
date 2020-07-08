@@ -26,13 +26,13 @@ public class HelpMessages {
 
     private static final Matcher HEADER_HTML = PatternCache.get("<h[0-9]>(.*)</h[0-9]>").matcher("");
 
-    List<Matcher> keys = new ArrayList<Matcher>();
+    List<Matcher> keys = new ArrayList<>();
 
-    List<String> values = new ArrayList<String>();
+    List<String> values = new ArrayList<>();
 
     enum Status {
         BASE, BEFORE_CELL, IN_CELL, IN_INSIDE_TABLE
-    };
+    }
 
     StringBuilder[] currentColumn = new StringBuilder[2];
 

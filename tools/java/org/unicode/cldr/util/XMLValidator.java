@@ -166,6 +166,7 @@ public class XMLValidator {
             filename = _filename;
         }
 
+        @Override
         public void run() {
             // Force filerefs to be URI's if needed: note this is independent of any
             // other files
@@ -209,11 +210,13 @@ public class XMLValidator {
         // This is used to suppress validation warnings
         final String filename2 = filename;
         ErrorHandler nullHandler = new ErrorHandler() {
+            @Override
             public void warning(SAXParseException e) throws SAXException {
                 System.err.println(filename2 + ": Warning: " + e.getMessage());
 
             }
 
+            @Override
             public void error(SAXParseException e) throws SAXException {
                 int col = e.getColumnNumber();
                 System.err.println(filename2 + ":" + e.getLineNumber() + (col >= 0 ? ":" + col : "")
@@ -221,6 +224,7 @@ public class XMLValidator {
                     + " is not valid because " + e.getMessage());
             }
 
+            @Override
             public void fatalError(SAXParseException e) throws SAXException {
                 System.err.println(filename2 + ": ERROR ");
                 throw e;

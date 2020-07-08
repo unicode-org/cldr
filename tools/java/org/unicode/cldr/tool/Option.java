@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRTool;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
@@ -123,7 +123,7 @@ public class Option {
     }
 
     public Option(Enum<?> optionEnumValue, String argumentPattern, String defaultArgument, String helpText) {
-        this(optionEnumValue, optionEnumValue.name(), (Character) (optionEnumValue.name().charAt(0)), Pattern.compile(argumentPattern), defaultArgument,
+        this(optionEnumValue, optionEnumValue.name(), (optionEnumValue.name().charAt(0)), Pattern.compile(argumentPattern), defaultArgument,
             helpText);
     }
 
@@ -162,7 +162,7 @@ public class Option {
         } else if (match instanceof Class) {
             try {
                 Enum[] valuesMethod = (Enum[]) ((Class) match).getMethod("values").invoke(null);
-                return Pattern.compile(CollectionUtilities.join(valuesMethod, "|"));
+                return Pattern.compile(Joiner.on("|").join(valuesMethod));
             } catch (Exception e) {
                 throw new IllegalArgumentException(e);
             }
@@ -172,6 +172,7 @@ public class Option {
 
     static final String PAD = "                    ";
 
+    @Override
     public String toString() {
         return "-" + flag
             + " (" + tag + ")"
@@ -210,10 +211,10 @@ public class Option {
     public static class Options implements Iterable<Option> {
 
         private String mainMessage;
-        final Map<String, Option> stringToValues = new LinkedHashMap<String, Option>();
-        final Map<Enum<?>, Option> enumToValues = new LinkedHashMap<Enum<?>, Option>();
-        final Map<Character, Option> charToValues = new LinkedHashMap<Character, Option>();
-        final Set<String> results = new LinkedHashSet<String>();
+        final Map<String, Option> stringToValues = new LinkedHashMap<>();
+        final Map<Enum<?>, Option> enumToValues = new LinkedHashMap<>();
+        final Map<Character, Option> charToValues = new LinkedHashMap<>();
+        final Set<String> results = new LinkedHashSet<>();
         {
             add("help", null, "Provide the list of possible options");
         }

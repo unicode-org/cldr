@@ -19,7 +19,7 @@ public class StatisticsUtils {
             this.v = 0;
             this.d = 0;
         }
-    };
+    }
 
     public static final int NO_LIMIT = -1;
 
@@ -31,7 +31,7 @@ public class StatisticsUtils {
     }
 
     public static String[][] calcSubmits(String[][] v, String[][] d, int limit) {
-        Map<String, di> all = new TreeMap<String, di>();
+        Map<String, di> all = new TreeMap<>();
 
         for (int i = 0; i < v.length; i++) {
             di ent = all.get(v[i][0]);
@@ -47,7 +47,7 @@ public class StatisticsUtils {
             }
             ent.d = Integer.parseInt(d[i][1]);
         }
-        Set<di> asSet = new TreeSet<di>(new Comparator<di>() {
+        Set<di> asSet = new TreeSet<>(new Comparator<di>() {
 
             @Override
             public int compare(di arg0, di arg1) {

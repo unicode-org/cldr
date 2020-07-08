@@ -24,7 +24,6 @@ $(function() {
 	dynamic.on('click', 'button.fix', toggleFix);
 	dynamic.on('click', '.hide-review', toggleReviewLine);
 	dynamic.on('click', '.show-items', toggleItems);
-	dynamic.on('click', '.post-review', openPost);
 	dynamic.on('click', '.hide-review.done', toggleReview);
 
 	$(window).scroll(function() {
@@ -70,28 +69,35 @@ function showReviewPage(json, showFn) {
 	var notifications = json.allNotifications;
 	var menuRoot = $('#itemInfo');
 	var hidden = json.hidden;
-	var menuDom = $(document.createElement('ul')).addClass('nav nav-pills nav-stacked affix menu-review');
 	var direction = json.direction;
 	var lastVersion = surveyVersion - 1;
 
 	// populate menu
 	var activeMenu = true;
+	let sidebarHtml = ''
 	$.each(menuData, function(index, element) {
-		var html = '';
 		// activate this menu first
 		if (activeMenu) {
-			html += '<li class="active">';
+			sidebarHtml += '<li class="active">';
 			activeMenu = false;
 		} else {
-			html += '<li>';
+			sidebarHtml += '<li>';
 		}
 		// inactivate the one with no element
-		html += '<a href="#' + element.name + '">';
-		html += element.name.replace('_', ' ') + ' (<span class="remaining-count">0</span>/<span class="total-count">' +
+		sidebarHtml += '<a href="#' + element.name + '">';
+		sidebarHtml += element.name.replace('_', ' ') + ' (<span class="remaining-count">0</span>/<span class="total-count">' +
 			element.count + '</span>)<div class="pull-right"><span class="glyphicon glyphicon-info-sign help-review-pop" data-content="' +
 			element.description + '"></span></div></a></li>';
-		menuDom.append(html);
 	});
+
+	if (cldrStForum && surveyCurrentLocale && surveyUser && surveyUser.id) {
+		const forumSummary = cldrStForum.getForumSummaryHtml(surveyCurrentLocale, surveyUser.id, true /* table */);
+		sidebarHtml += "<li><a id='dashToForum' onclick='cldrStForum.reload();'>Forum</a></li>\n";
+		sidebarHtml += "<li>" + forumSummary + "</li>\n";
+	}
+	const menuDom = document.createElement('ul');
+	menuDom.className = 'nav nav-pills nav-stacked affix menu-review';
+	menuDom.innerHTML = sidebarHtml;
 
 	// populate body
 	var html = '';
@@ -155,14 +161,12 @@ function showReviewPage(json, showFn) {
 									engElement + '</td><td dir="' + direction + '">' + oldElement + '</td><td dir="' + direction + '">' +
 									element.winning + '</td>';
 
-								// "Fix" section
+								// "Fix" and "Hide" sections
 								html += '<td class="button-review"><div class="tip fix-parent" title="Fix">' +
 									'<button type="button" class="btn btn-success fix" data-toggle="popover">' +
 									'<span class="glyphicon glyphicon-pencil"></span></button></div> ' +
 									'<button type="button" class="btn btn-info hide-review tip" title="Hide">' +
-									'<span class="glyphicon glyphicon-eye-close"></span></button>' +
-									'<button type="button" class="btn btn-primary tip post-review" title="Forum">' +
-									'<span class="glyphicon glyphicon-comment"></span></button>';
+									'<span class="glyphicon glyphicon-eye-close"></span></button>';
 								if (element.comment) {
 									html += '<button class="btn btn-default help-comment" data-html="true" data-toggle="popover" data-content="' +
 										element.comment + '"><span class="glyphicon glyphicon-info-sign"></span></button>';
@@ -193,6 +197,9 @@ function showReviewPage(json, showFn) {
 
 	// hack to solve anchor issue
 	$('#itemInfo .nav a').click(function(event) {
+		if (event.target.id === 'dashToForum') {
+			return;
+		}
 		var href = $(this).attr('href').replace('#', '');
 		var aTag = $('#' + href);
 		if (aTag.length) {
@@ -255,6 +262,9 @@ function refreshCounter() {
 	menus.each(function(index) {
 		var element = $(this);
 		var href = element.attr('href');
+		if (!href) {
+			return; // skip, dashToForum
+		}
 		var id = href.slice(1, href.length);
 		var selection = $('div[data-type="' + id + '"] tr.data-review');
 		var total = selection.length;
@@ -578,214 +588,6 @@ function showHelpFixPanel(cont) {
 
 	// move the element
 	labelizeIcon();
-}
-// end of fix part
-
-var formDidChange = false;
-
-/**
- * Show a modal window displaying a forum post
- *
- * @param postModal
- * @param onClose
- *
- * Called only by openPost and openReply, in this file
- */
-function showPost(postModal, onClose) {
-	formDidChange = false;
-	// fire when the post window closes. Can reload posts, etc.
-	postModal.on('hidden.bs.modal', function(e) {
-		var postModal = $('#post-modal');
-		if (onClose) {
-			var form = $('#post-form');
-			onClose(postModal, form, formDidChange);
-		}
-	});
-	postModal.modal();
-}
-
-/**
- * Open a thread of posts concerning this xpath
- *
- * Called only by the Startup function at the top of this file
- */
-function openPost() {
-	var path = $(this).closest(".data-review").data('path');
-	var choice = $(this).closest(".table-wrapper").data('type');
-	var postModal = $('#post-modal');
-	var locale = surveyCurrentLocale;
-	var url = contextPath + "/SurveyAjax?what=forum_fetch&s=" + surveySessionId + "&xpath=" +
-		$(this).closest('tr').data('path') + "&voteinfo&_=" + locale;
-
-	showPost(postModal, null);
-
-	$.get(url, function(data) {
-		var post = data.ret;
-		var content = '';
-		content += '<form role="form" id="post-form">';
-		content += '<div class="form-group">' +
-			'<textarea name="text" class="form-control" placeholder="Write your post here"></textarea>' +
-			'</div><button data-path="' + path +
-			'" data-choice="' + choice + '" class="btn btn-success submit-post btn-block">Submit</button>';
-
-		content += '<input type="hidden" name="forum" value="true">';
-		content += '<input type="hidden" name="_" value="' + surveyCurrentLocale + '">';
-		content += '<input type="hidden" name="replyTo" value="-1">';
-		content += '<input type="hidden" name="data-path" value="' + path + '">';
-		content += '<input type="hidden" name="xpath" value="#' + path + '">'; // numeric
-		content += '<label class="post-subj"><input name="subj" type="hidden" value="Review"></label>';
-		content += '<input name="post" type="hidden" value="Post">';
-		content += '<input name="isReview" type="hidden" value="1">';
-		content += '</form>';
-
-		content += '<div class="post"></div>';
-		content += '<div class="forumDiv"></div>';
-
-		postModal.find('.modal-body').html(content);
-
-		if (post) {
-			var forumDiv = parseForumContent({
-				ret: post,
-				noItemLink: true
-			});
-			var postHolder = postModal.find('.modal-body').find('.forumDiv');
-			postHolder[0].appendChild(forumDiv);
-		}
-
-		postModal.find('textarea').autosize();
-		postModal.find('.submit-post').click(submitPost);
-		setTimeout(function() {
-			postModal.find('textarea').focus();
-		}, 1000 /* one second */ );
-	}, 'json');
-}
-
-/**
- * Allow an in-line reply to a forum post.
- *
- * Called from forum.js and survey.js
- */
-function openReply(params) {
-	var postModal = $('#post-modal');
-	showPost(postModal, params.onReplyClose);
-
-	var content = '';
-	content += '<form role="form" id="post-form">';
-	content += '<div class="form-group">';
-	content += '<div class="input-group"><span class="input-group-addon">Subject:</span>';
-	content += '<input class="form-control" name="subj" type="text" value="Re: "></div>';
-	content += '<textarea name="text" class="form-control" placeholder="Write your post here"></textarea></div>';
-	content += '<button class="btn btn-success submit-post btn-block">Submit</button>';
-	content += '<input type="hidden" name="forum" value="true">';
-	content += '<input type="hidden" name="_" value="' + params.locale + '">';
-
-	if (params.xpath) {
-		content += '<input type="hidden" name="xpath" value="' + params.xpath + '">';
-	} else {
-		content += '<input type="hidden" name="xpath" value="">';
-	}
-	if (params.replyTo) {
-		content += '<input type="hidden" name="replyTo" value="' + params.replyTo + '">';
-	} else {
-		content += '<input type="hidden" name="replyTo" value="-1">';
-	}
-	content += '</form>';
-
-	// 'new' (dom based) generate
-	content += '<div class="post"></div>';
-	content += '<div class="forumDiv"></div>';
-
-	postModal.find('.modal-body').html(content);
-
-	if (params.replyTo && params.replyTo >= 0 && params.replyData) {
-		var subj = post2text(params.replyData.subject);
-		if (subj.substring(0,3) != 'Re:') {
-			subj = 'Re: '+subj;
-		}
-		postModal.find('input[name=subj]')[0].value = (subj);
-	} else if (params.subject) {
-		postModal.find('input[name=subj]')[0].value = (params.subject);
-	}
-
-	if (params.replyData) {
-		var forumDiv = parseForumContent({ret: [params.replyData], noItemLink: true});
-		var postHolder = postModal.find('.modal-body').find('.forumDiv');
-		postHolder[0].appendChild(forumDiv);
-	}
-
-	postModal.find('textarea').autosize();
-	postModal.find('.submit-post').click(submitPost);
-	setTimeout(function() {postModal.find('textarea').focus();}, 1000 /* one second */);
-}
-
-/**
- * Submit a forum post
- *
- * @param event
- *
- * Called by openPost and openReply, in this file
- *
- * TODO: Move this and other forum-specific functions to forum.js or other forum-specific file?
- * Unlike much review.js code, this function is not Dashboard-specific; it is used
- * for submitting posts both in the Dashboard and not in the Dashboard.
- */
-function submitPost(event) {
-	var locale = surveyCurrentLocale;
-	var url = contextPath + "/SurveyAjax";
-	var form = $('#post-form');
-	formDidChange = true;
-	if ($('#post-form textarea[name=text]').val()) {
-		$('#post-form button').fadeOut();
-		$('#post-form .input-group').fadeOut(); // subject line
-		var xpath = $('#post-form input[name=xpath]').val();
-		var ajaxParams = {
-			data: {
-				s: surveySessionId,
-				"_": surveyCurrentLocale,
-				replyTo: $('#post-form input[name=replyTo]').val(),
-				xpath: xpath,
-				text: $('#post-form textarea[name=text]').val(),
-				subj: $('#post-form input[name=subj]').val(), // "Review"
-				what: "forum_post"
-			},
-			type: "POST",
-			url: url,
-			contentType: "application/x-www-form-urlencoded;",
-			dataType: 'json',
-			success: function(data) {
-				var post = $('.post').first();
-				if (data.err) {
-					post.before("<p class='warn'>error: " + data.err + "</p>");
-				} else if (data.ret && data.ret.length > 0) {
-					var postModal = $('#post-modal');
-					var postHolder = postModal.find('.modal-body').find('.post');
-					let firstPostHolder = postHolder[0];
-					firstPostHolder.insertBefore(parseForumContent({
-						ret: data.ret,
-						noItemLink: true
-					}), firstPostHolder.firstChild);
-					// reset
-					post = $('.post').first();
-					post.hide();
-					post.show('highlight', {
-						color: "#d9edf7"
-					});
-					$('#post-form textarea').val('');
-					$('#post-form textarea').fadeOut();
-					updateInfoPanelForumPosts(null);
-				} else {
-					post.before("<i>Your post was added, #" + data.postId + " but could not be shown.</i>");
-				}
-			},
-			error: function(err) {
-				var post = $('.post').first();
-				post.before("<p class='warn'>error! " + err + "</p>");
-			}
-		};
-		$.ajax(ajaxParams);
-	}
-	event.preventDefault();
-	event.stopPropagation();
 }
 
 /**

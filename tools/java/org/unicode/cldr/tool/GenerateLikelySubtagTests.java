@@ -39,7 +39,7 @@ public class GenerateLikelySubtagTests {
         if (OUTPUT_STYLE == OutputStyle.C) {
             writeTestLine2("FROM", "ADD-LIKELY", "REMOVE-LIKELY");
         }
-        Set<String> testedAlready = new HashSet<String>();
+        Set<String> testedAlready = new HashSet<>();
 
         for (final String from : likelySubtags.keySet()) {
             final String to = likelySubtags.get(from);

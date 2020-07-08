@@ -15,7 +15,7 @@ public class TestAnnotationVotes extends TestFmwk {
 
     TestAll.WebTestInfo testInfo = WebTestInfo.getInstance();
 
-    VoteResolver<String> r = new VoteResolver<String>();
+    VoteResolver<String> r = new VoteResolver<>();
     Set<String> sortedValuesI = null, sortedValuesO = null; // input and output
     HashMap<String, Long> voteCountI = null; // input
 
@@ -285,12 +285,12 @@ public class TestAnnotationVotes extends TestFmwk {
     /**
      * Run adjustAnnotationVoteCounts with the given input and expected output.
      * Test whether the actual output matches the expected output.
-     * 
+     *
      * @param test the string describing what should happen
      * @param valI the array of input values
      * @param votesI the array of vote counts corresponding to valI
      * @param valO the array of expected output values
-     * 
+     *
      * Note: there is no array of expected output vote counts. Treat the test as passing
      * or failing based only on the order of output values, not on the exact output vote counts.
      */
@@ -320,15 +320,15 @@ public class TestAnnotationVotes extends TestFmwk {
 
     /**
      * Set up test inputs and outputs.
-     * 
+     *
      * @param valI the array of input values
      * @param votesI the array of vote counts corresponding to valI
      * @param valO the array of expected output values
      */
     private void setupTestIO(String[] valI, long[] votesI, String[] valO) {
-        sortedValuesI = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(valI)));
-        sortedValuesO = new LinkedHashSet<String>(new ArrayList<String>(Arrays.asList(valO)));
-        voteCountI = new HashMap<String, Long>();
+        sortedValuesI = new LinkedHashSet<>(new ArrayList<>(Arrays.asList(valI)));
+        sortedValuesO = new LinkedHashSet<>(new ArrayList<>(Arrays.asList(valO)));
+        voteCountI = new HashMap<>();
         int i = 0;
         for (String value : valI) {
             voteCountI.put(value, votesI[i++]);

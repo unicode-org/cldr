@@ -21,7 +21,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
 
     public enum ItemStatus {
         ITEM_UNKNOWN, ITEM_GOOD, ITEM_BAD
-    };
+    }
 
     public class ItemInfo {
         ItemStatus status = ItemStatus.ITEM_UNKNOWN;
@@ -57,7 +57,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
             setStatus(ItemStatus.ITEM_BAD);
             hadErrors = true;
             if (errors == null) {
-                errors = new TreeSet<CheckStatus>();
+                errors = new TreeSet<>();
             }
             errors.add(status);
         }
@@ -112,6 +112,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
             }
         }
 
+        @Override
         public String toString() {
             StringBuffer sb = new StringBuffer();
             if (d != null) {
@@ -155,7 +156,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
         return is;
     }
 
-    Map<String, ItemInfo> itemHash = new HashMap<String, ItemInfo>();
+    Map<String, ItemInfo> itemHash = new HashMap<>();
 
     protected void setError(DataRow d, String what) {
         getInfo(d).setError(what);

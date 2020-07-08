@@ -286,7 +286,7 @@ class CheckLangTagBNF {
                 checkStrings("script", ltp.getScript(), slp.getScript());
                 checkStrings("country", ltp.getRegion(), slp.getCountry());
                 checkStrings("variants", ltp.getVariants(), slp.getVariants());
-                Map<String, String> foo = new LinkedHashMap<String, String>();
+                Map<String, String> foo = new LinkedHashMap<>();
                 foo.putAll(ltp.getExtensions());
                 foo.putAll(ltp.getLocaleExtensions());
                 checkStrings("variants", foo, slp.getExtensions());

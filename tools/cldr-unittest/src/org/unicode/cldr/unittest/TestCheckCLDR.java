@@ -179,6 +179,11 @@ public class TestCheckCLDR extends TestFmwk {
     private static final boolean DEBUG = true;
 
     public void TestPlaceholders() {
+        CheckCLDR.setDisplayInformation(english);
+        checkPlaceholders(english);
+        checkPlaceholders(factory.make("de", true));
+    }
+    public void checkPlaceholders(CLDRFile cldrFileToTest) {
         // verify that every item with {0} has a pattern in pattern
         // placeholders,
         // and that every one generates an error in CheckCDLR for patterns when
@@ -192,12 +197,12 @@ public class TestCheckCLDR extends TestFmwk {
         CheckCLDR test = CheckCLDR.getCheckAll(factory, ".*");
         List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
         Options options = new Options();
-        test.setCldrFileToCheck(english, options, possibleErrors);
+        test.setCldrFileToCheck(cldrFileToTest, options, possibleErrors);
         List<CheckStatus> result = new ArrayList<CheckStatus>();
 
-        PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
+        PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(cldrFileToTest);
         Set<PathHeader> sorted = new TreeSet<PathHeader>();
-        for (String path : english.fullIterable()) {
+        for (String path : cldrFileToTest.fullIterable()) {
             sorted.add(pathHeaderFactory.fromPath(path));
         }
         final String testPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-future\"]/unitPattern[@count=\"0\"]";
@@ -205,7 +210,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         for (PathHeader pathHeader : sorted) {
             String path = pathHeader.getOriginalPath();
-            String value = english.getStringValue(path);
+            String value = cldrFileToTest.getStringValue(path);
             if (value == null) {
                 value = "?";
             }
@@ -246,8 +251,7 @@ public class TestCheckCLDR extends TestFmwk {
 
                 // check that the error messages are right
 
-                test.handleCheck(path, english.getFullXPath(path), "?",
-                    options, result);
+                test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?", options, result);
                 CheckStatus gotIt = null;
                 for (CheckStatus i : result) {
                     if (i.getSubtype() == Subtype.missingPlaceholders) {
@@ -258,18 +262,18 @@ public class TestCheckCLDR extends TestFmwk {
                     && gotIt == null) {
                     errln("CheckForExemplars SHOULD have detected "
                         + Subtype.missingPlaceholders + " for "
-                        + placeholderStatus + " in " + path);
+                        + placeholderStatus + " in " + path + " with " + value);
                     if (DEBUG) {
-                        test.handleCheck(path, english.getFullXPath(path), "?",
+                        test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?",
                             options, result);
                     }
                 } else if (placeholderStatus == PlaceholderStatus.OPTIONAL
                     && gotIt != null) {
                     errln("CheckForExemplars should NOT have detected "
                         + Subtype.missingPlaceholders + " for "
-                        + placeholderStatus + " in " + path);
+                        + placeholderStatus + " in " + path + " with " + value);
                     if (DEBUG) {
-                        test.handleCheck(path, english.getFullXPath(path), "?",
+                        test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?",
                             options, result);
                     }
                 } else {
@@ -721,6 +725,7 @@ public class TestCheckCLDR extends TestFmwk {
         "somename");
 
     private static final UserInfo dummyUserInfo = new UserInfo() {
+        @Override
         public VoterInfo getVoterInfo() {
             return dummyVoterInfo;
         }
@@ -750,24 +755,31 @@ public class TestCheckCLDR extends TestFmwk {
 
         };
 
+        @Override
         public Collection<? extends CandidateInfo> getValues() {
             throw new UnsupportedOperationException();
         }
+        @Override
         public CandidateInfo getCurrentItem() {
             return candidateInfo;
         }
+        @Override
         public String getBaselineValue() {
             return baselineValue;
         }
+        @Override
         public Level getCoverageLevel() {
             return Level.MODERN;
         }
+        @Override
         public boolean hadVotesSometimeThisRelease() {
             throw new UnsupportedOperationException();
         }
+        @Override
         public CLDRLocale getLocale() {
             return locale;
         }
+        @Override
         public String getXpath() {
             return xpath;
         }

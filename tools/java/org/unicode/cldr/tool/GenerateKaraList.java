@@ -97,7 +97,7 @@ public class GenerateKaraList {
     private static void printCodes(PrintWriter log, Set<String> locales, Set<String> availableCodes, int choice) {
         boolean hasAbbreviation = choice == CLDRFile.CURRENCY_NAME;
         // boolean skipDraft = true;
-        Set<String> errors = new HashSet<String>();
+        Set<String> errors = new HashSet<>();
         for (Iterator<String> it = availableCodes.iterator(); it.hasNext();) {
             String id = it.next();
             String ename = english.getName(choice, id);

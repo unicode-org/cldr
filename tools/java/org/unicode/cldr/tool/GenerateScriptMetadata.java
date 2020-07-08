@@ -11,7 +11,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.FileCopier;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
@@ -25,14 +25,14 @@ public class GenerateScriptMetadata {
 //        FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
         FileCopier.copy(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
 
-        Set<R3<Integer, String, Info>> sorted = new TreeSet<R3<Integer, String, Info>>();
+        Set<R3<Integer, String, Info>> sorted = new TreeSet<>();
         for (String script : ScriptMetadata.getScripts()) {
             Info i = ScriptMetadata.getInfo(script);
             R3<Integer, String, Info> r = Row.of(i.rank, script, i);
             sorted.add(r);
         }
         if (ScriptMetadata.errors.size() > 0) {
-            System.err.println(CollectionUtilities.join(ScriptMetadata.errors, "\n\t"));
+            System.err.println(Joiner.on("\n\t").join(ScriptMetadata.errors));
             //throw new IllegalArgumentException();
         }
         VersionInfo currentUnicodeVersion = UCharacter.getUnicodeVersion();

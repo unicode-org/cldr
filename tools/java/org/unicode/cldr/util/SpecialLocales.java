@@ -31,7 +31,7 @@ public class SpecialLocales {
          * Locale may be modified by user. Contents aren't part of CLDR release and may change.
          */
         scratch
-    };
+    }
 
     /**
      * Get the type of this locale
@@ -89,10 +89,10 @@ public class SpecialLocales {
         return singleton;
     }
 
-    private Map<CLDRLocale, Type> specials = new HashMap<CLDRLocale, Type>();
-    private Map<Type, Set<CLDRLocale>> types = new HashMap<Type, Set<CLDRLocale>>();
-    private Map<CLDRLocale, String> comments = new HashMap<CLDRLocale, String>();
-    private Set<CLDRLocale> specialsWildcards = new HashSet<CLDRLocale>();
+    private Map<CLDRLocale, Type> specials = new HashMap<>();
+    private Map<Type, Set<CLDRLocale>> types = new HashMap<>();
+    private Map<CLDRLocale, String> comments = new HashMap<>();
+    private Set<CLDRLocale> specialsWildcards = new HashSet<>();
 
     public Set<CLDRLocale> getByTypeInternal(Type t) {
         return types.get(t);
@@ -143,13 +143,13 @@ public class SpecialLocales {
                 if (line.length() == 0)
                     continue;
                 List<String> stuff = CldrUtility.splitList(line, ';', true);
-                String id = (String) stuff.get(0);
+                String id = stuff.get(0);
                 boolean includeSublocs = (id.endsWith(INCLUDE_SUBLOCALES));
                 if (includeSublocs) {
                     id = id.substring(0, id.length() - INCLUDE_SUBLOCALES.length());
                 }
-                String type = (String) stuff.get(1);
-                String comment = (String) stuff.get(2);
+                String type = stuff.get(1);
+                String comment = stuff.get(2);
                 Type t = null;
 
                 // verify that the locale is valid
@@ -170,7 +170,7 @@ public class SpecialLocales {
 
                 Set<CLDRLocale> s = types.get(t);
                 if (s == null) {
-                    s = new TreeSet<CLDRLocale>();
+                    s = new TreeSet<>();
                     types.put(t, s);
                 }
                 s.add(l);

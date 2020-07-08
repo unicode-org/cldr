@@ -20,10 +20,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.util.CollectionUtilities.InverseMatcher;
-import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.SymbolTable;
@@ -142,7 +141,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     /*
      * Name: Unicode_1_Name Name: ISO_Comment Name: Name Name: Unicode_1_Name
-     * 
+     *
      */
 
     public static final int UNKNOWN = 0, BINARY = 2, EXTENDED_BINARY = 3,
@@ -261,6 +260,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         return getAvailableValues(null);
     }
 
+    @Override
     public final String getValue(int codepoint, boolean getShortest) {
         String result = getValue(codepoint);
         if (type >= MISC || result == null || !getShortest)
@@ -270,7 +270,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     public final String getFirstNameAlias() {
         if (firstNameAlias == null) {
-            firstNameAlias = (String) getNameAliases().get(0);
+            firstNameAlias = getNameAliases().get(0);
         }
         return firstNameAlias;
     }
@@ -288,7 +288,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         Iterator it = getAvailableValues().iterator();
         while (it.hasNext()) {
             String value = (String) it.next();
-            String first = (String) getValueAliases(value).get(0);
+            String first = getValueAliases(value).get(0);
             if (first == null) { // internal error
                 throw new IllegalArgumentException(
                         "Value not in value aliases: " + value);
@@ -312,6 +312,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     private int maxFirstValueAliasWidth = -1;
 
+    @Override
     public int getMaxWidth(boolean getShortest) {
         if (maxValueWidth < 0)
             _getFirstValueAliasCache();
@@ -352,7 +353,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 }
             }
         }
-        ObjectMatcher<String> matcher = isType(STRING_OR_MISC_MASK) ?
+        Predicate<String> matcher = isType(STRING_OR_MISC_MASK) ?
             new StringEqualityMatcher(propertyValue) : new NameMatcher(propertyValue);
         return getSet(matcher, result);
     }
@@ -386,7 +387,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     public static final String UNUSED = "??";
 
-    public UnicodeSet getSet(ObjectMatcher matcher, UnicodeSet result) {
+    public UnicodeSet getSet(Predicate matcher, UnicodeSet result) {
         if (result == null)
             result = new UnicodeSet();
         boolean uniformUnassigned = hasUniformUnassigned();
@@ -394,7 +395,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             for (UnicodeSetIterator usi = getStuffToTest(uniformUnassigned); usi.next();) { // int i = 0; i <= 0x10FFFF; ++i
                 int i = usi.codepoint;
                 String value = getValue(i);
-                if (value != null && matcher.matches(value)) {
+                if (value != null && matcher.test(value)) {
                     result.add(i);
                 }
             }
@@ -405,7 +406,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         Iterator it = um.getAvailableValues(null).iterator();
         main: while (it.hasNext()) {
             String value = (String) it.next();
-            if (matcher.matches(value)) {  // fastpath
+            if (matcher.test(value)) {  // fastpath
                 um.keySet(value, result);
                 continue main;
             }
@@ -414,8 +415,8 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             while (it2.hasNext()) {
                 String value2 = (String) it2.next();
                 // System.out.println("Values:" + value2);
-                if (matcher.matches(value2)
-                        || matcher.matches(toSkeleton(value2))) {
+                if (matcher.test(value2)
+                        || matcher.test(toSkeleton(value2))) {
                     um.keySet(value, result);
                     continue main;
                 }
@@ -427,7 +428,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     /*
      * public UnicodeSet getMatchSet(UnicodeSet result) { if (result == null)
      * result = new UnicodeSet(); addAll(matchIterator, result); return result; }
-     * 
+     *
      * public void setMatchSet(UnicodeSet set) { matchIterator = new
      * UnicodeSetIterator(set); }
      */
@@ -463,18 +464,22 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             }
         }
 
+        @Override
         public int compareTo(Object o) {
             return skeleton.compareTo(((Name) o).skeleton);
         }
 
+        @Override
         public boolean equals(Object o) {
             return skeleton.equals(((Name) o).skeleton);
         }
 
+        @Override
         public int hashCode() {
             return skeleton.hashCode();
         }
 
+        @Override
         public String toString() {
             return pretty;
         }
@@ -492,7 +497,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
      */
     public UnicodeMap getUnicodeMap(boolean getShortest) {
         if (!getShortest)
-            return (UnicodeMap) getUnicodeMap_internal().cloneAsThawed();
+            return getUnicodeMap_internal().cloneAsThawed();
         UnicodeMap result = new UnicodeMap();
         boolean uniformUnassigned = hasUniformUnassigned();
 
@@ -575,6 +580,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
      * Utility for managing property & non-string value aliases
      */
     public static final Comparator PROPERTY_COMPARATOR = new Comparator() {
+        @Override
         public int compare(Object o1, Object o2) {
             return compareNames((String) o1, (String) o2);
         }
@@ -582,7 +588,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     /**
      * Utility for managing property & non-string value aliases
-     * 
+     *
      */
     // TODO optimize
     public static boolean equalNames(String a, String b) {
@@ -716,7 +722,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     /**
      * Utility function for comparing codepoint to string without generating new
      * string.
-     * 
+     *
      * @param codepoint
      * @param other
      * @return true if the codepoint equals the string
@@ -744,7 +750,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
     /**
      * Utility that should be on UnicodeSet
-     * 
+     *
      * @param source
      * @param result
      */
@@ -783,7 +789,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     static public class Factory {
         static boolean DEBUG = false;
 
-        Map<String, UnicodeProperty> canonicalNames = new TreeMap<String, UnicodeProperty>();
+        Map<String, UnicodeProperty> canonicalNames = new TreeMap<>();
 
         Map skeletonNames = new TreeMap();
 
@@ -890,6 +896,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         private class MyXSymbolTable extends UnicodeSet.XSymbolTable {
+            @Override
             public boolean applyPropertyAlias(String propertyName,
                     String propertyValue, UnicodeSet result) {
                 if (false)
@@ -918,6 +925,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 this.prefix = prefix;
             }
 
+            @Override
             public char[] lookup(String s) {
                 if (DEBUG)
                     System.out.println("\t(" + prefix + ")Looking up " + s);
@@ -969,10 +977,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 return result.toString();
             }
 
+            @Override
             public UnicodeMatcher lookupMatcher(int ch) {
                 return null;
             }
 
+            @Override
             public String parseReference(String text, ParsePosition pos,
                     int limit) {
                 if (DEBUG)
@@ -1064,20 +1074,24 @@ public abstract class UnicodeProperty extends UnicodeLabel {
 
         List temp = new ArrayList(1);
 
+        @Override
         public List _getAvailableValues(List result) {
             temp.clear();
             return filter.addUnique(property.getAvailableValues(temp), result);
         }
 
+        @Override
         public List _getNameAliases(List result) {
             temp.clear();
             return filter.addUnique(property.getNameAliases(temp), result);
         }
 
+        @Override
         public String _getValue(int codepoint) {
             return filter.remap(property.getValue(codepoint));
         }
 
+        @Override
         public List _getValueAliases(String valueAlias, List result) {
             if (backmap == null) {
                 backmap = new HashMap(1);
@@ -1101,6 +1115,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                     result);
         }
 
+        @Override
         public String _getVersion() {
             return property.getVersion();
         }
@@ -1142,6 +1157,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             this.valueMap = valueMap;
         }
 
+        @Override
         public String remap(String original) {
             Object changed = valueMap.get(original);
             return changed == null ? original : (String) changed;
@@ -1153,7 +1169,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     }
 
     /** Matches using .equals(). */
-    private static final class StringEqualityMatcher implements ObjectMatcher<String> {
+    private static final class StringEqualityMatcher implements Predicate<String> {
         private final String pattern;
 
         StringEqualityMatcher(String pattern) {
@@ -1161,13 +1177,13 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         @Override
-        public boolean matches(String value) {
+        public boolean test(String value) {
             return pattern.equals(value);
         }
     }
 
     /** Matches skeleton strings. Computes the pattern skeleton only once. */
-    private static final class NameMatcher implements ObjectMatcher<String> {
+    private static final class NameMatcher implements Predicate<String> {
         private final String pattern;
         private final String skeleton;
 
@@ -1177,19 +1193,18 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         }
 
         @Override
-        public boolean matches(String value) {
+        public boolean test(String value) {
             return pattern.equals(value) || skeleton.equals(toSkeleton(value));
         }
     }
 
     private static final NameMatcher YES_MATCHER = new NameMatcher("Yes");
 
-    public interface PatternMatcher extends ObjectMatcher {
-        public PatternMatcher set(String pattern);
+    public interface PatternMatcher extends Predicate {
+        PatternMatcher set(String pattern);
     }
 
-    public static class InversePatternMatcher extends InverseMatcher implements
-    PatternMatcher {
+    public static class InversePatternMatcher implements PatternMatcher {
         PatternMatcher other;
 
         public PatternMatcher set(PatternMatcher toInverse) {
@@ -1197,10 +1212,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return this;
         }
 
-        public boolean matches(Object value) {
-            return !other.matches(value);
+        @Override
+        public boolean test(Object value) {
+            return !other.test(value);
         }
 
+        @Override
         public PatternMatcher set(String pattern) {
             other.set(pattern);
             return this;
@@ -1217,12 +1234,14 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             this.pattern = pattern;
         }
 
-        public boolean matches(Object value) {
+        @Override
+        public boolean test(Object value) {
             if (comparator == null)
                 return pattern.equals(value);
             return comparator.compare(pattern, value) == 0;
         }
 
+        @Override
         public PatternMatcher set(String pattern) {
             this.pattern = pattern;
             return this;
@@ -1232,12 +1251,14 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     public static class RegexMatcher implements UnicodeProperty.PatternMatcher {
         private java.util.regex.Matcher matcher;
 
+        @Override
         public UnicodeProperty.PatternMatcher set(String pattern) {
             matcher = Pattern.compile(pattern).matcher("");
             return this;
         }
         UFormat foo;
-        public boolean matches(Object value) {
+        @Override
+        public boolean test(Object value) {
             matcher.reset(value.toString());
             return matcher.find();
         }
@@ -1251,7 +1272,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         private static final String[] YES_VALUES = {"Yes", "Y", "T", "True"};
 
         /**
-         * 
+         *
          */
         private static final String[][] YES_NO_ALIASES = new String[][] {YES_VALUES, NO_VALUES};
 
@@ -1274,10 +1295,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return this;
         }
 
+        @Override
         public String _getVersion() {
             return version;
         }
 
+        @Override
         public List _getNameAliases(List result) {
             addAllUnique(propertyAliases, result);
             return result;
@@ -1303,7 +1326,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 switch(aliasAddAction) {
                 case IGNORE_IF_MISSING: return;
                 case REQUIRE_MAIN_ALIAS: throw new IllegalArgumentException("Can't add alias for mising value: " + value);
-                case ADD_MAIN_ALIAS: 
+                case ADD_MAIN_ALIAS:
                     toValueAliases.put(value, result = new ArrayList(0));
                     break;
                 }
@@ -1312,6 +1335,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             addUnique(valueAlias, result);
         }
 
+        @Override
         protected List _getValueAliases(String valueAlias, List result) {
             if (toValueAliases == null)
                 _fixValueAliases();
@@ -1362,6 +1386,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
     public static abstract class SimpleProperty extends BaseProperty {
         LinkedHashSet values;
 
+        @Override
         public UnicodeProperty addName(String alias) {
             propertyAliases.add(alias);
             return this;
@@ -1398,6 +1423,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return this;
         }
 
+        @Override
         public List _getAvailableValues(List result) {
             if (values == null)
                 _fillValues();
@@ -1458,6 +1484,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
          */
         protected UnicodeMap unicodeMap;
 
+        @Override
         protected UnicodeMap _getUnicodeMap() {
             return unicodeMap;
         }
@@ -1467,6 +1494,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return this;
         }
 
+        @Override
         protected String _getValue(int codepoint) {
             return (String) unicodeMap.getValue(codepoint);
         }
@@ -1476,7 +1504,8 @@ public abstract class UnicodeProperty extends UnicodeLabel {
          result.add(valueAlias);
          return result; // no other aliases
          }
-         */protected List _getAvailableValues(List result) {
+         */@Override
+        protected List _getAvailableValues(List result) {
              unicodeMap.getAvailableValues(result);
              if (toValueAliases != null) {
                  for (Object s : toValueAliases.keySet()) {
@@ -1493,7 +1522,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         if (isType(STRING_OR_MISC_MASK)) {
             return true;
         }
-        Collection<String> values = (Collection<String>) getAvailableValues();
+        Collection<String> values = getAvailableValues();
         for (String valueAlias : values) {
             if (UnicodeProperty.compareNames(valueAlias, propertyValue) == 0) {
                 return true;
@@ -1512,7 +1541,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
         if (isType(STRING_OR_MISC_MASK)) {
             return result;
         }
-        Collection<String> values = (Collection<String>) getAvailableValues();
+        Collection<String> values = getAvailableValues();
         for (String valueAlias : values) {
             UnicodeProperty.addAllUnique(getValueAliases(valueAlias), result);
         }
@@ -1583,7 +1612,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return equals(cp, value);
         }
         String defaultValue = getValue(getSAMPLE_UNASSIGNED());
-        return defaultValue == null ? value == null : defaultValue.equals(value);   
+        return defaultValue == null ? value == null : defaultValue.equals(value);
     }
 
     public boolean hasUniformUnassigned() {
@@ -1609,10 +1638,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
             return set(new UnicodeSet(string).freeze());
         }
 
+        @Override
         protected String _getValue(int codepoint) {
             return YESNO_ARRAY[unicodeSet.contains(codepoint) ? 0 : 1];
         }
 
+        @Override
         protected List _getAvailableValues(List result) {
             return YESNO;
         }

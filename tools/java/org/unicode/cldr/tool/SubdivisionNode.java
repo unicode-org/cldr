@@ -40,7 +40,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
@@ -102,7 +102,7 @@ public class SubdivisionNode {
             new TreeMap<String, Object>(),
             new TreeMap<String, Object>(),
             String.class);
-        final Map<String, String> TO_COUNTRY_CODE = new TreeMap<String, String>();
+        final Map<String, String> TO_COUNTRY_CODE = new TreeMap<>();
         final Relation<String, String> ID_SAMPLE = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         final Map<String, String> SUB_TO_CAT = new TreeMap<>();
         final Relation<String, String> REGION_CONTAINS = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -180,7 +180,7 @@ public class SubdivisionNode {
             "municipality"
         };
 
-        static final Pattern CRUFT_PATTERN = PatternCache.get("(?i)\\b" + CollectionUtilities.join(CRUFT, "|") + "\\b");
+        static final Pattern CRUFT_PATTERN = PatternCache.get("(?i)\\b" + String.join("|", CRUFT) + "\\b");
         static final Pattern BRACKETED = PatternCache.get("\\[.*\\]");
 
         static String clean(String input) {
@@ -270,7 +270,7 @@ public class SubdivisionNode {
             if (cldrName != null) {
                 return fixName(cldrName);
             }
-            
+
             Collection<String> oldAliases = SubdivisionInfo.subdivisionIdToOld.get(value);
             if (oldAliases != null) {
                 for (String oldAlias : oldAliases) {
@@ -475,13 +475,13 @@ public class SubdivisionNode {
 
     static class SubDivisionExtractor {
         final SubdivisionSet sdset;
-        final Validity validityFormer; 
+        final Validity validityFormer;
         final Map<String, R2<List<String>, String>> subdivisionAliasesFormer;
         final Relation<String, String> formerRegionToSubdivisions;
 
-        public SubDivisionExtractor(SubdivisionSet sdset, 
-            Validity validityFormer, 
-            Map<String, R2<List<String>, String>> subdivisionAliasesFormer, 
+        public SubDivisionExtractor(SubdivisionSet sdset,
+            Validity validityFormer,
+            Map<String, R2<List<String>, String>> subdivisionAliasesFormer,
             Relation<String, String> formerRegionToSubdivisions) {
             this.sdset = sdset;
             this.validityFormer = validityFormer;
@@ -501,7 +501,7 @@ public class SubdivisionNode {
              */
             output.append(
                 DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
+                + "\t<version number=\"$Revision" + "$\"/>\n"
                 + "\t<subdivisionContainment>\n");
             printXml(output, sdset.BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");
@@ -550,7 +550,7 @@ public class SubdivisionNode {
                 String reason = "deprecated";
                 R2<List<String>, String> aliasInfo = subdivisionAliasesFormer.get(toReplace);
                 if (aliasInfo != null) {
-                    replaceBy = aliasInfo.get0(); //  == null ? null : CollectionUtilities.join(aliasInfo.get0(), " ");
+                    replaceBy = aliasInfo.get0();
                     reason = aliasInfo.get1();
                     System.out.println("Adding former alias: " + toReplace + " => " + replaceBy);
                 } else {
@@ -573,7 +573,8 @@ public class SubdivisionNode {
             }
             output.append("<subdivisionAlias"
                 + " type=\"" + toReplace + "\""
-                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0, 2) + "?" : CollectionUtilities.join(replaceBy, " ")) + "\""
+                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0, 2) + "?" :
+                Joiner.on(" ").join(replaceBy)) + "\""
                 + " reason=\"" + reason + "\"/>"
                 + (replaceBy == null ? " <!- - " : " <!-- ")
                 + sdset.getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"
@@ -653,7 +654,7 @@ public class SubdivisionNode {
                         output.append(ENGLISH_ICU.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
                     }
                     countEqual.clear();
-                    ;
+
                     lastCC = countryCode;
                 }
                 for (String value : entry.getValue()) {

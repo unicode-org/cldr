@@ -21,7 +21,7 @@ import org.unicode.cldr.util.PatternCache;
  * TODO be sensitive to COMMENTS
  * <p>
  * TODO add support for (?#)
- * 
+ *
  * @author markdavis
  */
 public class PatternFixer {
@@ -37,7 +37,7 @@ public class PatternFixer {
 
     /**
      * Create for particular regex target.
-     * 
+     *
      * @param target
      */
     public PatternFixer(Target target) {
@@ -50,11 +50,11 @@ public class PatternFixer {
 
     private enum State {
         BASE, HAVE_SLASH, HAVE_Q, HAVE_Q_SLASH
-    };
+    }
 
     /**
      * Produce a modified pattern that fixes character classes. (See class description.)
-     * 
+     *
      * @param regexPattern
      * @param patternOptions
      * @return

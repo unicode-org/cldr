@@ -14,7 +14,7 @@ public class FallbackIteratorDataGenerator {
 
     public static void main(String[] args) {
         final StandardCodes sc = testInfo.getStandardCodes();
-        List<String> decanonicalizeList = new ArrayList<String>();
+        List<String> decanonicalizeList = new ArrayList<>();
         System.out.println();
         System.out.println("\t\t\"canonicalize\",\t\t// mechanically generated");
         System.out.println();

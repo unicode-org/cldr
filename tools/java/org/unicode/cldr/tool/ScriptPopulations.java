@@ -23,9 +23,9 @@ public class ScriptPopulations {
         // iterate through the language populations, picking up the script
         SupplementalDataInfo info = supplementalDataInfo;
         LanguageTagParser languageTagParser = new LanguageTagParser();
-        Counter<String> langScriptLitPop = new Counter<String>();
-        Counter<String> scriptLitPop = new Counter<String>();
-        Map<String, OfficialStatus> bestStatus = new HashMap<String, OfficialStatus>();
+        Counter<String> langScriptLitPop = new Counter<>();
+        Counter<String> scriptLitPop = new Counter<>();
+        Map<String, OfficialStatus> bestStatus = new HashMap<>();
 
         for (String territory : info.getTerritoriesWithPopulationData()) {
             for (String language : info.getLanguagesForTerritoryWithPopulationData(territory)) {

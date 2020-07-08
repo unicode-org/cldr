@@ -53,7 +53,7 @@ public class GenerateLanguageData {
             Set<String> all = Iso639Data.getAvailable();
             newEn.addComment("//ldml", "by " +
                 GenerateLanguageData.class.getSimpleName() +
-                " from Iso639Data v" + iso639Data.getVersion() + " on " + new java.util.Date()
+                " from Iso639Data v" + Iso639Data.getVersion() + " on " + new java.util.Date()
                 + " - " + all.size() + " codes.",
                 CommentType.PREBLOCK);
             System.out.println(all.size() + " ISO 639 codes to process");
@@ -81,7 +81,7 @@ public class GenerateLanguageData {
         }
 
         // Set<String> languageRegistryCodes = sc.getAvailableCodes("language");
-        Set<String> languageCodes = new TreeSet<String>(Iso639Data.getAvailable());
+        Set<String> languageCodes = new TreeSet<>(Iso639Data.getAvailable());
 
         System.out.println("Macrolanguages");
         for (String languageCode : languageCodes) {
@@ -96,7 +96,7 @@ public class GenerateLanguageData {
             // //+ "\t" + iso639Data.getType(languageCode)
             // + "\t" + Utility.join(iso639Data.getNames(languageCode),"; ")
             // );
-            for (String suffix : new TreeSet<String>(suffixes)) {
+            for (String suffix : new TreeSet<>(suffixes)) {
                 System.out.println(
                     languageCode
                         + "\t" + (bcp47languages.contains(languageCode) ? "4646" : "new")

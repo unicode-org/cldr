@@ -68,6 +68,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         ctx.println(ctx.iconHtml("stop", "empty value") + " value was left empty. <!-- Use 'remove' to request removal. --><br>");
     }
 
+    @Override
     public void warnAcceptedAsVoteFor(DataRow p, CandidateItem item) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         /*
@@ -80,6 +81,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
                 : (" the proposal <tt>" + dummyAltProposed + "</tt>.<br>")));
     }
 
+    @Override
     public void warnAlreadyVotingFor(DataRow p, CandidateItem item) {
         /*
          * TODO: CandidateItem.altProposed was a constant string "n/a". Replaced by dummyAltProposed here. Simplify!

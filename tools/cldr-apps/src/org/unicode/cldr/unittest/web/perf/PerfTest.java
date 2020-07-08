@@ -130,10 +130,11 @@ public abstract class PerfTest {
             refer = theProvider;
         }
 
+        @Override
         public Set<String> getAllTestCmdNames() {
             if (theTests == null) {
-                theTests = new HashMap<String, String>();
-                orgNames = new HashSet<String>();
+                theTests = new HashMap<>();
+                orgNames = new HashSet<>();
                 Method[] methods = refer.getClass().getDeclaredMethods();
                 for (int i = 0; i < methods.length; i++) {
                     String org = methods[i].getName();
@@ -168,12 +169,14 @@ public abstract class PerfTest {
             return null;
         }
 
+        @Override
         public boolean isTestCmd(String name) {
             return isTestCmd_impl(name) != null;
         }
 
+        @Override
         public Function getTestCmd(String aname) {
-            String name = (String) theTests.get(isTestCmd_impl(aname));
+            String name = theTests.get(isTestCmd_impl(aname));
             if (name == null) {
                 return null;
             }
@@ -273,6 +276,7 @@ public abstract class PerfTest {
             this.id = id;
         }
 
+        @Override
         public void run() {
             long n = loops;
             while (n-- > 0)
@@ -516,7 +520,7 @@ public abstract class PerfTest {
             locale = LocaleUtility.getLocaleFromName(options[LOCALE].value);
 
         // build the test list
-        Set<String> testList = new HashSet<String>();
+        Set<String> testList = new HashSet<>();
         int i, j;
         for (i = 0; i < remainingArgc; ++i) {
             // is args[i] a method name?
@@ -535,7 +539,7 @@ public abstract class PerfTest {
             Set<String> testNames = testProvider.getAllTestCmdNames();
             Iterator<String> iter = testNames.iterator();
             while (iter.hasNext())
-                testList.add((String) iter.next());
+                testList.add(iter.next());
         }
 
         // pass remaining arguments, if any, through to the subclass via setup()
@@ -660,7 +664,7 @@ public abstract class PerfTest {
     }
 
     public static char[] readToEOS(Reader reader) {
-        ArrayList<char[]> vec = new ArrayList<char[]>();
+        ArrayList<char[]> vec = new ArrayList<>();
         int count = 0;
         int pos = 0;
         final int MAXLENGTH = 0x8000; // max buffer size - 32K
@@ -686,7 +690,7 @@ public abstract class PerfTest {
         char[] data = new char[count];
         pos = 0;
         for (int i = 0; i < vec.size(); ++i) {
-            char[] buf = (char[]) vec.get(i);
+            char[] buf = vec.get(i);
             int len = Math.min(buf.length, count - pos);
             System.arraycopy(buf, 0, data, pos, len);
             pos += len;
@@ -696,7 +700,7 @@ public abstract class PerfTest {
 
     public static byte[] readToEOS(InputStream stream) {
 
-        ArrayList<byte[]> vec = new ArrayList<byte[]>();
+        ArrayList<byte[]> vec = new ArrayList<>();
         int count = 0;
         int pos = 0;
         final int MAXLENGTH = 0x8000; // max buffer size - 32K
@@ -722,7 +726,7 @@ public abstract class PerfTest {
         byte[] data = new byte[count];
         pos = 0;
         for (int i = 0; i < vec.size(); ++i) {
-            byte[] buf = (byte[]) vec.get(i);
+            byte[] buf = vec.get(i);
             int len = Math.min(buf.length, count - pos);
             System.arraycopy(buf, 0, data, pos, len);
             pos += len;
@@ -742,7 +746,7 @@ public abstract class PerfTest {
             System.err.println("Error: File access exception: " + e.getMessage() + "!");
             System.exit(1);
         }
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         while (true) {
             String line = null;
             try {
@@ -765,7 +769,7 @@ public abstract class PerfTest {
             lines = new String[1];
             StringBuffer buffer = new StringBuffer("");
             for (int i = 0; i < size; ++i) {
-                buffer.append((String) list.get(i));
+                buffer.append(list.get(i));
                 /*
                  * if (i < (size - 1)) { buffer.append("\r\n"); }
                  */
@@ -774,7 +778,7 @@ public abstract class PerfTest {
         } else {
             lines = new String[size];
             for (int i = 0; i < size; ++i) {
-                lines[i] = (String) list.get(i);
+                lines[i] = list.get(i);
             }
         }
 
@@ -915,10 +919,12 @@ public abstract class PerfTest {
             return 0;
         }
 
+        @Override
         public int read(char[] cbuf, int off, int len) throws IOException {
             return reader.read(cbuf, off, len);
         }
 
+        @Override
         public void close() throws IOException {
             reader.close();
         }

@@ -16,8 +16,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-
 public class CompareEn {
 
     enum MyOptions {
@@ -72,11 +70,12 @@ public class CompareEn {
 
             // walk through all the new paths and values to check them.
 
-            Set<String> paths = CollectionUtilities.addAll(en_GB.iterator(), new TreeSet<>());
+            TreeSet<String> paths = new TreeSet<>();
+            en_GB.forEach(paths::add);
 
             for (String path : paths) {
                 if (path.startsWith("//ldml/identity")) {
-                    continue; 
+                    continue;
                 }
              // skip certain paths
                 if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")) {
@@ -130,8 +129,9 @@ public class CompareEn {
 
                 // walk through all the new paths and values to check them.
 
-                Set<String> paths = CollectionUtilities.addAll(en_GB.iterator(), new TreeSet<>());
-                paths = CollectionUtilities.addAll(en_001.iterator(), paths);
+                TreeSet<String> paths = new TreeSet<>();
+                en_GB.forEach(paths::add);
+                en_001.forEach(paths::add);
 
                 for (String path : paths) {
                     if (path.startsWith("//ldml/identity")) {

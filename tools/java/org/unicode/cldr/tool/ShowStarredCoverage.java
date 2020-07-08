@@ -44,10 +44,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.LengthFirstComparator;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 
@@ -332,7 +332,7 @@ public class ShowStarredCoverage {
             pathHeaders.add(ph);
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
             String starred = pathStarrer.set(path);
-            String attributes = CollectionUtilities.join(pathStarrer.getAttributes(), "|");
+            String attributes = Joiner.on("|").join(pathStarrer.getAttributes());
             levelToData.put(level, starred + "|" + stStatus + "|" + requiredVotes, attributes, Boolean.TRUE);
             counter.add(level, 1);
         }
@@ -350,7 +350,7 @@ public class ShowStarredCoverage {
                         count = 1;
                     }
                     if (true) {
-                        String samples = CollectionUtilities.join(attributes.keySet(), ", ");
+                        String samples = Joiner.on(", ").join(attributes.keySet());
                         if (samples.length() > 50) samples = samples.substring(0, 50) + "…";
                         System.out.println(count
                             + "\t" + level
@@ -427,12 +427,12 @@ public class ShowStarredCoverage {
                     badLines.add(written
                         + "\t" + name
                         + "\t" + languageFix.get(written).get0()
-                        + "\t" + CollectionUtilities.join(source, " "));
+                        + "\t" + Joiner.on(" ").join(source));
                     source = Collections.singleton(Source.alias);
                 }
                 System.out.println(written
                     + "\t" + name
-                    + "\t" + CollectionUtilities.join(source, " "));
+                    + "\t" + Joiner.on(" ").join(source));
             }
             for (String s : badLines) {
                 System.out.println("BAD:\t" + s);

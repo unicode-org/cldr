@@ -30,10 +30,10 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestDtdData extends TestFmwk {
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
@@ -284,7 +284,7 @@ public class TestDtdData extends TestFmwk {
     }
 
     private String showPath(List<Element> parents) {
-        return "!//" + CollectionUtilities.join(parents, "/");
+        return "!//" + Joiner.on("/").join(parents);
     }
 
     public void TestNewDtdData() {
@@ -462,7 +462,14 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("parseLenients") && (attribute.equals("scope") || attribute.equals("level")))
                 || (elementName.equals("parseLenient") && attribute.equals("sample"))
                 || (elementName.equals("ordinalMinimalPairs") && attribute.equals("ordinal"))
-                || (elementName.equals("styleName") && attribute.equals("subtype"));
+                || (elementName.equals("styleName") && attribute.equals("subtype"))
+                || (elementName.equals("unitPattern") && attribute.equals("case"))
+                || (elementName.equals("compoundUnitPattern") && attribute.equals("case"))
+                || (elementName.equals("compoundUnitPattern1") && (attribute.equals("case") || attribute.equals("gender")))
+                || (elementName.equals("genderMinimalPairs") && attribute.equals("gender"))
+                || (elementName.equals("caseMinimalPairs") && attribute.equals("case"))
+                ;
+                
         case ldmlBCP47:
             return attribute.equals("_q")
                 //|| attribute.equals("alias")
@@ -570,9 +577,14 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
                     .equals("variant")))
                 || (elementName.equals("grammaticalFeatures") && (attribute.equals("locales") || attribute.equals("targets")))
+                || (elementName.equals("grammaticalDefiniteness") && attribute.equals("scope"))
+                || (elementName.equals("grammaticalCase") && attribute.equals("scope"))
+                || (elementName.equals("grammaticalGender") && attribute.equals("scope"))
                 || (elementName.equals("convertUnit") && (attribute.equals("source") || attribute.equals("target")))
                 || (elementName.equals("unitConstant") && attribute.equals("constant"))
                 || (elementName.equals("unitQuantity") && attribute.equals("baseUnit"))
+                
+                || attribute.equals("scope")
                 ;
 
         case keyboard:

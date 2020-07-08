@@ -182,6 +182,19 @@ const cldrStAjax = (function() {
 		return (err && err.response && err.response.text) ? err.response.text : '';
 	}
 
+	/**
+	 * How many requests are in the queue?
+	 *
+	 * @return the number of requests in the queue
+	 */
+	function queueCount() {
+		const count = queueOfXhr ? queueOfXhr.length : 0;
+		if (ST_AJAX_DEBUG) {
+			console.log("queueCount: " + count);
+		}
+		return count;
+	}
+
 	/*
 	 * Make only these functions accessible from other files:
 	 */
@@ -190,5 +203,6 @@ const cldrStAjax = (function() {
 		clearXhr: clearXhr,
 		sendXhr: sendXhr,
 		errResponseText: errResponseText,
+		queueCount: queueCount,
 	};
 })();

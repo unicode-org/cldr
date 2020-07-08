@@ -33,7 +33,7 @@ import com.ibm.icu.util.ULocale;
 
 public class CheckNumbers extends FactoryCheckCLDR {
     private static final Splitter SEMI_SPLITTER = Splitter.on(';');
-    
+
     private static final Set<String> SKIP_TIME_SEPARATOR = ImmutableSet.of("nds", "fr_CA");
 
     private static final UnicodeSet FORBIDDEN_NUMERIC_PATTERN_CHARS = new UnicodeSet("[[:n:]-[0]]");
@@ -188,11 +188,11 @@ public class CheckNumbers extends FactoryCheckCLDR {
             if (patternForHm != null && !patternForHm.contains(value)) {
                 // Should be fixed to not require hack, see #11833
                 if (!SKIP_TIME_SEPARATOR.contains(getCldrFileToCheck().getLocaleID())) {
-                result.add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.invalidSymbol)
-                    .setMessage("Invalid timeSeparator: " + value + "; must match what is used in Hm time pattern: " + patternForHm));
+                    result.add(new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.invalidSymbol)
+                        .setMessage("Invalid timeSeparator: " + value + "; must match what is used in Hm time pattern: " + patternForHm));
                 }
             }
         }
@@ -202,7 +202,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         if (type == NumericType.NOT_NUMERIC) {
             return this; // skip
         }
-        XPathParts parts = XPathParts.getInstance(path); // can't be frozen because some of the following code modifies it!
+        XPathParts parts = XPathParts.getFrozenInstance(path);
 
         boolean isPositive = true;
         for (String patternPart : SEMI_SPLITTER.split(value)) {
@@ -280,6 +280,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // Tests that assume that the value is a valid number pattern.
         // Notice that we pick up any exceptions, so that we can
         // give a reasonable error message.
+        parts = parts.cloneAsThawed();
         try {
             if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED) {
                 // Check for consistency in short/long decimal formats.
@@ -373,6 +374,10 @@ public class CheckNumbers extends FactoryCheckCLDR {
         return this;
     }
 
+    /**
+     * Only called when we are looking at compact decimals. Make sure that we have a consistent number of 0's at each level, and check for missing 0's.
+     * (The latter are only allowed for "singular" plural forms).
+     */
     private void checkDecimalFormatConsistency(XPathParts parts, String path, String value,
         List<CheckStatus> result, NumericType type) {
         // Look for duplicates of decimal formats with the same number
@@ -389,8 +394,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
             // can happen if count is numeric literal, like "1"
         }
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
-        Set<String> inconsistentItems = new TreeSet<String>();
-        Set<Count> otherCounts = new HashSet<Count>(pluralTypes);
+        Set<String> inconsistentItems = new TreeSet<>();
+        Set<Count> otherCounts = new HashSet<>(pluralTypes);
         if (thisCount != null) {
             Set<Double> pe = pluralExamples.get(thisCount);
             if (pe == null) {
@@ -400,13 +405,24 @@ public class CheckNumbers extends FactoryCheckCLDR {
                  * TODO: something? At least don't throw NullPointerException, as happened when the code
                  * was "... pluralExamples.get(thisCount).size() ..."; never assume get() returns non-null
                  */
-                 return;
-            }
-            if (pe.size() == 1 && numIntegerDigits <= 0) {
-                // If a plural case corresponds to a single double value, the format is
-                // allowed to not include a numeric value and in this way be inconsistent
-                // with the numeric formats used for other plural cases.
                 return;
+            }
+            if (!value.contains("0")) {
+                switch (pe.size()) {
+                case 0:  // do nothing, shouldn't ever happen
+                    break;
+                case 1:
+                    // If a plural case corresponds to a single double value, the format is
+                    // allowed to not include a numeric value and in this way be inconsistent
+                    // with the numeric formats used for other plural cases.
+                    return;
+                default: // we have too many digits
+                    result.add(new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.missingZeros)
+                        .setMessage("Values without a zero must only be used where there is only one possible numeric form, but this has multiple: {0} ",
+                            pe.toString()));
+                }
             }
             otherCounts.remove(thisCount);
         }
@@ -547,6 +563,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
     /**
      * Produce a canonical pattern, which will vary according to type and whether it is posix or not.
+     * @param count
      *
      * @param path
      */
@@ -562,7 +579,10 @@ public class CheckNumbers extends FactoryCheckCLDR {
             df.setMaximumFractionDigits(digits[2]);
             pattern = df.toPattern();
         } else { // of form 1000. Result must be 0+(.0+)?
-            if (type == NumericType.CURRENCY_ABBREVIATED) {
+            if (type == NumericType.CURRENCY_ABBREVIATED || type == NumericType.DECIMAL_ABBREVIATED) {
+                if (!inpattern.contains("0")) {
+                    return inpattern; // we check in checkDecimalFormatConsistency to make sure that the "no number" case is allowed.
+                }
                 if (!inpattern.contains("0.0")) {
                     df.setMinimumFractionDigits(0); // correct the current rewrite
                 }
@@ -592,6 +612,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         public SimpleDemo getDemo() {
             return new MyDemo().setFormat(df);
         }
@@ -604,10 +625,12 @@ public class CheckNumbers extends FactoryCheckCLDR {
     static class MyDemo extends FormatDemo {
         private DecimalFormat df;
 
+        @Override
         protected String getPattern() {
             return df.toPattern();
         }
 
+        @Override
         protected String getSampleInput() {
             return String.valueOf(ExampleGenerator.NUMBER_SAMPLE);
         }
@@ -617,6 +640,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             return this;
         }
 
+        @Override
         protected void getArguments(Map<String, String> inout) {
             currentPattern = currentInput = currentFormatted = currentReparsed = "?";
             double d;

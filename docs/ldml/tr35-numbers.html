@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "https://www.unicode.org/reports/reports.css" type="text/css">
+  "../reports.css" type="text/css">
   <title>UTS #35: Unicode LDML: Numbers</title>
   <style type="text/css">
   <!--
@@ -71,7 +71,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="../logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -89,7 +89,7 @@
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">37</td>
+        <td class="changed">38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -429,9 +429,9 @@ System Data</a>.</em> ) &gt;<br>
     "Number_Symbols">Number Symbols</a></h3>
     <p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*,
     list*, percentSign*, nativeZeroDigit*, patternDigit*,
-    plusSign*, minusSign*, exponential*, superscriptingExponent*,
-    perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*,
-    timeSeparator*, special*)) &gt;</p>
+    plusSign*, minusSign*, approximatelySign*, exponential*,
+    superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*,
+    currencyGroup*, timeSeparator*, special*)) &gt;</p>
     <p>Number symbols define the localized symbols that are
     commonly used when formatting numbers in a given locale. These
     symbols can be referenced using a number formatting pattern as
@@ -488,6 +488,10 @@ System Data</a>.</em> ) &gt;<br>
       or implicitly. In the explicit pattern, the value of the
       plusSign can be substituted for the value of the minusSign to
       produce a pattern that has an explicit plus sign.</dd>
+      <dt><b>approximatelySign</b></dt>
+      <dd>- Symbol used to denote a value that is approximate but
+      not exact. The symbol is substituted in place of the minusSign
+      using the same semantics as plusSign substitution.</dd>
       <dt><b>exponential</b></dt>
       <dd>- Symbol separating the mantissa and exponent
       values.</dd>
@@ -563,10 +567,12 @@ System Data</a>.</em> ) &gt;<br>
 "color: blue">+</span>&lt;/plusSign&gt;
       &lt;minusSign&gt;<span style=
 "color: blue">-</span>&lt;/minusSign&gt;
+      &lt;approximatelySign&gt;<span style=
+"color: blue">~</span>&lt;/approximatelySign&gt;
       &lt;exponential&gt;<span style=
 "color: blue">E</span>&lt;/exponential&gt;
       &lt;superscriptingExponent&gt;<span style=
-"color: blue">×</span>&lt;/exponential&gt;
+"color: blue">×</span>&lt;/superscriptingExponent&gt;
       &lt;perMille&gt;<span style=
 "color: blue">‰</span>&lt;/perMille&gt;
       &lt;infinity&gt;<span style=
@@ -982,7 +988,7 @@ System Data</a>.</em> ) &gt;<br>
         <tr valign="top" bgcolor="#EEEEFF">
           <td>-</td>
           <td>Number</td>
-          <td>minusSign</td>
+          <td>minusSign, plusSign, approximatelySign</td>
           <td colspan="2">Minus sign. <strong>Warning:</strong> the
           pattern '-'0.0 is not the same as the pattern -0.0. In
           the former case, the minus sign is a literal. In the
@@ -2031,14 +2037,14 @@ System Data</a>.</em> ) &gt;<br>
     following.</p>
     <pre>&lt;currencySpacing&gt;
   &lt;beforeCurrency&gt;
-    &lt;currencyMatch&gt;[:<span class="changed">^S</span>:]&lt;/currencyMatch&gt;
+    &lt;currencyMatch&gt;[:^S:]&lt;/currencyMatch&gt;
     &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
-    &lt;insertBetween&gt;<span class="changed"> </span>&lt;/insertBetween&gt;
+    &lt;insertBetween&gt; &lt;/insertBetween&gt;
   &lt;/beforeCurrency&gt;
   &lt;afterCurrency&gt;
-    &lt;currencyMatch&gt;[:<span class="changed">^S</span>:]&lt;/currencyMatch&gt;
+    &lt;currencyMatch&gt;[:^S:]&lt;/currencyMatch&gt;
     &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
-    &lt;insertBetween&gt;<span class="changed"> </span>&lt;/insertBetween&gt;
+    &lt;insertBetween&gt; &lt;/insertBetween&gt;
   &lt;/afterCurrency&gt;
 &lt;/currencySpacing&gt;
 </pre>
@@ -2267,7 +2273,7 @@ System Data</a>.</em> ) &gt;<br>
       unifies with Germany)</li>
     </ol>
     <p>The 
-	<a href="https://unstats.un.org/unsd/methodology/m49/" class="changed">UN
+	<a href="https://unstats.un.org/unsd/methodology/m49/">UN
     Information</a>&nbsp; is used to determine dates due to country
     changes.</p><!-- Note: This moved from http://unstats.un.org/unsd/methods/m49/m49chang.htm#ftnq and the UN site now redirects to the above page. -->
     <p>When a code is no longer in use, it is terminated (see #1,
@@ -3257,7 +3263,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
       before it is actually used for anything.</li>
     </ul>
     <hr>
-    <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
+    <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or
     implied warranty of any kind, and assumes no liability for
     errors or omissions. No liability is assumed for incidental and

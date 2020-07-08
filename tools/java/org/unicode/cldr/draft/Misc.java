@@ -26,7 +26,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.Timer;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
@@ -62,7 +62,7 @@ public class Misc {
         String[] locales = "zh en es hi fr ar pt ru id bn ur ja de fil sw pa jv ko tr vi it te mr th fa ta pl lah gu my ms uk zh_Hant kn su ml nl az or ro uz bho ps ha ku mad yo ig si mg sd hu am om kk el ne be mai sr cs km as sv mag mwr sn ny ca bg hne tg bgc ii he dcc ug fuv qu rw min af zu mn bjn so ki hr ak tk fi sq da bya sk gn bal nb lua xh bs ht syl ka bjj ban sat hy za luy rn bug bem luo wtm st lo gl ti shn ceb ks mfa ace lt ky bm lg shi tn bcl glk war kok bew kln kam umb bo suk ee kmb ay pam bhk sas bbc swv nso tpi rjb gbm lmn ff kab sl ts ba cv kri gon ndc guz wo tzm mak kfy ln ljp mk efi ibb doi awa mos nyn vmw mer kru lv sid pag gno sck tcy wbq nd lrc ss cgg brh xog nn sg xnr dyu rmt teo kxm mdh hno lu eu khn wbr tsg rej rif brx ilo kbd et ce kg fy hil kj cy ast av ve udm ga tt sah myv tet gaa ady mt dv fj nr is mdf kum kha sm kpv lez pap krc inh oc se tyv zdj dz bi gag to koi lbe mi ab os ty kl gil iu ch fo rm mh chk haw pon lb pau tvl sa kos na ho yap gd uli niu la tkl eo kl"
             .split(" ");
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        Set<String> scripts = new LinkedHashSet<String>();
+        Set<String> scripts = new LinkedHashSet<>();
         for (String locale : locales) {
             Set<BasicLanguageData> items = sdi.getBasicLanguageData(locale);
             if (items == null) {
@@ -88,7 +88,7 @@ public class Misc {
             } else if (locale.equals("zh_Hant")) {
                 scripts.add("Hant");
             }
-            System.out.println(locale + "\t" + CollectionUtilities.join(scripts, " "));
+            System.out.println(locale + "\t" + Joiner.on(" ").join(scripts));
         }
 
         StringTransform unicode = Transliterator.getInstance("hex/unicode");
@@ -237,7 +237,7 @@ public class Misc {
         LanguageTagParser ltp = new LanguageTagParser();
         String[] locales = "en ru nl en-GB fr de it pl pt-BR es tr th ja zh-CN zh-TW ko ar bg sr uk ca hr cs da fil fi hu id lv lt no pt-PT ro sk sl es-419 sv vi el iw fa hi am af et is ms sw zu bn mr ta eu fr-CA gl zh-HK ur gu kn ml te"
             .split(" ");
-        Set<String> nameAndInfo = new TreeSet<String>(info.getCollator());
+        Set<String> nameAndInfo = new TreeSet<>(info.getCollator());
         for (String localeCode : locales) {
             String baseLanguage = ltp.set(localeCode).getLanguage();
             R2<List<String>, String> temp = lang2replacement.get(baseLanguage);

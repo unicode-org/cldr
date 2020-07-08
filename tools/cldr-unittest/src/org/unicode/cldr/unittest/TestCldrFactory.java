@@ -24,7 +24,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestCldrFactory extends TestFmwkPlus {
     private static final boolean DEBUG = false;
@@ -138,8 +137,8 @@ public class TestCldrFactory extends TestFmwkPlus {
     private String differentPathValue(CLDRFile a, CLDRFile b) {
         int debugCount = 0;
         Set<String> paths = new TreeSet<>();
-        CollectionUtilities.addAll(a.iterator(), paths);
-        CollectionUtilities.addAll(b.iterator(), paths);
+        a.forEach(paths::add);
+        b.forEach(paths::add);
         for (String xpath : paths) {
             if (++debugCount < 100) {
                 logln(debugCount + "\t" + xpath);

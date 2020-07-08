@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "https://www.unicode.org/reports/reports.css" type="text/css">
+  "../reports.css" type="text/css">
   <title>UTS #35: Unicode LDML: General</title>
   <style type="text/css">
   <!--
@@ -71,7 +71,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="../logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -89,7 +89,7 @@
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">37</td>
+        <td class="changed">38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -212,16 +212,14 @@
       </li>
       <li>6 <a href="#Unit_Elements">Unit Elements</a>
         <ul class="toc">
-          <li class='changed'>6.1 <a href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
-          <li class='changed'>6.2 <a href="#Unit_Identifiers">Unit Identifiers</a></li>
-          <li class='changed'>6.3 <a href="#Example_Units">Example Units</a></li>
-			<li> 6.<span class='changed'>4</span> <a href="#perUnitPatterns">per Unit
-          patterns</a></li>
-          <li>6.<span class='changed'>5</span> <a href="#Unit_Sequences">Unit Sequences</a></li>
-          <li>6.<span class='changed'>6</span> <a href="#durationUnit">durationUnit</a></li>
-          <li>6.<span class='changed'>7</span> <a href="#coordinateUnit">coordinateUnit</a></li>
-          <li>6.<span class='changed'>8</span> <a href=
-          "#Territory_Based_Unit_Preferences">Territory-Based Unit
+          <li>6.1 <a href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
+          <li>6.2 <a href="#Unit_Identifiers">Unit Identifiers</a></li>
+          <li>6.3 <a href="#Example_Units">Example Units</a></li>
+		  <li>6.4 <a href="#perUnitPatterns">per Unit patterns</a></li>
+          <li>6.5 <a href="#Unit_Sequences">Unit Sequences</a></li>
+          <li>6.6 <a href="#durationUnit">durationUnit</a></li>
+          <li>6.7 <a href="#coordinateUnit">coordinateUnit</a></li>
+          <li>6.8 <a href= "#Territory_Based_Unit_Preferences">Territory-Based Unit
           Preferences</a></li>
         </ul>
       </li>
@@ -295,7 +293,7 @@
           Names</a></li>
         </ul>
       </li>
-		<li class='changed'>15 <a href="#Grammatical_Features">Grammatical Features</a>
+		<li>15 <a href="#Grammatical_Features">Grammatical Features</a>
 		  <ul class="toc">
 		    <li>15.1<a href="#Gender" >Gender</a></li>
 <li>15.2<a href="#Case">Case</a></li>
@@ -1371,7 +1369,7 @@
     <a href="tr35-numbers.html#Explicit_0_1_rules">Explicit 0 and 1
     rules</a>.</p>
 
-    <p class="changed">The &lt;unitPattern&gt; elements may be used to format
+    <p>The &lt;unitPattern&gt; elements may be used to format
     quantities with decimal values; in such cases the choice of plural form will
     depend not only on the numeric value, but also on its formatting (see
     <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a>).
@@ -1380,7 +1378,7 @@
     for such usages, the developing <a href="#Grammatical_Features">Grammatical Features</a>
     information will be very useful.</p>
 
-    <p class="changed">Note that for certain plural cases, the unit pattern may not
+    <p>Note that for certain plural cases, the unit pattern may not
     provide for inclusion of a numeric value—that is, it may not include “{0}”. This
     is especially true for the explicit cases “0” and “1” (which may have patterns like
     “zero seconds”). In certain languages such as Arabic and Hebrew, this may also be
@@ -1405,7 +1403,6 @@
         <td style="color: silver">enter the vacation length</td>
       </tr>
     </table><br>
-<div class='changed'>
 	<h3>6.1 <a name="Unit_Preference_and_Conversion" href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a> </h3>
 
 
@@ -1560,10 +1557,16 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>:=
    </td>
-   <td>product_unit ("-per-" product_unit)* <ul>
-
-<li><em>Example: foot-per-second-per-second</em></li></ul>
-
+   <td>product_unit ("-per-" product_unit)*<br>| &quot;per-&quot; product_unit (&quot;-per-&quot; product_unit)*
+     <ul>
+      <li><em>Examples:</em>
+        <ul>
+          <li>foot-per-second-per-second</li>
+          <li>per-second</li>
+        </ul>
+      </li>
+      <li><em>Note: </em>The normalized form will have only one &quot;per&quot;</li>
+     </ul>
    </td>
   </tr>
   <tr>
@@ -1587,8 +1590,8 @@ The formal syntax for identifiers is provided below.
 <p>
 | pu_single_unit ("-" pu_single_unit)*<ul>
 
-<li><em>Example: foot-pound-force</em>
-<li><em>No pu_single_unit may precede a single unit</em></li></ul>
+<li><em>Example: </em>foot-pound-force
+<li><em>Constraint:</em> No pu_single_unit may precede a single unit</li></ul>
 
    </td>
   </tr>
@@ -1599,7 +1602,7 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>(dimensionality_prefix)? prefixed_unit<ul>
 
-<li><em>Example: square-meter</em></li></ul>
+<li><em>Example: </em>square-meter</li></ul>
 
    </td>
   </tr>
@@ -1610,8 +1613,8 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>“xxx-” single-unit | “x-” single-unit<ul>
 
-<li><em>Example: xxx-square-knuts (a Harry Potter unit)</em>
-<li><em>“x-” is only for backwards compatibility</em>
+<li><em>Example: </em>xxx-square-knuts (a Harry Potter unit)
+<li><em>Note: </em>“x-” is only for backwards compatibility
 <li>See Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a>
    </ul></td>
   </tr>
@@ -1626,7 +1629,7 @@ The formal syntax for identifiers is provided below.
 <p>
 | "pow" ([2-9]|1[0-5]) "-"<ul>
 
-<li><em>"pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</em></li></ul>
+<li><em>Note: </em>"pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li></ul>
 
    </td>
   </tr>
@@ -1637,7 +1640,7 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>(si_prefix)? simple_unit<ul>
 
-<li><em>Example: kilometer</em></li></ul>
+<li><em>Example: </em>kilometer</li></ul>
 
    </td>
   </tr>
@@ -1648,7 +1651,7 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>"deka" | "hecto" | "kilo", … <ul>
 
-<li>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul>
+<li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul>
 
    </td>
   </tr>
@@ -1661,13 +1664,17 @@ The formal syntax for identifiers is provided below.
 <p>
  | “em” | “g” | “us” | “hg” | “of”<ul>
 
-<li>At least one unit_component must not itself be a simple_unit
-<li>3 simple units are grandfathered in, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”) <ul>
-
- <li><em>We will likely deprecate those and add conformant aliases in the future.</em>
- <li><em>“hg” and “of” are already only in deprecated simple_units.</em>
-<li><em>Example: gallon-imperial</em></li></ul>
-</li></ul>
+	   <li><em>Example: </em>gallon-imperial</li>
+<li><em>Constraint: </em>At least one unit_component must not itself be a simple_unit
+<li><em>Note: </em>3 simple units are grandfathered in, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”) 
+  
+  <ul>
+    
+    <li>We will likely deprecate those and add conformant aliases in the future.
+      <li>“hg” and “of” are already only in deprecated simple_units.
+      </ul>
+</li>
+	   </ul>
 
    </td>
   </tr>
@@ -1678,9 +1685,10 @@ The formal syntax for identifiers is provided below.
    </td>
    <td>[a-z]{3,∞} | “1” “0”{2,3}<ul>
 
-<li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.
-<li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.
-<li><em>Example: foot</em></li></ul>
+<li><em>Constraints: </em>
+  <ul><li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.</li>
+<li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.</li></ul>
+<li><em>Example: </em>foot</li></ul>
 
    </td>
   </tr>
@@ -1688,7 +1696,6 @@ The formal syntax for identifiers is provided below.
 
 
     <h3>6.3 <a name="Example_Units" href="#Example_Units">Example Units</a></h3>
-    </div>
     <p>The
     following table contains examples of types and units currently
     defined by CLDR. The units in CLDR are not
@@ -2439,7 +2446,7 @@ The formal syntax for identifiers is provided below.
     example, in "zh", references to a person being 3 days old or 30
     years old would use the forms “他3天大” and “他30岁”
     respectively.</p>
-    <h3>6.<span class='changed'>4</span> <a name="perUnitPatterns" href="#perUnitPatterns" id=
+    <h3>6.4 <a name="perUnitPatterns" href="#perUnitPatterns" id=
     "perUnitPatterns">per Unit patterns</a><a name=
     "compoundUnitPattern" href="#compoundUnitPattern" id=
     "compoundUnitPattern"></a></h3>
@@ -2504,9 +2511,9 @@ The formal syntax for identifiers is provided below.
     appropriate unit length should be used (with fallbacks if
     necessary).</p>
 
-    <h3>6.<span class='changed'>5</span> <a name="Unit_Sequences" href="#Unit_Sequences" id=
-    "Unit_Sequences">Unit Sequences<span class='changed'> (Mixed Units)</span></a></h3>
-    <p>Units may be used in composed sequences <span  class='changed'>(aka <em>mixed units</em>)</span>, such as <strong>5°
+    <h3>6.5 <a name="Unit_Sequences" href="#Unit_Sequences" id=
+    "Unit_Sequences">Unit Sequences (Mixed Units)</a></h3>
+    <p>Units may be used in composed sequences (aka <em>mixed units</em>), such as <strong>5°
     30′</strong> for 5 degrees 30 minutes, or <strong>3 ft 2
     in.</strong> For that purpose, the appropriate width of the unit
     listPattern can be used to compose the units in a sequence.</p>
@@ -2514,10 +2521,10 @@ The formal syntax for identifiers is provided below.
 &lt;listPattern type="unit-narrow"&gt;
 &lt;listPattern type="unit-short"&gt;
 </pre>
-    <p class="changed">In such a sequence, decimal fractions are typically only displayed for
+    <p>In such a sequence, decimal fractions are typically only displayed for
     the last element of the sequence, if at all.</p>
 
-    <h3>6.<span class='changed'>6</span> <a name="durationUnit" href="#durationUnit" id=
+    <h3>6.6 <a name="durationUnit" href="#durationUnit" id=
     "durationUnit">durationUnit</a></h3>
     <p>The durationUnit is a special type of unit used for composed
     time unit durations.</p>
@@ -2528,7 +2535,7 @@ The formal syntax for identifiers is provided below.
     'm' for minutes, and 's' for sections. These are the same
     symbols used in availableFormats, except that there is no need
     to distinguish different forms of the hour.</p>
-    <h3>6.<span class='changed'>7</span> <a name="coordinateUnit" href="#coordinateUnit" id=
+    <h3>6.7 <a name="coordinateUnit" href="#coordinateUnit" id=
     "coordinateUnit">coordinateUnit</a></h3>
     <p>The <strong>coordinateUnitPattern</strong> is a special type
     of pattern used for composing degrees of latitude and
@@ -2550,7 +2557,7 @@ The formal syntax for identifiers is provided below.
     type="south"&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
     &lt;coordinateUnitPattern
     type="west"&gt;{0}W&lt;/coordinateUnitPattern&gt;</p>
-    <h3>6.<span class='changed'>8</span> <a name="Territory_Based_Unit_Preferences" href=
+    <h3>6.8 <a name="Territory_Based_Unit_Preferences" href=
     "#Territory_Based_Unit_Preferences" id=
     "Territory_Based_Unit_Preferences">Territory-Based Unit
     Preferences</a></h3>
@@ -2570,24 +2577,28 @@ The formal syntax for identifiers is provided below.
     the scale of the measurement (e.g measuring the height of an
     adult versus that of an infant).</p>
 
-      <h3>6.<span class='changed'>9</span> <a name="Private_Use_Units" href="#Private_Use_Units"
-      id="Private_Use_Units">Private-Use Units</a></h3>
-	<div class='changed'>
-      <p>
-CLDR has reserved the "xxx-" prefix in the simple_unit part of the unit identifier BNF for private-use units. CLDR will never define a type, simple unit, or compound unit such that the unit identifier starts with "xxx-", ends with "-xxx", or contains "-xxx-".
-</p>
-<p>
-For example, if you wanted to define your own unit "foo", you could use the simple unit "xxx-foo".
-</p>
-<p>
-It is valid to construct compound units containing one or more private-use simple units. For example, "xxx-foo-per-second" and "xxx-foo-per-xxx-bar" are both valid core unit identifiers for compound units.
-</p>
-<p>
-As explained earlier, CLDR defines all associations between types and units. It is therefore not possible to construct a valid long unit identifier containing a private-use unit; only core unit identifiers are possible.
-</p>
-<p>
-The older syntax used “x-”, which was expanded to “xxx-” to simplify use with BCP47 syntax. That should be converted to “xxx-”.</p>
-</div>
+	<h3>6.9 <a name="Private_Use_Units" href="#Private_Use_Units"
+	id="Private_Use_Units">Private-Use Units</a></h3>
+	<p>
+	CLDR has reserved the "xxx-" prefix in the simple_unit part of the unit identifier BNF
+	for private-use units. CLDR will never define a type, simple unit, or compound unit
+	such that the unit identifier starts with "xxx-", ends with "-xxx", or contains "-xxx-".
+	</p>
+	<p>
+	For example, if you wanted to define your own unit "foo", you could use the simple unit "xxx-foo".
+	</p>
+	<p>
+	It is valid to construct compound units containing one or more private-use simple units.
+	For example, "xxx-foo-per-second" and "xxx-foo-per-xxx-bar" are both valid core unit
+	identifiers for compound units.
+	</p>
+	<p>
+	As explained earlier, CLDR defines all associations between types and units. It is 
+	therefore not possible to construct a valid long unit identifier containing a private-use
+	unit; only core unit identifiers are possible.
+	</p>
+	<p>The older syntax used “x-”, which was expanded to “xxx-” to simplify use with BCP47
+	syntax. That should be converted to “xxx-”.</p>
     <h2>7 <a name="POSIX_Elements" href="#POSIX_Elements" id=
     "POSIX_Elements">POSIX Elements</a></h2>
     <p class="dtd">&lt;!ELEMENT posix (alias | (messages*,
@@ -3898,7 +3909,6 @@ The older syntax used “x-”, which was expanded to “xxx-” to simplify use
     </ol>
     <p>Thus a list (a,b,c,...m, n) is formatted as:
     <code>start(a,middle(b,middle(c,middle(...end(m, n))...)))</code></p>
-    <div class='changed'>
       <p>More sophisticated implementations can customize the process to improve the results for languages where context is important. For example:</p>
     <table>
         <tr>
@@ -3973,7 +3983,6 @@ The older syntax used “x-”, which was expanded to “xxx-” to simplify use
     <td colspan="2">See <a href="https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475">https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475</a></td>
     </tr>
       </table><br>
-	</div>
     <p>The following type attributes are in use:</p>
     <table border="1" cellpadding="2" cellspacing="0" class=
     'simple'>
@@ -5005,7 +5014,6 @@ The older syntax used “x-”, which was expanded to “xxx-” to simplify use
       <li>Concatenate the strings, with a separator between
       them.</li>
     </ol>
-	  <div class='changed'>
     <h2>15 <a name="Grammatical_Features" href="#Grammatical_Features"
     id="Grammatical_Features">Grammatical Features</a></h2>
 
@@ -5092,7 +5100,7 @@ Note that the CLDR plural categories overlap some of these features, since some 
   <tr>
    <td>personal
    </td>
-   <td>In an animate/inanimate gender system and in some language, gender that specifies the masculine gender of animate entities
+   <td>In an animate/inanimate gender system  in some languages, gender that specifies the masculine gender of animate entities
    </td>
    <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/HumanGender">linguistics-ontology.org/gold/2010/HumanGender</a> 
    </td>
@@ -5124,7 +5132,7 @@ Note that the CLDR plural categories overlap some of these features, since some 
   <tr>
    <td>neuter
    </td>
-   <td>In a masculine/feminine/neuter gender system, gender that generally denotes object.
+   <td>In a masculine/feminine/neuter or common-neuter gender system, gender that generally denotes an object.
    </td>
    <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>  <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a> 
    </td>
@@ -5325,14 +5333,12 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
    </td>
    <td>Noun without any definiteness marking in some specific construction (specific to Danish)
    </td>
-   <td>TBD Add reference, example
-   </td>
+   <td>&nbsp;</td>
   </tr>
 </table>
-</div>
 
     <hr>
-    <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
+    <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or
     implied warranty of any kind, and assumes no liability for
     errors or omissions. No liability is assumed for incidental and

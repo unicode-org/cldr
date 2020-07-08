@@ -20,7 +20,7 @@ public enum Level {
     COMPREHENSIVE(100, "G0", 2);
 
     public static final Set<Level> CORE_TO_MODERN = ImmutableSet.of(CORE, BASIC, MODERATE, MODERN);
-    
+
     @Deprecated
     public static final Level POSIX = BASIC;
     @Deprecated
@@ -69,6 +69,7 @@ public enum Level {
         }
     }
 
+    @Override
     public String toString() {
         return this.name().toLowerCase();
     }

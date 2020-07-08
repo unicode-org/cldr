@@ -12,7 +12,7 @@ public class CheckAnnotations {
         AnnotationSet data = Annotations.getDataSet("en");
         CLDRConfig config = CLDRConfig.getInstance();
         //UnicodeMap<Annotations> data2 = Annotations.getData("de");
-        Set<String> sorted = new TreeSet<String>(config.getCollator());
+        Set<String> sorted = new TreeSet<>(config.getCollator());
 
         int i = 0;
         boolean needMore = true;

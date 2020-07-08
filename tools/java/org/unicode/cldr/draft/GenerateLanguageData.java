@@ -19,7 +19,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.NumberFormat;
 
 public class GenerateLanguageData {
@@ -39,10 +39,10 @@ public class GenerateLanguageData {
 
     private void run() throws IOException {
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "langData/", "generatedLanguageData.txt")) {
-            Counter2<String> langToPopulation = new Counter2<String>();
+            Counter2<String> langToPopulation = new Counter2<>();
             // Counter2<String> langToGDP = new Counter2<String>();
             LanguageTagParser ltp = new LanguageTagParser();
-            Map<String, String> languageNameToCode = new TreeMap<String, String>();
+            Map<String, String> languageNameToCode = new TreeMap<>();
             for (String languageCode : info.getLanguages()) {
                 languageNameToCode.put(english.getName(languageCode), languageCode);
             }
@@ -131,8 +131,8 @@ public class GenerateLanguageData {
 
                 String lang = entry.getKey();
                 out.println(fixLang(lang)
-                    + "\t" + (top.size() < 6 ? CollectionUtilities.join(top, ", ")
-                        : CollectionUtilities.join(top.subList(0, 5), ", ") + ", …"));
+                    + "\t" + (top.size() < 6 ? Joiner.on(", ").join(top)
+                        : Joiner.on(", ").join(top.subList(0, 5)) + ", …"));
                 missing.remove(lang);
             }
             for (String lang : missing) {

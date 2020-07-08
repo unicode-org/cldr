@@ -9,13 +9,15 @@ import java.util.TreeMap;
 
 import org.unicode.cldr.util.ChainedMap.M3;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {
-    root("und"), germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine_001"), dravidian("dra"), uralic(
-        "urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"), afroasiatic(
-            "afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"), songhay("son"), american("und_019"), art("art"), other("und_001");
+    root("und"), germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"),
+    indic("inc"), iranian("ira"), other_indo("ine_001"), caucasian("cau"), dravidian("dra"),
+    uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"),
+    turkic("trk"), afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"),
+    east_sudanic("sdv"), songhay("son"), american("und_019"), art("art"), other("und_001");
 
     public final String iso;
 
@@ -35,7 +37,6 @@ public enum LanguageGroup {
             if (map.put(loc, group) != null) {
                 throw new IllegalArgumentException("duplicate: " + s + ", " + group);
             }
-            ;
             GROUP_LANGUAGE.put(group, loc, count);
             ++count;
         }
@@ -45,38 +46,42 @@ public enum LanguageGroup {
         LinkedHashMap<ULocale, LanguageGroup> temp = new LinkedHashMap<>();
         LANGUAGE_GROUP = Collections.unmodifiableMap(temp);
         add(temp, root, "root");
-        add(temp, germanic, "en", "fy", "nl", "af", "de", "gsw", "wae", "ksh", "lb", "sv", "da", "nb", "nn", "fo", "is", "yi");
+        add(temp, germanic, "en", "fy", "nl", "af", "de", "gsw", "wae", "ksh", "lb", "sv", "da",
+            "nb", "nn", "fo", "is", "yi", "nds");
         add(temp, celtic, "ga", "gd", "cy", "gv", "kw", "br");
-        add(temp, romance, "fr", "pt", "gl", "es", "ca", "ast", "it", "rm", "ro");
-        add(temp, slavic, "pl", "cs", "sk", "sl", "hr", "bs", "mk", "sr", "bg", "ru", "be", "uk");
-        add(temp, baltic, "lt", "lv");
-        add(temp, other_indo, "el", "hy", "sq", "fa", "ps", "os");
-        add(temp, indic, "ur", "hi", "gu", "sd", "bn", "as", "ccp", "or", "mr", "ne", "pa", "si");
+        add(temp, romance, "fr", "pt", "gl", "es", "ca", "ast", "it", "rm", "ro", "fur", "an",
+            "co", "oc", "sc", "scn", "wa");
+        add(temp, slavic, "pl", "cs", "sk", "sl", "hr", "bs", "mk", "sr", "bg", "ru", "be", "uk",
+            "dsb", "hsb", "cu", "szl");
+        add(temp, baltic, "lt", "lv", "prg");
+        add(temp, indic, "ur", "hi", "gu", "sd", "bn", "as", "ccp", "or", "mr", "ne", "pa", "si",
+            "kok", "ks", "mai", "doi", "dv", "sa", "trw");
+        add(temp, iranian, "fa", "ps", "ku", "os", "ckb", "lrc", "mzn", "tg", "bgn", "sdh");
+        add(temp, other_indo, "el", "hy", "sq");
         add(temp, dravidian, "ta", "te", "ml", "kn");
         add(temp, cjk, "zh", "yue", "ja", "ko");
-        add(temp, turkic, "tr", "az", "tk", "kk", "ky", "uz", "ug");
-        add(temp, uralic, "hu", "fi", "et", "se", "smn");
-        add(temp, afroasiatic, "ar", "mt", "he", "om", "so", "ha", "am", "tzm", "zgh");
-        add(temp, tai, "th", "lo");
-        add(temp, austronesian, "id", "ms", "jv", "fil", "haw");
-        add(temp, austroasiatic, "vi", "km");
-        add(temp, niger_congo, "sw", "swc", "yo", "ig", "ff", "sn", "zu");
-        add(temp, other, "ka", "eu", "mn", "naq");
-        add(temp, sino_tibetan, "my");
-        add(temp, afroasiatic, "aa", "kab", "shi", "ssy", "ti");
-        add(temp, american, "chr", "kl", "lkt", "qu");
-        add(temp, art, "eo", "vo", "ia");
-        add(temp, austronesian, "mg", "to");
+        add(temp, turkic, "tr", "az", "tk", "kk", "ky", "uz", "ug", "sah", "tt", "ba", "cv");
+        add(temp, uralic, "hu", "fi", "et", "se", "smn", "myv", "sma", "smj", "sms");
+        add(temp, afroasiatic, "ar", "mt", "he", "om", "so", "ha", "am", "tzm", "zgh", "aa", "kab",
+            "shi", "ssy", "ti", "byn", "gez", "sid", "syr", "tig", "wal");
+        add(temp, tai, "th", "lo", "blt");
+        add(temp, austronesian, "id", "ms", "jv", "fil", "haw", "mg", "to", "ceb", "mi", "su",
+            "trv");
+        add(temp, austroasiatic, "vi", "km", "sat");
+        add(temp, niger_congo, "sw", "swc", "yo", "ig", "ff", "sn", "zu", "wo", "xh", "agq", "ak",
+            "asa", "bas", "bem", "bez", "bm", "cgg", "dua", "dyo", "ebu", "ee", "ewo", "guz",
+            "jgo", "kam", "ki", "kkj", "ksb", "ksf", "lag", "lg", "ln", "lu", "luy", "mua", "nd",
+            "nnh", "nr", "nyn", "rn", "rof", "rw", "sbp", "sg", "ss", "tn", "ts", "vai", "ve",
+            "dav", "jmc", "kde", "mer", "mgh", "mgo", "nmg", "nso", "rwk", "seh", "vun", "xog",
+            "yav", "bss", "cch", "gaa", "kaj", "kcg", "ken", "kpe", "nqo", "ny", "st");
+        add(temp, american, "chr", "kl", "lkt", "qu", "arn", "cad", "cic", "gn", "iu", "moh",
+            "mus", "nv", "osa", "quc", "nci");
         add(temp, east_sudanic, "luo", "mas", "nus", "saq", "teo", "kln");
-        add(temp, indic, "kok", "ks");
-        add(temp, niger_congo, "agq", "ak", "asa", "bas", "bem", "bez", "bm", "cgg", "dua", "dyo", "ebu", "ee", "ewo", "guz", "jgo", "kam", "ki", "kkj", "ksb",
-            "ksf", "lag", "lg", "ln", "lu", "luy", "mua", "nd", "nnh", "nr", "nyn", "rn", "rof", "rw", "sbp", "sg", "ss", "tn", "ts", "vai", "ve", "dav",
-            "jmc", "kde", "mer", "mgh", "mgo", "nmg", "nso", "rwk", "seh", "vun", "xog", "yav");
-        add(temp, romance, "fur", "kea", "mfe");
-        add(temp, sino_tibetan, "bo", "brx", "dz", "ii");
-        add(temp, slavic, "dsb", "hsb");
+        add(temp, sino_tibetan, "my", "bo", "brx", "dz", "ii", "mni");
         add(temp, songhay, "dje", "khq", "ses", "twq");
-        add(temp, turkic, "sah");
+        add(temp, caucasian, "ka", "ce");
+        add(temp, other, "eu", "mn", "naq", "pcm", "kea", "mfe", "wbp");
+        add(temp, art, "eo", "vo", "ia", "io", "jbo");
         //GROUP_LANGUAGE.freeze();
     }
 
@@ -129,7 +134,7 @@ public enum LanguageGroup {
             Set<ULocale> locales = LanguageGroup.getLocales(languageGroup);
             String englishName = languageGroup.getName(english);
             System.out.print("\t\t<languageGroup id=\"" + languageGroup.iso
-                + "\" code=\"" + CollectionUtilities.join(locales, ", ")
+                + "\" code=\"" + Joiner.on(", ").join(locales)
                 + "\"/>\t<!-- " + englishName + " -->\n");
         }
         System.out.print("\t</languageGroups>"

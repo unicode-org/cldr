@@ -47,7 +47,7 @@ public class CLDRFileTransformer {
         yo_BJ("yo", "yo-yo_BJ.xml", Transliterator.FORWARD, "[ẹ ọ ṣ Ẹ Ọ Ṣ]", PolicyIfExisting.DISCARD), //
         de_CH("de", "[ß] Casefold", Transliterator.FORWARD, "[ß]", PolicyIfExisting.MINIMIZE), //
         yue_Hans("yue", "Simplified-Traditional.xml", Transliterator.REVERSE, "[:script=Hant:]", PolicyIfExisting.RETAIN), //
-        // en_NZ("en_AU", "null", Transliterator.FORWARD, "[]", PolicyIfExisting.DISCARD), 
+        // en_NZ("en_AU", "null", Transliterator.FORWARD, "[]", PolicyIfExisting.DISCARD),
         // Needs work to fix currency symbols, handle Maori. See http://unicode.org/cldr/trac/ticket/9516#comment:6
         ;
 
@@ -60,6 +60,7 @@ public class CLDRFileTransformer {
         /**
          * @deprecated Use {@link #LocaleTransform(String,String,int,String,PolicyIfExisting)} instead
          */
+        @Deprecated
         private LocaleTransform(String inputLocale, String transformFilename, int direction, String inputCharPattern) {
             this(inputLocale, transformFilename, direction, inputCharPattern, PolicyIfExisting.DISCARD);
         }
@@ -118,7 +119,7 @@ public class CLDRFileTransformer {
      * Use ConcurrentHashMap rather than HashMap to avoid concurrency problems.
      * Reference: https://unicode.org/cldr/trac/ticket/11657
      */
-    private static Map<LocaleTransform, Transliterator> transliterators = new ConcurrentHashMap<LocaleTransform, Transliterator>();
+    private static Map<LocaleTransform, Transliterator> transliterators = new ConcurrentHashMap<>();
     private String transformDir;
 
     /**
@@ -204,7 +205,7 @@ public class CLDRFileTransformer {
 
     /**
      * Transforms a CLDRFile value into another form.
-     * @param parentValue 
+     * @param parentValue
      */
     private String transformValue(Transliterator transliterator, LocaleTransform localeTransform, String path, String value,
         String oldValue, String parentValue) {
@@ -269,7 +270,7 @@ public class CLDRFileTransformer {
                 }
                 String outputDir = CLDRPaths.GEN_DIRECTORY + "common/" + dir + File.separator;
                 String outputFile = output.getLocaleID() + ".xml";
-                
+
                 try (PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile)) {
                     System.out.println("Generating locale file: " + outputDir + outputFile);
                     if (!transformer.unconverted.isEmpty()) {

@@ -33,6 +33,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
@@ -44,6 +45,7 @@ import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -106,6 +108,7 @@ public class SurveyAjax extends HttpServlet {
             }
         }
 
+        @Override
         public final String toString() {
             return j.toString();
         }
@@ -129,11 +132,11 @@ public class SurveyAjax extends HttpServlet {
 
         /**
          * Wrap information about the given user into a JSONObject.
-         * 
+         *
          * @param u the user
          * @return the JSONObject
          * @throws JSONException
-         * 
+         *
          * This function threw NullPointerException for u == null from sm.reg.getInfo(poster),
          * now fixed in SurveyForum.java. Maybe this function should check for u == null.
          */
@@ -160,7 +163,7 @@ public class SurveyAjax extends HttpServlet {
         public static List<Object> wrap(List<CheckStatus> list) throws JSONException {
             if (list == null || list.isEmpty())
                 return null;
-            List<Object> newList = new ArrayList<Object>();
+            List<Object> newList = new ArrayList<>();
             for (final CheckStatus cs : list) {
                 newList.add(wrap(cs));
             }
@@ -265,7 +268,7 @@ public class SurveyAjax extends HttpServlet {
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "dummy" }; // list of prefs OK to get/set
 
-    private Set<String> prefsList = new HashSet<String>();
+    private Set<String> prefsList = new HashSet<>();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -282,6 +285,7 @@ public class SurveyAjax extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
      *      response)
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         setup(request, response);
         final String qs = request.getQueryString();
@@ -306,6 +310,7 @@ public class SurveyAjax extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
      *      response)
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         setup(request, response);
         processRequest(request, response, WebContext.decodeFieldString(request.getParameter(SurveyMain.QUERY_VALUE_SUFFIX)));
@@ -346,6 +351,8 @@ public class SurveyAjax extends HttpServlet {
                 sendError(out, "Missing parameter: " + REQ_WHAT, ErrorCode.E_INTERNAL);
             } else if (what.equals(WHAT_GETROW)) {
                 getRow(request, response, out, sm, sess, l, xpath);
+            } else if (what.equals(WHAT_REPORT)) {
+                generateReport(request, response, out, sm, sess, l);
             } else if (what.equals(WHAT_STATS_BYLOC)) {
                 JSONWriter r = newJSONStatusQuick(sm);
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000, StatisticsUtils.QUERY_ALL_VOTES);
@@ -432,16 +439,20 @@ public class SurveyAjax extends HttpServlet {
                     " group by " + DBUtils.Table.VOTE_VALUE + ".locale order by " + DBUtils.Table.VOTE_VALUE + ".locale desc";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
-                if (user != null && !user.isEmpty())
+                if (user != null && !user.isEmpty()) {
                     try {
-                    u = sm.reg.getInfo(Integer.parseInt(user));
+                        u = sm.reg.getInfo(Integer.parseInt(user));
                     } catch (Throwable t) {
-                    SurveyLog.logException(t, "Parsing user " + user);
+                        SurveyLog.logException(t, "Parsing user " + user);
                     }
-
-                JSONObject query;
-                query = DBUtils.queryToJSON(q1, u.id);
-                r.put("mine", query);
+                }
+                /*
+                 * Avoid NullPointerException: u can be null if you hand-edit the url, e.g., changing the number in '...myvotes.jsp?user=3...';
+                 */
+                if (u != null) {
+                    JSONObject query = DBUtils.queryToJSON(q1, u.id);
+                    r.put("mine", query);
+                }
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
                 JSONWriter r = newJSONStatus(sm);
@@ -525,7 +536,7 @@ public class SurveyAjax extends HttpServlet {
                         TestResultBundle cc = stf.getTestResult(locale, options);
                         int id = Integer.parseInt(xpath);
                         String xp = sm.xpt.getById(id);
-                        final List<CheckStatus> result = new ArrayList<CheckStatus>();
+                        final List<CheckStatus> result = new ArrayList<>();
                         SurveyMain.UserLocaleStuff uf = null;
                         boolean dataEmpty = false;
                         JSONWriter r = newJSONStatus(sm);
@@ -558,7 +569,7 @@ public class SurveyAjax extends HttpServlet {
                                     CLDRFile file = uf.cldrfile;
                                     String checkval = val;
                                     if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
-                                        Output<String> localeWhereFound = new Output<String>();
+                                        Output<String> localeWhereFound = new Output<>();
                                         /*
                                          * TODO: this looks dubious, see https://unicode.org/cldr/trac/ticket/11299
                                          * temporarily for debugging, don't change checkval, but do call
@@ -698,19 +709,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
                         mySession.userDidAction();
-                        JSONWriter r = newJSONStatusQuick(sm);
-                        r.put("what", what);
-                        final String subjStr = request.getParameter("subj");
-                        final String textStr = request.getParameter("text");
-                        final String subj = SurveyForum.HTMLSafe(subjStr);
-                        final String text = SurveyForum.HTMLSafe(textStr);
-                        final int replyTo = getIntParameter(request, "replyTo", SurveyForum.NO_PARENT);
-                        final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, replyTo);
-                        r.put("postId", postId);
-                        if (postId > 0) {
-                            r.put("ret", sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
-                        }
-                        send(r, out);
+                        postToForum(request, response, out, xpath, l, mySession, sm);
                     } else if (what.equals("mail")) {
                         mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
@@ -755,15 +754,8 @@ public class SurveyAjax extends HttpServlet {
                             JSONArray reports = new JSONArray();
                             for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) {
                                 JSONObject report = new JSONObject();
-
-                                if (m.hasQuery()) {
-                                    report.put("url", m.urlQuery());
-                                    report.put("hasQuery", true);
-                                } else {
-                                    report.put("url", m.urlStub());
-                                    report.put("hasQuery", false);
-                                }
-
+                                report.put("url", m.urlStub());
+                                report.put("hasQuery", false);
                                 report.put("display", m.display());
                                 reports.put(report);
                             }
@@ -914,10 +906,10 @@ public class SurveyAjax extends HttpServlet {
                             r.put("id", userid);
 
                             UserRegistry.User them = sm.reg.getInfo(userid);
-                            if ((them.id == mySession.user.id) || // it's me
+                            if (them != null && ((them.id == mySession.user.id) || // it's me
                                 UserRegistry.userIsTC(mySession.user) ||
                                 (UserRegistry.userIsExactlyManager(mySession.user) &&
-                                    (them.getOrganization() == mySession.user.getOrganization()))) {
+                                    (them.getOrganization() == mySession.user.getOrganization())))) {
                                 r.put("user", JSONWriter.wrap(them));
                             } else {
                                 r.put("err", "No permission to view this user's info");
@@ -1016,6 +1008,63 @@ public class SurveyAjax extends HttpServlet {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
         }
+    }
+
+    /**
+     * Make a new forum post using data submitted by the client, save it to the database,
+     * and send the client a json version of the post
+     *
+     * @param request the HttpServletRequest
+     * @param response the HttpServletResponse
+     * @param out the PrintWriter
+     * @param xpath the path, or null
+     * @param l the CLDRLocale
+     * @param mySession the CookieSession
+     * @param sm the SurveyMain
+     *
+     * @throws SurveyException
+     * @throws JSONException
+     * @throws IOException
+     */
+    private void postToForum(HttpServletRequest request, HttpServletResponse response, PrintWriter out,
+            String xpath, CLDRLocale l, CookieSession mySession, SurveyMain sm) throws SurveyException, JSONException, IOException {
+
+        JSONWriter r = newJSONStatusQuick(sm);
+        r.put("what", WHAT_FORUM_POST);
+
+        final String subj = SurveyForum.HTMLSafe(request.getParameter("subj"));
+        final String text = SurveyForum.HTMLSafe(request.getParameter("text"));
+        final String postTypeStr = SurveyForum.HTMLSafe(request.getParameter("postType"));
+        final String openStr = SurveyForum.HTMLSafe(request.getParameter("open"));
+        final String value = SurveyForum.HTMLSafe(request.getParameter("value"));
+
+        final int replyTo = getIntParameter(request, "replyTo", SurveyForum.NO_PARENT);
+        final int root = getIntParameter(request, "root", SurveyForum.NO_PARENT);
+
+        final boolean open = !"false".equals(openStr);
+
+        SurveyForum.PostInfo postInfo = sm.fora.new PostInfo(l, postTypeStr, text);
+        postInfo.setSubj(subj);
+        postInfo.setPathString(xpath);
+        postInfo.setReplyTo(replyTo);
+        postInfo.setUser(mySession.user);
+        postInfo.setRoot(root);
+        postInfo.setOpen(open);
+        if (value != null) {
+            postInfo.setValue(value);
+        }
+
+        final int postId = sm.fora.doPost(mySession, postInfo);
+
+        r.put("postId", postId);
+        if (postId > 0) {
+            /*
+             * TODO: explain XPathTable.NO_XPATH here.
+             * toJSON is called for WHAT_FORUM_FETCH as toJSON(mySession, locale, id, 0)
+             */
+            r.put("ret", sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
+        }
+        send(r, out);
     }
 
     /**
@@ -1144,11 +1193,11 @@ public class SurveyAjax extends HttpServlet {
         }
 
         // substring search
-        Set<PathHeader> resultPh = new TreeSet<PathHeader>();
+        Set<PathHeader> resultPh = new TreeSet<>();
 
         if (new UnicodeSet("[:Letter:]").containsSome(q)) {
             // check English
-            Set<String> retrievedPaths = new HashSet<String>();
+            Set<String> retrievedPaths = new HashSet<>();
             SurveyMain sm = CookieSession.sm;
             sm.getTranslationHintsFile().getPathsWithValue(q, "", null, retrievedPaths);
             final STFactory stFactory = sm.getSTFactory();
@@ -1389,7 +1438,6 @@ public class SurveyAjax extends HttpServlet {
 
     private void setupStatus(SurveyMain sm, JSONWriter r) {
         r.put("SurveyOK", "1");
-        // r.put("progress", sm.getTopBox(false));
         try {
             r.put("status", sm.statusJSON());
         } catch (JSONException e) {
@@ -1398,13 +1446,11 @@ public class SurveyAjax extends HttpServlet {
     }
 
     /** Create a new JSONWriter and setup its status with the given SurveyMain.
-     *  
+     *
      * @param sm the SurveyMain
      * @return the JSONWriter
-     * 
-     * Public for use by unit test TestImportOldVotes.
      */
-    public JSONWriter newJSONStatus(SurveyMain sm) {
+    private JSONWriter newJSONStatus(SurveyMain sm) {
         JSONWriter r = newJSON();
         setupStatus(sm, r);
         return r;
@@ -1481,7 +1527,7 @@ public class SurveyAjax extends HttpServlet {
 
     public enum AjaxType {
         STATUS, VERIFY
-    };
+    }
 
     /**
      * Helper function for getting the basic AJAX status script included.
@@ -1502,10 +1548,8 @@ public class SurveyAjax extends HttpServlet {
      *              like "{"locale":"aa","confirmList":["7b8ee7884f773afa"],"deleteList":[]}" when isSubmit is true
      * @param loc the String request.getParameter(SurveyMain.QUERY_LOCALE); empty string when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
-     *
-     * Called locally by processRequest, and also by unit test TestImportOldVotes.java, therefore public.
      */
-    public void importOldVotes(JSONWriter r, User user, SurveyMain sm, boolean isSubmit, String val, String loc)
+    private void importOldVotes(JSONWriter r, User user, SurveyMain sm, boolean isSubmit, String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
         r.put("what", WHAT_OLDVOTES);
         if (user == null) {
@@ -1531,8 +1575,6 @@ public class SurveyAjax extends HttpServlet {
      * @param loc the locale as a string, empty when first called for "Import Old Votes",
      *           non-empty when user later clicks the link for a particular locale, then it's like "aa"
      *
-     * Called locally by importOldVotes, and also by unit test TestImportOldVotes.java, therefore public.
-     * 
      *  Three ways this function is called:
 
         (1) loc == null, isSubmit == false: list locales to choose
@@ -1540,7 +1582,7 @@ public class SurveyAjax extends HttpServlet {
         (3) loc == 'aa', isSubmit == true: update db based on vote
 
      */
-    public void importOldVotesForValidatedUser(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
+    private void importOldVotesForValidatedUser(JSONWriter r, User user, SurveyMain sm, boolean isSubmit,
                String val, String loc)
                throws ServletException, IOException, JSONException, SQLException {
 
@@ -1575,14 +1617,14 @@ public class SurveyAjax extends HttpServlet {
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
      */
-    public void listLocalesForImportOldVotes(User user, SurveyMain sm, 
+    public void listLocalesForImportOldVotes(User user, SurveyMain sm,
                final String newVotesTable, JSONObject oldvotes)
                throws ServletException, IOException, JSONException, SQLException {
 
         /* Loop thru multiple old votes tables in reverse chronological order. */
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
-        Map<String, Long> localeCount = new HashMap<String, Long>();
-        Map<String, String> localeName = new HashMap<String, String>();
+        Map<String, Long> localeCount = new HashMap<>();
+        Map<String, String> localeName = new HashMap<>();
         while (--ver >= oldestVersionForImportingVotes) {
             String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
             if (DBUtils.hasTable(oldVotesTable)) {
@@ -1615,7 +1657,7 @@ public class SurveyAjax extends HttpServlet {
                          */
                         localeName.put(loc, CLDRLocale.getInstance(loc).getDisplayName());
                     }
-                } 
+                }
             }
         }
         /*
@@ -1657,14 +1699,14 @@ public class SurveyAjax extends HttpServlet {
     /**
      * View old votes available to be imported for the given locale; or, if the oldvotes
      * argument is null, just return the number of old votes available.
-     * 
+     *
      * Add to the given "oldvotes" object an array of "contested" (losing) votes, and possibly
      * also an array of "uncontested" (winning) votes, to get displayed by survey.js.
      *
      * In general, both winning (uncontested) and losing (contested) votes may be present in the db.
      * Normally, for non-TC users, winning votes are imported automatically. Therefore, don't count
      * or list winning votes unless user is TC.
-     * 
+     *
      * @param user the User, for user.id and userIsTC
      * @param sm the SurveyMain instance, used for sm.xpt, sm.getTranslationHintsFile, and sm.getDiskFactory
      * @param loc the non-empty String for the locale like "aa"
@@ -1672,13 +1714,12 @@ public class SurveyAjax extends HttpServlet {
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to; if null, just return the count
      * @param fac the STFactory to be used for getPathHeader, getPathsForFile
-     * 
+     *
      * @return the number of entries that will be viewable for this locale in the Import Old Votes interface.
      *
-     * Called locally by importOldVotesForValidatedUser and listLocalesForImportOldVotes,
-     * and also ideally by unit test TestImportOldVotes.java, therefore public.
+     * Called locally by importOldVotesForValidatedUser and listLocalesForImportOldVotes
      */
-    public long viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale, 
+    private long viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale,
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
@@ -1712,15 +1753,13 @@ public class SurveyAjax extends HttpServlet {
             }
             translationHintsFile = sm.getTranslationHintsFile();
         }
-        XMLSource diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
+        XMLSource diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
+        CLDRFile cldrFile = fac.make(loc, true, true);
 
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         long viewableVoteCount = 0;
         for (Map<String, Object> m : rows) {
-            // TODO: clarify which exceptions should be caught here, such as invalid xpathString.
-            // For now, catch all silently and skip old votes that generate exceptions -- they're
-            // invalid; neither winning nor losing, but invisible as far as import is concerned.
             try {
                 String value = m.get("value").toString();
                 if (value == null) {
@@ -1738,6 +1777,9 @@ public class SurveyAjax extends HttpServlet {
                 }
                 if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                     continue; // out of coverage
+                }
+                if (CheckForCopy.sameAsCode(value, xpathString, cldrFile)) {
+                    continue; // not allowed
                 }
                 String curValue = diskData.getValueAtDPath(xpathString);
                 boolean isWinning = equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString);
@@ -1771,6 +1813,15 @@ public class SurveyAjax extends HttpServlet {
                    }
                }
             } catch (Exception e) {
+                /*
+                 * Skip old votes that generate exceptions -- they're invalid; neither winning nor
+                 * losing, but invisible as far as import is concerned.
+                 *
+                 * Log any exception that we don't want to ignore completely.
+                 * InvalidXPathException and VoteNotAcceptedException would be OK to ignore, but
+                 * they can't happen here.
+                 */
+                SurveyLog.logException(e, "Viewing old votes");
                 continue;
             }
         }
@@ -1800,8 +1851,8 @@ public class SurveyAjax extends HttpServlet {
      * @throws JSONException
      * @throws SQLException
      *
-     * Called locally by importOldVotesForValidatedUser, and also by unit test TestImportOldVotes.java, therefore public.
-     * 
+     * Called locally by importOldVotesForValidatedUser
+     *
      * On the frontend, submitOldVotes is called in response to the user clicking a button
      * set up in addOldvotesType in CldrSurveyVettingLoader.js: submit.on("click",function(e) {...
      * ... if(jsondata[kk].box.checked) confirmList.push(jsondata[kk].strid);
@@ -1812,7 +1863,7 @@ public class SurveyAjax extends HttpServlet {
      * };
      * That saveList is what we receive here as "val", and expand into "list".
      */
-    public void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
+    private void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String val,
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws ServletException, IOException, JSONException, SQLException {
 
@@ -1824,7 +1875,7 @@ public class SurveyAjax extends HttpServlet {
         BallotBox<User> box = fac.ballotBoxForLocale(locale);
 
         JSONArray confirmList = list.getJSONArray("confirmList");
-        Set<String> confirmSet = new HashSet<String>();
+        Set<String> confirmSet = new HashSet<>();
         for (int i = 0; i < confirmList.length(); i++) {
             String strid = confirmList.getString(i);
             confirmSet.add(strid);
@@ -1863,7 +1914,7 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Import the given old losing value as an "anonymous" vote.
-     * 
+     *
      * @param box the BallotBox, specific to the locale
      * @param locale the CLDRLocale
      * @param xpathString the path
@@ -1873,7 +1924,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws InvalidXPathException
      * @throws VoteNotAcceptedException
      * @throws SQLException
-     * 
+     *
      * Reference: https://unicode.org/cldr/trac/ticket/11517
      */
     private void importAnonymousOldLosingVote(BallotBox<User> box, CLDRLocale locale, String xpathString,
@@ -1947,7 +1998,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws InvalidXPathException
      * @throws SQLException
      */
-    private void addRowToImportTable(CLDRLocale locale, int xpathId, String unprocessedValue)    
+    private void addRowToImportTable(CLDRLocale locale, int xpathId, String unprocessedValue)
             throws InvalidXPathException, SQLException {
 
         int newVer = Integer.parseInt(SurveyMain.getNewVersion());
@@ -1955,7 +2006,7 @@ public class SurveyAjax extends HttpServlet {
         Connection conn = null;
         PreparedStatement ps = null;
         String sql = "INSERT INTO " + importTable + "(locale,xpath,value) VALUES(?,?,?)";
-        try {          
+        try {
             conn = DBUtils.getInstance().getDBConnection();
             /*
              * arg 1 = locale (ASCII) use prepareStatementWithArgs
@@ -1973,14 +2024,14 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Make an array of maps for importing old votes.
-     *  
+     *
      * @param newVotesTable
      * @param locale
      * @param id
      * @return the array of maps
      * @throws SQLException
      * @throws IOException
-     * 
+     *
      * Called by viewOldVotes and submitOldVotes.
      */
     private static Map<String, Object>[] getOldVotesRows(final String newVotesTable, CLDRLocale locale, int id)
@@ -2031,15 +2082,15 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Import all old winning votes for this user, without GUI interaction
-     * other than a dialog when finished: 
+     * other than a dialog when finished:
      * "Your old winning votes for locales ... have been imported." "OK".
-     * 
+     *
      * Caller already checked (user != null && user.canImportOldVotes() && !UserRegistry.userIsTC(user).
-     * 
+     *
      * See https://unicode.org/cldr/trac/ticket/11056 AND https://unicode.org/cldr/trac/ticket/11123
-     * 
+     *
      * Caller has already verified user.canImportOldVotes().
-     * 
+     *
      * Skip the GUI interactions of importOldVotesForValidatedUser for listing locales, and
      * viewOldVotes for choosing which votes to import. Instead, gather the needed information
      * as though the user had chosen to select all their old winning votes in viewOldVotes, and
@@ -2054,10 +2105,8 @@ public class SurveyAjax extends HttpServlet {
      * @throws IOException
      * @throws JSONException
      * @throws SQLException
-     *
-     * Called locally by processRequest, and also eventually by unit test TestImportOldVotes.java, therefore public.
      */
-    public int doAutoImportOldWinningVotes(JSONWriter r, User user, SurveyMain sm)
+    private int doAutoImportOldWinningVotes(JSONWriter r, User user, SurveyMain sm)
                throws ServletException, IOException, JSONException, SQLException {
 
         if (alreadyAutoImportedVotes(user.id, "ask")) {
@@ -2070,7 +2119,7 @@ public class SurveyAjax extends HttpServlet {
 
         /* Loop thru multiple old votes tables in reverse chronological order:
          *  cldr_vote_value_33, cldr_vote_value_32, cldr_vote_value_31, ..., cldr_vote_value_25.
-         *  If user voted for an item in version N, then ignore votes for the same item in versions before N 
+         *  If user voted for an item in version N, then ignore votes for the same item in versions before N
          *  (see box.getVoteValue in importAllOldWinningVotes).
          */
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
@@ -2096,7 +2145,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("oldvotes", oldvotes);
         if (confirmations > 0) {
             r.put("autoImportedOldWinningVotes", confirmations);
-        }      
+        }
         return confirmations;
     }
 
@@ -2156,7 +2205,7 @@ public class SurveyAjax extends HttpServlet {
          * here we have "where submitter=?", not "where locale=? and submitter=?";
          * and we have "select xpath,value,locale" since we need each locale for fac.ballotBoxForLocale(locale).
          */
-        String sqlStr = "select xpath,value,locale from " + oldVotesTable + " where submitter=?" + 
+        String sqlStr = "select xpath,value,locale from " + oldVotesTable + " where submitter=?" +
             " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
             + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
             + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter)";
@@ -2170,7 +2219,7 @@ public class SurveyAjax extends HttpServlet {
             String xpathString = sm.xpt.getById(xp);
             String loc = m.get("locale").toString();
             CLDRLocale locale = CLDRLocale.getInstance(loc);
-            XMLSource diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
+            XMLSource diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
             DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
             if (value != null) {
                 value = daip.processInput(xpathString, value, null);
@@ -2180,13 +2229,7 @@ public class SurveyAjax extends HttpServlet {
                 if (curValue == null) {
                     continue;
                 }
-                /*
-                 * Import if the value is winning (equalsOrInheritsCurrentValue), or is null (abstain).
-                 * By importing null (abstain) votes, we fix a problem where, for example, the user
-                 * voted for a value "x" in one old version, then voted to abstain in a later version,
-                 * and then the "x" still got imported into an even later version. 
-                 */
-                if (value == null || equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString)) {
+                if (valueCanBeAutoImported(value, curValue, diskData, xpathString, fac, loc)) {
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     /*
                      * Only import the most recent vote (or abstention) for the given user and xpathString.
@@ -2207,21 +2250,52 @@ public class SurveyAjax extends HttpServlet {
                 /* Silently catch IllegalByDtdException, otherwise logs grow too fast with useless warnings */
             }
         }
-        // System.out.println("importAllOldWinningVotes: imported " + confirmations + " votes in " + oldVotesTable);
         return confirmations;
     }
 
     /**
-     * Does the value in question either match or inherent the current value?
-     * 
-     * To match, the value in question and the current value must be non-null and equal.
-     * 
-     * To inherit the current value, the value in question must be INHERITANCE_MARKER
-     * and the current value must equal the bailey value.
-     * 
+     * Can the value be auto-imported?
+     *
+     * Import if the value is null (abstain), or is winning (equalsOrInheritsCurrentValue) and
+     * is not a code-copy failure (sameAsCode).
+     *
+     * By importing null (abstain) votes, we fix a problem where, for example, the user
+     * voted for a value "x" in one old version, then voted to abstain in a later version,
+     * and then the "x" still got imported into an even later version.
+     *
      * @param value the value in question
      * @param curValue the current value, that is, file.getStringValue(xpathString)
-     * @param file the CLDRFile for getBaileyValue
+     * @param diskData the XMLSource for getBaileyValue
+     * @param xpathString the path identifier
+     * @param fac the STFactory
+     * @param loc the locale string
+     * @return true if OK to import, else false
+     */
+    private boolean valueCanBeAutoImported(String value, String curValue, XMLSource diskData, String xpathString, STFactory fac, String loc) {
+        if (value == null) {
+            return true;
+        }
+        if (!equalsOrInheritsCurrentValue(value, curValue, diskData, xpathString)) {
+            return false;
+        }
+        CLDRFile cldrFile = fac.make(loc, true, true);
+        if (CheckForCopy.sameAsCode(value, xpathString, cldrFile)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Does the value in question either match or inherent the current value?
+     *
+     * To match, the value in question and the current value must be non-null and equal.
+     *
+     * To inherit the current value, the value in question must be INHERITANCE_MARKER
+     * and the current value must equal the bailey value.
+     *
+     * @param value the value in question
+     * @param curValue the current value, that is, file.getStringValue(xpathString)
+     * @param diskData the XMLSource for getBaileyValue
      * @param xpathString the path identifier
      * @return true if it matches or inherits, else false
      */
@@ -2247,14 +2321,14 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Transfer all the old votes from one user to another, for all old votes tables.
-     * 
+     *
      * Called when the user presses button "Transfer Old Votes" in the Users page
      * which may be reached by a URL such as .../cldr-apps/v#users///
-     * 
+     *
      * users.js uses "user_xferoldvotes" as follows:
-     * 
+     *
      * var xurl3 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_xferoldvotes&from_user_id="+oldUser.data.id+"&from_locale="+oldLocale+"&to_user_id="+u.data.id+"&to_locale="+newLocale;
-     * 
+     *
      * Message displayed in dialog in response to button press:
      * "First, pardon the modality.
      * Next, do you want to import votes to '#1921 u_1921@adlam.example.com' FROM another user's old votes? Enter their email address below:"
@@ -2263,10 +2337,10 @@ public class SurveyAjax extends HttpServlet {
      * @param sm the SurveyMain, for sm.reg and newJSONStatusQuick
      * @param user the current User, who needs admin rights
      * @param r the JSONWriter to be written to
-     * @throws SurveyException 
-     * @throws SQLException 
-     * @throws JSONException 
-     * @throws IOException 
+     * @throws SurveyException
+     * @throws SQLException
+     * @throws JSONException
+     * @throws IOException
      */
     private void transferOldVotes(JSONWriter r, HttpServletRequest request, SurveyMain sm, UserRegistry.User user)
         throws SurveyException, SQLException, JSONException, IOException {
@@ -2282,17 +2356,17 @@ public class SurveyAjax extends HttpServlet {
         if (toUser == null || fromUser == null) {
             throw new SurveyException(ErrorCode.E_INTERNAL, "Invalid user parameter");
         }
-        /* TODO: replace deprecated isAdminFor with ...? */ 
+        /* TODO: replace deprecated isAdminFor with ...? */
         if (user.isAdminForOrg(user.org) && user.isAdminFor(toUser)) {
             transferOldVotesGivenUsersAndLocales(r, from_user_id, to_user_id, from_locale, to_locale);
         } else {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to do this.");
-        }       
+        }
     }
 
     /**
      * Transfer all the old votes from one user to another, having validated the users and locales.
-     * 
+     *
      * Loop thru multiple old votes tables in reverse chronological order.
      *
      * @param r the JSONWriter to be written to
@@ -2347,15 +2421,15 @@ public class SurveyAjax extends HttpServlet {
         o.put("tables", oldVotesTableList);
         r.put(WHAT_USER_XFEROLDVOTES, o);
     }
-    
+
     /**
      * View stats for old votes for the user whose id is specified in the request.
-     * 
+     *
      * We get here when the user presses button "View Old Vote Stats" in the Users page
      * which may be reached by a URL such as .../cldr-apps/v#users///
-     * 
+     *
      *  users.js uses "user_oldvotes" as follows:
-     *  
+     *
      *  var xurl2 = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=user_oldvotes&old_user_id="+u.data.id;
      *
      * @param request the HttpServletRequest, for parameter old_user_id
@@ -2364,8 +2438,8 @@ public class SurveyAjax extends HttpServlet {
      * @param r the JSONWriter to be written to
      * @throws SQLException
      * @throws JSONException
-     * @throws SurveyException 
-     * @throws IOException 
+     * @throws SurveyException
+     * @throws IOException
      */
     private void viewOldVoteStats(JSONWriter r, HttpServletRequest request, SurveyMain sm, User user)
         throws SQLException, JSONException, SurveyException, IOException {
@@ -2390,11 +2464,11 @@ public class SurveyAjax extends HttpServlet {
      * @param r the JSONWriter to be written to
      * @throws SQLException
      * @throws JSONException
-     * @throws IOException 
+     * @throws IOException
      */
     private void viewOldVoteStatsForOldUserId(JSONWriter r, Integer old_user_id)
         throws SQLException, JSONException, IOException {
-        
+
         JSONObject tables = new JSONObject();
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
         while (--ver >= oldestVersionForImportingVotes) {
@@ -2410,7 +2484,7 @@ public class SurveyAjax extends HttpServlet {
         }
         JSONObject data = new JSONObject();
         if (tables.length() > 0) {
-            data.put("data", tables);            
+            data.put("data", tables);
         }
         r.put("user_oldvotes", data); // WHAT_USER_OLDVOTES
         r.put("old_user_id", old_user_id);
@@ -2418,7 +2492,7 @@ public class SurveyAjax extends HttpServlet {
 
     /**
      * Handle the user's submission of a vote, or an abstention if val is null.
-     * 
+     *
      * @param r the JSONWriter to be written to
      * @param val the string value voted for, or null for abstention
      * @param mySession the CookieSession
@@ -2429,8 +2503,8 @@ public class SurveyAjax extends HttpServlet {
      * @param result the List<CheckStatus>?
      * @param request the HttpServletRequest
      * @param ballotBox the BallotBox
-     * 
-     * @throws VoteNotAcceptedException 
+     *
+     * @throws VoteNotAcceptedException
      * @throws InvalidXPathException
      *
      * Note: the function CandidateItem.getItem in DataSection.java
@@ -2461,8 +2535,15 @@ public class SurveyAjax extends HttpServlet {
 
         DataRow pvi = section.getDataRow(xp);
         CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
-        if (CldrUtility.INHERITANCE_MARKER.equals(val) && pvi.wouldInheritNull()) {
-            showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
+        if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
+            if (pvi.wouldInheritNull()) {
+                showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
+            } else {
+                CLDRFile cldrFile = stf.make(locale.getBaseName(), true, true);
+                if (CheckForCopy.sameAsCode(val, xp, cldrFile)) {
+                    showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
+                }
+            }
         } else if (pvi.isUnvotableRoot(val)) {
             showRowAction = CheckCLDR.StatusAction.FORBID_ROOT;
         }
@@ -2505,8 +2586,11 @@ public class SurveyAjax extends HttpServlet {
                     System.err.println("Voting for::  " + val);
                 Integer withVote = null;
                 try {
-                    withVote = Integer.parseInt(request.getParameter("voteLevelChanged"));
-                } catch (Throwable t) {
+                    String voteLevelParam = request.getParameter("voteLevelChanged");
+                    if (voteLevelParam != null) {
+                        withVote = Integer.parseInt(voteLevelParam);
+                    }
+                } catch (NumberFormatException e) {
                     withVote = null;
                 }
                 boolean badNoForum = false;
@@ -2670,7 +2754,7 @@ public class SurveyAjax extends HttpServlet {
                         /*
                          * We arrive here when a user votes for an item, invoked by request from survey.js
                          * var ourUrl = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&xpath="+theRow.xpathId +"&fhash="+tr.rowHash+"&s="+tr.theTable.session +"&automatic=t";
-                         * 
+                         *
                          * We also arrive here when a user selects a "Fix" button in the Dashboard, invoked by request from review.js
                          * var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.data('path')+"&strid="+surveyCurrentId+cacheKill()+"&dashboard=true";
                          *
@@ -2700,7 +2784,7 @@ public class SurveyAjax extends HttpServlet {
                     dsets.put("default", SortMode.getSortMode(ctx, section));
                     pageId = section.getPageId();
                 } else {
-                    dsets.put("default", PathHeaderSort.name); // typically PathHeaderSort.name = "ph" 
+                    dsets.put("default", PathHeaderSort.name); // typically PathHeaderSort.name = "ph"
                     // the section creates the sort
                     dsets.put(PathHeaderSort.name, section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name), null));
                 }
@@ -2845,7 +2929,7 @@ public class SurveyAjax extends HttpServlet {
         STFactory stf = sm.getSTFactory();
         CLDRFile baseFile = stf.make(loc.getBaseName(), false);
 
-        Set<String> all = new TreeSet<String>();
+        Set<String> all = new TreeSet<>();
         for (String x : cf) {
             if (x.startsWith("//ldml/identity")) {
                 continue;
@@ -2890,7 +2974,7 @@ public class SurveyAjax extends HttpServlet {
         BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(loc);
 
         int r = 0;
-        final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
+        final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<>();
         TestCache.TestResultBundle cc = stf.getTestResult(loc, DataSection.getOptions(null, cs, loc));
         UserRegistry.User u = theirU;
         CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
@@ -2899,7 +2983,7 @@ public class SurveyAjax extends HttpServlet {
         try {
             for (String x : all) {
                 String full = cf.getFullXPath(x);
-                XPathParts xppMine = XPathParts.getInstance(full); // not frozen, for xPathPartsToBase
+                XPathParts xppMine = XPathParts.getFrozenInstance(full).cloneAsThawed(); // not frozen, for xPathPartsToBase
                 String valOrig = cf.getStringValue(x);
                 Exception exc[] = new Exception[1];
                 final String val0 = processor.processInput(x, valOrig, exc);
@@ -2921,7 +3005,7 @@ public class SurveyAjax extends HttpServlet {
                     style = "opacity: 0.9;";
                 }
 
-                XPathParts xpp = XPathParts.getInstance(base); // not frozen, for removeAttribute
+                XPathParts xpp = XPathParts.getFrozenInstance(base).cloneAsThawed(); // not frozen, for removeAttribute
                 xpp.removeAttribute(-1, LDMLConstants.ALT);
 
                 String result = "";
@@ -2948,6 +3032,9 @@ public class SurveyAjax extends HttpServlet {
                     DataSection.DataRow pvi = section.getDataRow(base);
                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
 
+                    if (CheckForCopy.sameAsCode(val0, x, baseFile)) {
+                        showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
+                    }
                     if (showRowAction.isForbidden()) {
                         result = "Item may not be modified. ("
                                 + showRowAction + ")";
@@ -3088,6 +3175,8 @@ public class SurveyAjax extends HttpServlet {
         out.write(prefix + "jquery.autosize.min.js" + tail);
 
         out.write(prefix + "CldrStAjax.js" + v + tail);
+        out.write(prefix + "CldrStForumFilter.js" + v + tail);
+        out.write(prefix + "CldrStForum.js" + v + tail);
         out.write(prefix + "survey.js" + v + tail);
         out.write(prefix + "CldrSurveyVettingLoader.js" + v + tail);
         out.write(prefix + "CldrSurveyVettingTable.js" + v + tail);
@@ -3096,5 +3185,158 @@ public class SurveyAjax extends HttpServlet {
 
         out.write(prefix + "redesign.js" + v + tail);
         out.write(prefix + "review.js" + v + tail);
+    }
+
+    /**
+     * Generate a report, such as Date/Times or Dashboard.
+     *
+     * @param request the HttpServletRequest
+     * @param response the HttpServletResponse
+     * @param out the Writer
+     * @param sm the SurveyMain
+     * @param sess the session id
+     * @param l the CLDRLocale
+     *
+     * @throws IOException
+     *
+     * Some code was moved to this function and those it calls, from EmbeddedReport.jsp and other jsp files.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13152
+     */
+    static private void generateReport(HttpServletRequest request, HttpServletResponse response,
+        Writer out, SurveyMain sm, String sess, CLDRLocale l) throws IOException {
+
+        CookieSession cs = CookieSession.retrieve(sess);
+        if (cs == null) {
+            response.setContentType("text/html");
+            out.write("<b>Invalid or expired session (try reloading the page)</b>");
+            return;
+        }
+        String which = request.getParameter("x");
+
+        if (SurveyMain.R_VETTING_JSON.equals(which)) {
+            response.setContentType("application/json");
+            WebContext ctx = new WebContext(request, response);
+            request.setAttribute(WebContext.CLDR_WEBCONTEXT, ctx);
+            ctx.session = cs;
+            ctx.sm = sm;
+            ctx.setLocale(l);
+            generateDashboard(out, cs, l, ctx);
+        } else {
+            response.setContentType("text/html");
+            if ("r_datetime".equals(which)) {
+                generateDateTimesReport(out, sm, l);
+            } else if ("r_zones".equals(which)) {
+                generateZonesReport(out, sm, l);
+            } else if ("r_compact".equals(which)) {
+                generateNumbersReport(out, sm, l);
+            } else {
+                out.write("<i>Unrecognized report name: " + which + "</i><br/>\n");
+            }
+        }
+    }
+
+    /**
+     * Generate the Dashboard, as json
+     *
+     * @param out the Writer
+     * @param cs the CookieSession
+     * @param l the CLDRLocale
+     * @param ctx the WebContext
+     * @throws IOException
+     */
+    private static void generateDashboard(Writer out, CookieSession cs, CLDRLocale l, WebContext ctx) throws IOException {
+
+        try {
+            StringBuffer sb = new StringBuffer();
+            VettingViewerQueue.getInstance().writeVettingViewerOutput(l, sb, ctx, cs);
+            out.write(sb.toString());
+        } catch (Throwable t) {
+            /*
+             * catch ALL errors, because we need to return JSON
+             */
+            SurveyLog.logException(t, "when loading the Dashboard", ctx);
+            try {
+                new org.json.JSONWriter(out).object().key("err").value("Exception: " + t.getMessage()
+                    + " while loading the Dashboard").key("err_code").value("E_INTERNAL").endObject();
+            } catch (JSONException e) {
+                SurveyLog.logException(e, "when loading the Dashboard", ctx);
+            }
+        }
+    }
+
+    /**
+     * Generate the Date/Times report, as html
+     *
+     * @param out the Writer
+     * @param sm the SurveyMain
+     * @param l the CLDRLocale
+     * @throws IOException
+     */
+    private static void generateDateTimesReport(Writer out, SurveyMain sm, CLDRLocale l) throws IOException {
+
+        final String calendarType = "gregorian";
+        final String title = com.ibm.icu.lang.UCharacter.toTitleCase(SurveyMain.TRANS_HINT_LOCALE.toLocale(), calendarType, null);
+
+        out.write("<h3>Review Date/Times : " + title + "</h3>");
+        writeReportInstructionsLink(out);
+
+        STFactory fac = sm.getSTFactory();
+        CLDRFile englishFile = fac.make("en", true);
+        CLDRFile nativeFile = fac.make(l, true);
+
+        DateTimeFormats formats = new DateTimeFormats().set(nativeFile, calendarType);
+        DateTimeFormats english = new DateTimeFormats().set(englishFile, calendarType);
+
+        formats.addTable(english, out);
+        formats.addDateTable(englishFile, out);
+        formats.addDayPeriods(englishFile, out);
+    }
+
+    /**
+     * Generate the Zones report, as html
+     *
+     * @param out the Writer
+     * @param sm the SurveyMain
+     * @param l the CLDRLocale
+     * @throws IOException
+     */
+    private static void generateZonesReport(Writer out, SurveyMain sm, CLDRLocale l) throws IOException {
+        out.write("<h3>Review Zones</h3>");
+        writeReportInstructionsLink(out);
+
+        CLDRFile englishFile = sm.getDiskFactory().make("en", true);
+        CLDRFile nativeFile = sm.getSTFactory().make(l, true);
+
+        org.unicode.cldr.util.VerifyZones.showZones(null, englishFile, nativeFile, out);
+    }
+
+    /**
+     * Generate the Numbers report, as html
+     *
+     * @param out the Writer
+     * @param sm the SurveyMain
+     * @param l the CLDRLocale
+     * @throws IOException
+     */
+    private static void generateNumbersReport(Writer out, SurveyMain sm, CLDRLocale l) throws IOException {
+        out.write("<h3>Review Numbers</h3>");
+        writeReportInstructionsLink(out);
+
+        STFactory fac = sm.getSTFactory();
+        CLDRFile nativeFile = fac.make(l, true);
+
+        org.unicode.cldr.util.VerifyCompactNumbers.showNumbers(nativeFile, true, "EUR", out, fac);
+    }
+
+    /**
+     * Write html including a link to the instructions for using reports
+     *
+     * @param out the Writer
+     * @throws IOException
+     */
+    private static void writeReportInstructionsLink(Writer out) throws IOException {
+        out.write("<p>Please read the <a target='CLDR-ST-DOCS' href='"
+            + "http://cldr.unicode.org/translation/getting-started/review-formats"
+            + "'>instructions</a> before continuing.</p>");
     }
 }

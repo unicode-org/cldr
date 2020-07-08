@@ -78,7 +78,7 @@ abstract public class CheckCLDR {
 
     private boolean skipTest = false;
     private Phase phase;
-    private Map<Subtype, List<Pattern>> filtersForLocale = new HashMap<Subtype, List<Pattern>>();
+    private Map<Subtype, List<Pattern>> filtersForLocale = new HashMap<>();
 
     public enum InputMethod {
         DIRECT, BULK
@@ -104,11 +104,12 @@ abstract public class CheckCLDR {
         /**
          * Disallow (for various reasons)
          */
-        FORBID_ERRORS(true), 
-        FORBID_READONLY(true), 
-        FORBID_UNLESS_DATA_SUBMISSION(true), 
+        FORBID_ERRORS(true),
+        FORBID_READONLY(true),
+        FORBID_UNLESS_DATA_SUBMISSION(true),
         FORBID_NULL(true),
         FORBID_ROOT(true),
+        FORBID_CODE(true),
         FORBID_PERMANENT_WITHOUT_FORUM(true);
 
         private final boolean isForbidden;
@@ -130,7 +131,7 @@ abstract public class CheckCLDR {
         }
     }
 
-    private static final HashMap<String, Phase> PHASE_NAMES = new HashMap<String, Phase>();
+    private static final HashMap<String, Phase> PHASE_NAMES = new HashMap<>();
 
     public enum Phase {
         BUILD, SUBMISSION, VETTING, FINAL_TESTING("RESOLUTION");
@@ -340,7 +341,7 @@ abstract public class CheckCLDR {
             Option() {
                 this.key = name();
             }
-        };
+        }
 
         private static StandardCodes sc = StandardCodes.make();
 
@@ -383,7 +384,7 @@ abstract public class CheckCLDR {
         }
 
         private static String getValidKeys() {
-            Set<String> allkeys = new TreeSet<String>();
+            Set<String> allkeys = new TreeSet<>();
             for (Option o : Option.values()) {
                 allkeys.add(o.getKey());
             }
@@ -542,7 +543,7 @@ abstract public class CheckCLDR {
             }
             return sb.toString();
         }
-    };
+    }
 
     public boolean isSkipTest() {
         return skipTest;
@@ -668,7 +669,7 @@ abstract public class CheckCLDR {
             Subtype subtype = filter.get1();
             List<Pattern> xpaths = filtersForLocale.get(subtype);
             if (xpaths == null) {
-                filtersForLocale.put(subtype, xpaths = new ArrayList<Pattern>());
+                filtersForLocale.put(subtype, xpaths = new ArrayList<>());
             }
             xpaths.add(filter.get2());
         }
@@ -687,44 +688,47 @@ abstract public class CheckCLDR {
 
         public enum Type {
             Comment, Warning, Error, Example, Demo
-        };
+        }
 
         public enum Subtype {
-            none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, incorrectCasing, 
+            none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, incorrectCasing,
             valueMustBeOverridden,
-            valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, missingPluralInfo, 
-            currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, displayCollision, 
-            illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders, 
-            shouldntHavePlaceholders, couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, 
-            invalidCurrencyMatchSet, multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, 
-            noMetazoneMappingBeforeNow, cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, 
-            missingEuroCountryInfo, deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, 
+            valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, missingPluralInfo,
+            currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, displayCollision,
+            illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders,
+            shouldntHavePlaceholders, couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue,
+            invalidCurrencyMatchSet, multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970,
+            noMetazoneMappingBeforeNow, cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo,
+            missingEuroCountryInfo, deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError,
             auxiliaryExemplarsOverlap, missingPunctuationCharacters,
 
-            charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars, 
+            charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars,
             charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
 
             narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
-            inconsistentDatePattern, inconsistentTimePattern, missingDatePattern, illegalDatePattern, 
-            missingMainExemplars, mustNotStartOrEndWithSpace, illegalCharactersInNumberPattern, 
-            numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, missingMinusSign, 
-            badNumericType, percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, 
-            metazoneContainsDigit, tooManyGroupingSeparators, inconsistentPluralFormat, sameAsEnglish, sameAsCode, 
-            dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus, 
-            errorOrWarningInLogicalGroup, valueTooWide, valueTooNarrow, nameContainsYear, patternCannotContainDigits, 
-            patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear, 
-            invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods, 
+            inconsistentDatePattern, inconsistentTimePattern, missingDatePattern, illegalDatePattern,
+            missingMainExemplars, mustNotStartOrEndWithSpace, illegalCharactersInNumberPattern,
+            numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, missingMinusSign,
+            badNumericType, percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue,
+            metazoneContainsDigit, tooManyGroupingSeparators, inconsistentPluralFormat, missingZeros, sameAsEnglish, sameAsCode,
+            dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus,
+            errorOrWarningInLogicalGroup, valueTooWide, valueTooNarrow, nameContainsYear, patternCannotContainDigits,
+            patternContainsInvalidCharacters, parenthesesNotAllowed, illegalNumberingSystem, unexpectedOrderOfEraYear,
+            invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods,
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
-            badParseLenient, tooManyValues, invalidSymbol;
+            badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
+            mismatchedUnitComponent, longPowerWithSubscripts
+            ;
 
+            @Override
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
             }
 
             static Pattern TO_STRING = PatternCache.get("([A-Z])");
-        };
+        }
 
-        /** 
+        /**
          * These error don't prevent entry during submission, since they become valid if a different row is changed.
          */
         public static EnumSet<Subtype> crossCheckSubtypes = EnumSet.of(
@@ -797,6 +801,7 @@ abstract public class CheckCLDR {
         /**
          * @deprecated
          */
+        @Deprecated
         public String getHTMLMessage() {
             return htmlMessage;
         }
@@ -804,6 +809,7 @@ abstract public class CheckCLDR {
         /**
          * @deprecated
          */
+        @Deprecated
         public CheckStatus setHTMLMessage(String message) {
             htmlMessage = message;
             return this;
@@ -830,6 +836,7 @@ abstract public class CheckCLDR {
             return this;
         }
 
+        @Override
         public String toString() {
             return getType() + ": " + getMessage();
         }
@@ -851,7 +858,7 @@ abstract public class CheckCLDR {
                 return null;
             }
 
-            List<Exception> errors = new ArrayList<Exception>();
+            List<Exception> errors = new ArrayList<>();
             for (Object o : parameters) {
                 if (o instanceof Exception) {
                     errors.add((Exception) o);
@@ -926,7 +933,7 @@ abstract public class CheckCLDR {
     }
 
     public static abstract class SimpleDemo {
-        Map<String, String> internalPostArguments = new HashMap<String, String>();
+        Map<String, String> internalPostArguments = new HashMap<>();
 
         /**
          * @param postArguments
@@ -969,6 +976,7 @@ abstract public class CheckCLDR {
 
         protected abstract void getArguments(Map<String, String> postArguments);
 
+        @Override
         public String getHTML(Map<String, String> postArguments) throws Exception {
             getArguments(postArguments);
             StringBuffer htmlMessage = new StringBuffer();
@@ -1167,8 +1175,8 @@ abstract public class CheckCLDR {
      */
     static class CompoundCheckCLDR extends CheckCLDR {
         private Matcher filter;
-        private List<CheckCLDR> checkList = new ArrayList<CheckCLDR>();
-        private List<CheckCLDR> filteredCheckList = new ArrayList<CheckCLDR>();
+        private List<CheckCLDR> checkList = new ArrayList<>();
+        private List<CheckCLDR> filteredCheckList = new ArrayList<>();
 
         public CompoundCheckCLDR add(CheckCLDR item) {
             checkList.add(item);
@@ -1183,6 +1191,7 @@ abstract public class CheckCLDR {
             return this;
         }
 
+        @Override
         public CheckCLDR handleCheck(String path, String fullPath, String value,
             Options options, List<CheckStatus> result) {
             result.clear();
@@ -1219,6 +1228,7 @@ abstract public class CheckCLDR {
             }
         }
 
+        @Override
         protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Options options,
             List<CheckStatus> result) {
             result.clear();
@@ -1245,6 +1255,7 @@ abstract public class CheckCLDR {
                 }));
         }
 
+        @Override
         public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
             List<CheckStatus> possibleErrors) {
             ElapsedTimer testTime = null, testOverallTime = null;
@@ -1256,7 +1267,7 @@ abstract public class CheckCLDR {
             possibleErrors.clear();
 
             for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
-                CheckCLDR item = (CheckCLDR) it.next();
+                CheckCLDR item = it.next();
                 if (SHOW_TIMES)
                     testTime = new ElapsedTimer("Test setup time for " + item.getClass().toString() + ": {0}");
                 try {
@@ -1339,7 +1350,7 @@ abstract public class CheckCLDR {
      */
     private void loadFilters() {
         if (allFilters != null) return;
-        allFilters = new ArrayList<R3<Pattern, Subtype, Pattern>>();
+        allFilters = new ArrayList<>();
         RegexFileParser fileParser = new RegexFileParser();
         fileParser.setLineParser(new RegexLineParser() {
             @Override
@@ -1348,7 +1359,7 @@ abstract public class CheckCLDR {
                 Subtype subtype = Subtype.valueOf(fields[0]);
                 Pattern locale = PatternCache.get(fields[1]);
                 Pattern xpathRegex = PatternCache.get(fields[2].replaceAll("\\[@", "\\\\[@"));
-                allFilters.add(new R3<Pattern, Subtype, Pattern>(locale, subtype, xpathRegex));
+                allFilters.add(new R3<>(locale, subtype, xpathRegex));
             }
         });
         fileParser.parse(CheckCLDR.class, "/org/unicode/cldr/util/data/CheckCLDR-exceptions.txt");
@@ -1380,5 +1391,9 @@ abstract public class CheckCLDR {
 
     public void setEnglishFile(CLDRFile englishFile) {
         this.englishFile = englishFile;
+    }
+
+    public CharSequence fixedValueIfInherited(String value, String path) {
+        return !CldrUtility.INHERITANCE_MARKER.equals(value) ? value: getCldrFileToCheck().getStringValueWithBailey(path);
     }
 }

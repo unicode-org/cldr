@@ -49,7 +49,7 @@ public class FilterFactory extends Factory {
     private String organization;
     private boolean modifyValues;
 
-    private List<Modifier> modifiers = new ArrayList<Modifier>();
+    private List<Modifier> modifiers = new ArrayList<>();
 
     /**
      * Creates a new Factory for filtering CLDRFiles.
@@ -151,7 +151,7 @@ public class FilterFactory extends Factory {
 
         String parent = LocaleIDParser.getParent(rawFile.getLocaleID());
         CLDRFile resolvedParent = rawFactory.make(parent, true);
-        List<String> duplicatePaths = new ArrayList<String>();
+        List<String> duplicatePaths = new ArrayList<>();
         for (String xpath : rawFile) {
             if (xpath.startsWith("//ldml/identity")) {
                 continue;
@@ -159,9 +159,10 @@ public class FilterFactory extends Factory {
             String value = rawFile.getStringValue(xpath);
             // Remove count="x" if the value is equivalent to count="other".
             if (xpath.contains("[@count=")) {
-                XPathParts parts = XPathParts.getInstance(xpath); // not frozen, for setAttribute
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
                 String count = parts.getAttributeValue(-1, "count");
                 if (!count.equals("other")) {
+                    parts = parts.cloneAsThawed();
                     parts.setAttribute(-1, "count", "other");
                     String otherPath = parts.toString();
                     if (value.equals(rawFile.getStringValue(otherPath))) {
@@ -223,7 +224,7 @@ public class FilterFactory extends Factory {
      * Class for performing a specific type of data modification on a CLDRFile.
      */
     private abstract class Modifier {
-        protected List<ModifierEntry> entries = new ArrayList<ModifierEntry>();
+        protected List<ModifierEntry> entries = new ArrayList<>();
 
         public abstract void modifyFile(CLDRFile file);
 
@@ -233,7 +234,7 @@ public class FilterFactory extends Factory {
          * @return the list of modifiers meant for the specified locale.
          */
         protected List<ModifierEntry> getModifiersForLocale(String locale) {
-            List<ModifierEntry> newFilters = new ArrayList<ModifierEntry>();
+            List<ModifierEntry> newFilters = new ArrayList<>();
             for (ModifierEntry filter : entries) {
                 if (filter.localeMatches(locale)) {
                     newFilters.add(filter);
@@ -327,7 +328,7 @@ public class FilterFactory extends Factory {
      * Maps the value of XPaths onto other XPaths using regexes.
      */
     private class PathRegexModifier extends Modifier {
-        private RegexLookup<String> xpathLookup = new RegexLookup<String>();
+        private RegexLookup<String> xpathLookup = new RegexLookup<>();
 
         @Override
         public void addModifierEntry(ModifierEntry entry) {
@@ -338,7 +339,7 @@ public class FilterFactory extends Factory {
         @Override
         public void modifyFile(CLDRFile file) {
             if (xpathLookup.size() > 0) {
-                Output<String[]> arguments = new Output<String[]>();
+                Output<String[]> arguments = new Output<>();
                 for (String xpath : file) {
                     String newValue = xpathLookup.get(xpath, null, arguments, null, null);
                     if (newValue != null) {
@@ -379,7 +380,7 @@ public class FilterFactory extends Factory {
                 String oldValue = contents[1];
                 String newValue = contents[2];
                 // Process remaining options.
-                Map<String, String> options = new HashMap<String, String>();
+                Map<String, String> options = new HashMap<>();
                 for (int i = 3; i < contents.length; i++) {
                     String rawLine = contents[i];
                     int pos = rawLine.indexOf('=');

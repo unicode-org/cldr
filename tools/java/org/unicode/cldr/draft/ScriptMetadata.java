@@ -19,7 +19,7 @@ import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transform;
@@ -46,7 +46,7 @@ public class ScriptMetadata {
             "Origin Country"), DENSITY("~Density"), LANG_CODE, HAS_CASE("Has Case?");
 
         int columnNumber = -1;
-        final Set<String> names = new HashSet<String>();
+        final Set<String> names = new HashSet<>();
 
         Column(String... alternateNames) {
             names.add(this.name());
@@ -172,7 +172,7 @@ public class ScriptMetadata {
             density = Column.DENSITY.getInt(items, -1);
 
             final String countryRaw = Column.ORIGIN_COUNTRY.getItem(items);
-            String country = CountryCodeConverter.getCodeFromName(countryRaw);
+            String country = CountryCodeConverter.getCodeFromName(countryRaw, false);
             // NAME_TO_REGION_CODE.get(countryRaw.toUpperCase(Locale.ENGLISH));
             if (country == null) {
                 errors.add("Can't map " + countryRaw + " to country/region");
@@ -209,6 +209,7 @@ public class ScriptMetadata {
                 .replace("RTL", "YES");
         }
 
+        @Override
         public String toString() {
             return rank
                 + "\tSample: " + sampleChar
@@ -238,11 +239,11 @@ public class ScriptMetadata {
         }
     }
 
-    public static Set<String> errors = new LinkedHashSet<String>();
-    static HashMap<String, Integer> titleToColumn = new HashMap<String, Integer>();
+    public static Set<String> errors = new LinkedHashSet<>();
+    static HashMap<String, Integer> titleToColumn = new HashMap<>();
 
     private static class MyFileReader extends SemiFileReader {
-        private Map<String, Info> data = new HashMap<String, Info>();
+        private Map<String, Info> data = new HashMap<>();
 
         @Override
         protected boolean isCodePoint() {
@@ -252,7 +253,7 @@ public class ScriptMetadata {
         @Override
         protected String[] splitLine(String line) {
             return CldrUtility.splitCommaSeparated(line);
-        };
+        }
 
         @Override
         protected boolean handleLine(int lineCount, int start, int end, String[] items) {
@@ -299,7 +300,7 @@ public class ScriptMetadata {
 
         private Map<String, Info> getData() {
             if (!errors.isEmpty()) {
-                throw new RuntimeException(CollectionUtilities.join(errors, "\n\t"));
+                throw new RuntimeException(Joiner.on("\n\t").join(errors));
             }
             return Collections.unmodifiableMap(data);
         }
@@ -385,7 +386,7 @@ public class ScriptMetadata {
         return data.entrySet();
     }
 
-    /** 
+    /**
      * Specialized scripts
      * @return
      */

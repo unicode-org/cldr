@@ -24,7 +24,7 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
  * @author markdavis
  */
 public class SimpleDictionary<T> extends Dictionary<T> {
-    private TreeMap<CharSequence, T> data = new TreeMap<CharSequence, T>();
+    private TreeMap<CharSequence, T> data = new TreeMap<>();
     private Set<CharSequence> possibleMatchesBefore;
     private Set<CharSequence> possibleMatchesAfter;
     private Status finalStatus;
@@ -34,6 +34,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 
     public static class SimpleDictionaryBuilder<T> implements DictionaryBuilder<T> {
 
+        @Override
         public SimpleDictionary<T> make(Map<CharSequence, T> source) {
             return new SimpleDictionary(source);
         }
@@ -77,6 +78,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         data.put(text, result);
     }
 
+    @Override
     public Iterator<Entry<CharSequence, T>> getMapping() {
         return Collections.unmodifiableMap(data).entrySet().iterator();
     }
@@ -168,6 +170,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
             return finalStatus = Status.PARTIAL;
         }
 
+        @Override
         public boolean nextUniquePartial() {
             // we have already set the matchValue, so we don't need to reset here.
             return matchCount == 1;
@@ -182,7 +185,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
          */
         private CharSequence filterToStartsWith(CharSequence probe) {
             CharSequence result = null;
-            possibleMatchesAfter = new TreeSet<CharSequence>();
+            possibleMatchesAfter = new TreeSet<>();
             for (CharSequence item : possibleMatchesBefore) {
                 if (startsWith(item, probe)) {
                     if (result == null) {

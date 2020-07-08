@@ -143,7 +143,7 @@ public class Misc {
             english = cldrFactory.make("en", false);
             resolvedRoot = cldrFactory.make("root", true);
             if (options[MATCH].value.equals("group1")) options[MATCH].value = "(en|fr|de|it|es|pt|ja|ko|zh)";
-            Set<String> languages = new TreeSet<String>(cldrFactory.getAvailableLanguages());
+            Set<String> languages = new TreeSet<>(cldrFactory.getAvailableLanguages());
             // new Utility.MatcherFilter(options[MATCH].value).retainAll(languages);
             // new Utility.MatcherFilter("(sh|zh_Hans|sr_Cyrl)").removeAll(languages);
 
@@ -272,7 +272,7 @@ public class Misc {
     // ICU info: http://oss.software.ibm.com/cvs/icu/~checkout~/icu/source/common/putil.c
     // search for "Mapping between Windows zone IDs"
 
-    static Set<String> priorities = new TreeSet<String>(Arrays.asList(new String[] { "en", "zh_Hans",
+    static Set<String> priorities = new TreeSet<>(Arrays.asList(new String[] { "en", "zh_Hans",
         "zh_Hant", "da", "nl", "fi", "fr", "de", "it",
         "ja", "ko", "nb", "pt_BR", "ru", "es", "sv", "ar", "bg", "ca",
         "hr", "cs", "et", "el", "he", "hi", "hu", "is", "id", "lv", "lt",
@@ -283,7 +283,7 @@ public class Misc {
     private static void printAllZoneLocalizations() throws IOException {
         StandardCodes sc = StandardCodes.make();
         Set<String> zones = sc.getAvailableCodes("tzid");
-        Map<Integer, Map<String, Map<String, String>>> offset_zone_locale_name = new TreeMap<Integer, Map<String, Map<String, String>>>();
+        Map<Integer, Map<String, Map<String, String>>> offset_zone_locale_name = new TreeMap<>();
         for (Iterator<String> it2 = priorities.iterator(); it2.hasNext();) {
             String locale = it2.next();
             System.out.println(locale);
@@ -301,10 +301,10 @@ public class Misc {
 
                     Map<String, Map<String, String>> zone_locale_name = offset_zone_locale_name.get(standardOffset);
                     if (zone_locale_name == null)
-                        offset_zone_locale_name.put(standardOffset, zone_locale_name = new TreeMap<String, Map<String, String>>());
+                        offset_zone_locale_name.put(standardOffset, zone_locale_name = new TreeMap<>());
 
                     Map<String, String> locale_name = zone_locale_name.get(zone);
-                    if (locale_name == null) zone_locale_name.put(zone, locale_name = new TreeMap<String, String>());
+                    if (locale_name == null) zone_locale_name.put(zone, locale_name = new TreeMap<>());
 
                     locale_name.put(locale, fullName);
                 }
@@ -400,7 +400,7 @@ public class Misc {
      * @throws IOException
      */
     private static void printCurrentTimezoneLocalizations(Set<String> languages) throws IOException {
-        Set<String> rtlLanguages = new TreeSet<String>();
+        Set<String> rtlLanguages = new TreeSet<>();
         for (Iterator<String> it = languages.iterator(); it.hasNext();) {
             String language = it.next();
             CLDRFile desiredLocaleFile = cldrFactory.make(language, true);
@@ -441,15 +441,15 @@ public class Misc {
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_countries = sc.getZoneToCounty();
         Map<String, String> old_new = sc.getZoneLinkold_new();
-        Map<String, Set<String>> new_old = new TreeMap<String, Set<String>>(col);
-        Map<String, Set<String>> country_zones = new TreeMap<String, Set<String>>(col);
+        Map<String, Set<String>> new_old = new TreeMap<>(col);
+        Map<String, Set<String>> country_zones = new TreeMap<>(col);
         for (Iterator<String> it = zone_countries.keySet().iterator(); it.hasNext();) {
             String zone = it.next();
             new_old.put(zone, new TreeSet<String>(col));
             String country = zone_countries.get(zone);
             String name = english.getName("territory", country) + " (" + country + ")";
             Set<String> oldSet = country_zones.get(name);
-            if (oldSet == null) country_zones.put(name, oldSet = new TreeSet<String>(col));
+            if (oldSet == null) country_zones.put(name, oldSet = new TreeSet<>(col));
             oldSet.add(zone);
         }
         for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext();) {
@@ -632,12 +632,12 @@ public class Misc {
          */
         RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(new ULocale(locale));
         col.setNumericCollation(true);
-        Set<String> orderedAliases = new TreeSet<String>(col);
+        Set<String> orderedAliases = new TreeSet<>(col);
 
         Map<String, String> zone_countries = StandardCodes.make().getZoneToCounty();
         //Map<String, Set<String>> countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
 
-        Map<String, String> reordered = new TreeMap<String, String>(col);
+        Map<String, String> reordered = new TreeMap<>(col);
         CLDRFile desiredLocaleFile = cldrFactory.make(locale, true);
 
         for (Iterator<String> it = zone_countries.keySet().iterator(); it.hasNext();) {
@@ -775,7 +775,7 @@ public class Misc {
         Set<String> modernIDs = sc.getZoneData().keySet();
         System.out.println();
         System.out.println("Zones without countries");
-        TreeSet<String> temp = new TreeSet<String>(m2.keySet());
+        TreeSet<String> temp = new TreeSet<>(m2.keySet());
         temp.removeAll(modernIDs);
         System.out.println(temp);
 
@@ -821,11 +821,11 @@ public class Misc {
         // Map rule_abbreviations = getAbbreviations(m);
 
         Map<String, List<RuleLine>> ruleID_Rules = sc.getZoneRuleID_rules();
-        Map<String, Set<String>> abb_zones = new TreeMap<String, Set<String>>();
+        Map<String, Set<String>> abb_zones = new TreeMap<>();
         m2 = sc.getZone_rules();
         for (Iterator<String> it = m2.keySet().iterator(); it.hasNext();) {
             String key = it.next();
-            Set<String> abbreviations = new TreeSet<String>();
+            Set<String> abbreviations = new TreeSet<>();
             // rule_abbreviations.put(key, abbreviations);
             ZoneLine lastZoneLine = null;
 
@@ -868,7 +868,7 @@ public class Misc {
                     continue;
                 }
                 Set<String> zones = abb_zones.get(abb);
-                if (zones == null) abb_zones.put(abb, zones = new TreeSet<String>());
+                if (zones == null) abb_zones.put(abb, zones = new TreeSet<>());
                 zones.add(key);
             }
             System.out.println(key + " => " + XPathParts.NEWLINE + "\t"
@@ -901,7 +901,7 @@ public class Misc {
     }
 
     private static Set<String> getAbbreviations(Map<String, List<RuleLine>> rules, ZoneLine lastZoneLine, ZoneLine zoneLine) {
-        Set<String> result = new TreeSet<String>();
+        Set<String> result = new TreeSet<>();
         List<RuleLine> ruleList = rules.get(zoneLine.rulesSave);
         for (Iterator<RuleLine> it2 = ruleList.iterator(); it2.hasNext();) {
             RuleLine ruleLine = it2.next();
@@ -934,14 +934,14 @@ public class Misc {
         Set<String> territories = sc.getAvailableCodes("territory");
         Map<String, List<String>> zoneData = sc.getZoneData();
 
-        Set<String> s = new TreeSet<String>(sc.getTZIDComparator());
+        Set<String> s = new TreeSet<>(sc.getTZIDComparator());
         s.addAll(sc.getZoneData().keySet());
         int counter = 0;
         for (Iterator<String> it = s.iterator(); it.hasNext();) {
             String key = it.next();
             System.out.println(++counter + "\t" + key + "\t" + zoneData.get(key));
         }
-        Set<String> missing2 = new TreeSet<String>(sc.getZoneData().keySet());
+        Set<String> missing2 = new TreeSet<>(sc.getZoneData().keySet());
         missing2.removeAll(sc.getZoneToCounty().keySet());
         System.out.println(missing2);
         missing2.clear();
@@ -950,8 +950,8 @@ public class Misc {
         System.out.println(missing2);
         if (true) return;
 
-        Map<String, Map<String, String>> country_city_data = new TreeMap<String, Map<String, String>>();
-        Map<String, String> territoryName_code = new HashMap<String, String>();
+        Map<String, Map<String, String>> country_city_data = new TreeMap<>();
+        Map<String, String> territoryName_code = new HashMap<>();
         Map<String, String> zone_to_country = sc.getZoneToCounty();
         for (Iterator<String> it = territories.iterator(); it.hasNext();) {
             String code = it.next();
@@ -963,7 +963,7 @@ public class Misc {
             "NFD; [:m:]Remove; NFC");
         BufferedReader br = FileUtilities.openUTF8Reader("c:/data/", "cities.txt");
         counter = 0;
-        Set<String> missing = new TreeSet<String>();
+        Set<String> missing = new TreeSet<>();
         while (true) {
             String line = br.readLine();
             if (line == null) break;
@@ -980,7 +980,7 @@ public class Misc {
             if (code == null) missing.add(country);
             Map<String, String> city_data = country_city_data.get(code);
             if (city_data == null) {
-                city_data = new TreeMap<String, String>();
+                city_data = new TreeMap<>();
                 country_city_data.put(code, city_data);
             }
             city_data.put(place2,
@@ -1041,7 +1041,7 @@ public class Misc {
         }
 
         // territories
-        Map<String, Collection<String>> groups = new TreeMap<String, Collection<String>>();
+        Map<String, Collection<String>> groups = new TreeMap<>();
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
             XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
@@ -1053,11 +1053,11 @@ public class Misc {
                 .splitList(attributes.get("contains"), ' ', true, new ArrayList<String>());
             groups.put(type, contents);
         }
-        Set<String> seen = new TreeSet<String>();
+        Set<String> seen = new TreeSet<>();
         printTimezonesToLocalize(log, desiredLocaleFile, groups, seen, col, false, english);
         StandardCodes sc = StandardCodes.make();
         Set<String> codes = sc.getAvailableCodes("territory");
-        Set<String> missing = new TreeSet<String>(codes);
+        Set<String> missing = new TreeSet<>(codes);
         missing.removeAll(seen);
         if (log != null) {
             log.close();
@@ -1074,8 +1074,8 @@ public class Misc {
         CLDRFile english) throws IOException {
         @SuppressWarnings("unchecked")
         Set<String>[] missing = new Set[2];
-        missing[0] = new TreeSet<String>();
-        missing[1] = new TreeSet<String>(StandardCodes.make().getTZIDComparator());
+        missing[0] = new TreeSet<>();
+        missing[1] = new TreeSet<>(StandardCodes.make().getTZIDComparator());
         printWorldTimezoneCategorization(log, localization, groups, "001", 0, seen, col, showCode, zones_countrySet(),
             missing);
         if (missing[0].size() == 0 && missing[1].size() == 0) return;
@@ -1152,7 +1152,7 @@ public class Misc {
         }
 
         if (log != null) log.println(">");
-        Map<String, String> reorder = new TreeMap<String, String>(col);
+        Map<String, String> reorder = new TreeMap<>(col);
         for (Iterator<String> it = s.iterator(); it.hasNext();) {
             key = it.next();
             String value = getName(localization, key, missing);
@@ -1207,14 +1207,14 @@ public class Misc {
 
     static Map<String, Set<String>> zones_countrySet() {
         Map<String, List<String>> m = StandardCodes.make().getZoneData();
-        Map<String, Set<String>> result = new TreeMap<String, Set<String>>();
+        Map<String, Set<String>> result = new TreeMap<>();
         for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
             String tzid = it.next();
             List<String> list = m.get(tzid);
             String country = list.get(2);
             Set<String> zones = result.get(country);
             if (zones == null) {
-                zones = new TreeSet<String>();
+                zones = new TreeSet<>();
                 result.put(country, zones);
             }
             zones.add(tzid);
@@ -1239,7 +1239,7 @@ public class Misc {
         Factory cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
         // CLDRKey.main(new String[]{"-mde.*"});
         Set<String> locales = cldrFactory.getAvailable();
-        Set<String> cldr = new TreeSet<String>();
+        Set<String> cldr = new TreeSet<>();
         LanguageTagParser parser = new LanguageTagParser();
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {
             // if doesn't have exactly one _, skip
@@ -1250,7 +1250,7 @@ public class Misc {
             cldr.add(locale.replace('_', '-'));
         }
 
-        Set<String> tex = new TreeSet<String>();
+        Set<String> tex = new TreeSet<>();
         while (true) {
             String line = in.readLine();
             if (line == null) break;
@@ -1259,10 +1259,10 @@ public class Misc {
             int p = line.indexOf(' ');
             tex.add(line.substring(0, p));
         }
-        Set<String> inCldrButNotTex = new TreeSet<String>(cldr);
+        Set<String> inCldrButNotTex = new TreeSet<>(cldr);
         inCldrButNotTex.removeAll(tex);
         System.out.println(" inCldrButNotTex " + inCldrButNotTex);
-        Set<String> inTexButNotCLDR = new TreeSet<String>(tex);
+        Set<String> inTexButNotCLDR = new TreeSet<>(tex);
         inTexButNotCLDR.removeAll(cldr);
         System.out.println(" inTexButNotCLDR " + inTexButNotCLDR);
     }

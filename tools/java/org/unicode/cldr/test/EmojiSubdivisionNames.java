@@ -82,18 +82,31 @@ public class EmojiSubdivisionNames {
                         _subdivisionIdToName.put(m.group(1), m.group(2));
                     }
                 }
-                _nameToSubdivisionId = _nameToSubdivisionId.isEmpty() ? Collections.emptyMap() 
+                _nameToSubdivisionId = _nameToSubdivisionId.isEmpty() ? Collections.emptyMap()
                     : ImmutableMap.copyOf(_nameToSubdivisionId);
-                _subdivisionIdToName = _subdivisionIdToName.isEmpty() ? Collections.emptyMap() 
+                _subdivisionIdToName = _subdivisionIdToName.isEmpty() ? Collections.emptyMap()
                     : ImmutableMap.copyOf(_subdivisionIdToName);
             } else {
                 String parentLocaleId = LocaleIDParser.getParent(localeID);
                 _nameToSubdivisionId = getNameToSubdivisionPath(parentLocaleId);
                 _subdivisionIdToName = localeToSubdivisionIdToName.get(parentLocaleId);
             }
-            localeToNameToSubdivisionId.put(localeID, _nameToSubdivisionId);
-            localeToSubdivisionIdToName.put(localeID, _subdivisionIdToName);
-        } catch (Exception e) {}
+            /*
+             * In practice _subdivisionIdToName == null actually happens here.
+             * Check for null rather than triggering NullPointerException.
+             */
+            if (_nameToSubdivisionId != null) {
+                localeToNameToSubdivisionId.put(localeID, _nameToSubdivisionId);
+            }
+            if (_subdivisionIdToName != null) {
+                localeToSubdivisionIdToName.put(localeID, _subdivisionIdToName);
+            }
+        } catch (Exception e) {
+            /*
+             * TODO: If there is a valid rationale for catching and ignoring all exceptions here,
+             * document it. Otherwise it should be avoided since it tends to hide programming errors.
+             */
+        }
     }
 
     static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");

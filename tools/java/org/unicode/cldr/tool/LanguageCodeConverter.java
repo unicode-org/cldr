@@ -24,9 +24,9 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
 
 public class LanguageCodeConverter {
-    private static Map<String, String> languageNameToCode = new TreeMap<String, String>();
-    private static Set<String> exceptionCodes = new TreeSet<String>();
-    private static Set<String> parseErrors = new LinkedHashSet<String>();
+    private static Map<String, String> languageNameToCode = new TreeMap<>();
+    private static Set<String> exceptionCodes = new TreeSet<>();
+    private static Set<String> parseErrors = new LinkedHashSet<>();
 
     private static Map<String, R2<List<String>, String>> languageAliases = CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo()
         .get("language");
@@ -81,7 +81,7 @@ public class LanguageCodeConverter {
         // http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
         Map<String, Map<String, Map<String, String>>> lstreg = StandardCodes.getLStreg();
         Map<String, Map<String, String>> languages = lstreg.get("language");
-        Set<String> validCodes = new HashSet<String>();
+        Set<String> validCodes = new HashSet<>();
 
         for (Entry<String, Map<String, String>> codeInfo : languages.entrySet()) {
             String code = codeInfo.getKey();

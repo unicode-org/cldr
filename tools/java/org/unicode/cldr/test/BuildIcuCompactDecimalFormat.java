@@ -57,8 +57,8 @@ public class BuildIcuCompactDecimalFormat {
     }
 
     public static Map<String, Map<String, String>> buildCustomData(CLDRFile resolvedCldrFile, CompactStyle style, CurrencyStyle currencyStyle) {
-        
-        final Map<String, Map<String, String>> customData = new TreeMap<String, Map<String, String>>();
+
+        final Map<String, Map<String, String>> customData = new TreeMap<>();
 
         String prefix = currencyStyle == CurrencyStyle.PLAIN ? "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength"
             : "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength";
@@ -116,6 +116,6 @@ public class BuildIcuCompactDecimalFormat {
             String currencySymbol = cldrFile.getWinningValue(prefix + "symbol");
             return currencySymbol != null ? currencySymbol : currencyCode;
         }
-    };
+    }
 
 }

@@ -128,7 +128,7 @@ public class GenerateValidityXml {
             Status oldStatus = get(currency);
             if (oldStatus == null || newStatus.compareTo(oldStatus) < 0) {
                 put(currency, newStatus);
-            }            
+            }
         }
     }
 
@@ -148,7 +148,7 @@ public class GenerateValidityXml {
             try (TempPrintWriter output = TempPrintWriter.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY, "validity/" + type + ".xml")) {
                 adder.target = output;
                 output.append(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                    + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
+                    + "\t<version number=\"$Revision" + "$\"/>\n"
                     + "\t<idValidity>\n");
                 for (Entry<Status, Collection<String>> entry2 : subtypeMap.asMap().entrySet()) {
                     Validity.Status subtype = entry2.getKey();
@@ -321,7 +321,7 @@ public class GenerateValidityXml {
                     switch (code) {
                     case "Aran":
                     case "Qaag":
-                    case "Zsye": 
+                    case "Zsye":
                     case "Zanb":
                     case "Zinh":
                     case "Zyyy":
@@ -329,7 +329,7 @@ public class GenerateValidityXml {
                         break;
                     default:
                         switch (subtype) {
-                        case private_use: 
+                        case private_use:
                             if (code.compareTo("Qaaq") < 0) {
                                 subtype = Validity.Status.reserved;
                             }

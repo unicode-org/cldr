@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.google.common.collect.Iterators;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
@@ -42,7 +43,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public static final String ROOT_ID = "root";
     public static final boolean USE_PARTS_IN_ALIAS = false;
     private static final String TRACE_INDENT = " "; // "\t"
-    private static Map<String, String> allowDuplicates = new HashMap<String, String>();
+    private static Map<String, String> allowDuplicates = new HashMap<>();
 
     private String localeID;
     private boolean nonInheriting;
@@ -72,7 +73,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     }
 
     // Listeners are stored using weak references so that they can be garbage collected.
-    private List<WeakReference<Listener>> listeners = new ArrayList<WeakReference<Listener>>();
+    private List<WeakReference<Listener>> listeners = new ArrayList<>();
 
     public String getLocaleID() {
         return localeID;
@@ -149,6 +150,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         return parts.containsAttribute("draft");
     }
 
+    @Override
     public boolean isFrozen() {
         return locked;
     }
@@ -303,6 +305,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return oldPath;
         }
 
+        @Override
         public String toString() {
             return
             // "oldLocaleID: " + oldLocaleID + ", " +
@@ -421,7 +424,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * return aliasMap the new map
      */
     private TreeMap<String, String> loadAliases() {
-        TreeMap<String, String> aliasMap = new TreeMap<String, String>();
+        TreeMap<String, String> aliasMap = new TreeMap<>();
         for (String path : this) {
             if (!Alias.isAliasPath(path)) {
                 continue;
@@ -445,17 +448,17 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         }
         // Aliases are only ever found in root.
         Map<String, String> aliases = getAliases();
-        Map<String, List<String>> reverse = new HashMap<String, List<String>>();
+        Map<String, List<String>> reverse = new HashMap<>();
         for (Map.Entry<String, String> entry : aliases.entrySet()) {
             List<String> list = reverse.get(entry.getValue());
             if (list == null) {
-                list = new ArrayList<String>();
+                list = new ArrayList<>();
                 reverse.put(entry.getValue(), list);
             }
             list.add(entry.getKey());
         }
         // Sort map.
-        LinkedHashMap<String, List<String>> reverseAliasMap = new LinkedHashMap<String, List<String>>(new TreeMap<String, List<String>>(reverse));
+        LinkedHashMap<String, List<String>> reverseAliasMap = new LinkedHashMap<>(new TreeMap<>(reverse));
         if (cachingIsEnabled) {
             reverseAliasCache = reverseAliasMap;
         }
@@ -612,6 +615,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * @return an iterator over the distinguished paths
      */
+    @Override
     abstract public Iterator<String> iterator();
 
     /**
@@ -620,12 +624,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      */
     public Iterator<String> iterator(String prefix) {
         if (prefix == null || prefix.length() == 0) return iterator();
-        return new com.ibm.icu.dev.util.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
+        return Iterators.filter(iterator(), s -> s.startsWith(prefix));
     }
 
     public Iterator<String> iterator(Matcher pathFilter) {
         if (pathFilter == null) return iterator();
-        return new com.ibm.icu.dev.util.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
+        return Iterators.filter(iterator(), s -> pathFilter.reset(s).matches());
     }
 
     /**
@@ -647,6 +651,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * SUBCLASSING: must be overridden
      */
+    @Override
     public XMLSource cloneAsThawed() {
         try {
             XMLSource result = (XMLSource) super.clone();
@@ -660,6 +665,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * for debugging only
      */
+    @Override
     public String toString() {
         StringBuffer result = new StringBuffer();
         for (Iterator<String> it = iterator(); it.hasNext();) {
@@ -712,10 +718,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         private XMLSource currentSource;
         private LinkedHashMap<String, XMLSource> sources;
 
+        @Override
         public boolean isResolving() {
             return true;
         }
 
+        @Override
         public XMLSource getUnresolving() {
             return sources.get(getLocaleID());
         }
@@ -726,10 +734,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * then the parent for //ldml/xyz/.../uvw/abc/.../def/
          * is source, and the path to search for is really: //ldml/xyz/.../uvw/path/abc/.../def/
          */
-        public static final boolean TRACE_VALUE = CldrUtility.getProperty("TRACE_VALUE", false);;
+        public static final boolean TRACE_VALUE = CldrUtility.getProperty("TRACE_VALUE", false);
 
         // Map<String,String> getValueAtDPathCache = new HashMap();
 
+        @Override
         public String getValueAtDPath(String xpath) {
             if (DEBUG_PATH != null && DEBUG_PATH.matcher(xpath).find()) {
                 System.out.println("Getting value for Path: " + xpath);
@@ -783,8 +792,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         // }
         // }
 
-        Map<String, String> getFullPathAtDPathCache = new HashMap<String, String>();
+        Map<String, String> getFullPathAtDPathCache = new HashMap<>();
 
+        @Override
         public String getFullPathAtDPath(String xpath) {
             String result = currentSource.getFullPathAtDPath(xpath);
             if (result != null) {
@@ -837,7 +847,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // find the differences, and add them into xpath
                 // we do this by walking through each element, adding the corresponding attribute values.
                 // we add attributes FROM THE END, in case the lengths are different!
-                XPathParts xpathParts = XPathParts.getInstance(xpath); // not frozen, for putAttributeValue
+                XPathParts xpathParts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // not frozen, for putAttributeValue
                 XPathParts fullPathWhereFoundParts = XPathParts.getFrozenInstance(fullPathWhereFound);
                 XPathParts pathWhereFoundParts = XPathParts.getFrozenInstance(fullStatus.pathWhereFound);
                 int offset = xpathParts.size() - pathWhereFoundParts.size();
@@ -866,7 +876,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * Return the "George Bailey" value, i.e., the value that would obtain if the value didn't exist (in the first source).
          * Often the Bailey value comes from the parent locale (such as "fr") of a sublocale (such as "fr_CA").
-         * Sometimes the Bailey value comes from an alias which may be a different path in the same locale.  
+         * Sometimes the Bailey value comes from an alias which may be a different path in the same locale.
          *
          * @param xpath the given path
          * @param pathWhereFound if not null, to be filled in with the path where found
@@ -901,7 +911,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
              * Can't use the same cache for skipInheritanceMarker true and false.
              * Could use two caches, or add skipInheritanceMarker to the key (append 'T' or 'F' to xpath).
              * The situation is complicated by use of getSourceLocaleIDCache also in valueChanged.
-             * 
+             *
              * There is no caching problem with skipFirst, since that is always false here -- though
              * getBaileyValue could use a cache if there was one for skipFirst true.
              *
@@ -933,7 +943,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return result;
         }
 
-        private transient Map<String, AliasLocation> getSourceLocaleIDCache = new WeakHashMap<String, AliasLocation>();
+        private transient Map<String, AliasLocation> getSourceLocaleIDCache = new WeakHashMap<>();
 
         /**
          * Get the source locale ID for the given path, for this ResolvingSource.
@@ -955,7 +965,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * @param status if not null, to have status.pathWhereFound filled in
          * @param skipInheritanceMarker if true, skip sources in which value is INHERITANCE_MARKER
          * @return the localeID, as a string
-         */        
+         */
         @Override
         public String getSourceLocaleIdExtended(String distinguishedXPath, CLDRFile.Status status, boolean skipInheritanceMarker) {
             AliasLocation fullStatus = getCachedFullStatus(distinguishedXPath, skipInheritanceMarker);
@@ -989,7 +999,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * For other callers, we stick with skipInheritanceMarker true for now, to retain
          * the behavior before the skipInheritanceMarker parameter was added, but we should be alert for the
          * possibility that skipInheritanceMarker should be false in some other cases
-         * 
+         *
          * References: https://unicode.org/cldr/trac/ticket/11765
          *             https://unicode.org/cldr/trac/ticket/11720
          *             https://unicode.org/cldr/trac/ticket/11103
@@ -1023,7 +1033,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         xpath.substring(possibleSubpath.length());
                 }
             }
-            
+
             // alts are special; they act like there is a root alias to the path without the alt.
             if (aliasedPath == null && xpath.contains("[@alt=")) {
                 aliasedPath = XPathParts.getPathWithoutAlt(xpath);
@@ -1062,7 +1072,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         static final boolean TRACE_FILL = CldrUtility.getProperty("TRACE_FILL", false);
         static final String DEBUG_PATH_STRING = CldrUtility.getProperty("DEBUG_PATH", null);
         static final Pattern DEBUG_PATH = DEBUG_PATH_STRING == null ? null : PatternCache.get(DEBUG_PATH_STRING);
-        static final boolean SKIP_FALLBACKID = CldrUtility.getProperty("SKIP_FALLBACKID", false);;
+        static final boolean SKIP_FALLBACKID = CldrUtility.getProperty("SKIP_FALLBACKID", false);
 
         static final int MAX_LEVEL = 40; /* Throw an error if it goes past this. */
 
@@ -1106,10 +1116,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * @return
          */
         private Set<String> findNonAliasedPaths() {
-            HashSet<String> paths = new HashSet<String>();
+            HashSet<String> paths = new HashSet<>();
 
             // Get all XMLSources used during resolution.
-            List<XMLSource> sourceList = new ArrayList<XMLSource>(sources.values());
+            List<XMLSource> sourceList = new ArrayList<>(sources.values());
             if (!SKIP_FALLBACKID) {
                 sourceList.add(constructedItems);
             }
@@ -1131,7 +1141,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * @return the new set of paths
          */
         private Set<String> getDirectAliases(String[] paths) {
-            HashSet<String> newPaths = new HashSet<String>();
+            HashSet<String> newPaths = new HashSet<>();
             // Keep track of the current path index: since it's sorted, we
             // never have to backtrack.
             int pathIndex = 0;
@@ -1174,6 +1184,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * @return an iterator over all the xpaths in this XMLSource.
          */
+        @Override
         public Iterator<String> iterator() {
             return getCachedKeySet().iterator();
         }
@@ -1188,26 +1199,32 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return cachedKeySet;
         }
 
+        @Override
         public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
             throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
         }
 
+        @Override
         public void putValueAtDPath(String distinguishingXPath, String value) {
             throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
         }
 
+        @Override
         public Comments getXpathComments() {
             return currentSource.getXpathComments();
         }
 
+        @Override
         public void setXpathComments(Comments path) {
             throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
         }
 
+        @Override
         public void removeValueAtDPath(String xpath) {
             throw new UnsupportedOperationException("Resolved CLDRFiles are  read-only");
         }
 
+        @Override
         public XMLSource freeze() {
             return this; // No-op. ResolvingSource is already read-only.
         }
@@ -1248,7 +1265,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 throw new IllegalArgumentException("Last element should be root");
             }
             currentSource = sourceList.get(0); // Convenience variable
-            sources = new LinkedHashMap<String, XMLSource>();
+            sources = new LinkedHashMap<>();
             for (XMLSource source : sourceList) {
                 sources.put(source.getLocaleID(), source);
             }
@@ -1260,6 +1277,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             }
         }
 
+        @Override
         public String getLocaleID() {
             return currentSource.getLocaleID();
         }
@@ -1427,7 +1445,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     String value = code;
                     if (typeNo == CLDRFile.TZ_EXEMPLAR) { // skip single-zone countries
                         if (SKIP_SINGLEZONES) {
-                            String country = (String) zone_countries.get(code);
+                            String country = zone_countries.get(code);
                             Set<String> s = countries_zoneSet.get(country);
                             if (s != null && s.size() == 1) continue;
                         }
@@ -1450,16 +1468,16 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // "false");
             // }
 
-            String[] extraCodes = { 
-                "ar_001", 
-                "de_AT", "de_CH", 
+            String[] extraCodes = {
+                "ar_001",
+                "de_AT", "de_CH",
                 "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES", "es_MX",
-                "fa_AF", "fr_CA", "fr_CH", "frc", 
-                "lou", 
-                "nds_NL", "nl_BE", 
-                "pt_BR", "pt_PT", 
-                "ro_MD", 
-                "sw_CD", 
+                "fa_AF", "fr_CA", "fr_CH", "frc",
+                "lou",
+                "nds_NL", "nl_BE",
+                "pt_BR", "pt_PT",
+                "ro_MD",
+                "sw_CD",
                 "zh_Hans", "zh_Hant"
                 };
             for (String extraCode : extraCodes) {
@@ -1469,7 +1487,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_GB", "en_GB", "short");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_US", "en_US", "short");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "az", "az", "short");
-            
+
+            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "menu");
+            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "variant");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "yue", "yue", "menu");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh", "zh", "menu");
             addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hans", "zh", "long");
@@ -1576,10 +1596,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // clear yet how much further caching would speed this up.
 
             // Add all non-aliased paths with the specified value.
-            List<XMLSource> children = new ArrayList<XMLSource>();
-            Set<String> filteredPaths = new HashSet<String>();
+            List<XMLSource> children = new ArrayList<>();
+            Set<String> filteredPaths = new HashSet<>();
             for (XMLSource source : sources.values()) {
-                Set<String> pathsWithValue = new HashSet<String>();
+                Set<String> pathsWithValue = new HashSet<>();
                 source.getPathsWithValue(valueToMatch, pathPrefix, pathsWithValue);
                 // Don't add a path with the value if it is overridden by a child locale.
                 for (String pathWithValue : pathsWithValue) {
@@ -1592,8 +1612,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             // Find all paths that alias to the specified value, then filter by
             // path prefix.
-            Set<String> aliases = new HashSet<String>();
-            Set<String> oldAliases = new HashSet<String>(filteredPaths);
+            Set<String> aliases = new HashSet<>();
+            Set<String> oldAliases = new HashSet<>(filteredPaths);
             Set<String> newAliases;
             do {
                 String[] sortedPaths = new String[oldAliases.size()];
@@ -1608,11 +1628,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             String norm = null;
             for (String alias : aliases) {
                 if (alias.startsWith(pathPrefix)) {
-                    if (norm == null) {
+                    if (norm == null && valueToMatch != null) {
                         norm = SimpleXMLSource.normalize(valueToMatch);
                     }
                     String value = getValueAtDPath(alias);
-                    if (SimpleXMLSource.normalize(value).equals(norm)) {
+                    if (value != null && SimpleXMLSource.normalize(value).equals(norm)) {
                         filteredPaths.add(alias);
                     }
                 }
@@ -1666,7 +1686,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * Adds a listener to this XML source.
      */
     public void addListener(Listener listener) {
-        listeners.add(new WeakReference<Listener>(listener));
+        listeners.add(new WeakReference<>(listener));
     }
 
     /**

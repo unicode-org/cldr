@@ -358,7 +358,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Dawson">
 				<usesMetazone to="1973-10-28 09:00" mzone="Yukon"/>
-				<usesMetazone from="1973-10-28 09:00" mzone="America_Pacific"/>
+				<usesMetazone to="2020-03-08 10:00" from="1973-10-28 09:00" mzone="America_Pacific"/>
+				<usesMetazone from="2020-03-08 10:00" mzone="America_Mountain"/>
 			</timezone>
 			<timezone type="America/Dawson_Creek">
 				<usesMetazone to="1972-08-30 09:00" mzone="America_Pacific"/>
@@ -747,7 +748,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="America_Pacific"/>
 			</timezone>
 			<timezone type="America/Whitehorse">
-				<usesMetazone mzone="America_Pacific"/>
+				<usesMetazone to="2020-03-08 10:00" mzone="America_Pacific"/>
+				<usesMetazone from="2020-03-08 10:00" mzone="America_Mountain"/>
 			</timezone>
 			<timezone type="America/Winnipeg">
 				<usesMetazone mzone="America_Central"/>

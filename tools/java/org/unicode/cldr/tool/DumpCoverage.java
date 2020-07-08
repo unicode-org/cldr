@@ -26,7 +26,7 @@ public class DumpCoverage {
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (String lang : languages) {
             CLDRFile cf = cldrFactory.makeWithFallback(lang);
-            Set<String> paths = new TreeSet<String>();
+            Set<String> paths = new TreeSet<>();
             cf.getPaths("//ldml", null, paths);
             System.out.println("Dumping coverage for locale --> " + lang);
             for (String path : paths) {

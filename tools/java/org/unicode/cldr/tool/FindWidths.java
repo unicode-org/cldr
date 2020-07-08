@@ -45,8 +45,8 @@ public class FindWidths {
         nf.setMaximumFractionDigits(0);
         CLDRFile english = testInfo.getEnglish();
         Factory phf = PathHeader.getFactory(english);
-        Map<PathHeader, Integer> englishWidths = new HashMap<PathHeader, Integer>();
-        Map<PathHeader, Data> maxWidths = new TreeMap<PathHeader, Data>();
+        Map<PathHeader, Integer> englishWidths = new HashMap<>();
+        Map<PathHeader, Data> maxWidths = new TreeMap<>();
         Set<String> sampleLocales = testInfo.getStandardCodes().getLocaleCoverageLocales("google");
 
         for (String path : english) {

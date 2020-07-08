@@ -5446,9 +5446,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>คาลินิงกราด</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>ซิมเฟอโรโปล</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>มอสโก</exemplarCity>
 			</zone>
@@ -5643,6 +5640,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>เคียฟ</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>ซิมเฟอโรโปล</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ซาโปโรซี</exemplarCity>
@@ -8388,14 +8388,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}ต่อ{1}</compoundUnitPattern>
 			</compoundUnit>
-			<compoundUnit type="power2">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
-			</compoundUnit>
-			<compoundUnit type="power3">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
-			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
@@ -8868,6 +8860,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>มวลดวงอาทิตย์</displayName>
 				<unitPattern count="other">{0} มวลดวงอาทิตย์</unitPattern>
 			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="other" draft="provisional">{0} เกรน</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>กิกะวัตต์</displayName>
 				<unitPattern count="other">{0} กิกะวัตต์</unitPattern>
@@ -9080,6 +9075,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-barrel">
 				<displayName>บาร์เรล</displayName>
 				<unitPattern count="other">{0} บาร์เรล</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<unitPattern count="other" draft="provisional">{0} ช้อนของหวาน</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<unitPattern count="other" draft="provisional">{0} ช้อนของหวาน - อังกฤษ</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="other" draft="provisional">{0} หยด</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<unitPattern count="other" draft="provisional">{0} ดรัมของเหลว</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other" draft="provisional">{0} จิกเกอร์</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="other" draft="provisional">{0} หยิบมือ</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<unitPattern count="other" draft="provisional">{0} ควอร์ตอังกฤษ</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>สี่ทิศหลัก</displayName>

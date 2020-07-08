@@ -19,7 +19,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
@@ -101,7 +101,7 @@ public class ShowPlurals {
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         Set<String> cardinalLocales = supplementalDataInfo.getPluralLocales(PluralType.cardinal);
         Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
-        Set<String> all = new LinkedHashSet<String>(cardinalLocales);
+        Set<String> all = new LinkedHashSet<>(cardinalLocales);
         all.addAll(ordinalLocales);
 
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
@@ -221,7 +221,7 @@ public class ShowPlurals {
     }
 
     private String getExamples(FixedDecimalSamples exampleList) {
-        return CollectionUtilities.join(exampleList.getSamples(), ", ") + (exampleList.bounded ? "" : ", …");
+        return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
     }
 
     private String getSample(FixedDecimal numb, String samplePattern, NumberFormat nf) {

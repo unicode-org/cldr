@@ -144,8 +144,8 @@ public class KeymanCheck {
         for (String lang : langs) {
             PopulationData pop = getPopulationData(lang);
             System.out.println(
-//                ++count 
-//                 + "\t" + 
+//                ++count
+//                 + "\t" +
                 en.getName(lang)
                     + "\t" + lang
                     + "\t" + (pop != null ? (long) pop.getLiteratePopulation() : "-1")

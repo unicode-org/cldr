@@ -35,22 +35,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.tmatesoft.svn.core.SVNCommitInfo;
-import org.tmatesoft.svn.core.SVNDepth;
-import org.tmatesoft.svn.core.SVNErrorCode;
-import org.tmatesoft.svn.core.SVNErrorMessage;
-import org.tmatesoft.svn.core.SVNException;
-import org.tmatesoft.svn.core.SVNNodeKind;
-import org.tmatesoft.svn.core.SVNURL;
-import org.tmatesoft.svn.core.wc.SVNClientManager;
-import org.tmatesoft.svn.core.wc.SVNCommitClient;
-import org.tmatesoft.svn.core.wc.SVNInfo;
-import org.tmatesoft.svn.core.wc.SVNRevision;
-import org.tmatesoft.svn.core.wc.SVNStatus;
-import org.tmatesoft.svn.core.wc.SVNStatusClient;
-import org.tmatesoft.svn.core.wc.SVNStatusType;
-import org.tmatesoft.svn.core.wc.SVNUpdateClient;
-import org.tmatesoft.svn.core.wc.SVNWCClient;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -73,26 +57,6 @@ public class OutputFileManager {
 
     public OutputFileManager(SurveyMain surveyMain) {
         this.sm = surveyMain;
-
-        File vxmlDir = null;
-        SVNInfo i = null;
-        try {
-            vxmlDir = sm.makeDataDir(Kind.vxml.name());
-            i = svnInfo(vxmlDir);
-            if (i.getKind() != SVNNodeKind.DIR) {
-                throw new IllegalArgumentException("Unknown node kind :  " + i.getKind());
-            }
-        } catch (Throwable t) {
-            tryCommit = false;
-            String whyNot = tryCommitWhyNot = "SVN disabled - because: " + t.toString() + " on "
-                + ((vxmlDir == null) ? "(null vxml directory)" : vxmlDir.getAbsolutePath());
-
-            System.err.println(whyNot);
-        }
-        if (tryCommit) {
-            System.err.println("SVN commits active in " + vxmlDir.getAbsolutePath() + " - r"
-                + i.getCommittedRevision().getNumber() + " " + i.getCommittedDate());
-        }
     }
 
     public enum Kind {
@@ -108,12 +72,17 @@ public class OutputFileManager {
             this.desc = desc;
         }
 
+        /**
+         *
+         * @return
+         * Maybe called by output-status.jsp
+         */
         public String getDesc() {
             return desc;
         }
 
         private final String desc;
-    };
+    }
 
     /**
      * @param kind
@@ -135,10 +104,6 @@ public class OutputFileManager {
     public static final String PXML_PREFIX = "/pxml/main";
     public static final String TXML_PREFIX = "/txml/main";
     public static final String RXML_PREFIX = "/rxml/main";
-    public static final String FEED_PREFIX = "/feed";
-
-    public boolean tryCommit = true;
-    public String tryCommitWhyNot = null;
 
     /**
      * Names of directories
@@ -335,7 +300,7 @@ public class OutputFileManager {
 
             out.write("<ol>\n");
 
-            Set<CLDRLocale> sortSet = new TreeSet<CLDRLocale>();
+            Set<CLDRLocale> sortSet = new TreeSet<>();
             sortSet.addAll(SurveyMain.getLocalesSet());
             /*
              * If makeSeparateDir is false, only replace files if they need to be updated; use
@@ -734,8 +699,8 @@ public class OutputFileManager {
             throws IOException {
 
         String bxmlDir = CLDRConfig.getInstance().getCldrBaseDirectory().toString();
-        ArrayList<String> vxmlFiles = new ArrayList<String>();
-        ArrayList<String> bxmlFiles = new ArrayList<String>(); /* bxml = baseline cldr xml */
+        ArrayList<String> vxmlFiles = new ArrayList<>();
+        ArrayList<String> bxmlFiles = new ArrayList<>(); /* bxml = baseline cldr xml */
         for (String c: DirNames.commonAndSeed) {
             for (String m: DirNames.mainAndAnnotations) {
                 File vxmlDirFile = new File(vxmlDir + "/" + c + "/" + m);
@@ -797,9 +762,9 @@ public class OutputFileManager {
      * @return the Set
      */
     private static Set<String> symmetricDifference(final ArrayList<String> list1, final ArrayList<String> list2) {
-        Set<String> diff = new HashSet<String>(list1);
+        Set<String> diff = new HashSet<>(list1);
         diff.addAll(list2);
-        Set<String> tmp = new HashSet<String>(list1);
+        Set<String> tmp = new HashSet<>(list1);
         tmp.retainAll(list2);
         diff.removeAll(tmp);
         return diff;
@@ -830,29 +795,6 @@ public class OutputFileManager {
 
             doWriteFile(loc, file, kind, outFile);
             SurveyLog.debug("Updater: Wrote: " + kind + "/" + loc + " - " + ElapsedTimer.elapsedTime(st));
-
-            if (tryCommit && (kind.equals("vxml") || kind.equals("pxml"))) {
-                try {
-                    ElapsedTimer et = new ElapsedTimer();
-                    svnAdd(outFile);
-                    if (true)
-                        System.err.println("SVN: added " + outFile.getAbsolutePath() + " t=" + et);
-                } catch (SVNException e) {
-                    if (e.getMessage().contains("E155007")) {
-                        SurveyLog.logException(e, "Trying to add [and giving up on SVN commits!]" + outFile.getAbsolutePath());
-                        tryCommitWhyNot = "Trying to add [and giving up on SVN commits!]" + outFile.getAbsolutePath() + " - "
-                            + e.toString();
-                        tryCommit = false;
-                    } else if (e.getMessage().contains("E155015")) {
-                        svnRemoveAndResolved(outFile);
-                        doWriteFile(loc, file, kind, outFile);
-                        SurveyLog
-                            .debug("Updater: Resolved, Re-Wrote: " + kind + "/" + loc + " - " + ElapsedTimer.elapsedTime(st));
-                    } else if (!e.getMessage().contains("E150002")) {
-                        SurveyLog.logException(e, "Trying to add " + outFile.getAbsolutePath());
-                    }
-                }
-            }
             return outFile;
         } catch (IOException e) {
             e.printStackTrace();
@@ -910,15 +852,6 @@ public class OutputFileManager {
     }
 
     /**
-     * TODO: delete dead code if there's no plan to resurrect it
-     *
-     * @param ctx
-     */
-    public void doRaw(WebContext ctx) {
-        ctx.println("raw not supported currently. ");
-    }
-
-    /**
      * For a request like ".../cldr-apps/survey/vxml/main/aa.xml", respond with the xml
      *
      * @param request
@@ -938,14 +871,9 @@ public class OutputFileManager {
         if ((s == null)
             || !(s.startsWith(XML_PREFIX) || s.startsWith(ZXML_PREFIX) || s.startsWith(ZVXML_PREFIX)
                 || s.startsWith(VXML_PREFIX) || s.startsWith(PXML_PREFIX)
-                || s.startsWith(RXML_PREFIX) || s.startsWith(TXML_PREFIX) || s.startsWith(FEED_PREFIX))) {
+                || s.startsWith(RXML_PREFIX) || s.startsWith(TXML_PREFIX))) {
             return false;
         }
-
-        if (s.startsWith(FEED_PREFIX)) {
-            return sm.fora.doFeed(request, response);
-        }
-
         CLDRProgressTask p = sm.openProgress("Raw XML");
         try {
 
@@ -1156,18 +1084,8 @@ public class OutputFileManager {
             Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from " + DBUtils.Table.VOTE_VALUE + " where locale=?", loc);
             if (o != null && o.length > 0 && o[0] != null && o[0].length > 0) {
                 theDate = (Timestamp) o[0][0];
-                // System.err.println("for " + loc + " = " + theDate +
-                // " - len="+o.length + ":"+o[0].length);
             }
         }
-        File svnFile = sm.getBaseFile(loc);
-        if (svnFile.exists()) {
-            Timestamp fileTimestamp = new Timestamp(svnFile.lastModified());
-            if (theDate == null || fileTimestamp.after(theDate)) {
-                theDate = fileTimestamp;
-            }
-        }
-
         CLDRLocale parLoc = loc.getParent();
         if (parLoc != null) {
             Timestamp parTimestamp = getLocaleTime(conn, parLoc);
@@ -1231,7 +1149,7 @@ public class OutputFileManager {
         System.err.println("addPeriodicTask... updater");
         SurveyMain.addPeriodicTask(new Runnable() {
             // Start on a different locale each time.
-            int spinner = (int) Math.round(Math.random() * (double) SurveyMain.getLocales().length);
+            int spinner = (int) Math.round(Math.random() * SurveyMain.getLocales().length);
 
             @Override
             public void run() {
@@ -1250,56 +1168,23 @@ public class OutputFileManager {
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
                     CLDRLocale locs[] = SurveyMain.getLocales();
-                    //File outFile = null;
-                    // SurveyLog.logger.warning("Updater: locs to do: "
-                    // +locs.length );
                     CLDRLocale loc = null;
 
-                    for (int wrtl = 1; wrtl < locs.length; wrtl++) { // keep
-                        // going
-                        // while
-                        // not busy
-
-                        for (int j = 0; j < locs.length; j++) { // Try 16
-                            // locales
-                            // looking for
-                            // one that
-                            // doesn't
-                            // exist. No
-                            // more, due to
-                            // load.
+                    for (int wrtl = 1; wrtl < locs.length; wrtl++) { // keep going while not busy
+                        for (int j = 0; j < locs.length; j++) {
+                            // Try 16 locales looking for one that doesn't exist. No more, due to load.
                             loc = CLDR_OUTPUT_ONLY != null ? CLDRLocale.getInstance(CLDR_OUTPUT_ONLY) // DEBUGGING
-                                : locs[(spinner++) % locs.length]; // A new
-                            // one
-                            // each
-                            // time.
-                            // (normal
-                            // case
-                            // SurveyLog.debug("Updater: Considering: " +loc );
+                                : locs[(spinner++) % locs.length]; // A new one each time. (normal case)
 
                             Timestamp localeTime = getLocaleTime(conn, loc);
                             SurveyLog.debug("Updater: Considering: " + loc + " - " + localeTime);
-                            if (!fileNeedsUpdate(localeTime, loc, "vxml") /*
-                                                                          * &&
-                                                                          * !
-                                                                          * fileNeedsUpdate
-                                                                          * (
-                                                                          * localeTime
-                                                                          * ,
-                                                                          * loc
-                                                                          * ,
-                                                                          * "xml"
-                                                                          * )
-                                                                          */) {
+                            if (!fileNeedsUpdate(localeTime, loc, "vxml")) {
                                 loc = null;
-                                // progress.update(0, "Still looking.");
                             } else {
                                 SurveyLog.debug("Updater: To update:: " + loc + " - " + localeTime);
                                 break; // update it.
                             }
                             if (j % 16 == 0) {
-                                // SurveyLog.debug("Updater: looked at " + j +
-                                // " locales, sleeping..");
                                 Thread.sleep(1000);
                                 if (SurveyMain.hostBusy()) {
                                     SurveyLog.debug("CPU busy - exitting." + SurveyMain.osmxbean.getSystemLoadAverage());
@@ -1312,8 +1197,6 @@ public class OutputFileManager {
 
                         if (loc == null) {
                             SurveyLog.debug("None to update.");
-                            // SurveyLog.logger.warning("All " + locs.length +
-                            // " up to date.");
                             return; // nothing to do.
                         }
 
@@ -1324,10 +1207,6 @@ public class OutputFileManager {
                         SurveyLog.debug("Updater update vxml: " + loc);
                         getOutputFile(sm, loc, "vxml");
                         getOutputFile(sm, loc, "pxml");
-                        /*
-                         * progress.update(2, "Writing xml:" +loc);
-                         * getOutputFile(loc, "xml");
-                         */
                         progress.update(3, "Done:" + loc);
 
                         if (SurveyMain.hostBusy()) {
@@ -1346,23 +1225,13 @@ public class OutputFileManager {
                             }
                         }
                     }
-
-                    // SurveyLog.logger.warning("Finished writing " + loc);
                 } catch (InterruptedException ie) {
                     SurveyLog.logger.warning("Interrupted while running Updater - goodbye: " + ie);
-//                } catch (SQLException e) {
-//                    SurveyLog.logException(e, "while running updater");
-//                    outputDisabled = true; // SurveyMain.busted("while running updater", e);
-//                } catch (IOException e) {
-//                    SurveyLog.logException(e);
-//                    e.printStackTrace();
-//                    SurveyMain.busted("while running updater", e);
                 } catch (Throwable e) {
                     SurveyLog.logException(e, "while running updater");
                     e.printStackTrace();
-                    outputDisabled = true; // SurveyMain.busted("while running updater", e);
+                    outputDisabled = true;
                 } finally {
-                    // SurveyLog.logger.warning("(exitting updater");
                     if (progress != null)
                         progress.close();
                     DBUtils.close(conn);
@@ -1375,8 +1244,6 @@ public class OutputFileManager {
             @Override
             public void run() {
                 SurveyMain sm = CookieSession.sm;
-                //ElapsedTimer daily = new ElapsedTimer();
-                // Date ourDate = new Date();
                 try {
                     File usersa = sm.makeDataDir("usersa");
                     sm.reg.writeUserFile(sm, "sometime", true, new File(usersa, "usersa.xml"));
@@ -1386,207 +1253,12 @@ public class OutputFileManager {
                 } catch (Throwable t) {
                     SurveyLog.logException(t, "writing user data");
                 }
-
-                addAndCommitData("vxml"); // vetted
-
-                addAndCommitData("pxml"); // proposed
-
-            }
-
-            private void addAndCommitData(String type) {
-                if (!tryCommit)
-                    return;
-                ElapsedTimer daily = new ElapsedTimer();
-                try {
-                    //boolean svnOk = true;
-                    System.err.println("Beginning daily (or once at boot) update of SVN " + type + " data: " + new Date());
-                    // quickAddAll
-                    int added = 0;
-                    File some = null;
-                    int toupdate = 0;
-                    CLDRLocale locs[] = SurveyMain.getLocales();
-                    // System.err.println("Traversing..!!");
-                    for (CLDRLocale l : locs) {
-                        try {
-                            File f = CookieSession.sm.getDataFile(type, l);
-                            if (some == null) {
-                                some = f.getParentFile().getParentFile().getParentFile();
-
-                                svnCleanup(some);
-
-                            }
-                            if (!f.exists())
-                                continue;
-                            // SVNInfo i = svnInfo(f);
-                            SVNStatus s = svnStatus(f);
-                            // System.err.println(f.getAbsolutePath() + " - " +
-                            // i.getKind() + " - " + s.getNodeStatus());
-                            if (s == null) {
-                                System.err.println("SVN: empty node status:  - " + f.getAbsolutePath());
-                            } else if (s.getNodeStatus() == SVNStatusType.STATUS_UNVERSIONED) {
-                                svnAdd(f);
-                                added++;
-                            } else if (s.getNodeStatus() != SVNStatusType.STATUS_NORMAL) {
-                                // System.err.println(f.getAbsolutePath() +
-                                // "  - " + s.getNodeStatus());
-                                toupdate++;
-                            }
-                        } catch (Throwable e) {
-                            SurveyLog.logException(e, "trying to get data file for " + l);
-                            return;
-                        }
-                    }
-                    if (added > 0) {
-                        System.err.println("Added " + added + " unversioned files.");
-                        toupdate += added;
-                    }
-                    if (toupdate > 0) {
-                        System.err.println("Detected " + toupdate + "  files out of date. Committing:");
-                        File f[] = { some };
-                        try {
-                            System.out.println("committed  " + some.getAbsolutePath() + " -> " + svnCommit(f));
-                        } catch (SVNException e) {
-                            SurveyLog.logException(e, "Trying to commit [and giving up on commits] " + some.getAbsolutePath());
-                            tryCommit = false;
-                        }
-                    } else {
-                        System.err.println("Nothing out of date.");
-                    }
-                } finally {
-                    System.err.println("Exitting Daily " + daily.toString());
-                }
             }
         });
     }
 
-    /**
-     * Client access to SVN.
-     */
-    private SVNClientManager ourClientManager = null;
-
-    private synchronized SVNClientManager getClientManager() throws SVNException {
-        if (ourClientManager == null) {
-            if (tryCommit == false) {
-                throw new SVNException(SVNErrorMessage.create(SVNErrorCode.ASSERTION_FAIL, "commits were disabled: "
-                    + tryCommitWhyNot));
-            }
-
-            ourClientManager = SVNClientManager.newInstance();
-        }
-        return ourClientManager;
-    }
-
-    public long svnCheckout(File dir, String url) throws SVNException {
-        return svnCheckout(dir, url, SVNRevision.UNDEFINED, SVNRevision.HEAD, SVNDepth.INFINITY, true);
-    }
-
-    public long svnCheckout(File dir, String url, SVNRevision r1, SVNRevision r2, SVNDepth d, boolean b) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNUpdateClient updateClient = getClientManager().getUpdateClient();
-            updateClient.setIgnoreExternals(true);
-            System.err.println("Checking out " + url + " into " + dir.getAbsolutePath());
-            long rv = updateClient.doCheckout(SVNURL.parseURIEncoded(url), dir, r1, r2, d, b);
-            System.err.println(".. Checked out  r" + rv);
-            return rv;
-        }
-    }
-
-    public void svnExport(File dir, String url) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNUpdateClient updateClient = getClientManager().getUpdateClient();
-            updateClient.setIgnoreExternals(true);
-            System.err.println("Exporting " + url + " into " + dir.getAbsolutePath());
-            long rv = updateClient.doExport(SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native",
-                false, SVNDepth.INFINITY);
-            System.err.println(".. Exported r" + rv);
-        }
-    }
-
-    public SVNCommitInfo svnCommit(File[] f) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNCommitClient commitClient = getClientManager().getCommitClient();
-            return commitClient.doCommit(f, false, "Automated update", false, true);
-        }
-    }
-
-    public long svnUpdate(File f) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNUpdateClient updateClient = getClientManager().getUpdateClient();
-            return updateClient.doUpdate(f, SVNRevision.HEAD, true);
-        }
-    }
-
-    public long[] svnUpdate(File f[], SVNRevision rev, SVNDepth depth, boolean allowUnversionedObstructions, boolean depthIsSticky)
-        throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNUpdateClient updateClient = getClientManager().getUpdateClient();
-            return updateClient.doUpdate(f, rev, depth, allowUnversionedObstructions, depthIsSticky);
-        }
-    }
-
-    private void svnRemoveAndResolved(File outFile) {
-        try {
-            synchronized (OutputFileManager.class) {
-                getClientManager().getWCClient().doResolve(outFile, true);
-            }
-        } catch (SVNException e) {
-            SurveyLog.logException(e, "While marking " + outFile.getAbsolutePath() + " resolved.");
-        } finally {
-            outFile.delete();
-        }
-    }
-
-    public void svnAdd(File f) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            getClientManager().getWCClient().doAdd(f, false, false, false, true);
-        }
-    }
-
-    public SVNStatus svnStatus(File item) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNStatusClient updateClient = getClientManager().getStatusClient();
-            return updateClient.doStatus(item, false);
-        }
-    }
-
-    public SVNInfo svnInfo(File item) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNWCClient updateClient = getClientManager().getWCClient();
-            return updateClient.doInfo(item, SVNRevision.WORKING);
-        }
-    }
-
-    public void svnCleanup(File item) throws SVNException {
-        synchronized (OutputFileManager.class) {
-            SVNWCClient updateClient = getClientManager().getWCClient();
-            updateClient.doCleanup(item);
-            System.err.println("-- cleanup " + item.getAbsolutePath());
-        }
-    }
-
-    public void svnShutdown() {
-        if (ourClientManager != null) {
-            ourClientManager.dispose();
-            ourClientManager = null;
-            Thread.yield();
-            System.err.println("Shutdown SVN client.");
-        }
-    }
-
-    public void svnAddOrWarn(File subDir) {
-        if (tryCommit) {
-            synchronized (OutputFileManager.class) {
-                try {
-                    getClientManager().getWCClient().doAdd(subDir, false, false, false, false);
-                } catch (SVNException e) {
-                    System.err.println("warning: could not add " + subDir.getAbsolutePath() + " - " + e.getMessage());
-                }
-            }
-        }
-    }
-
     // statistics helpers
-    private static Map<CLDRLocale, Pair<String, String>> localeNameCache = new ConcurrentHashMap<CLDRLocale, Pair<String, String>>();
+    private static Map<CLDRLocale, Pair<String, String>> localeNameCache = new ConcurrentHashMap<>();
 
     // for the statistics page - wrap locale ids in an <old data> span to show they were from the previous revision
     private static final String OLD_DATA_BEGIN = "<span class='olddata'>";
@@ -1595,7 +1267,7 @@ public class OutputFileManager {
     public static Pair<String, String> statGetLocaleDisplayName(CLDRLocale loc) {
         Pair<String, String> ret = localeNameCache.get(loc), toAdd = null;
         if (ret == null) {
-            toAdd = ret = new Pair<String, String>();
+            toAdd = ret = new Pair<>();
         }
         // note, may concurrently modify this object- that's OK.
         if (ret.getFirst() == null) {
@@ -1628,5 +1300,4 @@ public class OutputFileManager {
             SurveyLog.logException(t, "Updating the Locale Display Name for " + l.getBaseName() + " with language tag " + l.toLanguageTag());
         }
     }
-
 }

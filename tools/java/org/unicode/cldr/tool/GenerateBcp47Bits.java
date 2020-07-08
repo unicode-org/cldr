@@ -74,7 +74,7 @@ public class GenerateBcp47Bits {
      */
     private static void writeBits(final Collection<String> source, StringBitTransform transform, String indent,
         long[] testStatic) {
-        Set<String> codes = new TreeSet<String>(source);
+        Set<String> codes = new TreeSet<>(source);
 
         // Transform into bits
         Bits bits = new Bits(transform.getLimit());
@@ -101,7 +101,7 @@ public class GenerateBcp47Bits {
 
         // Verify that the sets are the same afterwards
         if (QUICK) System.out.println(bits);
-        Set<String> verifySet = new TreeSet<String>();
+        Set<String> verifySet = new TreeSet<>();
         for (int i = 0; i < transform.getLimit(); ++i) {
             if (!bits.get(i)) continue;
             String verify = transform.fromBit(i);
@@ -241,6 +241,7 @@ public class GenerateBcp47Bits {
             return -1;
         }
 
+        @Override
         public String toString() {
             StringBuilder result = new StringBuilder("[");
             int limit = bits.length;
@@ -272,7 +273,7 @@ public class GenerateBcp47Bits {
     static class Bcp47StringBitTransform implements StringBitTransform {
         enum Type {
             LANGUAGE, REGION
-        };
+        }
 
         Type type;
         int limit;
@@ -282,13 +283,15 @@ public class GenerateBcp47Bits {
             limit = type == Type.LANGUAGE ? 26 * 26 + 26 * 26 * 26 : 26 * 26 + 1000;
         }
 
+        @Override
         public int getLimit() {
             return limit;
         }
 
-        static final UnicodeSet alpha = (UnicodeSet) new UnicodeSet("[a-z]").freeze();
-        static final UnicodeSet num = (UnicodeSet) new UnicodeSet("[0-9]").freeze();
+        static final UnicodeSet alpha = new UnicodeSet("[a-z]").freeze();
+        static final UnicodeSet num = new UnicodeSet("[0-9]").freeze();
 
+        @Override
         public int toBit(String string) {
             string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
             switch (string.length()) {
@@ -314,6 +317,7 @@ public class GenerateBcp47Bits {
             }
         }
 
+        @Override
         public String fromBit(int bit) {
             StringBuilder result = new StringBuilder();
             if (bit < 0) {

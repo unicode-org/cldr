@@ -55,7 +55,7 @@ class ExampleCache {
          * to a valueMap.
          */
         private Map<String, Map<String, String>> pathMap = null;
-        
+
         /**
          * Finally the valueMap maps the value to the example html.
          */
@@ -96,11 +96,11 @@ class ExampleCache {
         void putExample(String result) {
             if (cachingIsEnabled) {
                 if (pathMap == null) {
-                    pathMap = new ConcurrentHashMap<String, Map<String, String>>();
+                    pathMap = new ConcurrentHashMap<>();
                     cache.put(starredPath, pathMap);
                 }
                 if (valueMap == null) {
-                    valueMap = new ConcurrentHashMap<String, String>();
+                    valueMap = new ConcurrentHashMap<>();
                     pathMap.put(xpath, valueMap);
                 }
                 valueMap.put(value, (result == null) ? NONE : result);
@@ -131,7 +131,7 @@ class ExampleCache {
     /**
      * The nested cache mapping is: starredPath → (starlessPath → (value → html)).
      */
-    private final Map<String, Map<String, Map<String, String>>> cache = new ConcurrentHashMap<String, Map<String, Map<String, String>>>();
+    private final Map<String, Map<String, Map<String, String>>> cache = new ConcurrentHashMap<>();
 
     /**
      * The PathStarrer is for getting starredPath from an ordinary (starless) path.

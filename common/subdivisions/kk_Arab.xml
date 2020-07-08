@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2019 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="kk"/>
+		<script type="Arab"/>
+	</identity>
+	<localedisplaynames>
+		<subdivisions>
+			<subdivision type="aeaj" draft="contributed">ادجمان</subdivision>
+			<subdivision type="aeaz" draft="contributed">ابۋ-دابي</subdivision>
+			<subdivision type="aedu" draft="contributed">دۋباي</subdivision>
+			<subdivision type="ag11" draft="contributed">رەدوندا</subdivision>
+			<subdivision type="amer" draft="contributed">ەريەۆان</subdivision>
+			<subdivision type="arc" draft="contributed">بۋەنوس-ايرەس</subdivision>
+			<subdivision type="at3" draft="contributed">تومەڭگى اۆستريا</subdivision>
+			<subdivision type="at9" draft="contributed">ۆەنا</subdivision>
+			<subdivision type="auqld" draft="contributed">كۆينسلەند</subdivision>
+			<subdivision type="autas" draft="contributed">تاسمان ارالى</subdivision>
+			<subdivision type="azba" draft="contributed">باكۋ</subdivision>
+			<subdivision type="azga" draft="contributed">گانجا</subdivision>
+			<subdivision type="aznx" draft="contributed">ناحشىۆان</subdivision>
+			<subdivision type="azqaz" draft="contributed">قازاق اۋدانى</subdivision>
+			<subdivision type="babih" draft="contributed">بوسنيا جانە گەرسەگوۆينا فەدەراسياسى</subdivision>
+			<subdivision type="bd36" draft="contributed">ماداريپۋر</subdivision>
+			<subdivision type="bebru" draft="contributed">برۇسسەل</subdivision>
+			<subdivision type="bevlg" draft="contributed">فلاندريا</subdivision>
+			<subdivision type="bg23" draft="contributed">سوفيا</subdivision>
+			<subdivision type="bqbo" draft="contributed">بونەير</subdivision>
+			<subdivision type="bqsa" draft="contributed">سابا</subdivision>
+			<subdivision type="bqse" draft="contributed">سينت-ەستاتيۋس</subdivision>
+			<subdivision type="bral" draft="contributed">الاگواس</subdivision>
+			<subdivision type="brap" draft="contributed">اماپا</subdivision>
+			<subdivision type="brba" draft="contributed">بايا</subdivision>
+			<subdivision type="brce" draft="contributed">سەارا</subdivision>
+			<subdivision type="brma" draft="contributed">ءمارانان</subdivision>
+			<subdivision type="brmg" draft="contributed">ميناس-جەرايس</subdivision>
+			<subdivision type="brmt" draft="contributed">ماتۋ-گروسسۋ</subdivision>
+			<subdivision type="brpb" draft="contributed">پارايبا</subdivision>
+			<subdivision type="brpe" draft="contributed">پەرنامبۋكۋ</subdivision>
+			<subdivision type="brpi" draft="contributed">پياۋي</subdivision>
+			<subdivision type="brrs" draft="contributed">ريۋ-گراندي-دۋ-سۋل</subdivision>
+			<subdivision type="brsc" draft="contributed">سانتا كاتارينا</subdivision>
+			<subdivision type="brse" draft="contributed">سەرجيپي</subdivision>
+			<subdivision type="brto" draft="contributed">توكانتينس</subdivision>
+			<subdivision type="byhm" draft="contributed">مينسك</subdivision>
+			<subdivision type="byma" draft="contributed">موگيليەۆ وبلىسى</subdivision>
+			<subdivision type="caab" draft="contributed">البەرتا</subdivision>
+			<subdivision type="camb" draft="contributed">مانيتوبا</subdivision>
+			<subdivision type="canu" draft="contributed">نۋناۆۋت</subdivision>
+			<subdivision type="caqc" draft="contributed">كۆەبەك</subdivision>
+			<subdivision type="cdkn" draft="contributed">كينشاسا</subdivision>
+			<subdivision type="cfbgf" draft="contributed">بانگي</subdivision>
+			<subdivision type="cgbzv" draft="contributed">براززاۆيل</subdivision>
+			<subdivision type="chag" draft="contributed">ارگاۋ</subdivision>
+			<subdivision type="chai" draft="contributed">اپپەنسەلل-يننەررودەن</subdivision>
+			<subdivision type="char" draft="contributed">اپپەنسەلل-اۋسسەررودەن</subdivision>
+			<subdivision type="chbe" draft="contributed">بەرن</subdivision>
+			<subdivision type="chbl" draft="contributed">بازەل-لاند</subdivision>
+			<subdivision type="chbs" draft="contributed">بازەل-شتادت</subdivision>
+			<subdivision type="chfr" draft="contributed">فريبۋر</subdivision>
+			<subdivision type="chge" draft="contributed">جەنيەۆا</subdivision>
+			<subdivision type="chgl" draft="contributed">گلارۋس</subdivision>
+			<subdivision type="chgr" draft="contributed">گراۋبۇندەن</subdivision>
+			<subdivision type="chju" draft="contributed">كانتون يۋرا</subdivision>
+			<subdivision type="chlu" draft="contributed">لۇسەرن</subdivision>
+			<subdivision type="chne" draft="contributed">نوۆشاتەل</subdivision>
+			<subdivision type="chnw" draft="contributed">نيدۆالدەن</subdivision>
+			<subdivision type="chow" draft="contributed">وبۆالدەن</subdivision>
+			<subdivision type="chsg" draft="contributed">سانكت-گاللەن</subdivision>
+			<subdivision type="chsh" draft="contributed">شاففحاۋزەن</subdivision>
+			<subdivision type="chso" draft="contributed">زولوتۋرن</subdivision>
+			<subdivision type="chsz" draft="contributed">شۆيس</subdivision>
+			<subdivision type="chtg" draft="contributed">تۋرگاۋ</subdivision>
+			<subdivision type="chti" draft="contributed">تيچينو</subdivision>
+			<subdivision type="chur" draft="contributed">ۋري</subdivision>
+			<subdivision type="chvd" draft="contributed">ۆو</subdivision>
+			<subdivision type="chvs" draft="contributed">ۆالە</subdivision>
+			<subdivision type="chzg" draft="contributed">سۋگ</subdivision>
+			<subdivision type="chzh" draft="contributed">ءسۇريح</subdivision>
+			<subdivision type="ciab" draft="contributed">ابيدجان</subdivision>
+			<subdivision type="ciym" draft="contributed">يامۋسۋكرو</subdivision>
+			<subdivision type="cizz" draft="contributed">زانزان</subdivision>
+			<subdivision type="cnah" draft="contributed">انحوي</subdivision>
+			<subdivision type="cnbj" draft="contributed">بەيجىڭ</subdivision>
+			<subdivision type="cngd" draft="contributed">گۋاندۋن</subdivision>
+			<subdivision type="cngs" draft="contributed">گانسۋ</subdivision>
+			<subdivision type="cnha" draft="contributed">حەنان</subdivision>
+			<subdivision type="cnhb" draft="contributed">حۋبەي</subdivision>
+			<subdivision type="cnhi" draft="contributed">حاينان ارالى</subdivision>
+			<subdivision type="cnhk" draft="contributed">گونكونگ</subdivision>
+			<subdivision type="cnmo" draft="contributed">اۋمىن</subdivision>
+			<subdivision type="cnnm" draft="contributed">ىشكى موڭعوليا</subdivision>
+			<subdivision type="cnnx" draft="contributed">ءنينسا</subdivision>
+			<subdivision type="cnsc" draft="contributed">سىچۋان</subdivision>
+			<subdivision type="cnsh" draft="contributed">شانحاي</subdivision>
+			<subdivision type="cntj" draft="contributed">ءتانسزين</subdivision>
+			<subdivision type="cnxj" draft="contributed">شىڭجاڭ ۇيعىر اۋتونوميالىق اۋدانى</subdivision>
+			<subdivision type="codc" draft="contributed">بوگوتا</subdivision>
+			<subdivision type="cu99" draft="contributed">حۋۆەنتۋد</subdivision>
+			<subdivision type="cz10" draft="contributed">پراگا</subdivision>
+			<subdivision type="debb" draft="contributed">براندەنبۋرگ</subdivision>
+			<subdivision type="debe" draft="contributed">بەرلين</subdivision>
+			<subdivision type="debw" draft="contributed">بادەن-ۆۇرتەمبەرگ</subdivision>
+			<subdivision type="deby" draft="contributed">باۆاريا</subdivision>
+			<subdivision type="dehb" draft="contributed">برەمەن</subdivision>
+			<subdivision type="dehe" draft="contributed">گەسسەن</subdivision>
+			<subdivision type="dehh" draft="contributed">گامبۋرگ</subdivision>
+			<subdivision type="demv" draft="contributed">مەكلەنبۋرگ-الدىڭعى پومەرانيا</subdivision>
+			<subdivision type="deni" draft="contributed">تومەنگى ساكسونيا</subdivision>
+			<subdivision type="denw" draft="contributed">سولتۇستىك رەين-ۆەستفاليا</subdivision>
+			<subdivision type="derp" draft="contributed">رەينلاند-پفالس</subdivision>
+			<subdivision type="desh" draft="contributed">شلەزۆيگ-گولشتەين</subdivision>
+			<subdivision type="desl" draft="contributed">ساار</subdivision>
+			<subdivision type="desn" draft="contributed">ساكسونيا ەركىن مەملەكەتى</subdivision>
+			<subdivision type="dest" draft="contributed">ساكسونيا-انحالت</subdivision>
+			<subdivision type="deth" draft="contributed">تۇرينگيا</subdivision>
+			<subdivision type="djdj" draft="contributed">دجيبۋتي</subdivision>
+			<subdivision type="dk81" draft="contributed">سولتۇستىك يۋتلانديا (وبلىس)</subdivision>
+			<subdivision type="dk82" draft="contributed">ورتالىق يۋتلانديا (وبلىس)</subdivision>
+			<subdivision type="dk83" draft="contributed">وڭتۇستىك دانيا</subdivision>
+			<subdivision type="dk84" draft="contributed">استانالىق وبلىس</subdivision>
+			<subdivision type="dk85" draft="contributed">زەلانديا</subdivision>
+			<subdivision type="do13" draft="contributed">لا-ۆەگا</subdivision>
+			<subdivision type="do22" draft="contributed">سان-حۋان</subdivision>
+			<subdivision type="do30" draft="contributed">اتو-مايور</subdivision>
+			<subdivision type="ech" draft="contributed">چيمبوراسو</subdivision>
+			<subdivision type="ee78" draft="contributed">تارتۋماا</subdivision>
+			<subdivision type="ee84" draft="contributed">ءۆيلانديماا</subdivision>
+			<subdivision type="esa" draft="contributed">اليكانتە</subdivision>
+			<subdivision type="esab" draft="contributed">الباسەتە</subdivision>
+			<subdivision type="esal" draft="contributed">المەريا</subdivision>
+			<subdivision type="esan" draft="contributed">اندالۋسيا</subdivision>
+			<subdivision type="esar" draft="contributed">اراگون</subdivision>
+			<subdivision type="esas" draft="contributed">استۋريا</subdivision>
+			<subdivision type="esav" draft="contributed">اۆيلا</subdivision>
+			<subdivision type="esb" draft="contributed">بارسەلونا</subdivision>
+			<subdivision type="esba" draft="contributed">باداحوس</subdivision>
+			<subdivision type="esbi" draft="contributed">بيسكاييا</subdivision>
+			<subdivision type="esbu" draft="contributed">بۋرگوس</subdivision>
+			<subdivision type="esc" draft="contributed">لا-كورۋنا</subdivision>
+			<subdivision type="esca" draft="contributed">كاديس</subdivision>
+			<subdivision type="escb" draft="contributed">كانتابريا</subdivision>
+			<subdivision type="escc" draft="contributed">كاسەرەس</subdivision>
+			<subdivision type="esce" draft="contributed">سەۋتا</subdivision>
+			<subdivision type="escl" draft="contributed">كاستيليا جانە لەون</subdivision>
+			<subdivision type="escm" draft="contributed">كاستيليا — لا-مانچا</subdivision>
+			<subdivision type="esco" draft="contributed">كوردوۆا</subdivision>
+			<subdivision type="escr" draft="contributed">سۇداد-رەال</subdivision>
+			<subdivision type="escs" draft="contributed">كاستەلون</subdivision>
+			<subdivision type="esct" draft="contributed">كاتالونيا</subdivision>
+			<subdivision type="escu" draft="contributed">كۋەنكا</subdivision>
+			<subdivision type="esex" draft="contributed">ەسترەمادۋرا</subdivision>
+			<subdivision type="esga" draft="contributed">گاليسيا</subdivision>
+			<subdivision type="esgc" draft="contributed">لاس-پالماس</subdivision>
+			<subdivision type="esgi" draft="contributed">حەرونا</subdivision>
+			<subdivision type="esgr" draft="contributed">گرانادا</subdivision>
+			<subdivision type="esgu" draft="contributed">گۆادالاحارا</subdivision>
+			<subdivision type="esh" draft="contributed">ۋەلۆا</subdivision>
+			<subdivision type="eshu" draft="contributed">ۋەسكا</subdivision>
+			<subdivision type="esib" draft="contributed">بالەار ارالدارى</subdivision>
+			<subdivision type="esj" draft="contributed">حاەن</subdivision>
+			<subdivision type="esl" draft="contributed">لەريدا</subdivision>
+			<subdivision type="esle" draft="contributed">لەون</subdivision>
+			<subdivision type="eslo" draft="contributed">ريوحا</subdivision>
+			<subdivision type="eslu" draft="contributed">لۋگو</subdivision>
+			<subdivision type="esma" draft="contributed">مالاگا</subdivision>
+			<subdivision type="esmc" draft="contributed">مۋرسيا</subdivision>
+			<subdivision type="esmd" draft="contributed">مادريد</subdivision>
+			<subdivision type="esml" draft="contributed">مەليلا</subdivision>
+			<subdivision type="esna" draft="contributed">ناۆاررا</subdivision>
+			<subdivision type="esnc" draft="contributed">ناۆاررا²</subdivision>
+			<subdivision type="esor" draft="contributed">ورەنسە</subdivision>
+			<subdivision type="esp" draft="contributed">پالەنسيا</subdivision>
+			<subdivision type="espm" draft="contributed">بالەار ارالدارى²</subdivision>
+			<subdivision type="espo" draft="contributed">پونتيەۆەدرا</subdivision>
+			<subdivision type="espv" draft="contributed">باسكتار ەلى</subdivision>
+			<subdivision type="esri" draft="contributed">ريوحا²</subdivision>
+			<subdivision type="ess" draft="contributed">كانتابريا²</subdivision>
+			<subdivision type="essa" draft="contributed">سالامانكا</subdivision>
+			<subdivision type="esse" draft="contributed">سيەۆيلا</subdivision>
+			<subdivision type="essg" draft="contributed">سەگوۆيا</subdivision>
+			<subdivision type="esso" draft="contributed">سوريا</subdivision>
+			<subdivision type="esss" draft="contributed">گيپۋسكوا</subdivision>
+			<subdivision type="est" draft="contributed">تارراگونا</subdivision>
+			<subdivision type="este" draft="contributed">تەرۋەل</subdivision>
+			<subdivision type="estf" draft="contributed">سانتا-كرۋس-دە-تەنەريفە</subdivision>
+			<subdivision type="esto" draft="contributed">تولەدو</subdivision>
+			<subdivision type="esva" draft="contributed">ءۆالادوليد</subdivision>
+			<subdivision type="esvc" draft="contributed">ۆالەنسيا</subdivision>
+			<subdivision type="esvi" draft="contributed">الاۆا</subdivision>
+			<subdivision type="esz" draft="contributed">ساراگوسا</subdivision>
+			<subdivision type="esza" draft="contributed">سامورا</subdivision>
+			<subdivision type="etaa" draft="contributed">ادديس-ابەبا</subdivision>
+			<subdivision type="fr01" draft="contributed">ەن</subdivision>
+			<subdivision type="fr02" draft="contributed">ەنا</subdivision>
+			<subdivision type="fr2a" draft="contributed">وڭتۇستىك كورسيكا</subdivision>
+			<subdivision type="fr2b" draft="contributed">جوعارعى كورسيكا</subdivision>
+			<subdivision type="fr03" draft="contributed">الە</subdivision>
+			<subdivision type="fr04" draft="contributed">جوعارعى پروۆانس الپىلەرى</subdivision>
+			<subdivision type="fr05" draft="contributed">جوعارعى الپىلەر</subdivision>
+			<subdivision type="fr06" draft="contributed">ءالپى-ماريتيم</subdivision>
+			<subdivision type="fr07" draft="contributed">اردەش</subdivision>
+			<subdivision type="fr08" draft="contributed">اردەننە</subdivision>
+			<subdivision type="fr09" draft="contributed">ارەج</subdivision>
+			<subdivision type="fr10" draft="contributed">وب</subdivision>
+			<subdivision type="fr11" draft="contributed">ود</subdivision>
+			<subdivision type="fr12" draft="contributed">اۆەرون</subdivision>
+			<subdivision type="fr13" draft="contributed">ءبۋش-دۇ-رون</subdivision>
+			<subdivision type="fr14" draft="contributed">كالۆادوس</subdivision>
+			<subdivision type="fr15" draft="contributed">كانتال</subdivision>
+			<subdivision type="fr16" draft="contributed">شارانتا</subdivision>
+			<subdivision type="fr17" draft="contributed">شارانتا-ماريتيم</subdivision>
+			<subdivision type="fr18" draft="contributed">شەر</subdivision>
+			<subdivision type="fr19" draft="contributed">كوررەز</subdivision>
+			<subdivision type="fr21" draft="contributed">كوت-د’ور</subdivision>
+			<subdivision type="fr22" draft="contributed">كوت-د’ارمور</subdivision>
+			<subdivision type="fr23" draft="contributed">كروز</subdivision>
+			<subdivision type="fr24" draft="contributed">دوردون</subdivision>
+			<subdivision type="fr25" draft="contributed">دۋ</subdivision>
+			<subdivision type="fr26" draft="contributed">دروم</subdivision>
+			<subdivision type="fr27" draft="contributed">ەر</subdivision>
+			<subdivision type="fr28" draft="contributed">ەر جانە لۋار</subdivision>
+			<subdivision type="fr29" draft="contributed">فينيستەر</subdivision>
+			<subdivision type="fr30" draft="contributed">گار</subdivision>
+			<subdivision type="fr31" draft="contributed">جوعارعى گاروننا</subdivision>
+			<subdivision type="fr32" draft="contributed">جەر</subdivision>
+			<subdivision type="fr33" draft="contributed">جيروندا</subdivision>
+			<subdivision type="fr34" draft="contributed">ەرو</subdivision>
+			<subdivision type="fr35" draft="contributed">يل جانە ۆيلەن</subdivision>
+			<subdivision type="fr36" draft="contributed">ەندر</subdivision>
+			<subdivision type="fr37" draft="contributed">ەندر جانە لۋارا</subdivision>
+			<subdivision type="fr38" draft="contributed">يزەر</subdivision>
+			<subdivision type="fr39" draft="contributed">يۋرا</subdivision>
+			<subdivision type="fr40" draft="contributed">لاندتەر</subdivision>
+			<subdivision type="fr41" draft="contributed">لۋار جانە شەر</subdivision>
+			<subdivision type="fr42" draft="contributed">لۋارا</subdivision>
+			<subdivision type="fr43" draft="contributed">جوعارعى لۋارا</subdivision>
+			<subdivision type="fr44" draft="contributed">اتلانتيكالىق لۋارا</subdivision>
+			<subdivision type="fr45" draft="contributed">لۋارە</subdivision>
+			<subdivision type="fr46" draft="contributed">لو</subdivision>
+			<subdivision type="fr47" draft="contributed">لو جانە گاروننا</subdivision>
+			<subdivision type="fr48" draft="contributed">لوزەر</subdivision>
+			<subdivision type="fr49" draft="contributed">مەن جانە لۋارا</subdivision>
+			<subdivision type="fr50" draft="contributed">مانش</subdivision>
+			<subdivision type="fr51" draft="contributed">مارنا</subdivision>
+			<subdivision type="fr52" draft="contributed">جوعارعى مارنا</subdivision>
+			<subdivision type="fr53" draft="contributed">مايەن</subdivision>
+			<subdivision type="fr54" draft="contributed">ءمورت جانە موزەل</subdivision>
+			<subdivision type="fr55" draft="contributed">مەز</subdivision>
+			<subdivision type="fr56" draft="contributed">موربيان</subdivision>
+			<subdivision type="fr57" draft="contributed">موزەل</subdivision>
+			<subdivision type="fr58" draft="contributed">نيەۆر</subdivision>
+			<subdivision type="fr59" draft="contributed">نور</subdivision>
+			<subdivision type="fr60" draft="contributed">ۋازا</subdivision>
+			<subdivision type="fr61" draft="contributed">ورن</subdivision>
+			<subdivision type="fr62" draft="contributed">پا-دە-كالە</subdivision>
+			<subdivision type="fr63" draft="contributed">پۇي-دە-دوم</subdivision>
+			<subdivision type="fr64" draft="contributed">اتلانتيكالىق پيرەنەي</subdivision>
+			<subdivision type="fr65" draft="contributed">جوعارعى پيرەنەي</subdivision>
+			<subdivision type="fr66" draft="contributed">شىعىس پيرەنەي</subdivision>
+			<subdivision type="fr67" draft="contributed">تومەنگى رەين</subdivision>
+			<subdivision type="fr68" draft="contributed">جوعارعى رەين</subdivision>
+			<subdivision type="fr69" draft="contributed">رونا</subdivision>
+			<subdivision type="fr70" draft="contributed">جوعارعى سونا</subdivision>
+			<subdivision type="fr71" draft="contributed">سونا جانە لۋارا</subdivision>
+			<subdivision type="fr72" draft="contributed">سارتا</subdivision>
+			<subdivision type="fr73" draft="contributed">ساۆوييا</subdivision>
+			<subdivision type="fr74" draft="contributed">جوعارعى ساۆوييا</subdivision>
+			<subdivision type="fr75" draft="contributed">پاريج</subdivision>
+			<subdivision type="fr76" draft="contributed">سەن-ماريتيم</subdivision>
+			<subdivision type="fr77" draft="contributed">سەنا جانە مارنا</subdivision>
+			<subdivision type="fr78" draft="contributed">يۆەلين</subdivision>
+			<subdivision type="fr79" draft="contributed">دە-سيەۆر</subdivision>
+			<subdivision type="fr80" draft="contributed">سومما</subdivision>
+			<subdivision type="fr81" draft="contributed">تارن</subdivision>
+			<subdivision type="fr82" draft="contributed">تارن جانە گاروننا</subdivision>
+			<subdivision type="fr83" draft="contributed">ۆار</subdivision>
+			<subdivision type="fr84" draft="contributed">ۆوكلۇز</subdivision>
+			<subdivision type="fr85" draft="contributed">ۆاندەيا</subdivision>
+			<subdivision type="fr86" draft="contributed">ۆەننا</subdivision>
+			<subdivision type="fr87" draft="contributed">جوعارعى ۆەننا</subdivision>
+			<subdivision type="fr88" draft="contributed">ۆوگەز</subdivision>
+			<subdivision type="fr89" draft="contributed">يوننا</subdivision>
+			<subdivision type="fr90" draft="contributed">تەريتوريا-دە-بەلفور</subdivision>
+			<subdivision type="fr91" draft="contributed">ەسون</subdivision>
+			<subdivision type="fr92" draft="contributed">و-دە-سەن</subdivision>
+			<subdivision type="fr93" draft="contributed">سەنا-سەن-دەني</subdivision>
+			<subdivision type="fr94" draft="contributed">ۆال-دە-مارن</subdivision>
+			<subdivision type="fr95" draft="contributed">ۆال-د’ۋاز</subdivision>
+			<subdivision type="frcor" draft="contributed">كورسيكا ارالى</subdivision>
+			<subdivision type="gbabe" draft="contributed">ابەردين</subdivision>
+			<subdivision type="gbagb" draft="contributed">ارگايل-ەند-بۇت</subdivision>
+			<subdivision type="gbbst" draft="contributed">بريستول</subdivision>
+			<subdivision type="gbcrf" draft="contributed">كارديفف</subdivision>
+			<subdivision type="gbdnd" draft="contributed">داندي</subdivision>
+			<subdivision type="gbeay" draft="contributed">يست-ەرشير</subdivision>
+			<subdivision type="gbedh" draft="contributed">ەدينبۋرگ</subdivision>
+			<subdivision type="gbeln" draft="contributed">يست-لوتيان</subdivision>
+			<subdivision type="gbfif" draft="contributed">فايف</subdivision>
+			<subdivision type="gbgbn" draft="contributed">ۇلىبريتانيا (ارال)</subdivision>
+			<subdivision type="gbglg" draft="contributed">گلازگو</subdivision>
+			<subdivision type="gblnd" draft="contributed">سيتي</subdivision>
+			<subdivision type="gbmdb" draft="contributed">ميدلسبرو</subdivision>
+			<subdivision type="gbmry" draft="contributed">موري</subdivision>
+			<subdivision type="gbnay" draft="contributed">نورت-ەرشير</subdivision>
+			<subdivision type="gbnir" draft="contributed">سولتۇستىك يرلانديا</subdivision>
+			<subdivision type="gboxf" draft="contributed">وكسفورد</subdivision>
+			<subdivision type="gbpkn" draft="contributed">پەرت-ەند-كينروسس</subdivision>
+			<subdivision type="gbpor" draft="contributed">پورتسمۋنت</subdivision>
+			<subdivision type="gbsay" draft="contributed">ساۋت-ەرشير</subdivision>
+			<subdivision type="gbsry" draft="contributed">سۋررەي</subdivision>
+			<subdivision type="gbsth" draft="contributed">ساۋتگەمپتون</subdivision>
+			<subdivision type="gbukm" draft="contributed">ۇلىبريتانيا</subdivision>
+			<subdivision type="gbzet" draft="contributed">شەتلاند ارالدارى</subdivision>
+			<subdivision type="geab" draft="contributed">ابحازيا اۆتونوميالىق رەسپۋبليكاسى</subdivision>
+			<subdivision type="geim" draft="contributed">يمەرەتيا پاتشالىعى</subdivision>
+			<subdivision type="getb" draft="contributed">تبيليسي</subdivision>
+			<subdivision type="gmb" draft="contributed">بانجۋل</subdivision>
+			<subdivision type="gr69" draft="contributed">افون تاۋى</subdivision>
+			<subdivision type="gwbs" draft="contributed">بيساۋ</subdivision>
+			<subdivision type="hr21" draft="contributed">زاگرەب</subdivision>
+			<subdivision type="hubu" draft="contributed">بۋداپەشت</subdivision>
+			<subdivision type="hude" draft="contributed">دەبرەسەن</subdivision>
+			<subdivision type="hugy" draft="contributed">دەر</subdivision>
+			<subdivision type="hukm" draft="contributed">كەچكەمەت</subdivision>
+			<subdivision type="hukv" draft="contributed">كاپوشۆار</subdivision>
+			<subdivision type="humi" draft="contributed">ميشكولس</subdivision>
+			<subdivision type="husf" draft="contributed">سەكەشفەحەرۆار</subdivision>
+			<subdivision type="husn" draft="contributed">شوپرون</subdivision>
+			<subdivision type="idjk" draft="contributed">دجاكارتا</subdivision>
+			<subdivision type="idjw" draft="contributed">ياۆا</subdivision>
+			<subdivision type="idml" draft="contributed">مولۋككا ارالدارى</subdivision>
+			<subdivision type="idpp" draft="contributed">باتىس يريان</subdivision>
+			<subdivision type="idsl" draft="contributed">سۋلاۆەسي</subdivision>
+			<subdivision type="idsm" draft="contributed">سۋماترا</subdivision>
+			<subdivision type="ieke" draft="contributed">كيلدەير</subdivision>
+			<subdivision type="iekk" draft="contributed">كيلكەنني</subdivision>
+			<subdivision type="iem" draft="contributed">مۋنستەر</subdivision>
+			<subdivision type="iemh" draft="contributed">ميت (گرافتىق)</subdivision>
+			<subdivision type="ieoy" draft="contributed">وففالي (گرافتىق)</subdivision>
+			<subdivision type="ild" draft="contributed">ءيزرايلدىڭ وڭتۇستىك وكرۋگى</subdivision>
+			<subdivision type="ilha" draft="contributed">حايفا وكرۋگى</subdivision>
+			<subdivision type="iljm" draft="contributed">يەرۋساليم وكرۋگى</subdivision>
+			<subdivision type="ilm" draft="contributed">ءيزرايلدىڭ ورتالىق وكرۋگى</subdivision>
+			<subdivision type="ilta" draft="contributed">تەل-اۆيۆ وكرۋگى</subdivision>
+			<subdivision type="ilz" draft="contributed">ءيزرايلدىڭ سولتۇستىك وكرۋگى</subdivision>
+			<subdivision type="inap" draft="contributed">اندحرا-پرادەش</subdivision>
+			<subdivision type="inas" draft="contributed">اسسام</subdivision>
+			<subdivision type="indl" draft="contributed">دەلي</subdivision>
+			<subdivision type="inga" draft="contributed">گوا</subdivision>
+			<subdivision type="inmh" draft="contributed">ماحاراشترا</subdivision>
+			<subdivision type="inmp" draft="contributed">مادحا-پرادەش</subdivision>
+			<subdivision type="inrj" draft="contributed">رادجاستحان</subdivision>
+			<subdivision type="intn" draft="contributed">تاميلناد</subdivision>
+			<subdivision type="intr" draft="contributed">تريپۋرا</subdivision>
+			<subdivision type="inwb" draft="contributed">باتىس بەنگال</subdivision>
+			<subdivision type="iqda" draft="contributed">داحۋك</subdivision>
+			<subdivision type="ir02" draft="contributed">باتىس ءازىربايجان</subdivision>
+			<subdivision type="ir03" draft="contributed">اردەبيل</subdivision>
+			<subdivision type="ir04" draft="contributed">يسفاحان وبلىسى</subdivision>
+			<subdivision type="ir06" draft="contributed">بۋشەحر</subdivision>
+			<subdivision type="ir14" draft="contributed">فارس وبلىسى</subdivision>
+			<subdivision type="it21" draft="contributed">پەمونت</subdivision>
+			<subdivision type="it23" draft="contributed">ۆاللە-د’اوستا</subdivision>
+			<subdivision type="it25" draft="contributed">لومبارديا</subdivision>
+			<subdivision type="it32" draft="contributed">ترەنتينو — التو-اديدجە</subdivision>
+			<subdivision type="it34" draft="contributed">ۆەنەتو</subdivision>
+			<subdivision type="it36" draft="contributed">فريۋلي-ۆەنەسيا-دجۋليا</subdivision>
+			<subdivision type="it42" draft="contributed">ليگۋريا</subdivision>
+			<subdivision type="it45" draft="contributed">ەميليا-رومانا</subdivision>
+			<subdivision type="it52" draft="contributed">توسكانا</subdivision>
+			<subdivision type="it55" draft="contributed">ۋمبريا</subdivision>
+			<subdivision type="it62" draft="contributed">لاسيو</subdivision>
+			<subdivision type="it65" draft="contributed">ابرۋسسو</subdivision>
+			<subdivision type="it67" draft="contributed">موليزە</subdivision>
+			<subdivision type="it72" draft="contributed">كامپانيا</subdivision>
+			<subdivision type="it75" draft="contributed">اپۋليا</subdivision>
+			<subdivision type="it77" draft="contributed">بازيليكاتا</subdivision>
+			<subdivision type="it78" draft="contributed">كالابريا</subdivision>
+			<subdivision type="it82" draft="contributed">سيسيليا</subdivision>
+			<subdivision type="it88" draft="contributed">ساردينيا</subdivision>
+			<subdivision type="itbs" draft="contributed">برەشيا</subdivision>
+			<subdivision type="itmt" draft="contributed">ماتەرا</subdivision>
+			<subdivision type="ittp" draft="contributed">تراپاني (پروۆينسيا)</subdivision>
+			<subdivision type="jp13" draft="contributed">توكيو</subdivision>
+			<subdivision type="kgb" draft="contributed">باتكەن وبلىسى</subdivision>
+			<subdivision type="kgc" draft="contributed">شۋ وبلىسى</subdivision>
+			<subdivision type="kggb" draft="contributed">بىشكەك</subdivision>
+			<subdivision type="kggo" draft="contributed">وش</subdivision>
+			<subdivision type="kgj" draft="contributed">جالالابات وبلىسى</subdivision>
+			<subdivision type="kgn" draft="contributed">نارىن وبلىسى</subdivision>
+			<subdivision type="kgo" draft="contributed">وش وبلىسى</subdivision>
+			<subdivision type="kgt" draft="contributed">تالاس وبلىسى</subdivision>
+			<subdivision type="kgy" draft="contributed">ىستىقكول وبلىسى</subdivision>
+			<subdivision type="kh12" draft="contributed">پنومپەن</subdivision>
+			<subdivision type="kig" draft="contributed">گيلبەرت ارالدارى</subdivision>
+			<subdivision type="kp01" draft="contributed">پحەنان</subdivision>
+			<subdivision type="kr11" draft="contributed">سەۋل</subdivision>
+			<subdivision type="kr26" draft="contributed">پۋسان</subdivision>
+			<subdivision type="kr27" draft="contributed">تەگۋ</subdivision>
+			<subdivision type="kr28" draft="contributed">ينچحون</subdivision>
+			<subdivision type="kr29" draft="contributed">كۆاندجۋ</subdivision>
+			<subdivision type="kr30" draft="contributed">تەدجون</subdivision>
+			<subdivision type="kr31" draft="contributed">ۋلسان</subdivision>
+			<subdivision type="kr41" draft="contributed">كوڭگيدو</subdivision>
+			<subdivision type="kr42" draft="contributed">كانۆوندو</subdivision>
+			<subdivision type="kr44" draft="contributed">چحۋڭچحوڭ-نامدو</subdivision>
+			<subdivision type="kr45" draft="contributed">چوللا-پۋكتو</subdivision>
+			<subdivision type="kr46" draft="contributed">چوللا-نامدو</subdivision>
+			<subdivision type="kr47" draft="contributed">كوڭساڭ-پۋكتو</subdivision>
+			<subdivision type="kr48" draft="contributed">كونسان-نامدو</subdivision>
+			<subdivision type="kr49" draft="contributed">چەدجۋدو</subdivision>
+			<subdivision type="kr50" draft="contributed">سەچجون</subdivision>
+			<subdivision type="kzakm" draft="contributed">اقمولا وبلىسى</subdivision>
+			<subdivision type="kzakt" draft="contributed">اقتوبە وبلىسى</subdivision>
+			<subdivision type="kzala" draft="contributed">الماتى</subdivision>
+			<subdivision type="kzalm" draft="contributed">الماتى وبلىسى</subdivision>
+			<subdivision type="kzast" draft="contributed">استانا قالاسى</subdivision>
+			<subdivision type="kzaty" draft="contributed">اتىراۋ وبلىسى</subdivision>
+			<subdivision type="kzbay" draft="contributed">بايقوڭىر</subdivision>
+			<subdivision type="kzkar" draft="contributed">قاراعاندى وبلىسى</subdivision>
+			<subdivision type="kzkus" draft="contributed">قوستاناي وبلىسى</subdivision>
+			<subdivision type="kzkzy" draft="contributed">قىزىلوردا وبلىسى</subdivision>
+			<subdivision type="kzman" draft="contributed">ماڭعىستاۋ وبلىسى</subdivision>
+			<subdivision type="kzpav" draft="contributed">پاۆلودار وبلىسى</subdivision>
+			<subdivision type="kzsev" draft="contributed">سولتۇستىك قازاقستان وبلىسى</subdivision>
+			<subdivision type="kzvos" draft="contributed">شىعىس قازاقستان وبلىسى</subdivision>
+			<subdivision type="kzyuz" draft="contributed">تۇركىستان وبلىسى</subdivision>
+			<subdivision type="kzzap" draft="contributed">باتىس قازاقستان وبلىسى</subdivision>
+			<subdivision type="kzzha" draft="contributed">جامبىل وبلىسى</subdivision>
+			<subdivision type="li11" draft="contributed">ۆادۋس</subdivision>
+			<subdivision type="lvdgv" draft="contributed">داۋگاۆپيلس</subdivision>
+			<subdivision type="lvjel" draft="contributed">ەلگاۆا</subdivision>
+			<subdivision type="lvjkb" draft="contributed">ەكابپيلس</subdivision>
+			<subdivision type="lvjur" draft="contributed">يۋرمالا</subdivision>
+			<subdivision type="lvlpx" draft="contributed">ليەپايا</subdivision>
+			<subdivision type="lvrez" draft="contributed">رەزەكنە</subdivision>
+			<subdivision type="lvrix" draft="contributed">ريگا</subdivision>
+			<subdivision type="lvven" draft="contributed">ۆەنتسپيلس</subdivision>
+			<subdivision type="lvvmr" draft="contributed">ۆالميەرا</subdivision>
+			<subdivision type="lyba" draft="contributed">بەنگازي</subdivision>
+			<subdivision type="ma02" draft="contributed">گارب-شراردا-بەني-حسەن</subdivision>
+			<subdivision type="ma03" draft="contributed">تازا-ال-حوسەيما-تاۋنات</subdivision>
+			<subdivision type="ma07" draft="contributed">رابات-سالە-زاممۋر-زاەر</subdivision>
+			<subdivision type="ma09" draft="contributed">شاۆيا-ۋارديگا</subdivision>
+			<subdivision type="ma10" draft="contributed">دۋككالا-ابدا</subdivision>
+			<subdivision type="ma12" draft="contributed">تادلا-ازيلال</subdivision>
+			<subdivision type="maagd" draft="contributed">اگادير قالاسى</subdivision>
+			<subdivision type="macas" draft="contributed">كاسابلانكا</subdivision>
+			<subdivision type="mafes" draft="contributed">فەس (فەز) قالاسى</subdivision>
+			<subdivision type="mamek" draft="contributed">مەكنەس قالاسى</subdivision>
+			<subdivision type="maouj" draft="contributed">ۋدجدا قالاسى</subdivision>
+			<subdivision type="masal" draft="contributed">سالە</subdivision>
+			<subdivision type="matng" draft="contributed">تانجەر قالاسى</subdivision>
+			<subdivision type="mcmc" draft="contributed">مونتە-كارلو</subdivision>
+			<subdivision type="mcmo" draft="contributed">موناكو</subdivision>
+			<subdivision type="mdcu" draft="contributed">كيشينيەۆ</subdivision>
+			<subdivision type="mdga" draft="contributed">گاگاۋزيا</subdivision>
+			<subdivision type="mk85" draft="contributed">سكوپە</subdivision>
+			<subdivision type="mlbko" draft="contributed">باماكو</subdivision>
+			<subdivision type="mn1" draft="contributed">ۇلانباتىر</subdivision>
+			<subdivision type="mn041" draft="contributed">حوۆسگول ايماعى</subdivision>
+			<subdivision type="mn043" draft="contributed">حوۆدا ايماعى</subdivision>
+			<subdivision type="mn046" draft="contributed">ۋۆس ايماعى</subdivision>
+			<subdivision type="mn057" draft="contributed">زاۆحان ايماعى</subdivision>
+			<subdivision type="mn061" draft="contributed">دورنود</subdivision>
+			<subdivision type="mn065" draft="contributed">گوۆ التاي ايماعى</subdivision>
+			<subdivision type="mn071" draft="contributed">بايان-ولگەي ايماعى</subdivision>
+			<subdivision type="mt60" draft="contributed">ۆاللەتتا</subdivision>
+			<subdivision type="mupu" draft="contributed">پورت-لۋي</subdivision>
+			<subdivision type="mvmle" draft="contributed">مالە</subdivision>
+			<subdivision type="mxbcn" draft="contributed">تومەنگى كاليفورنيا</subdivision>
+			<subdivision type="mxbcs" draft="contributed">تومەنگى وڭتۇستىك كاليفورنيا</subdivision>
+			<subdivision type="mxcmx" draft="contributed">مەحيكو</subdivision>
+			<subdivision type="my12" draft="contributed">ساباح</subdivision>
+			<subdivision type="my14" draft="contributed">كۋالا لۋمپۋر</subdivision>
+			<subdivision type="ne8" draft="contributed">نيامەي</subdivision>
+			<subdivision type="ngta" draft="contributed">تارابا</subdivision>
+			<subdivision type="nlbq1" draft="contributed">بونەير</subdivision>
+			<subdivision type="nlbq2" draft="contributed">سابا</subdivision>
+			<subdivision type="nlbq3" draft="contributed">سينت-ەستاتيۋس</subdivision>
+			<subdivision type="no03" draft="contributed">وسلو</subdivision>
+			<subdivision type="no21" draft="contributed">سۋالبارد</subdivision>
+			<subdivision type="no22" draft="contributed">يان-مايەن</subdivision>
+			<subdivision type="npdh" draft="contributed">دحاۋلاگيري</subdivision>
+			<subdivision type="nr01" draft="contributed">ايۆو</subdivision>
+			<subdivision type="nr07" draft="contributed">بۋادا</subdivision>
+			<subdivision type="nr08" draft="contributed">دەنيگومودۋ</subdivision>
+			<subdivision type="nr11" draft="contributed">مەنەنگ</subdivision>
+			<subdivision type="nr12" draft="contributed">نيبوك</subdivision>
+			<subdivision type="nr14" draft="contributed">يارەن</subdivision>
+			<subdivision type="pgncd" draft="contributed">پورت-مورسبي</subdivision>
+			<subdivision type="pt20" draft="contributed">ازور ارالدارى</subdivision>
+			<subdivision type="pw212" draft="contributed">مەلەكەوك</subdivision>
+			<subdivision type="pyasu" draft="contributed">اسۋنسون</subdivision>
+			<subdivision type="qada" draft="contributed">دوحا</subdivision>
+			<subdivision type="rob" draft="contributed">بۋحارەست</subdivision>
+			<subdivision type="rs00" draft="contributed">بەلگراد</subdivision>
+			<subdivision type="ruad" draft="contributed">ادىگەيا</subdivision>
+			<subdivision type="rual" draft="contributed">التاي رەسپۋبليكاسى</subdivision>
+			<subdivision type="ruark" draft="contributed">ارحانگەلسك وبلىسى</subdivision>
+			<subdivision type="ruast" draft="contributed">استراحان وبلىسى</subdivision>
+			<subdivision type="ruba" draft="contributed">باشقۇرتستان</subdivision>
+			<subdivision type="rubu" draft="contributed">ءبۋراتيا</subdivision>
+			<subdivision type="ruche" draft="contributed">چەلابى وبلىسى</subdivision>
+			<subdivision type="ruda" draft="contributed">داعىستان</subdivision>
+			<subdivision type="ruin" draft="contributed">ينگۋشەتيا</subdivision>
+			<subdivision type="rukb" draft="contributed">قاباردا-بالقاريا</subdivision>
+			<subdivision type="rukc" draft="contributed">قاراشاي-چەركەسيا</subdivision>
+			<subdivision type="rukgn" draft="contributed">قورعان وبلىسى</subdivision>
+			<subdivision type="rukk" draft="contributed">حاقاس رەسپۋبليكاسى</subdivision>
+			<subdivision type="rukl" draft="contributed">قالماقستان</subdivision>
+			<subdivision type="ruko" draft="contributed">كومي رەسپۋبليكاسى</subdivision>
+			<subdivision type="rukr" draft="contributed">كارەليا رەسپۋبليكاسى</subdivision>
+			<subdivision type="rulip" draft="contributed">ليپەسك وبلىسى</subdivision>
+			<subdivision type="rume" draft="contributed">ماريي ەل</subdivision>
+			<subdivision type="rumo" draft="contributed">موردوۆيا</subdivision>
+			<subdivision type="rumow" draft="contributed">ماسكەۋ</subdivision>
+			<subdivision type="runvs" draft="contributed">ءنوۆوسىبىر وبلىسى</subdivision>
+			<subdivision type="ruoms" draft="contributed">ومبى وبلىسى</subdivision>
+			<subdivision type="ruore" draft="contributed">ورىنبور وبلىسى</subdivision>
+			<subdivision type="rusa" draft="contributed">ساحا رەسپۋبليكاسى</subdivision>
+			<subdivision type="ruspe" draft="contributed">سانكت-پەتەربۋرگ</subdivision>
+			<subdivision type="rusve" draft="contributed">سۆەردلوۆ وبلىسى</subdivision>
+			<subdivision type="ruta" draft="contributed">تاتارستان</subdivision>
+			<subdivision type="ruty" draft="contributed">تىۋا</subdivision>
+			<subdivision type="rutyu" draft="contributed">تۇمەن وبلىسى</subdivision>
+			<subdivision type="ruvgg" draft="contributed">ۆولگوگراد وبلىسى</subdivision>
+			<subdivision type="ruyev" draft="contributed">يەۆرەي اۆتونوميالى وبلىسى</subdivision>
+			<subdivision type="sdgd" draft="contributed">گەدارەف قالاسى</subdivision>
+			<subdivision type="shac" draft="contributed">اسكەنجىن ارالى</subdivision>
+			<subdivision type="shhl" draft="contributed">سەنت-حەلەنا</subdivision>
+			<subdivision type="si104" draft="contributed">ريبنيسا</subdivision>
+			<subdivision type="sm03" draft="contributed">ءدومانانو</subdivision>
+			<subdivision type="sm04" draft="contributed">فاەتانو</subdivision>
+			<subdivision type="sm06" draft="contributed">بورگو-مادجورە</subdivision>
+			<subdivision type="sm07" draft="contributed">سان-مارينو</subdivision>
+			<subdivision type="tdnd" draft="contributed">ندجامەنا</subdivision>
+			<subdivision type="th10" draft="contributed">بانگكوك</subdivision>
+			<subdivision type="th83" draft="contributed">پحۋكەت</subdivision>
+			<subdivision type="ths" draft="contributed">پاتتاييا</subdivision>
+			<subdivision type="tjdu" draft="contributed">دۋشانبە</subdivision>
+			<subdivision type="tmm" draft="contributed">مارى ءۋالاياتى</subdivision>
+			<subdivision type="tms" draft="contributed">اشعاباد</subdivision>
+			<subdivision type="tr01" draft="contributed">ادانا</subdivision>
+			<subdivision type="tr02" draft="contributed">ادىيامان</subdivision>
+			<subdivision type="tr03" draft="contributed">افونكاراحيسار</subdivision>
+			<subdivision type="tr04" draft="contributed">اعرى</subdivision>
+			<subdivision type="tr05" draft="contributed">ءاماسا</subdivision>
+			<subdivision type="tr07" draft="contributed">ءانتالا</subdivision>
+			<subdivision type="tr08" draft="contributed">ارتۆين</subdivision>
+			<subdivision type="tr10" draft="contributed">بالىكەسير</subdivision>
+			<subdivision type="tr11" draft="contributed">بيلەجيك</subdivision>
+			<subdivision type="tr12" draft="contributed">بينگول</subdivision>
+			<subdivision type="tr13" draft="contributed">بيتليس</subdivision>
+			<subdivision type="tr14" draft="contributed">بولۋ</subdivision>
+			<subdivision type="tr15" draft="contributed">بۋردۋر</subdivision>
+			<subdivision type="tr17" draft="contributed">چاناككالە</subdivision>
+			<subdivision type="tr18" draft="contributed">چانكىرى</subdivision>
+			<subdivision type="tr19" draft="contributed">چورۋم</subdivision>
+			<subdivision type="tr20" draft="contributed">دەنيزلي</subdivision>
+			<subdivision type="tr49" draft="contributed">مۋش</subdivision>
+			<subdivision type="tr66" draft="contributed">يوزگات</subdivision>
+			<subdivision type="tr69" draft="contributed">بايبۋرت</subdivision>
+			<subdivision type="tr72" draft="contributed">باتمان</subdivision>
+			<subdivision type="tr74" draft="contributed">بارتىن</subdivision>
+			<subdivision type="tr75" draft="contributed">ارداحان</subdivision>
+			<subdivision type="ttpos" draft="contributed">پورت-وف-سپەين</subdivision>
+			<subdivision type="twhsz" draft="contributed">سينچجۋ</subdivision>
+			<subdivision type="twtpe" draft="contributed">تايبەي</subdivision>
+			<subdivision type="ua30" draft="contributed">كييەۆ</subdivision>
+			<subdivision type="ua43" draft="contributed">قىرىم اۆتونوميالىق رەسپۋبليكاسى</subdivision>
+			<subdivision type="ua53" draft="contributed">پولتاۆا وبلىسى</subdivision>
+			<subdivision type="ua56" draft="contributed">روۆنو وبلىسى</subdivision>
+			<subdivision type="ua68" draft="contributed">حمەلنيسكيي وبلىسى</subdivision>
+			<subdivision type="ua71" draft="contributed">چەركاسسى وبلىسى</subdivision>
+			<subdivision type="ua77" draft="contributed">چەرنوۆسى وبلىسى</subdivision>
+			<subdivision type="um71" draft="contributed">ميدۋەي</subdivision>
+			<subdivision type="um76" draft="contributed">ناۆاسسا ارالى</subdivision>
+			<subdivision type="um79" draft="contributed">ۋەيك ارالى</subdivision>
+			<subdivision type="um81" draft="contributed">بەيكەر ارالى</subdivision>
+			<subdivision type="um84" draft="contributed">حاۋلەند ارالى</subdivision>
+			<subdivision type="um86" draft="contributed">دجارۆيس ارالى</subdivision>
+			<subdivision type="um89" draft="contributed">كينگمەن ريفى</subdivision>
+			<subdivision type="usak" draft="contributed">الاسكا شتاتى</subdivision>
+			<subdivision type="usal" draft="contributed">الاباما</subdivision>
+			<subdivision type="usar" draft="contributed">اركانزاس</subdivision>
+			<subdivision type="usaz" draft="contributed">اريزونا</subdivision>
+			<subdivision type="usca" draft="contributed">كاليفورنيا</subdivision>
+			<subdivision type="usco" draft="contributed">كولورادو</subdivision>
+			<subdivision type="usct" draft="contributed">كوننەكتيكۋت</subdivision>
+			<subdivision type="usde" draft="contributed">دەلاۆەر</subdivision>
+			<subdivision type="usfl" draft="contributed">فلوريدا</subdivision>
+			<subdivision type="usga" draft="contributed">دجوردجيا</subdivision>
+			<subdivision type="ushi" draft="contributed">گاۆايي</subdivision>
+			<subdivision type="usia" draft="contributed">ايوۆا</subdivision>
+			<subdivision type="usid" draft="contributed">ايداحو</subdivision>
+			<subdivision type="usil" draft="contributed">يللينويس</subdivision>
+			<subdivision type="usin" draft="contributed">ينديانا</subdivision>
+			<subdivision type="usks" draft="contributed">كانزاس</subdivision>
+			<subdivision type="usky" draft="contributed">كەنتۋككي</subdivision>
+			<subdivision type="usla" draft="contributed">لۋيزيانا</subdivision>
+			<subdivision type="usma" draft="contributed">ماسساچۋسەتس</subdivision>
+			<subdivision type="usmd" draft="contributed">مەريلەند</subdivision>
+			<subdivision type="usme" draft="contributed">مەن</subdivision>
+			<subdivision type="usmi" draft="contributed">ميچيگان</subdivision>
+			<subdivision type="usmn" draft="contributed">ميننەسوتا</subdivision>
+			<subdivision type="usmo" draft="contributed">ميسسۋري</subdivision>
+			<subdivision type="usms" draft="contributed">ميسسيسيپي</subdivision>
+			<subdivision type="usmt" draft="contributed">مونتانا</subdivision>
+			<subdivision type="usnc" draft="contributed">سولتۇستىك كارولينا</subdivision>
+			<subdivision type="usnd" draft="contributed">سولتۇستىك داكوتا</subdivision>
+			<subdivision type="usne" draft="contributed">نەبراسكا</subdivision>
+			<subdivision type="usnh" draft="contributed">نۇ-گەمپشير</subdivision>
+			<subdivision type="usnj" draft="contributed">نۇ-دجەرسي</subdivision>
+			<subdivision type="usnm" draft="contributed">نۇ-مەكسيكو</subdivision>
+			<subdivision type="usnv" draft="contributed">نيەۆادا</subdivision>
+			<subdivision type="usny" draft="contributed">نۇ-يورك</subdivision>
+			<subdivision type="usoh" draft="contributed">وگايو</subdivision>
+			<subdivision type="usok" draft="contributed">وكلاحوما</subdivision>
+			<subdivision type="usor" draft="contributed">ورەگون</subdivision>
+			<subdivision type="uspa" draft="contributed">پەنسيلۆانيا</subdivision>
+			<subdivision type="usri" draft="contributed">رود-ايلەند</subdivision>
+			<subdivision type="ussc" draft="contributed">وڭتۇستىك كارولينا</subdivision>
+			<subdivision type="ussd" draft="contributed">وڭتۇستىك داكوتا</subdivision>
+			<subdivision type="ustn" draft="contributed">تەننەسسي</subdivision>
+			<subdivision type="ustx" draft="contributed">تەحاس</subdivision>
+			<subdivision type="usut" draft="contributed">يۋتا</subdivision>
+			<subdivision type="usva" draft="contributed">ۆيرگينيا</subdivision>
+			<subdivision type="usvt" draft="contributed">ۆەرمونت</subdivision>
+			<subdivision type="uswa" draft="contributed">ۆاشينگتون</subdivision>
+			<subdivision type="uswi" draft="contributed">ۆيسكونسين</subdivision>
+			<subdivision type="uswv" draft="contributed">باتىس ۆيرگينيا</subdivision>
+			<subdivision type="uswy" draft="contributed">ۆايومينگ</subdivision>
+			<subdivision type="uymo" draft="contributed">مونتيەۆيدەو</subdivision>
+			<subdivision type="uzan" draft="contributed">انديجان وبلىسى</subdivision>
+			<subdivision type="uzbu" draft="contributed">بۇحارا وبلىسى</subdivision>
+			<subdivision type="uznw" draft="contributed">ناۋاي وبلىسى</subdivision>
+			<subdivision type="uzqr" draft="contributed">قاراقالپاقستان</subdivision>
+			<subdivision type="uzsa" draft="contributed">سامارقان وبلىسى</subdivision>
+			<subdivision type="uztk" draft="contributed">تاشكەنت</subdivision>
+			<subdivision type="uzxo" draft="contributed">حورەزم وبلىسى</subdivision>
+			<subdivision type="vnhn" draft="contributed">حانوي</subdivision>
+			<subdivision type="vnsg" draft="contributed">حوشيمين</subdivision>
+			<subdivision type="yesa" draft="contributed">سانا</subdivision>
+			<subdivision type="zagt" draft="contributed">گاۋتەنگ</subdivision>
+		</subdivisions>
+	</localedisplaynames>
+</ldml>

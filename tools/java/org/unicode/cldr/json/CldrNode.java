@@ -130,8 +130,8 @@ public class CldrNode {
     private String uniqueNodeName;
 
     private CldrNode() {
-        distinguishingAttributes = new HashMap<String, String>();
-        nondistinguishingAttributes = new HashMap<String, String>();
+        distinguishingAttributes = new HashMap<>();
+        nondistinguishingAttributes = new HashMap<>();
     }
 
     /**
@@ -140,7 +140,7 @@ public class CldrNode {
      * @return String map.
      */
     public Map<String, String> getAttrAsValueMap() {
-        Map<String, String> attributesAsValues = new HashMap<String, String>();
+        Map<String, String> attributesAsValues = new HashMap<>();
         for (String key : distinguishingAttributes.keySet()) {
             String keyStr = parent + ":" + name + ":" + key;
             if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr)) {

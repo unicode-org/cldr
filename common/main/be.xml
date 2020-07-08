@@ -4765,6 +4765,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign>%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
+			<approximatelySign>≈</approximatelySign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -6421,18 +6422,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>квадратныя {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">квадратны {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few">квадратныя {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many">квадратных {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">кв. {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" draft="provisional">квадратныя {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1>кубічныя {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">кубічны {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">куб. {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" draft="provisional">кубічны {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many" draft="provisional">кубічны {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">кубічныя {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>

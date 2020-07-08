@@ -41,7 +41,7 @@ public class SubdivisionNames {
     public SubdivisionNames(String locale, String... dirs) {
 
         // do inheritance
-        
+
         Map<String,String> builder = new TreeMap<>();
         while (true) {
             addSubdivisionNames(locale, builder, dirs);
@@ -50,8 +50,8 @@ public class SubdivisionNames {
                 break;
             }
             locale = parent;
-        };
-        
+        }
+
         subdivisionToName = ImmutableMap.copyOf(builder);
     }
 
@@ -126,7 +126,7 @@ public class SubdivisionNames {
     }
 
     public static boolean isRegionCode(String regionOrSubdivision) {
-        return regionOrSubdivision.length() == 2 
+        return regionOrSubdivision.length() == 2
             || (regionOrSubdivision.length() == 3 && regionOrSubdivision.compareTo("A") < 0);
     }
 
@@ -141,7 +141,7 @@ public class SubdivisionNames {
     public static boolean isOldSubdivisionCode(String item) {
         return item.length() > 4 && item.length() < 7 && OLD_SUBDIVISION.matcher(item).matches();
     }
-    
+
     public static void main(String[] args) {
          Factory annotations = CLDRConfig.getInstance().getAnnotationsFactory();
          for (String locale : annotations.getAvailable()) {
@@ -152,7 +152,7 @@ public class SubdivisionNames {
             <subdivision type="gbwls">Wales</subdivision>
 
               */
-             System.out.println(locale 
+             System.out.println(locale
                  + " gbeng=" + sd.get("gbeng")
                  + " gbsct=" + sd.get("gbsct")
                  + " gbwls=" + sd.get("gbwls")

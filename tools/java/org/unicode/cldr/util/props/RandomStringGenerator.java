@@ -19,7 +19,7 @@ import com.ibm.icu.text.UnicodeSet;
 public class RandomStringGenerator {
 
     private static final UnicodeSet SUPPLEMENTARIES = new UnicodeSet(0x10000, 0x10FFFF);
-    
+
     /**
      * If not null, masks off the character properties so the UnicodeSets are easier to use when debugging.
      */
@@ -77,6 +77,7 @@ public class RandomStringGenerator {
     }
 
     static UnicodeMap.Composer MyComposer = new UnicodeMap.Composer() {
+        @Override
         public Object compose(int codePoint, String string, Object a, Object b) {
             if (a == null) return b;
             if (b == null) return a;

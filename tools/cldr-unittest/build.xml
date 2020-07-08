@@ -17,7 +17,7 @@
 		<property name="doc.params" value="" />
 
 		<!-- Load local definitions from an optional properties file, if 
-			available. build.properties is NOT checked into SVN. -->
+			available. build.properties is NOT checked into version control. -->
 		<property file="build.properties" />
 		<!-- Load environment variables -->
 		<property environment="env" />
@@ -35,7 +35,7 @@
 			2) JVM_EXTRA_OPTIONS=xxx in build.properties
 			3) Environment variable - JVM_EXTRA_OPTIONS=xxx
 			4) Final fallback - "-Xmx6g" below -->
-		<property name="env.JVM_EXTRA_OPTIONS" value="-Xmx6g" />
+		<property name="env.JVM_EXTRA_OPTIONS" value="-Xmx6g -enableassertions" />
 		<property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}" />
 		<property name="jvm_options" value="${JVM_OPTIONS} ${JVM_EXTRA_OPTIONS}" />
 
@@ -189,7 +189,7 @@
 	<target name="datacheck" description="Run the standard data tests"
 		depends="init,build">
 		<antcall target="_dataCheck">
-			<param name="datacheck.arg" value="-S common,seed -e -z FINAL_TESTING" />
+			<param name="datacheck.arg" value="-S common,seed -e -z BUILD" />
 			<param name="datacheck.jvmarg" value="${jvm_options}" />
 		</antcall>
 	</target>
@@ -197,7 +197,7 @@
 	<target name="cldr.datacheck.logged" description="Run the standard data tests"
 		depends="init,build">
 		<antcall target="_dataCheck_logged">
-			<param name="datacheck.arg" value="-S common,seed -e -z FINAL_TESTING" />
+			<param name="datacheck.arg" value="-S common,seed -e -z BUILD" />
 			<param name="datacheck.jvmarg" value="${jvm_options}" />
 		</antcall>
 	</target>

@@ -6109,13 +6109,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>{0}في {1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>مربع {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">{0}مربع</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">{0} مربع</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1>کیوبک {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">کیوبک {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">{0}معکب</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">

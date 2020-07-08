@@ -48,8 +48,8 @@ public class AttributeValueValidity {
     private static final SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private static Map<DtdType, Map<String, Map<String, MatcherPattern>>> dtd_element_attribute_validity = new EnumMap<>(DtdType.class);
-    private static Map<String, MatcherPattern> common_attribute_validity = new LinkedHashMap<String, MatcherPattern>();
-    private static Map<String, MatcherPattern> variables = new LinkedHashMap<String, MatcherPattern>();
+    private static Map<String, MatcherPattern> common_attribute_validity = new LinkedHashMap<>();
+    private static Map<String, MatcherPattern> variables = new LinkedHashMap<>();
     private static final RegexMatcher NOT_DONE_YET = new RegexMatcher(".*", Pattern.COMMENTS);
     private static final Map<AttributeValidityInfo, String> failures = new LinkedHashMap<>();
     private static final boolean DEBUG = false;
@@ -218,7 +218,7 @@ public class AttributeValueValidity {
                 DtdData data = DtdData.getInstance(dtdType);
                 Map<String, Map<String, MatcherPattern>> element_attribute_validity = dtd_element_attribute_validity.get(dtdType);
                 if (element_attribute_validity == null) {
-                    dtd_element_attribute_validity.put(dtdType, element_attribute_validity = new TreeMap<String, Map<String, MatcherPattern>>());
+                    dtd_element_attribute_validity.put(dtdType, element_attribute_validity = new TreeMap<>());
                 }
 
                 //             <attributeValues dtds="supplementalData" elements="currency" attributes="before from to">$currencyDate</attributeValues>
@@ -255,7 +255,7 @@ public class AttributeValueValidity {
                         // System.out.println("\t" + element);
                         Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
                         if (attribute_validity == null) {
-                            element_attribute_validity.put(element, attribute_validity = new TreeMap<String, MatcherPattern>());
+                            element_attribute_validity.put(element, attribute_validity = new TreeMap<>());
                         }
                         addAttributes(attributeList, attribute_validity, mp);
                     }
@@ -366,6 +366,7 @@ public class AttributeValueValidity {
 
         public abstract String _getPattern();
 
+        @Override
         public String toString() {
             return getClass().getName() + "\t" + getPattern();
         }
@@ -479,6 +480,7 @@ public class AttributeValueValidity {
             matcher = Pattern.compile(pattern, flags).matcher("");
         }
 
+        @Override
         public boolean matches(String value, Output<String> reason) {
             matcher.reset(value.toString());
             boolean result = matcher.matches();
@@ -518,6 +520,7 @@ public class AttributeValueValidity {
 
         static final int MAX_STRING = 64;
 
+        @Override
         public boolean matches(String value, Output<String> reason) {
             boolean result = LOCALE_SPECIFIC.get(ls).contains(value);
             if (!result && reason != null) {
@@ -631,6 +634,7 @@ public class AttributeValueValidity {
             this.operands = operands;
         }
 
+        @Override
         public boolean matches(String value, Output<String> reason) {
             StringBuilder fullReason = reason == null ? null : new StringBuilder();
             for (MatcherPattern operand : operands) {
@@ -670,6 +674,7 @@ public class AttributeValueValidity {
             this.other = other;
         }
 
+        @Override
         public boolean matches(String value, Output<String> reason) {
             List<String> values = SPACE.splitToList(value);
             if (values.isEmpty()) return true;
@@ -705,11 +710,12 @@ public class AttributeValueValidity {
             language = getNonNullVariable(variable);
         }
 
+        @Override
         public boolean matches(String value, Output<String> reason) {
 //            if (grandfathered.matches(value, reason)) {
 //                return true;
 //            }
-            lip.set((String) value);
+            lip.set(value);
             String field = lip.getLanguage();
             if (!language.matches(field, reason)) {
                 if (reason != null) {

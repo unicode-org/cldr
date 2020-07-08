@@ -35,7 +35,7 @@ public class LocaleChangeRegistry {
     /**
      * hash of all lcrs
      */
-    Hashtable<CLDRLocale, Hashtable<String, String>> tables = new Hashtable<CLDRLocale, Hashtable<String, String>>();
+    Hashtable<CLDRLocale, Hashtable<String, String>> tables = new Hashtable<>();
 
     /**
      * fetch the appropriate hash table. Private, assumes lock.
@@ -47,7 +47,7 @@ public class LocaleChangeRegistry {
     private Hashtable<String, String> internalGetHash(CLDRLocale locale) {
         Hashtable<String, String> r = tables.get(locale);
         if (r == null) {
-            r = new Hashtable<String, String>();
+            r = new Hashtable<>();
             tables.put(locale, r);
         }
         return r;

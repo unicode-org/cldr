@@ -67,7 +67,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -94,7 +94,7 @@ public class GenerateXMB {
         DATE = dateFormat.format(new Date());
     }
     static final String stock = "en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|nb|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_Hant_HK";
-    private static final HashSet<String> REGION_LOCALES = new HashSet<String>(Arrays.asList(stock.split("\\|")));
+    private static final HashSet<String> REGION_LOCALES = new HashSet<>(Arrays.asList(stock.split("\\|")));
 
     final static Options myOptions = new Options("In normal usage, you set the -t option for the target.")
         .add("target", ".*", CLDRPaths.TMP_DIRECTORY + "dropbox/xmb/",
@@ -119,7 +119,7 @@ public class GenerateXMB {
     // static Matcher contentMatcher;
     static Matcher pathMatcher;
     static RegexLookup<String> pathFindRemover = new RegexLookup<String>().loadFromFile(GenerateXMB.class,
-        "xmbSkip.txt");; // .compile("//ldml/dates/calendars/calendar\\[@type=\"(?!gregorian).*").matcher("");
+        "xmbSkip.txt"); // .compile("//ldml/dates/calendars/calendar\\[@type=\"(?!gregorian).*").matcher("");
     static PrettyPath prettyPath = new PrettyPath();
     static int errors = 0;
     static Relation<String, String> path2errors = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -129,7 +129,7 @@ public class GenerateXMB {
 
     public static final boolean DEBUG = false;
 
-    private static final HashSet<String> SKIP_LOCALES = new HashSet<String>(
+    private static final HashSet<String> SKIP_LOCALES = new HashSet<>(
         Arrays.asList(new String[] { "en", "root" }));
 
     public static String DTD_VERSION;
@@ -140,7 +140,7 @@ public class GenerateXMB {
         BRACES, // e.g. {NAME}
         XML, // e.g. <ph name='NAME' />
         XML_EXAMPLE // e.g. <ph name='NAME' /><ex>EXAMPLE</ex>{0}</ph>
-    };
+    }
 
     public static void main(String[] args) throws Exception {
         myOptions.parse(args, true);
@@ -300,9 +300,9 @@ public class GenerateXMB {
         log.close();
     }
 
-    static Output<String[]> matches = new Output<String[]>();
-    static List<String> failures = new ArrayList<String>();
-    static Output<Finder> matcherFound = new Output<Finder>();
+    static Output<String[]> matches = new Output<>();
+    static List<String> failures = new ArrayList<>();
+    static Output<Finder> matcherFound = new Output<>();
 
     enum PathStatus {
         SKIP, KEEP, MAYBE
@@ -316,7 +316,7 @@ public class GenerateXMB {
         }
         String skipPath = pathFindRemover.get(path, null, matches, matcherFound, myFailures);
         if (myFailures != null && failures.size() != 0) {
-            System.out.println("Failures\n\t" + CollectionUtilities.join(failures, "\n\t"));
+            System.out.println("Failures\n\t" + Joiner.on("\n\t").join(failures));
             failures.clear();
         }
         if (skipPath == null || skipPath.equals("MAYBE")) {
@@ -374,7 +374,7 @@ public class GenerateXMB {
     private static void showDefaultContents(String targetDir, CLDRFile english) throws IOException {
         PrintWriter out = FileUtilities.openUTF8Writer(targetDir + "/log/", "locales.txt");
         String[] locales = stock.split("\\|");
-        Set<R2<String, String>> sorted = new TreeSet<R2<String, String>>();
+        Set<R2<String, String>> sorted = new TreeSet<>();
         for (String locale : locales) {
             if (locale.isEmpty()) continue;
             String name = english.getName(locale);
@@ -440,7 +440,7 @@ public class GenerateXMB {
 
         String extension = "xml";
         Relation<String, String> reasonsToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Set<String> seenStarred = new HashSet<String>();
+        Set<String> seenStarred = new HashSet<>();
 
         Relation<String, Row.R2<PathInfo, String>> countItems = Relation.of(
             new TreeMap<String, Set<Row.R2<PathInfo, String>>>(), TreeSet.class);
@@ -647,10 +647,10 @@ public class GenerateXMB {
         int wordCount = 0;
         PluralInfo pluralInfo = supplementalDataInfo.getPlurals(locale);
         int lineCount = 0;
-        Set<String> errorSet = new LinkedHashSet<String>();
+        Set<String> errorSet = new LinkedHashSet<>();
         for (Entry<String, Set<R2<PathInfo, String>>> entry : countItems.keyValuesSet()) {
             String countLessPath = entry.getKey();
-            Map<String, String> fullValues = new TreeMap<String, String>();
+            Map<String, String> fullValues = new TreeMap<>();
             PathInfo pathInfo = null;
             String value = null;
             for (R2<PathInfo, String> entry2 : entry.getValue()) {
@@ -924,7 +924,7 @@ public class GenerateXMB {
 
         public Map<String, String> getPlaceholderReplacementsToOriginal() {
             if (placeholders == null) return null;
-            Map<String, String> placeholderOutput = new LinkedHashMap<String, String>();
+            Map<String, String> placeholderOutput = new LinkedHashMap<>();
             for (String id : placeholders.keySet()) {
                 placeholderOutput.put(id, getPlaceholderWithExample(id));
             }
@@ -988,6 +988,7 @@ public class GenerateXMB {
             return path.compareTo(arg0.path);
         }
 
+        @Override
         public String toString() {
             return path;
         }
@@ -995,8 +996,8 @@ public class GenerateXMB {
 
     static class EnglishInfo implements Iterable<PathInfo> {
 
-        final Map<String, PathInfo> pathToPathInfo = new TreeMap<String, PathInfo>();
-        final Map<Long, PathInfo> longToPathInfo = new HashMap<Long, PathInfo>();
+        final Map<String, PathInfo> pathToPathInfo = new TreeMap<>();
+        final Map<Long, PathInfo> longToPathInfo = new HashMap<>();
         final CLDRFile english;
 
         PathInfo getPathInfo(long hash) {
@@ -1022,9 +1023,9 @@ public class GenerateXMB {
             this.english = english;
             // we don't want the fully resolved paths, but we do want the direct inheritance from root.
             //Status status = new Status();
-            Map<String, List<Set<String>>> starredPaths = new TreeMap<String, List<Set<String>>>();
+            Map<String, List<Set<String>>> starredPaths = new TreeMap<>();
 
-            HashSet<String> metazonePaths = new HashSet<String>();
+            HashSet<String> metazonePaths = new HashSet<>();
             // ^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"]
             for (MetazoneInfo metazoneInfo : MetazoneInfo.METAZONE_LIST) {
                 for (String item : metazoneInfo.getTypes()) {
@@ -1035,7 +1036,7 @@ public class GenerateXMB {
             }
 
             // TODO add short countries
-            HashSet<String> extraLanguages = new HashSet<String>();
+            HashSet<String> extraLanguages = new HashSet<>();
             // ldml/localeDisplayNames/languages/language[@type=".*"]
 
             for (String langId : PathDescription.EXTRA_LANGUAGES) {
@@ -1047,6 +1048,7 @@ public class GenerateXMB {
                 .addAll(english)
                 .removeAll(
                     new Transform<String, Boolean>() {
+                        @Override
                         public Boolean transform(String source) {
                             return source.startsWith("//ldml/dates/timeZoneNames/metazone") ? Boolean.TRUE
                                 : Boolean.FALSE;
@@ -1055,14 +1057,14 @@ public class GenerateXMB {
                 .get();
             sorted.addAll(metazonePaths);
             if (DEBUG) {
-                TreeSet<String> diffs = new TreeSet<String>(extraLanguages);
+                TreeSet<String> diffs = new TreeSet<>(extraLanguages);
                 diffs.removeAll(sorted);
                 System.out.println(diffs);
             }
             sorted.addAll(extraLanguages);
 
             // add the extra Count items.
-            Map<String, String> extras = new HashMap<String, String>();
+            Map<String, String> extras = new HashMap<>();
             Matcher m = COUNT_ATTRIBUTE.matcher("");
 
             for (String path : sorted) {
@@ -1080,7 +1082,7 @@ public class GenerateXMB {
             sorted.addAll(extras.keySet());
 
             Relation<String, String> reasonsToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-            Set<String> missingDescriptions = new TreeSet<String>();
+            Set<String> missingDescriptions = new TreeSet<>();
             //Output<String[]> pathArguments = new Output<String[]>();
 
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance("en");
@@ -1208,7 +1210,7 @@ public class GenerateXMB {
 
     static final Set<String> HAS_DAYLIGHT;
     static {
-        Set<String> hasDaylightTemp = new HashSet<String>();
+        Set<String> hasDaylightTemp = new HashSet<>();
         Date date = new Date();
         main: for (String zoneId : sc.getCanonicalTimeZones()) {
             TimeZone zone = TimeZone.getTimeZone(zoneId);
@@ -1232,7 +1234,7 @@ public class GenerateXMB {
     private static PrintWriter countFile;
     static {
         // start with certain special-case countries
-        Set<String> singularCountries = new HashSet<String>(
+        Set<String> singularCountries = new HashSet<>(
             Arrays.asList("CL EC ES NZ PT AQ FM GL KI UM PF".split(" ")));
 
         Map<String, Set<String>> countryToZoneSet = sc.getCountryToZoneSet();
@@ -1248,7 +1250,7 @@ public class GenerateXMB {
                 continue;
             }
             // make a set of sets
-            List<TimeZone> initial = new ArrayList<TimeZone>();
+            List<TimeZone> initial = new ArrayList<>();
             for (String s : zones) {
                 initial.add(TimeZone.getTimeZone(s));
             }
@@ -1312,7 +1314,7 @@ public class GenerateXMB {
         static final List<MetazoneInfo> METAZONE_LIST;
         static {
             // Set<String> zones = supplementalDataInfo.getCanonicalTimeZones();
-            ArrayList<MetazoneInfo> result = new ArrayList<MetazoneInfo>();
+            ArrayList<MetazoneInfo> result = new ArrayList<>();
 
             Map<String, String> zoneToCountry = sc.getZoneToCounty();
 
@@ -1341,6 +1343,7 @@ public class GenerateXMB {
             METAZONE_LIST = Collections.unmodifiableList(result);
         }
 
+        @Override
         public String toString() {
             return sc.getZoneToCounty().get(golden)
                 + "\t" + metazoneId
@@ -1390,7 +1393,7 @@ public class GenerateXMB {
             FileInputStream fis = new FileInputStream(file);
             XMLReader xmlReader = XMLFileReader.createXMLReader(false);
             xmlReader.setErrorHandler(new MyErrorHandler());
-            Map<String, String> data = new TreeMap<String, String>();
+            Map<String, String> data = new TreeMap<>();
             xmlReader.setContentHandler(new MyContentHandler(locale, data, info));
             InputSource is = new InputSource(fis);
             is.setSystemId(file);
@@ -1415,16 +1418,19 @@ public class GenerateXMB {
     }
 
     static class MyErrorHandler implements ErrorHandler {
+        @Override
         public void error(SAXParseException exception) throws SAXException {
             System.out.println("\nerror: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void fatalError(SAXParseException exception) throws SAXException {
             System.out.println("\nfatalError: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
 
+        @Override
         public void warning(SAXParseException exception) throws SAXException {
             System.out.println("\nwarning: " + XMLFileReader.showSAX(exception));
             throw exception;
@@ -1439,7 +1445,7 @@ public class GenerateXMB {
         private StringBuilder currentText = new StringBuilder();
         private long lastId;
         private String lastPluralTag;
-        private Map<String, String> pluralTags = new LinkedHashMap<String, String>();
+        private Map<String, String> pluralTags = new LinkedHashMap<>();
         private Set<String> pluralKeywords;
 
         public MyContentHandler(ULocale locale, Map<String, String> data, EnglishInfo info) {

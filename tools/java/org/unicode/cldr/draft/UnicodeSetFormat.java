@@ -39,7 +39,7 @@ public class UnicodeSetFormat extends Format {
         for (UnicodeSetIterator it = new UnicodeSetIterator((UnicodeSet) obj); it.nextRange();) {
             if (it.codepoint == UnicodeSetIterator.IS_STRING) {
                 if (strings == null) {
-                    strings = new TreeSet<String>();
+                    strings = new TreeSet<>();
                 }
                 strings.add(it.string);
                 continue;
@@ -141,7 +141,7 @@ public class UnicodeSetFormat extends Format {
         /**
          * Is called every time an unquoted $ is found. Should parse out variables as appropriate
          * and return how far we got, and the replacement string. Returns null if doesn't match a variable.
-         * 
+         *
          * @pos on input should be set to the position just before the dollar sign.
          *      On output should be set to the end of the text to replace.
          */
@@ -158,7 +158,7 @@ public class UnicodeSetFormat extends Format {
          * getProperty("bidi_class", "neutral", false, result) <br>
          * (for an example of the latter, see {@linkplain http
          * ://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p name=/WITH%20DOT%20ABOVE/}
-         * 
+         *
          * @param regex
          *            Set to true if the property value is a regex "find" expression. In that case,
          *            the return value should be the set of Unicode characters that match the regex.
@@ -170,7 +170,7 @@ public class UnicodeSetFormat extends Format {
     public String formatWithProperties(UnicodeSet original, boolean addOthers, UnicodeSet expandBlockIgnorables,
         int... properties) {
         UnicodeSet remainder = new UnicodeSet().addAll(original);
-        Set<String> propSet = new TreeSet<String>();
+        Set<String> propSet = new TreeSet<>();
         BitSet props = new BitSet();
 
         for (int i = 0; i < properties.length; ++i) {
@@ -233,7 +233,7 @@ public class UnicodeSetFormat extends Format {
     private Target target;
     private int options;
     private Extension[] extensions;
-    private static final UnicodeSet toQuote = (UnicodeSet) new UnicodeSet(
+    private static final UnicodeSet toQuote = new UnicodeSet(
         "[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]").freeze();
 
 }

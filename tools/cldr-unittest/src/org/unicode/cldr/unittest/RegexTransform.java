@@ -18,6 +18,7 @@ public class RegexTransform implements Transform<String, String> {
     private final Processing processing;
     private final List<Row.R2<Matcher, String>> entries = new ArrayList<Row.R2<Matcher, String>>();
 
+    @Override
     public String transform(String source) {
         main: while (true) {
             for (R2<Matcher, String> entry : entries) {

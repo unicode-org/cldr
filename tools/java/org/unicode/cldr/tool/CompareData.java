@@ -58,9 +58,9 @@ public class CompareData {
             cldrFactory = Factory.make(sourceDir, options[MATCH].value);
             Factory oldFactory = Factory.make(compareDir, options[MATCH].value);
 
-            locales = new TreeSet<String>(cldrFactory.getAvailable());
+            locales = new TreeSet<>(cldrFactory.getAvailable());
             new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
-            Set<String> pathsSeen = new HashSet<String>();
+            Set<String> pathsSeen = new HashSet<>();
             int newItemsTotal = 0;
             int replacementItemsTotal = 0;
             int deletedItemsTotal = 0;
@@ -73,9 +73,9 @@ public class CompareData {
                 int sameItems = 0;
                 String locale = it.next();
                 if (locale.startsWith("supplem") || locale.startsWith("character")) continue;
-                CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
+                CLDRFile file = cldrFactory.make(locale, false);
                 try {
-                    CLDRFile oldFile = (CLDRFile) oldFactory.make(locale, false);
+                    CLDRFile oldFile = oldFactory.make(locale, false);
                     pathsSeen.clear();
                     for (Iterator<String> it2 = file.iterator(); it2.hasNext();) {
                         String path = it2.next();

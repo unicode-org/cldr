@@ -27,7 +27,7 @@ public class LikelySubtags {
     private Map<String, String> toMaximized;
     private boolean favorRegion = false;
     private SupplementalDataInfo supplementalDataInfo;
-    private Map<String, String> currencyToLikelyTerritory = new HashMap<String, String>();
+    private Map<String, String> currencyToLikelyTerritory = new HashMap<>();
 
     /**
      * Create the likely subtags.
@@ -57,7 +57,7 @@ public class LikelySubtags {
         this.toMaximized = toMaximized;
 
         Date now = new Date();
-        Set<Row.R2<Double, String>> sorted = new TreeSet<Row.R2<Double, String>>();
+        Set<Row.R2<Double, String>> sorted = new TreeSet<>();
         for (String territory : supplementalDataInfo.getTerritoriesWithPopulationData()) {
             PopulationData pop = supplementalDataInfo.getPopulationDataForTerritory(territory);
             double population = pop.getPopulation();
@@ -77,8 +77,6 @@ public class LikelySubtags {
                 }
             }
         }
-        // System.out.println("Currency to Territory:\n\t" +
-        // CollectionUtilities.join(currencyToLikelyTerritory.entrySet(), "\n\t"));
     }
 
     /**

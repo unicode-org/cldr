@@ -104,6 +104,7 @@ public class XPathTable {
      *
      * @deprecated unneeded
      */
+    @Deprecated
     public void shutdownDB() throws SQLException {
 
     }
@@ -146,8 +147,8 @@ public class XPathTable {
         }
     }
 
-    public Hashtable<String, Integer> stringToId = new Hashtable<String, Integer>(4096); // public for statistics only
-    public Hashtable<Long, String> sidToString = new Hashtable<Long, String>(4096); // public for statistics only
+    public Hashtable<String, Integer> stringToId = new Hashtable<>(4096); // public for statistics only
+    public Hashtable<Long, String> sidToString = new Hashtable<>(4096); // public for statistics only
 
     public String statistics() {
         return "DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
@@ -163,7 +164,7 @@ public class XPathTable {
     /**
      * SpecialTable implementation
      */
-    IntHash<String> xptHash = new IntHash<String>();
+    IntHash<String> xptHash = new IntHash<>();
 
     String idToString_put(int id, String str) {
         return xptHash.put(id, str);
@@ -186,7 +187,7 @@ public class XPathTable {
      */
     public synchronized void loadXPaths(XMLSource source) {
         // Get list of xpaths that aren't already loaded.
-        Set<String> unloadedXpaths = new HashSet<String>();
+        Set<String> unloadedXpaths = new HashSet<>();
         for (String xpath : source) {
             unloadedXpaths.add(xpath);
         }
@@ -261,7 +262,7 @@ public class XPathTable {
      * @return the xpath's id (as an Integer)
      */
     private synchronized Integer addXpath(String xpath, boolean addIfNotFound, Connection inConn) {
-        Integer nid = (Integer) stringToId.get(xpath); // double check
+        Integer nid = stringToId.get(xpath); // double check
         if (nid != null) {
             return nid;
         }
@@ -376,7 +377,7 @@ public class XPathTable {
      * @return the id for the specified path
      */
     public final int getByXpath(String xpath) {
-        Integer nid = (Integer) stringToId.get(xpath);
+        Integer nid = stringToId.get(xpath);
         if (nid != null) {
             return nid.intValue();
         } else {
@@ -391,7 +392,7 @@ public class XPathTable {
      * @return id, or -1 if not found
      */
     public final int peekByXpath(String xpath) {
-        Integer nid = (Integer) stringToId.get(xpath);
+        Integer nid = stringToId.get(xpath);
         if (nid != null) {
             return nid.intValue();
         } else {
@@ -407,7 +408,7 @@ public class XPathTable {
      * @return the id for the specified path
      */
     public final int getByXpath(String xpath, Connection conn) {
-        Integer nid = (Integer) stringToId.get(xpath);
+        Integer nid = stringToId.get(xpath);
         if (nid != null) {
             return nid.intValue();
         } else {
@@ -422,7 +423,7 @@ public class XPathTable {
      * @return id, or -1 if not found
      */
     public final int peekByXpath(String xpath, Connection conn) {
-        Integer nid = (Integer) stringToId.get(xpath);
+        Integer nid = stringToId.get(xpath);
         if (nid != null) {
             return nid.intValue();
         } else {
@@ -431,7 +432,7 @@ public class XPathTable {
     }
 
     /**
-     * 
+     *
      * @param path
      * @param xpp
      * @return
@@ -441,14 +442,14 @@ public class XPathTable {
     }
 
     /**
-     * 
+     *
      * @param path
      * @return
-     * 
-     * Called by handlePathValue, by makeProposedFile, and by doForum (which is possibly never called?)
+     *
+     * Called by handlePathValue and makeProposedFile
      */
     public static String removeAlt(String path) {
-        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         xpp.removeAttribute(-1, LDMLConstants.ALT);
         return xpp.toString();
     }
@@ -462,11 +463,11 @@ public class XPathTable {
      * @return
      */
     public static String removeDraftAltProposed(String path) {
-        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
 
         // Remove alt proposed, but leave the type
-        String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
+        String oldAlt = lastAtts.get(LDMLConstants.ALT);
         if (oldAlt != null) {
             String newAlt = LDMLUtilities.parseAlt(oldAlt)[0]; // #0 : altType
             if (newAlt == null) {
@@ -487,10 +488,10 @@ public class XPathTable {
     }
 
     /**
-     * 
+     *
      * @param path
      * @return
-     * 
+     *
      * Called by handlePathValue and makeProposedFile
      */
     public static String getAlt(String path) {
@@ -506,23 +507,25 @@ public class XPathTable {
      * note does not remove draft. expects a dpath.
      *
      * @param xpath
-     * 
+     *
      * This is NOT the same as the two-parameter xpathToBaseXpath elsewhere in this file
      */
     public static String xpathToBaseXpath(String xpath) {
-        XPathParts xpp = XPathParts.getInstance(xpath); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(xpath);
         Map<String, String> lastAtts = xpp.getAttributes(-1);
-        String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
+        String oldAlt = lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
             return xpath; // no change
         }
 
         String newAlt = LDMLUtilities.parseAlt(oldAlt)[0]; // #0 : altType
         if (newAlt == null) {
+            xpp = xpp.cloneAsThawed();
             xpp.removeAttribute(-1, LDMLConstants.ALT); // alt dropped out existence
         } else if (newAlt.equals(oldAlt)) {
             return xpath; // No change
         } else {
+            xpp = xpp.cloneAsThawed();
             xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
@@ -539,7 +542,7 @@ public class XPathTable {
      */
     public static void xPathPartsToBase(XPathParts xpp) {
         Map<String, String> lastAtts = xpp.getAttributes(-1);
-        String oldAlt = (String) lastAtts.get(LDMLConstants.ALT);
+        String oldAlt = lastAtts.get(LDMLConstants.ALT);
         if (oldAlt == null) {
             return; // no change
         }
@@ -561,7 +564,7 @@ public class XPathTable {
      * @return the type as a string
      */
     private String whatFromPathToTinyXpath(String path, String what) {
-        XPathParts xpp = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String type = lastAtts.get(what);
         if (type != null) {

@@ -24,6 +24,7 @@ final class IntDistanceNode extends DistanceNode {
         this.distanceTable = distanceTable;
     }
 
+    @Override
     public IntDistanceNode.IntDistanceTable getDistanceTable() {
         return distanceTable;
     }
@@ -49,8 +50,8 @@ final class IntDistanceNode extends DistanceNode {
     }
 
     static class IntDistanceTable extends DistanceTable {
-        private static final IdMakerFull[] ids = { new IdMakerFull<String>("lang", XLocaleDistance.ANY), new IdMakerFull<String>("script", XLocaleDistance.ANY),
-            new IdMakerFull<String>("region", XLocaleDistance.ANY) };
+        private static final IdMakerFull[] ids = { new IdMakerFull<>("lang", XLocaleDistance.ANY), new IdMakerFull<>("script", XLocaleDistance.ANY),
+            new IdMakerFull<>("region", XLocaleDistance.ANY) };
         private static final IdMakerFull<IntDistanceNode.IntDistanceTable> cache = new IdMakerFull<>("table");
 
         private final IdMakerFull<String> id;
@@ -93,7 +94,7 @@ final class IntDistanceNode extends DistanceNode {
                     distanceNodes[desired][supported] = node;
                 }
             }
-            // now, to make star work, 
+            // now, to make star work,
             // copy all the zero columns/rows down to any null value
             for (int row = 0; row < size; ++row) {
                 for (int column = 0; column < size; ++column) {
@@ -131,7 +132,6 @@ final class IntDistanceNode extends DistanceNode {
             if (!id.equals(other.id)) {
                 return false;
             }
-            ;
             return Arrays.deepEquals(distanceNodes, other.distanceNodes);
         }
 

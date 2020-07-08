@@ -36,8 +36,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 
@@ -540,7 +540,7 @@ public class TestInheritance extends TestFmwk {
         }
         if (additionalDefaultContents.size() != 0) {
             errln("Suggested additions to supplementalMetadata/../defaultContent:\n"
-                + CollectionUtilities.join(additionalDefaultContents, " "));
+                + Joiner.on(" ").join(additionalDefaultContents));
         }
     }
 

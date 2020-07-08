@@ -17,10 +17,11 @@ public class MultiComparator<T> implements Comparator<T> {
     }
 
     /* Lexigraphic compare. Returns the first difference
-     * @return zero if equal. Otherwise +/- (i+1) 
+     * @return zero if equal. Otherwise +/- (i+1)
      * where i is the index of the first comparator finding a difference
      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
      */
+    @Override
     public int compare(T arg0, T arg1) {
         for (int i = 0; i < comparators.length; ++i) {
             int result = comparators[i].compare(arg0, arg1);

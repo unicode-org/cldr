@@ -53,15 +53,15 @@ public class SearchXml {
     private static boolean fileExclude = false;
     private static boolean unique = false;
     private static boolean groups = false;
-    private static Counter<String> uniqueData = new Counter<String>();
+    private static Counter<String> uniqueData = new Counter<>();
 
     private static String valuePattern;
     private static File comparisonDirectory;
     private static boolean recursive;
-    
+
     private static Counter<String> kountRegexMatches;
     private static Counter<String> starCounter;
-    private static final Set<String> ERRORS = new LinkedHashSet<String>();
+    private static final Set<String> ERRORS = new LinkedHashSet<>();
     private static final PathStarrer pathStarrer = new PathStarrer();
     private static PathHeader.Factory PATH_HEADER_FACTORY = null;
 
@@ -92,7 +92,7 @@ public class SearchXml {
             System.out.println("#" + "Need Source Directory! ");
             return;
         }
-        Output<Boolean> exclude = new Output<Boolean>();
+        Output<Boolean> exclude = new Output<>();
         fileMatcher = getMatcher(myOptions.get("file").getValue(), exclude);
         fileExclude = exclude.value;
 
@@ -106,7 +106,7 @@ public class SearchXml {
         valueExclude = exclude.value;
 
         if (myOptions.get("Star").doesOccur()) {
-            starCounter = new Counter<String>();
+            starCounter = new Counter<>();
         }
 
         if (pathMatcher != null && valueMatcher != null) {
@@ -124,7 +124,7 @@ public class SearchXml {
         groups = myOptions.get("groups").doesOccur();
 
         countOnly = myOptions.get("count").doesOccur();
-        kountRegexMatches = myOptions.get("kount").doesOccur() ? new Counter<String>() : null;
+        kountRegexMatches = myOptions.get("kount").doesOccur() ? new Counter<>() : null;
 
         recursive = myOptions.get("recursive").doesOccur();
 
@@ -271,6 +271,7 @@ public class SearchXml {
         public Relation<String, String> data = Relation.of(new LinkedHashMap<String, Set<String>>(),
             LinkedHashSet.class);
 
+        @Override
         public void handlePathValue(String path, String value) {
             data.put(path, value);
         }
@@ -319,7 +320,7 @@ public class SearchXml {
         CoverageLevel2 level = null;
         String firstMessage;
         String file;
-        Counter<Level> levelCounter = new Counter<Level>();
+        Counter<Level> levelCounter = new Counter<>();
         String canonicalFile = fileName;
         firstMessage = "* " + canonicalFile;
         file = canonicalFile;
@@ -341,7 +342,7 @@ public class SearchXml {
             System.out.println();
         }
 
-        Set<String> keys = new LinkedHashSet<String>(source.keySet());
+        Set<String> keys = new LinkedHashSet<>(source.keySet());
         if (other != null) {
             keys.addAll(other.keySet());
         }
@@ -452,30 +453,30 @@ public class SearchXml {
         }
     }
 
-    enum ConfigOption {delete, add, addNew, replace};
-    
-    public static void show(ConfigOption configOption, 
-        String localeOrFile, 
-        String match_path, 
-        String match_value, 
-        String new_path, 
-        Set<String> new_values, 
+    enum ConfigOption {delete, add, addNew, replace}
+
+    public static void show(ConfigOption configOption,
+        String localeOrFile,
+        String match_path,
+        String match_value,
+        String new_path,
+        Set<String> new_values,
         Set<String> otherValues) {
         // locale= sv ; action=delete; value= YER ; path= //ldml/numbers/currencies/currency[@type="YER"]/symbol ;
 
         // locale=en ; action=delete ; path=/.*short.*/
 
         // locale=en ; action=add ; new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
-        // locale=  af     ; action=add ; new_path=        //ldml/dates/fields/field[@type="second"]/relative[@type="0"]    ; new_value=    nou  
+        // locale=  af     ; action=add ; new_path=        //ldml/dates/fields/field[@type="second"]/relative[@type="0"]    ; new_value=    nou
 
 
         int extensionPos = localeOrFile.lastIndexOf('.');
         String fileWithoutSuffix = extensionPos >= 0 ? localeOrFile.substring(0, extensionPos) : localeOrFile;
 
-        String values2 = new_values == null ? null 
-            : new_values.size() != 1 ? new_values.toString() 
+        String values2 = new_values == null ? null
+            : new_values.size() != 1 ? new_values.toString()
                 : new_values.iterator().next();
-        
+
         System.out.println("locale=" + fileWithoutSuffix
             + ";\taction=" + configOption
             + (match_value == null ? "" : ";\tvalue=" + escape(match_value))

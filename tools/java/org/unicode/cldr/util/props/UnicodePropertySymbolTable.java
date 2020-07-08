@@ -23,7 +23,7 @@ import com.ibm.icu.text.UnicodeSet;
  * Unassigned characters (gc=Cn) are different than in ICU other than in ICU, you MUST call
  * {@code UnicodeProperty.ResetCacheProperties} afterwards. If you then call {@code UnicodeSet.setDefaultXSymbolTable}
  * with null to clear the value, you MUST also call {@code UnicodeProperty.ResetCacheProperties}.
- * 
+ *
  * @author markdavis
  */
 public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
@@ -44,11 +44,12 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
     //      String[] propertyNames = propertyName.split("[*]");
     //      for (int i = propertyNames.length - 1; i >= 0; ++i) {
     //        String pname = propertyNames[i];
-    //        
+    //
     //      }
     //      return null;
     //    }
 
+    @Override
     public boolean applyPropertyAlias(String propertyName,
             String propertyValue, UnicodeSet result) {
       boolean status = false;
@@ -59,7 +60,7 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
           if (posNotEqual < 0) posNotEqual = propertyName.length();
           if (posColon < 0) posColon = propertyName.length();
           int opPos = posNotEqual < posColon ? posNotEqual : posColon;
-          propertyValue = propertyValue.length() == 0 ? propertyName.substring(opPos+1) 
+          propertyValue = propertyValue.length() == 0 ? propertyName.substring(opPos+1)
                   : propertyName.substring(opPos+1) + "=" + propertyValue;
           propertyName = propertyName.substring(0,opPos);
           if (posNotEqual < posColon) {
@@ -76,15 +77,15 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
       } else {
         try {
           status = applyPropertyAlias0("gc", propertyName, result);
-        } catch (Exception e) {};
+        } catch (Exception e) {}
         if (!status) {
           try {
             status = applyPropertyAlias0("sc", propertyName, result);
-          } catch (Exception e) {};
+          } catch (Exception e) {}
           if (!status) {
             try {
               status = applyPropertyAlias0(propertyName, "Yes", result);
-            } catch (Exception e) {};
+            } catch (Exception e) {}
             if (!status) {
               status = applyPropertyAlias0(propertyName, "", result);
             }
@@ -101,30 +102,30 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
     {
         GC_REMAP.put("c", "Cc Cf Cn Co Cs".split(" "));
         GC_REMAP.put("other", GC_REMAP.get("c"));
-        
+
         GC_REMAP.put("l", "Ll Lm Lo Lt Lu".split(" "));
         GC_REMAP.put("letter", GC_REMAP.get("l"));
-        
+
         GC_REMAP.put("lc", "Ll Lt Lu".split(" "));
         GC_REMAP.put("casedletter", GC_REMAP.get("lc"));
-        
+
         GC_REMAP.put("m", "Mc Me Mn".split(" "));
         GC_REMAP.put("mark", GC_REMAP.get("m"));
-        
+
         GC_REMAP.put("n", "Nd Nl No".split(" "));
         GC_REMAP.put("number", GC_REMAP.get("n"));
-        
+
         GC_REMAP.put("p", "Pc Pd Pe Pf Pi Po Ps".split(" "));
         GC_REMAP.put("punctuation", GC_REMAP.get("p"));
         GC_REMAP.put("punct", GC_REMAP.get("p"));
-        
+
         GC_REMAP.put("s", "Sc Sk Sm So".split(" "));
         GC_REMAP.put("symbol", GC_REMAP.get("s"));
-        
+
         GC_REMAP.put("z", "Zl Zp Zs".split(" "));
         GC_REMAP.put("separator", GC_REMAP.get("z"));
     }
-    
+
     public boolean applyPropertyAlias0(String propertyName,
             String propertyValue, UnicodeSet result) {
       result.clear();
@@ -191,7 +192,7 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
           set = new UnicodeSet();
           List<String> values = prop.getAvailableValues();
           for (String value : values) {
-            if (patternMatcher.matches(value)) {
+            if (patternMatcher.test(value)) {
               for (String other : values) {
                 if (other.compareTo(value) <= 0) {
                   set.addAll(prop.getSet(other));
@@ -208,7 +209,7 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
       throw new IllegalArgumentException("Illegal property: " + propertyName);
     }
 
-    
+
 
     private boolean isValid(UnicodeProperty prop, String propertyValue) {
 //      if (prop.getName().equals("General_Category")) {
@@ -234,7 +235,8 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
             this.comparator = comparator;
           }
 
-        public boolean matches(Object value) {
+        @Override
+        public boolean test(Object value) {
           int comp = comparator.compare(pattern, value.toString());
           switch (relation) {
           case less: return comp < 0;
@@ -245,12 +247,13 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
           }
         }
 
+        @Override
         public PatternMatcher set(String pattern) {
           this.pattern = pattern;
           return this;
         }
       }
-    
+
     /**
      * Special parser for doubles. Anything not parsable is higher than everything else.
      */
@@ -272,11 +275,11 @@ public class UnicodePropertySymbolTable extends UnicodeSet.XSymbolTable {
             if (Double.isNaN(d1) || Double.isNaN(d2)) {
                 throw new IllegalArgumentException();
             }
-                
-            return d1 > d2 ? 1 
+
+            return d1 > d2 ? 1
                     : d1 < d2 ? -1
                         : 0;
         }
-        
+
     };
   }

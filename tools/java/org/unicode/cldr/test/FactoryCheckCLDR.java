@@ -17,6 +17,7 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
     private CLDRFile resolvedCldrFileToCheck;
     private PathHeader.Factory pathHeaderFactory;
 
+    @Override
     public synchronized CLDRFile getEnglishFile() {
         if (super.getEnglishFile() != null) {
             return super.getEnglishFile();
@@ -58,7 +59,7 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
     public Factory getFactory() {
         return factory;
     }
-    
+
     public String getPathReferenceForMessage(String path, boolean codeOnly) {
         PathHeader pathHeader = getPathHeaderFactory().fromPath(path);
         String referenceToOther;

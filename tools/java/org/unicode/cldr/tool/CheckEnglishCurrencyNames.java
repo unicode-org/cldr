@@ -30,7 +30,7 @@ public class CheckEnglishCurrencyNames {
         Set<String> currencyCodes = sc.getGoodAvailableCodes("currency");
         Relation<String, String> currencyCodesWithDates = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Relation<String, String> modernCurrencyCodes2territory = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(sc.getGoodAvailableCodes("territory"));
+        Set<String> territoriesWithoutModernCurrencies = new TreeSet<>(sc.getGoodAvailableCodes("territory"));
 
         for (String territory : sc.getGoodAvailableCodes("territory")) {
             if (supplementalDataInfo.getContained(territory) != null) {
@@ -73,7 +73,7 @@ public class CheckEnglishCurrencyNames {
                 System.out.println(currency + "\t" + name);
             }
         }
-        Set<String> remainder = new TreeSet<String>();
+        Set<String> remainder = new TreeSet<>();
         remainder.addAll(currencyCodes);
         remainder.removeAll(currencyCodesWithDates.keySet());
         System.out.println("Currencies without Territories: " + remainder);
@@ -96,9 +96,9 @@ public class CheckEnglishCurrencyNames {
             }
         }
         Relation<String, String> currency2symbols = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Map<String, Relation<String, String>> currency2symbol2locales = new TreeMap<String, Relation<String, String>>(); //
+        Map<String, Relation<String, String>> currency2symbol2locales = new TreeMap<>(); //
         System.out.format("Raw usage data\n");
-        Set<String> noOfficialLanguages = new TreeSet<String>();
+        Set<String> noOfficialLanguages = new TreeSet<>();
 
         for (Entry<String, Set<String>> currencyAndTerritories : modernCurrencyCodes2territory.keyValuesSet()) {
             String currency = currencyAndTerritories.getKey();

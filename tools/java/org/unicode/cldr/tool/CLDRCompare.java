@@ -11,8 +11,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-
 public class CLDRCompare {
     public static void main(String[] args) throws Exception {
         String filter = CldrUtility.getProperty("filter", ".*");
@@ -40,7 +38,7 @@ public class CLDRCompare {
 
             final String oldSubDir = oldVersion.getCanonicalPath() + "/" + subDir;
 
-            TreeSet<String> files = new TreeSet<String>();
+            TreeSet<String> files = new TreeSet<>();
 
             Factory cldrFactory = Factory.make(newSubDir, ".*");
             files.addAll(cldrFactory.getAvailable());
@@ -58,17 +56,17 @@ public class CLDRCompare {
                     continue;
                 }
 
-                HashSet<String> paths = new HashSet<String>();
+                HashSet<String> paths = new HashSet<>();
                 CLDRFile newCldrFile = null;
                 try {
                     newCldrFile = cldrFactory.make(file, false);
-                    CollectionUtilities.addAll(newCldrFile.iterator(), paths);
+                    newCldrFile.forEach(paths::add);
                 } catch (Exception e) {
                 }
                 CLDRFile oldCldrFile = null;
                 try {
                     oldCldrFile = oldFactory.make(file, false);
-                    CollectionUtilities.addAll(oldCldrFile.iterator(), paths);
+                    oldCldrFile.forEach(paths::add);
                 } catch (Exception e1) {
                 }
 

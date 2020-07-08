@@ -47,16 +47,16 @@ public class GenerateG2xG2 {
         root = cldrFactory.make("root", true);
         StandardCodes sc = StandardCodes.make();
         Map<Organization, Map<String, Level>> type_code_value = sc.getLocaleTypes();
-        Set<String> sourceSet = new TreeSet<String>();
-        Set<String> targetLanguageSet = new TreeSet<String>();
+        Set<String> sourceSet = new TreeSet<>();
+        Set<String> targetLanguageSet = new TreeSet<>();
         targetLanguageSet.add("no");
         addPriority("G2", "nn");
         addPriority("G2", "no");
         targetLanguageSet.add("nn");
-        Set<String> targetScriptSet = new TreeSet<String>();
-        Set<String> targetRegionSet = new TreeSet<String>();
-        Set<String> targetTZSet = new TreeSet<String>();
-        Set<String> targetCurrencySet = new TreeSet<String>();
+        Set<String> targetScriptSet = new TreeSet<>();
+        Set<String> targetRegionSet = new TreeSet<>();
+        Set<String> targetTZSet = new TreeSet<>();
+        Set<String> targetCurrencySet = new TreeSet<>();
         for (Organization type : type_code_value.keySet()) {
             Map<String, Level> code_value = type_code_value.get(type);
             if (!type.equals(Organization.ibm)) continue;
@@ -85,7 +85,7 @@ public class GenerateG2xG2 {
         }
         // set the priorities for territories
         Map<String, List<String>> worldBankInfo = sc.getWorldBankInfo();
-        Set<String> euCodes = new HashSet<String>(Arrays.asList(new String[] { "AT", "BE", "CY", "CZ", "DK", "EE",
+        Set<String> euCodes = new HashSet<>(Arrays.asList(new String[] { "AT", "BE", "CY", "CZ", "DK", "EE",
             "FI", "FR", "DE", "GR", "HU", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "SI", "ES", "SE", "GB" }));
         for (String countryCode : worldBankInfo.keySet()) {
             if (priorityMap.get(countryCode) == null) continue; // only use ones we already have: defaults G4
@@ -191,7 +191,7 @@ public class GenerateG2xG2 {
 
     private static boolean showLocales(int choice) throws Exception {
         ULocale desiredDisplayLocale = ULocale.ENGLISH;
-        Set<String> testSet = new TreeSet<String>();
+        Set<String> testSet = new TreeSet<>();
         StandardCodes sc = StandardCodes.make();
         {
             Set<String> countries = sc.getGoodAvailableCodes("territory");
@@ -225,9 +225,9 @@ public class GenerateG2xG2 {
             boolean USE_3066bis = choice == 2;
             // produce random list of RFC3066 language tags
             Set<String> grandfathered = sc.getAvailableCodes("grandfathered");
-            List<String> language_subtags = new ArrayList<String>(sc.getGoodAvailableCodes("language"));
-            List<String> script_subtags = new ArrayList<String>(sc.getGoodAvailableCodes("script"));
-            List<String> region_subtags = new ArrayList<String>(sc.getGoodAvailableCodes("territory"));
+            List<String> language_subtags = new ArrayList<>(sc.getGoodAvailableCodes("language"));
+            List<String> script_subtags = new ArrayList<>(sc.getGoodAvailableCodes("script"));
+            List<String> region_subtags = new ArrayList<>(sc.getGoodAvailableCodes("territory"));
             for (String possibility : grandfathered) {
                 System.out.println(possibility);
                 if (new ULocale(possibility).getScript().length() != 0) {
@@ -271,12 +271,12 @@ public class GenerateG2xG2 {
 
     private static void showExample(RuleBasedCollator col) {
         String samples = "a A b B \u5416 \u93CA \u516b \u7C3F";
-        Set<String> s = new TreeSet<String>(col);
+        Set<String> s = new TreeSet<>(col);
         s.addAll(Arrays.asList(samples.split(" ")));
         System.out.println(com.ibm.icu.impl.Utility.escape(s.toString()));
     }
 
-    static Map<String, String> priorityMap = new TreeMap<String, String>();
+    static Map<String, String> priorityMap = new TreeMap<>();
 
     static void addPriority(String priority, String code) {
         if (code.length() == 0) return;
@@ -290,7 +290,7 @@ public class GenerateG2xG2 {
         int missingCount;
     }
 
-    static Map<String, Totals> totalMap = new TreeMap<String, Totals>();
+    static Map<String, Totals> totalMap = new TreeMap<>();
 
     static void checkItems(PrintWriter pw, String sourceLocale, CLDRFile sourceData, int type, Set<String> targetItemSet) {
         for (Iterator<String> it2 = targetItemSet.iterator(); it2.hasNext();) {
@@ -369,7 +369,7 @@ public class GenerateG2xG2 {
 
     private static List<String> getCurrency(String territory) {
         if (territory_currency == null) {
-            territory_currency = new TreeMap<String, List<String>>();
+            territory_currency = new TreeMap<>();
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
             for (String path : supp) {
@@ -388,7 +388,7 @@ public class GenerateG2xG2 {
                         }
                         List<String> info = territory_currency.get(iso3166);
                         if (info == null) {
-                            territory_currency.put(iso3166, info = new ArrayList<String>());
+                            territory_currency.put(iso3166, info = new ArrayList<>());
                         }
                         info.add(iso4217);
                     }

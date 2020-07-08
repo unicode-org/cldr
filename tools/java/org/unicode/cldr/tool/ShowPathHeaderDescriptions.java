@@ -15,11 +15,11 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.LinkedHashMultiset;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
@@ -33,16 +33,16 @@ public class ShowPathHeaderDescriptions {
         PathHeader.Factory phf = PathHeader.getFactory(english);
 
         String localeToTest = "cs";
-        
+
         CLDRFile localeFile = factory.make(localeToTest, true);
         Multiset<String> sectionPageHeader = LinkedHashMultiset.create();
         Multiset<String> sectionPage = LinkedHashMultiset.create();
         Set<PathHeader> pathHeaders = new TreeSet<>();
         UnicodeSet emoji = new UnicodeSet("[:emoji:]");
-        
+
         for (String path : localeFile.fullIterable()) {
             if (emoji.containsSome(path)) {
-                
+
             }
             PathHeader pathHeader = phf.fromPath(path);
             if (pathHeader.getSectionId() == SectionId.Characters) {
@@ -139,7 +139,7 @@ public class ShowPathHeaderDescriptions {
 
         process(SphType.sph, sphv, done);
 
-        System.out.println(CollectionUtilities.join(urls, "\n"));
+        System.out.println(Joiner.on("\n").join(urls));
     }
 
     private static void showProgress(Set<String> done, Multimap<String, R3<SectionId, PageId, String>> valueToKey) {
@@ -160,7 +160,7 @@ public class ShowPathHeaderDescriptions {
             remaining.removeAll(done);
             if (remaining.size() == 1) {
                 String value = remaining.iterator().next();
-                if (type == type.s || type == type.p || type == type.sp) {
+                if (type == SphType.s || type == SphType.p || type == SphType.sp) {
                     done.add(value);
                 } else {
                     newDone.add(value);

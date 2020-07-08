@@ -24,7 +24,7 @@ public class PathDescription {
     }
 
     // BE sure to sync with the list in xmbSkip!
-    public static final Set<String> EXTRA_LANGUAGES = new TreeSet<String>(
+    public static final Set<String> EXTRA_LANGUAGES = new TreeSet<>(
         Arrays
             .asList(
                 "ach|af|ak|ak|am|ar|az|be|bem|bg|bh|bn|br|bs|ca|chr|ckb|co|crs|cs|cy|da|de|de_AT|de_CH|ee|el|en|en_AU|en_CA|en_GB|en_US|eo|es|es_419|es_ES|et|eu|fa|fi|fil|fo|fr|fr_CA|fr_CH|fy|ga|gaa|gd|gl|gn|gsw|gu|ha|haw|he|hi|hr|ht|hu|hy|ia|id|ig|io|is|it|ja|jv|ka|kg|kk|km|kn|ko|kri|ku|ky|la|lg|ln|lo|loz|lt|lua|lv|mfe|mg|mi|mk|ml|mn|mr|ms|mt|my|nb|ne|nl|nl_BE|nn|nso|ny|nyn|oc|om|or|pa|pcm|pl|ps|pt|pt_BR|pt_PT|qu|rm|rn|ro|ro|ro_MD|ru|rw|sd|si|sk|sl|sn|so|sq|sr|sr_Latn|sr_ME|st|su|sv|sw|ta|te|tg|th|ti|tk|tlh|tn|to|tr|tt|tum|ug|uk|und|ur|uz|vi|wo|xh|yi|yo|zh|zh_Hans|zh_Hant|zh_HK|zu|zxx"
@@ -51,7 +51,7 @@ public class PathDescription {
 
     private Matcher metazoneMatcher = METAZONE_PATTERN.matcher("");
     private String starredPathOutput;
-    private Output<String[]> pathArguments = new Output<String[]>();
+    private Output<String[]> pathArguments = new Output<>();
     private EnumSet<Status> status = EnumSet.noneOf(Status.class);
 
     public static final String MISSING_DESCRIPTION = "Before translating, please see http://cldr.org/translation.";
@@ -62,8 +62,8 @@ public class PathDescription {
         Map<String, List<Set<String>>> starredPaths,
         ErrorHandling errorHandling) {
         this.english = english;
-        this.extras = extras == null ? new HashMap<String, String>() : extras;
-        this.starredPaths = starredPaths == null ? new HashMap<String, List<Set<String>>>() : starredPaths;
+        this.extras = extras == null ? new HashMap<>() : extras;
+        this.starredPaths = starredPaths == null ? new HashMap<>() : starredPaths;
         allMetazones = supplementalDataInfo.getAllMetazones();
         this.errorHandling = errorHandling;
     }
@@ -160,7 +160,7 @@ public class PathDescription {
                 length = length.equals("long") ? "" : "abbreviated ";
                 code = code + ", " + length + daylightType + " form";
             } else if (type.equals("timezone")) {
-                String country = (String) ZONE2COUNTRY.get(code);
+                String country = ZONE2COUNTRY.get(code);
                 int lastSlash = code.lastIndexOf('/');
                 String codeName = lastSlash < 0 ? code : code.substring(lastSlash + 1).replace('_', ' ');
 
@@ -240,7 +240,7 @@ public class PathDescription {
     private List<String> addStarredInfo(Map<String, List<Set<String>>> starredPaths, String path) {
         Matcher starAttributeMatcher = STAR_ATTRIBUTE_PATTERN.matcher(path);
         StringBuilder starredPath = new StringBuilder();
-        List<String> attributes = new ArrayList<String>();
+        List<String> attributes = new ArrayList<>();
         int lastEnd = 0;
         while (starAttributeMatcher.find()) {
             int start = starAttributeMatcher.start(1);
@@ -257,12 +257,12 @@ public class PathDescription {
 
         List<Set<String>> attributeList = starredPaths.get(starredPathString);
         if (attributeList == null) {
-            starredPaths.put(starredPathString, attributeList = new ArrayList<Set<String>>());
+            starredPaths.put(starredPathString, attributeList = new ArrayList<>());
         }
         int i = 0;
         for (String attribute : attributes) {
             if (attributeList.size() <= i) {
-                TreeSet<String> subset = new TreeSet<String>();
+                TreeSet<String> subset = new TreeSet<>();
                 subset.add(attribute);
                 attributeList.add(subset);
             } else {

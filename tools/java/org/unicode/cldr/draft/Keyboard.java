@@ -22,13 +22,13 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
  * A first, very rough cut at reading the keyboard data.
  * Every public structure is immutable, eg all returned maps, sets.
- * 
+ *
  * @author markdavis
  */
 public class Keyboard {
@@ -113,7 +113,7 @@ public class Keyboard {
     // }
 
     public static Set<String> getPlatformIDs() {
-        Set<String> results = new LinkedHashSet<String>();
+        Set<String> results = new LinkedHashSet<>();
         File file = new File(BASE);
         for (String f : file.list())
             if (!f.equals("dtd") && !f.startsWith(".") && !f.startsWith("_")) {
@@ -123,7 +123,7 @@ public class Keyboard {
     }
 
     public static Set<String> getKeyboardIDs(String platformId) {
-        Set<String> results = new LinkedHashSet<String>();
+        Set<String> results = new LinkedHashSet<>();
         File base = new File(BASE + platformId + "/");
         for (String f : base.list())
             if (f.endsWith(".xml") && !f.startsWith(".") && !f.startsWith("_")) {
@@ -183,7 +183,7 @@ public class Keyboard {
                 .read(fileName, -1, true);
             return keyboardHandler.getKeyboard();
         } catch (Exception e) {
-            throw new KeyboardException(fileName + "\n" + CollectionUtilities.join(errors, ", "), e);
+            throw new KeyboardException(fileName + "\n" + Joiner.on(", ").join(errors), e);
         }
     }
 
@@ -265,6 +265,7 @@ public class Keyboard {
             return gestures;
         }
 
+        @Override
         public String toString() {
             return "{" + output + "," + transformStatus + ", " + gestures + "}";
         }
@@ -287,6 +288,7 @@ public class Keyboard {
             return iso2output;
         }
 
+        @Override
         public String toString() {
             return "{" + modifiers + "," + iso2output + "}";
         }
@@ -300,7 +302,7 @@ public class Keyboard {
         }
 
         public Map<String, String> getMatch(String prefix) {
-            Map<String, String> results = new LinkedHashMap<String, String>();
+            Map<String, String> results = new LinkedHashMap<>();
             for (Entry<String, String> entry : string2string.entrySet()) {
                 String key = entry.getKey();
                 if (key.startsWith(prefix)) {
@@ -380,8 +382,9 @@ public class Keyboard {
 
     private static class PlatformHandler extends SimpleHandler {
         String id;
-        Map<String, Iso> hardwareMap = new HashMap<String, Iso>();
+        Map<String, Iso> hardwareMap = new HashMap<>();
 
+        @Override
         public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             // <platform id='android'/>
@@ -394,7 +397,7 @@ public class Keyboard {
                         Iso.valueOf(parts.getAttributeValue(2, "iso")));
                 }
             }
-        };
+        }
 
         public Platform getPlatform() {
             return new Platform(id, hardwareMap);
@@ -410,22 +413,22 @@ public class Keyboard {
 
     private static class KeyboardHandler extends SimpleHandler {
         Set<Exception> errors; //  = new LinkedHashSet<Exception>();
-        Set<String> errors2 = new LinkedHashSet<String>();
+        Set<String> errors2 = new LinkedHashSet<>();
         // doesn't do any error checking for collisions, etc. yet.
         String locale; // TODO
         String version; // TODO
         String platformVersion; // TODO
 
-        Set<String> names = new LinkedHashSet<String>();
+        Set<String> names = new LinkedHashSet<>();
         Fallback fallback = Fallback.BASE;
 
         KeyboardModifierSet keyMapModifiers = null;
-        Map<Iso, Output> iso2output = new EnumMap<Iso, Output>(Iso.class);
-        Set<KeyMap> keyMaps = new LinkedHashSet<KeyMap>();
+        Map<Iso, Output> iso2output = new EnumMap<>(Iso.class);
+        Set<KeyMap> keyMaps = new LinkedHashSet<>();
 
         TransformType currentType = null;
         Map<String, String> currentTransforms = null;
-        Map<TransformType, Transforms> transformMap = new EnumMap<TransformType, Transforms>(TransformType.class);
+        Map<TransformType, Transforms> transformMap = new EnumMap<>(TransformType.class);
 
         LanguageTagParser ltp = new LanguageTagParser();
 
@@ -443,6 +446,7 @@ public class Keyboard {
             return new Keyboard(locale, version, platformVersion, names, fallback, keyMaps, transformMap);
         }
 
+        @Override
         public void handlePathValue(String path, @SuppressWarnings("unused") String value) {
             try {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -477,7 +481,7 @@ public class Keyboard {
                         if (keyMapModifiers != null) {
                             addToKeyMaps();
                         }
-                        iso2output = new LinkedHashMap<Iso, Output>();
+                        iso2output = new LinkedHashMap<>();
                         keyMapModifiers = newMods;
                     }
                     String isoString = parts.getAttributeValue(2, "iso");
@@ -496,7 +500,7 @@ public class Keyboard {
                             transformMap.put(currentType, new Transforms(currentTransforms));
                         }
                         currentType = type;
-                        currentTransforms = new LinkedHashMap<String, String>();
+                        currentTransforms = new LinkedHashMap<>();
                     }
                     final String from = fixValue(parts.getAttributeValue(2, "from"));
                     final String to = fixValue(parts.getAttributeValue(2, "to"));
@@ -563,7 +567,7 @@ public class Keyboard {
         public Output getOutput(XPathParts parts) {
             String chars = null;
             TransformStatus transformStatus = TransformStatus.DEFAULT;
-            Map<Gesture, List<String>> gestures = new EnumMap<Gesture, List<String>>(Gesture.class);
+            Map<Gesture, List<String>> gestures = new EnumMap<>(Gesture.class);
 
             for (Entry<String, String> attributeAndValue : parts.getAttributes(-1).entrySet()) {
                 String attribute = attributeAndValue.getKey();
@@ -581,7 +585,7 @@ public class Keyboard {
                 } else if (attribute.equals("iso") || attribute.equals("base")) {
                     // ignore, handled above
                 } else {
-                    LinkedHashSet<String> list = new LinkedHashSet<String>();
+                    LinkedHashSet<String> list = new LinkedHashSet<>();
                     for (String item : attributeValue.trim().split(" ")) {
                         final String fixedValue = fixValue(item);
                         if (fixedValue.isEmpty()) {
@@ -591,14 +595,14 @@ public class Keyboard {
                         list.add(fixedValue);
                     }
                     gestures.put(Gesture.fromString(attribute),
-                        Collections.unmodifiableList(new ArrayList<String>(list)));
+                        Collections.unmodifiableList(new ArrayList<>(list)));
                     if (DEBUG) {
                         System.out.println("\tgesture=" + attribute + ";\tto=" + list + ";");
                     }
                 }
             }
             return new Output(chars, gestures, transformStatus);
-        };
+        }
     }
 
     public static class KeyboardException extends RuntimeException {

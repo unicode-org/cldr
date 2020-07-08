@@ -113,11 +113,11 @@ class SimpleLocaleParser {
             // make uppercase for compatibility with CLDR.
             variants = Arrays.asList(variantSeparatorPattern.split(variantList.toUpperCase(Locale.ENGLISH)));
             // check for duplicate variants
-            if (new HashSet<String>(variants).size() != variants.size()) {
+            if (new HashSet<>(variants).size() != variants.size()) {
                 throw new IllegalArgumentException("Duplicate variants");
             }
         }
-        extensions = new LinkedHashMap<String, String>(); // group 5 are extensions, 6 is private use
+        extensions = new LinkedHashMap<>(); // group 5 are extensions, 6 is private use
         // extensions are a bit more complicated
         addExtensions(root.group(5), extensionPattern);
         addExtensions(root.group(6), privateUsePattern);
@@ -231,6 +231,7 @@ class SimpleLocaleParser {
         return extensions;
     }
 
+    @Override
     public String toString() {
         return "{language=" + language
             + ", script=" + script

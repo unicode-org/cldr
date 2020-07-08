@@ -27,8 +27,8 @@ public class DayPeriodConverter {
     static class DayInfo {
         ULocale locale;
         DayPeriods.DayPeriod[] data = new DayPeriod[24];
-        Map<DayPeriod, String> toNativeName = new EnumMap<DayPeriod, String>(DayPeriod.class);
-        Map<String, DayPeriod> toDayPeriod = new HashMap<String, DayPeriod>();
+        Map<DayPeriod, String> toNativeName = new EnumMap<>(DayPeriod.class);
+        Map<String, DayPeriod> toDayPeriod = new HashMap<>();
 
         @Override
         public String toString() {

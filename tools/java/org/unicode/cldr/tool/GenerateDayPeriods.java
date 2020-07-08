@@ -28,7 +28,7 @@ public class GenerateDayPeriods {
     public static void main(String[] args) throws IOException {
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/supplemental", "dayPeriods.xml")) {
             out.println(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                + "\t<version number=\"$Revision" /* bypass SVN */ + "$\"/>");
+                + "\t<version number=\"$Revision" + "$\"/>");
             Factory factory = CLDRConfig.getInstance().getCldrFactory();
             for (Type type : Type.values()) {
                 out.println("\t<dayPeriodRuleSet"

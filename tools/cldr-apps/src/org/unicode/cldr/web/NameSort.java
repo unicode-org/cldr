@@ -56,6 +56,7 @@ public class NameSort extends SortMode {
         final Collator myCollator = CodeSortMode.createCollator();
         return new Comparator<DataRow>() {
             // com.ibm.icu.text.Collator myCollator = rbc;
+            @Override
             public int compare(DataRow p1, DataRow p2) {
                 if (p1 == p2) {
                     return 0;

@@ -120,7 +120,7 @@ public class VettingViewerQueue {
         READY,
         /** Stopped, due to some err */
         STOPPED,
-    };
+    }
 
     /**
      * What policy should be used when querying the queue?
@@ -137,7 +137,7 @@ public class VettingViewerQueue {
         FORCERESTART,
         /** Stop. */
         FORCESTOP
-    };
+    }
 
     private static class VVOutput {
         public VVOutput(StringBuffer s) {
@@ -156,7 +156,7 @@ public class VettingViewerQueue {
 
     private static class QueueEntry {
         public Task currentTask = null;
-        public Map<Pair<CLDRLocale, Organization>, VVOutput> output = new TreeMap<Pair<CLDRLocale, Organization>, VVOutput>();
+        public Map<Pair<CLDRLocale, Organization>, VVOutput> output = new TreeMap<>();
     }
 
     private static final Object OnlyOneVetter = new Object() {
@@ -204,7 +204,7 @@ public class VettingViewerQueue {
             int baseMax = getMax(sm.getTranslationHintsFile());
             if (isSummary) {
                 maxn = 0;
-                List<Level> levelsToCheck = new ArrayList<Level>();
+                List<Level> levelsToCheck = new ArrayList<>();
                 if (usersOrg.equals(Organization.surveytool)) {
                     levelsToCheck.add(Level.COMPREHENSIVE);
                 } else {
@@ -258,7 +258,7 @@ public class VettingViewerQueue {
                     }
                     status = "Beginning Process, Calculating";
 
-                    vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
+                    vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                         getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
                     progress.update("Got VettingViewer");
                     statusCode = Status.PROCESSING;
@@ -277,6 +277,7 @@ public class VettingViewerQueue {
                             return remStr;
                         }
 
+                        @Override
                         public void nudge() {
                             if (!running()) {
                                 throw new RuntimeException("Not Running- stop now.");
@@ -301,6 +302,7 @@ public class VettingViewerQueue {
                             }
                         }
 
+                        @Override
                         public void done() {
                             progress.update("Done!");
                         }
@@ -329,7 +331,7 @@ public class VettingViewerQueue {
                     }
                     if (running()) {
                         aBuffer.append("<hr/>" + PRE + "Processing time: " + ElapsedTimer.elapsedTime(start) + POST);
-                        entry.output.put(new Pair<CLDRLocale, Organization>(locale, usersOrg), new VVOutput(aBuffer));
+                        entry.output.put(new Pair<>(locale, usersOrg), new VVOutput(aBuffer));
                     }
                 }
                 status = "Finished.";
@@ -386,7 +388,7 @@ public class VettingViewerQueue {
                                                                                 */
         final Set<Organization> covOrgs = StandardCodes.make().getLocaleCoverageOrganizations();
 
-        final Set<String> aLocs = new HashSet<String>();
+        final Set<String> aLocs = new HashSet<>();
         /*
          * TODO: a warning appears for the next line; should be vr_org instead of vr_org.name()?
          * How to exercise this code and test that?
@@ -455,7 +457,7 @@ public class VettingViewerQueue {
         usersOrg = Organization.fromString(sess.user.voterOrg());
 
         SurveyMain sm = CookieSession.sm;
-        VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
+        VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
@@ -499,7 +501,7 @@ public class VettingViewerQueue {
         try {
             JSONObject reviewInfo = new JSONObject();
             JSONArray notificationsCount = new JSONArray();
-            List<String> notifications = new ArrayList<String>();
+            List<String> notifications = new ArrayList<>();
             CLDRFile englishFile = ctx.sm.getSTFactory().make("en", true);
 
             for (Choice choice : choices) {
@@ -622,32 +624,32 @@ public class VettingViewerQueue {
     }
 
     /**
+     * Write the Dashboard
      *
      * @param locale
      * @param aBuffer
      * @param ctx the WebContext, never null
      * @param sess the CookieSession
-     *
-     * Called only by r_vetting_json.jsp
      */
     public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess) {
-        Level usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+        String loc = locale.getBaseName();
         String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
         /*
          * if no coverage level set, use default one
          */
+        Level usersLevel;
         if (levelString.equals("default")) {
-            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(loc));
         } else {
             usersLevel = Level.get(levelString);
         }
         UserRegistry.User user = sess.user;
         Organization usersOrg = Organization.fromString(user.voterOrg());
-        boolean quick = ctx.hasField("quick");
+        final boolean quick = false;
         final String st_org = user.org;
         SurveyMain sm = CookieSession.sm;
         STFactory sourceFactory = sm.getSTFactory();
-        VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sourceFactory,
+        VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             getUsersChoice(sm), "Winning " + SurveyMain.getNewVersion());
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
@@ -660,7 +662,6 @@ public class VettingViewerQueue {
         }
 
         if (locale != SUMMARY_LOCALE) {
-            String loc = locale.getBaseName();
             /*
              * sourceFile provides the current winning values, taking into account recent votes.
              * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
@@ -706,7 +707,7 @@ public class VettingViewerQueue {
         if (sess == null)
             sess = ctx.session;
         SurveyMain sm = CookieSession.sm; // TODO: ctx.sm if ctx never null
-        Pair<CLDRLocale, Organization> key = new Pair<CLDRLocale, Organization>(locale, sess.user.vrOrg());
+        Pair<CLDRLocale, Organization> key = new Pair<>(locale, sess.user.vrOrg());
         boolean isSummary = (locale == SUMMARY_LOCALE);
         QueueEntry entry = null;
         entry = getEntry(sess);
@@ -781,7 +782,7 @@ public class VettingViewerQueue {
             usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
         } else {
             String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-            ;
+
             usersLevel = Level.get(levelString);
         }
         usersOrg = sess.user.vrOrg();
@@ -839,7 +840,7 @@ public class VettingViewerQueue {
         return entry;
     }
 
-    LruMap<CLDRLocale, BallotBox<UserRegistry.User>> ballotBoxes = new LruMap<CLDRLocale, BallotBox<User>>(8);
+    LruMap<CLDRLocale, BallotBox<UserRegistry.User>> ballotBoxes = new LruMap<>(8);
 
     BallotBox<UserRegistry.User> getBox(SurveyMain sm, CLDRLocale loc) {
         BallotBox<User> box = ballotBoxes.get(loc);

@@ -20,10 +20,10 @@ public class CountryCodeConverter {
 
     private static final boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
 
-    private static Map<String, String> nameToCountryCode = new TreeMap<String, String>(new UTF16.StringComparator(true, true, 0));
-    private static Set<String> parseErrors = new LinkedHashSet<String>();
+    private static Map<String, String> nameToCountryCode = new TreeMap<>(new UTF16.StringComparator(true, true, 0));
+    private static Set<String> parseErrors = new LinkedHashSet<>();
 
-    public static String getCodeFromName(String display) {
+    public static String getCodeFromName(String display, boolean showMissing) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
         if (trial.startsWith("\"") && trial.endsWith("\"")) {
             trial = trial.substring(1, trial.length() - 2);
@@ -44,8 +44,8 @@ public class CountryCodeConverter {
                 // }
             }
         }
-        if (SHOW_SKIP && result == null) {
-            System.out.println("Missing code; add to external/alternate_country_names.txt a line like:" +
+        if (result == null && (showMissing || SHOW_SKIP)) {
+            System.err.println("CountryCodeConverter missing code; add to external/alternate_country_names.txt a line like:" +
                 "\t<code>;\t<name>;\t" + display);
         }
         return result;
@@ -81,7 +81,7 @@ public class CountryCodeConverter {
         Set<String> goodAvailableCodes = sc.getGoodAvailableCodes("territory");
 
         for (String country : goodAvailableCodes) {
-            String description = (String) sc.getFullData("territory", country).get(0);
+            String description = sc.getFullData("territory", country).get(0);
             if (country.equals("057")) continue;
             addName(description, country);
         }
@@ -97,6 +97,7 @@ public class CountryCodeConverter {
             this.goodAvailableCodes = goodAvailableCodes;
         }
 
+        @Override
         public boolean handle(String line) {
             if (line.trim().length() == 0) {
                 return true; // don't show skips

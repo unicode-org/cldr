@@ -53,7 +53,7 @@ public class TestCLDRTests extends TestFmwk {
     Locale oLocale = Locale.ENGLISH; // TODO Drop once ICU4J has ULocale everywhere
     PrintWriter log;
     SAXParser SAX;
-    TreeMap<String, MutableInteger> results = new TreeMap<String, MutableInteger>();
+    TreeMap<String, MutableInteger> results = new TreeMap<>();
 
     public static void main(String[] args) throws Exception {
         double deltaTime = System.currentTimeMillis();
@@ -84,6 +84,7 @@ public class TestCLDRTests extends TestFmwk {
         languagesToTest = (Set<String>) new CldrUtility.CollectionTransform() {
             LocaleIDParser lip = new LocaleIDParser();
 
+            @Override
             public Object transform(Object source) {
                 return lip.set(source.toString()).getLanguageScript();
             }
@@ -118,7 +119,7 @@ public class TestCLDRTests extends TestFmwk {
     // ============ SAX Handler Infrastructure ============
 
     abstract public class Handler {
-        Map<String, String> settings = new TreeMap<String, String>();
+        Map<String, String> settings = new TreeMap<>();
         String name;
         String attributes;
 
@@ -169,6 +170,7 @@ public class TestCLDRTests extends TestFmwk {
     static class MutableInteger {
         int value;
 
+        @Override
         public String toString() {
             return String.valueOf(value);
         }
@@ -194,7 +196,7 @@ public class TestCLDRTests extends TestFmwk {
         RegisteredHandlers.put(name, handler);
     }
 
-    Map<String, Handler> RegisteredHandlers = new HashMap<String, Handler>();
+    Map<String, Handler> RegisteredHandlers = new HashMap<>();
 
     // ============ Statics for Date/Number Support ============
 
@@ -211,6 +213,7 @@ public class TestCLDRTests extends TestFmwk {
     // ============ Handler for Collation ============
     {
         addHandler("collation", new Handler() {
+            @Override
             public void handleResult(String value) {
                 Collator col = Collator.getInstance(uLocale.toLocale());
                 boolean showedAttributes = false;
@@ -239,6 +242,7 @@ public class TestCLDRTests extends TestFmwk {
 
         // ============ Handler for Numbers ============
         addHandler("number", new Handler() {
+            @Override
             public void handleResult(String result) {
                 NumberFormat nf = null;
                 double v = Double.NaN;
@@ -281,6 +285,7 @@ public class TestCLDRTests extends TestFmwk {
 
         // ============ Handler for Dates ============
         addHandler("date", new Handler() {
+            @Override
             public void handleResult(String result) throws ParseException {
                 int dateFormat = DateFormat.DEFAULT;
                 int timeFormat = DateFormat.DEFAULT;
@@ -333,6 +338,7 @@ public class TestCLDRTests extends TestFmwk {
         StringBuffer lastChars = new StringBuffer();
         Handler handler;
 
+        @Override
         public void startElement(
             String uri,
             String localName,
@@ -360,6 +366,7 @@ public class TestCLDRTests extends TestFmwk {
             }
         }
 
+        @Override
         public void endElement(String uri, String localName, String qName)
             throws SAXException {
             try {
@@ -377,6 +384,7 @@ public class TestCLDRTests extends TestFmwk {
         }
 
         // Have to hack around the fact that the character data might be in pieces
+        @Override
         public void characters(char[] ch, int start, int length)
             throws SAXException {
             try {
@@ -391,6 +399,7 @@ public class TestCLDRTests extends TestFmwk {
 
         // just for debugging
 
+        @Override
         public void notationDecl(String name, String publicId, String systemId)
             throws SAXException {
             System.out.println("notationDecl: " + name
@@ -398,16 +407,19 @@ public class TestCLDRTests extends TestFmwk {
                 + ", " + systemId);
         }
 
+        @Override
         public void processingInstruction(String target, String data)
             throws SAXException {
             System.out.println("processingInstruction: " + target + ", " + data);
         }
 
+        @Override
         public void skippedEntity(String name)
             throws SAXException {
             System.out.println("skippedEntity: " + name);
         }
 
+        @Override
         public void unparsedEntityDecl(String name, String publicId,
             String systemId, String notationName)
             throws SAXException {

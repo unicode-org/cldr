@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,11 +15,11 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.With;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestExampleGenerator extends TestFmwk {
     CLDRConfig info = CLDRConfig.getInstance();
@@ -65,7 +66,7 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-    /**  
+    /**
      * Only add to this if the example should NEVER appear.
      * <br>WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
      */
@@ -104,7 +105,7 @@ public class TestExampleGenerator extends TestFmwk {
         );
     // Only add to above if the example should NEVER appear.
 
-    /**  
+    /**
      * Add to this if the example SHOULD appear, but we don't have it yet.
      * <br>TODO Add later
      */
@@ -160,14 +161,14 @@ public class TestExampleGenerator extends TestFmwk {
 
         "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]",
 
-        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗    
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
         );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 
 
-    /**  
+    /**
      * Only add to this if the background should NEVER appear.
-     * <br>The background is used when the element is used as part of another format. 
+     * <br>The background is used when the element is used as part of another format.
      * <br>WARNING - do not disable the test by putting in too broad a match. Make sure the paths are reasonably granular.
      */
     static final Set<String> DELIBERATE_OK_TO_MISS_BACKGROUND = ImmutableSet.of(
@@ -193,9 +194,9 @@ public class TestExampleGenerator extends TestFmwk {
     // Only add to above if the background should NEVER appear.
 
 
-    /**  
+    /**
      * Add to this if the background SHOULD appear, but we don't have them yet.
-     * <br> The background is used when the element is used as part of another format. 
+     * <br> The background is used when the element is used as part of another format.
      * <br> TODO Add later
      */
     static final Set<String> TEMPORARY_OK_TO_MISS_BACKGROUND = ImmutableSet.of(
@@ -210,10 +211,11 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestAllPaths() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         PathStarrer ps = new PathStarrer();
-        Set<String> seen = new HashSet<String>();
+        Set<String> seen = new HashSet<>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
-        for (String path : CollectionUtilities.addAll(cldrFile.fullIterable()
-            .iterator(), new TreeSet<String>(cldrFile.getComparator()))) {
+        TreeSet<String> target = new TreeSet<>(cldrFile.getComparator());
+        cldrFile.fullIterable().forEach(target::add);
+        for (String path : target) {
             String plainStarred = ps.set(path);
             String value = cldrFile.getStringValue(path);
             if (value == null || path.endsWith("/alias")
@@ -241,6 +243,10 @@ public class TestExampleGenerator extends TestFmwk {
 
                 if (simplified.contains("null")) {
                     if (true || !seen.contains(javaEscapedStarred)) {
+                        // debug
+                        exampleGenerator.getExampleHtml(path, value);
+                        ExampleGenerator.simplify(example, false);
+
                         errln("'null' in message:\t<" + value + ">\t"
                             + simplified + "\t" + javaEscapedStarred);
                         // String example2 =
@@ -307,17 +313,17 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestCompoundUnit() {
-        String[][] tests = { 
+        String[][] tests = {
             { "per", "LONG", "one", "〖❬1 meter❭ per ❬second❭〗" },
             { "per", "SHORT", "one", "〖❬1 m❭/❬sec❭〗" },
             { "per", "NARROW", "one", "〖❬1m❭/❬s❭〗" },
             { "per", "LONG", "other", "〖❬1.5 meters❭ per ❬second❭〗" },
             { "per", "SHORT", "other", "〖❬1.5 m❭/❬sec❭〗" },
             { "per", "NARROW", "other", "〖❬1.5m❭/❬s❭〗" },
-            { "times", "LONG", "one", "〖❬1 newton❭⋅❬meter❭〗" },
+            { "times", "LONG", "one", "〖❬1 newton❭-❬meter❭〗" },
             { "times", "SHORT", "one", "〖❬1 N❭⋅❬m❭〗" },
             { "times", "NARROW", "one", "〖❬1N❭⋅❬m❭〗" },
-            { "times", "LONG", "other", "〖❬1.5 newton❭⋅❬meters❭〗" },
+            { "times", "LONG", "other", "〖❬1.5 newton❭-❬meters❭〗" },
             { "times", "SHORT", "other", "〖❬1.5 N❭⋅❬m❭〗" },
             { "times", "NARROW", "other", "〖❬1.5N❭⋅❬m❭〗" },
         };
@@ -333,7 +339,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
         for (String[] test : tests) {
             String actual = exampleGenerator.handleCompoundUnit(
-                UnitLength.valueOf(test[1]), 
+                UnitLength.valueOf(test[1]),
                 test[0],
                 Count.valueOf(test[2]));
             assertEquals("CompoundUnit", test[3],
@@ -341,8 +347,34 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
+    public void TestTranslationPaths() {
+        for (String locale : Arrays.asList("en", "el")) {
+            CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+            ExampleGenerator exampleGenerator = getExampleGenerator(locale);
+
+            for (UnitPathType pathType : UnitPathType.values()) {
+                for (String width : Arrays.asList("long", "short", "narrow")) {
+                    if (pathType == UnitPathType.gender && !width.equals("long")) {
+                        continue;
+                    }
+                    for (String unit : pathType.sampleShortUnitType) {
+                        String path = pathType.getTranslationPath(cldrFile, width, unit, "one", "nominative", null);
+                        String value = cldrFile.getStringValue(path);
+                        if (value != null) {
+                            String example = exampleGenerator.getExampleHtml(path, value);
+                            if (assertNotNull(locale + "/" + path, example)) {
+                                String simplified = ExampleGenerator.simplify(example, false);
+                                warnln(locale + "/" + pathType.toString() + " ==>" + simplified);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public void TestCompoundUnit2() {
-        String[][] tests = { 
+        String[][] tests = {
             { "de", "LONG", "other", "Quadrat{0}", "〖❬1,5 ❭Quadrat❬meter❭〗" },
 
             { "en", "SHORT", "one", "z{0}", "〖❬1 ❭z❬m❭〗" },
@@ -362,7 +394,7 @@ public class TestExampleGenerator extends TestFmwk {
             ExampleGenerator exampleGenerator = getExampleGenerator(test[0]);
 
             String actual = exampleGenerator.handleCompoundUnit1(
-                UnitLength.valueOf(test[1]), 
+                UnitLength.valueOf(test[1]),
                 Count.valueOf(test[2]),
                 test[3]);
             assertEquals("CompoundUnit", test[4],
@@ -372,35 +404,35 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestCompoundUnit3() {
         final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
-        String[][] tests = { 
+        String[][] tests = {
             // locale, path, value, expected-example
-            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
                 "LOCALE", "〖square ❬meters❭〗" }, //
-            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
                     "LOCALE", "〖❬1 ❭square ❬meter❭〗" }, //
-            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+            { "en", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
                         "LOCALE", "〖❬1.5 ❭square ❬meters❭〗" }, //
 
-            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
                             "LOCALE", "〖❬m❭²〗" },
-            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
                                 "LOCALE", "〖❬1m❭²〗" },
-            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+            { "en", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
                                     "LOCALE", "〖❬1.5m❭²〗" },
 
             // warning, french patterns has U+00A0 in them
-            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
                                         "Square {0}", "〖Square ❬mètres❭〗" },
-            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
                                             "square {0}", "〖❬1,5 ❭square ❬mètre❭〗" },
-            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+            { "fr", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
                                                 "squares {0}", "〖❬3,5 ❭squares ❬mètres❭〗" },
 
-            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", 
+            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",
                                                     "LOCALE", "〖❬m❭²〗" },
-            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", 
+            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",
                                                         "LOCALE", "〖❬1,5m❭²〗" },
-            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", 
+            { "fr", "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",
                                                             "LOCALE", "〖❬3,5m❭²〗" },
         };
 
@@ -411,22 +443,22 @@ public class TestExampleGenerator extends TestFmwk {
             final String xpath = test[1];
             String value = test[2];
             String expected = test[3];
-            
+
             ExampleGenerator exampleGenerator = getExampleGenerator(localeID);
 
             if (value.equals("LOCALE")) {
                 value = cldrFactory.make(localeID, true).getStringValue(xpath);
             }
             String actual = exampleGenerator.getExampleHtml(xpath, value);
-            assertEquals(++lineCount + ") " 
-                + localeID 
+            assertEquals(++lineCount + ") "
+                + localeID
                 + ", CompoundUnit3", expected,
                 ExampleGenerator.simplify(actual, false));
         }
 
     }
 
-    HashMap<String, ExampleGenerator> ExampleGeneratorCache = new HashMap<String, ExampleGenerator>();
+    HashMap<String, ExampleGenerator> ExampleGeneratorCache = new HashMap<>();
 
     private ExampleGenerator getExampleGenerator(String locale) {
         ExampleGenerator result = ExampleGeneratorCache.get(locale);
@@ -637,16 +669,17 @@ public class TestExampleGenerator extends TestFmwk {
             }
             String value = cldrFile.getStringValue(xpath);
             checkPathValue(exampleGenerator, xpath, value, null);
-            if (xpath.contains("count=\"one\"")) {
-                String xpath2 = xpath.replace("count=\"one\"", "count=\"1\"");
-                checkPathValue(exampleGenerator, xpath2, value, null);
-            }
+            // remove this, no longer used
+//            if (xpath.contains("count=\"one\"")) {
+//                String xpath2 = xpath.replace("count=\"one\"", "count=\"1\"");
+//                checkPathValue(exampleGenerator, xpath2, value, null);
+//            }
         }
     }
 
     private void checkPathValue(ExampleGenerator exampleGenerator,
         String xpath, String value, String expected) {
-        Set<String> alreadySeen = new HashSet<String>();
+        Set<String> alreadySeen = new HashSet<>();
         try {
             String text = exampleGenerator.getExampleHtml(xpath, value);
             if (text == null) {

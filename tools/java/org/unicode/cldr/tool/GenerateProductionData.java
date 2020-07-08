@@ -59,7 +59,7 @@ public class GenerateProductionData {
     static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
     static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
-    
+
     static final Multimap<String, Pair<String, String>> localeToSubdivisionsToMigrate = TreeMultimap.create();
 
     enum MyOptions {
@@ -96,7 +96,7 @@ public class GenerateProductionData {
             .setDefault("true")
             .setMatch("true|false")),
         verbose(new Params()
-            .setHelp("verbose debugging messages")), 
+            .setHelp("verbose debugging messages")),
         Debug(new Params()
             .setHelp("debug")),
         fileMatch(new Params()
@@ -182,9 +182,9 @@ public class GenerateProductionData {
         }
         @Override
         public String toString() {
-            return 
+            return
                 "files=" + files
-                + (removed + retained + remaining == 0 ? "" 
+                + (removed + retained + remaining == 0 ? ""
                     : "; removed=" + removed
                     + "; retained=" + retained
                     + "; remaining=" + remaining);
@@ -202,11 +202,11 @@ public class GenerateProductionData {
      * @param destinationFile
      * @param factory
      * @param isLdmlDtdType
-     * @param stats 
+     * @param stats
      * @param hasChildren
      * @return true if the file is an ldml file with empty content.
      */
-    private static boolean copyFilesAndReturnIsEmpty(File sourceFile, File destinationFile, 
+    private static boolean copyFilesAndReturnIsEmpty(File sourceFile, File destinationFile,
         Factory factory, boolean isLdmlDtdType, Stats stats) {
         if (sourceFile.isDirectory()) {
 
@@ -255,7 +255,7 @@ public class GenerateProductionData {
                 }
             }
             stats.showNonZero("\tTOTAL:\t");
-            // if there are empty ldml files, AND we aren't in /main/, 
+            // if there are empty ldml files, AND we aren't in /main/,
             // then remove any without children
             if (!emptyLocales.isEmpty() && !sourceFile.getName().equals("main")) {
                 Set<String> childless = getChildless(emptyLocales, factory.getAvailable());
@@ -279,7 +279,7 @@ public class GenerateProductionData {
             boolean isRoot = localeId.equals("root");
             String directoryName = sourceFile.getParentFile().getName();
             boolean isSubdivisionDirectory = "subdivisions".equals(directoryName);
-            
+
             CLDRFile cldrFileUnresolved = factory.make(localeId, false);
             CLDRFile cldrFileResolved = factory.make(localeId, true);
             boolean gotOne = false;
@@ -287,7 +287,7 @@ public class GenerateProductionData {
             Set<String> toRetain = new TreeSet<>();
             Output<String> pathWhereFound = new Output<>();
             Output<String> localeWhereFound = new Output<>();
-            
+
             boolean isArabicSpecial = localeId.equals("ar") || localeId.startsWith("ar_");
 
             String debugPath = null; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
@@ -315,7 +315,7 @@ public class GenerateProductionData {
                         continue;
                     }
                 }
-                
+
                 // special case for Arabic defaultNumberingSystem
                 if (isArabicSpecial && xpath.contains("/defaultNumberingSystem")) {
                     toRetain.add(xpath);
@@ -324,11 +324,11 @@ public class GenerateProductionData {
                 // remove items that are the same as their bailey values. This also catches Inheritance Marker
 
                 String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
-                if (value.equals(bailey) 
-                    && (!ADD_SIDEWAYS 
+                if (value.equals(bailey)
+                    && (!ADD_SIDEWAYS
                         || pathEqualsOrIsAltVariantOf(xpath, pathWhereFound.value))
-                    && (!ADD_ROOT 
-                        || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value) 
+                    && (!ADD_ROOT
+                        || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value)
                             && !Objects.equals(XMLSource.CODE_FALLBACK_ID, localeWhereFound.value)))) {
                     toRemove.add(xpath);
                     continue;
@@ -366,7 +366,7 @@ public class GenerateProductionData {
                     }
                 }
 
-                // check to see if we might need to flesh out datetime. 
+                // check to see if we might need to flesh out datetime.
                 // TODO Should be done in the converter tool!!
                 if (ADD_DATETIME && isDateTimePath(xpath)) {
                     toRetain.addAll(dateTimePaths(xpath));
@@ -422,8 +422,8 @@ public class GenerateProductionData {
                 outCldrFile.removeAll(toRemove, false);
                 if (DEBUG) {
                     for (String xpath : toRemove) {
-                        System.out.println(localeId + ": removing: «" 
-                            + cldrFileUnresolved.getStringValue(xpath) 
+                        System.out.println(localeId + ": removing: «"
+                            + cldrFileUnresolved.getStringValue(xpath)
                             + "», " + xpath);
                     }
                 }
@@ -439,7 +439,7 @@ public class GenerateProductionData {
                     } else {
                         if (DEBUG) {
                             String oldValue = cldrFileUnresolved.getStringValue(xpath);
-                            System.out.println("Restoring: «" + oldValue + "» ⇒ «" + value 
+                            System.out.println("Restoring: «" + oldValue + "» ⇒ «" + value
                                 + "»\t" + xpath);
                         }
                         outCldrFile.add(xpath, value);
@@ -498,7 +498,7 @@ public class GenerateProductionData {
         if (desiredPath.contains("type=\"en_GB\"") && desiredPath.contains("alt=")) {
             int debug = 0;
         }
-        if (foundPath == null) { 
+        if (foundPath == null) {
             // We can do this, because the bailey value has already been checked
             // Since it isn't null, a null indicates a constructed alt value
             return true;
@@ -534,7 +534,7 @@ public class GenerateProductionData {
     }
 
     private static boolean isDateTimePath(String xpath) {
-        return xpath.startsWith("//ldml/dates/calendars/calendar") 
+        return xpath.startsWith("//ldml/dates/calendars/calendar")
             && xpath.contains("FormatLength[@type=");
     }
 
@@ -561,7 +561,7 @@ public class GenerateProductionData {
         for (String locale : available) {
             String parent = LocaleIDParser.getParent(locale);
             if (parent != null) {
-                parent2child.put(parent, locale); 
+                parent2child.put(parent, locale);
             }
         }
 
@@ -578,13 +578,13 @@ public class GenerateProductionData {
     /**
      * Recursively checks that all children are empty (including that there are no children)
      * @param name
-     * @param emptyLocales 
+     * @param emptyLocales
      * @param parent2child
      * @return
      */
     private static boolean allChildrenAreEmpty(
-        String locale, 
-        Set<String> emptyLocales, 
+        String locale,
+        Set<String> emptyLocales,
         Multimap<String, String> parent2child) {
 
         Collection<String> children = parent2child.get(locale);

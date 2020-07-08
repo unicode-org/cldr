@@ -104,16 +104,16 @@ public class ListRedundantUnicodeSets {
                     colExemplars.removeAll(forTranslit);
                 }
 
-                System.out.println(localeID 
+                System.out.println(localeID
                     + "\t" + localeCoverageLevel
-                    + "\t" + exemplarType 
+                    + "\t" + exemplarType
                     + "\t" + exemplarSet.strings().size()
                     + "\t" + (remaining.size() + forTranslit.size())
                     + "\t" + remaining
                     + "\t" + forTranslit
                     + "\t" + indexSet
                     + "\t" + colAndEx
-                    + "\t" + redundants 
+                    + "\t" + redundants
                     + "\t" + colExemplars.size()
                     );
             }
@@ -149,7 +149,7 @@ public class ListRedundantUnicodeSets {
     }
 
     static final Normalizer2 nfkd = Normalizer2.getNFKDInstance();
-    static final Set<String> CAN_BE_COMPOSED; 
+    static final Set<String> CAN_BE_COMPOSED;
 
     static {
         Set<String> _toComposed = new TreeSet<>();
@@ -175,10 +175,10 @@ public class ListRedundantUnicodeSets {
         .build();
     private static boolean isForTranslit(String locale, String s) {
         boolean result = CAN_BE_COMPOSED.contains(nfkd.normalize(s));
-        if (result && (NUKTA.containsSome(s) 
+        if (result && (NUKTA.containsSome(s)
             || TRANSLIT_CLUSTERS.containsEntry(locale, s))) {
             return true;
-        };
+        }
         return false;
     }
 }

@@ -206,7 +206,7 @@ public class ReadSql {
 
     static class Data {
         final String key;
-        final List<Items> dataItems = new ArrayList<Items>();
+        final List<Items> dataItems = new ArrayList<>();
         static Map<String, Data> map = new TreeMap<>();
 
         public Data(String key) {

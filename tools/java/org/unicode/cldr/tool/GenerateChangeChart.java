@@ -335,6 +335,7 @@ public class GenerateChangeChart {
             return title;
         }
 
+        @Override
         public void close() throws IOException {
             out.write("</div>");
             PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, filename);
@@ -345,10 +346,12 @@ public class GenerateChangeChart {
             pw2.close();
         }
 
+        @Override
         public void write(char[] cbuf, int off, int len) throws IOException {
             out.write(cbuf, off, len);
         }
 
+        @Override
         public void flush() throws IOException {
             out.flush();
         }

@@ -67,6 +67,7 @@ public class StateDictionary<T> extends Dictionary<T> {
         return new StateMatcher();
     }
 
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         // TreeSet<Row> rowSet = new TreeSet<Row>(builtRows);
@@ -74,9 +75,9 @@ public class StateDictionary<T> extends Dictionary<T> {
             result.append(row.toString()).append(CldrUtility.LINE_SEPARATOR);
         }
         Map<T, Integer> map = builtResults.getValueMap();
-        Set<Pair<Integer, String>> sorted = new TreeSet<Pair<Integer, String>>();
+        Set<Pair<Integer, String>> sorted = new TreeSet<>();
         for (T item : map.keySet()) {
-            sorted.add(new Pair<Integer, String>(map.get(item), item.toString()));
+            sorted.add(new Pair<>(map.get(item), item.toString()));
         }
         for (Pair<Integer, String> pair : sorted) {
             result.append(pair.getFirst()).append("*=").append(pair.getSecond()).append(CldrUtility.LINE_SEPARATOR);
@@ -84,6 +85,7 @@ public class StateDictionary<T> extends Dictionary<T> {
         return result.toString();
     }
 
+    @Override
     public Iterator<Entry<CharSequence, T>> getMapping() {
         // TODO Optimize this to only return the items on demand
         return new TextFetcher().getWords().entrySet().iterator();
@@ -132,7 +134,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
         Uniqueness hasUniqueValue = Uniqueness.UNKNOWN;
 
-        final TreeMap<Byte, Cell> byteToCell = new TreeMap<Byte, Cell>();
+        final TreeMap<Byte, Cell> byteToCell = new TreeMap<>();
 
         // keeps track of the number of cells with returns
         transient int returnCount;
@@ -166,6 +168,7 @@ public class StateDictionary<T> extends Dictionary<T> {
             return result;
         }
 
+        @Override
         public int compareTo(Object o) {
             Row other = (Row) o;
             int result;
@@ -197,11 +200,12 @@ public class StateDictionary<T> extends Dictionary<T> {
             return referenceNumber - other.referenceNumber;
         }
 
+        @Override
         public String toString() {
             StringBuilder buffer = new StringBuilder();
             buffer.append("R" + getReferenceNumber() + hasUniqueValue.debugName() + "{");
             boolean first = true;
-            Set<Byte> sorted = new TreeSet<Byte>(unsignedByteComparator);
+            Set<Byte> sorted = new TreeSet<>(unsignedByteComparator);
             sorted.addAll(byteToCell.keySet());
             for (Byte key : sorted) {
                 if (first) {
@@ -258,6 +262,7 @@ public class StateDictionary<T> extends Dictionary<T> {
             return StateDictionary.addBytes(rowOffset, target, pos);
         }
 
+        @Override
         public String toString() {
             String result = deltaResult == 0 ? "" : String.valueOf(deltaResult);
             if (returns) {
@@ -310,6 +315,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
         private int partialMatchValue;
 
+        @Override
         public Status next() {
             if (SHOW_DEBUG) {
                 System.out.println("NEXT: " + this);
@@ -410,6 +416,7 @@ public class StateDictionary<T> extends Dictionary<T> {
             return matchIntValue;
         }
 
+        @Override
         public boolean nextUniquePartial() {
             if (partialLastRow.hasUniqueValue == Uniqueness.UNIQUE) {
                 matchValue = builtResults.get(partialMatchValue);
@@ -427,6 +434,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     static final Comparator<Byte> unsignedByteComparator = new Comparator<Byte>() {
 
+        @Override
         public int compare(Byte o1, Byte o2) {
             int b1 = o1 & 0xFF;
             int b2 = o2 & 0xFF;
@@ -437,6 +445,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     static final Comparator<Row> rowComparator = new Comparator<Row>() {
 
+        @Override
         public int compare(Row row1, Row row2) {
             if (row1 == row2) {
                 return 0;
@@ -497,7 +506,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     private class TextFetcher {
 
-        Map<CharSequence, T> result = new TreeMap<CharSequence, T>();
+        Map<CharSequence, T> result = new TreeMap<>();
 
         byte[] soFar = new byte[builtMaxByteLength];
 
@@ -507,7 +516,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
         StringBuilder debugTreeView = new StringBuilder();
 
-        private HashSet<Row> rowsSeen = new HashSet<Row>();
+        private HashSet<Row> rowsSeen = new HashSet<>();
 
         public Map<CharSequence, T> getWords() {
             result.clear();
@@ -517,7 +526,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
         public String debugShow() {
             rowsSeen.clear();
-            Counter<Integer> debugCounter = new Counter<Integer>();
+            Counter<Integer> debugCounter = new Counter<>();
             getDebugWords(0, 0, builtBaseRow, Integer.MAX_VALUE);
             for (Row row : builtRows) {
                 debugCounter.add(row.byteToCell.size(), 1);
@@ -543,7 +552,7 @@ public class StateDictionary<T> extends Dictionary<T> {
                 rowsSeen.add(row);
             }
             // walk through the cells, display and recurse
-            Set<Byte> sorted = new TreeSet<Byte>(unsignedByteComparator);
+            Set<Byte> sorted = new TreeSet<>(unsignedByteComparator);
             sorted.addAll(row.byteToCell.keySet());
             for (Byte key : sorted) {
                 Cell cell = row.byteToCell.get(key);
@@ -605,7 +614,7 @@ public class StateDictionary<T> extends Dictionary<T> {
      *
      */
     public void flatten() {
-        TreeSet<Row> s = new TreeSet<Row>(builtRows);
+        TreeSet<Row> s = new TreeSet<>(builtRows);
         int count = 0;
         int oldDepth = 999;
         String oldCell = "";

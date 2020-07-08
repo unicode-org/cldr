@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class EphemeralSettings extends UserSettings {
 
-    private ConcurrentHashMap<String, String> hash = new ConcurrentHashMap<String, String>();
+    private ConcurrentHashMap<String, String> hash = new ConcurrentHashMap<>();
 
     /**
      *

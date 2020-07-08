@@ -47,10 +47,10 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
@@ -118,7 +118,7 @@ public class ChartDelta extends Chart {
             String rawOrg = MyOptions.orgFilter.option.getValue();
             Organization org = Organization.fromString(rawOrg);
             Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(org);
-            fileFilter = PatternCache.get("^(main|annotations)/(" + CollectionUtilities.join(locales, "|") + ")$").matcher("");
+            fileFilter = PatternCache.get("^(main|annotations)/(" + Joiner.on("|").join(locales) + ")$").matcher("");
         }
         Level coverage = !MyOptions.coverageFilter.option.doesOccur() ? null : Level.fromString(MyOptions.coverageFilter.option.getValue());
         boolean verbose = MyOptions.verbose.option.doesOccur();
@@ -286,9 +286,6 @@ public class ChartDelta extends Chart {
 
             String dirBase = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
             String prevDirBase = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
-//                ToolConstants.CLDR_RELEASE_VERSION_SET.contains(ToolConstants.PREV_CHART_VERSION) ? CURRENT_DIRECTORY 
-//                    : vxml ? CLDRPaths.SVN_DIRECTORY + "cldr-aux/" + "voting/36/vxml/" // TODO fix version to be variable
-//                        : CLDRPaths.BASE_DIRECTORY;
 
             for (String dir : DtdType.ldml.directories) {
                 if (dir.equals("annotationsDerived") || dir.equals("casing")) {
@@ -312,7 +309,7 @@ public class ChartDelta extends Chart {
                 System.out.println("Will compare: " + dir + "\t\t" + current + "\t\t" + past);
             }
             if (factories.isEmpty()) {
-                throw new IllegalArgumentException("No factories found for " 
+                throw new IllegalArgumentException("No factories found for "
                     + dirBase + ": " + DtdType.ldml.directories);
             }
             // get a list of all the locales to cycle over
@@ -390,8 +387,8 @@ public class ChartDelta extends Chart {
                             }
                         }
 
-                        Output<String> reformattedValue = new Output<String>();
-                        Output<Boolean> hasReformattedValue = new Output<Boolean>();
+                        Output<String> reformattedValue = new Output<>();
+                        Output<Boolean> hasReformattedValue = new Output<>();
 
                         for (String path : paths) {
                             if (path.startsWith("//ldml/identity")
@@ -475,7 +472,7 @@ public class ChartDelta extends Chart {
         // NEW:     <annotation cp="😀">face | grin</annotation>
         //          <annotation cp="😀" type="tts">grinning face</annotation>
         // from the NEW paths, get the OLD values
-        XPathParts parts = XPathParts.getInstance(path); // not frozen, for removeAttribute
+        XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
         boolean isTts = parts.getAttributeValue(-1, "type") != null;
         if (isTts) {
             parts.removeAttribute(-1, "type");
@@ -558,7 +555,7 @@ public class ChartDelta extends Chart {
                 continue;
             }
             if (fullAttributes == null) {
-                fullAttributes = new TreeSet<String>();
+                fullAttributes = new TreeSet<>();
             } else {
                 fullAttributes.clear();
             }
@@ -725,7 +722,7 @@ public class ChartDelta extends Chart {
             .addCell(ph.getPageId())
             .addCell(ph.getHeader())
             .addCell(ph.getCode())
-            .addCell(CollectionUtilities.join(locales, " "))
+            .addCell(Joiner.on(" ").join(locales))
             .finishRow();
         }
     }
@@ -854,8 +851,8 @@ public class ChartDelta extends Chart {
             Counter<PathHeader> countSame = new Counter<>();
             Counter<PathHeader> countAdded = new Counter<>();
             Counter<PathHeader> countDeleted = new Counter<>();
-            
-            
+
+
 
             for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
                 if (DtdType.ldml.directories.contains(dir)
@@ -890,7 +887,7 @@ public class ChartDelta extends Chart {
                     Relation<PathHeader, String> contentsOld = fillData(dirOld.toString() + "/", file);
                     Relation<PathHeader, String> contents2 = fillData(dir2.toString() + "/", file);
 
-                    Set<PathHeader> keys = new TreeSet<PathHeader>(CldrUtility.ifNull(contentsOld.keySet(), Collections.<PathHeader> emptySet()));
+                    Set<PathHeader> keys = new TreeSet<>(CldrUtility.ifNull(contentsOld.keySet(), Collections.<PathHeader> emptySet()));
                     keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<PathHeader> emptySet()));
                     DtdType dtdType = null;
                     for (PathHeader key : keys) {
@@ -936,11 +933,11 @@ public class ChartDelta extends Chart {
 //                        Set<String> s2M1 = new LinkedHashSet<>(set2);
 //                        s2M1.removeAll(set1);
                             if (s1MOld.isEmpty()) {
-                                addRow(target, key, "▷missing◁", CollectionUtilities.join(s2M1, ", "));
+                                addRow(target, key, "▷missing◁", Joiner.on(", ").join(s2M1));
                                 addChange(parentAndFile, ChangeType.added, s2M1.size());
                                 countAdded.add(key, 1);
                             } else if (s2M1.isEmpty()) {
-                                addRow(target, key, CollectionUtilities.join(s1MOld, ", "), "▷removed◁");
+                                addRow(target, key, Joiner.on(", ").join(s1MOld), "▷removed◁");
                                 addChange(parentAndFile, ChangeType.deleted, s1MOld.size());
                                 countDeleted.add(key, 1);
                             } else {

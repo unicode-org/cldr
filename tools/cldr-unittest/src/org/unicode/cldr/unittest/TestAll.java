@@ -134,6 +134,7 @@ public class TestAll extends TestGroup {
             millis = (int) (m - (seconds * 1000));
         }
 
+        @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
             if (hours > 0) {
@@ -226,6 +227,7 @@ public class TestAll extends TestGroup {
             "org.unicode.cldr.unittest.TestCldrFactory",
             "org.unicode.cldr.unittest.TestUnContainment",
             "org.unicode.cldr.unittest.TestUnits",
+            "org.unicode.cldr.unittest.TestNumbers",
             //            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
             "org.unicode.cldr.api.AllTests",
         },

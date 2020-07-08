@@ -8,7 +8,7 @@
   "text/html; charset=utf-8">
   <meta http-equiv="Content-Language" content="en-us">
   <link rel="stylesheet" href=
-  "https://unicode.org/reports/reports.css" type="text/css">
+  "../reports.css" type="text/css">
   <title>UTS #35: Unicode Locale Data Markup Language</title>
   <style type="text/css">
   <!--
@@ -76,7 +76,7 @@
   <table class="header" width="100%">
     <tr>
       <td class="icon"><a href="http://unicode.org"><img alt=
-      "[Unicode]" src="https://unicode.org/webscripts/logo60s2.gif"
+      "[Unicode]" src="../logo60s2.gif"
       width="34" height="33" style=
       "vertical-align: middle; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;"></a>&nbsp;
       <a class="bar" href=
@@ -93,7 +93,7 @@
     <table border="1" cellpadding="2" cellspacing="0" class="wide">
       <tr>
         <td>Version</td>
-        <td class="changed">37</td>
+        <td class="changed">38</td>
       </tr>
       <tr>
         <td>Editors</td>
@@ -102,20 +102,20 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td class="changed">2012-03-23</td>
+        <td class="changed">2020-05-13</td>
       </tr>
       <tr>
         <!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
         <td>This Version</td>
         <td class="changed">
-		<a href="http://www.unicode.org/reports/tr35/tr35-58/tr35.html">
-		http://www.unicode.org/reports/tr35/tr35-58/tr35.html</a></td>
+		<a href="http://www.unicode.org/reports/tr35/tr35-60/tr35.html">
+		http://www.unicode.org/reports/tr35/tr35-60/tr35.html</a></td>
       </tr>
       <tr>
         <td>Previous Version</td>
         <td class="changed">
-		<a href="http://www.unicode.org/reports/tr35/tr35-57/tr35.html">
-		http://www.unicode.org/reports/tr35/tr35-57/tr35.html</a></td>
+		<a href="http://www.unicode.org/reports/tr35/tr35-59/tr35.html">
+		http://www.unicode.org/reports/tr35/tr35-59/tr35.html</a></td>
       </tr>
       <tr>
         <td>Latest Version</td>
@@ -139,12 +139,12 @@
       </tr>
       <tr>
         <td>DTDs</td>
-        <td class="changed"><a href="http://unicode.org/cldr/dtd/37/">
-		http://unicode.org/cldr/dtd/37/</a></td>
+        <td class="changed"><a href="http://unicode.org/cldr/dtd/38/">
+		http://unicode.org/cldr/dtd/38/</a></td>
       </tr>
       <tr>
         <td>Revision</td>
-        <td class="changed"><a href="#Modifications">58</a></td>
+        <td class="changed"><a href="#Modifications">60</a></td>
       </tr>
     </table>
     <h3><i>Summary</i></h3>
@@ -1149,9 +1149,9 @@
               <li>Five special deprecated grandfathered codes (such as <em>i-default</em>) are in  type attributes, and are also replaced.</li>
             </ol>
           </li>
-          <li>If the  region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i> element in <a href=
+          <li>If the region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i> element in <a href=
       "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-            replace the language subtag with the <i>replacement</i> value, as follows:
+            replace the region subtag with the <i>replacement</i> value, as follows:
             <ol>
               <li>If there is a single territory in the replacement,
                 use it.</li>
@@ -1167,6 +1167,9 @@
               </li>
             </ol>
           </li>
+          <li>If the script subtag matches the the <i>type</i> attribute of a <em>scriptAlias</em> element in 
+		  <a href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
+            replace the script subtag with the <i>replacement</i> value.</li>
           <li>If any variant subtag matches the the <i>type</i> attribute of a <em>variantAlias</em> element in <a href=
       "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
             replace the variant subtag with the <i>replacement</i> value.
@@ -1286,7 +1289,7 @@
       <li>If the BCP 47 region subtag matches the <i>type</i>
       attribute of a <i>territoryAlias</i> element in <a href=
       "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-      replace the language subtag with the <i>replacement</i>
+      replace the region subtag with the <i>replacement</i>
       value, as follows:
         <ol>
           <li>If there is a single territory in the replacement,
@@ -1303,6 +1306,11 @@
           </li>
         </ol>
       </li>
+      <li>If the BCP 47 script subtag matches the <i>type</i>
+      attribute of a <i>scriptAlias</i> element in <a href=
+      "tr35-info.html#Supplemental_Data">Supplemental Data</a>,
+      replace the script subtag with the <i>replacement</i>
+      value. </li>
       <li>If the tag is a deprecated grandfathered tag
 	    that remains after step #1, prefix by "und-x-".</li>
       <li>If the first subtag is "x", prefix by "und-".</li>
@@ -5277,9 +5285,13 @@ root</pre>
       return it.</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Remove
       the variants from max.</li>
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em">Get the 
+	      components of the max (<em>language<sub>max</sub></em>, 
+	      <em>script<sub>max</sub></em>, <em>region<sub>max</sub></em>).</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Then for
-      <i>trial</i> in {language, language _ region, language _
-      script}
+      <i>trial</i> in {<em>language<sub>max</sub></em>, 
+	      <em>language<sub>max</sub>_region<sub>max</sub></em>, 
+	      <em>language<sub>max</sub>_script<sub>max</sub></em>}
         <ul>
           <li style="margin-top: 0.5em; margin-bottom: 0.5em">If
           AddLikelySubtags(<i>trial</i>) = max, then return
@@ -6110,7 +6122,7 @@ root</pre>
     <p>For more information on precisely how these values are
     computed for any given release, see 
 	<a href=
-    "http://cldr.unicode.org/index/process#TOC-Data--Submission-and-Vetting" class="changed">
+    "http://cldr.unicode.org/index/process#TOC-Data--Submission-and-Vetting">
     Data Submission and Vetting Process</a> on the CLDR
     website.</p>
     <p>The draft attribute should only occur on "leaf" elements,
@@ -6320,7 +6332,7 @@ root</pre>
         </tr>
         <tr>
           <th>prop</th>
-          <td><code>= <span class='changed'>'\'</span> [pP] '{' propName ([≠=] s value1+)?
+          <td><code>= '\' [pP] '{' propName ([≠=] s value1+)?
           '}'<br>
           | '[:' '^'? propName ([≠=] s value2+)? ':]'</code></td>
           <td>\p{x=y}, [:x=y:]<br></td>
@@ -6334,7 +6346,7 @@ root</pre>
         <tr>
           <th>value1</th>
           <td><code>= [^\}]<br>
-          | <span class="changed">'\'</span> quoted</code></td>
+          | '\' quoted</code></td>
           <td>Lm,<br>
           \n,<br>
           \}</td>
@@ -6342,7 +6354,7 @@ root</pre>
         <tr>
           <th>value2</th>
           <td><code>= [^:]<br>
-          | <span class="changed">'\'</span> quoted</code></td>
+          | '\' quoted</code></td>
           <td>Lm,<br>
           \n,<br>
           \:</td>
@@ -6350,7 +6362,7 @@ root</pre>
         <tr>
           <th>char</th>
           <td><code>= [^\&amp; \- \[ \[ \] \\ \} \{ [:Pat_WS:]]<br>
-          | <span class="changed">'\'</span> quoted</code></td>
+          | '\' quoted</code></td>
           <td>a, b, c, \n</td>
         </tr>
         <tr>
@@ -6359,10 +6371,10 @@ root</pre>
           | 'x' (hex{2} | bracketedHex)<br>
           | 'U00' ('0' hex{5} | '10' hex{4})<br>
           | 'N{' propName '}'<br>
-          | <span class='changed'>[</span>[\u0000-\U00010FFFF]<span class='changed'>-[uxUN]]</span></code></td>
-          <td class='changed'><em><strong>error</strong> if lengths not exact</em></td>
+          | [[\u0000-\U00010FFFF]-[uxUN]]</code></td>
+          <td><em><strong>error</strong> if lengths not exact</em></td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <th>charName</th>
           <td><code>= s [A-Za-z0-9] [-A-Za-z0-9_\x20]* s</code></td>
           <td>TIBETAN LETTER -A</td>
@@ -6392,7 +6404,10 @@ root</pre>
     </div>
     <p>Some constraints on UnicodeSet syntax are not captured by
     this EBNF. Notably, property names and values are restricted to
-    those supported by the implementation, <span class='changed'>and have additional constraints imposed by [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. In addition, quoted values that resolve to more than one code point are disallowed in ranges of the form <code>char '-' char</code>.</span></p>
+    those supported by the implementation, and have additional constraints imposed by
+    [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. In addition, quoted
+    values that resolve to more than one code point are disallowed in ranges of the form
+    <code>char '-' char</code>.</p>
     <p>The syntax characters are listed in the table below:</p>
     <table>
       <tbody>
@@ -6508,7 +6523,7 @@ root</pre>
       </tr>
       <tr>
         <td>\xhh</td>
-        <td><span class='removed'>1-</span>2 hex digits</td>
+        <td>2 hex digits</td>
       </tr>
       <tr>
         <td>\uhhhh</td>
@@ -7110,16 +7125,16 @@ decimal?, group?, special*)) &gt;</pre>
         </tr>
         <tr>
           <td rowspan="4">validity/{field}</td>
-          <td colspan="2">currency, language, locale, region, script, subdivision, <span class='changed'>short-unit, </span>unit, variant</td>
+          <td colspan="2">currency, language, locale, region, script, subdivision, short-unit, unit, variant</td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td colspan="2">The field can be qualified by particular enums, such as:</td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td>validity/unit/regular deprecated</td>
           <td>matches only <em>deprecated</em> and <em>regular</em></td>
         </tr>
-        <tr class='changed'>
+        <tr>
           <td>validity/unit/!deprecated</td>
           <td>matches all but <em>deprecated</em></td>
         </tr>
@@ -8619,15 +8634,13 @@ decimal?, group?, special*)) &gt;</pre>
         process for technical reports, and for a list of technical
         reports.</i></td>
       </tr>
-      <tr>
+      <tr class="changed">
         <td class="noborder" width="148">[<a name="Unicode" href=
         "#Unicode" id="Unicode">Unicode</a>]</td>
-        <td class="noborder" width="730">The Unicode Consortium.
-        <em>The Unicode Standard, Version
-        7.0.0</em>,&nbsp;(Mountain View, CA: The Unicode
-        Consortium, 2014. ISBN 978-1-936213-09-2)<br>
-        <a href=
-        "http://www.unicode.org/versions/Unicode7.0.0/">http://www.unicode.org/versions/Unicode7.0.0/</a></td>
+        <td class="noborder" width="730">The Unicode Consortium, <i>The Unicode Standard, Version 13.0.0</i><br>
+        (Mountain View, CA: The Unicode Consortium, 2020. ISBN 978-1-936213-26-9)<br>
+        <a href="http://www.unicode.org/versions/Unicode13.0.0/">http://www.unicode.org/versions/Unicode13.0.0/</a>
+      </td>
       </tr>
       <tr>
         <td class="noborder" width="148">[<a name="Versions" href=
@@ -8935,9 +8948,7 @@ decimal?, group?, special*)) &gt;</pre>
         <a href="http://tf.nist.gov/">http://tf.nist.gov/<br></a>
         U.S. Naval Observatory: What is Universal Time?<br>
         <a href=
-        "http://aa.usno.navy.mil/faq/docs/UT.php">http://aa.usno.navy.mil/faq/docs/UT.php</a>
-		<span class="reviewnote">Review Note: This link appears to be no longer 
-		valid.</span></td>
+        "https://www.usno.navy.mil/USNO/time/master-clock/systems-of-time">https://www.usno.navy.mil/USNO/time/master-clock/systems-of-time</a></td>
       </tr>
       <tr>
         <td class="noborder" width="148">[<a name="WindowsCulture"
@@ -9013,9 +9024,14 @@ decimal?, group?, special*)) &gt;</pre>
     <h2><a name="Modifications" href="#Modifications" id=
     "Modifications">Modifications</a></h2>
 
-    <p class="changed"><b>Revision 58</b></p>
-	<ul class="changed">
-	  <li ><b>Proposed Update</b> for CLDR 37.</li>
+    <p class="changed"><b>Revision 60</b></p>
+	<ul>
+	  <li class="changed" ><b>Proposed Update</b> for CLDR 38.</li>
+	</ul>
+
+    <p><b>Revision 59</b></p>
+	<ul>
+	  <li class="changed" ><b>Updated</b> for CLDR 37.</li>
 
 	  <li><strong>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</strong>		  
 		        <ul>
@@ -9061,8 +9077,9 @@ decimal?, group?, special*)) &gt;</pre>
     "tr35-info.html#Contents">Supplemental</a> (supplemental
           data)</strong></p>
         <ul>
-              <li ><strong>Section 13 <a href="tr35-info.html#Unit_Conversion" >Unit Conversion</a></strong>: added new section on structure and data for unit conversions</li>
-              <li ><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: added new section on structure and data for unit preferences</li>
+              <li ><strong>Section 13 <a href="tr35-info.html#Unit_Conversion" >Unit Conversion</a></strong>: added new section on structure and data for unit conversions.</li>
+              <li ><strong>Section 14 <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a></strong>: added new section on structure and data for unit preferences.
+              Deprecates the &lt;unitPreferences&gt; scope attribute.</li>
         </ul>
         <p><strong>Part 7: <a href=
     "tr35-keyboards.html#Contents">Keyboards</a> (keyboard
@@ -9077,7 +9094,7 @@ decimal?, group?, special*)) &gt;</pre>
     respective versions. Click on <strong>Previous Version</strong>
     in the header until you get to the desired version.</p>
     <hr>
-    <p class="copyright">Copyright © 2001–2019 Unicode, Inc. All
+    <p class="copyright">Copyright © 2001–2020 Unicode, Inc. All
     Rights Reserved. The Unicode Consortium makes no expressed or
     implied warranty of any kind, and assumes no liability for
     errors or omissions. No liability is assumed for incidental and

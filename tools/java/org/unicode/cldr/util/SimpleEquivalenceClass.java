@@ -61,14 +61,17 @@ public class SimpleEquivalenceClass {
             }
         }
 
+        @Override
         public boolean hasNext() {
             return it.hasNext();
         }
 
+        @Override
         public Object next() {
             return it.next();
         }
 
+        @Override
         public void remove() {
             throw new IllegalArgumentException("can't remove");
         }
@@ -78,6 +81,7 @@ public class SimpleEquivalenceClass {
         return new MyIterator(comp);
     }
 
+    @Override
     public String toString() {
         return itemToSet.values().toString();
     }

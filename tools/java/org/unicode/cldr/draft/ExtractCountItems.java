@@ -32,7 +32,7 @@ public class ExtractCountItems {
     Factory factory = testInfo.getCldrFactory();
 
     static class SampleData {
-        EnumMap<Count, String> countToString = new EnumMap<Count, String>(Count.class);
+        EnumMap<Count, String> countToString = new EnumMap<>(Count.class);
         Relation<String, Count> stringToCount = Relation.of(new HashMap<String, Set<Count>>(), HashSet.class);
         String basePath;
 
@@ -46,6 +46,7 @@ public class ExtractCountItems {
             return stringToCount.size();
         }
 
+        @Override
         public String toString() {
             return countToString.toString();
         }
@@ -55,7 +56,7 @@ public class ExtractCountItems {
         }
     }
 
-    Map<String, SampleData> samples = new LinkedHashMap<String, SampleData>();
+    Map<String, SampleData> samples = new LinkedHashMap<>();
 
     public static void main(String[] args) {
 
@@ -63,8 +64,8 @@ public class ExtractCountItems {
     }
 
     void gatherData() {
-        Set<String> singletonLanguages = new LinkedHashSet<String>();
-        Map<String, Map<String, SampleData>> defectiveLocales = new LinkedHashMap<String, Map<String, SampleData>>();
+        Set<String> singletonLanguages = new LinkedHashSet<>();
+        Map<String, Map<String, SampleData>> defectiveLocales = new LinkedHashMap<>();
 
         for (String locale : factory.getAvailableLanguages()) {
             Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(Organization.google);
@@ -87,7 +88,7 @@ public class ExtractCountItems {
             }
 
             CLDRFile cldr = factory.make(locale, true);
-            Map<String, SampleData> data = new LinkedHashMap<String, SampleData>();
+            Map<String, SampleData> data = new LinkedHashMap<>();
             SampleData sampleData = getSamples(cldr, keywordCount, "//ldml/units/unit", data);
             if (sampleData == null) {
                 // try currencies
@@ -115,13 +116,13 @@ public class ExtractCountItems {
             for (String s : keywords) {
                 realKeywords.add(Count.valueOf(s));
             }
-            Set<Pair<Count, Count>> missingPairs = new HashSet<Pair<Count, Count>>();
+            Set<Pair<Count, Count>> missingPairs = new HashSet<>();
             for (Count i : realKeywords) {
                 for (Count j : realKeywords) {
                     if (i.compareTo(j) >= 0) {
                         continue;
                     }
-                    missingPairs.add(new Pair<Count, Count>(i, j));
+                    missingPairs.add(new Pair<>(i, j));
                 }
             }
             showMinimalPairs(missingPairs, entry.getValue());
@@ -158,7 +159,7 @@ public class ExtractCountItems {
             }
             String value = cldr.getStringValue(path).toLowerCase(Locale.ENGLISH);
             // get the path without the count = basepath
-            XPathParts parts = XPathParts.getInstance(path); // not frozen, setAttribute
+            XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, setAttribute
             Count count = PluralInfo.Count.valueOf(parts.getAttributeValue(-1, "count"));
             parts.setAttribute(-1, "count", null);
             String basePath = parts.toString();

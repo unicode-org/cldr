@@ -13,7 +13,7 @@ import javax.xml.stream.XMLStreamWriter;
 
 import com.google.common.collect.ImmutableMap;
 
-/** 
+/**
  * Object which wraps around an XML stream writer. Automatically adds proper formatting
  * (indentation and line breaks) to the written XML elements.
  */

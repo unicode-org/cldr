@@ -42,7 +42,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
+import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -117,12 +117,12 @@ public class ShowKeyboards {
     }
 
     public static void showRepertoire(Matcher idMatcher) {
-        Set<Exception> totalErrors = new LinkedHashSet<Exception>();
-        Set<Exception> errors = new LinkedHashSet<Exception>();
+        Set<Exception> totalErrors = new LinkedHashSet<>();
+        Set<Exception> errors = new LinkedHashSet<>();
         UnicodeSet controls = new UnicodeSet("[:Cc:]").freeze();
         // check what the characters are, excluding controls.
-        Map<Id, UnicodeSet> id2unicodeset = new TreeMap<Id, UnicodeSet>();
-        Set<String> totalModifiers = new LinkedHashSet<String>();
+        Map<Id, UnicodeSet> id2unicodeset = new TreeMap<>();
+        Set<String> totalModifiers = new LinkedHashSet<>();
         Relation<String, Id> locale2ids = Relation.of(new TreeMap<String, Set<Id>>(), TreeSet.class);
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
         IdInfo idInfo = new IdInfo();
@@ -153,7 +153,8 @@ public class ShowKeyboards {
             }
         }
         if (totalErrors.size() != 0) {
-            System.out.println("Errors\t" + CollectionUtilities.join(totalErrors, System.lineSeparator() + "\t"));
+            System.out.println("Errors\t" + Joiner.on(System.lineSeparator() + "\t")
+                .join(totalErrors));
         }
         for (String item : totalModifiers) {
             System.out.println(item);
@@ -205,10 +206,10 @@ public class ShowKeyboards {
     }
 
     private static void showHtml(Matcher idMatcher) throws IOException {
-        Set<Exception> errors = new LinkedHashSet<Exception>();
+        Set<Exception> errors = new LinkedHashSet<>();
         Relation<String, Row.R3<String, String, String>> locale2keyboards = Relation.of(
             new TreeMap<String, Set<Row.R3<String, String, String>>>(), TreeSet.class);
-        Map<String, String> localeIndex = new TreeMap<String, String>();
+        Map<String, String> localeIndex = new TreeMap<>();
 
         for (String platformId : Keyboard.getPlatformIDs()) {
             //Platform p = Keyboard.getPlatform(platformId);
@@ -407,7 +408,7 @@ public class ShowKeyboards {
                 String keyString = key == Gesture.LONGPRESS ? "LP" : key.toString();
                 final V value = entry.getValue();
                 String valueString = value instanceof Collection
-                    ? CollectionUtilities.join((Collection) value, " ")
+                    ? Joiner.on(" ").join((Collection) value)
                     : value.toString();
                 hover.append(TransliteratorUtilities.toHTML.transform(keyString)).append("→")
                     .append(TransliteratorUtilities.toHTML.transform(valueString));
@@ -451,9 +452,9 @@ public class ShowKeyboards {
             .addColumn("Statistics").setCellAttributes("class='cell'")
             .addColumn("Characters").setSpanRows(true).setCellAttributes("class='cell'");
 
-        Map<String, UnicodeSet> commonSets = new HashMap<String, UnicodeSet>();
-        Counter<String> commonCount = new Counter<String>();
-        Set<String> commonDone = new HashSet<String>();
+        Map<String, UnicodeSet> commonSets = new HashMap<>();
+        Counter<String> commonCount = new Counter<>();
+        Set<String> commonDone = new HashSet<>();
 
         for (Entry<String, Set<Id>> localeAndIds : locale2ids.keyValuesSet()) {
             final String key = localeAndIds.getKey();
@@ -578,7 +579,7 @@ public class ShowKeyboards {
         {
             collator.setStrength(Collator.IDENTICAL);
             for (int i = 0; i < charToKeyboards.length; ++i) {
-                charToKeyboards[i] = new TreeMap<String, IdSet>(collator);
+                charToKeyboards[i] = new TreeMap<>(collator);
             }
         }
         IdSet allIds = new IdSet();
@@ -648,7 +649,7 @@ public class ShowKeyboards {
                 .addColumn("Code").setCellAttributes("class='c'")
                 .addColumn("Name").setCellAttributes("class='n'")
                 .addColumn("Keyboards").setSpanRows(true).setCellAttributes("class='k'");
-            Set<String> missingScripts = new TreeSet<String>();
+            Set<String> missingScripts = new TreeSet<>();
             UnicodeSet notNFKC = new UnicodeSet("[:nfkcqc=n:]");
             UnicodeSet COMMONINHERITED = new UnicodeSet("[[:sc=common:][:sc=inherited:]]");
 
@@ -737,7 +738,7 @@ public class ShowKeyboards {
     }
 
     private static String getInfo(Id keyboardId, UnicodeSet common, CLDRFile cldrFile) {
-        Counter<String> results = new Counter<String>();
+        Counter<String> results = new Counter<>();
         for (String s : common) {
             int first = s.codePointAt(0); // first char is good enough
             results.add(UScript.getShortName(UScript.getScript(first)), 1);
@@ -848,7 +849,7 @@ public class ShowKeyboards {
     }
 
     static class IdSet {
-        Map<String, Relation<String, String>> data = new TreeMap<String, Relation<String, String>>();
+        Map<String, Relation<String, String>> data = new TreeMap<>();
 
         public void add(Id id) {
             Relation<String, String> platform2variant = data.get(id.platform);
@@ -946,6 +947,7 @@ public class ShowKeyboards {
             return data.equals(((IdSet) other).data);
         }
 
+        @Override
         public int hashCode() {
             return data.hashCode();
         }

@@ -65,14 +65,14 @@ public class ExtractICUData {
         System.out.println("Done");
     }
 
-    static Set<String> skipLines = new HashSet<String>(Arrays.asList(new String[] {
+    static Set<String> skipLines = new HashSet<>(Arrays.asList(new String[] {
         "#--------------------------------------------------------------------",
         "# Copyright (c) 1999-2005, International Business Machines",
         "# Copyright (c) 1999-2004, International Business Machines",
         "# Corporation and others. All Rights Reserved.",
         "#--------------------------------------------------------------------"
     }));
-    static Set<String> skipFiles = new HashSet<String>(Arrays.asList(new String[] {
+    static Set<String> skipFiles = new HashSet<>(Arrays.asList(new String[] {
         // "Any_Accents",
         "el",
         "en",
@@ -88,7 +88,7 @@ public class ExtractICUData {
         File translitSource = new File("C:\\cvsdata\\icu\\icu\\source\\data\\translit\\");
         System.out.println("Source: " + translitSource.getCanonicalPath());
         File[] fileArray = translitSource.listFiles();
-        List<Object> list = new ArrayList<Object>(Arrays.asList(fileArray));
+        List<Object> list = new ArrayList<>(Arrays.asList(fileArray));
 
 //        List<String> extras = Arrays.asList(new String[] {
 //            "Arabic_Latin.txt",
@@ -363,7 +363,7 @@ public class ExtractICUData {
     static Matcher privateFiles = PatternCache.get(".*(Spacedhan|InterIndic|ThaiLogical|ThaiSemi).*").matcher("");
     static Matcher allowNames = PatternCache.get("(Fullwidth|Halfwidth|NumericPinyin|Publishing)").matcher("");
 
-    static Set<String> collectedNames = new TreeSet<String>();
+    static Set<String> collectedNames = new TreeSet<>();
 
     private static String fixTransIDPart(String name) {
         if (name == null) return name;
@@ -389,14 +389,14 @@ public class ExtractICUData {
         };
         Collator col = Collator.getInstance(ULocale.ROOT);
         ((RuleBasedCollator) col).setNumericCollation(true);
-        Map<String, Set<String>> alpha = new TreeMap<String, Set<String>>(col);
+        Map<String, Set<String>> alpha = new TreeMap<>(col);
 
         for (int range = 0; range < ranges.length; ++range) {
             for (int propIndex = ranges[range][0]; propIndex < ranges[range][1]; ++propIndex) {
                 String propName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.LONG);
                 String shortPropName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.SHORT);
                 propName = getName(propIndex, propName, shortPropName);
-                Set<String> valueOrder = new TreeSet<String>(col);
+                Set<String> valueOrder = new TreeSet<>(col);
                 alpha.put(propName, valueOrder);
                 switch (range) {
                 case 0:

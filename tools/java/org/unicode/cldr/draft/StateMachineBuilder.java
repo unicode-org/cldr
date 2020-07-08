@@ -16,22 +16,22 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 public class StateMachineBuilder<T> {
-    private static final UnicodeSet WHITESPACE = (UnicodeSet) new UnicodeSet("[:Pattern_Whitespace:]").freeze();
-    private static final UnicodeSet XID_START = (UnicodeSet) new UnicodeSet("[:XID_Start:]").freeze();
-    private static final UnicodeSet XID_PART = (UnicodeSet) new UnicodeSet("[-[:XID_Continue:]]").freeze();
+    private static final UnicodeSet WHITESPACE = new UnicodeSet("[:Pattern_Whitespace:]").freeze();
+    private static final UnicodeSet XID_START = new UnicodeSet("[:XID_Start:]").freeze();
+    private static final UnicodeSet XID_PART = new UnicodeSet("[-[:XID_Continue:]]").freeze();
 
     // TODO intern the actions
 
     private short currentState = StateMachine.UNDEFINED;
     private UnicodeMap<StateAction> currentMap = null;
-    private List<UnicodeMap> stateToData = new ArrayList<UnicodeMap>();
+    private List<UnicodeMap> stateToData = new ArrayList<>();
     private ParsePosition parsePosition = new ParsePosition(0);
-    private Map<String, UnicodeSet> variables = new LinkedHashMap<String, UnicodeSet>();
+    private Map<String, UnicodeSet> variables = new LinkedHashMap<>();
 
-    private Map<String, Short> stateToNumber = new LinkedHashMap<String, Short>();
-    private List<String> numberToState = new ArrayList<String>();
-    private Map<String, Short> actionToNumber = new LinkedHashMap<String, Short>();
-    private List<String> numberToAction = new ArrayList<String>();
+    private Map<String, Short> stateToNumber = new LinkedHashMap<>();
+    private List<String> numberToState = new ArrayList<>();
+    private Map<String, Short> actionToNumber = new LinkedHashMap<>();
+    private List<String> numberToAction = new ArrayList<>();
 
     private StateAction defaultAction;
 
@@ -40,7 +40,7 @@ public class StateMachineBuilder<T> {
     }
 
     public StateMachine<T> build(StateObjectBuilderFactory<T> factory) {
-        Set<String> missingStates = new HashSet<String>();
+        Set<String> missingStates = new HashSet<>();
         for (int i = 0; i < stateToData.size(); ++i) {
             UnicodeMap action = stateToData.get(i);
             if (action == null) {
@@ -51,7 +51,7 @@ public class StateMachineBuilder<T> {
             throw new IllegalArgumentException("Missing states: " + missingStates);
         }
         fixDefaultAction();
-        return new StateMachine<T>(stateToData, factory, numberToState, numberToAction);
+        return new StateMachine<>(stateToData, factory, numberToState, numberToAction);
     }
 
     // build state machines with rules on icu4c-trunk/source/common/rbbirpt.txt
@@ -62,8 +62,8 @@ public class StateMachineBuilder<T> {
 #
 #
 #StateName:
-#   input-char           n next-state           ^push-state     action    
-#   input-char           n next-state           ^push-state     action    
+#   input-char           n next-state           ^push-state     action
+#   input-char           n next-state           ^push-state     action
 #       |                |   |                      |             |
 #       |                |   |                      |             |--- action to be performed by state machine
 #       |                |   |                      |                  See function RBBIRuleScanner::doParseActions()
@@ -83,18 +83,18 @@ public class StateMachineBuilder<T> {
 #            matches, peform the actions and go to the state specified on this line.
 #            The input character is tested sequentally, in the order written.  The characters and
 #            character classes tested for do not need to be mutually exclusive.  The first match wins.
-#            
+#
 Example:
 #
 #  start state, scan position is at the beginning of the rules file, or in between two rules.
 #
 start:
-    escaped                term                  ^break-rule-end    doExprStart                       
-    white_space          n start                     
+    escaped                term                  ^break-rule-end    doExprStart
+    white_space          n start
     '$'                    scan-var-name         ^assign-or-rule    doExprStart
-    '!'                  n rev-option                             
+    '!'                  n rev-option
     ';'                  n start                                                  # ignore empty rules.
-    eof                    exit              
+    eof                    exit
     default                term                  ^break-rule-end    doExprStart
 */
 //@formatter:on
@@ -124,7 +124,7 @@ start:
                 if (stateToData.size() > currentState && stateToData.get(currentState) != null) {
                     throw new IllegalArgumentException("Cannot define state twice: " + rule);
                 }
-                currentMap = new UnicodeMap<StateAction>();
+                currentMap = new UnicodeMap<>();
                 while (stateToData.size() <= currentState) {
                     stateToData.add(null); // TODO make this more efficient
                 }

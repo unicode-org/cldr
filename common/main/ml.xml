@@ -7541,14 +7541,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>വർഗ്ഗം {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">വർഗ്ഗം {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" draft="provisional">വർഗ്ഗം {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1 draft="provisional">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">ക്യുബിക് {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" draft="provisional">ക്യുബിക് {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>

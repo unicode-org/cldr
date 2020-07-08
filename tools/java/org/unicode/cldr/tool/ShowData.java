@@ -38,8 +38,8 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
@@ -123,10 +123,10 @@ public class ShowData {
             // .make(sourceDir.replace("incoming/vetted/","common/") + "../collation/", ".*");
             // ExtractCollationRules collationRules = new ExtractCollationRules();
 
-            locales = new TreeSet<String>(cldrFactory.getAvailable());
+            locales = new TreeSet<>(cldrFactory.getAvailable());
             new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
             // Set paths = new TreeSet();
-            Set<PathHeader> prettySet = new TreeSet<PathHeader>();
+            Set<PathHeader> prettySet = new TreeSet<>();
 
             CLDRFile.Status status = new CLDRFile.Status();
             LocaleIDParser localeIDParser = new LocaleIDParser();
@@ -134,7 +134,7 @@ public class ShowData {
             //Map nonDistinguishingAttributes = new LinkedHashMap();
             //CLDRFile parent = null;
 
-            Map<PathHeader, Relation<String, String>> pathHeaderToValuesToLocale = new TreeMap<PathHeader, Relation<String, String>>();
+            Map<PathHeader, Relation<String, String>> pathHeaderToValuesToLocale = new TreeMap<>();
 
             Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
 
@@ -166,7 +166,7 @@ public class ShowData {
             for (Entry<String, Set<String>> group : parentToChildren.keyValuesSet()) {
                 String locale = group.getKey();
                 Set<String> children = group.getValue();
-                Map<String, CLDRFile> sublocales = new TreeMap<String, CLDRFile>();
+                Map<String, CLDRFile> sublocales = new TreeMap<>();
 
                 boolean doResolved = localeIDParser.set(locale).getRegion().length() == 0;
                 String languageSubtag = localeIDParser.getLanguage();
@@ -178,13 +178,13 @@ public class ShowData {
 
                 // get all of the paths
                 Set<String> allPaths = new HashSet<>();
-                CollectionUtilities.addAll(file.iterator(), allPaths);
+                file.forEach(allPaths::add);
 
                 if (!locale.equals("root")) {
                     for (String childLocale : children) {
                         CLDRFile childCldrFile = cldrFactory.make(childLocale, false);
                         if (childCldrFile != null) {
-                            CollectionUtilities.addAll(childCldrFile.iterator(), allPaths);
+                            childCldrFile.forEach(allPaths::add);
                         }
                         sublocales.put(childLocale, childCldrFile);
                     }
@@ -294,8 +294,8 @@ public class ShowData {
 
                     for (Entry<String, CLDRFile> s : sublocales.entrySet()) {
                         String newChildValue = s.getValue().getStringValue(path);
-                        if (newChildValue == null 
-                            || CldrUtility.equals(newChildValue, value) 
+                        if (newChildValue == null
+                            || CldrUtility.equals(newChildValue, value)
                             || CldrUtility.INHERITANCE_MARKER.equals(newChildValue)) {
                             continue;
                         }
@@ -410,7 +410,7 @@ public class ShowData {
                         .append("</td><td class='v'>")
                         .append(DataShower.getPrettyValue(value.substring(breakPoint + 2)))
                         .append("</td><td>")
-                        .append(CollectionUtilities.join(s.getValue(), ", "))
+                        .append(Joiner.on(", ").join(s.getValue()))
                         .append("</td></tr>")
                         .append(System.lineSeparator());
                     addRow = true;
@@ -429,7 +429,7 @@ public class ShowData {
         final boolean noLocales = locales == null || locales.isEmpty();
         pw.println("<td"
             + (isExemplar ? " style='max-width:20%'" : "")
-            + (noLocales ? "" : " title='" + CollectionUtilities.join(locales, ", ") + "'")
+            + (noLocales ? "" : " title='" + Joiner.on(", ").join(locales) + "'")
             + (value == null ? "></i>n/a</i>" : " class='v'" + DataShower.getBidiStyle(value) + ">" + DataShower.getPrettyValue(value))
             + "</td>");
     }
@@ -448,8 +448,8 @@ public class ShowData {
 
     private static void getScripts() throws IOException {
         Set<String> locales = cldrFactory.getAvailableLanguages();
-        Set<String> scripts = new TreeSet<String>();
-        Map<String, Map<String, Set<String>>> script_name_locales = new TreeMap<String, Map<String, Set<String>>>();
+        Set<String> scripts = new TreeSet<>();
+        Map<String, Map<String, Set<String>>> script_name_locales = new TreeMap<>();
         PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "scriptNames.txt");
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {
             String locale = it.next();
@@ -472,10 +472,10 @@ public class ShowData {
                 if (getScripts(name, scripts).contains(script)) {
                     Map<String, Set<String>> names_locales = script_name_locales.get(script);
                     if (names_locales == null)
-                        script_name_locales.put(script, names_locales = new TreeMap<String, Set<String>>());
+                        script_name_locales.put(script, names_locales = new TreeMap<>());
                     Set<String> localeSet = names_locales.get(name);
                     if (localeSet == null)
-                        names_locales.put(name, localeSet = new TreeSet<String>());
+                        names_locales.put(name, localeSet = new TreeSet<>());
                     localeSet.add(getLocaleNameAndCode(locale));
                 }
             }
@@ -489,7 +489,7 @@ public class ShowData {
         out.close();
     }
 
-    static Set<String> UnicodeScripts = Collections.unmodifiableSet(new TreeSet<String>(Arrays
+    static Set<String> UnicodeScripts = Collections.unmodifiableSet(new TreeSet<>(Arrays
         .asList(new String[] { "Arab", "Armn", "Bali", "Beng", "Bopo", "Brai",
             "Bugi", "Buhd", "Cans", "Cher", "Copt", "Cprt", "Cyrl", "Deva",
             "Dsrt", "Ethi", "Geor", "Glag", "Goth", "Grek", "Gujr", "Guru",
@@ -711,7 +711,7 @@ public class ShowData {
         // "$" //
         // + "Date" //
         // + "$") // odd style to keep CVS from substituting
-        ; // isoDateFormat.format(new Date())
+         // isoDateFormat.format(new Date())
         BufferedReader input = ToolUtilities.getUTF8Data("chart-template.html");
         StringBuffer result = new StringBuffer();
         while (true) {

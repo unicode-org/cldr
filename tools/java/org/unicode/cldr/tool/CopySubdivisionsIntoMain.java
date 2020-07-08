@@ -82,7 +82,7 @@ public class CopySubdivisionsIntoMain {
         if (true) {
             throw new IllegalArgumentException("Should probably discontinue this, leaving translated subdivisions in main");
         }
-        
+
         PathStarrer pathStarrer = new PathStarrer();
 
         for (String localeId : mainFactory.getAvailable()) {
@@ -182,15 +182,15 @@ public class CopySubdivisionsIntoMain {
                 cldrFile.add(path, name);
                 System.out.println("Adding " + locale + ": " + path + "\t=«" + name + "»");
             }
-            
+
             if (added) {
                 // write out new main with extra subdivisions
-                
+
                 String fileName = locale + ".xml";
                 writeFile(MAIN_TARGET_DIR, fileName, cldrFile);
-                
+
                 // remove from subdivisions file
-                
+
                 CLDRFile sd = subdivisionFactory.make(locale, false).cloneAsThawed();
                 for (String key : target) {
                     String path = SubdivisionNames.getPathFromCode(key);

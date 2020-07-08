@@ -26,7 +26,7 @@ public class ToolConstants {
         release // for release version
     }
 
-    // TODO change this to a list of VersionInfos, add add in the ShowLocaleCoverage years.
+    // TODO change this to CldrVersion, add add in the ShowLocaleCoverage years.
     public static final List<String> CLDR_VERSIONS = ImmutableList.of(
         "1.1.1",
         "1.2",
@@ -56,10 +56,11 @@ public class ToolConstants {
         "35.0",
         "35.1",
         "36.0",
-        "36.1"
+        "36.1",
+        "37.0"
         // add to this once the release is final!
         );
-    public static final String DEV_VERSION = "37";
+    public static final String DEV_VERSION = "38";
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET = ImmutableSet.copyOf(ToolConstants.CLDR_VERSIONS);
     public static final Set<String> CLDR_RELEASE_AND_DEV_VERSION_SET = ImmutableSet.<String>builder().addAll(CLDR_RELEASE_VERSION_SET).add(DEV_VERSION).build();
@@ -93,9 +94,9 @@ public class ToolConstants {
     public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(PREV_CHART_VERSION);
     public static final String PREV_CHART_VERSION_WITH0 = PREV_CHART_VI.getVersionString(2, 2); // must have 1 decimal
 
-    public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS", 
-        CLDR_RELEASE_VERSION_SET.contains(CHART_VERSION) 
-        ? "release" 
+    public static final ChartStatus CHART_STATUS = ChartStatus.valueOf(CldrUtility.getProperty("CHART_STATUS",
+        CLDR_RELEASE_VERSION_SET.contains(CHART_VERSION)
+        ? "release"
             : "beta"));
     public static final boolean BETA = CHART_STATUS == ChartStatus.beta;
 

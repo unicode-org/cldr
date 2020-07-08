@@ -106,10 +106,10 @@ public class GenerateDerivedAnnotations {
             failures.freeze();
             if (!failures.isEmpty()) {
                 Level level = CLDR_CONFIG.getStandardCodes().getLocaleCoverageLevel(Organization.cldr, locale);
-                System.out.println("Failures\t" + locale 
+                System.out.println("Failures\t" + locale
                     + "\t" + level
                     + "\t" + english.getName(locale)
-                    + "\t" + failures.size() 
+                    + "\t" + failures.size()
                     + "\t" + failures.toPattern(false));
             }
             if (missingOnly) {

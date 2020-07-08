@@ -318,8 +318,8 @@ annotations.
 		<annotation cp="🥶" type="tts">cold face</annotation>
 		<annotation cp="🥴">dizzy | intoxicated | tipsy | uneven eyes | wavy mouth | woozy face</annotation>
 		<annotation cp="🥴" type="tts">woozy face</annotation>
-		<annotation cp="😵">dizzy | face</annotation>
-		<annotation cp="😵" type="tts">dizzy face</annotation>
+		<annotation cp="😵">dead | knocked out | face</annotation>
+		<annotation cp="😵" type="tts">knocked-out face</annotation>
 		<annotation cp="🤯">exploding head | mind blown | shocked</annotation>
 		<annotation cp="🤯" type="tts">exploding head</annotation>
 		<annotation cp="🤠">cowboy | cowgirl | face | hat</annotation>
@@ -620,8 +620,8 @@ annotations.
 		<annotation cp="🧑‍🎄" type="tts">mx claus</annotation>
 		<annotation cp="👨">adult | man</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
-		<annotation cp="🧔">beard | man | man: beard | person</annotation>
-		<annotation cp="🧔" type="tts">man: beard</annotation>
+		<annotation cp="🧔">beard | person: beard | person</annotation>
+		<annotation cp="🧔" type="tts">person: beard</annotation>
 		<annotation cp="👱‍♂">blond | blond-haired man | hair | man | man: blond hair</annotation>
 		<annotation cp="👱‍♂" type="tts">man: blond hair</annotation>
 		<annotation cp="👨‍🍼">baby | feeding | man | nursing</annotation> <!-- 1F468 200D 1F37C -->
@@ -963,9 +963,9 @@ annotations.
 		<annotation cp="🏃‍♂" type="tts">man running</annotation>
 		<annotation cp="🏃‍♀">marathon | racing | running | woman</annotation>
 		<annotation cp="🏃‍♀" type="tts">woman running</annotation>
-		<annotation cp="💃">dancing | woman</annotation>
+		<annotation cp="💃">dancing | woman | dance | woman dancing</annotation>
 		<annotation cp="💃" type="tts">woman dancing</annotation>
-		<annotation cp="🕺">dance | man | man dancing</annotation>
+		<annotation cp="🕺">dance | man | man dancing | dancing</annotation>
 		<annotation cp="🕺" type="tts">man dancing</annotation>
 		<annotation cp="🕴">business | person | person in suit levitating | suit</annotation>
 		<annotation cp="🕴" type="tts">person in suit levitating</annotation>
@@ -2904,13 +2904,13 @@ annotations.
 		<annotation cp="⁉">! | !? | ? | exclamation | interrobang | mark | punctuation | question</annotation>
 		<annotation cp="⁉" type="tts">exclamation question mark</annotation>
 		<annotation cp="❓">? | mark | punctuation | question</annotation>
-		<annotation cp="❓" type="tts">question mark</annotation>
+		<annotation cp="❓" type="tts">red question mark</annotation>
 		<annotation cp="❔">? | mark | outlined | punctuation | question | white question mark</annotation>
 		<annotation cp="❔" type="tts">white question mark</annotation>
 		<annotation cp="❕">! | exclamation | mark | outlined | punctuation | white exclamation mark</annotation>
 		<annotation cp="❕" type="tts">white exclamation mark</annotation>
 		<annotation cp="❗">! | exclamation | mark | punctuation</annotation>
-		<annotation cp="❗" type="tts">exclamation mark</annotation>
+		<annotation cp="❗" type="tts">red exclamation mark</annotation>
 		<annotation cp="〰">dash | punctuation | wavy</annotation>
 		<annotation cp="〰" type="tts">wavy dash</annotation>
 		<annotation cp="©">c | copyright</annotation>
@@ -3099,5 +3099,195 @@ annotations.
 		<annotation cp="³" type="tts">superscript three</annotation>
 		<annotation cp="µ">measure | micro sign</annotation>
 		<annotation cp="µ" type="tts">micro sign</annotation>
+
+		<annotation cp="🧔‍♂">beard | man: beard | man</annotation>
+        <annotation cp="🧔‍♂" type="tts">man: beard</annotation>		
+        <annotation cp="🧔‍♀">beard | woman: beard | woman</annotation>
+        <annotation cp="🧔‍♀" type="tts">woman: beard</annotation>
+        <annotation cp="😮‍💨">exhale | gasp | groan | relief | whisper | whistle</annotation>  <!-- 1F62E 200D 1F4A8 -->
+        <annotation cp="😮‍💨" type="tts">face exhaling</annotation>
+        <annotation cp="😵‍💫">dizzy | hypnotized | spiral | trouble | whoa</annotation>    <!-- 1F635 200D 1F4AB -->
+        <annotation cp="😵‍💫" type="tts">face with spiral eyes</annotation>
+        <annotation cp="❤‍🔥">burn | heart | love | lust | sacred heart</annotation>    <!-- 2764 200D 1F525 -->
+        <annotation cp="❤‍🔥" type="tts">heart on fire</annotation>
+        <annotation cp="❤‍🩹">healthier | improving | mending | recovering | recuperating | well</annotation>   <!-- 2764 200D 1FA79 -->
+        <annotation cp="❤‍🩹" type="tts">mending heart</annotation>
+        <annotation cp="😶‍🌫">absentminded | face in the fog | face in clouds | head in clouds</annotation>   <!-- 1F636 200D 1F32B FE0F: face in clouds -->
+        <annotation cp="😶‍🌫" type="tts">face in clouds</annotation>
+        
+		<annotation cp="‐">hyphen | dash</annotation>
+		<annotation cp="‐" type="tts">hyphen</annotation>
+		<annotation cp="―">bar | dash | line</annotation>
+		<annotation cp="―" type="tts">horizontal bar</annotation>
+		<annotation cp="_">underline | underdash | line | low dash | dash</annotation>
+		<annotation cp="_" type="tts">low line</annotation>
+		<annotation cp="-">hyphen | dash | minus</annotation>
+		<annotation cp="-" type="tts">hyphen-minus</annotation>
+		<annotation cp=".">period | full stop | dot</annotation>
+		<annotation cp="." type="tts">period</annotation>
+		<annotation cp="…">ellipsis | omission | dots</annotation>
+		<annotation cp="…" type="tts">ellipsis</annotation>
+		<annotation cp="。">period | full stop | ideographic</annotation>
+		<annotation cp="。" type="tts">ideographic period</annotation>
+		<annotation cp="‧">point | hyphen | dash</annotation>
+		<annotation cp="‧" type="tts">hyphenation point</annotation>
+		<annotation cp="・">interpunct | middot | katakana | dots</annotation>
+		<annotation cp="・" type="tts">katakana middle dot</annotation>
+		<!-- causes tool breakage
+		<annotation cp="">whitespace</annotation>
+		<annotation cp="" type="tts">space</annotation>
+		-->
+		<annotation cp=",">comma</annotation>
+		<annotation cp="," type="tts">comma</annotation>
+		<annotation cp="、">comma | ideographic</annotation>
+		<annotation cp="、" type="tts">ideographic comma</annotation>
+		<annotation cp="،">comma | arabic</annotation>
+		<annotation cp="،" type="tts">arabic comma</annotation>
+		<annotation cp=";">semi-colon</annotation>
+		<annotation cp=";" type="tts">semicolon</annotation>
+		<annotation cp=":">colon</annotation>
+		<annotation cp=":" type="tts">colon</annotation>
+		<annotation cp="؛">semi-colon | arabic</annotation>
+		<annotation cp="؛" type="tts">arabic semicolon</annotation>
+		<annotation cp="!">exclamation point | bang | exclamation</annotation>
+		<annotation cp="!" type="tts">exclamation mark</annotation>
+		<annotation cp="¡">exclamation mark | inverted | exclamation point | bang | exclamation</annotation>
+		<annotation cp="¡" type="tts">inverted exclamation mark</annotation>
+		<annotation cp="?">question</annotation>
+		<annotation cp="?" type="tts">question mark</annotation>
+		<annotation cp="¿">question mark | inverted | question</annotation>
+		<annotation cp="¿" type="tts">inverted question mark</annotation>
+		<annotation cp="؟">question mark | arabic | question</annotation>
+		<annotation cp="؟" type="tts">arabic question mark</annotation>
+		<annotation cp="¶">paragraph | pilcrow | paraph | alinea</annotation>
+		<annotation cp="¶" type="tts">paragraph mark</annotation>
+		<annotation cp="※">reference mark</annotation>
+		<annotation cp="※" type="tts">reference mark</annotation>
+		<annotation cp="/">slash | oblique | solidus | virgule | stroke | whack</annotation>
+		<annotation cp="/" type="tts">slash</annotation>
+		<annotation cp="\">backslash | whack |  reverse solidus</annotation>
+		<annotation cp="\" type="tts">backslash</annotation>
+		<annotation cp="&amp;">ampersand | and | et</annotation>
+		<annotation cp="&amp;" type="tts">ampersand</annotation>
+		<annotation cp="#">hash | pound | number | lb | hashtag</annotation>
+		<annotation cp="#" type="tts">hash sign</annotation>
+		<annotation cp="%">per-cent | per cent</annotation>
+		<annotation cp="%" type="tts">percent</annotation>
+		<annotation cp="‰">permille | permil | per mil</annotation>
+		<annotation cp="‰" type="tts">per mille</annotation>
+		<annotation cp="′">prime</annotation>
+		<annotation cp="′" type="tts">prime</annotation>
+		<annotation cp="″">prime</annotation>
+		<annotation cp="″" type="tts">double prime</annotation>
+		<annotation cp="‴">prime</annotation>
+		<annotation cp="‴" type="tts">triple prime</annotation>
+		<annotation cp="@">at sign | commercial at | arobase | arroba | ampersat | strudel | at mark</annotation>
+		<annotation cp="@" type="tts">at-sign</annotation>
+		<annotation cp="*">asterisk | star | wildcard</annotation>
+		<annotation cp="*" type="tts">asterisk</annotation>
+		<annotation cp="♪">eighth | note | music</annotation>
+		<annotation cp="♪" type="tts">eighth note</annotation>
+		<annotation cp="♭">flat | note | music | bemolle</annotation>
+		<annotation cp="♭" type="tts">flat</annotation>
+		<annotation cp="♯">sharp | note | music | dièse | diesis</annotation>
+		<annotation cp="♯" type="tts">sharp</annotation>
+		<annotation cp="`">grave | accent | tone</annotation>
+		<annotation cp="`" type="tts">grave accent</annotation>
+		<annotation cp="´">acute | accent | tone</annotation>
+		<annotation cp="´" type="tts">acute accent</annotation>
+		<annotation cp="^">circumflex | accent | caret | hat | control | chevron | xor sign | power | pointer | wedge</annotation>
+		<annotation cp="^" type="tts">circumflex accent</annotation>
+		<annotation cp="¨">diaeresis | umlaut | tréma</annotation>
+		<annotation cp="¨" type="tts">diaeresis</annotation>
+		<annotation cp="‘">quote | single quote | smart quote | apostrophe</annotation>
+		<annotation cp="‘" type="tts">left apostrophe</annotation>
+		<annotation cp="’">quote | single quote | smart quote | apostrophe</annotation>
+		<annotation cp="’" type="tts">right apostrophe</annotation>
+		<annotation cp="‚">quote | low quote | apostrophe</annotation>
+		<annotation cp="‚" type="tts">low right apostrophe</annotation>
+		<annotation cp="'">quote | single quote | apostrophe</annotation>
+		<annotation cp="'" type="tts">typewriter apostrophe</annotation>
+		<annotation cp="“">quote | double quote | quotation | smart quotation</annotation>
+		<annotation cp="“" type="tts">left quotation mark</annotation>
+		<annotation cp="”">quote | double quote | quotation | smart quotation</annotation>
+		<annotation cp="”" type="tts">right quotation mark</annotation>
+		<annotation cp="„">quote | double quote | quotation | smart quotation | low quotation</annotation>
+		<annotation cp="„" type="tts">low right quotation mark</annotation>
+		<annotation cp=")">parenthesis | round bracket | paren | parens | bracket</annotation>
+		<annotation cp=")" type="tts">close parenthesis</annotation>
+		<annotation cp="[">bracket | square bracket | crotchet</annotation>
+		<annotation cp="[" type="tts">open square bracket</annotation>
+		<annotation cp="]">bracket | square bracket | crotchet</annotation>
+		<annotation cp="]" type="tts">close square bracket</annotation>
+		<annotation cp="{">curly bracket | brace | gullwing | curly brace | bracket</annotation>
+		<annotation cp="{" type="tts">open curly bracket</annotation>
+		<annotation cp="}">curly bracket | brace | gullwing | curly brace | bracket</annotation>
+		<annotation cp="}" type="tts">close curly bracket</annotation>
+		<annotation cp="〔">tortoise shell bracket | bracket | shell bracket</annotation>
+		<annotation cp="〔" type="tts">open tortoise shell bracket</annotation>
+		<annotation cp="〕">tortoise shell bracket | bracket | shell bracket</annotation>
+		<annotation cp="〕" type="tts">close tortoise shell bracket</annotation>
+		<annotation cp="〈">angle bracket | pointy bracket | diamond brackets | tuple | chevron | bracket</annotation>
+		<annotation cp="〈" type="tts">open angle bracket</annotation>
+		<annotation cp="〉">angle bracket | pointy bracket | diamond brackets | tuple | chevron | bracket</annotation>
+		<annotation cp="〉" type="tts">close angle bracket</annotation>
+		<annotation cp="《">double angle bracket | bracket</annotation>
+		<annotation cp="《" type="tts">open double angle bracket</annotation>
+		<annotation cp="》">double angle bracket | bracket</annotation>
+		<annotation cp="》" type="tts">close double angle bracket</annotation>
+		<annotation cp="「">corner bracket | bracket</annotation>
+		<annotation cp="「" type="tts">open corner bracket</annotation>
+		<annotation cp="」">corner bracket | bracket</annotation>
+		<annotation cp="」" type="tts">close corner bracket</annotation>
+		<annotation cp="『">hollow corner bracket | bracket</annotation>
+		<annotation cp="『" type="tts">open hollow corner bracket</annotation>
+		<annotation cp="』">hollow corner bracket | bracket</annotation>
+		<annotation cp="』" type="tts">close hollow corner bracket</annotation>
+		<annotation cp="〖">hollow lens bracket | hollow lenticular bracket | bracket</annotation>
+		<annotation cp="〖" type="tts">open hollow lens bracket</annotation>
+		<annotation cp="〗">hollow lens bracket | hollow lenticular bracket | bracket</annotation>
+		<annotation cp="〗" type="tts">close hollow lens bracket</annotation>
+		<annotation cp="【">lenticular bracket | lens bracket | bracket</annotation>
+		<annotation cp="【" type="tts">open black lens bracket</annotation>
+		<annotation cp="】">lenticular bracket | lens bracket | bracket</annotation>
+		<annotation cp="】" type="tts">close black lens bracket</annotation>
+		<annotation cp="$">USD | dollar | peso | money</annotation>
+		<annotation cp="$" type="tts">dollar</annotation>
+		<annotation cp="¢">cent</annotation>
+		<annotation cp="¢" type="tts">cent</annotation>
+		<annotation cp="₱">peso</annotation>
+		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₩">KRW | KPW</annotation>
+		<annotation cp="₩" type="tts">won</annotation>
+		<annotation cp="₥">mil</annotation>
+		<annotation cp="₥" type="tts">mill</annotation>
+		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="+">plus  | add</annotation>
+		<annotation cp="+" type="tts">plus sign</annotation>
+		<annotation cp="±">plus-minus</annotation>
+		<annotation cp="±" type="tts">plus-minus</annotation>
+		<annotation cp="−">minus | subtract</annotation>
+		<annotation cp="−" type="tts">minus sign</annotation>
+		<annotation cp="=">equal | equals</annotation>
+		<annotation cp="=" type="tts">equal</annotation>
+		<annotation cp="≈">almost equal | approximate | approximation</annotation>
+		<annotation cp="≈" type="tts">almost equal</annotation>
+		<annotation cp="≠">not equal | inequation | inequality</annotation>
+		<annotation cp="≠" type="tts">not equal</annotation>
+		<annotation cp=">">greater than | tag | close tag</annotation>
+		<annotation cp=">" type="tts">greater-than</annotation>
+		<annotation cp="&lt;">less than | tag | open tag</annotation>
+		<annotation cp="&lt;" type="tts">less-than</annotation>
+		<annotation cp="≤">less-then | equal | equals | inequality</annotation>
+		<annotation cp="≤" type="tts">less-than or equal</annotation>
+		<annotation cp="≥">greater-than | equal | equals | inequality</annotation>
+		<annotation cp="≥" type="tts">greater-than or equal</annotation>
+		<annotation cp="¬">negation | not</annotation>
+		<annotation cp="¬" type="tts">negation</annotation>
+		<annotation cp="|">vertical bar | bar | sheffer stroke | stroke | vbar | stick | line | pike | pipe</annotation>
+		<annotation cp="|" type="tts">vertical line</annotation>
+		<annotation cp="~">tilde</annotation>
+		<annotation cp="~" type="tts">tilde</annotation>
 	</annotations>
 </ldml>

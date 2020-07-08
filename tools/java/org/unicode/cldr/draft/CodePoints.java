@@ -2,7 +2,7 @@ package org.unicode.cldr.draft;
 
 /**
  * Alternate way to iterate through code points
- * 
+ *
  * @author markdavis
  */
 public final class CodePoints {
@@ -16,7 +16,7 @@ public final class CodePoints {
 
     /**
      * Set up the iterator.
-     * 
+     *
      * @param s
      */
     public CodePoints(CharSequence s) {
@@ -39,7 +39,7 @@ public final class CodePoints {
 
     /**
      * Get the next code point. False if at end of string. After successful next(), the codePoint field has the value.
-     * 
+     *
      * @return
      */
     public boolean next() {
@@ -61,20 +61,21 @@ public final class CodePoints {
 
     /**
      * After calling next(), if it comes back true, this contains the code point; if not, it has U+FFFF.
-     * 
+     *
      * @return
      */
     public int getCodePoint() {
         return codePoint;
     }
 
+    @Override
     public String toString() {
         return buffer.subSequence(0, position) + "|||" + buffer.subSequence(position, buffer.length());
     }
 
     /**
      * When iterating over full strings, this method is the fastest (as long as the string is not huge).
-     * 
+     *
      * @param s
      * @return
      */

@@ -46,14 +46,14 @@ public class ShowZoneEquivalences {
         // System.out.println("in available? " + Arrays.asList(TimeZone.getAvailableIDs()).contains(tzid));
         // System.out.println(new TreeSet(Arrays.asList(TimeZone.getAvailableIDs())));
 
-        Set<String> needsTranslation = new TreeSet<String>(Arrays.asList(CountItems.needsTranslationString
+        Set<String> needsTranslation = new TreeSet<>(Arrays.asList(CountItems.needsTranslationString
             .split("[,]?\\s+")));
-        Set<String> singleCountries = new TreeSet<String>(
+        Set<String> singleCountries = new TreeSet<>(
             Arrays
                 .asList(
                     "Africa/Bamako America/Godthab America/Santiago America/Guayaquil     Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"
                         .split("\\s")));
-        Set<String> defaultItems = new TreeSet<String>(
+        Set<String> defaultItems = new TreeSet<>(
             Arrays
                 .asList(
                     "Antarctica/McMurdo America/Buenos_Aires Australia/Sydney America/Sao_Paulo America/Toronto Africa/Kinshasa America/Santiago Asia/Shanghai America/Guayaquil Europe/Madrid Europe/London America/Godthab Asia/Jakarta Africa/Bamako America/Mexico_City Asia/Kuala_Lumpur Pacific/Auckland Europe/Lisbon Europe/Moscow Europe/Kiev America/New_York Asia/Tashkent Pacific/Tahiti Pacific/Kosrae Pacific/Tarawa Asia/Almaty Pacific/Majuro Asia/Ulaanbaatar Arctic/Longyearbyen Pacific/Midway"
@@ -61,7 +61,7 @@ public class ShowZoneEquivalences {
 
         StandardCodes sc = StandardCodes.make();
         Collection<String> codes = sc.getGoodAvailableCodes("tzid");
-        TreeSet<String> extras = new TreeSet<String>();
+        TreeSet<String> extras = new TreeSet<>();
         Map<String, Set<String>> m = sc.getZoneLinkNew_OldSet();
         for (String code : codes) {
             Collection<String> s = m.get(code);
@@ -70,11 +70,11 @@ public class ShowZoneEquivalences {
             extras.addAll(s);
         }
         extras.addAll(codes);
-        Set<String> icu4jTZIDs = new TreeSet<String>(Arrays.asList(TimeZone.getAvailableIDs()));
-        Set<String> diff2 = new TreeSet<String>(icu4jTZIDs);
+        Set<String> icu4jTZIDs = new TreeSet<>(Arrays.asList(TimeZone.getAvailableIDs()));
+        Set<String> diff2 = new TreeSet<>(icu4jTZIDs);
         diff2.removeAll(extras);
         System.out.println("icu4jTZIDs - StandardCodes: " + diff2);
-        diff2 = new TreeSet<String>(extras);
+        diff2 = new TreeSet<>(extras);
         diff2.removeAll(icu4jTZIDs);
         System.out.println("StandardCodes - icu4jTZIDs: " + diff2);
         ArrayComparator ac = new ArrayComparator(new Comparator[] {
@@ -85,8 +85,8 @@ public class ShowZoneEquivalences {
         TreeSet<Object[]> country_inflection_names = new TreeSet<Object[]>(ac);
         PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "inflections.txt");
 
-        TreeMap<Integer, TreeSet<String>> minOffsetMap = new TreeMap<Integer, TreeSet<String>>();
-        TreeMap<Integer, TreeSet<String>> maxOffsetMap = new TreeMap<Integer, TreeSet<String>>();
+        TreeMap<Integer, TreeSet<String>> minOffsetMap = new TreeMap<>();
+        TreeMap<Integer, TreeSet<String>> maxOffsetMap = new TreeMap<>();
 
         for (Iterator<String> it = codes.iterator(); it.hasNext();) {
             String zoneID = it.next();
@@ -98,12 +98,12 @@ public class ShowZoneEquivalences {
 
             TreeSet<String> s = minOffsetMap.get(zip.getMinOffset());
             if (s == null)
-                minOffsetMap.put(zip.getMinOffset(), s = new TreeSet<String>());
+                minOffsetMap.put(zip.getMinOffset(), s = new TreeSet<>());
             s.add(zone.getID());
 
             s = maxOffsetMap.get(zip.getMaxOffset());
             if (s == null)
-                maxOffsetMap.put(zip.getMaxOffset(), s = new TreeSet<String>());
+                maxOffsetMap.put(zip.getMaxOffset(), s = new TreeSet<>());
             s.add(zone.getID());
 
         }

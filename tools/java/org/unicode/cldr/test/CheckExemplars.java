@@ -146,6 +146,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         return this;
     }
 
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -275,7 +276,14 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     .setMessage("ParseLenient sample not in value: {0} ∌ {1}", us, sampleValue);
                 result.add(message);
             }
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
+            /*
+             * new UnicodeSet(value) throws IllegalArgumentException if, for example, value is null or value = "?".
+             * This can happen during cldr-unittest TestAll.
+             * path = //ldml/characters/parseLenients[@scope="general"][@level="lenient"]/parseLenient[@sample="’"]
+             * or
+             * path = //ldml/characters/parseLenients[@scope="date"][@level="lenient"]/parseLenient[@sample="-"]
+             */
             CheckStatus message = new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.badParseLenient)
@@ -349,7 +357,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         } catch (Exception e) {
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.illegalExemplarSet)
-                .setMessage("This field must be a set of the form [a b c-d ...]: ", new Object[] { e.getMessage() }));
+                .setMessage("This field must be a set of the form [a b c-d ...]: {0}", new Object[] { e.getMessage() }));
             return;
         }
 

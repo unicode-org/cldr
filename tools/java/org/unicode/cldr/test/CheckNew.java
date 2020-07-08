@@ -37,7 +37,10 @@ public class CheckNew extends FactoryCheckCLDR {
         List<CheckStatus> result) {
 
         CLDRFile cldrFileToCheck = getCldrFileToCheck();
-        if (!isRoot && value != null && path.startsWith("//ldml/annotations/annotation")) {
+        if (!isRoot
+            && value != null
+            && path.startsWith("//ldml/annotations/annotation")
+            && cldrFileToCheck.getUnresolved().getStringValue(path) != null) { // don't check inherited values
             // first see if the value is inherited or not
             Matcher matcher = BAD_EMOJI.matcher(value);
             if (matcher.matches()) {

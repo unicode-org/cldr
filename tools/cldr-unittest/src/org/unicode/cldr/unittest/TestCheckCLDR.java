@@ -462,8 +462,8 @@ public class TestCheckCLDR extends TestFmwk {
 
     public void TestCheckNewRootFailure() {
         // Check that we get an error with the root value for an emoji.
-        final Factory annotationsFactory = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
-        String locale = "quc";
+        final Factory annotationsFactory = testInfo.getAnnotationsFactory();
+        String locale = "yo"; // the name doesn't matter, since we're going to create a new one
         String path = "//ldml/annotations/annotation[@cp=\"😀\"][@type=\"tts\"]";
         CheckCLDR c = new CheckNew(annotationsFactory);
         List<CheckStatus> result = new ArrayList<>();
@@ -472,10 +472,9 @@ public class TestCheckCLDR extends TestFmwk {
             options.put(Options.Option.phase.getKey(), phase.toString());
             for (String value : Arrays.asList("E10-836", CldrUtility.INHERITANCE_MARKER)) {
 
-                // make a fake locale
-                XMLSource rootSource = new SimpleXMLSource("root");
-                rootSource.putValueAtPath(path, "E10-836");
-                CLDRFile root = new CLDRFile(rootSource);
+                // make a fake locale, starting with real root
+
+                CLDRFile root = annotationsFactory.make("root", false);
 
                 XMLSource localeSource = new SimpleXMLSource(locale);
                 localeSource.putValueAtPath(path, value);

@@ -533,13 +533,35 @@ public class CLDRConfig extends Properties {
         }
     }
 
-    public File getCldrBaseDirectory() {
-        String dir = getProperty("CLDR_DIR", null);
-        if (dir != null) {
-            return new File(dir);
-        } else {
-            return null;
+    static class FileWrapper {
+        private File cldrDir = null;
+        private FileWrapper() {
+            String dir = getInstance().getProperty("CLDR_DIR", null);
+            if (dir != null) {
+                cldrDir = new File(dir);
+            } else {
+                cldrDir = null;
+            }
         }
+        public File getCldrDir() {
+            return this.cldrDir;
+        }
+        // singleton
+        private static FileWrapper fileWrapperInstance = null;
+        public static FileWrapper getFileWrapperInstance() {
+            if (fileWrapperInstance == null) {
+                synchronized(FileWrapper.class) {
+                    if (fileWrapperInstance == null) {
+                        fileWrapperInstance = new FileWrapper();
+                    }
+                }
+            }
+            return fileWrapperInstance;
+        }
+    }
+
+    public File getCldrBaseDirectory() {
+        return FileWrapper.getFileWrapperInstance().getCldrDir();
     }
 
     /**

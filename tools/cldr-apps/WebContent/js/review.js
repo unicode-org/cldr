@@ -638,8 +638,16 @@ function insertFixInfo(theDiv, xpath, session, json) {
 		}
 	}
 
-	var k = theTable.json.displaySets[theTable.curSortMode].rows[0];
-	var theRow = theTable.json.section.rows[k];
+	const k = theTable.json.displaySets[theTable.curSortMode].rows[0];
+	if (!k) {
+		console.log("k is null or undefined in insertFixInfo");
+		return;
+	}
+	const theRow = theTable.json.section.rows[k];
+	if (!theRow) {
+		console.log("theRow is null or undefined in insertFixInfo; k = " + k);
+		return;
+	}
 	removeAllChildNodes(tbody);
 	/*
 	 * Caution: in spite of the name here in the JavaScript, "tr" isn't a
@@ -652,9 +660,6 @@ function insertFixInfo(theDiv, xpath, session, json) {
 	}
 	tr.rowHash = k;
 	tr.theTable = theTable;
-	if (!theRow) {
-		console.log("Missing row " + k);
-	}
 
 	cldrSurveyTable.updateRow(tr,theRow);
 

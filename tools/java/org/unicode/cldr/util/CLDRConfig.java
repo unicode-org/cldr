@@ -533,7 +533,7 @@ public class CLDRConfig extends Properties {
         }
     }
 
-    static class FileWrapper {
+    private static class FileWrapper {
         private File cldrDir = null;
         private FileWrapper() {
             String dir = getInstance().getProperty("CLDR_DIR", null);
@@ -547,15 +547,8 @@ public class CLDRConfig extends Properties {
             return this.cldrDir;
         }
         // singleton
-        private static FileWrapper fileWrapperInstance = null;
+        private static FileWrapper fileWrapperInstance = new FileWrapper();
         public static FileWrapper getFileWrapperInstance() {
-            if (fileWrapperInstance == null) {
-                synchronized(FileWrapper.class) {
-                    if (fileWrapperInstance == null) {
-                        fileWrapperInstance = new FileWrapper();
-                    }
-                }
-            }
             return fileWrapperInstance;
         }
     }

@@ -33,7 +33,6 @@ import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
@@ -186,6 +185,7 @@ public class TestCheckCLDR extends TestFmwk {
         checkPlaceholders(english);
         checkPlaceholders(factory.make("de", true));
     }
+
     public void checkPlaceholders(CLDRFile cldrFileToTest) {
         // verify that every item with {0} has a pattern in pattern
         // placeholders,
@@ -270,7 +270,7 @@ public class TestCheckCLDR extends TestFmwk {
                         test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?",
                             options, result);
                     }
-                } else if (placeholderStatus == PlaceholderStatus.OPTIONAL
+                } else if (placeholderStatus == PlaceholderStatus.MULTIPLE
                     && gotIt != null) {
                     errln("CheckForExemplars should NOT have detected "
                         + Subtype.missingPlaceholders + " for "
@@ -409,6 +409,71 @@ public class TestCheckCLDR extends TestFmwk {
         }
     }
 
+    public void testPlaceholders() {
+        final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        CLDRFile root = cldrFactory.make("root", true);
+        String[][] tests = {
+            // test edge cases
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}", null},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "extraPlaceholders"},
+
+            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite.", null},
+
+            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours", null},
+
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders"},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci", null},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath", null},
+
+            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders"},
+            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik", null},
+
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}", null},
+
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة", null},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة", null},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
+            };
+        for (String[] row : tests) {
+            String localeId = row[0];
+            String path = row[1];
+            String value = row[2];
+            Subtype expected = row[3] == null ? null : Subtype.valueOf(row[3]);
+
+            XMLSource localeSource = new SimpleXMLSource(localeId);
+            localeSource.putValueAtPath(path, value);
+
+            TestFactory currFactory = makeTestFactory(root, localeSource);
+            CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
+            CheckForExemplars check = new CheckForExemplars(currFactory);
+
+            Options options = new Options();
+            List<CheckStatus> possibleErrors = new ArrayList<>();
+            check.setCldrFileToCheck(cldrFile , options, possibleErrors);
+            check.handleCheck(path, path, value, options, possibleErrors);
+            int count = 0;
+            for (CheckStatus item : possibleErrors) {
+                if (item.getSubtype() == Subtype.missingPlaceholders
+                    || item.getSubtype() == Subtype.extraPlaceholders) {
+                    if (!assertEquals(Arrays.asList(row).toString(), expected, item.getSubtype())) {
+                        System.out.println(item.getMessage());
+                    }
+                    ++count;
+                }
+            }
+            if (count == 0) {
+                assertNull(Arrays.asList(row).toString(), expected);
+            }
+        }
+    }
+
     public void TestCheckNames() {
         CheckCLDR c = new CheckNames();
         Map<String, String> options = new LinkedHashMap<>();
@@ -475,15 +540,11 @@ public class TestCheckCLDR extends TestFmwk {
                 // make a fake locale, starting with real root
 
                 CLDRFile root = annotationsFactory.make("root", false);
-
                 XMLSource localeSource = new SimpleXMLSource(locale);
                 localeSource.putValueAtPath(path, value);
-                CLDRFile localeCldr = new CLDRFile(localeSource);
 
-                TestFactory factory = new TestFactory();
-                factory.addFile(root);
-                factory.addFile(localeCldr);
-                CLDRFile cldrFile = factory.handleMake(locale, true, DraftStatus.unconfirmed);
+                TestFactory currFactory = makeTestFactory(root, localeSource);
+                CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
 
                 c.setCldrFileToCheck(cldrFile, options, result);
                 c.check(path, path, value, options, result);
@@ -502,6 +563,15 @@ public class TestCheckCLDR extends TestFmwk {
                 }
             }
         }
+    }
+
+    public TestFactory makeTestFactory(CLDRFile root, XMLSource localeSource) {
+        CLDRFile localeCldr = new CLDRFile(localeSource);
+
+        TestFactory factory = new TestFactory();
+        factory.addFile(root);
+        factory.addFile(localeCldr);
+        return factory;
     }
 
 

@@ -8,21 +8,29 @@ import java.util.Map.Entry;
 import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.RegexLookup.Merger;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.text.Transform;
 
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED("No placeholders allowed."), //
-        OPTIONAL("Zero or one placeholder allowed."), //
-        MULTIPLE("Zero or more placeholders allowed."), //
-        LOCALE_DEPENDENT( "Varies by locale."),
-        REQUIRED("Placeholder required");
+        DISALLOWED("No placeholders allowed."),//
+        REQUIRED("Specific number of placeholders allowed."),//
+        LOCALE_DEPENDENT("Varies by locale."),//
+        MULTIPLE("May have duplicates.")//
+        ;
 
-        final String message;
+        private final String message;
 
         private PlaceholderStatus(String message) {
             this.message = message;
+        }
+        @Override
+        public String toString() {
+            return MoreObjects.toStringHelper(this.getClass())
+                .add("message", message)
+                .toString();
         }
     }
 
@@ -47,7 +55,7 @@ public class PatternPlaceholders {
 
         @Override
         public String toString() {
-            return name + " (" + example + ")";
+            return "{" + name + "}, e.g. “" + example + "”";
         }
     }
 
@@ -77,9 +85,6 @@ public class PatternPlaceholders {
                 String[] parts = source.split("\\s*;\\s+");
                 for (String part : parts) {
                     switch (part) {
-                    case "optional":
-                        result.status = PlaceholderStatus.OPTIONAL;
-                        continue;
                     case "locale":
                         result.status = PlaceholderStatus.LOCALE_DEPENDENT;
                         continue;
@@ -137,7 +142,7 @@ public class PatternPlaceholders {
     public Map<String, PlaceholderInfo> get(String path) {
         // TODO change the original map to be unmodifiable, to avoid this step. Need to add a "finalize" to the lookup.
         final PlaceholderData map = patternPlaceholders.get(path);
-        return map == null ? null : Collections.unmodifiableMap(map.data);
+        return map == null ? ImmutableMap.of() : Collections.unmodifiableMap(map.data);
     }
 
     public PlaceholderStatus getStatus(String path) {

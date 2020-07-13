@@ -185,38 +185,42 @@ public class TestCheckCLDR extends TestFmwk {
         CLDRFile root = cldrFactory.make("root", true);
         String[][] tests = {
             // test edge cases
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}", null},
+            // locale, path, value, 0..n Subtype errors
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}"},
             {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders"},
             {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders", "gapsInPlaceholderNumbers"},
             {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "extraPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "duplicatePlaceholders"},
 
             {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite.", null},
+            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite."},
 
             {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours", null},
+            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours"},
 
             {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders"},
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci", null},
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath", null},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci"},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath"},
 
             {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders"},
-            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik", null},
+            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik"},
 
             {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}", null},
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}"},
 
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة", null},
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة", null},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة"},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة"},
             {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
         };
         for (String[] row : tests) {
             String localeId = row[0];
             String path = row[1];
             String value = row[2];
-            Subtype expected = row[3] == null ? null : Subtype.valueOf(row[3]);
+            Set<Subtype> expected = new TreeSet<>();
+            for (int i = 3; i < row.length; ++i) {
+                expected.add(Subtype.valueOf(row[i]));
+            }
 
             XMLSource localeSource = new SimpleXMLSource(localeId);
             localeSource.putValueAtPath(path, value);
@@ -229,18 +233,14 @@ public class TestCheckCLDR extends TestFmwk {
             List<CheckStatus> possibleErrors = new ArrayList<>();
             check.setCldrFileToCheck(cldrFile , options, possibleErrors);
             check.handleCheck(path, path, value, options, possibleErrors);
-            int count = 0;
+            Set<Subtype> actual = new TreeSet<>();
             for (CheckStatus item : possibleErrors) {
-                if (item.getSubtype() == Subtype.missingPlaceholders
-                    || item.getSubtype() == Subtype.extraPlaceholders) {
-                    if (!assertEquals(Arrays.asList(row).toString(), expected, item.getSubtype())) {
-                        System.out.println(item.getMessage());
-                    }
-                    ++count;
+                if (PatternPlaceholders.PLACEHOLDER_SUBTYPES.contains(item.getSubtype())) {
+                    actual.add(item.getSubtype());
                 }
             }
-            if (count == 0) {
-                assertNull(Arrays.asList(row).toString(), expected);
+            if (!assertEquals(Arrays.asList(row).toString(), expected, actual)) {
+                int debug = 0;
             }
         }
     }

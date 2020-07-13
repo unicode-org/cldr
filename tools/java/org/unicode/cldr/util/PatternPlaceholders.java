@@ -5,11 +5,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.RegexLookup.Merger;
 
-import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.Transform;
 
 public class PatternPlaceholders {
@@ -17,8 +18,8 @@ public class PatternPlaceholders {
     public enum PlaceholderStatus {
         DISALLOWED("No placeholders allowed."),//
         REQUIRED("Specific number of placeholders allowed."),//
-        LOCALE_DEPENDENT("Varies by locale."),//
-        MULTIPLE("May have duplicates.")//
+        LOCALE_DEPENDENT("Some placeholders may be omitted in certain locales"),//
+        MULTIPLE("May have multiple instances of the same placeholder, eg “{0} cats and {0} dogs”.")//
         ;
 
         private final String message;
@@ -28,11 +29,15 @@ public class PatternPlaceholders {
         }
         @Override
         public String toString() {
-            return MoreObjects.toStringHelper(this.getClass())
-                .add("message", message)
-                .toString();
+            return name() + ": " + message;
         }
     }
+
+    public static final ImmutableSet<Subtype> PLACEHOLDER_SUBTYPES = ImmutableSet.of(
+        Subtype.gapsInPlaceholderNumbers,
+        Subtype.duplicatePlaceholders,
+        Subtype.missingPlaceholders,
+        Subtype.extraPlaceholders);
 
     private static class PlaceholderData {
         PlaceholderStatus status = PlaceholderStatus.REQUIRED;

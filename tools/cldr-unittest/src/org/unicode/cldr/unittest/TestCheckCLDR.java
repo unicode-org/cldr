@@ -180,6 +180,71 @@ public class TestCheckCLDR extends TestFmwk {
 
     private static final boolean DEBUG = true;
 
+    public void testPlaceholderSamples() {
+        final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        CLDRFile root = cldrFactory.make("root", true);
+        String[][] tests = {
+            // test edge cases
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}", null},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "extraPlaceholders"},
+
+            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite.", null},
+
+            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours", null},
+
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders"},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci", null},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath", null},
+
+            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders"},
+            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik", null},
+
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}", null},
+
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة", null},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة", null},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
+        };
+        for (String[] row : tests) {
+            String localeId = row[0];
+            String path = row[1];
+            String value = row[2];
+            Subtype expected = row[3] == null ? null : Subtype.valueOf(row[3]);
+
+            XMLSource localeSource = new SimpleXMLSource(localeId);
+            localeSource.putValueAtPath(path, value);
+
+            TestFactory currFactory = makeTestFactory(root, localeSource);
+            CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
+            CheckForExemplars check = new CheckForExemplars(currFactory);
+
+            Options options = new Options();
+            List<CheckStatus> possibleErrors = new ArrayList<>();
+            check.setCldrFileToCheck(cldrFile , options, possibleErrors);
+            check.handleCheck(path, path, value, options, possibleErrors);
+            int count = 0;
+            for (CheckStatus item : possibleErrors) {
+                if (item.getSubtype() == Subtype.missingPlaceholders
+                    || item.getSubtype() == Subtype.extraPlaceholders) {
+                    if (!assertEquals(Arrays.asList(row).toString(), expected, item.getSubtype())) {
+                        System.out.println(item.getMessage());
+                    }
+                    ++count;
+                }
+            }
+            if (count == 0) {
+                assertNull(Arrays.asList(row).toString(), expected);
+            }
+        }
+    }
+
     public void TestPlaceholders() {
         CheckCLDR.setDisplayInformation(english);
         checkPlaceholders(english);
@@ -215,7 +280,7 @@ public class TestCheckCLDR extends TestFmwk {
             String path = pathHeader.getOriginalPath();
             String value = cldrFileToTest.getStringValue(path);
             if (value == null) {
-                value = "?";
+                continue;
             }
             boolean containsMessagePattern = messagePlaceholder.reset(value)
                 .find();
@@ -223,71 +288,35 @@ public class TestCheckCLDR extends TestFmwk {
                 .get(path);
             final PlaceholderStatus placeholderStatus = patternPlaceholders
                 .getStatus(path);
-            if (containsMessagePattern && placeholderStatus == PlaceholderStatus.DISALLOWED
-                || !containsMessagePattern && placeholderStatus == PlaceholderStatus.REQUIRED) {
-                errln("Value (" + value + ") looks like placeholder = "
-                    + containsMessagePattern + ", but placeholder info = "
-                    + placeholderStatus + "\t" + path);
-                continue;
-            } else if (placeholderStatus != PlaceholderStatus.DISALLOWED) {
+            if (placeholderStatus == PlaceholderStatus.DISALLOWED) {
                 if (containsMessagePattern) {
-                    Set<String> found = new HashSet<>();
-                    do {
-                        found.add(messagePlaceholder.group());
-                    } while (messagePlaceholder.find());
-                    if (!found.equals(placeholderInfo.keySet())) {
-                        // ^//ldml/characterLabels/characterLabelPattern[@type="category_list"] ; {0}=CATEGORY_TYPE family; {1}=REMAINING_ITEMS man, woman, girl
-                        if (path.equals("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]")) {
-                            logKnownIssue("cldrbug:9534", "commenting out characterLabelPattern[@type=\"category-list\"] for now, pending real fix.");
-                        } else {
-                            errln("Value ("
-                                + value
-                                + ") has different placeholders than placeholder info ("
-                                + placeholderInfo.keySet() + ")\t" + path);
-                        }
-                        continue;
-                    } else {
-                        logln("placeholder info = " + placeholderInfo + "\t"
-                            + path);
-                    }
+                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    continue;
                 }
-
-                // check that the error messages are right
-
-                test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?", options, result);
-                CheckStatus gotIt = null;
-                for (CheckStatus i : result) {
-                    if (i.getSubtype() == Subtype.missingPlaceholders) {
-                        gotIt = i;
-                    }
+            } else { // not disallowed
+                if (!containsMessagePattern) {
+                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    continue;
                 }
-                if (placeholderStatus == PlaceholderStatus.REQUIRED
-                    && gotIt == null) {
-                    errln("CheckForExemplars SHOULD have detected "
-                        + Subtype.missingPlaceholders + " for "
-                        + placeholderStatus + " in " + path + " with " + value);
-                    if (DEBUG) {
-                        test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?",
-                            options, result);
-                    }
-                } else if (placeholderStatus == PlaceholderStatus.MULTIPLE
-                    && gotIt != null) {
-                    errln("CheckForExemplars should NOT have detected "
-                        + Subtype.missingPlaceholders + " for "
-                        + placeholderStatus + " in " + path + " with " + value);
-                    if (DEBUG) {
-                        test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?",
-                            options, result);
+                // get the set of placeholders
+                HashSet<String> found = new HashSet<>();
+                do {
+                    found.add(messagePlaceholder.group()); // we loaded first one up above
+                } while (messagePlaceholder.find());
+
+                if (!found.equals(placeholderInfo.keySet())) {
+                    if (placeholderStatus != PlaceholderStatus.LOCALE_DEPENDENT) {
+                        errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") has different placeholders than placeholder info «" + placeholderInfo.keySet() + "»\t" + path);
                     }
                 } else {
-                    logln("CheckForExemplars found " + result);
+                    logln("placeholder info = " + placeholderInfo + "\t"
+                        + path);
                 }
             }
         }
     }
 
     public void TestFullErrors() {
-
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
 
@@ -405,71 +434,6 @@ public class TestCheckCLDR extends TestFmwk {
                     }
                 } catch (RuntimeException e) {
                 } // skip if not parseable as set
-            }
-        }
-    }
-
-    public void testPlaceholders() {
-        final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
-        CLDRFile root = cldrFactory.make("root", true);
-        String[][] tests = {
-            // test edge cases
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}", null},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "extraPlaceholders"},
-
-            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite.", null},
-
-            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours", null},
-
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders"},
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci", null},
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath", null},
-
-            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders"},
-            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik", null},
-
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}", null},
-
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة", null},
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة", null},
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
-            };
-        for (String[] row : tests) {
-            String localeId = row[0];
-            String path = row[1];
-            String value = row[2];
-            Subtype expected = row[3] == null ? null : Subtype.valueOf(row[3]);
-
-            XMLSource localeSource = new SimpleXMLSource(localeId);
-            localeSource.putValueAtPath(path, value);
-
-            TestFactory currFactory = makeTestFactory(root, localeSource);
-            CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
-            CheckForExemplars check = new CheckForExemplars(currFactory);
-
-            Options options = new Options();
-            List<CheckStatus> possibleErrors = new ArrayList<>();
-            check.setCldrFileToCheck(cldrFile , options, possibleErrors);
-            check.handleCheck(path, path, value, options, possibleErrors);
-            int count = 0;
-            for (CheckStatus item : possibleErrors) {
-                if (item.getSubtype() == Subtype.missingPlaceholders
-                    || item.getSubtype() == Subtype.extraPlaceholders) {
-                    if (!assertEquals(Arrays.asList(row).toString(), expected, item.getSubtype())) {
-                        System.out.println(item.getMessage());
-                    }
-                    ++count;
-                }
-            }
-            if (count == 0) {
-                assertNull(Arrays.asList(row).toString(), expected);
             }
         }
     }

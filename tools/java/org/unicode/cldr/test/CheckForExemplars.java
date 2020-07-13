@@ -508,7 +508,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 int elementValue = Integer.parseInt(element.substring(1, element.length()-1), 10);
                 if (elementValue != expected) {
                     result.add(new CheckStatus().setCause(this).setMainType(statusType)
-                        .setSubtype(Subtype.missingPlaceholders)
+                        .setSubtype(Subtype.gapsInPlaceholderNumbers)
                         .setMessage("Placeholders {0} should be strictly increasing, starting at zero.", distinctPlaceholders));
                     break;
                 }
@@ -525,7 +525,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 }
             }
             result.add(new CheckStatus().setCause(this).setMainType(statusType)
-                .setSubtype(Subtype.extraPlaceholders)
+                .setSubtype(Subtype.duplicatePlaceholders)
                 .setMessage("Duplicate placeholders: {0}.", Joiner.on(", ").join(errors)));
         }
 

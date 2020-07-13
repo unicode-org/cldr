@@ -4494,14 +4494,17 @@ public class SupplementalDataInfo {
 
     /**
      * Grammar info for locales, with inheritance
+     * @param seedOnly TODO
      */
-    public GrammarInfo getGrammarInfo(String locale) {
-        while (locale != null) {
+    public GrammarInfo getGrammarInfo(String locale, boolean seedOnly) {
+        for (;locale != null; locale = LocaleIDParser.getParent(locale)) {
+            if (seedOnly && !GrammarInfo.SEED_LOCALES.contains(locale)) {
+                continue;
+            }
             GrammarInfo result = grammarLocaleToTargetToFeatureToValues.get(locale);
             if (result != null) {
                 return result;
             }
-            locale = LocaleIDParser.getParent(locale);
         }
         return null;
     }

@@ -1818,7 +1818,7 @@ public class TestUnits extends TestFmwk {
 
         for (String locale : SDI.hasGrammarInfo()) {
             // skip ones without gender info
-            GrammarInfo gi = SDI.getGrammarInfo("fr");
+            GrammarInfo gi = SDI.getGrammarInfo("fr", false);
             Collection<String> genderInfo = gi.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.general);
             if (genderInfo.isEmpty()) {
                 continue;
@@ -1918,7 +1918,7 @@ public class TestUnits extends TestFmwk {
             CLDRFile resolvedFile = CLDRConfig.getInstance().getCLDRFile(localeId, true);
             PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(localeId);
             PluralRules pluralRules = pluralInfo.getPluralRules();
-            GrammarInfo grammarInfo =CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(localeId);
+            GrammarInfo grammarInfo =CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(localeId, false);
             Collection<String> caseVariants = grammarInfo == null ? null
                 : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
             if (caseVariants == null || caseVariants.isEmpty()) {

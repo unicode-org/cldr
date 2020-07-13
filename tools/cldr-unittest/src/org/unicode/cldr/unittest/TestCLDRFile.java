@@ -193,7 +193,7 @@ public class TestCLDRFile extends TestFmwk {
         Set<String> badCoverage = new TreeSet<>();
         Counter<String> extraPaths = new Counter<>();
         for (String locale : sdi.hasGrammarInfo()) {
-            if (sdi.getGrammarInfo(locale).hasInfo(GrammaticalTarget.nominal)) {
+            if (sdi.getGrammarInfo(locale, false).hasInfo(GrammaticalTarget.nominal)) {
                 final CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
                 Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
                 for (String path : sorted2) {
@@ -844,4 +844,13 @@ public class TestCLDRFile extends TestFmwk {
         assertTrue("Should be empty", missing.isEmpty());
     }
 
+    public void TestExtraPaths13954() {
+        CLDRFile es = cldrFactory.make("es", true);
+        CLDRFile es_US = cldrFactory.make("es_US", true);
+        if (!es_US.getRawExtraPaths().containsAll(es.getRawExtraPaths())) {
+            TreeSet<String> missing = new TreeSet<>(es.getRawExtraPaths());
+            missing.removeAll(es_US.getRawExtraPaths());
+            errln("Failure: " + Joiner.on('\n').join(missing));
+        }
+    }
 }

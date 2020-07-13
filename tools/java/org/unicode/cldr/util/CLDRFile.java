@@ -104,6 +104,7 @@ import com.ibm.icu.util.VersionInfo;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleStringProvider {
 
+    private static final boolean SEED_ONLY = true;
     private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
@@ -3457,10 +3458,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
         // grammatical info
 
-        // restricted for first release
-        GrammarInfo grammarInfo = GrammarInfo.SEED_LOCALES.contains(getLocaleID())
-            ? supplementalData.getGrammarInfo(getLocaleID())
-            : null;
+        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), SEED_ONLY);
 
         if ("de".equals(getLocaleID())) {
             int debug = 0;

@@ -481,13 +481,19 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT) {
             // if locale dependent, it is because of count= or ordinal=. Figure out what the values are, and whether we are allowed to have none or one
             PluralRules rules = PluralRules.forLocale(new ULocale(getCldrFileToCheck().getLocaleID()));
-            XPathParts parts = XPathParts.getFrozenInstance(path);
-            String keyword = parts.getAttributeValue(-1, "count");
-            if (keyword == null) {
-                keyword = parts.getAttributeValue(-1, "ordinal");
-            }
-            if (rules.getUniqueKeywordValue(keyword) != PluralRules.NO_UNIQUE_VALUE) {
-                minimum = 0;
+            if (rules != null) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String keyword = parts.getAttributeValue(-1, "count");
+                if (keyword == null) {
+                    keyword = parts.getAttributeValue(-1, "ordinal");
+                }
+                try {
+                    if (rules.getUniqueKeywordValue(keyword) != PluralRules.NO_UNIQUE_VALUE) {
+                        minimum = 0;
+                    }
+                } catch (Exception e) {
+                    // internal error, skip
+                }
             }
         }
 

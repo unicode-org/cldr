@@ -104,12 +104,12 @@ public enum UnitPathType {
             return pathPrefix + "compoundUnit[@type=\"" + longUnitId + "\"]/unitPrefixPattern";
         case power:
             longUnitId = UnitConverter.getLongId(shortUnitId);
-            grammarInfo1 = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(resolvedFile.getLocaleID(), false);
+            grammarInfo1 = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(resolvedFile.getLocaleID());
             grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo1, pathType, pluralCategory, genderVariant, caseVariant);
             return pathPrefix + "compoundUnit[@type=\"" + longUnitId + "\"]/compoundUnitPattern1" + grammaticalAttributes;
         case unit:
             longUnitId = UnitConverter.getLongId(shortUnitId);
-            grammarInfo1 = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(resolvedFile.getLocaleID(), false);
+            grammarInfo1 = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(resolvedFile.getLocaleID());
             grammaticalAttributes = GrammarInfo.getGrammaticalInfoAttributes(grammarInfo1, pathType, pluralCategory, genderVariant, caseVariant);
             return pathPrefix + "unit[@type=\""  + longUnitId + "\"]/unitPattern" + grammaticalAttributes;
         case displayName:

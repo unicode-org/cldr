@@ -1895,7 +1895,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (locale.contentEquals("tr")) {
                 int debug = 0;
             }
-            GrammarInfo grammarInfo = SUPPLEMENTAL.getGrammarInfo(locale, false);
+            GrammarInfo grammarInfo = SUPPLEMENTAL.getGrammarInfo(locale);
             for (GrammaticalTarget target : GrammaticalTarget.values()) {
                 for (GrammaticalFeature feature : GrammaticalFeature.values()) {
                     Collection<String> general = grammarInfo.get(target, feature, GrammaticalScope.general);

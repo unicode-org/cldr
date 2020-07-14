@@ -50,6 +50,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
@@ -193,7 +194,7 @@ public class TestCLDRFile extends TestFmwk {
         Set<String> badCoverage = new TreeSet<>();
         Counter<String> extraPaths = new Counter<>();
         for (String locale : sdi.hasGrammarInfo()) {
-            if (sdi.getGrammarInfo(locale, false).hasInfo(GrammaticalTarget.nominal)) {
+            if (sdi.getGrammarInfo(locale).hasInfo(GrammaticalTarget.nominal)) {
                 final CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
                 Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
                 for (String path : sorted2) {
@@ -848,9 +849,7 @@ public class TestCLDRFile extends TestFmwk {
         CLDRFile es = cldrFactory.make("es", true);
         CLDRFile es_US = cldrFactory.make("es_US", true);
         if (!es_US.getRawExtraPaths().containsAll(es.getRawExtraPaths())) {
-            TreeSet<String> missing = new TreeSet<>(es.getRawExtraPaths());
-            missing.removeAll(es_US.getRawExtraPaths());
-            errln("Failure: " + Joiner.on('\n').join(missing));
+            errln("Failure: " + Joiner.on('\n').join(Sets.difference(es.getRawExtraPaths(), es_US.getRawExtraPaths())));
         }
     }
 }

@@ -34,7 +34,7 @@ public class CheckUnits extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
-        GrammarInfo grammarInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(cldrFileToCheck.getLocaleID(), false);
+        GrammarInfo grammarInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(cldrFileToCheck.getLocaleID());
         genders = grammarInfo == null ? null : grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
 
         return this;

@@ -377,7 +377,7 @@ public class LogicalGrouping {
             @Override
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
-                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID(), false);
+                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID());
                 //Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
 
                 if (grammarInfo != null) {
@@ -393,7 +393,7 @@ public class LogicalGrouping {
             @Override
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
-                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID(), false);
+                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID());
 
                 if (grammarInfo != null) {
                     Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);

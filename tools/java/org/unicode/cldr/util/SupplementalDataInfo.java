@@ -4494,8 +4494,20 @@ public class SupplementalDataInfo {
 
     /**
      * Grammar info for locales, with inheritance
-     * @param seedOnly TODO
+     * @param seedOnly
+     * @return
      */
+    public GrammarInfo getGrammarInfo(String locale) {
+        return getGrammarInfo(locale, false);
+    }
+
+    /**
+     * Special hack for v38; should drop seedOnly later.
+     * @param locale
+     * @param seedOnly
+     * @return
+     */
+    @Deprecated
     public GrammarInfo getGrammarInfo(String locale, boolean seedOnly) {
         for (;locale != null; locale = LocaleIDParser.getParent(locale)) {
             if (seedOnly && !GrammarInfo.SEED_LOCALES.contains(locale)) {

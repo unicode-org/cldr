@@ -134,7 +134,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         "languageGroup", "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "rgScope", "supplementalData",
         "supplementalMetadata", "telephoneCodeData", "units", "windowsZones");
 
-    private Collection<String> extraPaths = null;
+    private Set<String> extraPaths = null;
 
     private boolean locked;
     private DtdType dtdType;
@@ -3352,7 +3352,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      *
      * @return
      */
-    public Collection<String> getRawExtraPaths() {
+    public Set<String> getRawExtraPaths() {
         if (extraPaths == null) {
             extraPaths = ImmutableSet.copyOf(getRawExtraPathsPrivate(new LinkedHashSet<String>()));
             if (DEBUG) {
@@ -3458,7 +3458,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
         // grammatical info
 
-        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), SEED_ONLY);
+        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), true);
 
         if ("de".equals(getLocaleID())) {
             int debug = 0;

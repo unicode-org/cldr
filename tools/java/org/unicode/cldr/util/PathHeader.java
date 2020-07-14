@@ -426,16 +426,15 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     /**
-     * Return a factory for use in creating the headers. This should be cached.
-     * The calls are thread-safe. The englishFile sets a static for now; after
-     * the first time, null can be passed.
+     * Return a factory for use in creating the headers. This is cached after first use.
+     * The calls are thread-safe. Null gets the default (CLDRConfig) english file.
      *
      * @param englishFile
      */
     public static Factory getFactory(CLDRFile englishFile) {
         if (factorySingleton == null) {
             if (englishFile == null) {
-                throw new IllegalArgumentException("English CLDRFile must not be null");
+                englishFile = CLDRConfig.getInstance().getEnglish();
             }
             if (!englishFile.getLocaleID().equals(ULocale.ENGLISH.getBaseName())) {
                 throw new IllegalArgumentException("PathHeader's CLDRFile must be '" +
@@ -450,7 +449,7 @@ public class PathHeader implements Comparable<PathHeader> {
      * Convenience method for common case. See {{@link #getFactory(CLDRFile)}}
      */
     public static Factory getFactory() {
-        return getFactory(CLDRConfig.getInstance().getEnglish());
+        return getFactory(null);
     }
 
     /**

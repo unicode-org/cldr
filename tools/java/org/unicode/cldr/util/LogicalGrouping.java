@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,6 +22,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.util.Output;
 
 public class LogicalGrouping {
 
@@ -75,8 +77,9 @@ public class LogicalGrouping {
 
     /**
      * Return a sorted set of paths that are in the same logical set as the given path
-     *
      * @param path the distinguishing xpath
+     * @param pathType TODO
+     *
      * @return the set of paths, or null (to be treated as equivalent to empty set)
      *
      * For example, given the path
@@ -96,7 +99,7 @@ public class LogicalGrouping {
      *
      * Reference: https://unicode.org/cldr/trac/ticket/11854
      */
-    public static Set<String> getPaths(CLDRFile cldrFile, String path) {
+    public static Set<String> getPaths(CLDRFile cldrFile, String path, Output<PathType> pathTypeOut) {
         if (path == null) {
             return null; // return null for null path
             // return new TreeSet<String>(); // return empty set for null path
@@ -111,6 +114,9 @@ public class LogicalGrouping {
              * XPathParts.set is expensive, so avoid it (not needed for singletons) if !GET_TYPE_FROM_PARTS
              */
             pathType = PathType.getPathTypeFromPath(path);
+        }
+        if (pathTypeOut != null) {
+            pathTypeOut.value = pathType;
         }
 
         if (GET_TYPE_COUNTS) {
@@ -157,6 +163,9 @@ public class LogicalGrouping {
         }
     }
 
+    public static Set<String> getPaths(CLDRFile cldrFile, String path) {
+        return getPaths(cldrFile, path, null);
+    }
 
     /**
      * Returns the plural info for a given locale.
@@ -216,7 +225,7 @@ public class LogicalGrouping {
     /**
      * Path types for logical groupings
      */
-    private enum PathType {
+    public enum PathType {
         SINGLETON { // no logical groups for singleton paths
             @Override
             @SuppressWarnings("unused")
@@ -364,50 +373,89 @@ public class LogicalGrouping {
             @Override
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
-                PluralInfo pluralInfo = getPluralInfo(cldrFile);
-                Set<Count> pluralTypes = pluralInfo.getCounts();
-                String lastElement = parts.getElement(-1);
-                for (Count count : pluralTypes) {
-                    parts.setAttribute(lastElement, "count", count.toString());
-                    set.add(parts.toString());
-                }
+                addCaseOnly(set, cldrFile, parts);
             }
         },
-        CASE {
+        COUNT_CASE {
             @Override
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
-                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID());
-                //Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
-
-                if (grammarInfo != null) {
-                    Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
-                    for (String case1 : rawCases) {
-                        parts.setAttribute(-1, "case", case1);
-                        set.add(parts.toString());
-                    }
+                if (!GrammarInfo.SEED_LOCALES.contains(cldrFile.getLocaleID())) {
+                    addCaseOnly(set, cldrFile, parts);
+                    return;
                 }
+                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID());
+                if (grammarInfo == null
+                    || (parts.getElement(3).equals("unitLength")
+                        && GrammarInfo.SPECIAL_TRANSLATION_UNITS.contains(parts.getAttributeValue(3, "type")))) {
+                    addCaseOnly(set, cldrFile, parts);
+                    return;
+                }
+                Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+                Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+                setGrammarAttributes(set, parts, pluralTypes, rawCases, null);
+
             }
         },
-        GENDER {
+        COUNT_CASE_GENDER {
             @Override
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
-                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID());
-
-                if (grammarInfo != null) {
-                    Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
-                    for (String gender : genders) {
-                        parts.setAttribute(-1, "gender", gender);
-                        set.add(parts.toString());
-                    }
+                if (!GrammarInfo.SEED_LOCALES.contains(cldrFile.getLocaleID())) {
+                    addCaseOnly(set, cldrFile, parts);
+                    return;
                 }
+                GrammarInfo grammarInfo = supplementalData.getGrammarInfo(cldrFile.getLocaleID());
+                if (grammarInfo == null) {
+                    addCaseOnly(set, cldrFile, parts);
+                    return;
+                }
+                Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+                Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+                Collection<String> rawGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+                setGrammarAttributes(set, parts, pluralTypes, rawCases, rawGenders);
             }
         }
 
         ;
 
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
+
+        public void addCaseOnly(Set<String> set, CLDRFile cldrFile, XPathParts parts) {
+            Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+            for (Count count : pluralTypes) {
+                parts.setAttribute(-1, "count", count.toString());
+                set.add(parts.toString());
+            }
+        }
+
+        public void setGrammarAttributes(Set<String> set, XPathParts parts, Set<Count> pluralTypes, Collection<String> rawCases, Collection<String> rawGenders) {
+            final String defaultGender = GrammaticalFeature.grammaticalGender.getDefault(rawGenders);
+            final String defaultCase = GrammaticalFeature.grammaticalCase.getDefault(rawCases);
+
+            if (rawCases == null || rawCases.isEmpty()) {
+                rawCases = Collections.singleton(defaultCase);
+            }
+            if (rawGenders == null || rawGenders.isEmpty()) {
+                rawGenders = Collections.singleton(defaultGender);
+            }
+            for (String gender : rawGenders) {
+                if (gender.equals(defaultGender)) {
+                    gender = null;
+                }
+                for (String case1 : rawCases) {
+                    if (case1.equals(defaultCase)) {
+                        case1 = null;
+                    }
+                    for (Count count : pluralTypes) {
+                        parts.setAttribute(-1, "gender", gender);
+                        parts.setAttribute(-1, "count", count.toString());
+                        parts.setAttribute(-1, "case", case1);
+                        set.add(parts.toString());
+                    }
+                }
+            }
+        }
 
         /**
          * Is the given PathType locale-dependent (for caching)?
@@ -419,7 +467,7 @@ public class LogicalGrouping {
             /*
              * The paths that are locale-dependent are @count and /dayPeriods.
              */
-            return (pathType == COUNT || pathType == DAY_PERIODS || pathType.equals(CASE) || pathType.equals(GENDER));
+            return (pathType == COUNT || pathType == DAY_PERIODS || pathType.equals(COUNT_CASE) || pathType.equals(COUNT_CASE_GENDER));
         }
 
         /**
@@ -429,9 +477,9 @@ public class LogicalGrouping {
          * @return the PathType
          *
          * Note: it would be more elegant and cleaner, but slower, if we used XPathParts to
-         * determine the PathType. We avoid that since XPathParts.set is a performance hot spot.
+         * determine the PathType. We avoid that since XPathParts.set is a performance hot spot. (NOTE: don't know if the preceding is true anymore.)
          */
-        private static PathType getPathTypeFromPath(String path) {
+        public static PathType getPathTypeFromPath(String path) {
             /*
              * Would changing the order of these tests ever change the return value?
              * Assume it could if in doubt.
@@ -460,11 +508,13 @@ public class LogicalGrouping {
             if (path.indexOf("/decimalFormatLength") > 0) {
                 return PathType.DECIMAL_FORMAT_LENGTH;
             }
-            if (path.indexOf("[@gender=") > 0) {
-                return PathType.GENDER;
-            }
-            if (path.indexOf("[@case=") > 0) {
-                return PathType.CASE;
+            if (path.indexOf("/unitLength[@type=\"long\"]") > 0) {
+                if (path.indexOf("compoundUnitPattern1") > 0) {
+                    return PathType.COUNT_CASE_GENDER;
+                }
+                if (path.indexOf("/unitPattern[") > 0) {
+                    return PathType.COUNT_CASE;
+                }
             }
             if (path.indexOf("[@count=") > 0) {
                 return PathType.COUNT;
@@ -477,8 +527,13 @@ public class LogicalGrouping {
          *
          * @param parts the XPathParts
          * @return the PathType
+         * @deprecated
          */
+        @Deprecated
         private static PathType getPathTypeFromParts(XPathParts parts) {
+            if (true) {
+                throw new UnsupportedOperationException("Code not updated. We may want to try using XPathParts in a future optimization, so leaving for now.");
+            }
             /*
              * Would changing the order of these tests ever change the return value?
              * Assume it could if in doubt.

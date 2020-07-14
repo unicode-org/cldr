@@ -86,6 +86,8 @@ import com.ibm.icu.util.ULocale;
 @CLDRTool(alias = "check",
 description = "Run CheckCLDR against CLDR data")
 public class ConsoleCheckCLDR {
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    private static final PathHeader.Factory PATH_HEADER_FACTORY = PathHeader.getFactory();
     public static boolean showStackTrace = false;
     public static boolean errorsOnly = false;
     static boolean SHOW_LOCALE = true;
@@ -320,7 +322,7 @@ public class ConsoleCheckCLDR {
                     + organizations);
             }
         }
-        final CLDRConfig cldrConf = CLDRConfig.getInstance();
+        final CLDRConfig cldrConf = CLDR_CONFIG;
         // set the envronment to UNITTEST as suggested
         cldrConf.setEnvironment(Environment.UNITTEST);
         // get the Phase from CLDRConfig object
@@ -1537,6 +1539,8 @@ public class ConsoleCheckCLDR {
             String fillinValue = path == null ? null : cldrFile.getFillInValue(path);
             fillinValue = fillinValue == null ? "" : fillinValue.equals(value) ? "=" : fillinValue;
 
+            String pathLink = CLDR_CONFIG.urls().forXpath(localeID, path);
+
             final String otherSource = path == null ? null
                 : (sourceLocaleID.equals(localeID) ? ""
                     : "\t" + sourceLocaleID);
@@ -1558,7 +1562,7 @@ public class ConsoleCheckCLDR {
                     + "\t【" + example + "】"
                     + "\t⁅" + subType + "⁆"
                     + "\t❮" + statusString + "❯"
-                    + "\t" + fullPath
+                    + "\t" + pathLink
                     + otherSource
                     + otherPath
                     : idViewString

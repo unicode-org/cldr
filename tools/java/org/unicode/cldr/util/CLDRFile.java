@@ -1476,19 +1476,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * static public class NodeValue extends Value {
      * private Node nodeValue;
      *//**
-        * Creation. WARNING, may change.
-        *
-        * @param value
-        * @param currentFullXPath
-        */
+          * Creation. WARNING, may change.
+          *
+          * @param value
+          * @param currentFullXPath
+          */
     /*
      * public NodeValue(Node value, String currentFullXPath) {
      * super(currentFullXPath);
      * this.nodeValue = value;
      * }
      *//**
-        * boilerplate
-        */
+          * boilerplate
+          */
 
     /*
      * public boolean hasSameValue(Object other) {
@@ -1496,8 +1496,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * return nodeValue.equals(((NodeValue)other).nodeValue);
      * }
      *//**
-        * boilerplate
-        */
+          * boilerplate
+          */
     /*
      * public String getStringValue() {
      * return nodeValue.toString();
@@ -3878,7 +3878,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return sourceFileUnresolved.getStringValue(xpath);
     }
 
-
     /**
      * Create an overriding LocaleStringProvider for testing and example generation
      * @param pathAndValueOverrides
@@ -3889,20 +3888,23 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public class OverridingStringProvider implements LocaleStringProvider {
-        private final Map<String,String> pathAndValueOverrides;
+        private final Map<String, String> pathAndValueOverrides;
 
         public OverridingStringProvider(Map<String, String> pathAndValueOverrides) {
             this.pathAndValueOverrides = pathAndValueOverrides;
         }
+
         @Override
         public String getStringValue(String xpath) {
             String value = pathAndValueOverrides.get(xpath);
             return value != null ? value : CLDRFile.this.getStringValue(xpath);
         }
+
         @Override
         public String getLocaleID() {
             return CLDRFile.this.getLocaleID();
         }
+
         @Override
         public String getSourceLocaleID(String xpath, Status status) {
             if (pathAndValueOverrides.containsKey(xpath)) {

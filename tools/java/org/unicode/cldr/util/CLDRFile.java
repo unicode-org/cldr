@@ -104,6 +104,7 @@ import com.ibm.icu.util.VersionInfo;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleStringProvider {
 
+    private static final boolean SEED_ONLY = true;
     private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
@@ -133,7 +134,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         "languageGroup", "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "rgScope", "supplementalData",
         "supplementalMetadata", "telephoneCodeData", "units", "windowsZones");
 
-    private Collection<String> extraPaths = null;
+    private Set<String> extraPaths = null;
 
     private boolean locked;
     private DtdType dtdType;
@@ -3351,7 +3352,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      *
      * @return
      */
-    public Collection<String> getRawExtraPaths() {
+    public Set<String> getRawExtraPaths() {
         if (extraPaths == null) {
             extraPaths = ImmutableSet.copyOf(getRawExtraPathsPrivate(new LinkedHashSet<String>()));
             if (DEBUG) {
@@ -3457,10 +3458,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
         // grammatical info
 
-        // restricted for first release
-        GrammarInfo grammarInfo = GrammarInfo.SEED_LOCALES.contains(getLocaleID())
-            ? supplementalData.getGrammarInfo(getLocaleID())
-            : null;
+        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), true);
 
         if ("de".equals(getLocaleID())) {
             int debug = 0;

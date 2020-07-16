@@ -92,7 +92,7 @@ public class XMLFileReader {
      */
     public XMLFileReader read(String fileName, int handlers, boolean validating) {
         try (InputStream fis0 = new FileInputStream(fileName);
-            InputStream fis = new FilterBomInputStream(fis0);
+            InputStream fis = new StripUTF8BOMInputStream(fis0);
             ) {
             return read(fileName, fis, handlers, validating);
         } catch (IOException e) {
@@ -502,39 +502,40 @@ public class XMLFileReader {
         }
     }
 
-    public static final class FilterBomInputStream extends InputStream {
-        InputStream contents;
-        boolean first = true;
-
-        @Override
-        public void close() throws IOException {
-            contents.close();
-        }
-
-        public FilterBomInputStream(InputStream fis) {
-            contents = fis;
-        }
-
-        @Override
-        public int read() throws IOException {
-            int x = contents.read();
-            if (first) {
-                first = false;
-                // 0xEF,0xBB,0xBF
-                // SKIP bom
-                if (x == 0xEF) {
-                    int y = contents.read();
-                    if (y == 0xBB) {
-                        int z = contents.read();
-                        if (z == 0xBF) {
-                            x = contents.read();
-                        }
-                    }
-                }
-            }
-            return x;
-        }
-    }
+// class StripUTF8BOMInputStream does the same thing
+//    public static final class FilterBomInputStream extends InputStream {
+//        InputStream contents;
+//        boolean first = true;
+//
+//        @Override
+//        public void close() throws IOException {
+//            contents.close();
+//        }
+//
+//        public FilterBomInputStream(InputStream fis) {
+//            contents = fis;
+//        }
+//
+//        @Override
+//        public int read() throws IOException {
+//            int x = contents.read();
+//            if (first) {
+//                first = false;
+//                // 0xEF,0xBB,0xBF
+//                // SKIP bom
+//                if (x == 0xEF) {
+//                    int y = contents.read();
+//                    if (y == 0xBB) {
+//                        int z = contents.read();
+//                        if (z == 0xBF) {
+//                            x = contents.read();
+//                        }
+//                    }
+//                }
+//            }
+//            return x;
+//        }
+//    }
 
     public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating) {
         return loadPathValues(filename, data, validating, false);

@@ -46,9 +46,9 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.StripUTF8BOMInputStream;
 import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 import org.unicode.cldr.util.Validity;
-import org.unicode.cldr.util.XMLFileReader.FilterBomInputStream;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.Attributes;
 
@@ -171,7 +171,7 @@ public class TestAttributeValues extends TestFmwk {
         try {
             // should convert these over to new io.
             try (InputStream fis0 = new FileInputStream(fullFile);
-                InputStream fis = new FilterBomInputStream(fis0);
+                InputStream fis = new StripUTF8BOMInputStream(fis0);
                 InputStreamReader inputStreamReader = new InputStreamReader(fis, Charset.forName("UTF-8"));
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 ) {

@@ -11,9 +11,10 @@ package org.unicode.cldr.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -44,18 +45,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With.SimpleIterator;
+import org.unicode.cldr.util.XMLFileReader.AllHandler;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.xml.sax.Attributes;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.ErrorHandler;
-import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
-import org.xml.sax.ext.DeclHandler;
-import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.google.common.base.Joiner;
@@ -321,43 +318,24 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public CLDRFile loadFromInputStream(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
         CLDRFile cldrFile = this;
-        try {
-            fis = new StripUTF8BOMInputStream(fis);
-            MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(cldrFile, minimalDraftStatus);
-
-            // now fill it.
-
-            XMLReader xmlReader = createXMLReader(true);
-            xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
-            xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
-            xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
-            xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", DEFAULT_DECLHANDLER);
-            InputSource is = new InputSource(fis);
-            is.setSystemId(fileName);
-            xmlReader.parse(is);
-            if (DEFAULT_DECLHANDLER.isSupplemental < 0) {
-                throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
-            }
-            cldrFile.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental > 0);
-            if (DEFAULT_DECLHANDLER.overrideCount > 0) {
-                throw new IllegalArgumentException("Internal problems: either data file has duplicate path, or" +
-                    " CLDRFile.isDistinguishing() or CLDRFile.isOrdered() need updating: "
-                    + DEFAULT_DECLHANDLER.overrideCount
-                    + "; The exact problems are printed on the console above.");
-            }
-            if (localeName == null) {
-                cldrFile.dataSource.setLocaleID(cldrFile.getLocaleIDFromIdentity());
-            }
-            return cldrFile;
-        } catch (SAXParseException e) {
-            // System.out.println(CLDRFile.showSAX(e));
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + localeName + "\t"
-                + CLDRFile.showSAX(e)).initCause(e);
-        } catch (SAXException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + localeName).initCause(e);
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException("Can't read " + localeName, e);
+        fis = new StripUTF8BOMInputStream(fis);
+        InputStreamReader reader = new InputStreamReader(fis, Charset.forName("UTF-8"));
+        MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(cldrFile, minimalDraftStatus);
+        XMLFileReader.read(fileName, reader, -1, true, DEFAULT_DECLHANDLER);
+        if (DEFAULT_DECLHANDLER.isSupplemental < 0) {
+            throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
         }
+        cldrFile.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental > 0);
+        if (DEFAULT_DECLHANDLER.overrideCount > 0) {
+            throw new IllegalArgumentException("Internal problems: either data file has duplicate path, or" +
+                " CLDRFile.isDistinguishing() or CLDRFile.isOrdered() need updating: "
+                + DEFAULT_DECLHANDLER.overrideCount
+                + "; The exact problems are printed on the console above.");
+        }
+        if (localeName == null) {
+            cldrFile.dataSource.setLocaleID(cldrFile.getLocaleIDFromIdentity());
+        }
+        return cldrFile;
     }
 
     /**
@@ -1513,7 +1491,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * }
      */
 
-    private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler, ErrorHandler {
+    private static class MyDeclHandler implements AllHandler {
         private static UnicodeSet whitespace = new UnicodeSet("[:whitespace:]");
         private DraftStatus minimalDraftStatus;
         private static final boolean SHOW_START_END = false;

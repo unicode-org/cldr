@@ -325,19 +325,48 @@ const cldrSurveyTable = (function() {
 	 * AND by insertFixInfo in review.js (Dashboard "Fix")!
 	 */
 	function updateRow(tr, theRow) {
+		if (!tr || !theRow) {
+			return;
+		}
+		const rowChecksum = cldrChecksum(JSON.stringify(theRow));
+		if (tr.checksum !== undefined && rowChecksum === tr.checksum) {
+			return; // already up to date
+		}
+		tr.checksum = rowChecksum;
 		tr.theRow = theRow;
-
 		checkRowConsistency(theRow);
+		reallyUpdateRow(tr, theRow);
+	}
 
+	/**
+	 * Get a checksum for the given string
+	 *
+	 * @param s the string
+	 * @return the checksum
+	 */
+	function cldrChecksum(s) {
+		let checksum = 0;
+		for (let i = 0; i < s.length; i++) {
+			checksum = (checksum << 5) - checksum + s.charCodeAt(i);
+			checksum |= 0; // convert possible float to integer
+		}
+	    return checksum;
+	}
+
+	/**
+	 * Update one row using data received from server.
+	 *
+	 * @param tr the table row
+	 * @param theRow the data for the row
+	 */
+	function reallyUpdateRow(tr, theRow) {
 		/*
-		 * For convenience, set up two hashes, for reverse mapping from value or rawValue to item.
+		 * For convenience, set up a hash for reverse mapping from rawValue to item.
 		 */
-		tr.valueToItem = {}; // hash:  string value to item (which has a div)
 		tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
 		for (var k in theRow.items) {
 			var item = theRow.items[k];
 			if (item.value) {
-				tr.valueToItem[item.value] = item; // back link by value
 				tr.rawValueToItem[item.rawValue] = item; // back link by value
 			}
 		}
@@ -1216,5 +1245,14 @@ const cldrSurveyTable = (function() {
 	/*
 	 * Make only these functions accessible from other files:
 	 */
-	return { insertRows:insertRows, updateRow:updateRow };
+	return {
+		insertRows: insertRows,
+		updateRow: updateRow,
+		/*
+		 * The following are meant to be accessible for unit testing only:
+		 */
+		test: {
+			cldrChecksum: cldrChecksum,
+		}
+	};
 })();

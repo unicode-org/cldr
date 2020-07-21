@@ -108,6 +108,7 @@ var surveyUserPerms = {
         userExist: (surveyUser != null),
         userCanImportOldVotes: <%=myUser.canImportOldVotes()%>,
         userCanUseVettingSummary: <%=UserRegistry.userCanUseVettingSummary(myUser)%>,
+        userCanMonitorForum: <%=UserRegistry.userCanMonitorForum(myUser)%>,
         userIsTC: <%=UserRegistry.userIsTC(myUser)%>,
         userIsVetter: <%=!UserRegistry.userIsTC(myUser) && UserRegistry.userIsVetter(myUser)%>,
         userIsLocked: <%=UserRegistry.userIsLocked(myUser)%>,

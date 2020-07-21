@@ -556,7 +556,7 @@ public class VettingViewer<T> {
         }
 
         /**
-         * Loop through paths for the Dashboard
+         * Loop through paths for the Dashboard or the Priority Items Summary
          *
          * @param sourceFile
          * @param baselineFile

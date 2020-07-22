@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -43,6 +42,7 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.ListFormatter;
@@ -731,7 +731,7 @@ abstract public class CheckCLDR {
         /**
          * These error don't prevent entry during submission, since they become valid if a different row is changed.
          */
-        public static EnumSet<Subtype> crossCheckSubtypes = EnumSet.of(
+        public static Set<Subtype> crossCheckSubtypes = ImmutableSet.of(
             Subtype.dateSymbolCollision,
             Subtype.displayCollision,
             Subtype.inconsistentDraftStatus,
@@ -740,6 +740,15 @@ abstract public class CheckCLDR {
             Subtype.abbreviatedDateFieldTooWide,
             Subtype.narrowDateFieldTooWide,
             Subtype.coverageLevel);
+
+        public static Set<Subtype> errorCodesPath = ImmutableSet.of(
+            Subtype.duplicatePlaceholders,
+            Subtype.extraPlaceholders,
+            Subtype.gapsInPlaceholderNumbers,
+            Subtype.invalidPlaceHolder,
+            Subtype.missingPlaceholders,
+            Subtype.shouldntHavePlaceholders);
+
 
         private Type type;
         private Subtype subtype = Subtype.none;
@@ -778,6 +787,9 @@ abstract public class CheckCLDR {
                     String fixedApos = MessageFormat.autoQuoteApostrophe(messageFormat);
                     MessageFormat format = new MessageFormat(fixedApos);
                     message = format.format(parameters);
+                    if (errorCodesPath.contains(subtype)) {
+                        message += "; see <a href='http://cldr.unicode.org/translation/error-codes#" + subtype.name() + "'  target='cldr_error_codes'>" + subtype + "</a>.";
+                    }
                 } catch (Exception e) {
                     message = messageFormat;
                     System.err.println("MessageFormat Failure: " + subtype + "; " + messageFormat + "; "

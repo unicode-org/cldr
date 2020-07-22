@@ -497,6 +497,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
         }
 
+        // TODO: move these tests to CheckPlaceholder
+
         // Now see what is there, and see if they match
         Matcher matcher = patternMatcher.reset(value);
         Multiset<String> matchList = TreeMultiset.create(); // Look for duplicate values.
@@ -537,16 +539,15 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // Now see if the number we have is within bounds
 
-
         if (countDistinctPlaceholders < minimum) {
             result.add(new CheckStatus().setCause(this).setMainType(statusType)
                 .setSubtype(Subtype.missingPlaceholders)
-                .setMessage("Need at least {0} placeholder(s); only have {1}. Placeholders are: {2}", minimum, countDistinctPlaceholders, placeholderInfo));
+                .setMessage("Need at least {0} placeholder(s), but only have {1}. Placeholders are: {2}", minimum, countDistinctPlaceholders, placeholderInfo));
         } else {
             if (countDistinctPlaceholders > maximum) {
                 result.add(new CheckStatus().setCause(this).setMainType(statusType)
                     .setSubtype(Subtype.extraPlaceholders)
-                    .setMessage("Need no more than {0} placeholders; have too many with {1}.", countDistinctPlaceholders, minimum));
+                    .setMessage("Need no more than {0} placeholders, but have too many with {1}.", countDistinctPlaceholders, minimum));
             }
         }
         // Return the pattern with placeholders replaced

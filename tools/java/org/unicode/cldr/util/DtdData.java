@@ -1440,7 +1440,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public boolean isMetadata(XPathParts pathPlain) {
         for (String s : pathPlain.getElements()) {
             Element e = getElementFromName().get(s);
-            if (e.elementStatus == ElementStatus.metadata) {
+            if (e != null && e.elementStatus == ElementStatus.metadata) {
                 return true;
             }
         }

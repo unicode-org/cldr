@@ -100,7 +100,7 @@ public abstract class Chart {
         standardFooter(pw, AnalyticsID.CLDR);
     }
 
-    enum AnalyticsID {
+    private enum AnalyticsID {
         CLDR("UA-7672775-1"), ICU("UA-7670213-1"), ICU_GUIDE("UA-7670256-1"), UNICODE("UA-7670213-1"), UNICODE_UTILITY("UA-8314904-1");
         public final String id;
 
@@ -109,7 +109,7 @@ public abstract class Chart {
         }
     }
 
-    public static void standardFooter(FormattedFileWriter pw, AnalyticsID analytics) throws IOException {
+    private static void standardFooter(FormattedFileWriter pw, AnalyticsID analytics) throws IOException {
         pw.write("<div style='text-align: center; margin-top:2em; margin-bottom: 60em;'><br>\n"
             + "<a href='http://www.unicode.org/unicode/copyright.html'>\n"
             + "<img src='http://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height=50px;' alt='Access to Copyright and terms of use'>"

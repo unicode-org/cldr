@@ -2,6 +2,8 @@
 
 Latest Release: [v37.0](http://cldr.unicode.org/index/downloads/cldr-37#TOC-V37) published 2020-04-23
 
+![cldr-ant](https://github.com/unicode-org/cldr/workflows/cldr-ant/badge.svg)
+
 [![Build Status](https://cldr-build.unicode.org/jenkins/buildStatus/icon?job=cldr%2Fcldr-master)](https://cldr-build.unicode.org/jenkins/job/cldr/job/cldr-master/)
 
 ### What is CLDR?

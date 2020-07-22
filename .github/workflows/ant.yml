@@ -1,0 +1,59 @@
+# CLDR Ant workflow.
+#
+# TODO:
+# - [ ] parameterize unittest so you can pass specific options (i.e. exhaustive) on manual run
+# - [ ] parameterize datacheck so you can pass specific options (i.e. -z) on manual run
+# - [ ] parallelize build for great speed
+# - [ ] add deployment workflow
+
+# Docs: https://docs.github.com/en/actions/language-and-framework-guides/building-and-testing-java-with-ant
+
+name: cldr-ant
+
+# Triggered on push to master,
+# or PR against master.
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # Setup
+    - uses: actions/checkout@v2
+      with:
+        lfs: true # important!
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    # CLDR Tools
+    - name: Build tools/java
+      run: ant -noinput all -f tools/java/build.xml && ant jar -f tools/java/build.xml
+    - name: Upload cldr.jar
+      uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: tools/java/cldr.jar
+    - name: Build tools/cldr-unittest
+      run: ant -noinput -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd) tests
+    # Now, SurveyTool
+    - name: Download tomcat
+      run: 'wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - && ln -svf apache-tomcat-* ./tomcat'
+    - name: Build tools/cldr-apps
+      run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml war
+    - name: Upload cldr-apps.war
+      uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: tools/cldr-apps/cldr-apps.war
+    # Now run tests
+    - name: CLDR Unit Test
+      run: ant -noinput unittest -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd)
+    - name: CLDR Data Check
+      run: ant -noinput datacheck -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd)
+    - name: Survey Tool Check
+      run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml check

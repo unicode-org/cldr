@@ -200,6 +200,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
     }
 
+    /**
+     * get Unresolved CLDRFile
+     * @param localeId
+     * @param file
+     * @param minimumDraftStatus
+     */
+    public CLDRFile(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
+        // order matters
+        this.dataSource = XMLSource.getFrozenInstance(localeId, dirs, minimalDraftStatus);
+        this.dtdType = dataSource.getSimpleXMLSourceDtdType();
+        this.dtdData = DtdData.getInstance(this.dtdType);
+    }
+
     public CLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
         List<XMLSource> sourceList = new ArrayList<>();
         sourceList.add(dataSource);

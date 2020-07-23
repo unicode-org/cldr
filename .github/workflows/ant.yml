@@ -16,7 +16,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: '*'
 
 jobs:
   build:
@@ -30,25 +30,35 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    # Cache for Tomcat tarball (load on cache hit, else store at end of job)
+    - name: Cache for Tomcat tarball
+      id: cache-tomcat
+      uses: actions/cache@v2
+      with:
+        path: tomcat-tarball
+        key: ${{ runner.os }}-tomcat-tarball
+    - name: Download Tomcat # only on cache miss
+      if: steps.cache-tomcat.outputs.cache-hit != 'true'
+      run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - ; cd .. '
+    - name: Alias Tomcat directory
+      run: ln -svf tomcat-tarball/apache-tomcat-* tomcat
     # CLDR Tools
     - name: Build tools/java
       run: ant -noinput all -f tools/java/build.xml && ant jar -f tools/java/build.xml
     - name: Upload cldr.jar
       uses: actions/upload-artifact@v2
       with:
-        name: Package
+        name: cldr-tools
         path: tools/java/cldr.jar
     - name: Build tools/cldr-unittest
       run: ant -noinput -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd) tests
     # Now, SurveyTool
-    - name: Download tomcat
-      run: 'wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - && ln -svf apache-tomcat-* ./tomcat'
     - name: Build tools/cldr-apps
       run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml war
     - name: Upload cldr-apps.war
       uses: actions/upload-artifact@v2
       with:
-        name: Package
+        name: cldr-apps
         path: tools/cldr-apps/cldr-apps.war
     # Now run tests
     - name: CLDR Unit Test

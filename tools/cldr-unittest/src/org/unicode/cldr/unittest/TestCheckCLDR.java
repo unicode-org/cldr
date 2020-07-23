@@ -180,8 +180,9 @@ public class TestCheckCLDR extends TestFmwk {
 
     private static final boolean DEBUG = true;
 
+    static final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+
     public void testPlaceholderSamples() {
-        final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         CLDRFile root = cldrFactory.make("root", true);
         String[][] tests = {
             // test edge cases
@@ -221,28 +222,31 @@ public class TestCheckCLDR extends TestFmwk {
             for (int i = 3; i < row.length; ++i) {
                 expected.add(Subtype.valueOf(row[i]));
             }
-
-            XMLSource localeSource = new SimpleXMLSource(localeId);
-            localeSource.putValueAtPath(path, value);
-
-            TestFactory currFactory = makeTestFactory(root, localeSource);
-            CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
-            CheckForExemplars check = new CheckForExemplars(currFactory);
-
-            Options options = new Options();
             List<CheckStatus> possibleErrors = new ArrayList<>();
-            check.setCldrFileToCheck(cldrFile , options, possibleErrors);
-            check.handleCheck(path, path, value, options, possibleErrors);
+            checkPathValue(root, localeId, path, value, possibleErrors);
             Set<Subtype> actual = new TreeSet<>();
             for (CheckStatus item : possibleErrors) {
                 if (PatternPlaceholders.PLACEHOLDER_SUBTYPES.contains(item.getSubtype())) {
-                    actual.add(item.getSubtype());
+                    actual .add(item.getSubtype());
                 }
             }
             if (!assertEquals(Arrays.asList(row).toString(), expected, actual)) {
                 int debug = 0;
             }
         }
+    }
+
+    public void checkPathValue(CLDRFile root, String localeId, String path, String value, List<CheckStatus> possibleErrors) {
+        XMLSource localeSource = new SimpleXMLSource(localeId);
+        localeSource.putValueAtPath(path, value);
+
+        TestFactory currFactory = makeTestFactory(root, localeSource);
+        CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
+        CheckForExemplars check = new CheckForExemplars(currFactory);
+
+        Options options = new Options();
+        check.setCldrFileToCheck(cldrFile , options, possibleErrors);
+        check.handleCheck(path, path, value, options, possibleErrors);
     }
 
     public void TestPlaceholders() {
@@ -976,5 +980,29 @@ public class TestCheckCLDR extends TestFmwk {
 
         // TODO enhance to check more conditions
         // like old:         assertFalse("vo, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathNotSameValue, false, false));
+    }
+
+    public void TestInfohubLinks13979() {
+       CLDRFile root = cldrFactory.make("root", true);
+       List<CheckStatus> possibleErrors = new ArrayList<>();
+       String[][] tests = {
+           // test edge cases
+           // locale, path, value, expected
+           {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin",
+               "Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={GENDER}, e.g. “‹noun phrase in this gender›”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>."},
+       };
+       for (String[] row : tests) {
+           String localeId = row[0];
+           String path = row[1];
+           String value = row[2];
+           String expected = row[3];
+
+           checkPathValue(root, localeId, path,value, possibleErrors);
+           for (CheckStatus error : possibleErrors) {
+               if (error.getSubtype() == Subtype.missingPlaceholders) {
+                assertEquals("message", expected, error.getMessage());
+               }
+           }
+       }
     }
 }

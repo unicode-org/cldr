@@ -1241,7 +1241,7 @@ public class SurveyForum {
     /**
      * Status values associated with forum posts and threads
      */
-    private enum PostType {
+    enum PostType {
         CLOSE(0, "Close"),
         DISCUSS(1, "Discuss"),
         REQUEST(2, "Request"),

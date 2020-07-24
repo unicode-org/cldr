@@ -768,13 +768,13 @@ public class VettingViewer<T> {
     }
 
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, T organization) {
+        String helpUrl = "http://cldr.unicode.org/translation/getting-started/vetting-view#TOC-Priority-Items";
         try {
-
             output
             .append("<p>The following summarizes the Priority Items across locales, " +
                 "using the default coverage levels for your organization for each locale. " +
                 "Before using, please read the instructions at " +
-                "<a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority " +
+                "<a target='CLDR_ST_DOCS' href='" + helpUrl + "'>Priority " +
                 "Items Summary</a>.</p>\n");
 
             StringBuilder headerRow = new StringBuilder();

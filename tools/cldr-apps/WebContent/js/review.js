@@ -377,9 +377,9 @@ function toggleFix(event) {
 /**
  * Hide or show line for the review (Dashboard) page
  *
- * Called only by the Startup function at the top of this file
+ * This function is the click handler for the .hide-review button.
  */
-function toggleReviewLine() {
+function toggleReviewLine(event) {
 	var line = $(this).closest('tr');
 	var next = line.next();
 
@@ -425,6 +425,8 @@ function toggleReviewLine() {
 		table.find('tr:first').addClass('hidden-line');
 	}
 	refreshAffix();
+	event.preventDefault();
+	event.stopPropagation();
 }
 
 /**

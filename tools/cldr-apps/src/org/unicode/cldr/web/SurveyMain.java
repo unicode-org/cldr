@@ -3064,6 +3064,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 } else if (doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user))) {
                     doNew(ctx);
                     return;
+                } else if (doWhat.equals("monitorForum") && (UserRegistry.userCanMonitorForum(ctx.session.user))) {
+                    doMonitorForum(ctx);
+                    return;
                 }
             }
             // Option wasn't found
@@ -3138,6 +3141,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
         }
         doLocale(ctx, baseContext, which, whyBad);
+    }
+
+    private void doMonitorForum(WebContext ctx) {
+        printHeader(ctx, "Forum Participation");
+        String org = ctx.session.user.org;
+        String html = new SurveyForumParticipation(org).getHtml();
+        ctx.print(html);
+        printFooter(ctx);
     }
 
     private void printRecentLocales(WebContext baseContext, WebContext ctx) {

@@ -1728,12 +1728,14 @@ public class UserRegistry {
         return (u != null) && ( /* userIsExactlyManager(u) || */userIsTC(u));
     }
 
-    // TODO: move to CLDRLocale
-
-    static final boolean userCanModifyLocale(CLDRLocale uLocale, CLDRLocale aliasTarget) {
-        if (SurveyMain.isPhaseReadonly())
-            return false;
-        return (uLocale.equals(aliasTarget));
+    /**
+     * Can the user monitor forum participation?
+     *
+     * @param u the user
+     * @return true or false
+     */
+    public static final boolean userCanMonitorForum(User u) {
+        return userIsTC(u) || userIsExactlyManager(u);
     }
 
     static boolean localeMatchesLocaleList(String localeArray[], CLDRLocale locale) {
@@ -1754,16 +1756,6 @@ public class UserRegistry {
             return true;
         }
         String localeArray[] = tokenizeLocale(localeList);
-        return localeMatchesLocaleList(localeArray, locale);
-    }
-
-    static final boolean userCanModifyLocale(CLDRLocale localeArray[], CLDRLocale locale) {
-        if (SurveyMain.isPhaseReadonly())
-            return false;
-        if (localeArray.length == 0) {
-            return true; // all
-        }
-
         return localeMatchesLocaleList(localeArray, locale);
     }
 

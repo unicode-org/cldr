@@ -700,7 +700,7 @@ function showV() {
 							}, // My Organization section
 
 							{
-								special: 'vsummary',
+								special: 'vsummary', /* Cf. special_vsummary */
 								level: 2,
 								display: surveyUserPerms.userCanUseVettingSummary
 							},
@@ -709,6 +709,12 @@ function showV() {
 								level: 2,
 								url: surveyUserURL.manageUser,
 								display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter)
+							},
+							{
+								title: 'Forum Participation',
+								level: 2,
+								url: 'survey?do=monitorForum',
+								display: surveyUserPerms.userCanMonitorForum
 							},
 							{
 								title: 'LOCKED: Note: your account is currently locked.',

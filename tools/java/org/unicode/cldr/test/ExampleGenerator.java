@@ -2008,8 +2008,8 @@ public class ExampleGenerator {
             .replace(backgroundEndSymbol + backgroundStartSymbol, "");
     }
 
-    public static final Pattern PARAMETER = PatternCache.get("(\\{[0-9]\\})");
-    public static final Pattern PARAMETER_SKIP0 = PatternCache.get("(\\{[1-9]\\})");
+    public static final Pattern PARAMETER = PatternCache.get("(\\{(?:0|[1-9][0-9]*)\\})");
+    public static final Pattern PARAMETER_SKIP0 = PatternCache.get("(\\{[1-9][0-9]*\\})");
     public static final Pattern ALL_DIGITS = PatternCache.get("(\\p{Nd}+(.\\p{Nd}+)?)");
 
     /**

@@ -717,7 +717,7 @@ abstract public class CheckCLDR {
             invalidPlaceHolder, asciiQuotesNotAllowed, badMinimumGroupingDigits, inconsistentPeriods,
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
-            mismatchedUnitComponent, longPowerWithSubscripts
+            mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences
             ;
 
             @Override
@@ -1094,10 +1094,11 @@ abstract public class CheckCLDR {
          */
         // if (value == cldrFileToCheck.getBaileyValue(path, null, null) && value != cldrFileToCheck.getWinningValue(path)) {
         if (value != null
-            && value.equals(cldrFileToCheck.getBaileyValue(path, null, null))
-            && !value.equals(cldrFileToCheck.getWinningValue(path))) {
-            return this;
+            && !value.equals(cldrFileToCheck.getWinningValue(path))
+            && cldrFileToCheck.getUnresolved().getStringValue(path) == null) {
+                return this;
         }
+
         // If we're being asked to run tests for an inheritance marker, then we need to change it
         // to the "real" value first before running tests. Testing the value CldrUtility.INHERITANCE_MARKER ("↑↑↑") doesn't make sense.
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {

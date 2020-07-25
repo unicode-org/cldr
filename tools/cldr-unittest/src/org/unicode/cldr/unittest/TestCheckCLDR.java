@@ -37,6 +37,7 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -59,6 +60,7 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
+import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
@@ -68,7 +70,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestCheckCLDR extends TestFmwk {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
-    private final Set<String> eightPointLocales = new TreeSet<String>(
+    private final Set<String> eightPointLocales = new TreeSet<>(
         Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
 
     public static void main(String[] args) {
@@ -108,8 +110,8 @@ public class TestCheckCLDR extends TestFmwk {
     public static void TestCheckConsistentCasing() {
         CheckConsistentCasing c = new CheckConsistentCasing(
             testInfo.getCldrFactory());
-        Map<String, String> options = new LinkedHashMap<String, String>();
-        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+        Map<String, String> options = new LinkedHashMap<>();
+        List<CheckStatus> possibleErrors = new ArrayList<>();
         final CLDRFile english = testInfo.getEnglish();
         c.setCldrFileToCheck(english, options, possibleErrors);
         for (String path : english) {
@@ -126,7 +128,7 @@ public class TestCheckCLDR extends TestFmwk {
         CLDRLocale locale = CLDRLocale.getInstance(localeString);
         CheckCLDR.Options checkCldrOptions = new Options(locale, Phase.SUBMISSION, "default", "basic");
         TestCache testCache = new TestCache();
-        testCache.setFactory(testInfo.getCldrFactory(), ".*"); 
+        testCache.setFactory(testInfo.getCldrFactory(), ".*");
         TestResultBundle bundle = testCache.getBundle(checkCldrOptions);
         final CLDRFile cldrFile = testInfo.getCLDRFile(localeString, true);
         /*
@@ -140,7 +142,7 @@ public class TestCheckCLDR extends TestFmwk {
         int maxPathCount = (getInclusion() < 5) ? 1000 : 100000;
         double[] deltaTime = {0, 0};
         for (int i = 0; i < 2; i++) {
-            List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+            List<CheckStatus> possibleErrors = new ArrayList<>();
             int pathCount = 0;
             double startTime = System.currentTimeMillis();
             for (String path : cldrFile) {
@@ -155,7 +157,7 @@ public class TestCheckCLDR extends TestFmwk {
             /*
              * Expect possibleErrors to have size zero.
              * A future enhancement of this test could modify some values to force errors,
-             * and confirm that the errors are returned identically the first and second times. 
+             * and confirm that the errors are returned identically the first and second times.
              */
             assertEquals("possibleErrors, loop index " + i, possibleErrors.size(), 0);
         }
@@ -178,11 +180,77 @@ public class TestCheckCLDR extends TestFmwk {
 
     private static final boolean DEBUG = true;
 
+    public void testPlaceholderSamples() {
+        final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        CLDRFile root = cldrFactory.make("root", true);
+        String[][] tests = {
+            // test edge cases
+            // locale, path, value, 0..n Subtype errors
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders", "gapsInPlaceholderNumbers"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders"},
+            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "duplicatePlaceholders"},
+
+            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite."},
+
+            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours"},
+
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders"},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci"},
+            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath"},
+
+            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders"},
+            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik"},
+
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders"},
+            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}"},
+
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة"},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة"},
+            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
+        };
+        for (String[] row : tests) {
+            String localeId = row[0];
+            String path = row[1];
+            String value = row[2];
+            Set<Subtype> expected = new TreeSet<>();
+            for (int i = 3; i < row.length; ++i) {
+                expected.add(Subtype.valueOf(row[i]));
+            }
+
+            XMLSource localeSource = new SimpleXMLSource(localeId);
+            localeSource.putValueAtPath(path, value);
+
+            TestFactory currFactory = makeTestFactory(root, localeSource);
+            CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
+            CheckForExemplars check = new CheckForExemplars(currFactory);
+
+            Options options = new Options();
+            List<CheckStatus> possibleErrors = new ArrayList<>();
+            check.setCldrFileToCheck(cldrFile , options, possibleErrors);
+            check.handleCheck(path, path, value, options, possibleErrors);
+            Set<Subtype> actual = new TreeSet<>();
+            for (CheckStatus item : possibleErrors) {
+                if (PatternPlaceholders.PLACEHOLDER_SUBTYPES.contains(item.getSubtype())) {
+                    actual.add(item.getSubtype());
+                }
+            }
+            if (!assertEquals(Arrays.asList(row).toString(), expected, actual)) {
+                int debug = 0;
+            }
+        }
+    }
+
     public void TestPlaceholders() {
         CheckCLDR.setDisplayInformation(english);
         checkPlaceholders(english);
         checkPlaceholders(factory.make("de", true));
     }
+
     public void checkPlaceholders(CLDRFile cldrFileToTest) {
         // verify that every item with {0} has a pattern in pattern
         // placeholders,
@@ -195,13 +263,13 @@ public class TestCheckCLDR extends TestFmwk {
             .getInstance();
 
         CheckCLDR test = CheckCLDR.getCheckAll(factory, ".*");
-        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+        List<CheckStatus> possibleErrors = new ArrayList<>();
         Options options = new Options();
         test.setCldrFileToCheck(cldrFileToTest, options, possibleErrors);
-        List<CheckStatus> result = new ArrayList<CheckStatus>();
+        List<CheckStatus> result = new ArrayList<>();
 
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(cldrFileToTest);
-        Set<PathHeader> sorted = new TreeSet<PathHeader>();
+        Set<PathHeader> sorted = new TreeSet<>();
         for (String path : cldrFileToTest.fullIterable()) {
             sorted.add(pathHeaderFactory.fromPath(path));
         }
@@ -212,7 +280,7 @@ public class TestCheckCLDR extends TestFmwk {
             String path = pathHeader.getOriginalPath();
             String value = cldrFileToTest.getStringValue(path);
             if (value == null) {
-                value = "?";
+                continue;
             }
             boolean containsMessagePattern = messagePlaceholder.reset(value)
                 .find();
@@ -220,71 +288,35 @@ public class TestCheckCLDR extends TestFmwk {
                 .get(path);
             final PlaceholderStatus placeholderStatus = patternPlaceholders
                 .getStatus(path);
-            if (containsMessagePattern && placeholderStatus == PlaceholderStatus.DISALLOWED
-                || !containsMessagePattern && placeholderStatus == PlaceholderStatus.REQUIRED) {
-                errln("Value (" + value + ") looks like placeholder = "
-                    + containsMessagePattern + ", but placeholder info = "
-                    + placeholderStatus + "\t" + path);
-                continue;
-            } else if (placeholderStatus != PlaceholderStatus.DISALLOWED) {
+            if (placeholderStatus == PlaceholderStatus.DISALLOWED) {
                 if (containsMessagePattern) {
-                    Set<String> found = new HashSet<String>();
-                    do {
-                        found.add(messagePlaceholder.group());
-                    } while (messagePlaceholder.find());
-                    if (!found.equals(placeholderInfo.keySet())) {
-                        // ^//ldml/characterLabels/characterLabelPattern[@type="category_list"] ; {0}=CATEGORY_TYPE family; {1}=REMAINING_ITEMS man, woman, girl
-                        if (path.equals("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]")) {
-                            logKnownIssue("cldrbug:9534", "commenting out characterLabelPattern[@type=\"category-list\"] for now, pending real fix.");
-                        } else {
-                            errln("Value ("
-                                + value
-                                + ") has different placeholders than placeholder info ("
-                                + placeholderInfo.keySet() + ")\t" + path);
-                        }
-                        continue;
-                    } else {
-                        logln("placeholder info = " + placeholderInfo + "\t"
-                            + path);
-                    }
+                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    continue;
                 }
-
-                // check that the error messages are right
-
-                test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?", options, result);
-                CheckStatus gotIt = null;
-                for (CheckStatus i : result) {
-                    if (i.getSubtype() == Subtype.missingPlaceholders) {
-                        gotIt = i;
-                    }
+            } else { // not disallowed
+                if (!containsMessagePattern) {
+                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    continue;
                 }
-                if (placeholderStatus == PlaceholderStatus.REQUIRED
-                    && gotIt == null) {
-                    errln("CheckForExemplars SHOULD have detected "
-                        + Subtype.missingPlaceholders + " for "
-                        + placeholderStatus + " in " + path + " with " + value);
-                    if (DEBUG) {
-                        test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?",
-                            options, result);
-                    }
-                } else if (placeholderStatus == PlaceholderStatus.OPTIONAL
-                    && gotIt != null) {
-                    errln("CheckForExemplars should NOT have detected "
-                        + Subtype.missingPlaceholders + " for "
-                        + placeholderStatus + " in " + path + " with " + value);
-                    if (DEBUG) {
-                        test.handleCheck(path, cldrFileToTest.getFullXPath(path), "?",
-                            options, result);
+                // get the set of placeholders
+                HashSet<String> found = new HashSet<>();
+                do {
+                    found.add(messagePlaceholder.group()); // we loaded first one up above
+                } while (messagePlaceholder.find());
+
+                if (!found.equals(placeholderInfo.keySet())) {
+                    if (placeholderStatus != PlaceholderStatus.LOCALE_DEPENDENT) {
+                        errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") has different placeholders than placeholder info «" + placeholderInfo.keySet() + "»\t" + path);
                     }
                 } else {
-                    logln("CheckForExemplars found " + result);
+                    logln("placeholder info = " + placeholderInfo + "\t"
+                        + path);
                 }
             }
         }
     }
 
     public void TestFullErrors() {
-
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
 
@@ -295,9 +327,9 @@ public class TestCheckCLDR extends TestFmwk {
     public void TestAllLocales() {
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
-        Set<String> unique = new HashSet<String>();
+        Set<String> unique = new HashSet<>();
         LanguageTagParser ltp = new LanguageTagParser();
-        Set<String> locales = new HashSet<String>();
+        Set<String> locales = new HashSet<>();
         for (String locale : getInclusion() <= 5 ? eightPointLocales : factory.getAvailable()) {
             /*
              * Only test locales without regions. E.g., test "pt", skip "pt_PT"
@@ -307,7 +339,7 @@ public class TestCheckCLDR extends TestFmwk {
             }
         }
         // With ICU4J libs of 2020-03-23, using locales.parallelStream().forEach below
-        // hangs, or crashes with NPE. Likely an ICU4J issue, but we don't really need 
+        // hangs, or crashes with NPE. Likely an ICU4J issue, but we don't really need
         // parallelStream() here anyway since we are only handling around 35 locales.
         // (And in fact this test seems faster without it)
         locales.forEach(locale -> checkLocale(test, locale, null, unique));
@@ -318,7 +350,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
-        Set<String> unique = new HashSet<String>();
+        Set<String> unique = new HashSet<>();
 
         checkLocale(test, "ko", null, unique);
     }
@@ -331,14 +363,14 @@ public class TestCheckCLDR extends TestFmwk {
     public void checkLocale(CheckCLDR test, CLDRFile nativeFile,
         String dummyValue, Set<String> unique) {
         String localeID = nativeFile.getLocaleID();
-        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+        List<CheckStatus> possibleErrors = new ArrayList<>();
         CheckCLDR.Options options = new CheckCLDR.Options();
         test.setCldrFileToCheck(nativeFile, options, possibleErrors);
-        List<CheckStatus> result = new ArrayList<CheckStatus>();
+        List<CheckStatus> result = new ArrayList<>();
 
         CLDRFile patched = nativeFile; // new CLDRFile(override);
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
-        Set<PathHeader> sorted = new TreeSet<PathHeader>();
+        Set<PathHeader> sorted = new TreeSet<>();
         for (String path : patched) {
             final PathHeader pathHeader = pathHeaderFactory.fromPath(path);
             if (pathHeader != null) {
@@ -408,8 +440,8 @@ public class TestCheckCLDR extends TestFmwk {
 
     public void TestCheckNames() {
         CheckCLDR c = new CheckNames();
-        Map<String, String> options = new LinkedHashMap<String, String>();
-        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+        Map<String, String> options = new LinkedHashMap<>();
+        List<CheckStatus> possibleErrors = new ArrayList<>();
         final CLDRFile english = testInfo.getEnglish();
         c.setCldrFileToCheck(english, options, possibleErrors);
         String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"mga\"]";
@@ -431,7 +463,7 @@ public class TestCheckCLDR extends TestFmwk {
         // * run GenerateBirths (if you haven't done so)
         // * look at readable results in the log file in CLDRPaths.TMP_DIRECTORY + "dropbox/births/"
         // * for fr.txt (or may change locale)
-        // * find a path that is outdated. 
+        // * find a path that is outdated.
         //   * To work on both limited and full submissions, choose one with English = trunk
         //   * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
         // * check the data files to ensure that it is in fact outdated.
@@ -440,8 +472,8 @@ public class TestCheckCLDR extends TestFmwk {
         String locale = "fr";
         String path = "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]";
         CheckCLDR c = new CheckNew(testInfo.getCommonAndSeedAndMainAndAnnotationsFactory());
-        List<CheckStatus> result = new ArrayList<CheckStatus>();
-        Map<String, String> options = new HashMap<String, String>();
+        List<CheckStatus> result = new ArrayList<>();
+        Map<String, String> options = new HashMap<>();
         c.setCldrFileToCheck(testInfo.getCLDRFile(locale, true), options, result);
         c.check(path, path, "foobar", options, result);
         for (CheckStatus status : result) {
@@ -457,6 +489,56 @@ public class TestCheckCLDR extends TestFmwk {
         errln("No failure message.");
     }
 
+    public void TestCheckNewRootFailure() {
+        // Check that we get an error with the root value for an emoji.
+        final Factory annotationsFactory = testInfo.getAnnotationsFactory();
+        String locale = "yo"; // the name doesn't matter, since we're going to create a new one
+        String path = "//ldml/annotations/annotation[@cp=\"😀\"][@type=\"tts\"]";
+        CheckCLDR c = new CheckNew(annotationsFactory);
+        List<CheckStatus> result = new ArrayList<>();
+        Map<String, String> options = new HashMap<>();
+        for (Phase phase : Phase.values()) {
+            options.put(Options.Option.phase.getKey(), phase.toString());
+            for (String value : Arrays.asList("E10-836", CldrUtility.INHERITANCE_MARKER)) {
+
+                // make a fake locale, starting with real root
+
+                CLDRFile root = annotationsFactory.make("root", false);
+                XMLSource localeSource = new SimpleXMLSource(locale);
+                localeSource.putValueAtPath(path, value);
+
+                TestFactory currFactory = makeTestFactory(root, localeSource);
+                CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
+
+                c.setCldrFileToCheck(cldrFile, options, result);
+                c.check(path, path, value, options, result);
+                boolean gotOne = false;
+                for (CheckStatus status : result) {
+                    if (status.getSubtype() == Subtype.valueMustBeOverridden) {
+                        gotOne = true;
+                        assertEquals(
+                            phase + " Error message check",
+                            "This value must be a real translation, NOT the name/keyword placeholder.",
+                            status.getMessage());
+                    }
+                }
+                if (!gotOne) {
+                    errln(phase + " Missing failure message for value=" + value + "; path=" + path);
+                }
+            }
+        }
+    }
+
+    public TestFactory makeTestFactory(CLDRFile root, XMLSource localeSource) {
+        CLDRFile localeCldr = new CLDRFile(localeSource);
+
+        TestFactory factory = new TestFactory();
+        factory.addFile(root);
+        factory.addFile(localeCldr);
+        return factory;
+    }
+
+
     public void TestCheckDates() {
         CheckCLDR.setDisplayInformation(testInfo.getEnglish()); // just in case
         String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
@@ -465,7 +547,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         TestFactory testFactory = new TestFactory();
 
-        List<CheckStatus> result = new ArrayList<CheckStatus>();
+        List<CheckStatus> result = new ArrayList<>();
         Options options = new Options();
         final String collidingValue = "foobar";
 
@@ -656,9 +738,9 @@ public class TestCheckCLDR extends TestFmwk {
                         dummyPathValueInfo.xpath = path;
                         dummyPathValueInfo.baselineValue = cldrFileUnresolved.getStringValue(path);
                         StatusAction action = phase.getShowRowAction(
-                            dummyPathValueInfo, 
-                            InputMethod.DIRECT, 
-                            surveyToolStatus, 
+                            dummyPathValueInfo,
+                            InputMethod.DIRECT,
+                            surveyToolStatus,
                             dummyUserInfo);
 
                         if (surveyToolStatus == SurveyToolStatus.HIDE) {
@@ -681,9 +763,9 @@ public class TestCheckCLDR extends TestFmwk {
                                 // for debugging
                                 if (locale.equals("vo") && action == StatusAction.ALLOW) {
                                     StatusAction action2 = phase.getShowRowAction(
-                                        dummyPathValueInfo, 
-                                        InputMethod.DIRECT, 
-                                        surveyToolStatus, 
+                                        dummyPathValueInfo,
+                                        InputMethod.DIRECT,
+                                        surveyToolStatus,
                                         dummyUserInfo);
                                 }
                                 actionToExamplePath.put(key, Pair.of(dummyPathValueInfo.baselineValue != null, path));
@@ -720,8 +802,8 @@ public class TestCheckCLDR extends TestFmwk {
 
 //    private static final CoverageInfo coverageInfo = new CoverageInfo(testInfo.getSupplementalDataInfo());
 
-    private static final VoterInfo dummyVoterInfo = new VoterInfo(Organization.cldr, 
-        org.unicode.cldr.util.VoteResolver.Level.vetter, 
+    private static final VoterInfo dummyVoterInfo = new VoterInfo(Organization.cldr,
+        org.unicode.cldr.util.VoteResolver.Level.vetter,
         "somename");
 
     private static final UserInfo dummyUserInfo = new UserInfo() {
@@ -838,9 +920,9 @@ public class TestCheckCLDR extends TestFmwk {
         case "sat": desiredScript = "Olck"; break;
         case "mni": desiredScript = "Beng"; break;
         case "chr": desiredScript = "Cher"; break;
-        default: 
-            if (!explicitScript.isEmpty()) { 
-                desiredScript = explicitScript; 
+        default:
+            if (!explicitScript.isEmpty()) {
+                desiredScript = explicitScript;
             }
             break;
         }
@@ -850,13 +932,13 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     final Set<String> sampleNewPaths = ImmutableSet.of(
-        "//ldml/annotations/annotation[@cp=\\\"🐻‍❄\\\"][@type=\\\"tts\\\"]", 
-        "//ldml/annotations/annotation[@cp=\\\"√\\\"][@type=\\\"tts\\\"]", 
-        "//ldml/units/unitLength[@type=\\\"short\\\"]/compoundUnit[@type=\\\"10p-1\\\"]/unitPrefixPattern", 
-        "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]", 
+        "//ldml/annotations/annotation[@cp=\\\"🐻‍❄\\\"][@type=\\\"tts\\\"]",
+        "//ldml/annotations/annotation[@cp=\\\"√\\\"][@type=\\\"tts\\\"]",
+        "//ldml/units/unitLength[@type=\\\"short\\\"]/compoundUnit[@type=\\\"10p-1\\\"]/unitPrefixPattern",
+        "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]",
         "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1"
         );
-    
+
     final Set<String> SAMPLE_EXCEPTIONAL_PATHS = ImmutableSet.of(
         "//ldml/annotations/annotation[@cp=\"🤵\"]",
         "//ldml/annotations/annotation[@cp=\"🤵‍♂\"][@type=\"tts\"]"
@@ -871,28 +953,28 @@ public class TestCheckCLDR extends TestFmwk {
         if (!CheckCLDR.LIMITED_SUBMISSION) {
             return;
         }
-        
+
         for (String path : sampleNewPaths) {
             assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, true));
         }
-        
+
         for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
             assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, false));
         }
-        
-        assertFalse(sampleDisallowedInLimitedSubmission, 
+
+        assertFalse(sampleDisallowedInLimitedSubmission,
             SubmissionLocales.allowEvenIfLimited("fr", sampleDisallowedInLimitedSubmission, false, false));
 
         // test non-cldr locale
-        
+
         for (String path : sampleNewPaths) {
             assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, true));
         }
         for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
             assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, false));
         }
-        
+
         // TODO enhance to check more conditions
         // like old:         assertFalse("vo, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathNotSameValue, false, false));
-   }
+    }
 }

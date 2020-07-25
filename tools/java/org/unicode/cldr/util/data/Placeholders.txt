@@ -1,10 +1,9 @@
 #Remember to quote any [ character!
 # The default is DISALLOWED for anything not in this file.
-# The default for everything in this file is REQUIRED.
-# That default is overridden if the line has as the X parameter: locale, optional, or multiple.
-#	optional: there may or may not be a placeholder.
-#	locale: there is a count= or ordinal=, so the value is subject to the locale.
-#	multiple: there may be one or more placeholders (normally only in minimalPairs)
+# The default for everything in this file is REQUIRED, meaning that the number of placeholders has to match the number in the final field.
+# That default is overridden if the line has as the X parameter: locale or multiple.
+#	locale: there is a count= or ordinal=, so the value is subject to the locale; may be zero or one.
+#	multiple: there may be zero or more placeholders (normally only in minimalPairs)
 
 %A = [^"]*+
 %L = (long|short|narrow)
@@ -210,8 +209,8 @@
 
 ^//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="%A"] ; multiple ; {0}=COUNT 3
 ^//ldml/numbers/minimalPairs/pluralMinimalPairs[@count="%A"]    ; multiple ; {0}=COUNT 3
-^//ldml/numbers/minimalPairs/caseMinimalPairs[@case="%A"]    ; multiple ; {0}=CASE nominative
-^//ldml/numbers/minimalPairs/genderMinimalPairs[@gender="%A"]    ; multiple ; {0}=GENDER neuter
+^//ldml/numbers/minimalPairs/caseMinimalPairs[@case="%A"]    ; {0}=CASE <noun in this case>
+^//ldml/numbers/minimalPairs/genderMinimalPairs[@gender="%A"]    ; {0}=GENDER <noun in this gender>
 
 # Warning: the longer match must come first
 ^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/compoundUnitPattern1 ; {0}=POWER UNIT meters

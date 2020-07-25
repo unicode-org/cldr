@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -200,6 +201,7 @@ public class Emoji {
             {"math", "× ÷ √ ∞ ∆ ∇ ⁻ ¹ ² ³ ≡ ∈ ⊂ ∩ ∪ ° + ± − = ≈ ≠ > < ≤ ≥ ¬ | ~"},
             {"punctuation", "§ † ‡ \\u0020  , 、 ، ; : ؛ ! ¡ ? ¿ ؟ ¶ ※ / \\ & # % ‰ ′ ″ ‴ @ * ♪ ♭ ♯ ` ´ ^ ¨ ‐ ― _ - – — • · . … 。 ‧ ・ ‘ ’ ‚ ' “ ” „ » « ( ) [ ] { } 〔 〕 〈 〉 《 》 「 」 『 』 〖 〗 【 】"},
             {"currency", "€ £ ¥ ₹ ₽ $ ¢ ฿ ₪ ₺ ₫ ₱ ₩ ₡ ₦ ₮ ৳ ₴ ₸ ₲ ₵ ៛ ₭ ֏ ₥ ₾ ₼ ₿ ؋"},
+            {"other-symbol", "‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼"},
         };
         // get the maximum suborder for each subcategory
         Map<String, Long> subcategoryToMaxSuborder = new HashMap<>();
@@ -217,13 +219,17 @@ public class Emoji {
             }
         }
         if (DEBUG) System.out.println(subcategoryToMaxSuborder);
-        Splitter spaceSplitter = Splitter.on(' ').omitEmptyStrings();
         Map<String,Long> _EXTRA_SYMBOL_ORDER = new LinkedHashMap<>();
         for (String[] row : data) {
             final String subcategory = row[0];
-            final String spaceDelimitedStringList = row[1];
+            final String characters = row[1];
 
-            List<String> items = spaceSplitter.splitToList(spaceDelimitedStringList);
+            List<String> items = new ArrayList<>();
+            for (int cp : With.codePointArray(characters)) {
+                if (cp != ' ') {
+                    items.add(With.fromCodePoint(cp));
+                }
+            }
             final UnicodeSet uset = new UnicodeSet().addAll(items);
             if (uset.containsSome(EXTRA_SYMBOL_MINOR_CATEGORIES.keySet())) {
                 throw new IllegalArgumentException("Duplicate values in " + EXTRA_SYMBOL_MINOR_CATEGORIES);
@@ -303,6 +309,12 @@ public class Emoji {
         Set<String> result = new LinkedHashSet<>(emojiToMinorCategory.values());
         result.addAll(EXTRA_SYMBOL_MINOR_CATEGORIES.getAvailableValues());
         return ImmutableSet.copyOf(result);
+    }
+
+    public static UnicodeSet getEmojiInMinorCategoriesWithExtras(String minorCategory) {
+        return new UnicodeSet(emojiToMinorCategory.getSet(minorCategory))
+            .addAll(EXTRA_SYMBOL_MINOR_CATEGORIES.getSet(minorCategory))
+            .freeze();
     }
 
     public static UnicodeSet getNonConstructed() {

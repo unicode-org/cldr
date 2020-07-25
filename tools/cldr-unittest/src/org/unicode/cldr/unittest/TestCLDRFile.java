@@ -50,6 +50,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
@@ -844,4 +845,11 @@ public class TestCLDRFile extends TestFmwk {
         assertTrue("Should be empty", missing.isEmpty());
     }
 
+    public void TestExtraPaths13954() {
+        CLDRFile es = cldrFactory.make("es", true);
+        CLDRFile es_US = cldrFactory.make("es_US", true);
+        if (!es_US.getRawExtraPaths().containsAll(es.getRawExtraPaths())) {
+            errln("Failure: " + Joiner.on('\n').join(Sets.difference(es.getRawExtraPaths(), es_US.getRawExtraPaths())));
+        }
+    }
 }

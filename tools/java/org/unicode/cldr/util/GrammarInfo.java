@@ -52,7 +52,7 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
             return symbol;
         }
         public String getDefault(Collection<String> values) {
-            return this == grammaticalGender && !values.contains("neuter") ? "masculine" : defaultValue;
+            return this == grammaticalGender && values != null && !values.contains("neuter") ? "masculine" : defaultValue;
         }
         public static Matcher pathHasFeature(String path) {
             Matcher result = PATH_HAS_FEATURE.matcher(path);

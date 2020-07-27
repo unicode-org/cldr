@@ -2091,8 +2091,6 @@ public class ExampleGenerator {
             this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
                 PathDescription.ErrorHandling.CONTINUE);
 
-            this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
-                PathDescription.ErrorHandling.CONTINUE);
             if (helpMessages == null) {
                 helpMessages = new HelpMessages("test_help_messages.html");
             }

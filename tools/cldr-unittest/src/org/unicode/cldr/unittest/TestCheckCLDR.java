@@ -185,6 +185,7 @@ public class TestCheckCLDR extends TestFmwk {
     public void testPlaceholderSamples() {
         CLDRFile root = cldrFactory.make("root", true);
         String[][] tests = {
+            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "שנה"},
             // test edge cases
             // locale, path, value, 0..n Subtype errors
             {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}"},
@@ -213,6 +214,11 @@ public class TestCheckCLDR extends TestFmwk {
             {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة"},
             {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة"},
             {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
+
+            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "שנה"},
+            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"two\"]", "שנתיים"},
+            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"many\"]", "שנה", "missingPlaceholders"},
+            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "שנים", "missingPlaceholders"},
         };
         for (String[] row : tests) {
             String localeId = row[0];

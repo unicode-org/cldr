@@ -3,7 +3,7 @@
 # The default for everything in this file is REQUIRED, meaning that the number of placeholders has to match the number in the final field.
 # That default is overridden if the line has as the X parameter: locale or multiple.
 #	locale: there is a count= or ordinal=, so the value is subject to the locale; may be zero or one.
-#	multiple: there may be zero or more placeholders (normally only in minimalPairs)
+#	multiple: there may be zero or more placeholders (normally only in count or ordinal minimalPairs)
 
 %A = [^"]*+
 %L = (long|short|narrow)

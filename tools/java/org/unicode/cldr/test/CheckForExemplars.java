@@ -478,7 +478,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         int minimum = placeholderInfo.size();
         int maximum = placeholderInfo.size();
 
-        if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT) {
+        if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT || placeholderStatus == PlaceholderStatus.MULTIPLE) {
             // if locale dependent, it is because of count= or ordinal=. Figure out what the values are, and whether we are allowed to have none or one
             PluralRules rules = PluralRules.forLocale(new ULocale(getCldrFileToCheck().getLocaleID()));
             if (rules != null) {

@@ -1,10 +1,11 @@
 package org.unicode.cldr.test;
 
+import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -21,6 +22,9 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private static final String DEBUG_PATH_PART = "-mass"; // example: "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
@@ -250,8 +254,24 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         set21.add("/unitLength[@type=\"short\"]/unit[@type=\"duration-century\"]");
         mapPathPartsToSets.put("/unitLength[@type=\"short\"]/unit[@type=\"duration-second\"]", set21);
 
+        // Add OK collisions for dot and pixel
+        addNonColliding(mapPathPartsToSets, "[@type=\"graphics-pixel\"]", "[@type=\"graphics-dot\"]");
+        addNonColliding(mapPathPartsToSets, "[@type=\"graphics-pixel-per-inch\"]", "[@type=\"graphics-dot-per-inch\"]");
+        addNonColliding(mapPathPartsToSets, "[@type=\"graphics-dot-per-centimeter\"]", "[@type=\"graphics-pixel-per-centimeter\"]");
+
         // all done, return immutable version
-        return Collections.unmodifiableMap(mapPathPartsToSets);
+        return ImmutableMap.copyOf(mapPathPartsToSets);
+    }
+
+    // TODO Clean up the mapPathPartsToSets; clumsy to build and probably not speedy to use.
+
+    public static void addNonColliding(Map<String, Set<String>> mapPathPartsToSets, String... alternatives) {
+        LinkedHashSet<String> items = new LinkedHashSet<>(Arrays.asList(alternatives));
+        for (String item : items) {
+            LinkedHashSet<String> others = new LinkedHashSet<>(items);
+            others.remove(item);
+            mapPathPartsToSets.put(item, ImmutableSet.copyOf(others));
+        }
     }
 
     public CheckDisplayCollisions(Factory factory) {

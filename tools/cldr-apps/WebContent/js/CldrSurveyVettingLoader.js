@@ -711,9 +711,8 @@ function showV() {
 								display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter)
 							},
 							{
-								title: 'Forum Participation',
+								special: 'forum_participation', /* Cf. special_forum_participation */
 								level: 2,
-								url: 'survey?do=monitorForum',
 								display: surveyUserPerms.userCanMonitorForum
 							},
 							{

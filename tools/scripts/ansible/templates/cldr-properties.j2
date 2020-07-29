@@ -1,0 +1,32 @@
+CLDR_MAINTENANCE=false
+
+## your password. Login as user 'admin@' and this password for admin access.
+CLDR_VAP={{ surveytooldeploy.vap }}
+
+## Special Test Enablement.
+CLDR_TESTPW={{ surveytooldeploy.testpw }}
+
+## Special message shown to users as to why survey tool is down.
+## Comment out for normal start-up.
+#CLDR_MESSAGE=
+
+## Special message shown to users.
+CLDR_HEADER=Welcome to SurveyTool@surveytool. Please edit /var/lib/tomcat8/cldr/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely. Also see /var/lib/tomcat8/cldr/admin.html to get to the admin panel.
+
+## Current SurveyTool phase 
+CLDR_PHASE=BETA
+
+## 'old' (previous) version
+CLDR_OLDVERSION={{ surveytooldeploy.oldversion }}
+
+## 'new'  version
+CLDR_NEWVERSION={{ surveytooldeploy.newversion }}
+
+## Current SurveyTool phase 
+CLDR_PHASE=BETA
+
+## CLDR trunk. Default value shown
+CLDR_DIR=/var/lib/tomcat8/cldr/cldr-trunk
+
+## SMTP server. Mail is disabled by default.
+#CLDR_SMTP=127.0.0.1

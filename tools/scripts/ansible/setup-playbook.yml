@@ -1,0 +1,83 @@
+- hosts: surveytool
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  roles:
+    - { role: geerlingguy.mysql }
+    # - { role: geerlingguy.nginx }
+  # # was only needed for docker
+  # pre_tasks:                                                                                                                                         
+  #   - name: Install policy-rc.d script                                                                                                               
+  #     copy:                                                                                                                                          
+  #       dest: /usr/sbin/policy-rc.d                                                                                                                  
+  #       content: |                                                                                                                                   
+  #         #!/bin/bash                                                                                                                                                                                                              
+  #         exit 0                                                                                                                                                                                                                                                                    
+  #       mode: 0755
+  tasks:
+    - name: Install server packages
+      apt:
+        pkg:
+          - tomcat8
+          - tomcat8-admin # needed for deploy
+          # - libmariadb-java # obviated by CLDR-13913
+    - name: Setup Server Context
+      template:
+        src: templates/context.j2
+        dest: /etc/tomcat8/context.xml
+        owner: root
+        group: tomcat8
+        mode: '0640'
+      notify: Restart Tomcat
+    - name: Setup Server Users
+      template:
+        src: templates/users.j2
+        dest: /etc/tomcat8/tomcat-users.xml
+        owner: root
+        group: tomcat8
+        mode: '0640'
+      notify: Restart Tomcat
+    - name: Create CLDR dir
+      file:
+        path: /var/lib/tomcat8/cldr
+        state: directory
+        owner: tomcat8
+        group: tomcat8
+        mode: 0775
+    - name: Create cldr.properties
+      template:
+        dest: /var/lib/tomcat8/cldr/cldr.properties
+        src: templates/cldr-properties.j2
+        force: no
+        owner: tomcat8
+        group: tomcat8
+        mode: 0644
+      notify: Restart Tomcat
+    - name: Checkout CLDR trunk
+      git:
+        repo: https://github.com/unicode-org/cldr.git
+        dest: /var/lib/tomcat8/cldr/cldr-trunk
+        depth: 1 # don't need all history
+        force: no
+        version: master
+  handlers:
+    - name: Restart Tomcat
+      service:
+        name: tomcat8
+        state: restarted
+
+
+
+# these are for convenience of the user, not specific
+# to the surveytool
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install some packages
+      apt:
+        pkg:
+          # these are for convenience of the user
+          - mosh
+          - emacs-nox
+          - byobu

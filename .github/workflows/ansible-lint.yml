@@ -1,0 +1,30 @@
+name: Ansible Lint
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: false # not needed for this job, as we don’t currently do a Java build
+    - name: Lint Ansible Playbook
+      uses: ansible/ansible-lint-action@master
+      with:
+        targets: |
+          tools/scripts/ansible/setup-playbook.yml
+        override-deps: |
+          ansible==2.9
+          ansible-lint==4.2.0
+        args: ""
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: false # not needed for this job, as we don’t currently do a Java build
+    - name: Install Vagrant and Ansible
+      run: brew install ansible
+    - name: Try the provision
+      run: cd tools/scripts/ansible && ansible-galaxy install -r roles.yml && ln -sv test-local-vars local-vars && vagrant up

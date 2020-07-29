@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.define "surveytool"
+  config.vm.hostname = "surveytool"
+  # forward http and https
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  # Just the minimum to get ansible going
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y python3 sudo
+  SHELL
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "setup-playbook.yml"
+  end
+end

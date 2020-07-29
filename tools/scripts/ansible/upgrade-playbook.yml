@@ -1,0 +1,7 @@
+# A playbook for upgrading packages
+- hosts: all
+  become: yes
+  tasks:
+  - name: Update all packages to the latest version
+    apt:
+      upgrade: dist

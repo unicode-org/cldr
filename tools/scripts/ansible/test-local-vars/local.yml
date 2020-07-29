@@ -1,0 +1,12 @@
+# these are used for CI testing
+mysql_users:
+  - name: surveytool
+    host: localhost
+    password: hunter42
+    priv: 'cldrdb.*:ALL'
+surveytooldeploy:
+  password: hunter43
+  vap: hunter44
+  testpw: hunter45
+  oldversion: 36
+  newversion: 37

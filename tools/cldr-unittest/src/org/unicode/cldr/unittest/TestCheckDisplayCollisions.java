@@ -19,6 +19,7 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String ukRegion =  "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
@@ -191,6 +192,34 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         String s = cs.getParameters()[0].toString();
         if (s.contains("Unknown")) {
             errln("Found Unknown in : " + path + ":\n" + s);
+        }
+    }
+
+    public void TestDotPixel14031 () {
+        TestFactory factory = new TestFactory();
+        XMLSource rootSource = new SimpleXMLSource("root");
+        factory.addFile(new CLDRFile(rootSource));
+
+        XMLSource localeSource = new SimpleXMLSource("de");
+        Map<String,String> m = ImmutableMap.of(
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/displayName", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel\"]/displayName", "Punkt",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-pixel-per-centimeter\"]/displayName", "Punkt pro Zentimeter",
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot-per-centimeter\"]/displayName", "Punkt pro Zentimeter"
+            );
+        for (Entry<String, String> entry : m.entrySet()) {
+            localeSource.putValueAtPath(entry.getKey(), entry.getValue());
+        }
+        factory.addFile(new CLDRFile(localeSource));
+
+        CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
+        cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
+
+        List<CheckStatus> possibleErrors = new ArrayList<>();
+        cdc.setCldrFileToCheck(factory.make("de", true), ImmutableMap.of(), possibleErrors);
+        for (Entry<String, String> entry : m.entrySet()) {
+            cdc.check(entry.getKey(), entry.getKey(), entry.getValue(), ImmutableMap.of(), possibleErrors);
+            assertEquals(entry.toString(), Collections.emptyList(), possibleErrors);
         }
     }
 }

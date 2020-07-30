@@ -1643,11 +1643,13 @@ public class TestUnits extends TestFmwk {
                     mark="²";
                 }
             }
-            System.out.println("Could add 10^X conversion from a"
-                + "\t" +  s.source
-                + "\tto" + mark
-                + "\t" + endFactor.toString(FormatStyle.simple)
-                + "\t" + target);
+            //         <convertUnit source='drop' baseUnit='cubic-meter' factor='gal_to_m3/128*576' systems="ussystem"/>
+
+            System.out.println("\t\t<convertUnit"
+                + " source='" + s.source + "'"
+                + " baseUnit='" + target + "'"
+                + " factor='" + endFactor.toString(FormatStyle.simple) + "'"
+                + "/> <!--" + mark + "-->");
         }
     }
 

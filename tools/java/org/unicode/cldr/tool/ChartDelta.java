@@ -191,7 +191,7 @@ public class ChartDelta extends Chart {
 
     private static final CLDRFile EMPTY_CLDR = new CLDRFile(new SimpleXMLSource("und").freeze());
 
-    private static final String CLDR_BASE_DIR = CLDRConfig.getInstance().getCldrBaseDirectory().toString();
+    private static final File CLDR_BASE_DIR = CLDRConfig.getInstance().getCldrBaseDirectory();
 
     private enum ChangeType {
         added, deleted, changed, same;

@@ -73,7 +73,7 @@
         
         <hr />
         <p><a href="http://www.unicode.org">Unicode</a> | <a href="http://www.unicode.org/cldr">CLDR</a></p>
-        <span style='font-size: 60%;'>Code Version : <%= SurveyMain.getCurrev() %></span>
+        <span style='font-size: 60%;'>Version: <%= SurveyMain.getCurrev(true) %></span>
         <div style='float: right; font-size: 60%;'><span class='notselected'>valid <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>,
             <a href='http://validator.w3.org/check?uri=referer'>xhtml 1.1</a></span></div>
             

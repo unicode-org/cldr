@@ -89,9 +89,11 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/characters/exemplarCharacters",
         "//ldml/characters/exemplarCharacters[@type=\"([^\"]*+)\"]",
         "//ldml/characters/parseLenients.*",
-        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"]",
-        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/days/dayContext[@type=\"([^\"]*+)\"]/dayWidth[@type=\"([^\"]*+)\"]/day[@type=\"([^\"]*+)\"]",
-        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]",
+
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"([^\"]*+)\"]/day[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]",
+
         "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName",
         "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
         "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
@@ -99,8 +101,6 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName[@alt=\"([^\"]*+)\"]",
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/cyclicNameSets/cyclicNameSet[@type=\"([^\"]*+)\"]/cyclicNameContext[@type=\"([^\"]*+)\"]/cyclicNameWidth[@type=\"([^\"]*+)\"]/cyclicName[@type=\"([^\"]*+)\"]",
 
-        "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
-        "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
         "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]"
         );
     // Only add to above if the example should NEVER appear.
@@ -133,6 +133,10 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraAbbr/era[@type=\"([^\"]*+)\"]",
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNarrow/era[@type=\"([^\"]*+)\"]",
 
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/days/dayContext[@type=\"([^\"]*+)\"]/dayWidth[@type=\"([^\"]*+)\"]/day[@type=\"([^\"]*+)\"]",
+        "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]",
+
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/appendItems/appendItem[@request=\"([^\"]*+)\"]",
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
         "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"([^\"]*+)\"]/greatestDifference[@id=\"([^\"]*+)\"]",
@@ -160,6 +164,11 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/typographicNames/featureName[@type=\"([^\"]*+)\"]",
 
         "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]",
+
+        "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
+        "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
+        "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"([^\\\"]*+)\"]",
+        "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"([^\\\"]*+)\"]",
 
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
         );
@@ -209,7 +218,7 @@ public class TestExampleGenerator extends TestFmwk {
     // Add to above if the background SHOULD appear, but we don't have them yet. TODO Add later
 
     public void TestAllPaths() {
-        ExampleGenerator exampleGenerator = getExampleGenerator("en");
+        ExampleGenerator exampleGenerator = getExampleGenerator("de");
         PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
@@ -218,7 +227,8 @@ public class TestExampleGenerator extends TestFmwk {
         for (String path : target) {
             String plainStarred = ps.set(path);
             String value = cldrFile.getStringValue(path);
-            if (value == null || path.endsWith("/alias")
+            if (value == null
+                || path.endsWith("/alias")
                 || path.startsWith("//ldml/identity")
                 || DELIBERATE_EXCLUDED_EXAMPLES.contains(plainStarred)) {
                 continue;

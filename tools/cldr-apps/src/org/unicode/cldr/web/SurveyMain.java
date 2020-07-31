@@ -48,6 +48,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -381,7 +382,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         + "--></script>";
 
     private static HelpMessages surveyToolSystemMessages = null;
-    private static String CLDR_APPS_HASH = null;
+    private static String CLDR_SURVEYTOOL_HASH = null;
 
     private static String sysmsg(String msg) {
         try {
@@ -434,9 +435,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 Manifest mf = new Manifest(is);
                 String s = mf.getMainAttributes().getValue("CLDR-Apps"+"-Git-Commit");
                 if(s != null && !s.isEmpty()) {
-                    SurveyMain.CLDR_APPS_HASH  = s;
+                    SurveyMain.CLDR_SURVEYTOOL_HASH  = s;
                     ((CLDRConfigImpl)cconfig).setCldrAppsHash(s);
-                    System.err.println("Updated CLDR_APPS_HASH to " + getCurrevStr());
+                    System.err.println("Updated CLDR_APPS_HASH to " + s);
                 } else {
                     System.err.println("CLDR_APPS_HASH = unknown (no value in manifest)");
                 }
@@ -851,7 +852,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<noscript><h1>JavaScript is required for logging into the SurveyTool.</h1></noscript>");
             out.print(sysmsg("startup_footer"));
             out.println("<span id='visitors'></span>");
-            out.print(getCurrev());
+            out.print(getCurrev(true));
             out.print("</body></html>");
             return false;
         } else {
@@ -1363,37 +1364,74 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * Called from jsp files as well as locally
      */
     public static String getCurrev() {
-        String currev = getCurrevStr();
-        String split[] = currev.split(" ");
+        return getCurrev(true);
+    }
+
+    static final Pattern HASH_PATTERN = Pattern.compile("^CLDR_([A-Z]+)_HASH$");
+    /**
+     * Get the current source revision
+     * @param asLink true if HTML, false if plaintext
+     * @return
+     *
+     * Called from jsp files as well as locally
+     */
+    public static String getCurrev(boolean asLink) {
+        JSONObject currev = getCurrevJSON();
         StringBuilder output = new StringBuilder();
-        output.append(CLDRURLS.gitHashToLink(split[0]));
-        if(split.length > 1) {
-            // Error conditions.
-            for(int n=1; n<split.length; n++) {
-                output.append(" ");
-                String subsplit[] = split[n].split("=");
-                output.append(subsplit[0])
-                    .append('=')
-                    .append(CLDRURLS.gitHashToLink(subsplit[1]));
+        String lastLink = null;
+        final Set<String> resultSet = new HashSet<>(); // If only one result ,return a single string.
+
+        for(Iterator<String> i = currev.keys(); i.hasNext();) {
+            final String k = i.next().toString();
+            String v;
+            output.append(' ');
+            if(asLink) {
+                final String friendly = HASH_PATTERN.matcher(k).replaceFirst("$1").toLowerCase();
+                output.append("<span title='"+k+"'>"+friendly+"</span>"); // use more friendly name
+            } else {
+                output.append(k);
             }
+            output.append('=');
+            try {
+                v = currev.getString(k);
+                if(asLink) {
+                    String link = CLDRURLS.gitHashToLink(v);
+                    output.append(link);
+                    resultSet.add(link);
+                } else {
+                    output.append(v);
+                    resultSet.add(v);
+                }
+            } catch (JSONException e) {
+                String message = "(exception: " + e.getMessage()+")";
+                output.append(message);
+                resultSet.add(message);
+            }
+        }
+        // If it is unanimous, return a single string.
+        if(resultSet.size() == 1) {
+            return resultSet.toArray()[0].toString(); // Return the single result.
         }
         return output.toString();
     }
+
 
     /**
      * Get the git hash for cldr-apps, statically.
      * Use this to avoid dependency on a loaded CLDRConfig.
      * @return
+     * @deprecated use getCurrevJSON
      */
+    @Deprecated
     public static String getCurrevCldrApps() {
-        if (CLDR_APPS_HASH == null) {
-            CLDR_APPS_HASH = CLDRConfigImpl.getGitHashForSlug("CLDR_APPS_HASH");
+        if (CLDR_SURVEYTOOL_HASH == null) {
+            CLDR_SURVEYTOOL_HASH = CLDRConfigImpl.getGitHashForSlug("CLDR_APPS_HASH");
         }
-        return CLDR_APPS_HASH;
+        return CLDR_SURVEYTOOL_HASH;
     }
 
     /**
-     * Get the current source revision, as a string
+     * Get the current source revision, as a JSON object
      * This will either be a single string '(unknown)' or '1234568'
      * or, it will include error conditions: '12345678 CLDR_TOOLS_HASH=00bad000'
      * if one component is out of sync.
@@ -1401,27 +1439,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      * Called from ajax_status.jsp
      */
-    public static String getCurrevStr() {
-        Map<String,String> allRev = new HashMap<>();
-        String best = CLDRURLS.UNKNOWN_REVISION;
+    public static JSONObject getCurrevJSON() {
+        final CLDRConfigImpl instance = CLDRConfigImpl.getInstance();
+        JSONObject jo = new JSONObject();
         for(final String p : CLDRConfigImpl.ALL_GIT_HASHES) {
-            String hash = CLDRConfigImpl.getInstance().getProperty(p, CLDRURLS.UNKNOWN_REVISION);
-            if(CLDRURLS.isKnownHash(hash)) {
-                best = hash;
-            }
-            allRev.put(p, hash);
-        }
-        StringBuilder output = new StringBuilder(best);
-        for(final Map.Entry<String, String> e : allRev.entrySet()) {
-            // Any divergence?
-            if(!e.getValue().equals(best)) {
-                output.append(' ')
-                .append(e.getKey())
-                .append('=')
-                .append(e.getValue());
+            try {
+                jo.put(p, instance.getProperty(p, CLDRURLS.UNKNOWN_REVISION));
+            } catch (JSONException e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
             }
         }
-        return output.toString();
+        return jo;
     }
 
     /**
@@ -4243,7 +4272,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         {
             CLDRConfig cconfig = CLDRConfig.getInstance();
             SurveyLog.logger
-                .info("Phase: " + cconfig.getPhase() + " " + getNewVersion() + ",  environment: " + cconfig.getEnvironment() + " " + getCurrevStr());
+                .info("Phase: " + cconfig.getPhase() + " " + getNewVersion() + ",  environment: " + cconfig.getEnvironment() + " " + getCurrev(false));
         }
         if (!isBusted()) {
             SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/" + uptime + ". Memory in use: " + usedK()

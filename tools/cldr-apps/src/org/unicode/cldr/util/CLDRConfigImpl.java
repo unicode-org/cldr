@@ -174,18 +174,20 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         loadIntoProperties(survprops, propFile);
 
         // SCM versions.
-        //
-        // currev.properties used to contain CLDR_CURREV=1234  where 1234 was a svn (later git) revision.
-        survprops.put("CLDR_APPS_HASH", getGitHashForSlug("CLDR-Apps")); // Not available until init() is called.
-        survprops.put("CLDR_TOOLS_HASH", getGitHashForSlug("CLDR-Tools"));
-        survprops.put("CLDR_DIR_HASH", getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));
+
+        // The git version of the cldr-apps.war file.
+        survprops.put("CLDR_SURVEYTOOL_HASH", getGitHashForSlug("CLDR-Apps")); // Not available until init() is called.
+        // The git version of the cldr.jar file embedded in cldr-apps.
+        survprops.put("CLDR_UTILITIES_HASH", getGitHashForSlug("CLDR-Tools"));
+        // The git version of the CLDR_DIR currently in use.
+        survprops.put("CLDR_DATA_HASH", getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));
 
         survprops.put("CLDRHOME", cldrHome);
 
         isInitted = true;
     }
 
-    public final static String ALL_GIT_HASHES[] = { "CLDR_APPS_HASH", "CLDR_TOOLS_HASH", "CLDR_DIR_HASH" };
+    public final static String ALL_GIT_HASHES[] = { "CLDR_SURVEYTOOL_HASH", "CLDR_UTILITIES_HASH", "CLDR_DATA_HASH" };
 
     /**
      * Return the git hash for a dir.
@@ -372,7 +374,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     }
 
     public void setCldrAppsHash(String hash) {
-        survprops.setProperty("CLDR_APPS_HASH", hash);
+        survprops.setProperty("CLDR_SURVEYTOOL_HASH", hash);
     }
 
     @Override

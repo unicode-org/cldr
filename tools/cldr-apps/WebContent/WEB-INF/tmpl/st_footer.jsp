@@ -8,7 +8,7 @@
 		ctx.println("<div id='footer'>");
         ctx.println("<hr>");
         ctx.print("<div id='hits' style='float: right; font-size: 60%;'>");
-        ctx.print(SurveyMain.getCurrev());
+        ctx.print(SurveyMain.getCurrev(true));
         ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "
                 + "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
         ctx.print(" \u00b7 <span id='visitors'>");

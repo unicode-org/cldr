@@ -89,7 +89,7 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
 				  <%
 				  	if(SurveyMain.isUnofficial()) {
 				  %>
-				             <p><span class="glyphicon glyphicon-wrench"></span><%= SurveyMain.getCurrev() %></p>
+				             <p><span class="glyphicon glyphicon-wrench"></span><%= SurveyMain.getCurrev(true) %></p>
 				  <%
 				  	}
 				  %>
@@ -277,7 +277,7 @@ surveyUser =  <%=ctx.session.user.toJSONString()%>;
 				  <%
 				  	if(SurveyMain.isUnofficial()) {
 				  %>
-				             <li id="revision-info"><span class="glyphicon glyphicon-wrench"></span><%= SurveyMain.getCurrev() %></li>
+				             <li id="revision-info"><span class="glyphicon glyphicon-wrench"></span><%= SurveyMain.getCurrev(true) %></li>
 				  <%
 				  	}
 				  %>

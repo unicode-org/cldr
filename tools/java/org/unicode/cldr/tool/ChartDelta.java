@@ -60,9 +60,15 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 public class ChartDelta extends Chart {
+    /**
+     * If true, check only high-level paths, i.e., paths for which any changes
+     * have high potential to cause disruptive "churn"
+     */
+    private static final boolean DO_CHURN = false;
+
     private static final boolean verbose_skipping = false;
 
-    private static final String DIR_NAME = "delta";
+    private static final String DIR_NAME = DO_CHURN ? "churn" : "delta";
 
     private static final boolean SKIP_REFORMAT_ANNOTATIONS = ToolConstants.PREV_CHART_VERSION.compareTo("30") >= 0;
 
@@ -149,7 +155,7 @@ public class ChartDelta extends Chart {
 
     @Override
     public String getTitle() {
-        return "Delta Charts";
+        return DO_CHURN ? "Churn Charts" : "Delta Charts";
     }
 
     @Override
@@ -255,6 +261,13 @@ public class ChartDelta extends Chart {
         pw.println();
     }
 
+    /**
+     *
+     * @param anchors
+     * @throws IOException
+     *
+     * TODO: shorten the function using subroutines
+     */
     private void writeLdml(Anchors anchors)  throws IOException {
 
         try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, DIR_NAME), DIR_NAME + ".tsv");
@@ -371,6 +384,9 @@ public class ChartDelta extends Chart {
                         Output<Boolean> hasReformattedValue = new Output<>();
 
                         for (String path : paths) {
+                            if (DO_CHURN && !pathIsHighLevel(path)) {
+                                continue;
+                            }
                             if (path.startsWith("//ldml/identity")
                                 || path.endsWith("/alias")
                                 || path.startsWith("//ldml/segmentations") // do later
@@ -427,6 +443,70 @@ public class ChartDelta extends Chart {
             tsvCountFile.println("# EOF");
         }
 
+    }
+
+    /**
+     * Should the given path be taken into account for generating "churn" reports?
+     *
+     * @param path
+     * @return true if it counts, else false to ignore
+     */
+    private boolean pathIsHighLevel(String path) {
+        // TODO: more paths, use RegexLookup, read from file
+        final Set<String> churnPaths = new HashSet<>(Arrays.asList(
+            "//ldml/characters/exemplarCharacters",
+            "//ldml/numbers/defaultNumberingSystem",
+            "//ldml/numbers/otherNumberingSystems/native",
+            "//ldml/localeDisplayNames/territories/territory",
+            "//ldml/localeDisplayNames/languages/language",
+            "//ldml/dates/fields/field[@type=\"year\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"month\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"week\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"day\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"hour\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"era\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"minute\"]/displayName",
+            "//ldml/dates/fields/field[@type=\"second\"]/displayName",
+            "//supplementalData/weekData/firstDay",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MMMEd\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MEd\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"am\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"am\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"pm\"]",
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"pm\"]",
+            "//ldml/numbers/currencies/currency[@type=\"KRW\"]/displayName",
+            "//ldml/numbers/currencies/currency[@type=\"KRW\"]/symbol",
+            "//ldml/numbers/currencies/currency[@type=\"KRW\"]/symbol[@alt=\"narrow\"]",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol",
+            "//ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol[@alt=\"narrow\"]",
+            "//ldml/numbers/minimumGroupingDigits",
+            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal",
+            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group",
+            "//ldml/numbers/symbols[@numberSystem=\"arab\"]/decimal",
+            "//ldml/numbers/symbols[@numberSystem=\"arab\"]/group",
+            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/decimalFormats[@numberSystem=\"arab\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//ldml/numbers/percentFormats[@numberSystem=\"arab\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "//supplementalData/metadata/alias",
+            "//supplementalData/territoryContainment"
+        ));
+
+        if (churnPaths.contains(path)) {
+            return true;
+        }
+        return false;
     }
 
     private boolean allowPath(String locale, String path) {
@@ -751,7 +831,8 @@ public class ChartDelta extends Chart {
             .finishRow();
 
         }
-        writeTable(anchors, file, tablePrinter, ENGLISH.getName(file) + " Delta", tsvFile);
+        String title = ENGLISH.getName(file) + (DO_CHURN ? " Churn" : " Delta");
+        writeTable(anchors, file, tablePrinter, title, tsvFile);
 
         diff.clear();
     }
@@ -861,6 +942,9 @@ public class ChartDelta extends Chart {
                     DtdType dtdType = null;
                     for (PathHeader key : keys) {
                         String originalPath = key.getOriginalPath();
+                        if (DO_CHURN && !pathIsHighLevel(originalPath)) {
+                            continue;
+                        }
                         boolean isTransform = originalPath.contains("/tRule");
                         if (dtdType == null) {
                             dtdType = DtdType.fromPath(originalPath);
@@ -922,9 +1006,10 @@ public class ChartDelta extends Chart {
                     }
                 }
             }
-            writeDiffs(anchors, "bcp47", "¤¤BCP47 Delta", bcp, tsvFile);
-            writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Delta", supplemental, tsvFile);
-            writeDiffs(anchors, "transforms", "¤¤Transforms Delta", transforms, tsvFile);
+            String deltaChurn = DO_CHURN ? "Churn" : "Delta";
+            writeDiffs(anchors, "bcp47", "¤¤BCP47 " + deltaChurn, bcp, tsvFile);
+            writeDiffs(anchors, "supplemental-data", "¤¤Supplemental " + deltaChurn, supplemental, tsvFile);
+            writeDiffs(anchors, "transforms", "¤¤Transforms " + deltaChurn, transforms, tsvFile);
 
             writeCounter(tsvCountFile, "CountSame", countSame);
             tsvCountFile.println();
@@ -968,13 +1053,32 @@ public class ChartDelta extends Chart {
 
         for (Pair<String, String> s : contents1) {
             String path = s.getFirst();
+            if (DO_CHURN && !pathIsHighLevel(path)) {
+                continue;
+            }
             String value = s.getSecond();
             if (dtdType == null) {
+                /*
+                 * TODO: fix or explain: if dtdType and dtdData depend on path, why is this done
+                 * only the first time through the loop? Do all the paths in this loop have the
+                 * same dtdType? Also, when we're looking at paths from an old archived version,
+                 * should we use the old archived DTD instead of the current one in CLDR_BASE_DIR?
+                 */
                 dtdType = DtdType.fromPath(path);
                 dtdData = DtdData.getInstance(dtdType, CLDR_BASE_DIR);
             }
             XPathParts pathPlain = XPathParts.getFrozenInstance(path);
-            if (dtdData.isMetadata(pathPlain)) {
+            try {
+                if (dtdData.isMetadata(pathPlain)) {
+                    continue;
+                }
+            } catch (NullPointerException e) {
+                /*
+                 * TODO: this happens for "grammaticalState" in this path from version 37:
+                 * //supplementalData/grammaticalData/grammaticalFeatures[@targets="nominal"][@locales="he"]/grammaticalState[@values="definite indefinite construct"]
+                 * Referencw: https://unicode-org.atlassian.net/browse/CLDR-13306
+                 */
+                System.out.println("Caught NullPointerException in fillData calling isMetadata, path = " + path);
                 continue;
             }
             Set<String> pathForValues = dtdData.getRegularizedPaths(pathPlain, extras);

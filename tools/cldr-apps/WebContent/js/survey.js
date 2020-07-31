@@ -3599,11 +3599,11 @@ function loadAdminPanel() {
 								if (deadThreads[id]) {
 									stack.appendChild(createChunk(deadThreads[id], "pre", "deadThreadInfo"));
 								}
-								stack.appendChild(createChunk("\n\n{{{\n", "span", "textForTrac"));
+								stack.appendChild(createChunk("\n\n```\n", "pre", "textForTrac"));
 								for (var q in t.stack) {
 									stack.innerHTML = stack.innerHTML + t.stack[q] + "\n";
 								}
-								stack.appendChild(createChunk("}}}\n\n", "span", "textForTrac"));
+								stack.appendChild(createChunk("```\n\n", "pre", "textForTrac"));
 							});
 						})(t, id);
 						frag2.appendChild(thread);
@@ -3687,9 +3687,7 @@ function loadAdminPanel() {
 							var clicky = (function(e) {
 								return (function(ee) {
 									var frag3 = document.createDocumentFragment();
-									frag3.appendChild(createChunk("{{{\n", "span", "textForTrac"));
 									frag3.appendChild(createChunk(e.header, "span", "adminExceptionHeader"));
-									frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
 									frag3.appendChild(createChunk(e.DATE, "span", "adminExceptionDate"));
 	
 									if (e.UPTIME) {
@@ -3701,15 +3699,17 @@ function loadAdminPanel() {
 									for (var q in e.fields) {
 										var f = e.fields[q];
 										var k = Object.keys(f);
-										frag3.appendChild(createChunk("\n'''" + k[0] + "'''\n" + "{{{\n", "span", "textForTrac"));
+										frag3.appendChild(createChunk(k[0], "h4", "textForTrac"));
+										frag3.appendChild(createChunk("\n```", "pre", "textForTrac"));
 										frag3.appendChild(createChunk(f[k[0]], "pre", "adminException" + k[0]));
-										frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
+										frag3.appendChild(createChunk("```\n", "pre", "textForTrac"));
 									}
 	
 									if (e.LOGSITE) {
-										frag3.appendChild(createChunk("'''LOGSITE'''\n{{{\n", "span", "textForTrac"));
+										frag3.appendChild(createChunk("LOGSITE\n", "h4", "textForTrac"));
+										frag3.appendChild(createChunk("\n```", "pre", "textForTrac"));
 										frag3.appendChild(createChunk(e.LOGSITE, "pre", "adminExceptionLogsite"));
-										frag3.appendChild(createChunk("}}}\n", "span", "textForTrac"));
+										frag3.appendChild(createChunk("```\n", "pre", "textForTrac"));
 									}
 									removeAllChildNodes(stack);
 									stack.appendChild(frag3);

@@ -83,10 +83,8 @@ public class TestMisc extends TestFmwk {
 
     public void TestGitHash() {
         String appsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Apps");
-        assertNotNull(appsVersion, "getting CLDR-Apps version");
-//        System.out.println("Apps: " + appsVersion);
+        assertNotNull("getting CLDR-Apps version", appsVersion);
         String toolsVersion = CLDRConfigImpl.getGitHashForSlug("CLDR-Tools");
-        assertNotNull(toolsVersion, "getting CLDR-Tools version");
-//        System.out.println("Tools: " + toolsVersion);
+        assertNotNull("getting CLDR-Tools version", toolsVersion);
     }
 }

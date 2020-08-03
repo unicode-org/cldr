@@ -1,0 +1,9 @@
+[staging]
+cldr-ref.unicode.org
+
+[prod]
+
+# "surveytool" includes both prod and staging
+[surveytool:children]
+staging
+prod

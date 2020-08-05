@@ -31,7 +31,7 @@ public final class SubmissionLocales {
         );
 
     // have to have a lazy eval because otherwise CLDRConfig is called too early in the boot process
-    static Set<String> CLDR_LOCALES = ImmutableSet.<String>builder()
+    public static Set<String> CLDR_LOCALES = ImmutableSet.<String>builder()
         .addAll(HIGH_LEVEL_LOCALES)
         .addAll(NEW_CLDR_LOCALES)
         .addAll(StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet()).build();

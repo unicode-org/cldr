@@ -28,6 +28,7 @@ import org.xml.sax.SAXParseException;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -38,15 +39,7 @@ import com.ibm.icu.util.VersionInfo;
  */
 public class XMLNormalizingLoader{
 
-    /**
-     *  This size could maximum speed up TestAll by loading almost all files only once
-     *  combine with softValues eviction to satisfy memory demand
-     */
-    private static final int CACHE_LIMIT = 1500;
-
-    /**
-     * Use guava loading cache, which could automatically load or compute value associated with a key
-     */
+    private static final int CACHE_LIMIT = 700;
     private static LoadingCache<XMLSourceCacheKey, XMLSource> cache = CacheBuilder.newBuilder()
         .maximumSize(CACHE_LIMIT)
         .softValues()   // will garbage-collected in LRU manner in response to memory demand
@@ -66,12 +59,23 @@ public class XMLNormalizingLoader{
 
     private static class XMLSourceCacheKey {
         private final String localeId;
-        private final List<File> dirs;
+        private final Set<File> dirs;
         private final DraftStatus minimalDraftStatus;
         private final int hashCode;
         public XMLSourceCacheKey(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
             this.localeId = localeId;
-            this.dirs = dirs;
+            // Parameter check: the directory/file supplied must be non-null and readable.
+            if (dirs == null || dirs.isEmpty()) {
+                throw new ICUUncheckedIOException("Attempt to create a XMLSourceCacheKey with a null directory, please supply a non-null one.");
+            }
+            ImmutableSet.Builder<File> _dirs = ImmutableSet.builder();
+            for (File dir : dirs) {
+                if (!dir.canRead()) {
+                    throw new ICUUncheckedIOException("The directory specified, " + dir.getPath() + ", cannot be read");
+                }
+                _dirs.add(dir);
+            }
+            this.dirs = _dirs.build();
             this.minimalDraftStatus = minimalDraftStatus;
             this.hashCode = Objects.hash(this.localeId, this.dirs, this.minimalDraftStatus);
         }
@@ -93,6 +97,9 @@ public class XMLNormalizingLoader{
                 return false;
             }
             XMLSourceCacheKey other = (XMLSourceCacheKey) obj;
+            if(hashCode != other.hashCode) {
+                return false;
+            }
             if (!Objects.equals(dirs, other.dirs)) {
                 return false;
             }
@@ -112,13 +119,9 @@ public class XMLNormalizingLoader{
     }
 
     private static XMLSource makeXMLSource(XMLSourceCacheKey key) {
-        if (key.dirs == null || key.dirs.size() == 0) {
-            return null;
-        }
-
         XMLSource source = null;
         if (key.dirs.size() == 1) {
-            File file = new File(key.dirs.get(0), key.localeId + ".xml");
+            File file = new File(key.dirs.iterator().next(), key.localeId + ".xml");
             source = loadXMLFile(file, key.localeId, key.minimalDraftStatus);
             source.freeze();
             return source;
@@ -147,19 +150,12 @@ public class XMLNormalizingLoader{
     }
 
     public static XMLSource loadXMLFile(File f, String localeId, DraftStatus minimalDraftStatus) {
-        String fullFileName = null;
-        try {
-            fullFileName = f.getCanonicalPath();
-        } catch (IOException e) {
-            StringBuilder sb = new StringBuilder("Cannot read the file '");
-            sb.append(f);
-            throw new ICUUncheckedIOException(sb.toString(), e);
-        }
         // use try-with-resources statement
         try (
             InputStream fis = new StripUTF8BOMInputStream(new FileInputStream(f));
             InputStreamReader reader = new InputStreamReader(fis, Charset.forName("UTF-8"))
         ) {
+            String fullFileName = f.getCanonicalPath();
             XMLSource source = new SimpleXMLSource(localeId);
             XMLNormalizingHandler XML_HANDLER = new XMLNormalizingHandler(source, minimalDraftStatus);
             XMLFileReader.read(fullFileName, reader, -1, true, XML_HANDLER);
@@ -175,9 +171,7 @@ public class XMLNormalizingLoader{
             }
             return source;
         } catch (IOException e) {
-            StringBuilder sb = new StringBuilder("Cannot read the file '");
-            sb.append(f);
-            throw new ICUUncheckedIOException(sb.toString(), e);
+            throw new ICUUncheckedIOException("Cannot read the file " + f, e);
         }
     }
 
@@ -195,15 +189,13 @@ public class XMLNormalizingLoader{
         private String lastActiveLeafNode;
         private String lastLeafNode;
         private SupplementalStatus supplementalStatus = SupplementalStatus.NEVER_SET;
-        private int maxDepth = 30; // just make deep enough to handle any CLDR file.
+        private final static int MAX_DEPTH = 30; // just make deep enough to handle any CLDR file.
         // orderedCounter, orderedString, and level logically form a single class that allows adding elements, but never removed.
-        private int[] orderedCounter = new int[maxDepth];
-        private String[] orderedString = new String[maxDepth];
+        private int[] orderedCounter = new int[MAX_DEPTH];
+        private String[] orderedString = new String[MAX_DEPTH];
         private int level = 0;
         private int overrideCount = 0;
-        /**
-         * Types which changed from 'type' to 'choice', but not in supplemental data.
-         */
+        // Types which changed from 'type' to 'choice', but not in supplemental data.
         private static final Set<String> CHANGED_TYPES = new HashSet<>(Arrays.asList(new String[] {
             "abbreviationFallback",
             "default", "mapping", "measurementSystem", "preferenceOrdering" }));

@@ -1813,8 +1813,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         try {
             this.putValueAtPath(currentFullXPath, value);
         } catch (RuntimeException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("failed adding " + currentFullXPath + ",\t"
-                + value).initCause(e);
+            throw new IllegalArgumentException("failed adding " + currentFullXPath + ",\t" + value, e);
         }
         return this;
     }

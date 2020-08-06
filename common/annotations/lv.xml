@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="lv"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">figūriekava | figūriekavas | iekava | iekavas</annotation>
+		<annotation cp="{" type="tts">atverošā figūriekava</annotation>
 		<annotation cp="🏻">1.–2. tips | ādas tonis | gaišs ādas tonis</annotation>
 		<annotation cp="🏻" type="tts">gaišs ādas tonis</annotation>
 		<annotation cp="🏼">3. tips | ādas tonis | vidēji gaišs ādas tonis</annotation>
@@ -23,188 +25,506 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">vidēji tumšs ādas tonis</annotation>
 		<annotation cp="🏿">6. tips | ādas tonis | tumšs ādas tonis</annotation>
 		<annotation cp="🏿" type="tts">tumšs ādas tonis</annotation>
+		<annotation cp="‾" draft="contributed">virssvītra | virssvītrojums</annotation>
+		<annotation cp="‾" type="tts" draft="contributed">virssvītrojums</annotation>
+		<annotation cp="_">defise | līnija | pasvītra | pasvītrojums | zemsvītra</annotation>
+		<annotation cp="_" type="tts">pasvītra</annotation>
+		<annotation cp="-">defise | mīnuszīme | pārnesumzīme</annotation>
+		<annotation cp="-" type="tts">mīnuszīme</annotation>
+		<annotation cp="‐">defise | pārnesumzīme</annotation>
+		<annotation cp="‐" type="tts">pārnesumzīme</annotation>
 		<annotation cp="–">svītra | vienotājzīme</annotation>
 		<annotation cp="–" type="tts">vienotājzīme</annotation>
 		<annotation cp="—">domuzīme | svītra</annotation>
 		<annotation cp="—" type="tts">domuzīme</annotation>
+		<annotation cp="―">defise | domuzīme | līnija</annotation>
+		<annotation cp="―" type="tts">horizontāla līnija</annotation>
+		<annotation cp="・">atdalītājpunkts | interpunkts | katakana | punkti</annotation>
+		<annotation cp="・" type="tts">katakanas atdalītājpunkts</annotation>
+		<annotation cp=",">komats</annotation>
+		<annotation cp="," type="tts">komats</annotation>
+		<annotation cp="،">arābu | komats</annotation>
+		<annotation cp="،" type="tts">arābu komats</annotation>
+		<annotation cp="、">ideogrāfija | komats</annotation>
+		<annotation cp="、" type="tts">ideogrāfisks komats</annotation>
+		<annotation cp=";">semikols</annotation>
+		<annotation cp=";" type="tts">semikols</annotation>
+		<annotation cp="؛">arābu | semikols</annotation>
+		<annotation cp="؛" type="tts">arābu semikols</annotation>
+		<annotation cp=":">kols</annotation>
+		<annotation cp=":" type="tts">kols</annotation>
+		<annotation cp="!">izsaucējs | izsaukuma zīme</annotation>
+		<annotation cp="!" type="tts">izsaukumzīme</annotation>
+		<annotation cp="¡">apgriezta | apgriezta izsaukuma zīme | izsaukuma zīme | izsaukums</annotation>
+		<annotation cp="¡" type="tts">apgriezta izsaukuma zīme</annotation>
+		<annotation cp="?">jautājums</annotation>
+		<annotation cp="?" type="tts">jautājumzīme</annotation>
+		<annotation cp="¿">apvērsta | jautājuma zīme | jautājums</annotation>
+		<annotation cp="¿" type="tts">apgriezta jautājuma zīme</annotation>
+		<annotation cp="؟">arābu | jautājuma zīme | jautājums</annotation>
+		<annotation cp="؟" type="tts">arābu jautājuma zīme</annotation>
+		<annotation cp="‽" draft="contributed">interabangs</annotation>
+		<annotation cp="‽" type="tts" draft="contributed">interobangs</annotation>
+		<annotation cp=".">punkts</annotation>
+		<annotation cp="." type="tts">punkts</annotation>
+		<annotation cp="…">aprauts teksts | daudzpunkte | elipse</annotation>
+		<annotation cp="…" type="tts">daudzpunkte</annotation>
+		<annotation cp="。">ideogrāfija | ideogrāfisks punkts | punkts</annotation>
+		<annotation cp="。" type="tts">ideogrāfisks punkts</annotation>
 		<annotation cp="·">punkts | vidus | viduspunkts</annotation>
 		<annotation cp="·" type="tts">viduspunkts</annotation>
+		<annotation cp="'">apostrofs | pēdiņa | vienpēdiņa</annotation>
+		<annotation cp="'" type="tts">taisnais apostrofs</annotation>
+		<annotation cp="‘">apostrofs | pēdiņa | viedā pēdiņa | vienpēdiņa</annotation>
+		<annotation cp="‘" type="tts">kreisais apostrofs</annotation>
+		<annotation cp="’">apostrofs | pēdiņa | viedā pēdiņa | vienpēdiņa</annotation>
+		<annotation cp="’" type="tts">labais apostrofs</annotation>
+		<annotation cp="‚">apakšējā pēdiņa | apostrofs | pēdiņa</annotation>
+		<annotation cp="‚" type="tts">apakšējais labais apostrofs</annotation>
+		<annotation cp="“">citēšana | dubultpēdiņa | pēdiņa | viedā pēdiņa</annotation>
+		<annotation cp="“" type="tts">kreisā pēdiņa</annotation>
+		<annotation cp="”">citēšana | dubultpēdiņa | pēdiņa | viedā pēdiņa</annotation>
+		<annotation cp="”" type="tts">labā pēdiņa</annotation>
+		<annotation cp="„">apakšējā pēdiņa | citēšana | dubultpēdiņa | pēdiņa | viedā pēdiņa</annotation>
+		<annotation cp="„" type="tts">apakšējā labā pēdiņa</annotation>
 		<annotation cp="«">iekavas | jumtiņi | kreisais | kreisās stūra pēdiņas | leņķis | pēdiņas | stūra pēdiņas</annotation>
 		<annotation cp="«" type="tts">kreisās stūra pēdiņas</annotation>
 		<annotation cp="»">iekavas | jumtiņi | labais | labās stūra pēdiņas | leņķis | pēdiņas | stūra pēdiņas</annotation>
 		<annotation cp="»" type="tts">labās stūra pēdiņas</annotation>
+		<annotation cp=")">apaļās iekavas | iekava | iekavas | pusiekava | pusiekavas</annotation>
+		<annotation cp=")" type="tts">aizverošā iekava</annotation>
+		<annotation cp="[">kvadrātiekava | kvadrātiekavas</annotation>
+		<annotation cp="[" type="tts">atverošā kvadrātiekava</annotation>
+		<annotation cp="]">kvadrātiekava | kvadrātiekavas</annotation>
+		<annotation cp="]" type="tts">aizverošā kvadrātiekava</annotation>
+		<annotation cp="}">figūriekava | figūriekavas | iekava | iekavas</annotation>
+		<annotation cp="}" type="tts">aizverošā figūriekava</annotation>
+		<annotation cp="〈">iekava | iekavas | leņķiekava | leņķiekavas | leņķis</annotation>
+		<annotation cp="〈" type="tts">atverošā leņķiekava</annotation>
+		<annotation cp="〉">iekava | iekavas | leņķiekava | leņķiekavas | leņķis</annotation>
+		<annotation cp="〉" type="tts">aizverošā leņķiekava</annotation>
+		<annotation cp="《">dubultā leņķiekava | iekava</annotation>
+		<annotation cp="《" type="tts">atverošā dubultā leņķiekava</annotation>
+		<annotation cp="》">dubultā leņķiekava | iekava</annotation>
+		<annotation cp="》" type="tts">aizverošā dubultā leņķiekava</annotation>
+		<annotation cp="「">iekava | stūriekava</annotation>
+		<annotation cp="「" type="tts">atverošā stūriekava</annotation>
+		<annotation cp="」">iekava | stūriekava</annotation>
+		<annotation cp="」" type="tts">aizverošā stūriekava</annotation>
+		<annotation cp="『">baltā stūriekava | iekava</annotation>
+		<annotation cp="『" type="tts">atverošā baltā stūriekava</annotation>
+		<annotation cp="』">baltā stūriekava | iekava</annotation>
+		<annotation cp="』" type="tts">aizverošā baltā stūriekava</annotation>
+		<annotation cp="【">iekava | lēcas veida iekava | lēcveida iekava</annotation>
+		<annotation cp="【" type="tts">atverošā melnā lēcveida iekava</annotation>
+		<annotation cp="】">iekava | lēcas veida iekava | lēcveida iekava</annotation>
+		<annotation cp="】" type="tts">aizverošā melnā lēcveida iekava</annotation>
+		<annotation cp="〔">iekava | īpašās japāņu iekavas | japāņu iekavas</annotation>
+		<annotation cp="〔" type="tts">atverošā īpašā japāņu iekava</annotation>
+		<annotation cp="〕">iekava | īpašās japāņu iekavas | japāņu iekavas</annotation>
+		<annotation cp="〕" type="tts">aizverošā īpašā japāņu iekava</annotation>
+		<annotation cp="〖">baltā lēcas veida iekava | baltā lēcveida iekava | iekava</annotation>
+		<annotation cp="〖" type="tts">atverošā baltā lēcveida iekava</annotation>
+		<annotation cp="〗">baltā lēcas veida iekava | baltā lēcveida iekava | iekava</annotation>
+		<annotation cp="〗" type="tts">aizverošā baltā lēcveida iekava</annotation>
 		<annotation cp="§">daļa | paragrāfa zīme | paragrāfs | sadaļa</annotation>
 		<annotation cp="§" type="tts">sadaļa</annotation>
+		<annotation cp="¶">rindkopa | rindkopas atzīme</annotation>
+		<annotation cp="¶" type="tts">rindkopas atzīme</annotation>
+		<annotation cp="@">@ zīme | et | et zīme | komerc-a | komerciālais a</annotation>
+		<annotation cp="@" type="tts">komerciālais a</annotation>
+		<annotation cp="*">aizstājējzīme | zvaigzne | zvaigznīte</annotation>
+		<annotation cp="*" type="tts">zvaigznīte</annotation>
+		<annotation cp="/">slīpsvītra | uz priekšu vērsta slīpsvītra</annotation>
+		<annotation cp="/" type="tts">slīpsvītra</annotation>
+		<annotation cp="\">atpakaļvērsta slīpsvītra | atpakaļvērstā slīpsvītra</annotation>
+		<annotation cp="\" type="tts">atpakaļvērsta slīpsvītra</annotation>
+		<annotation cp="&amp;">&amp; zīme | ampersands | un</annotation>
+		<annotation cp="&amp;" type="tts">ampersands</annotation>
+		<annotation cp="#">jaucēj- | jaukšana | restīte | skaits | tēmturis</annotation>
+		<annotation cp="#" type="tts">restīte</annotation>
+		<annotation cp="%">procenti | procentu zīme</annotation>
+		<annotation cp="%" type="tts">procenti</annotation>
+		<annotation cp="‰">promile | promiles</annotation>
+		<annotation cp="‰" type="tts">promile</annotation>
 		<annotation cp="†">dunča zīme | duncis | krustiņš</annotation>
 		<annotation cp="†" type="tts">dunča zīme</annotation>
 		<annotation cp="‡">divi | divu dunču zīme | duncis | krustiņš</annotation>
 		<annotation cp="‡" type="tts">divu dunču zīme</annotation>
 		<annotation cp="•">aizzīme | punkts</annotation>
 		<annotation cp="•" type="tts">aizzīme</annotation>
+		<annotation cp="‧">defise | pārnešana | punkts</annotation>
+		<annotation cp="‧" type="tts">pārnešanas punkts</annotation>
+		<annotation cp="′">prim zīme</annotation>
+		<annotation cp="′" type="tts">prim</annotation>
+		<annotation cp="″">prim zīmes</annotation>
+		<annotation cp="″" type="tts">divkārša prim zīme</annotation>
+		<annotation cp="‴">prim zīmes</annotation>
+		<annotation cp="‴" type="tts">trīskārša prim zīme</annotation>
+		<annotation cp="‸" draft="contributed">jumtiņš</annotation>
+		<annotation cp="‸" type="tts" draft="contributed">jumtiņa zīme</annotation>
+		<annotation cp="※">atsauces zīme</annotation>
+		<annotation cp="※" type="tts">atsauces zīme</annotation>
+		<annotation cp="⁂" draft="contributed">trīs zvaigznītes | zvaigznītes</annotation>
+		<annotation cp="⁂" type="tts" draft="contributed">asterisms</annotation>
+		<annotation cp="`">gravis | tonis | uzsvars</annotation>
+		<annotation cp="`" type="tts">gravis</annotation>
+		<annotation cp="´">akūts | tonis | uzsvars</annotation>
+		<annotation cp="´" type="tts">akūts</annotation>
+		<annotation cp="^">jauda | jumtiņš | kāsītis | leņķis | rādītājs | uzsvars | vadīkla</annotation>
+		<annotation cp="^" type="tts">jumtiņš</annotation>
+		<annotation cp="¨">dierēze | umlauts</annotation>
+		<annotation cp="¨" type="tts">dierēze</annotation>
 		<annotation cp="°">grāds | pakāpe | stunda</annotation>
 		<annotation cp="°" type="tts">pakāpe</annotation>
-		<annotation cp="℗">autortiesības | ieraksts | skaņa | skaņu ieraksta autortiesības</annotation>
+		<annotation cp="℗">autortiesības | ieraksts | skaņa</annotation>
 		<annotation cp="℗" type="tts">skaņu ieraksta autortiesības</annotation>
 		<annotation cp="←">bultiņa | kreisā | pa kreisi vērsta bultiņa</annotation>
 		<annotation cp="←" type="tts">pa kreisi vērsta bultiņa</annotation>
+		<annotation cp="↚" draft="contributed">pārsvītrota kreisā bultiņa</annotation>
+		<annotation cp="↚" type="tts" draft="contributed">pārsvītrota kreisā bultiņa</annotation>
 		<annotation cp="→">bultiņa | labā | pa labi vērsta bultiņa</annotation>
 		<annotation cp="→" type="tts">pa labi vērsta bultiņa</annotation>
+		<annotation cp="↛" draft="contributed">pārsvītrota labā bultiņa</annotation>
+		<annotation cp="↛" type="tts" draft="contributed">pārsvītrota labā bultiņa</annotation>
 		<annotation cp="↑">augšup | augšupvērsta bultiņa | bultiņa</annotation>
 		<annotation cp="↑" type="tts">augšupvērsta bultiņa</annotation>
 		<annotation cp="↓">bultiņa | lejup | lejupvērsta bultiņa</annotation>
 		<annotation cp="↓" type="tts">lejupvērsta bultiņa</annotation>
+		<annotation cp="↜" draft="contributed">viļņota kreisā bultiņa</annotation>
+		<annotation cp="↜" type="tts" draft="contributed">viļņota kreisā bultiņa</annotation>
+		<annotation cp="↝" draft="contributed">viļņota labā bultiņa</annotation>
+		<annotation cp="↝" type="tts" draft="contributed">viļņota labā bultiņa</annotation>
+		<annotation cp="↞" draft="contributed">kreisā bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">kreisā bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↟" draft="contributed">augšupvērsta bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">augšupvērsta bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↠" draft="contributed">labā bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">labā bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↡" draft="contributed">lejupvērsta bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">lejupvērsta bultiņa ar dubultu smaili</annotation>
+		<annotation cp="↢" draft="contributed">kreisā bultiņa ar asti</annotation>
+		<annotation cp="↢" type="tts" draft="contributed">kreisā bultiņa ar asti</annotation>
+		<annotation cp="↣" draft="contributed">labā bultiņa ar asti</annotation>
+		<annotation cp="↣" type="tts" draft="contributed">labā bultiņa ar asti</annotation>
+		<annotation cp="↤" draft="contributed">kreisā bultiņa no svītras</annotation>
+		<annotation cp="↤" type="tts" draft="contributed">kreisā bultiņa no svītras</annotation>
+		<annotation cp="↥" draft="contributed">augšupvērsta bultiņa no svītras</annotation>
+		<annotation cp="↥" type="tts" draft="contributed">augšupvērsta bultiņa no svītras</annotation>
+		<annotation cp="↦" draft="contributed">labā bultiņa no svītras</annotation>
+		<annotation cp="↦" type="tts" draft="contributed">labā bultiņa no svītras</annotation>
+		<annotation cp="↧" draft="contributed">lejupvērsta bultiņa no svītras</annotation>
+		<annotation cp="↧" type="tts" draft="contributed">lejupvērsta bultiņa no svītras</annotation>
+		<annotation cp="↨" draft="contributed">augšupvērsta bultiņa ar pamatni</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">augšupvērsta bultiņa ar pamatni</annotation>
+		<annotation cp="↫" draft="contributed">kreisā bultiņa ar cilpu</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">kreisā bultiņa ar cilpu</annotation>
+		<annotation cp="↬" draft="contributed">labā bultiņa ar cilpu</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">labā bultiņa ar cilpu</annotation>
+		<annotation cp="↭" draft="contributed">kreisā-labā viļņotā bultiņa</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">kreisā-labā viļņotā bultiņa</annotation>
+		<annotation cp="↯" draft="contributed">zigzags</annotation>
+		<annotation cp="↯" type="tts" draft="contributed">lejupvērsta zigzaga bultiņa</annotation>
+		<annotation cp="↰" draft="contributed">augšup un pa kreisi vērsta bultiņa</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">augšup un pa kreisi vērsta bultiņa</annotation>
+		<annotation cp="↱" draft="contributed">augšup un pa labi vērsta bultiņa</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">augšup un pa labi vērsta bultiņa</annotation>
+		<annotation cp="↲" draft="contributed">lejup un pa kreisi vērsta bultiņa</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">lejup un pa kreisi vērsta bultiņa</annotation>
+		<annotation cp="↳" draft="contributed">lejup un pa labi vērsta bultiņa</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">lejup un pa labi vērsta bultiņa</annotation>
+		<annotation cp="↴" draft="contributed">labā bultiņa norāda lejup</annotation>
+		<annotation cp="↴" type="tts" draft="contributed">labā bultiņa norāda lejup</annotation>
+		<annotation cp="↵" draft="contributed">lejupvērsta bultiņa norāda pa kreisi</annotation>
+		<annotation cp="↵" type="tts" draft="contributed">lejupvērsta bultiņa norāda pa kreisi</annotation>
+		<annotation cp="↶" draft="contributed">pusloka bultiņa pretēji pulksteņrādītāja kustības virzienam</annotation>
+		<annotation cp="↶" type="tts" draft="contributed">pusloka bultiņa pretēji pulksteņrādītāja kustības virzienam</annotation>
+		<annotation cp="↷" draft="contributed">pusloka bultiņa pulksteņrādītāja kustības virzienā</annotation>
+		<annotation cp="↷" type="tts" draft="contributed">pusloka bultiņa pulksteņrādītāja kustības virzienā</annotation>
+		<annotation cp="↸" draft="contributed">uz ZR vērsta bultiņa ar garu svītru</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">uz ZR vērsta bultiņa ar garu svītru</annotation>
+		<annotation cp="↹" draft="contributed">kreisā bultiņa ar svītru virs labās bultiņas ar svītru</annotation>
+		<annotation cp="↹" type="tts" draft="contributed">kreisā bultiņa ar svītru virs labās bultiņas ar svītru</annotation>
+		<annotation cp="↺" draft="contributed">atvērta apļa bultiņa pretēji pulksteņrādītāja kustības virzienam</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">atvērta apļa bultiņa pretēji pulksteņrādītāja kustības virzienam</annotation>
+		<annotation cp="↻" draft="contributed">atvērta apļa bultiņa pulksteņrādītāja kustības virzienā</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">atvērta apļa bultiņa pulksteņrādītāja kustības virzienā</annotation>
+		<annotation cp="↼" draft="contributed">atkarpe</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">augšupvērsta kreisā harpūna ar atkarpi</annotation>
+		<annotation cp="↽" draft="contributed">lejupvērsta kreisā harpūna ar atkarpi</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">lejupvērsta kreisā harpūna ar atkarpi</annotation>
+		<annotation cp="↾" draft="contributed">atkarpe</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">augšupvērsta labā harpūna ar atkarpi</annotation>
+		<annotation cp="↿" draft="contributed">atkarpe</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">augšupvērsta harpūna ar atkarpi pa kreisi</annotation>
+		<annotation cp="⇀" draft="contributed">atkarpe</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">labā harpūna ar atkarpi uz augšu</annotation>
+		<annotation cp="⇁" draft="contributed">atkarpe</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">labā harpūna ar atkarpi uz leju</annotation>
+		<annotation cp="⇂" draft="contributed">atkarpe</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">lejupvērsta harpūna ar atkarpi pa labi</annotation>
+		<annotation cp="⇃" draft="contributed">atkarpe</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">lejupvērsta harpūna ar atkarpi pa kreisi</annotation>
+		<annotation cp="⇄" draft="contributed">labā bultiņa virs kreisās bultiņas</annotation>
+		<annotation cp="⇄" type="tts" draft="contributed">labā bultiņa virs kreisās bultiņas</annotation>
 		<annotation cp="⇅">augšup | augšupvērsta bultiņa un lejupvērsta bultiņa | bultiņa | lejup</annotation>
 		<annotation cp="⇅" type="tts">augšupvērsta bultiņa un lejupvērsta bultiņa</annotation>
 		<annotation cp="⇆">bultiņa | kreisā | kreisā bultiņa virs labās bultiņas | labā | pa kreisi vērsta bultiņa virs pa labi vērstas bultiņas</annotation>
 		<annotation cp="⇆" type="tts">kreisā bultiņa virs labās bultiņas</annotation>
+		<annotation cp="⇇" draft="contributed">kreiso bultiņu pāris</annotation>
+		<annotation cp="⇇" type="tts" draft="contributed">kreiso bultiņu pāris</annotation>
+		<annotation cp="⇈" draft="contributed">augšupvērsto bultiņu pāris</annotation>
+		<annotation cp="⇈" type="tts" draft="contributed">augšupvērsto bultiņu pāris</annotation>
+		<annotation cp="⇉" draft="contributed">labo bultiņu pāris</annotation>
+		<annotation cp="⇉" type="tts" draft="contributed">labo bultiņu pāris</annotation>
+		<annotation cp="⇊" draft="contributed">lejupvērsto bultiņu pāris</annotation>
+		<annotation cp="⇊" type="tts" draft="contributed">lejupvērsto bultiņu pāris</annotation>
+		<annotation cp="⇋" draft="contributed">kreisā harpūna virs labās harpūnas</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">kreisā harpūna virs labās harpūnas</annotation>
+		<annotation cp="⇌" draft="contributed">labā harpūna virs kreisās harpūnas</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">labā harpūna virs kreisās harpūnas</annotation>
+		<annotation cp="⇐" draft="contributed">kreisā dubultbultiņa</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">kreisā dubultbultiņa</annotation>
+		<annotation cp="⇍" draft="contributed">pārsvītrota kreisā dubultbultiņa</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">pārsvītrota kreisā dubultbultiņa</annotation>
+		<annotation cp="⇑" draft="contributed">augšupvērsta dubultbultiņa</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">augšupvērsta dubultbultiņa</annotation>
+		<annotation cp="⇒" draft="contributed">labā dubultbultiņa</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">labā dubultbultiņa</annotation>
+		<annotation cp="⇏" draft="contributed">pārsvītrota labā dubultbultiņa</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">pārsvītrota labā dubultbultiņa</annotation>
+		<annotation cp="⇓" draft="contributed">lejupvērsta dubultbultiņa</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">lejupvērsta dubultbultiņa</annotation>
+		<annotation cp="⇔" draft="contributed">kreisā-labā dubultbultiņa</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">kreisā-labā dubultbultiņa</annotation>
+		<annotation cp="⇎" draft="contributed">pārsvītrota kreisā-labā dubultbultiņa</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">pārsvītrota kreisā-labā dubultbultiņa</annotation>
+		<annotation cp="⇖" draft="contributed">uz ZR vērsta dubultbultiņa</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">uz ZR vērsta dubultbultiņa</annotation>
+		<annotation cp="⇗" draft="contributed">uz ZA vērsta dubultbultiņa</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">uz ZA vērsta dubultbultiņa</annotation>
+		<annotation cp="⇘" draft="contributed">uz DA vērsta dubultbultiņa</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">uz DA vērsta dubultbultiņa</annotation>
+		<annotation cp="⇙" draft="contributed">uz DR vērsta dubultbultiņa</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">uz DR vērsta dubultbultiņa</annotation>
+		<annotation cp="⇚" draft="contributed">kreisā trīskāršā bultiņa</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">kreisā trīskāršā bultiņa</annotation>
+		<annotation cp="⇛" draft="contributed">labā trīskāršā bultiņa</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">labā trīskāršā bultiņa</annotation>
+		<annotation cp="⇜" draft="contributed">kreisā salocītā bultiņa</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">kreisā salocītā bultiņa</annotation>
+		<annotation cp="⇝" draft="contributed">labā salocītā bultiņa</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">labā salocītā bultiņa</annotation>
+		<annotation cp="⇞" draft="contributed">augšupvērsta dubultpārsvītrota bultiņa</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">augšupvērsta dubultpārsvītrota bultiņa</annotation>
+		<annotation cp="⇟" draft="contributed">lejupvērsta dubultpārsvītrota bultiņa</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">lejupvērsta dubultpārsvītrota bultiņa</annotation>
+		<annotation cp="⇠" draft="contributed">kreisā svītrbultiņa</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">kreisā svītrbultiņa</annotation>
+		<annotation cp="⇡" draft="contributed">augšupvērsta svītrbultiņa</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">augšupvērsta svītrbultiņa</annotation>
+		<annotation cp="⇢" draft="contributed">labā svītrbultiņa</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">labā svītrbultiņa</annotation>
+		<annotation cp="⇣" draft="contributed">lejupvērsta svītrbultiņa</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">lejupvērsta svītrbultiņa</annotation>
+		<annotation cp="⇤" draft="contributed">kreisā bultiņa ar svītru</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">kreisā bultiņa ar svītru</annotation>
+		<annotation cp="⇥" draft="contributed">labā bultiņa ar svītru</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">labā bultiņa ar svītru</annotation>
+		<annotation cp="⇦" draft="contributed">kreisā baltā bultiņa</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">kreisā baltā bultiņa</annotation>
+		<annotation cp="⇧" draft="contributed">augšupvērsta baltā bultiņa</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">augšupvērsta baltā bultiņa</annotation>
+		<annotation cp="⇨" draft="contributed">labā baltā bultiņa</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">labā baltā bultiņa</annotation>
+		<annotation cp="⇩" draft="contributed">lejupvērsta baltā bultiņa</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">lejupvērsta baltā bultiņa</annotation>
+		<annotation cp="⇪" draft="contributed">augšupvērsta baltā bultiņa no svītras</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">augšupvērsta baltā bultiņa no svītras</annotation>
+		<annotation cp="⇵" draft="contributed">lejupvērsta bultiņa pa kreisi no augšupvērstas bultiņas</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">lejupvērsta bultiņa pa kreisi no augšupvērstas bultiņas</annotation>
+		<annotation cp="∂" draft="contributed">diferenciālis</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">daļējs diferenciālis</annotation>
+		<annotation cp="∅" draft="contributed">kopas operators | matemātika</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">tukša kopa</annotation>
 		<annotation cp="∆">pieaugums | trīsstūris</annotation>
 		<annotation cp="∆" type="tts">pieaugums</annotation>
 		<annotation cp="∇">nabla | trīsstūris</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">elements | elements no | kopa | piederība | satur</annotation>
 		<annotation cp="∈" type="tts">elements no</annotation>
+		<annotation cp="∉" draft="contributed">elements</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">nav elements</annotation>
+		<annotation cp="∋" draft="contributed">elements</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">ietver kā locekli</annotation>
+		<annotation cp="∏" draft="contributed">loģika | produkts</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">n-ārs produkts</annotation>
+		<annotation cp="∑" draft="contributed">matemātika | summēšana</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">n-āra summa</annotation>
+		<annotation cp="+">pieskaitīt | plus</annotation>
+		<annotation cp="+" type="tts">pluszīme (+)</annotation>
+		<annotation cp="±">plus/mīnus</annotation>
+		<annotation cp="±" type="tts">plusa/mīnusa zīme</annotation>
 		<annotation cp="÷">dalīšana | dalīšanas zīme | dalīt</annotation>
 		<annotation cp="÷" type="tts">dalīšanas zīme</annotation>
 		<annotation cp="×">reizes | reizināšana | reizināšanas zīme | reizināt</annotation>
 		<annotation cp="×" type="tts">reizināšanas zīme</annotation>
+		<annotation cp="&lt;">atverošais tags | mazāks nekā | tags</annotation>
+		<annotation cp="&lt;" type="tts">mazāk nekā</annotation>
+		<annotation cp="≮" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">nav mazāks par</annotation>
+		<annotation cp="=">vienāds | vienāds ar</annotation>
+		<annotation cp="=" type="tts">vienāds</annotation>
+		<annotation cp="≠">nav vienāds | nav vienāds ar | nevienādība</annotation>
+		<annotation cp="≠" type="tts">nav vienāds</annotation>
+		<annotation cp="&gt;">aizverošais tags | lielāks nekā | tags</annotation>
+		<annotation cp="&gt;" type="tts">lielāks nekā</annotation>
+		<annotation cp="≯" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">nav lielāks par</annotation>
+		<annotation cp="¬">nav | negācija</annotation>
+		<annotation cp="¬" type="tts">negācija</annotation>
+		<annotation cp="|">josla | līnija | svītra | vert. josla | vertikāla josla | vertikāla svītra</annotation>
+		<annotation cp="|" type="tts">vertikāla līnija</annotation>
+		<annotation cp="~">tilde</annotation>
+		<annotation cp="~" type="tts">tilde</annotation>
+		<annotation cp="−">atņemt | mīnus</annotation>
+		<annotation cp="−" type="tts">mīnusa zīme</annotation>
 		<annotation cp="⁻">augšraksts | mīnus | mīnus augšrakstā</annotation>
 		<annotation cp="⁻" type="tts">mīnus augšrakstā</annotation>
+		<annotation cp="∓" draft="contributed">plus/mīnus</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">mīnus/plus</annotation>
+		<annotation cp="∕" draft="contributed">slīpsvītra | svītra | uz priekšu vērsta slīpsvītra</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">atdalītājslīpsvītra</annotation>
+		<annotation cp="⁄" draft="contributed">svītra | uz priekšu vērsta slīpsvītra</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">daļsvītra</annotation>
+		<annotation cp="∗" draft="contributed">zvaigznīte</annotation>
+		<annotation cp="∗" type="tts">zvaigznes operators</annotation>
+		<annotation cp="∘" draft="contributed">operators | salikums</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">riņķa operators</annotation>
+		<annotation cp="∙" draft="contributed">operators</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">aizzīmes operators</annotation>
 		<annotation cp="√">bāze | iracionāls skaitlis | kvadrāts | kvadrātsakne | sakne</annotation>
 		<annotation cp="√" type="tts">kvadrātsakne</annotation>
+		<annotation cp="∝" draft="contributed">proporcionalitāte</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">proporcionāli</annotation>
 		<annotation cp="∞">bezgalība | bezgalības zīme</annotation>
 		<annotation cp="∞" type="tts">bezgalības zīme</annotation>
+		<annotation cp="∟" draft="contributed">matemātika</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">labais leņķis</annotation>
+		<annotation cp="∠" draft="contributed">akūts</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">leņķis</annotation>
+		<annotation cp="∣" draft="contributed">dalītājs</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">dalīšana</annotation>
 		<annotation cp="∩">kopa | šķēlums</annotation>
 		<annotation cp="∩" type="tts">šķēlums</annotation>
 		<annotation cp="∪">datu kopa | kopa | kopums</annotation>
 		<annotation cp="∪" type="tts">kopums</annotation>
-		<annotation cp="≡">precīzs | trīskāršs | vienāds | vienads ar | vienāds ar</annotation>
+		<annotation cp="≈">aptuvena aprēķināšana | aptuvens | gandrīz vienāds</annotation>
+		<annotation cp="≈" type="tts">gandrīz vienāds</annotation>
+		<annotation cp="≡">precīzs | trīskāršs | vienāds | vienāds ar</annotation>
 		<annotation cp="≡" type="tts">vienāds ar</annotation>
+		<annotation cp="≤">mazāks nekā | nevienādība | vienāds | vienāds ar</annotation>
+		<annotation cp="≤" type="tts">mazāks nekā vai vienāds ar</annotation>
+		<annotation cp="≥">lielāks nekā | nevienādība | vienāds | vienāds ar</annotation>
+		<annotation cp="≥" type="tts">lielāks nekā vai vienāds ar</annotation>
+		<annotation cp="≦" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="≧" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="≪" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="≫" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="≳" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="≺" draft="contributed">kopas operators | matemātika</annotation>
+		<annotation cp="≻" draft="contributed">kopas operators | matemātika</annotation>
+		<annotation cp="⊁" draft="contributed">kopas operators | matemātika</annotation>
 		<annotation cp="⊂">apakškopa | apakškopa no | kopa</annotation>
 		<annotation cp="⊂" type="tts">apakškopa no</annotation>
+		<annotation cp="⊃" draft="contributed">kopas operators | matemātika</annotation>
+		<annotation cp="⊕" draft="contributed">pluszīme</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">pluszīme apļveida ietvarā</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">mīnuszīme apļveida ietvarā</annotation>
+		<annotation cp="⊰" draft="contributed">kopas operators | matemātika</annotation>
+		<annotation cp="⊱" draft="contributed">kopas operators | matemātika</annotation>
+		<annotation cp="⋭" draft="contributed">grupas teorija | matemātika</annotation>
+		<annotation cp="⊶" draft="contributed">oriģināls</annotation>
+		<annotation cp="⊶" type="tts" draft="contributed">oriģināls</annotation>
+		<annotation cp="⊿" draft="contributed">matemātika | taisnleņķa trīsstūris</annotation>
+		<annotation cp="⊿" type="tts" draft="contributed">taisnleņķa trīsstūris</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">n-āri loģisks vai</annotation>
+		<annotation cp="⋂" draft="contributed">kopas operators | krustošanās | matemātika</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">n-āra krustošanās</annotation>
+		<annotation cp="⋃" draft="contributed">apvienošana | kopas operators | matemātika</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">n-āra apvienošana</annotation>
+		<annotation cp="⋅" draft="contributed">operators</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">punktveida operators</annotation>
+		<annotation cp="⋆" draft="contributed">operators</annotation>
+		<annotation cp="⋆" type="tts">zvaigznītes operators</annotation>
+		<annotation cp="⋒" draft="contributed">kopas operators | krustošanās | matemātika</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">dubulta krustošanās</annotation>
+		<annotation cp="⋘" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="⋙" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="⋮" draft="contributed">daudzpunkte | matemātika</annotation>
+		<annotation cp="⋮" type="tts" draft="contributed">vertikāla daudzpunkte</annotation>
+		<annotation cp="⋯" draft="contributed">daudzpunkte</annotation>
+		<annotation cp="⋯" type="tts" draft="contributed">viduslīnijas horizontālā daudzpunkte</annotation>
+		<annotation cp="⋰" draft="contributed">daudzpunkte | matemātika</annotation>
+		<annotation cp="⋰" type="tts" draft="contributed">augšupvērsta diagonāla daudzpunkte</annotation>
+		<annotation cp="⋱" draft="contributed">daudzpunkte | matemātika</annotation>
+		<annotation cp="⋱" type="tts" draft="contributed">lejupvērsta diagonāla daudzpunkte</annotation>
+		<annotation cp="■" draft="contributed">pilns kvadrāts</annotation>
+		<annotation cp="■" type="tts" draft="contributed">pilns kvadrāts</annotation>
+		<annotation cp="□" draft="contributed">balts kvadrāts</annotation>
+		<annotation cp="□" type="tts" draft="contributed">balts kvadrāts</annotation>
+		<annotation cp="▢" draft="contributed">balts kvadrāts ar noapaļotiem stūriem</annotation>
+		<annotation cp="▢" type="tts" draft="contributed">balts kvadrāts ar noapaļotiem stūriem</annotation>
+		<annotation cp="▣" draft="contributed">balts kvadrāts ietver pilnu kvadrātu</annotation>
+		<annotation cp="▣" type="tts" draft="contributed">balts kvadrāts ietver pilnu kvadrātu</annotation>
+		<annotation cp="▬" draft="contributed">pilns taisnstūris</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">pilns taisnstūris</annotation>
+		<annotation cp="▭" draft="contributed">balts taisnstūris</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">balts taisnstūris</annotation>
+		<annotation cp="▮" draft="contributed">pilns vertikāls taisnstūris</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">pilns vertikāls taisnstūris</annotation>
+		<annotation cp="▰" draft="contributed">pilns paralelograms</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">pilns paralelograms</annotation>
 		<annotation cp="▲">augšup | bultiņa | pilns | pilns augšupvērsts trīsstūris | trīsstūris</annotation>
 		<annotation cp="▲" type="tts">pilns augšupvērsts trīsstūris</annotation>
 		<annotation cp="▼">bultiņa | lejup | pilns | pilns lejupvērsts trīsstūris | trīsstūris</annotation>
 		<annotation cp="▼" type="tts">pilns lejupvērsts trīsstūris</annotation>
+		<annotation cp="◆" draft="contributed">pilns rombs</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">pilns rombs</annotation>
+		<annotation cp="◇" draft="contributed">balts rombs</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">balts rombs</annotation>
+		<annotation cp="◈" draft="contributed">balts rombs ietver pilnu rombu</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">balts rombs ietver pilnu rombu</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">balts aplis ietver pilnu apli</annotation>
 		<annotation cp="◊">rombs | rombveida</annotation>
 		<annotation cp="◊" type="tts">rombs</annotation>
 		<annotation cp="○">gredzens | riņķis | tukšs riņķis</annotation>
 		<annotation cp="○" type="tts">tukšs riņķis</annotation>
 		<annotation cp="●">pilns riņķis | riņķis</annotation>
 		<annotation cp="●" type="tts">pilns riņķis</annotation>
+		<annotation cp="◘" draft="contributed">inversā aizzīme</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">inversā aizzīme</annotation>
+		<annotation cp="◙" draft="contributed">inverss balts riņķis</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">pilns kvadrāts ietver baltu riņķi</annotation>
+		<annotation cp="◠" draft="contributed">augšējais pusaplis</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">augšējais pusaplis</annotation>
+		<annotation cp="◡" draft="contributed">apakšējais pusaplis</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">apakšējais pusaplis</annotation>
+		<annotation cp="◦" draft="contributed">balta aizzīme</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">balta aizzīme</annotation>
 		<annotation cp="◯">gredzens | liels tukšs riņķis | riņķis</annotation>
 		<annotation cp="◯" type="tts">liels tukšs riņķis</annotation>
-		<annotation cp="⚧">transdzimuma simbols | transdzimums</annotation>
-		<annotation cp="⚧" type="tts">transdzimuma simbols</annotation>
-		<annotation cp="🤌">pastiepti pirksti | pirksti | rokas žests | sarkastisks | saspiests</annotation>
-		<annotation cp="🤌" type="tts">pastiepti pirksti</annotation>
-		<annotation cp="🥲">aizkustināts | asara | atvieglots | lepns | pateicīgs | smaidoša seja ar asaru | smaidošs</annotation>
-		<annotation cp="🥲" type="tts">smaidoša seja ar asaru</annotation>
-		<annotation cp="🥷">cīnītājs | nindzja | paslēpts | slepens</annotation>
-		<annotation cp="🥷" type="tts">nindzja</annotation>
-		<annotation cp="🥸">brilles | deguns | inkognito | maska | paslēpta seja | seja</annotation>
-		<annotation cp="🥸" type="tts">paslēpta seja</annotation>
-		<annotation cp="🦣">ilknis | izmiršana | liels | mamuts | vilnains</annotation>
-		<annotation cp="🦣" type="tts">mamuts</annotation>
-		<annotation cp="🦤">dodo | izmiršana | liels | Maurīcija</annotation>
-		<annotation cp="🦤" type="tts">dodo</annotation>
-		<annotation cp="🦫">bebrs | dambis</annotation>
-		<annotation cp="🦫" type="tts">bebrs</annotation>
-		<annotation cp="🦬">bifelis | bizons | ganāmpulks | sumbrs</annotation>
-		<annotation cp="🦬" type="tts">bizons</annotation>
-		<annotation cp="🦭">jūras lauva | ronis</annotation>
-		<annotation cp="🦭" type="tts">ronis</annotation>
-		<annotation cp="🧋">burbulis | burbuļtēja | pērle | piens | tēja</annotation>
-		<annotation cp="🧋" type="tts">burbuļtēja</annotation>
-		<annotation cp="🩴">pirkstiņsandales | pludmales sandales | sandales | siksniņsandale | siksniņsandales</annotation>
-		<annotation cp="🩴" type="tts">siksniņsandale</annotation>
-		<annotation cp="🪃">atlēciens | atsitiens | Austrālija | bumerangs</annotation>
-		<annotation cp="🪃" type="tts">bumerangs</annotation>
-		<annotation cp="🪄">burvis | burvju | burvju nūjiņa | ragana</annotation>
-		<annotation cp="🪄" type="tts">burvju nūjiņa</annotation>
-		<annotation cp="🪅">ballīte | pinjata | svinības</annotation>
-		<annotation cp="🪅" type="tts">pinjata</annotation>
-		<annotation cp="🪆">krievu | lelle | matrjoška | matrjoškas</annotation>
-		<annotation cp="🪆" type="tts">matrjoškas</annotation>
-		<annotation cp="🪖">armija | karavīrs | ķivere | militārā | zaldāts</annotation>
-		<annotation cp="🪖" type="tts">militārā ķivere</annotation>
-		<annotation cp="🪗" draft="contributed">akordeons | koncertīna | rokas armoņikas</annotation>
-		<annotation cp="🪗" type="tts">akordeons</annotation>
-		<annotation cp="🪘">bungas | garās bungas | konga | ritms | vālīte</annotation>
-		<annotation cp="🪘" type="tts">garās bungas</annotation>
-		<annotation cp="🪙">bagātība | metāls | monēta | nauda | sudrabs | zelts</annotation>
-		<annotation cp="🪙" type="tts">monēta</annotation>
-		<annotation cp="🪚">darbarīks | galdnieks | kokmateriāli | vienrokas zāģis | zāģis</annotation>
-		<annotation cp="🪚" type="tts">vienrokas zāģis</annotation>
-		<annotation cp="🪛">darbarīks | skrūvēt | skrūvgriezis</annotation>
-		<annotation cp="🪛" type="tts">skrūvgriezis</annotation>
-		<annotation cp="🪜">kāpnes | kāpt | pakāpiens | šķērskoks</annotation>
-		<annotation cp="🪜" type="tts">kāpnes</annotation>
-		<annotation cp="🪝">āķis | pārdošanas arguments | pievilināt | uzķeršanās</annotation>
-		<annotation cp="🪝" type="tts">āķis</annotation>
-		<annotation cp="🪞">atspīdums | reflektors | spogulis</annotation>
-		<annotation cp="🪞" type="tts">spogulis</annotation>
-		<annotation cp="🪟">atvērums | caurspīdīgs | logs | rāmis | skats | svaigs gaiss</annotation>
-		<annotation cp="🪟" type="tts">logs</annotation>
-		<annotation cp="🪠">kanalizācijas buča | santehniķis | sūkšana | tualete | vantūzs</annotation>
-		<annotation cp="🪠" type="tts">vantūzs</annotation>
-		<annotation cp="🪡">adata | izšūšana | piegriezne | šujamadata | šūšana | šuves</annotation>
-		<annotation cp="🪡" type="tts">šujamadata</annotation>
-		<annotation cp="🪢">megzls | mezgls | mudžeklis | striķis | virve</annotation>
-		<annotation cp="🪢" type="tts">mezgls</annotation>
-		<annotation cp="🪣">spainis | toveris | tvertne</annotation>
-		<annotation cp="🪣" type="tts">spainis</annotation>
-		<annotation cp="🪤">ēsma | lamatas | peļu slazds | slazds</annotation>
-		<annotation cp="🪤" type="tts">peļu slazds</annotation>
-		<annotation cp="🪥">higiēna | suka | tīrs | vannasistaba | zobi | zobu</annotation>
-		<annotation cp="🪥" type="tts">zobu suka</annotation>
-		<annotation cp="🪦">kapa piemineklis | kapakmens | kapi | kaps | kapsēta</annotation>
-		<annotation cp="🪦" type="tts">kapakmens</annotation>
-		<annotation cp="🪧">demonstrācija | pikets | plakāts | protests | zīme</annotation>
-		<annotation cp="🪧" type="tts">plakāts</annotation>
-		<annotation cp="🪨">akmens | ciets | iezis | klints | smags</annotation>
-		<annotation cp="🪨" type="tts">akmens</annotation>
-		<annotation cp="🪰">kaitēklis | kāpurs | muša | pūšana | slimība</annotation>
-		<annotation cp="🪰" type="tts">muša</annotation>
-		<annotation cp="🪱">parazīts | posmtārps | slieka | tārps</annotation>
-		<annotation cp="🪱" type="tts">tārps</annotation>
-		<annotation cp="🪲">insekts | kukainis | vabole</annotation>
-		<annotation cp="🪲" type="tts">vabole</annotation>
-		<annotation cp="🪳">insekts | kaitēklis | prusaks | tarakāns</annotation>
-		<annotation cp="🪳" type="tts">tarakāns</annotation>
-		<annotation cp="🪴">audzēt | augs | augs podiņā | augt | garlaicība | māja | nevajadzīgs</annotation>
-		<annotation cp="🪴" type="tts">augs podiņā</annotation>
-		<annotation cp="🪵">baļķis | kokmateriāls | koks</annotation>
-		<annotation cp="🪵" type="tts">koks</annotation>
-		<annotation cp="🪶">apspalvojums | putns | spalva | viegls</annotation>
-		<annotation cp="🪶" type="tts">spalva</annotation>
-		<annotation cp="🫀">centrs | cilvēka sirds | kardioloģija | orgāns | pulss | sirdspuksti</annotation>
-		<annotation cp="🫀" type="tts">cilvēka sirds</annotation>
-		<annotation cp="🫁">ekshalācija | elpošana | inhalācija | orgāns | plaušas | respirācija</annotation>
-		<annotation cp="🫁" type="tts">plaušas</annotation>
-		<annotation cp="🫂">apskāviens | ardievu | cilvēki apkampjas | labdien | paldies</annotation>
-		<annotation cp="🫂" type="tts">cilvēki apkampjas</annotation>
-		<annotation cp="🫐">mellene | mellenes | oga | zilene | zils</annotation>
-		<annotation cp="🫐" type="tts">mellenes</annotation>
-		<annotation cp="🫑">dārzenis | paprika | pipars | sarkanie pipari</annotation>
-		<annotation cp="🫑" type="tts">paprika</annotation>
-		<annotation cp="🫒">ēdiens | olīva</annotation>
-		<annotation cp="🫒" type="tts">olīva</annotation>
-		<annotation cp="🫓">arepa | lavašs | nāanmaize | pita | plācenis</annotation>
-		<annotation cp="🫓" type="tts">plācenis</annotation>
-		<annotation cp="🫔">meksikāņu | satīts | tamale | vraps</annotation>
-		<annotation cp="🫔" type="tts">tamale</annotation>
-		<annotation cp="🫕">fondī | kausēts | podiņš | siers | šokolāde | šveiciešu</annotation>
-		<annotation cp="🫕" type="tts">fondī</annotation>
-		<annotation cp="🫖">dzēriens | kanna | tēja | tējkanna</annotation>
-		<annotation cp="🫖" type="tts">tējkanna</annotation>
-		<annotation cp="🛖">apaļa māja | būda | jurta | māja</annotation>
-		<annotation cp="🛖" type="tts">būda</annotation>
-		<annotation cp="🛗">lifts | pacēlājs | pieejamība</annotation>
-		<annotation cp="🛗" type="tts">lifts</annotation>
-		<annotation cp="🛻">mašīna | piegāde | piegādes auto | pikaps</annotation>
-		<annotation cp="🛻" type="tts">piegādes auto</annotation>
-		<annotation cp="🛼">skritulis | skrituļslida | slida</annotation>
-		<annotation cp="🛼" type="tts">skrituļslida</annotation>
+		<annotation cp="◳" draft="contributed">balts kvadrāts ar augšējo labo kvadrantu</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">balts kvadrāts ar augšējo labo kvadrantu</annotation>
+		<annotation cp="◷" draft="contributed">balts aplis ar augšējo labo kvadrantu</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">balts aplis ar augšējo labo kvadrantu</annotation>
+		<annotation cp="♪">astotdaļa | mūzika | nots</annotation>
+		<annotation cp="♪" type="tts">astotdaļnots</annotation>
+		<annotation cp="⪚" draft="contributed">matemātika | nevienādība</annotation>
+		<annotation cp="♭">bemols | mūzika | nots</annotation>
+		<annotation cp="♭" type="tts">bemols</annotation>
+		<annotation cp="♯">diēzs | mūzika | nots</annotation>
+		<annotation cp="♯" type="tts">diēzs</annotation>
 		<annotation cp="😀">seja | smaids | smiekli</annotation>
 		<annotation cp="😀" type="tts">smiekli</annotation>
 		<annotation cp="😃">atvērts | mute | plats smaids un lielas acis | seja | smaids</annotation>
@@ -247,6 +567,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">seja ar aizvērtām acīm sniedz skūpstu</annotation>
 		<annotation cp="😙">seja | seja ar smaidošām acīm sniedz skūpstu | skūpsts | smaids</annotation>
 		<annotation cp="😙" type="tts">seja ar smaidošām acīm sniedz skūpstu</annotation>
+		<annotation cp="🥲">aizkustināts | asara | atvieglots | lepns | pateicīgs | smaidoša seja ar asaru | smaidošs</annotation>
+		<annotation cp="🥲" type="tts">smaidoša seja ar asaru</annotation>
 		<annotation cp="😋">ēdienu baudoša seja | garšīgs | ņamm | seja | smaids</annotation>
 		<annotation cp="😋" type="tts">ēdienu baudoša seja</annotation>
 		<annotation cp="😛">mēle | seja | seja ar izbāztu mēli</annotation>
@@ -277,6 +599,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">seja bez izteiksmes</annotation>
 		<annotation cp="😶">kluss | mute | seja | seja bez mutes</annotation>
 		<annotation cp="😶" type="tts">seja bez mutes</annotation>
+		<annotation cp="😶‍🌫">galva mākoņos | pārdomas | seja mākoņos | seja miglā</annotation>
+		<annotation cp="😶‍🌫" type="tts">seja mākoņos</annotation>
 		<annotation cp="😏">seja | smīnoša seja | smīns | viltīgs</annotation>
 		<annotation cp="😏" type="tts">smīnoša seja</annotation>
 		<annotation cp="😒">dusmas | dusmīgs | saīdzis | saīgusi seja | seja</annotation>
@@ -317,12 +641,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">noreibusi seja</annotation>
 		<annotation cp="😵">apreibis | apreibusi seja | seja</annotation>
 		<annotation cp="😵" type="tts">apreibusi seja</annotation>
+		<annotation cp="😵‍💫">apreibis | hipnozē | nepatikšanas | oho | spirāles</annotation>
+		<annotation cp="😵‍💫" type="tts">seja ar spirālēm acu vietā</annotation>
 		<annotation cp="🤯">eksplodējoša galva | šokēts</annotation>
 		<annotation cp="🤯" type="tts">eksplodējoša galva</annotation>
 		<annotation cp="🤠">cepure | kovbojs | seja | seja ar kovboja cepuri | seja kovboja cepurē</annotation>
 		<annotation cp="🤠" type="tts">seja kovboja cepurē</annotation>
 		<annotation cp="🥳">ballīšu seja | ballīte | cepure | svinības | taurīte</annotation>
 		<annotation cp="🥳" type="tts">ballīšu seja</annotation>
+		<annotation cp="🥸">brilles | deguns | inkognito | maska | paslēpta seja | seja</annotation>
+		<annotation cp="🥸" type="tts">paslēpta seja</annotation>
 		<annotation cp="😎">saulesbrilles | seja | smaidoša seja ar saulesbrillēm | smaids | stilīgs</annotation>
 		<annotation cp="😎" type="tts">smaidoša seja ar saulesbrillēm</annotation>
 		<annotation cp="🤓">briļļainais | gudrītis | seja</annotation>
@@ -339,6 +667,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">bēdīga seja</annotation>
 		<annotation cp="😮">atvērts | mute | pārsteigt | seja | seja ar atvērtu muti</annotation>
 		<annotation cp="😮" type="tts">seja ar atvērtu muti</annotation>
+		<annotation cp="😮‍💨">atvieglojums | čuksti | izelpa | nopūta | svilpošana | vaids</annotation>
+		<annotation cp="😮‍💨" type="tts">seja nopūšas</annotation>
 		<annotation cp="😯">apklusināt | pārsteigt | pārsteigta seja | seja</annotation>
 		<annotation cp="😯" type="tts">pārsteigta seja</annotation>
 		<annotation cp="😲">pārsteigts | seja | šokēta seja | šokēts</annotation>
@@ -459,6 +789,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">salauzta sirds</annotation>
 		<annotation cp="❤">sarkana sirds | sarkans | sirds</annotation>
 		<annotation cp="❤" type="tts">sarkana sirds</annotation>
+		<annotation cp="❤‍🔥">kaisle | liesmas | mīla | sirds | svēta sirds</annotation>
+		<annotation cp="❤‍🔥" type="tts">degoša sirds</annotation>
+		<annotation cp="❤‍🩹">atkopties | atspirgt | labi | pārsiet | uzlabot | veselību</annotation>
+		<annotation cp="❤‍🩹" type="tts">pārsieta sirds</annotation>
 		<annotation cp="🧡">oranža sirds | oranžs | sirds</annotation>
 		<annotation cp="🧡" type="tts">oranža sirds</annotation>
 		<annotation cp="💛">dzeltena sirds | dzeltens | sirds</annotation>
@@ -515,6 +849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">vulkāniešu sveiciens</annotation>
 		<annotation cp="👌">ķermenis | labi | ok | roka | simbols OK</annotation>
 		<annotation cp="👌" type="tts">simbols OK</annotation>
+		<annotation cp="🤌">pastiepti pirksti | pirksti | rokas žests | sarkastisks | saspiests</annotation>
+		<annotation cp="🤌" type="tts">pastiepti pirksti</annotation>
 		<annotation cp="🤏">nedaudz | roka rāda drusciņu</annotation>
 		<annotation cp="🤏" type="tts">roka rāda drusciņu</annotation>
 		<annotation cp="✌">ķermenis | roka | uzvara | uzvaras simbols</annotation>
@@ -587,6 +923,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">deguns</annotation>
 		<annotation cp="🧠">intelekts | smadzenes</annotation>
 		<annotation cp="🧠" type="tts">smadzenes</annotation>
+		<annotation cp="🫀">cilvēka sirds | kardioloģija | orgāns | pulss | sirdspuksti</annotation>
+		<annotation cp="🫀" type="tts">cilvēka sirds</annotation>
+		<annotation cp="🫁">ekshalācija | elpošana | inhalācija | orgāns | plaušas | respirācija</annotation>
+		<annotation cp="🫁" type="tts">plaušas</annotation>
 		<annotation cp="🦷">zobārsts | zobs</annotation>
 		<annotation cp="🦷" type="tts">zobs</annotation>
 		<annotation cp="🦴">kauls | skelets</annotation>
@@ -611,24 +951,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">pieaugušais</annotation>
 		<annotation cp="👱">blonds | blonds cilvēks | seja</annotation>
 		<annotation cp="👱" type="tts">blonds cilvēks</annotation>
-		<annotation cp="🧑‍🍼">barošana | mazulis | persona | persona baro bērnu | zīdīšana</annotation>
-		<annotation cp="🧑‍🍼" type="tts">persona baro bērnu</annotation>
-		<annotation cp="🧑‍🎄">dzimumneitrāls santaklauss | Ziemassvētku santaklauss</annotation>
-		<annotation cp="🧑‍🎄" type="tts">dzimumneitrāls santaklauss</annotation>
 		<annotation cp="👨">kungs | seja | vīrietis | vīrs</annotation>
 		<annotation cp="👨" type="tts">vīrietis</annotation>
-		<annotation cp="🧔">bārda | bārdaina persona | bārdains vīrietis | persona | vīrietis</annotation>
+		<annotation cp="🧔">bārda | bārdaina persona | persona</annotation>
 		<annotation cp="🧔" type="tts">bārdains vīrietis</annotation>
 		<annotation cp="👱‍♂">blondīns | vīrietis</annotation>
 		<annotation cp="👱‍♂" type="tts">blondīns</annotation>
-		<annotation cp="👨‍🍼">barošana | bērnu barojošs cilvēks | cilvēks | kopšana | mazulis</annotation>
-		<annotation cp="👨‍🍼" type="tts">bērnu barojošs cilvēks</annotation>
+		<annotation cp="🧔‍♀">bārda | sieviete | sieviete ar bārdu</annotation>
+		<annotation cp="🧔‍♀" type="tts">sieviete ar bārdu</annotation>
+		<annotation cp="🧔‍♂">bārda | vīrietis | vīrietis ar bārdu</annotation>
+		<annotation cp="🧔‍♂" type="tts">vīrietis ar bārdu</annotation>
 		<annotation cp="👩">dāma | kundze | seja | sieviete</annotation>
 		<annotation cp="👩" type="tts">sieviete</annotation>
 		<annotation cp="👱‍♀">blonda | blondi mati | blondīne | sieviete</annotation>
 		<annotation cp="👱‍♀" type="tts">blondīne</annotation>
-		<annotation cp="👩‍🍼">barošana | mazulis | sieviete | sieviete baro bērnu | zīdīšana</annotation>
-		<annotation cp="👩‍🍼" type="tts">sieviete baro bērnu</annotation>
 		<annotation cp="🧓">bezdzimuma | dzimumneitrāls | vecāks pieaugušais | vecs</annotation>
 		<annotation cp="🧓" type="tts">vecāks pieaugušais</annotation>
 		<annotation cp="👴">seja | vecs | vectēvs | vīrietis</annotation>
@@ -651,7 +987,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙅" type="tts">cilvēks ar aizlieguma žestu</annotation>
 		<annotation cp="🙅‍♂">nepiekrišana | pret | vīrietis | vīrietis ar aizlieguma žestu | vīrietis ar noraidījuma žestu | žests</annotation>
 		<annotation cp="🙅‍♂" type="tts">vīrietis ar aizlieguma žestu</annotation>
-		<annotation cp="🙅‍♀">nepiekrišana | pret | sieviete | sieviete ar aizlieguma žestu | sieviete ar noraidījuma žestu | žests</annotation>
+		<annotation cp="🙅‍♀">aizliegts | nedrīkst | roka | sieviete | sieviete ar aizlieguma žestu | žests</annotation>
 		<annotation cp="🙅‍♀" type="tts">sieviete ar aizlieguma žestu</annotation>
 		<annotation cp="🙆">cilvēks ar apstiprinājuma žestu | labi | ok | roka | žests</annotation>
 		<annotation cp="🙆" type="tts">cilvēks ar apstiprinājuma žestu</annotation>
@@ -809,6 +1145,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">apsargs</annotation>
 		<annotation cp="💂‍♀">sardze | sieviete</annotation>
 		<annotation cp="💂‍♀" type="tts">sardze</annotation>
+		<annotation cp="🥷">cīnītājs | nindzja | paslēpts | slepens</annotation>
+		<annotation cp="🥷" type="tts">nindzja</annotation>
 		<annotation cp="👷">celtnieks | ķivere | seja</annotation>
 		<annotation cp="👷" type="tts">celtnieks</annotation>
 		<annotation cp="👷‍♂">būvstrādnieks | celtnieks | strādnieks | vīrietis</annotation>
@@ -829,28 +1167,36 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">vīrietis ar ķīniešu cepuri</annotation>
 		<annotation cp="🧕">galvas lakats | hidžabs | lakats | sieviete ar lakatu</annotation>
 		<annotation cp="🧕" type="tts">sieviete ar lakatu</annotation>
-		<annotation cp="🤵">cilvēks | cilvēks smokingā | līgavainis | smokings</annotation>
-		<annotation cp="🤵" type="tts">cilvēks smokingā</annotation>
-		<annotation cp="🤵‍♀">sieviete | sieviete smokingā | smokings</annotation>
-		<annotation cp="🤵‍♀" type="tts">sieviete smokingā</annotation>
+		<annotation cp="🤵">līgavainis | persona | persona smokingā | smokings</annotation>
+		<annotation cp="🤵" type="tts">persona smokingā</annotation>
 		<annotation cp="🤵‍♂">smokings | vīrietis | vīrietis smokingā</annotation>
 		<annotation cp="🤵‍♂" type="tts">vīrietis smokingā</annotation>
-		<annotation cp="👰">cilvēks ar plīvuru | kāzas | persona | persona ar plīvuru | plīvurs</annotation>
+		<annotation cp="🤵‍♀">sieviete | sieviete smokingā | smokings</annotation>
+		<annotation cp="🤵‍♀" type="tts">sieviete smokingā</annotation>
+		<annotation cp="👰">kāzas | līgava | persona | persona ar plīvuru | plīvurs</annotation>
 		<annotation cp="👰" type="tts">cilvēks ar plīvuru</annotation>
-		<annotation cp="👰‍♀">plīvurs | sieviete | sieviete ar plīvuru</annotation>
-		<annotation cp="👰‍♀" type="tts">sieviete ar plīvuru</annotation>
 		<annotation cp="👰‍♂">plīvurs | vīrietis | vīrietis ar plīvuru</annotation>
 		<annotation cp="👰‍♂" type="tts">vīrietis ar plīvuru</annotation>
+		<annotation cp="👰‍♀">plīvurs | sieviete | sieviete ar plīvuru</annotation>
+		<annotation cp="👰‍♀" type="tts">sieviete ar plīvuru</annotation>
 		<annotation cp="🤰">sieviete | stāvoklī</annotation>
 		<annotation cp="🤰" type="tts">sieviete stāvoklī</annotation>
 		<annotation cp="🤱">barošana ar krūti | krūts | mazulis | zīdīšana</annotation>
 		<annotation cp="🤱" type="tts">barošana ar krūti</annotation>
+		<annotation cp="👩‍🍼">barošana | mazulis | sieviete | sieviete baro bērnu | zīdīšana</annotation>
+		<annotation cp="👩‍🍼" type="tts">sieviete baro bērnu</annotation>
+		<annotation cp="👨‍🍼">barošana | bērnu barojošs cilvēks | cilvēks | kopšana | mazulis</annotation>
+		<annotation cp="👨‍🍼" type="tts">bērnu barojošs cilvēks</annotation>
+		<annotation cp="🧑‍🍼">barošana | mazulis | persona | persona baro bērnu | zīdīšana</annotation>
+		<annotation cp="🧑‍🍼" type="tts">persona baro bērnu</annotation>
 		<annotation cp="👼">eņģelis | fantāzija | mazs eņģelītis | mazulis | pasaka | seja</annotation>
 		<annotation cp="👼" type="tts">mazs eņģelītis</annotation>
 		<annotation cp="🎅">santaklauss | vecītis | ziemassvētki | Ziemassvētku vecītis</annotation>
 		<annotation cp="🎅" type="tts">Ziemassvētku vecītis</annotation>
 		<annotation cp="🤶">omīte | salavecis | ziemassvētki | Ziemassvētku omīte | ziemassvētku vecītis</annotation>
 		<annotation cp="🤶" type="tts">Ziemassvētku omīte</annotation>
+		<annotation cp="🧑‍🎄">dzimumneitrāls santaklauss | Ziemassvētku santaklauss</annotation>
+		<annotation cp="🧑‍🎄" type="tts">dzimumneitrāls santaklauss</annotation>
 		<annotation cp="🦸">labais | superspēks | supervaronis | varone | varonis</annotation>
 		<annotation cp="🦸" type="tts">supervaronis</annotation>
 		<annotation cp="🦸‍♂">labais | superspēks | varonis | vīrietis | vīrietis supervaronis</annotation>
@@ -1099,6 +1445,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👤" type="tts">krūšutēla siluets</annotation>
 		<annotation cp="👥">divu krūšutēlu silueti | krūšutēls | siluets</annotation>
 		<annotation cp="👥" type="tts">divu krūšutēlu silueti</annotation>
+		<annotation cp="🫂">apskāviens | ardievu | cilvēki apkampjas | labdien | paldies</annotation>
+		<annotation cp="🫂" type="tts">cilvēki apkampjas</annotation>
 		<annotation cp="👣">ķermenis | nospiedumi | pēdu nospiedumi</annotation>
 		<annotation cp="👣" type="tts">pēdu nospiedumi</annotation>
 		<annotation cp="🦰">rudi mati | sarkani mati</annotation>
@@ -1157,6 +1505,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">zebra</annotation>
 		<annotation cp="🦌">briedis | dzīvnieks</annotation>
 		<annotation cp="🦌" type="tts">briedis</annotation>
+		<annotation cp="🦬">bifelis | bizons | ganāmpulks | sumbrs</annotation>
+		<annotation cp="🦬" type="tts">bizons</annotation>
 		<annotation cp="🐮">galva | govs</annotation>
 		<annotation cp="🐮" type="tts">govs galva</annotation>
 		<annotation cp="🐂">bullis | vērsis | Vērsis | zodiaks</annotation>
@@ -1189,6 +1539,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">žirafe</annotation>
 		<annotation cp="🐘">zilonis</annotation>
 		<annotation cp="🐘" type="tts">zilonis</annotation>
+		<annotation cp="🦣">ilknis | izmiršana | liels | mamuts | vilnains</annotation>
+		<annotation cp="🦣" type="tts">mamuts</annotation>
 		<annotation cp="🦏">degunradzis | dzīvnieks</annotation>
 		<annotation cp="🦏" type="tts">degunradzis</annotation>
 		<annotation cp="🦛">begemots | nīlzirgs</annotation>
@@ -1207,6 +1559,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">trusis</annotation>
 		<annotation cp="🐿">burunduks</annotation>
 		<annotation cp="🐿" type="tts">burunduks</annotation>
+		<annotation cp="🦫">bebrs | dambis</annotation>
+		<annotation cp="🦫" type="tts">bebrs</annotation>
 		<annotation cp="🦔">adatains | ezis</annotation>
 		<annotation cp="🦔" type="tts">ezis</annotation>
 		<annotation cp="🦇">dzīvnieks | sikspārnis | vampīrs</annotation>
@@ -1257,6 +1611,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">gulbis</annotation>
 		<annotation cp="🦉">gudrs | pūce | putns | vieds</annotation>
 		<annotation cp="🦉" type="tts">pūce</annotation>
+		<annotation cp="🦤">dodo | izmiršana | liels | Maurīcija</annotation>
+		<annotation cp="🦤" type="tts">dodo</annotation>
+		<annotation cp="🪶">apspalvojums | putns | spalva | viegls</annotation>
+		<annotation cp="🪶" type="tts">spalva</annotation>
 		<annotation cp="🦩">flamingo | spilgts | tropisks</annotation>
 		<annotation cp="🦩" type="tts">flamingo</annotation>
 		<annotation cp="🦚">ārišķīgs | iedomīgs | pāvs | pāvu mātīte | putns</annotation>
@@ -1287,6 +1645,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">valis</annotation>
 		<annotation cp="🐬">delfīns | peldpleznas</annotation>
 		<annotation cp="🐬" type="tts">delfīns</annotation>
+		<annotation cp="🦭">jūras lauva | ronis</annotation>
+		<annotation cp="🦭" type="tts">ronis</annotation>
 		<annotation cp="🐟">zivis | zivs | zodiaks</annotation>
 		<annotation cp="🐟" type="tts">zivs</annotation>
 		<annotation cp="🐠">tropi | tropu zivs | zivs</annotation>
@@ -1309,10 +1669,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">skudra</annotation>
 		<annotation cp="🐝">bite | kukainis</annotation>
 		<annotation cp="🐝" type="tts">bite</annotation>
+		<annotation cp="🪲">insekts | kukainis | vabole</annotation>
+		<annotation cp="🪲" type="tts">vabole</annotation>
 		<annotation cp="🐞">bizbizmārīte | kukainis | mārīte</annotation>
 		<annotation cp="🐞" type="tts">mārīte</annotation>
 		<annotation cp="🦗">circenis | sienāzis</annotation>
 		<annotation cp="🦗" type="tts">circenis</annotation>
+		<annotation cp="🪳">insekts | kaitēklis | prusaks | tarakāns</annotation>
+		<annotation cp="🪳" type="tts">tarakāns</annotation>
 		<annotation cp="🕷">kukainis | zirneklis</annotation>
 		<annotation cp="🕷" type="tts">zirneklis</annotation>
 		<annotation cp="🕸">tīkls | zirnekļa tīkls | zirneklis</annotation>
@@ -1321,6 +1685,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">skorpions</annotation>
 		<annotation cp="🦟">drudzis | insekts | malārija | ods | slimība | vīruss</annotation>
 		<annotation cp="🦟" type="tts">ods</annotation>
+		<annotation cp="🪰">kaitēklis | kāpurs | muša | pūšana | slimība</annotation>
+		<annotation cp="🪰" type="tts">muša</annotation>
+		<annotation cp="🪱">parazīts | posmtārps | slieka | tārps</annotation>
+		<annotation cp="🪱" type="tts">tārps</annotation>
 		<annotation cp="🦠">amēba | baktērija | mikrobs | vīruss</annotation>
 		<annotation cp="🦠" type="tts">mikrobs</annotation>
 		<annotation cp="💐">pušķis | romantika | ziedi</annotation>
@@ -1345,6 +1713,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌷" type="tts">tulpe</annotation>
 		<annotation cp="🌱">asns | augs</annotation>
 		<annotation cp="🌱" type="tts">asns</annotation>
+		<annotation cp="🪴">audzēt | augs | augs podiņā | augt | garlaicība | māja | nevajadzīgs</annotation>
+		<annotation cp="🪴" type="tts">augs podiņā</annotation>
 		<annotation cp="🌲">augs | koks | skujkoks</annotation>
 		<annotation cp="🌲" type="tts">skujkoks</annotation>
 		<annotation cp="🌳">augs | koks | lapas | lapu koks</annotation>
@@ -1395,10 +1765,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">ķirši</annotation>
 		<annotation cp="🍓">augs | oga | zemene</annotation>
 		<annotation cp="🍓" type="tts">zemene</annotation>
+		<annotation cp="🫐">mellene | mellenes | oga | zilene | zils</annotation>
+		<annotation cp="🫐" type="tts">mellenes</annotation>
 		<annotation cp="🥝">auglis | kivi | pārtika</annotation>
 		<annotation cp="🥝" type="tts">kivi auglis</annotation>
 		<annotation cp="🍅">dārzenis | tomāts</annotation>
 		<annotation cp="🍅" type="tts">tomāts</annotation>
+		<annotation cp="🫒">ēdiens | olīva</annotation>
+		<annotation cp="🫒" type="tts">olīva</annotation>
 		<annotation cp="🥥">kokosrieksts | palma | pina colada</annotation>
 		<annotation cp="🥥" type="tts">kokosrieksts</annotation>
 		<annotation cp="🥑">auglis | avokado | pārtika</annotation>
@@ -1413,6 +1787,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">kukurūzas vālīte</annotation>
 		<annotation cp="🌶">asais pipars | ass | augs | pipars</annotation>
 		<annotation cp="🌶" type="tts">asais pipars</annotation>
+		<annotation cp="🫑">dārzenis | paprika | pipars | sarkanie pipari</annotation>
+		<annotation cp="🫑" type="tts">paprika</annotation>
 		<annotation cp="🥒">dārzenis | gurķis | pārtika | skābēts</annotation>
 		<annotation cp="🥒" type="tts">gurķis</annotation>
 		<annotation cp="🥬">kacenkāposts | kāposts | Ķīnas kāposts | lapu dārzenis | lapu kāposts</annotation>
@@ -1435,13 +1811,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥐" type="tts">kruasāns</annotation>
 		<annotation cp="🥖">bagete | ēdiens | franču | maize</annotation>
 		<annotation cp="🥖" type="tts">bagete</annotation>
+		<annotation cp="🫓">arepa | lavašs | nāanmaize | pita | plācenis</annotation>
+		<annotation cp="🫓" type="tts">plācenis</annotation>
 		<annotation cp="🥨">kliņģeris | savīts</annotation>
 		<annotation cp="🥨" type="tts">kliņģeris</annotation>
 		<annotation cp="🥯">beigelis | maiznīca | smērējams</annotation>
 		<annotation cp="🥯" type="tts">beigelis</annotation>
 		<annotation cp="🥞">bliņa | ēdiens | pankūka | pankūkas</annotation>
 		<annotation cp="🥞" type="tts">pankūkas</annotation>
-		<annotation cp="🧇">gludeklis | savienojošs | vafele</annotation>
+		<annotation cp="🧇">brokastis | panna | pusgatavas | vafele</annotation>
 		<annotation cp="🧇" type="tts">vafele</annotation>
 		<annotation cp="🧀">siera šķēle | siers</annotation>
 		<annotation cp="🧀" type="tts">siera šķēle</annotation>
@@ -1467,6 +1845,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">tako</annotation>
 		<annotation cp="🌯">burito | meksikāņu</annotation>
 		<annotation cp="🌯" type="tts">burito</annotation>
+		<annotation cp="🫔">meksikāņu | satīts | tamale | vraps</annotation>
+		<annotation cp="🫔" type="tts">tamale</annotation>
 		<annotation cp="🥙">ēdiens | giross | kebabs | lavašs | pildīts</annotation>
 		<annotation cp="🥙" type="tts">pildīts lavašs</annotation>
 		<annotation cp="🧆">aunazirņi / frikadele | felāfels</annotation>
@@ -1479,6 +1859,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">sautējums pannā</annotation>
 		<annotation cp="🍲">bļoda | ēdiena bļodiņa | ēdiens</annotation>
 		<annotation cp="🍲" type="tts">ēdiena bļodiņa</annotation>
+		<annotation cp="🫕">fondī | kausēts | podiņš | siers | šokolāde | šveiciešu</annotation>
+		<annotation cp="🫕" type="tts">fondī</annotation>
 		<annotation cp="🥣">bļoda ar karoti | brokastis | graudaugi | rīsu putra</annotation>
 		<annotation cp="🥣" type="tts">bļoda ar karoti</annotation>
 		<annotation cp="🥗">ēdiens | salāti | zaļi | zaļie salāti</annotation>
@@ -1569,6 +1951,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">piena glāze</annotation>
 		<annotation cp="☕">dzēriens | dzert | kafija | karsts | tēja</annotation>
 		<annotation cp="☕" type="tts">karsts dzēriens</annotation>
+		<annotation cp="🫖">dzēriens | kanna | tēja | tējkanna</annotation>
+		<annotation cp="🫖" type="tts">tējkanna</annotation>
 		<annotation cp="🍵">dzēriens | dzert | tēja | tējas tase bez osiņas</annotation>
 		<annotation cp="🍵" type="tts">tējas tase bez osiņas</annotation>
 		<annotation cp="🍶">bārs | dzēriens | dzert | pudele | sakē</annotation>
@@ -1591,6 +1975,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">viskija glāze</annotation>
 		<annotation cp="🥤">dzēriens ar salmiņu | gāzēts | limonāda | sula</annotation>
 		<annotation cp="🥤" type="tts">dzēriens ar salmiņu</annotation>
+		<annotation cp="🧋">burbulis | burbuļtēja | pērle | piens | tēja</annotation>
+		<annotation cp="🧋" type="tts">burbuļtēja</annotation>
 		<annotation cp="🧃">dzēriena kārba | sulas kārba | sulas paka</annotation>
 		<annotation cp="🧃" type="tts">dzēriena kārba</annotation>
 		<annotation cp="🧉">dzēriens | mate</annotation>
@@ -1635,7 +2021,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏕" type="tts">kempings</annotation>
 		<annotation cp="🏖">pludmale | pludmale ar saulessargu | saulessargs</annotation>
 		<annotation cp="🏖" type="tts">pludmale ar saulessargu</annotation>
-		<annotation cp="🏜">deserts | tuksnesis</annotation>
+		<annotation cp="🏜">tuksnesis</annotation>
 		<annotation cp="🏜" type="tts">tuksnesis</annotation>
 		<annotation cp="🏝">sala | vientuļa sala | vientuļš</annotation>
 		<annotation cp="🏝" type="tts">vientuļa sala</annotation>
@@ -1649,6 +2035,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">būvlaukums</annotation>
 		<annotation cp="🧱">kaļķu java | ķieģeļi | ķieģelis | māls | siena</annotation>
 		<annotation cp="🧱" type="tts">ķieģelis</annotation>
+		<annotation cp="🪨">akmens | ciets | iezis | klints | smags</annotation>
+		<annotation cp="🪨" type="tts">akmens</annotation>
+		<annotation cp="🪵">baļķis | kokmateriāls | koks</annotation>
+		<annotation cp="🪵" type="tts">koks</annotation>
+		<annotation cp="🛖">apaļa māja | būda | jurta | māja</annotation>
+		<annotation cp="🛖" type="tts">būda</annotation>
 		<annotation cp="🏘">ēka | ēkas | māja</annotation>
 		<annotation cp="🏘" type="tts">ēkas</annotation>
 		<annotation cp="🏚">ēka | māja | nolaists | pamesta ēka | pamests</annotation>
@@ -1683,7 +2075,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏯" type="tts">japāņu pils</annotation>
 		<annotation cp="🏰">Eiropas | eiropiešu | pils</annotation>
 		<annotation cp="🏰" type="tts">pils</annotation>
-		<annotation cp="💒">ēka | kāzas | māja</annotation>
+		<annotation cp="💒">kapela | kāzas | romantika</annotation>
 		<annotation cp="💒" type="tts">kāzas</annotation>
 		<annotation cp="🗼">Tokija | Tokijas tornis | tornis</annotation>
 		<annotation cp="🗼" type="tts">Tokijas tornis</annotation>
@@ -1783,6 +2175,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">pretī braucoša automašīna</annotation>
 		<annotation cp="🚙">automašīna | kemperis | mašīna | transports</annotation>
 		<annotation cp="🚙" type="tts">kemperis</annotation>
+		<annotation cp="🛻">mašīna | piegāde | piegādes auto | pikaps</annotation>
+		<annotation cp="🛻" type="tts">piegādes auto</annotation>
 		<annotation cp="🚚">automašīna | krava | kravas automašīna | mašīna | transports</annotation>
 		<annotation cp="🚚" type="tts">kravas automašīna</annotation>
 		<annotation cp="🚛">automašīna | krava | mašīna | smagā automašīna | transports</annotation>
@@ -1807,6 +2201,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">skuteris</annotation>
 		<annotation cp="🛹">dēlis | skrituļdēlis</annotation>
 		<annotation cp="🛹" type="tts">skrituļdēlis</annotation>
+		<annotation cp="🛼">skritulis | skrituļslida | slida</annotation>
+		<annotation cp="🛼" type="tts">skrituļslida</annotation>
 		<annotation cp="🚏">autobusa pietura | autobuss | pietura</annotation>
 		<annotation cp="🚏" type="tts">autobusa pietura</annotation>
 		<annotation cp="🛣">automaģistrāle | ceļš | šoseja</annotation>
@@ -1873,7 +2269,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛎" type="tts">galda zvans</annotation>
 		<annotation cp="🧳">bagāža | ceļojums | pakošanās</annotation>
 		<annotation cp="🧳" type="tts">bagāža</annotation>
-		<annotation cp="⌛">iztecējis smilšu pulkstenis | iztecējis smilšu pulstenis | smiltis | taimeris</annotation>
+		<annotation cp="⌛">iztecējis smilšu pulkstenis | smiltis | taimeris</annotation>
 		<annotation cp="⌛" type="tts">iztecējis smilšu pulstenis</annotation>
 		<annotation cp="⏳">pulkstenis | smilšu pulkstenis ar plūstošām smiltīm | smiltis | taimeris</annotation>
 		<annotation cp="⏳" type="tts">smilšu pulkstenis ar plūstošām smiltīm</annotation>
@@ -2117,7 +2513,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏸" type="tts">badmintons</annotation>
 		<annotation cp="🥊">boksa cimds | bokss | cimds | sports</annotation>
 		<annotation cp="🥊" type="tts">boksa cimds</annotation>
-		<annotation cp="🥋">cīņas māksla | cīņu sporta tērps | džudo | karatē | kimono | sports | taekvondo | tērps</annotation>
+		<annotation cp="🥋">cīņas māksla | cīņu sporta tērps | džudo | karatē | kimono | taekvondo | tērps</annotation>
 		<annotation cp="🥋" type="tts">cīņu sporta tērps</annotation>
 		<annotation cp="🥅">sports | tīkls | vārti | vārti ar tīklu</annotation>
 		<annotation cp="🥅" type="tts">vārti ar tīklu</annotation>
@@ -2147,6 +2543,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎱" type="tts">biljarda bumbiņa</annotation>
 		<annotation cp="🔮">kristāla lode | kristāls | lode | pareģot | zīlēt</annotation>
 		<annotation cp="🔮" type="tts">kristāla lode</annotation>
+		<annotation cp="🪄">burvis | burvju | burvju nūjiņa | ragana</annotation>
+		<annotation cp="🪄" type="tts">burvju nūjiņa</annotation>
 		<annotation cp="🧿">amulets pret ļaunu aci | krelle | ļaunā acs | nazars | piekariņš | talismans</annotation>
 		<annotation cp="🧿" type="tts">amulets pret ļaunu aci</annotation>
 		<annotation cp="🎮">konsole | videospēle</annotation>
@@ -2161,6 +2559,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">attēlu mīkla</annotation>
 		<annotation cp="🧸">lāčuks | manta | pildīts | plīšs | rotaļlieta</annotation>
 		<annotation cp="🧸" type="tts">lāčuks</annotation>
+		<annotation cp="🪅">ballīte | pinjata | svinības</annotation>
+		<annotation cp="🪅" type="tts">pinjata</annotation>
+		<annotation cp="🪆">krievu | lelle | matrjoška | matrjoškas</annotation>
+		<annotation cp="🪆" type="tts">matrjoškas</annotation>
 		<annotation cp="♠">kārtis | pīķis</annotation>
 		<annotation cp="♠" type="tts">pīķis</annotation>
 		<annotation cp="♥">ercens | kārtis</annotation>
@@ -2185,8 +2587,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">gleznotāja palete</annotation>
 		<annotation cp="🧵">adata | pavediens | spolīte | šūšana</annotation>
 		<annotation cp="🧵" type="tts">pavediens</annotation>
+		<annotation cp="🪡">adata | izšūšana | piegrieztne | šujamadata | šūšana | šuves</annotation>
+		<annotation cp="🪡" type="tts">šujamadata</annotation>
 		<annotation cp="🧶">adīt | dzija | kamoliņš | tambrorējums</annotation>
 		<annotation cp="🧶" type="tts">dzija</annotation>
+		<annotation cp="🪢">mezgls | mudžeklis | striķis | virve</annotation>
+		<annotation cp="🪢" type="tts">mezgls</annotation>
 		<annotation cp="👓">acis | brilles</annotation>
 		<annotation cp="👓" type="tts">brilles</annotation>
 		<annotation cp="🕶">acis | brilles | saulesbrilles</annotation>
@@ -2237,6 +2643,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">iepirkumu maisiņi</annotation>
 		<annotation cp="🎒">mugursoma | skola | skolas mugursoma | soma</annotation>
 		<annotation cp="🎒" type="tts">mugursoma</annotation>
+		<annotation cp="🩴">pirkstiņsandales | pludmales sandales | sandales | siksniņsandale | siksniņsandales</annotation>
+		<annotation cp="🩴" type="tts">siksniņsandale</annotation>
 		<annotation cp="👞">apavi | vīriešu | vīriešu kurpe</annotation>
 		<annotation cp="👞" type="tts">vīriešu kurpe</annotation>
 		<annotation cp="👟">apavi | skriešanas apavi | skriešanas kurpe | sports</annotation>
@@ -2263,6 +2671,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">izlaiduma cepure</annotation>
 		<annotation cp="🧢">beisbola cepure | cepure ar nagu</annotation>
 		<annotation cp="🧢" type="tts">cepure ar nagu</annotation>
+		<annotation cp="🪖">armija | karavīrs | ķivere | militārā | zaldāts</annotation>
+		<annotation cp="🪖" type="tts">militārā ķivere</annotation>
 		<annotation cp="⛑">glābēja ķivere | ķivere | krusts | palīdzība</annotation>
 		<annotation cp="⛑" type="tts">glābēja ķivere</annotation>
 		<annotation cp="📿">kaklarota | krelles | lūgšana | lūgšanu krelles | reliģija</annotation>
@@ -2311,6 +2721,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instruments | mūzika | saksofons</annotation>
 		<annotation cp="🎷" type="tts">saksofons</annotation>
+		<annotation cp="🪗">akordeons | koncertīna | rokas armoņikas</annotation>
+		<annotation cp="🪗" type="tts">akordeons</annotation>
 		<annotation cp="🎸">ģitāra | instruments | mūzika</annotation>
 		<annotation cp="🎸" type="tts">ģitāra</annotation>
 		<annotation cp="🎹">instruments | klaviatūra | klavieres | klavieru taustiņi | mūzika</annotation>
@@ -2323,6 +2735,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">bandžo</annotation>
 		<annotation cp="🥁">bungas | bungu vālītes | mūzika</annotation>
 		<annotation cp="🥁" type="tts">bungas</annotation>
+		<annotation cp="🪘">bungas | garās bungas | konga | ritms | vālīte</annotation>
+		<annotation cp="🪘" type="tts">garās bungas</annotation>
 		<annotation cp="📱">mobilais | tālrunis | telefons</annotation>
 		<annotation cp="📱" type="tts">mobilais tālrunis</annotation>
 		<annotation cp="📲">bultiņa | mobilais | mobilais tālrunis ar bultiņu | tālrunis | telefons</annotation>
@@ -2369,7 +2783,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📽" type="tts">filmu projektors</annotation>
 		<annotation cp="🎬">filma | klapīte</annotation>
 		<annotation cp="🎬" type="tts">klapīte</annotation>
-		<annotation cp="📺">televizors | TV</annotation>
+		<annotation cp="📺">televizors | TV | video</annotation>
 		<annotation cp="📺" type="tts">televizors</annotation>
 		<annotation cp="📷">fotoaparāts | fotokamera | kamera</annotation>
 		<annotation cp="📷" type="tts">fotokamera</annotation>
@@ -2429,6 +2843,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">atzīme</annotation>
 		<annotation cp="💰">dolārs | maiss | nauda | naudas maiss</annotation>
 		<annotation cp="💰" type="tts">naudas maiss</annotation>
+		<annotation cp="🪙">bagātība | metāls | monēta | nauda | sudrabs | zelts</annotation>
+		<annotation cp="🪙" type="tts">monēta</annotation>
 		<annotation cp="💴">banknote | jena | jenas banknote | nauda</annotation>
 		<annotation cp="💴" type="tts">jenas banknote</annotation>
 		<annotation cp="💵">banknote | dolāra banknote | dolārs | nauda</annotation>
@@ -2445,10 +2861,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">kvīts</annotation>
 		<annotation cp="💹">augšup | augšupejoša diagrammas līkne ar jenas simbolu | diagramma | jena | līkne | tirgus</annotation>
 		<annotation cp="💹" type="tts">augšupejoša diagrammas līkne ar jenas simbolu</annotation>
-		<annotation cp="💱">banka | maiņa | nauda | valūta | valūtas maiņa</annotation>
-		<annotation cp="💱" type="tts">valūtas maiņa</annotation>
-		<annotation cp="💲">dolāra zīme | dolārs | nauda</annotation>
-		<annotation cp="💲" type="tts">dolāra zīme</annotation>
 		<annotation cp="✉">aploksne | e-pasts | vēstule</annotation>
 		<annotation cp="✉" type="tts">aploksne</annotation>
 		<annotation cp="📧">aploksne | e-pasts | vēstule</annotation>
@@ -2562,13 +2974,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚔">ierocis | sakrustoti zobeni | sakrustots | zobens</annotation>
 		<annotation cp="⚔" type="tts">sakrustoti zobeni</annotation>
 		<annotation cp="🔫">ierocis | pistole | revolveris | šaujamierocis</annotation>
-		<annotation cp="🔫" type="tts">pistole</annotation>
+		<annotation cp="🔫" type="tts">ūdens pistole</annotation>
+		<annotation cp="🪃">atlēciens | atsitiens | Austrālija | bumerangs</annotation>
+		<annotation cp="🪃" type="tts">bumerangs</annotation>
 		<annotation cp="🏹">bulta | ierocis | loks | loks un bulta | strēlnieks</annotation>
 		<annotation cp="🏹" type="tts">loks un bulta</annotation>
 		<annotation cp="🛡">ierocis | vairogs</annotation>
 		<annotation cp="🛡" type="tts">vairogs</annotation>
+		<annotation cp="🪚">darbarīks | galdnieks | kokmateriāli | vienrokas zāģis | zāģis</annotation>
+		<annotation cp="🪚" type="tts">vienrokas zāģis</annotation>
 		<annotation cp="🔧">darbarīks | uzgriežņu atslēga</annotation>
 		<annotation cp="🔧" type="tts">uzgriežņu atslēga</annotation>
+		<annotation cp="🪛">darbarīks | skrūvēt | skrūvgriezis</annotation>
+		<annotation cp="🪛" type="tts">skrūvgriezis</annotation>
 		<annotation cp="🔩">skrūve | skrūve un uzgrieznis | tapa | uzgrieznis</annotation>
 		<annotation cp="🔩" type="tts">skrūve un uzgrieznis</annotation>
 		<annotation cp="⚙">darbarīks | zobrats</annotation>
@@ -2583,10 +3001,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">ķēdes posms</annotation>
 		<annotation cp="⛓">ķēde | ķēdes</annotation>
 		<annotation cp="⛓" type="tts">ķēdes</annotation>
+		<annotation cp="🪝">āķis | pārdošanas arguments | pievilināt | uzķeršanās</annotation>
+		<annotation cp="🪝" type="tts">āķis</annotation>
 		<annotation cp="🧰">darbarīku kaste | kaste | mehānisks | rīks</annotation>
 		<annotation cp="🧰" type="tts">darbarīku kaste</annotation>
 		<annotation cp="🧲">magnētisks | magnēts | pakavs | pievilkšana</annotation>
 		<annotation cp="🧲" type="tts">magnēts</annotation>
+		<annotation cp="🪜">kāpnes | kāpt | pakāpiens | šķērskoks</annotation>
+		<annotation cp="🪜" type="tts">kāpnes</annotation>
 		<annotation cp="⚗">destilēšanas aparāts | ķīmija | mēģene</annotation>
 		<annotation cp="⚗" type="tts">destilēšanas aparāts</annotation>
 		<annotation cp="🧪">eksperiments | ķīmija | ķīmiķis | laboratorija | mēģene | zinātne</annotation>
@@ -2613,6 +3035,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩺" type="tts">stetoskops</annotation>
 		<annotation cp="🚪">durvis | ieeja | izeja</annotation>
 		<annotation cp="🚪" type="tts">durvis</annotation>
+		<annotation cp="🛗">lifts | pacēlājs | pieejamība</annotation>
+		<annotation cp="🛗" type="tts">lifts</annotation>
+		<annotation cp="🪞">atspīdums | reflektors | spogulis</annotation>
+		<annotation cp="🪞" type="tts">spogulis</annotation>
+		<annotation cp="🪟">atvērums | caurspīdīgs | logs | rāmis | skats | svaigs gaiss</annotation>
+		<annotation cp="🪟" type="tts">logs</annotation>
 		<annotation cp="🛏">gulēt | gulta | viesnīca</annotation>
 		<annotation cp="🛏" type="tts">gulta</annotation>
 		<annotation cp="🛋">dīvāns | dīvāns un lampa | lampa | viesnīca</annotation>
@@ -2621,10 +3049,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">krēsls</annotation>
 		<annotation cp="🚽">pods | tualete | tualetes pods</annotation>
 		<annotation cp="🚽" type="tts">tualetes pods</annotation>
+		<annotation cp="🪠">kanalizācijas buča | santehniķis | sūkšana | tualete | vantūzs</annotation>
+		<annotation cp="🪠" type="tts">vantūzs</annotation>
 		<annotation cp="🚿">duša | ūdens</annotation>
 		<annotation cp="🚿" type="tts">duša</annotation>
 		<annotation cp="🛁">ūdens | vanna</annotation>
 		<annotation cp="🛁" type="tts">vanna</annotation>
+		<annotation cp="🪤">ēsma | lamatas | peļu slazds | slazds</annotation>
+		<annotation cp="🪤" type="tts">peļu slazds</annotation>
 		<annotation cp="🪒">ass | bārdas nazis | skūt</annotation>
 		<annotation cp="🪒" type="tts">bārdas nazis</annotation>
 		<annotation cp="🧴">losjona pudele | losjons | mitrinātājs | šampūns | sauļošanās krēms</annotation>
@@ -2637,8 +3069,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">grozs</annotation>
 		<annotation cp="🧻">papīra dvieļi | papīra rullis | tualetes papīrs</annotation>
 		<annotation cp="🧻" type="tts">papīra rullis</annotation>
+		<annotation cp="🪣">spainis | toveris | tvertne</annotation>
+		<annotation cp="🪣" type="tts">spainis</annotation>
 		<annotation cp="🧼">tīrīšana | vannošana | ziepes | ziepju putas | ziepju trauks</annotation>
 		<annotation cp="🧼" type="tts">ziepes</annotation>
+		<annotation cp="🪥">higiēna | suka | tīrs | vannasistaba | zobi | zobu</annotation>
+		<annotation cp="🪥" type="tts">zobu suka</annotation>
 		<annotation cp="🧽">porains | sūklis | tīrīšana | uzsūkšana</annotation>
 		<annotation cp="🧽" type="tts">sūklis</annotation>
 		<annotation cp="🧯">apdzēst | dzēst | uguns | ugunsdzēsības aparāts</annotation>
@@ -2649,10 +3085,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">aizdegta cigarete</annotation>
 		<annotation cp="⚰">bēres | nāve | zārks</annotation>
 		<annotation cp="⚰" type="tts">zārks</annotation>
+		<annotation cp="🪦">kapa piemineklis | kapakmens | kapi | kaps | kapsēta</annotation>
+		<annotation cp="🪦" type="tts">kapakmens</annotation>
 		<annotation cp="⚱">bēres | nāve | pelnu urna | urna</annotation>
 		<annotation cp="⚱" type="tts">pelnu urna</annotation>
 		<annotation cp="🗿">galva | Lieldienu salu statuja | moai | statuja</annotation>
 		<annotation cp="🗿" type="tts">Lieldienu salu statuja</annotation>
+		<annotation cp="🪧">demonstrācija | pikets | plakāts | protests | zīme</annotation>
+		<annotation cp="🪧" type="tts">plakāts</annotation>
 		<annotation cp="🏧">ATM | bankomāta zīme | bankomāts | nauda</annotation>
 		<annotation cp="🏧" type="tts">bankomāta zīme</annotation>
 		<annotation cp="🚮">atkritumi | atkritumu urnas zīme | urna</annotation>
@@ -2725,6 +3165,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">augšup un lejup vērsta bultiņa</annotation>
 		<annotation cp="↔">bultiņa | pa kreisi un pa labi vērsta bultiņa</annotation>
 		<annotation cp="↔" type="tts">pa kreisi un pa labi vērsta bultiņa</annotation>
+		<annotation cp="↮" draft="contributed">pārsvītrota kreisā-labā bultiņa</annotation>
+		<annotation cp="↮" type="tts" draft="contributed">pārsvītrota kreisā-labā bultiņa</annotation>
 		<annotation cp="↩">bultiņa | pa kreisi vērsta izliekta bultiņa</annotation>
 		<annotation cp="↩" type="tts">pa kreisi vērsta izliekta bultiņa</annotation>
 		<annotation cp="↪">bultiņa | pa labi vērsta izliekta bultiņa</annotation>
@@ -2849,10 +3291,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">sieviešu simbols</annotation>
 		<annotation cp="♂">vīriešu simbols | vīrietis</annotation>
 		<annotation cp="♂" type="tts">vīriešu simbols</annotation>
-		<annotation cp="⚕">eskulaps | medicīna | medicīnas simbols | personāls</annotation>
-		<annotation cp="⚕" type="tts">medicīnas simbols</annotation>
+		<annotation cp="⚧">transdzimuma simbols | transdzimums</annotation>
+		<annotation cp="⚧" type="tts">transdzimuma simbols</annotation>
+		<annotation cp="✖">× | atcelt | krustiņš | matemātika | reizināšanas zīme | reizināt | x</annotation>
+		<annotation cp="✖" type="tts">reizināt</annotation>
+		<annotation cp="➕">+ | matemātika | plus | pluszīme | saskaitīt</annotation>
+		<annotation cp="➕" type="tts">pluszīme</annotation>
+		<annotation cp="➖">- | – | atņemt | matemātika | mīnuss | mīnuszīme</annotation>
+		<annotation cp="➖" type="tts">mīnuss</annotation>
+		<annotation cp="➗">/ | ÷ | dalīšanas zīme | dalīt | matemātika</annotation>
+		<annotation cp="➗" type="tts">dalīt</annotation>
 		<annotation cp="♾">bezgalība | bezgalīgs | mūžība | vispārīgs</annotation>
 		<annotation cp="♾" type="tts">bezgalība</annotation>
+		<annotation cp="‼">! | !! | divas izsaukuma zīmes | izsaukums | pieturzīme</annotation>
+		<annotation cp="‼" type="tts">divas izsaukuma zīmes</annotation>
+		<annotation cp="⁉">! | !? | ? | izsaukuma un jautājuma zīme | izsaukums | jautājums | pieturzīme</annotation>
+		<annotation cp="⁉" type="tts">izsaukuma un jautājuma zīme</annotation>
+		<annotation cp="❓">? | jautājuma zīme | jautājums | pieturzīme</annotation>
+		<annotation cp="❓" type="tts">sarkana jautājuma zīme</annotation>
+		<annotation cp="❔">? | balta jautājuma zīme | jautājums | pieturzīme</annotation>
+		<annotation cp="❔" type="tts">balta jautājuma zīme</annotation>
+		<annotation cp="❕">! | balta izsaukuma zīme | izsaukums | pieturzīme</annotation>
+		<annotation cp="❕" type="tts">balta izsaukuma zīme</annotation>
+		<annotation cp="❗">! | izsaukuma zīme | izsaukums | pieturzīme</annotation>
+		<annotation cp="❗" type="tts">sarkana izsaukuma zīme</annotation>
+		<annotation cp="〰">domuzīme | viļņota</annotation>
+		<annotation cp="〰" type="tts">viļņota domuzīme</annotation>
+		<annotation cp="💱">banka | maiņa | nauda | valūta | valūtas maiņa</annotation>
+		<annotation cp="💱" type="tts">valūtas maiņa</annotation>
+		<annotation cp="💲">dolāra zīme | dolārs | nauda</annotation>
+		<annotation cp="💲" type="tts">dolāra zīme</annotation>
+		<annotation cp="⚕">eskulaps | medicīna | medicīnas simbols | personāls</annotation>
+		<annotation cp="⚕" type="tts">medicīnas simbols</annotation>
 		<annotation cp="♻">atkritumu pārstrādes simbols | pārstrāde</annotation>
 		<annotation cp="♻" type="tts">atkritumu pārstrādes simbols</annotation>
 		<annotation cp="⚜">lilija | lilijas simbols</annotation>
@@ -2861,7 +3331,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔱" type="tts">trijzaris</annotation>
 		<annotation cp="📛">nozīmīte | vārda nozīmīte | vārds</annotation>
 		<annotation cp="📛" type="tts">vārda nozīmīte</annotation>
-		<annotation cp="🔰">iesācējs | japāņu | japāņu simbols, kas apzīmē iesācēju | simbols</annotation>
+		<annotation cp="🔰">iesācējs | japāņu | japāņu apzīmējums iesācējam | simbols</annotation>
 		<annotation cp="🔰" type="tts">japāņu simbols, kas apzīmē iesācēju</annotation>
 		<annotation cp="⭕">aplis | liels | o | riņķis | sarkans</annotation>
 		<annotation cp="⭕" type="tts">liels aplis</annotation>
@@ -2871,18 +3341,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">atzīmēta izvēles rūtiņa</annotation>
 		<annotation cp="✔">✓ | atzīme | ķeksītis | kontrolzīme</annotation>
 		<annotation cp="✔" type="tts">kontrolzīme</annotation>
-		<annotation cp="✖">× | atcelt | krustiņš | matemātika | reizināšanas zīme | reizināt | x</annotation>
-		<annotation cp="✖" type="tts">reizināt</annotation>
 		<annotation cp="❌">× | atcelt | krustiņš | reizināt | x</annotation>
 		<annotation cp="❌" type="tts">krustiņš</annotation>
 		<annotation cp="❎">atcelt | krustiņa poga | krustiņš | reizināt | rūtiņa | x</annotation>
 		<annotation cp="❎" type="tts">krustiņa poga</annotation>
-		<annotation cp="➕">+ | matemātika | plus | pluszīme | saskaitīt</annotation>
-		<annotation cp="➕" type="tts">pluszīme</annotation>
-		<annotation cp="➖">- | – | atņemt | matemātika | mīnuss | mīnuszīme</annotation>
-		<annotation cp="➖" type="tts">mīnuss</annotation>
-		<annotation cp="➗">/ | ÷ | dalīšanas zīme | dalīt | matemātika</annotation>
-		<annotation cp="➗" type="tts">dalīt</annotation>
 		<annotation cp="➰">cilpa | cilpiņa | sproga</annotation>
 		<annotation cp="➰" type="tts">cilpiņa</annotation>
 		<annotation cp="➿">cilpa | dubulta cilpa</annotation>
@@ -2895,20 +3357,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">četrstaru zvaigzne</annotation>
 		<annotation cp="❇">* | dzirkstis</annotation>
 		<annotation cp="❇" type="tts">dzirkstis</annotation>
-		<annotation cp="‼">! | !! | divas izsaukuma zīmes | izsaukums | pieturzīme</annotation>
-		<annotation cp="‼" type="tts">divas izsaukuma zīmes</annotation>
-		<annotation cp="⁉">! | !? | ? | izsaukuma un jautājuma zīme | izsaukums | jautājums | pieturzīme</annotation>
-		<annotation cp="⁉" type="tts">izsaukuma un jautājuma zīme</annotation>
-		<annotation cp="❓">? | jautājuma zīme | jautājums | pieturzīme</annotation>
-		<annotation cp="❓" type="tts">jautājuma zīme</annotation>
-		<annotation cp="❔">? | balta jautājuma zīme | jautājums | pieturzīme</annotation>
-		<annotation cp="❔" type="tts">balta jautājuma zīme</annotation>
-		<annotation cp="❕">! | balta izsaukuma zīme | izsaukums | pieturzīme</annotation>
-		<annotation cp="❕" type="tts">balta izsaukuma zīme</annotation>
-		<annotation cp="❗">! | izsaukuma zīme | izsaukums | pieturzīme</annotation>
-		<annotation cp="❗" type="tts">izsaukuma zīme</annotation>
-		<annotation cp="〰">domuzīme | viļņota</annotation>
-		<annotation cp="〰" type="tts">viļņota domuzīme</annotation>
 		<annotation cp="©">(C) | autortiesības | c</annotation>
 		<annotation cp="©" type="tts">autortiesības</annotation>
 		<annotation cp="®">(R) | preču zīme | r | reģistrēta preču zīme | reģistrēts</annotation>
@@ -3071,22 +3519,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">melns karogs</annotation>
 		<annotation cp="🏳">balts karogs | karogs | plīvot</annotation>
 		<annotation cp="🏳" type="tts">balts karogs</annotation>
-		<annotation cp="🏳‍⚧">karogs | transdzimuma | zils, rozā un balts karogs</annotation>
-		<annotation cp="🏳‍⚧" type="tts">zils, rozā un balts karogs</annotation>
 		<annotation cp="🏳‍🌈">karogs | varavīksne | varavīksnes karogs</annotation>
 		<annotation cp="🏳‍🌈" type="tts">varavīksnes karogs</annotation>
+		<annotation cp="🏳‍⚧">balts | gaiši zils | karogs | rozā | transpersonu</annotation>
+		<annotation cp="🏳‍⚧" type="tts">zils, rozā un balts karogs</annotation>
 		<annotation cp="🏴‍☠">bagātības | laupījums | pirāts | pirātu karogs</annotation>
 		<annotation cp="🏴‍☠" type="tts">pirātu karogs</annotation>
+		<annotation cp="¢">cents</annotation>
+		<annotation cp="¢" type="tts">cents</annotation>
+		<annotation cp="$">ASV dolārs | dolārs | nauda | USD</annotation>
+		<annotation cp="$" type="tts">dolārs</annotation>
 		<annotation cp="£">EGP | GBP | mārciņa | valūta</annotation>
 		<annotation cp="£" type="tts">mārciņa</annotation>
 		<annotation cp="¥">CNY | jena | JPY | juaņa | valūta</annotation>
 		<annotation cp="¥" type="tts">jena</annotation>
+		<annotation cp="₤" draft="contributed">valūta</annotation>
+		<annotation cp="₥">miljems</annotation>
+		<annotation cp="₥" type="tts">miljems</annotation>
+		<annotation cp="₩">KPW | KRW</annotation>
+		<annotation cp="₩" type="tts">vona</annotation>
 		<annotation cp="€">eiro | EUR | valūta</annotation>
 		<annotation cp="€" type="tts">eiro</annotation>
+		<annotation cp="₱">peso</annotation>
+		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₶" draft="contributed">valūta</annotation>
+		<annotation cp="₷" draft="contributed">valūta</annotation>
 		<annotation cp="₹">Indijas rūpija | rūpija | valūta</annotation>
 		<annotation cp="₹" type="tts">Indijas rūpija</annotation>
 		<annotation cp="₽">rublis | valūta</annotation>
 		<annotation cp="₽" type="tts">rublis</annotation>
+		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿" type="tts">bitmonēta</annotation>
+		<annotation cp="₨" draft="contributed">valūta</annotation>
+		<annotation cp="﷼" draft="contributed">valūta</annotation>
 		<annotation cp="¹">augšraksts | viens | viens augšrakstā</annotation>
 		<annotation cp="¹" type="tts">viens augšrakstā</annotation>
 		<annotation cp="²">augšraksts | divi | divi augšrakstā | kvadrātā</annotation>

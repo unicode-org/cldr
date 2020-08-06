@@ -22,13 +22,511 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[ߊ ߋ ߌ ߍ ߎ ߏ ߐ ߒ ߓ ߔ ߕ ߖ ߗ ߘ ߙ ߚ ߛ ߜ ߝ ߞ ߟ ߡ ߢ ߣ ߤ ߥ ߦ]</exemplarCharacters>
+		<exemplarCharacters>[ߊ ߋ ߌ ߍ ߎ ߏ ߐ ߒ ߓ ߔ ߕ ߖ ߗ ߘ ߙ ߚ ߛ ߜ ߝ ߞ ߟ ߠ ߡ ߢ ߣ ߤ ߥ ߦ ߧ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[ߨ ߩ ߪ]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="unconfirmed">[\- ‑ ، . % ‰ + ߀ ߁ ߂ ߃ ߄ ߅ ߆ ߇ ߈ ߉]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[߸ ߹ ߷]</exemplarCharacters>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="," draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="." draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">ߓߌ߲ߠ</month>
+							<month type="2" draft="unconfirmed">ߞߏ߲ߞ</month>
+							<month type="3" draft="unconfirmed">ߕߙߊ</month>
+							<month type="4" draft="unconfirmed">ߞߏ߲ߘ</month>
+							<month type="5" draft="unconfirmed">ߘߓߊ߬ߕ</month>
+							<month type="6" draft="unconfirmed">ߥߊ߬ߛ</month>
+							<month type="7" draft="unconfirmed">ߞߊ߬ߙ</month>
+							<month type="8" draft="unconfirmed">ߘߓߊ߬ߓ</month>
+							<month type="9" draft="unconfirmed">ߕߎߟ</month>
+							<month type="10" draft="unconfirmed">ߞߏ߲ߓ</month>
+							<month type="11" draft="unconfirmed">ߣߍߣ</month>
+							<month type="12" draft="unconfirmed">ߞߏߟ</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">ߓ</month>
+							<month type="2" draft="unconfirmed">ߞ</month>
+							<month type="3" draft="unconfirmed">ߕ</month>
+							<month type="4" draft="unconfirmed">ߞ</month>
+							<month type="5" draft="unconfirmed">ߘ</month>
+							<month type="6" draft="unconfirmed">ߥ</month>
+							<month type="7" draft="unconfirmed">ߞ</month>
+							<month type="8" draft="unconfirmed">ߘ</month>
+							<month type="9" draft="unconfirmed">ߕ</month>
+							<month type="10" draft="unconfirmed">ߞ</month>
+							<month type="11" draft="unconfirmed">ߣ</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">ߓߌ߲ߠߊߥߎߟߋ߲</month>
+							<month type="2" draft="unconfirmed">ߞߏ߲ߞߏߜߍ</month>
+							<month type="3" draft="unconfirmed">ߕߙߊߓߊ</month>
+							<month type="4" draft="unconfirmed">ߞߏ߲ߞߏߘߌ߬ߓߌ</month>
+							<month type="5" draft="unconfirmed">ߘߓߊ߬ߕߊ</month>
+							<month type="6" draft="unconfirmed">ߥߊ߬ߛߌ߬ߥߙߊ</month>
+							<month type="7" draft="unconfirmed">ߞߊ߬ߙߌߝߐ߭</month>
+							<month type="8" draft="unconfirmed">ߘߓߊ߬ߓߌߟߊ</month>
+							<month type="9" draft="unconfirmed">ߕߎߟߊߝߌ߲</month>
+							<month type="10" draft="unconfirmed">ߞߏ߲ߓߌߕߌ߮</month>
+							<month type="11" draft="unconfirmed">ߣߍߣߍߓߊ</month>
+							<month type="12" draft="unconfirmed">ߞߏߟߌ߲ߞߏߟߌ߲</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">ߓߌ߲ߠ</month>
+							<month type="2" draft="unconfirmed">ߞߏ߲ߞ</month>
+							<month type="3" draft="unconfirmed">ߕߙߊ</month>
+							<month type="4" draft="unconfirmed">ߞߏ߲ߘ</month>
+							<month type="5" draft="unconfirmed">ߘߓߊ߬ߕ</month>
+							<month type="6" draft="unconfirmed">ߥߊ߬ߛ</month>
+							<month type="7" draft="unconfirmed">ߞߊ߬ߙ</month>
+							<month type="8" draft="unconfirmed">ߘߓߊ߬ߓ</month>
+							<month type="9" draft="unconfirmed">ߕߎߟ</month>
+							<month type="10" draft="unconfirmed">ߞߏ߲ߓ</month>
+							<month type="11" draft="unconfirmed">ߣߍߣ</month>
+							<month type="12" draft="unconfirmed">ߞߏߟ</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">ߓ</month>
+							<month type="2" draft="unconfirmed">ߞ</month>
+							<month type="3" draft="unconfirmed">ߕ</month>
+							<month type="4" draft="unconfirmed">ߞ</month>
+							<month type="5" draft="unconfirmed">ߘ</month>
+							<month type="6" draft="unconfirmed">ߥ</month>
+							<month type="7" draft="unconfirmed">ߞ</month>
+							<month type="8" draft="unconfirmed">ߘ</month>
+							<month type="9" draft="unconfirmed">ߕ</month>
+							<month type="10" draft="unconfirmed">ߞ</month>
+							<month type="11" draft="unconfirmed">ߣ</month>
+							<month type="12" draft="unconfirmed">ߞ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">ߞߊ߯ߙ</day>
+							<day type="mon" draft="unconfirmed">ߞߐ߬ߓ</day>
+							<day type="tue" draft="unconfirmed">ߞߐ߬ߟ</day>
+							<day type="wed" draft="unconfirmed">ߞߎߣ</day>
+							<day type="thu" draft="unconfirmed">ߓߌߟ</day>
+							<day type="fri" draft="unconfirmed">ߛߌ߬ߣ</day>
+							<day type="sat" draft="unconfirmed">ߞߍ߲ߘ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">ߞ</day>
+							<day type="mon" draft="unconfirmed">ߞ</day>
+							<day type="tue" draft="unconfirmed">ߞ</day>
+							<day type="wed" draft="unconfirmed">ߞ</day>
+							<day type="thu" draft="unconfirmed">ߓ</day>
+							<day type="fri" draft="unconfirmed">ߛ</day>
+							<day type="sat" draft="unconfirmed">ߞ</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">ߞߊ߯</day>
+							<day type="mon" draft="unconfirmed">ߞߐ߬</day>
+							<day type="tue" draft="unconfirmed">ߞߐ߬</day>
+							<day type="wed" draft="unconfirmed">ߞߎ</day>
+							<day type="thu" draft="unconfirmed">ߓߌ</day>
+							<day type="fri" draft="unconfirmed">ߛߌ߬</day>
+							<day type="sat" draft="unconfirmed">ߞߍ߲</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">ߞߊ߯ߙߌߟߏ߲</day>
+							<day type="mon" draft="unconfirmed">ߞߐ߬ߓߊ߬ߟߏ߲</day>
+							<day type="tue" draft="unconfirmed">ߞߐ߬ߟߏ߲</day>
+							<day type="wed" draft="unconfirmed">ߞߎߣߎ߲ߟߏ߲</day>
+							<day type="thu" draft="unconfirmed">ߓߌߟߏ߲</day>
+							<day type="fri" draft="unconfirmed">ߛߌ߬ߣߌ߲߬ߟߏ߲</day>
+							<day type="sat" draft="unconfirmed">ߞߍ߲ߘߍߟߏ߲</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">ߞߊ߯ߙ</day>
+							<day type="mon" draft="unconfirmed">ߞߐ߬ߓ</day>
+							<day type="tue" draft="unconfirmed">ߞߐ߬ߟ</day>
+							<day type="wed" draft="unconfirmed">ߞߎߣ</day>
+							<day type="thu" draft="unconfirmed">ߓߌߟ</day>
+							<day type="fri" draft="unconfirmed">ߛߌ߬ߣ</day>
+							<day type="sat" draft="unconfirmed">ߞߍ߲ߘ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">ߞ</day>
+							<day type="mon" draft="unconfirmed">ߞ</day>
+							<day type="tue" draft="unconfirmed">ߞ</day>
+							<day type="wed" draft="unconfirmed">ߞ</day>
+							<day type="thu" draft="unconfirmed">ߓ</day>
+							<day type="fri" draft="unconfirmed">ߛ</day>
+							<day type="sat" draft="unconfirmed">ߞ</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">ߞߊ߯</day>
+							<day type="mon" draft="unconfirmed">ߞߐ߬</day>
+							<day type="tue" draft="unconfirmed">ߞߐ߬</day>
+							<day type="wed" draft="unconfirmed">ߞߎ</day>
+							<day type="thu" draft="unconfirmed">ߓߌ</day>
+							<day type="fri" draft="unconfirmed">ߛߌ߬</day>
+							<day type="sat" draft="unconfirmed">ߞߍ߲</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">ߞߊ߯ߙߌߟߏ߲</day>
+							<day type="mon" draft="unconfirmed">ߞߐ߬ߓߊ߬ߟߏ߲</day>
+							<day type="tue" draft="unconfirmed">ߞߐ߬ߟߏ߲</day>
+							<day type="wed" draft="unconfirmed">ߞߎߣߎ߲ߟߏ߲</day>
+							<day type="thu" draft="unconfirmed">ߓߌߟߏ߲</day>
+							<day type="fri" draft="unconfirmed">ߛߌ߬ߣߌ߲߬ߟߏ߲</day>
+							<day type="sat" draft="unconfirmed">ߞߍ߲ߘߍߟߏ߲</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">ߞ߁</quarter>
+							<quarter type="2" draft="unconfirmed">ߞ߂</quarter>
+							<quarter type="3" draft="unconfirmed">ߞ߃</quarter>
+							<quarter type="4" draft="unconfirmed">ߞ߄</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">߁</quarter>
+							<quarter type="2" draft="unconfirmed">߂</quarter>
+							<quarter type="3" draft="unconfirmed">߃</quarter>
+							<quarter type="4" draft="unconfirmed">߄</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">ߞߊߙߏߛߓߊ߫ ߁߭</quarter>
+							<quarter type="2" draft="unconfirmed">ߞߊߙߏߛߓߊ߫ ߂߲</quarter>
+							<quarter type="3" draft="unconfirmed">ߞߊߙߏߛߓߊ߫ ߃߲</quarter>
+							<quarter type="4" draft="unconfirmed">ߞߊߙߏߛߓߊ߫ ߄߲</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">߁</quarter>
+							<quarter type="2" draft="unconfirmed">߂</quarter>
+							<quarter type="3" draft="unconfirmed">߃</quarter>
+							<quarter type="4" draft="unconfirmed">߄</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">ߛ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ߥ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="unconfirmed">ߛ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ߥ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">ߛ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ߥ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">ߛ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ߥ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="unconfirmed">ߛ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ߥ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">ߛ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ߥ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" draft="unconfirmed">ߌߛߊ߫ ߡߏߦߌ ߢߍ߫</era>
+						<era type="0" alt="variant" draft="unconfirmed">ߞߊ߬ߝߏ߬ߙߋ߲ ߥߎ߬ߛߎ ߢߍ߫</era>
+						<era type="1" draft="unconfirmed">ߌߛߊ߫ ߡߏߦߌ ߞߐ߫</era>
+						<era type="1" alt="variant" draft="unconfirmed">ߞߊ߬ߝߏ߬ߙߋ߲ ߠߊ߫ ߥߎ߬ߛߎ</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="unconfirmed">ߌߛ. ߡ. ߢߍ߫</era>
+						<era type="0" alt="variant" draft="unconfirmed">↑↑↑</era>
+						<era type="1" draft="unconfirmed">ߌߛ. ߡ. ߞߐ߫</era>
+						<era type="1" alt="variant" draft="unconfirmed">↑↑↑</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="unconfirmed">ߌߛ. ߢߍ߫</era>
+						<era type="1" draft="unconfirmed">ߌߛ. ߞߐ߫</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<otherNumberingSystems>
 			<native>nkoo</native>
 		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<decimal draft="unconfirmed">↑↑↑</decimal>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+			<approximatelySign draft="unconfirmed">↑↑↑</approximatelySign>
+			<superscriptingExponent draft="unconfirmed">↑↑↑</superscriptingExponent>
+			<perMille draft="unconfirmed">↑↑↑</perMille>
+			<infinity draft="unconfirmed">↑↑↑</infinity>
+		</symbols>
 	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="duration-century">
+				<displayName draft="unconfirmed">ߝߊ߯ߘߐߞߍ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߊ߯ߘߐߞߍ {0}</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName draft="unconfirmed">ߦߟߍ߬ߘߐ߬ߞߍ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߦߟߍ߬ߘߐ߬ߞߍ {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">ߛߊ߲߭</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߛߊ߲߭ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">ߛߊ߲߭ ߠߊ߫ {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">ߞߊߙߏ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߞߊߙߏ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">ߞߊߙߏ ߟߊ߫ {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">ߞߎ߲߬ߢߐ߮</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߞߎ߲߬ߢߐ߮ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">ߞߎ߲߬ߢߐ߮ ߟߊ߫ {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName draft="unconfirmed">ߟߏ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߟߏ߲ ߜߍ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">ߟߏ߲ ߠߊ߫ {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="unconfirmed">ߕߎ߬ߡߊ߬ߙߋ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߕߎ߬ߡߊ߬ߙߋ߲ {0}</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="unconfirmed">ߡߌ߬ߛߍ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߡߌ߬ߛߍ߲ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">ߡߌ߬ߛߍ߲ ߠߊ߫ {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="unconfirmed">ߝߌ߬ߟߊ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߌ߬ߟߊ߲ {0}</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ߝߌ߬ߟߊ߲߬ߥߊ߰ߘߋ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߌ߬ߟߊ߲߬ߥߊ߰ߘߋ߲ {0}</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="unconfirmed">ߝߌ߬ߟߊ߲߬ߢߊ߲߯ߕߊ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߌ߬ߟߊ߲߬ߢߊ߲߯ߕߊ {0}</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="unconfirmed">ߝߌ߬ߟߊ߲߬ߞߏߦߋ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߌ߬ߟߊ߲߬ߞߏߦߋ {0}</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-century">
+				<displayName draft="unconfirmed">ߝߊ߯ߘߐߞߍ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߊ߯ߘߐߞߍ {0}</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName draft="unconfirmed">ߦߟߍ߬ߘ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߦߟߍ߬ߘߐ߬ߞߍ {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">ߛߊ߲߭</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߛߊ߲߭ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߛߊ߲߭</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">ߞ.</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߞ. {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߞ.</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">ߞߎ߲߬ߢ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߞߎ߲߬ߢ{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߞߎ߲߬ߢ</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName draft="unconfirmed">ߟ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߟ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߟ</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="unconfirmed">ߕߎ߬ߡߊ߬ߙߋ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߕ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߕ</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="unconfirmed">ߡߌ߬ߛ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߡߌ߬ߛ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߡߌ߬ߛ</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="unconfirmed">ߝ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝ {0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߝ</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ߡߝ</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} ߡߝ</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="unconfirmed">μߝ</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} μߝ</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="unconfirmed">ߝߌ߬ߟߞ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߌ߬ߟߞ {0}</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="duration-century">
+				<displayName draft="unconfirmed">ߝߊ߯ߘߐߞߍ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߊ߯ߘߞ{0}</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName draft="unconfirmed">ߦߟߍ߬ߘߐ߬ߞߍ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߦߟߍ߬ߘߞ{0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">ߛߊ߲߭</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߛߊ߲߭{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߛߊ߲߭</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">ߞߊߙߏ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߞ.{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߞ.</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">ߞߎ߲߬ߢ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߞߎ߲߬ߢ{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߞߎ߲߬ߢ</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName draft="unconfirmed">ߟߏ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߟ{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߟ</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="unconfirmed">ߕߎ߬ߡߊ߬ߙߋ߲</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߕ{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߕ</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="unconfirmed">ߡߌ߬ߛ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߡߌ߬ߛ{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߡߌ߬ߛ</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="unconfirmed">ߝ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝ{0}</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/ߝ</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ߡߝ</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} ߡߝ</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="unconfirmed">μߝ</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} μߝ</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="unconfirmed">ߝߌ߬ߟߞ</displayName>
+				<unitPattern count="other" draft="unconfirmed">ߝߌ߬ߟߞ{0}</unitPattern>
+			</unit>
+		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern draft="unconfirmed">↑↑↑</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern draft="unconfirmed">↑↑↑</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern draft="unconfirmed">↑↑↑</durationUnitPattern>
+		</durationUnit>
+	</units>
 </ldml>

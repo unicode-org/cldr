@@ -105,6 +105,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="chr">čiroku</language>
 			<language type="chy">šejenu</language>
 			<language type="ckb">centrālkurdu</language>
+			<language type="ckb" alt="menu">↑↑↑</language>
+			<language type="ckb" alt="variant">sorani kurdu</language>
 			<language type="co">korsikāņu</language>
 			<language type="cop">koptu</language>
 			<language type="cr">krī</language>
@@ -787,7 +789,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ID">Indonēzija</territory>
 			<territory type="IE">Īrija</territory>
 			<territory type="IL">Izraēla</territory>
-			<territory type="IM">Mena</territory>
+			<territory type="IM">Menas sala</territory>
 			<territory type="IN">Indija</territory>
 			<territory type="IO">Indijas okeāna Britu teritorija</territory>
 			<territory type="IQ">Irāka</territory>
@@ -867,7 +869,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="PM">Senpjēra un Mikelona</territory>
 			<territory type="PN">Pitkērnas salas</territory>
 			<territory type="PR">Puertoriko</territory>
-			<territory type="PS">Palestīna</territory>
+			<territory type="PS">Palestīnas teritorijas</territory>
 			<territory type="PS" alt="short">Palestīna</territory>
 			<territory type="PT">Portugāle</territory>
 			<territory type="PW">Palau</territory>
@@ -901,7 +903,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="SY">Sīrija</territory>
 			<territory type="SZ">Svatini</territory>
 			<territory type="SZ" alt="variant">Svazilenda</territory>
-			<territory type="TA">Tristana da Kuņas salas</territory>
+			<territory type="TA">Tristana da Kuņjas salu teritorijas</territory>
 			<territory type="TC">Tērksas un Kaikosas salas</territory>
 			<territory type="TD">Čada</territory>
 			<territory type="TF">Francijas Dienvidjūru teritorija</territory>
@@ -1787,7 +1789,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="noon">pusd.</dayPeriod>
 							<dayPeriod type="pm">pēcpusd.</dayPeriod>
 							<dayPeriod type="morning1">rīts</dayPeriod>
-							<dayPeriod type="afternoon1">pēcpusdiena</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">vakars</dayPeriod>
 							<dayPeriod type="night1">nakts</dayPeriod>
 						</dayPeriodWidth>
@@ -3037,7 +3039,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="minute-short">
-				<displayName>min.</displayName>
+				<displayName>min</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">pēc {0} min.</relativeTimePattern>
 					<relativeTimePattern count="one">pēc {0} min.</relativeTimePattern>
@@ -4067,9 +4069,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaļiņingrada</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopole</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Maskava</exemplarCity>
 			</zone>
@@ -4264,6 +4263,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijeva</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Simferopole</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporožje</exemplarCity>
@@ -5065,9 +5067,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<generic draft="contributed">Norfolkas salas laiks</generic>
-					<standard draft="contributed">Norfolkas salas ziemas laiks</standard>
-					<daylight draft="contributed">Norfolkas salas vasaras laiks</daylight>
+					<generic>Norfolkas salas laiks</generic>
+					<standard>Norfolkas salas ziemas laiks</standard>
+					<daylight>Norfolkas salas vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -5346,6 +5348,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign>%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -5521,6 +5524,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Afganistānas afgāns</displayName>
 				<displayName count="other">Afganistānas afgāni</displayName>
 				<symbol draft="contributed">AFN</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albānijas leks</displayName>
@@ -5535,6 +5539,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Armēnijas drams</displayName>
 				<displayName count="other">Armēnijas drami</displayName>
 				<symbol draft="contributed">AMD</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Nīderlandes Antiļu guldenis</displayName>
@@ -5589,6 +5594,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Azerbaidžānas manats</displayName>
 				<displayName count="other">Azerbaidžānas manati</displayName>
 				<symbol draft="contributed">AZN</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosnijas un Hercogovinas konvertējamā marka</displayName>
@@ -5931,6 +5937,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Ganas sedi</displayName>
 				<displayName count="other">Ganas sedi</displayName>
 				<symbol draft="contributed">GHS</symbol>
+				<symbol alt="narrow" draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltāra mārciņa</displayName>
@@ -7004,16 +7011,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>jota{0}</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="1024p1">
+				<unitPrefixPattern>kibi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p2">
+				<unitPrefixPattern>mebi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p3">
+				<unitPrefixPattern>gibi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p4">
+				<unitPrefixPattern>tebi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p5">
+				<unitPrefixPattern>pebi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p6">
+				<unitPrefixPattern>eksbi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p7">
+				<unitPrefixPattern>zebi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p8">
+				<unitPrefixPattern>jobe{0}</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1 count="zero" draft="provisional">kvadrāt{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="zero">kvadrāt{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">kvadrāt{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">kvadrāt{0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1 count="zero" draft="provisional">kubik{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="zero">kubik{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">kubik{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">kubik{0}</compoundUnitPattern1>
 			</compoundUnit>
@@ -7027,10 +7058,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} smagumspēks</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName>metri kvadrātsekundē</displayName>
-				<unitPattern count="zero">{0} metru kvadrātsekundē</unitPattern>
-				<unitPattern count="one">{0} metrs kvadrātsekundē</unitPattern>
-				<unitPattern count="other">{0} metri kvadrātsekundē</unitPattern>
+				<displayName>metri sekundē kvadrātā</displayName>
+				<unitPattern count="zero">{0} metru sekundē kvadrātā</unitPattern>
+				<unitPattern count="one">{0} metrs sekundē kvadrātā</unitPattern>
+				<unitPattern count="other">{0} metri sekundē kvadrātā</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>apgrieziens</displayName>
@@ -7500,6 +7531,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} punkts collā</unitPattern>
 				<unitPattern count="other">{0} punkti collā</unitPattern>
 			</unit>
+			<unit type="graphics-dot">
+				<displayName>punkts</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-earth-radius">
+				<displayName>Zemes rādiuss</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Zemes rādiuss</unitPattern>
+				<unitPattern count="other">{0} Zemes rādiuss</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometri</displayName>
 				<unitPattern count="zero">{0} kilometru</unitPattern>
@@ -7596,16 +7639,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} astronomiskās vienības</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName draft="contributed">furlongi</displayName>
-				<unitPattern count="zero" draft="contributed">{0} furlongu</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} furlongs</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} furlongi</unitPattern>
+				<displayName>furlongi</displayName>
+				<unitPattern count="zero">{0} furlongu</unitPattern>
+				<unitPattern count="one">{0} furlongs</unitPattern>
+				<unitPattern count="other">{0} furlongi</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName draft="contributed">fatomi</displayName>
-				<unitPattern count="zero" draft="contributed">{0} fatomu</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} fatoms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} fatomi</unitPattern>
+				<displayName>fatomi</displayName>
+				<unitPattern count="zero">{0} fatomu</unitPattern>
+				<unitPattern count="one">{0} fatoms</unitPattern>
+				<unitPattern count="other">{0} fatomi</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>jūras jūdzes</displayName>
@@ -7636,6 +7679,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="zero">{0} luksu</unitPattern>
 				<unitPattern count="one">{0} lukss</unitPattern>
 				<unitPattern count="other">{0} luksi</unitPattern>
+			</unit>
+			<unit type="light-candela">
+				<displayName>kandela</displayName>
+				<unitPattern count="zero">{0} kandelu</unitPattern>
+				<unitPattern count="one">{0} kandela</unitPattern>
+				<unitPattern count="other">{0} kandelas</unitPattern>
+			</unit>
+			<unit type="light-lumen">
+				<displayName>lūmens</displayName>
+				<unitPattern count="zero">{0} lūmenu</unitPattern>
+				<unitPattern count="one">{0} lūmens</unitPattern>
+				<unitPattern count="other">{0} lūmeni</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>Saules starjauda</displayName>
@@ -7682,10 +7737,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tonnas</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName draft="contributed">stouni</displayName>
-				<unitPattern count="zero" draft="contributed">{0} stounu</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} stouns</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} stouni</unitPattern>
+				<displayName>stouni</displayName>
+				<unitPattern count="zero">{0} stounu</unitPattern>
+				<unitPattern count="one">{0} stouns</unitPattern>
+				<unitPattern count="other">{0} stouni</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>mārciņas</displayName>
@@ -7730,6 +7785,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="zero">{0} M☉</unitPattern>
 				<unitPattern count="one">{0} Saules masa</unitPattern>
 				<unitPattern count="other">{0} Saules masas</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<displayName>grans</displayName>
+				<unitPattern count="zero">{0} granu</unitPattern>
+				<unitPattern count="one">{0} grans</unitPattern>
+				<unitPattern count="other">{0} grana</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigavati</displayName>
@@ -7981,10 +8042,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} metriskās glāzes</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>akrpēdas</displayName>
+				<displayName>akrpēda</displayName>
 				<unitPattern count="zero">{0} akrpēdu</unitPattern>
 				<unitPattern count="one">{0} akrpēda</unitPattern>
 				<unitPattern count="other">{0} akrpēdas</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>bušelis</displayName>
+				<unitPattern count="zero">{0} bušeļu</unitPattern>
+				<unitPattern count="one">{0} bušelis</unitPattern>
+				<unitPattern count="other">{0} bušeļi</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>galoni</displayName>
@@ -8047,6 +8114,48 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="zero">{0} bbl</unitPattern>
 				<unitPattern count="one">{0} barels</unitPattern>
 				<unitPattern count="other">{0} bareli</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>deserta karote</displayName>
+				<unitPattern count="zero">{0} deserta karošu</unitPattern>
+				<unitPattern count="one">{0} deserta karote</unitPattern>
+				<unitPattern count="other">{0} deserta karotes</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>britu deserta karote</displayName>
+				<unitPattern count="zero">{0} britu deserta karošu</unitPattern>
+				<unitPattern count="one">{0} britu deserta karote</unitPattern>
+				<unitPattern count="other">{0} britu deserta karotes</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<displayName>piliens</displayName>
+				<unitPattern count="zero">{0} pilienu</unitPattern>
+				<unitPattern count="one">{0} piliens</unitPattern>
+				<unitPattern count="other">{0} pilieni</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<displayName>šķidruma drahma</displayName>
+				<unitPattern count="zero">{0} šķidruma drahmu</unitPattern>
+				<unitPattern count="one">{0} šķidruma drahma</unitPattern>
+				<unitPattern count="other">{0} šķidruma drahmas</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<displayName>mērglāzīte</displayName>
+				<unitPattern count="zero">{0} mērglāzīšu</unitPattern>
+				<unitPattern count="one">{0} mērglāzīte</unitPattern>
+				<unitPattern count="other">{0} mērglāzītes</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<displayName>šķipsniņa</displayName>
+				<unitPattern count="zero">{0} šķipsniņu</unitPattern>
+				<unitPattern count="one">{0} šķipsniņa</unitPattern>
+				<unitPattern count="other">{0} šķipsniņas</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>britu kvarta</displayName>
+				<unitPattern count="zero">{0} britu kvartu</unitPattern>
+				<unitPattern count="one">{0} britu kvarta</unitPattern>
+				<unitPattern count="other">{0} britu kvartas</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>debespuse</displayName>
@@ -8117,6 +8226,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="1024p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p4">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p5">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p7">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p8">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
@@ -8142,7 +8275,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName>metri kvadrātsekundē</displayName>
+				<displayName>metri sekundē kvadrātā</displayName>
 				<unitPattern count="zero">{0} m/s²</unitPattern>
 				<unitPattern count="one">{0} m/s²</unitPattern>
 				<unitPattern count="other">{0} m/s²</unitPattern>
@@ -8255,10 +8388,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mg/dl</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>mmol/L</displayName>
-				<unitPattern count="zero">{0} mmol/L</unitPattern>
-				<unitPattern count="one">{0} mmol/L</unitPattern>
-				<unitPattern count="other">{0} mmol/L</unitPattern>
+				<displayName>mmol/l</displayName>
+				<unitPattern count="zero">{0} mmol/l</unitPattern>
+				<unitPattern count="one">{0} mmol/l</unitPattern>
+				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>miljonās daļas</displayName>
@@ -8615,6 +8748,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="graphics-dot">
+				<displayName>punkts</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} p.</unitPattern>
+				<unitPattern count="other">{0} p.</unitPattern>
+			</unit>
+			<unit type="length-earth-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">{0} km</unitPattern>
@@ -8711,16 +8856,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} a.v.</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName draft="contributed">furlongi</displayName>
-				<unitPattern count="zero" draft="contributed">{0} furlongu</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} furlongs</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} furlongi</unitPattern>
+				<displayName>furlongi</displayName>
+				<unitPattern count="zero">{0} furlongu</unitPattern>
+				<unitPattern count="one">{0} furlongs</unitPattern>
+				<unitPattern count="other">{0} furlongi</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName draft="contributed">fatomi</displayName>
-				<unitPattern count="zero" draft="contributed">{0} fatomu</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} fatoms</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} fatomi</unitPattern>
+				<displayName>fatomi</displayName>
+				<unitPattern count="zero">{0} fatomu</unitPattern>
+				<unitPattern count="one">{0} fatoms</unitPattern>
+				<unitPattern count="other">{0} fatomi</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>↑↑↑</displayName>
@@ -8751,6 +8896,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="zero">{0} lx</unitPattern>
 				<unitPattern count="one">{0} lx</unitPattern>
 				<unitPattern count="other">{0} lx</unitPattern>
+			</unit>
+			<unit type="light-candela">
+				<displayName>kandela</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-lumen">
+				<displayName>lūmens</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>Saules starjauda</displayName>
@@ -8797,10 +8954,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tonnas</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName draft="contributed">stouni</displayName>
-				<unitPattern count="zero" draft="contributed">{0} stounu</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} stouns</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} stouni</unitPattern>
+				<displayName>stouni</displayName>
+				<unitPattern count="zero">{0} stounu</unitPattern>
+				<unitPattern count="one">{0} stouns</unitPattern>
+				<unitPattern count="other">{0} stouni</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName>mārciņas</displayName>
@@ -8845,6 +9002,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="zero">{0} M☉</unitPattern>
 				<unitPattern count="one">{0} M☉</unitPattern>
 				<unitPattern count="other">{0} M☉</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<displayName>gr.</displayName>
+				<unitPattern count="zero">{0} gr.</unitPattern>
+				<unitPattern count="one">{0} gr.</unitPattern>
+				<unitPattern count="other">{0} gr.</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>GW</displayName>
@@ -8992,7 +9155,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>mārciņpēda</displayName>
-				<unitPattern count="zero">{0} mārc. pēdas</unitPattern>
+				<unitPattern count="zero">{0} mārc. pēdu</unitPattern>
 				<unitPattern count="one">{0} mārc. pēda</unitPattern>
 				<unitPattern count="other">{0} mārc. pēdas</unitPattern>
 			</unit>
@@ -9090,16 +9253,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mpt</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>metr.gl.</displayName>
-				<unitPattern count="zero">{0} metr.gl.</unitPattern>
-				<unitPattern count="one">{0} metr.gl.</unitPattern>
-				<unitPattern count="other">{0} metr.gl.</unitPattern>
+				<displayName>metr. gl.</displayName>
+				<unitPattern count="zero">{0} metr. gl.</unitPattern>
+				<unitPattern count="one">{0} metr. gl.</unitPattern>
+				<unitPattern count="other">{0} metr. gl.</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ac ft</displayName>
 				<unitPattern count="zero">{0} ac ft</unitPattern>
 				<unitPattern count="one">{0} ac ft</unitPattern>
 				<unitPattern count="other">{0} ac ft</unitPattern>
+			</unit>
+			<unit type="volume-bushel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>gal</displayName>
@@ -9162,6 +9331,48 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="zero">{0} bbl</unitPattern>
 				<unitPattern count="one">{0} bbl</unitPattern>
 				<unitPattern count="other">{0} bbl</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>des. kar.</displayName>
+				<unitPattern count="zero">{0} des. kar.</unitPattern>
+				<unitPattern count="one">{0} des. kar.</unitPattern>
+				<unitPattern count="other">{0} des. kar.</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>britu des. kar.</displayName>
+				<unitPattern count="zero">{0} britu des. kar.</unitPattern>
+				<unitPattern count="one">{0} britu des. kar.</unitPattern>
+				<unitPattern count="other">{0} britu des. kar.</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<displayName>pil.</displayName>
+				<unitPattern count="zero">{0} pil.</unitPattern>
+				<unitPattern count="one">{0} pil.</unitPattern>
+				<unitPattern count="other">{0} pil.</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<displayName>šķidruma drahma</displayName>
+				<unitPattern count="zero">{0} šķi. drahmu</unitPattern>
+				<unitPattern count="one">{0} šķ. drahma</unitPattern>
+				<unitPattern count="other">{0} šķ. drahmas</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<displayName>mērglāzīte</displayName>
+				<unitPattern count="zero">{0} mērgl.</unitPattern>
+				<unitPattern count="one">{0} mērgl.</unitPattern>
+				<unitPattern count="other">{0} mērgl.</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<displayName>šķips.</displayName>
+				<unitPattern count="zero">{0} šķips.</unitPattern>
+				<unitPattern count="one">{0} šķips.</unitPattern>
+				<unitPattern count="other">{0} šķips.</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>IQT</displayName>
+				<unitPattern count="zero">{0} IQT</unitPattern>
+				<unitPattern count="one">{0} IQT</unitPattern>
+				<unitPattern count="other">{0} IQT</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>debespuse</displayName>
@@ -9230,6 +9441,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p4">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p5">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p7">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p8">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
@@ -9557,7 +9792,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
-				<unitPattern count="zero">{0}km/h</unitPattern>
+				<unitPattern count="zero">{0} km/h</unitPattern>
 				<unitPattern count="one">{0} km/h</unitPattern>
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
@@ -9601,7 +9836,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-liter">
 				<displayName>l</displayName>
-				<unitPattern count="zero">{0}l</unitPattern>
+				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9690,7 +9925,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — saderība</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — noslēgtās</characterLabelPattern>
-		<characterLabelPattern type="extended">{0} — paplašinātās</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — speciālās</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} — vēsturiskās</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — dažādi</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — citas</characterLabelPattern>
@@ -9698,6 +9933,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="strokes" count="zero">{0} vilkumu</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} vilkums</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} vilkumi</characterLabelPattern>
+		<characterLabelPattern type="subscript">apakšraksts {0}</characterLabelPattern>
+		<characterLabelPattern type="superscript">augšraksts {0}</characterLabelPattern>
 		<characterLabel type="activities">aktivitātes</characterLabel>
 		<characterLabel type="african_scripts">Āfrikas rakstības</characterLabel>
 		<characterLabel type="american_scripts">Amerikas rakstības</characterLabel>
@@ -9713,7 +9950,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="currency_symbols">valūtu simboli</characterLabel>
 		<characterLabel type="dash_connector">svītras un savienotāji</characterLabel>
 		<characterLabel type="digits">cipari</characterLabel>
-		<characterLabel type="dingbats">drukas ornamenti</characterLabel>
+		<characterLabel type="dingbats">dekorzīme</characterLabel>
 		<characterLabel type="divination_symbols">okultie simboli</characterLabel>
 		<characterLabel type="downwards_arrows">lejupvērstās bultiņas</characterLabel>
 		<characterLabel type="downwards_upwards_arrows">lejupvērstās un augšupvērstās bultiņas</characterLabel>

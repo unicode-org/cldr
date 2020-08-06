@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="kk"/>
 	</identity>
 	<annotations>
+		<annotation cp="{" draft="contributed">жақша | ирек жақша | фигуралық жақша</annotation>
+		<annotation cp="{" type="tts" draft="contributed">сол жақ фигуралық жақша</annotation>
 		<annotation cp="🏻">1–2 тері түсі | тері | түсі | Фицпатрик | эмодзи өзгертуші</annotation>
 		<annotation cp="🏻" type="tts">1–2 тері түсі</annotation>
 		<annotation cp="🏼">3-тері түрі | тері | түсі | Фицпатрик | эмодзи өзгертуші</annotation>
@@ -23,62 +25,478 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">5-тері түсі</annotation>
 		<annotation cp="🏿">6-тері түсі | тері | түсі | Фицпатрик | эмодзи өзгертуші</annotation>
 		<annotation cp="🏿" type="tts">6-тері түсі</annotation>
+		<annotation cp="‾" draft="contributed">сызықша | үстінен сызу</annotation>
+		<annotation cp="‾" type="tts" draft="contributed">үстіңгі сызық</annotation>
+		<annotation cp="_" draft="contributed">астыңғы сызық | астыңғы сызықша | сызық | сызықша | төмен сызықша</annotation>
+		<annotation cp="_" type="tts" draft="contributed">төмен сызық</annotation>
+		<annotation cp="-" draft="contributed">дефис | минус | сызықша</annotation>
+		<annotation cp="-" type="tts" draft="contributed">минус таңбасы</annotation>
+		<annotation cp="‐" draft="contributed">дефис | сызықша</annotation>
+		<annotation cp="‐" type="tts" draft="contributed">дефис</annotation>
 		<annotation cp="–">қысқа | сызықша</annotation>
 		<annotation cp="–" type="tts">қысқа сызықша</annotation>
 		<annotation cp="—">сызықша | ұзын</annotation>
 		<annotation cp="—" type="tts">ұзын сызықша</annotation>
+		<annotation cp="―" draft="contributed">жолақ | сызық | сызықша</annotation>
+		<annotation cp="―" type="tts" draft="contributed">көлденең жолақ</annotation>
+		<annotation cp="・" draft="contributed">интерпункт | катакана | нүктелер</annotation>
+		<annotation cp="・" type="tts" draft="contributed">катакана интерпункті</annotation>
+		<annotation cp="," draft="contributed">үтір</annotation>
+		<annotation cp="," type="tts">үтір</annotation>
+		<annotation cp="،" draft="contributed">араб | үтір</annotation>
+		<annotation cp="،" type="tts" draft="contributed">араб үтірі</annotation>
+		<annotation cp="、" draft="contributed">идеографиялық | үтір</annotation>
+		<annotation cp="、" type="tts" draft="contributed">идеографиялық үтір</annotation>
+		<annotation cp=";" draft="contributed">нүктелі үтір</annotation>
+		<annotation cp=";" type="tts" draft="contributed">нүктелі үтір</annotation>
+		<annotation cp="؛" draft="contributed">араб | нүктелі үтір</annotation>
+		<annotation cp="؛" type="tts" draft="contributed">араб нүктелі үтірі</annotation>
+		<annotation cp=":" draft="contributed">қос нүкте</annotation>
+		<annotation cp=":" type="tts" draft="contributed">қос нүкте</annotation>
+		<annotation cp="!" draft="contributed">леп белгісі | лептік белгісі</annotation>
+		<annotation cp="!" type="tts" draft="contributed">лептік белгісі</annotation>
+		<annotation cp="¡" draft="contributed">леп белгісі | лептік белгісі | төңкерілген</annotation>
+		<annotation cp="¡" type="tts" draft="contributed">төңкерілген лептік белгісі</annotation>
+		<annotation cp="?" draft="contributed">сұрақ</annotation>
+		<annotation cp="?" type="tts" draft="contributed">сұрау белгісі</annotation>
+		<annotation cp="¿" draft="contributed">сұрақ | сұрақ белгісі | төңкерілген</annotation>
+		<annotation cp="¿" type="tts" draft="contributed">төңкерілген сұрақ белгісі</annotation>
+		<annotation cp="؟" draft="contributed">араб | сұрақ | сұрақ белгісі</annotation>
+		<annotation cp="؟" type="tts" draft="contributed">араб сұрақ белгісі</annotation>
+		<annotation cp="‽" draft="contributed">интерробанг</annotation>
+		<annotation cp="‽" type="tts" draft="contributed">интерробанг</annotation>
+		<annotation cp="." draft="contributed">нүкте</annotation>
+		<annotation cp="." type="tts" draft="contributed">нүкте</annotation>
+		<annotation cp="…" draft="contributed">көп нүкте | қалдырып кету | нүктелер</annotation>
+		<annotation cp="…" type="tts" draft="contributed">көп нүкте</annotation>
+		<annotation cp="。" draft="contributed">идеографиялық | нүкте</annotation>
+		<annotation cp="。" type="tts" draft="contributed">идеографиялық нүкте</annotation>
 		<annotation cp="·">интерпункт | нүкте | ортаңғы</annotation>
 		<annotation cp="·" type="tts">интерпункт</annotation>
+		<annotation cp="'" draft="contributed">апостроф | дара тырнақша | тырнақша</annotation>
+		<annotation cp="'" type="tts" draft="contributed">типографиялық апостроф</annotation>
+		<annotation cp="‘" draft="contributed">апостроф | дара тырнақша | типографиялық тырнақшалар | тырнақша</annotation>
+		<annotation cp="‘" type="tts" draft="contributed">сол жақ апостроф</annotation>
+		<annotation cp="’" draft="contributed">апостроф | дара тырнақша | типографиялық тырнақшалар | тырнақша</annotation>
+		<annotation cp="’" type="tts" draft="contributed">оң апостроф</annotation>
+		<annotation cp="‚" draft="contributed">апостроф | төменгі тырнақша | тырнақша</annotation>
+		<annotation cp="‚" type="tts" draft="contributed">төменгі оң апостроф</annotation>
+		<annotation cp="“" draft="contributed">қос тырнақша | типографиялық тырнақшалар | тырнақша | тырнақшалар</annotation>
+		<annotation cp="“" type="tts" draft="contributed">сол жақ тырнақша белгісі</annotation>
+		<annotation cp="”" draft="contributed">қос тырнақша | типографиялық тырнақшалар | тырнақша | тырнақшалар</annotation>
+		<annotation cp="”" type="tts" draft="contributed">оң жақ тырнақша белгісі</annotation>
+		<annotation cp="„" draft="contributed">қос тырнақша | типографиялық тырнақшалар | төменгі тырнақша | тырнақша | тырнақшалар</annotation>
+		<annotation cp="„" type="tts" draft="contributed">төменгі оң жақ тырнақша белгісі</annotation>
 		<annotation cp="«">бұрыш | дәйексөз | енгізу белгісі | жақшалар | сол жақ | сол жақ тырнақша | тырнақша</annotation>
 		<annotation cp="«" type="tts">сол жақ тырнақша</annotation>
 		<annotation cp="»">бұрыш | дәйексөз | енгізу белгісі | жақшалар | оң жақ | оң жақ тырнақша | тырнақша</annotation>
 		<annotation cp="»" type="tts">оң жақ тырнақша</annotation>
+		<annotation cp=")" draft="contributed">дөңгелек жақша | жақша</annotation>
+		<annotation cp=")" type="tts" draft="contributed">оң жақша</annotation>
+		<annotation cp="[" draft="contributed">жақша | тік жақша</annotation>
+		<annotation cp="[" type="tts" draft="contributed">сол жақ тік жақша</annotation>
+		<annotation cp="]" draft="contributed">жақша | тік жақша</annotation>
+		<annotation cp="]" type="tts" draft="contributed">оң жақ тік жақша</annotation>
+		<annotation cp="}" draft="contributed">жақша | ирек жақша | фигуралық жақша</annotation>
+		<annotation cp="}" type="tts" draft="contributed">оң жақ фигуралық жақша</annotation>
+		<annotation cp="〈" draft="contributed">бұрыштық жақша | жақша | шеврон</annotation>
+		<annotation cp="〈" type="tts" draft="contributed">сол жақ бұрыштық жақша</annotation>
+		<annotation cp="〉" draft="contributed">бұрыштық жақша | жақша | шеврон</annotation>
+		<annotation cp="〉" type="tts" draft="contributed">оң жақ бұрыштық жақша</annotation>
+		<annotation cp="《" draft="contributed">жақша | қосарлы бұрыштық жақша</annotation>
+		<annotation cp="《" type="tts" draft="contributed">сол жақ қосарлы бұрыштық жақша</annotation>
+		<annotation cp="》" draft="contributed">жақша | қосарлы бұрыштық жақша</annotation>
+		<annotation cp="》" type="tts" draft="contributed">оң жақ қосарлы бұрыштық жақша</annotation>
+		<annotation cp="「" draft="contributed">жақша | тік бұрышты жақша</annotation>
+		<annotation cp="「" type="tts" draft="contributed">сол жақ тік бұрышты жақша</annotation>
+		<annotation cp="」" draft="contributed">жақша | тік бұрышты жақша</annotation>
+		<annotation cp="」" type="tts" draft="contributed">оң жақ тік бұрышты жақша</annotation>
+		<annotation cp="『" draft="contributed">жақша | қосарлы тік бұрышты жақша</annotation>
+		<annotation cp="『" type="tts" draft="contributed">сол жақ қосарлы тік бұрышты жақша</annotation>
+		<annotation cp="』" draft="contributed">жақша | қосарлы тік бұрышты жақша</annotation>
+		<annotation cp="』" type="tts" draft="contributed">оң жақ қосарлы тік бұрышты жақша</annotation>
+		<annotation cp="【" draft="contributed">дөңес жақша | жақша | линза пішінді жақша</annotation>
+		<annotation cp="【" type="tts" draft="contributed">қара түсті сол жақ дөңес жақша</annotation>
+		<annotation cp="】" draft="contributed">дөңес жақша | жақша | линза пішінді жақша</annotation>
+		<annotation cp="】" type="tts" draft="contributed">қара түсті оң жақ дөңес жақша</annotation>
+		<annotation cp="〔" draft="contributed">қалың дөңгелек жақша</annotation>
+		<annotation cp="〔" type="tts" draft="contributed">сол жақ қалың дөңгелек жақша</annotation>
+		<annotation cp="〕" draft="contributed">қалың дөңгелек жақша</annotation>
+		<annotation cp="〕" type="tts" draft="contributed">оң жақ қалың дөңгелек жақша</annotation>
+		<annotation cp="〖" draft="contributed">жақша | тік бұрышты дөңес жақша | тік бұрышты линза пішінді жақша</annotation>
+		<annotation cp="〖" type="tts" draft="contributed">сол жақ тік бұрышты дөңес жақша</annotation>
+		<annotation cp="〗" draft="contributed">жақша | тік бұрышты дөңес жақша | тік бұрышты линза пішінді жақша</annotation>
+		<annotation cp="〗" type="tts" draft="contributed">оң жақ тік бұрышты дөңес жақша</annotation>
 		<annotation cp="§">бөлік | бөлім | параграф | параграф белгісі</annotation>
 		<annotation cp="§" type="tts">бөлім</annotation>
+		<annotation cp="¶" draft="contributed">абзац | абзац белгісі | параф</annotation>
+		<annotation cp="¶" type="tts" draft="contributed">абзац белгісі</annotation>
+		<annotation cp="@" draft="contributed">айқұлақ белгісі | коммерциялық белгі</annotation>
+		<annotation cp="@" type="tts" draft="contributed">айқұлақ белгісі</annotation>
+		<annotation cp="*" draft="contributed">жұлдыз | жұлдызша | қойылмалы таңба</annotation>
+		<annotation cp="*" type="tts" draft="contributed">жұлдызша</annotation>
+		<annotation cp="/" draft="contributed">бөлшек сызығы | көлбеу | қиғаш сызық | штрих</annotation>
+		<annotation cp="/" type="tts" draft="contributed">қиғаш сызық</annotation>
+		<annotation cp="\" draft="contributed">кері көлбеу | кері қиғаш сызық</annotation>
+		<annotation cp="\" type="tts" draft="contributed">кері қиғаш сызық</annotation>
+		<annotation cp="&amp;" draft="contributed">et | амперсанд | және</annotation>
+		<annotation cp="&amp;" type="tts" draft="contributed">амперсанд</annotation>
+		<annotation cp="#" draft="contributed">нөмір | тор | фунт | хэштег</annotation>
+		<annotation cp="#" type="tts" draft="contributed">тор белгісі</annotation>
+		<annotation cp="%" draft="contributed">пайыз</annotation>
+		<annotation cp="%" type="tts" draft="contributed">пайыз</annotation>
+		<annotation cp="‰" draft="contributed">промилле</annotation>
+		<annotation cp="‰" type="tts" draft="contributed">промилле</annotation>
 		<annotation cp="†">айқаршық | крест | сілтеме | сілтеме белгісі</annotation>
 		<annotation cp="†" type="tts">сілтеме белгісі</annotation>
 		<annotation cp="‡">айқаршық | крест | қос | қос сілтеме белгісі | сілтеме</annotation>
 		<annotation cp="‡" type="tts">қос сілтеме белгісі</annotation>
 		<annotation cp="•">жуан белгі | нүкте</annotation>
 		<annotation cp="•" type="tts">жуан белгі</annotation>
+		<annotation cp="‧" draft="contributed">дефис | нүкте | сызықша</annotation>
+		<annotation cp="‧" type="tts" draft="contributed">сөз тасымалдау нүктесі</annotation>
+		<annotation cp="′" draft="contributed">штрих</annotation>
+		<annotation cp="′" type="tts" draft="contributed">штрих</annotation>
+		<annotation cp="″" draft="contributed">штрих</annotation>
+		<annotation cp="″" type="tts" draft="contributed">қос штрих</annotation>
+		<annotation cp="‴" draft="contributed">штрих</annotation>
+		<annotation cp="‴" type="tts" draft="contributed">үш штрих</annotation>
+		<annotation cp="‸" draft="contributed">карет</annotation>
+		<annotation cp="‸" type="tts" draft="contributed">карет</annotation>
+		<annotation cp="※" draft="contributed">бақылау белгісі</annotation>
+		<annotation cp="※" type="tts" draft="contributed">бақылау белгісі</annotation>
+		<annotation cp="⁂" draft="contributed">жұлдыздар</annotation>
+		<annotation cp="⁂" type="tts" draft="contributed">үш жұлдызша</annotation>
+		<annotation cp="`" draft="contributed">дыбыс | екпін | қатаң</annotation>
+		<annotation cp="`" type="tts" draft="contributed">қатаң екпін</annotation>
+		<annotation cp="´" draft="contributed">акут | дыбыс | екпін</annotation>
+		<annotation cp="´" type="tts" draft="contributed">акут екпін</annotation>
+		<annotation cp="^" draft="contributed">бақылау | екпін | ендірме | сына | телпек | түрленген | шеврон</annotation>
+		<annotation cp="^" type="tts" draft="contributed">түрленген екпін</annotation>
+		<annotation cp="¨" draft="contributed">диереза | трема | умляут</annotation>
+		<annotation cp="¨" type="tts" draft="contributed">диереза</annotation>
 		<annotation cp="°">дәлел | дәреже | сағат</annotation>
 		<annotation cp="°" type="tts">дәреже</annotation>
 		<annotation cp="℗">авторлық құқық | дыбыс | дыбыс жазу авторлық құқығы | жазу</annotation>
 		<annotation cp="℗" type="tts">дыбыс жазу авторлық құқығы</annotation>
 		<annotation cp="←">көрсеткі | сол | сол бағытты көрсеткі</annotation>
 		<annotation cp="←" type="tts">сол бағытты көрсеткі</annotation>
+		<annotation cp="↚" draft="contributed">сол жақ көрсеткісі бар штрих</annotation>
+		<annotation cp="↚" type="tts" draft="contributed">сол жақ көрсеткісі бар штрих</annotation>
 		<annotation cp="→">көрсеткі | оң | оң бағытты көрсеткі</annotation>
 		<annotation cp="→" type="tts">оң бағытты көрсеткі</annotation>
+		<annotation cp="↛" draft="contributed">оң жақ көрсеткісі бар штрих</annotation>
+		<annotation cp="↛" type="tts" draft="contributed">оң жақ көрсеткісі бар штрих</annotation>
 		<annotation cp="↑">жоғары | жоғары бағытты көрсеткі | көрсеткі</annotation>
+		<annotation cp="↑" type="tts">жоғары бағытты көрсеткі</annotation>
 		<annotation cp="↓">көрсеткі | төмен | төмен бағытты көрсеткі</annotation>
+		<annotation cp="↓" type="tts">төмен бағытты көрсеткі</annotation>
+		<annotation cp="↜" draft="contributed">сол жақ ирек көрсеткі</annotation>
+		<annotation cp="↜" type="tts" draft="contributed">сол жақ ирек көрсеткі</annotation>
+		<annotation cp="↝" draft="contributed">оң жақ ирек көрсеткі</annotation>
+		<annotation cp="↝" type="tts" draft="contributed">оң жақ ирек көрсеткі</annotation>
+		<annotation cp="↞" draft="contributed">қос басты сол жақ көрсеткі</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">қос басты сол жақ көрсеткі</annotation>
+		<annotation cp="↟" draft="contributed">қос басты жоғары көрсеткі</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">қос басты жоғары көрсеткі</annotation>
+		<annotation cp="↠" draft="contributed">қос басты оң жақ көрсеткі</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">қос басты оң жақ көрсеткі</annotation>
+		<annotation cp="↡" draft="contributed">қос басты төмен көрсеткі</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">қос басты төмен көрсеткі</annotation>
+		<annotation cp="↢" draft="contributed">сол жақ құйрықты көрсеткі</annotation>
+		<annotation cp="↢" type="tts" draft="contributed">сол жақ құйрықты көрсеткі</annotation>
+		<annotation cp="↣" draft="contributed">оң жақ құйрықты көрсеткі</annotation>
+		<annotation cp="↣" type="tts" draft="contributed">оң жақ құйрықты көрсеткі</annotation>
+		<annotation cp="↤" draft="contributed">сызықшадан солға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↤" type="tts" draft="contributed">сызықшадан солға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↥" draft="contributed">сызықшадан жоғары қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↥" type="tts" draft="contributed">сызықшадан жоғары қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↦" draft="contributed">сызықшадан оңға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↦" type="tts" draft="contributed">сызықшадан оңға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↧" draft="contributed">сызықшадан төмен қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↧" type="tts" draft="contributed">сызықшадан төмен қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↨" draft="contributed">астында сызықшасы бар жоғары және төмен көрсеткі</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">астында сызықшасы бар жоғары және төмен көрсеткі</annotation>
+		<annotation cp="↫" draft="contributed">сол жақ ілмекті көрсеткі</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">сол жақ ілмекті көрсеткі</annotation>
+		<annotation cp="↬" draft="contributed">оң жақ ілмекті көрсеткі</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">оң жақ ілмекті көрсеткі</annotation>
+		<annotation cp="↭" draft="contributed">сол және оң жақ ирек көрсеткі</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">сол және оң жақ ирек көрсеткі</annotation>
+		<annotation cp="↯" draft="contributed">иір</annotation>
+		<annotation cp="↯" type="tts" draft="contributed">төменге бағытталған иір көрсеткі</annotation>
+		<annotation cp="↰" draft="contributed">басы жоғары және солға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">басы жоғары және солға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↱" draft="contributed">басы жоғары және оңға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">басы жоғары және оңға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↲" draft="contributed">басы төмен және солға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">басы төмен және солға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↳" draft="contributed">басы төмен және оңға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">басы төмен және оңға қарай бағытталған көрсеткі</annotation>
+		<annotation cp="↴" draft="contributed">оңға және төмен бағытталған бұрыштық көрсеткі</annotation>
+		<annotation cp="↴" type="tts" draft="contributed">оңға және төмен бағытталған бұрыштық көрсеткі</annotation>
+		<annotation cp="↵" draft="contributed">төмен және солға бағытталған бұрыштық көрсеткі</annotation>
+		<annotation cp="↵" type="tts" draft="contributed">төмен және солға бағытталған бұрыштық көрсеткі</annotation>
+		<annotation cp="↶" draft="contributed">шеңбердің жоғарғы жарты бөлігі түріндегі сағат тіліне қарсы бағыттағы көрсеткі</annotation>
+		<annotation cp="↶" type="tts" draft="contributed">шеңбердің жоғарғы жарты бөлігі түріндегі сағат тіліне қарсы бағыттағы көрсеткі</annotation>
+		<annotation cp="↷" draft="contributed">шеңбердің жоғарғы жарты бөлігі түріндегі сағат тілі бағытындағы көрсеткі</annotation>
+		<annotation cp="↷" type="tts" draft="contributed">шеңбердің жоғарғы жарты бөлігі түріндегі сағат тілі бағытындағы көрсеткі</annotation>
+		<annotation cp="↸" draft="contributed">үстінде ұзын сызықшасы бар солтүстік-батыс бағыттағы көрсеткі</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">үстінде ұзын сызықшасы бар солтүстік-батыс бағыттағы көрсеткі</annotation>
+		<annotation cp="↹" draft="contributed">оң жағында сызықшасы бар оң жақ көрсеткінің үстіндегі сол жағында сызықшасы бар сол жақ көрсеткі</annotation>
+		<annotation cp="↹" type="tts" draft="contributed">оң жағында сызықшасы бар оң жақ көрсеткінің үстіндегі сол жағында сызықшасы бар сол жақ көрсеткі</annotation>
+		<annotation cp="↺" draft="contributed">сағат тіліне қарсы бағыттағы ашық шеңберлі көрсеткі</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">сағат тіліне қарсы бағыттағы ашық шеңберлі көрсеткі</annotation>
+		<annotation cp="↻" draft="contributed">сағат тілі бағытындағы ашық шеңберлі көрсеткі</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">сағат тілі бағытындағы ашық шеңберлі көрсеткі</annotation>
+		<annotation cp="↼" draft="contributed">кертік</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">жоғарғы жағында кертігі бар сол жақ сүңгі</annotation>
+		<annotation cp="↽" draft="contributed">төменгі жағында кертігі бар сол жақ сүңгі</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">төменгі жағында кертігі бар сол жақ сүңгі</annotation>
+		<annotation cp="↾" draft="contributed">кертік</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">оң жағында кертігі бар жоғары сүңгі</annotation>
+		<annotation cp="↿" draft="contributed">кертік</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">сол жағында кертігі бар жоғары сүңгі</annotation>
+		<annotation cp="⇀" draft="contributed">кертік</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">жоғарғы жағында кертігі бар оң жақ сүңгі</annotation>
+		<annotation cp="⇁" draft="contributed">кертік</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">төменгі жағында кертігі бар оң жақ сүңгі</annotation>
+		<annotation cp="⇂" draft="contributed">кертік</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">оң жағында кертігі бар төмен сүңгі</annotation>
+		<annotation cp="⇃" draft="contributed">кертік</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">сол жағында кертігі бар төмен сүңгі</annotation>
+		<annotation cp="⇄" draft="contributed">сол жақ көрсеткінің үстіндегі оң жақ көрсеткі</annotation>
+		<annotation cp="⇄" type="tts" draft="contributed">сол жақ көрсеткінің үстіндегі оң жақ көрсеткі</annotation>
 		<annotation cp="⇅">жоғары | жоғары және төмен бағытты көрсеткілер | көрсеткі | төмен</annotation>
 		<annotation cp="⇅" type="tts">жоғары және төмен бағытты көрсеткілер</annotation>
 		<annotation cp="⇆">көрсеткі | оң | оң бағытты көрсеткілер үстіндегі сол бағытты көрсеткілер | сол</annotation>
+		<annotation cp="⇆" type="tts" draft="contributed">оң бағытты көрсеткілер үстіндегі сол бағытты көрсеткілер</annotation>
+		<annotation cp="⇇" draft="contributed">екі сол жақ көрсеткі</annotation>
+		<annotation cp="⇇" type="tts" draft="contributed">екі сол жақ көрсеткі</annotation>
+		<annotation cp="⇈" draft="contributed">екі жоғары көрсеткі</annotation>
+		<annotation cp="⇈" type="tts" draft="contributed">екі жоғары көрсеткі</annotation>
+		<annotation cp="⇉" draft="contributed">екі оң жақ көрсеткі</annotation>
+		<annotation cp="⇉" type="tts" draft="contributed">екі оң жақ көрсеткі</annotation>
+		<annotation cp="⇊" draft="contributed">екі төмен көрсеткі</annotation>
+		<annotation cp="⇊" type="tts" draft="contributed">екі төмен көрсеткі</annotation>
+		<annotation cp="⇋" draft="contributed">оң жақ сүңгінің үстіндегі сол жақ сүңгі</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">оң жақ сүңгінің үстіндегі сол жақ сүңгі</annotation>
+		<annotation cp="⇌" draft="contributed">сол жақ сүңгінің үстіндегі оң жақ сүңгі</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">сол жақ сүңгінің үстіндегі оң жақ сүңгі</annotation>
+		<annotation cp="⇐" draft="contributed">сол жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">сол жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇍" draft="contributed">штрихі бар сол жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">штрихі бар сол жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇑" draft="contributed">жоғары қосарлы көрсеткі</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">жоғары қосарлы көрсеткі</annotation>
+		<annotation cp="⇒" draft="contributed">оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇏" draft="contributed">штрихі бар оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">штрихі бар оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇓" draft="contributed">төмен қосарлы көрсеткі</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">төмен қосарлы көрсеткі</annotation>
+		<annotation cp="⇔" draft="contributed">сол және оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">сол және оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇎" draft="contributed">штрихі бар сол және оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">штрихі бар сол және оң жақ қосарлы көрсеткі</annotation>
+		<annotation cp="⇖" draft="contributed">солтүстік-батыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">солтүстік-батыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇗" draft="contributed">солтүстік-шығыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">солтүстік-шығыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇘" draft="contributed">оңтүстік-шығыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">оңтүстік-шығыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇙" draft="contributed">оңтүстік-батыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">оңтүстік-батыс бағыттағы қосарлы көрсеткі</annotation>
+		<annotation cp="⇚" draft="contributed">сол жақ үштік көрсеткі</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">сол жақ үштік көрсеткі</annotation>
+		<annotation cp="⇛" draft="contributed">оң жақ үштік көрсеткі</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">оң жақ үштік көрсеткі</annotation>
+		<annotation cp="⇜" draft="contributed">сол жақ иректелген көрсеткі</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">сол жақ иректелген көрсеткі</annotation>
+		<annotation cp="⇝" draft="contributed">оң жақ иректелген көрсеткі</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">оң жақ иректелген көрсеткі</annotation>
+		<annotation cp="⇞" draft="contributed">қосарлы штрихі бар жоғары көрсеткі</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">қосарлы штрихі бар жоғары көрсеткі</annotation>
+		<annotation cp="⇟" draft="contributed">қосарлы штрихі бар төмен көрсеткі</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">қосарлы штрихі бар төмен көрсеткі</annotation>
+		<annotation cp="⇠" draft="contributed">сол жақ пунктирлі көрсеткі</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">сол жақ пунктирлі көрсеткі</annotation>
+		<annotation cp="⇡" draft="contributed">жоғары пунктирлі көрсеткі</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">жоғары пунктирлі көрсеткі</annotation>
+		<annotation cp="⇢" draft="contributed">оң жақ пунктирлі көрсеткі</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">оң жақ пунктирлі көрсеткі</annotation>
+		<annotation cp="⇣" draft="contributed">төмен пунктирлі көрсеткі</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">төмен пунктирлі көрсеткі</annotation>
+		<annotation cp="⇤" draft="contributed">сол жағында сызықшасы бар сол жақ көрсеткі</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">сол жағында сызықшасы бар сол жақ көрсеткі</annotation>
+		<annotation cp="⇥" draft="contributed">оң жағында сызықшасы бар оң жақ көрсеткі</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">оң жағында сызықшасы бар оң жақ көрсеткі</annotation>
+		<annotation cp="⇦" draft="contributed">іші қуыс сол жақ көрсеткі</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">іші қуыс сол жақ көрсеткі</annotation>
+		<annotation cp="⇧" draft="contributed">іші қуыс жоғары көрсеткі</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">іші қуыс жоғары көрсеткі</annotation>
+		<annotation cp="⇨" draft="contributed">іші қуыс оң жақ көрсеткі</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">іші қуыс оң жақ көрсеткі</annotation>
+		<annotation cp="⇩" draft="contributed">іші қуыс төмен көрсеткі</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">іші қуыс төмен көрсеткі</annotation>
+		<annotation cp="⇪" draft="contributed">іші қуыс жоғары пунктирлі көрсеткі</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">іші қуыс жоғары пунктирлі көрсеткі</annotation>
+		<annotation cp="⇵" draft="contributed">жоғары көрсеткінің сол жағындағы төмен көрсеткі</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">жоғары көрсеткінің сол жағындағы төмен көрсеткі</annotation>
+		<annotation cp="∀" draft="contributed">әмбебап | барлығы | берілген | кез келген</annotation>
+		<annotation cp="∀" type="tts" draft="contributed">барлығы үшін</annotation>
+		<annotation cp="∂" draft="contributed">дифференциал</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">ішінара дифференциал</annotation>
+		<annotation cp="∃" draft="contributed">бар</annotation>
+		<annotation cp="∃" type="tts" draft="contributed">бар</annotation>
+		<annotation cp="∅" draft="contributed">жиын операторы | математика</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">бос жиын</annotation>
 		<annotation cp="∆">өсу | үшбұрыш</annotation>
 		<annotation cp="∆" type="tts">өсу</annotation>
 		<annotation cp="∇">набла | үшбұрыш</annotation>
 		<annotation cp="∇" type="tts">набла</annotation>
 		<annotation cp="∈">жинақ | құрайды | мүшелік | элемент</annotation>
 		<annotation cp="∈" type="tts">элемент</annotation>
+		<annotation cp="∉" draft="contributed">элемент</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">элемент емес</annotation>
+		<annotation cp="∋" draft="contributed">элемент</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">мүшені қамтиды</annotation>
+		<annotation cp="∎" draft="contributed">q.e.d. | qed | құлпытас | Халмош</annotation>
+		<annotation cp="∎" type="tts" draft="contributed">Q.E.D.</annotation>
+		<annotation cp="∏" draft="contributed">көбейтінді | логика</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">n-ші көбейтінді</annotation>
+		<annotation cp="∑" draft="contributed">қосынды | математика</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">n-ші қосынды</annotation>
+		<annotation cp="+" draft="contributed">қосу | плюс</annotation>
+		<annotation cp="+" type="tts" draft="contributed">қосу таңбасы</annotation>
+		<annotation cp="±" draft="contributed">плюс-минус</annotation>
+		<annotation cp="±" type="tts" draft="contributed">плюс-минус</annotation>
 		<annotation cp="÷">бөлу | бөлу белгісі | крестик</annotation>
 		<annotation cp="÷" type="tts">бөлу белгісі</annotation>
 		<annotation cp="×">көбейту | көбейту белгісі | рет</annotation>
 		<annotation cp="×" type="tts">көбейту белгісі</annotation>
+		<annotation cp="&lt;" draft="contributed">бастапқы тег | кішірек | тег</annotation>
+		<annotation cp="&lt;" type="tts" draft="contributed">кішірек</annotation>
+		<annotation cp="≮" draft="contributed">математика | теңсіздік</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">кем емес</annotation>
+		<annotation cp="=" draft="contributed">тең | тепе-тең</annotation>
+		<annotation cp="=" type="tts" draft="contributed">тең</annotation>
+		<annotation cp="≠" draft="contributed">тең емес | теңсіздік</annotation>
+		<annotation cp="≠" type="tts" draft="contributed">тең емес</annotation>
+		<annotation cp="&gt;" draft="contributed">соңғы тег | тег | үлкенірек</annotation>
+		<annotation cp="&gt;" type="tts" draft="contributed">үлкенірек</annotation>
+		<annotation cp="≯" draft="contributed">математика | теңсіздік</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">үлкен емес</annotation>
+		<annotation cp="¬" draft="contributed">емес | теріске шығару</annotation>
+		<annotation cp="¬" type="tts" draft="contributed">теріске шығару</annotation>
+		<annotation cp="|" draft="contributed">жолақ | сүңгі | сызық | таяқша | тік жолақ | түтік | Шеффер штрихі | штрих</annotation>
+		<annotation cp="|" type="tts" draft="contributed">тік сызық</annotation>
+		<annotation cp="~" draft="contributed">тильда</annotation>
+		<annotation cp="~" type="tts" draft="contributed">тильда</annotation>
+		<annotation cp="−" draft="contributed">азайту | минус</annotation>
+		<annotation cp="−" type="tts" draft="contributed">азайту таңбасы</annotation>
 		<annotation cp="⁻">минус | үстіңгі индекс | үстіңгі минус индексі</annotation>
 		<annotation cp="⁻" type="tts">үстіңгі минус индексі</annotation>
+		<annotation cp="∓" draft="contributed">плюс-минус</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">минус немесе плюс</annotation>
+		<annotation cp="∕" draft="contributed">бөлшек | қиғаш сызық | штрих</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">бөлу қиғаш сызығы</annotation>
+		<annotation cp="⁄" draft="contributed">қиғаш сызық | штрих</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">бөлшек сызығы</annotation>
+		<annotation cp="∗" draft="contributed">жұлдыз</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">жұлдызша операторы</annotation>
+		<annotation cp="∘" draft="contributed">композиция | оператор</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">сақина операторы</annotation>
+		<annotation cp="∙" draft="contributed">оператор</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">нүкте операторы</annotation>
 		<annotation cp="√">иррационал | квадрат түбір | негіз | радикал | түбір | шаршы</annotation>
 		<annotation cp="√" type="tts">квадрат түбір</annotation>
+		<annotation cp="∝" draft="contributed">пропорционалдық</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">пропорционал</annotation>
 		<annotation cp="∞">шексіздік | шексіздік белгісі</annotation>
 		<annotation cp="∞" type="tts">шексіздік белгісі</annotation>
+		<annotation cp="∟" draft="contributed">математика</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">тік бұрыш</annotation>
+		<annotation cp="∠" draft="contributed">сүйір бұрыш</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">бұрыш</annotation>
+		<annotation cp="∣" draft="contributed">бөлгіш</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">бөледі</annotation>
+		<annotation cp="∥" draft="contributed">параллель</annotation>
+		<annotation cp="∥" type="tts" draft="contributed">параллель</annotation>
+		<annotation cp="∧" draft="contributed">ac | atque | сына</annotation>
+		<annotation cp="∧" type="tts" draft="contributed">логикалық &quot;және&quot;</annotation>
 		<annotation cp="∩">жинақ | қиылысу</annotation>
 		<annotation cp="∩" type="tts">қиылысу</annotation>
 		<annotation cp="∪">жинақ | одақ | топтама</annotation>
 		<annotation cp="∪" type="tts">одақ</annotation>
+		<annotation cp="∫" draft="contributed">есептеу</annotation>
+		<annotation cp="∫" type="tts" draft="contributed">интеграл</annotation>
+		<annotation cp="∬" draft="contributed">есептеу</annotation>
+		<annotation cp="∬" type="tts" draft="contributed">қос интеграл</annotation>
+		<annotation cp="∮" draft="contributed">контурлы интеграл</annotation>
+		<annotation cp="∮" type="tts" draft="contributed">контурлы интеграл</annotation>
+		<annotation cp="∴" draft="contributed">логика</annotation>
+		<annotation cp="∴" type="tts" draft="contributed">сондықтан</annotation>
+		<annotation cp="∵" draft="contributed">логика</annotation>
+		<annotation cp="∵" type="tts" draft="contributed">себебі</annotation>
+		<annotation cp="∶" draft="contributed">ара қатынас</annotation>
+		<annotation cp="∶" type="tts" draft="contributed">ара қатынас</annotation>
+		<annotation cp="∷" draft="contributed">пропорционалдық</annotation>
+		<annotation cp="∷" type="tts" draft="contributed">пропорция</annotation>
+		<annotation cp="∼" draft="contributed">оператор</annotation>
+		<annotation cp="∼" type="tts" draft="contributed">тильда операторы</annotation>
+		<annotation cp="∽" draft="contributed">тильда</annotation>
+		<annotation cp="∽" type="tts" draft="contributed">кері тильда</annotation>
+		<annotation cp="∾" draft="contributed">кері жатық s</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">кері жатық s</annotation>
+		<annotation cp="≃" draft="contributed">асимптота | математика</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">асимптотикалық тең</annotation>
+		<annotation cp="≅" draft="contributed">изоморфизм | конгруэнция | математика | теңдік</annotation>
+		<annotation cp="≅" type="tts" draft="contributed">шамамен тең</annotation>
+		<annotation cp="≈" draft="contributed">тең дерлік | шамаланған мән | шамамен</annotation>
+		<annotation cp="≈" type="tts" draft="contributed">тең дерлік</annotation>
+		<annotation cp="≌" draft="contributed">математика | теңдік</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">барлығы тең</annotation>
+		<annotation cp="≒" draft="contributed">&quot;шамамен тең&quot; кескіні</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">&quot;шамамен тең&quot; кескіні</annotation>
+		<annotation cp="≖" draft="contributed">математика | теңдік</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">теңдік белгісінің ішіндегі сақина</annotation>
 		<annotation cp="≡">бірдей | дәл | үш</annotation>
 		<annotation cp="≡" type="tts">бірдей</annotation>
+		<annotation cp="≣" draft="contributed">математика | теңдік</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">қатаң эквивалентті</annotation>
+		<annotation cp="≤" draft="contributed">кішірек | тең | теңсіздік</annotation>
+		<annotation cp="≤" type="tts" draft="contributed">кішірек немесе тең</annotation>
+		<annotation cp="≥" draft="contributed">тең | теңсіздік | үлкенірек</annotation>
+		<annotation cp="≥" type="tts" draft="contributed">үлкенірек немесе тең</annotation>
+		<annotation cp="≦" draft="contributed">математика | теңсіздік</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">кем немесе тең</annotation>
+		<annotation cp="≧" draft="contributed">математика | теңсіздік</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">үлкен немесе тең</annotation>
+		<annotation cp="≪" draft="contributed">математика | теңсіздік</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">әлдеқайда кем</annotation>
+		<annotation cp="≫" draft="contributed">математика | теңсіздік</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">әлдеқайда үлкен</annotation>
+		<annotation cp="≬" draft="contributed">аралығында</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">аралығында</annotation>
+		<annotation cp="≳" draft="contributed">математика | теңсіздік</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">үлкен немесе эквивалентті</annotation>
+		<annotation cp="≺" draft="contributed">жиын операторы | математика</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">алдында келеді</annotation>
+		<annotation cp="≻" draft="contributed">жиын операторы | математика</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">артында келеді</annotation>
+		<annotation cp="⊁" draft="contributed">жиын операторы | математика</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">артында келмейді</annotation>
 		<annotation cp="⊂">жинақ | ішкі жинағы | ішкі жинақ</annotation>
 		<annotation cp="⊂" type="tts">ішкі жинақ</annotation>
+		<annotation cp="⊃" draft="contributed">жиын операторы | математика</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">басты жиын</annotation>
+		<annotation cp="⊆" draft="contributed">ішкі жиынға тең</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">ішкі жиынға тең</annotation>
+		<annotation cp="⊇" draft="contributed">математика | теңдік</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">басты жиынға тең</annotation>
 		<annotation cp="▲">жоғары | көрсеткі | толтырылған | толтырылған жоғары бағытталған үшбұрыш | үшбұрыш</annotation>
+		<annotation cp="▲" type="tts">толтырылған жоғары бағытталған үшбұрыш</annotation>
 		<annotation cp="▼">көрсеткі | толтырылған | толтырылған төмен бағытталған үшбұрыш | төмен | үшбұрыш</annotation>
 		<annotation cp="▼" type="tts">толтырылған төмен бағытталған үшбұрыш</annotation>
 		<annotation cp="◊">ромб | ромб тәрізді | төрт бұрышты</annotation>
@@ -89,118 +507,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="●" type="tts">толтырылған шеңбер</annotation>
 		<annotation cp="◯">дөңгелек | үлкен бос шеңбер | шеңбер</annotation>
 		<annotation cp="◯" type="tts">үлкен бос шеңбер</annotation>
-		<annotation cp="⚧">трансгендер | трансгендерлік таңба</annotation>
-		<annotation cp="⚧" type="tts">трансгендерлік таңба</annotation>
-		<annotation cp="🤌">қол қимылы | мысқыл | саусақтар | сұрау | түйістірілген бес саусақ | түйістіру</annotation>
-		<annotation cp="🤌" type="tts">түйістірілген бес саусақ</annotation>
-		<annotation cp="🥲">жас | жеңілденіп қалу | жылап тұрып күлу | көңілі елжіреу | күлімсіреу | разы | риза</annotation>
-		<annotation cp="🥲" type="tts">жылап тұрып күлу</annotation>
-		<annotation cp="🥷">жасырыну | көзге көрінбеу | күресші | ниндзя</annotation>
-		<annotation cp="🥷" type="tts">ниндзя</annotation>
-		<annotation cp="🥸">бет | бетін бүркеп алу | бүркеп алу | инкогнито | көзілдірік | мұрын</annotation>
-		<annotation cp="🥸" type="tts">бетін бүркеп алу</annotation>
-		<annotation cp="🦣">азу | жойылу | ірі | мамонт | түкті</annotation>
-		<annotation cp="🦣" type="tts">мамонт</annotation>
-		<annotation cp="🦤">дронт | жойылу | ірі | Маврикий</annotation>
-		<annotation cp="🦤" type="tts">дронт</annotation>
-		<annotation cp="🦫">бөгет | құндыз</annotation>
-		<annotation cp="🦫" type="tts">құндыз</annotation>
-		<annotation cp="🦬">бизон | енеке | жабайы өгіз | мал бағу</annotation>
-		<annotation cp="🦬" type="tts">бизон</annotation>
-		<annotation cp="🦭">итбалық | теңіз арыстаны</annotation>
-		<annotation cp="🦭" type="tts">итбалық</annotation>
-		<annotation cp="🧋">інжу | көбікті шай | сүт | түйіршік | шай</annotation>
-		<annotation cp="🧋" type="tts">көбікті шай</annotation>
-		<annotation cp="🩴">вьетнамдық | дзори | жағажай сандалы | сандал</annotation>
-		<annotation cp="🩴" type="tts">вьетнамдық сандал</annotation>
-		<annotation cp="🪃">Австралия | айналып келу | бумеранг | кері реакция</annotation>
-		<annotation cp="🪃" type="tts">бумеранг</annotation>
-		<annotation cp="🪄">сиқыр | сиқырлы | сиқырлы таяқша | шебер</annotation>
-		<annotation cp="🪄" type="tts">сиқырлы таяқша</annotation>
-		<annotation cp="🪅">кеш | пиньята | тойлау</annotation>
-		<annotation cp="🪅" type="tts">пиньята</annotation>
-		<annotation cp="🪆">қуыршақ | матрешка | ресей</annotation>
-		<annotation cp="🪆" type="tts">матрешка</annotation>
-		<annotation cp="🪖">әскер | әскери | жауынгер | каска | сарбаз</annotation>
-		<annotation cp="🪖" type="tts">әскери каска</annotation>
-		<annotation cp="🪗">аккордеон | концертино | сырнай</annotation>
-		<annotation cp="🪗" type="tts">аккордеон</annotation>
-		<annotation cp="🪘">барабан | бит | конга | цилиндрлік барабан | ырғақ</annotation>
-		<annotation cp="🪘" type="tts">цилиндрлік барабан</annotation>
-		<annotation cp="🪙">ақша | алтын | күміс | қазына | металл | тиын</annotation>
-		<annotation cp="🪙" type="tts">тиын</annotation>
-		<annotation cp="🪚">ағаш ұстасы | ара | араланған материал | құрал</annotation>
-		<annotation cp="🪚" type="tts">ара</annotation>
-		<annotation cp="🪛">бұрағыш | бұрау | құрал</annotation>
-		<annotation cp="🪛" type="tts">бұрағыш</annotation>
-		<annotation cp="🪜">баспалдақ | қадам | міну | саты</annotation>
-		<annotation cp="🪜" type="tts">саты</annotation>
-		<annotation cp="🪝">имек | ілгек | іліп алу | коммерциялық аргумент | ұстап алу</annotation>
-		<annotation cp="🪝" type="tts">ілгек</annotation>
-		<annotation cp="🪞">айна | шағылдырғыш | шағылыс</annotation>
-		<annotation cp="🪞" type="tts">айна</annotation>
-		<annotation cp="🪟">жақтау | көрініс | мөлдір | саңылау | таза ауа | терезе</annotation>
-		<annotation cp="🪟" type="tts">терезе</annotation>
-		<annotation cp="🪠">вантуз | дәретхана | сантехник-слесарь | сору</annotation>
-		<annotation cp="🪠" type="tts">вантуз</annotation>
-		<annotation cp="🪡">жіп | ине | тігін | тігістер | тігу</annotation>
-		<annotation cp="🪡" type="tts">тігін ине</annotation>
-		<annotation cp="🪢">арқан | байлау | бау | түйін | шатасқан | шиыру</annotation>
-		<annotation cp="🪢" type="tts">түйін</annotation>
-		<annotation cp="🪣">бөшке | кірлен | қауға | шелек</annotation>
-		<annotation cp="🪣" type="tts">шелек</annotation>
-		<annotation cp="🪤">қақпан | тосқын | тұзақ | тұзақ жем</annotation>
-		<annotation cp="🪤" type="tts">қақпан</annotation>
-		<annotation cp="🪥">ванна | гигиена | стоматологиялық | тазалау | тіс | тіс щеткасы | щетка</annotation>
-		<annotation cp="🪥" type="tts">тіс щеткасы</annotation>
-		<annotation cp="🪦">бейіт | зират | қабір | құлпытас | сағана</annotation>
-		<annotation cp="🪦" type="tts">сағана</annotation>
-		<annotation cp="🪧">демонстрация | жазу | наразылық | пикет | плакат</annotation>
-		<annotation cp="🪧" type="tts">плакат</annotation>
-		<annotation cp="🪨">ауыр | жұмыр тас | қатты | қойтас | тас</annotation>
-		<annotation cp="🪨" type="tts">тас</annotation>
-		<annotation cp="🪰">ауру | дернәсіл | зиянкес | ұшу | шіру</annotation>
-		<annotation cp="🪰" type="tts">ұшу</annotation>
-		<annotation cp="🪱">жауынқұрт | құрт | паразит | сақина тәрізді құрт</annotation>
-		<annotation cp="🪱" type="tts">құрт</annotation>
-		<annotation cp="🪲">жәндік | қоңыз | шыбын-шіркей</annotation>
-		<annotation cp="🪲" type="tts">қоңыз</annotation>
-		<annotation cp="🪳">жәндік | зиянкес | тарақан</annotation>
-		<annotation cp="🪳" type="tts">тарақан</annotation>
-		<annotation cp="🪴">бөлме өсімдігі | қазу | өсімдік | өсіру | өсу | пайдасыз | үй</annotation>
-		<annotation cp="🪴" type="tts">бөлме өсімдігі</annotation>
-		<annotation cp="🪵" draft="contributed">ағаш | ағаш маериал | бөрене | құрылыс ағашы</annotation>
-		<annotation cp="🪵" type="tts">ағаш</annotation>
-		<annotation cp="🪶">жеңіл | қауырсын | құс | ұшу</annotation>
-		<annotation cp="🪶" type="tts">қауырсын</annotation>
-		<annotation cp="🫀">жүрек органы | жүрек соғысы | кардиология | орган | орталық | пулсь</annotation>
-		<annotation cp="🫀" type="tts">жүрек органы</annotation>
-		<annotation cp="🫁">ауа жұту | орган | өкпе | респирация | тыныс | тыныс алу</annotation>
-		<annotation cp="🫁" type="tts">өкпе</annotation>
-		<annotation cp="🫂">алғыс айту | қоштасу | құшақтасқан адамдар | құшақтасу | сәлемдесу</annotation>
-		<annotation cp="🫂" type="tts">құшақтасқан адамдар</annotation>
-		<annotation cp="🫐">жидек | көк | қара жидек | қаражидек</annotation>
-		<annotation cp="🫐" type="tts">қаражидек</annotation>
-		<annotation cp="🫑">болгар бұрышы | бұршаққынды бұрыш | бұрыш | көкөніс</annotation>
-		<annotation cp="🫑" type="tts">болгар бұрышы</annotation>
-		<annotation cp="🫒">азық-түлік | зәйтүн</annotation>
-		<annotation cp="🫒" type="tts">зәйтүн</annotation>
-		<annotation cp="🫓">арепа | лаваш | наан | пита | шелпек нан</annotation>
-		<annotation cp="🫓" type="tts">шелпек нан</annotation>
-		<annotation cp="🫔">мексикалық | оралған | тамал</annotation>
-		<annotation cp="🫔" type="tts">тамал</annotation>
-		<annotation cp="🫕">ерітілген | ірімшік | таба | фондю | швейцариялық | шоколад</annotation>
-		<annotation cp="🫕" type="tts">фондю</annotation>
-		<annotation cp="🫖">ішу | шай | шәйнек</annotation>
-		<annotation cp="🫖" type="tts">шәйнек</annotation>
-		<annotation cp="🛖">киіз үй | лашық | үй | шеңбер үй</annotation>
-		<annotation cp="🛖" type="tts">лашық</annotation>
-		<annotation cp="🛗">көтеру | лифт | мүмкіндігі шектеулі</annotation>
-		<annotation cp="🛗" type="tts">лифт</annotation>
-		<annotation cp="🛻">жүк машинасы | пикап</annotation>
-		<annotation cp="🛻" type="tts">пикап</annotation>
-		<annotation cp="🛼">дөңгелек | ролик</annotation>
-		<annotation cp="🛼" type="tts">ролик</annotation>
+		<annotation cp="♪" draft="contributed">музыка | нота | сегізінші</annotation>
+		<annotation cp="♪" type="tts" draft="contributed">сегізінші нота</annotation>
+		<annotation cp="♭" draft="contributed">бемоль | музыка | нота | төмендеу белгісі</annotation>
+		<annotation cp="♭" type="tts" draft="contributed">төмендеу белгісі</annotation>
+		<annotation cp="♯" draft="contributed">диез | музыка | нота</annotation>
+		<annotation cp="♯" type="tts" draft="contributed">диез</annotation>
 		<annotation cp="😀">бет | езу тарту | езу тартып күлу</annotation>
 		<annotation cp="😀" type="tts">езу тартып күлу</annotation>
 		<annotation cp="😃">аузын ашып күлу | ауыз | ашық | бет | жымию</annotation>
@@ -243,6 +555,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">көзді жұмып тұрып сүю</annotation>
 		<annotation cp="😙">бет | көз | күліп сүю | сүю</annotation>
 		<annotation cp="😙" type="tts">күліп сүю</annotation>
+		<annotation cp="🥲">жас | жеңілденіп қалу | жылап тұрып күлу | көңілі елжіреу | күлімсіреу | разы | риза</annotation>
+		<annotation cp="🥲" type="tts">жылап тұрып күлу</annotation>
 		<annotation cp="😋">бет | дәмді | күлу | тілін шығарып күлу</annotation>
 		<annotation cp="😋" type="tts">тілін шығарып күлу</annotation>
 		<annotation cp="😛">бет | тіл | тілін шығару</annotation>
@@ -273,6 +587,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">сезімсіз</annotation>
 		<annotation cp="😶">аузы жоқ бет | ауыз | бет | тыныш | үнсіз</annotation>
 		<annotation cp="😶" type="tts">аузы жоқ бет</annotation>
+		<annotation cp="😶‍🌫" draft="contributed">бұлт басқан бас | бұлт басқан бет | ойға батқан | тұман басқан бет</annotation>
+		<annotation cp="😶‍🌫" type="tts" draft="contributed">бұлт басқан бет</annotation>
 		<annotation cp="😏">бет | көз | мырс-мырс күлу</annotation>
 		<annotation cp="😏" type="tts">мырс-мырс күлу</annotation>
 		<annotation cp="😒">бет | қуанышты емес | қызық емес</annotation>
@@ -313,12 +629,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">әлсіреген жүз</annotation>
 		<annotation cp="😵">басы айналу | бет</annotation>
 		<annotation cp="😵" type="tts">басы айналу</annotation>
+		<annotation cp="😵‍💫" draft="contributed">басы айналған | гипноздалған | мәссаған | үрей | шиыршық</annotation>
+		<annotation cp="😵‍💫" type="tts" draft="contributed">көзі шиыршық бет</annotation>
 		<annotation cp="🤯">бас жарылғалы тұр</annotation>
 		<annotation cp="🤯" type="tts">бас жарылғалы тұр</annotation>
 		<annotation cp="🤠">ковбой | ковбой қалпағы | қалпақ</annotation>
 		<annotation cp="🤠" type="tts">ковбой қалпағы</annotation>
 		<annotation cp="🥳">кеш | мүйіз | тойлау | шляпа</annotation>
 		<annotation cp="🥳" type="tts">тойлау</annotation>
+		<annotation cp="🥸">бет | бетін бүркеп алу | бүркеп алу | инкогнито | көзілдірік | мұрын</annotation>
+		<annotation cp="🥸" type="tts">бетін бүркеп алу</annotation>
 		<annotation cp="😎">бет | көзілдірік | көзілдірік тағып жымию | мықты</annotation>
 		<annotation cp="😎" type="tts">көзілдірік тағып жымию</annotation>
 		<annotation cp="🤓">білгішсымақ | көзілдірік таққан</annotation>
@@ -335,6 +655,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">тұнжырау</annotation>
 		<annotation cp="😮">аң-таң болу | аузы ашылу | бет | таңдану</annotation>
 		<annotation cp="😮" type="tts">таңдану</annotation>
+		<annotation cp="😮‍💨" draft="contributed">дем шығару | тыныс шығару | тынысы тарылу | үһлеу | ысқыру | ысқырық</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="contributed">ауаны шығарып тұрған бет</annotation>
 		<annotation cp="😯">бет | таңғалу | таңдану | таңырқату</annotation>
 		<annotation cp="😯" type="tts">таңғалу</annotation>
 		<annotation cp="😲">аң-таң | аң-таң болу | бет | таң қалу</annotation>
@@ -455,6 +777,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">сынған жүрек</annotation>
 		<annotation cp="❤">жүрек | қызыл жүрек</annotation>
 		<annotation cp="❤" type="tts">қызыл жүрек</annotation>
+		<annotation cp="❤‍🔥" draft="contributed">асыл жүрек | жану | жүрек | махаббат | ынтық</annotation>
+		<annotation cp="❤‍🔥" type="tts" draft="contributed">лаулап тұрған жүрек</annotation>
+		<annotation cp="❤‍🩹" draft="contributed">аман-сау | жазылу | жөнделу | қалпына келу | оңалу | сау</annotation>
+		<annotation cp="❤‍🩹" type="tts" draft="contributed">жаралы жүрек</annotation>
 		<annotation cp="🧡">қызғылт-сары жүрек</annotation>
 		<annotation cp="🧡" type="tts">қызғылт-сары жүрек</annotation>
 		<annotation cp="💛">жүрек | сары</annotation>
@@ -511,6 +837,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">вулканша сәлемдесу</annotation>
 		<annotation cp="👌">дене | жарайды | қол | ОК</annotation>
 		<annotation cp="👌" type="tts">ОК</annotation>
+		<annotation cp="🤌">қол қимылы | мысқыл | саусақтар | сұрау | түйістірілген бес саусақ | түйістіру</annotation>
+		<annotation cp="🤌" type="tts">түйістірілген бес саусақ</annotation>
 		<annotation cp="🤏">аз ғана мөлшер | саусақпен қысып алу</annotation>
 		<annotation cp="🤏" type="tts">саусақпен қысып алу</annotation>
 		<annotation cp="✌">V | жеңіс | қол | саусақтармен «V» тәрізді көрсету</annotation>
@@ -583,6 +911,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">мұрын</annotation>
 		<annotation cp="🧠">ми</annotation>
 		<annotation cp="🧠" type="tts">ми</annotation>
+		<annotation cp="🫀">жүрек | кардиология | орган | пульс</annotation>
+		<annotation cp="🫀" type="tts">жүрек органы</annotation>
+		<annotation cp="🫁">ауа жұту | орган | өкпе | респирация | тыныс | тыныс алу</annotation>
+		<annotation cp="🫁" type="tts">өкпе</annotation>
 		<annotation cp="🦷">тіс | тіс дәрігері</annotation>
 		<annotation cp="🦷" type="tts">тіс</annotation>
 		<annotation cp="🦴">қаңқа | сүйек</annotation>
@@ -607,24 +939,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ересек</annotation>
 		<annotation cp="👱">аққұба | аққұба адам</annotation>
 		<annotation cp="👱" type="tts">аққұба адам</annotation>
-		<annotation cp="🧑‍🍼">адам | бала | бала емізіп отырған адам | емізу | күту</annotation>
-		<annotation cp="🧑‍🍼" type="tts">бала емізіп отырған адам</annotation>
-		<annotation cp="🧑‍🎄">клаус мырза | Клаус, рождество</annotation>
-		<annotation cp="🧑‍🎄" type="tts">клаус мырза</annotation>
 		<annotation cp="👨">ер | ер адам</annotation>
 		<annotation cp="👨" type="tts">ер адам</annotation>
 		<annotation cp="🧔">сақалды адам | сақалды ер адам</annotation>
 		<annotation cp="🧔" type="tts">сақалды ер адам</annotation>
 		<annotation cp="👱‍♂">аққұба | аққұба ер адам | ер</annotation>
 		<annotation cp="👱‍♂" type="tts">аққұба ер адам</annotation>
-		<annotation cp="👨‍🍼">бала | бала емізіп отырған еркек | емізу | еркек | күтім</annotation>
-		<annotation cp="👨‍🍼" type="tts">бала емізіп отырған еркек</annotation>
+		<annotation cp="🧔‍♀" draft="contributed">әйел адам | әйел адам: сақал | сақал</annotation>
+		<annotation cp="🧔‍♀" type="tts" draft="contributed">әйел адам: сақал</annotation>
+		<annotation cp="🧔‍♂" draft="contributed">ер адам | ер адам: сақал | сақал</annotation>
+		<annotation cp="🧔‍♂" type="tts" draft="contributed">ер адам: сақал</annotation>
 		<annotation cp="👩">әйел | әйел адам</annotation>
 		<annotation cp="👩" type="tts">әйел</annotation>
 		<annotation cp="👱‍♀">аққұба | әйел</annotation>
 		<annotation cp="👱‍♀" type="tts">аққұба әйел</annotation>
-		<annotation cp="👩‍🍼">әйел | бала | бала емізіп отырған әйел | емізу | күтім</annotation>
-		<annotation cp="👩‍🍼" type="tts">бала емізіп отырған әйел</annotation>
 		<annotation cp="🧓">ересек | қарт адам</annotation>
 		<annotation cp="🧓" type="tts">қарт адам</annotation>
 		<annotation cp="👴">ер | кәрі | қарт</annotation>
@@ -721,8 +1049,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🌾" type="tts">ер фермер</annotation>
 		<annotation cp="👩‍🌾">әйел | бағбан | фермер</annotation>
 		<annotation cp="👩‍🌾" type="tts">фермер әйел</annotation>
-		<annotation cp="🧑‍🍳" draft="provisional">аспаз</annotation>
-		<annotation cp="🧑‍🍳" type="tts" draft="contributed">аспаз</annotation>
+		<annotation cp="🧑‍🍳">аспаз | бас аспаз</annotation>
+		<annotation cp="🧑‍🍳" type="tts">аспаз</annotation>
 		<annotation cp="👨‍🍳">аспаз | аспазшы | ер</annotation>
 		<annotation cp="👨‍🍳" type="tts">ер аспаз</annotation>
 		<annotation cp="👩‍🍳">аспаз | аспазшы | әйел</annotation>
@@ -733,7 +1061,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🔧" type="tts">ер механик</annotation>
 		<annotation cp="👩‍🔧">әйел | механик | сантехник | электрик</annotation>
 		<annotation cp="👩‍🔧" type="tts">механик әйел</annotation>
-		<annotation cp="🧑‍🏭">жұмысшы | зауыт | зауыт жұмысшысы | құрасыру | өнеркәсіп</annotation>
+		<annotation cp="🧑‍🏭">жұмысшы | зауыт | құрастыру | өнеркәсіп</annotation>
 		<annotation cp="🧑‍🏭" type="tts">зауыт жұмысшысы</annotation>
 		<annotation cp="👨‍🏭">ер | ер зауытшы | жұмысшы | зауыт | өнеркәсіп</annotation>
 		<annotation cp="👨‍🏭" type="tts">жұмысшы</annotation>
@@ -769,7 +1097,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🎨" type="tts">ер суретші</annotation>
 		<annotation cp="👩‍🎨">әйел | бояу | суретші</annotation>
 		<annotation cp="👩‍🎨" type="tts">суретші әйел</annotation>
-		<annotation cp="🧑‍✈" draft="provisional">пилот</annotation>
+		<annotation cp="🧑‍✈" draft="provisional">пилот | ұшақ</annotation>
 		<annotation cp="🧑‍✈" type="tts" draft="contributed">пилот</annotation>
 		<annotation cp="👨‍✈">ер | пилот | ұшақ | ұшқыш</annotation>
 		<annotation cp="👨‍✈" type="tts">ұшқыш</annotation>
@@ -805,6 +1133,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">күзетші ер адам</annotation>
 		<annotation cp="💂‍♀">әйел | күзет | күзетші</annotation>
 		<annotation cp="💂‍♀" type="tts">күзетші әйел</annotation>
+		<annotation cp="🥷">жасырыну | көзге көрінбеу | күресші | ниндзя</annotation>
+		<annotation cp="🥷" type="tts">ниндзя</annotation>
 		<annotation cp="👷">жұмысшы | қалпақ | құрылыс | құрылысшы</annotation>
 		<annotation cp="👷" type="tts">құрылысшы</annotation>
 		<annotation cp="👷‍♂">құрылысшы ер адам</annotation>
@@ -827,26 +1157,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">орамал таққан әйел</annotation>
 		<annotation cp="🤵">адам | қызметкер | смокинг | смокинг киген адам</annotation>
 		<annotation cp="🤵" type="tts">смокинг киген адам</annotation>
-		<annotation cp="🤵‍♀">әйел адам | смокинг | смокинг киген әйел адам</annotation>
-		<annotation cp="🤵‍♀" type="tts">смокинг киген әйел адам</annotation>
 		<annotation cp="🤵‍♂">ер адам | смокинг | смокинг киген ер адам</annotation>
 		<annotation cp="🤵‍♂" type="tts">смокинг киген ер адам</annotation>
+		<annotation cp="🤵‍♀">әйел адам | смокинг | смокинг киген әйел адам</annotation>
+		<annotation cp="🤵‍♀" type="tts">смокинг киген әйел адам</annotation>
 		<annotation cp="👰">адам | жаулық | жаулықты адам | қалыңдық | үйлену</annotation>
 		<annotation cp="👰" type="tts">қалыңдық</annotation>
-		<annotation cp="👰‍♀">әйел | жаулық | жаулық таққан әйел | жаулық таққан әйел адам</annotation>
-		<annotation cp="👰‍♀" type="tts">жаулық таққан әйел</annotation>
 		<annotation cp="👰‍♂">ер адам | жаулық | жаулық таққан ер адам</annotation>
 		<annotation cp="👰‍♂" type="tts">жаулық таққан ер адам</annotation>
+		<annotation cp="👰‍♀">әйел | жаулық | жаулық таққан әйел | жаулық таққан әйел адам</annotation>
+		<annotation cp="👰‍♀" type="tts">жаулық таққан әйел</annotation>
 		<annotation cp="🤰">әйел | екіқабат</annotation>
 		<annotation cp="🤰" type="tts">екіқабат әйел</annotation>
 		<annotation cp="🤱">бала | бала емізу | күту</annotation>
 		<annotation cp="🤱" type="tts">бала емізу</annotation>
+		<annotation cp="👩‍🍼">әйел | бала | бала емізіп отырған әйел | емізу | күтім</annotation>
+		<annotation cp="👩‍🍼" type="tts">бала емізіп отырған әйел</annotation>
+		<annotation cp="👨‍🍼">бала | бала емізіп отырған еркек | емізу | еркек | күтім</annotation>
+		<annotation cp="👨‍🍼" type="tts">бала емізіп отырған еркек</annotation>
+		<annotation cp="🧑‍🍼">адам | бала | бала емізіп отырған адам | емізу | күту</annotation>
+		<annotation cp="🧑‍🍼" type="tts">бала емізіп отырған адам</annotation>
 		<annotation cp="👼">бет | ертегі | кішкентай періште | қиял | періште | сәби</annotation>
 		<annotation cp="👼" type="tts">кішкентай періште</annotation>
 		<annotation cp="🎅">әке | клаус | Рождество | санта | тойлау</annotation>
 		<annotation cp="🎅" type="tts">санта клаус</annotation>
 		<annotation cp="🤶">ақшақар</annotation>
 		<annotation cp="🤶" type="tts">ақшақар</annotation>
+		<annotation cp="🧑‍🎄">клаус мырза | Клаус, рождество</annotation>
+		<annotation cp="🧑‍🎄" type="tts">клаус мырза</annotation>
 		<annotation cp="🦸">батыр | жақсы | супер батыр | супер күш</annotation>
 		<annotation cp="🦸" type="tts">супер батыр</annotation>
 		<annotation cp="🦸‍♂">батыр | ер | еркек супер батыр | жақсы | супер күш</annotation>
@@ -937,13 +1275,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🦯" type="tts">таяғы бар еркек</annotation>
 		<annotation cp="👩‍🦯">әйел | мүмкіндігі шектеулі | соқыр | таяғы бар әйел</annotation>
 		<annotation cp="👩‍🦯" type="tts">таяғы бар әйел</annotation>
-		<annotation cp="🧑‍🦼" draft="provisional">моторлы арбадағы адам</annotation>
-		<annotation cp="🧑‍🦼" type="tts" draft="contributed">моторлы арбадағы адам</annotation>
+		<annotation cp="🧑‍🦼" draft="provisional">арба | моторлы арбадағы адам | мүмкіндігі шектеулі</annotation>
+		<annotation cp="🧑‍🦼" type="tts">моторлы арбадағы адам</annotation>
 		<annotation cp="👨‍🦼">арбаша | еркек | мүмкіндігі шектеулі | электр жетегі бар арбашадағы еркек</annotation>
 		<annotation cp="👨‍🦼" type="tts">электр жетегі бар арбашадағы еркек</annotation>
 		<annotation cp="👩‍🦼">арбаша | әйел | мүмкіндігі шектеулі | электр жетегі бар арбашадағы әйел</annotation>
 		<annotation cp="👩‍🦼" type="tts">электр жетегі бар арбашадағы әйел</annotation>
-		<annotation cp="🧑‍🦽" draft="provisional">қол жетегі бар арбашадағы адам</annotation>
+		<annotation cp="🧑‍🦽" draft="provisional">арба | қол жетегі бар арбадағы адам | мүмкіндігі шектеулі</annotation>
 		<annotation cp="🧑‍🦽" type="tts" draft="contributed">қол жетегі бар арбашадағы адам</annotation>
 		<annotation cp="👨‍🦽">арбаша | еркек | қол жетегі бар арбашадағы еркек | мүмкіндігі шектеулі</annotation>
 		<annotation cp="👨‍🦽" type="tts">қол жетегі бар арбашадағы еркек</annotation>
@@ -1095,6 +1433,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👤" type="tts">адам сұлбасы</annotation>
 		<annotation cp="👥">адамдар сұлбасы | мүсін | сұлба</annotation>
 		<annotation cp="👥" type="tts">адамдар сұлбасы</annotation>
+		<annotation cp="🫂">алғыс айту | қоштасу | құшақтасқан адамдар | құшақтасу | сәлемдесу</annotation>
+		<annotation cp="🫂" type="tts">құшақтасқан адамдар</annotation>
 		<annotation cp="👣">аяқ іздері | дене | ізі | киім</annotation>
 		<annotation cp="👣" type="tts">аяқ іздері</annotation>
 		<annotation cp="🦰">жирен | жирен шаш | қызыл бас</annotation>
@@ -1153,6 +1493,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">ала құлан</annotation>
 		<annotation cp="🦌">бұғы | марал</annotation>
 		<annotation cp="🦌" type="tts">бұғы</annotation>
+		<annotation cp="🦬">бизон | енеке | жабайы өгіз | мал бағу</annotation>
+		<annotation cp="🦬" type="tts">бизон</annotation>
 		<annotation cp="🐮">бет | сиыр | сиырдың беті</annotation>
 		<annotation cp="🐮" type="tts">сиырдың беті</annotation>
 		<annotation cp="🐂">бұқа | зодиак | өгіз | торпақ</annotation>
@@ -1185,6 +1527,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">керік</annotation>
 		<annotation cp="🐘">піл</annotation>
 		<annotation cp="🐘" type="tts">піл</annotation>
+		<annotation cp="🦣">азу | жойылу | ірі | мамонт | түкті</annotation>
+		<annotation cp="🦣" type="tts">мамонт</annotation>
 		<annotation cp="🦏">жануар | мүйізтұмсық</annotation>
 		<annotation cp="🦏" type="tts">мүйізтұмсық</annotation>
 		<annotation cp="🦛">бегемот | гиппопотам</annotation>
@@ -1203,6 +1547,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">қоян</annotation>
 		<annotation cp="🐿">боршатышқан | тиін</annotation>
 		<annotation cp="🐿" type="tts">боршатышқан</annotation>
+		<annotation cp="🦫">бөгет | құндыз</annotation>
+		<annotation cp="🦫" type="tts">құндыз</annotation>
 		<annotation cp="🦔">кірпі | тікен | тікенек</annotation>
 		<annotation cp="🦔" type="tts">кірпі</annotation>
 		<annotation cp="🦇">вампир | жарқанат</annotation>
@@ -1253,6 +1599,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">аққу</annotation>
 		<annotation cp="🦉">жапалақ | құс</annotation>
 		<annotation cp="🦉" type="tts">жапалақ</annotation>
+		<annotation cp="🦤">дронт | жойылу | ірі | Маврикий</annotation>
+		<annotation cp="🦤" type="tts">дронт</annotation>
+		<annotation cp="🪶">жеңіл | қауырсын | құс | ұшу</annotation>
+		<annotation cp="🪶" type="tts">қауырсын</annotation>
 		<annotation cp="🦩">алаулы | тропикалық | фламинго</annotation>
 		<annotation cp="🦩" type="tts">фламинго</annotation>
 		<annotation cp="🦚">даңғой | құс | менмен | тауыс</annotation>
@@ -1283,6 +1633,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">кит</annotation>
 		<annotation cp="🐬">дельфин | жүзбеқанат</annotation>
 		<annotation cp="🐬" type="tts">дельфин</annotation>
+		<annotation cp="🦭">итбалық | теңіз арыстаны</annotation>
+		<annotation cp="🦭" type="tts">итбалық</annotation>
 		<annotation cp="🐟">балық | балықтар | зодиак</annotation>
 		<annotation cp="🐟" type="tts">балық</annotation>
 		<annotation cp="🐠">балық | тропикалық</annotation>
@@ -1305,10 +1657,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">құмырсқа</annotation>
 		<annotation cp="🐝">ара | бал ара | шыбын-шіркей</annotation>
 		<annotation cp="🐝" type="tts">бал ара</annotation>
+		<annotation cp="🪲">жәндік | қоңыз | шыбын-шіркей</annotation>
+		<annotation cp="🪲" type="tts">қоңыз</annotation>
 		<annotation cp="🐞">қызыл қоңыз | ханқызы | шыбын-шіркей</annotation>
 		<annotation cp="🐞" type="tts">ханқызы</annotation>
 		<annotation cp="🦗">шегіртке</annotation>
 		<annotation cp="🦗" type="tts">шегіртке</annotation>
+		<annotation cp="🪳">жәндік | зиянкес | тарақан</annotation>
+		<annotation cp="🪳" type="tts">тарақан</annotation>
 		<annotation cp="🕷">өрмекші | шыбын-шіркей</annotation>
 		<annotation cp="🕷" type="tts">өрмекші</annotation>
 		<annotation cp="🕸">өрмекші | өрмекші торы | тор</annotation>
@@ -1317,6 +1673,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">шаян</annotation>
 		<annotation cp="🦟">ауру | безгек | вирус | жәндік | малярия | маса</annotation>
 		<annotation cp="🦟" type="tts">маса</annotation>
+		<annotation cp="🪰">ауру | дернәсіл | зиянкес | ұшу | шіру</annotation>
+		<annotation cp="🪰" type="tts">ұшу</annotation>
+		<annotation cp="🪱">жауынқұрт | құрт | паразит | сақина тәрізді құрт</annotation>
+		<annotation cp="🪱" type="tts">құрт</annotation>
 		<annotation cp="🦠">амеба | бактерия | вирус | микроб</annotation>
 		<annotation cp="🦠" type="tts">микроб</annotation>
 		<annotation cp="💐">гул шоғы | гүл | өсімдік | романтика</annotation>
@@ -1341,6 +1701,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌷" type="tts">қызғалдақ</annotation>
 		<annotation cp="🌱">жаңа | көшет | өсімдік</annotation>
 		<annotation cp="🌱" type="tts">көшет</annotation>
+		<annotation cp="🪴">бөлме өсімдігі | қазу | өсімдік | өсіру | өсу | пайдасыз | үй</annotation>
+		<annotation cp="🪴" type="tts">бөлме өсімдігі</annotation>
 		<annotation cp="🌲">ағаш | өсімдік | шырша</annotation>
 		<annotation cp="🌲" type="tts">шырша</annotation>
 		<annotation cp="🌳">ағаш | дәмді | жапырақты ағаш | өсімдік | түсу</annotation>
@@ -1391,10 +1753,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">шие</annotation>
 		<annotation cp="🍓">жеміс | құлпынай | өсімдік</annotation>
 		<annotation cp="🍓" type="tts">құлпынай</annotation>
+		<annotation cp="🫐">жидек | көк | қара жидек | қаражидек</annotation>
+		<annotation cp="🫐" type="tts">қаражидек</annotation>
 		<annotation cp="🥝">киви | тағам</annotation>
 		<annotation cp="🥝" type="tts">киви</annotation>
 		<annotation cp="🍅">көкөніс | қызанақ | өсімдік</annotation>
 		<annotation cp="🍅" type="tts">қызанақ</annotation>
+		<annotation cp="🫒">азық-түлік | зәйтүн</annotation>
+		<annotation cp="🫒" type="tts">зәйтүн</annotation>
 		<annotation cp="🥥">кокос</annotation>
 		<annotation cp="🥥" type="tts">кокос</annotation>
 		<annotation cp="🥑">авокадо | тағам</annotation>
@@ -1409,6 +1775,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">жүгері собығы</annotation>
 		<annotation cp="🌶">ащы | бұрыш | өсімдік</annotation>
 		<annotation cp="🌶" type="tts">ащы бұрыш</annotation>
+		<annotation cp="🫑">болгар бұрышы | бұршаққынды бұрыш | бұрыш | көкөніс</annotation>
+		<annotation cp="🫑" type="tts">болгар бұрышы</annotation>
 		<annotation cp="🥒">көкөніс | қияр | тағам</annotation>
 		<annotation cp="🥒" type="tts">қияр</annotation>
 		<annotation cp="🥬">бок чой | жасыл жапырақ | қырыққабат | латук | орамжапырақ</annotation>
@@ -1431,6 +1799,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥐" type="tts">круассан</annotation>
 		<annotation cp="🥖">багет | нан | тағам</annotation>
 		<annotation cp="🥖" type="tts">багет</annotation>
+		<annotation cp="🫓">арепа | лаваш | наан | пита | шелпек нан</annotation>
+		<annotation cp="🫓" type="tts">шелпек нан</annotation>
 		<annotation cp="🥨">тұзды тоқаш</annotation>
 		<annotation cp="🥨" type="tts">тұзды тоқаш</annotation>
 		<annotation cp="🥯">бейгл | кулинария | шмеар</annotation>
@@ -1463,6 +1833,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">тако</annotation>
 		<annotation cp="🌯">бурито | мексикалық</annotation>
 		<annotation cp="🌯" type="tts">бурито</annotation>
+		<annotation cp="🫔">мексикалық | оралған | тамал</annotation>
+		<annotation cp="🫔" type="tts">тамал</annotation>
 		<annotation cp="🥙">жылдам | тағам | шаурма</annotation>
 		<annotation cp="🥙" type="tts">шаурма</annotation>
 		<annotation cp="🧆">бұршақ ет | ноқат | фалафель</annotation>
@@ -1475,6 +1847,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">табадағы рагу</annotation>
 		<annotation cp="🍲">бақыраш | бұқтырылған ет | тамақ толы бақыраш</annotation>
 		<annotation cp="🍲" type="tts">тамақ толы бақыраш</annotation>
+		<annotation cp="🫕">ерітілген | ірімшік | таба | фондю | швейцариялық | шоколад</annotation>
+		<annotation cp="🫕" type="tts">фондю</annotation>
 		<annotation cp="🥣">қасығы бар ыдыс</annotation>
 		<annotation cp="🥣" type="tts">қасығы бар ыдыс</annotation>
 		<annotation cp="🥗">жасыл | көкөніс | көкөніс салаты | салат | тағам</annotation>
@@ -1565,6 +1939,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">стақан сүт</annotation>
 		<annotation cp="☕">бу шығып тұр | ішімдік | кофе | сусын | шәй | ыстық</annotation>
 		<annotation cp="☕" type="tts">ыстық сусын</annotation>
+		<annotation cp="🫖">ішу | шай | шәйнек</annotation>
+		<annotation cp="🫖" type="tts">шәйнек</annotation>
 		<annotation cp="🍵">айшанақ | ішімдік | сусын | тұтқасы жоқ шынаяқ | шәй | шынаяқ</annotation>
 		<annotation cp="🍵" type="tts">тұтқасы жоқ шынаяқ</annotation>
 		<annotation cp="🍶">бар | бөтелке | ішімдік | сакэ | сусын | шынаяқ</annotation>
@@ -1587,6 +1963,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">шарап стақаны</annotation>
 		<annotation cp="🥤">түтікшелі ыдыс</annotation>
 		<annotation cp="🥤" type="tts">түтікшелі ыдыс</annotation>
+		<annotation cp="🧋">інжу | көбікті шай | сүт | түйіршік | шай</annotation>
+		<annotation cp="🧋" type="tts">көбікті шай</annotation>
 		<annotation cp="🧃">сусын қорабы | шырын қорабы</annotation>
 		<annotation cp="🧃" type="tts">сусын қорабы</annotation>
 		<annotation cp="🧉">мате | сусын</annotation>
@@ -1645,6 +2023,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">ғимарат салу</annotation>
 		<annotation cp="🧱">ерітінді | кірпіш | кірпіштер | қабырға | топырақ</annotation>
 		<annotation cp="🧱" type="tts">кірпіш</annotation>
+		<annotation cp="🪨">ауыр | жұмыр тас | қатты | қойтас | тас</annotation>
+		<annotation cp="🪨" type="tts">тас</annotation>
+		<annotation cp="🪵" draft="contributed">ағаш | ағаш маериал | бөрене | құрылыс ағашы</annotation>
+		<annotation cp="🪵" type="tts">ағаш</annotation>
+		<annotation cp="🛖">киіз үй | лашық | үй | шеңбер үй</annotation>
+		<annotation cp="🛖" type="tts">лашық</annotation>
 		<annotation cp="🏘">құру | үй | үйлер салу</annotation>
 		<annotation cp="🏘" type="tts">үйлер салу</annotation>
 		<annotation cp="🏚">қараусыз | қараусыз қалған үй | құру | үй</annotation>
@@ -1779,6 +2163,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">келе жатқан автокөлік</annotation>
 		<annotation cp="🚙">кемпер | көлік</annotation>
 		<annotation cp="🚙" type="tts">кемпер</annotation>
+		<annotation cp="🛻">жүк машинасы | пикап</annotation>
+		<annotation cp="🛻" type="tts">пикап</annotation>
 		<annotation cp="🚚">жеткізу | жүк көлігі | көлік</annotation>
 		<annotation cp="🚚" type="tts">жүк көлігі</annotation>
 		<annotation cp="🚛">автопойыз | жартылай | жүк көлігі | жүк тасу көлігі | көлік</annotation>
@@ -1803,6 +2189,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">самокат</annotation>
 		<annotation cp="🛹">борт | скейтборд</annotation>
 		<annotation cp="🛹" type="tts">скейтборд</annotation>
+		<annotation cp="🛼">дөңгелек | ролик</annotation>
+		<annotation cp="🛼" type="tts">ролик</annotation>
 		<annotation cp="🚏">автобус | аялдама | тоқтау</annotation>
 		<annotation cp="🚏" type="tts">аялдама</annotation>
 		<annotation cp="🛣">автомагистраль | жол</annotation>
@@ -2133,7 +2521,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">шана</annotation>
 		<annotation cp="🥌">керлинг тасы</annotation>
 		<annotation cp="🥌" type="tts">керлинг тасы</annotation>
-		<annotation cp="🎯">бұқа көз | дарт | дәл тию | нысана | ойын | тию</annotation>
+		<annotation cp="🎯">дартс | дартс найзасы | дәл тию | нысана | ойын | тию</annotation>
 		<annotation cp="🎯" type="tts">дәл тию</annotation>
 		<annotation cp="🪀">йо-йо | ойыншық | тербелу</annotation>
 		<annotation cp="🪀" type="tts">йо-йо</annotation>
@@ -2143,6 +2531,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎱" type="tts">биллиярд</annotation>
 		<annotation cp="🔮">байлық | доп | кристалл | қиял | құрал | сиқырлы ертегі | сыйқырлы шар</annotation>
 		<annotation cp="🔮" type="tts">сыйқырлы шар</annotation>
+		<annotation cp="🪄">сиқыр | сиқырлы | сиқырлы таяқша | шебер</annotation>
+		<annotation cp="🪄" type="tts">сиқырлы таяқша</annotation>
 		<annotation cp="🧿">бойтұмар | ғажайып | өткір көз | таспиқ | тұмар</annotation>
 		<annotation cp="🧿" type="tts">бойтұмар</annotation>
 		<annotation cp="🎮">басқару құралы | бейне ойын | ойын</annotation>
@@ -2157,6 +2547,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">джигсо</annotation>
 		<annotation cp="🧸">қыжым | қыжым қонжық | ойыншық | толтырылған</annotation>
 		<annotation cp="🧸" type="tts">қыжым қонжық</annotation>
+		<annotation cp="🪅">кеш | пиньята | тойлау</annotation>
+		<annotation cp="🪅" type="tts">пиньята</annotation>
+		<annotation cp="🪆">қуыршақ | матрешка | ресей</annotation>
+		<annotation cp="🪆" type="tts">матрешка</annotation>
 		<annotation cp="♠">карта | қарға | ойын</annotation>
 		<annotation cp="♠" type="tts">қарға</annotation>
 		<annotation cp="♥">жүрек | жүректер | карта | ойын | түйе</annotation>
@@ -2181,8 +2575,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">палитра</annotation>
 		<annotation cp="🧵">жіп | ине | катушка | талшық | тоқу</annotation>
 		<annotation cp="🧵" type="tts">жіп</annotation>
+		<annotation cp="🪡">жіп | ине | тігін | тігістер | тігу</annotation>
+		<annotation cp="🪡" type="tts">тігін ине</annotation>
 		<annotation cp="🧶">домалақ | иірімжіп | ілмекпен тоқу | тоқу</annotation>
 		<annotation cp="🧶" type="tts">иірімжіп</annotation>
+		<annotation cp="🪢">арқан | байлау | бау | түйін | шатасқан | шиыру</annotation>
+		<annotation cp="🪢" type="tts">түйін</annotation>
 		<annotation cp="👓">кию | көз | көзге тағу | көзілдірік</annotation>
 		<annotation cp="👓" type="tts">көзілдірік</annotation>
 		<annotation cp="🕶">көз | көзге тағу | көзілдірік | күннен қорғайтын көзілдірік | күңгірт</annotation>
@@ -2233,6 +2631,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">сауда қалталары</annotation>
 		<annotation cp="🎒">арқаға асатын сөмке | мектеп | папка | сөмке</annotation>
 		<annotation cp="🎒" type="tts">папка</annotation>
+		<annotation cp="🩴">вьетнамдық | дзори | жағажай сандалы | сандал</annotation>
+		<annotation cp="🩴" type="tts">вьетнамдық сандал</annotation>
 		<annotation cp="👞">ер | киім | туфли</annotation>
 		<annotation cp="👞" type="tts">туфли</annotation>
 		<annotation cp="👟">атлетикалық | киім | кроссовка | туфли</annotation>
@@ -2259,6 +2659,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">бітіру қалпағы</annotation>
 		<annotation cp="🧢">күнқағар кепка</annotation>
 		<annotation cp="🧢" type="tts">күнқағар кепка</annotation>
+		<annotation cp="🪖">әскер | әскери | жауынгер | каска | сарбаз</annotation>
+		<annotation cp="🪖" type="tts">әскери каска</annotation>
 		<annotation cp="⛑">ақ крест бейнеленген дулыға | бет | дулыға | жәрдем | крест | қалпақ</annotation>
 		<annotation cp="⛑" type="tts">ақ крест бейнеленген дулыға</annotation>
 		<annotation cp="📿">дін | киім | сенуші | тағатын бұйым | таспиқ</annotation>
@@ -2307,6 +2709,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">радио</annotation>
 		<annotation cp="🎷">құрал | музыка | сакс | саксофон</annotation>
 		<annotation cp="🎷" type="tts">саксофон</annotation>
+		<annotation cp="🪗">аккордеон | концертино | сырнай</annotation>
+		<annotation cp="🪗" type="tts">аккордеон</annotation>
 		<annotation cp="🎸">гитара | құрал | музыка</annotation>
 		<annotation cp="🎸" type="tts">гитара</annotation>
 		<annotation cp="🎹">құрал | музыка | музыкалық пернетақта | пернетақта | пианина</annotation>
@@ -2319,6 +2723,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">банджо</annotation>
 		<annotation cp="🥁">барабан | музыка</annotation>
 		<annotation cp="🥁" type="tts">барабан</annotation>
+		<annotation cp="🪘">барабан | бит | конга | цилиндрлік барабан | ырғақ</annotation>
+		<annotation cp="🪘" type="tts">цилиндрлік барабан</annotation>
 		<annotation cp="📱">мобильді | телефон | ұялы</annotation>
 		<annotation cp="📱" type="tts">ұялы телефон</annotation>
 		<annotation cp="📲">көрсеткі | көрсеткісі бар мобильді телефон | қабылдау | мобильді | телефон | ұялы | ұялы телефонға қабылдау</annotation>
@@ -2425,6 +2831,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">затбелгі</annotation>
 		<annotation cp="💰">ақша | ақша салынған қалта | әмиян | доллар | сөмке</annotation>
 		<annotation cp="💰" type="tts">ақша салынған қалта</annotation>
+		<annotation cp="🪙">ақша | алтын | күміс | қазына | металл | тиын</annotation>
+		<annotation cp="🪙" type="tts">тиын</annotation>
 		<annotation cp="💴">ақша | банкнота | валюта | йена | йена банкнотасы | қағаз ақша | шот</annotation>
 		<annotation cp="💴" type="tts">йена банкнотасы</annotation>
 		<annotation cp="💵">ақша | банкнота | валюта | доллар | доллар банкнотасы | қағаз ақша | шот</annotation>
@@ -2441,10 +2849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">түбіртек</annotation>
 		<annotation cp="💹">ақша | график | диаграмма | йена | йена бағамы көтерілгенін көрсететін диаграмма | өсім</annotation>
 		<annotation cp="💹" type="tts">йена бағамы көтерілгенін көрсететін диаграмма</annotation>
-		<annotation cp="💱">айырбастау | ақша | банк | валюта</annotation>
-		<annotation cp="💱" type="tts">валюта айырбастау</annotation>
-		<annotation cp="💲">ақша | валюта | доллар | қалың доллар белгісі</annotation>
-		<annotation cp="💲" type="tts">қалың доллар белгісі</annotation>
 		<annotation cp="✉">конверт | эл.пошта | электрондық пошта</annotation>
 		<annotation cp="✉" type="tts">конверт</annotation>
 		<annotation cp="📧">пошта | хат | электрондық пошта</annotation>
@@ -2559,12 +2963,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚔" type="tts">айқас қылыштар</annotation>
 		<annotation cp="🔫">қару | құрал | револьвер | тапанша</annotation>
 		<annotation cp="🔫" type="tts">тапанша</annotation>
+		<annotation cp="🪃">Австралия | айналып келу | бумеранг | кері реакция</annotation>
+		<annotation cp="🪃" type="tts">бумеранг</annotation>
 		<annotation cp="🏹">жебе | жебе мен садақ | зодиак | көрсеткі | мерген | садақшы</annotation>
 		<annotation cp="🏹" type="tts">жебе мен садақ</annotation>
 		<annotation cp="🛡">қалқан | қару</annotation>
 		<annotation cp="🛡" type="tts">қалқан</annotation>
+		<annotation cp="🪚">ағаш ұстасы | ара | араланған материал | құрал</annotation>
+		<annotation cp="🪚" type="tts">ара</annotation>
 		<annotation cp="🔧">құрал | сомын кілт</annotation>
 		<annotation cp="🔧" type="tts">сомын кілт</annotation>
+		<annotation cp="🪛">бұрағыш | бұрау | құрал</annotation>
+		<annotation cp="🪛" type="tts">бұрағыш</annotation>
 		<annotation cp="🔩">бұранда | құрал | сомын | сомын мен бұранда</annotation>
 		<annotation cp="🔩" type="tts">сомын мен бұранда</annotation>
 		<annotation cp="⚙">құрал | тегершік</annotation>
@@ -2579,10 +2989,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">шынжыр</annotation>
 		<annotation cp="⛓">бізбек | тізбек</annotation>
 		<annotation cp="⛓" type="tts">тізбек</annotation>
+		<annotation cp="🪝">имек | ілгек | іліп алу | коммерциялық аргумент | ұстап алу</annotation>
+		<annotation cp="🪝" type="tts">ілгек</annotation>
 		<annotation cp="🧰">жәшік | құрал | құралдар жәшігі | механикалық</annotation>
 		<annotation cp="🧰" type="tts">құралдар жәшігі</annotation>
 		<annotation cp="🧲">магнит | магнитті | таға | тарту</annotation>
 		<annotation cp="🧲" type="tts">магнит</annotation>
+		<annotation cp="🪜">баспалдақ | қадам | міну | саты</annotation>
+		<annotation cp="🪜" type="tts">саты</annotation>
 		<annotation cp="⚗">дистиллятор | құрал | химия</annotation>
 		<annotation cp="⚗" type="tts">дистиллятор</annotation>
 		<annotation cp="🧪">ғылым | зертхана | тәжірибе | химик | химия | шыны түтік</annotation>
@@ -2609,6 +3023,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩺" type="tts">стетоскоп</annotation>
 		<annotation cp="🚪">есік</annotation>
 		<annotation cp="🚪" type="tts">есік</annotation>
+		<annotation cp="🛗">көтеру | лифт | мүмкіндігі шектеулі</annotation>
+		<annotation cp="🛗" type="tts">лифт</annotation>
+		<annotation cp="🪞">айна | шағылдырғыш | шағылыс</annotation>
+		<annotation cp="🪞" type="tts">айна</annotation>
+		<annotation cp="🪟">жақтау | көрініс | мөлдір | саңылау | таза ауа | терезе</annotation>
+		<annotation cp="🪟" type="tts">терезе</annotation>
 		<annotation cp="🛏">кереует | қонақ үй | ұйқы</annotation>
 		<annotation cp="🛏" type="tts">кереует</annotation>
 		<annotation cp="🛋">диван | диван мен шам | қонақ үй | шам</annotation>
@@ -2617,10 +3037,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">арқалығы бар орындық</annotation>
 		<annotation cp="🚽">унитаз</annotation>
 		<annotation cp="🚽" type="tts">унитаз</annotation>
+		<annotation cp="🪠">вантуз | дәретхана | сантехник-слесарь | сору</annotation>
+		<annotation cp="🪠" type="tts">вантуз</annotation>
 		<annotation cp="🚿">душ | су</annotation>
 		<annotation cp="🚿" type="tts">душ</annotation>
 		<annotation cp="🛁">ванна</annotation>
 		<annotation cp="🛁" type="tts">ванна</annotation>
+		<annotation cp="🪤">қақпан | тосқын | тұзақ | тұзақ жем</annotation>
+		<annotation cp="🪤" type="tts">қақпан</annotation>
 		<annotation cp="🪒">қырыну | өткір | ұстара</annotation>
 		<annotation cp="🪒" type="tts">ұстара</annotation>
 		<annotation cp="🧴">күннен қорғау | лосьон | лосьон құтысы | шампун | ылғалдағыш</annotation>
@@ -2633,8 +3057,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">себет</annotation>
 		<annotation cp="🧻">дәретхана қағазы | қағаз орамалдар | қағаз орамасы</annotation>
 		<annotation cp="🧻" type="tts">қағаз орамасы</annotation>
+		<annotation cp="🪣">бөшке | кірлен | қауға | шелек</annotation>
+		<annotation cp="🪣" type="tts">шелек</annotation>
 		<annotation cp="🧼">ванна | ваннада жуу | көбік | сабын | сабын салғыш | тазалау</annotation>
 		<annotation cp="🧼" type="tts">сабын</annotation>
+		<annotation cp="🪥">ванна | гигиена | стоматологиялық | тазалау | тіс | тіс щеткасы | щетка</annotation>
+		<annotation cp="🪥" type="tts">тіс щеткасы</annotation>
 		<annotation cp="🧽">губка | сіңіру | тазалау | тесікті</annotation>
 		<annotation cp="🧽" type="tts">губка</annotation>
 		<annotation cp="🧯">өрт | өрт сөндіргіш | сөндіру</annotation>
@@ -2645,10 +3073,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">шылым шегу</annotation>
 		<annotation cp="⚰">өлім | табыт</annotation>
 		<annotation cp="⚰" type="tts">табыт</annotation>
+		<annotation cp="🪦">бейіт | зират | қабір | құлпытас | сағана</annotation>
+		<annotation cp="🪦" type="tts">сағана</annotation>
 		<annotation cp="⚱">жаназа | өліктің күлін салатын сауыт | өлім | сауыт</annotation>
 		<annotation cp="⚱" type="tts">өліктің күлін салатын сауыт</annotation>
 		<annotation cp="🗿">бет | моай | мүсін</annotation>
 		<annotation cp="🗿" type="tts">моай</annotation>
+		<annotation cp="🪧">демонстрация | жазу | наразылық | пикет | плакат</annotation>
+		<annotation cp="🪧" type="tts">плакат</annotation>
 		<annotation cp="🏧">автоматты | банк | банкомат | банкомат белгісі | есепші</annotation>
 		<annotation cp="🏧" type="tts">банкомат белгісі</annotation>
 		<annotation cp="🚮">қоқыс | қоқыс жәшігі | қоқысты себетке тастау белгісі</annotation>
@@ -2721,6 +3153,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">жоғары-төмен көрсеткісі</annotation>
 		<annotation cp="↔">көрсеткі | сол-оң көрсеткісі</annotation>
 		<annotation cp="↔" type="tts">сол-оң көрсеткісі</annotation>
+		<annotation cp="↮" draft="contributed">сол және оң жақ көрсеткісі бар штрих</annotation>
+		<annotation cp="↮" type="tts" draft="contributed">сол және оң жақ көрсеткісі бар штрих</annotation>
 		<annotation cp="↩">көрсеткі | оң жақтан шығып, сол жаққа бұрылатын көрсеткі</annotation>
 		<annotation cp="↩" type="tts">оң жақтан шығып, сол жаққа бұрылатын көрсеткі</annotation>
 		<annotation cp="↪">көрсеткі | сол жақтан шығып, оң жаққа бұрылатын көрсеткі</annotation>
@@ -2845,10 +3279,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">әйел таңбасы</annotation>
 		<annotation cp="♂">ер | ер таңбасы | таңба</annotation>
 		<annotation cp="♂" type="tts">ер таңбасы</annotation>
-		<annotation cp="⚕">медицина | медицина таңбасы | таңба</annotation>
-		<annotation cp="⚕" type="tts">медицина таңбасы</annotation>
+		<annotation cp="⚧">трансгендер | трансгендерлік таңба</annotation>
+		<annotation cp="⚧" type="tts">трансгендерлік таңба</annotation>
+		<annotation cp="✖">× | x | бас тарту | белгі | көбейтінді | көбейту</annotation>
+		<annotation cp="✖" type="tts">көбейту</annotation>
+		<annotation cp="➕">+ | амал | белгі | плюс</annotation>
+		<annotation cp="➕" type="tts">плюс</annotation>
+		<annotation cp="➖">- | − | амал | белгі | минус</annotation>
+		<annotation cp="➖" type="tts">минус</annotation>
+		<annotation cp="➗">÷ | амал | белгі | бөлу</annotation>
+		<annotation cp="➗" type="tts">бөлу</annotation>
 		<annotation cp="♾">әмбебап | мәңгі | шексіз | шексіздік</annotation>
 		<annotation cp="♾" type="tts">шексіздік</annotation>
+		<annotation cp="‼">бангбанг | белгі | қос леп белгісі | леп белгісі | пунктуация</annotation>
+		<annotation cp="‼" type="tts">қос леп белгісі</annotation>
+		<annotation cp="⁉">белгі | леп белгісі | леп және сұрақ белгісі | пунктуация | сұрақ</annotation>
+		<annotation cp="⁉" type="tts">леп және сұрақ белгісі</annotation>
+		<annotation cp="❓">белгі | пунктуация | сұрақ | сұрақ белгісі</annotation>
+		<annotation cp="❓" type="tts">сұрақ белгісі</annotation>
+		<annotation cp="❔">ақ сұрақ белгісі | белгі | пунктуация | сұрақ | сызулы</annotation>
+		<annotation cp="❔" type="tts">ақ сұрақ белгісі</annotation>
+		<annotation cp="❕">ақ леп белгісі | белгі | леп белгісі | пунктуация | сызулы</annotation>
+		<annotation cp="❕" type="tts">ақ леп белгісі</annotation>
+		<annotation cp="❗">белгі | леп белгісі | пунктуация</annotation>
+		<annotation cp="❗" type="tts">леп белгісі</annotation>
+		<annotation cp="〰">ирек | пунктуация | сызықша</annotation>
+		<annotation cp="〰" type="tts">ирек сызықша</annotation>
+		<annotation cp="💱">айырбастау | ақша | банк | валюта</annotation>
+		<annotation cp="💱" type="tts">валюта айырбастау</annotation>
+		<annotation cp="💲">ақша | валюта | доллар | қалың доллар белгісі</annotation>
+		<annotation cp="💲" type="tts">қалың доллар белгісі</annotation>
+		<annotation cp="⚕">медицина | медицина таңбасы | таңба</annotation>
+		<annotation cp="⚕" type="tts">медицина таңбасы</annotation>
 		<annotation cp="♻">қайта өңдеу | қайта өңдеу белгісі</annotation>
 		<annotation cp="♻" type="tts">қайта өңдеу белгісі</annotation>
 		<annotation cp="⚜">лилия | таңба | француз лилиясы</annotation>
@@ -2867,18 +3329,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">Құсбелгісі бар дауыс беру шаршысы</annotation>
 		<annotation cp="✔">белгі | қалың құсбелгі | құсбелгі</annotation>
 		<annotation cp="✔" type="tts">қалың құсбелгі</annotation>
-		<annotation cp="✖">× | x | бас тарту | белгі | көбейтінді | көбейту</annotation>
-		<annotation cp="✖" type="tts">көбейту</annotation>
 		<annotation cp="❌">x | бас тарту | белгі | көбейту | қиылысқан сызықтар белгісі</annotation>
 		<annotation cp="❌" type="tts">қиылысқан сызықтар белгісі</annotation>
 		<annotation cp="❎">белгі | қиылысқан сызықтар түймесі | шаршы</annotation>
 		<annotation cp="❎" type="tts">қиылысқан сызықтар түймесі</annotation>
-		<annotation cp="➕">+ | амал | белгі | плюс</annotation>
-		<annotation cp="➕" type="tts">плюс</annotation>
-		<annotation cp="➖">- | − | амал | белгі | минус</annotation>
-		<annotation cp="➖" type="tts">минус</annotation>
-		<annotation cp="➗">÷ | амал | белгі | бөлу</annotation>
-		<annotation cp="➗" type="tts">бөлу</annotation>
 		<annotation cp="➰">ілмек | цикл</annotation>
 		<annotation cp="➰" type="tts">ілмек</annotation>
 		<annotation cp="➿">ілмек | қос | цикл</annotation>
@@ -2891,20 +3345,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">сегіз қырлы жұлдыз</annotation>
 		<annotation cp="❇">ұшқын</annotation>
 		<annotation cp="❇" type="tts">ұшқын</annotation>
-		<annotation cp="‼">бангбанг | белгі | қос леп белгісі | леп белгісі | пунктуация</annotation>
-		<annotation cp="‼" type="tts">қос леп белгісі</annotation>
-		<annotation cp="⁉">белгі | леп белгісі | леп және сұрақ белгісі | пунктуация | сұрақ</annotation>
-		<annotation cp="⁉" type="tts">леп және сұрақ белгісі</annotation>
-		<annotation cp="❓">белгі | пунктуация | сұрақ | сұрақ белгісі</annotation>
-		<annotation cp="❓" type="tts">сұрақ белгісі</annotation>
-		<annotation cp="❔">ақ сұрақ белгісі | белгі | пунктуация | сұрақ | сызулы</annotation>
-		<annotation cp="❔" type="tts">ақ сұрақ белгісі</annotation>
-		<annotation cp="❕">ақ леп белгісі | белгі | леп белгісі | пунктуация | сызулы</annotation>
-		<annotation cp="❕" type="tts">ақ леп белгісі</annotation>
-		<annotation cp="❗">белгі | леп белгісі | пунктуация</annotation>
-		<annotation cp="❗" type="tts">леп белгісі</annotation>
-		<annotation cp="〰">ирек | пунктуация | сызықша</annotation>
-		<annotation cp="〰" type="tts">ирек сызықша</annotation>
 		<annotation cp="©">авторлық | авторлық құқық белгісі | белгі | құқық</annotation>
 		<annotation cp="©" type="tts">авторлық құқық белгісі</annotation>
 		<annotation cp="®">белгі | сауда | тіркелген | тіркелген сауда белгісі</annotation>
@@ -3067,22 +3507,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">қара жалау</annotation>
 		<annotation cp="🏳">ақ жалау | желбіреу</annotation>
 		<annotation cp="🏳" type="tts">ақ жалау</annotation>
-		<annotation cp="🏳‍⚧">жалау | көк, қызғылт және ақ жалау | трансгендер</annotation>
-		<annotation cp="🏳‍⚧" type="tts">көк, қызғылт және ақ жалау</annotation>
 		<annotation cp="🏳‍🌈">кемпірқосақ | кемпірқосақ түсті ту | ту</annotation>
 		<annotation cp="🏳‍🌈" type="tts">кемпірқосақ түсті ту</annotation>
+		<annotation cp="🏳‍⚧">жалау | көк, қызғылт және ақ жалау | трансгендер</annotation>
+		<annotation cp="🏳‍⚧" type="tts">көк, қызғылт және ақ жалау</annotation>
 		<annotation cp="🏴‍☠">қазына | Қара қарақшы жалауы | қарақшы | қарақшы жалауы | тонау</annotation>
 		<annotation cp="🏴‍☠" type="tts">қарақшы жалауы</annotation>
+		<annotation cp="¢" draft="contributed">цент</annotation>
+		<annotation cp="¢" type="tts" draft="contributed">цент</annotation>
+		<annotation cp="$" draft="contributed">USD | ақша | доллар | песо</annotation>
+		<annotation cp="$" type="tts" draft="contributed">доллар</annotation>
 		<annotation cp="£">фунт</annotation>
 		<annotation cp="£" type="tts">фунт</annotation>
-		<annotation cp="¥">иена</annotation>
+		<annotation cp="¥">CNY | JPY | валюта | иена | юань</annotation>
 		<annotation cp="¥" type="tts">иена</annotation>
+		<annotation cp="₥" draft="contributed">милль</annotation>
+		<annotation cp="₥" type="tts" draft="contributed">милль</annotation>
+		<annotation cp="₩" draft="contributed">KPW | KRW</annotation>
+		<annotation cp="₩" type="tts" draft="contributed">вона</annotation>
 		<annotation cp="€">еуро</annotation>
 		<annotation cp="€" type="tts">еуро</annotation>
+		<annotation cp="₱" draft="contributed">песо</annotation>
+		<annotation cp="₱" type="tts" draft="contributed">песо</annotation>
 		<annotation cp="₹">валюта | рупия | үнді рупиясы</annotation>
 		<annotation cp="₹" type="tts">үнді рупиясы</annotation>
 		<annotation cp="₽">валюта | рубль</annotation>
 		<annotation cp="₽" type="tts">рубль</annotation>
+		<annotation cp="₿" draft="contributed">BTC</annotation>
+		<annotation cp="₿" type="tts" draft="contributed">биткоин</annotation>
 		<annotation cp="¹">бір | үстіңгі бір индексі | үстіңгі индекс</annotation>
 		<annotation cp="¹" type="tts">үстіңгі бір индексі</annotation>
 		<annotation cp="²">екі | квадрат | үстіңгі екі индексі | үстіңгі индекс</annotation>

@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="sv"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">fågelkrok | klammerparentes | spetsparentes</annotation>
+		<annotation cp="{" type="tts">vänster klammerparentes</annotation>
 		<annotation cp="🏻">hud | hudfärg | hudton 1–2 | ljus hy</annotation>
 		<annotation cp="🏻" type="tts">ljus hy</annotation>
 		<annotation cp="🏼">hud | hudfärg | hudton 3 | mellanljus hy</annotation>
@@ -23,188 +25,692 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">mellanmörk hy</annotation>
 		<annotation cp="🏿">hud | hudfärg | hudton 6 | mörk hy</annotation>
 		<annotation cp="🏿" type="tts">mörk hy</annotation>
-		<annotation cp="–">streck | tank- | tankstreck</annotation>
+		<annotation cp="‾" draft="contributed">överstreck</annotation>
+		<annotation cp="‾" type="tts" draft="contributed">överstreck</annotation>
+		<annotation cp="_">understrykning | understrykningstecken</annotation>
+		<annotation cp="_" type="tts">understreck</annotation>
+		<annotation cp="-">avstavningstecken | bindestreck | minustecken</annotation>
+		<annotation cp="-" type="tts">bindestreck-minustecken</annotation>
+		<annotation cp="‐">avstavningstecken | bindestreck</annotation>
+		<annotation cp="‐" type="tts">bindestreck</annotation>
+		<annotation cp="–">streck | tankstreck</annotation>
 		<annotation cp="–" type="tts">tankstreck</annotation>
 		<annotation cp="—">långt | tankstreck</annotation>
 		<annotation cp="—" type="tts">långt tankstreck</annotation>
+		<annotation cp="―">bindestreck | streck | tankstreck</annotation>
+		<annotation cp="―" type="tts">horisontellt streck</annotation>
+		<annotation cp="・">halvhög punkt | katakana | mittpunkt | punkter</annotation>
+		<annotation cp="・" type="tts">katakana – mellanpunkt</annotation>
+		<annotation cp=",">komma</annotation>
+		<annotation cp="," type="tts">kommatecken</annotation>
+		<annotation cp="،">arabiska | faasila | kommatecken</annotation>
+		<annotation cp="،" type="tts">arabiskt kommatecken</annotation>
+		<annotation cp="、">ideografiskt | kommatecken</annotation>
+		<annotation cp="、" type="tts">ideografiskt kommatecken</annotation>
+		<annotation cp=";">semikolon</annotation>
+		<annotation cp=";" type="tts">semikolon</annotation>
+		<annotation cp="؛">arabiska | semikolon</annotation>
+		<annotation cp="؛" type="tts">arabiskt semikolon</annotation>
+		<annotation cp=":">kolon</annotation>
+		<annotation cp=":" type="tts">kolon</annotation>
+		<annotation cp="!">skiljetecken | utrop</annotation>
+		<annotation cp="!" type="tts">utropstecken</annotation>
+		<annotation cp="¡">förundringstecken | inverterat | utrop | utropstecken</annotation>
+		<annotation cp="¡" type="tts">inverterat utropstecken</annotation>
+		<annotation cp="?">fråga</annotation>
+		<annotation cp="?" type="tts">frågetecken</annotation>
+		<annotation cp="¿">fråga | frågetecken | inverterat</annotation>
+		<annotation cp="¿" type="tts">inverterat frågetecken</annotation>
+		<annotation cp="؟">arabiska | fråga | frågetecken</annotation>
+		<annotation cp="؟" type="tts">arabiskt frågetecken</annotation>
+		<annotation cp="‽" draft="contributed">interabang</annotation>
+		<annotation cp="‽" type="tts" draft="contributed">interrobang</annotation>
+		<annotation cp=".">punkt | slutpunkt</annotation>
+		<annotation cp="." type="tts">punkt</annotation>
+		<annotation cp="…">ellips | tre punkter | uteslutningstecken</annotation>
+		<annotation cp="…" type="tts">ellips</annotation>
+		<annotation cp="。">ideografisk | punkt | slutpunkt</annotation>
+		<annotation cp="。" type="tts">ideografisk punkt</annotation>
 		<annotation cp="·">halvhög punkt | mellanpunkt | mittpunkt | punkt | punkt i mitten</annotation>
 		<annotation cp="·" type="tts">halvhög punkt</annotation>
+		<annotation cp="'">apostrof | citattecken | enkelt citattecken</annotation>
+		<annotation cp="'" type="tts">skrivmaskinsapostrof</annotation>
+		<annotation cp="‘">apostrof | citattecken | enkelt citationstecken | smart citationstecken</annotation>
+		<annotation cp="‘" type="tts">vänster apostrof</annotation>
+		<annotation cp="’">apostrof | citattecken | enkelt citationstecken | smart citationstecken</annotation>
+		<annotation cp="’" type="tts">höger apostrof</annotation>
+		<annotation cp="‚">apostrof | citattecken | nedsänkt citattecken</annotation>
+		<annotation cp="‚" type="tts">nedsänkt högerställd apostrof</annotation>
+		<annotation cp="“">citat | citattecken | dubbelt citattecken | smart citattecken</annotation>
+		<annotation cp="“" type="tts">vänster citattecken</annotation>
+		<annotation cp="”">citat | citattecken | dubbelt citattecken | smart citattecken</annotation>
+		<annotation cp="”" type="tts">höger citattecken</annotation>
+		<annotation cp="„">citat | citattecken | dubbelt citattecken | nedsänkt citattecken | smart citattecken</annotation>
+		<annotation cp="„" type="tts">nedsänkt högerställt citattecken</annotation>
 		<annotation cp="«">citationstecken | dubbla vinkelcitationstecken | gåsögon vänster | vänster | vinkel</annotation>
 		<annotation cp="«" type="tts">gåsögon vänster</annotation>
 		<annotation cp="»">citationstecken | dubbla vinkelcitationstecken | gåsögon höger | höger | vinkel</annotation>
 		<annotation cp="»" type="tts">gåsögon höger</annotation>
+		<annotation cp=")">klammer | parentes | rundparentes</annotation>
+		<annotation cp=")" type="tts">höger parentes</annotation>
+		<annotation cp="[">hakparentes | klammer | parentes</annotation>
+		<annotation cp="[" type="tts">vänster hakparentes</annotation>
+		<annotation cp="]">hakparentes | klammer | parentes</annotation>
+		<annotation cp="]" type="tts">höger hakparentes</annotation>
+		<annotation cp="}">fågelkrok | klammerparentes | spetsparentes</annotation>
+		<annotation cp="}" type="tts">höger klammerparentes</annotation>
+		<annotation cp="〈">chevron | klammer | vinkelparentes</annotation>
+		<annotation cp="〈" type="tts">vänster vinkelparentes</annotation>
+		<annotation cp="〉">chevron | klammer | vinkelparentes</annotation>
+		<annotation cp="〉" type="tts">höger vinkelparentes</annotation>
+		<annotation cp="《">dubbel vinkelparantes | klammer</annotation>
+		<annotation cp="《" type="tts">dubbel vänster vinkelparentes</annotation>
+		<annotation cp="》">dubbel vinkelparentes | klammer</annotation>
+		<annotation cp="》" type="tts">dubbel höger vinkelparentes</annotation>
+		<annotation cp="「">halv hörnparentes | parentestecken</annotation>
+		<annotation cp="「" type="tts">inledande halv hörnparentes</annotation>
+		<annotation cp="」">halv hörparentes | parentestecken</annotation>
+		<annotation cp="」" type="tts">avslutande halv hörnparentes</annotation>
+		<annotation cp="『">ofyllt halvt hörnparentestecken | parentestecken</annotation>
+		<annotation cp="『" type="tts">inledande ofylld halv hörnparentes</annotation>
+		<annotation cp="』">ofylld halv hörnparentes | parentestecken</annotation>
+		<annotation cp="』" type="tts">avslutande ofylld halv hörnparentes</annotation>
+		<annotation cp="【">konkavt parentestecken | lentikulärt parentestecken | parentestecken</annotation>
+		<annotation cp="【" type="tts">inledande svart konkavt parentestecken</annotation>
+		<annotation cp="】">konkavt parentestecken | lentikulärt parentestecken | parentestecken</annotation>
+		<annotation cp="】" type="tts">avslutande svart konkavt parentestecken</annotation>
+		<annotation cp="〔">parentestecken | skalformat parentestecken | sköldpaddsskalformat parentestecken</annotation>
+		<annotation cp="〔" type="tts">inledande sköldpaddsskalformat parentestecken</annotation>
+		<annotation cp="〕">parentestecken | skalformat parentestecken | sköldpaddsskalformat parentestecken</annotation>
+		<annotation cp="〕" type="tts">avslutande sköldpaddsskalformat parentestecken</annotation>
+		<annotation cp="〖">ofyllt konkavt parentestecken | ofyllt lentikulärt parentestecken | parentestecken</annotation>
+		<annotation cp="〖" type="tts">inledande ofyllt konkavt parentestecken</annotation>
+		<annotation cp="〗">ofyllt konkavt parentestecken | ofyllt lentikulärt parentestecken | parentestecken</annotation>
+		<annotation cp="〗" type="tts">avslutande ofyllt konkavt parentestecken</annotation>
 		<annotation cp="§">avsnitt | del | paragraf | paragraftecken</annotation>
 		<annotation cp="§" type="tts">avsnitt</annotation>
-		<annotation cp="†">kors | kors (tecken) | korstecken | tecken kors</annotation>
+		<annotation cp="¶">alinea | paragraf | stycke</annotation>
+		<annotation cp="¶" type="tts">paragraftecken</annotation>
+		<annotation cp="@" draft="provisional">at | at-tecknet | kringla | snabel a</annotation>
+		<annotation cp="@" type="tts" draft="provisional">snabel a</annotation>
+		<annotation cp="*">asterisk | jokertecken | stjärna</annotation>
+		<annotation cp="*" type="tts">asterisk</annotation>
+		<annotation cp="/">eller | sned | snedstreck | streck</annotation>
+		<annotation cp="/" type="tts">snedstreck</annotation>
+		<annotation cp="\" draft="provisional">bakåt snedstreck | bakstreck | omvänt snedstreck</annotation>
+		<annotation cp="\" type="tts">omvänt snedstreck</annotation>
+		<annotation cp="&amp;">et-tecken | och | och-tecken</annotation>
+		<annotation cp="&amp;" type="tts">et-tecken</annotation>
+		<annotation cp="#" draft="provisional">brädgård | fyrkant | hashtagg | nummer</annotation>
+		<annotation cp="#" type="tts" draft="provisional">fyrkantstecken</annotation>
+		<annotation cp="%">procent | procenttecken</annotation>
+		<annotation cp="%" type="tts" draft="provisional">procent</annotation>
+		<annotation cp="‰">promille | promilletecken</annotation>
+		<annotation cp="‰" type="tts" draft="provisional">promille</annotation>
+		<annotation cp="†">kors | korstecken | obelisk</annotation>
 		<annotation cp="†" type="tts">korstecken</annotation>
 		<annotation cp="‡">dubbel | dubbelkors | dubbelkorstecken | obelus</annotation>
 		<annotation cp="‡" type="tts">dubbelkorstecken</annotation>
 		<annotation cp="•">listpunkt | punkt | punktlista</annotation>
 		<annotation cp="•" type="tts">listpunkt</annotation>
+		<annotation cp="‧">bindestreck | punkt | streck</annotation>
+		<annotation cp="‧" type="tts">avstavningspunkt</annotation>
+		<annotation cp="′">prim</annotation>
+		<annotation cp="′" type="tts">primtecken</annotation>
+		<annotation cp="″">prim</annotation>
+		<annotation cp="″" type="tts" draft="provisional">dubbelprim</annotation>
+		<annotation cp="‴">prim</annotation>
+		<annotation cp="‴" type="tts" draft="provisional">trippelprim</annotation>
+		<annotation cp="‸" draft="contributed">insättningstecken</annotation>
+		<annotation cp="‸" type="tts" draft="contributed">insättningstecken</annotation>
+		<annotation cp="※">referenstecken</annotation>
+		<annotation cp="※" type="tts">källhänvisning</annotation>
+		<annotation cp="⁂" draft="contributed">asterisker | stjärnor</annotation>
+		<annotation cp="⁂" type="tts" draft="contributed">asterism</annotation>
+		<annotation cp="`">accent | accenttecken | grav</annotation>
+		<annotation cp="`" type="tts">grav accent</annotation>
+		<annotation cp="´">accent | accenttecken | akut</annotation>
+		<annotation cp="´" type="tts">akut accent</annotation>
+		<annotation cp="^">accent | accenttecken | cirkumflex | hatt</annotation>
+		<annotation cp="^" type="tts">cirkumflex</annotation>
+		<annotation cp="¨">trema | två punkter | umlaut</annotation>
+		<annotation cp="¨" type="tts">trema</annotation>
 		<annotation cp="°">grad | gradsymbol | gradtecken</annotation>
 		<annotation cp="°" type="tts">grad</annotation>
-		<annotation cp="℗">inspelning | ljud | ljudinspelning upphovsrätt | upphovsrätt</annotation>
+		<annotation cp="℗">copyright | inspelning | ljud | upphovsrätt</annotation>
 		<annotation cp="℗" type="tts">ljudinspelning upphovsrätt</annotation>
 		<annotation cp="←">pil | vänster | vänsterriktad pil</annotation>
 		<annotation cp="←" type="tts">vänsterriktad pil</annotation>
+		<annotation cp="↚" draft="contributed">vänsterriktat pilstreck</annotation>
+		<annotation cp="↚" type="tts" draft="contributed">vänsterriktat pilstreck</annotation>
 		<annotation cp="→">höger | högerpil | högerriktad pil | pil</annotation>
 		<annotation cp="→" type="tts">högerriktad pil</annotation>
+		<annotation cp="↛" draft="contributed">högerriktat pilstreck</annotation>
+		<annotation cp="↛" type="tts" draft="contributed">högerriktat pilstreck</annotation>
 		<annotation cp="↑">pil | uppåt | uppåtriktad pil</annotation>
 		<annotation cp="↑" type="tts">uppåtriktad pil</annotation>
 		<annotation cp="↓">nedåt | nedåtriktad pil | pil</annotation>
 		<annotation cp="↓" type="tts">nedåtriktad pil</annotation>
+		<annotation cp="↜" draft="contributed">vänsterriktad vågig pil</annotation>
+		<annotation cp="↜" type="tts" draft="contributed">vänsterriktad vågig pil</annotation>
+		<annotation cp="↝" draft="contributed">högerriktad vågig pil</annotation>
+		<annotation cp="↝" type="tts" draft="contributed">högerriktad vågig pil</annotation>
+		<annotation cp="↞" draft="contributed">vänsterriktad dubbelhövdad pil</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">vänsterriktad dubbelhövdad pil</annotation>
+		<annotation cp="↟" draft="contributed">uppåtriktad dubbelhövdad pil</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">uppåtriktad dubbelhövdad pil</annotation>
+		<annotation cp="↠" draft="contributed">högerriktad dubbelhövdad pil</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">högerriktad dubbelhövdad pil</annotation>
+		<annotation cp="↡" draft="contributed">nedåtriktad dubbelhövdad pil</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">nedåtriktad dubbelhövdad pil</annotation>
+		<annotation cp="↢" draft="contributed">vänsterriktad pilsvans</annotation>
+		<annotation cp="↢" type="tts" draft="contributed">vänsterriktad pilsvans</annotation>
+		<annotation cp="↣" draft="contributed">högerriktad pilsvans</annotation>
+		<annotation cp="↣" type="tts" draft="contributed">högerriktad pilsvans</annotation>
+		<annotation cp="↤" draft="contributed">vänsterriktad pil från streck</annotation>
+		<annotation cp="↤" type="tts" draft="contributed">vänsterriktad pil från streck</annotation>
+		<annotation cp="↥" draft="contributed">uppåtriktad pil från streck</annotation>
+		<annotation cp="↥" type="tts" draft="contributed">uppåtriktad pil från streck</annotation>
+		<annotation cp="↦" draft="contributed">högerriktad pil från streck</annotation>
+		<annotation cp="↦" type="tts" draft="contributed">högerriktad pil från streck</annotation>
+		<annotation cp="↧" draft="contributed">nedåtriktad pil från streck</annotation>
+		<annotation cp="↧" type="tts" draft="contributed">nedåtriktad pil från streck</annotation>
+		<annotation cp="↨" draft="contributed">upp- och nedåtriktad pil med bas</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">upp- och nedåtriktad pil med bas</annotation>
+		<annotation cp="↫" draft="contributed">vänsterriktad pilloop</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">vänsterriktad pilloop</annotation>
+		<annotation cp="↬" draft="contributed">högerriktad pilloop</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">högerriktad pilloop</annotation>
+		<annotation cp="↭" draft="contributed">höger- och vänsterriktad vågpil</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">höger- och vänsterriktad vågpil</annotation>
+		<annotation cp="↯" draft="contributed">sicksack</annotation>
+		<annotation cp="↯" type="tts" draft="contributed">nedåtriktad sicksackpil</annotation>
+		<annotation cp="↰" draft="contributed">uppåtriktad pil med spetsen åt vänster</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">uppåtriktad pil med spetsen åt vänster</annotation>
+		<annotation cp="↱" draft="contributed">uppåtriktad pil med spetsen åt höger</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">uppåtriktad pil med spetsen åt höger</annotation>
+		<annotation cp="↲" draft="contributed">nedåtriktad pil med spetsen åt vänster</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">nedåtriktad pil med spetsen åt vänster</annotation>
+		<annotation cp="↳" draft="contributed">nedåtriktad pil med spetsen åt höger</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">nedåtriktad pil med spetsen åt höger</annotation>
+		<annotation cp="↴" draft="contributed">högerriktad vinklad pil med spetsen nedåt</annotation>
+		<annotation cp="↴" type="tts" draft="contributed">högerriktad vinklad pil med spetsen nedåt</annotation>
+		<annotation cp="↵" draft="contributed">nedåtriktad vinklad pil med spetsen åt vänster</annotation>
+		<annotation cp="↵" type="tts" draft="contributed">nedåtriktad vinklad pil med spetsen åt vänster</annotation>
+		<annotation cp="↶" draft="contributed">delcirkelpil uppifrån motsols</annotation>
+		<annotation cp="↶" type="tts" draft="contributed">delcirkelpil uppifrån motsols</annotation>
+		<annotation cp="↷" draft="contributed">delcirkelpil uppifrån medsols</annotation>
+		<annotation cp="↷" type="tts" draft="contributed">delcirkelpil uppifrån medsols</annotation>
+		<annotation cp="↸" draft="contributed">nordvästpil med långt streck</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">nordvästpil med långt streck</annotation>
+		<annotation cp="↹" draft="contributed">vänsterriktat pilstreck över högerriktat pilstreck</annotation>
+		<annotation cp="↹" type="tts" draft="contributed">vänsterriktat pilstreck över högerriktat pilstreck</annotation>
+		<annotation cp="↺" draft="contributed">motsols öppen cirkelpil</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">motsols öppen cirkelpil</annotation>
+		<annotation cp="↻" draft="contributed">medsols öppen cirkelpil</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">medsols öppen cirkelpil</annotation>
+		<annotation cp="↼" draft="contributed">hulling</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">vänsterriktad harpunhulling uppåt</annotation>
+		<annotation cp="↽" draft="contributed">vänsterriktad harpunhulling nedåt</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">vänsterriktad harpunhulling nedåt</annotation>
+		<annotation cp="↾" draft="contributed">hulling</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">uppåtriktad harpunhulling åt höger</annotation>
+		<annotation cp="↿" draft="contributed">hulling</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">uppåtriktad harpunhulling åt vänster</annotation>
+		<annotation cp="⇀" draft="contributed">hulling</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">högerriktad harpunhulling uppåt</annotation>
+		<annotation cp="⇁" draft="contributed">hulling</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">högerriktad harpunhulling nedåt</annotation>
+		<annotation cp="⇂" draft="contributed">hulling</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">nedåtriktad harpunhulling åt höger</annotation>
+		<annotation cp="⇃" draft="contributed">hulling</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">nedåtriktad harpunhulling åt vänster</annotation>
+		<annotation cp="⇄" draft="contributed">högerriktad pil över vänsterriktad pil</annotation>
+		<annotation cp="⇄" type="tts" draft="contributed">högerriktad pil över vänsterriktad pil</annotation>
 		<annotation cp="⇅">nedåt | pil | uppåt | uppåt- och nedåtriktade pilar</annotation>
 		<annotation cp="⇅" type="tts">uppåt- och nedåtriktade pilar</annotation>
 		<annotation cp="⇆">höger | pil | vänster | vänster- över högerriktad pil | vänsterriktad över högerriktad pil</annotation>
 		<annotation cp="⇆" type="tts">vänsterriktad över högerriktad pil</annotation>
+		<annotation cp="⇇" draft="contributed">vänsterriktat pilpar</annotation>
+		<annotation cp="⇇" type="tts" draft="contributed">vänsterriktat pilpar</annotation>
+		<annotation cp="⇈" draft="contributed">uppåtriktat pilpar</annotation>
+		<annotation cp="⇈" type="tts" draft="contributed">uppåtriktat pilpar</annotation>
+		<annotation cp="⇉" draft="contributed">högerriktat pilpar</annotation>
+		<annotation cp="⇉" type="tts" draft="contributed">högerriktat pilpar</annotation>
+		<annotation cp="⇊" draft="contributed">nedåtriktat pilpar</annotation>
+		<annotation cp="⇊" type="tts" draft="contributed">nedåtriktat pilpar</annotation>
+		<annotation cp="⇋" draft="contributed">vänsterriktad harpun över högerriktad harpun</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">vänsterriktad harpun över högerriktad harpun</annotation>
+		<annotation cp="⇌" draft="contributed">högerriktad harpun över vänsterriktad harpun</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">högerriktad harpun över vänsterriktad harpun</annotation>
+		<annotation cp="⇐" draft="contributed">vänsterriktad dubbelpil</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">vänsterriktad dubbelpil</annotation>
+		<annotation cp="⇍" draft="contributed">vänsterriktat dubbelpilstreck</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">vänsterriktat dubbelpilstreck</annotation>
+		<annotation cp="⇑" draft="contributed">uppåtriktad dubbelpil</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">uppåtriktad dubbelpil</annotation>
+		<annotation cp="⇒" draft="contributed">högerriktad dubbelpil</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">högerriktad dubbelpil</annotation>
+		<annotation cp="⇏" draft="contributed">högerriktat dubbelpilstreck</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">högerriktat dubbelpilstreck</annotation>
+		<annotation cp="⇓" draft="contributed">nedåtriktad dubbelpil</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">nedåtriktad dubbelpil</annotation>
+		<annotation cp="⇔" draft="contributed">vänster- och högerriktad dubbelpil</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">vänster- och högerriktad dubbelpil</annotation>
+		<annotation cp="⇎" draft="contributed">vänster- och högerriktat dubbelpilstreck</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">vänster- och högerriktat dubbelpilstreck</annotation>
+		<annotation cp="⇖" draft="contributed">nordväst dubbelpil</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">nordväst dubbelpil</annotation>
+		<annotation cp="⇗" draft="contributed">nordöst dubbelpil</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">nordöst dubbelpil</annotation>
+		<annotation cp="⇘" draft="contributed">sydöst dubbelpil</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">sydöst dubbelpil</annotation>
+		<annotation cp="⇙" draft="contributed">sydväst dubbelpil</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">sydväst dubbelpil</annotation>
+		<annotation cp="⇚" draft="contributed">vänsterriktad trippelpil</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">vänsterriktad trippelpil</annotation>
+		<annotation cp="⇛" draft="contributed">högerriktad trippelpil</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">högerriktad trippelpil</annotation>
+		<annotation cp="⇜" draft="contributed">vänsterriktad krusig pil</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">vänsterriktad krusig pil</annotation>
+		<annotation cp="⇝" draft="contributed">högerriktad krusig pil</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">högerriktad krusig pil</annotation>
+		<annotation cp="⇞" draft="contributed">uppåtriktat dubbelpilstreck</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">uppåtriktat dubbelpilstreck</annotation>
+		<annotation cp="⇟" draft="contributed">nedåtriktat dubbelpilstreck</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">nedåtriktat dubbelpilstreck</annotation>
+		<annotation cp="⇠" draft="contributed">vänsterriktad streckad pil</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">vänsterriktad streckad pil</annotation>
+		<annotation cp="⇡" draft="contributed">uppåtriktad streckad pil</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">uppåtriktad streckad pil</annotation>
+		<annotation cp="⇢" draft="contributed">högerriktad streckad pil</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">högerriktad streckad pil</annotation>
+		<annotation cp="⇣" draft="contributed">nedåtriktad streckad pil</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">nedåtriktad streckad pil</annotation>
+		<annotation cp="⇤" draft="contributed">vänsterriktat pilfält</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">vänsterriktat pilfält</annotation>
+		<annotation cp="⇥" draft="contributed">högerriktat pilfält</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">högerriktat pilfält</annotation>
+		<annotation cp="⇦" draft="contributed">vänsterriktad ihålig pil</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">vänsterriktad ihålig pil</annotation>
+		<annotation cp="⇧" draft="contributed">uppåtriktad ihålig pil</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">uppåtriktad ihålig pil</annotation>
+		<annotation cp="⇨" draft="contributed">högerriktad ihålig pil</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">högerriktad ihålig pil</annotation>
+		<annotation cp="⇩" draft="contributed">nedåtriktad ihålig pil</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">nedåtriktad ihålig pil</annotation>
+		<annotation cp="⇪" draft="contributed">uppåtriktad ihålig pil från streck</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">uppåtriktad ihålig pil från streck</annotation>
+		<annotation cp="⇵" draft="contributed">nedåtriktad pil åt vänster uppåtriktad pil</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">nedåtriktad pil åt vänster uppåtriktad pil</annotation>
+		<annotation cp="∀" draft="contributed">allt | given | något | universell</annotation>
+		<annotation cp="∀" type="tts" draft="contributed">för allt</annotation>
+		<annotation cp="∂" draft="contributed">differential</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">partiell differential</annotation>
+		<annotation cp="∃" draft="contributed">existenskvanta</annotation>
+		<annotation cp="∃" type="tts" draft="contributed">existenskvanta</annotation>
+		<annotation cp="∅" draft="contributed">mängdoperator | matematik</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">tom mängd</annotation>
 		<annotation cp="∆">tillskott | triangel</annotation>
 		<annotation cp="∆" type="tts">tillskott</annotation>
 		<annotation cp="∇">nablaoperatorn | triangel</annotation>
 		<annotation cp="∇" type="tts">nablaoperatorn</annotation>
 		<annotation cp="∈">element | finns i | i | tillhör</annotation>
 		<annotation cp="∈" type="tts">element i</annotation>
+		<annotation cp="∉" draft="contributed">element</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">inte ett element</annotation>
+		<annotation cp="∋" draft="contributed">element</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">tillhör mängd</annotation>
+		<annotation cp="∎" draft="contributed">gravsten | q.e.d. | qed</annotation>
+		<annotation cp="∎" type="tts" draft="contributed">bevisslut</annotation>
+		<annotation cp="∏" draft="contributed">logik | produkt</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">n-ställig produkt</annotation>
+		<annotation cp="∑" draft="contributed">matematik | summering</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">n-ställig summering</annotation>
+		<annotation cp="+">addera | plus</annotation>
+		<annotation cp="+" type="tts" draft="provisional">plustecken</annotation>
+		<annotation cp="±">plus-minus</annotation>
+		<annotation cp="±" type="tts">plus-minus</annotation>
 		<annotation cp="÷">dela | division | divisionstecken | obelus</annotation>
 		<annotation cp="÷" type="tts">divisionstecken</annotation>
 		<annotation cp="×">gånger | multiplicera | multiplikation | multiplikationstecken</annotation>
 		<annotation cp="×" type="tts">multiplikationstecken</annotation>
+		<annotation cp="&lt;" draft="provisional">mindre än-tecknet | mindreäntecknet | vinkel</annotation>
+		<annotation cp="&lt;" type="tts">mindre än</annotation>
+		<annotation cp="≮" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">inte mindre än</annotation>
+		<annotation cp="=">lika med | summa</annotation>
+		<annotation cp="=" type="tts">likhetstecken</annotation>
+		<annotation cp="≠">ej lika med | inte lika med | skilt från</annotation>
+		<annotation cp="≠" type="tts">inte lika med</annotation>
+		<annotation cp="&gt;" draft="provisional">större än-tecknet | störreäntecknet | vinkel</annotation>
+		<annotation cp="&gt;" type="tts">större än</annotation>
+		<annotation cp="≯" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">inte större än</annotation>
+		<annotation cp="¬">icke | negation</annotation>
+		<annotation cp="¬" type="tts">negation</annotation>
+		<annotation cp="|">lodstreck | streck | vertikalis | vertikalstreck</annotation>
+		<annotation cp="|" type="tts">vertikalstreck</annotation>
+		<annotation cp="~">tilde</annotation>
+		<annotation cp="~" type="tts">tilde</annotation>
+		<annotation cp="−">minus | subtrahera</annotation>
+		<annotation cp="−" type="tts">minustecken</annotation>
 		<annotation cp="⁻">minus | upphöjt till | upphöjt till minus</annotation>
 		<annotation cp="⁻" type="tts">upphöjt till minus</annotation>
+		<annotation cp="∓" draft="contributed">plus minus</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">minus eller plus</annotation>
+		<annotation cp="∕" draft="contributed">snedstreck | streck</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">divisionsstreck</annotation>
+		<annotation cp="⁄" draft="contributed">streck</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">bråkstreck</annotation>
+		<annotation cp="∗" draft="contributed">stjärna</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">asteriskoperator</annotation>
+		<annotation cp="∘" draft="contributed">komposition | operator</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">ringoperator</annotation>
+		<annotation cp="∙" draft="contributed">operator</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">punktoperator</annotation>
 		<annotation cp="√">kvadrat | kvadratrot | rot | rotmärke</annotation>
 		<annotation cp="√" type="tts">kvadratrot</annotation>
+		<annotation cp="∝" draft="contributed">proportionalitet</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">proportionerlig</annotation>
 		<annotation cp="∞">oändlighet | oändlighetstecken</annotation>
 		<annotation cp="∞" type="tts">oändlighetstecken</annotation>
+		<annotation cp="∟" draft="contributed">matematik</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">rät vinkel</annotation>
+		<annotation cp="∠" draft="contributed">spetsvinkel</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">vinkel</annotation>
+		<annotation cp="∣" draft="contributed">delare | divisor</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">delar</annotation>
+		<annotation cp="∥" draft="contributed">parallell</annotation>
+		<annotation cp="∥" type="tts" draft="contributed">parallell</annotation>
+		<annotation cp="∧" draft="contributed">kil</annotation>
+		<annotation cp="∧" type="tts" draft="contributed">logiskt och</annotation>
 		<annotation cp="∩">skärning | snitt</annotation>
 		<annotation cp="∩" type="tts">snitt</annotation>
 		<annotation cp="∪">union | unionen av</annotation>
 		<annotation cp="∪" type="tts">union</annotation>
+		<annotation cp="∫" draft="contributed">matematisk analys</annotation>
+		<annotation cp="∫" type="tts" draft="contributed">integral</annotation>
+		<annotation cp="∬" draft="contributed">matematisk analys</annotation>
+		<annotation cp="∬" type="tts" draft="contributed">dubbelintegral</annotation>
+		<annotation cp="∮" draft="contributed">konturintegral</annotation>
+		<annotation cp="∮" type="tts" draft="contributed">konturintegral</annotation>
+		<annotation cp="∴" draft="contributed">logik</annotation>
+		<annotation cp="∴" type="tts" draft="contributed">alltså</annotation>
+		<annotation cp="∵" draft="contributed">logik</annotation>
+		<annotation cp="∵" type="tts" draft="contributed">eftersom</annotation>
+		<annotation cp="∶" draft="contributed">förhållande</annotation>
+		<annotation cp="∶" type="tts" draft="contributed">förhållande</annotation>
+		<annotation cp="∷" draft="contributed">proportionalitet</annotation>
+		<annotation cp="∷" type="tts" draft="contributed">proportion</annotation>
+		<annotation cp="∼" draft="contributed">operator</annotation>
+		<annotation cp="∼" type="tts" draft="contributed">tildeoperator</annotation>
+		<annotation cp="∽" draft="contributed">tilde</annotation>
+		<annotation cp="∽" type="tts" draft="contributed">omvänd tilde</annotation>
+		<annotation cp="∾" draft="contributed">inverterat liggande s</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">inverterat liggande s</annotation>
+		<annotation cp="≃" draft="contributed">asymptot | matematik</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">asymptotiskt lika med</annotation>
+		<annotation cp="≅" draft="contributed">isomorfis | kongruens | likvärdighet | matematik</annotation>
+		<annotation cp="≅" type="tts" draft="contributed">ungefär lika med</annotation>
+		<annotation cp="≈">nästan lika med | ungefär lika med</annotation>
+		<annotation cp="≈" type="tts">nästan lika med</annotation>
+		<annotation cp="≌" draft="contributed">likvärdighet | matematik</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">allt lika</annotation>
+		<annotation cp="≒" draft="contributed">ungefärligt lika med-bild</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">ungefärligt lika med-bild</annotation>
+		<annotation cp="≖" draft="contributed">likvärdighet | matematik</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">ring i likhetstecken</annotation>
 		<annotation cp="≡">exakt | identiskt | identiskt lika med | trippel</annotation>
 		<annotation cp="≡" type="tts">identiskt lika med</annotation>
+		<annotation cp="≣" draft="contributed">likvärdighet | matematik</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">strikt ekvivalent</annotation>
+		<annotation cp="≤">lika med | likhetstecken | mindre än | olikhetstecken</annotation>
+		<annotation cp="≤" type="tts">mindre än eller lika med</annotation>
+		<annotation cp="≥">lika med | likhetstecken | olikhetstecken | större än</annotation>
+		<annotation cp="≥" type="tts">större än eller lika med</annotation>
+		<annotation cp="≦" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">mindre än över lika med</annotation>
+		<annotation cp="≧" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">större än över lika med</annotation>
+		<annotation cp="≪" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">mycket mindre än</annotation>
+		<annotation cp="≫" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">mycket större än</annotation>
+		<annotation cp="≬" draft="contributed">mellan</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">mellan</annotation>
+		<annotation cp="≳" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">större än likvärdig</annotation>
+		<annotation cp="≺" draft="contributed">mängdoperator | matematik</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">föregår</annotation>
+		<annotation cp="≻" draft="contributed">mängdoperator | matematik</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">efterföljer</annotation>
+		<annotation cp="⊁" draft="contributed">mängdoperator | matematik</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">efterföljer inte</annotation>
 		<annotation cp="⊂">är en delmängd av | delmängd | delmängd av</annotation>
 		<annotation cp="⊂" type="tts">delmängd av</annotation>
+		<annotation cp="⊃" draft="contributed">mängdoperator | matematik</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">supermängd</annotation>
+		<annotation cp="⊆" draft="contributed">delmängd lika med</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">delmängd lika med</annotation>
+		<annotation cp="⊇" draft="contributed">likvärdighet | matematik</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">supermängd lika med</annotation>
+		<annotation cp="⊕" draft="contributed">plus</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">plus i cirkel</annotation>
+		<annotation cp="⊖" draft="contributed">erosion | symmetrisk differens</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">minus i cirkel</annotation>
+		<annotation cp="⊗" draft="contributed">produkt | tensor</annotation>
+		<annotation cp="⊗" type="tts" draft="contributed">gångertecken i cirkel</annotation>
+		<annotation cp="⊘" draft="contributed">divisionslik | matematik</annotation>
+		<annotation cp="⊘" type="tts" draft="contributed">divisionsstreck i cirkel</annotation>
+		<annotation cp="⊙" draft="contributed">operator | XNOR</annotation>
+		<annotation cp="⊙" type="tts" draft="contributed">prickoperator i cirkel</annotation>
+		<annotation cp="⊚" draft="contributed">ringoperator i cirkel</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">ringoperator i cirkel</annotation>
+		<annotation cp="⊛" draft="contributed">asterisk | operator</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">asteriskoperator i cirkel</annotation>
+		<annotation cp="⊞" draft="contributed">additionslik | matematik</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">plus i kvadrat</annotation>
+		<annotation cp="⊟" draft="contributed">matematik | subtraktionslik</annotation>
+		<annotation cp="⊟" type="tts" draft="contributed">minus i kvadrat</annotation>
+		<annotation cp="⊥" draft="contributed">falsum</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">falsum</annotation>
+		<annotation cp="⊮" draft="contributed">tvingar inte</annotation>
+		<annotation cp="⊮" type="tts" draft="contributed">tvingar inte</annotation>
+		<annotation cp="⊰" draft="contributed">mängdoperator | matematik</annotation>
+		<annotation cp="⊰" type="tts" draft="contributed">efterföljer under relation</annotation>
+		<annotation cp="⊱" draft="contributed">mängdoperator | matematik</annotation>
+		<annotation cp="⊱" type="tts" draft="contributed">föregår under relation</annotation>
+		<annotation cp="⋭" draft="contributed">gruppteori | matematik</annotation>
+		<annotation cp="⋭" type="tts" draft="contributed">innehåller inte som normal delgruppslikvärdig</annotation>
+		<annotation cp="⊶" draft="contributed">original</annotation>
+		<annotation cp="⊶" type="tts" draft="contributed">original</annotation>
+		<annotation cp="⊹" draft="contributed">kvadratisk matris | matematik | symmetrisk matris</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">hermitesk matris</annotation>
+		<annotation cp="⊿" draft="contributed">matematik | rätvinklig triangel</annotation>
+		<annotation cp="⊿" type="tts" draft="contributed">rätvinklig triangel</annotation>
+		<annotation cp="⋁" draft="contributed">disjunktion | logik</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">n-ställig logik eller</annotation>
+		<annotation cp="⋂" draft="contributed">mängdoperator | matematik | snitt</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">n-ställigt snitt</annotation>
+		<annotation cp="⋃" draft="contributed">mängdoperator | matematik | union</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">n-ställig union</annotation>
+		<annotation cp="⋅" draft="contributed">operator</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">prickoperator</annotation>
+		<annotation cp="⋆" draft="contributed">operator</annotation>
+		<annotation cp="⋆" type="tts" draft="contributed">stjärnoperator</annotation>
+		<annotation cp="⋈" draft="contributed">binär operator | fluga</annotation>
+		<annotation cp="⋈" type="tts" draft="contributed">naturlig ordning</annotation>
+		<annotation cp="⋒" draft="contributed">mängdoperator | matematik | snitt</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">dubbelsnitt</annotation>
+		<annotation cp="⋘" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="⋘" type="tts" draft="contributed">väldigt mycket mindre än</annotation>
+		<annotation cp="⋙" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="⋙" type="tts" draft="contributed">väldigt mycket större än</annotation>
+		<annotation cp="⋮" draft="contributed">ellips | matematik</annotation>
+		<annotation cp="⋮" type="tts" draft="contributed">vertikal ellips</annotation>
+		<annotation cp="⋯" draft="contributed">ellips</annotation>
+		<annotation cp="⋯" type="tts" draft="contributed">mellanhög horisontell ellips</annotation>
+		<annotation cp="⋰" draft="contributed">ellips | matematik</annotation>
+		<annotation cp="⋰" type="tts" draft="contributed">högerstigande diagonal ellips</annotation>
+		<annotation cp="⋱" draft="contributed">ellips | matematik</annotation>
+		<annotation cp="⋱" type="tts" draft="contributed">högersjunkande diagonal ellips</annotation>
+		<annotation cp="■" draft="contributed">fylld kvadrat</annotation>
+		<annotation cp="■" type="tts" draft="contributed">fylld kvadrat</annotation>
+		<annotation cp="□" draft="contributed">ihålig kvadrat</annotation>
+		<annotation cp="□" type="tts" draft="contributed">ihålig kvadrat</annotation>
+		<annotation cp="▢" draft="contributed">ihålig kvadrat med rundade hörn</annotation>
+		<annotation cp="▢" type="tts" draft="contributed">ihålig kvadrat med rundade hörn</annotation>
+		<annotation cp="▣" draft="contributed">ihålig kvadrat som innehåller fylld kvadrat</annotation>
+		<annotation cp="▣" type="tts" draft="contributed">ihålig kvadrat som innehåller fylld kvadrat</annotation>
+		<annotation cp="▤" draft="contributed">kvadrat med horisontell fyllning</annotation>
+		<annotation cp="▤" type="tts" draft="contributed">kvadrat med horisontell fyllning</annotation>
+		<annotation cp="▥" draft="contributed">kvadrat med vertikal fyllning</annotation>
+		<annotation cp="▥" type="tts" draft="contributed">kvadrat med vertikal fyllning</annotation>
+		<annotation cp="▦" draft="contributed">kvadrat med ortogonalt korsande streckfyllning</annotation>
+		<annotation cp="▦" type="tts" draft="contributed">kvadrat med ortogonalt korsande streckfyllning</annotation>
+		<annotation cp="▧" draft="contributed">kvadrat med diagonalt sjunkande fyllning från vänster till höger</annotation>
+		<annotation cp="▧" type="tts" draft="contributed">kvadrat med diagonalt sjunkande fyllning från vänster till höger</annotation>
+		<annotation cp="▨" draft="contributed">kvadrat med diagonalt sjunkande fyllning från höger till vänster</annotation>
+		<annotation cp="▨" type="tts" draft="contributed">kvadrat med diagonalt sjunkande fyllning från höger till vänster</annotation>
+		<annotation cp="▩" draft="contributed">kvadrat med diagonalt korsande streckfyllning</annotation>
+		<annotation cp="▩" type="tts" draft="contributed">kvadrat med diagonalt korsande streckfyllning</annotation>
+		<annotation cp="▬" draft="contributed">fylld rektangel</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">fylld rektangel</annotation>
+		<annotation cp="▭" draft="contributed">ihålig rektangel</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">ihålig rektangel</annotation>
+		<annotation cp="▮" draft="contributed">fylld vertikal rektangel</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">fylld vertikal rektangel</annotation>
+		<annotation cp="▰" draft="contributed">fyllt parallellogram</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">fyllt parallellogram</annotation>
 		<annotation cp="▲">fylld | fylld uppåtpekande triangel | fylld uppåtriktad triangel | pil | triangel | uppåt</annotation>
 		<annotation cp="▲" type="tts">fylld uppåtpekande triangel</annotation>
+		<annotation cp="△" draft="contributed">ihålig uppåtpekande triangel</annotation>
+		<annotation cp="△" type="tts" draft="contributed">ihålig uppåtpekande triangel</annotation>
+		<annotation cp="▴" draft="contributed">fylld uppåtpekande liten triangel</annotation>
+		<annotation cp="▴" type="tts" draft="contributed">fylld uppåtpekande liten triangel</annotation>
+		<annotation cp="▵" draft="contributed">ihålig uppåtpekande liten triangel</annotation>
+		<annotation cp="▵" type="tts" draft="contributed">ihålig uppåtpekande liten triangel</annotation>
+		<annotation cp="▷" draft="contributed">ihålig högerpekande triangel</annotation>
+		<annotation cp="▷" type="tts" draft="contributed">ihålig högerpekande triangel</annotation>
+		<annotation cp="▸" draft="contributed">fylld högerpekande liten triangel</annotation>
+		<annotation cp="▸" type="tts" draft="contributed">fylld högerpekande liten triangel</annotation>
+		<annotation cp="▹" draft="contributed">ihålig högerpekande liten triangel</annotation>
+		<annotation cp="▹" type="tts" draft="contributed">ihålig högerpekande liten triangel</annotation>
+		<annotation cp="►" draft="contributed">fylld högerpekande pekare</annotation>
+		<annotation cp="►" type="tts" draft="contributed">fylld högerpekande pekare</annotation>
+		<annotation cp="▻" draft="contributed">ihålig högerpekande pekare</annotation>
+		<annotation cp="▻" type="tts" draft="contributed">ihålig högerpekande pekare</annotation>
 		<annotation cp="▼">fylld | fylld nedåtpekande triangel | fylld nedåtriktad triangel | nedåt | pil | triangel</annotation>
 		<annotation cp="▼" type="tts">fylld nedåtpekande triangel</annotation>
+		<annotation cp="▽" draft="contributed">ihålig nedåtpekande triangel</annotation>
+		<annotation cp="▽" type="tts" draft="contributed">ihålig nedåtpekande triangel</annotation>
+		<annotation cp="▾" draft="contributed">fylld nedåtpekande liten triangel</annotation>
+		<annotation cp="▾" type="tts" draft="contributed">fylld nedåtpekande liten triangel</annotation>
+		<annotation cp="▿" draft="contributed">ihålig nedåtpekande liten triangel</annotation>
+		<annotation cp="▿" type="tts" draft="contributed">ihålig nedåtpekande liten triangel</annotation>
+		<annotation cp="◁" draft="contributed">ihålig vänsterpekande triangel</annotation>
+		<annotation cp="◁" type="tts" draft="contributed">ihålig vänsterpekande triangel</annotation>
+		<annotation cp="◂" draft="contributed">fylld vänsterpekande liten triangel</annotation>
+		<annotation cp="◂" type="tts" draft="contributed">fylld vänsterpekande liten triangel</annotation>
+		<annotation cp="◃" draft="contributed">ihålig vänsterpekande liten triangel</annotation>
+		<annotation cp="◃" type="tts" draft="contributed">ihålig vänsterpekande liten triangel</annotation>
+		<annotation cp="◄" draft="contributed">fylld vänsterpekande pekare</annotation>
+		<annotation cp="◄" type="tts" draft="contributed">fylld vänsterpekande pekare</annotation>
+		<annotation cp="◅" draft="contributed">ihålig vänsterpekande pekare</annotation>
+		<annotation cp="◅" type="tts" draft="contributed">ihålig vänsterpekande pekare</annotation>
+		<annotation cp="◆" draft="contributed">fylld romb</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">fylld romb</annotation>
+		<annotation cp="◇" draft="contributed">ihålig romb</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">ihålig romb</annotation>
+		<annotation cp="◈" draft="contributed">ihålig romb som innehåller fylld romb</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">ihålig romb som innehåller fylld romb</annotation>
+		<annotation cp="◉" draft="contributed">ihålig cirkel som innehåller fylld cirkel</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">ihålig cirkel som innehåller fylld cirkel</annotation>
 		<annotation cp="◊">diamant | romb | ruta</annotation>
 		<annotation cp="◊" type="tts">romb</annotation>
 		<annotation cp="○">cirkel | ihålig cirkel | ring</annotation>
 		<annotation cp="○" type="tts">ihålig cirkel</annotation>
+		<annotation cp="◌" draft="contributed">punktcirkel</annotation>
+		<annotation cp="◌" type="tts" draft="contributed">punktcirkel</annotation>
+		<annotation cp="◍" draft="contributed">cirkel med vertikal fyllning</annotation>
+		<annotation cp="◍" type="tts" draft="contributed">cirkel med vertikal fyllning</annotation>
+		<annotation cp="◎" draft="contributed">dubbel cirkel | koncentriska cirklar | mål</annotation>
+		<annotation cp="◎" type="tts" draft="contributed">måltavla</annotation>
 		<annotation cp="●">cirkel | fylld cirkel</annotation>
 		<annotation cp="●" type="tts">fylld cirkel</annotation>
+		<annotation cp="◐" draft="contributed">cirkel med vänster halva fylld</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">cirkel med vänster halva fylld</annotation>
+		<annotation cp="◑" draft="contributed">cirkel med höger halva fylld</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">cirkel med höger halva fylld</annotation>
+		<annotation cp="◒" draft="contributed">cirkel med nedre halva fylld</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">cirkel med nedre halva fylld</annotation>
+		<annotation cp="◓" draft="contributed">cirkel med övre halva fylld</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">cirkel med övre halva fylld</annotation>
+		<annotation cp="◔" draft="contributed">cirkel med övre högra fjärdedel fylld</annotation>
+		<annotation cp="◔" type="tts" draft="contributed">cirkel med övre högra fjärdedel fylld</annotation>
+		<annotation cp="◕" draft="contributed">fylld cirkel med övre vänstra fjärdedel tom</annotation>
+		<annotation cp="◕" type="tts" draft="contributed">fylld cirkel med övre vänstra fjärdedel tom</annotation>
+		<annotation cp="◖" draft="contributed">vänster halvfylld cirkel</annotation>
+		<annotation cp="◖" type="tts" draft="contributed">vänster halvfylld cirkel</annotation>
+		<annotation cp="◗" draft="contributed">höger halvfylld cirkel</annotation>
+		<annotation cp="◗" type="tts" draft="contributed">höger halvfylld cirkel</annotation>
+		<annotation cp="◘" draft="contributed">inverterad punkt</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">inverterad punkt</annotation>
+		<annotation cp="◙" draft="contributed">inverterad ihålig cirkel</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">fylld kvadrat med ihålig cirkel</annotation>
+		<annotation cp="◜" draft="contributed">övre vänstra kvadrant cirkulär båge</annotation>
+		<annotation cp="◜" type="tts" draft="contributed">övre vänstra kvadrant cirkulär båge</annotation>
+		<annotation cp="◝" draft="contributed">övre högra kvadrant cirkulär båge</annotation>
+		<annotation cp="◝" type="tts" draft="contributed">övre högra kvadrant cirkulär båge</annotation>
+		<annotation cp="◞" draft="contributed">nedre högra kvadrant cirkulär båge</annotation>
+		<annotation cp="◞" type="tts" draft="contributed">nedre högra kvadrant cirkulär båge</annotation>
+		<annotation cp="◟" draft="contributed">nedre vänstra kvadrant cirkulär båge</annotation>
+		<annotation cp="◟" type="tts" draft="contributed">nedre vänstra kvadrant cirkulär båge</annotation>
+		<annotation cp="◠" draft="contributed">övre halvcirkel</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">övre halvcirkel</annotation>
+		<annotation cp="◡" draft="contributed">nedre halvcirkel</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">nedre halvcirkel</annotation>
+		<annotation cp="◢" draft="contributed">fylld triangel nedtill höger</annotation>
+		<annotation cp="◢" type="tts" draft="contributed">fylld triangel nedtill höger</annotation>
+		<annotation cp="◣" draft="contributed">fylld triangel nedtill vänster</annotation>
+		<annotation cp="◣" type="tts" draft="contributed">fylld triangel nedtill vänster</annotation>
+		<annotation cp="◤" draft="contributed">fylld triangel upptill vänster</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">fylld triangel upptill vänster</annotation>
+		<annotation cp="◥" draft="contributed">fylld triangel upptill höger</annotation>
+		<annotation cp="◥" type="tts" draft="contributed">fylld triangel upptill höger</annotation>
+		<annotation cp="◦" draft="contributed">ihålig punkt</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">ihålig punkt</annotation>
 		<annotation cp="◯">cirkel | ring | stor ihålig cirkel</annotation>
 		<annotation cp="◯" type="tts">stor ihålig cirkel</annotation>
-		<annotation cp="⚧">transgender | transgendersymbol</annotation>
-		<annotation cp="⚧" type="tts">transgendersymbol</annotation>
-		<annotation cp="🤌">fingerportmonnä | fingrar | frågande | handgest | knyten | sarkastisk</annotation>
-		<annotation cp="🤌" type="tts">fingerportmonnä</annotation>
-		<annotation cp="🥲">berörd | lättad | leende | stolt | tacksam | tår | tårögt leende ansikte</annotation>
-		<annotation cp="🥲" type="tts">tårögt leende ansikte</annotation>
-		<annotation cp="🥷">flygare | hemligt | ninja | pilot</annotation>
-		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="🥸">anonym | ansikte | glasögon | mask | maskerat ansikte | näsa</annotation>
-		<annotation cp="🥸" type="tts">maskerat ansikte</annotation>
-		<annotation cp="🦣">betar | mammut | stor | utrotad</annotation>
-		<annotation cp="🦣" type="tts">mammut</annotation>
-		<annotation cp="🦤">dront | Dront | stor | utrotad</annotation>
-		<annotation cp="🦤" type="tts">dront</annotation>
-		<annotation cp="🦫">bäver | damm</annotation>
-		<annotation cp="🦫" type="tts">bäver</annotation>
-		<annotation cp="🦬">bisonoxe | buffalo | hjord | visent</annotation>
-		<annotation cp="🦬" type="tts">bisonoxe</annotation>
-		<annotation cp="🦭">säl</annotation>
-		<annotation cp="🦭" type="tts">säl</annotation>
-		<annotation cp="🧋">bubbelte | milkshake | pärlor | te</annotation>
-		<annotation cp="🧋" type="tts">bubbelte</annotation>
-		<annotation cp="🩴">flip-flops | remsko | sandaler</annotation>
-		<annotation cp="🩴" type="tts">flip-flops</annotation>
-		<annotation cp="🪃">australien | boomerang | bumerang | flyga tillbaka</annotation>
-		<annotation cp="🪃" type="tts">boomerang</annotation>
-		<annotation cp="🪄">tro´llstav | trollkarl | trollkonst | trollspö</annotation>
-		<annotation cp="🪄" type="tts">trollspö</annotation>
-		<annotation cp="🪅">fest | kalas | piñata</annotation>
-		<annotation cp="🪅" type="tts">piñata</annotation>
-		<annotation cp="🪆">babuschkadocka | matrjosjka | rysk docka | ryska dockor</annotation>
-		<annotation cp="🪆" type="tts">ryska dockor</annotation>
-		<annotation cp="🪖">armé | hjälm | krigare | militär | militärhjälm | soldat</annotation>
-		<annotation cp="🪖" type="tts">militärhjälm</annotation>
-		<annotation cp="🪗">ackordeon | dragharmonika | dragspel</annotation>
-		<annotation cp="🪗" type="tts">dragspel</annotation>
-		<annotation cp="🪘">congatrumma | djembe | rytm | takt | trumma</annotation>
-		<annotation cp="🪘" type="tts">congatrumma</annotation>
-		<annotation cp="🪙">guld | mynt | pengar | silver | skatt</annotation>
-		<annotation cp="🪙" type="tts">mynt</annotation>
-		<annotation cp="🪚">fogsvans | såg | snickare | trä | verktyg</annotation>
-		<annotation cp="🪚" type="tts">fogsvans</annotation>
-		<annotation cp="🪛">skruvmejsel | verktyg</annotation>
-		<annotation cp="🪛" type="tts">skruvmejsel</annotation>
-		<annotation cp="🪜">klätterstege | klättra | steg | stege</annotation>
-		<annotation cp="🪜" type="tts">stege</annotation>
-		<annotation cp="🪝">hake | klo | krok | snärja</annotation>
-		<annotation cp="🪝" type="tts">krok</annotation>
-		<annotation cp="🪞">reflektor | spegel | spegelglas</annotation>
-		<annotation cp="🪞" type="tts">spegel</annotation>
-		<annotation cp="🪟">fönster | genomskinlig | öppning | ram | utsikt</annotation>
-		<annotation cp="🪟" type="tts">fönster</annotation>
-		<annotation cp="🪠" draft="contributed">rörmokare | sugkopp | toalett | vaskrensare</annotation>
-		<annotation cp="🪠" type="tts">vaskrensare</annotation>
-		<annotation cp="🪡">broderi | nål | skräddarsy | stygn | synål</annotation>
-		<annotation cp="🪡" type="tts">synål</annotation>
-		<annotation cp="🪢">knop | knut | rep | tågvirke</annotation>
-		<annotation cp="🪢" type="tts">knut</annotation>
-		<annotation cp="🪣">ämbar | hink | kärl | spann</annotation>
-		<annotation cp="🪣" type="tts">spann</annotation>
-		<annotation cp="🪤">bete | fälla | musfälla | snara</annotation>
-		<annotation cp="🪤" type="tts">musfälla</annotation>
-		<annotation cp="🪥">borste | ren | tandborste | tänder | tandhygien | tvätta</annotation>
-		<annotation cp="🪥" type="tts">tandborste</annotation>
-		<annotation cp="🪦">begravningsplats | grav | gravplats | gravsten | minneslund</annotation>
-		<annotation cp="🪦" type="tts">gravsten</annotation>
-		<annotation cp="🪧">demonstration | plakat | protest | skylt</annotation>
-		<annotation cp="🪧" type="tts">plakat</annotation>
-		<annotation cp="🪨">berg | bumling | klippa | sten</annotation>
-		<annotation cp="🪨" type="tts">sten</annotation>
-		<annotation cp="🪰">asätande insekt | fluga | sjukdom</annotation>
-		<annotation cp="🪰" type="tts">fluga</annotation>
-		<annotation cp="🪱">daggmask | mask | parasit | ringmask</annotation>
-		<annotation cp="🪱" type="tts">mask</annotation>
-		<annotation cp="🪲">insekt | skalbagge | småkryp</annotation>
-		<annotation cp="🪲" type="tts">skalbagge</annotation>
-		<annotation cp="🪳">insekt | kackerlacka | skadedjur</annotation>
-		<annotation cp="🪳" type="tts">kackerlacka</annotation>
-		<annotation cp="🪴">inomhus | krukväxt | odla | växt</annotation>
-		<annotation cp="🪴" type="tts">krukväxt</annotation>
-		<annotation cp="🪵">stockar | timmerstockar | trä | trästockar | ved</annotation>
-		<annotation cp="🪵" type="tts">trästockar</annotation>
-		<annotation cp="🪶">fågel | fågelfjäder | fjäder | fjäderdräkt | lätt</annotation>
-		<annotation cp="🪶" type="tts">fågelfjäder</annotation>
-		<annotation cp="🫀">hjärta | kardiologi | organ | puls</annotation>
-		<annotation cp="🫀" type="tts">hjärta</annotation>
-		<annotation cp="🫁">andning | exhalering | inhalering | lungor | organ</annotation>
-		<annotation cp="🫁" type="tts">lungor</annotation>
-		<annotation cp="🫂">adjö | hej | kram | personer kramas | tack</annotation>
-		<annotation cp="🫂" type="tts">personer kramas</annotation>
-		<annotation cp="🫐">blåbär</annotation>
-		<annotation cp="🫐" type="tts">blåbär</annotation>
-		<annotation cp="🫑">grönsak | paprika | röd paprika</annotation>
-		<annotation cp="🫑" type="tts">paprika</annotation>
-		<annotation cp="🫒">mat | oliv</annotation>
-		<annotation cp="🫒" type="tts">oliv</annotation>
-		<annotation cp="🫓">naanbröd | pitabröd | tunnbröd</annotation>
-		<annotation cp="🫓" type="tts">tunnbröd</annotation>
-		<annotation cp="🫔">mexikanskt | tamale | wrap</annotation>
-		<annotation cp="🫔" type="tts">tamale</annotation>
-		<annotation cp="🫕">choklad | fondue | gryta | ost | schweiziskt | smältande</annotation>
-		<annotation cp="🫕" type="tts">fondue</annotation>
-		<annotation cp="🫖">dryck | kanna | te | tekanna</annotation>
-		<annotation cp="🫖" type="tts">tekanna</annotation>
-		<annotation cp="🛖">hydda | kåta | koja</annotation>
-		<annotation cp="🛖" type="tts">koja</annotation>
-		<annotation cp="🛗">hiss | lift | tillgång | vinsch</annotation>
-		<annotation cp="🛗" type="tts">hiss</annotation>
-		<annotation cp="🛻">lastbil | pickup | transportvagn | varubil</annotation>
-		<annotation cp="🛻" type="tts">pickup</annotation>
-		<annotation cp="🛼">rullskridsko</annotation>
-		<annotation cp="🛼" type="tts">rullskridsko</annotation>
+		<annotation cp="◳" draft="contributed">ihålig kvadrat övre högra kvadrant</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">ihålig kvadrat övre högra kvadrant</annotation>
+		<annotation cp="◷" draft="contributed">ihålig cirkel med övre högra kvadrant</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">ihålig cirkel med övre högra kvadrant</annotation>
+		<annotation cp="◿" draft="contributed">triangel nedtill höger</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">triangel nedtill höger</annotation>
+		<annotation cp="♪">åttondel | musik | not</annotation>
+		<annotation cp="♪" type="tts">åttondelsnot</annotation>
+		<annotation cp="⨧" draft="contributed">plus nedsänkt två</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">plus nedsänkt två</annotation>
+		<annotation cp="⨯" draft="contributed">vektorkryssprodukt</annotation>
+		<annotation cp="⨯" type="tts" draft="contributed">vektorkryssprodukt</annotation>
+		<annotation cp="⨼" draft="contributed">inre produkt</annotation>
+		<annotation cp="⨼" type="tts" draft="contributed">inre produkt</annotation>
+		<annotation cp="⩣" draft="contributed">logiskt eller dubbelt understreck</annotation>
+		<annotation cp="⩣" type="tts" draft="contributed">logiskt eller dubbelt understreck</annotation>
+		<annotation cp="⩽" draft="contributed">lutande mindre än-likhetstecken</annotation>
+		<annotation cp="⩽" type="tts" draft="contributed">lutande mindre än-likhetstecken</annotation>
+		<annotation cp="⪍" draft="contributed">lutande mindre än ovanför-likhetstecken</annotation>
+		<annotation cp="⪍" type="tts" draft="contributed">lutande mindre än ovanför-likhetstecken</annotation>
+		<annotation cp="⪚" draft="contributed">matematik | olikhet</annotation>
+		<annotation cp="⪚" type="tts" draft="contributed">lika med större än med dubbla linjer</annotation>
+		<annotation cp="⪺" draft="contributed">föregår över inte nästan lika med</annotation>
+		<annotation cp="⪺" type="tts" draft="contributed">föregår över inte nästan lika med</annotation>
+		<annotation cp="♭">dur | musik | not</annotation>
+		<annotation cp="♭" type="tts">dur</annotation>
+		<annotation cp="♯">moll | musik | not</annotation>
+		<annotation cp="♯" type="tts">moll</annotation>
 		<annotation cp="😀">ansikte med stort leende | leende | roligt | skratt</annotation>
 		<annotation cp="😀" type="tts">ansikte med stort leende</annotation>
 		<annotation cp="😃">flinande ansikte med stora ögon | leende | öppen mun | roligt | skratt</annotation>
@@ -247,6 +753,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">pussande ansikte med slutna ögon</annotation>
 		<annotation cp="😙">glad | puss | pussande ansikte med leende ögon</annotation>
 		<annotation cp="😙" type="tts">pussande ansikte med leende ögon</annotation>
+		<annotation cp="🥲">berörd | lättad | leende | stolt | tacksam | tår | tårögt leende ansikte</annotation>
+		<annotation cp="🥲" type="tts">tårögt leende ansikte</annotation>
 		<annotation cp="😋">ansikte som njuter av god mat | god mat | gott | leende ansikte | smakar gott</annotation>
 		<annotation cp="😋" type="tts">ansikte som njuter av god mat</annotation>
 		<annotation cp="😛">ansikte | ansikte räcker ut tungan | räcker ut tungan | tunga</annotation>
@@ -277,6 +785,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">uttryckslöst ansikte</annotation>
 		<annotation cp="😶">ansikte utan mun | ingen mun</annotation>
 		<annotation cp="😶" type="tts">ansikte utan mun</annotation>
+		<annotation cp="😶‍🌫">disträ | glömsk | tanksprid</annotation>
+		<annotation cp="😶‍🌫" type="tts">ansikte i moln</annotation>
 		<annotation cp="😏">flin | flinande ansikte | halvleende ansikte | småleende ansikte</annotation>
 		<annotation cp="😏" type="tts">halvleende ansikte</annotation>
 		<annotation cp="😒">inte glad | missnöjd | missnöjt ansikte</annotation>
@@ -317,12 +827,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">yrt ansikte</annotation>
 		<annotation cp="😵">omtumlad | omtumlat ansikte | yr</annotation>
 		<annotation cp="😵" type="tts">omtumlat ansikte</annotation>
+		<annotation cp="😵‍💫">fara | hypnotiserad | yrsel</annotation>
+		<annotation cp="😵‍💫" type="tts">ansikte med spiralögon</annotation>
 		<annotation cp="🤯">chockad | exploderande huvud</annotation>
 		<annotation cp="🤯" type="tts">exploderande huvud</annotation>
 		<annotation cp="🤠">ansikte | ansikte med cowboyhatt | cowboy | cowgirl | hatt</annotation>
 		<annotation cp="🤠" type="tts">ansikte med cowboyhatt</annotation>
 		<annotation cp="🥳">fest | festande ansikte | hatt | kalas | party | tuta</annotation>
 		<annotation cp="🥳" type="tts">festande ansikte</annotation>
+		<annotation cp="🥸">anonym | ansikte | glasögon | mask | maskerat ansikte | näsa</annotation>
+		<annotation cp="🥸" type="tts">maskerat ansikte</annotation>
 		<annotation cp="😎">cool | leende | leende ansikte med solglasögon | solglasögon</annotation>
 		<annotation cp="😎" type="tts">leende ansikte med solglasögon</annotation>
 		<annotation cp="🤓">ansikte | glasögon | nörd | nördansikte</annotation>
@@ -339,6 +853,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">ansikte med sur mun</annotation>
 		<annotation cp="😮">förvånad | förvånat ansikte | öppen mun</annotation>
 		<annotation cp="😮" type="tts">förvånat ansikte</annotation>
+		<annotation cp="😮‍💨" draft="contributed">förvånad | lättad | pustar ut | viskar</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="provisional">ansikte andas ut</annotation>
 		<annotation cp="😯">hyssjad | hyssjat ansikte | överraskad | stum | tyst ansikte</annotation>
 		<annotation cp="😯" type="tts">hyssjat ansikte</annotation>
 		<annotation cp="😲">chockad | chockat ansikte | förvånad</annotation>
@@ -459,6 +975,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">brustet hjärta</annotation>
 		<annotation cp="❤">hjärta | kärlek | rött hjärta</annotation>
 		<annotation cp="❤" type="tts">rött hjärta</annotation>
+		<annotation cp="❤‍🔥">brinnande | hjärta | kärlek | lust</annotation>
+		<annotation cp="❤‍🔥" type="tts" draft="provisional">brinnande hjärta</annotation>
+		<annotation cp="❤‍🩹">friskna till | läker | läker sår | repa sig | tillfriskna</annotation>
+		<annotation cp="❤‍🩹" type="tts">läkande hjärta</annotation>
 		<annotation cp="🧡">hjärta i orange | orange</annotation>
 		<annotation cp="🧡" type="tts">hjärta i orange</annotation>
 		<annotation cp="💛">gul | gult hjärta | hjärta</annotation>
@@ -515,6 +1035,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">vulcan-hälsning</annotation>
 		<annotation cp="👌">hand | OK | OK-tecken | tecken</annotation>
 		<annotation cp="👌" type="tts">OK-tecken</annotation>
+		<annotation cp="🤌">fingrar | förhör | handgest | knuten | sarkastisk</annotation>
+		<annotation cp="🤌" type="tts">fingerportmonnä</annotation>
 		<annotation cp="🤏">liten mängd | nypande hand</annotation>
 		<annotation cp="🤏" type="tts">nypande hand</annotation>
 		<annotation cp="✌">seger | v-tecken</annotation>
@@ -587,6 +1109,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">näsa</annotation>
 		<annotation cp="🧠">hjärna | klok</annotation>
 		<annotation cp="🧠" type="tts">hjärna</annotation>
+		<annotation cp="🫀">hjärta | kardiologi | organ | puls</annotation>
+		<annotation cp="🫀" type="tts">hjärta</annotation>
+		<annotation cp="🫁">andning | exhalering | inhalering | lungor | organ</annotation>
+		<annotation cp="🫁" type="tts">lungor</annotation>
 		<annotation cp="🦷">tand | tandläkare</annotation>
 		<annotation cp="🦷" type="tts">tand</annotation>
 		<annotation cp="🦴">benknota | skelett</annotation>
@@ -611,24 +1137,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">person</annotation>
 		<annotation cp="👱">blond | blond person | människor</annotation>
 		<annotation cp="👱" type="tts">blond person</annotation>
-		<annotation cp="🧑‍🍼">amma | mata | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
-		<annotation cp="🧑‍🍼" type="tts">person ammar spädbarn</annotation>
-		<annotation cp="🧑‍🎄">könsneutral tomte | tomte, jul</annotation>
-		<annotation cp="🧑‍🎄" type="tts">könsneutral tomte</annotation>
 		<annotation cp="👨">man | vuxen</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">man med skägg | person med skägg | skägg</annotation>
 		<annotation cp="🧔" type="tts">man med skägg</annotation>
 		<annotation cp="👱‍♂">blond | man</annotation>
 		<annotation cp="👱‍♂" type="tts">blond man</annotation>
-		<annotation cp="👨‍🍼">amma | man | man matar spädbarn | mata | spädbarn</annotation>
-		<annotation cp="👨‍🍼" type="tts">man matar spädbarn</annotation>
+		<annotation cp="🧔‍♀">kvinna | kvinna: skägg | skägg</annotation>
+		<annotation cp="🧔‍♀" type="tts">kvinna: skägg</annotation>
+		<annotation cp="🧔‍♂">man | man: skägg | skägg</annotation>
+		<annotation cp="🧔‍♂" type="tts">man: skägg</annotation>
 		<annotation cp="👩">kvinna | vuxen</annotation>
 		<annotation cp="👩" type="tts">kvinna</annotation>
 		<annotation cp="👱‍♀">blond | blondin | kvinna</annotation>
 		<annotation cp="👱‍♀" type="tts">blond kvinna</annotation>
-		<annotation cp="👩‍🍼">amma | kvinna | kvinna matar spädbarn | mata | spädbarn</annotation>
-		<annotation cp="👩‍🍼" type="tts">kvinna matar spädbarn</annotation>
 		<annotation cp="🧓">äldre | äldre person | gammal | könsneutral | vuxen</annotation>
 		<annotation cp="🧓" type="tts">äldre person</annotation>
 		<annotation cp="👴">äldre man | gammal | man | vuxen</annotation>
@@ -695,7 +1217,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">man som rycker på axlarna</annotation>
 		<annotation cp="🤷‍♀">axelryckning | kvinna | kvinna som rycker på axlarna | likgiltighet | okunskap | tvivel</annotation>
 		<annotation cp="🤷‍♀" type="tts">kvinna som rycker på axlarna</annotation>
-		<annotation cp="🧑‍⚕" draft="provisional">läkare</annotation>
+		<annotation cp="🧑‍⚕">läkare | sjuksköterska | sjukvård | terapeut | vårdpersonal</annotation>
 		<annotation cp="🧑‍⚕" type="tts">läkare</annotation>
 		<annotation cp="👨‍⚕">doktor | hälsovård | läkare | man | manlig | skötare</annotation>
 		<annotation cp="👨‍⚕" type="tts">manlig läkare</annotation>
@@ -761,7 +1283,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍💻" type="tts">manlig IT-expert</annotation>
 		<annotation cp="👩‍💻">data | IT | kvinna | kvinnlig IT-expert | teknologi</annotation>
 		<annotation cp="👩‍💻" type="tts">kvinnlig IT-expert</annotation>
-		<annotation cp="🧑‍🎤" draft="provisional">sångare</annotation>
+		<annotation cp="🧑‍🎤">artist | rock | sångare | skådespelare | stjärna</annotation>
 		<annotation cp="🧑‍🎤" type="tts" draft="contributed">sångare</annotation>
 		<annotation cp="👨‍🎤">artist | kändis | konsert | man | manlig sångare | stjärna</annotation>
 		<annotation cp="👨‍🎤" type="tts">manlig sångare</annotation>
@@ -809,6 +1331,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">manlig grenadjär</annotation>
 		<annotation cp="💂‍♀">grenadjär | kvinna | kvinnlig grenadjär | kvinnlig vakt | vaktbyte | vaktparad</annotation>
 		<annotation cp="💂‍♀" type="tts">kvinnlig grenadjär</annotation>
+		<annotation cp="🥷">gömd | hemlig | lönnmördare | ninja</annotation>
+		<annotation cp="🥷" type="tts">ninja</annotation>
 		<annotation cp="👷">arbetare | byggarbetare | hatt</annotation>
 		<annotation cp="👷" type="tts">byggarbetare</annotation>
 		<annotation cp="👷‍♂">arbetare | bygge | man | manlig byggarbetare</annotation>
@@ -831,26 +1355,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">kvinna i sjal</annotation>
 		<annotation cp="🤵">brudgum | person | person i smoking | smoking</annotation>
 		<annotation cp="🤵" type="tts">person i smoking</annotation>
-		<annotation cp="🤵‍♀">kvinna | kvinna i smoking | smoking</annotation>
-		<annotation cp="🤵‍♀" type="tts">kvinna i smoking</annotation>
 		<annotation cp="🤵‍♂">man | man i smoking | smoking</annotation>
 		<annotation cp="🤵‍♂" type="tts">man i smoking</annotation>
+		<annotation cp="🤵‍♀">kvinna | kvinna i smoking | smoking</annotation>
+		<annotation cp="🤵‍♀" type="tts">kvinna i smoking</annotation>
 		<annotation cp="👰">bröllop | brud | brudslöja | person | person i brudslöja</annotation>
 		<annotation cp="👰" type="tts">person i brudslöja</annotation>
-		<annotation cp="👰‍♀">brudslöja | kvinna | kvinna i brudslöja</annotation>
-		<annotation cp="👰‍♀" type="tts">kvinna i brudslöja</annotation>
 		<annotation cp="👰‍♂">brudslöja | man | man i brudslöja</annotation>
 		<annotation cp="👰‍♂" type="tts">man i brudslöja</annotation>
+		<annotation cp="👰‍♀">brudslöja | kvinna | kvinna i brudslöja</annotation>
+		<annotation cp="👰‍♀" type="tts">kvinna i brudslöja</annotation>
 		<annotation cp="🤰">gravid | kvinna</annotation>
 		<annotation cp="🤰" type="tts">gravid kvinna</annotation>
 		<annotation cp="🤱">amma | amning | baby | bröst</annotation>
 		<annotation cp="🤱" type="tts">amning</annotation>
+		<annotation cp="👩‍🍼">amma | kvinna | kvinna matar spädbarn | mata | spädbarn</annotation>
+		<annotation cp="👩‍🍼" type="tts">kvinna matar spädbarn</annotation>
+		<annotation cp="👨‍🍼">amma | man | man matar spädbarn | mata | spädbarn</annotation>
+		<annotation cp="👨‍🍼" type="tts">man matar spädbarn</annotation>
+		<annotation cp="🧑‍🍼">amma | mata | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
+		<annotation cp="🧑‍🍼" type="tts">person ammar spädbarn</annotation>
 		<annotation cp="👼">ängel | bebisängel | saga</annotation>
 		<annotation cp="👼" type="tts">bebisängel</annotation>
 		<annotation cp="🎅">högtid | jul | jultomte | tomten</annotation>
 		<annotation cp="🎅" type="tts">jultomte</annotation>
 		<annotation cp="🤶">jul | mor | nisse | tomtemor</annotation>
 		<annotation cp="🤶" type="tts">tomtemor</annotation>
+		<annotation cp="🧑‍🎄">könsneutral tomte | tomte, jul</annotation>
+		<annotation cp="🧑‍🎄" type="tts">könsneutral tomte</annotation>
 		<annotation cp="🦸">god | hjälte | hjältinna | superhjälte | superkraft | superkrafter</annotation>
 		<annotation cp="🦸" type="tts">superhjälte</annotation>
 		<annotation cp="🦸‍♂">god | hjälte | man | manlig superhjälte | superkraft</annotation>
@@ -1099,6 +1631,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👤" type="tts">figur i silhuett</annotation>
 		<annotation cp="👥">figurer | figurer i silhuett | människor</annotation>
 		<annotation cp="👥" type="tts">figurer i silhuett</annotation>
+		<annotation cp="🫂">adjö | hej | kram | personer kramas | tack</annotation>
+		<annotation cp="🫂" type="tts">personer kramas</annotation>
 		<annotation cp="👣">avtryck | fotavtryck | fötter</annotation>
 		<annotation cp="👣" type="tts">fotavtryck</annotation>
 		<annotation cp="🦰">rödhårig | röllig | rött hår</annotation>
@@ -1157,6 +1691,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">zebra</annotation>
 		<annotation cp="🦌">djur | hjort</annotation>
 		<annotation cp="🦌" type="tts">hjort</annotation>
+		<annotation cp="🦬">bisonoxe | buffalo | hjord | visent</annotation>
+		<annotation cp="🦬" type="tts">bisonoxe</annotation>
 		<annotation cp="🐮">djur | ko | koansikte</annotation>
 		<annotation cp="🐮" type="tts">koansikte</annotation>
 		<annotation cp="🐂">oxe | oxen | stjärntecken | tjur</annotation>
@@ -1167,7 +1703,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐄" type="tts">ko</annotation>
 		<annotation cp="🐷">djur | gris | grisansikte</annotation>
 		<annotation cp="🐷" type="tts">grisansikte</annotation>
-		<annotation cp="🐖">djur | gris</annotation>
+		<annotation cp="🐖">gris | so | sugga</annotation>
 		<annotation cp="🐖" type="tts">gris</annotation>
 		<annotation cp="🐗">djur | svin | vildsvin</annotation>
 		<annotation cp="🐗" type="tts">vildsvin</annotation>
@@ -1189,6 +1725,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">giraff</annotation>
 		<annotation cp="🐘">djur | elefant</annotation>
 		<annotation cp="🐘" type="tts">elefant</annotation>
+		<annotation cp="🦣">betar | mammut | stor | utrotad</annotation>
+		<annotation cp="🦣" type="tts">mammut</annotation>
 		<annotation cp="🦏">djur | horn | näsa | noshörning</annotation>
 		<annotation cp="🦏" type="tts">noshörning</annotation>
 		<annotation cp="🦛">flodhäst | hovdjur</annotation>
@@ -1207,6 +1745,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">kanin</annotation>
 		<annotation cp="🐿">djur | jordekorre</annotation>
 		<annotation cp="🐿" type="tts">jordekorre</annotation>
+		<annotation cp="🦫">bäver | damm</annotation>
+		<annotation cp="🦫" type="tts">bäver</annotation>
 		<annotation cp="🦔">igelkott | taggig</annotation>
 		<annotation cp="🦔" type="tts">igelkott</annotation>
 		<annotation cp="🦇">djur | fladdermus | vampyr</annotation>
@@ -1257,6 +1797,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">svan</annotation>
 		<annotation cp="🦉">fågel | uggla | vis</annotation>
 		<annotation cp="🦉" type="tts">uggla</annotation>
+		<annotation cp="🦤">dront | Dront | Mauritius | stor | utrotad</annotation>
+		<annotation cp="🦤" type="tts">dront</annotation>
+		<annotation cp="🪶">fågel | fågelfjäder | fjäder | fjäderdräkt | lätt</annotation>
+		<annotation cp="🪶" type="tts">fågelfjäder</annotation>
 		<annotation cp="🦩">flambojant | flamingo | tropisk</annotation>
 		<annotation cp="🦩" type="tts">flamingo</annotation>
 		<annotation cp="🦚">fågel | påfågel | praktfull | stolt</annotation>
@@ -1287,6 +1831,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">val</annotation>
 		<annotation cp="🐬">delfin | djur</annotation>
 		<annotation cp="🐬" type="tts">delfin</annotation>
+		<annotation cp="🦭">säl | sjölejon</annotation>
+		<annotation cp="🦭" type="tts">säl</annotation>
 		<annotation cp="🐟">fisk | fiskarna | stjärntecken</annotation>
 		<annotation cp="🐟" type="tts">fisk</annotation>
 		<annotation cp="🐠">djur | fisk | tropisk</annotation>
@@ -1309,10 +1855,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">myra</annotation>
 		<annotation cp="🐝">bi | djur | geting | insekt</annotation>
 		<annotation cp="🐝" type="tts">bi</annotation>
+		<annotation cp="🪲">insekt | skalbagge | småkryp</annotation>
+		<annotation cp="🪲" type="tts">skalbagge</annotation>
 		<annotation cp="🐞">djur | insekt | nyckelpiga | skalbagge</annotation>
 		<annotation cp="🐞" type="tts">nyckelpiga</annotation>
 		<annotation cp="🦗">gräshoppa | syrsa</annotation>
 		<annotation cp="🦗" type="tts">syrsa</annotation>
+		<annotation cp="🪳">insekt | kackerlacka | skadedjur</annotation>
+		<annotation cp="🪳" type="tts">kackerlacka</annotation>
 		<annotation cp="🕷">djur | insekt | spindel</annotation>
 		<annotation cp="🕷" type="tts">spindel</annotation>
 		<annotation cp="🕸">nät | spindel | spindelnät</annotation>
@@ -1321,6 +1871,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">skorpion</annotation>
 		<annotation cp="🦟">insekt | malaria | mygga | sjukdom | virus</annotation>
 		<annotation cp="🦟" type="tts">mygga</annotation>
+		<annotation cp="🪰">asätande insekt | fluga | sjukdom</annotation>
+		<annotation cp="🪰" type="tts">fluga</annotation>
+		<annotation cp="🪱">daggmask | mask | parasit | ringmask</annotation>
+		<annotation cp="🪱" type="tts">mask</annotation>
 		<annotation cp="🦠">amöba | bakterie | mikrob | virus</annotation>
 		<annotation cp="🦠" type="tts">mikrob</annotation>
 		<annotation cp="💐">blombukett | blommor | kärlek</annotation>
@@ -1345,6 +1899,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌷" type="tts">tulpan</annotation>
 		<annotation cp="🌱">grodd | skott</annotation>
 		<annotation cp="🌱" type="tts">skott</annotation>
+		<annotation cp="🪴">inomhus | krukväxt | odla | växt</annotation>
+		<annotation cp="🪴" type="tts">krukväxt</annotation>
 		<annotation cp="🌲">barrträd | gran | träd | vintergrön</annotation>
 		<annotation cp="🌲" type="tts">barrträd</annotation>
 		<annotation cp="🌳">lövfällande | lövträd | träd</annotation>
@@ -1395,10 +1951,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">körsbär</annotation>
 		<annotation cp="🍓">bär | frukt | jordgubbe</annotation>
 		<annotation cp="🍓" type="tts">jordgubbe</annotation>
+		<annotation cp="🫐">blåbär</annotation>
+		<annotation cp="🫐" type="tts">blåbär</annotation>
 		<annotation cp="🥝">frukt | kiwi | kiwifrukt | mat</annotation>
 		<annotation cp="🥝" type="tts">kiwifrukt</annotation>
 		<annotation cp="🍅">grönsak | tomat</annotation>
 		<annotation cp="🍅" type="tts">tomat</annotation>
+		<annotation cp="🫒">mat | oliv</annotation>
+		<annotation cp="🫒" type="tts">oliv</annotation>
 		<annotation cp="🥥">kokosnöt | palm | piña colada</annotation>
 		<annotation cp="🥥" type="tts">kokosnöt</annotation>
 		<annotation cp="🥑">avokado | frukt | mat</annotation>
@@ -1413,6 +1973,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">majskolv</annotation>
 		<annotation cp="🌶">chili | peppar | starkt | växt</annotation>
 		<annotation cp="🌶" type="tts">chili</annotation>
+		<annotation cp="🫑">grönsak | paprika | röd paprika</annotation>
+		<annotation cp="🫑" type="tts">paprika</annotation>
 		<annotation cp="🥒">grönsak | gurka | mat</annotation>
 		<annotation cp="🥒" type="tts">gurka</annotation>
 		<annotation cp="🥬">bok choy | grönkål | kål | sallad | sallat</annotation>
@@ -1435,6 +1997,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥐" type="tts">croissant</annotation>
 		<annotation cp="🥖">baguette | bröd | fransk | mat</annotation>
 		<annotation cp="🥖" type="tts">baguette</annotation>
+		<annotation cp="🫓">naanbröd | pitabröd | tunnbröd</annotation>
+		<annotation cp="🫓" type="tts">tunnbröd</annotation>
 		<annotation cp="🥨">pretzel | snurrad</annotation>
 		<annotation cp="🥨" type="tts">pretzel</annotation>
 		<annotation cp="🥯">bagel | bakverk | bröd</annotation>
@@ -1467,6 +2031,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">taco</annotation>
 		<annotation cp="🌯">burrito | fredagsmys | mat | mexikanskt</annotation>
 		<annotation cp="🌯" type="tts">burrito</annotation>
+		<annotation cp="🫔">mexikanskt | tamale | wrap</annotation>
+		<annotation cp="🫔" type="tts">tamale</annotation>
 		<annotation cp="🥙">falafel | gyro | kebab | mat | pita | pitabröd</annotation>
 		<annotation cp="🥙" type="tts">pitabröd</annotation>
 		<annotation cp="🧆">falafel | kikärter | köttbulle</annotation>
@@ -1479,6 +2045,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">stekpanna</annotation>
 		<annotation cp="🍲">gryta | mat | varm gryta</annotation>
 		<annotation cp="🍲" type="tts">gryta</annotation>
+		<annotation cp="🫕">choklad | fondue | gryta | ost | schweiziskt | smältande</annotation>
+		<annotation cp="🫕" type="tts">fondue</annotation>
 		<annotation cp="🥣">flingor | frukost | skål och sked</annotation>
 		<annotation cp="🥣" type="tts">skål och sked</annotation>
 		<annotation cp="🥗">grön | grönsallad | mat | sallad</annotation>
@@ -1519,7 +2087,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥮" type="tts">månkaka</annotation>
 		<annotation cp="🍡">dango | efterrätt | japan</annotation>
 		<annotation cp="🍡" type="tts">dango</annotation>
-		<annotation cp="🥟">dumpling | gyōza | jiaozi | pierogi | potsticker</annotation>
+		<annotation cp="🥟">degknyte | dumpling | empanada | gyōza | jiaozi | pirog</annotation>
 		<annotation cp="🥟" type="tts">dumpling</annotation>
 		<annotation cp="🥠">lyckokaka | profetia</annotation>
 		<annotation cp="🥠" type="tts">lyckokaka</annotation>
@@ -1569,6 +2137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">mjölkglas</annotation>
 		<annotation cp="☕">ångande | dryck | kaffe | te | varm</annotation>
 		<annotation cp="☕" type="tts">varm dryck</annotation>
+		<annotation cp="🫖">dryck | kanna | te | tekanna</annotation>
+		<annotation cp="🫖" type="tts">tekanna</annotation>
 		<annotation cp="🍵">te | tekopp | varm dryck</annotation>
 		<annotation cp="🍵" type="tts">tekopp</annotation>
 		<annotation cp="🍶">dryck | flaska | flaska och kopp med saké | kopp | sake</annotation>
@@ -1591,6 +2161,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">whiskyglas</annotation>
 		<annotation cp="🥤">juice | läskedryck | mugg med sugrör</annotation>
 		<annotation cp="🥤" type="tts">mugg med sugrör</annotation>
+		<annotation cp="🧋">bubbelte | milkshake | pärlor | te</annotation>
+		<annotation cp="🧋" type="tts">bubbelte</annotation>
 		<annotation cp="🧃">dryckesförpackning | dryckeskartong</annotation>
 		<annotation cp="🧃" type="tts">dryckeskartong</annotation>
 		<annotation cp="🧉">dryck | mate-te</annotation>
@@ -1649,6 +2221,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">byggarbetsplats</annotation>
 		<annotation cp="🧱">bruk | lera | tegelsten | tegelstenar | vägg</annotation>
 		<annotation cp="🧱" type="tts">tegelsten</annotation>
+		<annotation cp="🪨">berg | bumling | klippa | sten</annotation>
+		<annotation cp="🪨" type="tts">sten</annotation>
+		<annotation cp="🪵">stockar | timmerstockar | trä | trästockar | ved</annotation>
+		<annotation cp="🪵" type="tts">trästockar</annotation>
+		<annotation cp="🛖">hydda | kåta | koja</annotation>
+		<annotation cp="🛖" type="tts">koja</annotation>
 		<annotation cp="🏘">byggnader | flera hus | hus</annotation>
 		<annotation cp="🏘" type="tts">flera hus</annotation>
 		<annotation cp="🏚">fallfärdigt hus | förfallet | hus | öde | ödehus</annotation>
@@ -1753,7 +2331,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚊" type="tts">spårvagn</annotation>
 		<annotation cp="🚝">balkbana | fordon | monorail | tåg</annotation>
 		<annotation cp="🚝" type="tts">monorail</annotation>
-		<annotation cp="🚞">bergbana | bergsbana | bergståg | fordon</annotation>
+		<annotation cp="🚞">bergbana | bergsbana | bergståg | järnväg</annotation>
 		<annotation cp="🚞" type="tts">bergbana</annotation>
 		<annotation cp="🚋">fordon | spårvagn | spårvagnsvagn</annotation>
 		<annotation cp="🚋" type="tts">spårvagnsvagn</annotation>
@@ -1783,6 +2361,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">mötande bil</annotation>
 		<annotation cp="🚙">bil | fordon | SUV</annotation>
 		<annotation cp="🚙" type="tts">SUV</annotation>
+		<annotation cp="🛻">lastbil | pickup | transportvagn | varubil</annotation>
+		<annotation cp="🛻" type="tts">pickup</annotation>
 		<annotation cp="🚚">budbil | fordon | skåpbil</annotation>
 		<annotation cp="🚚" type="tts">budbil</annotation>
 		<annotation cp="🚛">fordon | lastbil</annotation>
@@ -1799,7 +2379,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦽" type="tts">manuell rullstol</annotation>
 		<annotation cp="🦼">eldriven rullstol | tillgänglighet</annotation>
 		<annotation cp="🦼" type="tts">eldriven rullstol</annotation>
-		<annotation cp="🛺">automatisk riksha | motorriksha | tuk-tuk</annotation>
+		<annotation cp="🛺">bilriksha | motorriksha | tuk-tuk</annotation>
 		<annotation cp="🛺" type="tts">automatisk riksha</annotation>
 		<annotation cp="🚲">cykel | fordon</annotation>
 		<annotation cp="🚲" type="tts">cykel</annotation>
@@ -1807,6 +2387,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">sparkcykel</annotation>
 		<annotation cp="🛹">bräda | skateboard</annotation>
 		<annotation cp="🛹" type="tts">skateboard</annotation>
+		<annotation cp="🛼">rullskridsko</annotation>
+		<annotation cp="🛼" type="tts">rullskridsko</annotation>
 		<annotation cp="🚏">buss | busshållplats | hållplats</annotation>
 		<annotation cp="🚏" type="tts">busshållplats</annotation>
 		<annotation cp="🛣">motorväg | väg</annotation>
@@ -1815,7 +2397,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛤" type="tts">räls</annotation>
 		<annotation cp="🛢">olja | oljefat</annotation>
 		<annotation cp="🛢" type="tts">oljefat</annotation>
-		<annotation cp="⛽">bensin | bensinpump | bränsle | bränslepump</annotation>
+		<annotation cp="⛽">bensin | bensinpump | bensinstation | bränsle | bränslepump</annotation>
 		<annotation cp="⛽" type="tts">bränslepump</annotation>
 		<annotation cp="🚨">lampa | polisbil | polisbilslampa | saftblandare</annotation>
 		<annotation cp="🚨" type="tts">polisbilslampa</annotation>
@@ -1861,7 +2443,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚟" type="tts">hängbana</annotation>
 		<annotation cp="🚠">fordon | gondolbana | linbana</annotation>
 		<annotation cp="🚠" type="tts">linbana</annotation>
-		<annotation cp="🚡">fordon | funifor | kabinbana | linbana</annotation>
+		<annotation cp="🚡">funifor | gondol | kabinbana | linbana</annotation>
 		<annotation cp="🚡" type="tts">kabinbana</annotation>
 		<annotation cp="🛰">fordon | rymden | satellit</annotation>
 		<annotation cp="🛰" type="tts">satellit</annotation>
@@ -2147,6 +2729,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎱" type="tts">biljardboll</annotation>
 		<annotation cp="🔮">framtiden | kristallkula | spåkula</annotation>
 		<annotation cp="🔮" type="tts">kristallkula</annotation>
+		<annotation cp="🪄">tro´llstav | trollkarl | trollkonst | trollspö</annotation>
+		<annotation cp="🪄" type="tts">trollspö</annotation>
 		<annotation cp="🧿">amulett | nazar | onda ögat | onda ögat-sten</annotation>
 		<annotation cp="🧿" type="tts">onda ögat-sten</annotation>
 		<annotation cp="🎮">kontroll | spel | tv-spel | tv-spelskontroll</annotation>
@@ -2161,6 +2745,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">pusselbit</annotation>
 		<annotation cp="🧸">gosedjur | leksak | mjukdjur | nallebjörn</annotation>
 		<annotation cp="🧸" type="tts">nallebjörn</annotation>
+		<annotation cp="🪅">fest | kalas | piñata</annotation>
+		<annotation cp="🪅" type="tts">piñata</annotation>
+		<annotation cp="🪆">babuschkadocka | matrjosjka | rysk docka | ryska dockor</annotation>
+		<annotation cp="🪆" type="tts">ryska dockor</annotation>
 		<annotation cp="♠">färg | kort | spader</annotation>
 		<annotation cp="♠" type="tts">spader</annotation>
 		<annotation cp="♥">färg | hjärter | kort</annotation>
@@ -2185,8 +2773,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">färgpalett</annotation>
 		<annotation cp="🧵">nål | spole | tråd | trådrulle</annotation>
 		<annotation cp="🧵" type="tts">tråd</annotation>
+		<annotation cp="🪡">broderi | nål | skräddarsy | stygn | synål</annotation>
+		<annotation cp="🪡" type="tts">synål</annotation>
 		<annotation cp="🧶">garn | garnnystan | sticka | virka</annotation>
 		<annotation cp="🧶" type="tts">garn</annotation>
+		<annotation cp="🪢">knop | knut | rep | tågvirke</annotation>
+		<annotation cp="🪢" type="tts">knut</annotation>
 		<annotation cp="👓">accessoarer | brillor | glasögon | ögon</annotation>
 		<annotation cp="👓" type="tts">glasögon</annotation>
 		<annotation cp="🕶">glasögon | solglasögon</annotation>
@@ -2237,6 +2829,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">shoppingpåsar</annotation>
 		<annotation cp="🎒">ryggsäck | skolväska | väska</annotation>
 		<annotation cp="🎒" type="tts">ryggsäck</annotation>
+		<annotation cp="🩴">flip-flops | remsko | sandaler</annotation>
+		<annotation cp="🩴" type="tts">flip-flops</annotation>
 		<annotation cp="👞">herrsko | sko | skor</annotation>
 		<annotation cp="👞" type="tts">herrsko</annotation>
 		<annotation cp="👟">gympasko | sko | sneaker</annotation>
@@ -2263,6 +2857,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">examenshatt</annotation>
 		<annotation cp="🧢">basebollkeps | skärmmössa</annotation>
 		<annotation cp="🧢" type="tts">skärmmössa</annotation>
+		<annotation cp="🪖">armé | hjälm | krigare | militär | militärhjälm | soldat</annotation>
+		<annotation cp="🪖" type="tts">militärhjälm</annotation>
 		<annotation cp="⛑">hjälm | hjälm med vitt kors | hjälp | räddningsarbetare | räddningsarbetarhjälm | utryckningspersonal</annotation>
 		<annotation cp="⛑" type="tts">räddningsarbetarhjälm</annotation>
 		<annotation cp="📿">bön | halsband | radband | religion</annotation>
@@ -2311,6 +2907,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">musik | musikinstrument | saxofon</annotation>
 		<annotation cp="🎷" type="tts">saxofon</annotation>
+		<annotation cp="🪗">ackordeon | dragharmonika | dragspel</annotation>
+		<annotation cp="🪗" type="tts">dragspel</annotation>
 		<annotation cp="🎸">gitarr | musik | musikinstrument</annotation>
 		<annotation cp="🎸" type="tts">gitarr</annotation>
 		<annotation cp="🎹">klaviatur | musik | musikinstrument | piano</annotation>
@@ -2323,6 +2921,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">banjo</annotation>
 		<annotation cp="🥁">musik | trumma | trumpinnar</annotation>
 		<annotation cp="🥁" type="tts">trumma</annotation>
+		<annotation cp="🪘">congatrumma | djembe | rytm | takt | trumma</annotation>
+		<annotation cp="🪘" type="tts">congatrumma</annotation>
 		<annotation cp="📱">mobil | mobiltelefon | telefon</annotation>
 		<annotation cp="📱" type="tts">mobiltelefon</annotation>
 		<annotation cp="📲">mobil | mobiltelefon med pil | ringa | telefon</annotation>
@@ -2415,7 +3015,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📃" type="tts">upprullad sida</annotation>
 		<annotation cp="📜">bokrulle | pergament | rulle</annotation>
 		<annotation cp="📜" type="tts">bokrulle</annotation>
-		<annotation cp="📄">sida | sida med text uppåt | text uppåt</annotation>
+		<annotation cp="📄">dokument | sida | sida med text uppåt | text uppåt</annotation>
 		<annotation cp="📄" type="tts">sida med text uppåt</annotation>
 		<annotation cp="📰">nyheter | tidning</annotation>
 		<annotation cp="📰" type="tts">tidning</annotation>
@@ -2429,6 +3029,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">etikett</annotation>
 		<annotation cp="💰">pengapåse | pengar | säck</annotation>
 		<annotation cp="💰" type="tts">pengapåse</annotation>
+		<annotation cp="🪙">guld | mynt | pengar | silver | skatt</annotation>
+		<annotation cp="🪙" type="tts">mynt</annotation>
 		<annotation cp="💴">pengar | sedel | yen | yensedel</annotation>
 		<annotation cp="💴" type="tts">yensedel</annotation>
 		<annotation cp="💵">dollar | dollarsedel | pengar | sedel</annotation>
@@ -2445,17 +3047,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">kvitto</annotation>
 		<annotation cp="💹">diagram | diagram stigande marknad | stigande diagram med yen | stigande marknad | uppåtpekande</annotation>
 		<annotation cp="💹" type="tts">stigande diagram med yen</annotation>
-		<annotation cp="💱">pengar | valuta | valutaväxling | växelkurs</annotation>
-		<annotation cp="💱" type="tts">valutaväxling</annotation>
-		<annotation cp="💲">dollar | dollartecken | pengar</annotation>
-		<annotation cp="💲" type="tts">dollartecken</annotation>
-		<annotation cp="✉">brev | kuvert | mail</annotation>
+		<annotation cp="✉">brev | kuvert | mejl</annotation>
 		<annotation cp="✉" type="tts">kuvert</annotation>
 		<annotation cp="📧">brev | e-post | e-postsymbol | kommunikation | mail | mejl</annotation>
 		<annotation cp="📧" type="tts">e-postsymbol</annotation>
 		<annotation cp="📨">e-post | inkommande brev | kommunikation | kuvert | mottaget brev</annotation>
 		<annotation cp="📨" type="tts">inkommande brev</annotation>
-		<annotation cp="📩">e-post | kommunikation | kuvert | kuvert med pil | skickat brev | utgående brev</annotation>
+		<annotation cp="📩">e-post | kuvert | kuvert med pil | mejl | pil | skickat | utgående</annotation>
 		<annotation cp="📩" type="tts">kuvert med pil</annotation>
 		<annotation cp="📤">kommunikation | skickat | utkorg</annotation>
 		<annotation cp="📤" type="tts">utkorg</annotation>
@@ -2477,7 +3075,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗳" type="tts">valurna med röstsedel</annotation>
 		<annotation cp="✏">blyertspenna</annotation>
 		<annotation cp="✏" type="tts">blyertspenna</annotation>
-		<annotation cp="✒">penna | stiftpenna</annotation>
+		<annotation cp="✒">penna | reservoarpenna | stift</annotation>
 		<annotation cp="✒" type="tts">stiftpenna</annotation>
 		<annotation cp="🖋">penna | reservoarpenna</annotation>
 		<annotation cp="🖋" type="tts">reservoarpenna</annotation>
@@ -2562,13 +3160,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚔">korsade | korslagda svärd | svärd | vapen</annotation>
 		<annotation cp="⚔" type="tts">korslagda svärd</annotation>
 		<annotation cp="🔫">pistol | revolver | vapen</annotation>
-		<annotation cp="🔫" type="tts">pistol</annotation>
+		<annotation cp="🔫" type="tts">vattenpistol</annotation>
+		<annotation cp="🪃">australien | boomerang | bumerang | flyga tillbaka</annotation>
+		<annotation cp="🪃" type="tts">boomerang</annotation>
 		<annotation cp="🏹">båge | bågskytt | pil och båge | pilbåge | vapen</annotation>
 		<annotation cp="🏹" type="tts">pil och båge</annotation>
 		<annotation cp="🛡">sköld | vapen</annotation>
 		<annotation cp="🛡" type="tts">sköld</annotation>
+		<annotation cp="🪚">fogsvans | såg | snickare | trä | verktyg</annotation>
+		<annotation cp="🪚" type="tts">fogsvans</annotation>
 		<annotation cp="🔧">skiftnyckel | verktyg</annotation>
 		<annotation cp="🔧" type="tts">skiftnyckel</annotation>
+		<annotation cp="🪛">skruvmejsel | verktyg</annotation>
+		<annotation cp="🪛" type="tts">skruvmejsel</annotation>
 		<annotation cp="🔩">mutter | skruv | skruv och mutter</annotation>
 		<annotation cp="🔩" type="tts">skruv och mutter</annotation>
 		<annotation cp="⚙">kugge | kugghjul</annotation>
@@ -2583,10 +3187,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">länk</annotation>
 		<annotation cp="⛓">kedja | kedjor</annotation>
 		<annotation cp="⛓" type="tts">kedjor</annotation>
+		<annotation cp="🪝">hake | klo | krok | snärja</annotation>
+		<annotation cp="🪝" type="tts">krok</annotation>
 		<annotation cp="🧰">låda | mekaniker | verktyg | verktygslåda</annotation>
 		<annotation cp="🧰" type="tts">verktygslåda</annotation>
 		<annotation cp="🧲">hästsko | magnet | magnetisk</annotation>
 		<annotation cp="🧲" type="tts">magnet</annotation>
+		<annotation cp="🪜">klätterstege | klättra | steg | stege</annotation>
+		<annotation cp="🪜" type="tts">stege</annotation>
 		<annotation cp="⚗">kemi | retort</annotation>
 		<annotation cp="⚗" type="tts">retort</annotation>
 		<annotation cp="🧪">experiment | kemi | kemist | labb | provrör | vetenskap</annotation>
@@ -2613,6 +3221,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩺" type="tts">stetoskop</annotation>
 		<annotation cp="🚪">dörr</annotation>
 		<annotation cp="🚪" type="tts">dörr</annotation>
+		<annotation cp="🛗">hiss | lift | tillgång | vinsch</annotation>
+		<annotation cp="🛗" type="tts">hiss</annotation>
+		<annotation cp="🪞">reflektor | spegel | spegelglas</annotation>
+		<annotation cp="🪞" type="tts">spegel</annotation>
+		<annotation cp="🪟">fönster | genomskinlig | öppning | ram | utsikt</annotation>
+		<annotation cp="🪟" type="tts">fönster</annotation>
 		<annotation cp="🛏">hotell | säng | sömn</annotation>
 		<annotation cp="🛏" type="tts">säng</annotation>
 		<annotation cp="🛋">hotell | lampa | soffa | soffa och lampa</annotation>
@@ -2621,10 +3235,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">stol</annotation>
 		<annotation cp="🚽">toalett</annotation>
 		<annotation cp="🚽" type="tts">toalett</annotation>
+		<annotation cp="🪠" draft="contributed">rörmokare | sugkopp | toalett | vaskrensare</annotation>
+		<annotation cp="🪠" type="tts">vaskrensare</annotation>
 		<annotation cp="🚿">dusch | vatten</annotation>
 		<annotation cp="🚿" type="tts">dusch</annotation>
 		<annotation cp="🛁">bad | badkar</annotation>
 		<annotation cp="🛁" type="tts">badkar</annotation>
+		<annotation cp="🪤">bete | fälla | musfälla | snara</annotation>
+		<annotation cp="🪤" type="tts">musfälla</annotation>
 		<annotation cp="🪒">raka | rakhyvel | vass</annotation>
 		<annotation cp="🪒" type="tts">rakhyvel</annotation>
 		<annotation cp="🧴">kräm | lotion | lotionflaska | shampoo | solkräm</annotation>
@@ -2637,8 +3255,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">korg</annotation>
 		<annotation cp="🧻">pappershanddukar | toalettpapper | toarulle</annotation>
 		<annotation cp="🧻" type="tts">toarulle</annotation>
+		<annotation cp="🪣">ämbar | hink | kärl | spann</annotation>
+		<annotation cp="🪣" type="tts">spann</annotation>
 		<annotation cp="🧼">bada | duscha | lödder | skål | tvål | tvålbit</annotation>
 		<annotation cp="🧼" type="tts">tvål</annotation>
+		<annotation cp="🪥">borste | ren | tandborste | tänder | tandhygien | tvätta</annotation>
+		<annotation cp="🪥" type="tts">tandborste</annotation>
 		<annotation cp="🧽">mjuk | rengörande | tvättsvamp</annotation>
 		<annotation cp="🧽" type="tts">tvättsvamp</annotation>
 		<annotation cp="🧯">brandsläckare | eld | kväva | släcka</annotation>
@@ -2649,10 +3271,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">cigarett</annotation>
 		<annotation cp="⚰">begravning | kista</annotation>
 		<annotation cp="⚰" type="tts">kista</annotation>
+		<annotation cp="🪦">begravningsplats | grav | gravplats | gravsten | minneslund</annotation>
+		<annotation cp="🪦" type="tts">gravsten</annotation>
 		<annotation cp="⚱">aska | begravning | begravningsurna | urna</annotation>
 		<annotation cp="⚱" type="tts">begravningsurna</annotation>
 		<annotation cp="🗿">påskön | staty</annotation>
 		<annotation cp="🗿" type="tts">staty</annotation>
+		<annotation cp="🪧">demonstration | plakat | protest | skylt</annotation>
+		<annotation cp="🪧" type="tts">plakat</annotation>
 		<annotation cp="🏧">bankomat | bankomatskylt | pengar | uttagsautomat</annotation>
 		<annotation cp="🏧" type="tts">bankomat</annotation>
 		<annotation cp="🚮">slänga skräp | soptunna | symbol</annotation>
@@ -2709,7 +3335,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⬆" type="tts">uppåtpil</annotation>
 		<annotation cp="↗">höger | pil | uppåt | uppåtpil höger</annotation>
 		<annotation cp="↗" type="tts">uppåtpil höger</annotation>
-		<annotation cp="➡">höger | högerpil | öst | pil | riktning | väderstreck</annotation>
+		<annotation cp="➡">högerpil | öster | pil | riktning | väderstreck</annotation>
 		<annotation cp="➡" type="tts">högerpil</annotation>
 		<annotation cp="↘">höger | nedåt | nedåtpil höger | pil</annotation>
 		<annotation cp="↘" type="tts">nedåtpil höger</annotation>
@@ -2725,6 +3351,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">pil upp och ned</annotation>
 		<annotation cp="↔">höger | pil | pil höger och vänster | vänster</annotation>
 		<annotation cp="↔" type="tts">pil höger och vänster</annotation>
+		<annotation cp="↮" draft="contributed">höger och vänsterriktat pilstreck</annotation>
+		<annotation cp="↮" type="tts" draft="contributed">höger och vänsterriktat pilstreck</annotation>
 		<annotation cp="↩">pil | sväng | svängd vänsterpil | vänster</annotation>
 		<annotation cp="↩" type="tts">svängd vänsterpil</annotation>
 		<annotation cp="↪">höger | pil | sväng | svängd högerpil</annotation>
@@ -2849,10 +3477,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">kvinnosymbol</annotation>
 		<annotation cp="♂">man | manlig | manssymbol</annotation>
 		<annotation cp="♂" type="tts">manssymbol</annotation>
-		<annotation cp="⚕">aesculapius | medicin | medicinsk symbol | personal</annotation>
-		<annotation cp="⚕" type="tts">medicinsk symbol</annotation>
+		<annotation cp="⚧">transgender | transgendersymbol</annotation>
+		<annotation cp="⚧" type="tts">transgendersymbol</annotation>
+		<annotation cp="✖">× | avbryt | multiplicera | multiplikation | tecken | x</annotation>
+		<annotation cp="✖" type="tts">multiplicera</annotation>
+		<annotation cp="➕">+ | addera | matte | plus | tecken</annotation>
+		<annotation cp="➕" type="tts">addera</annotation>
+		<annotation cp="➖">- | − | matte | minus | tecken</annotation>
+		<annotation cp="➖" type="tts">subtrahera</annotation>
+		<annotation cp="➗">÷ | dividera | division | matte | tecken</annotation>
+		<annotation cp="➗" type="tts">dividera</annotation>
 		<annotation cp="♾">evig | oändlighet | obegränsad | universal</annotation>
 		<annotation cp="♾" type="tts">oändlighet</annotation>
+		<annotation cp="‼">dubbla utropstecken | två | utropstecken</annotation>
+		<annotation cp="‼" type="tts">dubbla utropstecken</annotation>
+		<annotation cp="⁉">frågetecken | utropstecken | utropstecken och frågetecken</annotation>
+		<annotation cp="⁉" type="tts">utropstecken och frågetecken</annotation>
+		<annotation cp="❓">fråga | frågetecken</annotation>
+		<annotation cp="❓" type="tts">rött frågetecken</annotation>
+		<annotation cp="❔">fråga | frågetecken | vitt frågetecken</annotation>
+		<annotation cp="❔" type="tts">vitt frågetecken</annotation>
+		<annotation cp="❕">kommatering | utropstecken | vitt</annotation>
+		<annotation cp="❕" type="tts">vitt utropstecken</annotation>
+		<annotation cp="❗">kommatering | rött | utropstecken</annotation>
+		<annotation cp="❗" type="tts">rött utropstecken</annotation>
+		<annotation cp="〰">tankstreck | vågig | vågigt tankstreck</annotation>
+		<annotation cp="〰" type="tts">vågigt tankstreck</annotation>
+		<annotation cp="💱">pengar | valuta | valutaväxling | växelkurs</annotation>
+		<annotation cp="💱" type="tts">valutaväxling</annotation>
+		<annotation cp="💲">dollar | dollartecken | pengar</annotation>
+		<annotation cp="💲" type="tts">dollartecken</annotation>
+		<annotation cp="⚕">aesculapius | medicin | medicinsk symbol | personal</annotation>
+		<annotation cp="⚕" type="tts">medicinsk symbol</annotation>
 		<annotation cp="♻">återvinning | återvinningssymbol | symbol</annotation>
 		<annotation cp="♻" type="tts">återvinningssymbol</annotation>
 		<annotation cp="⚜">fleur de lys | fransk lilja | heraldisk lilja</annotation>
@@ -2871,18 +3527,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">kryssruta med bockmarkering</annotation>
 		<annotation cp="✔">avbockad | bock | bockmarkering</annotation>
 		<annotation cp="✔" type="tts">bockmarkering</annotation>
-		<annotation cp="✖">× | avbryt | multiplicera | multiplikation | tecken | x</annotation>
-		<annotation cp="✖" type="tts">multiplicera</annotation>
 		<annotation cp="❌">kryss | rött kryss | X</annotation>
 		<annotation cp="❌" type="tts">rött kryss</annotation>
 		<annotation cp="❎">kryss | vitt kryss i ruta | X i ruta</annotation>
 		<annotation cp="❎" type="tts">vitt kryss i ruta</annotation>
-		<annotation cp="➕">+ | addera | matte | plus | tecken</annotation>
-		<annotation cp="➕" type="tts">addera</annotation>
-		<annotation cp="➖">- | − | matte | minus | minustecken | tecken</annotation>
-		<annotation cp="➖" type="tts">minustecken</annotation>
-		<annotation cp="➗">÷ | dividera | division | matte | tecken</annotation>
-		<annotation cp="➗" type="tts">dividera</annotation>
 		<annotation cp="➰">kurva | ögla | slinga</annotation>
 		<annotation cp="➰" type="tts">ögla</annotation>
 		<annotation cp="➿">dubbel ögla | öglor</annotation>
@@ -2895,20 +3543,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">åttauddig stjärna</annotation>
 		<annotation cp="❇">glittra | gnistra</annotation>
 		<annotation cp="❇" type="tts">glittra</annotation>
-		<annotation cp="‼">dubbla utropstecken | två | utropstecken</annotation>
-		<annotation cp="‼" type="tts">dubbla utropstecken</annotation>
-		<annotation cp="⁉">frågetecken | utropstecken | utropstecken och frågetecken</annotation>
-		<annotation cp="⁉" type="tts">utropstecken och frågetecken</annotation>
-		<annotation cp="❓">fråga | frågetecken</annotation>
-		<annotation cp="❓" type="tts">frågetecken</annotation>
-		<annotation cp="❔">fråga | frågetecken | vitt frågetecken</annotation>
-		<annotation cp="❔" type="tts">vitt frågetecken</annotation>
-		<annotation cp="❕">kommatering | utropstecken | vitt</annotation>
-		<annotation cp="❕" type="tts">vitt utropstecken</annotation>
-		<annotation cp="❗">kommatering | rött | utropstecken</annotation>
-		<annotation cp="❗" type="tts">utropstecken</annotation>
-		<annotation cp="〰">tankstreck | vågig | vågigt tankstreck</annotation>
-		<annotation cp="〰" type="tts">vågigt tankstreck</annotation>
 		<annotation cp="©">copyright | upphovsrätt | upphovsrättssymbol</annotation>
 		<annotation cp="©" type="tts">upphovsrättssymbol</annotation>
 		<annotation cp="®">registrerat | registrerat varumärke</annotation>
@@ -3071,22 +3705,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">svart flagga</annotation>
 		<annotation cp="🏳">flagga | vit flagga</annotation>
 		<annotation cp="🏳" type="tts">vit flagga</annotation>
-		<annotation cp="🏳‍⚧">flagga | transflagga | transgender</annotation>
-		<annotation cp="🏳‍⚧" type="tts">transflagga</annotation>
 		<annotation cp="🏳‍🌈">flagga | regnbåge | regnbågsflagga</annotation>
 		<annotation cp="🏳‍🌈" type="tts">regnbågsflagga</annotation>
+		<annotation cp="🏳‍⚧">flagga | transflagga | transgender</annotation>
+		<annotation cp="🏳‍⚧" type="tts">transflagga</annotation>
 		<annotation cp="🏴‍☠">pirater | plundra | sjörövarflagga | skatter</annotation>
 		<annotation cp="🏴‍☠" type="tts">sjörövarflagga</annotation>
+		<annotation cp="¢">cent</annotation>
+		<annotation cp="¢" type="tts">cent</annotation>
+		<annotation cp="$">dollar | pengar | USD</annotation>
+		<annotation cp="$" type="tts" draft="provisional">dollar</annotation>
 		<annotation cp="£">EGP | GBP | pund | valuta</annotation>
 		<annotation cp="£" type="tts">pund</annotation>
 		<annotation cp="¥">CNY | JPY | valuta | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="₢" draft="contributed">BRB | valuta</annotation>
+		<annotation cp="₢" type="tts" draft="contributed">cruzeiro</annotation>
+		<annotation cp="₣" draft="contributed">franc | valuta</annotation>
+		<annotation cp="₣" type="tts" draft="contributed">fransk franc</annotation>
+		<annotation cp="₤" draft="contributed">valuta</annotation>
+		<annotation cp="₤" type="tts" draft="contributed">lira</annotation>
+		<annotation cp="₥">mil</annotation>
+		<annotation cp="₥" type="tts">mill</annotation>
+		<annotation cp="₩">KPW | KRW</annotation>
+		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | euro | valuta</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₰" draft="contributed">pfennig | valuta</annotation>
+		<annotation cp="₰" type="tts" draft="contributed">tysk pfennig</annotation>
+		<annotation cp="₱">peso</annotation>
+		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳" draft="contributed">ARA | valuta</annotation>
+		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
+		<annotation cp="₶" draft="contributed">valuta</annotation>
+		<annotation cp="₶" type="tts" draft="contributed">livre tournois</annotation>
+		<annotation cp="₷" draft="contributed">valuta</annotation>
+		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
 		<annotation cp="₹">indisk rupie | rupie | valuta</annotation>
 		<annotation cp="₹" type="tts">indisk rupie</annotation>
 		<annotation cp="₽">rubel | valuta</annotation>
 		<annotation cp="₽" type="tts">rubel</annotation>
+		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="₨" draft="contributed">valuta</annotation>
+		<annotation cp="₨" type="tts" draft="contributed">rupie</annotation>
+		<annotation cp="﷼" draft="contributed">valuta</annotation>
+		<annotation cp="﷼" type="tts" draft="contributed">rial</annotation>
 		<annotation cp="¹">ett | upphöjt till | upphöjt till ett</annotation>
 		<annotation cp="¹" type="tts">upphöjt till ett</annotation>
 		<annotation cp="²">kvadrat | två | upphöjt till | upphöjt till två</annotation>

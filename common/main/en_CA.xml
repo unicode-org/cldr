@@ -121,8 +121,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="chr">↑↑↑</language>
 			<language type="chy">↑↑↑</language>
 			<language type="ckb">↑↑↑</language>
-			<language type="ckb" alt="menu" draft="contributed">↑↑↑</language>
-			<language type="ckb" alt="variant" draft="contributed">↑↑↑</language>
+			<language type="ckb" alt="menu">↑↑↑</language>
+			<language type="ckb" alt="variant">↑↑↑</language>
 			<language type="co">↑↑↑</language>
 			<language type="cop" draft="contributed">↑↑↑</language>
 			<language type="cps" draft="contributed">↑↑↑</language>
@@ -630,7 +630,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yo">↑↑↑</language>
 			<language type="yrl" draft="contributed">↑↑↑</language>
 			<language type="yue">↑↑↑</language>
-			<language type="yue" alt="menu" draft="contributed">↑↑↑</language>
+			<language type="yue" alt="menu">↑↑↑</language>
 			<language type="za" draft="contributed">↑↑↑</language>
 			<language type="zap" draft="contributed">↑↑↑</language>
 			<language type="zbl" draft="contributed">↑↑↑</language>
@@ -639,11 +639,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zgh">↑↑↑</language>
 			<language type="zh">↑↑↑</language>
 			<language type="zh" alt="long">↑↑↑</language>
-			<language type="zh" alt="menu" draft="contributed">↑↑↑</language>
+			<language type="zh" alt="menu">↑↑↑</language>
 			<language type="zh_Hans">Simplified Chinese</language>
-			<language type="zh_Hans" alt="long" draft="contributed">Simplified Mandarin Chinese</language>
+			<language type="zh_Hans" alt="long">Simplified Mandarin Chinese</language>
 			<language type="zh_Hant">Traditional Chinese</language>
-			<language type="zh_Hant" alt="long" draft="contributed">Traditional Mandarin Chinese</language>
+			<language type="zh_Hant" alt="long">Traditional Mandarin Chinese</language>
 			<language type="zu">↑↑↑</language>
 			<language type="zun">↑↑↑</language>
 			<language type="zxx">↑↑↑</language>
@@ -788,6 +788,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CR">↑↑↑</territory>
 			<territory type="CU">↑↑↑</territory>
 			<territory type="CV">↑↑↑</territory>
+			<territory type="CV" alt="variant">↑↑↑</territory>
 			<territory type="CW">↑↑↑</territory>
 			<territory type="CX">↑↑↑</territory>
 			<territory type="CY">↑↑↑</territory>
@@ -999,8 +1000,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VU">↑↑↑</territory>
 			<territory type="WF">↑↑↑</territory>
 			<territory type="WS">↑↑↑</territory>
-			<territory type="XA" draft="contributed">↑↑↑</territory>
-			<territory type="XB" draft="contributed">↑↑↑</territory>
+			<territory type="XA">↑↑↑</territory>
+			<territory type="XB">↑↑↑</territory>
 			<territory type="XK">↑↑↑</territory>
 			<territory type="YE">↑↑↑</territory>
 			<territory type="YT">↑↑↑</territory>
@@ -1010,22 +1011,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZZ">↑↑↑</territory>
 		</territories>
 		<subdivisions>
-			<subdivision type="gbeng" draft="contributed">↑↑↑</subdivision>
-			<subdivision type="gbsct" draft="contributed">↑↑↑</subdivision>
-			<subdivision type="gbwls" draft="contributed">↑↑↑</subdivision>
+			<subdivision type="gbeng">↑↑↑</subdivision>
+			<subdivision type="gbsct">↑↑↑</subdivision>
+			<subdivision type="gbwls">↑↑↑</subdivision>
 		</subdivisions>
 		<keys>
 			<key type="calendar">↑↑↑</key>
 			<key type="cf">↑↑↑</key>
-			<key type="colAlternate" draft="contributed">↑↑↑</key>
-			<key type="colBackwards" draft="contributed">↑↑↑</key>
-			<key type="colCaseFirst" draft="contributed">↑↑↑</key>
-			<key type="colCaseLevel" draft="contributed">↑↑↑</key>
+			<key type="colAlternate">↑↑↑</key>
+			<key type="colBackwards">↑↑↑</key>
+			<key type="colCaseFirst">↑↑↑</key>
+			<key type="colCaseLevel">↑↑↑</key>
 			<key type="collation">↑↑↑</key>
-			<key type="colNormalization" draft="contributed">Normalized Sorting</key>
-			<key type="colNumeric" draft="contributed">↑↑↑</key>
-			<key type="colReorder" draft="contributed">↑↑↑</key>
-			<key type="colStrength" draft="contributed">↑↑↑</key>
+			<key type="colNormalization">Normalized Sorting</key>
+			<key type="colNumeric">↑↑↑</key>
+			<key type="colReorder">↑↑↑</key>
+			<key type="colStrength">↑↑↑</key>
 			<key type="currency">↑↑↑</key>
 			<key type="d0">↑↑↑</key>
 			<key type="em">↑↑↑</key>
@@ -1034,7 +1035,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="hc">↑↑↑</key>
 			<key type="i0">↑↑↑</key>
 			<key type="k0">↑↑↑</key>
-			<key type="kv" draft="contributed">↑↑↑</key>
+			<key type="kv">↑↑↑</key>
 			<key type="lb">↑↑↑</key>
 			<key type="lw">↑↑↑</key>
 			<key type="m0">↑↑↑</key>
@@ -1042,13 +1043,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">↑↑↑</key>
 			<key type="rg">↑↑↑</key>
 			<key type="s0">↑↑↑</key>
-			<key type="sd" draft="contributed">↑↑↑</key>
+			<key type="sd">↑↑↑</key>
 			<key type="ss">↑↑↑</key>
-			<key type="t" draft="contributed">↑↑↑</key>
+			<key type="t">↑↑↑</key>
 			<key type="t0">↑↑↑</key>
-			<key type="timezone" draft="contributed">↑↑↑</key>
-			<key type="va" draft="contributed">↑↑↑</key>
-			<key type="x" draft="contributed">↑↑↑</key>
+			<key type="timezone">↑↑↑</key>
+			<key type="va">↑↑↑</key>
+			<key type="x">↑↑↑</key>
 			<key type="x0">↑↑↑</key>
 		</keys>
 		<types>
@@ -1508,42 +1509,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="d">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">↑↑↑</greatestDifference>
@@ -2049,42 +2050,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="d">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">↑↑↑</greatestDifference>
@@ -2462,9 +2463,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>yr.</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} yr.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} yrs.</relativeTimePattern>
@@ -2476,9 +2477,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-narrow">
 				<displayName>yr.</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} yr.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} yrs.</relativeTimePattern>
@@ -2583,9 +2584,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName>wk.</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} wk.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} wks.</relativeTimePattern>
@@ -2598,9 +2599,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-narrow">
 				<displayName>wk.</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} wk.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} wks.</relativeTimePattern>
@@ -2636,9 +2637,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>↑↑↑</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
@@ -2650,9 +2651,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>↑↑↑</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
@@ -2760,11 +2761,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Mo’s</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Mo’s ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -3770,7 +3771,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qostanay">
-				<exemplarCity draft="contributed">↑↑↑</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4039,9 +4040,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4235,6 +4233,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
@@ -5048,7 +5049,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
+					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -5320,6 +5323,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
 			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
 			<exponential>e</exponential>
 			<superscriptingExponent>↑↑↑</superscriptingExponent>
 			<perMille>↑↑↑</perMille>
@@ -5456,6 +5460,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>↑↑↑</displayName>
@@ -5468,6 +5473,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>↑↑↑</displayName>
@@ -5507,6 +5513,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>↑↑↑</displayName>
@@ -5774,6 +5781,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>↑↑↑</displayName>
@@ -5852,8 +5860,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ILS">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one" draft="contributed">Israeli new sheqel</displayName>
-				<displayName count="other" draft="contributed">Israeli new sheqels</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
@@ -6425,9 +6433,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="VES">
-				<displayName draft="contributed">Venezuelan Bolívar</displayName>
-				<displayName count="one" draft="contributed">Venezuelan bolívar</displayName>
-				<displayName count="other" draft="contributed">Venezuelan bolívars</displayName>
+				<displayName>Venezuelan Bolívar</displayName>
+				<displayName count="one">Venezuelan bolívar</displayName>
+				<displayName count="other">Venezuelan bolívars</displayName>
 				<symbol draft="contributed">VES</symbol>
 			</currency>
 			<currency type="VND">
@@ -6577,6 +6585,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="1024p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p4">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p5">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p7">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p8">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
@@ -6591,7 +6623,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern draft="contributed">↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>↑↑↑</displayName>
@@ -6684,9 +6716,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName draft="contributed">karats</displayName>
-				<unitPattern count="one" draft="contributed">{0} karat</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} karats</unitPattern>
+				<displayName>karats</displayName>
+				<unitPattern count="one">{0} karat</unitPattern>
+				<unitPattern count="other">{0} karats</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>↑↑↑</displayName>
@@ -6804,9 +6836,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>↑↑↑</displayName>
@@ -6926,9 +6958,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>↑↑↑</displayName>
@@ -6961,39 +6993,49 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName draft="contributed">pixels per centimetre</displayName>
-				<unitPattern count="one" draft="contributed">{0} pixel per centimetre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pixels per centimetre</unitPattern>
+				<displayName>pixels per centimetre</displayName>
+				<unitPattern count="one">{0} pixel per centimetre</unitPattern>
+				<unitPattern count="other">{0} pixels per centimetre</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">dots per centimetre</displayName>
-				<unitPattern count="one" draft="contributed">{0} dot per centimetre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} dots per centimetre</unitPattern>
+				<displayName>dots per centimetre</displayName>
+				<unitPattern count="one">{0} dot per centimetre</unitPattern>
+				<unitPattern count="other">{0} dots per centimetre</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} dot</unitPattern>
+				<unitPattern count="other">{0} dots</unitPattern>
+			</unit>
+			<unit type="length-earth-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} earth radii</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -7110,6 +7152,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="light-candela">
+				<displayName>candelas</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} candelas</unitPattern>
+			</unit>
+			<unit type="light-lumen">
+				<displayName>lumens</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} lumens</unitPattern>
+			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7189,6 +7241,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="mass-grain">
+				<displayName>grains</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} grains</unitPattern>
+			</unit>
 			<unit type="power-gigawatt">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7235,9 +7292,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>↑↑↑</displayName>
@@ -7250,9 +7307,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>↑↑↑</displayName>
@@ -7315,9 +7372,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName draft="contributed">newton-metres</displayName>
-				<unitPattern count="one" draft="contributed">{0} newton-metre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} newton-metres</unitPattern>
+				<displayName>newton-metres</displayName>
+				<unitPattern count="one">{0} newton-metre</unitPattern>
+				<unitPattern count="other">{0} newton-metres</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -7435,14 +7492,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>fluid ounces</displayName>
+				<unitPattern count="one">{0} fluid ounce</unitPattern>
+				<unitPattern count="other">{0} fluid ounces</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName draft="contributed">imp. fluid ounces</displayName>
-				<unitPattern count="one" draft="contributed">{0} imp. fluid ounce</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} imp. fluid ounces</unitPattern>
+				<displayName>imp. fluid ounces</displayName>
+				<unitPattern count="one">{0} imp. fluid ounce</unitPattern>
+				<unitPattern count="other">{0} imp. fluid ounces</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>↑↑↑</displayName>
@@ -7458,6 +7515,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<displayName>drops</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} drops</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<displayName>fluid drams</displayName>
+				<unitPattern count="one">{0} fluid dram</unitPattern>
+				<unitPattern count="other">{0} fluid drams</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<displayName>jiggers</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} jiggers</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<displayName>pinches</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} pinches</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>imp. quart</displayName>
+				<unitPattern count="one">{0} imp. quart</unitPattern>
+				<unitPattern count="other">{0} imp. quarts</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -7528,6 +7620,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="1024p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p4">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p5">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p7">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p8">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
@@ -7542,7 +7658,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern draft="contributed">↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>↑↑↑</displayName>
@@ -7550,7 +7666,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName draft="contributed">metres/sec.²</displayName>
+				<displayName>metres/sec.²</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7560,24 +7676,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName draft="contributed">rad</displayName>
+				<displayName>rad</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="contributed">deg.</displayName>
-				<unitPattern count="one" draft="contributed">{0} deg.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} deg.</unitPattern>
+				<displayName>deg.</displayName>
+				<unitPattern count="one">{0} deg.</unitPattern>
+				<unitPattern count="other">{0} deg.</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="contributed">arcmins.</displayName>
-				<unitPattern count="one" draft="contributed">{0} arcmin.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} arcmins.</unitPattern>
+				<displayName>arcmins.</displayName>
+				<unitPattern count="one">{0} arcmin.</unitPattern>
+				<unitPattern count="other">{0} arcmins.</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="contributed">arcsecs.</displayName>
-				<unitPattern count="one" draft="contributed">{0} arcsec.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} arcsecs.</unitPattern>
+				<displayName>arcsecs.</displayName>
+				<unitPattern count="one">{0} arcsec.</unitPattern>
+				<unitPattern count="other">{0} arcsecs.</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -7603,31 +7719,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="contributed">sq. miles</displayName>
-				<unitPattern count="one" draft="contributed">{0} sq. mi.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} sq. mi.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/sq. mi.</perUnitPattern>
+				<displayName>sq. miles</displayName>
+				<unitPattern count="one">{0} sq. mi.</unitPattern>
+				<unitPattern count="other">{0} sq. mi.</unitPattern>
+				<perUnitPattern>{0}/sq. mi.</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} ac.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ac.</unitPattern>
+				<unitPattern count="one">{0} ac.</unitPattern>
+				<unitPattern count="other">{0} ac.</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName draft="contributed">sq. yards</displayName>
-				<unitPattern count="one" draft="contributed">{0} sq. yd.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} sq. yd.</unitPattern>
+				<displayName>sq. yards</displayName>
+				<unitPattern count="one">{0} sq. yd.</unitPattern>
+				<unitPattern count="other">{0} sq. yd.</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="contributed">sq. feet</displayName>
-				<unitPattern count="one" draft="contributed">{0} sq. ft.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} sq. ft.</unitPattern>
+				<displayName>sq. feet</displayName>
+				<unitPattern count="one">{0} sq. ft.</unitPattern>
+				<unitPattern count="other">{0} sq. ft.</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName draft="contributed">sq. inches</displayName>
-				<unitPattern count="one" draft="contributed">{0} sq. in.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} sq. in.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/sq. in.</perUnitPattern>
+				<displayName>sq. inches</displayName>
+				<unitPattern count="one">{0} sq. in.</unitPattern>
+				<unitPattern count="other">{0} sq. in.</unitPattern>
+				<perUnitPattern>{0}/sq. in.</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<displayName>↑↑↑</displayName>
@@ -7635,9 +7751,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName draft="contributed">karats</displayName>
-				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
+				<displayName>karats</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>mg/dL</displayName>
@@ -7685,12 +7801,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} L/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName draft="contributed">mi./US gal.</displayName>
-				<unitPattern count="one" draft="contributed">{0} mpg US</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mpg US</unitPattern>
+				<displayName>mi./US gal.</displayName>
+				<unitPattern count="one">{0} mpg US</unitPattern>
+				<unitPattern count="other">{0} mpg US</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName draft="contributed">mi./gal.</displayName>
+				<displayName>mi./gal.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7755,9 +7871,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} c.</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName draft="contributed">dec.</displayName>
-				<unitPattern count="one" draft="contributed">{0} dec.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} dec.</unitPattern>
+				<displayName>dec.</displayName>
+				<unitPattern count="one">{0} dec.</unitPattern>
+				<unitPattern count="other">{0} dec.</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>yrs.</displayName>
@@ -7796,9 +7912,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/min.</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName>secs.</displayName>
+				<displayName>sec.</displayName>
 				<unitPattern count="one">{0} sec.</unitPattern>
-				<unitPattern count="other">{0} secs.</unitPattern>
+				<unitPattern count="other">{0} sec.</unitPattern>
 				<perUnitPattern>{0}/sec.</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
@@ -7827,12 +7943,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName draft="contributed">Ω</displayName>
+				<displayName>Ω</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName draft="contributed">V</displayName>
+				<displayName>V</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7852,17 +7968,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName draft="contributed">kJ</displayName>
+				<displayName>kJ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName draft="contributed">J</displayName>
+				<displayName>J</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName draft="contributed">kWh</displayName>
+				<displayName>kWh</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7877,9 +7993,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>↑↑↑</displayName>
@@ -7912,39 +8028,49 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} dots</unitPattern>
+			</unit>
+			<unit type="length-earth-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -7991,25 +8117,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-mile">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} mi.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mi.</unitPattern>
+				<unitPattern count="one">{0} mi.</unitPattern>
+				<unitPattern count="other">{0} mi.</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} yd.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} yd.</unitPattern>
+				<unitPattern count="one">{0} yd.</unitPattern>
+				<unitPattern count="other">{0} yd.</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} ft.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ft.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/ft.</perUnitPattern>
+				<unitPattern count="one">{0} ft.</unitPattern>
+				<unitPattern count="other">{0} ft.</unitPattern>
+				<perUnitPattern>{0}/ft.</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} in.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} in.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/in.</perUnitPattern>
+				<unitPattern count="one">{0} in.</unitPattern>
+				<unitPattern count="other">{0} in.</unitPattern>
+				<perUnitPattern>{0}/in.</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>↑↑↑</displayName>
@@ -8022,24 +8148,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">AU</displayName>
-				<unitPattern count="one" draft="contributed">{0} AU</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} AU</unitPattern>
+				<displayName>AU</displayName>
+				<unitPattern count="one">{0} AU</unitPattern>
+				<unitPattern count="other">{0} AU</unitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} fur.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} fur.</unitPattern>
+				<unitPattern count="one">{0} fur.</unitPattern>
+				<unitPattern count="other">{0} fur.</unitPattern>
 			</unit>
 			<unit type="length-fathom">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} fm.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} fm.</unitPattern>
+				<unitPattern count="one">{0} fm.</unitPattern>
+				<unitPattern count="other">{0} fm.</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName draft="contributed">NM</displayName>
-				<unitPattern count="one" draft="contributed">{0} NM</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} NM</unitPattern>
+				<displayName>NM</displayName>
+				<unitPattern count="one">{0} NM</unitPattern>
+				<unitPattern count="other">{0} NM</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName>↑↑↑</displayName>
@@ -8048,8 +8174,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-point">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} pt.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pts.</unitPattern>
+				<unitPattern count="one">{0} pt.</unitPattern>
+				<unitPattern count="other">{0} pts.</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>↑↑↑</displayName>
@@ -8057,6 +8183,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-candela">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-lumen">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8095,35 +8231,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-ton">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} tn.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} tn.</unitPattern>
+				<unitPattern count="one">{0} tn.</unitPattern>
+				<unitPattern count="other">{0} tn.</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} st.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} st.</unitPattern>
+				<unitPattern count="one">{0} st.</unitPattern>
+				<unitPattern count="other">{0} st.</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName draft="contributed">lb.</displayName>
-				<unitPattern count="one" draft="contributed">{0} lb.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} lb.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/lb.</perUnitPattern>
+				<displayName>lb.</displayName>
+				<unitPattern count="one">{0} lb.</unitPattern>
+				<unitPattern count="other">{0} lb.</unitPattern>
+				<perUnitPattern>{0}/lb.</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="contributed">oz.</displayName>
-				<unitPattern count="one" draft="contributed">{0} oz.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} oz.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/oz.</perUnitPattern>
+				<displayName>oz.</displayName>
+				<unitPattern count="one">{0} oz.</unitPattern>
+				<unitPattern count="other">{0} oz.</unitPattern>
+				<perUnitPattern>{0}/oz.</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
-				<displayName draft="contributed">oz. troy</displayName>
-				<unitPattern count="one" draft="contributed">{0} oz t.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} oz t.</unitPattern>
+				<displayName>oz. troy</displayName>
+				<unitPattern count="one">{0} oz t.</unitPattern>
+				<unitPattern count="other">{0} oz t.</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName draft="contributed">ct</displayName>
-				<unitPattern count="one" draft="contributed">{0} ct</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ct</unitPattern>
+				<displayName>ct</displayName>
+				<unitPattern count="one">{0} ct</unitPattern>
+				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>↑↑↑</displayName>
@@ -8139,6 +8275,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<displayName>grains</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} grains</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>↑↑↑</displayName>
@@ -8156,7 +8297,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName draft="contributed">W</displayName>
+				<displayName>W</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8171,9 +8312,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>mm Hg</displayName>
+				<unitPattern count="one">{0} mm Hg</unitPattern>
+				<unitPattern count="other">{0} mm Hg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -8181,14 +8322,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName draft="contributed">inHg</displayName>
+				<displayName>inHg</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>↑↑↑</displayName>
@@ -8201,9 +8342,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>↑↑↑</displayName>
@@ -8222,11 +8363,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="one">{0} km/h</unitPattern>
+				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="contributed">metres/sec.</displayName>
+				<displayName>metres/sec.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8236,9 +8377,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName draft="contributed">kn.</displayName>
-				<unitPattern count="one" draft="contributed">{0} kn.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kn.</unitPattern>
+				<displayName>kn.</displayName>
+				<unitPattern count="one">{0} kn.</unitPattern>
+				<unitPattern count="other">{0} kn.</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>↑↑↑</displayName>
@@ -8247,13 +8388,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="one">{0} °C</unitPattern>
+				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} °F</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="one">{0} °F</unitPattern>
+				<unitPattern count="other">{0} °F</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>↑↑↑</displayName>
@@ -8288,24 +8429,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="contributed">cu. mi.</displayName>
-				<unitPattern count="one" draft="contributed">{0} cu. mi.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cu. mi.</unitPattern>
+				<displayName>cu. mi.</displayName>
+				<unitPattern count="one">{0} cu. mi.</unitPattern>
+				<unitPattern count="other">{0} cu. mi.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName draft="contributed">cu. yards</displayName>
-				<unitPattern count="one" draft="contributed">{0} cu. yd.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cu. yd.</unitPattern>
+				<displayName>cu. yards</displayName>
+				<unitPattern count="one">{0} cu. yd.</unitPattern>
+				<unitPattern count="other">{0} cu. yd.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName draft="contributed">cu. feet</displayName>
-				<unitPattern count="one" draft="contributed">{0} cu. ft.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cu. ft.</unitPattern>
+				<displayName>cu. feet</displayName>
+				<unitPattern count="one">{0} cu. ft.</unitPattern>
+				<unitPattern count="other">{0} cu. ft.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName draft="contributed">cu. inches</displayName>
-				<unitPattern count="one" draft="contributed">{0} cu. in.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cu. in.</unitPattern>
+				<displayName>cu. inches</displayName>
+				<unitPattern count="one">{0} cu. in.</unitPattern>
+				<unitPattern count="other">{0} cu. in.</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>ML</displayName>
@@ -8349,9 +8490,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName draft="contributed">acre ft.</displayName>
-				<unitPattern count="one" draft="contributed">{0} ac. ft.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ac. ft.</unitPattern>
+				<displayName>ac. ft.</displayName>
+				<unitPattern count="one">{0} ac. ft.</unitPattern>
+				<unitPattern count="other">{0} ac. ft.</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName>↑↑↑</displayName>
@@ -8359,56 +8500,91 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName draft="contributed">US gal.</displayName>
-				<unitPattern count="one" draft="contributed">{0} US gal.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} US gal.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/US gal.</perUnitPattern>
+				<displayName>US gal.</displayName>
+				<unitPattern count="one">{0} US gal.</unitPattern>
+				<unitPattern count="other">{0} US gal.</unitPattern>
+				<perUnitPattern>{0}/US gal.</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName draft="contributed">gal.</displayName>
-				<unitPattern count="one" draft="contributed">{0} gal.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} gal.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/gal.</perUnitPattern>
+				<displayName>gal.</displayName>
+				<unitPattern count="one">{0} gal.</unitPattern>
+				<unitPattern count="other">{0} gal.</unitPattern>
+				<perUnitPattern>{0}/gal.</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName draft="contributed">qt.</displayName>
-				<unitPattern count="one" draft="contributed">{0} qt.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} qt.</unitPattern>
+				<displayName>qt.</displayName>
+				<unitPattern count="one">{0} qt.</unitPattern>
+				<unitPattern count="other">{0} qt.</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} pt.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pt.</unitPattern>
+				<unitPattern count="one">{0} pt.</unitPattern>
+				<unitPattern count="other">{0} pt.</unitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} c.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} c.</unitPattern>
+				<unitPattern count="one">{0} c.</unitPattern>
+				<unitPattern count="other">{0} c.</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
-				<displayName draft="contributed">fl. oz.</displayName>
-				<unitPattern count="one" draft="contributed">{0} fl. oz.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} fl. oz.</unitPattern>
+				<displayName>fl. oz.</displayName>
+				<unitPattern count="one">{0} fl. oz.</unitPattern>
+				<unitPattern count="other">{0} fl. oz.</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName draft="contributed">imp. fl. oz.</displayName>
-				<unitPattern count="one" draft="contributed">{0} fl. oz. imp.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} fl. oz. imp.</unitPattern>
+				<displayName>imp. fl. oz.</displayName>
+				<unitPattern count="one">{0} imp. fl. oz.</unitPattern>
+				<unitPattern count="other">{0} imp. fl. oz.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName draft="contributed">tbsp.</displayName>
-				<unitPattern count="one" draft="contributed">{0} tbsp.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} tbsp.</unitPattern>
+				<displayName>tbsp.</displayName>
+				<unitPattern count="one">{0} tbsp.</unitPattern>
+				<unitPattern count="other">{0} tbsp.</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName draft="contributed">tsp.</displayName>
-				<unitPattern count="one" draft="contributed">{0} tsp.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} tsp.</unitPattern>
+				<displayName>tsp.</displayName>
+				<unitPattern count="one">{0} tsp.</unitPattern>
+				<unitPattern count="other">{0} tsp.</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} bbl.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} bbl.</unitPattern>
+				<unitPattern count="one">{0} bbl.</unitPattern>
+				<unitPattern count="other">{0} bbl.</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>dssp</displayName>
+				<unitPattern count="one">{0} dssp</unitPattern>
+				<unitPattern count="other">{0} dssp</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>imp. dssp</displayName>
+				<unitPattern count="one">{0} imp. dssp</unitPattern>
+				<unitPattern count="other">{0} imp. dssp</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<displayName>drops</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} drops</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<displayName>fl. dr.</displayName>
+				<unitPattern count="one">{0} fl. dr.</unitPattern>
+				<unitPattern count="other">{0} fl. dr.</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<displayName>jiggers</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} jiggers</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<displayName>pinches</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} pinches</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>imp. qt.</displayName>
+				<unitPattern count="one">{0} imp. qt.</unitPattern>
+				<unitPattern count="other">{0} imp. qt.</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -8479,6 +8655,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="1024p1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p4">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p5">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p7">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="1024p8">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
@@ -8493,7 +8693,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern draft="contributed">↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>mg/dL</displayName>
@@ -8551,7 +8751,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} min.</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName>s</displayName>
+				<displayName>sec.</displayName>
 				<unitPattern count="one">{0} sec.</unitPattern>
 				<unitPattern count="other">{0} sec.</unitPattern>
 			</unit>
@@ -8586,22 +8786,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName draft="contributed">mi.</displayName>
+				<displayName>mi.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="contributed">yd.</displayName>
+				<displayName>yd.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName draft="contributed">ft.</displayName>
+				<displayName>ft.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="contributed">in.</displayName>
+				<displayName>in.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8626,7 +8826,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName draft="contributed">st.</displayName>
+				<displayName>st.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8641,12 +8841,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="contributed">km/h</displayName>
-				<unitPattern count="one" draft="contributed">{0}km/h</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}km/h</unitPattern>
+				<displayName>km/h</displayName>
+				<unitPattern count="one">{0}km/h</unitPattern>
+				<unitPattern count="other">{0}km/h</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="contributed">mi./hr.</displayName>
+				<displayName>mi./hr.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8728,28 +8928,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start" draft="contributed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0} or {1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">↑↑↑</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} or {1}</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start" draft="contributed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0} or {1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">↑↑↑</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} or {1}</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0}, and {1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">{0} and {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0}, and {1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">{0} and {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">{0} and {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
@@ -8788,6 +8988,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="scripts">↑↑↑</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">↑↑↑</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="subscript">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="superscript">↑↑↑</characterLabelPattern>
 		<characterLabel type="activities">↑↑↑</characterLabel>
 		<characterLabel type="african_scripts">↑↑↑</characterLabel>
 		<characterLabel type="american_scripts">↑↑↑</characterLabel>
@@ -8805,8 +9007,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="digits">↑↑↑</characterLabel>
 		<characterLabel type="dingbats">↑↑↑</characterLabel>
 		<characterLabel type="divination_symbols">↑↑↑</characterLabel>
-		<characterLabel type="downwards_arrows" draft="contributed">downward arrow</characterLabel>
-		<characterLabel type="downwards_upwards_arrows" draft="contributed">downward upward arrow</characterLabel>
+		<characterLabel type="downwards_arrows">downward arrow</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">downward upward arrow</characterLabel>
 		<characterLabel type="east_asian_scripts">↑↑↑</characterLabel>
 		<characterLabel type="emoji">↑↑↑</characterLabel>
 		<characterLabel type="european_scripts">↑↑↑</characterLabel>
@@ -8831,19 +9033,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="kanbun">↑↑↑</characterLabel>
 		<characterLabel type="kanji">↑↑↑</characterLabel>
 		<characterLabel type="keycap">↑↑↑</characterLabel>
-		<characterLabel type="leftwards_arrows" draft="contributed">leftward arrow</characterLabel>
-		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">leftward rightward arrow</characterLabel>
-		<characterLabel type="letterlike_symbols" draft="contributed">letter-like symbol</characterLabel>
-		<characterLabel type="limited_use" draft="contributed">limited use</characterLabel>
+		<characterLabel type="leftwards_arrows">leftward arrow</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">leftward rightward arrow</characterLabel>
+		<characterLabel type="letterlike_symbols">letter-like symbol</characterLabel>
+		<characterLabel type="limited_use">limited use</characterLabel>
 		<characterLabel type="male">↑↑↑</characterLabel>
-		<characterLabel type="math_symbols" draft="contributed">math symbol</characterLabel>
+		<characterLabel type="math_symbols">math symbol</characterLabel>
 		<characterLabel type="middle_eastern_scripts">↑↑↑</characterLabel>
 		<characterLabel type="miscellaneous">↑↑↑</characterLabel>
 		<characterLabel type="modern_scripts">↑↑↑</characterLabel>
 		<characterLabel type="modifier">↑↑↑</characterLabel>
 		<characterLabel type="musical_symbols">↑↑↑</characterLabel>
 		<characterLabel type="nature">↑↑↑</characterLabel>
-		<characterLabel type="nonspacing" draft="contributed">non-spacing</characterLabel>
+		<characterLabel type="nonspacing">non-spacing</characterLabel>
 		<characterLabel type="numbers">↑↑↑</characterLabel>
 		<characterLabel type="objects">↑↑↑</characterLabel>
 		<characterLabel type="other">↑↑↑</characterLabel>
@@ -8854,7 +9056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="place">↑↑↑</characterLabel>
 		<characterLabel type="plant">↑↑↑</characterLabel>
 		<characterLabel type="punctuation">↑↑↑</characterLabel>
-		<characterLabel type="rightwards_arrows" draft="contributed">rightward arrow</characterLabel>
+		<characterLabel type="rightwards_arrows">rightward arrow</characterLabel>
 		<characterLabel type="sign_standard_symbols">↑↑↑</characterLabel>
 		<characterLabel type="small_form_variant">↑↑↑</characterLabel>
 		<characterLabel type="smiley">↑↑↑</characterLabel>
@@ -8868,7 +9070,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="tone_marks">↑↑↑</characterLabel>
 		<characterLabel type="travel">↑↑↑</characterLabel>
 		<characterLabel type="travel_places">↑↑↑</characterLabel>
-		<characterLabel type="upwards_arrows" draft="contributed">upward arrows</characterLabel>
+		<characterLabel type="upwards_arrows">upward arrows</characterLabel>
 		<characterLabel type="variant_forms">↑↑↑</characterLabel>
 		<characterLabel type="vocalic_jamo">↑↑↑</characterLabel>
 		<characterLabel type="weather">↑↑↑</characterLabel>
@@ -8890,13 +9092,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="slnt" subtype="-12">↑↑↑</styleName>
 		<styleName type="slnt" subtype="0">↑↑↑</styleName>
 		<styleName type="slnt" subtype="12">↑↑↑</styleName>
-		<styleName type="slnt" subtype="24" draft="contributed">extraslanted</styleName>
+		<styleName type="slnt" subtype="24">extraslanted</styleName>
 		<styleName type="wdth" subtype="50">↑↑↑</styleName>
 		<styleName type="wdth" subtype="50" alt="compressed">↑↑↑</styleName>
 		<styleName type="wdth" subtype="50" alt="narrow">↑↑↑</styleName>
-		<styleName type="wdth" subtype="62.5" draft="contributed">extracondensed</styleName>
-		<styleName type="wdth" subtype="62.5" alt="compressed" draft="contributed">extracompressed</styleName>
-		<styleName type="wdth" subtype="62.5" alt="narrow" draft="contributed">extranarrow</styleName>
+		<styleName type="wdth" subtype="62.5">extracondensed</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">extracompressed</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">extranarrow</styleName>
 		<styleName type="wdth" subtype="75">↑↑↑</styleName>
 		<styleName type="wdth" subtype="75" alt="compressed">↑↑↑</styleName>
 		<styleName type="wdth" subtype="75" alt="narrow">↑↑↑</styleName>
@@ -8910,14 +9112,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wdth" subtype="125">↑↑↑</styleName>
 		<styleName type="wdth" subtype="125" alt="extended">↑↑↑</styleName>
 		<styleName type="wdth" subtype="125" alt="wide">↑↑↑</styleName>
-		<styleName type="wdth" subtype="150" draft="contributed">extraexpanded</styleName>
-		<styleName type="wdth" subtype="150" alt="extended" draft="contributed">extraextended</styleName>
-		<styleName type="wdth" subtype="150" alt="wide" draft="contributed">extrawide</styleName>
+		<styleName type="wdth" subtype="150">extraexpanded</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">extraextended</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">extrawide</styleName>
 		<styleName type="wdth" subtype="200">↑↑↑</styleName>
 		<styleName type="wdth" subtype="200" alt="extended">↑↑↑</styleName>
 		<styleName type="wdth" subtype="200" alt="wide">↑↑↑</styleName>
 		<styleName type="wght" subtype="100">↑↑↑</styleName>
-		<styleName type="wght" subtype="200" draft="contributed">extralight</styleName>
+		<styleName type="wght" subtype="200">extralight</styleName>
 		<styleName type="wght" subtype="200" alt="ultra">↑↑↑</styleName>
 		<styleName type="wght" subtype="300">↑↑↑</styleName>
 		<styleName type="wght" subtype="350">↑↑↑</styleName>
@@ -8927,10 +9129,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wght" subtype="600">↑↑↑</styleName>
 		<styleName type="wght" subtype="600" alt="demi">↑↑↑</styleName>
 		<styleName type="wght" subtype="700">↑↑↑</styleName>
-		<styleName type="wght" subtype="800" draft="contributed">extrabold</styleName>
+		<styleName type="wght" subtype="800">extrabold</styleName>
 		<styleName type="wght" subtype="900">↑↑↑</styleName>
 		<styleName type="wght" subtype="900" alt="heavy">↑↑↑</styleName>
-		<styleName type="wght" subtype="950" draft="contributed">extrablack</styleName>
+		<styleName type="wght" subtype="950">extrablack</styleName>
 		<styleName type="wght" subtype="950" alt="ultrablack">↑↑↑</styleName>
 		<styleName type="wght" subtype="950" alt="ultraheavy">↑↑↑</styleName>
 		<featureName type="afrc">↑↑↑</featureName>

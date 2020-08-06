@@ -81,7 +81,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="latn">ᱣᱮᱥᱴᱟᱨᱱ ᱮᱞ</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric">ᱢᱤᱴᱨᱤᱠ</measurementSystemName>
+			<measurementSystemName type="metric">ᱢᱮᱴᱨᱤᱠ</measurementSystemName>
 			<measurementSystemName type="UK">ᱭᱩᱠᱮ</measurementSystemName>
 			<measurementSystemName type="US">ᱭᱩᱮᱥ</measurementSystemName>
 		</measurementSystemNames>
@@ -350,16 +350,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">ᱥᱤᱧ/ᱥᱮᱛᱟᱜ</dayPeriod>
-							<dayPeriod type="pm">ᱟᱹᱭᱩᱵ/ᱧᱤᱫᱟ</dayPeriod>
+							<dayPeriod type="am">ᱥᱮᱛᱟᱜ</dayPeriod>
+							<dayPeriod type="pm">ᱧᱤᱫᱟᱹ</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraAbbr>
-						<era type="0">↑↑↑</era>
-						<era type="0" alt="variant">↑↑↑</era>
-						<era type="1">↑↑↑</era>
+						<era type="0">ᱥᱮᱨᱢᱟ ᱞᱟᱦᱟ</era>
+						<era type="0" alt="variant">ᱥᱮᱨᱢᱟ ᱞᱟᱦᱟ</era>
+						<era type="1">ᱤᱥᱣᱤ</era>
 						<era type="1" alt="variant">↑↑↑</era>
 					</eraAbbr>
 				</eras>
@@ -660,11 +660,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
-			<decimal>↑↑↑</decimal>
-			<group>↑↑↑</group>
-			<percentSign>↑↑↑</percentSign>
-			<plusSign>↑↑↑</plusSign>
-			<minusSign>↑↑↑</minusSign>
+			<decimal>ᱹ</decimal>
+			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>ᱼ</minusSign>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -690,6 +690,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -769,6 +772,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">ᱵᱟᱝᱩᱨᱩᱢ ᱠᱟᱨᱮᱱᱥᱤ</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">↑↑↑</pattern>
+			<pattern type="atMost">↑↑↑</pattern>
+			<pattern type="range">↑↑↑</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<durationUnit type="hm">

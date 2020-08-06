@@ -75,6 +75,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="chr">ᏣᎳᎩ</language>
 			<language type="chy">ᏣᏰᏂ</language>
 			<language type="ckb">ᎠᏰᏟ ᎫᏗᏏ</language>
+			<language type="ckb" alt="menu">↑↑↑</language>
+			<language type="ckb" alt="variant">↑↑↑</language>
 			<language type="co">ᎪᎵᏍᎢᎧᏂ</language>
 			<language type="crs">ᏎᏎᎵᏩ ᏟᏲᎵ ᎠᏂᎦᎸ</language>
 			<language type="cs">ᏤᎩ</language>
@@ -3246,9 +3248,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>ᎧᎵᏂᏆᏗ</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>ᏏᎻᏪᎶᏉᎵ</exemplarCity>
-			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>ᎹᏍᎦᏫ</exemplarCity>
 			</zone>
@@ -3443,6 +3442,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>ᎩᏫ</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>ᏏᎻᏪᎶᏉᎵ</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ᏌᏉᎶᏌᏱ</exemplarCity>
@@ -4525,6 +4527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<percentSign>%</percentSign>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -4661,6 +4664,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">ᎠᏫᎨᏂᏍᏖᏂ ᎠᏕᎳ</displayName>
 				<displayName count="other">ᎠᏫᎨᏂᏍᏖᏂ ᎠᏕᎳ</displayName>
 				<symbol draft="contributed">AFN</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>ᎠᎵᏇᏂᏯ ᎠᏕᎳ</displayName>
@@ -4673,6 +4677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">ᎠᎵᎻᏂᎠ ᎠᏕᎳ</displayName>
 				<displayName count="other">ᎠᎵᎻᏂᎠ ᎠᏕᎳ</displayName>
 				<symbol draft="contributed">AMD</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>ᎾᏍᎩᏁᏛᎳᏂ ᎠᏂᏘᎵᏏ ᎠᏕᎳ</displayName>
@@ -4712,6 +4717,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">ᎠᏏᎵᏆᏌᏂ ᎠᏕᎳ</displayName>
 				<displayName count="other">ᎠᏏᎵᏆᏌᏂ ᎠᏕᎳ</displayName>
 				<symbol draft="contributed">AZN</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>ᏉᏏᏂᎠ-ᎲᏤᎪᏫ ᎦᏁᏟᏴᏍᏔᏅ ᎠᏕᎳ</displayName>
@@ -4985,6 +4991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">ᎦᎠᎾ ᎠᏕᎳ</displayName>
 				<displayName count="other">ᎦᎠᎾ ᎠᏕᎳ</displayName>
 				<symbol draft="contributed">GHS</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>ᏥᏆᎵᏓ ᎠᏕᎳ</displayName>
@@ -5784,9 +5791,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>ᏅᎩ ᏧᏅᏏᏯ {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">ᏅᎩ ᏧᏅᏏᏱ {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">ᏅᎩ ᏧᏅᏏᏱ {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>cubic {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">ᏣᏁᎳ ᏧᏅᏏᏱ {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">ᏣᏁᎳ ᏧᏅᏏᏱ {0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -6711,9 +6722,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -7638,9 +7653,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -7836,6 +7855,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="scripts">ᏗᎧᏁᎢᏍᏗ — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} ᏗᎬᏂᎸᎯ</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} ᏗᎬᏂᎸᎯ</characterLabelPattern>
+		<characterLabelPattern type="subscript">ᎡᎳᏗ ᎤᏍᏗ ᎪᏪᎳ {0}</characterLabelPattern>
+		<characterLabelPattern type="superscript">ᎦᎸᎳᏗ ᎤᏍᏗ ᎪᏪᎳ {0}</characterLabelPattern>
 		<characterLabel type="activities">ᎠᎵᏂᎬᏁᏗ</characterLabel>
 		<characterLabel type="african_scripts">ᎬᎿᎨᏍᏛ ᏗᎧᏁᎢᏍᏗ</characterLabel>
 		<characterLabel type="american_scripts">ᎠᎹᏰᏟ ᏗᎧᏁᎢᏍᏗ</characterLabel>

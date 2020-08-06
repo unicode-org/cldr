@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="pl"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">nawias | nawias klamrowy | nawias otwierający</annotation>
+		<annotation cp="{" type="tts">otwierający nawias klamrowy</annotation>
 		<annotation cp="🏻">karnacja | karnacja jasna | odcień skóry | typ 1–2</annotation>
 		<annotation cp="🏻" type="tts">karnacja jasna</annotation>
 		<annotation cp="🏼">karnacja | karnacja średnio jasna | odcień skóry | typ 3</annotation>
@@ -23,36 +25,214 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">karnacja średnio ciemna</annotation>
 		<annotation cp="🏿">karnacja | karnacja ciemna | odcień skóry | typ 6</annotation>
 		<annotation cp="🏿" type="tts">karnacja ciemna</annotation>
+		<annotation cp="‾" draft="contributed">nadkreślenie</annotation>
+		<annotation cp="‾" type="tts" draft="contributed">nadkreślenie</annotation>
+		<annotation cp="_">dolny myślnik | linia | podkreślenie | podkreślnik</annotation>
+		<annotation cp="_" type="tts">znak podkreślenia</annotation>
+		<annotation cp="-">łącznik | minus | myślnik | pauza</annotation>
+		<annotation cp="-" type="tts">łącznik-minus</annotation>
+		<annotation cp="‐">dywiz | łącznik | myślnik</annotation>
+		<annotation cp="‐" type="tts">dywiz</annotation>
 		<annotation cp="–">myślnik | półpauza | znak półpauzy</annotation>
 		<annotation cp="–" type="tts">znak półpauzy</annotation>
 		<annotation cp="—">myślnik | pauza | znak pauzy</annotation>
 		<annotation cp="—" type="tts">znak pauzy</annotation>
+		<annotation cp="―">kreska | linia | myślnik</annotation>
+		<annotation cp="―" type="tts">pozioma kreska</annotation>
+		<annotation cp="・">katakana | kropka | kropka środkowa</annotation>
+		<annotation cp="・" type="tts">kropka środkowa katakana</annotation>
+		<annotation cp=",">przecinek</annotation>
+		<annotation cp="," type="tts">przecinek</annotation>
+		<annotation cp="،">arabski | przecinek</annotation>
+		<annotation cp="،" type="tts">przecinek arabski</annotation>
+		<annotation cp="、">ideograficzny | przecinek</annotation>
+		<annotation cp="、" type="tts">przecinek ideograficzny</annotation>
+		<annotation cp=";">średnik</annotation>
+		<annotation cp=";" type="tts">średnik</annotation>
+		<annotation cp="؛">arabski | średnik</annotation>
+		<annotation cp="؛" type="tts">średnik arabski</annotation>
+		<annotation cp=":">dwukropek</annotation>
+		<annotation cp=":" type="tts">dwukropek</annotation>
+		<annotation cp="!">wykrzyknąć | znak | znak wykrzyknika</annotation>
+		<annotation cp="!" type="tts">wykrzyknik</annotation>
+		<annotation cp="¡">odwrócony | wykrzyknik | znak wykrzyknika</annotation>
+		<annotation cp="¡" type="tts">odwrócony wykrzyknik</annotation>
+		<annotation cp="?">pytajnik | pytanie</annotation>
+		<annotation cp="?" type="tts">znak zapytania</annotation>
+		<annotation cp="¿">odwrócony | pytajnik | znak zapytania</annotation>
+		<annotation cp="¿" type="tts">odwrócony znak zapytania</annotation>
+		<annotation cp="؟">arabski | pytajnik | znak zapytania</annotation>
+		<annotation cp="؟" type="tts">arabski znak zapytania</annotation>
+		<annotation cp="‽" draft="contributed">interabang</annotation>
+		<annotation cp="‽" type="tts" draft="contributed">interrobang</annotation>
+		<annotation cp=".">kropka | punkt | znak kropki</annotation>
+		<annotation cp="." type="tts">kropka</annotation>
+		<annotation cp="…">trzy kropki | wielokropek | znak wielokropka</annotation>
+		<annotation cp="…" type="tts">wielokropek</annotation>
+		<annotation cp="。">kropka | kropka chińska | znak ideograficzny</annotation>
+		<annotation cp="。" type="tts">kropka ideograficzna</annotation>
 		<annotation cp="·">kropka | kropka środkowa | punkt | środek</annotation>
 		<annotation cp="·" type="tts">kropka środkowa</annotation>
+		<annotation cp="'">apostrof | cytat | pojedynczy apostrof</annotation>
+		<annotation cp="'" type="tts">apostrof drukarski</annotation>
+		<annotation cp="‘">apostrof | cytat | pojedynczy apostrof</annotation>
+		<annotation cp="‘" type="tts">lewy apostrof</annotation>
+		<annotation cp="’">apostrof | cytat | pojedynczy apostrof</annotation>
+		<annotation cp="’" type="tts">prawy apostrof</annotation>
+		<annotation cp="‚">apostrof | apostrof dolny | cytat</annotation>
+		<annotation cp="‚" type="tts">prawy apostrof dolny</annotation>
+		<annotation cp="“">cudzysłów | cytat</annotation>
+		<annotation cp="“" type="tts">lewy cudzysłów</annotation>
+		<annotation cp="”">cudzysłów | cytat</annotation>
+		<annotation cp="”" type="tts">prawy cudzysłów</annotation>
+		<annotation cp="„">cudzysłów | cytat | dolny cudzysłów | prawy cudzysłów</annotation>
+		<annotation cp="„" type="tts">dolny prawy cudzysłów</annotation>
 		<annotation cp="«">cudzysłów | daszki | lewy | lewy cudzysłów ostrokątny | nawias ostry | nawiasy | szewron</annotation>
 		<annotation cp="«" type="tts">lewy cudzysłów ostrokątny</annotation>
 		<annotation cp="»">cudzysłów | daszki | nawias ostry | nawiasy | prawy | prawy cudzysłów ostrokątny | szewron</annotation>
 		<annotation cp="»" type="tts">prawy cudzysłów ostrokątny</annotation>
+		<annotation cp=")">nawias | nawias końcowy | nawias okrągły</annotation>
+		<annotation cp=")" type="tts">nawias zamykający</annotation>
+		<annotation cp="[">nawias | nawias kwadratowy</annotation>
+		<annotation cp="[" type="tts">otwierający nawias kwadratowy</annotation>
+		<annotation cp="]">nawias | nawias kwadratowy</annotation>
+		<annotation cp="]" type="tts">zamykający nawias kwadratowy</annotation>
+		<annotation cp="}">nawias | nawias klamrowy | nawias zamykający</annotation>
+		<annotation cp="}" type="tts">zamykający nawias klamrowy</annotation>
+		<annotation cp="〈">nawias | nawias ostrokątny | nawias otwierający | ostry nawias</annotation>
+		<annotation cp="〈" type="tts">otwierający nawias ostrokątny</annotation>
+		<annotation cp="〉">nawias | nawias ostrokątny | nawias zamykający | ostry nawias</annotation>
+		<annotation cp="〉" type="tts">zamykający nawias ostrokątny</annotation>
+		<annotation cp="《">nawias | nawias ostrokątny | podwójny nawias</annotation>
+		<annotation cp="《" type="tts">podwójny otwierający nawias ostrokątny</annotation>
+		<annotation cp="》">nawias | nawias ostrokątny | podwójny nawias</annotation>
+		<annotation cp="》" type="tts">podwójny zamykający nawias ostrokątny</annotation>
+		<annotation cp="「">lewy nawias | nawias | nawias kątowy</annotation>
+		<annotation cp="「" type="tts">lewy sufit</annotation>
+		<annotation cp="」">nawias | nawias kątowy | prawy nawias</annotation>
+		<annotation cp="」" type="tts">prawa podłoga</annotation>
+		<annotation cp="『">gruby nawias kątowy | nawias</annotation>
+		<annotation cp="『" type="tts">gruby lewy sufit</annotation>
+		<annotation cp="』">gruby nawias kątowy | nawias</annotation>
+		<annotation cp="』" type="tts">gruba prawa podłoga</annotation>
+		<annotation cp="【">nawias | nawias soczewkowy</annotation>
+		<annotation cp="【" type="tts">otwierający czarny nawias soczewkowy</annotation>
+		<annotation cp="】">nawias | nawias soczewkowy</annotation>
+		<annotation cp="】" type="tts">zamykający czarny nawias soczewkowy</annotation>
+		<annotation cp="〔">nawias | nawias zaokrąglony</annotation>
+		<annotation cp="〔" type="tts">otwierający nawias zaokrąglony</annotation>
+		<annotation cp="〕">nawias | nawias zaokrąglony</annotation>
+		<annotation cp="〕" type="tts">zamykający nawias zaokrąglony</annotation>
+		<annotation cp="〖">gruby nawias soczewkowy | nawias</annotation>
+		<annotation cp="〖" type="tts">otwierający gruby nawias soczewkowy</annotation>
+		<annotation cp="〗">gruby nawias soczewkowy | nawias</annotation>
+		<annotation cp="〗" type="tts">zamykający gruby nawias soczewkowy</annotation>
 		<annotation cp="§">artykuł | paragraf</annotation>
 		<annotation cp="§" type="tts">paragraf</annotation>
+		<annotation cp="¶">akapit | znak</annotation>
+		<annotation cp="¶" type="tts">znak akapitu</annotation>
+		<annotation cp="@">małpa | symbol małpy</annotation>
+		<annotation cp="@" type="tts">znak małpy</annotation>
+		<annotation cp="*">gwiazdka | symbol gwiazdki | wieloznacznik</annotation>
+		<annotation cp="*" type="tts">gwiazdka</annotation>
+		<annotation cp="/">slash | solidus | ukośnik | ukośny | znak ukośny</annotation>
+		<annotation cp="/" type="tts">ukośnik</annotation>
+		<annotation cp="\">backslash | ukośnik | ukośnik wsteczny</annotation>
+		<annotation cp="\" type="tts">ukośnik wsteczny</annotation>
+		<annotation cp="&amp;">et | i | znak and</annotation>
+		<annotation cp="&amp;" type="tts">et</annotation>
+		<annotation cp="#">hash | kratka | krzyżyk | numer | płotek</annotation>
+		<annotation cp="#" type="tts">kratka</annotation>
+		<annotation cp="%">procent | znak procenta</annotation>
+		<annotation cp="%" type="tts">procent</annotation>
+		<annotation cp="‰">promil | symbol promila</annotation>
+		<annotation cp="‰" type="tts">promil</annotation>
 		<annotation cp="†">crux philologorum | obelisk | obelos | obelus | sztylet | znak sztyletu</annotation>
 		<annotation cp="†" type="tts">znak sztyletu</annotation>
 		<annotation cp="‡">obelisk | obelos | obelus | podwójny | sztylet | znak podwójnego sztyletu</annotation>
 		<annotation cp="‡" type="tts">znak podwójnego sztyletu</annotation>
 		<annotation cp="•">kropka | punktor</annotation>
 		<annotation cp="•" type="tts">punktor</annotation>
+		<annotation cp="‧">kropka | myślnik | podział | punkt</annotation>
+		<annotation cp="‧" type="tts">punkt podziału</annotation>
+		<annotation cp="′">prim</annotation>
+		<annotation cp="′" type="tts">prim</annotation>
+		<annotation cp="″">bis | prim | symbol bis</annotation>
+		<annotation cp="″" type="tts">bis</annotation>
+		<annotation cp="‴">prim | ter</annotation>
+		<annotation cp="‴" type="tts">ter</annotation>
+		<annotation cp="‸" draft="contributed">kareta</annotation>
+		<annotation cp="‸" type="tts" draft="contributed">kareta</annotation>
+		<annotation cp="※">odniesienie | znak odniesienia</annotation>
+		<annotation cp="※" type="tts">znak odniesienia</annotation>
+		<annotation cp="⁂" draft="contributed">asteryzm</annotation>
+		<annotation cp="⁂" type="tts" draft="contributed">asteryzm</annotation>
+		<annotation cp="`">akcent | grawis | znak diakrytyczny</annotation>
+		<annotation cp="`" type="tts">grawis</annotation>
+		<annotation cp="´">akcent | akcent silny | akut | znak diakrytyczny</annotation>
+		<annotation cp="´" type="tts">akcent ostry</annotation>
+		<annotation cp="^">akcent | cyrkumfleks | daszek | znak diakrytyczny</annotation>
+		<annotation cp="^" type="tts">akcent przeciągły</annotation>
+		<annotation cp="¨">diereza | umlaut</annotation>
+		<annotation cp="¨" type="tts">diereza</annotation>
 		<annotation cp="°">stopień | symbol stopnia</annotation>
 		<annotation cp="°" type="tts">stopień</annotation>
 		<annotation cp="℗">muzyczne | nagranie | znak praw autorskich | znak praw autorskich do nagrań muzycznych</annotation>
 		<annotation cp="℗" type="tts">znak praw autorskich do nagrań muzycznych</annotation>
 		<annotation cp="←">lewo | strzałka | strzałka skierowana w lewo</annotation>
 		<annotation cp="←" type="tts">strzałka skierowana w lewo</annotation>
+		<annotation cp="↚" draft="contributed">przekreślona strzałka w lewo</annotation>
+		<annotation cp="↚" type="tts" draft="contributed">przekreślona strzałka w lewo</annotation>
 		<annotation cp="→">prawo | strzałka | strzałka skierowana w prawo</annotation>
 		<annotation cp="→" type="tts">strzałka skierowana w prawo</annotation>
+		<annotation cp="↛" draft="contributed">przekreślona strzałka w prawo</annotation>
+		<annotation cp="↛" type="tts" draft="contributed">przekreślona strzałka w prawo</annotation>
 		<annotation cp="↑">góra | strzałka | strzałka skierowana w górę</annotation>
 		<annotation cp="↑" type="tts">strzałka skierowana w górę</annotation>
 		<annotation cp="↓">dół | strzałka | strzałka skierowana w dół</annotation>
 		<annotation cp="↓" type="tts">strzałka skierowana w dół</annotation>
+		<annotation cp="↜" draft="contributed">falista strzałka w lewo</annotation>
+		<annotation cp="↜" type="tts" draft="contributed">falista strzałka w lewo</annotation>
+		<annotation cp="↝" draft="contributed">falista strzałka w prawo</annotation>
+		<annotation cp="↝" type="tts" draft="contributed">falista strzałka w prawo</annotation>
+		<annotation cp="↞" draft="contributed">strzałka w lewo z podwójnym grotem</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">strzałka w lewo z podwójnym grotem</annotation>
+		<annotation cp="↟" draft="contributed">strzałka w górę z podwójnym grotem</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">strzałka w górę z podwójnym grotem</annotation>
+		<annotation cp="↠" draft="contributed">strzałka w prawo z podwójnym grotem</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">strzałka w prawo z podwójnym grotem</annotation>
+		<annotation cp="↡" draft="contributed">strzałka w dół z podwójnym grotem</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">strzałka w dół z podwójnym grotem</annotation>
+		<annotation cp="↢" draft="contributed">strzałka w lewo z lotką</annotation>
+		<annotation cp="↢" type="tts" draft="contributed">strzałka w lewo z lotką</annotation>
+		<annotation cp="↣" draft="contributed">strzałka w prawo z lotką</annotation>
+		<annotation cp="↣" type="tts" draft="contributed">strzałka w prawo z lotką</annotation>
+		<annotation cp="↤" draft="contributed">strzałka w lewo z kreski</annotation>
+		<annotation cp="↤" type="tts" draft="contributed">strzałka w lewo z kreski</annotation>
+		<annotation cp="↥" draft="contributed">strzałka w górę z kreski</annotation>
+		<annotation cp="↥" type="tts" draft="contributed">strzałka w górę z kreski</annotation>
+		<annotation cp="↦" draft="contributed">strzałka w prawo z kreski</annotation>
+		<annotation cp="↦" type="tts" draft="contributed">strzałka w prawo z kreski</annotation>
+		<annotation cp="↧" draft="contributed">strzałka w dół z kreski</annotation>
+		<annotation cp="↧" type="tts" draft="contributed">strzałka w dół z kreski</annotation>
+		<annotation cp="↨" draft="contributed">strzałka w górę i w dół z podstawą</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">strzałka w górę i w dół z podstawą</annotation>
+		<annotation cp="↫" draft="contributed">strzałka w lewo z pętlą</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">strzałka w lewo z pętlą</annotation>
+		<annotation cp="↬" draft="contributed">strzałka w prawo z pętlą</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">strzałka w prawo z pętlą</annotation>
+		<annotation cp="↭" draft="contributed">falista strzałka w lewo i prawo</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">falista strzałka w lewo i prawo</annotation>
+		<annotation cp="↯" draft="contributed">zygzak</annotation>
+		<annotation cp="↯" type="tts" draft="contributed">zygzakowata strzałka w dół</annotation>
+		<annotation cp="↰" draft="contributed">strzałka w górę z grotem skierowanym w lewo</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">strzałka w górę z grotem skierowanym w lewo</annotation>
+		<annotation cp="↱" draft="contributed">strzałka w górę z grotem skierowanym w prawo</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">strzałka w górę z grotem skierowanym w prawo</annotation>
+		<annotation cp="↲" draft="contributed">strzałka w dół z grotem skierowanym w lewo</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">strzałka w dół z grotem skierowanym w lewo</annotation>
+		<annotation cp="↳" draft="contributed">strzałka w dół z grotem skierowanym w prawo</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">strzałka w dół z grotem skierowanym w prawo</annotation>
 		<annotation cp="⇅">dół | góra | strzałka | strzałki skierowane w górę i w dół</annotation>
 		<annotation cp="⇅" type="tts">strzałki skierowane w górę i w dół</annotation>
 		<annotation cp="⇆">lewo | prawo | strzałka | strzałka skierowana w lewo nad strzałką skierowaną w prawo | strzałka w lewo nad strzałką w prawo</annotation>
@@ -63,10 +243,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">element | jest elementem | należy do | zbiór | znak przynależności do zbioru</annotation>
 		<annotation cp="∈" type="tts">należy do</annotation>
+		<annotation cp="+">dodawać | dodawanie | plus</annotation>
+		<annotation cp="+" type="tts">plus</annotation>
+		<annotation cp="±">plus-minus</annotation>
+		<annotation cp="±" type="tts">plus-minus</annotation>
 		<annotation cp="÷">dzielenie | iloraz | podzielić | znak dzielenia | znak ilorazu</annotation>
 		<annotation cp="÷" type="tts">znak ilorazu</annotation>
 		<annotation cp="×">iloczyn | mnożenie | mnożyć | razy | znak iloczynu | znak mnożenia</annotation>
 		<annotation cp="×" type="tts">znak iloczynu</annotation>
+		<annotation cp="&lt;">mniej | mniej niż | mniejsze niż</annotation>
+		<annotation cp="&lt;" type="tts">mniejsze niż</annotation>
+		<annotation cp="=">równość | znak równości</annotation>
+		<annotation cp="=" type="tts">równość</annotation>
+		<annotation cp="≠">różne | znak nierówności</annotation>
+		<annotation cp="≠" type="tts">różne</annotation>
+		<annotation cp="&gt;">więcej | więcej niż | większe niż</annotation>
+		<annotation cp="&gt;" type="tts">większe niż</annotation>
+		<annotation cp="¬">negacja | zaprzeczenie</annotation>
+		<annotation cp="¬" type="tts">negacja</annotation>
+		<annotation cp="|">kreska | kreska pionowa | linia pionowa | pipe</annotation>
+		<annotation cp="|" type="tts">kreska pionowa</annotation>
+		<annotation cp="~">fala | tylda | wężyk</annotation>
+		<annotation cp="~" type="tts">tylda</annotation>
+		<annotation cp="−">minus | odejmować | odejmowanie</annotation>
+		<annotation cp="−" type="tts">minus</annotation>
 		<annotation cp="⁻">indeks górny | minus | minus w indeksie górnym</annotation>
 		<annotation cp="⁻" type="tts">minus w indeksie górnym</annotation>
 		<annotation cp="√">kwadratowy | pierwiastek</annotation>
@@ -77,8 +277,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∩" type="tts">iloczyn zbiorów</annotation>
 		<annotation cp="∪">suma zbiorów | zbiór</annotation>
 		<annotation cp="∪" type="tts">suma zbiorów</annotation>
+		<annotation cp="≈">około | prawie równe | w przybliżeniu</annotation>
+		<annotation cp="≈" type="tts">prawie równe</annotation>
 		<annotation cp="≡">identyczny | identyczny z | równoważny | tożsamy | tożsamy z | trzy kreski</annotation>
 		<annotation cp="≡" type="tts">tożsamy z</annotation>
+		<annotation cp="≤">mniej niż | równa się | równe | różne</annotation>
+		<annotation cp="≤" type="tts">mniejsze niż lub równe</annotation>
+		<annotation cp="≥">równa się | równe | różne | więcej niż</annotation>
+		<annotation cp="≥" type="tts">większe niż lub równe</annotation>
 		<annotation cp="⊂">jest zawarty w | podzbiór | zbiór</annotation>
 		<annotation cp="⊂" type="tts">jest zawarty w</annotation>
 		<annotation cp="▲">strzałka | trójkąt | w górę | wypełniony | wypełniony trójkąt skierowany w górę</annotation>
@@ -93,118 +299,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="●" type="tts">koło</annotation>
 		<annotation cp="◯">duży okrąg | okrąg | pierścień</annotation>
 		<annotation cp="◯" type="tts">duży okrąg</annotation>
-		<annotation cp="⚧">symbol transpłciowości | transpłciowość</annotation>
-		<annotation cp="⚧" type="tts">symbol transpłciowości</annotation>
-		<annotation cp="🤌">gest | palce | przesłuchanie | sarkazm | złączone palce</annotation>
-		<annotation cp="🤌" type="tts">złączone palce</annotation>
-		<annotation cp="🥲">dumny | łza | ulga | uśmiechnięta buźka ze łzą | uśmiechnięty | wdzięczny | wzruszony</annotation>
-		<annotation cp="🥲" type="tts">uśmiechnięta buźka ze łzą</annotation>
-		<annotation cp="🥷">niewidoczny | ninja | skradać się | ukryty | wojownik</annotation>
-		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="🥸">anonimowy | buźka w przebraniu | incognito | nos | okulary | przebranie | twarz | wąsy</annotation>
-		<annotation cp="🥸" type="tts">buźka w przebraniu</annotation>
-		<annotation cp="🦣">kieł | mamut | ogromny | włochaty | wymarły</annotation>
-		<annotation cp="🦣" type="tts">mamut</annotation>
-		<annotation cp="🦤">dodo | duży | Mauritius | wymarły</annotation>
-		<annotation cp="🦤" type="tts">dodo</annotation>
-		<annotation cp="🦫">bóbr | gryzoń | tama</annotation>
-		<annotation cp="🦫" type="tts">bóbr</annotation>
-		<annotation cp="🦬">bizon | stado | żubr</annotation>
-		<annotation cp="🦬" type="tts">żubr</annotation>
-		<annotation cp="🦭">foka | lew morski</annotation>
-		<annotation cp="🦭" type="tts">foka</annotation>
-		<annotation cp="🧋">herbata | kuleczka | kulki tapioki | mleko | napój bubble tea</annotation>
-		<annotation cp="🧋" type="tts">napój bubble tea</annotation>
-		<annotation cp="🩴">japonka | japonki | sandały | sandały na plażę</annotation>
-		<annotation cp="🩴" type="tts">japonka</annotation>
-		<annotation cp="🪃">Aborygeni | Australia | bumerang | wraca</annotation>
-		<annotation cp="🪃" type="tts">bumerang</annotation>
-		<annotation cp="🪄">czarodziej | czarodziejka | czarodziejska różdżka | czary | magia | magik</annotation>
-		<annotation cp="🪄" type="tts">czarodziejska różdżka</annotation>
-		<annotation cp="🪅">impreza | piniata | świętowanie</annotation>
-		<annotation cp="🪅" type="tts">piniata</annotation>
-		<annotation cp="🪆">laleczka | lalka | matrioszka | matrioszki | rosyjska</annotation>
-		<annotation cp="🪆" type="tts">matrioszki</annotation>
-		<annotation cp="🪖">armia | hełm | hełm wojskowy | wojownik | wojsko | żołnierz</annotation>
-		<annotation cp="🪖" type="tts">hełm wojskowy</annotation>
-		<annotation cp="🪗">akordeon | harmonia | koncertyna</annotation>
-		<annotation cp="🪗" type="tts">akordeon</annotation>
-		<annotation cp="🪘">bęben | konga | rytm</annotation>
-		<annotation cp="🪘" type="tts">konga</annotation>
-		<annotation cp="🪙">metalowa | moneta | pieniądze | skarb | srebrna | złota</annotation>
-		<annotation cp="🪙" type="tts">moneta</annotation>
-		<annotation cp="🪚">narzędzie | piła | piła do drewna | stolarz | tarcica</annotation>
-		<annotation cp="🪚" type="tts">piła do drewna</annotation>
-		<annotation cp="🪛">narzędzie | śruba | śrubokręt | wkręt | wkrętak</annotation>
-		<annotation cp="🪛" type="tts">śrubokręt</annotation>
-		<annotation cp="🪜">drabina | szczebel | wspinać się</annotation>
-		<annotation cp="🪜" type="tts">drabina</annotation>
-		<annotation cp="🪝">haczyk | hak | połknąć | zakrzywiony | złapać</annotation>
-		<annotation cp="🪝" type="tts">hak</annotation>
-		<annotation cp="🪞">lustro | odbicie | zwierciadło</annotation>
-		<annotation cp="🪞" type="tts">lustro</annotation>
-		<annotation cp="🪟">framuga | okno | otwór | przezroczyste | świeże powietrze | widok</annotation>
-		<annotation cp="🪟" type="tts">okno</annotation>
-		<annotation cp="🪠">hydraulik | odetkać | przepychać | przepychacz | toaleta</annotation>
-		<annotation cp="🪠" type="tts">przepychacz</annotation>
-		<annotation cp="🪡">haft | igła | igła krawiecka | igła z nitką | krawiectwo | szwy | szycie</annotation>
-		<annotation cp="🪡" type="tts">igła krawiecka</annotation>
-		<annotation cp="🪢">lina | sznur | sznurek | węzeł | wiązać</annotation>
-		<annotation cp="🪢" type="tts">węzeł</annotation>
-		<annotation cp="🪣">kubeł | wiaderko | wiadro</annotation>
-		<annotation cp="🪣" type="tts">wiadro</annotation>
-		<annotation cp="🪤">przynęta | pułapka | pułapka na myszy | sidła</annotation>
-		<annotation cp="🪤" type="tts">pułapka na myszy</annotation>
-		<annotation cp="🪥">czyszczenie | higiena | jama ustna | łazienka | szczoteczka do zębów | szczotka | zęby</annotation>
-		<annotation cp="🪥" type="tts">szczoteczka do zębów</annotation>
-		<annotation cp="🪦">cmentarz | grób | kamień nagrobny | nagrobek</annotation>
-		<annotation cp="🪦" type="tts">nagrobek</annotation>
-		<annotation cp="🪧">demonstracja | pikieta | protest | tabliczka | transparent | znak</annotation>
-		<annotation cp="🪧" type="tts">tabliczka</annotation>
-		<annotation cp="🪨">ciężki | głaz | kamień | skała</annotation>
-		<annotation cp="🪨" type="tts">skała</annotation>
-		<annotation cp="🪰">choroby | giez | gnicie | mucha | owad | tse-tse</annotation>
-		<annotation cp="🪰" type="tts">mucha</annotation>
-		<annotation cp="🪱">dżdżownica | glista | pasożyt | pierścienice | robak</annotation>
-		<annotation cp="🪱" type="tts">robak</annotation>
-		<annotation cp="🪲">chrząszcz | owad | żuk</annotation>
-		<annotation cp="🪲" type="tts">chrząszcz</annotation>
-		<annotation cp="🪳">karaczan | karaluch | owad</annotation>
-		<annotation cp="🪳" type="tts">karaluch</annotation>
-		<annotation cp="🪴">dom | kwiat doniczkowy | podlewać | roślina | roślina doniczkowa</annotation>
-		<annotation cp="🪴" type="tts">roślina doniczkowa</annotation>
-		<annotation cp="🪵">drewno | kłoda | polano | tarcica</annotation>
-		<annotation cp="🪵" type="tts">drewno</annotation>
-		<annotation cp="🪶">latanie | lekkość | pierze | pióra | pióro | upierzenie</annotation>
-		<annotation cp="🪶" type="tts">pióro</annotation>
-		<annotation cp="🫀">bicie serca | kardiologia | mięsień sercowy | organ | puls | serce</annotation>
-		<annotation cp="🫀" type="tts">serce</annotation>
-		<annotation cp="🫁">oddech | oddychanie | organ | płuca | wdech | wydech</annotation>
-		<annotation cp="🫁" type="tts">płuca</annotation>
-		<annotation cp="🫂">cześć | do widzenia | dzięki | obejmujące się osoby | uścisk</annotation>
-		<annotation cp="🫂" type="tts">obejmujące się osoby</annotation>
-		<annotation cp="🫐">borówka | borówka amerykańska | jagoda | owoc</annotation>
-		<annotation cp="🫐" type="tts">borówka amerykańska</annotation>
-		<annotation cp="🫑">papryka | papryka słodka | paprykowy | warzywo</annotation>
-		<annotation cp="🫑" type="tts">papryka</annotation>
-		<annotation cp="🫒">jedzenie | oliwka | oliwki</annotation>
-		<annotation cp="🫒" type="tts">oliwka</annotation>
-		<annotation cp="🫓">arepa | lawasz | naan | pita | podpłomyk</annotation>
-		<annotation cp="🫓" type="tts">pita</annotation>
-		<annotation cp="🫔">meksykańskie | tamales | zawijane</annotation>
-		<annotation cp="🫔" type="tts">tamales</annotation>
-		<annotation cp="🫕">czekolada | fondue | garnek | roztopione | ser | szwajcarskie</annotation>
-		<annotation cp="🫕" type="tts">fondue</annotation>
-		<annotation cp="🫖">czajniczek | dzbanek na herbatę | herbata | imbryk</annotation>
-		<annotation cp="🫖" type="tts">czajniczek</annotation>
-		<annotation cp="🛖">chata | dom | jurta | okrągły</annotation>
-		<annotation cp="🛖" type="tts">chata</annotation>
-		<annotation cp="🛗">dostępność | winda</annotation>
-		<annotation cp="🛗" type="tts">winda</annotation>
-		<annotation cp="🛻">furgonetka | pick-up | pikap | półciężarówka</annotation>
-		<annotation cp="🛻" type="tts">pick-up</annotation>
-		<annotation cp="🛼">rolki | wrotka | wrotkarstwo | wrotki</annotation>
-		<annotation cp="🛼" type="tts">wrotka</annotation>
+		<annotation cp="♪">muzyka | nuta | ósemka</annotation>
+		<annotation cp="♪" type="tts">ósemka</annotation>
+		<annotation cp="♭">bemol | muzyka | ton | znak chromatyczny</annotation>
+		<annotation cp="♭" type="tts">bemol</annotation>
+		<annotation cp="♯">krzyżyk | muzyka | ton | znak chromatyczny</annotation>
+		<annotation cp="♯" type="tts">krzyżyk</annotation>
 		<annotation cp="😀">roześmiana buźka | szeroko uśmiechnięta twarz</annotation>
 		<annotation cp="😀" type="tts">szeroko uśmiechnięta twarz</annotation>
 		<annotation cp="😃">uśmiech | uśmiechnięta twarz z otwartymi ustami | wesoły</annotation>
@@ -231,7 +331,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😊" type="tts">uśmiechnięta twarz o roześmianych oczach</annotation>
 		<annotation cp="😇">nic nie zrobiłem | świętoszek | uśmiechnięta twarz z aureolą</annotation>
 		<annotation cp="😇" type="tts">uśmiechnięta twarz z aureolą</annotation>
-		<annotation cp="🥰">uśmiechnięta buźka z sercami | uśmiechnięta twarz z 3 sercami | uwielbienie | zadurzenie | zakochany</annotation>
+		<annotation cp="🥰">uśmiechnięta buźka z sercami | uśmiechnięta twarz z sercami | uwielbienie | zadurzenie | zakochany</annotation>
 		<annotation cp="🥰" type="tts">uśmiechnięta buźka z sercami</annotation>
 		<annotation cp="😍">buźka | kocham | serca | uśmiech | uśmiechnięta twarz z oczami w kształcie serca | zakochany</annotation>
 		<annotation cp="😍" type="tts">uśmiechnięta twarz z oczami w kształcie serca</annotation>
@@ -247,6 +347,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">całująca twarz z zamkniętymi oczami</annotation>
 		<annotation cp="😙">całująca twarz o roześmianych oczach | całus | ślę całusa</annotation>
 		<annotation cp="😙" type="tts">całująca twarz o roześmianych oczach</annotation>
+		<annotation cp="🥲">dumny | łza | ulga | uśmiechnięta buźka ze łzą | uśmiechnięty | wdzięczny | wzruszony</annotation>
+		<annotation cp="🥲" type="tts">uśmiechnięta buźka ze łzą</annotation>
 		<annotation cp="😋">oblizywać się | twarz delektująca się pysznym jedzeniem</annotation>
 		<annotation cp="😋" type="tts">twarz delektująca się pysznym jedzeniem</annotation>
 		<annotation cp="😛">buźka pokazująca język | twarz wystawiająca język</annotation>
@@ -277,6 +379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">twarz bez wyrazu</annotation>
 		<annotation cp="😶">buźka | cisza | nic nie mówię | twarz bez ust</annotation>
 		<annotation cp="😶" type="tts">twarz bez ust</annotation>
+		<annotation cp="😶‍🌫">bujać w obłokach | głowa w chmurach | zamyślenie</annotation>
+		<annotation cp="😶‍🌫" type="tts">twarz w chmurach</annotation>
 		<annotation cp="😏">twarz z uśmieszkiem | uśmieszek</annotation>
 		<annotation cp="😏" type="tts">twarz z uśmieszkiem</annotation>
 		<annotation cp="😒">niezadowolona buźka | niezadowolona twarz</annotation>
@@ -309,20 +413,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤮" type="tts">wymiotująca twarz</annotation>
 		<annotation cp="🤧">katar | kichać | kichająca twarz | na zdrowie | smarkanie</annotation>
 		<annotation cp="🤧" type="tts">kichająca twarz</annotation>
-		<annotation cp="🥵">czerwona twarz | rozgrzana twarz | rozpalony | spocony | uderzenie gorąca | upał</annotation>
+		<annotation cp="🥵">czerwona buźka | rozgrzana buźka | rozpalony | spocony | udar cieplny | upał</annotation>
 		<annotation cp="🥵" type="tts">rozgrzana twarz</annotation>
 		<annotation cp="🥶">mróz | niebieska twarz | odmrożenie | sopel lodu | zimno | zmarznięta twarz</annotation>
 		<annotation cp="🥶" type="tts">zmarznięta twarz</annotation>
-		<annotation cp="🥴">faliste usta | nierówne oczy | odurzony | oszołomiony | wstawiony | zamroczona twarz</annotation>
+		<annotation cp="🥴">faliste usta | na gazie | nierówne oczy | odurzony | pod wpływem | wstawiony | zamroczona twarz</annotation>
 		<annotation cp="🥴" type="tts">zamroczona twarz</annotation>
 		<annotation cp="😵">oszołomiona twarz | oszołomiony</annotation>
 		<annotation cp="😵" type="tts">oszołomiona twarz</annotation>
+		<annotation cp="😵‍💫">spirale | wow | zahipnotyzowana twarz | zawroty głowy</annotation>
+		<annotation cp="😵‍💫" type="tts">twarz ze spiralnymi oczami</annotation>
 		<annotation cp="🤯">eksplodująca głowa | szok</annotation>
 		<annotation cp="🤯" type="tts">eksplodująca głowa</annotation>
 		<annotation cp="🤠">głowa w kapeluszu kowbojskim | kapelusz | kowboj | kowbojka</annotation>
 		<annotation cp="🤠" type="tts">głowa w kapeluszu kowbojskim</annotation>
-		<annotation cp="🥳">czapeczka | przyjęcie | świętowanie | świętująca twarz | trąbka</annotation>
+		<annotation cp="🥳">czapeczka | piszczałka | przyjęcie | świętowanie | świętująca buźka | trąbka</annotation>
 		<annotation cp="🥳" type="tts">świętująca twarz</annotation>
+		<annotation cp="🥸">anonimowy | buźka w przebraniu | incognito | nos | okulary | przebranie | twarz | wąsy</annotation>
+		<annotation cp="🥸" type="tts">buźka w przebraniu</annotation>
 		<annotation cp="😎">luzak | na luzie | okulary | uśmiechnięta twarz w okularach przeciwsłonecznych | zadowolony</annotation>
 		<annotation cp="😎" type="tts">uśmiechnięta twarz w okularach przeciwsłonecznych</annotation>
 		<annotation cp="🤓">buźka w okularach | inteligent | kujon</annotation>
@@ -339,6 +447,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">zachmurzona twarz</annotation>
 		<annotation cp="😮">twarz z otwartymi ustami | zaskoczenie | zaskoczona buźka</annotation>
 		<annotation cp="😮" type="tts">twarz z otwartymi ustami</annotation>
+		<annotation cp="😮‍💨">gwizd | ulga | westchnienie | wydmuchiwać powietrze | wypuszczać powietrze</annotation>
+		<annotation cp="😮‍💨" type="tts">twarz wypuszczająca powietrze</annotation>
 		<annotation cp="😯">zaskoczenie | zaskoczona buźka | zdumiona twarz</annotation>
 		<annotation cp="😯" type="tts">zdumiona twarz</annotation>
 		<annotation cp="😲">zadziwiona twarz | zaskoczenie | zaskoczona buźka</annotation>
@@ -394,7 +504,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☠">czaszka z piszczelami | duch | kościotrup | piraci | piszczele | potwór | śmierć | szkielet | trupia czaszka</annotation>
 		<annotation cp="☠" type="tts">czaszka z piszczelami</annotation>
 		<annotation cp="💩">gnój | obornik | odchody | potwór | twarz</annotation>
-		<annotation cp="💩" type="tts">odchody</annotation>
+		<annotation cp="💩" type="tts">kupa</annotation>
 		<annotation cp="🤡">cyrk | klown | twarz klauna</annotation>
 		<annotation cp="🤡" type="tts">twarz klauna</annotation>
 		<annotation cp="👹">maska | ogr | potwór</annotation>
@@ -459,6 +569,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">złamane serce</annotation>
 		<annotation cp="❤">czerwone | kocham | miłość | serce</annotation>
 		<annotation cp="❤" type="tts">czerwone serce</annotation>
+		<annotation cp="❤‍🔥">miłość | płomienie | płonąć | serce | święte serce</annotation>
+		<annotation cp="❤‍🔥" type="tts">serce w płomieniach</annotation>
+		<annotation cp="❤‍🩹">dobrze | lepiej | lepsze samopoczucie | zdrowsze</annotation>
+		<annotation cp="❤‍🩹" type="tts">uleczone serce</annotation>
 		<annotation cp="🧡">pomarańczowe | pomarańczowe serce</annotation>
 		<annotation cp="🧡" type="tts">pomarańczowe serce</annotation>
 		<annotation cp="💛">serce | żółte</annotation>
@@ -515,6 +629,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">salut wolkański</annotation>
 		<annotation cp="👌">dłoń z gestem OK | znak OK</annotation>
 		<annotation cp="👌" type="tts">dłoń z gestem OK</annotation>
+		<annotation cp="🤌">gest | palce | przesłuchanie | sarkazm | złączone palce</annotation>
+		<annotation cp="🤌" type="tts">złączone palce</annotation>
 		<annotation cp="🤏">dłoń z gestem „trochę” | mała ilość</annotation>
 		<annotation cp="🤏" type="tts">dłoń z gestem „trochę”</annotation>
 		<annotation cp="✌">gest V | gest zwycięstwa | znak V | znak Victorii</annotation>
@@ -587,7 +703,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">nos</annotation>
 		<annotation cp="🧠">inteligentny | mózg</annotation>
 		<annotation cp="🧠" type="tts">mózg</annotation>
-		<annotation cp="🦷">dentysta | ząb</annotation>
+		<annotation cp="🫀">anatomia | bicie serca | kardiologia | mięsień sercowy | narząd | organ | puls | serce</annotation>
+		<annotation cp="🫀" type="tts">serce</annotation>
+		<annotation cp="🫁">narząd | oddech | oddychanie | organ | płuca | wdech | wydech</annotation>
+		<annotation cp="🫁" type="tts">płuca</annotation>
+		<annotation cp="🦷">dentysta | stomatolog | ząb</annotation>
 		<annotation cp="🦷" type="tts">ząb</annotation>
 		<annotation cp="🦴">kość | szkielet</annotation>
 		<annotation cp="🦴" type="tts">kość</annotation>
@@ -611,24 +731,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dorosły</annotation>
 		<annotation cp="👱">blond | osoba z włosami blond | włosy</annotation>
 		<annotation cp="👱" type="tts">osoba z włosami blond</annotation>
-		<annotation cp="🧑‍🍼">karmienie | karmienie piersią | niemowlę | osoba | osoba karmiąca niemowlę</annotation>
-		<annotation cp="🧑‍🍼" type="tts">osoba karmiąca niemowlę</annotation>
-		<annotation cp="🧑‍🎄">Boże Narodzenie | Mikołaj | Mikołajka | święta</annotation>
-		<annotation cp="🧑‍🎄" type="tts">Mikołajka</annotation>
 		<annotation cp="👨">mężczyzna</annotation>
 		<annotation cp="👨" type="tts">mężczyzna</annotation>
-		<annotation cp="🧔">broda | mężczyzna z brodą | osoba z brodą</annotation>
-		<annotation cp="🧔" type="tts">mężczyzna z brodą</annotation>
+		<annotation cp="🧔">broda | osoba | osoba z brodą</annotation>
+		<annotation cp="🧔" type="tts">osoba z brodą</annotation>
 		<annotation cp="👱‍♂">blondyn | mężczyzna</annotation>
 		<annotation cp="👱‍♂" type="tts">blondyn</annotation>
-		<annotation cp="👨‍🍼">karmienie | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
-		<annotation cp="👨‍🍼" type="tts">mężczyzna karmiący niemowlę</annotation>
+		<annotation cp="🧔‍♀">broda | kobieta | kobieta z brodą</annotation>
+		<annotation cp="🧔‍♀" type="tts">kobieta z brodą</annotation>
+		<annotation cp="🧔‍♂">broda | mężczyzna | mężczyzna z brodą</annotation>
+		<annotation cp="🧔‍♂" type="tts">mężczyzna z brodą</annotation>
 		<annotation cp="👩">kobieta</annotation>
 		<annotation cp="👩" type="tts">kobieta</annotation>
 		<annotation cp="👱‍♀">blondynka | kobieta</annotation>
 		<annotation cp="👱‍♀" type="tts">blondynka</annotation>
-		<annotation cp="👩‍🍼">karmienie | karmienie piersią | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
-		<annotation cp="👩‍🍼" type="tts">kobieta karmiąca niemowlę</annotation>
 		<annotation cp="🧓">płeć neutralna | starszy dorosły | stary</annotation>
 		<annotation cp="🧓" type="tts">starszy dorosły</annotation>
 		<annotation cp="👴">starszy mężczyzna | staruszek | starzec</annotation>
@@ -809,6 +925,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">mężczyzna gwardzista</annotation>
 		<annotation cp="💂‍♀">gwardzistka | kobieta | kobieta gwardzista | strażniczka</annotation>
 		<annotation cp="💂‍♀" type="tts">kobieta gwardzista</annotation>
+		<annotation cp="🥷">niewidoczny | ninja | skradać się | ukryty | wojownik</annotation>
+		<annotation cp="🥷" type="tts">ninja</annotation>
 		<annotation cp="👷">budowlaniec | kask</annotation>
 		<annotation cp="👷" type="tts">budowlaniec</annotation>
 		<annotation cp="👷‍♂">budowlaniec | mężczyzna | robotnik</annotation>
@@ -831,33 +949,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">kobieta w chuście</annotation>
 		<annotation cp="🤵">elegancja | osoba | osoba w smokingu | smoking</annotation>
 		<annotation cp="🤵" type="tts">osoba w smokingu</annotation>
-		<annotation cp="🤵‍♀">kobieta | kobieta w smokingu | smoking</annotation>
-		<annotation cp="🤵‍♀" type="tts">kobieta w smokingu</annotation>
 		<annotation cp="🤵‍♂">mężczyzna | mężczyzna w smokingu | smoking</annotation>
 		<annotation cp="🤵‍♂" type="tts">mężczyzna w smokingu</annotation>
+		<annotation cp="🤵‍♀">kobieta | kobieta w smokingu | smoking</annotation>
+		<annotation cp="🤵‍♀" type="tts">kobieta w smokingu</annotation>
 		<annotation cp="👰">osoba | osoba w welonie | panna młoda | ślub | welon | wesele</annotation>
 		<annotation cp="👰" type="tts">osoba w welonie</annotation>
-		<annotation cp="👰‍♀">kobieta | kobieta w welonie | welon</annotation>
-		<annotation cp="👰‍♀" type="tts">kobieta w welonie</annotation>
 		<annotation cp="👰‍♂">mężczyzna | mężczyzna w welonie | welon</annotation>
 		<annotation cp="👰‍♂" type="tts">mężczyzna w welonie</annotation>
+		<annotation cp="👰‍♀">kobieta | kobieta w welonie | welon</annotation>
+		<annotation cp="👰‍♀" type="tts">kobieta w welonie</annotation>
 		<annotation cp="🤰">ciąża | kobieta w ciąży</annotation>
 		<annotation cp="🤰" type="tts">kobieta w ciąży</annotation>
 		<annotation cp="🤱">karmienie piersią | niemowlę | pierś</annotation>
 		<annotation cp="🤱" type="tts">karmienie piersią</annotation>
+		<annotation cp="👩‍🍼">karmienie | karmienie piersią | kobieta | kobieta karmiąca niemowlę | niemowlę</annotation>
+		<annotation cp="👩‍🍼" type="tts">kobieta karmiąca niemowlę</annotation>
+		<annotation cp="👨‍🍼">karmienie | mężczyzna | mężczyzna karmiący niemowlę | niemowlę</annotation>
+		<annotation cp="👨‍🍼" type="tts">mężczyzna karmiący niemowlę</annotation>
+		<annotation cp="🧑‍🍼">karmienie | karmienie piersią | niemowlę | osoba | osoba karmiąca niemowlę</annotation>
+		<annotation cp="🧑‍🍼" type="tts">osoba karmiąca niemowlę</annotation>
 		<annotation cp="👼">aniołek | bajka | buzia aniołka | fantasy</annotation>
 		<annotation cp="👼" type="tts">aniołek</annotation>
 		<annotation cp="🎅">boże narodzenie | legenda | święta | święty mikołaj | Święty Mikołaj</annotation>
 		<annotation cp="🎅" type="tts">Święty Mikołaj</annotation>
 		<annotation cp="🤶">mikołaj | mikołajowa | święta | żona św. Mikołaja</annotation>
 		<annotation cp="🤶" type="tts">żona św. Mikołaja</annotation>
+		<annotation cp="🧑‍🎄">Boże Narodzenie | Mikołaj | Mikołajka | święta</annotation>
+		<annotation cp="🧑‍🎄" type="tts">Mikołajka</annotation>
 		<annotation cp="🦸">bohater | bohaterka | pozytywny | superbohater | supermoc</annotation>
 		<annotation cp="🦸" type="tts">superbohater</annotation>
 		<annotation cp="🦸‍♂">bohater | mężczyzna | mężczyzna superbohater | pozytywny | supermoc</annotation>
 		<annotation cp="🦸‍♂" type="tts">mężczyzna superbohater</annotation>
 		<annotation cp="🦸‍♀">bohaterka | kobieta | kobieta superbohater | pozytywna | supermoc</annotation>
 		<annotation cp="🦸‍♀" type="tts">kobieta superbohater</annotation>
-		<annotation cp="🦹">czarny bohater | przestępca | superłotr | supermoc | złoczyńca</annotation>
+		<annotation cp="🦹">czarny charakter | przestępca | superłotr | supermoc | złoczyńca</annotation>
 		<annotation cp="🦹" type="tts">superłotr</annotation>
 		<annotation cp="🦹‍♂">czarny bohater | mężczyzna | mężczyzna superłotr | przestępca | supermoc | złoczyńca</annotation>
 		<annotation cp="🦹‍♂" type="tts">mężczyzna superłotr</annotation>
@@ -1099,6 +1225,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👤" type="tts">sylwetka popiersia</annotation>
 		<annotation cp="👥">osoby | sylwetki | sylwetki popiersi</annotation>
 		<annotation cp="👥" type="tts">sylwetki popiersi</annotation>
+		<annotation cp="🫂">cześć | do widzenia | dzięki | obejmujące się osoby | uścisk</annotation>
+		<annotation cp="🫂" type="tts">obejmujące się osoby</annotation>
 		<annotation cp="👣">odciski stóp | ślady | ślady stóp | stopy</annotation>
 		<annotation cp="👣" type="tts">ślady stóp</annotation>
 		<annotation cp="🦰">ruda | rude | rude włosy | rudy</annotation>
@@ -1157,6 +1285,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">zebra</annotation>
 		<annotation cp="🦌">jeleń | zwierzę</annotation>
 		<annotation cp="🦌" type="tts">jeleń</annotation>
+		<annotation cp="🦬">bizon | stado | żubr</annotation>
+		<annotation cp="🦬" type="tts">żubr</annotation>
 		<annotation cp="🐮">głowa | głowa krowy | krowa | łeb</annotation>
 		<annotation cp="🐮" type="tts">głowa krowy</annotation>
 		<annotation cp="🐂">byk | wół | zodiak</annotation>
@@ -1189,6 +1319,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">żyrafa</annotation>
 		<annotation cp="🐘">słoń</annotation>
 		<annotation cp="🐘" type="tts">słoń</annotation>
+		<annotation cp="🦣">kieł | mamut | ogromny | włochaty | wymarły</annotation>
+		<annotation cp="🦣" type="tts">mamut</annotation>
 		<annotation cp="🦏">nosorożec | zwierzę</annotation>
 		<annotation cp="🦏" type="tts">nosorożec</annotation>
 		<annotation cp="🦛">hipopotam</annotation>
@@ -1207,6 +1339,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">królik</annotation>
 		<annotation cp="🐿">gryzoń | pręgowiec | wiewiórka</annotation>
 		<annotation cp="🐿" type="tts">pręgowiec</annotation>
+		<annotation cp="🦫">bóbr | gryzoń | tama</annotation>
+		<annotation cp="🦫" type="tts">bóbr</annotation>
 		<annotation cp="🦔">jeż</annotation>
 		<annotation cp="🦔" type="tts">jeż</annotation>
 		<annotation cp="🦇">nietoperz | wampir | zwierzę</annotation>
@@ -1257,6 +1391,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">łabędź</annotation>
 		<annotation cp="🦉">mądrość | ptak | sowa</annotation>
 		<annotation cp="🦉" type="tts">sowa</annotation>
+		<annotation cp="🦤">dodo | duży | Mauritius | wymarły</annotation>
+		<annotation cp="🦤" type="tts">dodo</annotation>
+		<annotation cp="🪶">latanie | lekkość | pierze | pióra | pióro | upierzenie</annotation>
+		<annotation cp="🪶" type="tts">pióro</annotation>
 		<annotation cp="🦩">ekstrawagancja | flaming | tropikalny</annotation>
 		<annotation cp="🦩" type="tts">flaming</annotation>
 		<annotation cp="🦚">dumny | paw | ptak</annotation>
@@ -1287,6 +1425,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">wieloryb</annotation>
 		<annotation cp="🐬">delfin</annotation>
 		<annotation cp="🐬" type="tts">delfin</annotation>
+		<annotation cp="🦭">foka | lew morski</annotation>
+		<annotation cp="🦭" type="tts">foka</annotation>
 		<annotation cp="🐟">ryba | zodiak</annotation>
 		<annotation cp="🐟" type="tts">ryba</annotation>
 		<annotation cp="🐠">ryba | tropikalna</annotation>
@@ -1309,10 +1449,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">mrówka</annotation>
 		<annotation cp="🐝">insekt | owad | pszczoła | pszczółka</annotation>
 		<annotation cp="🐝" type="tts">pszczoła</annotation>
+		<annotation cp="🪲">chrząszcz | owad | żuk</annotation>
+		<annotation cp="🪲" type="tts">chrząszcz</annotation>
 		<annotation cp="🐞">biedronka | chrabąszcz | kropki | owad | żuk</annotation>
 		<annotation cp="🐞" type="tts">biedronka</annotation>
 		<annotation cp="🦗">świerszcz</annotation>
 		<annotation cp="🦗" type="tts">świerszcz</annotation>
+		<annotation cp="🪳">karaczan | karaluch | owad</annotation>
+		<annotation cp="🪳" type="tts">karaluch</annotation>
 		<annotation cp="🕷">pajączek | pająk | pajęczak</annotation>
 		<annotation cp="🕷" type="tts">pająk</annotation>
 		<annotation cp="🕸">pajęczyna | sieć pająka</annotation>
@@ -1321,6 +1465,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">brązowy skorpion</annotation>
 		<annotation cp="🦟">choroba | gorączka | komar | malaria | owad | wirus</annotation>
 		<annotation cp="🦟" type="tts">komar</annotation>
+		<annotation cp="🪰">choroby | giez | gnicie | mucha | owad | tse-tse</annotation>
+		<annotation cp="🪰" type="tts">mucha</annotation>
+		<annotation cp="🪱">dżdżownica | glista | pasożyt | pierścienice | robak</annotation>
+		<annotation cp="🪱" type="tts">robak</annotation>
 		<annotation cp="🦠">ameba | bakteria | drobnoustrój | mikrob | wirus | zarazek</annotation>
 		<annotation cp="🦠" type="tts">zarazek</annotation>
 		<annotation cp="💐">bukiet | bukiet kwiatów | kwiaty</annotation>
@@ -1345,6 +1493,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌷" type="tts">tulipan</annotation>
 		<annotation cp="🌱">pęd | roślinka | sadzonka</annotation>
 		<annotation cp="🌱" type="tts">sadzonka</annotation>
+		<annotation cp="🪴">dom | kwiat doniczkowy | podlewać | roślina | roślina doniczkowa</annotation>
+		<annotation cp="🪴" type="tts">roślina doniczkowa</annotation>
 		<annotation cp="🌲">drzewo iglaste | wiecznie zielone drzewo</annotation>
 		<annotation cp="🌲" type="tts">wiecznie zielone drzewo</annotation>
 		<annotation cp="🌳">drzewo liściaste | roślina</annotation>
@@ -1395,10 +1545,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">wiśnie</annotation>
 		<annotation cp="🍓">owoc | truskawka</annotation>
 		<annotation cp="🍓" type="tts">truskawka</annotation>
+		<annotation cp="🫐">borówka | borówka amerykańska | jagoda | owoc</annotation>
+		<annotation cp="🫐" type="tts">borówka amerykańska</annotation>
 		<annotation cp="🥝">jedzenie | kiwi | owoc</annotation>
 		<annotation cp="🥝" type="tts">owoc kiwi</annotation>
 		<annotation cp="🍅">pomidor | szklarniowe | warzywo</annotation>
 		<annotation cp="🍅" type="tts">pomidor</annotation>
+		<annotation cp="🫒">jedzenie | oliwka | oliwki</annotation>
+		<annotation cp="🫒" type="tts">oliwka</annotation>
 		<annotation cp="🥥">kokos</annotation>
 		<annotation cp="🥥" type="tts">kokos</annotation>
 		<annotation cp="🥑">awokado | jedzenie | owoc</annotation>
@@ -1411,8 +1565,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥕" type="tts">marchew</annotation>
 		<annotation cp="🌽">kolba kukurydzy | kukurydza</annotation>
 		<annotation cp="🌽" type="tts">kolba kukurydzy</annotation>
-		<annotation cp="🌶">ostra papryka | ostry | papryka | przyprawa | roślina</annotation>
+		<annotation cp="🌶">ostra papryka | ostry | papryka</annotation>
 		<annotation cp="🌶" type="tts">ostra papryka</annotation>
+		<annotation cp="🫑">papryka | papryka słodka | paprykowy | warzywo</annotation>
+		<annotation cp="🫑" type="tts">papryka</annotation>
 		<annotation cp="🥒">jedzenie | korniszon | ogórek | pikle | warzywo</annotation>
 		<annotation cp="🥒" type="tts">ogórek</annotation>
 		<annotation cp="🥬">bok choy | jarmuż | kapusta | kapusta pekińska | sałata | zielenina liściasta</annotation>
@@ -1421,7 +1577,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥦" type="tts">brokuł</annotation>
 		<annotation cp="🧄">aromatyczny | czosnek</annotation>
 		<annotation cp="🧄" type="tts">czosnek</annotation>
-		<annotation cp="🧅">aromatyczna | cebula | nadająca smak</annotation>
+		<annotation cp="🧅">aromatyczna | cebula</annotation>
 		<annotation cp="🧅" type="tts">cebula</annotation>
 		<annotation cp="🍄">grzyb | muchomor | trujący</annotation>
 		<annotation cp="🍄" type="tts">grzyb</annotation>
@@ -1435,6 +1591,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥐" type="tts">rogalik</annotation>
 		<annotation cp="🥖">bagietka | bułka | chleb | jedzenie | pieczywo</annotation>
 		<annotation cp="🥖" type="tts">bagietka</annotation>
+		<annotation cp="🫓">arepa | lawasz | naan | pita | podpłomyk</annotation>
+		<annotation cp="🫓" type="tts">pita</annotation>
 		<annotation cp="🥨">precel</annotation>
 		<annotation cp="🥨" type="tts">precel</annotation>
 		<annotation cp="🥯">bajgiel | pieczywo | piekarnia | posmarować</annotation>
@@ -1467,6 +1625,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">taco</annotation>
 		<annotation cp="🌯">burito | burrito | meksykańskie jedzenie</annotation>
 		<annotation cp="🌯" type="tts">burrito</annotation>
+		<annotation cp="🫔">meksykańskie | tamales | zawijane</annotation>
+		<annotation cp="🫔" type="tts">tamales</annotation>
 		<annotation cp="🥙">falafel | gyros | jedzenie | kebab | tortilla | wrap</annotation>
 		<annotation cp="🥙" type="tts">wrap</annotation>
 		<annotation cp="🧆">ciecierzyca | falafel | kotlecik z ciecierzycy</annotation>
@@ -1479,6 +1639,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">danie z patelni</annotation>
 		<annotation cp="🍲">garnek z jedzeniem | jedzenie | potrawka</annotation>
 		<annotation cp="🍲" type="tts">garnek z jedzeniem</annotation>
+		<annotation cp="🫕">czekolada | fondue | garnek | roztopione | ser | szwajcarskie</annotation>
+		<annotation cp="🫕" type="tts">fondue</annotation>
 		<annotation cp="🥣">miska z łyżką</annotation>
 		<annotation cp="🥣" type="tts">miska z łyżką</annotation>
 		<annotation cp="🥗">jedzenie | sałata | sałatka</annotation>
@@ -1569,6 +1731,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">szklanka mleka</annotation>
 		<annotation cp="☕">gorąca | gorący napój | herbata | kawa | napój | parująca | picie</annotation>
 		<annotation cp="☕" type="tts">gorący napój</annotation>
+		<annotation cp="🫖">czajniczek | dzbanek na herbatę | herbata | imbryk</annotation>
+		<annotation cp="🫖" type="tts">czajniczek</annotation>
 		<annotation cp="🍵">filiżanka | filiżanka bez uszka | spodek</annotation>
 		<annotation cp="🍵" type="tts">filiżanka bez uszka</annotation>
 		<annotation cp="🍶">butelka i kubek | sake</annotation>
@@ -1591,11 +1755,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">szklanka z grubym dnem</annotation>
 		<annotation cp="🥤">szklanka ze słomką</annotation>
 		<annotation cp="🥤" type="tts">szklanka ze słomką</annotation>
-		<annotation cp="🧃">napój w kartoniku | sok w kartoniku</annotation>
+		<annotation cp="🧋">herbata | kuleczka | kulki tapioki | mleko | napój bubble tea</annotation>
+		<annotation cp="🧋" type="tts">napój bubble tea</annotation>
+		<annotation cp="🧃">napój w kartoniku | słodki | słomka | sok w kartoniku</annotation>
 		<annotation cp="🧃" type="tts">napój w kartoniku</annotation>
 		<annotation cp="🧉">napój | yerba mate</annotation>
 		<annotation cp="🧉" type="tts">yerba mate</annotation>
-		<annotation cp="🧊">kostka lodu | lód | zimno</annotation>
+		<annotation cp="🧊">kostka lodu | lód | zimny</annotation>
 		<annotation cp="🧊" type="tts">kostka lodu</annotation>
 		<annotation cp="🥢">pałeczki</annotation>
 		<annotation cp="🥢" type="tts">pałeczki</annotation>
@@ -1647,8 +1813,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏛" type="tts">klasyczna budowla</annotation>
 		<annotation cp="🏗">budowa | dźwig | dźwig budowlany | roboty budowlane</annotation>
 		<annotation cp="🏗" type="tts">dźwig budowlany</annotation>
-		<annotation cp="🧱">cegła | cegły | glina | mur | zaprawa</annotation>
+		<annotation cp="🧱">cegła | cegły | glina | mur | ściana | zaprawa</annotation>
 		<annotation cp="🧱" type="tts">cegła</annotation>
+		<annotation cp="🪨">ciężki | głaz | kamień | skała</annotation>
+		<annotation cp="🪨" type="tts">skała</annotation>
+		<annotation cp="🪵">drewno | kłoda | polano | tarcica</annotation>
+		<annotation cp="🪵" type="tts">drewno</annotation>
+		<annotation cp="🛖">chata | dom | jurta | okrągły</annotation>
+		<annotation cp="🛖" type="tts">chata</annotation>
 		<annotation cp="🏘">domki | domy | osiedle</annotation>
 		<annotation cp="🏘" type="tts">domki</annotation>
 		<annotation cp="🏚">podupadły | ruina | stary | stary dom | zniszczony | zrujnowany</annotation>
@@ -1783,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">nadjeżdżający samochód</annotation>
 		<annotation cp="🚙">pojazd | samochód | samochód SUV | wypoczynkowy</annotation>
 		<annotation cp="🚙" type="tts">samochód SUV</annotation>
+		<annotation cp="🛻">furgonetka | pick-up | pikap | półciężarówka</annotation>
+		<annotation cp="🛻" type="tts">pick-up</annotation>
 		<annotation cp="🚚">ciężarówka | dostawczy | samochód dostawczy</annotation>
 		<annotation cp="🚚" type="tts">samochód dostawczy</annotation>
 		<annotation cp="🚛">ciężarówka | dostawczy | samochód ciężarowy</annotation>
@@ -1807,6 +1981,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">hulajnoga</annotation>
 		<annotation cp="🛹">deska | deskorolka | skateboard</annotation>
 		<annotation cp="🛹" type="tts">deskorolka</annotation>
+		<annotation cp="🛼">rolki | wrotka | wrotkarstwo | wrotki</annotation>
+		<annotation cp="🛼" type="tts">wrotka</annotation>
 		<annotation cp="🚏">przystanek | przystanek autobusowy</annotation>
 		<annotation cp="🚏" type="tts">przystanek autobusowy</annotation>
 		<annotation cp="🛣">autostrada | droga | szybkiego ruchu</annotation>
@@ -1945,7 +2121,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌔" type="tts">narastający księżyc między pierwszą kwadrą a pełnią</annotation>
 		<annotation cp="🌕">jasny księżyc | księżyc | pełnia | pełny księżyc</annotation>
 		<annotation cp="🌕" type="tts">pełnia</annotation>
-		<annotation cp="🌖">chudnący | księżyc | zanikający księżyc między pełnią a ostatnią kwadrą | zanikający księżyc między pierwszą kwadrą a pełnią</annotation>
+		<annotation cp="🌖">chudnący | księżyc | księżyc z brzuszkiem | tłusty księżyc | zanikający księżyc między pełnią a ostatnią kwadrą</annotation>
 		<annotation cp="🌖" type="tts">zanikający księżyc między pełnią a ostatnią kwadrą</annotation>
 		<annotation cp="🌗">księżyc | kwadra | ostatnia kwadra księżyca</annotation>
 		<annotation cp="🌗" type="tts">ostatnia kwadra księżyca</annotation>
@@ -2127,7 +2303,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛸" type="tts">but z łyżwą</annotation>
 		<annotation cp="🎣">łowienie ryb | wędka | złowić</annotation>
 		<annotation cp="🎣" type="tts">wędka</annotation>
-		<annotation cp="🤿">akwalung | maska do nurkowania | nurkowanie | nurkowanie z rurką</annotation>
+		<annotation cp="🤿">akwalung | maska do nurkowania | nurkowanie | nurkowanie z rurką | snurkowanie</annotation>
 		<annotation cp="🤿" type="tts">maska do nurkowania</annotation>
 		<annotation cp="🎽">bieganie | koszulka | koszulka do biegania | szarfa | t-shirt</annotation>
 		<annotation cp="🎽" type="tts">koszulka do biegania</annotation>
@@ -2147,6 +2323,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎱" type="tts">bila 8</annotation>
 		<annotation cp="🔮">fortuna | kryształowa | kula | przepowiadać | wróżka | wróżyć</annotation>
 		<annotation cp="🔮" type="tts">kryształowa kula</annotation>
+		<annotation cp="🪄">czarodziej | czarodziejka | czarodziejska różdżka | czary | magia | magik</annotation>
+		<annotation cp="🪄" type="tts">czarodziejska różdżka</annotation>
 		<annotation cp="🧿">amulet nazar | błękitne oko | koralik | nazar | oko proroka | talizman</annotation>
 		<annotation cp="🧿" type="tts">amulet nazar</annotation>
 		<annotation cp="🎮">gamepad | gra wideo | pad</annotation>
@@ -2159,8 +2337,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎲" type="tts">kostka do gry</annotation>
 		<annotation cp="🧩">element | element układanki | łączenie | łamigłówka | puzzle</annotation>
 		<annotation cp="🧩" type="tts">element układanki</annotation>
-		<annotation cp="🧸">miś pluszowy | pluszowa | wypchana | zabawka</annotation>
+		<annotation cp="🧸">miś pluszowy | pluszak | pluszowa | wypchana | zabawka</annotation>
 		<annotation cp="🧸" type="tts">miś pluszowy</annotation>
+		<annotation cp="🪅">impreza | piniata | świętowanie</annotation>
+		<annotation cp="🪅" type="tts">piniata</annotation>
+		<annotation cp="🪆">laleczka | lalka | matrioszka | matrioszki | rosyjska</annotation>
+		<annotation cp="🪆" type="tts">matrioszki</annotation>
 		<annotation cp="♠">gra | karta | pik | talia</annotation>
 		<annotation cp="♠" type="tts">pik</annotation>
 		<annotation cp="♥">gra | karta | kier | talia</annotation>
@@ -2185,8 +2367,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">paleta malarska</annotation>
 		<annotation cp="🧵">igła | nawlekać | nić | szpulka | szycie</annotation>
 		<annotation cp="🧵" type="tts">nić</annotation>
+		<annotation cp="🪡">haft | igła | igła krawiecka | igła z nitką | krawiectwo | szwy | szycie</annotation>
+		<annotation cp="🪡" type="tts">igła krawiecka</annotation>
 		<annotation cp="🧶">kłębek | robienie na drutach | szydełkowanie | włóczka</annotation>
 		<annotation cp="🧶" type="tts">włóczka</annotation>
+		<annotation cp="🪢">lina | sznur | sznurek | węzeł | wiązać</annotation>
+		<annotation cp="🪢" type="tts">węzeł</annotation>
 		<annotation cp="👓">oczy | okulary | szkła</annotation>
 		<annotation cp="👓" type="tts">okulary</annotation>
 		<annotation cp="🕶">ciemne okulary | okulary słoneczne | przeciwsłoneczne | słoneczne</annotation>
@@ -2221,7 +2407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩱" type="tts">strój kąpielowy jednoczęściowy</annotation>
 		<annotation cp="🩲">bielizna | kąpielówki | majtki do kąpieli | strój do kąpieli</annotation>
 		<annotation cp="🩲" type="tts">kąpielówki</annotation>
-		<annotation cp="🩳">bielizna | spodenki | strój do kąpieli | szorty</annotation>
+		<annotation cp="🩳">bermudy | bielizna | spodenki | strój do kąpieli | szorty</annotation>
 		<annotation cp="🩳" type="tts">szorty</annotation>
 		<annotation cp="👙">bikini | do pływania | strój kąpielowy | ubiór | ubranie</annotation>
 		<annotation cp="👙" type="tts">bikini</annotation>
@@ -2237,6 +2423,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">torby na zakupy</annotation>
 		<annotation cp="🎒">plecak | tornister</annotation>
 		<annotation cp="🎒" type="tts">tornister</annotation>
+		<annotation cp="🩴">japonka | japonki | sandały | sandały na plażę</annotation>
+		<annotation cp="🩴" type="tts">japonka</annotation>
 		<annotation cp="👞">but | męski</annotation>
 		<annotation cp="👞" type="tts">but męski</annotation>
 		<annotation cp="👟">bieganie | but | but do biegania | sport | trampek</annotation>
@@ -2263,6 +2451,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">biret</annotation>
 		<annotation cp="🧢">bejsbolówka | czapeczka</annotation>
 		<annotation cp="🧢" type="tts">bejsbolówka</annotation>
+		<annotation cp="🪖">armia | hełm | hełm wojskowy | wojownik | wojsko | żołnierz</annotation>
+		<annotation cp="🪖" type="tts">hełm wojskowy</annotation>
 		<annotation cp="⛑">hełm | kask | kask z krzyżykiem | krzyż | krzyżyk | pomoc</annotation>
 		<annotation cp="⛑" type="tts">kask z krzyżykiem</annotation>
 		<annotation cp="📿">korale | koraliki | modlitwa | naszyjnik | religia | różaniec | sznur modlitewny</annotation>
@@ -2311,6 +2501,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instrument | muzyka | saksofon</annotation>
 		<annotation cp="🎷" type="tts">saksofon</annotation>
+		<annotation cp="🪗">akordeon | harmonia | koncertyna</annotation>
+		<annotation cp="🪗" type="tts">akordeon</annotation>
 		<annotation cp="🎸">gitara | instrument | muzyka</annotation>
 		<annotation cp="🎸" type="tts">gitara</annotation>
 		<annotation cp="🎹">fortepian | instrument | keyboard | klawiatura | klawisze | muzyka | pianino</annotation>
@@ -2323,6 +2515,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">banjo</annotation>
 		<annotation cp="🥁">bęben | bębenek | grać | muzyka</annotation>
 		<annotation cp="🥁" type="tts">bęben</annotation>
+		<annotation cp="🪘">bęben | konga | rytm</annotation>
+		<annotation cp="🪘" type="tts">konga</annotation>
 		<annotation cp="📱">komóra | komórka | smartfon | telefon | telefon komórkowy</annotation>
 		<annotation cp="📱" type="tts">telefon komórkowy</annotation>
 		<annotation cp="📲">dzwonić | komórka | odebrać | smartfon | strzałka | telefon | telefon komórkowy ze strzałką</annotation>
@@ -2359,7 +2553,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💿" type="tts">dysk optyczny</annotation>
 		<annotation cp="📀">Blu-ray | CD | DVD | dysk</annotation>
 		<annotation cp="📀" type="tts">DVD</annotation>
-		<annotation cp="🧮">liczydło | obliczanie</annotation>
+		<annotation cp="🧮">abakus | liczydło | obliczanie</annotation>
 		<annotation cp="🧮" type="tts">liczydło</annotation>
 		<annotation cp="🎥">film | kamera | kamera filmowa | kinematografia | kino</annotation>
 		<annotation cp="🎥" type="tts">kamera filmowa</annotation>
@@ -2429,6 +2623,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">przywieszka do kluczy</annotation>
 		<annotation cp="💰">dolary | pieniądze | worek | worek z pieniędzmi</annotation>
 		<annotation cp="💰" type="tts">worek z pieniędzmi</annotation>
+		<annotation cp="🪙">metalowa | moneta | pieniądze | skarb | srebrna | złota</annotation>
+		<annotation cp="🪙" type="tts">moneta</annotation>
 		<annotation cp="💴">bank | banknot | banknot jena | pieniądze | rachunek | waluta</annotation>
 		<annotation cp="💴" type="tts">banknot jena</annotation>
 		<annotation cp="💵">bank | banknot | banknot dolara | pieniądze | rachunek | waluta</annotation>
@@ -2445,10 +2641,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">paragon</annotation>
 		<annotation cp="💹">jen | pieniądze | trend wzrostowy | waluta | wykres | wykres wzrostu z symbolem jena | wzrost</annotation>
 		<annotation cp="💹" type="tts">wykres wzrostu z symbolem jena</annotation>
-		<annotation cp="💱">kantor | waluta | wymiana | wymiana walut</annotation>
-		<annotation cp="💱" type="tts">wymiana walut</annotation>
-		<annotation cp="💲">dolary | gruby symbol dolara | pieniądze | usd | waluta</annotation>
-		<annotation cp="💲" type="tts">gruby symbol dolara</annotation>
 		<annotation cp="✉">e-mail | koperta | list | wiadomość</annotation>
 		<annotation cp="✉" type="tts">koperta</annotation>
 		<annotation cp="📧">e-mail | email | list | mail | poczta elektroniczna</annotation>
@@ -2562,13 +2754,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚔">biała broń | miecze | skrzyżowane</annotation>
 		<annotation cp="⚔" type="tts">skrzyżowane miecze</annotation>
 		<annotation cp="🔫">broń | broń palna | pistolet | rewolwer</annotation>
-		<annotation cp="🔫" type="tts">pistolet</annotation>
+		<annotation cp="🔫" type="tts">pistolet na wodę</annotation>
+		<annotation cp="🪃">Aborygeni | Australia | bumerang | wraca</annotation>
+		<annotation cp="🪃" type="tts">bumerang</annotation>
 		<annotation cp="🏹">broń | łucznik | łuk | łuk i strzała | narzędzie | strzała | strzelec | zodiak</annotation>
 		<annotation cp="🏹" type="tts">łuk i strzała</annotation>
 		<annotation cp="🛡">ochrona | osłona | tarcza</annotation>
 		<annotation cp="🛡" type="tts">tarcza</annotation>
+		<annotation cp="🪚">narzędzie | piła | piła do drewna | stolarz | tarcica</annotation>
+		<annotation cp="🪚" type="tts">piła do drewna</annotation>
 		<annotation cp="🔧">klucz warsztatowy | mechanik | narzędzie | warsztat</annotation>
 		<annotation cp="🔧" type="tts">klucz warsztatowy</annotation>
+		<annotation cp="🪛">narzędzie | śruba | śrubokręt | wkręt | wkrętak</annotation>
+		<annotation cp="🪛" type="tts">śrubokręt</annotation>
 		<annotation cp="🔩">gwint | mocowanie | nakrętka | śruba | śruba i nakrętka</annotation>
 		<annotation cp="🔩" type="tts">śruba i nakrętka</annotation>
 		<annotation cp="⚙">kółko | koło zębate | skrzynia biegów | zębate | zębatka</annotation>
@@ -2583,10 +2781,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">ogniwa</annotation>
 		<annotation cp="⛓">łańcuch | łańcuchy | ogniwa</annotation>
 		<annotation cp="⛓" type="tts">łańcuchy</annotation>
+		<annotation cp="🪝">haczyk | hak | połknąć | zakrzywiony | złapać</annotation>
+		<annotation cp="🪝" type="tts">hak</annotation>
 		<annotation cp="🧰">mechanik | narzędzie | skrzynka | skrzynka na narzędzia</annotation>
 		<annotation cp="🧰" type="tts">skrzynka na narzędzia</annotation>
 		<annotation cp="🧲">magnes | magnetyzm | podkowa | przyciąganie</annotation>
 		<annotation cp="🧲" type="tts">magnes</annotation>
+		<annotation cp="🪜">drabina | szczebel | wspinać się</annotation>
+		<annotation cp="🪜" type="tts">drabina</annotation>
 		<annotation cp="⚗">alembik | chemia | kolba | menzurka | naczynie | probówka | szklane</annotation>
 		<annotation cp="⚗" type="tts">alembik</annotation>
 		<annotation cp="🧪">chemia | chemik | eksperyment | laboratorium | nauka | probówka</annotation>
@@ -2613,6 +2815,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩺" type="tts">stetoskop</annotation>
 		<annotation cp="🚪">drzwi</annotation>
 		<annotation cp="🚪" type="tts">drzwi</annotation>
+		<annotation cp="🛗">dostępność | winda</annotation>
+		<annotation cp="🛗" type="tts">winda</annotation>
+		<annotation cp="🪞">lustro | odbicie | zwierciadło</annotation>
+		<annotation cp="🪞" type="tts">lustro</annotation>
+		<annotation cp="🪟">framuga | okno | otwór | przezroczyste | świeże powietrze | widok</annotation>
+		<annotation cp="🪟" type="tts">okno</annotation>
 		<annotation cp="🛏">hotel | łóżko | nocleg | sen</annotation>
 		<annotation cp="🛏" type="tts">łóżko</annotation>
 		<annotation cp="🛋">hotel | kanapa | kanapa i lampa | lampa</annotation>
@@ -2621,10 +2829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">krzesło</annotation>
 		<annotation cp="🚽">dolnopłuk | muszla klozetowa | sedes | toaleta | ubikacja</annotation>
 		<annotation cp="🚽" type="tts">muszla klozetowa</annotation>
+		<annotation cp="🪠">hydraulik | odetkać | przepychać | przepychacz | toaleta</annotation>
+		<annotation cp="🪠" type="tts">przepychacz</annotation>
 		<annotation cp="🚿">łazienka | prysznic | woda</annotation>
 		<annotation cp="🚿" type="tts">prysznic</annotation>
 		<annotation cp="🛁">kąpiel | wanna</annotation>
 		<annotation cp="🛁" type="tts">wanna</annotation>
+		<annotation cp="🪤">przynęta | pułapka | pułapka na myszy | sidła</annotation>
+		<annotation cp="🪤" type="tts">pułapka na myszy</annotation>
 		<annotation cp="🪒">brzytwa | golenie | ostre narzędzie</annotation>
 		<annotation cp="🪒" type="tts">brzytwa</annotation>
 		<annotation cp="🧴">balsam | butelka z płynem | krem do opalania | mleczko | szampon</annotation>
@@ -2637,8 +2849,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">kosz</annotation>
 		<annotation cp="🧻">papier toaletowy | ręczniki papierowe | rolka papieru</annotation>
 		<annotation cp="🧻" type="tts">rolka papieru</annotation>
+		<annotation cp="🪣">kubeł | wiaderko | wiadro</annotation>
+		<annotation cp="🪣" type="tts">wiadro</annotation>
 		<annotation cp="🧼">kąpiel | kostka | mycie | mydelniczka | mydło | piana</annotation>
 		<annotation cp="🧼" type="tts">mydło</annotation>
+		<annotation cp="🪥">czyszczenie | higiena | jama ustna | łazienka | szczoteczka do zębów | szczotka | zęby</annotation>
+		<annotation cp="🪥" type="tts">szczoteczka do zębów</annotation>
 		<annotation cp="🧽">gąbka | mycie | porowata | wchłanianie</annotation>
 		<annotation cp="🧽" type="tts">gąbka</annotation>
 		<annotation cp="🧯">gaśnica | ogień | ugasić | zgasić</annotation>
@@ -2649,10 +2865,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">papieros</annotation>
 		<annotation cp="⚰">pogrzeb | śmierć | trumna</annotation>
 		<annotation cp="⚰" type="tts">trumna</annotation>
+		<annotation cp="🪦">cmentarz | grób | kamień nagrobny | nagrobek</annotation>
+		<annotation cp="🪦" type="tts">nagrobek</annotation>
 		<annotation cp="⚱">pogrzeb | śmierć | urna | urna na prochy</annotation>
 		<annotation cp="⚱" type="tts">urna na prochy</annotation>
 		<annotation cp="🗿">moai | posąg | twarz | wyspa wielkanocna</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
+		<annotation cp="🪧">demonstracja | pikieta | protest | tabliczka | transparent | znak</annotation>
+		<annotation cp="🪧" type="tts">tabliczka</annotation>
 		<annotation cp="🏧">ATM | znak bankomatu</annotation>
 		<annotation cp="🏧" type="tts">znak bankomatu</annotation>
 		<annotation cp="🚮">kosz | nie śmiecić | śmieci | śmiecić | znak kosza na śmieci</annotation>
@@ -2725,6 +2945,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">strzałka w górę i w dół</annotation>
 		<annotation cp="↔">dwukierunkowa | lewo-prawo | na boki | strzałka w lewo i w prawo</annotation>
 		<annotation cp="↔" type="tts">strzałka w lewo i w prawo</annotation>
+		<annotation cp="↮" draft="contributed">przekreślona strzałka w prawo</annotation>
+		<annotation cp="↮" type="tts" draft="contributed">przekreślona strzałka w lewo i prawo</annotation>
 		<annotation cp="↩">strzałka | strzałka zakręcona w lewo | zakręt | zawróć</annotation>
 		<annotation cp="↩" type="tts">strzałka zakręcona w lewo</annotation>
 		<annotation cp="↪">strzałka | strzałka zakręcona w prawo | zakręt | zawróć</annotation>
@@ -2753,7 +2975,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚛" type="tts">symbol atomu</annotation>
 		<annotation cp="🕉">hinduizm | om | religia</annotation>
 		<annotation cp="🕉" type="tts">om</annotation>
-		<annotation cp="✡">dawid | gwiazda | gwiazda Dawida | gwiazda dawidowa | religia | żyd | żydowska</annotation>
+		<annotation cp="✡">Dawid | gwiazda | gwiazda Dawida | gwiazda dawidowa | religia | żyd | żydowska</annotation>
 		<annotation cp="✡" type="tts">gwiazda Dawida</annotation>
 		<annotation cp="☸">buddysta | buddyzm | dharma | koło | koło dharmy | religia</annotation>
 		<annotation cp="☸" type="tts">koło dharmy</annotation>
@@ -2849,10 +3071,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">znak kobiety</annotation>
 		<annotation cp="♂">męski | mężczyzna | znak | znak mężczyzny</annotation>
 		<annotation cp="♂" type="tts">znak mężczyzny</annotation>
-		<annotation cp="⚕">eskulap | laska | medycyna | symbol medycyny</annotation>
-		<annotation cp="⚕" type="tts">symbol medycyny</annotation>
+		<annotation cp="⚧">symbol transpłciowości | transpłciowość</annotation>
+		<annotation cp="⚧" type="tts">symbol transpłciowości</annotation>
+		<annotation cp="✖">× | anuluj | iks | mnożenie | x | znak | znak mnożenia</annotation>
+		<annotation cp="✖" type="tts">znak mnożenia</annotation>
+		<annotation cp="➕">+ | dodać | dodawać | dodawanie | matematyka | plus | znak</annotation>
+		<annotation cp="➕" type="tts">znak plus</annotation>
+		<annotation cp="➖">- | − | matematyka | odejmowanie | znak | znak minus</annotation>
+		<annotation cp="➖" type="tts">znak minus</annotation>
+		<annotation cp="➗">÷ | dzielenie | matematyka | znak | znak dzielenia</annotation>
+		<annotation cp="➗" type="tts">znak dzielenia</annotation>
 		<annotation cp="♾">bezgraniczność | nieskończoność | wieczność</annotation>
 		<annotation cp="♾" type="tts">nieskończoność</annotation>
+		<annotation cp="‼">! | !! | krzyk | okrzyk | podwójny wykrzyknik | wykrzykniki</annotation>
+		<annotation cp="‼" type="tts">podwójny wykrzyknik</annotation>
+		<annotation cp="⁉">! | !? | ? | nie rozumiem | pytajnik | pytanie | wykrzyknik | wykrzyknik ze znakiem zapytania | zaskoczenie | znak zapytania</annotation>
+		<annotation cp="⁉" type="tts">wykrzyknik ze znakiem zapytania</annotation>
+		<annotation cp="❓">? | o co chodzi | pytajnik | pytanie | znak zapytania</annotation>
+		<annotation cp="❓" type="tts">czerwony znak zapytania</annotation>
+		<annotation cp="❔">biały znak zapytania | o co chodzi? | pytajnik | pytanie | znak zapytania</annotation>
+		<annotation cp="❔" type="tts">biały znak zapytania</annotation>
+		<annotation cp="❕">! | biały wykrzyknik | krzyk | okrzyk | wykrzyknik</annotation>
+		<annotation cp="❕" type="tts">biały wykrzyknik</annotation>
+		<annotation cp="❗">! | krzyk | okrzyk | wykrzyknik</annotation>
+		<annotation cp="❗" type="tts">czerwony wykrzyknik</annotation>
+		<annotation cp="〰">fala | falista kreska | linia | pofalowana</annotation>
+		<annotation cp="〰" type="tts">falista kreska</annotation>
+		<annotation cp="💱">kantor | waluta | wymiana | wymiana walut</annotation>
+		<annotation cp="💱" type="tts">wymiana walut</annotation>
+		<annotation cp="💲">dolary | gruby symbol dolara | pieniądze | usd | waluta</annotation>
+		<annotation cp="💲" type="tts">gruby symbol dolara</annotation>
+		<annotation cp="⚕">eskulap | laska | medycyna | symbol medycyny</annotation>
+		<annotation cp="⚕" type="tts">symbol medycyny</annotation>
 		<annotation cp="♻">odpady | recykling | surowce wtórne</annotation>
 		<annotation cp="♻" type="tts">recykling</annotation>
 		<annotation cp="⚜">harcerze | lilijka</annotation>
@@ -2871,18 +3121,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">pole ze znacznikiem wyboru</annotation>
 		<annotation cp="✔">gruby znacznik wyboru | parafka | ptaszek | zaznaczenie | znacznik wyboru</annotation>
 		<annotation cp="✔" type="tts">znacznik wyboru</annotation>
-		<annotation cp="✖">× | anuluj | iks | mnożenie | x | znak | znak mnożenia</annotation>
-		<annotation cp="✖" type="tts">znak mnożenia</annotation>
 		<annotation cp="❌">× | anuluj | krzyżyk | mnożenie | x | znak | znak krzyżyka | znak mnożenia</annotation>
 		<annotation cp="❌" type="tts">znak krzyżyka</annotation>
 		<annotation cp="❎">anuluj | iks | iks w kwadracie | krzyżyk w kwadracie | mnożenie | przycisk z krzyżykiem</annotation>
 		<annotation cp="❎" type="tts">przycisk z krzyżykiem</annotation>
-		<annotation cp="➕">+ | dodać | dodawać | dodawanie | matematyka | plus | znak</annotation>
-		<annotation cp="➕" type="tts">znak plus</annotation>
-		<annotation cp="➖">- | − | matematyka | odejmowanie | znak | znak minus</annotation>
-		<annotation cp="➖" type="tts">znak minus</annotation>
-		<annotation cp="➗">÷ | dzielenie | matematyka | znak | znak dzielenia</annotation>
-		<annotation cp="➗" type="tts">znak dzielenia</annotation>
 		<annotation cp="➰">pętla | zawijas</annotation>
 		<annotation cp="➰" type="tts">pętla</annotation>
 		<annotation cp="➿">pętla | podwójna | zawijas</annotation>
@@ -2895,20 +3137,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">gwiazda ośmioramienna</annotation>
 		<annotation cp="❇">* | iskra</annotation>
 		<annotation cp="❇" type="tts">iskra</annotation>
-		<annotation cp="‼">! | !! | krzyk | okrzyk | podwójny wykrzyknik | wykrzykniki</annotation>
-		<annotation cp="‼" type="tts">podwójny wykrzyknik</annotation>
-		<annotation cp="⁉">! | !? | ? | nie rozumiem | pytajnik | pytanie | wykrzyknik | wykrzyknik ze znakiem zapytania | zaskoczenie | znak zapytania</annotation>
-		<annotation cp="⁉" type="tts">wykrzyknik ze znakiem zapytania</annotation>
-		<annotation cp="❓">? | o co chodzi | pytajnik | pytanie | znak zapytania</annotation>
-		<annotation cp="❓" type="tts">znak zapytania</annotation>
-		<annotation cp="❔">biały znak zapytania | o co chodzi? | pytajnik | pytanie | znak zapytania</annotation>
-		<annotation cp="❔" type="tts">biały znak zapytania</annotation>
-		<annotation cp="❕">! | biały wykrzyknik | krzyk | okrzyk | wykrzyknik</annotation>
-		<annotation cp="❕" type="tts">biały wykrzyknik</annotation>
-		<annotation cp="❗">! | krzyk | okrzyk | wykrzyknik</annotation>
-		<annotation cp="❗" type="tts">wykrzyknik</annotation>
-		<annotation cp="〰">fala | falista kreska | linia | pofalowana</annotation>
-		<annotation cp="〰" type="tts">falista kreska</annotation>
 		<annotation cp="©">copyright | prawa autorskie | znak praw autorskich</annotation>
 		<annotation cp="©" type="tts">znak praw autorskich</annotation>
 		<annotation cp="®">R | towarowy | zarejestrowany | zarejestrowany znak towarowy</annotation>
@@ -3071,22 +3299,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">czarna flaga</annotation>
 		<annotation cp="🏳">biała flaga | flaga | kapitulacja | na wietrze | poddaję się | powiewająca biała flaga</annotation>
 		<annotation cp="🏳" type="tts">biała flaga</annotation>
-		<annotation cp="🏳‍⚧">flaga | flaga osób transpłciowych | transpłciowość</annotation>
-		<annotation cp="🏳‍⚧" type="tts">flaga osób transpłciowych</annotation>
 		<annotation cp="🏳‍🌈">flaga | tęcza | tęczowa flaga</annotation>
 		<annotation cp="🏳‍🌈" type="tts">tęczowa flaga</annotation>
+		<annotation cp="🏳‍⚧">flaga | flaga osób transpłciowych | transpłciowość</annotation>
+		<annotation cp="🏳‍⚧" type="tts">flaga osób transpłciowych</annotation>
 		<annotation cp="🏴‍☠">czaszka i kości | Jolly Roger | piraci | piracka flaga | pirat | skarb</annotation>
 		<annotation cp="🏴‍☠" type="tts">piracka flaga</annotation>
+		<annotation cp="¢">cent</annotation>
+		<annotation cp="¢" type="tts">cent</annotation>
+		<annotation cp="$">dolar | pieniądze | USD | waluta</annotation>
+		<annotation cp="$" type="tts">dolar</annotation>
 		<annotation cp="£">funt | funt szterling | GBP | waluta</annotation>
 		<annotation cp="£" type="tts">funt</annotation>
 		<annotation cp="¥">CNY | jen | JPY | juan | waluta</annotation>
 		<annotation cp="¥" type="tts">jen</annotation>
+		<annotation cp="₥">mil</annotation>
+		<annotation cp="₥" type="tts">mill</annotation>
+		<annotation cp="₩">KPW | KRW | waluta</annotation>
+		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | euro | waluta</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₱">peso</annotation>
+		<annotation cp="₱" type="tts">peso</annotation>
 		<annotation cp="₹">rupia | rupia indyjska | waluta</annotation>
 		<annotation cp="₹" type="tts">rupia indyjska</annotation>
 		<annotation cp="₽">rubel | waluta</annotation>
 		<annotation cp="₽" type="tts">rubel</annotation>
+		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
 		<annotation cp="¹">indeks górny | jeden | jeden w indeksie górnym</annotation>
 		<annotation cp="¹" type="tts">jeden w indeksie górnym</annotation>
 		<annotation cp="²">dwa | dwa w indeksie górnym | indeks górny | kwadrat</annotation>

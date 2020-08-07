@@ -64,11 +64,7 @@ public class ChartDelta extends Chart {
      * If true, check only high-level paths, i.e., paths for which any changes
      * have high potential to cause disruptive "churn"
      */
-    private static final boolean DO_CHURN = false;
-
     private static final boolean verbose_skipping = false;
-
-    private static final String DIR_NAME = DO_CHURN ? "churn" : "delta";
 
     private static final boolean SKIP_REFORMAT_ANNOTATIONS = ToolConstants.PREV_CHART_VERSION.compareTo("30") >= 0;
 
@@ -81,8 +77,9 @@ public class ChartDelta extends Chart {
         orgFilter(new Params().setHelp("filter files by organization").setMatch(".*")),
         Vxml(new Params().setHelp("use cldr-aux for the base directory")),
         coverageFilter(new Params().setHelp("filter files by coverage").setMatch(".*")),
-        directory(new Params().setHelp("Set the output directory name").setDefault(DIR_NAME).setMatch(".*")),
+        directory(new Params().setHelp("Set the output directory name").setDefault("delta").setMatch(".*")),
         verbose(new Params().setHelp("verbose debugging messages")),
+        Churn(new Params().setHelp("generate churn")),
         ;
 
         // BOILERPLATE TO COPY
@@ -108,8 +105,14 @@ public class ChartDelta extends Chart {
     private final String DIR;
     private final Level minimumPathCoverage;
     private final boolean verbose;
+    private final boolean DO_CHURN;
+    private final String DIR_NAME;
 
     public static void main(String[] args) {
+        main(args, false);
+    }
+
+    public static void main(String[] args, boolean churn) {
         System.out.println("use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
         MyOptions.parse(args);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
@@ -124,20 +127,26 @@ public class ChartDelta extends Chart {
         }
         Level coverage = !MyOptions.coverageFilter.option.doesOccur() ? null : Level.fromString(MyOptions.coverageFilter.option.getValue());
         boolean verbose = MyOptions.verbose.option.doesOccur();
-        String DIR = CLDRPaths.CHART_DIRECTORY + MyOptions.directory.option.getValue();
-        ChartDelta temp = new ChartDelta(fileFilter, coverage, DIR, verbose);
+        if (MyOptions.Churn.option.doesOccur()) {
+            churn = true;
+        }
+
+        String DIR = CLDRPaths.CHART_DIRECTORY + (churn ? "churn" : MyOptions.directory.option.getValue());
+        ChartDelta temp = new ChartDelta(fileFilter, coverage, DIR, verbose, churn);
         temp.writeChart(null);
         temp.showTotals();
         System.out.println("Finished. Files may have been created in these directories:");
         System.out.println(DIR);
-        System.out.println(getTsvDir(DIR, DIR_NAME));
+        System.out.println(getTsvDir(DIR, temp.DIR_NAME));
     }
 
-    private ChartDelta(Matcher fileFilter, Level coverage, String dir, boolean verbose) {
+    private ChartDelta(Matcher fileFilter, Level coverage, String dir, boolean verbose, boolean churn) {
         this.fileFilter = fileFilter;
         this.verbose = verbose;
         this.DIR = dir;
         this.minimumPathCoverage = coverage;
+        DO_CHURN = churn;
+        DIR_NAME = DO_CHURN ? "churn" : "delta";
     }
 
     private static final String SEP = "\u0001";
@@ -1129,4 +1138,5 @@ public class ChartDelta extends Chart {
         }
         return false;
     }
+
 }

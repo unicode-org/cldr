@@ -60,6 +60,8 @@ public class SimpleFactory extends Factory {
 
     private static final boolean DEBUG_SIMPLEFACTORY = false;
 
+    private static final boolean USE_COMBINEDCACHE = false;
+
     /**
      * Simple class used as a key for the map that holds the CLDRFiles -only used in the new version of the code
      * @author ribnitz
@@ -501,6 +503,27 @@ public class SimpleFactory extends Factory {
             // changed from IllegalArgumentException, which does't let us filter exceptions.
             throw new NoSourceDirectoryException(localeName);
         }
+
+        // disabling SimpleFactory.combinedCache and only use XMLNormalizingLoader.cache to avoid double-caching
+        if (!USE_COMBINEDCACHE) {
+            CLDRFile result = null; // result of the lookup / generation
+            if (resolved) {
+                ResolvingSource makeResolvingSource;
+                try {
+                    makeResolvingSource = makeResolvingSource(localeName, minimalDraftStatus);
+                } catch (Exception e) {
+                    throw new ICUException("Couldn't make resolved CLDR file for " + localeName, e);
+                }
+                result = new CLDRFile(makeResolvingSource);
+            } else {
+                if (parentDirs != null) {
+                    result = new CLDRFile(localeName, parentDirs, minimalDraftStatus);
+                    result.freeze();
+                }
+            }
+            return result;
+        }
+
         final Object cacheKey;
         CLDRFile result; // result of the lookup / generation
         if (USE_OLD_HANDLEMAKE_CODE) {

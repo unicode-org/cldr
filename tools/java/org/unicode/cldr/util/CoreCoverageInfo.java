@@ -30,7 +30,7 @@ public class CoreCoverageInfo {
     private static final CLDRConfig config = CLDRConfig.getInstance();
     private static final String CLDR_BASE_DIRECTORY = config.getCldrBaseDirectory().toString();
     private static final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-    private static final LikelySubtags ls = new LikelySubtags(sdi);
+    private static final LikelySubtags ls = new LikelySubtags();
 
     public enum CoreItems {
         // Drop the exemplars, since

@@ -103,7 +103,7 @@ public class CheckLanguageCodeConverter {
             }
         }
 
-        LikelySubtags likely = new LikelySubtags(supplementalDataInfo);
+        LikelySubtags likely = new LikelySubtags();
         LanguageTagParser ltp = new LanguageTagParser();
         // get targets of language aliases for macros
         Map<String, String> macroToEncompassed = new HashMap<String, String>();

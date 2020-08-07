@@ -315,7 +315,7 @@ public class ChartDelta extends Chart {
             Matcher m = fileMatcher.matcher("");
             Set<String> defaultContents = SDI.getDefaultContentLocales();
             LanguageTagParser ltp = new LanguageTagParser();
-            LikelySubtags ls = new LikelySubtags(SDI);
+            LikelySubtags ls = new LikelySubtags();
             for (String file : factories.get(0).getAvailable()) {
                 if (defaultContents.contains(file)) {
                     continue;

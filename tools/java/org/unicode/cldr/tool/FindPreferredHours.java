@@ -112,7 +112,7 @@ public class FindPreferredHours {
         final Relation<String, Hours> lang2Hours = Relation.of(new TreeMap<String, Set<Hours>>(), TreeSet.class);
         final Factory factory = INFO.getCldrFactory();
         final FormatParser formatDateParser = new FormatParser();
-        final LikelySubtags likely2Max = new LikelySubtags(INFO.getSupplementalDataInfo());
+        final LikelySubtags likely2Max = new LikelySubtags();
 
         for (final String locale : factory.getAvailable()) {
             if (locale.equals("root")) {

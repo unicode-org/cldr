@@ -253,8 +253,10 @@ public class TestAnnotations extends TestFmwkPlus {
             Collection<String> emojis = entry.getValue();
             if (emojis.size() > 1) {
                 synchronized(problems) {
-                    problems.add("Duplicate name in " + locale + ": “" + name + "” for "
-                        + Joiner.on(" & ").join(emojis));
+                    if (problems.add("Duplicate name in " + locale + ": “" + name + "” for "
+                        + Joiner.on(" & ").join(emojis))) {
+                        int debug = 0;
+                    }
                 }
                 if (duplicateNameToEmoji == null) {
                     duplicateNameToEmoji = TreeMultimap.create();

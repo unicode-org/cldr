@@ -15,6 +15,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestLocalCurrency extends TestFmwk {
@@ -24,11 +25,12 @@ public class TestLocalCurrency extends TestFmwk {
         new TestLocalCurrency().run(args);
     }
 
+    static final Set<String> regionsWithTwoCurrencySymbols = ImmutableSet.of("AE", "AZ",
+        "BA", "CA", "CN", "DZ", "ET", "IQ", "IR", "LK", "KM", "MA", "MR", "MK", "PK",
+        "NE", "GW", "CM", "SN", "BF", // << ff_Adlm regions are multiscript, Latn+Adlm
+        "RS", "SD", "SY", "TN", "UZ");
+
     private int maxLocalizedSymbols(String region) {
-        final List<String> regionsWithTwoCurrencySymbols = Arrays.asList("AE", "AZ",
-            "BA", "CN", "DZ", "ET", "IQ", "IR", "LK", "KM", "MA", "MR", "MK", "PK",
-            "NE", "GW", "CM", "SN", "BF", // << ff_Adlm regions are multiscript, Latn+Adlm
-            "RS", "SD", "SY", "TN", "UZ");
         if (regionsWithTwoCurrencySymbols.contains(region)) {
             return 2;
         }
@@ -40,9 +42,9 @@ public class TestLocalCurrency extends TestFmwk {
         LanguageTagParser ltp = new LanguageTagParser();
         SupplementalDataInfo supplementalDataInfo = testInfo
             .getSupplementalDataInfo();
-        Map<String, String> localeToLocalCurrencySymbol = new HashMap<String, String>();
-        Map<String, Set<String>> localizedCurrencySymbols = new HashMap<String, Set<String>>();
-        Map<String, Set<String>> regionToLocales = new HashMap<String, Set<String>>();
+        Map<String, String> localeToLocalCurrencySymbol = new HashMap<>();
+        Map<String, Set<String>> localizedCurrencySymbols = new HashMap<>();
+        Map<String, Set<String>> regionToLocales = new HashMap<>();
 
         List<String> nonLocalizedOK = Arrays.asList("AED", "AZN", "CHF", "CVE", "GEL",
             "HRK", "HUF", "IQD", "IRR", "ISK", "KPW", "LTL", "MAD", "MDL", "RON", "RSD",
@@ -84,7 +86,7 @@ public class TestLocalCurrency extends TestFmwk {
 
             Set<String> localSymbols = localizedCurrencySymbols.get(region);
             if (localSymbols == null) {
-                localSymbols = new TreeSet<String>();
+                localSymbols = new TreeSet<>();
             }
 
             if (localCurrencySymbol.equals(localCurrency)
@@ -98,7 +100,7 @@ public class TestLocalCurrency extends TestFmwk {
 
             Set<String> regionLocales = regionToLocales.get(region);
             if (regionLocales == null) {
-                regionLocales = new TreeSet<String>();
+                regionLocales = new TreeSet<>();
             }
 
             regionLocales.add(locale);
@@ -118,7 +120,7 @@ public class TestLocalCurrency extends TestFmwk {
                         + localeToLocalCurrencySymbol.get(locale));
                     errmsg.append('\n');
                 }
-                errln(errmsg.toString());
+                errln(errmsg.toString()); // if this fails, see if it warrants changing regionsWithTwoCurrencySymbols.
             }
         }
     }

@@ -55,6 +55,11 @@ const cldrStForum = (function() {
 	let threadHash = {};
 
 	/**
+	 * Whether the current user can make posts
+	 */
+	let userCanPost = false;
+
+	/**
 	 * Fetch the Forum data from the server, and "load" it
 	 *
 	 * @param locale the locale string, like "fr_CA" (surveyCurrentLocale)
@@ -76,6 +81,13 @@ const cldrStForum = (function() {
 				}
 				return;
 			}
+			/*
+			 * The server has already confirmed that the user is logged in and has permission to view the forum.
+			 * Note: the criteria (here) for posting in the main forum window are less strict than in the info
+			 * panel; see the other call to setUserCanPost. Here, we have no "json.canModify" set by the server.
+			 */
+			setUserCanPost(true);
+
 			// set up the 'right sidebar'
 			showInPop2(forumStr(params.name + "Guidance"), null, null, null, true); /* show the box the first time */
 
@@ -108,6 +120,13 @@ const cldrStForum = (function() {
 			error: errorHandler
 		};
 		cldrStAjax.sendXhr(xhrArgs);
+	}
+
+	/**
+	 * Set whether the user is allowed to make posts
+	 */
+	function setUserCanPost(canPost) {
+		userCanPost = canPost ? true : false;
 	}
 
 	/**
@@ -649,6 +668,9 @@ const cldrStForum = (function() {
 	 * @param topicDivs the map from threadId to DOM elements
 	 */
 	function addReplyButtonsToEachTopic(topicDivs) {
+		if (!userCanPost) {
+			return;
+		}
 		Object.keys(topicDivs).forEach(function(threadId) {
 			const rootPost = getRootPostFromThreadId(threadId);
 			if (rootPost) {
@@ -668,6 +690,9 @@ const cldrStForum = (function() {
 	 * @param value the value the current user voted for, or null
 	 */
 	function addNewPostButtons(el, locale, couldFlag, xpstrid, code, value) {
+		if (!userCanPost) {
+			return;
+		}
 		const options = getPostTypeOptions(false /* isReply */, null /* rootPost */, value);
 
 		Object.keys(options).forEach(function(postType) {
@@ -682,6 +707,9 @@ const cldrStForum = (function() {
 	 * @param rootPost the original post in the thread
 	 */
 	function addReplyButtons(el, rootPost) {
+		if (!userCanPost) {
+			return;
+		}
 		const options = getPostTypeOptions(true /* isReply */, rootPost, rootPost.value);
 
 		Object.keys(options).forEach(function(postType) {
@@ -1213,6 +1241,7 @@ const cldrStForum = (function() {
 		loadForum: loadForum,
 		reload: reload,
 		addNewPostButtons: addNewPostButtons,
+		setUserCanPost: setUserCanPost,
 		/*
 		 * The following are meant to be accessible for unit testing only:
 		 */

@@ -2042,6 +2042,9 @@ function updateInfoPanelForumPosts(tr) {
  * @param {Node} forumDiv
  */
 function appendForumStuff(tr, theRow, forumDiv) {
+
+	cldrStForum.setUserCanPost(tr.theTable.json.canModify);
+
 	removeAllChildNodes(forumDiv); // we may be updating.
 	var theForum = locmap.getLanguage(surveyCurrentLocale);
 	forumDiv.replyStub = contextPath + "/survey?forum=" + theForum + "&_=" + surveyCurrentLocale + "&replyto=";

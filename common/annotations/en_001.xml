@@ -14,20 +14,168 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<territory type="001"/>
 	</identity>
 	<annotations>
+		<annotation cp="_" type="tts">underscore</annotation>
+		<annotation cp="!">bang | exclamation | exclamation mark | exclamation point</annotation>
+		<annotation cp="." type="tts">full stop</annotation>
+		<annotation cp="。" type="tts">ideographic full stop</annotation>
+		<annotation cp="'">apostrophe | quote | single quote | typewriter apostrophe</annotation>
+		<annotation cp="'" type="tts">straight apostrophe</annotation>
+		<annotation cp="‘">apostrophe | curly quote | quote | single quote | smart quote</annotation>
+		<annotation cp="’">apostrophe | curly quote | quote | single quote | smart quote</annotation>
+		<annotation cp="“">curly quotes | double quote | quotation | quote | smart quotation</annotation>
+		<annotation cp="”">curly quotes | double quote | quotation | quote | smart quotation</annotation>
+		<annotation cp=")">bracket | parens | parenthesis | round bracket</annotation>
+		<annotation cp="【" type="tts">open black lenticular bracket</annotation>
+		<annotation cp="】" type="tts">close black lenticular bracket</annotation>
+		<annotation cp="〖" type="tts">open hollow lenticular bracket</annotation>
+		<annotation cp="〗" type="tts">close hollow lenticular bracket</annotation>
+		<annotation cp="@" type="tts">at sign</annotation>
+		<annotation cp="%">per cent | per-cent | percent</annotation>
+		<annotation cp="%" type="tts">per cent</annotation>
+		<annotation cp="‰">per mil | per mill | per mille | permil | permille</annotation>
 		<annotation cp="†">dagger | dagger sign | dagger symbol | obelisk | obelus</annotation>
 		<annotation cp="†" type="tts">dagger symbol</annotation>
 		<annotation cp="‡">dagger | double | double dagger sign | double dagger symbol | obelisk | obelus</annotation>
 		<annotation cp="‡" type="tts">double dagger symbol</annotation>
-		<annotation cp="😋">delicious | face | face savouring food | savouring | smile | um | yum</annotation>
+		<annotation cp="^">accent | caret | chevron | circumflex | hat | power | wedge</annotation>
+		<annotation cp="↚" draft="contributed">arrow | arrow with slash | arrow with stroke | left</annotation>
+		<annotation cp="↚" type="tts" draft="contributed">leftwards arrow with stroke</annotation>
+		<annotation cp="↛" draft="contributed">arrow | arrow with slash | arrow with stroke | right</annotation>
+		<annotation cp="↛" type="tts" draft="contributed">rightwards arrow with stroke</annotation>
+		<annotation cp="↜" draft="contributed">arrow | left | wave arrow</annotation>
+		<annotation cp="↝" draft="contributed">arrow | right | wave arrow</annotation>
+		<annotation cp="↞" draft="contributed">arrow | left | two-headed arrow</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">leftwards two-headed arrow</annotation>
+		<annotation cp="↟" draft="contributed">arrow | two-headed arrow | up</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">upwards two-headed arrow</annotation>
+		<annotation cp="↠" draft="contributed">arrow | right | two-headed arrow</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">rightwards two-headed arrow</annotation>
+		<annotation cp="↡" draft="contributed">arrow | down | two-headed arrow</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">downwards two-headed arrow</annotation>
+		<annotation cp="↢" draft="contributed">arrow | arrow with tail | left</annotation>
+		<annotation cp="↢" type="tts">leftwards arrow with tail</annotation>
+		<annotation cp="↣" draft="contributed">arrow | arrow with tail | right</annotation>
+		<annotation cp="↣" type="tts" draft="contributed">rightwards arrow with tail</annotation>
+		<annotation cp="↤" draft="contributed">arrow | arrow from bar | left</annotation>
+		<annotation cp="↥" draft="contributed">arrow | arrow from bar | up</annotation>
+		<annotation cp="↦" draft="contributed">arrow | arrow from bar | right</annotation>
+		<annotation cp="↧" draft="contributed">arrow | arrow from bar | down</annotation>
+		<annotation cp="↨" draft="contributed">arrow | arrow with base | up-down</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">up-down arrow with base</annotation>
+		<annotation cp="↫" draft="contributed">arrow | arrow with loop | left</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">leftwards arrow with loop</annotation>
+		<annotation cp="↬" draft="contributed">arrow | arrow with loop | right</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">rightwards arrow with loop</annotation>
+		<annotation cp="↭" draft="contributed">arrow | left-right | wave arrow</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">left-right wave arrow</annotation>
+		<annotation cp="↰" draft="contributed">arrow | arrow with leftwards tip | left | up</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">upwards arrow with leftwards tip</annotation>
+		<annotation cp="↱" draft="contributed">arrow | arrow with rightwards tip | right | up</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">upwards arrow with rightwards tip</annotation>
+		<annotation cp="↲" draft="contributed">arrow | arrow with leftwards tip | down | left</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">downwards arrow with leftwards tip</annotation>
+		<annotation cp="↳" draft="contributed">arrow | arrow with rightwards tip | down | right</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">downwards arrow with rightwards tip</annotation>
+		<annotation cp="↴" draft="contributed">arrow | arrow with corner downwards | down | right</annotation>
+		<annotation cp="↴" type="tts" draft="contributed">rightwards arrow with corner downwards</annotation>
+		<annotation cp="↵" draft="contributed">arrow | arrow with corner leftwards | down | left</annotation>
+		<annotation cp="↵" type="tts" draft="contributed">downwards arrow with corner leftwards</annotation>
+		<annotation cp="↶" draft="contributed">anticlockwise | arrow | counterclockwise | semicircle</annotation>
+		<annotation cp="↶" type="tts" draft="contributed">anticlockwise top-semicircle arrow</annotation>
+		<annotation cp="↷" draft="contributed">arrow | clockwise | semicircle</annotation>
+		<annotation cp="↷" type="tts" draft="contributed">clockwise top-semicircle arrow</annotation>
+		<annotation cp="↸" draft="contributed">arrow | arrow to bar | north-west</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">north-west arrow to long bar</annotation>
+		<annotation cp="↹" draft="contributed">arrow | arrow to bar | left | left arrow over right arrow | right</annotation>
+		<annotation cp="↺" draft="contributed">anticlockwise | arrow | counterclockwise | repeat</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">anticlockwise open-circle arrow</annotation>
+		<annotation cp="↻" draft="contributed">arrow | clockwise | repeat</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">clockwise open-circle arrow</annotation>
+		<annotation cp="↼" draft="contributed">arrow | barb | harpoon | left | up</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">leftwards harpoon with upwards barb</annotation>
+		<annotation cp="↽" draft="contributed">arrow | barb | down | harpoon | left</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">leftwards harpoon with downwards barb</annotation>
+		<annotation cp="↾" draft="contributed">arrow | barb | harpoon | right | up</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">upwards harpoon with rightwards barb</annotation>
+		<annotation cp="↿" draft="contributed">arrow | barb | harpoon | left | up</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">upwards harpoon with leftwards barb</annotation>
+		<annotation cp="⇀" draft="contributed">arrow | barb | harpoon | right | up</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">rightwards harpoon with upwards barb</annotation>
+		<annotation cp="⇁" draft="contributed">arrow | barb | down | harpoon | right</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">rightwards harpoon with downwards barb</annotation>
+		<annotation cp="⇂" draft="contributed">arrow | barb | down | harpoon | right</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">downwards harpoon with rightwards barb</annotation>
+		<annotation cp="⇃" draft="contributed">arrow | barb | down | harpoon | left</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">downwards harpoon with leftwards barb</annotation>
+		<annotation cp="⇄" draft="contributed">arrow | left | right | rightwards arrow over leftwards arrow</annotation>
+		<annotation cp="⇇" draft="contributed">arrow | left | paired arrows</annotation>
+		<annotation cp="⇈" draft="contributed">arrow | paired arrows | up</annotation>
+		<annotation cp="⇉" draft="contributed">arrow | paired arrows | right</annotation>
+		<annotation cp="⇊" draft="contributed">arrow | down | paired arrows</annotation>
+		<annotation cp="⇋" draft="contributed">arrow | harpoon | left | leftwards harpoon over rightwards harpoon | right</annotation>
+		<annotation cp="⇌" draft="contributed">arrow | harpoon | left | right | rightwards harpoon over leftwards harpoon</annotation>
+		<annotation cp="⇐" draft="contributed">arrow | double arrow | left</annotation>
+		<annotation cp="⇍" draft="contributed">arrow | arrow with stroke | double arrow | right</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">leftwards double arrow with stroke</annotation>
+		<annotation cp="⇑" draft="contributed">arrow | double arrow | up</annotation>
+		<annotation cp="⇒" draft="contributed">arrow | double arrow | right</annotation>
+		<annotation cp="⇏" draft="contributed">arrow | arrow with stroke | double arrow | right</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">rightwards double arrow with stroke</annotation>
+		<annotation cp="⇓" draft="contributed">arrow | double arrow | down</annotation>
+		<annotation cp="⇔" draft="contributed">arrow | double arrow | left-right</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">left-right double arrow</annotation>
+		<annotation cp="⇎" draft="contributed">arrow | arrow with stroke | double arrow | left-right</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">left-right double arrow with stroke</annotation>
+		<annotation cp="⇖" draft="contributed">arrow | double arrow | north-west</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">north-west double arrow</annotation>
+		<annotation cp="⇗" draft="contributed">arrow | double arrow | north-east</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">north-east double arrow</annotation>
+		<annotation cp="⇘" draft="contributed">arrow | double arrow | south-east</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">south-east double arrow</annotation>
+		<annotation cp="⇙" draft="contributed">arrow | double arrow | south-west</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">south-west double arrow</annotation>
+		<annotation cp="⇚" draft="contributed">arrow | left | triple arrow</annotation>
+		<annotation cp="⇛" draft="contributed">arrow | right | triple arrow</annotation>
+		<annotation cp="⇜" draft="contributed">arrow | left | squiggle arrow</annotation>
+		<annotation cp="⇝" draft="contributed">arrow | right | squiggle arrow</annotation>
+		<annotation cp="⇞" draft="contributed">arrow | arrow with double stroke | up</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">upwards arrow with double stroke</annotation>
+		<annotation cp="⇟" draft="contributed">arrow | arrow with double stroke | down</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">downwards arrow with double stroke</annotation>
+		<annotation cp="⇠" draft="contributed">arrow | dashed arrow | left</annotation>
+		<annotation cp="⇡" draft="contributed">arrow | dashed arrow | up</annotation>
+		<annotation cp="⇢" draft="contributed">arrow | dashed arrow | right</annotation>
+		<annotation cp="⇣" draft="contributed">arrow | dashed arrow | down</annotation>
+		<annotation cp="⇤" draft="contributed">arrow | arrow to bar | left</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">leftwards arrow to bar</annotation>
+		<annotation cp="⇥" draft="contributed">arrow | arrow to bar | right</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">rightwards arrow to bar</annotation>
+		<annotation cp="⇦" draft="contributed">arrow | hollow arrow | left</annotation>
+		<annotation cp="⇧" draft="contributed">arrow | hollow arrow | up</annotation>
+		<annotation cp="⇨" draft="contributed">arrow | hollow arrow | right</annotation>
+		<annotation cp="⇩" draft="contributed">arrow | down | hollow arrow</annotation>
+		<annotation cp="⇪" draft="contributed">arrow | arrow from bar | hollow arrow | up</annotation>
+		<annotation cp="⇵" draft="contributed">arrow | down | up | upwards and downwards arrows</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">downwards and upwards arrows</annotation>
+		<annotation cp="|">bar | line | pipe | sheffer stroke | vertical bar</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">circle with left half filled</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">circle with right half filled</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">circle with lower half filled</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">circle with upper half filled</annotation>
+		<annotation cp="♪">eighth | music | note | quaver</annotation>
+		<annotation cp="♪" type="tts">quaver</annotation>
+		<annotation cp="😋">delicious | face | face savouring food | savouring | smile | yum</annotation>
 		<annotation cp="😋" type="tts">face savouring food</annotation>
-		<annotation cp="🤭">oops | whoops</annotation>
+		<annotation cp="🤭">embarrassed | face with hand over mouth | oops | whoops</annotation>
 		<annotation cp="🤐">face | mouth | zip | zipper</annotation>
 		<annotation cp="🤨">distrust | face with raised eyebrow | sceptic | skeptic</annotation>
+		<annotation cp="😶‍🌫">absent-minded | face in clouds | face in the fog | head in clouds</annotation>
 		<annotation cp="😷">cold | doctor | face | face with medical mask | ill | mask | medicine | poorly | sick</annotation>
 		<annotation cp="🤒">face | face with thermometer | ill | poorly | sick | thermometer</annotation>
 		<annotation cp="🤕">bandage | face | face with head bandage | hurt | injury</annotation>
 		<annotation cp="🤕" type="tts">face with head bandage</annotation>
 		<annotation cp="🤧">bless you | face | gesundheit | sneeze</annotation>
+		<annotation cp="😵‍💫">dizzy | hypnotised | spiral | trouble | whoa</annotation>
 		<annotation cp="🤯">exploding head | mind blown | shocked</annotation>
 		<annotation cp="🤬">cursing | expletive | face with symbols on mouth | swearing</annotation>
 		<annotation cp="👻">creature | face | fairy tale | fantasy | ghost | monster | spectre</annotation>
@@ -42,11 +190,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤙">call | call-me hand | hand</annotation>
 		<annotation cp="🤙" type="tts">call-me hand</annotation>
 		<annotation cp="🙌">celebration | gesture | hand | hooray | raised | raising hands | woo hoo | yay</annotation>
-		<annotation cp="🫀">anatomical heart | cardiology | centre | heartbeat | organ | pulse</annotation>
+		<annotation cp="🫀">anatomical heart | cardiology | heart | organ | pulse</annotation>
 		<annotation cp="🧒">child | gender-neutral | toddler | young</annotation>
 		<annotation cp="🙇‍♂">apology | bowing | favour | gesture | man | sorry</annotation>
 		<annotation cp="🙇‍♀">apology | bowing | favour | gesture | sorry | woman</annotation>
 		<annotation cp="🧑‍🏫">instructor | lecturer | professor | teacher</annotation>
+		<annotation cp="🧑‍⚖">judge | law</annotation>
 		<annotation cp="👨‍🌾">farmer | gardener | man</annotation>
 		<annotation cp="👩‍🌾">farmer | gardener | woman</annotation>
 		<annotation cp="👨‍🔧">electrician | man | mechanic | plumber | tradesman | tradesperson</annotation>
@@ -125,9 +274,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌶" type="tts">chilli</annotation>
 		<annotation cp="🫑">bell pepper | capsicum | pepper | sweet pepper | vegetable</annotation>
 		<annotation cp="🫑" type="tts">pepper</annotation>
-		<annotation cp="🥬">bok choy | cabbage | kale | lettuce | pak choi</annotation>
-		<annotation cp="🧄">flavouring</annotation>
-		<annotation cp="🧅">flavouring</annotation>
+		<annotation cp="🥬">bok choy | cabbage | kale | leafy green | lettuce | pak choi</annotation>
+		<annotation cp="🧄">flavouring | garlic</annotation>
+		<annotation cp="🧅">flavouring | onion</annotation>
 		<annotation cp="🥜">food | monkey nut | nut | nuts | peanut | peanuts</annotation>
 		<annotation cp="🥖">baguette | bread | food | french | french stick</annotation>
 		<annotation cp="🥖" type="tts">baguette</annotation>
@@ -153,7 +302,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍮">crème caramel | custard | dessert | egg custard | pudding | sweet</annotation>
 		<annotation cp="🍮" type="tts">egg custard</annotation>
 		<annotation cp="🍼">baby | baby’s bottle | bottle | drink | milk</annotation>
-		<annotation cp="🍶">bar | beverage | bottle | cup | drink | sake | saké</annotation>
+		<annotation cp="🍶">bar | beverage | bottle | cup | drink | saké</annotation>
 		<annotation cp="🍾">bar | bottle | bottle with popping cork | champagne | cork | drink | popping</annotation>
 		<annotation cp="🍺">bar | beer | drink | mug | stein</annotation>
 		<annotation cp="🍻">bar | beer | clink | clinking beer mugs | drink | mug | steins</annotation>
@@ -185,14 +334,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚖">cab | oncoming | taxi</annotation>
 		<annotation cp="🚗" type="tts">car</annotation>
 		<annotation cp="🚘" type="tts">oncoming car</annotation>
-		<annotation cp="🚙">camper van | motorhome | recreational | RV | sport utility | sport utility vehicle</annotation>
+		<annotation cp="🚙">4x4 | off-road vehicle | sport utility</annotation>
 		<annotation cp="🚚">delivery | delivery van | truck</annotation>
 		<annotation cp="🚚" type="tts">delivery van</annotation>
 		<annotation cp="🏎">car | motor racing | racing</annotation>
 		<annotation cp="🏍">motorbike | racing</annotation>
 		<annotation cp="🦼">accessibility | powered wheelchair</annotation>
 		<annotation cp="🦼" type="tts">powered wheelchair</annotation>
-		<annotation cp="🛺">tuk tuk | tuk-tuk</annotation>
+		<annotation cp="🛺">auto rickshaw | tuk tuk | tuk-tuk</annotation>
 		<annotation cp="🚲">bicycle | bike | cycle</annotation>
 		<annotation cp="⛽">diesel | fuel | fuelpump | gas | petrol | pump | station</annotation>
 		<annotation cp="⛵">boat | resort | sailboat | sailing | sea | yacht</annotation>
@@ -201,7 +350,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✈" type="tts">aeroplane</annotation>
 		<annotation cp="🛩">aeroplane | airplane | small aeroplane | small airplane</annotation>
 		<annotation cp="🛩" type="tts">small aeroplane</annotation>
-		<annotation cp="🛫">aeroplane | airplane | check-in | departure | departures | take-off</annotation>
+		<annotation cp="🛫">aeroplane | airplane | check-in | departure | take-off</annotation>
 		<annotation cp="🛫" type="tts">aeroplane departure</annotation>
 		<annotation cp="🛬">aeroplane | aeroplane arrival | airplane | airplane arrival | arrivals | arriving | landing</annotation>
 		<annotation cp="🛬" type="tts">aeroplane arrival</annotation>
@@ -209,29 +358,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚁">chopper | helicopter | vehicle</annotation>
 		<annotation cp="🚠">cable | gondola | mountain | mountain cablecar</annotation>
 		<annotation cp="🕰">clock | mantel clock</annotation>
-		<annotation cp="🕧">12 | 12:30 | 12.30 | 30 | clock | half past twelve | thirty | twelve | twelve-thirty</annotation>
+		<annotation cp="🕧">12:30 | 12.30 | clock | half past twelve | twelve-thirty</annotation>
 		<annotation cp="🕧" type="tts">half past twelve</annotation>
-		<annotation cp="🕜">1 | 1:30 | 1.30 | 30 | clock | half past one | one | one-thirty | thirty</annotation>
+		<annotation cp="🕜">1:30 | 1.30 | clock | half past one | one-thirty</annotation>
 		<annotation cp="🕜" type="tts">half past one</annotation>
-		<annotation cp="🕝">2 | 2:30 | 2.30 | 30 | clock | half past two | thirty | two | two-thirty</annotation>
+		<annotation cp="🕝">2:30 | 2.30 | clock | half past two | two-thirty</annotation>
 		<annotation cp="🕝" type="tts">half past two</annotation>
-		<annotation cp="🕞">3 | 3:30 | 3.30 | 30 | clock | half past three | thirty | three | three-thirty</annotation>
+		<annotation cp="🕞">3:30 | 3.30 | clock | half past three | three-thirty</annotation>
 		<annotation cp="🕞" type="tts">half past three</annotation>
-		<annotation cp="🕟">30 | 4 | 4:30 | 4.30 | clock | four | four-thirty | half past four | thirty</annotation>
+		<annotation cp="🕟">4:30 | 4.30 | clock | four-thirty | half past four</annotation>
 		<annotation cp="🕟" type="tts">half past four</annotation>
-		<annotation cp="🕠">30 | 5 | 5:30 | 5.30 | clock | five | five-thirty | half past five | thirty</annotation>
+		<annotation cp="🕠">5:30 | 5.30 | clock | five-thirty | half past five</annotation>
 		<annotation cp="🕠" type="tts">half past five</annotation>
-		<annotation cp="🕡">30 | 6 | 6:30 | 6.30 | clock | half past six | six | six-thirty | thirty</annotation>
+		<annotation cp="🕡">6:30 | 6.30 | clock | half past six | six-thirty</annotation>
 		<annotation cp="🕡" type="tts">half past six</annotation>
-		<annotation cp="🕢">30 | 7 | 7:30 | 7.30 | clock | half past seven | seven | seven-thirty | thirty</annotation>
+		<annotation cp="🕢">7:30 | 7.30 | clock | half past seven | seven-thirty</annotation>
 		<annotation cp="🕢" type="tts">half past seven</annotation>
-		<annotation cp="🕣">30 | 8 | 8:30 | 8.30 | clock | eight | eight-thirty | half past eight | thirty</annotation>
+		<annotation cp="🕣">8:30 | 8.30 | clock | eight-thirty | half past eight</annotation>
 		<annotation cp="🕣" type="tts">half past eight</annotation>
-		<annotation cp="🕤">30 | 9 | 9:30 | 9.30 | clock | half past nine | nine | nine-thirty | thirty</annotation>
+		<annotation cp="🕤">9:30 | 9.30 | clock | half past nine | nine-thirty</annotation>
 		<annotation cp="🕤" type="tts">half past nine</annotation>
-		<annotation cp="🕥">10 | 10:30 | 10.30 | 30 | clock | half past ten | ten | ten-thirty | thirty</annotation>
+		<annotation cp="🕥">10:30 | 10.30 | clock | half past ten | ten-thirty</annotation>
 		<annotation cp="🕥" type="tts">half past ten</annotation>
-		<annotation cp="🕦">11 | 11:30 | 11.30 | 30 | clock | eleven | eleven-thirty | half past eleven | thirty</annotation>
+		<annotation cp="🕦">11:30 | 11.30 | clock | eleven-thirty | half past eleven</annotation>
 		<annotation cp="🕦" type="tts">half past eleven</annotation>
 		<annotation cp="🌓" draft="contributed">first-quarter moon</annotation>
 		<annotation cp="🌓" type="tts" draft="contributed">first-quarter moon</annotation>
@@ -251,7 +400,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎃">celebration | halloween | jack | jack-o’-lantern | lantern | pumpkin</annotation>
 		<annotation cp="🎃" type="tts">jack-o’-lantern</annotation>
 		<annotation cp="🎋">banner | celebration | Japanese | star festival | tanabata | tree</annotation>
-		<annotation cp="🎏">carp | carp wind sock | carp wind socks | celebration | Japanese wind socks | koinobori | streamer</annotation>
+		<annotation cp="🎏">carp | carp wind sock | celebration | Japanese wind socks | koinobori | streamer</annotation>
 		<annotation cp="🎑">celebration | ceremony | jugoya | moon | moon-viewing ceremony | otsukimi | tsukimi</annotation>
 		<annotation cp="🎗">awareness ribbon | celebration | reminder | ribbon</annotation>
 		<annotation cp="⚽" draft="contributed">football</annotation>
@@ -262,7 +411,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏏" type="tts">cricket match</annotation>
 		<annotation cp="🏑" draft="contributed">hockey</annotation>
 		<annotation cp="🏑" type="tts" draft="contributed">hockey</annotation>
-		<annotation cp="🏓" draft="contributed">table tennis</annotation>
+		<annotation cp="🏓" draft="contributed">ball | bat | game | paddle | ping pong | table tennis</annotation>
 		<annotation cp="🏓" type="tts" draft="contributed">table tennis</annotation>
 		<annotation cp="🎣">angling | fish | fishing pole | pole</annotation>
 		<annotation cp="🤿" draft="contributed">diving | scuba | snorkelling</annotation>
@@ -277,14 +426,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪆" type="tts">Russian dolls</annotation>
 		<annotation cp="🎴">card | flower | flower playing cards | game | hanafuda | Japanese | playing</annotation>
 		<annotation cp="👓">clothing | eye | eyeglasses | eyewear | specs | spectacles</annotation>
-		<annotation cp="🦺">emergency | hi-vis | hi-viz | high-vis | high-viz | jacket | safety | vest</annotation>
+		<annotation cp="🦺">emergency | hi-vis | high-vis | jacket | life jacket | safety | vest</annotation>
+		<annotation cp="👔" type="tts">tie</annotation>
 		<annotation cp="👕">clothing | shirt | T-shirt | tshirt</annotation>
 		<annotation cp="👕" type="tts">T-shirt</annotation>
 		<annotation cp="👖">clothing | trousers</annotation>
-		<annotation cp="🩲" draft="contributed">bathing suit | one-piece | pants | swimsuit | underwear</annotation>
-		<annotation cp="🩳" draft="contributed">bathing suit | boardshorts | swim shorts | underwear</annotation>
+		<annotation cp="🩲" draft="contributed">bathing suit | briefs | one-piece | pants | swimsuit | underwear</annotation>
+		<annotation cp="🩳" draft="contributed">bathing suit | boardshorts | shorts | swim shorts | underwear</annotation>
 		<annotation cp="🎒" type="tts">school bag</annotation>
-		<annotation cp="🩴">beach sandals | flip-flop | flipflop | sandals | thong sandals | thongs | zori | zōri</annotation>
+		<annotation cp="🩴">beach sandals | flipflop | sandals | thong sandals | thongs | zori</annotation>
 		<annotation cp="🩴" type="tts">flip-flop</annotation>
 		<annotation cp="👟">athletic | clothing | shoe | trainer</annotation>
 		<annotation cp="👠">clothing | heel | shoe | stiletto | woman</annotation>
@@ -324,13 +474,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛠" type="tts" draft="contributed">hammer and spanner</annotation>
 		<annotation cp="🔫" type="tts" draft="contributed">water pistol</annotation>
 		<annotation cp="🪚">carpenter | lumber | saw | timber | tool</annotation>
-		<annotation cp="🔧" draft="contributed">spanner</annotation>
+		<annotation cp="🔧" draft="contributed">spanner | tool | wrench</annotation>
 		<annotation cp="🔧" type="tts" draft="contributed">spanner</annotation>
-		<annotation cp="🦯" draft="contributed">guide cane</annotation>
+		<annotation cp="🦯" draft="contributed">accessibility | blind | guide cane</annotation>
 		<annotation cp="🦯" type="tts" draft="contributed">guide cane</annotation>
 		<annotation cp="🪜">climb | ladder | rung | stair | step</annotation>
+		<annotation cp="💉">ill | injection | medicine | needle | syringe</annotation>
 		<annotation cp="💊">capsule | doctor | medicine | pill | sick | tablet</annotation>
-		<annotation cp="🩹" draft="contributed">plaster</annotation>
+		<annotation cp="🩹" draft="contributed">injury | plaster | sticking plaster</annotation>
 		<annotation cp="🩹" type="tts" draft="contributed">plaster</annotation>
 		<annotation cp="🛗" type="tts">lift</annotation>
 		<annotation cp="🪞">looking glass | reflection | reflector</annotation>
@@ -338,17 +489,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛋" type="tts">sofa and lamp</annotation>
 		<annotation cp="🚽">lavatory | loo | toilet</annotation>
 		<annotation cp="🛁">bath | bathtub | tub</annotation>
+		<annotation cp="🛁" type="tts">bath</annotation>
 		<annotation cp="🪤" type="tts">mousetrap</annotation>
-		<annotation cp="🪒" draft="contributed">cut-throat razor</annotation>
-		<annotation cp="🪒" type="tts" draft="contributed">cut-throat razor</annotation>
-		<annotation cp="🧴">lotion | moisturiser | shampoo | sunscreen</annotation>
-		<annotation cp="🧷">nappy | punk rock</annotation>
-		<annotation cp="🧻">paper towels | toilet paper | toilet roll</annotation>
+		<annotation cp="🪒" draft="contributed">cut-throat | razor | sharp | shave</annotation>
+		<annotation cp="🪒" type="tts" draft="contributed">razor</annotation>
+		<annotation cp="🧴">lotion | lotion bottle | moisturiser | shampoo | sunscreen</annotation>
+		<annotation cp="🧷">nappy | punk rock | safety pin</annotation>
+		<annotation cp="🧻">paper towels | roll of paper | toilet paper | toilet roll</annotation>
 		<annotation cp="🛒" draft="contributed">shopping trolley</annotation>
 		<annotation cp="🛒" type="tts" draft="contributed">shopping trolley</annotation>
 		<annotation cp="🏧">atm | ATM sign | automated | bank | cashpoint | teller</annotation>
 		<annotation cp="🚮">litter | litter bin | litter in bin sign | rubbish</annotation>
-		<annotation cp="🚰" draft="contributed">drinking water</annotation>
+		<annotation cp="🚰" draft="contributed">drinking | potable | water</annotation>
 		<annotation cp="🚰" type="tts" draft="contributed">drinking water</annotation>
 		<annotation cp="🚹">lavatory | man | men’s toilet | restroom | wc</annotation>
 		<annotation cp="🚹" type="tts">men’s toilet</annotation>
@@ -358,17 +510,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚻" type="tts">toilets</annotation>
 		<annotation cp="🚱" draft="contributed">non-drinking water</annotation>
 		<annotation cp="🚱" type="tts" draft="contributed">non-drinking water</annotation>
-		<annotation cp="🔄" draft="contributed">anticlockwise arrows button</annotation>
+		<annotation cp="↮" draft="contributed">arrow | arrow with slash | arrow with stroke | left-right</annotation>
+		<annotation cp="↮" type="tts" draft="contributed">left-right arrow with stroke</annotation>
+		<annotation cp="🔄" draft="contributed">anticlockwise | arrow | counterclockwise | counterclockwise arrows button | withershins</annotation>
 		<annotation cp="🔄" type="tts" draft="contributed">anticlockwise arrows button</annotation>
 		<annotation cp="🕉">aum | Hindu | om | religion</annotation>
 		<annotation cp="☸">Buddhist | dharma | dharmachakra | religion | wheel | wheel of dharma</annotation>
 		<annotation cp="⏪" draft="contributed">fast-reverse button</annotation>
 		<annotation cp="⏪" type="tts" draft="contributed">fast-reverse button</annotation>
-		<annotation cp="⚧">trans | transgender</annotation>
+		<annotation cp="⚧">trans | transgender | transgender symbol</annotation>
 		<annotation cp="✖">× | cancel | multiplication | multiply | sign | x</annotation>
 		<annotation cp="➕">+ | math | maths | plus | sign</annotation>
 		<annotation cp="➖">- | − | math | maths | minus | sign</annotation>
-		<annotation cp="➗">division | heavy division sign | math | maths</annotation>
+		<annotation cp="➗">÷ | divide | division | heavy division sign | math | maths</annotation>
 		<annotation cp="✅">✓ | button | mark | tick</annotation>
 		<annotation cp="✅" type="tts">tick button</annotation>
 		<annotation cp="☑">✓ | box | tick | tick box with tick</annotation>
@@ -381,6 +535,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳‍⚧">flag | light blue | pink | trans | transgender | white</annotation>
 		<annotation cp="£">currency | EGP | GBP | pound | quid | sterling</annotation>
 		<annotation cp="₽">currency | rouble | ruble</annotation>
+		<annotation cp="₽" type="tts">rouble</annotation>
 		<annotation cp="µ">measure | micro sign | mu</annotation>
 		<annotation cp="µ" type="tts">↑↑↑</annotation>
 	</annotations>

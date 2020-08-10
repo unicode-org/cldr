@@ -900,7 +900,7 @@ const cldrSurveyTable = (function() {
 			codeStr = codeStr + " (optional)";
 		}
 		cell.appendChild(createChunk(codeStr));
-		if (tr.theTable.json.canModify) { // pointless if can't modify.
+		if (surveyUserPerms.userExist) {
 			cell.className = "d-code codecell";
 			if (!tr.forumDiv) {
 				tr.forumDiv = document.createElement("div");

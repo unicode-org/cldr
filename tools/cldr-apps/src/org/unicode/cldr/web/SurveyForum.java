@@ -263,6 +263,9 @@ public class SurveyForum {
      * @throws SurveyException
      */
     private boolean userCanUsePostType(User user, PostType postType, int replyTo) throws SurveyException {
+        if (SurveyMain.isPhaseReadonly()) {
+            return false;
+        }
         if (postType != PostType.CLOSE) {
             return true;
         }

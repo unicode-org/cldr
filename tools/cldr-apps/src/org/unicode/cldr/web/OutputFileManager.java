@@ -8,6 +8,7 @@
 package org.unicode.cldr.web;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -104,6 +105,13 @@ public class OutputFileManager {
     public static final String PXML_PREFIX = "/pxml/main";
     public static final String TXML_PREFIX = "/txml/main";
     public static final String RXML_PREFIX = "/rxml/main";
+    private static final FileFilter xmlFileFilter = new FileFilter() {
+        @Override
+        public boolean accept(File file) {
+            String s = file.getName().toLowerCase();
+            return s.endsWith(XML_SUFFIX) && !"en.xml".equals(s) && !"root.xml".equals(s);
+        }
+    };
 
     /**
      * Names of directories
@@ -205,6 +213,7 @@ public class OutputFileManager {
                     ofm.verifyAllFiles(out, vxmlDir);
                 }
             }
+            System.out.println("outputAndVerifyAllFiles finished");
         } catch (Exception e) {
             System.err.println("Exception in outputAndVerifyAllFiles: " + e);
             e.printStackTrace();
@@ -302,6 +311,12 @@ public class OutputFileManager {
 
             Set<CLDRLocale> sortSet = new TreeSet<>();
             sortSet.addAll(SurveyMain.getLocalesSet());
+            /*
+             * skip "en" and "root", since they should never be changed by the Survey Tool
+             */
+            sortSet.remove(CLDRLocale.getInstance("en"));
+            sortSet.remove(CLDRLocale.getInstance("root"));
+
             /*
              * If makeSeparateDir is false, only replace files if they need to be updated; use
              * a database Connection to help determine whether files need to be updated.
@@ -562,8 +577,10 @@ public class OutputFileManager {
 
         if (failureCount == 0) {
             out.write("<h1>✅ VXML verification succeeded</h1>\nOK<br>");
+            System.out.println("VXML verification succeeded");
         } else {
             out.write("<h1>❌ VXML verification failed!</h1>\nFailure count = " + failureCount + "<br>");
+            System.out.println("VXML verification failed! Failure count = " + failureCount);
         }
     }
 
@@ -582,7 +599,8 @@ public class OutputFileManager {
             String seedDirName = vxmlDir + "/" + DirNames.justSeed + "/" + m;
             File dirFile = new File(commonDirName);
             if (dirFile.exists()) {
-                for (String commonName : dirFile.list()) {
+                for (File file : dirFile.listFiles(xmlFileFilter)) {
+                    String commonName = file.getName();
                     String commonPathName = commonDirName + "/" + commonName;
                     String seedPathName = seedDirName + "/" + commonName;
                     File fSeed = new File(seedPathName);
@@ -620,7 +638,8 @@ public class OutputFileManager {
                 if (!dirFile.exists()) {
                     continue;
                 }
-                for (String childName : dirFile.list()) {
+                for (File file : dirFile.listFiles(xmlFileFilter)) {
+                    String childName = file.getName();
                     String childPathName = dirName + "/" + childName;
                     /*
                      * Get the parent from the child. Change "aa_NA.xml" to "aa.xml";
@@ -635,9 +654,8 @@ public class OutputFileManager {
                     }
                     CLDRLocale parLoc = childLoc.getParent();
                     if (parLoc != null) {
-                        // String parentName = fileName.replaceFirst("_[a-zA-Z]+\\.xml$", "\\.xml");
                         String parentName = parLoc.toString() + XML_SUFFIX;
-                        if (!childName.equals(parentName) && !"root.xml".equals(parentName)) {
+                        if (!childName.equals(parentName) && !"en.xml".equals(parentName) && !"root.xml".equals(parentName)) {
                             String parentPathName = dirName + "/" + parentName;
                             File fParent = new File(parentPathName);
                             if (!fParent.exists() && !otherParentExists(parentPathName, parentName, c)) {
@@ -706,13 +724,13 @@ public class OutputFileManager {
                 File vxmlDirFile = new File(vxmlDir + "/" + c + "/" + m);
                 File bxmlDirFile = new File(bxmlDir + "/" + c + "/" + m);
                 if (vxmlDirFile.exists()) {
-                    for (String name : vxmlDirFile.list()) {
-                        vxmlFiles.add(c + "/" + m  + "/" + name);
+                    for (File file : vxmlDirFile.listFiles(xmlFileFilter)) {
+                        vxmlFiles.add(c + "/" + m  + "/" + file.getName());
                     }
                 }
                 if (bxmlDirFile.exists()) {
-                    for (String name : bxmlDirFile.list()) {
-                        bxmlFiles.add(c + "/" + m  + "/" + name);
+                    for (File file : bxmlDirFile.listFiles(xmlFileFilter)) {
+                        bxmlFiles.add(c + "/" + m  + "/" + file.getName());
                     }
                 }
             }

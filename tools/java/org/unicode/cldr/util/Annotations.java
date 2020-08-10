@@ -465,10 +465,10 @@ public class Annotations {
                     annotations.addAll(stock.getKeywords());
                 } else if (otherSource != null) {
                     shortName = otherSource.transform(base);
-                    if (shortName == null) {
-                        return null;
-                    }
                 } else {
+                    return null;
+                }
+                if (shortName == null) {
                     return null;
                 }
             }

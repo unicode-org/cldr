@@ -1868,10 +1868,12 @@ public class TestUnits extends TestFmwk {
             {"de", "gigasecond-milligram-per-centimeter", "other", "nominative", "{0} Milligramm⋅Gigasekunden pro Zentimeter"},
             {"de", "gigasecond-milligram", "other", "nominative", "{0} Milligramm⋅Gigasekunden"},
 
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "nominative", "{0} britischer Dessertlöffel pro britischen Dessertlöffel"},
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "accusative", "{0} britischen Dessertlöffel pro britischen Dessertlöffel"},
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "dative", "{0} britischem Dessertlöffel pro britischen Dessertlöffel"},
-            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "genitive", "{0} britischen Dessertlöffels pro britischen Dessertlöffel"},
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "nominative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel"},
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "accusative", "{0} Imp. Dessertlöffel pro Imp. Dessertlöffel"},
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "other", "dative", "{0} Imp. Dessertlöffeln pro Imp. Dessertlöffel"},
+            {"de", "dessert-spoon-imperial-per-dessert-spoon-imperial", "one", "genitive", "{0} Imp. Dessertlöffels pro Imp. Dessertlöffel"},
+
+            // TODO: pick names (eg in Polish) that show differences in case.
             // {"de", "foebar-foobar-per-fiebar-faebar", "other", "genitive", null},
 
         };

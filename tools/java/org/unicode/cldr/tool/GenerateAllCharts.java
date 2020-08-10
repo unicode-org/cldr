@@ -22,6 +22,7 @@ public class GenerateAllCharts {
         //GenerateTransformCharts.main(args);
         ShowKeyboards.main(args);
         ChartDelta.main(args);
+        ChartDelta.main(args, true); // churn
         ChartCollation.main(args);
 
         VerifyCompactNumbers.main(args);

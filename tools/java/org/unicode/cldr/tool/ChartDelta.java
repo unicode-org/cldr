@@ -116,6 +116,10 @@ public class ChartDelta extends Chart {
     private final boolean highLevelOnly;
 
     public static void main(String[] args) {
+        main(args, false);
+    }
+
+    public static void main(String[] args, boolean highLevelOnly) {
         System.out.println("use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
         MyOptions.parse(args);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
@@ -130,7 +134,9 @@ public class ChartDelta extends Chart {
         }
         Level coverage = !MyOptions.coverageFilter.option.doesOccur() ? null : Level.fromString(MyOptions.coverageFilter.option.getValue());
         boolean verbose = MyOptions.verbose.option.doesOccur();
-        boolean highLevelOnly = MyOptions.highLevelOnly.option.doesOccur();
+        if (MyOptions.highLevelOnly.option.doesOccur()) {
+            highLevelOnly = true;
+        }
         String dirName = MyOptions.directory.option.getValue();
         if (highLevelOnly && DEFAULT_DELTA_DIR_NAME.equals(dirName)) {
             System.out.println("For highLevelOnly, changing directory from " + DEFAULT_DELTA_DIR_NAME

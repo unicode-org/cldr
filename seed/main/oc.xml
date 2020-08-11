@@ -343,7 +343,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FK" draft="unconfirmed">Isclas Falkland</territory>
 			<territory type="FK" alt="variant" draft="unconfirmed">Malvinas</territory>
 			<territory type="FR" draft="unconfirmed">França</territory>
-			<territory type="GA" draft="unconfirmed">Gabon</territory>
 			<territory type="GB" draft="unconfirmed">Reiaume Unit</territory>
 			<territory type="GB" alt="short" draft="unconfirmed">↑↑↑</territory>
 			<territory type="GD" draft="unconfirmed">Grenada</territory>
@@ -1270,7 +1269,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1" draft="unconfirmed">la setmana passada</relative>
 				<relative type="0" draft="unconfirmed">aquesta setmana</relative>
 				<relative type="1" draft="unconfirmed">la setmana que ven</relative>
-				<relativePeriod draft="unconfirmed">la setmana del</relativePeriod>
+				<relativePeriod draft="unconfirmed">la setmana del {0}</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName draft="unconfirmed">setm.</displayName>
@@ -1307,9 +1306,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="weekday">
 				<displayName draft="unconfirmed">jorn de la setmana</displayName>
 			</field>
-			<field type="sun">
+			<!-- <field type="sun">
 				<relative type="-1" draft="unconfirmed">Dimenge passat</relative>
 			</field>
+			 -->
 			<field type="dayperiod">
 				<displayName draft="unconfirmed">del matin/del vèspre</displayName>
 			</field>
@@ -1410,11 +1410,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard draft="unconfirmed">ora d’Africa de l’èst</standard>
-				</long>
-			</metazone>
-			<metazone type="Cape_Verde">
-				<long>
-					<generic draft="unconfirmed">ora de Cap Verd</generic>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">

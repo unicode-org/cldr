@@ -99,7 +99,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         CDATA, ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, NMTOKENS, ENUMERATED_TYPE
     }
 
-    static final Set<String> DRAFT_ON_NON_LEAF_ALLOWED = ImmutableSet.of("collation", "transform", "unitPreferenceData");
+    static final Set<String> DRAFT_ON_NON_LEAF_ALLOWED = ImmutableSet.of("collation", "transform", "unitPreferenceData", "rulesetGrouping");
 
     public static class Attribute implements Named {
         public final String name;

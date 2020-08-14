@@ -3089,7 +3089,6 @@ $Revision$
     <!--@MATCH:literal/NumberingSystemRules, OrdinalRules, SpelloutRules-->
 <!ATTLIST rulesetGrouping draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 
 <!ELEMENT ruleset ( alias | ( rbnfrule*, special* ) ) >
     <!--@ORDERED-->

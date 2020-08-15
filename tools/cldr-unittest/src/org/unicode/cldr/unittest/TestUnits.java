@@ -36,6 +36,8 @@ import org.unicode.cldr.test.CheckUnits;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
@@ -2006,6 +2008,64 @@ public class TestUnits extends TestFmwk {
                 if (!possibleErrors.isEmpty()) {
                     PathHeader ph = phf.fromPath(path);
                     logln(locale + "\t" + ph.getCode() + "\t" + possibleErrors.toString());
+                }
+            }
+        }
+    }
+
+    public void TestDerivedCase() {
+        // needs further work
+        if (logKnownIssue("CLDR-13920", "finish this as part of unit derivation work")) {
+            return;
+        }
+        for (String locale : Arrays.asList("pl", "ru")) {
+            CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+            GrammarInfo gi = SDI.getGrammarInfo(locale);
+            Collection<String> rawCases = gi.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+
+            PluralInfo plurals = SupplementalDataInfo.getInstance().getPlurals(PluralType.cardinal, locale);
+            Collection<Count> adjustedPlurals = plurals.getCounts();
+
+            Output<String> sourceCase = new Output<>();
+            Output<String> sourcePlural = new Output<>();
+
+            M4<String, String, String, Boolean> myInfo = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
+
+            int count = 0;
+            for (String longUnit : GrammarInfo.SPECIAL_TRANSLATION_UNITS) {
+                final String shortUnit = UnitConverter.getShortId(longUnit);
+                String gender = UnitPathType.gender.getTrans(cldrFile, "long", shortUnit, null, null, null, null);
+
+                for (String desiredCase : rawCases) {
+                    // gather some general information
+                    for (Count plural : adjustedPlurals) {
+                        String value = UnitPathType.unit.getTrans(cldrFile, "long", shortUnit, plural.toString(), desiredCase, gender, null);
+                        myInfo.put(gender, shortUnit + "\t" + value, plural.toString() + "+" + desiredCase, true);
+                    }
+
+                    // do actual test
+                    if (desiredCase.contentEquals("nominative")) {
+                        continue;
+                    }
+                    for (String desiredPlural : Arrays.asList("few", "other")) {
+
+                        String value = UnitPathType.unit.getTrans(cldrFile, "long", shortUnit, desiredPlural, desiredCase, gender, null);
+                        gi.getSourceCaseAndPlural(locale, gender, value, desiredCase, desiredPlural, sourceCase, sourcePlural);
+                        String sourceValue = UnitPathType.unit.getTrans(cldrFile, "long", shortUnit, sourcePlural.value, sourceCase.value, gender, null);
+                        assertEquals(count++ + ") " + locale
+                            + ",\tshort unit/gender: " + shortUnit
+                            + " / " + gender
+                            + ",\tdesired case/plural: " + desiredCase
+                            + " / " + desiredPlural
+                            + ",\tsource case/plural: " + sourceCase
+                            + " / " + sourcePlural
+                            , value, sourceValue);
+                    }
+                }
+            }
+            for (Entry<String, Map<String, Map<String, Boolean>>> m : myInfo) {
+                for (Entry<String, Map<String, Boolean>> t : m.getValue().entrySet()) {
+                    System.out.println(m.getKey() + "\t" + t.getKey() + "\t" + t.getValue().keySet());
                 }
             }
         }

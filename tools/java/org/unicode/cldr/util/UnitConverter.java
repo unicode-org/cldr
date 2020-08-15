@@ -37,7 +37,6 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.Freezable;
@@ -735,10 +734,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
             String result = null;
             String numerator = null;
             String timesPattern = null;
-            boolean before = false;
             String placeholderPattern = null;
             Output<Integer> deprefix = new Output<>();
+
+            PlaceholderLocation placeholderPosition = PlaceholderLocation.missing;
             Matcher placeholderMatcher = PLACEHOLDER.matcher("");
+            Output<String> unitPatternOut = new Output<>();
+
             PluralInfo pluralInfo = CLDRConfig.getInstance().getSupplementalDataInfo().getPlurals(resolvedFile.getLocaleID());
             PluralRules pluralRules = pluralInfo.getPluralRules();
             String singularPluralCategory = pluralRules.select(1d);
@@ -799,16 +801,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         return null; // unavailable
                     }
                     // we are set up for 2 kinds of placeholder patterns for units. {0}\s?stuff or stuff\s?{0}, or nothing(Eg Arabic)
-                    if (placeholderMatcher.reset(unitPattern).find()) {
-                        if (placeholderMatcher.start() == 0) {
-                            before = true;
-                            unitPattern = unitPattern.substring(placeholderMatcher.end());
-                        } else if (placeholderMatcher.end() == unitPattern.length()) {
-                            before = false;
-                            unitPattern = unitPattern.substring(0, placeholderMatcher.start());
-                        } else {
-                            return null;
-                        }
+                    placeholderPosition = extractUnit(placeholderMatcher, unitPattern, unitPatternOut);
+                    if (placeholderPosition == PlaceholderLocation.middle) {
+                        return null; // signal we can't handle, but shouldn't happen with well-formed data.
+                    } else if (placeholderPosition != PlaceholderLocation.missing) {
+                        unitPattern = unitPatternOut.value;
                         placeholderPattern = placeholderMatcher.group();
                     }
 
@@ -874,9 +871,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     }
                 }
             }
-            return placeholderPattern == null ? result
-                : before ? placeholderPattern + result
-                    : result + placeholderPattern;
+            return addPlaceholder(result, placeholderPattern, placeholderPosition);
         }
 
         public String getTimesPattern(LocaleStringProvider resolvedFile, String width) {  // TODO fix hack!
@@ -885,15 +880,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
             String timesPatternPath = "//ldml/units/unitLength[@type=\"" + width + "\"]/compoundUnit[@type=\"times\"]/compoundUnitPattern";
             return resolvedFile.getStringValue(timesPatternPath);
-        }
-
-        private String combineLowercasing(final ULocale locale, String width, String prefixPattern, String unitPattern) {
-            // catch special case, ZentiLiter
-            if (width.equals("long") && !prefixPattern.contains(" {") && !prefixPattern.contains(" {")) {
-                unitPattern = UCharacter.toLowerCase(locale, unitPattern);
-            }
-            unitPattern = MessageFormat.format(prefixPattern, unitPattern);
-            return unitPattern;
         }
 
         @Override
@@ -985,6 +971,49 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return gender;
         }
 
+    }
+
+    public enum PlaceholderLocation {before, middle, after, missing}
+
+    public static String addPlaceholder(String result, String placeholderPattern, PlaceholderLocation placeholderPosition) {
+        return placeholderPattern == null ? result
+            : placeholderPosition == PlaceholderLocation.before ? placeholderPattern + result
+                : result + placeholderPattern;
+    }
+
+    /**
+     * Returns the location of the placeholder. Call placeholderMatcher.group() after calling this to get the placeholder.
+     * @param placeholderMatcher
+     * @param unitPattern
+     * @param unitPatternOut
+     * @param before
+     * @return
+     */
+    public static PlaceholderLocation extractUnit(Matcher placeholderMatcher, String unitPattern, Output<String> unitPatternOut) {
+        if (placeholderMatcher.reset(unitPattern).find()) {
+            if (placeholderMatcher.start() == 0) {
+                unitPatternOut.value = unitPattern.substring(placeholderMatcher.end());
+                return PlaceholderLocation.before;
+            } else if (placeholderMatcher.end() == unitPattern.length()) {
+                unitPatternOut.value = unitPattern.substring(0, placeholderMatcher.start());
+                return PlaceholderLocation.after;
+            } else {
+                unitPatternOut.value = unitPattern;
+                return PlaceholderLocation.middle;
+            }
+        } else {
+            unitPatternOut.value = unitPattern;
+            return PlaceholderLocation.missing;
+        }
+    }
+
+    public static String combineLowercasing(final ULocale locale, String width, String prefixPattern, String unitPattern) {
+        // catch special case, ZentiLiter
+        if (width.equals("long") && !prefixPattern.contains(" {") && !prefixPattern.contains(" {")) {
+            unitPattern = UCharacter.toLowerCase(locale, unitPattern);
+        }
+        unitPattern = MessageFormat.format(prefixPattern, unitPattern);
+        return unitPattern;
     }
 
     public static class EntrySetComparator<K extends Comparable<K>,V> implements Comparator<Entry<K, V>> {

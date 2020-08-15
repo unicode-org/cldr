@@ -18,6 +18,7 @@ import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.Output;
 
 /**
  * Get the info from supplemental data, eg CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo("fr"); Use hasGrammarInfo() to see which locales have it.
@@ -294,4 +295,131 @@ public class GrammarInfo implements Freezable<GrammarInfo>{
     // compounds
     // "kilogram-per-cubic-meter", "kilometer-per-liter", "concentr-gram-per-mole", "speed-mile-per-second", "volumetricflow-cubic-foot-per-second",
     // "volumetricflow-cubic-meter-per-second", "gram-per-cubic-centimeter",
+
+
+    public void getSourceCaseAndPlural(String locale, String gender, String value, String desiredCase, String desiredPlural,
+        Output<String> sourceCase, Output<String> sourcePlural) {
+        switch(locale) {
+        case "pl":
+            getSourceCaseAndPluralPolish(gender, value, desiredCase, desiredPlural, sourceCase, sourcePlural);
+            break;
+        case "ru":
+            getSourceCaseAndPluralRussian(gender, value, desiredCase, desiredPlural, sourceCase, sourcePlural);
+            break;
+        default:
+            throw new UnsupportedOperationException(locale);
+        }
+    }
+
+    /** Russian rules for paucal (few) and fractional (other)
+     * <pre>
+     * plural = other
+     * Nominative ⇒ genitive singular
+     * Accusative + masculine ⇒ genitive singular
+     * All other combinations of gender + case ⇒ same-case, plural
+     *
+     * Other
+     * genitive singular
+     *
+     * Plurals:
+     *   one,
+     *   few (2~4),
+     *   many, = plural
+     *   other (where other is 0.0~1.5, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0)
+     * </pre>
+     */
+    private void getSourceCaseAndPluralRussian(String gender, String value,
+        String desiredCase, String desiredPlural,
+        Output<String> sourceCase, Output<String> sourcePlural) {
+        switch (desiredPlural) {
+        case "few":
+            // default source
+            sourceCase.value = desiredCase;
+            sourcePlural.value = "many";
+            // special cases
+            switch (desiredCase) {
+            case "nominative":
+                sourceCase.value = "genitive";
+                sourcePlural.value = "one";
+                break;
+            case "accusative":
+                switch (gender) {
+                case "masculine":
+                    sourceCase.value = "genitive";
+                    sourcePlural.value = "one";
+                    break;
+                }
+                break;
+            }
+        case "other":
+            sourceCase.value = "genitive";
+            sourcePlural.value = "one";
+            return;
+        }
+    }
+
+    /** Polish rules
+     * <pre>
+     * plural = few
+     *
+     * neuter + ending in -um + (nominative, accusative) ⇒ vocative plural
+     * Feminine||neuter + (nominative, accusative) ⇒ genitive singular
+     * Animate||inanimate + (nominative, accusative) ⇒ vocative plural
+     * Personal + nominative ⇒ vocative plural
+     * Personal + accusative ⇒ genitive plural
+     * All other combinations of gender + case ⇒ same-case, plural
+     *
+     * plural = other
+     * genitive singular
+     *
+     * Plurals:
+     *   one,
+     *   few (2~4),
+     *   many, = plural
+     *   other (where other is 0.0~1.5, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0)
+     * </pre>
+     */
+    private void getSourceCaseAndPluralPolish(String gender, String value,
+        String desiredCase, String desiredPlural,
+        Output<String> sourceCase, Output<String> sourcePlural) {
+        switch (desiredPlural) {
+        case "few":
+            // default
+            sourceCase.value = desiredCase;
+            sourcePlural.value = "many";
+            // special cases
+            boolean isNominative = false;
+            switch (desiredCase) {
+            case "nominative":
+                isNominative = true;
+            case "vocative":
+            case "accusative":
+                switch (gender) {
+                case "neuter":
+                    if (value.endsWith("um")) {
+                        sourceCase.value = "vocative";
+                        break;
+                    }
+                    // otherwise fall thorugh to feminine
+                case "feminine":
+                    sourceCase.value = "nominative";
+                    sourcePlural.value = "few";
+                    break;
+                case "animate":
+                case "inanimate":
+                    sourceCase.value = "vocative";
+                    break;
+                case "personal":
+                    sourceCase.value = isNominative ? "vocative" : "genitive";
+                    break;
+                }
+                break;
+            }
+            return;
+        case "other":
+            sourceCase.value = "genitive";
+            sourcePlural.value = "one";
+            return;
+        }
+    }
 }

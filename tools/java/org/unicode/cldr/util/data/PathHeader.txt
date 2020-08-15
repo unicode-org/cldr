@@ -347,6 +347,8 @@
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/%E[@type="%A"]                     ; Special ; Deprecated ; $1 ; $1-$2-$3-$4 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]                                    ; Special ; Deprecated ; $1 ; $1-$2 ; HIDE
 
+//ldml/metadata/casingData/casingItem[@type="%A"]; Special ; Suppress ; Casing ; $1 ; HIDE
+
 # Ultimate fallback (Error)
 //ldml/%S/(.*)                                                                              ; Special ; Unknown ; $1 ; $2 ; DEPRECATED
 //ldml/(.*)                                                                                 ; Special ; Unknown ; Unknown ; $2 ; DEPRECATED
@@ -396,6 +398,7 @@
 
 //supplementalData/transforms/transform[@source="%A"][@target="%A"][@direction="%A"]/%E			; Supplemental ; Transform ; &transform($3,$1,$2) ; $4 ; HIDE
 //supplementalData/transforms/transform[@source="%A"][@target="%A"][@variant="%A"][@direction="%A"]/%E			; Supplemental ; Transform ;  &transform($4,$1,$2,$3) ; $5 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"]			; Supplemental ; Transform ; &transform("?",$1,$2) ; ? ; HIDE
 
 //supplementalData/territoryInfo/territory[@type="%A"]/languagePopulation[@type="%A"]/_%E			; Supplemental ; LanguageInfo ; $1/$2 ; $3 ; HIDE
 //supplementalData/territoryInfo/territory[@type="%A"]/_%E			; Supplemental ; TerritoryInfo ; $1 ; $2 ; HIDE

@@ -248,7 +248,7 @@ public class ChartDelta extends Chart {
 
     private void showTotals() {
         try (PrintWriter pw = FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + "_summary.tsv")) {
-            pw.println("# percentages are of *new* total");
+            // pw.println("# percentages are of *new* total");
             pw.print("# dir\tfile");
             for (ChangeType item : ChangeType.values()) {
                 pw.print("\t" + (item == ChangeType.same ? "total" : item.toString()));
@@ -262,7 +262,7 @@ public class ChartDelta extends Chart {
             for (String s : badHeaders) {
                 pw.println(s);
             }
-            pw.println("# EOF");
+            // pw.println("# EOF");
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -465,8 +465,8 @@ public class ChartDelta extends Chart {
             writeDiffs(diffAll);
 
             writeCounter(tsvCountFile, "Count", counts);
-            tsvFile.println("# EOF");
-            tsvCountFile.println("# EOF");
+            //tsvFile.println("# EOF");
+            //tsvCountFile.println("# EOF");
         }
     }
 
@@ -979,15 +979,15 @@ public class ChartDelta extends Chart {
             tsvCountFile.println();
             writeCounter(tsvCountFile, "CountDeleted", countDeleted);
 
-            tsvFile.println("# EOF");
-            tsvCountFile.println("# EOF");
+            //tsvFile.println("# EOF");
+            //tsvCountFile.println("# EOF");
         }
     }
 
     private void writeCounter(PrintWriter tsvFile, String title, Counter<PathHeader> countDeleted) {
         tsvFile.append("# "
             + title
-            + "\tPathHeader\n\n");
+            + "\tSection\tPage\tSubhead\tCode\n\n");
         for (R2<Long, PathHeader> entry : countDeleted.getEntrySetSortedByCount(false, null)) {
             tsvFile.println(entry.get0() + "\t" + entry.get1());
         }

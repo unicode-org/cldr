@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -13,6 +15,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<annotations>
 		<annotation cp="{">ሓጹር | ዕኽሉል ሓጹር | ደገፈ | ጋልዊንግ</annotation>
 		<annotation cp="{" type="tts">ክፉት ዕኽሉል ሓጹር</annotation>
+		<annotation cp="🏻">ሕብሪ ቆርበት | ዓይነት 1-2</annotation>
+		<annotation cp="🏻" type="tts">ጻዕዳ ሕብሪ ቆርበት</annotation>
+		<annotation cp="🏼">ሕብሪ ቆርበት | ዓይነት 3</annotation>
+		<annotation cp="🏼" type="tts">ቀይሕ ሕብሪ ቆርበት</annotation>
+		<annotation cp="🏽">ሕብሪ ቆርበት | ዓይነት 4</annotation>
+		<annotation cp="🏽" type="tts">ከደራይ ሕብሪ ቆርበት</annotation>
+		<annotation cp="🏾">ሕብሪ ቆርበት | ዓይነት 5</annotation>
+		<annotation cp="🏾" type="tts">ጽልም ዝበለ ሕብሪ ቆርበት</annotation>
+		<annotation cp="🏿">ሕብሪ ቆርበት | ዓይነት 6</annotation>
+		<annotation cp="🏿" type="tts">ጸሊም ሕብሪ ቆርበት</annotation>
 		<annotation cp="_">መስመር | ታሕተዋይ ዳሽ | ዝተሰመረ | ዳሽ | ዳሽ ዝተገብረ</annotation>
 		<annotation cp="_" type="tts">ታሕተዋይ መስመር</annotation>
 		<annotation cp="-">ህይፈን | ዝጎደለ | ዳሽ</annotation>
@@ -191,8 +203,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="=" type="tts">ልክዕ</annotation>
 		<annotation cp="≠">ልክዕ ዘይኮነ | ማዕርነት</annotation>
 		<annotation cp="≠" type="tts">ልክዕ ዘይኮነ</annotation>
-		<annotation cp="&gt;">ላቔባ | ላቔባ ምዕጻው | ይዓቢ</annotation>
-		<annotation cp="&gt;" type="tts">ይዓቢ</annotation>
+		<annotation cp=">">ላቔባ | ላቔባ ምዕጻው | ይዓቢ</annotation>
+		<annotation cp=">" type="tts">ይዓቢ</annotation>
 		<annotation cp="¬">ኣሉታ | ኣይኮነን</annotation>
 		<annotation cp="¬" type="tts">ኣሉታ</annotation>
 		<annotation cp="|">vሕንጣጥ | ሕንጣጥ | መስመር | ሰፈር ወቕዒ | በትሪ | ቱቦ | ትኹል ሕንጻጽ | ወቅዒ | ጭማራ</annotation>
@@ -239,353 +251,2471 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">ጸፊሕ</annotation>
 		<annotation cp="♯">ሙዚቃ | በሊሕ | ዴሲስ | ዴስ | ጽሑፍ</annotation>
 		<annotation cp="♯" type="tts">በሊሕ</annotation>
-		<annotation cp="🏧">atm | ምልክት ATM | ቅልጡፍ | ባንክ | ተሓዚ ገንዘብ</annotation>
+		<annotation cp="😀">ገጽ | ክምስታ</annotation>
+		<annotation cp="😀" type="tts">ክምስ ዝበለ ገጽ</annotation>
+		<annotation cp="😃">ገጽ | ኣፍ | ክፈት | ፍሽኽታ</annotation>
+		<annotation cp="😃" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ክፉት ኣፍ</annotation>
+		<annotation cp="😄">ዓይኒ | ገጽ | ኣፍ | ክፈት | ፍሽኽታ</annotation>
+		<annotation cp="😄" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ክፉት ኣፉን ፍሽክታ ዘለዎም የዒንቲን</annotation>
+		<annotation cp="😁">ዓይኒ | ገጽ | ኣፍ | ክፉት | ፍሽኽታ</annotation>
+		<annotation cp="😁" type="tts">ዝተገየጸ ገጽ ምስ ክምስ ዝበለ የዕንቲ</annotation>
+		<annotation cp="😆">ገጽ | ሰሓቕ | ኣፍ | ክፉት | ዕጉብ | ፍሽኽታ</annotation>
+		<annotation cp="😆" type="tts">ፍሹኽ ገጽ ምስ ክፉት ኣፉን ዕሙት የዒንቱን</annotation>
+		<annotation cp="😅">ዛሕሊ | ገጽ | ክፉት | ፍሽኽታ | ረሃጽ</annotation>
+		<annotation cp="😅" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ክፉት ኣፉን ዝሑል ረሃጽን</annotation>
+		<annotation cp="🤣">ባይታ | ስሓቕ | ምንክብላል | ገጽ</annotation>
+		<annotation cp="🤣" type="tts">ብስሓቕ ዝኣክል ኣብ መሬት ምንክብላል</annotation>
+		<annotation cp="😂">ገጽ | ሓጎስ | ስሓቕ | ንብዓት</annotation>
+		<annotation cp="😂" type="tts">ናይ ሓጎስ ንብዓት ዘለዎ ገጽ</annotation>
+		<annotation cp="🙂">ገጽ | ፍሽኽታ</annotation>
+		<annotation cp="🙂" type="tts">ቁሩብ ፍሽኽ ዝበለ ገጽ</annotation>
+		<annotation cp="🙃">ገጽ | ግልቡጥ</annotation>
+		<annotation cp="🙃" type="tts">ግልቡጥ ገጽ</annotation>
+		<annotation cp="😉">ገጽ | ዓይኒ ምጽቃጥ</annotation>
+		<annotation cp="😉" type="tts">ዓይኒ ዝጸቅጥ ዘሎ ገጽ</annotation>
+		<annotation cp="😊">ሓፋር | ዓይኒ | ገጽ ፍሽኽታ</annotation>
+		<annotation cp="😊" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ፍሽኽታ ዘለዎም የዕንት</annotation>
+		<annotation cp="😇">መልኣኽ | ገጽ | ጽውጽዋይ | ባህጊ | ኣኽሊል | ንጹህ | ፍሸኽታ</annotation>
+		<annotation cp="😇" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ሃሎ</annotation>
+		<annotation cp="😍">ዓይኒ | ገጽ | ፍቕሪ | ፍሽኽታ</annotation>
+		<annotation cp="😍" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ቅርጺ ልቢ የዕንቲ</annotation>
+		<annotation cp="🤩">ፍሽኽታ | ገጽ | ኮኾብ | ዓይኒ</annotation>
+		<annotation cp="🤩" type="tts">ዘብረቕርቕ ብርሃን ዘለዎ ኮኾብ</annotation>
+		<annotation cp="😘">ገጽ | ምስዓም</annotation>
+		<annotation cp="😘" type="tts">ናይ ምፍናው ምስዓም</annotation>
+		<annotation cp="😗">ገጽ | ምስዓም</annotation>
+		<annotation cp="😗" type="tts">ዝስዕም ዘሎ ገጽ</annotation>
+		<annotation cp="☺">ገጽ | ተነዲፉ | ተዛንዩ | ፍሽኽታ</annotation>
+		<annotation cp="☺" type="tts">ፍሹኽ ገጽ</annotation>
+		<annotation cp="😚">ዕጹው | ዓይኒ | ገጽ | ምስዓም</annotation>
+		<annotation cp="😚" type="tts">ዓይና ዓሚታ እትስዕም ዘላ ገጽ</annotation>
+		<annotation cp="😙">ዓይኒ | ገጽ | ምስዓም | ፍሽኽታ</annotation>
+		<annotation cp="😙" type="tts">ምስ ፍሽኽታ ዘለዎ የዕንቲ እትስዕም ዘላ ገጽ</annotation>
+		<annotation cp="😋">ምቑር | ገጽ | ዝሃረፈ | ፍሽኽታ | እም | ጥዑም</annotation>
+		<annotation cp="😋" type="tts">ብምቑር መግቢ ዝሃረፈ ገጽ</annotation>
+		<annotation cp="😛">ገጽ | መልሓስ</annotation>
+		<annotation cp="😛" type="tts">መልሓሱ ዘውጽአ ገጽ</annotation>
+		<annotation cp="😜">ዓይኒ | ገጽ | ዋዛ | መልሓስ | ዓይኒ ምጽቃጥ</annotation>
+		<annotation cp="😜" type="tts">ዓይኑ ዝጸቐጠን መልሓሱ ዘውጽአን ገጽ</annotation>
+		<annotation cp="🤪">ገዚፍ | ንእሽቶ | ዓይኒ</annotation>
+		<annotation cp="🤪" type="tts">ገጽ ጽሉል</annotation>
+		<annotation cp="😝">ዓይኒ | ገጽ | ኣሰምባዲ | መቐረት | መልሓስ</annotation>
+		<annotation cp="😝" type="tts">ዓይኑ ዝዓመተን መልሓሱ ዘውጽአን ገጽ</annotation>
+		<annotation cp="🤑">ገጽ | ገንዘብ | ኣፍ</annotation>
+		<annotation cp="🤑" type="tts">ናይ ገንዘብ ኣፍ ገጽ</annotation>
+		<annotation cp="🤗">ገጽ | ሓቆፈ | ዝሓቆፍ ዘሎ</annotation>
+		<annotation cp="🤗" type="tts">ዝሓቆፍ ዘሎ ገጽ</annotation>
+		<annotation cp="🤭">ናይ ምስምባድ ስምዒት ዘለዎ ቃል ( ኡፕስ)</annotation>
+		<annotation cp="🤭" type="tts">ኣፉ ብኢዱ ዝኸደነ ገጽ</annotation>
+		<annotation cp="🤫">ጸጥ በል | ርጒእ</annotation>
+		<annotation cp="🤫" type="tts">ገጽ ብርሃን ጸሓይ</annotation>
+		<annotation cp="🤔">ገጽ | ሓሳብ ዝንበቦ</annotation>
+		<annotation cp="🤔" type="tts">ሓሳብ ዝንበቦ ገጽ</annotation>
+		<annotation cp="🤐">ገጽ | ኣፍ | ዚፐር</annotation>
+		<annotation cp="🤐" type="tts">ዝሓዘነ ገጽ</annotation>
+		<annotation cp="🤨">ምጥርጣር | ዘይምእማን</annotation>
+		<annotation cp="🤨" type="tts">ቅርንብ ዓይኑ ጠጠው ዝበለ ገጽ</annotation>
+		<annotation cp="😐">ማእዳድ | ገጽ | ስምዒት ዘየርእይ ዕጹው ኣፍ</annotation>
+		<annotation cp="😐" type="tts">ስምዒት ዘየርእይ ዕጹው ኣፍ</annotation>
+		<annotation cp="😑">ውቃበ ዘይብሉ | ገጽ | ፈዛዝ | ስምዒት ዘየርእይ</annotation>
+		<annotation cp="😑" type="tts">ውቃበ ዘይብሉ ገጽ</annotation>
+		<annotation cp="😶">ገጽ | ኣፍ | ርጒእ | ጸጥ ዝበለ</annotation>
+		<annotation cp="😶" type="tts">ኣፍ ዘይብሉ ገጽ</annotation>
+		<annotation cp="😏">ገጽ | ቀብዛር</annotation>
+		<annotation cp="😏" type="tts">ቀብዛር ገጽ</annotation>
+		<annotation cp="😒">ገጽ | ዘይተገረመ | ዘይሕጉስ</annotation>
+		<annotation cp="😒" type="tts">ዘይተገረመ ገጽ</annotation>
+		<annotation cp="🙄">የዕንቲ | ገጽ | ዝዞሩ</annotation>
+		<annotation cp="🙄" type="tts">ዝዞሩ የዒንቲ ዘለውዎ ገጽ</annotation>
+		<annotation cp="😬">ገጽ | ጽውግ</annotation>
+		<annotation cp="😬" type="tts">ዝተጸወገ ገጽ</annotation>
+		<annotation cp="🤥">ገጽ | ሓሶት | ፒኖክዮ</annotation>
+		<annotation cp="🤥" type="tts">ሓሳዊ ገጽ</annotation>
+		<annotation cp="😌">ገጽ | ዝተጸናንዐ</annotation>
+		<annotation cp="😌" type="tts">ዝተጸናንዐ ገጽ</annotation>
+		<annotation cp="😔">ሕዙን | ገጽ | ዝተከዘ</annotation>
+		<annotation cp="😔" type="tts">ዝተከዘ ገጽ</annotation>
+		<annotation cp="😪">ገጽ | ድቃስ</annotation>
+		<annotation cp="😪" type="tts">ድቁስ ገጽ</annotation>
+		<annotation cp="🤤">ዝልዝይ ዘሎ ገጽ</annotation>
+		<annotation cp="🤤" type="tts">ዝልዝይ ዘሎ ገጽ</annotation>
+		<annotation cp="😴">ገጽ | ድቃስ | ዝዝዝ</annotation>
+		<annotation cp="😴" type="tts">ዝደቀሰ ገጽ</annotation>
+		<annotation cp="😷">ዝሑል | ሓኪም | ገጽ | መሸፈኒ | ሕክምና | ሕሙም</annotation>
+		<annotation cp="😷" type="tts">ናይ ሕክምና መሸፈኒ ዝገበረ ገጽ</annotation>
+		<annotation cp="🤒">ገጽ | ዝሓመመ | ሕሙም | ተርሞመቴር</annotation>
+		<annotation cp="🤒" type="tts">ተርሞመቴር ዘለዎ ገጽ</annotation>
+		<annotation cp="🤕">ፋሻ | ገጽ | ጉድኣት | ወጽዓ</annotation>
+		<annotation cp="🤕" type="tts">ኣብ ርእሲኡ ፋሻ ዝገበረ ገጽ</annotation>
+		<annotation cp="🤢">ገጽ | ከምልስ ዝደለየ | ኣምለሰ</annotation>
+		<annotation cp="🤢" type="tts">ከምልስ ዝደለየ ገጽ</annotation>
+		<annotation cp="🤮">ተምላስ | ሕማም</annotation>
+		<annotation cp="🤮" type="tts">ገጽ እንዳምለሰ</annotation>
+		<annotation cp="🤧">ገጽ | ይምሓር | ምሕንጣስ</annotation>
+		<annotation cp="🤧" type="tts">ዝህንጥስ ዘሎ ገጽ</annotation>
+		<annotation cp="😵">ፈዛዝ ገጽ</annotation>
+		<annotation cp="😵" type="tts">ፈዛዝ ገጽ</annotation>
+		<annotation cp="🤯">ስምባደ</annotation>
+		<annotation cp="🤯" type="tts">ዝፍንጀር ርእሲ</annotation>
+		<annotation cp="🤠">ተወጣሒ ፈረስ | ገጽ | ቆብዕ | ተወጣሒት ፈረስ</annotation>
+		<annotation cp="🤠" type="tts">ገጽ ቆብዕ ተወጣሒ ፈረስ</annotation>
+		<annotation cp="😎">ብሩህ | ጽቡቕ ሓሳብ | ዓይኒ | ሽፋን ዓይኒ | ገጽ | መንጽር | ፍሽኽታ | ጸሓይ | መነጽር ጸሓይ</annotation>
+		<annotation cp="😎" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ናይ ጸሓይ መነጽር</annotation>
+		<annotation cp="🤓">ገጽ | ዘመናዊ ዘይኮነ | ዘይ ምልኩዕ</annotation>
+		<annotation cp="🤓" type="tts">ዘይ ምልኩዕ ገጽ</annotation>
+		<annotation cp="🧐">ሕጽረት ኣየር</annotation>
+		<annotation cp="🧐" type="tts">ሓንቲ ዓይኑ መነጽር ዝወደየ ገጽ</annotation>
+		<annotation cp="😕">ዘይተረድኦ ገጽ</annotation>
+		<annotation cp="😕" type="tts">ዘይተረድኦ ገጽ</annotation>
+		<annotation cp="😟">ገጽ | ዝተጨነቐ</annotation>
+		<annotation cp="😟" type="tts">ዝተጨነቐ ገጽ</annotation>
+		<annotation cp="🙁">ገጽ | ጸዋግ</annotation>
+		<annotation cp="🙁" type="tts">ቁሩብ ጽውግ ዝበለ ገጽ</annotation>
+		<annotation cp="☹">ገጽ | ጸዋግ</annotation>
+		<annotation cp="☹" type="tts">ጸዋግ ገጽ</annotation>
+		<annotation cp="😮">ገጽ | ኣፍ | ክፈት | ድንጋጸ</annotation>
+		<annotation cp="😮" type="tts">ኣፉ ዝኸፈተ ገጽ</annotation>
+		<annotation cp="😯">ገጽ | ሕዱእ | ዝተደነቐ | ተገረመ</annotation>
+		<annotation cp="😯" type="tts">ሕዱእ ገጽ</annotation>
+		<annotation cp="😲">ዝተገረመ | ገጽ | ዝሰንበደ | ብሓፈሻ</annotation>
+		<annotation cp="😲" type="tts">ዝተገረመ ገጽ</annotation>
+		<annotation cp="😳">ዝደንዘዘ | ገጽ | ዝተደናበረ</annotation>
+		<annotation cp="😳" type="tts">ዝተደናበረ ገጽ</annotation>
+		<annotation cp="😦">ገጽ | ጸዋግ | ኣፍ | ክፈት</annotation>
+		<annotation cp="😦" type="tts">ኣፉ ዝኸፈተ ዝተጸወገ ገጽ</annotation>
+		<annotation cp="😧">ቃንዛ ዝንበቦ ገጽ</annotation>
+		<annotation cp="😧" type="tts">ቃንዛ ዝንበቦ ገጽ</annotation>
+		<annotation cp="😨">ገጽ | ፍርሒ | ፍርሒ ዝመልኦ | ዝሰምበደ</annotation>
+		<annotation cp="😨" type="tts">ፍርሒ ዝመልኦ ገጽ</annotation>
+		<annotation cp="😰">ሰመያዊ | ዛሕሊ | ገጽ | ኣፍ | ቅልጡፍ | ረሃጽ</annotation>
+		<annotation cp="😰" type="tts">ገጽ ምስ ክፉት ኣፉን ዝሑል ረሃጽን</annotation>
+		<annotation cp="😥">ዝሓረቐ | ገጽ | ዝተጸናንዐ | ዊው</annotation>
+		<annotation cp="😥" type="tts">ሕርቃኑ ዘየርኢ ገጽ</annotation>
+		<annotation cp="😢">ንብዓት | ገጽ | ሕዙን</annotation>
+		<annotation cp="😢" type="tts">ንብዓት ዝንበቦ ገጽ</annotation>
+		<annotation cp="😭">ንብዓት | ገጽ | ሕዙን | ፊቕ ፊቕ በለ</annotation>
+		<annotation cp="😭" type="tts">ብዓውታ ዘልቅስ ዘሎ ገጽ</annotation>
+		<annotation cp="😱">ገጽ | ፍርሒ | ፍርሓት ዝመልኦ | ድምጺ ክሳብ ዝስማዕ ምብላዕ | ስምባደ | ኣውያት</annotation>
+		<annotation cp="😱" type="tts">ብፍርሒ ዝውጭጭ ዘሎ ገጽ</annotation>
+		<annotation cp="😖">ናይ ጣዕሳ/ጽልኣት ገጽ</annotation>
+		<annotation cp="😖" type="tts">ናይ ጣዕሳ/ጽልኣት ገጽ</annotation>
+		<annotation cp="😣">ገጽ | ጸንዐ</annotation>
+		<annotation cp="😣" type="tts">ጽንዓት ዘርኢ ገጽ</annotation>
+		<annotation cp="😞">ቁጡዕ ገጽ</annotation>
+		<annotation cp="😞" type="tts">ቁጡዕ ገጽ</annotation>
+		<annotation cp="😓">ዝሑል | ገጽ | ረሃጽ</annotation>
+		<annotation cp="😓" type="tts">ዝሑል ርሃጽ ዘለዎ ገጽ</annotation>
+		<annotation cp="😩">ገጽ | ዝደኸመ | ስምባደ ዝንበቦ</annotation>
+		<annotation cp="😩" type="tts">ስምባደ ዝንበቦ ገጽ</annotation>
+		<annotation cp="😫">ገጽ | ዝደኸመ</annotation>
+		<annotation cp="😫" type="tts">ዝደኸመ ገጽ</annotation>
+		<annotation cp="😤">ገጽ | ዕውት | ዐውት</annotation>
+		<annotation cp="😤" type="tts">ካብ ኣፍንጫ ሃፋ ዘውጽእ ዘሎ ገጽ</annotation>
+		<annotation cp="😡">ዝሓረቐ | ገጽ | ጽሉል | ዝኾረየ | ቁጡዕ | ቀይሕ</annotation>
+		<annotation cp="😡" type="tts">ዘኾረየ ገጽ</annotation>
+		<annotation cp="😠">ዝሓረቐ | ገጽ | ጽሉል</annotation>
+		<annotation cp="😠" type="tts">ዝሓረቐ ገጽ</annotation>
+		<annotation cp="🤬">ምጽራፍ</annotation>
+		<annotation cp="🤬" type="tts">ኣብ አፉ ምልክታት ዘለዎ ገጽ</annotation>
+		<annotation cp="😈">ገጽ | ጽውጽዋይ | ባህጊ | ኣቕርንቲ | ፍሽኽታ</annotation>
+		<annotation cp="😈" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ኣቕርንቲ</annotation>
+		<annotation cp="👿">ጋኔን | ሰይጣን | ስርኤል | ገጽ | ጽውጽዋይ | ባህጊ</annotation>
+		<annotation cp="👿" type="tts">ዝሓረቐ ገጽ ምስ አቕርንቱ</annotation>
+		<annotation cp="💀">ሞት | ገጽ | ጽውጽዋይ | ሕንጉጉ</annotation>
+		<annotation cp="💀" type="tts">ሽክና ርእሲ</annotation>
+		<annotation cp="☠">ዝተመሳቐሉ ኣእዕጽምቲ | ሞት | ገጽ | ሕንጉጉ | ሽክና</annotation>
+		<annotation cp="☠" type="tts">ሸክናን ዝተመሳቐሉ ኣእዕጽምቲን</annotation>
+		<annotation cp="💩">መስሓቕ | ቀልቀል | ገጽ | ሕንጉጉ | ሓርኢ | ሽንቲ ደገ</annotation>
+		<annotation cp="💩" type="tts">ኩምራ ኣሕርእቲ</annotation>
+		<annotation cp="🤡">ዓሻ ግን ዘስሕቕ</annotation>
+		<annotation cp="🤡" type="tts">ዓሻ ግን ዘስሕቕ</annotation>
+		<annotation cp="👹">ፍጥረት | ገጽ | ጽውጽዋይ | ባህጊ | ሕንጉጉ</annotation>
+		<annotation cp="👹" type="tts">ጭራቅ</annotation>
+		<annotation cp="👺">ፍጥረት | ገጽ | ጽውጽዋይ | ባህጊ | ሕንጉጉ</annotation>
+		<annotation cp="👺" type="tts">ጭራቕ</annotation>
+		<annotation cp="👻">ፍጥረት | ገጽ | ጽውጽዋይ | ባህጊ | ሕንጉጉ</annotation>
+		<annotation cp="👻" type="tts">መልኣከ ሞት</annotation>
+		<annotation cp="👽">ፍጥረት | ካብ ዓለም ወጻኢ ዝመጽአ | ገጽ | ጽውጽዋይ | ባህጊ | ሕንጉጉ | ዩፎ</annotation>
+		<annotation cp="👽" type="tts">ናይ ወጻኢ ዜጋ</annotation>
+		<annotation cp="👾">ናይ ወጻኢ ዜጋ | ፍጥረት | ካብ ዓለም ወጻኢ ዝመጽአ | ገጽ | ጽውጽዋይ | ባህጊ | ሕንጉጉ | ዩፎ</annotation>
+		<annotation cp="👾" type="tts">ባዕዲ ምትሃት ጭራቕ</annotation>
+		<annotation cp="🤖">ገጽ | ሕንጉጉ | ሮቦት</annotation>
+		<annotation cp="🤖" type="tts">ገጽ ሮቦት</annotation>
+		<annotation cp="😺">ድሙ | ገጽ | ኣፍ | ክፉት | ፍሽኽታ</annotation>
+		<annotation cp="😺" type="tts">ፍሽኽታ ዘለዎ ገጽ ድሙ ምስ ክፉት ኣፍ</annotation>
+		<annotation cp="😸">ድሙ | ዓይኒ | ገጽ | ፍሽኽታ</annotation>
+		<annotation cp="😸" type="tts">ስሓቕቲ ዝኾና ዐዒንቲ ዘለዋ ክምስ ዝበለ ገጽ ድሙ</annotation>
+		<annotation cp="😹">ድሙ | ገጽ | ሓጎስ | ንብዓት</annotation>
+		<annotation cp="😹" type="tts">ገጽ ድሙ ምስ ናይ ሓጎስ ንብዓት</annotation>
+		<annotation cp="😻">ድሙ | ዓይኒ | ገጽ | ፍቕሪ | ፍሽኽታ</annotation>
+		<annotation cp="😻" type="tts">ፍሽኽታ ዘለዎ ገጽ ምስ ክፉት ኣፍ ቅርጺ ልቢ ዘለዎም የዕንቲ</annotation>
+		<annotation cp="😼">ድሙ | ገጽ | ተቓራኒ | ፍሽኽታ | ሕዙን</annotation>
+		<annotation cp="😼" type="tts">ገጽ ድሙ ጉሁይ ግን ፍሽኽ ዝበለ</annotation>
+		<annotation cp="😽">ድሙ | ዓይኒ | ገጽ | ምስዓም</annotation>
+		<annotation cp="😽" type="tts">ዓይና ዓሚታ እትስዕም ዘላ ገጽ ድሙ</annotation>
+		<annotation cp="🙀">ድሙ | ገጽ | ኦህ | ዘይተሓስበ | ድኻም</annotation>
+		<annotation cp="🙀" type="tts">ስምባደ ዝንበቦ ገጽ ድሙ</annotation>
+		<annotation cp="😿">ድሙ | ብኽያት | ገጽ | ጓሂ | ንብዓት</annotation>
+		<annotation cp="😿" type="tts">ንብዓት ዝንበቦ ገጽ ድሙ</annotation>
+		<annotation cp="😾">ድሙ | ገጽ | ዝኾረየ</annotation>
+		<annotation cp="😾" type="tts">ዝኾረየ ገጽ ድሙ</annotation>
+		<annotation cp="🙈">ርኹስ | ገጽ | ነውሪ | ዘወዛውዝ | ህበይ | ኣይፋል | ክልኩል | ምርኣይ</annotation>
+		<annotation cp="🙈" type="tts">ሸይጣን ህበይ የለን ርአ</annotation>
+		<annotation cp="🙉">ርኹስ | ገጽ | ነውሪ | ዘወዛውዝ | ምስማዕ | ህበይ | ኣይፋል | ክልኩል</annotation>
+		<annotation cp="🙉" type="tts">ሰይጣናዊ ህበይ የለን ስማዕ</annotation>
+		<annotation cp="🙊">ርኹስ | ገጽ | ነውሪ | ዘወዛውዝ | ህበይ | ኣይፋል | ክልኩል | ምዝራብ</annotation>
+		<annotation cp="🙊" type="tts">ተዛረብ ሸይጣናዊ ህበይ የለን</annotation>
+		<annotation cp="💋">ምስዓም | ከናፍር</annotation>
+		<annotation cp="💋" type="tts">ምልክት ምስዓም</annotation>
+		<annotation cp="💌">ልቢ | ደብዳቤ | ፍቕሪ | መልእኽቲ</annotation>
+		<annotation cp="💌" type="tts">ፍቕራዊ ደብዳበ</annotation>
+		<annotation cp="💘">ኲናት | ኩፒዶ</annotation>
+		<annotation cp="💘" type="tts">ልቢ ምስ ኲናት</annotation>
+		<annotation cp="💝">ሪበን | ናይ ፍቑራት</annotation>
+		<annotation cp="💝" type="tts">ልቢ ምስ ሪበን</annotation>
+		<annotation cp="💖">ሕጉስ | ዘብለጭልጭ</annotation>
+		<annotation cp="💖" type="tts">ዘብለጭልጭ ልቢ</annotation>
+		<annotation cp="💗">ሕጉስ | እንዳ ዓበየ ዝኸይድ | ህርመት | ሓራቕ</annotation>
+		<annotation cp="💗" type="tts">እንዳ ዓበየ ዝኸይድ ልቢ</annotation>
+		<annotation cp="💓">ህርመት | ህርመት ልቢ | ትርግታ</annotation>
+		<annotation cp="💓" type="tts">ህርመት ልቢ</annotation>
+		<annotation cp="💞">ዝዘውር ዘሎ</annotation>
+		<annotation cp="💞" type="tts">ዝዞሩ ዘለው ልብታት</annotation>
+		<annotation cp="💕">ፍቕሪ</annotation>
+		<annotation cp="💕" type="tts">ክልተ ልብታት</annotation>
+		<annotation cp="💟">ልቢ</annotation>
+		<annotation cp="💟" type="tts">ጌጽ ልቢ</annotation>
+		<annotation cp="❣">ስምዒታዊነት | ነጥቢ | ስርዓተ ነጥቢ</annotation>
+		<annotation cp="❣" type="tts">ብምሉእ ልበይ እድግፎ እየ ንምባል</annotation>
+		<annotation cp="💔">ስበር | ዝተሰብረ</annotation>
+		<annotation cp="💔" type="tts">ዝተሰብረ ልቢ</annotation>
+		<annotation cp="❤">ልቢ</annotation>
+		<annotation cp="❤" type="tts">ቀይሕ ልቢ</annotation>
+		<annotation cp="🧡">ኣራንሺ</annotation>
+		<annotation cp="🧡" type="tts">ልቢ ኣራንሺ</annotation>
+		<annotation cp="💛">ቢጫ</annotation>
+		<annotation cp="💛" type="tts">ቢጫ ልቢ</annotation>
+		<annotation cp="💚">ቀጠልያ</annotation>
+		<annotation cp="💚" type="tts">ቀጠልያ ልቢ</annotation>
+		<annotation cp="💙">ሰማያዊ</annotation>
+		<annotation cp="💙" type="tts">ሰማያዊ ልቢ</annotation>
+		<annotation cp="💜">ሊላ</annotation>
+		<annotation cp="💜" type="tts">ሊላ ዝሕብሩ ልቢ</annotation>
+		<annotation cp="🖤">ጸሊም | ሰይጣን | ርኹስ</annotation>
+		<annotation cp="🖤" type="tts">ጸሊም ልቢ ዝሰማማዕ</annotation>
+		<annotation cp="💯">100 | ሙሉእ | ሚእቲ | ነጥቢ</annotation>
+		<annotation cp="💯" type="tts">ሚእቲ ነጥብታት</annotation>
+		<annotation cp="💢">ሕርቃን | መስሓቕ | ጽሉል</annotation>
+		<annotation cp="💢" type="tts">ናይ ሕርቃን ኣርማ</annotation>
+		<annotation cp="💥">ተተኳሲ | መስሓቕ</annotation>
+		<annotation cp="💥" type="tts">ድንቂ ዝኾነ ነገር</annotation>
+		<annotation cp="💫">መስሓቕ | ኮኾብ</annotation>
+		<annotation cp="💫" type="tts">ፈዛዝ</annotation>
+		<annotation cp="💦">መስሓቕ | ዝነጽግ | ረሃጽ</annotation>
+		<annotation cp="💦" type="tts">ነጠብጣብ ርሃጽ</annotation>
+		<annotation cp="💨">መስሓቕ | ዝጎይይ ዘሎ</annotation>
+		<annotation cp="💨" type="tts">ፍጥነት</annotation>
+		<annotation cp="🕳">ነኳል</annotation>
+		<annotation cp="🕳" type="tts">ነኳል</annotation>
+		<annotation cp="💣">መስሓቕ</annotation>
+		<annotation cp="💣" type="tts">ተተኳሲ</annotation>
+		<annotation cp="💬">ፍሕኛ | ዓፍራ | መስሓቕ | ዝርርብ | ዘረባ</annotation>
+		<annotation cp="💬" type="tts">ፍሕኛ ዝርርብ</annotation>
+		<annotation cp="👁‍🗨">ዓይኒ | ናይ ዘረባ ዓፍራ | ምስክርነት</annotation>
+		<annotation cp="👁‍🗨" type="tts">ዓይኒ ኣብ ናይ ዘረባ ዓፍራ</annotation>
+		<annotation cp="🗨">ዕላል | ዘረባ</annotation>
+		<annotation cp="🗨" type="tts">ጸጋማይ ናይ ጽሑፋዊ መግለጺ ዘረባ ዓፍራ</annotation>
+		<annotation cp="🗯">ሕርቃን | ፍሕኛ | ዓፍራ | ዕቡድ</annotation>
+		<annotation cp="🗯" type="tts">የማናይ ናይ ሕርቃን ዓፍራ</annotation>
+		<annotation cp="💭">ፍሕኛ | ዓፍራ | መስሓቕ | ሓሳብ</annotation>
+		<annotation cp="💭" type="tts">ናይ ሓሳብ ደበና</annotation>
+		<annotation cp="💤">መስሓቕ | ደቅስ</annotation>
+		<annotation cp="💤" type="tts">ዝዝዝ</annotation>
+		<annotation cp="👋">ኢድ | አንቀሳቅስ | ዝንቀሳቀስ</annotation>
+		<annotation cp="👋" type="tts">ዝንቀሳቐስ ኢድ</annotation>
+		<annotation cp="🤚">ናይ ድሕሪት ኢድ | ዝተላዕለ</annotation>
+		<annotation cp="🤚" type="tts">ኢድካ ምውጻእ</annotation>
+		<annotation cp="🖐">አጻብዕቲ | ኢድ | ተጋሕቲኑ</annotation>
+		<annotation cp="🖐" type="tts">ንላዕሊ ሓፍ ዝበለ ኢድ ምስ ዝተጋሕተኑ ኣጻብዕቲ</annotation>
+		<annotation cp="✋">ኢድ</annotation>
+		<annotation cp="✋" type="tts">ንላዕሊ ሓፍ ዝበለ ኢድ</annotation>
+		<annotation cp="🖖">ኣጻብዕ | ኢድ | ስፖክ | ቩልካን</annotation>
+		<annotation cp="🖖" type="tts">ሰላምታ ቩልካን</annotation>
+		<annotation cp="👌">ኢድ | ሕራይ</annotation>
+		<annotation cp="👌" type="tts">ሕራይ ብኢድ ምምልካት</annotation>
+		<annotation cp="✌">ኢድ | ቪ | ዓወት</annotation>
+		<annotation cp="✌" type="tts">ናይ ዓወት ኢድ</annotation>
+		<annotation cp="🤞">ዝተመሳቐለ | ኣጻብዕቲ | ኢድ | ዕድል</annotation>
+		<annotation cp="🤞" type="tts">ጽቡቕ ዕድል</annotation>
+		<annotation cp="🤟">የፍቅረካ እየ | ኢድ</annotation>
+		<annotation cp="🤟" type="tts">ናይ የፍረካ ምንቅስቃስ ኢድ</annotation>
+		<annotation cp="🤘">ኣጻብዕቲ | ኢድ | ኣቕርንቲ | ሕጉስ ሰላምታ</annotation>
+		<annotation cp="🤘" type="tts">ናይ ቀርኒ ምልክት</annotation>
+		<annotation cp="🤙">ጻውዒይ | ኢድ</annotation>
+		<annotation cp="🤙" type="tts">ኢድ ጸውዓኒ</annotation>
+		<annotation cp="👈">ጸሊም ኢድ | ኣጻብዕ | ኢድ | ኣመልካቲቶ | ምልክት | ላዕሊ</annotation>
+		<annotation cp="👈" type="tts">ጸጋም ዘመልክት ግልባጥ ኣሰራርዓ</annotation>
+		<annotation cp="👉">ጸሊም ኢድ | ኣጻብዕ | ኢድ | ኣመልካቲቶ | ምልክት | ላዕሊ</annotation>
+		<annotation cp="👉" type="tts">የማን ዘመልክት ግልባጥ ኣሰራርዓ</annotation>
+		<annotation cp="👆">ናይ ድሕሪት ኢድ | ኣጻብዕ | ኢድ | ኣመልካቲቶ | ምልክት | ላዕሊ</annotation>
+		<annotation cp="👆" type="tts">ላዕሊ ዘመልክት ግልባጥ ኣሰራርዓ</annotation>
+		<annotation cp="🖕">ኣጻብዕ | ኢድ</annotation>
+		<annotation cp="🖕" type="tts">ማእከል ማእከሊቶ</annotation>
+		<annotation cp="👇">ጸሊም ኢድ | ታሕቲ | ኣጻብዕ | ኢድ | ኣመልካቲቶ | ምልክት</annotation>
+		<annotation cp="👇" type="tts">ታሕቲ ዘመልክት ግልባጥ ኣሰራርዓ</annotation>
+		<annotation cp="☝">ኣጻብዕ | ኢድ | ኣመልካቲቶ | ምልክት | ላዕሊ</annotation>
+		<annotation cp="☝" type="tts">ኣመልካቲቶ ንላዕሊ የመልክት</annotation>
+		<annotation cp="👍">+1 | ኢድ | ዓባይ ዓባይቶ | ንላዕሊ</annotation>
+		<annotation cp="👍" type="tts">ዓባይ ዓባይቶ ንላዕሊ</annotation>
+		<annotation cp="👎">-1 | ታሕቲ | ኢድ | ዓባይ ዓባይቶ</annotation>
+		<annotation cp="👎" type="tts">ዓባይ ዓባይቶ ንታሕቲ</annotation>
+		<annotation cp="✊">ኣትሪሩ ሓዘ | ዕምኰ</annotation>
+		<annotation cp="✊" type="tts">ንላዕሊ ሓፍ ዝበለ ዕምኰ</annotation>
+		<annotation cp="👊">ኣትሪሩ ሓዘ | ዕምኰ</annotation>
+		<annotation cp="👊" type="tts">ናባኻ ተምርሕ ዕምኰ</annotation>
+		<annotation cp="🤛">ዕምኰ | ንጸጋም ወገን</annotation>
+		<annotation cp="🤛" type="tts">ናብ ጸጋም ዝጥምት ዕምኰ</annotation>
+		<annotation cp="🤜">ዕምኰ | ንየማናይ ወገን</annotation>
+		<annotation cp="🤜" type="tts">ናብ የማን ኣንፈት ዕምኰ</annotation>
+		<annotation cp="👏">ኣጣቅዕ | ኢድ</annotation>
+		<annotation cp="👏" type="tts">ዘጣቕዓ ዘለዋ ኣእዳው</annotation>
+		<annotation cp="🙌">ክብረ በዓል | ዘወዛውዝ | ኢድ | እሰይ | ዊጥ ምባል</annotation>
+		<annotation cp="🙌" type="tts">ንላዕሊ ሓፍ ዝበላ ኣእዳው</annotation>
+		<annotation cp="👐">ኢድ | ክፈት</annotation>
+		<annotation cp="👐" type="tts">ክፉታት ኣእዳው</annotation>
+		<annotation cp="🤲">ጸሎት</annotation>
+		<annotation cp="🤲" type="tts">ኣእዳው ሓቢረን ንላዕሊ</annotation>
+		<annotation cp="🤝">ሰላምታ ኢድ | ስምምዕ | ምርኻብ | ነነወ | ኢድ</annotation>
+		<annotation cp="🤝" type="tts">ሰላምታ ኢድ</annotation>
+		<annotation cp="🙏">ሕተት | ስገድ | ተዓጺፉ | ዘወዛውዝ | ኢድ | ብኽብረት | ጸሎት | የቀንየለይ</annotation>
+		<annotation cp="🙏" type="tts">ዝተዓጽፉ ኣእዳው</annotation>
+		<annotation cp="✍">ኢደ | ጽሓፍ</annotation>
+		<annotation cp="✍" type="tts">ናይ ኢድ ጽሕፈት</annotation>
+		<annotation cp="💅">ክንክን | ኮስሞቲክስ</annotation>
+		<annotation cp="💅" type="tts">ኣዝማልቶ</annotation>
+		<annotation cp="🤳">ገዛእ ርእስኻ ምስኣል | ካሜራ | ስልኪ</annotation>
+		<annotation cp="🤳" type="tts">ገዛእ ርእስኻ ምስኣል</annotation>
+		<annotation cp="💪">ቅልጽም | ፍቱሕ | ተዓጻጻፊ | ጭዋዳ</annotation>
+		<annotation cp="💪" type="tts">ተዓጺፉ ዝተወጠረ ቅልጽም</annotation>
+		<annotation cp="👂">ኣካል</annotation>
+		<annotation cp="👂" type="tts">እዝኒ</annotation>
+		<annotation cp="👃">ኣካል</annotation>
+		<annotation cp="👃" type="tts">ኣፍንጫ</annotation>
+		<annotation cp="🧠">መስተውዓሊ</annotation>
+		<annotation cp="🧠" type="tts">ሓንጎል</annotation>
+		<annotation cp="👀">ዓይኒ | ገጽ</annotation>
+		<annotation cp="👀" type="tts">የዕንቲ</annotation>
+		<annotation cp="👁">ኣካል</annotation>
+		<annotation cp="👁" type="tts">ዓይኒ</annotation>
+		<annotation cp="👅">ኣካል</annotation>
+		<annotation cp="👅" type="tts">መልሓስ</annotation>
+		<annotation cp="👄">ከናፍር</annotation>
+		<annotation cp="👄" type="tts">ኣፍ</annotation>
+		<annotation cp="👶">ህጻን | መንእሰይ</annotation>
+		<annotation cp="👶" type="tts">ህጻን</annotation>
+		<annotation cp="🧒">ክልተ ጾታ ዝውንን | መንእሰይ</annotation>
+		<annotation cp="🧒" type="tts">ቆልዓ</annotation>
+		<annotation cp="👦">ወዲ | መንእሰይ</annotation>
+		<annotation cp="👦" type="tts">ወዲ</annotation>
+		<annotation cp="👧">ቪርጎ | መንእሰይ | ስነከዋኽብቲ ብምጥቃም ገጸ ባህርይ ዝገልጽ ዓውዲ</annotation>
+		<annotation cp="👧" type="tts">ጓል</annotation>
+		<annotation cp="🧑">ከኢልተ ጾታ ዝውንን</annotation>
+		<annotation cp="🧑" type="tts">በጽሒ</annotation>
+		<annotation cp="👱">ጻዕዳ-ወርቃዊ</annotation>
+		<annotation cp="👱" type="tts">ጻዕዳ-ወርቃዊ ሕብሪ ጸጉሪ ዘለዎ ሰብ</annotation>
+		<annotation cp="👨">ሰብኣይ</annotation>
+		<annotation cp="👨" type="tts">ሰብኣይ</annotation>
+		<annotation cp="🧔">ጭሕሚ</annotation>
+		<annotation cp="🧔" type="tts">ጭሕሚ ዘለዎ ሰብኣይ</annotation>
+		<annotation cp="👱‍♂">ጻዕዳ-ወርቃዊ | ሰብኣይ</annotation>
+		<annotation cp="👱‍♂" type="tts">ጻዕዳ-ወርቃዊ ሕብሪ ጸጉሪ ዘለዋ ሰብኣይ</annotation>
+		<annotation cp="👩">ሰበይቲ</annotation>
+		<annotation cp="👩" type="tts">ሰበይቲ</annotation>
+		<annotation cp="👱‍♀">ጻዕዳ-ወርቃዊ | ሰበይቲ</annotation>
+		<annotation cp="👱‍♀" type="tts">ጻዕዳ-ወርቃዊ ሕብሪ ጸጉሪ ዘለዋ ሰበይቲ</annotation>
+		<annotation cp="🧓">ክልተ ጾታ ዝውንን | ሽማግለ</annotation>
+		<annotation cp="🧓" type="tts">ዕብይ ዝበለ በጽሒ</annotation>
+		<annotation cp="👴">ሰብኣይ | ሽማግለ</annotation>
+		<annotation cp="👴" type="tts">ሽማግለ ሰብኣይ</annotation>
+		<annotation cp="👵">ሽማግለ | ሰበይቲ</annotation>
+		<annotation cp="👵" type="tts">ሽማግለ ሰበይቲ</annotation>
+		<annotation cp="🙍">ጽውግ | ዘወዛውዝ</annotation>
+		<annotation cp="🙍" type="tts">ጽውግ ሰብ</annotation>
+		<annotation cp="🙍‍♂">ግምባር ምጭምዳድ | ዘወዛውዝ | ሰብኣይ</annotation>
+		<annotation cp="🙍‍♂" type="tts">ግምባሩ ዘጨማደደ ሰብኣይ</annotation>
+		<annotation cp="🙍‍♀">ግምባር ምጭምዳድ | ዘወዛውዝ | ሰበይቲ</annotation>
+		<annotation cp="🙍‍♀" type="tts">ግምባራ ዘጨማደደት ሰበይቲ</annotation>
+		<annotation cp="🙎">ዘወዛውዝ | ምጅላዕ</annotation>
+		<annotation cp="🙎" type="tts">ዝኾረየ ሰብ</annotation>
+		<annotation cp="🙎‍♂">ዘወዛውዝ | ሰብኣይ | ምጅላዕ</annotation>
+		<annotation cp="🙎‍♂" type="tts">ከንፈሩ ዘውደቐ ሰብኣይ</annotation>
+		<annotation cp="🙎‍♀">ዘወዛውዝ | ምጅላዕ | ሰበይቲ</annotation>
+		<annotation cp="🙎‍♀" type="tts">ከንፈራ ዘውደቐት ሰበይቲ</annotation>
+		<annotation cp="🙅">ክልኩል | ዘወዛውዝ | ኢድ | ኣይፋል</annotation>
+		<annotation cp="🙅" type="tts">ኣይፋል ኢሉ ዘወዛውዝ ዘሎ ሰብ</annotation>
+		<annotation cp="🙅‍♂">ክልኩል | ዘወዛውዝ | ኢድ | ሰብኣይ | ኣይፋል | ዝተኸልከለ</annotation>
+		<annotation cp="🙅‍♂" type="tts">ዘወዛውዝ አይፋል ዝብል ዘሎ ሰብኣይ</annotation>
+		<annotation cp="🙅‍♀">ክልኩል | ዘወዛውዝ | ኢድ | ኣይፋል | ዝተኸልከለ | ሰበይቲ</annotation>
+		<annotation cp="🙅‍♀" type="tts">ዘወዛውዝ አይፋል እትብል ዘላ ሰበይቲ</annotation>
+		<annotation cp="🙆">ዘወዛውዝ | ኢድ | ሕራይ</annotation>
+		<annotation cp="🙆" type="tts">ሕራይ ኢሉ ዘወዛውዝ ዘሎ ሰብ</annotation>
+		<annotation cp="🙆‍♂">ዘወዛውዝ | ኢደ | ሰብኣይ | ሕራይ</annotation>
+		<annotation cp="🙆‍♂" type="tts">ሕራይ ኢሉ ዘወዛውዝ ዘሎ ሰብኣይ</annotation>
+		<annotation cp="🙆‍♀">ዘወዛውዝ | ኢደ | ሕራይ | ሰበይቲ</annotation>
+		<annotation cp="🙆‍♀" type="tts">ሕራይ ኢላ ተወዛውዝ ዘላ ሰበይቲ</annotation>
+		<annotation cp="💁">ኢደ | ብሃንቀውታ | ሓገዝ</annotation>
+		<annotation cp="💁" type="tts">ብሃንቀውታ ዝጽበይ ሰብ</annotation>
+		<annotation cp="💁‍♂">ሰብኣይ | ትሕትና አልቦ | ዝጽሕፍ ኢድ</annotation>
+		<annotation cp="💁‍♂" type="tts">ሰብኣይ እንዳጸሓፈ</annotation>
+		<annotation cp="💁‍♀">ትሕትና አልቦ | ዝጽሕፍ ኢድ | ሰበይቲ</annotation>
+		<annotation cp="💁‍♀" type="tts">ሰበይቲ እንዳጸሓፈት</annotation>
+		<annotation cp="🙋">ዘወዛውዝ | ኢድ | ሕጉስ | ዊጥ ምባል</annotation>
+		<annotation cp="🙋" type="tts">ኢዱ ዘውጸ ሰብ</annotation>
+		<annotation cp="🙋‍♂">ዘወዛውዝ | ሰብኣይ | ኢድ ዊጥ ምባል</annotation>
+		<annotation cp="🙋‍♂" type="tts">ሰብኣይ ኢዱ ዊጥ ኣቢሉ</annotation>
+		<annotation cp="🙋‍♀">ዘወዛውዝ | ኢድ ዊጥ ምባል | ሰበይቲ</annotation>
+		<annotation cp="🙋‍♀" type="tts">ሰበይቲ ኢዳ ዊጥ እንዳበለት</annotation>
+		<annotation cp="🙇">የይቕሬታ ምሕታት | ስግዳን | ዘወዛውዝ | ይቕሬታ</annotation>
+		<annotation cp="🙇" type="tts">ድንን ዝብል ዘሎ ሰብ</annotation>
+		<annotation cp="🙇‍♂">የይቕሬታ ምሕታት | ውዕለት | ስግዳን | ዘወዛውዝ | ሰብኣይ | ይቕሬታ</annotation>
+		<annotation cp="🙇‍♂" type="tts">ዝሰግድ ሰብኣይ</annotation>
+		<annotation cp="🙇‍♀">የይቕሬታ ምሕታት | ውዕለት | ስግዳን | ዘወዛውዝ | ይቕሬታ | ሰበይቲ</annotation>
+		<annotation cp="🙇‍♀" type="tts">ትሰግድ ዘላ ሰበይቲ</annotation>
+		<annotation cp="🤦">ገጽ | ጻዕዳ ኢድ | ዘይምእማን | ዓቕሊ ጽበት</annotation>
+		<annotation cp="🤦" type="tts">ገጽ ብኢድ ዝሸፈነ ሰብ</annotation>
+		<annotation cp="🤦‍♂">ዘይምእማን | ዓቕሊ ጽበት | ገጽካ ምሓዝ | ሰብኣይ</annotation>
+		<annotation cp="🤦‍♂" type="tts">ገጹ ብኢዱ ዝሓዘ ሰብኣይ</annotation>
+		<annotation cp="🤦‍♀">ዘይምእማን | ዓቕሊ ጽበት | ገጽካ ምሓዝ | ሰበይቲ</annotation>
+		<annotation cp="🤦‍♀" type="tts">ገጻ ብኢዳ ዝሓዘት ሰበይቲ</annotation>
+		<annotation cp="🤷">እንድዒ | ምድንጋር | ሕጽረት ኣፍልጦ | ዘይምግዳስ</annotation>
+		<annotation cp="🤷" type="tts">እንድዒ ዝብል ሰብ</annotation>
+		<annotation cp="🤷‍♂">ምድንጋር | ሕጽረት ኣፍልጦ | ዘይምግዳስ | ሰብኣይ | እንድዒ</annotation>
+		<annotation cp="🤷‍♂" type="tts">ሰብኣይ እንድዒ እንዳበለ</annotation>
+		<annotation cp="🤷‍♀">ምድንጋር | ሕጽረት ኣፍልጦ | ዘይምግዳስ | ሰብኣይ | እንድዒ</annotation>
+		<annotation cp="🤷‍♀" type="tts">ሰበይቲ እንድዒ እንዳበለት</annotation>
+		<annotation cp="👨‍⚕">ሰብኣይ | ክንክን ጥዕና | ዶክተር | ነርስ | ሓኪም</annotation>
+		<annotation cp="👨‍⚕" type="tts">ሰራሕተኛ ጥዕና ሰብኣይ</annotation>
+		<annotation cp="👩‍⚕">ሰበይቲ | ሰራሕተኛ ጥዕና | ዶክተር | ነርስ | ሓኪም</annotation>
+		<annotation cp="👩‍⚕" type="tts">ሰበይቲ ሰራሕተኛ ጥዕና</annotation>
+		<annotation cp="👨‍🎓">ሰብኣይ | ተማሃራይ | ምምራቕ</annotation>
+		<annotation cp="👨‍🎓" type="tts">ተማሃራይ ሰብኣይ</annotation>
+		<annotation cp="👩‍🎓">ሰበይቲ | ተማሃራይ | ምምራቕ</annotation>
+		<annotation cp="👩‍🎓" type="tts">ሰበይቲ ተማሃሪት</annotation>
+		<annotation cp="👨‍🏫">ሰብኣይ | ፕሮፌሶር | ኣሰልጣኒ | መምህር</annotation>
+		<annotation cp="👨‍🏫" type="tts">መምህር ሰብኣይ</annotation>
+		<annotation cp="👩‍🏫">ሰበይቲ | ፕሮፌሶር | ኣሰልጣኒ | መምህር</annotation>
+		<annotation cp="👩‍🏫" type="tts">ሰበይቲ መምህር</annotation>
+		<annotation cp="👨‍⚖">ፍትሒ | ሰብኣይ | ኣመዛዛኒ</annotation>
+		<annotation cp="👨‍⚖" type="tts">ፈራዳይ ሰብኣይ</annotation>
+		<annotation cp="👩‍⚖">ፈራዲት | ሰበይቲ | ሚዛናት</annotation>
+		<annotation cp="👩‍⚖" type="tts">ሰበይቲ ፈራዲት</annotation>
+		<annotation cp="👨‍🌾">ሰብኣይ | ሓረስታይ | ጛሳ ከብቲ | ሰራሕተኛ ጀርዲን</annotation>
+		<annotation cp="👨‍🌾" type="tts">ሓረስታይ ሰብኣይ</annotation>
+		<annotation cp="👩‍🌾">ሰበይቲ | ሓረስታይ | ጓሳ ከብቲ | ሰራሕተኛ ጀርዲን</annotation>
+		<annotation cp="👩‍🌾" type="tts">ሰበይቲ ሓረስታይ</annotation>
+		<annotation cp="👨‍🍳">ሰብኣይ | ምብሳል | ሰራሕ ምግቢ</annotation>
+		<annotation cp="👨‍🍳" type="tts">ምግቢ ዘብስል ሰብኣይ</annotation>
+		<annotation cp="👩‍🍳">ሰበይቲ | ምብሳል | ሰራሕ ምግቢ</annotation>
+		<annotation cp="👩‍🍳" type="tts">ሰበይቲ ምግቢ ተብስል</annotation>
+		<annotation cp="👨‍🔧">ሰብኣይ | ነጋዳይ | መካኒክ | ሰራሕ ቡምባ ማይ | ኤለክትሪክ ዝጽግን</annotation>
+		<annotation cp="👨‍🔧" type="tts">መካኒክ ሰብኣይ</annotation>
+		<annotation cp="👩‍🔧">ሰበይቲ | ነጋዳይ | መካኒክ | ሰራሕ ቡምባ ማይ | ኤለክትሪክ ዝጽግን</annotation>
+		<annotation cp="👩‍🔧" type="tts">መካኒክ ሰበይቲ</annotation>
+		<annotation cp="👨‍🏭">ሰብኣይ | ኢንዳስተሪያዊ | ባይቶ | ፋብሪካ | ሰራሕተኛ</annotation>
+		<annotation cp="👨‍🏭" type="tts">ሰራሕተኛ ፋብሪካ ሰብኣይ</annotation>
+		<annotation cp="👩‍🏭">ሰበይቲ | ኢንዳስተሪያዊ | ባይቶ | ፋብሪካ | ሰራሕተኛ</annotation>
+		<annotation cp="👩‍🏭" type="tts">ሰበይቲ ሰራሕተኛ ፋብሪካ</annotation>
+		<annotation cp="👨‍💼">ሰብኣይ | ቤት ጽሕፈት | ቢዝነስ | ተቆጻጻሪ | መሃንድስ ህንጻ | ናይ ኣእምሮ ዝስርሑ</annotation>
+		<annotation cp="👨‍💼" type="tts">ሰራሕተኛ ቤት ጽሕፈት ሰብኣይ</annotation>
+		<annotation cp="👩‍💼">ሰበይቲ | ቤት ጽሕፈት | ቢዝነስ | ተቆጻጻሪ | መሃንድስ ህንጻ | ናይ ኣእምሮ ዝስርሑ</annotation>
+		<annotation cp="👩‍💼" type="tts">ሰራሕተኛ ቤት ጽሕፈት ሰበይቲ</annotation>
+		<annotation cp="👨‍🔬">ሰብኣይ | ተመራማሪ | እንጂነር | ናይ ስነ ቅማረ ፈላጥ | ቀማሚ | ናይ ፊዚክስ ፈላጥ | ናይ ስነ ሂወታውያን ፈላጥ</annotation>
+		<annotation cp="👨‍🔬" type="tts">ተመራማሪ ሰብኣይ</annotation>
+		<annotation cp="👩‍🔬">ሰበይቲ | ተመራማሪ | እንጂነር | ናይ ስነ ቅማረ ፈላጥ | ቀማሚ | ናይ ፊዚክስ ፈላጥ | ናይ ስነ ሂወታውያን ፈላጥ</annotation>
+		<annotation cp="👩‍🔬" type="tts">ሰበይቲ ተመራማሪት</annotation>
+		<annotation cp="👨‍💻">ሰብኣይ | ናይ ቴክኖሎጂ ሰብ | ሰራሕ ኮድ | ሶፍትዌር | ኣማዕባሊ | መሃዚ</annotation>
+		<annotation cp="👨‍💻" type="tts">ናይ ቴክኖሎጂ ሰብኣይ</annotation>
+		<annotation cp="👩‍💻">ሰበይቲ | ናይ ቴክኖሎጂ ሰብ | ሰራሕ ኮድ | ሶፍትዌር | ኣማዕባሊ | መሃዚ</annotation>
+		<annotation cp="👩‍💻" type="tts">ናይ ቴክኖሎጂ ሰበይቲ</annotation>
+		<annotation cp="👨‍🎤">ሰብኣይ | ደራፋይ | ኣዘናጋዒ | ሮክ | ኮኾብ | ተዋስኣይ</annotation>
+		<annotation cp="👨‍🎤" type="tts">ደራፋይ ሰብኣይ</annotation>
+		<annotation cp="👩‍🎤">ሰበይቲ | ደራፋይ | ኣዘናጋዒ | ሮክ | ኮኾብ | ተዋስኣይ</annotation>
+		<annotation cp="👩‍🎤" type="tts">ሰበይቲ ደራፊት</annotation>
+		<annotation cp="👨‍🎨">ሰኣላይ | ሰብኣይ | ሕብሪ ንምቅማምን ንምቕራብን ንጥቀመሉ ናይ ቅብኣ መሳርሒ</annotation>
+		<annotation cp="👨‍🎨" type="tts">ሰኣላይ ሰብኣይ</annotation>
+		<annotation cp="👩‍🎨">ሰኣሊት | ሕብሪ ንምቅማምን ንምቕራብን ንጥቀመሉ ናይ ቅብኣ መሳርሒ | ሰበይቲ</annotation>
+		<annotation cp="👩‍🎨" type="tts">ሰኣሊት ሰበይቲ</annotation>
+		<annotation cp="👨‍✈">ሰብኣይ | መራሕ ነፋሪት | ነፋሪት</annotation>
+		<annotation cp="👨‍✈" type="tts">መራሕ ነፋሪት ሰብኣይ</annotation>
+		<annotation cp="👩‍✈">መራሕ ነፋሪት | ነፋሪት | ሰበይቲ</annotation>
+		<annotation cp="👩‍✈" type="tts">መራሒት ነፋሪት ሰበይቲ</annotation>
+		<annotation cp="👨‍🚀">ተመራማሪ ስነ ኮኾብ | ሰብኣይ | መንኮርኮር ሰማይ</annotation>
+		<annotation cp="👨‍🚀" type="tts">ተመራማሪ ስነ ኮኾብ ሰብኣይ</annotation>
+		<annotation cp="👩‍🚀">ተመራማሪ ስነ ኮኾብ | መንኮርኮር ሰማይ | ሰበይቲ</annotation>
+		<annotation cp="👩‍🚀" type="tts">ተመራማሪት ስነ ኮኾብ ሰበይቲ</annotation>
+		<annotation cp="👨‍🚒">መጥፋእቲ ሓዊ | ሰብኣይ | መኪና ናይ መጥፋእቲ ሓዊ</annotation>
+		<annotation cp="👨‍🚒" type="tts">ሰራሕተኛ መጥፋእቲ ሓዊ ሰብኣይ</annotation>
+		<annotation cp="👩‍🚒">መጥፋእቲ ሓዊ | መኪና ናይ መጥፋእቲ ሓዊ | ሰበይቲ</annotation>
+		<annotation cp="👩‍🚒" type="tts">ሰራሕተኛ መጥፋእቲ ሓዊ ሰበይቲ</annotation>
+		<annotation cp="👮">ጸጥታ ኣኽባሪ | መኮነን | ፖሊስ</annotation>
+		<annotation cp="👮" type="tts">በዓል መዚ ፖሊስ</annotation>
+		<annotation cp="👮‍♂">ጸጥታ ኣኽባሪ | ሰብኣይ | መኮነን | ፖሊስ</annotation>
+		<annotation cp="👮‍♂" type="tts">መኮነን ፖሊስ ሰብኣይ</annotation>
+		<annotation cp="👮‍♀">ጸጥታ ኣኽባሪ | መኮነን | ፖሊስ | ሰበይቲ</annotation>
+		<annotation cp="👮‍♀" type="tts">መኮነን ፖሊስ ሰበይቲ</annotation>
+		<annotation cp="🕵">መርማሪ | ስለያ | መርማሪ ገበን</annotation>
+		<annotation cp="🕵" type="tts">መርማሪ ገበን</annotation>
+		<annotation cp="🕵‍♂">ሰብኣይ | መርማሪ | ስለያ | መርማሪ ገበን</annotation>
+		<annotation cp="🕵‍♂" type="tts">ሰብኣይ መርማሪ ገበን</annotation>
+		<annotation cp="🕵‍♀">መርማሪ | ስለያ | ሰበይቲ | መርማሪ ገበን</annotation>
+		<annotation cp="🕵‍♀" type="tts">ሰበይቲ መርማሪት ገበን</annotation>
+		<annotation cp="💂">ሓለዋ</annotation>
+		<annotation cp="💂" type="tts">ሓለዋ</annotation>
+		<annotation cp="💂‍♂">ሓላዊ | ሰብኣይ</annotation>
+		<annotation cp="💂‍♂" type="tts">ሰብኣይ ሓላዊ</annotation>
+		<annotation cp="💂‍♀">ሓላዊ | ሰበይቲ</annotation>
+		<annotation cp="💂‍♀" type="tts">ሰበይቲ ሓላዊት</annotation>
+		<annotation cp="👷">ህንጻ | ቆብዕ | ሰራሕተኛ</annotation>
+		<annotation cp="👷" type="tts">ሰራሕተኛ ህንጻ</annotation>
+		<annotation cp="👷‍♂">ህንጻ | ሰብኣይ | ሰራሕተኛ</annotation>
+		<annotation cp="👷‍♂" type="tts">ናይ ህንጻ ሰራሕተኛ ሰብኣይ</annotation>
+		<annotation cp="👷‍♀">ህንጻ | ሰበይቲ | ሰራሕተኛ</annotation>
+		<annotation cp="👷‍♀" type="tts">ናይ ህንጻ ሰራሕተኛ ሰበይቲ</annotation>
+		<annotation cp="🤴">ልኡል</annotation>
+		<annotation cp="🤴" type="tts">ልኡል</annotation>
+		<annotation cp="👸">ጽውጽዋይ | ባህጊ</annotation>
+		<annotation cp="👸" type="tts">ልእልቲ</annotation>
+		<annotation cp="👳">ዕማመት</annotation>
+		<annotation cp="👳" type="tts">ዕማመት ዝለበሰ ሰብ</annotation>
+		<annotation cp="👳‍♂">ሰብኣይ | ዕማመት</annotation>
+		<annotation cp="👳‍♂" type="tts">ዕማመት ዝወደየ ሰብኣይ</annotation>
+		<annotation cp="👳‍♀">ዕማመት | ሰበይቲ</annotation>
+		<annotation cp="👳‍♀" type="tts">ዕማመት ዝወደየት ሰበይቲ</annotation>
+		<annotation cp="👲">ጉኣ ፒ ማኦ (ቆብዕ ፈለስቲ) | ቆብዕ | ሰብኣይ</annotation>
+		<annotation cp="👲" type="tts">ናይ ቻይና ቀብዕ ዝለበሰ ሰብኣይ</annotation>
+		<annotation cp="🧕">መንዲል ርእሲ | ሕጃብ | ትሸል | መጎልበቢ</annotation>
+		<annotation cp="🧕" type="tts">መንዲል ርእሲ ዝገበረት ሰበይቲ</annotation>
+		<annotation cp="🤵">መርዓዊ | ሰብኣይ | ባድላ</annotation>
+		<annotation cp="🤵" type="tts">ሱፍ ዝለበሰ ሰብኣይ</annotation>
+		<annotation cp="👰">መርዓት | ቬሎ | መርዓ</annotation>
+		<annotation cp="👰" type="tts">ቬሎ ዝገበረት መርዓት</annotation>
+		<annotation cp="🤰">ጥንስቲ ሰበይቲ</annotation>
+		<annotation cp="🤰" type="tts">ጥንስቲ ሰበይቲ</annotation>
+		<annotation cp="🤱">ጡብ | ህጻን | ክንክን</annotation>
+		<annotation cp="🤱" type="tts">ምጥባው</annotation>
+		<annotation cp="👼">መልኣኽ | ቆልዓ | ገጽ | ጽውጽዋይ | ባህጊ</annotation>
+		<annotation cp="👼" type="tts">ንእሽቶ መልኣኽ</annotation>
+		<annotation cp="🎅">ልደት | ክብረ በዓል | ኣቦ | ሳንታ (ቅዱስ) | ክላውስ</annotation>
+		<annotation cp="🎅" type="tts">ፓፓ ናታሊ</annotation>
+		<annotation cp="🤶">ልደት | ክብረ ብዓል | ኣደ | ወይዘሮ | ክላውስ</annotation>
+		<annotation cp="🤶" type="tts">ናይ ባባ ናታለ ሰበይቲ</annotation>
+		<annotation cp="🧙">ጠንቋሊ | ጠንቋሊት | ኣስማተኛ</annotation>
+		<annotation cp="🧙" type="tts">ጠንቋሊት</annotation>
+		<annotation cp="🧙‍♂">ጠንቋሊ | ኣስማተኛ</annotation>
+		<annotation cp="🧙‍♂" type="tts">ጠንቋሊ ሰብኣይ</annotation>
+		<annotation cp="🧙‍♀">ጠንቋሊት | ኣስማተኛ</annotation>
+		<annotation cp="🧙‍♀" type="tts">ጠንቋሊት ሰበይቲ</annotation>
+		<annotation cp="🧚">ቲታኒያ | ሕማቕ መንፈስ | ኤብሮን</annotation>
+		<annotation cp="🧚" type="tts">ጓል-ሕድርትና</annotation>
+		<annotation cp="🧚‍♂">ሕማቕ መንፈስ | ኤብሮን</annotation>
+		<annotation cp="🧚‍♂" type="tts">ስርኤል ሰብኣይ</annotation>
+		<annotation cp="🧚‍♀">ቲታንያ</annotation>
+		<annotation cp="🧚‍♀" type="tts">ጓል-ሕድርትና ሰበይቲ</annotation>
+		<annotation cp="🧛">ድራኩላ | ዘይሞተ</annotation>
+		<annotation cp="🧛" type="tts">መጻዪ ደም</annotation>
+		<annotation cp="🧛‍♂">ድራኩላ | ዘይሞተ</annotation>
+		<annotation cp="🧛‍♂" type="tts">መጻዪ ደም ሰብኣይ (ቫምፓየር ሰብኣይ)</annotation>
+		<annotation cp="🧛‍♀">ዘይሞተ</annotation>
+		<annotation cp="🧛‍♀" type="tts">መጻዪት ደም ሰበይቲ (ቫምፓየር ሰበይቲ)</annotation>
+		<annotation cp="🧜">ሰበይቲ ባሕሪ | ሰብኣይ ባሕሪ</annotation>
+		<annotation cp="🧜" type="tts">ሰብ ባሕሪ</annotation>
+		<annotation cp="🧜‍♂">ትራይተን</annotation>
+		<annotation cp="🧜‍♂" type="tts">ሰብኣይ ባሕሪ</annotation>
+		<annotation cp="🧜‍♀">ሰበይቲ ባሕሪ</annotation>
+		<annotation cp="🧜‍♀" type="tts">ሰበይቲ ባሕሪ</annotation>
+		<annotation cp="🧝">ሽሕራዊ</annotation>
+		<annotation cp="🧝" type="tts">ንእሽቶይ ተንኮለኛ</annotation>
+		<annotation cp="🧝‍♂">ሽሕራዊ</annotation>
+		<annotation cp="🧝‍♂" type="tts">ንእሽቶይ ተንኮለኛ ሰብኣይ</annotation>
+		<annotation cp="🧝‍♀">ሽሕራዊ</annotation>
+		<annotation cp="🧝‍♀" type="tts">ንእሽቶይ ተንኮለኛ ሰበይቲ</annotation>
+		<annotation cp="🧞">ጅን</annotation>
+		<annotation cp="🧞" type="tts">ጋኔን</annotation>
+		<annotation cp="🧞‍♂">ጅን</annotation>
+		<annotation cp="🧞‍♂" type="tts">ጋኔን ስብኣይ</annotation>
+		<annotation cp="🧞‍♀">ጅን</annotation>
+		<annotation cp="🧞‍♀" type="tts">ጋኔን ስበይቲ</annotation>
+		<annotation cp="🧟">ዘይሞተ | ዝኸይድ ምውት</annotation>
+		<annotation cp="🧟" type="tts">ዞምቢ</annotation>
+		<annotation cp="🧟‍♂">ዘይሞተ | ዝኸይድ ምውት</annotation>
+		<annotation cp="🧟‍♂" type="tts">ዞምቢ ሰብኣይ</annotation>
+		<annotation cp="🧟‍♀">ዘይሞተ | ዝኸይድ ምውት</annotation>
+		<annotation cp="🧟‍♀" type="tts">ዞምቢ ሰበይቲ</annotation>
+		<annotation cp="💆">ምድራዝ | ቤት መስተ | ገጽ</annotation>
+		<annotation cp="💆" type="tts">ማሳጅ ዝገብር ዘሎ ሰብ</annotation>
+		<annotation cp="💆‍♂">ገጽ | ሰብኣይ | ምድራዝ</annotation>
+		<annotation cp="💆‍♂" type="tts">ሰብኣይ እንዳተደርዘ</annotation>
+		<annotation cp="💆‍♀">ገጽ | ምድራዝ | ሰበይቲ</annotation>
+		<annotation cp="💆‍♀" type="tts">ሰበይቲ እንዳተደርዘት</annotation>
+		<annotation cp="💇">ቀምቃማይ | ጽባቐ | መዕረፊ ክፍሊ | ጸጉሪ ምቑራጽ</annotation>
+		<annotation cp="💇" type="tts">ጸጉሩ ዝቕምቀም ዘሎ ሰብ</annotation>
+		<annotation cp="💇‍♂">ጸጉሪ ምቑራጽ | ሰብኣይ</annotation>
+		<annotation cp="💇‍♂" type="tts">ሰብኣይ ጸጉሩ እንዳተቖርጸ</annotation>
+		<annotation cp="💇‍♀">ጸጉሪ ምቑራጽ | ሰበይቲ</annotation>
+		<annotation cp="💇‍♀" type="tts">ሰበይቲ ጸጉራ እንዳተቖርጸት</annotation>
+		<annotation cp="🚶">ብእግሪ ዙረት | ብእግሪ ምጉዓዝ | ናይ እግሪ ጉዕዞ</annotation>
+		<annotation cp="🚶" type="tts">ብእግሪ ዝጉዓዝ ሰብ</annotation>
+		<annotation cp="🚶‍♂">ብእግሪ ዙረት | ሰብኣይ | ብእግሪ ምጉዓዝ</annotation>
+		<annotation cp="🚶‍♂" type="tts">ብእግሩ ዝጎዓዝ ሰብኣይ</annotation>
+		<annotation cp="🚶‍♀">ብእግሪ ዙረት | ብእግሪ ምጉዓዝ | ሰበይቲ</annotation>
+		<annotation cp="🚶‍♀" type="tts">ብእግራ ትጎዓዝ ሰበይቲ</annotation>
+		<annotation cp="🏃">ማራቶን | ጉያ</annotation>
+		<annotation cp="🏃" type="tts">ዝጎዪ ዘሎ ሰብ</annotation>
+		<annotation cp="🏃‍♂">ሰብኣይ | ማራቶን | ጉያ | ቅድድም</annotation>
+		<annotation cp="🏃‍♂" type="tts">ዝጎዪ ሰብኣይ</annotation>
+		<annotation cp="🏃‍♀">ማራቶን | ጉያ | ሰበይቲ | ቅድድም</annotation>
+		<annotation cp="🏃‍♀" type="tts">ትጎዪ ሰበይቲ</annotation>
+		<annotation cp="💃">ሰበይቲ | ሳዕስዒት</annotation>
+		<annotation cp="💃" type="tts">ሳዕስዒት ደቂ-ኣንስትዮ</annotation>
+		<annotation cp="🕺">ሳዕሳዒት | ሰብኣይ</annotation>
+		<annotation cp="🕺" type="tts">ሰብኣይ እንዳሳዕስዐ</annotation>
+		<annotation cp="🕴">ንግዲ | ሰብኣይ | ሱፍ</annotation>
+		<annotation cp="🕴" type="tts">ሰብኣይ ብናይ ንግዲ ሱፍ ኣንዳዘንበየ</annotation>
+		<annotation cp="👯">እዝኒ ማንቲለ | ሳዕሳዒ | እንዳሳዕሳዑ</annotation>
+		<annotation cp="👯" type="tts">ገዚፍ ኣእዛኖም ሰባት ይዘናግዑ ኣለዉ</annotation>
+		<annotation cp="👯‍♂">እዝኒ ማንቲለ | ሳዕሳዒ | ሰብኣይ | እንዳሳዕሳዐ</annotation>
+		<annotation cp="👯‍♂" type="tts">እዝኒ ማንቲለ ሰብኣይ እንዳሳዕሳዐ</annotation>
+		<annotation cp="👯‍♀">እዝኒ ማንቲለ | ሳዕሳዒ | እንዳሳዕሳዑ | ሰበይቲ</annotation>
+		<annotation cp="👯‍♀" type="tts">እዝኒ ማንቲለ ሰበይቲ እንዳሳዕሳዐት</annotation>
+		<annotation cp="🧖">ሳውና | ሃፋ ዘለዎ ክፍሊ</annotation>
+		<annotation cp="🧖" type="tts">ኣብ ሃፋ ዘለዎ ክፍሊ ዘሎ ሰብ</annotation>
+		<annotation cp="🧖‍♂">ሳውና | ሃፋ ዘለዎ ክፍሊ</annotation>
+		<annotation cp="🧖‍♂" type="tts">ኣብ ሃፋ ዘለዎ ክፍሊ ዘሎ ሰብኣይ</annotation>
+		<annotation cp="🧖‍♀">ሳውና | ሃፋ ዘለዎ ክፍሊ</annotation>
+		<annotation cp="🧖‍♀" type="tts">ኣብ ሃፋ ዘለዎ ክፍሊ ዘላ ሰበይቲ</annotation>
+		<annotation cp="🧗">ሓዃሪ</annotation>
+		<annotation cp="🧗" type="tts">ዝሓኩር ዘሎ ሰብ</annotation>
+		<annotation cp="🧗‍♂">ሓዃሪ</annotation>
+		<annotation cp="🧗‍♂" type="tts">ዝሓኩር ዘሎ ሰብኣይ</annotation>
+		<annotation cp="🧗‍♀">ሓዃሪ</annotation>
+		<annotation cp="🧗‍♀" type="tts">ትሓኩር ዘላ ሰበይቲ</annotation>
+		<annotation cp="🤺">ሓጻሪ | ምሕጻር | ሴፍ</annotation>
+		<annotation cp="🤺" type="tts">ሓጹር ዝሓጽር ዘሎ ሰብ</annotation>
+		<annotation cp="🏇">ፈረስ | ጆኪ | ቅድድም ፈረስ | ቅድድም</annotation>
+		<annotation cp="🏇" type="tts">ቅድድም ፈረስ</annotation>
+		<annotation cp="⛷">ስኪ | በረድ</annotation>
+		<annotation cp="⛷" type="tts">ተንሸራታቲ በረድ</annotation>
+		<annotation cp="🏂">ስኪ | በረድ | ኣብ በረድ መንሸራተቲ</annotation>
+		<annotation cp="🏂" type="tts">ኣብ በረድ ዝንሸራተት</annotation>
+		<annotation cp="🏌">ኩዑሶ | ጎልፍ</annotation>
+		<annotation cp="🏌" type="tts">ሰብ ጎልፍ እንዳተጻወተ</annotation>
+		<annotation cp="🏌‍♂">ጎልፍ | ሰብኣይ</annotation>
+		<annotation cp="🏌‍♂" type="tts">ሰብኣይ ጎልፍ እንዳተጻወተ</annotation>
+		<annotation cp="🏌‍♀">ጎልፍ | ሰበይቲ</annotation>
+		<annotation cp="🏌‍♀" type="tts">ሰበይቲ ጎልፍ እንዳተጻወተት</annotation>
+		<annotation cp="🏄">ምስ ማዕበላት ዝንሳፈፍ</annotation>
+		<annotation cp="🏄" type="tts">ጣውላ ተጠቒሙ ምስ ማዕበላት ዝንሳፈፍ</annotation>
+		<annotation cp="🏄‍♂">ሰብኣይ | ምስ ማዕበላት ዝንሳፈፍ</annotation>
+		<annotation cp="🏄‍♂" type="tts">ምስ ማዕበላት ዝንሳፈፍ ዘሎ ሰብኣይ</annotation>
+		<annotation cp="🏄‍♀">ምስ ማዕበላት ዝንሳፈፍ | ሰበይቲ</annotation>
+		<annotation cp="🏄‍♀" type="tts">ምስ ማዕበላት ትንሳፈፍ ዘላ ሰበይቲ</annotation>
+		<annotation cp="🚣">ጀልባ | ናይ ምጅላ ጀልባ</annotation>
+		<annotation cp="🚣" type="tts">ዝጅልብ ዘሎ ሰብ</annotation>
+		<annotation cp="🚣‍♂">ጃልባ | ሰብኣይ | ተጀላቢት ጃልባ</annotation>
+		<annotation cp="🚣‍♂" type="tts">ሰብኣይ ጃልባ እንዳጀለበ</annotation>
+		<annotation cp="🚣‍♀">ጃልባ | ናይ ምጅላ ጀልባ | ሰበይቲ</annotation>
+		<annotation cp="🚣‍♀" type="tts">ሰበይቲ ጃልባ እንዳጀለበት</annotation>
+		<annotation cp="🏊">ምሕንባስ</annotation>
+		<annotation cp="🏊" type="tts">ዝሕምብስ ሰብ</annotation>
+		<annotation cp="🏊‍♂">ሰብኣይ | ምሕምባስ</annotation>
+		<annotation cp="🏊‍♂" type="tts">ሰብኣይ እንዳሓምበሰ</annotation>
+		<annotation cp="🏊‍♀">ምሕምባስ | ሰበይቲ</annotation>
+		<annotation cp="🏊‍♀" type="tts">ሰበይቲ እንዳሓምበሰት</annotation>
+		<annotation cp="⛹">ኩዕሶ</annotation>
+		<annotation cp="⛹" type="tts">ሰብ ኩዑሶ ጠረብ ጠረብ እንዳበለ</annotation>
+		<annotation cp="⛹‍♂">ኩዑሶ | ሰብኣይ</annotation>
+		<annotation cp="⛹‍♂" type="tts">ሰብኣይ ኩዑሶ ጠረብ ጠረብ እንዳበለ</annotation>
+		<annotation cp="⛹‍♀">ኩዑሶ | ሰበይቲ</annotation>
+		<annotation cp="⛹‍♀" type="tts">ሰበይቲ ኩዑሶ ጠረብ ጠረብ እንዳበለት</annotation>
+		<annotation cp="🏋">ኣልዓሊ | ክብደት</annotation>
+		<annotation cp="🏋" type="tts">ሰብ ክብደት እንዳልዓለ</annotation>
+		<annotation cp="🏋‍♂">ክብደት ኣልዓሊ | ሰበኣይ</annotation>
+		<annotation cp="🏋‍♂" type="tts">ሰብኣይ ክብደት እንዳልዓለ</annotation>
+		<annotation cp="🏋‍♀">ክብደት ኣልዓሊ | ሰበይቲ</annotation>
+		<annotation cp="🏋‍♀" type="tts">ሰበይቲ ክብደት እንዳልዓለት</annotation>
+		<annotation cp="🚴">ብሽክለታ | ምዝዋር ብሽክለታ | ዘዋሪ ብሽክለታ</annotation>
+		<annotation cp="🚴" type="tts">ዘዋሪ ብሽክለታ ሰብ</annotation>
+		<annotation cp="🚴‍♂">ብሽክለታ | ምዝዋር ብሽክለታ | ዘዋሪ ብሽክለታ | ሰብኣይ</annotation>
+		<annotation cp="🚴‍♂" type="tts">ብሽክለታ ዝዝውር ዘሎ ሰብኣይ</annotation>
+		<annotation cp="🚴‍♀">ብሽክለታ | ምዝዋር ብሽክለታ | ዘዋሪ ብሽክለታ | ሰበይቲ</annotation>
+		<annotation cp="🚴‍♀" type="tts">ብሽክለታ ትዝውር ዘላ ሰበይቲ</annotation>
+		<annotation cp="🚵">ብሽክለታ | ዘዋሪ ብሽክለታ | ብሽክለታ ምዝዋር</annotation>
+		<annotation cp="🚵" type="tts">ኣብ ዓቐበት በሽክለታ ምዝዋር</annotation>
+		<annotation cp="🚵‍♂">ብሽክለታ | ዘዋሪ ብሽክለታ | ሰብኣይ | ጎቦ</annotation>
+		<annotation cp="🚵‍♂" type="tts">ሰብኣይ ናይ ጎቦ ብሽክለታ ዘዋሪ</annotation>
+		<annotation cp="🚵‍♀">ብሽክለታ | ዘዋሪ ብሽክለታ | ብሽክለታ ምዝዋር | ጎቦ | ሰበይቲ</annotation>
+		<annotation cp="🚵‍♀" type="tts">ሰበይቲ ናይ ጎቦ ብሽክለታ ዘዋሪት</annotation>
+		<annotation cp="🤸">ዘዋሪ ዓረብያ | ኣካላዊ ምንቅስቓስ</annotation>
+		<annotation cp="🤸" type="tts">ዘዋሪ ዓረብያ ሰብ</annotation>
+		<annotation cp="🤸‍♂">ኣኵራባት | ኣካላዊ ምንቅስቓስ | ሰብኣይ</annotation>
+		<annotation cp="🤸‍♂" type="tts">ሰብኣይ ኣኵራባት እንዳሰርሐ</annotation>
+		<annotation cp="🤸‍♀">ኣኵራባት | ኣካላዊ ምንቅስቓስ | ሰበይቲ</annotation>
+		<annotation cp="🤸‍♀" type="tts">ሰበይቲ ኣኵራባት እንዳሰርሐት</annotation>
+		<annotation cp="🤼">ተቃላሳይ | ቅልስ</annotation>
+		<annotation cp="🤼" type="tts">ዝበኣሱ ሰባት</annotation>
+		<annotation cp="🤼‍♂">ሰብኡት | ቅልስ</annotation>
+		<annotation cp="🤼‍♂" type="tts">ቅልስ ሰብኡት</annotation>
+		<annotation cp="🤼‍♀">ኣንስቲ | ቅልስ</annotation>
+		<annotation cp="🤼‍♀" type="tts">ቅልስ ኣንስቲ</annotation>
+		<annotation cp="🤽">ብኢድ ዝጽወት ኩዑሶ | ማይ</annotation>
+		<annotation cp="🤽" type="tts">ኣብ ማይ ብኢድ ዝጽወት ኩዑሶ</annotation>
+		<annotation cp="🤽‍♂">ሰብኣይ | ኣብ ማይ ዝጽወት ኩዑሶ</annotation>
+		<annotation cp="🤽‍♂" type="tts">ሰብኣይ ኣብ ማይ ዝጽወት ኩዑሶ እንዳተጻወተ</annotation>
+		<annotation cp="🤽‍♀">ኣብ ማይ ብኢድ ዝጽወት ኩዑሶ | ሰበይቲ</annotation>
+		<annotation cp="🤽‍♀" type="tts">ሰበይቲ ኣብ ማይ ዝጽወት ኩዑሶ እንዳተጻወተት</annotation>
+		<annotation cp="🤾">ብኢድ ዝጽወት ኩዑሶ | ኩዑሶ</annotation>
+		<annotation cp="🤾" type="tts">ብኢድ ዝጽወት ኩዑሶ ዝጻወት ዘሎ ሰብ</annotation>
+		<annotation cp="🤾‍♂">ብኢድ ዝጽወት ኩዑሶ | ሰብኣይ</annotation>
+		<annotation cp="🤾‍♂" type="tts">ብኢድ ዝጽወት ኩዑሶ ትጻወት ዘላ ሰብኣይ</annotation>
+		<annotation cp="🤾‍♀">ብኢድ ዝጽወት ኩዑሶ | ሰበይቲ</annotation>
+		<annotation cp="🤾‍♀" type="tts">ብኢድ ዝጽወት ኩዑሶ ትጻወት ዘላ ሰበይቲ</annotation>
+		<annotation cp="🤹">ስንዲኻ ምቑላብ | ብዙሐ ዕማም | ሚዛን | ክእለት</annotation>
+		<annotation cp="🤹" type="tts">ስንድዩ ዝቖልብ ዘሎ ሰብ</annotation>
+		<annotation cp="🤹‍♂">ስንዲኻ ምቑላብ | ሰብኣይ | ብዙሐ ዕማም</annotation>
+		<annotation cp="🤹‍♂" type="tts">ሰብኣይ ሰንድዪ ዝቆልብ ዘሎ</annotation>
+		<annotation cp="🤹‍♀">ስንዲኻ ምቑላብ | ብዙሐ ዕማም | ሰበይቲ</annotation>
+		<annotation cp="🤹‍♀" type="tts">ሰንዲያ ትቆልብ ዘላ ሰበይቲ</annotation>
+		<annotation cp="🧘">ዮጋ | ምስትንታን</annotation>
+		<annotation cp="🧘" type="tts">ኣብ ኣቀማምጣ ሎተስ ዘሎ ሰብ</annotation>
+		<annotation cp="🧘‍♂">ዮጋ | ምስትንታን</annotation>
+		<annotation cp="🧘‍♂" type="tts">ኣብ ኣቀማምጣ ሎተስ ዘሎ ሰብኣይ</annotation>
+		<annotation cp="🧘‍♀">ዮጋ | ምስትንታን</annotation>
+		<annotation cp="🧘‍♀" type="tts">ኣብ ኣቀማምጣ ሎተስ ዘሎ ሰበይቲ</annotation>
+		<annotation cp="🛀">ባስካ | ባኞ</annotation>
+		<annotation cp="🛀" type="tts">ዝሕጸብ ዘሎ ሰብ</annotation>
+		<annotation cp="🛌">ሆቴል | ምድቃስ</annotation>
+		<annotation cp="🛌" type="tts">ጋድም ዝበለ ሰብ</annotation>
+		<annotation cp="👭">ሰብኣይን ሰበይትን | ኢድ | ሓዝ | ሰበይቲ</annotation>
+		<annotation cp="👭" type="tts">ክልተ ደቂ ኣንስትዮ ኢድ ንኢድ ተተሓሒዘን</annotation>
+		<annotation cp="👫">ሰብኣይን ሰበይትን | ኢድ | ሓዝ | ሰብኣይ | ሰበይቲ</annotation>
+		<annotation cp="👫" type="tts">ኢድ ንኢድ ዝተተሓሓዙ ሰብኣይን ሰበይትን</annotation>
+		<annotation cp="👬">ሰብኣይን ሰበይትን | ጀሚኒ | ኢድ | ሓዝ | ሰብኣይ | መናቱ | ዞዲያክ</annotation>
+		<annotation cp="👬" type="tts">ኢድ ንኢድ ዝተተሓሓዙ ሰብኡት</annotation>
+		<annotation cp="💏">ሰብኣይን ሰበይትን</annotation>
+		<annotation cp="💏" type="tts">ምስዓም</annotation>
+		<annotation cp="💑">ሰብኣይን ሰበይትን | ልቢ</annotation>
+		<annotation cp="💑" type="tts">ሰብኣይን ሰበይትን ምስ ልቢ</annotation>
+		<annotation cp="👪">ቤተሰብ</annotation>
+		<annotation cp="👪" type="tts">ቤተሰብ</annotation>
+		<annotation cp="🗣">ገጽ | ርእሲ | ጽላሎት | ዘረባ | ምዝራብ</annotation>
+		<annotation cp="🗣" type="tts">ዝዛረብ ርእሲ</annotation>
+		<annotation cp="👤">ጉርዲ ቅርጺ ሰብ | ጽላሎት</annotation>
+		<annotation cp="👤" type="tts">ብድሕሪኡ ጽላሎት ዘለዎ ጉርዲ ስእሊ ሰብ</annotation>
+		<annotation cp="👥">ጉርዲ ቅርጺ ሰብ | ጽላሎት</annotation>
+		<annotation cp="👥" type="tts">ብድሕሪኡ ጽላሎት ዘለዎ ጉርዲ ስእሊ ሰባት</annotation>
+		<annotation cp="👣">ልባስ | አሰር | ሕተም</annotation>
+		<annotation cp="👣" type="tts">ኣሰር</annotation>
+		<annotation cp="🐵">ገጽ | ህበይ</annotation>
+		<annotation cp="🐵" type="tts">ገጽ ህበይ</annotation>
+		<annotation cp="🐒">ህበይ</annotation>
+		<annotation cp="🐒" type="tts">ህበይ</annotation>
+		<annotation cp="🦍">ጉሪላ</annotation>
+		<annotation cp="🦍" type="tts">ጉሪላ</annotation>
+		<annotation cp="🐶">ከልቢ | ገጽ | ፍቱው እንስሳ</annotation>
+		<annotation cp="🐶" type="tts">ገጽ ኸልቢ</annotation>
+		<annotation cp="🐕">ፍቱው እንስሳ</annotation>
+		<annotation cp="🐕" type="tts">ከልቢ</annotation>
+		<annotation cp="🐩">ከልቢ</annotation>
+		<annotation cp="🐩" type="tts">ከልቢ ዓረብ</annotation>
+		<annotation cp="🐺">ገጽ | ውኻርያ</annotation>
+		<annotation cp="🐺" type="tts">ገጽ ውኻርያ</annotation>
+		<annotation cp="🦊">ገጽ | ወኻርያ</annotation>
+		<annotation cp="🦊" type="tts">ገጽ ውኻሪያ</annotation>
+		<annotation cp="🐱">ድሙ | ገጽ | ፍትው እንስሳ</annotation>
+		<annotation cp="🐱" type="tts">ገጽ ድሙ</annotation>
+		<annotation cp="🐈">ፍቱው እንስሳ</annotation>
+		<annotation cp="🐈" type="tts">ድመት</annotation>
+		<annotation cp="🦁">ገጽ | ሊዮ | ኣንበሳ | ዞዲያክ</annotation>
+		<annotation cp="🦁" type="tts">ገጽ ኣንበሳ</annotation>
+		<annotation cp="🐯">ገጽ | ነብሪ</annotation>
+		<annotation cp="🐯" type="tts">ገጽ ነብሪ</annotation>
+		<annotation cp="🐅">ነብሪ</annotation>
+		<annotation cp="🐅" type="tts">ነብሪ</annotation>
+		<annotation cp="🐆">ሊዮፓርድ</annotation>
+		<annotation cp="🐆" type="tts">ሊዮፓርድ</annotation>
+		<annotation cp="🐴">ገጽ | ፈረስ</annotation>
+		<annotation cp="🐴" type="tts">ገጽ ፈረስ</annotation>
+		<annotation cp="🐎">ናይ ቅድድም ፈረስ | ቅድድም | ፈርሰኛ</annotation>
+		<annotation cp="🐎" type="tts">ፈረስ</annotation>
+		<annotation cp="🦄">ገጽ | ሓደ ቀርኑ</annotation>
+		<annotation cp="🦄" type="tts">ብዓል ሓደ ቀርኒ ገጽ ፈረስ</annotation>
+		<annotation cp="🦓">ሽራጥ</annotation>
+		<annotation cp="🦓" type="tts">ዜብራ</annotation>
+		<annotation cp="🦌">ዓጋዜን</annotation>
+		<annotation cp="🦌" type="tts">ዓጋዜን</annotation>
+		<annotation cp="🐮">ላም | ገጽ</annotation>
+		<annotation cp="🐮" type="tts">ገጽ ላም</annotation>
+		<annotation cp="🐂">ኣርሓ | ታውረስ | ዞዲያክ</annotation>
+		<annotation cp="🐂" type="tts">ብዕራይ</annotation>
+		<annotation cp="🐃">ሓርሽ | ማይ</annotation>
+		<annotation cp="🐃" type="tts">ሓርሽ ማይ</annotation>
+		<annotation cp="🐄">ላም</annotation>
+		<annotation cp="🐄" type="tts">ላም</annotation>
+		<annotation cp="🐷">ገጽ | ሓሰማ</annotation>
+		<annotation cp="🐷" type="tts">ገጽ ሓሰማ</annotation>
+		<annotation cp="🐖">ኣንስተይቲ ሓሰማ</annotation>
+		<annotation cp="🐖" type="tts">ሓሰማ</annotation>
+		<annotation cp="🐗">ሓሰማ</annotation>
+		<annotation cp="🐗" type="tts">ተባዕታይ ሓሰማ</annotation>
+		<annotation cp="🐽">ገጽ | ኣፍንጫ | ሓሰማ</annotation>
+		<annotation cp="🐽" type="tts">ኣፍንጫ ሓሰማ</annotation>
+		<annotation cp="🐏">ኤረስ | በጊዕ | ዞዲያክ | ተባዕታይ</annotation>
+		<annotation cp="🐏" type="tts">ድዑል በጊዕ</annotation>
+		<annotation cp="🐑">በጊዕ | ጓል ኣንስተይቲ</annotation>
+		<annotation cp="🐑" type="tts">በጊዕ</annotation>
+		<annotation cp="🐐">ካፕሪኮርን | ዞዲያክ</annotation>
+		<annotation cp="🐐" type="tts">ጤል</annotation>
+		<annotation cp="🐪">ግመል ዓልቢያ | መንጉዳ</annotation>
+		<annotation cp="🐪" type="tts">ግመል</annotation>
+		<annotation cp="🐫">ባክትሪያን | ግመል | መንጉዳ</annotation>
+		<annotation cp="🐫" type="tts">ክልተ መንጉዳ ዘለዎ ዓይነት ገመል</annotation>
+		<annotation cp="🦒">ነጠብጣብ</annotation>
+		<annotation cp="🦒" type="tts">ዘራፍ</annotation>
+		<annotation cp="🐘">ሓርማዝ</annotation>
+		<annotation cp="🐘" type="tts">ሓርማዝ</annotation>
+		<annotation cp="🦏">መፍለስ</annotation>
+		<annotation cp="🦏" type="tts">መፍለስ</annotation>
+		<annotation cp="🐭">ገጽ | ኣንጭዋ</annotation>
+		<annotation cp="🐭" type="tts">ገጽ ኣንጭዋ</annotation>
+		<annotation cp="🐁">ኣንጭዋ ዒመር</annotation>
+		<annotation cp="🐁" type="tts">ኣንጭዋ ዒመር</annotation>
+		<annotation cp="🐀">ኣንጭዋ</annotation>
+		<annotation cp="🐀" type="tts">ኣንጭዋ</annotation>
+		<annotation cp="🐹">ገጽ | ኣንጭዋ ዒመር | ፍትው እንስሳ</annotation>
+		<annotation cp="🐹" type="tts">ገጽ ኣንጭዋ ዒመር</annotation>
+		<annotation cp="🐰">ማንቲለ | ገጽ | ፍትው እንስሳ</annotation>
+		<annotation cp="🐰" type="tts">ገጽ ማንቲለ</annotation>
+		<annotation cp="🐇">ማንቲለ | ፍትው እንስሳ</annotation>
+		<annotation cp="🐇" type="tts">ማንቲለ</annotation>
+		<annotation cp="🐿">ምጹጽላይ</annotation>
+		<annotation cp="🐿" type="tts">ምጹጽላይ</annotation>
+		<annotation cp="🦔">ኣሻዂ</annotation>
+		<annotation cp="🦔" type="tts">ቅንፍዝ</annotation>
+		<annotation cp="🦇">መንካዕ | መጻዪ ደም</annotation>
+		<annotation cp="🦇" type="tts">ሻፎ</annotation>
+		<annotation cp="🐻">ድቢ | ገጽ</annotation>
+		<annotation cp="🐻" type="tts">ገጽ ድቢ</annotation>
+		<annotation cp="🐨">ድቢ</annotation>
+		<annotation cp="🐨" type="tts">ኩዋላ</annotation>
+		<annotation cp="🐼">ገጽ | ፓንዳ</annotation>
+		<annotation cp="🐼" type="tts">ገጽ ፓንዳ</annotation>
+		<annotation cp="🐾">እግሪ | ኣሰር እንስሳታት | ኣሰር</annotation>
+		<annotation cp="🐾" type="tts">ኣሰር እንስሳታት</annotation>
+		<annotation cp="🦃">ቱርኪ | ዑፍ</annotation>
+		<annotation cp="🦃" type="tts">ቱርኪ</annotation>
+		<annotation cp="🐔">ደርሆ | ዑፍ</annotation>
+		<annotation cp="🐔" type="tts">ደርሆ</annotation>
+		<annotation cp="🐓">ኩኩናይ | ዑፍ</annotation>
+		<annotation cp="🐓" type="tts">ኩኩናይ</annotation>
+		<annotation cp="🐣">ንእሽቶ | ጫቚት | ኣብ ምፍልፋል | ዑፍ</annotation>
+		<annotation cp="🐣" type="tts">እንቁቑሖ ዝሓቖፈት ደርሆ</annotation>
+		<annotation cp="🐤">ንእሽቶ | ጫቚት | ዑፍ</annotation>
+		<annotation cp="🐤" type="tts">ንእሽቶ ጎርዞ</annotation>
+		<annotation cp="🐥">ንእሽቶ | ጫቚት | ዑፍ</annotation>
+		<annotation cp="🐥" type="tts">ናብ ቅድሚት ትርኢ ጫቑት</annotation>
+		<annotation cp="🐦">ዑፍ</annotation>
+		<annotation cp="🐦" type="tts">ዑፍ</annotation>
+		<annotation cp="🐧">ፐንጉን | ዑፍ</annotation>
+		<annotation cp="🐧" type="tts">ፐንጉን</annotation>
+		<annotation cp="🕊">ዑፍ | ምብራር | ሰላም</annotation>
+		<annotation cp="🕊" type="tts">ርግቢት</annotation>
+		<annotation cp="🦅">ንስሪ | ዑፍ</annotation>
+		<annotation cp="🦅" type="tts">ንስሪ</annotation>
+		<annotation cp="🦆">ዳክ | ዑፍ</annotation>
+		<annotation cp="🦆" type="tts">ዳክ</annotation>
+		<annotation cp="🦉">ጉንጓ | ለባም | ዑፍ</annotation>
+		<annotation cp="🦉" type="tts">ጉንጓ</annotation>
+		<annotation cp="🐸">ገጽ | እንቅሮዖብ</annotation>
+		<annotation cp="🐸" type="tts">ገጽ እንቁርዖብ</annotation>
+		<annotation cp="🐊">ሓርገጽ</annotation>
+		<annotation cp="🐊" type="tts">ሓርገጽ</annotation>
+		<annotation cp="🐢">ኣባጎብየ | ጎብየ | ጎብየ ማይ</annotation>
+		<annotation cp="🐢" type="tts">ኣባጎብየ</annotation>
+		<annotation cp="🦎">ጠበቕ | ለመምታ</annotation>
+		<annotation cp="🦎" type="tts">ጠበቕ</annotation>
+		<annotation cp="🐍">ተላኣኣኺ | ኦፊቸስ | ተመን | ዞዲያክ</annotation>
+		<annotation cp="🐍" type="tts">ተመን</annotation>
+		<annotation cp="🐲">ድራጎን | ገጽ | ጽውጽዋይ</annotation>
+		<annotation cp="🐲" type="tts">ገጽ ድራጎን</annotation>
+		<annotation cp="🐉">ጽውጽዋይ</annotation>
+		<annotation cp="🐉" type="tts">ድራጎን</annotation>
+		<annotation cp="🦕">ብሮንትሶረስ | ዲፕሎዲከስ | ብራኪየሶረስ</annotation>
+		<annotation cp="🦕" type="tts">ዳይናሶር</annotation>
+		<annotation cp="🦖">ትራይናሶር ሬክስ</annotation>
+		<annotation cp="🦖" type="tts">ቲ-ሬክስ</annotation>
+		<annotation cp="🐳">ገጽ | ማይ ዝጭንጉዕ | ዓሳ-ነባሪ</annotation>
+		<annotation cp="🐳" type="tts">ማይ ዝጭንጉዕ ዓሳ-ነባሪ</annotation>
+		<annotation cp="🐋">ዓሳ ነባሪ</annotation>
+		<annotation cp="🐋" type="tts">ዓሳ ነባሪ</annotation>
+		<annotation cp="🐬">መቕዘፍ</annotation>
+		<annotation cp="🐬" type="tts">ዶልፊን</annotation>
+		<annotation cp="🐟">ፒሰስ | ዞዲያክ</annotation>
+		<annotation cp="🐟" type="tts">ዓሳ</annotation>
+		<annotation cp="🐠">ዓሳ | ኣብ ከባቢ ቅናት ምድሪ</annotation>
+		<annotation cp="🐠" type="tts">ኣብ ከባቢ ቅናት ምድሪ ናይ ዝርከቡ ዓሳታት</annotation>
+		<annotation cp="🐡">ዓሳ</annotation>
+		<annotation cp="🐡" type="tts">ዝተነፍሐ ቅርጺ ዘለዎ ዓሳ</annotation>
+		<annotation cp="🦈">ሻርክ | ዓሳ</annotation>
+		<annotation cp="🦈" type="tts">ሻርክ</annotation>
+		<annotation cp="🐙">ኦክቶፓስ</annotation>
+		<annotation cp="🐙" type="tts">ኦክቶፓስ</annotation>
+		<annotation cp="🐚">ጥውይዋይ | ሸል</annotation>
+		<annotation cp="🐚" type="tts">ጥውይዋይ ሸል</annotation>
+		<annotation cp="🐌">ኣረነ</annotation>
+		<annotation cp="🐌" type="tts">ኣረነ</annotation>
+		<annotation cp="🦋">ጽምብላሊዕ | ሓሰኻ | ጽብቕቲ</annotation>
+		<annotation cp="🦋" type="tts">ጽምብላሊዕ</annotation>
+		<annotation cp="🐛">ሓሸራ</annotation>
+		<annotation cp="🐛" type="tts">ጽገና ጌጋ</annotation>
+		<annotation cp="🐜">ሓሸራ</annotation>
+		<annotation cp="🐜" type="tts">ጻጸ</annotation>
+		<annotation cp="🐝">ንህቢ | ሓሸራ</annotation>
+		<annotation cp="🐝" type="tts">ንህቢ መዓር</annotation>
+		<annotation cp="🐞">ሕንዝ | ሓሸራ | ለዲበርድ | ሌዲ ባግ</annotation>
+		<annotation cp="🐞" type="tts">ሕንዚዝ</annotation>
+		<annotation cp="🦗">ኣንበጣ</annotation>
+		<annotation cp="🦗" type="tts">ዕንጭራር</annotation>
+		<annotation cp="🕷">ሓሸራ</annotation>
+		<annotation cp="🕷" type="tts">ሳሬት</annotation>
+		<annotation cp="🕸">ሳሬት | ዓለባ</annotation>
+		<annotation cp="🕸" type="tts">ዓለባ ሳሬት</annotation>
+		<annotation cp="🦂">ስኮርፒዮ | ስኮርፒዮን | ዞዲያክ</annotation>
+		<annotation cp="🦂" type="tts">ዕንቅርቢት</annotation>
+		<annotation cp="💐">ዕምባባ</annotation>
+		<annotation cp="💐" type="tts">ዝተጠቕለለ እምበባ</annotation>
+		<annotation cp="🌸">ዕምባባ | ቼሪ</annotation>
+		<annotation cp="🌸" type="tts">ዕመባባ ቼሪ</annotation>
+		<annotation cp="💮">ዕምባባ</annotation>
+		<annotation cp="💮" type="tts">ጻዕዳ ዕምባባ</annotation>
+		<annotation cp="🏵">ተኽሊ</annotation>
+		<annotation cp="🏵" type="tts">ሮዜታ</annotation>
+		<annotation cp="🌹">ዕምባባ</annotation>
+		<annotation cp="🌹" type="tts">ሮዝ</annotation>
+		<annotation cp="🥀">ዕምባባ | ዝቀምሰለ</annotation>
+		<annotation cp="🥀" type="tts">ዝቀምሰለ ዕምባባ</annotation>
+		<annotation cp="🌺">ዕምባባ</annotation>
+		<annotation cp="🌺" type="tts">ከርከደ</annotation>
+		<annotation cp="🌻">ዕምባባ | ጸሓይ</annotation>
+		<annotation cp="🌻" type="tts">ዕንባባ ጸሓይ</annotation>
+		<annotation cp="🌼">ዕምባባ</annotation>
+		<annotation cp="🌼" type="tts">ኣዝዩ ብዙሕ ዕምባባ ዘፍሪ ገረብ</annotation>
+		<annotation cp="🌷">ዕምባባ</annotation>
+		<annotation cp="🌷" type="tts">ዓይነት ዕምባባ</annotation>
+		<annotation cp="🌱">መንእሰይ</annotation>
+		<annotation cp="🌱" type="tts">ፈልሲ</annotation>
+		<annotation cp="🌲">ገረብ</annotation>
+		<annotation cp="🌲" type="tts">ኩሉ ግዜ ሓምላይ ገረብ</annotation>
+		<annotation cp="🌳">ምስ ወቕቲ ዝጥጥዕ/ዝረግፍ ገረብ | ኣብ ምርጋፍ | ገረብ</annotation>
+		<annotation cp="🌳" type="tts">ምስ ወቕቲ ዝጥጥዕ/ዝረግፍ ገረብ</annotation>
+		<annotation cp="🌴">ስየ | ገረብ</annotation>
+		<annotation cp="🌴" type="tts">ስየ ገረብ</annotation>
+		<annotation cp="🌵">ተኽሊ</annotation>
+		<annotation cp="🌵" type="tts">ቆልቋል</annotation>
+		<annotation cp="🌾">እዝኒ | ሩዝ | ጥረ</annotation>
+		<annotation cp="🌾" type="tts">ዘለላ ናይ ሩዝ</annotation>
+		<annotation cp="🌿">ቆጽሊ</annotation>
+		<annotation cp="🌿" type="tts">ተፈጥራዊ መድሃኒት</annotation>
+		<annotation cp="☘">ተኽሊ</annotation>
+		<annotation cp="☘" type="tts">ሻምሮክ</annotation>
+		<annotation cp="🍀">4 | ቅንፍር | አርባዕተ | ቆጽሊ</annotation>
+		<annotation cp="🍀" type="tts">ብዓል ኣርባዕተ ቆጽሊ ቅንፍር</annotation>
+		<annotation cp="🍁">ዝረግፍ | ቆጽሊ | ማፕል</annotation>
+		<annotation cp="🍁" type="tts">ቆጽሊ ማፕል</annotation>
+		<annotation cp="🍂">ዝረግፍ | ቆጽሊ</annotation>
+		<annotation cp="🍂" type="tts">ዝረገፈ ቆጽሊ</annotation>
+		<annotation cp="🍃">ነፈሰ | ዝንሳፈፍ | ቆጽሊ | ንፋስ</annotation>
+		<annotation cp="🍃" type="tts">ኣብ ኣየር ዝንሳፈፍ ዘሎ ቆጽሊ</annotation>
+		<annotation cp="🍇">ፍረ | ወይኒ</annotation>
+		<annotation cp="🍇" type="tts">ወይኒ</annotation>
+		<annotation cp="🍈">ፍረ</annotation>
+		<annotation cp="🍈" type="tts">ሜሎን</annotation>
+		<annotation cp="🍉">ፍረ</annotation>
+		<annotation cp="🍉" type="tts">ብርጭቕ</annotation>
+		<annotation cp="🍊">ፍረ | ኣራንሺ</annotation>
+		<annotation cp="🍊" type="tts">መንደሪን</annotation>
+		<annotation cp="🍋">ከም ለሚን ኣራንሺ | ፍረ</annotation>
+		<annotation cp="🍋" type="tts">ሓመዳዊ ቀጠልያ</annotation>
+		<annotation cp="🍌">ፍረ</annotation>
+		<annotation cp="🍌" type="tts">ባናና</annotation>
+		<annotation cp="🍍">ፍረ</annotation>
+		<annotation cp="🍍" type="tts">ኣናናስ</annotation>
+		<annotation cp="🍎">ቱፋሕ | ፍረ | ቀይሕ</annotation>
+		<annotation cp="🍎" type="tts">ቀይሕ ሜለ</annotation>
+		<annotation cp="🍏">ቱፋሕ | ፍረ | ቀጠልያ</annotation>
+		<annotation cp="🍏" type="tts">ቀጠልያ ቱፋሕ</annotation>
+		<annotation cp="🍐">ፍረ</annotation>
+		<annotation cp="🍐" type="tts">ፒር</annotation>
+		<annotation cp="🍑">ፍረ</annotation>
+		<annotation cp="🍑" type="tts">ኩክ</annotation>
+		<annotation cp="🍒">ቀዪሕ ከቢብ ፍረ | ፍረ</annotation>
+		<annotation cp="🍒" type="tts">ቀዪሕ ከቢብ ፍረ</annotation>
+		<annotation cp="🍓">ቤሪ | ፍረ</annotation>
+		<annotation cp="🍓" type="tts">ፍራውላ</annotation>
+		<annotation cp="🥝">ኪዊ | ፍሩታ | መግቢ</annotation>
+		<annotation cp="🥝" type="tts">ፍሩታ ኪዊ</annotation>
+		<annotation cp="🍅">ፈረ | ኣሕምልቲ</annotation>
+		<annotation cp="🍅" type="tts">ኮሚደረ</annotation>
+		<annotation cp="🥥">ስየ | ፒና ኮላዳ</annotation>
+		<annotation cp="🥥" type="tts">ኮኮናት</annotation>
+		<annotation cp="🥑">ኣቮካዶ | ፍሩታ | መግቢ</annotation>
+		<annotation cp="🥑" type="tts">ኣቮካዶ</annotation>
+		<annotation cp="🍆">መልስንዛና መስለ | ኣሕምልቲ</annotation>
+		<annotation cp="🍆" type="tts">ባቲንጋን</annotation>
+		<annotation cp="🥔">ድንሽ | ኣሕምልቲ | መግቢ</annotation>
+		<annotation cp="🥔" type="tts">ድንሽ</annotation>
+		<annotation cp="🥕">ካሮቲ | ኣሕምልቲ | መግቢ</annotation>
+		<annotation cp="🥕" type="tts">ካሮት</annotation>
+		<annotation cp="🌽">ዕፉን | ዘለላ</annotation>
+		<annotation cp="🌽" type="tts">ዘለላ ዕፉን</annotation>
+		<annotation cp="🌶">ጉዕ | በርበረ</annotation>
+		<annotation cp="🌶" type="tts">ጉዕ በርበረ</annotation>
+		<annotation cp="🥒">ክያር | ዙኪኒ | ኣሕምልቲ | መግቢ</annotation>
+		<annotation cp="🥒" type="tts">ባምያ</annotation>
+		<annotation cp="🥦">ካውሎ በረኻ</annotation>
+		<annotation cp="🥦" type="tts">ብሮኮሊ</annotation>
+		<annotation cp="🍄">ቃንጥሻራ</annotation>
+		<annotation cp="🍄" type="tts">ቃንጥሻ</annotation>
+		<annotation cp="🥜">ፉል | መግቢ | ኣሕምልቲ</annotation>
+		<annotation cp="🥜" type="tts">ፉል</annotation>
+		<annotation cp="🌰">ተኽሊ</annotation>
+		<annotation cp="🌰" type="tts">ቀይሕ-ሓመዳዊ ፍረ</annotation>
+		<annotation cp="🍞">ሕብስቲ</annotation>
+		<annotation cp="🍞" type="tts">ዳቦ</annotation>
+		<annotation cp="🥐">ክሮይሳንት (ዓይነት ባኒ) | ክረሰንት ሮል (ዓይነት ባኒ) | ፈረንሳ | መግቢ | ባኒ</annotation>
+		<annotation cp="🥐" type="tts">ዓይነት ሕብስቲ</annotation>
+		<annotation cp="🥖">ባጌቲ (ዓይነት ባኒ) | ባኒ | ፈረንሳ | መግቢ</annotation>
+		<annotation cp="🥖" type="tts">ባኒ ፈረንሳይ</annotation>
+		<annotation cp="🥨">ጠዋይ</annotation>
+		<annotation cp="🥨" type="tts">ፕረትስል</annotation>
+		<annotation cp="🥞">ውዑይ ሽኮራዊ መግቢ | ኣብ ባዴላ ዝስራሕ ምቁር ሕብስቲ | ባቕላባ | መግቢ</annotation>
+		<annotation cp="🥞" type="tts">ኣብ ባዴላ ዝስራሕ ምቁር ሕብስቲ</annotation>
+		<annotation cp="🧀">ጅብና</annotation>
+		<annotation cp="🧀" type="tts">ውሻል ፎርማጆ</annotation>
+		<annotation cp="🍖">ዓጽሚ | ስጋ</annotation>
+		<annotation cp="🍖" type="tts">ስጋ ምስ ዓጽሚ</annotation>
+		<annotation cp="🍗">ዓጽሚ | ደርሆ | ሰለፍ</annotation>
+		<annotation cp="🍗" type="tts">ሰለፍ ደርሆ</annotation>
+		<annotation cp="🥩">ቁራጽ ስጋ ሓሸማ | ቁራጽ ስጋ ዕየት | ቁራጽ | ጥብሲ</annotation>
+		<annotation cp="🥩" type="tts">ቁራጽ ስጋ</annotation>
+		<annotation cp="🥓">ስጋ ሓሰማ | ስጋ | መግቢ</annotation>
+		<annotation cp="🥓" type="tts">ስጋ ሓሰማ</annotation>
+		<annotation cp="🍔">በርገር</annotation>
+		<annotation cp="🍔" type="tts">ሃምበርገር</annotation>
+		<annotation cp="🍟">ቅልዋ | ድንሽ</annotation>
+		<annotation cp="🍟" type="tts">ቅልዋ ድንሽ</annotation>
+		<annotation cp="🍕">ጅብና | ቀጸላ</annotation>
+		<annotation cp="🍕" type="tts">ፒዛ</annotation>
+		<annotation cp="🌭">ፍራንክፈርተር | ሆትዶግ | ሶሰጅ</annotation>
+		<annotation cp="🌭" type="tts">ሆት ዶግ</annotation>
+		<annotation cp="🥪">ዳቦ</annotation>
+		<annotation cp="🥪" type="tts">ሳንድዊች</annotation>
+		<annotation cp="🌮">ሜክሲካዊ</annotation>
+		<annotation cp="🌮" type="tts">ታኮ</annotation>
+		<annotation cp="🌯">ሜክሲካዊ | ጥቕላል</annotation>
+		<annotation cp="🌯" type="tts">ቡሪቶ</annotation>
+		<annotation cp="🥙">ከባብ | ጠዓምያ | ጊሮ | ባኒ | ብምግቢ ዝተመልአ | መግቢ</annotation>
+		<annotation cp="🥙" type="tts">ብምግቢ ዝተመልአ ባኒ</annotation>
+		<annotation cp="🥚">እንቛቕሖ | መግቢ</annotation>
+		<annotation cp="🥚" type="tts">እንቋቁሖ</annotation>
+		<annotation cp="🍳">እንቋቁሖ | ቅልዋ | ባዴላ</annotation>
+		<annotation cp="🍳" type="tts">ኣብ ምኽሻን</annotation>
+		<annotation cp="🥘">ፓኤላ | ካሴሮል | ባዴላ | ሸሓኒ | መግቢ</annotation>
+		<annotation cp="🥘" type="tts">መቕለዊ ባዴላ</annotation>
+		<annotation cp="🍲">ዕትሮ | ጸብሒ</annotation>
+		<annotation cp="🍲" type="tts">ናይ መግቢ ጻሕሊ</annotation>
+		<annotation cp="🥣">ቁርሲ | ጥረታት | ኮንጂ</annotation>
+		<annotation cp="🥣" type="tts">ሽሓኒ ምስ ማንካ</annotation>
+		<annotation cp="🥗">ቀጠልያ | ሳላጣ | መግቢ</annotation>
+		<annotation cp="🥗" type="tts">ቀጠልያ ሰላጣ</annotation>
+		<annotation cp="🍿">ቆሎ ዕፉን</annotation>
+		<annotation cp="🍿" type="tts">ቆሎ ዕፉን</annotation>
+		<annotation cp="🥫">ታኒካ</annotation>
+		<annotation cp="🥫" type="tts">ዕሹግ መግቢ</annotation>
+		<annotation cp="🍱">ቤንቶ | ቦክስ</annotation>
+		<annotation cp="🍱" type="tts">ቤንቶ ቦክስ</annotation>
+		<annotation cp="🍘">ብስኩት | ሩዝ</annotation>
+		<annotation cp="🍘" type="tts">የሩዝ ብስኩት</annotation>
+		<annotation cp="🍙">ዓይነት ምግቢ | ጃፓናዊ | ሩዝ</annotation>
+		<annotation cp="🍙" type="tts">ብሩዝ ዝስራሕ ዓይነት ምግቢ</annotation>
+		<annotation cp="🍚">ዝበሰለ | ሩዝ</annotation>
+		<annotation cp="🍚" type="tts">ዝበሰለ ሩዝ</annotation>
+		<annotation cp="🍛">መረቕ ዘለዎ | ሩዝ</annotation>
+		<annotation cp="🍛" type="tts">መረቕ ዘለዎ ሩዝ</annotation>
+		<annotation cp="🍜">ራሕባ | መርቕ ደርሆ | ራመን | ብሃፋ</annotation>
+		<annotation cp="🍜" type="tts">ትኪ ዘለዎ ራሕባ</annotation>
+		<annotation cp="🍝">ፓስታ</annotation>
+		<annotation cp="🍝" type="tts">ስፓጌቲ</annotation>
+		<annotation cp="🍠">ድንሽ | ዝበሰለ | ሽኮራዊ</annotation>
+		<annotation cp="🍠" type="tts">ዝበሰለ ሽኮራዊ ድንሽ</annotation>
+		<annotation cp="🍢">ከባብ | መግቢ ባህሪ | ግራጫ | ዕንጸይቲ</annotation>
+		<annotation cp="🍢" type="tts">ኦደን</annotation>
+		<annotation cp="🍣">ሱሺ</annotation>
+		<annotation cp="🍣" type="tts">ሱሺ</annotation>
+		<annotation cp="🍤">ዝተቐልወ | ጋምበሪ | ታምቡራ</annotation>
+		<annotation cp="🍤" type="tts">ዝተቐልወ ጋምበሪ</annotation>
+		<annotation cp="🍥">ኬክ | ዓሳ | ምቁር ሕብስቲ | ጥውይዋይ</annotation>
+		<annotation cp="🍥" type="tts">ኬክ ዓሳ ምስ ጥዋይ</annotation>
+		<annotation cp="🍡">መጠዓዓሚ | ጃፓናዊ | ግራጫ | ዕንጸይቲ | ሽኮራዊ</annotation>
+		<annotation cp="🍡" type="tts">ኣብ ዕንጸይቲ ዘዳሎ ሓለዋት</annotation>
+		<annotation cp="🥟">ኣብ ዕትሮ ተለጣፊ | ግዮዛ | ጃዜ | ፒሮጊ | ኤምፓናዳ</annotation>
+		<annotation cp="🥟" type="tts">ዳምፕሊንግ</annotation>
+		<annotation cp="🥠">ትንቢት</annotation>
+		<annotation cp="🥠" type="tts">ኩኪ ጽሕፍቶ</annotation>
+		<annotation cp="🥡">ኦይስተር ሻንኬሎ</annotation>
+		<annotation cp="🥡" type="tts">መውሰዲ ሳንዱቕ</annotation>
+		<annotation cp="🦀">ካንሰር | ዞዲያክ</annotation>
+		<annotation cp="🦀" type="tts">ክራብ</annotation>
+		<annotation cp="🦐">ጋምበሪ | ንእሽቶ | ቆፎ ዓሳ | መግቢ</annotation>
+		<annotation cp="🦐" type="tts">ጋምበሪ</annotation>
+		<annotation cp="🦑">ስክዊድ | ኣባ ኣሮነ | መግቢ</annotation>
+		<annotation cp="🦑" type="tts">ስክዊድ</annotation>
+		<annotation cp="🍦">ክሬም | መጠዓዓሚ | በረድ | ኣይስክሬም | ልስሉስ | ሽኮራዊ</annotation>
+		<annotation cp="🍦" type="tts">ልስሉስ ጀላቶ</annotation>
+		<annotation cp="🍧">መጠዓዓሚ | በረድ | ቀጸላ | ሽኮራዊ</annotation>
+		<annotation cp="🍧" type="tts">ደቂቕ ሽኮራዊ በረድ</annotation>
+		<annotation cp="🍨">ክሬም | መጠዓዓሚ | በረድ | ሽኮራዊ</annotation>
+		<annotation cp="🍨" type="tts">ጀላቶ</annotation>
+		<annotation cp="🍩">መጠዓዓሚ | ዶናት | ሽኮራዊ</annotation>
+		<annotation cp="🍩" type="tts">ዶናት</annotation>
+		<annotation cp="🍪">መጠዓዓሚ | ሽኮራዊ</annotation>
+		<annotation cp="🍪" type="tts">ብሽኮቲ</annotation>
+		<annotation cp="🎂">ዕለት ልደት | ኬክ | በዓል | ምቁር ሕብስቲ | መጠዓዓሚ</annotation>
+		<annotation cp="🎂" type="tts">ኬክ ዕለት ልደት</annotation>
+		<annotation cp="🍰">ኬክ | መጠዓዓሚ | ምቁር ሕብስቲ | ቀጸላ | ሽኮራዊ</annotation>
+		<annotation cp="🍰" type="tts">ቁራስ ናይ ልደት ኬክ</annotation>
+		<annotation cp="🥧">ምቊር ሕብስቲ | መምልኢ</annotation>
+		<annotation cp="🥧" type="tts">ሳምቡሳ</annotation>
+		<annotation cp="🍫">ደንደላ | ቸኮላታ | መጠዓዓሚ | ሽኮራዊ</annotation>
+		<annotation cp="🍫" type="tts">ደንደላ ቸኮላታ</annotation>
+		<annotation cp="🍬">መጠዓዓሚ | ሽኮራዊ</annotation>
+		<annotation cp="🍬" type="tts">ካራሜላ</annotation>
+		<annotation cp="🍭">ካራሜላ መጠዓዓሚ | ሽኮራዊ</annotation>
+		<annotation cp="🍭" type="tts">ሎሊፖፕ ካረሜላ</annotation>
+		<annotation cp="🍮">መጠዓዓሚ | ፑዲን | ሽኮራዊ</annotation>
+		<annotation cp="🍮" type="tts">ካስታርድ</annotation>
+		<annotation cp="🍯">መዓር | ዕትሮ መዓር | ዕትሮ | ሽኮራዊ</annotation>
+		<annotation cp="🍯" type="tts">ዕትሮ መዓር</annotation>
+		<annotation cp="🍼">ንእሽቶ | ጥርሙዝ | መስተ | ጸባ</annotation>
+		<annotation cp="🍼" type="tts">ንእሽቶ ጥርሙዝ</annotation>
+		<annotation cp="🥛">ጥርሙዝ | ጸባ | መስተ</annotation>
+		<annotation cp="🥛" type="tts">ጠርሙስ ጸባ</annotation>
+		<annotation cp="☕">መስተ | ቡን | ውዑይ | ሃፋ | ሻሂ</annotation>
+		<annotation cp="☕" type="tts">ዉዑይ መስተ</annotation>
+		<annotation cp="🍵">መስተ | ኩባያ | ሻሂ | ኩባያ ሻሂ</annotation>
+		<annotation cp="🍵" type="tts">እዝኒ ዘይበሉ ኩባያ ሻሂ</annotation>
+		<annotation cp="🍶">ባር | መስተ | ጠርሙዝ | ኩባያ</annotation>
+		<annotation cp="🍶" type="tts">ምእንቲ</annotation>
+		<annotation cp="🍾">ባር | ጠርሙዝ | ባሊቃ | መስተ | መኽፈቲ</annotation>
+		<annotation cp="🍾" type="tts">ጥርሙስ ምስ መኽፈቲ</annotation>
+		<annotation cp="🍷">ባር | መስተ | ጠርሙዝ | ወይኒ</annotation>
+		<annotation cp="🍷" type="tts">ጥርሙስዝ ወይኒ</annotation>
+		<annotation cp="🍸">ባር | ኮክቴል | መስተ | ጠርሙዝ</annotation>
+		<annotation cp="🍸" type="tts">ብርጭቆ ኮክቴል</annotation>
+		<annotation cp="🍹">ባር | መስተ | ኣብ ከባቢ ቅናት ምድሪ</annotation>
+		<annotation cp="🍹" type="tts">ኣብ ከባቢ ቅናት ምድሪ ናይ ዝርከባ ሃገራት (ሃሩር) መስተ</annotation>
+		<annotation cp="🍺">ባር | ቢራ | መስተ | ዓቢ ብርጭቆ</annotation>
+		<annotation cp="🍺" type="tts">ናይ ቢራ ዓቢ ብርጭቆ</annotation>
+		<annotation cp="🍻">ባር | ቢራ | ምግጫው | መስተ</annotation>
+		<annotation cp="🍻" type="tts">ምግጫው ናይ ቢራ ብርጭቆ</annotation>
+		<annotation cp="🥂">ጥርሙዝ ምስ ዝጋጮ ዝስማዕ ድምጺ | ጥርሙዝ | ምስታይ | ክብረ በዓል</annotation>
+		<annotation cp="🥂" type="tts">ብርጭቆታት ምግጫው</annotation>
+		<annotation cp="🥃">ጥርሙዝ | ብኬሪ | ዊስኪ | ኣልኮላዊ መስተ | ግስም አቢልካ ምስታይ</annotation>
+		<annotation cp="🥃" type="tts">ተሰባሪ ጥርሙዝ</annotation>
+		<annotation cp="🥤">ሶዳ | ጽሟቕ</annotation>
+		<annotation cp="🥤" type="tts">ኩባያ ምስ ስትረው</annotation>
+		<annotation cp="🥢">ሓሽሽ</annotation>
+		<annotation cp="🥢" type="tts">ፋርኬታ ጃፓናዊያን</annotation>
+		<annotation cp="🍽">ምኽሻን | ፋርኬታ | ካራ | ሸሓኒ</annotation>
+		<annotation cp="🍽" type="tts">ፋርኬታን ካራን ምስ ሸሓኒ</annotation>
+		<annotation cp="🍴">ምኽሻን | ፋርኬታ | ካራ</annotation>
+		<annotation cp="🍴" type="tts">ፋርኬታን ካራን</annotation>
+		<annotation cp="🥄">ማንካ | መኣዲ</annotation>
+		<annotation cp="🥄" type="tts">ማንካ</annotation>
+		<annotation cp="🔪">ምኽሻን | ሆቾ | ካራ | መሳርሒ | መሳርያ</annotation>
+		<annotation cp="🔪" type="tts">ካራ ኲሽነ</annotation>
+		<annotation cp="🏺">ኣኳይረስ | ምኽሻን | ምሰተ | ጆግ | መሳርሒ | መሳርያ | ዞዲያክ</annotation>
+		<annotation cp="🏺" type="tts">ዕትሮ ኣምፎራ</annotation>
+		<annotation cp="🌍">ኣፍሪቃ | መሬት | ኣውሮጳ | ግሎብ | ዓለም</annotation>
+		<annotation cp="🌍" type="tts">ኤውሮጳ-ኣፍሪቃ ዘርእይ ካርታ ዓለም</annotation>
+		<annotation cp="🌎">ኣሜሪካ | መሬት | ኣውሮጳ | ግሎብ | ዓለም</annotation>
+		<annotation cp="🌎" type="tts">ኣሜሪካ ዘርእይ ካርታ ዓለም</annotation>
+		<annotation cp="🌏">ኤስያ | መሬት | ኣውሮጳ | ግሎብ | ዓለም</annotation>
+		<annotation cp="🌏" type="tts">ኤስያ-ኣውስትራልያ ዘርእይ ካርታ ዓለም</annotation>
+		<annotation cp="🌐">መሬት | ግሎብ | መሪዲያ | ዓለም</annotation>
+		<annotation cp="🌐" type="tts">መሪዲያን ዘለዎ ካርታ ዓለም</annotation>
+		<annotation cp="🗺">ካርታ | ዓለም</annotation>
+		<annotation cp="🗺" type="tts">ካርታ ዓለም</annotation>
+		<annotation cp="🗾">ጃፓን | ካርታ</annotation>
+		<annotation cp="🗾" type="tts">ካርታ ጃፓን</annotation>
+		<annotation cp="🏔">ዝሑል | እምባ | በረድ</annotation>
+		<annotation cp="🏔" type="tts">በረድ ዝሸፈኖ ጎቦ</annotation>
+		<annotation cp="⛰">እምባ</annotation>
+		<annotation cp="⛰" type="tts">እምባ</annotation>
+		<annotation cp="🌋">ግንፋለ | እምባ</annotation>
+		<annotation cp="🌋" type="tts">እሳተ ጎመራ</annotation>
+		<annotation cp="🗻">ፉጂ | እምባ</annotation>
+		<annotation cp="🗻" type="tts">እምባ ፉጂ</annotation>
+		<annotation cp="🏕">ምስፋር</annotation>
+		<annotation cp="🏕" type="tts">ምስፋር</annotation>
+		<annotation cp="🏖">ገማግም ባሕሪ | ጽላል</annotation>
+		<annotation cp="🏖" type="tts">ጽላል ዘለዎ ገምገም ባሕሪ</annotation>
+		<annotation cp="🏜">ምድረ በዳ</annotation>
+		<annotation cp="🏜" type="tts">ምድረ በዳ</annotation>
+		<annotation cp="🏝">ምድረ በዳ | ደሴት</annotation>
+		<annotation cp="🏝" type="tts">ደሴት ምድረ በዳ</annotation>
+		<annotation cp="🏞">መናፈሻ</annotation>
+		<annotation cp="🏞" type="tts">ሃገራዊ መናፈሻ</annotation>
+		<annotation cp="🏟">ስታዲየም</annotation>
+		<annotation cp="🏟" type="tts">ስታዲየም</annotation>
+		<annotation cp="🏛">ገዲም</annotation>
+		<annotation cp="🏛" type="tts">ገዲም ህንጻ</annotation>
+		<annotation cp="🏗">ህንጻ</annotation>
+		<annotation cp="🏗" type="tts">ህንጻ ምህናጽ</annotation>
+		<annotation cp="🏘">ገዛውቲ</annotation>
+		<annotation cp="🏘" type="tts">ገዛውቲ</annotation>
+		<annotation cp="🏚">ዑና | ገዛ</annotation>
+		<annotation cp="🏚" type="tts">ዑና ገዛ</annotation>
+		<annotation cp="🏠">ቤት | ገዛ</annotation>
+		<annotation cp="🏠" type="tts">ቤት</annotation>
+		<annotation cp="🏡">ጀርዲን | ቤት | ገዛ</annotation>
+		<annotation cp="🏡" type="tts">ገዛ ምስ ጀርዲኑ</annotation>
+		<annotation cp="🏢">ህንጻ</annotation>
+		<annotation cp="🏢" type="tts">ናይ ቤት-ጽሕፈት ሀንጻ</annotation>
+		<annotation cp="🏣">ጃፓናዊ | ፖስታ</annotation>
+		<annotation cp="🏣" type="tts">ናይ ጃፓናውያን ቤት-ጽሕፈት ፖስታ</annotation>
+		<annotation cp="🏤">ኣውሮጳዊ | ፖስታ</annotation>
+		<annotation cp="🏤" type="tts">ሳንዱቕ ቤት ፖስጣ</annotation>
+		<annotation cp="🏥">ሓኪም | መድሃኒት</annotation>
+		<annotation cp="🏥" type="tts">ሆስፒታል</annotation>
+		<annotation cp="🏦">ህንጻ</annotation>
+		<annotation cp="🏦" type="tts">ባንኪ</annotation>
+		<annotation cp="🏨">ህንጻ</annotation>
+		<annotation cp="🏨" type="tts">ሆቴል</annotation>
+		<annotation cp="🏩">ሆቴል | ፍቕሪ</annotation>
+		<annotation cp="🏩" type="tts">ናይ ፍቕሪ ሆቴል</annotation>
+		<annotation cp="🏪">24 ሰዓት ክርከብ ዝክእል | መኽዘን</annotation>
+		<annotation cp="🏪" type="tts">24 ሰዓት ክርከብ ዝክእል መኽዘን</annotation>
+		<annotation cp="🏫">ህንጻ</annotation>
+		<annotation cp="🏫" type="tts">ቤት ትምህርቲ</annotation>
+		<annotation cp="🏬">ዝተፈላለዩ ዓይነት ትሕዘቶ ዘለዎ | መኽዘን</annotation>
+		<annotation cp="🏬" type="tts">ዝተፈላለዩ ዓይነት ትሕዘቶ ዘለዎ ዕዳጋ</annotation>
+		<annotation cp="🏭">ህንጻ</annotation>
+		<annotation cp="🏭" type="tts">ፋብሪካ</annotation>
+		<annotation cp="🏯">ግዙፍ ህንጻ | ጃፓናውያን</annotation>
+		<annotation cp="🏯" type="tts">ናይ ጃፓናውያን ግዙፍ ህንጻ</annotation>
+		<annotation cp="🏰">ኣውሮጳዊ</annotation>
+		<annotation cp="🏰" type="tts">ካስል</annotation>
+		<annotation cp="💒">ቤተ ጸሎት | ፍቕራዊ</annotation>
+		<annotation cp="💒" type="tts">መርዓ</annotation>
+		<annotation cp="🗼">ቶክዮ | ታወር</annotation>
+		<annotation cp="🗼" type="tts">ናይ ቶክዮ ታወር</annotation>
+		<annotation cp="🗽">ነጻነት | ሓወልቲ</annotation>
+		<annotation cp="🗽" type="tts">ሓወልቲ ነጻነት</annotation>
+		<annotation cp="⛪">ክርስትያን | መስቀል | ሃይማኖት</annotation>
+		<annotation cp="⛪" type="tts">ቤተ ክርስትያን</annotation>
+		<annotation cp="🕌">ምስልምና | ኣስላማይ | ሃይማኖት</annotation>
+		<annotation cp="🕌" type="tts">መስጊድ</annotation>
+		<annotation cp="🕍">ይሁድ | ይሁዳዊ | ሃይማኖት | ቤት መቅደስ</annotation>
+		<annotation cp="🕍" type="tts">ምኵራብ</annotation>
+		<annotation cp="⛩">ሃይማኖት | ሺንቶ | ቤተ መቕደስ</annotation>
+		<annotation cp="⛩" type="tts">ናይ ሺንቶ ቤተ መቕደስ</annotation>
+		<annotation cp="🕋">ምስልምና | ኣስላማይ | ሃይማኖት</annotation>
+		<annotation cp="🕋" type="tts">ናይ ኣስላም ካባ</annotation>
+		<annotation cp="⛲">መንጫዕጫዕታ</annotation>
+		<annotation cp="⛲" type="tts">መንጫዕጫዕታ</annotation>
+		<annotation cp="⛺">ምስፋር</annotation>
+		<annotation cp="⛺" type="tts">ሸራ</annotation>
+		<annotation cp="🌁">ግመ</annotation>
+		<annotation cp="🌁" type="tts">ግመኣዊ</annotation>
+		<annotation cp="🌃">ጸልማት | ኮኾብ</annotation>
+		<annotation cp="🌃" type="tts">ጸላምን ከዋኽብትን</annotation>
+		<annotation cp="🏙">ከተማ</annotation>
+		<annotation cp="🏙" type="tts">ስእለ ከተማ</annotation>
+		<annotation cp="🌄">ንግሆ | ጎቦ | ጽሓይ | ምብራቕ ጽሓይ</annotation>
+		<annotation cp="🌄" type="tts">ልዕሊ ጫፍ ጎቦታት እትወጽእ ጸሓይ</annotation>
+		<annotation cp="🌅">ንግሆ | ጽሓይ</annotation>
+		<annotation cp="🌅" type="tts">በርቃሕ ፀሓይ</annotation>
+		<annotation cp="🌆">ከተማ | ዕራርቦ | ምሸት | ስእሊ መሬት | ጸሓይ | ጽሓይ ዕራርቦ</annotation>
+		<annotation cp="🌆" type="tts">ትርኢት ከተማ ኣብ ኣጋ ዕራርቦ</annotation>
+		<annotation cp="🌇">ዕራርቦ | ጽሓይ</annotation>
+		<annotation cp="🌇" type="tts">ዕራርቦ ፀሓይ</annotation>
+		<annotation cp="🌉">ድልድል | ብለይቲ</annotation>
+		<annotation cp="🌉" type="tts">ድልድል ብለይቲ</annotation>
+		<annotation cp="♨">ውዑይ | ሙውቕ ጽድያ | ጽድያ | ሃፋፊ</annotation>
+		<annotation cp="♨" type="tts">ሙውቕ ጽድያ</annotation>
+		<annotation cp="🎠">ቅርጺ ፈረስ ዘለዎ | መዘናግዒ</annotation>
+		<annotation cp="🎠" type="tts">ቅርጺ ፈረስ ዘለዎ መዘናግዒ</annotation>
+		<annotation cp="🎡">ዘደንቕ ደው መበሊ | ፈሪስ | ዕንክሊል</annotation>
+		<annotation cp="🎡" type="tts">ዕንክሊል ፈሪስ</annotation>
+		<annotation cp="🎢">ዘደንቕ ደው መበሊ | ኮስተር | ሮለር</annotation>
+		<annotation cp="🎢" type="tts">ሮለር ኮስትር</annotation>
+		<annotation cp="💈">ቀምቃማይ | ምቕሶ | ዓንዲ</annotation>
+		<annotation cp="💈" type="tts">ዓንዲ እንዳ ቀምቃማይ</annotation>
+		<annotation cp="🎪">ናይ ሰርክስ | ዳስ</annotation>
+		<annotation cp="🎪" type="tts">ናይ ሰርክስ ዳስ</annotation>
+		<annotation cp="🚂">ኢንጂን | መንገዲ ባቡር | ሃፋ | ባቡር</annotation>
+		<annotation cp="🚂" type="tts">ናይ ባቡር ሞተር</annotation>
+		<annotation cp="🚃">መኪና | ኤሌክትሪክ | መንገዲ ባቡር | ባቢር | ትራም | ናይ ትሮሊ ኣውቶቡስ</annotation>
+		<annotation cp="🚃" type="tts">ናይ ከተማ ባቡር</annotation>
+		<annotation cp="🚄">ናይ ከተማ ባቡር | ሻካኒን | ፍጥነት | ባቡር</annotation>
+		<annotation cp="🚄" type="tts">ዝለዓለ ናህሪ ዘለዎ ባቡር</annotation>
+		<annotation cp="🚅">ጥይት | መንገዲ ባቡር | ሻካኒን | ፍጥነት | ባቡር</annotation>
+		<annotation cp="🚅" type="tts">ዝለዓለ ናህሪ ዘለዋ ባቡር ምስ ኣፍንጫ ጥይት ቅርጺ</annotation>
+		<annotation cp="🚆">መንገዲ ባቡር</annotation>
+		<annotation cp="🚆" type="tts">ባቡር</annotation>
+		<annotation cp="🚇">ንኡስ መንገዲ</annotation>
+		<annotation cp="🚇" type="tts">ባቡር ውሽጢ ምድሪ</annotation>
+		<annotation cp="🚈">መንገዲ ባቡር</annotation>
+		<annotation cp="🚈" type="tts">መጎዓዝያ ባቡር</annotation>
+		<annotation cp="🚉">መንገዲ ባቡር | ባቡር</annotation>
+		<annotation cp="🚉" type="tts">መደበር</annotation>
+		<annotation cp="🚊">ኣብ ሓዲድ ብ ኤለክትሪክ ዝንቀሳቐስ ህዝባዊ መጉዓዝያ ኣውቶቡስ</annotation>
+		<annotation cp="🚊" type="tts">ኣብ ሓዲድ ብ ኤለክትሪክ ዝንቀሳቐስ ህዝባዊ መጉዓዝያ ተሽከርካሪ</annotation>
+		<annotation cp="🚝">መኪና ጽዕነት</annotation>
+		<annotation cp="🚝" type="tts">ሓደ ዝኣንፈታ ባቡር</annotation>
+		<annotation cp="🚞">መኪና | ጎቦ | መንገዲ ባቡር</annotation>
+		<annotation cp="🚞" type="tts">ናይ ባቡር ሓዲስድ ዘለዎ እምባ</annotation>
+		<annotation cp="🚋">መኪና | ኣብ ሓዲድ ብ ኤለክትሪክ ዝንቀሳቐስ ህዝባዊ መጉዓዝያ ተሽከርካሪ | ኣብ ሓዲድ ብ ኤለክትሪክ ዝንቀሳቐስ ህዝባዊ መጉዓዝያ ኣውቶቡስ</annotation>
+		<annotation cp="🚋" type="tts">ኣብ ሓዲድ ብ ኤለክትሪክ ዝንቀሳቐስ ህዝባዊ መጉዓዝያ መኪና</annotation>
+		<annotation cp="🚌">መኪና ጽዕነት</annotation>
+		<annotation cp="🚌" type="tts">ኣውቶቡስ</annotation>
+		<annotation cp="🚍">ኣውቶቡስ | ናባኻ ተምርሕ</annotation>
+		<annotation cp="🚍" type="tts">ናባኻ ተምርሕ ኣውቶቡስ</annotation>
+		<annotation cp="🚎">ኣውቶቡስ | ኣብ ናይ ባቡር ሓዲድ ትሽክርከር ናይ ጽዕነት መኪና | ዓረብያ</annotation>
+		<annotation cp="🚎" type="tts">ኣብ ሓዲድ ብ ኤለክትሪክ ዝንቀሳቐስ ህዝባዊ መጉዓዝያ ኣውቶቡስ</annotation>
+		<annotation cp="🚐">ኣውቶቡስ</annotation>
+		<annotation cp="🚐" type="tts">ሚኒ-ባስ</annotation>
+		<annotation cp="🚑">መኪና ጽዕነት</annotation>
+		<annotation cp="🚑" type="tts">ኣምቡላንስ</annotation>
+		<annotation cp="🚒">ኢንጂን | ሓዊ | መኪና</annotation>
+		<annotation cp="🚒" type="tts">ናይ ሓዊ ሞተረ</annotation>
+		<annotation cp="🚓">መኪና | ፓትሮል | ፖሊስ</annotation>
+		<annotation cp="🚓" type="tts">ናይ ፖሊስ መኪና</annotation>
+		<annotation cp="🚔">መኪና | ናባኻ ተምርሕ መኪና | ፖሊስ</annotation>
+		<annotation cp="🚔" type="tts">ናባኻ ተምርሕ ናይ ፖሊስ መኪና</annotation>
+		<annotation cp="🚕">መኪና ጽዕነት</annotation>
+		<annotation cp="🚕" type="tts">ታክሲ</annotation>
+		<annotation cp="🚖">ናባኻ ተምርሕ | ታክሲ</annotation>
+		<annotation cp="🚖" type="tts">ናባኻ ተምርሕ ታክሲ</annotation>
+		<annotation cp="🚗">መኪና</annotation>
+		<annotation cp="🚗" type="tts">ተሽከርከርቲ</annotation>
+		<annotation cp="🚘">አውቶሞቢል | መኪና | ናባኻ ተምርሕ</annotation>
+		<annotation cp="🚘" type="tts">ናባኻ ተምርሕ ንእሽቶ መኪና</annotation>
+		<annotation cp="🚙">መናፈሲ | ኣቑሑ ስፖርት</annotation>
+		<annotation cp="🚙" type="tts">ናይ ስፖርት መኪና</annotation>
+		<annotation cp="🚚">መልእኽተኛ | መኪና</annotation>
+		<annotation cp="🚚" type="tts">መልእኽተኛ መኪና</annotation>
+		<annotation cp="🚛">ናይ ጽዕነት መመላለሲት መኪና | ክፋል | መኪና</annotation>
+		<annotation cp="🚛" type="tts">ሽፍንቲ ናይ ጽዕነት መመላለሲት መኪና</annotation>
+		<annotation cp="🚜">መኪና ጽዕነት</annotation>
+		<annotation cp="🚜" type="tts">ትራክተር</annotation>
+		<annotation cp="🏎">መኪና | ቅድድም</annotation>
+		<annotation cp="🏎" type="tts">ቅድድም መኪና</annotation>
+		<annotation cp="🏍">ቅድድም</annotation>
+		<annotation cp="🏍" type="tts">ሞቶ</annotation>
+		<annotation cp="🛵">በዓል ሞተር | ላምብሬታ</annotation>
+		<annotation cp="🛵" type="tts">በዓል ሞተር ላምብሬታ</annotation>
+		<annotation cp="🚲">ብሽኽሌታ</annotation>
+		<annotation cp="🚲" type="tts">ብሽክሌታ</annotation>
+		<annotation cp="🛴">ላምብሬታ | ምህራም</annotation>
+		<annotation cp="🛴" type="tts">ላምብሬታ</annotation>
+		<annotation cp="🚏">ኣውቶቡስ | ኣውቶቡስ ደው ትብለሉ | ደው ምባል</annotation>
+		<annotation cp="🚏" type="tts">ኣውቶቡስ ምጽባይ</annotation>
+		<annotation cp="🛣">ካብ ከተማ ወጻኢ ዝርከብ ግዙፍ ጽርግያ | ጽርግያ</annotation>
+		<annotation cp="🛣" type="tts">ናይ ተሽከርከርቲ ጽርግያ</annotation>
+		<annotation cp="🛤">መንገዲ ባቡር | ባቡር</annotation>
+		<annotation cp="🛤" type="tts">መንገዲ ባቡር</annotation>
+		<annotation cp="🛢">ከበሮ | ዘይቲ</annotation>
+		<annotation cp="🛢" type="tts">ናይ ዘይቲ ከበሮ</annotation>
+		<annotation cp="⛽">ነዳዲ | ናይ ነዳዲ ፖምባ | ጋዝ | ፖምባ | መደበር</annotation>
+		<annotation cp="⛽" type="tts">መምልኢ ነዳዲ</annotation>
+		<annotation cp="🚨">ናይ ሓደጋ ምልክት ብርሃን | መኪና | ብርሃን | ፖሊስ | ምሽክርካር</annotation>
+		<annotation cp="🚨" type="tts">መብራህቲ ናይ ፖሊስ መኪና</annotation>
+		<annotation cp="🚥">ብርሃን | ምልክት | ትራፊክ</annotation>
+		<annotation cp="🚥" type="tts">ጋድማዊ መብራህቲ ትራፊክ</annotation>
+		<annotation cp="🚦">ብርሃን | ምልክት | ትራፊክ</annotation>
+		<annotation cp="🚦" type="tts">ትኹል መብራህቲ ትራፊክ</annotation>
+		<annotation cp="🛑">ሸሞንተ ማእዝናዊ | ምልክት | ደው ኣብል</annotation>
+		<annotation cp="🛑" type="tts">ምልክት ጠጠው በል</annotation>
+		<annotation cp="🚧">ዓጋቲ</annotation>
+		<annotation cp="🚧" type="tts">ህንጻ</annotation>
+		<annotation cp="⚓">መርከብ | መሳርሒ</annotation>
+		<annotation cp="⚓" type="tts">መጽንዒ</annotation>
+		<annotation cp="⛵">ጀልባ | መዘናግዒ | ባሕሪ | ያት</annotation>
+		<annotation cp="⛵" type="tts">ብንፋስ ትጎዓዝ ጃልባ</annotation>
+		<annotation cp="🛶">ባህላዊ | መራከብ</annotation>
+		<annotation cp="🛶" type="tts">ባህላዊ መራከብ</annotation>
+		<annotation cp="🚤">ጃልባ</annotation>
+		<annotation cp="🚤" type="tts">ፈጣን ጃልባ</annotation>
+		<annotation cp="🛳">ተጓዓዚ | መርከብ</annotation>
+		<annotation cp="🛳" type="tts">ናይ ጉዕዞ መርከብ</annotation>
+		<annotation cp="⛴">ጃልባ | ተጓዓዚ</annotation>
+		<annotation cp="⛴" type="tts">መሰጋገሪ ዝጠቅም ንእሽቶ መርከብ</annotation>
+		<annotation cp="🛥">ጃልባ | ፈጣን ጃልባ</annotation>
+		<annotation cp="🛥" type="tts">ብሞተረ እትሰርሕ ጃልባ</annotation>
+		<annotation cp="🚢">ጃልባ | ተጓዓዚ</annotation>
+		<annotation cp="🚢" type="tts">መርከብ</annotation>
+		<annotation cp="✈">ኣውሮፕላን | ነፋሪት</annotation>
+		<annotation cp="✈" type="tts">ነፋሪት</annotation>
+		<annotation cp="🛩">ኣውሮፕላን | ነፋሪት</annotation>
+		<annotation cp="🛩" type="tts">ንእሽቶ ነፋሪት</annotation>
+		<annotation cp="🛫">ኣውሮፕላን | ነፋሪት | መእተዊ ፍተሻ | ብገሳ | ምብጋስ</annotation>
+		<annotation cp="🛫" type="tts">መብራር ነፋሪት</annotation>
+		<annotation cp="🛬">ኣውሮፕላን | ነፋሪት | በጻሕቲ | ኣብ ምብጻሕ | ምዕላብ</annotation>
+		<annotation cp="🛬" type="tts">መዕላብ ነፋሪት</annotation>
+		<annotation cp="💺">መንበር</annotation>
+		<annotation cp="💺" type="tts">መቐመጫ</annotation>
+		<annotation cp="🚁">መኪና ጽዕነት</annotation>
+		<annotation cp="🚁" type="tts">ሄሊኮፕተር</annotation>
+		<annotation cp="🚟">መንገዲ ባቡር | ምንጥልታል</annotation>
+		<annotation cp="🚟" type="tts">ናይ ህንጥዩነት መንገዲ ባቡር</annotation>
+		<annotation cp="🚠">ኬብል | ጎንዶላ | ጎቦ</annotation>
+		<annotation cp="🚠" type="tts">ናይ ጎቦ ተለፈሪካ</annotation>
+		<annotation cp="🚡">ብኣየር | ኬብል | መኪና | ጎንዶል | መንገዲ ትራም</annotation>
+		<annotation cp="🚡" type="tts">ተለፈሪካ</annotation>
+		<annotation cp="🛰">ጠፈር</annotation>
+		<annotation cp="🛰" type="tts">መንኮርኮር ሰማይ</annotation>
+		<annotation cp="🚀">ጠፈር</annotation>
+		<annotation cp="🚀" type="tts">ሮኬት</annotation>
+		<annotation cp="🛸">ዩፎ</annotation>
+		<annotation cp="🛸" type="tts">በራሪ ዲስክ</annotation>
+		<annotation cp="🛎">ቃጭል | ተቐባሊ ኣጋይሽ | ሆቴል</annotation>
+		<annotation cp="🛎" type="tts">ናይ ተቐባሊ ኣጋይሽ ቃጭል</annotation>
+		<annotation cp="⌛">ሑጻ | ሰዓት ቆጻሪ</annotation>
+		<annotation cp="⌛" type="tts">ሰዓት መዐቀኒ ጥርሙዝ</annotation>
+		<annotation cp="⏳">ሰዓት መዐቀኒ ጥርሙዝ | ሑጻ | ስዓት ቆጻሪ</annotation>
+		<annotation cp="⏳" type="tts">ሰዓት መዐቀኒ ጥርሙዝ ምስ ዝውሕዝ ሑጻ</annotation>
+		<annotation cp="⌚">ሰዓት</annotation>
+		<annotation cp="⌚" type="tts">ተዓዘብ</annotation>
+		<annotation cp="⏰">ሰዓት | መዘከሪ</annotation>
+		<annotation cp="⏰" type="tts">ሰዓት መዘከሪ</annotation>
+		<annotation cp="⏱">ሰዓት</annotation>
+		<annotation cp="⏱" type="tts">ቅልጣፈ ንምልካዕ እንጥቀመሉ ሰዓት</annotation>
+		<annotation cp="⏲">ሰዓት | መዘኻኸሪ</annotation>
+		<annotation cp="⏲" type="tts">ሰዓት መዘኻኸሪ</annotation>
+		<annotation cp="🕰">ሰዓት</annotation>
+		<annotation cp="🕰" type="tts">ናይ መንደቕ ወይ ናይ ጣውላ ሰዓት</annotation>
+		<annotation cp="🕛">00 | 12 | 12፡00 | ሰዓት | ዓሰርተው ክልተ</annotation>
+		<annotation cp="🕛" type="tts">ሰዓት ዓሰርተ-ክልተ (ፋዱስ)</annotation>
+		<annotation cp="🕧">00 | 12 | 12፡30 | ሰዓት | ሰላሳ | ዓሰርተው ክልተ</annotation>
+		<annotation cp="🕧" type="tts">ዓሰርተ-ክልተን-ፈረቓን</annotation>
+		<annotation cp="🕐">00 | 1 | 1:00 | ሰዓት | ሓደ</annotation>
+		<annotation cp="🕐" type="tts">ሰዓት ሓደ</annotation>
+		<annotation cp="🕜">1 | 1:30 | 30 | ሰዓት | ሓደ | ፈረቓ</annotation>
+		<annotation cp="🕜" type="tts">ሓደን ፈረቓን</annotation>
+		<annotation cp="🕑">00 | 2 | 2:00 | ሰዓት | ክልተ</annotation>
+		<annotation cp="🕑" type="tts">ሰዓት ክልተ</annotation>
+		<annotation cp="🕝">2 | 2:30 | 30 | ሰዓት | ሰላሳ | ክልተ</annotation>
+		<annotation cp="🕝" type="tts">ሰዓት ክልተን ፈረቓን</annotation>
+		<annotation cp="🕒">00 | 3 | 3:00 | ሰዓት | ሰለሰተ</annotation>
+		<annotation cp="🕒" type="tts">ሰዓት ሰለስተ</annotation>
+		<annotation cp="🕞">3 | 3:30 | 30 | ሰዓት | ሰላሳ | ሰለሰተ</annotation>
+		<annotation cp="🕞" type="tts">ሰለስተን-ፈረቓን</annotation>
+		<annotation cp="🕓">00 | 4 | 4:00 | ሰዓት | አርባዕተ</annotation>
+		<annotation cp="🕓" type="tts">ሰዓት ኣርባዕተ</annotation>
+		<annotation cp="🕟">30 | 4 | 4:30 | ሰዓት | አርባዕተ | ፈረቓን</annotation>
+		<annotation cp="🕟" type="tts">ኣርባዕተን-ፈረቓን</annotation>
+		<annotation cp="🕔">00 | 5 | 5:00 | ሰዓት | ሓሙሽተ | o’clock</annotation>
+		<annotation cp="🕔" type="tts">ሰዓት ሓሙሽተ</annotation>
+		<annotation cp="🕠">30 | 5 | 5:30 | ሰዓት | ሓሙሽተ | ፈረቓን</annotation>
+		<annotation cp="🕠" type="tts">ሓሙሽተን-ፈረቓን</annotation>
+		<annotation cp="🕕">00 | 6 | 6:00 | ሰዓት | ሽዱሽተ</annotation>
+		<annotation cp="🕕" type="tts">ሰዓት ሽዱሽተ</annotation>
+		<annotation cp="🕡">30 | 6 | 6:30 | clock | six | ፈረቓን</annotation>
+		<annotation cp="🕡" type="tts">ሽዱሽተን-ፈረቓን</annotation>
+		<annotation cp="🕖">00 | 7 | 7:00 | ሰዓት | ሸውዓተ</annotation>
+		<annotation cp="🕖" type="tts">ሰዓት ሸውዓተ</annotation>
+		<annotation cp="🕢">30 | 7 | 7:30 | ሰዓት | ሸውዓተ | ፈረቓን</annotation>
+		<annotation cp="🕢" type="tts">ሸውዓተን-ፈረቓን</annotation>
+		<annotation cp="🕗">00 | 8 | 8:00 | ሰዓት | ሸሞንተ</annotation>
+		<annotation cp="🕗" type="tts">ሰዓት ሸሞንተ</annotation>
+		<annotation cp="🕣">30 | 8 | 8:30 | ሰዓት | ሸሞንተ | ፈረቓን</annotation>
+		<annotation cp="🕣" type="tts">ሸሞንተን-ፈረቓን</annotation>
+		<annotation cp="🕘">00 | 9 | 9:00 | ሰዓት | ትሽዓተ</annotation>
+		<annotation cp="🕘" type="tts">ሰዓት ትሽዓተ</annotation>
+		<annotation cp="🕤">30 | 9 | 9:30 | ሰዓት | ትሽዓተ | ፈረቓን</annotation>
+		<annotation cp="🕤" type="tts">ትሽዓተን-ፈረቓን</annotation>
+		<annotation cp="🕙">00 | 10 | 10:00 | ሰዓት | ዓሰርተ</annotation>
+		<annotation cp="🕙" type="tts">ስዓት ዓሰርተ</annotation>
+		<annotation cp="🕥">10 | 10:30 | 30 | ሰዓት | ዓሰረተ | ፈረቓን</annotation>
+		<annotation cp="🕥" type="tts">ሰዓት ዓሰርተን ፈረቓን</annotation>
+		<annotation cp="🕚">00 | 11 | 11:00 | ሰዓት | ዓሰረተ ሓደ</annotation>
+		<annotation cp="🕚" type="tts">ስዓት ዓሰርተ ሓደ</annotation>
+		<annotation cp="🕦">11 | 11:30 | 30 | ሰዓት | ዓሰረተ ሓደ | ፈረቓን</annotation>
+		<annotation cp="🕦" type="tts">ስዓት ዓሰርተ ሓደን ፈረቓን</annotation>
+		<annotation cp="🌑">ጸልማት | ወርሒ</annotation>
+		<annotation cp="🌑" type="tts">ሓዳሽ ወርሒ</annotation>
+		<annotation cp="🌒">ሂላል | ወርሒ | ናብ ሙሉእ ወርሒ</annotation>
+		<annotation cp="🌒" type="tts">ንእሽተይ ዝበርሄት ፍርቂ ወርሒ</annotation>
+		<annotation cp="🌓">ወርሒ | ርብዒ</annotation>
+		<annotation cp="🌓" type="tts">ፋልማይ ርብዒ ወርሒ</annotation>
+		<annotation cp="🌔">ልዕሊ ፍርቂ | ወርሒ | ናብ ሙሉእ ወርሒ</annotation>
+		<annotation cp="🌔" type="tts">ንእሽተይ ዝጸለመት ፍርቂ ወርሒ</annotation>
+		<annotation cp="🌕">ምልእቲ | ወርሒ</annotation>
+		<annotation cp="🌕" type="tts">ምልእቲ ወርሒ</annotation>
+		<annotation cp="🌖">ልዕሊ ፍርቂ | ወርሒ | ትቕንስ ዘላ ወርሒ</annotation>
+		<annotation cp="🌖" type="tts">ብየማን ንእሽቶ ዝጸለመት ፍርቂ ውርሒ</annotation>
+		<annotation cp="🌗">ወርሒ | ርብዒ</annotation>
+		<annotation cp="🌗" type="tts">ናይ መወዳእታ ርብዒ ወርሒ</annotation>
+		<annotation cp="🌘">ሂላል | ወርሒ | ትቕንስ ዘላ ወርሒ</annotation>
+		<annotation cp="🌘" type="tts">ብም ንእሽቶ ዝበርሀት ፍርቂ ወርሒ</annotation>
+		<annotation cp="🌙">ሓውሲ ክቢ | ወርሒ</annotation>
+		<annotation cp="🌙" type="tts">ሓውሲ ክቢ ወርሒ</annotation>
+		<annotation cp="🌚">ገጽ | ወርሒ</annotation>
+		<annotation cp="🌚" type="tts">ገጽ ሓዳሽ ወርሒ</annotation>
+		<annotation cp="🌛">ገጽ | ወርሒ | ርብዒ</annotation>
+		<annotation cp="🌛" type="tts">ፋልማይ ርብዒ ወርሒ ምስ ገጽ</annotation>
+		<annotation cp="🌜">ገጽ | ወርሒ | ርብዒ</annotation>
+		<annotation cp="🌜" type="tts">ናይ መወዳእታ ርብዒ ወርሒ ምስ ገጽ</annotation>
+		<annotation cp="🌡">ኩነታት ኣየር</annotation>
+		<annotation cp="🌡" type="tts">መዐቀኒ ሙቐት</annotation>
+		<annotation cp="☀">ብሩህ | ጩራታት | ጸሓይ ዝዓብለሎ</annotation>
+		<annotation cp="☀" type="tts">ጸሓይ</annotation>
+		<annotation cp="🌝">ብሩህ | ገጽ | ሙሉእ | ወርሒ</annotation>
+		<annotation cp="🌝" type="tts">ምልእቲ ወርሒ ምስ ገጽ</annotation>
+		<annotation cp="🌞">ብሩህ | ገጽ | ጸሓይ</annotation>
+		<annotation cp="🌞" type="tts">ጸሓይ ምስ ገጽ</annotation>
+		<annotation cp="⭐">ኮኾብ</annotation>
+		<annotation cp="⭐" type="tts">ጻዕዳ ማእከላይ ኮኾብ</annotation>
+		<annotation cp="🌟">ዘብለጭልጭ | ዘንጸባርቕ | ኣብለጭለጨ | ኮኾብ</annotation>
+		<annotation cp="🌟" type="tts">ዘንጸባርቕ ኮኾብ</annotation>
+		<annotation cp="🌠">ዝወድቕ | ዝውርወር | ኮኾብ</annotation>
+		<annotation cp="🌠" type="tts">ተወርዋሪ ኮኾብ</annotation>
+		<annotation cp="🌌">ጠፈር</annotation>
+		<annotation cp="🌌" type="tts">ስነ-ከዋኽብቲ</annotation>
+		<annotation cp="☁">ኩነታት ኣየር</annotation>
+		<annotation cp="☁" type="tts">ደበና</annotation>
+		<annotation cp="⛅">ደበና | ጸሓይ</annotation>
+		<annotation cp="⛅" type="tts">ጽሓይ ብድሕሪ ደበና</annotation>
+		<annotation cp="⛈">ደበና | ዝናብ | ነጎዳ</annotation>
+		<annotation cp="⛈" type="tts">ደበና ምስ በርቂን ዝናብን</annotation>
+		<annotation cp="🌤">ደበና | ጸሓይ</annotation>
+		<annotation cp="🌤" type="tts">ጸሓይ ብድሕሪ ንእሽቶ ደበና</annotation>
+		<annotation cp="🌥">ደበና | ጸሓይ</annotation>
+		<annotation cp="🌥" type="tts">ጸሓይ ብድሕሪ ገዚፍ ደበና</annotation>
+		<annotation cp="🌦">ደበና | ዝናብ | ጸሓይ</annotation>
+		<annotation cp="🌦" type="tts">ጸሓይ ብድሕሪ ናይ ዝናብ ደበና</annotation>
+		<annotation cp="🌧">ደብና | ዝናብ</annotation>
+		<annotation cp="🌧" type="tts">ደበና ምስ ዝናብ</annotation>
+		<annotation cp="🌨">ደብና | ዛሕሊ | በረድ</annotation>
+		<annotation cp="🌨" type="tts">ደበና ምስ በረድ</annotation>
+		<annotation cp="🌩">ደበና | በርቂ</annotation>
+		<annotation cp="🌩" type="tts">ደበና ምስ በርቂ</annotation>
+		<annotation cp="🌪">ደበና | ኣውሎ ንፋስ</annotation>
+		<annotation cp="🌪" type="tts">ሓያል ህቦብላ ንፋስ</annotation>
+		<annotation cp="🌫">ደበና</annotation>
+		<annotation cp="🌫" type="tts">ግመ</annotation>
+		<annotation cp="🌬">ነፋሻ | ደበና | ገጽ | ንፋስ</annotation>
+		<annotation cp="🌬" type="tts">ገጽ ንፋስ ( ኩንታት ኣየር ነፋሻ አሎ ንምባል )</annotation>
+		<annotation cp="🌀">ምዛር ርእሲ | ዕንኪላሎ | ዘራጊቶ ንፋስ</annotation>
+		<annotation cp="🌀" type="tts">ምፍዛዝ</annotation>
+		<annotation cp="🌈">ዝናብ</annotation>
+		<annotation cp="🌈" type="tts">ቀስተ ደበና</annotation>
+		<annotation cp="🌂">ክዳውንቲ | ዝናብ | ጽላል</annotation>
+		<annotation cp="🌂" type="tts">ዕጸው ጽላል</annotation>
+		<annotation cp="☂">ኣልባሳት | ዝናብ</annotation>
+		<annotation cp="☂" type="tts">ጽላል</annotation>
+		<annotation cp="☔">ክዳውንቲ | ነጠብጣብ | ዝናብ | ጽላል</annotation>
+		<annotation cp="☔" type="tts">ጽላል ምስ ናይ ዝናብ ንጣብ</annotation>
+		<annotation cp="⛱">ዝናብ | ጸሓይ | ጽላል</annotation>
+		<annotation cp="⛱" type="tts">ኣብ መሬት ዝተቐመጠ ጽላል</annotation>
+		<annotation cp="⚡">ሓደጋ | ኤለትሪክ | በርቂ | ሓይሊ ኤለትሪክ | ብኤለትሪክ ሓደጋ ሞት</annotation>
+		<annotation cp="⚡" type="tts">ብርቱዕ ሓይሊ</annotation>
+		<annotation cp="❄">ዛሕሊ | በረድ</annotation>
+		<annotation cp="❄" type="tts">ናይ በረድ ዝናብ</annotation>
+		<annotation cp="☃">ዛሕሊ | በረድ</annotation>
+		<annotation cp="☃" type="tts">በረድ ዝጸርግ ሰብኣይ</annotation>
+		<annotation cp="⛄">ዛሕሊ | በረድ | በረድ ዝጸርግ ሰብኣይ</annotation>
+		<annotation cp="⛄" type="tts">ብበረድ ዝተሰርሐ በረድ ዘለዎ ሰብ</annotation>
+		<annotation cp="☄">ጠፈር</annotation>
+		<annotation cp="☄" type="tts">ኮሜት</annotation>
+		<annotation cp="🔥">ነበልባል | መሳርሒ</annotation>
+		<annotation cp="🔥" type="tts">ሓዊ</annotation>
+		<annotation cp="💧">ዝሑል | መስሓቕ | ንጣብ | ርሃጽ</annotation>
+		<annotation cp="💧" type="tts">ነጠብጣብ</annotation>
+		<annotation cp="🌊">ውቅያኖስ | ማይ | ማዕበል</annotation>
+		<annotation cp="🌊" type="tts">ማዕበል ማይ</annotation>
+		<annotation cp="🎃">በዓል | ሃሎዊን | ጃክ | ላንተርን</annotation>
+		<annotation cp="🎃" type="tts">ጃክ-ኦ-ላንተርን</annotation>
+		<annotation cp="🎄">በዓል | ልደት | ገረብ</annotation>
+		<annotation cp="🎄" type="tts">ጽሕዲ ልደት</annotation>
+		<annotation cp="🎆">በዓል</annotation>
+		<annotation cp="🎆" type="tts">ፋየርውርክስ</annotation>
+		<annotation cp="🎇">በዓል | ፋየርውርክስ | ኣብለጭለጨ</annotation>
+		<annotation cp="🎇" type="tts">ኣብለጭለጨ</annotation>
+		<annotation cp="✨">ኣብለጭለጨ | ኮኾብ</annotation>
+		<annotation cp="✨" type="tts">ብልጭልጭ</annotation>
+		<annotation cp="🎈">በዓል</annotation>
+		<annotation cp="🎈" type="tts">ባላንቺና</annotation>
+		<annotation cp="🎉">በዓል | ግብዣ | ፓፐር | ታዳ</annotation>
+		<annotation cp="🎉" type="tts">ፓፐር ፓርቲ</annotation>
+		<annotation cp="🎊">ኩዕሶ | በዓል | ኮንፌት</annotation>
+		<annotation cp="🎊" type="tts">ኩዕሶ ኮንፌት</annotation>
+		<annotation cp="🎋">ኣርማ | በዓል | ጃፓናዊ | ገረብ</annotation>
+		<annotation cp="🎋" type="tts">ገረብ ታንባላ</annotation>
+		<annotation cp="🎍">ኣርቃይ | በዓል | ጃፓናዊ | ጽሕዲ</annotation>
+		<annotation cp="🎍" type="tts">ሽልማት ጽሕዲ</annotation>
+		<annotation cp="🎎">በዓል | ባምቡላ | ፌስቲቫል</annotation>
+		<annotation cp="🎎" type="tts">ናይ ጃፓናውያን ባምቡላ</annotation>
+		<annotation cp="🎏">ካርፕ በዓል | ስትሪመር</annotation>
+		<annotation cp="🎏" type="tts">ካርፕ ስትሪመር</annotation>
+		<annotation cp="🎐">ደወል | በዓል | ንፋስ</annotation>
+		<annotation cp="🎐" type="tts">ንፋስ ደወል</annotation>
+		<annotation cp="🎑">በዓል | ምዝንጋዕ | ወርሒ</annotation>
+		<annotation cp="🎑" type="tts">ወርሒ እንዳርኣኻ ምዝንጋዕ</annotation>
+		<annotation cp="🎀">በዓል</annotation>
+		<annotation cp="🎀" type="tts">ሽርጥ</annotation>
+		<annotation cp="🎁">ሳንዱቕ | በዓል | ህያብ | ጥቕላል</annotation>
+		<annotation cp="🎁" type="tts">ዝተጠቅለለ ህያብ</annotation>
+		<annotation cp="🎗">ክብረ በዓል | መዘኻኸሪ | ካብ ክሪ ዝስራሕ ስልማት</annotation>
+		<annotation cp="🎗" type="tts">ንመዘኻኸሪ ዝኸውን ካብ ክሪ ዝስራሕ ስልማት</annotation>
+		<annotation cp="🎟">መእተዊ | ትኬት</annotation>
+		<annotation cp="🎟" type="tts">መእተዊ ትኬት</annotation>
+		<annotation cp="🎫">መእተዊ</annotation>
+		<annotation cp="🎫" type="tts">ትኬት</annotation>
+		<annotation cp="🎖">ክብረ በዓል | መዳልያ | ወታሃደራዊ</annotation>
+		<annotation cp="🎖" type="tts">ወታሃደራዊ መዳልያ</annotation>
+		<annotation cp="🏆">ሽልማት</annotation>
+		<annotation cp="🏆" type="tts">ናይ ስፖርት ዋንጫ</annotation>
+		<annotation cp="🏅">መዳልያ</annotation>
+		<annotation cp="🏅" type="tts">ናይ ስፖርት መዳልያ</annotation>
+		<annotation cp="🥇">ቀዳማይ | ወርቂ | መዳልያ</annotation>
+		<annotation cp="🥇" type="tts">1ይ ደረጃ መዳልያ</annotation>
+		<annotation cp="🥈">መዳልያ | ካልኣይ | ብሩር</annotation>
+		<annotation cp="🥈" type="tts">2ይ ደረጃ መዳልያ</annotation>
+		<annotation cp="🥉">ነሓስ | መዳልአ | ሳልሳይ</annotation>
+		<annotation cp="🥉" type="tts">3ይ ደረጃ መዳልያ</annotation>
+		<annotation cp="⚽">ኩዕሶ | ኩዕሶ ጸወታ | ጸወታ እግሪ ኩዕሶ</annotation>
+		<annotation cp="⚽" type="tts">ናይ እግሪ ኩዑሶ</annotation>
+		<annotation cp="⚾">ኩዕሶ</annotation>
+		<annotation cp="⚾" type="tts">ቤዝቦል</annotation>
+		<annotation cp="🏀">ኩዕሶ | ኣብ ጎኒ ዝጽወት ዕንክሊል</annotation>
+		<annotation cp="🏀" type="tts">ኩዕሶ ሰክዔት</annotation>
+		<annotation cp="🏐">ኩዕሶ | ጸወታ</annotation>
+		<annotation cp="🏐" type="tts">ቮሊቮል</annotation>
+		<annotation cp="🏈">አሜሪካዊ | ኩዕሶ | ኩዕሶ እግሪ</annotation>
+		<annotation cp="🏈" type="tts">ናይ ኣሜሪካ ኩዑሶ እግሪ</annotation>
+		<annotation cp="🏉">ኩዕሶ | ኩዕሶ እግሪ | ራግቢ</annotation>
+		<annotation cp="🏉" type="tts">ኩዕሶ እግሪ ራግቢ</annotation>
+		<annotation cp="🎾">ኩዕሶ | ራኬት</annotation>
+		<annotation cp="🎾" type="tts">ቴኒስ</annotation>
+		<annotation cp="🎳">ኩዕሶ | ጸወታ</annotation>
+		<annotation cp="🎳" type="tts">ቦውሊንግ</annotation>
+		<annotation cp="🏏">ኩዕሶ | ሻፎ | ጸወታ</annotation>
+		<annotation cp="🏏" type="tts">ጸወታ ክርኬት</annotation>
+		<annotation cp="🏑">ኩዕሶ | ሜዳ | ጸወታ | ሆኪ | በትሪ</annotation>
+		<annotation cp="🏑" type="tts">ናይ ሜዳ ቃርሳ</annotation>
+		<annotation cp="🏒">ጸወታ | ቃርሳ | በረድ | ፑኪ | በትሪ</annotation>
+		<annotation cp="🏒" type="tts">ቃርሳ በረድ</annotation>
+		<annotation cp="🏓">ኩዕሶ | ሻፎ | ጸወታ | ምጅላብ | ናይ ጠረጰዛ ቴኒስ | ፒንፖንግ</annotation>
+		<annotation cp="🏓" type="tts">ቴንስ</annotation>
+		<annotation cp="🏸">በርዲ | ጸወታ | ራኬት | ኩዕሶ ባድመንተን</annotation>
+		<annotation cp="🏸" type="tts">ባድሚንተን</annotation>
+		<annotation cp="🥊">ጓንቲ መኸተ ጉስጢ</annotation>
+		<annotation cp="🥊" type="tts">ጓንቲ መኸተ ጉስጢ</annotation>
+		<annotation cp="🥋">ጁዶ | ካራተ | ታይኮንዶ | ማርሻል ኣርት | ዲቪዛ</annotation>
+		<annotation cp="🥋" type="tts">ዩኒፎርም ማርሻል አርት</annotation>
+		<annotation cp="🥅">ሰኪዐት ኩዑሶ</annotation>
+		<annotation cp="🥅" type="tts">ሰኪዐት ኩዑሶ</annotation>
+		<annotation cp="⛳">ጎልፍ | ጉድጓድ</annotation>
+		<annotation cp="⛳" type="tts">ኣብ ጉድጓድ ዝተተኽለት ባንዴራ</annotation>
+		<annotation cp="⛸">በረድ | ምንሽርታት</annotation>
+		<annotation cp="⛸" type="tts">ኣብ በረድ ምንሽርታት</annotation>
+		<annotation cp="🎣">ዓሳ | ዋልታ ምድሪ</annotation>
+		<annotation cp="🎣" type="tts">ዓንዲ መግፈፊ ዓሳ</annotation>
+		<annotation cp="🎽">ናይ ጉያ | ሻሽ | ማልያ | አተለቲክስ</annotation>
+		<annotation cp="🎽" type="tts">ናይ ጉያ ማልያ</annotation>
+		<annotation cp="🎿">ስኪ | በረድ</annotation>
+		<annotation cp="🎿" type="tts">ናይ በረድ ጫማ</annotation>
+		<annotation cp="🛷">ዓረቢያ በረድ | ሰረገላ በረድ</annotation>
+		<annotation cp="🛷" type="tts">ዓረቢያ በረድ</annotation>
+		<annotation cp="🥌">ከውሒ | ጸወታ</annotation>
+		<annotation cp="🥌" type="tts">ጥውይዋይ እምኒ</annotation>
+		<annotation cp="🎯">ኣርሓ | ሕምብርቲ ዒላማ | ምብራር | ዓይኒ | ጸወታ | ህርመት | ዒላማ</annotation>
+		<annotation cp="🎯" type="tts">ቀጥታ ህርመት</annotation>
+		<annotation cp="🎱">8 | 8 ኩዕሶ | ቢያርዶ | ሸሞንተ | ጨዋታ</annotation>
+		<annotation cp="🎱" type="tts">ናይ ቢልያርዶ 8 ኩዑሶ</annotation>
+		<annotation cp="🔮">ኩዕሶ | ክሪስታል | ጽውጽዋይ | ባህጊ | ጽሕፍቶ | መሳርሒ</annotation>
+		<annotation cp="🔮" type="tts">ትኽክለኛ ግምት</annotation>
+		<annotation cp="🎮">ተቆጻጻሪ | ጸወታ</annotation>
+		<annotation cp="🎮" type="tts">ናይ ቪድዮ ጸወታ</annotation>
+		<annotation cp="🕹">ጸወታ | ናይ ቪድዮ ጸወታ</annotation>
+		<annotation cp="🕹" type="tts">ጆይስቲክ</annotation>
+		<annotation cp="🎰">ጸወታ | ቦታ</annotation>
+		<annotation cp="🎰" type="tts">ብሳንቲም ዝሰርሕ ማሽን</annotation>
+		<annotation cp="🎲">ዳይስ | ዳይ | ጸወታ</annotation>
+		<annotation cp="🎲" type="tts">ጸወታ ዳይስ</annotation>
+		<annotation cp="♠">ካርድ | ጸወታ</annotation>
+		<annotation cp="♠" type="tts">ሙሉእ ባዴላ</annotation>
+		<annotation cp="♥">ካርድ | ጸወታ</annotation>
+		<annotation cp="♥" type="tts">ሙሉእ ልቢ</annotation>
+		<annotation cp="♦">ካርድ | ጸወታ</annotation>
+		<annotation cp="♦" type="tts">ሙሉእ ኣልማዝ</annotation>
+		<annotation cp="♣">ካርድ | ጸወታ</annotation>
+		<annotation cp="♣" type="tts">ናይ ክለብ ሱፍ</annotation>
+		<annotation cp="🃏">ካርድ | ጸወታ | ዋይልድ ካርድ</annotation>
+		<annotation cp="🃏" type="tts">ጆከር</annotation>
+		<annotation cp="🀄">ጸወታ | ማጆ | ቀይሕ</annotation>
+		<annotation cp="🀄" type="tts">ማህጆንግ ቀይሕ ድራጎን</annotation>
+		<annotation cp="🎴">ካርድ | ዕምባባ | ጸወታ | ጃፓናዊ | ኣብ ምጽዋት</annotation>
+		<annotation cp="🎴" type="tts">መጻወቲ ካርታ ዕምባባ</annotation>
+		<annotation cp="🎭">ኣርት | ማስኬራ | ኣብ ምስራሕ | ትያትር</annotation>
+		<annotation cp="🎭" type="tts">ኣርት ኣብ ምስራሕ</annotation>
+		<annotation cp="🖼">ጥበብ | ፍሬም | ቤተ መዘክር | ቅብኣ | ስእሊ</annotation>
+		<annotation cp="🖼" type="tts">ኣብ ፍሬም ዝኣተወ ስእሊ</annotation>
+		<annotation cp="🎨">ጥበብ | ቤተ መዘክር | ቅብኣ | ሽሓኒ ሕብሪ</annotation>
+		<annotation cp="🎨" type="tts">ሽሓኒ ሕብሪ ኣርቲስት</annotation>
+		<annotation cp="👓">ኣልባሳት | ዓይኒ | መነጽር | ሽፋን ዓይኒ</annotation>
+		<annotation cp="👓" type="tts">ጠራሙስ</annotation>
+		<annotation cp="🕶">ጸልማት | ዓይኒ | ሽፋን ዓይኒ | ነጽር</annotation>
+		<annotation cp="🕶" type="tts">መነጽር ጸሓይ</annotation>
+		<annotation cp="👔">ምኽዳን</annotation>
+		<annotation cp="👔" type="tts">ክራባታ</annotation>
+		<annotation cp="👕">ክዳውንቲ | ካምቻ | ማልያ</annotation>
+		<annotation cp="👕" type="tts">ማልያ</annotation>
+		<annotation cp="👖">ክዳውንቲ | ስረ</annotation>
+		<annotation cp="👖" type="tts">ጂንስ</annotation>
+		<annotation cp="🧣">ክሳድ</annotation>
+		<annotation cp="🧣" type="tts">ሻርባ</annotation>
+		<annotation cp="🧤">ኢድ</annotation>
+		<annotation cp="🧤" type="tts">ጓንቲ</annotation>
+		<annotation cp="🧥">ጃኬት</annotation>
+		<annotation cp="🧥" type="tts">ጁባ</annotation>
+		<annotation cp="🧦">ነዊሕ ካልሲ</annotation>
+		<annotation cp="🧦" type="tts">ካልሲ</annotation>
+		<annotation cp="👗">ምኽዳን</annotation>
+		<annotation cp="👗" type="tts">ክዳን</annotation>
+		<annotation cp="👘">ምኽዳን</annotation>
+		<annotation cp="👘" type="tts">ባህላዊ ክዳን ጃፓን</annotation>
+		<annotation cp="👙">ክዳውንቲ | ምሕንባስ</annotation>
+		<annotation cp="👙" type="tts">ቢኪኒ</annotation>
+		<annotation cp="👚">ክዳውንቲ | ሰበይቲ</annotation>
+		<annotation cp="👚" type="tts">ክዳን ደቂ-ኣንስትዮ</annotation>
+		<annotation cp="👛">ክዳውንቲ | ሳንቲም</annotation>
+		<annotation cp="👛" type="tts">ናይ ደቂ-ኣንስትዮ ቦርሳ</annotation>
+		<annotation cp="👜">ሻንጣ | ክዳውንቲ | ናይ ኢድ ቦርሳ</annotation>
+		<annotation cp="👜" type="tts">ቦርሳ ኢድ</annotation>
+		<annotation cp="👝">ሻንጣ | ክዳውንቲ | ከረጺት</annotation>
+		<annotation cp="👝" type="tts">ናይ ኢድ ቦርሳ</annotation>
+		<annotation cp="🛍">ሻንጣ | ሆቴል | ዕድጊ</annotation>
+		<annotation cp="🛍" type="tts">ናይ ዕድጊ ሳንጣ</annotation>
+		<annotation cp="🎒">ሻንጣ | ቦርሳ | ቤት ትምህርቲ</annotation>
+		<annotation cp="🎒" type="tts">ናይ ትምህርቲ ቦርሳ</annotation>
+		<annotation cp="👞">ክዳውንቲ | ሰብኣይ | ጫማ</annotation>
+		<annotation cp="👞" type="tts">ናይ ወዲ-ተባዕታይ ጫማ</annotation>
+		<annotation cp="👟">አትለቲክስ | ክዳውንቲ | ጫማ | ስናይከር</annotation>
+		<annotation cp="👟" type="tts">ናይ ጉያ ጫማ</annotation>
+		<annotation cp="👠">ክዳውንቲ | ነዊሕ ታኮ | ጫማ | ሰበይቲ</annotation>
+		<annotation cp="👠" type="tts">ነዊሕ ታኮ ዘለዎ ጫማ</annotation>
+		<annotation cp="👡">ክዳውንቲ | ሰንደል | ጫማ | ሰበይቲ</annotation>
+		<annotation cp="👡" type="tts">ሰንደል ደቂ-ኣንስትዮ</annotation>
+		<annotation cp="👢">ቡት | ክዳውንቲ | ጫማ | ሰበይቲ</annotation>
+		<annotation cp="👢" type="tts">ቡት ጫ ደቂ ኣንስዮ</annotation>
+		<annotation cp="👑">ክዳውንቲ | ንጉስ | ንግስቲ</annotation>
+		<annotation cp="👑" type="tts">ኣኽሊል</annotation>
+		<annotation cp="👒">ክዳውንቲ | ቆብዕ | ሰበይቲ</annotation>
+		<annotation cp="👒" type="tts">ቆብዕ ደቂ-ኣንስትዮ</annotation>
+		<annotation cp="🎩">ክዳውንቲ | ቆብዕ | ላዕሊ</annotation>
+		<annotation cp="🎩" type="tts">ቆብዕ</annotation>
+		<annotation cp="🎓">ቆብዕ | በዓል | ክዳውንቲ | መመረቕታ</annotation>
+		<annotation cp="🎓" type="tts">ናይ መመረቕታ ቆብዕ</annotation>
+		<annotation cp="🧢">ቆብዕ ቤዝቦል</annotation>
+		<annotation cp="🧢" type="tts">ቆብዕ ቢል</annotation>
+		<annotation cp="⛑">ድጋፍ | መስቀል | ገጽ | ቆብዕ | ካስኮ (ብሓጺን ዝተሰርሐ ቆብዕ)</annotation>
+		<annotation cp="⛑" type="tts">ናይ ሰራሕተኛታት ሂወት ኣድሕን ካስኮ</annotation>
+		<annotation cp="📿">መቑጸርያ | ክዳውንቲ | ማዕተብ | ጸሎት | ሃይማኖት</annotation>
+		<annotation cp="📿" type="tts">መቑጸርያ</annotation>
+		<annotation cp="💄">ኮስሞቲክስ | መጸባበቒ</annotation>
+		<annotation cp="💄" type="tts">ሕብሪ ከንፈር</annotation>
+		<annotation cp="💍">አልማዝ</annotation>
+		<annotation cp="💍" type="tts">ቀለበት</annotation>
+		<annotation cp="💎">አልማዝ | ጀም | ዕንቊ</annotation>
+		<annotation cp="💎" type="tts">ክቡር እምኒ</annotation>
+		<annotation cp="🔇">ጸጥ ኣብል | ህዱእ | ጸጥ ዝበለ | መጉልሒ ድምጺ</annotation>
+		<annotation cp="🔇" type="tts">ድምጹ ዝተዓጽወ መጕልሒ ድምጺ</annotation>
+		<annotation cp="🔈">ልስሉስ</annotation>
+		<annotation cp="🔈" type="tts">ትሑት ድምጺ ዘለዎ መጒልሒ ድምጺ</annotation>
+		<annotation cp="🔉">ማእከላይ</annotation>
+		<annotation cp="🔉" type="tts">ማእከላይ ድምጺ ዘለዎ መጒልሒ ድምጺ</annotation>
+		<annotation cp="🔊">ዓው ዝበለ</annotation>
+		<annotation cp="🔊" type="tts">ልዑል ድምጺ ዘለዎ መጒልሒ ድምጺ</annotation>
+		<annotation cp="📢">ዓው ዝበለ | ህዝባዊ ኣድራሻ</annotation>
+		<annotation cp="📢" type="tts">መጉልሒ ድምጺ</annotation>
+		<annotation cp="📣">ዕልል ዝብል</annotation>
+		<annotation cp="📣" type="tts">ሜጋፎን</annotation>
+		<annotation cp="📯">ቀርኒ | ፖስታ | ፖስተኛ</annotation>
+		<annotation cp="📯" type="tts">ጥሩምባ ፖስተኛ</annotation>
+		<annotation cp="🔔">ደወል</annotation>
+		<annotation cp="🔔" type="tts">ደወል</annotation>
+		<annotation cp="🔕">ደወል | ክልኩል | ጸጥ ኣብል | ኣይፋል | የለን | ዝተኸልከለ | ህዱእ | ጸጥ ዝበለ</annotation>
+		<annotation cp="🔕" type="tts">ናይ በላሕቲ ነገራት ቃጭል</annotation>
+		<annotation cp="🎼">ሙዚቃ | ነጥቢ</annotation>
+		<annotation cp="🎼" type="tts">ናይ ሙዚቃ ነጥቢ</annotation>
+		<annotation cp="🎵">ሙዚቃዊ | መዘክር</annotation>
+		<annotation cp="🎵" type="tts">ሙዚቃዊ መዘክር</annotation>
+		<annotation cp="🎶">ሙዚቃ | መዘኻኸሪ | መዘኻከሪታት</annotation>
+		<annotation cp="🎶" type="tts">ናይ ሙዚቃ ጽሑፍ</annotation>
+		<annotation cp="🎙">ማይክ | ማይክራፎን | ሙዚቃ | ስቱዲዮ</annotation>
+		<annotation cp="🎙" type="tts">ስቱዲዮ ማይክሮፎን</annotation>
+		<annotation cp="🎚">ደረጃ | ሙዚቃ | መንሻተቲ</annotation>
+		<annotation cp="🎚" type="tts">ማዕረ ኣንሻታቲ</annotation>
+		<annotation cp="🎛">ቁጽጽር | ላዓታት | ሙዚቃ</annotation>
+		<annotation cp="🎛" type="tts">መቆጻጸሪ ላዓታት</annotation>
+		<annotation cp="🎤">ካራኦክ ሙዚቃ</annotation>
+		<annotation cp="🎤" type="tts">ማይክሮፎን</annotation>
+		<annotation cp="🎧">ንእስተይ መስምዒ</annotation>
+		<annotation cp="🎧" type="tts">መስምዒ</annotation>
+		<annotation cp="📻">ቪድዮ</annotation>
+		<annotation cp="📻" type="tts">ርድዮ</annotation>
+		<annotation cp="🎷">መሳርሒ | ሙዚቃ | ሳክስ</annotation>
+		<annotation cp="🎷" type="tts">ሳክስፎን</annotation>
+		<annotation cp="🎸">መሳርሒ | ሙዚቃ</annotation>
+		<annotation cp="🎸" type="tts">ጊታር</annotation>
+		<annotation cp="🎹">መሳርሒ | ቁልፍ ሰሌዳ | ሙዚቃ | ፒያኖ</annotation>
+		<annotation cp="🎹" type="tts">የሙዚቃ ቁልፍ ሰሌዳ</annotation>
+		<annotation cp="🎺">መሳርሒ | ሙዚቃ</annotation>
+		<annotation cp="🎺" type="tts">ትራምፔት</annotation>
+		<annotation cp="🎻">መሳርሒ | ሙዚቃ</annotation>
+		<annotation cp="🎻" type="tts">ቫዮሊን</annotation>
+		<annotation cp="🥁">ከበሮ | መህረም ከበሮ ዕንጸይቲ | ሙዚቃ</annotation>
+		<annotation cp="🥁" type="tts">ከበሮ</annotation>
+		<annotation cp="📱">ሞባይል | ተሌፎን</annotation>
+		<annotation cp="📱" type="tts">ሞባይል ቴሌፎን</annotation>
+		<annotation cp="📲">ኲናት | ጻውዒት | ሞባይል | ተሌፎን | ተቀባሊ</annotation>
+		<annotation cp="📲" type="tts">ሞባይል ተሌፎን ምስ ኲናት</annotation>
+		<annotation cp="☎">ተሌፎን</annotation>
+		<annotation cp="☎" type="tts">ተሌፎን</annotation>
+		<annotation cp="📞">ተሌፎን | ተቀባሊ</annotation>
+		<annotation cp="📞" type="tts">ተቀባሊ ተሌፎን</annotation>
+		<annotation cp="📟">ፐጀር</annotation>
+		<annotation cp="📟" type="tts">ፐጀር</annotation>
+		<annotation cp="📠">ፋክስ</annotation>
+		<annotation cp="📠" type="tts">ፋክስ ማሽን</annotation>
+		<annotation cp="🔋">ባትሪ</annotation>
+		<annotation cp="🔋" type="tts">ባትሪ</annotation>
+		<annotation cp="🔌">ኤሌክትሪክ | ኤሌክትሪሲቲ | ኣላግብ</annotation>
+		<annotation cp="🔌" type="tts">ኤለክትሪክ ሶኬት</annotation>
+		<annotation cp="💻">ኮምፒውተር | ፒሲ | ግላዊ</annotation>
+		<annotation cp="💻" type="tts">ላፕቶፕ ኮምፒውተር</annotation>
+		<annotation cp="🖥">ኮምፒዩተር | ዲስክቶፕ</annotation>
+		<annotation cp="🖥" type="tts">ዲስክቶፕ</annotation>
+		<annotation cp="🖨">ኮምፕዮተር</annotation>
+		<annotation cp="🖨" type="tts">ሓታሚት</annotation>
+		<annotation cp="⌨">ኮምፕዮተር</annotation>
+		<annotation cp="⌨" type="tts">መፍትሕ ሰሌዳ</annotation>
+		<annotation cp="🖱">ኮምፕዮተር</annotation>
+		<annotation cp="🖱" type="tts">ናይ ኮምፒውተር ማውዝ</annotation>
+		<annotation cp="🖲">ኮምፕዮተር</annotation>
+		<annotation cp="🖲" type="tts">ትራክቦል</annotation>
+		<annotation cp="💽">ኮምፒውተር | ዲስክ | ኦፕቲካል | ሚኒዲስክ</annotation>
+		<annotation cp="💽" type="tts">ኮምፕዩተር ዲስክ</annotation>
+		<annotation cp="💾">ኮምፒውተር | ዲስክ | ፍሎፒ</annotation>
+		<annotation cp="💾" type="tts">ፍሎፒ ዲስክ</annotation>
+		<annotation cp="💿">ሲዲ | ኮምፒውተር | ዲስክ | ኦፕቲካል</annotation>
+		<annotation cp="💿" type="tts">ኦፕቲካል ዲስክ</annotation>
+		<annotation cp="📀">ብሉረይ | ዲቪዲ | ኮምፒውተር | ዲስክ | ኦፕቲካል</annotation>
+		<annotation cp="📀" type="tts">ዲቪዲ</annotation>
+		<annotation cp="🎥">ካሜራ | ሲነማ | ሙቪ</annotation>
+		<annotation cp="🎥" type="tts">ናይ ፊልም ካሜራ</annotation>
+		<annotation cp="🎞">ስኔማ | ተዋስኦ | ፍሬም | ፊልም</annotation>
+		<annotation cp="🎞" type="tts">ናይ ፊልም ፍሬም</annotation>
+		<annotation cp="📽">ሲነማ | ፊልም | ሙቪ | ፕሮጀክተር | ቪድዮ</annotation>
+		<annotation cp="📽" type="tts">ፊልም ፕሮጀክተር</annotation>
+		<annotation cp="🎬">ሰሌዳ | ሙቪ</annotation>
+		<annotation cp="🎬" type="tts">ሰሌዳ ፊልም</annotation>
+		<annotation cp="📺">ቲቪ | ቪድዮ</annotation>
+		<annotation cp="📺" type="tts">ቴሌቪዥን</annotation>
+		<annotation cp="📷">ቪድዮ</annotation>
+		<annotation cp="📷" type="tts">ካሜራ</annotation>
+		<annotation cp="📸">ካሜራ | ፍላሽ | ቪድዮ</annotation>
+		<annotation cp="📸" type="tts">ሰኢእሊ ይስእል አልኹ፡ሓንሳብ ንሳኣል፡ ሳአሊ/ሊት እየ</annotation>
+		<annotation cp="📹">ካሜራ | ቪድዮ</annotation>
+		<annotation cp="📹" type="tts">ቪድዮ ካሜራ</annotation>
+		<annotation cp="📼">ቴፕ | vhs | ቪድዮ</annotation>
+		<annotation cp="📼" type="tts">ናይ ቪድዮ ካሴት</annotation>
+		<annotation cp="🔍">ጥርሙዝ | መጒልሒ | ምድላይ | መሳርሒ</annotation>
+		<annotation cp="🔍" type="tts">ናብ ጸጋም ዘመልክት መጒልሒ ጥርሙዝ</annotation>
+		<annotation cp="🔎">ጥርሙዝ | መጒልሒ | ምድላይ | መሳርሒ</annotation>
+		<annotation cp="🔎" type="tts">ናብ የማን ዘመልክት መጒልሒ ጥርሙዝ</annotation>
+		<annotation cp="🕯">ብርሃን</annotation>
+		<annotation cp="🕯" type="tts">ሽምዓ</annotation>
+		<annotation cp="💡">ኣምፖል | መስሓቕ | ኤለክትሪክ | ሓሳብ | ብርሃን</annotation>
+		<annotation cp="💡" type="tts">ፈኪስ ኣምፖል</annotation>
+		<annotation cp="🔦">ኤሌክትሪክ | ብርሃን | መሳርሒ | ቶርች</annotation>
+		<annotation cp="🔦" type="tts">ላምፓዲና</annotation>
+		<annotation cp="🏮">ባር | ላንተርን | ብርሃን | ቀይሕ</annotation>
+		<annotation cp="🏮" type="tts">ቀይሕ ናይ ወረቐት ውጽኢት መሰለሚ</annotation>
+		<annotation cp="📔">መጽሓፍ | ሽፋን | ዝተሸለመ | ማህደር</annotation>
+		<annotation cp="📔" type="tts">ጽቡቕ ዝተጠረዘት ማህደር</annotation>
+		<annotation cp="📕">መጽሓፍ | ዕጹው</annotation>
+		<annotation cp="📕" type="tts">ዝተዓጽወ መጽሓፍ</annotation>
+		<annotation cp="📖">መጽሓፍ | ክፈት</annotation>
+		<annotation cp="📖" type="tts">ዝተገልጸ መጽሓፍ</annotation>
+		<annotation cp="📗">መጽሓፍ | ቀጠልያ</annotation>
+		<annotation cp="📗" type="tts">ቀጠልያ መጽሓፍ</annotation>
+		<annotation cp="📘">ናይ ፈተና መመለሲ | ወረቐት</annotation>
+		<annotation cp="📘" type="tts">ናይ ፈተና መመለሲ ወረቐት</annotation>
+		<annotation cp="📙">መጽሓፍ | ኣራንሾኒ</annotation>
+		<annotation cp="📙" type="tts">ኣራንሾኒ መጽሓፍ</annotation>
+		<annotation cp="📚">መጽሓፍ</annotation>
+		<annotation cp="📚" type="tts">መፅሐፍቲ</annotation>
+		<annotation cp="📓">ጥራዝ</annotation>
+		<annotation cp="📓" type="tts">ጥራዝ</annotation>
+		<annotation cp="📒">ጥራዝ</annotation>
+		<annotation cp="📒" type="tts">ናይ ሕሳብ መዝገብ</annotation>
+		<annotation cp="📃">ጥቕላል | ሰነድ | ገጽ</annotation>
+		<annotation cp="📃" type="tts">ዝተጠቕለለ ወረቐት</annotation>
+		<annotation cp="📜">ወረቐት</annotation>
+		<annotation cp="📜" type="tts">ጠቕልል</annotation>
+		<annotation cp="📄">ሰነድ | ገጽ</annotation>
+		<annotation cp="📄" type="tts">ንላዕሊ ዝጥምት ወረቐት</annotation>
+		<annotation cp="📰">ዜና | ወረቐት</annotation>
+		<annotation cp="📰" type="tts">ጋዜጣ</annotation>
+		<annotation cp="🗞">ዜና | ወረቐት | ጥቕላል</annotation>
+		<annotation cp="🗞" type="tts">ዝተጠቕለለ ጋዜጣ</annotation>
+		<annotation cp="📑">ሓባሪ ትሕዝቶ | ምልክት | ኣመልካቲ | ጽላታት</annotation>
+		<annotation cp="📑" type="tts">ጽላታት ሓባሪ ትሕዝቶ</annotation>
+		<annotation cp="🔖">ምልክት</annotation>
+		<annotation cp="🔖" type="tts">ሓባሪ ትሕዝቶ</annotation>
+		<annotation cp="🏷">መለለይ</annotation>
+		<annotation cp="🏷" type="tts">መለለይ</annotation>
+		<annotation cp="💰">ቦርሳ | ዶላር | ገንዘብ | ናይ ገንዘብ ቦርሳ</annotation>
+		<annotation cp="💰" type="tts">ናይ ገንዘብ ቦርሳ</annotation>
+		<annotation cp="💴">ባንኪ | ወረቐት ገንዘብ | ክፍሊት | ሸርፊ | ዶላር | ገንዘብ | መዘኻኸሪ | የን</annotation>
+		<annotation cp="💴" type="tts">ባጤራ የን</annotation>
+		<annotation cp="💵">ባንኪ | ወረቐት ገንዘብ | ክፍሊት | ሸርፊ | ዶላር | ገንዘብ | መዘኻኸሪ</annotation>
+		<annotation cp="💵" type="tts">ዶላር ናይ ወረቐት ገንዘብ</annotation>
+		<annotation cp="💶">ባንኪ | ወረቐት ገንዘብ | ክፍሊት | ሸርፊ | ዩሮ | ገንዘብ | መዘኻኸሪ</annotation>
+		<annotation cp="💶" type="tts">ዩሮ ናይ ወረቐት ገንዘብ</annotation>
+		<annotation cp="💷">ባንኪ | ወረቐት ገንዘብ | ክፍሊት | ሸርፊ | ገንዘብ | መዘኻኸሪ | ፓውንድ</annotation>
+		<annotation cp="💷" type="tts">ፓውንድ ናይ ወረቐት ገንዘብ</annotation>
+		<annotation cp="💸">ባንኪ | ወረቐት ገንዘብ | ክፍሊት | ዶላር | በረራ | ገንዘብ | መዘኻኸሪ | ክንፍታት</annotation>
+		<annotation cp="💸" type="tts">መንገብገብ ዘለዎ ገንዘብ</annotation>
+		<annotation cp="💳">ባንኪ | ካርድ | ልቓሕ | ገንዘብ</annotation>
+		<annotation cp="💳" type="tts">ገንዘብ ንምሓዝ ንጥቀመሉ ካርድ</annotation>
+		<annotation cp="💹">ባንኪ | ቻርት | ሸርፊ | ግራፍ | ዕብየት | ዕዳጋ | ገንዘብ | ምልዓል | ኣመት | ንላዕሊ | የን</annotation>
+		<annotation cp="💹" type="tts">ዕቤት ዘርኢ ካርታ ምስ ባጤራ ጃፓን</annotation>
+		<annotation cp="✉">ደብዳበ | ኢሜይል</annotation>
+		<annotation cp="✉" type="tts">ኢንቨሎፕ</annotation>
+		<annotation cp="📧">ኢሜይል | ደብዳበ | መልእኽቲ</annotation>
+		<annotation cp="📧" type="tts">ኢመይል</annotation>
+		<annotation cp="📨">ኢ-ሜይል | ኢሜይል | ኢንቨሎፕ | ኣታዊ | ደብዳበ | መልእኽቲ | ተቀበል</annotation>
+		<annotation cp="📨" type="tts">ዝመጽእ ዘሎ ስታሪት</annotation>
+		<annotation cp="📩">ኲናት | ንታሕቲ | ኢ-ሜይል | ኢሜይል | ኢንቨሎፕ | ደብዳበ | መልእኽቲ | ወጻኢ | ተላኢኹ</annotation>
+		<annotation cp="📩" type="tts">ሰትሪት ምስ ኩናት</annotation>
+		<annotation cp="📤">ሳንዱቕ | ደብዳበ | መልእኽቲ | ወጻኢ ሳንዱቕ | ተላኢኹ | ሽሓኒ</annotation>
+		<annotation cp="📤" type="tts">መልእኽቲ ንሰደሉ ሸሓኒ</annotation>
+		<annotation cp="📥">ሳንዱቕ | ሳንዱቕ ኣታዊ መልእኽቲ | ደብዳበ | መልእኽቲ | ተቀበል | ሽሓኒ</annotation>
+		<annotation cp="📥" type="tts">ሸሓኒ ሳንዱቕ ኣታዊ መልእኽቲ</annotation>
+		<annotation cp="📦">ሳንዱቕ | ጥቕላል</annotation>
+		<annotation cp="📦" type="tts">ጥማር ክፈት</annotation>
+		<annotation cp="📫">ዕጹው | መልእኽቲ | ሳንዱቅ መልእኽቲ | ናይ ደብዳበ ሳንዱቕ</annotation>
+		<annotation cp="📫" type="tts">ዕጹው ሳንዱቅ መልእኽቲ ምስ ንላዕሊ ዝወጽአ ባንዴራ</annotation>
+		<annotation cp="📪">ዕጹው | ዝተሓተ | መልእኽቲ | ሳንዱቅ መልእኽቲ | ናይ ደብዳበ ሳንዱቕ</annotation>
+		<annotation cp="📪" type="tts">ዕጹው ሳንዱቅ መልእኽቲ ምስ ንታሕቲ ዝወረደ ባንዴራ</annotation>
+		<annotation cp="📬">መልእኽቲ | ደብዳበ ሳንዱቕ | ክፈት | ናይ ደብዳበ ሳንዱቕ</annotation>
+		<annotation cp="📬" type="tts">ክፉት ሳንዱቅ መልእኽቲ ምስ ንላዕሊ ዝወጽአ ባንዴራ</annotation>
+		<annotation cp="📭">ዝተሓተ | መልእኽቲ | ደብዳበ ሳንዱቕ | ክፈት | ናይ ደብዳበ ሳንዱቕ</annotation>
+		<annotation cp="📭" type="tts">ከፋት ሳንዱቅ መልእኽቲ ምስ ንታሕቲ ዝወረደ ባንዴራ</annotation>
+		<annotation cp="📮">መልእኽቲ | ደብዳበ ሳንዱቕ</annotation>
+		<annotation cp="📮" type="tts">ናይ ደብዳበ ሳንዱቕ</annotation>
+		<annotation cp="🗳">ናይ ድምጺ ምርጫ | ሳንዱቕ</annotation>
+		<annotation cp="🗳" type="tts">ናይ ድምጺ ምርጫ ሳንዱቕ ምስ ናይ ድምጺ ምርጫ ካርድ</annotation>
+		<annotation cp="✏">ርሳስ</annotation>
+		<annotation cp="✏" type="tts">ርሳስ</annotation>
+		<annotation cp="✒">ጫፍ ብርዒ | ብርዒ</annotation>
+		<annotation cp="✒" type="tts">ጸሊም ጫፍ ብርዒ</annotation>
+		<annotation cp="🖋">ፈልፋሊ | ብርዒ</annotation>
+		<annotation cp="🖋" type="tts">መጽሓፊ ብርዒ</annotation>
+		<annotation cp="🖊">ኣብ ኣፍ ብርዒ እትርከብ ደቃቕ ባሊና</annotation>
+		<annotation cp="🖊" type="tts">ብርዒ</annotation>
+		<annotation cp="🖌">ቅብኣ</annotation>
+		<annotation cp="🖌" type="tts">ናይ ቅብኣ አስባስላ</annotation>
+		<annotation cp="🖍">ሕብሪ</annotation>
+		<annotation cp="🖍" type="tts">ሕብሪ</annotation>
+		<annotation cp="📝">ርሳስ</annotation>
+		<annotation cp="📝" type="tts">መዘከርታ</annotation>
+		<annotation cp="💼">ቦርሳ</annotation>
+		<annotation cp="💼" type="tts">ቦርሳ</annotation>
+		<annotation cp="📁">ፋይል መሕቆፊ</annotation>
+		<annotation cp="📁" type="tts">ፋይል መሕቆፊ</annotation>
+		<annotation cp="📂">ፋይል | መሕቆፊ | ክፈት</annotation>
+		<annotation cp="📂" type="tts">ክፉት ናይ መዝገብ መቐመጢ</annotation>
+		<annotation cp="🗂">ካርድ | መቀልቲ | መሐበሪ</annotation>
+		<annotation cp="🗂" type="tts">መቀልቲ መሐበሪ ካርድ</annotation>
+		<annotation cp="📅">ዕለት</annotation>
+		<annotation cp="📅" type="tts">ዓውደ ኣዋርሕ</annotation>
+		<annotation cp="📆">ዓውደ ኣዋርሕ</annotation>
+		<annotation cp="📆" type="tts">ዝቕደድ ዓውደ ኣዋርሕ</annotation>
+		<annotation cp="🗒">ማህደር | ፓድ | ጥውይዋይ</annotation>
+		<annotation cp="🗒" type="tts">ጥውይዋይ ማህደር</annotation>
+		<annotation cp="🗓">ዓውደ ኣዋርሕ | ፓድ | ጥውይዋይ</annotation>
+		<annotation cp="🗓" type="tts">ጥውይዋይ ዓውደ ኣዋርሕ</annotation>
+		<annotation cp="📇">ካርድ | መሐበሪ | ናይ ዴስክቶፕ መሐበሪ ካርድ</annotation>
+		<annotation cp="📇" type="tts">መሐበሪ ካርድ</annotation>
+		<annotation cp="📈">ቻርት | ግራፍ | ዕብየት | ኣመት | ንላዕሊ</annotation>
+		<annotation cp="📈" type="tts">ዕቤት ዘርኢ ካርታ</annotation>
+		<annotation cp="📉">ቻርት | ንታሕቲ | ግራፍ | ኣመት</annotation>
+		<annotation cp="📉" type="tts">ውድቀት ዘርኢ ካርታ</annotation>
+		<annotation cp="📊">ሽራጥ | ቻርት | ግራፍ</annotation>
+		<annotation cp="📊" type="tts">ቻርት ሽራጥ</annotation>
+		<annotation cp="📋">ናይ ቅንጣብ ሰሌዳ</annotation>
+		<annotation cp="📋" type="tts">ናይ ቅንጣብ ሰሌዳ</annotation>
+		<annotation cp="📌">ፒን</annotation>
+		<annotation cp="📌" type="tts">ደፊእካ ጠቅዕ</annotation>
+		<annotation cp="📍">ፒን | እስፒል</annotation>
+		<annotation cp="📍" type="tts">ክቢ እስፒል</annotation>
+		<annotation cp="📎">ወረቀት ክሊፕ</annotation>
+		<annotation cp="📎" type="tts">ወረቀት ክሊፕ</annotation>
+		<annotation cp="🖇">መጋጠሚ | ወረቀት ክሊፕ</annotation>
+		<annotation cp="🖇" type="tts">ዝተጋጠሙ ወረቀት ክሊፕ</annotation>
+		<annotation cp="📏">መስመር | ቀጥ ዝበለ ጫፍ</annotation>
+		<annotation cp="📏" type="tts">ትኽ ዝበለ መዐቀኒ መስመር</annotation>
+		<annotation cp="📐">መስመር | እኩብ | ስሉስ ኩርናዕ</annotation>
+		<annotation cp="📐" type="tts">ስሉስ ኩርናዕ ዘለዎ መዐቀኒ መስመር</annotation>
+		<annotation cp="✂">መሳርሒ | ሙቕራጽ</annotation>
+		<annotation cp="✂" type="tts">መቐዝ</annotation>
+		<annotation cp="🗃">ሳንዱቕ | ካርድ | መዝገብ</annotation>
+		<annotation cp="🗃" type="tts">ናይ መዝገብ ካርድ ሳንዱቕ</annotation>
+		<annotation cp="🗄">ከብሒ | መዝገብ | ምምላእ</annotation>
+		<annotation cp="🗄" type="tts">ናይ መዝግብ ከብሒ</annotation>
+		<annotation cp="🗑">ናይ ጉሓፍ ዘንቢል</annotation>
+		<annotation cp="🗑" type="tts">ናይ ጉሓፍ ዘንቢል</annotation>
+		<annotation cp="🔒">ዕጹው</annotation>
+		<annotation cp="🔒" type="tts">ዝተቆለፈ</annotation>
+		<annotation cp="🔓">ቆልፍ | ክፈት | ኣርሓወ</annotation>
+		<annotation cp="🔓" type="tts">ዘይተዓፀወ</annotation>
+		<annotation cp="🔏">ቀለም | ቆልፍ | ጫፍ ብርዒ | ብርዒ | ውልቃውነት</annotation>
+		<annotation cp="🔏" type="tts">ብብርዒ ዝተዓጽወ</annotation>
+		<annotation cp="🔐">ተዓጽዩ | መፍትሕ | ቆልፍ | ውሑስ</annotation>
+		<annotation cp="🔐" type="tts">ብመፍትሕ ዝተዓጽወ</annotation>
+		<annotation cp="🔑">ቆልፍ | መሕለፊ ቃል</annotation>
+		<annotation cp="🔑" type="tts">ቁልፊ</annotation>
+		<annotation cp="🗝">ሓበሬታ | መፍትሕ | ቆልፍ | ናይ ቀደም</annotation>
+		<annotation cp="🗝" type="tts">ናይ ቀደም መፍትሕ</annotation>
+		<annotation cp="🔨">ናውቲ</annotation>
+		<annotation cp="🔨" type="tts">ሞዶሻ</annotation>
+		<annotation cp="⛏">ዕደና | መሳርሒ</annotation>
+		<annotation cp="⛏" type="tts">ምረጽ</annotation>
+		<annotation cp="⚒">መዶሻ | ምረጽ | መሳርሒ</annotation>
+		<annotation cp="⚒" type="tts">መዶሻን ኣፍራዛን</annotation>
+		<annotation cp="🛠">መዶሻ | ምረጽ | መሳርሒ</annotation>
+		<annotation cp="🛠" type="tts">መዶሻ</annotation>
+		<annotation cp="🗡">ካራ | መሳርያ</annotation>
+		<annotation cp="🗡" type="tts">ሽቶል</annotation>
+		<annotation cp="⚔">ዝተመሳቀሉ | ቃላት | መሳርያ</annotation>
+		<annotation cp="⚔" type="tts">ዝተመሳቀሉ ቃላት</annotation>
+		<annotation cp="🔫">ሽጉጥ | ናይ ኢድ ሽጉጥ | ሪቮልቨር | መሳርሒ | መሳርያ</annotation>
+		<annotation cp="🔫" type="tts">ሽጉጥ</annotation>
+		<annotation cp="🏹">ተኳሲ ማንቲግ | መንታጋይ | ኲናት | መንትግ | ሳጂተሪየስ | መሳርሒ | መሳርያ | ዞዲያክ</annotation>
+		<annotation cp="🏹" type="tts">መንትግን ኲናትን</annotation>
+		<annotation cp="🛡">መሳርያ</annotation>
+		<annotation cp="🛡" type="tts">ዋልታ</annotation>
+		<annotation cp="🔧">መሳርሒ | መንዚዑ ወሲዱ | መፍትሕ</annotation>
+		<annotation cp="🔧" type="tts">መንዚዑ ወሲዱ</annotation>
+		<annotation cp="🔩">ቦሎኒ | ቢተ | መሳርሒ</annotation>
+		<annotation cp="🔩" type="tts">ብሎኒን ቢተን</annotation>
+		<annotation cp="⚙">ናውቲ</annotation>
+		<annotation cp="⚙" type="tts">ጊር</annotation>
+		<annotation cp="🗜">መሳርሒ | ምክትል | ምጭፍላቕ</annotation>
+		<annotation cp="🗜" type="tts">ምሕዃር</annotation>
+		<annotation cp="⚖">ሚዛን | ፍትሒ | ሊብራ | መሳርሒ | ክብደት | ዞዲያክ</annotation>
+		<annotation cp="⚖" type="tts">ሚዛን</annotation>
+		<annotation cp="🔗">መጋጠሚ</annotation>
+		<annotation cp="🔗" type="tts">መጋጠሚ</annotation>
+		<annotation cp="⛓">ሰንሰለት</annotation>
+		<annotation cp="⛓" type="tts">ሰንሰለታት</annotation>
+		<annotation cp="⚗">ኬሚስትሪ | መሳርሒ</annotation>
+		<annotation cp="⚗" type="tts">ኣለምቢካ</annotation>
+		<annotation cp="🔬">መሳርሒ | ሳይንስ</annotation>
+		<annotation cp="🔬" type="tts">ማይክሮስኮፕ</annotation>
+		<annotation cp="🔭">መሳርሒ | ሳይንስ</annotation>
+		<annotation cp="🔭" type="tts">ቴለስኮፕ</annotation>
+		<annotation cp="📡">ኣንቴና | ዲሽ | ሳተላይት</annotation>
+		<annotation cp="📡" type="tts">ሳተላይት ኣንቴና</annotation>
+		<annotation cp="💉">ዶክተር | መድሃኒት | መርፍእ | ተኲሲ | ሕሙም | መሳርሒ</annotation>
+		<annotation cp="💉" type="tts">ስሪንጋ</annotation>
+		<annotation cp="💊">ዶክተር | መድሃኒት | ሕሙም</annotation>
+		<annotation cp="💊" type="tts">ከኒና</annotation>
+		<annotation cp="🚪">ማዕጾ</annotation>
+		<annotation cp="🚪" type="tts">ማዕጾ</annotation>
+		<annotation cp="🛏">ሆቴል | ምድቃስ</annotation>
+		<annotation cp="🛏" type="tts">ዓራት</annotation>
+		<annotation cp="🛋">ሳሎን | ሆትል | ፋኑስ</annotation>
+		<annotation cp="🛋" type="tts">ሳሎንን ፋኑስን</annotation>
+		<annotation cp="🚽">ቤት ንጽህና</annotation>
+		<annotation cp="🚽" type="tts">ቤት ንጽህና</annotation>
+		<annotation cp="🚿">ማይ</annotation>
+		<annotation cp="🚿" type="tts">ምሕጻብ ኣካላት</annotation>
+		<annotation cp="🛁">ባኞ</annotation>
+		<annotation cp="🛁" type="tts">ባስካ</annotation>
+		<annotation cp="🛒">ዓረብያ | ናይ ዱካን | ትሮሊ</annotation>
+		<annotation cp="🛒" type="tts">ናይ ዱካን ዓረብያ</annotation>
+		<annotation cp="🚬">ምትካኽ</annotation>
+		<annotation cp="🚬" type="tts">ሸጋራ</annotation>
+		<annotation cp="⚰">ሞት</annotation>
+		<annotation cp="⚰" type="tts">ሳንዱቕ ሬሳ</annotation>
+		<annotation cp="⚱">ሞት | ቀብሪ | ዕትሮ | ሓሙኽሽቲ</annotation>
+		<annotation cp="⚱" type="tts">ናይ ቀብሪ ዕትሮ</annotation>
+		<annotation cp="🗿">ገጽ | ሞኤ | ሓወልቲ</annotation>
+		<annotation cp="🗿" type="tts">ሞኤ</annotation>
+		<annotation cp="🏧">atm | ምልክት ATM | ቅልጡፍ | ባንክ | ተሓዚ ገንዘብ | ኣውቶማቲክ | ባንኪ | ነጋሪ</annotation>
 		<annotation cp="🏧" type="tts">ምልክት ATM</annotation>
-		<annotation cp="🚮">ኣብ ምልክት ናይ መጉሓፊ | ጎሓፍ | ጎሓፍ መጉሓፊ</annotation>
+		<annotation cp="🚮">ኣብ ምልክት ናይ መጉሓፊ | ጎሓፍ | ጎሓፍ መጉሓፊ | ቃሬዛ | ናይ ቓሬዛ ቆፎ</annotation>
 		<annotation cp="🚮" type="tts">ጎሓፍ ኣብ ምልክት ናይ መጉሓፊ</annotation>
-		<annotation cp="🚰">ማይ | ዝስተ | ጽሩይ</annotation>
+		<annotation cp="🚰">ማይ | ዝስተ | ጽሩይ | መስተ</annotation>
 		<annotation cp="🚰" type="tts">ጽሩይ ዝስተ ማይ</annotation>
-		<annotation cp="♿">ምልክት | ናይ መበጻጽሒ ሰድያ</annotation>
+		<annotation cp="♿">ምልክት | ናይ መበጻጽሒ ሰድያ | መራኸቢ</annotation>
 		<annotation cp="♿" type="tts">ምልክት ናይ መበጻጽሒ ሰድያ</annotation>
-		<annotation cp="🚹">wc | ሰብኣይ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ክፍሊ ናይ ሰብኣይ</annotation>
+		<annotation cp="🚹">wc | ሰብኣይ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ክፍሊ ናይ ሰብኣይ | መሕጸቢ | ሽቓቕ</annotation>
 		<annotation cp="🚹" type="tts">ክፍሊ ሰብኡት</annotation>
-		<annotation cp="🚺">wc | ሰበይቲ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ክፍሊ ናይ ኣንስቲ</annotation>
+		<annotation cp="🚺">wc | ሰበይቲ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ክፍሊ ናይ ኣንስቲ | ሽቓቕ | መሕጸቢ</annotation>
 		<annotation cp="🚺" type="tts">ክፍሊ ናይ ኣንስቲ</annotation>
-		<annotation cp="🚻">WC | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ</annotation>
+		<annotation cp="🚻">WC | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | መሕጸቢ | ሽቓቕ</annotation>
 		<annotation cp="🚻" type="tts">ሽቃቅ</annotation>
-		<annotation cp="🚼">ምልክት ናይ ቆልዓ | ምልዋጥ | ቆልዓ</annotation>
+		<annotation cp="🚼">ምልክት ናይ ቆልዓ | ምልዋጥ | ቆልዓ | ንእሽቶ | ኣብ ምልዋጥ</annotation>
 		<annotation cp="🚼" type="tts">ምልክት ናይ ቆልዓ</annotation>
-		<annotation cp="🚾">wc | መዕቆሪ | ማይ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ</annotation>
+		<annotation cp="🚾">wc | መዕቆሪ | ማይ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ሽቓቕ | መሕጸቢ</annotation>
 		<annotation cp="🚾" type="tts">መዕቆሪ ማይ</annotation>
-		<annotation cp="🛂">ቁጽጽር | ፓስፖርት</annotation>
+		<annotation cp="🛂">ቁጽጽር | ፓስፖርት | ምቁጽጻር</annotation>
 		<annotation cp="🛂" type="tts">ናይ ፓስስፖርት ቁጽጽር</annotation>
-		<annotation cp="🛃">ጉምሩክ</annotation>
+		<annotation cp="🛃">ጉምሩክ | ፈተሻ ተጓዓዝቲ</annotation>
 		<annotation cp="🛃" type="tts">ጉምሩክ</annotation>
-		<annotation cp="🛄">መበጻጽሒ | ባልጃ/ሳንጣ</annotation>
+		<annotation cp="🛄">መበጻጽሒ | ባልጃ/ሳንጣ | ሻንጣ | መረከቢ</annotation>
 		<annotation cp="🛄" type="tts">መበጻጽሒ ሳንጣ</annotation>
-		<annotation cp="🛅">መዕጸዊ | ሳንጣ | ባልጃ | ጸጋማይ ሳንጣ</annotation>
+		<annotation cp="🛅">መዕጸዊ | ሳንጣ | ባልጃ | ጸጋማይ ሳንጣ | ሻንጣ | መዓሸጊ</annotation>
 		<annotation cp="🛅" type="tts">ጸጋማይ ሳንጣ</annotation>
-		<annotation cp="⚠">መጠንቀቕታ</annotation>
+		<annotation cp="⚠">መጠንቀቕታ | መጠንቀቅታ</annotation>
 		<annotation cp="⚠" type="tts">መጠንቀቕታ</annotation>
-		<annotation cp="🚸">መሕለፊ | ቆልዑ | ትራፊክ | ኣጋር</annotation>
+		<annotation cp="🚸">መሕለፊ | ቆልዑ | ትራፊክ | ኣጋር | ቆልዓ | መሳገሪ</annotation>
 		<annotation cp="🚸" type="tts">መሕለፊ ቆልዑ</annotation>
-		<annotation cp="⛔">መእተዊ | ትራፊክ | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="⛔">መእተዊ | ትራፊክ | ኣይኮነን | ዝተኣገደ | ክልኩል | ኣይፋል | የለን | ዝተኸለከል</annotation>
 		<annotation cp="⛔" type="tts">ምእታው ክልኩል</annotation>
-		<annotation cp="🚫">ብሽክለታ | ብሽክለታ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="🚫">ብሽክለታ | ብሽክለታ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ | መእተዊ | ዝተኸልከለ | የለን</annotation>
 		<annotation cp="🚫" type="tts">ዝተኣገደ</annotation>
-		<annotation cp="🚳">ብሽክለታ | ብሽክለታ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="🚳">ብሽክለታ | ብሽክለታ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ | ክልኩል | ኣይፋል | የለን</annotation>
 		<annotation cp="🚳" type="tts">ብሽክለታ ኣይፍቀድን</annotation>
-		<annotation cp="🚭">ሽጋራ | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="🚭">ሽጋራ | ኣይኮነን | ዝተኣገደ | ክልኩል | ኣይፋል | የለን | ዝተኸልከለ | ምትካኽ</annotation>
 		<annotation cp="🚭" type="tts">ሽጋራ ኣይፍቀድን</annotation>
-		<annotation cp="🚯">መጉሓፊ | ምጉሓፍ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="🚯">መጉሓፊ | ምጉሓፍ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ | ክልኩል | ቃሬዛ | ኣይፋል | የለን | ዝተኸልከለ</annotation>
 		<annotation cp="🚯" type="tts">ምጉሓፍ ኣይፍቀድን</annotation>
-		<annotation cp="🚱">ማይ | ዘይጽሩይ</annotation>
+		<annotation cp="🚱">ማይ | ዘይጽሩይ | ዘይስተ ማይ | ዘይስተ</annotation>
 		<annotation cp="🚱" type="tts">ዘይጽሩይ ማይ</annotation>
-		<annotation cp="🚷">ኣይኮነ | ኣይኮነን | ኣጋር | ኣጋር የለዉን | ዝተኣገደ</annotation>
+		<annotation cp="🚷">ኣይኮነ | ኣይኮነን | ኣጋር | ኣጋር የለዉን | ዝተኣገደ | ክልኩል | አይፋል | የለን | ዝተኸልከለ</annotation>
 		<annotation cp="🚷" type="tts">ኣጋር የለዉን</annotation>
-		<annotation cp="📵">ተለፎን | ተንቀሳቃሲ ተለፎን | ተንቀሳቃሲ ተለፎን ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="📵">ተለፎን | ተንቀሳቃሲ ተለፎን | ተንቀሳቃሲ ተለፎን ኣይፍቀድን | ኣይኮነን | ዝተኣገደ | ስልኪ | ክልኩል | ሞባይል | የለን | ተሌፎን</annotation>
 		<annotation cp="📵" type="tts">ተንቀሳቃሲ ተለፎን ኣይፍቀድን</annotation>
-		<annotation cp="🔞">18 | ትሕቲ 18 ዝዕድሚኦም ኣይኮኑን | ትሕቲ ዕድመ | ዝተኣገደ | ገደብ ዕድመ</annotation>
+		<annotation cp="🔞">18 | ትሕቲ 18 ዝዕድሚኦም ኣይኮኑን | ትሕቲ ዕድመ | ዝተኣገደ | ገደብ ዕድመ | ዓሰረተ ሾሞንተ | ክልኩል | የለን | ኣይኮነን</annotation>
 		<annotation cp="🔞" type="tts">ትሕቲ 18 ዝዕድሚኦም ኣይኮኑን</annotation>
-		<annotation cp="☢">ምልክት | ጸርገ-ንጥፈት</annotation>
+		<annotation cp="☢">ምልክት | ጸርገ-ንጥፈት | ሃሳዪ ጨረርታ ምውጻእ</annotation>
 		<annotation cp="☢" type="tts">ጸርገ-ንጥፈት</annotation>
-		<annotation cp="☣">ምልክት | ናይ ሓደጋ</annotation>
+		<annotation cp="☣">ምልክት | ናይ ሓደጋ | ጥዕናዊ ሓደጋ</annotation>
 		<annotation cp="☣" type="tts">ናይ ሓደጋ</annotation>
-		<annotation cp="⬆">ምልክት | ምልክት ናብ ላዕሊ | ሰሜን | ኣንፈት | ካርዲናል</annotation>
+		<annotation cp="⬆">ምልክት | ምልክት ናብ ላዕሊ | ሰሜን | ኣንፈት | ካርዲናል | ኵናት | መሰረታዊ</annotation>
 		<annotation cp="⬆" type="tts">ምልክት ናብ ላዕሊ</annotation>
-		<annotation cp="↗">ምልክት | ምልክት ናብ-የማናይ ላዕሊ | ሰሜናዊ ምብራቅ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል</annotation>
+		<annotation cp="↗">ምልክት | ምልክት ናብ-የማናይ ላዕሊ | ሰሜናዊ ምብራቅ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ኵናት | ዓቢ | ሰሜናዊ ምብራቕ</annotation>
 		<annotation cp="↗" type="tts">ምልክት ናብ-የማናይ ላዕሊ</annotation>
-		<annotation cp="➡">ምልክት | ምብራቅ | ኣንፈት | ካርዲናል | የማናይ ምልክት</annotation>
+		<annotation cp="➡">ምልክት | ምብራቅ | ኣንፈት | ካርዲናል | የማናይ ምልክት | ኵናት | መሰረታዊ | ምብራቕ</annotation>
 		<annotation cp="➡" type="tts">የማናይ ምልክት</annotation>
-		<annotation cp="↘">ምልክት | ምልክት ናብ-የማናይ ታሕቲ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ደቡባዊ ምብራቅ</annotation>
+		<annotation cp="↘">ምልክት | ምልክት ናብ-የማናይ ታሕቲ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ደቡባዊ ምብራቅ | ኵናት | ዓቢ | ደቡባዊ ምብራቕ</annotation>
 		<annotation cp="↘" type="tts">ምልክት ናብ-የማናይ ታሕቲ</annotation>
-		<annotation cp="⬇">ምልክት | ታሕቲ | ኣንፈት | ካአዲናል | ደቡብ</annotation>
+		<annotation cp="⬇">ምልክት | ታሕቲ | ኣንፈት | ካአዲናል | ደቡብ | ኵናት | መሰረታዊ</annotation>
 		<annotation cp="⬇" type="tts">ምልክት ናብ ታሕቲ</annotation>
-		<annotation cp="↙">ምልክት | ምልክት ናብ-ጸጋማይ ታሕቲ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ደቡባዊ ምዕራብ</annotation>
+		<annotation cp="↙">ምልክት | ምልክት ናብ-ጸጋማይ ታሕቲ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ደቡባዊ ምዕራብ | ኵናት | ዓቢ</annotation>
 		<annotation cp="↙" type="tts">ምልክት ናብ-ጸጋማይ ታሕቲ</annotation>
-		<annotation cp="⬅">ምልክት | ምልክት ናብ-ጸጋም | ምዕራብ | ኣንፈት | ካርዲና፡</annotation>
+		<annotation cp="⬅">ምልክት | ምልክት ናብ-ጸጋም | ምዕራብ | ኣንፈት | ካርዲና፡ | ኵናት | መሰረታዊ</annotation>
 		<annotation cp="⬅" type="tts">ምልክት ናብ-ጸጋም</annotation>
-		<annotation cp="↖">ምልክት | ምልክት ናብ-ጸጋማይ ላዕሊ | ሰሜናዊ ምዕራብ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል</annotation>
+		<annotation cp="↖">ምልክት | ምልክት ናብ-ጸጋማይ ላዕሊ | ሰሜናዊ ምዕራብ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ኵናት | ዓቢ</annotation>
 		<annotation cp="↖" type="tts">ምልክት ናብ-ጸጋማይ ላዕሊ</annotation>
-		<annotation cp="↕">ምልክት | ምልክት ናብ-ላዕሊ ታሕቲ</annotation>
+		<annotation cp="↕">ምልክት | ምልክት ናብ-ላዕሊ ታሕቲ | ኵናት</annotation>
 		<annotation cp="↕" type="tts">ምልክት ናብ-ላዕሊ ታሕቲ</annotation>
-		<annotation cp="↔">ምልክት | ምልክት ናብ-የማን ጸጋም</annotation>
+		<annotation cp="↔">ምልክት | ምልክት ናብ-የማን ጸጋም | ኵናት</annotation>
 		<annotation cp="↔" type="tts">ምልክት ናብ-የማን ጸጋም</annotation>
-		<annotation cp="↩">ምልክት | የማናይ ምልክት ናብ ጸጋም ዝተጠውየ</annotation>
+		<annotation cp="↩">ምልክት | የማናይ ምልክት ናብ ጸጋም ዝተጠውየ | ኵናት</annotation>
 		<annotation cp="↩" type="tts">የማናይ ምልክት ናብ ጸጋም ዝተጠውየ</annotation>
-		<annotation cp="↪">ምልክት | ጸጋማይ ምልክት ናብ የማን ዝተጠውየ</annotation>
+		<annotation cp="↪">ምልክት | ጸጋማይ ምልክት ናብ የማን ዝተጠውየ | ኵናት</annotation>
 		<annotation cp="↪" type="tts">ጸጋማይ ምልክት ናብ የማን ዝተጠውየ</annotation>
-		<annotation cp="⤴">ምልክት | የማናይ ምልክት ናብ ላዕሊ ዝተጠውየ</annotation>
+		<annotation cp="⤴">ምልክት | የማናይ ምልክት ናብ ላዕሊ ዝተጠውየ | ኵናት</annotation>
 		<annotation cp="⤴" type="tts">የማናይ ምልክት ናብ ላዕሊ ዝተጠውየ</annotation>
-		<annotation cp="⤵">ምልክት | ታሕቲ | የማናይ ምልክት ናብ ታሕቲ ዝተጠውየ</annotation>
+		<annotation cp="⤵">ምልክት | ታሕቲ | የማናይ ምልክት ናብ ታሕቲ ዝተጠውየ | ኵናት</annotation>
 		<annotation cp="⤵" type="tts">የማናይ ምልክት ናብ ታሕቲ ዝተጠውየ</annotation>
-		<annotation cp="🔃">ምልክት | እንደገና ምጽዓን | ከመ ሰዓት | ከመ ሰዓት ዝዘውር ትኹል ምልክት</annotation>
+		<annotation cp="🔃">ምልክት | እንደገና ምጽዓን | ከመ ሰዓት | ከመ ሰዓት ዝዘውር ትኹል ምልክት | ኵናት | ናይ ሰዓት ዙረት | ምሕዳስ</annotation>
 		<annotation cp="🔃" type="tts">ከመ ሰዓት ዝዘውር ትኹል ምልክት</annotation>
-		<annotation cp="🔄">withershins | ምልክት | ኣንጻር ሰዓት | ኣንጻር ሰዓት ዝዘውር ትኹል ምልክት መልጎም</annotation>
+		<annotation cp="🔄">withershins | ምልክት | ኣንጻር ሰዓት | ኣንጻር ሰዓት ዝዘውር ትኹል ምልክት መልጎም | ኣንጻር ዑደት ሰዓት ዘመልክት | ኲናት | ከም ዑደት ሰዓት ዘመልክት | ዑደት ኣንጻር ጽሓይ</annotation>
 		<annotation cp="🔄" type="tts">ኣንጻር ሰዓት ዝዘውር ትኹል ምልክት መልጎም</annotation>
-		<annotation cp="🔙">ምልክት | ዳሕረዋይ ምልክት | ድሕሪት</annotation>
+		<annotation cp="🔙">ምልክት | ዳሕረዋይ ምልክት | ድሕሪት | ኲናት</annotation>
 		<annotation cp="🔙" type="tts">ዳሕረዋይ ምልክት</annotation>
-		<annotation cp="🔚">መወዳእታ | መወዳእታ ናይ ምልክት | ምልክት</annotation>
+		<annotation cp="🔚">መወዳእታ | መወዳእታ ናይ ምልክት | ምልክት | ኩናት | ዓጻዊ</annotation>
 		<annotation cp="🔚" type="tts">መወዳእታ ናይ ምልክት</annotation>
-		<annotation cp="🔛">መፈለጥታ | ምልክት | ኣብ ልዕሊ | ኣብ ልዕሊ! ምልክት</annotation>
+		<annotation cp="🔛">መፈለጥታ | ምልክት | ኣብ ልዕሊ | ኣብ ልዕሊ! ምልክት | ኲናት | በሪሁ</annotation>
 		<annotation cp="🔛" type="tts">ኣብ ልዕሊ! ምልክት</annotation>
-		<annotation cp="🔜">ምልክት | ቕልጡፍ</annotation>
+		<annotation cp="🔜">ምልክት | ቕልጡፍ | ኲናት | ኣብ ቀረባ ግዜ</annotation>
 		<annotation cp="🔜" type="tts">ቕልጡፍ ምልክት</annotation>
-		<annotation cp="🔝">ላዕለዋይ | ምልክት | ንላዕሊ</annotation>
+		<annotation cp="🔝">ላዕለዋይ | ምልክት | ንላዕሊ | ኲናት | ላዕሊ</annotation>
 		<annotation cp="🔝" type="tts">ላዕለዋይ ምልክት</annotation>
-		<annotation cp="🛐">ናይ ኣምልኾ ቦታ | ኣምልኾ | እምነት</annotation>
+		<annotation cp="🛐">ናይ ኣምልኾ ቦታ | ኣምልኾ | እምነት | ሃይማኖት</annotation>
 		<annotation cp="🛐" type="tts">ናይ ኣምልኾ ቦታ</annotation>
-		<annotation cp="⚛">ናይ ኣቶም ኣርማ | ኣቴስት | ኣቶም</annotation>
+		<annotation cp="⚛">ናይ ኣቶም ኣርማ | ኣቴስት | ኣቶም | ከሓዲ | ኣተም</annotation>
 		<annotation cp="⚛" type="tts">ናይ ኣቶም ኣርማ</annotation>
-		<annotation cp="🕉">om | ሂንዱ | እምነት</annotation>
+		<annotation cp="🕉">om | ሂንዱ | እምነት | ሃይማኖት</annotation>
 		<annotation cp="🕉" type="tts">om</annotation>
-		<annotation cp="✡">ኣይሁድ | እምነት | ኮኾብ | ኮኾብ ናይ ዳዊት | ዳዊት</annotation>
+		<annotation cp="✡">ኣይሁድ | እምነት | ኮኾብ | ኮኾብ ናይ ዳዊት | ዳዊት | ኣይሁዳዊ | ሃይማኖት</annotation>
 		<annotation cp="✡" type="tts">ኮኾብ ናይ ዳዊት</annotation>
-		<annotation cp="☸">መንኮርኮር | መንኮርኮር ናይ ዳርማ | ቡድሂስት | እምኘጥ | ዳርማ</annotation>
+		<annotation cp="☸">መንኮርኮር | መንኮርኮር ናይ ዳርማ | ቡድሂስት | እምኘጥ | ዳርማ | ተኸታሊ ቡድሂዝም | ደርማ | ሃይማኖት</annotation>
 		<annotation cp="☸" type="tts">መንኮርኮር ናይ ዳርማ</annotation>
-		<annotation cp="☯">ተኸታሊ ታኦ | ታኦ | እምነት | ዪን | ያንግ</annotation>
+		<annotation cp="☯">ተኸታሊ ታኦ | ታኦ | እምነት | ዪን | ያንግ | ሃይማኖት | ታዎ | ታዊዝም</annotation>
 		<annotation cp="☯" type="tts">ዪን ያንግ</annotation>
 		<annotation cp="✝">ሃይማኖት | መስቀል | ናይ ላቲን መስቀል | ክርስትያን</annotation>
 		<annotation cp="✝" type="tts">ናይ ላቲን መስቀል</annotation>
 		<annotation cp="☦">ሃይማኖት | መስቀል | ናይ ኦርቶዶክስ መስቀል | ክርስትያን</annotation>
 		<annotation cp="☦" type="tts">ናይ ኦርቶዶክስ መስቀል</annotation>
-		<annotation cp="☪">ሃይማኖት | ምስልምና | ሞስሊም | ኮኾብ ከምኡ`ውን ቅርጺ ማዕጺድ</annotation>
+		<annotation cp="☪">ሃይማኖት | ምስልምና | ሞስሊም | ኮኾብ ከምኡ`ውን ቅርጺ ማዕጺድ | ኣስላማይ</annotation>
 		<annotation cp="☪" type="tts">ኮኾብ ከምኡ`ውን ቅርጺ ማዕጺድ</annotation>
 		<annotation cp="☮">ሰላም | ናይ ሰላም ኣርማ</annotation>
 		<annotation cp="☮" type="tts">ናይ ሰላም ኣርማ</annotation>
-		<annotation cp="🕎">7 ቀንዴል | ሃይማኖት | ቀንዴል</annotation>
+		<annotation cp="🕎">7 ቀንዴል | ሃይማኖት | ቀንዴል | መቕረዝ | መትሓዝ ሽምዓ</annotation>
 		<annotation cp="🕎" type="tts">7 ቀንዴል</annotation>
-		<annotation cp="🔯">ነጥብጣብ 6-ጫፍ ኮኾብ | ኮኾብ | ዕድል</annotation>
+		<annotation cp="🔯">ነጥብጣብ 6-ጫፍ ኮኾብ | ኮኾብ | ዕድል | ጽሕፍቶ</annotation>
 		<annotation cp="🔯" type="tts">ነጥብጣብ 6-ጫፍ ኮኾብ</annotation>
-		<annotation cp="♈">ራም | ኣሬስ | ዞድያክ</annotation>
+		<annotation cp="♈">ራም | ኣሬስ | ዞድያክ | ድዑል | ዞዲያክ</annotation>
 		<annotation cp="♈" type="tts">ኣሬስ</annotation>
-		<annotation cp="♉">Taurus | zodiac | ብዕራይ | ኣርሓ</annotation>
+		<annotation cp="♉">Taurus | zodiac | ብዕራይ | ኣርሓ | ዞዲያክ</annotation>
 		<annotation cp="♉" type="tts">ታውሩስ</annotation>
-		<annotation cp="♊">ማንታ | ዞድያክ | ጀሚኒ</annotation>
+		<annotation cp="♊">ማንታ | ዞድያክ | ጀሚኒ | ማናቱ | ዞዲያክ</annotation>
 		<annotation cp="♊" type="tts">ጀሚኒ</annotation>
-		<annotation cp="♋">መንሾ | ክሮብ | ዞድያክ</annotation>
+		<annotation cp="♋">መንሾ | ክሮብ | ዞድያክ | ዕንቅርቢት ባሕሪ | ዞዲያክ</annotation>
 		<annotation cp="♋" type="tts">መንሽሮ</annotation>
-		<annotation cp="♌">ሊዮ | ኣንበሳ | ዞድያክ</annotation>
+		<annotation cp="♌">ሊዮ | ኣንበሳ | ዞድያክ | ላየን | ዞዲያክ</annotation>
 		<annotation cp="♌" type="tts">ሌዮ</annotation>
-		<annotation cp="♍">ቪርጎ | ዞድያክ</annotation>
+		<annotation cp="♍">ቪርጎ | ዞድያክ | ዞዲያክ</annotation>
 		<annotation cp="♍" type="tts">ቪርጎ</annotation>
-		<annotation cp="♎">ሊብራ | ምጡን | ስካይልስ | ዞድያክ | ፍትሒ</annotation>
+		<annotation cp="♎">ሊብራ | ምጡን | ስካይልስ | ዞድያክ | ፍትሒ | ሚዛን | ሚዛናት | ዞዲያክ</annotation>
 		<annotation cp="♎" type="tts">ሊብራ</annotation>
-		<annotation cp="♏">ስኮርፒዩስ | ስኮርፕዮ | ዕንቅርቢት | ዞድያክ</annotation>
+		<annotation cp="♏">ስኮርፒዩስ | ስኮርፕዮ | ዕንቅርቢት | ዞድያክ | ዞዲያክ</annotation>
 		<annotation cp="♏" type="tts">ስኮርፕዮ</annotation>
-		<annotation cp="♐">ሲጊታሩስ | ኣንከር | ዞድያክ</annotation>
+		<annotation cp="♐">ሲጊታሩስ | ኣንከር | ዞድያክ | ተኳሲ ማንቲግ | ዞዲያክ</annotation>
 		<annotation cp="♐" type="tts">ሲጊታሩስ</annotation>
-		<annotation cp="♑">ወጠጦ | ዞዲያክ | ጤል</annotation>
+		<annotation cp="♑">ወጠጦ | ዞዲያክ | ጤል | ዞዲክ</annotation>
 		<annotation cp="♑" type="tts">ወጠጦ</annotation>
-		<annotation cp="♒">መበጻጽሒ | ማይ | ኣክዋርዩስ | ዞድያክ</annotation>
+		<annotation cp="♒">መበጻጽሒ | ማይ | ኣክዋርዩስ | ዞድያክ | ተላኣኣኺ | ዞዲያክ</annotation>
 		<annotation cp="♒" type="tts">ኣክዋርዩስ</annotation>
-		<annotation cp="♓">ዓሳ | ዞድያክ | ፒስከስ</annotation>
+		<annotation cp="♓">ዓሳ | ዞድያክ | ፒስከስ | ዞዲያክ</annotation>
 		<annotation cp="♓" type="tts">ፒስከስ</annotation>
-		<annotation cp="⛎">መበጻጽሒ | ሰርፐንት | ተመን | ኦፊኩስ | ዞድያክ</annotation>
+		<annotation cp="⛎">መበጻጽሒ | ሰርፐንት | ተመን | ኦፊኩስ | ዞድያክ | ተላኣኣኺ | ዞዲያክ</annotation>
 		<annotation cp="⛎" type="tts">ኦፊኩስ</annotation>
-		<annotation cp="🔀">ምልክት | ዝተሓላለፈ | ዝተሓላለፈ ምልክታት መልጎም</annotation>
+		<annotation cp="🔀">ምልክት | ዝተሓላለፈ | ዝተሓላለፈ ምልክታት መልጎም | ኲናት | ዝተመሳቐለ</annotation>
 		<annotation cp="🔀" type="tts">ዝተሓላለፈ ምልክታትመልጎም</annotation>
-		<annotation cp="🔁">መምለሲ መልጎም | ምልክት | ምድጋም | ከመ ሰዓት</annotation>
+		<annotation cp="🔁">መምለሲ መልጎም | ምልክት | ምድጋም | ከመ ሰዓት | ኲናት | ከም ሰዓት | ድገም</annotation>
 		<annotation cp="🔁" type="tts">መድገሚ መልጎም</annotation>
-		<annotation cp="🔂">ሓደ ግዜ | መድገሚ ንጽል መልጎም | ኣንፈት | ከመ ሰዓት</annotation>
+		<annotation cp="🔂">ሓደ ግዜ | መድገሚ ንጽል መልጎም | ኣንፈት | ከመ ሰዓት | ኲናት | ከም ሰዓት | ሓንሳብ</annotation>
 		<annotation cp="🔂" type="tts">መድገሚ ንጽል መልጎም</annotation>
-		<annotation cp="▶">መጻወቲ መልጎም | ምልክት | ስሉስ ኩርናዕ | የማን | ጸወታ</annotation>
+		<annotation cp="▶">መጻወቲ መልጎም | ምልክት | ስሉስ ኩርናዕ | የማን | ጸወታ | ኲናት | ኣጻውት</annotation>
 		<annotation cp="▶" type="tts">መጻወቲ መልጎም</annotation>
-		<annotation cp="⏩">መሕለፊ | መቀላጥፊ መልጎም | ምልክት | ቅልጡፍ | ድርብ</annotation>
+		<annotation cp="⏩">መሕለፊ | መቀላጥፊ መልጎም | ምልክት | ቅልጡፍ | ድርብ | ኲናት</annotation>
 		<annotation cp="⏩" type="tts">መቀላጥፊ መልጎም</annotation>
-		<annotation cp="⏭">መጻኢ ሙዚቃ | መጻኢ ሙዚቃ መልጎም | መጻኢ ርእየት | ምልክት | ስሉስ ኩርናዕ</annotation>
+		<annotation cp="⏭">መጻኢ ሙዚቃ | መጻኢ ሙዚቃ መልጎም | መጻኢ ርእየት | ምልክት | ስሉስ ኩርናዕ | ኲናት | ዝቕጽል መድረኽ | ዝቕጽል ትራክ</annotation>
 		<annotation cp="⏭" type="tts">መሰጋገሪ መልጎም</annotation>
-		<annotation cp="⏯">ምልክት | ምዕጻው | ስሉስ ኩርናዕ | የማን | ጸወት መጻወቲ ወይ መዕጸዊ መልጎም</annotation>
+		<annotation cp="⏯">ምልክት | ምዕጻው | ስሉስ ኩርናዕ | የማን | ጸወት መጻወቲ ወይ መዕጸዊ መልጎም | ኲናት | ንግዚኡ ደው ኣብል | ኣጻውት</annotation>
 		<annotation cp="⏯" type="tts">መጻወቲ ወይ መዕጸዊ መልጎም</annotation>
-		<annotation cp="◀">መምለሲ መልጎም | ምልክት | ምምላስ | ስሉስ ኩርናዕ | ጸጋም</annotation>
+		<annotation cp="◀">መምለሲ መልጎም | ምልክት | ምምላስ | ስሉስ ኩርናዕ | ጸጋም | ኲናት | ቀይር</annotation>
 		<annotation cp="◀" type="tts">መምለሲ መልጎም</annotation>
-		<annotation cp="⏪">ምልክት | ምምላስ | ቅልጡፍ መምለሲ መልጎም | ድርብ</annotation>
+		<annotation cp="⏪">ምልክት | ምምላስ | ቅልጡፍ መምለሲ መልጎም | ድርብ | ኲናት | ንድሕሪት ምለስ</annotation>
 		<annotation cp="⏪" type="tts">ቅልጡፍ መምለሲ መልጎም</annotation>
-		<annotation cp="⏮">ሕሉፍ ሙዚቃ | ሕሉፍ ርእየት | ምልክት | ስሉስ ኩርናዕ | ናይ መወዳእታ መልጎም</annotation>
+		<annotation cp="⏮">ሕሉፍ ሙዚቃ | ሕሉፍ ርእየት | ምልክት | ስሉስ ኩርናዕ | ናይ መወዳእታ መልጎም | ኲናት | ዝቐደመ ትርኢት | ዝቐደመ ትራክ</annotation>
 		<annotation cp="⏮" type="tts">ናይ መወዳእታ መልጎም</annotation>
-		<annotation cp="🔼">መልጎም | ምልክት | ቀይሕ | ኣንቃዕራሪ መልጎም</annotation>
+		<annotation cp="🔼">መልጎም | ምልክት | ቀይሕ | ኣንቃዕራሪ መልጎም | ኩናት</annotation>
 		<annotation cp="🔼" type="tts">ኣንቃዕራሪ መልጎም</annotation>
-		<annotation cp="⏫">መቀላጠፊ መልጎም | ምልክት | ድርብ</annotation>
+		<annotation cp="⏫">መቀላጠፊ መልጎም | ምልክት | ድርብ | ኲናት</annotation>
 		<annotation cp="⏫" type="tts">መቀላጠፊ መልጎም</annotation>
-		<annotation cp="🔽">መልጎም | ምልክት | ቀይሕ | ታሕቲ | ኣንቈልቋሊ መልጎም</annotation>
+		<annotation cp="🔽">መልጎም | ምልክት | ቀይሕ | ታሕቲ | ኣንቈልቋሊ መልጎም | ኩናት</annotation>
 		<annotation cp="🔽" type="tts">ኣንቈልቋሊ መልጎም</annotation>
-		<annotation cp="⏬">ምልክት | ቅልጡፍ ኣንቈልቋሊ መልጎም | ታሕቲ | ድርብ</annotation>
+		<annotation cp="⏬">ምልክት | ቅልጡፍ ኣንቈልቋሊ መልጎም | ታሕቲ | ድርብ | ኲናት</annotation>
 		<annotation cp="⏬" type="tts">ቅልጡፍ ኣንቈልቋሊ መልጎም</annotation>
-		<annotation cp="⏸">መዕጸዊ | መዕጸዊ መልጎም | ሽራጥ | ትኹል | ድርብ</annotation>
+		<annotation cp="⏸">መዕጸዊ | መዕጸዊ መልጎም | ሽራጥ | ትኹል | ድርብ | ደንደላ | ንግዚኡ ደው ኣብል</annotation>
 		<annotation cp="⏸" type="tts">መዕጸዊ መልጎም</annotation>
-		<annotation cp="⏹">ትርብዒት | ጠጠው | ጠጠው መበሊ መልጎም</annotation>
+		<annotation cp="⏹">ትርብዒት | ጠጠው | ጠጠው መበሊ መልጎም | ርቡዕ ኩርናዕ | ደው ኣብል</annotation>
 		<annotation cp="⏹" type="tts">መጥፍኢ መልጎም</annotation>
-		<annotation cp="⏺">መዐቀቢ መልጎም | ምዕቃብ | ዓንኬል</annotation>
+		<annotation cp="⏺">መዐቀቢ መልጎም | ምዕቃብ | ዓንኬል | ክቢ | መዝግብ</annotation>
 		<annotation cp="⏺" type="tts">መዐቀቢ መልጎም</annotation>
-		<annotation cp="⏏">መትፍኢ መልጎም | ምትፋእ</annotation>
+		<annotation cp="⏏">መትፍኢ መልጎም | ምትፋእ | ኣውጽእ</annotation>
 		<annotation cp="⏏" type="tts">መትፍኢ መልጎም</annotation>
-		<annotation cp="🎦">ሲነማ | ተንቀሳቃሲ ስእሊ | ካሜራ | ፊልም</annotation>
+		<annotation cp="🎦">ሲነማ | ተንቀሳቃሲ ስእሊ | ካሜራ | ፊልም | ሙቪ</annotation>
 		<annotation cp="🎦" type="tts">ሲነማ</annotation>
-		<annotation cp="🔅">ሒደት | መደበኒ መልጎም | ብርሃን | ደባን</annotation>
+		<annotation cp="🔅">ሒደት | መደበኒ መልጎም | ብርሃን | ደባን | ብሩህነት | ትሑት</annotation>
 		<annotation cp="🔅" type="tts">መደበኒ መልጎም</annotation>
-		<annotation cp="🔆">ምብራህ | ብሩህ | ብሩህ መልጎም</annotation>
+		<annotation cp="🔆">ምብራህ | ብሩህ | ብሩህ መልጎም | ብሩህነት</annotation>
 		<annotation cp="🔆" type="tts">ብሩህ መልጎም</annotation>
-		<annotation cp="📶">ሽራጥ | ተለፎን | ተንቀሳቃሲ ተለፎነ | ናይ ኣንተና ሽራጣት | ኣንተና</annotation>
+		<annotation cp="📶">ሽራጥ | ተለፎን | ተንቀሳቃሲ ተለፎነ | ናይ ኣንተና ሽራጣት | ኣንተና | አንተና | ደንደላ | ስልኪ | ሞባይል | ምልክት | ተሌፎን</annotation>
 		<annotation cp="📶" type="tts">ናይ ኣንተና ሽራጣት</annotation>
-		<annotation cp="📳">ሃለዋት | ተለፎን | ነዝነዝታ</annotation>
+		<annotation cp="📳">ሃለዋት | ተለፎን | ነዝነዝታ | ስልኪ | ሞባይል | ሞድ | ተሌፎን | ንዝረት</annotation>
 		<annotation cp="📳" type="tts">ነዝነዝታዊ ሃለዋት</annotation>
-		<annotation cp="📴">ምዕጻው | ተለፎን</annotation>
+		<annotation cp="📴">ምዕጻው | ተለፎን | ሰለፎን | ሞባይል | ጠፊኡ | ተሌፎን</annotation>
 		<annotation cp="📴" type="tts">ተንቀሳቃሲት ተለፎን ምዕጽው</annotation>
 		<annotation cp="♀">ሰበይቲ | ናይ ጋል-ኣንስተይቲ ምልክት</annotation>
 		<annotation cp="♀" type="tts">ናይ ጋል-ኣንስተይቲ ምልክት</annotation>
-		<annotation cp="♂">ናይ ወዲ-ተባዕታይ ምልክት | ወዲ-ተባዕታይ</annotation>
+		<annotation cp="♂">ናይ ወዲ-ተባዕታይ ምልክት | ወዲ-ተባዕታይ | ሰብኣይ</annotation>
 		<annotation cp="♂" type="tts">ናይ ወዲ-ተባዕታይ ምልክት</annotation>
 		<annotation cp="⚧">ጸታ ዝቀየሩ | ጸታ ዝቀየሩ ምልክት</annotation>
 		<annotation cp="⚧" type="tts">ጸታ ዝቀየሩ ምልክት</annotation>
-		<annotation cp="✖">× | x | ምልክት | ምርባሕ | ምጥፋእ</annotation>
+		<annotation cp="✖">× | x | ምልክት | ምርባሕ | ምጥፋእ | ግደፍ | ምብዛሕ | ኣባዝሕ</annotation>
 		<annotation cp="✖" type="tts">ሕሳብ</annotation>
-		<annotation cp="➕">+ | ሕሳብ | ምልክት | ምድማር</annotation>
+		<annotation cp="➕">+ | ሕሳብ | ምልክት | ምድማር | ሒሳብ | ዝተደመሮ</annotation>
 		<annotation cp="➕" type="tts">ምድማር</annotation>
-		<annotation cp="➖">- | − | ሕሳብ | ምልክት | ምጉዳል</annotation>
+		<annotation cp="➖">- | − | ሕሳብ | ምልክት | ምጉዳል | ሒሳብ | ዝጎደሎ</annotation>
 		<annotation cp="➖" type="tts">ምጉዳል</annotation>
-		<annotation cp="➗">÷ | ሕሳብ | ምልክት | ምምቃል</annotation>
+		<annotation cp="➗">÷ | ሕሳብ | ምልክት | ምምቃል | ምምቓል | ሒሳብ</annotation>
 		<annotation cp="➗" type="tts">ምምቃል</annotation>
 		<annotation cp="♾">ዓለም-ለኻዊ | ደረት ኣልቦነት</annotation>
 		<annotation cp="♾" type="tts">ደረት ኣልቦነት</annotation>
-		<annotation cp="‼">! | !! | ምልክት | ስምዒት | ባንግባንግ | ድርብ ምልክት ስምዒት</annotation>
+		<annotation cp="‼">! | !! | ምልክት | ስምዒት | ባንግባንግ | ድርብ ምልክት ስምዒት | ትእምርተ ኣንክሮ | ስርዓተ ነጥቢ</annotation>
 		<annotation cp="‼" type="tts">ድርብ ምልክት ስምዒት</annotation>
-		<annotation cp="⁉">ቀይሕ ምልክት ሕቶ</annotation>
+		<annotation cp="⁉">ቀይሕ ምልክት ሕቶ | ትእምርተ ኣንክሮ | ዘይምዱብ ምልክት ስርዓተ ነጥቢ | ምልክት | ስርዓተ ነጥቢ | ሕቶ</annotation>
 		<annotation cp="⁉" type="tts">!</annotation>
-		<annotation cp="❓">ጻዕዳ ምልክት ሕቶ</annotation>
+		<annotation cp="❓">ጻዕዳ ምልክት ሕቶ | ምልክት | ስርዓተ ነጥቢ | ሕቶ</annotation>
 		<annotation cp="❓" type="tts">ቀይሕ ምልክት ሕቶ</annotation>
-		<annotation cp="❔">? | ምልክት | ምልክት ሕቶ | ንድፊ | ንድፊ ሕቶ | ጻዕዳ</annotation>
+		<annotation cp="❔">? | ምልክት | ምልክት ሕቶ | ንድፊ | ንድፊ ሕቶ | ጻዕዳ | ደረት | ስርዓተ ነጥቢ | ሕቶ</annotation>
 		<annotation cp="❔" type="tts">ጻዕዳ ምልክት ሕቶ</annotation>
-		<annotation cp="❕">! | ምልክት | ስምዒት | ንድፊ | ጻዕዳ ምልክት ስምዒት</annotation>
+		<annotation cp="❕">! | ምልክት | ስምዒት | ንድፊ | ጻዕዳ ምልክት ስምዒት | ትእምርተ ኣንክሮ | ደረት | ስርዓተ ነጥቢ</annotation>
 		<annotation cp="❕" type="tts">ጻዕዳ ምልክት ስምዒት</annotation>
-		<annotation cp="❗">! | ምልክት | ስምዒት | ስርዓተ-ነጥብታት</annotation>
+		<annotation cp="❗">! | ምልክት | ስምዒት | ስርዓተ-ነጥብታት | ስምዒታዊነት | ነጥቢ | ስርዓተ ነጥቢ</annotation>
 		<annotation cp="❗" type="tts">ቀይሕ ምልክት ስምዒት</annotation>
-		<annotation cp="〰">ሞገዳዊ | ስርዓተ-ነጥብታት | ዳሽ</annotation>
+		<annotation cp="〰">ሞገዳዊ | ስርዓተ-ነጥብታት | ዳሽ | ሰረዝ | ስርዓተ ነጥቢ | ማዕበላዊ</annotation>
 		<annotation cp="〰" type="tts">ሞገዳዊ ዳሽ</annotation>
-		<annotation cp="💱">ለውጢ | ባንክ | ገንዘብ</annotation>
+		<annotation cp="💱">ለውጢ | ባንክ | ገንዘብ | ባንኪ | ባጤራ | ሸርፊ</annotation>
 		<annotation cp="💱" type="tts">ለውጢ ገንዘብ</annotation>
-		<annotation cp="💲">ከቢድ ምልክት ናይ ዶላር | ዶላር | ገንዘብ</annotation>
+		<annotation cp="💲">ከቢድ ምልክት ናይ ዶላር | ዶላር | ገንዘብ | ባጤራ</annotation>
 		<annotation cp="💲" type="tts">ከቢድ ምልክት ናይ ዶላር</annotation>
-		<annotation cp="⚕">ኣርማ ሕክምና | ኣስኩልፒዩስ | ኣባላት | ፈውሲ</annotation>
+		<annotation cp="⚕">ኣርማ ሕክምና | ኣስኩልፒዩስ | ኣባላት | ፈውሲ | መድሃኒት | ኤስኩላፕየስ ( ጥንታዊ ናይ ሮማውያን ናይ መድሃኒት ኣምላኽ)</annotation>
 		<annotation cp="⚕" type="tts">ኣርማ ሕክምና</annotation>
-		<annotation cp="♻">ረሳይክል | ኣርማ ረሳይክል</annotation>
+		<annotation cp="♻">ረሳይክል | ኣርማ ረሳይክል | ዳግም መስርሕ</annotation>
 		<annotation cp="♻" type="tts">ኣርማ ረሳይክል</annotation>
-		<annotation cp="⚜">fleur-de-lis</annotation>
+		<annotation cp="⚜">fleur-de-lis | ወርቃዊ ዕምባባ</annotation>
 		<annotation cp="⚜" type="tts">fleur-de-lis</annotation>
-		<annotation cp="🔱">መልህቕ | መርክብ | መሳርሒ | ትሪደንት | ኣርማ</annotation>
+		<annotation cp="🔱">መልህቕ | መርክብ | መሳርሒ | ትሪደንት | ኣርማ | መልሕቕ | ባንዴራ | መርከብ | ኣምላኽ ባሕሪ</annotation>
 		<annotation cp="🔱" type="tts">ኣርማ ትሪደንት</annotation>
-		<annotation cp="📛">ሽም | ባድጀ</annotation>
+		<annotation cp="📛">ሽም | ባድጀ | መለለዪ | ስም</annotation>
 		<annotation cp="📛" type="tts">ሽም ባድጀ</annotation>
-		<annotation cp="🔰">ቆጽሊ | ቸቭሮን | ጀማሪ | ጃፓናዊ | ጃፓናዊ ምልክት ን ጀማሪ</annotation>
+		<annotation cp="🔰">ቆጽሊ | ቸቭሮን | ጀማሪ | ጃፓናዊ | ጃፓናዊ ምልክት ን ጀማሪ | ሸራጥ ማዕርግ | ሓምላይ | መሳርሒ | ቢጫ</annotation>
 		<annotation cp="🔰" type="tts">ጃፓናዊ ምልክት ን ጀማሪ</annotation>
-		<annotation cp="⭕">o | ቀይሕ | ክፉት ቀይሕ ዓንኬል | ዓቢ | ዓንኬል</annotation>
+		<annotation cp="⭕">o | ቀይሕ | ክፉት ቀይሕ ዓንኬል | ዓቢ | ዓንኬል | ክቢ</annotation>
 		<annotation cp="⭕" type="tts">ክፉት ቀይሕ ዓንኬል</annotation>
-		<annotation cp="✅">✓ | መልጎም | ምልክት | ኣረጋግጽ</annotation>
+		<annotation cp="✅">✓ | መልጎም | ምልክት | ኣረጋግጽ | ፈትሽ | ምልክት ግበር</annotation>
 		<annotation cp="✅" type="tts">ምልክት መልጎም ኣረጋግጽ</annotation>
-		<annotation cp="☑">✓ | ሳንዱቕ | ነቲ ሳንዱቕ ኣረጋግጾ | ኣረጋግጾ</annotation>
+		<annotation cp="☑">✓ | ሳንዱቕ | ነቲ ሳንዱቕ ኣረጋግጾ | ኣረጋግጾ | ናይ ድምጺ ምርጫ ካርድ</annotation>
 		<annotation cp="☑" type="tts">ነቲ ሳንዱቕ ኣረጋግጾ</annotation>
-		<annotation cp="✔">✓ | ምልክት | ኣረጋግጽ</annotation>
+		<annotation cp="✔">✓ | ምልክት | ኣረጋግጽ | ፈትሽ | ምልክት ግበር</annotation>
 		<annotation cp="✔" type="tts">ምልክት ኣረጋግጽ</annotation>
-		<annotation cp="❌">× | x | ምልክት | ምርባሕ | ሰረዘ | ተማሓላላፊ</annotation>
+		<annotation cp="❌">× | x | ምልክት | ምርባሕ | ሰረዘ | ተማሓላላፊ | ግደፍ | ምብዛሕ | ኣባዝሕ</annotation>
 		<annotation cp="❌" type="tts">ተማሓላላፊ ምልክት</annotation>
-		<annotation cp="❎">× | x | ምልክት | ተማሓላላፊ ምልክት መልጎም | ትርብዒት</annotation>
+		<annotation cp="❎">× | x | ምልክት | ተማሓላላፊ ምልክት መልጎም | ትርብዒት | ሒሳብ | መረባዕ</annotation>
 		<annotation cp="❎" type="tts">ተማሓላላፊ ምልክት መልጎም</annotation>
-		<annotation cp="➰">ዕኽሉል ጥውይዋይ | ጥውይዋይ</annotation>
+		<annotation cp="➰">ዕኽሉል ጥውይዋይ | ጥውይዋይ | ዓንኬል</annotation>
 		<annotation cp="➰" type="tts">ዕኽሉል ጥውይዋይ</annotation>
-		<annotation cp="➿">ድርብ | ድርብ ዕኽሉል ጥውይዋይ | ጥውይዋይ</annotation>
+		<annotation cp="➿">ድርብ | ድርብ ዕኽሉል ጥውይዋይ | ጥውይዋይ | ዓንኬል</annotation>
 		<annotation cp="➿" type="tts">ድርብ ዕኽሉል ጥውይዋይ</annotation>
 		<annotation cp="〽">ምልክት | ኣማራጺ ምልክት ክፋል | ክፋል</annotation>
 		<annotation cp="〽" type="tts">ኣማራጺ ምልክት ክፋል</annotation>
-		<annotation cp="✳">* | ሻሙናይ-መሳልል ኣስተሪስክ | ኣስተሪስክ</annotation>
+		<annotation cp="✳">* | ሻሙናይ-መሳልል ኣስተሪስክ | ኣስተሪስክ | ኣስተሪስክስ</annotation>
 		<annotation cp="✳" type="tts">ሻሙናይ-መሳልል ኣስተሪስክ</annotation>
 		<annotation cp="✴">* | ሻሙናይ-ነጥቢ ኮኾብ | ኮኾብ</annotation>
 		<annotation cp="✴" type="tts">ሻሙናይ-ነጥቢ ኮኾብ</annotation>
-		<annotation cp="❇">* | ኣብለጭላጪ</annotation>
+		<annotation cp="❇">* | ኣብለጭላጪ | ኣብለጭለጨ</annotation>
 		<annotation cp="❇" type="tts">ኣብለጭላጪ</annotation>
 		<annotation cp="©">c | መሰል ደራሲ</annotation>
 		<annotation cp="©" type="tts">መሰል ደራሲ</annotation>
 		<annotation cp="®">r | ምዝጉብ</annotation>
 		<annotation cp="®" type="tts">ምዝጉብ</annotation>
-		<annotation cp="™">tm | ምልክት | ምልክት ንግዲ</annotation>
+		<annotation cp="™">tm | ምልክት | ምልክት ንግዲ | ቲ ኤም</annotation>
 		<annotation cp="™" type="tts">ምልክት ንግዲ</annotation>
-		<annotation cp="🔠">ABCD | ላቲን | ቃላት | ኣእቱ | ዓበይቲ-ቃላት</annotation>
+		<annotation cp="🔠">ABCD | ላቲን | ቃላት | ኣእቱ | ዓበይቲ-ቃላት | ኤቢሲዲ | እታወት | ፊደላት | ዓበይቲ ፊደላት</annotation>
 		<annotation cp="🔠" type="tts">ናይ ላቲን ዓበይቲ-ቃላት ኣእቱ</annotation>
-		<annotation cp="🔡">abcd | ላቲን | ቃላት | ነኣሽቱ-ቃላት | ኣእቱ</annotation>
+		<annotation cp="🔡">abcd | ላቲን | ቃላት | ነኣሽቱ-ቃላት | ኣእቱ | ኤቢሲዲ | እታወት | ፊደላት | ንእሽቶ ፊደል</annotation>
 		<annotation cp="🔡" type="tts">ናይ ላቲን ነኣሽቱ-ቃላት ኣእቱ</annotation>
-		<annotation cp="🔢">1234 | ቁጽርታት | ኣእቱ</annotation>
+		<annotation cp="🔢">1234 | ቁጽርታት | ኣእቱ | እታወት</annotation>
 		<annotation cp="🔢" type="tts">ቁጽርታት ኣእቱ</annotation>
-		<annotation cp="🔣">〒♪&amp;% | ኣርማታት ኣእቱ | ኣእቱ</annotation>
+		<annotation cp="🔣">〒♪&amp;% | ኣርማታት ኣእቱ | ኣእቱ | እታወት</annotation>
 		<annotation cp="🔣" type="tts">ኣርማታት ኣእቱ</annotation>
-		<annotation cp="🔤">abc | ላቲን | ቃላት | ኣእቱ</annotation>
+		<annotation cp="🔤">abc | ላቲን | ቃላት | ኣእቱ | ኤቢሲ | ሆሄ | እታወት | ፊደላት</annotation>
 		<annotation cp="🔤" type="tts">ላቲን ቃላት ኣእቱ</annotation>
-		<annotation cp="🅰">a | A መልጎም (ዓይነት ደም) | ዓይነት ደም</annotation>
+		<annotation cp="🅰">a | A መልጎም (ዓይነት ደም) | ዓይነት ደም | ኤ</annotation>
 		<annotation cp="🅰" type="tts">A መልጎም (ዓይነት ደም)</annotation>
-		<annotation cp="🆎">ab | AB መልጎም (ዓይነት ደም) | ዓይነት ደም</annotation>
+		<annotation cp="🆎">ab | AB መልጎም (ዓይነት ደም) | ዓይነት ደም | አይ ቢ</annotation>
 		<annotation cp="🆎" type="tts">AB መልጎም (ዓይነት ደም)</annotation>
-		<annotation cp="🅱">b | B መልጎም (ዓይነት ደም) | ዓይነት ደም</annotation>
+		<annotation cp="🅱">b | B መልጎም (ዓይነት ደም) | ዓይነት ደም | ቢ</annotation>
 		<annotation cp="🅱" type="tts">B መልጎም (ዓይነት ደም)</annotation>
 		<annotation cp="🆑">cl | CL መልጎም</annotation>
 		<annotation cp="🆑" type="tts">CL መልጎም</annotation>
-		<annotation cp="🆒">cool | COOL መልጎም</annotation>
+		<annotation cp="🆒">cool | COOL መልጎም | ጽቡቕ ሓሳብ</annotation>
 		<annotation cp="🆒" type="tts">COOL መልጎም</annotation>
-		<annotation cp="🆓">ክፉት | ክፉት መልጎም</annotation>
+		<annotation cp="🆓">ክፉት | ክፉት መልጎም | ናጻ</annotation>
 		<annotation cp="🆓" type="tts">ክፉት መልጎም</annotation>
-		<annotation cp="ℹ">i | ሓበሬታ</annotation>
+		<annotation cp="ℹ">i | ሓበሬታ | አይ</annotation>
 		<annotation cp="ℹ" type="tts">ሓበሬታ</annotation>
 		<annotation cp="🆔">id | ID መልጎም | መንነት</annotation>
 		<annotation cp="🆔" type="tts">ID መልጎም</annotation>
-		<annotation cp="Ⓜ">m | ዓንኬላ | ዓንኬል M</annotation>
+		<annotation cp="Ⓜ">m | ዓንኬላ | ዓንኬል M | ክቢ ዝተገብረሉ | ኤም</annotation>
 		<annotation cp="Ⓜ" type="tts">ዓንኬላዊ M</annotation>
-		<annotation cp="🆕">ሓዲሽ | ሓዲሽ መልጎም</annotation>
+		<annotation cp="🆕">ሓዲሽ | ሓዲሽ መልጎም | ሓድሽ</annotation>
 		<annotation cp="🆕" type="tts">ሓዲሽ መልጎም</annotation>
-		<annotation cp="🆖">ng | NG መልጎም</annotation>
+		<annotation cp="🆖">ng | NG መልጎም | ጽቡቕ ኣይኮነን</annotation>
 		<annotation cp="🆖" type="tts">NG መልጎም</annotation>
-		<annotation cp="🅾">o | O መልጎም (ዓይነት ደም) | ዓይነት ደም</annotation>
+		<annotation cp="🅾">o | O መልጎም (ዓይነት ደም) | ዓይነት ደም | ኦ</annotation>
 		<annotation cp="🅾" type="tts">O መልጎም (ዓይነት ደም)</annotation>
-		<annotation cp="🆗">OK | OK መልጎም</annotation>
+		<annotation cp="🆗">OK | OK መልጎም | ሕራይ</annotation>
 		<annotation cp="🆗" type="tts">OK መልጎም</annotation>
-		<annotation cp="🅿">P መልጎም | ፓርኪን</annotation>
+		<annotation cp="🅿">P መልጎም | ፓርኪን | መቖሚያ</annotation>
 		<annotation cp="🅿" type="tts">P መልጎም</annotation>
 		<annotation cp="🆘">sos | SOS መልጎም | ሓገዝ</annotation>
 		<annotation cp="🆘" type="tts">SOS መልጎም</annotation>
-		<annotation cp="🆙">ምልክት | ንላዕሊ | ንላዕሊ! መልጎም</annotation>
+		<annotation cp="🆙">ምልክት | ንላዕሊ | ንላዕሊ! መልጎም | ናይ ላዕሊ</annotation>
 		<annotation cp="🆙" type="tts">ንላዕሊ! መልጎም</annotation>
 		<annotation cp="🆚">vs | VS መልጎም | ብመንጽር</annotation>
 		<annotation cp="🆚" type="tts">VS መልጎም</annotation>
-		<annotation cp="🈁">“ኣብዚ” | ናይ ጃፓን | ናይ ጃፓን “ኣብዚ” መልጎም | ካታካና | ココ</annotation>
+		<annotation cp="🈁">“ኣብዚ” | ናይ ጃፓን | ናይ ጃፓን “ኣብዚ” መልጎም | ካታካና | ココ | ናይ ጃፓናውያን | ’ኣብዚ’</annotation>
 		<annotation cp="🈁" type="tts">ናይ ጃፓን “ኣብዚ” መልጎም</annotation>
-		<annotation cp="🈂">“ክፍሊት ኣገልግሎት” | ናይ ጃፓን | ናይ ጃፓን “ክፍሊት ኣገልግሎት” መልጎም | ካታካና | サ</annotation>
+		<annotation cp="🈂">“ክፍሊት ኣገልግሎት” | ናይ ጃፓን | ናይ ጃፓን “ክፍሊት ኣገልግሎት” መልጎም | ካታካና | サ | ናይ ጃፓናውያን | ’ክፍሊት ኣገልግሎት’</annotation>
 		<annotation cp="🈂" type="tts">ናይ ጃፓን “ክፍሊት ኣገልግሎት” መልጎም</annotation>
-		<annotation cp="🈷">“ወርሓዊ ድምር” | ናይ ጃፓን | ናይ ጃፓን “ወርሓዊ ድምር” መልጎም | ኣይድዮግራፍ | 月</annotation>
+		<annotation cp="🈷">“ወርሓዊ ድምር” | ናይ ጃፓን | ናይ ጃፓን “ወርሓዊ ድምር” መልጎም | ኣይድዮግራፍ | 月 | ናይ ጃፓናውያን | ኢድዮግራም | ’ወርሓዊ መጠን’</annotation>
 		<annotation cp="🈷" type="tts">ናይ ጃፓን “ወርሓዊ ድምር” መልጎም</annotation>
-		<annotation cp="🈶">““ነጻ ዘይኮነ ክፍሊት” | ናይ ጃፓን | ናይ ጃፓን “ነጻ ዘይኮነ ክፍሊት” መልጎም | ኣይድዮግራፍ | 有</annotation>
+		<annotation cp="🈶">““ነጻ ዘይኮነ ክፍሊት” | ናይ ጃፓን | ናይ ጃፓን “ነጻ ዘይኮነ ክፍሊት” መልጎም | ኣይድዮግራፍ | 有 | ናይ ጃፓናውያን | ኢድዮግራም | 得 | ’ነጻ ቀረጽ የለን’</annotation>
 		<annotation cp="🈶" type="tts">ናይ ጃፓን “ነጻ ዘይኮነ ክፍሊት” መልጎም</annotation>
-		<annotation cp="🈯">“ዝተዓቀበ” | ናይ ጃፓን | ናይ ጃፓን “ዝተዓቀበ” መልጎም | ኣይድዮግራፍ | 指</annotation>
+		<annotation cp="🈯">“ዝተዓቀበ” | ናይ ጃፓን | ናይ ጃፓን “ዝተዓቀበ” መልጎም | ኣይድዮግራፍ | 指 | ናይ ጃፓናውያን | ኢድዮግራም | 得 | ’ሕዙእ’</annotation>
 		<annotation cp="🈯" type="tts">ናይ ጃፓን “ዝተዓቀበ” መልጎም</annotation>
-		<annotation cp="🉐">“ምውጋይ” | ናይ ጃፓን | ናይ ጃፓን “ምውጋይ” መልጎም | ኣይድዮግራፍ | 得</annotation>
+		<annotation cp="🉐">“ምውጋይ” | ናይ ጃፓን | ናይ ጃፓን “ምውጋይ” መልጎም | ኣይድዮግራፍ | 得 | ናይ ጃፓናውያን | ኢድዮግራም | ’ሕሱር ኣቕሓ’</annotation>
 		<annotation cp="🉐" type="tts">ናይ ጃፓን “ምውጋይ” መልጎም</annotation>
-		<annotation cp="🈹">“ምጉዳል ዋጋ” | ናይ ጃፓን | ናይ ጃፓን “ምጉዳል ዋጋ” መልጎም | ኣይድዮግራፍ | 割</annotation>
+		<annotation cp="🈹">“ምጉዳል ዋጋ” | ናይ ጃፓን | ናይ ጃፓን “ምጉዳል ዋጋ” መልጎም | ኣይድዮግራፍ | 割 | ናይ ጃፓናውያን | ኢድዮግራም | ’ሕሱር’</annotation>
 		<annotation cp="🈹" type="tts">ናይ ጃፓን “ምጉዳል ዋጋ” መልጎም</annotation>
-		<annotation cp="🈚">“ካብ ክፍሊት ነጻ” | ናይ ጃፓን | ናይ ጃፓን “ካብ ክፍሊት ነጻ” መልጎም | ኣይድዮግራፍ | 無</annotation>
+		<annotation cp="🈚">“ካብ ክፍሊት ነጻ” | ናይ ጃፓን | ናይ ጃፓን “ካብ ክፍሊት ነጻ” መልጎም | ኣይድዮግራፍ | 無 | ናይ ጃፓናውያን | ኢድዮግራም | ’ነጻ ቀረጽ’</annotation>
 		<annotation cp="🈚" type="tts">ናይ ጃፓን “ካብ ክፍሊት ነጻ” መልጎም</annotation>
-		<annotation cp="🈲">“ዝተኣገደ” | ናይ ጃፓን | ናይ ጃፓን “ዝተኣገደ”መልጎም | ኣይድዮግራፍ | 禁</annotation>
+		<annotation cp="🈲">“ዝተኣገደ” | ናይ ጃፓን | ናይ ጃፓን “ዝተኣገደ”መልጎም | ኣይድዮግራፍ | 禁 | ናይ ጃፓናውያን | ኢድዮግራም | ’ክልኩል’</annotation>
 		<annotation cp="🈲" type="tts">ናይ ጃፓን “ዝተኣገደ” መልጎም</annotation>
-		<annotation cp="🉑">“ቅቡል” | ናይ ጃፓን | ናይ ጃፓን “ቅቡል” መልጎም | ኣይድዮግራፍ | 可</annotation>
+		<annotation cp="🉑">“ቅቡል” | ናይ ጃፓን | ናይ ጃፓን “ቅቡል” መልጎም | ኣይድዮግራፍ | 可 | ናይ ጃፓናውያን | ኢድዮግራም | ’ቅቡል’</annotation>
 		<annotation cp="🉑" type="tts">ናይ ጃፓን “ቅቡል” መልጎም</annotation>
-		<annotation cp="🈸">“ምልክታ” | ናይ ጃፓን | ናይ ጃፓን “ምልክታ”መልጎም | ኣይድዮግራፍ | 申</annotation>
+		<annotation cp="🈸">“ምልክታ” | ናይ ጃፓን | ናይ ጃፓን “ምልክታ”መልጎም | ኣይድዮግራፍ | 申 | ናይ ጃፓናውያን | ኢድዮግራም | 合 | ’ምልክታ’</annotation>
 		<annotation cp="🈸" type="tts">ናይ ጃፓን “ምልክታ” መልጎም</annotation>
-		<annotation cp="🈴">““መሕለፊ ነጥቢ” | ናይ ጃፓን | ናይ ጃፓን “መሕለፊ ነጥቢ” መልጎም | ኣይድዮግራፍ | 合</annotation>
+		<annotation cp="🈴">““መሕለፊ ነጥቢ” | ናይ ጃፓን | ናይ ጃፓን “መሕለፊ ነጥቢ” መልጎም | ኣይድዮግራፍ | 合 | ናይ ጃፓናውያን | ኢድዮግራም | ’መሕለፊ ደረጃ’</annotation>
 		<annotation cp="🈴" type="tts">ናይ ጃፓን “መሕለፊ ነጥቢ” መልጎም</annotation>
-		<annotation cp="🈳">“ክፉት ቦታ ስራሕ” | ናይ ጃፓን | ናይ ጃፓን “ክፉት ቦታ ስራሕ” መልጎም | ኣይድዮግራፍ | 空</annotation>
+		<annotation cp="🈳">“ክፉት ቦታ ስራሕ” | ናይ ጃፓን | ናይ ጃፓን “ክፉት ቦታ ስራሕ” መልጎም | ኣይድዮግራፍ | 空 | ናይ ጃፓናውያን | ኢድዮግራም | ’ክፉት ናይ ስራሕ ቦታ’</annotation>
 		<annotation cp="🈳" type="tts">ናይ ጃፓን “ክፉት ቦታ ስራሕ” መልጎም</annotation>
-		<annotation cp="㊗">“እንቃዕ ሓጎሰኩም” | ናይ ጃፓን | ናይ ጃፓን “እንቃዕ ሓጎሰኩም” መልጎም | ኣይድዮግራፍ | 祝</annotation>
+		<annotation cp="㊗">“እንቃዕ ሓጎሰኩም” | ናይ ጃፓን | ናይ ጃፓን “እንቃዕ ሓጎሰኩም” መልጎም | ኣይድዮግራፍ | 祝 | ናይ ጃፓናውያን | ኢድዮግራም | ’ናይ እንቛዕ ሓጎሰኩም’</annotation>
 		<annotation cp="㊗" type="tts">ናይ ጃፓን “እንቃዕ ሓጎሰኩም” መልጎም</annotation>
-		<annotation cp="㊙">“ምስጢር” | ናይ ጃፓን | ናይ ጃፓን “ምስጢር” መልጎም | ኣይድዮግራፍ | 秘</annotation>
+		<annotation cp="㊙">“ምስጢር” | ናይ ጃፓን | ናይ ጃፓን “ምስጢር” መልጎም | ኣይድዮግራፍ | 秘 | ናይ ጃፓናውያን | ኢድዮግራም | ’ምስጢራዊ’</annotation>
 		<annotation cp="㊙" type="tts">ናይ ጃፓን “ምስጢር” መልጎም</annotation>
-		<annotation cp="🈺">“ን ቢዝነስ ክፉት” | ናይ ጃፓን | ናይ ጃፓን “ን ቢዝነስ ክፉት” መልጎም | ኣይድዮግራፍ | 営</annotation>
+		<annotation cp="🈺">“ን ቢዝነስ ክፉት” | ናይ ጃፓን | ናይ ጃፓን “ን ቢዝነስ ክፉት” መልጎም | ኣይድዮግራፍ | 営 | ናይ ጃፓናውያን | ኢድዮግራም | ’ንክፉት ስራሕ’</annotation>
 		<annotation cp="🈺" type="tts">ናይ ጃፓን “ን ቢዝነስ ክፉት” መልጎም</annotation>
-		<annotation cp="🈵">““ክፉት ቦታ ስራሕ የለን” | ናይ ጃፓን | ናይ ጃፓን “ክፉት ቦታ ስራሕ የለን” መልጎም | ኣይድዮግራፍ | 満</annotation>
+		<annotation cp="🈵">““ክፉት ቦታ ስራሕ የለን” | ናይ ጃፓን | ናይ ጃፓን “ክፉት ቦታ ስራሕ የለን” መልጎም | ኣይድዮግራፍ | 満 | ናይ ጃፓናውያን | ኢድዮግራም | ’ክፉት ስራሕ የለን’</annotation>
 		<annotation cp="🈵" type="tts">ናይ ጃፓን “ክፉት ቦታ ስራሕ የለን” መልጎም</annotation>
-		<annotation cp="🔴">ቀይሕ | ዓንኬል | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔴">ቀይሕ | ዓንኬል | ጂኦሜትሪክ | ክቢ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="🔴" type="tts">ቀይሕ ዓንኬል</annotation>
 		<annotation cp="🟠">ኣራንሾኒ | ዓንኬል</annotation>
 		<annotation cp="🟠" type="tts">ኣራንሾኒ ዓንኬል</annotation>
@@ -593,15 +2723,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🟡" type="tts">ቢጫ ዓንኬል</annotation>
 		<annotation cp="🟢">ቀጠልያ | ዓንኬል</annotation>
 		<annotation cp="🟢" type="tts">ቀጠልያ ዓንኬል</annotation>
-		<annotation cp="🔵">ሰማያዊ | ዓንኬል | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔵">ሰማያዊ | ዓንኬል | ጂኦሜትሪክ | ክቢ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="🔵" type="tts">ሰማያዊ ዓንኬል</annotation>
 		<annotation cp="🟣">ሊላ | ዓንኬል</annotation>
 		<annotation cp="🟣" type="tts">ሊላ ዓንኬል</annotation>
 		<annotation cp="🟤">ቡናዊ | ዓንኬል</annotation>
 		<annotation cp="🟤" type="tts">ቡናዊ ዓንኬል</annotation>
-		<annotation cp="⚫">ዓንኬል | ጂኦሜትሪክ | ጸሊም ዓንኬል</annotation>
+		<annotation cp="⚫">ዓንኬል | ጂኦሜትሪክ | ጸሊም ዓንኬል | ክቢ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="⚫" type="tts">ጸሊም ዓንኬል</annotation>
-		<annotation cp="⚪">ዓንኬል | ጂኦሜትሪክ | ጻዕዳ ዓንኬል</annotation>
+		<annotation cp="⚪">ዓንኬል | ጂኦሜትሪክ | ጻዕዳ ዓንኬል | ክቢ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="⚪" type="tts">ጻዕዳ ዓንኬል</annotation>
 		<annotation cp="🟥">ቀይሕ | ትርብዒት</annotation>
 		<annotation cp="🟥" type="tts">ቀይሕ ትርብዒት</annotation>
@@ -617,42 +2747,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🟪" type="tts">ሊላ ትርብዒት</annotation>
 		<annotation cp="🟫">ቡናዊ | ትርብዒት</annotation>
 		<annotation cp="🟫" type="tts">ቡናዊ ትርብዒት</annotation>
-		<annotation cp="⬛">ትርብዒት | ጂኦሜትሪክ | ጸሊም ዓቢ ትርብዒት</annotation>
+		<annotation cp="⬛">ትርብዒት | ጂኦሜትሪክ | ጸሊም ዓቢ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="⬛" type="tts">ጸሊም ዓቢ ትርብዒት</annotation>
-		<annotation cp="⬜">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ዓቢ ትርብዒት</annotation>
+		<annotation cp="⬜">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ዓቢ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="⬜" type="tts">ጻዕዳ ዓቢ ትርብዒት</annotation>
-		<annotation cp="◼">ትርብዒት | ጂኦሜትሪክ | ጸሊም ማእከላይ ትርብዒት</annotation>
+		<annotation cp="◼">ትርብዒት | ጂኦሜትሪክ | ጸሊም ማእከላይ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="◼" type="tts">ጸሊም ማእከላይ ትርብዒት</annotation>
-		<annotation cp="◻">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ማእከላይ ትርብዒት</annotation>
+		<annotation cp="◻">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ማእከላይ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="◻" type="tts">ጻዕዳ ማእከላይ ትርብዒት</annotation>
-		<annotation cp="◾">ትርብዒት | ጂኦሜትሪክ | ጸሊም ማእከላይ-ንኢሽተይ ትርብዒት</annotation>
+		<annotation cp="◾">ትርብዒት | ጂኦሜትሪክ | ጸሊም ማእከላይ-ንኢሽተይ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="◾" type="tts">ጸሊም ማእከላይ-ንኢሽተይ ትርብዒት</annotation>
-		<annotation cp="◽">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ማእከላይ-ንኢሽተይ ትርብዒት</annotation>
+		<annotation cp="◽">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ማእከላይ-ንኢሽተይ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="◽" type="tts">ጻዕዳ ማእከላይ-ንኢሽተይ ትርብዒት</annotation>
-		<annotation cp="▪">ትርብዒት | ጂኦሜትሪክ | ጸሊም ንኢሽተይ ትርብዒት</annotation>
+		<annotation cp="▪">ትርብዒት | ጂኦሜትሪክ | ጸሊም ንኢሽተይ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="▪" type="tts">ጸሊም ንኢሽተይ ትርብዒት</annotation>
-		<annotation cp="▫">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ንኢሽተይ ትርብዒት</annotation>
+		<annotation cp="▫">ትርብዒት | ጂኦሜትሪክ | ጻዕዳ ንኢሽተይ ትርብዒት | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="▫" type="tts">ጻዕዳ ንኢሽተይ ትርብዒት</annotation>
-		<annotation cp="🔶">ኣልማዝ | ኣራንሾኒ | ዓቢ ኣራንሾኒ ኣልማዝ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔶">ኣልማዝ | ኣራንሾኒ | ዓቢ ኣራንሾኒ ኣልማዝ | ጂኦሜትሪክ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="🔶" type="tts">ዓቢ ኣራንሾኒ ኣልማዝ</annotation>
-		<annotation cp="🔷">ሰማያዊ | ኣልማዝ | ዓቢ ሰማያዊ ኣልማዝ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔷">ሰማያዊ | ኣልማዝ | ዓቢ ሰማያዊ ኣልማዝ | ጂኦሜትሪክ | ሰመያዊ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="🔷" type="tts">ዓቢ ሰማያዊ ኣልማዝ</annotation>
-		<annotation cp="🔸">ንኢሽተይ ሰማያዊ ኣልማዝ | ኣልማዝ | ኣራንሾኒ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔸">ንኢሽተይ ሰማያዊ ኣልማዝ | ኣልማዝ | ኣራንሾኒ | ጂኦሜትሪክ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="🔸" type="tts">ንኢሽተይ ሰማያዊ ኣልማዝ</annotation>
-		<annotation cp="🔹">ሰማያዊ | ንኢሽተይ ሰማያዊ ኣልማዝ | ኣልማዝ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔹">ሰማያዊ | ንኢሽተይ ሰማያዊ ኣልማዝ | ኣልማዝ | ጂኦሜትሪክ | ሰመያዊ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="🔹" type="tts">ንኢሽተይ ሰማያዊት ኣልማዝ</annotation>
-		<annotation cp="🔺">ቀያሕ | ቀያሕ ስሉስ-ኩርናዕ ንላዕሊ ኣርኣየ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔺">ቀያሕ | ቀያሕ ስሉስ-ኩርናዕ ንላዕሊ ኣርኣየ | ጂኦሜትሪክ | ጂኦሜትሪካዊ | ቀይሕ</annotation>
 		<annotation cp="🔺" type="tts">ቀያሕ ስሉስ-ኩርናዕ ኣርኣየ</annotation>
-		<annotation cp="🔻">ቀያሕ | ቀያሕ ስሉስ-ኩርናዕ ንታሕቲ ኣርኣየ | ንታሕቲ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔻">ቀያሕ | ቀያሕ ስሉስ-ኩርናዕ ንታሕቲ ኣርኣየ | ንታሕቲ | ጂኦሜትሪክ | ጂኦሜትሪካዊ | ቀይሕ</annotation>
 		<annotation cp="🔻" type="tts">ቀያሕ ስሉስ-ኩርናዕ ንታሕቲ ኣርኣየ</annotation>
-		<annotation cp="💠">መስሓቕ | ኣልማዝ | ኣልማዝ ምስ ዶት | ኣብ ውሽጢ | ጂኦሜትሪክ</annotation>
+		<annotation cp="💠">መስሓቕ | ኣልማዝ | ኣልማዝ ምስ ዶት | ኣብ ውሽጢ | ጂኦሜትሪክ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="💠" type="tts">ኣልማዝ ምስ ዶት</annotation>
-		<annotation cp="🔘">መልጎም | ራድዮ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔘">መልጎም | ራድዮ | ጂኦሜትሪክ | መጠወቒ | ጂኦሜትሪካዊ</annotation>
 		<annotation cp="🔘" type="tts">መልጎም ናይ ራድዮ</annotation>
-		<annotation cp="🔳">መልጎም | ትርብዒት | ንድፊ | ጂኦሜትሪክ | ጻዕዳ ትርብዒት መልጎም</annotation>
+		<annotation cp="🔳">መልጎም | ትርብዒት | ንድፊ | ጂኦሜትሪክ | ጻዕዳ ትርብዒት መልጎም | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="🔳" type="tts">ጻዕዳ ትርብዒት መልጎም</annotation>
-		<annotation cp="🔲">መልጎም | ትርብዒት | ጂኦሜትሪክ | ጸሊም ትርብዒት መልጎም</annotation>
+		<annotation cp="🔲">መልጎም | ትርብዒት | ጂኦሜትሪክ | ጸሊም ትርብዒት መልጎም | ጂኦሜትሪካዊ | ርቡዕ ኩርናዕ</annotation>
 		<annotation cp="🔲" type="tts">ጸሊም ትርብዒት መልጎም</annotation>
+		<annotation cp="🏁">ጻዕዳን ጸሊምን ሽራጥ ዝተገብረሉ | ቅድድም</annotation>
+		<annotation cp="🏁" type="tts">ጻዕዳን ጸሊምን ሽራጥ ባንዴራ</annotation>
+		<annotation cp="🚩">ለጥፍ</annotation>
+		<annotation cp="🚩" type="tts">ስሉስ ኩርናዕ ዘለዎ ባንዴራ</annotation>
+		<annotation cp="🎌">በዓል | መስቀል | ተመሳቂሉ | ጃፓናዊ</annotation>
+		<annotation cp="🎌" type="tts">ዝተጣመራ ባንዴራታት</annotation>
+		<annotation cp="🏴">ኢድ ምንብልባል</annotation>
+		<annotation cp="🏴" type="tts">ጸሊም ባንዴራ</annotation>
+		<annotation cp="🏳">ኢድ ምንብልባል</annotation>
+		<annotation cp="🏳" type="tts">ጻዕዳ ባንዴራ</annotation>
+		<annotation cp="🏳‍🌈">ቀስተ ደበና</annotation>
+		<annotation cp="🏳‍🌈" type="tts">ባንዴራ ቀስተ ደበና</annotation>
 		<annotation cp="¢">ሳንቲም</annotation>
 		<annotation cp="¢" type="tts">ሳንቲም</annotation>
 		<annotation cp="$">ዶላር | ገንዘብ | ፐሶ</annotation>

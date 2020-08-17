@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -25,6 +27,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="|" type="tts">lingia verticala</annotation>
 		<annotation cp="~" type="tts">tilda</annotation>
 		<annotation cp="≥" type="tts">pli grond che u egual</annotation>
+		<annotation cp="😃">lustig | Gesicht | lol | grinsendes Gesicht mit grossen Augen</annotation>
+		<annotation cp="😃" type="tts">grinsendes Gesicht mit grossen Augen</annotation>
+		<annotation cp="😅">lustig | Gesicht | Schweiss | schwitzen | Lachender Smiley mit kaltem Schweiss</annotation>
+		<annotation cp="😅" type="tts">Lachender Smiley mit kaltem Schweiss</annotation>
+		<annotation cp="🤪">Auge | gross | klein</annotation>
+		<annotation cp="🤐">Gesicht | Reissverschluss | Mund | Smiley mit Reissverschlussmund</annotation>
+		<annotation cp="🤐" type="tts">Smiley mit Reissverschlussmund</annotation>
+		<annotation cp="😳">rote Wangen | Gesicht | überrascht | Erröteter Smiley mit grossen Augen</annotation>
+		<annotation cp="😳" type="tts">Erröteter Smiley mit grossen Augen</annotation>
+		<annotation cp="😰">offener Mund | Gesicht | kalter Schweiss | Smiley mit offenem Mund und kaltem Schweiss</annotation>
+		<annotation cp="😰" type="tts">Smiley mit offenem Mund und kaltem Schweiss</annotation>
+		<annotation cp="😥">erleichtert | Gesicht | Schweiss</annotation>
+		<annotation cp="😓">Gesicht | geschlossene Augen | Smiley mit kaltem Schweiss</annotation>
+		<annotation cp="😓" type="tts">Smiley mit kaltem Schweiss</annotation>
+		<annotation cp="👽">Ausserirdischer | Gesicht | Ausserirdisches Wesen | Alien | UFO</annotation>
+		<annotation cp="👽" type="tts">Ausserirdisches Wesen</annotation>
+		<annotation cp="💥">Comic | Zusammenstoss | Kollision</annotation>
+		<annotation cp="💥" type="tts">Zusammenstoss</annotation>
+		<annotation cp="💦">Schweiss | Comic | Schweisstropfen</annotation>
+		<annotation cp="💦" type="tts">Schweisstropfen</annotation>
+		<annotation cp="🖖">Hand | Vulkanischer Gruss | Spock | Finger | vulkanisch | Vulkanier(in)</annotation>
+		<annotation cp="🖖" type="tts">Vulkanischer Gruss</annotation>
+		<annotation cp="🤘">Hand | Hörner | Finger | Teufelsgruss | Teufel | Rock</annotation>
+		<annotation cp="🤘" type="tts">Teufelsgruss</annotation>
 		<annotation cp="🤵">persuna | persuna cun smoking | smoking | spus</annotation>
 		<annotation cp="🤵" type="tts">persuna cun smoking</annotation>
 		<annotation cp="🤵‍♂">smoking | um | um cun smoking</annotation>
@@ -37,6 +63,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰‍♂" type="tts">um cun vel</annotation>
 		<annotation cp="👰‍♀">dunna | dunna cun vel | vel</annotation>
 		<annotation cp="👰‍♀" type="tts">dunna cun vel</annotation>
+		<annotation cp="🧟‍♂">Zombiemann</annotation>
+		<annotation cp="🧟‍♂" type="tts">Zombiemann</annotation>
+		<annotation cp="🚶‍♂">Fussgänger | Mann | gehen | Spaziergang</annotation>
+		<annotation cp="🚶‍♂" type="tts">Fussgänger</annotation>
+		<annotation cp="🚶‍♀">Spaziergang | Frau | gehen | Fussgängerin</annotation>
+		<annotation cp="🚶‍♀" type="tts">Fussgängerin</annotation>
+		<annotation cp="👣">Fussabdrücke | Abdruck | Fuss</annotation>
+		<annotation cp="👣" type="tts">Fussabdrücke</annotation>
 		<annotation cp="🦰" type="tts">chavels cotschens</annotation>
 		<annotation cp="🦱" type="tts">chavels ritschads</annotation>
 		<annotation cp="🐵">fatscha | schimgia</annotation>
@@ -53,5 +87,115 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐕" type="tts">chaun</annotation>
 		<annotation cp="🐩">chaun | pudel</annotation>
 		<annotation cp="🐩" type="tts">pudel</annotation>
+		<annotation cp="💐">Bouquet | Blumenstrauss | Blumen</annotation>
+		<annotation cp="💐" type="tts">Blumenstrauss</annotation>
+		<annotation cp="🥨">verdreht</annotation>
+		<annotation cp="🍝">Restaurant | Nudeln mit Tomatensosse | Pasta</annotation>
+		<annotation cp="🍠">geröstet | Süsskartoffel | Geröstete Süsskartoffel</annotation>
+		<annotation cp="🍠" type="tts">Geröstete Süsskartoffel</annotation>
+		<annotation cp="🍡">japanisches Gericht | Mochi-Kugeln auf einem Spiess | Restaurant</annotation>
+		<annotation cp="🍧">Eis | zerstossen</annotation>
+		<annotation cp="🍬">Süssigkeit</annotation>
+		<annotation cp="🍭">Süssigkeit | Lolli</annotation>
+		<annotation cp="🍮">Nachspeise | Nachtisch | Dessert | Sosse | Schokolade</annotation>
+		<annotation cp="☕">Kaffee | dampfend | trinken | Heissgetränk | heiss | Tee | Getränk</annotation>
+		<annotation cp="☕" type="tts">Heissgetränk</annotation>
+		<annotation cp="🍻">Bier | anstossen</annotation>
+		<annotation cp="🥂">Getränk | Sekt | anstossen | feiern</annotation>
+		<annotation cp="🏺">Vase | trinken | kochen | Tierkreis | Wassermann | Gefäss | Krug | Sternzeichen</annotation>
+		<annotation cp="♨">heisse Quellen | dampfend | heiss | Quellen | Dampf</annotation>
+		<annotation cp="♨" type="tts">Heisse Quellen</annotation>
+		<annotation cp="🚃">Zug | Wagen | Wagon | Strassenbahn | Strassenbahnwagen | Fahrzeug | Tram</annotation>
+		<annotation cp="🚃" type="tts">Strassenbahnwagen</annotation>
+		<annotation cp="🚊">Strassenbahn | Tram</annotation>
+		<annotation cp="🚊" type="tts">Strassenbahn</annotation>
+		<annotation cp="🚋">Waggon | Strassenbahn | Tram</annotation>
+		<annotation cp="🛣">Autobahn | Schnellstrasse</annotation>
+		<annotation cp="⭐">Stern | weisser mittelgrosser Stern</annotation>
+		<annotation cp="⭐" type="tts">weisser mittelgrosser Stern</annotation>
+		<annotation cp="🌌">Galaxie | Milchstrasse</annotation>
+		<annotation cp="🌌" type="tts">Milchstrasse</annotation>
+		<annotation cp="🌥">Sonne hinter grosser Wolke | Wetter | grosse Wolke | Wolke | Sonne</annotation>
+		<annotation cp="🌥" type="tts">Sonne hinter grosser Wolke</annotation>
+		<annotation cp="🔥">heiss | Flamme</annotation>
+		<annotation cp="💧">Wasser | Wassertropfen | Schweiss</annotation>
+		<annotation cp="⚽">Ball | Fussball</annotation>
+		<annotation cp="⚽" type="tts">Fussball</annotation>
+		<annotation cp="🥌">Spiel | Stein</annotation>
+		<annotation cp="⛑">Hilfe | Kreuz | Helm mit weissem Kreuz | Helm</annotation>
+		<annotation cp="⛑" type="tts">Helm mit weissem Kreuz</annotation>
+		<annotation cp="🔍">Suche | Vergrösserungsglas</annotation>
+		<annotation cp="🔎">Suche | Vergrösserungsglas</annotation>
+		<annotation cp="📆">Kalender | Abreisskalender</annotation>
+		<annotation cp="📆" type="tts">Abreisskalender</annotation>
+		<annotation cp="📌">anpinnen | Reisszwecke</annotation>
+		<annotation cp="📌" type="tts">Reisszwecke</annotation>
+		<annotation cp="📍">anpinnen | Reisszwecke | runde Reisszwecke | rund</annotation>
+		<annotation cp="📍" type="tts">runde Reisszwecke</annotation>
+		<annotation cp="🚼">Baby-Symbol</annotation>
+		<annotation cp="🚼" type="tts">Baby-Symbol</annotation>
+		<annotation cp="🛅">Gepäck | Schliessfach</annotation>
+		<annotation cp="🚸">Vorsicht | Kinder-queren-die-Strasse-Schild | Kinder</annotation>
+		<annotation cp="🚸" type="tts">Kinder-queren-die-Strasse-Schild</annotation>
+		<annotation cp="🚷">Fussgänger-verboten-Schild | verboten</annotation>
+		<annotation cp="🚷" type="tts">Fussgänger-verboten-Schild</annotation>
+		<annotation cp="❔">weiss | Satzzeichen</annotation>
+		<annotation cp="❔" type="tts">weisses Fragezeichen</annotation>
+		<annotation cp="❕">weiss | Satzzeichen</annotation>
+		<annotation cp="❕" type="tts">weisses Ausrufezeichen</annotation>
+		<annotation cp="⭕">Kreis | Grosser Kreis | o | rot</annotation>
+		<annotation cp="⭕" type="tts">Grosser Kreis</annotation>
+		<annotation cp="✅">abgehakt | erledigt | Weisses Häkchen</annotation>
+		<annotation cp="✅" type="tts">Weisses Häkchen</annotation>
+		<annotation cp="🔠">lateinische Grossbuchstaben | Eingabesymbol lateinische Grossbuchstaben | Grossbuchstaben</annotation>
+		<annotation cp="🔠" type="tts">Eingabesymbol lateinische Grossbuchstaben</annotation>
+		<annotation cp="🅰">Blut | a | negativ | Grossbuchstabe A in Quadrat | Blutgruppe | positiv</annotation>
+		<annotation cp="🅰" type="tts">Grossbuchstabe A in Quadrat</annotation>
+		<annotation cp="🆎">Blut | negativ | Grossbuchstaben AB in rotem Quadrat | Blutgruppe | positiv | ab</annotation>
+		<annotation cp="🆎" type="tts">Grossbuchstaben AB in rotem Quadrat</annotation>
+		<annotation cp="🅱">Blut | negativ | Grossbuchstabe B in Quadrat | b | Blutgruppe | positiv</annotation>
+		<annotation cp="🅱" type="tts">Grossbuchstabe B in Quadrat</annotation>
+		<annotation cp="🆑">Grossbuchstaben CL in rotem Quadrat | CL</annotation>
+		<annotation cp="🆑" type="tts">Grossbuchstaben CL in rotem Quadrat</annotation>
+		<annotation cp="🆔">ID | Grossbuchstaben ID in lila Quadrat</annotation>
+		<annotation cp="🆔" type="tts">Grossbuchstaben ID in lila Quadrat</annotation>
+		<annotation cp="🆖">Grossbuchstaben NG in blauem Quadrat | NG</annotation>
+		<annotation cp="🆖" type="tts">Grossbuchstaben NG in blauem Quadrat</annotation>
+		<annotation cp="🅾">Blut | Grossbuchstabe O in Quadrat | negativ | 0 | Blutgruppe | positiv</annotation>
+		<annotation cp="🅾" type="tts">Grossbuchstabe O in Quadrat</annotation>
+		<annotation cp="🆗">OK | Grossbuchstaben OK in blauem Quadrat</annotation>
+		<annotation cp="🆗" type="tts">Grossbuchstaben OK in blauem Quadrat</annotation>
+		<annotation cp="🅿">Quadrat | Grossbuchstabe P in Quadrat | Parkplatz</annotation>
+		<annotation cp="🅿" type="tts">Grossbuchstabe P in Quadrat</annotation>
+		<annotation cp="🆚">versus | VS | Grossbuchstaben VS in orangefarbenem Quadrat</annotation>
+		<annotation cp="🆚" type="tts">Grossbuchstaben VS in orangefarbenem Quadrat</annotation>
+		<annotation cp="🔴">Ball | Kreis | rot | Grosser roter Kreis</annotation>
+		<annotation cp="🔴" type="tts">Grosser roter Kreis</annotation>
+		<annotation cp="🔵">Ball | Kreis | Grosser blauer Kreis | blau</annotation>
+		<annotation cp="🔵" type="tts">Grosser blauer Kreis</annotation>
+		<annotation cp="⚫">Ball | Grosser schwarzer Kreis | Kreis | schwarz</annotation>
+		<annotation cp="⚫" type="tts">Grosser schwarzer Kreis</annotation>
+		<annotation cp="⚪">Ball | weiss | Kreis | Grosser weisser Kreis</annotation>
+		<annotation cp="⚪" type="tts">Grosser weisser Kreis</annotation>
+		<annotation cp="⬛">Quadrat | Grosses schwarzes Quadrat | schwarz</annotation>
+		<annotation cp="⬛" type="tts">Grosses schwarzes Quadrat</annotation>
+		<annotation cp="⬜">Quadrat | weiss | Grosses weisses Quadrat</annotation>
+		<annotation cp="⬜" type="tts">Grosses weisses Quadrat</annotation>
+		<annotation cp="◼">Quadrat | schwarz | Mittelgrosses schwarzes Quadrat</annotation>
+		<annotation cp="◼" type="tts">Mittelgrosses schwarzes Quadrat</annotation>
+		<annotation cp="◻">Quadrat | weiss | Mittelgrosses weisses Quadrat</annotation>
+		<annotation cp="◻" type="tts">Mittelgrosses weisses Quadrat</annotation>
+		<annotation cp="◽">Quadrat | weiss | Mittelkleines weisses Quadrat</annotation>
+		<annotation cp="◽" type="tts">Mittelkleines weisses Quadrat</annotation>
+		<annotation cp="▫">Quadrat | Kleines weisses Quadrat | weiss</annotation>
+		<annotation cp="▫" type="tts">Kleines weisses Quadrat</annotation>
+		<annotation cp="🔶">Raute | orangefarben | Grosse orangefarbene Raute</annotation>
+		<annotation cp="🔶" type="tts">Grosse orangefarbene Raute</annotation>
+		<annotation cp="🔷">Grosse blaue Raute | Raute | blau</annotation>
+		<annotation cp="🔷" type="tts">Grosse blaue Raute</annotation>
+		<annotation cp="🔳">Schaltfläche | Weisse quadratische Schaltfläche | quadratisch | weiss</annotation>
+		<annotation cp="🔳" type="tts">Weisse quadratische Schaltfläche</annotation>
+		<annotation cp="🏳">wehen | Fahne | Wehende weisse Fahne | weisse Fahne</annotation>
+		<annotation cp="🏳" type="tts">Wehende weisse Fahne</annotation>
 	</annotations>
 </ldml>

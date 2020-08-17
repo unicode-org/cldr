@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -11,57 +13,2533 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ku"/>
 	</identity>
 	<annotations>
-		<annotation cp="🧒">zarok</annotation>
+		<annotation cp="🏻">ڕەنگی پێست | جۆری 1-2</annotation>
+		<annotation cp="🏻" type="tts">ڕەنگی پێستی ئاچووخ</annotation>
+		<annotation cp="🏼">ڕەنگی پێست | جۆری 3</annotation>
+		<annotation cp="🏼" type="tts">ڕەنگی پێستی ئاچوخی ناوەند</annotation>
+		<annotation cp="🏽">ڕەنگی پێست | جۆری 4</annotation>
+		<annotation cp="🏽" type="tts">ڕەنگی پێستی ناوەند</annotation>
+		<annotation cp="🏾">ڕەنگی پێست | جۆری 5</annotation>
+		<annotation cp="🏾" type="tts">ڕەنگی پێستی ئەسمەری ناوەند</annotation>
+		<annotation cp="🏿">ڕەنگی پێست | جۆری 6</annotation>
+		<annotation cp="🏿" type="tts">ڕەنگی پێستی ئەسمەر</annotation>
+		<annotation cp="😀">دەم و چاو | ددان ریچکردنەوە</annotation>
+		<annotation cp="😀" type="tts">دەم و چاو لەگەڵ ددان چڕکردنەوە</annotation>
+		<annotation cp="😃">دەم و چاو | دەم | کراوە | پێکەنین</annotation>
+		<annotation cp="😃" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ دەمی کراوە</annotation>
+		<annotation cp="😄">چاو | دەم و چاو | دەم | کراوە | پێکەنین</annotation>
+		<annotation cp="😄" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ دەمی کراوە و چاوی بە پێکەنین</annotation>
+		<annotation cp="😁">چاو | دەم و چاو | ددان ریچکردنەوە | خەندە</annotation>
+		<annotation cp="😁" type="tts">دەم و چاوی بە پێکەنین لەگەڵ چاوی بە پێکەنین</annotation>
+		<annotation cp="😆">دەم و چاو | پێکەنین | دەم | کراوە | ڕازی</annotation>
+		<annotation cp="😆" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ دەمی کراوە و چاوی داخراو</annotation>
+		<annotation cp="😅">سارد | دەم و چاو | کراوە | پێکەنین | ئارەقە</annotation>
+		<annotation cp="😅" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ دەمی کراوە ئارەقەی سارد</annotation>
+		<annotation cp="🤣">ئەرزی ژوور | پێکەنین | لوولخواردن | دەم و چاو</annotation>
+		<annotation cp="🤣" type="tts">خل بوونەوە لەسەر زەوی بە پێکەنین</annotation>
+		<annotation cp="😂">دەم و چاو | خۆشی | پێکەنین | فرمێسک</annotation>
+		<annotation cp="😂" type="tts">دەم و چاو لەگەڵ فرمێسکی شادی</annotation>
+		<annotation cp="🙂">دەم و چاو | خەندە</annotation>
+		<annotation cp="🙂" type="tts">دەم و چاوێکی کەمێک پێکەنیناوی</annotation>
+		<annotation cp="🙃">دەم و چاو | سەرەوژێر</annotation>
+		<annotation cp="🙃" type="tts">دەم و چاوی سەرەوژێر</annotation>
+		<annotation cp="😉">دەم و چاو | چاوداگرتن</annotation>
+		<annotation cp="😉" type="tts">دەم و چاوی چاوداگرتوو</annotation>
+		<annotation cp="😊">شەرم | چاو | دەم و چاو | خەندە</annotation>
+		<annotation cp="😊" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ چاوی پێکەنیناوی</annotation>
+		<annotation cp="😇">فریشتە | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ | چاوی دڵ | بێتاوان | خەندە</annotation>
+		<annotation cp="😇" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ بازنەی پیرۆز</annotation>
+		<annotation cp="😍">چاو | دەم و چاو | خەندە</annotation>
+		<annotation cp="😍" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ چاوی دڵ</annotation>
+		<annotation cp="🤩">دان ریچ دەکاتەوە | دەم و چاو | ئەستێرە | چاوەکان</annotation>
+		<annotation cp="🤩" type="tts">ئەستێرە لێیدراو</annotation>
+		<annotation cp="😘">دەم و چاو | ماچ</annotation>
+		<annotation cp="😘" type="tts">دەم و چاو ماچ داوێت</annotation>
+		<annotation cp="😗">دەم و چاو | ماچ</annotation>
+		<annotation cp="😗" type="tts">دەم و چاوی ماچکەر</annotation>
+		<annotation cp="☺">دەم و چاو | گەڵاڵەکراو | حەساوە | خەندە</annotation>
+		<annotation cp="☺" type="tts">دەم و چاوی بە پێکەنین</annotation>
+		<annotation cp="😚">داخراو | چاو | دەم و چاو | ماچ</annotation>
+		<annotation cp="😚" type="tts">دەم و چاوی ماچکەر بە چاوی داخراو</annotation>
+		<annotation cp="😙">چاو | دەم و چاو | ماچ | خەندە</annotation>
+		<annotation cp="😙" type="tts">دەم و چاوی ماچکەر بە چاوی پێکەنیناوی</annotation>
+		<annotation cp="😋">بەتام | دەم و چاو | تام | خەندە | ئم | یەم</annotation>
+		<annotation cp="😋" type="tts">دەم و چاوی شاد بۆ خواردنی خۆش</annotation>
+		<annotation cp="😛">دەم و چاو | زمان</annotation>
+		<annotation cp="😛" type="tts">دەم و چاو لەگەڵ زمانی دەرچوو</annotation>
+		<annotation cp="😜">چاو | دەم و چاو | زمان | چاوداگرتن</annotation>
+		<annotation cp="😜" type="tts">دەم و چاو لەگەڵ زمانی دەرچوو و چاوی داگیراو</annotation>
+		<annotation cp="🤪">گەورە | بچووك | چاو</annotation>
+		<annotation cp="🤪" type="tts">دەم و چاوی شێتانە</annotation>
+		<annotation cp="😝">چاو | دەم و چاو | سامناک | تام | زمان</annotation>
+		<annotation cp="😝" type="tts">دەم و چاو لەگەڵ زمانی دەرچوو و چاوی داخراو</annotation>
+		<annotation cp="🤑">دەم و چاو | پارە | دەم</annotation>
+		<annotation cp="🤑" type="tts">دەموچاوی دەمی پارە</annotation>
+		<annotation cp="🤗">دەم و چاو | باوەش | لە باوەش گرتن</annotation>
+		<annotation cp="🤗" type="tts">دەم و چاوی لەباوەشگر</annotation>
+		<annotation cp="🤭">ھاوار</annotation>
+		<annotation cp="🤭" type="tts">دەم و چاو لەگەڵ دەست لەسەر دەم</annotation>
+		<annotation cp="🤫">ووس به | بێده‌نگی</annotation>
+		<annotation cp="🤫" type="tts">دەم و چاوی ووسکتکەر</annotation>
+		<annotation cp="🤔">دەم و چاو | بیرکردنەوە</annotation>
+		<annotation cp="🤔" type="tts">دەم و چاوی بیرکەرەوە</annotation>
+		<annotation cp="🤐">دەم و چاو | دەم | زنجیر</annotation>
+		<annotation cp="🤐" type="tts">دەم و چاوی دەمی زنجیر</annotation>
+		<annotation cp="🤨">گوماناوی | باوەڕنەمان</annotation>
+		<annotation cp="🤨" type="tts">دەم و چاو لەگەڵ برۆی بەرزکراوە</annotation>
+		<annotation cp="😐">بێهەست | دەم و چاو | بێ لایەن</annotation>
+		<annotation cp="😐" type="tts">رووی ئاسایی</annotation>
+		<annotation cp="😑">بێ هەست | دەم و چاو | بێ دەربڕین</annotation>
+		<annotation cp="😑" type="tts">دەم و چاوی بێ دەربڕین</annotation>
+		<annotation cp="😶">دەم و چاو | دەم | ئارام | بێدەنگ</annotation>
+		<annotation cp="😶" type="tts">دەم و چاوی بێ دەم</annotation>
+		<annotation cp="😏">دەم و چاو | بزەی فیز</annotation>
+		<annotation cp="😏" type="tts">دەم و چاوی فیزاوی</annotation>
+		<annotation cp="😒">دەم و چاو | بێزار | کەساس</annotation>
+		<annotation cp="😒" type="tts">دەم و چاوی خۆشاڵ نەکراو</annotation>
+		<annotation cp="🙄">چاوەکان | دەم و چاو | سووڕان</annotation>
+		<annotation cp="🙄" type="tts">دەم و چاو لەگەڵ چاوی سووڕاو</annotation>
+		<annotation cp="😬">دەم و چاو | بێزکردنەوە</annotation>
+		<annotation cp="😬" type="tts">دەم و چاوی بێزکردنەوە</annotation>
+		<annotation cp="🤥">دەم و چاو | درۆکردن | پینۆکیۆ</annotation>
+		<annotation cp="🤥" type="tts">دەم و چاوی درۆکەر</annotation>
+		<annotation cp="😌">دەم و چاو | حەساوە</annotation>
+		<annotation cp="😌" type="tts">دەم و چاوی گەشاوە</annotation>
+		<annotation cp="😔">خەمۆک | دەم و چاو | داڵغە</annotation>
+		<annotation cp="😔" type="tts">دەم و چاوێکی بە داڵغە</annotation>
+		<annotation cp="😪">دەم و چاو | خەو</annotation>
+		<annotation cp="😪" type="tts">دەم و چاوی خەواڵوو</annotation>
+		<annotation cp="🤤">لیک کردن | دەم و چاو</annotation>
+		<annotation cp="🤤" type="tts">دەم و چاوی لیکاوی</annotation>
+		<annotation cp="😴">دەم و چاو | خەو | ززز</annotation>
+		<annotation cp="😴" type="tts">دەم و چاوی خەوتوو</annotation>
+		<annotation cp="😷">سارد | پزیشک | دەم و چاو | دەمامک | دەرمان | نەخۆش</annotation>
+		<annotation cp="😷" type="tts">دەم و چاو بە دەمامکی پزیشکی</annotation>
+		<annotation cp="🤒">دەم و چاو | نەخۆش | نەساغ | گەرمیپێو</annotation>
+		<annotation cp="🤒" type="tts">دەم و چاو لەگەڵ گەرمیپێو</annotation>
+		<annotation cp="🤕">باندێج | دەم و چاو | ئازار | برینداری</annotation>
+		<annotation cp="🤕" type="tts">دەم و چاو بە باندێچی سەر</annotation>
+		<annotation cp="🤢">دەم و چاو | سەر سوورانی دەریا | ڕشانەوە</annotation>
+		<annotation cp="🤢" type="tts">دەم و چاوی سەر سوورانی دەریایی</annotation>
+		<annotation cp="🤮">ڕشانەوە | نەخۆش</annotation>
+		<annotation cp="🤮" type="tts">دەم و چاو دەڕشێتەوە</annotation>
+		<annotation cp="🤧">دەم و چاو | گێزوندێیت | پژمین</annotation>
+		<annotation cp="🤧" type="tts">دەم و چاوی پشمین</annotation>
+		<annotation cp="😵">سەرسوڕماو | دەم و چاو</annotation>
+		<annotation cp="😵" type="tts">دەم و چاوی زۆر واق وڕماو</annotation>
+		<annotation cp="🤯">شۆک بوو</annotation>
+		<annotation cp="🤯" type="tts">سەری تەقیو</annotation>
+		<annotation cp="🤠">گاوان | دەم و چاو | کڵاو | گاوانی ئافرەت</annotation>
+		<annotation cp="🤠" type="tts">دەم و چاوی کڵاوی گاوان</annotation>
+		<annotation cp="😎">بریقەدار | فێنك | چاو | چاویلکە | دەم و چاو | خەندە | هەتاو / چاویلکەی هەتاوی</annotation>
+		<annotation cp="😎" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ چاویلکەی ھەتاوی</annotation>
+		<annotation cp="🤓">دەم و چاو | پەشۆکاو | بەکەم زانین</annotation>
+		<annotation cp="🤓" type="tts">دەم و چاوی کەسێکی بێزارکەر</annotation>
+		<annotation cp="🧐">کەلوپەل</annotation>
+		<annotation cp="🧐" type="tts">دەم و چاو لەگەڵ چاوێلکەی یەک چاو</annotation>
+		<annotation cp="😕">سەرلێشێواو</annotation>
+		<annotation cp="😕" type="tts">دەم و چاوی سەرلێشێواو</annotation>
+		<annotation cp="😟">نیگەران | دەم و چاو</annotation>
+		<annotation cp="😟" type="tts">دەم و چاوی نیگەران</annotation>
+		<annotation cp="🙁">دەم و چاو | ڕووگرژ</annotation>
+		<annotation cp="🙁" type="tts">دەم و چاوێکی کەمێک گرژ</annotation>
+		<annotation cp="☹">دەم و چاو | ڕووگرژ</annotation>
+		<annotation cp="☹" type="tts">دەم و چاوی گرژ</annotation>
+		<annotation cp="😮">دەم و چاو | دەم | کراوە | دڵسۆزی</annotation>
+		<annotation cp="😮" type="tts">دەم و چاو بە دەمی کراوە</annotation>
+		<annotation cp="😯">دەم و چاو | بێدەنگکراو | سەرنج ڕاکێشراو | سەرسوڕماو</annotation>
+		<annotation cp="😯" type="tts">دەم و چاوی بێدەنگ</annotation>
+		<annotation cp="😲">سەرسام | دەم و چاو | شۆک بوو | بەتەواوی</annotation>
+		<annotation cp="😲" type="tts">دەم و چاوی سەرسوڕماو</annotation>
+		<annotation cp="😳">وڕ | دەم و چاو | ڕووسوور</annotation>
+		<annotation cp="😳" type="tts">دەم و چاوی سوور هەڵگەڕاو</annotation>
+		<annotation cp="😦">دەم و چاو | ڕووگرژ | دەم | کراوە</annotation>
+		<annotation cp="😦" type="tts">دەم و چاوی گرژ لەگەڵ دەمی کراوە</annotation>
+		<annotation cp="😧">بە ئازار | دەم و چاو</annotation>
+		<annotation cp="😧" type="tts">دەم و چاوی بە ئازار</annotation>
+		<annotation cp="😨">دەم و چاو | ترس | ترسناک | ترساو</annotation>
+		<annotation cp="😨" type="tts">دەم و چاوی ترسناک</annotation>
+		<annotation cp="😰">شین | سارد | دەم و چاو | دەم | کراوە | پەلە | ئارەقە</annotation>
+		<annotation cp="😰" type="tts">دەم و چاو لەگەڵ دەمی کراوە و ئارەقەی سارد</annotation>
+		<annotation cp="😥">نائومێد | دەم و چاو | حەساوە | فیکەی سەرسورمان</annotation>
+		<annotation cp="😥" type="tts">نائومێد بەڵام دەم و چاوی گەشاوە</annotation>
+		<annotation cp="😢">گریان | دەم و چاو | خەمبار | فرمێسک</annotation>
+		<annotation cp="😢" type="tts">دەم و چاوی گریاناوی</annotation>
+		<annotation cp="😭">گریان | دەم و چاو | خەمبار | هەنسک | فرمێسک</annotation>
+		<annotation cp="😭" type="tts">دەم و چاو بە کوڵ دەگریێت</annotation>
+		<annotation cp="😱">دەم و چاو | ترس | ترسناک | خرمە | ترساو | هاوارکردن</annotation>
+		<annotation cp="😱" type="tts">دەم و چاو هاوار دەکات بەهۆی ترس</annotation>
+		<annotation cp="😖">واق وڕماو | دەم و چاو</annotation>
+		<annotation cp="😖" type="tts">دەم و چاوی واق وڕماو</annotation>
+		<annotation cp="😣">دەم و چاو | کۆڵنەدان</annotation>
+		<annotation cp="😣" type="tts">دەم و چاوی پارێزەر</annotation>
+		<annotation cp="😞">نائومێد | دەم و چاو</annotation>
+		<annotation cp="😞" type="tts">دەم و چاوی نائومێد</annotation>
+		<annotation cp="😓">سارد | دەم و چاو | ئارەقە</annotation>
+		<annotation cp="😓" type="tts">دەم و چاو بە ئارەقی سارد</annotation>
+		<annotation cp="😩">دەم و چاو | ماندوو | هیلاک</annotation>
+		<annotation cp="😩" type="tts">دەم و چاوی زۆر ماندوو</annotation>
+		<annotation cp="😫">دەم و چاو | ماندوو</annotation>
+		<annotation cp="😫" type="tts">دەم و چاوی ماندوو</annotation>
+		<annotation cp="😤">دەم و چاو | سەرکەوتن | براوە</annotation>
+		<annotation cp="😤" type="tts">دەم و چاو لەگەڵ دەرچوونی هەڵم لە لووت</annotation>
+		<annotation cp="😡">تووڕە | دەم و چاو | شێت | لێو دەرهێنان | سوور</annotation>
+		<annotation cp="😡" type="tts">ڕوو گرژ</annotation>
+		<annotation cp="😠">تووڕە | دەم و چاو | شێت</annotation>
+		<annotation cp="😠" type="tts">دەم و چاوی تووڕە</annotation>
+		<annotation cp="🤬">سوێند خواردن</annotation>
+		<annotation cp="🤬" type="tts">دەم و چاو لەگەڵ هێما لەسەر دەم</annotation>
+		<annotation cp="😈">دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ | قۆچ | خەندە</annotation>
+		<annotation cp="😈" type="tts">دەم و چاوی پێکەنیناوی لەگەڵ شاخ</annotation>
+		<annotation cp="👿">دێو | شەیتان | دێوی بچووک | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ</annotation>
+		<annotation cp="👿" type="tts">دەم و چاوی تووڕەی شاخدار</annotation>
+		<annotation cp="💀">مەرگ | دەم و چاو | چیرۆکی ئەفسانەیی | دێو</annotation>
+		<annotation cp="💀" type="tts">کەللەی سەر</annotation>
+		<annotation cp="☠">ئێسکی | مەرگ | دەم و چاو | دێو | کەللەی سەر</annotation>
+		<annotation cp="☠" type="tts">کەللەی سەر و ئێسک</annotation>
+		<annotation cp="💩">کۆمیدی | پاشەڕۆی ئاژەڵ | دەم و چاو | دڕندە | پیسایی | پاشەڕۆ</annotation>
+		<annotation cp="💩" type="tts">سلە پیسایی</annotation>
+		<annotation cp="🤡">گاڵتەچی | دەم و چاو</annotation>
+		<annotation cp="🤡" type="tts">دەم و چاوی گاڵتەچی</annotation>
+		<annotation cp="👹">بوونەوەر | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ | دڕندە</annotation>
+		<annotation cp="👹" type="tts">دەعبا</annotation>
+		<annotation cp="👺">بوونەوەر | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ | دڕندە</annotation>
+		<annotation cp="👺" type="tts">دێو</annotation>
+		<annotation cp="👻">بوونەوەر | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ | دڕندە</annotation>
+		<annotation cp="👻" type="tts">تارمایی</annotation>
+		<annotation cp="👽">بوونەوەر | نامۆ | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ | دڕندە | یوفۆ</annotation>
+		<annotation cp="👽" type="tts">نامۆ</annotation>
+		<annotation cp="👾">نامۆ | بوونەوەر | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ | دڕندە | یوفۆ</annotation>
+		<annotation cp="👾" type="tts">دڕندەی نامۆ</annotation>
+		<annotation cp="🤖">دەم و چاو | دڕندە | ڕۆبۆت</annotation>
+		<annotation cp="🤖" type="tts">دەم و چاوی ڕۆبۆت</annotation>
+		<annotation cp="😺">پشیلە | دەم و چاو | دەم | کراوە | پێکەنین</annotation>
+		<annotation cp="😺" type="tts">دەم و چاوی پشیلەی پێکەنیناوی لەگەڵ دەمی کراوە</annotation>
+		<annotation cp="😸">پشیلە | چاو | دەم و چاو | ددان ریچکردنەوە | خەندە</annotation>
+		<annotation cp="😸" type="tts">دەم و چاوی بێزکردنەوەی پشیلە لەگەڵ چاوی بە پێکەنین</annotation>
+		<annotation cp="😹">پشیلە | دەم و چاو | خۆشی | فرمێسک</annotation>
+		<annotation cp="😹" type="tts">دەم و چاوی پشیلە لەگەڵ فرمێسکی شادی</annotation>
+		<annotation cp="😻">پشیلە | چاو | دەم و چاو | خەندە</annotation>
+		<annotation cp="😻" type="tts">دەم و چاوی پشیلەی پێکەنیناوی لەگەڵ چاوی دڵ</annotation>
+		<annotation cp="😼">پشیلە | دەم و چاو | گاڵتەخواز | خەندە | گێڕ</annotation>
+		<annotation cp="😼" type="tts">دەم و چاوی پشیلە لەگەڵ پێکەنینی گێڕ</annotation>
+		<annotation cp="😽">پشیلە | چاو | دەم و چاو | ماچ</annotation>
+		<annotation cp="😽" type="tts">دەم و چاوی پشیلەی ماچکەر بە چاوی داخراو</annotation>
+		<annotation cp="🙀">پشیلە | دەم و چاو | ئاە | سەرسوڕماو | هیلاک</annotation>
+		<annotation cp="🙀" type="tts">دەم و چاوی پشیلەی ماندوو</annotation>
+		<annotation cp="😿">پشیلە | گریان | دەم و چاو | خەمبار | فرمێسک</annotation>
+		<annotation cp="😿" type="tts">دەم و چاوی پشیلەی گریاو</annotation>
+		<annotation cp="😾">پشیلە | دەم و چاو | دەرهێنانی لێو</annotation>
+		<annotation cp="😾" type="tts">پشیلەی ڕوو گرژ</annotation>
+		<annotation cp="🙈">شەڕانگێز | دەم و چاو | قەدەغە | ئیشارە | مەیمون | نەخێر | نا | قەدەغەکراو | سەیرکردن</annotation>
+		<annotation cp="🙈" type="tts">سەیرکردنی مەیمونی باش</annotation>
+		<annotation cp="🙉">شەڕانگێز | دەم و چاو | قەدەغە | ئیشارە | بیستن | مەیمون | نەخێر | نا | قەدەغەکراو</annotation>
+		<annotation cp="🙉" type="tts">نەبیستنی مەیمونی خراپ</annotation>
+		<annotation cp="🙊">شەڕانگێز | دەم و چاو | قەدەغە | ئیشارە | مەیمون | نەخێر | نا | قەدەغەکراو | قسەکردن</annotation>
+		<annotation cp="🙊" type="tts">بڵی مەیمونی باش</annotation>
+		<annotation cp="💋">ماچ | لێو</annotation>
+		<annotation cp="💋" type="tts">هێمای ماچ</annotation>
+		<annotation cp="💌">دڵ | نووسراو | خۆشەویستی | نامە</annotation>
+		<annotation cp="💌" type="tts">نامەی خوشەویستی</annotation>
+		<annotation cp="💘">تیر | کیوپید</annotation>
+		<annotation cp="💘" type="tts">دڵ لەگەڵ تیر</annotation>
+		<annotation cp="💝">قردێلە | ڤالەنتاین</annotation>
+		<annotation cp="💝" type="tts">دڵ لەگەڵ قردێلە</annotation>
+		<annotation cp="💖">دڵخۆش | بریسکانەوە</annotation>
+		<annotation cp="💖" type="tts">دڵی درەوشاوە</annotation>
+		<annotation cp="💗">دڵخۆش | گەشەکردوو | لێدانی دڵ | شلەژاو</annotation>
+		<annotation cp="💗" type="tts">دڵی گەشەکردوو</annotation>
+		<annotation cp="💓">لێدان | لێدانی دڵ | ترپەکردن</annotation>
+		<annotation cp="💓" type="tts">دڵی لێدەر</annotation>
+		<annotation cp="💞">گەشاوە</annotation>
+		<annotation cp="💞" type="tts">دڵی گەشاوە</annotation>
+		<annotation cp="💕">خۆشەویستی</annotation>
+		<annotation cp="💕" type="tts">دوو دڵ</annotation>
+		<annotation cp="💟">دڵ</annotation>
+		<annotation cp="💟" type="tts">ڕازاندنەوەی دڵ</annotation>
+		<annotation cp="❣">سەرسوڕمان | هێما | خاڵبەندی</annotation>
+		<annotation cp="❣" type="tts">سەرسوڕمانی دڵی گەورە</annotation>
+		<annotation cp="💔">شکا | شکاو</annotation>
+		<annotation cp="💔" type="tts">دڵی شکاو</annotation>
+		<annotation cp="❤">دڵ</annotation>
+		<annotation cp="❤" type="tts">دڵی سوور</annotation>
+		<annotation cp="🧡">پرته‌قاڵی</annotation>
+		<annotation cp="🧡" type="tts">دڵی پرتەقاڵی</annotation>
+		<annotation cp="💛">زەرد</annotation>
+		<annotation cp="💛" type="tts">دڵی زەرد</annotation>
+		<annotation cp="💚">سەوز</annotation>
+		<annotation cp="💚" type="tts">دڵی سەوز</annotation>
+		<annotation cp="💙">شین</annotation>
+		<annotation cp="💙" type="tts">دڵی شین</annotation>
+		<annotation cp="💜">وەنەوشەیی</annotation>
+		<annotation cp="💜" type="tts">دڵی وەنەوشەیی</annotation>
+		<annotation cp="🖤">ڕەش | نەگریس | بەد</annotation>
+		<annotation cp="🖤" type="tts">دڵی ڕەش</annotation>
+		<annotation cp="💯">100 | تەواو | سەد | نمرە</annotation>
+		<annotation cp="💯" type="tts">سەد خاڵ</annotation>
+		<annotation cp="💢">تووڕە | کۆمیدی | شێت</annotation>
+		<annotation cp="💢" type="tts">هێمای تورەبوون</annotation>
+		<annotation cp="💥">بووم | کۆمیدی</annotation>
+		<annotation cp="💥" type="tts">پێکدادان</annotation>
+		<annotation cp="💫">کۆمیدی | ئەستێرە</annotation>
+		<annotation cp="💫" type="tts">سەرسوڕماو</annotation>
+		<annotation cp="💦">کۆمیدی | ڕژان | ئارەقە</annotation>
+		<annotation cp="💦" type="tts">دڵۆپەی ئارەق</annotation>
+		<annotation cp="💨">کۆمیدی | هەڵپەکردن | ڕاكردن</annotation>
+		<annotation cp="💨" type="tts">دوور کەوتنەوە</annotation>
+		<annotation cp="🕳">کون</annotation>
+		<annotation cp="🕳" type="tts">کون</annotation>
+		<annotation cp="💣">کۆمیدی</annotation>
+		<annotation cp="💣" type="tts">بۆمب</annotation>
+		<annotation cp="💬">بالۆن | بڵق | کۆمیدی | گفتوگۆ | قسە</annotation>
+		<annotation cp="💬" type="tts">باڵۆنی ئاخاوتن</annotation>
+		<annotation cp="👁‍🗨">چاو | هەوری قسە | گەواهیدەر</annotation>
+		<annotation cp="👁‍🗨" type="tts">چاو لە ناو هەوری قسە</annotation>
+		<annotation cp="🗨">گفتوگۆ | قسە</annotation>
+		<annotation cp="🗨" type="tts">هەوری قسەی چەپ</annotation>
+		<annotation cp="🗯">تووڕە | بالۆن | بڵق | شێت</annotation>
+		<annotation cp="🗯" type="tts">هەوری تووڕەیی ڕاست</annotation>
+		<annotation cp="💭">بالۆن | بڵق | کۆمیدی | بیرۆکە</annotation>
+		<annotation cp="💭" type="tts">بالۆنی بیرکردنەوە</annotation>
+		<annotation cp="💤">کۆمیدی | خەو</annotation>
+		<annotation cp="💤" type="tts">ززز</annotation>
+		<annotation cp="👋">دەست | دەست وەشاندن | بای بای کردن</annotation>
+		<annotation cp="👋" type="tts">دەستی هەڵبڕاو</annotation>
+		<annotation cp="🤚">پشتیدەست | بەرزکراوە</annotation>
+		<annotation cp="🤚" type="tts">پشتی دەستی بەرز کردۆتەوە</annotation>
+		<annotation cp="🖐">پەنجە | دەست | کرانەوە</annotation>
+		<annotation cp="🖐" type="tts">دەستی بەرزکراوە لەگەڵ پەنجەکان کراونەتەوە</annotation>
+		<annotation cp="✋">دەست</annotation>
+		<annotation cp="✋" type="tts">دەستی بەرزکراوە</annotation>
+		<annotation cp="🖖">پەنجە | دەست | سپۆک | سەربازی</annotation>
+		<annotation cp="🖖" type="tts">سڵاوی سەربازی</annotation>
+		<annotation cp="👌">دەست | باشە</annotation>
+		<annotation cp="👌" type="tts">دەستی باشە</annotation>
+		<annotation cp="✌">دەست | ڤی | سەرکەوتن</annotation>
+		<annotation cp="✌" type="tts">دەستی سەرکەوتن</annotation>
+		<annotation cp="🤞">خاچ | پەنجە | دەست | بەخت</annotation>
+		<annotation cp="🤞" type="tts">پەنجەی ناویەک</annotation>
+		<annotation cp="🤟">ILY | دەست</annotation>
+		<annotation cp="🤟" type="tts">تۆم خۆش دەوێت هێما</annotation>
+		<annotation cp="🤘">پەنجە | دەست | قۆچ | ڕۆک ئۆن</annotation>
+		<annotation cp="🤘" type="tts">هێمای قۆچ</annotation>
+		<annotation cp="🤙">پەیوەندی | دەست</annotation>
+		<annotation cp="🤙" type="tts">دەستی پەیوەندیم پێوەبكە</annotation>
+		<annotation cp="👈">پشتەدەست | پەنجە | دەست | پەنجەی شایەتومان | خاڵ</annotation>
+		<annotation cp="👈" type="tts">پەنجەی شایەتومان بە ئاڕاستەی چەپ</annotation>
+		<annotation cp="👉">پشتەدەست | پەنجە | دەست | پەنجەی شایەتومان | خاڵ</annotation>
+		<annotation cp="👉" type="tts">پەنجەی شایەتومان بە ئاڕاستەی ڕاست</annotation>
+		<annotation cp="👆">پشتەدەست | پەنجە | دەست | پەنجەی شایەتومان | خاڵ | سەرەوە</annotation>
+		<annotation cp="👆" type="tts">پشتی پەنجەی شایەتومان بە ئاڕاستەی سەرەوە</annotation>
+		<annotation cp="🖕">پەنجە | دەست</annotation>
+		<annotation cp="🖕" type="tts">پەنجەی نااوەڕاست</annotation>
+		<annotation cp="👇">پشتەدەست | خوارەوە | پەنجە | دەست | پەنجەی شایەتومان | خاڵ</annotation>
+		<annotation cp="👇" type="tts">پەنجەی شایەتومان بە ئاڕاستەی خوارەوە</annotation>
+		<annotation cp="☝">پەنجە | دەست | پەنجەی شایەتومان | خاڵ | سەرەوە</annotation>
+		<annotation cp="☝" type="tts">پەنجەی شایەتومان بە ئاڕاستەی سەرەوە</annotation>
+		<annotation cp="👍">+1 | دەست | پەنجەی گەورە | سەرەوە</annotation>
+		<annotation cp="👍" type="tts">پەنجەی گەورە بۆ سەرەوە</annotation>
+		<annotation cp="👎">-1 | خوارەوە | دەست | پەنجەی گەورە</annotation>
+		<annotation cp="👎" type="tts">پەنجەی گەورە بۆ خوارەوە</annotation>
+		<annotation cp="✊">داخستن | کۆڵەمستە | دەست | کونکردن</annotation>
+		<annotation cp="✊" type="tts">کۆڵەمستی بەرزکراوە</annotation>
+		<annotation cp="👊">داخستن | کۆڵەمستە | دەست | کونکردن</annotation>
+		<annotation cp="👊" type="tts">کۆڵەمستەی هاتوو</annotation>
+		<annotation cp="🤛">کۆڵەمستە | بەرەو چەپ</annotation>
+		<annotation cp="🤛" type="tts">کۆڵەمستەی چەپ</annotation>
+		<annotation cp="🤜">کۆڵەمستە | بەرەو ڕاست</annotation>
+		<annotation cp="🤜" type="tts">کۆڵەمستەی ڕاست</annotation>
+		<annotation cp="👏">چەپڵە | دەست</annotation>
+		<annotation cp="👏" type="tts">دەستی چەپڵەلێدەر</annotation>
+		<annotation cp="🙌">ئاھەنگ گێڕان | ئیشارە | دەست | هورێی | بەرزکراوە</annotation>
+		<annotation cp="🙌" type="tts">بەرزکردنەوەی دەست</annotation>
+		<annotation cp="👐">دەست | کردنەوە</annotation>
+		<annotation cp="👐" type="tts">دەستی کراوە</annotation>
+		<annotation cp="🤲">نوێژ</annotation>
+		<annotation cp="🤲" type="tts">بەیەکەوە ناولەپەکان بۆ سەرەوە</annotation>
+		<annotation cp="🤝">تەوقە | ڕێکەوتننامە | چاوپێکەوتن | دەست</annotation>
+		<annotation cp="🤝" type="tts">تەوقە</annotation>
+		<annotation cp="🙏">داواکردن | چەمانەوە | پێچراو | ئیشارە | دەست | تکایە | نوێژکردن | سوپاس</annotation>
+		<annotation cp="🙏" type="tts">دەستی داخراو</annotation>
+		<annotation cp="✍">دەست | نووسین</annotation>
+		<annotation cp="✍" type="tts">دەستی نووسەر</annotation>
+		<annotation cp="💅">چاودێری | میکیاژ | مانیکیر | نینۆک | لوسکردن</annotation>
+		<annotation cp="💅" type="tts">لووسکردنی نینۆک</annotation>
+		<annotation cp="🤳">سێڵفی | کامیرا | تەلەفۆن</annotation>
+		<annotation cp="🤳" type="tts">سێڵفی</annotation>
+		<annotation cp="💪">ماسولکەی قۆڵ و ڕان | کۆمیدی | چەمانەوە | ماسوولکە</annotation>
+		<annotation cp="💪" type="tts">ماسولکەی چەماوە</annotation>
+		<annotation cp="👂">جەستە</annotation>
+		<annotation cp="👂" type="tts">گوێ</annotation>
+		<annotation cp="👃">جەستە</annotation>
+		<annotation cp="👃" type="tts">لووت</annotation>
+		<annotation cp="🧠">زیرەک</annotation>
+		<annotation cp="🧠" type="tts">مێشک</annotation>
+		<annotation cp="👀">چاو | دەم و چاو</annotation>
+		<annotation cp="👀" type="tts">چاوەکان</annotation>
+		<annotation cp="👁">جەستە</annotation>
+		<annotation cp="👁" type="tts">چاو</annotation>
+		<annotation cp="👅">جەستە</annotation>
+		<annotation cp="👅" type="tts">زمان</annotation>
+		<annotation cp="👄">لێو</annotation>
+		<annotation cp="👄" type="tts">دەم</annotation>
+		<annotation cp="👶">منداڵ | گەنج</annotation>
+		<annotation cp="👶" type="tts">منداڵ</annotation>
+		<annotation cp="🧒">zarok | بێ لایەنی ڕەگەزی | گەنج</annotation>
 		<annotation cp="🧒" type="tts">zarok</annotation>
-		<annotation cp="👧">keç</annotation>
+		<annotation cp="👦">کوڕ | گەنج</annotation>
+		<annotation cp="👦" type="tts">کوڕ</annotation>
+		<annotation cp="👧">keç | کەلوی گوڵەگەنم | گەنج | بازنەی کەلوەکان</annotation>
 		<annotation cp="👧" type="tts">keç</annotation>
-		<annotation cp="🧑">kes</annotation>
+		<annotation cp="🧑">kes | بێ لایەنی ڕەگەزی</annotation>
 		<annotation cp="🧑" type="tts">kes</annotation>
-		<annotation cp="👨">mêr</annotation>
+		<annotation cp="👱">قژکاڵ</annotation>
+		<annotation cp="👱" type="tts">کەسی قژکاڵ</annotation>
+		<annotation cp="👨">mêr | پیاو</annotation>
 		<annotation cp="👨" type="tts">mêr</annotation>
-		<annotation cp="👩">jin</annotation>
+		<annotation cp="🧔">ڕیش</annotation>
+		<annotation cp="🧔" type="tts">کەسێکی بە ڕیش</annotation>
+		<annotation cp="👱‍♂">قژکاڵ | پیاو</annotation>
+		<annotation cp="👱‍♂" type="tts">پیاوی قژکاڵ</annotation>
+		<annotation cp="👩">jin | ئافرەت</annotation>
 		<annotation cp="👩" type="tts">jin</annotation>
-		<annotation cp="🐵">meymûn | rû | rûyê meymûnê</annotation>
+		<annotation cp="👱‍♀">قژکاڵ | ئافرەت</annotation>
+		<annotation cp="👱‍♀" type="tts">ئافرەتی قژکاڵ</annotation>
+		<annotation cp="🧓">بێ لایەنی ڕەگەزی | پیر</annotation>
+		<annotation cp="🧓" type="tts">گەورەی بە تەمەنتر</annotation>
+		<annotation cp="👴">پیاو | پیر</annotation>
+		<annotation cp="👴" type="tts">پیاوی پیر</annotation>
+		<annotation cp="👵">ئافرەت | پیر</annotation>
+		<annotation cp="👵" type="tts">ئافرەتی پیر</annotation>
+		<annotation cp="🙍">ڕوو گرژ | ئیشارە</annotation>
+		<annotation cp="🙍" type="tts">کەسێک ڕووی گرژە</annotation>
+		<annotation cp="🙍‍♂">ڕوو گرژکردن | ئیشارە | پیاو</annotation>
+		<annotation cp="🙍‍♂" type="tts">پیاوێک ڕووی گرژە</annotation>
+		<annotation cp="🙍‍♀">ڕوو گرژکردن | ئیشارە | ئافرەت</annotation>
+		<annotation cp="🙍‍♀" type="tts">ئافرەتێک ڕووی گرژە</annotation>
+		<annotation cp="🙎">ئیشارە | دەرهێنانی لێو</annotation>
+		<annotation cp="🙎" type="tts">کەسێک ڕووی گرژ دەکات</annotation>
+		<annotation cp="🙎‍♂">ئیشارە | پیاو | دەرهێنانی لێو</annotation>
+		<annotation cp="🙎‍♂" type="tts">پیاوێک ڕووی گرژ دەکات</annotation>
+		<annotation cp="🙎‍♀">ئیشارە | دەرهێنانی لێو | ئافرەت</annotation>
+		<annotation cp="🙎‍♀" type="tts">ئافرەتێک ڕووی گرژ دەکات</annotation>
+		<annotation cp="🙅">قەدەغە | ئیشارە | دەست | نەخێر | نا | قەدەغەکراو</annotation>
+		<annotation cp="🙅" type="tts">کەسێک بە هێما دەڵێت نەخێر</annotation>
+		<annotation cp="🙅‍♂">قەدەغە | ئیشارە | دەست | پیاو | نەخێر | قەدەغەکراو</annotation>
+		<annotation cp="🙅‍♂" type="tts">پیاوێک بە هێما دەڵێت نەخێر</annotation>
+		<annotation cp="🙅‍♀">قەدەغە | ئیشارە | دەست | نەخێر | قەدەغەکراو | ئافرەت</annotation>
+		<annotation cp="🙅‍♀" type="tts">ئافرەتێک بە هێما دەڵێت نەخێر</annotation>
+		<annotation cp="🙆">ئیشارە | دەست | بەڵێ</annotation>
+		<annotation cp="🙆" type="tts">کەسێک بە هێما دەڵێت بەڵێ</annotation>
+		<annotation cp="🙆‍♂">ئیشارە | دەست | پیاو | باشە</annotation>
+		<annotation cp="🙆‍♂" type="tts">پیاوێک بە هێما دەڵێت باشە</annotation>
+		<annotation cp="🙆‍♀">ئیشارە | دەست | باشە | ئافرەت</annotation>
+		<annotation cp="🙆‍♀" type="tts">ئافرەتێک بە هێما دەڵێت باشە</annotation>
+		<annotation cp="💁">دەست | بەخشیدان | یارمەتی | زانیاری | بوێر</annotation>
+		<annotation cp="💁" type="tts">کەسێک دەستی دادەپۆشێت</annotation>
+		<annotation cp="💁‍♂">پیاو | بوێر | داپۆشینی دەست</annotation>
+		<annotation cp="💁‍♂" type="tts">پیاوێک دەستی دادەپۆشێت</annotation>
+		<annotation cp="💁‍♀">بوێر | داپۆشینی دەست | ئافرەت</annotation>
+		<annotation cp="💁‍♀" type="tts">ئافرەتێک دەستی دادەپۆشێت</annotation>
+		<annotation cp="🙋">ئیشارە | دەست | دڵخۆش | بەرزکراوە</annotation>
+		<annotation cp="🙋" type="tts">کەسێک دەستی بەرز دەکاتەوە</annotation>
+		<annotation cp="🙋‍♂">ئیشارە | پیاو | بەرزکردنەوەی دەست</annotation>
+		<annotation cp="🙋‍♂" type="tts">پیاوێک دەستی بەرز دەکاتەوە</annotation>
+		<annotation cp="🙋‍♀">ئیشارە | بەرزکردنەوەی دەست | ئافرەت</annotation>
+		<annotation cp="🙋‍♀" type="tts">ئافرەتێک دەستی بەرز دەکاتەوە</annotation>
+		<annotation cp="🙇">پۆزش هێنانەوە | چەمانەوە | ئیشارە | لێبوردن</annotation>
+		<annotation cp="🙇" type="tts">کەسێک تیر داوێت</annotation>
+		<annotation cp="🙇‍♂">پۆزش هێنانەوە | چاکە | چەمانەوە | ئیشارە | پیاو | لێبوردن</annotation>
+		<annotation cp="🙇‍♂" type="tts">پیاوێک تیر داوێت</annotation>
+		<annotation cp="🙇‍♀">پۆزش هێنانەوە | چاکە | چەمانەوە | ئیشارە | لێبوردن | ئافرەت</annotation>
+		<annotation cp="🙇‍♀" type="tts">ئافرەتێک تیر داوێت</annotation>
+		<annotation cp="🤦">دەم و چاو | ناولەپ | باوەڕ نەبوون | تووڕەیی</annotation>
+		<annotation cp="🤦" type="tts">کەسێک بە ناولەپی دەستی دەموچاوی گرتووە</annotation>
+		<annotation cp="🤦‍♂">باوەر نەبوون | تووڕەیی | ناولەپ | پیاو</annotation>
+		<annotation cp="🤦‍♂" type="tts">پیاوێک بە ناولەپی دەستی دەموچاوی گرتووە</annotation>
+		<annotation cp="🤦‍♀">باوەر نەبوون | تووڕەیی | ناولەپ | ئافرەت</annotation>
+		<annotation cp="🤦‍♀" type="tts">ئافرەتێک بە ناولەپی دەستی دەموچاوی گرتووە</annotation>
+		<annotation cp="🤷">شان هەڵتەکاندن | گومان | پشتگوێخستن | کەم تەرخەمی</annotation>
+		<annotation cp="🤷" type="tts">کەسێک شانی هەڵدەتەکێنێت</annotation>
+		<annotation cp="🤷‍♂">گومان | پشتگوێخستن | کەم تەرخەمی | شان هەڵتەکاندن | پیاو</annotation>
+		<annotation cp="🤷‍♂" type="tts">پیاوێک شانی هەڵدەتەکێنێت</annotation>
+		<annotation cp="🤷‍♀">گومان | پشتگوێخستن | کەم تەرخەمی | شان هەڵتەکاندن | ئافرەت</annotation>
+		<annotation cp="🤷‍♀" type="tts">ئافرەتێک شانی هەڵدەتەکێنێت</annotation>
+		<annotation cp="👨‍⚕">پیاو | چاودێری تەندروستی | پزیشک | پەرستار | چارەسەرکار</annotation>
+		<annotation cp="👨‍⚕" type="tts">کارمەندی تەندروستی پیاو</annotation>
+		<annotation cp="👩‍⚕">ئافرەت | چاودێری تەندروستی | پزیشک | پەرستار | چارەسەرکار</annotation>
+		<annotation cp="👩‍⚕" type="tts">کارمەندی تەندروستی ئافرەت</annotation>
+		<annotation cp="👨‍🎓">پیاو | قوتابی | دەرچوو</annotation>
+		<annotation cp="👨‍🎓" type="tts">قوتابی پیاو</annotation>
+		<annotation cp="👩‍🎓">ئافرەت | قوتابی | دەرچوو</annotation>
+		<annotation cp="👩‍🎓" type="tts">قوتابی ئافرەت</annotation>
+		<annotation cp="👨‍🏫">پیاو | پرۆفیسۆر | وانەبێژ | مامۆستا</annotation>
+		<annotation cp="👨‍🏫" type="tts">مامۆستای پیاو</annotation>
+		<annotation cp="👩‍🏫">ئافرەت | پرۆفیسۆر | وانەبێژ | مامۆستا</annotation>
+		<annotation cp="👩‍🏫" type="tts">مامۆستای ئافرەت</annotation>
+		<annotation cp="👨‍⚖">داد | پیاو | میزان</annotation>
+		<annotation cp="👨‍⚖" type="tts">دادوەری پیاو</annotation>
+		<annotation cp="👩‍⚖">دادوەر | ئافرەت | تەرازوو</annotation>
+		<annotation cp="👩‍⚖" type="tts">دادوەری ئافرەت</annotation>
+		<annotation cp="👨‍🌾">پیاو | جووتیار | خاوەن کێڵگە | باخەوان</annotation>
+		<annotation cp="👨‍🌾" type="tts">جووتیاری پیاو</annotation>
+		<annotation cp="👩‍🌾">ئافرەت | جووتیار | خاوەن کێڵگە | باخەوان</annotation>
+		<annotation cp="👩‍🌾" type="tts">جووتیاری ئافرەت</annotation>
+		<annotation cp="👨‍🍳">پیاو | چێشتلێنەر | شێف</annotation>
+		<annotation cp="👨‍🍳" type="tts">چێشتلێنەری پیاو</annotation>
+		<annotation cp="👩‍🍳">ئافرەت | چێشتلێنەر | شێف</annotation>
+		<annotation cp="👩‍🍳" type="tts">چێشتلێنەری ئافرەت</annotation>
+		<annotation cp="👨‍🔧">پیاو | بازرگان | فیتەر | بۆریچی | کارەباچی</annotation>
+		<annotation cp="👨‍🔧" type="tts">فیتەری پیاو</annotation>
+		<annotation cp="👩‍🔧">ئافرەت | بازرگان | فیتەر | بۆریچی | کارەباچی</annotation>
+		<annotation cp="👩‍🔧" type="tts">فیتەری ئافرەت</annotation>
+		<annotation cp="👨‍🏭">پیاو | پیشەسازی | لێکدان | کارگە | کرێکار</annotation>
+		<annotation cp="👨‍🏭" type="tts">کرێکاری کارگەی پیاو</annotation>
+		<annotation cp="👩‍🏭">ئافرەت | پیشەسازی | لێکدان | کارگە | کرێکار</annotation>
+		<annotation cp="👩‍🏭" type="tts">کارمەندی کارگەی ئافرەت</annotation>
+		<annotation cp="👨‍💼">پیاو | نووسینگە | بزنس | بەڕێوەبەر | ئەندازیاری تەلارسازی | فەرمانبەر</annotation>
+		<annotation cp="👨‍💼" type="tts">کارمەندی نووسینگەی پیاو</annotation>
+		<annotation cp="👩‍💼">ئافرەت | نووسینگە | بزنس | بەڕێوەبەر | ئەندازیاری تەلارسازی | فەرمانبەر</annotation>
+		<annotation cp="👩‍💼" type="tts">کارمەندی نووسینگەی ئافرەت</annotation>
+		<annotation cp="👨‍🔬">پیاو | زانا | ئەندازیار | بیرکاریزان | کیمیاگەر | فیزیاوان | زیندەوەرزان</annotation>
+		<annotation cp="👨‍🔬" type="tts">زانای پیاو</annotation>
+		<annotation cp="👩‍🔬">ئافرەت | زانا | ئەندازیار | بیرکاریزان | کیمیاگەر | فیزیاوان | زیندەوەرزان</annotation>
+		<annotation cp="👩‍🔬" type="tts">زانای ئافرەت</annotation>
+		<annotation cp="👨‍💻">پیاو | تەکنەلۆژیزان | کۆدەر | نەرمامراز | پێشخەر | داهەێنەر</annotation>
+		<annotation cp="👨‍💻" type="tts">تەکنەلۆژیزانی پیاو</annotation>
+		<annotation cp="👩‍💻">ئافرەت | تەکنەلۆژیزان | کۆدەر | نەرمامراز | پێشخەر | داهەێنەر</annotation>
+		<annotation cp="👩‍💻" type="tts">تەکنەلۆژیزانی ئافرەت</annotation>
+		<annotation cp="👨‍🎤">پیاو | گۆرانی بێژ | ئاسودەکەر | ڕۆك | ئەستێرە | ئەکتەر</annotation>
+		<annotation cp="👨‍🎤" type="tts">گۆرانی بێژی پیاو</annotation>
+		<annotation cp="👩‍🎤">ئافرەت | گۆرانی بێژ | ئاسودەکەر | ڕۆك | ئەستێرە | ئەکتەر</annotation>
+		<annotation cp="👩‍🎤" type="tts">گۆرانیبێژی ئافرەت</annotation>
+		<annotation cp="👨‍🎨">هونەرمەند | پیاو | پالێت</annotation>
+		<annotation cp="👨‍🎨" type="tts">هونەرمەندی پیاو</annotation>
+		<annotation cp="👩‍🎨">هونەرمەند | پاڵێت | ئافرەت</annotation>
+		<annotation cp="👩‍🎨" type="tts">هونەرمەندی ئافرەت</annotation>
+		<annotation cp="👨‍✈">پیاو | فڕۆکەوان | فڕۆکە</annotation>
+		<annotation cp="👨‍✈" type="tts">فڕۆکەوانی پیاو</annotation>
+		<annotation cp="👩‍✈">فڕۆکەوان | فڕۆکە | ئافرەت</annotation>
+		<annotation cp="👩‍✈" type="tts">فڕۆکەوانی ئافرەت</annotation>
+		<annotation cp="👨‍🚀">ئاسمانەوان | پیاو | مووشەک</annotation>
+		<annotation cp="👨‍🚀" type="tts">ئاسمانەوانی پیاو</annotation>
+		<annotation cp="👩‍🚀">ئاسمانەوان | مووشەک | ئافرەت</annotation>
+		<annotation cp="👩‍🚀" type="tts">ئاسمانەوانی ئافرەت</annotation>
+		<annotation cp="👨‍🚒">ئاگرکوژێنەوە | پیاو | ئۆتۆمبێلی ئاگرکوژاندنەوە</annotation>
+		<annotation cp="👨‍🚒" type="tts">ئاگرکوژێنەوەی پیاو</annotation>
+		<annotation cp="👩‍🚒">ئاگرکوژێنەوە | ئۆتۆمبێلی ئاگرکوژاندنەوە | ئافرەت</annotation>
+		<annotation cp="👩‍🚒" type="tts">ئاگرکوژێنەوەی ئافرەت</annotation>
+		<annotation cp="👮">پۆلیس | ئەفسەر</annotation>
+		<annotation cp="👮" type="tts">ئەفسەری پۆلیس</annotation>
+		<annotation cp="👮‍♂">پۆلیس | پیاو | ئەفسەر</annotation>
+		<annotation cp="👮‍♂" type="tts">ئەفسەری پۆلیسی پیاو</annotation>
+		<annotation cp="👮‍♀">پۆلیس | ئەفسەر | ئافرەت</annotation>
+		<annotation cp="👮‍♀" type="tts">ئەفسەری پۆلیسی ئافرەت</annotation>
+		<annotation cp="🕵">نهێنی | سیخوڕ | لێکۆڵەر</annotation>
+		<annotation cp="🕵" type="tts">لێکۆڵەر</annotation>
+		<annotation cp="🕵‍♂">پیاو | نهێنی | سیخوڕ | لێکۆڵەر</annotation>
+		<annotation cp="🕵‍♂" type="tts">لێکۆڵەری پیاو</annotation>
+		<annotation cp="🕵‍♀">نهێنی | سیخوڕ | ئافرەت | لێکۆڵەر</annotation>
+		<annotation cp="🕵‍♀" type="tts">لێکۆڵەری ئافرەت</annotation>
+		<annotation cp="💂">پاسەوان</annotation>
+		<annotation cp="💂" type="tts">پاسەوان</annotation>
+		<annotation cp="💂‍♂">پاسەوان | پیاو</annotation>
+		<annotation cp="💂‍♂" type="tts">پاسەوانی پیاو</annotation>
+		<annotation cp="💂‍♀">پاسەوان | ئافرەت</annotation>
+		<annotation cp="💂‍♀" type="tts">پاسەوانی ئافرەت</annotation>
+		<annotation cp="👷">بینا | کڵاو | کرێکار</annotation>
+		<annotation cp="👷" type="tts">کرێکاری بینا</annotation>
+		<annotation cp="👷‍♂">بینا | پیاو | کرێکار</annotation>
+		<annotation cp="👷‍♂" type="tts">کرێکاری بینای پیاو</annotation>
+		<annotation cp="👷‍♀">بینا | ئافرەت | کرێکار</annotation>
+		<annotation cp="👷‍♀" type="tts">کرێکاری بینای ئافرەت</annotation>
+		<annotation cp="🤴">میر</annotation>
+		<annotation cp="🤴" type="tts">میر</annotation>
+		<annotation cp="👸">چیرۆکی ئەفسانەیی | خەیاڵ</annotation>
+		<annotation cp="👸" type="tts">شازادە</annotation>
+		<annotation cp="👳">سەرپێچ</annotation>
+		<annotation cp="👳" type="tts">کەسێک جەمەدانی لەسەردایە</annotation>
+		<annotation cp="👳‍♂">پیاو | سەرپێچ</annotation>
+		<annotation cp="👳‍♂" type="tts">پیاوێک سەرپێچی لەسەردایە</annotation>
+		<annotation cp="👳‍♀">سەرپێچ | ئافرەت</annotation>
+		<annotation cp="👳‍♀" type="tts">ئافرەتێک سەرپێچی لەسەردایە</annotation>
+		<annotation cp="👲">گواپی ماو | کڵاو | پیاو</annotation>
+		<annotation cp="👲" type="tts">پیاو بە کڵاوی چینی</annotation>
+		<annotation cp="🧕">سەرپۆش | حیجاب | تیشیل | مانتیلا</annotation>
+		<annotation cp="🧕" type="tts">ئافرەتێک سەرپۆشی لەسەرە</annotation>
+		<annotation cp="🤵">زاوا | پیاو | جلی جوان</annotation>
+		<annotation cp="🤵" type="tts">پیاو بە جلی جوان</annotation>
+		<annotation cp="👰">بووک | پەچە | زەماوەند</annotation>
+		<annotation cp="👰" type="tts">بووکی پەچەدار</annotation>
+		<annotation cp="🤰">دوو گیان | ئافرەت</annotation>
+		<annotation cp="🤰" type="tts">ئافرەتی دوو گیان</annotation>
+		<annotation cp="🤱">سنگ | منداڵ | په‌رستاریکردن</annotation>
+		<annotation cp="🤱" type="tts">شیردانی سروشتی</annotation>
+		<annotation cp="👼">فریشتە | منداڵ | دەم و چاو | چیرۆکی ئەفسانەیی | خەیاڵ</annotation>
+		<annotation cp="👼" type="tts">فریشتەی منداڵ</annotation>
+		<annotation cp="🎅">کریسمس | ئاھەنگ گێڕان | باوک | پاپا | نویل</annotation>
+		<annotation cp="🎅" type="tts">پاپا نویل</annotation>
+		<annotation cp="🤶">کریسمس | ئاھەنگ گێڕان | دایك | خاتوو | کلاوس</annotation>
+		<annotation cp="🤶" type="tts">خاتوو کلاوس</annotation>
+		<annotation cp="🧙">جادووگەر | ئافرەتی جادووگەر | سیحرباز</annotation>
+		<annotation cp="🧙" type="tts">جادووگەر</annotation>
+		<annotation cp="🧙‍♂">جادووگەر | سیحرباز</annotation>
+		<annotation cp="🧙‍♂" type="tts">جادووگەری پیاو</annotation>
+		<annotation cp="🧙‍♀">جادووگەر | سحرباز</annotation>
+		<annotation cp="🧙‍♀" type="tts">جادووگەری ئافرەت</annotation>
+		<annotation cp="🧚">تیتانیا | دێو | ئۆبیرۆن</annotation>
+		<annotation cp="🧚" type="tts">جنۆکە</annotation>
+		<annotation cp="🧚‍♂">دێو | ئۆبیرۆن</annotation>
+		<annotation cp="🧚‍♂" type="tts">جنۆکەی پیاو</annotation>
+		<annotation cp="🧚‍♀">تیتانیا</annotation>
+		<annotation cp="🧚‍♀" type="tts">جنۆکەی ئافرەت</annotation>
+		<annotation cp="🧛">دارکولا | نەمردوو</annotation>
+		<annotation cp="🧛" type="tts">خوێنمژ</annotation>
+		<annotation cp="🧛‍♂">دارکولا | نەمردوو</annotation>
+		<annotation cp="🧛‍♂" type="tts">پیاوی خوێنمژ</annotation>
+		<annotation cp="🧛‍♀">نەمردوو</annotation>
+		<annotation cp="🧛‍♀" type="tts">ئافرەتی خوێنمژ</annotation>
+		<annotation cp="🧜">بووکی دەریا | بووکی دەریای پیاو | بووکی دەریای ئافرەت</annotation>
+		<annotation cp="🧜" type="tts">کەسی بووکی دەریا</annotation>
+		<annotation cp="🧜‍♂">په‌یامبه‌ری ده‌ریا</annotation>
+		<annotation cp="🧜‍♂" type="tts">بووکی دەریای پیاو</annotation>
+		<annotation cp="🧜‍♀">بووکی دەریای ئافرەت</annotation>
+		<annotation cp="🧜‍♀" type="tts">بووکی دەریا</annotation>
+		<annotation cp="🧝">جادوویی</annotation>
+		<annotation cp="🧝" type="tts">ئەجندە</annotation>
+		<annotation cp="🧝‍♂">جادوویی</annotation>
+		<annotation cp="🧝‍♂" type="tts">ئەجندەی پیاو</annotation>
+		<annotation cp="🧝‍♀">جادوویی</annotation>
+		<annotation cp="🧝‍♀" type="tts">ئەجندەی ئافرەت</annotation>
+		<annotation cp="🧞">جن</annotation>
+		<annotation cp="🧞" type="tts">ئەجندۆکە</annotation>
+		<annotation cp="🧞‍♂">جن</annotation>
+		<annotation cp="🧞‍♂" type="tts">جنی پیاو</annotation>
+		<annotation cp="🧞‍♀">جن</annotation>
+		<annotation cp="🧞‍♀" type="tts">جنی ئافرەت</annotation>
+		<annotation cp="🧟">نەمردوو | مردووی ڕۆیشتوو</annotation>
+		<annotation cp="🧟" type="tts">زۆمبی</annotation>
+		<annotation cp="🧟‍♂">نەمردوو | مردووی ڕۆیشتوو</annotation>
+		<annotation cp="🧟‍♂" type="tts">زۆمبی پیاو</annotation>
+		<annotation cp="🧟‍♀">نەمردوو | مردووی ڕۆیشتوو</annotation>
+		<annotation cp="🧟‍♀" type="tts">زۆمبی ئافرەت</annotation>
+		<annotation cp="💆">مەساج | سالۆن | دەم و چاو</annotation>
+		<annotation cp="💆" type="tts">کەسێک مەساجی بۆ دەکرێت</annotation>
+		<annotation cp="💆‍♂">دەم و چاو | پیاو | مەساج</annotation>
+		<annotation cp="💆‍♂" type="tts">پیاوێک مەساجی بۆ دەکرێت</annotation>
+		<annotation cp="💆‍♀">دەم و چاو | مەساج | ئافرەت</annotation>
+		<annotation cp="💆‍♀" type="tts">ئافرەتێک مەساجی بۆ دەکرێت</annotation>
+		<annotation cp="💇">سەرتاش | جوانی | سالۆن | سەرتاشین</annotation>
+		<annotation cp="💇" type="tts">کەسێک قژی دەتاشێت</annotation>
+		<annotation cp="💇‍♂">سەرتاشین | پیاو</annotation>
+		<annotation cp="💇‍♂" type="tts">پیاوێک قژی دەتاشێت</annotation>
+		<annotation cp="💇‍♀">سەرتاشین | ئافرەت</annotation>
+		<annotation cp="💇‍♀" type="tts">ئافرەتێک قژی دەتاشێت</annotation>
+		<annotation cp="🚶">سەرکەوتن | پیاسە | پیاسەکردن</annotation>
+		<annotation cp="🚶" type="tts">کەسێک پیاسە دەکات</annotation>
+		<annotation cp="🚶‍♂">سەرکەوتن | پیاو | پیاسە</annotation>
+		<annotation cp="🚶‍♂" type="tts">پیاوێک پیاسە دەکات</annotation>
+		<annotation cp="🚶‍♀">سەرکەوتن | پیاسە | ئافرەت</annotation>
+		<annotation cp="🚶‍♀" type="tts">ئافرەتێک پیاسە دەکات</annotation>
+		<annotation cp="🏃">ماراسۆن | ڕاكردن</annotation>
+		<annotation cp="🏃" type="tts">کەسێک ڕا دەکات</annotation>
+		<annotation cp="🏃‍♂">پیاو | ماراسۆن | ڕاكردن | پێشبڕکێ</annotation>
+		<annotation cp="🏃‍♂" type="tts">پیاوێک ڕادەکات</annotation>
+		<annotation cp="🏃‍♀">ماراسۆن | ڕاكردن | ئافرەت | پێشبڕکێ</annotation>
+		<annotation cp="🏃‍♀" type="tts">ئافرەتێک ڕادەکات</annotation>
+		<annotation cp="💃">ئافرەت | سەما دەکات</annotation>
+		<annotation cp="💃" type="tts">ئافرەت سەما دەکات</annotation>
+		<annotation cp="🕺">سەما | پیاو</annotation>
+		<annotation cp="🕺" type="tts">پیاو سەما دەکات</annotation>
+		<annotation cp="🕴">بزنس | پیاو | پۆشاک</annotation>
+		<annotation cp="🕴" type="tts">پیاوێک بە پۆشاکی بزنس بەرز دەبێتەوە</annotation>
+		<annotation cp="👯">گوێی کەروێشک | سەماکەر | ئاهەنگگێڕان</annotation>
+		<annotation cp="👯" type="tts">خەڵکی کە گوێی کەروێشکیان هەیە ئاهەنگ دەگێڕن</annotation>
+		<annotation cp="👯‍♂">گوێی کەروێشک | سەماکەر | پیاو | ئاهەنگگێڕان</annotation>
+		<annotation cp="👯‍♂" type="tts">پیاوان کە گوێی کەروێشکیان هەیە ئاهەنگ دەگێڕن</annotation>
+		<annotation cp="👯‍♀">گوێی کەروێشک | سەماکەر | ئاهەنگگێڕان | ئافرەت</annotation>
+		<annotation cp="👯‍♀" type="tts">ئافرەتان کە گوێی کەروێشکیان هەیە ئاهەنگ دەگێڕن</annotation>
+		<annotation cp="🧖">ساونا | ژووری هەڵم</annotation>
+		<annotation cp="🧖" type="tts">کەسێک لە ژووری هەڵم</annotation>
+		<annotation cp="🧖‍♂">ساونا | ژووری هەڵم</annotation>
+		<annotation cp="🧖‍♂" type="tts">پیاوێک لە ژووری هەڵم</annotation>
+		<annotation cp="🧖‍♀">ساونا | ژووری هەڵم</annotation>
+		<annotation cp="🧖‍♀" type="tts">ئافرەتێک لە ژووری هەڵم</annotation>
+		<annotation cp="🧗">هه‌ڵگه‌ڕ</annotation>
+		<annotation cp="🧗" type="tts">کەسێک سەر شتێک دەکەوێت</annotation>
+		<annotation cp="🧗‍♂">هه‌ڵگه‌ڕ</annotation>
+		<annotation cp="🧗‍♂" type="tts">پیاوێک سەر شتێک دەکەوێت</annotation>
+		<annotation cp="🧗‍♀">هه‌ڵگه‌ڕ</annotation>
+		<annotation cp="🧗‍♀" type="tts">ئافرەتێک سەر شتێک دەکەوێت</annotation>
+		<annotation cp="🤺">زۆرانباز | زۆرانبازی | شمشێر</annotation>
+		<annotation cp="🤺" type="tts">کەسێک شمشێربازی دەکات</annotation>
+		<annotation cp="🏇">ئەسپ | سوارە | ئەسپی پێشبڕکێ | پێشبڕکێ</annotation>
+		<annotation cp="🏇" type="tts">پێشبڕکێی ئەسپ</annotation>
+		<annotation cp="⛷">بەفرە خلیسکە | بەفر</annotation>
+		<annotation cp="⛷" type="tts">خلیسکەری سەر بەفر</annotation>
+		<annotation cp="🏂">بەفرە خلیسکە | بەفر | سنۆبۆرد</annotation>
+		<annotation cp="🏂" type="tts">کەسی خلیسکەری سەر بەفر</annotation>
+		<annotation cp="🏌">تۆپ | گۆلف</annotation>
+		<annotation cp="🏌" type="tts">کەسێک گۆڵف دەکات</annotation>
+		<annotation cp="🏌‍♂">گۆلف | پیاو</annotation>
+		<annotation cp="🏌‍♂" type="tts">پیاوێک گۆڵف دەکات</annotation>
+		<annotation cp="🏌‍♀">گۆلف | ئافرەت</annotation>
+		<annotation cp="🏌‍♀" type="tts">ئافرەتێک گۆڵف دەکات</annotation>
+		<annotation cp="🏄">سواربونی شەپۆڵ</annotation>
+		<annotation cp="🏄" type="tts">کەسێک سواری شەپۆڵەکان بووە</annotation>
+		<annotation cp="🏄‍♂">پیاو | سواربونی شەپۆڵ</annotation>
+		<annotation cp="🏄‍♂" type="tts">پیاوێک سواربونی شەپۆڵەکان بووە</annotation>
+		<annotation cp="🏄‍♀">سواربونی شەپۆڵ | ئافرەت</annotation>
+		<annotation cp="🏄‍♀" type="tts">ئافرەتێک سواربونی شەپۆڵەکان بووە</annotation>
+		<annotation cp="🚣">بەلەم | سەوڵدان</annotation>
+		<annotation cp="🚣" type="tts">کەسێک سەوڵ لە بەلەم دەدات</annotation>
+		<annotation cp="🚣‍♂">بەلەم | پیاو | سەوڵدان</annotation>
+		<annotation cp="🚣‍♂" type="tts">پیاوێک سەوڵ لە بەلەم دەدات</annotation>
+		<annotation cp="🚣‍♀">بەلەم | سەوڵدان | ئافرەت</annotation>
+		<annotation cp="🚣‍♀" type="tts">ئافرەتێک سەوڵ لە بەلەم دەدات</annotation>
+		<annotation cp="🏊">مەلە</annotation>
+		<annotation cp="🏊" type="tts">کەسێک مەلە دەکات</annotation>
+		<annotation cp="🏊‍♂">پیاو | مەلە</annotation>
+		<annotation cp="🏊‍♂" type="tts">پیاوێک مەلە دەکات</annotation>
+		<annotation cp="🏊‍♀">مەلە | ئافرەت</annotation>
+		<annotation cp="🏊‍♀" type="tts">ئافرەتێک مەلە دەکات</annotation>
+		<annotation cp="⛹">تۆپ</annotation>
+		<annotation cp="⛹" type="tts">کەسێک تۆپ هەڵدەدات</annotation>
+		<annotation cp="⛹‍♂">تۆپ | پیاو</annotation>
+		<annotation cp="⛹‍♂" type="tts">پیاوێک تۆپ هەڵدەدات</annotation>
+		<annotation cp="⛹‍♀">تۆپ | ئافرەت</annotation>
+		<annotation cp="⛹‍♀" type="tts">ئافرەتێک تۆپ هەڵدەدات</annotation>
+		<annotation cp="🏋">بەرزکەرەوە | کێش</annotation>
+		<annotation cp="🏋" type="tts">کەسێک قورسایی بەرز دەکاتەوە</annotation>
+		<annotation cp="🏋‍♂">قورسایی ھەڵگر | پیاو</annotation>
+		<annotation cp="🏋‍♂" type="tts">پیاوێک قورسایی بەرز دەکاتەوە</annotation>
+		<annotation cp="🏋‍♀">قورسایی ھەڵگر | ئافرەت</annotation>
+		<annotation cp="🏋‍♀" type="tts">ئافرەتێک قورسایی بەرز دەکاتەوە</annotation>
+		<annotation cp="🚴">پایسکل | پاسکیل سواری | پاسکیل سوار</annotation>
+		<annotation cp="🚴" type="tts">کەسێک پایسکلسواری دەکات</annotation>
+		<annotation cp="🚴‍♂">پایسکل | پاسکیل سواری | پاسکیل سوار | پیاو</annotation>
+		<annotation cp="🚴‍♂" type="tts">پیاوێک پایسکلسواری دەکات</annotation>
+		<annotation cp="🚴‍♀">پایسکل | پاسکیل سواری | پاسکیل سوار | ئافرەت</annotation>
+		<annotation cp="🚴‍♀" type="tts">ئافرەتێک پایسکلسواری دەکات</annotation>
+		<annotation cp="🚵">پایسکل | پاسکیل سوار | چیا</annotation>
+		<annotation cp="🚵" type="tts">کەسێک بە پایسکل سەر شاخ دەکەوێت</annotation>
+		<annotation cp="🚵‍♂">پایسکل | پاسکیل سوار | پیاو | چیا</annotation>
+		<annotation cp="🚵‍♂" type="tts">پیاوێک بە پایسکل سەر شاخ دەکەوێت</annotation>
+		<annotation cp="🚵‍♀">پایسکل | پاسکیل سوار | پاسکیل سواری | چیا | ئافرەت</annotation>
+		<annotation cp="🚵‍♀" type="tts">ئافرەتێک بە پایسکل سەر شاخ دەکەوێت</annotation>
+		<annotation cp="🤸">تایەی عارەبانە | جیمناستیك</annotation>
+		<annotation cp="🤸" type="tts">کەسێک عارەبانە لێدەخوڕێت</annotation>
+		<annotation cp="🤸‍♂">تایەی عارەبانە | جیمناستیك | پیاو</annotation>
+		<annotation cp="🤸‍♂" type="tts">پیاوێک عارەبانە لێدەخوڕێت</annotation>
+		<annotation cp="🤸‍♀">تایەی عارەبانە | جیمناستیك | ئافرەت</annotation>
+		<annotation cp="🤸‍♀" type="tts">ئافرەتێک عارەبانە لێدەخوڕێت</annotation>
+		<annotation cp="🤼">زۆرانباز | زۆرانبازی</annotation>
+		<annotation cp="🤼" type="tts">خەڵکی مشتەکۆڵە دەکەن</annotation>
+		<annotation cp="🤼‍♂">پیاو | زۆرانبازی</annotation>
+		<annotation cp="🤼‍♂" type="tts">پیاو مشتەکۆڵە دەکات</annotation>
+		<annotation cp="🤼‍♀">ئافرەت | زۆرانبازی</annotation>
+		<annotation cp="🤼‍♀" type="tts">ئافرەت مشتەکۆڵە دەکات</annotation>
+		<annotation cp="🤽">پۆڵۆ | ئاو</annotation>
+		<annotation cp="🤽" type="tts">کەسێک یاری پۆلۆی ئاوی دەکات</annotation>
+		<annotation cp="🤽‍♂">پیاو | پۆلۆی ئاوی</annotation>
+		<annotation cp="🤽‍♂" type="tts">پیاوێک یاری پۆلۆی ئاوی دەکات</annotation>
+		<annotation cp="🤽‍♀">پۆلۆی ئاوی | ئافرەت</annotation>
+		<annotation cp="🤽‍♀" type="tts">ئافرەتێک یاری پۆلۆی ئاوی دەکات</annotation>
+		<annotation cp="🤾">تۆپی دەست | تۆپ</annotation>
+		<annotation cp="🤾" type="tts">کەسێک یاری تۆپی دەست دەکات</annotation>
+		<annotation cp="🤾‍♂">تۆپی دەست | پیاو</annotation>
+		<annotation cp="🤾‍♂" type="tts">پیاوێک یاری تۆپی دەست دەکات</annotation>
+		<annotation cp="🤾‍♀">تۆپی دەست | ئافرەت</annotation>
+		<annotation cp="🤾‍♀" type="tts">ئافرەتێک یاری تۆپی دەست دەکات</annotation>
+		<annotation cp="🤹">تۆپبازی | فرەئەرک | هاوسەنگی | کارامەیی</annotation>
+		<annotation cp="🤹" type="tts">کەسێک شت هەڵدەداتە ئاسمان</annotation>
+		<annotation cp="🤹‍♂">شت هەڵدانە ئاسمان | پیاو | فرەئەرک</annotation>
+		<annotation cp="🤹‍♂" type="tts">پیاوێک شت هەڵدەداتە ئاسمان</annotation>
+		<annotation cp="🤹‍♀">شت هەڵدانە ئاسمان | فرەئەرک | ئافرەت</annotation>
+		<annotation cp="🤹‍♀" type="tts">ئافرەتێک شت هەڵدەداتە ئاسمان</annotation>
+		<annotation cp="🧘">یۆگا | بیرکردنەوە</annotation>
+		<annotation cp="🧘" type="tts">کەسێک لە دۆخێکی شلێری ئاوی</annotation>
+		<annotation cp="🧘‍♂">یۆگا | بیرکردنەوە</annotation>
+		<annotation cp="🧘‍♂" type="tts">پیاوێک لە دۆخێکی شلێری ئاوی</annotation>
+		<annotation cp="🧘‍♀">یۆگا | بیرکردنەوە</annotation>
+		<annotation cp="🧘‍♀" type="tts">ئافرەتێک لە دۆخێکی شلێری ئاوی</annotation>
+		<annotation cp="🛀">حەوزی گەرمار | گەرماو</annotation>
+		<annotation cp="🛀" type="tts">کەسێک گەرماو دەکات</annotation>
+		<annotation cp="🛌">ئوتێل | نووستن</annotation>
+		<annotation cp="🛌" type="tts">کەسێک لە ناو شوێنی نووستنە</annotation>
+		<annotation cp="👭">هاوسەر | دەست | گرتن | ئافرەت</annotation>
+		<annotation cp="👭" type="tts">دوو ئافرەت دەستی یەکتریان یەکگرتوە</annotation>
+		<annotation cp="👫">هاوسەر | دەست | گرتن | پیاو | ئافرەت</annotation>
+		<annotation cp="👫" type="tts">پیاو و ئافرەت دەستی یەکتریان گرتووە</annotation>
+		<annotation cp="👬">هاوسەر | جمک | دەست | گرتن | پیاو | دووانە | کەلو</annotation>
+		<annotation cp="👬" type="tts">دوو پیاو دەستی یەکتریان گرتووە</annotation>
+		<annotation cp="💏">هاوسەر</annotation>
+		<annotation cp="💏" type="tts">ماچ</annotation>
+		<annotation cp="💑">هاوسەر | خۆشەویستی</annotation>
+		<annotation cp="💑" type="tts">هاوسەر لەگەڵ دڵ</annotation>
+		<annotation cp="👪">خێزان</annotation>
+		<annotation cp="👪" type="tts">خێزان</annotation>
+		<annotation cp="🗣">دەم و چاو | سەر | نەخشەی گشتی لەش | قسە | قسەکردن</annotation>
+		<annotation cp="🗣" type="tts">سەری قسەکەر</annotation>
+		<annotation cp="👤">پەیکەری نیوەیی | نەخشەی گشتی لەش</annotation>
+		<annotation cp="👤" type="tts">وێنەی سێبەریی</annotation>
+		<annotation cp="👥">پەیکەری نیوەیی | نەخشەی گشتی لەش</annotation>
+		<annotation cp="👥" type="tts">وێنەی دووانەیی</annotation>
+		<annotation cp="👣">پۆشاک | شوێن پێ | چاپکردن</annotation>
+		<annotation cp="👣" type="tts">شوێن پێ</annotation>
+		<annotation cp="🐵">meymûn | rû | rûyê meymûnê | دەم و چاو | مەیمون</annotation>
 		<annotation cp="🐵" type="tts">rûyê meymûnê</annotation>
-		<annotation cp="🐒">heywan | meymûn</annotation>
+		<annotation cp="🐒">heywan | meymûn | مەیمون</annotation>
 		<annotation cp="🐒" type="tts">meymûn</annotation>
-		<annotation cp="🦍">gorîl | heywan</annotation>
+		<annotation cp="🦍">gorîl | heywan | گورێلا</annotation>
 		<annotation cp="🦍" type="tts">gorîl</annotation>
-		<annotation cp="🐶">heywan | kûçik | rû | rûyê kûçikê</annotation>
+		<annotation cp="🐶">heywan | kûçik | rû | rûyê kûçikê | سەگ | دەم و چاو | گیانەورێکی ماڵی</annotation>
 		<annotation cp="🐶" type="tts">rûyê kûçikê</annotation>
-		<annotation cp="🐕">heywan | kûçik</annotation>
+		<annotation cp="🐕">heywan | kûçik | ئاژەڵی ماڵی</annotation>
 		<annotation cp="🐕" type="tts">kûçik</annotation>
-		<annotation cp="🍇">fêkî | tirî</annotation>
+		<annotation cp="🐩">سەگ</annotation>
+		<annotation cp="🐩" type="tts">سەگی پوودڵ</annotation>
+		<annotation cp="🐺">دەم و چاو | گورگ</annotation>
+		<annotation cp="🐺" type="tts">دەم و چاوی گورگ</annotation>
+		<annotation cp="🦊">دەم و چاو | ڕێوی</annotation>
+		<annotation cp="🦊" type="tts">دەم و چاوی ڕێوی</annotation>
+		<annotation cp="🐱">پشیلە | دەم و چاو | ئاژەڵی ماڵی</annotation>
+		<annotation cp="🐱" type="tts">دەمووچاوی پشیلە</annotation>
+		<annotation cp="🐈">ئاژەڵی ماڵی</annotation>
+		<annotation cp="🐈" type="tts">پشیلە</annotation>
+		<annotation cp="🦁">دەم و چاو | کەلوی شێر | شێر | کەلوگە</annotation>
+		<annotation cp="🦁" type="tts">دەم و چاوی شێر</annotation>
+		<annotation cp="🐯">دەم و چاو | پلینگ</annotation>
+		<annotation cp="🐯" type="tts">دەم و چاوی پلینگ</annotation>
+		<annotation cp="🐅">پلینگ</annotation>
+		<annotation cp="🐅" type="tts">پلینگ</annotation>
+		<annotation cp="🐆">پڵنگ</annotation>
+		<annotation cp="🐆" type="tts">پڵنگ</annotation>
+		<annotation cp="🐴">دەم و چاو | ئەسپ</annotation>
+		<annotation cp="🐴" type="tts">دەم و چاوی ئەسپ</annotation>
+		<annotation cp="🐎">ئەسپی پێشبڕکێ | پێشبڕکێ | ئەسپ سواری</annotation>
+		<annotation cp="🐎" type="tts">ئەسپ</annotation>
+		<annotation cp="🦄">دەم و چاو | یەک شاخ</annotation>
+		<annotation cp="🦄" type="tts">دەم و چاوی یەک شاخ</annotation>
+		<annotation cp="🦓">هێڵ</annotation>
+		<annotation cp="🦓" type="tts">کەرەکێوی</annotation>
+		<annotation cp="🦌">ئاسک</annotation>
+		<annotation cp="🦌" type="tts">ئاسک</annotation>
+		<annotation cp="🐮">چێڵ | دەم و چاو</annotation>
+		<annotation cp="🐮" type="tts">دەم و چاوی چێڵ</annotation>
+		<annotation cp="🐂">گا | کەلوی گا | کەلوگە</annotation>
+		<annotation cp="🐂" type="tts">گا</annotation>
+		<annotation cp="🐃">گامێش | ئاو</annotation>
+		<annotation cp="🐃" type="tts">گامێشی ئاو</annotation>
+		<annotation cp="🐄">چێڵ</annotation>
+		<annotation cp="🐄" type="tts">چێڵ</annotation>
+		<annotation cp="🐷">دەم و چاو | بەراز</annotation>
+		<annotation cp="🐷" type="tts">دەم و چاوی بەراز</annotation>
+		<annotation cp="🐖">ماڵوس</annotation>
+		<annotation cp="🐖" type="tts">بەراز</annotation>
+		<annotation cp="🐗">بەراز</annotation>
+		<annotation cp="🐗" type="tts">بەرازی کێوی</annotation>
+		<annotation cp="🐽">دەم و چاو | لووت | بەراز</annotation>
+		<annotation cp="🐽" type="tts">لووتی بەراز</annotation>
+		<annotation cp="🐏">کەللوی کاور | مەڕ | کەلوگە | نێرینە</annotation>
+		<annotation cp="🐏" type="tts">بەران</annotation>
+		<annotation cp="🐑">مەڕ | مێینە</annotation>
+		<annotation cp="🐑" type="tts">کاوڕ</annotation>
+		<annotation cp="🐐">کەلوی کارژۆڵە | بازنەی کەلو</annotation>
+		<annotation cp="🐐" type="tts">بزن</annotation>
+		<annotation cp="🐪">ووشتری یەک کۆپارە | کۆپارە</annotation>
+		<annotation cp="🐪" type="tts">وشتر</annotation>
+		<annotation cp="🐫">ووشتری دوو سەنامی | ووشتر | کۆپارە</annotation>
+		<annotation cp="🐫" type="tts">ووشتری دوو کۆپارەیی</annotation>
+		<annotation cp="🦒">په‌ڵه‌کان</annotation>
+		<annotation cp="🦒" type="tts">زەرافە</annotation>
+		<annotation cp="🐘">فیل</annotation>
+		<annotation cp="🐘" type="tts">فیل</annotation>
+		<annotation cp="🦏">کەرکەدەن</annotation>
+		<annotation cp="🦏" type="tts">کەرکەدەن</annotation>
+		<annotation cp="🐭">دەم و چاو | مشک</annotation>
+		<annotation cp="🐭" type="tts">دەم و چاوی مشک</annotation>
+		<annotation cp="🐁">مشک</annotation>
+		<annotation cp="🐁" type="tts">مشک</annotation>
+		<annotation cp="🐀">جورج</annotation>
+		<annotation cp="🐀" type="tts">جورج</annotation>
+		<annotation cp="🐹">دەم و چاو | هامستەر | ئاژەڵی ماڵی</annotation>
+		<annotation cp="🐹" type="tts">دەم و چاوی هامستەر</annotation>
+		<annotation cp="🐰">کەروێشک | دەم و چاو | ئاژەڵی ماڵی</annotation>
+		<annotation cp="🐰" type="tts">دەم و چاوی کەروێشک</annotation>
+		<annotation cp="🐇">کەروێشک | ئاژەڵی ماڵی</annotation>
+		<annotation cp="🐇" type="tts">کەروێشک</annotation>
+		<annotation cp="🐿">چیپمەنک</annotation>
+		<annotation cp="🐿" type="tts">چیپمەنک</annotation>
+		<annotation cp="🦔">دڕکاوی</annotation>
+		<annotation cp="🦔" type="tts">ژووشک</annotation>
+		<annotation cp="🦇">شەمشەمەگوێرە | خوێنمژ</annotation>
+		<annotation cp="🦇" type="tts">شەمشەمە کوێرە</annotation>
+		<annotation cp="🐻">ورچ | دەم و چاو</annotation>
+		<annotation cp="🐻" type="tts">دەم و چاوی ورچ</annotation>
+		<annotation cp="🐨">ورچ</annotation>
+		<annotation cp="🐨" type="tts">کوالا</annotation>
+		<annotation cp="🐼">دەم و چاو | پاندا</annotation>
+		<annotation cp="🐼" type="tts">دەم و چاوی پاندا</annotation>
+		<annotation cp="🐾">پێپێیەکان | چڕنووک | چاپکردن</annotation>
+		<annotation cp="🐾" type="tts">شوێن پێی ئاژەڵ</annotation>
+		<annotation cp="🦃">عەلەشیش | باڵندە</annotation>
+		<annotation cp="🦃" type="tts">عەلەشیش</annotation>
+		<annotation cp="🐔">مریشك | باڵندە</annotation>
+		<annotation cp="🐔" type="tts">مریشك</annotation>
+		<annotation cp="🐓">کەڵەشێر | باڵندە</annotation>
+		<annotation cp="🐓" type="tts">کەڵەشێر</annotation>
+		<annotation cp="🐣">منداڵ | جووجکە | هەڵهێنان | باڵندە</annotation>
+		<annotation cp="🐣" type="tts">هەڵێنانی مریشک</annotation>
+		<annotation cp="🐤">منداڵ | جووجکە | باڵندە</annotation>
+		<annotation cp="🐤" type="tts">جووجەڵە</annotation>
+		<annotation cp="🐥">منداڵ | جووجکە | باڵندە</annotation>
+		<annotation cp="🐥" type="tts">ڕووی پێشەوەی جووجەڵە</annotation>
+		<annotation cp="🐦">باڵندە</annotation>
+		<annotation cp="🐦" type="tts">باڵندە</annotation>
+		<annotation cp="🐧">پەنگوین | باڵندە</annotation>
+		<annotation cp="🐧" type="tts">پەنگوین</annotation>
+		<annotation cp="🕊">باڵندە | فڕین | ئاشتی</annotation>
+		<annotation cp="🕊" type="tts">کۆتر</annotation>
+		<annotation cp="🦅">هەڵۆ | باڵندە</annotation>
+		<annotation cp="🦅" type="tts">هەڵۆ</annotation>
+		<annotation cp="🦆">مراوی | باڵندە</annotation>
+		<annotation cp="🦆" type="tts">مراوی</annotation>
+		<annotation cp="🦉">کوندەبەبۆ | ژیر | باڵندە</annotation>
+		<annotation cp="🦉" type="tts">کوندەبەبۆ</annotation>
+		<annotation cp="🐸">دەم و چاو | بۆق</annotation>
+		<annotation cp="🐸" type="tts">دەم و چاوی بۆق</annotation>
+		<annotation cp="🐊">تیمساح</annotation>
+		<annotation cp="🐊" type="tts">تیمساح</annotation>
+		<annotation cp="🐢">کیسەڵ | کیسەڵی ئاوی شیرین</annotation>
+		<annotation cp="🐢" type="tts">کیسەڵ</annotation>
+		<annotation cp="🦎">مارمێلکە | خشۆک</annotation>
+		<annotation cp="🦎" type="tts">مارمێلکە</annotation>
+		<annotation cp="🐍">هەڵگر | ئۆفیەکس | ئەژدیھا | بازنەی کەلو</annotation>
+		<annotation cp="🐍" type="tts">مار</annotation>
+		<annotation cp="🐲">ئەژدیھا | دەم و چاو | چیرۆکی ئەفسانەیی</annotation>
+		<annotation cp="🐲" type="tts">دەم و چاوی ئەژدیھا</annotation>
+		<annotation cp="🐉">چیرۆکی ئەفسانەیی</annotation>
+		<annotation cp="🐉" type="tts">ئەژدیها</annotation>
+		<annotation cp="🦕">برۆنتۆسورەس | ديپلۆدۆكەس | براشيۆسورەس</annotation>
+		<annotation cp="🦕" type="tts">ساورۆپۆد</annotation>
+		<annotation cp="🦖">شای تیرانۆسور</annotation>
+		<annotation cp="🦖" type="tts">تی ڕێکس</annotation>
+		<annotation cp="🐳">دەم و چاو | دەرهاویشتن | نەھەنگ</annotation>
+		<annotation cp="🐳" type="tts">نەھەنگی دەرپەڕیو</annotation>
+		<annotation cp="🐋">نەھەنگ</annotation>
+		<annotation cp="🐋" type="tts">نەھەنگ</annotation>
+		<annotation cp="🐬">پەڕەکە</annotation>
+		<annotation cp="🐬" type="tts">دۆلفین</annotation>
+		<annotation cp="🐟">کەللوی نەھەنگ | بازنەی کەلو</annotation>
+		<annotation cp="🐟" type="tts">ماسی</annotation>
+		<annotation cp="🐠">ماسی | خولگەیی</annotation>
+		<annotation cp="🐠" type="tts">ماسی خولگەیی</annotation>
+		<annotation cp="🐡">ماسی</annotation>
+		<annotation cp="🐡" type="tts">بلۆفیش</annotation>
+		<annotation cp="🦈">قرش | ماسی</annotation>
+		<annotation cp="🦈" type="tts">قرش</annotation>
+		<annotation cp="🐙">ئەختەبوت</annotation>
+		<annotation cp="🐙" type="tts">ئەختەبوت</annotation>
+		<annotation cp="🐚">توێکڵ | لوول پێچ</annotation>
+		<annotation cp="🐚" type="tts">قاوغی لوول پێچ</annotation>
+		<annotation cp="🐌">لوولپێچ</annotation>
+		<annotation cp="🐌" type="tts">لوولپێچ</annotation>
+		<annotation cp="🦋">پەپولە | مێروو | جوان</annotation>
+		<annotation cp="🦋" type="tts">پەپولە</annotation>
+		<annotation cp="🐛">مێروو</annotation>
+		<annotation cp="🐛" type="tts">مێشولە</annotation>
+		<annotation cp="🐜">مێروو</annotation>
+		<annotation cp="🐜" type="tts">مێروولە</annotation>
+		<annotation cp="🐝">هەنگ | مێروو</annotation>
+		<annotation cp="🐝" type="tts">مێشھەنگوین</annotation>
+		<annotation cp="🐞">قالۆنچە | مێروو | خاڵخاڵۆکە</annotation>
+		<annotation cp="🐞" type="tts">قالۆنچە</annotation>
+		<annotation cp="🦗">کوله</annotation>
+		<annotation cp="🦗" type="tts">كریكێت</annotation>
+		<annotation cp="🕷">مێروو</annotation>
+		<annotation cp="🕷" type="tts">جاڵجاڵۆکە</annotation>
+		<annotation cp="🕸">جاڵجاڵۆکە | تۆڕ</annotation>
+		<annotation cp="🕸" type="tts">تۆڕی جاڵجالۆکە</annotation>
+		<annotation cp="🦂">دووپشک | بازنەی کەلو</annotation>
+		<annotation cp="🦂" type="tts">دووپشك</annotation>
+		<annotation cp="💐">گوڵ</annotation>
+		<annotation cp="💐" type="tts">چەپك</annotation>
+		<annotation cp="🌸">خونچە | گێلاس | گوڵ</annotation>
+		<annotation cp="🌸" type="tts">خونچەی گێلاس</annotation>
+		<annotation cp="💮">گوڵ</annotation>
+		<annotation cp="💮" type="tts">گوڵی سپی</annotation>
+		<annotation cp="🏵">ڕووەک</annotation>
+		<annotation cp="🏵" type="tts">ملوانکەی گوڵین</annotation>
+		<annotation cp="🌹">گوڵ</annotation>
+		<annotation cp="🌹" type="tts">گوڵەباخ</annotation>
+		<annotation cp="🥀">گوڵ | سیس</annotation>
+		<annotation cp="🥀" type="tts">گوڵی سیس بوو</annotation>
+		<annotation cp="🌺">گوڵ</annotation>
+		<annotation cp="🌺" type="tts">هابیکەس</annotation>
+		<annotation cp="🌻">گوڵ | خۆر</annotation>
+		<annotation cp="🌻" type="tts">گوڵەبەڕۆژە</annotation>
+		<annotation cp="🌼">گوڵ</annotation>
+		<annotation cp="🌼" type="tts">خونچە</annotation>
+		<annotation cp="🌷">گوڵ</annotation>
+		<annotation cp="🌷" type="tts">گوڵەباغ</annotation>
+		<annotation cp="🌱">گەنج</annotation>
+		<annotation cp="🌱" type="tts">چەکەرەکردوو</annotation>
+		<annotation cp="🌲">دار</annotation>
+		<annotation cp="🌲" type="tts">داری هەمیشە سەوز</annotation>
+		<annotation cp="🌳">گەڵای وەریو | ڕشتن | درەخت</annotation>
+		<annotation cp="🌳" type="tts">داری گەڵا وەریو</annotation>
+		<annotation cp="🌴">دار | خورما</annotation>
+		<annotation cp="🌴" type="tts">دارخورما</annotation>
+		<annotation cp="🌵">ڕووەک</annotation>
+		<annotation cp="🌵" type="tts">ڕووەکی کاکتەس</annotation>
+		<annotation cp="🌾">گوێ | برنج | دانەوێڵە</annotation>
+		<annotation cp="🌾" type="tts">گورزەی برنج</annotation>
+		<annotation cp="🌿">گەڵا</annotation>
+		<annotation cp="🌿" type="tts">گیا</annotation>
+		<annotation cp="☘">ڕووەک</annotation>
+		<annotation cp="☘" type="tts">شامرۆک</annotation>
+		<annotation cp="🍀">4 | وێنجە | چوار | گەڵا</annotation>
+		<annotation cp="🍀" type="tts">وێنجەی چوار گەڵا</annotation>
+		<annotation cp="🍁">کەوتن | گەڵا | داری ئیسفەندانی</annotation>
+		<annotation cp="🍁" type="tts">گەڵای داری ئیسفەندانی</annotation>
+		<annotation cp="🍂">کەوتن | گەڵا</annotation>
+		<annotation cp="🍂" type="tts">گەڵای وەریو</annotation>
+		<annotation cp="🍃">هەڵکردن | لەرینەوە | گەڵا | با</annotation>
+		<annotation cp="🍃" type="tts">لەرینەوەی گەڵا بەهۆی با</annotation>
+		<annotation cp="🍇">fêkî | tirî | میوە | ترێ</annotation>
 		<annotation cp="🍇" type="tts">tirî</annotation>
-		<annotation cp="🍉">fêkî | zebeş</annotation>
+		<annotation cp="🍈">میوە</annotation>
+		<annotation cp="🍈" type="tts">کاڵەک</annotation>
+		<annotation cp="🍉">fêkî | zebeş | میوە</annotation>
 		<annotation cp="🍉" type="tts">zebeş</annotation>
-		<annotation cp="🍋">lîmon</annotation>
+		<annotation cp="🍊">میوە | پرتەقاڵ</annotation>
+		<annotation cp="🍊" type="tts">لالەنگی</annotation>
+		<annotation cp="🍋">lîmon | ترشەمەنی | میوە</annotation>
 		<annotation cp="🍋" type="tts">lîmon</annotation>
-		<annotation cp="🍌">fêkî | mûz</annotation>
+		<annotation cp="🍌">fêkî | mûz | میوە</annotation>
 		<annotation cp="🍌" type="tts">mûz</annotation>
+		<annotation cp="🍍">میوە</annotation>
+		<annotation cp="🍍" type="tts">ئەنەناس</annotation>
 		<annotation cp="🥭">mango</annotation>
 		<annotation cp="🥭" type="tts">mango</annotation>
-		<annotation cp="🍎">fêkî | sêv | sêva sor | sor</annotation>
+		<annotation cp="🍎">fêkî | sêv | sêva sor | sor | سێو | میوە | سوور</annotation>
 		<annotation cp="🍎" type="tts">sêva sor</annotation>
-		<annotation cp="🍏">fêkî | kesk | sêv | sêva kesk</annotation>
+		<annotation cp="🍏">fêkî | kesk | sêv | sêva kesk | سێو | میوە | سەوز</annotation>
 		<annotation cp="🍏" type="tts">sêva kesk</annotation>
-		<annotation cp="🍐">fêkî | hirmî</annotation>
+		<annotation cp="🍐">fêkî | hirmî | میوە</annotation>
 		<annotation cp="🍐" type="tts">hirmî</annotation>
-		<annotation cp="🍑">fêkî | xox</annotation>
+		<annotation cp="🍑">fêkî | xox | میوە</annotation>
 		<annotation cp="🍑" type="tts">xox</annotation>
-		<annotation cp="🍒">gêraz</annotation>
+		<annotation cp="🍒">gêraz | گێلاس | میوە</annotation>
 		<annotation cp="🍒" type="tts">gêraz</annotation>
-		<annotation cp="🍅">firengî | riwek | sebze</annotation>
+		<annotation cp="🍓">دەنک | میوە</annotation>
+		<annotation cp="🍓" type="tts">شیلک</annotation>
+		<annotation cp="🥝">کیوی | میوە | خۆراک</annotation>
+		<annotation cp="🥝" type="tts">میوەی کیوی</annotation>
+		<annotation cp="🍅">firengî | riwek | sebze | میوە | سەوزە</annotation>
 		<annotation cp="🍅" type="tts">firengî</annotation>
-		<annotation cp="🥥">giwêza hindê</annotation>
+		<annotation cp="🥥">giwêza hindê | دار خورما | پینا کۆلادا</annotation>
 		<annotation cp="🥥" type="tts">giwêza hindê</annotation>
-		<annotation cp="🥑">avokado | fêkî | xwarin</annotation>
+		<annotation cp="🥑">avokado | fêkî | xwarin | ئەڤۆکادۆ | میوە | خۆراک</annotation>
 		<annotation cp="🥑" type="tts">avokado</annotation>
-		<annotation cp="🍆">balîcan | sebze</annotation>
+		<annotation cp="🍆">balîcan | sebze | باینجان | سەوزە</annotation>
 		<annotation cp="🍆" type="tts">balîcan</annotation>
-		<annotation cp="🥔">kartol</annotation>
+		<annotation cp="🥔">kartol | پەتاتە | سەوزە | خۆراک</annotation>
 		<annotation cp="🥔" type="tts">kartol</annotation>
-		<annotation cp="🏠">E416</annotation>
+		<annotation cp="🥕">گێزەر | سەوزە | خۆراک</annotation>
+		<annotation cp="🥕" type="tts">جێزەر</annotation>
+		<annotation cp="🌽">دانەوێڵە | گوێ | گەنمەشامی | مەتەڵ</annotation>
+		<annotation cp="🌽" type="tts">گوێی گەنمەشامی</annotation>
+		<annotation cp="🌶">گەرم | بیبەر</annotation>
+		<annotation cp="🌶" type="tts">بیبەری تیژ</annotation>
+		<annotation cp="🥒">خەیار | تورشی | سەوزە | خۆراک</annotation>
+		<annotation cp="🥒" type="tts">خەیار</annotation>
+		<annotation cp="🥦">که‌له‌رمی کێوی</annotation>
+		<annotation cp="🥦" type="tts">برۆکۆلی</annotation>
+		<annotation cp="🍄">تۆدستول</annotation>
+		<annotation cp="🍄" type="tts">قارچک</annotation>
+		<annotation cp="🥜">پاقلەی سودانی | گوێز | خۆراک | سەوزە</annotation>
+		<annotation cp="🥜" type="tts">پاقلەی سودانی</annotation>
+		<annotation cp="🌰">ڕووەک</annotation>
+		<annotation cp="🌰" type="tts">کەستانە</annotation>
+		<annotation cp="🍞">سەمون</annotation>
+		<annotation cp="🍞" type="tts">نان</annotation>
+		<annotation cp="🥐">کرۆیسانت | مانگی نوێ | فەرەنسی | خواردن | نان</annotation>
+		<annotation cp="🥐" type="tts">کرۆیسانت</annotation>
+		<annotation cp="🥖">باگوتی | نان | فەرەنسی | خۆراک</annotation>
+		<annotation cp="🥖" type="tts">نانی باگوتی</annotation>
+		<annotation cp="🥨">بادراو</annotation>
+		<annotation cp="🥨" type="tts">پرێتزڵ</annotation>
+		<annotation cp="🥞">هۆتکێک | کرێپێ | پانکێک | خۆراک</annotation>
+		<annotation cp="🥞" type="tts">کێک</annotation>
+		<annotation cp="🧀">پەنیر</annotation>
+		<annotation cp="🧀" type="tts">پوازی پەنیر</annotation>
+		<annotation cp="🍖">ئێسک | گۆشت</annotation>
+		<annotation cp="🍖" type="tts">گۆشتی سەر ئێسک</annotation>
+		<annotation cp="🍗">ئێسک | مریشك | قاچ | باڵندەی ماڵی</annotation>
+		<annotation cp="🍗" type="tts">قاچی باڵندەی ماڵی</annotation>
+		<annotation cp="🥩">پارچە گۆشتی بەراز | پارچە گۆشتی بەرخ | پارچە گۆشت | ستیک</annotation>
+		<annotation cp="🥩" type="tts">پارچە گۆشت</annotation>
+		<annotation cp="🥓">گۆشتی پشتی بەراز | گۆشت | خۆراک</annotation>
+		<annotation cp="🥓" type="tts">گۆشتی پشتی بەراز</annotation>
+		<annotation cp="🍔">بەرگەر</annotation>
+		<annotation cp="🍔" type="tts">ھەمبەرگەر</annotation>
+		<annotation cp="🍟">فەرەنسی | سوورکراوە</annotation>
+		<annotation cp="🍟" type="tts">پەتاتەی فینگەر</annotation>
+		<annotation cp="🍕">پەنیر | پارچە</annotation>
+		<annotation cp="🍕" type="tts">پیتزا</annotation>
+		<annotation cp="🌭">فرانکفۆرتەر | هۆت دۆگ | سۆس</annotation>
+		<annotation cp="🌭" type="tts">هۆت دۆگ</annotation>
+		<annotation cp="🥪">نان</annotation>
+		<annotation cp="🥪" type="tts">سەندویچ</annotation>
+		<annotation cp="🌮">مەکسیکی</annotation>
+		<annotation cp="🌮" type="tts">تاکۆ</annotation>
+		<annotation cp="🌯">مەکسیکی | لەفە</annotation>
+		<annotation cp="🌯" type="tts">بوریتۆ</annotation>
+		<annotation cp="🥙">کەباب | فەلافل | گیرۆ | نانی فلات | لێکدراو | خۆراک</annotation>
+		<annotation cp="🥙" type="tts">کێکی مەحشی</annotation>
+		<annotation cp="🥚">هێلکە | خۆراک</annotation>
+		<annotation cp="🥚" type="tts">هێلکە</annotation>
+		<annotation cp="🍳">هێلکە | سوورکردنەوە | پانەپێو</annotation>
+		<annotation cp="🍳" type="tts">چێشت لێنان</annotation>
+		<annotation cp="🥘">پایلا | کاسیرۆل | پان | تەنک | خۆراک</annotation>
+		<annotation cp="🥘" type="tts">تاوەی تەنکی خواردن</annotation>
+		<annotation cp="🍲">مەنجەڵ | کوڵاندن</annotation>
+		<annotation cp="🍲" type="tts">مەنجەڵی خۆراک</annotation>
+		<annotation cp="🥣">نانی بەیانی | دانەوێڵە | کۆنجی</annotation>
+		<annotation cp="🥣" type="tts">دەفر لەگەڵ کەوچک</annotation>
+		<annotation cp="🥗">سەوز | زەڵاتە | خۆراک</annotation>
+		<annotation cp="🥗" type="tts">زەڵاتەی سەوز</annotation>
+		<annotation cp="🍿">شاندەری</annotation>
+		<annotation cp="🍿" type="tts">شاندەری</annotation>
+		<annotation cp="🥫">قوتوو</annotation>
+		<annotation cp="🥫" type="tts">خۆراکی لە قووتوکراو</annotation>
+		<annotation cp="🍱">بێنتۆ | سندوق</annotation>
+		<annotation cp="🍱" type="tts">سندوقی بێنتۆ</annotation>
+		<annotation cp="🍘">چەرەز | برنج</annotation>
+		<annotation cp="🍘" type="tts">چەرەزی برنج</annotation>
+		<annotation cp="🍙">تۆپ | ژاپۆنی | برنج</annotation>
+		<annotation cp="🍙" type="tts">تۆپی برنج</annotation>
+		<annotation cp="🍚">برژاو | برنج</annotation>
+		<annotation cp="🍚" type="tts">برنجی برژاو</annotation>
+		<annotation cp="🍛">کاری | برنج</annotation>
+		<annotation cp="🍛" type="tts">برنجی کاری</annotation>
+		<annotation cp="🍜">دەفری قوڵ | شەعریە | ڕامین | هەڵمین</annotation>
+		<annotation cp="🍜" type="tts">دەفری هەڵمیی</annotation>
+		<annotation cp="🍝">پاستا</annotation>
+		<annotation cp="🍝" type="tts">سپاگیتی</annotation>
+		<annotation cp="🍠">پەتاتە | برژاو | شیرین</annotation>
+		<annotation cp="🍠" type="tts">پەتاتەی شیرینی برژاو</annotation>
+		<annotation cp="🍢">کەباب | خۆراکی دەریا | شیش | ستیک</annotation>
+		<annotation cp="🍢" type="tts">ئۆدن</annotation>
+		<annotation cp="🍣">سوشی</annotation>
+		<annotation cp="🍣" type="tts">سوشی</annotation>
+		<annotation cp="🍤">سوورکراوە | رۆبیان | تێمپورا</annotation>
+		<annotation cp="🍤" type="tts">ڕۆبیانی سوورکراوە</annotation>
+		<annotation cp="🍥">کێک | ماسی | هەویرکاری | خولاندنەوە</annotation>
+		<annotation cp="🍥" type="tts">فیش کەیک لەگەڵ خولاوە</annotation>
+		<annotation cp="🍡">شیرینی | ژاپۆنی | شیش</annotation>
+		<annotation cp="🍡" type="tts">دانگۆ</annotation>
+		<annotation cp="🥟">پۆتستیکەر | گیۆزە | جایۆزا | پیەرۆگی | ئیمپاندا</annotation>
+		<annotation cp="🥟" type="tts">پڕپۆڵە</annotation>
+		<annotation cp="🥠">پێغه‌مبه‌رایه‌تی</annotation>
+		<annotation cp="🥠" type="tts">کولیچەی بەخت</annotation>
+		<annotation cp="🥡">سەتڵی گوێچکەماسی</annotation>
+		<annotation cp="🥡" type="tts">سندوقی سەفەری</annotation>
+		<annotation cp="🦀">شێرپەنجە | بازنەی کەلو</annotation>
+		<annotation cp="🦀" type="tts">قرژانگ</annotation>
+		<annotation cp="🦐">ڕۆبیان | بچووك | گوێچکە ماسی | خۆراک</annotation>
+		<annotation cp="🦐" type="tts">ڕۆبیان</annotation>
+		<annotation cp="🦑">سکوید | مۆلوسک | خۆراک</annotation>
+		<annotation cp="🦑" type="tts">ئاژەڵی سکوید</annotation>
+		<annotation cp="🍦">کرێم | شیرینی | ئایس | ئایسکرێم | سۆفت | شیرین</annotation>
+		<annotation cp="🍦" type="tts">ئایس کرێمی سۆفت</annotation>
+		<annotation cp="🍧">شیرینی | ئایس | تاشراو | شیرین</annotation>
+		<annotation cp="🍧" type="tts">بەستەڵەکی لووس</annotation>
+		<annotation cp="🍨">کرێم | شیرینی | ئایس | شیرین</annotation>
+		<annotation cp="🍨" type="tts">ئایس کرێم</annotation>
+		<annotation cp="🍩">شیرینی | دۆنەت | شیرین</annotation>
+		<annotation cp="🍩" type="tts">دۆنەت</annotation>
+		<annotation cp="🍪">شیرینی | شیرین</annotation>
+		<annotation cp="🍪" type="tts">کولیچە</annotation>
+		<annotation cp="🎂">ئاھەنگ گێڕان | کێک | شیرینی | هەویرکاری | شیرین</annotation>
+		<annotation cp="🎂" type="tts">کێکی ڕۆژی لەدایك بوون</annotation>
+		<annotation cp="🍰">کێک | شیرینی | هەویرکاری | پارچە | شیرین</annotation>
+		<annotation cp="🍰" type="tts">شۆرت کەیک</annotation>
+		<annotation cp="🥧">هه‌ویرکاری | پڕکردنه‌وه</annotation>
+		<annotation cp="🥧" type="tts">کولێرە بە گۆشت</annotation>
+		<annotation cp="🍫">پارچە | چکڵێت | شیرینی | شیرین</annotation>
+		<annotation cp="🍫" type="tts">پارچە چوکلێت</annotation>
+		<annotation cp="🍬">شیرینی | شیرین</annotation>
+		<annotation cp="🍬" type="tts">شیرینی</annotation>
+		<annotation cp="🍭">شیرینی | شیرینەمەنی | شیرین</annotation>
+		<annotation cp="🍭" type="tts">مژمژە</annotation>
+		<annotation cp="🍮">شیرینی | پودینگ | شیرین</annotation>
+		<annotation cp="🍮" type="tts">کاستەر</annotation>
+		<annotation cp="🍯">هەنگوین | مەنجەڵی هەنگوین | مەنجەڵ | شیرین</annotation>
+		<annotation cp="🍯" type="tts">مەنجەڵی هەنگوین</annotation>
+		<annotation cp="🍼">منداڵ | بوتڵ | خواردنەوە | شیر</annotation>
+		<annotation cp="🍼" type="tts">بوتڵی شیری منداڵ</annotation>
+		<annotation cp="🥛">پەرداخ | شیر | خواردنەوە</annotation>
+		<annotation cp="🥛" type="tts">پەرداخی شیر</annotation>
+		<annotation cp="☕">خواردنەوە | قاوە | گەرم | هەڵم | چا</annotation>
+		<annotation cp="☕" type="tts">خواردنەوەی گەرم</annotation>
+		<annotation cp="🍵">خواردنەوە | کوپ | چا | پیاڵە</annotation>
+		<annotation cp="🍵" type="tts">پیاڵەی چای بێ دەسک</annotation>
+		<annotation cp="🍶">پارچە | خواردنەوە | بوتڵ | کوپ</annotation>
+		<annotation cp="🍶" type="tts">خاتر</annotation>
+		<annotation cp="🍾">پارچە | بوتڵ | تەپەدۆر | خواردنەوە | قەپاغ</annotation>
+		<annotation cp="🍾" type="tts">بوتڵ لەگەڵ قەپاغی تەپەدۆر</annotation>
+		<annotation cp="🍷">پارچە | خواردنەوە | پەرداخ | مەی</annotation>
+		<annotation cp="🍷" type="tts">پەرداخی مەی</annotation>
+		<annotation cp="🍸">پارچە | کۆکتێل | خواردنەوە | پەرداخ</annotation>
+		<annotation cp="🍸" type="tts">پەرداخی کۆکتێل</annotation>
+		<annotation cp="🍹">باڕ | خواردنەوە | خولگەیی</annotation>
+		<annotation cp="🍹" type="tts">خواردنەوەی خولگەیی</annotation>
+		<annotation cp="🍺">باڕ | بیرە | خواردنەوە | پەرداخ</annotation>
+		<annotation cp="🍺" type="tts">پەرداخی بیرە</annotation>
+		<annotation cp="🍻">باڕ | بیرە | زرنگە | خواردنەوە | پەرداخ</annotation>
+		<annotation cp="🍻" type="tts">زرنگەی پەرداخی بیرە</annotation>
+		<annotation cp="🥂">خشەخش | شووشە | خواردنەوە | ئاھەنگ گێڕان</annotation>
+		<annotation cp="🥂" type="tts">زرنگەی پەرداخ</annotation>
+		<annotation cp="🥃">شووشە | پەرداخۆکە | ویسکی | خواردنەوەی ئەلکهولی | لێدان</annotation>
+		<annotation cp="🥃" type="tts">پەرداخی شوشە</annotation>
+		<annotation cp="🥤">سۆدە | شەربەت</annotation>
+		<annotation cp="🥤" type="tts">پەرداخ لەگەڵ قامیش</annotation>
+		<annotation cp="🥢">هاشی</annotation>
+		<annotation cp="🥢" type="tts">چۆپستیک</annotation>
+		<annotation cp="🍽">لێنان | چەنگاڵ | چەقۆ | قاپ</annotation>
+		<annotation cp="🍽" type="tts">چەنگاڵ و چەقۆ لەگەڵ قاپ</annotation>
+		<annotation cp="🍴">لێنان | چەنگاڵ | چەقۆ</annotation>
+		<annotation cp="🍴" type="tts">چەنگاڵ و چەقۆ</annotation>
+		<annotation cp="🥄">کەوچک | کەرەستەی مێز</annotation>
+		<annotation cp="🥄" type="tts">کەوچک</annotation>
+		<annotation cp="🔪">چێشت لێنان | هۆچۆ | چەقۆ | ئامراز | چەک</annotation>
+		<annotation cp="🔪" type="tts">چەقۆی مەتبەخ</annotation>
+		<annotation cp="🏺">کەلوی سەتڵ | چێشت لێنان | خواردنەوە | سوراحی | ئامراز | چەک | بازنەی کەلو</annotation>
+		<annotation cp="🏺" type="tts">ئەمفۆرا</annotation>
+		<annotation cp="🌍">ئەفریقیا | زەوی | ئەوروپا | گوێ زەوی | جیھان</annotation>
+		<annotation cp="🌍" type="tts">گۆی زەوی ئەوروپا-ئەفریقیا نیشان دەدات</annotation>
+		<annotation cp="🌎">ئەمریکا | زەوی | گوێ زەوی | جیھان</annotation>
+		<annotation cp="🌎" type="tts">گۆی زەوی ئەمریکا نیشان دەدات</annotation>
+		<annotation cp="🌏">ئاسیا | ئوسترالیا | زەوی | گوێ زەوی | جیھان</annotation>
+		<annotation cp="🌏" type="tts">گۆی زەوی ئاسیا-ئوسترالیا نیشان دەدات</annotation>
+		<annotation cp="🌐">زەوی | گوێ زەوی | نیوەڕۆ | جیھان</annotation>
+		<annotation cp="🌐" type="tts">گۆی زەوی لەگەڵ نیوەڕۆ</annotation>
+		<annotation cp="🗺">نەخشە | جیھان</annotation>
+		<annotation cp="🗺" type="tts">نەخشەی جیھان</annotation>
+		<annotation cp="🗾">ژاپۆن | نەخشە</annotation>
+		<annotation cp="🗾" type="tts">نەخشەی ژاپۆن</annotation>
+		<annotation cp="🏔">سارد | چیا | بەفر</annotation>
+		<annotation cp="🏔" type="tts">چیای سەر پڕ بەفر</annotation>
+		<annotation cp="⛰">چیا</annotation>
+		<annotation cp="⛰" type="tts">چیا</annotation>
+		<annotation cp="🌋">تەقینەوە | چیا</annotation>
+		<annotation cp="🌋" type="tts">بورکان</annotation>
+		<annotation cp="🗻">فوجی | چیا</annotation>
+		<annotation cp="🗻" type="tts">چیای فوجی</annotation>
+		<annotation cp="🏕">خیوەتگە كردن</annotation>
+		<annotation cp="🏕" type="tts">خیوەتگە كردن</annotation>
+		<annotation cp="🏖">کەنار دەریا | چەتر</annotation>
+		<annotation cp="🏖" type="tts">کەنار دەریا لەگەڵ چەتر</annotation>
+		<annotation cp="🏜">بیابان</annotation>
+		<annotation cp="🏜" type="tts">بیابان</annotation>
+		<annotation cp="🏝">بیابان | دوورگە</annotation>
+		<annotation cp="🏝" type="tts">دوورگەی بیابان</annotation>
+		<annotation cp="🏞">پارک</annotation>
+		<annotation cp="🏞" type="tts">پارکی نیشتمانی</annotation>
+		<annotation cp="🏟">یاریگا</annotation>
+		<annotation cp="🏟" type="tts">یاریگا</annotation>
+		<annotation cp="🏛">کلاسیکی</annotation>
+		<annotation cp="🏛" type="tts">باڵەخانەی کلاسیکی</annotation>
+		<annotation cp="🏗">دروستکردن</annotation>
+		<annotation cp="🏗" type="tts">دروستکردنی بینا</annotation>
+		<annotation cp="🏘">خانوو</annotation>
+		<annotation cp="🏘" type="tts">خانوو</annotation>
+		<annotation cp="🏚">چۆل | خانوو</annotation>
+		<annotation cp="🏚" type="tts">خانووی چۆڵ</annotation>
+		<annotation cp="🏠">E416 | ماڵ | خانوو</annotation>
 		<annotation cp="🏠" type="tts">E416</annotation>
+		<annotation cp="🏡">باخچە | ماڵ | خانوو</annotation>
+		<annotation cp="🏡" type="tts">خانوو لەگەڵ باخچە</annotation>
+		<annotation cp="🏢">باڵەخانە</annotation>
+		<annotation cp="🏢" type="tts">باڵەخانەی نووسینگە</annotation>
+		<annotation cp="🏣">ژاپۆنی | پۆستە</annotation>
+		<annotation cp="🏣" type="tts">نووسینگەی پۆستەی ژاپۆنی</annotation>
+		<annotation cp="🏤">ئەوروپی | پۆستە</annotation>
+		<annotation cp="🏤" type="tts">سندوقی پۆستە</annotation>
+		<annotation cp="🏥">پزیشک | دەرمان</annotation>
+		<annotation cp="🏥" type="tts">نەخۆشخانە</annotation>
+		<annotation cp="🏦">باڵەخانە</annotation>
+		<annotation cp="🏦" type="tts">بانک</annotation>
+		<annotation cp="🏨">باڵەخانە</annotation>
+		<annotation cp="🏨" type="tts">ئوتێل</annotation>
+		<annotation cp="🏩">ئوتێل | خۆشەویستی</annotation>
+		<annotation cp="🏩" type="tts">ئوتێلی خۆشەویستی</annotation>
+		<annotation cp="🏪">گونجاو | فرۆشگا</annotation>
+		<annotation cp="🏪" type="tts">فرۆشگای گونجاو</annotation>
+		<annotation cp="🏫">باڵەخانە</annotation>
+		<annotation cp="🏫" type="tts">قوتابخانە</annotation>
+		<annotation cp="🏬">بەش | فرۆشگا</annotation>
+		<annotation cp="🏬" type="tts">فرۆشگای بەش</annotation>
+		<annotation cp="🏭">باڵەخانە</annotation>
+		<annotation cp="🏭" type="tts">کارگە</annotation>
+		<annotation cp="🏯">قەڵا | ژاپۆنی</annotation>
+		<annotation cp="🏯" type="tts">قەڵای ژاپۆنی</annotation>
+		<annotation cp="🏰">ئەوروپی</annotation>
+		<annotation cp="🏰" type="tts">قەڵا</annotation>
+		<annotation cp="💒">کڵێسەی بچوک | ئەڤینی</annotation>
+		<annotation cp="💒" type="tts">زەماوەند</annotation>
+		<annotation cp="🗼">تۆکیۆ | تاوەر</annotation>
+		<annotation cp="🗼" type="tts">تاوەری تۆکیۆ</annotation>
+		<annotation cp="🗽">ئازادی | پەیکەر</annotation>
+		<annotation cp="🗽" type="tts">پەیکەری ئازادی</annotation>
+		<annotation cp="⛪">مەسیحی | خاچ | ئایین</annotation>
+		<annotation cp="⛪" type="tts">کەنیسە</annotation>
+		<annotation cp="🕌">ئیسلام | موسوڵمان | ئایین</annotation>
+		<annotation cp="🕌" type="tts">مزگەوت</annotation>
+		<annotation cp="🕍">جوو | جوولەکە | ئایین | پەرستگا</annotation>
+		<annotation cp="🕍" type="tts">پەرستگای جولەکە</annotation>
+		<annotation cp="⛩">ئایین | شینتۆ | مەزارگە</annotation>
+		<annotation cp="⛩" type="tts">مەزارگەی شینتۆ</annotation>
+		<annotation cp="🕋">ئیسلام | موسوڵمان | ئایین</annotation>
+		<annotation cp="🕋" type="tts">کەعبەی پیرۆز</annotation>
+		<annotation cp="⛲">نافورە</annotation>
+		<annotation cp="⛲" type="tts">نافورە</annotation>
+		<annotation cp="⛺">خیوەتگە كردن</annotation>
+		<annotation cp="⛺" type="tts">چادر</annotation>
+		<annotation cp="🌁">تەم</annotation>
+		<annotation cp="🌁" type="tts">تەماوی</annotation>
+		<annotation cp="🌃">شەو | ئەستێرە</annotation>
+		<annotation cp="🌃" type="tts">شەو لەگەڵ ئەستێرە</annotation>
+		<annotation cp="🏙">شار</annotation>
+		<annotation cp="🏙" type="tts">دیمەنی شار</annotation>
+		<annotation cp="🌄">بەیانی | چیا | خۆر | خۆر ھەڵاتن</annotation>
+		<annotation cp="🌄" type="tts">خۆر ھەڵاتن لەسەر چیاکان</annotation>
+		<annotation cp="🌅">بەیانی | خۆر</annotation>
+		<annotation cp="🌅" type="tts">خۆرهەڵاتن</annotation>
+		<annotation cp="🌆">شار | زەردەپەڕ | ئێوارە | ئاسۆیی | خۆر | خۆر ئاوابوون</annotation>
+		<annotation cp="🌆" type="tts">شار لە زەردەپەڕدا</annotation>
+		<annotation cp="🌇">زەردەپەڕ | خۆر</annotation>
+		<annotation cp="🌇" type="tts">خۆرئاوا بوون</annotation>
+		<annotation cp="🌉">پرد | شەو</annotation>
+		<annotation cp="🌉" type="tts">پرد لە شەودا</annotation>
+		<annotation cp="♨">گەرم | کانی گەرم | کانی | هەڵم</annotation>
+		<annotation cp="♨" type="tts">کانیە گەرمەکان</annotation>
+		<annotation cp="🎠">بازنەیی | ئەسپ</annotation>
+		<annotation cp="🎠" type="tts">ئەسپی بازنەیی</annotation>
+		<annotation cp="🎡">پارکی کات بەسەردبرن | فێریس | عارەبانە</annotation>
+		<annotation cp="🎡" type="tts">عارەبانەی فێریس</annotation>
+		<annotation cp="🎢">پارکی کات بەسەربردن | کۆستەر | ڕۆڵەر</annotation>
+		<annotation cp="🎢" type="tts">یاری سیکەتولمەوت</annotation>
+		<annotation cp="💈">سەرتاش | سەرتاشین | جەمسەر</annotation>
+		<annotation cp="💈" type="tts">لوولی خولاوەی سەرتاش</annotation>
+		<annotation cp="🎪">سێرک | چادر</annotation>
+		<annotation cp="🎪" type="tts">چادری سیرک</annotation>
+		<annotation cp="🚂">بزوێنەر | هێڵی شەمەندەفەر | هەڵم | شەمەندەفەر</annotation>
+		<annotation cp="🚂" type="tts">جوڵاو</annotation>
+		<annotation cp="🚃">ئۆتۆمۆبیل | کارەبا | هێڵی شەمەندەفەر | شەمەندەفەر | ترام | پاسی کارەبایی</annotation>
+		<annotation cp="🚃" type="tts">ئۆتۆمۆبیلی هێڵی شەمەندەفەر</annotation>
+		<annotation cp="🚄">هێڵی شەمەندەفەر | شینکانسین | خێرایی | شەمەندەفەر</annotation>
+		<annotation cp="🚄" type="tts">شەمەندەفەری زۆر خێرا</annotation>
+		<annotation cp="🚅">گوللە | هێڵی شەمەندەفەر | شینکانسین | خێرایی | شەمەندەفەر</annotation>
+		<annotation cp="🚅" type="tts">شەمەندەفەری زۆر خێرا لەگەڵ لووتی شێوە گوللە</annotation>
+		<annotation cp="🚆">هێڵی شەمەندەفەر</annotation>
+		<annotation cp="🚆" type="tts">شەمەندەفەر</annotation>
+		<annotation cp="🚇">ڕێگای ژێرزەوی</annotation>
+		<annotation cp="🚇" type="tts">مێترۆ</annotation>
+		<annotation cp="🚈">هێڵی شەمەندەفەر</annotation>
+		<annotation cp="🚈" type="tts">هێڵی شەمەندەفەری بچووک</annotation>
+		<annotation cp="🚉">هێڵی شەمەندەفەر | شەمەندەفەر</annotation>
+		<annotation cp="🚉" type="tts">وێستگە</annotation>
+		<annotation cp="🚊">پاسی کارەبایی</annotation>
+		<annotation cp="🚊" type="tts">ترام</annotation>
+		<annotation cp="🚝">ئۆتۆمبێل</annotation>
+		<annotation cp="🚝" type="tts">هێڵی یەک ساید</annotation>
+		<annotation cp="🚞">ئۆتۆمۆبیل | چیا | هێڵی شەمەندەفەر</annotation>
+		<annotation cp="🚞" type="tts">هێڵی شەمەندەفەری چیا</annotation>
+		<annotation cp="🚋">ئۆتۆمۆبیل | ترام | پاسی کارەبایی</annotation>
+		<annotation cp="🚋" type="tts">ئۆتۆمۆبیلی ترام</annotation>
+		<annotation cp="🚌">ئۆتۆمبێل</annotation>
+		<annotation cp="🚌" type="tts">پاس</annotation>
+		<annotation cp="🚍">پاس | داهاتوو</annotation>
+		<annotation cp="🚍" type="tts">پاسی داهاتوو</annotation>
+		<annotation cp="🚎">پاس | ترام | ترۆڵی</annotation>
+		<annotation cp="🚎" type="tts">پاسی کارەبایی</annotation>
+		<annotation cp="🚐">پاس</annotation>
+		<annotation cp="🚐" type="tts">پاسی بچووک</annotation>
+		<annotation cp="🚑">ئۆتۆمبێل</annotation>
+		<annotation cp="🚑" type="tts">ئەمبولانس</annotation>
+		<annotation cp="🚒">بزوێنەر | ئاگر | بارهەڵگر</annotation>
+		<annotation cp="🚒" type="tts">بزوێنەری ئاگر</annotation>
+		<annotation cp="🚓">ئۆتۆمۆبیل | ئێشکگر | پۆلیس</annotation>
+		<annotation cp="🚓" type="tts">ئۆتۆمبێلی پۆلیس</annotation>
+		<annotation cp="🚔">ئۆتۆمۆبیل | دهاتوو | پۆلیس</annotation>
+		<annotation cp="🚔" type="tts">ئۆتۆمبێلی پۆلیسی داهاتوو</annotation>
+		<annotation cp="🚕">ئۆتۆمبێل</annotation>
+		<annotation cp="🚕" type="tts">تەکسی</annotation>
+		<annotation cp="🚖">داهاتوو | تەکسی</annotation>
+		<annotation cp="🚖" type="tts">تەکسی داهاتوو</annotation>
+		<annotation cp="🚗">ئۆتۆمبێل</annotation>
+		<annotation cp="🚗" type="tts">ئۆتۆمۆبیل</annotation>
+		<annotation cp="🚘">ئۆتۆمبێل | داهاتوو</annotation>
+		<annotation cp="🚘" type="tts">ئۆتۆمۆبیلی داهاتوو</annotation>
+		<annotation cp="🚙">تەرفیهی | کاری وەرزشی</annotation>
+		<annotation cp="🚙" type="tts">ئۆتۆمبێلی کاری وەرزشی</annotation>
+		<annotation cp="🚚">گەیاندن | بارهەڵگر</annotation>
+		<annotation cp="🚚" type="tts">بارهەڵگری گەیاندن</annotation>
+		<annotation cp="🚛">لۆری | نیمچە | بارهەڵگر</annotation>
+		<annotation cp="🚛" type="tts">لۆری دوو پارچەیی</annotation>
+		<annotation cp="🚜">ئۆتۆمبێل</annotation>
+		<annotation cp="🚜" type="tts">تراکتۆر</annotation>
+		<annotation cp="🏎">ئۆتۆمۆبیل | پێشبڕکێ</annotation>
+		<annotation cp="🏎" type="tts">ئۆتۆمۆبیلی پێشبڕکێ</annotation>
+		<annotation cp="🏍">پێشبڕکێ</annotation>
+		<annotation cp="🏍" type="tts">ماتۆڕسکیل</annotation>
+		<annotation cp="🛵">ماتۆڕ | سکووتەر</annotation>
+		<annotation cp="🛵" type="tts">سکووتەری ماتۆڕ</annotation>
+		<annotation cp="🚲">پایسکل</annotation>
+		<annotation cp="🚲" type="tts">پایسکل</annotation>
+		<annotation cp="🛴">سکووتەر | لێدان</annotation>
+		<annotation cp="🛴" type="tts">کیک سکووتەر</annotation>
+		<annotation cp="🚏">پاس | وەستانی پاس | وەستان</annotation>
+		<annotation cp="🚏" type="tts">شوێنی وەستانی پاس</annotation>
+		<annotation cp="🛣">ڕێگای خێرا | ڕێگا</annotation>
+		<annotation cp="🛣" type="tts">رێگەی ئۆتۆمۆبیل</annotation>
+		<annotation cp="🛤">هێڵی شەمەندەفەر | شەمەندەفەر</annotation>
+		<annotation cp="🛤" type="tts">هێڵی شەمەندەفەر</annotation>
+		<annotation cp="🛢">بەرمیل | نەوت</annotation>
+		<annotation cp="🛢" type="tts">بەرمیلی نەوت</annotation>
+		<annotation cp="⛽">سووتەمەنی | فیولپەمپ | گاز | پەمپ | وێستگە</annotation>
+		<annotation cp="⛽" type="tts">پەمپی سووتەمەنی</annotation>
+		<annotation cp="🚨">چراخان | ئۆتۆمۆبیل | ڕووناكی | پۆلیس | نوێ بوونەوە</annotation>
+		<annotation cp="🚨" type="tts">لایتی ئۆتۆمبێلی پۆلیس</annotation>
+		<annotation cp="🚥">ڕووناكی | هێما | هاتووچۆ</annotation>
+		<annotation cp="🚥" type="tts">هێمای هاتووچۆی ئاسۆیی</annotation>
+		<annotation cp="🚦">ڕووناكی | هێما | هاتووچۆ</annotation>
+		<annotation cp="🚦" type="tts">هێمای هاتووچۆی ستوونی</annotation>
+		<annotation cp="🛑">شێوەی ھەشت لا | هێما | وەستان</annotation>
+		<annotation cp="🛑" type="tts">هێمای وەستان</annotation>
+		<annotation cp="🚧">بەربەست</annotation>
+		<annotation cp="🚧" type="tts">دروستکردن</annotation>
+		<annotation cp="⚓">ناردن | ئامراز</annotation>
+		<annotation cp="⚓" type="tts">لەنگەرگەری کەشتی</annotation>
+		<annotation cp="⛵">بەلەم | هاوینە هەوار | دەریا | یەخت</annotation>
+		<annotation cp="⛵" type="tts">بەلەمی چارۆکەدار</annotation>
+		<annotation cp="🛶">بەلەمی باریک | بەلەم</annotation>
+		<annotation cp="🛶" type="tts">بەلەمی باریک</annotation>
+		<annotation cp="🚤">بەلەم</annotation>
+		<annotation cp="🚤" type="tts">بەلەمی خێرا</annotation>
+		<annotation cp="🛳">سەرنشین | کەشتی</annotation>
+		<annotation cp="🛳" type="tts">کەشتی سەرنشین</annotation>
+		<annotation cp="⛴">بەلەم | سەرنشین</annotation>
+		<annotation cp="⛴" type="tts">بەلەمی بچووک</annotation>
+		<annotation cp="🛥">بەلەم | بەلەمی بزوێنەردار</annotation>
+		<annotation cp="🛥" type="tts">بەلەمی بزوێنەردرا</annotation>
+		<annotation cp="🚢">بەلەم | سەرنشین</annotation>
+		<annotation cp="🚢" type="tts">کەشتی</annotation>
+		<annotation cp="✈">فرۆکە | فرۆکەخانە</annotation>
+		<annotation cp="✈" type="tts">فڕۆکەخانە</annotation>
+		<annotation cp="🛩">فرۆکە | فرۆکەخانە</annotation>
+		<annotation cp="🛩" type="tts">فڕۆکەخانەی بچووك</annotation>
+		<annotation cp="🛫">فرۆکە | فرۆکەخانە | چێک ئین | ڕۆیشتن | ڕۆیشتنەکان</annotation>
+		<annotation cp="🛫" type="tts">ڕۆیشتنی فڕۆکە</annotation>
+		<annotation cp="🛬">فرۆکە | فرۆکەخانە | گەیشتووان | گەیشتن | نیشتنەوە</annotation>
+		<annotation cp="🛬" type="tts">گەیشتنی فڕۆکە</annotation>
+		<annotation cp="💺">سەرۆک</annotation>
+		<annotation cp="💺" type="tts">کورسی</annotation>
+		<annotation cp="🚁">ئۆتۆمبێل</annotation>
+		<annotation cp="🚁" type="tts">هەلیکۆپتەر</annotation>
+		<annotation cp="🚟">هێڵی شەمەندەفەر | بەرز</annotation>
+		<annotation cp="🚟" type="tts">بەرزە هێڵی شەمەندەفەر</annotation>
+		<annotation cp="🚠">کێبڵ | گۆندۆلا | چیا</annotation>
+		<annotation cp="🚠" type="tts">چیای کەیبلوەی</annotation>
+		<annotation cp="🚡">ئاسمانی | کێبڵ | ئۆتۆمۆبیل | گوندۆڵا | تراموەی</annotation>
+		<annotation cp="🚡" type="tts">ڕێگەی ترامی هەوایی</annotation>
+		<annotation cp="🛰">مەودا</annotation>
+		<annotation cp="🛰" type="tts">سەتەلایت</annotation>
+		<annotation cp="🚀">مەودا</annotation>
+		<annotation cp="🚀" type="tts">ڕۆکێت</annotation>
+		<annotation cp="🛸">یوفۆ</annotation>
+		<annotation cp="🛸" type="tts">دەفری فڕیو</annotation>
+		<annotation cp="🛎">زەنگ | خزمەتگوزار | ئوتێل</annotation>
+		<annotation cp="🛎" type="tts">زەنگی خزمەتگوزاری ئوتێل</annotation>
+		<annotation cp="⌛">لم | تایمەر</annotation>
+		<annotation cp="⌛" type="tts">کاتژمێری خۆڵی</annotation>
+		<annotation cp="⏳">کاتژمێری خۆڵی | لم | تایمەر</annotation>
+		<annotation cp="⏳" type="tts">کاتژمێری خۆڵی لەگەڵ تەوژمکردنی خۆڵ</annotation>
+		<annotation cp="⌚">کاتژمێر</annotation>
+		<annotation cp="⌚" type="tts">کاتژمێر</annotation>
+		<annotation cp="⏰">کاتژمێر | بە زەنگ</annotation>
+		<annotation cp="⏰" type="tts">کاتژمێر بە زەنگ</annotation>
+		<annotation cp="⏱">کاتژمێر</annotation>
+		<annotation cp="⏱" type="tts">کاتگر</annotation>
+		<annotation cp="⏲">کاتژمێر | تایمەر</annotation>
+		<annotation cp="⏲" type="tts">کاتژمێری تایمەر</annotation>
+		<annotation cp="🕰">کاتژمێر</annotation>
+		<annotation cp="🕰" type="tts">کاتژمێری رەفەی کورە</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | کاتژمێر | دوازدە</annotation>
+		<annotation cp="🕛" type="tts">کاتژمێر دوازدە</annotation>
+		<annotation cp="🕧">12 | 12:30 | 30 | کاتژمێر | سی | دوازدە</annotation>
+		<annotation cp="🕧" type="tts">دوازدە و نیو</annotation>
+		<annotation cp="🕐">00 | 1 | 1:00 | کاتژمێر | یەک</annotation>
+		<annotation cp="🕐" type="tts">کاتژمێر یەک</annotation>
+		<annotation cp="🕜">1 | 1:30 | 30 | کاتژمێر | یەک | سی</annotation>
+		<annotation cp="🕜" type="tts">یەک و نیو</annotation>
+		<annotation cp="🕑">00 | 2 | 2:00 | کاتژمێر | دوو</annotation>
+		<annotation cp="🕑" type="tts">کاتژمێر دوو</annotation>
+		<annotation cp="🕝">2 | 2:30 | 30 | کاتژمێر | سی | دوو</annotation>
+		<annotation cp="🕝" type="tts">دوو و نیو</annotation>
+		<annotation cp="🕒">00 | 3 | 3:00 | کاتژمێر | سێ</annotation>
+		<annotation cp="🕒" type="tts">کاتژمێر سێ</annotation>
+		<annotation cp="🕞">3 | 3:30 | 30 | کاتژمێر | سی | سێ</annotation>
+		<annotation cp="🕞" type="tts">سێ و نیو</annotation>
+		<annotation cp="🕓">00 | 4 | 4:00 | کاتژمێر | چوار</annotation>
+		<annotation cp="🕓" type="tts">کاتژمێر چوار</annotation>
+		<annotation cp="🕟">30 | 4 | 4:30 | کاتژمێر | چوار | سی</annotation>
+		<annotation cp="🕟" type="tts">چوار و نیو</annotation>
+		<annotation cp="🕔">00 | 5 | 5:00 | کاتژمێر | پێنج</annotation>
+		<annotation cp="🕔" type="tts">کاتژمێر پێنج</annotation>
+		<annotation cp="🕠">30 | 5 | 5:30 | کاتژمێر | پێنج | سی</annotation>
+		<annotation cp="🕠" type="tts">پێنج و نیو</annotation>
+		<annotation cp="🕕">00 | 6 | 6:00 | کاتژمێر | شەش</annotation>
+		<annotation cp="🕕" type="tts">کاتژمێر شەش</annotation>
+		<annotation cp="🕡">30 | 6 | 6:30 | کاتژمێر | شەش | سی</annotation>
+		<annotation cp="🕡" type="tts">شەش و نیو</annotation>
+		<annotation cp="🕖">00 | 7 | 7:00 | کاتژمێر | حەوت</annotation>
+		<annotation cp="🕖" type="tts">کاتژمێر حەوت</annotation>
+		<annotation cp="🕢">30 | 7 | 7:30 | کاتژمێر | حەوت | سی</annotation>
+		<annotation cp="🕢" type="tts">حەوت و نیو</annotation>
+		<annotation cp="🕗">00 | 8 | 8:00 | کاتژمێر | هەشت</annotation>
+		<annotation cp="🕗" type="tts">کاتژمێر هەشت</annotation>
+		<annotation cp="🕣">30 | 8 | 8:30 | کاتژمێر | هەشت | سی</annotation>
+		<annotation cp="🕣" type="tts">هەشت و نیو</annotation>
+		<annotation cp="🕘">00 | 9 | 9:00 | کاتژمێر | نۆ</annotation>
+		<annotation cp="🕘" type="tts">کاتژمێر نۆ</annotation>
+		<annotation cp="🕤">30 | 9 | 9:30 | کاتژمێر | نۆ | سی</annotation>
+		<annotation cp="🕤" type="tts">نۆ و نیو</annotation>
+		<annotation cp="🕙">00 | 10 | 10:00 | کاتژمێر | دە</annotation>
+		<annotation cp="🕙" type="tts">کاتژمێر دە</annotation>
+		<annotation cp="🕥">10 | 10:30 | 30 | کاتژمێر | دە | سی</annotation>
+		<annotation cp="🕥" type="tts">دە و نیو</annotation>
+		<annotation cp="🕚">00 | 11 | 11:00 | کاتژمێر | یازدە</annotation>
+		<annotation cp="🕚" type="tts">کاتژمێر یازدە</annotation>
+		<annotation cp="🕦">11 | 11:30 | 30 | کاتژمێر | یازدە | سی</annotation>
+		<annotation cp="🕦" type="tts">یازدە و نیو</annotation>
+		<annotation cp="🌑">تاریک | مانگ</annotation>
+		<annotation cp="🌑" type="tts">مانگی نوێ</annotation>
+		<annotation cp="🌒">مانگی نوێ | مانگ | سپی بوون</annotation>
+		<annotation cp="🌒" type="tts">مانگی هیلالی سپی</annotation>
+		<annotation cp="🌓">مانگ | چارەک</annotation>
+		<annotation cp="🌓" type="tts">مانگی چارەکی یەکەم</annotation>
+		<annotation cp="🌔">مانگی نیوە | مانگ | سپی بوون</annotation>
+		<annotation cp="🌔" type="tts">مانگی نیوەی سپی</annotation>
+		<annotation cp="🌕">تەواو | مانگ</annotation>
+		<annotation cp="🌕" type="tts">مانگی تەواو</annotation>
+		<annotation cp="🌖">مانگی نیوە | مانگ | سپی هەڵگەڕان</annotation>
+		<annotation cp="🌖" type="tts">مانگی نیوەی سپیھەڵگەڕاو</annotation>
+		<annotation cp="🌗">مانگ | چارەک</annotation>
+		<annotation cp="🌗" type="tts">مانگی چارەکی کۆتایی</annotation>
+		<annotation cp="🌘">مانگی نوێ | مانگ | سپی هەڵگەڕان</annotation>
+		<annotation cp="🌘" type="tts">مانگینوێی سپیھەڵگەڕاو</annotation>
+		<annotation cp="🌙">مانگی هیلال | مانگ</annotation>
+		<annotation cp="🌙" type="tts">مانگی هیلال</annotation>
+		<annotation cp="🌚">دەم و چاو | مانگ</annotation>
+		<annotation cp="🌚" type="tts">دەم و چاوی مانگی نوێ</annotation>
+		<annotation cp="🌛">دەم و چاو | مانگ | چارەک</annotation>
+		<annotation cp="🌛" type="tts">مانگی چارەکی یەکەم لەگەڵ دەم و چاو</annotation>
+		<annotation cp="🌜">دەم و چاو | مانگ | چارەک</annotation>
+		<annotation cp="🌜" type="tts">مانگی چارەکی کۆتایی لەگەڵ دەم و چاو</annotation>
+		<annotation cp="🌡">کەشوهەوا</annotation>
+		<annotation cp="🌡" type="tts">گەرمیپێو</annotation>
+		<annotation cp="☀">بریقەدار | تیشک | ساماڵ</annotation>
+		<annotation cp="☀" type="tts">خۆر</annotation>
+		<annotation cp="🌝">بریقەدار | دەم و چاو | تەواو | مانگ</annotation>
+		<annotation cp="🌝" type="tts">مانگی تەواو لەگەڵ دەم و چاو</annotation>
+		<annotation cp="🌞">بریقەدار | دەم و چاو | خۆر</annotation>
+		<annotation cp="🌞" type="tts">خۆر لەگەڵ دەم و چاو</annotation>
+		<annotation cp="⭐">ئەستێرە</annotation>
+		<annotation cp="⭐" type="tts">ئەستێرەی ناوەندی سپی</annotation>
+		<annotation cp="🌟">درەوشاوە | خەرمانە | بریسکانەوە | درەوشانەوە | ئەستێرە</annotation>
+		<annotation cp="🌟" type="tts">ئەستێرەی درەوشاوە</annotation>
+		<annotation cp="🌠">کەوتن | هاوێشتن | ئەستێرە</annotation>
+		<annotation cp="🌠" type="tts">ئەستێرەی بڵێسەدار</annotation>
+		<annotation cp="🌌">مەودا</annotation>
+		<annotation cp="🌌" type="tts">ڕێگای کاکێشان</annotation>
+		<annotation cp="☁">کەشوهەوا</annotation>
+		<annotation cp="☁" type="tts">هەور</annotation>
+		<annotation cp="⛅">هەور | خۆر</annotation>
+		<annotation cp="⛅" type="tts">خۆر لەدواوەی هەور</annotation>
+		<annotation cp="⛈">هەور | باران | بروسک</annotation>
+		<annotation cp="⛈" type="tts">هەور لەگەڵ بروسکە و باران</annotation>
+		<annotation cp="🌤">هەور | خۆر</annotation>
+		<annotation cp="🌤" type="tts">خۆر لەدوای هەوری بچووك</annotation>
+		<annotation cp="🌥">هەور | خۆر</annotation>
+		<annotation cp="🌥" type="tts">خۆر لەدوای هەوری گەورە</annotation>
+		<annotation cp="🌦">هەور | باران | خۆر</annotation>
+		<annotation cp="🌦" type="tts">خۆر لەدوای هەوری باران</annotation>
+		<annotation cp="🌧">هەور | باران</annotation>
+		<annotation cp="🌧" type="tts">هەور لەگەڵ باران</annotation>
+		<annotation cp="🌨">هەور | سارد | بەفر</annotation>
+		<annotation cp="🌨" type="tts">هەور لەگەڵ بەفر</annotation>
+		<annotation cp="🌩">هەور | بروسکە</annotation>
+		<annotation cp="🌩" type="tts">هەور لەگەڵ بروسکە</annotation>
+		<annotation cp="🌪">هەور | گەردەلول</annotation>
+		<annotation cp="🌪" type="tts">تۆرنادۆ</annotation>
+		<annotation cp="🌫">هەور</annotation>
+		<annotation cp="🌫" type="tts">تەم</annotation>
+		<annotation cp="🌬">هەڵکردن | هەور | دەم و چاو | با</annotation>
+		<annotation cp="🌬" type="tts">دەم و چاوی با</annotation>
+		<annotation cp="🌀">سەرسوڕماو | لوولدەر | گێژەڵووکە</annotation>
+		<annotation cp="🌀" type="tts">گەردەلوولە</annotation>
+		<annotation cp="🌈">باران</annotation>
+		<annotation cp="🌈" type="tts">پەلکە زێڕینە</annotation>
+		<annotation cp="🌂">پۆشاک | باران | چەتر</annotation>
+		<annotation cp="🌂" type="tts">چەتری داخراو</annotation>
+		<annotation cp="☂">پۆشاک | باران</annotation>
+		<annotation cp="☂" type="tts">چەتر</annotation>
+		<annotation cp="☔">پۆشاک | دڵۆپ | باران | چەتر</annotation>
+		<annotation cp="☔" type="tts">چەتر لەگەڵ دڵۆپی باران</annotation>
+		<annotation cp="⛱">باران | خۆر | چەتر</annotation>
+		<annotation cp="⛱" type="tts">چەتر لەسەر زەوی</annotation>
+		<annotation cp="⚡">مەترسی | کارەبا | کارەبایی | بروسکە | ڤۆڵتاج | وەشاندن</annotation>
+		<annotation cp="⚡" type="tts">ڤۆڵتاجی بەرز</annotation>
+		<annotation cp="❄">سارد | بەفر</annotation>
+		<annotation cp="❄" type="tts">پەڵە بەفر</annotation>
+		<annotation cp="☃">سارد | بەفر</annotation>
+		<annotation cp="☃" type="tts">بووکە بەفرینە</annotation>
+		<annotation cp="⛄">سارد | بەفر | بووکە بەفرینە</annotation>
+		<annotation cp="⛄" type="tts">بووکە بەفرینە بێ بەفر</annotation>
+		<annotation cp="☄">مەودا</annotation>
+		<annotation cp="☄" type="tts">ئەستێرەی کلکدار</annotation>
+		<annotation cp="🔥">گڕ | ئامراز</annotation>
+		<annotation cp="🔥" type="tts">ئاگر</annotation>
+		<annotation cp="💧">سارد | کۆمیدی | دڵۆپ | ئارەقە</annotation>
+		<annotation cp="💧" type="tts">درۆپلێت</annotation>
+		<annotation cp="🌊">ئۆقیانوس | ئاو | شەپۆڵ</annotation>
+		<annotation cp="🌊" type="tts">شەپۆڵی ئاو</annotation>
+		<annotation cp="🎃">ئاھەنگ گێڕان | هالۆوین | جاك | فانۆس</annotation>
+		<annotation cp="🎃" type="tts">فانۆسی دروستکراو لە کوولەکە</annotation>
+		<annotation cp="🎄">ئاھەنگ گێڕان | کریسمس | دار</annotation>
+		<annotation cp="🎄" type="tts">داری کریسمس</annotation>
+		<annotation cp="🎆">ئاھەنگ گێڕان</annotation>
+		<annotation cp="🎆" type="tts">یاریە ئاگرینەکان</annotation>
+		<annotation cp="🎇">ئاھەنگ گێڕان | یاریە ئاگرینەکان | بریسکانەوە</annotation>
+		<annotation cp="🎇" type="tts">درەوشێنەر</annotation>
+		<annotation cp="✨">بریسکانەوە | ئەستێرە</annotation>
+		<annotation cp="✨" type="tts">درەوشانەوە</annotation>
+		<annotation cp="🎈">ئاھەنگ گێڕان</annotation>
+		<annotation cp="🎈" type="tts">باڵۆن</annotation>
+		<annotation cp="🎉">ئاھەنگ گێڕان | ئاهەنگ | پۆپەر | تادا</annotation>
+		<annotation cp="🎉" type="tts">پۆپەری ئاهەنگ</annotation>
+		<annotation cp="🎊">ئاهەنگ | ئاھەنگ گێڕان | کۆنفێتی</annotation>
+		<annotation cp="🎊" type="tts">ئاهەنگی کۆنفێتی</annotation>
+		<annotation cp="🎋">لافیتە | ئاھەنگ گێڕان | ژاپۆنی | درەخت</annotation>
+		<annotation cp="🎋" type="tts">درەختی تاناباتا</annotation>
+		<annotation cp="🎍">قامیش | ئاھەنگ گێڕان | ژاپۆنی | سنەوبەر</annotation>
+		<annotation cp="🎍" type="tts">ڕازاندنەوەی سنەوبەر</annotation>
+		<annotation cp="🎎">ئاھەنگ گێڕان | بووکەشووشە | فێستیڤاڵ | ژاپۆنی</annotation>
+		<annotation cp="🎎" type="tts">بووکەشووشەی ژاپۆنی</annotation>
+		<annotation cp="🎏">ماسی کارپ | ئاهەنگ گێڕان | ئاڵای درێژو باریک</annotation>
+		<annotation cp="🎏" type="tts">ئاڵای درێژو باریکی ماسی کارپ</annotation>
+		<annotation cp="🎐">زەنگ | ئاھەنگ گێڕان</annotation>
+		<annotation cp="🎐" type="tts">ئاوازی با</annotation>
+		<annotation cp="🎑">ئاھەنگ گێڕان | ئاهەنگ | مانگ</annotation>
+		<annotation cp="🎑" type="tts">ئاهەنگی سەیرکردنی مانگ</annotation>
+		<annotation cp="🎀">ئاھەنگ گێڕان</annotation>
+		<annotation cp="🎀" type="tts">قردێڵە</annotation>
+		<annotation cp="🎁">سندوق | ئاھەنگ گێڕان | خەڵات | دیاری | پێچراو</annotation>
+		<annotation cp="🎁" type="tts">خەڵاتی پێچراو</annotation>
+		<annotation cp="🎗">ئاھەنگ گێڕان | وەبیرهێنەر | قردێلە</annotation>
+		<annotation cp="🎗" type="tts">قردێلەی وەبیرهێنەر</annotation>
+		<annotation cp="🎟">چوونە ژوورەوە | پلیت</annotation>
+		<annotation cp="🎟" type="tts">پلیتەکانی چوونە ژوورەوە</annotation>
+		<annotation cp="🎫">چوونە ژوورەوە</annotation>
+		<annotation cp="🎫" type="tts">پلیت</annotation>
+		<annotation cp="🎖">ئاھەنگ گێڕان | مەدالیە | سەربازی</annotation>
+		<annotation cp="🎖" type="tts">مەدالیەی سەربازی</annotation>
+		<annotation cp="🏆">خەڵات</annotation>
+		<annotation cp="🏆" type="tts">سەرکەوتن</annotation>
+		<annotation cp="🏅">مەدالیا</annotation>
+		<annotation cp="🏅" type="tts">مەدالیای وەرزشی</annotation>
+		<annotation cp="🥇">یەکەم | زێڕ | مەدالیە</annotation>
+		<annotation cp="🥇" type="tts">مەدالیەی براوەی 1ەم</annotation>
+		<annotation cp="🥈">مەدالیە | دووەم | زیو</annotation>
+		<annotation cp="🥈" type="tts">مەدالیەی براوەی 2ەم</annotation>
+		<annotation cp="🥉">برۆنز | مەدالیە | سێیەم</annotation>
+		<annotation cp="🥉" type="tts">مەدالیەی براوەی 3یەم</annotation>
+		<annotation cp="⚽">تۆپ | تۆپی پێ | تۆپی پێی ئەمریکی</annotation>
+		<annotation cp="⚽" type="tts">تۆپی تۆپی پێ</annotation>
+		<annotation cp="⚾">تۆپ</annotation>
+		<annotation cp="⚾" type="tts">بەیسبۆڵ</annotation>
+		<annotation cp="🏀">تۆپ | تەوق</annotation>
+		<annotation cp="🏀" type="tts">باسكە</annotation>
+		<annotation cp="🏐">تۆپ | گەمە</annotation>
+		<annotation cp="🏐" type="tts">تۆپی بالە</annotation>
+		<annotation cp="🏈">ئەمریکی | تۆپ | تۆپی پێ</annotation>
+		<annotation cp="🏈" type="tts">تۆپی پێی ئەمریکی</annotation>
+		<annotation cp="🏉">تۆپ | تۆپی پێ | ڕەگبی</annotation>
+		<annotation cp="🏉" type="tts">تۆپی پێی ڕەگبی</annotation>
+		<annotation cp="🎾">تۆپ | ڕاکێت</annotation>
+		<annotation cp="🎾" type="tts">تێنس</annotation>
+		<annotation cp="🎳">تۆپ | گەمە</annotation>
+		<annotation cp="🎳" type="tts">بۆڵینگ</annotation>
+		<annotation cp="🏏">تۆپ | شەمشەمەکوێرە | گەمە</annotation>
+		<annotation cp="🏏" type="tts">یاری کریکێت</annotation>
+		<annotation cp="🏑">تۆپ | مەیدان | گەمە | هۆكی | ستیک</annotation>
+		<annotation cp="🏑" type="tts">هۆكی</annotation>
+		<annotation cp="🏒">گەمە | هۆكی | بەستەڵەک | دێو | ستیک</annotation>
+		<annotation cp="🏒" type="tts">هۆكی سەر سەهۆڵ</annotation>
+		<annotation cp="🏓">تۆپ | شەمشەمەکوێرە | گەمە | سەوڵ | تێنسی سه‌ر مێز | پینگ پۆنگ</annotation>
+		<annotation cp="🏓" type="tts">پینگ پۆنگ</annotation>
+		<annotation cp="🏸">باڵندە | گەمە | ڕاکێت | ڕیشە</annotation>
+		<annotation cp="🏸" type="tts">یاری په‌ڕ</annotation>
+		<annotation cp="🥊">مستەکۆڵە | دەستەوانە</annotation>
+		<annotation cp="🥊" type="tts">دەستەوانەی مستەکۆڵە</annotation>
+		<annotation cp="🥋">یاری جۆدۆ | کاراتێ | تایكواندۆ | هونەرە سەربازیەکان | یەکپۆشی</annotation>
+		<annotation cp="🥋" type="tts">یەکپۆشی هونەری سەربازی</annotation>
+		<annotation cp="🥅">گۆڵ | تۆڕ</annotation>
+		<annotation cp="🥅" type="tts">تۆڕی گۆڵ</annotation>
+		<annotation cp="⛳">گۆلف | کون</annotation>
+		<annotation cp="⛳" type="tts">ئاڵا لە ناو چاڵ</annotation>
+		<annotation cp="⛸">بەفر | خلیسکە</annotation>
+		<annotation cp="⛸" type="tts">بەرفرە خلیسکە</annotation>
+		<annotation cp="🎣">ماسی | جەمسەر</annotation>
+		<annotation cp="🎣" type="tts">جەمسەری ماسیگرتن</annotation>
+		<annotation cp="🎽">راکردن | چوارچێوەی دار | کراس | وەرزشوان</annotation>
+		<annotation cp="🎽" type="tts">کراسی ڕاکردن</annotation>
+		<annotation cp="🎿">بەفرە خلیسکە | بەفر</annotation>
+		<annotation cp="🎿" type="tts">بەفرە خلیسکە</annotation>
+		<annotation cp="🛷">خلیسکە | گالیسکەی یەک ئەسپی</annotation>
+		<annotation cp="🛷" type="tts">گالیسکە بەفرینە</annotation>
+		<annotation cp="🥌">تاشه‌به‌رد | یاری</annotation>
+		<annotation cp="🥌" type="tts">کێرلینگ ستۆن</annotation>
+		<annotation cp="🎯">گا | چاوی گا | تیر | چاو | گەمە | لێدان | ئامانج</annotation>
+		<annotation cp="🎯" type="tts">لێدانی ڕاستەوخۆ</annotation>
+		<annotation cp="🎱">8 | 8 تۆپ | تۆپ | بلیارد | هەشت | گەمە</annotation>
+		<annotation cp="🎱" type="tts">بلیاردی 8 تۆپی</annotation>
+		<annotation cp="🔮">تۆپ | کریستال | چیرۆکی ئەفسانەیی | خەیاڵ | بەخت | ئامراز</annotation>
+		<annotation cp="🔮" type="tts">تۆپی کریستاڵ</annotation>
+		<annotation cp="🎮">کۆنترۆڵکەر | گەمە</annotation>
+		<annotation cp="🎮" type="tts">ڤیدیۆ گەیم</annotation>
+		<annotation cp="🕹">گەمە | ڤیدیۆ گەیم</annotation>
+		<annotation cp="🕹" type="tts">دەسکی گەمە</annotation>
+		<annotation cp="🎰">گەمە | سلۆت</annotation>
+		<annotation cp="🎰" type="tts">سلۆتی ئامێر</annotation>
+		<annotation cp="🎲">زار | مردن | گەمە</annotation>
+		<annotation cp="🎲" type="tts">یاری زار</annotation>
+		<annotation cp="♠">کارت | گەمە</annotation>
+		<annotation cp="♠" type="tts">جلی سپەید</annotation>
+		<annotation cp="♥">کارت | گەمە</annotation>
+		<annotation cp="♥" type="tts">جلی دڵ</annotation>
+		<annotation cp="♦">کارت | گەمە</annotation>
+		<annotation cp="♦" type="tts">جلی ئەڵماس</annotation>
+		<annotation cp="♣">کارت | گەمە</annotation>
+		<annotation cp="♣" type="tts">جلی یانە</annotation>
+		<annotation cp="🃏">کارت | گەمە | کارتی جۆکەر</annotation>
+		<annotation cp="🃏" type="tts">گاڵتەچی</annotation>
+		<annotation cp="🀄">گەمە | ماجۆنگ | سوور</annotation>
+		<annotation cp="🀄" type="tts">ئەژدیھای سووری ماجۆنگ</annotation>
+		<annotation cp="🎴">کارت | گوڵ | گەمە | ژاپۆنی | یاریکردن</annotation>
+		<annotation cp="🎴" type="tts">کارتی یاری گوڵ</annotation>
+		<annotation cp="🎭">هونەر | دەمامک | ئەنجامدان | شانۆ</annotation>
+		<annotation cp="🎭" type="tts">ئەنجامدانی هونەر</annotation>
+		<annotation cp="🖼">هۆنەر | چوارچێوە | مۆزەخانە | وێنەکێشان | وێنە</annotation>
+		<annotation cp="🖼" type="tts">وێنەی چوارچێوەکراو</annotation>
+		<annotation cp="🎨">هونەر | مۆزەخانە | وێنەکێشان | پاڵێت</annotation>
+		<annotation cp="🎨" type="tts">پالێتی هونەرمەند</annotation>
+		<annotation cp="👓">پۆشاک | چاو | چاوێلکە | چاوێلكەكان</annotation>
+		<annotation cp="👓" type="tts">چاوێلكەكان</annotation>
+		<annotation cp="🕶">تاریك | چاو | چاویلکە | چاوێلكەكان</annotation>
+		<annotation cp="🕶" type="tts">چاویلکەی ھەتاوی</annotation>
+		<annotation cp="👔">جل وبەرگ</annotation>
+		<annotation cp="👔" type="tts">بۆینباخ</annotation>
+		<annotation cp="👕">پۆشاک | کراس | تیشێرت</annotation>
+		<annotation cp="👕" type="tts">تی شێرت</annotation>
+		<annotation cp="👖">پۆشاک | پانتۆڵ</annotation>
+		<annotation cp="👖" type="tts">پانتۆڵی کابۆ</annotation>
+		<annotation cp="🧣">مل</annotation>
+		<annotation cp="🧣" type="tts">سەرپۆش</annotation>
+		<annotation cp="🧤">دەست</annotation>
+		<annotation cp="🧤" type="tts">دەستەوانە</annotation>
+		<annotation cp="🧥">چاکەت</annotation>
+		<annotation cp="🧥" type="tts">پاڵتۆ</annotation>
+		<annotation cp="🧦">گۆره‌وی درێژ</annotation>
+		<annotation cp="🧦" type="tts">گۆرەوی کورت</annotation>
+		<annotation cp="👗">جل وبەرگ</annotation>
+		<annotation cp="👗" type="tts">جل</annotation>
+		<annotation cp="👘">جل وبەرگ</annotation>
+		<annotation cp="👘" type="tts">کراسی کیمۆنۆ</annotation>
+		<annotation cp="👙">پۆشاک | مەلە</annotation>
+		<annotation cp="👙" type="tts">جلی مەلەی ئافرەتان</annotation>
+		<annotation cp="👚">پۆشاک | ئافرەت</annotation>
+		<annotation cp="👚" type="tts">جل و بەرگی ئافرەتان</annotation>
+		<annotation cp="👛">پۆشاک | پارەی کانزا</annotation>
+		<annotation cp="👛" type="tts">جزدان</annotation>
+		<annotation cp="👜">جانتا | پۆشاک | جزدان</annotation>
+		<annotation cp="👜" type="tts">جانتای دەست</annotation>
+		<annotation cp="👝">جانتا | پۆشاک | پاوچ</annotation>
+		<annotation cp="👝" type="tts">جانتای گرتن</annotation>
+		<annotation cp="🛍">جانتا | ئوتێل | بازاڕكردن</annotation>
+		<annotation cp="🛍" type="tts">جانتای بازاڕكردن</annotation>
+		<annotation cp="🎒">جانتا | جانتای کتێب | قوتابخانە</annotation>
+		<annotation cp="🎒" type="tts">جانتای قوتابخانە</annotation>
+		<annotation cp="👞">پۆشاک | پیاو | پێڵاو</annotation>
+		<annotation cp="👞" type="tts">پێڵاوی پیاوان</annotation>
+		<annotation cp="👟">وەرزشی | پۆشاک | پێڵاو | دزەکەر</annotation>
+		<annotation cp="👟" type="tts">پێڵاوی ڕاکردن</annotation>
+		<annotation cp="👠">پۆشاک | پاژنە | پێڵاو | ئافرەت</annotation>
+		<annotation cp="👠" type="tts">پێڵاوی پاژنە بەرز</annotation>
+		<annotation cp="👡">پۆشاک | سەندەڵ | پێڵاو | ئافرەت</annotation>
+		<annotation cp="👡" type="tts">سەندەڵی ئافرەت</annotation>
+		<annotation cp="👢">پووت | پۆشاک | پێڵاو | ئافرەت</annotation>
+		<annotation cp="👢" type="tts">پووتی ئافرەت</annotation>
+		<annotation cp="👑">پۆشاک | پادشا | شاژن</annotation>
+		<annotation cp="👑" type="tts">تاج</annotation>
+		<annotation cp="👒">پۆشاک | کڵاو | ئافرەت</annotation>
+		<annotation cp="👒" type="tts">کڵاوی ئافرەت</annotation>
+		<annotation cp="🎩">پۆشاک | کڵاو | سەروو | کڵاوی سەرەوە</annotation>
+		<annotation cp="🎩" type="tts">کڵاوی سەرەوە</annotation>
+		<annotation cp="🎓">قەپاغ | ئاھەنگ گێڕان | پۆشاک | دەرچوون | کڵاو</annotation>
+		<annotation cp="🎓" type="tts">کڵاوی دەرچوون</annotation>
+		<annotation cp="🧢">کڵاوی بێیسبۆڵ</annotation>
+		<annotation cp="🧢" type="tts">ڕەچەتە</annotation>
+		<annotation cp="⛑">یارمەتی | پەڕینەوە | دەم و چاو | خودە</annotation>
+		<annotation cp="⛑" type="tts">خودەی کرێکاری ڕزگارکردن</annotation>
+		<annotation cp="📿">تەزبیح | پۆشاک | ملوانکە | نوێژ | ئایین</annotation>
+		<annotation cp="📿" type="tts">تەزبیحی نوێژ</annotation>
+		<annotation cp="💄">میکیاژ | مەیکەپ</annotation>
+		<annotation cp="💄" type="tts">سوراو</annotation>
+		<annotation cp="💍">ئەڵماس</annotation>
+		<annotation cp="💍" type="tts">ئاوازی زەنگ</annotation>
+		<annotation cp="💎">ئەڵماس | گەوھەر</annotation>
+		<annotation cp="💎" type="tts">گەوھەر</annotation>
+		<annotation cp="🔇">بێدەنگ | ئارام | هێمن | قسەکەر</annotation>
+		<annotation cp="🔇" type="tts">سپیکەری بێدەنگکراو</annotation>
+		<annotation cp="🔈">نەرم</annotation>
+		<annotation cp="🔈" type="tts">ئاستی دەنگی نزمی سپیکەر</annotation>
+		<annotation cp="🔉">ناوەند</annotation>
+		<annotation cp="🔉" type="tts">ئاستی دەنگی ناوەندی سپیکەر</annotation>
+		<annotation cp="🔊">بەرز</annotation>
+		<annotation cp="🔊" type="tts">ئاستی دەنگی بەرزی سپیکەر</annotation>
+		<annotation cp="📢">بەرز | ناونیشانی گشتی</annotation>
+		<annotation cp="📢" type="tts">سپیكەری دەرەكی</annotation>
+		<annotation cp="📣">هاوارکردن</annotation>
+		<annotation cp="📣" type="tts">مێگافۆن</annotation>
+		<annotation cp="📯">قۆچ | پۆستە | پۆستەیی</annotation>
+		<annotation cp="📯" type="tts">زووڕنای بازنەیی</annotation>
+		<annotation cp="🔔">زەنگ</annotation>
+		<annotation cp="🔔" type="tts">زەنگ</annotation>
+		<annotation cp="🔕">زەنگ | قەدەغە | بێدەنگ | نەخێر | نا | قەدەغەکراو | ئارام | هێمن</annotation>
+		<annotation cp="🔕" type="tts">زەنگێکی لەتکراو</annotation>
+		<annotation cp="🎼">مووزیک | تۆمارکردن</annotation>
+		<annotation cp="🎼" type="tts">تۆماری مووزیكی</annotation>
+		<annotation cp="🎵">مووزیک | نۆتە</annotation>
+		<annotation cp="🎵" type="tts">نۆتەی مووزیک</annotation>
+		<annotation cp="🎶">مووزیک | نۆتە | نۆتەکان</annotation>
+		<annotation cp="🎶" type="tts">نۆتەکانی مووزیک</annotation>
+		<annotation cp="🎙">مایک | مایکرۆفۆن | مووزیک | ستۆدیۆ</annotation>
+		<annotation cp="🎙" type="tts">مایکرۆفۆنی ستۆدیۆ</annotation>
+		<annotation cp="🎚">ئاست | مووزیک | سلایدەر</annotation>
+		<annotation cp="🎚" type="tts">سلایدەری ئاست</annotation>
+		<annotation cp="🎛">کۆنترۆڵ | دەسک | مووزیک</annotation>
+		<annotation cp="🎛" type="tts">دەسکەکانی کۆنترۆڵ</annotation>
+		<annotation cp="🎤">کارۆکی | مایک</annotation>
+		<annotation cp="🎤" type="tts">مایكرۆفۆن</annotation>
+		<annotation cp="🎧">ئیەربەد</annotation>
+		<annotation cp="🎧" type="tts">هێدفۆن</annotation>
+		<annotation cp="📻">ڤیدیۆ</annotation>
+		<annotation cp="📻" type="tts">ڕادیۆ</annotation>
+		<annotation cp="🎷">ئامراز | مووزیک | ساکس</annotation>
+		<annotation cp="🎷" type="tts">ئامێری ساکسۆفۆن</annotation>
+		<annotation cp="🎸">ئامراز | مووزیک</annotation>
+		<annotation cp="🎸" type="tts">گیتار</annotation>
+		<annotation cp="🎹">ئامراز | تەختەکلیل | مووزیک | پیانۆ</annotation>
+		<annotation cp="🎹" type="tts">تەختەکلیلی مووزیكی</annotation>
+		<annotation cp="🎺">ئامراز | مووزیک</annotation>
+		<annotation cp="🎺" type="tts">زوڕنا</annotation>
+		<annotation cp="🎻">ئامراز | مووزیک</annotation>
+		<annotation cp="🎻" type="tts">کەمان</annotation>
+		<annotation cp="🥁">تەپڵ | داری تەپڵ | مووزیك</annotation>
+		<annotation cp="🥁" type="tts">دەهۆڵ</annotation>
+		<annotation cp="📱">خانە | مۆبایل | تەلەفۆن</annotation>
+		<annotation cp="📱" type="tts">مۆبایل</annotation>
+		<annotation cp="📲">تیر | پەیوەندی | خانە | مۆبایل | تەلەفۆن | وەرگرتن</annotation>
+		<annotation cp="📲" type="tts">تەلەفۆنی مۆبایڵ لەگەڵ تیر</annotation>
+		<annotation cp="☎">تەلەفۆن</annotation>
+		<annotation cp="☎" type="tts">تەلەفۆن</annotation>
+		<annotation cp="📞">تەلەفۆن | وەرگر</annotation>
+		<annotation cp="📞" type="tts">وەرگری تەلەفۆن</annotation>
+		<annotation cp="📟">پەیجەر</annotation>
+		<annotation cp="📟" type="tts">پەیجەر</annotation>
+		<annotation cp="📠">فاكس</annotation>
+		<annotation cp="📠" type="tts">ئامێری فاکس</annotation>
+		<annotation cp="🔋">پاتری</annotation>
+		<annotation cp="🔋" type="tts">پاتری</annotation>
+		<annotation cp="🔌">کارەبا | کارەبایی | پلاگ</annotation>
+		<annotation cp="🔌" type="tts">پلاگی کارەبایی</annotation>
+		<annotation cp="💻">کۆمپیۆتەر | کۆمپیۆتەری کەسی | کەسی</annotation>
+		<annotation cp="💻" type="tts">كۆمپیۆتەری لاپتۆپ</annotation>
+		<annotation cp="🖥">کۆمپیۆتەر | دێسکتۆپ</annotation>
+		<annotation cp="🖥" type="tts">کۆمپیۆتەری دێسکتۆپ</annotation>
+		<annotation cp="🖨">کۆمپیۆتەر</annotation>
+		<annotation cp="🖨" type="tts">چاپکەر</annotation>
+		<annotation cp="⌨">کۆمپیۆتەر</annotation>
+		<annotation cp="⌨" type="tts">تەختەکلیل</annotation>
+		<annotation cp="🖱">کۆمپیۆتەر</annotation>
+		<annotation cp="🖱" type="tts">ماوسی کۆمپیۆتەر</annotation>
+		<annotation cp="🖲">کۆمپیۆتەر</annotation>
+		<annotation cp="🖲" type="tts">تراکبۆڵ</annotation>
+		<annotation cp="💽">کۆمپیۆتەر | دیسک | بینایی | مینی دیسک</annotation>
+		<annotation cp="💽" type="tts">دیسکی کۆمپیوتەر</annotation>
+		<annotation cp="💾">کۆمپیۆتەر | دیسک | فلۆپی</annotation>
+		<annotation cp="💾" type="tts">دیسکی فلۆپی</annotation>
+		<annotation cp="💿">سی دی | کۆمپیۆتەر | دیسک | بینایی</annotation>
+		<annotation cp="💿" type="tts">دیسکی بینایی</annotation>
+		<annotation cp="📀">بلوڕەی | دی ڤی دی | کۆمپیۆتەر | دیسک | بینایی</annotation>
+		<annotation cp="📀" type="tts">دی ڤی دی</annotation>
+		<annotation cp="🎥">کامیرا | سینەما | فیلم</annotation>
+		<annotation cp="🎥" type="tts">کامیرای فیلم</annotation>
+		<annotation cp="🎞">سینەما | فیلم | فرەیم</annotation>
+		<annotation cp="🎞" type="tts">فرەیمی فیلم</annotation>
+		<annotation cp="📽">سینەما | فیلم | پرۆجێکتەر | ڤیدیۆ</annotation>
+		<annotation cp="📽" type="tts">پۆجێکتەری فیلم</annotation>
+		<annotation cp="🎬">چەپڵەلێدەر | فیلم</annotation>
+		<annotation cp="🎬" type="tts">تەختەی چەپڵەلێدەر</annotation>
+		<annotation cp="📺">تەلەفزیۆن | ڤیدیۆ</annotation>
+		<annotation cp="📺" type="tts">تەلەفزیۆن</annotation>
+		<annotation cp="📷">ڤیدیۆ</annotation>
+		<annotation cp="📷" type="tts">کامێرا</annotation>
+		<annotation cp="📸">کامێرا | فلاش | ڤیدیۆ</annotation>
+		<annotation cp="📸" type="tts">کامیرای بە فلاش</annotation>
+		<annotation cp="📹">کامێرا | ڤیدیۆ</annotation>
+		<annotation cp="📹" type="tts">کامیرای ڤیدیۆ</annotation>
+		<annotation cp="📼">کاسێت | ڤی ئێچ ئێس | ڤیدیۆ</annotation>
+		<annotation cp="📼" type="tts">کاسێتی ڤیدیۆ</annotation>
+		<annotation cp="🔍">شووشە | گەورەکردن | گەڕان | ئامراز</annotation>
+		<annotation cp="🔍" type="tts">زەرەبین بە ئاڕاستەی چەپ</annotation>
+		<annotation cp="🔎">شووشە | گەورەکردن | گەڕان | ئامراز</annotation>
+		<annotation cp="🔎" type="tts">زەرەبین بە ئاڕاستەی ڕاست</annotation>
+		<annotation cp="🕯">سووك</annotation>
+		<annotation cp="🕯" type="tts">مۆم</annotation>
+		<annotation cp="💡">گلۆپ | کۆمیدی | کارەبا | بیرۆکە | ڕووناكی</annotation>
+		<annotation cp="💡" type="tts">گلۆپ</annotation>
+		<annotation cp="🔦">کارەبا | ڕووناكی | ئامراز | چرا</annotation>
+		<annotation cp="🔦" type="tts">ڕووناكی فلاش</annotation>
+		<annotation cp="🏮">پارچە | فانۆس | ڕووناكی | سوور</annotation>
+		<annotation cp="🏮" type="tts">فانۆسی بیبەری سوور</annotation>
+		<annotation cp="📔">کتێب | بەرگ | ڕازاوە | دەفتەر یاداشت</annotation>
+		<annotation cp="📔" type="tts">دەفتەر یاداشت لەگەڵ بەرگی ڕازاوە</annotation>
+		<annotation cp="📕">کتێب | داخراو</annotation>
+		<annotation cp="📕" type="tts">کتێبی داخراو</annotation>
+		<annotation cp="📖">کتێب | کراوە</annotation>
+		<annotation cp="📖" type="tts">کتێبی کراوە</annotation>
+		<annotation cp="📗">کتێب | سەوز</annotation>
+		<annotation cp="📗" type="tts">کتێبی سەوز</annotation>
+		<annotation cp="📘">کتێب | شین</annotation>
+		<annotation cp="📘" type="tts">کتێبی شین</annotation>
+		<annotation cp="📙">کتێب | پرتەقاڵی</annotation>
+		<annotation cp="📙" type="tts">کتێبی پرتەفاڵی</annotation>
+		<annotation cp="📚">حجزکرد</annotation>
+		<annotation cp="📚" type="tts">کتێبەکان</annotation>
+		<annotation cp="📓">دەفتەر یاداشت</annotation>
+		<annotation cp="📓" type="tts">دەفتەر یاداشت</annotation>
+		<annotation cp="📒">دەفتەر یاداشت</annotation>
+		<annotation cp="📒" type="tts">لیستی تۆمار</annotation>
+		<annotation cp="📃">کەزی | بەڵگەنامە | لاپەڕە</annotation>
+		<annotation cp="📃" type="tts">لاپەڕە لەگەڵ لوول</annotation>
+		<annotation cp="📜">کاغەز</annotation>
+		<annotation cp="📜" type="tts">ڕۆڵە</annotation>
+		<annotation cp="📄">بەڵگەنامە | لاپەڕە</annotation>
+		<annotation cp="📄" type="tts">لاپەڕە بە ئاڕاستەی سەرەوە</annotation>
+		<annotation cp="📰">هەواڵەکان | کاغەز</annotation>
+		<annotation cp="📰" type="tts">ڕۆژنامە</annotation>
+		<annotation cp="🗞">هەواڵەکان | ڕۆژنامە | کاغەز | لوولدراو</annotation>
+		<annotation cp="🗞" type="tts">ڕۆژنامەی لوولدراو</annotation>
+		<annotation cp="📑">نیشانگە | هێما | هێماکەر | خشتەبەند</annotation>
+		<annotation cp="📑" type="tts">خشتەبەندەکانی نیشانگە</annotation>
+		<annotation cp="🔖">نیشانە</annotation>
+		<annotation cp="🔖" type="tts">نیشانە</annotation>
+		<annotation cp="🏷">ناو</annotation>
+		<annotation cp="🏷" type="tts">ناو</annotation>
+		<annotation cp="💰">جانتا | دۆلار | پارە | جانتای پارە</annotation>
+		<annotation cp="💰" type="tts">جانتای پارە</annotation>
+		<annotation cp="💴">بانك | دراوی کاغەز | پسوولە | دراو | پارە | تێبینی | یەن</annotation>
+		<annotation cp="💴" type="tts">دراوی کاغەزی یەن</annotation>
+		<annotation cp="💵">بانك | دراوی کاغەز | پسوولە | دراو | دۆلار | پارە | تێبینی</annotation>
+		<annotation cp="💵" type="tts">دراوی کاغەزی دۆلار</annotation>
+		<annotation cp="💶">بانك | دراوی کاغەز | پسوولە | دراو | یوڕۆ | پارە | تێبینی</annotation>
+		<annotation cp="💶" type="tts">دراوی کاغەزی یوڕۆ</annotation>
+		<annotation cp="💷">بانك | دراوی کاغەز | پسوولە | دراو | پارە | تێبینی | پاوەند</annotation>
+		<annotation cp="💷" type="tts">دراوی کاغەزی پاوەند</annotation>
+		<annotation cp="💸">بانك | دراوی کاغەز | پسوولە | دراو | فڕین | پارە | تێبینی | باڵ</annotation>
+		<annotation cp="💸" type="tts">پارە لەگەڵ باڵ</annotation>
+		<annotation cp="💳">بانك | کارت | کرێدیت | پارە</annotation>
+		<annotation cp="💳" type="tts">کرێدیت کارت</annotation>
+		<annotation cp="💹">بانك | هێڵکاری | دراو | گراف | گەشە | بازاڕ | پارە | بەرز بوونەوە | ئاست | بەرەو سەر | یەن</annotation>
+		<annotation cp="💹" type="tts">هێڵکاریی بەرزبوونەوە لەگەڵ یەن</annotation>
+		<annotation cp="✉">نامە | ئیمەیل</annotation>
+		<annotation cp="✉" type="tts">زەرفی نامە</annotation>
+		<annotation cp="📧">ئیمەیل | نووسراو | نامە</annotation>
+		<annotation cp="📧" type="tts">ئێمەیڵ</annotation>
+		<annotation cp="📨">ئیمەیل | زەرفی نامە | هاتوو | نووسراو | نامە | وەرگرتن</annotation>
+		<annotation cp="📨" type="tts">زەرفی نامەی هاتوو</annotation>
+		<annotation cp="📩">تیر | خوارەوە | ئیمەیل | زەرفی نامە | نووسراو | نامە | دەرچوو | ناردراو</annotation>
+		<annotation cp="📩" type="tts">زەرفی نامە لەگەڵ تیر</annotation>
+		<annotation cp="📤">سندوق | نووسراو | نامە | دەرچوو | ناردراو | سینی</annotation>
+		<annotation cp="📤" type="tts">سینیی دەرچوو</annotation>
+		<annotation cp="📥">سندوق | هاتوو | نووسراو | نامە | وەرگرتن | سینی</annotation>
+		<annotation cp="📥" type="tts">سینی هاتوو</annotation>
+		<annotation cp="📦">سندوق | گورزە</annotation>
+		<annotation cp="📦" type="tts">پاکێج</annotation>
+		<annotation cp="📫">داخراو | نامە | سندوقی پۆستە | سندوی پۆستە</annotation>
+		<annotation cp="📫" type="tts">سندوقي پۆسته‌ی داخراو لەگەڵ ئاڵای هەڵکراو</annotation>
+		<annotation cp="📪">داخراو | دابەزێنراو | نامە | سندوقی پۆستە | سندوی پۆستە</annotation>
+		<annotation cp="📪" type="tts">سندوقي پۆسته‌ی داخراو لەگەڵ ئاڵای داگیراو</annotation>
+		<annotation cp="📬">نامە | سندوقی پۆستە | کراوە | سندوی پۆستە</annotation>
+		<annotation cp="📬" type="tts">سندوقي پۆستەی داخراو لەگەڵ ئاڵای هەڵکراو</annotation>
+		<annotation cp="📭">دابەزێنراو | نامە | سندوقی پۆستە | کراوە | سندوی پۆستە</annotation>
+		<annotation cp="📭" type="tts">سندوقي پۆستەی کراوە لەگەڵ ئاڵای داگیراو</annotation>
+		<annotation cp="📮">نامە | سندوقی پۆستە</annotation>
+		<annotation cp="📮" type="tts">سندوی پۆستە</annotation>
+		<annotation cp="🗳">دەنگدان | سندوق</annotation>
+		<annotation cp="🗳" type="tts">سندوقی دەنگدان لەگەڵ دەنگدان</annotation>
+		<annotation cp="✏">پێنووسی رەش</annotation>
+		<annotation cp="✏" type="tts">پێنووسی رەش</annotation>
+		<annotation cp="✒">نووکی پێنووس | پێنووس</annotation>
+		<annotation cp="✒" type="tts">نووکی پێنووسی ڕەش</annotation>
+		<annotation cp="🖋">حوبر | پێنووس</annotation>
+		<annotation cp="🖋" type="tts">پێنووسی حوبر</annotation>
+		<annotation cp="🖊">پێنووسی جاف</annotation>
+		<annotation cp="🖊" type="tts">پێنوس</annotation>
+		<annotation cp="🖌">وێنەکێشان</annotation>
+		<annotation cp="🖌" type="tts">فڵچەی وێنەکێشان</annotation>
+		<annotation cp="🖍">قەڵەم ڕەنگ</annotation>
+		<annotation cp="🖍" type="tts">قەڵەم ڕەنگ</annotation>
+		<annotation cp="📝">پێنووسی رەش</annotation>
+		<annotation cp="📝" type="tts">یادنامە</annotation>
+		<annotation cp="💼">جانتا</annotation>
+		<annotation cp="💼" type="tts">جانتا</annotation>
+		<annotation cp="📁">فایل | فۆڵدەر</annotation>
+		<annotation cp="📁" type="tts">فۆڵدەری فایل</annotation>
+		<annotation cp="📂">فایل | فۆڵدەر | کراوە</annotation>
+		<annotation cp="📂" type="tts">کردنەوەی فۆڵدەری فایل</annotation>
+		<annotation cp="🗂">کارت | دابەشكەر | ئیندێكس</annotation>
+		<annotation cp="🗂" type="tts">دابەشكەرەکانی کارتی پێڕستی کتێبخانە</annotation>
+		<annotation cp="📅">بەروار</annotation>
+		<annotation cp="📅" type="tts">ڕۆژژمێر</annotation>
+		<annotation cp="📆">ڕۆژژمێر</annotation>
+		<annotation cp="📆" type="tts">دڕاندنی ڕۆژژمێر</annotation>
+		<annotation cp="🗒">تێبینی | پاد | پێچ خواردوو</annotation>
+		<annotation cp="🗒" type="tts">تێبینینامەی پێچ خواردوو</annotation>
+		<annotation cp="🗓">ڕۆژژمێر | پاد | پێچ خواردوو</annotation>
+		<annotation cp="🗓" type="tts">ڕۆژژمێری پێچ خواردوو</annotation>
+		<annotation cp="📇">کارت | ئیندێكس | ڕۆلۆدێکس</annotation>
+		<annotation cp="📇" type="tts">ئیندێکسی کارت</annotation>
+		<annotation cp="📈">هێڵکاری | گراف | گەشە | خواست | بەرەوسەر</annotation>
+		<annotation cp="📈" type="tts">هێڵکاریی بەرزبوونەوە</annotation>
+		<annotation cp="📉">هێڵکاری | خوارەوە | گراف | خواست</annotation>
+		<annotation cp="📉" type="tts">هێڵکاریی نزم بوونەوە</annotation>
+		<annotation cp="📊">ئەستوون | هێڵکاری | گراف</annotation>
+		<annotation cp="📊" type="tts">هێڵکاریی ئەستوونیی</annotation>
+		<annotation cp="📋">ڕوونووسگە</annotation>
+		<annotation cp="📋" type="tts">ڕوونووسگە</annotation>
+		<annotation cp="📌">جێگیر کردن</annotation>
+		<annotation cp="📌" type="tts">ده‌مبووسی چه‌سپاندن</annotation>
+		<annotation cp="📍">جێگیر کردن | دەمبوس</annotation>
+		<annotation cp="📍" type="tts">دەمبوسی خڕ</annotation>
+		<annotation cp="📎">چەپکە</annotation>
+		<annotation cp="📎" type="tts">چەپکە</annotation>
+		<annotation cp="🖇">لینک | چەپکە</annotation>
+		<annotation cp="🖇" type="tts">چەپکەی لێکدراو</annotation>
+		<annotation cp="📏">ڕاستە | لێواری ڕاست</annotation>
+		<annotation cp="📏" type="tts">ڕاستەی ڕاست</annotation>
+		<annotation cp="📐">ڕاستە | سێت | سێگۆشە</annotation>
+		<annotation cp="📐" type="tts">ڕاستەی سێگۆشەیی</annotation>
+		<annotation cp="✂">ئامراز | بڕین</annotation>
+		<annotation cp="✂" type="tts">مقەس</annotation>
+		<annotation cp="🗃">سندوق | کارت | ژیان</annotation>
+		<annotation cp="🗃" type="tts">سندوقی فایلی کارت</annotation>
+		<annotation cp="🗄">کابینە | فایل | پێشکەشکردنی فایل</annotation>
+		<annotation cp="🗄" type="tts">کابینەی فایل</annotation>
+		<annotation cp="🗑">سەللەی زبل</annotation>
+		<annotation cp="🗑" type="tts">سەللەی زبل</annotation>
+		<annotation cp="🔒">داخراو</annotation>
+		<annotation cp="🔒" type="tts">قوفڵدراوە</annotation>
+		<annotation cp="🔓">قوفڵ | کراوە | کردنەوە</annotation>
+		<annotation cp="🔓" type="tts">کرایەوە</annotation>
+		<annotation cp="🔏">مورەکەب | قوفڵ | نووکی پێنووس | پێنووس | تایبەتمەندیەتی</annotation>
+		<annotation cp="🔏" type="tts">بە پێنووس قوفڵدراوە</annotation>
+		<annotation cp="🔐">داخراو | کلیل | قوفڵ | پارێزراو</annotation>
+		<annotation cp="🔐" type="tts">بە کلیل قوفڵدراوە</annotation>
+		<annotation cp="🔑">قوفڵ | نهێنوشە</annotation>
+		<annotation cp="🔑" type="tts">سەرەکی</annotation>
+		<annotation cp="🗝">نیشانە | کلیل | قوفڵ | کۆن</annotation>
+		<annotation cp="🗝" type="tts">کلیلی کۆن</annotation>
+		<annotation cp="🔨">ئامراز</annotation>
+		<annotation cp="🔨" type="tts">چەکوش</annotation>
+		<annotation cp="⛏">هەڵکەندن | ئامراز</annotation>
+		<annotation cp="⛏" type="tts">قازمە</annotation>
+		<annotation cp="⚒">چەکوش | قازمە | ئامراز</annotation>
+		<annotation cp="⚒" type="tts">چەکوش و قازمە</annotation>
+		<annotation cp="🛠">چەکوش | ئامراز | جەرنافیز | سپانە</annotation>
+		<annotation cp="🛠" type="tts">چەکوش و جەرنافیز</annotation>
+		<annotation cp="🗡">چەقۆ</annotation>
+		<annotation cp="🗡" type="tts">خەنجەر</annotation>
+		<annotation cp="⚔">یەکتربڕ | شمشێر | چەک</annotation>
+		<annotation cp="⚔" type="tts">شمشێری یەکتربڕ</annotation>
+		<annotation cp="🔫">چەک | چەکی دەستی | دەمانچە | ئامراز</annotation>
+		<annotation cp="🔫" type="tts">دەمانچە</annotation>
+		<annotation cp="🏹">تیرهاوێژ | تیربازی | تیر | کەوان | قەوس | ئامراز | چەک | بازنەی کەلو</annotation>
+		<annotation cp="🏹" type="tts">تیر و کەوان</annotation>
+		<annotation cp="🛡">چەک</annotation>
+		<annotation cp="🛡" type="tts">قەلغان</annotation>
+		<annotation cp="🔧">ئامراز | جەرنافیز | سپانە</annotation>
+		<annotation cp="🔧" type="tts">جەرنافیز</annotation>
+		<annotation cp="🔩">بورغی | واشەر | ئامراز</annotation>
+		<annotation cp="🔩" type="tts">واشەر و بورغی</annotation>
+		<annotation cp="⚙">ئامراز</annotation>
+		<annotation cp="⚙" type="tts">گێر</annotation>
+		<annotation cp="🗜">ئامراز | مقاش | پەستان</annotation>
+		<annotation cp="🗜" type="tts">گیرە</annotation>
+		<annotation cp="⚖">هاوسەنگ | داد | تەرازوو | سکەیل | ئامراز | کێش | بازنەی کەلو</annotation>
+		<annotation cp="⚖" type="tts">سکەیلی هاوسەنگی</annotation>
+		<annotation cp="🔗">لینک</annotation>
+		<annotation cp="🔗" type="tts">لینک</annotation>
+		<annotation cp="⛓">زنجیر</annotation>
+		<annotation cp="⛓" type="tts">زنجیر</annotation>
+		<annotation cp="⚗">کیمیا | ئامراز</annotation>
+		<annotation cp="⚗" type="tts">ئەلێمبیک</annotation>
+		<annotation cp="🔬">ئامراز | زانست</annotation>
+		<annotation cp="🔬" type="tts">میکرۆسکوپ</annotation>
+		<annotation cp="🔭">ئامراز | زانست</annotation>
+		<annotation cp="🔭" type="tts">تێلیسکۆب</annotation>
+		<annotation cp="📡">ئەنتێنا | سنی | سەتەلایت</annotation>
+		<annotation cp="📡" type="tts">ئەنتێنای سەتەلایت</annotation>
+		<annotation cp="💉">پزیشک | دەرمان | دەرزی | گوللە | نەخۆش | ئامراز</annotation>
+		<annotation cp="💉" type="tts">سرنج</annotation>
+		<annotation cp="💊">پزیشک | دەرمان | نەخۆش</annotation>
+		<annotation cp="💊" type="tts">حەب</annotation>
+		<annotation cp="🚪">دەرگا</annotation>
+		<annotation cp="🚪" type="tts">دەرگا</annotation>
+		<annotation cp="🛏">ئوتێل | نووستن</annotation>
+		<annotation cp="🛏" type="tts">شوێنی نووستن</annotation>
+		<annotation cp="🛋">قەنەفە | ئوتێل | گلۆپ</annotation>
+		<annotation cp="🛋" type="tts">قەنەفە و گلۆپ</annotation>
+		<annotation cp="🚽">ئاودەست</annotation>
+		<annotation cp="🚽" type="tts">ئاودەست</annotation>
+		<annotation cp="🚿">ئاو</annotation>
+		<annotation cp="🚿" type="tts">دۆشی گەرماو</annotation>
+		<annotation cp="🛁">گەرماو</annotation>
+		<annotation cp="🛁" type="tts">حەوزی گەرماو</annotation>
+		<annotation cp="🛒">بازاڕكردن | عارەبانە</annotation>
+		<annotation cp="🛒" type="tts">عارەبانەی بازاڕكردن</annotation>
+		<annotation cp="🚬">جگەرە کێشان</annotation>
+		<annotation cp="🚬" type="tts">جگەرە</annotation>
+		<annotation cp="⚰">مردن</annotation>
+		<annotation cp="⚰" type="tts">دارەمەیت</annotation>
+		<annotation cp="⚱">مردن | ناشتن | کووپە | خۆلەمێش</annotation>
+		<annotation cp="⚱" type="tts">کووپەی ناشتن</annotation>
+		<annotation cp="🗿">دەم و چاو | مۆیای | پەیکەر</annotation>
+		<annotation cp="🗿" type="tts">باڵندەی مۆوە</annotation>
+		<annotation cp="🏧">خودکار | خودکارکراو | بانك | بێژەر</annotation>
+		<annotation cp="🏧" type="tts">هێمای ئامێری ئەی تی ئێم</annotation>
+		<annotation cp="🚮">خۆڵ | سەللەی خۆڵ</annotation>
+		<annotation cp="🚮" type="tts">خاشاک لەناوی هێمای دەفر</annotation>
+		<annotation cp="🚰">خواردنەوە | شیاوی خواردنەوە | ئاو</annotation>
+		<annotation cp="🚰" type="tts">ئاوی خواردنەوە</annotation>
+		<annotation cp="♿">دەسگەیشتن</annotation>
+		<annotation cp="♿" type="tts">هێمای کورسی جوڵاو</annotation>
+		<annotation cp="🚹">ئاودەست | پیاو</annotation>
+		<annotation cp="🚹" type="tts">ژووری پیاوان</annotation>
+		<annotation cp="🚺">ئاودەست | ئافرەت</annotation>
+		<annotation cp="🚺" type="tts">ژووری ئافرەتان</annotation>
+		<annotation cp="🚻">ئاودەست | توالێت</annotation>
+		<annotation cp="🚻" type="tts">توالێت</annotation>
+		<annotation cp="🚼">منداڵ | گۆڕین</annotation>
+		<annotation cp="🚼" type="tts">هێمای منداڵ</annotation>
+		<annotation cp="🚾">ژوور | ئاودەست | توالێت | ئاو</annotation>
+		<annotation cp="🚾" type="tts">ئاودەستخانە</annotation>
+		<annotation cp="🛂">کۆنترۆڵ | پاسەپۆرت</annotation>
+		<annotation cp="🛂" type="tts">پشکنینی پاسەپۆرت</annotation>
+		<annotation cp="🛃">گومرگ</annotation>
+		<annotation cp="🛃" type="tts">گومرگ</annotation>
+		<annotation cp="🛄">جانتا | داواکردن</annotation>
+		<annotation cp="🛄" type="tts">شوێنی داواکردنەوەی جانتا</annotation>
+		<annotation cp="🛅">جانتا | لۆکەر | کەلوپەل</annotation>
+		<annotation cp="🛅" type="tts">کەلوپەلی جێماو</annotation>
+		<annotation cp="⚠">وریاکردنەوە</annotation>
+		<annotation cp="⚠" type="tts">وریاکردنەوە</annotation>
+		<annotation cp="🚸">منداڵ | پەڕینەوە | پیادە | هاتووچۆ</annotation>
+		<annotation cp="🚸" type="tts">پەڕینەوەی منداڵان</annotation>
+		<annotation cp="⛔">چوونە ژوورەوە | قەدەغە | نا | نەخێر | قەدەغەکراو | هاتووچۆ</annotation>
+		<annotation cp="⛔" type="tts">چوونەژوورەوە قەدەغەیە</annotation>
+		<annotation cp="🚫">چوونە ژوورەوە | قەدەغە | نا | نەخێر</annotation>
+		<annotation cp="🚫" type="tts">قەدەغە</annotation>
+		<annotation cp="🚳">پایسکل | قەدەغە | نەخێر | نا | قەدەغەکراو</annotation>
+		<annotation cp="🚳" type="tts">پایسکل ڕێپێدراو نیە</annotation>
+		<annotation cp="🚭">قەدەغە | نا | نەخێر | قەدەغەکراو | جگەرە كێشان</annotation>
+		<annotation cp="🚭" type="tts">جگەرە كێشان قەدەغەیە</annotation>
+		<annotation cp="🚯">قەدەغە | زبل | نەخێر | نا | قەدەغەکراو</annotation>
+		<annotation cp="🚯" type="tts">فڕێدانی خاشاک قەدەغەیە</annotation>
+		<annotation cp="🚱">شیاوی خواردنەوە نیە | ناخورێتەوە | ئاو</annotation>
+		<annotation cp="🚱" type="tts">ئاوەکە بۆ خواردنەوە ناشێت</annotation>
+		<annotation cp="🚷">قەدەغە | نا | نەخێر | پیادە</annotation>
+		<annotation cp="🚷" type="tts">پیادە قەدەغەیە</annotation>
+		<annotation cp="📵">خانە | قەدەغە | مۆبایل | نەخێر | نا | تەلەفۆن | قەدەغەکراو</annotation>
+		<annotation cp="📵" type="tts">مۆبایل قەدەغەیە</annotation>
+		<annotation cp="🔞">18 | سنوورداری تەمەن | هەژدە | قەدەغە | نەخێر | نا | قەدەغەکراو | خوار تەمەن</annotation>
+		<annotation cp="🔞" type="tts">کەسی ژێر تەمەنی هەژدە ساڵی قەدەغەیە</annotation>
+		<annotation cp="☢">تیشکدەری ناووکی | هێما</annotation>
+		<annotation cp="☢" type="tts">تیشکدەری ناووکی</annotation>
+		<annotation cp="☣">مەترسی بایلۆجی | هێما</annotation>
+		<annotation cp="☣" type="tts">مەترسی بایلۆجی.</annotation>
+		<annotation cp="⬆">تیر | کاردیناڵ | ئاڕاستە | باکور</annotation>
+		<annotation cp="⬆" type="tts">تیر بەرەو سەرەوە</annotation>
+		<annotation cp="↗">تیر | ئاڕاستە | ناوخۆیی | باکووری خۆرھەڵات</annotation>
+		<annotation cp="↗" type="tts">تیر بەرەو ڕاست-سەرەوە</annotation>
+		<annotation cp="➡">تیر | کاردیناڵ | ئاڕاستە | خۆرھەڵات</annotation>
+		<annotation cp="➡" type="tts">تیرنیشانی ڕاست</annotation>
+		<annotation cp="↘">تیر | ئاڕاستە | ناوخۆیی | باشووری خۆرهەڵات</annotation>
+		<annotation cp="↘" type="tts">بەرەوخوار ، بۆخوارەوە تیر بەرەو خوارەوە</annotation>
+		<annotation cp="⬇">تیر | کاردیناڵ | ئاڕاستە | بەرەو خوارەوە | باشوور</annotation>
+		<annotation cp="⬇" type="tts">تیربۆ لای خوارەوە</annotation>
+		<annotation cp="↙">تیر | ئاڕاستە | ناوخۆیی | باشووری خۆرئاوا</annotation>
+		<annotation cp="↙" type="tts">تیرنشانی چەپ بەرەو خوارەوە</annotation>
+		<annotation cp="⬅">تیر | کاردیناڵ | ئاڕاستە | خۆرئاوا</annotation>
+		<annotation cp="⬅" type="tts">تیرنشانی چەپ</annotation>
+		<annotation cp="↖">تیر | ئاڕاستە | ناوخۆیی | باکوری خورئاوا</annotation>
+		<annotation cp="↖" type="tts">تیرنشانی چەپ بەرەو سەرەوە</annotation>
+		<annotation cp="↕">تیر</annotation>
+		<annotation cp="↕" type="tts">تیر سەراوگێر</annotation>
+		<annotation cp="↔">تیر</annotation>
+		<annotation cp="↔" type="tts">تیری چەپ-ڕاست</annotation>
+		<annotation cp="↩">تیر</annotation>
+		<annotation cp="↩" type="tts">تیرنیشانی ڕاست بە لای چەپ دەچەمێتەوە</annotation>
+		<annotation cp="↪">تیر</annotation>
+		<annotation cp="↪" type="tts">تیرنشانی چەپ بە لای ڕاستدا دەچەمێتەوە</annotation>
+		<annotation cp="⤴">تیر</annotation>
+		<annotation cp="⤴" type="tts">تیرنیشانی ڕاست بە لای سەرەوە دەچەمێتەوە</annotation>
+		<annotation cp="⤵">تیر | خوارەوە</annotation>
+		<annotation cp="⤵" type="tts">تیرنیشانی ڕاست بە لای خوارەوە دەچەمێتەوە</annotation>
+		<annotation cp="🔃">تیر | میلی کاتژمێر | بارکردنەوە</annotation>
+		<annotation cp="🔃" type="tts">تیری ئاسۆیی پێچەوانەی میلی کاتژمێر</annotation>
+		<annotation cp="🔄">پێچەوانەی میلی کاتژمێر | تیر | دژی میلی کاتژمێر | ویزەرشینس</annotation>
+		<annotation cp="🔄" type="tts">دوگمەی تیری پێچەوانەی میلی کاتژمێر</annotation>
+		<annotation cp="🔙">تیر | دواوە</annotation>
+		<annotation cp="🔙" type="tts">تیری گەڕانەوە</annotation>
+		<annotation cp="🔚">تیر | کۆتایی</annotation>
+		<annotation cp="🔚" type="tts">تیری کۆتایی</annotation>
+		<annotation cp="🔛">تیر | هێما | هەڵکراو</annotation>
+		<annotation cp="🔛" type="tts">هەڵکراو! تیر</annotation>
+		<annotation cp="🔜">تیر | زوو</annotation>
+		<annotation cp="🔜" type="tts">تیری زوو</annotation>
+		<annotation cp="🔝">تیر | سەروو | لووتکە</annotation>
+		<annotation cp="🔝" type="tts">تیری سەروو</annotation>
+		<annotation cp="🛐">ئایین | پەرستن</annotation>
+		<annotation cp="🛐" type="tts">شوێنی پەرستش</annotation>
+		<annotation cp="⚛">بێباوەڕ | گەردیلە</annotation>
+		<annotation cp="⚛" type="tts">هێمای گەردیلە</annotation>
+		<annotation cp="🕉">هیندۆس | ئایین</annotation>
+		<annotation cp="🕉" type="tts">ئۆم</annotation>
+		<annotation cp="✡">داود | جوو | جولەکانە | ئایین | ئەستێرە</annotation>
+		<annotation cp="✡" type="tts">ئەستێرەی داود</annotation>
+		<annotation cp="☸">بوزی | دارما | ئایین | چەرخ</annotation>
+		<annotation cp="☸" type="tts">گالیسکەی دارما</annotation>
+		<annotation cp="☯">ئایین | تاو | تاوی | یانگ | ین</annotation>
+		<annotation cp="☯" type="tts">ین یانگ</annotation>
+		<annotation cp="✝">مەسیحی | خاچ | ئایین</annotation>
+		<annotation cp="✝" type="tts">خاچی لاتینی</annotation>
+		<annotation cp="☦">مەسیحی | خاچ | ئایین</annotation>
+		<annotation cp="☦" type="tts">خاچی ئۆرسۆدۆکسی</annotation>
+		<annotation cp="☪">ئیسلام | موسوڵمان | ئایین</annotation>
+		<annotation cp="☪" type="tts">ئەستێرە و مانگ</annotation>
+		<annotation cp="☮">ئاشتی</annotation>
+		<annotation cp="☮" type="tts">هێمای ئاشتی</annotation>
+		<annotation cp="🕎">سووتانی مۆم | مۆم | ئایین</annotation>
+		<annotation cp="🕎" type="tts">مینۆرا</annotation>
+		<annotation cp="🔯">بەخت | ئەستێرە</annotation>
+		<annotation cp="🔯" type="tts">ئەستێرەی شەش لای خاڵدار</annotation>
+		<annotation cp="♈">بەران | بازنەی کەلو</annotation>
+		<annotation cp="♈" type="tts">بورجي كاوڕ</annotation>
+		<annotation cp="♉">گا | گامێش | کەلوگە</annotation>
+		<annotation cp="♉" type="tts">کەلوی گا</annotation>
+		<annotation cp="♊">دووانە | بازنەی کەلو</annotation>
+		<annotation cp="♊" type="tts">دووانە</annotation>
+		<annotation cp="♋">قرژاڵ | بازنەی کەلو</annotation>
+		<annotation cp="♋" type="tts">شێرپەنجە</annotation>
+		<annotation cp="♌">شێر | بازنەی کەلو</annotation>
+		<annotation cp="♌" type="tts">کەلوی شێر</annotation>
+		<annotation cp="♍">بازنەی بورجەکان</annotation>
+		<annotation cp="♍" type="tts">کەلوی گوڵەگەنم</annotation>
+		<annotation cp="♎">هاوسەنگ | داد | سکەیل | بازنەی کەلو</annotation>
+		<annotation cp="♎" type="tts">کەلوی تەرازوو</annotation>
+		<annotation cp="♏">دووپشک | کەلوی دووپشک | بازنەی کەلو</annotation>
+		<annotation cp="♏" type="tts">کەلوی دووپشک</annotation>
+		<annotation cp="♐">تیرهاوێژ | بازنەی کەلو</annotation>
+		<annotation cp="♐" type="tts">کەوان</annotation>
+		<annotation cp="♑">بزن | بازنەی کەلو</annotation>
+		<annotation cp="♑" type="tts">کەلوی کارژۆلە</annotation>
+		<annotation cp="♒">هەڵگر | ئاو | بازنەی کەلو</annotation>
+		<annotation cp="♒" type="tts">حەوزی ماسی</annotation>
+		<annotation cp="♓">ماسی | بازنەی کەلو</annotation>
+		<annotation cp="♓" type="tts">کەللوی نەھەنگ</annotation>
+		<annotation cp="⛎">هەڵگر | ئەژدیھا | مار | بازنەی کەلو</annotation>
+		<annotation cp="⛎" type="tts">ئۆفیەکس</annotation>
+		<annotation cp="🔀">تیر | یەکتربڕ</annotation>
+		<annotation cp="🔀" type="tts">دوگمەی ئاوێتەکردنی تراکەکان</annotation>
+		<annotation cp="🔁">تیر | ئاڕاستەی میلی کاتژمێر | دووبارە</annotation>
+		<annotation cp="🔁" type="tts">دوگمەی دووبارەکردنەوە</annotation>
+		<annotation cp="🔂">تیر | ئاڕاستەی میلی کاتژمێر | یەک جار</annotation>
+		<annotation cp="🔂" type="tts">دوگمەی یەک جار دووبارەکردنەوە</annotation>
+		<annotation cp="▶">تیر | پەخش کردن | ڕاست | سێگۆشە</annotation>
+		<annotation cp="▶" type="tts">دوگمەی پەخش کردن</annotation>
+		<annotation cp="⏩">تیر | دووان | خێرا | بەرەو پێش</annotation>
+		<annotation cp="⏩" type="tts">دوگمەی خێرا بۆ پێشەوە</annotation>
+		<annotation cp="⏭">تیر | دیمەنی داهاتوو | تراكی داهاتوو | سێگۆشە</annotation>
+		<annotation cp="⏭" type="tts">دوگمەی تراكی داهاتوو</annotation>
+		<annotation cp="⏯">تیر | ڕاگرتن | پەخش کردن | ڕاست | سێگۆشە</annotation>
+		<annotation cp="⏯" type="tts">دوگمەی پەخش کردن یان ڕاگرتن</annotation>
+		<annotation cp="◀">تیر | چەپ | گەڕاندنەوە | سێگۆشە</annotation>
+		<annotation cp="◀" type="tts">دوگمەی گەڕاندنەوە</annotation>
+		<annotation cp="⏪">تیر | دووان | خستنە دواوە</annotation>
+		<annotation cp="⏪" type="tts">دوگمەی گەڕاندنەوەی خێرا</annotation>
+		<annotation cp="⏮">تیر | دیمەنی پێشوو | تراكی پێشوو | سێگۆشە</annotation>
+		<annotation cp="⏮" type="tts">دوگمەی دوایین تراک</annotation>
+		<annotation cp="🔼">تیر | دوگمە | سوور</annotation>
+		<annotation cp="🔼" type="tts">دوگمەی سەرەوە</annotation>
+		<annotation cp="⏫">تیر | دووان</annotation>
+		<annotation cp="⏫" type="tts">دوگمەی سەرەوەی خێرا</annotation>
+		<annotation cp="🔽">تیر | دوگمە | خوارەوە | سوور</annotation>
+		<annotation cp="🔽" type="tts">دوگمەی خوارەوە</annotation>
+		<annotation cp="⏬">تیر | دووان | خوارەوە</annotation>
+		<annotation cp="⏬" type="tts">دوگمەی خوارەوەی خێرا</annotation>
+		<annotation cp="⏸">میل | دووان | ڕاگرتن | ستوونی</annotation>
+		<annotation cp="⏸" type="tts">دوگمەی ڕاگرتن</annotation>
+		<annotation cp="⏹">چوارگۆشە | وەستاندن</annotation>
+		<annotation cp="⏹" type="tts">دوگمەی وەستاندن</annotation>
+		<annotation cp="⏺">بازنە | تۆمارکردن</annotation>
+		<annotation cp="⏺" type="tts">دوگمەی تۆمارکردن</annotation>
+		<annotation cp="⏏">دەرهێنان</annotation>
+		<annotation cp="⏏" type="tts">دوگمەی دەرهێنان</annotation>
+		<annotation cp="🎦">کامێرا | فیلم</annotation>
+		<annotation cp="🎦" type="tts">سینەما</annotation>
+		<annotation cp="🔅">ڕووناکی | تاریک | نزم</annotation>
+		<annotation cp="🔅" type="tts">دوگمەی تاریک کردن</annotation>
+		<annotation cp="🔆">ڕووناک | ڕووناکی</annotation>
+		<annotation cp="🔆" type="tts">دوگمەی ڕووناک</annotation>
+		<annotation cp="📶">ئەنتێنا | میل | خانە | مۆبایل | تەلەفۆن | سیگناڵ</annotation>
+		<annotation cp="📶" type="tts">میلەکانی ئەنتێنا</annotation>
+		<annotation cp="📳">خانە | مۆبایل | دۆخ | تەلەفۆن | لەرینەوە</annotation>
+		<annotation cp="📳" type="tts">دۆخی لەرینەوە</annotation>
+		<annotation cp="📴">خانە | مۆبایل | کوژاوە | تەلەفۆن</annotation>
+		<annotation cp="📴" type="tts">تەلەفۆنی مۆبایڵی کوژاوە</annotation>
+		<annotation cp="♀">ئافرەت</annotation>
+		<annotation cp="♀" type="tts">هێمای مێینە</annotation>
+		<annotation cp="♂">پیاو</annotation>
+		<annotation cp="♂" type="tts">هێمای نێرینە</annotation>
+		<annotation cp="✖">ڕەتکردنەوە | لێکدان | لێكدان | ×</annotation>
+		<annotation cp="✖" type="tts">لێكدانی قورسی ×</annotation>
+		<annotation cp="➕">بیرکاری | کۆ</annotation>
+		<annotation cp="➕" type="tts">هێمای گەورەی کۆ</annotation>
+		<annotation cp="➖">بیرکاری | کەم</annotation>
+		<annotation cp="➖" type="tts">هێمای گەورەی کەمکردن</annotation>
+		<annotation cp="➗">دابەش | بیرکاری</annotation>
+		<annotation cp="➗" type="tts">هێمای دابەشکردنی گەورە</annotation>
+		<annotation cp="‼">بانگبانگ | سەرسوڕمان | هێما | خاڵبەندی</annotation>
+		<annotation cp="‼" type="tts">دوو نیشانەی سەرسوڕمان</annotation>
+		<annotation cp="⁉">سەرسوڕمان | ئینترۆبانگ | هێما | خاڵبەندی | پرسیار</annotation>
+		<annotation cp="⁉" type="tts">نیشانەی پرسیاری سەرسوڕمان</annotation>
+		<annotation cp="❓">نیشانە | خاڵبەندی | پرسیار</annotation>
+		<annotation cp="❓" type="tts">نیشانەی پرسیار</annotation>
+		<annotation cp="❔">نیشانە | دیاریکراو | خاڵبەندی | پرسیار</annotation>
+		<annotation cp="❔" type="tts">نیشانەی پرسیاری سپی</annotation>
+		<annotation cp="❕">سەرسوڕمان | نیشانە | دیاریکراو | خاڵبەندی</annotation>
+		<annotation cp="❕" type="tts">نیشانەی سەرسوڕمانی سپی</annotation>
+		<annotation cp="❗">سەرسوڕمان | هێما | خاڵبەندی</annotation>
+		<annotation cp="❗" type="tts">نیشانەی سەرسوڕمان</annotation>
+		<annotation cp="〰">داش | خاڵبەندی | شەپۆڵاوی</annotation>
+		<annotation cp="〰" type="tts">داشی شەپۆڵاوی</annotation>
+		<annotation cp="💱">بانك | دراو | ئالوگۆڕ | پارە</annotation>
+		<annotation cp="💱" type="tts">ئالوگۆڕی دراو</annotation>
+		<annotation cp="💲">دراو | دۆلار | پارە</annotation>
+		<annotation cp="💲" type="tts">هێمای گەورەی دۆلار</annotation>
+		<annotation cp="⚕">ستاف | دەرمان | ئيسكولاپيوس</annotation>
+		<annotation cp="⚕" type="tts">ھێمای پزیشکی</annotation>
+		<annotation cp="♻">گلێشدان</annotation>
+		<annotation cp="♻" type="tts">هێمای ڕیسایکڵکردن</annotation>
+		<annotation cp="⚜">فلۆر دی لیس</annotation>
+		<annotation cp="⚜" type="tts">فلۆر دی لیس</annotation>
+		<annotation cp="🔱">لەنگەرگەری کەشتی | دروشم | کەشتی | ئامراز &gt; تیری سێ سەر</annotation>
+		<annotation cp="🔱" type="tts">شیعاری تریدێنت</annotation>
+		<annotation cp="📛">باج | ناو</annotation>
+		<annotation cp="📛" type="tts">ناوی باج</annotation>
+		<annotation cp="🔰">دەست پێکەر | دەزو | سەوز | ژاپۆنی | گەڵا | ئامراز | زەرد</annotation>
+		<annotation cp="🔰" type="tts">هێمای ژاپۆنی بۆ دەست پێکەر</annotation>
+		<annotation cp="⭕">بازنە | ئۆ</annotation>
+		<annotation cp="⭕" type="tts">هێمای بازنەی گەورە</annotation>
+		<annotation cp="✅">پشکنین | هێما</annotation>
+		<annotation cp="✅" type="tts">هێمای پشکنینی قورسی سپی</annotation>
+		<annotation cp="☑">دەنگدان | سندوق | پشکنین</annotation>
+		<annotation cp="☑" type="tts">سندوقی دەنگدان لەگەڵ پشکنین</annotation>
+		<annotation cp="✔">پشکنین | هێما</annotation>
+		<annotation cp="✔" type="tts">هێمای پشکنینی قورس</annotation>
+		<annotation cp="❌">ڕەتكردنەوە | هێما | لێكدان | ×</annotation>
+		<annotation cp="❌" type="tts">هێمای یەکتربڕ</annotation>
+		<annotation cp="❎">هێما | چوارگۆشە</annotation>
+		<annotation cp="❎" type="tts">دوگمەی هێمای یەکتربڕ</annotation>
+		<annotation cp="➰">لوول | گێژەن کردن</annotation>
+		<annotation cp="➰" type="tts">لوولی پێچاوپێچ</annotation>
+		<annotation cp="➿">لوول | دووان | گێژەن کردن</annotation>
+		<annotation cp="➿" type="tts">لوولی پێچاوپێچی دووانەیی</annotation>
+		<annotation cp="〽">هێما | بەش</annotation>
+		<annotation cp="〽" type="tts">هێمای گۆڕینی بەش</annotation>
+		<annotation cp="✳">ئەستێرک</annotation>
+		<annotation cp="✳" type="tts">ئەستێرکی هەشت گۆشەیی</annotation>
+		<annotation cp="✴">ئەستێرە</annotation>
+		<annotation cp="✴" type="tts">ئەستێرەی هەشت گۆشەیی</annotation>
+		<annotation cp="❇">بریسکانەوە</annotation>
+		<annotation cp="❇" type="tts">بریسکانەوە</annotation>
+		<annotation cp="©">مافی ڕوونووس</annotation>
+		<annotation cp="©" type="tts">مافی ڕوونووس</annotation>
+		<annotation cp="®">تۆمارکراو</annotation>
+		<annotation cp="®" type="tts">تۆمارکراو</annotation>
+		<annotation cp="™">نیشانە | هێمای بازرگانی</annotation>
+		<annotation cp="™" type="tts">هێمای بازرگانی</annotation>
+		<annotation cp="🔠">ا ب ج د | ئینپوت | لاتینی | پیت | پیتی گەورە</annotation>
+		<annotation cp="🔠" type="tts">تێنووسینی پیتی لاتینی گەورە</annotation>
+		<annotation cp="🔡">ا ب ج د | ئینپوت | لاتینی | پیت | پیتی بچووک</annotation>
+		<annotation cp="🔡" type="tts">تێنووسینی پیتی لاتینی بچووک</annotation>
+		<annotation cp="🔢">1234 | ئینپوت | ژمارەکان</annotation>
+		<annotation cp="🔢" type="tts">تێنووسینی ژمارە</annotation>
+		<annotation cp="🔣">〒♪&amp;% | ئینپوت</annotation>
+		<annotation cp="🔣" type="tts">تێنووسینی هێما</annotation>
+		<annotation cp="🔤">ا ب ج | ئەلفوبێ | ئینپوت | لاتینی | پیتەکان</annotation>
+		<annotation cp="🔤" type="tts">تێنووسینی پیتی لاتینی</annotation>
+		<annotation cp="🅰">أ | جۆری خوێن</annotation>
+		<annotation cp="🅰" type="tts">دوگمەی أ (جۆری خوێن)</annotation>
+		<annotation cp="🆎">اب | جۆری خوێن</annotation>
+		<annotation cp="🆎" type="tts">دوگمەی أ.ب. (جۆری خوێن)</annotation>
+		<annotation cp="🅱">ب | جۆری خوێن</annotation>
+		<annotation cp="🅱" type="tts">دوگمەی ب (جۆری خوێن)</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">دوگمەی سی ئێڵ</annotation>
+		<annotation cp="🆒">فێنک</annotation>
+		<annotation cp="🆒" type="tts">دوگمەی خۆش</annotation>
+		<annotation cp="🆓">بەتاڵ</annotation>
+		<annotation cp="🆓" type="tts">دوگمەی سەربەخۆ</annotation>
+		<annotation cp="ℹ">ز | زانیاری</annotation>
+		<annotation cp="ℹ" type="tts">زانیاری</annotation>
+		<annotation cp="🆔">ناسنامە</annotation>
+		<annotation cp="🆔" type="tts">دوگمەی ناسنامە</annotation>
+		<annotation cp="Ⓜ">بازنە | m</annotation>
+		<annotation cp="Ⓜ" type="tts">Mی بازنەکراو</annotation>
+		<annotation cp="🆕">نوێ</annotation>
+		<annotation cp="🆕" type="tts">دوگمەی نوێ</annotation>
+		<annotation cp="🆖">باش نیە</annotation>
+		<annotation cp="🆖" type="tts">دوگمەی نگ</annotation>
+		<annotation cp="🅾">جۆری خوێن | o</annotation>
+		<annotation cp="🅾" type="tts">دوگمەی O (جۆری خوێن)</annotation>
+		<annotation cp="🆗">باشە</annotation>
+		<annotation cp="🆗" type="tts">دوگمەی OK</annotation>
+		<annotation cp="🅿">وەستاندنی ئۆتۆمۆبیل</annotation>
+		<annotation cp="🅿" type="tts">دوگمەی P</annotation>
+		<annotation cp="🆘">یارمەتی | فریامانکەون</annotation>
+		<annotation cp="🆘" type="tts">دوگمەی فریامانکەون</annotation>
+		<annotation cp="🆙">هێما | سەرەوە</annotation>
+		<annotation cp="🆙" type="tts">دوگمەی سەرەوە!</annotation>
+		<annotation cp="🆚">بەرامبەر | دژ</annotation>
+		<annotation cp="🆚" type="tts">دوگمەی ڤی ئێس</annotation>
+		<annotation cp="🈁">ژاپۆنی | کاتاکانا | ココ | “لێرە”</annotation>
+		<annotation cp="🈁" type="tts">دوگمەی &quot;لێرە&quot;ی ژاپۆنی</annotation>
+		<annotation cp="🈂">ژاپۆنی | کاتاکانا | サ | “تێچووی خزمەتگوزاری”</annotation>
+		<annotation cp="🈂" type="tts">دوگمەی &quot;تێچووی خزمەتگوزاری&quot; ژاپۆنی</annotation>
+		<annotation cp="🈷">ژاپۆنی | ئیدیۆگراف | 月 | “بڕی مانگانە”</annotation>
+		<annotation cp="🈷" type="tts">دوگمەی &quot;بڕی مانگانەی&quot;ژاپۆنی</annotation>
+		<annotation cp="🈶">ژاپۆنی | ئیدیۆگراف | 有 | “بە خۆڕایی نیە”</annotation>
+		<annotation cp="🈶" type="tts">دوگمەی &quot;بە خۆڕایی نیە&quot;ی ژاپۆنی</annotation>
+		<annotation cp="🈯">ژاپۆنی | ئیدیۆگراف | 指 | “پارێزراوە”</annotation>
+		<annotation cp="🈯" type="tts">دوگمەی &quot;پارێزراو&quot;ی ژاپۆنی</annotation>
+		<annotation cp="🉐">ژاپۆنی | ئیدیۆگراف | 得 | ””سەوداگەری</annotation>
+		<annotation cp="🉐" type="tts">دوگمەی &quot;سەوداگەری&quot;ژاپۆنی</annotation>
+		<annotation cp="🈹">ژاپۆنی | ئیدیۆگراف | 割 | “داشکاندن”</annotation>
+		<annotation cp="🈹" type="tts">دوگمەی &quot;داشکاندنی&quot; ژاپۆنی</annotation>
+		<annotation cp="🈚">ژاپۆنی | ئیدیۆگراف | 無 | “بە خۆڕایی”</annotation>
+		<annotation cp="🈚" type="tts">دوگمەی &quot;بە خۆڕایی&quot;ژاپۆنی</annotation>
+		<annotation cp="🈲">ژاپۆنی | ئیدیۆگراف | 禁 | “قەدەغە”</annotation>
+		<annotation cp="🈲" type="tts">دوگمەی &quot;قەدەغە&quot;ی ژاپۆنی</annotation>
+		<annotation cp="🉑">ژاپۆنی | ئیدیۆگراف | 可 | “پەسەند”</annotation>
+		<annotation cp="🉑" type="tts">دوگمەی &quot;پەسەندی&quot;ژاپۆنی</annotation>
+		<annotation cp="🈸">ژاپۆنی | ئیدیۆگراف | 申 | “داواکاری”</annotation>
+		<annotation cp="🈸" type="tts">دوگمەی &quot;داواکاری&quot; ژاپۆنی</annotation>
+		<annotation cp="🈴">ژاپۆنی | ئیدیۆگراف | 合 | “نمرەی دەرچوون”</annotation>
+		<annotation cp="🈴" type="tts">دوگمەی &quot;نمرەی دەرچوون&quot;ی ژاپۆنی</annotation>
+		<annotation cp="🈳">ژاپۆنی | ئیدیۆگراف | 空 | “پۆستی بەتاڵ”</annotation>
+		<annotation cp="🈳" type="tts">دوگمەی &quot;پۆستی بەتاڵ&quot;ی ژاپۆنی</annotation>
+		<annotation cp="㊗">ژاپۆنی | ئیدیۆگراف | 祝 | “پیرۆزە”</annotation>
+		<annotation cp="㊗" type="tts">دوگمەی &quot;پیرۆزباییلێکردن&quot;ی ژاپۆنی</annotation>
+		<annotation cp="㊙">ژاپۆنی | ئیدیۆگراف | 秘 | “نهێنی”</annotation>
+		<annotation cp="㊙" type="tts">دوگمەی &quot;نهێنی&quot; ژاپۆنی</annotation>
+		<annotation cp="🈺">ژاپۆنی | ئیدیۆگراف | 営 | “بۆ بزنس کراوەیە”</annotation>
+		<annotation cp="🈺" type="tts">دوگمەی &quot;کراوە بۆ بزنس&quot;ی ژاپۆنی</annotation>
+		<annotation cp="🈵">ژاپۆنی | ئیدیۆگراف | 満 | “هیچ پۆستێک نیە”</annotation>
+		<annotation cp="🈵" type="tts">دوگمەی &quot;هیچ پۆستێک نیە&quot;ی ژاپۆنی</annotation>
+		<annotation cp="🔴">بازنە | ئەندازە | سوور</annotation>
+		<annotation cp="🔴" type="tts">بازنەی سور</annotation>
+		<annotation cp="🔵">شین | بازنە | ئەندازە</annotation>
+		<annotation cp="🔵" type="tts">بازنەی شین</annotation>
+		<annotation cp="⚫">بازنە | ئەندازە</annotation>
+		<annotation cp="⚫" type="tts">بازنەی رەش</annotation>
+		<annotation cp="⚪">بازنە | ئەندازە</annotation>
+		<annotation cp="⚪" type="tts">بازنەی سپی</annotation>
+		<annotation cp="⬛">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="⬛" type="tts">چوارگۆشەی ڕەشی گەورە</annotation>
+		<annotation cp="⬜">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="⬜" type="tts">چوارگۆشەی گەورەی سپی</annotation>
+		<annotation cp="◼">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="◼" type="tts">چوارگۆشەی ناوەندی ڕەش</annotation>
+		<annotation cp="◻">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="◻" type="tts">چوارگۆشەی ناوەندی سپی</annotation>
+		<annotation cp="◾">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="◾" type="tts">چوارگۆشەی ڕەشی قەبارە ناوەند-بچووک</annotation>
+		<annotation cp="◽">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="◽" type="tts">چوارگۆشەی ناوەند-بچووکی سپی</annotation>
+		<annotation cp="▪">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="▪" type="tts">چوارگۆشەی بچووكی ڕەش</annotation>
+		<annotation cp="▫">ئەندازەیی | چوارگۆشە</annotation>
+		<annotation cp="▫" type="tts">چوارگۆشەی بچووكی سپی</annotation>
+		<annotation cp="🔶">ئەڵماس | ئەندازە | پرتەقاڵی</annotation>
+		<annotation cp="🔶" type="tts">ئەڵماسی پرتەفاڵی گەورە</annotation>
+		<annotation cp="🔷">شین | ئەڵماس | ئەندازە</annotation>
+		<annotation cp="🔷" type="tts">ئەڵماسی شینی گەورە</annotation>
+		<annotation cp="🔸">ئەڵماس | ئەندازە | پرتەقاڵی</annotation>
+		<annotation cp="🔸" type="tts">ئەڵماسی پرتەفاڵی بچووک</annotation>
+		<annotation cp="🔹">شین | ئەڵماس | ئەندازە</annotation>
+		<annotation cp="🔹" type="tts">ئەڵماسی شینی بچووک</annotation>
+		<annotation cp="🔺">ئەندازەیی | سوور</annotation>
+		<annotation cp="🔺" type="tts">سێگۆشەی سووری سەربەرەو سەر</annotation>
+		<annotation cp="🔻">خوارەوە | ئەندازەیی | سوور</annotation>
+		<annotation cp="🔻" type="tts">سێگۆشەی سووری سەربەرەو خوار</annotation>
+		<annotation cp="💠">کۆمیدی | ئەڵماس | ئەندازە | ناوەوە</annotation>
+		<annotation cp="💠" type="tts">ئەڵماس لەگەڵ خاڵێک</annotation>
+		<annotation cp="🔘">دوگمە | ئەندازە | رادیۆ</annotation>
+		<annotation cp="🔘" type="tts">دوگمە رادیۆ</annotation>
+		<annotation cp="🔳">دوگمە | ئەندازە | دیاریکراو | چوارگۆشە</annotation>
+		<annotation cp="🔳" type="tts">دوگمەی چوارگۆشەی سپی</annotation>
+		<annotation cp="🔲">دوگمە | ئەندازە | چوارگۆشە</annotation>
+		<annotation cp="🔲" type="tts">دوگمەی چوارگۆشەی ڕەش</annotation>
+		<annotation cp="🏁">دامە دامە | دامە دامەکراو | پێشبڕکێ</annotation>
+		<annotation cp="🏁" type="tts">ئاڵای دابەشکراو</annotation>
+		<annotation cp="🚩">پۆست</annotation>
+		<annotation cp="🚩" type="tts">ئاڵای سێگۆشەیی</annotation>
+		<annotation cp="🎌">ئاھەنگ گێڕان | خاچ | یەکتربڕ | ژاپۆنی</annotation>
+		<annotation cp="🎌" type="tts">ئاڵای ناویەک</annotation>
+		<annotation cp="🏴">بای بایکردن</annotation>
+		<annotation cp="🏴" type="tts">ئاڵای ڕەش</annotation>
+		<annotation cp="🏳">بای بایکردن</annotation>
+		<annotation cp="🏳" type="tts">ئاڵای سپی</annotation>
+		<annotation cp="🏳‍🌈">پەلکە زێڕینە</annotation>
+		<annotation cp="🏳‍🌈" type="tts">ئاڵای پەڵکە زێڕینە</annotation>
 	</annotations>
 </ldml>

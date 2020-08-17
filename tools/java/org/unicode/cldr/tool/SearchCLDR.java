@@ -329,7 +329,7 @@ public class SearchCLDR {
                     : file.getSourceLocaleID(path, status)
                     + (path.equals(status.pathWhereFound) ? "\t≣" : "\t" + status);
                 if (checkCldr != null) {
-                    SearchXml.show(ConfigOption.delete, locale, CLDRFile.getDistinguishingXPath(fullPath, null), value, null, null, null);
+                    SearchXml.show(ConfigOption.delete, "", locale, CLDRFile.getDistinguishingXPath(fullPath, null), value, null, null, null);
                 } else {
                     showLine(showPath, showParent, showEnglish, resolved, locale,
                         path, fullPath, value,

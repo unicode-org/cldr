@@ -966,7 +966,7 @@ public class ShowLocaleCoverage {
                     tsv_missing_basic.println(TSV_MISSING_BASIC_HEADER);
                     for (R2<Long, String> starred : starredCounter.getEntrySetSortedByCount(false, null)) {
                         // PathHeader ph = pathHeaderFactory.fromPath(starred.get1());
-                        tsv_missing_basic.println(locale + "\t" + starred.get0() + "\t" + starred.get1());
+                        tsv_missing_basic.println(locale + "\t" + starred.get0() + "\t" + starred.get1().replace("\"*\"", "'*'"));
                     }
 
                     for (Level level : levelsToShow) {

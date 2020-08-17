@@ -384,7 +384,7 @@ public class SearchXml {
                         diffInfo.sameCount += values.size();
                     }
                     if (diff && showValues) {
-                        show(ConfigOption.add, file, null, null, path, values, otherValues);
+                        show(ConfigOption.add, filePath, file, null, null, path, values, otherValues);
                     }
                 }
             } else {
@@ -429,7 +429,7 @@ public class SearchXml {
                                 }
                                 // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
                                 if (!groups && pathHeaderInfo.isEmpty()) {
-                                    show(ConfigOption.add, file, null, null, path, Collections.singleton(value), null);
+                                    show(ConfigOption.add, filePath, file, null, null, path, Collections.singleton(value), null);
                                 } else {
                                     System.out.println("#?" +
                                         (recursive ? filePath + "\t" : "")
@@ -456,6 +456,7 @@ public class SearchXml {
     enum ConfigOption {delete, add, addNew, replace}
 
     public static void show(ConfigOption configOption,
+        String fileParent,
         String localeOrFile,
         String match_path,
         String match_value,
@@ -477,7 +478,8 @@ public class SearchXml {
             : new_values.size() != 1 ? new_values.toString()
                 : new_values.iterator().next();
 
-        System.out.println("locale=" + fileWithoutSuffix
+        System.out.println(fileParent
+            + ";\tlocale=" + fileWithoutSuffix
             + ";\taction=" + configOption
             + (match_value == null ? "" : ";\tvalue=" + escape(match_value))
             + (match_path == null ? "" : ";\tpath=" + match_path)

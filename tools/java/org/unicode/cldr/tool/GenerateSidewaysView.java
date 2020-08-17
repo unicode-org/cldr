@@ -840,7 +840,7 @@ public class GenerateSidewaysView {
 
     private static void finishAll(PrintWriter out, PrintWriter tsvFile) {
         // TODO Auto-generated method stub
-        tsvFile.println("# EOF");
+        //tsvFile.println("# EOF");
         tsvFile.close();
     }
 }

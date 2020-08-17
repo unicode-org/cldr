@@ -1441,4 +1441,16 @@ public class TestPathHeader extends TestFmwkPlus {
         }
     }
 
+    public void TestQuotes() {
+        // quotes should never appear in result
+        PathHeader.Factory phf = PathHeader.getFactory();
+        String[] tests = {
+            "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\"ig\"]/pluralRule[@count=\"other\"]",
+            "//supplementalData/transforms/transform[@source=\"und-Khmr\"][@target=\"und-Latn\"]"
+        };
+        for (String test : tests) {
+            PathHeader trial = phf.fromPath(test);
+            assertEquals("No quotes in pathheader", false, trial.toString().contains("\""));
+        }
+    }
 }

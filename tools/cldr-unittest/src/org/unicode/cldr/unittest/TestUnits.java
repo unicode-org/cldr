@@ -2070,4 +2070,45 @@ public class TestUnits extends TestFmwk {
             }
         }
     }
+
+    public void TestGenderOfCompounds() {
+        Set<String> skipUnits = ImmutableSet.of("kilocalorie", "kilopascal", "terabyte", "gigabyte", "kilobyte", "gigabit", "kilobit", "megabit", "megabyte", "terabit");
+        for (String localeID : GrammarInfo.SEED_LOCALES) {
+            GrammarInfo grammarInfo = SDI.getGrammarInfo(localeID);
+            if (grammarInfo == null) {
+                logln("No grammar info for: " + localeID);
+                continue;
+            }
+            UnitConverter converter = SDI.getUnitConverter();
+            Collection<String> genderInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
+            if (genderInfo.isEmpty()) {
+                continue;
+            }
+            CLDRFile cldrFile = info.getCldrFactory().make(localeID, true);
+            Map<String,String> shortUnitToGender = new TreeMap<>();
+            Output<String> source = new Output<>();
+            Multimap<UnitPathType, String> partsUsed = LinkedHashMultimap.create();
+
+
+            for (String path : cldrFile) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                //ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/gender
+                if (parts.size() != 5 || !parts.getElement(-1).equals("gender")) {
+                    continue;
+                }
+                final String shortId = UnitConverter.getShortId(parts.getAttributeValue(-2, "type"));
+                UnitId unitId = converter.createUnitId(shortId);
+                String constructedGender = unitId.getGender(cldrFile, source, partsUsed);
+                final String gender = cldrFile.getStringValue(path);
+                final boolean areEqual = gender.equals(constructedGender);
+                if (!areEqual && !skipUnits.contains(shortId)) {
+                    unitId.getGender(cldrFile, source, partsUsed);
+                    shortUnitToGender.put(shortId, unitId + "\t" + gender + "\t" + constructedGender + "\t" + areEqual);
+                }
+            }
+            for (Entry<String,String> entry : shortUnitToGender.entrySet()) {
+                errln(localeID + "\t" + entry);
+            }
+        }
+    }
 }

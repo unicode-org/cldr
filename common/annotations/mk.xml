@@ -13,7 +13,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="mk"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">заграда | заокружувачка заграда | кадрава заграда</annotation>
+		<annotation cp="{">заграда | заокружувачка заграда | кадрава заграда | отворена кадрава заграда</annotation>
 		<annotation cp="{" type="tts">отворена кадрава заграда</annotation>
 		<annotation cp="🏻">боја | кожа | модификатор на емотикона | тип на кожа 1–2</annotation>
 		<annotation cp="🏻" type="tts">тип на кожа 1–2</annotation>
@@ -25,11 +25,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">тип на кожа 5</annotation>
 		<annotation cp="🏿">боја | кожа | модификатор на емотикона | тип на кожа 6</annotation>
 		<annotation cp="🏿" type="tts">тип на кожа 6</annotation>
-		<annotation cp="‾" draft="contributed">винкулум | горна црта</annotation>
+		<annotation cp="‾" draft="contributed">горна црта</annotation>
 		<annotation cp="‾" type="tts" draft="contributed">горна црта</annotation>
 		<annotation cp="_">долна црта | линија | црта</annotation>
 		<annotation cp="_" type="tts">долна црта</annotation>
-		<annotation cp="-">минус | црта | цртичка</annotation>
+		<annotation cp="-">минус | црта | цртичка | цртичка-минус</annotation>
 		<annotation cp="-" type="tts">цртичка-минус</annotation>
 		<annotation cp="‐">црта | цртичка</annotation>
 		<annotation cp="‐" type="tts">цртичка</annotation>
@@ -37,9 +37,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="–" type="tts">црта</annotation>
 		<annotation cp="—">долга црта | правописен знак</annotation>
 		<annotation cp="—" type="tts">долга црта</annotation>
-		<annotation cp="―">линија | црта</annotation>
+		<annotation cp="―">линија | хоризонтална црта | црта</annotation>
 		<annotation cp="―" type="tts">хоризонтална црта</annotation>
-		<annotation cp="・">катакана | средна точка | точки</annotation>
+		<annotation cp="・">катакана | средна точка | средна точка во катакана писмо | точки</annotation>
 		<annotation cp="・" type="tts">средна точка во катакана писмо</annotation>
 		<annotation cp=",">запирка</annotation>
 		<annotation cp="," type="tts">запирка</annotation>
@@ -49,7 +49,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="、" type="tts">идеографска запирка</annotation>
 		<annotation cp=";">точка и запирка</annotation>
 		<annotation cp=";" type="tts">точка и запирка</annotation>
-		<annotation cp="؛">арапска | точка и запирка</annotation>
+		<annotation cp="؛">арапска | арапска точка и запирка | точка и запирка</annotation>
 		<annotation cp="؛" type="tts">арапска точка и запирка</annotation>
 		<annotation cp=":">две точки</annotation>
 		<annotation cp=":" type="tts">две точки</annotation>
@@ -57,13 +57,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="!" type="tts">извичник</annotation>
 		<annotation cp="¡">извик | извичник | превртен</annotation>
 		<annotation cp="¡" type="tts">превртен извичник</annotation>
-		<annotation cp="?">прашање</annotation>
+		<annotation cp="?">прашалник | прашање</annotation>
 		<annotation cp="?" type="tts">прашалник</annotation>
 		<annotation cp="¿">прашалник | прашање | превртен</annotation>
 		<annotation cp="¿" type="tts">превртен прашалник</annotation>
 		<annotation cp="؟">арапски | прашалник | прашање</annotation>
 		<annotation cp="؟" type="tts">арапски прашалник</annotation>
-		<annotation cp="‽" draft="contributed">извичник-прашалник</annotation>
+		<annotation cp="‽" draft="contributed">интеробанг</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">интеробанг</annotation>
 		<annotation cp=".">завршна точка | точка | точка на крајот од реченицата</annotation>
 		<annotation cp="." type="tts">точка</annotation>
@@ -73,63 +73,63 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="。" type="tts">идеографска точка</annotation>
 		<annotation cp="·">средина | средна точка | точка</annotation>
 		<annotation cp="·" type="tts">средна точка</annotation>
-		<annotation cp="'">апостроф | наводник | полунаводник</annotation>
+		<annotation cp="'">апостроф | апостроф на машина за пишување | наводник | полунаводник</annotation>
 		<annotation cp="'" type="tts">апостроф на машина за пишување</annotation>
-		<annotation cp="‘">апостроф | наводник | полунаводник</annotation>
+		<annotation cp="‘">апостроф | лев апостроф | наводник | полунаводник</annotation>
 		<annotation cp="‘" type="tts">лев апостроф</annotation>
-		<annotation cp="’">апостроф | наводник | полунаводник</annotation>
+		<annotation cp="’">апостроф | десен апостроф | наводник | полунаводник</annotation>
 		<annotation cp="’" type="tts">десен апостроф</annotation>
-		<annotation cp="‚">апостроф | долен наводник | наводник</annotation>
+		<annotation cp="‚">апостроф | долен десен апостроф | долен наводник | наводник</annotation>
 		<annotation cp="‚" type="tts">долен десен апостроф</annotation>
-		<annotation cp="“">двоен наводник | наводник</annotation>
+		<annotation cp="“">двоен наводник | лев наводник | наводник</annotation>
 		<annotation cp="“" type="tts">лев наводник</annotation>
-		<annotation cp="”">двоен наводник | наводник</annotation>
+		<annotation cp="”">двоен наводник | десен наводник | наводник</annotation>
 		<annotation cp="”" type="tts">десен наводник</annotation>
-		<annotation cp="„">двоен наводник | долен наводник | наводник</annotation>
+		<annotation cp="„">двоен наводник | долен десен наводник | долен наводник | наводник</annotation>
 		<annotation cp="„" type="tts">долен десен наводник</annotation>
 		<annotation cp="«">загради | закосен | карети | лев француски наводник | лево | наводник | шеврон</annotation>
 		<annotation cp="«" type="tts">лев француски наводник</annotation>
 		<annotation cp="»">десен француски наводник | десно | загради | закосен | карети | наводник | шеврон</annotation>
 		<annotation cp="»" type="tts">десен француски наводник</annotation>
-		<annotation cp=")">заграда | заоблена заграда | мала заграда</annotation>
+		<annotation cp=")">заграда | заоблена заграда | затворена заграда | мала заграда</annotation>
 		<annotation cp=")" type="tts">затворена заграда</annotation>
-		<annotation cp="[">голема заграда | заграда | квадратна заграда</annotation>
+		<annotation cp="[">голема заграда | заграда | квадратна заграда | отворена квадратна заграда</annotation>
 		<annotation cp="[" type="tts">отворена квадратна заграда</annotation>
-		<annotation cp="]">голема заграда | заграда | квадратна заграда</annotation>
+		<annotation cp="]">голема заграда | заграда | затворена квадратна заграда | квадратна заграда</annotation>
 		<annotation cp="]" type="tts">затворена квадратна заграда</annotation>
-		<annotation cp="}">заграда | заокружувачка заграда | кадрава заграда</annotation>
+		<annotation cp="}">заграда | заокружувачка заграда | затворена кадрава заграда | кадрава заграда</annotation>
 		<annotation cp="}" type="tts">затворена кадрава заграда</annotation>
-		<annotation cp="〈">аглеста заграда | заграда | конусна заграда | шеврон | шилеста заграда</annotation>
+		<annotation cp="〈">аглеста заграда | заграда | конусна заграда | отворена аглеста заграда | шеврон | шилеста заграда</annotation>
 		<annotation cp="〈" type="tts">отворена аглеста заграда</annotation>
-		<annotation cp="〉">аглеста заграда | заграда | конусна заграда | шеврон | шилеста заграда</annotation>
+		<annotation cp="〉">аглеста заграда | заграда | затворена аглеста заграда | конусна заграда | шеврон | шилеста заграда</annotation>
 		<annotation cp="〉" type="tts">затворена аглеста заграда</annotation>
-		<annotation cp="《">двојна аглеста заграда | заграда</annotation>
+		<annotation cp="《">двојна аглеста заграда | заграда | отворена двојна аглеста заграда</annotation>
 		<annotation cp="《" type="tts">отворена двојна аглеста заграда</annotation>
-		<annotation cp="》">двојна аглеста заграда | заграда</annotation>
+		<annotation cp="》">двојна аглеста заграда | заграда | затворена двојна аглеста заграда</annotation>
 		<annotation cp="》" type="tts">затворена двојна аглеста заграда</annotation>
-		<annotation cp="「">аголна заграда | заграда</annotation>
+		<annotation cp="「">аголна заграда | заграда | отворена аголна заграда</annotation>
 		<annotation cp="「" type="tts">отворена аголна заграда</annotation>
-		<annotation cp="」">аголна заграда | заграда</annotation>
+		<annotation cp="」">аголна заграда | заграда | затворена аголна заграда</annotation>
 		<annotation cp="」" type="tts">затворена аголна заграда</annotation>
-		<annotation cp="『">заграда | неисполнета аголна заграда</annotation>
+		<annotation cp="『">заграда | неисполнета аголна заграда | отворена неисполнета аголна заграда</annotation>
 		<annotation cp="『" type="tts">отворена неисполнета аголна заграда</annotation>
-		<annotation cp="』">заграда | неисполнета аголна заграда</annotation>
+		<annotation cp="』">заграда | затворена неисполнета аголна заграда | неисполнета аголна заграда</annotation>
 		<annotation cp="』" type="tts">затворена неисполнета аголна заграда</annotation>
-		<annotation cp="【">заграда | леќовидна заграда | лентикуларна заграда</annotation>
+		<annotation cp="【">заграда | леќовидна заграда | лентикуларна заграда | отворена црна конкавна заграда</annotation>
 		<annotation cp="【" type="tts">отворена црна конкавна заграда</annotation>
-		<annotation cp="】">заграда | леќовидна заграда | лентикуларна заграда</annotation>
+		<annotation cp="】">заграда | затворена црна конкавна заграда | леќовидна заграда | лентикуларна заграда</annotation>
 		<annotation cp="】" type="tts">затворена црна конкавна заграда</annotation>
-		<annotation cp="〔">заграда | саќеста заграда</annotation>
+		<annotation cp="〔">заграда | отворена саќеста заграда | саќеста заграда</annotation>
 		<annotation cp="〔" type="tts">отворена саќеста заграда</annotation>
-		<annotation cp="〕">заграда | саќеста заграда</annotation>
+		<annotation cp="〕">заграда | затворена саќеста заграда | саќеста заграда</annotation>
 		<annotation cp="〕" type="tts">затворена саќеста заграда</annotation>
-		<annotation cp="〖">заграда | неисполнета конкавна заграда | неисполнета леќовидна заграда</annotation>
+		<annotation cp="〖">заграда | неисполнета конкавна заграда | неисполнета леќовидна заграда | отворена неисполнета конкавна заграда</annotation>
 		<annotation cp="〖" type="tts">отворена неисполнета конкавна заграда</annotation>
-		<annotation cp="〗">заграда | неисполнета конкавна заграда | неисполнета леќовидна заграда</annotation>
+		<annotation cp="〗">заграда | затворена неисполнета конкавна заграда | неисполнета конкавна заграда | неисполнета леќовидна заграда</annotation>
 		<annotation cp="〗" type="tts">затворена неисполнета конкавна заграда</annotation>
 		<annotation cp="§">дел | знак за оддел | оддел | параграф</annotation>
 		<annotation cp="§" type="tts">оддел</annotation>
-		<annotation cp="¶">алинеја | параграф | пасус</annotation>
+		<annotation cp="¶">алинеја | знак за параграф | параграф | пасус</annotation>
 		<annotation cp="¶" type="tts">знак за параграф</annotation>
 		<annotation cp="@">знак „at“ | мајмунче</annotation>
 		<annotation cp="@" type="tts">знак „at“</annotation>
@@ -141,7 +141,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="\" type="tts">обратна коса црта</annotation>
 		<annotation cp="&amp;">„et“ | амперсанд | и</annotation>
 		<annotation cp="&amp;" type="tts">амперсанд</annotation>
-		<annotation cp="#">број | тараба | хаш-ознака</annotation>
+		<annotation cp="#">број | знак тараба | тараба | хаш-ознака</annotation>
 		<annotation cp="#" type="tts">знак тараба</annotation>
 		<annotation cp="%">отсто | процент</annotation>
 		<annotation cp="%" type="tts">процент</annotation>
@@ -153,19 +153,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‡" type="tts">знак за двоен бодеж</annotation>
 		<annotation cp="•">знак за набројување | точка</annotation>
 		<annotation cp="•" type="tts">знак за набројување</annotation>
-		<annotation cp="‧">точка | црта | цртичка</annotation>
+		<annotation cp="‧">точка | точка за делење на слогови | црта | цртичка</annotation>
 		<annotation cp="‧" type="tts">точка за делење на слогови</annotation>
 		<annotation cp="′">прим</annotation>
 		<annotation cp="′" type="tts">прим</annotation>
-		<annotation cp="″">прим</annotation>
+		<annotation cp="″">двоен прим | прим</annotation>
 		<annotation cp="″" type="tts">двоен прим</annotation>
-		<annotation cp="‴">прим</annotation>
+		<annotation cp="‴">прим | троен прим</annotation>
 		<annotation cp="‴" type="tts">троен прим</annotation>
 		<annotation cp="‸" draft="contributed">карет</annotation>
 		<annotation cp="‸" type="tts" draft="contributed">карет</annotation>
-		<annotation cp="※">знак за референца</annotation>
+		<annotation cp="※">знак за референца | референца</annotation>
 		<annotation cp="※" type="tts">референца</annotation>
-		<annotation cp="⁂" draft="contributed">ѕвездички | три ѕвездички</annotation>
+		<annotation cp="⁂" draft="contributed">астеризам</annotation>
 		<annotation cp="⁂" type="tts" draft="contributed">астеризам</annotation>
 		<annotation cp="`">акцент | гравис | тон</annotation>
 		<annotation cp="`" type="tts">гравис</annotation>
@@ -177,7 +177,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¨" type="tts">дијареза</annotation>
 		<annotation cp="°">процент на алкохол | степен | час</annotation>
 		<annotation cp="°" type="tts">степен</annotation>
-		<annotation cp="℗">авторски права | аудиоснимка | звук</annotation>
+		<annotation cp="℗">авторски права | авторски права за аудиоснимка | аудиоснимка | звук</annotation>
 		<annotation cp="℗" type="tts">авторски права за аудиоснимка</annotation>
 		<annotation cp="←">лево | стрелка | стрелка што покажува налево</annotation>
 		<annotation cp="←" type="tts">стрелка што покажува налево</annotation>
@@ -223,7 +223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↬" type="tts" draft="contributed">стрелка надесно со јамка</annotation>
 		<annotation cp="↭" draft="contributed">брановидна двонасочна стрелка</annotation>
 		<annotation cp="↭" type="tts" draft="contributed">брановидна двонасочна стрелка</annotation>
-		<annotation cp="↯" draft="contributed">цикцак</annotation>
+		<annotation cp="↯" draft="contributed">цикцак стрелка надолу</annotation>
 		<annotation cp="↯" type="tts" draft="contributed">цикцак стрелка надолу</annotation>
 		<annotation cp="↰" draft="contributed">стрелка нагоре со врвот налево</annotation>
 		<annotation cp="↰" type="tts" draft="contributed">стрелка нагоре со врвот налево</annotation>
@@ -295,10 +295,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇨" type="tts" draft="contributed">празна стрелка надесно</annotation>
 		<annotation cp="⇩" draft="contributed">празна стрелка надолу</annotation>
 		<annotation cp="⇩" type="tts" draft="contributed">празна стрелка надолу</annotation>
+		<annotation cp="∀" draft="contributed">за сите</annotation>
 		<annotation cp="∀" type="tts" draft="contributed">за сите</annotation>
 		<annotation cp="∃" draft="contributed">постои</annotation>
 		<annotation cp="∃" type="tts" draft="contributed">постои</annotation>
-		<annotation cp="∅" draft="contributed">математика | операција со множество</annotation>
+		<annotation cp="∅" draft="contributed">празно множество</annotation>
 		<annotation cp="∅" type="tts" draft="contributed">празно множество</annotation>
 		<annotation cp="∆">инкремент | триаголник</annotation>
 		<annotation cp="∆" type="tts">инкремент</annotation>
@@ -306,11 +307,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">набла</annotation>
 		<annotation cp="∈">е елемент на | елемент | множество | содржи | членство</annotation>
 		<annotation cp="∈" type="tts">е елемент на</annotation>
-		<annotation cp="∉" draft="contributed">елемент</annotation>
+		<annotation cp="∉" draft="contributed">не е елемент</annotation>
 		<annotation cp="∉" type="tts" draft="contributed">не е елемент</annotation>
-		<annotation cp="∋" draft="contributed">елемент</annotation>
+		<annotation cp="∋" draft="contributed">содржи член</annotation>
 		<annotation cp="∋" type="tts" draft="contributed">содржи член</annotation>
-		<annotation cp="+">плус | собирање</annotation>
+		<annotation cp="+">знак плус | плус | собирање</annotation>
 		<annotation cp="+" type="tts">знак плус</annotation>
 		<annotation cp="±">плус-минус</annotation>
 		<annotation cp="±" type="tts">плус-минус</annotation>
@@ -320,7 +321,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">знак за множење</annotation>
 		<annotation cp="&lt;">ознака | помало од | почетна ознака</annotation>
 		<annotation cp="&lt;" type="tts">помало од</annotation>
-		<annotation cp="≮" draft="contributed">математика | нееднаквост</annotation>
+		<annotation cp="≮" draft="contributed">не е помало од</annotation>
 		<annotation cp="≮" type="tts" draft="contributed">не е помало од</annotation>
 		<annotation cp="=">еднакво | еднакво на</annotation>
 		<annotation cp="=" type="tts">еднакво</annotation>
@@ -328,45 +329,45 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≠" type="tts">нееднакво</annotation>
 		<annotation cp="&gt;">завршна ознака | ознака | поголемо од</annotation>
 		<annotation cp="&gt;" type="tts">поголемо од</annotation>
-		<annotation cp="≯" draft="contributed">математика | нееднаквост</annotation>
+		<annotation cp="≯" draft="contributed">не е поголемо од</annotation>
 		<annotation cp="≯" type="tts" draft="contributed">не е поголемо од</annotation>
 		<annotation cp="¬">не | негација</annotation>
 		<annotation cp="¬" type="tts">негација</annotation>
-		<annotation cp="|">v-црта | вертикална црта | исправена црта | линија | потег | црта | шеферова црта</annotation>
+		<annotation cp="|">v-црта | вертикална линија | вертикална црта | исправена црта | линија | потег | црта | шеферова црта</annotation>
 		<annotation cp="|" type="tts">вертикална линија</annotation>
 		<annotation cp="~">тилда</annotation>
 		<annotation cp="~" type="tts">тилда</annotation>
-		<annotation cp="−">минус | одземање</annotation>
+		<annotation cp="−">знак минус | минус | одземање</annotation>
 		<annotation cp="−" type="tts">знак минус</annotation>
 		<annotation cp="⁻">експонент | минус | минус во експонент</annotation>
 		<annotation cp="⁻" type="tts">минус во експонент</annotation>
-		<annotation cp="∓" draft="contributed">плус-минус</annotation>
+		<annotation cp="∓" draft="contributed">минус или плус</annotation>
 		<annotation cp="∓" type="tts" draft="contributed">минус или плус</annotation>
 		<annotation cp="√">квадратен корен | корен | радикал</annotation>
 		<annotation cp="√" type="tts">квадратен корен</annotation>
-		<annotation cp="∝" draft="contributed">пропорционалност</annotation>
+		<annotation cp="∝" draft="contributed">пропорционално</annotation>
 		<annotation cp="∝" type="tts" draft="contributed">пропорционално</annotation>
 		<annotation cp="∞">бесконечно | знак за бесконечност</annotation>
 		<annotation cp="∞" type="tts">знак за бесконечност</annotation>
-		<annotation cp="∟" draft="contributed">математика</annotation>
+		<annotation cp="∟" draft="contributed">прав агол</annotation>
 		<annotation cp="∟" type="tts" draft="contributed">прав агол</annotation>
-		<annotation cp="∠" draft="contributed">остар агол</annotation>
+		<annotation cp="∠" draft="contributed">агол</annotation>
 		<annotation cp="∠" type="tts" draft="contributed">агол</annotation>
 		<annotation cp="∩">множество | пресек</annotation>
 		<annotation cp="∩" type="tts">пресек</annotation>
 		<annotation cp="∪">збирка | множество | унија</annotation>
 		<annotation cp="∪" type="tts">унија</annotation>
-		<annotation cp="∫" draft="contributed">калкулус</annotation>
+		<annotation cp="∫" draft="contributed">интеграл</annotation>
 		<annotation cp="∫" type="tts" draft="contributed">интеграл</annotation>
-		<annotation cp="∬" draft="contributed">калкулус</annotation>
+		<annotation cp="∬" draft="contributed">двоен интеграл</annotation>
 		<annotation cp="∬" type="tts" draft="contributed">двоен интеграл</annotation>
 		<annotation cp="≈">апроксимација | приближно | приближно еднакво</annotation>
 		<annotation cp="≈" type="tts">приближно еднакво</annotation>
 		<annotation cp="≡">е идентично на | еднакво | идентично | тројно</annotation>
 		<annotation cp="≡" type="tts">е идентично на</annotation>
-		<annotation cp="≤">еднакво | еднакво на | нееднаквост | помало од</annotation>
+		<annotation cp="≤">еднакво | еднакво на | нееднаквост | помало од | помало од или еднакво</annotation>
 		<annotation cp="≤" type="tts">помало од или еднакво</annotation>
-		<annotation cp="≥">еднакво | еднакво на | нееднаквост | поголемо од</annotation>
+		<annotation cp="≥">еднакво | еднакво на | нееднаквост | поголемо од | поголемо од или еднакво</annotation>
 		<annotation cp="≥" type="tts">поголемо од или еднакво</annotation>
 		<annotation cp="≬" draft="contributed">помеѓу</annotation>
 		<annotation cp="≬" type="tts" draft="contributed">помеѓу</annotation>
@@ -402,7 +403,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▸" type="tts" draft="contributed">мал полн триаголник свртен надесно</annotation>
 		<annotation cp="▹" draft="contributed">мал празен триаголник свртен надесно</annotation>
 		<annotation cp="▹" type="tts" draft="contributed">мал празен триаголник свртен надесно</annotation>
-		<annotation cp="▼">долу | полн триаголник свртен надолу | полно | стрелка | триаголник</annotation>
+		<annotation cp="▼">долу | полн траголник свртен надолу | полн триаголник свртен надолу | полно | стрелка | триаголник</annotation>
 		<annotation cp="▼" type="tts">полн траголник свртен надолу</annotation>
 		<annotation cp="◊">дијамант | ромб</annotation>
 		<annotation cp="◊" type="tts">ромб</annotation>
@@ -534,7 +535,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">пијано лице</annotation>
 		<annotation cp="😵">зашеметено | лице</annotation>
 		<annotation cp="😵" type="tts">зашеметено лице</annotation>
-		<annotation cp="😵‍💫">зашеметен | леле | неволја | спирала | хипнотизиран</annotation>
+		<annotation cp="😵‍💫">зашеметен | леле | лице со спирални очи | неволја | спирала | хипнотизиран</annotation>
 		<annotation cp="😵‍💫" type="tts">лице со спирални очи</annotation>
 		<annotation cp="🤯">експлодирачка глава | шокирано</annotation>
 		<annotation cp="🤯" type="tts">експлодирачка глава</annotation>
@@ -560,7 +561,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">намуртено лице</annotation>
 		<annotation cp="😮">лице | лице со отворена уста | отворена | уста</annotation>
 		<annotation cp="😮" type="tts">лице со отворена уста</annotation>
-		<annotation cp="😮‍💨">восклик | издишување | олеснување | свиркање | стенкање | шепот</annotation>
+		<annotation cp="😮‍💨">восклик | издишување | лице издишува | олеснување | свиркање | стенкање | шепот</annotation>
 		<annotation cp="😮‍💨" type="tts">лице издишува</annotation>
 		<annotation cp="😯">замолчено | зачудено | изненадено | лице</annotation>
 		<annotation cp="😯" type="tts">замолчено лице</annotation>
@@ -682,9 +683,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">скршено срце</annotation>
 		<annotation cp="❤">срце | црвено</annotation>
 		<annotation cp="❤" type="tts">црвено срце</annotation>
-		<annotation cp="❤‍🔥">гори | љубов | свето срце | сладострастие | срце</annotation>
+		<annotation cp="❤‍🔥">гори | запалено срце | љубов | свето срце | сладострастие | срце</annotation>
 		<annotation cp="❤‍🔥" type="tts">запалено срце</annotation>
-		<annotation cp="❤‍🩹">добро | закрепнува | поздраво | се залекува | се подобрува</annotation>
+		<annotation cp="❤‍🩹">добро | закрепнува | залечено срце | поздраво | се залекува | се подобрува</annotation>
 		<annotation cp="❤‍🩹" type="tts">залечено срце</annotation>
 		<annotation cp="🧡">портокал | портокалово срце</annotation>
 		<annotation cp="🧡" type="tts">портокалово срце</annotation>
@@ -1174,7 +1175,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">маж кој клечи</annotation>
 		<annotation cp="🧎‍♀">жена која клечи | клечење | клечи</annotation>
 		<annotation cp="🧎‍♀" type="tts">жена која клечи</annotation>
-		<annotation cp="🧑‍🦯">лице со бел стап | пристапност | слеп</annotation>
+		<annotation cp="🧑‍🦯">лице со бел стап | лице со стап за слепи | пристапност | слеп</annotation>
 		<annotation cp="🧑‍🦯" type="tts">лице со стап за слепи</annotation>
 		<annotation cp="👨‍🦯">маж | маж со стап за слепи | пристапност | слеп</annotation>
 		<annotation cp="👨‍🦯" type="tts">маж со стап за слепи</annotation>
@@ -2866,7 +2867,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">кама</annotation>
 		<annotation cp="⚔">вкрстени мечови | меч | оружје</annotation>
 		<annotation cp="⚔" type="tts">вкрстени мечови</annotation>
-		<annotation cp="🔫">оружје | пиштол</annotation>
+		<annotation cp="🔫">оружје | пиштол | пиштол на вода</annotation>
 		<annotation cp="🔫" type="tts">пиштол на вода</annotation>
 		<annotation cp="🪃">австралија | бумеранг | враќање | реперкусии</annotation>
 		<annotation cp="🪃" type="tts">бумеранг</annotation>
@@ -3200,19 +3201,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‼" type="tts">двоен извичник</annotation>
 		<annotation cp="⁉">знак | извичник | извичник и прашалник | интерпункција | прашалник</annotation>
 		<annotation cp="⁉" type="tts">извичник и прашалник</annotation>
-		<annotation cp="❓">знак | интерпункција | прашалник</annotation>
+		<annotation cp="❓">знак | интерпункција | прашалник | црвен прашалник</annotation>
 		<annotation cp="❓" type="tts">црвен прашалник</annotation>
 		<annotation cp="❔">бел прашалник | знак | интерпункција | прашалник</annotation>
 		<annotation cp="❔" type="tts">бел прашалник</annotation>
 		<annotation cp="❕">бел извичник | знак | извичник | интерпункција</annotation>
 		<annotation cp="❕" type="tts">бел извичник</annotation>
-		<annotation cp="❗">знак | извичник | интерпункција</annotation>
+		<annotation cp="❗">знак | извичник | интерпункција | црвен извичник</annotation>
 		<annotation cp="❗" type="tts">црвен извичник</annotation>
 		<annotation cp="〰">брановидна цртичка | знак | интерпункција | цртичка</annotation>
 		<annotation cp="〰" type="tts">брановидна цртичка</annotation>
 		<annotation cp="💱">банка | валути | пари | размена | размена на валути</annotation>
 		<annotation cp="💱" type="tts">размена на валути</annotation>
-		<annotation cp="💲">валута | долар | пари</annotation>
+		<annotation cp="💲">валута | долар | задебелен знак за долар | пари</annotation>
 		<annotation cp="💲" type="tts">задебелен знак за долар</annotation>
 		<annotation cp="⚕">медицина | медицински симбол</annotation>
 		<annotation cp="⚕" type="tts">медицински симбол</annotation>
@@ -3234,7 +3235,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">штиклирано поле</annotation>
 		<annotation cp="✔">✓ | знак за штиклирање | ознака | штиклирање</annotation>
 		<annotation cp="✔" type="tts">знак за штиклирање</annotation>
-		<annotation cp="❌">× | x | знак | множење | множи | откажи | пречкртано</annotation>
+		<annotation cp="❌">× | x | знак | знак за пречкртано | множење | множи | откажи | пречкртано</annotation>
 		<annotation cp="❌" type="tts">знак за пречкртано</annotation>
 		<annotation cp="❎">× | x | копче со знак за пречкртано | ознака | пречкртано</annotation>
 		<annotation cp="❎" type="tts">копче со знак за пречкртано</annotation>
@@ -3426,36 +3427,36 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">фунта</annotation>
 		<annotation cp="¥">[CNY] | [JPY] | валута | јен | јуан</annotation>
 		<annotation cp="¥" type="tts">јен</annotation>
-		<annotation cp="₢" draft="contributed">BRB | валута</annotation>
+		<annotation cp="₢" draft="contributed">крузеиро</annotation>
 		<annotation cp="₢" type="tts" draft="contributed">крузеиро</annotation>
-		<annotation cp="₣" draft="contributed">валута | франк</annotation>
+		<annotation cp="₣" draft="contributed">француски франк</annotation>
 		<annotation cp="₣" type="tts" draft="contributed">француски франк</annotation>
-		<annotation cp="₤" draft="contributed">валута</annotation>
+		<annotation cp="₤" draft="contributed">лира</annotation>
 		<annotation cp="₤" type="tts" draft="contributed">лира</annotation>
 		<annotation cp="₥">мил</annotation>
 		<annotation cp="₥" type="tts">мил</annotation>
-		<annotation cp="₩">[KPW] | [KRW]</annotation>
+		<annotation cp="₩">[KPW] | [KRW] | вон</annotation>
 		<annotation cp="₩" type="tts">вон</annotation>
 		<annotation cp="€">[EUR] | валута | евро</annotation>
 		<annotation cp="€" type="tts">евро</annotation>
-		<annotation cp="₰" draft="contributed">валута | пфениг</annotation>
+		<annotation cp="₰" draft="contributed">германски пфениг</annotation>
 		<annotation cp="₰" type="tts" draft="contributed">германски пфениг</annotation>
 		<annotation cp="₱">пезос</annotation>
 		<annotation cp="₱" type="tts">пезос</annotation>
-		<annotation cp="₳" draft="contributed">ARA | валута</annotation>
+		<annotation cp="₳" draft="contributed">аустрал</annotation>
 		<annotation cp="₳" type="tts" draft="contributed">аустрал</annotation>
 		<annotation cp="₶" draft="contributed">валута</annotation>
-		<annotation cp="₷" draft="contributed">валута</annotation>
+		<annotation cp="₷" draft="contributed">спесмило</annotation>
 		<annotation cp="₷" type="tts" draft="contributed">спесмило</annotation>
 		<annotation cp="₹">валута | индиска рупија | рупија</annotation>
 		<annotation cp="₹" type="tts">индиска рупија</annotation>
 		<annotation cp="₽">валута | рубља</annotation>
 		<annotation cp="₽" type="tts">рубља</annotation>
-		<annotation cp="₿">[BTC]</annotation>
+		<annotation cp="₿">[BTC] | биткоин</annotation>
 		<annotation cp="₿" type="tts">биткоин</annotation>
-		<annotation cp="₨" draft="contributed">валута</annotation>
+		<annotation cp="₨" draft="contributed">рупија</annotation>
 		<annotation cp="₨" type="tts" draft="contributed">рупија</annotation>
-		<annotation cp="﷼" draft="contributed">валута</annotation>
+		<annotation cp="﷼" draft="contributed">ријал</annotation>
 		<annotation cp="﷼" type="tts" draft="contributed">ријал</annotation>
 		<annotation cp="¹">1 | експонент</annotation>
 		<annotation cp="¹" type="tts">експонент 1</annotation>

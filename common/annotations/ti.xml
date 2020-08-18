@@ -11,11 +11,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ti"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">ሓጹር | ዕኽሉል ሓጹር | ደገፈ | ጋልዊንግ</annotation>
+		<annotation cp="{">ሓጹር | ክፉት ዕኽሉል ሓጹር | ዕኽሉል ሓጹር | ደገፈ | ጋልዊንግ</annotation>
 		<annotation cp="{" type="tts">ክፉት ዕኽሉል ሓጹር</annotation>
-		<annotation cp="_">መስመር | ታሕተዋይ ዳሽ | ዝተሰመረ | ዳሽ | ዳሽ ዝተገብረ</annotation>
+		<annotation cp="_">መስመር | ታሕተዋይ መስመር | ታሕተዋይ ዳሽ | ዝተሰመረ | ዳሽ | ዳሽ ዝተገብረ</annotation>
 		<annotation cp="_" type="tts">ታሕተዋይ መስመር</annotation>
-		<annotation cp="-">ህይፈን | ዝጎደለ | ዳሽ</annotation>
+		<annotation cp="-">ሃይፈን-ዝጎደሎ | ህይፈን | ዝጎደለ | ዳሽ</annotation>
 		<annotation cp="-" type="tts">ሃይፈን-ዝጎደሎ</annotation>
 		<annotation cp="‐">ሃይፈን | ዳሽ</annotation>
 		<annotation cp="‐" type="tts">ሃይፈን</annotation>
@@ -23,31 +23,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="–" type="tts">አን ዳሽ</annotation>
 		<annotation cp="—">አም | ዳሽ</annotation>
 		<annotation cp="—" type="tts">አም ዳሽ</annotation>
-		<annotation cp="―">መስመር | ሽራጥ | ዳሽ</annotation>
+		<annotation cp="―">መስመር | ሽራጥ | ዳሽ | ጎድናዊ ሽራጥ</annotation>
 		<annotation cp="―" type="tts">ጎድናዊ ሽራጥ</annotation>
-		<annotation cp="・">ማእከላይ ዶት | ካታካና | ውሽጣዊ ስርዓተ-ነጥቢ | ዶትስ</annotation>
+		<annotation cp="・">ማእከላይ ዶት | ማእከላይ ዶት ናይ ካታካና | ካታካና | ውሽጣዊ ስርዓተ-ነጥቢ | ዶትስ</annotation>
 		<annotation cp="・" type="tts">ማእከላይ ዶት ናይ ካታካና</annotation>
 		<annotation cp=",">ኮማ</annotation>
 		<annotation cp="," type="tts">ኮማ</annotation>
-		<annotation cp="،">ኮማ | ዓረብ</annotation>
+		<annotation cp="،">ናይ ዓረብ ኮማ | ኮማ | ዓረብ</annotation>
 		<annotation cp="،" type="tts">ናይ ዓረብ ኮማ</annotation>
 		<annotation cp="、">ኣይድዮ-ግኦግራፊክ | ኮማ</annotation>
 		<annotation cp="、" type="tts">ኣይድዮ-ግኦግራፊክ ኮማ</annotation>
-		<annotation cp=";">ነጥበ-ሰረዝ</annotation>
+		<annotation cp=";">ነጥበ-ሰረዝ | ነጥበሰረዝ</annotation>
 		<annotation cp=";" type="tts">ነጥበሰረዝ</annotation>
-		<annotation cp="؛">ነጥበ-ሰረዝ | ናይ ዓረብ</annotation>
+		<annotation cp="؛">ነጥበ-ሰረዝ | ናይ ዓረብ | ናይ ዓረብ ነጥበ-ሰረዝ</annotation>
 		<annotation cp="؛" type="tts">ናይ ዓረብ ነጥበ-ሰረዝ</annotation>
 		<annotation cp=":">ሰረዝ</annotation>
 		<annotation cp=":" type="tts">ሰረዝ</annotation>
-		<annotation cp="!">ስምዒት | ስምዒት ነጥቢ | ባንግ</annotation>
+		<annotation cp="!">ምልክት ስምዒት | ስምዒት | ስምዒት ነጥቢ | ባንግ</annotation>
 		<annotation cp="!" type="tts">ምልክት ስምዒት</annotation>
-		<annotation cp="¡">ምልክት ስምዒት | ስምዒት | ስምዒት ነጥቢ | ባንግ | ግምጣል</annotation>
+		<annotation cp="¡">ምልክት ስምዒት | ስምዒት | ስምዒት ነጥቢ | ባንግ | ግምጣል | ግምጣል ምልክት ስምዒት</annotation>
 		<annotation cp="¡" type="tts">ግምጣል ምልክት ስምዒት</annotation>
-		<annotation cp="?">ሕቶ</annotation>
+		<annotation cp="?">ሕቶ | ምልክት ሕቶ</annotation>
 		<annotation cp="?" type="tts">ምልክት ሕቶ</annotation>
-		<annotation cp="¿">ሕቶ | ምልክት ሕቶ | ግምጣል</annotation>
+		<annotation cp="¿">ሕቶ | ምልክት ሕቶ | ግምጣል | ግምጣል ምልክት ሕቶ</annotation>
 		<annotation cp="¿" type="tts">ግምጣል ምልክት ሕቶ</annotation>
-		<annotation cp="؟">ሕቶ | ምልክት ሕቶ | ዓረብ</annotation>
+		<annotation cp="؟">ሕቶ | ምልክት ሕቶ | ናይ ዓረብ ምልክት ሕቶ | ዓረብ</annotation>
 		<annotation cp="؟" type="tts">ናይ ዓረብ ምልክት ሕቶ</annotation>
 		<annotation cp=".">ኣርባዕተ ነጥቢ | ዶት | ጊዜ</annotation>
 		<annotation cp="." type="tts">ጊዜ</annotation>
@@ -57,63 +57,63 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="。" type="tts">ኣይድዮ-ግኦግራፊክ ጊዜ</annotation>
 		<annotation cp="·">ማእከላይ | ውሽጣዊ ስርዓተ-ነጥቢ | ዶት</annotation>
 		<annotation cp="·" type="tts">ማእከላይ ዶት</annotation>
-		<annotation cp="'">ምጥቃስ | ንጽል ምጥቃስ | ኣፖስትሮፍ</annotation>
+		<annotation cp="'">ምጥቃስ | ናይ ጽሕፈት መኪና ኣፖስትሮፍ | ንጽል ምጥቃስ | ኣፖስትሮፍ</annotation>
 		<annotation cp="'" type="tts">ናይ ጽሕፈት መኪና ኣፖስትሮፍ</annotation>
-		<annotation cp="‘">ምጥቃስ | በሊሕ ምጥቃስ | ንጽል ምጥቃስ | ኣፖስትሮፍ</annotation>
+		<annotation cp="‘">ምጥቃስ | በሊሕ ምጥቃስ | ንጽል ምጥቃስ | ኣፖስትሮፍ | ጸጋማዊ ኣፖስትሮፍ</annotation>
 		<annotation cp="‘" type="tts">ጸጋማዊ ኣፖስትሮፍ</annotation>
-		<annotation cp="’">ምጥቃስ | በሊሕ ምጥቃስ | ንጽል ምጥቃስ | ኣፖስትሮፍ</annotation>
+		<annotation cp="’">ምጥቃስ | ቅኑዕ ኣፖስትሮፍ | በሊሕ ምጥቃስ | ንጽል ምጥቃስ | ኣፖስትሮፍ</annotation>
 		<annotation cp="’" type="tts">ቅኑዕ ኣፖስትሮፍ</annotation>
-		<annotation cp="‚">ምጥቃስ | ትሑት ምጥቃስ | ኣፖስትሮፍ</annotation>
+		<annotation cp="‚">ምጥቃስ | ትሑት ምጥቃስ | ትሑት ቅኑዕ ኣፖስትሮፍ | ኣፖስትሮፍ</annotation>
 		<annotation cp="‚" type="tts">ትሑት ቅኑዕ ኣፖስትሮፍ</annotation>
-		<annotation cp="“">ምጥቃስ | በሊሕ ምጥቃስ | ድርብ ምጥቃስ</annotation>
+		<annotation cp="“">ምጥቃስ | በሊሕ ምጥቃስ | ድርብ ምጥቃስ | ጸጋማይ ምልክት ጥቕሲ</annotation>
 		<annotation cp="“" type="tts">ጸጋማይ ምልክት ጥቕሲ</annotation>
-		<annotation cp="”">ምጥቃስ | በሊሕ ምጥቃስ | ድርብ ምጥቃስ</annotation>
+		<annotation cp="”">ምጥቃስ | ቅኑዕ ምልክት ጥቕሲ | በሊሕ ምጥቃስ | ድርብ ምጥቃስ</annotation>
 		<annotation cp="”" type="tts">ቅኑዕ ምልክት ጥቕሲ</annotation>
-		<annotation cp="„">ምጥቃስ | በሊሕ ምጥቃስ | ትሑት ምልክት ጥቕሲ | ድርብ ምጥቃስ</annotation>
+		<annotation cp="„">ምጥቃስ | በሊሕ ምጥቃስ | ትሑት ምልክት ጥቕሲ | ትሑት ቅኑዕ ምልክት ጥቕሲ | ድርብ ምጥቃስ</annotation>
 		<annotation cp="„" type="tts">ትሑት ቅኑዕ ምልክት ጥቕሲ</annotation>
-		<annotation cp="«">ሓባሪ ምልክት | ሓጹር | ምጥቃስ | ቸቭሮን | ኩርናዕ | ጸጋማይ</annotation>
+		<annotation cp="«">ሓባሪ ምልክት | ሓጹር | ምጥቃስ | ቸቭሮን | ኩርናዕ | ጸጋማይ | ጸጋማይ ጕዊለመንት</annotation>
 		<annotation cp="«" type="tts">ጸጋማይ ጕዊለመንት</annotation>
 		<annotation cp="»">ሓባሪ ምልክት | ሓጹር | ምጥቃስ | ቅኑዕ ጕዊለመንት | ቸቭሮን | ኩርናዕ | የማናይ</annotation>
 		<annotation cp="»" type="tts">ቅኑዕ ጕዊለመንት</annotation>
-		<annotation cp=")">ሓጹር | ከቢብ ሓጹር</annotation>
+		<annotation cp=")">ሓጹር | ከቢብ ሓጹር | ዝተዓጽወ ሓጹር</annotation>
 		<annotation cp=")" type="tts">ዝተዓጽወ ሓጹር</annotation>
-		<annotation cp="[">ሓጹር | ትርብዒታዊ-ሓጹር | ክሮትቸት</annotation>
+		<annotation cp="[">ሓጹር | ትርብዒታዊ-ሓጹር | ክሮትቸት | ክፉት ትርብዒታዊ-ሓጹር</annotation>
 		<annotation cp="[" type="tts">ክፉት ትርብዒታዊ-ሓጹር</annotation>
-		<annotation cp="]">ሓጹር | ትርብዒታዊ-ሓጹር | ክሮትቸት</annotation>
+		<annotation cp="]">ሓጹር | ትርብዒታዊ-ሓጹር | ክሮትቸት | ዕጹው ትርብዕታዊ-ሓጹር</annotation>
 		<annotation cp="]" type="tts">ዕጹው ትርብዕታዊ-ሓጹር</annotation>
-		<annotation cp="}">ሓጹር | ዕኽሉል ሓጹር | ደገፈ | ጋልዊንግ</annotation>
+		<annotation cp="}">ሓጹር | ዕኽሉል ሓጹር | ዕጹው ዕኽሉል ሓጹር | ደገፈ | ጋልዊንግ</annotation>
 		<annotation cp="}" type="tts">ዕጹው ዕኽሉል ሓጹር</annotation>
-		<annotation cp="〈">ሓጹር | ቱብለ | ቸቭሮን | ኣልማዛዊ ሓጹር | ኣመልካቲ ኩርናዕ ሓጹር | ኩርናዕ ሓጹር</annotation>
+		<annotation cp="〈">ሓጹር | ቱብለ | ቸቭሮን | ኣልማዛዊ ሓጹር | ኣመልካቲ ኩርናዕ ሓጹር | ኩርናዕ ሓጹር | ክፉት ኩርናዕ ሓጹር</annotation>
 		<annotation cp="〈" type="tts">ክፉት ኩርናዕ ሓጹር</annotation>
-		<annotation cp="〉">ሓጹር | ቱብለ | ቸቭሮን | ኣልማዛዊ ሓጹር | ኣመልካቲ ኩርናዕ ሓጹር | ኩርናዕ ሓጹር</annotation>
+		<annotation cp="〉">ሓጹር | ቱብለ | ቸቭሮን | ኣልማዛዊ ሓጹር | ኣመልካቲ ኩርናዕ ሓጹር | ኩርናዕ ሓጹር | ዕጹው ኩርናዕ ሓጹር</annotation>
 		<annotation cp="〉" type="tts">ዕጹው ኩርናዕ ሓጹር</annotation>
-		<annotation cp="《">ሓጹር | ድርብ ኩርናዕ ሓጹር</annotation>
+		<annotation cp="《">ሓጹር | ክፉት ድርብ ኩርናዕ ሓጹር | ድርብ ኩርናዕ ሓጹር</annotation>
 		<annotation cp="《" type="tts">ክፉት ድርብ ኩርናዕ ሓጹር</annotation>
-		<annotation cp="》">ሓጹር | ድርብ ኩርናዕ ሓጹር</annotation>
+		<annotation cp="》">ሓጹር | ዕጹው ድርብ ኩርናዕ ሓጹር | ድርብ ኩርናዕ ሓጹር</annotation>
 		<annotation cp="》" type="tts">ዕጹው ድርብ ኩርናዕ ሓጹር</annotation>
-		<annotation cp="「">ሓጹር | ኩርናዕ ሓጹር</annotation>
+		<annotation cp="「">ሓጹር | ኩርናዕ ሓጹር | ክፉት ናይ ኩርናዕ ሓጹር</annotation>
 		<annotation cp="「" type="tts">ክፉት ናይ ኩርናዕ ሓጹር</annotation>
-		<annotation cp="」">ሓጹር | ኩርናዕ ሓጹር</annotation>
+		<annotation cp="」">ሓጹር | ኩርናዕ ሓጹር | ዕጹው ናይ ኩርናዕ ሓጹር</annotation>
 		<annotation cp="」" type="tts">ዕጹው ናይ ኩርናዕ ሓጹር</annotation>
-		<annotation cp="『">ሓጹር | ክፉት ኩርናዕ ሓጹር</annotation>
+		<annotation cp="『">ሓጹር | ኣዚዩ ክፉት ኩርናዕ ሓጹር | ክፉት ኩርናዕ ሓጹር</annotation>
 		<annotation cp="『" type="tts">ኣዚዩ ክፉት ኩርናዕ ሓጹር</annotation>
-		<annotation cp="』">ሓጹር | ክፉት ኩርናዕ ሓጹር</annotation>
+		<annotation cp="』">ሓጹር | ኣዚዩ ዕጹው ኩርናዕ ሓጹር | ክፉት ኩርናዕ ሓጹር</annotation>
 		<annotation cp="』" type="tts">ኣዚዩ ዕጹው ኩርናዕ ሓጹር</annotation>
-		<annotation cp="【">lenናይ ለንስ ሓጹር | ሓጹር | ናይ ለንስ ሓጹር</annotation>
+		<annotation cp="【">lenናይ ለንስ ሓጹር | ሓጹር | ናይ ለንስ ሓጹር | ክፉት ጸሊም ናይ ለንስ ሓጹር</annotation>
 		<annotation cp="【" type="tts">ክፉት ጸሊም ናይ ለንስ ሓጹር</annotation>
-		<annotation cp="】">lenናይ ለንስ ሓጹር | ሓጹር | ናይ ለንስ ሓጹር</annotation>
+		<annotation cp="】">lenናይ ለንስ ሓጹር | ሓጹር | ናይ ለንስ ሓጹር | ዕጹው ጸሊም ናይ ለንስ ሓጹር</annotation>
 		<annotation cp="】" type="tts">ዕጹው ጸሊም ናይ ለንስ ሓጹር</annotation>
-		<annotation cp="〔">ሓጹር | ድርዒ ሓጹር | ጎብየ ድርዒ ሓጹር</annotation>
+		<annotation cp="〔">ሓጹር | ክፉት ናይ ጎብየ ድርዒ ሓጹር | ድርዒ ሓጹር | ጎብየ ድርዒ ሓጹር</annotation>
 		<annotation cp="〔" type="tts">ክፉት ናይ ጎብየ ድርዒ ሓጹር</annotation>
-		<annotation cp="〕">ሓጹር | ድርዒ ሓጹር | ጎብየ ድርዒ ሓጹር</annotation>
+		<annotation cp="〕">ሓጹር | ዕጹው ናይ ጎብየ ድርዒ ሓጹር | ድርዒ ሓጹር | ጎብየ ድርዒ ሓጹር</annotation>
 		<annotation cp="〕" type="tts">ዕጹው ናይ ጎብየ ድርዒ ሓጹር</annotation>
-		<annotation cp="〖">ሓጹር | ናይ ለንስ ሓጹር | ክፉት ናይ ለንስ ሓጹር</annotation>
+		<annotation cp="〖">ሓጹር | ናይ ለንስ ሓጹር | ኣዚዩ ክፉት ናይ ለንስ ሓጹር | ክፉት ናይ ለንስ ሓጹር</annotation>
 		<annotation cp="〖" type="tts">ኣዚዩ ክፉት ናይ ለንስ ሓጹር</annotation>
-		<annotation cp="〗">ሓጹር | ናይ ለንስ ሓጹር | ክፉት ናይ ለንስ ሓጹር</annotation>
+		<annotation cp="〗">ሓጹር | ናይ ለንስ ሓጹር | ኣዚዩ ዕጹው ናይ ኩርናዕ ሓጹር | ክፉት ናይ ለንስ ሓጹር</annotation>
 		<annotation cp="〗" type="tts">ኣዚዩ ዕጹው ናይ ኩርናዕ ሓጹር</annotation>
 		<annotation cp="§">ሕጡበ ጽሑፍ | ሶልክሮው | ክፋል</annotation>
 		<annotation cp="§" type="tts">ክፋል</annotation>
-		<annotation cp="¶">ሕጥበ ጽሑፍ | ኣሊንያ | ፒልስችሮው | ፓራፍ</annotation>
+		<annotation cp="¶">ሕጥበ ጽሑፍ | ምልክት ናይ ሕጥበ ጽሑፍ | ኣሊንያ | ፒልስችሮው | ፓራፍ</annotation>
 		<annotation cp="¶" type="tts">ምልክት ናይ ሕጥበ ጽሑፍ</annotation>
 		<annotation cp="@">ስትሩደል | ኣምፐርሳት | ኣሮባ | ኣሮባስ | ኣብ ምልክት | ኣብ ንግዳዊ | ኣብ-ምልክት</annotation>
 		<annotation cp="@" type="tts">ኣብ-ምልክት</annotation>
@@ -125,7 +125,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="\" type="tts">ባክስላሽ</annotation>
 		<annotation cp="&amp;">ኣምፐርሳንድ | ኤት | ከምኡ`ውን</annotation>
 		<annotation cp="&amp;" type="tts">ኣምፐርሳንድ</annotation>
-		<annotation cp="#">lb | ሃሽ | ሃሽታግ | ቁጽሪ | ፓወንድ</annotation>
+		<annotation cp="#">lb | ሃሽ | ሃሽታግ | ምልክት ሃሽ | ቁጽሪ | ፓወንድ</annotation>
 		<annotation cp="#" type="tts">ምልክት ሃሽ</annotation>
 		<annotation cp="%">ሚእታዊት</annotation>
 		<annotation cp="%" type="tts">ሚእታዊት</annotation>
@@ -137,19 +137,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‡" type="tts">ድርብ ምልክት ሽቶል</annotation>
 		<annotation cp="•">ዓረር | ዶት</annotation>
 		<annotation cp="•" type="tts">ዓረር</annotation>
-		<annotation cp="‧">ሃይፈን | ነጥቢ | ዳሽ</annotation>
+		<annotation cp="‧">ሃይፈን | ነጥቢ | ናይ ሃይፈን ነጥቢ | ዳሽ</annotation>
 		<annotation cp="‧" type="tts">ናይ ሃይፈን ነጥቢ</annotation>
 		<annotation cp="′">ቀዳማዊ</annotation>
 		<annotation cp="′" type="tts">ቀዳማዊ</annotation>
-		<annotation cp="″">ቀዳማዊ</annotation>
+		<annotation cp="″">ቀዳማዊ | ድርብ ቀዳማዊ</annotation>
 		<annotation cp="″" type="tts">ድርብ ቀዳማዊ</annotation>
-		<annotation cp="‴">ቀዳማዊ</annotation>
+		<annotation cp="‴">ስሉሳዊ ቀዳማዊ | ቀዳማዊ</annotation>
 		<annotation cp="‴" type="tts">ስሉሳዊ ቀዳማዊ</annotation>
 		<annotation cp="※">መወከሲ ምልክት</annotation>
 		<annotation cp="※" type="tts">መወከሲ ምልክት</annotation>
 		<annotation cp="`">ቃና | ኣደማምጻ | ዕቱብ</annotation>
 		<annotation cp="`" type="tts">ዕቱብ ኣደማምጻ</annotation>
-		<annotation cp="´">ቃና | ኣዘራርባ | ጊሉሕ</annotation>
+		<annotation cp="´">ቃና | ኣዘራርባ | ዝጊልሐ ኣደማምጻ | ጊሉሕ</annotation>
 		<annotation cp="´" type="tts">ዝጊልሐ ኣደማምጻ</annotation>
 		<annotation cp="^">ሃት | ሓዪ | ምልክት ኤክሶር | ምቁጽጻር | ሲርኩምፍለክስ | ቸቭሮን | ኣመልካቲት | ኣደማምጻ | ካረት | ውሻል</annotation>
 		<annotation cp="^" type="tts">ሲርኩምፍለክስ ኣደማምጻ</annotation>
@@ -157,7 +157,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¨" type="tts">ዲያረሲስ</annotation>
 		<annotation cp="°">መርትዖ | ሰዓት | ደረጃ</annotation>
 		<annotation cp="°" type="tts">ደረጃ</annotation>
-		<annotation cp="℗">መሰል ደራሲ | ምዕቃብ | ድምጺ</annotation>
+		<annotation cp="℗">መሰል ደራሲ | ምዕቃብ | ምዕቃብ ድምጺ መሰል ደራሲ | ድምጺ</annotation>
 		<annotation cp="℗" type="tts">ምዕቃብ ድምጺ መሰል ደራሲ</annotation>
 		<annotation cp="←">ምልክት | ጸጋማይ-ጫፍ ምልክት | ጸጋም</annotation>
 		<annotation cp="←" type="tts">ጸጋማይ-ጫፍ ምልክት</annotation>
@@ -177,7 +177,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∇" type="tts">ናብላ</annotation>
 		<annotation cp="∈">ባእታ | ባእታ ናይ | ኣባልነት | እኩብ | የጠቃልል</annotation>
 		<annotation cp="∈" type="tts">ባእታ ናይ</annotation>
-		<annotation cp="+">ምድማር</annotation>
+		<annotation cp="+">ምልክት ምድማር | ምድማር</annotation>
 		<annotation cp="+" type="tts">ምልክት ምድማር</annotation>
 		<annotation cp="±">ምድማር-ምጉዳል</annotation>
 		<annotation cp="±" type="tts">ምድማር-ምጉዳል</annotation>
@@ -199,7 +199,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="|" type="tts">ትኹል ሕንጻጽ</annotation>
 		<annotation cp="~">ቲልደ</annotation>
 		<annotation cp="~" type="tts">ቲልደ</annotation>
-		<annotation cp="−">ምጉዳል</annotation>
+		<annotation cp="−">ምልክት ምጉዳል | ምጉዳል</annotation>
 		<annotation cp="−" type="tts">ምልክት ምጉዳል</annotation>
 		<annotation cp="⁻">ልዕለ-ውራቕ | ምጉዳል</annotation>
 		<annotation cp="⁻" type="tts">ልዕለ-ውራቕ ምጉዳል</annotation>
@@ -215,7 +215,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≈" type="tts">ዳርጋ ልክዕ</annotation>
 		<annotation cp="≡">ልክዕ | ስልሲት | ተመሳሳሊ | ተመሳሳሊ ን</annotation>
 		<annotation cp="≡" type="tts">ተመሳሳሊ ን</annotation>
-		<annotation cp="≤">ማዕረ | ማዕርነት | ይንእስ</annotation>
+		<annotation cp="≤">ማዕረ | ማዕርነት | ይንእስ | ይንእስ ወይ ማዕረ</annotation>
 		<annotation cp="≤" type="tts">ይንእስ ወይ ማዕረ</annotation>
 		<annotation cp="≥">ማዕረ | ማዕርነት | ንላዕሊ ወይ ማዕረ</annotation>
 		<annotation cp="≥" type="tts">ንላዕሊ ወይ ማዕረ</annotation>
@@ -223,7 +223,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⊂" type="tts">ንኡስ እኩብ</annotation>
 		<annotation cp="▲">መልአ | ምልክት | ስሉስ ኩርናዕ | ንላዕሊ | ንላዕሊ-ዝጠመተ ስሉስ ኩርናዕ መልአ</annotation>
 		<annotation cp="▲" type="tts">ንላዕሊ-ዝጠመተ ስሉስ ኩርናዕ መልአ</annotation>
-		<annotation cp="▼">መላአ | ምልክት | ንታሕቲ | ንታሕቲ-ዝጠመተ ስሉስ</annotation>
+		<annotation cp="▼">መላአ | ምልክት | ንታሕቲ | ንታሕቲ-ዝጠመተ ስሉስ | ንታሕቲ-ዝጠመተ ስሉስ ኩርናዕ መልአ</annotation>
 		<annotation cp="▼" type="tts">ንታሕቲ-ዝጠመተ ስሉስ ኩርናዕ መልአ</annotation>
 		<annotation cp="◊">ሎዘንገ | ሮምቡስ | ኣልማዝ</annotation>
 		<annotation cp="◊" type="tts">ሎዘንገ</annotation>
@@ -241,13 +241,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♯" type="tts">በሊሕ</annotation>
 		<annotation cp="🏧">atm | ምልክት ATM | ቅልጡፍ | ባንክ | ተሓዚ ገንዘብ</annotation>
 		<annotation cp="🏧" type="tts">ምልክት ATM</annotation>
-		<annotation cp="🚮">ኣብ ምልክት ናይ መጉሓፊ | ጎሓፍ | ጎሓፍ መጉሓፊ</annotation>
+		<annotation cp="🚮">ኣብ ምልክት ናይ መጉሓፊ | ጎሓፍ | ጎሓፍ መጉሓፊ | ጎሓፍ ኣብ ምልክት ናይ መጉሓፊ</annotation>
 		<annotation cp="🚮" type="tts">ጎሓፍ ኣብ ምልክት ናይ መጉሓፊ</annotation>
 		<annotation cp="🚰">ማይ | ዝስተ | ጽሩይ</annotation>
 		<annotation cp="🚰" type="tts">ጽሩይ ዝስተ ማይ</annotation>
-		<annotation cp="♿">ምልክት | ናይ መበጻጽሒ ሰድያ</annotation>
+		<annotation cp="♿">ምልክት | ምልክት ናይ መበጻጽሒ ሰድያ | ናይ መበጻጽሒ ሰድያ</annotation>
 		<annotation cp="♿" type="tts">ምልክት ናይ መበጻጽሒ ሰድያ</annotation>
-		<annotation cp="🚹">wc | ሰብኣይ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ክፍሊ ናይ ሰብኣይ</annotation>
+		<annotation cp="🚹">wc | ሰብኣይ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ክፍሊ ሰብኡት | ክፍሊ ናይ ሰብኣይ</annotation>
 		<annotation cp="🚹" type="tts">ክፍሊ ሰብኡት</annotation>
 		<annotation cp="🚺">wc | ሰበይቲ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ | ክፍሊ ናይ ኣንስቲ</annotation>
 		<annotation cp="🚺" type="tts">ክፍሊ ናይ ኣንስቲ</annotation>
@@ -257,11 +257,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚼" type="tts">ምልክት ናይ ቆልዓ</annotation>
 		<annotation cp="🚾">wc | መዕቆሪ | ማይ | ሽቃቅ | ናይ ክዳውንቲ መሕጸቢ ኣቕሓ</annotation>
 		<annotation cp="🚾" type="tts">መዕቆሪ ማይ</annotation>
-		<annotation cp="🛂">ቁጽጽር | ፓስፖርት</annotation>
+		<annotation cp="🛂">ቁጽጽር | ናይ ፓስስፖርት ቁጽጽር | ፓስፖርት</annotation>
 		<annotation cp="🛂" type="tts">ናይ ፓስስፖርት ቁጽጽር</annotation>
 		<annotation cp="🛃">ጉምሩክ</annotation>
 		<annotation cp="🛃" type="tts">ጉምሩክ</annotation>
-		<annotation cp="🛄">መበጻጽሒ | ባልጃ/ሳንጣ</annotation>
+		<annotation cp="🛄">መበጻጽሒ | መበጻጽሒ ሳንጣ | ባልጃ/ሳንጣ</annotation>
 		<annotation cp="🛄" type="tts">መበጻጽሒ ሳንጣ</annotation>
 		<annotation cp="🛅">መዕጸዊ | ሳንጣ | ባልጃ | ጸጋማይ ሳንጣ</annotation>
 		<annotation cp="🛅" type="tts">ጸጋማይ ሳንጣ</annotation>
@@ -269,13 +269,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚠" type="tts">መጠንቀቕታ</annotation>
 		<annotation cp="🚸">መሕለፊ | ቆልዑ | ትራፊክ | ኣጋር</annotation>
 		<annotation cp="🚸" type="tts">መሕለፊ ቆልዑ</annotation>
-		<annotation cp="⛔">መእተዊ | ትራፊክ | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="⛔">መእተዊ | ምእታው ክልኩል | ትራፊክ | ኣይኮነን | ዝተኣገደ</annotation>
 		<annotation cp="⛔" type="tts">ምእታው ክልኩል</annotation>
 		<annotation cp="🚫">ብሽክለታ | ብሽክለታ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
 		<annotation cp="🚫" type="tts">ዝተኣገደ</annotation>
 		<annotation cp="🚳">ብሽክለታ | ብሽክለታ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
 		<annotation cp="🚳" type="tts">ብሽክለታ ኣይፍቀድን</annotation>
-		<annotation cp="🚭">ሽጋራ | ኣይኮነን | ዝተኣገደ</annotation>
+		<annotation cp="🚭">ሽጋራ | ሽጋራ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
 		<annotation cp="🚭" type="tts">ሽጋራ ኣይፍቀድን</annotation>
 		<annotation cp="🚯">መጉሓፊ | ምጉሓፍ ኣይፍቀድን | ኣይኮነን | ዝተኣገደ</annotation>
 		<annotation cp="🚯" type="tts">ምጉሓፍ ኣይፍቀድን</annotation>
@@ -299,7 +299,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➡" type="tts">የማናይ ምልክት</annotation>
 		<annotation cp="↘">ምልክት | ምልክት ናብ-የማናይ ታሕቲ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ደቡባዊ ምብራቅ</annotation>
 		<annotation cp="↘" type="tts">ምልክት ናብ-የማናይ ታሕቲ</annotation>
-		<annotation cp="⬇">ምልክት | ታሕቲ | ኣንፈት | ካአዲናል | ደቡብ</annotation>
+		<annotation cp="⬇">ምልክት | ምልክት ናብ ታሕቲ | ታሕቲ | ኣንፈት | ካአዲናል | ደቡብ</annotation>
 		<annotation cp="⬇" type="tts">ምልክት ናብ ታሕቲ</annotation>
 		<annotation cp="↙">ምልክት | ምልክት ናብ-ጸጋማይ ታሕቲ | ኣንፈት | ውሽጣዊ ናይ ካርዲናል | ደቡባዊ ምዕራብ</annotation>
 		<annotation cp="↙" type="tts">ምልክት ናብ-ጸጋማይ ታሕቲ</annotation>
@@ -359,13 +359,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔯" type="tts">ነጥብጣብ 6-ጫፍ ኮኾብ</annotation>
 		<annotation cp="♈">ራም | ኣሬስ | ዞድያክ</annotation>
 		<annotation cp="♈" type="tts">ኣሬስ</annotation>
-		<annotation cp="♉">Taurus | zodiac | ብዕራይ | ኣርሓ</annotation>
+		<annotation cp="♉">Taurus | zodiac | ብዕራይ | ታውሩስ | ኣርሓ</annotation>
 		<annotation cp="♉" type="tts">ታውሩስ</annotation>
 		<annotation cp="♊">ማንታ | ዞድያክ | ጀሚኒ</annotation>
 		<annotation cp="♊" type="tts">ጀሚኒ</annotation>
-		<annotation cp="♋">መንሾ | ክሮብ | ዞድያክ</annotation>
+		<annotation cp="♋">መንሽሮ | መንሾ | ክሮብ | ዞድያክ</annotation>
 		<annotation cp="♋" type="tts">መንሽሮ</annotation>
-		<annotation cp="♌">ሊዮ | ኣንበሳ | ዞድያክ</annotation>
+		<annotation cp="♌">ሊዮ | ሌዮ | ኣንበሳ | ዞድያክ</annotation>
 		<annotation cp="♌" type="tts">ሌዮ</annotation>
 		<annotation cp="♍">ቪርጎ | ዞድያክ</annotation>
 		<annotation cp="♍" type="tts">ቪርጎ</annotation>
@@ -383,9 +383,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♓" type="tts">ፒስከስ</annotation>
 		<annotation cp="⛎">መበጻጽሒ | ሰርፐንት | ተመን | ኦፊኩስ | ዞድያክ</annotation>
 		<annotation cp="⛎" type="tts">ኦፊኩስ</annotation>
-		<annotation cp="🔀">ምልክት | ዝተሓላለፈ | ዝተሓላለፈ ምልክታት መልጎም</annotation>
+		<annotation cp="🔀">ምልክት | ዝተሓላለፈ | ዝተሓላለፈ ምልክታት መልጎም | ዝተሓላለፈ ምልክታትመልጎም</annotation>
 		<annotation cp="🔀" type="tts">ዝተሓላለፈ ምልክታትመልጎም</annotation>
-		<annotation cp="🔁">መምለሲ መልጎም | ምልክት | ምድጋም | ከመ ሰዓት</annotation>
+		<annotation cp="🔁">መምለሲ መልጎም | መድገሚ መልጎም | ምልክት | ምድጋም | ከመ ሰዓት</annotation>
 		<annotation cp="🔁" type="tts">መድገሚ መልጎም</annotation>
 		<annotation cp="🔂">ሓደ ግዜ | መድገሚ ንጽል መልጎም | ኣንፈት | ከመ ሰዓት</annotation>
 		<annotation cp="🔂" type="tts">መድገሚ ንጽል መልጎም</annotation>
@@ -393,9 +393,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="▶" type="tts">መጻወቲ መልጎም</annotation>
 		<annotation cp="⏩">መሕለፊ | መቀላጥፊ መልጎም | ምልክት | ቅልጡፍ | ድርብ</annotation>
 		<annotation cp="⏩" type="tts">መቀላጥፊ መልጎም</annotation>
-		<annotation cp="⏭">መጻኢ ሙዚቃ | መጻኢ ሙዚቃ መልጎም | መጻኢ ርእየት | ምልክት | ስሉስ ኩርናዕ</annotation>
+		<annotation cp="⏭">መሰጋገሪ መልጎም | መጻኢ ሙዚቃ | መጻኢ ሙዚቃ መልጎም | መጻኢ ርእየት | ምልክት | ስሉስ ኩርናዕ</annotation>
 		<annotation cp="⏭" type="tts">መሰጋገሪ መልጎም</annotation>
-		<annotation cp="⏯">ምልክት | ምዕጻው | ስሉስ ኩርናዕ | የማን | ጸወት መጻወቲ ወይ መዕጸዊ መልጎም</annotation>
+		<annotation cp="⏯">መጻወቲ ወይ መዕጸዊ መልጎም | ምልክት | ምዕጻው | ስሉስ ኩርናዕ | የማን | ጸወት መጻወቲ ወይ መዕጸዊ መልጎም</annotation>
 		<annotation cp="⏯" type="tts">መጻወቲ ወይ መዕጸዊ መልጎም</annotation>
 		<annotation cp="◀">መምለሲ መልጎም | ምልክት | ምምላስ | ስሉስ ኩርናዕ | ጸጋም</annotation>
 		<annotation cp="◀" type="tts">መምለሲ መልጎም</annotation>
@@ -413,7 +413,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⏬" type="tts">ቅልጡፍ ኣንቈልቋሊ መልጎም</annotation>
 		<annotation cp="⏸">መዕጸዊ | መዕጸዊ መልጎም | ሽራጥ | ትኹል | ድርብ</annotation>
 		<annotation cp="⏸" type="tts">መዕጸዊ መልጎም</annotation>
-		<annotation cp="⏹">ትርብዒት | ጠጠው | ጠጠው መበሊ መልጎም</annotation>
+		<annotation cp="⏹">መጥፍኢ መልጎም | ትርብዒት | ጠጠው | ጠጠው መበሊ መልጎም</annotation>
 		<annotation cp="⏹" type="tts">መጥፍኢ መልጎም</annotation>
 		<annotation cp="⏺">መዐቀቢ መልጎም | ምዕቃብ | ዓንኬል</annotation>
 		<annotation cp="⏺" type="tts">መዐቀቢ መልጎም</annotation>
@@ -427,9 +427,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">ብሩህ መልጎም</annotation>
 		<annotation cp="📶">ሽራጥ | ተለፎን | ተንቀሳቃሲ ተለፎነ | ናይ ኣንተና ሽራጣት | ኣንተና</annotation>
 		<annotation cp="📶" type="tts">ናይ ኣንተና ሽራጣት</annotation>
-		<annotation cp="📳">ሃለዋት | ተለፎን | ነዝነዝታ</annotation>
+		<annotation cp="📳">ሃለዋት | ተለፎን | ነዝነዝታ | ነዝነዝታዊ ሃለዋት</annotation>
 		<annotation cp="📳" type="tts">ነዝነዝታዊ ሃለዋት</annotation>
-		<annotation cp="📴">ምዕጻው | ተለፎን</annotation>
+		<annotation cp="📴">ምዕጻው | ተለፎን | ተንቀሳቃሲት ተለፎን ምዕጽው</annotation>
 		<annotation cp="📴" type="tts">ተንቀሳቃሲት ተለፎን ምዕጽው</annotation>
 		<annotation cp="♀">ሰበይቲ | ናይ ጋል-ኣንስተይቲ ምልክት</annotation>
 		<annotation cp="♀" type="tts">ናይ ጋል-ኣንስተይቲ ምልክት</annotation>
@@ -437,7 +437,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♂" type="tts">ናይ ወዲ-ተባዕታይ ምልክት</annotation>
 		<annotation cp="⚧">ጸታ ዝቀየሩ | ጸታ ዝቀየሩ ምልክት</annotation>
 		<annotation cp="⚧" type="tts">ጸታ ዝቀየሩ ምልክት</annotation>
-		<annotation cp="✖">× | x | ምልክት | ምርባሕ | ምጥፋእ</annotation>
+		<annotation cp="✖">× | x | ሕሳብ | ምልክት | ምርባሕ | ምጥፋእ</annotation>
 		<annotation cp="✖" type="tts">ሕሳብ</annotation>
 		<annotation cp="➕">+ | ሕሳብ | ምልክት | ምድማር</annotation>
 		<annotation cp="➕" type="tts">ምድማር</annotation>
@@ -449,15 +449,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♾" type="tts">ደረት ኣልቦነት</annotation>
 		<annotation cp="‼">! | !! | ምልክት | ስምዒት | ባንግባንግ | ድርብ ምልክት ስምዒት</annotation>
 		<annotation cp="‼" type="tts">ድርብ ምልክት ስምዒት</annotation>
-		<annotation cp="⁉">ቀይሕ ምልክት ሕቶ</annotation>
+		<annotation cp="⁉">! | ቀይሕ ምልክት ሕቶ</annotation>
 		<annotation cp="⁉" type="tts">!</annotation>
-		<annotation cp="❓">ጻዕዳ ምልክት ሕቶ</annotation>
+		<annotation cp="❓">ቀይሕ ምልክት ሕቶ | ጻዕዳ ምልክት ሕቶ</annotation>
 		<annotation cp="❓" type="tts">ቀይሕ ምልክት ሕቶ</annotation>
-		<annotation cp="❔">? | ምልክት | ምልክት ሕቶ | ንድፊ | ንድፊ ሕቶ | ጻዕዳ</annotation>
+		<annotation cp="❔">? | ምልክት | ምልክት ሕቶ | ንድፊ | ንድፊ ሕቶ | ጻዕዳ | ጻዕዳ ምልክት ሕቶ</annotation>
 		<annotation cp="❔" type="tts">ጻዕዳ ምልክት ሕቶ</annotation>
 		<annotation cp="❕">! | ምልክት | ስምዒት | ንድፊ | ጻዕዳ ምልክት ስምዒት</annotation>
 		<annotation cp="❕" type="tts">ጻዕዳ ምልክት ስምዒት</annotation>
-		<annotation cp="❗">! | ምልክት | ስምዒት | ስርዓተ-ነጥብታት</annotation>
+		<annotation cp="❗">! | ምልክት | ስምዒት | ስርዓተ-ነጥብታት | ቀይሕ ምልክት ስምዒት</annotation>
 		<annotation cp="❗" type="tts">ቀይሕ ምልክት ስምዒት</annotation>
 		<annotation cp="〰">ሞገዳዊ | ስርዓተ-ነጥብታት | ዳሽ</annotation>
 		<annotation cp="〰" type="tts">ሞገዳዊ ዳሽ</annotation>
@@ -507,9 +507,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">ምዝጉብ</annotation>
 		<annotation cp="™">tm | ምልክት | ምልክት ንግዲ</annotation>
 		<annotation cp="™" type="tts">ምልክት ንግዲ</annotation>
-		<annotation cp="🔠">ABCD | ላቲን | ቃላት | ኣእቱ | ዓበይቲ-ቃላት</annotation>
+		<annotation cp="🔠">ABCD | ላቲን | ቃላት | ናይ ላቲን ዓበይቲ-ቃላት ኣእቱ | ኣእቱ | ዓበይቲ-ቃላት</annotation>
 		<annotation cp="🔠" type="tts">ናይ ላቲን ዓበይቲ-ቃላት ኣእቱ</annotation>
-		<annotation cp="🔡">abcd | ላቲን | ቃላት | ነኣሽቱ-ቃላት | ኣእቱ</annotation>
+		<annotation cp="🔡">abcd | ላቲን | ቃላት | ነኣሽቱ-ቃላት | ናይ ላቲን ነኣሽቱ-ቃላት ኣእቱ | ኣእቱ</annotation>
 		<annotation cp="🔡" type="tts">ናይ ላቲን ነኣሽቱ-ቃላት ኣእቱ</annotation>
 		<annotation cp="🔢">1234 | ቁጽርታት | ኣእቱ</annotation>
 		<annotation cp="🔢" type="tts">ቁጽርታት ኣእቱ</annotation>
@@ -533,7 +533,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="ℹ" type="tts">ሓበሬታ</annotation>
 		<annotation cp="🆔">id | ID መልጎም | መንነት</annotation>
 		<annotation cp="🆔" type="tts">ID መልጎም</annotation>
-		<annotation cp="Ⓜ">m | ዓንኬላ | ዓንኬል M</annotation>
+		<annotation cp="Ⓜ">m | ዓንኬላ | ዓንኬላዊ M | ዓንኬል M</annotation>
 		<annotation cp="Ⓜ" type="tts">ዓንኬላዊ M</annotation>
 		<annotation cp="🆕">ሓዲሽ | ሓዲሽ መልጎም</annotation>
 		<annotation cp="🆕" type="tts">ሓዲሽ መልጎም</annotation>
@@ -567,11 +567,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈹" type="tts">ናይ ጃፓን “ምጉዳል ዋጋ” መልጎም</annotation>
 		<annotation cp="🈚">“ካብ ክፍሊት ነጻ” | ናይ ጃፓን | ናይ ጃፓን “ካብ ክፍሊት ነጻ” መልጎም | ኣይድዮግራፍ | 無</annotation>
 		<annotation cp="🈚" type="tts">ናይ ጃፓን “ካብ ክፍሊት ነጻ” መልጎም</annotation>
-		<annotation cp="🈲">“ዝተኣገደ” | ናይ ጃፓን | ናይ ጃፓን “ዝተኣገደ”መልጎም | ኣይድዮግራፍ | 禁</annotation>
+		<annotation cp="🈲">“ዝተኣገደ” | ናይ ጃፓን | ናይ ጃፓን “ዝተኣገደ” መልጎም | ናይ ጃፓን “ዝተኣገደ”መልጎም | ኣይድዮግራፍ | 禁</annotation>
 		<annotation cp="🈲" type="tts">ናይ ጃፓን “ዝተኣገደ” መልጎም</annotation>
 		<annotation cp="🉑">“ቅቡል” | ናይ ጃፓን | ናይ ጃፓን “ቅቡል” መልጎም | ኣይድዮግራፍ | 可</annotation>
 		<annotation cp="🉑" type="tts">ናይ ጃፓን “ቅቡል” መልጎም</annotation>
-		<annotation cp="🈸">“ምልክታ” | ናይ ጃፓን | ናይ ጃፓን “ምልክታ”መልጎም | ኣይድዮግራፍ | 申</annotation>
+		<annotation cp="🈸">“ምልክታ” | ናይ ጃፓን | ናይ ጃፓን “ምልክታ” መልጎም | ናይ ጃፓን “ምልክታ”መልጎም | ኣይድዮግራፍ | 申</annotation>
 		<annotation cp="🈸" type="tts">ናይ ጃፓን “ምልክታ” መልጎም</annotation>
 		<annotation cp="🈴">““መሕለፊ ነጥቢ” | ናይ ጃፓን | ናይ ጃፓን “መሕለፊ ነጥቢ” መልጎም | ኣይድዮግራፍ | 合</annotation>
 		<annotation cp="🈴" type="tts">ናይ ጃፓን “መሕለፊ ነጥቢ” መልጎም</annotation>
@@ -639,15 +639,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔷" type="tts">ዓቢ ሰማያዊ ኣልማዝ</annotation>
 		<annotation cp="🔸">ንኢሽተይ ሰማያዊ ኣልማዝ | ኣልማዝ | ኣራንሾኒ | ጂኦሜትሪክ</annotation>
 		<annotation cp="🔸" type="tts">ንኢሽተይ ሰማያዊ ኣልማዝ</annotation>
-		<annotation cp="🔹">ሰማያዊ | ንኢሽተይ ሰማያዊ ኣልማዝ | ኣልማዝ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔹">ሰማያዊ | ንኢሽተይ ሰማያዊ ኣልማዝ | ንኢሽተይ ሰማያዊት ኣልማዝ | ኣልማዝ | ጂኦሜትሪክ</annotation>
 		<annotation cp="🔹" type="tts">ንኢሽተይ ሰማያዊት ኣልማዝ</annotation>
-		<annotation cp="🔺">ቀያሕ | ቀያሕ ስሉስ-ኩርናዕ ንላዕሊ ኣርኣየ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔺">ቀያሕ | ቀያሕ ስሉስ-ኩርናዕ ንላዕሊ ኣርኣየ | ቀያሕ ስሉስ-ኩርናዕ ኣርኣየ | ጂኦሜትሪክ</annotation>
 		<annotation cp="🔺" type="tts">ቀያሕ ስሉስ-ኩርናዕ ኣርኣየ</annotation>
 		<annotation cp="🔻">ቀያሕ | ቀያሕ ስሉስ-ኩርናዕ ንታሕቲ ኣርኣየ | ንታሕቲ | ጂኦሜትሪክ</annotation>
 		<annotation cp="🔻" type="tts">ቀያሕ ስሉስ-ኩርናዕ ንታሕቲ ኣርኣየ</annotation>
 		<annotation cp="💠">መስሓቕ | ኣልማዝ | ኣልማዝ ምስ ዶት | ኣብ ውሽጢ | ጂኦሜትሪክ</annotation>
 		<annotation cp="💠" type="tts">ኣልማዝ ምስ ዶት</annotation>
-		<annotation cp="🔘">መልጎም | ራድዮ | ጂኦሜትሪክ</annotation>
+		<annotation cp="🔘">መልጎም | መልጎም ናይ ራድዮ | ራድዮ | ጂኦሜትሪክ</annotation>
 		<annotation cp="🔘" type="tts">መልጎም ናይ ራድዮ</annotation>
 		<annotation cp="🔳">መልጎም | ትርብዒት | ንድፊ | ጂኦሜትሪክ | ጻዕዳ ትርብዒት መልጎም</annotation>
 		<annotation cp="🔳" type="tts">ጻዕዳ ትርብዒት መልጎም</annotation>
@@ -663,7 +663,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¥" type="tts">የን</annotation>
 		<annotation cp="₥">ሚል</annotation>
 		<annotation cp="₥" type="tts">ሚል</annotation>
-		<annotation cp="₩">KPW | KRW</annotation>
+		<annotation cp="₩">KPW | KRW | ዎን</annotation>
 		<annotation cp="₩" type="tts">ዎን</annotation>
 		<annotation cp="€">ዩሮ | ገንዘብ</annotation>
 		<annotation cp="€" type="tts">ዩሮ</annotation>
@@ -673,7 +673,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₹" type="tts">ሩቢ ናይ ሂንዲ</annotation>
 		<annotation cp="₽">ሩብለ | ገንዘብ</annotation>
 		<annotation cp="₽" type="tts">ሩብለ</annotation>
-		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿">BTC | ቢትኮይን</annotation>
 		<annotation cp="₿" type="tts">ቢትኮይን</annotation>
 		<annotation cp="¹">ልዕለ-ውራቕ | ሓደ</annotation>
 		<annotation cp="¹" type="tts">ልዕለ-ውራቕ ሓደ</annotation>

@@ -278,11 +278,20 @@ public class TestPaths extends TestFmwkPlus {
                 for (Entry<String, String> attributeNValue : parts.getAttributes(i).entrySet()) {
                     String attributeName = attributeNValue.getKey();
                     if (dtdData.isDeprecated(elementName, attributeName, "*")) {
-                        testPaths.errln("Deprecated attribute in data: "
-                            + dtdData.dtdType
-                            + ":" + elementName
-                            + ":" + attributeName
-                            + " \t;" + fullName);
+                        if (attributeName.equals("draft")) {
+                            testPaths.errln("Deprecated attribute in data: "
+                                            + dtdData.dtdType
+                                            + ":" + elementName
+                                            + ":" + attributeName
+                                            + " \t;" + fullName +
+                                            " - consider adding to DtdData.DRAFT_ON_NON_LEAF_ALLOWED if you are sure this is ok.");
+                        } else {
+                            testPaths.errln("Deprecated attribute in data: "
+                                            + dtdData.dtdType
+                                            + ":" + elementName
+                                            + ":" + attributeName
+                                            + " \t;" + fullName);
+                        }
                         return true;
                     }
                     String attributeValue = attributeNValue.getValue();
@@ -367,7 +376,7 @@ public class TestPaths extends TestFmwkPlus {
         String[] normalizedPath = { "" };
 
         int counter = 0;
-        for (String directory : Arrays.asList("keyboards/", "common/")) {
+        for (String directory : Arrays.asList("keyboards/", "common/", "seed/", "exemplars/")) {
             String dirPath = CLDRPaths.BASE_DIRECTORY + directory;
             for (String fileName : new File(dirPath).list()) {
                 File dir2 = new File(dirPath + fileName);

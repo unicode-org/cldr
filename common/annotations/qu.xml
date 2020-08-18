@@ -21,9 +21,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">tunpa yana qara niraq</annotation>
 		<annotation cp="🏿">6 kaq | qara niraq | yana qara niraq</annotation>
 		<annotation cp="🏿" type="tts">yana qara niraq</annotation>
+		<annotation cp="!">qapariq yupiy</annotation>
 		<annotation cp="!" type="tts">qapariq yupiy</annotation>
-		<annotation cp="?">tapukuna</annotation>
+		<annotation cp="?">tapukuna | tapukuna yupiy</annotation>
 		<annotation cp="?" type="tts">tapukuna yupiy</annotation>
+		<annotation cp="*">asterisco</annotation>
 		<annotation cp="*" type="tts">asterisco</annotation>
 		<annotation cp="∗">quyllur</annotation>
 		<annotation cp="⊕">yapana</annotation>
@@ -33,13 +35,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😃" type="tts">kusisqa uya hatun ñawikunawan</annotation>
 		<annotation cp="😄">kichay | kusi | kusisqa uya kusisqa ñawikunawan | ñawi | simi | uya</annotation>
 		<annotation cp="😄" type="tts">kusisqa uya kusisqa ñawikunawan</annotation>
-		<annotation cp="😁">asiy | kusi | kʼancharisqa uya kusisqa ñawikunawan | ñawi | uya</annotation>
+		<annotation cp="😁">asiy | kancharisqa uya kusisqa ñawikunawan | kusi | kʼancharisqa uya kusisqa ñawikunawan | ñawi | uya</annotation>
 		<annotation cp="😁" type="tts">kancharisqa uya kusisqa ñawikunawan</annotation>
 		<annotation cp="😆">asisqa | asiy | kusisqa uya wichqasqa ñawikunawan | munasqa | simi | uya</annotation>
 		<annotation cp="😆" type="tts">kusisqa uya wichqasqa ñawikunawan</annotation>
 		<annotation cp="😅">asiy | chiri | kichay | kusisqa uya sutʼuwan | sutʼu | uya</annotation>
 		<annotation cp="😅" type="tts">kusisqa uya sutʼuwan</annotation>
-		<annotation cp="🤣">hallpʼa | kusi | muyusqa | muyusqa kusi hallpʼapi | uya</annotation>
+		<annotation cp="🤣">hallpʼa | kusi | muyusqa | muyusqa kusi hallpʼapi | muyusqa kusi jallpʼapi | uya</annotation>
 		<annotation cp="🤣" type="tts">muyusqa kusi jallpʼapi</annotation>
 		<annotation cp="😂">kusi | kusisqa | kusisqa uya wiqikunawan | uya | wiqi</annotation>
 		<annotation cp="😂" type="tts">kusisqa uya wiqikunawan</annotation>
@@ -63,15 +65,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😘" type="tts">uya chʼamqasqa huk muchʼata</annotation>
 		<annotation cp="😗">muchʼa | muchʼasqa uya | uya</annotation>
 		<annotation cp="😗" type="tts">muchʼasqa uya</annotation>
-		<annotation cp="☺">kusi | kusisqa uya | samasqa | siqisqa | uya</annotation>
+		<annotation cp="☺">chiqchisqa uya | kusi | kusisqa uya | samasqa | siqisqa | uya</annotation>
 		<annotation cp="☺" type="tts">chiqchisqa uya</annotation>
 		<annotation cp="😚">muchʼa | muchʼasqa uyata wichqasqa ñawikunawan | ñawi | uya | wichqasqa</annotation>
 		<annotation cp="😚" type="tts">muchʼasqa uyata wichqasqa ñawikunawan</annotation>
 		<annotation cp="😙">muchʼa | muchʼasqa uyata kusisqa ñawikunawan | ñawi | uya</annotation>
 		<annotation cp="😙" type="tts">muchʼasqa uyata kusisqa ñawikunawan</annotation>
-		<annotation cp="🥲">apuskachaq | chhallachasqa | kusisqa | kusisqa uya wiwiwan | llamkhasqa | pachi | wiqi</annotation>
+		<annotation cp="🥲">apuskachaq | chhallachasqa | kusisqa | kusisqa uya wiqiwan | kusisqa uya wiwiwan | llamkhasqa | pachi | wiqi</annotation>
 		<annotation cp="🥲" type="tts">kusisqa uya wiqiwan</annotation>
-		<annotation cp="😋">kusi | mikhuchkan | mikhusqa mikhuna | miskʼi | mmm | uya</annotation>
+		<annotation cp="😋">kusi | mikhuchkan | mikhusqa mikhuna | miskʼi | mmm | uya | uya mikhusqa mikhuna</annotation>
 		<annotation cp="😋" type="tts">uya mikhusqa mikhuna</annotation>
 		<annotation cp="😛">qallu | uya | uya qalluwan</annotation>
 		<annotation cp="😛" type="tts">uya qalluwan</annotation>
@@ -79,23 +81,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😜" type="tts">chʼirmi uya qalluwan</annotation>
 		<annotation cp="🤪">hatun | huchuy | ñawi | waqʼa | waqʼa uya</annotation>
 		<annotation cp="🤪" type="tts">waqʼa uya</annotation>
-		<annotation cp="😝">mikhuy | millana wichqasqa ñawikuna qalluwan | ñawi | qallu | uya</annotation>
+		<annotation cp="😝">mikhuy | millana wichqasqa ñawikuna qalluwan | ñawi | qallu | uya | wichqasqa ñawikuna qalluwan</annotation>
 		<annotation cp="😝" type="tts">wichqasqa ñawikuna qalluwan</annotation>
-		<annotation cp="🤑">qallu | qullqi | qullqi simi uya | uya</annotation>
+		<annotation cp="🤑">qallu | qullqi | qullqi simi uya | simi qullqiwan uya | uya</annotation>
 		<annotation cp="🤑" type="tts">simi qullqiwan uya</annotation>
-		<annotation cp="🤗">mak’alli | mak’allisqa | uya</annotation>
+		<annotation cp="🤗">mak’alli | mak’allisqa | uya | ya makʼalliwan</annotation>
 		<annotation cp="🤗" type="tts">ya makʼalliwan</annotation>
 		<annotation cp="🤭">ups | uya makiwan simipi</annotation>
 		<annotation cp="🤭" type="tts">uya makiwan simipi</annotation>
-		<annotation cp="🤫">chʼin | chʼin uya | ñañiq</annotation>
+		<annotation cp="🤫">ch’in uya | chʼin | chʼin uya | ñañiq</annotation>
 		<annotation cp="🤫" type="tts">ch’in uya</annotation>
 		<annotation cp="🤔">uya | yuyasqa</annotation>
 		<annotation cp="🤔" type="tts">yuyasqa uya</annotation>
 		<annotation cp="🤐">simi | uya | uya ziper simipi | ziper</annotation>
 		<annotation cp="🤐" type="tts">uya ziper simipi</annotation>
-		<annotation cp="🤨">eseptico | mana iñisqa | uya wichqasqa qhiñipa</annotation>
+		<annotation cp="🤨">eseptico | mana iñisqa | uya wichasqa qhiñipa | uya wichqasqa qhiñipa</annotation>
 		<annotation cp="🤨" type="tts">uya wichasqa qhiñipa</annotation>
-		<annotation cp="😐">kikin | neural | uh | uya</annotation>
+		<annotation cp="😐">chʼusaq uya | kikin | neural | uh | uya</annotation>
 		<annotation cp="😐" type="tts">chʼusaq uya</annotation>
 		<annotation cp="😑">eh | mana expresioniyuq | mana rimasqa uya | uya | wañusqa</annotation>
 		<annotation cp="😑" type="tts">mana rimasqa uya</annotation>
@@ -105,11 +107,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😶‍🌫" type="tts">uya phuyukunapi</annotation>
 		<annotation cp="😏">kʼaskikachay | kʼaskiskachasqa uya | uya</annotation>
 		<annotation cp="😏" type="tts">kʼaskiskachasqa uya</annotation>
-		<annotation cp="😒">llakisqa | mana kusisqa | uya</annotation>
+		<annotation cp="😒">llakisqa | mana kusisqa | mana kusisqa uya | uya</annotation>
 		<annotation cp="😒" type="tts">mana kusisqa uya</annotation>
 		<annotation cp="🙄">muyusqa | muyuy | ñawikuna | uya | uya muyusqa ñawikunawan</annotation>
 		<annotation cp="🙄" type="tts">uya muyusqa ñawikunawan</annotation>
-		<annotation cp="😬">muesca | uya | uya muescaswan</annotation>
+		<annotation cp="😬">muesca | uya | uya muecaswan | uya muescaswan</annotation>
 		<annotation cp="😬" type="tts">uya muecaswan</annotation>
 		<annotation cp="🤥">llullakusqa uya | llullakuy | pinocho | uya</annotation>
 		<annotation cp="🤥" type="tts">llullakusqa uya</annotation>
@@ -123,31 +125,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤤" type="tts">llawsasuru uyu</annotation>
 		<annotation cp="😴">puñusqa uya | puñuy | uya | zzz</annotation>
 		<annotation cp="😴" type="tts">puñusqa uya</annotation>
-		<annotation cp="😷">barbijo | chiri | hampiq | unqusqa | uya | uya barbijiwan</annotation>
+		<annotation cp="😷">barbijo | chiri | hampiq | unqusqa | uya | uya barbijiwan | uya barbijowan</annotation>
 		<annotation cp="😷" type="tts">uya barbijowan</annotation>
 		<annotation cp="🤒">termometro | termometrowan uya | unqusqa | unquy | uya</annotation>
 		<annotation cp="🤒" type="tts">termometrowan uya</annotation>
 		<annotation cp="🤕">kʼiri | kʼirisqa | uya | uya manku umawan | venda</annotation>
 		<annotation cp="🤕" type="tts">uya manku umawan</annotation>
-		<annotation cp="🤢">ñat’isqa | q’ipna | uya</annotation>
+		<annotation cp="🤢">ñat’isqa | ñatʼisqa uya | q’ipna | uya</annotation>
 		<annotation cp="🤢" type="tts">ñatʼisqa uya</annotation>
-		<annotation cp="🤮">qʼipina | qʼipina uya | unqusqa</annotation>
+		<annotation cp="🤮">q’ipina uya | qʼipina | qʼipina uya | unqusqa</annotation>
 		<annotation cp="🤮" type="tts">q’ipina uya</annotation>
 		<annotation cp="🤧">gesundheit | jachisqa uya | jachiy | uya</annotation>
 		<annotation cp="🤧" type="tts">jachisqa uya</annotation>
 		<annotation cp="🥵">fiebre | jumpʼi | puka uya | qʼuñi | qʼuñi uya | ruphay</annotation>
 		<annotation cp="🥵" type="tts">qʼuñi uya</annotation>
-		<annotation cp="🥶">anqas uya | chhullunkaa | chiri | chiri uy | khutu | khutuy</annotation>
+		<annotation cp="🥶">anqas uya | chhullunkaa | chiri | chiri uy | chiri uya | khutu | khutuy</annotation>
 		<annotation cp="🥶" type="tts">chiri uya</annotation>
 		<annotation cp="🥴">intoxicado | machasqa | muyu muyu | qinquykachasqa simi | uma muyuy | wistʼu ñawikuna</annotation>
 		<annotation cp="🥴" type="tts">uma muyuy</annotation>
 		<annotation cp="😵">takasqa uya | uya | wañuy</annotation>
 		<annotation cp="😵" type="tts">takasqa uya</annotation>
-		<annotation cp="😵‍💫">espiral | hipnotizado | muyu muyu | sasachay | wow</annotation>
+		<annotation cp="😵‍💫">espiral | hipnotizado | muyu muyu | sasachay | uya espiral ñawikunawan | wow</annotation>
 		<annotation cp="😵‍💫" type="tts">uya espiral ñawikunawan</annotation>
-		<annotation cp="🤯">luqlu yuyay | mancharisqa | pʼakisqa uma</annotation>
+		<annotation cp="🤯">luqlu yuyay | mancharisqa | p’akisqa uma | pʼakisqa uma</annotation>
 		<annotation cp="🤯" type="tts">p’akisqa uma</annotation>
-		<annotation cp="🤠">baquera | baquero | chuku | uya</annotation>
+		<annotation cp="🤠">baquera | baquero | baquero uya chukuwan | chuku | uya</annotation>
 		<annotation cp="🤠" type="tts">baquero uya chukuwan</annotation>
 		<annotation cp="🥳">chuku | jarana | qʼuchukusqa uya | raymi | waqra</annotation>
 		<annotation cp="🥳" type="tts">qʼuchukusqa uya</annotation>
@@ -169,13 +171,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">sipʼusqa uya</annotation>
 		<annotation cp="😮">kichay | kʼacha | simi | uya | uya kichasqa simiwan</annotation>
 		<annotation cp="😮" type="tts">uya kichasqa simiwan</annotation>
-		<annotation cp="😮‍💨">anchhiy | ansaqiy | jinchuy | llamsayay | samay</annotation>
+		<annotation cp="😮‍💨">anchhiy | ansaqiy | jinchuy | llamsayay | samay | uya samachkan</annotation>
 		<annotation cp="😮‍💨" type="tts">uya samachkan</annotation>
-		<annotation cp="😯">kakka | manchachisqa | p’inqakusqa | uya</annotation>
+		<annotation cp="😯">chʼin kasqa uya | kakka | manchachisqa | p’inqakusqa | uya</annotation>
 		<annotation cp="😯" type="tts">chʼin kasqa uya</annotation>
 		<annotation cp="😲">añasqa | chaqrusqa | llapan | uya</annotation>
 		<annotation cp="😲" type="tts">añasqa uya</annotation>
-		<annotation cp="😳">kuyusqa | p’inqakusqa | uya</annotation>
+		<annotation cp="😳">kuyusqa | p’inqakusqa | pʼinqakusqa uya | uya</annotation>
 		<annotation cp="😳" type="tts">pʼinqakusqa uya</annotation>
 		<annotation cp="🥺">khuyakuy | llullu uya | uyllasqa uya | uyllay</annotation>
 		<annotation cp="🥺" type="tts">uyllasqa uya</annotation>
@@ -187,7 +189,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😨" type="tts">mancharisqa uya</annotation>
 		<annotation cp="😰">anqas | chiri | sutʼu | takurisqa uya sutʼuwan | usqhasqa | uya</annotation>
 		<annotation cp="😰" type="tts">takurisqa uya sutʼuwan</annotation>
-		<annotation cp="😥">llakisqa ichaqa llamkayasqa uya | llamsayasqa | sunqunnasqa uya | uf | uya</annotation>
+		<annotation cp="😥">llakisqa ichaqa llamkayasqa uya | llakisqa ichaqa llamsayasqa uya | llamsayasqa | sunqunnasqa uya | uf | uya</annotation>
 		<annotation cp="😥" type="tts">llakisqa ichaqa llamsayasqa uya</annotation>
 		<annotation cp="😢">llakisqa | uya | waqasqa uya | waqay | wiqi</annotation>
 		<annotation cp="😢" type="tts">waqasqa uya</annotation>
@@ -205,13 +207,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😓" type="tts">llakisqa uya sutʼuwan</annotation>
 		<annotation cp="😩">ayqusqa | sayk’usqa | uya</annotation>
 		<annotation cp="😩" type="tts">ayqusqa uya</annotation>
-		<annotation cp="😫">sayk’usqa | uya</annotation>
+		<annotation cp="😫">sayk’usqa | saykʼusqa uya | uya</annotation>
 		<annotation cp="😫" type="tts">saykʼusqa uya</annotation>
 		<annotation cp="🥱">hanyasqa | hanyasqa uya | maji | majisqa</annotation>
 		<annotation cp="🥱" type="tts">hanyasqa uya</annotation>
 		<annotation cp="😤">atipasqa | triunfo | uya | uya qʼusñiwan sinqamanta</annotation>
 		<annotation cp="😤" type="tts">uya qʼusñiwan sinqamanta</annotation>
-		<annotation cp="😡">phiña | phiñakuq | phiñakuy | puka | uya</annotation>
+		<annotation cp="😡">phiña | phiñakuq | phiñakuy | puka | turisqa uya | uya</annotation>
 		<annotation cp="😡" type="tts">turisqa uya</annotation>
 		<annotation cp="😠">phiñakusqa | uya</annotation>
 		<annotation cp="😠" type="tts">phiñakusqa uya</annotation>
@@ -231,13 +233,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤡" type="tts">pʼaqpaku uya</annotation>
 		<annotation cp="👹">criatura | fantasia | hadas willana | monstruo | ogro | uya</annotation>
 		<annotation cp="👹" type="tts">ogro</annotation>
-		<annotation cp="👺">criatura | fantasia | hadas willana | kuku | monstruo | uya</annotation>
+		<annotation cp="👺">criatura | fantasia | hadas willana | huchuy kuku | kuku | monstruo | uya</annotation>
 		<annotation cp="👺" type="tts">huchuy kuku</annotation>
 		<annotation cp="👻">criatura | fantasia | hadas willana | kuku | monstruo | uya</annotation>
 		<annotation cp="👻" type="tts">kuku</annotation>
 		<annotation cp="👽">alien | criatura | extraterrestre | fantasia | ovni | uya</annotation>
 		<annotation cp="👽" type="tts">alien</annotation>
-		<annotation cp="👾">alien | criatura | extraterrestre | monstruo | ovni | uya</annotation>
+		<annotation cp="👾">alien | criatura | extraterrestre | monstruo | ovni | pʼarqa alienígena | uya</annotation>
 		<annotation cp="👾" type="tts">pʼarqa alienígena</annotation>
 		<annotation cp="🤖">mostruo | robot | uya</annotation>
 		<annotation cp="🤖" type="tts">robot</annotation>
@@ -277,7 +279,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💖" type="tts">kʼanchasqa sunqu</annotation>
 		<annotation cp="💗">kusisqa | paqarisqa | paqarisqa sunqu | pulso | tʼikti</annotation>
 		<annotation cp="💗" type="tts">paqarisqa sunqu</annotation>
-		<annotation cp="💓">patatasqa sunqu | phatatasqa | phatatay | tʼipuy</annotation>
+		<annotation cp="💓">patatasqa sunqu | phatatasqa | phatatasqa sunqu | phatatay | tʼipuy</annotation>
 		<annotation cp="💓" type="tts">phatatasqa sunqu</annotation>
 		<annotation cp="💞">muyusqa | muyusqa sunqukuna</annotation>
 		<annotation cp="💞" type="tts">muyusqa sunqukuna</annotation>
@@ -291,9 +293,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💔" type="tts">pakasqa sunqu</annotation>
 		<annotation cp="❤">puka sunqu | sunqu</annotation>
 		<annotation cp="❤" type="tts">puka sunqu</annotation>
-		<annotation cp="❤‍🔥">munay | ñuqi | ruphay | sunqu | wakʼa sunqu</annotation>
+		<annotation cp="❤‍🔥">munay | ñuqi | ruphay | sunqu | sunqu ninapi | wakʼa sunqu</annotation>
 		<annotation cp="❤‍🔥" type="tts">sunqu ninapi</annotation>
-		<annotation cp="❤‍🩹">allichachkan | allichasqa | allichay kay | allin | qhali kay | qhali kaynin</annotation>
+		<annotation cp="❤‍🩹">allichachkan | allichasqa | allichasqa sunqu | allichay kay | allin | qhali kay | qhali kaynin</annotation>
 		<annotation cp="❤‍🩹" type="tts">allichasqa sunqu</annotation>
 		<annotation cp="🧡">willapi | willapi sunqu</annotation>
 		<annotation cp="🧡" type="tts">willapi sunqu</annotation>
@@ -319,7 +321,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💥" type="tts">tupa</annotation>
 		<annotation cp="💫">comic | muyu muyu | quyllur</annotation>
 		<annotation cp="💫" type="tts">muyu muyu</annotation>
-		<annotation cp="💦">chʼiqichisqa | comic | sumpʼi sutukuna | sutʼu</annotation>
+		<annotation cp="💦">chʼiqichisqa | comic | jumpʼi sutukuna | sumpʼi sutukuna | sutʼu</annotation>
 		<annotation cp="💦" type="tts">jumpʼi sutukuna</annotation>
 		<annotation cp="💨">comic | karuman phawachkan | phaway | purichkan</annotation>
 		<annotation cp="💨" type="tts">karuman phawachkan</annotation>
@@ -327,15 +329,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕳" type="tts">t’uqu</annotation>
 		<annotation cp="💣">bomba | comic</annotation>
 		<annotation cp="💣" type="tts">bomba</annotation>
-		<annotation cp="💬">glubu | kusi | phukpu | rimana | rimasqa</annotation>
+		<annotation cp="💬">glubu | kusi | phukpu | rimana | rimasqa | rimaypa glubun</annotation>
 		<annotation cp="💬" type="tts">rimaypa glubun</annotation>
 		<annotation cp="👁‍🗨">ñawi | ñawi rimasqa phukpupi | rimasqa phukpupi | testigo</annotation>
 		<annotation cp="👁‍🗨" type="tts">ñawi rimasqa phukpupi</annotation>
-		<annotation cp="🗨">lluqʼi rimasqa phukpupi | rimana | rimay</annotation>
+		<annotation cp="🗨">lluq’i rimasqa phukpupi | lluqʼi rimasqa phukpupi | rimana | rimay</annotation>
 		<annotation cp="🗨" type="tts">lluq’i rimasqa phukpupi</annotation>
 		<annotation cp="🗯">paña phiñasqa phukpu | phiñasqa | phiñay | phukpu</annotation>
 		<annotation cp="🗯" type="tts">paña phiñasqa phukpu</annotation>
-		<annotation cp="💭">glubu | kusi | phukpu | rimana | rimasqa</annotation>
+		<annotation cp="💭">glubu | kusi | phukpu | rimana | rimasqa | yuyaypa glubun</annotation>
 		<annotation cp="💭" type="tts">yuyaypa glubun</annotation>
 		<annotation cp="💤">comic | puñuy | zzz</annotation>
 		<annotation cp="💤" type="tts">zzz</annotation>
@@ -343,7 +345,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👋" type="tts">qinquykachasqa maki</annotation>
 		<annotation cp="🤚">jinchʼa | juqharisqa | juqharisqa maki</annotation>
 		<annotation cp="🤚" type="tts">juqharisqa maki</annotation>
-		<annotation cp="🖐">maki | maki iskay ruk’anakunawa mastʼasqa | mastʼasqa | rukana</annotation>
+		<annotation cp="🖐">maki | maki iskay ruk’anakunawa mast’asqa | maki iskay ruk’anakunawa mastʼasqa | mastʼasqa | rukana</annotation>
 		<annotation cp="🖐" type="tts">maki iskay ruk’anakunawa mast’asqa</annotation>
 		<annotation cp="✋">huqharisqa maki | maki</annotation>
 		<annotation cp="✋" type="tts">huqharisqa maki</annotation>
@@ -351,7 +353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖖" type="tts">vulcano napay</annotation>
 		<annotation cp="👌">maki | UYAKUY</annotation>
 		<annotation cp="👌" type="tts">UYAKUY maki</annotation>
-		<annotation cp="🤌">maki gestu | rukanakuna | sawkalli | tapurikuy | tʼipisqa</annotation>
+		<annotation cp="🤌">maki gestu | rukanakuna | sawkalli | tapurikuy | tʼipisqa | tʼipsisqa rukanakuna</annotation>
 		<annotation cp="🤌" type="tts">tʼipsisqa rukanakuna</annotation>
 		<annotation cp="🤏">huchuy chanin | tʼipsisqa maki</annotation>
 		<annotation cp="🤏" type="tts">tʼipsisqa maki</annotation>
@@ -397,13 +399,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👐" type="tts">kichasqa makikuna</annotation>
 		<annotation cp="🤲">makikunawan plegaria unancha | plegaria</annotation>
 		<annotation cp="🤲" type="tts">makikunawan plegaria unancha</annotation>
-		<annotation cp="🤝">huñunakuy | maki | pipuyasqa | pipuyasqa makukunapura | uyniy</annotation>
+		<annotation cp="🤝">huñunakuy | maki | pipuyasqa | pipuyasqa makikunapura | pipuyasqa makukunapura | uyniy</annotation>
 		<annotation cp="🤝" type="tts">pipuyasqa makikunapura</annotation>
 		<annotation cp="🙏">maki | makikuna rezando | orar | pachi | tapuy</annotation>
 		<annotation cp="🙏" type="tts">makikuna rezando</annotation>
 		<annotation cp="✍">maki | maki qillqachkan | qillqay</annotation>
 		<annotation cp="✍" type="tts">maki qillqachkan</annotation>
-		<annotation cp="💅">cosmeticos | esmalte | manicura | qhaway | sillu</annotation>
+		<annotation cp="💅">cosmeticos | esmalte | esmalte sillukunapaq | manicura | qhaway | sillu</annotation>
 		<annotation cp="💅" type="tts">esmalte sillukunapaq</annotation>
 		<annotation cp="🤳">camara | selfie | telefono</annotation>
 		<annotation cp="🤳" type="tts">selfie</annotation>
@@ -429,7 +431,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫀" type="tts">anatomico sunqu</annotation>
 		<annotation cp="🫁">inhalar | organo | respiracion | samarquy | samay | surqʼankuna</annotation>
 		<annotation cp="🫁" type="tts">surqʼankuna</annotation>
-		<annotation cp="🦷">dentista | kirukuna</annotation>
+		<annotation cp="🦷">dentista | kiru | kirukuna</annotation>
 		<annotation cp="🦷" type="tts">kiru</annotation>
 		<annotation cp="🦴">saqru | tullu</annotation>
 		<annotation cp="🦴" type="tts">tullu</annotation>
@@ -451,13 +453,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧" type="tts">warmi warma</annotation>
 		<annotation cp="🧑">genero neutral | mana akllasqa genero | puriq runa | runa</annotation>
 		<annotation cp="🧑" type="tts">runa</annotation>
-		<annotation cp="👱">chukcha | qʼillu | qʼillu chukcha runa | runa:qʼillu chukcha</annotation>
+		<annotation cp="👱">chukcha | qʼillu | qʼillu chukcha runa | runa: qʼillu chukcha | runa:qʼillu chukcha</annotation>
 		<annotation cp="👱" type="tts">runa: qʼillu chukcha</annotation>
 		<annotation cp="👨">puriq runa | tata</annotation>
 		<annotation cp="👨" type="tts">tata</annotation>
 		<annotation cp="🧔">kʼaki | runa | runa: kʼaki</annotation>
 		<annotation cp="🧔" type="tts">runa: kʼaki</annotation>
-		<annotation cp="👱‍♂">chukcha | qʼillu | runa | runa:qillu chukcha</annotation>
+		<annotation cp="👱‍♂">chukcha | qʼillu | runa | runa: qillu chukcha | runa:qillu chukcha</annotation>
 		<annotation cp="👱‍♂" type="tts">runa: qillu chukcha</annotation>
 		<annotation cp="🧔‍♀">kʼaki | warmi | warmi: kʼaki</annotation>
 		<annotation cp="🧔‍♀" type="tts">warmi: kʼaki</annotation>
@@ -469,9 +471,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱‍♀" type="tts">warmi: qʼillu chukcha</annotation>
 		<annotation cp="🧓">genero | genero neutral | hatun | mana akllasqa | ñawpa runa | puriq runa</annotation>
 		<annotation cp="🧓" type="tts">ñawpa runa</annotation>
-		<annotation cp="👴">hatun | puriq runa | runa</annotation>
+		<annotation cp="👴">hatun | hatun tata | puriq runa | runa</annotation>
 		<annotation cp="👴" type="tts">hatun tata</annotation>
-		<annotation cp="👵">hatun | puriq runa | warmi</annotation>
+		<annotation cp="👵">hatun | hatun mama | puriq runa | warmi</annotation>
 		<annotation cp="👵" type="tts">hatun mama</annotation>
 		<annotation cp="🙍">gesto | llaki | llakisqa runa</annotation>
 		<annotation cp="🙍" type="tts">llakisqa runa</annotation>
@@ -481,9 +483,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍‍♀" type="tts">llakisqa warmi</annotation>
 		<annotation cp="🙎">gesto | phiñachisqa runa | piñachisqa</annotation>
 		<annotation cp="🙎" type="tts">phiñachisqa runa</annotation>
-		<annotation cp="🙎‍♂">gesto | piñachisqa | tata</annotation>
+		<annotation cp="🙎‍♂">gesto | phiñachisqa tata | piñachisqa | tata</annotation>
 		<annotation cp="🙎‍♂" type="tts">phiñachisqa tata</annotation>
-		<annotation cp="🙎‍♀">gesto | piñachisqa | warmi</annotation>
+		<annotation cp="🙎‍♀">gesto | phiñachisqa warmi | piñachisqa | warmi</annotation>
 		<annotation cp="🙎‍♀" type="tts">phiñachisqa warmi</annotation>
 		<annotation cp="🙅">amasqa | amatasqa | gesto | maki | runa MANA rikuy</annotation>
 		<annotation cp="🙅" type="tts">runa MANA rikuy</annotation>
@@ -513,7 +515,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧏" type="tts">luqtʼu runa</annotation>
 		<annotation cp="🧏‍♂">runa | ruqtʼu</annotation>
 		<annotation cp="🧏‍♂" type="tts">ruqtʼu runa</annotation>
-		<annotation cp="🧏‍♀">luqtʼu | warmi</annotation>
+		<annotation cp="🧏‍♀">luqtʼu | luqʼu warmi | warmi</annotation>
 		<annotation cp="🧏‍♀" type="tts">luqʼu warmi</annotation>
 		<annotation cp="🙇">gesto | qhispichiway | qhispichiy | upaykusqa runa | upaykuy</annotation>
 		<annotation cp="🙇" type="tts">upaykusqa runa</annotation>
@@ -561,7 +563,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑‍🌾" type="tts">granjero</annotation>
 		<annotation cp="👨‍🌾">granjero | jardinero | ranchero | tata</annotation>
 		<annotation cp="👨‍🌾" type="tts">tata granjero</annotation>
-		<annotation cp="👩‍🌾">granjero | jardinero | ranchero | warmi</annotation>
+		<annotation cp="👩‍🌾">granjero | jardinero | ranchero | warmi | warmi granjera</annotation>
 		<annotation cp="👩‍🌾" type="tts">warmi granjera</annotation>
 		<annotation cp="🧑‍🍳">chef | wayk’uq</annotation>
 		<annotation cp="🧑‍🍳" type="tts">wayk’uq</annotation>
@@ -629,11 +631,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🚒" type="tts">tata bombero</annotation>
 		<annotation cp="👩‍🚒">bombera | carru bombero | warmi</annotation>
 		<annotation cp="👩‍🚒" type="tts">warmi bombera</annotation>
-		<annotation cp="👮">jach’u | oficial | paco</annotation>
+		<annotation cp="👮">jach’u | oficial | paco | policia</annotation>
 		<annotation cp="👮" type="tts">policia</annotation>
-		<annotation cp="👮‍♂">jach’u | oficial | paco | tata</annotation>
+		<annotation cp="👮‍♂">jach’u | oficial | paco | tata | tata policia</annotation>
 		<annotation cp="👮‍♂" type="tts">tata policia</annotation>
-		<annotation cp="👮‍♀">jach’u | oficial | paco | warmi</annotation>
+		<annotation cp="👮‍♀">jach’u | oficial | paco | warmi | warmi policia</annotation>
 		<annotation cp="👮‍♀" type="tts">warmi policia</annotation>
 		<annotation cp="🕵">qawariy | qawmiwa | qhamiyaq</annotation>
 		<annotation cp="🕵" type="tts">qhamiyaq</annotation>
@@ -649,7 +651,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂‍♀" type="tts">warmi guardia</annotation>
 		<annotation cp="🥷">maqanakuy | ninja | pakasqa | siqilo</annotation>
 		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="👷">chuku | llamkaq | pirqaq</annotation>
+		<annotation cp="👷">chuku | llamkaq | pirqaq | Pirqaq</annotation>
 		<annotation cp="👷" type="tts">Pirqaq</annotation>
 		<annotation cp="👷‍♂">llamkaq | pirqaq | tata</annotation>
 		<annotation cp="👷‍♂" type="tts">tata pirqaq</annotation>
@@ -667,7 +669,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👳‍♀" type="tts">warmi turbantewan</annotation>
 		<annotation cp="👲">casquete | chʼullu | gorra | gua pi mao | runa | runa casquetewan</annotation>
 		<annotation cp="👲" type="tts">runa casquetewan</annotation>
-		<annotation cp="🧕">barbijo | hijab | mantilla | tichel | warmi barbijiwan</annotation>
+		<annotation cp="🧕">barbijo | hijab | mantilla | tichel | warmi barbijiwan | warmi barbijowan</annotation>
 		<annotation cp="🧕" type="tts">warmi barbijowan</annotation>
 		<annotation cp="🤵">machu wayna | runa | runa tuxedopi | tuxedo</annotation>
 		<annotation cp="🤵" type="tts">runa tuxedopi</annotation>
@@ -685,15 +687,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰" type="tts">wiksayuq warmi</annotation>
 		<annotation cp="🤱">ñuñu | ñuñuchiy | ñuñuq | wawa</annotation>
 		<annotation cp="🤱" type="tts">ñuñuchiy</annotation>
-		<annotation cp="👩‍🍼">enfermeria | ñuñuchiy | warmi | wawa</annotation>
+		<annotation cp="👩‍🍼">enfermeria | ñuñuchiy | warmi | warmi wawata ñuñuchichkan | wawa</annotation>
 		<annotation cp="👩‍🍼" type="tts">warmi wawata ñuñuchichkan</annotation>
-		<annotation cp="👨‍🍼">enfermeria | ñuñuchiy | runa | wawa</annotation>
+		<annotation cp="👨‍🍼">enfermeria | ñuñuchiy | runa | runa wawata ñuñuchichkan | wawa</annotation>
 		<annotation cp="👨‍🍼" type="tts">runa wawata ñuñuchichkan</annotation>
-		<annotation cp="🧑‍🍼">enfermeria | ñuñuchichkan | runa | wawa</annotation>
+		<annotation cp="🧑‍🍼">enfermeria | ñuñuchichkan | runa | runa wawawan ñuñuchichkan | wawa</annotation>
 		<annotation cp="🧑‍🍼" type="tts">runa wawawan ñuñuchichkan</annotation>
 		<annotation cp="👼">angel | fantasia | hadas willana | uya | wawa</annotation>
 		<annotation cp="👼" type="tts">wawa angel</annotation>
-		<annotation cp="🎅">Navidad | noel | papa | raymi | tata</annotation>
+		<annotation cp="🎅">Navidad | noel | papa | Papa Noel | raymi | tata</annotation>
 		<annotation cp="🎅" type="tts">Papa Noel</annotation>
 		<annotation cp="🤶">mama | Mama Noel | Navidad | noel | raymi</annotation>
 		<annotation cp="🤶" type="tts">Mama Noel</annotation>
@@ -711,7 +713,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦹‍♂" type="tts">runa supervillano</annotation>
 		<annotation cp="🦹‍♀">criminal | supay | superpoder | villana | warmi | warmi supervillana</annotation>
 		<annotation cp="🦹‍♀" type="tts">warmi supervillana</annotation>
-		<annotation cp="🧙">runa layqa | runa watuq | warmi layqa | warmi watuq</annotation>
+		<annotation cp="🧙">runa layqa | runa watuq | warmi layqa | warmi watuq | watuq</annotation>
 		<annotation cp="🧙" type="tts">watuq</annotation>
 		<annotation cp="🧙‍♂">layqa | tata watuq | watuq</annotation>
 		<annotation cp="🧙‍♂" type="tts">tata watuq</annotation>
@@ -789,7 +791,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🦯" type="tts">runa yuraq warrawan</annotation>
 		<annotation cp="👩‍🦯">haykurinalla | ñawsa | warmi | warmi yuraq cañawan</annotation>
 		<annotation cp="👩‍🦯" type="tts">warmi yuraq cañawan</annotation>
-		<annotation cp="🧑‍🦼">haykurinalla | runamotorizado silla de ruedas nisqapi | silla de ruedas nisqa</annotation>
+		<annotation cp="🧑‍🦼">haykurinalla | runa motorizado silla de ruedas nisqapi | runamotorizado silla de ruedas nisqapi | silla de ruedas nisqa</annotation>
 		<annotation cp="🧑‍🦼" type="tts">runa motorizado silla de ruedas nisqapi</annotation>
 		<annotation cp="👨‍🦼">haykurinalla | runa | runa motorizado silla de ruedas nisqawan | silla de ruedas</annotation>
 		<annotation cp="👨‍🦼" type="tts">runa motorizado silla de ruedas nisqawan</annotation>
@@ -833,7 +835,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧗‍♀" type="tts">wichaq warmi</annotation>
 		<annotation cp="🤺">esgrima | esgrimista | espada | runa esgrimapi</annotation>
 		<annotation cp="🤺" type="tts">runa esgrimapi</annotation>
-		<annotation cp="🏇">atipanaku | jockey | kawallu</annotation>
+		<annotation cp="🏇">atipanaku | atipanaku kawallukuna | jockey | kawallu</annotation>
 		<annotation cp="🏇" type="tts">atipanaku kawallukuna</annotation>
 		<annotation cp="⛷">esqui | esquiador | rit’i</annotation>
 		<annotation cp="⛷" type="tts">esquiador</annotation>
@@ -847,9 +849,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏌‍♀" type="tts">warmi golfista</annotation>
 		<annotation cp="🏄">runa surfeando | surfear</annotation>
 		<annotation cp="🏄" type="tts">runa surfeando</annotation>
-		<annotation cp="🏄‍♂">surfear | tata</annotation>
+		<annotation cp="🏄‍♂">surfear | tata | tata surfeando</annotation>
 		<annotation cp="🏄‍♂" type="tts">tata surfeando</annotation>
-		<annotation cp="🏄‍♀">surfear | warmi</annotation>
+		<annotation cp="🏄‍♀">surfear | warmi | warmi surfeando</annotation>
 		<annotation cp="🏄‍♀" type="tts">warmi surfeando</annotation>
 		<annotation cp="🚣">runa wampʼu rmoswan | wamp’u | wamp’u remoswan</annotation>
 		<annotation cp="🚣" type="tts">runa wampʼu rmoswan</annotation>
@@ -877,15 +879,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏋‍♀" type="tts">warmi sayayninkunata jatarichichkan</annotation>
 		<annotation cp="🚴">bicycle | pusachkan | pusay | runa bicicletapi</annotation>
 		<annotation cp="🚴" type="tts">runa bicicletapi</annotation>
-		<annotation cp="🚴‍♂">bicicleta | pusachkan | pusay | tata</annotation>
+		<annotation cp="🚴‍♂">bicicleta | pusachkan | pusay | tata | tata bicicletapi</annotation>
 		<annotation cp="🚴‍♂" type="tts">tata bicicletapi</annotation>
-		<annotation cp="🚴‍♀">bicicleta | pusachkan | pusay | warmi</annotation>
+		<annotation cp="🚴‍♀">bicicleta | pusachkan | pusay | warmi | warmi bicicletapi</annotation>
 		<annotation cp="🚴‍♀" type="tts">warmi bicicletapi</annotation>
 		<annotation cp="🚵">bicicleta | pusachkan | pusay | runa urqu bicicletapi | urqu</annotation>
 		<annotation cp="🚵" type="tts">runa urqu bicicletapi</annotation>
 		<annotation cp="🚵‍♂">bicicleta | pusachkan | pusay | tata | tata urqu bicicletapi | urqu</annotation>
 		<annotation cp="🚵‍♂" type="tts">tata urqu bicicletapi</annotation>
-		<annotation cp="🚵‍♀">bicicleta | pusachkan | pusay | urqu | warmi</annotation>
+		<annotation cp="🚵‍♀">bicicleta | pusachkan | pusay | urqu | warmi | warmi urqu bicicletapi</annotation>
 		<annotation cp="🚵‍♀" type="tts">warmi urqu bicicletapi</annotation>
 		<annotation cp="🤸">gimnasia | muyuy | runa gimnasia ruwachkan</annotation>
 		<annotation cp="🤸" type="tts">runa gimnasia ruwachkan</annotation>
@@ -913,9 +915,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤾‍♀" type="tts">warmi balonmano pukllachkan</annotation>
 		<annotation cp="🤹">achka ruwanakuna | allin takyay | malabares ruway | runa malabares ruwachkan | yachay</annotation>
 		<annotation cp="🤹" type="tts">runa malabares ruwachkan</annotation>
-		<annotation cp="🤹‍♂">achka ruwanakuna | malabares ruwachkan | runa</annotation>
+		<annotation cp="🤹‍♂">achka ruwanakuna | malabares ruwachkan | runa | tata malabares ruwachkan</annotation>
 		<annotation cp="🤹‍♂" type="tts">tata malabares ruwachkan</annotation>
-		<annotation cp="🤹‍♀">achka ruwanakuna | malabares ruwachkan | warmi</annotation>
+		<annotation cp="🤹‍♀">achka ruwanakuna | malabares ruwachkan | warmi | warmi malabares ruwachkan</annotation>
 		<annotation cp="🤹‍♀" type="tts">warmi malabares ruwachkan</annotation>
 		<annotation cp="🧘">jamut’ay | runa yoga yupipi | yoga</annotation>
 		<annotation cp="🧘" type="tts">runa yoga yupipi</annotation>
@@ -927,7 +929,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛀" type="tts">runa armakuyniyuq</annotation>
 		<annotation cp="🛌">puñuy | runa puñunapi | tampuwasi</annotation>
 		<annotation cp="🛌" type="tts">runa puñunapi</annotation>
-		<annotation cp="🧑‍🤝‍🧑">hapisqa | iskay makikunawan | maki | pitu runakuna</annotation>
+		<annotation cp="🧑‍🤝‍🧑">hapisqa | iskay makikunawan | maki | pitu runakuna | runakuna iskay makikunawan</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">runakuna iskay makikunawan</annotation>
 		<annotation cp="👭">iskay makikunawan | maki | pitu | warmi | warmi iskay makikunawan</annotation>
 		<annotation cp="👭" type="tts">warmi iskay makikunawan</annotation>
@@ -959,7 +961,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦳" type="tts">yuraq chukcha</annotation>
 		<annotation cp="🦲">hairless | mana chukchayuq | paqla | quimioterapia | rutusqa</annotation>
 		<annotation cp="🦲" type="tts">paqla</annotation>
-		<annotation cp="🐵">k’usillu | uya</annotation>
+		<annotation cp="🐵">k’usillu | kʼusillu uya | uya</annotation>
 		<annotation cp="🐵" type="tts">kʼusillu uya</annotation>
 		<annotation cp="🐒">kʼusillu</annotation>
 		<annotation cp="🐒" type="tts">kʼusillu</annotation>
@@ -973,7 +975,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐕" type="tts">allqu</annotation>
 		<annotation cp="🦮">haykurinalla | ñawsa | yanapaku | yanapakuq allqu</annotation>
 		<annotation cp="🦮" type="tts">yanapakuq allqu</annotation>
-		<annotation cp="🐕‍🦺">allqu | haykurinalla | llamkay | yanapakuy</annotation>
+		<annotation cp="🐕‍🦺">allqu | haykurinalla | llamkaq allqu | llamkay | yanapakuy</annotation>
 		<annotation cp="🐕‍🦺" type="tts">llamkaq allqu</annotation>
 		<annotation cp="🐩">allqu | poodle</annotation>
 		<annotation cp="🐩" type="tts">poodle</annotation>
@@ -999,7 +1001,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐆" type="tts">leopardo</annotation>
 		<annotation cp="🐴">kawallu | uya</annotation>
 		<annotation cp="🐴" type="tts">kawallu uya</annotation>
-		<annotation cp="🐎">carrera | ecuestre | kawallu purichiypaq</annotation>
+		<annotation cp="🐎">carrera | ecuestre | kawallu | kawallu purichiypaq</annotation>
 		<annotation cp="🐎" type="tts">kawallu</annotation>
 		<annotation cp="🦄">unicornio | uya</annotation>
 		<annotation cp="🦄" type="tts">unicornio</annotation>
@@ -1013,7 +1015,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐮" type="tts">waka uya</annotation>
 		<annotation cp="🐂">buey | Tauro | toro | zodiaco</annotation>
 		<annotation cp="🐂" type="tts">buey</annotation>
-		<annotation cp="🐃">bufalo | yaku</annotation>
+		<annotation cp="🐃">bufalo | bufalo yakumanta | yaku</annotation>
 		<annotation cp="🐃" type="tts">bufalo yakumanta</annotation>
 		<annotation cp="🐄">waka</annotation>
 		<annotation cp="🐄" type="tts">waka</annotation>
@@ -1023,7 +1025,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐖" type="tts">khuchi</annotation>
 		<annotation cp="🐗">khuchi | lumi khuchi</annotation>
 		<annotation cp="🐗" type="tts">lumi khuchi</annotation>
-		<annotation cp="🐽">khuchi | ninri | uya</annotation>
+		<annotation cp="🐽">khuchi | khuchi sinqa | ninri | uya</annotation>
 		<annotation cp="🐽" type="tts">khuchi sinqa</annotation>
 		<annotation cp="🐏">Aries | carnero | oveja | urqu | zodiaco</annotation>
 		<annotation cp="🐏" type="tts">carnero</annotation>
@@ -1041,13 +1043,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦒" type="tts">jirafa</annotation>
 		<annotation cp="🐘">elefante</annotation>
 		<annotation cp="🐘" type="tts">elefante</annotation>
-		<annotation cp="🦣">extinsion | hatun | millma | mumut | waqsa</annotation>
+		<annotation cp="🦣">extinsion | hatun | mamut | millma | mumut | waqsa</annotation>
 		<annotation cp="🦣" type="tts">mamut</annotation>
-		<annotation cp="🦏">rhinoceros</annotation>
+		<annotation cp="🦏">rhinoceros | rinoceronte</annotation>
 		<annotation cp="🦏" type="tts">rinoceronte</annotation>
 		<annotation cp="🦛">hipo | hipopotamo</annotation>
 		<annotation cp="🦛" type="tts">hipopotamo</annotation>
-		<annotation cp="🐭">juk’ucha | uya</annotation>
+		<annotation cp="🐭">juk’ucha | jukʼucha uya | uya</annotation>
 		<annotation cp="🐭" type="tts">jukʼucha uya</annotation>
 		<annotation cp="🐁">jukʼucha</annotation>
 		<annotation cp="🐁" type="tts">jukʼucha</annotation>
@@ -1067,7 +1069,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦔" type="tts">erizo</annotation>
 		<annotation cp="🦇">masu | vampiro</annotation>
 		<annotation cp="🦇" type="tts">masu</annotation>
-		<annotation cp="🐻">jukumari uya</annotation>
+		<annotation cp="🐻">hukumari | jukumari uya</annotation>
 		<annotation cp="🐻" type="tts">hukumari</annotation>
 		<annotation cp="🐻‍❄">artico | jukumari | polar jukumari | yuraq</annotation>
 		<annotation cp="🐻‍❄" type="tts">polar jukumari</annotation>
@@ -1091,9 +1093,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦃" type="tts">pavo</annotation>
 		<annotation cp="🐔">p’isqu | pollo</annotation>
 		<annotation cp="🐔" type="tts">pollo</annotation>
-		<annotation cp="🐓">k’anka | p’isqu</annotation>
+		<annotation cp="🐓">k’anka | kʼanka | p’isqu</annotation>
 		<annotation cp="🐓" type="tts">kʼanka</annotation>
-		<annotation cp="🐣">huchuy | p’akisqa | p’isqu | pollo</annotation>
+		<annotation cp="🐣">huchuy | p’akisqa | p’isqu | pollo | pollo pʼakisqa runtuwan</annotation>
 		<annotation cp="🐣" type="tts">pollo pʼakisqa runtuwan</annotation>
 		<annotation cp="🐤">huchuy | p’isqu | pollo</annotation>
 		<annotation cp="🐤" type="tts">huchuy pollo</annotation>
@@ -1119,7 +1121,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪶" type="tts">phuru</annotation>
 		<annotation cp="🦩">flamenco | rikurichisqa | tropical</annotation>
 		<annotation cp="🦩" type="tts">flamenco</annotation>
-		<annotation cp="🦚">apuskachay | pava real | pʼisqu | rikurichisqa</annotation>
+		<annotation cp="🦚">apuskachay | pava real | pavo real | pʼisqu | rikurichisqa</annotation>
 		<annotation cp="🦚" type="tts">pavo real</annotation>
 		<annotation cp="🦜">parlay | pirata | pʼisqu | uritu</annotation>
 		<annotation cp="🦜" type="tts">uritu</annotation>
@@ -1141,7 +1143,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦕" type="tts">sauropodo</annotation>
 		<annotation cp="🦖">T-Rex | Tiranosaurio Rex</annotation>
 		<annotation cp="🦖" type="tts">T-Rex</annotation>
-		<annotation cp="🐳">ballena | chʼamqachkan | uya</annotation>
+		<annotation cp="🐳">ballena | ballena yakuta chʼamqachkan | chʼamqachkan | uya</annotation>
 		<annotation cp="🐳" type="tts">ballena yakuta chʼamqachkan</annotation>
 		<annotation cp="🐋">ballena</annotation>
 		<annotation cp="🐋" type="tts">ballena</annotation>
@@ -1159,7 +1161,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦈" type="tts">tiburon</annotation>
 		<annotation cp="🐙">pulpo</annotation>
 		<annotation cp="🐙" type="tts">pulpo</annotation>
-		<annotation cp="🐚">ch’uru | muyuq</annotation>
+		<annotation cp="🐚">ch’uru | chʼuru | muyuq</annotation>
 		<annotation cp="🐚" type="tts">chʼuru</annotation>
 		<annotation cp="🐌">churu</annotation>
 		<annotation cp="🐌" type="tts">churu</annotation>
@@ -1189,13 +1191,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦟" type="tts">mosquito</annotation>
 		<annotation cp="🪰">ismusqa | khuru | parasito | phaway | unqusqa</annotation>
 		<annotation cp="🪰" type="tts">phaway</annotation>
-		<annotation cp="🪱">anelida | jallpʼamanta pacha | khuru | parasito</annotation>
+		<annotation cp="🪱">anelida | jallpʼamanta pacha | khuru | parasito | sillwi khuru</annotation>
 		<annotation cp="🪱" type="tts">sillwi khuru</annotation>
 		<annotation cp="🦠">ameba | bacteria | microbio | virus</annotation>
 		<annotation cp="🦠" type="tts">microbio</annotation>
 		<annotation cp="💐">t’ika | tʼikakunamanta</annotation>
 		<annotation cp="💐" type="tts">tʼikakunamanta</annotation>
-		<annotation cp="🌸">cherry | t’ika</annotation>
+		<annotation cp="🌸">cerezo tʼika | cherry | t’ika</annotation>
 		<annotation cp="🌸" type="tts">cerezo tʼika</annotation>
 		<annotation cp="💮">t’ika | yuraq tʼika</annotation>
 		<annotation cp="💮" type="tts">yuraq tʼika</annotation>
@@ -1203,7 +1205,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏵" type="tts">muyu whipala</annotation>
 		<annotation cp="🌹">rosa | t’ika</annotation>
 		<annotation cp="🌹" type="tts">rosa</annotation>
-		<annotation cp="🥀">naq’isqa | t’ika</annotation>
+		<annotation cp="🥀">naq’isqa | naqʼisqa tʼika | t’ika</annotation>
 		<annotation cp="🥀" type="tts">naqʼisqa tʼika</annotation>
 		<annotation cp="🌺">hibisco | t’ika</annotation>
 		<annotation cp="🌺" type="tts">hibisco</annotation>
@@ -1211,7 +1213,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌻" type="tts">girasol</annotation>
 		<annotation cp="🌼">cerezo | tʼika</annotation>
 		<annotation cp="🌼" type="tts">cerezo</annotation>
-		<annotation cp="🌷">tulipan | tʼika</annotation>
+		<annotation cp="🌷">tulipan | tulipán | tʼika</annotation>
 		<annotation cp="🌷" type="tts">tulipán</annotation>
 		<annotation cp="🌱">wayna | wayna mallki</annotation>
 		<annotation cp="🌱" type="tts">wayna mallki</annotation>
@@ -1219,7 +1221,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪴" type="tts">macetapi sachʼa</annotation>
 		<annotation cp="🌲">sach’a | sachʼa perenne laqhiwan</annotation>
 		<annotation cp="🌲" type="tts">sachʼa perenne laqhiwan</annotation>
-		<annotation cp="🌳">caduco | laqhi | sach’a</annotation>
+		<annotation cp="🌳">caduco | laqhi | sach’a | sachʼa caduca laqhiwan</annotation>
 		<annotation cp="🌳" type="tts">sachʼa caduca laqhiwan</annotation>
 		<annotation cp="🌴">chunta | sach’a</annotation>
 		<annotation cp="🌴" type="tts">chunta</annotation>
@@ -1243,7 +1245,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍇" type="tts">uwas</annotation>
 		<annotation cp="🍈">melón | ruru</annotation>
 		<annotation cp="🍈" type="tts">melón</annotation>
-		<annotation cp="🍉">ruru | watermelon</annotation>
+		<annotation cp="🍉">ruru | sandía | watermelon</annotation>
 		<annotation cp="🍉" type="tts">sandía</annotation>
 		<annotation cp="🍊">mandarina | ruru | willapi</annotation>
 		<annotation cp="🍊" type="tts">mandarina</annotation>
@@ -1257,11 +1259,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥭" type="tts">mango</annotation>
 		<annotation cp="🍎">manzana | puka | ruru</annotation>
 		<annotation cp="🍎" type="tts">puka manzana</annotation>
-		<annotation cp="🍏">manzana | q’umir | ruru</annotation>
+		<annotation cp="🍏">manzana | q’umir | qʼumir manzana | ruru</annotation>
 		<annotation cp="🍏" type="tts">qʼumir manzana</annotation>
 		<annotation cp="🍐">pera | ruru</annotation>
 		<annotation cp="🍐" type="tts">pera</annotation>
-		<annotation cp="🍑">peach | ruru</annotation>
+		<annotation cp="🍑">peach | rurasnu | ruru</annotation>
 		<annotation cp="🍑" type="tts">rurasnu</annotation>
 		<annotation cp="🍒">bayas | cherri | cherris | puka | ruru</annotation>
 		<annotation cp="🍒" type="tts">cherris</annotation>
@@ -1313,7 +1315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥐" type="tts">croissant</annotation>
 		<annotation cp="🥖">baguette | frances | mikhuna | tʼanta</annotation>
 		<annotation cp="🥖" type="tts">baguette tʼanta</annotation>
-		<annotation cp="🫓">agave | arepa | lavash | llaplla tʼanta | naa</annotation>
+		<annotation cp="🫓">agave | arepa | lavash | llaplla t’anta | llaplla tʼanta | naa</annotation>
 		<annotation cp="🫓" type="tts">llaplla t’anta</annotation>
 		<annotation cp="🥨">k’uyusqa | pretzel</annotation>
 		<annotation cp="🥨" type="tts">pretzel</annotation>
@@ -1349,7 +1351,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌯" type="tts">burrito</annotation>
 		<annotation cp="🫔">mexicano | tamal | tapasqa</annotation>
 		<annotation cp="🫔" type="tts">tamal</annotation>
-		<annotation cp="🥙">fatafel | giro | guiso | kebab | llaplla t’anta | mikhuna</annotation>
+		<annotation cp="🥙">fatafel | giro | guiso | juntʼachisqa tʼanta moldepi | kebab | llaplla t’anta | mikhuna</annotation>
 		<annotation cp="🥙" type="tts">juntʼachisqa tʼanta moldepi</annotation>
 		<annotation cp="🧆">albondiga | fatafel | garganzo</annotation>
 		<annotation cp="🧆" type="tts">fatafel</annotation>
@@ -1365,7 +1367,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫕" type="tts">fondue</annotation>
 		<annotation cp="🥣">cereal | congee | cuenco willawan | paqarin mikhuna</annotation>
 		<annotation cp="🥣" type="tts">cuenco willawan</annotation>
-		<annotation cp="🥗">ensalada | mikhuna | q’umir</annotation>
+		<annotation cp="🥗">ensalada | mikhuna | q’umir | qʼumir ensalada</annotation>
 		<annotation cp="🥗" type="tts">qʼumir ensalada</annotation>
 		<annotation cp="🍿">palomitas de maiz</annotation>
 		<annotation cp="🍿" type="tts">palomitas de maiz</annotation>
@@ -1377,15 +1379,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥫" type="tts">mikhuna latapi</annotation>
 		<annotation cp="🍱">bento | tawakʼuchu</annotation>
 		<annotation cp="🍱" type="tts">bento tawakʼuchu</annotation>
-		<annotation cp="🍘">arroz | galleta</annotation>
+		<annotation cp="🍘">arroz | galleta | galleta arrozmanta</annotation>
 		<annotation cp="🍘" type="tts">galleta arrozmanta</annotation>
-		<annotation cp="🍙">arroz | Japones | muyu</annotation>
+		<annotation cp="🍙">arroz | Japones | muyu | muyu arrozwan</annotation>
 		<annotation cp="🍙" type="tts">muyu arrozwan</annotation>
 		<annotation cp="🍚">arroz | waykʼusqa</annotation>
 		<annotation cp="🍚" type="tts">waykʼusqa arroz</annotation>
-		<annotation cp="🍛">arroz | curry</annotation>
+		<annotation cp="🍛">arroz | arroz currywan | curry</annotation>
 		<annotation cp="🍛" type="tts">arroz currywan</annotation>
-		<annotation cp="🍜">chhapukucha | cuenco | fideos | tallarines</annotation>
+		<annotation cp="🍜">chhapukucha | chhapukucha fideoswan | cuenco | fideos | tallarines</annotation>
 		<annotation cp="🍜" type="tts">chhapukucha fideoswan</annotation>
 		<annotation cp="🍝">espagueti | pasta</annotation>
 		<annotation cp="🍝" type="tts">espagueti</annotation>
@@ -1419,17 +1421,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦑" type="tts">calamar</annotation>
 		<annotation cp="🦪">buceo | ostra | perla</annotation>
 		<annotation cp="🦪" type="tts">ostra</annotation>
-		<annotation cp="🍦">chiri | helado | llamp’u | miski | postre | tunti q’illu</annotation>
+		<annotation cp="🍦">chiri | helado | llamp’u | llampʼu helado | miski | postre | tunti q’illu</annotation>
 		<annotation cp="🍦" type="tts">llampʼu helado</annotation>
 		<annotation cp="🍧">chiri | miski | postre | raspadillo</annotation>
 		<annotation cp="🍧" type="tts">raspadillo</annotation>
-		<annotation cp="🍨">chiri | miski | postre | tunti q’illu</annotation>
+		<annotation cp="🍨">chiri | helado | miski | postre | tunti q’illu</annotation>
 		<annotation cp="🍨" type="tts">helado</annotation>
 		<annotation cp="🍩">dona | miski | paqarin mikhuna | postre</annotation>
 		<annotation cp="🍩" type="tts">dona</annotation>
 		<annotation cp="🍪">galleta | miski | postre</annotation>
 		<annotation cp="🍪" type="tts">galleta</annotation>
-		<annotation cp="🎂">masa | miski | postre | raymi | torta | wata huntaypaq</annotation>
+		<annotation cp="🎂">masa | miski | postre | raymi | torta | wata huntaypaq | wata huntaypaq torta</annotation>
 		<annotation cp="🎂" type="tts">wata huntaypaq torta</annotation>
 		<annotation cp="🍰">masa | miski | pedazo | postre | torta</annotation>
 		<annotation cp="🍰" type="tts">torta</annotation>
@@ -1439,19 +1441,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥧" type="tts">tarta</annotation>
 		<annotation cp="🍫">barra | chocolate | miski | postre</annotation>
 		<annotation cp="🍫" type="tts">chocolate barra</annotation>
-		<annotation cp="🍬">miski | postre</annotation>
+		<annotation cp="🍬">miski | miskʼi | postre</annotation>
 		<annotation cp="🍬" type="tts">miskʼi</annotation>
 		<annotation cp="🍭">chupete | miski | miskʼi | postre</annotation>
 		<annotation cp="🍭" type="tts">chupete</annotation>
 		<annotation cp="🍮">miski | postre | pudin | raqʼa</annotation>
 		<annotation cp="🍮" type="tts">raqʼa</annotation>
-		<annotation cp="🍯">manka | misk’i | miski</annotation>
+		<annotation cp="🍯">manka | misk’i | miski | miskʼi manka</annotation>
 		<annotation cp="🍯" type="tts">miskʼi manka</annotation>
-		<annotation cp="🍼">biberon | upyana | wawa | wilali</annotation>
+		<annotation cp="🍼">biberon | biberón | upyana | wawa | wilali</annotation>
 		<annotation cp="🍼" type="tts">biberón</annotation>
 		<annotation cp="🥛">qiru | upyana | wilali | wilali qirupi</annotation>
 		<annotation cp="🥛" type="tts">wilali qirupi</annotation>
-		<annotation cp="☕">cafe | q’uñi | te | upyana | wapsi</annotation>
+		<annotation cp="☕">cafe | q’uñi | qʼuñi upyana | te | upyana | wapsi</annotation>
 		<annotation cp="☕" type="tts">qʼuñi upyana</annotation>
 		<annotation cp="🫖">qiru | te | upyana</annotation>
 		<annotation cp="🫖" type="tts">te qiru</annotation>
@@ -1461,7 +1463,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍶" type="tts">sake</annotation>
 		<annotation cp="🍾">bar | botella | corcho | dercorche | descorche jumiwa | upyana</annotation>
 		<annotation cp="🍾" type="tts">descorche jumiwa</annotation>
-		<annotation cp="🍷">bar | copa | qiru | upyana | wine</annotation>
+		<annotation cp="🍷">bar | copa | qiru | upyana | vino qiru | wine</annotation>
 		<annotation cp="🍷" type="tts">vino qiru</annotation>
 		<annotation cp="🍸">bar | cocktail | qiru | upyana</annotation>
 		<annotation cp="🍸" type="tts">cocktail qiru</annotation>
@@ -1473,7 +1475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍻" type="tts">cerveza qirukuna anqusachkan</annotation>
 		<annotation cp="🥂">qiru | qirukuna anqusachkan | raymi | tintinay | upyana</annotation>
 		<annotation cp="🥂" type="tts">qirukuna anqusachkan</annotation>
-		<annotation cp="🥃">licor | qiru | qirukuna vidriomanta | shot | whisky</annotation>
+		<annotation cp="🥃">licor | qiru | qiru vidriomanta | qirukuna vidriomanta | shot | whisky</annotation>
 		<annotation cp="🥃" type="tts">qiru vidriomanta</annotation>
 		<annotation cp="🥤">jilli | qiru bombillawan | soda</annotation>
 		<annotation cp="🥤" type="tts">qiru bombillawan</annotation>
@@ -1533,11 +1535,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏛" type="tts">ñawpa wasichiy</annotation>
 		<annotation cp="🏗">hatun wasi wasichiynin | pirqaq</annotation>
 		<annotation cp="🏗" type="tts">hatun wasi wasichiynin</annotation>
+		<annotation cp="🪨">rumi</annotation>
 		<annotation cp="🪨" type="tts">rumi</annotation>
 		<annotation cp="🏘">wasikuna</annotation>
 		<annotation cp="🏘" type="tts">wasikuna</annotation>
 		<annotation cp="🏚">saqisqa | wasi</annotation>
 		<annotation cp="🏚" type="tts">saqisqa wasi</annotation>
+		<annotation cp="🏠">wasi</annotation>
 		<annotation cp="🏠" type="tts">wasi</annotation>
 		<annotation cp="🏡">inkill | wasi | wasi inkillwan</annotation>
 		<annotation cp="🏡" type="tts">wasi inkillwan</annotation>
@@ -1553,8 +1557,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏦" type="tts">banco</annotation>
 		<annotation cp="🏨">jatariki | tampuwasi</annotation>
 		<annotation cp="🏨" type="tts">tampuwasi</annotation>
-		<annotation cp="🏩">munay | tampuwasi</annotation>
+		<annotation cp="🏩">munay | munaymanta tampu wasi | tampuwasi</annotation>
 		<annotation cp="🏩" type="tts">munaymanta tampu wasi</annotation>
+		<annotation cp="🏪">qatuna 24 phanikunawan</annotation>
 		<annotation cp="🏪" type="tts">qatuna 24 phanikunawan</annotation>
 		<annotation cp="🏫">jatariki | yachaywasi</annotation>
 		<annotation cp="🏫" type="tts">yachaywasi</annotation>
@@ -1576,6 +1581,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛪" type="tts">iglesia</annotation>
 		<annotation cp="🕌">islam | mezquita | Musulman | religion</annotation>
 		<annotation cp="🕌" type="tts">mezquita</annotation>
+		<annotation cp="🕍">sinagoga</annotation>
 		<annotation cp="🕍" type="tts">sinagoga</annotation>
 		<annotation cp="⛩">religion | santuario | sintoismo</annotation>
 		<annotation cp="⛩" type="tts">sintoismo santuario</annotation>
@@ -1605,15 +1611,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♨" type="tts">q’uñi yaku</annotation>
 		<annotation cp="🎠">carrusel | kawallu</annotation>
 		<annotation cp="🎠" type="tts">carrusel kawallu</annotation>
-		<annotation cp="🎡">jawka parque | muyu | noria</annotation>
+		<annotation cp="🎡">jawka parque | muyu | noria | noria qhatunapi</annotation>
 		<annotation cp="🎡" type="tts">noria qhatunapi</annotation>
 		<annotation cp="🎢">jawka parque | montaña rusa | muyuq</annotation>
 		<annotation cp="🎢" type="tts">montaña rusa</annotation>
-		<annotation cp="💈">barbero | poste | rutuy</annotation>
+		<annotation cp="💈">barbero | poste | poste barberopaq | rutuy</annotation>
 		<annotation cp="💈" type="tts">poste barberopaq</annotation>
 		<annotation cp="🚂">ferrocarril | locomotora | motor | puriy | tren</annotation>
 		<annotation cp="🚂" type="tts">locomotora</annotation>
-		<annotation cp="🚃">carru | electrico | ferrocarril | ñan | trolebus</annotation>
+		<annotation cp="🚃">carru | electrico | ferrocarril | ñan | tren ferrocarrilpaq | trolebus</annotation>
 		<annotation cp="🚃" type="tts">tren ferrocarrilpaq</annotation>
 		<annotation cp="🚄">ferrocarril | shinkansen | tren | utqhay</annotation>
 		<annotation cp="🚄" type="tts">utqhay tren</annotation>
@@ -1624,13 +1630,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚇" type="tts">metro</annotation>
 		<annotation cp="🚉">estacion | ferrocarril | tren</annotation>
 		<annotation cp="🚉" type="tts">estacion</annotation>
-		<annotation cp="🚊">ñan | trolebus</annotation>
+		<annotation cp="🚊">ñan | tranvia | trolebus</annotation>
 		<annotation cp="🚊" type="tts">tranvia</annotation>
 		<annotation cp="🚝">carru | monorrail</annotation>
 		<annotation cp="🚝" type="tts">monorrail</annotation>
-		<annotation cp="🚞">autu | ferrocarril | urqu</annotation>
+		<annotation cp="🚞">autu | ferrocarril | ferrocarril urqupaq | urqu</annotation>
 		<annotation cp="🚞" type="tts">ferrocarril urqupaq</annotation>
-		<annotation cp="🚋">carru | ñan | trolebus</annotation>
+		<annotation cp="🚋">carru | ñan | trolebus | vagon tranviapaq</annotation>
 		<annotation cp="🚋" type="tts">vagon tranviapaq</annotation>
 		<annotation cp="🚌">bus | carru</annotation>
 		<annotation cp="🚌" type="tts">bus</annotation>
@@ -1642,11 +1648,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚐" type="tts">minibus</annotation>
 		<annotation cp="🚑">ambulancia | carru</annotation>
 		<annotation cp="🚑" type="tts">ambulancia</annotation>
-		<annotation cp="🚒">carru | motor | nina</annotation>
+		<annotation cp="🚒">carru | carru bomberospaq | motor | nina</annotation>
 		<annotation cp="🚒" type="tts">carru bomberospaq</annotation>
-		<annotation cp="🚓">carru | paco | patrulla</annotation>
+		<annotation cp="🚓">carru | paco | patrulla | policia carru</annotation>
 		<annotation cp="🚓" type="tts">policia carru</annotation>
-		<annotation cp="🚔">carru | policia | qatiq</annotation>
+		<annotation cp="🚔">carru | policia | qatiq | qatiq carru policiapaq</annotation>
 		<annotation cp="🚔" type="tts">qatiq carru policiapaq</annotation>
 		<annotation cp="🚕">carru | taxi</annotation>
 		<annotation cp="🚕" type="tts">taxi</annotation>
@@ -1660,29 +1666,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚙" type="tts">autocaravana</annotation>
 		<annotation cp="🚚">camión | qupuspa</annotation>
 		<annotation cp="🚚" type="tts">qupuspa camión</annotation>
+		<annotation cp="🚛">articulado caminón</annotation>
 		<annotation cp="🚛" type="tts">articulado caminón</annotation>
 		<annotation cp="🚜">carru | tractor</annotation>
 		<annotation cp="🚜" type="tts">tractor</annotation>
-		<annotation cp="🏎">carrera | carru</annotation>
+		<annotation cp="🏎">carrera | carrera carrupi | carru</annotation>
 		<annotation cp="🏎" type="tts">carrera carrupi</annotation>
 		<annotation cp="🏍">carrera | motocicleta</annotation>
 		<annotation cp="🏍" type="tts">motocicleta</annotation>
+		<annotation cp="🛵">patinador motorwan</annotation>
 		<annotation cp="🛵" type="tts">patinador motorwan</annotation>
 		<annotation cp="🚲">bici | bicicleta</annotation>
 		<annotation cp="🚲" type="tts">bicicleta</annotation>
-		<annotation cp="🛴">jayt’a | scooter</annotation>
+		<annotation cp="🛴">jayt’a | patinador | scooter</annotation>
 		<annotation cp="🛴" type="tts">patinador</annotation>
 		<annotation cp="🛼">muyuq | patinar</annotation>
-		<annotation cp="🚏">autibus | bus | parada autobus | tatichiy</annotation>
+		<annotation cp="🚏">autibus | bus | parada autobus | parada autobúspaq | tatichiy</annotation>
 		<annotation cp="🚏" type="tts">parada autobúspaq</annotation>
 		<annotation cp="🛣">autopista | hatun ñan | ñan</annotation>
 		<annotation cp="🛣" type="tts">autopista</annotation>
 		<annotation cp="🛤">ferrocarril | tren</annotation>
 		<annotation cp="🛤" type="tts">ferrocarril tren</annotation>
-		<annotation cp="🛢">aceite | tambor</annotation>
+		<annotation cp="🛢">aceite | tambor | tambor aceitewan</annotation>
 		<annotation cp="🛢" type="tts">tambor aceitewan</annotation>
+		<annotation cp="⛽">bomba gasolinera</annotation>
 		<annotation cp="⛽" type="tts">bomba gasolinera</annotation>
-		<annotation cp="🚨">auto | faro | k’anchay | muyusqa | policia</annotation>
+		<annotation cp="🚨">auto | faro | k’anchay | muyusqa | policia | sirena policia carrumanta</annotation>
 		<annotation cp="🚨" type="tts">sirena policia carrumanta</annotation>
 		<annotation cp="🚥">k’anchay | kinranpa semaforo | trafico | unancha</annotation>
 		<annotation cp="🚥" type="tts">kinranpa semaforo</annotation>
@@ -1700,7 +1709,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛶" type="tts">canoa</annotation>
 		<annotation cp="🚤">utqhay lancha | wamp’u</annotation>
 		<annotation cp="🚤" type="tts">utqhay lancha</annotation>
-		<annotation cp="🛳">barco | pasajero</annotation>
+		<annotation cp="🛳">barco | pasajero | pasajero barcomanta</annotation>
 		<annotation cp="🛳" type="tts">pasajero barcomanta</annotation>
 		<annotation cp="⛴">apay | pasajero | wamp’u</annotation>
 		<annotation cp="⛴" type="tts">apay</annotation>
@@ -1712,7 +1721,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✈" type="tts">latap’isqu</annotation>
 		<annotation cp="🛩">aeroplano | huchuy latap’isqu | latap’isqu</annotation>
 		<annotation cp="🛩" type="tts">huchuy latap’isqu</annotation>
-		<annotation cp="🛫">aeroplane | airplane | check-in | departure | departures</annotation>
+		<annotation cp="🛫">aeroplane | airplane | check-in | departure | departures | lata pʼisqu luqsina</annotation>
 		<annotation cp="🛫" type="tts">lata pʼisqu luqsina</annotation>
 		<annotation cp="🛬">aeroplano | chayachkan | chayanakuna | chayaspa | lata pʼisqu chayana | latap’isqu</annotation>
 		<annotation cp="🛬" type="tts">lata pʼisqu chayana</annotation>
@@ -1732,53 +1741,67 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚀" type="tts">cohete</annotation>
 		<annotation cp="🛸">ovni | platillo volador</annotation>
 		<annotation cp="🛸" type="tts">platillo volador</annotation>
-		<annotation cp="🛎">botones | chhullupi | tampu wasi</annotation>
+		<annotation cp="🛎">botones | chhullupi | chhullupi botonespaq | tampu wasi</annotation>
 		<annotation cp="🛎" type="tts">chhullupi botonespaq</annotation>
+		<annotation cp="🧳">equipaje</annotation>
 		<annotation cp="🧳" type="tts">equipaje</annotation>
 		<annotation cp="⌚">inti watana | reloj</annotation>
 		<annotation cp="⌚" type="tts">inti watana</annotation>
+		<annotation cp="⏰">despertador</annotation>
 		<annotation cp="⏰" type="tts">despertador</annotation>
 		<annotation cp="⏱">cronografo | reloj</annotation>
 		<annotation cp="⏱" type="tts">cronografo</annotation>
-		<annotation cp="⏲">pacha | reloj</annotation>
+		<annotation cp="⏲">pacha | reloj | reloj temporizador</annotation>
 		<annotation cp="⏲" type="tts">reloj temporizador</annotation>
 		<annotation cp="🕰">reloj | reloj chimeneapaq</annotation>
 		<annotation cp="🕰" type="tts">reloj chimeneapaq</annotation>
-		<annotation cp="🕛">00 | 12 | 12:00 | iskayniyuq</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | chunka iskayniyuq | iskayniyuq</annotation>
 		<annotation cp="🕛" type="tts">chunka iskayniyuq</annotation>
+		<annotation cp="🕧">chunka iskayniyuq chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕧" type="tts">chunka iskayniyuq chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕐">00 | 1 | 1:00 | huk</annotation>
 		<annotation cp="🕐" type="tts">huk</annotation>
+		<annotation cp="🕜">huk chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕜" type="tts">huk chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕑">00 | 2 | 2:00 | iskay</annotation>
 		<annotation cp="🕑" type="tts">iskay</annotation>
+		<annotation cp="🕝">iskay chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕝" type="tts">iskay chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕒">00 | 3 | 3:00 | kimsa</annotation>
 		<annotation cp="🕒" type="tts">kimsa</annotation>
+		<annotation cp="🕞">kimsa chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕞" type="tts">kimsa chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕓">00 | 4 | 4:00 | tawa</annotation>
 		<annotation cp="🕓" type="tts">tawa</annotation>
+		<annotation cp="🕟">tawa chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕟" type="tts">tawa chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕔">00 | 5 | 5:00 | phisqa</annotation>
 		<annotation cp="🕔" type="tts">phisqa</annotation>
+		<annotation cp="🕠">phisqa chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕠" type="tts">phisqa chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕕">00 | 6 | 6:00 | suqta</annotation>
 		<annotation cp="🕕" type="tts">suqta</annotation>
+		<annotation cp="🕡">suqta chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕡" type="tts">suqta chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕖">00 | 7 | 7:00 | qanchis</annotation>
 		<annotation cp="🕖" type="tts">qanchis</annotation>
+		<annotation cp="🕢">qanchis chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕢" type="tts">qanchis chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕗">00 | 8 | 8:00 | pusaq</annotation>
 		<annotation cp="🕗" type="tts">pusaq</annotation>
+		<annotation cp="🕣">pusaq chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕣" type="tts">pusaq chaymanta kimsa chunkawan</annotation>
-		<annotation cp="🕘">00 | 9 | 9:00 | jisq’un</annotation>
+		<annotation cp="🕘">00 | 9 | 9:00 | jisq’un | jisqʼun</annotation>
 		<annotation cp="🕘" type="tts">jisqʼun</annotation>
+		<annotation cp="🕤">jisqʼun chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕤" type="tts">jisqʼun chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕙">00 | 10 | 10:00 | chunka</annotation>
 		<annotation cp="🕙" type="tts">chunka</annotation>
+		<annotation cp="🕥">chunka chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕥" type="tts">chunka chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕚">00 | 11 | 11:00 | chunka hukniyuq</annotation>
 		<annotation cp="🕚" type="tts">chunka hukniyuq</annotation>
+		<annotation cp="🕦">chunka hukniyuq chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🕦" type="tts">chunka hukniyuq chaymanta kimsa chunkawan</annotation>
 		<annotation cp="🌑">killa | tuta | unu Killa</annotation>
 		<annotation cp="🌑" type="tts">unu Killa</annotation>
@@ -1788,6 +1811,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌓" type="tts">hukñiqi wañu killa</annotation>
 		<annotation cp="🌔">chawpi | gibosa | killa</annotation>
 		<annotation cp="🌔" type="tts">chawpi gibosa killa</annotation>
+		<annotation cp="🌕">pura killa</annotation>
 		<annotation cp="🌕" type="tts">pura killa</annotation>
 		<annotation cp="🌖">chawpi | gibosa | killa | wañu</annotation>
 		<annotation cp="🌖" type="tts">wañu gibosa killa</annotation>
@@ -1795,6 +1819,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌗" type="tts">qhipa wañu killa</annotation>
 		<annotation cp="🌘">chawpi | killa | wañu</annotation>
 		<annotation cp="🌘" type="tts">wañu killa</annotation>
+		<annotation cp="🌙">chawpi killa</annotation>
 		<annotation cp="🌙" type="tts">chawpi killa</annotation>
 		<annotation cp="🌚">killa | unu killa uya | uya</annotation>
 		<annotation cp="🌚" type="tts">unu killa uya</annotation>
@@ -1836,6 +1861,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌫" type="tts">pukutay</annotation>
 		<annotation cp="🌬">phukuy | puyu | uya | wayra</annotation>
 		<annotation cp="🌬" type="tts">wayra uya</annotation>
+		<annotation cp="🌀">ciclón</annotation>
 		<annotation cp="🌀" type="tts">ciclón</annotation>
 		<annotation cp="🌈">kʼuychi | para</annotation>
 		<annotation cp="🌈" type="tts">kʼuychi</annotation>
@@ -1847,6 +1873,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☔" type="tts">para achiwa para sutʼukunawan</annotation>
 		<annotation cp="⛱">achiwa | inti | para | para achiwa jallp’api</annotation>
 		<annotation cp="⛱" type="tts">para achiwa jallp’api</annotation>
+		<annotation cp="⚡">kuraq voltaje</annotation>
 		<annotation cp="⚡" type="tts">kuraq voltaje</annotation>
 		<annotation cp="❄">chiri | rit’i | rit’i urpu</annotation>
 		<annotation cp="❄" type="tts">rit’i urpu</annotation>
@@ -1860,11 +1887,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔥" type="tts">nina</annotation>
 		<annotation cp="💧">chiri | kusi | miski | sut’u | sutʼu</annotation>
 		<annotation cp="💧" type="tts">sutʼu</annotation>
-		<annotation cp="🌊">mama qucha | wallch’a | yaku</annotation>
+		<annotation cp="🌊">mama qucha | wallch’a | yaku | yaku wallchʼa</annotation>
 		<annotation cp="🌊" type="tts">yaku wallchʼa</annotation>
 		<annotation cp="🎃">halloween | jack | linterna | mathi | raymi</annotation>
 		<annotation cp="🎃" type="tts">mathi</annotation>
-		<annotation cp="🎄">Navidad | raymi | sach’a</annotation>
+		<annotation cp="🎄">Navidad | Navidad sachʼa | raymi | sach’a</annotation>
 		<annotation cp="🎄" type="tts">Navidad sachʼa</annotation>
 		<annotation cp="🎆">fuegos artificiales | raymi</annotation>
 		<annotation cp="🎆" type="tts">fuegos artificiales</annotation>
@@ -1874,23 +1901,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✨" type="tts">pinchikuna</annotation>
 		<annotation cp="🎈">glubu | raymi</annotation>
 		<annotation cp="🎈" type="tts">glubu</annotation>
-		<annotation cp="🎉">ch’amqaq | confeti | raymi</annotation>
+		<annotation cp="🎉">ch’amqaq | confeti | confeti chʼamqaq | raymi</annotation>
 		<annotation cp="🎉" type="tts">confeti chʼamqaq</annotation>
-		<annotation cp="🎊">confeti | muyu | raymi</annotation>
+		<annotation cp="🎊">confeti | muyu | muyu confetiwan | raymi</annotation>
 		<annotation cp="🎊" type="tts">muyu confetiwan</annotation>
 		<annotation cp="🎋">baner | Japones | raymi | sach’a | tanabata sachʼa</annotation>
 		<annotation cp="🎋" type="tts">tanabata sachʼa</annotation>
 		<annotation cp="🎍">bambu | Japones | pino | pino achhachala | raymi</annotation>
 		<annotation cp="🎍" type="tts">pino achhachala</annotation>
+		<annotation cp="🎎">Japonesa urpukuna</annotation>
 		<annotation cp="🎎" type="tts">Japonesa urpukuna</annotation>
-		<annotation cp="🎏">carpa | raymi | wiphala</annotation>
+		<annotation cp="🎏">carpa | carpas wiphala | raymi | wiphala</annotation>
 		<annotation cp="🎏" type="tts">carpas wiphala</annotation>
-		<annotation cp="🎐">chhulluqi | chuullu | raymi | wayra</annotation>
+		<annotation cp="🎐">chhullupi wayrapaq | chhulluqi | chuullu | raymi | wayra</annotation>
 		<annotation cp="🎐" type="tts">chhullupi wayrapaq</annotation>
+		<annotation cp="🎑">killa itu qawaypaq</annotation>
 		<annotation cp="🎑" type="tts">killa itu qawaypaq</annotation>
 		<annotation cp="🎀">cinta | raymi</annotation>
 		<annotation cp="🎀" type="tts">cinta</annotation>
-		<annotation cp="🎁">p’intusqa | raymi | suña | tawak’uchu</annotation>
+		<annotation cp="🎁">p’intusqa | pʼintusqa suña | raymi | suña | tawak’uchu</annotation>
 		<annotation cp="🎁" type="tts">pʼintusqa suña</annotation>
 		<annotation cp="🎗">cinta | raymi | yuyarinapaq</annotation>
 		<annotation cp="🎗" type="tts">yuyarinapaq cinta</annotation>
@@ -1908,8 +1937,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥇" type="tts">medalla 1qi kitipaq</annotation>
 		<annotation cp="🥈">iskayñiqi | medalla | medalla 2qi kitipaq | qullqi</annotation>
 		<annotation cp="🥈" type="tts">medalla 2qi kitipaq</annotation>
+		<annotation cp="🥉">medalla 3qi kitipaq</annotation>
 		<annotation cp="🥉" type="tts">medalla 3qi kitipaq</annotation>
-		<annotation cp="⚽">futbol | p’ulu</annotation>
+		<annotation cp="⚽">futbol | futbol pʼulu | p’ulu</annotation>
 		<annotation cp="⚽" type="tts">futbol pʼulu</annotation>
 		<annotation cp="⚾">beisbol | p’ulu</annotation>
 		<annotation cp="⚾" type="tts">beisbol</annotation>
@@ -1919,7 +1949,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏐" type="tts">voleibol</annotation>
 		<annotation cp="🏈">americano | futbol | p’ulu</annotation>
 		<annotation cp="🏈" type="tts">futbol americano</annotation>
-		<annotation cp="🏉">futbol | p’ulu | rugby</annotation>
+		<annotation cp="🏉">futbol | p’ulu | rugby | rugby pʼulu</annotation>
 		<annotation cp="🏉" type="tts">rugby pʼulu</annotation>
 		<annotation cp="🎾">p’ulu | raqueta | tenis</annotation>
 		<annotation cp="🎾" type="tts">tenis</annotation>
@@ -1927,9 +1957,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎳" type="tts">bolos</annotation>
 		<annotation cp="🏏">cricket pukllay | masu | p’ulu | pukllay</annotation>
 		<annotation cp="🏏" type="tts">cricket pukllay</annotation>
-		<annotation cp="🏑">hockey | k’aspi | kampu | p’ulu | pukllay</annotation>
+		<annotation cp="🏑">hockey | hockey chʼampapi | k’aspi | kampu | p’ulu | pukllay</annotation>
 		<annotation cp="🏑" type="tts">hockey chʼampapi</annotation>
-		<annotation cp="🏒">chhullunka | hockey | k’aspi | puck | pukllay</annotation>
+		<annotation cp="🏒">chhullunka | hockey | hockey ritʼipi | k’aspi | puck | pukllay</annotation>
 		<annotation cp="🏒" type="tts">hockey ritʼipi</annotation>
 		<annotation cp="🏓">masu | p’ulu | paleta | ping pong | pukllay | tenis tawla</annotation>
 		<annotation cp="🏓" type="tts">ping pong</annotation>
@@ -1947,7 +1977,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛸" type="tts">chhullunka patinar</annotation>
 		<annotation cp="🎣">callwa | caña challawaypaq challwawan | poste</annotation>
 		<annotation cp="🎣" type="tts">caña challawaypaq challwawan</annotation>
-		<annotation cp="🎽">atletico | camiseta | faja | phawachkan</annotation>
+		<annotation cp="🎽">atletico | camiseta | camiseta phawaypaq | faja | phawachkan</annotation>
 		<annotation cp="🎽" type="tts">camiseta phawaypaq</annotation>
 		<annotation cp="🎿">esqui | esquis | rit’i</annotation>
 		<annotation cp="🎿" type="tts">esquis</annotation>
@@ -1955,9 +1985,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛷" type="tts">trineo</annotation>
 		<annotation cp="🥌">muyusqa rumi | pukllay | rumi</annotation>
 		<annotation cp="🥌" type="tts">muyusqa rumi</annotation>
+		<annotation cp="🎯">diana</annotation>
 		<annotation cp="🎯" type="tts">diana</annotation>
+		<annotation cp="🎱">billar</annotation>
 		<annotation cp="🎱" type="tts">billar</annotation>
-		<annotation cp="🔮">fantasia | hadas willana | llamkana | p’ulu | qhispillu | qulli</annotation>
+		<annotation cp="🔮">fantasia | hadas willana | llamkana | muyu qhispillu | p’ulu | qhispillu | qulli</annotation>
 		<annotation cp="🔮" type="tts">muyu qhispillu</annotation>
 		<annotation cp="🎮">patachaq | pukllay | video pukllay</annotation>
 		<annotation cp="🎮" type="tts">video pukllay</annotation>
@@ -1981,128 +2013,215 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🀄" type="tts">mahjong puka dragon</annotation>
 		<annotation cp="🎴">Japones | pukllachkan | pukllay | t’ika | tarhita | tʼika naipes</annotation>
 		<annotation cp="🎴" type="tts">tʼika naipes</annotation>
+		<annotation cp="🎭">artes escenicas</annotation>
 		<annotation cp="🎭" type="tts">artes escenicas</annotation>
 		<annotation cp="🖼">kancha | kanchapi rikchay | llimpi | museo | rikchay | t’iktu</annotation>
 		<annotation cp="🖼" type="tts">kanchapi rikchay</annotation>
 		<annotation cp="🎨">llimpi | museo | paleta | paleta llimpiq | t’iktu</annotation>
 		<annotation cp="🎨" type="tts">paleta llimpiq</annotation>
+		<annotation cp="👓">lentes</annotation>
 		<annotation cp="👓" type="tts">lentes</annotation>
+		<annotation cp="🕶">lentes intipaq</annotation>
 		<annotation cp="🕶" type="tts">lentes intipaq</annotation>
+		<annotation cp="👔">corbata</annotation>
 		<annotation cp="👔" type="tts">corbata</annotation>
+		<annotation cp="👕">camisa</annotation>
 		<annotation cp="👕" type="tts">camisa</annotation>
+		<annotation cp="👖">jeans</annotation>
 		<annotation cp="👖" type="tts">jeans</annotation>
+		<annotation cp="🧣">chalina</annotation>
 		<annotation cp="🧣" type="tts">chalina</annotation>
+		<annotation cp="🧤">guantes</annotation>
 		<annotation cp="🧤" type="tts">guantes</annotation>
+		<annotation cp="🧥">abrigo</annotation>
 		<annotation cp="🧥" type="tts">abrigo</annotation>
+		<annotation cp="🧦">medias</annotation>
 		<annotation cp="🧦" type="tts">medias</annotation>
+		<annotation cp="👗">aqsu</annotation>
 		<annotation cp="👗" type="tts">aqsu</annotation>
+		<annotation cp="👘">kimono</annotation>
 		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="👙">bikini</annotation>
 		<annotation cp="👙" type="tts">bikini</annotation>
+		<annotation cp="👚">warmip pʼachan´</annotation>
 		<annotation cp="👚" type="tts">warmip pʼachan´</annotation>
+		<annotation cp="👛">pulcera</annotation>
 		<annotation cp="👛" type="tts">pulcera</annotation>
+		<annotation cp="👜">bolso</annotation>
 		<annotation cp="👜" type="tts">bolso</annotation>
+		<annotation cp="👝">cartera</annotation>
 		<annotation cp="👝" type="tts">cartera</annotation>
+		<annotation cp="🛍">ratina qamaña</annotation>
 		<annotation cp="🛍" type="tts">ratina qamaña</annotation>
+		<annotation cp="👞">runap phapatun</annotation>
 		<annotation cp="👞" type="tts">runap phapatun</annotation>
+		<annotation cp="👟">phawasqa phapatu</annotation>
 		<annotation cp="👟" type="tts">phawasqa phapatu</annotation>
+		<annotation cp="👠">tacones phapatu</annotation>
 		<annotation cp="👠" type="tts">tacones phapatu</annotation>
+		<annotation cp="👡">warmip sandalian</annotation>
 		<annotation cp="👡" type="tts">warmip sandalian</annotation>
+		<annotation cp="👢">warmip botan</annotation>
 		<annotation cp="👢" type="tts">warmip botan</annotation>
+		<annotation cp="👑">pillu</annotation>
 		<annotation cp="👑" type="tts">pillu</annotation>
+		<annotation cp="👒">warmip chikun</annotation>
 		<annotation cp="👒" type="tts">warmip chikun</annotation>
+		<annotation cp="🎩">hanaq chiku</annotation>
 		<annotation cp="🎩" type="tts">hanaq chiku</annotation>
+		<annotation cp="🎓">graduacion chiku</annotation>
 		<annotation cp="🎓" type="tts">graduacion chiku</annotation>
+		<annotation cp="🧢">gorra</annotation>
 		<annotation cp="🧢" type="tts">gorra</annotation>
+		<annotation cp="⛑">yanapaq llamkaqmanta casco</annotation>
 		<annotation cp="⛑" type="tts">yanapaq llamkaqmanta casco</annotation>
+		<annotation cp="📿">rosario</annotation>
 		<annotation cp="📿" type="tts">rosario</annotation>
+		<annotation cp="💄">llimpʼi simipaq</annotation>
 		<annotation cp="💄" type="tts">llimpʼi simipaq</annotation>
+		<annotation cp="💍">siwi</annotation>
 		<annotation cp="💍" type="tts">siwi</annotation>
+		<annotation cp="💎">gema</annotation>
 		<annotation cp="💎" type="tts">gema</annotation>
+		<annotation cp="🔇">chʼin altavoz</annotation>
 		<annotation cp="🔇" type="tts">chʼin altavoz</annotation>
+		<annotation cp="🔈">altavoz pisi chanrawan</annotation>
 		<annotation cp="🔈" type="tts">altavoz pisi chanrawan</annotation>
+		<annotation cp="🔉">altavoz chawpi chanrawan</annotation>
 		<annotation cp="🔉" type="tts">altavoz chawpi chanrawan</annotation>
+		<annotation cp="🔊">altavoz hatun chanrawan</annotation>
 		<annotation cp="🔊" type="tts">altavoz hatun chanrawan</annotation>
+		<annotation cp="📢">altoparlante</annotation>
 		<annotation cp="📢" type="tts">altoparlante</annotation>
+		<annotation cp="📣">megáfono</annotation>
 		<annotation cp="📣" type="tts">megáfono</annotation>
-		<annotation cp="📯">chaski | chaski wasi | waqra</annotation>
+		<annotation cp="📯">chakipaq waqra | chaski | chaski wasi | waqra</annotation>
 		<annotation cp="📯" type="tts">chakipaq waqra</annotation>
 		<annotation cp="🔔">kampana</annotation>
 		<annotation cp="🔔" type="tts">kampana</annotation>
+		<annotation cp="🔕">chʼin chhullupi</annotation>
 		<annotation cp="🔕" type="tts">chʼin chhullupi</annotation>
+		<annotation cp="🎼">partitura</annotation>
 		<annotation cp="🎼" type="tts">partitura</annotation>
+		<annotation cp="🎵">notas musical</annotation>
 		<annotation cp="🎵" type="tts">notas musical</annotation>
+		<annotation cp="🎶">notas musicales</annotation>
 		<annotation cp="🎶" type="tts">notas musicales</annotation>
-		<annotation cp="🎙">estudio | micro | microfono | takiy</annotation>
+		<annotation cp="🎙">estudio | micro | microfono | microfono estudiomanta | takiy</annotation>
 		<annotation cp="🎙" type="tts">microfono estudiomanta</annotation>
 		<annotation cp="🎚">kuyuq | ñiqi | takiy</annotation>
 		<annotation cp="🎚" type="tts">kuyuq ñiqi</annotation>
-		<annotation cp="🎛">patachaq | perillas | takiy</annotation>
+		<annotation cp="🎛">patachaq | perillas | perillas patachaqpaq | takiy</annotation>
 		<annotation cp="🎛" type="tts">perillas patachaqpaq</annotation>
+		<annotation cp="🎤">micrófono</annotation>
 		<annotation cp="🎤" type="tts">micrófono</annotation>
+		<annotation cp="🎧">audifono</annotation>
 		<annotation cp="🎧" type="tts">audifono</annotation>
+		<annotation cp="📻">radio</annotation>
 		<annotation cp="📻" type="tts">radio</annotation>
+		<annotation cp="🎷">saxofono</annotation>
 		<annotation cp="🎷" type="tts">saxofono</annotation>
+		<annotation cp="🎸">guitarra</annotation>
 		<annotation cp="🎸" type="tts">guitarra</annotation>
+		<annotation cp="🎹">teclas musicales</annotation>
 		<annotation cp="🎹" type="tts">teclas musicales</annotation>
+		<annotation cp="🎺">trompeta</annotation>
 		<annotation cp="🎺" type="tts">trompeta</annotation>
+		<annotation cp="🎻">violin</annotation>
 		<annotation cp="🎻" type="tts">violin</annotation>
+		<annotation cp="🥁">tambor</annotation>
 		<annotation cp="🥁" type="tts">tambor</annotation>
+		<annotation cp="📱">apaykachana telefono</annotation>
 		<annotation cp="📱" type="tts">apaykachana telefono</annotation>
+		<annotation cp="📲">apaykachana telefono wachʼiwan</annotation>
 		<annotation cp="📲" type="tts">apaykachana telefono wachʼiwan</annotation>
+		<annotation cp="☎">fono</annotation>
 		<annotation cp="☎" type="tts">fono</annotation>
+		<annotation cp="📞">auricular telefonomanta</annotation>
 		<annotation cp="📞" type="tts">auricular telefonomanta</annotation>
 		<annotation cp="📟">tariq</annotation>
 		<annotation cp="📟" type="tts">tariq</annotation>
+		<annotation cp="📠">maquina faxpaq</annotation>
 		<annotation cp="📠" type="tts">maquina faxpaq</annotation>
 		<annotation cp="🔋">kallpa waqaychaq</annotation>
 		<annotation cp="🔋" type="tts">kallpa waqaychaq</annotation>
+		<annotation cp="🔌">enchufe</annotation>
 		<annotation cp="🔌" type="tts">enchufe</annotation>
 		<annotation cp="🖥">computadora | hanpara</annotation>
 		<annotation cp="🖥" type="tts">hanpara computadora</annotation>
+		<annotation cp="🖨">impresora</annotation>
 		<annotation cp="🖨" type="tts">impresora</annotation>
+		<annotation cp="⌨">ñitina</annotation>
 		<annotation cp="⌨" type="tts">ñitina</annotation>
+		<annotation cp="🖱">mouse computadorapaq</annotation>
 		<annotation cp="🖱" type="tts">mouse computadorapaq</annotation>
+		<annotation cp="🖲">muyu mousepi</annotation>
 		<annotation cp="🖲" type="tts">muyu mousepi</annotation>
+		<annotation cp="💽">computadora ruyru</annotation>
 		<annotation cp="💽" type="tts">computadora ruyru</annotation>
+		<annotation cp="💾">disquete</annotation>
 		<annotation cp="💾" type="tts">disquete</annotation>
-		<annotation cp="💿">cd | computadora | optico | ruyru</annotation>
+		<annotation cp="💿">cd | computadora | disku | optico | ruyru</annotation>
 		<annotation cp="💿" type="tts">disku</annotation>
+		<annotation cp="📀">dvd</annotation>
 		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🎥">camara cinepaq</annotation>
 		<annotation cp="🎥" type="tts">camara cinepaq</annotation>
+		<annotation cp="🎞">kanchakuna peliculamanta</annotation>
 		<annotation cp="🎞" type="tts">kanchakuna peliculamanta</annotation>
+		<annotation cp="📽">proyector cinepaq</annotation>
 		<annotation cp="📽" type="tts">proyector cinepaq</annotation>
+		<annotation cp="🎬">claqueta</annotation>
 		<annotation cp="🎬" type="tts">claqueta</annotation>
+		<annotation cp="📺">television</annotation>
 		<annotation cp="📺" type="tts">television</annotation>
+		<annotation cp="📷">camara</annotation>
 		<annotation cp="📷" type="tts">camara</annotation>
+		<annotation cp="📸">camara flash kaqwan</annotation>
 		<annotation cp="📸" type="tts">camara flash kaqwan</annotation>
+		<annotation cp="📹">videocamara</annotation>
 		<annotation cp="📹" type="tts">videocamara</annotation>
+		<annotation cp="📼">videocaset</annotation>
 		<annotation cp="📼" type="tts">videocaset</annotation>
+		<annotation cp="🕯">vela</annotation>
 		<annotation cp="🕯" type="tts">vela</annotation>
+		<annotation cp="💡">kʼancha</annotation>
 		<annotation cp="💡" type="tts">kʼancha</annotation>
+		<annotation cp="🔦">flash</annotation>
 		<annotation cp="🔦" type="tts">flash</annotation>
+		<annotation cp="🏮">izakaya linterna</annotation>
 		<annotation cp="🏮" type="tts">izakaya linterna</annotation>
+		<annotation cp="📔">yachaykunapaq pʼanqa kʼacha rapiwan</annotation>
 		<annotation cp="📔" type="tts">yachaykunapaq pʼanqa kʼacha rapiwan</annotation>
-		<annotation cp="📕">p’anqa | wichqasqa</annotation>
+		<annotation cp="📕">p’anqa | wichqasqa | wichqasqa pʼanqa</annotation>
 		<annotation cp="📕" type="tts">wichqasqa pʼanqa</annotation>
-		<annotation cp="📖">kichay | p’anqa</annotation>
+		<annotation cp="📖">kichasqa pʼanqa | kichay | p’anqa</annotation>
 		<annotation cp="📖" type="tts">kichasqa pʼanqa</annotation>
-		<annotation cp="📗">p’anqa | q’umir</annotation>
+		<annotation cp="📗">p’anqa | q’umir | qʼumir pʼanqa</annotation>
 		<annotation cp="📗" type="tts">qʼumir pʼanqa</annotation>
-		<annotation cp="📘">anqas pʼanqa</annotation>
+		<annotation cp="📘">anqas p’anqa | anqas pʼanqa</annotation>
 		<annotation cp="📘" type="tts">anqas p’anqa</annotation>
-		<annotation cp="📙">p’anqa | willapi</annotation>
+		<annotation cp="📙">p’anqa | willapi | willapi pʼanqa</annotation>
 		<annotation cp="📙" type="tts">willapi pʼanqa</annotation>
+		<annotation cp="📚">pʼanqakuna</annotation>
 		<annotation cp="📚" type="tts">pʼanqakuna</annotation>
 		<annotation cp="📓">huchuy qillqanacha</annotation>
 		<annotation cp="📓" type="tts">huchuy qillqanacha</annotation>
+		<annotation cp="📒">pʼanqa siwukunawan</annotation>
 		<annotation cp="📒" type="tts">pʼanqa siwukunawan</annotation>
+		<annotation cp="📃">llinkʼu rapi</annotation>
 		<annotation cp="📃" type="tts">llinkʼu rapi</annotation>
+		<annotation cp="📜">suchuririy</annotation>
 		<annotation cp="📜" type="tts">suchuririy</annotation>
+		<annotation cp="📄">hanaqman rapi</annotation>
 		<annotation cp="📄" type="tts">hanaqman rapi</annotation>
+		<annotation cp="📰">periodico</annotation>
 		<annotation cp="📰" type="tts">periodico</annotation>
+		<annotation cp="🗞">periodico ch’umisqa</annotation>
 		<annotation cp="🗞" type="tts">periodico ch’umisqa</annotation>
-		<annotation cp="📑">chinpuq | chinpuy | qawachiqkuna | rapi chinpuq</annotation>
+		<annotation cp="📑">chinpuq | chinpuy | qawachiqkuna | rapi chinpuq | rapi chinpuqkunawan</annotation>
 		<annotation cp="📑" type="tts">rapi chinpuqkunawan</annotation>
+		<annotation cp="🔖">chinpuq</annotation>
 		<annotation cp="🔖" type="tts">chinpuq</annotation>
 		<annotation cp="🏷">sutichaq</annotation>
 		<annotation cp="🏷" type="tts">sutichaq</annotation>
@@ -2110,7 +2229,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏧" type="tts">ATM unancha</annotation>
 		<annotation cp="🚮">chuqaq | chuqasqa qʼupa | chuqasqa qʼupa unancha</annotation>
 		<annotation cp="🚮" type="tts">chuqasqa qʼupa unancha</annotation>
-		<annotation cp="🚰">potable | upyay | yaku</annotation>
+		<annotation cp="🚰">potable | potable yaku unancha | upyay | yaku</annotation>
 		<annotation cp="🚰" type="tts">potable yaku unancha</annotation>
 		<annotation cp="♿">tiyana ruedaspi unancha | yaykuy</annotation>
 		<annotation cp="♿" type="tts">tiyana ruedaspi unancha</annotation>
@@ -2124,10 +2243,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚼" type="tts">wawapaq unancha</annotation>
 		<annotation cp="🚾">baño nisqa | baños | inodoro | wc | yaku</annotation>
 		<annotation cp="🚾" type="tts">inodoro</annotation>
-		<annotation cp="🛂">chiqaqchayninpaq | pasaporte</annotation>
+		<annotation cp="🛂">chiqaqchayninpaq | pasaporte | pasaporte chiqaqchaynin</annotation>
 		<annotation cp="🛂" type="tts">pasaporte chiqaqchaynin</annotation>
 		<annotation cp="🛃">aduanas</annotation>
 		<annotation cp="🛃" type="tts">aduanas</annotation>
+		<annotation cp="🛄">chaskimuy qipikuna</annotation>
 		<annotation cp="🛄" type="tts">chaskimuy qipikuna</annotation>
 		<annotation cp="🛅">harkaq | lluqsina qipikuna | qipi | qipikuna</annotation>
 		<annotation cp="🛅" type="tts">lluqsina qipikuna</annotation>
@@ -2135,7 +2255,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚠" type="tts">yuyachikuy</annotation>
 		<annotation cp="🚸">chimpay | pedestre | trafico | wawa | wawakuna purichkanku</annotation>
 		<annotation cp="🚸" type="tts">wawakuna purichkanku</annotation>
-		<annotation cp="⛔">amatasqa | mana | manaraq | trafico | yaykuna</annotation>
+		<annotation cp="⛔">ama yaykuna | amatasqa | mana | manaraq | trafico | yaykuna</annotation>
 		<annotation cp="⛔" type="tts">ama yaykuna</annotation>
 		<annotation cp="🚫">amatasqa | mana | manaraq | yaykuna</annotation>
 		<annotation cp="🚫" type="tts">amatasqa</annotation>
@@ -2151,31 +2271,51 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚷" type="tts">ama transeuntes</annotation>
 		<annotation cp="📵">ama apaykachana telefonokuna | amatasqa | apaykchana | mana | telefono</annotation>
 		<annotation cp="📵" type="tts">ama apaykachana telefonokuna</annotation>
-		<annotation cp="🔞">18 | ama sullkʼa chunaka pusaqniyuqwan | amatasqa | chunka pusaqniyuq | sullkʼa wata | wata amataynin</annotation>
+		<annotation cp="🔞">18 | ama sullkʼa chunaka pusaqniyuqwan | ama sullkʼa chunka pusaqniyuqwan | amatasqa | chunka pusaqniyuq | sullkʼa wata | wata amataynin</annotation>
 		<annotation cp="🔞" type="tts">ama sullkʼa chunka pusaqniyuqwan</annotation>
 		<annotation cp="☢">radiactivo | unancha</annotation>
 		<annotation cp="☢" type="tts">radiactivo</annotation>
 		<annotation cp="☣">biologico chhiki | unancha</annotation>
 		<annotation cp="☣" type="tts">biologico chhiki</annotation>
+		<annotation cp="⬆">hanaq wach’i</annotation>
 		<annotation cp="⬆" type="tts">hanaq wach’i</annotation>
+		<annotation cp="↗">hanaq paña wach’i</annotation>
 		<annotation cp="↗" type="tts">hanaq paña wach’i</annotation>
+		<annotation cp="➡">paña wach’i</annotation>
 		<annotation cp="➡" type="tts">paña wach’i</annotation>
+		<annotation cp="↘">uran paña wach’i</annotation>
 		<annotation cp="↘" type="tts">uran paña wach’i</annotation>
+		<annotation cp="⬇">uran wach’i</annotation>
 		<annotation cp="⬇" type="tts">uran wach’i</annotation>
+		<annotation cp="↙">uran lluq’i wach’i</annotation>
 		<annotation cp="↙" type="tts">uran lluq’i wach’i</annotation>
+		<annotation cp="⬅">lluq’i wach’i</annotation>
 		<annotation cp="⬅" type="tts">lluq’i wach’i</annotation>
+		<annotation cp="↖">hanaq lluq’i wach’i</annotation>
 		<annotation cp="↖" type="tts">hanaq lluq’i wach’i</annotation>
+		<annotation cp="↕">hanaq uran wach’i</annotation>
 		<annotation cp="↕" type="tts">hanaq uran wach’i</annotation>
+		<annotation cp="↔">lluq’i paña wach’i</annotation>
 		<annotation cp="↔" type="tts">lluq’i paña wach’i</annotation>
+		<annotation cp="↩">paña wach’i llink’uwan lluq’iman</annotation>
 		<annotation cp="↩" type="tts">paña wach’i llink’uwan lluq’iman</annotation>
+		<annotation cp="↪">lluq’i wach’i llink’uwan pañaman</annotation>
 		<annotation cp="↪" type="tts">lluq’i wach’i llink’uwan pañaman</annotation>
+		<annotation cp="⤴">paña wach’i llink’uwan hanaqman</annotation>
 		<annotation cp="⤴" type="tts">paña wach’i llink’uwan hanaqman</annotation>
+		<annotation cp="⤵">paña wach’i llink’uwan uranman</annotation>
 		<annotation cp="⤵" type="tts">paña wach’i llink’uwan uranman</annotation>
+		<annotation cp="🔃">Sayanpa wachʼikuna phani qatichkanku</annotation>
 		<annotation cp="🔃" type="tts">Sayanpa wachʼikuna phani qatichkanku</annotation>
+		<annotation cp="🔙">QHIPA wachʼi</annotation>
 		<annotation cp="🔙" type="tts">QHIPA wachʼi</annotation>
+		<annotation cp="🔚">TUKUY wachʼi</annotation>
 		<annotation cp="🔚" type="tts">TUKUY wachʼi</annotation>
+		<annotation cp="🔛">¡KAWSARICHIY! wachʼi</annotation>
 		<annotation cp="🔛" type="tts">¡KAWSARICHIY! wachʼi</annotation>
+		<annotation cp="🔜">QATIQ wachʼi</annotation>
 		<annotation cp="🔜" type="tts">QATIQ wachʼi</annotation>
+		<annotation cp="🔝">HANAQ wachʼi</annotation>
 		<annotation cp="🔝" type="tts">HANAQ wachʼi</annotation>
 		<annotation cp="🛐">muchʼay kiti | munaynin | religion</annotation>
 		<annotation cp="🛐" type="tts">muchʼay kiti</annotation>
@@ -2197,7 +2337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☪" type="tts">quyllur chaymanta chawpi killa</annotation>
 		<annotation cp="☮">qhasi kay | qhasi kay unancha</annotation>
 		<annotation cp="☮" type="tts">qhasi kay unancha</annotation>
-		<annotation cp="🕎">candelabro | candelero | monorah | relligion</annotation>
+		<annotation cp="🕎">candelabro | candelero | menorah | monorah | relligion</annotation>
 		<annotation cp="🕎" type="tts">menorah</annotation>
 		<annotation cp="🔯">fortuna | quyllur | suqta ñawpinkunawan quyllur</annotation>
 		<annotation cp="🔯" type="tts">suqta ñawpinkunawan quyllur</annotation>
@@ -2215,7 +2355,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♍" type="tts">Virgo</annotation>
 		<annotation cp="♎">aysana | justicia | Libra | ñiqichanakuna | zodiaco</annotation>
 		<annotation cp="♎" type="tts">Libra</annotation>
-		<annotation cp="♏">Escorpio | escorpion | zodiaco</annotation>
+		<annotation cp="♏">Escorpio | escorpion | Escorpion | zodiaco</annotation>
 		<annotation cp="♏" type="tts">Escorpion</annotation>
 		<annotation cp="♐">arquero | Sagitario | zodiaco</annotation>
 		<annotation cp="♐" type="tts">Sagitario</annotation>
@@ -2227,27 +2367,49 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♓" type="tts">Piscis</annotation>
 		<annotation cp="⛎">katari | Ofiuco | soporte | zodiaco</annotation>
 		<annotation cp="⛎" type="tts">Ofiuco</annotation>
+		<annotation cp="🔀">chakatasqa wachʼikuna ñitina</annotation>
 		<annotation cp="🔀" type="tts">chakatasqa wachʼikuna ñitina</annotation>
+		<annotation cp="🔁">kutipay ñitina</annotation>
 		<annotation cp="🔁" type="tts">kutipay ñitina</annotation>
+		<annotation cp="🔂">huklla kutipay ñitina</annotation>
 		<annotation cp="🔂" type="tts">huklla kutipay ñitina</annotation>
+		<annotation cp="▶">purichiy ñitina</annotation>
 		<annotation cp="▶" type="tts">purichiy ñitina</annotation>
+		<annotation cp="⏩">utqhay qatiq ñitina</annotation>
 		<annotation cp="⏩" type="tts">utqhay qatiq ñitina</annotation>
+		<annotation cp="⏭">qatiq ñan ñitina</annotation>
 		<annotation cp="⏭" type="tts">qatiq ñan ñitina</annotation>
+		<annotation cp="⏯">purichiy utaq samay ñitina</annotation>
 		<annotation cp="⏯" type="tts">purichiy utaq samay ñitina</annotation>
+		<annotation cp="◀">qhipanman ñitina</annotation>
 		<annotation cp="◀" type="tts">qhipanman ñitina</annotation>
+		<annotation cp="⏪">utqhay tikrana ñitina</annotation>
 		<annotation cp="⏪" type="tts">utqhay tikrana ñitina</annotation>
+		<annotation cp="⏮">qhipa ñan ñitina</annotation>
 		<annotation cp="⏮" type="tts">qhipa ñan ñitina</annotation>
+		<annotation cp="⏫">utqhay hanaq ñitina</annotation>
 		<annotation cp="⏫" type="tts">utqhay hanaq ñitina</annotation>
+		<annotation cp="⏬">utqhay uran ñitina</annotation>
 		<annotation cp="⏬" type="tts">utqhay uran ñitina</annotation>
+		<annotation cp="⏸">samay ñitina</annotation>
 		<annotation cp="⏸" type="tts">samay ñitina</annotation>
+		<annotation cp="⏹">tatichiy ñitina</annotation>
 		<annotation cp="⏹" type="tts">tatichiy ñitina</annotation>
+		<annotation cp="⏺">graway ñitina</annotation>
 		<annotation cp="⏺" type="tts">graway ñitina</annotation>
+		<annotation cp="⏏">qarpuy ñitina</annotation>
 		<annotation cp="⏏" type="tts">qarpuy ñitina</annotation>
+		<annotation cp="🎦">cine</annotation>
 		<annotation cp="🎦" type="tts">cine</annotation>
+		<annotation cp="🔅">lliphiy ñitina</annotation>
 		<annotation cp="🔅" type="tts">lliphiy ñitina</annotation>
+		<annotation cp="🔆">kʼanchay ñitina</annotation>
 		<annotation cp="🔆" type="tts">kʼanchay ñitina</annotation>
+		<annotation cp="📶">antena siqikunawan</annotation>
 		<annotation cp="📶" type="tts">antena siqikunawan</annotation>
+		<annotation cp="📳">vibracion mudu</annotation>
 		<annotation cp="📳" type="tts">vibracion mudu</annotation>
+		<annotation cp="📴">apaykachana telefono wañuchiy</annotation>
 		<annotation cp="📴" type="tts">apaykachana telefono wañuchiy</annotation>
 		<annotation cp="♀">warmi | warmi unancha</annotation>
 		<annotation cp="♀" type="tts">warmi unancha</annotation>
@@ -2259,17 +2421,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✖" type="tts">mirachiy</annotation>
 		<annotation cp="➕">+ | matematicas | unancha | yapana</annotation>
 		<annotation cp="➕" type="tts">yapana</annotation>
-		<annotation cp="➖">- | matematicas | qichuna | unancha</annotation>
+		<annotation cp="➖">- | matematicas | qhichuna | qichuna | unancha</annotation>
 		<annotation cp="➖" type="tts">qhichuna</annotation>
+		<annotation cp="‼">iskay qapariq yupiy</annotation>
 		<annotation cp="‼" type="tts">iskay qapariq yupiy</annotation>
+		<annotation cp="⁉">qapariq tapuna chinpuy</annotation>
 		<annotation cp="⁉" type="tts">qapariq tapuna chinpuy</annotation>
+		<annotation cp="❔">yuraq tapukuna yupiy</annotation>
 		<annotation cp="❔" type="tts">yuraq tapukuna yupiy</annotation>
+		<annotation cp="❕">yuraq qapariq yupiy</annotation>
 		<annotation cp="❕" type="tts">yuraq qapariq yupiy</annotation>
+		<annotation cp="〰">muyuq rakiqch’iku</annotation>
 		<annotation cp="〰" type="tts">muyuq rakiqch’iku</annotation>
-		<annotation cp="💱">banco | qullqi | tikray</annotation>
+		<annotation cp="💱">banco | qullqi | tikrasqa qullqi | tikray</annotation>
 		<annotation cp="💱" type="tts">tikrasqa qullqi</annotation>
+		<annotation cp="💲">dolar unancha</annotation>
 		<annotation cp="💲" type="tts">dolar unancha</annotation>
+		<annotation cp="⚕">hampiq unancha</annotation>
 		<annotation cp="⚕" type="tts">hampiq unancha</annotation>
+		<annotation cp="♻">allinyachiy unancha</annotation>
 		<annotation cp="♻" type="tts">allinyachiy unancha</annotation>
 		<annotation cp="⚜">flor de lis</annotation>
 		<annotation cp="⚜" type="tts">flor de lis</annotation>
@@ -2277,17 +2447,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔱" type="tts">tridente unancha</annotation>
 		<annotation cp="📛">nina | rawra</annotation>
 		<annotation cp="📛" type="tts">nina rawra</annotation>
+		<annotation cp="🔰">japones unancha qallariqkunapaq</annotation>
 		<annotation cp="🔰" type="tts">japones unancha qallariqkunapaq</annotation>
+		<annotation cp="❌">chakana chinpu</annotation>
 		<annotation cp="❌" type="tts">chakana chinpu</annotation>
+		<annotation cp="❎">chakana chinpu ñitina</annotation>
 		<annotation cp="❎" type="tts">chakana chinpu ñitina</annotation>
+		<annotation cp="➰">bucle</annotation>
 		<annotation cp="➰" type="tts">bucle</annotation>
+		<annotation cp="➿">iskay bucle</annotation>
 		<annotation cp="➿" type="tts">iskay bucle</annotation>
+		<annotation cp="〽">alternancia patma unancha</annotation>
 		<annotation cp="〽" type="tts">alternancia patma unancha</annotation>
+		<annotation cp="✳">pusaq siqiwan asterisco</annotation>
 		<annotation cp="✳" type="tts">pusaq siqiwan asterisco</annotation>
+		<annotation cp="✴">pusaq ñawpikunawan quyllur</annotation>
 		<annotation cp="✴" type="tts">pusaq ñawpikunawan quyllur</annotation>
+		<annotation cp="❇">k’anchay</annotation>
 		<annotation cp="❇" type="tts">k’anchay</annotation>
+		<annotation cp="©">copyright</annotation>
 		<annotation cp="©" type="tts">copyright</annotation>
+		<annotation cp="®">yaykusqa</annotation>
 		<annotation cp="®" type="tts">yaykusqa</annotation>
+		<annotation cp="™">waqaychasqa chinpuy</annotation>
 		<annotation cp="™" type="tts">waqaychasqa chinpuy</annotation>
 		<annotation cp="🏁">carrera | meta | metapaq whipala | tawak’uchuwan</annotation>
 		<annotation cp="🏁" type="tts">metapaq whipala</annotation>
@@ -2299,9 +2481,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏴" type="tts">yana whipala</annotation>
 		<annotation cp="🏳">qinquykachay | yuraq whipala</annotation>
 		<annotation cp="🏳" type="tts">yuraq whipala</annotation>
+		<annotation cp="🏳‍🌈">k’uychi whipala</annotation>
 		<annotation cp="🏳‍🌈" type="tts">k’uychi whipala</annotation>
+		<annotation cp="$">dolar</annotation>
 		<annotation cp="$" type="tts">dolar</annotation>
+		<annotation cp="¥">yen</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="€">euro</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
 	</annotations>
 </ldml>

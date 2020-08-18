@@ -11,7 +11,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="yue"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">大括號 | 括號 | 波形括號</annotation>
+		<annotation cp="{">大括號 | 括號 | 波形括號 | 開波形括號</annotation>
 		<annotation cp="{" type="tts">開波形括號</annotation>
 		<annotation cp="🏻">淺膚色 | 膚色 | 類型 1–2</annotation>
 		<annotation cp="🏻" type="tts">淺膚色</annotation>
@@ -25,105 +25,105 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏿" type="tts">深膚色</annotation>
 		<annotation cp="_">底線 | 橫線 | 線</annotation>
 		<annotation cp="_" type="tts">底線</annotation>
-		<annotation cp="-">橫線 | 減號 | 破折號</annotation>
+		<annotation cp="-">橫線 | 減號 | 破折號 | 破折號-減號</annotation>
 		<annotation cp="-" type="tts">破折號-減號</annotation>
 		<annotation cp="‐">橫線 | 破折號</annotation>
 		<annotation cp="‐" type="tts">破折號</annotation>
-		<annotation cp="–">en | 破折號</annotation>
+		<annotation cp="–">en | 短破折號 | 破折號</annotation>
 		<annotation cp="–" type="tts">短破折號</annotation>
-		<annotation cp="—">em | 破折號</annotation>
+		<annotation cp="—">em | 破折號 | 長破折號</annotation>
 		<annotation cp="—" type="tts">長破折號</annotation>
-		<annotation cp="―">橫線 | 破折號 | 線</annotation>
+		<annotation cp="―">橫線 | 水平線 | 破折號 | 線</annotation>
 		<annotation cp="―" type="tts">水平線</annotation>
-		<annotation cp="・">中點 | 片假名 | 點 | 點間</annotation>
+		<annotation cp="・">中點 | 片假名 | 片假名中點 | 點 | 點間</annotation>
 		<annotation cp="・" type="tts">片假名中點</annotation>
 		<annotation cp=",">逗號</annotation>
 		<annotation cp="," type="tts">逗號</annotation>
-		<annotation cp="،">逗號 | 阿拉伯</annotation>
+		<annotation cp="،">逗號 | 阿拉伯 | 阿拉伯逗號</annotation>
 		<annotation cp="،" type="tts">阿拉伯逗號</annotation>
-		<annotation cp="、">表意 | 逗號</annotation>
+		<annotation cp="、">表意 | 逗號 | 頓號</annotation>
 		<annotation cp="、" type="tts">頓號</annotation>
 		<annotation cp=";">分號</annotation>
 		<annotation cp=";" type="tts">分號</annotation>
-		<annotation cp="؛">分號 | 阿拉伯</annotation>
+		<annotation cp="؛">分號 | 阿拉伯 | 阿拉伯分號</annotation>
 		<annotation cp="؛" type="tts">阿拉伯分號</annotation>
 		<annotation cp=":">冒號</annotation>
 		<annotation cp=":" type="tts">冒號</annotation>
 		<annotation cp="!">感嘆 | 感嘆號 | 爆炸</annotation>
 		<annotation cp="!" type="tts">感嘆號</annotation>
-		<annotation cp="¡">倒轉 | 感嘆 | 感嘆號 | 爆炸</annotation>
+		<annotation cp="¡">倒轉 | 倒轉嘅感嘆號 | 感嘆 | 感嘆號 | 爆炸</annotation>
 		<annotation cp="¡" type="tts">倒轉嘅感嘆號</annotation>
-		<annotation cp="?">問題</annotation>
+		<annotation cp="?">問號 | 問題</annotation>
 		<annotation cp="?" type="tts">問號</annotation>
-		<annotation cp="¿">倒轉 | 問號 | 問題</annotation>
+		<annotation cp="¿">倒轉 | 倒轉嘅問號 | 問號 | 問題</annotation>
 		<annotation cp="¿" type="tts">倒轉嘅問號</annotation>
-		<annotation cp="؟">問號 | 問題 | 阿拉伯</annotation>
+		<annotation cp="؟">問號 | 問題 | 阿拉伯 | 阿拉伯問號</annotation>
 		<annotation cp="؟" type="tts">阿拉伯問號</annotation>
 		<annotation cp=".">句號 | 點</annotation>
 		<annotation cp="." type="tts">句號</annotation>
 		<annotation cp="…">省掉 | 省略號 | 點</annotation>
 		<annotation cp="…" type="tts">省略號</annotation>
-		<annotation cp="。">句號 | 表意</annotation>
+		<annotation cp="。">中文句號 | 句號 | 表意</annotation>
 		<annotation cp="。" type="tts">中文句號</annotation>
 		<annotation cp="·">中間 | 中點 | 間隔號 | 點</annotation>
 		<annotation cp="·" type="tts">中點</annotation>
-		<annotation cp="'">單引號 | 引述 | 撇</annotation>
+		<annotation cp="'">單引號 | 引述 | 打字機撇號 | 撇</annotation>
 		<annotation cp="'" type="tts">打字機撇號</annotation>
-		<annotation cp="‘">單引號 | 引言 | 引述 | 撇</annotation>
+		<annotation cp="‘">單引號 | 左撇 | 引言 | 引述 | 撇</annotation>
 		<annotation cp="‘" type="tts">左撇</annotation>
-		<annotation cp="’">單引號 | 引言 | 引述 | 撇</annotation>
+		<annotation cp="’">右撇 | 單引號 | 引言 | 引述 | 撇</annotation>
 		<annotation cp="’" type="tts">右撇</annotation>
-		<annotation cp="‚">下引號 | 引號 | 撇</annotation>
+		<annotation cp="‚">下引號 | 右下撇 | 引號 | 撇</annotation>
 		<annotation cp="‚" type="tts">右下撇</annotation>
-		<annotation cp="“">引號 | 引言 | 引述 | 雙引號</annotation>
+		<annotation cp="“">左引號 | 引號 | 引言 | 引述 | 雙引號</annotation>
 		<annotation cp="“" type="tts">左引號</annotation>
-		<annotation cp="”">引號 | 引述 | 智慧 | 雙引號</annotation>
+		<annotation cp="”">右引號 | 引號 | 引述 | 智慧 | 雙引號</annotation>
 		<annotation cp="”" type="tts">右引號</annotation>
-		<annotation cp="„">下引號 | 引用 | 引號 | 引言 | 雙引號</annotation>
+		<annotation cp="„">下右雙引號 | 下引號 | 引用 | 引號 | 引言 | 雙引號</annotation>
 		<annotation cp="„" type="tts">下右雙引號</annotation>
 		<annotation cp="«">人字形 | 向左 | 左雙書名號 | 引用 | 括號 | 脫字符 | 角</annotation>
 		<annotation cp="«" type="tts">左雙書名號</annotation>
 		<annotation cp="»">人字形 | 右雙書名號 | 向右 | 引用 | 括號 | 脫字符 | 角</annotation>
 		<annotation cp="»" type="tts">右雙書名號</annotation>
-		<annotation cp=")">圓括弧 | 括弧 | 括號</annotation>
+		<annotation cp=")">圓括弧 | 括弧 | 括號 | 閂括弧</annotation>
 		<annotation cp=")" type="tts">閂括弧</annotation>
-		<annotation cp="[">括號 | 方括號</annotation>
+		<annotation cp="[">括號 | 方括號 | 開方括號</annotation>
 		<annotation cp="[" type="tts">開方括號</annotation>
-		<annotation cp="]">括號 | 方括號</annotation>
+		<annotation cp="]">括號 | 方括號 | 閂方括號</annotation>
 		<annotation cp="]" type="tts">閂方括號</annotation>
-		<annotation cp="}">大括號 | 括號 | 波形括號</annotation>
+		<annotation cp="}">大括號 | 括號 | 波形括號 | 閂波形括號</annotation>
 		<annotation cp="}" type="tts">閂波形括號</annotation>
-		<annotation cp="〈">人字形 | 元組 | 列點括號 | 尖括號 | 括弧 | 菱形括號</annotation>
+		<annotation cp="〈">人字形 | 元組 | 列點括號 | 尖括號 | 括弧 | 菱形括號 | 開尖括號</annotation>
 		<annotation cp="〈" type="tts">開尖括號</annotation>
-		<annotation cp="〉">人字形 | 元組 | 列點括號 | 尖括號 | 括弧 | 菱形括號</annotation>
+		<annotation cp="〉">人字形 | 元組 | 列點括號 | 尖括號 | 括弧 | 菱形括號 | 閂尖括號</annotation>
 		<annotation cp="〉" type="tts">閂尖括號</annotation>
-		<annotation cp="《">括弧 | 雙尖括號</annotation>
+		<annotation cp="《">括弧 | 開雙尖括號 | 雙尖括號</annotation>
 		<annotation cp="《" type="tts">開雙尖括號</annotation>
-		<annotation cp="》">括弧 | 雙尖括號</annotation>
+		<annotation cp="》">括弧 | 閂雙尖括號 | 雙尖括號</annotation>
 		<annotation cp="》" type="tts">閂雙尖括號</annotation>
-		<annotation cp="「">引號 | 括弧</annotation>
+		<annotation cp="「">引號 | 括弧 | 開引號</annotation>
 		<annotation cp="「" type="tts">開引號</annotation>
-		<annotation cp="」">引號 | 括弧</annotation>
+		<annotation cp="」">引號 | 括弧 | 閂引號</annotation>
 		<annotation cp="」" type="tts">閂引號</annotation>
-		<annotation cp="『">括弧 | 雙引號</annotation>
+		<annotation cp="『">括弧 | 開雙引號 | 雙引號</annotation>
 		<annotation cp="『" type="tts">開雙引號</annotation>
-		<annotation cp="』">括弧 | 雙引號</annotation>
+		<annotation cp="』">括弧 | 閂雙引號 | 雙引號</annotation>
 		<annotation cp="』" type="tts">閂雙引號</annotation>
-		<annotation cp="【">實心括號 | 括弧 | 透鏡括號</annotation>
+		<annotation cp="【">實心括號 | 括弧 | 透鏡括號 | 開實心透鏡括號</annotation>
 		<annotation cp="【" type="tts">開實心透鏡括號</annotation>
-		<annotation cp="】">實心括號 | 括弧 | 透鏡括號</annotation>
+		<annotation cp="】">實心括號 | 括弧 | 透鏡括號 | 閂實心透鏡括號</annotation>
 		<annotation cp="】" type="tts">閂實心透鏡括號</annotation>
-		<annotation cp="〔">六角括號 | 括弧 | 括號</annotation>
+		<annotation cp="〔">六角括號 | 括弧 | 括號 | 開六角括號</annotation>
 		<annotation cp="〔" type="tts">開六角括號</annotation>
-		<annotation cp="〕">六角括號 | 括弧 | 括號</annotation>
+		<annotation cp="〕">六角括號 | 括弧 | 括號 | 閂六角括號</annotation>
 		<annotation cp="〕" type="tts">閂六角括號</annotation>
-		<annotation cp="〖">中空括號 | 括弧 | 空心括號</annotation>
+		<annotation cp="〖">中空括號 | 括弧 | 空心括號 | 開中空透鏡括號</annotation>
 		<annotation cp="〖" type="tts">開中空透鏡括號</annotation>
-		<annotation cp="〗">中空括號 | 括弧 | 空心括號</annotation>
+		<annotation cp="〗">中空括號 | 括弧 | 空心括號 | 閂中空透鏡括號</annotation>
 		<annotation cp="〗" type="tts">閂中空透鏡括號</annotation>
 		<annotation cp="§">分節 | 分節符號 | 段落 | 部分</annotation>
 		<annotation cp="§" type="tts">部分</annotation>
-		<annotation cp="¶">副詞 | 段落 | 稻草人</annotation>
+		<annotation cp="¶">副詞 | 段落 | 段落標記 | 稻草人</annotation>
 		<annotation cp="¶" type="tts">段落標記</annotation>
 		<annotation cp="@">@ | at 符號 | 商業 at | 安培</annotation>
 		<annotation cp="@" type="tts">at 符號</annotation>
@@ -133,7 +133,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="/" type="tts">斜線</annotation>
 		<annotation cp="\">反斜實線 | 反斜線</annotation>
 		<annotation cp="\" type="tts">反斜線</annotation>
-		<annotation cp="&amp;">同 | 和 | 連字號</annotation>
+		<annotation cp="&amp;">同 | 同埋 | 和 | 連字號</annotation>
 		<annotation cp="&amp;" type="tts">同埋</annotation>
 		<annotation cp="#">井號 | 井號標記 | 數字 | 磅 | 鎊</annotation>
 		<annotation cp="#" type="tts">井號</annotation>
@@ -147,27 +147,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‡" type="tts">雙劍標</annotation>
 		<annotation cp="•">要點 | 點</annotation>
 		<annotation cp="•" type="tts">要點</annotation>
-		<annotation cp="‧">列點 | 橫線 | 破折號</annotation>
+		<annotation cp="‧">列點 | 橫線 | 破折號 | 連字點</annotation>
 		<annotation cp="‧" type="tts">連字點</annotation>
 		<annotation cp="′">角分符號</annotation>
 		<annotation cp="′" type="tts">角分符號</annotation>
-		<annotation cp="″">角分符號</annotation>
+		<annotation cp="″">角分符號 | 角秒符號</annotation>
 		<annotation cp="″" type="tts">角秒符號</annotation>
-		<annotation cp="‴">角分符號</annotation>
+		<annotation cp="‴">三撇符號 | 角分符號</annotation>
 		<annotation cp="‴" type="tts">三撇符號</annotation>
 		<annotation cp="※">參考標記</annotation>
 		<annotation cp="※" type="tts">參考標記</annotation>
-		<annotation cp="`">調子 | 重音</annotation>
+		<annotation cp="`">調子 | 重音 | 重音符</annotation>
 		<annotation cp="`" type="tts">重音符</annotation>
 		<annotation cp="´">尖音 | 尖音符 | 音符</annotation>
 		<annotation cp="´" type="tts">尖音符</annotation>
-		<annotation cp="^">帽 | 抑揚 | 指針 | 控制 | 插入符 | 次方 | 音</annotation>
+		<annotation cp="^">帽 | 抑揚 | 抑揚音符號 | 指針 | 控制 | 插入符 | 次方 | 音</annotation>
 		<annotation cp="^" type="tts">抑揚音符號</annotation>
-		<annotation cp="¨">分音 | 變音</annotation>
+		<annotation cp="¨">分音 | 分音符號 | 變音</annotation>
 		<annotation cp="¨" type="tts">分音符號</annotation>
 		<annotation cp="°">小時 | 度 | 證明</annotation>
 		<annotation cp="°" type="tts">度</annotation>
-		<annotation cp="℗">版權 | 聲音 | 錄音</annotation>
+		<annotation cp="℗">版權 | 聲音 | 錄音 | 錄音版權</annotation>
 		<annotation cp="℗" type="tts">錄音版權</annotation>
 		<annotation cp="←">向左 | 向左箭咀 | 指向左嘅箭咀 | 箭咀</annotation>
 		<annotation cp="←" type="tts">指向左嘅箭咀</annotation>
@@ -197,9 +197,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts">乘號</annotation>
 		<annotation cp="&lt;">小過 | 標籤 | 開標籤</annotation>
 		<annotation cp="&lt;" type="tts">小過</annotation>
-		<annotation cp="=">相等 | 等於</annotation>
+		<annotation cp="=">相等 | 等於 | 等號</annotation>
 		<annotation cp="=" type="tts">等號</annotation>
-		<annotation cp="≠">不相等 | 唔相等</annotation>
+		<annotation cp="≠">不相等 | 唔相等 | 唔相等符號</annotation>
 		<annotation cp="≠" type="tts">唔相等符號</annotation>
 		<annotation cp="&gt;">大過 | 標籤 | 閂標籤</annotation>
 		<annotation cp="&gt;" type="tts">大過</annotation>
@@ -225,9 +225,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≈" type="tts">大約等於</annotation>
 		<annotation cp="≡">三倍 | 完全 | 完全相同 | 相同</annotation>
 		<annotation cp="≡" type="tts">完全相同</annotation>
-		<annotation cp="≤">不相等 | 小過 | 等如 | 等於</annotation>
+		<annotation cp="≤">不相等 | 小過 | 小過或相等 | 等如 | 等於</annotation>
 		<annotation cp="≤" type="tts">小過或相等</annotation>
-		<annotation cp="≥">唔相等 | 大過 | 相等 | 等於</annotation>
+		<annotation cp="≥">唔相等 | 大過 | 大過或等於 | 相等 | 等於</annotation>
 		<annotation cp="≥" type="tts">大過或等於</annotation>
 		<annotation cp="⊂">子集 | 集</annotation>
 		<annotation cp="⊂" type="tts">子集</annotation>
@@ -243,7 +243,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="●" type="tts">實心圓形</annotation>
 		<annotation cp="◯">圓形 | 大空心圓形 | 環形</annotation>
 		<annotation cp="◯" type="tts">大空心圓形</annotation>
-		<annotation cp="♪">八分 | 音樂 | 音符</annotation>
+		<annotation cp="♪">八分 | 八分音符 | 音樂 | 音符</annotation>
 		<annotation cp="♪" type="tts">八分音符</annotation>
 		<annotation cp="♭">降號 | 音樂 | 音符</annotation>
 		<annotation cp="♭" type="tts">降號</annotation>
@@ -323,7 +323,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">無表情嘅臉</annotation>
 		<annotation cp="😶">嘴 | 無咀嘅臉 | 無聲 | 臉 | 靜</annotation>
 		<annotation cp="😶" type="tts">無咀嘅臉</annotation>
-		<annotation cp="😶‍🌫">心不在焉 | 雲中嘅臉 | 雲中嘅頭 | 霧中嘅臉</annotation>
+		<annotation cp="😶‍🌫">心不在焉 | 雲中嘅臉 | 雲中嘅頭 | 雲嘅臉孔 | 霧中嘅臉</annotation>
 		<annotation cp="😶‍🌫" type="tts">雲嘅臉孔</annotation>
 		<annotation cp="😏">傻笑 | 傻笑臉 | 臉</annotation>
 		<annotation cp="😏" type="tts">傻笑臉</annotation>
@@ -365,7 +365,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts">醉嘅臉</annotation>
 		<annotation cp="😵">臉 | 頭暈 | 頭暈嘅臉</annotation>
 		<annotation cp="😵" type="tts">頭暈嘅臉</annotation>
-		<annotation cp="😵‍💫">催眠 | 哇 | 螺旋 | 頭暈 | 麻煩</annotation>
+		<annotation cp="😵‍💫">催眠 | 哇 | 螺旋 | 螺旋眼嘅臉 | 頭暈 | 麻煩</annotation>
 		<annotation cp="😵‍💫" type="tts">螺旋眼嘅臉</annotation>
 		<annotation cp="🤯">爆炸頭 | 震驚</annotation>
 		<annotation cp="🤯" type="tts">爆炸頭</annotation>
@@ -391,7 +391,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts">皺眉嘅臉</annotation>
 		<annotation cp="😮">同情 | 嘴 | 打開 | 臉 | 開口嘅臉</annotation>
 		<annotation cp="😮" type="tts">開口嘅臉</annotation>
-		<annotation cp="😮‍💨">吹口哨 | 呻吟 | 呼氣 | 喘氣 | 耳語 | 鬆一口氣</annotation>
+		<annotation cp="😮‍💨">吹口哨 | 呻吟 | 呼氣 | 喘氣 | 嘆氣嘅臉 | 耳語 | 鬆一口氣</annotation>
 		<annotation cp="😮‍💨" type="tts">嘆氣嘅臉</annotation>
 		<annotation cp="😯">嚇驚 | 沉默 | 沉默嘅臉 | 臉 | 驚訝</annotation>
 		<annotation cp="😯" type="tts">沉默嘅臉</annotation>
@@ -513,9 +513,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💔" type="tts">破碎嘅心</annotation>
 		<annotation cp="❤">心 | 紅色心</annotation>
 		<annotation cp="❤" type="tts">紅色心</annotation>
-		<annotation cp="❤‍🔥">心 | 情慾 | 愛 | 有疤痕嘅心 | 燒</annotation>
+		<annotation cp="❤‍🔥">心 | 情慾 | 愛 | 有疤痕嘅心 | 燒 | 燒緊嘅心</annotation>
 		<annotation cp="❤‍🔥" type="tts">燒緊嘅心</annotation>
-		<annotation cp="❤‍🩹">修補 | 健康 | 好 | 復原緊 | 改善 | 療傷</annotation>
+		<annotation cp="❤‍🩹">修補 | 健康 | 包紥嘅心 | 好 | 復原緊 | 改善 | 療傷</annotation>
 		<annotation cp="❤‍🩹" type="tts">包紥嘅心</annotation>
 		<annotation cp="🧡">橙色 | 橙色心</annotation>
 		<annotation cp="🧡" type="tts">橙色心</annotation>
@@ -1005,11 +1005,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎‍♂" type="tts">跪嘅男人</annotation>
 		<annotation cp="🧎‍♀">女 | 跪 | 跪嘅女人</annotation>
 		<annotation cp="🧎‍♀" type="tts">跪嘅女人</annotation>
-		<annotation cp="🧑‍🦯">揸白色柺杖嘅人 | 無障礙 | 盲人</annotation>
+		<annotation cp="🧑‍🦯">揸柺杖嘅人 | 揸白色柺杖嘅人 | 無障礙 | 盲人</annotation>
 		<annotation cp="🧑‍🦯" type="tts">揸柺杖嘅人</annotation>
-		<annotation cp="👨‍🦯">拎白色拐杖嘅男人 | 無障礙 | 男人 | 盲</annotation>
+		<annotation cp="👨‍🦯">拎拐杖嘅男人 | 拎白色拐杖嘅男人 | 無障礙 | 男人 | 盲</annotation>
 		<annotation cp="👨‍🦯" type="tts">拎拐杖嘅男人</annotation>
-		<annotation cp="👩‍🦯">女人 | 拎白色拐杖嘅女人 | 無障礙 | 盲</annotation>
+		<annotation cp="👩‍🦯">女人 | 拎拐杖嘅女人 | 拎白色拐杖嘅女人 | 無障礙 | 盲</annotation>
 		<annotation cp="👩‍🦯" type="tts">拎拐杖嘅女人</annotation>
 		<annotation cp="🧑‍🦼">坐電動輪椅嘅人 | 無障礙 | 輪椅</annotation>
 		<annotation cp="🧑‍🦼" type="tts">坐電動輪椅嘅人</annotation>
@@ -3015,9 +3015,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♂" type="tts">男性標誌</annotation>
 		<annotation cp="⚧">跨性别人士 | 跨性别人士符號</annotation>
 		<annotation cp="⚧" type="tts">跨性别人士符號</annotation>
-		<annotation cp="✖">x | X | 乘 | 乘法 | 交叉 | 取消 | 標誌</annotation>
+		<annotation cp="✖">x | X | 乘 | 乘法 | 交叉 | 取消 | 標誌 | 粗乘號</annotation>
 		<annotation cp="✖" type="tts">粗乘號</annotation>
-		<annotation cp="➕">+ | 加 | 數學</annotation>
+		<annotation cp="➕">+ | 加 | 數學 | 粗加號</annotation>
 		<annotation cp="➕" type="tts">粗加號</annotation>
 		<annotation cp="➖">- | − | 數學 | 減 | 粗減號</annotation>
 		<annotation cp="➖" type="tts">粗減號</annotation>
@@ -3029,7 +3029,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‼" type="tts">雙感歎號</annotation>
 		<annotation cp="⁉">! | !? | ? | 問題 | 感歎問號 | 感歎號 | 標誌 | 標點符號</annotation>
 		<annotation cp="⁉" type="tts">感歎問號</annotation>
-		<annotation cp="❓">? | 問號 | 問題 | 標點符號 | 符號</annotation>
+		<annotation cp="❓">? | 問號 | 問題 | 標點符號 | 符號 | 紅色問號</annotation>
 		<annotation cp="❓" type="tts">紅色問號</annotation>
 		<annotation cp="❔">? | 問題 | 外框 | 標點符號 | 白色問號 | 符號</annotation>
 		<annotation cp="❔" type="tts">白色問號</annotation>
@@ -3061,7 +3061,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✅" type="tts">白色粗剔號</annotation>
 		<annotation cp="☑">✓ | 剔號 | 有剔嘅選框 | 盒 | 選框</annotation>
 		<annotation cp="☑" type="tts">有剔嘅選框</annotation>
-		<annotation cp="✔">✓ | 剔號 | 標誌</annotation>
+		<annotation cp="✔">✓ | 剔號 | 標誌 | 粗剔號</annotation>
 		<annotation cp="✔" type="tts">粗剔號</annotation>
 		<annotation cp="❌">x | X | 乘 | 乘法 | 交叉 | 取消 | 標誌</annotation>
 		<annotation cp="❌" type="tts">交叉</annotation>
@@ -3085,15 +3085,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">註冊</annotation>
 		<annotation cp="™">tm | 商標 | 標記</annotation>
 		<annotation cp="™" type="tts">商標</annotation>
-		<annotation cp="🔠">ABCD | 大階 | 字母 | 拉丁 | 輸入</annotation>
+		<annotation cp="🔠">ABCD | 大階 | 字母 | 拉丁 | 輸入 | 輸入拉丁大階字母</annotation>
 		<annotation cp="🔠" type="tts">輸入拉丁大階字母</annotation>
-		<annotation cp="🔡">abcd | 字母 | 小階 | 拉丁 | 輸入</annotation>
+		<annotation cp="🔡">abcd | 字母 | 小階 | 拉丁 | 輸入 | 輸入拉丁細階字母</annotation>
 		<annotation cp="🔡" type="tts">輸入拉丁細階字母</annotation>
-		<annotation cp="🔢">1234 | 數字 | 輸入</annotation>
+		<annotation cp="🔢">1234 | 數字 | 輸入 | 輸入數字</annotation>
 		<annotation cp="🔢" type="tts">輸入數字</annotation>
 		<annotation cp="🔣">〒♪&amp;% | 輸入 | 輸入符號</annotation>
 		<annotation cp="🔣" type="tts">輸入符號</annotation>
-		<annotation cp="🔤">abc | 字母 | 拉丁 | 輸入</annotation>
+		<annotation cp="🔤">abc | 字母 | 拉丁 | 輸入 | 輸入拉丁字母</annotation>
 		<annotation cp="🔤" type="tts">輸入拉丁字母</annotation>
 		<annotation cp="🅰">a | A 按鈕 (血型) | 血型</annotation>
 		<annotation cp="🅰" type="tts">A 按鈕 (血型)</annotation>
@@ -3171,29 +3171,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🟡" type="tts">黃色圓形</annotation>
 		<annotation cp="🟢">圓形 | 綠色 | 綠色圓形</annotation>
 		<annotation cp="🟢" type="tts">綠色圓形</annotation>
-		<annotation cp="🔵">圓形 | 幾何 | 藍色</annotation>
+		<annotation cp="🔵">圓形 | 幾何 | 藍色 | 藍色圓形</annotation>
 		<annotation cp="🔵" type="tts">藍色圓形</annotation>
-		<annotation cp="🟣">圓形 | 紫色</annotation>
+		<annotation cp="🟣">圓形 | 紫色 | 紫色圓形</annotation>
 		<annotation cp="🟣" type="tts">紫色圓形</annotation>
-		<annotation cp="🟤">啡色 | 圓形</annotation>
+		<annotation cp="🟤">啡色 | 啡色圓形 | 圓形</annotation>
 		<annotation cp="🟤" type="tts">啡色圓形</annotation>
 		<annotation cp="⚫">圓形 | 幾何 | 黑色圓形</annotation>
 		<annotation cp="⚫" type="tts">黑色圓形</annotation>
 		<annotation cp="⚪">圓形 | 幾何 | 白色圓形</annotation>
 		<annotation cp="⚪" type="tts">白色圓形</annotation>
-		<annotation cp="🟥">正方形 | 紅色</annotation>
+		<annotation cp="🟥">正方形 | 紅色 | 紅色正方形</annotation>
 		<annotation cp="🟥" type="tts">紅色正方形</annotation>
-		<annotation cp="🟧">橙色 | 正方形</annotation>
+		<annotation cp="🟧">橙色 | 橙色正方形 | 正方形</annotation>
 		<annotation cp="🟧" type="tts">橙色正方形</annotation>
-		<annotation cp="🟨">正方形 | 黃色</annotation>
+		<annotation cp="🟨">正方形 | 黃色 | 黃色正方形</annotation>
 		<annotation cp="🟨" type="tts">黃色正方形</annotation>
-		<annotation cp="🟩">正方形 | 綠色</annotation>
+		<annotation cp="🟩">正方形 | 綠色 | 綠色正方形</annotation>
 		<annotation cp="🟩" type="tts">綠色正方形</annotation>
-		<annotation cp="🟦">正方形 | 藍色</annotation>
+		<annotation cp="🟦">正方形 | 藍色 | 藍色正方形</annotation>
 		<annotation cp="🟦" type="tts">藍色正方形</annotation>
-		<annotation cp="🟪">正方形 | 紫色</annotation>
+		<annotation cp="🟪">正方形 | 紫色 | 紫色正方形</annotation>
 		<annotation cp="🟪" type="tts">紫色正方形</annotation>
-		<annotation cp="🟫">啡色 | 正方形</annotation>
+		<annotation cp="🟫">啡色 | 啡色正方形 | 正方形</annotation>
 		<annotation cp="🟫" type="tts">啡色正方形</annotation>
 		<annotation cp="⬛">大黑色正方形 | 幾何 | 正方形</annotation>
 		<annotation cp="⬛" type="tts">大黑色正方形</annotation>
@@ -3249,7 +3249,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏴‍☠" type="tts">海盜旗</annotation>
 		<annotation cp="¢">分錢</annotation>
 		<annotation cp="¢" type="tts">分錢</annotation>
-		<annotation cp="$">披索 | 美元 | 美金 | 錢</annotation>
+		<annotation cp="$">披索 | 美元 | 美金 | 貨幣符號 | 錢</annotation>
 		<annotation cp="$" type="tts">貨幣符號</annotation>
 		<annotation cp="£">埃及鎊 | 英鎊 | 貨幣 | 鎊</annotation>
 		<annotation cp="£" type="tts">英鎊</annotation>

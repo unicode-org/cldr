@@ -11,40 +11,72 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="br"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">briataenn digeriñ</annotation>
 		<annotation cp="{" type="tts">briataenn digeriñ</annotation>
+		<annotation cp="–">barrennig verr</annotation>
 		<annotation cp="–" type="tts">barrennig verr</annotation>
+		<annotation cp="—">barrennig hir</annotation>
 		<annotation cp="—" type="tts">barrennig hir</annotation>
+		<annotation cp=",">skej</annotation>
 		<annotation cp="," type="tts">skej</annotation>
+		<annotation cp=";">pik-skej</annotation>
 		<annotation cp=";" type="tts">pik-skej</annotation>
+		<annotation cp=":">daoubik</annotation>
 		<annotation cp=":" type="tts">daoubik</annotation>
+		<annotation cp="!">pik-estlamm</annotation>
 		<annotation cp="!" type="tts">pik-estlamm</annotation>
+		<annotation cp="…">trifik</annotation>
 		<annotation cp="…" type="tts">trifik</annotation>
 		<annotation cp="'">socʼh</annotation>
+		<annotation cp="“">daouask digeriñ</annotation>
 		<annotation cp="“" type="tts">daouask digeriñ</annotation>
+		<annotation cp="”">daouask serriñ</annotation>
 		<annotation cp="”" type="tts">daouask serriñ</annotation>
+		<annotation cp="«">daouank digeriñ</annotation>
 		<annotation cp="«" type="tts">daouank digeriñ</annotation>
+		<annotation cp="»">daouank serriñ</annotation>
 		<annotation cp="»" type="tts">daouank serriñ</annotation>
+		<annotation cp=")">krommell serriñ</annotation>
 		<annotation cp=")" type="tts">krommell serriñ</annotation>
+		<annotation cp="[">sonnell digeriñ</annotation>
 		<annotation cp="[" type="tts">sonnell digeriñ</annotation>
+		<annotation cp="]">sonnell serriñ</annotation>
 		<annotation cp="]" type="tts">sonnell serriñ</annotation>
+		<annotation cp="}">briataenn serriñ</annotation>
 		<annotation cp="}" type="tts">briataenn serriñ</annotation>
+		<annotation cp="〈">konkell digeriñ</annotation>
 		<annotation cp="〈" type="tts">konkell digeriñ</annotation>
+		<annotation cp="〉">konkell serriñ</annotation>
 		<annotation cp="〉" type="tts">konkell serriñ</annotation>
+		<annotation cp="《">divgonkell digeriñ</annotation>
 		<annotation cp="《" type="tts">divgonkell digeriñ</annotation>
+		<annotation cp="》">divgonkell serriñ</annotation>
 		<annotation cp="》" type="tts">divgonkell serriñ</annotation>
+		<annotation cp="「">kammell digeriñ</annotation>
 		<annotation cp="「" type="tts">kammell digeriñ</annotation>
+		<annotation cp="」">gingammell serriñ</annotation>
 		<annotation cp="」" type="tts">gingammell serriñ</annotation>
 		<annotation cp="§">arouez | rannbenn | rannbennad | rannskrid</annotation>
 		<annotation cp="§" type="tts">rannbenn</annotation>
+		<annotation cp="*">steredennig</annotation>
 		<annotation cp="*" type="tts">steredennig</annotation>
+		<annotation cp="/">beskell</annotation>
 		<annotation cp="/" type="tts">beskell</annotation>
+		<annotation cp="\">kilveskell</annotation>
 		<annotation cp="\" type="tts">kilveskell</annotation>
+		<annotation cp="%">dregant</annotation>
 		<annotation cp="%" type="tts">dregant</annotation>
+		<annotation cp="‰">drevil</annotation>
 		<annotation cp="‰" type="tts">drevil</annotation>
+		<annotation cp="†">kleze</annotation>
 		<annotation cp="†" type="tts">kleze</annotation>
+		<annotation cp="‡">daougleze</annotation>
 		<annotation cp="‡" type="tts">daougleze</annotation>
+		<annotation cp="′">kent</annotation>
 		<annotation cp="′" type="tts">kent</annotation>
+		<annotation cp="″">eil</annotation>
 		<annotation cp="″" type="tts">eil</annotation>
+		<annotation cp="‴">trede</annotation>
 		<annotation cp="‴" type="tts">trede</annotation>
 		<annotation cp="`">bout | tired</annotation>
 		<annotation cp="`" type="tts">tired bout</annotation>
@@ -52,15 +84,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="´" type="tts">tired lemm</annotation>
 		<annotation cp="^">kognek | tired</annotation>
 		<annotation cp="^" type="tts">tired kognek</annotation>
+		<annotation cp="¨">daouboent</annotation>
 		<annotation cp="¨" type="tts">daouboent</annotation>
 		<annotation cp="°">derez | eur | prouenn</annotation>
 		<annotation cp="°" type="tts">derez</annotation>
 		<annotation cp="∇">nabla | tricʼhorn</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="+">arouez mui</annotation>
 		<annotation cp="+" type="tts">arouez mui</annotation>
+		<annotation cp="÷">arouezenn rannañ</annotation>
 		<annotation cp="÷" type="tts">arouezenn rannañ</annotation>
+		<annotation cp="×">arouezenn liesaat</annotation>
 		<annotation cp="×" type="tts">arouezenn liesaat</annotation>
+		<annotation cp="√">gwrizienn garrez</annotation>
 		<annotation cp="√" type="tts">gwrizienn garrez</annotation>
+		<annotation cp="∞">arouezenn anfin</annotation>
 		<annotation cp="∞" type="tts">arouezenn anfin</annotation>
 		<annotation cp="◊">diamant | romb</annotation>
 		<annotation cp="◊" type="tts">romb</annotation>
@@ -120,6 +158,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💣" type="tts">bombezenn</annotation>
 		<annotation cp="💤">kousket | zzz</annotation>
 		<annotation cp="💤" type="tts">zzz</annotation>
+		<annotation cp="🤳">emboltred</annotation>
 		<annotation cp="🤳" type="tts">emboltred</annotation>
 		<annotation cp="💪">kigenn | kigenn daoubennek | kigenn daoubennek argrezet</annotation>
 		<annotation cp="💪" type="tts">kigenn daoubennek argrezet</annotation>
@@ -127,17 +166,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦾" type="tts">brecʼh mekanikel</annotation>
 		<annotation cp="🦿">gar | gar mekanikel</annotation>
 		<annotation cp="🦿" type="tts">gar mekanikel</annotation>
+		<annotation cp="🦵">gar</annotation>
 		<annotation cp="🦵" type="tts">gar</annotation>
+		<annotation cp="🦶">troad</annotation>
 		<annotation cp="🦶" type="tts">troad</annotation>
+		<annotation cp="👂">skouarn</annotation>
 		<annotation cp="👂" type="tts">skouarn</annotation>
+		<annotation cp="👃">fri</annotation>
 		<annotation cp="👃" type="tts">fri</annotation>
+		<annotation cp="🧠">empenn</annotation>
 		<annotation cp="🧠" type="tts">empenn</annotation>
+		<annotation cp="🫀">kalon</annotation>
 		<annotation cp="🫀" type="tts">kalon</annotation>
+		<annotation cp="🫁">skevent</annotation>
 		<annotation cp="🫁" type="tts">skevent</annotation>
+		<annotation cp="🦷">dant</annotation>
 		<annotation cp="🦷" type="tts">dant</annotation>
+		<annotation cp="🦴">askorn</annotation>
 		<annotation cp="🦴" type="tts">askorn</annotation>
+		<annotation cp="👀">daoulagad</annotation>
 		<annotation cp="👀" type="tts">daoulagad</annotation>
+		<annotation cp="👁">lagad</annotation>
 		<annotation cp="👁" type="tts">lagad</annotation>
+		<annotation cp="👅">teod</annotation>
 		<annotation cp="👅" type="tts">teod</annotation>
 		<annotation cp="👶">babig | yaouank</annotation>
 		<annotation cp="👶" type="tts">babig</annotation>
@@ -201,6 +252,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍💻" type="tts">stlennegour</annotation>
 		<annotation cp="👩‍💻">stlennegourez</annotation>
 		<annotation cp="👩‍💻" type="tts">stlennegourez</annotation>
+		<annotation cp="🧑‍🎤">den a gan</annotation>
 		<annotation cp="🧑‍🎤" type="tts">den a gan</annotation>
 		<annotation cp="👨‍🎤">kaner</annotation>
 		<annotation cp="👨‍🎤" type="tts">kaner</annotation>
@@ -258,15 +310,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧙‍♀" type="tts">hudourez</annotation>
 		<annotation cp="🧚">boudig | Titania</annotation>
 		<annotation cp="🧚" type="tts">boudig</annotation>
-		<annotation cp="🧛">Dracula | suner-gwad</annotation>
+		<annotation cp="🧛">Dracula | suner-gwad | suner/ez-gwad</annotation>
 		<annotation cp="🧛" type="tts">suner/ez-gwad</annotation>
 		<annotation cp="🧛‍♂">Dracula | suner-gwad</annotation>
 		<annotation cp="🧛‍♂" type="tts">suner-gwad</annotation>
 		<annotation cp="🧛‍♀">sunerez-gwad</annotation>
 		<annotation cp="🧛‍♀" type="tts">sunerez-gwad</annotation>
+		<annotation cp="🧜‍♂">morgan</annotation>
 		<annotation cp="🧜‍♂" type="tts">morgan</annotation>
+		<annotation cp="🧜‍♀">morganez</annotation>
 		<annotation cp="🧜‍♀" type="tts">morganez</annotation>
+		<annotation cp="🧝‍♂">elf</annotation>
 		<annotation cp="🧝‍♂" type="tts">elf</annotation>
+		<annotation cp="🧝‍♀">elfez</annotation>
 		<annotation cp="🧝‍♀" type="tts">elfez</annotation>
 		<annotation cp="🧟‍♂">zombi</annotation>
 		<annotation cp="🧟‍♂" type="tts">zombi</annotation>
@@ -474,7 +530,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦈" type="tts">rinkin</annotation>
 		<annotation cp="🐙">loen | morgazh</annotation>
 		<annotation cp="🐙" type="tts">morgazh</annotation>
-		<annotation cp="🐚">krogenn | troellenn</annotation>
+		<annotation cp="🐚">krogenn | krogenn droellennek | troellenn</annotation>
 		<annotation cp="🐚" type="tts">krogenn droellennek</annotation>
 		<annotation cp="🐌">loen | maligorn</annotation>
 		<annotation cp="🐌" type="tts">maligorn</annotation>
@@ -496,7 +552,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪳" type="tts">cʼhwil-du</annotation>
 		<annotation cp="🕷">kevnidenn</annotation>
 		<annotation cp="🕷" type="tts">kevnidenn</annotation>
-		<annotation cp="🕸">gwiad | kevnid</annotation>
+		<annotation cp="🕸">gwiad | gwiad-kevnid | kevnid</annotation>
 		<annotation cp="🕸" type="tts">gwiad-kevnid</annotation>
 		<annotation cp="🦂">krug | loen</annotation>
 		<annotation cp="🦂" type="tts">krug</annotation>
@@ -510,7 +566,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦠" type="tts">mikrob</annotation>
 		<annotation cp="💐">bleunioù | boked</annotation>
 		<annotation cp="💐" type="tts">boked bleunioù</annotation>
-		<annotation cp="🌸">bleuñv | kerez</annotation>
+		<annotation cp="🌸">bleunienn gerez | bleuñv | kerez</annotation>
 		<annotation cp="🌸" type="tts">bleunienn gerez</annotation>
 		<annotation cp="💮">bleunienn wenn | bleuñv</annotation>
 		<annotation cp="💮" type="tts">bleunienn wenn</annotation>
@@ -518,7 +574,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏵" type="tts">rozetenn</annotation>
 		<annotation cp="🌹">bleunienn | rozenn</annotation>
 		<annotation cp="🌹" type="tts">rozenn</annotation>
-		<annotation cp="🥀">boked | goeñviñ</annotation>
+		<annotation cp="🥀">boked | boked goeñvet | goeñviñ</annotation>
 		<annotation cp="🥀" type="tts">boked goeñvet</annotation>
 		<annotation cp="🌺">bleunienn | hibiskuz</annotation>
 		<annotation cp="🌺" type="tts">hibiskuz</annotation>
@@ -530,7 +586,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌷" type="tts">tulipezenn</annotation>
 		<annotation cp="🌱">strujenn | yaouank</annotation>
 		<annotation cp="🌱" type="tts">strujenn yaouank</annotation>
-		<annotation cp="🪴">plantenn | pod | ti</annotation>
+		<annotation cp="🪴">plantenn | plantenn podet | pod | ti</annotation>
 		<annotation cp="🪴" type="tts">plantenn podet</annotation>
 		<annotation cp="🌲">avalpineg | gwez</annotation>
 		<annotation cp="🌲" type="tts">avalpineg</annotation>
@@ -552,7 +608,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍁" type="tts">delienn skav-gwracʼh</annotation>
 		<annotation cp="🍂">delienn | delioù secʼh</annotation>
 		<annotation cp="🍂" type="tts">delioù secʼh</annotation>
-		<annotation cp="🍃">avel | delienn</annotation>
+		<annotation cp="🍃">avel | delienn | delienn en avel</annotation>
 		<annotation cp="🍃" type="tts">delienn en avel</annotation>
 		<annotation cp="🍇">frouezh | rezin</annotation>
 		<annotation cp="🍇" type="tts">rezin</annotation>
@@ -608,7 +664,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫑" type="tts">skilbebr</annotation>
 		<annotation cp="🥒">kokombrez | legumaj</annotation>
 		<annotation cp="🥒" type="tts">kokombrez</annotation>
-		<annotation cp="🥬">legumaj | letuz</annotation>
+		<annotation cp="🥬">legumaj | legumaj glas | letuz</annotation>
 		<annotation cp="🥬" type="tts">legumaj glas</annotation>
 		<annotation cp="🥦">brikoli | legumaj</annotation>
 		<annotation cp="🥦" type="tts">brikoli</annotation>
@@ -640,7 +696,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧇" type="tts">galfrez</annotation>
 		<annotation cp="🧀">formaj-laezh | keuz | tamm formaj-laezh | tamm keuz</annotation>
 		<annotation cp="🧀" type="tts">tamm formaj-laezh</annotation>
-		<annotation cp="🍖">askorn | kig</annotation>
+		<annotation cp="🍖">askorn | kig | kig war askorn</annotation>
 		<annotation cp="🍖" type="tts">kig war askorn</annotation>
 		<annotation cp="🍗">kig | kig-yar | morzhed | yar</annotation>
 		<annotation cp="🍗" type="tts">morzhed yar</annotation>
@@ -670,7 +726,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧆" type="tts">falafel</annotation>
 		<annotation cp="🥚">boued | dijuniñ | vi</annotation>
 		<annotation cp="🥚" type="tts">vi</annotation>
-		<annotation cp="🍳">dijuniñ | paelon | plad | vi</annotation>
+		<annotation cp="🍳">dijuniñ | paelon | plad | vi | vi war ar plad</annotation>
 		<annotation cp="🍳" type="tts">vi war ar plad</annotation>
 		<annotation cp="🥘">boued | kastelodenn | meuz mitonet | paelon</annotation>
 		<annotation cp="🥘" type="tts">meuz mitonet</annotation>
@@ -678,7 +734,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍲" type="tts">pothouarnad</annotation>
 		<annotation cp="🫕">chokolad | darbod | formaj-laezh | keuz | teuzadell</annotation>
 		<annotation cp="🫕" type="tts">teuzadell</annotation>
-		<annotation cp="🥣">bolenn | bolennad | dijuniñ | edaj | loa</annotation>
+		<annotation cp="🥣">bolenn | bolennad | bolennad gant loa | dijuniñ | edaj | loa</annotation>
 		<annotation cp="🥣" type="tts">bolennad gant loa</annotation>
 		<annotation cp="🥗">boued | saladenn</annotation>
 		<annotation cp="🥗" type="tts">saladenn</annotation>
@@ -698,7 +754,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍙" type="tts">boulig riz</annotation>
 		<annotation cp="🍚">bolennad | riz</annotation>
 		<annotation cp="🍚" type="tts">bolennad riz</annotation>
-		<annotation cp="🍛">kari | riz</annotation>
+		<annotation cp="🍛">kari | riz | riz dre gari</annotation>
 		<annotation cp="🍛" type="tts">riz dre gari</annotation>
 		<annotation cp="🍜">bolennad | tomm</annotation>
 		<annotation cp="🍜" type="tts">bolennad tomm</annotation>
@@ -712,7 +768,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍣" type="tts">sushi</annotation>
 		<annotation cp="🍤">bignez | chevr</annotation>
 		<annotation cp="🍤" type="tts">bignez chevr</annotation>
-		<annotation cp="🍥">krokedenn | pesked</annotation>
+		<annotation cp="🍥">krokedenn | krokedenn besked | pesked</annotation>
 		<annotation cp="🍥" type="tts">krokedenn besked</annotation>
 		<annotation cp="🥮">diskaramzer | gouel | gwastell-loar</annotation>
 		<annotation cp="🥮" type="tts">gwastell-loar</annotation>
@@ -770,7 +826,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍵" type="tts">tasenn</annotation>
 		<annotation cp="🍶">evaj | sake</annotation>
 		<annotation cp="🍶" type="tts">sake</annotation>
-		<annotation cp="🍾">boutailh | champagn | evaj | stouv</annotation>
+		<annotation cp="🍾">boutailh | boutailhad champagn | champagn | evaj | stouv</annotation>
 		<annotation cp="🍾" type="tts">boutailhad champagn</annotation>
 		<annotation cp="🍷">evaj | gwerenn | gwerennad gwin | gwin</annotation>
 		<annotation cp="🍷" type="tts">gwerennad gwin</annotation>
@@ -792,7 +848,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧊" type="tts">skornenn</annotation>
 		<annotation cp="🥢">bizhier</annotation>
 		<annotation cp="🥢" type="tts">bizhier</annotation>
-		<annotation cp="🍽">asied | fourchetez | kontell</annotation>
+		<annotation cp="🍽">asied | fourchetez | kontell | kontell ha fourchetez gant asied</annotation>
 		<annotation cp="🍽" type="tts">kontell ha fourchetez gant asied</annotation>
 		<annotation cp="🍴">kontell ha fourchetez | preti</annotation>
 		<annotation cp="🍴" type="tts">kontell ha fourchetez</annotation>
@@ -802,21 +858,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔪" type="tts">kontell-gegin</annotation>
 		<annotation cp="🏺">añforenn | evaj</annotation>
 		<annotation cp="🏺" type="tts">añforenn</annotation>
-		<annotation cp="🌍">Afrika | bed | boul | douar | Europa</annotation>
+		<annotation cp="🌍">Afrika | bed | boul | boul douar o tiskouez Europa hag Afrika | douar | Europa</annotation>
 		<annotation cp="🌍" type="tts">boul douar o tiskouez Europa hag Afrika</annotation>
-		<annotation cp="🌎">Amerika | bed | boul | douar</annotation>
+		<annotation cp="🌎">Amerika | bed | boul | boul douar o tiskouez Amerika | douar</annotation>
 		<annotation cp="🌎" type="tts">boul douar o tiskouez Amerika</annotation>
-		<annotation cp="🌏">Aostralia | Azia | bed | boul | douar</annotation>
+		<annotation cp="🌏">Aostralia | Azia | bed | boul | boul douar o tiskouez Azia hag Aostralia | douar</annotation>
 		<annotation cp="🌏" type="tts">boul douar o tiskouez Azia hag Aostralia</annotation>
-		<annotation cp="🌐">bed | boul | douar | hedredennoù</annotation>
+		<annotation cp="🌐">bed | boul | boul douar gant hedredennoù | douar | hedredennoù</annotation>
 		<annotation cp="🌐" type="tts">boul douar gant hedredennoù</annotation>
-		<annotation cp="🗺">bed | kartenn</annotation>
+		<annotation cp="🗺">bed | kartenn | kartenn ar bed</annotation>
 		<annotation cp="🗺" type="tts">kartenn ar bed</annotation>
 		<annotation cp="🗾">Japan | kartenn</annotation>
 		<annotation cp="🗾" type="tts">kartenn Japan</annotation>
 		<annotation cp="🧭">magnetek | merdeiñ | nadoz-vor</annotation>
 		<annotation cp="🧭" type="tts">nadoz-vor</annotation>
-		<annotation cp="🏔">ercʼh | menez</annotation>
+		<annotation cp="🏔">ercʼh | menez | menez ercʼhek</annotation>
 		<annotation cp="🏔" type="tts">menez ercʼhek</annotation>
 		<annotation cp="⛰">menez</annotation>
 		<annotation cp="⛰" type="tts">menez</annotation>
@@ -838,7 +894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏟" type="tts">stad</annotation>
 		<annotation cp="🏛">savadur | savadur klasel</annotation>
 		<annotation cp="🏛" type="tts">savadur klasel</annotation>
-		<annotation cp="🏗">savadur | sevel</annotation>
+		<annotation cp="🏗">savadur | savadur war sevel | sevel</annotation>
 		<annotation cp="🏗" type="tts">savadur war sevel</annotation>
 		<annotation cp="🧱">brikenn | brikennoù | morter | pri</annotation>
 		<annotation cp="🧱" type="tts">brikenn</annotation>
@@ -854,7 +910,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏚" type="tts">ti dilezet</annotation>
 		<annotation cp="🏠">savadur | ti</annotation>
 		<annotation cp="🏠" type="tts">ti</annotation>
-		<annotation cp="🏡">liorzh | ti</annotation>
+		<annotation cp="🏡">liorzh | ti | ti ha liorzh</annotation>
 		<annotation cp="🏡" type="tts">ti ha liorzh</annotation>
 		<annotation cp="🏢">savadur | savadur burevioù</annotation>
 		<annotation cp="🏢" type="tts">savadur burevioù</annotation>
@@ -886,7 +942,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💒" type="tts">eured</annotation>
 		<annotation cp="🗼">Tokyo | tour</annotation>
 		<annotation cp="🗼" type="tts">tour Tokyo</annotation>
-		<annotation cp="🗽">delwenn | Frankiz</annotation>
+		<annotation cp="🗽">delwenn | delwenn ar Frankiz | Frankiz</annotation>
 		<annotation cp="🗽" type="tts">delwenn ar Frankiz</annotation>
 		<annotation cp="⛪">iliz | kristen | kroaz | relijion</annotation>
 		<annotation cp="⛪" type="tts">iliz</annotation>
@@ -1054,7 +1110,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⏲" type="tts">horolaj</annotation>
 		<annotation cp="🕰">eur | eurier | pandulenn</annotation>
 		<annotation cp="🕰" type="tts">pandulenn</annotation>
-		<annotation cp="🕛">00 | 12 | 12:00 | hanternoz | kreisteiz</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | hanternoz | kreisteiz | kreisteiz/hanternoz</annotation>
 		<annotation cp="🕛" type="tts">kreisteiz/hanternoz</annotation>
 		<annotation cp="🕧">12:30 | kreisteiz/hanternoz hanter</annotation>
 		<annotation cp="🕧" type="tts">kreisteiz/hanternoz hanter</annotation>
@@ -1090,7 +1146,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕗" type="tts">eizh eur</annotation>
 		<annotation cp="🕣">20:30 | 8:30 | eizh eur hanter</annotation>
 		<annotation cp="🕣" type="tts">eizh eur hanter</annotation>
-		<annotation cp="🕘">21:00 | 9 | 9:00 | eizh eur</annotation>
+		<annotation cp="🕘">21:00 | 9 | 9:00 | eizh eur | nav eur</annotation>
 		<annotation cp="🕘" type="tts">nav eur</annotation>
 		<annotation cp="🕤">21:30 | 9:30 | nav eur hanter</annotation>
 		<annotation cp="🕤" type="tts">nav eur hanter</annotation>
@@ -1284,7 +1340,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥊" type="tts">maneg boks</annotation>
 		<annotation cp="🥋">dilhad arzoù-emgannañ | judo | karate | taekwondo</annotation>
 		<annotation cp="🥋" type="tts">dilhad arzoù-emgannañ</annotation>
-		<annotation cp="🥅">kaoued | pal</annotation>
+		<annotation cp="🥅">kaoued | kaoued-pal | pal</annotation>
 		<annotation cp="🥅" type="tts">kaoued-pal</annotation>
 		<annotation cp="⛳">bannielig | golf</annotation>
 		<annotation cp="⛳" type="tts">bannielig golf</annotation>
@@ -1348,7 +1404,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖼" type="tts">skeudenn sterniet</annotation>
 		<annotation cp="🎨">arz | pladenn | pladennad livioù</annotation>
 		<annotation cp="🎨" type="tts">pladennad livioù</annotation>
-		<annotation cp="🧵">kanell | nadoz | neud</annotation>
+		<annotation cp="🧵">kanell | kanellad neud | nadoz | neud</annotation>
 		<annotation cp="🧵" type="tts">kanellad neud</annotation>
 		<annotation cp="🪡">broderezh | gwriat | nadoz | nadoz da wriat</annotation>
 		<annotation cp="🪡" type="tts">nadoz da wriat</annotation>
@@ -1440,7 +1496,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📢" type="tts">uhelgomzer</annotation>
 		<annotation cp="📣">korn-mouezh | megafon</annotation>
 		<annotation cp="📣" type="tts">korn-mouezh</annotation>
-		<annotation cp="📯">korn | paotr-marc’h</annotation>
+		<annotation cp="📯">korn | korn ar paotr-marc’h | paotr-marc’h</annotation>
 		<annotation cp="📯" type="tts">korn ar paotr-marc’h</annotation>
 		<annotation cp="🔔">kloc’h</annotation>
 		<annotation cp="🔔" type="tts">kloc’h</annotation>
@@ -1478,11 +1534,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪘" type="tts">djembe</annotation>
 		<annotation cp="📱">hezoug | pellgomz | pellgomzer</annotation>
 		<annotation cp="📱" type="tts">pellgomzer hezoug</annotation>
-		<annotation cp="📲">bir | hezoug | pellgomz | pellgomzer</annotation>
+		<annotation cp="📲">bir | hezoug | pellgomz | pellgomzer | pellgomzer hezoug gant bir</annotation>
 		<annotation cp="📲" type="tts">pellgomzer hezoug gant bir</annotation>
 		<annotation cp="☎">pellgomz | pellgomzer</annotation>
 		<annotation cp="☎" type="tts">pellgomzer</annotation>
-		<annotation cp="📞">pellgomz | pellgomzer | yevenn</annotation>
+		<annotation cp="📞">pellgomz | pellgomzer | yevenn | yevenn bellgomz</annotation>
 		<annotation cp="📞" type="tts">yevenn bellgomz</annotation>
 		<annotation cp="📟">galver</annotation>
 		<annotation cp="📟" type="tts">galver</annotation>
@@ -1524,7 +1580,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📺" type="tts">skinwel</annotation>
 		<annotation cp="📷">lucʼhskeudennerez | video</annotation>
 		<annotation cp="📷" type="tts">lucʼhskeudennerez</annotation>
-		<annotation cp="📸">lucʼheder | lucʼhskeudennerez | video</annotation>
+		<annotation cp="📸">lucʼheder | lucʼhskeudennerez | lucʼhskeudennerez gant lucʼheder | video</annotation>
 		<annotation cp="📸" type="tts">lucʼhskeudennerez gant lucʼheder</annotation>
 		<annotation cp="📹">kamenroller | video</annotation>
 		<annotation cp="📹" type="tts">kamenroller</annotation>
@@ -1544,7 +1600,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏮" type="tts">lampig ruz</annotation>
 		<annotation cp="🪔">diya | eoul | lamp</annotation>
 		<annotation cp="🪔" type="tts">diya</annotation>
-		<annotation cp="📔">golo | karned | levr</annotation>
+		<annotation cp="📔">golo | karned | karned gant golo kinklet | levr</annotation>
 		<annotation cp="📔" type="tts">karned gant golo kinklet</annotation>
 		<annotation cp="📕">levr | serr</annotation>
 		<annotation cp="📕" type="tts">levr serr</annotation>
@@ -1582,13 +1638,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💰" type="tts">sacʼhad moneiz</annotation>
 		<annotation cp="🪙">aour | arcʼhant | moneiz | pezh</annotation>
 		<annotation cp="🪙" type="tts">pezh moneiz</annotation>
-		<annotation cp="💴">arcʼhant | bilhed | moneiz | unanenn | yen</annotation>
+		<annotation cp="💴">arcʼhant | bilhed | bilhed e yenoù | moneiz | unanenn | yen</annotation>
 		<annotation cp="💴" type="tts">bilhed e yenoù</annotation>
-		<annotation cp="💵">arcʼhant | bilhed | dollar | moneiz | unanenn</annotation>
+		<annotation cp="💵">arcʼhant | bilhed | bilhed e dollaroù | dollar | moneiz | unanenn</annotation>
 		<annotation cp="💵" type="tts">bilhed e dollaroù</annotation>
-		<annotation cp="💶">arcʼhant | bilhed | euro | moneiz | unanenn</annotation>
+		<annotation cp="💶">arcʼhant | bilhed | bilhed en euroioù | euro | moneiz | unanenn</annotation>
 		<annotation cp="💶" type="tts">bilhed en euroioù</annotation>
-		<annotation cp="💷">arcʼhant | bilhed | lur | moneiz | unanenn</annotation>
+		<annotation cp="💷">arcʼhant | bilhed | bilhed e lurioù | lur | moneiz | unanenn</annotation>
 		<annotation cp="💷" type="tts">bilhed e lurioù</annotation>
 		<annotation cp="💸">arcʼhant | bilhed | moneiz | moneiz o nijal | nij</annotation>
 		<annotation cp="💸" type="tts">moneiz o nijal</annotation>
@@ -1596,7 +1652,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💳" type="tts">kartenn-vank</annotation>
 		<annotation cp="🧾">prouenn | skrid-degemer</annotation>
 		<annotation cp="🧾" type="tts">skrid-degemer</annotation>
-		<annotation cp="💹">grafik | kreskiñ | krommenn | moneiz | yen</annotation>
+		<annotation cp="💹">grafik | kreskiñ | krommenn | krommenn kreskiñ ar yen | moneiz | yen</annotation>
 		<annotation cp="💹" type="tts">krommenn kreskiñ ar yen</annotation>
 		<annotation cp="✉">golo | golo-lizher | lizher</annotation>
 		<annotation cp="✉" type="tts">golo-lizher</annotation>
@@ -1634,7 +1690,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📅" type="tts">deiziadur</annotation>
 		<annotation cp="📆">deiziadur | deiziadur efemerid</annotation>
 		<annotation cp="📆" type="tts">deiziadur efemerid</annotation>
-		<annotation cp="🗒">blocʼh-notennoù | troellennoù</annotation>
+		<annotation cp="🗒">blocʼh-notennoù | blocʼh-notennoù gant troellennoù | troellennoù</annotation>
 		<annotation cp="🗒" type="tts">blocʼh-notennoù gant troellennoù</annotation>
 		<annotation cp="🗓">deiziadur | deiziadur gant troellennoù</annotation>
 		<annotation cp="🗓" type="tts">deiziadur gant troellennoù</annotation>
@@ -1660,15 +1716,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📐" type="tts">skouer</annotation>
 		<annotation cp="✂">dafar | sizailhoù</annotation>
 		<annotation cp="✂" type="tts">sizailhoù</annotation>
-		<annotation cp="🗑">kest | paper</annotation>
+		<annotation cp="🗑">kest | kest ar paper | paper</annotation>
 		<annotation cp="🗑" type="tts">kest ar paper</annotation>
 		<annotation cp="🔒">kadranas | serr</annotation>
 		<annotation cp="🔒" type="tts">kadranas serr</annotation>
 		<annotation cp="🔓">digor | kadranas</annotation>
 		<annotation cp="🔓" type="tts">kadranas digor</annotation>
-		<annotation cp="🔏">kadranas | serr | stilo</annotation>
+		<annotation cp="🔏">kadranas | kadranas serr gant stilo | serr | stilo</annotation>
 		<annotation cp="🔏" type="tts">kadranas serr gant stilo</annotation>
-		<annotation cp="🔐">alcʼhwez | kadranas | serr</annotation>
+		<annotation cp="🔐">alcʼhwez | kadranas | kadranas serr gant alcʼhwez | serr</annotation>
 		<annotation cp="🔐" type="tts">kadranas serr gant alcʼhwez</annotation>
 		<annotation cp="🔑">alcʼhwez | ger-tremen</annotation>
 		<annotation cp="🔑" type="tts">alcʼhwez</annotation>
@@ -1686,7 +1742,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛠" type="tts">morzhol hag alcʼhwez plat</annotation>
 		<annotation cp="🗡">arm | badalenn | kontell</annotation>
 		<annotation cp="🗡" type="tts">badalenn</annotation>
-		<annotation cp="⚔">arm | kleze | klezeier</annotation>
+		<annotation cp="⚔">arm | kleze | klezeier | klezeier kroaziet</annotation>
 		<annotation cp="⚔" type="tts">klezeier kroaziet</annotation>
 		<annotation cp="🔫">arm | pistolenn</annotation>
 		<annotation cp="🔫" type="tts">pistolenn</annotation>
@@ -1702,7 +1758,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔧" type="tts">alcʼhwez plat</annotation>
 		<annotation cp="🪛">benveg | biñs | troer-biñsoù</annotation>
 		<annotation cp="🪛" type="tts">troer-biñsoù</annotation>
-		<annotation cp="🔩">biñs | kraouenn</annotation>
+		<annotation cp="🔩">biñs | biñs ha kraouenn | kraouenn</annotation>
 		<annotation cp="🔩" type="tts">biñs ha kraouenn</annotation>
 		<annotation cp="⚙">benveg | rod dantek</annotation>
 		<annotation cp="⚙" type="tts">rod dantek</annotation>
@@ -1738,7 +1794,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📡" type="tts">stign loarell</annotation>
 		<annotation cp="💉">mezegiezh | strinkell</annotation>
 		<annotation cp="💉" type="tts">strinkell</annotation>
-		<annotation cp="🩸">gwad | medisinerezh | mezegiezh | takenn</annotation>
+		<annotation cp="🩸">gwad | medisinerezh | mezegiezh | takenn | takenn wad</annotation>
 		<annotation cp="🩸" type="tts">takenn wad</annotation>
 		<annotation cp="💊">medisinerezh | mezegiezh | pilulenn</annotation>
 		<annotation cp="💊" type="tts">pilulenn</annotation>
@@ -1822,7 +1878,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚼" type="tts">arouez babig</annotation>
 		<annotation cp="🚾">golcʼhiri | privezioù | WC</annotation>
 		<annotation cp="🚾" type="tts">WC</annotation>
-		<annotation cp="🛂">kontroll | paseporzh</annotation>
+		<annotation cp="🛂">kontroll | kontroll paseporzhioù | paseporzh</annotation>
 		<annotation cp="🛂" type="tts">kontroll paseporzhioù</annotation>
 		<annotation cp="🛃">maltouterezh</annotation>
 		<annotation cp="🛃" type="tts">maltouterezh</annotation>
@@ -1840,13 +1896,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚫" type="tts">berzet</annotation>
 		<annotation cp="🚳">beloioù | berzet | difennet</annotation>
 		<annotation cp="🚳" type="tts">beloioù difennet</annotation>
-		<annotation cp="🚭">berzet | butunat | difennet</annotation>
+		<annotation cp="🚭">arabat butunat | berzet | butunat | difennet</annotation>
 		<annotation cp="🚭" type="tts">arabat butunat</annotation>
 		<annotation cp="🚯">arabat lakaat lastez | lastez</annotation>
 		<annotation cp="🚯" type="tts">arabat lakaat lastez</annotation>
 		<annotation cp="🚱">dour | dour fall da evañ | evañ</annotation>
 		<annotation cp="🚱" type="tts">dour fall da evañ</annotation>
-		<annotation cp="🚷">berzet | difennet | kerzhourien</annotation>
+		<annotation cp="🚷">berzet | difennet | difennet dʼar gerzhourien | kerzhourien</annotation>
 		<annotation cp="🚷" type="tts">difennet dʼar gerzhourien</annotation>
 		<annotation cp="☢">arouez | skinoberiek</annotation>
 		<annotation cp="☢" type="tts">skinoberiek</annotation>
@@ -1876,47 +1932,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">menorah</annotation>
 		<annotation cp="🔯">chañs | steredenn | steredenn cʼhwecʼh brecʼh</annotation>
 		<annotation cp="🔯" type="tts">steredenn cʼhwecʼh brecʼh</annotation>
-		<annotation cp="♈">Ari | Tourz | zodiak</annotation>
+		<annotation cp="♈">an Tourz | Ari | Tourz | zodiak</annotation>
 		<annotation cp="♈" type="tts">an Tourz</annotation>
-		<annotation cp="♉">Tarv | Tau | zodiak</annotation>
+		<annotation cp="♉">an Tarv | Tarv | Tau | zodiak</annotation>
 		<annotation cp="♉" type="tts">an Tarv</annotation>
-		<annotation cp="♊">Gem | Gevelled | zodiak</annotation>
+		<annotation cp="♊">ar Gevelled | Gem | Gevelled | zodiak</annotation>
 		<annotation cp="♊" type="tts">ar Gevelled</annotation>
-		<annotation cp="♋">Cnc | Krank | zodiak</annotation>
+		<annotation cp="♋">ar Cʼhrank | Cnc | Krank | zodiak</annotation>
 		<annotation cp="♋" type="tts">ar Cʼhrank</annotation>
-		<annotation cp="♌">Leo | Leon | zodiak</annotation>
+		<annotation cp="♌">al Leon | Leo | Leon | zodiak</annotation>
 		<annotation cp="♌" type="tts">al Leon</annotation>
-		<annotation cp="♍">Gwercʼhez | Vir | zodiak</annotation>
+		<annotation cp="♍">ar Wercʼhez | Gwercʼhez | Vir | zodiak</annotation>
 		<annotation cp="♍" type="tts">ar Wercʼhez</annotation>
-		<annotation cp="♎">Balañsoù | Lib | zodiak</annotation>
+		<annotation cp="♎">ar Balañsoù | Balañsoù | Lib | zodiak</annotation>
 		<annotation cp="♎" type="tts">ar Balañsoù</annotation>
-		<annotation cp="♏">Krug | Sco | zodiak</annotation>
+		<annotation cp="♏">ar Grug | Krug | Sco | zodiak</annotation>
 		<annotation cp="♏" type="tts">ar Grug</annotation>
-		<annotation cp="♐">Saezhataer | Sgr | zodiak</annotation>
+		<annotation cp="♐">ar Saezhataer | Saezhataer | Sgr | zodiak</annotation>
 		<annotation cp="♐" type="tts">ar Saezhataer</annotation>
-		<annotation cp="♑">Cap | Gavr | zodiak</annotation>
+		<annotation cp="♑">ar Cʼhavr | Cap | Gavr | zodiak</annotation>
 		<annotation cp="♑" type="tts">ar Cʼhavr</annotation>
-		<annotation cp="♒">Aqr | Skuilher-dour | zodiak</annotation>
+		<annotation cp="♒">Aqr | ar Skuilher-dour | Skuilher-dour | zodiak</annotation>
 		<annotation cp="♒" type="tts">ar Skuilher-dour</annotation>
-		<annotation cp="♓">Pesked | Psc | zodiak</annotation>
+		<annotation cp="♓">ar Pesked | Pesked | Psc | zodiak</annotation>
 		<annotation cp="♓" type="tts">ar Pesked</annotation>
 		<annotation cp="⛎">Naeretaer | Oph | zodiak</annotation>
 		<annotation cp="⛎" type="tts">Naeretaer</annotation>
-		<annotation cp="🔀">bir | bouton | lenn mell-divell</annotation>
+		<annotation cp="🔀">bir | bouton | bouton lenn mell-divell | lenn mell-divell</annotation>
 		<annotation cp="🔀" type="tts">bouton lenn mell-divell</annotation>
-		<annotation cp="🔁">bir | bouton | lenn en-dro</annotation>
+		<annotation cp="🔁">bir | bouton | bouton lenn en-dro | lenn en-dro</annotation>
 		<annotation cp="🔁" type="tts">bouton lenn en-dro</annotation>
 		<annotation cp="▶">bouton | lenn</annotation>
 		<annotation cp="▶" type="tts">bouton lenn</annotation>
 		<annotation cp="🎦">film | kamera | sinema</annotation>
 		<annotation cp="🎦" type="tts">sinema</annotation>
-		<annotation cp="📳">froumer | hezoug | pellgomzer</annotation>
+		<annotation cp="📳">froumer | hezoug | mod froumer | pellgomzer</annotation>
 		<annotation cp="📳" type="tts">mod froumer</annotation>
 		<annotation cp="📴">hezoug | lazhet | pellgomzer</annotation>
 		<annotation cp="📴" type="tts">pellgomzer lazhet</annotation>
-		<annotation cp="♀">arouez | mercʼhed</annotation>
+		<annotation cp="♀">arouez | arouez ar mercʼhed | mercʼhed</annotation>
 		<annotation cp="♀" type="tts">arouez ar mercʼhed</annotation>
-		<annotation cp="♂">arouez | paotred</annotation>
+		<annotation cp="♂">arouez | arouez ar paotred | paotred</annotation>
 		<annotation cp="♂" type="tts">arouez ar paotred</annotation>
 		<annotation cp="⚧">arouez | treuzjener</annotation>
 		<annotation cp="⚧" type="tts">arouez treuzjener</annotation>
@@ -1932,7 +1988,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♾" type="tts">anfin</annotation>
 		<annotation cp="‼">! | !! | pik-estlamm | pik-estlamm doubl</annotation>
 		<annotation cp="‼" type="tts">pik-estlamm doubl</annotation>
-		<annotation cp="⁉">! | !? | ? | estlamm | goulenn | poentadur</annotation>
+		<annotation cp="⁉">! | !? | ? | estlamm | goulenn | pik-goulenn estlamm | poentadur</annotation>
 		<annotation cp="⁉" type="tts">pik-goulenn estlamm</annotation>
 		<annotation cp="❓">? | goulenn | pik-goulenn | poentadur | ruz</annotation>
 		<annotation cp="❓" type="tts">pik-goulenn ruz</annotation>
@@ -1950,7 +2006,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚜" type="tts">flourdiliz</annotation>
 		<annotation cp="🔱">bag | benveg | eor | lestr | tridant</annotation>
 		<annotation cp="🔱" type="tts">tridant</annotation>
-		<annotation cp="📛">anv | badj</annotation>
+		<annotation cp="📛">anv | badj | badj-anv</annotation>
 		<annotation cp="📛" type="tts">badj-anv</annotation>
 		<annotation cp="🔰">arouez | arouez japanat evit an deraouidi | deraouad | Japan</annotation>
 		<annotation cp="🔰" type="tts">arouez japanat evit an deraouidi</annotation>
@@ -1986,7 +2042,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="™" type="tts">merk kenwerzhel marilhet</annotation>
 		<annotation cp="🔠">ABCD | bizskriv | latin | lizherennoù | pennlizherennoù</annotation>
 		<annotation cp="🔠" type="tts">bizskriv pennlizherennoù latin</annotation>
-		<annotation cp="🔡">abcd | bizskriv | latin | lizherennoù | lizherennoù bihan</annotation>
+		<annotation cp="🔡">abcd | bizskriv | bizskriv lizherennoù bihan latin | latin | lizherennoù | lizherennoù bihan</annotation>
 		<annotation cp="🔡" type="tts">bizskriv lizherennoù bihan latin</annotation>
 		<annotation cp="🔢">1234 | bizskriv | niveroù</annotation>
 		<annotation cp="🔢" type="tts">bizskriv niveroù</annotation>
@@ -1994,11 +2050,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔣" type="tts">bizskriv arouezioù</annotation>
 		<annotation cp="🔤">abc | bizskriv | latin | lizherennoù</annotation>
 		<annotation cp="🔤" type="tts">bizskriv lizherennoù latin</annotation>
-		<annotation cp="🅰">a | A | bouton A | rumm-gwad</annotation>
+		<annotation cp="🅰">a | A | bouton A | bouton A (rumm-gwad) | rumm-gwad</annotation>
 		<annotation cp="🅰" type="tts">bouton A (rumm-gwad)</annotation>
-		<annotation cp="🆎">ab | AB | bouton AB | rumm-gwad</annotation>
+		<annotation cp="🆎">ab | AB | bouton AB | bouton AB (rumm-gwad) | rumm-gwad</annotation>
 		<annotation cp="🆎" type="tts">bouton AB (rumm-gwad)</annotation>
-		<annotation cp="🅱">b | B | bouton B | rumm-gwad</annotation>
+		<annotation cp="🅱">b | B | bouton B | bouton B (rumm-gwad) | rumm-gwad</annotation>
 		<annotation cp="🅱" type="tts">bouton B (rumm-gwad)</annotation>
 		<annotation cp="🆑">bouton Diverkañ | cl | CL</annotation>
 		<annotation cp="🆑" type="tts">bouton Diverkañ</annotation>
@@ -2014,7 +2070,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="Ⓜ" type="tts">M kelcʼhiet</annotation>
 		<annotation cp="🆕">bouton Nevez | new | NEW</annotation>
 		<annotation cp="🆕" type="tts">bouton Nevez</annotation>
-		<annotation cp="🅾">bouton O | o | O | rumm-gwad</annotation>
+		<annotation cp="🅾">bouton O | bouton O (rumm-gwad) | o | O | rumm-gwad</annotation>
 		<annotation cp="🅾" type="tts">bouton O (rumm-gwad)</annotation>
 		<annotation cp="🆗">bouton OK | ok | OK</annotation>
 		<annotation cp="🆗" type="tts">bouton OK</annotation>
@@ -2026,8 +2082,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆚" type="tts">bouton VS</annotation>
 		<annotation cp="🈁">amañ | bouton | bouton &quot;amañ&quot; e japaneg | japaneg</annotation>
 		<annotation cp="🈁" type="tts">bouton &quot;amañ&quot; e japaneg</annotation>
+		<annotation cp="🈚">bouton &quot;digoust&quot; e japaneg</annotation>
 		<annotation cp="🈚" type="tts">bouton &quot;digoust&quot; e japaneg</annotation>
+		<annotation cp="🈲">bouton &quot;difennet&quot; e japaneg</annotation>
 		<annotation cp="🈲" type="tts">bouton &quot;difennet&quot; e japaneg</annotation>
+		<annotation cp="㊗">bouton &quot;gourcʼhemennoù&quot; e japaneg</annotation>
 		<annotation cp="㊗" type="tts">bouton &quot;gourcʼhemennoù&quot; e japaneg</annotation>
 		<annotation cp="🟥">karrez | ruz</annotation>
 		<annotation cp="🟥" type="tts">karrez ruz</annotation>

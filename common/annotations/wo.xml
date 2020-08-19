@@ -11,9 +11,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="wo"/>
 	</identity>
 	<annotations>
+		<annotation cp="‾">overline</annotation>
 		<annotation cp="‾" type="tts">overline</annotation>
+		<annotation cp="‽">interrobang</annotation>
 		<annotation cp="‽" type="tts">interrobang</annotation>
+		<annotation cp="‸">caret</annotation>
 		<annotation cp="‸" type="tts">caret</annotation>
+		<annotation cp="⁂">asterism</annotation>
 		<annotation cp="⁂" type="tts">asterism</annotation>
 	</annotations>
 </ldml>

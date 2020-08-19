@@ -29,7 +29,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‾" type="tts">верхняя рыса</annotation>
 		<annotation cp="_">лінія | ніжняе | падкрэсліванне | рыса</annotation>
 		<annotation cp="_" type="tts">падкрэсліванне</annotation>
-		<annotation cp="-">дэфіс | злучок | мінус</annotation>
+		<annotation cp="-">дэфіс | злучок | злучок-мінус | мінус</annotation>
 		<annotation cp="-" type="tts">злучок-мінус</annotation>
 		<annotation cp="‐">дэфіс | злучок</annotation>
 		<annotation cp="‐" type="tts">злучок</annotation>
@@ -39,7 +39,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="—" type="tts">доўгі працяжнік</annotation>
 		<annotation cp="―">гарызантальная | лінія | працяжнік</annotation>
 		<annotation cp="―" type="tts">гарызантальная лінія</annotation>
-		<annotation cp="・">катакана | кропка | сярэдняя</annotation>
+		<annotation cp="・">катакана | кропка | сярэдняя | сярэдняя кропка катаканы</annotation>
 		<annotation cp="・" type="tts">сярэдняя кропка катаканы</annotation>
 		<annotation cp=",">коска</annotation>
 		<annotation cp="," type="tts">коска</annotation>
@@ -57,7 +57,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="!" type="tts">клічнік</annotation>
 		<annotation cp="¡">вокліч | знак | клічнік | перавернуты</annotation>
 		<annotation cp="¡" type="tts">перавернуты клічнік</annotation>
-		<annotation cp="?">пытальнік</annotation>
+		<annotation cp="?">знак пытальніка | пытальнік</annotation>
 		<annotation cp="?" type="tts">знак пытальніка</annotation>
 		<annotation cp="¿">перавернуты | пытальнік | пытанне</annotation>
 		<annotation cp="¿" type="tts">перавернуты пытальнік</annotation>
@@ -129,7 +129,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="〗" type="tts">канцавая незафарбаваная лінзападобная дужка</annotation>
 		<annotation cp="§">глава | параграф | раздзел | частка</annotation>
 		<annotation cp="§" type="tts">параграф</annotation>
-		<annotation cp="¶">абзац | знак | параграф</annotation>
+		<annotation cp="¶">абзац | знак | знак параграфа | параграф</annotation>
 		<annotation cp="¶" type="tts">знак параграфа</annotation>
 		<annotation cp="@">камерцыйнае at | камерцыйнае эт | сабака | слімак</annotation>
 		<annotation cp="@" type="tts">слімак</annotation>
@@ -153,17 +153,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‡" type="tts">двайны друкарскі крыжык</annotation>
 		<annotation cp="•">кропка | маркер</annotation>
 		<annotation cp="•" type="tts">маркер</annotation>
-		<annotation cp="‧">злучок | кропка | перанос</annotation>
+		<annotation cp="‧">злучок | кропка | кропка пераносу | перанос</annotation>
 		<annotation cp="‧" type="tts">кропка пераносу</annotation>
 		<annotation cp="′">штрых</annotation>
 		<annotation cp="′" type="tts">штрых</annotation>
-		<annotation cp="″">штрых</annotation>
+		<annotation cp="″">двайны штрых | штрых</annotation>
 		<annotation cp="″" type="tts">двайны штрых</annotation>
-		<annotation cp="‴">штрых</annotation>
+		<annotation cp="‴">трайны штрых | штрых</annotation>
 		<annotation cp="‴" type="tts">трайны штрых</annotation>
 		<annotation cp="‸">стрэшка</annotation>
 		<annotation cp="‸" type="tts">стрэшка</annotation>
-		<annotation cp="※">знак | зноска</annotation>
+		<annotation cp="※">знак | знак зноскі | зноска</annotation>
 		<annotation cp="※" type="tts">знак зноскі</annotation>
 		<annotation cp="⁂">астэрызм | тры зоркі</annotation>
 		<annotation cp="⁂" type="tts">астэрызм</annotation>
@@ -223,7 +223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↬" type="tts">стрэлка ўправа з пятлёй</annotation>
 		<annotation cp="↭">хвалістая стрэлка ўлева і ўправа</annotation>
 		<annotation cp="↭" type="tts">хвалістая стрэлка ўлева і ўправа</annotation>
-		<annotation cp="↯">зігзаг</annotation>
+		<annotation cp="↯">зігзаг | зігзагападобная стрэлка ўніз</annotation>
 		<annotation cp="↯" type="tts">зігзагападобная стрэлка ўніз</annotation>
 		<annotation cp="↰">стрэлка ўверх з канцом улева</annotation>
 		<annotation cp="↰" type="tts">стрэлка ўверх з канцом улева</annotation>
@@ -269,7 +269,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">множанне</annotation>
 		<annotation cp="&lt;">менш за | пачатковы тэг | тэг</annotation>
 		<annotation cp="&lt;" type="tts">менш за</annotation>
-		<annotation cp="≮">матэматыка | няроўнасць</annotation>
+		<annotation cp="≮">матэматыка | не менш за | няроўнасць</annotation>
 		<annotation cp="≮" type="tts">не менш за</annotation>
 		<annotation cp="=">роўна | роўны</annotation>
 		<annotation cp="=" type="tts">роўна</annotation>
@@ -277,7 +277,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≠" type="tts">не роўны</annotation>
 		<annotation cp="&gt;">больш за | канцавы тэг | тэг</annotation>
 		<annotation cp="&gt;" type="tts">больш за</annotation>
-		<annotation cp="≯">матэматыка | няроўнасць</annotation>
+		<annotation cp="≯">матэматыка | не больш за | няроўнасць</annotation>
 		<annotation cp="≯" type="tts">не больш за</annotation>
 		<annotation cp="¬">адмаўленне | не</annotation>
 		<annotation cp="¬" type="tts">адмаўленне</annotation>
@@ -289,9 +289,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">мінус</annotation>
 		<annotation cp="⁻">верхні індэкс | мінус | надрадковы</annotation>
 		<annotation cp="⁻" type="tts">надрадковы мінус</annotation>
-		<annotation cp="∓">плюс-мінус</annotation>
+		<annotation cp="∓">плюс або мінус | плюс-мінус</annotation>
 		<annotation cp="∓" type="tts">плюс або мінус</annotation>
-		<annotation cp="∗">астэрыск | зорачка</annotation>
+		<annotation cp="∗">аператар-астэрыск | астэрыск | зорачка</annotation>
 		<annotation cp="∗" type="tts">аператар-астэрыск</annotation>
 		<annotation cp="√">квадратны | корань | радыкал</annotation>
 		<annotation cp="√" type="tts">квадратны корань</annotation>
@@ -305,9 +305,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≈" type="tts">амаль роўна</annotation>
 		<annotation cp="≡">дакладны | ідэнтычны | тоесны | трайны</annotation>
 		<annotation cp="≡" type="tts">тоесны</annotation>
-		<annotation cp="≤">менш за | няроўнасць | роўна</annotation>
+		<annotation cp="≤">менш за | менш за або роўна | няроўнасць | роўна</annotation>
 		<annotation cp="≤" type="tts">менш за або роўна</annotation>
-		<annotation cp="≥">больш за | няроўнасць | роўна</annotation>
+		<annotation cp="≥">больш за | больш за або роўна | няроўнасць | роўна</annotation>
 		<annotation cp="≥" type="tts">больш за або роўна</annotation>
 		<annotation cp="⊂">мноства | падмноства</annotation>
 		<annotation cp="⊂" type="tts">падмноства</annotation>
@@ -445,7 +445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">ап’янелы твар</annotation>
 		<annotation cp="😵">галава круціцца | галавакружэнне | заблытаны</annotation>
 		<annotation cp="😵" type="tts">галава круціцца</annotation>
-		<annotation cp="😵‍💫">адурманены | гіпноз | загіпнатызаваны | ого | спіраль | турботы</annotation>
+		<annotation cp="😵‍💫">адурманены | гіпноз | загіпнатызаваны | ого | спіраль | твар з вачыма-спіралямі | турботы</annotation>
 		<annotation cp="😵‍💫" type="tts">твар з вачыма-спіралямі</annotation>
 		<annotation cp="🤯">галава выбухае | шакіраваны</annotation>
 		<annotation cp="🤯" type="tts">галава выбухае</annotation>
@@ -471,13 +471,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">засмучаны твар</annotation>
 		<annotation cp="😮">адкрыты | рот | спачуванне | твар з адкрытым ротам</annotation>
 		<annotation cp="😮" type="tts">твар з адкрытым ротам</annotation>
-		<annotation cp="😮‍💨">выдых | палёгка | перахапіла дыханне | свіст | уздых | шэпт</annotation>
+		<annotation cp="😮‍💨">выдых | палёгка | перахапіла дыханне | свіст | твар выдыхае | уздых | шэпт</annotation>
 		<annotation cp="😮‍💨" type="tts">твар выдыхае</annotation>
 		<annotation cp="😯">ашаломлены | здзіўлены | змоўклы | твар</annotation>
 		<annotation cp="😯" type="tts">ашаломлены твар</annotation>
 		<annotation cp="😲">здзіўлены | здзіўлены твар | цалкам | шакіраваны</annotation>
 		<annotation cp="😲" type="tts">здзіўлены твар</annotation>
-		<annotation cp="😳">аслупянелы | аслупянелы твар | збянтэжаны | збянтэжаны твар</annotation>
+		<annotation cp="😳">аслупянелы | аслупянелы твар | збянтэжаны | збянтэжаны твар | здранцвелы твар</annotation>
 		<annotation cp="😳" type="tts">здранцвелы твар</annotation>
 		<annotation cp="🥺">моліць | просіць | умольвае | шчанячы позірк</annotation>
 		<annotation cp="🥺" type="tts">умольвае</annotation>
@@ -593,9 +593,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">разбітае сэрца</annotation>
 		<annotation cp="❤">сэрца | чырвонае сэрца</annotation>
 		<annotation cp="❤" type="tts">чырвонае сэрца</annotation>
-		<annotation cp="❤‍🔥">агонь | жаданне | каханне | святое сэрца | сэрца</annotation>
+		<annotation cp="❤‍🔥">агонь | жаданне | каханне | святое сэрца | сэрца | сэрца ў агні</annotation>
 		<annotation cp="❤‍🔥" type="tts">сэрца ў агні</annotation>
-		<annotation cp="❤‍🩹">аднаўленне | выздараўленне | загойванне | лепей | паляпшэнне | папраўленне</annotation>
+		<annotation cp="❤‍🩹">аднаўленне | выздараўленне | загойванне | лепей | паляпшэнне | папраўленне | сэрца загойваецца</annotation>
 		<annotation cp="❤‍🩹" type="tts">сэрца загойваецца</annotation>
 		<annotation cp="🧡">аранжавае сэрца | аранжавы</annotation>
 		<annotation cp="🧡" type="tts">аранжавае сэрца</annotation>
@@ -2777,7 +2777,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">кінжал</annotation>
 		<annotation cp="⚔">зброя | мячы | скрыжаваныя</annotation>
 		<annotation cp="⚔" type="tts">скрыжаваныя мячы</annotation>
-		<annotation cp="🔫">зброя | пісталет | пушка | рэвальвер</annotation>
+		<annotation cp="🔫">вадзяны пісталет | зброя | пісталет | пушка | рэвальвер</annotation>
 		<annotation cp="🔫" type="tts">вадзяны пісталет</annotation>
 		<annotation cp="🪃">Аўстралія | бумеранг | вяртанне | зварот</annotation>
 		<annotation cp="🪃" type="tts">бумеранг</annotation>
@@ -3117,7 +3117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❔" type="tts">белы пытальнік</annotation>
 		<annotation cp="❕">! | белы клічнік | вокліч | знак | контур | пунктуацыя</annotation>
 		<annotation cp="❕" type="tts">белы клічнік</annotation>
-		<annotation cp="❗">! | вокліч | знак | клічнік | пунктуацыя</annotation>
+		<annotation cp="❗">! | вокліч | знак | клічнік | пунктуацыя | чырвоны клічнік</annotation>
 		<annotation cp="❗" type="tts">чырвоны клічнік</annotation>
 		<annotation cp="〰">працяжнік | пунктуацыя | хвалісты</annotation>
 		<annotation cp="〰" type="tts">хвалісты працяжнік</annotation>
@@ -3339,7 +3339,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¥" type="tts">іена</annotation>
 		<annotation cp="₥">міль</annotation>
 		<annotation cp="₥" type="tts">міль</annotation>
-		<annotation cp="₩">KPW | KRW</annotation>
+		<annotation cp="₩">KPW | KRW | вона</annotation>
 		<annotation cp="₩" type="tts">вона</annotation>
 		<annotation cp="€">EUR | валюта | еўра</annotation>
 		<annotation cp="€" type="tts">еўра</annotation>
@@ -3349,7 +3349,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">індыйская рупія</annotation>
 		<annotation cp="₽">валюта | расійскі | рубель</annotation>
 		<annotation cp="₽" type="tts">расійскі рубель</annotation>
-		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿">BTC | біткойн</annotation>
 		<annotation cp="₿" type="tts">біткойн</annotation>
 		<annotation cp="¹">адзінка | верхні індэкс | надрадковая</annotation>
 		<annotation cp="¹" type="tts">надрадковая адзінка</annotation>

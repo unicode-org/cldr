@@ -13,7 +13,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="sq"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">kllapë | kllapë gjarpërushe</annotation>
+		<annotation cp="{">kllapë | kllapë gjarpërushe | kllapë hapëse gjarpërushe</annotation>
 		<annotation cp="{" type="tts">kllapë hapëse gjarpërushe</annotation>
 		<annotation cp="🏻">nuancë lëkure | nuancë lëkure e çelët | tipi I-II</annotation>
 		<annotation cp="🏻" type="tts">nuancë lëkure e çelët</annotation>
@@ -25,21 +25,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">nuancë lëkure gjysmë e errët</annotation>
 		<annotation cp="🏿">nuancë lëkure | nuancë lëkure e errët | tipi VI</annotation>
 		<annotation cp="🏿" type="tts">nuancë lëkure e errët</annotation>
-		<annotation cp="‾">vizë përmbi</annotation>
+		<annotation cp="‾">vizë lart | vizë përmbi</annotation>
 		<annotation cp="‾" type="tts">vizë lart</annotation>
 		<annotation cp="_">vijë | vijë e ulët | vijë poshtë | vizë | vizë poshtë</annotation>
 		<annotation cp="_" type="tts">vijë e ulët</annotation>
-		<annotation cp="-">minus | ndarje | vijë</annotation>
+		<annotation cp="-" draft="provisional">ndarje minus</annotation>
 		<annotation cp="-" type="tts" draft="provisional">ndarje minus</annotation>
-		<annotation cp="‐">ndarje | vizë</annotation>
+		<annotation cp="‐" draft="provisional">ndarje</annotation>
 		<annotation cp="‐" type="tts" draft="provisional">ndarje</annotation>
 		<annotation cp="–">e mesme | vizë | vizë e mesme</annotation>
 		<annotation cp="–" type="tts">vizë e mesme</annotation>
 		<annotation cp="—">e gjatë | vizë | vizë e gjatë</annotation>
 		<annotation cp="—" type="tts">vizë e gjatë</annotation>
-		<annotation cp="―">shirit | vijë | vizë</annotation>
+		<annotation cp="―">shirit | shirit horizontal | vijë | vizë</annotation>
 		<annotation cp="―" type="tts">shirit horizontal</annotation>
-		<annotation cp="・">katakana | pika | pikë mesi | pikë ndërmjetëse</annotation>
+		<annotation cp="・">katakana | pika | pikë mesi | pikë mesi katakana | pikë ndërmjetëse</annotation>
 		<annotation cp="・" type="tts">pikë mesi katakana</annotation>
 		<annotation cp=",">presje</annotation>
 		<annotation cp="," type="tts">presje</annotation>
@@ -49,17 +49,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="、" type="tts">presje ideografike</annotation>
 		<annotation cp=";">pikëpresje</annotation>
 		<annotation cp=";" type="tts">pikëpresje</annotation>
-		<annotation cp="؛">dy pika arabe</annotation>
+		<annotation cp="؛">dy pika arabe | pikëpresje arabe</annotation>
 		<annotation cp="؛" type="tts">pikëpresje arabe</annotation>
 		<annotation cp=":">dy pika</annotation>
 		<annotation cp=":" type="tts">dy pika</annotation>
-		<annotation cp="!">bam | habi | pikëçuditëse</annotation>
+		<annotation cp="!" draft="provisional">pikëçuditje</annotation>
 		<annotation cp="!" type="tts" draft="provisional">pikëçuditje</annotation>
 		<annotation cp="¡">bam | habi | përmbys | pikëçuditëse</annotation>
 		<annotation cp="¡" type="tts">pikëçuditëse përmbys</annotation>
-		<annotation cp="?">pyetje</annotation>
+		<annotation cp="?">pyetje | shenja e pikëpyetjes</annotation>
 		<annotation cp="?" type="tts">shenja e pikëpyetjes</annotation>
-		<annotation cp="¿">përmbys | pikëpyetje | pyetje</annotation>
+		<annotation cp="¿" draft="provisional">pikëpyetje përmbys</annotation>
 		<annotation cp="¿" type="tts" draft="provisional">pikëpyetje përmbys</annotation>
 		<annotation cp="؟">arabe | pikëpyetje | pyetje</annotation>
 		<annotation cp="؟" type="tts">pikëpyetje arabe</annotation>
@@ -73,59 +73,59 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="。" type="tts">pikë ideografike</annotation>
 		<annotation cp="·">mes | pikë | pikë mesi | pikë ndërmjetëse</annotation>
 		<annotation cp="·" type="tts">pikë mesi</annotation>
-		<annotation cp="'">apostrof | thonjëz | thonjëz njëshe</annotation>
+		<annotation cp="'">apostrof | apostrof makine shkrimi | thonjëz | thonjëz njëshe</annotation>
 		<annotation cp="'" type="tts">apostrof makine shkrimi</annotation>
-		<annotation cp="‘">apostrof | thonjës e harkuar | thonjëz | thonjëz njëshe</annotation>
+		<annotation cp="‘">apostrof | apostrof i majtë | thonjës e harkuar | thonjëz | thonjëz njëshe</annotation>
 		<annotation cp="‘" type="tts">apostrof i majtë</annotation>
-		<annotation cp="’">apostrof | thonjëz | thonjëz e harkuar | thonjëz njëshe</annotation>
+		<annotation cp="’">apostrof | apostrof i djathtë | thonjëz | thonjëz e harkuar | thonjëz njëshe</annotation>
 		<annotation cp="’" type="tts">apostrof i djathtë</annotation>
-		<annotation cp="‚">apostrof | thonjëz | thonjëz e ulët</annotation>
+		<annotation cp="‚">apostrof | apostrof i djathtë i ulët | thonjëz | thonjëz e ulët</annotation>
 		<annotation cp="‚" type="tts">apostrof i djathtë i ulët</annotation>
-		<annotation cp="“">citim | citim me thonjëza të harkuara | thonjëz | thonjëz dyshe</annotation>
+		<annotation cp="“">citim | citim me thonjëza të harkuara | thonjëz | thonjëz dyshe | thonjëz e majtë</annotation>
 		<annotation cp="“" type="tts">thonjëz e majtë</annotation>
-		<annotation cp="”">citim | citim me thonjëza të harkuara | thonjëz | thonjëz dyshe</annotation>
+		<annotation cp="”">citim | citim me thonjëza të harkuara | thonjëz | thonjëz dyshe | thonjëz e djathtë</annotation>
 		<annotation cp="”" type="tts">thonjëz e djathtë</annotation>
-		<annotation cp="„">citim | thonjëz | thonjëz dyshe | thonjëz e harkuar | thonjëz e ulët</annotation>
+		<annotation cp="„">citim | thonjëz | thonjëz dyshe | thonjëz e djathtë e ulët | thonjëz e harkuar | thonjëz e ulët</annotation>
 		<annotation cp="„" type="tts">thonjëz e djathtë e ulët</annotation>
 		<annotation cp="«">shenjë citimi | shirit grade | thonjëza të majta</annotation>
 		<annotation cp="«" type="tts">thonjëza të majta</annotation>
 		<annotation cp="»">shenjë citimi | shirit grade | thonjëza të djathta</annotation>
 		<annotation cp="»" type="tts">thonjëza të djathta</annotation>
-		<annotation cp=")">kllapë | kllapë lakore</annotation>
+		<annotation cp=")">kllapë | kllapë lakore | kllapë mbyllëse</annotation>
 		<annotation cp=")" type="tts">kllapë mbyllëse</annotation>
-		<annotation cp="[">kllapë | kllapë e madhe</annotation>
+		<annotation cp="[">kllapë | kllapë e madhe | kllapë hapëse e madhe</annotation>
 		<annotation cp="[" type="tts">kllapë hapëse e madhe</annotation>
-		<annotation cp="]">kllapë | kllapë e madhe</annotation>
+		<annotation cp="]">kllapë | kllapë e madhe | kllapë mbyllëse e madhe</annotation>
 		<annotation cp="]" type="tts">kllapë mbyllëse e madhe</annotation>
-		<annotation cp="}">kllapë | kllapë gjarpërushe</annotation>
+		<annotation cp="}">kllapë | kllapë gjarpërushe | kllapë mbyllëse gjarpërushe</annotation>
 		<annotation cp="}" type="tts">kllapë mbyllëse gjarpërushe</annotation>
-		<annotation cp="〈">kllapë | kllapë këndore</annotation>
+		<annotation cp="〈">kllapë | kllapë hapëse këndore | kllapë këndore</annotation>
 		<annotation cp="〈" type="tts">kllapë hapëse këndore</annotation>
-		<annotation cp="〉">kllapë | kllapë këndore</annotation>
+		<annotation cp="〉">kllapë | kllapë këndore | kllapë mbyllëse këndore</annotation>
 		<annotation cp="〉" type="tts">kllapë mbyllëse këndore</annotation>
-		<annotation cp="《">kllapë | kllapë këndore dyshe</annotation>
+		<annotation cp="《">kllapë | kllapë hapëse këndore dyshe | kllapë këndore dyshe</annotation>
 		<annotation cp="《" type="tts">kllapë hapëse këndore dyshe</annotation>
-		<annotation cp="》">kllapë | kllapë këndore dyshe</annotation>
+		<annotation cp="》">kllapë | kllapë këndore dyshe | kllapë mbyllëse këndore dyshe</annotation>
 		<annotation cp="》" type="tts">kllapë mbyllëse këndore dyshe</annotation>
-		<annotation cp="「">kllapë mbyllëse këndi</annotation>
+		<annotation cp="「">kllapë hapëse këndi | kllapë mbyllëse këndi</annotation>
 		<annotation cp="「" type="tts">kllapë hapëse këndi</annotation>
-		<annotation cp="」">kllapë | kllapë këndi</annotation>
+		<annotation cp="」">kllapë | kllapë këndi | kllapë mbyllëse këndi</annotation>
 		<annotation cp="」" type="tts">kllapë mbyllëse këndi</annotation>
-		<annotation cp="『">kllapë | kllapë këndi e zgavërt</annotation>
+		<annotation cp="『">kllapë | kllapë hapëse këndi e zgavërt | kllapë këndi e zgavërt</annotation>
 		<annotation cp="『" type="tts">kllapë hapëse këndi e zgavërt</annotation>
-		<annotation cp="』">kllapë | kllapë këndi e zgavërt</annotation>
+		<annotation cp="』">kllapë | kllapë këndi e zgavërt | kllapë mbyllëse këndi e zgavërt</annotation>
 		<annotation cp="』" type="tts">kllapë mbyllëse këndi e zgavërt</annotation>
-		<annotation cp="【">kllapë | kllapë thjerrë</annotation>
+		<annotation cp="【">kllapë | kllapë hapëse thjerrë e zezë | kllapë thjerrë</annotation>
 		<annotation cp="【" type="tts">kllapë hapëse thjerrë e zezë</annotation>
-		<annotation cp="】">kllapë | kllapë thjerrë</annotation>
+		<annotation cp="】">kllapë | kllapë mbyllëse thjerrë e zezë | kllapë thjerrë</annotation>
 		<annotation cp="】" type="tts">kllapë mbyllëse thjerrë e zezë</annotation>
-		<annotation cp="〔">kllapë | kllapë lakore</annotation>
+		<annotation cp="〔">kllapë | kllapë hapëse lakore | kllapë lakore</annotation>
 		<annotation cp="〔" type="tts">kllapë hapëse lakore</annotation>
-		<annotation cp="〕">kllapë | kllapë lakore</annotation>
+		<annotation cp="〕">kllapë | kllapë lakore | kllapë mbyllëse lakore</annotation>
 		<annotation cp="〕" type="tts">kllapë mbyllëse lakore</annotation>
-		<annotation cp="〖">kllapë | kllapë thjerrë e zgavërt</annotation>
+		<annotation cp="〖">kllapë | kllapë hapëse thjerrë e zgavërt | kllapë thjerrë e zgavërt</annotation>
 		<annotation cp="〖" type="tts">kllapë hapëse thjerrë e zgavërt</annotation>
-		<annotation cp="〗">kllapë | kllapë thjerrë e zgavërt</annotation>
+		<annotation cp="〗">kllapë | kllapë mbyllëse thjerrë e zgavërt | kllapë thjerrë e zgavërt</annotation>
 		<annotation cp="〗" type="tts">kllapë mbyllëse thjerrë e zgavërt</annotation>
 		<annotation cp="§">paragraf | pjesë | seksion | shenja e paragrafit</annotation>
 		<annotation cp="§" type="tts">seksion</annotation>
@@ -153,25 +153,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‡" type="tts">shenja e kamës dyshe</annotation>
 		<annotation cp="•">pikë | pikë liste</annotation>
 		<annotation cp="•" type="tts">pikë liste</annotation>
-		<annotation cp="‧">ndarje | pikë | vizë</annotation>
+		<annotation cp="‧">ndarje | pikë | pikë ndarëse | vizë</annotation>
 		<annotation cp="‧" type="tts">pikë ndarëse</annotation>
-		<annotation cp="′">apostrof</annotation>
+		<annotation cp="′">apostrof | prim</annotation>
 		<annotation cp="′" type="tts">prim</annotation>
-		<annotation cp="″">prim</annotation>
+		<annotation cp="″" draft="provisional">dy prim</annotation>
 		<annotation cp="″" type="tts" draft="provisional">dy prim</annotation>
-		<annotation cp="‴">prim</annotation>
+		<annotation cp="‴">prim | prim i trefishtë</annotation>
 		<annotation cp="‴" type="tts">prim i trefishtë</annotation>
 		<annotation cp="‸">shenja e shkrimit</annotation>
 		<annotation cp="‸" type="tts">shenja e shkrimit</annotation>
 		<annotation cp="※">shenjë reference</annotation>
 		<annotation cp="※" type="tts">shenjë reference</annotation>
-		<annotation cp="⁂">yje</annotation>
+		<annotation cp="⁂">yje | yjësi</annotation>
 		<annotation cp="⁂" type="tts">yjësi</annotation>
 		<annotation cp="`">apostrof mbrapsht | theks | ton</annotation>
 		<annotation cp="`" type="tts">apostrof mbrapsht</annotation>
-		<annotation cp="´">fortë | theks | ton</annotation>
+		<annotation cp="´">fortë | theks | theks i fortë | ton</annotation>
 		<annotation cp="´" type="tts">theks i fortë</annotation>
-		<annotation cp="^">drejtim lart | fuqi | hundore | kënd | kulm | theks</annotation>
+		<annotation cp="^">drejtim lart | fuqi | hundore | kënd | kulm | theks | theks hundor</annotation>
 		<annotation cp="^" type="tts">theks hundor</annotation>
 		<annotation cp="¨">dierezë | dy pika lart</annotation>
 		<annotation cp="¨" type="tts">dierezë</annotation>
@@ -185,7 +185,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↚" type="tts">shigjetë majtas fraksion</annotation>
 		<annotation cp="→">djathtas | shigjetë | shigjetë me drejtim djathtas</annotation>
 		<annotation cp="→" type="tts">shigjetë me drejtim djathtas</annotation>
-		<annotation cp="↛">shigjetë djathtas fraksion</annotation>
+		<annotation cp="↛">shigjetë djathtas fraksion | shigjetë djtathtas fraksion</annotation>
 		<annotation cp="↛" type="tts">shigjetë djtathtas fraksion</annotation>
 		<annotation cp="↑">lart | shigjetë | shigjetë me drejtim lart</annotation>
 		<annotation cp="↑" type="tts">shigjetë me drejtim lart</annotation>
@@ -213,7 +213,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↥" type="tts">shigjetë lart me shufër</annotation>
 		<annotation cp="↦">shigjetë djathtas me shufër</annotation>
 		<annotation cp="↦" type="tts">shigjetë djathtas me shufër</annotation>
-		<annotation cp="↧">shigjetë poshtë me shifër</annotation>
+		<annotation cp="↧">shigjetë poshtë me shifër | shigjetë poshtë me shufër</annotation>
 		<annotation cp="↧" type="tts">shigjetë poshtë me shufër</annotation>
 		<annotation cp="↨">shigjetë lart-poshtë me bazament</annotation>
 		<annotation cp="↨" type="tts">shigjetë lart-poshtë me bazament</annotation>
@@ -223,7 +223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↬" type="tts">shigjetë djathtas me lak</annotation>
 		<annotation cp="↭">shigjetë e valëzuar majtas-djathtas</annotation>
 		<annotation cp="↭" type="tts">shigjetë e valëzuar majtas-djathtas</annotation>
-		<annotation cp="↯">zigzage</annotation>
+		<annotation cp="↯">shigjetë zigzage poshtë | zigzage</annotation>
 		<annotation cp="↯" type="tts">shigjetë zigzage poshtë</annotation>
 		<annotation cp="↰">shigjetë lart me majë majtas</annotation>
 		<annotation cp="↰" type="tts">shigjetë lart me majë majtas</annotation>
@@ -249,21 +249,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↺" type="tts">shigjetë rrethhapur me drejtim kundërorar</annotation>
 		<annotation cp="↻">shigjetë rrethhapur me drejtim orar</annotation>
 		<annotation cp="↻" type="tts">shigjetë rrethhapur me drejtim orar</annotation>
-		<annotation cp="↼">grep</annotation>
+		<annotation cp="↼">fuzhnjë majtas me grep lart | grep</annotation>
 		<annotation cp="↼" type="tts">fuzhnjë majtas me grep lart</annotation>
 		<annotation cp="↽">fuzhnjë majtas me grep poshtë</annotation>
 		<annotation cp="↽" type="tts">fuzhnjë majtas me grep poshtë</annotation>
-		<annotation cp="↾">grep</annotation>
+		<annotation cp="↾">fuzhnjë lart me grep djathtas | grep</annotation>
 		<annotation cp="↾" type="tts">fuzhnjë lart me grep djathtas</annotation>
-		<annotation cp="↿">grep</annotation>
+		<annotation cp="↿">fuzhnjë lart me grep majtas | grep</annotation>
 		<annotation cp="↿" type="tts">fuzhnjë lart me grep majtas</annotation>
-		<annotation cp="⇀">grep</annotation>
+		<annotation cp="⇀">fuzhnjë djathtas me grep lart | grep</annotation>
 		<annotation cp="⇀" type="tts">fuzhnjë djathtas me grep lart</annotation>
-		<annotation cp="⇁">grep</annotation>
+		<annotation cp="⇁">fuzhnjë djathtas me grep poshtë | grep</annotation>
 		<annotation cp="⇁" type="tts">fuzhnjë djathtas me grep poshtë</annotation>
-		<annotation cp="⇂">grep</annotation>
+		<annotation cp="⇂">fuzhnjë poshtë me grep djathtas | grep</annotation>
 		<annotation cp="⇂" type="tts">fuzhnjë poshtë me grep djathtas</annotation>
-		<annotation cp="⇃">grep</annotation>
+		<annotation cp="⇃">fuzhnjë poshtë me grep majtas | grep</annotation>
 		<annotation cp="⇃" type="tts">fuzhnjë poshtë me grep majtas</annotation>
 		<annotation cp="⇄">shigjetë djathtas mbi shigjetë majtas</annotation>
 		<annotation cp="⇄" type="tts">shigjetë djathtas mbi shigjetë majtas</annotation>
@@ -343,13 +343,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇪" type="tts">shigjetë bosh lart nga shufër</annotation>
 		<annotation cp="⇵">shigjetë poshtë majtas shigjetë lart</annotation>
 		<annotation cp="⇵" type="tts">shigjetë poshtë majtas shigjetë lart</annotation>
-		<annotation cp="∀">çdo | dhënë | universal</annotation>
+		<annotation cp="∀">çdo | dhënë | për të gjitha | universal</annotation>
 		<annotation cp="∀" type="tts">për të gjitha</annotation>
-		<annotation cp="∂">diferencial</annotation>
+		<annotation cp="∂">diferencial | diferencial i pjesshëm</annotation>
 		<annotation cp="∂" type="tts">diferencial i pjesshëm</annotation>
 		<annotation cp="∃">ka</annotation>
 		<annotation cp="∃" type="tts">ka</annotation>
-		<annotation cp="∅">matematikë | operator bashkësie</annotation>
+		<annotation cp="∅">bashkësi bosh | matematikë | operator bashkësie</annotation>
 		<annotation cp="∅" type="tts">bashkësi bosh</annotation>
 		<annotation cp="∆">rritje | trekëndësh</annotation>
 		<annotation cp="∆" type="tts">rritje</annotation>
@@ -357,17 +357,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">anëtarësi | bashkësi | element | element i | përmban</annotation>
 		<annotation cp="∈" type="tts">element i</annotation>
-		<annotation cp="∉">element</annotation>
+		<annotation cp="∉">element | jo element</annotation>
 		<annotation cp="∉" type="tts">jo element</annotation>
-		<annotation cp="∋">element</annotation>
+		<annotation cp="∋">element | përmban si pjesëtar</annotation>
 		<annotation cp="∋" type="tts">përmban si pjesëtar</annotation>
-		<annotation cp="∎">ç.d.v. | çdv | gur varri</annotation>
+		<annotation cp="∎">ç.d.v. | çdv | fundi i vërtetimit | gur varri</annotation>
 		<annotation cp="∎" type="tts">fundi i vërtetimit</annotation>
-		<annotation cp="∏">logjikë | prodhim</annotation>
+		<annotation cp="∏">logjikë | prodhim | prodhim n</annotation>
 		<annotation cp="∏" type="tts">prodhim n</annotation>
-		<annotation cp="∑">matematikë | shumë</annotation>
+		<annotation cp="∑">matematikë | shumë | shumë n</annotation>
 		<annotation cp="∑" type="tts">shumë n</annotation>
-		<annotation cp="+">dhe | plus</annotation>
+		<annotation cp="+">dhe | plus | shenja e plusit</annotation>
 		<annotation cp="+" type="tts">shenja e plusit</annotation>
 		<annotation cp="±">plus-minus</annotation>
 		<annotation cp="±" type="tts">plus-minus</annotation>
@@ -377,7 +377,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">shenja e shumëzimit</annotation>
 		<annotation cp="&lt;">hap komandën | komandë | më e vogël se</annotation>
 		<annotation cp="&lt;" type="tts">më e vogël se</annotation>
-		<annotation cp="≮">matematikë | pabarazim</annotation>
+		<annotation cp="≮">jo më pak se | matematikë | pabarazim</annotation>
 		<annotation cp="≮" type="tts">jo më pak se</annotation>
 		<annotation cp="=">baras | baraz</annotation>
 		<annotation cp="=" type="tts">baras</annotation>
@@ -385,80 +385,81 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≠" type="tts">jo baras</annotation>
 		<annotation cp="&gt;">komandë | mbyll komandën | më e madhe se</annotation>
 		<annotation cp="&gt;" type="tts">më e madhe se</annotation>
-		<annotation cp="≯">matematikë | pabarazim</annotation>
+		<annotation cp="≯">jo më shumë se | matematikë | pabarazim</annotation>
 		<annotation cp="≯" type="tts">jo më shumë se</annotation>
 		<annotation cp="¬">jo | mohim</annotation>
 		<annotation cp="¬" type="tts">mohim</annotation>
-		<annotation cp="|">kulm | shirit | shirit vertikal | vijë | vizë</annotation>
+		<annotation cp="|">kulm | shirit | shirit vertikal | vijë | vijë vertikale | vizë</annotation>
 		<annotation cp="|" type="tts">vijë vertikale</annotation>
 		<annotation cp="~" draft="provisional">tilde</annotation>
 		<annotation cp="~" type="tts" draft="provisional">tilde</annotation>
-		<annotation cp="−">heqim | minus</annotation>
+		<annotation cp="−">heqim | minus | shenja e minusit</annotation>
 		<annotation cp="−" type="tts">shenja e minusit</annotation>
-		<annotation cp="⁻">eksponent minus | minus</annotation>
+		<annotation cp="⁻">eksponent minus | minus | minus me superskript</annotation>
 		<annotation cp="⁻" type="tts">minus me superskript</annotation>
-		<annotation cp="∓">plus-minus</annotation>
+		<annotation cp="∓">minus ose plus | plus-minus</annotation>
 		<annotation cp="∓" type="tts">minus ose plus</annotation>
-		<annotation cp="∕">fraksion | thyesë</annotation>
+		<annotation cp="∕">fraksion | thyesë | thyesë pjesëtimi</annotation>
 		<annotation cp="∕" type="tts">thyesë pjesëtimi</annotation>
-		<annotation cp="⁄">fraksion</annotation>
+		<annotation cp="⁄">fraksion | thyesë</annotation>
 		<annotation cp="⁄" type="tts">thyesë</annotation>
-		<annotation cp="∗">yll</annotation>
+		<annotation cp="∗">operator yllth | yll</annotation>
 		<annotation cp="∗" type="tts">operator yllth</annotation>
-		<annotation cp="∘">kompozim | operator</annotation>
+		<annotation cp="∘">kompozim | operator | operator rreth</annotation>
 		<annotation cp="∘" type="tts">operator rreth</annotation>
-		<annotation cp="∙">operator</annotation>
+		<annotation cp="∙">operator | operator pikë</annotation>
 		<annotation cp="∙" type="tts">operator pikë</annotation>
 		<annotation cp="√">numër irracional | rrënja katrore | rrënjë | shprehje radikale</annotation>
 		<annotation cp="√" type="tts">rrënja katrore</annotation>
-		<annotation cp="∝">përpjesëtim</annotation>
+		<annotation cp="∝">përpjesëtim | përpjesëtimor</annotation>
 		<annotation cp="∝" type="tts">përpjesëtimor</annotation>
 		<annotation cp="∞">infinit | shenja e infinitit</annotation>
 		<annotation cp="∞" type="tts">shenja e infinitit</annotation>
-		<annotation cp="∟">matematikë</annotation>
+		<annotation cp="∟">kënd i djathtë | matematikë</annotation>
 		<annotation cp="∟" type="tts">kënd i djathtë</annotation>
-		<annotation cp="∠">majë</annotation>
+		<annotation cp="∠">kënd | majë</annotation>
 		<annotation cp="∠" type="tts">kënd</annotation>
-		<annotation cp="∣">veçuese</annotation>
+		<annotation cp="∣">ndarëse | veçuese</annotation>
 		<annotation cp="∣" type="tts">ndarëse</annotation>
 		<annotation cp="∥">paralele</annotation>
 		<annotation cp="∥" type="tts">paralele</annotation>
-		<annotation cp="∧">kulm | majë | pykë</annotation>
+		<annotation cp="∧">dhe logjike | kulm | majë | pykë</annotation>
 		<annotation cp="∧" type="tts">dhe logjike</annotation>
 		<annotation cp="∩">bashkësi | ndërprerje</annotation>
 		<annotation cp="∩" type="tts">ndërprerje</annotation>
 		<annotation cp="∪">bashkësi | bashkim | koleksion</annotation>
 		<annotation cp="∪" type="tts">bashkim</annotation>
-		<annotation cp="∫">njehsim</annotation>
+		<annotation cp="∫">integrale | njehsim</annotation>
 		<annotation cp="∫" type="tts">integrale</annotation>
-		<annotation cp="∬">njehsim</annotation>
+		<annotation cp="∬">integrale dyshe | njehsim</annotation>
 		<annotation cp="∬" type="tts">integrale dyshe</annotation>
 		<annotation cp="∮">integrale me kontur</annotation>
 		<annotation cp="∮" type="tts">integrale me kontur</annotation>
-		<annotation cp="∴">logjike</annotation>
+		<annotation cp="∴">logjike | prandaj</annotation>
 		<annotation cp="∴" type="tts">prandaj</annotation>
-		<annotation cp="∵">logjike</annotation>
+		<annotation cp="∵">logjike | sepse</annotation>
 		<annotation cp="∵" type="tts">sepse</annotation>
 		<annotation cp="∶">raport</annotation>
 		<annotation cp="∶" type="tts">raport</annotation>
-		<annotation cp="∷">përpjesëtueshmëri</annotation>
+		<annotation cp="∷">përpjesëtim | përpjesëtueshmëri</annotation>
 		<annotation cp="∷" type="tts">përpjesëtim</annotation>
-		<annotation cp="∼">operator</annotation>
+		<annotation cp="∼">operator | operator dredhëz</annotation>
 		<annotation cp="∼" type="tts">operator dredhëz</annotation>
-		<annotation cp="∽">dredhëz</annotation>
+		<annotation cp="∽">dredhëz | dredhëz përmbys</annotation>
 		<annotation cp="∽" type="tts">dredhëz përmbys</annotation>
 		<annotation cp="∾">infinit</annotation>
 		<annotation cp="∾" type="tts">infinit</annotation>
-		<annotation cp="≃">asimptotë | matematikë</annotation>
+		<annotation cp="≃">asimptotë | barazim asimptotik | matematikë</annotation>
 		<annotation cp="≃" type="tts">barazim asimptotik</annotation>
+		<annotation cp="≅">afërsisht baraz</annotation>
 		<annotation cp="≅" type="tts">afërsisht baraz</annotation>
 		<annotation cp="≈">afro | rreth | thuajse baras</annotation>
 		<annotation cp="≈" type="tts">thuajse baras</annotation>
 		<annotation cp="≡">i ngjashëm | i ngjashëm me | njëlloj me | njësoj | trefish</annotation>
 		<annotation cp="≡" type="tts">njëlloj me</annotation>
-		<annotation cp="≤">baras | baraz | më e vogël se | pabarazi</annotation>
+		<annotation cp="≤">baras | baraz | më e vogël ose baras | më e vogël se | pabarazi</annotation>
 		<annotation cp="≤" type="tts">më e vogël ose baras</annotation>
-		<annotation cp="≥">baras | baraz | më e madhe se | pabarazi</annotation>
+		<annotation cp="≥">baras | baraz | më e madhe ose baras | më e madhe se | pabarazi</annotation>
 		<annotation cp="≥" type="tts">më e madhe ose baras</annotation>
 		<annotation cp="⊂">bashkësi | nënbashkësi | nënbashkësi e</annotation>
 		<annotation cp="⊂" type="tts">nënbashkësi e</annotation>
@@ -474,7 +475,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="●" type="tts">rreth i mbushur</annotation>
 		<annotation cp="◯">rreth | rreth i madh bosh | unazë</annotation>
 		<annotation cp="◯" type="tts">rreth i madh bosh</annotation>
-		<annotation cp="♪">e tetë | muzikë | notë</annotation>
+		<annotation cp="♪">e tetë | muzikë | nota e tetë | notë</annotation>
 		<annotation cp="♪" type="tts">nota e tetë</annotation>
 		<annotation cp="♭">bemol | muzikë | notë</annotation>
 		<annotation cp="♭" type="tts">bemol</annotation>
@@ -596,7 +597,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">fytyrë e mjegulluar</annotation>
 		<annotation cp="😵">e trullosur | fytyrë | fytyrë e trullosur</annotation>
 		<annotation cp="😵" type="tts">fytyrë e trullosur</annotation>
-		<annotation cp="😵‍💫">hipnotizuar | marramendje | shqetësim | spirale | ua</annotation>
+		<annotation cp="😵‍💫">fytyrë me sy spiralë | hipnotizuar | marramendje | shqetësim | spirale | ua</annotation>
 		<annotation cp="😵‍💫" type="tts">fytyrë me sy spiralë</annotation>
 		<annotation cp="🤯">i tronditur | kokë që shpërthen</annotation>
 		<annotation cp="🤯" type="tts">kokë që shpërthen</annotation>
@@ -622,7 +623,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">fytyrë e vrenjtur</annotation>
 		<annotation cp="😮">e hapur | fytyrë | fytyrë me gojën e hapur | gojë | simpati</annotation>
 		<annotation cp="😮" type="tts">fytyrë me gojën e hapur</annotation>
-		<annotation cp="😮‍💨">fishkëllimë | lehtësim | psherëtimë | rënkim | shfryrje</annotation>
+		<annotation cp="😮‍💨">fishkëllimë | fytyrë me shfryrje | lehtësim | psherëtimë | rënkim | shfryrje</annotation>
 		<annotation cp="😮‍💨" type="tts">fytyrë me shfryrje</annotation>
 		<annotation cp="😯">e çuditur | e habitur | e heshtur | fytyrë | fytyrë e heshtur</annotation>
 		<annotation cp="😯" type="tts">fytyrë e heshtur</annotation>
@@ -744,9 +745,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">zemër e thyer</annotation>
 		<annotation cp="❤">zemër | zemër e kuqe</annotation>
 		<annotation cp="❤" type="tts">zemër e kuqe</annotation>
-		<annotation cp="❤‍🔥">dashuri | djegie | epsh | zemër | zemër e shenjtë</annotation>
+		<annotation cp="❤‍🔥">dashuri | djegie | epsh | zemër | zemër e shenjtë | zemër në flakë</annotation>
 		<annotation cp="❤‍🔥" type="tts">zemër në flakë</annotation>
-		<annotation cp="❤‍🩹">kurim | më shëndetshëm | mirë | përmirësim | rikuperim | shërim</annotation>
+		<annotation cp="❤‍🩹">kurim | më shëndetshëm | mirë | përmirësim | rikuperim | shërim | zemër në shërim</annotation>
 		<annotation cp="❤‍🩹" type="tts">zemër në shërim</annotation>
 		<annotation cp="🧡">portokalli | zemër ngjyrë portokalli</annotation>
 		<annotation cp="🧡" type="tts">zemër ngjyrë portokalli</annotation>
@@ -804,7 +805,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">përshëndetja e vulkanit</annotation>
 		<annotation cp="👌">«ok» me dorë | dorë | në rregull | ok | trup</annotation>
 		<annotation cp="👌" type="tts">«ok» me dorë</annotation>
-		<annotation cp="🤌">gishta | gjest me dorë | hetim | mbledhur | sarkastik</annotation>
+		<annotation cp="🤌">gishta | gishta të mbledhur | gjest me dorë | hetim | mbledhur | sarkastik</annotation>
 		<annotation cp="🤌" type="tts">gishta të mbledhur</annotation>
 		<annotation cp="🤏">dorështrënguar | kurnac | sasi e vogël</annotation>
 		<annotation cp="🤏" type="tts">dorështrënguar</annotation>
@@ -986,97 +987,97 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">burrë që ngre supet</annotation>
 		<annotation cp="🤷‍♀">dyshime | grua | grua që ngre supet | indiferencë | ngritje supesh</annotation>
 		<annotation cp="🤷‍♀" type="tts">grua që ngre supet</annotation>
-		<annotation cp="🧑‍⚕">doktor | infermier | punonjës shëndetësor | shëndetësi | terapeut</annotation>
+		<annotation cp="🧑‍⚕">doktor | infermier | person punonjës shëndetësor | punonjës shëndetësor | shëndetësi | terapeut</annotation>
 		<annotation cp="🧑‍⚕" type="tts">person punonjës shëndetësor</annotation>
 		<annotation cp="👨‍⚕">burrë | doktor | infermier | kujdes mjekësor | punonjës shëndetësor</annotation>
 		<annotation cp="👨‍⚕" type="tts">punonjës shëndetësor</annotation>
 		<annotation cp="👩‍⚕">doktore | grua | infermiere | kujdes mjekësor | punonjëse shëndetësor</annotation>
 		<annotation cp="👩‍⚕" type="tts">punonjëse shëndetësor</annotation>
-		<annotation cp="🧑‍🎓">diplomant | student</annotation>
+		<annotation cp="🧑‍🎓">diplomant | person student | student</annotation>
 		<annotation cp="🧑‍🎓" type="tts">person student</annotation>
 		<annotation cp="👨‍🎓">diplomim | mashkull | student</annotation>
 		<annotation cp="👨‍🎓" type="tts">student</annotation>
 		<annotation cp="👩‍🎓">diplomim | femër | studente</annotation>
 		<annotation cp="👩‍🎓" type="tts">studente</annotation>
-		<annotation cp="🧑‍🏫">instruktor | mësues | profesor</annotation>
+		<annotation cp="🧑‍🏫">instruktor | mësues | person mësues | profesor</annotation>
 		<annotation cp="🧑‍🏫" type="tts">person mësues</annotation>
 		<annotation cp="👨‍🏫">burrë | instruktor | mësues | profesor</annotation>
 		<annotation cp="👨‍🏫" type="tts">mësues</annotation>
 		<annotation cp="👩‍🏫">grua | Instruktore | mësuese | profesore</annotation>
 		<annotation cp="👩‍🏫" type="tts">mësuese</annotation>
-		<annotation cp="🧑‍⚖">gjykatës | peshore</annotation>
+		<annotation cp="🧑‍⚖">gjykatës | person gjykatës | peshore</annotation>
 		<annotation cp="🧑‍⚖" type="tts">person gjykatës</annotation>
 		<annotation cp="👨‍⚖">burrë | drejtësi | gjykatës | peshore</annotation>
 		<annotation cp="👨‍⚖" type="tts">gjykatës</annotation>
 		<annotation cp="👩‍⚖">drejtësi | gjykatëse | grua | peshore</annotation>
 		<annotation cp="👩‍⚖" type="tts">gjykatëse</annotation>
-		<annotation cp="🧑‍🌾">bujk | fermer | kopshtar</annotation>
+		<annotation cp="🧑‍🌾">bujk | fermer | kopshtar | person bujk</annotation>
 		<annotation cp="🧑‍🌾" type="tts">person bujk</annotation>
 		<annotation cp="👨‍🌾">bujk | burrë | kopshtar</annotation>
 		<annotation cp="👨‍🌾" type="tts">bujk</annotation>
 		<annotation cp="👩‍🌾">bujkeshë | grua | kopshtare</annotation>
 		<annotation cp="👩‍🌾" type="tts">bujkeshë</annotation>
-		<annotation cp="🧑‍🍳">kuzhinier | shef kuzhine</annotation>
+		<annotation cp="🧑‍🍳">kuzhinier | person kuzhinier | shef kuzhine</annotation>
 		<annotation cp="🧑‍🍳" type="tts">person kuzhinier</annotation>
 		<annotation cp="👨‍🍳">burrë | kuzhinë | kuzhinier</annotation>
 		<annotation cp="👨‍🍳" type="tts">kuzhinier</annotation>
 		<annotation cp="👩‍🍳">grua | kuzhinë | kuzhiniere</annotation>
 		<annotation cp="👩‍🍳" type="tts">kuzhiniere</annotation>
-		<annotation cp="🧑‍🔧">elektricist | hidraulik | mekanik | zanatçi</annotation>
+		<annotation cp="🧑‍🔧">elektricist | hidraulik | mekanik | person mekanik | zanatçi</annotation>
 		<annotation cp="🧑‍🔧" type="tts">person mekanik</annotation>
 		<annotation cp="👨‍🔧">burrë | elektricist | hidraulik | mekanik</annotation>
 		<annotation cp="👨‍🔧" type="tts">mekanik</annotation>
 		<annotation cp="👩‍🔧">burrë | elektriciste | hidraulike | mekanike</annotation>
 		<annotation cp="👩‍🔧" type="tts">mekanike</annotation>
-		<annotation cp="🧑‍🏭">fabrikë | industrial | linjë | punëtor</annotation>
+		<annotation cp="🧑‍🏭">fabrikë | industrial | linjë | person punëtor fabrike | punëtor</annotation>
 		<annotation cp="🧑‍🏭" type="tts">person punëtor fabrike</annotation>
 		<annotation cp="👨‍🏭">burrë | fabrikë | industri | montator | punëtor fabrike</annotation>
 		<annotation cp="👨‍🏭" type="tts">punëtor fabrike</annotation>
 		<annotation cp="👩‍🏭">fabrikë | grua | industri | montatore | punëtore fabrike</annotation>
 		<annotation cp="👩‍🏭" type="tts">punëtore fabrike</annotation>
-		<annotation cp="🧑‍💼">arkitekt | biznes | menaxher | punonjës zyre | zyrtar</annotation>
+		<annotation cp="🧑‍💼">arkitekt | biznes | menaxher | person punonjës zyre | punonjës zyre | zyrtar</annotation>
 		<annotation cp="🧑‍💼" type="tts">person punonjës zyre</annotation>
 		<annotation cp="👨‍💼">arkitekt | biznes | burrë | menaxher | punonjës zyre</annotation>
 		<annotation cp="👨‍💼" type="tts">punonjës zyre</annotation>
 		<annotation cp="👩‍💼">arkitekte | biznes | grua | menaxher | punonjëse zyre</annotation>
 		<annotation cp="👩‍💼" type="tts">punonjëse zyre</annotation>
-		<annotation cp="🧑‍🔬">biolog | fizikan | inxhinier | kimist | shkencëtar</annotation>
+		<annotation cp="🧑‍🔬">biolog | fizikan | inxhinier | kimist | person shkencëtar | shkencëtar</annotation>
 		<annotation cp="🧑‍🔬" type="tts">person shkencëtar</annotation>
 		<annotation cp="👨‍🔬">biolog | fizikan | kimist | shkencëtar</annotation>
 		<annotation cp="👨‍🔬" type="tts">shkencëtar</annotation>
 		<annotation cp="👩‍🔬">biologe | fizikane | kimiste | shkencëtare</annotation>
 		<annotation cp="👩‍🔬" type="tts">shkencëtare</annotation>
-		<annotation cp="🧑‍💻">kodues | programator | programe | shpikës | teknolog</annotation>
+		<annotation cp="🧑‍💻">kodues | person teknolog | programator | programe | shpikës | teknolog</annotation>
 		<annotation cp="🧑‍💻" type="tts">person teknolog</annotation>
 		<annotation cp="👨‍💻">burrë | kodues | softuer | teknolog | zhvillues</annotation>
 		<annotation cp="👨‍💻" type="tts">teknolog</annotation>
 		<annotation cp="👩‍💻">grua | koduese | softuer | teknologe | zhvilluese</annotation>
 		<annotation cp="👩‍💻" type="tts">teknologe</annotation>
-		<annotation cp="🧑‍🎤">aktor | argëtues | këngëtar | rok | yll</annotation>
+		<annotation cp="🧑‍🎤">aktor | argëtues | këngëtar | person këngëtar | rok | yll</annotation>
 		<annotation cp="🧑‍🎤" type="tts">person këngëtar</annotation>
 		<annotation cp="👨‍🎤">aktor | burrë | këngëtar | muzikant</annotation>
 		<annotation cp="👨‍🎤" type="tts">këngëtar</annotation>
 		<annotation cp="👩‍🎤">aktore | grua | këngëtare | muzikante</annotation>
 		<annotation cp="👩‍🎤" type="tts">këngëtare</annotation>
-		<annotation cp="🧑‍🎨">artist | paletë</annotation>
+		<annotation cp="🧑‍🎨">artist | paletë | person artist</annotation>
 		<annotation cp="🧑‍🎨" type="tts">person artist</annotation>
 		<annotation cp="👨‍🎨">artist | burrë | paletë | piktor</annotation>
 		<annotation cp="👨‍🎨" type="tts">artist</annotation>
 		<annotation cp="👩‍🎨">artiste | grua | paletë | piktore</annotation>
 		<annotation cp="👩‍🎨" type="tts">artiste</annotation>
-		<annotation cp="🧑‍✈">avion | pilot</annotation>
+		<annotation cp="🧑‍✈">avion | person pilot | pilot</annotation>
 		<annotation cp="🧑‍✈" type="tts">person pilot</annotation>
 		<annotation cp="👨‍✈">aeroplan | burrë | pilot</annotation>
 		<annotation cp="👨‍✈" type="tts">pilot</annotation>
 		<annotation cp="👩‍✈">aeroplan | grua | pilote</annotation>
 		<annotation cp="👩‍✈" type="tts">pilote</annotation>
-		<annotation cp="🧑‍🚀">astronaut | raketë</annotation>
+		<annotation cp="🧑‍🚀">astronaut | person astronaut | raketë</annotation>
 		<annotation cp="🧑‍🚀" type="tts">person astronaut</annotation>
 		<annotation cp="👨‍🚀">astronaut | burrë | hapësirë | raketë</annotation>
 		<annotation cp="👨‍🚀" type="tts">astronaut</annotation>
 		<annotation cp="👩‍🚀">astronaute | grua | hapësirë | raketë</annotation>
 		<annotation cp="👩‍🚀" type="tts">astronaute</annotation>
-		<annotation cp="🧑‍🚒">autozjarrfikëse | zjarrfikës</annotation>
+		<annotation cp="🧑‍🚒">autozjarrfikëse | person zjarrfikës | zjarrfikës</annotation>
 		<annotation cp="🧑‍🚒" type="tts">person zjarrfikës</annotation>
 		<annotation cp="👨‍🚒">burrë | makinë zjarrfikëse | zjarrfikës</annotation>
 		<annotation cp="👨‍🚒" type="tts">zjarrfikës</annotation>
@@ -1100,7 +1101,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">gardist</annotation>
 		<annotation cp="💂‍♀">grua | rojtare | ushtare garde</annotation>
 		<annotation cp="💂‍♀" type="tts">ushtare garde</annotation>
-		<annotation cp="🥷">fshehtësi | fshehur | luftëtar | ninxha</annotation>
+		<annotation cp="🥷">fshehtësi | fshehur | luftëtar | ninxha | ninxhë</annotation>
 		<annotation cp="🥷" type="tts">ninxhë</annotation>
 		<annotation cp="👷">kapelë | ndërtim | punëtor | punëtor ndërtimi</annotation>
 		<annotation cp="👷" type="tts">punëtor ndërtimi</annotation>
@@ -1138,11 +1139,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤰" type="tts">grua shtatzënë</annotation>
 		<annotation cp="🤱">foshnjë | gji | ushqim me gji</annotation>
 		<annotation cp="🤱" type="tts">gji</annotation>
-		<annotation cp="👩‍🍼">dhënie gjiri | foshnjë | grua | ushqim</annotation>
+		<annotation cp="👩‍🍼">dhënie gjiri | foshnjë | grua | grua që ushqen foshnjë | ushqim</annotation>
 		<annotation cp="👩‍🍼" type="tts">grua që ushqen foshnjë</annotation>
-		<annotation cp="👨‍🍼">burrë | dhënie gjiri | foshnjë | ushqim</annotation>
+		<annotation cp="👨‍🍼">burrë | burrë që ushqen foshnjë | dhënie gjiri | foshnjë | ushqim</annotation>
 		<annotation cp="👨‍🍼" type="tts">burrë që ushqen foshnjë</annotation>
-		<annotation cp="🧑‍🍼">dhënie gjiri | foshnjë | person | ushqim</annotation>
+		<annotation cp="🧑‍🍼">dhënie gjiri | foshnjë | person | person që ushqen foshnjë | ushqim</annotation>
 		<annotation cp="🧑‍🍼" type="tts">person që ushqen foshnjë</annotation>
 		<annotation cp="👼">bebe | engjëll | fantazi | fytyrë | përrallë</annotation>
 		<annotation cp="👼" type="tts">engjëll bebe</annotation>
@@ -1236,19 +1237,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">burrë në gjunjë</annotation>
 		<annotation cp="🧎‍♀">gjunjëzim | grua | grua në gjunjë</annotation>
 		<annotation cp="🧎‍♀" type="tts">grua në gjunjë</annotation>
-		<annotation cp="🧑‍🦯">asistencë | person me shkop ndihmës | verbër</annotation>
+		<annotation cp="🧑‍🦯">asistencë | person me shkop gjurmimi | person me shkop ndihmës | verbër</annotation>
 		<annotation cp="🧑‍🦯" type="tts">person me shkop gjurmimi</annotation>
 		<annotation cp="👨‍🦯">burrë | burrë me shkop gjurmimi | i verbër | qasshmëri</annotation>
 		<annotation cp="👨‍🦯" type="tts">burrë me shkop gjurmimi</annotation>
 		<annotation cp="👩‍🦯">e verbër | grua | grua me shkop gjurmimi | qasshmëri</annotation>
 		<annotation cp="👩‍🦯" type="tts">grua me shkop gjurmimi</annotation>
-		<annotation cp="🧑‍🦼">asistencë | karrocë invalidi | person me karrocë të motorizuar invalidi</annotation>
+		<annotation cp="🧑‍🦼">asistencë | karrocë invalidi | person me karrocë të motorizuar invalidi | person në karrocë të motorizuar invalidi</annotation>
 		<annotation cp="🧑‍🦼" type="tts">person në karrocë të motorizuar invalidi</annotation>
 		<annotation cp="👨‍🦼">burrë | burrë në karrocë të motorizuar invalidi | karrocë invalidi | qasshmëri</annotation>
 		<annotation cp="👨‍🦼" type="tts">burrë në karrocë të motorizuar invalidi</annotation>
 		<annotation cp="👩‍🦼">grua | grua në karrocë të motorizuar invalidi | karrocë invalidi | qasshmëri</annotation>
 		<annotation cp="👩‍🦼" type="tts">grua në karrocë të motorizuar invalidi</annotation>
-		<annotation cp="🧑‍🦽">asistencë | karrocë invalidi | person në karrocë manuale invalidi</annotation>
+		<annotation cp="🧑‍🦽">asistencë | karrocë invalidi | person në karrocë invalidi manuale | person në karrocë manuale invalidi</annotation>
 		<annotation cp="🧑‍🦽" type="tts">person në karrocë invalidi manuale</annotation>
 		<annotation cp="👨‍🦽">burrë | burrë në karrocë manuale invalidi | karrocë invalidi | qasshmëri</annotation>
 		<annotation cp="👨‍🦽" type="tts">burrë në karrocë manuale invalidi</annotation>
@@ -1440,7 +1441,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐱" type="tts">fytyrë maceje</annotation>
 		<annotation cp="🐈">kafshë shtëpiake | mace</annotation>
 		<annotation cp="🐈" type="tts">mace</annotation>
-		<annotation cp="🐈‍⬛">mace | pafat | zezë</annotation>
+		<annotation cp="🐈‍⬛">mace | mace e zezë | pafat | zezë</annotation>
 		<annotation cp="🐈‍⬛" type="tts">mace e zezë</annotation>
 		<annotation cp="🦁">fytyrë | luan | luani | zodiak</annotation>
 		<annotation cp="🦁" type="tts">fytyrë luani</annotation>
@@ -1568,7 +1569,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦉" type="tts">buf</annotation>
 		<annotation cp="🦤">i madh | Mauritius | zhukje | zog i rëndë</annotation>
 		<annotation cp="🦤" type="tts">zog i rëndë</annotation>
-		<annotation cp="🪶">dritë | fluturim | pupël | pupla | zog</annotation>
+		<annotation cp="🪶">dritë | fluturim | pendë | pupël | pupla | zog</annotation>
 		<annotation cp="🪶" type="tts">pendë</annotation>
 		<annotation cp="🦩">flakërues | flamingo | shpend | tropikal</annotation>
 		<annotation cp="🦩" type="tts">flamingo</annotation>
@@ -1742,7 +1743,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">kalli misri</annotation>
 		<annotation cp="🌶">bimë | djegës | spec</annotation>
 		<annotation cp="🌶" type="tts">spec djegës</annotation>
-		<annotation cp="🫑">perime | pjepër | spec | speca për mbushje</annotation>
+		<annotation cp="🫑">patëllxhanë për mbushje | perime | pjepër | spec | speca për mbushje</annotation>
 		<annotation cp="🫑" type="tts">patëllxhanë për mbushje</annotation>
 		<annotation cp="🥒">kastravec | perime | turshi | ushqim</annotation>
 		<annotation cp="🥒" type="tts">kastravec</annotation>
@@ -1802,7 +1803,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌯" type="tts">burrito</annotation>
 		<annotation cp="🫔">me pite | tamale | ushqim meksikan</annotation>
 		<annotation cp="🫔" type="tts">tamale</annotation>
-		<annotation cp="🥙">bukë e mbushur | giro | palapetë e mbushur | ushqim</annotation>
+		<annotation cp="🥙">bukë e mbushur | bukë e sheshtë me mbushje | giro | palapetë e mbushur | ushqim</annotation>
 		<annotation cp="🥙" type="tts">bukë e sheshtë me mbushje</annotation>
 		<annotation cp="🧆">qofte falafel | qofte me bishtajore | qofte me mish</annotation>
 		<annotation cp="🧆" type="tts">qofte falafel</annotation>
@@ -1930,7 +1931,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥃" type="tts">gotë</annotation>
 		<annotation cp="🥤">gotë me pipë | lëng | pije freskuese</annotation>
 		<annotation cp="🥤" type="tts">gotë me pipë</annotation>
-		<annotation cp="🧋">çaj | flluska | perlë | qumësht</annotation>
+		<annotation cp="🧋">çaj | çaj me flluska | flluska | perlë | qumësht</annotation>
 		<annotation cp="🧋" type="tts">çaj me flluska</annotation>
 		<annotation cp="🧃">kuti lëngjesh | kuti pijeje</annotation>
 		<annotation cp="🧃" type="tts">kuti pijeje</annotation>
@@ -3262,7 +3263,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‼" type="tts">dy pikëçuditje</annotation>
 		<annotation cp="⁉">pikëçuditje | pikëpyetje | pikësim | pyetje | shenja e pikëpyetjes dhe pikëçuditjes</annotation>
 		<annotation cp="⁉" type="tts">shenja e pikëpyetjes dhe pikëçuditjes</annotation>
-		<annotation cp="❓">pikëpyetje | pikësim | pyetje | shenjë</annotation>
+		<annotation cp="❓">pikëpyetje | pikësim | pyetje | shenja e pikëpyetjes e kuqe | shenjë</annotation>
 		<annotation cp="❓" type="tts">shenja e pikëpyetjes e kuqe</annotation>
 		<annotation cp="❔">? | e konturuar | pikëpyetje e bardhë | pikësim</annotation>
 		<annotation cp="❔" type="tts">pikëpyetje e bardhë</annotation>
@@ -3476,7 +3477,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏳" type="tts">flamur i bardhë</annotation>
 		<annotation cp="🏳‍🌈">flamur i ylbertë | ylber</annotation>
 		<annotation cp="🏳‍🌈" type="tts">flamur i ylbertë</annotation>
-		<annotation cp="🏳‍⚧">blu i hapur | flamur | i bardhë | rozë | transgjinor</annotation>
+		<annotation cp="🏳‍⚧">blu i hapur | flamur | flamur blu, rozë dhe i bardhë | i bardhë | rozë | transgjinor</annotation>
 		<annotation cp="🏳‍⚧" type="tts">flamur blu, rozë dhe i bardhë</annotation>
 		<annotation cp="🏴‍☠">flamur piratësh | Jolly Roger | pirat | plaçkitje | thesar</annotation>
 		<annotation cp="🏴‍☠" type="tts">flamur piratësh</annotation>
@@ -3488,9 +3489,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">stërlinë britanike</annotation>
 		<annotation cp="¥">jen | juan | monedhë</annotation>
 		<annotation cp="¥" type="tts">jen</annotation>
-		<annotation cp="₥">mil</annotation>
+		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
-		<annotation cp="₩">KPW | KRW</annotation>
+		<annotation cp="₩">KPW | KRW | uon</annotation>
 		<annotation cp="₩" type="tts">uon</annotation>
 		<annotation cp="€">EUR | euro | monedhë</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
@@ -3500,9 +3501,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₹" type="tts">rupi indiane</annotation>
 		<annotation cp="₽">monedhë | rubël</annotation>
 		<annotation cp="₽" type="tts">rubël</annotation>
-		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
-		<annotation cp="¹">eksponent një | një</annotation>
+		<annotation cp="¹">eksponent një | një | një me superskript</annotation>
 		<annotation cp="¹" type="tts">një me superskript</annotation>
 		<annotation cp="²">dy | dy me superskript | rrënjë katrore | superskript</annotation>
 		<annotation cp="²" type="tts">dy me superskript</annotation>

@@ -26,7 +26,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏿" type="tts">↑↑↑</annotation>
 		<annotation cp="‾" draft="contributed">↑↑↑</annotation>
 		<annotation cp="‾" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="_">↑↑↑</annotation>
+		<annotation cp="_">dash | line | low dash | underdash | underline | underscore</annotation>
 		<annotation cp="_" type="tts">underscore</annotation>
 		<annotation cp="-">↑↑↑</annotation>
 		<annotation cp="-" type="tts">↑↑↑</annotation>
@@ -64,25 +64,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="؟" type="tts">↑↑↑</annotation>
 		<annotation cp="‽" draft="contributed">↑↑↑</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp=".">↑↑↑</annotation>
+		<annotation cp=".">dot | full stop | period</annotation>
 		<annotation cp="." type="tts">full stop</annotation>
 		<annotation cp="…">↑↑↑</annotation>
 		<annotation cp="…" type="tts">↑↑↑</annotation>
-		<annotation cp="。">↑↑↑</annotation>
+		<annotation cp="。">full stop | ideographic | ideographic full stop | period</annotation>
 		<annotation cp="。" type="tts">ideographic full stop</annotation>
 		<annotation cp="·">↑↑↑</annotation>
 		<annotation cp="·" type="tts">↑↑↑</annotation>
-		<annotation cp="'">apostrophe | quote | single quote | typewriter apostrophe</annotation>
+		<annotation cp="'">apostrophe | quote | single quote | straight apostrophe | typewriter apostrophe</annotation>
 		<annotation cp="'" type="tts">straight apostrophe</annotation>
-		<annotation cp="‘">apostrophe | curly quote | quote | single quote | smart quote</annotation>
+		<annotation cp="‘">apostrophe | curly quote | left apostrophe | quote | single quote | smart quote</annotation>
 		<annotation cp="‘" type="tts">↑↑↑</annotation>
-		<annotation cp="’">apostrophe | curly quote | quote | single quote | smart quote</annotation>
+		<annotation cp="’">apostrophe | curly quote | quote | right apostrophe | single quote | smart quote</annotation>
 		<annotation cp="’" type="tts">↑↑↑</annotation>
 		<annotation cp="‚">↑↑↑</annotation>
 		<annotation cp="‚" type="tts">↑↑↑</annotation>
-		<annotation cp="“">curly quotes | double quote | quotation | quote | smart quotation</annotation>
+		<annotation cp="“">curly quotes | double quote | left quotation mark | quotation | quote | smart quotation</annotation>
 		<annotation cp="“" type="tts">↑↑↑</annotation>
-		<annotation cp="”">curly quotes | double quote | quotation | quote | smart quotation</annotation>
+		<annotation cp="”">curly quotes | double quote | quotation | quote | right quotation mark | smart quotation</annotation>
 		<annotation cp="”" type="tts">↑↑↑</annotation>
 		<annotation cp="„">↑↑↑</annotation>
 		<annotation cp="„" type="tts">↑↑↑</annotation>
@@ -90,7 +90,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="«" type="tts">↑↑↑</annotation>
 		<annotation cp="»">↑↑↑</annotation>
 		<annotation cp="»" type="tts">↑↑↑</annotation>
-		<annotation cp=")">bracket | parens | parenthesis | round bracket</annotation>
+		<annotation cp=")">bracket | close parenthesis | parens | parenthesis | round bracket</annotation>
 		<annotation cp=")" type="tts">↑↑↑</annotation>
 		<annotation cp="[">↑↑↑</annotation>
 		<annotation cp="[" type="tts">↑↑↑</annotation>
@@ -114,23 +114,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="『" type="tts">↑↑↑</annotation>
 		<annotation cp="』">↑↑↑</annotation>
 		<annotation cp="』" type="tts">↑↑↑</annotation>
-		<annotation cp="【">↑↑↑</annotation>
+		<annotation cp="【">bracket | lens bracket | lenticular bracket | open black lenticular bracket</annotation>
 		<annotation cp="【" type="tts">open black lenticular bracket</annotation>
-		<annotation cp="】">↑↑↑</annotation>
+		<annotation cp="】">bracket | close black lenticular bracket | lens bracket | lenticular bracket</annotation>
 		<annotation cp="】" type="tts">close black lenticular bracket</annotation>
 		<annotation cp="〔">↑↑↑</annotation>
 		<annotation cp="〔" type="tts">↑↑↑</annotation>
 		<annotation cp="〕">↑↑↑</annotation>
 		<annotation cp="〕" type="tts">↑↑↑</annotation>
-		<annotation cp="〖">↑↑↑</annotation>
+		<annotation cp="〖">bracket | hollow lens bracket | hollow lenticular bracket | open hollow lenticular bracket</annotation>
 		<annotation cp="〖" type="tts">open hollow lenticular bracket</annotation>
-		<annotation cp="〗">↑↑↑</annotation>
+		<annotation cp="〗">bracket | close hollow lenticular bracket | hollow lens bracket | hollow lenticular bracket</annotation>
 		<annotation cp="〗" type="tts">close hollow lenticular bracket</annotation>
 		<annotation cp="§">↑↑↑</annotation>
 		<annotation cp="§" type="tts">↑↑↑</annotation>
 		<annotation cp="¶">↑↑↑</annotation>
 		<annotation cp="¶" type="tts">↑↑↑</annotation>
-		<annotation cp="@">↑↑↑</annotation>
+		<annotation cp="@">ampersat | arobase | arroba | at mark | at sign | commercial at | strudel</annotation>
 		<annotation cp="@" type="tts">at sign</annotation>
 		<annotation cp="*">↑↑↑</annotation>
 		<annotation cp="*" type="tts">↑↑↑</annotation>
@@ -180,167 +180,167 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗" type="tts">↑↑↑</annotation>
 		<annotation cp="←">↑↑↑</annotation>
 		<annotation cp="←" type="tts">↑↑↑</annotation>
-		<annotation cp="↚" draft="contributed">arrow | arrow with slash | arrow with stroke | left</annotation>
+		<annotation cp="↚" draft="contributed">leftwards arrow with stroke</annotation>
 		<annotation cp="↚" type="tts" draft="contributed">leftwards arrow with stroke</annotation>
 		<annotation cp="→">↑↑↑</annotation>
 		<annotation cp="→" type="tts">↑↑↑</annotation>
-		<annotation cp="↛" draft="contributed">arrow | arrow with slash | arrow with stroke | right</annotation>
+		<annotation cp="↛" draft="contributed">rightwards arrow with stroke</annotation>
 		<annotation cp="↛" type="tts" draft="contributed">rightwards arrow with stroke</annotation>
 		<annotation cp="↑">↑↑↑</annotation>
 		<annotation cp="↑" type="tts">↑↑↑</annotation>
 		<annotation cp="↓">↑↑↑</annotation>
 		<annotation cp="↓" type="tts">↑↑↑</annotation>
-		<annotation cp="↜" draft="contributed">arrow | left | wave arrow</annotation>
+		<annotation cp="↜" draft="contributed">leftwards wave arrow</annotation>
 		<annotation cp="↜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↝" draft="contributed">arrow | right | wave arrow</annotation>
+		<annotation cp="↝" draft="contributed">rightwards wave arrow</annotation>
 		<annotation cp="↝" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↞" draft="contributed">arrow | left | two-headed arrow</annotation>
+		<annotation cp="↞" draft="contributed">leftwards two-headed arrow</annotation>
 		<annotation cp="↞" type="tts" draft="contributed">leftwards two-headed arrow</annotation>
-		<annotation cp="↟" draft="contributed">arrow | two-headed arrow | up</annotation>
+		<annotation cp="↟" draft="contributed">upwards two-headed arrow</annotation>
 		<annotation cp="↟" type="tts" draft="contributed">upwards two-headed arrow</annotation>
-		<annotation cp="↠" draft="contributed">arrow | right | two-headed arrow</annotation>
+		<annotation cp="↠" draft="contributed">rightwards two-headed arrow</annotation>
 		<annotation cp="↠" type="tts" draft="contributed">rightwards two-headed arrow</annotation>
-		<annotation cp="↡" draft="contributed">arrow | down | two-headed arrow</annotation>
+		<annotation cp="↡" draft="contributed">downwards two-headed arrow</annotation>
 		<annotation cp="↡" type="tts" draft="contributed">downwards two-headed arrow</annotation>
-		<annotation cp="↢" draft="contributed">arrow | arrow with tail | left</annotation>
+		<annotation cp="↢">arrow | arrow with tail | left | leftwards arrow with tail</annotation>
 		<annotation cp="↢" type="tts">leftwards arrow with tail</annotation>
-		<annotation cp="↣" draft="contributed">arrow | arrow with tail | right</annotation>
+		<annotation cp="↣" draft="contributed">rightwards arrow with tail</annotation>
 		<annotation cp="↣" type="tts" draft="contributed">rightwards arrow with tail</annotation>
-		<annotation cp="↤" draft="contributed">arrow | arrow from bar | left</annotation>
+		<annotation cp="↤" draft="contributed">leftwards arrow from bar</annotation>
 		<annotation cp="↤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↥" draft="contributed">arrow | arrow from bar | up</annotation>
+		<annotation cp="↥" draft="contributed">upwards arrow from bar</annotation>
 		<annotation cp="↥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↦" draft="contributed">arrow | arrow from bar | right</annotation>
+		<annotation cp="↦" draft="contributed">rightwards arrow from bar</annotation>
 		<annotation cp="↦" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↧" draft="contributed">arrow | arrow from bar | down</annotation>
+		<annotation cp="↧" draft="contributed">downwards arrow from bar</annotation>
 		<annotation cp="↧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↨" draft="contributed">arrow | arrow with base | up-down</annotation>
+		<annotation cp="↨" draft="contributed">up-down arrow with base</annotation>
 		<annotation cp="↨" type="tts" draft="contributed">up-down arrow with base</annotation>
-		<annotation cp="↫" draft="contributed">arrow | arrow with loop | left</annotation>
+		<annotation cp="↫" draft="contributed">leftwards arrow with loop</annotation>
 		<annotation cp="↫" type="tts" draft="contributed">leftwards arrow with loop</annotation>
-		<annotation cp="↬" draft="contributed">arrow | arrow with loop | right</annotation>
+		<annotation cp="↬" draft="contributed">rightwards arrow with loop</annotation>
 		<annotation cp="↬" type="tts" draft="contributed">rightwards arrow with loop</annotation>
-		<annotation cp="↭" draft="contributed">arrow | left-right | wave arrow</annotation>
+		<annotation cp="↭" draft="contributed">left-right wave arrow</annotation>
 		<annotation cp="↭" type="tts" draft="contributed">left-right wave arrow</annotation>
 		<annotation cp="↯" draft="contributed">↑↑↑</annotation>
 		<annotation cp="↯" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↰" draft="contributed">arrow | arrow with leftwards tip | left | up</annotation>
+		<annotation cp="↰" draft="contributed">upwards arrow with leftwards tip</annotation>
 		<annotation cp="↰" type="tts" draft="contributed">upwards arrow with leftwards tip</annotation>
-		<annotation cp="↱" draft="contributed">arrow | arrow with rightwards tip | right | up</annotation>
+		<annotation cp="↱" draft="contributed">upwards arrow with rightwards tip</annotation>
 		<annotation cp="↱" type="tts" draft="contributed">upwards arrow with rightwards tip</annotation>
-		<annotation cp="↲" draft="contributed">arrow | arrow with leftwards tip | down | left</annotation>
+		<annotation cp="↲" draft="contributed">downwards arrow with leftwards tip</annotation>
 		<annotation cp="↲" type="tts" draft="contributed">downwards arrow with leftwards tip</annotation>
-		<annotation cp="↳" draft="contributed">arrow | arrow with rightwards tip | down | right</annotation>
+		<annotation cp="↳" draft="contributed">downwards arrow with rightwards tip</annotation>
 		<annotation cp="↳" type="tts" draft="contributed">downwards arrow with rightwards tip</annotation>
-		<annotation cp="↴" draft="contributed">arrow | arrow with corner downwards | down | right</annotation>
+		<annotation cp="↴" draft="contributed">rightwards arrow with corner downwards</annotation>
 		<annotation cp="↴" type="tts" draft="contributed">rightwards arrow with corner downwards</annotation>
-		<annotation cp="↵" draft="contributed">arrow | arrow with corner leftwards | down | left</annotation>
+		<annotation cp="↵" draft="contributed">downwards arrow with corner leftwards</annotation>
 		<annotation cp="↵" type="tts" draft="contributed">downwards arrow with corner leftwards</annotation>
-		<annotation cp="↶" draft="contributed">anticlockwise | arrow | counterclockwise | semicircle</annotation>
+		<annotation cp="↶" draft="contributed">anticlockwise top-semicircle arrow</annotation>
 		<annotation cp="↶" type="tts" draft="contributed">anticlockwise top-semicircle arrow</annotation>
-		<annotation cp="↷" draft="contributed">arrow | clockwise | semicircle</annotation>
+		<annotation cp="↷" draft="contributed">clockwise top-semicircle arrow</annotation>
 		<annotation cp="↷" type="tts" draft="contributed">clockwise top-semicircle arrow</annotation>
-		<annotation cp="↸" draft="contributed">arrow | arrow to bar | north-west</annotation>
+		<annotation cp="↸" draft="contributed">north-west arrow to long bar</annotation>
 		<annotation cp="↸" type="tts" draft="contributed">north-west arrow to long bar</annotation>
-		<annotation cp="↹" draft="contributed">arrow | arrow to bar | left | left arrow over right arrow | right</annotation>
+		<annotation cp="↹" draft="provisional">leftwards arrow bar over rightwards arrow bar</annotation>
 		<annotation cp="↹" type="tts" draft="provisional">↑↑↑</annotation>
-		<annotation cp="↺" draft="contributed">anticlockwise | arrow | counterclockwise | repeat</annotation>
+		<annotation cp="↺" draft="contributed">anticlockwise open-circle arrow</annotation>
 		<annotation cp="↺" type="tts" draft="contributed">anticlockwise open-circle arrow</annotation>
-		<annotation cp="↻" draft="contributed">arrow | clockwise | repeat</annotation>
+		<annotation cp="↻" draft="contributed">clockwise open-circle arrow</annotation>
 		<annotation cp="↻" type="tts" draft="contributed">clockwise open-circle arrow</annotation>
-		<annotation cp="↼" draft="contributed">arrow | barb | harpoon | left | up</annotation>
+		<annotation cp="↼" draft="contributed">leftwards harpoon with upwards barb</annotation>
 		<annotation cp="↼" type="tts" draft="contributed">leftwards harpoon with upwards barb</annotation>
-		<annotation cp="↽" draft="contributed">arrow | barb | down | harpoon | left</annotation>
+		<annotation cp="↽" draft="contributed">leftwards harpoon with downwards barb</annotation>
 		<annotation cp="↽" type="tts" draft="contributed">leftwards harpoon with downwards barb</annotation>
-		<annotation cp="↾" draft="contributed">arrow | barb | harpoon | right | up</annotation>
+		<annotation cp="↾" draft="contributed">upwards harpoon with rightwards barb</annotation>
 		<annotation cp="↾" type="tts" draft="contributed">upwards harpoon with rightwards barb</annotation>
-		<annotation cp="↿" draft="contributed">arrow | barb | harpoon | left | up</annotation>
+		<annotation cp="↿" draft="contributed">upwards harpoon with leftwards barb</annotation>
 		<annotation cp="↿" type="tts" draft="contributed">upwards harpoon with leftwards barb</annotation>
-		<annotation cp="⇀" draft="contributed">arrow | barb | harpoon | right | up</annotation>
+		<annotation cp="⇀" draft="contributed">rightwards harpoon with upwards barb</annotation>
 		<annotation cp="⇀" type="tts" draft="contributed">rightwards harpoon with upwards barb</annotation>
-		<annotation cp="⇁" draft="contributed">arrow | barb | down | harpoon | right</annotation>
+		<annotation cp="⇁" draft="contributed">rightwards harpoon with downwards barb</annotation>
 		<annotation cp="⇁" type="tts" draft="contributed">rightwards harpoon with downwards barb</annotation>
-		<annotation cp="⇂" draft="contributed">arrow | barb | down | harpoon | right</annotation>
+		<annotation cp="⇂" draft="contributed">downwards harpoon with rightwards barb</annotation>
 		<annotation cp="⇂" type="tts" draft="contributed">downwards harpoon with rightwards barb</annotation>
-		<annotation cp="⇃" draft="contributed">arrow | barb | down | harpoon | left</annotation>
+		<annotation cp="⇃" draft="contributed">downwards harpoon with leftwards barb</annotation>
 		<annotation cp="⇃" type="tts" draft="contributed">downwards harpoon with leftwards barb</annotation>
-		<annotation cp="⇄" draft="contributed">arrow | left | right | rightwards arrow over leftwards arrow</annotation>
+		<annotation cp="⇄" draft="contributed">rightwards arrow over leftwards arrow</annotation>
 		<annotation cp="⇄" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⇅">↑↑↑</annotation>
 		<annotation cp="⇅" type="tts">↑↑↑</annotation>
 		<annotation cp="⇆">↑↑↑</annotation>
 		<annotation cp="⇆" type="tts">↑↑↑</annotation>
-		<annotation cp="⇇" draft="contributed">arrow | left | paired arrows</annotation>
+		<annotation cp="⇇" draft="contributed">leftwards paired arrows</annotation>
 		<annotation cp="⇇" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇈" draft="contributed">arrow | paired arrows | up</annotation>
+		<annotation cp="⇈" draft="contributed">upwards paired arrows</annotation>
 		<annotation cp="⇈" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇉" draft="contributed">arrow | paired arrows | right</annotation>
+		<annotation cp="⇉" draft="contributed">rightwards paired arrows</annotation>
 		<annotation cp="⇉" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇊" draft="contributed">arrow | down | paired arrows</annotation>
+		<annotation cp="⇊" draft="contributed">downwards paired arrows</annotation>
 		<annotation cp="⇊" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇋" draft="contributed">arrow | harpoon | left | leftwards harpoon over rightwards harpoon | right</annotation>
+		<annotation cp="⇋" draft="contributed">leftwards harpoon over rightwards harpoon</annotation>
 		<annotation cp="⇋" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇌" draft="contributed">arrow | harpoon | left | right | rightwards harpoon over leftwards harpoon</annotation>
+		<annotation cp="⇌" draft="contributed">rightwards harpoon over leftwards harpoon</annotation>
 		<annotation cp="⇌" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇐" draft="contributed">arrow | double arrow | left</annotation>
+		<annotation cp="⇐" draft="contributed">leftwards double arrow</annotation>
 		<annotation cp="⇐" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇍" draft="contributed">arrow | arrow with stroke | double arrow | right</annotation>
+		<annotation cp="⇍" draft="contributed">leftwards double arrow with stroke</annotation>
 		<annotation cp="⇍" type="tts" draft="contributed">leftwards double arrow with stroke</annotation>
-		<annotation cp="⇑" draft="contributed">arrow | double arrow | up</annotation>
+		<annotation cp="⇑" draft="contributed">upwards double arrow</annotation>
 		<annotation cp="⇑" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇒" draft="contributed">arrow | double arrow | right</annotation>
+		<annotation cp="⇒" draft="contributed">rightwards double arrow</annotation>
 		<annotation cp="⇒" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇏" draft="contributed">arrow | arrow with stroke | double arrow | right</annotation>
+		<annotation cp="⇏" draft="contributed">rightwards double arrow with stroke</annotation>
 		<annotation cp="⇏" type="tts" draft="contributed">rightwards double arrow with stroke</annotation>
-		<annotation cp="⇓" draft="contributed">arrow | double arrow | down</annotation>
+		<annotation cp="⇓" draft="contributed">downwards double arrow</annotation>
 		<annotation cp="⇓" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇔" draft="contributed">arrow | double arrow | left-right</annotation>
+		<annotation cp="⇔" draft="contributed">left-right double arrow</annotation>
 		<annotation cp="⇔" type="tts" draft="contributed">left-right double arrow</annotation>
-		<annotation cp="⇎" draft="contributed">arrow | arrow with stroke | double arrow | left-right</annotation>
+		<annotation cp="⇎" draft="contributed">left-right double arrow with stroke</annotation>
 		<annotation cp="⇎" type="tts" draft="contributed">left-right double arrow with stroke</annotation>
-		<annotation cp="⇖" draft="contributed">arrow | double arrow | north-west</annotation>
+		<annotation cp="⇖" draft="contributed">north-west double arrow</annotation>
 		<annotation cp="⇖" type="tts" draft="contributed">north-west double arrow</annotation>
-		<annotation cp="⇗" draft="contributed">arrow | double arrow | north-east</annotation>
+		<annotation cp="⇗" draft="contributed">north-east double arrow</annotation>
 		<annotation cp="⇗" type="tts" draft="contributed">north-east double arrow</annotation>
-		<annotation cp="⇘" draft="contributed">arrow | double arrow | south-east</annotation>
+		<annotation cp="⇘" draft="contributed">south-east double arrow</annotation>
 		<annotation cp="⇘" type="tts" draft="contributed">south-east double arrow</annotation>
-		<annotation cp="⇙" draft="contributed">arrow | double arrow | south-west</annotation>
+		<annotation cp="⇙" draft="contributed">south-west double arrow</annotation>
 		<annotation cp="⇙" type="tts" draft="contributed">south-west double arrow</annotation>
-		<annotation cp="⇚" draft="contributed">arrow | left | triple arrow</annotation>
+		<annotation cp="⇚" draft="contributed">leftwards triple arrow</annotation>
 		<annotation cp="⇚" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇛" draft="contributed">arrow | right | triple arrow</annotation>
+		<annotation cp="⇛" draft="contributed">rightwards triple arrow</annotation>
 		<annotation cp="⇛" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇜" draft="contributed">arrow | left | squiggle arrow</annotation>
+		<annotation cp="⇜" draft="contributed">leftwards squiggle arrow</annotation>
 		<annotation cp="⇜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇝" draft="contributed">arrow | right | squiggle arrow</annotation>
+		<annotation cp="⇝" draft="contributed">rightwards squiggle arrow</annotation>
 		<annotation cp="⇝" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇞" draft="contributed">arrow | arrow with double stroke | up</annotation>
+		<annotation cp="⇞" draft="contributed">upwards arrow with double stroke</annotation>
 		<annotation cp="⇞" type="tts" draft="contributed">upwards arrow with double stroke</annotation>
-		<annotation cp="⇟" draft="contributed">arrow | arrow with double stroke | down</annotation>
+		<annotation cp="⇟" draft="contributed">downwards arrow with double stroke</annotation>
 		<annotation cp="⇟" type="tts" draft="contributed">downwards arrow with double stroke</annotation>
-		<annotation cp="⇠" draft="contributed">arrow | dashed arrow | left</annotation>
+		<annotation cp="⇠" draft="contributed">leftwards dashed arrow</annotation>
 		<annotation cp="⇠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇡" draft="contributed">arrow | dashed arrow | up</annotation>
+		<annotation cp="⇡" draft="contributed">upwards dashed arrow</annotation>
 		<annotation cp="⇡" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇢" draft="contributed">arrow | dashed arrow | right</annotation>
+		<annotation cp="⇢" draft="contributed">rightwards dashed arrow</annotation>
 		<annotation cp="⇢" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇣" draft="contributed">arrow | dashed arrow | down</annotation>
+		<annotation cp="⇣" draft="contributed">downwards dashed arrow</annotation>
 		<annotation cp="⇣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇤" draft="contributed">arrow | arrow to bar | left</annotation>
+		<annotation cp="⇤" draft="contributed">leftwards arrow to bar</annotation>
 		<annotation cp="⇤" type="tts" draft="contributed">leftwards arrow to bar</annotation>
-		<annotation cp="⇥" draft="contributed">arrow | arrow to bar | right</annotation>
+		<annotation cp="⇥" draft="contributed">rightwards arrow to bar</annotation>
 		<annotation cp="⇥" type="tts" draft="contributed">rightwards arrow to bar</annotation>
-		<annotation cp="⇦" draft="contributed">arrow | hollow arrow | left</annotation>
+		<annotation cp="⇦" draft="contributed">leftwards hollow arrow</annotation>
 		<annotation cp="⇦" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇧" draft="contributed">arrow | hollow arrow | up</annotation>
+		<annotation cp="⇧" draft="contributed">upwards hollow arrow</annotation>
 		<annotation cp="⇧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇨" draft="contributed">arrow | hollow arrow | right</annotation>
+		<annotation cp="⇨" draft="contributed">rightwards hollow arrow</annotation>
 		<annotation cp="⇨" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇩" draft="contributed">arrow | down | hollow arrow</annotation>
+		<annotation cp="⇩" draft="contributed">downwards hollow arrow</annotation>
 		<annotation cp="⇩" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇪" draft="contributed">arrow | arrow from bar | hollow arrow | up</annotation>
+		<annotation cp="⇪" draft="contributed">upwards hollow arrow from bar</annotation>
 		<annotation cp="⇪" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇵" draft="contributed">arrow | down | up | upwards and downwards arrows</annotation>
+		<annotation cp="⇵" draft="contributed">downwards and upwards arrows</annotation>
 		<annotation cp="⇵" type="tts" draft="contributed">downwards and upwards arrows</annotation>
 		<annotation cp="∀" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="∃" type="tts" draft="contributed">↑↑↑</annotation>
@@ -368,7 +368,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="&gt;" type="tts">↑↑↑</annotation>
 		<annotation cp="¬">↑↑↑</annotation>
 		<annotation cp="¬" type="tts">↑↑↑</annotation>
-		<annotation cp="|">bar | line | pipe | sheffer stroke | vertical bar</annotation>
+		<annotation cp="|">bar | line | pipe | sheffer stroke | vertical bar | vertical line</annotation>
 		<annotation cp="|" type="tts">↑↑↑</annotation>
 		<annotation cp="~">↑↑↑</annotation>
 		<annotation cp="~" type="tts">↑↑↑</annotation>
@@ -407,9 +407,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◎" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="●">↑↑↑</annotation>
 		<annotation cp="●" type="tts">↑↑↑</annotation>
+		<annotation cp="◐" draft="contributed">circle with left half filled</annotation>
 		<annotation cp="◐" type="tts" draft="contributed">circle with left half filled</annotation>
+		<annotation cp="◑" draft="contributed">circle with right half filled</annotation>
 		<annotation cp="◑" type="tts" draft="contributed">circle with right half filled</annotation>
+		<annotation cp="◒" draft="contributed">circle with lower half filled</annotation>
 		<annotation cp="◒" type="tts" draft="contributed">circle with lower half filled</annotation>
+		<annotation cp="◓" draft="contributed">circle with upper half filled</annotation>
 		<annotation cp="◓" type="tts" draft="contributed">circle with upper half filled</annotation>
 		<annotation cp="◦" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="◯">↑↑↑</annotation>
@@ -536,7 +540,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts">↑↑↑</annotation>
 		<annotation cp="😵">↑↑↑</annotation>
 		<annotation cp="😵" type="tts">↑↑↑</annotation>
-		<annotation cp="😵‍💫">dizzy | hypnotised | spiral | trouble | whoa</annotation>
+		<annotation cp="😵‍💫">dizzy | face with spiral eyes | hypnotised | spiral | trouble | whoa</annotation>
 		<annotation cp="😵‍💫" type="tts">↑↑↑</annotation>
 		<annotation cp="🤯">↑↑↑</annotation>
 		<annotation cp="🤯" type="tts">↑↑↑</annotation>
@@ -1850,7 +1854,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫖" type="tts">↑↑↑</annotation>
 		<annotation cp="🍵">↑↑↑</annotation>
 		<annotation cp="🍵" type="tts">↑↑↑</annotation>
-		<annotation cp="🍶">bar | beverage | bottle | cup | drink | saké</annotation>
+		<annotation cp="🍶">bar | beverage | bottle | cup | drink | sake | saké</annotation>
 		<annotation cp="🍶" type="tts">↑↑↑</annotation>
 		<annotation cp="🍾">↑↑↑</annotation>
 		<annotation cp="🍾" type="tts">↑↑↑</annotation>
@@ -2068,7 +2072,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚗" type="tts">↑↑↑</annotation>
 		<annotation cp="🚘">↑↑↑</annotation>
 		<annotation cp="🚘" type="tts">↑↑↑</annotation>
-		<annotation cp="🚙">4x4 | off-road vehicle | sport utility</annotation>
+		<annotation cp="🚙">4x4 | off-road vehicle | sport utility | sport utility vehicle</annotation>
 		<annotation cp="🚙" type="tts">↑↑↑</annotation>
 		<annotation cp="🛻">↑↑↑</annotation>
 		<annotation cp="🛻" type="tts">↑↑↑</annotation>
@@ -2538,7 +2542,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛍" type="tts">↑↑↑</annotation>
 		<annotation cp="🎒">↑↑↑</annotation>
 		<annotation cp="🎒" type="tts">↑↑↑</annotation>
-		<annotation cp="🩴">beach sandals | flipflop | sandals | thong sandals | thongs | zori</annotation>
+		<annotation cp="🩴">beach sandals | flip-flop | flipflop | sandals | thong sandals | thongs | zori</annotation>
 		<annotation cp="🩴" type="tts">flip-flop</annotation>
 		<annotation cp="👞">↑↑↑</annotation>
 		<annotation cp="👞" type="tts">↑↑↑</annotation>
@@ -3060,7 +3064,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">↑↑↑</annotation>
 		<annotation cp="↔">↑↑↑</annotation>
 		<annotation cp="↔" type="tts">↑↑↑</annotation>
-		<annotation cp="↮" draft="contributed">arrow | arrow with slash | arrow with stroke | left-right</annotation>
+		<annotation cp="↮" draft="contributed">left-right arrow with stroke</annotation>
 		<annotation cp="↮" type="tts" draft="contributed">left-right arrow with stroke</annotation>
 		<annotation cp="↩">↑↑↑</annotation>
 		<annotation cp="↩" type="tts">↑↑↑</annotation>
@@ -3072,7 +3076,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⤵" type="tts">↑↑↑</annotation>
 		<annotation cp="🔃">↑↑↑</annotation>
 		<annotation cp="🔃" type="tts">↑↑↑</annotation>
-		<annotation cp="🔄">anticlockwise | arrow | counterclockwise | counterclockwise arrows button | withershins</annotation>
+		<annotation cp="🔄">anticlockwise | anticlockwise arrows button | arrow | counterclockwise | counterclockwise arrows button | withershins</annotation>
 		<annotation cp="🔄" type="tts">↑↑↑</annotation>
 		<annotation cp="🔙">↑↑↑</annotation>
 		<annotation cp="🔙" type="tts">↑↑↑</annotation>

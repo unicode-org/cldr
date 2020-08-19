@@ -13,7 +13,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="ko"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">괄호 | 중괄호</annotation>
+		<annotation cp="{">괄호 | 여는 중괄호 | 중괄호</annotation>
 		<annotation cp="{" type="tts">여는 중괄호</annotation>
 		<annotation cp="🏻">타입 일 다시 이 | 피부톤 | 하얀 피부</annotation>
 		<annotation cp="🏻" type="tts">하얀 피부</annotation>
@@ -25,7 +25,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">진한 갈색 피부</annotation>
 		<annotation cp="🏿">검은색 피부 | 타입 육 | 피부톤</annotation>
 		<annotation cp="🏿" type="tts">검은색 피부</annotation>
-		<annotation cp="‾" draft="contributed">겹쳐 입력 | 괄선</annotation>
+		<annotation cp="‾" draft="contributed">윗줄</annotation>
 		<annotation cp="‾" type="tts" draft="contributed">윗줄</annotation>
 		<annotation cp="_">로우라인 | 밑줄 | 언더라인</annotation>
 		<annotation cp="_" type="tts">밑줄</annotation>
@@ -55,15 +55,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp=":" type="tts">콜론</annotation>
 		<annotation cp="!">감탄 | 감탄 부호 | 느낌표 | 뱅</annotation>
 		<annotation cp="!" type="tts">느낌표</annotation>
-		<annotation cp="¡">감탄 | 감탄 부호 | 거꾸로 | 느낌표 | 뱅</annotation>
+		<annotation cp="¡">감탄 | 감탄 부호 | 거꾸로 | 거꾸로 된 느낌표 | 느낌표 | 뱅</annotation>
 		<annotation cp="¡" type="tts">거꾸로 된 느낌표</annotation>
-		<annotation cp="?">질문</annotation>
+		<annotation cp="?">물음표 | 질문</annotation>
 		<annotation cp="?" type="tts">물음표</annotation>
-		<annotation cp="¿">거꾸로 | 물음표 | 질문</annotation>
+		<annotation cp="¿">거꾸로 | 거꾸로 된 물음표 | 물음표 | 질문</annotation>
 		<annotation cp="¿" type="tts">거꾸로 된 물음표</annotation>
 		<annotation cp="؟">물음표 | 아랍어 | 질문</annotation>
 		<annotation cp="؟" type="tts">아랍어 물음표</annotation>
-		<annotation cp="‽" draft="contributed">감탄 의문 부호 | 인터러뱅</annotation>
+		<annotation cp="‽" draft="contributed">감탄 의문 부호</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">감탄 의문 부호</annotation>
 		<annotation cp=".">마침표 | 온점</annotation>
 		<annotation cp="." type="tts">마침표</annotation>
@@ -73,63 +73,63 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="。" type="tts">고리점</annotation>
 		<annotation cp="·">가운뎃점 | 점 | 중간</annotation>
 		<annotation cp="·" type="tts">가운뎃점</annotation>
-		<annotation cp="'">따옴표 | 아포스트로피 | 작은따옴표</annotation>
+		<annotation cp="'">따옴표 | 아포스트로피 | 작은따옴표 | 타자기 아포스트로피</annotation>
 		<annotation cp="'" type="tts">타자기 아포스트로피</annotation>
-		<annotation cp="‘">따옴표 | 스마트 따옴표 | 아포스트로피 | 작은따옴표</annotation>
+		<annotation cp="‘">따옴표 | 스마트 따옴표 | 아포스트로피 | 왼쪽 아포스트로피 | 작은따옴표</annotation>
 		<annotation cp="‘" type="tts">왼쪽 아포스트로피</annotation>
-		<annotation cp="’">따옴표 | 스마트 따옴표 | 아포스트로피 | 작은따옴표</annotation>
+		<annotation cp="’">따옴표 | 스마트 따옴표 | 아포스트로피 | 오른쪽 아포스트로피 | 작은따옴표</annotation>
 		<annotation cp="’" type="tts">오른쪽 아포스트로피</annotation>
-		<annotation cp="‚">따옴표 | 아래 따옴표 | 아포스트로피</annotation>
+		<annotation cp="‚">따옴표 | 아래 따옴표 | 아포스트로피 | 오른쪽 아래 아포스트로피</annotation>
 		<annotation cp="‚" type="tts">오른쪽 아래 아포스트로피</annotation>
-		<annotation cp="“">따옴표 | 스마트 인용 | 인용부호 | 큰따옴표</annotation>
+		<annotation cp="“">따옴표 | 스마트 인용 | 왼쪽 큰따옴표 | 인용부호 | 큰따옴표</annotation>
 		<annotation cp="“" type="tts">왼쪽 큰따옴표</annotation>
-		<annotation cp="”">따옴표 | 스마트 인용 | 인용부호 | 큰따옴표</annotation>
+		<annotation cp="”">따옴표 | 스마트 인용 | 오른쪽 큰따옴표 | 인용부호 | 큰따옴표</annotation>
 		<annotation cp="”" type="tts">오른쪽 큰따옴표</annotation>
-		<annotation cp="„">따옴표 | 스마트 인용 | 아래 인용부호 | 인용부호 | 큰따옴표</annotation>
+		<annotation cp="„">따옴표 | 스마트 인용 | 아래 인용부호 | 오른쪽 아래 큰따옴표 | 인용부호 | 큰따옴표</annotation>
 		<annotation cp="„" type="tts">오른쪽 아래 큰따옴표</annotation>
 		<annotation cp="«">괄호 | 왼쪽 | 왼쪽 이중 꺽쇠괄호 | 인용 부호</annotation>
 		<annotation cp="«" type="tts">왼쪽 이중 꺽쇠괄호</annotation>
 		<annotation cp="»">괄호 | 오른쪽 | 오른쪽 이중 꺽쇠괄호 | 인용 부호</annotation>
 		<annotation cp="»" type="tts">오른쪽 이중 꺽쇠괄호</annotation>
-		<annotation cp=")">괄호 | 둥근 괄호</annotation>
+		<annotation cp=")">괄호 | 닫는 괄호 | 둥근 괄호</annotation>
 		<annotation cp=")" type="tts">닫는 괄호</annotation>
-		<annotation cp="[">괄호 | 대괄호</annotation>
+		<annotation cp="[">괄호 | 대괄호 | 여는 대괄호</annotation>
 		<annotation cp="[" type="tts">여는 대괄호</annotation>
-		<annotation cp="]">괄호 | 대괄호</annotation>
+		<annotation cp="]">괄호 | 닫는 대괄호 | 대괄호</annotation>
 		<annotation cp="]" type="tts">닫는 대괄호</annotation>
-		<annotation cp="}">괄호 | 중괄호</annotation>
+		<annotation cp="}">괄호 | 닫는 중괄호 | 중괄호</annotation>
 		<annotation cp="}" type="tts">닫는 중괄호</annotation>
-		<annotation cp="〈">꺽쇠괄호 | 소괄호</annotation>
+		<annotation cp="〈">꺽쇠괄호 | 소괄호 | 여는 소괄호</annotation>
 		<annotation cp="〈" type="tts">여는 소괄호</annotation>
-		<annotation cp="〉">꺽쇠괄호 | 소괄호</annotation>
+		<annotation cp="〉">꺽쇠괄호 | 닫는 소괄호 | 소괄호</annotation>
 		<annotation cp="〉" type="tts">닫는 소괄호</annotation>
-		<annotation cp="《">괄호 | 이중 소괄호</annotation>
+		<annotation cp="《">괄호 | 여는 이중 소괄호 | 이중 소괄호</annotation>
 		<annotation cp="《" type="tts">여는 이중 소괄호</annotation>
-		<annotation cp="》">괄호 | 이중 소괄호</annotation>
+		<annotation cp="》">괄호 | 닫는 이중 소괄호 | 이중 소괄호</annotation>
 		<annotation cp="》" type="tts">닫는 이중 소괄호</annotation>
-		<annotation cp="「">낫표 | 홑낫표</annotation>
+		<annotation cp="「">낫표 | 여는 낫표 | 홑낫표</annotation>
 		<annotation cp="「" type="tts">여는 낫표</annotation>
-		<annotation cp="」">낫표 | 홑낫표</annotation>
+		<annotation cp="」">낫표 | 닫는 낫표 | 홑낫표</annotation>
 		<annotation cp="」" type="tts">닫는 낫표</annotation>
-		<annotation cp="『">겹낫표 | 낫표</annotation>
+		<annotation cp="『">겹낫표 | 낫표 | 여는 겹낫표</annotation>
 		<annotation cp="『" type="tts">여는 겹낫표</annotation>
-		<annotation cp="』">겹낫표 | 낫표</annotation>
+		<annotation cp="』">겹낫표 | 낫표 | 닫는 겹낫표</annotation>
 		<annotation cp="』" type="tts">닫는 겹낫표</annotation>
-		<annotation cp="【">검은색 렌즈 괄호 | 괄호</annotation>
+		<annotation cp="【">검은색 렌즈 괄호 | 괄호 | 여는 검은색 렌즈 괄호</annotation>
 		<annotation cp="【" type="tts">여는 검은색 렌즈 괄호</annotation>
-		<annotation cp="】">검은색 렌즈 괄호 | 괄호</annotation>
+		<annotation cp="】">검은색 렌즈 괄호 | 괄호 | 닫는 검은색 렌즈 괄호</annotation>
 		<annotation cp="】" type="tts">닫는 검은색 렌즈 괄호</annotation>
-		<annotation cp="〔">거북등괄호 | 괄호</annotation>
+		<annotation cp="〔">거북등괄호 | 괄호 | 여는 거북등괄호</annotation>
 		<annotation cp="〔" type="tts">여는 거북등괄호</annotation>
-		<annotation cp="〕">거북등괄호 | 괄호</annotation>
+		<annotation cp="〕">거북등괄호 | 괄호 | 닫는 거북등괄호</annotation>
 		<annotation cp="〕" type="tts">닫는 거북등괄호</annotation>
-		<annotation cp="〖">괄호 | 흰색 렌즈 괄호</annotation>
+		<annotation cp="〖">괄호 | 여는 흰색 렌즈 괄호 | 흰색 렌즈 괄호</annotation>
 		<annotation cp="〖" type="tts">여는 흰색 렌즈 괄호</annotation>
-		<annotation cp="〗">괄호 | 흰색 렌즈 괄호</annotation>
+		<annotation cp="〗">괄호 | 닫는 흰색 렌즈 괄호 | 흰색 렌즈 괄호</annotation>
 		<annotation cp="〗" type="tts">닫는 흰색 렌즈 괄호</annotation>
 		<annotation cp="§">구분 | 단락 | 부분</annotation>
 		<annotation cp="§" type="tts">단락</annotation>
-		<annotation cp="¶">단락 | 필크로</annotation>
+		<annotation cp="¶">단락 | 단락 기호 | 필크로</annotation>
 		<annotation cp="¶" type="tts">단락 기호</annotation>
 		<annotation cp="@">골뱅이표 | 상업용 앳 | 앳 기호</annotation>
 		<annotation cp="@" type="tts">앳 기호</annotation>
@@ -141,11 +141,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="\" type="tts">역슬래시</annotation>
 		<annotation cp="&amp;">앤드 기호 | 앰퍼샌드</annotation>
 		<annotation cp="&amp;" type="tts">앰퍼샌드</annotation>
-		<annotation cp="#">샵 | 우물정자 | 파운드 기호 | 해시 | 해시태그</annotation>
+		<annotation cp="#">샵 | 우물정자 | 파운드 기호 | 해시 | 해시 기호 | 해시태그</annotation>
 		<annotation cp="#" type="tts">해시 기호</annotation>
-		<annotation cp="%">퍼센트</annotation>
+		<annotation cp="%">백분율 | 퍼센트</annotation>
 		<annotation cp="%" type="tts">백분율</annotation>
-		<annotation cp="‰">퍼밀</annotation>
+		<annotation cp="‰">천분율 | 퍼밀</annotation>
 		<annotation cp="‰" type="tts">천분율</annotation>
 		<annotation cp="†">외칼표 | 칼표</annotation>
 		<annotation cp="†" type="tts">외칼표</annotation>
@@ -153,23 +153,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‡" type="tts">쌍칼표</annotation>
 		<annotation cp="•">글머리 기호 | 점</annotation>
 		<annotation cp="•" type="tts">글머리 기호</annotation>
-		<annotation cp="‧">하이픈 삽입</annotation>
+		<annotation cp="‧">하이픈 삽입 | 하이픈 지점</annotation>
 		<annotation cp="‧" type="tts">하이픈 지점</annotation>
 		<annotation cp="′">프라임</annotation>
 		<annotation cp="′" type="tts">프라임</annotation>
-		<annotation cp="″">프라임</annotation>
+		<annotation cp="″">더블 프라임 | 프라임</annotation>
 		<annotation cp="″" type="tts">더블 프라임</annotation>
-		<annotation cp="‴">프라임</annotation>
+		<annotation cp="‴">트리플 프라임 | 프라임</annotation>
 		<annotation cp="‴" type="tts">트리플 프라임</annotation>
-		<annotation cp="‸" draft="contributed">삽입 기호 | 캐럿 | 탈자 기호</annotation>
+		<annotation cp="‸" draft="contributed">탈자 기호</annotation>
 		<annotation cp="‸" type="tts" draft="contributed">탈자 기호</annotation>
 		<annotation cp="※">참고표</annotation>
 		<annotation cp="※" type="tts">참고표</annotation>
-		<annotation cp="⁂" draft="contributed">별표 | 세 별표</annotation>
+		<annotation cp="⁂" draft="contributed">세 별표</annotation>
 		<annotation cp="⁂" type="tts" draft="contributed">세 별표</annotation>
-		<annotation cp="`">그레이브 액센트 | 악상 그라브</annotation>
+		<annotation cp="`">그레이브 액센트 | 악상 그라브 | 억음 부호</annotation>
 		<annotation cp="`" type="tts">억음 부호</annotation>
-		<annotation cp="´">악상 테귀 | 어큐트 액센트</annotation>
+		<annotation cp="´">악상 테귀 | 양음 부호 | 어큐트 액센트</annotation>
 		<annotation cp="´" type="tts">양음 부호</annotation>
 		<annotation cp="^">곡절 부호 | 서컴플렉스 | 캐럿</annotation>
 		<annotation cp="^" type="tts">곡절 부호</annotation>
@@ -195,13 +195,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↜" type="tts" draft="contributed">물결 모양 왼쪽 화살표</annotation>
 		<annotation cp="↝" draft="contributed">물결 모양 오른쪽 화살표</annotation>
 		<annotation cp="↝" type="tts" draft="contributed">물결 모양 오른쪽 화살표</annotation>
-		<annotation cp="↞" draft="contributed">왼쪽 쌍두 화살표 | 화살촉이 두 개인 왼쪽 화살표</annotation>
+		<annotation cp="↞" draft="contributed">왼쪽 쌍두 화살표</annotation>
 		<annotation cp="↞" type="tts" draft="contributed">왼쪽 쌍두 화살표</annotation>
-		<annotation cp="↟" draft="contributed">위쪽 쌍두 화살표 | 화살촉이 두 개인 위쪽 화살표</annotation>
+		<annotation cp="↟" draft="contributed">위쪽 쌍두 화살표</annotation>
 		<annotation cp="↟" type="tts" draft="contributed">위쪽 쌍두 화살표</annotation>
-		<annotation cp="↠" draft="contributed">오른쪽 쌍두 화살표 | 화살촉이 두 개인 오른쪽 화살표</annotation>
+		<annotation cp="↠" draft="contributed">오른쪽 쌍두 화살표</annotation>
 		<annotation cp="↠" type="tts" draft="contributed">오른쪽 쌍두 화살표</annotation>
-		<annotation cp="↡" draft="contributed">아래쪽 쌍두 화살표 | 화살촉이 두 개인 아래쪽 화살표</annotation>
+		<annotation cp="↡" draft="contributed">아래쪽 쌍두 화살표</annotation>
 		<annotation cp="↡" type="tts" draft="contributed">아래쪽 쌍두 화살표</annotation>
 		<annotation cp="↢" draft="contributed">왼쪽 화살표 꼬리</annotation>
 		<annotation cp="↢" type="tts" draft="contributed">왼쪽 화살표 꼬리</annotation>
@@ -223,7 +223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↬" type="tts" draft="contributed">오른쪽 화살표 루프</annotation>
 		<annotation cp="↭" draft="contributed">물결 모양 왼쪽 오른쪽 화살표</annotation>
 		<annotation cp="↭" type="tts" draft="contributed">물결 모양 왼쪽 오른쪽 화살표</annotation>
-		<annotation cp="↯" draft="contributed">지그재그</annotation>
+		<annotation cp="↯" draft="contributed">아래쪽 지그재그 화살표</annotation>
 		<annotation cp="↯" type="tts" draft="contributed">아래쪽 지그재그 화살표</annotation>
 		<annotation cp="↰" draft="contributed">끝이 왼쪽을 향한 위쪽 화살표</annotation>
 		<annotation cp="↰" type="tts" draft="contributed">끝이 왼쪽을 향한 위쪽 화살표</annotation>
@@ -249,21 +249,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↺" type="tts" draft="contributed">열린 원형 화살표(반시계방향)</annotation>
 		<annotation cp="↻" draft="contributed">열린 원형 화살표(시계 방향)</annotation>
 		<annotation cp="↻" type="tts" draft="contributed">열린 원형 화살표(시계 방향)</annotation>
-		<annotation cp="↼" draft="contributed">화살촉</annotation>
+		<annotation cp="↼" draft="contributed">위쪽에 화살촉이 있는 왼쪽 외날 화살표</annotation>
 		<annotation cp="↼" type="tts" draft="contributed">위쪽에 화살촉이 있는 왼쪽 외날 화살표</annotation>
 		<annotation cp="↽" draft="contributed">아래쪽에 화살촉이 있는 왼쪽 외날 화살표</annotation>
 		<annotation cp="↽" type="tts" draft="contributed">아래쪽에 화살촉이 있는 왼쪽 외날 화살표</annotation>
-		<annotation cp="↾" draft="contributed">화살촉</annotation>
+		<annotation cp="↾" draft="contributed">오른쪽에 화살촉이 있는 위쪽 외날 화살표</annotation>
 		<annotation cp="↾" type="tts" draft="contributed">오른쪽에 화살촉이 있는 위쪽 외날 화살표</annotation>
-		<annotation cp="↿" draft="contributed">화살촉</annotation>
+		<annotation cp="↿" draft="contributed">왼쪽에 화살촉이 있는 위쪽 외날 화살표</annotation>
 		<annotation cp="↿" type="tts" draft="contributed">왼쪽에 화살촉이 있는 위쪽 외날 화살표</annotation>
-		<annotation cp="⇀" draft="contributed">화살촉</annotation>
+		<annotation cp="⇀" draft="contributed">위쪽에 화살촉이 있는 오른쪽 외날 화살표</annotation>
 		<annotation cp="⇀" type="tts" draft="contributed">위쪽에 화살촉이 있는 오른쪽 외날 화살표</annotation>
-		<annotation cp="⇁" draft="contributed">화살촉</annotation>
+		<annotation cp="⇁" draft="contributed">아래쪽에 화살촉이 있는 오른쪽 외날 화살표</annotation>
 		<annotation cp="⇁" type="tts" draft="contributed">아래쪽에 화살촉이 있는 오른쪽 외날 화살표</annotation>
-		<annotation cp="⇂" draft="contributed">화살촉</annotation>
+		<annotation cp="⇂" draft="contributed">오른쪽에 화살촉이 있는 아래쪽 외날 화살표</annotation>
 		<annotation cp="⇂" type="tts" draft="contributed">오른쪽에 화살촉이 있는 아래쪽 외날 화살표</annotation>
-		<annotation cp="⇃" draft="contributed">화살촉</annotation>
+		<annotation cp="⇃" draft="contributed">왼쪽에 화살촉이 있는 아래쪽 외날 화살표</annotation>
 		<annotation cp="⇃" type="tts" draft="contributed">왼쪽에 화살촉이 있는 아래쪽 외날 화살표</annotation>
 		<annotation cp="⇄" draft="contributed">왼쪽 화살표 위에 오른쪽 화살표</annotation>
 		<annotation cp="⇄" type="tts" draft="contributed">왼쪽 화살표 위에 오른쪽 화살표</annotation>
@@ -333,7 +333,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">나블라</annotation>
 		<annotation cp="∈">원소 | 원소 포함 기호 | 포함</annotation>
 		<annotation cp="∈" type="tts">원소 포함</annotation>
-		<annotation cp="+">더하기 | 더하다</annotation>
+		<annotation cp="+">더하기 | 더하기 표시 | 더하다</annotation>
 		<annotation cp="+" type="tts">더하기 표시</annotation>
 		<annotation cp="±">플러스마이너스</annotation>
 		<annotation cp="±" type="tts">플러스마이너스</annotation>
@@ -351,11 +351,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&gt;" type="tts">초과</annotation>
 		<annotation cp="¬">부정 | 아님</annotation>
 		<annotation cp="¬" type="tts">부정</annotation>
-		<annotation cp="|">막대 | 바 | 부정논리곱 | 선 | 수직 막대 | 스트로크 | 파이크 | 파이프</annotation>
+		<annotation cp="|">막대 | 바 | 부정논리곱 | 선 | 수직 막대 | 수직선 | 스트로크 | 파이크 | 파이프</annotation>
 		<annotation cp="|" type="tts">수직선</annotation>
 		<annotation cp="~">물결표</annotation>
 		<annotation cp="~" type="tts">물결표</annotation>
-		<annotation cp="−">빼기 | 빼다</annotation>
+		<annotation cp="−">빼기 | 빼기 표시 | 빼다</annotation>
 		<annotation cp="−" type="tts">빼기 표시</annotation>
 		<annotation cp="⁻">마이너스 | 승</annotation>
 		<annotation cp="⁻" type="tts">마이너스 승</annotation>
@@ -371,9 +371,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≈" type="tts">거의 같음</annotation>
 		<annotation cp="≡">동일 | 등호 | 상등 | 일치</annotation>
 		<annotation cp="≡" type="tts">등호</annotation>
-		<annotation cp="≤">같음 | 같지 않음 | 미만 | 부등</annotation>
+		<annotation cp="≤">같음 | 같지 않음 | 미만 | 부등 | 이하</annotation>
 		<annotation cp="≤" type="tts">이하</annotation>
-		<annotation cp="≥">같음 | 같지 않음 | 부등 | 초과</annotation>
+		<annotation cp="≥">같음 | 같지 않음 | 부등 | 이상 | 초과</annotation>
 		<annotation cp="≥" type="tts">이상</annotation>
 		<annotation cp="⊂">부분 | 부분 집합 | 부분 집합 기호</annotation>
 		<annotation cp="⊂" type="tts">부분 집합</annotation>
@@ -469,7 +469,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">무표정한 얼굴</annotation>
 		<annotation cp="😶">얼굴 | 입 없음 | 입이 없는 얼굴</annotation>
 		<annotation cp="😶" type="tts">입이 없는 얼굴</annotation>
-		<annotation cp="😶‍🌫">멍 | 멍청한 얼굴 | 멍함 | 안개 속 얼굴 | 엉뚱한 생각에 잠긴 얼굴</annotation>
+		<annotation cp="😶‍🌫">공상에 잠긴 얼굴 | 멍 | 멍청한 얼굴 | 멍함 | 안개 속 얼굴 | 엉뚱한 생각에 잠긴 얼굴</annotation>
 		<annotation cp="😶‍🌫" type="tts">공상에 잠긴 얼굴</annotation>
 		<annotation cp="😏">웃는 얼굴 | 히죽거리는 얼굴 | 히죽히죽</annotation>
 		<annotation cp="😏" type="tts">히죽거리는 얼굴</annotation>
@@ -511,7 +511,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">헤롱헤롱 얼굴</annotation>
 		<annotation cp="😵">어지러운 얼굴 | 어지러움 | 얼굴</annotation>
 		<annotation cp="😵" type="tts">어지러운 얼굴</annotation>
-		<annotation cp="😵‍💫">나선형 눈 | 어지럼증 | 현기증</annotation>
+		<annotation cp="😵‍💫">나선형 눈 | 어지럼증 | 현기증 | 현기증 난 얼굴</annotation>
 		<annotation cp="😵‍💫" type="tts">현기증 난 얼굴</annotation>
 		<annotation cp="🤯">뚜껑 열린 머리 | 머리 폭발 | 충격 | 폭발하는 얼굴</annotation>
 		<annotation cp="🤯" type="tts">폭발하는 얼굴</annotation>
@@ -537,7 +537,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">찡그린 얼굴</annotation>
 		<annotation cp="😮">얼굴 | 입벌린 얼굴 | 입벌림</annotation>
 		<annotation cp="😮" type="tts">입벌린 얼굴</annotation>
-		<annotation cp="😮‍💨">날숨 | 속삭임 | 안도 | 한숨 | 휘파람</annotation>
+		<annotation cp="😮‍💨">날숨 | 날숨 쉬는 얼굴 | 속삭임 | 안도 | 한숨 | 휘파람</annotation>
 		<annotation cp="😮‍💨" type="tts">날숨 쉬는 얼굴</annotation>
 		<annotation cp="😯">숨죽인 얼굴 | 숨죽임 | 얼굴</annotation>
 		<annotation cp="😯" type="tts">숨죽인 얼굴</annotation>
@@ -659,9 +659,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">깨진 하트</annotation>
 		<annotation cp="❤">마음 | 빨간색 하트 | 하트</annotation>
 		<annotation cp="❤" type="tts">빨간색 하트</annotation>
-		<annotation cp="❤‍🔥">마음 | 불타는 사랑 | 사랑 | 하트</annotation>
+		<annotation cp="❤‍🔥">마음 | 불 난 하트 | 불타는 사랑 | 사랑 | 하트</annotation>
 		<annotation cp="❤‍🔥" type="tts">불 난 하트</annotation>
-		<annotation cp="❤‍🩹">개선 | 건강 | 치유 | 회복 | 힐링</annotation>
+		<annotation cp="❤‍🩹">개선 | 건강 | 낫고 있는 하트 | 치유 | 회복 | 힐링</annotation>
 		<annotation cp="❤‍🩹" type="tts">낫고 있는 하트</annotation>
 		<annotation cp="🧡">주황색 하트</annotation>
 		<annotation cp="🧡" type="tts">주황색 하트</annotation>
@@ -3035,7 +3035,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">상하향 화살표</annotation>
 		<annotation cp="↔">좌우 | 좌우향 화살표 | 화살표</annotation>
 		<annotation cp="↔" type="tts">좌우향 화살표</annotation>
-		<annotation cp="↮" draft="contributed">사선이 있는 왼쪽 오른쪽 화살표 | 사선이 있는 왼쪽/오른쪽 화살표</annotation>
+		<annotation cp="↮" draft="contributed">사선이 있는 왼쪽 오른쪽 화살표</annotation>
 		<annotation cp="↮" type="tts" draft="contributed">사선이 있는 왼쪽 오른쪽 화살표</annotation>
 		<annotation cp="↩">왼쪽으로 꺾어지는 우향 화살표 | 좌회전 | 화살표</annotation>
 		<annotation cp="↩" type="tts">왼쪽으로 꺾어지는 우향 화살표</annotation>
@@ -3177,15 +3177,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‼" type="tts">두 개의 느낌표</annotation>
 		<annotation cp="⁉">느낌표 | 느낌표와 물음표 | 물음표 | 부호</annotation>
 		<annotation cp="⁉" type="tts">느낌표와 물음표</annotation>
-		<annotation cp="❓">물음 | 물음표 | 의문 | 질문</annotation>
+		<annotation cp="❓">물음 | 물음표 | 빨간색 물음표 | 의문 | 질문</annotation>
 		<annotation cp="❓" type="tts">빨간색 물음표</annotation>
 		<annotation cp="❔">물음 | 의문 | 질문 | 하얀색 물음표</annotation>
 		<annotation cp="❔" type="tts">하얀색 물음표</annotation>
 		<annotation cp="❕">느낌 | 하얀색 느낌표</annotation>
 		<annotation cp="❕" type="tts">하얀색 느낌표</annotation>
-		<annotation cp="❗">느낌표 | 부호</annotation>
+		<annotation cp="❗">느낌표 | 부호 | 빨간색 느낌표</annotation>
 		<annotation cp="❗" type="tts">빨간색 느낌표</annotation>
-		<annotation cp="〰">물결 | 물결표</annotation>
+		<annotation cp="〰">물결 | 물결 모양 대시 | 물결표</annotation>
 		<annotation cp="〰" type="tts">물결 모양 대시</annotation>
 		<annotation cp="💱">교환 | 돈 | 화폐 | 환전</annotation>
 		<annotation cp="💱" type="tts">환전</annotation>
@@ -3405,7 +3405,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¥" type="tts">엔화</annotation>
 		<annotation cp="₥">밀</annotation>
 		<annotation cp="₥" type="tts">밀</annotation>
-		<annotation cp="₩">KRW | 한국 원화</annotation>
+		<annotation cp="₩">KRW | 원 | 한국 원화</annotation>
 		<annotation cp="₩" type="tts">원</annotation>
 		<annotation cp="€">유럽 연합 단일 화폐 | 유로 | 유로 화폐 | 유로화</annotation>
 		<annotation cp="€" type="tts">유로화</annotation>

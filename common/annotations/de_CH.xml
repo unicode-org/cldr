@@ -12,7 +12,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="CH"/>
 	</identity>
 	<annotations>
-		<annotation cp="{" draft="contributed">↑↑↑</annotation>
+		<annotation cp="{" draft="contributed">eckige Klammer</annotation>
 		<annotation cp="{" type="tts" draft="contributed">eckige Klammer</annotation>
 		<annotation cp="🏻" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🏻" type="tts" draft="contributed">↑↑↑</annotation>
@@ -24,11 +24,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🏿" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🏿" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="_" draft="contributed">↑↑↑</annotation>
+		<annotation cp="_" draft="contributed">Unterstrich</annotation>
 		<annotation cp="_" type="tts" draft="contributed">Unterstrich</annotation>
 		<annotation cp="-" draft="contributed">↑↑↑</annotation>
 		<annotation cp="-" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="‐" draft="contributed">↑↑↑</annotation>
+		<annotation cp="‐" draft="contributed">Bindestrich</annotation>
 		<annotation cp="‐" type="tts" draft="contributed">Bindestrich</annotation>
 		<annotation cp="–" draft="contributed">↑↑↑</annotation>
 		<annotation cp="–" type="tts" draft="contributed">↑↑↑</annotation>
@@ -60,9 +60,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¿" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="؟" draft="contributed">↑↑↑</annotation>
 		<annotation cp="؟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="." draft="contributed">↑↑↑</annotation>
+		<annotation cp="." draft="contributed">Punkt</annotation>
 		<annotation cp="." type="tts" draft="contributed">Punkt</annotation>
-		<annotation cp="…" draft="contributed">Auslassung | Auslassungszeichen | Ellipse | Punkte</annotation>
+		<annotation cp="…" draft="contributed">Ellipse</annotation>
 		<annotation cp="…" type="tts" draft="contributed">Ellipse</annotation>
 		<annotation cp="。" draft="contributed">↑↑↑</annotation>
 		<annotation cp="。" type="tts" draft="contributed">↑↑↑</annotation>
@@ -78,7 +78,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‚" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="“" draft="contributed">↑↑↑</annotation>
 		<annotation cp="“" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="”" draft="contributed">Anführung | doppeltes Anführungszeichen | schliessendes doppeltes Anführungszeichen oben</annotation>
+		<annotation cp="”" draft="contributed">schliessendes doppeltes Anführungszeichen</annotation>
 		<annotation cp="”" type="tts" draft="contributed">schliessendes doppeltes Anführungszeichen</annotation>
 		<annotation cp="„" draft="contributed">↑↑↑</annotation>
 		<annotation cp="„" type="tts" draft="contributed">↑↑↑</annotation>
@@ -86,21 +86,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="«" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="»" draft="contributed">↑↑↑</annotation>
 		<annotation cp="»" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp=")" draft="contributed">Klammer | runde Klammer | Schlussklammer</annotation>
+		<annotation cp=")" draft="contributed">schliessende Klammer</annotation>
 		<annotation cp=")" type="tts" draft="contributed">schliessende Klammer</annotation>
-		<annotation cp="[" draft="contributed">eckige Klammer | Klammer</annotation>
+		<annotation cp="[" draft="contributed">öffnende eckige Klammer</annotation>
 		<annotation cp="[" type="tts" draft="contributed">öffnende eckige Klammer</annotation>
-		<annotation cp="]" draft="contributed">↑↑↑</annotation>
+		<annotation cp="]" draft="contributed">schliessende eckige Klammer</annotation>
 		<annotation cp="]" type="tts" draft="contributed">schliessende eckige Klammer</annotation>
-		<annotation cp="}" draft="contributed">↑↑↑</annotation>
+		<annotation cp="}" draft="contributed">schliessende geschwungene Klammer</annotation>
 		<annotation cp="}" type="tts" draft="contributed">schliessende geschwungene Klammer</annotation>
 		<annotation cp="〈" draft="contributed">↑↑↑</annotation>
 		<annotation cp="〈" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〉" draft="contributed">Pfeilspitze rechts | schliessende Winkelklammer | spitze Klammer | spitze Klammer rechts | Winkelklammer</annotation>
+		<annotation cp="〉" draft="contributed">schliessende spitze Klammer</annotation>
 		<annotation cp="〉" type="tts" draft="contributed">schliessende spitze Klammer</annotation>
 		<annotation cp="《" draft="contributed">↑↑↑</annotation>
 		<annotation cp="《" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="》" draft="contributed">↑↑↑</annotation>
+		<annotation cp="》" draft="contributed">schliessende doppelte spitze Klammer</annotation>
 		<annotation cp="》" type="tts" draft="contributed">schliessende doppelte spitze Klammer</annotation>
 		<annotation cp="「" draft="contributed">↑↑↑</annotation>
 		<annotation cp="「" type="tts" draft="contributed">↑↑↑</annotation>
@@ -108,7 +108,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="」" type="tts" draft="contributed">schliessende rechtwinklige Klammer</annotation>
 		<annotation cp="『" draft="contributed">↑↑↑</annotation>
 		<annotation cp="『" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="』" draft="contributed">↑↑↑</annotation>
+		<annotation cp="』" draft="contributed">schliessende rechtwinklige Klammer hohl</annotation>
 		<annotation cp="』" type="tts" draft="contributed">schliessende rechtwinklige Klammer hohl</annotation>
 		<annotation cp="【" draft="contributed">↑↑↑</annotation>
 		<annotation cp="【" type="tts" draft="contributed">↑↑↑</annotation>
@@ -116,19 +116,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="】" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="〔" draft="contributed">↑↑↑</annotation>
 		<annotation cp="〔" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〕" draft="contributed">rechte Klammer mit stumpfen Winkeln | schliessende Klammer mit stumpfen Winkeln</annotation>
+		<annotation cp="〕" draft="contributed">schliessende Klammer mit stumpfen Winkeln</annotation>
 		<annotation cp="〕" type="tts" draft="contributed">schliessende Klammer mit stumpfen Winkeln</annotation>
 		<annotation cp="〖" draft="contributed">↑↑↑</annotation>
 		<annotation cp="〖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="〗" draft="contributed">↑↑↑</annotation>
+		<annotation cp="〗" draft="contributed">schliessende linsenförmige Klammer hohl</annotation>
 		<annotation cp="〗" type="tts" draft="contributed">schliessende linsenförmige Klammer hohl</annotation>
 		<annotation cp="§">↑↑↑</annotation>
 		<annotation cp="§" type="tts">Paragraph</annotation>
 		<annotation cp="¶" draft="contributed">↑↑↑</annotation>
 		<annotation cp="¶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="@" draft="contributed">Affenschwanz | at | at-Zeichen</annotation>
+		<annotation cp="@" draft="contributed">At-Zeichen</annotation>
 		<annotation cp="@" type="tts" draft="contributed">At-Zeichen</annotation>
-		<annotation cp="*" draft="contributed">↑↑↑</annotation>
+		<annotation cp="*" draft="contributed">Sternchen</annotation>
 		<annotation cp="*" type="tts" draft="contributed">Sternchen</annotation>
 		<annotation cp="/" draft="contributed">↑↑↑</annotation>
 		<annotation cp="/" type="tts" draft="contributed">↑↑↑</annotation>
@@ -158,11 +158,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‴" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="※" draft="contributed">↑↑↑</annotation>
 		<annotation cp="※" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="`" draft="contributed">↑↑↑</annotation>
+		<annotation cp="`" draft="contributed">Accent grave</annotation>
 		<annotation cp="`" type="tts" draft="contributed">Accent grave</annotation>
-		<annotation cp="´" draft="contributed">↑↑↑</annotation>
+		<annotation cp="´" draft="contributed">Accent aigu</annotation>
 		<annotation cp="´" type="tts" draft="contributed">Accent aigu</annotation>
-		<annotation cp="^" draft="contributed">↑↑↑</annotation>
+		<annotation cp="^" draft="contributed">Zirkumflex</annotation>
 		<annotation cp="^" type="tts" draft="contributed">Zirkumflex</annotation>
 		<annotation cp="¨" draft="contributed">↑↑↑</annotation>
 		<annotation cp="¨" type="tts" draft="contributed">↑↑↑</annotation>
@@ -198,19 +198,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="&lt;" draft="contributed">↑↑↑</annotation>
 		<annotation cp="&lt;" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="=" draft="contributed">gleich | gleich wie</annotation>
+		<annotation cp="=" draft="contributed">gleich</annotation>
 		<annotation cp="=" type="tts" draft="contributed">gleich</annotation>
-		<annotation cp="≠" draft="contributed">nicht gleich | Ungleichheit | Ungleichung</annotation>
+		<annotation cp="≠" draft="contributed">ungleich</annotation>
 		<annotation cp="≠" type="tts" draft="contributed">ungleich</annotation>
-		<annotation cp="&gt;" draft="contributed">grösser als | schliessendes Tag | Tag</annotation>
+		<annotation cp="&gt;" draft="contributed">grösser als</annotation>
 		<annotation cp="&gt;" type="tts" draft="contributed">grösser als</annotation>
 		<annotation cp="¬" draft="contributed">↑↑↑</annotation>
 		<annotation cp="¬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="|" draft="contributed">↑↑↑</annotation>
+		<annotation cp="|" draft="contributed">Längsstrich</annotation>
 		<annotation cp="|" type="tts" draft="contributed">Längsstrich</annotation>
-		<annotation cp="~" draft="contributed">Schlange | Tilde | Wiederholungszeichen</annotation>
+		<annotation cp="~" draft="contributed">Tilde</annotation>
 		<annotation cp="~" type="tts" draft="contributed">Tilde</annotation>
-		<annotation cp="−" draft="contributed">↑↑↑</annotation>
+		<annotation cp="−" draft="contributed">Minuszeichen</annotation>
 		<annotation cp="−" type="tts" draft="contributed">Minuszeichen</annotation>
 		<annotation cp="⁻" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⁻" type="tts" draft="contributed">↑↑↑</annotation>
@@ -222,13 +222,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∩" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="∪" draft="contributed">↑↑↑</annotation>
 		<annotation cp="∪" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≈" draft="contributed">fast gleich wie | ungefähr</annotation>
+		<annotation cp="≈" draft="contributed">fast gleich wie</annotation>
 		<annotation cp="≈" type="tts" draft="contributed">fast gleich wie</annotation>
 		<annotation cp="≡" draft="contributed">↑↑↑</annotation>
 		<annotation cp="≡" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≤" draft="contributed">gleich | ungleich | Ungleichheit | weniger als</annotation>
+		<annotation cp="≤" draft="contributed">kleiner als oder gleich</annotation>
 		<annotation cp="≤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≥" draft="contributed">gleich | grösser als | ist gleich | Vergleichszeichen</annotation>
+		<annotation cp="≥" draft="contributed">grösser als oder gleich</annotation>
 		<annotation cp="≥" type="tts" draft="contributed">grösser als oder gleich</annotation>
 		<annotation cp="⊂" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⊂" type="tts" draft="contributed">↑↑↑</annotation>
@@ -244,11 +244,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="●" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="◯">grosser hohler Kreis | Kreis | Ring</annotation>
 		<annotation cp="◯" type="tts">grosser hohler Kreis</annotation>
-		<annotation cp="♪" draft="contributed">Achtel | Musik | Note</annotation>
+		<annotation cp="♪" draft="contributed">Achtelsnote</annotation>
 		<annotation cp="♪" type="tts" draft="contributed">Achtelsnote</annotation>
-		<annotation cp="♭" draft="contributed">Erniedrigungszeichen | Musik | Note</annotation>
+		<annotation cp="♭" draft="contributed">Erniedrigungszeichen</annotation>
 		<annotation cp="♭" type="tts" draft="contributed">Erniedrigungszeichen</annotation>
-		<annotation cp="♯" draft="contributed">↑↑↑</annotation>
+		<annotation cp="♯" draft="contributed">Erhöhungszeichen</annotation>
 		<annotation cp="♯" type="tts" draft="contributed">Erhöhungszeichen</annotation>
 		<annotation cp="😀" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😀" type="tts" draft="contributed">↑↑↑</annotation>
@@ -300,7 +300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😛" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😜" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🤪">Auge | gross | irres Gesicht | klein</annotation>
+		<annotation cp="🤪" draft="contributed">irres Gesicht</annotation>
 		<annotation cp="🤪" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😝" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😝" type="tts" draft="contributed">↑↑↑</annotation>
@@ -324,7 +324,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😶" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="😶‍🌫" draft="contributed">geistesabwesend | Kopf in den Wolken | verwirrt | zerstreut</annotation>
+		<annotation cp="😶‍🌫" draft="contributed">Kopf in den Wolken</annotation>
 		<annotation cp="😶‍🌫" type="tts" draft="contributed">Kopf in den Wolken</annotation>
 		<annotation cp="😏" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😏" type="tts" draft="contributed">↑↑↑</annotation>
@@ -366,7 +366,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😵" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😵" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="😵‍💫" draft="contributed">hypnotisiert | schwindlig | Spiralaugen</annotation>
+		<annotation cp="😵‍💫" draft="contributed">Gesicht mit Spiralaugen</annotation>
 		<annotation cp="😵‍💫" type="tts" draft="contributed">Gesicht mit Spiralaugen</annotation>
 		<annotation cp="🤯" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🤯" type="tts" draft="contributed">↑↑↑</annotation>
@@ -392,7 +392,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☹" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😮" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="😮‍💨" draft="contributed">ausatmen | erleichtern | flüstern | pfeifen | pusten | seufzen</annotation>
+		<annotation cp="😮‍💨" draft="contributed">ausatmendes Gesicht</annotation>
 		<annotation cp="😮‍💨" type="tts" draft="contributed">ausatmendes Gesicht</annotation>
 		<annotation cp="😯" draft="contributed">↑↑↑</annotation>
 		<annotation cp="😯" type="tts" draft="contributed">↑↑↑</annotation>
@@ -514,9 +514,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💔" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="❤" draft="contributed">↑↑↑</annotation>
 		<annotation cp="❤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="❤‍🔥" draft="contributed">brennen | Feuerherz | Herz | Liebe</annotation>
+		<annotation cp="❤‍🔥" draft="contributed">brennendes Herz</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">brennendes Herz</annotation>
-		<annotation cp="❤‍🩹" draft="contributed">besser | geheilt | gesund | Heilung</annotation>
+		<annotation cp="❤‍🩹" draft="contributed">Herz mit Pflaster</annotation>
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">Herz mit Pflaster</annotation>
 		<annotation cp="🧡" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🧡" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1264,7 +1264,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦒" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🐘" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🐘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🦣">Aussterben | gross | Mammut | Stosszahn | wollig</annotation>
+		<annotation cp="🦣" draft="contributed">Mammut</annotation>
 		<annotation cp="🦣" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🦏" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🦏" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1336,7 +1336,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦢" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🦉" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🦉" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🦤">Aussterben | Dodo | gross | Mauritius</annotation>
+		<annotation cp="🦤" draft="contributed">Dodo</annotation>
 		<annotation cp="🦤" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🪶" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🪶" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1550,7 +1550,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧀" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍖" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🍗" draft="contributed">Geflügel | Pouletschenkel | Restaurant</annotation>
+		<annotation cp="🍗" draft="contributed">Pouletschenkel</annotation>
 		<annotation cp="🍗" type="tts" draft="contributed">Pouletschenkel</annotation>
 		<annotation cp="🥩" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥩" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1610,7 +1610,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍛" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍜" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🍝">Nudeln mit Tomatensauce | Pasta | Spaghetti</annotation>
+		<annotation cp="🍝" draft="contributed">Spaghetti</annotation>
 		<annotation cp="🍝" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍠">geröstet | Geröstete Süsskartoffel | Süsskartoffel</annotation>
 		<annotation cp="🍠" type="tts">Geröstete Süsskartoffel</annotation>
@@ -1624,7 +1624,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍥" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥮" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🍡">Dango | japanisches Gericht | Mochi-Kugeln auf einem Spiess | Restaurant</annotation>
+		<annotation cp="🍡" draft="contributed">Dango</annotation>
 		<annotation cp="🍡" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥟" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥟" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1656,17 +1656,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎂" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍰" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍰" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🧁">Cupcake | Gebäck | Konditorei | Muffin | süss</annotation>
+		<annotation cp="🧁" draft="contributed">Cupcake</annotation>
 		<annotation cp="🧁" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥧" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥧" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍫" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍫" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🍬">Bonbon | süss | Süssigkeit</annotation>
+		<annotation cp="🍬" draft="contributed">Bonbon</annotation>
 		<annotation cp="🍬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🍭">Lolli | Lutscher | Süssigkeit</annotation>
+		<annotation cp="🍭" draft="contributed">Lutscher</annotation>
 		<annotation cp="🍭" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🍮">Dessert | Pudding | Sauce | Schokolade | Vanillepudding | Vanillesauce</annotation>
+		<annotation cp="🍮" draft="contributed">Pudding</annotation>
 		<annotation cp="🍮" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍯" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍯" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1676,7 +1676,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥛" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="☕">dampfend | Getränk | heiss | Heissgetränk | Kaffee | Tee | trinken</annotation>
 		<annotation cp="☕" type="tts">Heissgetränk</annotation>
-		<annotation cp="🫖" draft="contributed">Krug | Tee | Teekrug | trinken</annotation>
+		<annotation cp="🫖" draft="contributed">Teekrug</annotation>
 		<annotation cp="🫖" type="tts" draft="contributed">Teekrug</annotation>
 		<annotation cp="🍵" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍵" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1692,9 +1692,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍹" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍺" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🍺" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🍻">anstossen | Bier | Bierkrüge</annotation>
+		<annotation cp="🍻" draft="contributed">Bierkrüge</annotation>
 		<annotation cp="🍻" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🥂">anstossen | Champagnergläser | feiern | Getränk | Sekt</annotation>
+		<annotation cp="🥂" draft="contributed">Sektgläser</annotation>
 		<annotation cp="🥂" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥃" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥃" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1718,7 +1718,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥄" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🔪" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🔪" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🏺">Amphore | Gefäss | kochen | Krug | Vase | Wassermann</annotation>
+		<annotation cp="🏺" draft="contributed">Amphore</annotation>
 		<annotation cp="🏺" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🌍" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🌍" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1852,7 +1852,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎪" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚂" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🚃">Fahrzeug | Strassenbahn | Strassenbahnwagen | Tram | Wagen | Wagon | Zug</annotation>
+		<annotation cp="🚃">Eisenbahnwagen | Fahrzeug | Strassenbahn | Strassenbahnwagen | Tram | Wagen | Wagon | Zug</annotation>
 		<annotation cp="🚃" type="tts">↑↑↑</annotation>
 		<annotation cp="🚄" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚄" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1872,7 +1872,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚝" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚞" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚞" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🚋">Tram | Tramwagen | Waggon</annotation>
+		<annotation cp="🚋" draft="contributed">Tramwagen</annotation>
 		<annotation cp="🚋" type="tts" draft="contributed">Tramwagen</annotation>
 		<annotation cp="🚌" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚌" type="tts" draft="contributed">↑↑↑</annotation>
@@ -1930,7 +1930,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛼" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚏" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚏" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🛣">Autobahn | Autostrasse | Schnellstrasse</annotation>
+		<annotation cp="🛣" draft="contributed">Autobahn</annotation>
 		<annotation cp="🛣" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🛤" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🛤" type="tts" draft="contributed">↑↑↑</annotation>
@@ -2144,9 +2144,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛄" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="☄" draft="contributed">↑↑↑</annotation>
 		<annotation cp="☄" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🔥">Feuer | Flamme | heiss</annotation>
+		<annotation cp="🔥" draft="contributed">Feuer</annotation>
 		<annotation cp="🔥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="💧">Schweiss | Tropfen | Wasser | Wassertropfen</annotation>
+		<annotation cp="💧" draft="contributed">Tropfen</annotation>
 		<annotation cp="💧" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🌊" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🌊" type="tts" draft="contributed">↑↑↑</annotation>
@@ -2322,7 +2322,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👓" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🕶" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🕶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🥽">Augenschutz | Schutzbrille | Schweissen | Schwimmen</annotation>
+		<annotation cp="🥽" draft="contributed">Schutzbrille</annotation>
 		<annotation cp="🥽" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥼" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🥼" type="tts" draft="contributed">↑↑↑</annotation>
@@ -2416,7 +2416,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔉" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🔊" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🔊" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="📢" draft="contributed">laut | Lautsprecher | Megafon</annotation>
+		<annotation cp="📢" draft="contributed">Lautsprecher</annotation>
 		<annotation cp="📢" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="📣" draft="contributed">↑↑↑</annotation>
 		<annotation cp="📣" type="tts" draft="contributed">↑↑↑</annotation>
@@ -2698,7 +2698,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⚔" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⚔" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🔫" draft="contributed">Pistole | Revolver | Waffe | Wasserpistole</annotation>
+		<annotation cp="🔫" draft="contributed">Wasserpistole</annotation>
 		<annotation cp="🔫" type="tts" draft="contributed">Wasserpistole</annotation>
 		<annotation cp="🪃">↑↑↑</annotation>
 		<annotation cp="🪃" type="tts" draft="contributed">↑↑↑</annotation>
@@ -2832,7 +2832,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚺" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚻" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚻" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🚼">↑↑↑</annotation>
+		<annotation cp="🚼">Baby-Symbol | Symbol „Baby“ | Wickelraum</annotation>
 		<annotation cp="🚼" type="tts">Baby-Symbol</annotation>
 		<annotation cp="🚾" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🚾" type="tts" draft="contributed">↑↑↑</annotation>
@@ -2842,7 +2842,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛃" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🛄" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🛄" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🛅">Gepäck | Gepäckaufbewahrung | Schliessfach</annotation>
+		<annotation cp="🛅" draft="contributed">Gepäckaufbewahrung</annotation>
 		<annotation cp="🛅" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⚠" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⚠" type="tts" draft="contributed">↑↑↑</annotation>
@@ -3018,9 +3018,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚧" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="✖" draft="contributed">↑↑↑</annotation>
 		<annotation cp="✖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="➕" draft="contributed">↑↑↑</annotation>
+		<annotation cp="➕" draft="contributed">Plus</annotation>
 		<annotation cp="➕" type="tts" draft="contributed">Plus</annotation>
-		<annotation cp="➖" draft="contributed">↑↑↑</annotation>
+		<annotation cp="➖" draft="contributed">Minus</annotation>
 		<annotation cp="➖" type="tts" draft="contributed">Minus</annotation>
 		<annotation cp="➗" draft="contributed">↑↑↑</annotation>
 		<annotation cp="➗" type="tts" draft="contributed">↑↑↑</annotation>
@@ -3042,7 +3042,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="〰" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="💱" draft="contributed">↑↑↑</annotation>
 		<annotation cp="💱" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="💲" draft="contributed">↑↑↑</annotation>
+		<annotation cp="💲" draft="contributed">fettes Dollarzeichen</annotation>
 		<annotation cp="💲" type="tts" draft="contributed">fettes Dollarzeichen</annotation>
 		<annotation cp="⚕" draft="contributed">↑↑↑</annotation>
 		<annotation cp="⚕" type="tts" draft="contributed">↑↑↑</annotation>
@@ -3250,7 +3250,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏴‍☠" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="¢" draft="contributed">Cent</annotation>
 		<annotation cp="¢" type="tts" draft="contributed">Cent</annotation>
-		<annotation cp="$" draft="contributed">Dollar | Geld | Peso | USD</annotation>
+		<annotation cp="$" draft="contributed">Dollarzeichen</annotation>
 		<annotation cp="$" type="tts" draft="contributed">Dollarzeichen</annotation>
 		<annotation cp="£" draft="contributed">↑↑↑</annotation>
 		<annotation cp="£" type="tts" draft="contributed">↑↑↑</annotation>
@@ -3268,7 +3268,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₹" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="₽" draft="contributed">↑↑↑</annotation>
 		<annotation cp="₽" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₿" draft="contributed">BTC</annotation>
+		<annotation cp="₿" draft="contributed">Bitcoin</annotation>
 		<annotation cp="₿" type="tts" draft="contributed">Bitcoin</annotation>
 		<annotation cp="¹" draft="contributed">↑↑↑</annotation>
 		<annotation cp="¹" type="tts" draft="contributed">↑↑↑</annotation>
@@ -3276,7 +3276,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="²" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="³" draft="contributed">↑↑↑</annotation>
 		<annotation cp="³" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="µ">Masseinheit | Mikro-Zeichen | My</annotation>
+		<annotation cp="µ" draft="contributed">Mikro-Zeichen</annotation>
 		<annotation cp="µ" type="tts" draft="contributed">↑↑↑</annotation>
 	</annotations>
 </ldml>

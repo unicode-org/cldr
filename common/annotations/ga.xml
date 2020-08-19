@@ -13,7 +13,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="ga"/>
 	</identity>
 	<annotations>
-		<annotation cp="{">cuing | cuing chatach | gullwing | lúibín catach</annotation>
+		<annotation cp="{">cuing | cuing chatach | gullwing | lúibín catach | lúibín catach tosaigh</annotation>
 		<annotation cp="{" type="tts">lúibín catach tosaigh</annotation>
 		<annotation cp="🏻">cineál 1–2 | ton cnis | ton cnis geal</annotation>
 		<annotation cp="🏻" type="tts">ton cnis geal</annotation>
@@ -25,19 +25,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">ton cnis meándorcha</annotation>
 		<annotation cp="🏿">cineál 6 | ton cnis | ton cnis dorcha</annotation>
 		<annotation cp="🏿" type="tts">ton cnis dorcha</annotation>
-		<annotation cp="‾" draft="contributed">marc ceangail | muinbhualadh</annotation>
+		<annotation cp="‾" draft="contributed">forlíne</annotation>
 		<annotation cp="‾" type="tts" draft="contributed">forlíne</annotation>
-		<annotation cp="_">dais | dais íseal | fodhais | folíne | líne</annotation>
+		<annotation cp="_">dais | dais íseal | fodhais | folíne | líne | líne íseal</annotation>
 		<annotation cp="_" type="tts">líne íseal</annotation>
-		<annotation cp="-">dais | fleiscín | lúide</annotation>
+		<annotation cp="-">dais | fleiscín | fleiscín-lúide | lúide</annotation>
 		<annotation cp="-" type="tts">fleiscín-lúide</annotation>
 		<annotation cp="‐">dais | fleiscín</annotation>
 		<annotation cp="‐" type="tts">fleiscín</annotation>
-		<annotation cp="–">dais | ein</annotation>
+		<annotation cp="–" draft="contributed">ein-dais</annotation>
 		<annotation cp="–" type="tts" draft="contributed">ein-dais</annotation>
-		<annotation cp="—">dais | eim</annotation>
+		<annotation cp="—" draft="contributed">eim-dais</annotation>
 		<annotation cp="—" type="tts" draft="contributed">eim-dais</annotation>
-		<annotation cp="―">barra | dais | líne</annotation>
+		<annotation cp="―">barra | barra comthrománach | dais | líne</annotation>
 		<annotation cp="―" type="tts">barra comthrománach</annotation>
 		<annotation cp="・">idirphonc | katakana | lárphonc | poncanna</annotation>
 		<annotation cp="・" type="tts">lárphonc katakana</annotation>
@@ -45,7 +45,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="," type="tts">camóg</annotation>
 		<annotation cp="،">arabach | camóg</annotation>
 		<annotation cp="،" type="tts">camóg arabach</annotation>
-		<annotation cp="、">camóg | idéagrafach</annotation>
+		<annotation cp="、">camóg | camóg idéaagrafach | idéagrafach</annotation>
 		<annotation cp="、" type="tts">camóg idéaagrafach</annotation>
 		<annotation cp=";">leathstad</annotation>
 		<annotation cp=";" type="tts">leathstad</annotation>
@@ -55,13 +55,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp=":" type="tts">idirstad</annotation>
 		<annotation cp="!">béic | comhartha uaillbhreasa | pléasc</annotation>
 		<annotation cp="!" type="tts">comhartha uaillbhreasa</annotation>
-		<annotation cp="¡">aisiompaithe | béic | comhartha uaillbhreasa | marc uaillbhreasa | pléasc</annotation>
+		<annotation cp="¡">aisiompaithe | béic | comhartha uaillbhreasa | comhartha uaillbhreasa aisiompaithe | marc uaillbhreasa | pléasc</annotation>
 		<annotation cp="¡" type="tts">comhartha uaillbhreasa aisiompaithe</annotation>
-		<annotation cp="?">ceist</annotation>
+		<annotation cp="?">ceist | comhartha ceiste</annotation>
 		<annotation cp="?" type="tts">comhartha ceiste</annotation>
-		<annotation cp="¿">aisiompaithe | ceist | comhartha ceiste</annotation>
+		<annotation cp="¿">aisiompaithe | ceist | comhartha ceiste | comhartha ceiste aisiompaithe</annotation>
 		<annotation cp="¿" type="tts">comhartha ceiste aisiompaithe</annotation>
-		<annotation cp="؟">arabach | ceist | comhartha ceiste</annotation>
+		<annotation cp="؟">arabach | ceist | comhartha ceiste | comhartha ceiste arabach</annotation>
 		<annotation cp="؟" type="tts">comhartha ceiste arabach</annotation>
 		<annotation cp="‽" draft="contributed">comhartha ceiste uaillbhreasa</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">comhartha ceiste uaillbhreasa</annotation>
@@ -73,63 +73,63 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="。" type="tts">lánstad idéagrafach</annotation>
 		<annotation cp="·" draft="contributed">lárphonc</annotation>
 		<annotation cp="·" type="tts" draft="contributed">lárphonc</annotation>
-		<annotation cp="'">aonair | comhartha athfhriotail | uaschamóg</annotation>
+		<annotation cp="'">aonair | comhartha athfhriotail | uaschamóg | uaschamóg chlóscríobháin</annotation>
 		<annotation cp="'" type="tts">uaschamóg chlóscríobháin</annotation>
-		<annotation cp="‘">aonair | comhartha athfhriotail | comhartha cliste | uaschamóg</annotation>
+		<annotation cp="‘">aonair | camóg ar chlé | comhartha athfhriotail | comhartha cliste | uaschamóg</annotation>
 		<annotation cp="‘" type="tts">camóg ar chlé</annotation>
-		<annotation cp="’">aonair | comartha athfhriotail | comhartha cliste | uaschamóg</annotation>
+		<annotation cp="’">aonair | comartha athfhriotail | comhartha cliste | uaschamóg | uaschamóg ar dheis</annotation>
 		<annotation cp="’" type="tts">uaschamóg ar dheis</annotation>
-		<annotation cp="‚">comhartha athfhriotail | íseal | uaschamóg</annotation>
+		<annotation cp="‚">comhartha athfhriotail | íseal | uaschamóg | uaschamóg íseal ar dheis</annotation>
 		<annotation cp="‚" type="tts">uaschamóg íseal ar dheis</annotation>
-		<annotation cp="“">cliste | comhartha athfhriotail | dúbailte</annotation>
+		<annotation cp="“">cliste | comhartha athfhriotail | comhartha athfhriotail ar chlé | dúbailte</annotation>
 		<annotation cp="“" type="tts">comhartha athfhriotail ar chlé</annotation>
-		<annotation cp="”">cliste | comhartha athfhriotail dúbailte</annotation>
+		<annotation cp="”">cliste | comhartha athfhriotail ar dheis | comhartha athfhriotail dúbailte</annotation>
 		<annotation cp="”" type="tts">comhartha athfhriotail ar dheis</annotation>
-		<annotation cp="„">cliste | comhartha athfhriotail dúbailte | íseal</annotation>
+		<annotation cp="„">cliste | comhartha athfhriotail dúbailte | comhartha athfhriotail íseal ar dheis | íseal</annotation>
 		<annotation cp="„" type="tts">comhartha athfhriotail íseal ar dheis</annotation>
 		<annotation cp="«" draft="contributed">rachtán tosaigh</annotation>
 		<annotation cp="«" type="tts" draft="contributed">rachtán tosaigh</annotation>
 		<annotation cp="»" draft="contributed">rachtán deiridh</annotation>
 		<annotation cp="»" type="tts" draft="contributed">rachtán deiridh</annotation>
-		<annotation cp=")">lúibín | lúibín ciorclach | lúibíní</annotation>
+		<annotation cp=")">lúibín | lúibín ciorclach | lúibín deiridh | lúibíní</annotation>
 		<annotation cp=")" type="tts">lúibín deiridh</annotation>
-		<annotation cp="[">croisín | lúibín | lúibín cearnógach</annotation>
+		<annotation cp="[">croisín | lúibín | lúibín cearnógach | lúibín cearnógach tosaigh</annotation>
 		<annotation cp="[" type="tts">lúibín cearnógach tosaigh</annotation>
-		<annotation cp="]">croisín | lúibín | lúibín cearnógach</annotation>
+		<annotation cp="]">croisín | lúibín | lúibín cearnógach | lúibín cearnógach deiridh</annotation>
 		<annotation cp="]" type="tts">lúibín cearnógach deiridh</annotation>
-		<annotation cp="}">cuing | cuing chatach | gullwing | lúibín | lúibín catach</annotation>
+		<annotation cp="}">cuing | cuing chatach | gullwing | lúibín | lúibín catach | lúibín catach deiridh</annotation>
 		<annotation cp="}" type="tts">lúibín catach deiridh</annotation>
-		<annotation cp="〈">codach | lúibín | lúibín pointe | lúibín uillinne | lúibíní diamant | rachtán</annotation>
+		<annotation cp="〈">codach | lúibín | lúibín pointe | lúibín uillinne | lúibín uillinne tosaigh | lúibíní diamant | rachtán</annotation>
 		<annotation cp="〈" type="tts">lúibín uillinne tosaigh</annotation>
-		<annotation cp="〉">codach | lúibín | lúibín pointe | lúibín uillinne | lúibíní diamant | rachtán</annotation>
+		<annotation cp="〉">codach | lúibín | lúibín pointe | lúibín uillinne | lúibín uillinne deiridh | lúibíní diamant | rachtán</annotation>
 		<annotation cp="〉" type="tts">lúibín uillinne deiridh</annotation>
-		<annotation cp="《">lúibín | lúibín uillinne dúbailte</annotation>
+		<annotation cp="《">lúibín | lúibín uillinne dúbailte | lúibín uillinne dúbailte tosaigh</annotation>
 		<annotation cp="《" type="tts">lúibín uillinne dúbailte tosaigh</annotation>
-		<annotation cp="》">lúibín | lúibín uillinne dúbailte</annotation>
+		<annotation cp="》">lúibín | lúibín uillinne dúbailte | lúibín uillinne dúbailte deiridh</annotation>
 		<annotation cp="》" type="tts">lúibín uillinne dúbailte deiridh</annotation>
-		<annotation cp="「">lúibín | lúibín cúinne</annotation>
+		<annotation cp="「">lúibín | lúibín cúinne | lúibín cúinne tosaigh</annotation>
 		<annotation cp="「" type="tts">lúibín cúinne tosaigh</annotation>
-		<annotation cp="」" draft="contributed">lúibín | lúibín coirnéil</annotation>
+		<annotation cp="」">lúibín | lúibín coirnéil | lúibín cúinne deiridh</annotation>
 		<annotation cp="」" type="tts">lúibín cúinne deiridh</annotation>
-		<annotation cp="『">lúibín | lúibín cúinne toll</annotation>
+		<annotation cp="『">lúibín | lúibín cúinne toll | lúibín cúinne toll tosaigh</annotation>
 		<annotation cp="『" type="tts">lúibín cúinne toll tosaigh</annotation>
-		<annotation cp="』">lúibín | lúibín cúinne toll</annotation>
+		<annotation cp="』">lúibín | lúibín cúinne toll | lúibín cúinne toll deiridh</annotation>
 		<annotation cp="』" type="tts">lúibín cúinne toll deiridh</annotation>
-		<annotation cp="【">lúibín | lúibín lionsa</annotation>
+		<annotation cp="【">lúibín | lúibín lionsa | lúibín lionsach dubh tosaigh</annotation>
 		<annotation cp="【" type="tts">lúibín lionsach dubh tosaigh</annotation>
-		<annotation cp="】">lúibín | lúibín lionsa | lúibín lionsach</annotation>
+		<annotation cp="】">lúibín | lúibín lionsa | lúibín lionsach | lúibín lionsach dubh deiridh</annotation>
 		<annotation cp="】" type="tts">lúibín lionsach dubh deiridh</annotation>
-		<annotation cp="〔">lúibín | lúibín blaosc</annotation>
+		<annotation cp="〔">lúibín | lúibín blaosc | lúibín blaosc toirtíse tosaigh</annotation>
 		<annotation cp="〔" type="tts">lúibín blaosc toirtíse tosaigh</annotation>
-		<annotation cp="〕">lúibín | lúibín blaosc</annotation>
+		<annotation cp="〕">lúibín | lúibín blaosc | lúibín blaosc toirtíse deiridh</annotation>
 		<annotation cp="〕" type="tts">lúibín blaosc toirtíse deiridh</annotation>
-		<annotation cp="〖">lúibín | lúibín lionsa toll</annotation>
+		<annotation cp="〖">lúibín | lúibín lionsa toll | lúibín lionsach toll tosaigh</annotation>
 		<annotation cp="〖" type="tts">lúibín lionsach toll tosaigh</annotation>
-		<annotation cp="〗">lúibín | lúibín lionsa toll</annotation>
+		<annotation cp="〗">lúibín | lúibín lionsa toll | lúibín lionsach deiridh</annotation>
 		<annotation cp="〗" type="tts">lúibín lionsach deiridh</annotation>
 		<annotation cp="§" draft="contributed">rannán</annotation>
 		<annotation cp="§" type="tts" draft="contributed">rannán</annotation>
-		<annotation cp="¶">alt | comhartha ailt</annotation>
+		<annotation cp="¶">alt | comhartha ailt | marc ailt</annotation>
 		<annotation cp="¶" type="tts">marc ailt</annotation>
 		<annotation cp="@">@ tráchtála | arobase | comhartha @ | marc @</annotation>
 		<annotation cp="@" type="tts">comhartha @</annotation>
@@ -151,21 +151,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="†" type="tts" draft="contributed">comhartha miodóige</annotation>
 		<annotation cp="‡" draft="contributed">comhartha miodóige dúbailte</annotation>
 		<annotation cp="‡" type="tts" draft="contributed">comhartha miodóige dúbailte</annotation>
-		<annotation cp="•">ponc | urchar</annotation>
+		<annotation cp="•" draft="contributed">urchar</annotation>
 		<annotation cp="•" type="tts" draft="contributed">urchar</annotation>
-		<annotation cp="‧">dais | fleiscín | ponc</annotation>
+		<annotation cp="‧">dais | fleiscín | ponc | ponc le fleiscín</annotation>
 		<annotation cp="‧" type="tts">ponc le fleiscín</annotation>
 		<annotation cp="′">prím</annotation>
 		<annotation cp="′" type="tts">prím</annotation>
-		<annotation cp="″">prím</annotation>
+		<annotation cp="″">prím | prím dhúbailte</annotation>
 		<annotation cp="″" type="tts">prím dhúbailte</annotation>
-		<annotation cp="‴">prím</annotation>
+		<annotation cp="‴">prím | prím thriarach</annotation>
 		<annotation cp="‴" type="tts">prím thriarach</annotation>
 		<annotation cp="‸" draft="contributed">carait</annotation>
 		<annotation cp="‸" type="tts" draft="contributed">carait</annotation>
 		<annotation cp="※">marc tagartha</annotation>
 		<annotation cp="※" type="tts">marc tagartha</annotation>
-		<annotation cp="⁂" draft="contributed">réaltaí | réiltíní</annotation>
+		<annotation cp="⁂" draft="contributed">réaltlach</annotation>
 		<annotation cp="⁂" type="tts" draft="contributed">réaltlach</annotation>
 		<annotation cp="`">graif | tón</annotation>
 		<annotation cp="`" type="tts">graif</annotation>
@@ -177,7 +177,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¨" type="tts">déiréis</annotation>
 		<annotation cp="°" draft="contributed">céim</annotation>
 		<annotation cp="°" type="tts" draft="contributed">céim</annotation>
-		<annotation cp="℗">cóipcheart | fuaim | taifead</annotation>
+		<annotation cp="℗" draft="contributed">cóipcheart taifid fuaime</annotation>
 		<annotation cp="℗" type="tts" draft="contributed">cóipcheart taifid fuaime</annotation>
 		<annotation cp="←" draft="contributed">saighead chlé</annotation>
 		<annotation cp="←" type="tts" draft="contributed">saighead chlé</annotation>
@@ -207,56 +207,80 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↫" type="tts" draft="contributed">saighead lúbach ar chlé</annotation>
 		<annotation cp="↬" draft="contributed">saighead lúbach ar dheis</annotation>
 		<annotation cp="↬" type="tts" draft="contributed">saighead lúbach ar dheis</annotation>
-		<annotation cp="↯" draft="contributed">fiarlán</annotation>
+		<annotation cp="↯" draft="contributed">saighead fhiarlánach síos</annotation>
 		<annotation cp="↯" type="tts" draft="contributed">saighead fhiarlánach síos</annotation>
 		<annotation cp="↶" draft="contributed">saighead thuathal uachtar leathchiorcail</annotation>
 		<annotation cp="↶" type="tts" draft="contributed">saighead thuathal uachtar leathchiorcail</annotation>
 		<annotation cp="↷" draft="contributed">saighead dheiseal uachtar leathchiorcail</annotation>
 		<annotation cp="↷" type="tts" draft="contributed">saighead dheiseal uachtar leathchiorcail</annotation>
+		<annotation cp="↸" draft="contributed">saighead siar ó thuaidh barra fada</annotation>
 		<annotation cp="↸" type="tts" draft="contributed">saighead siar ó thuaidh barra fada</annotation>
+		<annotation cp="↼" draft="contributed">harpún ar chlé friofac thuas</annotation>
 		<annotation cp="↼" type="tts" draft="contributed">harpún ar chlé friofac thuas</annotation>
+		<annotation cp="↽" draft="contributed">harpún ar chlé friofac thíos</annotation>
 		<annotation cp="↽" type="tts" draft="contributed">harpún ar chlé friofac thíos</annotation>
+		<annotation cp="↾" draft="contributed">harpún suas friofac ar dheis</annotation>
 		<annotation cp="↾" type="tts" draft="contributed">harpún suas friofac ar dheis</annotation>
+		<annotation cp="↿" draft="contributed">harpún suas friofac ar chlé</annotation>
 		<annotation cp="↿" type="tts" draft="contributed">harpún suas friofac ar chlé</annotation>
+		<annotation cp="⇀" draft="contributed">harpún ar dheis friofac thuas</annotation>
 		<annotation cp="⇀" type="tts" draft="contributed">harpún ar dheis friofac thuas</annotation>
+		<annotation cp="⇁" draft="contributed">harpún ar dheis friofac thíos</annotation>
 		<annotation cp="⇁" type="tts" draft="contributed">harpún ar dheis friofac thíos</annotation>
+		<annotation cp="⇂" draft="contributed">harpún síos friofac ar dheis</annotation>
 		<annotation cp="⇂" type="tts" draft="contributed">harpún síos friofac ar dheis</annotation>
+		<annotation cp="⇃" draft="contributed">harpún síos friofac ar chlé</annotation>
 		<annotation cp="⇃" type="tts" draft="contributed">harpún síos friofac ar chlé</annotation>
+		<annotation cp="⇄" draft="contributed">saighead ar dheis os cionn saighde ar chlé</annotation>
 		<annotation cp="⇄" type="tts" draft="contributed">saighead ar dheis os cionn saighde ar chlé</annotation>
 		<annotation cp="⇅" draft="contributed">saighead suas agus saighead síos</annotation>
 		<annotation cp="⇅" type="tts" draft="contributed">saighead suas agus saighead síos</annotation>
 		<annotation cp="⇆" draft="contributed">saighead chlé os cionn saighead dheas</annotation>
 		<annotation cp="⇆" type="tts" draft="contributed">saighead chlé os cionn saighead dheas</annotation>
+		<annotation cp="⇇" draft="contributed">péire saighead ar chlé</annotation>
 		<annotation cp="⇇" type="tts" draft="contributed">péire saighead ar chlé</annotation>
+		<annotation cp="⇈" draft="contributed">péire saighead suas</annotation>
 		<annotation cp="⇈" type="tts" draft="contributed">péire saighead suas</annotation>
+		<annotation cp="⇉" draft="contributed">péire saighead ar dheis</annotation>
 		<annotation cp="⇉" type="tts" draft="contributed">péire saighead ar dheis</annotation>
+		<annotation cp="⇊" draft="contributed">péire saighead síos</annotation>
 		<annotation cp="⇊" type="tts" draft="contributed">péire saighead síos</annotation>
+		<annotation cp="⇋" draft="contributed">harpún ar chlé os cionn harpúin ar dheis</annotation>
 		<annotation cp="⇋" type="tts" draft="contributed">harpún ar chlé os cionn harpúin ar dheis</annotation>
+		<annotation cp="⇌" draft="contributed">harpún ar dheis os cionn harpúin ar chlé</annotation>
 		<annotation cp="⇌" type="tts" draft="contributed">harpún ar dheis os cionn harpúin ar chlé</annotation>
+		<annotation cp="⇐" draft="contributed">saighead dhúbailte ar chlé</annotation>
 		<annotation cp="⇐" type="tts" draft="contributed">saighead dhúbailte ar chlé</annotation>
+		<annotation cp="⇑" draft="contributed">saighead dhúbailte suas</annotation>
 		<annotation cp="⇑" type="tts" draft="contributed">saighead dhúbailte suas</annotation>
+		<annotation cp="⇒" draft="contributed">saighead dhúbailte ar dheis</annotation>
 		<annotation cp="⇒" type="tts" draft="contributed">saighead dhúbailte ar dheis</annotation>
+		<annotation cp="⇓" draft="contributed">saighead dhúbailte síos</annotation>
 		<annotation cp="⇓" type="tts" draft="contributed">saighead dhúbailte síos</annotation>
+		<annotation cp="⇖" draft="contributed">saighead dhúbailte siar ó thuaidh</annotation>
 		<annotation cp="⇖" type="tts" draft="contributed">saighead dhúbailte siar ó thuaidh</annotation>
+		<annotation cp="⇗" draft="contributed">saighead dhúbailte soir ó thuaidh</annotation>
 		<annotation cp="⇗" type="tts" draft="contributed">saighead dhúbailte soir ó thuaidh</annotation>
+		<annotation cp="⇘" draft="contributed">saighead dhúbailte soir ó dheas</annotation>
 		<annotation cp="⇘" type="tts" draft="contributed">saighead dhúbailte soir ó dheas</annotation>
+		<annotation cp="⇙" draft="contributed">saighead dhúbailte siar ó dheas</annotation>
 		<annotation cp="⇙" type="tts" draft="contributed">saighead dhúbailte siar ó dheas</annotation>
-		<annotation cp="∂" draft="contributed">difreálach</annotation>
+		<annotation cp="∂" draft="contributed">páirtdifreálach</annotation>
 		<annotation cp="∂" type="tts" draft="contributed">páirtdifreálach</annotation>
 		<annotation cp="∃" draft="contributed">is ann do</annotation>
 		<annotation cp="∃" type="tts" draft="contributed">is ann do</annotation>
-		<annotation cp="∅" draft="contributed">matamaitic | oibritheoir tacair</annotation>
+		<annotation cp="∅" draft="contributed">tacar folamh</annotation>
 		<annotation cp="∅" type="tts" draft="contributed">tacar folamh</annotation>
-		<annotation cp="∆">incrimint | triantán</annotation>
+		<annotation cp="∆" draft="contributed">incrimint</annotation>
 		<annotation cp="∆" type="tts" draft="contributed">incrimint</annotation>
-		<annotation cp="∇">nabla | triantán</annotation>
+		<annotation cp="∇" draft="contributed">nabla</annotation>
 		<annotation cp="∇" type="tts" draft="contributed">nabla</annotation>
-		<annotation cp="∈">ball | ball de | cuid | tacar</annotation>
+		<annotation cp="∈" draft="contributed">ball de</annotation>
 		<annotation cp="∈" type="tts" draft="contributed">ball de</annotation>
-		<annotation cp="∉" draft="contributed">ball</annotation>
+		<annotation cp="∉" draft="contributed">ní ball de</annotation>
 		<annotation cp="∉" type="tts" draft="contributed">ní ball de</annotation>
 		<annotation cp="∋" draft="contributed">ball</annotation>
-		<annotation cp="+">cuir le | móide</annotation>
+		<annotation cp="+">comhartha móide | cuir le | móide</annotation>
 		<annotation cp="+" type="tts">comhartha móide</annotation>
 		<annotation cp="±">móide-lúide</annotation>
 		<annotation cp="±" type="tts">móide-lúide</annotation>
@@ -274,73 +298,100 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&gt;" type="tts">níos mó ná</annotation>
 		<annotation cp="¬">diúltú | nach</annotation>
 		<annotation cp="¬" type="tts">diúltú</annotation>
-		<annotation cp="|">barra | barra ingearach | bata | fléasc | fléasc sheffer | líne | píopa | v-barra</annotation>
+		<annotation cp="|">barra | barra ingearach | bata | fléasc | fléasc sheffer | líne | líne ingearach | píopa | v-barra</annotation>
 		<annotation cp="|" type="tts">líne ingearach</annotation>
 		<annotation cp="~">tilde</annotation>
 		<annotation cp="~" type="tts">tilde</annotation>
-		<annotation cp="−">bain de | lúide</annotation>
+		<annotation cp="−">bain de | comhartha lúide | lúide</annotation>
 		<annotation cp="−" type="tts">comhartha lúide</annotation>
 		<annotation cp="⁻" draft="contributed">lúide forscríofa</annotation>
 		<annotation cp="⁻" type="tts" draft="contributed">lúide forscríofa</annotation>
-		<annotation cp="∓" draft="contributed">móide lúide</annotation>
+		<annotation cp="∓" draft="contributed">lúide nó móide</annotation>
 		<annotation cp="∓" type="tts" draft="contributed">lúide nó móide</annotation>
 		<annotation cp="√" draft="contributed">fréamh chearnach</annotation>
 		<annotation cp="√" type="tts" draft="contributed">fréamh chearnach</annotation>
 		<annotation cp="∞" draft="contributed">comhartha éigríche</annotation>
 		<annotation cp="∞" type="tts" draft="contributed">comhartha éigríche</annotation>
+		<annotation cp="∟" draft="contributed">dronuillinn</annotation>
 		<annotation cp="∟" type="tts" draft="contributed">dronuillinn</annotation>
+		<annotation cp="∠" draft="contributed">uillinn</annotation>
 		<annotation cp="∠" type="tts" draft="contributed">uillinn</annotation>
+		<annotation cp="∥" draft="contributed">línte comhthreomhara</annotation>
 		<annotation cp="∥" type="tts" draft="contributed">línte comhthreomhara</annotation>
-		<annotation cp="∩">idirmhír | tacar</annotation>
+		<annotation cp="∩" draft="contributed">idirmhír</annotation>
 		<annotation cp="∩" type="tts" draft="contributed">idirmhír</annotation>
-		<annotation cp="∪">aontas | bailiú | tacar</annotation>
+		<annotation cp="∪" draft="contributed">aontas</annotation>
 		<annotation cp="∪" type="tts" draft="contributed">aontas</annotation>
+		<annotation cp="∫" draft="contributed">suimeálaí</annotation>
 		<annotation cp="∫" type="tts" draft="contributed">suimeálaí</annotation>
+		<annotation cp="∬" draft="contributed">suimeálaí dúbailte</annotation>
 		<annotation cp="∬" type="tts" draft="contributed">suimeálaí dúbailte</annotation>
+		<annotation cp="∮" draft="contributed">cuarshuimeálaí</annotation>
 		<annotation cp="∮" type="tts" draft="contributed">cuarshuimeálaí</annotation>
+		<annotation cp="∶" draft="contributed">cóimheas</annotation>
 		<annotation cp="∶" type="tts" draft="contributed">cóimheas</annotation>
+		<annotation cp="∷" draft="contributed">comhréir</annotation>
 		<annotation cp="∷" type="tts" draft="contributed">comhréir</annotation>
 		<annotation cp="≈">beagnach cothrom le | meastachán</annotation>
 		<annotation cp="≈" type="tts">beagnach cothrom le</annotation>
 		<annotation cp="≡" draft="contributed">comhionann le</annotation>
 		<annotation cp="≡" type="tts" draft="contributed">comhionann le</annotation>
-		<annotation cp="≤">cothrom le | éagrothroime | níos lú ná</annotation>
+		<annotation cp="≤">cothrom le | éagrothroime | níos lú ná | níos lú ná nó cothrom le</annotation>
 		<annotation cp="≤" type="tts">níos lú ná nó cothrom le</annotation>
-		<annotation cp="≥">cothrom le | éagrothroime | níos mó ná</annotation>
+		<annotation cp="≥">cothrom le | éagrothroime | níos mó ná | níos mó ná nó cothrom le</annotation>
 		<annotation cp="≥" type="tts">níos mó ná nó cothrom le</annotation>
+		<annotation cp="≬" draft="contributed">idir</annotation>
 		<annotation cp="≬" type="tts" draft="contributed">idir</annotation>
-		<annotation cp="⊂">fo-thacar de chuid | fothacar | tacar</annotation>
+		<annotation cp="⊂" draft="contributed">fo-thacar de chuid</annotation>
 		<annotation cp="⊂" type="tts" draft="contributed">fo-thacar de chuid</annotation>
+		<annotation cp="⊃" draft="contributed">forthacar</annotation>
 		<annotation cp="⊃" type="tts" draft="contributed">forthacar</annotation>
+		<annotation cp="⊹" draft="contributed">maitrís chomhchuingeach Hermite</annotation>
 		<annotation cp="⊹" type="tts" draft="contributed">maitrís chomhchuingeach Hermite</annotation>
+		<annotation cp="⊿" draft="contributed">triantán dronuilleach</annotation>
 		<annotation cp="⊿" type="tts" draft="contributed">triantán dronuilleach</annotation>
 		<annotation cp="⋯" draft="contributed">comhartha focalbhá</annotation>
+		<annotation cp="■" draft="contributed">cearnóg líonta</annotation>
 		<annotation cp="■" type="tts" draft="contributed">cearnóg líonta</annotation>
+		<annotation cp="□" draft="contributed">cearnóg tholl</annotation>
 		<annotation cp="□" type="tts" draft="contributed">cearnóg tholl</annotation>
+		<annotation cp="▬" draft="contributed">dronuilleog líonta</annotation>
 		<annotation cp="▬" type="tts" draft="contributed">dronuilleog líonta</annotation>
+		<annotation cp="▭" draft="contributed">dronuilleog tholl</annotation>
 		<annotation cp="▭" type="tts" draft="contributed">dronuilleog tholl</annotation>
+		<annotation cp="▮" draft="contributed">dronuilleog ingearach líonta</annotation>
 		<annotation cp="▮" type="tts" draft="contributed">dronuilleog ingearach líonta</annotation>
+		<annotation cp="▰" draft="contributed">comhthreomharán líonta</annotation>
 		<annotation cp="▰" type="tts" draft="contributed">comhthreomharán líonta</annotation>
 		<annotation cp="▲" draft="contributed">triantán líonta lena rinn suas</annotation>
 		<annotation cp="▲" type="tts" draft="contributed">triantán líonta lena rinn suas</annotation>
 		<annotation cp="▼" draft="contributed">triantán líonta lena rinn síos</annotation>
 		<annotation cp="▼" type="tts" draft="contributed">triantán líonta lena rinn síos</annotation>
+		<annotation cp="◆" draft="contributed">muileata líonta</annotation>
 		<annotation cp="◆" type="tts" draft="contributed">muileata líonta</annotation>
+		<annotation cp="◇" draft="contributed">muileata toll</annotation>
 		<annotation cp="◇" type="tts" draft="contributed">muileata toll</annotation>
+		<annotation cp="◈" draft="contributed">muileata toll a bhfuil muileata líonta istigh ann</annotation>
 		<annotation cp="◈" type="tts" draft="contributed">muileata toll a bhfuil muileata líonta istigh ann</annotation>
+		<annotation cp="◉" draft="contributed">ciorcal toll a bhfuil ciorcal líonta istigh ann</annotation>
 		<annotation cp="◉" type="tts" draft="contributed">ciorcal toll a bhfuil ciorcal líonta istigh ann</annotation>
-		<annotation cp="◊">diamant | muileata | rombas</annotation>
+		<annotation cp="◊" draft="contributed">muileata</annotation>
 		<annotation cp="◊" type="tts" draft="contributed">muileata</annotation>
-		<annotation cp="○">ciorcal | ciorcal toll | fáinne</annotation>
+		<annotation cp="○" draft="contributed">ciorcal toll</annotation>
 		<annotation cp="○" type="tts" draft="contributed">ciorcal toll</annotation>
+		<annotation cp="◌" draft="contributed">ciorcal poncanna</annotation>
 		<annotation cp="◌" type="tts" draft="contributed">ciorcal poncanna</annotation>
+		<annotation cp="◎">súil sprice</annotation>
 		<annotation cp="◎" type="tts">súil sprice</annotation>
 		<annotation cp="●" draft="contributed">ciorcal líonta</annotation>
 		<annotation cp="●" type="tts" draft="contributed">ciorcal líonta</annotation>
+		<annotation cp="◖" draft="contributed">leathchiorcal clé líonta</annotation>
 		<annotation cp="◖" type="tts" draft="contributed">leathchiorcal clé líonta</annotation>
+		<annotation cp="◗" draft="contributed">leathchiorcal deis líonta</annotation>
 		<annotation cp="◗" type="tts" draft="contributed">leathchiorcal deis líonta</annotation>
+		<annotation cp="◦" draft="contributed">urchar toll</annotation>
 		<annotation cp="◦" type="tts" draft="contributed">urchar toll</annotation>
-		<annotation cp="◯">ciorcal | ciorcal mór toll | fáinne</annotation>
+		<annotation cp="◯" draft="contributed">ciorcal mór toll</annotation>
 		<annotation cp="◯" type="tts" draft="contributed">ciorcal mór toll</annotation>
 		<annotation cp="♪">ceol | nóta | ochtach</annotation>
 		<annotation cp="♪" type="tts">nóta ochtach</annotation>
@@ -352,7 +403,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😀" type="tts">straoiseog ghealgháireach</annotation>
 		<annotation cp="😃">béal ar oscailt | meangadh gáire | straoiseog ag gáire le súile móra</annotation>
 		<annotation cp="😃" type="tts">straoiseog ag gáire le súile móra</annotation>
-		<annotation cp="😄">béal ar oscailt | meangadh gáire | straoiseog ag gáire le bhéal oscailte agus súile ag déanamh miongháire | straoiseog ag gáire le súile ag déanamh miongháire | straoiseog ag gáire le súile le miongháire | súile ag gáire</annotation>
+		<annotation cp="😄">béal ar oscailt | meangadh gáire | straoiseog ag gáire le bhéal oscailte agus súile ag déanamh miongháire | straoiseog ag gáire le súile ag déanamh miongháire | straoiseog ag gáire le súile gealgháireacha uirthi | straoiseog ag gáire le súile le miongháire | súile ag gáire</annotation>
 		<annotation cp="😄" type="tts">straoiseog ag gáire le súile gealgháireacha uirthi</annotation>
 		<annotation cp="😁">gáire | meangadh | straoiseag gáire le súile ag déanamh miongháire | straoiseog gháire le súile &amp; miongháire | straoiseog gháire le súile ag déanamh miongháire | súile ag gáire</annotation>
 		<annotation cp="😁" type="tts">straoiseog gháire le súile &amp; miongháire</annotation>
@@ -390,7 +441,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">straoiseog ag pógadh le súile dúnta</annotation>
 		<annotation cp="😙">póg | pógadh | straoiseog ag pógadh le súile ag déanamh miongháire | straoiseog ag pógadh le súile le miongháire | súile ag gáire</annotation>
 		<annotation cp="😙" type="tts">straoiseog ag pógadh le súile le miongháire</annotation>
-		<annotation cp="🥲">bródúil | buíoch | corraithe | deoir | faoiseamh | miongháire | mórtasach</annotation>
+		<annotation cp="🥲">bródúil | buíoch | corraithe | deoir | faoiseamh | miongháire | mórtasach | straoiseog shásta le deora</annotation>
 		<annotation cp="🥲" type="tts">straoiseog shásta le deora</annotation>
 		<annotation cp="😋">aghaidh ag baint taitnimh as bia blasta | bia | blasta | meangadh gáire | straoiseog ag baint taitneamh as bia blasta</annotation>
 		<annotation cp="😋" type="tts">straoiseog ag baint taitneamh as bia blasta</annotation>
@@ -464,7 +515,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">straoiseog trína chéile</annotation>
 		<annotation cp="😵">aghaidh | meadhránach | straoiseog mheadhránach</annotation>
 		<annotation cp="😵" type="tts">straoiseog mheadhránach</annotation>
-		<annotation cp="😵‍💫">bís | hiopnóisithe | meadhránach | trioblóid | whoa</annotation>
+		<annotation cp="😵‍💫">aghaidh le súile bíse | bís | hiopnóisithe | meadhránach | trioblóid | whoa</annotation>
 		<annotation cp="😵‍💫" type="tts">aghaidh le súile bíse</annotation>
 		<annotation cp="🤯">croitheadh bainte | straoiseog lena ceann ag pléasadh</annotation>
 		<annotation cp="🤯" type="tts">straoiseog lena ceann ag pléasadh</annotation>
@@ -490,7 +541,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☹" type="tts">straoiseog le grainc uirthi</annotation>
 		<annotation cp="😮">béal ar oscailt | straoiseog le béal oscailte</annotation>
 		<annotation cp="😮" type="tts">straoiseog le béal oscailte</annotation>
-		<annotation cp="😮‍💨">anáil | cnead | cogar | faoiseamh | ochlán | séideadh</annotation>
+		<annotation cp="😮‍💨">aghaidh ag análú | anáil | cnead | cogar | faoiseamh | ochlán | séideadh</annotation>
 		<annotation cp="😮‍💨" type="tts">aghaidh ag análú</annotation>
 		<annotation cp="😯">ionadh | iontas | straoiseog ina tost | straoiseog thostach</annotation>
 		<annotation cp="😯" type="tts">straoiseog ina tost</annotation>
@@ -612,9 +663,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">croíbhriste</annotation>
 		<annotation cp="❤">croí | croí dearg</annotation>
 		<annotation cp="❤" type="tts">croí dearg</annotation>
-		<annotation cp="❤‍🔥">croí | croí naofa | dó | drúis | grá</annotation>
+		<annotation cp="❤‍🔥">croí | croí naofa | croí trí thine | dó | drúis | grá</annotation>
 		<annotation cp="❤‍🔥" type="tts">croí trí thine</annotation>
-		<annotation cp="❤‍🩹">ag feabhsú | ag teacht ar ais chugat féin | go maith | níos sláintiúla</annotation>
+		<annotation cp="❤‍🩹">ag feabhsú | ag teacht ar ais chugat féin | croí deisithe | go maith | níos sláintiúla</annotation>
 		<annotation cp="❤‍🩹" type="tts">croí deisithe</annotation>
 		<annotation cp="🧡">croí | flannbhuí | oráiste</annotation>
 		<annotation cp="🧡" type="tts">croí flannbhuí</annotation>
@@ -672,11 +723,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖖" type="tts">cuirtéis Bholcáin</annotation>
 		<annotation cp="👌">lámh | OK</annotation>
 		<annotation cp="👌" type="tts">lámh OK</annotation>
-		<annotation cp="🤌">ceistiú | comhartha láimhe | fáiscthe | méara | tarcaisneach</annotation>
+		<annotation cp="🤌">ceistiú | comhartha láimhe | fáiscthe | méara | méara fáiscthe le chéile | tarcaisneach</annotation>
 		<annotation cp="🤌" type="tts">méara fáiscthe le chéile</annotation>
 		<annotation cp="🤏">lámh ag pinseáil | píosa beag</annotation>
 		<annotation cp="🤏" type="tts">lámh ag pinseáil</annotation>
-		<annotation cp="✌">bua | lámh bua | lámh síocháin | lámh síochána</annotation>
+		<annotation cp="✌">bua | comhartha an bhua | lámh bua | lámh síocháin | lámh síochána</annotation>
 		<annotation cp="✌" type="tts">comhartha an bhua</annotation>
 		<annotation cp="🤞">ádh | ag súil | crosach | méara | méara crosach ar a chéile | méarsa trasna</annotation>
 		<annotation cp="🤞" type="tts">méarsa trasna</annotation>
@@ -722,7 +773,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤝" type="tts">croitheadh lámh</annotation>
 		<annotation cp="🙏">ag guí | guí | lámh | lámha le chéile | paidir</annotation>
 		<annotation cp="🙏" type="tts">lámha le chéile</annotation>
-		<annotation cp="✍">corp | lámh | lámha ag scríobh | scríbhneoireacht</annotation>
+		<annotation cp="✍">corp | lámh | lámh scríbhneoireachta | lámha ag scríobh | scríbhneoireacht</annotation>
 		<annotation cp="✍" type="tts">lámh scríbhneoireachta</annotation>
 		<annotation cp="💅">cosmaidí | smideadh | vearnais ingne</annotation>
 		<annotation cp="💅" type="tts">vearnais ingne</annotation>
@@ -776,7 +827,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👱" type="tts">duine: gruaig fhionn</annotation>
 		<annotation cp="👨">fear</annotation>
 		<annotation cp="👨" type="tts">fear</annotation>
-		<annotation cp="🧔">duine | fear | fear: feasóg | feasóg</annotation>
+		<annotation cp="🧔">duine | duine: feasóg | fear | fear: feasóg | feasóg</annotation>
 		<annotation cp="🧔" type="tts">duine: feasóg</annotation>
 		<annotation cp="👱‍♂">fear | fear: gruaig fhionn | fearr le gruaig fhionn | fionn | gruaig</annotation>
 		<annotation cp="👱‍♂" type="tts">fear: gruaig fhionn</annotation>
@@ -848,7 +899,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤦‍♂" type="tts">fear lena aghaidh ina bhos</annotation>
 		<annotation cp="🤦‍♀">aghaidh i mbos | baineann | bean | bean lena haghaidh i mbos | bean lena haghaidh ina bos | díchreideamh | mearú</annotation>
 		<annotation cp="🤦‍♀" type="tts">bean lena haghaidh ina bos</annotation>
-		<annotation cp="🤷">croith | croitheadh | duine ag croitheadh | guaillí | níl a fhios agam</annotation>
+		<annotation cp="🤷">croith | croitheadh | duine ag croitheadh | duine ag croitheadh a ghuaillí | guaillí | níl a fhios agam</annotation>
 		<annotation cp="🤷" type="tts">duine ag croitheadh a ghuaillí</annotation>
 		<annotation cp="🤷‍♂">aineolas | amhras | croitheach guaillí | fear | fear ag croitheadh | fear atá ag croitheadh a ghuaillí | is cuma</annotation>
 		<annotation cp="🤷‍♂" type="tts">fear ag croitheadh</annotation>
@@ -990,13 +1041,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👲" type="tts">fear le gua pi mao air</annotation>
 		<annotation cp="🧕">bean le caifirín | caifirín | hijab</annotation>
 		<annotation cp="🧕" type="tts">bean le caifirín</annotation>
-		<annotation cp="🤵">culaith | duine | duine le culaith air | duine nuaphósta</annotation>
+		<annotation cp="🤵">culaith | duine | duine a bhfuil culaith dhinnéir air | duine le culaith air | duine nuaphósta</annotation>
 		<annotation cp="🤵" type="tts">duine a bhfuil culaith dhinnéir air</annotation>
 		<annotation cp="🤵‍♂">culaith dhinnéir | fear | fear a bhfuil culaith dhinnéir air</annotation>
 		<annotation cp="🤵‍♂" type="tts">fear a bhfuil culaith dhinnéir air</annotation>
 		<annotation cp="🤵‍♀">bean | bean a bhfuil culaith dhinnéir uirthi | culaith dhinnéir</annotation>
 		<annotation cp="🤵‍♀" type="tts">bean a bhfuil culaith dhinnéir uirthi</annotation>
-		<annotation cp="👰">bainis | brídeach | brídeog le caille uirthi | caille | pósadh</annotation>
+		<annotation cp="👰">bainis | brídeach | brídeog le caille uirthi | caille | duine le caille air | pósadh</annotation>
 		<annotation cp="👰" type="tts">duine le caille air</annotation>
 		<annotation cp="👰‍♂">caille | fear | fear a bhfuil caille air</annotation>
 		<annotation cp="👰‍♂" type="tts">fear a bhfuil caille air</annotation>
@@ -1778,7 +1829,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫖" type="tts">taephota</annotation>
 		<annotation cp="🍵">caife | cupán | cupán gan chluas | deoch | tae</annotation>
 		<annotation cp="🍵" type="tts">cupán gan chluas</annotation>
-		<annotation cp="🍶">bialann | buidéal agus cupán sake | buidéal sake | cupán | deoch | sake</annotation>
+		<annotation cp="🍶">bialann | buidéal agus cupán sake | buidéal sake | cupán | deoch | sáicí | sake</annotation>
 		<annotation cp="🍶" type="tts">sáicí</annotation>
 		<annotation cp="🍾">ag popáil | beár | buidéal | buidéal le corc ag popáil | corc | deoch</annotation>
 		<annotation cp="🍾" type="tts">buidéal le corc ag popáil</annotation>
@@ -1792,15 +1843,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍺" type="tts">pionta beorach</annotation>
 		<annotation cp="🍻">deochanna | gloiní beorach | teach tábhairne</annotation>
 		<annotation cp="🍻" type="tts">gloiní beorach</annotation>
-		<annotation cp="🥂">champagne | deochanna | gligleáil | gloiní | sláinte</annotation>
+		<annotation cp="🥂">champagne | deochanna | gligleáil | gloiní | gloiní a ghligleáil | sláinte</annotation>
 		<annotation cp="🥂" type="tts">gloiní a ghligleáil</annotation>
 		<annotation cp="🥃">deoch | fuisce | gloine | uisce beatha</annotation>
 		<annotation cp="🥃" type="tts">gloine</annotation>
 		<annotation cp="🥤">cupán le sop | deoch shóide | sú</annotation>
 		<annotation cp="🥤" type="tts">cupán le sop</annotation>
-		<annotation cp="🧋">bainne | bolgán | péarla | tae</annotation>
+		<annotation cp="🧋" draft="contributed">tae bolgán</annotation>
 		<annotation cp="🧋" type="tts" draft="contributed">tae bolgán</annotation>
-		<annotation cp="🧃">bosca | deoch | milis | sop | sú</annotation>
+		<annotation cp="🧃">bosca | bosca dí | deoch | milis | sop | sú</annotation>
 		<annotation cp="🧃" type="tts">bosca dí</annotation>
 		<annotation cp="🧉">deoch | maité</annotation>
 		<annotation cp="🧉" type="tts">maité</annotation>
@@ -1900,7 +1951,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏰" type="tts">caisleán Eorpach</annotation>
 		<annotation cp="💒">bainis | croí | grá | pósadh | séipéal</annotation>
 		<annotation cp="💒" type="tts">bainis</annotation>
-		<annotation cp="🗼">Tóiceo | Túr</annotation>
+		<annotation cp="🗼">Tóiceo | Túr | Túr Thóiceo</annotation>
 		<annotation cp="🗼" type="tts">Túr Thóiceo</annotation>
 		<annotation cp="🗽">dealbh | Dealbh na Saoirse | saoirse</annotation>
 		<annotation cp="🗽" type="tts">Dealbh na Saoirse</annotation>
@@ -2248,7 +2299,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💧" type="tts">braoinín</annotation>
 		<annotation cp="🌊">farraige | muir | tonn | tonn san uisce | uisce</annotation>
 		<annotation cp="🌊" type="tts">tonn san uisce</annotation>
-		<annotation cp="🎃">cóisir | Oíche Shamhna | puimcín | Seán na Gealaí | tine ghealáin</annotation>
+		<annotation cp="🎃">cóisir | Oíche Shamhna | puimcín | Seán na gealaí | Seán na Gealaí | tine ghealáin</annotation>
 		<annotation cp="🎃" type="tts">Seán na gealaí</annotation>
 		<annotation cp="🎄">ceiliúradh | crann | crann Nollag | Nollaig</annotation>
 		<annotation cp="🎄" type="tts">crann Nollag</annotation>
@@ -2264,7 +2315,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎈" type="tts">balún</annotation>
 		<annotation cp="🎉">ceiliúradh | cóisir | pléiscín | pléiscín cóisire</annotation>
 		<annotation cp="🎉" type="tts">pléiscín cóisire</annotation>
-		<annotation cp="🎊">bainis | coinfití | pósadh</annotation>
+		<annotation cp="🎊">bainis | coinfití | meall coinfití | pósadh</annotation>
 		<annotation cp="🎊" type="tts">meall coinfití</annotation>
 		<annotation cp="🎋">céiliúradh | crann tanabata | maisiúchán | stiallacha páipéir</annotation>
 		<annotation cp="🎋" type="tts">crann tanabata</annotation>
@@ -2276,7 +2327,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎏" type="tts">sraoilleán éisc</annotation>
 		<annotation cp="🎐">ceiliúradh | clingíní | clingíní gaoithe</annotation>
 		<annotation cp="🎐" type="tts">clingíní gaoithe</annotation>
-		<annotation cp="🎑">amharc ar an ngealach | féile na gealaí | gealach</annotation>
+		<annotation cp="🎑">amharc ar an ngealach | deasghnáth amhairc ar an ngealach | féile na gealaí | gealach</annotation>
 		<annotation cp="🎑" type="tts">deasghnáth amhairc ar an ngealach</annotation>
 		<annotation cp="🧧">ádh mór | airgead | bronntanas | clúdach litreach dearg | hóngbāo | lai see</annotation>
 		<annotation cp="🧧" type="tts">clúdach litreach dearg</annotation>
@@ -2336,7 +2387,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏸" type="tts">badmantan</annotation>
 		<annotation cp="🥊">dornálaíocht | lámhainn | lámhainn dornálaíochta | miteog | Muhammad Ali | spórt</annotation>
 		<annotation cp="🥊" type="tts">lámhainn dornálaíochta</annotation>
-		<annotation cp="🥋">crios dubh | ealaín chomhraic | júdó | karate | spórt</annotation>
+		<annotation cp="🥋">crios dubh | culaith ealaíne troda | ealaín chomhraic | júdó | karate | spórt</annotation>
 		<annotation cp="🥋" type="tts">culaith ealaíne troda</annotation>
 		<annotation cp="🥅">cúl | liontán | spórt</annotation>
 		<annotation cp="🥅" type="tts">cúl</annotation>
@@ -2356,7 +2407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛷" type="tts">sleamhnán</annotation>
 		<annotation cp="🥌">cloch churlála | cluiche cloch</annotation>
 		<annotation cp="🥌" type="tts">cloch churlála</annotation>
-		<annotation cp="🎯">cluiche | sprioc | súil ghloine | súil sprice</annotation>
+		<annotation cp="🎯">buille díreach | cluiche | sprioc | súil ghloine | súil sprice</annotation>
 		<annotation cp="🎯" type="tts">buille díreach</annotation>
 		<annotation cp="🪀">athraigh | bréagán | yó-yó</annotation>
 		<annotation cp="🪀" type="tts">yó-yó</annotation>
@@ -2566,7 +2617,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📲" type="tts">guthán le saighead</annotation>
 		<annotation cp="☎">fón | teileafón</annotation>
 		<annotation cp="☎" type="tts">teileafón</annotation>
-		<annotation cp="📞">cumarsáid | fón | glacadán | guthán | teileafón</annotation>
+		<annotation cp="📞">cumarsáid | fón | glacadán | glacadán fóin | guthán | teileafón</annotation>
 		<annotation cp="📞" type="tts">glacadán fóin</annotation>
 		<annotation cp="📟">cumarsáid | glaoire</annotation>
 		<annotation cp="📟" type="tts">glaoire</annotation>
@@ -2818,7 +2869,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗜" type="tts">clampa</annotation>
 		<annotation cp="⚖">ceartas | comthromaíocht | Libra | scála | scála cothromaíochta | stoidiaca</annotation>
 		<annotation cp="⚖" type="tts">scála</annotation>
-		<annotation cp="🦯">cána | dall | inrochtaineacht</annotation>
+		<annotation cp="🦯">cána | cána bán | dall | inrochtaineacht</annotation>
 		<annotation cp="🦯" type="tts">cána bán</annotation>
 		<annotation cp="🔗">nasc</annotation>
 		<annotation cp="🔗" type="tts">nasc</annotation>
@@ -3004,7 +3055,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔙" type="tts">saighead SIAR</annotation>
 		<annotation cp="🔚">deireadh agus saighead ar chlé | saighead DEIRIDH</annotation>
 		<annotation cp="🔚" type="tts">saighead DEIRIDH</annotation>
-		<annotation cp="🔛">ar siúl | marc | on | saighead</annotation>
+		<annotation cp="🔛">ar siúl | marc | on | saighead | saighead AR SIÚL!</annotation>
 		<annotation cp="🔛" type="tts">saighead AR SIÚL!</annotation>
 		<annotation cp="🔜">go luath agus saighead ar dheis | saighead GO LUATH</annotation>
 		<annotation cp="🔜" type="tts">saighead GO LUATH</annotation>
@@ -3112,7 +3163,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">comhartha baineann</annotation>
 		<annotation cp="♂">comhartha fearann | comhartha fireann | fear | fearann</annotation>
 		<annotation cp="♂" type="tts">comhartha fireann</annotation>
-		<annotation cp="⚧" draft="contributed">siombail thrasinsnceach</annotation>
+		<annotation cp="⚧">siombail thrasinsnce | siombail thrasinsnceach</annotation>
 		<annotation cp="⚧" type="tts">siombail thrasinsnce</annotation>
 		<annotation cp="✖">cealaigh | comhartha iolrúcháin | iolrú | iolrúchán | iolrúchán x trom | x</annotation>
 		<annotation cp="✖" type="tts">comhartha iolrúcháin</annotation>
@@ -3120,7 +3171,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="➕" type="tts">móide</annotation>
 		<annotation cp="➖">- | comhartha | lúide | mata</annotation>
 		<annotation cp="➖" type="tts">lúide</annotation>
-		<annotation cp="➗">÷ | comhartha | comhartha roinnte | mata | roinn</annotation>
+		<annotation cp="➗">÷ | comhartha | mata | roinn | roinnte</annotation>
 		<annotation cp="➗" type="tts">roinnte</annotation>
 		<annotation cp="♾">éigríoch | gan srian | go deo | uilíoch</annotation>
 		<annotation cp="♾" type="tts">éigríoch</annotation>
@@ -3128,13 +3179,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‼" type="tts">comhartha uaillbhreasa dúbailte</annotation>
 		<annotation cp="⁉">!? | comhartha ceiste agus uaillbhreasa | exclamation | mark | punctuation | question</annotation>
 		<annotation cp="⁉" type="tts">comhartha ceiste agus uaillbhreasa</annotation>
-		<annotation cp="❓">? | ceist | comhartha ceiste | marc | poncaíocht</annotation>
+		<annotation cp="❓">? | ceist | comhartha ceiste | comhartha ceiste dearg | marc | poncaíocht</annotation>
 		<annotation cp="❓" type="tts">comhartha ceiste dearg</annotation>
 		<annotation cp="❔">? | comhartha ceiste bán | imlínithe | marc | poncaíocht</annotation>
 		<annotation cp="❔" type="tts">comhartha ceiste bán</annotation>
 		<annotation cp="❕">! | comhartha uailbhreasa | comhartha uailbhresa bán | comhartha uaillbhreasa bán | imlíntieh | poncaíocht</annotation>
 		<annotation cp="❕" type="tts">comhartha uailbhresa bán</annotation>
-		<annotation cp="❗">! | comhartha uaillbhreasa | marc | poncaíocht</annotation>
+		<annotation cp="❗">! | comhartha uaillbhreasa | comhartha uaillbhreasa dearg | marc | poncaíocht</annotation>
 		<annotation cp="❗" type="tts">comhartha uaillbhreasa dearg</annotation>
 		<annotation cp="〰">corrach | dais | dais chorrach | fuaim-mharc fada</annotation>
 		<annotation cp="〰" type="tts">dais chorrach</annotation>
@@ -3282,7 +3333,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚪" type="tts">ciorcal bán</annotation>
 		<annotation cp="🟥">cearnóg dhearg</annotation>
 		<annotation cp="🟥" type="tts">cearnóg dhearg</annotation>
-		<annotation cp="🟧">cearnóg | flannbhuí | oráiste</annotation>
+		<annotation cp="🟧">cearnóg | cearnóg fhlannbhuí | flannbhuí | oráiste</annotation>
 		<annotation cp="🟧" type="tts">cearnóg fhlannbhuí</annotation>
 		<annotation cp="🟨">buí | cearnóg | cearnóg bhuí</annotation>
 		<annotation cp="🟨" type="tts">cearnóg bhuí</annotation>
@@ -3354,44 +3405,44 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts" draft="contributed">punt</annotation>
 		<annotation cp="¥" draft="contributed">yen</annotation>
 		<annotation cp="¥" type="tts" draft="contributed">yen</annotation>
-		<annotation cp="₢" draft="contributed">airgeadra | BRB</annotation>
+		<annotation cp="₢" draft="contributed">cruzeiro</annotation>
 		<annotation cp="₢" type="tts" draft="contributed">cruzeiro</annotation>
-		<annotation cp="₣" draft="contributed">airgeadra | franc</annotation>
+		<annotation cp="₣" draft="contributed">franc na Fraince</annotation>
 		<annotation cp="₣" type="tts" draft="contributed">franc na Fraince</annotation>
-		<annotation cp="₤" draft="contributed">airgeadra</annotation>
+		<annotation cp="₤" draft="contributed">lira</annotation>
 		<annotation cp="₤" type="tts" draft="contributed">lira</annotation>
 		<annotation cp="₥">mil</annotation>
 		<annotation cp="₥" type="tts">mil</annotation>
-		<annotation cp="₩">KPW | KRW</annotation>
+		<annotation cp="₩">KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€" draft="contributed">euro</annotation>
 		<annotation cp="€" type="tts" draft="contributed">euro</annotation>
-		<annotation cp="₰" draft="contributed">airgeadra | pfennig | pingin</annotation>
+		<annotation cp="₰" draft="contributed">pingin na Gearmáine</annotation>
 		<annotation cp="₰" type="tts" draft="contributed">pingin na Gearmáine</annotation>
 		<annotation cp="₱">peso</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
-		<annotation cp="₳" draft="contributed">airgeadra | ARA</annotation>
+		<annotation cp="₳" draft="contributed">austral</annotation>
 		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
 		<annotation cp="₶" draft="contributed">airgeadra</annotation>
-		<annotation cp="₷" draft="contributed">airgeadra</annotation>
+		<annotation cp="₷" draft="contributed">spesmilo</annotation>
 		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
 		<annotation cp="₹" draft="contributed">rúipí na hIndia</annotation>
 		<annotation cp="₹" type="tts" draft="contributed">rúipí na hIndia</annotation>
 		<annotation cp="₽" draft="contributed">rúbal</annotation>
 		<annotation cp="₽" type="tts" draft="contributed">rúbal</annotation>
-		<annotation cp="₿">BTC</annotation>
+		<annotation cp="₿">bonn giotáin | BTC</annotation>
 		<annotation cp="₿" type="tts">bonn giotáin</annotation>
-		<annotation cp="₨" draft="contributed">airgeadra</annotation>
+		<annotation cp="₨" draft="contributed">rúipí</annotation>
 		<annotation cp="₨" type="tts" draft="contributed">rúipí</annotation>
-		<annotation cp="﷼" draft="contributed">airgeadra</annotation>
+		<annotation cp="﷼" draft="contributed">rial</annotation>
 		<annotation cp="﷼" type="tts" draft="contributed">rial</annotation>
-		<annotation cp="¹">aon | forscríofa</annotation>
+		<annotation cp="¹" draft="contributed">aon forscríofa</annotation>
 		<annotation cp="¹" type="tts" draft="contributed">aon forscríofa</annotation>
-		<annotation cp="²">cearnaithe | dó forscríofa</annotation>
+		<annotation cp="²" draft="contributed">dó forscríofa</annotation>
 		<annotation cp="²" type="tts" draft="contributed">dó forscríofa</annotation>
-		<annotation cp="³">ciúbaithe | trí forscríofa</annotation>
+		<annotation cp="³" draft="contributed">trí forscríofa</annotation>
 		<annotation cp="³" type="tts" draft="contributed">trí forscríofa</annotation>
-		<annotation cp="µ">comhartha micre | tomhas</annotation>
+		<annotation cp="µ" draft="contributed">comhartha micre</annotation>
 		<annotation cp="µ" type="tts" draft="contributed">comhartha micre</annotation>
 	</annotations>
 </ldml>

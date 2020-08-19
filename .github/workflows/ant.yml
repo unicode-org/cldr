@@ -3,8 +3,6 @@
 # TODO:
 # - [ ] parameterize unittest so you can pass specific options (i.e. exhaustive) on manual run
 # - [ ] parameterize datacheck so you can pass specific options (i.e. -z) on manual run
-# - [ ] parallelize build for great speed
-# - [ ] add deployment workflow
 
 # Docs: https://docs.github.com/en/actions/language-and-framework-guides/building-and-testing-java-with-ant
 
@@ -14,12 +12,14 @@ name: cldr-ant
 # or PR against master.
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
     branches: '*'
 
 jobs:
   build:
+    # build everything
     runs-on: ubuntu-latest
     steps:
     # Setup
@@ -50,8 +50,6 @@ jobs:
       with:
         name: cldr-tools
         path: tools/java/cldr.jar
-    - name: Build tools/cldr-unittest
-      run: ant -noinput -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd) tests
     # Now, SurveyTool
     - name: Build tools/cldr-apps
       run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml war
@@ -60,10 +58,92 @@ jobs:
       with:
         name: cldr-apps
         path: tools/cldr-apps/cldr-apps.war
+  surveytest:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true # important!
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Download cldr.jar
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-tools
+        path: tools/java/dist/for-build
+    - name: Download cldr-apps.war
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-apps
+        path: tools/java/dist/for-build
+    # Cache for Tomcat tarball (load on cache hit, else store at end of job)
+    - name: Cache for Tomcat tarball
+      id: cache-tomcat
+      uses: actions/cache@v2
+      with:
+        path: tomcat-tarball
+        key: ${{ runner.os }}-tomcat-tarball
+    - name: Download Tomcat # only on cache miss
+      if: steps.cache-tomcat.outputs.cache-hit != 'true'
+      run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - ; cd .. '
+    - name: Alias Tomcat directory
+      run: ln -svf tomcat-tarball/apache-tomcat-* tomcat
+    - name: Survey Tool Check
+      run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml check
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true # important!
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Download cldr.jar
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-tools
+        path: tools/java/dist/for-build
+    - name: Debug
+      run: find tools/java/dist/for-build -ls
+    - name: Build tools/cldr-unittest
+      run: ant -noinput -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd) tests
     # Now run tests
     - name: CLDR Unit Test
       run: ant -noinput unittest -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd)
     - name: CLDR Data Check
       run: ant -noinput datacheck -f tools/cldr-unittest/build.xml -DCLDR_DIR=$(pwd)
-    - name: Survey Tool Check
-      run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml check
+  deploy:
+    needs:
+      - build
+      - surveytest
+      - test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download cldr-apps.war
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-apps
+    - name: Deploy to cldr-smoke2 (experimental)
+      # Deploys only on push to master.
+      # Does not deploy for PRs.
+      if: ${{ github.event_name == 'push' }}
+      shell: bash
+      env:
+        # the RSA key for connecting
+        RSA_KEY_SURVEYTOOL: ${{ secrets.RSA_KEY_SURVEYTOOL }}
+        # the SSH port
+        SMOKETEST_PORT: ${{ secrets.SMOKETEST_PORT }}
+        # the SSH host
+        SMOKETEST_HOST: ${{ secrets.SMOKETEST_HOST }}
+        # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+        SMOKETEST_KNOWNHOSTS: ${{ secrets.SMOKETEST_KNOWNHOSTS }}
+      run: |
+        echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
+        echo "${SMOKETEST_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SMOKETEST_PORT} surveytool@${SMOKETEST_HOST} sh /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${GITHUB_SHA}

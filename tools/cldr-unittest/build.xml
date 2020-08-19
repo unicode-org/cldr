@@ -43,6 +43,9 @@
 			<pathelement path="${java.class.path}/" />
 			<pathelement path="${build.dir}" />
 			<pathelement path="${CLDR_TOOLS}/classes" />
+                        <!-- tools/java/dist/for-build/ can contain cldr.jar in lieu of the
+                             classes dir. Must be earlier than other libs. -->
+			<fileset erroronmissingdir="false" dir="${CLDR_TOOLS}/dist/for-build" includes="cldr.jar" />
 			<fileset dir="${CLDR_TOOLS}/libs" includes="*.jar" /> <!-- all libs -->
 		</path>
 	</target>

@@ -52,6 +52,10 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testParentLocales() {
+        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+            return;
+        }
+
         assertCloser("es_AR", "es_419", "es_ES");
         assertCloser("es_AR", "es_419", "es");
 
@@ -119,6 +123,10 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testenGB() {
+        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+            return;
+        }
+
         final LocaleMatcher matcher = newLocaleMatcher("fr, en, en_GB, es_MX, es_419, es");
         assertEquals("en_GB", matcher.getBestMatch("en_NZ").toString());
         assertEquals("es", matcher.getBestMatch("es_ES").toString());
@@ -185,6 +193,10 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testRegionalSpecials() {
+        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+            return;
+        }
+
         // verify that en_AU is closer to en_GB than to en (which is en_US)
         final LocaleMatcher matcher = newLocaleMatcher("en, en_GB, es, es_419");
         assertEquals("es_MX in {en, en_GB, es, es_419}", new ULocale("es_419"), matcher.getBestMatch("es_MX"));
@@ -193,6 +205,10 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testHK() {
+        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+            return;
+        }
+
         // HK and MO are closer to each other for Hant than to TW
         final LocaleMatcher matcher = newLocaleMatcher("zh, zh_TW, zh_MO");
         assertEquals("zh_HK in {zh, zh_TW, zh_MO}", ZH_MO, matcher.getBestMatch("zh_HK"));
@@ -389,6 +405,10 @@ public class LocaleMatcherTest extends TestFmwk {
     }
 
     public void testGetBestMatch_regionDistance() {
+        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+            return;
+        }
+
         LocaleMatcher matcher = newLocaleMatcher("es_AR, es");
         assertEquals("es_AR", matcher.getBestMatch("es_MX").toString());
 
@@ -421,7 +441,7 @@ public class LocaleMatcherTest extends TestFmwk {
      */
     public void testExactMatches() {
         String lastBase = "";
-        TreeSet<ULocale> sorted = new TreeSet<ULocale>();
+        TreeSet<ULocale> sorted = new TreeSet<>();
         for (ULocale loc : ULocale.getAvailableLocales()) {
             String language = loc.getLanguage();
             if (!lastBase.equals(language)) {
@@ -504,9 +524,9 @@ public class LocaleMatcherTest extends TestFmwk {
 
     public void testGetBestMatchForPortuguese() {
 
-//        if (logKnownIssue("Cldrbug:8811", "Problems with LocaleMatcher test")) {
-//            return;
-//        }
+        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+            return;
+        }
 
         final LocaleMatcher withPTExplicit = newLocaleMatcher("pt_PT, pt_BR, es, es_419");
         final LocaleMatcher withPTImplicit = newLocaleMatcher("pt_PT, pt, es, es_419");

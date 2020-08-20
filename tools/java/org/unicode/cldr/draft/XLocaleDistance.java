@@ -56,7 +56,7 @@ public class XLocaleDistance {
     static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
 
     private static List<R4<String, String, Integer, Boolean>> xGetLanguageMatcherData() {
-        return SDI.getLanguageMatcherData("written");
+        return SDI.getLanguageMatcherData("written_new");
     }
 
     static final Multimap<String, String> CONTAINER_TO_CONTAINED;

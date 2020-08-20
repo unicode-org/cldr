@@ -42,7 +42,7 @@ public class LanguageInfoTest extends TestFmwk {
 
     public void testGetData() {
         Set<Pair<String, String>> alreadySeen = new HashSet<>();
-        for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
+        for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written_new")) {
             //            assertTrue("check bounds", foo.get2() >= 0 && foo.get2() <= 100);
 
             String desired = foo.get0();
@@ -75,7 +75,7 @@ public class LanguageInfoTest extends TestFmwk {
     }
 
     public static String getName(String item) {
-        return item.contains("*") ? "n/a" : testInfo.getEnglish().getName(item);
+        return item.contains("*") ? "n/a" : item.contains("$") ? item : testInfo.getEnglish().getName(item);
     }
 
     public static void main(String[] args) {
@@ -127,8 +127,10 @@ public class LanguageInfoTest extends TestFmwk {
     static final ULocale MUL = new ULocale("mul");
 
     public void testFallbacks() {
-
-        for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
+        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+            return;
+        }
+        for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written_new")) {
             String rawDesired = foo.get0();
             if (rawDesired.contains("*")) {
                 continue;

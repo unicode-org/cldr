@@ -422,7 +422,15 @@ public class ChartGrammaticalForms extends Chart {
                                         localizedUnitPattern = unitPatternOut.value;
                                         String placeholderPattern = placeholderMatcher.group();
 
-                                        String combined = UnitConverter.combineLowercasing(new ULocale(locale), "long", localizedPowerPattern, localizedUnitPattern);
+                                        String combined;
+                                        try {
+                                            combined = UnitConverter.combineLowercasing(new ULocale(locale), "long", localizedPowerPattern, localizedUnitPattern);
+                                        } catch (Exception e) {
+                                           throw new IllegalArgumentException(locale + ") Can't combine "
+                                               + "localizedPowerPattern=«" + localizedPowerPattern
+                                               + "» with localizedUnitPattern=«"+ localizedUnitPattern + "»"
+                                               );
+                                        }
                                         String combinedWithPlaceholder = UnitConverter.addPlaceholder(combined, placeholderPattern, placeholderPosition);
 
                                         String sample = MessageFormat.format(combinedWithPlaceholder, decFormat.format(samplePlural));

@@ -17,6 +17,9 @@ import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -138,20 +141,20 @@ public class CldrUtility {
         boolean handle(String line) throws Exception;
     }
 
-    public static String getPath(String path, String filename) {
-        if (path == null) {
+    public static String getPath(String fileOrDir, String filename) {
+        // Required for cases where a system property is read but not default is given.
+        // TODO: Fix callers to not fail silently if properties are missing.
+        if (fileOrDir == null) {
             return null;
         }
-        final File file = filename == null ? new File(path)
-            : new File(path, filename);
-        try {
-            if (DEBUG_MISSING_DIRECTORIES && !file.exists()) {
-                System.err.println("Warning: directory doesn't exist: " + file);
-            }
-            return file.getCanonicalPath() + File.separatorChar;
-        } catch (IOException e) {
-            return file.getPath() + File.separatorChar;
+        Path path = Paths.get(fileOrDir);
+        if (filename != null) {
+            path = path.resolve(filename);
         }
+        if (DEBUG_MISSING_DIRECTORIES && !Files.exists(path)) {
+            System.err.println("Warning: directory doesn't exist: " + path);
+        }
+        return PathUtilities.getNormalizedPathString(path) + File.separatorChar;
     }
 
     static String getPath(String path) {
@@ -606,7 +609,7 @@ public class CldrUtility {
             } else {
                 output.append(separator);
             }
-            output.append(transform != null ? transform.transform(item) : item == null ? item : item.toString());
+            output.append(transform != null ? transform.transform(item) : item);
         }
         return output.toString();
     }
@@ -644,7 +647,7 @@ public class CldrUtility {
      */
     public static String getCanonicalName(String file) {
         try {
-            return new File(file).getCanonicalPath();
+            return PathUtilities.getNormalizedPathString(file);
         } catch (Exception e) {
             return file;
         }
@@ -1271,18 +1274,18 @@ public class CldrUtility {
 
     public static String checkValidFile(String sourceDirectory, boolean checkForDirectory, String correction) {
         File file = null;
-        String canonicalPath = null;
+        String normalizedPath = null;
         try {
             file = new File(sourceDirectory);
-            canonicalPath = file.getCanonicalPath() + File.separatorChar;
+            normalizedPath = PathUtilities.getNormalizedPathString(file) + File.separatorChar;
         } catch (Exception e) {
         }
-        if (file == null || canonicalPath == null || checkForDirectory && !file.isDirectory()) {
+        if (file == null || normalizedPath == null || checkForDirectory && !file.isDirectory()) {
             throw new RuntimeException("Directory not found: " + sourceDirectory
-                + (canonicalPath == null ? "" : " => " + canonicalPath)
+                + (normalizedPath == null ? "" : " => " + normalizedPath)
                 + (correction == null ? "" : CldrUtility.LINE_SEPARATOR + correction));
         }
-        return canonicalPath;
+        return normalizedPath;
     }
 
     /**

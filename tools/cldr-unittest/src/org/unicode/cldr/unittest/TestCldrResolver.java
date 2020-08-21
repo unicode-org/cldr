@@ -151,18 +151,18 @@ public class TestCldrResolver extends TestFmwkPlus {
                 // Check to make sure that all paths from the tool-resolved
                 // version are
                 // also in the CLDR-resolved version
-                for (String canonicalPath : toolResolved.keySet()) {
+                for (String normalizedPath : toolResolved.keySet()) {
                     // Check if path should be ignored
-                    if (!shouldIgnorePath(canonicalPath, cldrResolved)) {
+                    if (!shouldIgnorePath(normalizedPath, cldrResolved)) {
                         assertTrue(
                             "Path "
-                                + canonicalPath
+                                + normalizedPath
                                 + " is present in tool resolved file for locale "
                                 + locale
                                 + " but not in CLDR resolved file.",
-                            cldrPaths.contains(canonicalPath)
+                            cldrPaths.contains(normalizedPath)
                                 || toolResolved
-                                    .get(canonicalPath)
+                                    .get(normalizedPath)
                                     .equals(CldrUtility.NO_INHERITANCE_MARKER));
                     }
                 }

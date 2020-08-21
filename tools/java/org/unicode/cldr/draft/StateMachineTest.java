@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.UnicodeSetBuilder.MyActions;
+import org.unicode.cldr.util.PathUtilities;
 
 import com.ibm.icu.text.UnicodeSet;
 
@@ -19,7 +20,7 @@ public class StateMachineTest {
     private static boolean SHOW_IF_ERROR = true;
 
     public static void main(String[] args) throws Exception {
-        System.out.println(new File(".").getCanonicalPath());
+        System.out.println(PathUtilities.getNormalizedPathString("."));
 
         BufferedReader in = FileUtilities.openUTF8Reader("../", "cldr-code/java/org/unicode/cldr/draft/UnicodeSetBuilderTests.txt");
         // icu4c-trunk/source/common/rbbirpt.txt

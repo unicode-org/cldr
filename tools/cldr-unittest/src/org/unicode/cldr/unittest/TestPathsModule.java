@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
@@ -62,7 +63,7 @@ public class TestPathsModule extends TestFmwk {
         // Only test against /main for now.
         File dir = new File(CLDRPaths.MAIN_DIRECTORY);
         for (File file : dir.listFiles()) {
-            String fullFileName = file.getCanonicalPath();
+            String fullFileName = PathUtilities.getNormalizedPathString(file);
             String filename = file.getName();
             if (filename.startsWith("#") || !filename.endsWith(".xml")
                 || !FILE_FILTER.reset(filename).find())

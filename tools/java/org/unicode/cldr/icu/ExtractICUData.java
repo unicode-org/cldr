@@ -28,6 +28,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 
@@ -86,7 +87,7 @@ public class ExtractICUData {
         getTranslitIndex(accumulatedItems);
 
         File translitSource = new File("C:\\cvsdata\\icu\\icu\\source\\data\\translit\\");
-        System.out.println("Source: " + translitSource.getCanonicalPath());
+        System.out.println("Source: " + PathUtilities.getNormalizedPathString(translitSource));
         File[] fileArray = translitSource.listFiles();
         List<Object> list = new ArrayList<>(Arrays.asList(fileArray));
 

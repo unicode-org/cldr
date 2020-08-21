@@ -74,8 +74,6 @@ public class CLDRPaths {
 
     public static final String UCD_DATA_DIRECTORY = CldrUtility.getPath(SVN_DIRECTORY + "unicodetools/unicodetools/data/");
 
-    public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
-
     /** Local files, not backed up on either Github or SVN **/
 
     public static final String LOCAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("LOCAL_DIR", BASE_DIRECTORY + "/../"));

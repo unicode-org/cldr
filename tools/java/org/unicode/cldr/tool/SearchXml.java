@@ -18,6 +18,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
@@ -211,7 +212,7 @@ public class SearchXml {
             }
 
             String fileName = file.getName();
-            String canonicalFile = file.getCanonicalPath();
+            String canonicalFile = PathUtilities.getNormalizedPathString(file);
 
             if (!fileName.endsWith(".xml")) {
                 continue;
@@ -254,7 +255,7 @@ public class SearchXml {
         ListHandler listHandler = new ListHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(listHandler);
         try {
-            String fileName2 = directory.getCanonicalPath() + "/" + fileName;
+            String fileName2 = PathUtilities.getNormalizedPathString(directory) + "/" + fileName;
             xfr.read(fileName2, XMLFileReader.CONTENT_HANDLER
                 | XMLFileReader.ERROR_HANDLER, false);
         } catch (Exception e) {

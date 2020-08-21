@@ -45,15 +45,15 @@ public class FileReaders {
             return bufferedReader;
         } catch (Exception e) {
             String className = class1 == null ? null : class1.getCanonicalName();
-            String canonicalName = null;
+            String normalizedPath = null;
             try {
                 String relativeFileName = FileReaders.getRelativeFileName(class1, "../util/");
-                canonicalName = new File(relativeFileName).getCanonicalPath();
+                normalizedPath = PathUtilities.getNormalizedPathString(relativeFileName);
             } catch (Exception e1) {
                 throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
                     + className, e);
             }
-            throw new IllegalArgumentException("Couldn't open file " + file + "; in path " + canonicalName + "; relative to class: "
+            throw new IllegalArgumentException("Couldn't open file " + file + "; in path " + normalizedPath + "; relative to class: "
                 + className, e);
         }
     }

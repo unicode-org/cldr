@@ -6,6 +6,8 @@
  */
 package org.unicode.cldr.test;
 
+import static org.unicode.cldr.util.PathUtilities.getNormalizedPath;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,6 +32,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
@@ -816,7 +819,7 @@ public class CLDRTest extends TestFmwk {
                 out.close();
                 // String s = getIDAndLocalization(missing);
                 String message = "missing localizations, creating file"
-                    + new File(CLDRPaths.GEN_DIRECTORY + "missing/", filename).getCanonicalPath();
+                    + getNormalizedPath(CLDRPaths.GEN_DIRECTORY, "missing", filename);
                 if (failureCount[0] > 0)
                     warnln(getLocaleAndName(locale) + "\t" + message);
                 else

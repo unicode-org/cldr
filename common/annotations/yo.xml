@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -11,6 +13,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="yo"/>
 	</identity>
 	<annotations>
+		<annotation cp="🏻">amọ́láwọ̀ | irú 1-2</annotation>
+		<annotation cp="🏻" type="tts">amọ́lára</annotation>
+		<annotation cp="🏼">amọ́láwọ̀ | irú 3</annotation>
+		<annotation cp="🏼" type="tts">amọ́lára díẹ̀</annotation>
+		<annotation cp="🏽">amọ́láwọ̀ | irú 4</annotation>
+		<annotation cp="🏽" type="tts">amọ́láwọ̀ díẹ̀</annotation>
+		<annotation cp="🏾">amọ́láwọ̀ | irú 5</annotation>
+		<annotation cp="🏾" type="tts">adúláwọ̀ díẹ̀</annotation>
+		<annotation cp="🏿">amọ́láwọ̀ | irú 6</annotation>
+		<annotation cp="🏿" type="tts">adúláwọ̀</annotation>
 		<annotation cp="‾">apọju</annotation>
 		<annotation cp="‾" type="tts">apọju</annotation>
 		<annotation cp="‽">interrobang</annotation>
@@ -19,5 +31,2519 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‸" type="tts">itọju</annotation>
 		<annotation cp="⁂">asterism</annotation>
 		<annotation cp="⁂" type="tts">asterism</annotation>
+		<annotation cp="😀">fẹyín | ojú</annotation>
+		<annotation cp="😀" type="tts">Ojú tó rẹ́rìn</annotation>
+		<annotation cp="😃">ẹnu | ojú | ṣí | rẹ́rìń músẹ́</annotation>
+		<annotation cp="😃" type="tts">Ojú tó rẹ́rìn Pẹ̀lú Ẹnu Lílà sílẹ̀</annotation>
+		<annotation cp="😄">ẹnu | ẹyinjú | ojú | ṣí | rẹ́rìń músẹ́</annotation>
+		<annotation cp="😄" type="tts">ojú tó ń rẹ́rìń músẹ́  pẹ̀lú ẹnu lílà sílẹ̀ àti ẹyinjú tó ń rkrìń músẹ́</annotation>
+		<annotation cp="😁">fẹyín | ẹyinjú | ojú | rẹ́rìn músẹ́</annotation>
+		<annotation cp="😁" type="tts">Ojú tó fẹyín pẹ̀lú Ẹyinjú tó rẹ́rìn músẹ́</annotation>
+		<annotation cp="😆">ẹnu | ẹ̀rín | ìtẹ́larùn | ojú | rẹ́rìń músẹ́</annotation>
+		<annotation cp="😆" type="tts">ojú tó ń rẹ́rìń músẹ́  pẹ̀lú ẹnu lílà sílẹ̀ àti òógùn tútù</annotation>
+		<annotation cp="😅">òtútù | ojú | ṣí | rẹ́rìń músẹ́ | òógùn</annotation>
+		<annotation cp="😅" type="tts">ojú tó ń rẹ́rìń  pẹ̀lú ẹnu lílà sílẹ̀ àti òógùn</annotation>
+		<annotation cp="🤣">ojú | rẹ́rìń | yíyí | ilẹ̀</annotation>
+		<annotation cp="🤣" type="tts">Yíyí ní ilẹ̀nlẹ̀ tún rẹ́rìn</annotation>
+		<annotation cp="😂">ẹkún | àyọ̀ | ojú | ẹ̀rín</annotation>
+		<annotation cp="😂" type="tts">Ojú pẹ̀lú ẹkún ayọ̀</annotation>
+		<annotation cp="🙂">ojú | rẹ́rín músẹ́</annotation>
+		<annotation cp="🙂" type="tts">Oju Ti O N Rẹrin Muṣẹn</annotation>
+		<annotation cp="🙃">ojú | dojú kodò</annotation>
+		<annotation cp="🙃" type="tts">Oju Ti O Rọ walẹ</annotation>
+		<annotation cp="😉">ṣẹ́jú | ojú</annotation>
+		<annotation cp="😉" type="tts">Ojú tó ṣẹ́jù</annotation>
+		<annotation cp="😊">ẹyinjú | ojú | rẹ́rìń músẹ́ | rẹ́rìń ìtìjù</annotation>
+		<annotation cp="😊" type="tts">Ojú tó rẹ́rìn Músẹ́ Pẹ̀lú Ẹyinjú tó rẹ́rìn Músẹ́</annotation>
+		<annotation cp="😇">àlá | báwo | rẹ́rìn músẹ́ | aláìṣẹ̀ | àńgẹ́lì | ojú | àla fú ọmọdé</annotation>
+		<annotation cp="😇" type="tts">Oju Ẹrin Ati Bawo</annotation>
+		<annotation cp="😍">ẹyinjú | ojú | rẹ́rìn músẹ́ | ìfẹ́</annotation>
+		<annotation cp="😍" type="tts">Oju Ti O N Rẹrin Pẹlu awọn oju Ọkan</annotation>
+		<annotation cp="🤩">Rẹ́rìn-ín ìyàlé̩nu | ojú | ìràwọ̀ | ẹyinjú</annotation>
+		<annotation cp="🤩" type="tts">Pípa pè̩lú ìràwọ̀</annotation>
+		<annotation cp="😘">ojú | ìfẹnukonu</annotation>
+		<annotation cp="😘" type="tts">Oju Ti O N Fẹ Ifẹnuko</annotation>
+		<annotation cp="😗">ojú | ìfẹnukonu</annotation>
+		<annotation cp="😗" type="tts">Ojú tó Fẹnuko ẹnu</annotation>
+		<annotation cp="☺">ìlànà | ojú | rẹ́rìń músẹ́ | ìgbafẹ́</annotation>
+		<annotation cp="☺" type="tts">ojú tó ń rẹ́rìń músẹ́</annotation>
+		<annotation cp="😚">ẹyinjú | ojú | ti padé | ìfẹnukonu</annotation>
+		<annotation cp="😚" type="tts">Oju Ti O N Fẹnuko Pẹlu Awọn Oju didi</annotation>
+		<annotation cp="😙">ìfẹnukonu | rẹ́rìń músẹ́ | ẹyinjú | ojú</annotation>
+		<annotation cp="😙" type="tts">Ojú tó Fẹnuko ẹnu Pẹ̀lú Ẹyinjú tọ rẹ́rìn Músẹ́</annotation>
+		<annotation cp="😋">um | jíjẹ aládídùn | aládídùn | ojú | rẹ́rìń músẹ́ | yum</annotation>
+		<annotation cp="😋" type="tts">Oju Ti O N jẹ Ounjẹ Aladidun</annotation>
+		<annotation cp="😛">ahọ́n | ojú</annotation>
+		<annotation cp="😛" type="tts">Oju Ti Ahọn Ti O Yọ Sita</annotation>
+		<annotation cp="😜">ẹyinjú | yẹ̀yẹ́ | ojú | ṣẹ́jú | ahọ́n</annotation>
+		<annotation cp="😜" type="tts">ojú pẹ̀lú ahọ́n lílà sílẹ̀ àti ẹyinjú tí ń ṣẹ́jú</annotation>
+		<annotation cp="🤪">ojú | kékeré | Nlá</annotation>
+		<annotation cp="🤪" type="tts">Ojú aṣiwèrè</annotation>
+		<annotation cp="😝">ẹyinjú | ìtọ́wò | ojú | burújù | ahọ́n</annotation>
+		<annotation cp="😝" type="tts">ojú pẹ̀lú ahọ́n lílà sílẹ̀ àti ẹyinjú tó padé</annotation>
+		<annotation cp="🤑">ẹnu | ojú | owó</annotation>
+		<annotation cp="🤑" type="tts">Oju Ẹnu owo</annotation>
+		<annotation cp="🤗">fanimọ́ra | ojú</annotation>
+		<annotation cp="🤗" type="tts">oju Ti O fanimọra</annotation>
+		<annotation cp="🤭">Ikó̩</annotation>
+		<annotation cp="🤭" type="tts">Ojú tá fọwọ́ bo ẹnu</annotation>
+		<annotation cp="🤫">dákẹ́ | panu mọ́</annotation>
+		<annotation cp="🤫" type="tts">Ojú tó sùpò̩</annotation>
+		<annotation cp="🤔">ojú | ńronú</annotation>
+		<annotation cp="🤔" type="tts">Ojú tó Ronú</annotation>
+		<annotation cp="🤐">ẹnu | ojú | tìpa</annotation>
+		<annotation cp="🤐" type="tts">Oju Ẹni Ti A Tipa</annotation>
+		<annotation cp="🤨">Oníyèméjì | àìgbàgbọ́</annotation>
+		<annotation cp="🤨" type="tts">Ìrun ojú ta gbé sókè</annotation>
+		<annotation cp="😐">ojú | àìpani lẹ́rìń | àárín</annotation>
+		<annotation cp="😐" type="tts">Ojú Ìbíìbí</annotation>
+		<annotation cp="😑">àìfanimọ́ra | ojú | àìlè sọ̀rọ̀ | àìlèsọ̀rọ̀</annotation>
+		<annotation cp="😑" type="tts">Oju Ti Ko Fanimọra</annotation>
+		<annotation cp="😶">ẹnu | dáké | ojú</annotation>
+		<annotation cp="😶" type="tts">Ojú tí kò ní Ẹnu</annotation>
+		<annotation cp="😏">rẹ́rín àbòsí | ojú</annotation>
+		<annotation cp="😏" type="tts">Oju Ẹrin Abosi</annotation>
+		<annotation cp="😒">àìfanimọ́ra | ojú | àìdunú</annotation>
+		<annotation cp="😒" type="tts">Oju Aifanimọra</annotation>
+		<annotation cp="🙄">àwọn ẹyinjú | ojú | tó yín</annotation>
+		<annotation cp="🙄" type="tts">Ojú Pẹ̀lú Ẹyinjú tó yín</annotation>
+		<annotation cp="😬">ojú | ìfaro</annotation>
+		<annotation cp="😬" type="tts">Oju Ifaro</annotation>
+		<annotation cp="🤥">onímú gígùn | ojú | irọ́</annotation>
+		<annotation cp="🤥" type="tts">Oju Irọ</annotation>
+		<annotation cp="😌">ìtura | ojú</annotation>
+		<annotation cp="😌" type="tts">Oju Itura</annotation>
+		<annotation cp="😔">jákulẹ̀ | ìpòruru | ojú</annotation>
+		<annotation cp="😔" type="tts">Oju Ironu</annotation>
+		<annotation cp="😪">sùn | ojú</annotation>
+		<annotation cp="😪" type="tts">Oju Iloorun</annotation>
+		<annotation cp="🤤">ojú | adatọ</annotation>
+		<annotation cp="🤤" type="tts">oju adatọ</annotation>
+		<annotation cp="😴">ojú | sùn | sss</annotation>
+		<annotation cp="😴" type="tts">Oju Ti O N Sun</annotation>
+		<annotation cp="😷">dókítà | otútù | ìbòjú | ojú | ògùn | àárẹ̀</annotation>
+		<annotation cp="😷" type="tts">Oju Pẹlu Iboju Iṣoogun</annotation>
+		<annotation cp="🤒">ìlera | ojú | òṣùwọ̀n ìgbóná | àárẹ̀</annotation>
+		<annotation cp="🤒" type="tts">oju pẹlu oṣuwọn igbona</annotation>
+		<annotation cp="🤕">ìdì | farapa | ojú | egbò</annotation>
+		<annotation cp="🤕" type="tts">Oju Pẹlu Ori ti a de Lọja</annotation>
+		<annotation cp="🤢">èébì | ojú | àìlera</annotation>
+		<annotation cp="🤢" type="tts">Oju Ailera</annotation>
+		<annotation cp="🤮">èébì | àìsàn</annotation>
+		<annotation cp="🤮" type="tts">Èébì ajẹmọ́jú</annotation>
+		<annotation cp="🤧">gesundheit | ojú | sín</annotation>
+		<annotation cp="🤧" type="tts">Oju Sinsin</annotation>
+		<annotation cp="😵">ojú | itoogbe</annotation>
+		<annotation cp="😵" type="tts">Oju Itoogbe</annotation>
+		<annotation cp="🤯">Ìjayà</annotation>
+		<annotation cp="🤯" type="tts">Orí tó bú gbàmù</annotation>
+		<annotation cp="🤠">fìlà | adaran | ojú | obìnrin ẹlẹ́ṣin</annotation>
+		<annotation cp="🤠" type="tts">Oju Fila Adaran</annotation>
+		<annotation cp="😎">òrùn | ẹyinjú | ìbojú | mọ́lẹ̀ | àwọn gílásì | ojú | rẹ́rìń músẹ́ | àwọn gílásì òrùn | tutù</annotation>
+		<annotation cp="😎" type="tts">Oju Ti O N Rẹrin Pẹlu Digi Oju</annotation>
+		<annotation cp="🤓">ọ̀mọ̀wé tí kò jáfáfá | ojú | ọ̀mọ̀wé</annotation>
+		<annotation cp="🤓" type="tts">Oju Ọmọwe Ti Ko Jafafa</annotation>
+		<annotation cp="🧐">Sítọ́fì</annotation>
+		<annotation cp="🧐" type="tts">Ojú tó súnkì</annotation>
+		<annotation cp="😕">iporuru | ojú</annotation>
+		<annotation cp="😕" type="tts">Oju Iporuru</annotation>
+		<annotation cp="😟">ojú | ìdàmú</annotation>
+		<annotation cp="😟" type="tts">Oju Idamu</annotation>
+		<annotation cp="🙁">ojú | fajúro</annotation>
+		<annotation cp="🙁" type="tts">Oju Ifajuro Diẹ</annotation>
+		<annotation cp="☹">ojú | fajúro</annotation>
+		<annotation cp="☹" type="tts">ojú tó fajúro</annotation>
+		<annotation cp="😮">ẹnu | ojú | ṣí | kẹ́dùn</annotation>
+		<annotation cp="😮" type="tts">Oju Pẹlu Ẹnu Lila</annotation>
+		<annotation cp="😯">ìyàlẹ́nu | ojú | dákẹ́jẹ́</annotation>
+		<annotation cp="😯" type="tts">Oju Idakẹjẹ</annotation>
+		<annotation cp="😲">ìyàlẹ́nu | pátápátá | ojú | ìpaláyà</annotation>
+		<annotation cp="😲" type="tts">ojú ìyalẹnu</annotation>
+		<annotation cp="😳">ojú | yàlẹ́nu | ìdùnú</annotation>
+		<annotation cp="😳" type="tts">Oju Idunnu</annotation>
+		<annotation cp="😦">ẹnu | ojú | ṣí | fajúro</annotation>
+		<annotation cp="😦" type="tts">Oju Ti o Faro Pẹlu Ẹnu lila silẹ</annotation>
+		<annotation cp="😧">ojú | ìrora</annotation>
+		<annotation cp="😧" type="tts">ojú ìrora</annotation>
+		<annotation cp="😨">ojú | ìbẹ̀rù</annotation>
+		<annotation cp="😨" type="tts">Oju Ẹru</annotation>
+		<annotation cp="😰">ẹnu | sáré | tútù | búlù | ṣí | ojú | òógùn</annotation>
+		<annotation cp="😰" type="tts">ojú  pẹ̀lú ẹnu lílà sílẹ̀ àti òógùn tútù</annotation>
+		<annotation cp="😥">ìjákulẹ̀ | ojú | hmmm | ìtura</annotation>
+		<annotation cp="😥" type="tts">Oju Ijakulẹ Ṣugbọn Itura</annotation>
+		<annotation cp="😢">ẹkún | ìbànújẹ | ojú</annotation>
+		<annotation cp="😢" type="tts">Oju Ẹkun</annotation>
+		<annotation cp="😭">ẹkún | ìbànújẹ | ojú | sunkún</annotation>
+		<annotation cp="😭" type="tts">Oju Ti n Sunkun Gidi</annotation>
+		<annotation cp="😱">han | ojú | ìbẹ̀rù | bẹ̀rù | jẹ</annotation>
+		<annotation cp="😱" type="tts">Oju Fifi Ẹru han an</annotation>
+		<annotation cp="😖">ojú | itiju</annotation>
+		<annotation cp="😖" type="tts">Oju Itiju</annotation>
+		<annotation cp="😣">ojú | ìfaradà</annotation>
+		<annotation cp="😣" type="tts">Oju Ifarada</annotation>
+		<annotation cp="😞">ojú | ìjakulẹ</annotation>
+		<annotation cp="😞" type="tts">ojú ìjakulẹ̀</annotation>
+		<annotation cp="😓">òtútù | ojú | òógùn</annotation>
+		<annotation cp="😓" type="tts">Oju Pẹlu Ilaagun Tutu</annotation>
+		<annotation cp="😩">ojú | rírẹ̀</annotation>
+		<annotation cp="😩" type="tts">Oju Ti o Rẹ̀</annotation>
+		<annotation cp="😫">ojú | rírẹ̀</annotation>
+		<annotation cp="😫" type="tts">Oju Rirẹ</annotation>
+		<annotation cp="😤">yege | ojú | ìjagunmólú</annotation>
+		<annotation cp="😤" type="tts">Oju Pẹlu Ikun Nimu</annotation>
+		<annotation cp="😡">bínú | ojú | yànhàn</annotation>
+		<annotation cp="😡" type="tts">Oju Iyaahan</annotation>
+		<annotation cp="😠">bínú | ojú | ìbínú</annotation>
+		<annotation cp="😠" type="tts">Oju Ibinu</annotation>
+		<annotation cp="🤬">bíbúra</annotation>
+		<annotation cp="🤬" type="tts">Àmì ojú tó rékọjá ẹnu</annotation>
+		<annotation cp="😈">àlá | rẹ́rìn músẹ́ | ojú | ìtàn ọmọdé | ìwo</annotation>
+		<annotation cp="😈" type="tts">Oju Ẹrin Pẹlu Awọn Iho</annotation>
+		<annotation cp="👿">ẹṣù | àlá | èṣù | ojú | ìtàn ọmọdé | imp</annotation>
+		<annotation cp="👿" type="tts">Oju Ibinu Pẹlu Iho</annotation>
+		<annotation cp="💀">ìtán ọmọdé | ojú | ikú | abàmì</annotation>
+		<annotation cp="💀" type="tts">Ipakọ</annotation>
+		<annotation cp="☠">ìpàkọ́ | ojú | ikú | àwọn egun àgbélébù</annotation>
+		<annotation cp="☠" type="tts">ìpàkọ́ àti àwọn egun àgbélébù</annotation>
+		<annotation cp="💩">abàmì | apanilẹ́rìń | ìgbẹ́ | ojú | ògùn</annotation>
+		<annotation cp="💩" type="tts">Okiti Igbẹ</annotation>
+		<annotation cp="🤡">apanilẹrin | ojú</annotation>
+		<annotation cp="🤡" type="tts">ojú apanilẹrin</annotation>
+		<annotation cp="👹">abàmì | ẹ̀dá | àlá | ojú | ìtàn ọmọdé</annotation>
+		<annotation cp="👹" type="tts">Omiran Ajẹniyan</annotation>
+		<annotation cp="👺">abàmì | ẹ̀dá | àlá | ojú | ìtàn ọmọdé</annotation>
+		<annotation cp="👺" type="tts">abàmì aràrá</annotation>
+		<annotation cp="👻">abàmì | ẹ̀dá | àlá | ojú | ìtàn ọmọdé</annotation>
+		<annotation cp="👻" type="tts">òkú</annotation>
+		<annotation cp="👽">ẹ̀dá | àlá | àbàmì | ojú | ìtàn ọmọdé | ufo | àjòjì</annotation>
+		<annotation cp="👽" type="tts">àjòjì</annotation>
+		<annotation cp="👾">ẹ̀dá | àlá | àbàmì | ojú | ìtàn ọmọdé | ufo | àjòjì</annotation>
+		<annotation cp="👾" type="tts">Àjòjì Abami</annotation>
+		<annotation cp="🤖">ṣìgìdì | ojú | abàmì</annotation>
+		<annotation cp="🤖" type="tts">Oju Ṣigidi</annotation>
+		<annotation cp="😺">ẹnu | olóngbò | ojú | ṣí | rẹ́rìń músẹ́</annotation>
+		<annotation cp="😺" type="tts">Oju Arẹrin Ologbo Pẹlu Ẹnu Yiya</annotation>
+		<annotation cp="😸">fẹyín | ojú | rẹ́rìn músẹ́ | olóngbò</annotation>
+		<annotation cp="😸" type="tts">Oju Ibinu Ologbo Pẹlu Awọn Oju Arẹrin</annotation>
+		<annotation cp="😹">ẹkún | ayọ̀ | ojú | olóngbò</annotation>
+		<annotation cp="😹" type="tts">Oju Ologbo Pẹlu Ẹkun Ayọ</annotation>
+		<annotation cp="😻">ẹyinjú | ojú | ìfẹ́ | rẹ́rìn músẹ́ | olóngbò</annotation>
+		<annotation cp="😻" type="tts">Oju Arẹrin Ologbo Pẹlu Oju-ọkan</annotation>
+		<annotation cp="😼">ṣẹ̀sín | olóngbò | ojú | rẹ́rìń músẹ́ | aláìríbóṣeyẹ</annotation>
+		<annotation cp="😼" type="tts">Oju Ologbo Pẹlu Ẹrin Afiniṣẹsin</annotation>
+		<annotation cp="😽">ìfenukonu | ẹyinjú | olóngbò</annotation>
+		<annotation cp="😽" type="tts">Oju Ologbo Afẹnukonu Pẹlu Awọn Oju Didi</annotation>
+		<annotation cp="🙀">ìyàlẹ́nu | haa | olóngbò | ojú | rírẹ̀</annotation>
+		<annotation cp="🙀" type="tts">Oju Ologbo Ti o Rẹ</annotation>
+		<annotation cp="😿">ẹkún | ojú | olóngbò | ìbànújẹ́</annotation>
+		<annotation cp="😿" type="tts">Oju Ẹkun Ologbo</annotation>
+		<annotation cp="😾">ṣu ètè síta | ojú | olóngbo</annotation>
+		<annotation cp="😾" type="tts">Oju Ete Ologbo</annotation>
+		<annotation cp="🙈">ìfọwọ́júwè | èṣù | ojú | rárá | èwọ̀ | wòó | ọ̀bọ</annotation>
+		<annotation cp="🙈" type="tts">Ọbọ Mari Ibi</annotation>
+		<annotation cp="🙉">ìfọwọ́júwè | èṣù | ojú | rárá | èwọ̀ | gbọ́</annotation>
+		<annotation cp="🙉" type="tts">Ọbọ Magbọ Ibi</annotation>
+		<annotation cp="🙊">ìfọwọ́júwè | èṣù | sọ̀rọ̀ | ojú | rárá | èwọ̀ | ọ̀bọ</annotation>
+		<annotation cp="🙊" type="tts">Ọbọ Masọ ibi</annotation>
+		<annotation cp="💋">fẹnukonu | ètè</annotation>
+		<annotation cp="💋" type="tts">Aami Ifẹnuko</annotation>
+		<annotation cp="💌">méèlì | ìfẹ́ | ọkàn | lẹ́tà</annotation>
+		<annotation cp="💌" type="tts">Lẹta Ifẹ</annotation>
+		<annotation cp="💘">ọfà | ọmọ ọlọ́fà</annotation>
+		<annotation cp="💘" type="tts">Ọkan Ti o Ni Ọfa</annotation>
+		<annotation cp="💝">ríbọ́nì àyájọ́ olólùfẹ̀</annotation>
+		<annotation cp="💝" type="tts">Ọkan Pẹlu Riboni</annotation>
+		<annotation cp="💖">dunú | dán</annotation>
+		<annotation cp="💖" type="tts">Ọkan Didan</annotation>
+		<annotation cp="💗">ṣọkùlú | dunú | bẹ̀rù | dàgbà</annotation>
+		<annotation cp="💗" type="tts">Ọkan Didagba</annotation>
+		<annotation cp="💓">mímí ọkàn | mímí</annotation>
+		<annotation cp="💓" type="tts">Ọkan Ti O N Mi</annotation>
+		<annotation cp="💞">yíyí</annotation>
+		<annotation cp="💞" type="tts">Ọkan Ti O N Yi</annotation>
+		<annotation cp="💕">ìfẹ́</annotation>
+		<annotation cp="💕" type="tts">Awọn Ọkan Meji</annotation>
+		<annotation cp="💟">ọkàn</annotation>
+		<annotation cp="💟" type="tts">Ọkan Ti A Ṣe Lọṣọ</annotation>
+		<annotation cp="❣">ìfàmìsí | àmì | àmì ìyanu</annotation>
+		<annotation cp="❣" type="tts">àmì ìyanú ọkàn tó wúwo</annotation>
+		<annotation cp="💔">kán | ti kán</annotation>
+		<annotation cp="💔" type="tts">Ibanujẹ Ọkan</annotation>
+		<annotation cp="❤">ọkàn</annotation>
+		<annotation cp="❤" type="tts">ọkàn pupa</annotation>
+		<annotation cp="🧡">aláwọ̀ ọsàn</annotation>
+		<annotation cp="🧡" type="tts">ọlakàn ọsàn</annotation>
+		<annotation cp="💛">yẹ́lò</annotation>
+		<annotation cp="💛" type="tts">Ọkan Awọ Ofeefe</annotation>
+		<annotation cp="💚">àwọ̀ ewé</annotation>
+		<annotation cp="💚" type="tts">Ọkan Awọ Ewe</annotation>
+		<annotation cp="💙">búlù</annotation>
+		<annotation cp="💙" type="tts">Ọkan Bulu</annotation>
+		<annotation cp="💜">pọ́pù</annotation>
+		<annotation cp="💜" type="tts">Ọkan Awọ Pọpu</annotation>
+		<annotation cp="🖤">dúdú | ìkà | èṣù</annotation>
+		<annotation cp="🖤" type="tts">Ọkàn Dúdú</annotation>
+		<annotation cp="💯">ọgọ́rùn | 100 | ìṣirò | kún</annotation>
+		<annotation cp="💯" type="tts">koko ọgọrun</annotation>
+		<annotation cp="💢">àwàdà | bínú</annotation>
+		<annotation cp="💢" type="tts">Àmì Ibinu</annotation>
+		<annotation cp="💥">àwàdà | bóòmù</annotation>
+		<annotation cp="💥" type="tts">Ikọlu</annotation>
+		<annotation cp="💫">àwàdà | ìràwọ̀</annotation>
+		<annotation cp="💫" type="tts">Itoogbe</annotation>
+		<annotation cp="💦">àwàdà | tami | òógùn</annotation>
+		<annotation cp="💦" type="tts">Ilaagun Ti N kan</annotation>
+		<annotation cp="💨">àwàdà | ń sáré | dáàṣì</annotation>
+		<annotation cp="💨" type="tts">N Salọ</annotation>
+		<annotation cp="🕳">ihò</annotation>
+		<annotation cp="🕳" type="tts">ihò</annotation>
+		<annotation cp="💣">àwàdà</annotation>
+		<annotation cp="💣" type="tts">Bọmbu</annotation>
+		<annotation cp="💬">àwàdà | àdàlú | ọ̀rọ̀ | bàlú | ìtàkùrọ̀sọ</annotation>
+		<annotation cp="💬" type="tts">Bàlúnù Ọ̀rọ̀ Sísọ</annotation>
+		<annotation cp="👁‍🗨">bàlú ọ̀rọ̀ | eyinjú | ẹléri</annotation>
+		<annotation cp="👁‍🗨" type="tts">ojú ní àlú ọ̀rọ̀</annotation>
+		<annotation cp="🗨">ọ̀rọ̀ | ìtàkùrọ̀sọ</annotation>
+		<annotation cp="🗨" type="tts">bàlúnù ọ̀rọ̀ sísọ òsì</annotation>
+		<annotation cp="🗯">bínú | bàlúnù | àdàlú</annotation>
+		<annotation cp="🗯" type="tts">bàlúnù ọ̀rọ̀ sísọ ọ̀tún</annotation>
+		<annotation cp="💭">àwàdà | èrò | bàlúnù | àdàlú</annotation>
+		<annotation cp="💭" type="tts">Bàlúnù Ero</annotation>
+		<annotation cp="💤">àwàdà | sùn</annotation>
+		<annotation cp="💤" type="tts">Zzz</annotation>
+		<annotation cp="👋">ń juwọ́ | juwọ́ | ọwọ́</annotation>
+		<annotation cp="👋" type="tts">N Juwọ</annotation>
+		<annotation cp="🤚">nà sókè | ẹ̀yìn ọwọ́</annotation>
+		<annotation cp="🤚" type="tts">Na Ẹhin Ọwọ Soke</annotation>
+		<annotation cp="🖐">yàka | ọwọ́ | ìka</annotation>
+		<annotation cp="🖐" type="tts">nawọ́ sókè pẹ̀lú ìyàka</annotation>
+		<annotation cp="✋">ọwọ́</annotation>
+		<annotation cp="✋" type="tts">Ọwọ Nina Soke</annotation>
+		<annotation cp="🖖">ìka | spock | ọwọ́ | vulcan</annotation>
+		<annotation cp="🖖" type="tts">Kiki Ibẹri Funni</annotation>
+		<annotation cp="👌">ÓDÁRA | ọwọ́</annotation>
+		<annotation cp="👌" type="tts">Ọwọ ODARA</annotation>
+		<annotation cp="✌">aṣeyọrí | v | ọwọ́</annotation>
+		<annotation cp="✌" type="tts">aṣeyọrí ọwọ́</annotation>
+		<annotation cp="🤞">orírere | ọwọ́ | dábùú | ìka</annotation>
+		<annotation cp="🤞" type="tts">Igbekalera</annotation>
+		<annotation cp="🤟">ILY | Ọwọ́</annotation>
+		<annotation cp="🤟" type="tts">ìfọwọ́júwè mo ní ìfẹ́</annotation>
+		<annotation cp="🤘">19900 | ọwọ́ | ìka | ìwo</annotation>
+		<annotation cp="🤘" type="tts">Aami Awọn Iwo</annotation>
+		<annotation cp="🤙">ọwọ́ | ìpè</annotation>
+		<annotation cp="🤙" type="tts">Ọwọ Ipeni</annotation>
+		<annotation cp="👈">ẹ̀yìn ọwọ́ | ọ̀gángán | ìka | ọwọ́ | ìka kékeré</annotation>
+		<annotation cp="👈" type="tts">Ẹyin Ọwọ Ti O Tọka Si Apa Osi</annotation>
+		<annotation cp="👉">ẹ̀yìn ọwọ́ | ọ̀gángán | ìka | ọwọ́ | ìka kékeré</annotation>
+		<annotation cp="👉" type="tts">Ẹyin Ọwọ Ti O Tọka Si Apa Ọtun</annotation>
+		<annotation cp="👆">ọwọ́ | ìka kékeré | ìka | tọ́ka | sókè | ẹ̀yìn ọwọ́</annotation>
+		<annotation cp="👆" type="tts">Ẹyin Ọwọ Ti O Tọka Si Oke</annotation>
+		<annotation cp="🖕">ìka | ọwọ́</annotation>
+		<annotation cp="🖕" type="tts">ìka àárín</annotation>
+		<annotation cp="👇">ìka kékeré | tọ́ka | ìka | ọwọ́ | ìsàlẹ̀ | ẹ̀yìn ọwọ́</annotation>
+		<annotation cp="👇" type="tts">Ẹyin Ọwọ Ti O Tọka Si Isalẹ</annotation>
+		<annotation cp="☝">sókè | ìka kékeré | ọwọ́ | tọ́ka | ìka</annotation>
+		<annotation cp="☝" type="tts">ìka kékeré tí ń tọ́ka sókè</annotation>
+		<annotation cp="👍">+1 | òkè | ọwọ́ | àtànpàkò</annotation>
+		<annotation cp="👍" type="tts">Atanpako Loke</annotation>
+		<annotation cp="👎">ìsàlẹ̀ | ọwọ́ | àtànpàkò | -1</annotation>
+		<annotation cp="👎" type="tts">Atanpako Nisalẹ</annotation>
+		<annotation cp="✊">òwọ́ ẹ̀ṣẹ́ | fún ọwọ́ pọ̀ | ìṣẹ́</annotation>
+		<annotation cp="✊" type="tts">Naṣẹ Soke</annotation>
+		<annotation cp="👊">òwọ́ ẹ̀ṣẹ́ | fún ọwọ́ pọ̀ | ìṣẹ́</annotation>
+		<annotation cp="👊" type="tts">Ẹṣẹ Ti o Nbọ</annotation>
+		<annotation cp="🤛">ẹ̀ṣẹ́ | apá ọ̀sì</annotation>
+		<annotation cp="🤛" type="tts">Ẹsẹ ti O Kọju sosi</annotation>
+		<annotation cp="🤜">ẹ̀ṣẹ́ | apá ọ̀tún</annotation>
+		<annotation cp="🤜" type="tts">Ẹsẹ ti O Kọju sọtun</annotation>
+		<annotation cp="👏">pàtẹ́wọ́ | ọwọ́</annotation>
+		<annotation cp="👏" type="tts">N Patẹwọ</annotation>
+		<annotation cp="🙌">ọwọ́ | fọwọ́júwè | hooray | ayẹyẹ | nawọ́</annotation>
+		<annotation cp="🙌" type="tts">Ina Awọn Ọwọ</annotation>
+		<annotation cp="👐">ṣí | ọwọ́</annotation>
+		<annotation cp="👐" type="tts">Awọn Ọwọ Ṣiṣi</annotation>
+		<annotation cp="🤲">àdúrà</annotation>
+		<annotation cp="🤲" type="tts">àtẹ́lẹ́ọwọ́ papọ̀</annotation>
+		<annotation cp="🤝">ìbọwọ́ | gbọn | ìpàdé | ìfaramọ́ | ọwọ</annotation>
+		<annotation cp="🤝" type="tts">Ìbọwọ́</annotation>
+		<annotation cp="🙏">ọwọ́ | bèrè | jọ̀wọ́ | adúpé | tẹríba | kákò | fọwọ́júwè | gbèdúrà</annotation>
+		<annotation cp="🙏" type="tts">Ika Awọn Ọwọ</annotation>
+		<annotation cp="✍">kọ̀wé | ọwọ́</annotation>
+		<annotation cp="✍" type="tts">ńkọ́wé</annotation>
+		<annotation cp="💅">aṣaralóge | kíkùn | èékánná | àkun ojú | ìtọ́jú</annotation>
+		<annotation cp="💅" type="tts">Ikun Eekanna</annotation>
+		<annotation cp="🤳">fóònù | kámẹ́rà | fọ́tò àdáyà</annotation>
+		<annotation cp="🤳" type="tts">Yiya Ara ẹni</annotation>
+		<annotation cp="💪">àwàdà | nà | iṣan | egun ọwọ́</annotation>
+		<annotation cp="💪" type="tts">Aya Fifẹ</annotation>
+		<annotation cp="👂">Ara</annotation>
+		<annotation cp="👂" type="tts">Etí</annotation>
+		<annotation cp="👃">Ara</annotation>
+		<annotation cp="👃" type="tts">Imu</annotation>
+		<annotation cp="🧠">ọmọwé</annotation>
+		<annotation cp="🧠" type="tts">ọpọlọ</annotation>
+		<annotation cp="👀">ojú | eyinjú</annotation>
+		<annotation cp="👀" type="tts">Awọn Ojú</annotation>
+		<annotation cp="👁">Ara</annotation>
+		<annotation cp="👁" type="tts">eyinjú</annotation>
+		<annotation cp="👅">Ara</annotation>
+		<annotation cp="👅" type="tts">Ahọn</annotation>
+		<annotation cp="👄">ètè</annotation>
+		<annotation cp="👄" type="tts">Ẹnu</annotation>
+		<annotation cp="👶">ìkókó | ọ̀dọ́</annotation>
+		<annotation cp="👶" type="tts">ìkókó</annotation>
+		<annotation cp="🧒">màjèsín | gé̩ndà-ṣekuṣẹyẹ</annotation>
+		<annotation cp="🧒" type="tts">ọmọ</annotation>
+		<annotation cp="👦">ọ̀dọ́ | ọmọkùnrin</annotation>
+		<annotation cp="👦" type="tts">ọmọkùnrin</annotation>
+		<annotation cp="👧">ọ̀dọ́ | Virgo | àmi oṣù ìbí | ọmọbìrin</annotation>
+		<annotation cp="👧" type="tts">ọmọbìrin</annotation>
+		<annotation cp="🧑">gé̩ndà-ṣekuṣẹyẹ</annotation>
+		<annotation cp="🧑" type="tts">àgbà</annotation>
+		<annotation cp="👱">oníru funfun</annotation>
+		<annotation cp="👱" type="tts">Eniyan Onirun funfun</annotation>
+		<annotation cp="👨">Ọkùnrin</annotation>
+		<annotation cp="👨" type="tts">Ọkùnrin</annotation>
+		<annotation cp="🧔">irùngbọ̀n</annotation>
+		<annotation cp="🧔" type="tts">apárí</annotation>
+		<annotation cp="👱‍♂">ọkùnrin | onírun funfun</annotation>
+		<annotation cp="👱‍♂" type="tts">ọkùnrin onírun funfun</annotation>
+		<annotation cp="👩">Obìnrin</annotation>
+		<annotation cp="👩" type="tts">Obìnrin</annotation>
+		<annotation cp="👱‍♀">onírun funfun | obìnrin</annotation>
+		<annotation cp="👱‍♀" type="tts">obìnrin onírun funfun</annotation>
+		<annotation cp="🧓">arúgbó | gé̩ndà-ṣekuṣẹyẹ</annotation>
+		<annotation cp="🧓" type="tts">àgbàlagbà</annotation>
+		<annotation cp="👴">ọkùnrin | àgbàlagbà</annotation>
+		<annotation cp="👴" type="tts">Agbalagba Ọkunrin</annotation>
+		<annotation cp="👵">obinrin | agbalagba</annotation>
+		<annotation cp="👵" type="tts">Agbalagba Obinrin</annotation>
+		<annotation cp="🙍">fajúro | fọwọ́júwè</annotation>
+		<annotation cp="🙍" type="tts">Ẹni N Bojujẹ</annotation>
+		<annotation cp="🙍‍♂">ọkùnrin | fífowọ́júwè | fífajúro</annotation>
+		<annotation cp="🙍‍♂" type="tts">ọkùnrin tí ń fajúro</annotation>
+		<annotation cp="🙍‍♀">fọwọ́júwè | obìnrin | fífajúro</annotation>
+		<annotation cp="🙍‍♀" type="tts">obìnrin tí ń fajúro</annotation>
+		<annotation cp="🙎">fífowọ́júwè | ṣíṣù ètè síta</annotation>
+		<annotation cp="🙎" type="tts">Ẹni Yahọn sita</annotation>
+		<annotation cp="🙎‍♂">fowọ́júwè | ṣíṣù ètè síta | ọkùnrin</annotation>
+		<annotation cp="🙎‍♂" type="tts">ọkùnrin tí ń ṣíṣù ètè síta</annotation>
+		<annotation cp="🙎‍♀">fowọ́júwè | ṣíṣù ètè síta | obìnrin</annotation>
+		<annotation cp="🙎‍♀" type="tts">obìnrin tí ń ṣíṣù ètè síta</annotation>
+		<annotation cp="🙅">èwọ̀ | fowọ́júwè | ọwọ́ | rárá</annotation>
+		<annotation cp="🙅" type="tts">Ẹni Nsọ RARA</annotation>
+		<annotation cp="🙅‍♂">fowọ́júwè | ọwọ́ | èwọ̀ | rárá</annotation>
+		<annotation cp="🙅‍♂" type="tts">ọkùnrin tí ń sọ RÁRÁ</annotation>
+		<annotation cp="🙅‍♀">fowọ́júwè | obìnrin | ọwọ́ | rárá | èwọ̀</annotation>
+		<annotation cp="🙅‍♀" type="tts">obìnrin tí ń sọ RÁRÁ</annotation>
+		<annotation cp="🙆">fowọ́júwè | ọwọ́ | ÓDÁRA</annotation>
+		<annotation cp="🙆" type="tts">Ẹni Nsọ O DARA</annotation>
+		<annotation cp="🙆‍♂">ọkùnrin | fowọ́júwé | ÓDÁRA | ọwọ́</annotation>
+		<annotation cp="🙆‍♂" type="tts">ọkùnrin tí ń sọ ÓDÁRA</annotation>
+		<annotation cp="🙆‍♀">fowọ́júwè | obìnrin | ọwọ́ | ÓDÁRA</annotation>
+		<annotation cp="🙆‍♀" type="tts">obìnrin tí ń sọ ÓDÁRA</annotation>
+		<annotation cp="💁">ọwọ́ | tọ́ka | ìrànwọ́ | ìròyìn | ọlọyaya</annotation>
+		<annotation cp="💁" type="tts">Ẹni N Tọka Ọwọ</annotation>
+		<annotation cp="💁‍♂">ọkùnrin | taka ọwọ́ | sassy</annotation>
+		<annotation cp="💁‍♂" type="tts">ọkùnrin tí ń tọ́ka ọwọ́</annotation>
+		<annotation cp="💁‍♀">tọ́ka ọwọ́ | obìnrin | sassy</annotation>
+		<annotation cp="💁‍♀" type="tts">obìnrin tí ń tọ́ka ọwọ́</annotation>
+		<annotation cp="🙋">fọwọ́júwè | ọwọ́ | ìdùnú | gbéga</annotation>
+		<annotation cp="🙋" type="tts">Ẹni N Nawọ Soke</annotation>
+		<annotation cp="🙋‍♂">ọkùnrin | fọwọ́júwè | nawọ́ sókè</annotation>
+		<annotation cp="🙋‍♂" type="tts">ọkùnrintí ń nawọ́ sókè</annotation>
+		<annotation cp="🙋‍♀">obìnrin | fọwọ́júwè | nawọ́ sókè</annotation>
+		<annotation cp="🙋‍♀" type="tts">obìnrin tí ń nawọ́ sókè</annotation>
+		<annotation cp="🙇">bẹ̀bẹ̀ | tẹríba | fọwọ́júwè | pẹ̀lẹ́</annotation>
+		<annotation cp="🙇" type="tts">Ẹni N Tẹriba</annotation>
+		<annotation cp="🙇‍♂">bẹ̀bẹ̀ | pẹ̀lẹ́ | títẹríba | àànú | ọkùnrin | fọwọ́júwè</annotation>
+		<annotation cp="🙇‍♂" type="tts">ọkùnrin tí ń tẹríba</annotation>
+		<annotation cp="🙇‍♀">fọwọ́júwè | pẹ̀lẹ́ | obìnrin | bẹ̀bẹ̀ | àànú | títẹríba</annotation>
+		<annotation cp="🙇‍♀" type="tts">obìnrin tí ń tẹríba</annotation>
+		<annotation cp="🤦">ojú | àtẹ́lẹ́ ọwa | àìgbàgbọ́ | ìkórira</annotation>
+		<annotation cp="🤦" type="tts">Ẹni Fọwọ Boju</annotation>
+		<annotation cp="🤦‍♂">ìkórira | fọwọ́bojú | okùnrin | àìgbàgbọ́</annotation>
+		<annotation cp="🤦‍♂" type="tts">ọkùnrin tín fọwọ́bojú</annotation>
+		<annotation cp="🤦‍♀">ìkórira | obìnrin | fọwọ́bojú | àìgbàgbọ́</annotation>
+		<annotation cp="🤦‍♀" type="tts">obìnrí tín fọwọ́bojú</annotation>
+		<annotation cp="🤷">gúnpá | iyèméjì | àìmọ̀kan | àìnání</annotation>
+		<annotation cp="🤷" type="tts">Ẹni N Gunpa</annotation>
+		<annotation cp="🤷‍♂">gúnpá | iyèméjì | àìmọ̀kan | ọkùnrin | àìnání</annotation>
+		<annotation cp="🤷‍♂" type="tts">ọkùnrin tí ń gúnpá</annotation>
+		<annotation cp="🤷‍♀">obìnrin | gúnpá | àìmọ̀kan | àìnánní | iyèméjì</annotation>
+		<annotation cp="🤷‍♀" type="tts">obìǹrin tí ń gúnpa</annotation>
+		<annotation cp="👨‍⚕">dókítà | ajọ ìlera | ọkùnrin | nọ́ọ̀sì | olùdámọ̀ràn</annotation>
+		<annotation cp="👨‍⚕" type="tts">ọkùnrín òṣìṣẹ́ ètò ìlera</annotation>
+		<annotation cp="👩‍⚕">obìrin | dókítà | ajọ ìlera | nọ́ọ̀sì | olùdámọ̀ràn</annotation>
+		<annotation cp="👩‍⚕" type="tts">obìrin òṣìṣẹ́ ètò ìlera</annotation>
+		<annotation cp="👨‍🎓">ọkùnrin | kàwégboyè | akẹ́kọ̀ọ́</annotation>
+		<annotation cp="👨‍🎓" type="tts">ọkùnrin akẹ́kọ̀ọ́</annotation>
+		<annotation cp="👩‍🎓">kàwégboyè | akẹ́kọ̀ọ́ | obìrin</annotation>
+		<annotation cp="👩‍🎓" type="tts">obìrin akẹ́kọ̀ọ́</annotation>
+		<annotation cp="👨‍🏫">ọkùnrin | ọ̀mọ̀wé àgbà | olùtanisọ́nà | olùkọ́</annotation>
+		<annotation cp="👨‍🏫" type="tts">ọkùnrin olùkọ́</annotation>
+		<annotation cp="👩‍🏫">olùtanisọ́nà | obìrin | ọ̀mọ̀wé àgbà | olùkọ́</annotation>
+		<annotation cp="👩‍🏫" type="tts">obìnrin olùkọ́</annotation>
+		<annotation cp="👨‍⚖">òdodo onídajọ</annotation>
+		<annotation cp="👨‍⚖" type="tts">ọkùnrin adájọ́</annotation>
+		<annotation cp="👩‍⚖">adájọ́ | obìrin síkélì</annotation>
+		<annotation cp="👩‍⚖" type="tts">obìnrin adájọ́</annotation>
+		<annotation cp="👨‍🌾">ọkùnrin | olùtọ́jú màlùú | àgbẹ́ | aṣọ́gbà</annotation>
+		<annotation cp="👨‍🌾" type="tts">ọkùnrin àgbẹ́</annotation>
+		<annotation cp="👩‍🌾">olùtọ́jú màlùú | àgbẹ́ | aṣọ́gbà | obìrin</annotation>
+		<annotation cp="👩‍🌾" type="tts">obìrinàgbẹ́</annotation>
+		<annotation cp="👨‍🍳">ọkùnrin | olúse ónjẹ | olùse ónjẹ</annotation>
+		<annotation cp="👨‍🍳" type="tts">ọkùnrin olùse ónjẹ</annotation>
+		<annotation cp="👩‍🍳">olúse ónjẹ | olùse ónjẹ | obìrin</annotation>
+		<annotation cp="👩‍🍳" type="tts">obìrin olùse ónjẹ</annotation>
+		<annotation cp="👨‍🔧">pílọ́bà | atún ináṣe | ọkùnrin | atún ọkọ̀ ṣe | ẹni ṣòwò</annotation>
+		<annotation cp="👨‍🔧" type="tts">ọkùnrin atún ọkọ̀ ṣe</annotation>
+		<annotation cp="👩‍🔧">pílọ́bà | atún ináṣe | obìrin | ẹni ṣòwò | atún ọkọ̀ ṣe</annotation>
+		<annotation cp="👩‍🔧" type="tts">obìrin atún ọkọ̀ ṣe</annotation>
+		<annotation cp="👨‍🏭">ọkùnrin | òṣìṣẹ́ | ìpéjọpọ̀ | ilé iṣẹ́</annotation>
+		<annotation cp="👨‍🏭" type="tts">ọkùnrin òṣìṣẹ́ ilé-iṣẹ́</annotation>
+		<annotation cp="👩‍🏭">òṣìṣẹ́ | ìpéjọpọ̀ | ilé iṣẹ́ | obìrin</annotation>
+		<annotation cp="👩‍🏭" type="tts">obìrin òṣìṣẹ́ ilé-iṣẹ́</annotation>
+		<annotation cp="👨‍💼">ọ́físì | iṣẹ́ ọ́físì | òwò | ọkùnrin | alábóòjútò | olùyà ilé</annotation>
+		<annotation cp="👨‍💼" type="tts">ọkùnrin òṣìṣẹ́ ọ́físì</annotation>
+		<annotation cp="👩‍💼">ọ́físì | iṣẹ́ ọ́físì | obìrin | òwò | alábóòjútò | olùyà ilé</annotation>
+		<annotation cp="👩‍💼" type="tts">obìrin òṣìṣẹ́ ọ́físì</annotation>
+		<annotation cp="👨‍🔬">onímọ̀ ìṣirò | kẹ́mísítì | onímọ̀ lrọ | ọkùnrin | físísítì | bìyólọ́gì | onímọ̀ síyẹ́nsì</annotation>
+		<annotation cp="👨‍🔬" type="tts">ọkùnrín síyẹ́nsì</annotation>
+		<annotation cp="👩‍🔬">onímọ̀ ìṣirò | kẹ́mísítì | obìrin | onímọ̀ lrọ | físísítì | bìyólọ́gì | onímọ̀ síyẹ́nsì</annotation>
+		<annotation cp="👩‍🔬" type="tts">obìrin síyẹ́nsì</annotation>
+		<annotation cp="👨‍💻">ọkùnrin | onímọ̀ ẹ̀rọ | olùdásílẹ̀ | olùmúgbẹ́rù | kódà | ẹ̀yà àrídimú</annotation>
+		<annotation cp="👨‍💻" type="tts">ọkùnrin oníms ẹ̀rọ</annotation>
+		<annotation cp="👩‍💻">olùdásílẹ̀ | obìrin | onímọ̀ ẹ̀rọ | olùmúgbẹ́rù | kódà | ẹ̀yà àrídimú</annotation>
+		<annotation cp="👩‍💻" type="tts">obìrin onímọ̀ ẹ̀rọ</annotation>
+		<annotation cp="👨‍🎤">adánirárayá | àpáta | ọkùnrin | ọṣèré | akọrin | ìràwọ̀</annotation>
+		<annotation cp="👨‍🎤" type="tts">ọkùnrin olórin</annotation>
+		<annotation cp="👩‍🎤">adánirárayá | àpáta | obìrin | ọṣèré | akọrin | ìràwọ̀</annotation>
+		<annotation cp="👩‍🎤" type="tts">obìnrin olórin</annotation>
+		<annotation cp="👨‍🎨">ọkùnrin | páalẹ́ttì | òṣèré</annotation>
+		<annotation cp="👨‍🎨" type="tts">ọkùnrin òṣèré</annotation>
+		<annotation cp="👩‍🎨">òṣèré pálẹ́ttì | obìrin</annotation>
+		<annotation cp="👩‍🎨" type="tts">obìrin òṣèré</annotation>
+		<annotation cp="👨‍✈">ọkùnrin | awa ọks bálú | bàlú</annotation>
+		<annotation cp="👨‍✈" type="tts">ọkùnrin awa ọkọ́ bàlú</annotation>
+		<annotation cp="👩‍✈">bàlú | awa ọkọ̀ bálú | obìrin</annotation>
+		<annotation cp="👩‍✈" type="tts">obìrin awa ọkọ́ bàlú</annotation>
+		<annotation cp="👨‍🚀">olùwádìí inú òṣùpá | òkùnrin | rọ́kẹ̀tì</annotation>
+		<annotation cp="👨‍🚀" type="tts">ọkùnrin olùwádìí inú òṣùpá ọkùnrin</annotation>
+		<annotation cp="👩‍🚀">olùwádìí inú òṣùpá | obìrin | rọ́kẹ̀tì</annotation>
+		<annotation cp="👩‍🚀" type="tts">obìrinolùwádìí inú òṣùpá</annotation>
+		<annotation cp="👨‍🚒">ọkùnrin | panọ́panọ́ | ọkọ̀ panapanọ́</annotation>
+		<annotation cp="👨‍🚒" type="tts">ọkùnrin panapanọ́</annotation>
+		<annotation cp="👩‍🚒">panọ́panọ́ | obìrin | ọkọ̀ panọ́pnọ́</annotation>
+		<annotation cp="👩‍🚒" type="tts">obìrin panapanọ́</annotation>
+		<annotation cp="👮">ọlọ́pàá | òṣìṣẹ́</annotation>
+		<annotation cp="👮" type="tts">Ọlọpa</annotation>
+		<annotation cp="👮‍♂">ọlọ́pàá | ọkùnrin | òṣìṣẹ́</annotation>
+		<annotation cp="👮‍♂" type="tts">ọkùnrin ọlọpa</annotation>
+		<annotation cp="👮‍♀">ọlọ́pàá | obìnrin | òṣìṣẹ́</annotation>
+		<annotation cp="👮‍♀" type="tts">obìnrin ọlọpa</annotation>
+		<annotation cp="🕵">aṣèwádìí | ọ̀tẹlèmúyé</annotation>
+		<annotation cp="🕵" type="tts">ọ̀tẹlèmúyé</annotation>
+		<annotation cp="🕵‍♂">aṣèwádìí | ọ̀tẹlèmúyé | ọkùnrin</annotation>
+		<annotation cp="🕵‍♂" type="tts">ọkùnrin ọ̀tẹlèmúyé</annotation>
+		<annotation cp="🕵‍♀">aṣèwádìí | ọ̀tẹlèmúyé | obìnrin</annotation>
+		<annotation cp="🕵‍♀" type="tts">obìnrin ọ̀tẹlèmúyé</annotation>
+		<annotation cp="💂">Oluṣọ</annotation>
+		<annotation cp="💂" type="tts">Oluṣọ</annotation>
+		<annotation cp="💂‍♂">ọkùnrin | olùṣọ́</annotation>
+		<annotation cp="💂‍♂" type="tts">ọkùnrin olùṣọ́</annotation>
+		<annotation cp="💂‍♀">olùṣọ́ | obìnrin</annotation>
+		<annotation cp="💂‍♀" type="tts">obìnrin olùṣọ́</annotation>
+		<annotation cp="👷">òṣiṣẹ́ ìkọle | fìlà | òṣìṣẹ́</annotation>
+		<annotation cp="👷" type="tts">Oṣiṣẹ Ikọle</annotation>
+		<annotation cp="👷‍♂">òṣiṣẹ́ ìkọle | ọkùnrin | òṣìṣẹ́</annotation>
+		<annotation cp="👷‍♂" type="tts">òṣiṣẹ́ ìkọ́lé ọkùnrin</annotation>
+		<annotation cp="👷‍♀">obìnrin | òṣìṣẹ́ | òṣiṣẹ́ ìkọle</annotation>
+		<annotation cp="👷‍♀" type="tts">òṣiṣẹ́ ìkọ́lé obìnrin</annotation>
+		<annotation cp="🤴">Ọmọkunrin Alade</annotation>
+		<annotation cp="🤴" type="tts">Ọmọkunrin Alade</annotation>
+		<annotation cp="👸">ìtàn ọmọdé | àlá</annotation>
+		<annotation cp="👸" type="tts">Ọmọbinrin Alade</annotation>
+		<annotation cp="👳">láwàní</annotation>
+		<annotation cp="👳" type="tts">Ẹni wọ Lawani</annotation>
+		<annotation cp="👳‍♂">ọkùnrin | láwàní</annotation>
+		<annotation cp="👳‍♂" type="tts">ọkùnrin tó dé láwàní</annotation>
+		<annotation cp="👳‍♀">láwàní | obìnrin</annotation>
+		<annotation cp="👳‍♀" type="tts">obìnrin tó dé láwàní</annotation>
+		<annotation cp="👲">ọkùnrin | gua pi mao | fìlà</annotation>
+		<annotation cp="👲" type="tts">Ọkunrin Pẹlu Fila Ṣainisi</annotation>
+		<annotation cp="🧕">ìbòrí àwọn júù | ìbòrí | Gèlè | gèlè àwọn sípánì</annotation>
+		<annotation cp="🧕" type="tts">obinrin tó wé gèlè</annotation>
+		<annotation cp="🤵">ọkọ ìyàwó | ọkùnrin | kóòtù</annotation>
+		<annotation cp="🤵" type="tts">Ọkunrin Pẹlu Kootu</annotation>
+		<annotation cp="👰">ìgbéyàwó | ìbòjú | ìyàwó</annotation>
+		<annotation cp="👰" type="tts">Iyawo Pẹlu Iboju</annotation>
+		<annotation cp="🤰">obinrin | alaboyun</annotation>
+		<annotation cp="🤰" type="tts">obinrin alaboyun</annotation>
+		<annotation cp="🤱">ìkókó | ọyọ̀n | ìtọ́jú ọmọ</annotation>
+		<annotation cp="🤱" type="tts">ìfọ́mọlọ́yàn</annotation>
+		<annotation cp="👼">àlá | áńgẹ́lì | ìkókó | ojú | ìtàn ọmọdé</annotation>
+		<annotation cp="👼" type="tts">ángẹli ìkókó</annotation>
+		<annotation cp="🎅">kérésì | baba | ayẹyẹ | baba kérésì</annotation>
+		<annotation cp="🎅" type="tts">Baba Keresi</annotation>
+		<annotation cp="🤶">ìyá | omidan | [kẹrẹsí | kérésì | ayẹyẹ</annotation>
+		<annotation cp="🤶" type="tts">Arabinrin Keresi</annotation>
+		<annotation cp="🧙">oṣó | àjẹ́</annotation>
+		<annotation cp="🧙" type="tts">onídán</annotation>
+		<annotation cp="🧙‍♂">Oṣó</annotation>
+		<annotation cp="🧙‍♂" type="tts">Ọkùnrin onídán</annotation>
+		<annotation cp="🧙‍♀">àjé̩ | àjẹ́</annotation>
+		<annotation cp="🧙‍♀" type="tts">Obìnrin onídán</annotation>
+		<annotation cp="🧚">Titania | Puck | Oberon</annotation>
+		<annotation cp="🧚" type="tts">Iwin</annotation>
+		<annotation cp="🧚‍♂">Oberon | Puck</annotation>
+		<annotation cp="🧚‍♂" type="tts">Iwin ọkùnrin</annotation>
+		<annotation cp="🧚‍♀">Tìtàníà</annotation>
+		<annotation cp="🧚‍♀" type="tts">Iwin obìnrin</annotation>
+		<annotation cp="🧛">Dàràkúlà | àìkú</annotation>
+		<annotation cp="🧛" type="tts">Fánpáyà</annotation>
+		<annotation cp="🧛‍♂">Dàràkúlà | àìkú</annotation>
+		<annotation cp="🧛‍♂" type="tts">Fánpáyà ọkùnrin</annotation>
+		<annotation cp="🧛‍♀">àìlèkú</annotation>
+		<annotation cp="🧛‍♀" type="tts">Fánpáyà obìnrin</annotation>
+		<annotation cp="🧜">Yemọja</annotation>
+		<annotation cp="🧜" type="tts">Yemọja ènìyàn</annotation>
+		<annotation cp="🧜‍♂">Triton</annotation>
+		<annotation cp="🧜‍♂" type="tts">Yemọja ọkùnrin</annotation>
+		<annotation cp="🧜‍♀">Yemọja obìnrin</annotation>
+		<annotation cp="🧜‍♀" type="tts">iyemọja</annotation>
+		<annotation cp="🧝">ìdán</annotation>
+		<annotation cp="🧝" type="tts">Egbére</annotation>
+		<annotation cp="🧝‍♂">ìdán</annotation>
+		<annotation cp="🧝‍♂" type="tts">egbére ọkùnrin</annotation>
+		<annotation cp="🧝‍♀">ìdán</annotation>
+		<annotation cp="🧝‍♀" type="tts">egbére obìnrin</annotation>
+		<annotation cp="🧞">Ànjọ̀nnú arabia</annotation>
+		<annotation cp="🧞" type="tts">Ànjọ̀nnú</annotation>
+		<annotation cp="🧞‍♂">Ànjọ̀nnú arabia</annotation>
+		<annotation cp="🧞‍♂" type="tts">Ànjọ̀nnú ọkùnrin</annotation>
+		<annotation cp="🧞‍♀">Ànjọ̀nnú arabia</annotation>
+		<annotation cp="🧞‍♀" type="tts">Ànjọ̀nnú obìnrin</annotation>
+		<annotation cp="🧟">Àìlèkú | àkúdáàyà</annotation>
+		<annotation cp="🧟" type="tts">Ẹbọra</annotation>
+		<annotation cp="🧟‍♂">àkúdáàyà | Àìlèkú</annotation>
+		<annotation cp="🧟‍♂" type="tts">Ẹbọra ọkùnrin</annotation>
+		<annotation cp="🧟‍♀">àkúdáàyà | Àìlèkú</annotation>
+		<annotation cp="🧟‍♀" type="tts">Ẹbọra obìnrin</annotation>
+		<annotation cp="💆">ìfiránṣẹ́ | ilé onídìrí | ojú</annotation>
+		<annotation cp="💆" type="tts">ẹni N gba Iṣẹ</annotation>
+		<annotation cp="💆‍♂">ọkùnrin | ojú | ìfiránṣẹ́</annotation>
+		<annotation cp="💆‍♂" type="tts">ọkùnrin tí ń gba ìfiránṣẹ́</annotation>
+		<annotation cp="💆‍♀">obìnrin | ojú | ìfiránṣẹ́</annotation>
+		<annotation cp="💆‍♀" type="tts">obìnrin tí ń gba ìfiránṣẹ́</annotation>
+		<annotation cp="💇">agẹrun | ẹwà | ìyàrá ìgbàlejò | gérun</annotation>
+		<annotation cp="💇" type="tts">Ẹni N Gẹrun</annotation>
+		<annotation cp="💇‍♂">ọkùnrin | gẹrun</annotation>
+		<annotation cp="💇‍♂" type="tts">ọkùnrin tí ń gẹrun</annotation>
+		<annotation cp="💇‍♀">gẹrun | obìnrin</annotation>
+		<annotation cp="💇‍♀" type="tts">obìnrin tí ń gẹrun</annotation>
+		<annotation cp="🚶">ìrìn | ń rìn</annotation>
+		<annotation cp="🚶" type="tts">Ẹni N Rin</annotation>
+		<annotation cp="🚶‍♂">ìrìn | ọkùnrin</annotation>
+		<annotation cp="🚶‍♂" type="tts">ọkùnrin tí ń rìn</annotation>
+		<annotation cp="🚶‍♀">obìnrin | ìrìn</annotation>
+		<annotation cp="🚶‍♀" type="tts">obìnrin tí ń rìn</annotation>
+		<annotation cp="🏃">eré | sáré</annotation>
+		<annotation cp="🏃" type="tts">Ẹni N Sare</annotation>
+		<annotation cp="🏃‍♂">ọkùnrin | sáré | eré ìdíjẹ | eré</annotation>
+		<annotation cp="🏃‍♂" type="tts">ọkùnrin tí ń sáré</annotation>
+		<annotation cp="🏃‍♀">obìnrin | ń sáré | eré ìdíje | eré</annotation>
+		<annotation cp="🏃‍♀" type="tts">obìrin tí ń sáré</annotation>
+		<annotation cp="💃">obinrin | Ti Njo</annotation>
+		<annotation cp="💃" type="tts">Obinrin Ti Njo</annotation>
+		<annotation cp="🕺">ọkùnrin | ijọ́</annotation>
+		<annotation cp="🕺" type="tts">Ọkunrin Ti Njo</annotation>
+		<annotation cp="🕴">òwò | ọkùnrin | kóòtù</annotation>
+		<annotation cp="🕴" type="tts">ọkùnrin nínu kóòtú òwò</annotation>
+		<annotation cp="👯">etí ehoro | oníjó | àríyá</annotation>
+		<annotation cp="👯" type="tts">awọn eniyan eleti ehoro n sariya</annotation>
+		<annotation cp="👯‍♂">ọkùnrin | etí ehoro | àríyá | oníjó</annotation>
+		<annotation cp="👯‍♂" type="tts">àwọn ọkùnrin  elétí ehoro n ṣàríyá</annotation>
+		<annotation cp="👯‍♀">etí ehoro | àríyá obìnrin | oníjó</annotation>
+		<annotation cp="👯‍♀" type="tts">awọn obìnrin eleti ehoro n sariya</annotation>
+		<annotation cp="🧖">Ìyàrá tó n gbóná</annotation>
+		<annotation cp="🧖" type="tts">Ènìyàn nínú Ìyàrá tó n gbóná</annotation>
+		<annotation cp="🧖‍♂">Ìyàrá tó n gbóná</annotation>
+		<annotation cp="🧖‍♂" type="tts">Ọkùnrin nínú Ìyàrá tó n gbóná</annotation>
+		<annotation cp="🧖‍♀">Ìyàrá tó n gbóná</annotation>
+		<annotation cp="🧖‍♀" type="tts">Obìnrin nínú Ìyàrá tó n gbóná</annotation>
+		<annotation cp="🧗">agùnkè</annotation>
+		<annotation cp="🧗" type="tts">Ènìyàn tó n gòkè</annotation>
+		<annotation cp="🧗‍♂">agùnkè</annotation>
+		<annotation cp="🧗‍♂" type="tts">O̩kùnrin tó n gòkè</annotation>
+		<annotation cp="🧗‍♀">agùnkè</annotation>
+		<annotation cp="🧗‍♀" type="tts">Obìnrin tó n gòkè</annotation>
+		<annotation cp="🤺">eré jíjà | eré ìjà | idà</annotation>
+		<annotation cp="🤺" type="tts">Ẹni N Ja Pẹlu Ida</annotation>
+		<annotation cp="🏇">ìdíje eré | ẹṣin | eré ẹlẹ́ṣin</annotation>
+		<annotation cp="🏇" type="tts">Ereje Ẹlẹsin</annotation>
+		<annotation cp="⛷">síkì | yínyìn</annotation>
+		<annotation cp="⛷" type="tts">ẹni síkì</annotation>
+		<annotation cp="🏂">yìnyín | síkì | ìṣeré orí yìnyín</annotation>
+		<annotation cp="🏂" type="tts">Iṣere Ori Yiyin</annotation>
+		<annotation cp="🏌">bọ́ọ̀lù | gọ́ọ̀fù</annotation>
+		<annotation cp="🏌" type="tts">ẹni gọ́ọ̀fù</annotation>
+		<annotation cp="🏌‍♂">gọ́ọ̀fù | ọkùnrin</annotation>
+		<annotation cp="🏌‍♂" type="tts">ọkùnrin tí ń gọ́ọ̀fù</annotation>
+		<annotation cp="🏌‍♀">gọ́ọ̀fù | obìnrin</annotation>
+		<annotation cp="🏌‍♀" type="tts">obìnrin tí ń gọ́ọ̀fù</annotation>
+		<annotation cp="🏄">wíwáìtanẹti</annotation>
+		<annotation cp="🏄" type="tts">Ẹni N Gun Iji</annotation>
+		<annotation cp="🏄‍♂">ọkùnrin | tí ń wá íńtánẹ́tì</annotation>
+		<annotation cp="🏄‍♂" type="tts">ọkùnrin tí ń wá íńtánẹ́tì</annotation>
+		<annotation cp="🏄‍♀">obìnrín | wíwáìtanẹti</annotation>
+		<annotation cp="🏄‍♀" type="tts">obìnrín tí ń wá íńtánẹ́tì</annotation>
+		<annotation cp="🚣">ọkọ̀ ojú omi | kọ́ ojú omi kékeré</annotation>
+		<annotation cp="🚣" type="tts">Ẹni N wa Ọkọ</annotation>
+		<annotation cp="🚣‍♂">ọkọ̀ ojú omo kékeré | ọkọ̀ ojú omi | ọkùnrin</annotation>
+		<annotation cp="🚣‍♂" type="tts">ọkùnrin tí ń wakọ̀ ojú omo kékeré</annotation>
+		<annotation cp="🚣‍♀">ọkọ́ ojú omi kékeré | obìrin | ọkọ̀ ojú omi</annotation>
+		<annotation cp="🚣‍♀" type="tts">obìnrin tí ń wakọ̀ ojú omo kékeré</annotation>
+		<annotation cp="🏊">wẹdò</annotation>
+		<annotation cp="🏊" type="tts">Ẹni tí ń wẹdò</annotation>
+		<annotation cp="🏊‍♂">ọkùnrin | wẹdò</annotation>
+		<annotation cp="🏊‍♂" type="tts">ọkùnrin tí ń wẹdò</annotation>
+		<annotation cp="🏊‍♀">obìnrin | wẹdò</annotation>
+		<annotation cp="🏊‍♀" type="tts">obìnrin tí ń wẹdò</annotation>
+		<annotation cp="⛹">bọ́ọ̀lù</annotation>
+		<annotation cp="⛹" type="tts">ẹni tà boun bọ́ọ̀lù</annotation>
+		<annotation cp="⛹‍♂">ọkùnrin | bọ́ọ̀lù</annotation>
+		<annotation cp="⛹‍♂" type="tts">ọkùnrin tí ń tà boun bọ́ọ̀lù</annotation>
+		<annotation cp="⛹‍♀">bọ́ọ̀lù | obìnrin</annotation>
+		<annotation cp="⛹‍♀" type="tts">obìnrin tà boun bọ́ọ̀lù</annotation>
+		<annotation cp="🏋">a fà ńkan sókè | ìwọ̀n</annotation>
+		<annotation cp="🏋" type="tts">ẹni fa ìwọ̀n sókè</annotation>
+		<annotation cp="🏋‍♂">a fà ìwọ̀n sókè | ọkùnrin</annotation>
+		<annotation cp="🏋‍♂" type="tts">ọkùnrin tí ń a fà ìwọ̀n sókè</annotation>
+		<annotation cp="🏋‍♀">a fà ìwọ̀n sókè | obìnrin</annotation>
+		<annotation cp="🏋‍♀" type="tts">obìnrin tí ń a fà ìwọ̀n sókè</annotation>
+		<annotation cp="🚴">kẹ̀kẹ́ | ìwákẹ̀kẹ́ | awa kẹ̀kẹ́</annotation>
+		<annotation cp="🚴" type="tts">Ẹni N Gun Kẹkẹ</annotation>
+		<annotation cp="🚴‍♂">ọkùnrin | awa kẹ̀kẹ́ | kẹ̀kẹ́ | ìwákẹ̀kẹ́</annotation>
+		<annotation cp="🚴‍♂" type="tts">ọkùnrin tí ń wa kẹ̀kẹ́</annotation>
+		<annotation cp="🚴‍♀">obìnrin | awa kẹ̀kẹ́ | kẹ̀kẹ́ | ìwákẹ̀kẹ́</annotation>
+		<annotation cp="🚴‍♀" type="tts">obìnrin tí ń wa kẹ̀kẹ́</annotation>
+		<annotation cp="🚵">kẹ̀kẹ́ | awakẹ̀kẹ́ | òkè</annotation>
+		<annotation cp="🚵" type="tts">Ẹni N Gun Kẹkẹ Gun Apata</annotation>
+		<annotation cp="🚵‍♂">ọkùnrin | òkè | kẹ̀kẹ́ | awakẹ̀kẹ́</annotation>
+		<annotation cp="🚵‍♂" type="tts">ọkùnrin tín gùn kè wa kẹ̀kẹ́</annotation>
+		<annotation cp="🚵‍♀">obìnrin | kẹ̀kẹ́ | awakẹ̀kẹ́ | ìwa kẹ̀kẹ́ | òkè</annotation>
+		<annotation cp="🚵‍♀" type="tts">obìnrin tín gùn kè wa kẹ̀kẹ́</annotation>
+		<annotation cp="🤸">kẹ̀kẹ́ alágbọ̀n | ìdárayá</annotation>
+		<annotation cp="🤸" type="tts">Ẹni Kawọ Tilẹ Kẹsẹ Soke</annotation>
+		<annotation cp="🤸‍♂">ọkùnrin | ìdárayá | kẹ̀kẹ́ alágbọ̀n</annotation>
+		<annotation cp="🤸‍♂" type="tts">ọkùnrin tí ń yí kẹ̀kẹ́ alágbọ̀n</annotation>
+		<annotation cp="🤸‍♀">obìnrin | ìdárayá | kẹ̀kẹ́ alágbọ̀n</annotation>
+		<annotation cp="🤸‍♀" type="tts">obìnrin tí ń yí kẹ̀kẹ́ alágbọ̀n</annotation>
+		<annotation cp="🤼">gídígò | onígídígbò</annotation>
+		<annotation cp="🤼" type="tts">Awọn Onigidigbo</annotation>
+		<annotation cp="🤼‍♂">gídígbò | àwọn ọkùnrin</annotation>
+		<annotation cp="🤼‍♂" type="tts">àwọn ọkùnrin gídígbò</annotation>
+		<annotation cp="🤼‍♀">gídígbò | àwọn obìnrin</annotation>
+		<annotation cp="🤼‍♀" type="tts">àwọn obìnrn tí ń jà</annotation>
+		<annotation cp="🤽">pólò | omi</annotation>
+		<annotation cp="🤽" type="tts">Ẹni N ṣere Olomi</annotation>
+		<annotation cp="🤽‍♂">okùnrin | eré omi</annotation>
+		<annotation cp="🤽‍♂" type="tts">ọkùnrin n ṣere olomi</annotation>
+		<annotation cp="🤽‍♀">obìnrin | eré omi</annotation>
+		<annotation cp="🤽‍♀" type="tts">obìnrin n ṣere olomi</annotation>
+		<annotation cp="🤾">bọ́ọ̀lù ọlọ́wọ́ | bọ́ọ̀lù</annotation>
+		<annotation cp="🤾" type="tts">Ẹni N Ṣere Bọọlu Ọlọwọ</annotation>
+		<annotation cp="🤾‍♂">ọkùnrin | bọ́ọ̀lù ọlọ́wọ́</annotation>
+		<annotation cp="🤾‍♂" type="tts">ọkùnrin tí ń gbá bọ́ọ̀lù ọlọ́wọ́</annotation>
+		<annotation cp="🤾‍♀">bọ́ọ̀lù ọlọ́wọ́ | obìnrin</annotation>
+		<annotation cp="🤾‍♀" type="tts">obìnrin tí ń gbá bọ́ọ̀lù ọlọ́wọ́</annotation>
+		<annotation cp="🤹">jíju ǹkan sókè | ọ̀pọ̀ iṣẹ́ | ìdọ́gba | ìmọ̀ọ́ṣe</annotation>
+		<annotation cp="🤹" type="tts">Ẹni N ju Nnkan soke</annotation>
+		<annotation cp="🤹‍♂">ọkùnrin | ọ̀pọ̀ iṣẹ́ | jíjù ǹkan sókè</annotation>
+		<annotation cp="🤹‍♂" type="tts">ọkùnrin tí ń jù ǹkan sókè</annotation>
+		<annotation cp="🤹‍♀">obìnrin | ọ̀pọ̀ iṣẹ́ | jíjù ǹkan sókè</annotation>
+		<annotation cp="🤹‍♀" type="tts">obìnrin tí ń jú ǹkan sókè</annotation>
+		<annotation cp="🧘">Yógà | ṣàṣàrò</annotation>
+		<annotation cp="🧘" type="tts">Ènìyàn nípò ìgbàgbé</annotation>
+		<annotation cp="🧘‍♂">ṣàṣàrò | Yógà</annotation>
+		<annotation cp="🧘‍♂" type="tts">Ọkùnrin nípò ìgbàgbé</annotation>
+		<annotation cp="🧘‍♀">ṣàṣàrò | Yógà</annotation>
+		<annotation cp="🧘‍♀" type="tts">Obìnrin nípò ìgbàgbé</annotation>
+		<annotation cp="🛀">ìwẹ̀ | àgbá ìwé</annotation>
+		<annotation cp="🛀" type="tts">Ẹni Nwẹ</annotation>
+		<annotation cp="🛌">sùn | ilé ìtura</annotation>
+		<annotation cp="🛌" type="tts">Ẹniyan Nibusun</annotation>
+		<annotation cp="👭">obìnrin | tọkọtaya | ọwọ́ | dìmú</annotation>
+		<annotation cp="👭" type="tts">Obinrin Meji Ti O Dọwọ Ara Wọn Mu</annotation>
+		<annotation cp="👫">obìnrin | ọwọ́ | ọkùnrin | dìmú | tọkọtaya</annotation>
+		<annotation cp="👫" type="tts">Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu</annotation>
+		<annotation cp="👬">ọwọ́ | àmi oṣù ìbí | ìbejì | ọkùnrin | Gemini | dìmú | tọkọtaya</annotation>
+		<annotation cp="👬" type="tts">Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu</annotation>
+		<annotation cp="💏">tọkọtaya</annotation>
+		<annotation cp="💏" type="tts">Ifẹnuko</annotation>
+		<annotation cp="💑">ìfẹ́ | tọkọtaya | Lọkọlaya Pẹlu ọkan</annotation>
+		<annotation cp="💑" type="tts">Lọkọlaya Pẹlu ọkan</annotation>
+		<annotation cp="👪">Ẹbí</annotation>
+		<annotation cp="👪" type="tts">Ẹbí</annotation>
+		<annotation cp="🗣">sọ̀rọ̀ | orí | bíríbírí | ojú | ń sọ̀rọ̀</annotation>
+		<annotation cp="🗣" type="tts">orí tí ń sọ̀rọ̀</annotation>
+		<annotation cp="👤">bújáde | bíríbírí</annotation>
+		<annotation cp="👤" type="tts">Bujade Ni Biribiri</annotation>
+		<annotation cp="👥">bújáde | bíríbírí</annotation>
+		<annotation cp="👥" type="tts">Awọn Ibujade Ni Biribiri</annotation>
+		<annotation cp="👣">ìpasẹ̀ | ipasẹ̀ | aṣọ</annotation>
+		<annotation cp="👣" type="tts">Ipa ẹsẹ</annotation>
+		<annotation cp="🐵">ojú | ọ̀bọ</annotation>
+		<annotation cp="🐵" type="tts">Oju Ọbọ</annotation>
+		<annotation cp="🐒">Ọ̀bọ</annotation>
+		<annotation cp="🐒" type="tts">Ọ̀bọ</annotation>
+		<annotation cp="🦍">Inaki</annotation>
+		<annotation cp="🦍" type="tts">Inaki</annotation>
+		<annotation cp="🐶">ǹkan ìsìn | ajá | ojú</annotation>
+		<annotation cp="🐶" type="tts">Ojú ajá</annotation>
+		<annotation cp="🐕">ńkan ìsìn</annotation>
+		<annotation cp="🐕" type="tts">Ajá</annotation>
+		<annotation cp="🐩">Ajá</annotation>
+		<annotation cp="🐩" type="tts">Ajá kékeré</annotation>
+		<annotation cp="🐺">ojú | ìkookò</annotation>
+		<annotation cp="🐺" type="tts">Oju Ikooko</annotation>
+		<annotation cp="🦊">kọlọkọlọ | ojú</annotation>
+		<annotation cp="🦊" type="tts">Oju Kọlọkọlọ</annotation>
+		<annotation cp="🐱">ǹkan ìsìn | ojú | olóńgò</annotation>
+		<annotation cp="🐱" type="tts">Ojú olóńgbò</annotation>
+		<annotation cp="🐈">ńkan ìsìn</annotation>
+		<annotation cp="🐈" type="tts">Olóńgbò</annotation>
+		<annotation cp="🦁">kìnìu | Leo | ojú | àmi oṣù ìbí</annotation>
+		<annotation cp="🦁" type="tts">Oju Kiniun</annotation>
+		<annotation cp="🐯">ẹkùn | ojú</annotation>
+		<annotation cp="🐯" type="tts">Oju Ẹkùn</annotation>
+		<annotation cp="🐅">Ẹkùn</annotation>
+		<annotation cp="🐅" type="tts">Ẹkùn</annotation>
+		<annotation cp="🐆">Àmọ̀tẹ́kùn</annotation>
+		<annotation cp="🐆" type="tts">Àmọ̀tẹ́kùn</annotation>
+		<annotation cp="🐴">ojú | ẹṣin</annotation>
+		<annotation cp="🐴" type="tts">Oju Ẹṣin</annotation>
+		<annotation cp="🐎">eṣi ìsáré | equestrian | ìsáré</annotation>
+		<annotation cp="🐎" type="tts">Ẹṣin</annotation>
+		<annotation cp="🦄">eṣin oníwo | ojú</annotation>
+		<annotation cp="🦄" type="tts">Oju Ẹṣin Oniwo</annotation>
+		<annotation cp="🦓">onílà</annotation>
+		<annotation cp="🦓" type="tts">kẹ́tẹ́kẹ́tẹ́ abìla</annotation>
+		<annotation cp="🦌">Agbọnrin</annotation>
+		<annotation cp="🦌" type="tts">Agbọnrin</annotation>
+		<annotation cp="🐮">maalu | oju</annotation>
+		<annotation cp="🐮" type="tts">Oju Maalu</annotation>
+		<annotation cp="🐂">Taurus | àmi oṣù ìbí | ẹgbọrọ màlálù</annotation>
+		<annotation cp="🐂" type="tts">Ẹgbọrọ maalu</annotation>
+		<annotation cp="🐃">ẹfọ̀n | omi</annotation>
+		<annotation cp="🐃" type="tts">Ẹfọn Omi</annotation>
+		<annotation cp="🐄">Maalu</annotation>
+		<annotation cp="🐄" type="tts">Maalu</annotation>
+		<annotation cp="🐷">ojú | ẹlẹ́dẹ̀</annotation>
+		<annotation cp="🐷" type="tts">Oju Ẹlẹdẹ</annotation>
+		<annotation cp="🐖">abo ẹlẹ́dẹ̀</annotation>
+		<annotation cp="🐖" type="tts">Ẹlẹdẹ</annotation>
+		<annotation cp="🐗">Ẹlẹdẹ</annotation>
+		<annotation cp="🐗" type="tts">Biari</annotation>
+		<annotation cp="🐽">imú | ojú | ẹlẹ́dẹ̀</annotation>
+		<annotation cp="🐽" type="tts">Imu Ẹlẹdẹ</annotation>
+		<annotation cp="🐏">àgùntàn | akọ | Aries | àmi oṣù ìbí</annotation>
+		<annotation cp="🐏" type="tts">Agbo</annotation>
+		<annotation cp="🐑">àgùntàn | abo</annotation>
+		<annotation cp="🐑" type="tts">abo àgùntàn</annotation>
+		<annotation cp="🐐">àmi oṣù ìbí | capricorn</annotation>
+		<annotation cp="🐐" type="tts">Ewúrẹ́</annotation>
+		<annotation cp="🐪">iké | ràkúmí</annotation>
+		<annotation cp="🐪" type="tts">Kẹtẹkẹtẹ</annotation>
+		<annotation cp="🐫">ràkúmí oníké méjì | iké | ràkúmí</annotation>
+		<annotation cp="🐫" type="tts">Kẹtẹkẹtẹ Onike-Meji</annotation>
+		<annotation cp="🦒">àwọn àyè</annotation>
+		<annotation cp="🦒" type="tts">àgùfọn</annotation>
+		<annotation cp="🐘">Erin</annotation>
+		<annotation cp="🐘" type="tts">Erin</annotation>
+		<annotation cp="🦏">Ẹranko Imado</annotation>
+		<annotation cp="🦏" type="tts">Ẹranko Imado</annotation>
+		<annotation cp="🐭">ojú | ekú</annotation>
+		<annotation cp="🐭" type="tts">Ọju Eku</annotation>
+		<annotation cp="🐁">Eku</annotation>
+		<annotation cp="🐁" type="tts">Eku</annotation>
+		<annotation cp="🐀">Ekute</annotation>
+		<annotation cp="🐀" type="tts">Ekute</annotation>
+		<annotation cp="🐹">ǹkan ìsìn | ojú | eku oko</annotation>
+		<annotation cp="🐹" type="tts">Oju Eku Oko</annotation>
+		<annotation cp="🐰">ǹkan ìsìn | ojú | ehoro</annotation>
+		<annotation cp="🐰" type="tts">Oju Ehoro</annotation>
+		<annotation cp="🐇">ǹkan ìsìn | ehoro</annotation>
+		<annotation cp="🐇" type="tts">Ehoro</annotation>
+		<annotation cp="🐿">eku ńlá</annotation>
+		<annotation cp="🐿" type="tts">eku ńlá</annotation>
+		<annotation cp="🦔">ẹlẹ́gùń</annotation>
+		<annotation cp="🦔" type="tts">hedgehog</annotation>
+		<annotation cp="🦇">àdán | amùjẹ́</annotation>
+		<annotation cp="🦇" type="tts">Adan</annotation>
+		<annotation cp="🐻">biari | oju</annotation>
+		<annotation cp="🐻" type="tts">Oju Biari</annotation>
+		<annotation cp="🐨">bíárì</annotation>
+		<annotation cp="🐨" type="tts">Koala</annotation>
+		<annotation cp="🐼">pándà | ojú</annotation>
+		<annotation cp="🐼" type="tts">Oju Panda</annotation>
+		<annotation cp="🐾">ipa | àtẹ́lẹ́ ọwa | ẹsẹ̀</annotation>
+		<annotation cp="🐾" type="tts">Apa Eekan</annotation>
+		<annotation cp="🦃">tòlótòló | ẹyẹ</annotation>
+		<annotation cp="🦃" type="tts">Tólòtólò</annotation>
+		<annotation cp="🐔">adìye | ẹyẹ</annotation>
+		<annotation cp="🐔" type="tts">Adìyẹ</annotation>
+		<annotation cp="🐓">àkùkọ | ẹyẹ</annotation>
+		<annotation cp="🐓" type="tts">Akukọ</annotation>
+		<annotation cp="🐣">ìkókó | ọmọ adìyẹ | ẹyẹ | pípa</annotation>
+		<annotation cp="🐣" type="tts">Ọmọ Adiyẹ Pipa</annotation>
+		<annotation cp="🐤">ìkókó | ọmọ adìyẹ | ẹyẹ</annotation>
+		<annotation cp="🐤" type="tts">Ọmọ Adiyẹ</annotation>
+		<annotation cp="🐥">ìkókó | ọmọ adìyẹ | ẹyẹ</annotation>
+		<annotation cp="🐥" type="tts">Ọmọ Adiyẹ ti now Iwaju</annotation>
+		<annotation cp="🐦">Ẹyẹ</annotation>
+		<annotation cp="🐦" type="tts">Ẹyẹ</annotation>
+		<annotation cp="🐧">ẹyẹ | ẹyẹ oko</annotation>
+		<annotation cp="🐧" type="tts">Ẹyẹ Oko</annotation>
+		<annotation cp="🕊">àláfíà | ẹyẹ | fò</annotation>
+		<annotation cp="🕊" type="tts">àdàbà</annotation>
+		<annotation cp="🦅">ẹyẹ | àṣá</annotation>
+		<annotation cp="🦅" type="tts">Àṣá</annotation>
+		<annotation cp="🦆">pẹ́pẹ́yẹ | ẹyẹ</annotation>
+		<annotation cp="🦆" type="tts">Pẹ́pẹ́yẹ</annotation>
+		<annotation cp="🦉">ọlọ́ngbọ́n | òwìwí | ẹyẹ</annotation>
+		<annotation cp="🦉" type="tts">Owiwi</annotation>
+		<annotation cp="🐸">ọpọlọ | ojú</annotation>
+		<annotation cp="🐸" type="tts">Oju Ọpọlọ</annotation>
+		<annotation cp="🐊">Ọni</annotation>
+		<annotation cp="🐊" type="tts">Ọni</annotation>
+		<annotation cp="🐢">Awun | ìjàpá | awun kékeré</annotation>
+		<annotation cp="🐢" type="tts">Adaba</annotation>
+		<annotation cp="🦎">ẹranko tí nfí àìyà fà | aláǹgbà</annotation>
+		<annotation cp="🦎" type="tts">Aláǹgba</annotation>
+		<annotation cp="🐍">olùgbé | ejò | Ophiuchus | àmi oṣù ìbí</annotation>
+		<annotation cp="🐍" type="tts">Ejò</annotation>
+		<annotation cp="🐲">ìtàn àrõnì | Drágónì | oju</annotation>
+		<annotation cp="🐲" type="tts">Oju Dragoni</annotation>
+		<annotation cp="🐉">ìtàn àrõnì</annotation>
+		<annotation cp="🐉" type="tts">Drágónì</annotation>
+		<annotation cp="🦕">diplodocus | brachiosaurus | brontosaurus</annotation>
+		<annotation cp="🦕" type="tts">sauropod</annotation>
+		<annotation cp="🦖">Tyrannosaurus Rex</annotation>
+		<annotation cp="🦖" type="tts">T-Rex</annotation>
+		<annotation cp="🐳">Ẹja Nla | Oju | yọ jade tì ipá</annotation>
+		<annotation cp="🐳" type="tts">Ẹja Nla Atutọ</annotation>
+		<annotation cp="🐋">Ẹja Nla</annotation>
+		<annotation cp="🐋" type="tts">Ẹja Nla</annotation>
+		<annotation cp="🐬">Ohun lúwë</annotation>
+		<annotation cp="🐬" type="tts">Dọfini</annotation>
+		<annotation cp="🐟">àmi oṣù ìbí | Pisces</annotation>
+		<annotation cp="🐟" type="tts">Ẹja</annotation>
+		<annotation cp="🐠">oorùn | Ẹja</annotation>
+		<annotation cp="🐠" type="tts">Ẹja oorùn</annotation>
+		<annotation cp="🐡">Ẹja</annotation>
+		<annotation cp="🐡" type="tts">Ẹja Awura</annotation>
+		<annotation cp="🦈">ṣáàkì | ẹja</annotation>
+		<annotation cp="🦈" type="tts">Ṣáàkì</annotation>
+		<annotation cp="🐙">Ẹja ẹlẹsẹ mẹjọ</annotation>
+		<annotation cp="🐙" type="tts">Ẹja ẹlẹsẹ mẹjọ</annotation>
+		<annotation cp="🐚">àyíká | Ikarahun</annotation>
+		<annotation cp="🐚" type="tts">Onikaraun Pinpin</annotation>
+		<annotation cp="🐌">Ìgbín</annotation>
+		<annotation cp="🐌" type="tts">Ìgbín</annotation>
+		<annotation cp="🦋">arẹwà | labalábá | kòkòrò</annotation>
+		<annotation cp="🦋" type="tts">Labalaba</annotation>
+		<annotation cp="🐛">kòkòrò</annotation>
+		<annotation cp="🐛" type="tts">Ìyanjú Àṣìṣe</annotation>
+		<annotation cp="🐜">kòkòrò</annotation>
+		<annotation cp="🐜" type="tts">Kokoro</annotation>
+		<annotation cp="🐝">kòkòrò oyin | kòkòrò</annotation>
+		<annotation cp="🐝" type="tts">Oyin</annotation>
+		<annotation cp="🐞">obounboùn kékeré | obounboùn | kòkòrò</annotation>
+		<annotation cp="🐞" type="tts">Yigbẹ-yigbẹ</annotation>
+		<annotation cp="🦗">tata</annotation>
+		<annotation cp="🦗" type="tts">tata gígùn</annotation>
+		<annotation cp="🕷">kòkòrò</annotation>
+		<annotation cp="🕷" type="tts">aláõtakùn</annotation>
+		<annotation cp="🕸">ìtakùn</annotation>
+		<annotation cp="🕸" type="tts">ìtakùnaláõtakùn</annotation>
+		<annotation cp="🦂">àmi oṣù ìbí | scorpio | Scorpius</annotation>
+		<annotation cp="🦂" type="tts">Àkekè</annotation>
+		<annotation cp="💐">Odòdó</annotation>
+		<annotation cp="💐" type="tts">Àsè</annotation>
+		<annotation cp="🌸">Odòdó | ṣẹẹri | ìtànná</annotation>
+		<annotation cp="🌸" type="tts">Iruwe Ṣẹri</annotation>
+		<annotation cp="💮">Odòdó</annotation>
+		<annotation cp="💮" type="tts">Ododo Funfun</annotation>
+		<annotation cp="🏵">õgbìn</annotation>
+		<annotation cp="🏵" type="tts">Ohun Odòdó ọṣọ</annotation>
+		<annotation cp="🌹">Odòdó</annotation>
+		<annotation cp="🌹" type="tts">Ododo</annotation>
+		<annotation cp="🥀">òdòdó | rẹ̀</annotation>
+		<annotation cp="🥀" type="tts">ododo witi</annotation>
+		<annotation cp="🌺">Odòdó</annotation>
+		<annotation cp="🌺" type="tts">Ododo Ibisikọsi</annotation>
+		<annotation cp="🌻">Odòdó | Òòrùn</annotation>
+		<annotation cp="🌻" type="tts">Ìtàná</annotation>
+		<annotation cp="🌼">Odòdó</annotation>
+		<annotation cp="🌼" type="tts">Iruwe</annotation>
+		<annotation cp="🌷">Odòdó</annotation>
+		<annotation cp="🌷" type="tts">Tulipu</annotation>
+		<annotation cp="🌱">wẹ́wẹ́</annotation>
+		<annotation cp="🌱" type="tts">Ihoro eso</annotation>
+		<annotation cp="🌲">Igi</annotation>
+		<annotation cp="🌲" type="tts">Igi Aruwe</annotation>
+		<annotation cp="🌳">Igi to nta ewe lôdọ dún | igi | ti</annotation>
+		<annotation cp="🌳" type="tts">Igi Igbo</annotation>
+		<annotation cp="🌴">ọpẹ | igi</annotation>
+		<annotation cp="🌴" type="tts">Ọpẹ</annotation>
+		<annotation cp="🌵">õgbìn</annotation>
+		<annotation cp="🌵" type="tts">Igi Ọrọ́</annotation>
+		<annotation cp="🌾">ọkà | Irẹsi | Etí</annotation>
+		<annotation cp="🌾" type="tts">Idi Ti Irẹsi</annotation>
+		<annotation cp="🌿">Ewéẹ</annotation>
+		<annotation cp="🌿" type="tts">Egbo Igi</annotation>
+		<annotation cp="☘">õgbìn</annotation>
+		<annotation cp="☘" type="tts">ṣámrọkì</annotation>
+		<annotation cp="🍀">Ahoro | Ewé | mẹ́rin | 4</annotation>
+		<annotation cp="🍀" type="tts">Ahoro Elewe Merin</annotation>
+		<annotation cp="🍁">Ewé | Jàbọ | igi</annotation>
+		<annotation cp="🍁" type="tts">Ewe Mapulu</annotation>
+		<annotation cp="🍂">Jàbọ | igi</annotation>
+		<annotation cp="🍂" type="tts">Irawe</annotation>
+		<annotation cp="🍃">Ewé | fẹ | afẹfẹ | fo bákàn</annotation>
+		<annotation cp="🍃" type="tts">Ewe Ti N Fanka Ninu Iji</annotation>
+		<annotation cp="🍇">Èso | èso àjàrà</annotation>
+		<annotation cp="🍇" type="tts">Girapu</annotation>
+		<annotation cp="🍈">Èso</annotation>
+		<annotation cp="🍈" type="tts">Ẹ̀gúsí</annotation>
+		<annotation cp="🍉">Èso</annotation>
+		<annotation cp="🍉" type="tts">Eso Bara</annotation>
+		<annotation cp="🍊">ôsán | Èso</annotation>
+		<annotation cp="🍊" type="tts">Tanjarini</annotation>
+		<annotation cp="🍋">èso | ọsàn</annotation>
+		<annotation cp="🍋" type="tts">Orombo-wẹwẹ Chiffon</annotation>
+		<annotation cp="🍌">Èso</annotation>
+		<annotation cp="🍌" type="tts">Ọ̀gẹ̀dẹ̀</annotation>
+		<annotation cp="🍍">Èso</annotation>
+		<annotation cp="🍍" type="tts">Ọpẹ-oyinbo</annotation>
+		<annotation cp="🍎">èso | pupa | apù</annotation>
+		<annotation cp="🍎" type="tts">Apu Pupa</annotation>
+		<annotation cp="🍏">èso | àwọ̀ ewé | apù</annotation>
+		<annotation cp="🍏" type="tts">Apu Alawọ Ewe</annotation>
+		<annotation cp="🍐">Èso</annotation>
+		<annotation cp="🍐" type="tts">Píà</annotation>
+		<annotation cp="🍑">Èso</annotation>
+		<annotation cp="🍑" type="tts">Píísì</annotation>
+		<annotation cp="🍒">èso | apù | aláwọ̀ ewé</annotation>
+		<annotation cp="🍒" type="tts">Ṣẹẹri</annotation>
+		<annotation cp="🍓">èso | bẹ́rì</annotation>
+		<annotation cp="🍓" type="tts">Eso dundun</annotation>
+		<annotation cp="🥝">ónjẹ | èso | kíwì</annotation>
+		<annotation cp="🥝" type="tts">Eso Kiwi</annotation>
+		<annotation cp="🍅">ẹ̀fọ́ | èso</annotation>
+		<annotation cp="🍅" type="tts">Timati</annotation>
+		<annotation cp="🥥">pina colada | ọ̀pẹ</annotation>
+		<annotation cp="🥥" type="tts">àgbọn</annotation>
+		<annotation cp="🥑">ónjẹ | afokádò | èso</annotation>
+		<annotation cp="🥑" type="tts">Afokado</annotation>
+		<annotation cp="🍆">ìgbá | èso</annotation>
+		<annotation cp="🍆" type="tts">Igba</annotation>
+		<annotation cp="🥔">ẹ̀fọ́ | ànàmọ́ | ónjẹ</annotation>
+		<annotation cp="🥔" type="tts">Ànàmọ́</annotation>
+		<annotation cp="🥕">ẹ̀fọ́ | ónjẹ | kárọ́tì</annotation>
+		<annotation cp="🥕" type="tts">Kárọ̀tì</annotation>
+		<annotation cp="🌽">ọ̀nà ìrújú | àgbàdo yínyín | àgbàdo | etí</annotation>
+		<annotation cp="🌽" type="tts">Agbado</annotation>
+		<annotation cp="🌶">ata | gbígbónọ̀</annotation>
+		<annotation cp="🌶" type="tts">ata gbígbónọ̀</annotation>
+		<annotation cp="🥒">ẹ̀fọ́ | ónjẹ | kùkúmbà | píkù</annotation>
+		<annotation cp="🥒" type="tts">Kùkúmbà</annotation>
+		<annotation cp="🥦">kabeji ìbílẹ̀</annotation>
+		<annotation cp="🥦" type="tts">ewé ẹlẹ́fọ̀ọ́</annotation>
+		<annotation cp="🍄">olú pupa</annotation>
+		<annotation cp="🍄" type="tts">Olu</annotation>
+		<annotation cp="🥜">ẹ̀fọ́ | ẹ̀pà | ónjẹ | kóró inú èso</annotation>
+		<annotation cp="🥜" type="tts">Ẹpa</annotation>
+		<annotation cp="🌰">õgbìn</annotation>
+		<annotation cp="🌰" type="tts">Kóró inú èso búránù</annotation>
+		<annotation cp="🍞">búrẹ́dì gígé</annotation>
+		<annotation cp="🍞" type="tts">Búrẹ́dì</annotation>
+		<annotation cp="🥐">kírísẹ́ntì | kurosanti | búrẹ́dì | faransé | ónjẹ</annotation>
+		<annotation cp="🥐" type="tts">Kurosanti</annotation>
+		<annotation cp="🥖">búrẹ́dì | faransé | ónjẹ | búrẹ́dì gbọọrọ</annotation>
+		<annotation cp="🥖" type="tts">Burẹdi Baguette</annotation>
+		<annotation cp="🥨">lọ́pọ̀</annotation>
+		<annotation cp="🥨" type="tts">pretzel</annotation>
+		<annotation cp="🥞">búrẹ́dì pẹlẹbẹ | ónjẹ | crepe</annotation>
+		<annotation cp="🥞" type="tts">Atike Ikunju</annotation>
+		<annotation cp="🧀">wàrà</annotation>
+		<annotation cp="🧀" type="tts">Waara Wedge</annotation>
+		<annotation cp="🍖">eegun | ẹran</annotation>
+		<annotation cp="🍖" type="tts">Ẹran Ara Egungun</annotation>
+		<annotation cp="🍗">eegun | adìye | ẹsẹ̀ | ilé àdìyé</annotation>
+		<annotation cp="🍗" type="tts">Ẹsẹ Adiyẹ</annotation>
+		<annotation cp="🥩">ìjẹun | ijẹ àgùntàn | ijẹ ẹlẹ́dẹ̀ | steak</annotation>
+		<annotation cp="🥩" type="tts">ìgé ẹran</annotation>
+		<annotation cp="🥓">ẹran ẹlẹ́dẹ̀ | ónjẹ | ẹran</annotation>
+		<annotation cp="🥓" type="tts">Ẹran Ẹlẹdẹ</annotation>
+		<annotation cp="🍔">bọ́gà</annotation>
+		<annotation cp="🍔" type="tts">Hamburger</annotation>
+		<annotation cp="🍟">french | didin</annotation>
+		<annotation cp="🍟" type="tts">Ounjẹ Ipanu Didun</annotation>
+		<annotation cp="🍕">gígé | wàrà</annotation>
+		<annotation cp="🍕" type="tts">Písà</annotation>
+		<annotation cp="🌭">àlọ́pọ̀ ẹrán | èran ẹlẹ́dẹ̀ papọ̀ pẹ̀lú ẹran | àlọ́pọ̀ ẹran àti ẹran ẹlẹ́dẹ̀</annotation>
+		<annotation cp="🌭" type="tts">Hot Dog</annotation>
+		<annotation cp="🥪">Búrẹ́dì</annotation>
+		<annotation cp="🥪" type="tts">búrẹ́dì alákànpọ̀</annotation>
+		<annotation cp="🌮">ónjẹ mẹ́síkò</annotation>
+		<annotation cp="🌮" type="tts">Taco</annotation>
+		<annotation cp="🌯">ónjẹ mẹ́síkò | wépò</annotation>
+		<annotation cp="🌯" type="tts">Burito</annotation>
+		<annotation cp="🥙">gyro | búrẹdì àfúnpọ̀ pẹlẹbẹ | kebab | falafe | ónjẹ | stuufe</annotation>
+		<annotation cp="🥙" type="tts">Burẹdi Afunpọ Pẹlẹbẹ</annotation>
+		<annotation cp="🥚">ẹyin | ónjẹ</annotation>
+		<annotation cp="🥚" type="tts">Ẹyin</annotation>
+		<annotation cp="🍳">ẹyin | dídín | páànù</annotation>
+		<annotation cp="🍳" type="tts">Dídáná</annotation>
+		<annotation cp="🥘">pàẹ́là | ṣálò | kásẹrọ̀ | páànù ṣálò | ónjẹ</annotation>
+		<annotation cp="🥘" type="tts">Paanu Ijẹun kekere</annotation>
+		<annotation cp="🍲">ọbẹ̀ | ìkòkò</annotation>
+		<annotation cp="🍲" type="tts">Ikoko Ounjẹ</annotation>
+		<annotation cp="🥣">àgbàdo | ónjẹ àrọ̀ | congee</annotation>
+		<annotation cp="🥣" type="tts">abọ́ pẹ̀lú ṣíbí</annotation>
+		<annotation cp="🥗">eléwé | sàláádì | ónjẹ</annotation>
+		<annotation cp="🥗" type="tts">Saladi Elewe</annotation>
+		<annotation cp="🍿">Gúgúrú</annotation>
+		<annotation cp="🍿" type="tts">Gúgúrú</annotation>
+		<annotation cp="🥫">agolo</annotation>
+		<annotation cp="🥫" type="tts">ónjẹ inú agolo</annotation>
+		<annotation cp="🍱">Apoti | Bento</annotation>
+		<annotation cp="🍱" type="tts">Apoti Bento</annotation>
+		<annotation cp="🍘">bisikí | ìrẹ̀sì</annotation>
+		<annotation cp="🍘" type="tts">Biskit Irẹsi</annotation>
+		<annotation cp="🍙">ìrẹsì | japanese | bọ̀ọ́lú</annotation>
+		<annotation cp="🍙" type="tts">Irẹsi Roboto</annotation>
+		<annotation cp="🍚">Sise | Irẹsi</annotation>
+		<annotation cp="🍚" type="tts">Irẹsi Sise</annotation>
+		<annotation cp="🍛">kọri | irẹsi</annotation>
+		<annotation cp="🍛" type="tts">irẹsi kọri</annotation>
+		<annotation cp="🍜">oru | rámẹ̀n | abọ́ | núdù</annotation>
+		<annotation cp="🍜" type="tts">Abọ ibọhun</annotation>
+		<annotation cp="🍝">pásítà</annotation>
+		<annotation cp="🍝" type="tts">Spagẹti</annotation>
+		<annotation cp="🍠">dídùn | ànàmọ́ | yíyan</annotation>
+		<annotation cp="🍠" type="tts">Anamọ dindin</annotation>
+		<annotation cp="🍢">ónjẹ omi | keháb | igi | síkíwà</annotation>
+		<annotation cp="🍢" type="tts">Oden</annotation>
+		<annotation cp="🍣">Sushi</annotation>
+		<annotation cp="🍣" type="tts">Sushi</annotation>
+		<annotation cp="🍤">ẹdẹ | ṣírímpù | tẹ́mpúrà | dídín</annotation>
+		<annotation cp="🍤" type="tts">Ede Dindin</annotation>
+		<annotation cp="🍥">àkàrà òyìnbó | swirl | ónjẹ oní fíláwà</annotation>
+		<annotation cp="🍥" type="tts">Eja dindin Pẹlu Swirl</annotation>
+		<annotation cp="🍡">igi | skewer | ónjé dídùn | àdídùn | japanese</annotation>
+		<annotation cp="🍡" type="tts">Dango</annotation>
+		<annotation cp="🥟">potsticker | empanada | jiaozi | gyōza | pierogi</annotation>
+		<annotation cp="🥟" type="tts">ìgbẹ́</annotation>
+		<annotation cp="🥠">asọtẹ́lẹ̀</annotation>
+		<annotation cp="🥠" type="tts">kúkì fortune</annotation>
+		<annotation cp="🥡">péèlìa ọ́yẹ́stà</annotation>
+		<annotation cp="🥡" type="tts">àpótí àgbéjáde</annotation>
+		<annotation cp="🦀">àmi oṣù ìbí | Cancer</annotation>
+		<annotation cp="🦀" type="tts">Alákàn</annotation>
+		<annotation cp="🦐">ẹja inú ìkarahun | ónjẹ | kékeré | edé</annotation>
+		<annotation cp="🦐" type="tts">Ede</annotation>
+		<annotation cp="🦑">ónjẹ | síkídì | mólúsì</annotation>
+		<annotation cp="🦑" type="tts">Sikidi</annotation>
+		<annotation cp="🍦">ónjẹ dídùn | yìnyín dídùn | kírímù | fẹ́lẹ́ | yìnyín | àdídùn</annotation>
+		<annotation cp="🍦" type="tts">Wara Didi Rirọ</annotation>
+		<annotation cp="🍧">yìnyín | ónjẹ dídùn | fá | àdídùn</annotation>
+		<annotation cp="🍧" type="tts">Yinyin Gige</annotation>
+		<annotation cp="🍨">ónjẹ dídùn | yìnyín | àdídùn | kírímù</annotation>
+		<annotation cp="🍨" type="tts">Wara Didi</annotation>
+		<annotation cp="🍩">ónjẹ dídùn | dónọtì | àdídùn</annotation>
+		<annotation cp="🍩" type="tts">Dónọ́ọ̀tì</annotation>
+		<annotation cp="🍪">ónjẹ dídùn | àdídùn</annotation>
+		<annotation cp="🍪" type="tts">Kuki</annotation>
+		<annotation cp="🎂">àkàrà òyìnbó | ónjẹ dídùn | ọjọ́ìbí | àdídùn | ayẹyẹ | ónjẹ oní fíláwà</annotation>
+		<annotation cp="🎂" type="tts">Àkàrà òyìnbó ọjọ́ìbí</annotation>
+		<annotation cp="🍰">àkàrà òyìnbó | ónjẹ dídùn | gígé | àdídùn | ónjẹ oní fíláwà</annotation>
+		<annotation cp="🍰" type="tts">Akara kekere</annotation>
+		<annotation cp="🥧">àkàrà | kíkún</annotation>
+		<annotation cp="🥧" type="tts">róbótó</annotation>
+		<annotation cp="🍫">ilé otí | àdídùn | ṣokolétì | ónjẹ dídùn</annotation>
+		<annotation cp="🍫" type="tts">Ṣokoleti Didi</annotation>
+		<annotation cp="🍬">ónjẹ dídùn | àdídùn</annotation>
+		<annotation cp="🍬" type="tts">Kandi</annotation>
+		<annotation cp="🍭">káńdì | ónjẹ dídùn | àdídùn</annotation>
+		<annotation cp="🍭" type="tts">Suuti Onigi</annotation>
+		<annotation cp="🍮">ónjẹ dídùn | púdínì | àdídùn</annotation>
+		<annotation cp="🍮" type="tts">Kọ́sítàdì</annotation>
+		<annotation cp="🍯">oyin | àdídùn | ìkòkò oyin | ìkòkò</annotation>
+		<annotation cp="🍯" type="tts">Koko Oyin</annotation>
+		<annotation cp="🍼">ìkókó | mílíkì | ìgò | ohun mímu</annotation>
+		<annotation cp="🍼" type="tts">Igo Ikoko</annotation>
+		<annotation cp="🥛">mu | mílíkì | gílásì</annotation>
+		<annotation cp="🥛" type="tts">Ife Wara</annotation>
+		<annotation cp="☕">ohun mímu oní kòkó | kọfí | mímu | yíyọ oru | tíì | gbígóná</annotation>
+		<annotation cp="☕" type="tts">Tii Gbigbona</annotation>
+		<annotation cp="🍵">o ohun mímu oní kòkó | ife | mímu | tíì | ife tíì</annotation>
+		<annotation cp="🍵" type="tts">Ife Tii laini Ọwọ</annotation>
+		<annotation cp="🍶">ilé ọtí | ohun mímu oní kòkó | ìgò | ohun mímu | ife</annotation>
+		<annotation cp="🍶" type="tts">Sake</annotation>
+		<annotation cp="🍾">ìgò | ìṣí ọtí | ohun mímu | ilé ọtí | ìdérí ọtí</annotation>
+		<annotation cp="🍾" type="tts">Igo Olori Yiyọ</annotation>
+		<annotation cp="🍷">ilé ọtí | ohun mímu oní kòkó | ohun mímu | gílásì | wáìnì</annotation>
+		<annotation cp="🍷" type="tts">Gilasi Waini</annotation>
+		<annotation cp="🍸">ilé ọtí | ónjẹ àmúlùmálà</annotation>
+		<annotation cp="🍸" type="tts">Gilasi Ounjẹ Amulumala</annotation>
+		<annotation cp="🍹">ilé ọtí | ohun mímu | ọlọ́pẹ</annotation>
+		<annotation cp="🍹" type="tts">Ohun Mimu Akoko Oorun</annotation>
+		<annotation cp="🍺">ilé ọtí | ọtí | ohun mímu | ìmutí</annotation>
+		<annotation cp="🍺" type="tts">Imuti</annotation>
+		<annotation cp="🍻">ilé ọtí | dídún | ímu | ìmutí | ọtí</annotation>
+		<annotation cp="🍻" type="tts">Imuti Dídún</annotation>
+		<annotation cp="🥂">dún | ayẹyẹ | gílásì | ohun mímu</annotation>
+		<annotation cp="🥂" type="tts">Gilasi Didun</annotation>
+		<annotation cp="🥃">ọtí líle | tọ́mbílà | ṣọ́ọ̀tí | gílásì | ọtí</annotation>
+		<annotation cp="🥃" type="tts">Gilasi Tọnbila</annotation>
+		<annotation cp="🥤">sódà | ẹlẹ́rìndòdò</annotation>
+		<annotation cp="🥤" type="tts">ife pẹ̀lú sírọ̀</annotation>
+		<annotation cp="🥢">áṣì</annotation>
+		<annotation cp="🥢" type="tts">ìlàrí</annotation>
+		<annotation cp="🍽">ónjẹ sísè | ọ̀bẹ | àwo | fọ́ọ̀kì</annotation>
+		<annotation cp="🍽" type="tts">fọ́ọ̀kì àti ọ̀bẹ pẹ̀lú àwo</annotation>
+		<annotation cp="🍴">ónjẹ sísè | ọ̀bẹ | fọ́ọ̀kì</annotation>
+		<annotation cp="🍴" type="tts">Fọki Ati Ọbẹ</annotation>
+		<annotation cp="🥄">ǹkan ilé ìdáná | ṣíbí</annotation>
+		<annotation cp="🥄" type="tts">Ṣíbí</annotation>
+		<annotation cp="🔪">hocho | ò̩bẹ | irinṣẹ́ | irinṣẹ́ ìjagun | àsè</annotation>
+		<annotation cp="🔪" type="tts">ọbẹ iyara-idana</annotation>
+		<annotation cp="🏺">ife omi | àmi oṣù ìbí | Aquarius | dídáná | irinṣẹ́ | ohun mímu | irinṣẹ́ ìjagun</annotation>
+		<annotation cp="🏺" type="tts">Amphora</annotation>
+		<annotation cp="🌍">gílóbù | àgbáyé | áfíríkà | ayé | írópù</annotation>
+		<annotation cp="🌍" type="tts">Gulobu To N Ṣafihan Uropu-Afirika</annotation>
+		<annotation cp="🌎">àwọn amẹ́ríkà | ayé | gúlóbù | àgbáyé</annotation>
+		<annotation cp="🌎" type="tts">Gulobu To N Ṣafihan Amẹrika</annotation>
+		<annotation cp="🌏">áṣíà | ọsiteria | ayé | gúlóbù | àgbáyé</annotation>
+		<annotation cp="🌏" type="tts">Gulobu To N Ṣafihan Aṣia-Ọsiteria</annotation>
+		<annotation cp="🌐">ayé | gúlóbù | mẹ̀rídíánì | àgbáyé</annotation>
+		<annotation cp="🌐" type="tts">Gulobu Pẹlu Mẹridiani</annotation>
+		<annotation cp="🗺">máàpù | àgbáyé</annotation>
+		<annotation cp="🗺" type="tts">máàpù àgbáyé</annotation>
+		<annotation cp="🗾">jàpánù | máàpù</annotation>
+		<annotation cp="🗾" type="tts">Maapu Ti Japanu</annotation>
+		<annotation cp="🏔">òtútù | òkè | yìnyín</annotation>
+		<annotation cp="🏔" type="tts">òkè yìnyín</annotation>
+		<annotation cp="⛰">òkè</annotation>
+		<annotation cp="⛰" type="tts">òkè</annotation>
+		<annotation cp="🌋">òkè | ìfẹ̀ ilẹ̀</annotation>
+		<annotation cp="🌋" type="tts">Ifẹ-ilẹ</annotation>
+		<annotation cp="🗻">òkè | fújì</annotation>
+		<annotation cp="🗻" type="tts">Oke Fuji</annotation>
+		<annotation cp="🏕">pípàgọ́</annotation>
+		<annotation cp="🏕" type="tts">pípàgọ́</annotation>
+		<annotation cp="🏖">agbòrùn | ọ̀sà</annotation>
+		<annotation cp="🏖" type="tts">ọ̀sà pẹ̀lú agbòrùn</annotation>
+		<annotation cp="🏜">aṣálẹ̀</annotation>
+		<annotation cp="🏜" type="tts">aṣálẹ̀</annotation>
+		<annotation cp="🏝">aṣálẹ̀ | erékùṣù</annotation>
+		<annotation cp="🏝" type="tts">erékùṣù aṣálẹ̀</annotation>
+		<annotation cp="🏞">páàkì</annotation>
+		<annotation cp="🏞" type="tts">páàkì orílẹ̀</annotation>
+		<annotation cp="🏟">pápá ìṣeré</annotation>
+		<annotation cp="🏟" type="tts">pápá ìṣeré</annotation>
+		<annotation cp="🏛">kílásíkà</annotation>
+		<annotation cp="🏛" type="tts">ilé tó kílásíkà</annotation>
+		<annotation cp="🏗">Iṣẹ́ ọnà</annotation>
+		<annotation cp="🏗" type="tts">iṣẹ́ ọnà ilé</annotation>
+		<annotation cp="🏘">àwọn ilé</annotation>
+		<annotation cp="🏘" type="tts">àwọn ilé</annotation>
+		<annotation cp="🏚">ilé | àìdára</annotation>
+		<annotation cp="🏚" type="tts">ilé àìdára</annotation>
+		<annotation cp="🏠">ara ilé | ilé</annotation>
+		<annotation cp="🏠" type="tts">Ilé</annotation>
+		<annotation cp="🏡">ilé | ọgbà</annotation>
+		<annotation cp="🏡" type="tts">Ile Pelu Ọgba</annotation>
+		<annotation cp="🏢">ilé</annotation>
+		<annotation cp="🏢" type="tts">Ile Ibi-iṣẹ</annotation>
+		<annotation cp="🏣">ìfiránṣẹ́ | Japani</annotation>
+		<annotation cp="🏣" type="tts">Ile-iṣẹ Ifiweranṣẹ Japani</annotation>
+		<annotation cp="🏤">ìrópù</annotation>
+		<annotation cp="🏤" type="tts">Àpótí ÌfìwéRánṣẹ́</annotation>
+		<annotation cp="🏥">òògùn | dókítà</annotation>
+		<annotation cp="🏥" type="tts">Ile-iwosan</annotation>
+		<annotation cp="🏦">ilé</annotation>
+		<annotation cp="🏦" type="tts">Ile-ifowopamọsi</annotation>
+		<annotation cp="🏨">ilé</annotation>
+		<annotation cp="🏨" type="tts">Ilé ìtura</annotation>
+		<annotation cp="🏩">ilé ìtura</annotation>
+		<annotation cp="🏩" type="tts">Ilé ìtura Ifẹ</annotation>
+		<annotation cp="🏪">Ibi | Itura</annotation>
+		<annotation cp="🏪" type="tts">Ibi Itura</annotation>
+		<annotation cp="🏫">ilé</annotation>
+		<annotation cp="🏫" type="tts">Ilé ìwé</annotation>
+		<annotation cp="🏬">itaja | ẹka</annotation>
+		<annotation cp="🏬" type="tts">ẹka itaja</annotation>
+		<annotation cp="🏭">ilé</annotation>
+		<annotation cp="🏭" type="tts">Ilé-iṣẹ́</annotation>
+		<annotation cp="🏯">ilé ńlá | japanese</annotation>
+		<annotation cp="🏯" type="tts">Ile Nla Japanisi</annotation>
+		<annotation cp="🏰">íròpù</annotation>
+		<annotation cp="🏰" type="tts">Ile Nla</annotation>
+		<annotation cp="💒">ìfẹ̀ | ilé ìjọsìn</annotation>
+		<annotation cp="💒" type="tts">Ìgbéyàwó</annotation>
+		<annotation cp="🗼">ile iṣọ | Tokiyo</annotation>
+		<annotation cp="🗼" type="tts">Ile Iṣọ Tokiyo</annotation>
+		<annotation cp="🗽">ère | òmìnira</annotation>
+		<annotation cp="🗽" type="tts">Ere Ominira</annotation>
+		<annotation cp="⛪">ẹ̀sìn | àgbélèbú | ẹlẹ́sìn ìgbàgbó̩</annotation>
+		<annotation cp="⛪" type="tts">Ṣọọṣi</annotation>
+		<annotation cp="🕌">ẹ̀sìn | Ìmàle | Mùsùlùmí</annotation>
+		<annotation cp="🕌" type="tts">Mọ́ṣáláṣí</annotation>
+		<annotation cp="🕍">ẹ̀sìn | Eẹlẹ́sìn júù | júù | tẹ́pílì</annotation>
+		<annotation cp="🕍" type="tts">Sínágọ́gù</annotation>
+		<annotation cp="⛩">ẹ̀sìn | ṣíntò | ilé òrìṣà</annotation>
+		<annotation cp="⛩" type="tts">ilé òrìṣà ṣíntò</annotation>
+		<annotation cp="🕋">ẹ̀sìn | Ìmàle | Mùsùlùmí</annotation>
+		<annotation cp="🕋" type="tts">Kaaba</annotation>
+		<annotation cp="⛲">Orísun omi</annotation>
+		<annotation cp="⛲" type="tts">Orísun omi</annotation>
+		<annotation cp="⛺">pípàgọ́</annotation>
+		<annotation cp="⛺" type="tts">Àgọ́</annotation>
+		<annotation cp="🌁">kùrukùru</annotation>
+		<annotation cp="🌁" type="tts">Ojuju</annotation>
+		<annotation cp="🌃">alẹ́ | ìràwọ̀</annotation>
+		<annotation cp="🌃" type="tts">Aṣalẹ Pẹlu Awọn Irawọ</annotation>
+		<annotation cp="🏙">ìlú</annotation>
+		<annotation cp="🏙" type="tts">fífẹ̀ìlú</annotation>
+		<annotation cp="🌄">àárọ̀ | ìla òrùn | òkè | òrù</annotation>
+		<annotation cp="🌄" type="tts">Lila Oorun Lori Awọn Oke</annotation>
+		<annotation cp="🌅">àárọ̀ | òrùn</annotation>
+		<annotation cp="🌅" type="tts">Ìlà oòrùn</annotation>
+		<annotation cp="🌆">oníbùú | òrùn | ìwọ òrùn | ìlú | àṣàlẹ́</annotation>
+		<annotation cp="🌆" type="tts">Iwo Ilu Ni Aṣalẹ</annotation>
+		<annotation cp="🌇">àṣálé | òrún</annotation>
+		<annotation cp="🌇" type="tts">Ìwọ̀ oòrùn</annotation>
+		<annotation cp="🌉">afárá | alẹ́</annotation>
+		<annotation cp="🌉" type="tts">Afara Ni Aṣalẹ</annotation>
+		<annotation cp="♨">gbígbóná | omi àtilẹ̀wá | oru</annotation>
+		<annotation cp="♨" type="tts">omi àtilẹ̀wá</annotation>
+		<annotation cp="🎠">aládùn | ẹṣin</annotation>
+		<annotation cp="🎠" type="tts">Ẹṣin Aladun</annotation>
+		<annotation cp="🎡">róboto | páàkì ìgbafẹ́ | ferris</annotation>
+		<annotation cp="🎡" type="tts">Kẹ̀kẹ́ Ferris</annotation>
+		<annotation cp="🎢">olóbírí | páàkì ìgbafẹ́ | yíyí</annotation>
+		<annotation cp="🎢" type="tts">Kẹkẹ Olobiri</annotation>
+		<annotation cp="💈">gérun | agerun | òpó</annotation>
+		<annotation cp="💈" type="tts">Opo Onigbajamọ</annotation>
+		<annotation cp="🎪">Ere-idaraya | Aba</annotation>
+		<annotation cp="🎪" type="tts">Aba Ere-idaraya</annotation>
+		<annotation cp="🚂">ojú irin | òru | ọks ojú irin | ẹ̀rọ</annotation>
+		<annotation cp="🚂" type="tts">Yiyi</annotation>
+		<annotation cp="🚃">ọkọ̀ | ọkọ̀ ojú irin | ìná | bọ́ọ̀sì gígùn | ojú irin | ọ̀nà ọkọ̀ ojú irin</annotation>
+		<annotation cp="🚃" type="tts">Ọkọ Oju-irin</annotation>
+		<annotation cp="🚄">ọkọ̀ ojú irin | aré | ojú irin | ọkọ̀ ojú irin abẹ́ ilẹ̀</annotation>
+		<annotation cp="🚄" type="tts">Ọkọ oju-irin Alare</annotation>
+		<annotation cp="🚅">ọta | ọkọ̀ ojú irin abẹ́ ilẹ̀ | ọkọ̀ ojú irin | aré | ojú irin</annotation>
+		<annotation cp="🚅" type="tts">Ọkọ oju-irin Alare Pẹlu Imu Ọta</annotation>
+		<annotation cp="🚆">ọkọ Oju-irin</annotation>
+		<annotation cp="🚆" type="tts">Ṣèdánilẹ́kọ̀ọ́</annotation>
+		<annotation cp="🚇">ọ̀nà ọkọ̀ ojú irin</annotation>
+		<annotation cp="🚇" type="tts">Àjà ilẹ̀</annotation>
+		<annotation cp="🚈">ọkọ Oju-irin</annotation>
+		<annotation cp="🚈" type="tts">Ọkọ oju-irin kekere</annotation>
+		<annotation cp="🚉">ojú-irin | ọkọ ojú-irin</annotation>
+		<annotation cp="🚉" type="tts">Ibudo</annotation>
+		<annotation cp="🚊">Ọkọ Akero Oniwiwọ</annotation>
+		<annotation cp="🚊" type="tts">Tiramu</annotation>
+		<annotation cp="🚝">nṣe ọkọ́</annotation>
+		<annotation cp="🚝" type="tts">Oju irin kan</annotation>
+		<annotation cp="🚞">òké | ọkọ ojú-irin | ọkọ̀</annotation>
+		<annotation cp="🚞" type="tts">Reluwe Oloke</annotation>
+		<annotation cp="🚋">ọkọ̀ | ọkọ̀ ojú irin gígùn | ọkọ̀ akérò oníwíwọ́</annotation>
+		<annotation cp="🚋" type="tts">Ọkọ Tiramu</annotation>
+		<annotation cp="🚌">nṣe ọkọ́</annotation>
+		<annotation cp="🚌" type="tts">Ọkọ Akero</annotation>
+		<annotation cp="🚍">ọkọ̀ akérò | tí ń bọ̀</annotation>
+		<annotation cp="🚍" type="tts">Ọkọ Akero Ti Nbọ</annotation>
+		<annotation cp="🚎">ọkọ̀ akérò | ọkọ̀ ojú irin gígùn | ọkọ̀ akérò oníwíwọ́</annotation>
+		<annotation cp="🚎" type="tts">Ọkọ Akero Oniwiwọ</annotation>
+		<annotation cp="🚐">Ọkọ Akero</annotation>
+		<annotation cp="🚐" type="tts">Ọkọ Akero Kekere</annotation>
+		<annotation cp="🚑">nṣe ọkọ́</annotation>
+		<annotation cp="🚑" type="tts">Ọkọ Alaisan</annotation>
+		<annotation cp="🚒">ọkọ̀ akkrù ńlá | iná | ẹ̀rọ</annotation>
+		<annotation cp="🚒" type="tts">Ẹnjini Onina</annotation>
+		<annotation cp="🚓">ọlọ́pàá | olùṣọ́ | ọkọ̀</annotation>
+		<annotation cp="🚓" type="tts">Ọkọ Ọlọpa</annotation>
+		<annotation cp="🚔">ọlọ́pàá | ọkọ́ | tí ń bọ̀</annotation>
+		<annotation cp="🚔" type="tts">Ọkọ Ọlọpa Ti Nbọ</annotation>
+		<annotation cp="🚕">nṣe ọkọ́</annotation>
+		<annotation cp="🚕" type="tts">Taasi</annotation>
+		<annotation cp="🚖">Taasi | Ti Nbọ</annotation>
+		<annotation cp="🚖" type="tts">Taasi Ti Nbọ</annotation>
+		<annotation cp="🚗">ọkọ́</annotation>
+		<annotation cp="🚗" type="tts">Ọko</annotation>
+		<annotation cp="🚘">tí ń bọ̀ | ọkọ̀</annotation>
+		<annotation cp="🚘" type="tts">Ọkọ Ti Nbọ</annotation>
+		<annotation cp="🚙">òks agbafẹ́ tó dára | ìgbafẹ́</annotation>
+		<annotation cp="🚙" type="tts">Ọkọ Agbafẹ Daradara</annotation>
+		<annotation cp="🚚">ifijiṣẹ | Ọkọ Akẹru</annotation>
+		<annotation cp="🚚" type="tts">Ọkọ Akẹru</annotation>
+		<annotation cp="🚛">díẹ̀ | ọkọ̀ akérò ńlá | ọkọ̀ akẹ́rù</annotation>
+		<annotation cp="🚛" type="tts">Ọkọ Nla Akẹru</annotation>
+		<annotation cp="🚜">nṣe ọkọ́</annotation>
+		<annotation cp="🚜" type="tts">Katakata</annotation>
+		<annotation cp="🏎">ìdíje eré | ọkọ̀</annotation>
+		<annotation cp="🏎" type="tts">ọkọ̀ ìdíje eré</annotation>
+		<annotation cp="🏍">ìdíje eré</annotation>
+		<annotation cp="🏍" type="tts">alùpùpù</annotation>
+		<annotation cp="🛵">onimọto | alupupu</annotation>
+		<annotation cp="🛵" type="tts">alupupu onimọto</annotation>
+		<annotation cp="🚲">kẹ̀kẹ́</annotation>
+		<annotation cp="🚲" type="tts">Kẹ̀kẹ́</annotation>
+		<annotation cp="🛴">Alupùpù ẹlẹ́sẹ̀ méjì | gbá</annotation>
+		<annotation cp="🛴" type="tts">alupupu kekere</annotation>
+		<annotation cp="🚏">ibùdókọ̀ | ọkọ̀ akérò | dúró</annotation>
+		<annotation cp="🚏" type="tts">Ibudokọ</annotation>
+		<annotation cp="🛣">pópó | ọ́nà</annotation>
+		<annotation cp="🛣" type="tts">ojú ọ̀nà ọkọ̀</annotation>
+		<annotation cp="🛤">ojú-irin | ọkọ ojú-irin</annotation>
+		<annotation cp="🛤" type="tts">ọ̀nà ojú-irin</annotation>
+		<annotation cp="🛢">àgbá | epo</annotation>
+		<annotation cp="🛢" type="tts">àgbá epo</annotation>
+		<annotation cp="⛽">ibùdó epo | epo | afa epo | gáàsì</annotation>
+		<annotation cp="⛽" type="tts">pọ̀mpù epo</annotation>
+		<annotation cp="🚨">ọlọ́pàá | yípo | ẹran ẹlẹ́dẹ̀ | iná | ọkọ̀</annotation>
+		<annotation cp="🚨" type="tts">Ina Ọkọ Ọlọpa</annotation>
+		<annotation cp="🚥">adarí | adaríkọ̀ | iná</annotation>
+		<annotation cp="🚥" type="tts">Ina Adariko Onidubu</annotation>
+		<annotation cp="🚦">adarí | adaríkọ̀ | iná</annotation>
+		<annotation cp="🚦" type="tts">Ina Adariko Olopo</annotation>
+		<annotation cp="🛑">Onígun mẹ́jọ | àmì | dúró</annotation>
+		<annotation cp="🛑" type="tts">Aami Idaduro</annotation>
+		<annotation cp="🚧">ìdènà</annotation>
+		<annotation cp="🚧" type="tts">Iṣẹ́ ọnà</annotation>
+		<annotation cp="⚓">ọkọ̀ ojú omi ńlá | irinṣẹ́</annotation>
+		<annotation cp="⚓" type="tts">Ìdákòró</annotation>
+		<annotation cp="⛵">okun | ọkọ̀ ojú omi ibi ìgbafẹ́ | ibi ìgbafẹ́ | ọkọ̀ ojú omi</annotation>
+		<annotation cp="⛵" type="tts">Ọkọ kekere</annotation>
+		<annotation cp="🛶">Òbèlé | ọkọ̀ ojú omi</annotation>
+		<annotation cp="🛶" type="tts">obele</annotation>
+		<annotation cp="🚤">ọkọ̀ ojú omi</annotation>
+		<annotation cp="🚤" type="tts">Ọkọ omi alare</annotation>
+		<annotation cp="🛳">èrò | ọkọ̀ ojú omi ńlá</annotation>
+		<annotation cp="🛳" type="tts">ọkọ̀ ojú omi ńlá èrò</annotation>
+		<annotation cp="⛴">èrò | ọkọ̀ ojú omi</annotation>
+		<annotation cp="⛴" type="tts">ferí</annotation>
+		<annotation cp="🛥">ọkọ̀ ojú omi tó ń lo ẹ̀rọ | ọkọ̀ ojú omi</annotation>
+		<annotation cp="🛥" type="tts">ọkọ̀ ojú omi tó ń lo ẹ̀rọ</annotation>
+		<annotation cp="🚢">èrò | ọkọ̀ ojú omi</annotation>
+		<annotation cp="🚢" type="tts">Ọkọ̀ ojú omi ńlá</annotation>
+		<annotation cp="✈">ọkọ̀ òfurufú | bàlú òfurufú</annotation>
+		<annotation cp="✈" type="tts">bàlú òfurufú</annotation>
+		<annotation cp="🛩">ọkọ̀ òfurufú | bàlú òfurufú</annotation>
+		<annotation cp="🛩" type="tts">bàlú òfurufú kékeré</annotation>
+		<annotation cp="🛫">ọkọ̀ òfurufú | ìjáde | bàlú òfurufú | ṣàyẹ̀wò wọlé</annotation>
+		<annotation cp="🛫" type="tts">Ibi Idagbere Baalu</annotation>
+		<annotation cp="🛬">bíbalẹ̀ | wíwọlé | àwọn ìwọlé | bàlú òfurufú | ìwọlé | ọkọ̀ òfurufú</annotation>
+		<annotation cp="🛬" type="tts">Ibi Ikaabọ Baalu</annotation>
+		<annotation cp="💺">àga</annotation>
+		<annotation cp="💺" type="tts">Ìjòkó</annotation>
+		<annotation cp="🚁">nṣe ọkọ́</annotation>
+		<annotation cp="🚁" type="tts">Ẹlikọputa</annotation>
+		<annotation cp="🚟">Ọkọ oju irin | olókè</annotation>
+		<annotation cp="🚟" type="tts">Ọkọ oju irin Oloke</annotation>
+		<annotation cp="🚠">gòndólà | òkè | wáyà</annotation>
+		<annotation cp="🚠" type="tts">Ọkọ oniwaya Ori-oke</annotation>
+		<annotation cp="🚡">ọkọ̀ | gòndólà | ọ̀nà ọkọ̀ ojú irin | éríklì | wáyà</annotation>
+		<annotation cp="🚡" type="tts">Tramway Eriali</annotation>
+		<annotation cp="🛰">ààyè</annotation>
+		<annotation cp="🛰" type="tts">alátagbà</annotation>
+		<annotation cp="🚀">ààyè</annotation>
+		<annotation cp="🚀" type="tts">Rọ́kẹ̀tì</annotation>
+		<annotation cp="🛸">UFO</annotation>
+		<annotation cp="🛸" type="tts">àwọ kékeré tí ń fò</annotation>
+		<annotation cp="🛎">agogo | alágbágbẹ́rùn ilé ìtura | ilé ìtura</annotation>
+		<annotation cp="🛎" type="tts">agogo alágbágbẹ́rùn ilé ìtura</annotation>
+		<annotation cp="⌛">iyẹ̀pẹ̀ | adíwọ̀n àkókò</annotation>
+		<annotation cp="⌛" type="tts">Gilasiakoko</annotation>
+		<annotation cp="⏳">ìyẹ̀pẹ̀ | adíwọ̀n àkókò | gílásì àkókò</annotation>
+		<annotation cp="⏳" type="tts">Gilasiakoko Pẹlu Iyẹpẹ Ti N fẹ</annotation>
+		<annotation cp="⌚">ago</annotation>
+		<annotation cp="⌚" type="tts">Ago</annotation>
+		<annotation cp="⏰">Ago | Itaniji</annotation>
+		<annotation cp="⏰" type="tts">Ago Itaniji</annotation>
+		<annotation cp="⏱">ago</annotation>
+		<annotation cp="⏱" type="tts">ago aláfọwọ́yí</annotation>
+		<annotation cp="⏲">adíwọ̀n àkókò | ago</annotation>
+		<annotation cp="⏲" type="tts">ago adíwọ̀n àkókò</annotation>
+		<annotation cp="🕰">ago</annotation>
+		<annotation cp="🕰" type="tts">ago àgbélẹ̀</annotation>
+		<annotation cp="🕛">ago | 12:00 | 00 | 12 | méjìlá | lù gérégé</annotation>
+		<annotation cp="🕛" type="tts">Ago Mejila</annotation>
+		<annotation cp="🕧">12:30 | 30 | 12 | méjìlá | ọgbọ̀n | ago</annotation>
+		<annotation cp="🕧" type="tts">Ago Mejila Aabọ</annotation>
+		<annotation cp="🕐">ìkan | 00 | lù gérégé | 1 | 1:00 | ago</annotation>
+		<annotation cp="🕐" type="tts">Ago Kan an</annotation>
+		<annotation cp="🕜">ago | 30 | 1 | 1:30 | ọgbọ̀n | ìkan</annotation>
+		<annotation cp="🕜" type="tts">Ago kan an aabọ</annotation>
+		<annotation cp="🕑">2:00 | ago | méjì | 2 | 00 | lù gérégé</annotation>
+		<annotation cp="🕑" type="tts">Ago Meji</annotation>
+		<annotation cp="🕝">méjì | 2 | ọgbọ̀n | 2:30 | ago</annotation>
+		<annotation cp="🕝" type="tts">Ago Meji Aaabọ</annotation>
+		<annotation cp="🕒">ago | 3 | 00 | 3:00 | mẹ́tàa | lù gérégé</annotation>
+		<annotation cp="🕒" type="tts">Ago Mẹta</annotation>
+		<annotation cp="🕞">3:30 | 3 | mẹ́tàa | ọgbọ̀n | ago</annotation>
+		<annotation cp="🕞" type="tts">Ago Mẹta Aabọ</annotation>
+		<annotation cp="🕓">4 | 4:00 | mẹ́rìn | 00 | lù gérégé | ago</annotation>
+		<annotation cp="🕓" type="tts">Ago Mẹrin</annotation>
+		<annotation cp="🕟">4 | mẹ́rìn | 4:30 | 30 | ọgbọ̀n | ago</annotation>
+		<annotation cp="🕟" type="tts">Ago Merin Aabọ</annotation>
+		<annotation cp="🕔">márùn | 4 | 4:00 | 00 | lù gérégé | ago</annotation>
+		<annotation cp="🕔" type="tts">Ago Marun un</annotation>
+		<annotation cp="🕠">márùn | 4 | 4:30 | 30 | ọgbọ̀n | ago</annotation>
+		<annotation cp="🕠" type="tts">Ago Marun un Aabọ</annotation>
+		<annotation cp="🕕">ago | 6 | 00 | mẹ́fàa | 6:00 | lù gérégé</annotation>
+		<annotation cp="🕕" type="tts">Ago Mẹfa</annotation>
+		<annotation cp="🕡">6:30 | 6 | 30 | mẹ́fàa | ọgbọ̀n | ago</annotation>
+		<annotation cp="🕡" type="tts">Ago Mẹfa Aabọ</annotation>
+		<annotation cp="🕖">7:00 | ago | méje | 7 | 00 | lù gérégé</annotation>
+		<annotation cp="🕖" type="tts">Ago Meje</annotation>
+		<annotation cp="🕢">méje | 7 | 30 | 7:30 | ago | ọgbọ̀n</annotation>
+		<annotation cp="🕢" type="tts">Ago Meje Aabọ</annotation>
+		<annotation cp="🕗">méjọ | 00 | 8:00 | ago | 8 | lù gérégé</annotation>
+		<annotation cp="🕗" type="tts">Ago Mẹjọ</annotation>
+		<annotation cp="🕣">8:30 | 30 | ọgbọ̀n | 8 | ago | méjọ</annotation>
+		<annotation cp="🕣" type="tts">Ago Mejọ Aabọ</annotation>
+		<annotation cp="🕘">9 | 00 | lù gérégé | 9:00 | mẹ́san an | ago</annotation>
+		<annotation cp="🕘" type="tts">Ago Mẹsan an</annotation>
+		<annotation cp="🕤">9 | ọgbọ̀n | 30 | 9:30 | ago | mẹ́san an</annotation>
+		<annotation cp="🕤" type="tts">Ago Mẹsan an Aabọ</annotation>
+		<annotation cp="🕙">10:00 | mẹ́wàá | ago | 10 | 00 | lù gérégé</annotation>
+		<annotation cp="🕙" type="tts">Ago Mẹwa</annotation>
+		<annotation cp="🕥">10:30 | mẹ́wàá | ọgbọ̀n | 10 | 30 | ago</annotation>
+		<annotation cp="🕥" type="tts">Ago Mẹwa Aabọ</annotation>
+		<annotation cp="🕚">00 | mọ́kànlá | 11:00 | ago | 11 | lù gérégé</annotation>
+		<annotation cp="🕚" type="tts">Ago Mọkanla</annotation>
+		<annotation cp="🕦">mọ́kánlá | 30 | 11:30 | 11 | ọgbọ̀n | ago</annotation>
+		<annotation cp="🕦" type="tts">Ago Mọkanla Aabọ</annotation>
+		<annotation cp="🌑">dúdú | òṣùpá</annotation>
+		<annotation cp="🌑" type="tts">Òṣùpá Tuntun</annotation>
+		<annotation cp="🌒">òṣùpá | kírísẹ́ntì | yíyọ́</annotation>
+		<annotation cp="🌒" type="tts">Yíyọ́ Ààbọ̀ Oṣùpá</annotation>
+		<annotation cp="🌓">ìdámẹ́rin | òṣùpá</annotation>
+		<annotation cp="🌓" type="tts">Oṣùpá Ìlàrin Àkọ́kọ́</annotation>
+		<annotation cp="🌔">òṣùpá | yíyọ́ | kíkùn</annotation>
+		<annotation cp="🌔" type="tts">Yíyọ́ Kíkún Oṣùpá</annotation>
+		<annotation cp="🌕">Ẹ̀kúnrẹ́rẹ́ | Òṣùpá</annotation>
+		<annotation cp="🌕" type="tts">Ẹ̀kúnrẹ́rẹ́ Òṣùpá</annotation>
+		<annotation cp="🌖">Oṣùpá | Títàn | Kíkún</annotation>
+		<annotation cp="🌖" type="tts">Títàn Kíkún Oṣùpá</annotation>
+		<annotation cp="🌗">ìdámẹ́rin | òṣùpá</annotation>
+		<annotation cp="🌗" type="tts">Oṣùpá Ìlàrin Ìgbẹ̀yìn</annotation>
+		<annotation cp="🌘">òṣùpá | kírísẹ́ntì | òṣùpa kékeré</annotation>
+		<annotation cp="🌘" type="tts">Títàn Ààbọ̀ Oṣùpá</annotation>
+		<annotation cp="🌙">Ààbọ̀ | Oṣùpá</annotation>
+		<annotation cp="🌙" type="tts">Ààbọ̀ Oṣùpá</annotation>
+		<annotation cp="🌚">ojú | oṣupa</annotation>
+		<annotation cp="🌚" type="tts">Oju Òṣùpá Tuntun</annotation>
+		<annotation cp="🌛">ìdámẹ́rin | òṣùpá | ojú</annotation>
+		<annotation cp="🌛" type="tts">Oṣùpá Ìlàrin Àkọ́kọ́ Pẹ̀lú Ojú</annotation>
+		<annotation cp="🌜">ìdámẹ́rin | òṣùpá | ojú</annotation>
+		<annotation cp="🌜" type="tts">Oṣùpá Ìlàrin Ìgbẹ̀yìn Pẹ̀lú Ojú</annotation>
+		<annotation cp="🌡">ojú ọjọ́</annotation>
+		<annotation cp="🌡" type="tts">òṣùwọ̀n  ìgbóná</annotation>
+		<annotation cp="☀">itanṣan oòrùn | òrùn | ìmọ́lẹ̀</annotation>
+		<annotation cp="☀" type="tts">òrùn</annotation>
+		<annotation cp="🌝">òṣùpá | ojú | ẹ̀kún | ìmọ̀lẹ̀</annotation>
+		<annotation cp="🌝" type="tts">Ẹ̀kúnrẹ́rẹ́ Òṣùpá Pẹ̀lú Ojú</annotation>
+		<annotation cp="🌞">òrùn | ìmọ́lẹ̀ | ojú</annotation>
+		<annotation cp="🌞" type="tts">Oorun Pẹlu Oju</annotation>
+		<annotation cp="⭐">ìràwọ̀</annotation>
+		<annotation cp="⭐" type="tts">Irawọ Alaabọ Funfun</annotation>
+		<annotation cp="🌟">tàn | dídán | dán | ìràwọ̀</annotation>
+		<annotation cp="🌟" type="tts">Irawọ Titan</annotation>
+		<annotation cp="🌠">jíjábọ́ | ìràwọ̀ | títa</annotation>
+		<annotation cp="🌠" type="tts">Irawọ Yiyọ</annotation>
+		<annotation cp="🌌">ààyè</annotation>
+		<annotation cp="🌌" type="tts">Ọna Oniwara</annotation>
+		<annotation cp="☁">ojú ọjọ́</annotation>
+		<annotation cp="☁" type="tts">òfurufú</annotation>
+		<annotation cp="⛅">òfurufú | òòrùn</annotation>
+		<annotation cp="⛅" type="tts">Oorun Lẹhin Ofurufu</annotation>
+		<annotation cp="⛈">àrá | òfurufú | òjò</annotation>
+		<annotation cp="⛈" type="tts">òfurufú pẹ̀lú ṣíṣáná àti òjò</annotation>
+		<annotation cp="🌤">òfurufú | òòrùn</annotation>
+		<annotation cp="🌤" type="tts">òòrùn lẹ́yìn òfurufú kékeré</annotation>
+		<annotation cp="🌥">òfurufú | òòrùn</annotation>
+		<annotation cp="🌥" type="tts">òòrùn lẹ́yìn òfurufú tó tóbi</annotation>
+		<annotation cp="🌦">òfurufú | òjò | òòrùn</annotation>
+		<annotation cp="🌦" type="tts">òòrùn lẹ́yìn òfurufú òjò</annotation>
+		<annotation cp="🌧">òfurufú | òjò</annotation>
+		<annotation cp="🌧" type="tts">òfurufú pẹ̀lú òjò</annotation>
+		<annotation cp="🌨">yìnyín | òfurufú | òtútù</annotation>
+		<annotation cp="🌨" type="tts">òfurufú pẹ̀lú yìnyín</annotation>
+		<annotation cp="🌩">ṣíṣáná | òfurufú</annotation>
+		<annotation cp="🌩" type="tts">òfurufú pẹlu ṣíṣáná</annotation>
+		<annotation cp="🌪">òfurufú | ìjì</annotation>
+		<annotation cp="🌪" type="tts">ìjì tó le</annotation>
+		<annotation cp="🌫">òfurufú</annotation>
+		<annotation cp="🌫" type="tts">kùrukùru</annotation>
+		<annotation cp="🌬">atẹ́gùn | ojú | tayọ | òfurufú</annotation>
+		<annotation cp="🌬" type="tts">ojú atẹ́gùn</annotation>
+		<annotation cp="🌀">òyì | ìjì | àyí</annotation>
+		<annotation cp="🌀" type="tts">Ẹfuufu</annotation>
+		<annotation cp="🌈">òjò</annotation>
+		<annotation cp="🌈" type="tts">òṣùmarè</annotation>
+		<annotation cp="🌂">agbòrùn | aṣọ | òjò</annotation>
+		<annotation cp="🌂" type="tts">Agboorun Toti</annotation>
+		<annotation cp="☂">aṣọ | òjò</annotation>
+		<annotation cp="☂" type="tts">agbòrùn</annotation>
+		<annotation cp="☔">kán | agbòrùn | aṣọ | òjó</annotation>
+		<annotation cp="☔" type="tts">Agboorun Pẹlu Omi Ojo Kikan</annotation>
+		<annotation cp="⛱">òrùn | agbòrùn | òjò</annotation>
+		<annotation cp="⛱" type="tts">agbòrùn ní ilẹ̀</annotation>
+		<annotation cp="⚡">ewu | iná | iná mọ̀nọ̀mọ́nọ́ | agbára iná | sáàpù | mọ̀nọ̀mọ́nọ́</annotation>
+		<annotation cp="⚡" type="tts">Agbara Ina Giga</annotation>
+		<annotation cp="❄">yìnyín | òtútù</annotation>
+		<annotation cp="❄" type="tts">ìdìjọ òjò yìnyín</annotation>
+		<annotation cp="☃">yìnyín | òtútù</annotation>
+		<annotation cp="☃" type="tts">ọkùnrin yìnyín</annotation>
+		<annotation cp="⛄">òtútù | yìnyín | ọkùnrin yìnyín</annotation>
+		<annotation cp="⛄" type="tts">Ọkunrin yinyin Laini Yinyin</annotation>
+		<annotation cp="☄">ààyè</annotation>
+		<annotation cp="☄" type="tts">kamẹ́tì</annotation>
+		<annotation cp="🔥">irinṣẹ́ | iná</annotation>
+		<annotation cp="🔥" type="tts">Iná</annotation>
+		<annotation cp="💧">òtútù | àwàdà | kán òógùn</annotation>
+		<annotation cp="💧" type="tts">Drọ́púlẹ́ẹ̀tì</annotation>
+		<annotation cp="🌊">òkun | ìjì | omi</annotation>
+		<annotation cp="🌊" type="tts">Iji Omi</annotation>
+		<annotation cp="🎃">ayẹyẹ | alowínì | àtùpà | jáàkì</annotation>
+		<annotation cp="🎃" type="tts">Jack-o-Atupa</annotation>
+		<annotation cp="🎄">ayẹyẹ | kérésìmesì | igi</annotation>
+		<annotation cp="🎄" type="tts">Igi Keresimesi</annotation>
+		<annotation cp="🎆">ayẹyẹ</annotation>
+		<annotation cp="🎆" type="tts">Iṣẹ́iná</annotation>
+		<annotation cp="🎇">ayẹyẹ | iṣẹ́iná | dán</annotation>
+		<annotation cp="🎇" type="tts">Olutan</annotation>
+		<annotation cp="✨">dán | ìràwọ̀</annotation>
+		<annotation cp="✨" type="tts">Awọn Titan</annotation>
+		<annotation cp="🎈">ayẹyẹ</annotation>
+		<annotation cp="🎈" type="tts">Bàlúùnù</annotation>
+		<annotation cp="🎉">tádà | ayẹyẹ | àríyá | aláríyá</annotation>
+		<annotation cp="🎉" type="tts">Ariwo Ayẹye</annotation>
+		<annotation cp="🎊">ayẹyẹ | bọ́ọ̀lù | kọnfetí</annotation>
+		<annotation cp="🎊" type="tts">Bọọlu Kọnfẹti</annotation>
+		<annotation cp="🎋">ánà | ayẹyẹ | japanese | igi</annotation>
+		<annotation cp="🎋" type="tts">Igi Tanabata</annotation>
+		<annotation cp="🎍">igi bambú | ayẹyẹ | eso ọ̀pẹ òyìnbó | japanese</annotation>
+		<annotation cp="🎍" type="tts">Ẹṣọ Ọpẹ oyinbo</annotation>
+		<annotation cp="🎎">Japanese | ayẹyẹ | omolankidi | àjọyọ̀</annotation>
+		<annotation cp="🎎" type="tts">Awọn Ere Japanisi</annotation>
+		<annotation cp="🎏">káàpù | ayẹyẹ | ìbọsẹ̀ tí ń fò</annotation>
+		<annotation cp="🎏" type="tts">Olugekere Capu</annotation>
+		<annotation cp="🎐">agogo | ayẹyẹ | ìdún agogo | atẹ́gùn</annotation>
+		<annotation cp="🎐" type="tts">Idun Iji</annotation>
+		<annotation cp="🎑">ayẹyẹ | òṣùpá</annotation>
+		<annotation cp="🎑" type="tts">Wiwo Ayẹyẹ Oṣupa</annotation>
+		<annotation cp="🎀">ayẹyẹ</annotation>
+		<annotation cp="🎀" type="tts">Ríbìnnì</annotation>
+		<annotation cp="🎁">àpótí | ayẹyẹ | wépọ̀ | ẹ̀bùn</annotation>
+		<annotation cp="🎁" type="tts">Ẹbun Didi</annotation>
+		<annotation cp="🎗">ayẹyẹ | ìránilétí | ríbínì</annotation>
+		<annotation cp="🎗" type="tts">ríbínì ìránilétí</annotation>
+		<annotation cp="🎟">ìwọlé | ìgbaniwọlé</annotation>
+		<annotation cp="🎟" type="tts">àwọn ìwọlé ìgbaniwọlé</annotation>
+		<annotation cp="🎫">ìgbaniwọlé</annotation>
+		<annotation cp="🎫" type="tts">Iwe Iwọle</annotation>
+		<annotation cp="🎖">fàdákà ológun | ayẹyẹ</annotation>
+		<annotation cp="🎖" type="tts">fàdákà ológun</annotation>
+		<annotation cp="🏆">ẹ̀bùn</annotation>
+		<annotation cp="🏆" type="tts">Ife</annotation>
+		<annotation cp="🏅">fàdákà</annotation>
+		<annotation cp="🏅" type="tts">Fadaka Ere idaraya</annotation>
+		<annotation cp="🥇">fádákà | góòlù | àkọ́kọ́</annotation>
+		<annotation cp="🥇" type="tts">Fadaka Ipo Akọkọ</annotation>
+		<annotation cp="🥈">sílífà | ipò kejì | fádákà</annotation>
+		<annotation cp="🥈" type="tts">Fadaka Ipo Ekeji</annotation>
+		<annotation cp="🥉">ipò kẹta | bírónsì | fàdákà</annotation>
+		<annotation cp="🥉" type="tts">Fadaka Ipo Ẹkẹta</annotation>
+		<annotation cp="⚽">bọ́ọ̀lù àfẹsẹ̀gbá | bọ́ọ̀lù</annotation>
+		<annotation cp="⚽" type="tts">Bọọlu Afẹsẹgba</annotation>
+		<annotation cp="⚾">bọ́ọ̀lù</annotation>
+		<annotation cp="⚾" type="tts">Bọ́ọ̀lùòkè</annotation>
+		<annotation cp="🏀">òrùka onírin ńlá roboto | bọ́ọ̀lù</annotation>
+		<annotation cp="🏀" type="tts">Bọ́ọ̀lùalágbọ̀n</annotation>
+		<annotation cp="🏐">bọ́ọ̀lù | eré</annotation>
+		<annotation cp="🏐" type="tts">Folliboolu</annotation>
+		<annotation cp="🏈">amẹ́ríkà | bọ́ọ̀lù àfẹṣẹ̀gbá | bọ́ọ̀lù</annotation>
+		<annotation cp="🏈" type="tts">Bọọlu Amẹrika</annotation>
+		<annotation cp="🏉">bọ́ọ̀lù | bọ́ọ̀lù àfẹṣẹ̀gbá | bọ́ọ̀lù rọ́gíbì</annotation>
+		<annotation cp="🏉" type="tts">Bọọlu Rọgibi</annotation>
+		<annotation cp="🎾">rákẹ̀tì | bọ́ọ̀lù</annotation>
+		<annotation cp="🎾" type="tts">Tẹnisi</annotation>
+		<annotation cp="🎳">bọ́ọ̀lù | eré</annotation>
+		<annotation cp="🎳" type="tts">Bolin</annotation>
+		<annotation cp="🏏">pátákó ìgbá bọ́ọ̀lù | bọ̀ọ́lù | eré</annotation>
+		<annotation cp="🏏" type="tts">eré bọ́ọ̀lù afi pátákó gbá</annotation>
+		<annotation cp="🏑">họ́kì | igi | pápá | bọ́ọ̀lù | eré</annotation>
+		<annotation cp="🏑" type="tts">Họki Papa</annotation>
+		<annotation cp="🏒">igi | eré | họ́kì | pọ́kì | yìnyín</annotation>
+		<annotation cp="🏒" type="tts">Họki Yinyin</annotation>
+		<annotation cp="🏓">bọ́ọ́lù | báàtì | ajé ìwakọ̀</annotation>
+		<annotation cp="🏓" type="tts">Bọọlu Ori Tabili</annotation>
+		<annotation cp="🏸">ihò bọ́ọ̀lù | bẹ́ẹ̀dì | rákẹ̀tì | eré</annotation>
+		<annotation cp="🏸" type="tts">Badimitin</annotation>
+		<annotation cp="🥊">ikanṣẹ | gilofu</annotation>
+		<annotation cp="🥊" type="tts">gilofu ikanṣẹ</annotation>
+		<annotation cp="🥋">àǹkóò | eré ọlọ́wọ́ | eré onípàá àti ọwọ́ | eré ẹlẹ́sẹ̀ | àwon eré onípàá àti ẹlẹ́sẹ̀</annotation>
+		<annotation cp="🥋" type="tts">Aṣọ Ere Itapa</annotation>
+		<annotation cp="🥅">góòlù | àwọ̀n</annotation>
+		<annotation cp="🥅" type="tts">àwọ̀n góòlù</annotation>
+		<annotation cp="⛳">gọ́ọ̀fù | ihò</annotation>
+		<annotation cp="⛳" type="tts">Asia Ninu Iho</annotation>
+		<annotation cp="⛸">yìnyín | síkétì</annotation>
+		<annotation cp="⛸" type="tts">yìnyín síkétì</annotation>
+		<annotation cp="🎣">ẹja | òpó</annotation>
+		<annotation cp="🎣" type="tts">Opo Ipẹja</annotation>
+		<annotation cp="🎽">àwọn tí ń sáré | sísáré | sáàṣì | ṣẹ́ẹ̀tì</annotation>
+		<annotation cp="🎽" type="tts">Ṣẹẹti Isare</annotation>
+		<annotation cp="🎿">síkì | yínyìn</annotation>
+		<annotation cp="🎿" type="tts">Awọn Siki</annotation>
+		<annotation cp="🛷">sílẹ́jì | sílẹ̀</annotation>
+		<annotation cp="🛷" type="tts">sílẹ́dì</annotation>
+		<annotation cp="🥌">òkúta | eré</annotation>
+		<annotation cp="🥌" type="tts">òkúta ìwọ́</annotation>
+		<annotation cp="🎯">akọ màlú | eré | àfojúsùn | pálí ayò | gún | ọ̀gángọ́ ayò</annotation>
+		<annotation cp="🎯" type="tts">Igba Taara</annotation>
+		<annotation cp="🎱">ẹ́ẹ́jọ | bọ́ọ̀lù | eré | bílíádì | 8 | bọ́ọ̀lù 8</annotation>
+		<annotation cp="🎱" type="tts">Bọọlu Odo 8</annotation>
+		<annotation cp="🔮">àìbáyému | àló̩ ajẹmó̩win | òkúta aworàwò̩ | bọ́ó̩lù | pàápàá | ọrọ̀</annotation>
+		<annotation cp="🔮" type="tts">bọọlu aworawọ</annotation>
+		<annotation cp="🎮">olùdarí | eré</annotation>
+		<annotation cp="🎮" type="tts">Ere-idaraya Fidio</annotation>
+		<annotation cp="🕹">Ere-idaraya | Ere-idaraya Fidio</annotation>
+		<annotation cp="🕹" type="tts">ìdarí eré</annotation>
+		<annotation cp="🎰">ìfisí | eré</annotation>
+		<annotation cp="🎰" type="tts">Ẹrọ Ifisi</annotation>
+		<annotation cp="🎲">ayò | eré</annotation>
+		<annotation cp="🎲" type="tts">Ere-idaraya Ludo</annotation>
+		<annotation cp="♠">káàdì | eré</annotation>
+		<annotation cp="♠" type="tts">ìpín káàdì sípèdì</annotation>
+		<annotation cp="♥">káàdì | eré</annotation>
+		<annotation cp="♥" type="tts">ìpín káàdì ọkàn</annotation>
+		<annotation cp="♦">káàdì | eré</annotation>
+		<annotation cp="♦" type="tts">ìpín káàdì díámọ́ndì</annotation>
+		<annotation cp="♣">káàdì | eré</annotation>
+		<annotation cp="♣" type="tts">ìpín káàdì ewé</annotation>
+		<annotation cp="🃏">káàdì | eré | káàdí ọlọ́pọ̀ ìlò</annotation>
+		<annotation cp="🃏" type="tts">Joka</annotation>
+		<annotation cp="🀄">mahjong | pupa | eré</annotation>
+		<annotation cp="🀄" type="tts">Dragoni Pupa Mahjong</annotation>
+		<annotation cp="🎴">káàdì | eré | japanese | òdòdó | ń ṣeré</annotation>
+		<annotation cp="🎴" type="tts">Káàdì ìṣeré Olódòdó</annotation>
+		<annotation cp="🎭">iṣẹ́ ọná | àwòkọ́ṣe | ìtàgé | ìbòjú | tíátà</annotation>
+		<annotation cp="🎭" type="tts">Ere Awokọṣe</annotation>
+		<annotation cp="🖼">iṣẹ́ ọná | férémù | kíkùn | ilé ọnà | àwòrán</annotation>
+		<annotation cp="🖼" type="tts">àwọrán inú férémù</annotation>
+		<annotation cp="🎨">iṣẹ́ ọná | pálẹ́tì | ilé ọnà | kíkùn</annotation>
+		<annotation cp="🎨" type="tts">Pẹpẹ Oṣere</annotation>
+		<annotation cp="👓">ẹyinjú | ìbòjú | aṣọ | gíláásì ojú</annotation>
+		<annotation cp="👓" type="tts">Digi</annotation>
+		<annotation cp="🕶">dúdú | ojú | ìbòjú | gíláásì</annotation>
+		<annotation cp="🕶" type="tts">gíláásì òrùn</annotation>
+		<annotation cp="👔">Wíwọṣọ</annotation>
+		<annotation cp="👔" type="tts">Okùnọrùn</annotation>
+		<annotation cp="👕">tṣẹ́ẹ̀tì | ṣẹ́ẹ̀tì | aṣọ</annotation>
+		<annotation cp="👕" type="tts">Ṣẹẹti</annotation>
+		<annotation cp="👖">ṣòkòtò | aṣọ | pátá</annotation>
+		<annotation cp="👖" type="tts">Jinsi</annotation>
+		<annotation cp="🧣">ọrùn</annotation>
+		<annotation cp="🧣" type="tts">síkáfù</annotation>
+		<annotation cp="🧤">ọwọ́</annotation>
+		<annotation cp="🧤" type="tts">ìbọ̀wọ́</annotation>
+		<annotation cp="🧥">jákẹ́tì</annotation>
+		<annotation cp="🧥" type="tts">kóòtù</annotation>
+		<annotation cp="🧦">ìbọ̀sẹ̀ obìnrin gígùn</annotation>
+		<annotation cp="🧦" type="tts">ìbọ̀sẹ̀</annotation>
+		<annotation cp="👗">Wíwọṣọ</annotation>
+		<annotation cp="👗" type="tts">Aṣọ</annotation>
+		<annotation cp="👘">Wíwọṣọ</annotation>
+		<annotation cp="👘" type="tts">Kimono</annotation>
+		<annotation cp="👙">wẹdò | aṣọ</annotation>
+		<annotation cp="👙" type="tts">Pata obinrin</annotation>
+		<annotation cp="👚">obìnrin | aṣọ</annotation>
+		<annotation cp="👚" type="tts">Awọn Aṣọ Obinrin</annotation>
+		<annotation cp="👛">kóbọ̀ | aṣọ</annotation>
+		<annotation cp="👛" type="tts">Pọọsi</annotation>
+		<annotation cp="👜">pọ́ọ̀sì | àpamọ́wọ́ | aṣọ</annotation>
+		<annotation cp="👜" type="tts">Ìpamọ́wọ́</annotation>
+		<annotation cp="👝">páùṣì | àpamọ́wọ́ | aṣọ</annotation>
+		<annotation cp="👝" type="tts">Baagi Ipamọwọ</annotation>
+		<annotation cp="🛍">ọjà | àpamọ́wọ́ | ilé ìtura</annotation>
+		<annotation cp="🛍" type="tts">àwọn àpamọ́wọ́ ọjà</annotation>
+		<annotation cp="🎒">sáṣẹ̀lì | àpamọ́wọ́ | ilé ìwé</annotation>
+		<annotation cp="🎒" type="tts">Baagi Ile-ẹkọ Agbekẹyin</annotation>
+		<annotation cp="👞">ọkùnrin | bàtà | aṣọ</annotation>
+		<annotation cp="👞" type="tts">Bata Ọkunrin</annotation>
+		<annotation cp="👟">bàtà | ẹní sáré | aṣọ</annotation>
+		<annotation cp="👟" type="tts">Bata Isare</annotation>
+		<annotation cp="👠">bàtà | bàtà gogoro | aṣọ | obìnrin</annotation>
+		<annotation cp="👠" type="tts">Bata Gogoro</annotation>
+		<annotation cp="👡">bàtà | bátá pẹlẹbẹ | aṣọ | obìnrin</annotation>
+		<annotation cp="👡" type="tts">Bata Obinrin pẹlẹbẹ</annotation>
+		<annotation cp="👢">bàtà | obìnrin | búùtù | aṣọ</annotation>
+		<annotation cp="👢" type="tts">Buutu Obinrin</annotation>
+		<annotation cp="👑">ọba | olorì | aṣọ</annotation>
+		<annotation cp="👑" type="tts">Ade</annotation>
+		<annotation cp="👒">obìnrin | fìlà | aṣọ</annotation>
+		<annotation cp="👒" type="tts">Haati Obinrin</annotation>
+		<annotation cp="🎩">òkè | fìlà | fìlà òkè | aṣọ</annotation>
+		<annotation cp="🎩" type="tts">Haati Oke</annotation>
+		<annotation cp="🎓">ayẹyẹ | fìlà | aṣọ | àṣeyọrí</annotation>
+		<annotation cp="🎓" type="tts">Fila Aṣeyọri</annotation>
+		<annotation cp="🧢">fìla bọ́ọ̀lùòkè</annotation>
+		<annotation cp="🧢" type="tts">fìla billed</annotation>
+		<annotation cp="⛑">koto | ìrànwọ́ àgbélébù | ojú</annotation>
+		<annotation cp="⛑" type="tts">koto òṣìṣẹ́ ìrànwọ́</annotation>
+		<annotation cp="📿">ilẹ̀kẹ̀ | ẹ̀sìn | ẹ̀gbà ọrùn | àdúrà | aṣọ</annotation>
+		<annotation cp="📿" type="tts">Ilẹkẹ Adura</annotation>
+		<annotation cp="💄">aṣaralóge | aṣaralaṣọ̀</annotation>
+		<annotation cp="💄" type="tts">Ikun-ete</annotation>
+		<annotation cp="💍">díámọ́ndì</annotation>
+		<annotation cp="💍" type="tts">Dún</annotation>
+		<annotation cp="💎">díámọ́ndì | òkúta iyebíye | ẹ̀gbà</annotation>
+		<annotation cp="💎" type="tts">Okuta Iyebiye</annotation>
+		<annotation cp="🔇">dáké | gboùngboùn | dákè</annotation>
+		<annotation cp="🔇" type="tts">Gbohungbohun ti ko Sọrọ</annotation>
+		<annotation cp="🔈">fẹ́lẹ́</annotation>
+		<annotation cp="🔈" type="tts">Gbohungbohun ti Ohun rẹ wa Labẹ</annotation>
+		<annotation cp="🔉">àárín</annotation>
+		<annotation cp="🔉" type="tts">Gbohungbohun ti Ohun rẹ wa Laarin</annotation>
+		<annotation cp="🔊">pariwo</annotation>
+		<annotation cp="🔊" type="tts">Gbohungbohun ti Ohun rẹ lọSoke</annotation>
+		<annotation cp="📢">ìfitóniléti ìta gbangban | pariwo</annotation>
+		<annotation cp="📢" type="tts">Gbohùngbohùn</annotation>
+		<annotation cp="📣">ìbáraniyò̩</annotation>
+		<annotation cp="📣" type="tts">ẹ̀rọ gbohùngbohùn ńlá</annotation>
+		<annotation cp="📯">gbohùngbohùn | ìfiránṣé̩</annotation>
+		<annotation cp="📯" type="tts">gbohùngbohùn ifiranṣẹ</annotation>
+		<annotation cp="🔔">agago</annotation>
+		<annotation cp="🔔" type="tts">agago</annotation>
+		<annotation cp="🔕">bẹ́ẹ̀ kó̩ | àìlesọ̀rọ̀ | kò | èèwọ̀ | agogo | ṣèdíwó̩</annotation>
+		<annotation cp="🔕" type="tts">agogo pẹlu idinku</annotation>
+		<annotation cp="🎼">akọsílẹ̀ | orin</annotation>
+		<annotation cp="🎼" type="tts">akọsilẹ orin</annotation>
+		<annotation cp="🎵">ò̩rọ̀ | orin</annotation>
+		<annotation cp="🎵" type="tts">ọ̀rọ̀ orin</annotation>
+		<annotation cp="🎶">ọ̀rọ̀ | àwọn ò̩rò̩ | orin</annotation>
+		<annotation cp="🎶" type="tts">nóòtì orin</annotation>
+		<annotation cp="🎙">ilé-agódo | maikì | maikurofóònù | orin</annotation>
+		<annotation cp="🎙" type="tts">maikurofóònù sítúdíò</annotation>
+		<annotation cp="🎚">yíyò̩ | ipele | orin</annotation>
+		<annotation cp="🎚" type="tts">ìpele yíyò̩</annotation>
+		<annotation cp="🎛">olùdarí | kókó | orin</annotation>
+		<annotation cp="🎛" type="tts">kókó ibìdárí</annotation>
+		<annotation cp="🎤">maikurofóònù</annotation>
+		<annotation cp="🎤" type="tts">ẹ̀rọ gbohùngbohùn kékeré</annotation>
+		<annotation cp="🎧">ìrintí</annotation>
+		<annotation cp="🎧" type="tts">ẹ̀rọ àdágbórinsétí</annotation>
+		<annotation cp="📻">fídíò</annotation>
+		<annotation cp="📻" type="tts">rédíò</annotation>
+		<annotation cp="🎷">irinṣẹ́ | sáàsì | orin</annotation>
+		<annotation cp="🎷" type="tts">ipè</annotation>
+		<annotation cp="🎸">irinṣẹ́ | orin</annotation>
+		<annotation cp="🎸" type="tts">jìtá</annotation>
+		<annotation cp="🎹">dùrù | ohun èlò | orin</annotation>
+		<annotation cp="🎹" type="tts">duuru orin</annotation>
+		<annotation cp="🎺">irinṣẹ́ | orin</annotation>
+		<annotation cp="🎺" type="tts">kakaaki</annotation>
+		<annotation cp="🎻">irinṣẹ́ | orin</annotation>
+		<annotation cp="🎻" type="tts">faolini</annotation>
+		<annotation cp="🥁">igi ìlù | ìlù | orin</annotation>
+		<annotation cp="🥁" type="tts">Ìlù</annotation>
+		<annotation cp="📱">alágbèéká | tẹlifóònù | fóònù alágbèéká | fóònù</annotation>
+		<annotation cp="📱" type="tts">fóònù alágbèéká</annotation>
+		<annotation cp="📲">fóònù alágbèéká | gbà | ìpè | fóònù | tẹlifóònù | alágbèéká | ọfà</annotation>
+		<annotation cp="📲" type="tts">fóònù alágbèéká pẹ̀lú ofà</annotation>
+		<annotation cp="☎">ẹ̀rọ ìbánisọ̀rọ̀</annotation>
+		<annotation cp="☎" type="tts">tẹlifóònù</annotation>
+		<annotation cp="📞">olùgbà | tẹlifóònù | fóònù</annotation>
+		<annotation cp="📞" type="tts">olùgbà fóònù</annotation>
+		<annotation cp="📟">ẹ̀rọ atanilólobó</annotation>
+		<annotation cp="📟" type="tts">ẹ̀rọ atanilólobó</annotation>
+		<annotation cp="📠">fákìsì</annotation>
+		<annotation cp="📠" type="tts">ẹ̀rọ fákìsì</annotation>
+		<annotation cp="🔋">bátìrì</annotation>
+		<annotation cp="🔋" type="tts">bátìrì</annotation>
+		<annotation cp="🔌">púlọ́ọ̀gì | ẹ̀lé̩tíríìkì | ìná mọ̀nà-mọ́ná</annotation>
+		<annotation cp="🔌" type="tts">pulọgi onina</annotation>
+		<annotation cp="💻">kọ̀npútà aládàni | kọ̀npútà | àdáni</annotation>
+		<annotation cp="💻" type="tts">kọ̀ǹpútà àgbélétan</annotation>
+		<annotation cp="🖥">a-gbé-lórí-tábílì | kọ̀npútà</annotation>
+		<annotation cp="🖥" type="tts">kọ̀npútà a-gbé-lórí-tábílì</annotation>
+		<annotation cp="🖨">kọ̀npútà</annotation>
+		<annotation cp="🖨" type="tts">pínríntà</annotation>
+		<annotation cp="⌨">kọ̀npútà</annotation>
+		<annotation cp="⌨" type="tts">kííbọọ̀dù</annotation>
+		<annotation cp="🖱">kọ̀npútà</annotation>
+		<annotation cp="🖱" type="tts">máòsì kọ̀npútà</annotation>
+		<annotation cp="🖲">kọ̀npútà</annotation>
+		<annotation cp="🖲" type="tts">òntè̩ afinimọ̀nà</annotation>
+		<annotation cp="💽">àwo | ojú àwo | kọ̀npútà | àwo pélébé</annotation>
+		<annotation cp="💽" type="tts">dísìkì kọ̀ǹpútà</annotation>
+		<annotation cp="💾">àwo | fíló̩pì | kọ̀npútà</annotation>
+		<annotation cp="💾" type="tts">dísìkì fílọ̀pì</annotation>
+		<annotation cp="💿">àwo | àwo ìgbàlódé | kọ̀npútà | ojú àwo</annotation>
+		<annotation cp="💿" type="tts">àwo aká-ọ̀rọ̀ aláfojúrí</annotation>
+		<annotation cp="📀">ojú àwo | dvd | búlúù-réè | dísìkì | kọ̀npútà</annotation>
+		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🎥">kámé̩rà | fíìmù | sinimá</annotation>
+		<annotation cp="🎥" type="tts">kamẹra fíìmù</annotation>
+		<annotation cp="🎞">sinemá | fíìmù | àwọn férémù</annotation>
+		<annotation cp="🎞" type="tts">àwọn férémù fíìmù</annotation>
+		<annotation cp="📽">pìròjẹ́kítọ̀ | fíìmù | sínímà | fídíò</annotation>
+		<annotation cp="📽" type="tts">è̩rọ agbéwòrán jáde</annotation>
+		<annotation cp="🎬">kílápà | fíìmù</annotation>
+		<annotation cp="🎬" type="tts">pataki alapade</annotation>
+		<annotation cp="📺">àmóhùnmáwòrán | fídíò</annotation>
+		<annotation cp="📺" type="tts">àmóhùnmáwòrán</annotation>
+		<annotation cp="📷">fídíò</annotation>
+		<annotation cp="📷" type="tts">kámẹ́rà</annotation>
+		<annotation cp="📸">fílásì | kámẹ́rà | fídíò</annotation>
+		<annotation cp="📸" type="tts">kámẹ́rà pẹlu filaṣi</annotation>
+		<annotation cp="📹">kámé̩rà | fídíò</annotation>
+		<annotation cp="📹" type="tts">ayàwòrán fídíò</annotation>
+		<annotation cp="📼">téèpù | fídíò</annotation>
+		<annotation cp="📼" type="tts">awọn kaadi ododo iṣere</annotation>
+		<annotation cp="🔍">irinṣẹ́ | ìsọdinlá | ìfojúsóde | díígí</annotation>
+		<annotation cp="🔍" type="tts">gilasi itọka-osi amohun tobi</annotation>
+		<annotation cp="🔎">irinṣẹ́ | ìsọdinlá | ìfojúsóde | díígí</annotation>
+		<annotation cp="🔎" type="tts">gilasi itọka-ọtun amohun tobi</annotation>
+		<annotation cp="🕯">iná</annotation>
+		<annotation cp="🕯" type="tts">kándúùlù</annotation>
+		<annotation cp="💡">bó̩ọ̀bù | iná | òye | kọ́míìkì | ẹ̀lẹ́tíríìkì</annotation>
+		<annotation cp="💡" type="tts">gólòbù iná</annotation>
+		<annotation cp="🔦">tọ́ọ́ṣì | irjṣé̩ | iná mọ̀nà-mó̩ná | iná</annotation>
+		<annotation cp="🔦" type="tts">iná fílásì</annotation>
+		<annotation cp="🏮">iná | ìdènà | pupa | àtùpà</annotation>
+		<annotation cp="🏮" type="tts">atupa iwe pupa</annotation>
+		<annotation cp="📔">ìwé àkọsílè̩ | ìwé | ẹ̀yìn ìwé | ìṣelẹ́ṣọ̀ó̩</annotation>
+		<annotation cp="📔" type="tts">àfikọ̀wé pẹlu ẹyin ọlọṣọ</annotation>
+		<annotation cp="📕">ìwé | pípadé</annotation>
+		<annotation cp="📕" type="tts">iwe ti pade</annotation>
+		<annotation cp="📖">ṣíṣí | ìwé</annotation>
+		<annotation cp="📖" type="tts">iwe ṣi silẹ</annotation>
+		<annotation cp="📗">ìwé | àwò̩ ewé</annotation>
+		<annotation cp="📗" type="tts">iwe alawọ ewe</annotation>
+		<annotation cp="📘">bulu | iwe alawọ</annotation>
+		<annotation cp="📘" type="tts">iwe alawọ bulu</annotation>
+		<annotation cp="📙">aláwò̩ ọsàn | ìwé</annotation>
+		<annotation cp="📙" type="tts">iwe alawọ ọsan</annotation>
+		<annotation cp="📚">ìwé</annotation>
+		<annotation cp="📚" type="tts">àwọn ìwé</annotation>
+		<annotation cp="📓">àfikọ̀wé</annotation>
+		<annotation cp="📓" type="tts">àfikọ̀wé</annotation>
+		<annotation cp="📒">àfikọ̀wé</annotation>
+		<annotation cp="📒" type="tts">lé̩jà</annotation>
+		<annotation cp="📃">ìwé ìpamó̩ | ìló̩pọ̀ | ojú ìwé</annotation>
+		<annotation cp="📃" type="tts">oju-iwe pẹlu lilọ</annotation>
+		<annotation cp="📜">pépà</annotation>
+		<annotation cp="📜" type="tts">gbéjáde</annotation>
+		<annotation cp="📄">ojú ìwé | dọ́kúmé̩ẹ̀tì</annotation>
+		<annotation cp="📄" type="tts">oju-iwe wa loke</annotation>
+		<annotation cp="📰">ìròyìn | pépà</annotation>
+		<annotation cp="📰" type="tts">ìwé ìròyìn</annotation>
+		<annotation cp="🗞">àkápọ̀ | ìròyìn | ìwé ìròyìn | pépà</annotation>
+		<annotation cp="🗞" type="tts">ìwé ìròyìn aláyípọ̀</annotation>
+		<annotation cp="📑">táàbù | ìfàmìsí | ohun èlò ìfàmìsí | àmì</annotation>
+		<annotation cp="📑" type="tts">àmì ìwé àwọn táàbù</annotation>
+		<annotation cp="🔖">àmì</annotation>
+		<annotation cp="🔖" type="tts">àmì ìwé</annotation>
+		<annotation cp="🏷">àkọ́lé</annotation>
+		<annotation cp="🏷" type="tts">àkọ́lé</annotation>
+		<annotation cp="💰">àpò owó | àpò | owó | dó̩là</annotation>
+		<annotation cp="💰" type="tts">apo owo</annotation>
+		<annotation cp="💴">ilé-ìfowópamó̩ | yẹn | owó | owó bánkì | ìwó iye owó</annotation>
+		<annotation cp="💴" type="tts">owo yen</annotation>
+		<annotation cp="💵">ilé-ìfowópamó | dọ́là | owó | owó bánkì | ìwó iye owó</annotation>
+		<annotation cp="💵" type="tts">owo dọla</annotation>
+		<annotation cp="💶">úrò | ilé-ìfowópamó̩ | owó | owó bánkì | ìwó iye owó</annotation>
+		<annotation cp="💶" type="tts">owo uro</annotation>
+		<annotation cp="💷">ilé-ìfowópamó̩ | pó̩ùn | owó | owó bánkì | ìwó iye owó</annotation>
+		<annotation cp="💷" type="tts">owo pọun</annotation>
+		<annotation cp="💸">fò | ilé-ìfowópamó̩ | dó̩là | owó | owó bánkì | ìwó iye owó</annotation>
+		<annotation cp="💸" type="tts">owo pẹlu awọn iyẹ</annotation>
+		<annotation cp="💳">owó | ààwìn | káàdì | ilé ìfowópamó̩</annotation>
+		<annotation cp="💳" type="tts">káàdì ìsọdowó</annotation>
+		<annotation cp="💹">àtẹ | yen | ìdìde | ìlọsókè | ilé ìfowópamọ́n | ọjà | owó | ìgbàlódé | ìdàgbàsókè | ilà atọ́ka àwòrán</annotation>
+		<annotation cp="💹" type="tts">àtẹ n pọsi pẹlu yẹn</annotation>
+		<annotation cp="✉">lé̩tà | í-meèlì</annotation>
+		<annotation cp="✉" type="tts">àpò ìwé</annotation>
+		<annotation cp="📧">meèlì | lẹ́tà | í-meèlì</annotation>
+		<annotation cp="📧" type="tts">í-meèlì</annotation>
+		<annotation cp="📨">àpò ìwé | í-meèlì | lẹ́tá | ìgbàwọlé | meèlì | ìwọlé</annotation>
+		<annotation cp="📨" type="tts">apo iwe ti o nbọ</annotation>
+		<annotation cp="📩">ìjáde | ìfiránṣé̩ | àpò ìwé | í-meèlì | ìsàlẹ̀ | meèlì | lẹ́tà | ọfà</annotation>
+		<annotation cp="📩" type="tts">apo iwe pelu ọfa</annotation>
+		<annotation cp="📤">àtẹ | lẹ́tá | ìfiránṣẹ́ | meèlì | àpótí ìgbọ́rọ̀jáde | àpótì</annotation>
+		<annotation cp="📤" type="tts">tire àpótí ìgbọ́rọ̀jáde</annotation>
+		<annotation cp="📥">àtẹ | lẹ́tá | ìgbàwọlé | meèlì | àpótí ìgbọ́rọ̀jáde | àpótì</annotation>
+		<annotation cp="📥" type="tts">tire àpótí àgbàwọ́lé</annotation>
+		<annotation cp="📦">àpótí | ẹgbìnrìn</annotation>
+		<annotation cp="📦" type="tts">ṣí àkójọpọ̀</annotation>
+		<annotation cp="📫">àpótí meèlì | meèlì | àpótí ìfigba ìwé ránṣẹ́ | pípadé</annotation>
+		<annotation cp="📫" type="tts">àpótíméèlì ti a tipa pẹlu asia nina soke</annotation>
+		<annotation cp="📪">àpótí meèlì | àpótí ìfigba ìwé ránṣẹ́ | wálẹ̀ | meèlì | pípadé</annotation>
+		<annotation cp="📪" type="tts">àpótíméèlì ti a tipa pẹlu asia nina walẹ</annotation>
+		<annotation cp="📬">àpótí meèlì | sí | meèlì | àpótí ìfigba ìwé ránṣẹ́</annotation>
+		<annotation cp="📬" type="tts">àpótíméèlì ti a ṣi pẹlu asia nina soke</annotation>
+		<annotation cp="📭">àpótí meèlì | àpótí ìfigba ìwé ránṣẹ́ | wálẹ̀ | meèlì | sí</annotation>
+		<annotation cp="📭" type="tts">àpótíméèlì ti a ṣi pẹlu asia nina wale</annotation>
+		<annotation cp="📮">àpótí meèlì | meèlì</annotation>
+		<annotation cp="📮" type="tts">apoti ifigba iwe iranṣẹ</annotation>
+		<annotation cp="🗳">ìwé ìdìbò | àpótí</annotation>
+		<annotation cp="🗳" type="tts">àpótí ìdìbò pẹ̀lú ìwé ìdìbò</annotation>
+		<annotation cp="✏">pẹ́nsùlù</annotation>
+		<annotation cp="✏" type="tts">pẹ́nsùlù</annotation>
+		<annotation cp="✒">góngó | gègé</annotation>
+		<annotation cp="✒" type="tts">góngó dúdú</annotation>
+		<annotation cp="🖋">orísun | gègé</annotation>
+		<annotation cp="🖋" type="tts">gègé orísun</annotation>
+		<annotation cp="🖊">gègé</annotation>
+		<annotation cp="🖊" type="tts">gègé pẹlu rogodo</annotation>
+		<annotation cp="🖌">ọ̀dà</annotation>
+		<annotation cp="🖌" type="tts">búró̩sì ìkùndà</annotation>
+		<annotation cp="🖍">kereyọ́nù</annotation>
+		<annotation cp="🖍" type="tts">kereyọ́nù</annotation>
+		<annotation cp="📝">pẹ́nsùlù</annotation>
+		<annotation cp="📝" type="tts">mẹ́mò</annotation>
+		<annotation cp="💼">àpamọ́wọ́</annotation>
+		<annotation cp="💼" type="tts">àpamọ́wọ́</annotation>
+		<annotation cp="📁">fáìlì | fódà</annotation>
+		<annotation cp="📁" type="tts">fódà fáìlì</annotation>
+		<annotation cp="📂">ṣí | fáìlì | fódà</annotation>
+		<annotation cp="📂" type="tts">fódà fáìlì ti o ṣi</annotation>
+		<annotation cp="🗂">ohun èlò ìpínyà | àtòjọ atọ́ka-ọ̀rọ̀ | káàdì</annotation>
+		<annotation cp="🗂" type="tts">ohun èlò ìpínyà àtòjọ atọ́ka-ọ̀rọ̀ káàdì</annotation>
+		<annotation cp="📅">déètì</annotation>
+		<annotation cp="📅" type="tts">kàlẹ́ndà</annotation>
+		<annotation cp="📆">kàlẹ́ndà</annotation>
+		<annotation cp="📆" type="tts">kàlẹ́ndà ti a ya</annotation>
+		<annotation cp="🗒">àkápọ̀ | nóòtì | páàdì</annotation>
+		<annotation cp="🗒" type="tts">nóòtì páàdì alákápò̩</annotation>
+		<annotation cp="🗓">àkápọ̀ | páàdì | kàlẹ́ndà</annotation>
+		<annotation cp="🗓" type="tts">kàlẹ́ndà alákápọ̀</annotation>
+		<annotation cp="📇">àtòjọ atọ́ka-ọ̀rọ̀ | fáìlì oní káàdì | káàdì</annotation>
+		<annotation cp="📇" type="tts">káàdì àtòjọ atọ́kà-ọ̀rọ̀</annotation>
+		<annotation cp="📈">àtẹ | ìlọsókè | ìlọṣíwájú | ilà ató̩ka àwòrán | ìdàgbàsókè</annotation>
+		<annotation cp="📈" type="tts">àtẹ n pọsi</annotation>
+		<annotation cp="📉">tírẹ́ndì | àtẹ | ìsàlẹ̀ | àtẹ alátó̩ka</annotation>
+		<annotation cp="📉" type="tts">àtẹ n dinku</annotation>
+		<annotation cp="📊">àtẹ alátọ́ka | àtẹ | àtẹ onígun</annotation>
+		<annotation cp="📊" type="tts">pẹpẹ ìwe àwòrán àfihàn</annotation>
+		<annotation cp="📋">aka ọlọ́pọ̀n</annotation>
+		<annotation cp="📋" type="tts">aka ọlọ́pọ̀n</annotation>
+		<annotation cp="📌">abẹ́rẹ́</annotation>
+		<annotation cp="📌" type="tts">abẹ́rẹ́ohunyíyà</annotation>
+		<annotation cp="📍">abẹ́rẹ́ | píìnì àgbáwọlé</annotation>
+		<annotation cp="📍" type="tts">abẹ́rẹ́ohunyíyà roboto</annotation>
+		<annotation cp="📎">àfimúwèépọ̀</annotation>
+		<annotation cp="📎" type="tts">àfimúwèépọ̀</annotation>
+		<annotation cp="🖇">àfimúwèépò̩ | ìsopọ̀</annotation>
+		<annotation cp="🖇" type="tts">àsopọ̀ ìfimúwèépọ̀</annotation>
+		<annotation cp="📏">rúlà | etí gbọọrọ</annotation>
+		<annotation cp="📏" type="tts">rula gbọọrọ</annotation>
+		<annotation cp="📐">rúlà | sẹ́ẹ́tì | onígun-mé̩ta</annotation>
+		<annotation cp="📐" type="tts">rula onigun mẹta</annotation>
+		<annotation cp="✂">gígé | irinṣé̩</annotation>
+		<annotation cp="✂" type="tts">sísọ́ọ̀sì</annotation>
+		<annotation cp="🗃">àpótí | fáìlì | káàdì</annotation>
+		<annotation cp="🗃" type="tts">àpótí káàdì fún fáìlì</annotation>
+		<annotation cp="🗄">àpótí | fáàlì | ìforúkọ fáàlì sílẹ̀</annotation>
+		<annotation cp="🗄" type="tts">àpótí fáàlì</annotation>
+		<annotation cp="🗑">apẹ̀rẹ̀ ìdalè̩sí</annotation>
+		<annotation cp="🗑" type="tts">apẹ̀rẹ̀ ìdalè̩sí</annotation>
+		<annotation cp="🔒">pípadé</annotation>
+		<annotation cp="🔒" type="tts">ti tìí</annotation>
+		<annotation cp="🔓">ṣíṣí | ṣí | tì</annotation>
+		<annotation cp="🔓" type="tts">ti síi</annotation>
+		<annotation cp="🔏">ínkì | góngó | padé | ìkọ̀kọ̀ | pẹ́ẹ̀nì</annotation>
+		<annotation cp="🔏" type="tts">ti tìí pẹlu pẹni</annotation>
+		<annotation cp="🔐">títì | ààbò | pípadé | kó̩kọ́ró̩</annotation>
+		<annotation cp="🔐" type="tts">ti tìí pẹlu kọkọrọ</annotation>
+		<annotation cp="🔑">pásìwọdù | tì</annotation>
+		<annotation cp="🔑" type="tts">kọ́kọ́rọ́</annotation>
+		<annotation cp="🗝">títì | àtijó̩ | kọ́kọ́ró̩ | olobó</annotation>
+		<annotation cp="🗝" type="tts">kó̩kọ́ró̩ àtijó̩</annotation>
+		<annotation cp="🔨">irinsẹ́</annotation>
+		<annotation cp="🔨" type="tts">oòlù</annotation>
+		<annotation cp="⛏">ìwakusà | irinṣé̩</annotation>
+		<annotation cp="⛏" type="tts">sà</annotation>
+		<annotation cp="⚒">òòlù</annotation>
+		<annotation cp="⚒" type="tts">òòlù àti ìsà</annotation>
+		<annotation cp="🛠">sípánà | irinṣẹ́ | òòlù | irinṣẹ́ afagbára dè</annotation>
+		<annotation cp="🛠" type="tts">òòlù àti irinṣẹ́ afagbára dè</annotation>
+		<annotation cp="🗡">irinṣẹ́ ìjagun | ò̩bẹ</annotation>
+		<annotation cp="🗡" type="tts">dágà</annotation>
+		<annotation cp="⚔">irinṣẹ́ ìjagun | idà | àgbélèbú</annotation>
+		<annotation cp="⚔" type="tts">idà alágbèélèbú</annotation>
+		<annotation cp="🔫">ìbọn ìléwó̩ | ìbọn | ìbọn ṣakabùlà | irinṣẹ́</annotation>
+		<annotation cp="🔫" type="tts">ibọn ilewọ</annotation>
+		<annotation cp="🏹">àmi oṣù ìbí | irinṣé̩ | tafàtafà | ọfà títa | irinṣẹ́ ìjagun | Sagittarius | ọfà</annotation>
+		<annotation cp="🏹" type="tts">ọkọ ati ọfa</annotation>
+		<annotation cp="🛡">irinṣẹ́ ìjagun</annotation>
+		<annotation cp="🛡" type="tts">ohun èlò àbò</annotation>
+		<annotation cp="🔧">sípánà | irinṣẹ́ | irinṣẹ́ afagbára dè</annotation>
+		<annotation cp="🔧" type="tts">oolu</annotation>
+		<annotation cp="🔩">bóòtù | nó̩ọ̀tì | irinṣé̩</annotation>
+		<annotation cp="🔩" type="tts">nọti ati botu</annotation>
+		<annotation cp="⚙">irinsẹ́</annotation>
+		<annotation cp="⚙" type="tts">gíà</annotation>
+		<annotation cp="🗜">ìfúnpọ̀ | irinṣẹ́ | ohun èlò irinṣẹ́</annotation>
+		<annotation cp="🗜" type="tts">gbámú</annotation>
+		<annotation cp="⚖">síkélì | àmi oṣù ìbí | ìwọ̀n | ìwọ̀ntúnwọ̀nsí | ìdájọ́ | líbérà</annotation>
+		<annotation cp="⚖" type="tts">ìwọ̀ntúnwọ̀nsí síkélì</annotation>
+		<annotation cp="🔗">ìtọ́kasí</annotation>
+		<annotation cp="🔗" type="tts">ìtọ́kasí</annotation>
+		<annotation cp="⛓">ṣe̩kẹ́ṣẹkẹ̀</annotation>
+		<annotation cp="⛓" type="tts">àwọn ṣe̩kẹ́ṣẹkẹ̀</annotation>
+		<annotation cp="⚗">irinṣé̩ | kẹ́mísìrì</annotation>
+		<annotation cp="⚗" type="tts">àlẹ́mbìk</annotation>
+		<annotation cp="🔬">sáyé̩nsì | irinṣẹ́</annotation>
+		<annotation cp="🔬" type="tts">maikirosikopu</annotation>
+		<annotation cp="🔭">sáyé̩nsì | irinṣẹ́</annotation>
+		<annotation cp="🔭" type="tts">tẹlisikopu</annotation>
+		<annotation cp="📡">àwo | àtagbà | ẹ̀rọ alátagbà nlá</annotation>
+		<annotation cp="📡" type="tts">eria satalaiti</annotation>
+		<annotation cp="💉">yìn | dókítà | irinṣẹ́ | òògùn | ikin | àìsàn</annotation>
+		<annotation cp="💉" type="tts">abẹrẹ</annotation>
+		<annotation cp="💊">òògùn | dókítà | àìsàn</annotation>
+		<annotation cp="💊" type="tts">pili</annotation>
+		<annotation cp="🚪">Ìlẹ̀kùn</annotation>
+		<annotation cp="🚪" type="tts">Ìlẹ̀kùn</annotation>
+		<annotation cp="🛏">sùn | ilé ìtura</annotation>
+		<annotation cp="🛏" type="tts">ibùsùn</annotation>
+		<annotation cp="🛋">ìjókò | ilé ìtura | àtùpà</annotation>
+		<annotation cp="🛋" type="tts">ìjókò àti  àtùpà</annotation>
+		<annotation cp="🚽">Ilé ìgbẹ́</annotation>
+		<annotation cp="🚽" type="tts">Ilé ìgbẹ́</annotation>
+		<annotation cp="🚿">omi</annotation>
+		<annotation cp="🚿" type="tts">Ìwẹ̀</annotation>
+		<annotation cp="🛁">ìwẹ̀</annotation>
+		<annotation cp="🛁" type="tts">Àgbá ìwẹ̀</annotation>
+		<annotation cp="🛒">Ìrajà | àtẹ | kẹ̀kẹ́ ìkójàsí</annotation>
+		<annotation cp="🛒" type="tts">Àtẹ Iraja</annotation>
+		<annotation cp="🚬">sìgá mímu</annotation>
+		<annotation cp="🚬" type="tts">siga</annotation>
+		<annotation cp="⚰">ikú</annotation>
+		<annotation cp="⚰" type="tts">pósí</annotation>
+		<annotation cp="⚱">ikú | eérú | ìsìnkú | ahá</annotation>
+		<annotation cp="⚱" type="tts">igbá ìsìnkú</annotation>
+		<annotation cp="🗿">ojú | ère</annotation>
+		<annotation cp="🗿" type="tts">moai</annotation>
+		<annotation cp="🏧">ẹ̀rọ apọwó | ilé-ìfowópamó̩ | àdásísẹ́ | tẹ́là</annotation>
+		<annotation cp="🏧" type="tts">Aami ATM</annotation>
+		<annotation cp="🚮">dọ̀tí | ike ìdalẹ̀sí</annotation>
+		<annotation cp="🚮" type="tts">idoti ninu aami idọti</annotation>
+		<annotation cp="🚰">mímu | omi | lábó̩dé</annotation>
+		<annotation cp="🚰" type="tts">omi aṣeegbe kiri</annotation>
+		<annotation cp="♿">ìfàyègbà</annotation>
+		<annotation cp="♿" type="tts">àmì kẹkẹ ẹni-ẹsẹ-ndun</annotation>
+		<annotation cp="🚹">ọkùnrin | ilé ìgbọ̀nṣẹ̀ | ilé ìgbò̩nṣẹ̀ olómi | ìyàrá ìsinmi</annotation>
+		<annotation cp="🚹" type="tts">iyara awọn ọkunrin</annotation>
+		<annotation cp="🚺">ìyàrá ìsinmi | obìnrin | ilé ìgbọ̀nṣẹ̀ | ilé ìgbò̩nṣẹ̀ olómi</annotation>
+		<annotation cp="🚺" type="tts">iyara awọn obinrin</annotation>
+		<annotation cp="🚻">ìyàrá ìsinmi | ilé ìgbọ̀nṣẹ̀ | ilé ìgbò̩nṣẹ̀ olómi</annotation>
+		<annotation cp="🚻" type="tts">iléìyàgbẹ́</annotation>
+		<annotation cp="🚼">àyípadà | ọmọ ìkókó</annotation>
+		<annotation cp="🚼" type="tts">àmì ọmọ</annotation>
+		<annotation cp="🚾">ilé ìgbọ̀nṣẹ̀ | ìyẹ̀wù | omi | ilé ìgbọ̀nṣẹ̀ olómi | ìyàrá ìsinmi</annotation>
+		<annotation cp="🚾" type="tts">iléìyàgbẹ́ olomi</annotation>
+		<annotation cp="🛂">darí | ìwé ìrìnnà</annotation>
+		<annotation cp="🛂" type="tts">iṣakoso aworan ori</annotation>
+		<annotation cp="🛃">awọn aṣọbode</annotation>
+		<annotation cp="🛃" type="tts">awọn aṣọbode</annotation>
+		<annotation cp="🛄">ẹrù | gba</annotation>
+		<annotation cp="🛄" type="tts">igba ẹru ẹni</annotation>
+		<annotation cp="🛅">àtìpa | ẹrù</annotation>
+		<annotation cp="🛅" type="tts">fifi ẹru silẹ</annotation>
+		<annotation cp="⚠">ìkìlọ̀</annotation>
+		<annotation cp="⚠" type="tts">ìkìlọ̀</annotation>
+		<annotation cp="🚸">ọmọ | olùfẹsẹ̀rìn | súkẹrẹ-fàkẹrẹ | ìsọdá</annotation>
+		<annotation cp="🚸" type="tts">awọn ọmọde n sọda</annotation>
+		<annotation cp="⛔">àbáwọlé | kò | èèwọ̀ | kòsáyè | súkẹrẹ-fàkẹrẹ | rárá</annotation>
+		<annotation cp="⛔" type="tts">kosi iwọle</annotation>
+		<annotation cp="🚫">kò | rárá | àbáwo̩lé | èèwọ̀</annotation>
+		<annotation cp="🚫" type="tts">kosaye</annotation>
+		<annotation cp="🚳">kò | kẹ̀ké̩ | kòsáyè | báíkì | èèwọ̀ | rárá</annotation>
+		<annotation cp="🚳" type="tts">kosi awọn kẹkẹ</annotation>
+		<annotation cp="🚭">sìgá mímu | kò | kòsáyè | èèwọ̀ | rárá</annotation>
+		<annotation cp="🚭" type="tts">kosi mimu siga</annotation>
+		<annotation cp="🚯">dọ̀tí | kò | kòsáyè | èèwọ̀ | rárá</annotation>
+		<annotation cp="🚯" type="tts">kosi idahun-silẹ</annotation>
+		<annotation cp="🚱">àìmọlábọ́dé | kòṣéèmu | omi</annotation>
+		<annotation cp="🚱" type="tts">omi ti koṣeemu</annotation>
+		<annotation cp="🚷">kò | olùfẹsẹ̀rìn | kòsáyè | èèwọ̀ | rárá</annotation>
+		<annotation cp="🚷" type="tts">kosi olufẹsẹrin</annotation>
+		<annotation cp="📵">kò | fóònù | àgbéká | kòsáyè | tẹlifóònù | rárá | Ẹ̀rọ alágbéèká | èèwò</annotation>
+		<annotation cp="📵" type="tts">kosi awọn foonu alagbeka</annotation>
+		<annotation cp="🔞">ejìdínlógún | ráráa | bẹ́ẹ̀kọ́ | 18 | èwọ̀ | ojọ́ orí tó kéré | ẹwọ | ìdìwọ́ ojó orí</annotation>
+		<annotation cp="🔞" type="tts">kosi eniyan labẹ ejidinlogun</annotation>
+		<annotation cp="☢">rédíòátífù | àmì</annotation>
+		<annotation cp="☢" type="tts">rédíòátífù</annotation>
+		<annotation cp="☣">ewu ajẹmọ́nìyàn | àmì</annotation>
+		<annotation cp="☣" type="tts">ewu ajẹmọ́nìyàn</annotation>
+		<annotation cp="⬆">àríwá | kádínàlì | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="⬆" type="tts">àmì òkè ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="↗">ìlọ́pọ̀ kádínàlì | ilà oòrùn àríwá | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="↗" type="tts">àmì òkè ìtó̩sọ́nà o̩lọ́fà apá ọ̀tún</annotation>
+		<annotation cp="➡">kádínàlì | ilà oòrùn | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="➡" type="tts">àmì ìtó̩sọ́nà o̩lọ́fà apá ọ̀tún</annotation>
+		<annotation cp="↘">ìlọ́pọ̀ kádínàlì | gúúsù ilà oòrùn | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="↘" type="tts">àmì ilẹ̀ ìtó̩sọ́nà o̩lọ́fà apá ọ̀tún</annotation>
+		<annotation cp="⬇">gúúsù | kádínàlì | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà | ilè̩</annotation>
+		<annotation cp="⬇" type="tts">àmì ilẹ̀ ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="↙">iwọ̀ oòrùn gúúsù | ìlọ́pọ̀ kádínàlì | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="↙" type="tts">àmì ilẹ̀ ìtó̩sọ́nà o̩lọ́fà apá òsì</annotation>
+		<annotation cp="⬅">iwọ̀ oòrùn | kádínàlì | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="⬅" type="tts">àmì ìtó̩sọ́nà o̩lọ́fà apá òsì</annotation>
+		<annotation cp="↖">ìlọ́pọ̀ kádínàlì | iwọ̀ oòrùn àríwá | ìtọ́sọ́nà | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="↖" type="tts">àmì òkè ìtó̩sọ́nà o̩lọ́fà apá òsì</annotation>
+		<annotation cp="↕">ọfà</annotation>
+		<annotation cp="↕" type="tts">ọfà tòkètilẹ̀</annotation>
+		<annotation cp="↔">ọfà</annotation>
+		<annotation cp="↔" type="tts">àmì ìtó̩sọ́nà o̩lọ́fà tọ̀tún-tòsì</annotation>
+		<annotation cp="↩">ọfà</annotation>
+		<annotation cp="↩" type="tts">àmì ìtó̩sọ́nà o̩lọ́fà apá ọ̀tún onígun</annotation>
+		<annotation cp="↪">ọfà</annotation>
+		<annotation cp="↪" type="tts">àmì ìtó̩sọ́nà o̩lọ́fà apá òsì onígun</annotation>
+		<annotation cp="⤴">ọfà</annotation>
+		<annotation cp="⤴" type="tts">àmì ìtó̩sọ́nà o̩lọ́fà apá ọ̀tún onígun òkè</annotation>
+		<annotation cp="⤵">o̩fà | ilẹ̀</annotation>
+		<annotation cp="⤵" type="tts">àmì ìtó̩sọ́nà o̩lọ́fà apá ọ̀tún onígun ìsàlẹ̀</annotation>
+		<annotation cp="🔃">ọlọ́wọ́-aago | àtúngbé | àmì ìtó̩sọ́nà o̩lọ́fà</annotation>
+		<annotation cp="🔃" type="tts">awọn ọfa yiyi ọna ago</annotation>
+		<annotation cp="🔄">ìlòdìsọ́wọ́ aago | o̩fà</annotation>
+		<annotation cp="🔄" type="tts">bọtini awọn ọfa yiyi lodi sọna ago</annotation>
+		<annotation cp="🔙">o̩fà | ẹ̀yìn</annotation>
+		<annotation cp="🔙" type="tts">Ọfa ẸYIN</annotation>
+		<annotation cp="🔚">ìparí | ọfà</annotation>
+		<annotation cp="🔚" type="tts">Ọfa IPARI</annotation>
+		<annotation cp="🔛">o̩fà | lórí | àmì</annotation>
+		<annotation cp="🔛" type="tts">Ọfa LORI!</annotation>
+		<annotation cp="🔜">o̩fà | láìpẹ́</annotation>
+		<annotation cp="🔜" type="tts">Ọfa LAIPẸ</annotation>
+		<annotation cp="🔝">o̩fà | òkè | orí òkè</annotation>
+		<annotation cp="🔝" type="tts">Ọfa LOKE</annotation>
+		<annotation cp="🛐">ẹ̀sìn | ìjó̩sìn</annotation>
+		<annotation cp="🛐" type="tts">ibi ijọsin</annotation>
+		<annotation cp="⚛">átọ́mù | aláìgbàgbó̩</annotation>
+		<annotation cp="⚛" type="tts">àmì átọ́mù</annotation>
+		<annotation cp="🕉">ẹ̀sìn | Híndù</annotation>
+		<annotation cp="🕉" type="tts">om</annotation>
+		<annotation cp="✡">Júù | E̩lẹ́sìn júù | ẹ̀sìn | Dáfídì | ìràwọ̀</annotation>
+		<annotation cp="✡" type="tts">ìràwọ̀ Dáfídì</annotation>
+		<annotation cp="☸">E̩lẹ́sìn bó̩ó̩dà | ẹ̀sìn | kè̩ké̩ | ẹlẹ́sìn dáámà</annotation>
+		<annotation cp="☸" type="tts">kẹ̀ké̩ è̩sìn  dáámà</annotation>
+		<annotation cp="☯">ẹlé̩sìn táó | yínì | yángì | ẹ̀sìn | táó</annotation>
+		<annotation cp="☯" type="tts">yínì yángì</annotation>
+		<annotation cp="✝">ẹ̀sìn | àgbélèbú | ẹlẹ́sìn ìgbàgbó̩</annotation>
+		<annotation cp="✝" type="tts">àgbélèbú látíìnì</annotation>
+		<annotation cp="☦">ẹ̀sìn | àgbélèbú | ẹlẹ́sìn ìgbàgbó̩</annotation>
+		<annotation cp="☦" type="tts">àgbélèbú àtijó</annotation>
+		<annotation cp="☪">ẹ̀sìn | Ìmàle | Mùsùlùmí</annotation>
+		<annotation cp="☪" type="tts">ìràwọ̀ àti òṣùpá tí kò tí yọ tán</annotation>
+		<annotation cp="☮">àláàáfíà</annotation>
+		<annotation cp="☮" type="tts">àmì àláàáfíà</annotation>
+		<annotation cp="🕎">ẹ̀sìn | ìdúró àbé̩là | ìdúró kándù</annotation>
+		<annotation cp="🕎" type="tts">menorah</annotation>
+		<annotation cp="🔯">oríre | ìràwọ̀</annotation>
+		<annotation cp="🔯" type="tts">irawọ totooto oni-mẹfa</annotation>
+		<annotation cp="♈">àgbò | àmi oṣù ìbí</annotation>
+		<annotation cp="♈" type="tts">Aries</annotation>
+		<annotation cp="♉">màlúù igbò | ẹgbọrọ màlúù | àmi oṣù ìbí</annotation>
+		<annotation cp="♉" type="tts">Taurus</annotation>
+		<annotation cp="♊">ìbejì | àmi oṣù ìbí</annotation>
+		<annotation cp="♊" type="tts">Gemini</annotation>
+		<annotation cp="♋">akàn | àmi oṣù ìbí</annotation>
+		<annotation cp="♋" type="tts">Cancer</annotation>
+		<annotation cp="♌">kìnìhún | àmi oṣù ìbí</annotation>
+		<annotation cp="♌" type="tts">Leo</annotation>
+		<annotation cp="♍">àmi oṣù ìbí</annotation>
+		<annotation cp="♍" type="tts">Virgo</annotation>
+		<annotation cp="♎">ìdájó̩ | òṣùwò̩n | Ìwọ̀ntúnwò̩nsì | àmi oṣù ìbí</annotation>
+		<annotation cp="♎" type="tts">Libra</annotation>
+		<annotation cp="♏">àkeèké | àmi oṣù ìbí | scorpio</annotation>
+		<annotation cp="♏" type="tts">Scorpius</annotation>
+		<annotation cp="♐">tafàtafà | àmi oṣù ìbí</annotation>
+		<annotation cp="♐" type="tts">Sagittarius</annotation>
+		<annotation cp="♑">ewúré̩ | àmi oṣù ìbí</annotation>
+		<annotation cp="♑" type="tts">Capricorn</annotation>
+		<annotation cp="♒">olùjẹ́ orúkọ | omi | àmi oṣù ìbí</annotation>
+		<annotation cp="♒" type="tts">Aquarius</annotation>
+		<annotation cp="♓">àmi oṣù ìbí | ẹja</annotation>
+		<annotation cp="♓" type="tts">Pisces</annotation>
+		<annotation cp="⛎">afàyàfà | ejò | àmi oṣù ìbí | ẹní gba ǹkan</annotation>
+		<annotation cp="⛎" type="tts">Ophiuchus</annotation>
+		<annotation cp="🔀">ìfagilé | àmì atọ́nà ọlọ́fà</annotation>
+		<annotation cp="🔀" type="tts">yiyọ bọtini tiraki</annotation>
+		<annotation cp="🔁">àmì atọ́nà ọló̩fà | olọ́wọ́ aago | àtúnsọ</annotation>
+		<annotation cp="🔁" type="tts">atunṣe bọtini</annotation>
+		<annotation cp="🔂">ẹ̀ẹ̀kan | àmì ató̩nà ọlọfà | olọ́wọ́ aago</annotation>
+		<annotation cp="🔂" type="tts">atunṣe bọtini ẹlẹyọ</annotation>
+		<annotation cp="▶">ọ̀tún | onígun mé̩ta | píílè | àmì atọ́nà ọló̩fà</annotation>
+		<annotation cp="▶" type="tts">bọ́tínì píílè</annotation>
+		<annotation cp="⏩">sáré | méjì | tẹ̀síwájú | àmì atọ́nà ọlọ́fà</annotation>
+		<annotation cp="⏩" type="tts">mu bọtini sare lọwaju</annotation>
+		<annotation cp="⏭">tírákì tí ó kàn | onigun mẹta | ipele àwòrán tí ó kàn | àmì atọ́nà ọlọ́fà</annotation>
+		<annotation cp="⏭" type="tts">bọ́tìnì tírákì tó kàn</annotation>
+		<annotation cp="⏯">ọ̀tún | píílè | dúró | àmì atọ́nà ọlọ́fà | onigun mẹta</annotation>
+		<annotation cp="⏯" type="tts">bó̩tìnìpíílè tàbí ìdúró</annotation>
+		<annotation cp="◀">Àmì atọ́nà ọlọ́fà | òsì | dapadà | onigun mẹta</annotation>
+		<annotation cp="◀" type="tts">Bọ́tínì ìdápadà</annotation>
+		<annotation cp="⏪">Àmì atọ́nà ọlọ́fà | oníbejì | àmúrẹ̀yìn</annotation>
+		<annotation cp="⏪" type="tts">mu bọtini sare rẹhin</annotation>
+		<annotation cp="⏮">Àmì atọ́nà ọlọ́fà | ìṣe ta wò kẹ́yìn | tíráàkì ta gbọ́ kẹ́yìn | onigun mẹta</annotation>
+		<annotation cp="⏮" type="tts">Tíráàkì tó ké̩yìn</annotation>
+		<annotation cp="🔼">pupa | Àmì atọ́nà ọlọ́fà | bọ́tìnì</annotation>
+		<annotation cp="🔼" type="tts">bọtini oke</annotation>
+		<annotation cp="⏫">oníbejì | Àmì atọ́nà ọlọ́fà</annotation>
+		<annotation cp="⏫" type="tts">bọtini imusoke kia</annotation>
+		<annotation cp="🔽">bọ́tìnì | ilè̩ | pupa | Àmì atọ́nà ọlọ́fà</annotation>
+		<annotation cp="🔽" type="tts">bọtini isalẹ</annotation>
+		<annotation cp="⏬">Àmì atọ́nà ọlọ́fà | oníbejì | ilè̩</annotation>
+		<annotation cp="⏬" type="tts">bọtini imussalẹ kia</annotation>
+		<annotation cp="⏸">dadúró | olóòró | Báà | oníbejì</annotation>
+		<annotation cp="⏸" type="tts">bọ́tínì ìdánudúró fúngbà díẹ̀</annotation>
+		<annotation cp="⏹">Onígun mẹ́rin | dúró</annotation>
+		<annotation cp="⏹" type="tts">bọ́tínì ìdànudúró</annotation>
+		<annotation cp="⏺">ré̩kọ́ọ̀dù | Rogodo</annotation>
+		<annotation cp="⏺" type="tts">bọ́tínì agbohùnsílẹ̀</annotation>
+		<annotation cp="⏏">àtẹ̀jáde</annotation>
+		<annotation cp="⏏" type="tts">bó̩tínì àtẹ̀jáde</annotation>
+		<annotation cp="🎦">kámẹ́rà | fíìmù</annotation>
+		<annotation cp="🎦" type="tts">sinima</annotation>
+		<annotation cp="🔅">ìdínákù díẹ̀ | Àfikún iná | ìdínákù pátápátá</annotation>
+		<annotation cp="🔅" type="tts">bọtini baibai</annotation>
+		<annotation cp="🔆">àfikún ìmọ́lẹ̀ | Ìmọ́lẹ̀</annotation>
+		<annotation cp="🔆" type="tts">bọtini titan</annotation>
+		<annotation cp="📶">fóònù alágbèéká | Alátagbà | báà | fóònù | ìfihàn | tẹlifóònù | è̩ro̩ alágbéèká</annotation>
+		<annotation cp="📶" type="tts">àwọn òpó antẹna</annotation>
+		<annotation cp="📳">àgbéká | fóònù | gbígbọ̀n | tẹlifóònù | móòdù | Ẹ̀rọ alágbéèká</annotation>
+		<annotation cp="📳" type="tts">moodu gbigbọn</annotation>
+		<annotation cp="📴">alágbèéká | fóònù alágbèéká | tẹlifóònù | fóònù</annotation>
+		<annotation cp="📴" type="tts">pipa ẹ̀rọ ìbánisọ̀rọ̀ alágbèéká</annotation>
+		<annotation cp="♀">Obìnrin</annotation>
+		<annotation cp="♀" type="tts">àmí obìnrin</annotation>
+		<annotation cp="♂">Ọkùnrin</annotation>
+		<annotation cp="♂" type="tts">àmì ọkùnrin</annotation>
+		<annotation cp="✖">x | ìsọdipúpò̩ | fagilé</annotation>
+		<annotation cp="✖" type="tts">ìsọdipúpò̩ tó nípọn x</annotation>
+		<annotation cp="➕">ẹ̀kó̩ ìsirò | àròpọ̀</annotation>
+		<annotation cp="➕" type="tts">aami àròpọ̀ nla</annotation>
+		<annotation cp="➖">àyọkúrò | ẹ̀kó̩ ìsirò</annotation>
+		<annotation cp="➖" type="tts">aami ayọkuro nla</annotation>
+		<annotation cp="➗">ẹ̀kọ́ ìsirò | ìpín</annotation>
+		<annotation cp="➗" type="tts">aami gige nla</annotation>
+		<annotation cp="‼">àmì ìyanu | ìfàmìsí | àmì | gbàgbà</annotation>
+		<annotation cp="‼" type="tts">àmì ìyanu oníbejì</annotation>
+		<annotation cp="⁉">ìfọ̀rọ̀wánilé̩nuwò | ìfàmìsí | àmì | àmì ìyanu</annotation>
+		<annotation cp="⁉" type="tts">àmì ìyanu oníbéèrè</annotation>
+		<annotation cp="❓">ìfàmìsí | ìbéèrè | àmì</annotation>
+		<annotation cp="❓" type="tts">àmì ìbéèrè ìdàkodò</annotation>
+		<annotation cp="❔">ìfàmìsí | ààtò | ìbéèrè | àmì</annotation>
+		<annotation cp="❔" type="tts">aami ibeere funfun</annotation>
+		<annotation cp="❕">ìfàmìsí | ààtò | àmì | àmì ìyanu</annotation>
+		<annotation cp="❕" type="tts">aami iyalẹnu funfun</annotation>
+		<annotation cp="❗">ìfàmìsí | àmì | àmì ìyanu</annotation>
+		<annotation cp="❗" type="tts">àmì ìyàlẹ́nu ìdàkodò</annotation>
+		<annotation cp="〰">ìsàn omi | ìfàmìsí | dáàṣì</annotation>
+		<annotation cp="〰" type="tts">dáàṣì onísàn omi</annotation>
+		<annotation cp="💱">owó | ìlé ìfowópamọ́ | pàṣépàrò̩</annotation>
+		<annotation cp="💱" type="tts">paṣiparọ owo</annotation>
+		<annotation cp="💲">dọ́là | owó</annotation>
+		<annotation cp="💲" type="tts">aami dọla nla</annotation>
+		<annotation cp="⚕">òṣìṣẹ́ | ògùn | aesculapius</annotation>
+		<annotation cp="⚕" type="tts">àmì egbògiogùn</annotation>
+		<annotation cp="♻">àtúnrọ</annotation>
+		<annotation cp="♻" type="tts">àmì àtúnrọ</annotation>
+		<annotation cp="⚜">fleur-de-lis</annotation>
+		<annotation cp="⚜" type="tts">fleur-de-lis</annotation>
+		<annotation cp="🔱">ìdákọ̀ró | irinṣé̩ | ọkọ̀ | tírídẹ̀ntì | ẹ̀mbé̩ẹ̀mù</annotation>
+		<annotation cp="🔱" type="tts">aami apẹẹrẹ trident</annotation>
+		<annotation cp="📛">báájì | orúkọ</annotation>
+		<annotation cp="📛" type="tts">orúkọ àmì</annotation>
+		<annotation cp="🔰">Jàpànísì | ṣé̩fúró̩ọ̀nù | yé̩lò | Ìbẹ̀rè̩ | irjnṣé̩ | àwò̩ ewé | ewé</annotation>
+		<annotation cp="🔰" type="tts">Àmì Japanisi fun olubẹre</annotation>
+		<annotation cp="⭕">òdo | o</annotation>
+		<annotation cp="⭕" type="tts">roboto wiwo nla</annotation>
+		<annotation cp="✅">àyẹ̀wò | àmì</annotation>
+		<annotation cp="✅" type="tts">maaki iṣayewo funfun nla</annotation>
+		<annotation cp="☑">àpótí ìdìbò | àyẹ̀wò | àpótí</annotation>
+		<annotation cp="☑" type="tts">àyẹ̀wò àpótí ìdìbò</annotation>
+		<annotation cp="✔">àyẹ̀wò | àmì</annotation>
+		<annotation cp="✔" type="tts">fínnífínní</annotation>
+		<annotation cp="❌">x | ìsọdipúpò̩ | fagilé | àmì</annotation>
+		<annotation cp="❌" type="tts">aami idabu</annotation>
+		<annotation cp="❎">oníhàmẹ́rin | àmì</annotation>
+		<annotation cp="❎" type="tts">bọtini aami idabu</annotation>
+		<annotation cp="➰">ìyípọ̀ | lúpù</annotation>
+		<annotation cp="➰" type="tts">iho wọlọwọlo</annotation>
+		<annotation cp="➿">méjì | àyípọ̀ | lúpù</annotation>
+		<annotation cp="➿" type="tts">iho wọlọwọlo meji</annotation>
+		<annotation cp="〽">ara | àmì</annotation>
+		<annotation cp="〽" type="tts">ara máàkì ti a ti tọwó̩bọ̀</annotation>
+		<annotation cp="✳">àmì àkíyésì</annotation>
+		<annotation cp="✳" type="tts">àmì àkíyèsí onígbá-mé̩jọ</annotation>
+		<annotation cp="✴">ìràwọ̀</annotation>
+		<annotation cp="✴" type="tts">àmì àkíyèsí onígun-mé̩jọ</annotation>
+		<annotation cp="❇">dán</annotation>
+		<annotation cp="❇" type="tts">dán</annotation>
+		<annotation cp="©">òfin ìdábòbò iṣẹ́</annotation>
+		<annotation cp="©" type="tts">òfin ìdábòbò iṣẹ́</annotation>
+		<annotation cp="®">ìforúkọsílẹ</annotation>
+		<annotation cp="®" type="tts">ìforúkọsílẹ</annotation>
+		<annotation cp="™">àmì ìdámọ̀ fún iléeṣẹ́ | tm | àmì</annotation>
+		<annotation cp="™" type="tts">àmì ìdánimọ̀ iléeṣẹ́</annotation>
+		<annotation cp="🔠">lé̩tà nlá | látíìnì | lẹ́tà | àgbéwọlé | ABCD</annotation>
+		<annotation cp="🔠" type="tts">ṣafikun latini ọ̀rọ̀ gbólóhùn ńlá</annotation>
+		<annotation cp="🔡">lé̩tà nlá | látíìnì | lẹ́tà | abcd | àgbéwọlé</annotation>
+		<annotation cp="🔡" type="tts">ṣafikun latini ọ̀rọ̀ gbólóhùn kékeré</annotation>
+		<annotation cp="🔢">àgbéwọlé | nọ́mbà | 1234</annotation>
+		<annotation cp="🔢" type="tts">ṣafikun awọn nọnba</annotation>
+		<annotation cp="🔣">〒♪&amp;% | àgbéwọlé</annotation>
+		<annotation cp="🔣" type="tts">ṣafikun awọn àmì</annotation>
+		<annotation cp="🔤">álífábẹ́ẹ̀tì | látíìnì | abc | àwọn lẹ́tà | àgbéwọlé</annotation>
+		<annotation cp="🔤" type="tts">ṣafikun awọn lẹta latini</annotation>
+		<annotation cp="🅰">a | irúfẹ́ ẹ̀jẹ̀</annotation>
+		<annotation cp="🅰" type="tts">Bọ́tìnì A (irúfé̩ ẹ̀jẹ̀)</annotation>
+		<annotation cp="🆎">irúfé̩ ẹ̀jẹ̀ | ab</annotation>
+		<annotation cp="🆎" type="tts">Bọtini AB (irufẹ ẹjẹ)</annotation>
+		<annotation cp="🅱">irúfé̩ ẹ̀jẹ̀ | b</annotation>
+		<annotation cp="🅱" type="tts">Bọ́tìnì B(irúfé̩ ẹ̀jẹ̀)</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">Bọtini CL</annotation>
+		<annotation cp="🆒">tútù</annotation>
+		<annotation cp="🆒" type="tts">Bọtini KUULU</annotation>
+		<annotation cp="🆓">ọ̀fẹ́</annotation>
+		<annotation cp="🆓" type="tts">Bọtini ỌFẸ</annotation>
+		<annotation cp="ℹ">àlàyé | i</annotation>
+		<annotation cp="ℹ" type="tts">àlàyé</annotation>
+		<annotation cp="🆔">ìdánimò̩</annotation>
+		<annotation cp="🆔" type="tts">Bọtini ID</annotation>
+		<annotation cp="Ⓜ">òdo | m</annotation>
+		<annotation cp="Ⓜ" type="tts">M òdo</annotation>
+		<annotation cp="🆕">tuntun</annotation>
+		<annotation cp="🆕" type="tts">Bọtini TUNTUN</annotation>
+		<annotation cp="🆖">ng</annotation>
+		<annotation cp="🆖" type="tts">Bọtini NG</annotation>
+		<annotation cp="🅾">irúfé̩ èjè | o</annotation>
+		<annotation cp="🅾" type="tts">Bọ́tìnì O (irúfé̩ èjè)</annotation>
+		<annotation cp="🆗">Ó Dára</annotation>
+		<annotation cp="🆗" type="tts">Bọtini DARA</annotation>
+		<annotation cp="🅿">àyè ìgbékọ̀sí</annotation>
+		<annotation cp="🅿" type="tts">bó̩tìnì P</annotation>
+		<annotation cp="🆘">ìrànwọ́ | sos</annotation>
+		<annotation cp="🆘" type="tts">Bọtini SOS</annotation>
+		<annotation cp="🆚">figagbága pẹ̀lú | fp</annotation>
+		<annotation cp="🆚" type="tts">Bọtini VS</annotation>
+		<annotation cp="🈁">Japanese | ココ | &quot;níbí&quot; | katakana</annotation>
+		<annotation cp="🈁" type="tts">Bọtini Japanisi &quot;nibi&quot;</annotation>
+		<annotation cp="🈂">Japanese | サ | &quot;ìdíyelé fún owó ọ̀yà&quot; | katakana</annotation>
+		<annotation cp="🈂" type="tts">Bọ́tìnì Japanísì  &quot;ìdíyelé fún owó ọ̀yà&quot;</annotation>
+		<annotation cp="🈷">Japanese | 月 | àmì ajẹmáwòrán | &quot;owó ìdíyelé oṣoòṣù&quot;</annotation>
+		<annotation cp="🈷" type="tts">Bó̩tìnì Japanisi  &quot;owó ìdíyelé oṣoòṣù&quot;</annotation>
+		<annotation cp="🈶">Japanese | &quot;kòṣọ̀fé̩&quot; | àmì ajẹmáwòrán | 有</annotation>
+		<annotation cp="🈶" type="tts">Bọtini Japanisi &quot;kosi lọfẹ&quot;</annotation>
+		<annotation cp="🈯">Japanese | àmì ajẹmáwòrán | 指 | &quot;ìpamó̩&quot;</annotation>
+		<annotation cp="🈯" type="tts">Bọtini Japanisi &quot;nipamọ&quot;</annotation>
+		<annotation cp="🉐">Japanese | &quot;ìdúnàdúrà&quot; | àmì ajẹmáwòrán | 得</annotation>
+		<annotation cp="🉐" type="tts">Bọtini Japanisi &quot;idunadura&quot;</annotation>
+		<annotation cp="🈹">Japanese | àmì ajẹmáwòrán | &quot;ẹ̀dínwó&quot; | 割</annotation>
+		<annotation cp="🈹" type="tts">Bọtini Japanisi &quot;ẹdinwo&quot;</annotation>
+		<annotation cp="🈚">Japanese | 無 | &quot;lọ́fẹ̀é̩&quot; | àmì ajẹmáwòrán</annotation>
+		<annotation cp="🈚" type="tts">Bọtini Japanisi &quot;lọ́fẹ̀é̩&quot;</annotation>
+		<annotation cp="🈲">Japanese | àmì ajẹmáwòrán | 禁 | &quot;àìfàyègbà&quot;</annotation>
+		<annotation cp="🈲" type="tts">Bọtini Japanisi &quot;ṣediwọ&quot;</annotation>
+		<annotation cp="🉑">Japanese | 可 | àmì ajẹmáwòrán | &quot;ìté̩wó̩gbà&quot;</annotation>
+		<annotation cp="🉑" type="tts">Bọtini &quot;itẹwọgba&quot; Japanisi</annotation>
+		<annotation cp="🈸">Japanese | 申 | àmì ajẹmáwòrán | &quot;ohun èlò&quot;</annotation>
+		<annotation cp="🈸" type="tts">Bọtini &quot;ohun elo&quot; Japanisi</annotation>
+		<annotation cp="🈴">Japanese | àmì ajẹmáwòrán | &quot;gbendéke ìkẹ́kọ̀ó̩ yege&quot; | 合</annotation>
+		<annotation cp="🈴" type="tts">Bọtini &quot;gbendeke iyege&quot; Japanisi</annotation>
+		<annotation cp="🈳">Japanese | &quot;ààyè&quot; | 空 | àmì ajẹmáwòrán</annotation>
+		<annotation cp="🈳" type="tts">Bọtini &quot;aaye&quot; Japanisi</annotation>
+		<annotation cp="㊗">Japanese | &quot;kú oríre&quot; | 祝 | àmì ajẹmáwòrán</annotation>
+		<annotation cp="㊗" type="tts">Bó̩tìnì &quot;kú oríre&quot; Japanisi</annotation>
+		<annotation cp="㊙">Japanese | &quot;àṣírí&quot; | àmì ajẹmáwòrán | 秘</annotation>
+		<annotation cp="㊙" type="tts">Bó̩tìnì &quot;àṣírí&quot;Japanisi</annotation>
+		<annotation cp="🈺">Japanese | 営 | àmì ajẹmáwòrán | &quot;ṣí fún okòwò&quot;</annotation>
+		<annotation cp="🈺" type="tts">Bọtini &quot;ṣi fun okowo&quot; Japanisi</annotation>
+		<annotation cp="🈵">Japanese | &quot;kosi aaye&quot; | àmì ajẹmáwòrán | 満</annotation>
+		<annotation cp="🈵" type="tts">Bọtini &quot;kosi aaye&quot; Japanisi</annotation>
+		<annotation cp="🔴">jiomẹ́tíríkì | pupa | Rogodo</annotation>
+		<annotation cp="🔴" type="tts">Rogodo Aláwọ̀ pupa</annotation>
+		<annotation cp="🔵">Búlù | rogodo | jiomẹ́tíríkì</annotation>
+		<annotation cp="🔵" type="tts">Rogodo Búlúù</annotation>
+		<annotation cp="⚫">Rogodo</annotation>
+		<annotation cp="⚫" type="tts">Rogodo Aláwọ̀ dúdú</annotation>
+		<annotation cp="⚪">Rogodo</annotation>
+		<annotation cp="⚪" type="tts">Rogodo Funfun</annotation>
+		<annotation cp="⬛">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="⬛" type="tts">onigunmẹrin dudu nla</annotation>
+		<annotation cp="⬜">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="⬜" type="tts">onigunmẹrin funfun nla</annotation>
+		<annotation cp="◼">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="◼" type="tts">ilà onígun mé̩rin aláàárín dúdú</annotation>
+		<annotation cp="◻">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="◻" type="tts">ilà onígun mé̩rin aláàárín funfun</annotation>
+		<annotation cp="◾">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="◾" type="tts">onigunmẹrin idaji-kekere dudu</annotation>
+		<annotation cp="◽">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="◽" type="tts">onigunmẹrin idaji-kekere funfun</annotation>
+		<annotation cp="▪">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="▪" type="tts">kékeré onígun mẹ́rin dúdú</annotation>
+		<annotation cp="▫">jiomé̩tíríkì | ilà onigun mé̩rin</annotation>
+		<annotation cp="▫" type="tts">kékeré onígun mẹ́rin funfun</annotation>
+		<annotation cp="🔶">díámọ́ndì | jiomẹ́tíríkì | òronbó</annotation>
+		<annotation cp="🔶" type="tts">diamọndi alawọ oronbo nla</annotation>
+		<annotation cp="🔷">Búlù | díámọ́ndì | jiomẹ́tíríkì</annotation>
+		<annotation cp="🔷" type="tts">diamọndi alawọ bulu nla</annotation>
+		<annotation cp="🔸">díámọ́ndì | jiomẹ́tíríkì | òronbó</annotation>
+		<annotation cp="🔸" type="tts">diamọndi alawọ oronbo kekere</annotation>
+		<annotation cp="🔹">Búlù | díámọ́ndì | jiomẹ́tíríkì</annotation>
+		<annotation cp="🔹" type="tts">diamọndi alawọ bulu kekere</annotation>
+		<annotation cp="🔺">jiomẹ́tíríkì | pupa</annotation>
+		<annotation cp="🔺" type="tts">Alawọ Pupa Onigun Mẹta Toka Soke</annotation>
+		<annotation cp="🔻">jiomẹ́tíríkì | pupa | Ilẹ̀</annotation>
+		<annotation cp="🔻" type="tts">Alawọ Pupa Onigun Mẹta Toka Sisalẹ</annotation>
+		<annotation cp="💠">Díámọ́ndì | jiomẹ́tíríkì | apanilé̩rìn-ín | inú ilé</annotation>
+		<annotation cp="💠" type="tts">Diamọndi Pẹlu Dọti Kan</annotation>
+		<annotation cp="🔘">Bó̩tìnì | rédíò | jiomẹ́tíríkì</annotation>
+		<annotation cp="🔘" type="tts">Bọ́tìnnì Rédíò</annotation>
+		<annotation cp="🔳">Bó̩tìnì | jiomẹ́tíríkì | ààtò | onígun mé̩rin</annotation>
+		<annotation cp="🔳" type="tts">Bọtini Onigunmẹrin Funfun</annotation>
+		<annotation cp="🔲">Bó̩tìnì | jiomẹ́tíríkì | onígun mé̩rin</annotation>
+		<annotation cp="🔲" type="tts">Bọtini Onigunmẹrin Dudu</annotation>
+		<annotation cp="🏁">ìsàmìsí aláwọ̀ méjì | eré ìje</annotation>
+		<annotation cp="🏁" type="tts">asia péńpé onílà</annotation>
+		<annotation cp="🚩">ìfiránṣé̩</annotation>
+		<annotation cp="🚩" type="tts">asia onigun mẹta</annotation>
+		<annotation cp="🎌">àgbélébù | Japanese | ayẹyẹ | rekoja</annotation>
+		<annotation cp="🎌" type="tts">Awọn Asia Onidabu</annotation>
+		<annotation cp="🏴">iṣàn omi</annotation>
+		<annotation cp="🏴" type="tts">asia dudu</annotation>
+		<annotation cp="🏳">iṣàn omi</annotation>
+		<annotation cp="🏳" type="tts">àsíá funfun</annotation>
+		<annotation cp="🏳‍🌈">òṣùmarè</annotation>
+		<annotation cp="🏳‍🌈" type="tts">àsíá olóṣùmarè</annotation>
 	</annotations>
 </ldml>

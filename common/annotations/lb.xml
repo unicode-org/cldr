@@ -1,0 +1,2543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2020 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="lb"/>
+	</identity>
+	<annotations>
+		<annotation cp="🏻">Hautfaarf | Typ 1–2</annotation>
+		<annotation cp="🏻" type="tts">hell Hautfaarf</annotation>
+		<annotation cp="🏼">Hautfaarf | Typ 3</annotation>
+		<annotation cp="🏼" type="tts">mëttelhell Hautfaarf</annotation>
+		<annotation cp="🏽">Hautfaarf | Typ 4</annotation>
+		<annotation cp="🏽" type="tts">mëttel Hautfaarf</annotation>
+		<annotation cp="🏾">Hautfaarf | Typ 5</annotation>
+		<annotation cp="🏾" type="tts">mëtteldäischter Hautfaarf</annotation>
+		<annotation cp="🏿">Hautfaarf | Typ 6</annotation>
+		<annotation cp="🏿" type="tts">däischter Hautfaarf</annotation>
+		<annotation cp="😀">Gesiicht | Grinsen</annotation>
+		<annotation cp="😀" type="tts">Grinsgesiicht</annotation>
+		<annotation cp="😃">Laachen | Gesiicht | oppen | Mond</annotation>
+		<annotation cp="😃" type="tts">laachend Gesiicht mat oppenem Mond</annotation>
+		<annotation cp="😄">Laachen | A | Gesiicht | Mond | oppen</annotation>
+		<annotation cp="😄" type="tts">laachend Gesiicht mat oppenem Mond a laachenden Aen</annotation>
+		<annotation cp="😁">Laachen | Gesiicht | Grinsen | A</annotation>
+		<annotation cp="😁" type="tts">Grinsgesiicht mat laachenden Aen</annotation>
+		<annotation cp="😆">Laachen | Gesiicht | zefridden | Mond | oppen</annotation>
+		<annotation cp="😆" type="tts">laachend Gesiicht mat oppenem Mond an zouen Aen</annotation>
+		<annotation cp="😅">Laachen | Schweess | kal | Gesiicht | oppen</annotation>
+		<annotation cp="😅" type="tts">laachend Gesiicht mat oppenem Mond a kalem Schweess</annotation>
+		<annotation cp="🤣">Gesiicht | Buedem | laachen | rullen</annotation>
+		<annotation cp="🤣" type="tts">vu Laache rullend</annotation>
+		<annotation cp="😂">Gesiicht | Freed | Tréin | Laachen</annotation>
+		<annotation cp="😂" type="tts">Gesiicht mat Freedtréinen</annotation>
+		<annotation cp="🙂">Gesiicht | Laachen</annotation>
+		<annotation cp="🙂" type="tts">Gesiicht mat engem liichte Laachen</annotation>
+		<annotation cp="🙃">Gesiicht | op der Kopp</annotation>
+		<annotation cp="🙃" type="tts">op der Kopp</annotation>
+		<annotation cp="😉">Gesiicht | A zoudrécken</annotation>
+		<annotation cp="😉" type="tts">A zoudréckend</annotation>
+		<annotation cp="😊">Laachen | Gesiicht | rout ginn | A</annotation>
+		<annotation cp="😊" type="tts">laachend Gesiicht mat laachenden Aen</annotation>
+		<annotation cp="😇">Engel | Fantasie | Laachen | Mäerchen | Gesiicht | Hellegeschäin | onschëlleg</annotation>
+		<annotation cp="😇" type="tts">laachend Gesiicht mat Hellegeschäin</annotation>
+		<annotation cp="😍">Laachen | Gesiicht | Léift | A</annotation>
+		<annotation cp="😍" type="tts">laachend Gesiicht mat Häerzeraen</annotation>
+		<annotation cp="🤩">grinsend | Gesiicht | Stär | Aen</annotation>
+		<annotation cp="🤩" type="tts">Stärenaen</annotation>
+		<annotation cp="😘">Gesiicht | Kuss</annotation>
+		<annotation cp="😘" type="tts">e Kuss schéckend</annotation>
+		<annotation cp="😗">Gesiicht | Kuss</annotation>
+		<annotation cp="😗" type="tts">kussend</annotation>
+		<annotation cp="☺">stiliséiert | Gesiicht | relax | Laachen</annotation>
+		<annotation cp="☺" type="tts">laachend Gesiicht</annotation>
+		<annotation cp="😚">Gesiicht | zouen | Kuss | A</annotation>
+		<annotation cp="😚" type="tts">kussend mat zouen Aen</annotation>
+		<annotation cp="😙">Laachen | Gesiicht | Kuss | A</annotation>
+		<annotation cp="😙" type="tts">kussend mat laachenden Aen</annotation>
+		<annotation cp="😋">gutt | genéissen | Laachen | Gesiicht | mmh</annotation>
+		<annotation cp="😋" type="tts">gutt Iesse genéissend</annotation>
+		<annotation cp="😛">Gesiicht | Zong</annotation>
+		<annotation cp="😛" type="tts">d’Zong erausstreckend</annotation>
+		<annotation cp="😜">A zoudrécken | A | Zong | Gesiicht | Witz</annotation>
+		<annotation cp="😜" type="tts">d’Zong erausstreckend mat zougedrécktem A</annotation>
+		<annotation cp="🤪">grouss | A | kleng</annotation>
+		<annotation cp="🤪" type="tts">verréckt Gesiicht</annotation>
+		<annotation cp="😝">Goût | schrecklech | A | Zong | Gesiicht</annotation>
+		<annotation cp="😝" type="tts">d’Zong erausstreckend mat zouen Aen</annotation>
+		<annotation cp="🤑">Mond | Gesiicht | Suen</annotation>
+		<annotation cp="🤑" type="tts">geldgiereg</annotation>
+		<annotation cp="🤗">Ëmaarmung | ëmaarmen | Gesiicht</annotation>
+		<annotation cp="🤗" type="tts">Ëmaarmung</annotation>
+		<annotation cp="🤭">Uups | Oups</annotation>
+		<annotation cp="🤭" type="tts">Gesiicht mat Hand virum Mond</annotation>
+		<annotation cp="🤫">pscht | roueg</annotation>
+		<annotation cp="🤫" type="tts">Gesiicht mam Fanger virum Mond</annotation>
+		<annotation cp="🤔">nodenklech | Gesiicht</annotation>
+		<annotation cp="🤔" type="tts">nodenklech</annotation>
+		<annotation cp="🤐">Gesiicht | Tirett | Mond</annotation>
+		<annotation cp="🤐" type="tts">verschlossene Mond</annotation>
+		<annotation cp="🤨">mësstrauesch | skeptesch</annotation>
+		<annotation cp="🤨" type="tts">Gesiicht mat gehuewenem Aperhoer</annotation>
+		<annotation cp="😐">Gesiicht | ouni Ausdrock | neutral</annotation>
+		<annotation cp="😐" type="tts">neutraalt Gesiicht</annotation>
+		<annotation cp="😑">onexpressiv | Gesiicht | ouni Ausdrock | inexpressiv</annotation>
+		<annotation cp="😑" type="tts">Gesiicht ouni Ausdrock</annotation>
+		<annotation cp="😶">Gesiicht | roueg | Mond</annotation>
+		<annotation cp="😶" type="tts">Gesiicht ouni Mond</annotation>
+		<annotation cp="😏">schmunzelen | Gesiicht</annotation>
+		<annotation cp="😏" type="tts">schmunzelend</annotation>
+		<annotation cp="😒">Gesiicht | onzefridden | onglécklech</annotation>
+		<annotation cp="😒" type="tts">onzefridden</annotation>
+		<annotation cp="🙄">Aen | Gesiicht | verdréinen</annotation>
+		<annotation cp="🙄" type="tts">Ae verdréinend</annotation>
+		<annotation cp="😬">Gesiicht | Grimass</annotation>
+		<annotation cp="😬" type="tts">Grimass schneidend Gesiicht</annotation>
+		<annotation cp="🤥">léien | Gesiicht | Pinocchio</annotation>
+		<annotation cp="🤥" type="tts">Ligenergesiicht</annotation>
+		<annotation cp="😌">Gesiicht | erliichtert</annotation>
+		<annotation cp="😌" type="tts">erliichtert</annotation>
+		<annotation cp="😔">Gesiicht | bedréckt | besuergt</annotation>
+		<annotation cp="😔" type="tts">besuergt</annotation>
+		<annotation cp="😪">Gesiicht | Schlof</annotation>
+		<annotation cp="😪" type="tts">schléifreg</annotation>
+		<annotation cp="🤤">sabbelend | Gesiicht</annotation>
+		<annotation cp="🤤" type="tts">sabbelend Gesiicht</annotation>
+		<annotation cp="😴">Gesiicht | zzz | Schlof</annotation>
+		<annotation cp="😴" type="tts">ageschlof</annotation>
+		<annotation cp="😷">Medezin | kal | Dokter | Gesiicht | Mask | krank</annotation>
+		<annotation cp="😷" type="tts">Gesiicht mat Doktersmask</annotation>
+		<annotation cp="🤒">Gesiicht | Thermometer | krank</annotation>
+		<annotation cp="🤒" type="tts">Gesiicht mat Thermometer</annotation>
+		<annotation cp="🤕">verletzt | Gesiicht | Verletzung | Verband</annotation>
+		<annotation cp="🤕" type="tts">Gesiicht mat Kappverband</annotation>
+		<annotation cp="🤢">Gesiicht | sech iwwerginn | iwwel</annotation>
+		<annotation cp="🤢" type="tts">iwwelt Gesiicht</annotation>
+		<annotation cp="🤮">iwwerginn | krank</annotation>
+		<annotation cp="🤮" type="tts">Gesiicht wat sech iwwergëtt</annotation>
+		<annotation cp="🤧">Gesiicht | Gesondheet | néitsen</annotation>
+		<annotation cp="🤧" type="tts">néitsend Gesiicht</annotation>
+		<annotation cp="😵">Gesiicht | schwindeleg</annotation>
+		<annotation cp="😵" type="tts">schwindelegt Gesiicht</annotation>
+		<annotation cp="🤯">schockéiert</annotation>
+		<annotation cp="🤯" type="tts">explodéierende Kapp</annotation>
+		<annotation cp="🤠">Gesiicht | Cowboy | Hutt | Cowgirl</annotation>
+		<annotation cp="🤠" type="tts">Gesiicht mat Cowboyshutt</annotation>
+		<annotation cp="😎">cool | A | Brëll | Laachen | hell | Sonn | Gesiicht | Sonnebrëll</annotation>
+		<annotation cp="😎" type="tts">laachend Gesiicht mat Sonnebrëll</annotation>
+		<annotation cp="🤓">Geek | Gesiicht | Nerd</annotation>
+		<annotation cp="🤓" type="tts">Nerd</annotation>
+		<annotation cp="🧐">langweileg</annotation>
+		<annotation cp="🧐" type="tts">Gesiicht mat Monokel</annotation>
+		<annotation cp="😕">Gesiicht | konfus</annotation>
+		<annotation cp="😕" type="tts">konfus</annotation>
+		<annotation cp="😟">beonrouegt | Gesiicht</annotation>
+		<annotation cp="😟" type="tts">beonrouegt</annotation>
+		<annotation cp="🙁">Gesiicht | Stir fronzen</annotation>
+		<annotation cp="🙁" type="tts">d’Stir liicht fronzend</annotation>
+		<annotation cp="☹">Gesiicht | Stir fronzen</annotation>
+		<annotation cp="☹" type="tts">d’Stir fronzend</annotation>
+		<annotation cp="😮">Matgefill | Gesiicht | oppen | Mond</annotation>
+		<annotation cp="😮" type="tts">Gesiicht mat oppenem Mond</annotation>
+		<annotation cp="😯">erstaunt | Gesiicht | iwwerrascht | flüsterend</annotation>
+		<annotation cp="😯" type="tts">flüsterend</annotation>
+		<annotation cp="😲">erstaunt | Gesiicht | absolut | schockéiert</annotation>
+		<annotation cp="😲" type="tts">erstaunt</annotation>
+		<annotation cp="😳">Gesiicht | rout ugelaf | beniwwelt</annotation>
+		<annotation cp="😳" type="tts">rout ugelafent Gesiicht</annotation>
+		<annotation cp="😦">Gesiicht | Stir fronzen | oppen | Mond</annotation>
+		<annotation cp="😦" type="tts">d’Stir fronzend Gesiicht mat oppenem Mond</annotation>
+		<annotation cp="😧">Gesiicht | gequäält</annotation>
+		<annotation cp="😧" type="tts">gequäält Gesiicht</annotation>
+		<annotation cp="😨">baang | Gesiicht | verängschtegt | Angscht</annotation>
+		<annotation cp="😨" type="tts">verängschtegt Gesiicht</annotation>
+		<annotation cp="😰">presséiert | Schweess | blo | kal | Gesiicht | Mond | oppen</annotation>
+		<annotation cp="😰" type="tts">Gesiicht mat oppenem Mond a kalem Schweess</annotation>
+		<annotation cp="😥">ouf | Gesiicht | enttäuscht | erliichtert</annotation>
+		<annotation cp="😥" type="tts">enttäuscht mä erliichtert</annotation>
+		<annotation cp="😢">kräischen | Gesiicht | Tréin | traureg</annotation>
+		<annotation cp="😢" type="tts">kräischend</annotation>
+		<annotation cp="😭">kräischen | traureg | Tréin | Gesiicht | schluchzen</annotation>
+		<annotation cp="😭" type="tts">haart kräischend Gesiicht</annotation>
+		<annotation cp="😱">Angscht | baang | verschléngen | Gesiicht | verängschtegt | jäizen</annotation>
+		<annotation cp="😱" type="tts">vun Angscht jäizend Gesiicht</annotation>
+		<annotation cp="😖">Gesiicht | frustréiert</annotation>
+		<annotation cp="😖" type="tts">frustréiert</annotation>
+		<annotation cp="😣">Gesiicht | duerhalen</annotation>
+		<annotation cp="😣" type="tts">duerhalend</annotation>
+		<annotation cp="😞">Gesiicht | enttäuscht</annotation>
+		<annotation cp="😞" type="tts">enttäuscht</annotation>
+		<annotation cp="😓">kal | Gesiicht | Schweess</annotation>
+		<annotation cp="😓" type="tts">mat kalem Schweess eroflafend</annotation>
+		<annotation cp="😩">erschëpft | Gesiicht | midd</annotation>
+		<annotation cp="😩" type="tts">erschëpft Gesiicht</annotation>
+		<annotation cp="😫">Gesiicht | midd</annotation>
+		<annotation cp="😫" type="tts">midd</annotation>
+		<annotation cp="😤">gewonnen | Gesiicht | Triumph</annotation>
+		<annotation cp="😤" type="tts">mat Damp aus der Nues</annotation>
+		<annotation cp="😡">Roserei | rosen | queesch | rout | Gesiicht | motzen</annotation>
+		<annotation cp="😡" type="tts">motzend Gesiicht</annotation>
+		<annotation cp="😠">Gesiicht | rosen | queesch</annotation>
+		<annotation cp="😠" type="tts">rosent Gesiicht</annotation>
+		<annotation cp="🤬">fluchend</annotation>
+		<annotation cp="🤬" type="tts">Gesiicht mat Zeeche virum Mond</annotation>
+		<annotation cp="😈">Fantasie | Laachen | Haren | Mäerchen | Gesiicht</annotation>
+		<annotation cp="😈" type="tts">laachend Gesiicht mat Haren</annotation>
+		<annotation cp="👿">Fantasie | Mäerchen | Gesiicht | Dämon | Kobold | Däiwel</annotation>
+		<annotation cp="👿" type="tts">rosent Gesiicht mat Haren</annotation>
+		<annotation cp="💀">Mäerchen | Gesiicht | Doud | Monster</annotation>
+		<annotation cp="💀" type="tts">Doudekapp</annotation>
+		<annotation cp="☠">Doudekapp | Gesiicht | gekräizt Schanken | Doud | Monster</annotation>
+		<annotation cp="☠" type="tts">Doudekapp a gekräizt Schanken</annotation>
+		<annotation cp="💩">Kaka | Gesiicht | witzeg | Mëscht | Schäiss | Monster</annotation>
+		<annotation cp="💩" type="tts">Koup Schäiss</annotation>
+		<annotation cp="🤡">Gesiicht | Clown</annotation>
+		<annotation cp="🤡" type="tts">Clownegesiicht</annotation>
+		<annotation cp="👹">Fantasie | Mäerchen | Gesiicht | Kreatur | Monster</annotation>
+		<annotation cp="👹" type="tts">Ongeheier</annotation>
+		<annotation cp="👺">Fantasie | Mäerchen | Gesiicht | Kreatur | Monster</annotation>
+		<annotation cp="👺" type="tts">Kobold</annotation>
+		<annotation cp="👻">Fantasie | Mäerchen | Gesiicht | Kreatur | Monster</annotation>
+		<annotation cp="👻" type="tts">Geescht</annotation>
+		<annotation cp="👽">Fantasie | Mäerchen | Gesiicht | Kreatur | ausserierdesch | Ufo | Monster</annotation>
+		<annotation cp="👽" type="tts">Alien</annotation>
+		<annotation cp="👾">Fantasie | Mäerchen | Gesiicht | Kreatur | Alien | ausserierdesch | Ufo | Monster</annotation>
+		<annotation cp="👾" type="tts">Alienmonster</annotation>
+		<annotation cp="🤖">Gesiicht | Roboter | Monster</annotation>
+		<annotation cp="🤖" type="tts">Roboter</annotation>
+		<annotation cp="😺">Laachen | Kaz | Gesiicht | Mond | oppen</annotation>
+		<annotation cp="😺" type="tts">laachend Kazegesiicht mat oppenem Mond</annotation>
+		<annotation cp="😸">Laachen | A | Kaz | Gesiicht | Grinsen</annotation>
+		<annotation cp="😸" type="tts">grinsend Kazegesiicht mat laachenden Aen</annotation>
+		<annotation cp="😹">Freed | Gesiicht | Kaz | Tréin</annotation>
+		<annotation cp="😹" type="tts">Kazegesiicht mat Freedtréinen</annotation>
+		<annotation cp="😻">Léift | Laachen | A | Kaz | Gesiicht</annotation>
+		<annotation cp="😻" type="tts">laachend Kazegesiicht mat Häerzeraen</annotation>
+		<annotation cp="😼">ironesch | Kaz | Gesiicht | dreckeg | Grinsen</annotation>
+		<annotation cp="😼" type="tts">Kazegesiicht mat dreckegem Grinsen</annotation>
+		<annotation cp="😽">Gesiicht | Kaz | Kuss | A</annotation>
+		<annotation cp="😽" type="tts">kussend Kazegesiicht mat zouen Aen</annotation>
+		<annotation cp="🙀">erschëpft | iwwerrascht | Kaz | Gesiicht | oh</annotation>
+		<annotation cp="🙀" type="tts">erschëpft Kazegesiicht</annotation>
+		<annotation cp="😿">kräischen | traureg | Kaz | Tréin | Gesiicht</annotation>
+		<annotation cp="😿" type="tts">kräischend Kazegesiicht</annotation>
+		<annotation cp="😾">motzend | Gesiicht | Kaz</annotation>
+		<annotation cp="😾" type="tts">motzend Kazegesiicht</annotation>
+		<annotation cp="🙈">verbueden | net | gesinn | Geste | zouhalen | Aen | Gesiicht | Af | béis</annotation>
+		<annotation cp="🙈" type="tts">Aen zouhalenden Af</annotation>
+		<annotation cp="🙉">verbueden | net | Geste | zouhalen | héieren | Gesiicht | Af | béis | Oueren</annotation>
+		<annotation cp="🙉" type="tts">Oueren zouhalenden Af</annotation>
+		<annotation cp="🙊">verbueden | net | Geste | zouhalen | Gesiicht | Af | Mond | béis | schwätzen</annotation>
+		<annotation cp="🙊" type="tts">Mond zouhalenden Af</annotation>
+		<annotation cp="💋">Kuss | Lëpsen</annotation>
+		<annotation cp="💋" type="tts">Kussmond</annotation>
+		<annotation cp="💌">Post | Häerz | Bréif | Léift</annotation>
+		<annotation cp="💌" type="tts">Libesbréif</annotation>
+		<annotation cp="💘">Cupidon | Feil</annotation>
+		<annotation cp="💘" type="tts">Häerz mat Feil</annotation>
+		<annotation cp="💝">Putsch | Valentin</annotation>
+		<annotation cp="💝" type="tts">Häerz mat Putsch</annotation>
+		<annotation cp="💖">glënneren | opgereegt</annotation>
+		<annotation cp="💖" type="tts">glënnerend Häerz</annotation>
+		<annotation cp="💗">nervös | Schlag | opgereegt | wuessend</annotation>
+		<annotation cp="💗" type="tts">wuessend Häerz</annotation>
+		<annotation cp="💓">klappend | schloend | Häerzklappen | Schlag</annotation>
+		<annotation cp="💓" type="tts">klappend Häerz</annotation>
+		<annotation cp="💞">dréiend</annotation>
+		<annotation cp="💞" type="tts">dréiend Häerzer</annotation>
+		<annotation cp="💕">Léift</annotation>
+		<annotation cp="💕" type="tts">zwee Häerzer</annotation>
+		<annotation cp="💟">Häerz</annotation>
+		<annotation cp="💟" type="tts">Häerzdekoratioun</annotation>
+		<annotation cp="❣">Ausruff | Interpunktioun | Zeechen</annotation>
+		<annotation cp="❣" type="tts">fettgedréckt Häerzausruffzeechen</annotation>
+		<annotation cp="💔">gebrach | briechen</annotation>
+		<annotation cp="💔" type="tts">gebrachent Häerz</annotation>
+		<annotation cp="❤">Häerz</annotation>
+		<annotation cp="❤" type="tts">rout Häerz</annotation>
+		<annotation cp="🧡">orange</annotation>
+		<annotation cp="🧡" type="tts">oranget Häerz</annotation>
+		<annotation cp="💛">giel</annotation>
+		<annotation cp="💛" type="tts">gielt Häerz</annotation>
+		<annotation cp="💚">gréng</annotation>
+		<annotation cp="💚" type="tts">gréngt Häerz</annotation>
+		<annotation cp="💙">blo</annotation>
+		<annotation cp="💙" type="tts">blot Häerz</annotation>
+		<annotation cp="💜">mof</annotation>
+		<annotation cp="💜" type="tts">mooft Häerz</annotation>
+		<annotation cp="🖤">schlecht | béis | schwaarz</annotation>
+		<annotation cp="🖤" type="tts">schwaarzt Häerz</annotation>
+		<annotation cp="💯">honnert | voll | 100 | Score</annotation>
+		<annotation cp="💯" type="tts">honnert Punkten</annotation>
+		<annotation cp="💢">Comic | rosen | béis</annotation>
+		<annotation cp="💢" type="tts">Rosereiszeechen</annotation>
+		<annotation cp="💥">Comic | Boom</annotation>
+		<annotation cp="💥" type="tts">Kollisioun</annotation>
+		<annotation cp="💫">Comic | Stär</annotation>
+		<annotation cp="💫" type="tts">Schwindel</annotation>
+		<annotation cp="💦">Comic | platschen | Schweess</annotation>
+		<annotation cp="💦" type="tts">Schweessdrëpsen</annotation>
+		<annotation cp="💨">Comic | jauwen | lafen</annotation>
+		<annotation cp="💨" type="tts">séier fort</annotation>
+		<annotation cp="🕳">Lach</annotation>
+		<annotation cp="🕳" type="tts">Lach</annotation>
+		<annotation cp="💣">Comic</annotation>
+		<annotation cp="💣" type="tts">Bomm</annotation>
+		<annotation cp="💬">Ball | Comic | Blos | Dialog | schwätzen</annotation>
+		<annotation cp="💬" type="tts">Spriechblos</annotation>
+		<annotation cp="👁‍🗨">Spriechblos | gesinn | erkennen | A</annotation>
+		<annotation cp="👁‍🗨" type="tts">A an enger Spriechblos</annotation>
+		<annotation cp="🗨">Dialog | schwätzen</annotation>
+		<annotation cp="🗨" type="tts">lénks Spriechblos</annotation>
+		<annotation cp="🗯">Ball | rosen | béis | Blos</annotation>
+		<annotation cp="🗯" type="tts">riets Rosereispriechblos</annotation>
+		<annotation cp="💭">Ball | Comic | Blos | Gedanken</annotation>
+		<annotation cp="💭" type="tts">Denkblos</annotation>
+		<annotation cp="💤">Comic | Schlof</annotation>
+		<annotation cp="💤" type="tts">zzz</annotation>
+		<annotation cp="👋">wénken | Hand | wénkend</annotation>
+		<annotation cp="👋" type="tts">wénkend Hand</annotation>
+		<annotation cp="🤚">Handréck | héichgehalen</annotation>
+		<annotation cp="🤚" type="tts">héichgehalenen Handréck</annotation>
+		<annotation cp="🖐">Fanger | Hand | ausgestreckt</annotation>
+		<annotation cp="🖐" type="tts">gehuewen Hand mat ausgestreckte Fanger</annotation>
+		<annotation cp="✋">Hand</annotation>
+		<annotation cp="✋" type="tts">héichgehalen Hand</annotation>
+		<annotation cp="🖖">Fanger | Vulcan | Hand | Spock</annotation>
+		<annotation cp="🖖" type="tts">Vulcan-Grouss</annotation>
+		<annotation cp="👌">OK | Zeechen | Hand</annotation>
+		<annotation cp="👌" type="tts">OK-Handzeechen</annotation>
+		<annotation cp="✌">V | Victoire | Hand</annotation>
+		<annotation cp="✌" type="tts">Victoire-Handzeechen</annotation>
+		<annotation cp="🤞">Fanger | kräizen | Hand | Gléck</annotation>
+		<annotation cp="🤞" type="tts">gekräizt Fanger</annotation>
+		<annotation cp="🤟">Hand | ILY</annotation>
+		<annotation cp="🤟" type="tts">Léift-Geste</annotation>
+		<annotation cp="🤘">Fanger | rocken | Hand | Haren</annotation>
+		<annotation cp="🤘" type="tts">Mano cornuta, Harenzeechen</annotation>
+		<annotation cp="🤙">uruffen | Hand</annotation>
+		<annotation cp="🤙" type="tts">Telefon-Handzeechen</annotation>
+		<annotation cp="👈">Fanger | Zeigefanger | Hand | Réckhand | weisen</annotation>
+		<annotation cp="👈" type="tts">no lénks weisende Fanger vun hanne gesinn</annotation>
+		<annotation cp="👉">Fanger | Zeigefanger | Hand | Réckhand | weisen</annotation>
+		<annotation cp="👉" type="tts">no riets weisende Fanger vun hanne gesinn</annotation>
+		<annotation cp="👆">Fanger | no uewen | Zeigefanger | Hand | Réckhand | weisen</annotation>
+		<annotation cp="👆" type="tts">no uewe weisende Fanger vun hanne gesinn</annotation>
+		<annotation cp="🖕">Fanger | Hand</annotation>
+		<annotation cp="🖕" type="tts">Mëttelfanger</annotation>
+		<annotation cp="👇">Fanger | Zeigefanger | Hand | Réckhand | no ënnen | weisen</annotation>
+		<annotation cp="👇" type="tts">no ënne weisende Fanger vun hanne gesinn</annotation>
+		<annotation cp="☝">Fanger | no uewen | Zeigefanger | Hand | weisen</annotation>
+		<annotation cp="☝" type="tts">no uewe weisende Fanger</annotation>
+		<annotation cp="👍">+1 | no uewen | Hand | Daum</annotation>
+		<annotation cp="👍" type="tts">Daum no uewen</annotation>
+		<annotation cp="👎">Hand | no ënnen | -1 | Daum</annotation>
+		<annotation cp="👎" type="tts">Daum no ënnen</annotation>
+		<annotation cp="✊">boxen | Hand | Fauscht | zouen</annotation>
+		<annotation cp="✊" type="tts">héichgehale Fauscht</annotation>
+		<annotation cp="👊">boxen | Hand | Fauscht | zouen</annotation>
+		<annotation cp="👊" type="tts">entgéintkommend Fauscht</annotation>
+		<annotation cp="🤛">lénksgeriicht | Fauscht</annotation>
+		<annotation cp="🤛" type="tts">lénksgeriicht Fauscht</annotation>
+		<annotation cp="🤜">Fauscht | rietsgeriicht</annotation>
+		<annotation cp="🤜" type="tts">rietsgeriicht Fauscht</annotation>
+		<annotation cp="👏">klappen | Hand</annotation>
+		<annotation cp="👏" type="tts">klappend Hänn</annotation>
+		<annotation cp="🙌">Hand | Geste | hurra | Feier | an der Luucht</annotation>
+		<annotation cp="🙌" type="tts">Hänn an d’Luucht</annotation>
+		<annotation cp="👐">oppen | Hand</annotation>
+		<annotation cp="👐" type="tts">oppen Hänn</annotation>
+		<annotation cp="🤲">Gebiet</annotation>
+		<annotation cp="🤲" type="tts">zesummegefaalten Hänn</annotation>
+		<annotation cp="🤝">Hand | Reunioun | drécken | Handdrock | Ofkommes</annotation>
+		<annotation cp="🤝" type="tts">Handdrock</annotation>
+		<annotation cp="🙏">Hand | Geste | Merci | bieden | vernäipen | wann ech gelift | gefaalt | froen</annotation>
+		<annotation cp="🙏" type="tts">gefaalten Hänn</annotation>
+		<annotation cp="✍">schreiwen | Hand</annotation>
+		<annotation cp="✍" type="tts">schreiwend Hand</annotation>
+		<annotation cp="💅">Kosmetik | Neel | Manikür | fleegen | Lack</annotation>
+		<annotation cp="💅" type="tts">Neellack</annotation>
+		<annotation cp="🤳">Kamera | Selfie | Handy</annotation>
+		<annotation cp="🤳" type="tts">Selfie</annotation>
+		<annotation cp="💪">Comic | Bizeps | Muskel | uspanen</annotation>
+		<annotation cp="💪" type="tts">ugespaante Bizeps</annotation>
+		<annotation cp="👂">Kierper</annotation>
+		<annotation cp="👂" type="tts">Ouer</annotation>
+		<annotation cp="👃">Kierper</annotation>
+		<annotation cp="👃" type="tts">Nues</annotation>
+		<annotation cp="🧠">intelligent</annotation>
+		<annotation cp="🧠" type="tts">Gehir</annotation>
+		<annotation cp="👀">Gesiicht | A</annotation>
+		<annotation cp="👀" type="tts">Aen</annotation>
+		<annotation cp="👁">Kierper</annotation>
+		<annotation cp="👁" type="tts">A</annotation>
+		<annotation cp="👅">Kierper</annotation>
+		<annotation cp="👅" type="tts">Zong</annotation>
+		<annotation cp="👄">Lëpsen</annotation>
+		<annotation cp="👄" type="tts">Mond</annotation>
+		<annotation cp="👶">Puppelchen | jonk | Bëbee</annotation>
+		<annotation cp="👶" type="tts">Puppelchen</annotation>
+		<annotation cp="🧒">jonk | neutral</annotation>
+		<annotation cp="🧒" type="tts">Kand</annotation>
+		<annotation cp="👦">klengen | Jong | jonk</annotation>
+		<annotation cp="👦" type="tts">Jong</annotation>
+		<annotation cp="👧">Stärzeechen | Jongfra | jonk | Meedchen</annotation>
+		<annotation cp="👧" type="tts">Meedchen</annotation>
+		<annotation cp="🧑">neutral</annotation>
+		<annotation cp="🧑" type="tts">Erwuessenen</annotation>
+		<annotation cp="👱">blond</annotation>
+		<annotation cp="👱" type="tts">blond Persoun</annotation>
+		<annotation cp="👨">Mann</annotation>
+		<annotation cp="👨" type="tts">Mann</annotation>
+		<annotation cp="🧔">Baart</annotation>
+		<annotation cp="🧔" type="tts">Persoun mat Baart</annotation>
+		<annotation cp="👱‍♂">blond | Mann</annotation>
+		<annotation cp="👱‍♂" type="tts">blonde Mann</annotation>
+		<annotation cp="👩">Fra</annotation>
+		<annotation cp="👩" type="tts">Fra</annotation>
+		<annotation cp="👱‍♀">Fra | blond</annotation>
+		<annotation cp="👱‍♀" type="tts">Blondin</annotation>
+		<annotation cp="🧓">al | neutral</annotation>
+		<annotation cp="🧓" type="tts">eeleren Erwuessenen</annotation>
+		<annotation cp="👴">al | Mann</annotation>
+		<annotation cp="👴" type="tts">ale Mann</annotation>
+		<annotation cp="👵">Fra | al</annotation>
+		<annotation cp="👵" type="tts">al Fra</annotation>
+		<annotation cp="🙍">fronzen | Stir | Geste</annotation>
+		<annotation cp="🙍" type="tts">d’Stir fronzend Persoun</annotation>
+		<annotation cp="🙍‍♂">Stir | fronzen | Geste | Mann</annotation>
+		<annotation cp="🙍‍♂" type="tts">d’Stir fronzende Mann</annotation>
+		<annotation cp="🙍‍♀">Fra | Stir | fronzen | Geste</annotation>
+		<annotation cp="🙍‍♀" type="tts">d’Stir fronzend Fra</annotation>
+		<annotation cp="🙎">Geste | motzen</annotation>
+		<annotation cp="🙎" type="tts">motzend Persoun</annotation>
+		<annotation cp="🙎‍♂">motzend | Geste | Mann</annotation>
+		<annotation cp="🙎‍♂" type="tts">motzende Mann</annotation>
+		<annotation cp="🙎‍♀">Fra | motzen | Geste</annotation>
+		<annotation cp="🙎‍♀" type="tts">motzend Fra</annotation>
+		<annotation cp="🙅">Verbueden | Geste | Hand | neen | net</annotation>
+		<annotation cp="🙅" type="tts">Persoun, déi NEEN weist</annotation>
+		<annotation cp="🙅‍♂">verbueden | neen | net | Hand | Geste | Mann</annotation>
+		<annotation cp="🙅‍♂" type="tts">Mann, deen NEEN weist</annotation>
+		<annotation cp="🙅‍♀">verbueden | neen | net | Hand | Geste | Fra</annotation>
+		<annotation cp="🙅‍♀" type="tts">Fra, déi NEEN weist</annotation>
+		<annotation cp="🙆">Geste | Hand | OK</annotation>
+		<annotation cp="🙆" type="tts">Persoun, déi OK weist</annotation>
+		<annotation cp="🙆‍♂">Geste | Hand | OK | Mann</annotation>
+		<annotation cp="🙆‍♂" type="tts">Mann, deen OK weist</annotation>
+		<annotation cp="🙆‍♀">Geste | Hand | OK | Fra</annotation>
+		<annotation cp="🙆‍♀" type="tts">Fra, déi OK weist</annotation>
+		<annotation cp="💁">Hand | ophalen | Hëllef | Informatiounen | frech</annotation>
+		<annotation cp="💁" type="tts">Persoun, déi d’Hand op hält</annotation>
+		<annotation cp="💁‍♂">opgehalen Hand | Mann | frech</annotation>
+		<annotation cp="💁‍♂" type="tts">Mann, deen d’Hand op hält</annotation>
+		<annotation cp="💁‍♀">Fra | opgehalen Hand | frech</annotation>
+		<annotation cp="💁‍♀" type="tts">Fra, déi d’Hand op hält</annotation>
+		<annotation cp="🙋">Geste | Hand | glécklech | gehuewen</annotation>
+		<annotation cp="🙋" type="tts">Persoun, déi d’Hand hieft</annotation>
+		<annotation cp="🙋‍♂">Geste | Mann | gehuewen Hand</annotation>
+		<annotation cp="🙋‍♂" type="tts">Mann, deen d’Hand hieft</annotation>
+		<annotation cp="🙋‍♀">Fra | Geste | gehuewen Hand</annotation>
+		<annotation cp="🙋‍♀" type="tts">Fra, déi d’Hand hieft</annotation>
+		<annotation cp="🙇">Entschëllegung | Verneigung | Geste | entschëllegt</annotation>
+		<annotation cp="🙇" type="tts">sech vernäipend Persoun</annotation>
+		<annotation cp="🙇‍♂">Geste | entschëllegt | Entschëllegung | vernäipen | Mann | Gefalen</annotation>
+		<annotation cp="🙇‍♂" type="tts">sech vernäipende Mann</annotation>
+		<annotation cp="🙇‍♀">Geste | entschëllegt | Entschëllegung | vernäipen | Fra | Gefalen</annotation>
+		<annotation cp="🙇‍♀" type="tts">sech vernäipend Fra</annotation>
+		<annotation cp="🤦">Gesiicht | Hand | Zweiwel | Frust</annotation>
+		<annotation cp="🤦" type="tts">Persoun, déi sech d’Hand widder de Kapp schléit</annotation>
+		<annotation cp="🤦‍♂">entsat | Mann | Frust | Zweiwel</annotation>
+		<annotation cp="🤦‍♂" type="tts">Mann, deen sech d’Hand widder de Kapp schléit</annotation>
+		<annotation cp="🤦‍♀">entsat | Fra | Frust | Zweiwel</annotation>
+		<annotation cp="🤦‍♀" type="tts">Fra, déi sech d’Hand widder de Kapp schléit</annotation>
+		<annotation cp="🤷">Schëlleren hiewen | Zweiwel | Ignoranz | Indifferenz</annotation>
+		<annotation cp="🤷" type="tts">Persoun, déi d’Schëlleren hieft</annotation>
+		<annotation cp="🤷‍♂">Indifferenz | Zweiwel | Mann | Schëlleren hiewen | Ignoranz</annotation>
+		<annotation cp="🤷‍♂" type="tts">Mann, deen d’Schëlleren hieft</annotation>
+		<annotation cp="🤷‍♀">Indifferenz | Zweiwel | Schëlleren hiewen | Fra | Ignoranz</annotation>
+		<annotation cp="🤷‍♀" type="tts">Fra, déi d’Schëlleren hieft</annotation>
+		<annotation cp="👨‍⚕">Therapeut | Infirmier | Dokter | Gesondheet | Mann</annotation>
+		<annotation cp="👨‍⚕" type="tts">Medeziner</annotation>
+		<annotation cp="👩‍⚕">Therapeut | Infirmière | Dokter | Gesondheet | Fra</annotation>
+		<annotation cp="👩‍⚕" type="tts">Medezinerin</annotation>
+		<annotation cp="👨‍🎓">diploméiert | Absolvent | Student | Mann</annotation>
+		<annotation cp="👨‍🎓" type="tts">Student</annotation>
+		<annotation cp="👩‍🎓">diploméiert | Fra | Studentin | Absolventin</annotation>
+		<annotation cp="👩‍🎓" type="tts">Studentin</annotation>
+		<annotation cp="👨‍🏫">Professer | Enseignant | Mann | Schoulmeeschter</annotation>
+		<annotation cp="👨‍🏫" type="tts">Enseignant</annotation>
+		<annotation cp="👩‍🏫">Enseignante | Fra | Schoulmeeschtesch | Professer</annotation>
+		<annotation cp="👩‍🏫" type="tts">Enseignante</annotation>
+		<annotation cp="👨‍⚖">Riichter | Justiz | Wo | Geriicht</annotation>
+		<annotation cp="👨‍⚖" type="tts">Riichter</annotation>
+		<annotation cp="👩‍⚖">Fra | Riichterin | Wo</annotation>
+		<annotation cp="👩‍⚖" type="tts">Riichterin</annotation>
+		<annotation cp="👨‍🌾">Gäertner | Véiziichter | Mann | Bauer</annotation>
+		<annotation cp="👨‍🌾" type="tts">Bauer</annotation>
+		<annotation cp="👩‍🌾">Fra | Gäertnerin | Bauerefra | Véiziichterin</annotation>
+		<annotation cp="👩‍🌾" type="tts">Bauerefra</annotation>
+		<annotation cp="👨‍🍳">Chef | Mann | Kach</annotation>
+		<annotation cp="👨‍🍳" type="tts">Chefkach</annotation>
+		<annotation cp="👩‍🍳">Cheffin | Fra | Kächen</annotation>
+		<annotation cp="👩‍🍳" type="tts">Chefkächen</annotation>
+		<annotation cp="👨‍🔧">Installateur | Handwierker | Mann | Elektriker | Mecanicien</annotation>
+		<annotation cp="👨‍🔧" type="tts">Mecanicien</annotation>
+		<annotation cp="👩‍🔧">Elektrikerin | Mecanicienne | Installatrice | Fra | Handwierkerin</annotation>
+		<annotation cp="👩‍🔧" type="tts">Mecanicienne</annotation>
+		<annotation cp="👨‍🏭">Aarbechter | Fabrik | Montage | Mann | Industrie</annotation>
+		<annotation cp="👨‍🏭" type="tts">Aarbechter</annotation>
+		<annotation cp="👩‍🏭">Fabrik | Montage | Industrie | Fra | Aarbechterin</annotation>
+		<annotation cp="👩‍🏭" type="tts">Aarbechterin</annotation>
+		<annotation cp="👨‍💼">Architekt | Geschäft | Büro | Mann | Employé | Manager</annotation>
+		<annotation cp="👨‍💼" type="tts">Employé</annotation>
+		<annotation cp="👩‍💼">Architektin | Geschäft | Büro | Employée | Fra | Managerin</annotation>
+		<annotation cp="👩‍💼" type="tts">Employée</annotation>
+		<annotation cp="👨‍🔬">Wëssenschaftler | Physiker | Ingenieur | Mathematiker | Biolog | Chemiker | Mann</annotation>
+		<annotation cp="👨‍🔬" type="tts">Wëssenschaftler</annotation>
+		<annotation cp="👩‍🔬">Wëssenschaftlerin | Ingenieur | Chemikerin | Physikerin | Biolog | Mathematikerin | Fra</annotation>
+		<annotation cp="👩‍🔬" type="tts">Wëssenschaftlerin</annotation>
+		<annotation cp="👨‍💻">Coder | Erfinder | Techniker | Mann | Software | Entwéckler</annotation>
+		<annotation cp="👨‍💻" type="tts">Techniker</annotation>
+		<annotation cp="👩‍💻">Entwécklerin | Coderin | Technikerin | Software | Fra | Erfinderin</annotation>
+		<annotation cp="👩‍💻" type="tts">Technikerin</annotation>
+		<annotation cp="👨‍🎤">Schauspiller | Entertainer | Mann | Rock | Star | Sänger</annotation>
+		<annotation cp="👨‍🎤" type="tts">Sänger</annotation>
+		<annotation cp="👩‍🎤">Entertainerin | Sängerin | Rock | Schauspillerin | Fra | Star</annotation>
+		<annotation cp="👩‍🎤" type="tts">Sängerin</annotation>
+		<annotation cp="👨‍🎨">Kënschtler | Mann | Palett</annotation>
+		<annotation cp="👨‍🎨" type="tts">Kënschtler</annotation>
+		<annotation cp="👩‍🎨">Fra | Kënschtlerin | Palett</annotation>
+		<annotation cp="👩‍🎨" type="tts">Kënschtlerin</annotation>
+		<annotation cp="👨‍✈">Fliger | Pilot | Mann</annotation>
+		<annotation cp="👨‍✈" type="tts">Pilot</annotation>
+		<annotation cp="👩‍✈">Fliger | Fra | Pilotin</annotation>
+		<annotation cp="👩‍✈" type="tts">Pilotin</annotation>
+		<annotation cp="👨‍🚀">Rakéit | Astronaut | Mann</annotation>
+		<annotation cp="👨‍🚀" type="tts">Astronaut</annotation>
+		<annotation cp="👩‍🚀">Fra | Astronautin | Rakéit</annotation>
+		<annotation cp="👩‍🚀" type="tts">Astronautin</annotation>
+		<annotation cp="👨‍🚒">Pompjeeswon | Mann | Pompjee</annotation>
+		<annotation cp="👨‍🚒" type="tts">Pompjee</annotation>
+		<annotation cp="👩‍🚒">Fra | Pompjeeswon | Pompjee</annotation>
+		<annotation cp="👩‍🚒" type="tts">Pompjeesfra</annotation>
+		<annotation cp="👮">Flick | Polizist | Police</annotation>
+		<annotation cp="👮" type="tts">Polizist(in)</annotation>
+		<annotation cp="👮‍♂">Polizist | Flick | Mann | Police</annotation>
+		<annotation cp="👮‍♂" type="tts">Polizist</annotation>
+		<annotation cp="👮‍♀">Fra | Flick | Police | Polizistin</annotation>
+		<annotation cp="👮‍♀" type="tts">Polizistin</annotation>
+		<annotation cp="🕵">Detektiv | Spioun</annotation>
+		<annotation cp="🕵" type="tts">Detektiv(in)</annotation>
+		<annotation cp="🕵‍♂">Detektiv | Mann | Spioun</annotation>
+		<annotation cp="🕵‍♂" type="tts">Detektiv</annotation>
+		<annotation cp="🕵‍♀">Detektivin | Fra | Spiounin</annotation>
+		<annotation cp="🕵‍♀" type="tts">Detektivin</annotation>
+		<annotation cp="💂">Wiechter(in)</annotation>
+		<annotation cp="💂" type="tts">Wiechter(in)</annotation>
+		<annotation cp="💂‍♂">Wiechter | Mann</annotation>
+		<annotation cp="💂‍♂" type="tts">Wiechter</annotation>
+		<annotation cp="💂‍♀">Wiechterin | Fra</annotation>
+		<annotation cp="💂‍♀" type="tts">Wiechterin</annotation>
+		<annotation cp="👷">Bau | Hutt | Aarbechter</annotation>
+		<annotation cp="👷" type="tts">Bauaarbechter(in) mat Helm</annotation>
+		<annotation cp="👷‍♂">Aarbechter | Bau | Mann</annotation>
+		<annotation cp="👷‍♂" type="tts">Bauaarbechter</annotation>
+		<annotation cp="👷‍♀">Fra | Bau | Aarbechterin</annotation>
+		<annotation cp="👷‍♀" type="tts">Bauaarbechterin</annotation>
+		<annotation cp="🤴">Prënz</annotation>
+		<annotation cp="🤴" type="tts">Prënz</annotation>
+		<annotation cp="👸">Mäerchen | Fantasie</annotation>
+		<annotation cp="👸" type="tts">Prinzessin</annotation>
+		<annotation cp="👳">Turban</annotation>
+		<annotation cp="👳" type="tts">Persoun mat Turban</annotation>
+		<annotation cp="👳‍♂">Mann | Turban</annotation>
+		<annotation cp="👳‍♂" type="tts">Mann mat Turban</annotation>
+		<annotation cp="👳‍♀">Fra | Turban</annotation>
+		<annotation cp="👳‍♀" type="tts">Fra mat Turban</annotation>
+		<annotation cp="👲">gua pi mao | Hutt | Mann</annotation>
+		<annotation cp="👲" type="tts">Mann mat chineseschem Hutt</annotation>
+		<annotation cp="🧕">Voile | Kappduch | Schleier | Hijab</annotation>
+		<annotation cp="🧕" type="tts">Fra mat Schleier</annotation>
+		<annotation cp="🤵">Bräitchemann | Kostüm | Mann</annotation>
+		<annotation cp="🤵" type="tts">Mann am Kostüm</annotation>
+		<annotation cp="👰">Schleier | Braut | Hochzäit</annotation>
+		<annotation cp="👰" type="tts">Braut mat Schleier</annotation>
+		<annotation cp="🤰">Fra | schwanger</annotation>
+		<annotation cp="🤰" type="tts">schwanger Fra</annotation>
+		<annotation cp="🤱">Broscht | Bëbee | fleegen</annotation>
+		<annotation cp="🤱" type="tts">stëllend Fra</annotation>
+		<annotation cp="👼">Engel | Fantasie | Puppelchen | Mäerchen | Gesiicht | Bëbee</annotation>
+		<annotation cp="👼" type="tts">Engelchen</annotation>
+		<annotation cp="🎅">Feier | Chrëschtdag | Papp | Kleeschen</annotation>
+		<annotation cp="🎅" type="tts">Kleeschen</annotation>
+		<annotation cp="🤶">Chrëschtdag | Feier | Mamm | Fra | Kleeschen</annotation>
+		<annotation cp="🤶" type="tts">Dem Kleesche seng Fra</annotation>
+		<annotation cp="🧙">Hexemeeschter | Hex | Zauberer</annotation>
+		<annotation cp="🧙" type="tts">Zauberer(in)</annotation>
+		<annotation cp="🧙‍♂">Hexemeeschter | Zauberer</annotation>
+		<annotation cp="🧙‍♂" type="tts">Zauberer</annotation>
+		<annotation cp="🧙‍♀">Hex</annotation>
+		<annotation cp="🧙‍♀" type="tts">Hex</annotation>
+		<annotation cp="🧚">Titania | Puck | Oberon</annotation>
+		<annotation cp="🧚" type="tts">Fee</annotation>
+		<annotation cp="🧚‍♂">Oberon | Puck</annotation>
+		<annotation cp="🧚‍♂" type="tts">männlech Fee</annotation>
+		<annotation cp="🧚‍♀">Titania</annotation>
+		<annotation cp="🧚‍♀" type="tts">weiblech Fee</annotation>
+		<annotation cp="🧛">Dracula | ondout</annotation>
+		<annotation cp="🧛" type="tts">Vampir</annotation>
+		<annotation cp="🧛‍♂">Dracula | ondout</annotation>
+		<annotation cp="🧛‍♂" type="tts">Vampirmann</annotation>
+		<annotation cp="🧛‍♀">ondout</annotation>
+		<annotation cp="🧛‍♀" type="tts">Vampirfra</annotation>
+		<annotation cp="🧜">Mierjonfra | Miermann</annotation>
+		<annotation cp="🧜" type="tts">Mierpersoun</annotation>
+		<annotation cp="🧜‍♂">Triton</annotation>
+		<annotation cp="🧜‍♂" type="tts">Miermann</annotation>
+		<annotation cp="🧜‍♀">Mierfra</annotation>
+		<annotation cp="🧜‍♀" type="tts">Mierjongfra</annotation>
+		<annotation cp="🧝">magesch</annotation>
+		<annotation cp="🧝" type="tts">Elf</annotation>
+		<annotation cp="🧝‍♂">magesch</annotation>
+		<annotation cp="🧝‍♂" type="tts">Elfemann</annotation>
+		<annotation cp="🧝‍♀">magesch</annotation>
+		<annotation cp="🧝‍♀" type="tts">Elfefra</annotation>
+		<annotation cp="🧞">Djinn</annotation>
+		<annotation cp="🧞" type="tts">Genie</annotation>
+		<annotation cp="🧞‍♂">Djinn</annotation>
+		<annotation cp="🧞‍♂" type="tts">Geniemann</annotation>
+		<annotation cp="🧞‍♀">Djinn</annotation>
+		<annotation cp="🧞‍♀" type="tts">Geniefra</annotation>
+		<annotation cp="🧟">ondout | Zombie</annotation>
+		<annotation cp="🧟" type="tts">Zombie</annotation>
+		<annotation cp="🧟‍♂">ondout | Zombie</annotation>
+		<annotation cp="🧟‍♂" type="tts">Zombiemann</annotation>
+		<annotation cp="🧟‍♀">ondout | Zombie</annotation>
+		<annotation cp="🧟‍♀" type="tts">Zombiefra</annotation>
+		<annotation cp="💆">Massage | Salon | Gesiicht</annotation>
+		<annotation cp="💆" type="tts">Persoun, déi eng Kappmassage kritt</annotation>
+		<annotation cp="💆‍♂">Gesiicht | Massage | Mann</annotation>
+		<annotation cp="💆‍♂" type="tts">Mann, deen eng Kappmassage kritt</annotation>
+		<annotation cp="💆‍♀">Fra | Gesiicht | Massage</annotation>
+		<annotation cp="💆‍♀" type="tts">Fra, déi eng Kappmassage kritt</annotation>
+		<annotation cp="💇">Coiffer | Schéinheet | Salon | Coupe | Hoer | schneiden</annotation>
+		<annotation cp="💇" type="tts">Persoun, déi d’Hoer geschnidde kritt</annotation>
+		<annotation cp="💇‍♂">schneiden | Coupe | Mann | Hoer</annotation>
+		<annotation cp="💇‍♂" type="tts">Mann, deen d’Hoer geschnidde kritt</annotation>
+		<annotation cp="💇‍♀">Fra | schneiden | Coupe | Hoer</annotation>
+		<annotation cp="💇‍♀" type="tts">Fra, déi d’Hoer geschnidde kritt</annotation>
+		<annotation cp="🚶">wanderen | spadséieren | spadséierend</annotation>
+		<annotation cp="🚶" type="tts">spadséierend Persoun</annotation>
+		<annotation cp="🚶‍♂">spadséieren | wanderen | Mann</annotation>
+		<annotation cp="🚶‍♂" type="tts">spadséierende Mann</annotation>
+		<annotation cp="🚶‍♀">Fra | spadséieren | wanderen</annotation>
+		<annotation cp="🚶‍♀" type="tts">spadséierend Fra</annotation>
+		<annotation cp="🏃">Marathon | lafen</annotation>
+		<annotation cp="🏃" type="tts">lafend Persoun</annotation>
+		<annotation cp="🏃‍♂">Course | Marathon | Mann | lafen</annotation>
+		<annotation cp="🏃‍♂" type="tts">lafende Mann</annotation>
+		<annotation cp="🏃‍♀">Course | Fra | Marathon | lafen</annotation>
+		<annotation cp="🏃‍♀" type="tts">lafend Fra</annotation>
+		<annotation cp="💃">danzend | Fra</annotation>
+		<annotation cp="💃" type="tts">danzend Fra</annotation>
+		<annotation cp="🕺">danzen | Mann</annotation>
+		<annotation cp="🕺" type="tts">danzende Mann</annotation>
+		<annotation cp="🕴">Geschäft | Kostüm | Mann</annotation>
+		<annotation cp="🕴" type="tts">levitéierende Man am Kostüm</annotation>
+		<annotation cp="👯">Huesoueren | Dänzer | feieren | Party</annotation>
+		<annotation cp="👯" type="tts">Persoun mat Huesoueren</annotation>
+		<annotation cp="👯‍♂">Dänzer | Huesoueren | feieren | Party | Männer</annotation>
+		<annotation cp="👯‍♂" type="tts">Männer mat Huesoueren</annotation>
+		<annotation cp="👯‍♀">Fraen | Dänzerin | Huesoueren | feieren | Party</annotation>
+		<annotation cp="👯‍♀" type="tts">Frae mat Huesoueren</annotation>
+		<annotation cp="🧖">Sauna | Dampbad</annotation>
+		<annotation cp="🧖" type="tts">Persoun am Dampbad</annotation>
+		<annotation cp="🧖‍♂">Sauna | Dampbad</annotation>
+		<annotation cp="🧖‍♂" type="tts">Mann am Dampbad</annotation>
+		<annotation cp="🧖‍♀">Sauna | Dampbad</annotation>
+		<annotation cp="🧖‍♀" type="tts">Fra am Dampbad</annotation>
+		<annotation cp="🧗">Biergsteiger</annotation>
+		<annotation cp="🧗" type="tts">Klëmmer(in)</annotation>
+		<annotation cp="🧗‍♂">Biergsteiger</annotation>
+		<annotation cp="🧗‍♂" type="tts">Klëmmer</annotation>
+		<annotation cp="🧗‍♀">Biergsteiger</annotation>
+		<annotation cp="🧗‍♀" type="tts">Klëmmerin</annotation>
+		<annotation cp="🤺">Schwäert | fechten | Fechter</annotation>
+		<annotation cp="🤺" type="tts">fechtend Persoun</annotation>
+		<annotation cp="🏇">Course | Päerd | Coursepäerd | Jockey</annotation>
+		<annotation cp="🏇" type="tts">Päerdscourse</annotation>
+		<annotation cp="⛷">Schnéi | Ski</annotation>
+		<annotation cp="⛷" type="tts">Skifuerer</annotation>
+		<annotation cp="🏂">Schnéi | Ski | Snowboard</annotation>
+		<annotation cp="🏂" type="tts">Snowboarder</annotation>
+		<annotation cp="🏌">Ball | Golf</annotation>
+		<annotation cp="🏌" type="tts">Golferspiller</annotation>
+		<annotation cp="🏌‍♂">Mann | Golf</annotation>
+		<annotation cp="🏌‍♂" type="tts">Golfer</annotation>
+		<annotation cp="🏌‍♀">Fra | Golf</annotation>
+		<annotation cp="🏌‍♀" type="tts">Golferin</annotation>
+		<annotation cp="🏄">Surfen</annotation>
+		<annotation cp="🏄" type="tts">Surfer(in)</annotation>
+		<annotation cp="🏄‍♂">Mann | Surfen</annotation>
+		<annotation cp="🏄‍♂" type="tts">Surfer</annotation>
+		<annotation cp="🏄‍♀">Fra | Surfen</annotation>
+		<annotation cp="🏄‍♀" type="tts">Surferin</annotation>
+		<annotation cp="🚣">Boot | Rudderboot</annotation>
+		<annotation cp="🚣" type="tts">rudderend Persoun</annotation>
+		<annotation cp="🚣‍♂">Rudderboot | Mann | Boot</annotation>
+		<annotation cp="🚣‍♂" type="tts">rudderende Mann</annotation>
+		<annotation cp="🚣‍♀">Rudderboot | Fra | Boot</annotation>
+		<annotation cp="🚣‍♀" type="tts">rudderend Fra</annotation>
+		<annotation cp="🏊">schwammen</annotation>
+		<annotation cp="🏊" type="tts">Schwëmmer(in)</annotation>
+		<annotation cp="🏊‍♂">schwammen | Mann</annotation>
+		<annotation cp="🏊‍♂" type="tts">Schwëmmer</annotation>
+		<annotation cp="🏊‍♀">schwammen | Fra</annotation>
+		<annotation cp="🏊‍♀" type="tts">Schwëmmerin</annotation>
+		<annotation cp="⛹">Ball</annotation>
+		<annotation cp="⛹" type="tts">mam Ball dribbelend Persoun</annotation>
+		<annotation cp="⛹‍♂">Ball | Mann</annotation>
+		<annotation cp="⛹‍♂" type="tts">mam Ball dribbelende Mann</annotation>
+		<annotation cp="⛹‍♀">Ball | Fra</annotation>
+		<annotation cp="⛹‍♀" type="tts">mam Ball dribbelend Fra</annotation>
+		<annotation cp="🏋">Hiewer | Gewiicht</annotation>
+		<annotation cp="🏋" type="tts">Gewiichthiewer(in)</annotation>
+		<annotation cp="🏋‍♂">Mann | Gewiichthiewer</annotation>
+		<annotation cp="🏋‍♂" type="tts">Gewiichthiewer</annotation>
+		<annotation cp="🏋‍♀">Fra | Gewiichthiewer</annotation>
+		<annotation cp="🏋‍♀" type="tts">Gewiichthiewerin</annotation>
+		<annotation cp="🚴">Vëlo | Vëlofueren | Vëlosfuerer</annotation>
+		<annotation cp="🚴" type="tts">Vëlosfuerer(in)</annotation>
+		<annotation cp="🚴‍♂">Mann | Vëlofueren | Vëlo | Vëlosfuerer</annotation>
+		<annotation cp="🚴‍♂" type="tts">Vëlosfuerer</annotation>
+		<annotation cp="🚴‍♀">Fra | Vëlofueren | Vëlo | Vëlosfuerer</annotation>
+		<annotation cp="🚴‍♀" type="tts">Vëlosfuererin</annotation>
+		<annotation cp="🚵">Vëlo | Vëlofueren | Vëlosfuerer | Bierg | Mountainbike</annotation>
+		<annotation cp="🚵" type="tts">Mountainbikesfuerer(in)</annotation>
+		<annotation cp="🚵‍♂">Mountainbike | Vëlofueren | Mann | Vëlo | Bierg | Vëlosfuerer</annotation>
+		<annotation cp="🚵‍♂" type="tts">Mountainbikesfuerer</annotation>
+		<annotation cp="🚵‍♀">Mountainbike | Vëlofueren | Fra | Vëlo | Bierg | Vëlosfuerer</annotation>
+		<annotation cp="🚵‍♀" type="tts">Mountainbikesfuererin</annotation>
+		<annotation cp="🤸">Rad | Turnen</annotation>
+		<annotation cp="🤸" type="tts">Persoun, déi d’Rad schléit</annotation>
+		<annotation cp="🤸‍♂">Rad | Mann | Turnen</annotation>
+		<annotation cp="🤸‍♂" type="tts">Mann, deen d’Rad schléit</annotation>
+		<annotation cp="🤸‍♀">Fra | Rad | Turnen</annotation>
+		<annotation cp="🤸‍♀" type="tts">Fra, déi d’Rad schléit</annotation>
+		<annotation cp="🤼">catchen | Wrestler</annotation>
+		<annotation cp="🤼" type="tts">Wrestling</annotation>
+		<annotation cp="🤼‍♂">Männer | catchen</annotation>
+		<annotation cp="🤼‍♂" type="tts">Wrestler</annotation>
+		<annotation cp="🤼‍♀">Fraen | catchen</annotation>
+		<annotation cp="🤼‍♀" type="tts">Wrestlerinnen</annotation>
+		<annotation cp="🤽">Polo | Waasser</annotation>
+		<annotation cp="🤽" type="tts">Waasserballspiller(in)</annotation>
+		<annotation cp="🤽‍♂">Mann | Waasserball</annotation>
+		<annotation cp="🤽‍♂" type="tts">Waasserballspiller</annotation>
+		<annotation cp="🤽‍♀">Fra | Waasserball</annotation>
+		<annotation cp="🤽‍♀" type="tts">Waasserballspillerin</annotation>
+		<annotation cp="🤾">Handball | Ball</annotation>
+		<annotation cp="🤾" type="tts">Handballspiller(in)</annotation>
+		<annotation cp="🤾‍♂">Handball | Mann</annotation>
+		<annotation cp="🤾‍♂" type="tts">Handballspiller</annotation>
+		<annotation cp="🤾‍♀">Handball | Fra</annotation>
+		<annotation cp="🤾‍♀" type="tts">Handballspillerin</annotation>
+		<annotation cp="🤹">jongléieren | Multitasking | Gläichgewiicht | Geschéck</annotation>
+		<annotation cp="🤹" type="tts">jongléierend Persoun</annotation>
+		<annotation cp="🤹‍♂">Multitasking | Mann | jongléieren</annotation>
+		<annotation cp="🤹‍♂" type="tts">jongléierende Mann</annotation>
+		<annotation cp="🤹‍♀">Fra | Multitasking | jongléieren</annotation>
+		<annotation cp="🤹‍♀" type="tts">jongléierend Fra</annotation>
+		<annotation cp="🧘">Yoga | Meditatioun</annotation>
+		<annotation cp="🧘" type="tts">Persoun a Lotuspositioun</annotation>
+		<annotation cp="🧘‍♂">Yoga | Meditatioun</annotation>
+		<annotation cp="🧘‍♂" type="tts">Mann a Lotuspositioun</annotation>
+		<annotation cp="🧘‍♀">Yoga | Meditatioun</annotation>
+		<annotation cp="🧘‍♀" type="tts">Fra a Lotuspositioun</annotation>
+		<annotation cp="🛀">Buedbidden | Bidden</annotation>
+		<annotation cp="🛀" type="tts">Persoun an der Bidden</annotation>
+		<annotation cp="🛌">schlofen | Hotel</annotation>
+		<annotation cp="🛌" type="tts">Persoun am Bett</annotation>
+		<annotation cp="👭">Koppel | Fra | halen | Hand</annotation>
+		<annotation cp="👭" type="tts">zwou Fraen Hand an Hand</annotation>
+		<annotation cp="👫">Hand | halen | Koppel | Mann | Fra</annotation>
+		<annotation cp="👫" type="tts">Mann a Fra Hand an Hand</annotation>
+		<annotation cp="👬">Hand | halen | Koppel | Stärzeechen | Mann | Zwilling | Zwillingen</annotation>
+		<annotation cp="👬" type="tts">zwee Männer Hand an Hand</annotation>
+		<annotation cp="💏">Koppel | Kuss</annotation>
+		<annotation cp="💏" type="tts">Kuss</annotation>
+		<annotation cp="💑">Koppel | Léift | verléift Koppel</annotation>
+		<annotation cp="💑" type="tts">verléift Koppel</annotation>
+		<annotation cp="👪">Famill</annotation>
+		<annotation cp="👪" type="tts">Famill</annotation>
+		<annotation cp="🗣">schwätzend | Kapp | Gesiicht | Silhouette | schwätzen</annotation>
+		<annotation cp="🗣" type="tts">schwätzende Kapp</annotation>
+		<annotation cp="👤">Büst | Silhouette | mënschlech</annotation>
+		<annotation cp="👤" type="tts">mënschlech Silhouette</annotation>
+		<annotation cp="👥">Büst | Silhouette | mënschlech</annotation>
+		<annotation cp="👥" type="tts">mënschlech Silhouetten</annotation>
+		<annotation cp="👣">Foussofdrock | Kleeder | Ofdrock</annotation>
+		<annotation cp="👣" type="tts">Foussofdréck</annotation>
+		<annotation cp="🐵">Gesiicht | Af</annotation>
+		<annotation cp="🐵" type="tts">Afegesiicht</annotation>
+		<annotation cp="🐒">Af</annotation>
+		<annotation cp="🐒" type="tts">Af</annotation>
+		<annotation cp="🦍">Gorilla</annotation>
+		<annotation cp="🦍" type="tts">Gorilla</annotation>
+		<annotation cp="🐶">Hausdéier | Gesiicht | Hond</annotation>
+		<annotation cp="🐶" type="tts">Hondsgesiicht</annotation>
+		<annotation cp="🐕">Hausdéier</annotation>
+		<annotation cp="🐕" type="tts">Hond</annotation>
+		<annotation cp="🐩">Hond</annotation>
+		<annotation cp="🐩" type="tts">Puddel</annotation>
+		<annotation cp="🐺">Gesiicht | Wollef</annotation>
+		<annotation cp="🐺" type="tts">Wollefsgesiicht</annotation>
+		<annotation cp="🦊">Gesiicht | Fuuss</annotation>
+		<annotation cp="🦊" type="tts">Fuussgesiicht</annotation>
+		<annotation cp="🐱">Gesiicht | Kaz | Hausdéier</annotation>
+		<annotation cp="🐱" type="tts">Kazegesiicht</annotation>
+		<annotation cp="🐈">Hausdéier</annotation>
+		<annotation cp="🐈" type="tts">Kaz</annotation>
+		<annotation cp="🦁">Stärzeechen | Gesiicht | Léif</annotation>
+		<annotation cp="🦁" type="tts">Léifsgesiicht</annotation>
+		<annotation cp="🐯">Gesiicht | Tiger</annotation>
+		<annotation cp="🐯" type="tts">Tigersgesiicht</annotation>
+		<annotation cp="🐅">Tiger</annotation>
+		<annotation cp="🐅" type="tts">Tiger</annotation>
+		<annotation cp="🐆">Leopard</annotation>
+		<annotation cp="🐆" type="tts">Leopard</annotation>
+		<annotation cp="🐴">Päerd | Gesiicht</annotation>
+		<annotation cp="🐴" type="tts">Päerdsgesiicht</annotation>
+		<annotation cp="🐎">Course | reiden | Coursepäerd</annotation>
+		<annotation cp="🐎" type="tts">Päerd</annotation>
+		<annotation cp="🦄">Gesiicht | Einhorn</annotation>
+		<annotation cp="🦄" type="tts">Einhornsgesiicht</annotation>
+		<annotation cp="🦓">Sträif</annotation>
+		<annotation cp="🦓" type="tts">Zebra</annotation>
+		<annotation cp="🦌">Hirsch</annotation>
+		<annotation cp="🦌" type="tts">Hirsch</annotation>
+		<annotation cp="🐮">Gesiicht | Kou</annotation>
+		<annotation cp="🐮" type="tts">Kousgesiicht</annotation>
+		<annotation cp="🐂">Ochs | Stärzeechen | Stéier</annotation>
+		<annotation cp="🐂" type="tts">Ochs</annotation>
+		<annotation cp="🐃">Waasser | Büffel</annotation>
+		<annotation cp="🐃" type="tts">Waasserbüffel</annotation>
+		<annotation cp="🐄">Kou</annotation>
+		<annotation cp="🐄" type="tts">Kou</annotation>
+		<annotation cp="🐷">Gesiicht | Schwäin</annotation>
+		<annotation cp="🐷" type="tts">Schwéngsgesiicht</annotation>
+		<annotation cp="🐖">Sau</annotation>
+		<annotation cp="🐖" type="tts">Schwäin</annotation>
+		<annotation cp="🐗">Schwäin</annotation>
+		<annotation cp="🐗" type="tts">Wëllschwäin</annotation>
+		<annotation cp="🐽">Gesiicht | Nues | Schwäin</annotation>
+		<annotation cp="🐽" type="tts">Schwéngsnues</annotation>
+		<annotation cp="🐏">Stärzeechen | Widder | Schof | Männchen</annotation>
+		<annotation cp="🐏" type="tts">Widder</annotation>
+		<annotation cp="🐑">Mudder | Weibchen | Schof</annotation>
+		<annotation cp="🐑" type="tts">Mudderschof</annotation>
+		<annotation cp="🐐">Steebock | Stärzeechen</annotation>
+		<annotation cp="🐐" type="tts">Geess</annotation>
+		<annotation cp="🐪">Bockel | Dromedar</annotation>
+		<annotation cp="🐪" type="tts">Dromedar</annotation>
+		<annotation cp="🐫">Kaméil | zwee | Bockel</annotation>
+		<annotation cp="🐫" type="tts">Kaméil</annotation>
+		<annotation cp="🦒">Flecken</annotation>
+		<annotation cp="🦒" type="tts">Giraff</annotation>
+		<annotation cp="🐘">Elefant</annotation>
+		<annotation cp="🐘" type="tts">Elefant</annotation>
+		<annotation cp="🦏">Nashorn</annotation>
+		<annotation cp="🦏" type="tts">Nashorn</annotation>
+		<annotation cp="🐭">Gesiicht | Maus</annotation>
+		<annotation cp="🐭" type="tts">Mausgesiicht</annotation>
+		<annotation cp="🐁">Maus</annotation>
+		<annotation cp="🐁" type="tts">Maus</annotation>
+		<annotation cp="🐀">Rat</annotation>
+		<annotation cp="🐀" type="tts">Rat</annotation>
+		<annotation cp="🐹">Gesiicht | Hausdéier | Hamster</annotation>
+		<annotation cp="🐹" type="tts">Hamstersgesiicht</annotation>
+		<annotation cp="🐰">Kanéngchen | Gesiicht | Hues | Hausdéier</annotation>
+		<annotation cp="🐰" type="tts">Huesgesiicht</annotation>
+		<annotation cp="🐇">Kanéngchen | Hausdéier</annotation>
+		<annotation cp="🐇" type="tts">Hues</annotation>
+		<annotation cp="🐿">Kaweechelchen</annotation>
+		<annotation cp="🐿" type="tts">Kaweechelchen</annotation>
+		<annotation cp="🦔">däreg</annotation>
+		<annotation cp="🦔" type="tts">Kéiseker</annotation>
+		<annotation cp="🦇">Fliedermaus | Vampir</annotation>
+		<annotation cp="🦇" type="tts">Fliedermaus</annotation>
+		<annotation cp="🐻">Gesiicht | Bier</annotation>
+		<annotation cp="🐻" type="tts">Bieregesiicht</annotation>
+		<annotation cp="🐨">Bier</annotation>
+		<annotation cp="🐨" type="tts">Koalabier</annotation>
+		<annotation cp="🐼">Gesiicht | Panda</annotation>
+		<annotation cp="🐼" type="tts">Pandasgesiicht</annotation>
+		<annotation cp="🐾">Patt | Féiss | Ofdrock</annotation>
+		<annotation cp="🐾" type="tts">Pattenofdréck</annotation>
+		<annotation cp="🦃">Schnuddelhong | Vugel</annotation>
+		<annotation cp="🦃" type="tts">Schnuddelhong</annotation>
+		<annotation cp="🐔">Hong | Vugel</annotation>
+		<annotation cp="🐔" type="tts">Hong</annotation>
+		<annotation cp="🐓">Vugel | Hunn</annotation>
+		<annotation cp="🐓" type="tts">Hunn</annotation>
+		<annotation cp="🐣">Jippelchen | am Ee | kleng | Vugel | Bëbee | Hong</annotation>
+		<annotation cp="🐣" type="tts">Jippelchen am Ee</annotation>
+		<annotation cp="🐤">Hong | Jippelchen | Bëbee | Vugel</annotation>
+		<annotation cp="🐤" type="tts">Jippelchen</annotation>
+		<annotation cp="🐥">Hong | Jippelchen | Bëbee | Vugel</annotation>
+		<annotation cp="🐥" type="tts">Jippelche vu vir</annotation>
+		<annotation cp="🐦">Vugel</annotation>
+		<annotation cp="🐦" type="tts">Vugel</annotation>
+		<annotation cp="🐧">Pinguin | Vugel</annotation>
+		<annotation cp="🐧" type="tts">Pinguin</annotation>
+		<annotation cp="🕊">Fridden | fléien | Vugel</annotation>
+		<annotation cp="🕊" type="tts">Dauf</annotation>
+		<annotation cp="🦅">Adler | Vugel</annotation>
+		<annotation cp="🦅" type="tts">Adler</annotation>
+		<annotation cp="🦆">Int | Vugel</annotation>
+		<annotation cp="🦆" type="tts">Int</annotation>
+		<annotation cp="🦉">klug | Eil | Vugel</annotation>
+		<annotation cp="🦉" type="tts">Eil</annotation>
+		<annotation cp="🐸">Gesiicht | Fräsch</annotation>
+		<annotation cp="🐸" type="tts">Fräschegesiicht</annotation>
+		<annotation cp="🐊">Krokodil</annotation>
+		<annotation cp="🐊" type="tts">Krokodil</annotation>
+		<annotation cp="🐢">Schildkröt | Deckelsmouk | Douseschildkröt</annotation>
+		<annotation cp="🐢" type="tts">Deckelsmouk</annotation>
+		<annotation cp="🦎">Reptil | Eidechs</annotation>
+		<annotation cp="🦎" type="tts">Eidechs</annotation>
+		<annotation cp="🐍">Stärzeechen | Ophiuchus | Schlaangenträger</annotation>
+		<annotation cp="🐍" type="tts">Schlaang</annotation>
+		<annotation cp="🐲">Mäerchen | Gesiicht | Draach</annotation>
+		<annotation cp="🐲" type="tts">Draachegesiicht</annotation>
+		<annotation cp="🐉">Mäerchen</annotation>
+		<annotation cp="🐉" type="tts">Draach</annotation>
+		<annotation cp="🦕">Brontosaurus | Diplodokus | Brachiosaurus</annotation>
+		<annotation cp="🦕" type="tts">Dinosaurier</annotation>
+		<annotation cp="🦖">Tyrannosaurus Rex</annotation>
+		<annotation cp="🦖" type="tts">T-Rex</annotation>
+		<annotation cp="🐳">sprëtzend | Gesiicht | Wal</annotation>
+		<annotation cp="🐳" type="tts">sprëtzende Wal</annotation>
+		<annotation cp="🐋">Wal</annotation>
+		<annotation cp="🐋" type="tts">Wal</annotation>
+		<annotation cp="🐬">Flipper</annotation>
+		<annotation cp="🐬" type="tts">Delfin</annotation>
+		<annotation cp="🐟">Stärzeechen | Fësch</annotation>
+		<annotation cp="🐟" type="tts">Fësch</annotation>
+		<annotation cp="🐠">tropesch | Fësch</annotation>
+		<annotation cp="🐠" type="tts">tropesche Fësch</annotation>
+		<annotation cp="🐡">Fësch</annotation>
+		<annotation cp="🐡" type="tts">Kugelfësch</annotation>
+		<annotation cp="🦈">Fësch | Hai</annotation>
+		<annotation cp="🦈" type="tts">Hai</annotation>
+		<annotation cp="🐙">Tëntefësch</annotation>
+		<annotation cp="🐙" type="tts">Tëntefësch</annotation>
+		<annotation cp="🐚">Spiral | Muschel</annotation>
+		<annotation cp="🐚" type="tts">Spiralmuschel</annotation>
+		<annotation cp="🐌">Schleek</annotation>
+		<annotation cp="🐌" type="tts">Schleek</annotation>
+		<annotation cp="🦋">schéin | Insekt | Päiperlek</annotation>
+		<annotation cp="🦋" type="tts">Päiperlek</annotation>
+		<annotation cp="🐛">Insekt</annotation>
+		<annotation cp="🐛" type="tts">Kiewerlek</annotation>
+		<annotation cp="🐜">Insekt</annotation>
+		<annotation cp="🐜" type="tts">Seejomes</annotation>
+		<annotation cp="🐝">Bei | Insekt</annotation>
+		<annotation cp="🐝" type="tts">Bei</annotation>
+		<annotation cp="🐞">Kiewerlek | Himmelsdéierchen | Insekt</annotation>
+		<annotation cp="🐞" type="tts">Himmelsdéierchen</annotation>
+		<annotation cp="🦗">Heesprénger</annotation>
+		<annotation cp="🦗" type="tts">Cricket</annotation>
+		<annotation cp="🕷">Insekt</annotation>
+		<annotation cp="🕷" type="tts">Spann</annotation>
+		<annotation cp="🕸">Netz | Spann</annotation>
+		<annotation cp="🕸" type="tts">Spannennetz</annotation>
+		<annotation cp="🦂">Skorpioun | Stärzeechen</annotation>
+		<annotation cp="🦂" type="tts">Skorpioun</annotation>
+		<annotation cp="💐">Blumm</annotation>
+		<annotation cp="💐" type="tts">Blummebouquet</annotation>
+		<annotation cp="🌸">Blumm | Kiischt | Bléi</annotation>
+		<annotation cp="🌸" type="tts">Kiischtebléi</annotation>
+		<annotation cp="💮">Blumm</annotation>
+		<annotation cp="💮" type="tts">wäiss Blumm</annotation>
+		<annotation cp="🏵">Planz</annotation>
+		<annotation cp="🏵" type="tts">Rosett</annotation>
+		<annotation cp="🌹">Blumm</annotation>
+		<annotation cp="🌹" type="tts">Rous</annotation>
+		<annotation cp="🥀">Blumm | verwielegt</annotation>
+		<annotation cp="🥀" type="tts">verwielegt Blumm</annotation>
+		<annotation cp="🌺">Blumm</annotation>
+		<annotation cp="🌺" type="tts">Hibiskus</annotation>
+		<annotation cp="🌻">Blumm | Sonn</annotation>
+		<annotation cp="🌻" type="tts">Sonneblumm</annotation>
+		<annotation cp="🌼">Blumm</annotation>
+		<annotation cp="🌼" type="tts">Margréitchen</annotation>
+		<annotation cp="🌷">Blumm</annotation>
+		<annotation cp="🌷" type="tts">Tulp</annotation>
+		<annotation cp="🌱">jonk</annotation>
+		<annotation cp="🌱" type="tts">Keimling</annotation>
+		<annotation cp="🌲">Bam</annotation>
+		<annotation cp="🌲" type="tts">Dännebam</annotation>
+		<annotation cp="🌳">Bam | Laf | Lafbam | falen</annotation>
+		<annotation cp="🌳" type="tts">Lafbam</annotation>
+		<annotation cp="🌴">Palm | Bam</annotation>
+		<annotation cp="🌴" type="tts">Palm</annotation>
+		<annotation cp="🌵">Planz</annotation>
+		<annotation cp="🌵" type="tts">Kaktus</annotation>
+		<annotation cp="🌾">Kär | Räis | Hallem</annotation>
+		<annotation cp="🌾" type="tts">Räishallem</annotation>
+		<annotation cp="🌿">Blat</annotation>
+		<annotation cp="🌿" type="tts">Kräider</annotation>
+		<annotation cp="☘">Planz</annotation>
+		<annotation cp="☘" type="tts">Kléi</annotation>
+		<annotation cp="🍀">véier | Blat | 4 | Kléi</annotation>
+		<annotation cp="🍀" type="tts">véierbliederegt Kléiblat</annotation>
+		<annotation cp="🍁">Ahorn | Blat | falend</annotation>
+		<annotation cp="🍁" type="tts">Ahornblat</annotation>
+		<annotation cp="🍂">Blat | falend</annotation>
+		<annotation cp="🍂" type="tts">Hierschtblat</annotation>
+		<annotation cp="🍃">Blat | fléien | blosen | Wand</annotation>
+		<annotation cp="🍃" type="tts">am Wand fléiend Blat</annotation>
+		<annotation cp="🍇">Uebst | Drauf</annotation>
+		<annotation cp="🍇" type="tts">Drauwen</annotation>
+		<annotation cp="🍈">Uebst</annotation>
+		<annotation cp="🍈" type="tts">Meloun</annotation>
+		<annotation cp="🍉">Uebst</annotation>
+		<annotation cp="🍉" type="tts">Waassermeloun</annotation>
+		<annotation cp="🍊">Uebst | Orange</annotation>
+		<annotation cp="🍊" type="tts">Mandarine</annotation>
+		<annotation cp="🍋">Zitrusfriicht | Zitroun | Uebst</annotation>
+		<annotation cp="🍋" type="tts">Zitroun</annotation>
+		<annotation cp="🍌">Uebst</annotation>
+		<annotation cp="🍌" type="tts">Banann</annotation>
+		<annotation cp="🍍">Uebst</annotation>
+		<annotation cp="🍍" type="tts">Ananas</annotation>
+		<annotation cp="🍎">rout | Apel | Uebst</annotation>
+		<annotation cp="🍎" type="tts">rouden Apel</annotation>
+		<annotation cp="🍏">Apel | Uebst | gréng</annotation>
+		<annotation cp="🍏" type="tts">gréngen Apel</annotation>
+		<annotation cp="🍐">Uebst</annotation>
+		<annotation cp="🍐" type="tts">Bir (Fruucht)</annotation>
+		<annotation cp="🍑">Uebst</annotation>
+		<annotation cp="🍑" type="tts">Piisch</annotation>
+		<annotation cp="🍒">Uebst | Kiischt</annotation>
+		<annotation cp="🍒" type="tts">Kiischten</annotation>
+		<annotation cp="🍓">Uebst | Bier</annotation>
+		<annotation cp="🍓" type="tts">Äerdbier</annotation>
+		<annotation cp="🥝">Iessen | Kiwi | Uebst</annotation>
+		<annotation cp="🥝" type="tts">Kiwi</annotation>
+		<annotation cp="🍅">Uebst | Geméis</annotation>
+		<annotation cp="🍅" type="tts">Tomat</annotation>
+		<annotation cp="🥥">Palm | Piña Colada</annotation>
+		<annotation cp="🥥" type="tts">Kokosnoss</annotation>
+		<annotation cp="🥑">Iessen | Fruucht | Avocado</annotation>
+		<annotation cp="🥑" type="tts">Avocado</annotation>
+		<annotation cp="🍆">Aubergine | Geméis</annotation>
+		<annotation cp="🍆" type="tts">Aubergine</annotation>
+		<annotation cp="🥔">Iessen | Gromper | Geméis</annotation>
+		<annotation cp="🥔" type="tts">Gromper</annotation>
+		<annotation cp="🥕">Geméis | Iessen | Wuerzel</annotation>
+		<annotation cp="🥕" type="tts">Wuerzel</annotation>
+		<annotation cp="🌽">Kolben | Labyrinth | Mais</annotation>
+		<annotation cp="🌽" type="tts">Mais</annotation>
+		<annotation cp="🌶">Peperoni | schaarf</annotation>
+		<annotation cp="🌶" type="tts">Peperoni</annotation>
+		<annotation cp="🥒">Kornischong | Iessen | Geméis</annotation>
+		<annotation cp="🥒" type="tts">Kornischong</annotation>
+		<annotation cp="🥦">wëlle Kabes</annotation>
+		<annotation cp="🥦" type="tts">Brokkoli</annotation>
+		<annotation cp="🍄">Pilz | Gëftpilz</annotation>
+		<annotation cp="🍄" type="tts">Champignon</annotation>
+		<annotation cp="🥜">Iessen | Kakuett | Geméis | Noss</annotation>
+		<annotation cp="🥜" type="tts">Kakuett</annotation>
+		<annotation cp="🌰">Planz</annotation>
+		<annotation cp="🌰" type="tts">Käscht</annotation>
+		<annotation cp="🍞">Brout</annotation>
+		<annotation cp="🍞" type="tts">Brout</annotation>
+		<annotation cp="🥐">Croissant | Iessen | Brout | franséisch</annotation>
+		<annotation cp="🥐" type="tts">Croissant</annotation>
+		<annotation cp="🥖">Iessen | Brout | Baguette | franséisch</annotation>
+		<annotation cp="🥖" type="tts">Baguette</annotation>
+		<annotation cp="🥨">gedréit</annotation>
+		<annotation cp="🥨" type="tts">Bretzel</annotation>
+		<annotation cp="🥞">Pancake | Iessen | Paangech | Crêpe</annotation>
+		<annotation cp="🥞" type="tts">Paangecher</annotation>
+		<annotation cp="🧀">Kéis</annotation>
+		<annotation cp="🧀" type="tts">Stéck Kéis</annotation>
+		<annotation cp="🍖">Schank | Fleesch</annotation>
+		<annotation cp="🍖" type="tts">Fleeschschank</annotation>
+		<annotation cp="🍗">Stämpel | Been | Schank | Poulet</annotation>
+		<annotation cp="🍗" type="tts">Pouletssträmpel</annotation>
+		<annotation cp="🥩">Schwéngskotlett | Hämmelskotlett | Kotlett | Bifdeck</annotation>
+		<annotation cp="🥩" type="tts">Stéck Fleesch</annotation>
+		<annotation cp="🥓">Iessen | Speck | Fleesch</annotation>
+		<annotation cp="🥓" type="tts">Speck</annotation>
+		<annotation cp="🍔">Burger</annotation>
+		<annotation cp="🍔" type="tts">Hamburger</annotation>
+		<annotation cp="🍟">Fritten</annotation>
+		<annotation cp="🍟" type="tts">Fritten</annotation>
+		<annotation cp="🍕">Kéis | Stéck</annotation>
+		<annotation cp="🍕" type="tts">Pizza</annotation>
+		<annotation cp="🌭">Hotdog | Wurscht | Frankfurter</annotation>
+		<annotation cp="🌭" type="tts">Hot Dog</annotation>
+		<annotation cp="🥪">Brout</annotation>
+		<annotation cp="🥪" type="tts">Sandwich</annotation>
+		<annotation cp="🌮">mexikanesch</annotation>
+		<annotation cp="🌮" type="tts">Taco</annotation>
+		<annotation cp="🌯">mexikanesch | Wrap</annotation>
+		<annotation cp="🌯" type="tts">Burrito</annotation>
+		<annotation cp="🥙">flaacht Brout | Gyros | gefëllt | Falafel | Iessen | Kebab</annotation>
+		<annotation cp="🥙" type="tts">Kebab</annotation>
+		<annotation cp="🥚">Iessen | Ee</annotation>
+		<annotation cp="🥚" type="tts">Ee</annotation>
+		<annotation cp="🍳">Ee | Pan | broden</annotation>
+		<annotation cp="🍳" type="tts">Pan mat Spigelee</annotation>
+		<annotation cp="🥘">Kasseroll | Paella | Iessen | Pan | flaach</annotation>
+		<annotation cp="🥘" type="tts">Kasseroll mat Iessen</annotation>
+		<annotation cp="🍲">Kasseroll | Eintopf</annotation>
+		<annotation cp="🍲" type="tts">Plat an enger Kasseroll</annotation>
+		<annotation cp="🥣">Frühstück | Kaffi | Müsli</annotation>
+		<annotation cp="🥣" type="tts">Boll mat Läffel</annotation>
+		<annotation cp="🥗">Iessen | Zalot | gréng</annotation>
+		<annotation cp="🥗" type="tts">gréng Zalot</annotation>
+		<annotation cp="🍿">Popcorn</annotation>
+		<annotation cp="🍿" type="tts">Popcorn</annotation>
+		<annotation cp="🥫">Béchs</annotation>
+		<annotation cp="🥫" type="tts">Iessen an der Béchs</annotation>
+		<annotation cp="🍱">Këscht | Box | Bento</annotation>
+		<annotation cp="🍱" type="tts">Bento-Box</annotation>
+		<annotation cp="🍘">Kichelchen | Räis</annotation>
+		<annotation cp="🍘" type="tts">Räiskichelcher</annotation>
+		<annotation cp="🍙">Ball | japanesch | Räis</annotation>
+		<annotation cp="🍙" type="tts">Räisball</annotation>
+		<annotation cp="🍚">gekacht | Räis</annotation>
+		<annotation cp="🍚" type="tts">gekachte Räis</annotation>
+		<annotation cp="🍛">Curry | Räis</annotation>
+		<annotation cp="🍛" type="tts">Curry mat Räis</annotation>
+		<annotation cp="🍜">dämpend | Ramen | Schossel | Nuddelen</annotation>
+		<annotation cp="🍜" type="tts">Schossel mat Nuddelen</annotation>
+		<annotation cp="🍝">Pasta</annotation>
+		<annotation cp="🍝" type="tts">Spagetti</annotation>
+		<annotation cp="🍠">Gromper | gebroden | séiss</annotation>
+		<annotation cp="🍠" type="tts">Séissgromper</annotation>
+		<annotation cp="🍢">Broschett | Mieresfriichten | Kebab</annotation>
+		<annotation cp="🍢" type="tts">Oden</annotation>
+		<annotation cp="🍣">Sushi</annotation>
+		<annotation cp="🍣" type="tts">Sushi</annotation>
+		<annotation cp="🍤">frittéiert | Crevette | Tempura | Scampi</annotation>
+		<annotation cp="🍤" type="tts">Scampi-Tempura</annotation>
+		<annotation cp="🍥">Kichelchen | Kuch | Fësch | gerullt</annotation>
+		<annotation cp="🍥" type="tts">gerullte Fëschkichelchen</annotation>
+		<annotation cp="🍡">Brochett | séiss | japanesch | Dessert</annotation>
+		<annotation cp="🍡" type="tts">Dango</annotation>
+		<annotation cp="🥟">Pierogi | Gyoza | Ravioli | Jiaozi | Empanada</annotation>
+		<annotation cp="🥟" type="tts">Ravioli</annotation>
+		<annotation cp="🥠">Prophezeiung</annotation>
+		<annotation cp="🥠" type="tts">Gléckskichelchen</annotation>
+		<annotation cp="🥡">Austerkëscht</annotation>
+		<annotation cp="🥡" type="tts">Takeout-Këscht</annotation>
+		<annotation cp="🦀">Stärzeechen | Kriibs</annotation>
+		<annotation cp="🦀" type="tts">Kriibs</annotation>
+		<annotation cp="🦐">Iessen | Crevette | Mieresfruucht | kleng</annotation>
+		<annotation cp="🦐" type="tts">Crevette</annotation>
+		<annotation cp="🦑">Calamar | Mollusk | Iessen</annotation>
+		<annotation cp="🦑" type="tts">Calamar</annotation>
+		<annotation cp="🍦">Crème | Softice | Dessert | séiss | Glace | Äis</annotation>
+		<annotation cp="🍦" type="tts">Softice</annotation>
+		<annotation cp="🍧">Waasser | séiss | Dessert | Glace</annotation>
+		<annotation cp="🍧" type="tts">Waasserglace</annotation>
+		<annotation cp="🍨">séiss | Äis | Dessert | Glace</annotation>
+		<annotation cp="🍨" type="tts">Glace</annotation>
+		<annotation cp="🍩">séiss | Donut | Dessert</annotation>
+		<annotation cp="🍩" type="tts">Donut</annotation>
+		<annotation cp="🍪">séiss | Dessert</annotation>
+		<annotation cp="🍪" type="tts">Kichelchen</annotation>
+		<annotation cp="🎂">Gebäck | Dessert | Kuch | séiss | Feier | Gebuertsdag</annotation>
+		<annotation cp="🎂" type="tts">Gebuertsdagskuch</annotation>
+		<annotation cp="🍰">Gebäck | Dessert | Kuch | séiss | Stéck</annotation>
+		<annotation cp="🍰" type="tts">Stéck Kuch</annotation>
+		<annotation cp="🥧">Fëllung | Gebäck</annotation>
+		<annotation cp="🥧" type="tts">Taart</annotation>
+		<annotation cp="🍫">séiss | Tablett | Schokela | Dessert</annotation>
+		<annotation cp="🍫" type="tts">Tablett Schockela</annotation>
+		<annotation cp="🍬">séiss | Dessert</annotation>
+		<annotation cp="🍬" type="tts">Kamell</annotation>
+		<annotation cp="🍭">Kamell | séiss | Dessert</annotation>
+		<annotation cp="🍭" type="tts">Lutsch</annotation>
+		<annotation cp="🍮">séiss | Pudding | Dessert</annotation>
+		<annotation cp="🍮" type="tts">Pudding</annotation>
+		<annotation cp="🍯">séiss | Hunnegglas | Hunneg | Glas</annotation>
+		<annotation cp="🍯" type="tts">Hunneg</annotation>
+		<annotation cp="🍼">drénken | Puppelchen | Fläsch | Mëllech</annotation>
+		<annotation cp="🍼" type="tts">Biberon</annotation>
+		<annotation cp="🥛">Gedrénks | Mëllech | Glas</annotation>
+		<annotation cp="🥛" type="tts">Glas Mëllech</annotation>
+		<annotation cp="☕">Kaffi | Téi | drénken | waarm | dämpend | Gedrénks</annotation>
+		<annotation cp="☕" type="tts">waarmt Gedrénks</annotation>
+		<annotation cp="🍵">Téi | drénken | Téitaass | Taass | Gedrénks</annotation>
+		<annotation cp="🍵" type="tts">Taass ouni Hänk</annotation>
+		<annotation cp="🍶">Fläsch | Bar | drénken | Taass | Gedrénks</annotation>
+		<annotation cp="🍶" type="tts">Sake</annotation>
+		<annotation cp="🍾">Fläsch | Stopp | Bar | drénken | knallend</annotation>
+		<annotation cp="🍾" type="tts">Fläsch mat knallendem Stopp</annotation>
+		<annotation cp="🍷">Wäin | Bar | Glas | drénken | Gedrénks</annotation>
+		<annotation cp="🍷" type="tts">Wäiglas</annotation>
+		<annotation cp="🍸">Cocktail | Gedrénks | Bar | Glas</annotation>
+		<annotation cp="🍸" type="tts">Cocktailglas</annotation>
+		<annotation cp="🍹">Gedrénks | Bar | exotesch</annotation>
+		<annotation cp="🍹" type="tts">exotescht Gedrénks</annotation>
+		<annotation cp="🍺">Klensch | Gedrénks | Bar | Béier</annotation>
+		<annotation cp="🍺" type="tts">Klensch</annotation>
+		<annotation cp="🍻">Bar | Béier | prosten | Klensch | Gedrénks</annotation>
+		<annotation cp="🍻" type="tts">prostend Béierklenschen</annotation>
+		<annotation cp="🥂">prosten | feieren | Gedrénks | Glas</annotation>
+		<annotation cp="🥂" type="tts">prostend Glieser</annotation>
+		<annotation cp="🥃">Shot | Whisky | Glas | Alkohol | Whiskyglas</annotation>
+		<annotation cp="🥃" type="tts">Whiskyglas</annotation>
+		<annotation cp="🥤">Softdrink | Jus</annotation>
+		<annotation cp="🥤" type="tts">Glas mat Stréihallem</annotation>
+		<annotation cp="🥢">Hashi</annotation>
+		<annotation cp="🥢" type="tts">asiatesch Béngelen</annotation>
+		<annotation cp="🍽">Teller | Messer | Forschett | kachend</annotation>
+		<annotation cp="🍽" type="tts">Forschett a Messer mat Teller</annotation>
+		<annotation cp="🍴">Messer | Forschett | kachend</annotation>
+		<annotation cp="🍴" type="tts">Forschett a Messer</annotation>
+		<annotation cp="🥄">Läffel | Geschir</annotation>
+		<annotation cp="🥄" type="tts">Läffel</annotation>
+		<annotation cp="🔪">Waff | kachen | Utensil | Messer | Kichen</annotation>
+		<annotation cp="🔪" type="tts">Kichemesser</annotation>
+		<annotation cp="🏺">Waff | Waassermann | kachend | Stärzeechen | Krou | Utensil | Gedrénks</annotation>
+		<annotation cp="🏺" type="tts">Amphore</annotation>
+		<annotation cp="🌍">Afrika | Welt | Globus | Europa | Äerd</annotation>
+		<annotation cp="🌍" type="tts">Globus (zentréiert op Europa an Afrika)</annotation>
+		<annotation cp="🌎">Südamerika | Welt | Globus | Nordamerika | Äerd</annotation>
+		<annotation cp="🌎" type="tts">Globus (zentréiert op Nord-/Südamerika)</annotation>
+		<annotation cp="🌏">Australien | Asien | Welt | Globus | Äerd</annotation>
+		<annotation cp="🌏" type="tts">Globus (zentréiert op Asien an Australien)</annotation>
+		<annotation cp="🌐">Globus | Meridian | Äerd | Welt</annotation>
+		<annotation cp="🌐" type="tts">Meridianglobus</annotation>
+		<annotation cp="🗺">Welt | Kaart</annotation>
+		<annotation cp="🗺" type="tts">Weltkaart</annotation>
+		<annotation cp="🗾">Japan | Kaart</annotation>
+		<annotation cp="🗾" type="tts">Kaart vu Japan</annotation>
+		<annotation cp="🏔">kal | Schnéi | Bierg</annotation>
+		<annotation cp="🏔" type="tts">mat Schnéi bedeckte Bierg</annotation>
+		<annotation cp="⛰">Bierg</annotation>
+		<annotation cp="⛰" type="tts">Bierg</annotation>
+		<annotation cp="🌋">Bierg | Eruptioun</annotation>
+		<annotation cp="🌋" type="tts">Vulkan</annotation>
+		<annotation cp="🗻">Fuji | Bierg</annotation>
+		<annotation cp="🗻" type="tts">Mount Fuji</annotation>
+		<annotation cp="🏕">Camping</annotation>
+		<annotation cp="🏕" type="tts">Camping</annotation>
+		<annotation cp="🏖">Prabbeli | Plage</annotation>
+		<annotation cp="🏖" type="tts">Plage mat Sonneprabbeli</annotation>
+		<annotation cp="🏜">Wüst</annotation>
+		<annotation cp="🏜" type="tts">Wüst</annotation>
+		<annotation cp="🏝">Wüst | Insel</annotation>
+		<annotation cp="🏝" type="tts">Wüsteninsel</annotation>
+		<annotation cp="🏞">Park</annotation>
+		<annotation cp="🏞" type="tts">Nationalpark</annotation>
+		<annotation cp="🏟">Stadion</annotation>
+		<annotation cp="🏟" type="tts">Stadion</annotation>
+		<annotation cp="🏛">klassesch</annotation>
+		<annotation cp="🏛" type="tts">klassescht Gebai</annotation>
+		<annotation cp="🏗">Aarbechten | Stroossebarrière</annotation>
+		<annotation cp="🏗" type="tts">Kran</annotation>
+		<annotation cp="🏘">Haiser</annotation>
+		<annotation cp="🏘" type="tts">Haiser</annotation>
+		<annotation cp="🏚">Haus | eidel</annotation>
+		<annotation cp="🏚" type="tts">eidelt Haus</annotation>
+		<annotation cp="🏠">Haus | Doheem</annotation>
+		<annotation cp="🏠" type="tts">Haus</annotation>
+		<annotation cp="🏡">Haus | Gaart | Doheem</annotation>
+		<annotation cp="🏡" type="tts">Haus mat Gaart</annotation>
+		<annotation cp="🏢">Gebai</annotation>
+		<annotation cp="🏢" type="tts">Bürosgebai</annotation>
+		<annotation cp="🏣">Post | japanesch</annotation>
+		<annotation cp="🏣" type="tts">japanesche Postbüro</annotation>
+		<annotation cp="🏤">Post | europäesch</annotation>
+		<annotation cp="🏤" type="tts">Postbüro</annotation>
+		<annotation cp="🏥">Dokter | Medezin</annotation>
+		<annotation cp="🏥" type="tts">Spidol</annotation>
+		<annotation cp="🏦">Gebai</annotation>
+		<annotation cp="🏦" type="tts">Bank</annotation>
+		<annotation cp="🏨">Gebai</annotation>
+		<annotation cp="🏨" type="tts">Hotel</annotation>
+		<annotation cp="🏩">Léift | Hotel</annotation>
+		<annotation cp="🏩" type="tts">Love Hotel</annotation>
+		<annotation cp="🏪">Supermarché | Geschäft</annotation>
+		<annotation cp="🏪" type="tts">Supermarché</annotation>
+		<annotation cp="🏫">Gebai</annotation>
+		<annotation cp="🏫" type="tts">Schoul</annotation>
+		<annotation cp="🏬">Geschäft | Akafszenter</annotation>
+		<annotation cp="🏬" type="tts">Akafszenter</annotation>
+		<annotation cp="🏭">Gebai</annotation>
+		<annotation cp="🏭" type="tts">Fabrik</annotation>
+		<annotation cp="🏯">japanesch | Schlass</annotation>
+		<annotation cp="🏯" type="tts">japanescht Schlass</annotation>
+		<annotation cp="🏰">europäesch</annotation>
+		<annotation cp="🏰" type="tts">Schlass</annotation>
+		<annotation cp="💒">Kapell | Romanz</annotation>
+		<annotation cp="💒" type="tts">Hochzäit</annotation>
+		<annotation cp="🗼">Tuerm | Tower | Tokyo</annotation>
+		<annotation cp="🗼" type="tts">Tokyo Tower</annotation>
+		<annotation cp="🗽">Statu | Fräiheet</annotation>
+		<annotation cp="🗽" type="tts">Fräiheetsstatu</annotation>
+		<annotation cp="⛪">Relioun | Kräiz | chrëschtlech</annotation>
+		<annotation cp="⛪" type="tts">Kierch</annotation>
+		<annotation cp="🕌">Moslem | Relioun | Islam</annotation>
+		<annotation cp="🕌" type="tts">Moschee</annotation>
+		<annotation cp="🕍">jiddesch | Judd | Relioun | Tempel</annotation>
+		<annotation cp="🕍" type="tts">Synagog</annotation>
+		<annotation cp="⛩">Shinto | Schräin | Relioun</annotation>
+		<annotation cp="⛩" type="tts">Shinto-Schräin</annotation>
+		<annotation cp="🕋">Moslem | Relioun | Islam</annotation>
+		<annotation cp="🕋" type="tts">Kaaba</annotation>
+		<annotation cp="⛲">Sprangbuer</annotation>
+		<annotation cp="⛲" type="tts">Sprangbuer</annotation>
+		<annotation cp="⛺">Camping</annotation>
+		<annotation cp="⛺" type="tts">Zelt</annotation>
+		<annotation cp="🌁">Niwwel</annotation>
+		<annotation cp="🌁" type="tts">niwweleg</annotation>
+		<annotation cp="🌃">Nuecht | Stär | Himmel</annotation>
+		<annotation cp="🌃" type="tts">Stärenhimmel</annotation>
+		<annotation cp="🏙">Stad</annotation>
+		<annotation cp="🏙" type="tts">Stadlandschaft</annotation>
+		<annotation cp="🌄">Sonnenopgang | Moien | Sonn | Bierg</annotation>
+		<annotation cp="🌄" type="tts">Sonnenopgang an de Bierger</annotation>
+		<annotation cp="🌅">Moien | Sonn</annotation>
+		<annotation cp="🌅" type="tts">Sonnenopgang</annotation>
+		<annotation cp="🌆">Dämmerung | Landschaft | Sonn | Owend | Stad | Sonnenënnergang</annotation>
+		<annotation cp="🌆" type="tts">Stad an der Dämmerung</annotation>
+		<annotation cp="🌇">Dämmerung | Sonn</annotation>
+		<annotation cp="🌇" type="tts">Sonnenënnergang</annotation>
+		<annotation cp="🌉">Nuecht | nuets | Bréck</annotation>
+		<annotation cp="🌉" type="tts">Bréck nuets</annotation>
+		<annotation cp="♨">dämpend | Quellen | waarm</annotation>
+		<annotation cp="♨" type="tts">waarm Quellen</annotation>
+		<annotation cp="🎠">Karussell | Päerdchen</annotation>
+		<annotation cp="🎠" type="tts">Karussellpäerdchen</annotation>
+		<annotation cp="🎡">Fouer | Rad | Fräizäitpark</annotation>
+		<annotation cp="🎡" type="tts">Riserad</annotation>
+		<annotation cp="🎢">Achterbahn | Fräizäitpark</annotation>
+		<annotation cp="🎢" type="tts">Achterbahn</annotation>
+		<annotation cp="💈">Coupe | Sail | Coiffer</annotation>
+		<annotation cp="💈" type="tts">Coifferssail</annotation>
+		<annotation cp="🎪">Zirkus | Zelt</annotation>
+		<annotation cp="🎪" type="tts">Zirkuszelt</annotation>
+		<annotation cp="🚂">Eisebunn | Motor | Zuch | Damp</annotation>
+		<annotation cp="🚂" type="tts">Lokomotiv</annotation>
+		<annotation cp="🚃">Zuch | Trolleybus | Waggon | elektresch | Eisebunn | Tram</annotation>
+		<annotation cp="🚃" type="tts">Zuchwaggon</annotation>
+		<annotation cp="🚄">Eisebunn | Vitess | Shinkansen | Zuch</annotation>
+		<annotation cp="🚄" type="tts">Schnellzuch</annotation>
+		<annotation cp="🚅">Shinkansen | Zuch | Fliger | Vitess | Eisebunn</annotation>
+		<annotation cp="🚅" type="tts">Schnellzuch mat Fligernues</annotation>
+		<annotation cp="🚆">Eisebunn</annotation>
+		<annotation cp="🚆" type="tts">Zuch</annotation>
+		<annotation cp="🚇">U-Bahn</annotation>
+		<annotation cp="🚇" type="tts">Metro</annotation>
+		<annotation cp="🚈">Eisebunn</annotation>
+		<annotation cp="🚈" type="tts">Stadbunn</annotation>
+		<annotation cp="🚉">Eisebunn | Zuch</annotation>
+		<annotation cp="🚉" type="tts">Haltestell</annotation>
+		<annotation cp="🚊">Trolleybus</annotation>
+		<annotation cp="🚊" type="tts">Tram</annotation>
+		<annotation cp="🚝">Gefier</annotation>
+		<annotation cp="🚝" type="tts">Monorail</annotation>
+		<annotation cp="🚞">Eisebunn | Bierg | Waggon</annotation>
+		<annotation cp="🚞" type="tts">Biergzuch</annotation>
+		<annotation cp="🚋">Tram | Trolleybus | Waggon</annotation>
+		<annotation cp="🚋" type="tts">Tramwaggon</annotation>
+		<annotation cp="🚌">Gefier</annotation>
+		<annotation cp="🚌" type="tts">Bus</annotation>
+		<annotation cp="🚍">entgéintkommend | Bus</annotation>
+		<annotation cp="🚍" type="tts">entgéintkommende Bus</annotation>
+		<annotation cp="🚎">Tram | Bus | Trolley</annotation>
+		<annotation cp="🚎" type="tts">Trolleybus</annotation>
+		<annotation cp="🚐">Bus</annotation>
+		<annotation cp="🚐" type="tts">Minibus</annotation>
+		<annotation cp="🚑">Gefier</annotation>
+		<annotation cp="🚑" type="tts">Ambulanz</annotation>
+		<annotation cp="🚒">Feier | Motor | Camion</annotation>
+		<annotation cp="🚒" type="tts">Pompjeeswon</annotation>
+		<annotation cp="🚓">Auto | Police | Patrull</annotation>
+		<annotation cp="🚓" type="tts">Policeauto</annotation>
+		<annotation cp="🚔">Auto | entgéintkommend | Police</annotation>
+		<annotation cp="🚔" type="tts">entgéintkommende Policeauto</annotation>
+		<annotation cp="🚕">Gefier</annotation>
+		<annotation cp="🚕" type="tts">Taxi</annotation>
+		<annotation cp="🚖">Taxi | entgéintkommend</annotation>
+		<annotation cp="🚖" type="tts">entgéintkommenden Taxi</annotation>
+		<annotation cp="🚗">Automobil</annotation>
+		<annotation cp="🚗" type="tts">Auto</annotation>
+		<annotation cp="🚘">Automobil | Auto | entgéintkommend</annotation>
+		<annotation cp="🚘" type="tts">entgéintkommenden Auto</annotation>
+		<annotation cp="🚙">Fräizäit | Sportswon</annotation>
+		<annotation cp="🚙" type="tts">SUV</annotation>
+		<annotation cp="🚚">Won | Liwwerung</annotation>
+		<annotation cp="🚚" type="tts">Liwwerwon</annotation>
+		<annotation cp="🚛">Schlepper | Semi | Camion</annotation>
+		<annotation cp="🚛" type="tts">Sattelschlepper</annotation>
+		<annotation cp="🚜">Gefier</annotation>
+		<annotation cp="🚜" type="tts">Trakter</annotation>
+		<annotation cp="🏎">Auto | Course</annotation>
+		<annotation cp="🏎" type="tts">Courseauto</annotation>
+		<annotation cp="🏍">Course</annotation>
+		<annotation cp="🏍" type="tts">Motorrad</annotation>
+		<annotation cp="🛵">Motor | Scooter</annotation>
+		<annotation cp="🛵" type="tts">Scooter</annotation>
+		<annotation cp="🚲">Vëlo</annotation>
+		<annotation cp="🚲" type="tts">Vëlo</annotation>
+		<annotation cp="🛴">Trottinette | stoussen</annotation>
+		<annotation cp="🛴" type="tts">Trottinette</annotation>
+		<annotation cp="🚏">Arrêt | Bus | Bushaltestell</annotation>
+		<annotation cp="🚏" type="tts">Bushaltestell</annotation>
+		<annotation cp="🛣">Strooss | Autobunn</annotation>
+		<annotation cp="🛣" type="tts">Schnellstrooss</annotation>
+		<annotation cp="🛤">Eisebunn | Zuch</annotation>
+		<annotation cp="🛤" type="tts">Schinnen</annotation>
+		<annotation cp="🛢">Faass | Ueleg</annotation>
+		<annotation cp="🛢" type="tts">Uelegfaass</annotation>
+		<annotation cp="⛽">Pompel | Tankstell | Statioun | Bensin</annotation>
+		<annotation cp="⛽" type="tts">Tankstell</annotation>
+		<annotation cp="🚨">Signal | Luucht | dréiend | Auto | Police</annotation>
+		<annotation cp="🚨" type="tts">Gyrophar</annotation>
+		<annotation cp="🚥">Luucht | Zeechen | Verkéier</annotation>
+		<annotation cp="🚥" type="tts">horizontal rout Luucht</annotation>
+		<annotation cp="🚦">Luucht | Zeechen | Verkéier</annotation>
+		<annotation cp="🚦" type="tts">vertikal rout Luucht</annotation>
+		<annotation cp="🛑">Schëld | Stopp | aachteckeg</annotation>
+		<annotation cp="🛑" type="tts">Stoppschëld</annotation>
+		<annotation cp="🚧">Barrière</annotation>
+		<annotation cp="🚧" type="tts">Stroossebarrière</annotation>
+		<annotation cp="⚓">Schëff | Handwierksgeschir</annotation>
+		<annotation cp="⚓" type="tts">Anker</annotation>
+		<annotation cp="⛵">Mier | Resort | Boot | Yacht</annotation>
+		<annotation cp="⛵" type="tts">Segelboot</annotation>
+		<annotation cp="🛶">Kanu | Boot</annotation>
+		<annotation cp="🛶" type="tts">Kanu</annotation>
+		<annotation cp="🚤">Boot</annotation>
+		<annotation cp="🚤" type="tts">Schnellboot</annotation>
+		<annotation cp="🛳">Passagéier | Schëff</annotation>
+		<annotation cp="🛳" type="tts">Passagéierschëff</annotation>
+		<annotation cp="⛴">Passagéier | Boot</annotation>
+		<annotation cp="⛴" type="tts">Fähr</annotation>
+		<annotation cp="🛥">Motorboot | Boot</annotation>
+		<annotation cp="🛥" type="tts">Motorboot</annotation>
+		<annotation cp="🚢">Passagéier | Boot</annotation>
+		<annotation cp="🚢" type="tts">Schëff</annotation>
+		<annotation cp="✈">Fliger</annotation>
+		<annotation cp="✈" type="tts">Fliger</annotation>
+		<annotation cp="🛩">Fliger</annotation>
+		<annotation cp="🛩" type="tts">klenge Fliger</annotation>
+		<annotation cp="🛫">Fliger | Depart | Departen | Check-In</annotation>
+		<annotation cp="🛫" type="tts">Fligersdepart</annotation>
+		<annotation cp="🛬">Fliger | ukommend | Arrivéeeën | landend</annotation>
+		<annotation cp="🛬" type="tts">Fligersarrivée</annotation>
+		<annotation cp="💺">Sëtzplaz</annotation>
+		<annotation cp="💺" type="tts">Sëtz</annotation>
+		<annotation cp="🚁">Gefier</annotation>
+		<annotation cp="🚁" type="tts">Helikopter</annotation>
+		<annotation cp="🚟">Bunn | schwiewen</annotation>
+		<annotation cp="🚟" type="tts">Schwiefbunn</annotation>
+		<annotation cp="🚠">Kabel | Gondel | Seelbunn | Bierg</annotation>
+		<annotation cp="🚠" type="tts">Biergseelbunn</annotation>
+		<annotation cp="🚡">Gondel | Tram | Loft | Kabel | Seel | Waggon | Bunn</annotation>
+		<annotation cp="🚡" type="tts">Loftseelbunn</annotation>
+		<annotation cp="🛰">Weltall</annotation>
+		<annotation cp="🛰" type="tts">Satellit</annotation>
+		<annotation cp="🚀">Weltall</annotation>
+		<annotation cp="🚀" type="tts">Rakéit</annotation>
+		<annotation cp="🛸">UFO</annotation>
+		<annotation cp="🛸" type="tts">UFO</annotation>
+		<annotation cp="🛎">Hotelpage | Hotel | Schell</annotation>
+		<annotation cp="🛎" type="tts">Hotelpageschell</annotation>
+		<annotation cp="⌛">Zäit | Sand | Auer</annotation>
+		<annotation cp="⌛" type="tts">Sandauer</annotation>
+		<annotation cp="⏳">Zäit | Sand | Auer | Sandauer</annotation>
+		<annotation cp="⏳" type="tts">Sandauer mat lafendem Sand</annotation>
+		<annotation cp="⌚">Auer</annotation>
+		<annotation cp="⌚" type="tts">Auer</annotation>
+		<annotation cp="⏰">Wecker | Auer</annotation>
+		<annotation cp="⏰" type="tts">Wecker</annotation>
+		<annotation cp="⏱">Auer</annotation>
+		<annotation cp="⏱" type="tts">Stoppauer</annotation>
+		<annotation cp="⏲">Auer | Timer</annotation>
+		<annotation cp="⏲" type="tts">Timer</annotation>
+		<annotation cp="🕰">Auer</annotation>
+		<annotation cp="🕰" type="tts">Kamäinauer</annotation>
+		<annotation cp="🕛">12:00 | 00 | zwielef | 12 | Auerzäit | Auer</annotation>
+		<annotation cp="🕛" type="tts">zwielef Auer</annotation>
+		<annotation cp="🕧">12:30 | 30 | zwielef | 12 | hallwer | eng | Auer | drësseg</annotation>
+		<annotation cp="🕧" type="tts">hallwer eng</annotation>
+		<annotation cp="🕐">00 | 1 | 1:00 | Auerzäit | Auer | eng</annotation>
+		<annotation cp="🕐" type="tts">eng Auer</annotation>
+		<annotation cp="🕜">30 | 1 | eng | hallwer | zwou | 1:30 | Auer | drësseg</annotation>
+		<annotation cp="🕜" type="tts">hallwer zwou</annotation>
+		<annotation cp="🕑">2:00 | 2 | 00 | zwou | Auerzäit | Auer</annotation>
+		<annotation cp="🕑" type="tts">zwou Auer</annotation>
+		<annotation cp="🕝">dräi | 2 | 30 | zwou | hallwer | Auer | 2:30 | drësseg</annotation>
+		<annotation cp="🕝" type="tts">hallwer dräi</annotation>
+		<annotation cp="🕒">dräi | 3 | 00 | 3:00 | Auerzäit | Auer</annotation>
+		<annotation cp="🕒" type="tts">dräi Auer</annotation>
+		<annotation cp="🕞">3:30 | dräi | 3 | 30 | hallwer | véier | drësseg | Auer</annotation>
+		<annotation cp="🕞" type="tts">hallwer véier</annotation>
+		<annotation cp="🕓">4 | 4:00 | 00 | véier | Auerzäit | Auer</annotation>
+		<annotation cp="🕓" type="tts">véier Auer</annotation>
+		<annotation cp="🕟">4 | 4:30 | 30 | hallwer | véier | Auer | drësseg | fënnef</annotation>
+		<annotation cp="🕟" type="tts">hallwer fënnef</annotation>
+		<annotation cp="🕔">5 | 00 | 5:00 | Auerzäit | Auer | fënnef</annotation>
+		<annotation cp="🕔" type="tts">fënnef Auer</annotation>
+		<annotation cp="🕠">5 | 5:30 | 30 | hallwer | sechs | Auer | drësseg | fënnef</annotation>
+		<annotation cp="🕠" type="tts">hallwer sechs</annotation>
+		<annotation cp="🕕">6 | 00 | sechs | Auerzäit | 6:00 | Auer</annotation>
+		<annotation cp="🕕" type="tts">sechs Auer</annotation>
+		<annotation cp="🕡">6:30 | 6 | 30 | siwen | hallwer | sechs | drësseg | Auer</annotation>
+		<annotation cp="🕡" type="tts">hallwer siwen</annotation>
+		<annotation cp="🕖">7:00 | 7 | 00 | siwen | Auerzäit | Auer</annotation>
+		<annotation cp="🕖" type="tts">siwen Auer</annotation>
+		<annotation cp="🕢">7 | 7:30 | 30 | siwen | hallwer | aacht | Auer | drësseg</annotation>
+		<annotation cp="🕢" type="tts">hallwer aacht</annotation>
+		<annotation cp="🕗">8:00 | 00 | aacht | Auerzäit | Auer | 8</annotation>
+		<annotation cp="🕗" type="tts">aacht Auer</annotation>
+		<annotation cp="🕣">8:30 | 30 | aacht | hallwer | néng | Auer | 8 | drësseg</annotation>
+		<annotation cp="🕣" type="tts">hallwer néng</annotation>
+		<annotation cp="🕘">9 | 00 | 9:00 | Auerzäit | Auer | néng</annotation>
+		<annotation cp="🕘" type="tts">néng Auer</annotation>
+		<annotation cp="🕤">9 | 30 | zéng | hallwer | 9:30 | néng | Auer | drësseg</annotation>
+		<annotation cp="🕤" type="tts">hallwer zéng</annotation>
+		<annotation cp="🕙">10:00 | 10 | 00 | zéng | Auerzäit | Auer</annotation>
+		<annotation cp="🕙" type="tts">zéng Auer</annotation>
+		<annotation cp="🕥">eelef | 10:30 | 10 | 30 | zéng | hallwer | Auer | drësseg</annotation>
+		<annotation cp="🕥" type="tts">hallwer eelef</annotation>
+		<annotation cp="🕚">11:00 | eelef | 00 | 11 | Auerzäit | Auer</annotation>
+		<annotation cp="🕚" type="tts">eelef Auer</annotation>
+		<annotation cp="🕦">eelef | 30 | zwielef | 11:30 | 11 | hallwer | Auer | drësseg</annotation>
+		<annotation cp="🕦" type="tts">hallwer zwielef</annotation>
+		<annotation cp="🌑">Mound | däischter</annotation>
+		<annotation cp="🌑" type="tts">Neimound</annotation>
+		<annotation cp="🌒">Mound | Séchelmound | éischte Véierel</annotation>
+		<annotation cp="🌒" type="tts">Séchelmound am éischte Véierel</annotation>
+		<annotation cp="🌓">Hallef | Mound | Véierel</annotation>
+		<annotation cp="🌓" type="tts">zouhuelenden Hallefmound</annotation>
+		<annotation cp="🌔">Mound | Séchelmound | zweete Véierel</annotation>
+		<annotation cp="🌔" type="tts">Séchelmound am zweete Véierel</annotation>
+		<annotation cp="🌕">Mound | voll</annotation>
+		<annotation cp="🌕" type="tts">Vollmound</annotation>
+		<annotation cp="🌖">Mound | Séchelmound | drëtte Véierel</annotation>
+		<annotation cp="🌖" type="tts">Séchelmound am drëtte Véierel</annotation>
+		<annotation cp="🌗">Hallef | Mound | Véierel</annotation>
+		<annotation cp="🌗" type="tts">ofhuelenden Hallefmound</annotation>
+		<annotation cp="🌘">Mound | Séchelmound | leschte Véierel</annotation>
+		<annotation cp="🌘" type="tts">Séchelmound am leschte Véierel</annotation>
+		<annotation cp="🌙">Mound | Séchel | Moundséchel</annotation>
+		<annotation cp="🌙" type="tts">Moundséchel</annotation>
+		<annotation cp="🌚">Mound | Gesiicht</annotation>
+		<annotation cp="🌚" type="tts">Neimoundgesiicht</annotation>
+		<annotation cp="🌛">Hallef | Mound | Gesiicht | Véierel</annotation>
+		<annotation cp="🌛" type="tts">zouhuelenden Hallefmoundgesiicht</annotation>
+		<annotation cp="🌜">Hallef | Mound | Gesiicht | Véierel</annotation>
+		<annotation cp="🌜" type="tts">ofhuelenden Hallefmoundgesiicht</annotation>
+		<annotation cp="🌡">Wieder</annotation>
+		<annotation cp="🌡" type="tts">Thermometer</annotation>
+		<annotation cp="☀">hell | Stralen | sonneg</annotation>
+		<annotation cp="☀" type="tts">Sonn</annotation>
+		<annotation cp="🌝">Mound | Gesiicht | voll | hell</annotation>
+		<annotation cp="🌝" type="tts">Vollmoundgesiicht</annotation>
+		<annotation cp="🌞">Gesiicht | hell | Sonn</annotation>
+		<annotation cp="🌞" type="tts">Sonnegesiicht</annotation>
+		<annotation cp="⭐">Stär</annotation>
+		<annotation cp="⭐" type="tts">mëttelgrousse wäisse Stär</annotation>
+		<annotation cp="🌟">glënnerend | liichtend | blénkeg | Stär | blénken</annotation>
+		<annotation cp="🌟" type="tts">liichtende Stär</annotation>
+		<annotation cp="🌠">Stär | Stäreschnäiz | falend</annotation>
+		<annotation cp="🌠" type="tts">Stäreschnäiz</annotation>
+		<annotation cp="🌌">Weltall</annotation>
+		<annotation cp="🌌" type="tts">Mëllechstrooss</annotation>
+		<annotation cp="☁">Wieder</annotation>
+		<annotation cp="☁" type="tts">Wollek</annotation>
+		<annotation cp="⛅">Wollek | Sonn</annotation>
+		<annotation cp="⛅" type="tts">Sonn hannert Wolleken</annotation>
+		<annotation cp="⛈">Donnerwieder | Wollek | Reen</annotation>
+		<annotation cp="⛈" type="tts">Wollek mat Blëtz a Reen</annotation>
+		<annotation cp="🌤">Wollek | Sonn</annotation>
+		<annotation cp="🌤" type="tts">Sonn hannert kleng Wolleken</annotation>
+		<annotation cp="🌥">Wollek | Sonn</annotation>
+		<annotation cp="🌥" type="tts">Sonn hannert grouss Wolleken</annotation>
+		<annotation cp="🌦">Wollek | Reen | Sonn</annotation>
+		<annotation cp="🌦" type="tts">Sonn hannert Reewollek</annotation>
+		<annotation cp="🌧">Wollek | Reen</annotation>
+		<annotation cp="🌧" type="tts">Wollek mat Reen</annotation>
+		<annotation cp="🌨">kal | Schnéi | Wollek</annotation>
+		<annotation cp="🌨" type="tts">Wollek mat Schnéi</annotation>
+		<annotation cp="🌩">Blëtz | Wollek</annotation>
+		<annotation cp="🌩" type="tts">Wollek mat Blëtz</annotation>
+		<annotation cp="🌪">Wollek | Wirbelwand</annotation>
+		<annotation cp="🌪" type="tts">Tornado</annotation>
+		<annotation cp="🌫">Wollek</annotation>
+		<annotation cp="🌫" type="tts">Niwwel</annotation>
+		<annotation cp="🌬">Gesiicht | Wollek | blosen | Wand</annotation>
+		<annotation cp="🌬" type="tts">Wandgesiicht</annotation>
+		<annotation cp="🌀">Schwindel | Twister | Taifun</annotation>
+		<annotation cp="🌀" type="tts">Zyklon</annotation>
+		<annotation cp="🌈">Reen</annotation>
+		<annotation cp="🌈" type="tts">Reebou</annotation>
+		<annotation cp="🌂">Prabbeli | Reen | Kleedung</annotation>
+		<annotation cp="🌂" type="tts">zoue Prabbeli</annotation>
+		<annotation cp="☂">Reen | Kleedung</annotation>
+		<annotation cp="☂" type="tts">Prabbeli</annotation>
+		<annotation cp="☔">Prabbeli | Drëps | Reen | Kleedung</annotation>
+		<annotation cp="☔" type="tts">Prabbeli mat Reendrëpsen</annotation>
+		<annotation cp="⛱">Prabbeli | Sonn | Reen</annotation>
+		<annotation cp="⛱" type="tts">Prabbeli um Buedem</annotation>
+		<annotation cp="⚡">Spannung | Blëtz | elektresch | Gefor | Stroum</annotation>
+		<annotation cp="⚡" type="tts">Héichspannung</annotation>
+		<annotation cp="❄">kal | Schnéi</annotation>
+		<annotation cp="❄" type="tts">Schnéiflack</annotation>
+		<annotation cp="☃">kal | Schnéi</annotation>
+		<annotation cp="☃" type="tts">Schnéimännchen</annotation>
+		<annotation cp="⛄">kal | Schnéi | Schnéimännchen</annotation>
+		<annotation cp="⛄" type="tts">Schnéimännchen ouni Schnéi</annotation>
+		<annotation cp="☄">Weltall</annotation>
+		<annotation cp="☄" type="tts">Komet</annotation>
+		<annotation cp="🔥">Flam | Handwierksgeschir</annotation>
+		<annotation cp="🔥" type="tts">Feier</annotation>
+		<annotation cp="💧">kal | Comic | Drëps | Schweess</annotation>
+		<annotation cp="💧" type="tts">Drëpschen</annotation>
+		<annotation cp="🌊">Waasser | Ozean | Well</annotation>
+		<annotation cp="🌊" type="tts">Waasserwell</annotation>
+		<annotation cp="🎃">Feier | Lampion | Halloween | Kürbis</annotation>
+		<annotation cp="🎃" type="tts">Halloweenkürbis</annotation>
+		<annotation cp="🎄">Feier | Chrëschtdag | Bam</annotation>
+		<annotation cp="🎄" type="tts">Chrëschtbeemchen</annotation>
+		<annotation cp="🎆">Feier</annotation>
+		<annotation cp="🎆" type="tts">Freedefeier</annotation>
+		<annotation cp="🎇">Feier | Fonken | Freedefeier</annotation>
+		<annotation cp="🎇" type="tts">Späizmännchen</annotation>
+		<annotation cp="✨">Stär | Fonken</annotation>
+		<annotation cp="✨" type="tts">fonkelend Stären</annotation>
+		<annotation cp="🎈">Feier</annotation>
+		<annotation cp="🎈" type="tts">Ballon</annotation>
+		<annotation cp="🎉">Surprise | Iwwerraschung | Pochette | Feier | Party</annotation>
+		<annotation cp="🎉" type="tts">Pochette-surprise</annotation>
+		<annotation cp="🎊">Ball | Feier | Konfetti</annotation>
+		<annotation cp="🎊" type="tts">Konfettiball</annotation>
+		<annotation cp="🎋">Feier | Banner | japanesch | Bam</annotation>
+		<annotation cp="🎋" type="tts">Tanabata-Bam</annotation>
+		<annotation cp="🎍">Feier | japanesch | Dänn | Bambus</annotation>
+		<annotation cp="🎍" type="tts">Dännendekoratioun</annotation>
+		<annotation cp="🎎">Feier | Popp | japanesch | Festival</annotation>
+		<annotation cp="🎎" type="tts">Japanesch Poppen</annotation>
+		<annotation cp="🎏">Feier | Fändel | Kaarp</annotation>
+		<annotation cp="🎏" type="tts">Koi-Kaarpe-Fändelen</annotation>
+		<annotation cp="🎐">Feier | Klackespill | Wand | Klack</annotation>
+		<annotation cp="🎐" type="tts">Wandspill</annotation>
+		<annotation cp="🎑">Feier | Mound | Zeremonie</annotation>
+		<annotation cp="🎑" type="tts">Moundbetruechtungszeremonie</annotation>
+		<annotation cp="🎀">Feier</annotation>
+		<annotation cp="🎀" type="tts">Band</annotation>
+		<annotation cp="🎁">Këscht | Feier | Kaddo | agepak | Geschenk</annotation>
+		<annotation cp="🎁" type="tts">Kaddo</annotation>
+		<annotation cp="🎗">Feier | Erënnerung | Band | Commemoratioun</annotation>
+		<annotation cp="🎗" type="tts">Commemoratiounsband</annotation>
+		<annotation cp="🎟">Billjee | Ticket | Entrée</annotation>
+		<annotation cp="🎟" type="tts">Entréesticket</annotation>
+		<annotation cp="🎫">Entrée</annotation>
+		<annotation cp="🎫" type="tts">Billjee</annotation>
+		<annotation cp="🎖">Feier | Militär | Medail</annotation>
+		<annotation cp="🎖" type="tts">Militärmedail</annotation>
+		<annotation cp="🏆">Präis</annotation>
+		<annotation cp="🏆" type="tts">Coupe</annotation>
+		<annotation cp="🏅">Medail</annotation>
+		<annotation cp="🏅" type="tts">Sportsmedail</annotation>
+		<annotation cp="🥇">Gold | éischt Plaz | Medail</annotation>
+		<annotation cp="🥇" type="tts">Goldmedail</annotation>
+		<annotation cp="🥈">zweet Plaz | Medail | Sëlwer</annotation>
+		<annotation cp="🥈" type="tts">Sëlwermedail</annotation>
+		<annotation cp="🥉">Medail | Bronze | drëtt Plaz</annotation>
+		<annotation cp="🥉" type="tts">Bronzemedail</annotation>
+		<annotation cp="⚽">Ball | Fussball</annotation>
+		<annotation cp="⚽" type="tts">Fussball</annotation>
+		<annotation cp="⚾">Ball</annotation>
+		<annotation cp="⚾" type="tts">Baseball</annotation>
+		<annotation cp="🏀">Ball | Reef | Kuerf</annotation>
+		<annotation cp="🏀" type="tts">Basketball</annotation>
+		<annotation cp="🏐">Kugel | Spill</annotation>
+		<annotation cp="🏐" type="tts">Volleyball</annotation>
+		<annotation cp="🏈">Ball | Fussball | amerikanesch | American Football</annotation>
+		<annotation cp="🏈" type="tts">American Football</annotation>
+		<annotation cp="🏉">Ball | Fussball | Rugby</annotation>
+		<annotation cp="🏉" type="tts">Rugby</annotation>
+		<annotation cp="🎾">Ball | Rackett</annotation>
+		<annotation cp="🎾" type="tts">Tennis</annotation>
+		<annotation cp="🎳">Kugel | Spill</annotation>
+		<annotation cp="🎳" type="tts">Bowling</annotation>
+		<annotation cp="🏏">Ball | Match | Spill | Schléier</annotation>
+		<annotation cp="🏏" type="tts">Cricketmatch</annotation>
+		<annotation cp="🏑">Ball | Feld | Spill | Schléier | Hockey | Match</annotation>
+		<annotation cp="🏑" type="tts">Feldhockey</annotation>
+		<annotation cp="🏒">Spill | Puck | Schléier | Hockey | Match | Äis</annotation>
+		<annotation cp="🏒" type="tts">Äishockey</annotation>
+		<annotation cp="🏓">Ball | Pingpong | Spill | Rackett | Dëschtennis | Schléier | Match</annotation>
+		<annotation cp="🏓" type="tts">Pingpong</annotation>
+		<annotation cp="🏸">Spill | Rackett | Volant | Match | Fiederball</annotation>
+		<annotation cp="🏸" type="tts">Badminton</annotation>
+		<annotation cp="🥊">Händchen | Boxen</annotation>
+		<annotation cp="🥊" type="tts">Boxhändchen</annotation>
+		<annotation cp="🥋">Judo | Tenue | Taekwondo | Karate | Kampfsport</annotation>
+		<annotation cp="🥋" type="tts">Kampfsportstenue</annotation>
+		<annotation cp="🥅">Netz | Goal</annotation>
+		<annotation cp="🥅" type="tts">Goalnetz</annotation>
+		<annotation cp="⛳">Lach | Golf</annotation>
+		<annotation cp="⛳" type="tts">Golflach mat Fändel</annotation>
+		<annotation cp="⛸">Äis | Schlittschong</annotation>
+		<annotation cp="⛸" type="tts">Schlittschong</annotation>
+		<annotation cp="🎣">Fësch | Aangel</annotation>
+		<annotation cp="🎣" type="tts">Fëscheraangel</annotation>
+		<annotation cp="🎽">Sport | Schärp | Tricot | lafen</annotation>
+		<annotation cp="🎽" type="tts">Laftricot</annotation>
+		<annotation cp="🎿">Schnéi | Ski</annotation>
+		<annotation cp="🎿" type="tts">Skier</annotation>
+		<annotation cp="🛷">Schlitt</annotation>
+		<annotation cp="🛷" type="tts">Schlitt</annotation>
+		<annotation cp="🥌">Steen | Spill</annotation>
+		<annotation cp="🥌" type="tts">Curling-Steen</annotation>
+		<annotation cp="🎯">Zilscheif | Spill | Volltreffer | treffen | Match | Mëtt | Dart</annotation>
+		<annotation cp="🎯" type="tts">an d’Mëtt getraff</annotation>
+		<annotation cp="🎱">Spill | Kugel | aacht | 8-Ball | 8 | Billiard</annotation>
+		<annotation cp="🎱" type="tts">Billardkugel</annotation>
+		<annotation cp="🔮">Fantasie | Zukunft | Kugel | Mäerchen | Kristall | Utensil</annotation>
+		<annotation cp="🔮" type="tts">Kristallkugel</annotation>
+		<annotation cp="🎮">Manette | Controller | Spill</annotation>
+		<annotation cp="🎮" type="tts">Videospill</annotation>
+		<annotation cp="🕹">Videospill | Spill</annotation>
+		<annotation cp="🕹" type="tts">Joystick</annotation>
+		<annotation cp="🎰">Automat | Spill</annotation>
+		<annotation cp="🎰" type="tts">Spillautomat</annotation>
+		<annotation cp="🎲">wierfelen | Wierfel | Spill</annotation>
+		<annotation cp="🎲" type="tts">Spillwierfel</annotation>
+		<annotation cp="♠">Spill | Kaart</annotation>
+		<annotation cp="♠" type="tts">Schëppen</annotation>
+		<annotation cp="♥">Spill | Kaart</annotation>
+		<annotation cp="♥" type="tts">Häerzer</annotation>
+		<annotation cp="♦">Spill | Kaart</annotation>
+		<annotation cp="♦" type="tts">Rauten</annotation>
+		<annotation cp="♣">Spill | Kaart</annotation>
+		<annotation cp="♣" type="tts">Kräizer</annotation>
+		<annotation cp="🃏">Jocker | Spill | Kaart</annotation>
+		<annotation cp="🃏" type="tts">Joker</annotation>
+		<annotation cp="🀄">rout | Mahjong | Spill</annotation>
+		<annotation cp="🀄" type="tts">Rouden Draach (Mahjong)</annotation>
+		<annotation cp="🎴">Spill | Kaart | spillen | japanesch | Blumm</annotation>
+		<annotation cp="🎴" type="tts">Spillkaarte mat Blummen</annotation>
+		<annotation cp="🎭">duerstellend | Konscht | Theater | Mask</annotation>
+		<annotation cp="🎭" type="tts">duerstellend Konscht</annotation>
+		<annotation cp="🖼">Bild | Tableau | Musée | Rumm | Konscht</annotation>
+		<annotation cp="🖼" type="tts">agerummt Bild</annotation>
+		<annotation cp="🎨">Tableau | Bild | Musée | Konscht | Palett</annotation>
+		<annotation cp="🎨" type="tts">Faarfpalett</annotation>
+		<annotation cp="👓">Brëll | Kleedung | A</annotation>
+		<annotation cp="👓" type="tts">Brëll</annotation>
+		<annotation cp="🕶">Brëll | däischter | Sonnebrëll | A</annotation>
+		<annotation cp="🕶" type="tts">Sonnebrëll</annotation>
+		<annotation cp="👔">Kleedung</annotation>
+		<annotation cp="👔" type="tts">Krawatt</annotation>
+		<annotation cp="👕">T-Shirt | Hiem | Kleedung</annotation>
+		<annotation cp="👕" type="tts">T-Shirt</annotation>
+		<annotation cp="👖">Box | Jeans | Kleedung</annotation>
+		<annotation cp="👖" type="tts">Jeans</annotation>
+		<annotation cp="🧣">Hals</annotation>
+		<annotation cp="🧣" type="tts">Schal</annotation>
+		<annotation cp="🧤">Hand</annotation>
+		<annotation cp="🧤" type="tts">Händchen</annotation>
+		<annotation cp="🧥">Jackett</annotation>
+		<annotation cp="🧥" type="tts">Mantel</annotation>
+		<annotation cp="🧦">Collant</annotation>
+		<annotation cp="🧦" type="tts">Strëmp</annotation>
+		<annotation cp="👗">Kleedung</annotation>
+		<annotation cp="👗" type="tts">Rack</annotation>
+		<annotation cp="👘">Kleedung</annotation>
+		<annotation cp="👘" type="tts">Kimono</annotation>
+		<annotation cp="👙">schwammen | Kleedung</annotation>
+		<annotation cp="👙" type="tts">Bikini</annotation>
+		<annotation cp="👚">Fra | Kleedung</annotation>
+		<annotation cp="👚" type="tts">Fraekleedung</annotation>
+		<annotation cp="👛">Geld | Kleedung | Suen</annotation>
+		<annotation cp="👛" type="tts">Portmonni</annotation>
+		<annotation cp="👜">Posch | Portmonni | Kleedung</annotation>
+		<annotation cp="👜" type="tts">Posch</annotation>
+		<annotation cp="👝">Clutch | Posch | Kleedung</annotation>
+		<annotation cp="👝" type="tts">Clutch</annotation>
+		<annotation cp="🛍">Tut | Shopping | Hotel | akafen</annotation>
+		<annotation cp="🛍" type="tts">Akafstuten</annotation>
+		<annotation cp="🎒">Posch | Schoul | Schoulsak</annotation>
+		<annotation cp="🎒" type="tts">Schoulsak</annotation>
+		<annotation cp="👞">Schong | Mann | Kleedung</annotation>
+		<annotation cp="👞" type="tts">Männerschong</annotation>
+		<annotation cp="👟">Sport | Turnschlappen | Schong | Kleedung</annotation>
+		<annotation cp="👟" type="tts">Lafschong</annotation>
+		<annotation cp="👠">Fra | Schong | Tallek | Kleedung</annotation>
+		<annotation cp="👠" type="tts">Tallekeschong</annotation>
+		<annotation cp="👡">Fra | Schong | Kleedung | Sandal</annotation>
+		<annotation cp="👡" type="tts">Fraesandal</annotation>
+		<annotation cp="👢">Fra | Schong | Stiwwel | Kleedung</annotation>
+		<annotation cp="👢" type="tts">Fraestiwwel</annotation>
+		<annotation cp="👑">Kinnek | Kinnigin | Kleedung</annotation>
+		<annotation cp="👑" type="tts">Kroun</annotation>
+		<annotation cp="👒">Fra | Hutt | Kleedung</annotation>
+		<annotation cp="👒" type="tts">Fraenhutt</annotation>
+		<annotation cp="🎩">Hutt | Zilinder | Kleedung | héich</annotation>
+		<annotation cp="🎩" type="tts">Zilinder</annotation>
+		<annotation cp="🎓">Diplomiwwerreechung | Kleedung | Hutt | Feier | Kap</annotation>
+		<annotation cp="🎓" type="tts">Diplomiwwerreechungshutt</annotation>
+		<annotation cp="🧢">Baseballkap</annotation>
+		<annotation cp="🧢" type="tts">Kap mat Bild</annotation>
+		<annotation cp="⛑">Helm | Hutt | Hëllef | Gesiicht | Kräiz</annotation>
+		<annotation cp="⛑" type="tts">Rettungsdéngscht</annotation>
+		<annotation cp="📿">Gebiet | Relioun | Kranz | Pärelen | Ketten | Kleedung</annotation>
+		<annotation cp="📿" type="tts">Rousekranz</annotation>
+		<annotation cp="💄">Kosmetik | Schmink</annotation>
+		<annotation cp="💄" type="tts">Lëppestëft</annotation>
+		<annotation cp="💍">Diamant</annotation>
+		<annotation cp="💍" type="tts">Rank</annotation>
+		<annotation cp="💎">Steen | Juwel | Diamant</annotation>
+		<annotation cp="💎" type="tts">Diamant</annotation>
+		<annotation cp="🔇">lautlos | keen Toun | Lautsprecher | roueg</annotation>
+		<annotation cp="🔇" type="tts">Lautsprecher op lautlos</annotation>
+		<annotation cp="🔈">lues</annotation>
+		<annotation cp="🔈" type="tts">Lautsprecher op lues agestallt</annotation>
+		<annotation cp="🔉">mëttel</annotation>
+		<annotation cp="🔉" type="tts">Lautsprecher op mëttel agestallt</annotation>
+		<annotation cp="🔊">haart</annotation>
+		<annotation cp="🔊" type="tts">Lautsprecher op haart agestallt</annotation>
+		<annotation cp="📢">ëffentlech Adress | haart</annotation>
+		<annotation cp="📢" type="tts">Lautsprecher</annotation>
+		<annotation cp="📣">ufeierend</annotation>
+		<annotation cp="📣" type="tts">Megafon</annotation>
+		<annotation cp="📯">Troter | Post</annotation>
+		<annotation cp="📯" type="tts">Posttroter</annotation>
+		<annotation cp="🔔">Schell | Klack</annotation>
+		<annotation cp="🔔" type="tts">Klack</annotation>
+		<annotation cp="🔕">verbueden | neen | net | duerchgestrach | lautlos | roueg | keen Toun | Klack</annotation>
+		<annotation cp="🔕" type="tts">duerchgestrache Klack</annotation>
+		<annotation cp="🎼">Musek | Partitioun</annotation>
+		<annotation cp="🎼" type="tts">Partitioun</annotation>
+		<annotation cp="🎵">Nout | Musek</annotation>
+		<annotation cp="🎵" type="tts">Museksnout</annotation>
+		<annotation cp="🎶">Nout | Nouten | Musek</annotation>
+		<annotation cp="🎶" type="tts">Museksnouten</annotation>
+		<annotation cp="🎙">Studio | Mikro | Musek</annotation>
+		<annotation cp="🎙" type="tts">Studiosmikro</annotation>
+		<annotation cp="🎚">Niveau | Reegler | Musek</annotation>
+		<annotation cp="🎚" type="tts">Reegler</annotation>
+		<annotation cp="🎛">Musek | Steierung | Knäppercher</annotation>
+		<annotation cp="🎛" type="tts">Steierungsknäppercher</annotation>
+		<annotation cp="🎤">Mikro | Karaoke</annotation>
+		<annotation cp="🎤" type="tts">Mikro</annotation>
+		<annotation cp="🎧">Kopfhörer</annotation>
+		<annotation cp="🎧" type="tts">Kopfhörer</annotation>
+		<annotation cp="📻">Video</annotation>
+		<annotation cp="📻" type="tts">Radio</annotation>
+		<annotation cp="🎷">Instrument | Musek | Sax</annotation>
+		<annotation cp="🎷" type="tts">Saxofon</annotation>
+		<annotation cp="🎸">Instrument | Musek</annotation>
+		<annotation cp="🎸" type="tts">Gittar</annotation>
+		<annotation cp="🎹">Piano | Instrument | Musek | Keyboard</annotation>
+		<annotation cp="🎹" type="tts">Keyboard</annotation>
+		<annotation cp="🎺">Instrument | Musek</annotation>
+		<annotation cp="🎺" type="tts">Trompett</annotation>
+		<annotation cp="🎻">Instrument | Musek</annotation>
+		<annotation cp="🎻" type="tts">Gei</annotation>
+		<annotation cp="🥁">Musek | Trommel | Bengelen</annotation>
+		<annotation cp="🥁" type="tts">Trommel</annotation>
+		<annotation cp="📱">Funk | Mobil | Handy | Telefon</annotation>
+		<annotation cp="📱" type="tts">Handy</annotation>
+		<annotation cp="📲">Uruff | Telefon | empfänken | Feil | Funk | Mobil | Handy</annotation>
+		<annotation cp="📲" type="tts">Handy mat feil</annotation>
+		<annotation cp="☎">Telefon</annotation>
+		<annotation cp="☎" type="tts">Telefon</annotation>
+		<annotation cp="📞">Hörer | Telefon</annotation>
+		<annotation cp="📞" type="tts">Telefonshörer</annotation>
+		<annotation cp="📟">Pager</annotation>
+		<annotation cp="📟" type="tts">Pager</annotation>
+		<annotation cp="📠">Fax</annotation>
+		<annotation cp="📠" type="tts">Fax</annotation>
+		<annotation cp="🔋">Batterie</annotation>
+		<annotation cp="🔋" type="tts">Batterie</annotation>
+		<annotation cp="🔌">elektresch | Stecker | Stroum</annotation>
+		<annotation cp="🔌" type="tts">Stecker</annotation>
+		<annotation cp="💻">PC | Computer | perséinlech</annotation>
+		<annotation cp="💻" type="tts">Laptop</annotation>
+		<annotation cp="🖥">Computer | Desktop</annotation>
+		<annotation cp="🖥" type="tts">Desktopcomputer</annotation>
+		<annotation cp="🖨">Computer</annotation>
+		<annotation cp="🖨" type="tts">Drécker</annotation>
+		<annotation cp="⌨">Computer</annotation>
+		<annotation cp="⌨" type="tts">Tastatur</annotation>
+		<annotation cp="🖱">Computer</annotation>
+		<annotation cp="🖱" type="tts">Computermaus</annotation>
+		<annotation cp="🖲">Computer</annotation>
+		<annotation cp="🖲" type="tts">Trackball</annotation>
+		<annotation cp="💽">optesch | Computer | Disk | Minidisk</annotation>
+		<annotation cp="💽" type="tts">Minidisk</annotation>
+		<annotation cp="💾">Diskett | Computer | Disk</annotation>
+		<annotation cp="💾" type="tts">Diskett</annotation>
+		<annotation cp="💿">CD | optesch | Computer | Disk</annotation>
+		<annotation cp="💿" type="tts">CD</annotation>
+		<annotation cp="📀">DVD | Computer | Blu-ray | optesch | Disk</annotation>
+		<annotation cp="📀" type="tts">DVD</annotation>
+		<annotation cp="🎥">Kamera | Film | Kino</annotation>
+		<annotation cp="🎥" type="tts">Kamera</annotation>
+		<annotation cp="🎞">Film | Kino | Klappen</annotation>
+		<annotation cp="🎞" type="tts">Filmklappen</annotation>
+		<annotation cp="📽">Film | Projekter | Video | Kino</annotation>
+		<annotation cp="📽" type="tts">Filmprojekter</annotation>
+		<annotation cp="🎬">Film | Klapp</annotation>
+		<annotation cp="🎬" type="tts">Filmklapp</annotation>
+		<annotation cp="📺">TV | Video</annotation>
+		<annotation cp="📺" type="tts">Fernseh</annotation>
+		<annotation cp="📷">Video</annotation>
+		<annotation cp="📷" type="tts">Fotoapparat</annotation>
+		<annotation cp="📸">Kamera | Blëtz | Video | Fotoapparat | Flash</annotation>
+		<annotation cp="📸" type="tts">Fotoapparat mat Blëtz</annotation>
+		<annotation cp="📹">Kamera | Video</annotation>
+		<annotation cp="📹" type="tts">Videokamera</annotation>
+		<annotation cp="📼">Video | Kassett | VHS</annotation>
+		<annotation cp="📼" type="tts">Videokassett</annotation>
+		<annotation cp="🔍">Lupp | Utensil | sichen | Glas</annotation>
+		<annotation cp="🔍" type="tts">no lénks geriicht Lupp</annotation>
+		<annotation cp="🔎">Lupp | Utensil | sichen | Glas</annotation>
+		<annotation cp="🔎" type="tts">no riets geriicht Lupp</annotation>
+		<annotation cp="🕯">Luucht</annotation>
+		<annotation cp="🕯" type="tts">Käerz</annotation>
+		<annotation cp="💡">Bir | Comic | Iddi | Luucht | Liicht | elektresch</annotation>
+		<annotation cp="💡" type="tts">Bir</annotation>
+		<annotation cp="🔦">elektresch | Täsch | Luucht | Apparat</annotation>
+		<annotation cp="🔦" type="tts">Täscheluucht</annotation>
+		<annotation cp="🏮">Bar | rout | Luucht | Lanter | Lampion</annotation>
+		<annotation cp="🏮" type="tts">roude Lampion</annotation>
+		<annotation cp="📔">Buch | dekoréiert | Notizblock | Deckel</annotation>
+		<annotation cp="📔" type="tts">dekoréierten Notizblock</annotation>
+		<annotation cp="📕">Buch | zou</annotation>
+		<annotation cp="📕" type="tts">zouent Buch</annotation>
+		<annotation cp="📖">Buch | oppen</annotation>
+		<annotation cp="📖" type="tts">oppent Buch</annotation>
+		<annotation cp="📗">Buch | gréng</annotation>
+		<annotation cp="📗" type="tts">gréngt Buch</annotation>
+		<annotation cp="📘">blo | Buch</annotation>
+		<annotation cp="📘" type="tts">blot Buch</annotation>
+		<annotation cp="📙">Buch | orange</annotation>
+		<annotation cp="📙" type="tts">oranget Buch</annotation>
+		<annotation cp="📚">Buch</annotation>
+		<annotation cp="📚" type="tts">Bicher</annotation>
+		<annotation cp="📓">Notizblock</annotation>
+		<annotation cp="📓" type="tts">Notizblock</annotation>
+		<annotation cp="📒">Notizblock</annotation>
+		<annotation cp="📒" type="tts">Haaptbuch</annotation>
+		<annotation cp="📃">Dokument | Säit | opgerullt | Kréngel</annotation>
+		<annotation cp="📃" type="tts">opgerullte Säit</annotation>
+		<annotation cp="📜">Pabeier</annotation>
+		<annotation cp="📜" type="tts">Schrëftrullo</annotation>
+		<annotation cp="📄">Dokument | Säit</annotation>
+		<annotation cp="📄" type="tts">bedréckt Säit</annotation>
+		<annotation cp="📰">Pabeier | Zeitung | Neiegkeeten</annotation>
+		<annotation cp="📰" type="tts">Zeitung</annotation>
+		<annotation cp="🗞">Pabeier | Zeitung | Neiegkeeten | gerullt</annotation>
+		<annotation cp="🗞" type="tts">opgerullt Zeitung</annotation>
+		<annotation cp="📑">Stickeren | Zeechen | Markéierung | Lieszeechen</annotation>
+		<annotation cp="📑" type="tts">Lieszeechestickeren</annotation>
+		<annotation cp="🔖">Zeechen</annotation>
+		<annotation cp="🔖" type="tts">Lieszeechen</annotation>
+		<annotation cp="🏷">Etikett</annotation>
+		<annotation cp="🏷" type="tts">Etikett</annotation>
+		<annotation cp="💰">Dollar | Suen | Sak | Geld | Geldsak</annotation>
+		<annotation cp="💰" type="tts">Geldsak</annotation>
+		<annotation cp="💴">Bank | Suen | Geld | Währung | Yen | Rechnung | Geldschäin | Schäin</annotation>
+		<annotation cp="💴" type="tts">Yen</annotation>
+		<annotation cp="💵">Dollar | Bank | Suen | Geld | Währung | Rechnung | Geldschäin | Schäin</annotation>
+		<annotation cp="💵" type="tts">Dollar</annotation>
+		<annotation cp="💶">Bank | Suen | Geld | Währung | Euro | Rechnung | Geldschäin | Schäin</annotation>
+		<annotation cp="💶" type="tts">Euro</annotation>
+		<annotation cp="💷">Pound | Bank | Suen | Geld | Währung | Rechnung | Geldschäin | Schäin</annotation>
+		<annotation cp="💷" type="tts">Pound</annotation>
+		<annotation cp="💸">Dollar | Bank | Flilleken | Suen | fléien | Geld | Rechnung | Geldschäin | Schäin</annotation>
+		<annotation cp="💸" type="tts">Geldschäiner mat Flilleken</annotation>
+		<annotation cp="💳">Kredit | Bank | Suen | Kaart | Geld</annotation>
+		<annotation cp="💳" type="tts">Kreditkaart</annotation>
+		<annotation cp="💹">Tendenz | steigend | Bank | Suen | Diagramm | Cours | Geld | Maart | Währung | Yen | Marché | steigen | Steierung</annotation>
+		<annotation cp="💹" type="tts">steigende Coursdiagramm mat Yen</annotation>
+		<annotation cp="💱">Bank | Suen | Währung | Wiesselcours | Geld</annotation>
+		<annotation cp="💱" type="tts">Wiesselcours</annotation>
+		<annotation cp="💲">Geld | Dollar | Suen | Währung</annotation>
+		<annotation cp="💲" type="tts">déckt Dollarzeechen</annotation>
+		<annotation cp="✉">Bréif | E-Mail</annotation>
+		<annotation cp="✉" type="tts">Enveloppe</annotation>
+		<annotation cp="📧">Bréif | Post | E-Mail</annotation>
+		<annotation cp="📧" type="tts">E-Mail</annotation>
+		<annotation cp="📨">emailen | E-Mail | Post | Enveloppe | Bréif | antreffend | empfänken</annotation>
+		<annotation cp="📨" type="tts">antreffende Bréif</annotation>
+		<annotation cp="📩">emailen | E-Mail | no ënnen | Post | Enveloppe | Bréif | schécken | Feil | erausgoend</annotation>
+		<annotation cp="📩" type="tts">Enveloppe mat Feil</annotation>
+		<annotation cp="📤">Fach | Post | Boîte | Bréif | schécken | erausgoend</annotation>
+		<annotation cp="📤" type="tts">Fach fir erausgoend Post</annotation>
+		<annotation cp="📥">Fach | Post | Boîte | Bréif | empfänken | Inbox</annotation>
+		<annotation cp="📥" type="tts">Fach fir erakommend Post</annotation>
+		<annotation cp="📦">Këscht | Pak</annotation>
+		<annotation cp="📦" type="tts">Pak</annotation>
+		<annotation cp="📫">Bréifkëscht | Bréifboîte | zou | Post</annotation>
+		<annotation cp="📫" type="tts">zoue Bréifkëscht mat Fändel no uewen</annotation>
+		<annotation cp="📪">Bréifkëscht | Bréifboîte | Post | no ënnen | zou</annotation>
+		<annotation cp="📪" type="tts">zoue Bréifkëscht mat Fändel no ënnen</annotation>
+		<annotation cp="📬">Bréifkëscht | Bréifboîte | oppen | Post</annotation>
+		<annotation cp="📬" type="tts">oppe Bréifkëscht mat Fändel no uewen</annotation>
+		<annotation cp="📭">Bréifkëscht | Bréifboîte | Post | no ënnen | oppen</annotation>
+		<annotation cp="📭" type="tts">oppe Bréifkëscht mat Fändel no ënnen</annotation>
+		<annotation cp="📮">Bréifkëscht | Post</annotation>
+		<annotation cp="📮" type="tts">Bréifboîte</annotation>
+		<annotation cp="🗳">Këscht | Urn</annotation>
+		<annotation cp="🗳" type="tts">Urn mat Stëmmziedel</annotation>
+		<annotation cp="✏">Bläistëft</annotation>
+		<annotation cp="✏" type="tts">Bläistëft</annotation>
+		<annotation cp="✒">Spëtz | Bic | Fieder</annotation>
+		<annotation cp="✒" type="tts">schwaarz Fieder</annotation>
+		<annotation cp="🖋">Bic | Füllfieder</annotation>
+		<annotation cp="🖋" type="tts">Füllfieder</annotation>
+		<annotation cp="🖊">Bic</annotation>
+		<annotation cp="🖊" type="tts">Bic</annotation>
+		<annotation cp="🖌">molen</annotation>
+		<annotation cp="🖌" type="tts">Pinsel</annotation>
+		<annotation cp="🖍">Faarf</annotation>
+		<annotation cp="🖍" type="tts">Faarf</annotation>
+		<annotation cp="📝">Bläistëft</annotation>
+		<annotation cp="📝" type="tts">Memo</annotation>
+		<annotation cp="💼">Aktekoffer</annotation>
+		<annotation cp="💼" type="tts">Aktekoffer</annotation>
+		<annotation cp="📁">Fichier | Dossier</annotation>
+		<annotation cp="📁" type="tts">Fichiersdossier</annotation>
+		<annotation cp="📂">Fichier | oppen | Dossier</annotation>
+		<annotation cp="📂" type="tts">oppene Fichiersdossier</annotation>
+		<annotation cp="🗂">Intercalairen | Index | Kaart</annotation>
+		<annotation cp="🗂" type="tts">Intercalairen</annotation>
+		<annotation cp="📅">Datum</annotation>
+		<annotation cp="📅" type="tts">Kalenner</annotation>
+		<annotation cp="📆">Kalenner</annotation>
+		<annotation cp="📆" type="tts">Ofräisskalenner</annotation>
+		<annotation cp="🗒">Notiz | Block | Réngelcher</annotation>
+		<annotation cp="🗒" type="tts">Réngelchersnotizblock</annotation>
+		<annotation cp="🗓">Block | Kalenner | Réngelcher</annotation>
+		<annotation cp="🗓" type="tts">Réngelcherskalenner</annotation>
+		<annotation cp="📇">Index | Rolodex | Kaart</annotation>
+		<annotation cp="📇" type="tts">Indexkaart</annotation>
+		<annotation cp="📈">Tendenz | steigend | Diagramm | Grafik | Steigerung</annotation>
+		<annotation cp="📈" type="tts">steigenden Diagramm</annotation>
+		<annotation cp="📉">Diagramm | Grafik | Tendenz | senkend</annotation>
+		<annotation cp="📉" type="tts">senkenden Diagramm</annotation>
+		<annotation cp="📊">Diagramm | Balken | Grafik</annotation>
+		<annotation cp="📊" type="tts">Balkendiagramm</annotation>
+		<annotation cp="📋">Notizbriet</annotation>
+		<annotation cp="📋" type="tts">Notizbriet</annotation>
+		<annotation cp="📌">Punaise</annotation>
+		<annotation cp="📌" type="tts">Punaise</annotation>
+		<annotation cp="📍">Punaise</annotation>
+		<annotation cp="📍" type="tts">ronn Punaise</annotation>
+		<annotation cp="📎">Bürosklamer</annotation>
+		<annotation cp="📎" type="tts">Bürosklamer</annotation>
+		<annotation cp="🖇">verbonnen | Bürosklamer</annotation>
+		<annotation cp="🖇" type="tts">verbonne Bürosklameren</annotation>
+		<annotation cp="📏">Lineal | riicht</annotation>
+		<annotation cp="📏" type="tts">Lineal</annotation>
+		<annotation cp="📐">Lineal | Dräieck | Zeechen</annotation>
+		<annotation cp="📐" type="tts">Zeechendräieck</annotation>
+		<annotation cp="✂">schneiden | Handwierksgeschir</annotation>
+		<annotation cp="✂" type="tts">Schéier</annotation>
+		<annotation cp="🗃">Këscht | Fichier | Kaart</annotation>
+		<annotation cp="🗃" type="tts">Fichierskëscht</annotation>
+		<annotation cp="🗄">Fichier | Schaf | klasséieren</annotation>
+		<annotation cp="🗄" type="tts">Fichiersschaf</annotation>
+		<annotation cp="🗑">Dreckskëscht</annotation>
+		<annotation cp="🗑" type="tts">Dreckskëscht</annotation>
+		<annotation cp="🔒">zou</annotation>
+		<annotation cp="🔒" type="tts">zouent Schlass</annotation>
+		<annotation cp="🔓">entspären | zou | Schlass | oppen</annotation>
+		<annotation cp="🔓" type="tts">oppent Schlass</annotation>
+		<annotation cp="🔏">Bic | privat | Fieder | zou | Schlass | Tënt</annotation>
+		<annotation cp="🔏" type="tts">zouent Schlass mat Bic</annotation>
+		<annotation cp="🔐">Schlëssel | sécher | zou | Schlass</annotation>
+		<annotation cp="🔐" type="tts">zouent Schlass mat Schlëssel</annotation>
+		<annotation cp="🔑">Passwuert | Schlass</annotation>
+		<annotation cp="🔑" type="tts">Schlëssel</annotation>
+		<annotation cp="🗝">al | Schlëssel | Hiwäis | Schlass</annotation>
+		<annotation cp="🗝" type="tts">ale Schlëssel</annotation>
+		<annotation cp="🔨">Handwierksgeschir</annotation>
+		<annotation cp="🔨" type="tts">Hummer</annotation>
+		<annotation cp="⛏">Grouf | Handwierksgeschir</annotation>
+		<annotation cp="⛏" type="tts">Piosch</annotation>
+		<annotation cp="⚒">Piosch | Hummer | Handwierksgeschir</annotation>
+		<annotation cp="⚒" type="tts">Hummer a Piosch</annotation>
+		<annotation cp="🛠">Schrauweschlëssel | Schrauwenzéier | Hummer | Handwierksgeschir</annotation>
+		<annotation cp="🛠" type="tts">Hummer a Schrauweschlëssel</annotation>
+		<annotation cp="🗡">Waff | Messer</annotation>
+		<annotation cp="🗡" type="tts">Dolch</annotation>
+		<annotation cp="⚔">Waff | gekräizt | Schwäerter</annotation>
+		<annotation cp="⚔" type="tts">gekräizt Schwäerter</annotation>
+		<annotation cp="🔫">Revolver | Utensil | Pistoul | Waff</annotation>
+		<annotation cp="🔫" type="tts">Pistoul</annotation>
+		<annotation cp="🏹">Bou | Schütze | Waff | Bouschéissen | Stärzeechen | Bouschéisser | Feil | Utensil</annotation>
+		<annotation cp="🏹" type="tts">Bou mat Feiler</annotation>
+		<annotation cp="🛡">Waff</annotation>
+		<annotation cp="🛡" type="tts">Schëld</annotation>
+		<annotation cp="🔧">Schrauwenzéier | Schrauweschlëssel | Handwierksgeschir</annotation>
+		<annotation cp="🔧" type="tts">Schrauweschlëssel</annotation>
+		<annotation cp="🔩">Mudder | Handwierksgeschir | Schrauf</annotation>
+		<annotation cp="🔩" type="tts">Mudder a Schrauf</annotation>
+		<annotation cp="⚙">Handwierksgeschir</annotation>
+		<annotation cp="⚙" type="tts">Zännrad</annotation>
+		<annotation cp="🗜">Schraufstack | Kompresser | Handwierksgeschir</annotation>
+		<annotation cp="🗜" type="tts">Schraufstack</annotation>
+		<annotation cp="⚖">Justiz | Wo | Gewiicht | Stärzeechen | Apparat | Riichter | Gläichgewiicht</annotation>
+		<annotation cp="⚖" type="tts">Wo</annotation>
+		<annotation cp="🔗">Glidd</annotation>
+		<annotation cp="🔗" type="tts">Glidd</annotation>
+		<annotation cp="⛓">Ketten</annotation>
+		<annotation cp="⛓" type="tts">Ketten</annotation>
+		<annotation cp="⚗">Chimie | Handwierksgeschir</annotation>
+		<annotation cp="⚗" type="tts">Alembique</annotation>
+		<annotation cp="🔬">Apparat | Wëssenschaft</annotation>
+		<annotation cp="🔬" type="tts">Mikroskop</annotation>
+		<annotation cp="🔭">Apparat | Wëssenschaft</annotation>
+		<annotation cp="🔭" type="tts">Teleskop</annotation>
+		<annotation cp="📡">Teller | Satellitt | Antenn</annotation>
+		<annotation cp="📡" type="tts">Satellittenantenn</annotation>
+		<annotation cp="💉">Medezin | Dokter | Nol | Sprëtz | Utensil | krank</annotation>
+		<annotation cp="💉" type="tts">Sprëtz</annotation>
+		<annotation cp="💊">Dokter | Medezin | krank</annotation>
+		<annotation cp="💊" type="tts">Pëll</annotation>
+		<annotation cp="🚪">Dier</annotation>
+		<annotation cp="🚪" type="tts">Dier</annotation>
+		<annotation cp="🛏">schlofen | Hotel</annotation>
+		<annotation cp="🛏" type="tts">Bett</annotation>
+		<annotation cp="🛋">Couche | Hotel | Luucht</annotation>
+		<annotation cp="🛋" type="tts">Couche a Luucht</annotation>
+		<annotation cp="🚽">Toilett</annotation>
+		<annotation cp="🚽" type="tts">Toilett</annotation>
+		<annotation cp="🚿">Waasser</annotation>
+		<annotation cp="🚿" type="tts">Dusch</annotation>
+		<annotation cp="🛁">Bidden</annotation>
+		<annotation cp="🛁" type="tts">Buedbidden</annotation>
+		<annotation cp="🛒">Weenchen | Shopping | akafen</annotation>
+		<annotation cp="🛒" type="tts">Akafsweenchen</annotation>
+		<annotation cp="🚬">fëmmen</annotation>
+		<annotation cp="🚬" type="tts">Zigarett</annotation>
+		<annotation cp="⚰">Doud</annotation>
+		<annotation cp="⚰" type="tts">Sarg</annotation>
+		<annotation cp="⚱">Urn | Begriefnis | Äschen | Doud</annotation>
+		<annotation cp="⚱" type="tts">Urn</annotation>
+		<annotation cp="🗿">Statu | Gesiicht | Moyai</annotation>
+		<annotation cp="🗿" type="tts">Moai-Statu</annotation>
+		<annotation cp="🏧">ophiewen | Bancomat | ATM | Bank</annotation>
+		<annotation cp="🏧" type="tts">Bancomat</annotation>
+		<annotation cp="🚮">Poubelle | Dreck</annotation>
+		<annotation cp="🚮" type="tts">Poubelleszeechen</annotation>
+		<annotation cp="🚰">Waasser | drénken | drénkbar</annotation>
+		<annotation cp="🚰" type="tts">Drénkwaasser</annotation>
+		<annotation cp="♿">Zougank</annotation>
+		<annotation cp="♿" type="tts">Rollstullzeechen</annotation>
+		<annotation cp="🚹">Toilett | Männer | Mann | WC</annotation>
+		<annotation cp="🚹" type="tts">Männertoilett</annotation>
+		<annotation cp="🚺">Toilett | Fra | Fraen | WC</annotation>
+		<annotation cp="🚺" type="tts">Fraentoilett</annotation>
+		<annotation cp="🚻">Toilett | Toiletten | WC</annotation>
+		<annotation cp="🚻" type="tts">Toiletten</annotation>
+		<annotation cp="🚼">wéckelen | Bëbee</annotation>
+		<annotation cp="🚼" type="tts">Bëbeeszeechen</annotation>
+		<annotation cp="🚾">Toilett | Waasser | Toiletten | WC</annotation>
+		<annotation cp="🚾" type="tts">WC-Zeechen</annotation>
+		<annotation cp="🛂">Kontroll | Pass</annotation>
+		<annotation cp="🛂" type="tts">Passkontroll</annotation>
+		<annotation cp="🛃">Douane</annotation>
+		<annotation cp="🛃" type="tts">Douane</annotation>
+		<annotation cp="🛄">Gepäck | Ausgab</annotation>
+		<annotation cp="🛄" type="tts">Gepäckausgab</annotation>
+		<annotation cp="🛅">Casier | Gepäck | Schléissfach</annotation>
+		<annotation cp="🛅" type="tts">Gepäckschléissfach</annotation>
+		<annotation cp="⚠">Warnung</annotation>
+		<annotation cp="⚠" type="tts">Warnung</annotation>
+		<annotation cp="🚸">Kand | Verkéier | Foussgänger | eriwwergoen</annotation>
+		<annotation cp="🚸" type="tts">opgepasst Kanner</annotation>
+		<annotation cp="⛔">verbueden | neen | keen | net | Verkéier | Accès</annotation>
+		<annotation cp="⛔" type="tts">keen Accès</annotation>
+		<annotation cp="🚫">verbueden | neen | keen | Accès</annotation>
+		<annotation cp="🚫" type="tts">verbueden</annotation>
+		<annotation cp="🚳">verbueden | net | neen | keng | Vëlo</annotation>
+		<annotation cp="🚳" type="tts">keng Vëloen</annotation>
+		<annotation cp="🚭">verbueden | neen | net | fëmmen</annotation>
+		<annotation cp="🚭" type="tts">Fëmme verbueden</annotation>
+		<annotation cp="🚯">verbueden | net | neen | Poubelle | keng</annotation>
+		<annotation cp="🚯" type="tts">keng Poubelle</annotation>
+		<annotation cp="🚱">keen | Waasser | net drénkbar</annotation>
+		<annotation cp="🚱" type="tts">keen Drénkwaasser</annotation>
+		<annotation cp="🚷">verbueden | neen | net | Foussgänger</annotation>
+		<annotation cp="🚷" type="tts">Foussgänger verbueden</annotation>
+		<annotation cp="📵">keen | neen | verbueden | net | Telefon | Funk | Mobil | Handy</annotation>
+		<annotation cp="📵" type="tts">Handye verbueden</annotation>
+		<annotation cp="🔞">verbueden | neen | net | ënner | Altersbeschränkung | 18 | uechzéng</annotation>
+		<annotation cp="🔞" type="tts">ënner uechzéng Joer verbueden</annotation>
+		<annotation cp="☢">radioaktiv | Zeechen</annotation>
+		<annotation cp="☢" type="tts">radioaktiv</annotation>
+		<annotation cp="☣">Ëmweltgefor | Zeechen</annotation>
+		<annotation cp="☣" type="tts">Ëmweltgefor</annotation>
+		<annotation cp="⬆">Richtung | Norden | Himmelsrichtung | Feil</annotation>
+		<annotation cp="⬆" type="tts">Feil no uewen</annotation>
+		<annotation cp="↗">Richtung | Himmelsrichtung | Nordosten | Feil</annotation>
+		<annotation cp="↗" type="tts">Feil no uewen a riets</annotation>
+		<annotation cp="➡">Osten | Richtung | Himmelsrichtung | Feil</annotation>
+		<annotation cp="➡" type="tts">Feil no riets</annotation>
+		<annotation cp="↘">Richtung | Himmelsrichtung | Südosten | Feil</annotation>
+		<annotation cp="↘" type="tts">Feil no ënnen a riets</annotation>
+		<annotation cp="⬇">Richtung | Süden | no ënnen | Feil | Himmelsrichtung</annotation>
+		<annotation cp="⬇" type="tts">Feil no ënnen</annotation>
+		<annotation cp="↙">Richtung | Südwesten | Himmelsrichtung | Feil</annotation>
+		<annotation cp="↙" type="tts">Feil no ënnen a lénks</annotation>
+		<annotation cp="⬅">Westen | Richtung | Himmelsrichtung | Feil</annotation>
+		<annotation cp="⬅" type="tts">Feil no lénks</annotation>
+		<annotation cp="↖">Richtung | Himmelsrichtung | Nordwesten | Feil</annotation>
+		<annotation cp="↖" type="tts">Feil no uewen a lénks</annotation>
+		<annotation cp="↕">Feiler</annotation>
+		<annotation cp="↕" type="tts">Feil no uewen an ënnen</annotation>
+		<annotation cp="↔">Feiler</annotation>
+		<annotation cp="↔" type="tts">Feil no lénks a riets</annotation>
+		<annotation cp="↩">Feiler</annotation>
+		<annotation cp="↩" type="tts">Rietsfeil mat Lénkskéier</annotation>
+		<annotation cp="↪">Feiler</annotation>
+		<annotation cp="↪" type="tts">Lénksfeil mat Rietskéier</annotation>
+		<annotation cp="⤴">Feiler</annotation>
+		<annotation cp="⤴" type="tts">Rietsfeil mat Kéier no uewen</annotation>
+		<annotation cp="⤵">no ënnen | Feil</annotation>
+		<annotation cp="⤵" type="tts">Rietsfeil mat Kéier no ënnen</annotation>
+		<annotation cp="🔃">opzéien | an Zärerichtung | Feil</annotation>
+		<annotation cp="🔃" type="tts">vertikal Feiler an Zärerichtung</annotation>
+		<annotation cp="🔄">a géigegesat Richtung | géint Zärerichtung | counterclockwise | Feil</annotation>
+		<annotation cp="🔄" type="tts">vertikal Feiler géint Zärerichtung</annotation>
+		<annotation cp="🔙">zeréck | Feil</annotation>
+		<annotation cp="🔙" type="tts">ZERÉCK-Feil</annotation>
+		<annotation cp="🔚">Enn | Feil</annotation>
+		<annotation cp="🔚" type="tts">ENN-Feil</annotation>
+		<annotation cp="🔛">Markéierung | un | Feil</annotation>
+		<annotation cp="🔛" type="tts">UN!-Feil</annotation>
+		<annotation cp="🔜">geschwënn | Feil</annotation>
+		<annotation cp="🔜" type="tts">GESCHWËNN-Feil</annotation>
+		<annotation cp="🔝">Top | no uewen | Feil</annotation>
+		<annotation cp="🔝" type="tts">TOP-Feil</annotation>
+		<annotation cp="🛐">Veréierung | Relioun</annotation>
+		<annotation cp="🛐" type="tts">Gotteshaus</annotation>
+		<annotation cp="⚛">Atheist | Atom</annotation>
+		<annotation cp="⚛" type="tts">Atomzeechen</annotation>
+		<annotation cp="🕉">Relioun | Hindu</annotation>
+		<annotation cp="🕉" type="tts">OM</annotation>
+		<annotation cp="✡">Relioun | jiddesch | Stär | Judd | David</annotation>
+		<annotation cp="✡" type="tts">Davidstär</annotation>
+		<annotation cp="☸">Buddhist | Rad | Dharma | Relioun</annotation>
+		<annotation cp="☸" type="tts">Dharma-Rad</annotation>
+		<annotation cp="☯">Taoist | Relioun | Tao | Yang | Yin</annotation>
+		<annotation cp="☯" type="tts">Yin-Yang</annotation>
+		<annotation cp="✝">Relioun | Kräiz | chrëschtlech</annotation>
+		<annotation cp="✝" type="tts">latäinescht Kräiz</annotation>
+		<annotation cp="☦">Relioun | Kräiz | chrëschtlech</annotation>
+		<annotation cp="☦" type="tts">orthodoxt Kräiz</annotation>
+		<annotation cp="☪">Moslem | Relioun | Islam</annotation>
+		<annotation cp="☪" type="tts">Stär an Hallefmound</annotation>
+		<annotation cp="☮">Fridden</annotation>
+		<annotation cp="☮" type="tts">Friddenszeechen</annotation>
+		<annotation cp="🕎">Käerzestänner | Relioun</annotation>
+		<annotation cp="🕎" type="tts">Menorah</annotation>
+		<annotation cp="🔯">Stär | Gléck</annotation>
+		<annotation cp="🔯" type="tts">sechszackege Stär mat Punkt an der Mëtt</annotation>
+		<annotation cp="♈">Stärzeechen | Widder</annotation>
+		<annotation cp="♈" type="tts">Widder (Stärzeechen)</annotation>
+		<annotation cp="♉">Ochs | Stärzeechen | Stéier</annotation>
+		<annotation cp="♉" type="tts">Stéier</annotation>
+		<annotation cp="♊">Stärzeechen | Zwilling</annotation>
+		<annotation cp="♊" type="tts">Zwilling</annotation>
+		<annotation cp="♋">Stärzeechen | Kriibs</annotation>
+		<annotation cp="♋" type="tts">Kriibs (Stärzeechen)</annotation>
+		<annotation cp="♌">Stärzeechen | Léif</annotation>
+		<annotation cp="♌" type="tts">Léif</annotation>
+		<annotation cp="♍">Stärzeechen</annotation>
+		<annotation cp="♍" type="tts">Jongfra</annotation>
+		<annotation cp="♎">Stärzeechen | Justiz | Wo | Geriicht</annotation>
+		<annotation cp="♎" type="tts">Wo (Stärzeechen)</annotation>
+		<annotation cp="♏">Skorpioun | Stärzeechen</annotation>
+		<annotation cp="♏" type="tts">Skorpioun (Stärzeechen)</annotation>
+		<annotation cp="♐">Stärzeechen | Bouschéisser</annotation>
+		<annotation cp="♐" type="tts">Schütze</annotation>
+		<annotation cp="♑">Stärzeechen | Gees</annotation>
+		<annotation cp="♑" type="tts">Steebock</annotation>
+		<annotation cp="♒">Träger | Stärzeechen | Waasser</annotation>
+		<annotation cp="♒" type="tts">Waassermann</annotation>
+		<annotation cp="♓">Stärzeechen | Fësch</annotation>
+		<annotation cp="♓" type="tts">Fësch (Stärzeechen)</annotation>
+		<annotation cp="⛎">Träger | Schlaang | Stärzeechen | Schlaangenträger</annotation>
+		<annotation cp="⛎" type="tts">Schlaangenträger (Ophiuchus)</annotation>
+		<annotation cp="🔀">gekräizt | Feil</annotation>
+		<annotation cp="🔀" type="tts">Zoufallslecture-Knäppchen</annotation>
+		<annotation cp="🔁">widderhuelen | an Zärerichtung | Feil</annotation>
+		<annotation cp="🔁" type="tts">Widderhuelknäppchen</annotation>
+		<annotation cp="🔂">eemol | an Zärerichtung | Feil</annotation>
+		<annotation cp="🔂" type="tts">Widderhuelknäppche fir ee Lidd</annotation>
+		<annotation cp="▶">ofspillen | Dräieck | riets | Feil</annotation>
+		<annotation cp="▶" type="tts">Ofspillknäppchen</annotation>
+		<annotation cp="⏩">Virlaf | schnell | duebel | Feil</annotation>
+		<annotation cp="⏩" type="tts">Schnellvirlafknäppchen</annotation>
+		<annotation cp="⏭">nächst Kapitel | Dräieck | nächst Lidd | Feil</annotation>
+		<annotation cp="⏭" type="tts">Knäppche „Nächst Lidd“</annotation>
+		<annotation cp="⏯">riets | ofspillen | pausen | Feil | Dräieck</annotation>
+		<annotation cp="⏯" type="tts">Ofspill- oder Pausknäppchen</annotation>
+		<annotation cp="◀">Dräieck | lénks | Récklaf | Feil</annotation>
+		<annotation cp="◀" type="tts">Récklafknäppchen</annotation>
+		<annotation cp="⏪">Récklaf | duebel | Feil</annotation>
+		<annotation cp="⏪" type="tts">Schnellrécklafknäppchen</annotation>
+		<annotation cp="⏮">viregt Lidd | Dräieck | viregt Kapitel | Feil</annotation>
+		<annotation cp="⏮" type="tts">Knäppchen „Lescht Lidd“</annotation>
+		<annotation cp="🔼">rout | Knäppchen | Feil</annotation>
+		<annotation cp="🔼" type="tts">Knäppchen „No uewen“</annotation>
+		<annotation cp="⏫">duebel | Feil</annotation>
+		<annotation cp="⏫" type="tts">Knäppchen „Séier no uewen“</annotation>
+		<annotation cp="🔽">rout | no ënnen | Knäppchen | Feil</annotation>
+		<annotation cp="🔽" type="tts">Knäppchen „No ënnen“</annotation>
+		<annotation cp="⏬">no ënnen | duebel | Feil</annotation>
+		<annotation cp="⏬" type="tts">Knäppchen „Séier no ënnen“</annotation>
+		<annotation cp="⏸">vertikal | duebel | Stréch | Paus</annotation>
+		<annotation cp="⏸" type="tts">Pausknäppchen</annotation>
+		<annotation cp="⏹">Stop | Quadrat</annotation>
+		<annotation cp="⏹" type="tts">Stoppknäppchen</annotation>
+		<annotation cp="⏺">Krees | ophuelen</annotation>
+		<annotation cp="⏺" type="tts">Opnamknäppchen</annotation>
+		<annotation cp="⏏">auswerfen</annotation>
+		<annotation cp="⏏" type="tts">Auswerfknäppchen</annotation>
+		<annotation cp="🎦">Kamera | Film</annotation>
+		<annotation cp="🎦" type="tts">Kino</annotation>
+		<annotation cp="🔅">dimmen | Hellegkeet | niddereg</annotation>
+		<annotation cp="🔅" type="tts">Dimmerknäppchen</annotation>
+		<annotation cp="🔆">Hellegkeet | hell</annotation>
+		<annotation cp="🔆" type="tts">Ophellknäppchen</annotation>
+		<annotation cp="📶">Signal | Empfang | Telefon | Balken | Funk | Mobil | Handy</annotation>
+		<annotation cp="📶" type="tts">Empfangbalken</annotation>
+		<annotation cp="📳">Modus | Telefon | Funk | Mobil | Vibratioun | Handy</annotation>
+		<annotation cp="📳" type="tts">Vibratiounsmodus</annotation>
+		<annotation cp="📴">aus | Telefon | Funk | Mobil | Handy</annotation>
+		<annotation cp="📴" type="tts">Handy aus</annotation>
+		<annotation cp="♀">Fra</annotation>
+		<annotation cp="♀" type="tts">weiblecht Zeechen</annotation>
+		<annotation cp="♂">Mann</annotation>
+		<annotation cp="♂" type="tts">männlecht Zeechen</annotation>
+		<annotation cp="⚕">Asklepios | Personal | Medezin</annotation>
+		<annotation cp="⚕" type="tts">medezinescht Symbol</annotation>
+		<annotation cp="♻">recyléieren</annotation>
+		<annotation cp="♻" type="tts">Recycling-Zeechen</annotation>
+		<annotation cp="⚜">Lilie</annotation>
+		<annotation cp="⚜" type="tts">Lilie</annotation>
+		<annotation cp="🔱">Schëff | Dräizack | Anker | Ofzeechen | Handwierksgeschir</annotation>
+		<annotation cp="🔱" type="tts">Dräizack</annotation>
+		<annotation cp="📛">Schëld | Numm</annotation>
+		<annotation cp="📛" type="tts">Nummschëld</annotation>
+		<annotation cp="🔰">gréng | japanesch | Ufänger | Wopen | Blat | giel</annotation>
+		<annotation cp="🔰" type="tts">Ufängerzeechen (Japan)</annotation>
+		<annotation cp="⭕">Krees | o</annotation>
+		<annotation cp="⭕" type="tts">groussen décke Krees</annotation>
+		<annotation cp="✅">Kreepchen | Krop</annotation>
+		<annotation cp="✅" type="tts">fettgedréckte wäisse Kreepchen</annotation>
+		<annotation cp="☑">Këscht | Urn | Krop | Kreepchen</annotation>
+		<annotation cp="☑" type="tts">Urn mat Kreepchen</annotation>
+		<annotation cp="✔">Kreepchen | Krop</annotation>
+		<annotation cp="✔" type="tts">fettgedréckte Kreepchen</annotation>
+		<annotation cp="✖">ofbriechen | x | Multiplikatioun | multiplizéieren</annotation>
+		<annotation cp="✖" type="tts">fettgedrécktent Multiplikatiounszeechen</annotation>
+		<annotation cp="❌">Multiplikatioun | multiplizéieren | ofbriechen | x | Zeechen</annotation>
+		<annotation cp="❌" type="tts">Kräizzeechen</annotation>
+		<annotation cp="❎">Zeechen | Quadrat</annotation>
+		<annotation cp="❎" type="tts">X-Knäppchen</annotation>
+		<annotation cp="➕">Mathematik | Plus</annotation>
+		<annotation cp="➕" type="tts">fettgedrécktent Pluszeechen</annotation>
+		<annotation cp="➖">Mathematik | Minus</annotation>
+		<annotation cp="➖" type="tts">fettgedrécktent Minuszeechen</annotation>
+		<annotation cp="➗">Mathematik | Divisioun</annotation>
+		<annotation cp="➗" type="tts">fettgedrécktent Divisiounszeechen</annotation>
+		<annotation cp="➰">Schleef | Kréngel</annotation>
+		<annotation cp="➰" type="tts">Schleef</annotation>
+		<annotation cp="➿">Schleef | duebel | Kréngel</annotation>
+		<annotation cp="➿" type="tts">duebel Schleef</annotation>
+		<annotation cp="〽">deelen | Zeechen</annotation>
+		<annotation cp="〽" type="tts">Deelzeechen</annotation>
+		<annotation cp="✳">Asterisk</annotation>
+		<annotation cp="✳" type="tts">aachtzackege Stärchen</annotation>
+		<annotation cp="✴">Stär</annotation>
+		<annotation cp="✴" type="tts">aachtzackege Stär</annotation>
+		<annotation cp="❇">Fonken</annotation>
+		<annotation cp="❇" type="tts">Fonken</annotation>
+		<annotation cp="‼">Ausruff | Interpunktioun | Zeechen</annotation>
+		<annotation cp="‼" type="tts">duebelt Ausruffzeechen</annotation>
+		<annotation cp="⁉">Interpunktioun | Fro | Ausruff | Fragezeechen | Zeechen</annotation>
+		<annotation cp="⁉" type="tts">Ausrufffragezeechen</annotation>
+		<annotation cp="❓">Fro | Interpunktioun | Zeechen</annotation>
+		<annotation cp="❓" type="tts">Fragezeechen</annotation>
+		<annotation cp="❔">Fro | Kontur | Interpunktioun | Zeechen</annotation>
+		<annotation cp="❔" type="tts">wäisst Fragezeechen</annotation>
+		<annotation cp="❕">Ausruff | Kontur | Interpunktioun | Zeechen</annotation>
+		<annotation cp="❕" type="tts">wäisst Ausruffzeechen</annotation>
+		<annotation cp="❗">Ausruff | Interpunktioun | Zeechen</annotation>
+		<annotation cp="❗" type="tts">Ausruffzeechen</annotation>
+		<annotation cp="〰">gewellt | Interpunktioun | Stréch</annotation>
+		<annotation cp="〰" type="tts">gewellte Stréch</annotation>
+		<annotation cp="©">Copyright</annotation>
+		<annotation cp="©" type="tts">Copyright</annotation>
+		<annotation cp="®">agedroen</annotation>
+		<annotation cp="®" type="tts">agedroen</annotation>
+		<annotation cp="™">Trademark | TM | Zeechen</annotation>
+		<annotation cp="™" type="tts">Markenzeechen</annotation>
+		<annotation cp="🔠">grouss | latäin | Eingab | Buschtawen | ABCD</annotation>
+		<annotation cp="🔠" type="tts">Groussbuschtawen (Latäin)</annotation>
+		<annotation cp="🔡">kleng | latäin | Eingab | abcd | Buschtawen</annotation>
+		<annotation cp="🔡" type="tts">Klengbuschtawen (Latäin)</annotation>
+		<annotation cp="🔢">Eingab | 1234 | Zuelen</annotation>
+		<annotation cp="🔢" type="tts">Zueleneingab</annotation>
+		<annotation cp="🔣">Eingab | 〒♪&amp;%</annotation>
+		<annotation cp="🔣" type="tts">Symbolereingab</annotation>
+		<annotation cp="🔤">abc | latäin | Eingab | Alphabet | Buschtawen</annotation>
+		<annotation cp="🔤" type="tts">Buschtaweneingab (Latäin)</annotation>
+		<annotation cp="🅰">Bluttgrupp | A</annotation>
+		<annotation cp="🅰" type="tts">A-Knäppchen (Bluttgrupp)</annotation>
+		<annotation cp="🆎">Bluttgrupp | AB</annotation>
+		<annotation cp="🆎" type="tts">AB-Knäppchen (Bluttgrupp)</annotation>
+		<annotation cp="🅱">Bluttgrupp | B</annotation>
+		<annotation cp="🅱" type="tts">B-Knäppchen (Bluttgrupp)</annotation>
+		<annotation cp="🆑">CL</annotation>
+		<annotation cp="🆑" type="tts">CL-Knäppchen</annotation>
+		<annotation cp="🆒">cool</annotation>
+		<annotation cp="🆒" type="tts">COOL-Knäppchen</annotation>
+		<annotation cp="🆓">fräi</annotation>
+		<annotation cp="🆓" type="tts">FRÄI-Knäppchen</annotation>
+		<annotation cp="ℹ">I | Informatioun</annotation>
+		<annotation cp="ℹ" type="tts">Informatioun</annotation>
+		<annotation cp="🆔">Identitéit | ID</annotation>
+		<annotation cp="🆔" type="tts">ID-Knäppchen</annotation>
+		<annotation cp="Ⓜ">M | Krees</annotation>
+		<annotation cp="Ⓜ" type="tts">agekreesten M</annotation>
+		<annotation cp="🆕">nei</annotation>
+		<annotation cp="🆕" type="tts">NEI-Knäppchen</annotation>
+		<annotation cp="🆖">NG</annotation>
+		<annotation cp="🆖" type="tts">NG-Knäppchen</annotation>
+		<annotation cp="🅾">Bluttgrupp | O</annotation>
+		<annotation cp="🅾" type="tts">O-Knäppchen (Bluttgrupp)</annotation>
+		<annotation cp="🆗">OK</annotation>
+		<annotation cp="🆗" type="tts">OK-Knäppchen</annotation>
+		<annotation cp="🅿">Parking</annotation>
+		<annotation cp="🅿" type="tts">P-Knäppchen</annotation>
+		<annotation cp="🆘">SOS | Hëllef</annotation>
+		<annotation cp="🆘" type="tts">SOS-Knäppchen</annotation>
+		<annotation cp="🆙">no uewen | Zeechen</annotation>
+		<annotation cp="🆙" type="tts">UP!-Knäppchen</annotation>
+		<annotation cp="🆚">versus | VS</annotation>
+		<annotation cp="🆚" type="tts">VS-Knäppchen</annotation>
+		<annotation cp="🈁">’hei’ | ココ | Katakana | japanesch</annotation>
+		<annotation cp="🈁" type="tts">japanesche Knäppchen ’hei’</annotation>
+		<annotation cp="🈂">’Serviceännerung’ | Katakana | japanesch | サ</annotation>
+		<annotation cp="🈂" type="tts">japanesche Knäppchen ’Serviceännerung’</annotation>
+		<annotation cp="🈷">月 | Ideograf | japanesch | ’mountleche Betrag’</annotation>
+		<annotation cp="🈷" type="tts">japanesche Knäppchen ’mountleche Betrag’</annotation>
+		<annotation cp="🈶">’net gratis’ | Ideograf | japanesch | 有</annotation>
+		<annotation cp="🈶" type="tts">japanesche Knäppchen ’net gratis’</annotation>
+		<annotation cp="🈯">’reservéiert’ | Ideograf | japanesch | 指</annotation>
+		<annotation cp="🈯" type="tts">japanesche Knäppchen ’reservéiert’</annotation>
+		<annotation cp="🉐">’Schnäppchen’ | Ideograf | japanesch | 得</annotation>
+		<annotation cp="🉐" type="tts">japanesche Knäppchen ’Schnäppchen’</annotation>
+		<annotation cp="🈹">’Rabatt’ | Ideograf | japanesch | 割</annotation>
+		<annotation cp="🈹" type="tts">japanesche Knäppchen ’Rabatt’</annotation>
+		<annotation cp="🈚">’gratis’ | 無 | Ideograf | japanesch</annotation>
+		<annotation cp="🈚" type="tts">japanesche Knäppchen ’gratis’</annotation>
+		<annotation cp="🈲">禁 | Ideograf | japanesch | ’verbueden’</annotation>
+		<annotation cp="🈲" type="tts">japanesche Knäppchen ’verbueden’</annotation>
+		<annotation cp="🉑">可 | Ideograf | japanesch | ’acceptabel’</annotation>
+		<annotation cp="🉑" type="tts">japanesche Knäppchen ’acceptabel’</annotation>
+		<annotation cp="🈸">’Applikatioun’ | 申 | Ideograf | japanesch</annotation>
+		<annotation cp="🈸" type="tts">japanesche Knäppchen ’Applikatioun’</annotation>
+		<annotation cp="🈴">’Ofkommes’ | Ideograf | japanesch | 合</annotation>
+		<annotation cp="🈴" type="tts">japanesche Knäppchen ’Ofkommes’</annotation>
+		<annotation cp="🈳">空 | ’fräi’ | Ideograf | japanesch</annotation>
+		<annotation cp="🈳" type="tts">japanesche Knäppchen ’fräi’</annotation>
+		<annotation cp="㊗">祝 | Ideograf | japanesch | ’Gléckwënsch’</annotation>
+		<annotation cp="㊗" type="tts">japanesche Knäppchen ’Gléckwënsch’</annotation>
+		<annotation cp="㊙">’Geheimnis’ | 秘 | Ideograf | japanesch</annotation>
+		<annotation cp="㊙" type="tts">japanesche Knäppchen ’Geheimnis’</annotation>
+		<annotation cp="🈺">営 | Ideograf | japanesch | ’op fir Geschäfter’</annotation>
+		<annotation cp="🈺" type="tts">japanesche Knäppchen ’op fir Geschäfter’</annotation>
+		<annotation cp="🈵">満 | Ideograf | japanesch | ’net fräi’</annotation>
+		<annotation cp="🈵" type="tts">japanesche Knäppchen ’net fräi’</annotation>
+		<annotation cp="🔴">geometresch | Krees | rout</annotation>
+		<annotation cp="🔴" type="tts">roude Krees</annotation>
+		<annotation cp="🔵">blo | Krees | geometresch</annotation>
+		<annotation cp="🔵" type="tts">bloe Krees</annotation>
+		<annotation cp="⚫">geometresch | Krees</annotation>
+		<annotation cp="⚫" type="tts">schwaarze Krees</annotation>
+		<annotation cp="⚪">geometresch | Krees</annotation>
+		<annotation cp="⚪" type="tts">wäisse Krees</annotation>
+		<annotation cp="⬛">geometresch | Quadrat</annotation>
+		<annotation cp="⬛" type="tts">schwaarze grousse Quadrat</annotation>
+		<annotation cp="⬜">geometresch | Quadrat</annotation>
+		<annotation cp="⬜" type="tts">wäisse grousse Quadrat</annotation>
+		<annotation cp="◼">geometresch | Quadrat</annotation>
+		<annotation cp="◼" type="tts">mëttelgrousse schwaarze Quadrat</annotation>
+		<annotation cp="◻">geometresch | Quadrat</annotation>
+		<annotation cp="◻" type="tts">mëttelgrousse wäisse Quadrat</annotation>
+		<annotation cp="◾">geometresch | Quadrat</annotation>
+		<annotation cp="◾" type="tts">schwaarze mëttelklenge Quadrat</annotation>
+		<annotation cp="◽">geometresch | Quadrat</annotation>
+		<annotation cp="◽" type="tts">wäisse mëttelklenge Quadrat</annotation>
+		<annotation cp="▪">geometresch | Quadrat</annotation>
+		<annotation cp="▪" type="tts">klenge schwaarze Quadrat</annotation>
+		<annotation cp="▫">geometresch | Quadrat</annotation>
+		<annotation cp="▫" type="tts">klenge wäisse Quadrat</annotation>
+		<annotation cp="🔶">geometresch | orange | Raut</annotation>
+		<annotation cp="🔶" type="tts">grouss orange Raut</annotation>
+		<annotation cp="🔷">blo | geometresch | Raut</annotation>
+		<annotation cp="🔷" type="tts">grouss blo Raut</annotation>
+		<annotation cp="🔸">geometresch | orange | Raut</annotation>
+		<annotation cp="🔸" type="tts">kleng orange Raut</annotation>
+		<annotation cp="🔹">blo | geometresch | Raut</annotation>
+		<annotation cp="🔹" type="tts">kleng blo Raut</annotation>
+		<annotation cp="🔺">geometresch | rout</annotation>
+		<annotation cp="🔺" type="tts">rouden Dräieck mat der Spëtzt no uewen</annotation>
+		<annotation cp="🔻">geometresch | rout | no ënnen</annotation>
+		<annotation cp="🔻" type="tts">rouden Dräieck mat der Spëtzt no ënnen</annotation>
+		<annotation cp="💠">geometresch | Comic | rout | Raut</annotation>
+		<annotation cp="💠" type="tts">Raut mat engem Punkt an der Mëtt</annotation>
+		<annotation cp="🔘">geometresch | Optiounen | Knäppchen</annotation>
+		<annotation cp="🔘" type="tts">Optiounsknäppchen</annotation>
+		<annotation cp="🔳">geometresch | Kontur | Knäppchen | Quadrat</annotation>
+		<annotation cp="🔳" type="tts">wäisse véiereckege Knäppchen</annotation>
+		<annotation cp="🔲">geometresch | Knäppchen | Quadrat</annotation>
+		<annotation cp="🔲" type="tts">schwaarze véiereckege Knäppchen</annotation>
+		<annotation cp="🏁">Course | karéiert</annotation>
+		<annotation cp="🏁" type="tts">karéierte Fändel</annotation>
+		<annotation cp="🚩">Post</annotation>
+		<annotation cp="🚩" type="tts">dräieckege Fändel</annotation>
+		<annotation cp="🎌">Feier | Kräiz | japanesch | gekräizt</annotation>
+		<annotation cp="🎌" type="tts">gekräizt Fändelen</annotation>
+		<annotation cp="🏴">wénkend</annotation>
+		<annotation cp="🏴" type="tts">schwaarze Fändel</annotation>
+		<annotation cp="🏳">wénkend</annotation>
+		<annotation cp="🏳" type="tts">wäisse Fändel</annotation>
+		<annotation cp="🏳‍🌈">Reebou</annotation>
+		<annotation cp="🏳‍🌈" type="tts">Reeboufändel</annotation>
+	</annotations>
+</ldml>

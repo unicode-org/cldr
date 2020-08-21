@@ -4,6 +4,8 @@
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
 -->
 <ldml>
 	<identity>
@@ -11,6 +13,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="wo"/>
 	</identity>
 	<annotations>
+		<annotation cp="🏻">xeesaayu der | xeet 1–2</annotation>
+		<annotation cp="🏻" type="tts">xeesaayu der bu woyof</annotation>
+		<annotation cp="🏼">xeesaayu der | xeet 3</annotation>
+		<annotation cp="🏼" type="tts">xeesaayu der bu xeereer</annotation>
+		<annotation cp="🏽">xeesaayu der | xeet 4</annotation>
+		<annotation cp="🏽" type="tts">xeesaayu der bu yam</annotation>
+		<annotation cp="🏾">xeesaayu der | xeet 5</annotation>
+		<annotation cp="🏾" type="tts">xeesaayu der bu xawa ñuul</annotation>
+		<annotation cp="🏿">xeesaayu der | xeet 6</annotation>
+		<annotation cp="🏿" type="tts">xeesaayu der bu ñuul</annotation>
 		<annotation cp="‾">overline</annotation>
 		<annotation cp="‾" type="tts">overline</annotation>
 		<annotation cp="‽">interrobang</annotation>
@@ -19,5 +31,2521 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‸" type="tts">caret</annotation>
 		<annotation cp="⁂">asterism</annotation>
 		<annotation cp="⁂" type="tts">asterism</annotation>
+		<annotation cp="😀">kanam | gaññi</annotation>
+		<annotation cp="😀" type="tts">kanam guy gaññi</annotation>
+		<annotation cp="😃">muuñ | gémmiñ | ubbeeku | kanam</annotation>
+		<annotation cp="😃" type="tts">kanam ak gémmiñ gu ubbeeku di muuñ</annotation>
+		<annotation cp="😄">kanam | gémmiñ | bët | muuñ | ubbeeku</annotation>
+		<annotation cp="😄" type="tts">kanam guy muuñ ak ubbeeku gémmiñ ak muuñ bët</annotation>
+		<annotation cp="😁">bët | muuñ | kanam | gaññi</annotation>
+		<annotation cp="😁" type="tts">kanam guy gaññi ak bët yuy muuñ</annotation>
+		<annotation cp="😆">satisfied | reetaan | kanam | gémmiñ | muuñ | ubbeeku</annotation>
+		<annotation cp="😆" type="tts">kanam guy muuñ ak ubbeeku gémmiñ ak buñ tëj bët</annotation>
+		<annotation cp="😅">kanam | ñàq | sedd | muuñ | ubbeeku</annotation>
+		<annotation cp="😅" type="tts">kanam guy muuñ ak ubbeeku gémmiñ ak ñàqu tiitaange</annotation>
+		<annotation cp="🤣">kanam | xalangu | suuf | reetaan</annotation>
+		<annotation cp="🤣" type="tts">ree ba xalangu ci suuf</annotation>
+		<annotation cp="😂">rangooñ | mbegte | reetaan | kanam</annotation>
+		<annotation cp="😂" type="tts">kanam gu am rangooñu bànneex</annotation>
+		<annotation cp="🙂">muuñ | kanam</annotation>
+		<annotation cp="🙂" type="tts">kanam gu muuñ tuuti</annotation>
+		<annotation cp="🙃">buñ juutal | kanam</annotation>
+		<annotation cp="🙃" type="tts">kanam gu dëppu</annotation>
+		<annotation cp="😉">kanam | piis</annotation>
+		<annotation cp="😉" type="tts">piis benn bët</annotation>
+		<annotation cp="😊">bët | kanam | mbegte | muuñ</annotation>
+		<annotation cp="😊" type="tts">kanamu mbegte ak bët yuy muuñ</annotation>
+		<annotation cp="😇">kanam | serkal ci kaw | xamul-dara | muuñ | feem | léebu fee | malaaka</annotation>
+		<annotation cp="😇" type="tts">kanam guy muuñ ak serkal ci kawam</annotation>
+		<annotation cp="😍">bët | mbëggeel | kanam | muuñ</annotation>
+		<annotation cp="😍" type="tts">muuñ, kanam, xol, bët</annotation>
+		<annotation cp="🤩">bët | biddeew | kanam | gaññi</annotation>
+		<annotation cp="🤩" type="tts">dóor-biddeew</annotation>
+		<annotation cp="😘">fóon | kanam</annotation>
+		<annotation cp="😘" type="tts">kanam guy ëf fóon</annotation>
+		<annotation cp="😗">fóon | kanam</annotation>
+		<annotation cp="😗" type="tts">kanam guy fóon</annotation>
+		<annotation cp="☺">muuñ | fësal | bàyyeeku | kanam</annotation>
+		<annotation cp="☺" type="tts">kanam guy muuñ</annotation>
+		<annotation cp="😚">bët | fóon | kanam | buñ tëj</annotation>
+		<annotation cp="😚" type="tts">kanam guy fóon ak bët yu gëmm</annotation>
+		<annotation cp="😙">bët | fóon | kanam | muuñ</annotation>
+		<annotation cp="😙" type="tts">kanam guy fóon ak bëti muuñ</annotation>
+		<annotation cp="😋">melaastiku | um | kanam | bànneexu | muuñ | neex</annotation>
+		<annotation cp="😋" type="tts">kanam, bànneexu, ñeex, ñam</annotation>
+		<annotation cp="😛">kanam | làmmiñ</annotation>
+		<annotation cp="😛" type="tts">kanam bu ànd ak làmmiñ wuñ tàllal</annotation>
+		<annotation cp="😜">làmmiñ | kanam | kaf | bët | piis</annotation>
+		<annotation cp="😜" type="tts">kanam ak tàllal làmmiñ ak bët buy piis</annotation>
+		<annotation cp="🤪">bët | ndaw | yaatu</annotation>
+		<annotation cp="🤪" type="tts">kanamu dof</annotation>
+		<annotation cp="😝">ñaaw | kanam | bët | cafka | làmmiñ</annotation>
+		<annotation cp="😝" type="tts">kanam ak tàllal làmmiñ ak buñ tëj bët</annotation>
+		<annotation cp="🤑">gémmiñ | xaalis | kanam</annotation>
+		<annotation cp="🤑" type="tts">kanamu gémmiñu xaalis</annotation>
+		<annotation cp="🤗">kottante | kanam | kott</annotation>
+		<annotation cp="🤗" type="tts">kanamu kottante</annotation>
+		<annotation cp="🤭">dar-gémmiñ</annotation>
+		<annotation cp="🤭" type="tts">kanam ak loxo bu dar gémmiñ</annotation>
+		<annotation cp="🤫">noppi | shuut</annotation>
+		<annotation cp="🤫" type="tts">kanamu shuut noppil</annotation>
+		<annotation cp="🤔">kanam | xalaat</annotation>
+		<annotation cp="🤔" type="tts">kanamu guy xalaat</annotation>
+		<annotation cp="🤐">gémmiñ | kanam | fermitiir</annotation>
+		<annotation cp="🤐" type="tts">kanam ak gémiñ guñ fermitiir</annotation>
+		<annotation cp="🤨">ñaaw-njortu | ñàkka-wóolu</annotation>
+		<annotation cp="🤨" type="tts">kanam ak buñ yëkkati yéen</annotation>
+		<annotation cp="😐">fige | kanam | neutre</annotation>
+		<annotation cp="😐" type="tts">kanam gu ni tekk</annotation>
+		<annotation cp="😑">gu melul nenn | budul wax dara | bu waxul dara | kanam</annotation>
+		<annotation cp="😑" type="tts">kanam gu melul nenn</annotation>
+		<annotation cp="😶">cellaaral | gémmiñ | tekk | kanam</annotation>
+		<annotation cp="😶" type="tts">kanam gu amul gémmiñ</annotation>
+		<annotation cp="😏">bëgg-waccu | kanam</annotation>
+		<annotation cp="😏" type="tts">kanam gu bëgg-waccu</annotation>
+		<annotation cp="😒">kontaanul | ñàkk-caaxaan | kanam</annotation>
+		<annotation cp="😒" type="tts">kanam gu ñàkk xorom</annotation>
+		<annotation cp="🙄">bët | regeju | kanam</annotation>
+		<annotation cp="🙄" type="tts">kanam guy regeju</annotation>
+		<annotation cp="😬">yëfi golo | kanam</annotation>
+		<annotation cp="😬" type="tts">kanam guy def yëfi golo</annotation>
+		<annotation cp="🤥">pinocchio | kanamu | buy fen</annotation>
+		<annotation cp="🤥" type="tts">kanamu fenkat</annotation>
+		<annotation cp="😌">noppalu | kanam</annotation>
+		<annotation cp="😌" type="tts">kanam féex</annotation>
+		<annotation cp="😔">bari-xalaat | dejected | kanam</annotation>
+		<annotation cp="😔" type="tts">kanamu kuy xalaat</annotation>
+		<annotation cp="😪">nelaw | kanam</annotation>
+		<annotation cp="😪" type="tts">kanam guy nelaw</annotation>
+		<annotation cp="🤤">kanam | guy yuut</annotation>
+		<annotation cp="🤤" type="tts">kanam guy yuut</annotation>
+		<annotation cp="😴">nelaw | zzz | kanam</annotation>
+		<annotation cp="😴" type="tts">kanam gu nelaw</annotation>
+		<annotation cp="😷">doktor | kanam | mask | sedd | garab | wopp</annotation>
+		<annotation cp="😷" type="tts">kanam guñ bàndaas</annotation>
+		<annotation cp="🤒">termomeetar | feelaat | wopp | kanam</annotation>
+		<annotation cp="🤒" type="tts">kanam gu ànd ak termomeetar</annotation>
+		<annotation cp="🤕">gaañu | naxar | bandage | kanam</annotation>
+		<annotation cp="🤕" type="tts">kanam guñ laxas ak bàndaas</annotation>
+		<annotation cp="🤢">waccu | kanam | xel muy teey</annotation>
+		<annotation cp="🤢" type="tts">kanamu guy teey xel</annotation>
+		<annotation cp="🤮">feebar | waccu</annotation>
+		<annotation cp="🤮" type="tts">kanam guy waccu</annotation>
+		<annotation cp="🤧">gu jéggi dayo | tissooli | kanamu</annotation>
+		<annotation cp="🤧" type="tts">kanamu tissooli</annotation>
+		<annotation cp="😵">diis | kanam</annotation>
+		<annotation cp="😵" type="tts">kanam gu diis</annotation>
+		<annotation cp="🤯">mbettel</annotation>
+		<annotation cp="🤯" type="tts">bopp buy toj</annotation>
+		<annotation cp="🤠">mbaxane | sàmm-bu-jigéen | kanam | kaboy</annotation>
+		<annotation cp="🤠" type="tts">kanam gu sol mbaxane kaboy</annotation>
+		<annotation cp="😎">lunet | weer | kanam | neex-deret | nuwaarfime | bët | jant | muuñ | yànj</annotation>
+		<annotation cp="😎" type="tts">muuñ, kanam, nuwaarfime</annotation>
+		<annotation cp="🤓">lëk | bëgg-masin | kanam</annotation>
+		<annotation cp="🤓" type="tts">kanamu bëñu lëk</annotation>
+		<annotation cp="🧐">fatt</annotation>
+		<annotation cp="🧐" type="tts">kanam ak lunet-bennbët</annotation>
+		<annotation cp="😕">jaaxasoo | kanam</annotation>
+		<annotation cp="😕" type="tts">kanam gu jaaxasoo</annotation>
+		<annotation cp="😟">kanam | jaaxle</annotation>
+		<annotation cp="😟" type="tts">kanam gu jaaxle</annotation>
+		<annotation cp="🙁">aj-yéen | kanam</annotation>
+		<annotation cp="🙁" type="tts">kanam gu ànd ak yéen yu xawa lemu</annotation>
+		<annotation cp="☹">aj-yéen | kanam</annotation>
+		<annotation cp="☹" type="tts">aj-yéen kanam</annotation>
+		<annotation cp="😮">gémmiñ | sympaty | ubbeeku | kanam</annotation>
+		<annotation cp="😮" type="tts">kanam ak gémiñ gu ubbeeku</annotation>
+		<annotation cp="😯">guñ juutal | waaru | kanam | jaaxle</annotation>
+		<annotation cp="😯" type="tts">kanam guñ juutal</annotation>
+		<annotation cp="😲">soke | waaru | kanam | bu baax</annotation>
+		<annotation cp="😲" type="tts">kanam gu waaru</annotation>
+		<annotation cp="😳">xel mu deppaar | bu am tomb yu xonk | kanam</annotation>
+		<annotation cp="😳" type="tts">kanam gu am tomb yu xonk</annotation>
+		<annotation cp="😦">aj ay yéen | gémmiñ | ubbeeku | kanam</annotation>
+		<annotation cp="😦" type="tts">kanam gu ànd ak yéen yu lemu ak gémmiñ gu ubbiku</annotation>
+		<annotation cp="😧">kanam | xawa jaaxle</annotation>
+		<annotation cp="😧" type="tts">kanam gu xawa jaaxle</annotation>
+		<annotation cp="😨">ragal | kanam | tiit</annotation>
+		<annotation cp="😨" type="tts">kanam guy tiitaleete</annotation>
+		<annotation cp="😰">gaawantu | kanam | gémmiñ | ñàq | sedd | baxa | ubbeeku</annotation>
+		<annotation cp="😰" type="tts">kanam ak ubbeeku gémmiñ ak ñàqu tiitaange</annotation>
+		<annotation cp="😥">kanam | kapris | mbetteel | féex</annotation>
+		<annotation cp="😥" type="tts">kanamu mbetteel te féex</annotation>
+		<annotation cp="😢">xol-bu-neexul | jooy | rangooñ | kanam</annotation>
+		<annotation cp="😢" type="tts">kanam guy jooy</annotation>
+		<annotation cp="😭">kanam | rangooñ | jooy | xol-bu-neexul | sob</annotation>
+		<annotation cp="😭" type="tts">kanam guy jooy ca kaw</annotation>
+		<annotation cp="😱">yuuxu | kanam | tiit | ragal | yëy</annotation>
+		<annotation cp="😱" type="tts">kanam guy jooy te tiit</annotation>
+		<annotation cp="😖">jaawale | kanam</annotation>
+		<annotation cp="😖" type="tts">kanam gu jaawale</annotation>
+		<annotation cp="😣">kanam | ñafe</annotation>
+		<annotation cp="😣" type="tts">kanam guy ñafe</annotation>
+		<annotation cp="😞">kanam | mbetteel</annotation>
+		<annotation cp="😞" type="tts">kanam gu am mbetteel</annotation>
+		<annotation cp="😓">kanam | ñàq | sedd</annotation>
+		<annotation cp="😓" type="tts">kanam ak ñaq wu sedd</annotation>
+		<annotation cp="😩">sonn | kanam | jommi</annotation>
+		<annotation cp="😩" type="tts">kanamu coono</annotation>
+		<annotation cp="😫">sonn | kanam</annotation>
+		<annotation cp="😫" type="tts">kanam gu sonn</annotation>
+		<annotation cp="😤">ndam | gañe | kanam</annotation>
+		<annotation cp="😤" type="tts">kanam gu ànd ak saxaaru bakkan</annotation>
+		<annotation cp="😡">dof | puucatu | kanam | mer | xonk</annotation>
+		<annotation cp="😡" type="tts">kanam guy puucatu</annotation>
+		<annotation cp="😠">kanam | dof | mer</annotation>
+		<annotation cp="😠" type="tts">kanam gu mer</annotation>
+		<annotation cp="🤬">waat</annotation>
+		<annotation cp="🤬" type="tts">kanam ak màndarga ci gémmiñ</annotation>
+		<annotation cp="😈">kanam | béjjen | muuñ | feem | léebu fee</annotation>
+		<annotation cp="😈" type="tts">kanam gu am ay béjjen</annotation>
+		<annotation cp="👿">kanam | imp | jinne | dëmm | feem | léebu fee</annotation>
+		<annotation cp="👿" type="tts">kanam gu mer am ay béjjen</annotation>
+		<annotation cp="💀">dee | léebu fee | kanam | rab-wu-gànde</annotation>
+		<annotation cp="💀" type="tts">yaxu-bopp</annotation>
+		<annotation cp="☠">dee | yax yu kruwaase | kanam | kraan | rab-wu-gànde</annotation>
+		<annotation cp="☠" type="tts">kraan and yax yu kruwaase</annotation>
+		<annotation cp="💩">puup | kanam | neefere | reelu | rab</annotation>
+		<annotation cp="💩" type="tts">julu puup</annotation>
+		<annotation cp="🤡">kluun | kanam</annotation>
+		<annotation cp="🤡" type="tts">kanamu kluun</annotation>
+		<annotation cp="👹">mbinddéef | kanam | rab-wu-gànde | feem | léebu fee</annotation>
+		<annotation cp="👹" type="tts">oogar</annotation>
+		<annotation cp="👺">mbinddéef | kanam | rab-wu-gànde | feem | léebu fee</annotation>
+		<annotation cp="👺" type="tts">kus-kondoroŋ</annotation>
+		<annotation cp="👻">mbinddéef | kanam | rab-wu-gànde | feem | léebu fee</annotation>
+		<annotation cp="👻" type="tts">fàntom</annotation>
+		<annotation cp="👽">kanam | mbiddéef | kaw-jawwu ji | rab-wu-gànde | ufo | feem | léebu fee</annotation>
+		<annotation cp="👽" type="tts">aliyeen</annotation>
+		<annotation cp="👾">kanam | léebu fee | aliyeen | kaw-jawwu ji | rab-wu-gànde | ufo | feem | mbiddéef</annotation>
+		<annotation cp="👾" type="tts">jiney aliyeen</annotation>
+		<annotation cp="🤖">rab-wu-gànde | roboo | kanam</annotation>
+		<annotation cp="🤖" type="tts">kanamu roboo</annotation>
+		<annotation cp="😺">kanam | gémmiñ | muuñ | ubbeeku | muus</annotation>
+		<annotation cp="😺" type="tts">kanamu muus muy muuñ ak gémmiñ gu ubbeeku</annotation>
+		<annotation cp="😸">kanam | bët | muuñ | muus | grin</annotation>
+		<annotation cp="😸" type="tts">kanamu muus muy xiiru ak bët yuy muuñ</annotation>
+		<annotation cp="😹">kanam | rangooñ | muus | joy</annotation>
+		<annotation cp="😹" type="tts">kanamu muus bu ànd ak rangooñi mbégte</annotation>
+		<annotation cp="😻">kanam | bët | muus | muuñ | mbëggeel</annotation>
+		<annotation cp="😻" type="tts">kanamu muus buy muuñ ak bëti xol</annotation>
+		<annotation cp="😼">kanam | ñaawal | weng | muuñ | muus</annotation>
+		<annotation cp="😼" type="tts">kanamu muus ak muuñ gu weng</annotation>
+		<annotation cp="😽">bët | fóon | kanam | muus</annotation>
+		<annotation cp="😽" type="tts">kanamu muus bu tëj bët di fóon</annotation>
+		<annotation cp="🙀">am-mbetteel | kanam | oh | muus | jommi</annotation>
+		<annotation cp="🙀" type="tts">kanamu muus mu jommi</annotation>
+		<annotation cp="😿">kanam | jooy | rangooñ | xol-bu-neexul | muus</annotation>
+		<annotation cp="😿" type="tts">kanam muus muy jooy</annotation>
+		<annotation cp="😾">kanam | puucatu | muus</annotation>
+		<annotation cp="😾" type="tts">kanamu muus mu mer</annotation>
+		<annotation cp="🙈">lu bon | déet | luñ aaye | kanam | golo | bul | gis | luñ tere | liyaar</annotation>
+		<annotation cp="🙈" type="tts">golo budul gis lu bon</annotation>
+		<annotation cp="🙉">lu bon | déet | luñ aaye | kanam | golo | bul | luñ tere | dégg | liyaar</annotation>
+		<annotation cp="🙉" type="tts">golo budul dégg lu bon</annotation>
+		<annotation cp="🙊">lu bon | déet | luñ aaye | wax | kanam | golo | bul | luñ tere | liyaar</annotation>
+		<annotation cp="🙊" type="tts">golo budul wax lu bon</annotation>
+		<annotation cp="💋">tuñ | fóon</annotation>
+		<annotation cp="💋" type="tts">marku fóon</annotation>
+		<annotation cp="💌">bataaxal | mbëggeel | xol | leetar</annotation>
+		<annotation cp="💌" type="tts">bataaxalu mbëggeel</annotation>
+		<annotation cp="💘">fett | bëgg-xaalis</annotation>
+		<annotation cp="💘" type="tts">xol ak fett</annotation>
+		<annotation cp="💝">Walantin | ribbon</annotation>
+		<annotation cp="💝" type="tts">xol buñ laxas ribaŋ</annotation>
+		<annotation cp="💖">eksite | tàkk</annotation>
+		<annotation cp="💖" type="tts">xol bu yànj</annotation>
+		<annotation cp="💗">buy màgg | yëngu | eksite | mer</annotation>
+		<annotation cp="💗" type="tts">xol buy màgg</annotation>
+		<annotation cp="💓">xol buy tëf-tëfi | yëngu | dóor</annotation>
+		<annotation cp="💓" type="tts">xol buy tëf-tëfi</annotation>
+		<annotation cp="💞">wëndeelu</annotation>
+		<annotation cp="💞" type="tts">xol buñ wëndeelu</annotation>
+		<annotation cp="💕">mbëggeel</annotation>
+		<annotation cp="💕" type="tts">ñaari xol</annotation>
+		<annotation cp="💟">xol</annotation>
+		<annotation cp="💟" type="tts">taaralukaayu xol</annotation>
+		<annotation cp="❣">màndarga | tomb | esklamaasiyoŋ</annotation>
+		<annotation cp="❣" type="tts">xol esklamaasiyoŋ bu fës</annotation>
+		<annotation cp="💔">damm | dammu</annotation>
+		<annotation cp="💔" type="tts">xol bu tasaaroo</annotation>
+		<annotation cp="❤">xol</annotation>
+		<annotation cp="❤" type="tts">xonk xol</annotation>
+		<annotation cp="🧡">oraas</annotation>
+		<annotation cp="🧡" type="tts">xol bu oraas</annotation>
+		<annotation cp="💛">mboq</annotation>
+		<annotation cp="💛" type="tts">xol bu mboq</annotation>
+		<annotation cp="💚">wert</annotation>
+		<annotation cp="💚" type="tts">xol bu wert</annotation>
+		<annotation cp="💙">baxa</annotation>
+		<annotation cp="💙" type="tts">xol bu baxa</annotation>
+		<annotation cp="💜">yolet</annotation>
+		<annotation cp="💜" type="tts">xol bu yolet</annotation>
+		<annotation cp="🖤">ñuul | soxor | iñaan</annotation>
+		<annotation cp="🖤" type="tts">xol bu ñuul</annotation>
+		<annotation cp="💯">100 | téemeer | eskoor | fees</annotation>
+		<annotation cp="💯" type="tts">tombi teeméer</annotation>
+		<annotation cp="💢">dof | mer | reelu</annotation>
+		<annotation cp="💢" type="tts">màndarga ku mer</annotation>
+		<annotation cp="💥">boom | reelu</annotation>
+		<annotation cp="💥" type="tts">mbëkkante</annotation>
+		<annotation cp="💫">biddeew | reelu</annotation>
+		<annotation cp="💫" type="tts">miir</annotation>
+		<annotation cp="💦">tasaaroo | ñàq | reelu</annotation>
+		<annotation cp="💦" type="tts">toqu ñaq</annotation>
+		<annotation cp="💨">daw | dem | reelu</annotation>
+		<annotation cp="💨" type="tts">dem sa yoon</annotation>
+		<annotation cp="🕳">pax</annotation>
+		<annotation cp="🕳" type="tts">pax</annotation>
+		<annotation cp="💣">reelu</annotation>
+		<annotation cp="💣" type="tts">bomb</annotation>
+		<annotation cp="💬">wax | bul | reelu | jalog | mànq</annotation>
+		<annotation cp="💬" type="tts">rëddu bind kàddu</annotation>
+		<annotation cp="👁‍🗨">bët | rëddu-bind-wax | seede</annotation>
+		<annotation cp="👁‍🗨" type="tts">bët ci rëddu-bind-wax</annotation>
+		<annotation cp="🗨">kàddu | jalog</annotation>
+		<annotation cp="🗨" type="tts">bulu bind waxu càmmoñ</annotation>
+		<annotation cp="🗯">dof | bul | mer | mànq</annotation>
+		<annotation cp="🗯" type="tts">ndijoor mer bul</annotation>
+		<annotation cp="💭">xalaat | reelu | bul | mànq</annotation>
+		<annotation cp="💭" type="tts">rëddu bind xalaat</annotation>
+		<annotation cp="💤">nelaw | reelu</annotation>
+		<annotation cp="💤" type="tts">zzz</annotation>
+		<annotation cp="👋">tàllal | buy tàllal | loxo</annotation>
+		<annotation cp="👋" type="tts">tàllal loxo</annotation>
+		<annotation cp="🤚">ginaaw loxo | buñ yëkkati</annotation>
+		<annotation cp="🤚" type="tts">ginaawu loxo bu jog</annotation>
+		<annotation cp="🖐">loxo | tàllal | baaraam</annotation>
+		<annotation cp="🖐" type="tts">buñ yëkkati loxo ak baaraam yuñ tàllal</annotation>
+		<annotation cp="✋">loxo</annotation>
+		<annotation cp="✋" type="tts">loxo bu jog</annotation>
+		<annotation cp="🖖">loxo | wolkaa | baaraam | ferñet</annotation>
+		<annotation cp="🖖" type="tts">loxo xaajale ñeenti baaraam</annotation>
+		<annotation cp="👌">waaw-kay | loxo</annotation>
+		<annotation cp="👌" type="tts">laxo waaw-kay</annotation>
+		<annotation cp="✌">ndam | v | loxo</annotation>
+		<annotation cp="✌" type="tts">loxo ndam</annotation>
+		<annotation cp="🤞">loxo | laxasante ñaari baaraam | wërsëk | baaraam</annotation>
+		<annotation cp="🤞" type="tts">laxasante ñaari baaraam</annotation>
+		<annotation cp="🤟">loxo | ILY</annotation>
+		<annotation cp="🤟" type="tts">liyaar mbëggeel</annotation>
+		<annotation cp="🤘">loxo | béjjen | baaraam | lem</annotation>
+		<annotation cp="🤘" type="tts">loxo def màndarga béjjen</annotation>
+		<annotation cp="🤙">woote | loxo</annotation>
+		<annotation cp="🤙" type="tts">loxo nanga ma woo</annotation>
+		<annotation cp="👈">baaraamu joxoñ | ginaawu loxo | joxoñ | baaraam | loxo</annotation>
+		<annotation cp="👈" type="tts">ginaaw loxo buy joxoñ càmmoñ</annotation>
+		<annotation cp="👉">baaraamu joxoñ | ginaawu loxo | joxoñ | baaraam | loxo</annotation>
+		<annotation cp="👉" type="tts">ginaaw loxo buy joxoñ ndijoor</annotation>
+		<annotation cp="👆">baaraamu joxoñ | ginaawu loxo | joxoñ | baaraam | kaw | loxo</annotation>
+		<annotation cp="👆" type="tts">ginaaw loxo buy joxoñ ci kaw</annotation>
+		<annotation cp="🖕">baaraam | loxo</annotation>
+		<annotation cp="🖕" type="tts">baaraamu digg</annotation>
+		<annotation cp="👇">baaraamu joxoñ | ginaawu loxo | suuf | joxoñ | baaraam | loxo</annotation>
+		<annotation cp="👇" type="tts">ginaaw loxo buy joxoñ ci suuf</annotation>
+		<annotation cp="☝">baaraamu joxoñ | joxoñ | baaraam | kaw | loxo</annotation>
+		<annotation cp="☝" type="tts">baaraamu joxoñ buy joxoñ ci kaw</annotation>
+		<annotation cp="👍">baaraam bu dijj | +1 | kaw | loxo</annotation>
+		<annotation cp="👍" type="tts">baaraamu waaw</annotation>
+		<annotation cp="👎">baaraam bu dijj | suuf | -1 | loxo</annotation>
+		<annotation cp="👎" type="tts">baaraamu déet</annotation>
+		<annotation cp="✊">ŋëb | dóor | loxo | kurfañ</annotation>
+		<annotation cp="✊" type="tts">kurfañ bu jog</annotation>
+		<annotation cp="👊">ŋëb | dóor | loxo | kurfañ</annotation>
+		<annotation cp="👊" type="tts">kurfañ buy ñëw</annotation>
+		<annotation cp="🤛">kurfañ | jëm càmmoñ</annotation>
+		<annotation cp="🤛" type="tts">kurfañu càmmoñ</annotation>
+		<annotation cp="🤜">kurfañ | jëm ndijoor</annotation>
+		<annotation cp="🤜" type="tts">kurfañu ndijoor</annotation>
+		<annotation cp="👏">tàccu | loxo</annotation>
+		<annotation cp="👏" type="tts">loxo yuy tàccu</annotation>
+		<annotation cp="🙌">màggal | loxo | wëey | liyaar | buñ yëkkati</annotation>
+		<annotation cp="🙌" type="tts">yëkkati ay loxo</annotation>
+		<annotation cp="👐">ubbeeku | loxo</annotation>
+		<annotation cp="👐" type="tts">loxo yu ubbeeku</annotation>
+		<annotation cp="🤲">ñaan</annotation>
+		<annotation cp="🤲" type="tts">tallal loxo ñaan</annotation>
+		<annotation cp="🤝">joxante | ndaje | joxante loxo | déggoo | loxo</annotation>
+		<annotation cp="🤝" type="tts">joxante loxo</annotation>
+		<annotation cp="🙏">jërëjëf | ngir yàlla | ark | laaj | buñ lem | jaamu | liyaar | loxo</annotation>
+		<annotation cp="🙏" type="tts">lem ay loxo</annotation>
+		<annotation cp="✍">bind | loxo</annotation>
+		<annotation cp="✍" type="tts">loxo buy bind</annotation>
+		<annotation cp="💅">kosmetik | manikiir | faj | wew | jekkal</annotation>
+		<annotation cp="💅" type="tts">jakkal wew</annotation>
+		<annotation cp="🤳">selfie | nataalukaay | telefon</annotation>
+		<annotation cp="🤳" type="tts">selfie</annotation>
+		<annotation cp="💪">doole | lem | sidit | reelu</annotation>
+		<annotation cp="💪" type="tts">wane doole</annotation>
+		<annotation cp="👂">yaram</annotation>
+		<annotation cp="👂" type="tts">nopp</annotation>
+		<annotation cp="👃">yaram</annotation>
+		<annotation cp="👃" type="tts">bakkan</annotation>
+		<annotation cp="🧠">muus</annotation>
+		<annotation cp="🧠" type="tts">yuur</annotation>
+		<annotation cp="👀">bët | kanam</annotation>
+		<annotation cp="👀" type="tts">gët</annotation>
+		<annotation cp="👁">yaram</annotation>
+		<annotation cp="👁" type="tts">bët</annotation>
+		<annotation cp="👅">yaram</annotation>
+		<annotation cp="👅" type="tts">làmmiñ</annotation>
+		<annotation cp="👄">tuñ</annotation>
+		<annotation cp="👄" type="tts">gémmiñ</annotation>
+		<annotation cp="👶">ndaw | liir</annotation>
+		<annotation cp="👶" type="tts">liir</annotation>
+		<annotation cp="🧒">du góor du jigéen | ndaw</annotation>
+		<annotation cp="🧒" type="tts">xale</annotation>
+		<annotation cp="👦">ndaw | xale bu góor</annotation>
+		<annotation cp="👦" type="tts">xale bu góor</annotation>
+		<annotation cp="👧">sojak | ndaw | Wirgo | xale bu jigéen</annotation>
+		<annotation cp="👧" type="tts">xale bu jigéen</annotation>
+		<annotation cp="🧑">du góor du jigéen</annotation>
+		<annotation cp="🧑" type="tts">mag</annotation>
+		<annotation cp="👱">karaw gu mboq</annotation>
+		<annotation cp="👱" type="tts">nit ku karaw yu weex</annotation>
+		<annotation cp="👨">góor</annotation>
+		<annotation cp="👨" type="tts">góor</annotation>
+		<annotation cp="🧔">sikkim</annotation>
+		<annotation cp="🧔" type="tts">nit am sikkim</annotation>
+		<annotation cp="👱‍♂">karaw gu mboq | góor</annotation>
+		<annotation cp="👱‍♂" type="tts">góor gu am karaw gu mboq</annotation>
+		<annotation cp="👩">jigéen</annotation>
+		<annotation cp="👩" type="tts">jigéen</annotation>
+		<annotation cp="👱‍♀">jigéen | karaw gu mboq</annotation>
+		<annotation cp="👱‍♀" type="tts">karaw gu am kawar gu mboq jigéen</annotation>
+		<annotation cp="🧓">du góor du jigéen | màgget</annotation>
+		<annotation cp="🧓" type="tts">mag mu gën a màgget</annotation>
+		<annotation cp="👴">góor | màgget</annotation>
+		<annotation cp="👴" type="tts">màgget gu góor</annotation>
+		<annotation cp="👵">jigéen | màgget</annotation>
+		<annotation cp="👵" type="tts">màgget gu jigéen</annotation>
+		<annotation cp="🙍">aj-yéen | liyaar</annotation>
+		<annotation cp="🙍" type="tts">nit ku yéen yi lemu</annotation>
+		<annotation cp="🙍‍♂">liyaar | aj-yéen | góor</annotation>
+		<annotation cp="🙍‍♂" type="tts">góor aj-yéen</annotation>
+		<annotation cp="🙍‍♀">liyaar | jigéen | aj-yéen</annotation>
+		<annotation cp="🙍‍♀" type="tts">jigéen aj-yéen</annotation>
+		<annotation cp="🙎">liyaar | puucatu</annotation>
+		<annotation cp="🙎" type="tts">nit kuy puucatu</annotation>
+		<annotation cp="🙎‍♂">puucatu | liyaar | góor</annotation>
+		<annotation cp="🙎‍♂" type="tts">góor puucatu</annotation>
+		<annotation cp="🙎‍♀">jigéen | puucatu | liyaar</annotation>
+		<annotation cp="🙎‍♀" type="tts">jigéen puucatu</annotation>
+		<annotation cp="🙅">luñ tere | liyaar | loxo | bul | déet | luñ aaye</annotation>
+		<annotation cp="🙅" type="tts">nit ku naan déedet</annotation>
+		<annotation cp="🙅‍♂">luñ aaye | bul | liyaar | loxo | luñ tere | góor</annotation>
+		<annotation cp="🙅‍♂" type="tts">góor buy liyaar Déet</annotation>
+		<annotation cp="🙅‍♀">luñ aaye | jigéen | bul | liyaar | loxo | luñ tere</annotation>
+		<annotation cp="🙅‍♀" type="tts">jigéen juy liyaar Déet</annotation>
+		<annotation cp="🙆">liyaar | loxo | waaw-kay</annotation>
+		<annotation cp="🙆" type="tts">nit ku naan waaw-kay</annotation>
+		<annotation cp="🙆‍♂">waaw-kay | liyaar | loxo | góor</annotation>
+		<annotation cp="🙆‍♂" type="tts">góor buy liyaar waaw-kay</annotation>
+		<annotation cp="🙆‍♀">liyaar | loxo | jigéen | waaw-kay</annotation>
+		<annotation cp="🙆‍♀" type="tts">jigéen juy liyaar waaw-kay</annotation>
+		<annotation cp="💁">loxo | jàppale | ndimbal | leeral | tàng</annotation>
+		<annotation cp="💁" type="tts">nit kuy joxee wet</annotation>
+		<annotation cp="💁‍♂">loxo jàppale | góor | sassy</annotation>
+		<annotation cp="💁‍♂" type="tts">góor loxo jàppale</annotation>
+		<annotation cp="💁‍♀">jigéen | tàng | loxo jàppale</annotation>
+		<annotation cp="💁‍♀" type="tts">jigéen loxo jàppale</annotation>
+		<annotation cp="🙋">liyaar | loxo | kontaan | buñ yëkkati</annotation>
+		<annotation cp="🙋" type="tts">nit kuy yëkkati loxo</annotation>
+		<annotation cp="🙋‍♂">yëkkati loxo | liyaar | góor</annotation>
+		<annotation cp="🙋‍♂" type="tts">góor yëkkati loxo</annotation>
+		<annotation cp="🙋‍♀">jigéen | liyaar | yëkkati loxo</annotation>
+		<annotation cp="🙋‍♀" type="tts">jigéen yëkkati loxo</annotation>
+		<annotation cp="🙇">jéggalu | ark | liyaar | massawu</annotation>
+		<annotation cp="🙇" type="tts">nit kuy sëgg-nuyoo</annotation>
+		<annotation cp="🙇‍♂">massawu | beral-loxo | sujjóotal | liyaar | jéggalu | góor</annotation>
+		<annotation cp="🙇‍♂" type="tts">góor sujjóotal</annotation>
+		<annotation cp="🙇‍♀">massawu | jigéen | beral-loxo | sujjóotal | liyaar | jéggalu</annotation>
+		<annotation cp="🙇‍♀" type="tts">jigéen sujjóotal</annotation>
+		<annotation cp="🤦">loxo | kanam | gu jaaxle | gëdofi</annotation>
+		<annotation cp="🤦" type="tts">nit ku taf loxo ci kanamam</annotation>
+		<annotation cp="🤦‍♂">kanam | góor | jaaxle | loxo</annotation>
+		<annotation cp="🤦‍♂" type="tts">góor gu taf loxo ci kanamam</annotation>
+		<annotation cp="🤦‍♀">kanam | jigéen | loxo | jaaxle</annotation>
+		<annotation cp="🤦‍♀" type="tts">ju taf loxo ci kanamam</annotation>
+		<annotation cp="🤷">aj | mbagg | ñàkka xam | bañ faale</annotation>
+		<annotation cp="🤷" type="tts">nit ku aj mbaggam</annotation>
+		<annotation cp="🤷‍♂">ñàkka xam | bañ faale | wóoloodi | aj mbagg | góor</annotation>
+		<annotation cp="🤷‍♂" type="tts">góor aj mbagg</annotation>
+		<annotation cp="🤷‍♀">ñàkka xam | bañ faale | jigéen | wóoloodi | aj mbagg</annotation>
+		<annotation cp="🤷‍♀" type="tts">jigéen aj mbagg</annotation>
+		<annotation cp="👨‍⚕">fajkat | faj | doktor | infirmiyee | góor</annotation>
+		<annotation cp="👨‍⚕" type="tts">fajkat bu góor</annotation>
+		<annotation cp="👩‍⚕">faj-nit | fajkat | jigéen | saas-faam | doktoor</annotation>
+		<annotation cp="👩‍⚕" type="tts">fajkat bu jigéen</annotation>
+		<annotation cp="👨‍🎓">diplom | góor | ndongo</annotation>
+		<annotation cp="👨‍🎓" type="tts">ndongo bu góor</annotation>
+		<annotation cp="👩‍🎓">diplom | jigéen | ndongo</annotation>
+		<annotation cp="👩‍🎓" type="tts">ndongo lu jigéen</annotation>
+		<annotation cp="👨‍🏫">profesër | jàngalekat | góor | meetar</annotation>
+		<annotation cp="👨‍🏫" type="tts">jàngaletkat bu góor</annotation>
+		<annotation cp="👩‍🏫">jàngalekat | profesër | jigéen | meetar</annotation>
+		<annotation cp="👩‍🏫" type="tts">jàngalekat bu jigéen</annotation>
+		<annotation cp="👨‍⚖">balaas | justis | góor</annotation>
+		<annotation cp="👨‍⚖" type="tts">àttekat góor</annotation>
+		<annotation cp="👩‍⚖">àttekat | scales | jigéen</annotation>
+		<annotation cp="👩‍⚖" type="tts">àttekat bu jigéen</annotation>
+		<annotation cp="👨‍🌾">boroom-ràns | baykat | sardiñee | góor</annotation>
+		<annotation cp="👨‍🌾" type="tts">baykat bu góor</annotation>
+		<annotation cp="👩‍🌾">yarkat | baykat | sardiñee | jigéen</annotation>
+		<annotation cp="👩‍🌾" type="tts">baykat bu jigéen</annotation>
+		<annotation cp="👨‍🍳">seef | toggkat | góor</annotation>
+		<annotation cp="👨‍🍳" type="tts">toggkat góor</annotation>
+		<annotation cp="👩‍🍳">seef | toggkat | jigéen</annotation>
+		<annotation cp="👩‍🍳" type="tts">toggkat bu jigéen</annotation>
+		<annotation cp="👨‍🔧">elektrisiyee | plombiyee | jaaykat | mekanisee | góor</annotation>
+		<annotation cp="👨‍🔧" type="tts">mekaniyee bu góor</annotation>
+		<annotation cp="👩‍🔧">mekanik | jigéen | plumber | electrisiyee | jaaykat</annotation>
+		<annotation cp="👩‍🔧" type="tts">jigéen mekanik</annotation>
+		<annotation cp="👨‍🏭">indistri | ndaje | liggéeykat | isin | góor</annotation>
+		<annotation cp="👨‍🏭" type="tts">liggéeykatu isin bu góor</annotation>
+		<annotation cp="👩‍🏭">jigéen | ndaje | bu isin | liggéeykat | isin</annotation>
+		<annotation cp="👩‍🏭" type="tts">jigéen juy liggéeykat ci isin</annotation>
+		<annotation cp="👨‍💼">biro | arsitek | njiit | liggéeykat bu xarañ | bisnes | góor</annotation>
+		<annotation cp="👨‍💼" type="tts">kuy liggéey ci biro</annotation>
+		<annotation cp="👩‍💼">jigéen | biro | arsitekt | patroŋ | liggéeykat bu xarañ | bisnes</annotation>
+		<annotation cp="👩‍💼" type="tts">jigéen biro liggéeykat</annotation>
+		<annotation cp="👨‍🔬">biyolosist | matematisiyee | engeñër | fisiyee | xaralakat | simist | góor</annotation>
+		<annotation cp="👨‍🔬" type="tts">xaralakat bu góor</annotation>
+		<annotation cp="👩‍🔬">wu-xarala | jigéen | matematisiyee | engeñër | biolosist | simist | fisisiyee</annotation>
+		<annotation cp="👩‍🔬" type="tts">jigéen wu-xarala</annotation>
+		<annotation cp="👨‍💻">losisel | soskat | defarkat | teknolosist | kodekat | góor</annotation>
+		<annotation cp="👨‍💻" type="tts">góor teknolosist</annotation>
+		<annotation cp="👩‍💻">losisel | jigéen | soskat | defarkat | teknolosist | kodekat</annotation>
+		<annotation cp="👩‍💻" type="tts">jigéen teknolosist</annotation>
+		<annotation cp="👨‍🎤">biddeew | aktër | waykat | rok | góor | begalkat</annotation>
+		<annotation cp="👨‍🎤" type="tts">góor waykat</annotation>
+		<annotation cp="👩‍🎤">biddeew | aktër | jigéen | waykat | rok | begalkat</annotation>
+		<annotation cp="👩‍🎤" type="tts">jigéen waykat</annotation>
+		<annotation cp="👨‍🎨">artist | palet | góor</annotation>
+		<annotation cp="👨‍🎨" type="tts">artist bu góor</annotation>
+		<annotation cp="👩‍🎨">artist | jigéen | palet</annotation>
+		<annotation cp="👩‍🎨" type="tts">artist bu jigéen</annotation>
+		<annotation cp="👨‍✈">roppalaan | piloot | góor</annotation>
+		<annotation cp="👨‍✈" type="tts">góor piloot</annotation>
+		<annotation cp="👩‍✈">roppalaan | piloot | jigéen</annotation>
+		<annotation cp="👩‍✈" type="tts">piloot bu jigéen</annotation>
+		<annotation cp="👨‍🚀">roket | astronot | góor</annotation>
+		<annotation cp="👨‍🚀" type="tts">astronot bu góor</annotation>
+		<annotation cp="👩‍🚀">roket | jigéen | astronot</annotation>
+		<annotation cp="👩‍🚀" type="tts">astronot bu jigéen</annotation>
+		<annotation cp="👨‍🚒">oto-sapër | sapër | góor</annotation>
+		<annotation cp="👨‍🚒" type="tts">sapër bu góor</annotation>
+		<annotation cp="👩‍🚒">pompiyee | oto-pompiyee | jigéen</annotation>
+		<annotation cp="👩‍🚒" type="tts">pompiyee bu jigéen</annotation>
+		<annotation cp="👮">polisiye | liggéeykat | poliis</annotation>
+		<annotation cp="👮" type="tts">polisiyee</annotation>
+		<annotation cp="👮‍♂">liggéeykat bu góor | polisiye | poliis | góor</annotation>
+		<annotation cp="👮‍♂" type="tts">góor poliis liggéeykat bu góor</annotation>
+		<annotation cp="👮‍♀">liggéeykat | polisiye | poliis | jigéen</annotation>
+		<annotation cp="👮‍♀" type="tts">polisiyee bu jigéen</annotation>
+		<annotation cp="🕵">lànketkat | yëddukat | detektif</annotation>
+		<annotation cp="🕵" type="tts">detektif</annotation>
+		<annotation cp="🕵‍♂">yëddukat | lànketkat | detektif | góor</annotation>
+		<annotation cp="🕵‍♂" type="tts">góor detektif</annotation>
+		<annotation cp="🕵‍♀">yëddukat | lànketkat | jigéen | detektif</annotation>
+		<annotation cp="🕵‍♀" type="tts">jigéen detektif</annotation>
+		<annotation cp="💂">gardiñe</annotation>
+		<annotation cp="💂" type="tts">gardiñe</annotation>
+		<annotation cp="💂‍♂">wattu | góor</annotation>
+		<annotation cp="💂‍♂" type="tts">góor guy wattu</annotation>
+		<annotation cp="💂‍♀">wattu | jigéen</annotation>
+		<annotation cp="💂‍♀" type="tts">jigéen juy wattu</annotation>
+		<annotation cp="👷">tabax | mbaxane | liggéeykat</annotation>
+		<annotation cp="👷" type="tts">tabaxkat</annotation>
+		<annotation cp="👷‍♂">liggéeykat | tabax | góor</annotation>
+		<annotation cp="👷‍♂" type="tts">góor tabax liggéeykat</annotation>
+		<annotation cp="👷‍♀">liggéeykat | tabax | jigéen</annotation>
+		<annotation cp="👷‍♀" type="tts">jigéen tabax liggéeykat</annotation>
+		<annotation cp="🤴">doomu-buur bu góor</annotation>
+		<annotation cp="🤴" type="tts">doomu-buur bu góor</annotation>
+		<annotation cp="👸">feem | léebu fee</annotation>
+		<annotation cp="👸" type="tts">doomu buur bu jigéen</annotation>
+		<annotation cp="👳">kaala</annotation>
+		<annotation cp="👳" type="tts">nit ku kaalawu</annotation>
+		<annotation cp="👳‍♂">kaala | góor</annotation>
+		<annotation cp="👳‍♂" type="tts">góor gu kaalawu</annotation>
+		<annotation cp="👳‍♀">jigéen | kaala</annotation>
+		<annotation cp="👳‍♀" type="tts">jigéen ju kaalawu</annotation>
+		<annotation cp="👲">mbaxane | gua pi mao | góor</annotation>
+		<annotation cp="👲" type="tts">góor gu sol mbaxane sinuwaa</annotation>
+		<annotation cp="🧕">mantilla | tichel | hijab | musóor</annotation>
+		<annotation cp="🧕" type="tts">jigéen ju musóoru</annotation>
+		<annotation cp="🤵">góor guy céetal | sol | kostim</annotation>
+		<annotation cp="🤵" type="tts">góor gu sol kostim</annotation>
+		<annotation cp="👰">muraay | céet | séet</annotation>
+		<annotation cp="👰" type="tts">séet bu móoru</annotation>
+		<annotation cp="🤰">jigéen | ëmb</annotation>
+		<annotation cp="🤰" type="tts">jigéen ju ëmb</annotation>
+		<annotation cp="🤱">ween | nàmpal | liir</annotation>
+		<annotation cp="🤱" type="tts">nàppalee ween</annotation>
+		<annotation cp="👼">kanam | liir | feem | léebu fee | malaaka</annotation>
+		<annotation cp="👼" type="tts">liiru malaaka</annotation>
+		<annotation cp="🎅">màggal | pere | papa | nowel</annotation>
+		<annotation cp="🎅" type="tts">Pere nowel</annotation>
+		<annotation cp="🤶">màggal | yaay | meer | nowel</annotation>
+		<annotation cp="🤶" type="tts">meer nowel</annotation>
+		<annotation cp="🧙">luxuskat | dëmm</annotation>
+		<annotation cp="🧙" type="tts">mage</annotation>
+		<annotation cp="🧙‍♂">luxuskat | dëmm</annotation>
+		<annotation cp="🧙‍♂" type="tts">mage bu góor</annotation>
+		<annotation cp="🧙‍♀">dëmm</annotation>
+		<annotation cp="🧙‍♀" type="tts">mage bu jigéen</annotation>
+		<annotation cp="🧚">Titania | Puk | Oberon</annotation>
+		<annotation cp="🧚" type="tts">fee</annotation>
+		<annotation cp="🧚‍♂">Oberon | Puk</annotation>
+		<annotation cp="🧚‍♂" type="tts">fee bu góor</annotation>
+		<annotation cp="🧚‍♀">Titania</annotation>
+		<annotation cp="🧚‍♀" type="tts">fee bu jigéen</annotation>
+		<annotation cp="🧛">Dracula | bu deewul</annotation>
+		<annotation cp="🧛" type="tts">wàmpiir</annotation>
+		<annotation cp="🧛‍♂">Dracula | bu deewul</annotation>
+		<annotation cp="🧛‍♂" type="tts">wàmpiir bu góor</annotation>
+		<annotation cp="🧛‍♀">bu deewul</annotation>
+		<annotation cp="🧛‍♀" type="tts">wàmpiir bu jigéen</annotation>
+		<annotation cp="🧜">sireen | sireen bu góor | sireen bu jigéen</annotation>
+		<annotation cp="🧜" type="tts">sireen bu nit</annotation>
+		<annotation cp="🧜‍♂">Fettu ñatti bopp</annotation>
+		<annotation cp="🧜‍♂" type="tts">sireen bu góor</annotation>
+		<annotation cp="🧜‍♀">sireen bu jigéen</annotation>
+		<annotation cp="🧜‍♀" type="tts">sireen</annotation>
+		<annotation cp="🧝">yéeme</annotation>
+		<annotation cp="🧝" type="tts">elfe</annotation>
+		<annotation cp="🧝‍♂">yéeme</annotation>
+		<annotation cp="🧝‍♂" type="tts">elfe bu góor</annotation>
+		<annotation cp="🧝‍♀">yéeme</annotation>
+		<annotation cp="🧝‍♀" type="tts">elfe bu jigéen</annotation>
+		<annotation cp="🧞">jinne</annotation>
+		<annotation cp="🧞" type="tts">jinne</annotation>
+		<annotation cp="🧞‍♂">jinne</annotation>
+		<annotation cp="🧞‍♂" type="tts">jinne ju góor</annotation>
+		<annotation cp="🧞‍♀">jinne</annotation>
+		<annotation cp="🧞‍♀" type="tts">jinne ju jigéen</annotation>
+		<annotation cp="🧟">bu deewul | néew buy dox</annotation>
+		<annotation cp="🧟" type="tts">zombi</annotation>
+		<annotation cp="🧟‍♂">néew buy dox | bu deewul</annotation>
+		<annotation cp="🧟‍♂" type="tts">zombi bu góor</annotation>
+		<annotation cp="🧟‍♀">néew buy dox | bu deewul</annotation>
+		<annotation cp="🧟‍♀" type="tts">zombi bu jigéen</annotation>
+		<annotation cp="💆">dàmp | saloŋ | kanam</annotation>
+		<annotation cp="💆" type="tts">nit ku ñuy dàmp</annotation>
+		<annotation cp="💆‍♂">dàmp | kanam | góor</annotation>
+		<annotation cp="💆‍♂" type="tts">góor bu ñuy dàmp</annotation>
+		<annotation cp="💆‍♀">jigéen | dàmp | kanam</annotation>
+		<annotation cp="💆‍♀" type="tts">jigéen bu ñuy dàmp</annotation>
+		<annotation cp="💇">watkat | taar | barab | wateef</annotation>
+		<annotation cp="💇" type="tts">nit kuy watu</annotation>
+		<annotation cp="💇‍♂">wateef | góor</annotation>
+		<annotation cp="💇‍♂" type="tts">góor bu ñuy wat</annotation>
+		<annotation cp="💇‍♀">jigéen | wateef</annotation>
+		<annotation cp="💇‍♀" type="tts">jigéen bu ñuy wat</annotation>
+		<annotation cp="🚶">yéeg tund | dox</annotation>
+		<annotation cp="🚶" type="tts">nit kuy dox</annotation>
+		<annotation cp="🚶‍♂">dox | góor | yéeg tund</annotation>
+		<annotation cp="🚶‍♂" type="tts">góor dox</annotation>
+		<annotation cp="🚶‍♀">dox | jigéen | yéeg tund</annotation>
+		<annotation cp="🚶‍♀" type="tts">jigéen dox</annotation>
+		<annotation cp="🏃">maraton | daw</annotation>
+		<annotation cp="🏃" type="tts">nit kuy daw</annotation>
+		<annotation cp="🏃‍♂">daw | maraton | kursu | góor</annotation>
+		<annotation cp="🏃‍♂" type="tts">góor daw</annotation>
+		<annotation cp="🏃‍♀">daw | maraton | jigéen | kursu</annotation>
+		<annotation cp="🏃‍♀" type="tts">jigéen daw</annotation>
+		<annotation cp="💃">fecc | jigéen</annotation>
+		<annotation cp="💃" type="tts">jigéen juy fecc</annotation>
+		<annotation cp="🕺">nit | fecc</annotation>
+		<annotation cp="🕺" type="tts">góor guy fecc</annotation>
+		<annotation cp="🕴">kostim | bisnes | góor</annotation>
+		<annotation cp="🕴" type="tts">góor ci bisnes kostim lewitasiyoŋ</annotation>
+		<annotation cp="👯">noppi lëk | fecckat | suwaare</annotation>
+		<annotation cp="👯" type="tts">nit ñuy fecc, ak noppi lëk</annotation>
+		<annotation cp="👯‍♂">fecckat | noppi lëk | góor | suwaare</annotation>
+		<annotation cp="👯‍♂" type="tts">góorak noppi lëks suwaare</annotation>
+		<annotation cp="👯‍♀">jigéen | fecckat | suwaare | noppi lëk</annotation>
+		<annotation cp="👯‍♀" type="tts">jigéen ak noppi lëks suwaare</annotation>
+		<annotation cp="🧖">souna | néego wapër</annotation>
+		<annotation cp="🧖" type="tts">nit ci néegu wapër</annotation>
+		<annotation cp="🧖‍♂">néego wapër | souna</annotation>
+		<annotation cp="🧖‍♂" type="tts">góor ci néegu wapër</annotation>
+		<annotation cp="🧖‍♀">néego wapër | souna</annotation>
+		<annotation cp="🧖‍♀" type="tts">jigéen ci néegu wapër</annotation>
+		<annotation cp="🧗">yéegkat</annotation>
+		<annotation cp="🧗" type="tts">nit kuy yéeg</annotation>
+		<annotation cp="🧗‍♂">yéegkat</annotation>
+		<annotation cp="🧗‍♂" type="tts">góor guy yéeg</annotation>
+		<annotation cp="🧗‍♀">yéegkat</annotation>
+		<annotation cp="🧗‍♀" type="tts">jigéen juy yéeg</annotation>
+		<annotation cp="🤺">fentekat | eppee | fente</annotation>
+		<annotation cp="🤺" type="tts">nit kuy fente</annotation>
+		<annotation cp="🏇">sooke | kursu | fas | fasukursu</annotation>
+		<annotation cp="🏇" type="tts">kursu fas</annotation>
+		<annotation cp="⛷">ski | nees</annotation>
+		<annotation cp="⛷" type="tts">skikat</annotation>
+		<annotation cp="🏂">ski | gaalu-nees | nees</annotation>
+		<annotation cp="🏂" type="tts">kuy pateŋ ci nees</annotation>
+		<annotation cp="🏌">bal | golf</annotation>
+		<annotation cp="🏌" type="tts">nit kuy golf</annotation>
+		<annotation cp="🏌‍♂">golf | góor</annotation>
+		<annotation cp="🏌‍♂" type="tts">góor guy golf</annotation>
+		<annotation cp="🏌‍♀">golf | jigéen</annotation>
+		<annotation cp="🏌‍♀" type="tts">jigéen juy golf</annotation>
+		<annotation cp="🏄">sërfe</annotation>
+		<annotation cp="🏄" type="tts">nit kuy sërfe</annotation>
+		<annotation cp="🏄‍♂">sërfe | góor</annotation>
+		<annotation cp="🏄‍♂" type="tts">góor guy sërfe</annotation>
+		<annotation cp="🏄‍♀">jigéen | sërfe</annotation>
+		<annotation cp="🏄‍♀" type="tts">jigéen juy sërfe</annotation>
+		<annotation cp="🚣">gaal | gaalu-joow</annotation>
+		<annotation cp="🚣" type="tts">nit joow gaal</annotation>
+		<annotation cp="🚣‍♂">gaal | gaalu-joow | góor</annotation>
+		<annotation cp="🚣‍♂" type="tts">góor guy joow gaal</annotation>
+		<annotation cp="🚣‍♀">gaal | jigéen | gaalu-joow</annotation>
+		<annotation cp="🚣‍♀" type="tts">jigéen juy joow gaal</annotation>
+		<annotation cp="🏊">féey</annotation>
+		<annotation cp="🏊" type="tts">nit kuy féey</annotation>
+		<annotation cp="🏊‍♂">féey | góor</annotation>
+		<annotation cp="🏊‍♂" type="tts">góor guy féey</annotation>
+		<annotation cp="🏊‍♀">jigéen | féey</annotation>
+		<annotation cp="🏊‍♀" type="tts">jigéen juy féey</annotation>
+		<annotation cp="⛹">bal</annotation>
+		<annotation cp="⛹" type="tts">nit kuy bondeel bal</annotation>
+		<annotation cp="⛹‍♂">bal | góor</annotation>
+		<annotation cp="⛹‍♂" type="tts">góor guy bondeel bal</annotation>
+		<annotation cp="⛹‍♀">jigéen | bal</annotation>
+		<annotation cp="⛹‍♀" type="tts">jigéen juy bondeel bal</annotation>
+		<annotation cp="🏋">yëkkatikat | lu diis</annotation>
+		<annotation cp="🏋" type="tts">nit kuy yëkkati lu diis</annotation>
+		<annotation cp="🏋‍♂">yëkkatikatu lu diis | góor</annotation>
+		<annotation cp="🏋‍♂" type="tts">góor guy yëkkati lu diis</annotation>
+		<annotation cp="🏋‍♀">yëkkatikatu lu diis | jigéen</annotation>
+		<annotation cp="🏋‍♀" type="tts">jigéen juy yëkkati lu diis</annotation>
+		<annotation cp="🚴">welo | dawal welo | dawalkatu welo</annotation>
+		<annotation cp="🚴" type="tts">nit kuy dawal welo</annotation>
+		<annotation cp="🚴‍♂">welo | dawal welo | dawalkatu welo | góor</annotation>
+		<annotation cp="🚴‍♂" type="tts">góor guy dawal welo</annotation>
+		<annotation cp="🚴‍♀">welo | jigéen | dawal welo | dawalkatu welo</annotation>
+		<annotation cp="🚴‍♀" type="tts">jigéen juy dawal welo</annotation>
+		<annotation cp="🚵">welo | dawalkatu welo | montaañ</annotation>
+		<annotation cp="🚵" type="tts">nit kuy dawal vtt</annotation>
+		<annotation cp="🚵‍♂">welo | montaañ | dawalkatu welo | góor</annotation>
+		<annotation cp="🚵‍♂" type="tts">góor guy dawal welo ci montaañ</annotation>
+		<annotation cp="🚵‍♀">montaañ | dawalkatu welo | jigéen | dawal welo | welo</annotation>
+		<annotation cp="🚵‍♀" type="tts">jigéen juy dawal welo ci montaañ</annotation>
+		<annotation cp="🤸">pëno-sareet | jimnastik</annotation>
+		<annotation cp="🤸" type="tts">nit ñuy ànd bërëŋu</annotation>
+		<annotation cp="🤸‍♂">pëno-sareet | góor | jimnastik</annotation>
+		<annotation cp="🤸‍♂" type="tts">góor guy pëno-sareet</annotation>
+		<annotation cp="🤸‍♀">jigéen | pëno-sareet | jimnastik</annotation>
+		<annotation cp="🤸‍♀" type="tts">jigéen juy pëno-sareet</annotation>
+		<annotation cp="🤼">bërekat | bëre</annotation>
+		<annotation cp="🤼" type="tts">nit ñuy bëre</annotation>
+		<annotation cp="🤼‍♂">góor | bëre</annotation>
+		<annotation cp="🤼‍♂" type="tts">góor guy bëre</annotation>
+		<annotation cp="🤼‍♀">jigéen | bëre</annotation>
+		<annotation cp="🤼‍♀" type="tts">jigéen juy bëre</annotation>
+		<annotation cp="🤽">polo | ndox</annotation>
+		<annotation cp="🤽" type="tts">nit kuy polo ci ndox</annotation>
+		<annotation cp="🤽‍♂">góor | polo ci ndox</annotation>
+		<annotation cp="🤽‍♂" type="tts">góor guy polo ci ndox</annotation>
+		<annotation cp="🤽‍♀">jigéen | polo ci ndox</annotation>
+		<annotation cp="🤽‍♀" type="tts">jigéen juy polo  ci ndox</annotation>
+		<annotation cp="🤾">handball | bal</annotation>
+		<annotation cp="🤾" type="tts">nit kuy aanbóol</annotation>
+		<annotation cp="🤾‍♂">handball | góor</annotation>
+		<annotation cp="🤾‍♂" type="tts">góor guy handball</annotation>
+		<annotation cp="🤾‍♀">jigéen | handball</annotation>
+		<annotation cp="🤾‍♀" type="tts">jigéen juy handball</annotation>
+		<annotation cp="🤹">am | ekiliibre | sànni-kapte | mbir yu bari</annotation>
+		<annotation cp="🤹" type="tts">nit kuy sànni-kapte</annotation>
+		<annotation cp="🤹‍♂">sànni-kapte | góor | mbir yu bari</annotation>
+		<annotation cp="🤹‍♂" type="tts">góor guy sànni-kapte</annotation>
+		<annotation cp="🤹‍♀">sànni-kapte | jigéen | mbir yu bari</annotation>
+		<annotation cp="🤹‍♀" type="tts">jigéen juy sànni-kapte</annotation>
+		<annotation cp="🧘">yoga | xalaat</annotation>
+		<annotation cp="🧘" type="tts">nit ku farankulaayu</annotation>
+		<annotation cp="🧘‍♂">xalaat | yoga</annotation>
+		<annotation cp="🧘‍♂" type="tts">góor gu farankulaayu</annotation>
+		<annotation cp="🧘‍♀">xalaat | yoga</annotation>
+		<annotation cp="🧘‍♀" type="tts">jigéen ju farankulaayu</annotation>
+		<annotation cp="🛀">beñuwaar | sangu</annotation>
+		<annotation cp="🛀" type="tts">nit kuy sangu</annotation>
+		<annotation cp="🛌">nelaw | otel</annotation>
+		<annotation cp="🛌" type="tts">nit ci kaw lal</annotation>
+		<annotation cp="👭">jigéen | góor ak jigéen | tëye | loxo</annotation>
+		<annotation cp="👭" type="tts">ñaari jigéen yu jàppante loxo</annotation>
+		<annotation cp="👫">tëye | jigéen | góor | góor ak jigéen | loxo</annotation>
+		<annotation cp="👫" type="tts">góor ak jigéen jàppante loxo</annotation>
+		<annotation cp="👬">tëye | loxo | ay seex | Gémeau | sojak | góor ak jigéen | góor</annotation>
+		<annotation cp="👬" type="tts">ñaari góor yu jàppante loxo</annotation>
+		<annotation cp="💏">góor ak jigéen | fóon</annotation>
+		<annotation cp="💏" type="tts">fóon</annotation>
+		<annotation cp="💑">góor ak jigéen | mbëggeel | xol ak ñaar ñu bëggante</annotation>
+		<annotation cp="💑" type="tts">xol ak ñaar ñu bëggante</annotation>
+		<annotation cp="👪">bokk famiy</annotation>
+		<annotation cp="👪" type="tts">bokk famiy</annotation>
+		<annotation cp="🗣">bopp | takkandeer | wax | kanam</annotation>
+		<annotation cp="🗣" type="tts">wax bopp</annotation>
+		<annotation cp="👤">takkandeer | yaram</annotation>
+		<annotation cp="👤" type="tts">yaram takkandeer</annotation>
+		<annotation cp="👥">takkandeer | yaram</annotation>
+		<annotation cp="👥" type="tts">ay yaram takkandeer</annotation>
+		<annotation cp="👣">màrku-tànk | emprime | yéere</annotation>
+		<annotation cp="👣" type="tts">fu tànk teguwoon</annotation>
+		<annotation cp="🐵">kanam | golo</annotation>
+		<annotation cp="🐵" type="tts">kanamu golo</annotation>
+		<annotation cp="🐒">golo</annotation>
+		<annotation cp="🐒" type="tts">golo</annotation>
+		<annotation cp="🦍">dàngin</annotation>
+		<annotation cp="🦍" type="tts">dàngin</annotation>
+		<annotation cp="🐶">rabu-yar | kanam | xaj</annotation>
+		<annotation cp="🐶" type="tts">boppu xaj</annotation>
+		<annotation cp="🐕">rabu-yar</annotation>
+		<annotation cp="🐕" type="tts">xaj</annotation>
+		<annotation cp="🐩">xaj</annotation>
+		<annotation cp="🐩" type="tts">kaj bu ndaw, sëq kawar</annotation>
+		<annotation cp="🐺">xaju-tund | kanam</annotation>
+		<annotation cp="🐺" type="tts">kanamu xaju-tundu</annotation>
+		<annotation cp="🦊">rënaar | kanam</annotation>
+		<annotation cp="🦊" type="tts">kanamu rënaar</annotation>
+		<annotation cp="🐱">kanam | rabu-yar | muus</annotation>
+		<annotation cp="🐱" type="tts">kanamu muus</annotation>
+		<annotation cp="🐈">rabu-yar</annotation>
+		<annotation cp="🐈" type="tts">muus</annotation>
+		<annotation cp="🦁">gaynde | sojak | Leo | kanam</annotation>
+		<annotation cp="🦁" type="tts">kanamu gaynde</annotation>
+		<annotation cp="🐯">segg | kanam</annotation>
+		<annotation cp="🐯" type="tts">kanamu segg</annotation>
+		<annotation cp="🐅">segg</annotation>
+		<annotation cp="🐅" type="tts">segg</annotation>
+		<annotation cp="🐆">lewopaar</annotation>
+		<annotation cp="🐆" type="tts">lewopaar</annotation>
+		<annotation cp="🐴">fas | kanam</annotation>
+		<annotation cp="🐴" type="tts">kanamu fas</annotation>
+		<annotation cp="🐎">ci wàllu fas | kursu | fasukursu</annotation>
+		<annotation cp="🐎" type="tts">fas</annotation>
+		<annotation cp="🦄">gu sax béjjen | kanam</annotation>
+		<annotation cp="🦄" type="tts">kanam gu sax béjjen</annotation>
+		<annotation cp="🦓">reyiir</annotation>
+		<annotation cp="🦓" type="tts">zebre</annotation>
+		<annotation cp="🦌">serf</annotation>
+		<annotation cp="🦌" type="tts">serf</annotation>
+		<annotation cp="🐮">nag | kanamu</annotation>
+		<annotation cp="🐮" type="tts">kanamu nag</annotation>
+		<annotation cp="🐂">sojak | nag | Yékk</annotation>
+		<annotation cp="🐂" type="tts">yékk</annotation>
+		<annotation cp="🐃">ndox | nag</annotation>
+		<annotation cp="🐃" type="tts">nagu ndox</annotation>
+		<annotation cp="🐄">nag</annotation>
+		<annotation cp="🐄" type="tts">nag</annotation>
+		<annotation cp="🐷">kanam | mbaam-xuux</annotation>
+		<annotation cp="🐷" type="tts">kanamu mbaam-xuux</annotation>
+		<annotation cp="🐖">mbaam-xuux bu jigéen</annotation>
+		<annotation cp="🐖" type="tts">mbaam-xuux</annotation>
+		<annotation cp="🐗">mbaam-xuux</annotation>
+		<annotation cp="🐗" type="tts">mbaam-àll</annotation>
+		<annotation cp="🐽">bakkan | kanam | mbaam-xuux</annotation>
+		<annotation cp="🐽" type="tts">bakkanu mbaam-xuux</annotation>
+		<annotation cp="🐏">Kuy | sojak | xar | bu góor</annotation>
+		<annotation cp="🐏" type="tts">yàppu kuy</annotation>
+		<annotation cp="🐑">xar | bu jigéen</annotation>
+		<annotation cp="🐑" type="tts">xar bu jigéen</annotation>
+		<annotation cp="🐐">sojak | Kaprikorn</annotation>
+		<annotation cp="🐐" type="tts">bëy</annotation>
+		<annotation cp="🐪">giléem | boos</annotation>
+		<annotation cp="🐪" type="tts">giléem</annotation>
+		<annotation cp="🐫">giléem | batri | boos</annotation>
+		<annotation cp="🐫" type="tts">gileemu ñaari boos</annotation>
+		<annotation cp="🦒">tomb</annotation>
+		<annotation cp="🦒" type="tts">giraaf</annotation>
+		<annotation cp="🐘">ñay</annotation>
+		<annotation cp="🐘" type="tts">ñay</annotation>
+		<annotation cp="🦏">rinoseros</annotation>
+		<annotation cp="🦏" type="tts">rinoseros</annotation>
+		<annotation cp="🐭">jinax | kanam</annotation>
+		<annotation cp="🐭" type="tts">kanmu jinax</annotation>
+		<annotation cp="🐁">jinax</annotation>
+		<annotation cp="🐁" type="tts">jinax</annotation>
+		<annotation cp="🐀">kaña</annotation>
+		<annotation cp="🐀" type="tts">kaña</annotation>
+		<annotation cp="🐹">rabu yar | kanam | hamster</annotation>
+		<annotation cp="🐹" type="tts">kanamu jinax</annotation>
+		<annotation cp="🐰">rabu-yar | rabbit | kanam | lëkk</annotation>
+		<annotation cp="🐰" type="tts">kanamu lëk</annotation>
+		<annotation cp="🐇">rabu-yar | lëkk</annotation>
+		<annotation cp="🐇" type="tts">lëk</annotation>
+		<annotation cp="🐿">cipmànk</annotation>
+		<annotation cp="🐿" type="tts">cipmànk</annotation>
+		<annotation cp="🦔">jame</annotation>
+		<annotation cp="🦔" type="tts">suñeel</annotation>
+		<annotation cp="🦇">njugub | wàmpiir</annotation>
+		<annotation cp="🦇" type="tts">njugub</annotation>
+		<annotation cp="🐻">urs | Kanam</annotation>
+		<annotation cp="🐻" type="tts">kanam urs</annotation>
+		<annotation cp="🐨">urs</annotation>
+		<annotation cp="🐨" type="tts">koala</annotation>
+		<annotation cp="🐼">panda | kanam</annotation>
+		<annotation cp="🐼" type="tts">kanamu panda</annotation>
+		<annotation cp="🐾">tànku-rab | emprime | tànk</annotation>
+		<annotation cp="🐾" type="tts">fu tànku rab teguwoon</annotation>
+		<annotation cp="🦃">picc | koppin</annotation>
+		<annotation cp="🦃" type="tts">koppin</annotation>
+		<annotation cp="🐔">picc | ginaar</annotation>
+		<annotation cp="🐔" type="tts">ginaar</annotation>
+		<annotation cp="🐓">séq | picc</annotation>
+		<annotation cp="🐓" type="tts">séq</annotation>
+		<annotation cp="🐣">picc | cuuj | génn ci nenn | liir</annotation>
+		<annotation cp="🐣" type="tts">cuuj bu génn ci nen</annotation>
+		<annotation cp="🐤">picc | cuuj | liir</annotation>
+		<annotation cp="🐤" type="tts">cuuj</annotation>
+		<annotation cp="🐥">picc | cuuj | liir</annotation>
+		<annotation cp="🐥" type="tts">kanam jàkkarloo ak lexu xale</annotation>
+		<annotation cp="🐦">picc</annotation>
+		<annotation cp="🐦" type="tts">picc</annotation>
+		<annotation cp="🐧">penguweŋ | picc</annotation>
+		<annotation cp="🐧" type="tts">penguweŋ</annotation>
+		<annotation cp="🕊">picc | naaw | jàmm</annotation>
+		<annotation cp="🕊" type="tts">kolomb</annotation>
+		<annotation cp="🦅">céeli | picc</annotation>
+		<annotation cp="🦅" type="tts">céeli</annotation>
+		<annotation cp="🦆">picc | kanaara</annotation>
+		<annotation cp="🦆" type="tts">kanaara</annotation>
+		<annotation cp="🦉">looy | picc | xelu</annotation>
+		<annotation cp="🦉" type="tts">looy</annotation>
+		<annotation cp="🐸">mbott | kanam</annotation>
+		<annotation cp="🐸" type="tts">kanamu mbott</annotation>
+		<annotation cp="🐊">jasit</annotation>
+		<annotation cp="🐊" type="tts">jasit</annotation>
+		<annotation cp="🐢">mbonaatu-ndox | mbonaat</annotation>
+		<annotation cp="🐢" type="tts">mbonaat</annotation>
+		<annotation cp="🦎">luy raam | sindax</annotation>
+		<annotation cp="🦎" type="tts">sindax</annotation>
+		<annotation cp="🐍">gàddukat | sojak | Ophiuchus | jaan</annotation>
+		<annotation cp="🐍" type="tts">jaan</annotation>
+		<annotation cp="🐲">dragoŋ | léebu fee | kanam</annotation>
+		<annotation cp="🐲" type="tts">kanamu dragoŋ</annotation>
+		<annotation cp="🐉">léebu fee</annotation>
+		<annotation cp="🐉" type="tts">dragoŋ</annotation>
+		<annotation cp="🦕">diplodocus | brachiosorus | brontosorus</annotation>
+		<annotation cp="🦕" type="tts">soropod</annotation>
+		<annotation cp="🦖">Tyrannosorus Rex</annotation>
+		<annotation cp="🦖" type="tts">T-Rex</annotation>
+		<annotation cp="🐳">baleen | kanam | sàll wu ñaw</annotation>
+		<annotation cp="🐳" type="tts">baleen bu puucatu</annotation>
+		<annotation cp="🐋">baleen</annotation>
+		<annotation cp="🐋" type="tts">baleen</annotation>
+		<annotation cp="🐬">flipër</annotation>
+		<annotation cp="🐬" type="tts">dófeŋ</annotation>
+		<annotation cp="🐟">sojak | Jën ji</annotation>
+		<annotation cp="🐟" type="tts">jën</annotation>
+		<annotation cp="🐠">jën | tàngoor</annotation>
+		<annotation cp="🐠" type="tts">jënu tàngoor</annotation>
+		<annotation cp="🐡">jën</annotation>
+		<annotation cp="🐡" type="tts">bun fokkin</annotation>
+		<annotation cp="🦈">rekeŋ | jën</annotation>
+		<annotation cp="🦈" type="tts">rekeŋ</annotation>
+		<annotation cp="🐙">oktopis</annotation>
+		<annotation cp="🐙" type="tts">oktopis</annotation>
+		<annotation cp="🐚">xor | espiraal</annotation>
+		<annotation cp="🐚" type="tts">xoru espiraal</annotation>
+		<annotation cp="🐌">eskargoo</annotation>
+		<annotation cp="🐌" type="tts">eskargoo</annotation>
+		<annotation cp="🦋">rafet | gunóor | lëppaalëp</annotation>
+		<annotation cp="🦋" type="tts">lëppaalëp</annotation>
+		<annotation cp="🐛">gunóor bu sew</annotation>
+		<annotation cp="🐛" type="tts">gunóor</annotation>
+		<annotation cp="🐜">gunóor bu sew</annotation>
+		<annotation cp="🐜" type="tts">sànqaleñ</annotation>
+		<annotation cp="🐝">yàmb | gunóor bu sew</annotation>
+		<annotation cp="🐝" type="tts">yamb</annotation>
+		<annotation cp="🐞">koksinel | gunóor bu sew | koksineel</annotation>
+		<annotation cp="🐞" type="tts">gunóor am tupp yu weex</annotation>
+		<annotation cp="🦗">soccet</annotation>
+		<annotation cp="🦗" type="tts">kriket</annotation>
+		<annotation cp="🕷">gunóor bu sew</annotation>
+		<annotation cp="🕷" type="tts">jargoñ</annotation>
+		<annotation cp="🕸">lënd | jargoñ</annotation>
+		<annotation cp="🕸" type="tts">lëndu jargoñ</annotation>
+		<annotation cp="🦂">jiit | sojak</annotation>
+		<annotation cp="🦂" type="tts">jiit</annotation>
+		<annotation cp="💐">fulër</annotation>
+		<annotation cp="💐" type="tts">takkufulër</annotation>
+		<annotation cp="🌸">fulër | sëriis</annotation>
+		<annotation cp="🌸" type="tts">fulóor yu am melo sëriis</annotation>
+		<annotation cp="💮">fulër</annotation>
+		<annotation cp="💮" type="tts">fulóor bu weex</annotation>
+		<annotation cp="🏵">garab</annotation>
+		<annotation cp="🏵" type="tts">roset</annotation>
+		<annotation cp="🌹">fulër</annotation>
+		<annotation cp="🌹" type="tts">róos</annotation>
+		<annotation cp="🥀">fulër | bu waw</annotation>
+		<annotation cp="🥀" type="tts">fulóor bu waw</annotation>
+		<annotation cp="🌺">fulër</annotation>
+		<annotation cp="🌺" type="tts">ibiskus</annotation>
+		<annotation cp="🌻">fulër | jant</annotation>
+		<annotation cp="🌻" type="tts">fulóoru jant</annotation>
+		<annotation cp="🌼">fulër</annotation>
+		<annotation cp="🌼" type="tts">fulóor</annotation>
+		<annotation cp="🌷">fulër</annotation>
+		<annotation cp="🌷" type="tts">tulip</annotation>
+		<annotation cp="🌱">ndaw</annotation>
+		<annotation cp="🌱" type="tts">semis</annotation>
+		<annotation cp="🌲">garab</annotation>
+		<annotation cp="🌲" type="tts">garab gu am xob yuy dund</annotation>
+		<annotation cp="🌳">ruus | wàññiku | garab</annotation>
+		<annotation cp="🌳" type="tts">garab gu am xob yuy dee</annotation>
+		<annotation cp="🌴">garabu | tiir</annotation>
+		<annotation cp="🌴" type="tts">garabu-tiir</annotation>
+		<annotation cp="🌵">garab</annotation>
+		<annotation cp="🌵" type="tts">gargamboose</annotation>
+		<annotation cp="🌾">ceeb | nopp | pepp</annotation>
+		<annotation cp="🌾" type="tts">sayu ceeb</annotation>
+		<annotation cp="🌿">xob</annotation>
+		<annotation cp="🌿" type="tts">ñax</annotation>
+		<annotation cp="☘">garab</annotation>
+		<annotation cp="☘" type="tts">tereefal</annotation>
+		<annotation cp="🍀">ñeent | treefal | xob | 4</annotation>
+		<annotation cp="🍀" type="tts">treefalu ñeenti xob</annotation>
+		<annotation cp="🍁">kanadaa | daanu | xob</annotation>
+		<annotation cp="🍁" type="tts">kobu kanadaa</annotation>
+		<annotation cp="🍂">daanu | xob</annotation>
+		<annotation cp="🍂" type="tts">xob yu daanu</annotation>
+		<annotation cp="🍃">ëf | yëngu | xob | ngelaw</annotation>
+		<annotation cp="🍃" type="tts">xob wu gelaw yëngal</annotation>
+		<annotation cp="🍇">meññeef | reeseŋ</annotation>
+		<annotation cp="🍇" type="tts">reeseŋ</annotation>
+		<annotation cp="🍈">meññeef</annotation>
+		<annotation cp="🍈" type="tts">mëloŋ</annotation>
+		<annotation cp="🍉">meññeef</annotation>
+		<annotation cp="🍉" type="tts">xaal</annotation>
+		<annotation cp="🍊">oraas | meññeef</annotation>
+		<annotation cp="🍊" type="tts">màndarin</annotation>
+		<annotation cp="🍋">meññeef | agrume</annotation>
+		<annotation cp="🍋" type="tts">lingom</annotation>
+		<annotation cp="🍌">meññeef</annotation>
+		<annotation cp="🍌" type="tts">banana</annotation>
+		<annotation cp="🍍">meññeef</annotation>
+		<annotation cp="🍍" type="tts">ananas</annotation>
+		<annotation cp="🍎">meññeef | pom | xonk</annotation>
+		<annotation cp="🍎" type="tts">pom bu xonk</annotation>
+		<annotation cp="🍏">meññeef | pom | wert</annotation>
+		<annotation cp="🍏" type="tts">pom bu wert</annotation>
+		<annotation cp="🍐">meññeef</annotation>
+		<annotation cp="🍐" type="tts">puwaar</annotation>
+		<annotation cp="🍑">meññeef</annotation>
+		<annotation cp="🍑" type="tts">pes</annotation>
+		<annotation cp="🍒">meññeef | sëriis</annotation>
+		<annotation cp="🍒" type="tts">sëriis</annotation>
+		<annotation cp="🍓">meññeef | bee</annotation>
+		<annotation cp="🍓" type="tts">frees</annotation>
+		<annotation cp="🥝">lekk | meññeef | kiwi</annotation>
+		<annotation cp="🥝" type="tts">kiwi</annotation>
+		<annotation cp="🍅">meññeef | lujum</annotation>
+		<annotation cp="🍅" type="tts">tamaate</annotation>
+		<annotation cp="🥥">piña colada | tiir</annotation>
+		<annotation cp="🥥" type="tts">ñamu coco</annotation>
+		<annotation cp="🥑">lekk | awokaa | meññeef</annotation>
+		<annotation cp="🥑" type="tts">awokaa</annotation>
+		<annotation cp="🍆">lujum | basante</annotation>
+		<annotation cp="🍆" type="tts">basante</annotation>
+		<annotation cp="🥔">meññeef | potaas | lujum</annotation>
+		<annotation cp="🥔" type="tts">pombiteer</annotation>
+		<annotation cp="🥕">lekk | lujum | karot</annotation>
+		<annotation cp="🥕" type="tts">karot</annotation>
+		<annotation cp="🌽">mboq | nopp</annotation>
+		<annotation cp="🌽" type="tts">noppi mboq</annotation>
+		<annotation cp="🌶">kaani | xeeñ</annotation>
+		<annotation cp="🌶" type="tts">kaani xeeñ</annotation>
+		<annotation cp="🥒">lekk | njaxas | komjomlaat | meññeef</annotation>
+		<annotation cp="🥒" type="tts">komkombar</annotation>
+		<annotation cp="🥦">supame</annotation>
+		<annotation cp="🥦" type="tts">brokoli</annotation>
+		<annotation cp="🍄">sampiñoŋ weneer</annotation>
+		<annotation cp="🍄" type="tts">sampiñoŋ</annotation>
+		<annotation cp="🥜">lekk | nuwaa | lujum | gerte</annotation>
+		<annotation cp="🥜" type="tts">gerte</annotation>
+		<annotation cp="🌰">garab</annotation>
+		<annotation cp="🌰" type="tts">sateñ</annotation>
+		<annotation cp="🍞">peŋ</annotation>
+		<annotation cp="🍞" type="tts">mburu</annotation>
+		<annotation cp="🥐">wu-faraas | briyoos | mburu | lekk | kurwaasaŋ</annotation>
+		<annotation cp="🥐" type="tts">Kurwaasaŋ</annotation>
+		<annotation cp="🥖">lekk | wu-faraas | miis | mburu</annotation>
+		<annotation cp="🥖" type="tts">miisu mburu</annotation>
+		<annotation cp="🥨">buñ lem</annotation>
+		<annotation cp="🥨" type="tts">bretzel</annotation>
+		<annotation cp="🥞">lekk | ngato bu tànk | krep | crêpe</annotation>
+		<annotation cp="🥞" type="tts">krep</annotation>
+		<annotation cp="🧀">fromaas</annotation>
+		<annotation cp="🧀" type="tts">cëru fromaas</annotation>
+		<annotation cp="🍖">yax | yàpp</annotation>
+		<annotation cp="🍖" type="tts">yàpp ci yax</annotation>
+		<annotation cp="🍗">yax | ginaar | tànk</annotation>
+		<annotation cp="🍗" type="tts">tànku ginaar</annotation>
+		<annotation cp="🥩">bitik-mbaam xuux | bitik xar | bitik | steak</annotation>
+		<annotation cp="🥩" type="tts">dogu yàpp</annotation>
+		<annotation cp="🥓">bakon | lekk | yàpp</annotation>
+		<annotation cp="🥓" type="tts">bekon</annotation>
+		<annotation cp="🍔">bërgë</annotation>
+		<annotation cp="🍔" type="tts">àmburgë</annotation>
+		<annotation cp="🍟">pombiteer | buñ saaf</annotation>
+		<annotation cp="🍟" type="tts">pombiteer buñ saaf</annotation>
+		<annotation cp="🍕">dagg | fromaas</annotation>
+		<annotation cp="🍕" type="tts">pizza</annotation>
+		<annotation cp="🌭">otdog | sosis</annotation>
+		<annotation cp="🌭" type="tts">ot-dog</annotation>
+		<annotation cp="🥪">mburu</annotation>
+		<annotation cp="🥪" type="tts">sandwich</annotation>
+		<annotation cp="🌮">wu-meksik</annotation>
+		<annotation cp="🌮" type="tts">tako</annotation>
+		<annotation cp="🌯">mbar | wu-meksik</annotation>
+		<annotation cp="🌯" type="tts">burito</annotation>
+		<annotation cp="🥙">falafel | jiro | kebab | mburu | lekk | farse</annotation>
+		<annotation cp="🥙" type="tts">mburu-farsi</annotation>
+		<annotation cp="🥚">nen | lekk</annotation>
+		<annotation cp="🥚" type="tts">nen</annotation>
+		<annotation cp="🍳">nen | saaf | pane</annotation>
+		<annotation cp="🍳" type="tts">togg</annotation>
+		<annotation cp="🥘">bu xóotul | kaserol | lekk | pane | paylaa</annotation>
+		<annotation cp="🥘" type="tts">boolu togg bu xóotul</annotation>
+		<annotation cp="🍲">ragu | potu</annotation>
+		<annotation cp="🍲" type="tts">potu ñam</annotation>
+		<annotation cp="🥣">dugub | congee | ndeki</annotation>
+		<annotation cp="🥣" type="tts">bool ak kuddu</annotation>
+		<annotation cp="🥗">lekk | wert | salaat</annotation>
+		<annotation cp="🥗" type="tts">salaad bu wert</annotation>
+		<annotation cp="🍿">pop korn</annotation>
+		<annotation cp="🍿" type="tts">pop korn</annotation>
+		<annotation cp="🥫">kanet</annotation>
+		<annotation cp="🥫" type="tts">lekk ci kanet</annotation>
+		<annotation cp="🍱">bento | boyetu</annotation>
+		<annotation cp="🍱" type="tts">boyetu bento</annotation>
+		<annotation cp="🍘">ceeb | gato</annotation>
+		<annotation cp="🍘" type="tts">gato ceeb</annotation>
+		<annotation cp="🍙">ceeb | ball | Sapone</annotation>
+		<annotation cp="🍙" type="tts">balu ceeb</annotation>
+		<annotation cp="🍚">ceeb | togg</annotation>
+		<annotation cp="🍚" type="tts">ceeb buñ togg</annotation>
+		<annotation cp="🍛">ceebu | kari</annotation>
+		<annotation cp="🍛" type="tts">ceebu kari</annotation>
+		<annotation cp="🍜">bool | ramen | wapër | espageti-laxasu</annotation>
+		<annotation cp="🍜" type="tts">toggee ci wapër</annotation>
+		<annotation cp="🍝">paat</annotation>
+		<annotation cp="🍝" type="tts">espageti</annotation>
+		<annotation cp="🍠">suukër | pombiteer | roti</annotation>
+		<annotation cp="🍠" type="tts">pataas buñ roti</annotation>
+		<annotation cp="🍢">meññeefu géej | fruit | kebab | broset</annotation>
+		<annotation cp="🍢" type="tts">oden</annotation>
+		<annotation cp="🍣">sushi</annotation>
+		<annotation cp="🍣" type="tts">sushi</annotation>
+		<annotation cp="🍤">tempura | saaf | sippax</annotation>
+		<annotation cp="🍤" type="tts">sippax buñ saaf</annotation>
+		<annotation cp="🍥">jën | ngato | wëndeelu</annotation>
+		<annotation cp="🍥" type="tts">buteeli jën</annotation>
+		<annotation cp="🍡">suukër | fruit | deseer | sapone | broset</annotation>
+		<annotation cp="🍡" type="tts">dango</annotation>
+		<annotation cp="🥟">potsticker | empanada | jiaozi | gyōza | pierogi</annotation>
+		<annotation cp="🥟" type="tts">buleet</annotation>
+		<annotation cp="🥠">yónent</annotation>
+		<annotation cp="🥠" type="tts">mbiskitu musuwaar</annotation>
+		<annotation cp="🥡">siwo yoxos</annotation>
+		<annotation cp="🥡" type="tts">boyetu yóbbaale</annotation>
+		<annotation cp="🦀">sojak | Kànseer</annotation>
+		<annotation cp="🦀" type="tts">junqoob</annotation>
+		<annotation cp="🦐">krëwet | meññeefu géej | ndaw | lekk</annotation>
+		<annotation cp="🦐" type="tts">krëwet</annotation>
+		<annotation cp="🦑">lekk | yéet | kalamaar</annotation>
+		<annotation cp="🦑" type="tts">kalamaar</annotation>
+		<annotation cp="🍦">suukër | nooy | kreem | galaas | deseer | kreem-galaase</annotation>
+		<annotation cp="🍦" type="tts">kreem galaas bu am suukar</annotation>
+		<annotation cp="🍧">buñ wat | suukër | galaas | deseer</annotation>
+		<annotation cp="🍧" type="tts">galaas guñ dëbb</annotation>
+		<annotation cp="🍨">suukër | kereem | deseer | glaas</annotation>
+		<annotation cp="🍨" type="tts">kreem galaase</annotation>
+		<annotation cp="🍩">suukër | deseer | beñe</annotation>
+		<annotation cp="🍩" type="tts">beñe</annotation>
+		<annotation cp="🍪">suukër | deseer</annotation>
+		<annotation cp="🍪" type="tts">mbiskit</annotation>
+		<annotation cp="🎂">màggal | suukër | deseer | paat | bisu-judd | gato</annotation>
+		<annotation cp="🎂" type="tts">ngato màggal bisu-judd</annotation>
+		<annotation cp="🍰">suukër | xaaj | deseer | paat | gato</annotation>
+		<annotation cp="🍰" type="tts">gàttal-yoon</annotation>
+		<annotation cp="🥧">mburu | farinu</annotation>
+		<annotation cp="🥧" type="tts">tàrt</annotation>
+		<annotation cp="🍫">sokolaa | suukër | deseer | laal</annotation>
+		<annotation cp="🍫" type="tts">laatu-sokolaa</annotation>
+		<annotation cp="🍬">suukër | deseer</annotation>
+		<annotation cp="🍬" type="tts">tàngal</annotation>
+		<annotation cp="🍭">suukër | tàngal | deseer</annotation>
+		<annotation cp="🍭" type="tts">tàngal bant</annotation>
+		<annotation cp="🍮">suukër | deseer | pudiŋ</annotation>
+		<annotation cp="🍮" type="tts">kreem</annotation>
+		<annotation cp="🍯">suukër | potu lem | pot | lem</annotation>
+		<annotation cp="🍯" type="tts">potu lem</annotation>
+		<annotation cp="🍼">naan | buteel | meew | liir</annotation>
+		<annotation cp="🍼" type="tts">biberoŋ</annotation>
+		<annotation cp="🥛">kaas | naan | meew</annotation>
+		<annotation cp="🥛" type="tts">kaasu meew</annotation>
+		<annotation cp="☕">naan | wapër | kafe | tàng | attaaya</annotation>
+		<annotation cp="☕" type="tts">naan gu tank</annotation>
+		<annotation cp="🍵">kaas | naan | kaasu attaaya | attaaya</annotation>
+		<annotation cp="🍵" type="tts">kaasu attaayu bu amul jàppukaay</annotation>
+		<annotation cp="🍶">kaas | naan | buteel | laal</annotation>
+		<annotation cp="🍶" type="tts">buteel bu yaatu gémmiñ</annotation>
+		<annotation cp="🍾">naan | naaw | buteel | saañ | laat</annotation>
+		<annotation cp="🍾" type="tts">buteel bu saañ biy naaw</annotation>
+		<annotation cp="🍷">bevemer | naan | glass | wine | laat</annotation>
+		<annotation cp="🍷" type="tts">kaasu sàngara</annotation>
+		<annotation cp="🍸">weer | naan | laat | koktel</annotation>
+		<annotation cp="🍸" type="tts">kaasu koktel</annotation>
+		<annotation cp="🍹">naan | laat | tàngoor</annotation>
+		<annotation cp="🍹" type="tts">naan tàngoor</annotation>
+		<annotation cp="🍺">kaas | naan | laat | beer</annotation>
+		<annotation cp="🍺" type="tts">kaasu biyeer</annotation>
+		<annotation cp="🍻">naan | kaas | laat | kliŋ | beer</annotation>
+		<annotation cp="🍻" type="tts">dóorante kaasu biyeer</annotation>
+		<annotation cp="🥂">kaas | naan | dóorante | màggal</annotation>
+		<annotation cp="🥂" type="tts">dóorante kaas</annotation>
+		<annotation cp="🥃">ndox | likër | kaas | ñam | whisky</annotation>
+		<annotation cp="🥃" type="tts">kaasu ndox</annotation>
+		<annotation cp="🥤">soda | jus</annotation>
+		<annotation cp="🥤" type="tts">kaas ak paay</annotation>
+		<annotation cp="🥢">hashi</annotation>
+		<annotation cp="🥢" type="tts">baget</annotation>
+		<annotation cp="🍽">paaka | furset | togg | asiyet</annotation>
+		<annotation cp="🍽" type="tts">furset and paaka ak asiyet</annotation>
+		<annotation cp="🍴">paaka | furset | togg</annotation>
+		<annotation cp="🍴" type="tts">furset ak paaka</annotation>
+		<annotation cp="🥄">kuddu | taabal</annotation>
+		<annotation cp="🥄" type="tts">kuddu</annotation>
+		<annotation cp="🔪">hocho | paaka | ngànnaay | jumtukaay | togg</annotation>
+		<annotation cp="🔪" type="tts">paaka waañ</annotation>
+		<annotation cp="🏺">naan | ngànnaay | jumtukaay | Aquarius | jug | sojak | togg</annotation>
+		<annotation cp="🏺" type="tts">àmfoor</annotation>
+		<annotation cp="🌍">suuf | glob | Ërop | àdduna | Africa</annotation>
+		<annotation cp="🌍" type="tts">glob buy wane ërop ak afrik</annotation>
+		<annotation cp="🌎">Amerika | suuf | àdduna | glob</annotation>
+		<annotation cp="🌎" type="tts">glob buy wane amerik</annotation>
+		<annotation cp="🌏">suuf | Asi | glob | ostralia | àdduna</annotation>
+		<annotation cp="🌏" type="tts">glob buy wane asi ak óstraali</annotation>
+		<annotation cp="🌐">suuf | merijeŋ | àdduna | glob</annotation>
+		<annotation cp="🌐" type="tts">glob buy wane merijeŋ yi</annotation>
+		<annotation cp="🗺">kàrt | àdduna</annotation>
+		<annotation cp="🗺" type="tts">kàrtu àdduna</annotation>
+		<annotation cp="🗾">kàrt | Sapoŋ</annotation>
+		<annotation cp="🗾" type="tts">kàrtu sapoŋ</annotation>
+		<annotation cp="🏔">montaañ | nees | sedd</annotation>
+		<annotation cp="🏔" type="tts">nees bu muur montaañ</annotation>
+		<annotation cp="⛰">montaañ</annotation>
+		<annotation cp="⛰" type="tts">montaañ</annotation>
+		<annotation cp="🌋">montaañ | xal yuy génn</annotation>
+		<annotation cp="🌋" type="tts">géeju xal</annotation>
+		<annotation cp="🗻">montaañ | fuji</annotation>
+		<annotation cp="🗻" type="tts">tundu fuji</annotation>
+		<annotation cp="🏕">kampiŋ</annotation>
+		<annotation cp="🏕" type="tts">kampiŋ</annotation>
+		<annotation cp="🏖">tefes | parasol</annotation>
+		<annotation cp="🏖" type="tts">tefes ak parasol</annotation>
+		<annotation cp="🏜">desert</annotation>
+		<annotation cp="🏜" type="tts">desert</annotation>
+		<annotation cp="🏝">dun | desert</annotation>
+		<annotation cp="🏝" type="tts">desert dun</annotation>
+		<annotation cp="🏞">park</annotation>
+		<annotation cp="🏞" type="tts">park national</annotation>
+		<annotation cp="🏟">estad</annotation>
+		<annotation cp="🏟" type="tts">estad</annotation>
+		<annotation cp="🏛">cosaan</annotation>
+		<annotation cp="🏛" type="tts">tabaxu cosaan</annotation>
+		<annotation cp="🏗">tabax</annotation>
+		<annotation cp="🏗" type="tts">tabax ab tabax</annotation>
+		<annotation cp="🏘">kër yi</annotation>
+		<annotation cp="🏘" type="tts">kër yi</annotation>
+		<annotation cp="🏚">kër | gent</annotation>
+		<annotation cp="🏚" type="tts">kër gu gent</annotation>
+		<annotation cp="🏠">dëkkuwaay | kër</annotation>
+		<annotation cp="🏠" type="tts">kër</annotation>
+		<annotation cp="🏡">dëkkuwaay | sardeŋ | kër</annotation>
+		<annotation cp="🏡" type="tts">kër ak sardeŋ</annotation>
+		<annotation cp="🏢">tabax</annotation>
+		<annotation cp="🏢" type="tts">taaxu liggéey</annotation>
+		<annotation cp="🏣">post | sapone</annotation>
+		<annotation cp="🏣" type="tts">biro post ci sapoŋ</annotation>
+		<annotation cp="🏤">post | Ëroop</annotation>
+		<annotation cp="🏤" type="tts">biro post</annotation>
+		<annotation cp="🏥">medsin | doktor</annotation>
+		<annotation cp="🏥" type="tts">opitaal</annotation>
+		<annotation cp="🏦">tabax</annotation>
+		<annotation cp="🏦" type="tts">bànk</annotation>
+		<annotation cp="🏨">tabax</annotation>
+		<annotation cp="🏨" type="tts">otel</annotation>
+		<annotation cp="🏩">otel | mbëggeel</annotation>
+		<annotation cp="🏩" type="tts">otelu mbëggeel</annotation>
+		<annotation cp="🏪">njaay | mu yomb</annotation>
+		<annotation cp="🏪" type="tts">njaay mu yomb</annotation>
+		<annotation cp="🏫">tabax</annotation>
+		<annotation cp="🏫" type="tts">daara</annotation>
+		<annotation cp="🏬">magasin | rëy</annotation>
+		<annotation cp="🏬" type="tts">rëy magasin</annotation>
+		<annotation cp="🏭">tabax</annotation>
+		<annotation cp="🏭" type="tts">Isinu-liggéey</annotation>
+		<annotation cp="🏯">taax | Sapone</annotation>
+		<annotation cp="🏯" type="tts">taaxu sapoŋ</annotation>
+		<annotation cp="🏰">Ëroop</annotation>
+		<annotation cp="🏰" type="tts">taaxu buur</annotation>
+		<annotation cp="💒">jàngu | mbëggeel</annotation>
+		<annotation cp="💒" type="tts">céet</annotation>
+		<annotation cp="🗼">tuuru | tokyo</annotation>
+		<annotation cp="🗼" type="tts">tuuru ci tokyo</annotation>
+		<annotation cp="🗽">liberte | estati</annotation>
+		<annotation cp="🗽" type="tts">estati liberte</annotation>
+		<annotation cp="⛪">kruwaa | Kreceŋ | diine</annotation>
+		<annotation cp="⛪" type="tts">jàngu</annotation>
+		<annotation cp="🕌">Jullit | islam | diine</annotation>
+		<annotation cp="🕌" type="tts">Jàkka</annotation>
+		<annotation cp="🕍">tàmpal | Juif | diine</annotation>
+		<annotation cp="🕍" type="tts">sinaagog</annotation>
+		<annotation cp="⛩">shinto | armeel | diine</annotation>
+		<annotation cp="⛩" type="tts">armeeli Shinto</annotation>
+		<annotation cp="🕋">Jullit | islam | diine</annotation>
+		<annotation cp="🕋" type="tts">Kaaba</annotation>
+		<annotation cp="⛲">ndax muy sànni</annotation>
+		<annotation cp="⛲" type="tts">ndax muy sànni</annotation>
+		<annotation cp="⛺">kampiŋ</annotation>
+		<annotation cp="⛺" type="tts">tant</annotation>
+		<annotation cp="🌁">ab lay</annotation>
+		<annotation cp="🌁" type="tts">lay</annotation>
+		<annotation cp="🌃">biddeew | guddi</annotation>
+		<annotation cp="🌃" type="tts">guddi ak ay biddéew</annotation>
+		<annotation cp="🏙">city</annotation>
+		<annotation cp="🏙" type="tts">cityscape</annotation>
+		<annotation cp="🌄">jant | jant buy fenk | tundu | suba</annotation>
+		<annotation cp="🌄" type="tts">jant buy fenk ci tund</annotation>
+		<annotation cp="🌅">jant | suba</annotation>
+		<annotation cp="🌅" type="tts">jant buy fenk</annotation>
+		<annotation cp="🌆">guddi | timis | peyisaas | jant buy so | jant | dëkk</annotation>
+		<annotation cp="🌆" type="tts">timis ci réewu taax</annotation>
+		<annotation cp="🌇">jant | so</annotation>
+		<annotation cp="🌇" type="tts">jant bu so ci réewu taax</annotation>
+		<annotation cp="🌉">pom | guddi</annotation>
+		<annotation cp="🌉" type="tts">pom ci guddi</annotation>
+		<annotation cp="♨">cooroon | tàng | cooroon yu tàng | saxaar</annotation>
+		<annotation cp="♨" type="tts">cooroon bu tàng</annotation>
+		<annotation cp="🎠">fasu | kurusel</annotation>
+		<annotation cp="🎠" type="tts">fasu kurusel</annotation>
+		<annotation cp="🎡">kawe lool | barabu bégal xol | pëno</annotation>
+		<annotation cp="🎡" type="tts">pëno bu kawe lool</annotation>
+		<annotation cp="🎢">risi | tundu | barabu bégal xol</annotation>
+		<annotation cp="🎢" type="tts">tundu risi</annotation>
+		<annotation cp="💈">watkat | tablo | wateef</annotation>
+		<annotation cp="💈" type="tts">tablo watkat</annotation>
+		<annotation cp="🎪">sirk | barabu</annotation>
+		<annotation cp="🎪" type="tts">barabu sirk</annotation>
+		<annotation cp="🚂">raay | wapër | motër | otoraay</annotation>
+		<annotation cp="🚂" type="tts">ndaamaar</annotation>
+		<annotation cp="🚃">kuuraŋ | trolleybus | oto | raay | otoraay | tram</annotation>
+		<annotation cp="🚃" type="tts">otoraay</annotation>
+		<annotation cp="🚄">raay | gaawaay | otoraay | shinkansen</annotation>
+		<annotation cp="🚄" type="tts">otoraay bu gaaw lool</annotation>
+		<annotation cp="🚅">gaawaay | shinkansen | raay | bullet | otoraay</annotation>
+		<annotation cp="🚅" type="tts">otoraay bu gaaw lool ak kanam gu sew</annotation>
+		<annotation cp="🚆">raay</annotation>
+		<annotation cp="🚆" type="tts">saxaar</annotation>
+		<annotation cp="🚇">subweey</annotation>
+		<annotation cp="🚇" type="tts">metro</annotation>
+		<annotation cp="🚈">raay</annotation>
+		<annotation cp="🚈" type="tts">otoraay bu moome fépp</annotation>
+		<annotation cp="🚉">raay | otoraay</annotation>
+		<annotation cp="🚉" type="tts">gaar</annotation>
+		<annotation cp="🚊">trolleybus</annotation>
+		<annotation cp="🚊" type="tts">tram</annotation>
+		<annotation cp="🚝">waruwaay</annotation>
+		<annotation cp="🚝" type="tts">monoraay</annotation>
+		<annotation cp="🚞">raay | montaañ | oto</annotation>
+		<annotation cp="🚞" type="tts">raayu tund</annotation>
+		<annotation cp="🚋">trolleybus | oto | tram</annotation>
+		<annotation cp="🚋" type="tts">oto tramweey</annotation>
+		<annotation cp="🚌">waruwaay</annotation>
+		<annotation cp="🚌" type="tts">otokaar</annotation>
+		<annotation cp="🚍">kaar | ñëw</annotation>
+		<annotation cp="🚍" type="tts">kaar buy ñëw</annotation>
+		<annotation cp="🚎">trolley | kaar | tram</annotation>
+		<annotation cp="🚎" type="tts">trolleybus</annotation>
+		<annotation cp="🚐">otokaar</annotation>
+		<annotation cp="🚐" type="tts">minikaar</annotation>
+		<annotation cp="🚑">waruwaay</annotation>
+		<annotation cp="🚑" type="tts">àmbilaas</annotation>
+		<annotation cp="🚒">fire | truk | motër</annotation>
+		<annotation cp="🚒" type="tts">oto pompiyee</annotation>
+		<annotation cp="🚓">patrol | poliis | oto</annotation>
+		<annotation cp="🚓" type="tts">oto poliis</annotation>
+		<annotation cp="🚔">buy ñëw | poliis | oto</annotation>
+		<annotation cp="🚔" type="tts">oto poliis buy ñëw</annotation>
+		<annotation cp="🚕">waruwaay</annotation>
+		<annotation cp="🚕" type="tts">taxi</annotation>
+		<annotation cp="🚖">taxi | ñëw</annotation>
+		<annotation cp="🚖" type="tts">taxi buy ñëw</annotation>
+		<annotation cp="🚗">oto</annotation>
+		<annotation cp="🚗" type="tts">oto</annotation>
+		<annotation cp="🚘">buy ñëw | oto | otoportaabal</annotation>
+		<annotation cp="🚘" type="tts">oto buy ñëw</annotation>
+		<annotation cp="🚙">bégal-xol | njëkkante</annotation>
+		<annotation cp="🚙" type="tts">oto njëkkante</annotation>
+		<annotation cp="🚚">kamiyoŋu | bagaas</annotation>
+		<annotation cp="🚚" type="tts">kamiyoŋu bagaas</annotation>
+		<annotation cp="🚛">semi | kamiyoŋ</annotation>
+		<annotation cp="🚛" type="tts">kamiyoŋu bu gudd lool</annotation>
+		<annotation cp="🚜">waruwaay</annotation>
+		<annotation cp="🚜" type="tts">traktër</annotation>
+		<annotation cp="🏎">kursu | oto</annotation>
+		<annotation cp="🏎" type="tts">kursu oto</annotation>
+		<annotation cp="🏍">kursu</annotation>
+		<annotation cp="🏍" type="tts">moto</annotation>
+		<annotation cp="🛵">moto | eskutër</annotation>
+		<annotation cp="🛵" type="tts">eskutër</annotation>
+		<annotation cp="🚲">welo</annotation>
+		<annotation cp="🚲" type="tts">welo</annotation>
+		<annotation cp="🛴">welo | benn tànk</annotation>
+		<annotation cp="🛴" type="tts">welo benn tànk</annotation>
+		<annotation cp="🚏">are-kaar | taxaw | bus</annotation>
+		<annotation cp="🚏" type="tts">are-kaar</annotation>
+		<annotation cp="🛣">oto-ruut | tali</annotation>
+		<annotation cp="🛣" type="tts">otoruut</annotation>
+		<annotation cp="🛤">raay | otoraay</annotation>
+		<annotation cp="🛤" type="tts">wagoŋ raay</annotation>
+		<annotation cp="🛢">diw | bidoŋ</annotation>
+		<annotation cp="🛢" type="tts">bidoŋu diw</annotation>
+		<annotation cp="⛽">estasiyoŋ | pompu-esaas | karbiraŋ | pomp | esaas</annotation>
+		<annotation cp="⛽" type="tts">pompu esaas</annotation>
+		<annotation cp="🚨">faar | làmp | wëndeelu | oto | poliis</annotation>
+		<annotation cp="🚨" type="tts">làmpu oto poliis</annotation>
+		<annotation cp="🚥">siñaal | làmp | tali</annotation>
+		<annotation cp="🚥" type="tts">làmpi estop yu tëdd</annotation>
+		<annotation cp="🚦">siñaal | làmp | tali</annotation>
+		<annotation cp="🚦" type="tts">làmpi estop yu taxaw</annotation>
+		<annotation cp="🛑">dakkal | siñ | wu-oktagon</annotation>
+		<annotation cp="🛑" type="tts">màndarga dakkal</annotation>
+		<annotation cp="🚧">bariyeer</annotation>
+		<annotation cp="🚧" type="tts">tabax</annotation>
+		<annotation cp="⚓">jumtukaay | bato</annotation>
+		<annotation cp="⚓" type="tts">serukaayu gaal</annotation>
+		<annotation cp="⛵">gaal | géej | yacht | serukaay</annotation>
+		<annotation cp="⛵" type="tts">gaalu ngelaw</annotation>
+		<annotation cp="🛶">kanowe | gaal</annotation>
+		<annotation cp="🛶" type="tts">kaal gu ndaw</annotation>
+		<annotation cp="🚤">gaal</annotation>
+		<annotation cp="🚤" type="tts">gaalu motër</annotation>
+		<annotation cp="🛳">bato | ki mu yab</annotation>
+		<annotation cp="🛳" type="tts">ki mu yab bato</annotation>
+		<annotation cp="⛴">gaal | ki mu yab</annotation>
+		<annotation cp="⛴" type="tts">bak</annotation>
+		<annotation cp="🛥">gaal | gaalu-motër</annotation>
+		<annotation cp="🛥" type="tts">gaalu-motër</annotation>
+		<annotation cp="🚢">gaal | ki mu yab</annotation>
+		<annotation cp="🚢" type="tts">gaal gu mag</annotation>
+		<annotation cp="✈">roppalaan | aeroppalaan</annotation>
+		<annotation cp="✈" type="tts">roppalaan</annotation>
+		<annotation cp="🛩">roppalaan | aeroppalaan</annotation>
+		<annotation cp="🛩" type="tts">roppalaan bu ndaw</annotation>
+		<annotation cp="🛫">roppalaan | deppaar yi | enregistremaa | aeroppalaan | deppaar</annotation>
+		<annotation cp="🛫" type="tts">roppalaan buy dem</annotation>
+		<annotation cp="🛬">roppalaan | buy ñëw | aeroppalaan | ñëw yi | wàcci</annotation>
+		<annotation cp="🛬" type="tts">roppalaan buy ñëw</annotation>
+		<annotation cp="💺">sees</annotation>
+		<annotation cp="💺" type="tts">toogu</annotation>
+		<annotation cp="🚁">waruwaay</annotation>
+		<annotation cp="🚁" type="tts">elikopteer</annotation>
+		<annotation cp="🚟">raay | bu-aju</annotation>
+		<annotation cp="🚟" type="tts">raay ci kaw</annotation>
+		<annotation cp="🚠">cable | gondol | montaañ</annotation>
+		<annotation cp="🚠" type="tts">teleferik</annotation>
+		<annotation cp="🚡">gondol | kaabal | tramweey | oto | ci-kaw</annotation>
+		<annotation cp="🚡" type="tts">tramweey ci kaw</annotation>
+		<annotation cp="🛰">espaas</annotation>
+		<annotation cp="🛰" type="tts">satelit</annotation>
+		<annotation cp="🚀">espaas</annotation>
+		<annotation cp="🚀" type="tts">fuse-jawwu</annotation>
+		<annotation cp="🛸">OVNI</annotation>
+		<annotation cp="🛸" type="tts">sukup buy naaw</annotation>
+		<annotation cp="🛎">joolooli | joolooli bu ñuy bës | otel</annotation>
+		<annotation cp="🛎" type="tts">joolooli bu ñuy bës</annotation>
+		<annotation cp="⌛">suuf | jël-waxtu</annotation>
+		<annotation cp="⌛" type="tts">saabliyee</annotation>
+		<annotation cp="⏳">saabliyee | suuf | jël-waxtu</annotation>
+		<annotation cp="⏳" type="tts">saabliyee buy sotti suuf</annotation>
+		<annotation cp="⌚">montar</annotation>
+		<annotation cp="⌚" type="tts">seetaan</annotation>
+		<annotation cp="⏰">waxtukaayu | yégle</annotation>
+		<annotation cp="⏰" type="tts">waxtukaayu yégle</annotation>
+		<annotation cp="⏱">montar</annotation>
+		<annotation cp="⏱" type="tts">kronoo</annotation>
+		<annotation cp="⏲">montar | jël-waxtu</annotation>
+		<annotation cp="⏲" type="tts">montar jël-waxtu</annotation>
+		<annotation cp="🕰">montar</annotation>
+		<annotation cp="🕰" type="tts">montaru wékk</annotation>
+		<annotation cp="🕛">montar | piil | 12:00 | 00 | 12 | midi</annotation>
+		<annotation cp="🕛" type="tts">12:00</annotation>
+		<annotation cp="🕧">montar | 12:30 | 30 | 12 | midi | genn-wàll</annotation>
+		<annotation cp="🕧" type="tts">12:30</annotation>
+		<annotation cp="🕐">montar | piil | 00 | benn | 1 | 1:00</annotation>
+		<annotation cp="🕐" type="tts">01:00</annotation>
+		<annotation cp="🕜">montar | 30 | 1 | one | genn-wàll | 1:30</annotation>
+		<annotation cp="🕜" type="tts">01:30</annotation>
+		<annotation cp="🕑">montar | 2:00 | 2 | piil | 00 | ñaar</annotation>
+		<annotation cp="🕑" type="tts">02:00</annotation>
+		<annotation cp="🕝">montar | 2 | 30 | ñaar | genn-wàll | 2:30</annotation>
+		<annotation cp="🕝" type="tts">02:30</annotation>
+		<annotation cp="🕒">montar | piil | 3 | 00 | 3:00 | garab</annotation>
+		<annotation cp="🕒" type="tts">03:00</annotation>
+		<annotation cp="🕞">3:30 | montar | ñatt | 3 | 30 | genn-wàll</annotation>
+		<annotation cp="🕞" type="tts">03:30</annotation>
+		<annotation cp="🕓">montar | 4 | 4:00 | piil | 00 | ñeent</annotation>
+		<annotation cp="🕓" type="tts">04:00</annotation>
+		<annotation cp="🕟">montar | 4 | 4:30 | 30 | genn-wàll | ñeent</annotation>
+		<annotation cp="🕟" type="tts">04:30</annotation>
+		<annotation cp="🕔">5 | montar | piil | 00 | 5:00 | juróom</annotation>
+		<annotation cp="🕔" type="tts">05:00</annotation>
+		<annotation cp="🕠">5 | montar | 5:30 | 30 | genn-wàll | juróom</annotation>
+		<annotation cp="🕠" type="tts">05:30</annotation>
+		<annotation cp="🕕">montar | piil | 6 | 00 | 6:00 | juróom-benn</annotation>
+		<annotation cp="🕕" type="tts">06:00</annotation>
+		<annotation cp="🕡">montar | 6:30 | 6 | 30 | genn-wàll | juróom-benn</annotation>
+		<annotation cp="🕡" type="tts">06:30</annotation>
+		<annotation cp="🕖">montar | 7:00 | 7 | piil | 00 | juróom-ñaar</annotation>
+		<annotation cp="🕖" type="tts">07:00</annotation>
+		<annotation cp="🕢">montar | 7 | 7:30 | 30 | juróom-ñaar | genn-wàll</annotation>
+		<annotation cp="🕢" type="tts">07:30</annotation>
+		<annotation cp="🕗">8:00 | montar | piil | 00 | juróom-ñatt | 8</annotation>
+		<annotation cp="🕗" type="tts">08:00</annotation>
+		<annotation cp="🕣">montar | 8:30 | 30 | juróom-ñatt | genn-wàll | 8</annotation>
+		<annotation cp="🕣" type="tts">08:30</annotation>
+		<annotation cp="🕘">9 | montar | juróom-ñeent | piil | 00 | 9:00</annotation>
+		<annotation cp="🕘" type="tts">09:00</annotation>
+		<annotation cp="🕤">9 | montar | juróom-ñeent | 30 | 9:30 | genn-wàll</annotation>
+		<annotation cp="🕤" type="tts">09:30</annotation>
+		<annotation cp="🕙">10:00 | montar | 10 | piil | 00 | fukk</annotation>
+		<annotation cp="🕙" type="tts">10:00</annotation>
+		<annotation cp="🕥">montar | 10:30 | 10 | 30 | genn-wàll | fukk</annotation>
+		<annotation cp="🕥" type="tts">10:30</annotation>
+		<annotation cp="🕚">fukk ak benn | montar | 11:00 | piil | 00 | 11</annotation>
+		<annotation cp="🕚" type="tts">11:00</annotation>
+		<annotation cp="🕦">fukk ak benn | montar | 30 | 11:30 | 11 | genn-wàll</annotation>
+		<annotation cp="🕦" type="tts">11:30</annotation>
+		<annotation cp="🌑">lëndëm | moon</annotation>
+		<annotation cp="🌑" type="tts">weer wu bees</annotation>
+		<annotation cp="🌒">weer | xaaj | wàññiku</annotation>
+		<annotation cp="🌒" type="tts">xaaju weer buy wàññiku</annotation>
+		<annotation cp="🌓">xaaj | weer wu njëkk</annotation>
+		<annotation cp="🌓" type="tts">xaaju weer wu njëkk</annotation>
+		<annotation cp="🌔">weer | sew | wàññiku</annotation>
+		<annotation cp="🌔" type="tts">weer wu sew buy wàññiku</annotation>
+		<annotation cp="🌕">weer | fees</annotation>
+		<annotation cp="🌕" type="tts">weer wu fees</annotation>
+		<annotation cp="🌖">weer | sew | yokk</annotation>
+		<annotation cp="🌖" type="tts">weer wu sew buy yokk</annotation>
+		<annotation cp="🌗">xaaj | weer wu njëkk</annotation>
+		<annotation cp="🌗" type="tts">xaaju weer wu mujj</annotation>
+		<annotation cp="🌘">weer | xaaj | yokk</annotation>
+		<annotation cp="🌘" type="tts">xaaju weer buy yokk</annotation>
+		<annotation cp="🌙">weer wu | sew di màgg</annotation>
+		<annotation cp="🌙" type="tts">weer wu sew di màgg</annotation>
+		<annotation cp="🌚">weer | kanam</annotation>
+		<annotation cp="🌚" type="tts">kanamu weer wu bees</annotation>
+		<annotation cp="🌛">weer | xaaj bu njëkk | kanam</annotation>
+		<annotation cp="🌛" type="tts">weeru xaaj bu njëkk</annotation>
+		<annotation cp="🌜">weer | xaaj bu njëkk | kanam</annotation>
+		<annotation cp="🌜" type="tts">weeru ñeenteelu xaaj</annotation>
+		<annotation cp="🌡">klimaa</annotation>
+		<annotation cp="🌡" type="tts">termomeetar</annotation>
+		<annotation cp="☀">yànj | reyoŋ | naaj</annotation>
+		<annotation cp="☀" type="tts">jant</annotation>
+		<annotation cp="🌝">ñumm | yànj | weer | kanam</annotation>
+		<annotation cp="🌝" type="tts">weer ñumm bu am kanam</annotation>
+		<annotation cp="🌞">jant | yànj | kanam</annotation>
+		<annotation cp="🌞" type="tts">jant bu am kanam</annotation>
+		<annotation cp="⭐">biddeew</annotation>
+		<annotation cp="⭐" type="tts">biddeew, weexaay bu yam</annotation>
+		<annotation cp="🌟">biddeew | yànjaay | tàkk | leeraay | yànj</annotation>
+		<annotation cp="🌟" type="tts">biddeew tàkk</annotation>
+		<annotation cp="🌠">daanu | dóor | biddeew</annotation>
+		<annotation cp="🌠" type="tts">biddeew buy daw</annotation>
+		<annotation cp="🌌">espaas</annotation>
+		<annotation cp="🌌" type="tts">asamaan aki biddéew</annotation>
+		<annotation cp="☁">klimaa</annotation>
+		<annotation cp="☁" type="tts">niir</annotation>
+		<annotation cp="⛅">sun | niir</annotation>
+		<annotation cp="⛅" type="tts">jant ci ginaaw niir</annotation>
+		<annotation cp="⛈">dënd | taw | niir</annotation>
+		<annotation cp="⛈" type="tts">niir ak melax ak taw</annotation>
+		<annotation cp="🌤">sun | niir</annotation>
+		<annotation cp="🌤" type="tts">jant ci ginaaw niir wu ndaw</annotation>
+		<annotation cp="🌥">sun | niir</annotation>
+		<annotation cp="🌥" type="tts">jant ci ginaaw niir wu rëy</annotation>
+		<annotation cp="🌦">jant | taw | niir</annotation>
+		<annotation cp="🌦" type="tts">jant ci ginaaw taw niir</annotation>
+		<annotation cp="🌧">taw | niir</annotation>
+		<annotation cp="🌧" type="tts">niir ak taw</annotation>
+		<annotation cp="🌨">nees | niir | sedd</annotation>
+		<annotation cp="🌨" type="tts">niir ak nees</annotation>
+		<annotation cp="🌩">melax | niir</annotation>
+		<annotation cp="🌩" type="tts">niir ak melax</annotation>
+		<annotation cp="🌪">turbiyoŋ | niir</annotation>
+		<annotation cp="🌪" type="tts">Tawu-ngelaw</annotation>
+		<annotation cp="🌫">niir</annotation>
+		<annotation cp="🌫" type="tts">ab lay</annotation>
+		<annotation cp="🌬">ngelaw | uppu | niir | kanam</annotation>
+		<annotation cp="🌬" type="tts">kanamu ngelaw</annotation>
+		<annotation cp="🌀">laxas | tifoŋ | miir</annotation>
+		<annotation cp="🌀" type="tts">ngelaw luy wëndeelu</annotation>
+		<annotation cp="🌈">taw</annotation>
+		<annotation cp="🌈" type="tts">xon</annotation>
+		<annotation cp="🌂">taw | parasol | yéere</annotation>
+		<annotation cp="🌂" type="tts">parasol bu tëju</annotation>
+		<annotation cp="☂">taw | yéere</annotation>
+		<annotation cp="☂" type="tts">parasol</annotation>
+		<annotation cp="☔">taw | toq | parasol | yéere</annotation>
+		<annotation cp="☔" type="tts">parasol bu am toqu taw</annotation>
+		<annotation cp="⛱">jant | taw | parasol</annotation>
+		<annotation cp="⛱" type="tts">parasol ci kaw suuf</annotation>
+		<annotation cp="⚡">kuuraŋ | bu kuuraŋ | dmer | woltaas | zap | melax</annotation>
+		<annotation cp="⚡" type="tts">kuuraŋ bu am doole</annotation>
+		<annotation cp="❄">nees | sedd</annotation>
+		<annotation cp="❄" type="tts">donju nees</annotation>
+		<annotation cp="☃">nees | sedd</annotation>
+		<annotation cp="☃" type="tts">bonomu-nees</annotation>
+		<annotation cp="⛄">bonomu-nees | nees | sedd</annotation>
+		<annotation cp="⛄" type="tts">nitu nees bu amul nees</annotation>
+		<annotation cp="☄">espaas</annotation>
+		<annotation cp="☄" type="tts">komet</annotation>
+		<annotation cp="🔥">flaam | jumtukaay</annotation>
+		<annotation cp="🔥" type="tts">xal</annotation>
+		<annotation cp="💧">ñàq | toq | sedd | reelu</annotation>
+		<annotation cp="💧" type="tts">toqu ndox</annotation>
+		<annotation cp="🌊">oseyaŋ | tàllal | ndox</annotation>
+		<annotation cp="🌊" type="tts">duusu ndox</annotation>
+		<annotation cp="🎃">màggal | làntern | jak | alowiin</annotation>
+		<annotation cp="🎃" type="tts">naajo alowiin</annotation>
+		<annotation cp="🎄">màggal | nowel | garab</annotation>
+		<annotation cp="🎄" type="tts">garabu nowel</annotation>
+		<annotation cp="🎆">màggal</annotation>
+		<annotation cp="🎆" type="tts">petaaru artifis</annotation>
+		<annotation cp="🎇">ferñeent | màggal | petaaru artifis</annotation>
+		<annotation cp="🎇" type="tts">potu sondeel</annotation>
+		<annotation cp="✨">ferñeent | biddeew</annotation>
+		<annotation cp="✨" type="tts">ferñeent</annotation>
+		<annotation cp="🎈">màggal</annotation>
+		<annotation cp="🎈" type="tts">baloŋ</annotation>
+		<annotation cp="🎉">màggal | tada | përëm | swaare</annotation>
+		<annotation cp="🎉" type="tts">bombu taabal</annotation>
+		<annotation cp="🎊">màggal | konfeti | mànq</annotation>
+		<annotation cp="🎊" type="tts">mànqu konfeti</annotation>
+		<annotation cp="🎋">màggal | raaya | Sapone | garab</annotation>
+		<annotation cp="🎋" type="tts">garabu tanabata</annotation>
+		<annotation cp="🎍">bàmbu | màggal | Sapone | pain</annotation>
+		<annotation cp="🎍" type="tts">taaralukaayu sapeŋ</annotation>
+		<annotation cp="🎎">màggal | pupe | fanaal | Sapone</annotation>
+		<annotation cp="🎎" type="tts">pupe sapone</annotation>
+		<annotation cp="🎏">màggal | waas | bàndarol</annotation>
+		<annotation cp="🎏" type="tts">bàndarolu waas</annotation>
+		<annotation cp="🎐">joolooli | ngelaw | keseŋ-keseŋ | màggal</annotation>
+		<annotation cp="🎐" type="tts">gittaxu keseŋ-keseŋ</annotation>
+		<annotation cp="🎑">weer | màggal</annotation>
+		<annotation cp="🎑" type="tts">séentu weer</annotation>
+		<annotation cp="🎀">màggal</annotation>
+		<annotation cp="🎀" type="tts">ribaŋ</annotation>
+		<annotation cp="🎁">màggal | neexal | boyet | kado | ëmb</annotation>
+		<annotation cp="🎁" type="tts">kado buñ ëmb</annotation>
+		<annotation cp="🎗">fàttalikaay | màggal | ribaŋ</annotation>
+		<annotation cp="🎗" type="tts">ribaŋu fàttalikaay</annotation>
+		<annotation cp="🎟">dugg | biye</annotation>
+		<annotation cp="🎟" type="tts">biye dugg</annotation>
+		<annotation cp="🎫">dugg</annotation>
+		<annotation cp="🎫" type="tts">biye</annotation>
+		<annotation cp="🎖">màggal | medaay | militeer</annotation>
+		<annotation cp="🎖" type="tts">medaayu militeer</annotation>
+		<annotation cp="🏆">pri</annotation>
+		<annotation cp="🏆" type="tts">kup</annotation>
+		<annotation cp="🏅">medaay</annotation>
+		<annotation cp="🏅" type="tts">medaayu tàggat-yaram</annotation>
+		<annotation cp="🥇">njëkk | medaay | wurus</annotation>
+		<annotation cp="🥇" type="tts">medaayu plaas 1</annotation>
+		<annotation cp="🥈">medaay | ñaareel | xaalis</annotation>
+		<annotation cp="🥈" type="tts">medaayu plaas 2</annotation>
+		<annotation cp="🥉">ñatteel | medaay | përëm</annotation>
+		<annotation cp="🥉" type="tts">medaayu plaas 3</annotation>
+		<annotation cp="⚽">football | bal | futbal</annotation>
+		<annotation cp="⚽" type="tts">balu futbal</annotation>
+		<annotation cp="⚾">bal</annotation>
+		<annotation cp="⚾" type="tts">besbóol</annotation>
+		<annotation cp="🏀">sersóo | bal</annotation>
+		<annotation cp="🏀" type="tts">basket</annotation>
+		<annotation cp="🏐">po | bal</annotation>
+		<annotation cp="🏐" type="tts">wolebal</annotation>
+		<annotation cp="🏈">american | bal | futbal</annotation>
+		<annotation cp="🏈" type="tts">futbalu amerik</annotation>
+		<annotation cp="🏉">rigbi | bal | futbal</annotation>
+		<annotation cp="🏉" type="tts">futbalu rigbi</annotation>
+		<annotation cp="🎾">raket | bal</annotation>
+		<annotation cp="🎾" type="tts">tenis</annotation>
+		<annotation cp="🎳">po | bal</annotation>
+		<annotation cp="🎳" type="tts">buliŋ</annotation>
+		<annotation cp="🏏">yat | po | bal</annotation>
+		<annotation cp="🏏" type="tts">powum kriket</annotation>
+		<annotation cp="🏑">po | hockey | yat | teereŋ | bal</annotation>
+		<annotation cp="🏑" type="tts">hockey ci ñax</annotation>
+		<annotation cp="🏒">po | hockey | yat | puk | glaas</annotation>
+		<annotation cp="🏒" type="tts">hockey ci galaas</annotation>
+		<annotation cp="🏓">po | ping pong | dóorukaay | taabalu tenis | bat | bal</annotation>
+		<annotation cp="🏓" type="tts">ping pong</annotation>
+		<annotation cp="🏸">birdie | po | balu-badminton | raket</annotation>
+		<annotation cp="🏸" type="tts">badminton</annotation>
+		<annotation cp="🥊">gaŋu | boksër</annotation>
+		<annotation cp="🥊" type="tts">gaŋu boksër</annotation>
+		<annotation cp="🥋">judo | karate | taekwondo | kimono | aar marsiyoo</annotation>
+		<annotation cp="🥋" type="tts">kimono defkatu aar</annotation>
+		<annotation cp="🥅">caax | kaaŋ</annotation>
+		<annotation cp="🥅" type="tts">caaxu kaaŋ</annotation>
+		<annotation cp="⛳">golf | pax</annotation>
+		<annotation cp="⛳" type="tts">raaya ci pax</annotation>
+		<annotation cp="⛸">patee | glaas</annotation>
+		<annotation cp="⛸" type="tts">patee ci galaas</annotation>
+		<annotation cp="🎣">jën | póol</annotation>
+		<annotation cp="🎣" type="tts">bantu nappukaay</annotation>
+		<annotation cp="🎽">sëmiis | daw | dawkat | sash</annotation>
+		<annotation cp="🎽" type="tts">mbubu tàggat-yaram</annotation>
+		<annotation cp="🎿">ski | nees</annotation>
+		<annotation cp="🎿" type="tts">skis</annotation>
+		<annotation cp="🛷">sareetu peer nowel | trenóo</annotation>
+		<annotation cp="🛷" type="tts">trenóo</annotation>
+		<annotation cp="🥌">rok | po</annotation>
+		<annotation cp="🥌" type="tts">xeeru kërliŋ</annotation>
+		<annotation cp="🎯">po | jam | nag | ci digg bi | fett | bët | bëtu nag</annotation>
+		<annotation cp="🎯" type="tts">dóor bu jub</annotation>
+		<annotation cp="🎱">po | juróom ñatt | 8 bal | biyaar | 8 | bal</annotation>
+		<annotation cp="🎱" type="tts">biyaar 8 bal</annotation>
+		<annotation cp="🔮">jumtukaay | bul | kristaal | feem | léebu fee | wërsëg</annotation>
+		<annotation cp="🔮" type="tts">bulu kristaal</annotation>
+		<annotation cp="🎮">po | manet</annotation>
+		<annotation cp="🎮" type="tts">powum wideo</annotation>
+		<annotation cp="🕹">po | powu wideo</annotation>
+		<annotation cp="🕹" type="tts">joystick</annotation>
+		<annotation cp="🎰">xaalis | masin</annotation>
+		<annotation cp="🎰" type="tts">masinu xaalis</annotation>
+		<annotation cp="🎲">dee | po | faatu</annotation>
+		<annotation cp="🎲" type="tts">deewu lido</annotation>
+		<annotation cp="♠">po | kàrt</annotation>
+		<annotation cp="♠" type="tts">pikk yépp</annotation>
+		<annotation cp="♥">po | kàrt</annotation>
+		<annotation cp="♥" type="tts">kër yépp</annotation>
+		<annotation cp="♦">po | kàrt</annotation>
+		<annotation cp="♦" type="tts">karo yépp</annotation>
+		<annotation cp="♣">po | kàrt</annotation>
+		<annotation cp="♣" type="tts">treefal yépp</annotation>
+		<annotation cp="🃏">jokeer | po | kàrt</annotation>
+		<annotation cp="🃏" type="tts">jokeer</annotation>
+		<annotation cp="🀄">mahjong | po | xonk</annotation>
+		<annotation cp="🀄" type="tts">dragon mahjong bu xonk</annotation>
+		<annotation cp="🎴">po | Sapone | fowe | fulër | kàrt</annotation>
+		<annotation cp="🎴" type="tts">kàrti fulër</annotation>
+		<annotation cp="🎭">teyaatar | def | mask | art</annotation>
+		<annotation cp="🎭" type="tts">yëngu ci aar</annotation>
+		<annotation cp="🖼">art | muse | kaadar | nataal | pentiir</annotation>
+		<annotation cp="🖼" type="tts">nataal buñ kaadare</annotation>
+		<annotation cp="🎨">palette | muse | art | pentiir</annotation>
+		<annotation cp="🎨" type="tts">boolu pentiirukaay</annotation>
+		<annotation cp="👓">bët | bëtweer | lunet | yéere</annotation>
+		<annotation cp="👓" type="tts">linet</annotation>
+		<annotation cp="🕶">bët | lëndëm | weer | lunet</annotation>
+		<annotation cp="🕶" type="tts">nuwaarfime</annotation>
+		<annotation cp="👔">yéere</annotation>
+		<annotation cp="👔" type="tts">karawaat</annotation>
+		<annotation cp="👕">sëmiis | tiset | yéere</annotation>
+		<annotation cp="👕" type="tts">tiset</annotation>
+		<annotation cp="👖">tubëy | pàntaloŋ | yéere</annotation>
+		<annotation cp="👖" type="tts">jiin</annotation>
+		<annotation cp="🧣">baat</annotation>
+		<annotation cp="🧣" type="tts">kol</annotation>
+		<annotation cp="🧤">loxo</annotation>
+		<annotation cp="🧤" type="tts">gant</annotation>
+		<annotation cp="🧥">jaket</annotation>
+		<annotation cp="🧥" type="tts">màntóo</annotation>
+		<annotation cp="🧦">denc</annotation>
+		<annotation cp="🧦" type="tts">kawas</annotation>
+		<annotation cp="👗">yéere</annotation>
+		<annotation cp="👗" type="tts">robbu</annotation>
+		<annotation cp="👘">yéere</annotation>
+		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="👙">féey | yéere</annotation>
+		<annotation cp="👙" type="tts">bikini</annotation>
+		<annotation cp="👚">jigéen | yéere</annotation>
+		<annotation cp="👚" type="tts">yéere jigéen</annotation>
+		<annotation cp="👛">piyees | yéere</annotation>
+		<annotation cp="👛" type="tts">nafa</annotation>
+		<annotation cp="👜">nafa | bag | yéere</annotation>
+		<annotation cp="👜" type="tts">saagu loxo</annotation>
+		<annotation cp="👝">poos | saag | yéere</annotation>
+		<annotation cp="👝" type="tts">poset</annotation>
+		<annotation cp="🛍">saag | otel | ndugg</annotation>
+		<annotation cp="🛍" type="tts">saagu ndugg</annotation>
+		<annotation cp="🎒">saag | daara | satchel</annotation>
+		<annotation cp="🎒" type="tts">saagu ndongo daara</annotation>
+		<annotation cp="👞">dàll | góor | yéere</annotation>
+		<annotation cp="👞" type="tts">dàllu góor</annotation>
+		<annotation cp="👟">atletik | dàll | sneaker | yéere</annotation>
+		<annotation cp="👟" type="tts">dàllu daw</annotation>
+		<annotation cp="👠">dàll | jigéen | taloŋ | yéere</annotation>
+		<annotation cp="👠" type="tts">koket yu gudd</annotation>
+		<annotation cp="👡">dàll | jigéen | carax | yéere</annotation>
+		<annotation cp="👡" type="tts">caraxu jigéen</annotation>
+		<annotation cp="👢">bot | jigéen | dàll | yéere</annotation>
+		<annotation cp="👢" type="tts">botu jigééen</annotation>
+		<annotation cp="👑">lingeer | buur | yéere</annotation>
+		<annotation cp="👑" type="tts">kuron</annotation>
+		<annotation cp="👒">mbaxane | jigéen | yéere</annotation>
+		<annotation cp="👒" type="tts">mbaxane jigeen</annotation>
+		<annotation cp="🎩">mbaxane | kaw | topmbaxane | yéere</annotation>
+		<annotation cp="🎩" type="tts">mbaxane joniwalkër</annotation>
+		<annotation cp="🎓">màggal | joxe-lijaasa | mbaxane | yéere | kap</annotation>
+		<annotation cp="🎓" type="tts">mbaxane lijaasa</annotation>
+		<annotation cp="🧢">mbaxane baseball</annotation>
+		<annotation cp="🧢" type="tts">kap</annotation>
+		<annotation cp="⛑">ndimbal | kanam | mbaxane | mbaxane-kaaraange | kruwaa</annotation>
+		<annotation cp="⛑" type="tts">mbaxane-kaaraange wallukat</annotation>
+		<annotation cp="📿">càq | diine | per | yéere | jaamukat</annotation>
+		<annotation cp="📿" type="tts">kurus</annotation>
+		<annotation cp="💄">makiyaas | kosmetik</annotation>
+		<annotation cp="💄" type="tts">xonkal tuñ</annotation>
+		<annotation cp="💍">jamaa</annotation>
+		<annotation cp="💍" type="tts">jaaro</annotation>
+		<annotation cp="💎">takkaay | jamaa | gem</annotation>
+		<annotation cp="💎" type="tts">xeer wu seer</annotation>
+		<annotation cp="🔇">noppi | cellaaral | waxkat</annotation>
+		<annotation cp="🔇" type="tts">oparlër buñ noppiloo</annotation>
+		<annotation cp="🔈">ndànk</annotation>
+		<annotation cp="🔈" type="tts">oparlër buy wax ndànk</annotation>
+		<annotation cp="🔉">yam</annotation>
+		<annotation cp="🔉" type="tts">oparlër bu xumbul noonu</annotation>
+		<annotation cp="🔊">xumb</annotation>
+		<annotation cp="🔊" type="tts">oparlër bu xumbul lool</annotation>
+		<annotation cp="📢">xumb | dëkkuwaayu ñépp</annotation>
+		<annotation cp="📢" type="tts">baafal</annotation>
+		<annotation cp="📣">brawoo</annotation>
+		<annotation cp="📣" type="tts">megafon</annotation>
+		<annotation cp="📯">bataaxal | post | mbiibu</annotation>
+		<annotation cp="📯" type="tts">mbiibu bataaxal</annotation>
+		<annotation cp="🔔">joolooli</annotation>
+		<annotation cp="🔔" type="tts">joolooli</annotation>
+		<annotation cp="🔕">cellaaral | déet | luñ aaye | bul | noppi | luñ tere | joolooli</annotation>
+		<annotation cp="🔕" type="tts">joolooli ak buum</annotation>
+		<annotation cp="🎼">kle | misik</annotation>
+		<annotation cp="🎼" type="tts">kle misik</annotation>
+		<annotation cp="🎵">misik | araf</annotation>
+		<annotation cp="🎵" type="tts">arafu misik</annotation>
+		<annotation cp="🎶">misik | araf yi | araf</annotation>
+		<annotation cp="🎶" type="tts">arafi misik</annotation>
+		<annotation cp="🎙">mikrofon | studio | misik | mikro</annotation>
+		<annotation cp="🎙" type="tts">mikrofonu studio</annotation>
+		<annotation cp="🎚">dayo | misik | xàjjalekaay</annotation>
+		<annotation cp="🎚" type="tts">xàjjalekaayu dayo</annotation>
+		<annotation cp="🎛">bitoŋ | misik | yokk/wàññi</annotation>
+		<annotation cp="🎛" type="tts">bitoŋu yokk/wàññi</annotation>
+		<annotation cp="🎤">karaoke | mikro</annotation>
+		<annotation cp="🎤" type="tts">mikrofon</annotation>
+		<annotation cp="🎧">ekutër</annotation>
+		<annotation cp="🎧" type="tts">kasku misik</annotation>
+		<annotation cp="📻">wideo</annotation>
+		<annotation cp="📻" type="tts">rajo</annotation>
+		<annotation cp="🎷">misik | jumtukaay | saks</annotation>
+		<annotation cp="🎷" type="tts">saksofon</annotation>
+		<annotation cp="🎸">misik | jumtukaay</annotation>
+		<annotation cp="🎸" type="tts">gitaar</annotation>
+		<annotation cp="🎹">misik | jumtukaay | klaawiyee | piano</annotation>
+		<annotation cp="🎹" type="tts">klawiyee misik</annotation>
+		<annotation cp="🎺">misik | jumtukaay</annotation>
+		<annotation cp="🎺" type="tts">trompet</annotation>
+		<annotation cp="🎻">misik | jumtukaay</annotation>
+		<annotation cp="🎻" type="tts">violon</annotation>
+		<annotation cp="🥁">galañ | misik | ndënd</annotation>
+		<annotation cp="🥁" type="tts">ndënd</annotation>
+		<annotation cp="📱">portaabal | telefon</annotation>
+		<annotation cp="📱" type="tts">telefon portaabal</annotation>
+		<annotation cp="📲">woote | telefon | jot | fett | portaabal</annotation>
+		<annotation cp="📲" type="tts">telefon portaabal ak fett</annotation>
+		<annotation cp="☎">telefon</annotation>
+		<annotation cp="☎" type="tts">telefon</annotation>
+		<annotation cp="📞">kombine | telefon</annotation>
+		<annotation cp="📞" type="tts">kombine telefon</annotation>
+		<annotation cp="📟">bipër</annotation>
+		<annotation cp="📟" type="tts">bipër</annotation>
+		<annotation cp="📠">fakse</annotation>
+		<annotation cp="📠" type="tts">faks</annotation>
+		<annotation cp="🔋">batiri</annotation>
+		<annotation cp="🔋" type="tts">batiri</annotation>
+		<annotation cp="🔌">kuuraŋ | bu-kuuraŋ | priis</annotation>
+		<annotation cp="🔌" type="tts">priisu kuuraŋ</annotation>
+		<annotation cp="💻">benn-nit | pc | ordinatër</annotation>
+		<annotation cp="💻" type="tts">ordi portaabal</annotation>
+		<annotation cp="🖥">ordi-biro | ordinatër</annotation>
+		<annotation cp="🖥" type="tts">ordi-biro ordinatër</annotation>
+		<annotation cp="🖨">ordinatër</annotation>
+		<annotation cp="🖨" type="tts">emprimaant</annotation>
+		<annotation cp="⌨">ordinatër</annotation>
+		<annotation cp="⌨" type="tts">klaawiyee</annotation>
+		<annotation cp="🖱">ordinatër</annotation>
+		<annotation cp="🖱" type="tts">suuri ordinatër</annotation>
+		<annotation cp="🖲">ordinatër</annotation>
+		<annotation cp="🖲" type="tts">trackball</annotation>
+		<annotation cp="💽">bu-optik | disk bu ndaw | disk | ordinatër</annotation>
+		<annotation cp="💽" type="tts">disku ordi</annotation>
+		<annotation cp="💾">disket | disk | ordinatër</annotation>
+		<annotation cp="💾" type="tts">disket</annotation>
+		<annotation cp="💿">cd | bu-optik | disk | ordinatër</annotation>
+		<annotation cp="💿" type="tts">disk optik</annotation>
+		<annotation cp="📀">dvd | blu-ray | disk | ordinatër | bu-optik</annotation>
+		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🎥">sinemaa | filmu | nataalukaay</annotation>
+		<annotation cp="🎥" type="tts">kameraa filmu</annotation>
+		<annotation cp="🎞">sinemaa | klise | film | kaadar</annotation>
+		<annotation cp="🎞" type="tts">kaadaru klise</annotation>
+		<annotation cp="📽">wideo | sinemaa | prosektër | klise | filmu</annotation>
+		<annotation cp="📽" type="tts">prosektër filmu</annotation>
+		<annotation cp="🎬">klapet | filmu</annotation>
+		<annotation cp="🎬" type="tts">klapet</annotation>
+		<annotation cp="📺">wideo | tele</annotation>
+		<annotation cp="📺" type="tts">tele</annotation>
+		<annotation cp="📷">wideo</annotation>
+		<annotation cp="📷" type="tts">nataalukaay</annotation>
+		<annotation cp="📸">flash | wideo | nataalukaay</annotation>
+		<annotation cp="📸" type="tts">nataalukaay bu ànd ak flaas</annotation>
+		<annotation cp="📹">kameraa wideo</annotation>
+		<annotation cp="📹" type="tts">nataalukaay wideo</annotation>
+		<annotation cp="📼">vhs | bànk | wideo</annotation>
+		<annotation cp="📼" type="tts">kasetu wideo</annotation>
+		<annotation cp="🔍">weer | rëyal | jumtukaay | seet</annotation>
+		<annotation cp="🔍" type="tts">lup bu féete càmmoñ</annotation>
+		<annotation cp="🔎">weer | rëyal | jumtukaay | seet</annotation>
+		<annotation cp="🔎" type="tts">lup bu féete ndijoor</annotation>
+		<annotation cp="🕯">làmp</annotation>
+		<annotation cp="🕯" type="tts">sondeel</annotation>
+		<annotation cp="💡">làmp | àmpul | reelu | bu-kuuraŋ | xalaat</annotation>
+		<annotation cp="💡" type="tts">àmpul</annotation>
+		<annotation cp="🔦">làmp-tors | jumtukaay | bu-kuuraŋ | light</annotation>
+		<annotation cp="🔦" type="tts">làmp-tors</annotation>
+		<annotation cp="🏮">laat | làmp | làntern | xonk</annotation>
+		<annotation cp="🏮" type="tts">làntern bu xonk</annotation>
+		<annotation cp="📔">buñ-taaral | kubéer | téere | kàrne</annotation>
+		<annotation cp="📔" type="tts">kàrne bu ànd ak kubéer gu rafet</annotation>
+		<annotation cp="📕">téere | buñ tëj</annotation>
+		<annotation cp="📕" type="tts">téere bu tëju</annotation>
+		<annotation cp="📖">ubbeeku | téere</annotation>
+		<annotation cp="📖" type="tts">téere bu ubbiku</annotation>
+		<annotation cp="📗">téere | wert</annotation>
+		<annotation cp="📗" type="tts">téere bu wert</annotation>
+		<annotation cp="📘">téere | baxa</annotation>
+		<annotation cp="📘" type="tts">téere bu baxa</annotation>
+		<annotation cp="📙">oraas | téere</annotation>
+		<annotation cp="📙" type="tts">téere bu oraas</annotation>
+		<annotation cp="📚">téere</annotation>
+		<annotation cp="📚" type="tts">téere yi</annotation>
+		<annotation cp="📓">kàrne</annotation>
+		<annotation cp="📓" type="tts">kàrne</annotation>
+		<annotation cp="📒">kàrne</annotation>
+		<annotation cp="📒" type="tts">téere bu rëy</annotation>
+		<annotation cp="📃">lemu | wayndare | xët</annotation>
+		<annotation cp="📃" type="tts">këyit wuñ lem muus wi</annotation>
+		<annotation cp="📜">këyit</annotation>
+		<annotation cp="📜" type="tts">tawal</annotation>
+		<annotation cp="📄">wayndare | xët</annotation>
+		<annotation cp="📄" type="tts">kanam gu téen</annotation>
+		<annotation cp="📰">këyit | xibaar</annotation>
+		<annotation cp="📰" type="tts">këyitu xibaar</annotation>
+		<annotation cp="🗞">këyitu xibaar | rolled | këyit | xibaar</annotation>
+		<annotation cp="🗞" type="tts">këyitu xibaar buñ lem</annotation>
+		<annotation cp="📑">xàmmekaay | laf yi | xàmme | xàmme-téere</annotation>
+		<annotation cp="📑" type="tts">boole ci yi ma gënal</annotation>
+		<annotation cp="🔖">xàmme</annotation>
+		<annotation cp="🔖" type="tts">xàmme-téere</annotation>
+		<annotation cp="🏷">màndarga</annotation>
+		<annotation cp="🏷" type="tts">màndarga</annotation>
+		<annotation cp="💰">saagu xaalis | saak | dolaar | xaalis</annotation>
+		<annotation cp="💰" type="tts">saagu xaalis</annotation>
+		<annotation cp="💴">yen | xaalis | bànk | xaalisu këyit | biye bànk | koppar | biye</annotation>
+		<annotation cp="💴" type="tts">biye yen</annotation>
+		<annotation cp="💵">xaalis | dollar | bànk | xaalisu këyit | biye bànk | koppar | biye</annotation>
+		<annotation cp="💵" type="tts">biye dolaar</annotation>
+		<annotation cp="💶">xaalis | bànk | xaalisu këyit | biye bànk | koppar | biye | euro</annotation>
+		<annotation cp="💶" type="tts">biye euro</annotation>
+		<annotation cp="💷">xaalis | pound | bànk | xaalisu këyit | biye bànk | koppar | biye</annotation>
+		<annotation cp="💷" type="tts">piye pound</annotation>
+		<annotation cp="💸">xaalis | dollar | bànk | xaalisu këyit | biye bànk | fly | biye | ay laaf</annotation>
+		<annotation cp="💸" type="tts">xaalis bu am ay laaf</annotation>
+		<annotation cp="💳">bànk | kàrt | keredi | xaalis</annotation>
+		<annotation cp="💳" type="tts">kàrtu keredi</annotation>
+		<annotation cp="💹">yen | màgg | xaalis | jëm kaw | grafik | bànk | yéeg | marse | xew | koppar | kurb</annotation>
+		<annotation cp="💹" type="tts">grafiku yen buy yéeg</annotation>
+		<annotation cp="✉">bataaxal | imeel</annotation>
+		<annotation cp="✉" type="tts">mbaru-bataaxal</annotation>
+		<annotation cp="📧">bataaxal | imeel</annotation>
+		<annotation cp="📧" type="tts">bataaxalu net</annotation>
+		<annotation cp="📨">jot | buy ñëw | mbaru-bataaxal | imeel | bataaxal</annotation>
+		<annotation cp="📨" type="tts">mbaru-bataaxal biy ñëw</annotation>
+		<annotation cp="📩">suuf | fett | mbaru-bataaxal | imeel | bataaxal | yónnee | génn</annotation>
+		<annotation cp="📩" type="tts">mbaru-bataaxal, am fett</annotation>
+		<annotation cp="📤">boyet | génn-boyet | bataaxal | yónnee | pañe</annotation>
+		<annotation cp="📤" type="tts">boyetu-yónne bataaxal</annotation>
+		<annotation cp="📥">inbox | boyet | jot | bataaxal | pañe</annotation>
+		<annotation cp="📥" type="tts">boyetu-jot bataaxal</annotation>
+		<annotation cp="📦">parsel | boyet</annotation>
+		<annotation cp="📦" type="tts">paket</annotation>
+		<annotation cp="📫">bataaxal | boyetu bataaxal | boyetu post | buñ tëj</annotation>
+		<annotation cp="📫" type="tts">boyetu-bataaxal buñ tëj, am raaya buñ yëkkati</annotation>
+		<annotation cp="📪">boyetu post | buñ tëj | wàcce | boyetu bataaxal | bataaxal</annotation>
+		<annotation cp="📪" type="tts">boyetu-bataaxal buñ tëj, am raaya buñ wàcce</annotation>
+		<annotation cp="📬">bataaxal | boyetu bataaxal | boyetu post | ubbeeku</annotation>
+		<annotation cp="📬" type="tts">boyetu-bataaxal buñ ubbi, am raaya buñ yëkkati</annotation>
+		<annotation cp="📭">boyetu post | lowexonk | boyetu bataaxal | bataaxal | ubbeeku</annotation>
+		<annotation cp="📭" type="tts">boyetu-bataaxal buñ ubbi, am raaya buñ wàcce</annotation>
+		<annotation cp="📮">bataaxal | boyetu bataaxal</annotation>
+		<annotation cp="📮" type="tts">boyetu-leetar</annotation>
+		<annotation cp="🗳">kàrtu-wote | boyet</annotation>
+		<annotation cp="🗳" type="tts">boyetu-wote ak kàrtu-wote</annotation>
+		<annotation cp="✏">kreyoŋ</annotation>
+		<annotation cp="✏" type="tts">kreyoŋ</annotation>
+		<annotation cp="✒">bik | fëtar</annotation>
+		<annotation cp="✒" type="tts">dik fëtar</annotation>
+		<annotation cp="🖋">bik | plim</annotation>
+		<annotation cp="🖋" type="tts">estilo</annotation>
+		<annotation cp="🖊">bik-sempal</annotation>
+		<annotation cp="🖊" type="tts">bik</annotation>
+		<annotation cp="🖌">pentiir</annotation>
+		<annotation cp="🖌" type="tts">borosu-pentiir</annotation>
+		<annotation cp="🖍">kreyoŋ kulër</annotation>
+		<annotation cp="🖍" type="tts">kreyoŋ kulër</annotation>
+		<annotation cp="📝">kreyoŋ</annotation>
+		<annotation cp="📝" type="tts">karmat</annotation>
+		<annotation cp="💼">waliis wu ndaw</annotation>
+		<annotation cp="💼" type="tts">waliis wu ndaw</annotation>
+		<annotation cp="📁">ëmbu | taxañ</annotation>
+		<annotation cp="📁" type="tts">ëmbu taxañ</annotation>
+		<annotation cp="📂">ubbeeku | taxañ | ëmb</annotation>
+		<annotation cp="📂" type="tts">ubbi ëmbu taxañ</annotation>
+		<annotation cp="🗂">xaajalekaay | kàrt | lim</annotation>
+		<annotation cp="🗂" type="tts">xàjjalekaayu limu kàrt</annotation>
+		<annotation cp="📅">bis</annotation>
+		<annotation cp="📅" type="tts">arminaat</annotation>
+		<annotation cp="📆">arminaat</annotation>
+		<annotation cp="📆" type="tts">arminaatu xotti-kayit</annotation>
+		<annotation cp="🗒">am weñ | blok | not</annotation>
+		<annotation cp="🗒" type="tts">bloknot bu am weñ</annotation>
+		<annotation cp="🗓">bu am weñ | blok | arminaat</annotation>
+		<annotation cp="🗓" type="tts">arminaat bu am weñ</annotation>
+		<annotation cp="📇">limu | kàrt | rolodex</annotation>
+		<annotation cp="📇" type="tts">limu këyit</annotation>
+		<annotation cp="📈">màgg | grafik | yéeg | xew | kurb</annotation>
+		<annotation cp="📈" type="tts">grafik buy yéeg</annotation>
+		<annotation cp="📉">grafik | suuf | xew | kurb</annotation>
+		<annotation cp="📉" type="tts">tablo buy wàcci</annotation>
+		<annotation cp="📊">grafik | laat | kurb</annotation>
+		<annotation cp="📊" type="tts">jagraamu bànd</annotation>
+		<annotation cp="📋">klasëru kepp-kayit</annotation>
+		<annotation cp="📋" type="tts">klasëru kepp-kayit</annotation>
+		<annotation cp="📌">pinees</annotation>
+		<annotation cp="📌" type="tts">pasarel</annotation>
+		<annotation cp="📍">pinees</annotation>
+		<annotation cp="📍" type="tts">bitoŋ bu roŋ</annotation>
+		<annotation cp="📎">trombon</annotation>
+		<annotation cp="📎" type="tts">trombon</annotation>
+		<annotation cp="🖇">lëkkale | trombonu këyitu</annotation>
+		<annotation cp="🖇" type="tts">trombonu këyit yuñ lëkkale</annotation>
+		<annotation cp="📏">jub pegg | reegal</annotation>
+		<annotation cp="📏" type="tts">reegal bu jub</annotation>
+		<annotation cp="📐">def | reegal | triyàngal</annotation>
+		<annotation cp="📐" type="tts">reegal bu am jëmmu triyàngal</annotation>
+		<annotation cp="✂">jumtukaay | dagg</annotation>
+		<annotation cp="✂" type="tts">siso</annotation>
+		<annotation cp="🗃">kàrt | taxañ | boyet</annotation>
+		<annotation cp="🗃" type="tts">boyetu kàrtu taxañ</annotation>
+		<annotation cp="🗄">def taxañ | taxañ | tirwaar</annotation>
+		<annotation cp="🗄" type="tts">tirwaaru taxañ</annotation>
+		<annotation cp="🗑">pañe mbalit</annotation>
+		<annotation cp="🗑" type="tts">pañe mbalit</annotation>
+		<annotation cp="🔒">ub nañu ko</annotation>
+		<annotation cp="🔒" type="tts">tëj nañu ko</annotation>
+		<annotation cp="🔓">caabi | ubbi | tijji</annotation>
+		<annotation cp="🔓" type="tts">tijji nañu ko</annotation>
+		<annotation cp="🔏">suturlu | daa | bik | fëtar | caabu</annotation>
+		<annotation cp="🔏" type="tts">tëj nañu ko ak bik</annotation>
+		<annotation cp="🔐">tëj | tëj nañu ko | wóor | key</annotation>
+		<annotation cp="🔐" type="tts">tëj nañu ko ak caabi</annotation>
+		<annotation cp="🔑">caabi | baatu-jàll</annotation>
+		<annotation cp="🔑" type="tts">caabi</annotation>
+		<annotation cp="🗝">tegtal | caabi | màgget</annotation>
+		<annotation cp="🗝" type="tts">caabi ju yàgg</annotation>
+		<annotation cp="🔨">jumtukaay</annotation>
+		<annotation cp="🔨" type="tts">marto</annotation>
+		<annotation cp="⛏">jumtukaay | miin</annotation>
+		<annotation cp="⛏" type="tts">pik</annotation>
+		<annotation cp="⚒">pik | jumtukaay | marto</annotation>
+		<annotation cp="⚒" type="tts">marto ak pik</annotation>
+		<annotation cp="🛠">kle | jumtukaay | marto</annotation>
+		<annotation cp="🛠" type="tts">marto ak kle</annotation>
+		<annotation cp="🗡">paaka | ngànnaay</annotation>
+		<annotation cp="🗡" type="tts">paaka</annotation>
+		<annotation cp="⚔">bu am kruwaa | ngànnaay | eppee</annotation>
+		<annotation cp="⚔" type="tts">bu am kruwaa eppee</annotation>
+		<annotation cp="🔫">ngànnaay | jumtukaay | fetal | pistole</annotation>
+		<annotation cp="🔫" type="tts">pistole</annotation>
+		<annotation cp="🏹">Sagiteer | jumtukaay | ngànnaay | ark | fett | sojak</annotation>
+		<annotation cp="🏹" type="tts">ark bu ànd ak fett</annotation>
+		<annotation cp="🛡">ngànnaay</annotation>
+		<annotation cp="🛡" type="tts">kiiraay</annotation>
+		<annotation cp="🔧">kle | jumtukaay</annotation>
+		<annotation cp="🔧" type="tts">kle</annotation>
+		<annotation cp="🔩">buloŋ | nut | jumtukaay</annotation>
+		<annotation cp="🔩" type="tts">buloŋ ak wiisam</annotation>
+		<annotation cp="⚙">jumtukaay</annotation>
+		<annotation cp="⚙" type="tts">piñoŋ</annotation>
+		<annotation cp="🗜">kompres | wiis | jumtukaay</annotation>
+		<annotation cp="🗜" type="tts">tënaaj</annotation>
+		<annotation cp="⚖">balaas | jumtukaay | peese | yoon | sojak</annotation>
+		<annotation cp="⚖" type="tts">balaasu peesekaay</annotation>
+		<annotation cp="🔗">lëkkalekaay</annotation>
+		<annotation cp="🔗" type="tts">lëkkalekaay</annotation>
+		<annotation cp="⛓">ceen</annotation>
+		<annotation cp="⛓" type="tts">ceen</annotation>
+		<annotation cp="⚗">jumtukaay | simi</annotation>
+		<annotation cp="⚗" type="tts">alembik</annotation>
+		<annotation cp="🔬">jumtukaay | xarala</annotation>
+		<annotation cp="🔬" type="tts">mikroskop</annotation>
+		<annotation cp="🔭">jumtukaay | xarala</annotation>
+		<annotation cp="🔭" type="tts">teleskop</annotation>
+		<annotation cp="📡">ànten | satelit | sukup</annotation>
+		<annotation cp="📡" type="tts">àntenu satelit</annotation>
+		<annotation cp="💉">medsin | jumtukaay | doktor | jam | puso | sik</annotation>
+		<annotation cp="💉" type="tts">pikiir</annotation>
+		<annotation cp="💊">medsin | feebar | doktor</annotation>
+		<annotation cp="💊" type="tts">garab</annotation>
+		<annotation cp="🚪">buntu</annotation>
+		<annotation cp="🚪" type="tts">buntu</annotation>
+		<annotation cp="🛏">nelaw | otel</annotation>
+		<annotation cp="🛏" type="tts">lal</annotation>
+		<annotation cp="🛋">kanape | làmp | otel</annotation>
+		<annotation cp="🛋" type="tts">kanape and làmp</annotation>
+		<annotation cp="🚽">wanag</annotation>
+		<annotation cp="🚽" type="tts">wanag</annotation>
+		<annotation cp="🚿">ndox</annotation>
+		<annotation cp="🚿" type="tts">duus</annotation>
+		<annotation cp="🛁">sangu</annotation>
+		<annotation cp="🛁" type="tts">beñuwaar</annotation>
+		<annotation cp="🛒">puus-puus | ndugg | sariyoo</annotation>
+		<annotation cp="🛒" type="tts">puus-puusu bagaas</annotation>
+		<annotation cp="🚬">tox</annotation>
+		<annotation cp="🚬" type="tts">sigaret</annotation>
+		<annotation cp="⚰">dee</annotation>
+		<annotation cp="⚰" type="tts">keesu-néew</annotation>
+		<annotation cp="⚱">dee | urn | dóomu-taal | dëj</annotation>
+		<annotation cp="⚱" type="tts">urnu dëj</annotation>
+		<annotation cp="🗿">moyai | kanam | estati</annotation>
+		<annotation cp="🗿" type="tts">moai</annotation>
+		<annotation cp="🏧">atm | otomated | bànk | waxkat</annotation>
+		<annotation cp="🏧" type="tts">màndarga ATM</annotation>
+		<annotation cp="🚮">mbalit | potu mbalit</annotation>
+		<annotation cp="🚮" type="tts">màndarga mbalit ci pot</annotation>
+		<annotation cp="🚰">ndox | naan | sell</annotation>
+		<annotation cp="🚰" type="tts">ndox mu sell</annotation>
+		<annotation cp="♿">jot</annotation>
+		<annotation cp="♿" type="tts">màndarga puus-puus</annotation>
+		<annotation cp="🚹">wc | duus | góor | noppalukaay</annotation>
+		<annotation cp="🚹" type="tts">néegu góor ñi</annotation>
+		<annotation cp="🚺">jigéen | wc | duus | noppalukaay</annotation>
+		<annotation cp="🚺" type="tts">néegu jigéen ñi</annotation>
+		<annotation cp="🚻">duus | WC | noppalukaay</annotation>
+		<annotation cp="🚻" type="tts">néegu noppalukaay</annotation>
+		<annotation cp="🚼">fomp | liir</annotation>
+		<annotation cp="🚼" type="tts">màndarga liir</annotation>
+		<annotation cp="🚾">ndox | wc | duus | wanag | noppalukaay</annotation>
+		<annotation cp="🚾" type="tts">tuurukaayu ndox</annotation>
+		<annotation cp="🛂">xool | paaspoor</annotation>
+		<annotation cp="🛂" type="tts">xool sa paaspoor</annotation>
+		<annotation cp="🛃">duwaan</annotation>
+		<annotation cp="🛃" type="tts">duwaan</annotation>
+		<annotation cp="🛄">laajte | bagaas</annotation>
+		<annotation cp="🛄" type="tts">laajte say bagaas</annotation>
+		<annotation cp="🛅">tëjukaay | làkk | bagaas</annotation>
+		<annotation cp="🛅" type="tts">bagaas yiñ bàyyi</annotation>
+		<annotation cp="⚠">moytul</annotation>
+		<annotation cp="⚠" type="tts">moytul</annotation>
+		<annotation cp="🚸">jeggi | ñiy dox | tali | xale</annotation>
+		<annotation cp="🚸" type="tts">xale yi dañu fiy jaar</annotation>
+		<annotation cp="⛔">déet | luñ aaye | bul | tali | luñ tere | dugg</annotation>
+		<annotation cp="⛔" type="tts">bu fi kenn dugg</annotation>
+		<annotation cp="🚫">déet | dugg | luñ tere | bul</annotation>
+		<annotation cp="🚫" type="tts">dañu koy tere</annotation>
+		<annotation cp="🚳">luñ aaye | déet | bul | luñ tere | welo</annotation>
+		<annotation cp="🚳" type="tts">bu fi kenn dawal welo</annotation>
+		<annotation cp="🚭">luñ aaye | déet | bul | tox | luñ tere</annotation>
+		<annotation cp="🚭" type="tts">bu fi kenn tox</annotation>
+		<annotation cp="🚯">déet | luñ aaye | bul | luñ tere | litter</annotation>
+		<annotation cp="🚯" type="tts">bu fi kenn sànni mbalit</annotation>
+		<annotation cp="🚱">ndox | sellul | bu sellul</annotation>
+		<annotation cp="🚱" type="tts">ndox mii sellul</annotation>
+		<annotation cp="🚷">déet | luñ aaye | bul | kiy dox | luñ tere</annotation>
+		<annotation cp="🚷" type="tts">bu kenn dox jaar fii</annotation>
+		<annotation cp="📵">déet | luñ aaye | telefon | bul | portaabal | luñ tere</annotation>
+		<annotation cp="📵" type="tts">dañu fi tere portaabal</annotation>
+		<annotation cp="🔞">déet | tere-gune | luñ aaye | bul | 18 | luñ tere | gune | fukk ak juróom ñatt</annotation>
+		<annotation cp="🔞" type="tts">ku amul 18 at bokkul</annotation>
+		<annotation cp="☢">màndarga | radioaktif</annotation>
+		<annotation cp="☢" type="tts">radioaktif</annotation>
+		<annotation cp="☣">màndarga | risku-bio</annotation>
+		<annotation cp="☣" type="tts">risku-bio</annotation>
+		<annotation cp="⬆">fett | kàrdinal | gànnaar | jubluwaay</annotation>
+		<annotation cp="⬆" type="tts">fettu kaw</annotation>
+		<annotation cp="↗">fett | penku-gànnaar | interkàrdinal | jubluwaay</annotation>
+		<annotation cp="↗" type="tts">fettu ndijooru kaw</annotation>
+		<annotation cp="➡">fett | kàrdinal | jubluwaay | penku</annotation>
+		<annotation cp="➡" type="tts">fettu ndijoor</annotation>
+		<annotation cp="↘">fett | interkàrdinal | penku-gànjool | direction</annotation>
+		<annotation cp="↘" type="tts">suuf-ndijoor fett</annotation>
+		<annotation cp="⬇">fett | kàrdinal | suuf | gànjool | direction</annotation>
+		<annotation cp="⬇" type="tts">fettu suuf</annotation>
+		<annotation cp="↙">fett | sowwu-gànjool | interkàrdinal | jubluwaay</annotation>
+		<annotation cp="↙" type="tts">suuf-càmmoñ fett</annotation>
+		<annotation cp="⬅">fett | kàrdinal | jubluwaay | sowwu</annotation>
+		<annotation cp="⬅" type="tts">fettu càmmoñ</annotation>
+		<annotation cp="↖">fett | sowwu-gànnaar | interkàrdinal | direction</annotation>
+		<annotation cp="↖" type="tts">fettu càmmoñu-kaw</annotation>
+		<annotation cp="↕">fett</annotation>
+		<annotation cp="↕" type="tts">fettu suufu-kaw</annotation>
+		<annotation cp="↔">fett</annotation>
+		<annotation cp="↔" type="tts">fettu càmmoñu-ndijoor</annotation>
+		<annotation cp="↩">fett</annotation>
+		<annotation cp="↩" type="tts">fettu ndijoor lemoo càmmoñ</annotation>
+		<annotation cp="↪">fett</annotation>
+		<annotation cp="↪" type="tts">fettu càmmoñ lemoo ndijoor</annotation>
+		<annotation cp="⤴">fett</annotation>
+		<annotation cp="⤴" type="tts">fettu ndijoor lemoo kaw</annotation>
+		<annotation cp="⤵">fett | suuf</annotation>
+		<annotation cp="⤵" type="tts">fettu ndijoor lemoo suuf</annotation>
+		<annotation cp="🔃">fett | ci yoonu montar | yabaat</annotation>
+		<annotation cp="🔃" type="tts">fett yu ci yoonu montar</annotation>
+		<annotation cp="🔄">fett | yoonal | juuyoo | safaan-montar</annotation>
+		<annotation cp="🔄" type="tts">bitoŋu fett yu juuyoo te safaan-montar</annotation>
+		<annotation cp="🔙">fett | montar</annotation>
+		<annotation cp="🔙" type="tts">fettu DELLU</annotation>
+		<annotation cp="🔚">fett | jeex</annotation>
+		<annotation cp="🔚" type="tts">fettu JEEX</annotation>
+		<annotation cp="🔛">fett | taal | mark</annotation>
+		<annotation cp="🔛" type="tts">fettu ci TAAL</annotation>
+		<annotation cp="🔜">fett | ci kanam</annotation>
+		<annotation cp="🔜" type="tts">fettu CI KANAM</annotation>
+		<annotation cp="🔝">fett | kaw | cat</annotation>
+		<annotation cp="🔝" type="tts">fettu COLLU</annotation>
+		<annotation cp="🛐">jaamu | diine</annotation>
+		<annotation cp="🛐" type="tts">barabu jaamukaay</annotation>
+		<annotation cp="⚛">atom | yéefar</annotation>
+		<annotation cp="⚛" type="tts">màndarga atom</annotation>
+		<annotation cp="🕉">Endo | diine</annotation>
+		<annotation cp="🕉" type="tts">om</annotation>
+		<annotation cp="✡">biddeew | diine | Dawuda | Yawuut</annotation>
+		<annotation cp="✡" type="tts">biddeew of Dawuda</annotation>
+		<annotation cp="☸">Buddhist | dharma | pëno | diine</annotation>
+		<annotation cp="☸" type="tts">pëno dharma</annotation>
+		<annotation cp="☯">diine | yin | wu-tao | yang | tao</annotation>
+		<annotation cp="☯" type="tts">yin yang</annotation>
+		<annotation cp="✝">kruwaa | Kreceŋ | diine</annotation>
+		<annotation cp="✝" type="tts">kruwaa lateŋ</annotation>
+		<annotation cp="☦">kruwaa | Kreceŋ | diine</annotation>
+		<annotation cp="☦" type="tts">kruwaa ortodoks</annotation>
+		<annotation cp="☪">Jullit | islam | diine</annotation>
+		<annotation cp="☪" type="tts">biddeew ak weer</annotation>
+		<annotation cp="☮">jàmm</annotation>
+		<annotation cp="☮" type="tts">màndarga jàmm</annotation>
+		<annotation cp="🕎">diine | tegukaayu sondeel | sondeel</annotation>
+		<annotation cp="🕎" type="tts">menorah</annotation>
+		<annotation cp="🔯">biddeew | wërsëk</annotation>
+		<annotation cp="🔯" type="tts">biddéewu 6 car</annotation>
+		<annotation cp="♈">sojak | ram</annotation>
+		<annotation cp="♈" type="tts">Kuy</annotation>
+		<annotation cp="♉">sojak | nag | yékk</annotation>
+		<annotation cp="♉" type="tts">Nag wu góor</annotation>
+		<annotation cp="♊">sojak | ay seex</annotation>
+		<annotation cp="♊" type="tts">Jemóo</annotation>
+		<annotation cp="♋">sojak | junxoob</annotation>
+		<annotation cp="♋" type="tts">Kàŋseer</annotation>
+		<annotation cp="♌">sojak | lion</annotation>
+		<annotation cp="♌" type="tts">Gaynde</annotation>
+		<annotation cp="♍">sojak</annotation>
+		<annotation cp="♍" type="tts">Wiyerse</annotation>
+		<annotation cp="♎">balaas | sojak | yoon</annotation>
+		<annotation cp="♎" type="tts">Balaas</annotation>
+		<annotation cp="♏">jiit | sojak</annotation>
+		<annotation cp="♏" type="tts">Eskorpiyoŋ</annotation>
+		<annotation cp="♐">sojak | ark</annotation>
+		<annotation cp="♐" type="tts">Sajiteer</annotation>
+		<annotation cp="♑">sojak | bëy</annotation>
+		<annotation cp="♑" type="tts">Kaprikorn</annotation>
+		<annotation cp="♒">ndox | sojak | yanukat</annotation>
+		<annotation cp="♒" type="tts">Wersóo</annotation>
+		<annotation cp="♓">sojak | jën</annotation>
+		<annotation cp="♓" type="tts">Jën yi</annotation>
+		<annotation cp="⛎">sojak | jaan | yanukat</annotation>
+		<annotation cp="⛎" type="tts">U buñ baare</annotation>
+		<annotation cp="🔀">fett | bu am kruwaa</annotation>
+		<annotation cp="🔀" type="tts">bitoŋu jaxase way yi</annotation>
+		<annotation cp="🔁">fett | ci yoonu montar | baamtu</annotation>
+		<annotation cp="🔁" type="tts">bitoŋu baamtu</annotation>
+		<annotation cp="🔂">fett | ci yoonu montar | benn-yoon</annotation>
+		<annotation cp="🔂" type="tts">bitoŋu benn baamtu</annotation>
+		<annotation cp="▶">fett | doxal | ndijoor | triyangal</annotation>
+		<annotation cp="▶" type="tts">bitoŋu doxal</annotation>
+		<annotation cp="⏩">fett | ñaarte | jëmale kanam | gaaw</annotation>
+		<annotation cp="⏩" type="tts">bitoŋu jëmale kanam gaaw</annotation>
+		<annotation cp="⏭">fett | seen bi ci topp | triyangal | way wi ci topp</annotation>
+		<annotation cp="⏭" type="tts">bitoŋu way wi topp</annotation>
+		<annotation cp="⏯">doxal | ndijoor | triyangal | fett | taxawal</annotation>
+		<annotation cp="⏯" type="tts">bitoŋu doxal wala taxawal</annotation>
+		<annotation cp="◀">fett | triayangal | delloo ginaaw | càmmoñ</annotation>
+		<annotation cp="◀" type="tts">bitoŋu delloo ginaaw</annotation>
+		<annotation cp="⏪">fett | delloo | ñaarte</annotation>
+		<annotation cp="⏪" type="tts">bitoŋu delloo ginaaw gaaw</annotation>
+		<annotation cp="⏮">fett | seen bi weesu | way wi weesu | triayangal</annotation>
+		<annotation cp="⏮" type="tts">bitoŋu way wi mujj</annotation>
+		<annotation cp="🔼">fett | bitoŋ | xonk</annotation>
+		<annotation cp="🔼" type="tts">bitoŋu yéegal</annotation>
+		<annotation cp="⏫">fett | ñaarte</annotation>
+		<annotation cp="⏫" type="tts">bitoŋu gaawal yéegal</annotation>
+		<annotation cp="🔽">fett | bitoŋ | xonk | suuf</annotation>
+		<annotation cp="🔽" type="tts">bitoŋu wàcce</annotation>
+		<annotation cp="⏬">fett | ñaarte | suuf</annotation>
+		<annotation cp="⏬" type="tts">bitoŋu gaawal wàcce</annotation>
+		<annotation cp="⏸">laat | ñaarte | taxaw | taxawal</annotation>
+		<annotation cp="⏸" type="tts">bitoŋu taxawal</annotation>
+		<annotation cp="⏹">kaare | dakkal</annotation>
+		<annotation cp="⏹" type="tts">bitoŋu dakkal</annotation>
+		<annotation cp="⏺">serkal | enregistare</annotation>
+		<annotation cp="⏺" type="tts">bitoŋu enregistare</annotation>
+		<annotation cp="⏏">génne</annotation>
+		<annotation cp="⏏" type="tts">bitoŋu génne</annotation>
+		<annotation cp="🎦">film | klise | kamera</annotation>
+		<annotation cp="🎦" type="tts">sinemaa</annotation>
+		<annotation cp="🔅">yànjaay | yam | suufe</annotation>
+		<annotation cp="🔅" type="tts">bitoŋu lëndëm</annotation>
+		<annotation cp="🔆">yànj | yànjaay</annotation>
+		<annotation cp="🔆" type="tts">bitoŋu leeraay</annotation>
+		<annotation cp="📶">siñaal | telefon | ànten | laat | portaabal</annotation>
+		<annotation cp="📶" type="tts">baari reso</annotation>
+		<annotation cp="📳">wiibre | portaabal | anam | telefon</annotation>
+		<annotation cp="📳" type="tts">anamu wiibrër</annotation>
+		<annotation cp="📴">fay | portaabal | telefon</annotation>
+		<annotation cp="📴" type="tts">portaabal buñ fay</annotation>
+		<annotation cp="♀">jigéen</annotation>
+		<annotation cp="♀" type="tts">màndarga jigéen</annotation>
+		<annotation cp="♂">góor</annotation>
+		<annotation cp="♂" type="tts">màndarga góor</annotation>
+		<annotation cp="✖">x | bàyyi | fuul</annotation>
+		<annotation cp="✖" type="tts">x fuul bu rëy</annotation>
+		<annotation cp="➕">mat | yokk</annotation>
+		<annotation cp="➕" type="tts">màndargay yokk bu rëy</annotation>
+		<annotation cp="➖">mat | wàññi</annotation>
+		<annotation cp="➖" type="tts">màndargay wàññi bu rëy</annotation>
+		<annotation cp="➗">mat | diwise</annotation>
+		<annotation cp="➗" type="tts">màndargay xaajale bu rëy</annotation>
+		<annotation cp="‼">bangbang | màndarga | esklamaasiyoŋ | tomb</annotation>
+		<annotation cp="‼" type="tts">ñaarte màndarga esklamaasiyoŋ</annotation>
+		<annotation cp="⁉">interrobang | tomb | laajte | esklamaasiyoŋ | màndarga</annotation>
+		<annotation cp="⁉" type="tts">màndarga esklamaasiyoŋ laajte</annotation>
+		<annotation cp="❓">màndarga | laajte | tomb</annotation>
+		<annotation cp="❓" type="tts">tombu laajte</annotation>
+		<annotation cp="❔">màndarga | laajte | fësal | tomb</annotation>
+		<annotation cp="❔" type="tts">tombu laajte bu weex</annotation>
+		<annotation cp="❕">màndarga | fësal | tomb | esklamaasiyoŋ</annotation>
+		<annotation cp="❕" type="tts">tombu esklamaasiyoŋ bu weex</annotation>
+		<annotation cp="❗">màndarga | tomb | esklamaasiyoŋ</annotation>
+		<annotation cp="❗" type="tts">tombu esklamaasiyoŋ</annotation>
+		<annotation cp="〰">tomb | tiire | ondule</annotation>
+		<annotation cp="〰" type="tts">tiire ondule</annotation>
+		<annotation cp="💱">wecci | bànk | koppar | xaalis</annotation>
+		<annotation cp="💱" type="tts">wecci koppar</annotation>
+		<annotation cp="💲">koppar | dolaar | xaalis</annotation>
+		<annotation cp="💲" type="tts">màndarga dolaar bu dijj</annotation>
+		<annotation cp="⚕">medsin | liggéeykat | eskalapuus</annotation>
+		<annotation cp="⚕" type="tts">màndarga medsin</annotation>
+		<annotation cp="♻">defaraat</annotation>
+		<annotation cp="♻" type="tts">màndarga defaraat</annotation>
+		<annotation cp="⚜">flëru-lis</annotation>
+		<annotation cp="⚜" type="tts">flëru-lis</annotation>
+		<annotation cp="🔱">jumtukaay | serukaay | bato | raaya | ñatti-fett</annotation>
+		<annotation cp="🔱" type="tts">xeeju ñatti bopp</annotation>
+		<annotation cp="📛">badsu | tur</annotation>
+		<annotation cp="📛" type="tts">badsu tur</annotation>
+		<annotation cp="🔰">mboq | Sapone | jumtukaay | tàmbalikat | gëm | xob | wert</annotation>
+		<annotation cp="🔰" type="tts">màndarga sapone, soog a door</annotation>
+		<annotation cp="⭕">serkal | o</annotation>
+		<annotation cp="⭕" type="tts">sarkal bu rëy te diis</annotation>
+		<annotation cp="✅">xàmme | marke</annotation>
+		<annotation cp="✅" type="tts">màndarga nangu bu weex te rëy</annotation>
+		<annotation cp="☑">kaas | xàmme | boyet</annotation>
+		<annotation cp="☑" type="tts">kaasu boyet ak xàmme</annotation>
+		<annotation cp="✔">xàmme | marke</annotation>
+		<annotation cp="✔" type="tts">màndarga nangu bu rëy</annotation>
+		<annotation cp="❌">màndarga | x | fuul</annotation>
+		<annotation cp="❌" type="tts">kruwaa</annotation>
+		<annotation cp="❎">màndarga | kaare</annotation>
+		<annotation cp="❎" type="tts">bitoŋ kruwaa</annotation>
+		<annotation cp="➰">loop | lemu</annotation>
+		<annotation cp="➰" type="tts">buum gu lemu benn yoon</annotation>
+		<annotation cp="➿">lemu | ñaarte | buukal</annotation>
+		<annotation cp="➿" type="tts">buum gu lemu ñaari yoon</annotation>
+		<annotation cp="〽">màndarga | wàll</annotation>
+		<annotation cp="〽" type="tts">màndarga beneen wàll</annotation>
+		<annotation cp="✳">asterisk</annotation>
+		<annotation cp="✳" type="tts">asterisk bu 8 car</annotation>
+		<annotation cp="✴">biddeew</annotation>
+		<annotation cp="✴" type="tts">biddeewu 8 cat</annotation>
+		<annotation cp="❇">eklaa</annotation>
+		<annotation cp="❇" type="tts">eklaa</annotation>
+		<annotation cp="©">àqu moomeel</annotation>
+		<annotation cp="©" type="tts">àqu moomeel</annotation>
+		<annotation cp="®">bindu na</annotation>
+		<annotation cp="®" type="tts">bindu na</annotation>
+		<annotation cp="™">màndarga | turu-liggéey | tm</annotation>
+		<annotation cp="™" type="tts">turu liggéey</annotation>
+		<annotation cp="🔠">mbind | lateŋ | majiskil | bataaxal | ABCD</annotation>
+		<annotation cp="🔠" type="tts">mbind lateŋ, majiskil</annotation>
+		<annotation cp="🔡">mbind | lateŋ | miniskil | abcd | bataaxal</annotation>
+		<annotation cp="🔡" type="tts">mbind lateŋ, miniskil</annotation>
+		<annotation cp="🔢">mbind | 1234 | numero</annotation>
+		<annotation cp="🔢" type="tts">mbindu nimero</annotation>
+		<annotation cp="🔣">mbind | 〒♪&amp;%</annotation>
+		<annotation cp="🔣" type="tts">màndargay mbind</annotation>
+		<annotation cp="🔤">mbind | lateŋ | abc | bataaxal | alfabet</annotation>
+		<annotation cp="🔤" type="tts">arafi mbindu lateŋ</annotation>
+		<annotation cp="🅰">a | xeet deret</annotation>
+		<annotation cp="🅰" type="tts">bitoŋu A (xeetu deret)</annotation>
+		<annotation cp="🆎">ab | xeetu deret</annotation>
+		<annotation cp="🆎" type="tts">bitoŋu AB (xeetu deret)</annotation>
+		<annotation cp="🅱">xeetu deret | b</annotation>
+		<annotation cp="🅱" type="tts">bitoŋu B (xeetu deret)</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">bitoŋu CL</annotation>
+		<annotation cp="🆒">sedd</annotation>
+		<annotation cp="🆒" type="tts">bitoŋu KUUL</annotation>
+		<annotation cp="🆓">amul fay</annotation>
+		<annotation cp="🆓" type="tts">bitoŋu AMUL FAY</annotation>
+		<annotation cp="ℹ">info (xibaar) | i</annotation>
+		<annotation cp="ℹ" type="tts">info (xibaar)</annotation>
+		<annotation cp="🆔">dàntite | id</annotation>
+		<annotation cp="🆔" type="tts">bitoŋu ID (dàntite)</annotation>
+		<annotation cp="Ⓜ">wërale serkal | m</annotation>
+		<annotation cp="Ⓜ" type="tts">M bu wërale serkal</annotation>
+		<annotation cp="🆕">bees</annotation>
+		<annotation cp="🆕" type="tts">bitoŋu BEES</annotation>
+		<annotation cp="🆖">ng</annotation>
+		<annotation cp="🆖" type="tts">bitoŋu NG</annotation>
+		<annotation cp="🅾">o | xeetu deret</annotation>
+		<annotation cp="🅾" type="tts">bitoŋ O (xeetu deret)</annotation>
+		<annotation cp="🆗">waaw-kay</annotation>
+		<annotation cp="🆗" type="tts">bitoŋu waaw-kay</annotation>
+		<annotation cp="🅿">gaare</annotation>
+		<annotation cp="🅿" type="tts">bitoŋu P</annotation>
+		<annotation cp="🆘">ndimbal | wallu</annotation>
+		<annotation cp="🆘" type="tts">bitoŋu WALLU</annotation>
+		<annotation cp="🆙">kaw | xàmme</annotation>
+		<annotation cp="🆙" type="tts">bitoŋu YEEGAL</annotation>
+		<annotation cp="🆚">daje ak | vs</annotation>
+		<annotation cp="🆚" type="tts">bitoŋu daje</annotation>
+		<annotation cp="🈁">&quot;fii&quot; | ココ | Sapone | katakana</annotation>
+		<annotation cp="🈁" type="tts">bitoŋu &quot;fii&quot; bu sapoŋ</annotation>
+		<annotation cp="🈂">Sapone | サ | &quot;fay cër&quot; | katakana</annotation>
+		<annotation cp="🈂" type="tts">bitoŋu &quot;dafa am juuti&quot; bu sapoŋ</annotation>
+		<annotation cp="🈷">&quot;lu ñuy fay weer&quot; | 月 | Sapone | ideograf</annotation>
+		<annotation cp="🈷" type="tts">bitoŋu sapone &quot;lu ñuy fay weer&quot;</annotation>
+		<annotation cp="🈶">&quot;dafa am juuti&quot; | Sapone | ideograf | 有</annotation>
+		<annotation cp="🈶" type="tts">bitoŋu sapone &quot;dafa am juuti&quot;</annotation>
+		<annotation cp="🈯">&quot;amna boroom&quot; | Sapone | 指 | ideograf</annotation>
+		<annotation cp="🈯" type="tts">bitoŋu &quot;amna boroom&quot; bu sapoŋ</annotation>
+		<annotation cp="🉐">&quot;waxaale&quot; | 得 | Sapone | ideograf</annotation>
+		<annotation cp="🉐" type="tts">bitoŋu &quot;waxaale&quot; bu sapoŋ</annotation>
+		<annotation cp="🈹">&quot;wàññi&quot; | Sapone | ideograf | 割</annotation>
+		<annotation cp="🈹" type="tts">bitoŋu &quot;wàññi&quot; bu sapoŋ</annotation>
+		<annotation cp="🈚">無 | Sapone | &quot;amul juuti&quot; | ideograf</annotation>
+		<annotation cp="🈚" type="tts">bitoŋu &quot;amul juuti&quot; bu sapoŋ</annotation>
+		<annotation cp="🈲">禁 | Sapone | ideograf | &quot;dañu koy tere&quot;</annotation>
+		<annotation cp="🈲" type="tts">bitoŋu &quot;dañu koy tere&quot; bu sapoŋ</annotation>
+		<annotation cp="🉑">&quot;mën nañu ko nangu&quot; | 可 | Sapone | ideograf</annotation>
+		<annotation cp="🉑" type="tts">bitoŋu &quot;terewu ñu ko&quot; bu sapoŋ</annotation>
+		<annotation cp="🈸">申 | Sapone | ideograf | &quot;jëfekaay&quot;</annotation>
+		<annotation cp="🈸" type="tts">bitoŋu &quot;jëfekaay&quot; bu sapoŋ</annotation>
+		<annotation cp="🈴">&quot;paase klaas&quot; | Sapone | ideograf | 合</annotation>
+		<annotation cp="🈴" type="tts">bitoŋu &quot;jàll klaas&quot; bu sapoŋ</annotation>
+		<annotation cp="🈳">空 | Sapone | &quot;féexna&quot; | ideograf</annotation>
+		<annotation cp="🈳" type="tts">bitoŋu &quot;wakaas&quot; bu sapoŋ</annotation>
+		<annotation cp="㊗">&quot;ndokkale&quot; | 祝 | Sapone | ideograf</annotation>
+		<annotation cp="㊗" type="tts">bitoŋu &quot;ndokkale&quot; bu sapoŋ</annotation>
+		<annotation cp="㊙">Sapone | 秘 | ideograf | &quot;sekkere&quot;</annotation>
+		<annotation cp="㊙" type="tts">bitoŋu &quot;sekkere&quot; bu sapoŋ</annotation>
+		<annotation cp="🈺">営 | Sapone | &quot;ubbi ngir liggéey&quot; | ideograf</annotation>
+		<annotation cp="🈺" type="tts">bitoŋ &quot;ku bëgg liggéey&quot; bu sapoŋ</annotation>
+		<annotation cp="🈵">満 | Sapone | ideograf | &quot;féexul&quot;</annotation>
+		<annotation cp="🈵" type="tts">bitoŋu &quot;amul wakaas&quot; bu sapoŋ</annotation>
+		<annotation cp="🔴">serkal | xonk | wu-geometri</annotation>
+		<annotation cp="🔴" type="tts">serkal xonk</annotation>
+		<annotation cp="🔵">serkal | baxa | wu-geometri</annotation>
+		<annotation cp="🔵" type="tts">serkal baxa</annotation>
+		<annotation cp="⚫">serkal | wu-geometri</annotation>
+		<annotation cp="⚫" type="tts">serkal ñuul</annotation>
+		<annotation cp="⚪">serkal | wu-geometri</annotation>
+		<annotation cp="⚪" type="tts">serkal bu weex</annotation>
+		<annotation cp="⬛">kaare | bu-geometri</annotation>
+		<annotation cp="⬛" type="tts">kaare bu rëy te ñuul</annotation>
+		<annotation cp="⬜">kaare | bu-geometri</annotation>
+		<annotation cp="⬜" type="tts">kaare bu rëy te weex</annotation>
+		<annotation cp="◼">kaare | bu-geometri</annotation>
+		<annotation cp="◼" type="tts">kaare bu yam te ñuul</annotation>
+		<annotation cp="◻">kaare | bu-geometri</annotation>
+		<annotation cp="◻" type="tts">kaare bu yam te weex</annotation>
+		<annotation cp="◾">kaare | bu-geometri</annotation>
+		<annotation cp="◾" type="tts">kaare yam-ndaw te ñuul</annotation>
+		<annotation cp="◽">kaare | bu-geometri</annotation>
+		<annotation cp="◽" type="tts">kaare yam-ndaw te weex</annotation>
+		<annotation cp="▪">kaare | bu-geometri</annotation>
+		<annotation cp="▪" type="tts">kaare bu ndaw te ñuul</annotation>
+		<annotation cp="▫">kaare | bu-geometri</annotation>
+		<annotation cp="▫" type="tts">kaare bu ndaw te weex</annotation>
+		<annotation cp="🔶">oraas | wu-geometri | karo</annotation>
+		<annotation cp="🔶" type="tts">karo rëy oraas</annotation>
+		<annotation cp="🔷">wu-geometri | baxa | karo</annotation>
+		<annotation cp="🔷" type="tts">karo rëy baxa</annotation>
+		<annotation cp="🔸">oraas | wu-geometri | karo</annotation>
+		<annotation cp="🔸" type="tts">karo ndaw oraas</annotation>
+		<annotation cp="🔹">wu-geometri | baxa | karo</annotation>
+		<annotation cp="🔹" type="tts">karo ndaw baxa</annotation>
+		<annotation cp="🔺">xonk | wu-geometri</annotation>
+		<annotation cp="🔺" type="tts">xonk, tri-àngal, buñ defal tomb</annotation>
+		<annotation cp="🔻">suuf | xonk | wu-geometri</annotation>
+		<annotation cp="🔻" type="tts">tri-àngal xonk muuse jëm suuf</annotation>
+		<annotation cp="💠">karo | wu-geometri | ci biir | reelu</annotation>
+		<annotation cp="💠" type="tts">karo bu ànd ak tomb</annotation>
+		<annotation cp="🔘">bitoŋ | radio | wu-geometri</annotation>
+		<annotation cp="🔘" type="tts">bitoŋu rajo</annotation>
+		<annotation cp="🔳">kaare | bitoŋ | fësal | wu-geometri</annotation>
+		<annotation cp="🔳" type="tts">bitoŋu kaare bu weex</annotation>
+		<annotation cp="🔲">kaare | bitoŋ | wu-geometri</annotation>
+		<annotation cp="🔲" type="tts">bitoŋu kaare ñuul</annotation>
+		<annotation cp="🏁">karo damiye | kursu</annotation>
+		<annotation cp="🏁" type="tts">raaya bu am karo damiye</annotation>
+		<annotation cp="🚩">post</annotation>
+		<annotation cp="🚩" type="tts">raaya am jëmmu tri-yàngal</annotation>
+		<annotation cp="🎌">màggal | kruwaa | Sapone | bu am kruwaa</annotation>
+		<annotation cp="🎌" type="tts">raaya yu féewaloo</annotation>
+		<annotation cp="🏴">buñ tàllal</annotation>
+		<annotation cp="🏴" type="tts">raaya bu ñuul</annotation>
+		<annotation cp="🏳">buñ tàllal</annotation>
+		<annotation cp="🏳" type="tts">raaya bu weex</annotation>
+		<annotation cp="🏳‍🌈">xon</annotation>
+		<annotation cp="🏳‍🌈" type="tts">raaya xon</annotation>
 	</annotations>
 </ldml>

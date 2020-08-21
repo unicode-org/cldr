@@ -2,9 +2,15 @@
 
 Latest Release: [v37.0](http://cldr.unicode.org/index/downloads/cldr-37#TOC-V37) published 2020-04-23
 
-![cldr-ant](https://github.com/unicode-org/cldr/workflows/cldr-ant/badge.svg)
+## Build Status
 
-[![Build Status](https://cldr-build.unicode.org/jenkins/buildStatus/icon?job=cldr%2Fcldr-master)](https://cldr-build.unicode.org/jenkins/job/cldr/job/cldr-master/)
+GitHub: 
+[![cldr-ant](https://github.com/unicode-org/cldr/workflows/cldr-ant/badge.svg)](https://github.com/unicode-org/cldr/actions?query=branch%3Amaster+workflow%3A%22cldr-ant%22)
+[![Ansible Lint](https://github.com/unicode-org/cldr/workflows/Ansible%20Lint/badge.svg)](https://github.com/unicode-org/cldr/actions?query=branch%3Amaster+workflow%3A%22Ansible+Lint%22)
+
+Jenkins: [![Build Status](https://cldr-build.unicode.org/jenkins/buildStatus/icon?job=cldr%2Fcldr-master)](https://cldr-build.unicode.org/jenkins/job/cldr/job/cldr-master/) :lock: 
+
+Travis: [![Build Status](https://travis-ci.org/unicode-org/cldr.svg?branch=master)](https://travis-ci.org/unicode-org/cldr/branches)
 
 ### What is CLDR?
 The Unicode CLDR provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a wide spectrum of companies for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks.

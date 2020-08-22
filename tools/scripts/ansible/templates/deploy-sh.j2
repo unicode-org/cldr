@@ -1,0 +1,13 @@
+#!/bin/sh
+# Note: this is managed by Ansible, as deploy-sh.j2
+# Don't modify this file.
+GITHUB_SHA=$1
+export TPASS={{ surveytooldeploy.password }} # from surveytooldeploy.password
+export TUSER=surveytooldeploy # fixed for now
+curl -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/undeploy?path=/cldr-apps'
+rm -fv cldr-apps.war .deploystatus
+dd bs=1024000 status=progress of=cldr-apps.war
+echo ; echo -n file count
+(unzip -l cldr-apps.war | wc -l ) || exit 1
+(cd  /var/lib/tomcat8/cldr/cldr-trunk/ && git fetch && git clean -f -d ; git checkout  ${GITHUB_SHA} )
+curl -u ${TUSER}:${TPASS} 'http://localhost:8080/manager/text/deploy?path=/cldr-apps&tag=cldr-apps&update=true' -T ./cldr-apps.war | tee .deploystatus

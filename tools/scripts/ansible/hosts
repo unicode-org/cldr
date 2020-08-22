@@ -1,5 +1,6 @@
 [staging]
-cldr-ref.unicode.org
+#cldr-ref.unicode.org
+cldr-smoke2.unicode.org
 
 [prod]
 
@@ -7,3 +8,7 @@ cldr-ref.unicode.org
 [surveytool:children]
 staging
 prod
+
+# encrypt all of the surveytool hosts
+[letsencrypt:children]
+surveytool

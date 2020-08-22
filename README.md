@@ -23,10 +23,13 @@ including the data files and LDML specification associated with each release.
 - Information about [Building and running CLDR Tools](http://cldr.unicode.org/tools "CLDR Tools Page")
 
 ### Contributing
+
 Most data submissions are done via the [CLDR Survey Tool](https://st.unicode.org/cldr-apps/), which is open and available on predetermined cycles.
 Click [HERE](http://unicode.org/cldr/survey_tool.html) for information on how to obtain a survey tool account.
 
-##### Licenses:
+For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+### Licenses
  
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)
 a copy of which is included as [unicode-license.txt](../blob/master/unicode-license.txt).
@@ -39,7 +42,7 @@ included as [ICU-LICENSE](../../blob/master/ICU-LICENSE).
 [Apache License]("http://www.apache.org/licenses/LICENSE-2.0.html")
 included as [apache-license.txt](../../blob/master/apache-license.txt).
 
-##### Copyright
+### Copyright
 
 Copyright &copy; 1991-2020 Unicode, Inc.
 All rights reserved.

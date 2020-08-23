@@ -955,14 +955,22 @@ public class UnitConverter implements Freezable<UnitConverter> {
          * @param partsUsed
 
          * @return
+         * TODO: add parameter to short-circuit the lookup if the unit is not a compound.
          */
         public String getGender(CLDRFile resolvedFile, Output<String> source, Multimap<UnitPathType, String> partsUsed) {
             Map<String,Integer> determiner = numUnitsToPowers.isEmpty() ? denUnitsToPowers : numUnitsToPowers;
             // will not be empty
 
             // get the last one.
-            String lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
+            // Hard coded for now:
+            String lastMeasure;
+            if (true) {
+                lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
                 .orElse(null);
+            } else {
+                lastMeasure = determiner.keySet().stream().reduce((first, second) -> second)
+                    .orElse(null);
+            }
             lastMeasure = stripPrefixInt(lastMeasure, null);
             String gender = UnitPathType.gender.getTrans(resolvedFile, "long", lastMeasure, null, null, null, partsUsed);
             if (gender != null && source != null) {

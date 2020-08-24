@@ -1145,7 +1145,9 @@ public class OutputFileManager {
             theFile = new Timestamp(lastMod);
         }
         if (theDate == null) {
-            SurveyLog.logger.warning(" .. no data.");
+            if (debugWhyUpdate) {
+                SurveyLog.debug(" .. no data.");
+            }
             return false; // no data (?)
         }
         if (debugWhyUpdate)

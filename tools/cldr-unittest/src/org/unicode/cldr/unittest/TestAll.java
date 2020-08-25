@@ -205,6 +205,7 @@ public class TestAll extends TestGroup {
             "org.unicode.cldr.unittest.TestIdentity",
             "org.unicode.cldr.unittest.TestInheritance",
             "org.unicode.cldr.unittest.TestKeyboardModifierSet",
+            "org.unicode.cldr.unittest.TestLanguageGroup",
             "org.unicode.cldr.unittest.TestLdml2ICU",
             "org.unicode.cldr.unittest.TestLocalCurrency",
             "org.unicode.cldr.unittest.TestLocale",

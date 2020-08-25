@@ -52,6 +52,10 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -1027,6 +1031,48 @@ public class CldrUtility {
         InputStream is = callingClass.getResourceAsStream(relativePath);
         // add buffering
         return InputStreamFactory.buffer(is);
+    }
+
+    /**
+     * Fetch a data item as a JSON file, with an arbitrary class
+     * @param relativePath relative to the 'data' directory
+     * @param clazz class of object to return
+     * @return object
+     * @throws IOException
+     */
+    public static <T> T readJson(String relativePath, Class <T> clazz) throws IOException {
+        try (BufferedReader reader = FileReaders.openFile(CldrUtility.class, "data/" + relativePath)) {
+            Gson gson = new Gson();
+            return gson.fromJson(reader, clazz);
+        }
+    }
+
+
+    /**
+     * Fetch a data item as a JsonElement
+     * @param relativePath relative to the 'data' directory
+     * @return object read
+     * @throws IOException
+     */
+    public static JsonElement readJson(String relativePath) throws IOException {
+        try (BufferedReader reader = FileReaders.openFile(CldrUtility.class, "data/" + relativePath)) {
+            JsonParser jsonParser = new JsonParser();
+            return jsonParser.parse(reader);
+        }
+    }
+
+    /**
+     * Read a JSON file containing only a set of Strings: ["a", "b", "c"]
+     * @param relativePath JSON path relative to the 'data' directory
+     * @return
+     * @throws IOException
+     */
+    public static Set<String> readJsonStringSet(String relativePath) throws IOException {
+        JsonArray iterator = readJson(relativePath).getAsJsonArray();
+        Set<String> strs = new TreeSet<>();
+        iterator.forEach((JsonElement e) -> strs.add(e.getAsString()));
+        return Collections.unmodifiableSet(strs);
+
     }
 
     /**

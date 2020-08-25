@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -23,6 +25,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
 public class TestLanguageGroup extends TestFmwk {
+    private static final String LANGUAGES_ISOLATES_JSON = "languages/isolates.json";
     static CLDRConfig CONF = CLDRConfig.getInstance();
     static CLDRFile ENGLISH = CONF.getEnglish();
     static SupplementalDataInfo SDI = CONF.getSupplementalDataInfo();
@@ -33,10 +36,9 @@ public class TestLanguageGroup extends TestFmwk {
         new TestLanguageGroup().run(args);
     }
 
-    static final Set<String> ISOLATES = ImmutableSet.of("ko", "qu", "root");
-
-    public void TestCodes() {
+    public void TestCodes() throws IOException {
         LanguageTagParser ltp = new LanguageTagParser();
+        final Set<String> ISOLATES = CldrUtility.readJsonStringSet(LANGUAGES_ISOLATES_JSON);
         Set<String> seen = new HashSet<>();
         for (String locale : CONF.getCldrFactory().getAvailableLanguages()) {
             String lang = ltp.set(locale).getLanguage();
@@ -51,7 +53,11 @@ public class TestLanguageGroup extends TestFmwk {
             assertEquals(targets.toString(), 1, targets.size());
             List<String> target = targets.iterator().next();
             if ((target.size() == 1) != ISOLATES.contains(lang)) {
-                errln(getName(lang) + "\t" + target);
+                if(ISOLATES.contains(lang)) {
+                    errln(getName(lang) + "\t" + target + "\t - in "+ LANGUAGES_ISOLATES_JSON+" but in languageGroup.xml");
+                } else {
+                    errln(getName(lang) + "\t" + target + "\t - not in "+LANGUAGES_ISOLATES_JSON+" nor languageGroup.xml");
+                }
             } else {
                 logln(getName(lang) + "\t" + target);
             }
@@ -72,7 +78,7 @@ public class TestLanguageGroup extends TestFmwk {
 
     public static Set<LanguageGroup> SPECIALS = ImmutableSet.of(LanguageGroup.root, LanguageGroup.cjk, LanguageGroup.other, LanguageGroup.american);
 
-    public void TestOldLangaugeGroup() {
+    public void TestOldLanguageGroup() {
         for (LanguageGroup item : LanguageGroup.values()) {
             if (SPECIALS.contains(item)) { // special cases
                 continue;
@@ -84,9 +90,9 @@ public class TestLanguageGroup extends TestFmwk {
             logln(parent + ": " + getAllChildren(parent));
             for (ULocale child : locales) {
                 String childString = child.toLanguageTag();
-                if (!assertTrue(getName(parent) + " contains " + getName(childString), isAncestorOf(parent, childString))) {
-                    System.out.println("superclasses of " + childString + ": " + getAllAncestors(childString));
-                    System.out.println("subclasses of " + parent + ": " + getAllChildren(childString));
+                if (!assertTrue(getName(parent) + " is not an ancestor of " + getName(childString), isAncestorOf(parent, childString))) {
+                    System.out.println("ancestors of " + childString + ": " + getAllAncestors(childString));
+                    System.out.println("children of " + parent + ": " + getAllChildren(childString));
                 }
             }
         }

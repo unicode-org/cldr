@@ -320,6 +320,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="US GB">foot</unitPreference>
             <unitPreference regions="US GB">inch</unitPreference>
         </unitPreferences>
+        <unitPreferences category="length" usage="focal-length">
+            <unitPreference regions="001">millimeter</unitPreference>
+        </unitPreferences>
         <unitPreferences category="length" usage="person">
             <unitPreference regions="001">centimeter</unitPreference>
             <unitPreference regions="CA GB IN US">inch</unitPreference>

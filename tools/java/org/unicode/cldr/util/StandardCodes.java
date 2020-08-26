@@ -1036,7 +1036,9 @@ public class StandardCodes {
         /** specialized codes for validity; TODO: rename LstrType **/
         currency(false, true, "XXX"),
         subdivision(false, true),
-        unit(false, true);
+        unit(false, true),
+        usage(false, true),
+        zone(false, true);
 
         public final Set<String> specials;
         public final String unknown;
@@ -1070,8 +1072,30 @@ public class StandardCodes {
             }
         }
 
+        /**
+         * Generate compatibility string, returning 'territory' instead of 'region', etc.
+         */
         public String toCompatString() {
-            return this == region ? "territory" : toString();
+            switch (this) {
+            case region: return "territory";
+            case grandfathered: return "language";
+            case redundant: return "language";
+            default: return toString();
+            }
+        }
+
+        /**
+         * Create LstrType from string, allowing the compat string 'territory'.
+         */
+        public static LstrType fromString(String rawType) {
+            try {
+                return valueOf(rawType);
+            } catch (IllegalArgumentException e) {
+                if ("territory".equals(rawType)) {
+                    return region;
+                }
+                throw e;
+            }
         }
     }
 

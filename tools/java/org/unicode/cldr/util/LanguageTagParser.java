@@ -489,7 +489,7 @@ public class LanguageTagParser {
     }
 
     public enum OutputOption {
-        ICU('_'), BCP47('-');
+        ICU('_'), ICU_LCVARIANT('_'), BCP47('-');
         final char separator;
         final Joiner joiner;
 

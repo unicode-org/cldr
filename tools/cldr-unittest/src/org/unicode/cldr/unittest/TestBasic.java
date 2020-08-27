@@ -724,6 +724,14 @@ public class TestBasic extends TestFmwkPlus {
         Set<String> defaultContents = Inheritance.defaultContents;
         Multimap<String, String> parentToChildren = Inheritance.parentToChildren;
 
+        // Put a list of locales that should be default content here.
+        final String expectDC[] = {
+            "os_GE" // see CLDR-14118
+        };
+        for(final String locale : expectDC) {
+            assertTrue("expect "+locale+" to be a default content locale", defaultContents.contains(locale));
+        }
+
         if (DEBUG) {
             Inheritance.showChain("", "", "root");
         }

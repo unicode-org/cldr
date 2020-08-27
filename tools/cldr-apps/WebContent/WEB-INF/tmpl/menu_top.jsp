@@ -1,9 +1,7 @@
 <%@ include file="/WEB-INF/jspf/stcontext.jspf" %><!--  menu_top.jspf begin -->
 
-<%!
-// TODO: is this entire file dead code?
-    static String CALENDARS_ITEMS[] = SurveyMain.CALENDARS_ITEMS;
-	static String METAZONES_ITEMS[] = SurveyMain.METAZONES_ITEMS;%><%
+<%
+    /* TODO: is this entire file dead code? */
 	WebContext subCtx = ctx;
 	int n;
 	String which = (String) subCtx.get("which");
@@ -18,14 +16,14 @@ static void writeMenu(JspWriter jout, WebContext wCtx, SurveyMenus.Section sec, 
     for(SurveyMenus.Section.Page p : sec) {
         pages.add(p);
     }
-    
+
     boolean any = false;
        if(pageId!=null&& pageId.getSectionId() == sec.getSection()) {
            any = true;
        }
     jout.println("<label class='"
             + (any ? "menutop-active" : "menutop-other") + "' >");
-    
+
     if(!any) {
         jout.println("<a href='"+wCtx.vurl(wCtx.getLocale(), pages.get(0).getKey(), null, null)+"' style='text-decoration: none;'>");
     }
@@ -60,7 +58,7 @@ static void writeMenu(JspWriter jout, WebContext wCtx, SurveyMenus.Section sec, 
 }
 
 %>
-	<b>Sections:</b> 
+	<b>Sections:</b>
 <%
        String covlev = ctx.getCoverageSetting();
        Level coverage = Level.COMPREHENSIVE;
@@ -79,12 +77,12 @@ static void writeMenu(JspWriter jout, WebContext wCtx, SurveyMenus.Section sec, 
 		out.flush();
 		ctx.flush();
 %>
-	      <br><b>Review:</b> 
-	      <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { 
+	      <br><b>Review:</b>
+	      <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) {
 	    	  final String theClass = request.getQueryString().contains(m.urlQuery())?"selected":"notselected";
               String url = ctx.context()+"/v#"+m.urlStub()+"/"+ctx.getLocale();
 		      %>
-		      <label class='menutop-other'><a href="<%= url %>" class="<%= theClass %>"><%= m.display() %></a></label> 
+		      <label class='menutop-other'><a href="<%= url %>" class="<%= theClass %>"><%= m.display() %></a></label>
 	      <% } %>
         <br />
         <%

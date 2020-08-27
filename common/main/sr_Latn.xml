@@ -9879,18 +9879,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} cm</unitPattern>
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
-			<unit type="length-furlong">
-				<displayName>furlonzi</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">{0} fur</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="length-fathom">
-				<displayName>hv</displayName>
-				<unitPattern count="one">{0} fth</unitPattern>
-				<unitPattern count="few">{0} fth</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
 				<unitPattern count="one">{0} mm</unitPattern>
@@ -9927,6 +9915,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} sg</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} sg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sg</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>furlonzi</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">{0} fur</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>hv</displayName>
+				<unitPattern count="one">{0} fth</unitPattern>
+				<unitPattern count="few">{0} fth</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kg</displayName>

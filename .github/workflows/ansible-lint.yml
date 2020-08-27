@@ -18,6 +18,9 @@ jobs:
           ansible==2.9
           ansible-lint==4.2.0
         args: ""
+    - name: Lint Markdown
+      # Warn, don't fail yet
+      run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)
   build:
     runs-on: macos-latest
     steps:

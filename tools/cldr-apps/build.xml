@@ -73,6 +73,10 @@
             <fileset dir="${libs.dir}">
               <include name="**/*.jar"/>
             </fileset>
+            <fileset erroronmissingdir="false" dir="${CLDR_TOOLS}/dist/for-build">
+              <include name="cldr.jar"/>
+              <include name="cldr-apps.war"/>
+            </fileset>
             <!-- <pathelement location="${CLDR_JAR}"/> -->
             <pathelement path="${CLDR_TOOLS}/classes"/>
             <pathelement location="${CATALINA_HOME}/lib/tomcat-dbcp.jar"/>

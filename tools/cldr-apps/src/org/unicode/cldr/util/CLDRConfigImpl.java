@@ -195,7 +195,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
      * @return
      */
     public final static String getGitHashForDir(String dir) {
-        final String GIT_HASH_COMMANDS[] = { "git",  "rev-parse", "--short", "HEAD" };
+        final String GIT_HASH_COMMANDS[] = { "git",  "rev-parse", "HEAD" };
         try {
             if(dir == null) return CLDRURLS.UNKNOWN_REVISION; // no dir
             File f = new File(dir);

@@ -185,12 +185,20 @@ public class WritePluralRulesSpreadsheets {
             for (String start : keywords) {
                 FixedDecimal small = getSample(rules, start, null); // smallest
                 String startPattern = getSamplePattern(samplePatterns, start);
+                if (startPattern == null) {
+                    throw new NullPointerException("no startPattern: getSamplePattern(["+locale+"],"+start+") returned null"+
+                        "- samplePatterns: " + samplePatterns.toString());
+                }
                 for (String end : keywords) {
                     FixedDecimal large = getSample(rules, end, small); // smallest
                     if (large == null) {
                         continue;
                     }
                     String endPattern = getSamplePattern(samplePatterns, end);
+                    if (endPattern == null) {
+                        throw new NullPointerException("no endPattern: getSamplePattern(["+locale+"],"+end+") returned null"+
+                            "- samplePatterns: " + samplePatterns.toString());
+                    }
                     String range = MessageFormat.format(rangePattern, small.toString(), large.toString());
                     Count rangeCount = pluralRanges == null ? null : pluralRanges.get(Count.valueOf(start), Count.valueOf(end));
                     String rangeCountPattern = rangeCount == null ? "<copy correct pattern>" : getSamplePattern(samplePatterns, rangeCount.toString());

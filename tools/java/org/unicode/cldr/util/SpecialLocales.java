@@ -11,6 +11,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.CLDRFileTransformer;
+import org.unicode.cldr.tool.CLDRFileTransformer.LocaleTransform;
+
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
@@ -125,6 +128,23 @@ public class SpecialLocales {
      * Internal constructor
      */
     private SpecialLocales() {
+        // First, read the algorithmic locales.
+        for(final LocaleTransform lt : CLDRFileTransformer.LocaleTransform.values()) {
+            if(lt.getPolicyIfExisting() != CLDRFileTransformer.PolicyIfExisting.DISCARD) {
+                continue;
+            }
+            // Add each of these as if they were in SpecialLocales.txt
+            CLDRLocale inputLocale = CLDRLocale.getInstance(lt.getInputLocale());
+            CLDRLocale outputLocale = CLDRLocale.getInstance(lt.getOutputLocale());
+
+            // add as readonly
+            addToType(Type.readonly, outputLocale);
+
+            // add similar comment to SpecialLocales.txt
+            comments.put(outputLocale, "@"+outputLocale.getBaseName()+" is generated from @"+inputLocale.getBaseName() +
+                " via transliteration, and so @@ may not be edited directly. Edit @"+inputLocale.getBaseName()+" to make changes.");
+        }
+
         // from StandardCodes.java
         String line;
         int ln = 0;
@@ -168,13 +188,7 @@ public class SpecialLocales {
                         + line);
                 }
 
-                Set<CLDRLocale> s = types.get(t);
-                if (s == null) {
-                    s = new TreeSet<>();
-                    types.put(t, s);
-                }
-                s.add(l);
-                specials.put(l, t);
+                addToType(t, l);
                 if (includeSublocs) {
                     specialsWildcards.add(l);
                 }
@@ -193,6 +207,17 @@ public class SpecialLocales {
         specialsWildcards = Collections.unmodifiableSet(specialsWildcards);
         comments = Collections.unmodifiableMap(comments);
         types = Collections.unmodifiableMap(types);
+    }
+
+    private Set<CLDRLocale> addToType(Type t, CLDRLocale l) {
+        Set<CLDRLocale> s = types.get(t);
+        if (s == null) {
+            s = new TreeSet<>();
+            types.put(t, s);
+        }
+        s.add(l);
+        specials.put(l, t);
+        return s;
     }
 
 }

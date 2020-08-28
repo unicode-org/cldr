@@ -12,26 +12,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="de"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤌🏻">Finger | Handgeste | helle Hautfarbe | sarkastisch | zusammengedrückt | zusammengedrückte Finger</annotation>
-		<annotation cp="🤌🏻" type="tts">zusammengedrückte Finger: helle Hautfarbe</annotation>
-		<annotation cp="🤌🏼">Finger | Handgeste | mittelhelle Hautfarbe | sarkastisch | zusammengedrückt | zusammengedrückte Finger</annotation>
-		<annotation cp="🤌🏼" type="tts">zusammengedrückte Finger: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🤌🏽">Finger | Handgeste | mittlere Hautfarbe | sarkastisch | zusammengedrückt | zusammengedrückte Finger</annotation>
-		<annotation cp="🤌🏽" type="tts">zusammengedrückte Finger: mittlere Hautfarbe</annotation>
-		<annotation cp="🤌🏾">Finger | Handgeste | mitteldunkle Hautfarbe | sarkastisch | zusammengedrückt | zusammengedrückte Finger</annotation>
-		<annotation cp="🤌🏾" type="tts">zusammengedrückte Finger: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🤌🏿">dunkle Hautfarbe | Finger | Handgeste | sarkastisch | zusammengedrückt | zusammengedrückte Finger</annotation>
-		<annotation cp="🤌🏿" type="tts">zusammengedrückte Finger: dunkle Hautfarbe</annotation>
-		<annotation cp="🥷🏻">Ausdauer | helle Hautfarbe | Kämpfer | Ninja | vermummt</annotation>
-		<annotation cp="🥷🏻" type="tts">Ninja: helle Hautfarbe</annotation>
-		<annotation cp="🥷🏼">Ausdauer | Kämpfer | mittelhelle Hautfarbe | Ninja | vermummt</annotation>
-		<annotation cp="🥷🏼" type="tts">Ninja: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🥷🏽">Ausdauer | Kämpfer | mittlere Hautfarbe | Ninja | vermummt</annotation>
-		<annotation cp="🥷🏽" type="tts">Ninja: mittlere Hautfarbe</annotation>
-		<annotation cp="🥷🏾">Ausdauer | Kämpfer | mitteldunkle Hautfarbe | Ninja | vermummt</annotation>
-		<annotation cp="🥷🏾" type="tts">Ninja: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🥷🏿">Ausdauer | dunkle Hautfarbe | Kämpfer | Ninja | vermummt</annotation>
-		<annotation cp="🥷🏿" type="tts">Ninja: dunkle Hautfarbe</annotation>
 		<annotation cp="👋🏻">Hand | helle Hautfarbe | Winken | winkende Hand</annotation>
 		<annotation cp="👋🏻" type="tts">winkende Hand: helle Hautfarbe</annotation>
 		<annotation cp="👋🏼">Hand | mittelhelle Hautfarbe | Winken | winkende Hand</annotation>
@@ -92,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👌🏾" type="tts">OK-Zeichen: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👌🏿">dunkle Hautfarbe | exzellent | Hand | in Ordnung | OK | OK-Zeichen | perfekt</annotation>
 		<annotation cp="👌🏿" type="tts">OK-Zeichen: dunkle Hautfarbe</annotation>
+		<annotation cp="🤌🏻">Bündelhand | Finger | Handgeste | helle Hautfarbe | zusammengedrückt | zusammengedrückte Finger</annotation>
+		<annotation cp="🤌🏻" type="tts">zusammengedrückte Finger: helle Hautfarbe</annotation>
+		<annotation cp="🤌🏼">Bündelhand | Finger | Handgeste | mittelhelle Hautfarbe | zusammengedrückt | zusammengedrückte Finger</annotation>
+		<annotation cp="🤌🏼" type="tts">zusammengedrückte Finger: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🤌🏽">Bündelhand | Finger | Handgeste | mittlere Hautfarbe | zusammengedrückt | zusammengedrückte Finger</annotation>
+		<annotation cp="🤌🏽" type="tts">zusammengedrückte Finger: mittlere Hautfarbe</annotation>
+		<annotation cp="🤌🏾">Bündelhand | Finger | Handgeste | mitteldunkle Hautfarbe | zusammengedrückt | zusammengedrückte Finger</annotation>
+		<annotation cp="🤌🏾" type="tts">zusammengedrückte Finger: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🤌🏿">Bündelhand | dunkle Hautfarbe | Finger | Handgeste | zusammengedrückt | zusammengedrückte Finger</annotation>
+		<annotation cp="🤌🏿" type="tts">zusammengedrückte Finger: dunkle Hautfarbe</annotation>
 		<annotation cp="🤏🏻">helle Hautfarbe | klein | kleine Menge | kleiner Betrag | unbedeutend | wenig | Wenig-Geste</annotation>
 		<annotation cp="🤏🏻" type="tts">Wenig-Geste: helle Hautfarbe</annotation>
 		<annotation cp="🤏🏼">klein | kleine Menge | kleiner Betrag | mittelhelle Hautfarbe | unbedeutend | wenig | Wenig-Geste</annotation>
@@ -142,15 +132,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤘🏾" type="tts">Teufelsgruß: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🤘🏿">dunkle Hautfarbe | Finger | Hand | Hörner | Rock | Teufel | Teufelsgruß</annotation>
 		<annotation cp="🤘🏿" type="tts">Teufelsgruß: dunkle Hautfarbe</annotation>
-		<annotation cp="🤙🏻">anrufen | Hand | helle Hautfarbe | ruf-mich-an-Handzeichen</annotation>
+		<annotation cp="🤙🏻">anrufen | Hand | helle Hautfarbe | ruf-mich-an-Handzeichen | Ruf-mich-an-Handzeichen</annotation>
 		<annotation cp="🤙🏻" type="tts">ruf-mich-an-Handzeichen: helle Hautfarbe</annotation>
-		<annotation cp="🤙🏼">anrufen | Hand | mittelhelle Hautfarbe | ruf-mich-an-Handzeichen</annotation>
+		<annotation cp="🤙🏼">anrufen | Hand | mittelhelle Hautfarbe | ruf-mich-an-Handzeichen | Ruf-mich-an-Handzeichen</annotation>
 		<annotation cp="🤙🏼" type="tts">ruf-mich-an-Handzeichen: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🤙🏽">anrufen | Hand | mittlere Hautfarbe | ruf-mich-an-Handzeichen</annotation>
+		<annotation cp="🤙🏽">anrufen | Hand | mittlere Hautfarbe | ruf-mich-an-Handzeichen | Ruf-mich-an-Handzeichen</annotation>
 		<annotation cp="🤙🏽" type="tts">ruf-mich-an-Handzeichen: mittlere Hautfarbe</annotation>
-		<annotation cp="🤙🏾">anrufen | Hand | mitteldunkle Hautfarbe | ruf-mich-an-Handzeichen</annotation>
+		<annotation cp="🤙🏾">anrufen | Hand | mitteldunkle Hautfarbe | ruf-mich-an-Handzeichen | Ruf-mich-an-Handzeichen</annotation>
 		<annotation cp="🤙🏾" type="tts">ruf-mich-an-Handzeichen: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🤙🏿">anrufen | dunkle Hautfarbe | Hand | ruf-mich-an-Handzeichen</annotation>
+		<annotation cp="🤙🏿">anrufen | dunkle Hautfarbe | Hand | ruf-mich-an-Handzeichen | Ruf-mich-an-Handzeichen</annotation>
 		<annotation cp="🤙🏿" type="tts">ruf-mich-an-Handzeichen: dunkle Hautfarbe</annotation>
 		<annotation cp="👈🏻">Finger | Handrückseite | helle Hautfarbe | links | nach links weisender Zeigefinger</annotation>
 		<annotation cp="👈🏻" type="tts">nach links weisender Zeigefinger: helle Hautfarbe</annotation>
@@ -392,16 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👂🏾" type="tts">Ohr: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👂🏿">dunkle Hautfarbe | Körperteil | Ohr</annotation>
 		<annotation cp="👂🏿" type="tts">Ohr: dunkle Hautfarbe</annotation>
-		<annotation cp="🦻🏻">Barrierefreiheit | gehörlos | helle Hautfarbe | Hörgerät | Hörhilfe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏻" type="tts">Ohr mit Hörhilfe: helle Hautfarbe</annotation>
-		<annotation cp="🦻🏼">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittelhelle Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏼" type="tts">Ohr mit Hörhilfe: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🦻🏽">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittlere Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏽" type="tts">Ohr mit Hörhilfe: mittlere Hautfarbe</annotation>
-		<annotation cp="🦻🏾">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mitteldunkle Hautfarbe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏾" type="tts">Ohr mit Hörhilfe: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🦻🏿">Barrierefreiheit | dunkle Hautfarbe | gehörlos | Hörgerät | Hörhilfe | Ohr mit Hörhilfe | taub</annotation>
-		<annotation cp="🦻🏿" type="tts">Ohr mit Hörhilfe: dunkle Hautfarbe</annotation>
+		<annotation cp="🦻🏻">Barrierefreiheit | gehörlos | helle Hautfarbe | Hörgerät | Hörhilfe | Ohr mit Hörgerät | taub</annotation>
+		<annotation cp="🦻🏻" type="tts">Ohr mit Hörgerät: helle Hautfarbe</annotation>
+		<annotation cp="🦻🏼">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittelhelle Hautfarbe | Ohr mit Hörgerät | taub</annotation>
+		<annotation cp="🦻🏼" type="tts">Ohr mit Hörgerät: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🦻🏽">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mittlere Hautfarbe | Ohr mit Hörgerät | taub</annotation>
+		<annotation cp="🦻🏽" type="tts">Ohr mit Hörgerät: mittlere Hautfarbe</annotation>
+		<annotation cp="🦻🏾">Barrierefreiheit | gehörlos | Hörgerät | Hörhilfe | mitteldunkle Hautfarbe | Ohr mit Hörgerät | taub</annotation>
+		<annotation cp="🦻🏾" type="tts">Ohr mit Hörgerät: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🦻🏿">Barrierefreiheit | dunkle Hautfarbe | gehörlos | Hörgerät | Hörhilfe | Ohr mit Hörgerät | taub</annotation>
+		<annotation cp="🦻🏿" type="tts">Ohr mit Hörgerät: dunkle Hautfarbe</annotation>
 		<annotation cp="👃🏻">helle Hautfarbe | Körperteil | Nase</annotation>
 		<annotation cp="👃🏻" type="tts">Nase: helle Hautfarbe</annotation>
 		<annotation cp="👃🏼">Körperteil | mittelhelle Hautfarbe | Nase</annotation>
@@ -452,15 +442,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧🏾" type="tts">Mädchen: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👧🏿">dunkle Hautfarbe | Gesicht | Mädchen</annotation>
 		<annotation cp="👧🏿" type="tts">Mädchen: dunkle Hautfarbe</annotation>
-		<annotation cp="🧑🏻">Erwachsener | geschlechtsneutral | helle Hautfarbe</annotation>
+		<annotation cp="🧑🏻">erwachsene Person | Erwachsener | geschlechtsneutral | helle Hautfarbe | Mensch | Person</annotation>
 		<annotation cp="🧑🏻" type="tts">Erwachsener: helle Hautfarbe</annotation>
-		<annotation cp="🧑🏼">Erwachsener | geschlechtsneutral | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧑🏼">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittelhelle Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏼" type="tts">Erwachsener: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧑🏽">Erwachsener | geschlechtsneutral | mittlere Hautfarbe</annotation>
+		<annotation cp="🧑🏽">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittlere Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏽" type="tts">Erwachsener: mittlere Hautfarbe</annotation>
-		<annotation cp="🧑🏾">Erwachsener | geschlechtsneutral | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧑🏾">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mitteldunkle Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏾" type="tts">Erwachsener: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧑🏿">dunkle Hautfarbe | Erwachsener | geschlechtsneutral</annotation>
+		<annotation cp="🧑🏿">dunkle Hautfarbe | erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | Person</annotation>
 		<annotation cp="🧑🏿" type="tts">Erwachsener: dunkle Hautfarbe</annotation>
 		<annotation cp="👱🏻">blonde Haare | blonde Person | blondes Haar | Gesicht | helle Hautfarbe | Person: blondes Haar</annotation>
 		<annotation cp="👱🏻" type="tts">Person: helle Hautfarbe, blondes Haar</annotation>
@@ -472,74 +462,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👱🏾" type="tts">Person: mitteldunkle Hautfarbe, blondes Haar</annotation>
 		<annotation cp="👱🏿">blonde Haare | blonde Person | blondes Haar | dunkle Hautfarbe | Gesicht | Person: blondes Haar</annotation>
 		<annotation cp="👱🏿" type="tts">Person: dunkle Hautfarbe, blondes Haar</annotation>
-		<annotation cp="🧑‍🦰">Erwachsener | geschlechtsneutral | rotes Haar</annotation>
+		<annotation cp="🧑‍🦰">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | Person | rotes Haar</annotation>
 		<annotation cp="🧑‍🦰" type="tts">Erwachsener: rotes Haar</annotation>
-		<annotation cp="🧑🏻‍🦰">Erwachsener | geschlechtsneutral | helle Hautfarbe | rotes Haar</annotation>
+		<annotation cp="🧑🏻‍🦰">erwachsene Person | Erwachsener | geschlechtsneutral | helle Hautfarbe | Mensch | Person | rotes Haar</annotation>
 		<annotation cp="🧑🏻‍🦰" type="tts">Erwachsener: helle Hautfarbe, rotes Haar</annotation>
-		<annotation cp="🧑🏼‍🦰">Erwachsener | geschlechtsneutral | mittelhelle Hautfarbe | rotes Haar</annotation>
+		<annotation cp="🧑🏼‍🦰">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittelhelle Hautfarbe | Person | rotes Haar</annotation>
 		<annotation cp="🧑🏼‍🦰" type="tts">Erwachsener: mittelhelle Hautfarbe, rotes Haar</annotation>
-		<annotation cp="🧑🏽‍🦰">Erwachsener | geschlechtsneutral | mittlere Hautfarbe | rotes Haar</annotation>
+		<annotation cp="🧑🏽‍🦰">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittlere Hautfarbe | Person | rotes Haar</annotation>
 		<annotation cp="🧑🏽‍🦰" type="tts">Erwachsener: mittlere Hautfarbe, rotes Haar</annotation>
-		<annotation cp="🧑🏾‍🦰">Erwachsener | geschlechtsneutral | mitteldunkle Hautfarbe | rotes Haar</annotation>
+		<annotation cp="🧑🏾‍🦰">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mitteldunkle Hautfarbe | Person | rotes Haar</annotation>
 		<annotation cp="🧑🏾‍🦰" type="tts">Erwachsener: mitteldunkle Hautfarbe, rotes Haar</annotation>
-		<annotation cp="🧑🏿‍🦰">dunkle Hautfarbe | Erwachsener | geschlechtsneutral | rotes Haar</annotation>
+		<annotation cp="🧑🏿‍🦰">dunkle Hautfarbe | erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | Person | rotes Haar</annotation>
 		<annotation cp="🧑🏿‍🦰" type="tts">Erwachsener: dunkle Hautfarbe, rotes Haar</annotation>
-		<annotation cp="🧑‍🦱">Erwachsener | geschlechtsneutral | lockiges Haar</annotation>
+		<annotation cp="🧑‍🦱">erwachsene Person | Erwachsener | geschlechtsneutral | lockiges Haar | Mensch | Person</annotation>
 		<annotation cp="🧑‍🦱" type="tts">Erwachsener: lockiges Haar</annotation>
-		<annotation cp="🧑🏻‍🦱">Erwachsener | geschlechtsneutral | helle Hautfarbe | lockiges Haar</annotation>
+		<annotation cp="🧑🏻‍🦱">erwachsene Person | Erwachsener | geschlechtsneutral | helle Hautfarbe | lockiges Haar | Mensch | Person</annotation>
 		<annotation cp="🧑🏻‍🦱" type="tts">Erwachsener: helle Hautfarbe, lockiges Haar</annotation>
-		<annotation cp="🧑🏼‍🦱">Erwachsener | geschlechtsneutral | lockiges Haar | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧑🏼‍🦱">erwachsene Person | Erwachsener | geschlechtsneutral | lockiges Haar | Mensch | mittelhelle Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏼‍🦱" type="tts">Erwachsener: mittelhelle Hautfarbe, lockiges Haar</annotation>
-		<annotation cp="🧑🏽‍🦱">Erwachsener | geschlechtsneutral | lockiges Haar | mittlere Hautfarbe</annotation>
+		<annotation cp="🧑🏽‍🦱">erwachsene Person | Erwachsener | geschlechtsneutral | lockiges Haar | Mensch | mittlere Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏽‍🦱" type="tts">Erwachsener: mittlere Hautfarbe, lockiges Haar</annotation>
-		<annotation cp="🧑🏾‍🦱">Erwachsener | geschlechtsneutral | lockiges Haar | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧑🏾‍🦱">erwachsene Person | Erwachsener | geschlechtsneutral | lockiges Haar | Mensch | mitteldunkle Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏾‍🦱" type="tts">Erwachsener: mitteldunkle Hautfarbe, lockiges Haar</annotation>
-		<annotation cp="🧑🏿‍🦱">dunkle Hautfarbe | Erwachsener | geschlechtsneutral | lockiges Haar</annotation>
+		<annotation cp="🧑🏿‍🦱">dunkle Hautfarbe | erwachsene Person | Erwachsener | geschlechtsneutral | lockiges Haar | Mensch | Person</annotation>
 		<annotation cp="🧑🏿‍🦱" type="tts">Erwachsener: dunkle Hautfarbe, lockiges Haar</annotation>
-		<annotation cp="🧑‍🦳">Erwachsener | geschlechtsneutral | weißes Haar</annotation>
+		<annotation cp="🧑‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | Person | weißes Haar</annotation>
 		<annotation cp="🧑‍🦳" type="tts">Erwachsener: weißes Haar</annotation>
-		<annotation cp="🧑🏻‍🦳">Erwachsener | geschlechtsneutral | helle Hautfarbe | weißes Haar</annotation>
+		<annotation cp="🧑🏻‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | helle Hautfarbe | Mensch | Person | weißes Haar</annotation>
 		<annotation cp="🧑🏻‍🦳" type="tts">Erwachsener: helle Hautfarbe, weißes Haar</annotation>
-		<annotation cp="🧑🏼‍🦳">Erwachsener | geschlechtsneutral | mittelhelle Hautfarbe | weißes Haar</annotation>
+		<annotation cp="🧑🏼‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittelhelle Hautfarbe | Person | weißes Haar</annotation>
 		<annotation cp="🧑🏼‍🦳" type="tts">Erwachsener: mittelhelle Hautfarbe, weißes Haar</annotation>
-		<annotation cp="🧑🏽‍🦳">Erwachsener | geschlechtsneutral | mittlere Hautfarbe | weißes Haar</annotation>
+		<annotation cp="🧑🏽‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mittlere Hautfarbe | Person | weißes Haar</annotation>
 		<annotation cp="🧑🏽‍🦳" type="tts">Erwachsener: mittlere Hautfarbe, weißes Haar</annotation>
-		<annotation cp="🧑🏾‍🦳">Erwachsener | geschlechtsneutral | mitteldunkle Hautfarbe | weißes Haar</annotation>
+		<annotation cp="🧑🏾‍🦳">erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | mitteldunkle Hautfarbe | Person | weißes Haar</annotation>
 		<annotation cp="🧑🏾‍🦳" type="tts">Erwachsener: mitteldunkle Hautfarbe, weißes Haar</annotation>
-		<annotation cp="🧑🏿‍🦳">dunkle Hautfarbe | Erwachsener | geschlechtsneutral | weißes Haar</annotation>
+		<annotation cp="🧑🏿‍🦳">dunkle Hautfarbe | erwachsene Person | Erwachsener | geschlechtsneutral | Mensch | Person | weißes Haar</annotation>
 		<annotation cp="🧑🏿‍🦳" type="tts">Erwachsener: dunkle Hautfarbe, weißes Haar</annotation>
-		<annotation cp="🧑‍🦲">Erwachsener | geschlechtsneutral | Glatze</annotation>
+		<annotation cp="🧑‍🦲">erwachsene Person | Erwachsener | geschlechtsneutral | Glatze | Mensch | Person</annotation>
 		<annotation cp="🧑‍🦲" type="tts">Erwachsener: Glatze</annotation>
-		<annotation cp="🧑🏻‍🦲">Erwachsener | geschlechtsneutral | Glatze | helle Hautfarbe</annotation>
+		<annotation cp="🧑🏻‍🦲">erwachsene Person | Erwachsener | geschlechtsneutral | Glatze | helle Hautfarbe | Mensch | Person</annotation>
 		<annotation cp="🧑🏻‍🦲" type="tts">Erwachsener: helle Hautfarbe, Glatze</annotation>
-		<annotation cp="🧑🏼‍🦲">Erwachsener | geschlechtsneutral | Glatze | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧑🏼‍🦲">erwachsene Person | Erwachsener | geschlechtsneutral | Glatze | Mensch | mittelhelle Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏼‍🦲" type="tts">Erwachsener: mittelhelle Hautfarbe, Glatze</annotation>
-		<annotation cp="🧑🏽‍🦲">Erwachsener | geschlechtsneutral | Glatze | mittlere Hautfarbe</annotation>
+		<annotation cp="🧑🏽‍🦲">erwachsene Person | Erwachsener | geschlechtsneutral | Glatze | Mensch | mittlere Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏽‍🦲" type="tts">Erwachsener: mittlere Hautfarbe, Glatze</annotation>
-		<annotation cp="🧑🏾‍🦲">Erwachsener | geschlechtsneutral | Glatze | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧑🏾‍🦲">erwachsene Person | Erwachsener | geschlechtsneutral | Glatze | Mensch | mitteldunkle Hautfarbe | Person</annotation>
 		<annotation cp="🧑🏾‍🦲" type="tts">Erwachsener: mitteldunkle Hautfarbe, Glatze</annotation>
-		<annotation cp="🧑🏿‍🦲">dunkle Hautfarbe | Erwachsener | geschlechtsneutral | Glatze</annotation>
+		<annotation cp="🧑🏿‍🦲">dunkle Hautfarbe | erwachsene Person | Erwachsener | geschlechtsneutral | Glatze | Mensch | Person</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">Erwachsener: dunkle Hautfarbe, Glatze</annotation>
-		<annotation cp="🧑🏻‍🍼">Baby | helle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
-		<annotation cp="🧑🏻‍🍼" type="tts">stillende Person: helle Hautfarbe</annotation>
-		<annotation cp="🧑🏼‍🍼">Baby | mittelhelle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
-		<annotation cp="🧑🏼‍🍼" type="tts">stillende Person: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧑🏽‍🍼">Baby | mittlere Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
-		<annotation cp="🧑🏽‍🍼" type="tts">stillende Person: mittlere Hautfarbe</annotation>
-		<annotation cp="🧑🏾‍🍼">Baby | mitteldunkle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
-		<annotation cp="🧑🏾‍🍼" type="tts">stillende Person: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧑🏿‍🍼">Baby | dunkle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
-		<annotation cp="🧑🏿‍🍼" type="tts">stillende Person: dunkle Hautfarbe</annotation>
-		<annotation cp="🧑🏻‍🎄">helle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
-		<annotation cp="🧑🏻‍🎄" type="tts">Weihnachtsperson: helle Hautfarbe</annotation>
-		<annotation cp="🧑🏼‍🎄">mittelhelle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
-		<annotation cp="🧑🏼‍🎄" type="tts">Weihnachtsperson: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧑🏽‍🎄">mittlere Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
-		<annotation cp="🧑🏽‍🎄" type="tts">Weihnachtsperson: mittlere Hautfarbe</annotation>
-		<annotation cp="🧑🏾‍🎄">mitteldunkle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
-		<annotation cp="🧑🏾‍🎄" type="tts">Weihnachtsperson: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧑🏿‍🎄">dunkle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
-		<annotation cp="🧑🏿‍🎄" type="tts">Weihnachtsperson: dunkle Hautfarbe</annotation>
 		<annotation cp="👨🏻">helle Hautfarbe | Mann</annotation>
 		<annotation cp="👨🏻" type="tts">Mann: helle Hautfarbe</annotation>
 		<annotation cp="👨🏼">Mann | mittelhelle Hautfarbe</annotation>
@@ -550,16 +520,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">Mann: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👨🏿">dunkle Hautfarbe | Mann</annotation>
 		<annotation cp="👨🏿" type="tts">Mann: dunkle Hautfarbe</annotation>
-		<annotation cp="🧔🏻">Bart | helle Hautfarbe | Mann: Bart | Person mit Bart</annotation>
-		<annotation cp="🧔🏻" type="tts">Mann: helle Hautfarbe, Bart</annotation>
-		<annotation cp="🧔🏼">Bart | Mann: Bart | mittelhelle Hautfarbe | Person mit Bart</annotation>
-		<annotation cp="🧔🏼" type="tts">Mann: mittelhelle Hautfarbe, Bart</annotation>
-		<annotation cp="🧔🏽">Bart | Mann: Bart | mittlere Hautfarbe | Person mit Bart</annotation>
-		<annotation cp="🧔🏽" type="tts">Mann: mittlere Hautfarbe, Bart</annotation>
-		<annotation cp="🧔🏾">Bart | Mann: Bart | mitteldunkle Hautfarbe | Person mit Bart</annotation>
-		<annotation cp="🧔🏾" type="tts">Mann: mitteldunkle Hautfarbe, Bart</annotation>
-		<annotation cp="🧔🏿">Bart | dunkle Hautfarbe | Mann: Bart | Person mit Bart</annotation>
-		<annotation cp="🧔🏿" type="tts">Mann: dunkle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏻">Bart | helle Hautfarbe | Mensch: Bart | Person mit Bart | Person: Bart</annotation>
+		<annotation cp="🧔🏻" type="tts">Person: helle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏼">Bart | Mensch: Bart | mittelhelle Hautfarbe | Person mit Bart | Person: Bart</annotation>
+		<annotation cp="🧔🏼" type="tts">Person: mittelhelle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏽">Bart | Mensch: Bart | mittlere Hautfarbe | Person mit Bart | Person: Bart</annotation>
+		<annotation cp="🧔🏽" type="tts">Person: mittlere Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏾">Bart | Mensch: Bart | mitteldunkle Hautfarbe | Person mit Bart | Person: Bart</annotation>
+		<annotation cp="🧔🏾" type="tts">Person: mitteldunkle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏿">Bart | dunkle Hautfarbe | Mensch: Bart | Person mit Bart | Person: Bart</annotation>
+		<annotation cp="🧔🏿" type="tts">Person: dunkle Hautfarbe, Bart</annotation>
 		<annotation cp="👱🏻‍♂">blond | blonder Mann | Gesicht | Haar | helle Hautfarbe | Mann | Mann: blond</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">Mann: helle Hautfarbe, blond</annotation>
 		<annotation cp="👱🏼‍♂">blond | blonder Mann | Gesicht | Haar | Mann | Mann: blond | mittelhelle Hautfarbe</annotation>
@@ -618,16 +588,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">Mann: mitteldunkle Hautfarbe, Glatze</annotation>
 		<annotation cp="👨🏿‍🦲">dunkle Hautfarbe | Glatze | Mann</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">Mann: dunkle Hautfarbe, Glatze</annotation>
-		<annotation cp="👨🏻‍🍼">Baby | helle Hautfarbe | Mann | stillen | stillend | stillender Mann</annotation>
-		<annotation cp="👨🏻‍🍼" type="tts">stillender Mann: helle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🍼">Baby | Mann | mittelhelle Hautfarbe | stillen | stillend | stillender Mann</annotation>
-		<annotation cp="👨🏼‍🍼" type="tts">stillender Mann: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🍼">Baby | Mann | mittlere Hautfarbe | stillen | stillend | stillender Mann</annotation>
-		<annotation cp="👨🏽‍🍼" type="tts">stillender Mann: mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🍼">Baby | Mann | mitteldunkle Hautfarbe | stillen | stillend | stillender Mann</annotation>
-		<annotation cp="👨🏾‍🍼" type="tts">stillender Mann: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🍼">Baby | dunkle Hautfarbe | Mann | stillen | stillend | stillender Mann</annotation>
-		<annotation cp="👨🏿‍🍼" type="tts">stillender Mann: dunkle Hautfarbe</annotation>
+		<annotation cp="🧔🏻‍♀">Bart | Frau: Bart | helle Hautfarbe</annotation>
+		<annotation cp="🧔🏻‍♀" type="tts">Frau: helle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏼‍♀">Bart | Frau: Bart | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧔🏼‍♀" type="tts">Frau: mittelhelle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏽‍♀">Bart | Frau: Bart | mittlere Hautfarbe</annotation>
+		<annotation cp="🧔🏽‍♀" type="tts">Frau: mittlere Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏾‍♀">Bart | Frau: Bart | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧔🏾‍♀" type="tts">Frau: mitteldunkle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏿‍♀">Bart | dunkle Hautfarbe | Frau: Bart</annotation>
+		<annotation cp="🧔🏿‍♀" type="tts">Frau: dunkle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏻‍♂">Bart | helle Hautfarbe | Mann: Bart</annotation>
+		<annotation cp="🧔🏻‍♂" type="tts">Mann: helle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏼‍♂">Bart | Mann: Bart | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧔🏼‍♂" type="tts">Mann: mittelhelle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏽‍♂">Bart | Mann: Bart | mittlere Hautfarbe</annotation>
+		<annotation cp="🧔🏽‍♂" type="tts">Mann: mittlere Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏾‍♂">Bart | Mann: Bart | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧔🏾‍♂" type="tts">Mann: mitteldunkle Hautfarbe, Bart</annotation>
+		<annotation cp="🧔🏿‍♂">Bart | dunkle Hautfarbe | Mann: Bart</annotation>
+		<annotation cp="🧔🏿‍♂" type="tts">Mann: dunkle Hautfarbe, Bart</annotation>
 		<annotation cp="👩🏻">Frau | helle Hautfarbe</annotation>
 		<annotation cp="👩🏻" type="tts">Frau: helle Hautfarbe</annotation>
 		<annotation cp="👩🏼">Frau | mittelhelle Hautfarbe</annotation>
@@ -696,25 +676,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">Frau: mitteldunkle Hautfarbe, Glatze</annotation>
 		<annotation cp="👩🏿‍🦲">dunkle Hautfarbe | Frau | Glatze</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">Frau: dunkle Hautfarbe, Glatze</annotation>
-		<annotation cp="👩🏻‍🍼">Baby | Frau | helle Hautfarbe | stillen | stillend | stillende Frau</annotation>
-		<annotation cp="👩🏻‍🍼" type="tts">stillende Frau: helle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🍼">Baby | Frau | mittelhelle Hautfarbe | stillen | stillend | stillende Frau</annotation>
-		<annotation cp="👩🏼‍🍼" type="tts">stillende Frau: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🍼">Baby | Frau | mittlere Hautfarbe | stillen | stillend | stillende Frau</annotation>
-		<annotation cp="👩🏽‍🍼" type="tts">stillende Frau: mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🍼">Baby | Frau | mitteldunkle Hautfarbe | stillen | stillend | stillende Frau</annotation>
-		<annotation cp="👩🏾‍🍼" type="tts">stillende Frau: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🍼">Baby | dunkle Hautfarbe | Frau | stillen | stillend | stillende Frau</annotation>
-		<annotation cp="👩🏿‍🍼" type="tts">stillende Frau: dunkle Hautfarbe</annotation>
-		<annotation cp="🧓🏻">alt | älterer Erwachsener | geschlechtsneutral | helle Hautfarbe</annotation>
+		<annotation cp="🧓🏻">alt | älterer Erwachsener | älterer Mensch | geschlechtsneutral | helle Hautfarbe | ohne eindeutiges Geschlecht</annotation>
 		<annotation cp="🧓🏻" type="tts">älterer Erwachsener: helle Hautfarbe</annotation>
-		<annotation cp="🧓🏼">alt | älterer Erwachsener | geschlechtsneutral | mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧓🏼">alt | älterer Erwachsener | älterer Mensch | geschlechtsneutral | mittelhelle Hautfarbe | ohne eindeutiges Geschlecht</annotation>
 		<annotation cp="🧓🏼" type="tts">älterer Erwachsener: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧓🏽">alt | älterer Erwachsener | geschlechtsneutral | mittlere Hautfarbe</annotation>
+		<annotation cp="🧓🏽">alt | älterer Erwachsener | älterer Mensch | geschlechtsneutral | mittlere Hautfarbe | ohne eindeutiges Geschlecht</annotation>
 		<annotation cp="🧓🏽" type="tts">älterer Erwachsener: mittlere Hautfarbe</annotation>
-		<annotation cp="🧓🏾">alt | älterer Erwachsener | geschlechtsneutral | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧓🏾">alt | älterer Erwachsener | älterer Mensch | geschlechtsneutral | mitteldunkle Hautfarbe | ohne eindeutiges Geschlecht</annotation>
 		<annotation cp="🧓🏾" type="tts">älterer Erwachsener: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧓🏿">alt | älterer Erwachsener | dunkle Hautfarbe | geschlechtsneutral</annotation>
+		<annotation cp="🧓🏿">alt | älterer Erwachsener | älterer Mensch | dunkle Hautfarbe | geschlechtsneutral | ohne eindeutiges Geschlecht</annotation>
 		<annotation cp="🧓🏿" type="tts">älterer Erwachsener: dunkle Hautfarbe</annotation>
 		<annotation cp="👴🏻">älterer Mann | Gesicht | helle Hautfarbe | Mann | Senior</annotation>
 		<annotation cp="👴🏻" type="tts">älterer Mann: helle Hautfarbe</annotation>
@@ -1576,36 +1546,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕵🏾‍♀" type="tts">Detektivin: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🕵🏿‍♀">Detektivin | dunkle Hautfarbe | Frau | Spionin</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">Detektivin: dunkle Hautfarbe</annotation>
-		<annotation cp="💂🏻">Buckingham Palace | helle Hautfarbe | Wachmann/ Wachfrau | Wachmann/Wachfrau</annotation>
+		<annotation cp="💂🏻">Buckingham Palace | helle Hautfarbe | Wachmann/Wachfrau | Wachsoldat(in)</annotation>
 		<annotation cp="💂🏻" type="tts">Wachmann/Wachfrau: helle Hautfarbe</annotation>
-		<annotation cp="💂🏼">Buckingham Palace | mittelhelle Hautfarbe | Wachmann/ Wachfrau | Wachmann/Wachfrau</annotation>
+		<annotation cp="💂🏼">Buckingham Palace | mittelhelle Hautfarbe | Wachmann/Wachfrau | Wachsoldat(in)</annotation>
 		<annotation cp="💂🏼" type="tts">Wachmann/Wachfrau: mittelhelle Hautfarbe</annotation>
-		<annotation cp="💂🏽">Buckingham Palace | mittlere Hautfarbe | Wachmann/ Wachfrau | Wachmann/Wachfrau</annotation>
+		<annotation cp="💂🏽">Buckingham Palace | mittlere Hautfarbe | Wachmann/Wachfrau | Wachsoldat(in)</annotation>
 		<annotation cp="💂🏽" type="tts">Wachmann/Wachfrau: mittlere Hautfarbe</annotation>
-		<annotation cp="💂🏾">Buckingham Palace | mitteldunkle Hautfarbe | Wachmann/ Wachfrau | Wachmann/Wachfrau</annotation>
+		<annotation cp="💂🏾">Buckingham Palace | mitteldunkle Hautfarbe | Wachmann/Wachfrau | Wachsoldat(in)</annotation>
 		<annotation cp="💂🏾" type="tts">Wachmann/Wachfrau: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="💂🏿">Buckingham Palace | dunkle Hautfarbe | Wachmann/ Wachfrau | Wachmann/Wachfrau</annotation>
+		<annotation cp="💂🏿">Buckingham Palace | dunkle Hautfarbe | Wachmann/Wachfrau | Wachsoldat(in)</annotation>
 		<annotation cp="💂🏿" type="tts">Wachmann/Wachfrau: dunkle Hautfarbe</annotation>
-		<annotation cp="💂🏻‍♂">Buckingham Palace | helle Hautfarbe | Wachmann</annotation>
-		<annotation cp="💂🏻‍♂" type="tts">Wachmann: helle Hautfarbe</annotation>
-		<annotation cp="💂🏼‍♂">Buckingham Palace | mittelhelle Hautfarbe | Wachmann</annotation>
-		<annotation cp="💂🏼‍♂" type="tts">Wachmann: mittelhelle Hautfarbe</annotation>
-		<annotation cp="💂🏽‍♂">Buckingham Palace | mittlere Hautfarbe | Wachmann</annotation>
-		<annotation cp="💂🏽‍♂" type="tts">Wachmann: mittlere Hautfarbe</annotation>
-		<annotation cp="💂🏾‍♂">Buckingham Palace | mitteldunkle Hautfarbe | Wachmann</annotation>
-		<annotation cp="💂🏾‍♂" type="tts">Wachmann: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="💂🏿‍♂">Buckingham Palace | dunkle Hautfarbe | Wachmann</annotation>
-		<annotation cp="💂🏿‍♂" type="tts">Wachmann: dunkle Hautfarbe</annotation>
-		<annotation cp="💂🏻‍♀">Buckingham Palace | helle Hautfarbe | Wachfrau</annotation>
-		<annotation cp="💂🏻‍♀" type="tts">Wachfrau: helle Hautfarbe</annotation>
-		<annotation cp="💂🏼‍♀">Buckingham Palace | mittelhelle Hautfarbe | Wachfrau</annotation>
-		<annotation cp="💂🏼‍♀" type="tts">Wachfrau: mittelhelle Hautfarbe</annotation>
-		<annotation cp="💂🏽‍♀">Buckingham Palace | mittlere Hautfarbe | Wachfrau</annotation>
-		<annotation cp="💂🏽‍♀" type="tts">Wachfrau: mittlere Hautfarbe</annotation>
-		<annotation cp="💂🏾‍♀">Buckingham Palace | mitteldunkle Hautfarbe | Wachfrau</annotation>
-		<annotation cp="💂🏾‍♀" type="tts">Wachfrau: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="💂🏿‍♀">Buckingham Palace | dunkle Hautfarbe | Wachfrau</annotation>
-		<annotation cp="💂🏿‍♀" type="tts">Wachfrau: dunkle Hautfarbe</annotation>
+		<annotation cp="💂🏻‍♂">Buckingham Palace | helle Hautfarbe | Wache | Wachsoldat</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">Wachsoldat: helle Hautfarbe</annotation>
+		<annotation cp="💂🏼‍♂">Buckingham Palace | mittelhelle Hautfarbe | Wache | Wachsoldat</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">Wachsoldat: mittelhelle Hautfarbe</annotation>
+		<annotation cp="💂🏽‍♂">Buckingham Palace | mittlere Hautfarbe | Wache | Wachsoldat</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">Wachsoldat: mittlere Hautfarbe</annotation>
+		<annotation cp="💂🏾‍♂">Buckingham Palace | mitteldunkle Hautfarbe | Wache | Wachsoldat</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">Wachsoldat: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="💂🏿‍♂">Buckingham Palace | dunkle Hautfarbe | Wache | Wachsoldat</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">Wachsoldat: dunkle Hautfarbe</annotation>
+		<annotation cp="💂🏻‍♀">Buckingham Palace | helle Hautfarbe | Wachsoldatin</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">Wachsoldatin: helle Hautfarbe</annotation>
+		<annotation cp="💂🏼‍♀">Buckingham Palace | mittelhelle Hautfarbe | Wachsoldatin</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">Wachsoldatin: mittelhelle Hautfarbe</annotation>
+		<annotation cp="💂🏽‍♀">Buckingham Palace | mittlere Hautfarbe | Wachsoldatin</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">Wachsoldatin: mittlere Hautfarbe</annotation>
+		<annotation cp="💂🏾‍♀">Buckingham Palace | mitteldunkle Hautfarbe | Wachsoldatin</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">Wachsoldatin: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="💂🏿‍♀">Buckingham Palace | dunkle Hautfarbe | Wachsoldatin</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">Wachsoldatin: dunkle Hautfarbe</annotation>
+		<annotation cp="🥷🏻">Ausdauer | helle Hautfarbe | Kämpfer | Ninja | vermummt</annotation>
+		<annotation cp="🥷🏻" type="tts">Ninja: helle Hautfarbe</annotation>
+		<annotation cp="🥷🏼">Ausdauer | Kämpfer | mittelhelle Hautfarbe | Ninja | vermummt</annotation>
+		<annotation cp="🥷🏼" type="tts">Ninja: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🥷🏽">Ausdauer | Kämpfer | mittlere Hautfarbe | Ninja | vermummt</annotation>
+		<annotation cp="🥷🏽" type="tts">Ninja: mittlere Hautfarbe</annotation>
+		<annotation cp="🥷🏾">Ausdauer | Kämpfer | mitteldunkle Hautfarbe | Ninja | vermummt</annotation>
+		<annotation cp="🥷🏾" type="tts">Ninja: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🥷🏿">Ausdauer | dunkle Hautfarbe | Kämpfer | Ninja | vermummt</annotation>
+		<annotation cp="🥷🏿" type="tts">Ninja: dunkle Hautfarbe</annotation>
 		<annotation cp="👷🏻">Bauarbeiter | Bauarbeiter(in) | Gesicht | helle Hautfarbe | Helm</annotation>
 		<annotation cp="👷🏻" type="tts">Bauarbeiter(in): helle Hautfarbe</annotation>
 		<annotation cp="👷🏼">Bauarbeiter | Bauarbeiter(in) | Gesicht | Helm | mittelhelle Hautfarbe</annotation>
@@ -1696,15 +1676,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲🏾" type="tts">Mann mit chinesischem Hut: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👲🏿">China | dunkle Hautfarbe | Gesicht | Hut | Mann | Mann mit chinesischem Hut</annotation>
 		<annotation cp="👲🏿" type="tts">Mann mit chinesischem Hut: dunkle Hautfarbe</annotation>
-		<annotation cp="🧕🏻">Frau mit Kopftuch | helle Hautfarbe | Hidschāb | Kopftuch | Mantilla | Tichel</annotation>
+		<annotation cp="🧕🏻">Frau mit Kopftuch | helle Hautfarbe | Hidschab | Kopftuch | Mantilla | Tichel</annotation>
 		<annotation cp="🧕🏻" type="tts">Frau mit Kopftuch: helle Hautfarbe</annotation>
-		<annotation cp="🧕🏼">Frau mit Kopftuch | Hidschāb | Kopftuch | Mantilla | mittelhelle Hautfarbe | Tichel</annotation>
+		<annotation cp="🧕🏼">Frau mit Kopftuch | Hidschab | Kopftuch | Mantilla | mittelhelle Hautfarbe | Tichel</annotation>
 		<annotation cp="🧕🏼" type="tts">Frau mit Kopftuch: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧕🏽">Frau mit Kopftuch | Hidschāb | Kopftuch | Mantilla | mittlere Hautfarbe | Tichel</annotation>
+		<annotation cp="🧕🏽">Frau mit Kopftuch | Hidschab | Kopftuch | Mantilla | mittlere Hautfarbe | Tichel</annotation>
 		<annotation cp="🧕🏽" type="tts">Frau mit Kopftuch: mittlere Hautfarbe</annotation>
-		<annotation cp="🧕🏾">Frau mit Kopftuch | Hidschāb | Kopftuch | Mantilla | mitteldunkle Hautfarbe | Tichel</annotation>
+		<annotation cp="🧕🏾">Frau mit Kopftuch | Hidschab | Kopftuch | Mantilla | mitteldunkle Hautfarbe | Tichel</annotation>
 		<annotation cp="🧕🏾" type="tts">Frau mit Kopftuch: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧕🏿">dunkle Hautfarbe | Frau mit Kopftuch | Hidschāb | Kopftuch | Mantilla | Tichel</annotation>
+		<annotation cp="🧕🏿">dunkle Hautfarbe | Frau mit Kopftuch | Hidschab | Kopftuch | Mantilla | Tichel</annotation>
 		<annotation cp="🧕🏿" type="tts">Frau mit Kopftuch: dunkle Hautfarbe</annotation>
 		<annotation cp="🤵🏻">Bräutigam | helle Hautfarbe | Person | Person im Smoking | Smoking</annotation>
 		<annotation cp="🤵🏻" type="tts">Person im Smoking: helle Hautfarbe</annotation>
@@ -1716,16 +1696,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾" type="tts">Person im Smoking: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🤵🏿">Bräutigam | dunkle Hautfarbe | Person | Person im Smoking | Smoking</annotation>
 		<annotation cp="🤵🏿" type="tts">Person im Smoking: dunkle Hautfarbe</annotation>
-		<annotation cp="🤵🏻‍♀">Frau | Frau im Smoking | helle Hautfarbe | Smoking</annotation>
-		<annotation cp="🤵🏻‍♀" type="tts">Frau im Smoking: helle Hautfarbe</annotation>
-		<annotation cp="🤵🏼‍♀">Frau | Frau im Smoking | mittelhelle Hautfarbe | Smoking</annotation>
-		<annotation cp="🤵🏼‍♀" type="tts">Frau im Smoking: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🤵🏽‍♀">Frau | Frau im Smoking | mittlere Hautfarbe | Smoking</annotation>
-		<annotation cp="🤵🏽‍♀" type="tts">Frau im Smoking: mittlere Hautfarbe</annotation>
-		<annotation cp="🤵🏾‍♀">Frau | Frau im Smoking | mitteldunkle Hautfarbe | Smoking</annotation>
-		<annotation cp="🤵🏾‍♀" type="tts">Frau im Smoking: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🤵🏿‍♀">dunkle Hautfarbe | Frau | Frau im Smoking | Smoking</annotation>
-		<annotation cp="🤵🏿‍♀" type="tts">Frau im Smoking: dunkle Hautfarbe</annotation>
 		<annotation cp="🤵🏻‍♂">helle Hautfarbe | Mann | Mann im Smoking | Smoking</annotation>
 		<annotation cp="🤵🏻‍♂" type="tts">Mann im Smoking: helle Hautfarbe</annotation>
 		<annotation cp="🤵🏼‍♂">Mann | Mann im Smoking | mittelhelle Hautfarbe | Smoking</annotation>
@@ -1736,6 +1706,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾‍♂" type="tts">Mann im Smoking: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🤵🏿‍♂">dunkle Hautfarbe | Mann | Mann im Smoking | Smoking</annotation>
 		<annotation cp="🤵🏿‍♂" type="tts">Mann im Smoking: dunkle Hautfarbe</annotation>
+		<annotation cp="🤵🏻‍♀">Frau | Frau im Smoking | helle Hautfarbe | Smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">Frau im Smoking: helle Hautfarbe</annotation>
+		<annotation cp="🤵🏼‍♀">Frau | Frau im Smoking | mittelhelle Hautfarbe | Smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">Frau im Smoking: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🤵🏽‍♀">Frau | Frau im Smoking | mittlere Hautfarbe | Smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">Frau im Smoking: mittlere Hautfarbe</annotation>
+		<annotation cp="🤵🏾‍♀">Frau | Frau im Smoking | mitteldunkle Hautfarbe | Smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">Frau im Smoking: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🤵🏿‍♀">dunkle Hautfarbe | Frau | Frau im Smoking | Smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">Frau im Smoking: dunkle Hautfarbe</annotation>
 		<annotation cp="👰🏻">Braut | helle Hautfarbe | Hochzeit | Person | Person mit Schleier | Schleier</annotation>
 		<annotation cp="👰🏻" type="tts">Person mit Schleier: helle Hautfarbe</annotation>
 		<annotation cp="👰🏼">Braut | Hochzeit | mittelhelle Hautfarbe | Person | Person mit Schleier | Schleier</annotation>
@@ -1746,16 +1726,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">Person mit Schleier: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👰🏿">Braut | dunkle Hautfarbe | Hochzeit | Person | Person mit Schleier | Schleier</annotation>
 		<annotation cp="👰🏿" type="tts">Person mit Schleier: dunkle Hautfarbe</annotation>
-		<annotation cp="👰🏻‍♀">Frau | Frau mit Schleier | helle Hautfarbe | Schleier</annotation>
-		<annotation cp="👰🏻‍♀" type="tts">Frau mit Schleier: helle Hautfarbe</annotation>
-		<annotation cp="👰🏼‍♀">Frau | Frau mit Schleier | mittelhelle Hautfarbe | Schleier</annotation>
-		<annotation cp="👰🏼‍♀" type="tts">Frau mit Schleier: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👰🏽‍♀">Frau | Frau mit Schleier | mittlere Hautfarbe | Schleier</annotation>
-		<annotation cp="👰🏽‍♀" type="tts">Frau mit Schleier: mittlere Hautfarbe</annotation>
-		<annotation cp="👰🏾‍♀">Frau | Frau mit Schleier | mitteldunkle Hautfarbe | Schleier</annotation>
-		<annotation cp="👰🏾‍♀" type="tts">Frau mit Schleier: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👰🏿‍♀">dunkle Hautfarbe | Frau | Frau mit Schleier | Schleier</annotation>
-		<annotation cp="👰🏿‍♀" type="tts">Frau mit Schleier: dunkle Hautfarbe</annotation>
 		<annotation cp="👰🏻‍♂">helle Hautfarbe | Mann | Mann mit Schleier | Schleier</annotation>
 		<annotation cp="👰🏻‍♂" type="tts">Mann mit Schleier: helle Hautfarbe</annotation>
 		<annotation cp="👰🏼‍♂">Mann | Mann mit Schleier | mittelhelle Hautfarbe | Schleier</annotation>
@@ -1766,6 +1736,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾‍♂" type="tts">Mann mit Schleier: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👰🏿‍♂">dunkle Hautfarbe | Mann | Mann mit Schleier | Schleier</annotation>
 		<annotation cp="👰🏿‍♂" type="tts">Mann mit Schleier: dunkle Hautfarbe</annotation>
+		<annotation cp="👰🏻‍♀">Frau | Frau mit Schleier | helle Hautfarbe | Schleier</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">Frau mit Schleier: helle Hautfarbe</annotation>
+		<annotation cp="👰🏼‍♀">Frau | Frau mit Schleier | mittelhelle Hautfarbe | Schleier</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">Frau mit Schleier: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👰🏽‍♀">Frau | Frau mit Schleier | mittlere Hautfarbe | Schleier</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">Frau mit Schleier: mittlere Hautfarbe</annotation>
+		<annotation cp="👰🏾‍♀">Frau | Frau mit Schleier | mitteldunkle Hautfarbe | Schleier</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">Frau mit Schleier: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👰🏿‍♀">dunkle Hautfarbe | Frau | Frau mit Schleier | Schleier</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">Frau mit Schleier: dunkle Hautfarbe</annotation>
 		<annotation cp="🤰🏻">Frau | helle Hautfarbe | schwanger | schwangere Frau</annotation>
 		<annotation cp="🤰🏻" type="tts">schwangere Frau: helle Hautfarbe</annotation>
 		<annotation cp="🤰🏼">Frau | mittelhelle Hautfarbe | schwanger | schwangere Frau</annotation>
@@ -1786,6 +1766,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤱🏾" type="tts">Stillen: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🤱🏿">Baby | Brust | dunkle Hautfarbe | Stillen</annotation>
 		<annotation cp="🤱🏿" type="tts">Stillen: dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🍼">Baby | Frau | helle Hautfarbe | stillen | stillend | stillende Frau</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">stillende Frau: helle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🍼">Baby | Frau | mittelhelle Hautfarbe | stillen | stillend | stillende Frau</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">stillende Frau: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🍼">Baby | Frau | mittlere Hautfarbe | stillen | stillend | stillende Frau</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">stillende Frau: mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🍼">Baby | Frau | mitteldunkle Hautfarbe | stillen | stillend | stillende Frau</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">stillende Frau: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🍼">Baby | dunkle Hautfarbe | Frau | stillen | stillend | stillende Frau</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">stillende Frau: dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🍼">Baby | helle Hautfarbe | Mann | stillen | stillend | stillender Mann</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">stillender Mann: helle Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🍼">Baby | Mann | mittelhelle Hautfarbe | stillen | stillend | stillender Mann</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">stillender Mann: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🍼">Baby | Mann | mittlere Hautfarbe | stillen | stillend | stillender Mann</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">stillender Mann: mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🍼">Baby | Mann | mitteldunkle Hautfarbe | stillen | stillend | stillender Mann</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">stillender Mann: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🍼">Baby | dunkle Hautfarbe | Mann | stillen | stillend | stillender Mann</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">stillender Mann: dunkle Hautfarbe</annotation>
+		<annotation cp="🧑🏻‍🍼">Baby | helle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">stillende Person: helle Hautfarbe</annotation>
+		<annotation cp="🧑🏼‍🍼">Baby | mittelhelle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">stillende Person: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧑🏽‍🍼">Baby | mittlere Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">stillende Person: mittlere Hautfarbe</annotation>
+		<annotation cp="🧑🏾‍🍼">Baby | mitteldunkle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">stillende Person: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧑🏿‍🍼">Baby | dunkle Hautfarbe | Person | stillen | stillend | stillende Person</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">stillende Person: dunkle Hautfarbe</annotation>
 		<annotation cp="👼🏻">Engel | Gesicht | helle Hautfarbe | Märchen | Putte</annotation>
 		<annotation cp="👼🏻" type="tts">Putte: helle Hautfarbe</annotation>
 		<annotation cp="👼🏼">Engel | Gesicht | Märchen | mittelhelle Hautfarbe | Putte</annotation>
@@ -1816,16 +1826,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">Weihnachtsfrau: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🤶🏿">dunkle Hautfarbe | Weihnachten | Weihnachtsfrau</annotation>
 		<annotation cp="🤶🏿" type="tts">Weihnachtsfrau: dunkle Hautfarbe</annotation>
-		<annotation cp="🦸🏻">Comic | gut | Held | helle Hautfarbe | Superheld | Superkraft | Übermensch</annotation>
-		<annotation cp="🦸🏻" type="tts">Held: helle Hautfarbe</annotation>
-		<annotation cp="🦸🏼">Comic | gut | Held | mittelhelle Hautfarbe | Superheld | Superkraft | Übermensch</annotation>
-		<annotation cp="🦸🏼" type="tts">Held: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🦸🏽">Comic | gut | Held | mittlere Hautfarbe | Superheld | Superkraft | Übermensch</annotation>
-		<annotation cp="🦸🏽" type="tts">Held: mittlere Hautfarbe</annotation>
-		<annotation cp="🦸🏾">Comic | gut | Held | mitteldunkle Hautfarbe | Superheld | Superkraft | Übermensch</annotation>
-		<annotation cp="🦸🏾" type="tts">Held: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🦸🏿">Comic | dunkle Hautfarbe | gut | Held | Superheld | Superkraft | Übermensch</annotation>
-		<annotation cp="🦸🏿" type="tts">Held: dunkle Hautfarbe</annotation>
+		<annotation cp="🧑🏻‍🎄">helle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">Weihnachtsperson: helle Hautfarbe</annotation>
+		<annotation cp="🧑🏼‍🎄">mittelhelle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">Weihnachtsperson: mittelhelle Hautfarbe</annotation>
+		<annotation cp="🧑🏽‍🎄">mittlere Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">Weihnachtsperson: mittlere Hautfarbe</annotation>
+		<annotation cp="🧑🏾‍🎄">mitteldunkle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">Weihnachtsperson: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🧑🏿‍🎄">dunkle Hautfarbe | Weihnachten | Weihnachtsperson</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">Weihnachtsperson: dunkle Hautfarbe</annotation>
+		<annotation cp="🦸🏻">Comic | gut | Held | helle Hautfarbe | Superheld | Superheld(in) | Superkraft | Übermensch</annotation>
+		<annotation cp="🦸🏻" type="tts">Superheld(in): helle Hautfarbe</annotation>
+		<annotation cp="🦸🏼">Comic | gut | Held | mittelhelle Hautfarbe | Superheld | Superheld(in) | Superkraft | Übermensch</annotation>
+		<annotation cp="🦸🏼" type="tts">Superheld(in): mittelhelle Hautfarbe</annotation>
+		<annotation cp="🦸🏽">Comic | gut | Held | mittlere Hautfarbe | Superheld | Superheld(in) | Superkraft | Übermensch</annotation>
+		<annotation cp="🦸🏽" type="tts">Superheld(in): mittlere Hautfarbe</annotation>
+		<annotation cp="🦸🏾">Comic | gut | Held | mitteldunkle Hautfarbe | Superheld | Superheld(in) | Superkraft | Übermensch</annotation>
+		<annotation cp="🦸🏾" type="tts">Superheld(in): mitteldunkle Hautfarbe</annotation>
+		<annotation cp="🦸🏿">Comic | dunkle Hautfarbe | gut | Held | Superheld | Superheld(in) | Superkraft | Übermensch</annotation>
+		<annotation cp="🦸🏿" type="tts">Superheld(in): dunkle Hautfarbe</annotation>
 		<annotation cp="🦸🏻‍♂">Held | helle Hautfarbe | Superheld</annotation>
 		<annotation cp="🦸🏻‍♂" type="tts">Superheld: helle Hautfarbe</annotation>
 		<annotation cp="🦸🏼‍♂">Held | mittelhelle Hautfarbe | Superheld</annotation>
@@ -2176,35 +2196,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎🏾‍♀" type="tts">kniende Frau: mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🧎🏿‍♀">dunkle Hautfarbe | Frau | kniend | kniende Frau</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">kniende Frau: dunkle Hautfarbe</annotation>
-		<annotation cp="🧑🏻‍🦯">Barrierefreiheit | blind | helle Hautfarbe | Person mit Gehstock</annotation>
+		<annotation cp="🧑🏻‍🦯">Barrierefreiheit | blind | helle Hautfarbe | Person mit Blindenstock | Person mit Gehstock</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">Person mit Gehstock: helle Hautfarbe</annotation>
-		<annotation cp="🧑🏼‍🦯">Barrierefreiheit | blind | mittelhelle Hautfarbe | Person mit Gehstock</annotation>
+		<annotation cp="🧑🏼‍🦯">Barrierefreiheit | blind | mittelhelle Hautfarbe | Person mit Blindenstock | Person mit Gehstock</annotation>
 		<annotation cp="🧑🏼‍🦯" type="tts">Person mit Gehstock: mittelhelle Hautfarbe</annotation>
-		<annotation cp="🧑🏽‍🦯">Barrierefreiheit | blind | mittlere Hautfarbe | Person mit Gehstock</annotation>
+		<annotation cp="🧑🏽‍🦯">Barrierefreiheit | blind | mittlere Hautfarbe | Person mit Blindenstock | Person mit Gehstock</annotation>
 		<annotation cp="🧑🏽‍🦯" type="tts">Person mit Gehstock: mittlere Hautfarbe</annotation>
-		<annotation cp="🧑🏾‍🦯">Barrierefreiheit | blind | mitteldunkle Hautfarbe | Person mit Gehstock</annotation>
+		<annotation cp="🧑🏾‍🦯">Barrierefreiheit | blind | mitteldunkle Hautfarbe | Person mit Blindenstock | Person mit Gehstock</annotation>
 		<annotation cp="🧑🏾‍🦯" type="tts">Person mit Gehstock: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="🧑🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Person mit Gehstock</annotation>
+		<annotation cp="🧑🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Person mit Blindenstock | Person mit Gehstock</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">Person mit Gehstock: dunkle Hautfarbe</annotation>
-		<annotation cp="👨🏻‍🦯">Barrierefreiheit | blind | helle Hautfarbe | Mann | Mann mit Gehstock | sehbehindert</annotation>
+		<annotation cp="👨🏻‍🦯">Barrierefreiheit | blind | helle Hautfarbe | Mann | Mann mit Blindenstock | Mann mit Gehstock | sehbehindert</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">Mann mit Gehstock: helle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mittelhelle Hautfarbe | sehbehindert</annotation>
+		<annotation cp="👨🏼‍🦯">Barrierefreiheit | blind | Mann | Mann mit Blindenstock | Mann mit Gehstock | mittelhelle Hautfarbe | sehbehindert</annotation>
 		<annotation cp="👨🏼‍🦯" type="tts">Mann mit Gehstock: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mittlere Hautfarbe | sehbehindert</annotation>
+		<annotation cp="👨🏽‍🦯">Barrierefreiheit | blind | Mann | Mann mit Blindenstock | Mann mit Gehstock | mittlere Hautfarbe | sehbehindert</annotation>
 		<annotation cp="👨🏽‍🦯" type="tts">Mann mit Gehstock: mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🦯">Barrierefreiheit | blind | Mann | Mann mit Gehstock | mitteldunkle Hautfarbe | sehbehindert</annotation>
+		<annotation cp="👨🏾‍🦯">Barrierefreiheit | blind | Mann | Mann mit Blindenstock | Mann mit Gehstock | mitteldunkle Hautfarbe | sehbehindert</annotation>
 		<annotation cp="👨🏾‍🦯" type="tts">Mann mit Gehstock: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Mann | Mann mit Gehstock | sehbehindert</annotation>
+		<annotation cp="👨🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Mann | Mann mit Blindenstock | Mann mit Gehstock | sehbehindert</annotation>
 		<annotation cp="👨🏿‍🦯" type="tts">Mann mit Gehstock: dunkle Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | helle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🦯">Barrierefreiheit | blind | Frau | Frau mit Blindenstock | Frau mit Gehstock | helle Hautfarbe</annotation>
 		<annotation cp="👩🏻‍🦯" type="tts">Frau mit Gehstock: helle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🦯">Barrierefreiheit | blind | Frau | Frau mit Blindenstock | Frau mit Gehstock | mittelhelle Hautfarbe</annotation>
 		<annotation cp="👩🏼‍🦯" type="tts">Frau mit Gehstock: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🦯">Barrierefreiheit | blind | Frau | Frau mit Blindenstock | Frau mit Gehstock | mittlere Hautfarbe</annotation>
 		<annotation cp="👩🏽‍🦯" type="tts">Frau mit Gehstock: mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🦯">Barrierefreiheit | blind | Frau | Frau mit Gehstock | mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🦯">Barrierefreiheit | blind | Frau | Frau mit Blindenstock | Frau mit Gehstock | mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👩🏾‍🦯" type="tts">Frau mit Gehstock: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Frau | Frau mit Gehstock</annotation>
+		<annotation cp="👩🏿‍🦯">Barrierefreiheit | blind | dunkle Hautfarbe | Frau | Frau mit Blindenstock | Frau mit Gehstock</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">Frau mit Gehstock: dunkle Hautfarbe</annotation>
 		<annotation cp="🧑🏻‍🦼">Barrierefreiheit | helle Hautfarbe | Person in motorisiertem Rollstuhl | Rollstuhl</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">Person in motorisiertem Rollstuhl: helle Hautfarbe</annotation>
@@ -2866,56 +2886,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">sich an den Händen haltende Personen: dunkle Hautfarbe, mitteldunkle Hautfarbe</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿">dunkle Hautfarbe | Hände | Hände halten | Paar | sich an den Händen haltende Personen</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">sich an den Händen haltende Personen: dunkle Hautfarbe</annotation>
-		<annotation cp="👭🏻">Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👭🏻" type="tts">händchenhaltende Frauen: helle Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏼">Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">händchenhaltende Frauen: helle Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏽">Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">händchenhaltende Frauen: helle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏾">Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">händchenhaltende Frauen: helle Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">händchenhaltende Frauen: helle Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">händchenhaltende Frauen: mittelhelle Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👭🏼">Frauen | Händchen halten | händchenhaltende Frauen | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👭🏼" type="tts">händchenhaltende Frauen: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏽">Frauen | Händchen halten | händchenhaltende Frauen | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">händchenhaltende Frauen: mittelhelle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏾">Frauen | Händchen halten | händchenhaltende Frauen | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">händchenhaltende Frauen: mittelhelle Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">händchenhaltende Frauen: mittelhelle Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">händchenhaltende Frauen: mittlere Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">Frauen | Händchen halten | händchenhaltende Frauen | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">händchenhaltende Frauen: mittlere Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👭🏽">Frauen | Händchen halten | händchenhaltende Frauen | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👭🏽" type="tts">händchenhaltende Frauen: mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏾">Frauen | Händchen halten | händchenhaltende Frauen | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">händchenhaltende Frauen: mittlere Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">händchenhaltende Frauen: mittlere Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">händchenhaltende Frauen: mitteldunkle Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">Frauen | Händchen halten | händchenhaltende Frauen | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">händchenhaltende Frauen: mitteldunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">Frauen | Händchen halten | händchenhaltende Frauen | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">händchenhaltende Frauen: mitteldunkle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👭🏾">Frauen | Händchen halten | händchenhaltende Frauen | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👭🏾" type="tts">händchenhaltende Frauen: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">händchenhaltende Frauen: mitteldunkle Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | helle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">händchenhaltende Frauen: dunkle Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">händchenhaltende Frauen: dunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">händchenhaltende Frauen: dunkle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">händchenhaltende Frauen: dunkle Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👭🏿">dunkle Hautfarbe | Frauen | Händchen halten | händchenhaltende Frauen | Paar | Pärchen aus Frau und Frau</annotation>
-		<annotation cp="👭🏿" type="tts">händchenhaltende Frauen: dunkle Hautfarbe</annotation>
+		<annotation cp="👭🏻">Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👭🏻" type="tts">Händchen haltende Frauen: helle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">Händchen haltende Frauen: helle Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">Händchen haltende Frauen: helle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">Händchen haltende Frauen: helle Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">Händchen haltende Frauen: helle Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">Händchen haltende Frauen: mittelhelle Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👭🏼">Frauen | Händchen halten | Händchen haltende Frauen | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👭🏼" type="tts">Händchen haltende Frauen: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">Frauen | Händchen halten | Händchen haltende Frauen | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">Händchen haltende Frauen: mittelhelle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">Frauen | Händchen halten | Händchen haltende Frauen | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">Händchen haltende Frauen: mittelhelle Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">Händchen haltende Frauen: mittelhelle Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">Händchen haltende Frauen: mittlere Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">Frauen | Händchen halten | Händchen haltende Frauen | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">Händchen haltende Frauen: mittlere Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👭🏽">Frauen | Händchen halten | Händchen haltende Frauen | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👭🏽" type="tts">Händchen haltende Frauen: mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">Frauen | Händchen halten | Händchen haltende Frauen | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">Händchen haltende Frauen: mittlere Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">Händchen haltende Frauen: mittlere Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">Händchen haltende Frauen: mitteldunkle Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">Frauen | Händchen halten | Händchen haltende Frauen | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">Händchen haltende Frauen: mitteldunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">Frauen | Händchen halten | Händchen haltende Frauen | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">Händchen haltende Frauen: mitteldunkle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👭🏾">Frauen | Händchen halten | Händchen haltende Frauen | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👭🏾" type="tts">Händchen haltende Frauen: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">Händchen haltende Frauen: mitteldunkle Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | helle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">Händchen haltende Frauen: dunkle Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">Händchen haltende Frauen: dunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | mittlere Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">Händchen haltende Frauen: dunkle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | mitteldunkle Hautfarbe | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">Händchen haltende Frauen: dunkle Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👭🏿">dunkle Hautfarbe | Frauen | Händchen halten | Händchen haltende Frauen | Paar | Pärchen aus Frau und Frau</annotation>
+		<annotation cp="👭🏿" type="tts">Händchen haltende Frauen: dunkle Hautfarbe</annotation>
 		<annotation cp="👫🏻">Frau | Händchen halten | helle Hautfarbe | Mann | Mann und Frau halten Hände | Paar | Pärchen aus Frau und Mann</annotation>
 		<annotation cp="👫🏻" type="tts">Mann und Frau halten Hände: helle Hautfarbe</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">Frau | Händchen halten | helle Hautfarbe | Mann | Mann und Frau halten Hände | mittelhelle Hautfarbe | Paar | Pärchen aus Frau und Mann</annotation>
@@ -2966,56 +2986,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">Mann und Frau halten Hände: dunkle Hautfarbe, mitteldunkle Hautfarbe</annotation>
 		<annotation cp="👫🏿">dunkle Hautfarbe | Frau | Händchen halten | Mann | Mann und Frau halten Hände | Paar | Pärchen aus Frau und Mann</annotation>
 		<annotation cp="👫🏿" type="tts">Mann und Frau halten Hände: dunkle Hautfarbe</annotation>
-		<annotation cp="👬🏻">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👬🏻" type="tts">händchenhaltende Männer: helle Hautfarbe</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏼">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">händchenhaltende Männer: helle Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏽">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">händchenhaltende Männer: helle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏾">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">händchenhaltende Männer: helle Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">händchenhaltende Männer: helle Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">händchenhaltende Männer: mittelhelle Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👬🏼">Händchen halten | händchenhaltende Männer | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👬🏼" type="tts">händchenhaltende Männer: mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏽">Händchen halten | händchenhaltende Männer | Männer | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">händchenhaltende Männer: mittelhelle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏾">Händchen halten | händchenhaltende Männer | Männer | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">händchenhaltende Männer: mittelhelle Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">händchenhaltende Männer: mittelhelle Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">händchenhaltende Männer: mittlere Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">Händchen halten | händchenhaltende Männer | Männer | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">händchenhaltende Männer: mittlere Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👬🏽">Händchen halten | händchenhaltende Männer | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👬🏽" type="tts">händchenhaltende Männer: mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏾">Händchen halten | händchenhaltende Männer | Männer | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">händchenhaltende Männer: mittlere Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">händchenhaltende Männer: mittlere Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">händchenhaltende Männer: mitteldunkle Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">Händchen halten | händchenhaltende Männer | Männer | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">händchenhaltende Männer: mitteldunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">Händchen halten | händchenhaltende Männer | Männer | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">händchenhaltende Männer: mitteldunkle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👬🏾">Händchen halten | händchenhaltende Männer | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👬🏾" type="tts">händchenhaltende Männer: mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">händchenhaltende Männer: mitteldunkle Hautfarbe, dunkle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | helle Hautfarbe | Männer | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">händchenhaltende Männer: dunkle Hautfarbe, helle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">händchenhaltende Männer: dunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">händchenhaltende Männer: dunkle Hautfarbe, mittlere Hautfarbe</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">händchenhaltende Männer: dunkle Hautfarbe, mitteldunkle Hautfarbe</annotation>
-		<annotation cp="👬🏿">dunkle Hautfarbe | Händchen halten | händchenhaltende Männer | Männer | Paar | Pärchen aus Mann und Mann</annotation>
-		<annotation cp="👬🏿" type="tts">händchenhaltende Männer: dunkle Hautfarbe</annotation>
+		<annotation cp="👬🏻">Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👬🏻" type="tts">Händchen haltende Männer: helle Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">Händchen haltende Männer: helle Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">Händchen haltende Männer: helle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">Händchen haltende Männer: helle Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">Händchen haltende Männer: helle Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">Händchen haltende Männer: mittelhelle Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👬🏼">Händchen halten | Händchen haltende Männer | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👬🏼" type="tts">Händchen haltende Männer: mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">Händchen halten | Händchen haltende Männer | Männer | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">Händchen haltende Männer: mittelhelle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">Händchen halten | Händchen haltende Männer | Männer | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">Händchen haltende Männer: mittelhelle Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">Händchen haltende Männer: mittelhelle Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">Händchen haltende Männer: mittlere Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">Händchen halten | Händchen haltende Männer | Männer | mittelhelle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">Händchen haltende Männer: mittlere Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👬🏽">Händchen halten | Händchen haltende Männer | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👬🏽" type="tts">Händchen haltende Männer: mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">Händchen halten | Händchen haltende Männer | Männer | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">Händchen haltende Männer: mittlere Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">Händchen haltende Männer: mittlere Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">Händchen haltende Männer: mitteldunkle Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">Händchen halten | Händchen haltende Männer | Männer | mitteldunkle Hautfarbe | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">Händchen haltende Männer: mitteldunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">Händchen halten | Händchen haltende Männer | Männer | mitteldunkle Hautfarbe | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">Händchen haltende Männer: mitteldunkle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👬🏾">Händchen halten | Händchen haltende Männer | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👬🏾" type="tts">Händchen haltende Männer: mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">Händchen haltende Männer: mitteldunkle Hautfarbe, dunkle Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | helle Hautfarbe | Männer | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">Händchen haltende Männer: dunkle Hautfarbe, helle Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | Männer | mittelhelle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">Händchen haltende Männer: dunkle Hautfarbe, mittelhelle Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | Männer | mittlere Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">Händchen haltende Männer: dunkle Hautfarbe, mittlere Hautfarbe</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | Männer | mitteldunkle Hautfarbe | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">Händchen haltende Männer: dunkle Hautfarbe, mitteldunkle Hautfarbe</annotation>
+		<annotation cp="👬🏿">dunkle Hautfarbe | Händchen halten | Händchen haltende Männer | Männer | Paar | Pärchen aus Mann und Mann</annotation>
+		<annotation cp="👬🏿" type="tts">Händchen haltende Männer: dunkle Hautfarbe</annotation>
 		<annotation cp="👩‍❤‍💋‍👨">Frau | Herz | Kuss | Mann | sich küssendes Paar</annotation>
 		<annotation cp="👩‍❤‍💋‍👨" type="tts">sich küssendes Paar: Frau, Mann</annotation>
 		<annotation cp="👨‍❤‍💋‍👨">Frau | Herz | Kuss | Mann | sich küssendes Paar</annotation>
@@ -3145,7 +3165,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇴">Flagge</annotation>
 		<annotation cp="🇧🇴" type="tts">Flagge: Bolivien</annotation>
 		<annotation cp="🇧🇶">Flagge</annotation>
-		<annotation cp="🇧🇶" type="tts">Flagge: Bonaire, Sint Eustatius und Saba</annotation>
+		<annotation cp="🇧🇶" type="tts">Flagge: Karibische Niederlande</annotation>
 		<annotation cp="🇧🇷">Flagge</annotation>
 		<annotation cp="🇧🇷" type="tts">Flagge: Brasilien</annotation>
 		<annotation cp="🇧🇸">Flagge</annotation>

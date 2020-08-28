@@ -12,26 +12,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="en"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤌🏻">fingers | hand gesture | interrogation | light skin tone | pinched | sarcastic</annotation>
-		<annotation cp="🤌🏻" type="tts">pinched fingers: light skin tone</annotation>
-		<annotation cp="🤌🏼">fingers | hand gesture | interrogation | medium-light skin tone | pinched | sarcastic</annotation>
-		<annotation cp="🤌🏼" type="tts">pinched fingers: medium-light skin tone</annotation>
-		<annotation cp="🤌🏽">fingers | hand gesture | interrogation | medium skin tone | pinched | sarcastic</annotation>
-		<annotation cp="🤌🏽" type="tts">pinched fingers: medium skin tone</annotation>
-		<annotation cp="🤌🏾">fingers | hand gesture | interrogation | medium-dark skin tone | pinched | sarcastic</annotation>
-		<annotation cp="🤌🏾" type="tts">pinched fingers: medium-dark skin tone</annotation>
-		<annotation cp="🤌🏿">dark skin tone | fingers | hand gesture | interrogation | pinched | sarcastic</annotation>
-		<annotation cp="🤌🏿" type="tts">pinched fingers: dark skin tone</annotation>
-		<annotation cp="🥷🏻">fighter | hidden | light skin tone | ninja | stealth</annotation>
-		<annotation cp="🥷🏻" type="tts">ninja: light skin tone</annotation>
-		<annotation cp="🥷🏼">fighter | hidden | medium-light skin tone | ninja | stealth</annotation>
-		<annotation cp="🥷🏼" type="tts">ninja: medium-light skin tone</annotation>
-		<annotation cp="🥷🏽">fighter | hidden | medium skin tone | ninja | stealth</annotation>
-		<annotation cp="🥷🏽" type="tts">ninja: medium skin tone</annotation>
-		<annotation cp="🥷🏾">fighter | hidden | medium-dark skin tone | ninja | stealth</annotation>
-		<annotation cp="🥷🏾" type="tts">ninja: medium-dark skin tone</annotation>
-		<annotation cp="🥷🏿">dark skin tone | fighter | hidden | ninja | stealth</annotation>
-		<annotation cp="🥷🏿" type="tts">ninja: dark skin tone</annotation>
 		<annotation cp="👋🏻">hand | light skin tone | wave | waving</annotation>
 		<annotation cp="👋🏻" type="tts">waving hand: light skin tone</annotation>
 		<annotation cp="👋🏼">hand | medium-light skin tone | wave | waving</annotation>
@@ -62,15 +42,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖐🏾" type="tts">hand with fingers splayed: medium-dark skin tone</annotation>
 		<annotation cp="🖐🏿">dark skin tone | finger | hand | hand with fingers splayed | splayed</annotation>
 		<annotation cp="🖐🏿" type="tts">hand with fingers splayed: dark skin tone</annotation>
-		<annotation cp="✋🏻">hand | light skin tone | raised hand</annotation>
+		<annotation cp="✋🏻">hand | high 5 | high five | light skin tone | raised hand</annotation>
 		<annotation cp="✋🏻" type="tts">raised hand: light skin tone</annotation>
-		<annotation cp="✋🏼">hand | medium-light skin tone | raised hand</annotation>
+		<annotation cp="✋🏼">hand | high 5 | high five | medium-light skin tone | raised hand</annotation>
 		<annotation cp="✋🏼" type="tts">raised hand: medium-light skin tone</annotation>
-		<annotation cp="✋🏽">hand | medium skin tone | raised hand</annotation>
+		<annotation cp="✋🏽">hand | high 5 | high five | medium skin tone | raised hand</annotation>
 		<annotation cp="✋🏽" type="tts">raised hand: medium skin tone</annotation>
-		<annotation cp="✋🏾">hand | medium-dark skin tone | raised hand</annotation>
+		<annotation cp="✋🏾">hand | high 5 | high five | medium-dark skin tone | raised hand</annotation>
 		<annotation cp="✋🏾" type="tts">raised hand: medium-dark skin tone</annotation>
-		<annotation cp="✋🏿">dark skin tone | hand | raised hand</annotation>
+		<annotation cp="✋🏿">dark skin tone | hand | high 5 | high five | raised hand</annotation>
 		<annotation cp="✋🏿" type="tts">raised hand: dark skin tone</annotation>
 		<annotation cp="🖖🏻">finger | hand | light skin tone | spock | vulcan | vulcan salute</annotation>
 		<annotation cp="🖖🏻" type="tts">vulcan salute: light skin tone</annotation>
@@ -92,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👌🏾" type="tts">OK hand: medium-dark skin tone</annotation>
 		<annotation cp="👌🏿">dark skin tone | hand | OK</annotation>
 		<annotation cp="👌🏿" type="tts">OK hand: dark skin tone</annotation>
+		<annotation cp="🤌🏻">fingers | hand gesture | interrogation | light skin tone | pinched | sarcastic</annotation>
+		<annotation cp="🤌🏻" type="tts">pinched fingers: light skin tone</annotation>
+		<annotation cp="🤌🏼">fingers | hand gesture | interrogation | medium-light skin tone | pinched | sarcastic</annotation>
+		<annotation cp="🤌🏼" type="tts">pinched fingers: medium-light skin tone</annotation>
+		<annotation cp="🤌🏽">fingers | hand gesture | interrogation | medium skin tone | pinched | sarcastic</annotation>
+		<annotation cp="🤌🏽" type="tts">pinched fingers: medium skin tone</annotation>
+		<annotation cp="🤌🏾">fingers | hand gesture | interrogation | medium-dark skin tone | pinched | sarcastic</annotation>
+		<annotation cp="🤌🏾" type="tts">pinched fingers: medium-dark skin tone</annotation>
+		<annotation cp="🤌🏿">dark skin tone | fingers | hand gesture | interrogation | pinched | sarcastic</annotation>
+		<annotation cp="🤌🏿" type="tts">pinched fingers: dark skin tone</annotation>
 		<annotation cp="🤏🏻">light skin tone | pinching hand | small amount</annotation>
 		<annotation cp="🤏🏻" type="tts">pinching hand: light skin tone</annotation>
 		<annotation cp="🤏🏼">medium-light skin tone | pinching hand | small amount</annotation>
@@ -312,15 +302,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤲🏾" type="tts">palms up together: medium-dark skin tone</annotation>
 		<annotation cp="🤲🏿">dark skin tone | palms up together | prayer</annotation>
 		<annotation cp="🤲🏿" type="tts">palms up together: dark skin tone</annotation>
-		<annotation cp="🙏🏻">ask | folded hands | hand | light skin tone | please | pray | thanks</annotation>
+		<annotation cp="🙏🏻">ask | folded hands | hand | high 5 | high five | light skin tone | please | pray | thanks</annotation>
 		<annotation cp="🙏🏻" type="tts">folded hands: light skin tone</annotation>
-		<annotation cp="🙏🏼">ask | folded hands | hand | medium-light skin tone | please | pray | thanks</annotation>
+		<annotation cp="🙏🏼">ask | folded hands | hand | high 5 | high five | medium-light skin tone | please | pray | thanks</annotation>
 		<annotation cp="🙏🏼" type="tts">folded hands: medium-light skin tone</annotation>
-		<annotation cp="🙏🏽">ask | folded hands | hand | medium skin tone | please | pray | thanks</annotation>
+		<annotation cp="🙏🏽">ask | folded hands | hand | high 5 | high five | medium skin tone | please | pray | thanks</annotation>
 		<annotation cp="🙏🏽" type="tts">folded hands: medium skin tone</annotation>
-		<annotation cp="🙏🏾">ask | folded hands | hand | medium-dark skin tone | please | pray | thanks</annotation>
+		<annotation cp="🙏🏾">ask | folded hands | hand | high 5 | high five | medium-dark skin tone | please | pray | thanks</annotation>
 		<annotation cp="🙏🏾" type="tts">folded hands: medium-dark skin tone</annotation>
-		<annotation cp="🙏🏿">ask | dark skin tone | folded hands | hand | please | pray | thanks</annotation>
+		<annotation cp="🙏🏿">ask | dark skin tone | folded hands | hand | high 5 | high five | please | pray | thanks</annotation>
 		<annotation cp="🙏🏿" type="tts">folded hands: dark skin tone</annotation>
 		<annotation cp="✍🏻">hand | light skin tone | write | writing hand</annotation>
 		<annotation cp="✍🏻" type="tts">writing hand: light skin tone</annotation>
@@ -520,26 +510,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">person: medium-dark skin tone, bald</annotation>
 		<annotation cp="🧑🏿‍🦲">adult | bald | dark skin tone | gender-neutral | person | unspecified gender</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">person: dark skin tone, bald</annotation>
-		<annotation cp="🧑🏻‍🍼">baby | feeding | light skin tone | nursing | person</annotation>
-		<annotation cp="🧑🏻‍🍼" type="tts">person feeding baby: light skin tone</annotation>
-		<annotation cp="🧑🏼‍🍼">baby | feeding | medium-light skin tone | nursing | person</annotation>
-		<annotation cp="🧑🏼‍🍼" type="tts">person feeding baby: medium-light skin tone</annotation>
-		<annotation cp="🧑🏽‍🍼">baby | feeding | medium skin tone | nursing | person</annotation>
-		<annotation cp="🧑🏽‍🍼" type="tts">person feeding baby: medium skin tone</annotation>
-		<annotation cp="🧑🏾‍🍼">baby | feeding | medium-dark skin tone | nursing | person</annotation>
-		<annotation cp="🧑🏾‍🍼" type="tts">person feeding baby: medium-dark skin tone</annotation>
-		<annotation cp="🧑🏿‍🍼">baby | dark skin tone | feeding | nursing | person</annotation>
-		<annotation cp="🧑🏿‍🍼" type="tts">person feeding baby: dark skin tone</annotation>
-		<annotation cp="🧑🏻‍🎄">Claus, christmas | light skin tone | mx claus</annotation>
-		<annotation cp="🧑🏻‍🎄" type="tts">mx claus: light skin tone</annotation>
-		<annotation cp="🧑🏼‍🎄">Claus, christmas | medium-light skin tone | mx claus</annotation>
-		<annotation cp="🧑🏼‍🎄" type="tts">mx claus: medium-light skin tone</annotation>
-		<annotation cp="🧑🏽‍🎄">Claus, christmas | medium skin tone | mx claus</annotation>
-		<annotation cp="🧑🏽‍🎄" type="tts">mx claus: medium skin tone</annotation>
-		<annotation cp="🧑🏾‍🎄">Claus, christmas | medium-dark skin tone | mx claus</annotation>
-		<annotation cp="🧑🏾‍🎄" type="tts">mx claus: medium-dark skin tone</annotation>
-		<annotation cp="🧑🏿‍🎄">Claus, christmas | dark skin tone | mx claus</annotation>
-		<annotation cp="🧑🏿‍🎄" type="tts">mx claus: dark skin tone</annotation>
 		<annotation cp="👨🏻">adult | light skin tone | man</annotation>
 		<annotation cp="👨🏻" type="tts">man: light skin tone</annotation>
 		<annotation cp="👨🏼">adult | man | medium-light skin tone</annotation>
@@ -550,16 +520,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">man: medium-dark skin tone</annotation>
 		<annotation cp="👨🏿">adult | dark skin tone | man</annotation>
 		<annotation cp="👨🏿" type="tts">man: dark skin tone</annotation>
-		<annotation cp="🧔🏻">beard | light skin tone | man | man: beard | person</annotation>
-		<annotation cp="🧔🏻" type="tts">man: light skin tone, beard</annotation>
-		<annotation cp="🧔🏼">beard | man | man: beard | medium-light skin tone | person</annotation>
-		<annotation cp="🧔🏼" type="tts">man: medium-light skin tone, beard</annotation>
-		<annotation cp="🧔🏽">beard | man | man: beard | medium skin tone | person</annotation>
-		<annotation cp="🧔🏽" type="tts">man: medium skin tone, beard</annotation>
-		<annotation cp="🧔🏾">beard | man | man: beard | medium-dark skin tone | person</annotation>
-		<annotation cp="🧔🏾" type="tts">man: medium-dark skin tone, beard</annotation>
-		<annotation cp="🧔🏿">beard | dark skin tone | man | man: beard | person</annotation>
-		<annotation cp="🧔🏿" type="tts">man: dark skin tone, beard</annotation>
+		<annotation cp="🧔🏻">beard | light skin tone | person | person: beard</annotation>
+		<annotation cp="🧔🏻" type="tts">person: light skin tone, beard</annotation>
+		<annotation cp="🧔🏼">beard | medium-light skin tone | person | person: beard</annotation>
+		<annotation cp="🧔🏼" type="tts">person: medium-light skin tone, beard</annotation>
+		<annotation cp="🧔🏽">beard | medium skin tone | person | person: beard</annotation>
+		<annotation cp="🧔🏽" type="tts">person: medium skin tone, beard</annotation>
+		<annotation cp="🧔🏾">beard | medium-dark skin tone | person | person: beard</annotation>
+		<annotation cp="🧔🏾" type="tts">person: medium-dark skin tone, beard</annotation>
+		<annotation cp="🧔🏿">beard | dark skin tone | person | person: beard</annotation>
+		<annotation cp="🧔🏿" type="tts">person: dark skin tone, beard</annotation>
 		<annotation cp="👱🏻‍♂">blond | blond-haired man | hair | light skin tone | man | man: blond hair</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">man: light skin tone, blond hair</annotation>
 		<annotation cp="👱🏼‍♂">blond | blond-haired man | hair | man | man: blond hair | medium-light skin tone</annotation>
@@ -618,16 +588,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">man: medium-dark skin tone, bald</annotation>
 		<annotation cp="👨🏿‍🦲">adult | bald | dark skin tone | man</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">man: dark skin tone, bald</annotation>
-		<annotation cp="👨🏻‍🍼">baby | feeding | light skin tone | man | nursing</annotation>
-		<annotation cp="👨🏻‍🍼" type="tts">man feeding baby: light skin tone</annotation>
-		<annotation cp="👨🏼‍🍼">baby | feeding | man | medium-light skin tone | nursing</annotation>
-		<annotation cp="👨🏼‍🍼" type="tts">man feeding baby: medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍🍼">baby | feeding | man | medium skin tone | nursing</annotation>
-		<annotation cp="👨🏽‍🍼" type="tts">man feeding baby: medium skin tone</annotation>
-		<annotation cp="👨🏾‍🍼">baby | feeding | man | medium-dark skin tone | nursing</annotation>
-		<annotation cp="👨🏾‍🍼" type="tts">man feeding baby: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍🍼">baby | dark skin tone | feeding | man | nursing</annotation>
-		<annotation cp="👨🏿‍🍼" type="tts">man feeding baby: dark skin tone</annotation>
+		<annotation cp="🧔🏻‍♀">beard | light skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏻‍♀" type="tts">woman: light skin tone, beard</annotation>
+		<annotation cp="🧔🏼‍♀">beard | medium-light skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏼‍♀" type="tts">woman: medium-light skin tone, beard</annotation>
+		<annotation cp="🧔🏽‍♀">beard | medium skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏽‍♀" type="tts">woman: medium skin tone, beard</annotation>
+		<annotation cp="🧔🏾‍♀">beard | medium-dark skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏾‍♀" type="tts">woman: medium-dark skin tone, beard</annotation>
+		<annotation cp="🧔🏿‍♀">beard | dark skin tone | woman | woman: beard</annotation>
+		<annotation cp="🧔🏿‍♀" type="tts">woman: dark skin tone, beard</annotation>
+		<annotation cp="🧔🏻‍♂">beard | light skin tone | man | man: beard</annotation>
+		<annotation cp="🧔🏻‍♂" type="tts">man: light skin tone, beard</annotation>
+		<annotation cp="🧔🏼‍♂">beard | man | man: beard | medium-light skin tone</annotation>
+		<annotation cp="🧔🏼‍♂" type="tts">man: medium-light skin tone, beard</annotation>
+		<annotation cp="🧔🏽‍♂">beard | man | man: beard | medium skin tone</annotation>
+		<annotation cp="🧔🏽‍♂" type="tts">man: medium skin tone, beard</annotation>
+		<annotation cp="🧔🏾‍♂">beard | man | man: beard | medium-dark skin tone</annotation>
+		<annotation cp="🧔🏾‍♂" type="tts">man: medium-dark skin tone, beard</annotation>
+		<annotation cp="🧔🏿‍♂">beard | dark skin tone | man | man: beard</annotation>
+		<annotation cp="🧔🏿‍♂" type="tts">man: dark skin tone, beard</annotation>
 		<annotation cp="👩🏻">adult | light skin tone | woman</annotation>
 		<annotation cp="👩🏻" type="tts">woman: light skin tone</annotation>
 		<annotation cp="👩🏼">adult | medium-light skin tone | woman</annotation>
@@ -696,16 +676,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">woman: medium-dark skin tone, bald</annotation>
 		<annotation cp="👩🏿‍🦲">adult | bald | dark skin tone | woman</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">woman: dark skin tone, bald</annotation>
-		<annotation cp="👩🏻‍🍼">baby | feeding | light skin tone | nursing | woman</annotation>
-		<annotation cp="👩🏻‍🍼" type="tts">woman feeding baby: light skin tone</annotation>
-		<annotation cp="👩🏼‍🍼">baby | feeding | medium-light skin tone | nursing | woman</annotation>
-		<annotation cp="👩🏼‍🍼" type="tts">woman feeding baby: medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍🍼">baby | feeding | medium skin tone | nursing | woman</annotation>
-		<annotation cp="👩🏽‍🍼" type="tts">woman feeding baby: medium skin tone</annotation>
-		<annotation cp="👩🏾‍🍼">baby | feeding | medium-dark skin tone | nursing | woman</annotation>
-		<annotation cp="👩🏾‍🍼" type="tts">woman feeding baby: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍🍼">baby | dark skin tone | feeding | nursing | woman</annotation>
-		<annotation cp="👩🏿‍🍼" type="tts">woman feeding baby: dark skin tone</annotation>
 		<annotation cp="🧓🏻">adult | gender-neutral | light skin tone | old | older person | unspecified gender</annotation>
 		<annotation cp="🧓🏻" type="tts">older person: light skin tone</annotation>
 		<annotation cp="🧓🏼">adult | gender-neutral | medium-light skin tone | old | older person | unspecified gender</annotation>
@@ -1126,35 +1096,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🏫" type="tts">woman teacher: medium-dark skin tone</annotation>
 		<annotation cp="👩🏿‍🏫">dark skin tone | instructor | professor | teacher | woman</annotation>
 		<annotation cp="👩🏿‍🏫" type="tts">woman teacher: dark skin tone</annotation>
-		<annotation cp="🧑🏻‍⚖">judge | light skin tone | scales</annotation>
+		<annotation cp="🧑🏻‍⚖">judge | justice | light skin tone | scales</annotation>
 		<annotation cp="🧑🏻‍⚖" type="tts">judge: light skin tone</annotation>
-		<annotation cp="🧑🏼‍⚖">judge | medium-light skin tone | scales</annotation>
+		<annotation cp="🧑🏼‍⚖">judge | justice | medium-light skin tone | scales</annotation>
 		<annotation cp="🧑🏼‍⚖" type="tts">judge: medium-light skin tone</annotation>
-		<annotation cp="🧑🏽‍⚖">judge | medium skin tone | scales</annotation>
+		<annotation cp="🧑🏽‍⚖">judge | justice | medium skin tone | scales</annotation>
 		<annotation cp="🧑🏽‍⚖" type="tts">judge: medium skin tone</annotation>
-		<annotation cp="🧑🏾‍⚖">judge | medium-dark skin tone | scales</annotation>
+		<annotation cp="🧑🏾‍⚖">judge | justice | medium-dark skin tone | scales</annotation>
 		<annotation cp="🧑🏾‍⚖" type="tts">judge: medium-dark skin tone</annotation>
-		<annotation cp="🧑🏿‍⚖">dark skin tone | judge | scales</annotation>
+		<annotation cp="🧑🏿‍⚖">dark skin tone | judge | justice | scales</annotation>
 		<annotation cp="🧑🏿‍⚖" type="tts">judge: dark skin tone</annotation>
-		<annotation cp="👨🏻‍⚖">justice | light skin tone | man | man judge | scales</annotation>
+		<annotation cp="👨🏻‍⚖">judge | justice | light skin tone | man | scales</annotation>
 		<annotation cp="👨🏻‍⚖" type="tts">man judge: light skin tone</annotation>
-		<annotation cp="👨🏼‍⚖">justice | man | man judge | medium-light skin tone | scales</annotation>
+		<annotation cp="👨🏼‍⚖">judge | justice | man | medium-light skin tone | scales</annotation>
 		<annotation cp="👨🏼‍⚖" type="tts">man judge: medium-light skin tone</annotation>
-		<annotation cp="👨🏽‍⚖">justice | man | man judge | medium skin tone | scales</annotation>
+		<annotation cp="👨🏽‍⚖">judge | justice | man | medium skin tone | scales</annotation>
 		<annotation cp="👨🏽‍⚖" type="tts">man judge: medium skin tone</annotation>
-		<annotation cp="👨🏾‍⚖">justice | man | man judge | medium-dark skin tone | scales</annotation>
+		<annotation cp="👨🏾‍⚖">judge | justice | man | medium-dark skin tone | scales</annotation>
 		<annotation cp="👨🏾‍⚖" type="tts">man judge: medium-dark skin tone</annotation>
-		<annotation cp="👨🏿‍⚖">dark skin tone | justice | man | man judge | scales</annotation>
+		<annotation cp="👨🏿‍⚖">dark skin tone | judge | justice | man | scales</annotation>
 		<annotation cp="👨🏿‍⚖" type="tts">man judge: dark skin tone</annotation>
-		<annotation cp="👩🏻‍⚖">judge | light skin tone | scales | woman</annotation>
+		<annotation cp="👩🏻‍⚖">judge | justice | light skin tone | scales | woman</annotation>
 		<annotation cp="👩🏻‍⚖" type="tts">woman judge: light skin tone</annotation>
-		<annotation cp="👩🏼‍⚖">judge | medium-light skin tone | scales | woman</annotation>
+		<annotation cp="👩🏼‍⚖">judge | justice | medium-light skin tone | scales | woman</annotation>
 		<annotation cp="👩🏼‍⚖" type="tts">woman judge: medium-light skin tone</annotation>
-		<annotation cp="👩🏽‍⚖">judge | medium skin tone | scales | woman</annotation>
+		<annotation cp="👩🏽‍⚖">judge | justice | medium skin tone | scales | woman</annotation>
 		<annotation cp="👩🏽‍⚖" type="tts">woman judge: medium skin tone</annotation>
-		<annotation cp="👩🏾‍⚖">judge | medium-dark skin tone | scales | woman</annotation>
+		<annotation cp="👩🏾‍⚖">judge | justice | medium-dark skin tone | scales | woman</annotation>
 		<annotation cp="👩🏾‍⚖" type="tts">woman judge: medium-dark skin tone</annotation>
-		<annotation cp="👩🏿‍⚖">dark skin tone | judge | scales | woman</annotation>
+		<annotation cp="👩🏿‍⚖">dark skin tone | judge | justice | scales | woman</annotation>
 		<annotation cp="👩🏿‍⚖" type="tts">woman judge: dark skin tone</annotation>
 		<annotation cp="🧑🏻‍🌾">farmer | gardener | light skin tone | rancher</annotation>
 		<annotation cp="🧑🏻‍🌾" type="tts">farmer: light skin tone</annotation>
@@ -1606,6 +1576,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏾‍♀" type="tts">woman guard: medium-dark skin tone</annotation>
 		<annotation cp="💂🏿‍♀">dark skin tone | guard | woman</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">woman guard: dark skin tone</annotation>
+		<annotation cp="🥷🏻">fighter | hidden | light skin tone | ninja | stealth</annotation>
+		<annotation cp="🥷🏻" type="tts">ninja: light skin tone</annotation>
+		<annotation cp="🥷🏼">fighter | hidden | medium-light skin tone | ninja | stealth</annotation>
+		<annotation cp="🥷🏼" type="tts">ninja: medium-light skin tone</annotation>
+		<annotation cp="🥷🏽">fighter | hidden | medium skin tone | ninja | stealth</annotation>
+		<annotation cp="🥷🏽" type="tts">ninja: medium skin tone</annotation>
+		<annotation cp="🥷🏾">fighter | hidden | medium-dark skin tone | ninja | stealth</annotation>
+		<annotation cp="🥷🏾" type="tts">ninja: medium-dark skin tone</annotation>
+		<annotation cp="🥷🏿">dark skin tone | fighter | hidden | ninja | stealth</annotation>
+		<annotation cp="🥷🏿" type="tts">ninja: dark skin tone</annotation>
 		<annotation cp="👷🏻">construction | hat | light skin tone | worker</annotation>
 		<annotation cp="👷🏻" type="tts">construction worker: light skin tone</annotation>
 		<annotation cp="👷🏼">construction | hat | medium-light skin tone | worker</annotation>
@@ -1716,16 +1696,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾" type="tts">person in tuxedo: medium-dark skin tone</annotation>
 		<annotation cp="🤵🏿">dark skin tone | groom | person | person in tuxedo | tuxedo</annotation>
 		<annotation cp="🤵🏿" type="tts">person in tuxedo: dark skin tone</annotation>
-		<annotation cp="🤵🏻‍♀">light skin tone | tuxedo | woman | woman in tuxedo</annotation>
-		<annotation cp="🤵🏻‍♀" type="tts">woman in tuxedo: light skin tone</annotation>
-		<annotation cp="🤵🏼‍♀">medium-light skin tone | tuxedo | woman | woman in tuxedo</annotation>
-		<annotation cp="🤵🏼‍♀" type="tts">woman in tuxedo: medium-light skin tone</annotation>
-		<annotation cp="🤵🏽‍♀">medium skin tone | tuxedo | woman | woman in tuxedo</annotation>
-		<annotation cp="🤵🏽‍♀" type="tts">woman in tuxedo: medium skin tone</annotation>
-		<annotation cp="🤵🏾‍♀">medium-dark skin tone | tuxedo | woman | woman in tuxedo</annotation>
-		<annotation cp="🤵🏾‍♀" type="tts">woman in tuxedo: medium-dark skin tone</annotation>
-		<annotation cp="🤵🏿‍♀">dark skin tone | tuxedo | woman | woman in tuxedo</annotation>
-		<annotation cp="🤵🏿‍♀" type="tts">woman in tuxedo: dark skin tone</annotation>
 		<annotation cp="🤵🏻‍♂">light skin tone | man | man in tuxedo | tuxedo</annotation>
 		<annotation cp="🤵🏻‍♂" type="tts">man in tuxedo: light skin tone</annotation>
 		<annotation cp="🤵🏼‍♂">man | man in tuxedo | medium-light skin tone | tuxedo</annotation>
@@ -1736,6 +1706,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾‍♂" type="tts">man in tuxedo: medium-dark skin tone</annotation>
 		<annotation cp="🤵🏿‍♂">dark skin tone | man | man in tuxedo | tuxedo</annotation>
 		<annotation cp="🤵🏿‍♂" type="tts">man in tuxedo: dark skin tone</annotation>
+		<annotation cp="🤵🏻‍♀">light skin tone | tuxedo | woman | woman in tuxedo</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">woman in tuxedo: light skin tone</annotation>
+		<annotation cp="🤵🏼‍♀">medium-light skin tone | tuxedo | woman | woman in tuxedo</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">woman in tuxedo: medium-light skin tone</annotation>
+		<annotation cp="🤵🏽‍♀">medium skin tone | tuxedo | woman | woman in tuxedo</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">woman in tuxedo: medium skin tone</annotation>
+		<annotation cp="🤵🏾‍♀">medium-dark skin tone | tuxedo | woman | woman in tuxedo</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">woman in tuxedo: medium-dark skin tone</annotation>
+		<annotation cp="🤵🏿‍♀">dark skin tone | tuxedo | woman | woman in tuxedo</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">woman in tuxedo: dark skin tone</annotation>
 		<annotation cp="👰🏻">bride | light skin tone | person | person with veil | veil | wedding</annotation>
 		<annotation cp="👰🏻" type="tts">person with veil: light skin tone</annotation>
 		<annotation cp="👰🏼">bride | medium-light skin tone | person | person with veil | veil | wedding</annotation>
@@ -1746,16 +1726,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">person with veil: medium-dark skin tone</annotation>
 		<annotation cp="👰🏿">bride | dark skin tone | person | person with veil | veil | wedding</annotation>
 		<annotation cp="👰🏿" type="tts">person with veil: dark skin tone</annotation>
-		<annotation cp="👰🏻‍♀">light skin tone | veil | woman | woman with veil</annotation>
-		<annotation cp="👰🏻‍♀" type="tts">woman with veil: light skin tone</annotation>
-		<annotation cp="👰🏼‍♀">medium-light skin tone | veil | woman | woman with veil</annotation>
-		<annotation cp="👰🏼‍♀" type="tts">woman with veil: medium-light skin tone</annotation>
-		<annotation cp="👰🏽‍♀">medium skin tone | veil | woman | woman with veil</annotation>
-		<annotation cp="👰🏽‍♀" type="tts">woman with veil: medium skin tone</annotation>
-		<annotation cp="👰🏾‍♀">medium-dark skin tone | veil | woman | woman with veil</annotation>
-		<annotation cp="👰🏾‍♀" type="tts">woman with veil: medium-dark skin tone</annotation>
-		<annotation cp="👰🏿‍♀">dark skin tone | veil | woman | woman with veil</annotation>
-		<annotation cp="👰🏿‍♀" type="tts">woman with veil: dark skin tone</annotation>
 		<annotation cp="👰🏻‍♂">light skin tone | man | man with veil | veil</annotation>
 		<annotation cp="👰🏻‍♂" type="tts">man with veil: light skin tone</annotation>
 		<annotation cp="👰🏼‍♂">man | man with veil | medium-light skin tone | veil</annotation>
@@ -1766,6 +1736,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾‍♂" type="tts">man with veil: medium-dark skin tone</annotation>
 		<annotation cp="👰🏿‍♂">dark skin tone | man | man with veil | veil</annotation>
 		<annotation cp="👰🏿‍♂" type="tts">man with veil: dark skin tone</annotation>
+		<annotation cp="👰🏻‍♀">light skin tone | veil | woman | woman with veil</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">woman with veil: light skin tone</annotation>
+		<annotation cp="👰🏼‍♀">medium-light skin tone | veil | woman | woman with veil</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">woman with veil: medium-light skin tone</annotation>
+		<annotation cp="👰🏽‍♀">medium skin tone | veil | woman | woman with veil</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">woman with veil: medium skin tone</annotation>
+		<annotation cp="👰🏾‍♀">medium-dark skin tone | veil | woman | woman with veil</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">woman with veil: medium-dark skin tone</annotation>
+		<annotation cp="👰🏿‍♀">dark skin tone | veil | woman | woman with veil</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">woman with veil: dark skin tone</annotation>
 		<annotation cp="🤰🏻">light skin tone | pregnant | woman</annotation>
 		<annotation cp="🤰🏻" type="tts">pregnant woman: light skin tone</annotation>
 		<annotation cp="🤰🏼">medium-light skin tone | pregnant | woman</annotation>
@@ -1786,6 +1766,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤱🏾" type="tts">breast-feeding: medium-dark skin tone</annotation>
 		<annotation cp="🤱🏿">baby | breast | breast-feeding | dark skin tone | nursing</annotation>
 		<annotation cp="🤱🏿" type="tts">breast-feeding: dark skin tone</annotation>
+		<annotation cp="👩🏻‍🍼">baby | feeding | light skin tone | nursing | woman</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">woman feeding baby: light skin tone</annotation>
+		<annotation cp="👩🏼‍🍼">baby | feeding | medium-light skin tone | nursing | woman</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">woman feeding baby: medium-light skin tone</annotation>
+		<annotation cp="👩🏽‍🍼">baby | feeding | medium skin tone | nursing | woman</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">woman feeding baby: medium skin tone</annotation>
+		<annotation cp="👩🏾‍🍼">baby | feeding | medium-dark skin tone | nursing | woman</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">woman feeding baby: medium-dark skin tone</annotation>
+		<annotation cp="👩🏿‍🍼">baby | dark skin tone | feeding | nursing | woman</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">woman feeding baby: dark skin tone</annotation>
+		<annotation cp="👨🏻‍🍼">baby | feeding | light skin tone | man | nursing</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">man feeding baby: light skin tone</annotation>
+		<annotation cp="👨🏼‍🍼">baby | feeding | man | medium-light skin tone | nursing</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">man feeding baby: medium-light skin tone</annotation>
+		<annotation cp="👨🏽‍🍼">baby | feeding | man | medium skin tone | nursing</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">man feeding baby: medium skin tone</annotation>
+		<annotation cp="👨🏾‍🍼">baby | feeding | man | medium-dark skin tone | nursing</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">man feeding baby: medium-dark skin tone</annotation>
+		<annotation cp="👨🏿‍🍼">baby | dark skin tone | feeding | man | nursing</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">man feeding baby: dark skin tone</annotation>
+		<annotation cp="🧑🏻‍🍼">baby | feeding | light skin tone | nursing | person</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">person feeding baby: light skin tone</annotation>
+		<annotation cp="🧑🏼‍🍼">baby | feeding | medium-light skin tone | nursing | person</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">person feeding baby: medium-light skin tone</annotation>
+		<annotation cp="🧑🏽‍🍼">baby | feeding | medium skin tone | nursing | person</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">person feeding baby: medium skin tone</annotation>
+		<annotation cp="🧑🏾‍🍼">baby | feeding | medium-dark skin tone | nursing | person</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">person feeding baby: medium-dark skin tone</annotation>
+		<annotation cp="🧑🏿‍🍼">baby | dark skin tone | feeding | nursing | person</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">person feeding baby: dark skin tone</annotation>
 		<annotation cp="👼🏻">angel | baby | face | fairy tale | fantasy | light skin tone</annotation>
 		<annotation cp="👼🏻" type="tts">baby angel: light skin tone</annotation>
 		<annotation cp="👼🏼">angel | baby | face | fairy tale | fantasy | medium-light skin tone</annotation>
@@ -1816,6 +1826,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">Mrs. Claus: medium-dark skin tone</annotation>
 		<annotation cp="🤶🏿">celebration | Christmas | claus | dark skin tone | mother | Mrs. | Mrs. Claus</annotation>
 		<annotation cp="🤶🏿" type="tts">Mrs. Claus: dark skin tone</annotation>
+		<annotation cp="🧑🏻‍🎄">Claus, christmas | light skin tone | mx claus</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">mx claus: light skin tone</annotation>
+		<annotation cp="🧑🏼‍🎄">Claus, christmas | medium-light skin tone | mx claus</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">mx claus: medium-light skin tone</annotation>
+		<annotation cp="🧑🏽‍🎄">Claus, christmas | medium skin tone | mx claus</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">mx claus: medium skin tone</annotation>
+		<annotation cp="🧑🏾‍🎄">Claus, christmas | medium-dark skin tone | mx claus</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">mx claus: medium-dark skin tone</annotation>
+		<annotation cp="🧑🏿‍🎄">Claus, christmas | dark skin tone | mx claus</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">mx claus: dark skin tone</annotation>
 		<annotation cp="🦸🏻">good | hero | heroine | light skin tone | superhero | superpower</annotation>
 		<annotation cp="🦸🏻" type="tts">superhero: light skin tone</annotation>
 		<annotation cp="🦸🏼">good | hero | heroine | medium-light skin tone | superhero | superpower</annotation>
@@ -2296,25 +2316,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃🏾‍♀" type="tts">woman running: medium-dark skin tone</annotation>
 		<annotation cp="🏃🏿‍♀">dark skin tone | marathon | racing | running | woman</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">woman running: dark skin tone</annotation>
-		<annotation cp="💃🏻">dancing | light skin tone | woman</annotation>
+		<annotation cp="💃🏻">dance | dancing | light skin tone | woman</annotation>
 		<annotation cp="💃🏻" type="tts">woman dancing: light skin tone</annotation>
-		<annotation cp="💃🏼">dancing | medium-light skin tone | woman</annotation>
+		<annotation cp="💃🏼">dance | dancing | medium-light skin tone | woman</annotation>
 		<annotation cp="💃🏼" type="tts">woman dancing: medium-light skin tone</annotation>
-		<annotation cp="💃🏽">dancing | medium skin tone | woman</annotation>
+		<annotation cp="💃🏽">dance | dancing | medium skin tone | woman</annotation>
 		<annotation cp="💃🏽" type="tts">woman dancing: medium skin tone</annotation>
-		<annotation cp="💃🏾">dancing | medium-dark skin tone | woman</annotation>
+		<annotation cp="💃🏾">dance | dancing | medium-dark skin tone | woman</annotation>
 		<annotation cp="💃🏾" type="tts">woman dancing: medium-dark skin tone</annotation>
-		<annotation cp="💃🏿">dancing | dark skin tone | woman</annotation>
+		<annotation cp="💃🏿">dance | dancing | dark skin tone | woman</annotation>
 		<annotation cp="💃🏿" type="tts">woman dancing: dark skin tone</annotation>
-		<annotation cp="🕺🏻">dance | light skin tone | man | man dancing</annotation>
+		<annotation cp="🕺🏻">dance | dancing | light skin tone | man</annotation>
 		<annotation cp="🕺🏻" type="tts">man dancing: light skin tone</annotation>
-		<annotation cp="🕺🏼">dance | man | man dancing | medium-light skin tone</annotation>
+		<annotation cp="🕺🏼">dance | dancing | man | medium-light skin tone</annotation>
 		<annotation cp="🕺🏼" type="tts">man dancing: medium-light skin tone</annotation>
-		<annotation cp="🕺🏽">dance | man | man dancing | medium skin tone</annotation>
+		<annotation cp="🕺🏽">dance | dancing | man | medium skin tone</annotation>
 		<annotation cp="🕺🏽" type="tts">man dancing: medium skin tone</annotation>
-		<annotation cp="🕺🏾">dance | man | man dancing | medium-dark skin tone</annotation>
+		<annotation cp="🕺🏾">dance | dancing | man | medium-dark skin tone</annotation>
 		<annotation cp="🕺🏾" type="tts">man dancing: medium-dark skin tone</annotation>
-		<annotation cp="🕺🏿">dance | dark skin tone | man | man dancing</annotation>
+		<annotation cp="🕺🏿">dance | dancing | dark skin tone | man</annotation>
 		<annotation cp="🕺🏿" type="tts">man dancing: dark skin tone</annotation>
 		<annotation cp="🕴🏻">business | light skin tone | person | person in suit levitating | suit</annotation>
 		<annotation cp="🕴🏻" type="tts">person in suit levitating: light skin tone</annotation>

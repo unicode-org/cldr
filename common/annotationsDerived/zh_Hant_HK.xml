@@ -15,14 +15,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="HK"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤌🏽">中等皮膚 | 手勢 | 手指 | 捏 | 捏手指 | 疑問</annotation>
-		<annotation cp="🤌🏽" type="tts">捏手指: 中等皮膚</annotation>
-		<annotation cp="🤌🏾">中深皮膚 | 手勢 | 手指 | 捏 | 捏手指 | 疑問</annotation>
-		<annotation cp="🤌🏾" type="tts">捏手指: 中深皮膚</annotation>
-		<annotation cp="🥷🏽">中等皮膚 | 偷偷 | 忍者 | 武者 | 隱身</annotation>
-		<annotation cp="🥷🏽" type="tts">忍者: 中等皮膚</annotation>
-		<annotation cp="🥷🏾">中深皮膚 | 偷偷 | 忍者 | 武者 | 隱身</annotation>
-		<annotation cp="🥷🏾" type="tts">忍者: 中深皮膚</annotation>
 		<annotation cp="👋🏽">中等皮膚 | 手 | 揮手</annotation>
 		<annotation cp="👋🏽" type="tts">揮手: 中等皮膚</annotation>
 		<annotation cp="👋🏾">中深皮膚 | 手 | 揮手</annotation>
@@ -50,6 +42,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏽" type="tts">OK 手勢: 中等皮膚</annotation>
 		<annotation cp="👌🏾">OK | OK 手勢 | 中深皮膚 | 沒問題</annotation>
 		<annotation cp="👌🏾" type="tts">OK 手勢: 中深皮膚</annotation>
+		<annotation cp="🤌🏽">中等皮膚 | 手勢 | 手指 | 捏 | 捏手指 | 疑問</annotation>
+		<annotation cp="🤌🏽" type="tts">捏手指: 中等皮膚</annotation>
+		<annotation cp="🤌🏾">中深皮膚 | 手勢 | 手指 | 捏 | 捏手指 | 疑問</annotation>
+		<annotation cp="🤌🏾" type="tts">捏手指: 中深皮膚</annotation>
 		<annotation cp="🤏🏻">少量 | 捏｜少少｜一啲啲 | 白皮膚</annotation>
 		<annotation cp="🤏🏻" type="tts">捏｜少少｜一啲啲: 白皮膚</annotation>
 		<annotation cp="🤏🏼">少量 | 捏｜少少｜一啲啲 | 黃皮膚</annotation>
@@ -318,20 +314,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏽‍🦲" type="tts">大人: 中等皮膚 禿頭</annotation>
 		<annotation cp="🧑🏾‍🦲">中深皮膚 | 大人 | 禿頭</annotation>
 		<annotation cp="🧑🏾‍🦲" type="tts">大人: 中深皮膚 禿頭</annotation>
-		<annotation cp="🧑🏻‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 白皮膚 | 餵奶</annotation>
-		<annotation cp="🧑🏻‍🍼" type="tts">正在餵奶的人: 白皮膚</annotation>
-		<annotation cp="🧑🏼‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶 | 黃皮膚</annotation>
-		<annotation cp="🧑🏼‍🍼" type="tts">正在餵奶的人: 黃皮膚</annotation>
-		<annotation cp="🧑🏽‍🍼">中等皮膚 | 人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶</annotation>
-		<annotation cp="🧑🏽‍🍼" type="tts">正在餵奶的人: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍🍼">中深皮膚 | 人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶</annotation>
-		<annotation cp="🧑🏾‍🍼" type="tts">正在餵奶的人: 中深皮膚</annotation>
-		<annotation cp="🧑🏿‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶 | 黑皮膚</annotation>
-		<annotation cp="🧑🏿‍🍼" type="tts">正在餵奶的人: 黑皮膚</annotation>
-		<annotation cp="🧑🏽‍🎄">中等皮膚 | 聖誕老人 | 跨性別聖誕老人</annotation>
-		<annotation cp="🧑🏽‍🎄" type="tts">跨性別聖誕老人: 中等皮膚</annotation>
-		<annotation cp="🧑🏾‍🎄">中深皮膚 | 聖誕老人 | 跨性別聖誕老人</annotation>
-		<annotation cp="🧑🏾‍🎄" type="tts">跨性別聖誕老人: 中深皮膚</annotation>
 		<annotation cp="👨🏽">中等皮膚 | 男 | 男人 | 男性</annotation>
 		<annotation cp="👨🏽" type="tts">男人: 中等皮膚</annotation>
 		<annotation cp="👨🏾">中深皮膚 | 男 | 男人 | 男性</annotation>
@@ -388,10 +370,14 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏽‍🦲" type="tts">男人: 中等皮膚 禿頭</annotation>
 		<annotation cp="👨🏾‍🦲">中深皮膚 | 男 | 男人 | 男性 | 禿頭</annotation>
 		<annotation cp="👨🏾‍🦲" type="tts">男人: 中深皮膚 禿頭</annotation>
-		<annotation cp="👨🏽‍🍼">中等皮膚 | 嬰兒 | 正在餵奶的爸爸 | 照顧 | 爸爸 | 餵奶</annotation>
-		<annotation cp="👨🏽‍🍼" type="tts">正在餵奶的爸爸: 中等皮膚</annotation>
-		<annotation cp="👨🏾‍🍼">中深皮膚 | 嬰兒 | 正在餵奶的爸爸 | 照顧 | 爸爸 | 餵奶</annotation>
-		<annotation cp="👨🏾‍🍼" type="tts">正在餵奶的爸爸: 中深皮膚</annotation>
+		<annotation cp="🧔🏽‍♀">中等皮膚 | 女人 | 女人: 蓄鬍的人 | 蓄鬍的人 | 鬍子</annotation>
+		<annotation cp="🧔🏽‍♀" type="tts">女人: 中等皮膚 蓄鬍的人</annotation>
+		<annotation cp="🧔🏾‍♀">中深皮膚 | 女人 | 女人: 蓄鬍的人 | 蓄鬍的人 | 鬍子</annotation>
+		<annotation cp="🧔🏾‍♀" type="tts">女人: 中深皮膚 蓄鬍的人</annotation>
+		<annotation cp="🧔🏽‍♂">中等皮膚 | 男人 | 男人: 蓄鬍的人 | 蓄鬍的人 | 鬍子</annotation>
+		<annotation cp="🧔🏽‍♂" type="tts">男人: 中等皮膚 蓄鬍的人</annotation>
+		<annotation cp="🧔🏾‍♂">中深皮膚 | 男人 | 男人: 蓄鬍的人 | 蓄鬍的人 | 鬍子</annotation>
+		<annotation cp="🧔🏾‍♂" type="tts">男人: 中深皮膚 蓄鬍的人</annotation>
 		<annotation cp="👩🏽">中等皮膚 | 女 | 女人 | 女性</annotation>
 		<annotation cp="👩🏽" type="tts">女人: 中等皮膚</annotation>
 		<annotation cp="👩🏾">中深皮膚 | 女 | 女人 | 女性</annotation>
@@ -438,16 +424,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏽‍🦲" type="tts">女人: 中等皮膚 禿頭</annotation>
 		<annotation cp="👩🏾‍🦲">中深皮膚 | 女 | 女人 | 女性 | 禿頭</annotation>
 		<annotation cp="👩🏾‍🦲" type="tts">女人: 中深皮膚 禿頭</annotation>
-		<annotation cp="👩🏻‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 白皮膚 | 餵奶</annotation>
-		<annotation cp="👩🏻‍🍼" type="tts">正在餵奶的媽媽: 白皮膚</annotation>
-		<annotation cp="👩🏼‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶 | 黃皮膚</annotation>
-		<annotation cp="👩🏼‍🍼" type="tts">正在餵奶的媽媽: 黃皮膚</annotation>
-		<annotation cp="👩🏽‍🍼">中等皮膚 | 媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶</annotation>
-		<annotation cp="👩🏽‍🍼" type="tts">正在餵奶的媽媽: 中等皮膚</annotation>
-		<annotation cp="👩🏾‍🍼">中深皮膚 | 媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶</annotation>
-		<annotation cp="👩🏾‍🍼" type="tts">正在餵奶的媽媽: 中深皮膚</annotation>
-		<annotation cp="👩🏿‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶 | 黑皮膚</annotation>
-		<annotation cp="👩🏿‍🍼" type="tts">正在餵奶的媽媽: 黑皮膚</annotation>
 		<annotation cp="🧓🏻">白皮膚 | 老人家 | 老年人 | 長者</annotation>
 		<annotation cp="🧓🏼">老人家 | 老年人 | 長者 | 黃皮膚</annotation>
 		<annotation cp="🧓🏽">中等皮膚 | 老人家 | 老年人 | 長者</annotation>
@@ -1120,6 +1096,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💂🏾‍♀" type="tts">女守衛: 中深皮膚</annotation>
 		<annotation cp="💂🏿‍♀">女 | 女守衛 | 衛兵 | 黑皮膚</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">女守衛: 黑皮膚</annotation>
+		<annotation cp="🥷🏽">中等皮膚 | 偷偷 | 忍者 | 武者 | 隱身</annotation>
+		<annotation cp="🥷🏽" type="tts">忍者: 中等皮膚</annotation>
+		<annotation cp="🥷🏾">中深皮膚 | 偷偷 | 忍者 | 武者 | 隱身</annotation>
+		<annotation cp="🥷🏾" type="tts">忍者: 中深皮膚</annotation>
 		<annotation cp="👷🏻">地盤工人 | 安全帽 | 工人 | 建築工人 | 白皮膚</annotation>
 		<annotation cp="👷🏼">地盤工人 | 安全帽 | 工人 | 建築工人 | 黃皮膚</annotation>
 		<annotation cp="👷🏽">中等皮膚 | 地盤工人 | 安全帽 | 工人 | 建築工人</annotation>
@@ -1215,6 +1195,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤵🏾" type="tts">着禮服嘅男人: 中深皮膚</annotation>
 		<annotation cp="🤵🏿">燕尾服 | 着禮服嘅男人 | 禮服 | 西裝 | 黑皮膚</annotation>
 		<annotation cp="🤵🏿" type="tts">着禮服嘅男人: 黑皮膚</annotation>
+		<annotation cp="🤵🏽‍♂">中等皮膚 | 燕尾服 | 男人 | 穿燕尾服的男人</annotation>
+		<annotation cp="🤵🏽‍♂" type="tts">穿燕尾服的男人: 中等皮膚</annotation>
+		<annotation cp="🤵🏾‍♂">中深皮膚 | 燕尾服 | 男人 | 穿燕尾服的男人</annotation>
+		<annotation cp="🤵🏾‍♂" type="tts">穿燕尾服的男人: 中深皮膚</annotation>
 		<annotation cp="🤵🏻‍♀">女子 | 燕尾服 | 白皮膚 | 穿燕尾服的女人</annotation>
 		<annotation cp="🤵🏻‍♀" type="tts">穿燕尾服的女人: 白皮膚</annotation>
 		<annotation cp="🤵🏼‍♀">女子 | 燕尾服 | 穿燕尾服的女人 | 黃皮膚</annotation>
@@ -1225,14 +1209,14 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤵🏾‍♀" type="tts">穿燕尾服的女人: 中深皮膚</annotation>
 		<annotation cp="🤵🏿‍♀">女子 | 燕尾服 | 穿燕尾服的女人 | 黑皮膚</annotation>
 		<annotation cp="🤵🏿‍♀" type="tts">穿燕尾服的女人: 黑皮膚</annotation>
-		<annotation cp="🤵🏽‍♂">中等皮膚 | 燕尾服 | 男人 | 穿燕尾服的男人</annotation>
-		<annotation cp="🤵🏽‍♂" type="tts">穿燕尾服的男人: 中等皮膚</annotation>
-		<annotation cp="🤵🏾‍♂">中深皮膚 | 燕尾服 | 男人 | 穿燕尾服的男人</annotation>
-		<annotation cp="🤵🏾‍♂" type="tts">穿燕尾服的男人: 中深皮膚</annotation>
 		<annotation cp="👰🏽">中等皮膚 | 披著頭紗的人 | 新娘 | 結婚 | 頭紗</annotation>
 		<annotation cp="👰🏽" type="tts">披著頭紗的人: 中等皮膚</annotation>
 		<annotation cp="👰🏾">中深皮膚 | 披著頭紗的人 | 新娘 | 結婚 | 頭紗</annotation>
 		<annotation cp="👰🏾" type="tts">披著頭紗的人: 中深皮膚</annotation>
+		<annotation cp="👰🏽‍♂">中等皮膚 | 披著頭紗的男人 | 男人 | 頭紗</annotation>
+		<annotation cp="👰🏽‍♂" type="tts">披著頭紗的男人: 中等皮膚</annotation>
+		<annotation cp="👰🏾‍♂">中深皮膚 | 披著頭紗的男人 | 男人 | 頭紗</annotation>
+		<annotation cp="👰🏾‍♂" type="tts">披著頭紗的男人: 中深皮膚</annotation>
 		<annotation cp="👰🏻‍♀">女子 | 披著頭紗的女人 | 白皮膚 | 頭紗</annotation>
 		<annotation cp="👰🏻‍♀" type="tts">披著頭紗的女人: 白皮膚</annotation>
 		<annotation cp="👰🏼‍♀">女子 | 披著頭紗的女人 | 頭紗 | 黃皮膚</annotation>
@@ -1243,10 +1227,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👰🏾‍♀" type="tts">披著頭紗的女人: 中深皮膚</annotation>
 		<annotation cp="👰🏿‍♀">女子 | 披著頭紗的女人 | 頭紗 | 黑皮膚</annotation>
 		<annotation cp="👰🏿‍♀" type="tts">披著頭紗的女人: 黑皮膚</annotation>
-		<annotation cp="👰🏽‍♂">中等皮膚 | 披著頭紗的男人 | 男人 | 頭紗</annotation>
-		<annotation cp="👰🏽‍♂" type="tts">披著頭紗的男人: 中等皮膚</annotation>
-		<annotation cp="👰🏾‍♂">中深皮膚 | 披著頭紗的男人 | 男人 | 頭紗</annotation>
-		<annotation cp="👰🏾‍♂" type="tts">披著頭紗的男人: 中深皮膚</annotation>
 		<annotation cp="🤰🏻">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 白皮膚</annotation>
 		<annotation cp="🤰🏼">大肚 | 女性 | 孕婦 | 懷孕 | 有 bb | 黃皮膚</annotation>
 		<annotation cp="🤰🏽">中等皮膚 | 大肚 | 女性 | 孕婦 | 懷孕 | 有 bb</annotation>
@@ -1261,6 +1241,30 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤱🏾">中深皮膚 | 哺乳 | 餵人奶 | 餵奶 | 餵母乳</annotation>
 		<annotation cp="🤱🏾" type="tts">哺乳: 中深皮膚</annotation>
 		<annotation cp="🤱🏿">哺乳 | 餵人奶 | 餵奶 | 餵母乳 | 黑皮膚</annotation>
+		<annotation cp="👩🏻‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 白皮膚 | 餵奶</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">正在餵奶的媽媽: 白皮膚</annotation>
+		<annotation cp="👩🏼‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶 | 黃皮膚</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">正在餵奶的媽媽: 黃皮膚</annotation>
+		<annotation cp="👩🏽‍🍼">中等皮膚 | 媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">正在餵奶的媽媽: 中等皮膚</annotation>
+		<annotation cp="👩🏾‍🍼">中深皮膚 | 媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">正在餵奶的媽媽: 中深皮膚</annotation>
+		<annotation cp="👩🏿‍🍼">媽媽 | 嬰兒 | 正在餵奶的媽媽 | 照顧 | 餵奶 | 黑皮膚</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">正在餵奶的媽媽: 黑皮膚</annotation>
+		<annotation cp="👨🏽‍🍼">中等皮膚 | 嬰兒 | 正在餵奶的爸爸 | 照顧 | 爸爸 | 餵奶</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">正在餵奶的爸爸: 中等皮膚</annotation>
+		<annotation cp="👨🏾‍🍼">中深皮膚 | 嬰兒 | 正在餵奶的爸爸 | 照顧 | 爸爸 | 餵奶</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">正在餵奶的爸爸: 中深皮膚</annotation>
+		<annotation cp="🧑🏻‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 白皮膚 | 餵奶</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">正在餵奶的人: 白皮膚</annotation>
+		<annotation cp="🧑🏼‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶 | 黃皮膚</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">正在餵奶的人: 黃皮膚</annotation>
+		<annotation cp="🧑🏽‍🍼">中等皮膚 | 人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">正在餵奶的人: 中等皮膚</annotation>
+		<annotation cp="🧑🏾‍🍼">中深皮膚 | 人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">正在餵奶的人: 中深皮膚</annotation>
+		<annotation cp="🧑🏿‍🍼">人 | 嬰兒 | 正在餵奶的人 | 照顧 | 餵奶 | 黑皮膚</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">正在餵奶的人: 黑皮膚</annotation>
 		<annotation cp="👼🏻">天使 | 天使嬰兒 | 嬰兒 | 白皮膚 | 童話</annotation>
 		<annotation cp="👼🏻" type="tts">天使嬰兒: 白皮膚</annotation>
 		<annotation cp="👼🏼">天使 | 天使嬰兒 | 嬰兒 | 童話 | 黃皮膚</annotation>
@@ -1288,6 +1292,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤶🏾" type="tts">聖誕婆婆: 中深皮膚</annotation>
 		<annotation cp="🤶🏿">慶祝 | 聖誕婆婆 | 聖誕節 | 黑皮膚</annotation>
 		<annotation cp="🤶🏿" type="tts">聖誕婆婆: 黑皮膚</annotation>
+		<annotation cp="🧑🏽‍🎄">中等皮膚 | 聖誕老人 | 跨性別聖誕老人</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">跨性別聖誕老人: 中等皮膚</annotation>
+		<annotation cp="🧑🏾‍🎄">中深皮膚 | 聖誕老人 | 跨性別聖誕老人</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">跨性別聖誕老人: 中深皮膚</annotation>
 		<annotation cp="🦸🏻">天賦 | 白皮膚 | 英雄 | 超人 | 超能力</annotation>
 		<annotation cp="🦸🏻" type="tts">超人: 白皮膚</annotation>
 		<annotation cp="🦸🏼">天賦 | 英雄 | 超人 | 超能力 | 黃皮膚</annotation>
@@ -2457,6 +2465,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇱🇨" type="tts">旗子: 聖盧西亞</annotation>
 		<annotation cp="🇱🇮" type="tts">旗子: 列支敦士登</annotation>
 		<annotation cp="🇱🇷" type="tts">旗子: 利比里亞</annotation>
+		<annotation cp="🇱🇸" type="tts">旗子: 萊索托</annotation>
 		<annotation cp="🇲🇪" type="tts">旗子: 黑山</annotation>
 		<annotation cp="🇲🇱" type="tts">旗子: 馬里</annotation>
 		<annotation cp="🇲🇷" type="tts">旗子: 毛里塔尼亞</annotation>
@@ -2488,7 +2497,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇹🇨" type="tts">旗子: 特克斯和凱科斯群島</annotation>
 		<annotation cp="🇹🇩" type="tts">旗子: 乍得</annotation>
 		<annotation cp="🇹🇫" type="tts">旗子: 法屬南部領地</annotation>
-		<annotation cp="🇹🇬" type="tts">旗子: 多哥共和國</annotation>
 		<annotation cp="🇹🇴" type="tts">旗子: 湯加</annotation>
 		<annotation cp="🇹🇹" type="tts">旗子: 千里達和多巴哥</annotation>
 		<annotation cp="🇹🇻" type="tts">旗子: 圖瓦盧</annotation>

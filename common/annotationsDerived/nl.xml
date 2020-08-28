@@ -12,26 +12,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="nl"/>
 	</identity>
 	<annotations>
-		<annotation cp="🤌🏻">handgebaar | lichte huidskleur | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
-		<annotation cp="🤌🏻" type="tts">samengeknepen vingers: lichte huidskleur</annotation>
-		<annotation cp="🤌🏼">handgebaar | lichtgetinte huidskleur | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
-		<annotation cp="🤌🏼" type="tts">samengeknepen vingers: lichtgetinte huidskleur</annotation>
-		<annotation cp="🤌🏽">getinte huidskleur | handgebaar | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
-		<annotation cp="🤌🏽" type="tts">samengeknepen vingers: getinte huidskleur</annotation>
-		<annotation cp="🤌🏾">donkergetinte huidskleur | handgebaar | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
-		<annotation cp="🤌🏾" type="tts">samengeknepen vingers: donkergetinte huidskleur</annotation>
-		<annotation cp="🤌🏿">donkere huidskleur | handgebaar | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
-		<annotation cp="🤌🏿" type="tts">samengeknepen vingers: donkere huidskleur</annotation>
-		<annotation cp="🥷🏻">geheim | krijger | lichte huidskleur | ninja | verborgen</annotation>
-		<annotation cp="🥷🏻" type="tts">ninja: lichte huidskleur</annotation>
-		<annotation cp="🥷🏼">geheim | krijger | lichtgetinte huidskleur | ninja | verborgen</annotation>
-		<annotation cp="🥷🏼" type="tts">ninja: lichtgetinte huidskleur</annotation>
-		<annotation cp="🥷🏽">geheim | getinte huidskleur | krijger | ninja | verborgen</annotation>
-		<annotation cp="🥷🏽" type="tts">ninja: getinte huidskleur</annotation>
-		<annotation cp="🥷🏾">donkergetinte huidskleur | geheim | krijger | ninja | verborgen</annotation>
-		<annotation cp="🥷🏾" type="tts">ninja: donkergetinte huidskleur</annotation>
-		<annotation cp="🥷🏿">donkere huidskleur | geheim | krijger | ninja | verborgen</annotation>
-		<annotation cp="🥷🏿" type="tts">ninja: donkere huidskleur</annotation>
 		<annotation cp="👋🏻">hand | lichte huidskleur | zwaai | zwaaien | zwaaiende hand</annotation>
 		<annotation cp="👋🏻" type="tts">zwaaiende hand: lichte huidskleur</annotation>
 		<annotation cp="👋🏼">hand | lichtgetinte huidskleur | zwaai | zwaaien | zwaaiende hand</annotation>
@@ -72,15 +52,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋🏾" type="tts">opgeheven hand: donkergetinte huidskleur</annotation>
 		<annotation cp="✋🏿">donkere huidskleur | hand | opgeheven hand</annotation>
 		<annotation cp="✋🏿" type="tts">opgeheven hand: donkere huidskleur</annotation>
-		<annotation cp="🖖🏻">hand | lichaam | lichte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏻">hand | lichte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
 		<annotation cp="🖖🏻" type="tts">Vulcaanse groet: lichte huidskleur</annotation>
-		<annotation cp="🖖🏼">hand | lichaam | lichtgetinte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏼">hand | lichtgetinte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
 		<annotation cp="🖖🏼" type="tts">Vulcaanse groet: lichtgetinte huidskleur</annotation>
-		<annotation cp="🖖🏽">getinte huidskleur | hand | lichaam | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏽">getinte huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
 		<annotation cp="🖖🏽" type="tts">Vulcaanse groet: getinte huidskleur</annotation>
-		<annotation cp="🖖🏾">donkergetinte huidskleur | hand | lichaam | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏾">donkergetinte huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
 		<annotation cp="🖖🏾" type="tts">Vulcaanse groet: donkergetinte huidskleur</annotation>
-		<annotation cp="🖖🏿">donkere huidskleur | hand | lichaam | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏿">donkere huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
 		<annotation cp="🖖🏿" type="tts">Vulcaanse groet: donkere huidskleur</annotation>
 		<annotation cp="👌🏻">hand | lichte huidskleur | OK | OK-handgebaar</annotation>
 		<annotation cp="👌🏻" type="tts">OK-handgebaar: lichte huidskleur</annotation>
@@ -92,6 +72,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👌🏾" type="tts">OK-handgebaar: donkergetinte huidskleur</annotation>
 		<annotation cp="👌🏿">donkere huidskleur | hand | OK | OK-handgebaar</annotation>
 		<annotation cp="👌🏿" type="tts">OK-handgebaar: donkere huidskleur</annotation>
+		<annotation cp="🤌🏻">handgebaar | lichte huidskleur | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
+		<annotation cp="🤌🏻" type="tts">samengeknepen vingers: lichte huidskleur</annotation>
+		<annotation cp="🤌🏼">handgebaar | lichtgetinte huidskleur | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
+		<annotation cp="🤌🏼" type="tts">samengeknepen vingers: lichtgetinte huidskleur</annotation>
+		<annotation cp="🤌🏽">getinte huidskleur | handgebaar | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
+		<annotation cp="🤌🏽" type="tts">samengeknepen vingers: getinte huidskleur</annotation>
+		<annotation cp="🤌🏾">donkergetinte huidskleur | handgebaar | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
+		<annotation cp="🤌🏾" type="tts">samengeknepen vingers: donkergetinte huidskleur</annotation>
+		<annotation cp="🤌🏿">donkere huidskleur | handgebaar | ondervraging | samengeknepen | sarcastisch | vingers</annotation>
+		<annotation cp="🤌🏿" type="tts">samengeknepen vingers: donkere huidskleur</annotation>
 		<annotation cp="🤏🏻">gebaar voor kleine hoeveelheid | hand met samengeknepen vingers | lichte huidskleur</annotation>
 		<annotation cp="🤏🏻" type="tts">hand met samengeknepen vingers: lichte huidskleur</annotation>
 		<annotation cp="🤏🏼">gebaar voor kleine hoeveelheid | hand met samengeknepen vingers | lichtgetinte huidskleur</annotation>
@@ -312,15 +302,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤲🏾" type="tts">beide handpalmen omhoog: donkergetinte huidskleur</annotation>
 		<annotation cp="🤲🏿">beide handpalmen omhoog | donkere huidskleur | gebed</annotation>
 		<annotation cp="🤲🏿" type="tts">beide handpalmen omhoog: donkere huidskleur</annotation>
-		<annotation cp="🙏🏻">alsjeblieft | bedankt | bidden | buigen | gebaar | gevouwen | gevouwen handen | hand | lichte huidskleur | vragen</annotation>
+		<annotation cp="🙏🏻">alsjeblieft | bedankt | bidden | gevouwen handen | hand | lichte huidskleur | vragen</annotation>
 		<annotation cp="🙏🏻" type="tts">gevouwen handen: lichte huidskleur</annotation>
-		<annotation cp="🙏🏼">alsjeblieft | bedankt | bidden | buigen | gebaar | gevouwen | gevouwen handen | hand | lichtgetinte huidskleur | vragen</annotation>
+		<annotation cp="🙏🏼">alsjeblieft | bedankt | bidden | gevouwen handen | hand | lichtgetinte huidskleur | vragen</annotation>
 		<annotation cp="🙏🏼" type="tts">gevouwen handen: lichtgetinte huidskleur</annotation>
-		<annotation cp="🙏🏽">alsjeblieft | bedankt | bidden | buigen | gebaar | getinte huidskleur | gevouwen | gevouwen handen | hand | vragen</annotation>
+		<annotation cp="🙏🏽">alsjeblieft | bedankt | bidden | getinte huidskleur | gevouwen handen | hand | vragen</annotation>
 		<annotation cp="🙏🏽" type="tts">gevouwen handen: getinte huidskleur</annotation>
-		<annotation cp="🙏🏾">alsjeblieft | bedankt | bidden | buigen | donkergetinte huidskleur | gebaar | gevouwen | gevouwen handen | hand | vragen</annotation>
+		<annotation cp="🙏🏾">alsjeblieft | bedankt | bidden | donkergetinte huidskleur | gevouwen handen | hand | vragen</annotation>
 		<annotation cp="🙏🏾" type="tts">gevouwen handen: donkergetinte huidskleur</annotation>
-		<annotation cp="🙏🏿">alsjeblieft | bedankt | bidden | buigen | donkere huidskleur | gebaar | gevouwen | gevouwen handen | hand | vragen</annotation>
+		<annotation cp="🙏🏿">alsjeblieft | bedankt | bidden | donkere huidskleur | gevouwen handen | hand | vragen</annotation>
 		<annotation cp="🙏🏿" type="tts">gevouwen handen: donkere huidskleur</annotation>
 		<annotation cp="✍🏻">hand | lichte huidskleur | schrijven | schrijvende hand</annotation>
 		<annotation cp="✍🏻" type="tts">schrijvende hand: lichte huidskleur</annotation>
@@ -352,15 +342,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤳🏾" type="tts">selfie: donkergetinte huidskleur</annotation>
 		<annotation cp="🤳🏿">camera | donkere huidskleur | selfie | telefoon</annotation>
 		<annotation cp="🤳🏿" type="tts">selfie: donkere huidskleur</annotation>
-		<annotation cp="💪🏻">biceps | lichaam | lichte huidskleur | spannen | spier | spierbal | spierballen | strip</annotation>
+		<annotation cp="💪🏻">biceps | lichte huidskleur | spannen | spier | spierballen | strip</annotation>
 		<annotation cp="💪🏻" type="tts">spierballen: lichte huidskleur</annotation>
-		<annotation cp="💪🏼">biceps | lichaam | lichtgetinte huidskleur | spannen | spier | spierbal | spierballen | strip</annotation>
+		<annotation cp="💪🏼">biceps | lichtgetinte huidskleur | spannen | spier | spierballen | strip</annotation>
 		<annotation cp="💪🏼" type="tts">spierballen: lichtgetinte huidskleur</annotation>
-		<annotation cp="💪🏽">biceps | getinte huidskleur | lichaam | spannen | spier | spierbal | spierballen | strip</annotation>
+		<annotation cp="💪🏽">biceps | getinte huidskleur | spannen | spier | spierballen | strip</annotation>
 		<annotation cp="💪🏽" type="tts">spierballen: getinte huidskleur</annotation>
-		<annotation cp="💪🏾">biceps | donkergetinte huidskleur | lichaam | spannen | spier | spierbal | spierballen | strip</annotation>
+		<annotation cp="💪🏾">biceps | donkergetinte huidskleur | spannen | spier | spierballen | strip</annotation>
 		<annotation cp="💪🏾" type="tts">spierballen: donkergetinte huidskleur</annotation>
-		<annotation cp="💪🏿">biceps | donkere huidskleur | lichaam | spannen | spier | spierbal | spierballen | strip</annotation>
+		<annotation cp="💪🏿">biceps | donkere huidskleur | spannen | spier | spierballen | strip</annotation>
 		<annotation cp="💪🏿" type="tts">spierballen: donkere huidskleur</annotation>
 		<annotation cp="🦵🏻">been | ledemaat | lichte huidskleur | schoppen</annotation>
 		<annotation cp="🦵🏻" type="tts">been: lichte huidskleur</annotation>
@@ -520,26 +510,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🦲" type="tts">volwassene: donkergetinte huidskleur, kaal</annotation>
 		<annotation cp="🧑🏿‍🦲">donkere huidskleur | genderneutraal | kaal | volwassene</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">volwassene: donkere huidskleur, kaal</annotation>
-		<annotation cp="🧑🏻‍🍼">baby | borstvoeding | lichte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
-		<annotation cp="🧑🏻‍🍼" type="tts">persoon die een baby voedt: lichte huidskleur</annotation>
-		<annotation cp="🧑🏼‍🍼">baby | borstvoeding | lichtgetinte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
-		<annotation cp="🧑🏼‍🍼" type="tts">persoon die een baby voedt: lichtgetinte huidskleur</annotation>
-		<annotation cp="🧑🏽‍🍼">baby | borstvoeding | getinte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
-		<annotation cp="🧑🏽‍🍼" type="tts">persoon die een baby voedt: getinte huidskleur</annotation>
-		<annotation cp="🧑🏾‍🍼">baby | borstvoeding | donkergetinte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
-		<annotation cp="🧑🏾‍🍼" type="tts">persoon die een baby voedt: donkergetinte huidskleur</annotation>
-		<annotation cp="🧑🏿‍🍼">baby | borstvoeding | donkere huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
-		<annotation cp="🧑🏿‍🍼" type="tts">persoon die een baby voedt: donkere huidskleur</annotation>
-		<annotation cp="🧑🏻‍🎄">Kerstman, kerst | kersttransgender | lichte huidskleur</annotation>
-		<annotation cp="🧑🏻‍🎄" type="tts">kersttransgender: lichte huidskleur</annotation>
-		<annotation cp="🧑🏼‍🎄">Kerstman, kerst | kersttransgender | lichtgetinte huidskleur</annotation>
-		<annotation cp="🧑🏼‍🎄" type="tts">kersttransgender: lichtgetinte huidskleur</annotation>
-		<annotation cp="🧑🏽‍🎄">getinte huidskleur | Kerstman, kerst | kersttransgender</annotation>
-		<annotation cp="🧑🏽‍🎄" type="tts">kersttransgender: getinte huidskleur</annotation>
-		<annotation cp="🧑🏾‍🎄">donkergetinte huidskleur | Kerstman, kerst | kersttransgender</annotation>
-		<annotation cp="🧑🏾‍🎄" type="tts">kersttransgender: donkergetinte huidskleur</annotation>
-		<annotation cp="🧑🏿‍🎄">donkere huidskleur | Kerstman, kerst | kersttransgender</annotation>
-		<annotation cp="🧑🏿‍🎄" type="tts">kersttransgender: donkere huidskleur</annotation>
 		<annotation cp="👨🏻">lichte huidskleur | man</annotation>
 		<annotation cp="👨🏻" type="tts">man: lichte huidskleur</annotation>
 		<annotation cp="👨🏼">lichtgetinte huidskleur | man</annotation>
@@ -550,16 +520,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">man: donkergetinte huidskleur</annotation>
 		<annotation cp="👨🏿">donkere huidskleur | man</annotation>
 		<annotation cp="👨🏿" type="tts">man: donkere huidskleur</annotation>
-		<annotation cp="🧔🏻">baard | lichte huidskleur | man | man met baard | persoon</annotation>
-		<annotation cp="🧔🏻" type="tts">man met baard: lichte huidskleur</annotation>
-		<annotation cp="🧔🏼">baard | lichtgetinte huidskleur | man | man met baard | persoon</annotation>
-		<annotation cp="🧔🏼" type="tts">man met baard: lichtgetinte huidskleur</annotation>
-		<annotation cp="🧔🏽">baard | getinte huidskleur | man | man met baard | persoon</annotation>
-		<annotation cp="🧔🏽" type="tts">man met baard: getinte huidskleur</annotation>
-		<annotation cp="🧔🏾">baard | donkergetinte huidskleur | man | man met baard | persoon</annotation>
-		<annotation cp="🧔🏾" type="tts">man met baard: donkergetinte huidskleur</annotation>
-		<annotation cp="🧔🏿">baard | donkere huidskleur | man | man met baard | persoon</annotation>
-		<annotation cp="🧔🏿" type="tts">man met baard: donkere huidskleur</annotation>
+		<annotation cp="🧔🏻">baard | lichte huidskleur | persoon | persoon: baard</annotation>
+		<annotation cp="🧔🏻" type="tts">persoon: lichte huidskleur, baard</annotation>
+		<annotation cp="🧔🏼">baard | lichtgetinte huidskleur | persoon | persoon: baard</annotation>
+		<annotation cp="🧔🏼" type="tts">persoon: lichtgetinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏽">baard | getinte huidskleur | persoon | persoon: baard</annotation>
+		<annotation cp="🧔🏽" type="tts">persoon: getinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏾">baard | donkergetinte huidskleur | persoon | persoon: baard</annotation>
+		<annotation cp="🧔🏾" type="tts">persoon: donkergetinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏿">baard | donkere huidskleur | persoon | persoon: baard</annotation>
+		<annotation cp="🧔🏿" type="tts">persoon: donkere huidskleur, baard</annotation>
 		<annotation cp="👱🏻‍♂">blond | haar | lichte huidskleur | man | man met blond haar</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">man met blond haar: lichte huidskleur</annotation>
 		<annotation cp="👱🏼‍♂">blond | haar | lichtgetinte huidskleur | man | man met blond haar</annotation>
@@ -618,16 +588,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾‍🦲" type="tts">man: donkergetinte huidskleur, kaal</annotation>
 		<annotation cp="👨🏿‍🦲">donkere huidskleur | kaal | man</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">man: donkere huidskleur, kaal</annotation>
-		<annotation cp="👨🏻‍🍼">baby | borstvoeding | lichte huidskleur | man | man die een baby voedt | voeding</annotation>
-		<annotation cp="👨🏻‍🍼" type="tts">man die een baby voedt: lichte huidskleur</annotation>
-		<annotation cp="👨🏼‍🍼">baby | borstvoeding | lichtgetinte huidskleur | man | man die een baby voedt | voeding</annotation>
-		<annotation cp="👨🏼‍🍼" type="tts">man die een baby voedt: lichtgetinte huidskleur</annotation>
-		<annotation cp="👨🏽‍🍼">baby | borstvoeding | getinte huidskleur | man | man die een baby voedt | voeding</annotation>
-		<annotation cp="👨🏽‍🍼" type="tts">man die een baby voedt: getinte huidskleur</annotation>
-		<annotation cp="👨🏾‍🍼">baby | borstvoeding | donkergetinte huidskleur | man | man die een baby voedt | voeding</annotation>
-		<annotation cp="👨🏾‍🍼" type="tts">man die een baby voedt: donkergetinte huidskleur</annotation>
-		<annotation cp="👨🏿‍🍼">baby | borstvoeding | donkere huidskleur | man | man die een baby voedt | voeding</annotation>
-		<annotation cp="👨🏿‍🍼" type="tts">man die een baby voedt: donkere huidskleur</annotation>
+		<annotation cp="🧔🏻‍♀">baard | baard + vrouw: baard | lichte huidskleur | vrouw | vrouw: baard</annotation>
+		<annotation cp="🧔🏻‍♀" type="tts">vrouw: lichte huidskleur, baard</annotation>
+		<annotation cp="🧔🏼‍♀">baard | baard + vrouw: baard | lichtgetinte huidskleur | vrouw | vrouw: baard</annotation>
+		<annotation cp="🧔🏼‍♀" type="tts">vrouw: lichtgetinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏽‍♀">baard | baard + vrouw: baard | getinte huidskleur | vrouw | vrouw: baard</annotation>
+		<annotation cp="🧔🏽‍♀" type="tts">vrouw: getinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏾‍♀">baard | baard + vrouw: baard | donkergetinte huidskleur | vrouw | vrouw: baard</annotation>
+		<annotation cp="🧔🏾‍♀" type="tts">vrouw: donkergetinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏿‍♀">baard | baard + vrouw: baard | donkere huidskleur | vrouw | vrouw: baard</annotation>
+		<annotation cp="🧔🏿‍♀" type="tts">vrouw: donkere huidskleur, baard</annotation>
+		<annotation cp="🧔🏻‍♂">baard | lichte huidskleur | man | man: baard</annotation>
+		<annotation cp="🧔🏻‍♂" type="tts">man: lichte huidskleur, baard</annotation>
+		<annotation cp="🧔🏼‍♂">baard | lichtgetinte huidskleur | man | man: baard</annotation>
+		<annotation cp="🧔🏼‍♂" type="tts">man: lichtgetinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏽‍♂">baard | getinte huidskleur | man | man: baard</annotation>
+		<annotation cp="🧔🏽‍♂" type="tts">man: getinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏾‍♂">baard | donkergetinte huidskleur | man | man: baard</annotation>
+		<annotation cp="🧔🏾‍♂" type="tts">man: donkergetinte huidskleur, baard</annotation>
+		<annotation cp="🧔🏿‍♂">baard | donkere huidskleur | man | man: baard</annotation>
+		<annotation cp="🧔🏿‍♂" type="tts">man: donkere huidskleur, baard</annotation>
 		<annotation cp="👩🏻">lichte huidskleur | vrouw</annotation>
 		<annotation cp="👩🏻" type="tts">vrouw: lichte huidskleur</annotation>
 		<annotation cp="👩🏼">lichtgetinte huidskleur | vrouw</annotation>
@@ -696,26 +676,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">vrouw: donkergetinte huidskleur, kaal</annotation>
 		<annotation cp="👩🏿‍🦲">donkere huidskleur | kaal | vrouw</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">vrouw: donkere huidskleur, kaal</annotation>
-		<annotation cp="👩🏻‍🍼">baby | borstvoeding | lichte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
-		<annotation cp="👩🏻‍🍼" type="tts">vrouw die een baby voedt: lichte huidskleur</annotation>
-		<annotation cp="👩🏼‍🍼">baby | borstvoeding | lichtgetinte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
-		<annotation cp="👩🏼‍🍼" type="tts">vrouw die een baby voedt: lichtgetinte huidskleur</annotation>
-		<annotation cp="👩🏽‍🍼">baby | borstvoeding | getinte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
-		<annotation cp="👩🏽‍🍼" type="tts">vrouw die een baby voedt: getinte huidskleur</annotation>
-		<annotation cp="👩🏾‍🍼">baby | borstvoeding | donkergetinte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
-		<annotation cp="👩🏾‍🍼" type="tts">vrouw die een baby voedt: donkergetinte huidskleur</annotation>
-		<annotation cp="👩🏿‍🍼">baby | borstvoeding | donkere huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
-		<annotation cp="👩🏿‍🍼" type="tts">vrouw die een baby voedt: donkere huidskleur</annotation>
-		<annotation cp="🧓🏻">genderneutraal | lichte huidskleur | oud | oudere volwassene</annotation>
-		<annotation cp="🧓🏻" type="tts">oudere volwassene: lichte huidskleur</annotation>
-		<annotation cp="🧓🏼">genderneutraal | lichtgetinte huidskleur | oud | oudere volwassene</annotation>
-		<annotation cp="🧓🏼" type="tts">oudere volwassene: lichtgetinte huidskleur</annotation>
-		<annotation cp="🧓🏽">genderneutraal | getinte huidskleur | oud | oudere volwassene</annotation>
-		<annotation cp="🧓🏽" type="tts">oudere volwassene: getinte huidskleur</annotation>
-		<annotation cp="🧓🏾">donkergetinte huidskleur | genderneutraal | oud | oudere volwassene</annotation>
-		<annotation cp="🧓🏾" type="tts">oudere volwassene: donkergetinte huidskleur</annotation>
-		<annotation cp="🧓🏿">donkere huidskleur | genderneutraal | oud | oudere volwassene</annotation>
-		<annotation cp="🧓🏿" type="tts">oudere volwassene: donkere huidskleur</annotation>
+		<annotation cp="🧓🏻">genderneutraal | lichte huidskleur | oud | oudere persoon | oudere volwassene</annotation>
+		<annotation cp="🧓🏻" type="tts">oudere persoon: lichte huidskleur</annotation>
+		<annotation cp="🧓🏼">genderneutraal | lichtgetinte huidskleur | oud | oudere persoon | oudere volwassene</annotation>
+		<annotation cp="🧓🏼" type="tts">oudere persoon: lichtgetinte huidskleur</annotation>
+		<annotation cp="🧓🏽">genderneutraal | getinte huidskleur | oud | oudere persoon | oudere volwassene</annotation>
+		<annotation cp="🧓🏽" type="tts">oudere persoon: getinte huidskleur</annotation>
+		<annotation cp="🧓🏾">donkergetinte huidskleur | genderneutraal | oud | oudere persoon | oudere volwassene</annotation>
+		<annotation cp="🧓🏾" type="tts">oudere persoon: donkergetinte huidskleur</annotation>
+		<annotation cp="🧓🏿">donkere huidskleur | genderneutraal | oud | oudere persoon | oudere volwassene</annotation>
+		<annotation cp="🧓🏿" type="tts">oudere persoon: donkere huidskleur</annotation>
 		<annotation cp="👴🏻">lichte huidskleur | man | oud | oude man | ouder</annotation>
 		<annotation cp="👴🏻" type="tts">oude man: lichte huidskleur</annotation>
 		<annotation cp="👴🏼">lichtgetinte huidskleur | man | oud | oude man | ouder</annotation>
@@ -796,15 +766,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎🏾‍♀" type="tts">pruilende vrouw: donkergetinte huidskleur</annotation>
 		<annotation cp="🙎🏿‍♀">donkere huidskleur | pruilen | pruilende vrouw | uitdrukking | vrouw</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">pruilende vrouw: donkere huidskleur</annotation>
-		<annotation cp="🙅🏻">gebaar | hand | illegaal | lichte huidskleur | nee | niet | persoon die nee-gebaar maakt | verboden</annotation>
+		<annotation cp="🙅🏻">gebaar | hand | illegaal | lichte huidskleur | persoon die nee-gebaar maakt | verboden</annotation>
 		<annotation cp="🙅🏻" type="tts">persoon die nee-gebaar maakt: lichte huidskleur</annotation>
-		<annotation cp="🙅🏼">gebaar | hand | illegaal | lichtgetinte huidskleur | nee | niet | persoon die nee-gebaar maakt | verboden</annotation>
+		<annotation cp="🙅🏼">gebaar | hand | illegaal | lichtgetinte huidskleur | persoon die nee-gebaar maakt | verboden</annotation>
 		<annotation cp="🙅🏼" type="tts">persoon die nee-gebaar maakt: lichtgetinte huidskleur</annotation>
-		<annotation cp="🙅🏽">gebaar | getinte huidskleur | hand | illegaal | nee | niet | persoon die nee-gebaar maakt | verboden</annotation>
+		<annotation cp="🙅🏽">gebaar | getinte huidskleur | hand | illegaal | persoon die nee-gebaar maakt | verboden</annotation>
 		<annotation cp="🙅🏽" type="tts">persoon die nee-gebaar maakt: getinte huidskleur</annotation>
-		<annotation cp="🙅🏾">donkergetinte huidskleur | gebaar | hand | illegaal | nee | niet | persoon die nee-gebaar maakt | verboden</annotation>
+		<annotation cp="🙅🏾">donkergetinte huidskleur | gebaar | hand | illegaal | persoon die nee-gebaar maakt | verboden</annotation>
 		<annotation cp="🙅🏾" type="tts">persoon die nee-gebaar maakt: donkergetinte huidskleur</annotation>
-		<annotation cp="🙅🏿">donkere huidskleur | gebaar | hand | illegaal | nee | niet | persoon die nee-gebaar maakt | verboden</annotation>
+		<annotation cp="🙅🏿">donkere huidskleur | gebaar | hand | illegaal | persoon die nee-gebaar maakt | verboden</annotation>
 		<annotation cp="🙅🏿" type="tts">persoon die nee-gebaar maakt: donkere huidskleur</annotation>
 		<annotation cp="🙅🏻‍♂">gebaar | hand | lichte huidskleur | man | man die nee-gebaar maakt | nee | verboden</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">man die nee-gebaar maakt: lichte huidskleur</annotation>
@@ -816,15 +786,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙅🏾‍♂" type="tts">man die nee-gebaar maakt: donkergetinte huidskleur</annotation>
 		<annotation cp="🙅🏿‍♂">donkere huidskleur | gebaar | hand | man | man die nee-gebaar maakt | nee | verboden</annotation>
 		<annotation cp="🙅🏿‍♂" type="tts">man die nee-gebaar maakt: donkere huidskleur</annotation>
-		<annotation cp="🙅🏻‍♀">gebaar | hand | illegaal | lichte huidskleur | nee | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
+		<annotation cp="🙅🏻‍♀">gebaar | hand | illegaal | lichte huidskleur | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
 		<annotation cp="🙅🏻‍♀" type="tts">vrouw die nee-gebaar maakt: lichte huidskleur</annotation>
-		<annotation cp="🙅🏼‍♀">gebaar | hand | illegaal | lichtgetinte huidskleur | nee | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
+		<annotation cp="🙅🏼‍♀">gebaar | hand | illegaal | lichtgetinte huidskleur | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
 		<annotation cp="🙅🏼‍♀" type="tts">vrouw die nee-gebaar maakt: lichtgetinte huidskleur</annotation>
-		<annotation cp="🙅🏽‍♀">gebaar | getinte huidskleur | hand | illegaal | nee | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
+		<annotation cp="🙅🏽‍♀">gebaar | getinte huidskleur | hand | illegaal | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
 		<annotation cp="🙅🏽‍♀" type="tts">vrouw die nee-gebaar maakt: getinte huidskleur</annotation>
-		<annotation cp="🙅🏾‍♀">donkergetinte huidskleur | gebaar | hand | illegaal | nee | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
+		<annotation cp="🙅🏾‍♀">donkergetinte huidskleur | gebaar | hand | illegaal | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
 		<annotation cp="🙅🏾‍♀" type="tts">vrouw die nee-gebaar maakt: donkergetinte huidskleur</annotation>
-		<annotation cp="🙅🏿‍♀">donkere huidskleur | gebaar | hand | illegaal | nee | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
+		<annotation cp="🙅🏿‍♀">donkere huidskleur | gebaar | hand | illegaal | verboden | vrouw | vrouw die nee-gebaar maakt</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">vrouw die nee-gebaar maakt: donkere huidskleur</annotation>
 		<annotation cp="🙆🏻">gebaar | hand | lichte huidskleur | OK | persoon die OK-gebaar maakt</annotation>
 		<annotation cp="🙆🏻" type="tts">persoon die OK-gebaar maakt: lichte huidskleur</annotation>
@@ -1046,15 +1016,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍⚕" type="tts">gezondheidsmedewerker: donkergetinte huidskleur</annotation>
 		<annotation cp="🧑🏿‍⚕">dokter | donkere huidskleur | gezondheidsmedewerker | gezondheidszorg | therapeut | verpleegster</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">gezondheidsmedewerker: donkere huidskleur</annotation>
-		<annotation cp="👨🏻‍⚕">dokter | gezondheidsmedewerker | gezondheidszorg | lichte huidskleur | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
+		<annotation cp="👨🏻‍⚕">dokter | gezondheidszorg | lichte huidskleur | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">mannelijke gezondheidsmedewerker: lichte huidskleur</annotation>
-		<annotation cp="👨🏼‍⚕">dokter | gezondheidsmedewerker | gezondheidszorg | lichtgetinte huidskleur | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
+		<annotation cp="👨🏼‍⚕">dokter | gezondheidszorg | lichtgetinte huidskleur | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
 		<annotation cp="👨🏼‍⚕" type="tts">mannelijke gezondheidsmedewerker: lichtgetinte huidskleur</annotation>
-		<annotation cp="👨🏽‍⚕">dokter | getinte huidskleur | gezondheidsmedewerker | gezondheidszorg | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
+		<annotation cp="👨🏽‍⚕">dokter | getinte huidskleur | gezondheidszorg | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
 		<annotation cp="👨🏽‍⚕" type="tts">mannelijke gezondheidsmedewerker: getinte huidskleur</annotation>
-		<annotation cp="👨🏾‍⚕">dokter | donkergetinte huidskleur | gezondheidsmedewerker | gezondheidszorg | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
+		<annotation cp="👨🏾‍⚕">dokter | donkergetinte huidskleur | gezondheidszorg | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
 		<annotation cp="👨🏾‍⚕" type="tts">mannelijke gezondheidsmedewerker: donkergetinte huidskleur</annotation>
-		<annotation cp="👨🏿‍⚕">dokter | donkere huidskleur | gezondheidsmedewerker | gezondheidszorg | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
+		<annotation cp="👨🏿‍⚕">dokter | donkere huidskleur | gezondheidszorg | man | mannelijke gezondheidsmedewerker | therapeut | verpleger</annotation>
 		<annotation cp="👨🏿‍⚕" type="tts">mannelijke gezondheidsmedewerker: donkere huidskleur</annotation>
 		<annotation cp="👩🏻‍⚕">dokter | gezondheidsmedewerkster | gezondheidszorg | lichte huidskleur | therapeute | verpleegster | vrouw</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">gezondheidsmedewerkster: lichte huidskleur</annotation>
@@ -1076,25 +1046,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🎓" type="tts">student: donkergetinte huidskleur</annotation>
 		<annotation cp="🧑🏿‍🎓">donkere huidskleur | scholier | student</annotation>
 		<annotation cp="🧑🏿‍🎓" type="tts">student: donkere huidskleur</annotation>
-		<annotation cp="👨🏻‍🎓">jongen | lichte huidskleur | man | mannelijke student | scholier | student</annotation>
+		<annotation cp="👨🏻‍🎓">lichte huidskleur | man | mannelijke student | scholier | student</annotation>
 		<annotation cp="👨🏻‍🎓" type="tts">mannelijke student: lichte huidskleur</annotation>
-		<annotation cp="👨🏼‍🎓">jongen | lichtgetinte huidskleur | man | mannelijke student | scholier | student</annotation>
+		<annotation cp="👨🏼‍🎓">lichtgetinte huidskleur | man | mannelijke student | scholier | student</annotation>
 		<annotation cp="👨🏼‍🎓" type="tts">mannelijke student: lichtgetinte huidskleur</annotation>
-		<annotation cp="👨🏽‍🎓">getinte huidskleur | jongen | man | mannelijke student | scholier | student</annotation>
+		<annotation cp="👨🏽‍🎓">getinte huidskleur | man | mannelijke student | scholier | student</annotation>
 		<annotation cp="👨🏽‍🎓" type="tts">mannelijke student: getinte huidskleur</annotation>
-		<annotation cp="👨🏾‍🎓">donkergetinte huidskleur | jongen | man | mannelijke student | scholier | student</annotation>
+		<annotation cp="👨🏾‍🎓">donkergetinte huidskleur | man | mannelijke student | scholier | student</annotation>
 		<annotation cp="👨🏾‍🎓" type="tts">mannelijke student: donkergetinte huidskleur</annotation>
-		<annotation cp="👨🏿‍🎓">donkere huidskleur | jongen | man | mannelijke student | scholier | student</annotation>
+		<annotation cp="👨🏿‍🎓">donkere huidskleur | man | mannelijke student | scholier | student</annotation>
 		<annotation cp="👨🏿‍🎓" type="tts">mannelijke student: donkere huidskleur</annotation>
-		<annotation cp="👩🏻‍🎓">lichte huidskleur | meisje | scholiere | studente | vrouw</annotation>
+		<annotation cp="👩🏻‍🎓">lichte huidskleur | scholiere | studente | vrouw</annotation>
 		<annotation cp="👩🏻‍🎓" type="tts">studente: lichte huidskleur</annotation>
-		<annotation cp="👩🏼‍🎓">lichtgetinte huidskleur | meisje | scholiere | studente | vrouw</annotation>
+		<annotation cp="👩🏼‍🎓">lichtgetinte huidskleur | scholiere | studente | vrouw</annotation>
 		<annotation cp="👩🏼‍🎓" type="tts">studente: lichtgetinte huidskleur</annotation>
-		<annotation cp="👩🏽‍🎓">getinte huidskleur | meisje | scholiere | studente | vrouw</annotation>
+		<annotation cp="👩🏽‍🎓">getinte huidskleur | scholiere | studente | vrouw</annotation>
 		<annotation cp="👩🏽‍🎓" type="tts">studente: getinte huidskleur</annotation>
-		<annotation cp="👩🏾‍🎓">donkergetinte huidskleur | meisje | scholiere | studente | vrouw</annotation>
+		<annotation cp="👩🏾‍🎓">donkergetinte huidskleur | scholiere | studente | vrouw</annotation>
 		<annotation cp="👩🏾‍🎓" type="tts">studente: donkergetinte huidskleur</annotation>
-		<annotation cp="👩🏿‍🎓">donkere huidskleur | meisje | scholiere | studente | vrouw</annotation>
+		<annotation cp="👩🏿‍🎓">donkere huidskleur | scholiere | studente | vrouw</annotation>
 		<annotation cp="👩🏿‍🎓" type="tts">studente: donkere huidskleur</annotation>
 		<annotation cp="🧑🏻‍🏫">docent | leraar | lichte huidskleur | professor</annotation>
 		<annotation cp="🧑🏻‍🏫" type="tts">docent: lichte huidskleur</annotation>
@@ -1256,15 +1226,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🏭" type="tts">fabrieksarbeider: donkergetinte huidskleur</annotation>
 		<annotation cp="🧑🏿‍🏭">arbeider | donkere huidskleur | fabriek | fabrieksarbeider | industrieel | lopende band</annotation>
 		<annotation cp="🧑🏿‍🏭" type="tts">fabrieksarbeider: donkere huidskleur</annotation>
-		<annotation cp="👨🏻‍🏭">arbeider | fabriek | fabrieksarbeider | industrieel | lichte huidskleur | lopende band | man | mannelijke fabrieksarbeider</annotation>
+		<annotation cp="👨🏻‍🏭">arbeider | fabriek | industrieel | lichte huidskleur | lopende band | man | mannelijke fabrieksarbeider</annotation>
 		<annotation cp="👨🏻‍🏭" type="tts">mannelijke fabrieksarbeider: lichte huidskleur</annotation>
-		<annotation cp="👨🏼‍🏭">arbeider | fabriek | fabrieksarbeider | industrieel | lichtgetinte huidskleur | lopende band | man | mannelijke fabrieksarbeider</annotation>
+		<annotation cp="👨🏼‍🏭">arbeider | fabriek | industrieel | lichtgetinte huidskleur | lopende band | man | mannelijke fabrieksarbeider</annotation>
 		<annotation cp="👨🏼‍🏭" type="tts">mannelijke fabrieksarbeider: lichtgetinte huidskleur</annotation>
-		<annotation cp="👨🏽‍🏭">arbeider | fabriek | fabrieksarbeider | getinte huidskleur | industrieel | lopende band | man | mannelijke fabrieksarbeider</annotation>
+		<annotation cp="👨🏽‍🏭">arbeider | fabriek | getinte huidskleur | industrieel | lopende band | man | mannelijke fabrieksarbeider</annotation>
 		<annotation cp="👨🏽‍🏭" type="tts">mannelijke fabrieksarbeider: getinte huidskleur</annotation>
-		<annotation cp="👨🏾‍🏭">arbeider | donkergetinte huidskleur | fabriek | fabrieksarbeider | industrieel | lopende band | man | mannelijke fabrieksarbeider</annotation>
+		<annotation cp="👨🏾‍🏭">arbeider | donkergetinte huidskleur | fabriek | industrieel | lopende band | man | mannelijke fabrieksarbeider</annotation>
 		<annotation cp="👨🏾‍🏭" type="tts">mannelijke fabrieksarbeider: donkergetinte huidskleur</annotation>
-		<annotation cp="👨🏿‍🏭">arbeider | donkere huidskleur | fabriek | fabrieksarbeider | industrieel | lopende band | man | mannelijke fabrieksarbeider</annotation>
+		<annotation cp="👨🏿‍🏭">arbeider | donkere huidskleur | fabriek | industrieel | lopende band | man | mannelijke fabrieksarbeider</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">mannelijke fabrieksarbeider: donkere huidskleur</annotation>
 		<annotation cp="👩🏻‍🏭">arbeidster | fabriek | fabrieksarbeidster | industrieel | lichte huidskleur | lopende band | vrouw</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">fabrieksarbeidster: lichte huidskleur</annotation>
@@ -1316,25 +1286,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏾‍🔬" type="tts">wetenschapper: donkergetinte huidskleur</annotation>
 		<annotation cp="🧑🏿‍🔬">bioloog | donkere huidskleur | ingenieur | natuurkundige | scheikundige | wetenschapper</annotation>
 		<annotation cp="🧑🏿‍🔬" type="tts">wetenschapper: donkere huidskleur</annotation>
-		<annotation cp="👨🏻‍🔬">bioloog | ingenieur | lichte huidskleur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper | wiskundige</annotation>
+		<annotation cp="👨🏻‍🔬">bioloog | ingenieur | lichte huidskleur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper</annotation>
 		<annotation cp="👨🏻‍🔬" type="tts">mannelijke wetenschapper: lichte huidskleur</annotation>
-		<annotation cp="👨🏼‍🔬">bioloog | ingenieur | lichtgetinte huidskleur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper | wiskundige</annotation>
+		<annotation cp="👨🏼‍🔬">bioloog | ingenieur | lichtgetinte huidskleur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper</annotation>
 		<annotation cp="👨🏼‍🔬" type="tts">mannelijke wetenschapper: lichtgetinte huidskleur</annotation>
-		<annotation cp="👨🏽‍🔬">bioloog | getinte huidskleur | ingenieur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper | wiskundige</annotation>
+		<annotation cp="👨🏽‍🔬">bioloog | getinte huidskleur | ingenieur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper</annotation>
 		<annotation cp="👨🏽‍🔬" type="tts">mannelijke wetenschapper: getinte huidskleur</annotation>
-		<annotation cp="👨🏾‍🔬">bioloog | donkergetinte huidskleur | ingenieur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper | wiskundige</annotation>
+		<annotation cp="👨🏾‍🔬">bioloog | donkergetinte huidskleur | ingenieur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper</annotation>
 		<annotation cp="👨🏾‍🔬" type="tts">mannelijke wetenschapper: donkergetinte huidskleur</annotation>
-		<annotation cp="👨🏿‍🔬">bioloog | donkere huidskleur | ingenieur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper | wiskundige</annotation>
+		<annotation cp="👨🏿‍🔬">bioloog | donkere huidskleur | ingenieur | man | mannelijke wetenschapper | natuurkundige | scheikundige | wetenschapper</annotation>
 		<annotation cp="👨🏿‍🔬" type="tts">mannelijke wetenschapper: donkere huidskleur</annotation>
-		<annotation cp="👩🏻‍🔬">biologe | ingenieur | lichte huidskleur | natuurkundige | scheikundige | vrouw | wetenschapster | wiskundige</annotation>
+		<annotation cp="👩🏻‍🔬">biologe | ingenieur | lichte huidskleur | natuurkundige | scheikundige | vrouw | wetenschapster</annotation>
 		<annotation cp="👩🏻‍🔬" type="tts">wetenschapster: lichte huidskleur</annotation>
-		<annotation cp="👩🏼‍🔬">biologe | ingenieur | lichtgetinte huidskleur | natuurkundige | scheikundige | vrouw | wetenschapster | wiskundige</annotation>
+		<annotation cp="👩🏼‍🔬">biologe | ingenieur | lichtgetinte huidskleur | natuurkundige | scheikundige | vrouw | wetenschapster</annotation>
 		<annotation cp="👩🏼‍🔬" type="tts">wetenschapster: lichtgetinte huidskleur</annotation>
-		<annotation cp="👩🏽‍🔬">biologe | getinte huidskleur | ingenieur | natuurkundige | scheikundige | vrouw | wetenschapster | wiskundige</annotation>
+		<annotation cp="👩🏽‍🔬">biologe | getinte huidskleur | ingenieur | natuurkundige | scheikundige | vrouw | wetenschapster</annotation>
 		<annotation cp="👩🏽‍🔬" type="tts">wetenschapster: getinte huidskleur</annotation>
-		<annotation cp="👩🏾‍🔬">biologe | donkergetinte huidskleur | ingenieur | natuurkundige | scheikundige | vrouw | wetenschapster | wiskundige</annotation>
+		<annotation cp="👩🏾‍🔬">biologe | donkergetinte huidskleur | ingenieur | natuurkundige | scheikundige | vrouw | wetenschapster</annotation>
 		<annotation cp="👩🏾‍🔬" type="tts">wetenschapster: donkergetinte huidskleur</annotation>
-		<annotation cp="👩🏿‍🔬">biologe | donkere huidskleur | ingenieur | natuurkundige | scheikundige | vrouw | wetenschapster | wiskundige</annotation>
+		<annotation cp="👩🏿‍🔬">biologe | donkere huidskleur | ingenieur | natuurkundige | scheikundige | vrouw | wetenschapster</annotation>
 		<annotation cp="👩🏿‍🔬" type="tts">wetenschapster: donkere huidskleur</annotation>
 		<annotation cp="🧑🏻‍💻">lichte huidskleur | ontwikkelaar | programmeur | techneut | technoloog | uitvinder</annotation>
 		<annotation cp="🧑🏻‍💻" type="tts">technoloog: lichte huidskleur</annotation>
@@ -1516,15 +1486,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🚒" type="tts">brandweervrouw: donkergetinte huidskleur</annotation>
 		<annotation cp="👩🏿‍🚒">brandweervrouw | brandweerwagen | donkere huidskleur | vrouw</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">brandweervrouw: donkere huidskleur</annotation>
-		<annotation cp="👮🏻">agent | lichte huidskleur | mensen | politie | politieagent</annotation>
+		<annotation cp="👮🏻">agent | lichte huidskleur | politie | politieagent</annotation>
 		<annotation cp="👮🏻" type="tts">politieagent: lichte huidskleur</annotation>
-		<annotation cp="👮🏼">agent | lichtgetinte huidskleur | mensen | politie | politieagent</annotation>
+		<annotation cp="👮🏼">agent | lichtgetinte huidskleur | politie | politieagent</annotation>
 		<annotation cp="👮🏼" type="tts">politieagent: lichtgetinte huidskleur</annotation>
-		<annotation cp="👮🏽">agent | getinte huidskleur | mensen | politie | politieagent</annotation>
+		<annotation cp="👮🏽">agent | getinte huidskleur | politie | politieagent</annotation>
 		<annotation cp="👮🏽" type="tts">politieagent: getinte huidskleur</annotation>
-		<annotation cp="👮🏾">agent | donkergetinte huidskleur | mensen | politie | politieagent</annotation>
+		<annotation cp="👮🏾">agent | donkergetinte huidskleur | politie | politieagent</annotation>
 		<annotation cp="👮🏾" type="tts">politieagent: donkergetinte huidskleur</annotation>
-		<annotation cp="👮🏿">agent | donkere huidskleur | mensen | politie | politieagent</annotation>
+		<annotation cp="👮🏿">agent | donkere huidskleur | politie | politieagent</annotation>
 		<annotation cp="👮🏿" type="tts">politieagent: donkere huidskleur</annotation>
 		<annotation cp="👮🏻‍♂">agent | lichte huidskleur | man | politie | politieman</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">politieman: lichte huidskleur</annotation>
@@ -1576,15 +1546,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕵🏾‍♀" type="tts">vrouwelijke detective: donkergetinte huidskleur</annotation>
 		<annotation cp="🕵🏿‍♀">detective | donkere huidskleur | speurder | spionne | vrouw | vrouwelijke detective</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">vrouwelijke detective: donkere huidskleur</annotation>
-		<annotation cp="💂🏻">lichte huidskleur | mensen | wachter</annotation>
+		<annotation cp="💂🏻">lichte huidskleur | wachter</annotation>
 		<annotation cp="💂🏻" type="tts">wachter: lichte huidskleur</annotation>
-		<annotation cp="💂🏼">lichtgetinte huidskleur | mensen | wachter</annotation>
+		<annotation cp="💂🏼">lichtgetinte huidskleur | wachter</annotation>
 		<annotation cp="💂🏼" type="tts">wachter: lichtgetinte huidskleur</annotation>
-		<annotation cp="💂🏽">getinte huidskleur | mensen | wachter</annotation>
+		<annotation cp="💂🏽">getinte huidskleur | wachter</annotation>
 		<annotation cp="💂🏽" type="tts">wachter: getinte huidskleur</annotation>
-		<annotation cp="💂🏾">donkergetinte huidskleur | mensen | wachter</annotation>
+		<annotation cp="💂🏾">donkergetinte huidskleur | wachter</annotation>
 		<annotation cp="💂🏾" type="tts">wachter: donkergetinte huidskleur</annotation>
-		<annotation cp="💂🏿">donkere huidskleur | mensen | wachter</annotation>
+		<annotation cp="💂🏿">donkere huidskleur | wachter</annotation>
 		<annotation cp="💂🏿" type="tts">wachter: donkere huidskleur</annotation>
 		<annotation cp="💂🏻‍♂">lichte huidskleur | man | mannelijke wachter | wachter</annotation>
 		<annotation cp="💂🏻‍♂" type="tts">mannelijke wachter: lichte huidskleur</annotation>
@@ -1606,6 +1576,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂🏾‍♀" type="tts">vrouwelijke wachter: donkergetinte huidskleur</annotation>
 		<annotation cp="💂🏿‍♀">donkere huidskleur | vrouw | vrouwelijke wachter | wachter</annotation>
 		<annotation cp="💂🏿‍♀" type="tts">vrouwelijke wachter: donkere huidskleur</annotation>
+		<annotation cp="🥷🏻">geheim | krijger | lichte huidskleur | ninja | verborgen</annotation>
+		<annotation cp="🥷🏻" type="tts">ninja: lichte huidskleur</annotation>
+		<annotation cp="🥷🏼">geheim | krijger | lichtgetinte huidskleur | ninja | verborgen</annotation>
+		<annotation cp="🥷🏼" type="tts">ninja: lichtgetinte huidskleur</annotation>
+		<annotation cp="🥷🏽">geheim | getinte huidskleur | krijger | ninja | verborgen</annotation>
+		<annotation cp="🥷🏽" type="tts">ninja: getinte huidskleur</annotation>
+		<annotation cp="🥷🏾">donkergetinte huidskleur | geheim | krijger | ninja | verborgen</annotation>
+		<annotation cp="🥷🏾" type="tts">ninja: donkergetinte huidskleur</annotation>
+		<annotation cp="🥷🏿">donkere huidskleur | geheim | krijger | ninja | verborgen</annotation>
+		<annotation cp="🥷🏿" type="tts">ninja: donkere huidskleur</annotation>
 		<annotation cp="👷🏻">bouw | bouwvakker | helm | klusser | lichte huidskleur</annotation>
 		<annotation cp="👷🏻" type="tts">bouwvakker: lichte huidskleur</annotation>
 		<annotation cp="👷🏼">bouw | bouwvakker | helm | klusser | lichtgetinte huidskleur</annotation>
@@ -1646,15 +1626,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤴🏾" type="tts">prins: donkergetinte huidskleur</annotation>
 		<annotation cp="🤴🏿">donkere huidskleur | prins</annotation>
 		<annotation cp="🤴🏿" type="tts">prins: donkere huidskleur</annotation>
-		<annotation cp="👸🏻">fantasie | lichte huidskleur | mensen | prinses | sprookje</annotation>
+		<annotation cp="👸🏻">fantasie | lichte huidskleur | prinses | sprookje</annotation>
 		<annotation cp="👸🏻" type="tts">prinses: lichte huidskleur</annotation>
-		<annotation cp="👸🏼">fantasie | lichtgetinte huidskleur | mensen | prinses | sprookje</annotation>
+		<annotation cp="👸🏼">fantasie | lichtgetinte huidskleur | prinses | sprookje</annotation>
 		<annotation cp="👸🏼" type="tts">prinses: lichtgetinte huidskleur</annotation>
-		<annotation cp="👸🏽">fantasie | getinte huidskleur | mensen | prinses | sprookje</annotation>
+		<annotation cp="👸🏽">fantasie | getinte huidskleur | prinses | sprookje</annotation>
 		<annotation cp="👸🏽" type="tts">prinses: getinte huidskleur</annotation>
-		<annotation cp="👸🏾">donkergetinte huidskleur | fantasie | mensen | prinses | sprookje</annotation>
+		<annotation cp="👸🏾">donkergetinte huidskleur | fantasie | prinses | sprookje</annotation>
 		<annotation cp="👸🏾" type="tts">prinses: donkergetinte huidskleur</annotation>
-		<annotation cp="👸🏿">donkere huidskleur | fantasie | mensen | prinses | sprookje</annotation>
+		<annotation cp="👸🏿">donkere huidskleur | fantasie | prinses | sprookje</annotation>
 		<annotation cp="👸🏿" type="tts">prinses: donkere huidskleur</annotation>
 		<annotation cp="👳🏻">lichte huidskleur | persoon met tulband | tulband</annotation>
 		<annotation cp="👳🏻" type="tts">persoon met tulband: lichte huidskleur</annotation>
@@ -1716,16 +1696,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾" type="tts">persoon in smoking: donkergetinte huidskleur</annotation>
 		<annotation cp="🤵🏿">bruidegom | donkere huidskleur | persoon | persoon in smoking | smoking</annotation>
 		<annotation cp="🤵🏿" type="tts">persoon in smoking: donkere huidskleur</annotation>
-		<annotation cp="🤵🏻‍♀">lichte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
-		<annotation cp="🤵🏻‍♀" type="tts">vrouw in smoking: lichte huidskleur</annotation>
-		<annotation cp="🤵🏼‍♀">lichtgetinte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
-		<annotation cp="🤵🏼‍♀" type="tts">vrouw in smoking: lichtgetinte huidskleur</annotation>
-		<annotation cp="🤵🏽‍♀">getinte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
-		<annotation cp="🤵🏽‍♀" type="tts">vrouw in smoking: getinte huidskleur</annotation>
-		<annotation cp="🤵🏾‍♀">donkergetinte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
-		<annotation cp="🤵🏾‍♀" type="tts">vrouw in smoking: donkergetinte huidskleur</annotation>
-		<annotation cp="🤵🏿‍♀">donkere huidskleur | smoking | vrouw | vrouw in smoking</annotation>
-		<annotation cp="🤵🏿‍♀" type="tts">vrouw in smoking: donkere huidskleur</annotation>
 		<annotation cp="🤵🏻‍♂">lichte huidskleur | man | man in smoking | smoking</annotation>
 		<annotation cp="🤵🏻‍♂" type="tts">man in smoking: lichte huidskleur</annotation>
 		<annotation cp="🤵🏼‍♂">lichtgetinte huidskleur | man | man in smoking | smoking</annotation>
@@ -1736,6 +1706,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵🏾‍♂" type="tts">man in smoking: donkergetinte huidskleur</annotation>
 		<annotation cp="🤵🏿‍♂">donkere huidskleur | man | man in smoking | smoking</annotation>
 		<annotation cp="🤵🏿‍♂" type="tts">man in smoking: donkere huidskleur</annotation>
+		<annotation cp="🤵🏻‍♀">lichte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
+		<annotation cp="🤵🏻‍♀" type="tts">vrouw in smoking: lichte huidskleur</annotation>
+		<annotation cp="🤵🏼‍♀">lichtgetinte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
+		<annotation cp="🤵🏼‍♀" type="tts">vrouw in smoking: lichtgetinte huidskleur</annotation>
+		<annotation cp="🤵🏽‍♀">getinte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
+		<annotation cp="🤵🏽‍♀" type="tts">vrouw in smoking: getinte huidskleur</annotation>
+		<annotation cp="🤵🏾‍♀">donkergetinte huidskleur | smoking | vrouw | vrouw in smoking</annotation>
+		<annotation cp="🤵🏾‍♀" type="tts">vrouw in smoking: donkergetinte huidskleur</annotation>
+		<annotation cp="🤵🏿‍♀">donkere huidskleur | smoking | vrouw | vrouw in smoking</annotation>
+		<annotation cp="🤵🏿‍♀" type="tts">vrouw in smoking: donkere huidskleur</annotation>
 		<annotation cp="👰🏻">bruid | huwelijk | lichte huidskleur | persoon | persoon met sluier | sluier</annotation>
 		<annotation cp="👰🏻" type="tts">persoon met sluier: lichte huidskleur</annotation>
 		<annotation cp="👰🏼">bruid | huwelijk | lichtgetinte huidskleur | persoon | persoon met sluier | sluier</annotation>
@@ -1746,16 +1726,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾" type="tts">persoon met sluier: donkergetinte huidskleur</annotation>
 		<annotation cp="👰🏿">bruid | donkere huidskleur | huwelijk | persoon | persoon met sluier | sluier</annotation>
 		<annotation cp="👰🏿" type="tts">persoon met sluier: donkere huidskleur</annotation>
-		<annotation cp="👰🏻‍♀">lichte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
-		<annotation cp="👰🏻‍♀" type="tts">vrouw met sluier: lichte huidskleur</annotation>
-		<annotation cp="👰🏼‍♀">lichtgetinte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
-		<annotation cp="👰🏼‍♀" type="tts">vrouw met sluier: lichtgetinte huidskleur</annotation>
-		<annotation cp="👰🏽‍♀">getinte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
-		<annotation cp="👰🏽‍♀" type="tts">vrouw met sluier: getinte huidskleur</annotation>
-		<annotation cp="👰🏾‍♀">donkergetinte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
-		<annotation cp="👰🏾‍♀" type="tts">vrouw met sluier: donkergetinte huidskleur</annotation>
-		<annotation cp="👰🏿‍♀">donkere huidskleur | sluier | vrouw | vrouw met sluier</annotation>
-		<annotation cp="👰🏿‍♀" type="tts">vrouw met sluier: donkere huidskleur</annotation>
 		<annotation cp="👰🏻‍♂">lichte huidskleur | man | man met sluier | sluier</annotation>
 		<annotation cp="👰🏻‍♂" type="tts">man met sluier: lichte huidskleur</annotation>
 		<annotation cp="👰🏼‍♂">lichtgetinte huidskleur | man | man met sluier | sluier</annotation>
@@ -1766,6 +1736,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰🏾‍♂" type="tts">man met sluier: donkergetinte huidskleur</annotation>
 		<annotation cp="👰🏿‍♂">donkere huidskleur | man | man met sluier | sluier</annotation>
 		<annotation cp="👰🏿‍♂" type="tts">man met sluier: donkere huidskleur</annotation>
+		<annotation cp="👰🏻‍♀">lichte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
+		<annotation cp="👰🏻‍♀" type="tts">vrouw met sluier: lichte huidskleur</annotation>
+		<annotation cp="👰🏼‍♀">lichtgetinte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
+		<annotation cp="👰🏼‍♀" type="tts">vrouw met sluier: lichtgetinte huidskleur</annotation>
+		<annotation cp="👰🏽‍♀">getinte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
+		<annotation cp="👰🏽‍♀" type="tts">vrouw met sluier: getinte huidskleur</annotation>
+		<annotation cp="👰🏾‍♀">donkergetinte huidskleur | sluier | vrouw | vrouw met sluier</annotation>
+		<annotation cp="👰🏾‍♀" type="tts">vrouw met sluier: donkergetinte huidskleur</annotation>
+		<annotation cp="👰🏿‍♀">donkere huidskleur | sluier | vrouw | vrouw met sluier</annotation>
+		<annotation cp="👰🏿‍♀" type="tts">vrouw met sluier: donkere huidskleur</annotation>
 		<annotation cp="🤰🏻">lichte huidskleur | vrouw | zwanger | zwangere vrouw</annotation>
 		<annotation cp="🤰🏻" type="tts">zwangere vrouw: lichte huidskleur</annotation>
 		<annotation cp="🤰🏼">lichtgetinte huidskleur | vrouw | zwanger | zwangere vrouw</annotation>
@@ -1786,6 +1766,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤱🏾" type="tts">borstvoeding: donkergetinte huidskleur</annotation>
 		<annotation cp="🤱🏿">baby | borst | borstvoeding | de borst geven | donkere huidskleur</annotation>
 		<annotation cp="🤱🏿" type="tts">borstvoeding: donkere huidskleur</annotation>
+		<annotation cp="👩🏻‍🍼">baby | borstvoeding | lichte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
+		<annotation cp="👩🏻‍🍼" type="tts">vrouw die een baby voedt: lichte huidskleur</annotation>
+		<annotation cp="👩🏼‍🍼">baby | borstvoeding | lichtgetinte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
+		<annotation cp="👩🏼‍🍼" type="tts">vrouw die een baby voedt: lichtgetinte huidskleur</annotation>
+		<annotation cp="👩🏽‍🍼">baby | borstvoeding | getinte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
+		<annotation cp="👩🏽‍🍼" type="tts">vrouw die een baby voedt: getinte huidskleur</annotation>
+		<annotation cp="👩🏾‍🍼">baby | borstvoeding | donkergetinte huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
+		<annotation cp="👩🏾‍🍼" type="tts">vrouw die een baby voedt: donkergetinte huidskleur</annotation>
+		<annotation cp="👩🏿‍🍼">baby | borstvoeding | donkere huidskleur | voeding | vrouw | vrouw die een baby voedt</annotation>
+		<annotation cp="👩🏿‍🍼" type="tts">vrouw die een baby voedt: donkere huidskleur</annotation>
+		<annotation cp="👨🏻‍🍼">baby | borstvoeding | lichte huidskleur | man | man die een baby voedt | voeding</annotation>
+		<annotation cp="👨🏻‍🍼" type="tts">man die een baby voedt: lichte huidskleur</annotation>
+		<annotation cp="👨🏼‍🍼">baby | borstvoeding | lichtgetinte huidskleur | man | man die een baby voedt | voeding</annotation>
+		<annotation cp="👨🏼‍🍼" type="tts">man die een baby voedt: lichtgetinte huidskleur</annotation>
+		<annotation cp="👨🏽‍🍼">baby | borstvoeding | getinte huidskleur | man | man die een baby voedt | voeding</annotation>
+		<annotation cp="👨🏽‍🍼" type="tts">man die een baby voedt: getinte huidskleur</annotation>
+		<annotation cp="👨🏾‍🍼">baby | borstvoeding | donkergetinte huidskleur | man | man die een baby voedt | voeding</annotation>
+		<annotation cp="👨🏾‍🍼" type="tts">man die een baby voedt: donkergetinte huidskleur</annotation>
+		<annotation cp="👨🏿‍🍼">baby | borstvoeding | donkere huidskleur | man | man die een baby voedt | voeding</annotation>
+		<annotation cp="👨🏿‍🍼" type="tts">man die een baby voedt: donkere huidskleur</annotation>
+		<annotation cp="🧑🏻‍🍼">baby | borstvoeding | lichte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
+		<annotation cp="🧑🏻‍🍼" type="tts">persoon die een baby voedt: lichte huidskleur</annotation>
+		<annotation cp="🧑🏼‍🍼">baby | borstvoeding | lichtgetinte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
+		<annotation cp="🧑🏼‍🍼" type="tts">persoon die een baby voedt: lichtgetinte huidskleur</annotation>
+		<annotation cp="🧑🏽‍🍼">baby | borstvoeding | getinte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
+		<annotation cp="🧑🏽‍🍼" type="tts">persoon die een baby voedt: getinte huidskleur</annotation>
+		<annotation cp="🧑🏾‍🍼">baby | borstvoeding | donkergetinte huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
+		<annotation cp="🧑🏾‍🍼" type="tts">persoon die een baby voedt: donkergetinte huidskleur</annotation>
+		<annotation cp="🧑🏿‍🍼">baby | borstvoeding | donkere huidskleur | persoon | persoon die een baby voedt | voeding</annotation>
+		<annotation cp="🧑🏿‍🍼" type="tts">persoon die een baby voedt: donkere huidskleur</annotation>
 		<annotation cp="👼🏻">baby | baby-engel | engel | fantasie | gezicht | lichte huidskleur | sprookje</annotation>
 		<annotation cp="👼🏻" type="tts">baby-engel: lichte huidskleur</annotation>
 		<annotation cp="👼🏼">baby | baby-engel | engel | fantasie | gezicht | lichtgetinte huidskleur | sprookje</annotation>
@@ -1816,6 +1826,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">kerstvrouw: donkergetinte huidskleur</annotation>
 		<annotation cp="🤶🏿">donkere huidskleur | kerstmis | kerstvrouw | moedertje kerst</annotation>
 		<annotation cp="🤶🏿" type="tts">kerstvrouw: donkere huidskleur</annotation>
+		<annotation cp="🧑🏻‍🎄">Kerstman, kerst | kersttransgender | lichte huidskleur</annotation>
+		<annotation cp="🧑🏻‍🎄" type="tts">kersttransgender: lichte huidskleur</annotation>
+		<annotation cp="🧑🏼‍🎄">Kerstman, kerst | kersttransgender | lichtgetinte huidskleur</annotation>
+		<annotation cp="🧑🏼‍🎄" type="tts">kersttransgender: lichtgetinte huidskleur</annotation>
+		<annotation cp="🧑🏽‍🎄">getinte huidskleur | Kerstman, kerst | kersttransgender</annotation>
+		<annotation cp="🧑🏽‍🎄" type="tts">kersttransgender: getinte huidskleur</annotation>
+		<annotation cp="🧑🏾‍🎄">donkergetinte huidskleur | Kerstman, kerst | kersttransgender</annotation>
+		<annotation cp="🧑🏾‍🎄" type="tts">kersttransgender: donkergetinte huidskleur</annotation>
+		<annotation cp="🧑🏿‍🎄">donkere huidskleur | Kerstman, kerst | kersttransgender</annotation>
+		<annotation cp="🧑🏿‍🎄" type="tts">kersttransgender: donkere huidskleur</annotation>
 		<annotation cp="🦸🏻">goed | held | heldin | lichte huidskleur | superheld | superkrachten</annotation>
 		<annotation cp="🦸🏻" type="tts">superheld: lichte huidskleur</annotation>
 		<annotation cp="🦸🏼">goed | held | heldin | lichtgetinte huidskleur | superheld | superkrachten</annotation>
@@ -2266,15 +2286,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦽" type="tts">vrouw in rolstoel: donkergetinte huidskleur</annotation>
 		<annotation cp="👩🏿‍🦽">donkere huidskleur | rolstoel | toegankelijkheid | vrouw | vrouw in rolstoel</annotation>
 		<annotation cp="👩🏿‍🦽" type="tts">vrouw in rolstoel: donkere huidskleur</annotation>
-		<annotation cp="🏃🏻">hardlopen | hardloper | lichte huidskleur | marathon | sport</annotation>
+		<annotation cp="🏃🏻">hardlopen | hardloper | lichte huidskleur | marathon</annotation>
 		<annotation cp="🏃🏻" type="tts">hardloper: lichte huidskleur</annotation>
-		<annotation cp="🏃🏼">hardlopen | hardloper | lichtgetinte huidskleur | marathon | sport</annotation>
+		<annotation cp="🏃🏼">hardlopen | hardloper | lichtgetinte huidskleur | marathon</annotation>
 		<annotation cp="🏃🏼" type="tts">hardloper: lichtgetinte huidskleur</annotation>
-		<annotation cp="🏃🏽">getinte huidskleur | hardlopen | hardloper | marathon | sport</annotation>
+		<annotation cp="🏃🏽">getinte huidskleur | hardlopen | hardloper | marathon</annotation>
 		<annotation cp="🏃🏽" type="tts">hardloper: getinte huidskleur</annotation>
-		<annotation cp="🏃🏾">donkergetinte huidskleur | hardlopen | hardloper | marathon | sport</annotation>
+		<annotation cp="🏃🏾">donkergetinte huidskleur | hardlopen | hardloper | marathon</annotation>
 		<annotation cp="🏃🏾" type="tts">hardloper: donkergetinte huidskleur</annotation>
-		<annotation cp="🏃🏿">donkere huidskleur | hardlopen | hardloper | marathon | sport</annotation>
+		<annotation cp="🏃🏿">donkere huidskleur | hardlopen | hardloper | marathon</annotation>
 		<annotation cp="🏃🏿" type="tts">hardloper: donkere huidskleur</annotation>
 		<annotation cp="🏃🏻‍♂">hardlopen | lichte huidskleur | man | marathon | rennen | rennende man</annotation>
 		<annotation cp="🏃🏻‍♂" type="tts">rennende man: lichte huidskleur</annotation>
@@ -3521,7 +3541,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇾">vlag</annotation>
 		<annotation cp="🇸🇾" type="tts">vlag: Syrië</annotation>
 		<annotation cp="🇸🇿">vlag</annotation>
-		<annotation cp="🇸🇿" type="tts">vlag: eSwatini</annotation>
+		<annotation cp="🇸🇿" type="tts">vlag: Eswatini</annotation>
 		<annotation cp="🇹🇦">vlag</annotation>
 		<annotation cp="🇹🇦" type="tts">vlag: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">vlag</annotation>

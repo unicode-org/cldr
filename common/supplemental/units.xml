@@ -16,10 +16,12 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitConstant constant="in3_to_m3" value="ft3_to_m3/12*12*12"/>
         <unitConstant constant="gal_to_m3" value="231*in3_to_m3"/>
         <unitConstant constant="gal_imp_to_m3" value="0.00454609"/>
+        <unitConstant constant="mole_per_item" value="6.02214076E+23"/>
         
         <unitConstant constant="gravity" value="9.80665"/>
         <unitConstant constant="PI" value="411557987 / 131002976" status='approximate'/>
         <unitConstant constant="G" value="6.67408E-11" status='approximate'/>   <!-- https://arxiv.org/pdf/1510.07674.pdf see 2014 CODATA -->
+        <unitConstant constant="molar_mass_glucose" value="180.1557" status='approximate'/>   <!-- from mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm -->
     </unitConstants>
     <unitQuantities> 
         <!-- NB: quantity ordering is used in canonical order of derived units. -->
@@ -73,6 +75,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitQuantity baseUnit='candela-square-meter-per-square-meter' quantity='luminous-flux'/>
         <unitQuantity baseUnit='candela-square-meter' quantity='luminence'/>
         <unitQuantity baseUnit='kilogram-per-kilogram' quantity='mass-fraction'/>
+        <unitQuantity baseUnit='kilogram-per-item' quantity='mass-per'/>
         
         <!-- Additional derived units -->
         <unitQuantity baseUnit='kilogram-meter-per-meter-square-second' quantity='torque'/>
@@ -156,7 +159,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <!-- substance-amount -->
         <convertUnit source='item' baseUnit='item'/>
-        <convertUnit source='mole' baseUnit='item' factor='6.02214076E+23'/>
+        <convertUnit source='mole' baseUnit='item' factor='mole_per_item'/>
         
         <!-- portion -->
         <convertUnit source='permillion' baseUnit='portion' factor='1/1000000'/>
@@ -251,6 +254,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 
         <!-- luminous-flux -->
         <convertUnit source='lumen' baseUnit='candela-square-meter-per-square-meter'/>
+        
+        <!-- luminous-flux -->
+        <convertUnit source='ofglucose' baseUnit='kilogram-per-item' factor='molar_mass_glucose/1000*mole_per_item'/> <!-- molecular weight of glucose -->
+        
     </convertUnits>
     <unitPreferenceData draft="contributed">
         <unitPreferences category="area" usage="default">
@@ -270,9 +277,6 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="area" usage="land">
             <unitPreference regions="001">hectare</unitPreference>
             <unitPreference regions="US GB">acre</unitPreference>
-        </unitPreferences>
-        <unitPreferences category="concentration" usage="blood-glucose">
-            <unitPreference regions="AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA">millimole-per-liter</unitPreference>
         </unitPreferences>
         <unitPreferences category="concentration" usage="default">
             <unitPreference regions="001">item-per-cubic-meter</unitPreference>
@@ -392,6 +396,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         </unitPreferences>
         <unitPreferences category="mass-density" usage="blood-glucose">
             <unitPreference regions="001">milligram-per-deciliter</unitPreference>
+            <unitPreference regions="AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA">millimole-ofglucose-per-liter</unitPreference>
         </unitPreferences>
         <unitPreferences category="mass-density" usage="default">
             <unitPreference regions="001">kilogram-per-cubic-meter</unitPreference>

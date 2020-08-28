@@ -421,7 +421,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         sourceToTargetInfo.put(source, new TargetInfo(target, info, inputParameters));
         String targetQuantity = baseUnitToQuantity.get(target);
         if (targetQuantity == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Can find quantity for baseUnit: " + target);
         }
         quantityToSimpleUnits.put(targetQuantity, source);
         if (systems != null) {

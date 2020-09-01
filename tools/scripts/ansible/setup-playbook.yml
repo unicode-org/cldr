@@ -13,6 +13,9 @@
           - tomcat8
           - tomcat8-admin # needed for deploy
           - unzip # needed for deploy
+          # for monitoring
+          - prometheus-mysqld-exporter
+          # - prometheus-nginx-exporter # (not there yet)
     - name: Setup Server Context
       template:
         src: templates/context.j2
@@ -124,6 +127,8 @@
           - mosh
           - emacs-nox
           - byobu
+          # these are for monitoring
+          - prometheus-node-exporter
 - hosts: letsencrypt
   become: yes
   vars_files:

@@ -1,0 +1,86 @@
+# Deploy to Production
+
+name: production
+
+# Triggered on push to master,
+# or PR against master.
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref to Deploy (master, hash, tag)
+        required: true
+jobs:
+  build:
+    name: Deploy To Production
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Clone Repository (Latest)
+      #   uses: actions/checkout@v2
+      #   with:
+      #     lfs: true
+      #   if: github.event.inputs.git-ref == ''
+      - name: Clone Repository (Custom Ref)
+        uses: actions/checkout@v2
+        # if: github.event.inputs.git-ref != ''
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+          lfs: true
+          # TODO: The following should be in some common file, "build CLDR…"
+      - name: Cache for Tomcat tarball
+        id: cache-tomcat
+        uses: actions/cache@v2
+        with:
+          path: tomcat-tarball
+          key: ${{ runner.os }}-tomcat-tarball
+      - name: Download Tomcat # only on cache miss
+        if: steps.cache-tomcat.outputs.cache-hit != 'true'
+        run: 'mkdir -p ./tomcat-tarball && cd ./tomcat-tarball && wget -O - "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz" | tar xfpz - ; cd .. '
+      - name: Alias Tomcat directory
+        run: ln -svf tomcat-tarball/apache-tomcat-* tomcat
+      # CLDR Tools
+      - name: Build tools/java
+        run: ant -noinput all -f tools/java/build.xml && ant jar -f tools/java/build.xml
+        # no need to store it.
+      # - name: Upload cldr.jar
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: cldr-tools
+      #     path: tools/java/cldr.jar
+      #   # not really needed, but tore
+      # Now, SurveyTool
+      - name: Build tools/cldr-apps
+        run: ant -noinput -DCLDR_TOOLS=$(pwd)/tools/java -DCATALINA_HOME=$(pwd)/tomcat -f tools/cldr-apps/build.xml war
+      - name: Upload cldr-apps.war
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-apps
+          path: tools/cldr-apps/cldr-apps.war
+  deploy:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download cldr-apps.war
+      uses: actions/download-artifact@v2
+      with:
+        name: cldr-apps
+    - name: Deploy to st
+      # Deploys only on push to master.
+      # Does not deploy for PRs.
+      # if: ${{ github.event_name == 'push' }}
+      shell: bash
+      env:
+        # the RSA key for connecting
+        RSA_KEY_SURVEYTOOL: ${{ secrets.RSA_KEY_SURVEYTOOL }}
+        # the SSH port
+        SURVEYTOOL_PORT: ${{ secrets.SURVEYTOOL_PORT }}
+        # the SSH host
+        SURVEYTOOL_HOST: ${{ secrets.SURVEYTOOL_HOST }}
+        # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+        SURVEYTOOL_KNOWNHOSTS: ${{ secrets.SURVEYTOOL_KNOWNHOSTS }}
+        DEPLOY_SHA: ${{ github.event.inputs.git-ref }}
+      run: |
+        echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
+        echo "${SURVEYTOOL_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${SURVEYTOOL_PORT} surveytool@${SURVEYTOOL_HOST} sh /usr/local/bin/deploy-to-tomcat.sh < cldr-apps.war ${DEPLOY_SHA}
